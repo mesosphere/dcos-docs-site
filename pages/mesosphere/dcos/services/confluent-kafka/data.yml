@@ -10,7 +10,7 @@ techShortName: Kafka
 install:
   minNodeCount: three
   nodeDescription: with three brokers
-  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/confluent-kafka/kafka-auth/
+  serviceAccountInstructionsUrl: /mesosphere/dcos/services/confluent-kafka/kafka-auth/
 
 managing:
   podType: kafka

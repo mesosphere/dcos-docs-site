@@ -108,7 +108,7 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
     # license_key_contents: “YOUR_ENT_LICENSE_CONTENTS”
     #
     # This is an ip-detect script example which also stands for ip_detect_public_contents
-    # more info about ip-detect can be found here: https://docs.mesosphere.com/1.14/installing/production/deploying-dcos/installation/#create-an-ip-detection-script
+    # more info about ip-detect can be found here: /mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/#create-an-ip-detection-script
     # ip_detect_contents: |
     #   #!/bin/sh
     #   set -o nounset -o errexit

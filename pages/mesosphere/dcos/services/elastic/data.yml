@@ -11,7 +11,7 @@ searchEngine: Elasticsearch
 install:
   minNodeCount: three
   nodeDescription: with three master nodes, two data nodes, and one coordinator node
-  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/elastic/elastic-auth/
+  serviceAccountInstructionsUrl: /mesosphere/dcos/services/elastic/elastic-auth/
 
 managing:
   podType: data

@@ -359,7 +359,7 @@ Exhibitor 使用的存储后端类型。可以使用内部 DC/OS 存储库（`st
 
 *   `exhibitor_storage_backend: static`
  Exhibitor 存储后端在您的群集内部进行管理。
-<p class="message--note"><strong>注意：</strong>如果<a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery"> master_discovery </a> 设置为 `master_http_loadbalancer`，则 exhibitor_storage_backend 不能设置为 `static`。</p>
+<p class="message--note"><strong>注意：</strong>如果<a href="/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#master-discovery"> master_discovery </a> 设置为 `master_http_loadbalancer`，则 exhibitor_storage_backend 不能设置为 `static`。</p>
 
 *   `exhibitor_storage_backend: zookeeper`
  用于共享存储库的 ZooKeeper 实例。如果使用 ZooKeeper 实例来 bootstrap Exhibitor，此 ZooKeeper 实例必须与您的 DC/OS 群集分开。您必须始终保有至少 3 个 ZooKeeper 实例才能实现高可用性。如果指定了 `zookeeper`，您还必须指定这些参数。
@@ -611,7 +611,7 @@ SSH 用户名，例如 `centos`。
 * `use_proxy: 'false'` 请勿配置 DC/OS [组件](/mesosphere/dcos/1.12/overview/architecture/components/) 以使用自定义代理。这是默认值。
 * `use_proxy: 'true'` 请配置 DC/OS [组件](/mesosphere/dcos/1.12/overview/architecture/components/) 以使用自定义代理。如果指定了 `use_proxy: 'true'`，您还可以指定这些参数：
 
- <p class="message--note"><strong>注意：</strong>指定的代理必须在提供的 <a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers"> [解析器] 列表中可解析。</a></p>
+ <p class="message--note"><strong>注意：</strong>指定的代理必须在提供的 <a href="/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#resolvers"> [解析器] 列表中可解析。</a></p>
 
  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` HTTP 代理。
  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` HTTPS 代理。

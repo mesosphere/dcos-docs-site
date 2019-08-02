@@ -266,7 +266,7 @@ DC/OS 企业版还需要由 Mesosphere 提供的有效许可证密钥，该密�
 # 升级群集
 Terraform 还可以轻松地将 DC/OS 群集升级到更新版本的 DC/OS。
 
-在官方 [DC/OS 升级](https://docs.mesosphere.com/1.11/installing/production/upgrading/) 文档中了解有关 Terraform 执行的升级程序的更多信息。
+在官方 [DC/OS 升级](/mesosphere/dcos/1.11/installing/production/upgrading/) 文档中了解有关 Terraform 执行的升级程序的更多信息。
 
 要执行升级：
 

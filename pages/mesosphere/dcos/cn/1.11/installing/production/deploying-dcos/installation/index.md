@@ -291,8 +291,8 @@ enable_ipv6: 'false'
 <p class="message--note"><strong>注意：</strong>由于覆盖网络存在群集配置问题，建议在升级或配置新群集时，在 <code>config.yaml</code> 中将 <code>enable_ipv6</code> 设置为 <code>false</code>。如果已升级到 DC/OS 1.12.x 而没有配置 <code>enable_ipv6</code>，或者 <code>config.yaml</code> 文件设置为 <code>true</code>，请不要添加新节点。</p>
 
 您可以在我们最新重要的 [产品咨询 中找到更多信息和更详细的补救流程](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302)。[enterprise type="inline" size="small" /]
-<p class="message--important"><strong>重要信息：</strong>必须让以下项目生效才能安装 DC/OS：所有 DC/OS 节点上的 <code>ip-detect script</code>、<code>DNS</code> 和 <code>NTP</code> 均已同步时间。参见<a href="https://docs.mesosphere.com/cn/1.11/installing/troubleshooting/">故障排除</a>，了解更多信息。</p>
-<p class="message--note"><strong>注意：</strong>如果出现问题并且您想重新运行设置，请使用群集<a href="https://docs.mesosphere.com/cn/1.11/installing/production/uninstalling/">卸载</a>说明。</p>
+<p class="message--important"><strong>重要信息：</strong>必须让以下项目生效才能安装 DC/OS：所有 DC/OS 节点上的 <code>ip-detect script</code>、<code>DNS</code> 和 <code>NTP</code> 均已同步时间。参见<a href="/mesosphere/dcos/cn/1.11/installing/troubleshooting/">故障排除</a>，了解更多信息。</p>
+<p class="message--note"><strong>注意：</strong>如果出现问题并且您想重新运行设置，请使用群集<a href="/mesosphere/dcos/cn/1.11/installing/production/uninstalling/">卸载</a>说明。</p>
 
 **前提条件**
 
@@ -451,7 +451,7 @@ enable_ipv6: 'false'
 
 图 4. DC/OS UI 仪表板
 
-<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="https://docs.mesosphere.com/cn/1.11/installing/evaluation/mesosphere-supported-methods/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
+<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="/mesosphere/dcos/cn/1.11/installing/evaluation/mesosphere-supported-methods/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
 
 ### 后续步骤：Enterprise 和开源用户
 

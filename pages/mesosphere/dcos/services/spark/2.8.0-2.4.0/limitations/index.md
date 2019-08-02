@@ -29,7 +29,7 @@ model: /mesosphere/dcos/services/spark/data.yml
 
 *   When using Kerberos and HDFS, the {{ model.techShortName }} Driver generates delegation tokens and distributes them to it's Executors
     via RPC.  Authentication of the Executors with the Driver is done with a [shared
-    secret](https://docs.mesosphere.com/services/{{ model.serviceName }}/latest/security/#using-the-secret-store). Without authentication, it is possible
+    secret](/mesosphere/dcos/services/{{ model.serviceName }}/latest/security/#using-the-secret-store). Without authentication, it is possible
     for executor containers to register with the Driver and retrieve the delegation tokens. To secure delegation token
     distribution, use the `--executor-auth-secret` option.
 

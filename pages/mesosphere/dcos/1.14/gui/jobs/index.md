@@ -249,4 +249,4 @@ Figure 15 - Secrets tab
 
 # Managing jobs with the UI
 
-Detailed instructions for adding, viewing, modifying or removing jobs can be found in the section on [Deploying Jobs](https://docs.mesosphere.com/1.13/deploying-jobs/quickstart/#managing-jobs-with-the-dcos-ui).
+Detailed instructions for adding, viewing, modifying or removing jobs can be found in the section on [Deploying Jobs](/mesosphere/dcos/1.13/deploying-jobs/quickstart/#managing-jobs-with-the-dcos-ui).

@@ -23,7 +23,7 @@ excerpt: DC/OS 部署的软硬件要求
 
 ## 群集节点
 
-在安装期间，群集节点是指定的 Mesos 管理节点和代理节点。支持的操作系统和环境列于 [版本政策页面](https://docs.mesosphere.com/version-policy/)。
+在安装期间，群集节点是指定的 Mesos 管理节点和代理节点。支持的操作系统和环境列于 [版本政策页面](/mesosphere/dcos/version-policy/)。
 
 DC/OS 安装到群集节点上的 `/opt/mesosphere`。`/opt/mesosphere` 目录可在安装 DC/OS 之前创建，但必须是空目录或指向空目录的链接。DC/OS 可以通过在挂载卷上创建空目录，在 `/opt/mesosphere` 处创建指向空目录的链接，然后安装 DC/OS 的方式，安装在单独的卷挂载上。
 
@@ -143,7 +143,7 @@ DC/OS 用户与管理节点之间的中介（例如，执行 SSL 终止的反向
 
 ### Docker
 
-Docker 必须安装在所有 bootstrap 和群集节点上。支持的 Docker 版本列于 [版本策略页面](https://docs.mesosphere.com/version-policy/)。
+Docker 必须安装在所有 bootstrap 和群集节点上。支持的 Docker 版本列于 [版本策略页面](/mesosphere/dcos/version-policy/)。
 
 **建议**
 

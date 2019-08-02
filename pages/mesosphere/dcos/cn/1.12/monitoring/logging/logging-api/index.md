@@ -19,7 +19,7 @@ enterprise: false
 
 在 1.11 之前的 DC/OS 版本中，任务日志可通过 [文件 API](http://mesos.apache.org/documentation/latest/endpoints/#files-1)获得。现在，您可以利用*组件和任务日志*的综合 API。
 
-在 1.11 之前的 DC/OS 版本中，节点和组件日志由 `journald` 管理。不过，由于 [journald 性能问题](https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink)，Mesos 任务 journald 日志槽已被禁用。因此，只能通过 [Mesos 任务沙盒文件 API](http://mesos.apache.org/documentation/latest/sandbox/) 来访问旧版本的容器日志文件。
+在 1.11 之前的 DC/OS 版本中，节点和组件日志由 `journald` 管理。不过，由于 [journald 性能问题](/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink)，Mesos 任务 journald 日志槽已被禁用。因此，只能通过 [Mesos 任务沙盒文件 API](http://mesos.apache.org/documentation/latest/sandbox/) 来访问旧版本的容器日志文件。
 
 以下代码可能有用：
 

@@ -10,7 +10,7 @@ techShortName: ZooKeeper
 install:
   minNodeCount: three
   nodeDescription: with three servers
-  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/confluent-zookeeper/confluent-zookeeper-auth/
+  serviceAccountInstructionsUrl: /mesosphere/dcos/services/confluent-zookeeper/confluent-zookeeper-auth/
 
 managing:
   podType: zookeeper

@@ -198,7 +198,7 @@ enterprise: false
     ```bash
     dcos package repo add local-universe http://master.mesos:8082/repo
     ```
-    <p class="message--note"><strong>注意: </strong> 如果您需要帮助解析 <tt>master.mesos</tt>，请参阅 <a href="https://docs.mesosphere.com/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages">安装您自己的 Universe 包集合</a>。</p>
+    <p class="message--note"><strong>注意: </strong> 如果您需要帮助解析 <tt>master.mesos</tt>，请参阅 <a href="/mesosphere/dcos/1.9/administering-clusters/deploying-a-local-dcos-universe/#installing-your-own-set-of-universe-packages">安装您自己的 Universe 包集合</a>。</p>
 
 
 1. [SSH 至您的代理节点之一。](/mesosphere/dcos/cn/1.11/administering-clusters/sshcluster/)

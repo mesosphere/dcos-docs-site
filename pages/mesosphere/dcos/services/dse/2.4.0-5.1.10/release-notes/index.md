@@ -69,7 +69,7 @@ render: mustache
 
 ## Upgrade Steps
 
-- Follow the upgrade steps in the [DCOS {{ model.shortTechName }} service guide](https://docs.mesosphere.com/services/dse/2.0.4-5.1.2/managing/#upgrading-or-downgrading-a-service).
+- Follow the upgrade steps in the [DCOS {{ model.shortTechName }} service guide](/mesosphere/dcos/services/dse/2.0.4-5.1.2/managing/#upgrading-or-downgrading-a-service).
 
 
 # Version 2.0.3-5.1.2
@@ -82,7 +82,7 @@ render: mustache
 ## Improvements
 
 - Upgraded to the latest stable release of the dcos-commons SDK.
-- Better support for configuring/using {{ model.shortTechName }} Unified Authentication. See the [authentication documentation](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/dse-authentication).
+- Better support for configuring/using {{ model.shortTechName }} Unified Authentication. See the [authentication documentation](/mesosphere/dcos/services/dse/2.0.3-5.1.2/dse-authentication).
 
 ## Breaking Changes
 
@@ -110,13 +110,13 @@ render: mustache
     ```
 
   1. The location of `ldap.default_scheme` has been changed. Record the current value and then delete that option from the ldap section. The new option is named `authentication_options_default_scheme`. Set this value to the value you just recorded.
-  1. Set your authentication and authorization options according to your needs. See the [authentication documentation](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/dse-authentication).
+  1. Set your authentication and authorization options according to your needs. See the [authentication documentation](/mesosphere/dcos/services/dse/2.0.3-5.1.2/dse-authentication).
   1. Save your changes to that file and run the following command: `dcos datastax-dse update start --replace --options=$HOME/options.json --package-version=2.0.3-5.1.2`.
   1. After the service performs a rolling restart of each node, the upgrade is complete.
 
  ### On DC/OS 1.9 and DC/OS Open Source
 
-  1. Create an `options.json` file with your existing installation options. If you saved a copy during initial install, you can use that. If you don't have it, follow the steps in the "Recreating options.json" section of the [management docs](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/managing/#enterprise-dcos-1.10). When you have obtained your `options.json` file, place a copy of it in `$HOME/options.json`.
+  1. Create an `options.json` file with your existing installation options. If you saved a copy during initial install, you can use that. If you don't have it, follow the steps in the "Recreating options.json" section of the [management docs](/mesosphere/dcos/services/dse/2.0.3-5.1.2/managing/#enterprise-dcos-1.10). When you have obtained your `options.json` file, place a copy of it in `$HOME/options.json`.
   1. Update your configuration. Add the following options to your `$HOME/options.json` file just before the "ldap" section.
 
      ```
@@ -134,7 +134,7 @@ render: mustache
 
   1. The location of ldap.default_scheme has been changed. Record the current value and then delete that option from the ldap section. The new option is named authentication_options_default_scheme. Set this value to the value you just recorded.
   1. The location of `ldap.default_scheme` has been changed. Record the current value and then delete that option from the ldap section. The new option is named `authentication_options_default_scheme`. Set this value to the value you just recorded.
-  1. Set your authentication and authorization options according to your needs. See the [authentication documentation](https://docs.mesosphere.com/services/dse/2.0.3-5.1.2/dse-authentication).
+  1. Set your authentication and authorization options according to your needs. See the [authentication documentation](/mesosphere/dcos/services/dse/2.0.3-5.1.2/dse-authentication).
   1. Save your changes to that file
   1. Get the marathon app id for dse: `marathon app list`.
   1. Remove the app: `marathon app remove <dse-app-id-here>`.

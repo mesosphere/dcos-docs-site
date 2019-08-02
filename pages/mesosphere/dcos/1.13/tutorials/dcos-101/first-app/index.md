@@ -85,6 +85,6 @@ You have now deployed the Redis service and a predefined sample app using [Marat
 Marathon is a core component of the DC/OS platform. Marathon enables the DC/OS cluster to better support long-running services and is used to perform several key operations, including scaling up or down the number of app instances, modifying resource requires or configuration details, and deploying or removing applications from the cluster.
 
 For more information about working with Marathon, see the following topics:
-- [Deploying services and pods](https://docs.mesosphere.com/1.13/deploying-services/) for informaiton about using Marathon to manage your processes, services, and multiple service pods.
-- [DC/OS CLI Marathon plugin](https://docs.mesosphere.com/1.13/cli/command-reference/dcos-marathon/) for information about using DC/OS CLI commands for Marathon. You can also get more information about `dcos marathon` commands by typing `dcos marathon app --help` in a terminal shell.
+- [Deploying services and pods](/mesosphere/dcos/1.13/deploying-services/) for informaiton about using Marathon to manage your processes, services, and multiple service pods.
+- [DC/OS CLI Marathon plugin](/mesosphere/dcos/1.13/cli/command-reference/dcos-marathon/) for information about using DC/OS CLI commands for Marathon. You can also get more information about `dcos marathon` commands by typing `dcos marathon app --help` in a terminal shell.
 - [REST API](http://mesosphere.github.io/marathon/api-console/index.html) for information about using HTTP endpoints. 

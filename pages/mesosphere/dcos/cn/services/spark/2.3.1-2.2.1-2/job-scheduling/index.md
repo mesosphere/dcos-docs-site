@@ -139,7 +139,7 @@ http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.0.1.jar 3000"
 
 ## 严格模式使用配额时的权限 
 
-严格模式群集（参见 [安全模式](https://docs.mesosphere.com/1.10/security/ent/#security-modes)) 需要额外权限才能使用配额。遵循[安装中的说明](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) 并为
+严格模式群集（参见 [安全模式](/mesosphere/dcos/1.10/security/ent/#security-modes)) 需要额外权限才能使用配额。遵循[安装中的说明](https://github.com/mesosphere/spark-build/blob/master/docs/install.md) 并为
 您打算使用的角色添加其他权限，详见如下说明。按照以上示例，将进行如下设置：
 
 1. 首先，为调度程序角色设置配额（`dispatcher`）

@@ -10,7 +10,7 @@ model: ../../../data.yml
 
 # Access Grafana UI
 
-<p class="message--warning"><strong>WARNING: </strong>It is recommended to access Grafana via <a href="https://docs.mesosphere.com/services/edge-lb/1.3/">Edge-LB</a>. If you access Grafana via Admin Router then it can limit the capabilities of Grafana. For example, some graphs will not work under load.</p>
+<p class="message--warning"><strong>WARNING: </strong>It is recommended to access Grafana via <a href="/mesosphere/dcos/services/edge-lb/1.3/">Edge-LB</a>. If you access Grafana via Admin Router then it can limit the capabilities of Grafana. For example, some graphs will not work under load.</p>
 
 ## Access through Admin Router
 

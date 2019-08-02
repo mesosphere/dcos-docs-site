@@ -166,7 +166,7 @@ If you are running DC/OS 1.9, follow these steps:
     ```shell
     dcos package uninstall --app-id=/test/{{ model.serviceName }} {{ model.packageName }}
     ```                   
-1. Clean up remaining reserved resources with the framework cleaner script, janitor.py. See [DC/OS documentation](https://docs.mesosphere.com/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+1. Clean up remaining reserved resources with the framework cleaner script, janitor.py. See [DC/OS documentation](/mesosphere/dcos/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
 
     ```shell
     dcos package uninstall --app-id=/test/{{ model.packageName }} {{ model.packageName }}

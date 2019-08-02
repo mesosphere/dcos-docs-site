@@ -18,7 +18,7 @@ The technologies used in this section are as follows:
 - [HDFS](https://hadoop.apache.org/docs/r1.2.1/hdfs_user_guide.html)
 - [Apache Spark](https://spark.apache.org/)
 - [TensorFlow](https://www.tensorflow.org/) using the [Yahoo TensorFlowOnSpark distribution](https://github.com/yahoo/TensorFlowOnSpark)
-- [Marathon-LB](https://docs.mesosphere.com/services/marathon-lb/) to expose {{ model.techShortName }} externally
+- [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) to expose {{ model.techShortName }} externally
 
 
 - Estimated time for completion (manual installation): 20 minutes
@@ -26,7 +26,7 @@ The technologies used in this section are as follows:
 
 # Prerequisites
 - A cluster running [DC/OS 1.11](https://dcos.io/releases/) or later,  with at least {{ model.example.nodeDescription }}. Each agent should have {{ model.example.nodeAgent }} available. 
-- [DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed
+- [DC/OS CLI](/mesosphere/dcos/latest/cli/install/) installed
 
 ## Optional: Terraform
 If you plan to use GPU support, you should use the [dcos-terraform project](https://github.com/dcos/terraform-dcos/blob/master/aws/README.md#adding-gpu-private-agents) to provision DC/OS. Please refer to the [GPU Cluster Provisioning section](https://github.com/dcos/examples/tree/master/{{ model.packageName }}/1.11#install-{{ model.packageName }}-with-gpu-support) in the README for more details.
@@ -59,7 +59,7 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 - the virtual host (VHOST)
 - the configuration file URLs
 
-1. Expose the service on a [public agent](https://docs.mesosphere.com/latest/overview/architecture/node-types/) by changing the `networking.external_access.external_public_agent_hostname` setting to an externally reachable virtual host (`VHOST`).
+1. Expose the service on a [public agent](/mesosphere/dcos/latest/overview/architecture/node-types/) by changing the `networking.external_access.external_public_agent_hostname` setting to an externally reachable virtual host (`VHOST`).
 
   For example, you might specify the Public Agent ELB in an AWS environment.
 

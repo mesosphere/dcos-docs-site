@@ -103,7 +103,7 @@ DC/OS 1.9 introduced the task `exec command`, which can be used to run.
 ### Prerequisites
 
    - SSH keys for accessing your configured cluster (such as via `ssh-add`). SSH is used behind the scenes to get into the cluster.
-   - A recent version of the [DC/OS CLI](https://docs.mesosphere.com/latest/cli/) with support for the `task exec` command
+   - A recent version of the [DC/OS CLI](/mesosphere/dcos/latest/cli/) with support for the `task exec` command
 
 ### Using `dcos task exec`    
 

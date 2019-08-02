@@ -36,4 +36,4 @@ dcos marathon debug summary <app-id> [OPTION]
 |---------|-------------|
 | [dcos marathon](/mesosphere/dcos/cn/1.11/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
-有关此命令的更多信息，请参阅[监控部分](https://docs.mesosphere.com/1.11/monitoring/debugging/cli-debugging/#dcos-marathon-debug-summary)。
+有关此命令的更多信息，请参阅[监控部分](/mesosphere/dcos/1.11/monitoring/debugging/cli-debugging/#dcos-marathon-debug-summary)。

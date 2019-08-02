@@ -55,9 +55,9 @@ By completing this tutorial, you will learn:
 # Preview of what you'll do
 You need to perform the following key tasks to create a new DC/OS cluster:
 - Prepare a [bootstrap node](/mesosphere/dcos/1.13/installing/production/system-requirements/#bootstrap).
-- Configure a DC/OS [master node](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#master-nodes).
-- Configure DC/OS [private agent nodes](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#agent-nodes).
-- Configure a DC/OS [public agent node](https://docs.mesosphere.com/1.13/installing/production/system-requirements/#agent-nodes).
+- Configure a DC/OS [master node](/mesosphere/dcos/1.13/installing/production/system-requirements/#master-nodes).
+- Configure DC/OS [private agent nodes](/mesosphere/dcos/1.13/installing/production/system-requirements/#agent-nodes).
+- Configure a DC/OS [public agent node](/mesosphere/dcos/1.13/installing/production/system-requirements/#agent-nodes).
 
 # Prepare a bootstrap node
 1. Identify a computer to act as the **bootstrap node** for the new cluster.

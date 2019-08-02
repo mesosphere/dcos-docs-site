@@ -23,12 +23,12 @@ DC/OS NiFi Service uses the CN of the SSL certificate as the principal for a giv
 
 Example: CN=nifi-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C=US.
 
-The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/tls-ssl/) to generate the SSL artifacts to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
+The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
 
-**Note:** Transport encryption must be enabled in order to use [SSL authentication](https://docs.mesosphere.com/latest/security/ent/tls-ssl/) for authentication, but is optional for Kerberos authentication.
+**Note:** Transport encryption must be enabled in order to use [SSL authentication](/mesosphere/dcos/latest/security/ent/tls-ssl/) for authentication, but is optional for Kerberos authentication.
 
 ## Prerequisites
-- [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
+- [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/)
 - DC/OS Superuser permissions for modifying the permissions of the service account.
 
 ## Configure Transport Encryption
@@ -75,7 +75,7 @@ Install the DC/OS NiFi Service, including the following options in addition to y
 
 ## Transport encryption for clients
 
-With Transport Encryption enabled, service clients will need to be configured to use [the DC/OS CA bundle](https://docs.mesosphere.com/latest/security/ent/tls-ssl/get-cert/) to verify the connections they make to the service. Consult your client’s documentation for trusting a CA and configure your client appropriately.
+With Transport Encryption enabled, service clients will need to be configured to use [the DC/OS CA bundle](/mesosphere/dcos/latest/security/ent/tls-ssl/get-cert/) to verify the connections they make to the service. Consult your client’s documentation for trusting a CA and configure your client appropriately.
 
 ## Authentication
 
@@ -99,7 +99,7 @@ Kerberos authentication relies on a central authority to verify that NiFi users'
 - The hostname and port of a Key Distribution Center (KDC) reachable from your DC/OS cluster
 - Sufficient access to the KDC to create Kerberos principals
 - Sufficient access to the KDC to retrieve a keytab for the generated principals
-- [The DC/OS Enterprise CLI](https://docs.mesosphere.com/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
+- [The DC/OS Enterprise CLI](/mesosphere/dcos/latest/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)
 - DC/OS Superuser permissions
 
 ## Configure Kerberos authentication
@@ -113,11 +113,11 @@ Kerberos authentication relies on a central authority to verify that NiFi users'
      ```
 ### 2. Place service keytab in DC/OS Secret Store
 
-  The DC/OS NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](https://docs.mesosphere.com/services/ops-guide/overview/#binary-secrets)
+  The DC/OS NiFi Service uses a keytab containing the service and user principals (service keytab). After creating the principals  as described above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by name `__dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. More details [here.](/mesosphere/dcos/services/ops-guide/overview/#binary-secrets)
 
-  Documentation for adding a file to the secret store can be found [here.](https://docs.mesosphere.com/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
+  Documentation for adding a file to the secret store can be found [here.](/mesosphere/dcos/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
 
-  **Note:** Secrets access is controlled by [DC/OS Spaces](https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets), which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.
+  **Note:** Secrets access is controlled by [DC/OS Spaces](/mesosphere/dcos/latest/security/ent/#spaces-for-secrets), which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.
 
 ### 3. Install the service
   Install the DC/OS NiFi Service with the following options in addition to your own:

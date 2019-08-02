@@ -249,7 +249,7 @@ Ideally, with the dashboard configured and functioning, you can identify potenti
 
 Sometimes the task logs provide insufficient help. In these cases, using your favorite Linux tools (e.g. `curl`, `cat`, `ping`, etc...) to get an interactive point of view could be a worthwhile next step.
 
-For example, if you are using a [Universal Container Runtime (UCR)] (https://docs.mesosphere.com/latest/deploying-services/containerizers/ucr/), you can use `dcos task exec` as follows:
+For example, if you are using a [Universal Container Runtime (UCR)] (/mesosphere/dcos/latest/deploying-services/containerizers/ucr/), you can use `dcos task exec` as follows:
 
 ```bash
 dcos task exec -it <mycontainerid>

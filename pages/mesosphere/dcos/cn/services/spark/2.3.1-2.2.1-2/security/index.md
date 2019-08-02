@@ -256,4 +256,4 @@ dcos {{ model.serviceName }} run --submit-args="\
  [11]: /mesosphere/dcos/cn/1.11/overview/architecture/components/
  [12]:http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
  [13]: /mesosphere/dcos/cn/1.11/security/ent/#space-for-secrets
- [14]:https://docs.mesosphere.com/latest/security/secrets/
+ [14]:/mesosphere/dcos/latest/security/secrets/

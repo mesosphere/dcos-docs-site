@@ -27,7 +27,7 @@ The default DC/OS {{model.techName }} service installation provides reasonable d
 The minimum memory requirement for DC/OS {{ model.techName }} installation is {{ model.install.minMemory }}. DC/OS {{model.techName }} installation will take time since the DC/OS {{model.techName }} application is approximately 1.10GB. The approximate installation time required would be around 20~25 minutes for a two node cluster.
 
 
-<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for NiFi can be found <a href="https://docs.mesosphere.com/services/nifi/configure-dcos-access">here</a>.
+<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for NiFi can be found <a href="/mesosphere/dcos/services/nifi/configure-dcos-access">here</a>.
 
 # Installing from the DC/OS CLI
 
@@ -51,7 +51,7 @@ You can specify a custom configuration in an `options.json` file and pass it to 
    dcos package install {{ model.packageName }} --options=options.json
    ```
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/deploying-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see [DC/OS documentation](/mesosphere/dcos/latest/deploying-services/config-universe-service/) for service configuration access.
 
 # Installing from the DC/OS Web Interface
 

@@ -49,7 +49,7 @@ fields in their `spec`. This field is required.
 
 The `spec.plugin` field specifies the name of a DC/OS Storage Plugin (e.g.,
 "lvm"). See the `Volume Plugins` section of the DC/OS Storage Service
-documentation (<https://docs.mesosphere.com/services/storage/>).
+documentation (</mesosphere/dcos/services/storage/>).
 This field is required.
 
 The `spec.node` field specifies the Mesos agent ID of a specific agent to which
@@ -58,7 +58,7 @@ providers and must be omitted for external volume providers.
 
 The `spec.plugin-configuration` field is plugin specific. Consult the supported
 configuration items under the `Volume Plugins` section of the DC/OS Storage
-Service documentation (<https://docs.mesosphere.com/services/storage/>).
+Service documentation (</mesosphere/dcos/services/storage/>).
 This field is required.
 
 Example `plugin-configuration` for a "lvm" volume provider:

@@ -14,8 +14,8 @@ The default DC/OS Apache NiFi Service installation provides reasonable defaults 
 
 ## Prerequisites
 
-- If you are using DC/OS Enterprise, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
-  - `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
+- If you are using DC/OS Enterprise, you may [need to provision a service account](/mesosphere/dcos/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
+  - `strict` [security mode](/mesosphere/dcos/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
 
  - In `permissive` security mode a service account is optional.
  - The `disabled` security mode does not require a service account.
@@ -45,7 +45,7 @@ You can specify a custom configuration in an `options.json` file and pass it to 
    dcos package install nifi --options=options.json
    ```
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/latest/usage/managing-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see [DC/OS documentation](/mesosphere/dcos/latest/usage/managing-services/config-universe-service/) for service configuration access.
 
 ## Installing from the DC/OS UI
 

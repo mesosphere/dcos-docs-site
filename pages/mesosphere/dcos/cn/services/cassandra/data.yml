@@ -10,7 +10,7 @@ techShortName: Cassandra
 install:
   minNodeCount: 三个
   nodeDescription: 有三个 Apache Cassandra 节点
-  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/cassandra/cass-auth/
+  serviceAccountInstructionsUrl: /mesosphere/dcos/services/cassandra/cass-auth/
 
 managing:
   podType: 节点

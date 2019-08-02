@@ -374,4 +374,4 @@ dcos spark run --verbose --submit-args="\
  [7]: #custom
  [16]: https://github.com/mesosphere/dcos-vagrant
  [19]: #custom-user
- [20]: https://docs.mesosphere.com/services/spark/2.6.0-2.3.2/limitations/
+ [20]: /mesosphere/dcos/services/spark/2.6.0-2.3.2/limitations/

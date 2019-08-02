@@ -13,8 +13,8 @@ DC/OS {{ model.techName }} 可在 Universe 中使用，可通过使用 GUI 或 D
 
 **先决条件：**
 
-- [已安装 DC/OS 和 DC/OS CLI](https://docs.mesosphere.com/latest/installing/)。
-- 根据您的 [安全模式](https://docs.mesosphere.com/latest/security/ent/#security-modes)，Spark 需要服务身份认证才能访问 DC/OS。更多信息：
+- [已安装 DC/OS 和 DC/OS CLI](/mesosphere/dcos/latest/installing/)。
+- 根据您的 [安全模式](/mesosphere/dcos/latest/security/ent/#security-modes)，Spark 需要服务身份认证才能访问 DC/OS。更多信息：
 
 | 安全模式 | 服务帐户 |
 |---------|-------------|
@@ -137,7 +137,7 @@ $ dcos {{ model.serviceName }} --name={{ model.serviceName }}-dev run ...
 <a name="strict_setting"></a>
 # 严格模式的安装（设置服务身份认证）
 
-如果您的集群设置为 [严格](https://docs.mesosphere.com/latest/security/ent/#strict) 安全，则您需要按照以下步骤安装和运行 Spark。
+如果您的集群设置为 [严格](/mesosphere/dcos/latest/security/ent/#strict) 安全，则您需要按照以下步骤安装和运行 Spark。
 
 ## 服务帐户和密钥
 

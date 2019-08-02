@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos edgelb` 命令让您管理 [Edge-LB](https://docs.mesosphere.com/services/edge-lb/)。
+`dcos edgelb` 命令让您管理 [Edge-LB](/mesosphere/dcos/services/edge-lb/)。
 
 # 使用
 

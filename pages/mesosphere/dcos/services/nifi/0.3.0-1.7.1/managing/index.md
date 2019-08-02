@@ -38,7 +38,7 @@ DC/OS Enterprise 1.10 introduces a convenient command line option that allows fo
 
 - DC/OS Enterprise 1.10 or later.
 - Service with 1.5.0 version or later.
-- [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
+- [The DC/OS CLI](/mesosphere/dcos/latest/cli/install/) installed and available.
 - The service's subcommand available and installed on your local machine.
   - You can install just the subcommand CLI by running
     ```shell
@@ -465,4 +465,4 @@ To check the metrics for the DC/OS {{model.techName }} instances on individual a
     ```shell
     curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
     ``` 
-More details about Metrics can be found [here](https://docs.mesosphere.com/latest/metrics/quickstart/).
+More details about Metrics can be found [here](/mesosphere/dcos/latest/metrics/quickstart/).

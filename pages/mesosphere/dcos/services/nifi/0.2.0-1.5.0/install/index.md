@@ -14,9 +14,9 @@ The default DC/OS NiFi Service installation provides reasonable defaults for try
 
 ## Prerequisites
 
-- If you are using DC/OS Enterprise, you may [need to provision a service account](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
-- `strict` [security mode](https://docs.mesosphere.com/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
-    A complete guide to Configuring DC/OS Access for NiFi can be found [here](https://docs.mesosphere.com/services/nifi/configure-dcos-access/).
+- If you are using DC/OS Enterprise, you may [need to provision a service account](/mesosphere/dcos/1.10/security/ent/service-auth/custom-service-auth/) before installing DC/OS NiFi Service. Only someone with `superuser` permission can create the service account.
+- `strict` [security mode](/mesosphere/dcos/1.10/security/ent/service-auth/custom-service-auth/) requires a service account.
+    A complete guide to Configuring DC/OS Access for NiFi can be found [here](/mesosphere/dcos/services/nifi/configure-dcos-access/).
 - In `permissive` security mode a service account is optional.
 - `disabled` security mode does not require a service account.
 - Your cluster must have at least 3 private nodes.
@@ -43,7 +43,7 @@ You can specify a custom configuration in an `options.json` file and pass it to 
    dcos package install nifi --options=options.json
    ```
 
-For more information on building the `options.json` file, see [DC/OS documentation](https://docs.mesosphere.com/1.12/deploying-services/config-universe-service/) for service configuration access.
+For more information on building the `options.json` file, see [DC/OS documentation](/mesosphere/dcos/1.12/deploying-services/config-universe-service/) for service configuration access.
 
 ## Installing from the DC/OS Web Interface
 
@@ -257,4 +257,4 @@ Likewise, this file can be referenced to update a `nifi` service.
    ```
 
 ## Secured Installation
-Please refer to the Security guide for info about a secured installation of [NiFi](https://docs.mesosphere.com/services/nifi/0.3.0-1.7.1/security/)
+Please refer to the Security guide for info about a secured installation of [NiFi](/mesosphere/dcos/services/nifi/0.3.0-1.7.1/security/)

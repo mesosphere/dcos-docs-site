@@ -24,7 +24,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - 高密度多 Kubernetes (HDMK) 使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/)。
 
 ### Mesosphere Jupyter 服务 (MJS)
-- 提供安全的 [云原生 Jupyter](https://docs.mesosphere.com/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
+- 提供安全的 [云原生 Jupyter](/mesosphere/dcos/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
 - 安全连接到 S3 和（Kerberose 授权的）HDFS 上的数据湖和数据集。
 - 支持 GPU 的 Spark 和分布式 TensorFlow。
 - OpenID Connect 身份认证和授权，支持 Windows 集成身份认证（WIA）和活动目录联合服务（ADFS）
@@ -39,7 +39,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 [enterprise]
 ### 专用包注册表
 [/enterprise]
-- 已启用 [本地包分发和管理](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/)。
+- 已启用 [本地包分发和管理](/mesosphere/dcos/1.12/administering-clusters/repo/package-registry/)。
 - 已启用气隙式虚拟专用云包管理。
 - 简化包工件管理。
 - 用于在群集中添加/删除/更新包的特定于包的控件。
@@ -56,13 +56,13 @@ DC/OS 1.12.0 新增以下特性和功能：
 [enterprise]
 ### 动态 LDAP 同步
 [/enterprise]
-- 自动同步 [LDAP 用户帐户组](https://docs.mesosphere.com/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录](https://docs.mesosphere.com/1.12/security/ent/ldap/)。
+- 自动同步 [LDAP 用户帐户组](/mesosphere/dcos/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录](/mesosphere/dcos/1.12/security/ent/ldap/)。
 
 ### 通用安装程序 
 - 引入一种统一的基于 Terraform 的开源工具，用于在 AWS、GCP 和 Azure 上配置、部署、安装、升级和停用 DC/OS。
 - 通过快速启动过程实现直观简化的安装，只需 10-15 分钟即可通过几个简单的步骤启动 DC/OS 群集。
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
-- 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
+- 重组 [Mesosphere 安装文档](/mesosphere/dcos/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
 
 # 网络
 - 网络组件增强功能，有 150 多个错误修复，具有受限的可见性记录。
@@ -76,7 +76,7 @@ DC/OS 1.12.0 新增以下特性和功能：
 - 改进了 Edge-LB 的日志记录。[enterprise type="inline" size="small" /]
 
 ### 扩展了 DC/OS 升级路径 
-- Mesosphere 现在能够在支持的 DC/OS 补丁版本中执行跨越多级的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths) 的特定操作（即一次完成从 1.11.1 => 1.11.5 的升级）。
+- Mesosphere 现在能够在支持的 DC/OS 补丁版本中执行跨越多级的 [升级路径](/mesosphere/dcos/1.12/installing/production/upgrading/#supported-upgrade-paths) 的特定操作（即一次完成从 1.11.1 => 1.11.5 的升级）。
 - Mesosphere 现在支持执行 DC/OS 支持的主要版本之间的多级跨越升级路径的特定操作（即一次完成从 1.10.7 => 1.11.4 的升级）。
 
 ### 服务（Marathon）增强功能

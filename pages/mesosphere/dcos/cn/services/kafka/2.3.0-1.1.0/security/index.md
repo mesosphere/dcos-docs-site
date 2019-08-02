@@ -211,7 +211,7 @@ DC/OS {{ model.techName }} 服务支持 {{ model.techShortName }}的 [ACL-based]
 
 ### 转发 DNS 和自定义域
 
-每个 DC/OS 集群都有一个唯一的加密 ID，可用于将 DNS 查询转发到该集群。要在集群外部安全地暴露服务，外部客户端必须将上游解析器配置为将 DNS 查询转发到服务的 DC/OS 集群，如所述[此处](https://docs.mesosphere.com/latest/networking/DNS/mesos-dns/expose-mesos-zone/)。
+每个 DC/OS 集群都有一个唯一的加密 ID，可用于将 DNS 查询转发到该集群。要在集群外部安全地暴露服务，外部客户端必须将上游解析器配置为将 DNS 查询转发到服务的 DC/OS 集群，如所述[此处](/mesosphere/dcos/latest/networking/DNS/mesos-dns/expose-mesos-zone/)。
 
 仅配置转发，DC/OS 集群内的 DNS 条目在 `<task-domain>.autoip.dcos. <cryptographic-id>.dcos.directory`. 如果配置DNS别名, 您可以使用自定义域. `<task-domain>.cluster-1.acmeco.net`处可解析。在任一情况下，DC/OS {{ model.techName }} 服务都需要通过额外的安全选项进行安装：
 

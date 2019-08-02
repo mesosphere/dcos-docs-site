@@ -101,4 +101,4 @@ This tutorial demonstrates how to load balance a DC/OS service and set it up for
    dcos edgelb endpoints sample-minimal
    ```
 
-   You can then use this information to determine the public IP that you would like to use to access the load balancer. You can also use this technique to discover public IP addresses for your cluster: [Finding a Public Agent IP](https://docs.mesosphere.com/1.12/administering-clusters/locate-public-agent/).
+   You can then use this information to determine the public IP that you would like to use to access the load balancer. You can also use this technique to discover public IP addresses for your cluster: [Finding a Public Agent IP](/mesosphere/dcos/1.12/administering-clusters/locate-public-agent/).

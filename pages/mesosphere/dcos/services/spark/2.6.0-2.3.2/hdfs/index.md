@@ -66,4 +66,4 @@ dcos {{ model.serviceName }} run --submit-args="\
 ```
 
 [8]: http://spark.apache.org/docs/latest/configuration.html#inheriting-hadoop-cluster-configuration
-[9]: https://docs.mesosphere.com/services/spark/2.6.0-2.3.2/limitations/
+[9]: /mesosphere/dcos/services/spark/2.6.0-2.3.2/limitations/

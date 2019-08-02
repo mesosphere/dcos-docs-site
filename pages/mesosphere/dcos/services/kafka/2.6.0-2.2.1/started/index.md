@@ -45,7 +45,7 @@ All `dcos kafka` CLI commands have a `--name` argument allowing the user to spec
 dcos kafka --name=<kafka-dev> <cmd>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Alternatively, you can <a href="https://docs.mesosphere.com/1.9/deploying-services/install/">install Kafka from the DC/OS web interface</a>. If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. </p>
+<p class="message--note"><strong>NOTE: </strong>Alternatively, you can <a href="/mesosphere/dcos/1.9/deploying-services/install/">install Kafka from the DC/OS web interface</a>. If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. </p>
 
 Enter the following command from the DC/OS CLI:
 
@@ -394,7 +394,7 @@ The defaults can be overridden at install time by specifying an options.json fil
     }
 ```
 
-These same values are also represented as environment variables for the scheduler in the form `KAFKA_OVERRIDE_LOG_RETENTION_HOURS` and may be modified through the DC/OS web interface and deployed during a rolling upgrade as described in [changing configuration at runtime](https://docs.mesosphere.com/services/kafka/2.6.0-2.2.1/started/#changing-configuration-at-runtime).
+These same values are also represented as environment variables for the scheduler in the form `KAFKA_OVERRIDE_LOG_RETENTION_HOURS` and may be modified through the DC/OS web interface and deployed during a rolling upgrade as described in [changing configuration at runtime](/mesosphere/dcos/services/kafka/2.6.0-2.2.1/started/#changing-configuration-at-runtime).
 
 <a name="disk-type"></a>
 ## Disk Type

@@ -62,7 +62,7 @@ This tutorial uses a sample app definition file that you can download from the `
 
 1. Identify the public-facing IP address for your public agent node.
 
-    For information about how to find your public agent IP address, see [Finding a public agent IP](https://docs.mesosphere.com/1.14/administering-clusters/locate-public-agent/).
+    For information about how to find your public agent IP address, see [Finding a public agent IP](/mesosphere/dcos/1.14/administering-clusters/locate-public-agent/).
 
 1. In the `labels` field, add an entry for `HAPROXY_0_VHOST` and assign it the value of your public agent IP.
 

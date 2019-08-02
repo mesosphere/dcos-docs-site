@@ -31,7 +31,7 @@ Marathon-LB 查看所有运行的 Marathon 应用程序，并使用应用程序�
 * 一个没有任何 TLS 证书验证
 * 一个在 HAProxy 和 Kubernetes API 之间有 TLS 验证（但不是用户和 HAProxy 之间）
 
-这两个示例均假设 Marathon-LB（版本 1.12.1 或更高版本）已正确安装和配置（遵循 Marathon-LB [安装说明](https://docs.mesosphere.com/services/marathon-lb/)）。
+这两个示例均假设 Marathon-LB（版本 1.12.1 或更高版本）已正确安装和配置（遵循 Marathon-LB [安装说明](/mesosphere/dcos/services/marathon-lb/)）。
 
 ### 无 TLS 证书验证的 Marathon-LB
 例如，如果您有默认的 Marathon-LB 实例，那么您可以通过以下定义来运行 Marathon 应用程序，它将暴露 Kubernetes API：

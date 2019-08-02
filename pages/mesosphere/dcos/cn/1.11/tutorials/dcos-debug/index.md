@@ -17,6 +17,6 @@ menuWeight: 55
 
 - [设计应用程序以实现可调试性](https://schd.ws/hosted_files/mesosconeu17/a6/MesosCon%20EU%202017%20University%20Slides.pdf)
 - [遵循部署的最佳实践](https://mesosphere.com/blog/improving-your-deployments/)
-- [设置监控和警报，以便尽早解决问题](https://docs.mesosphere.com/1.10/cli/command-reference/dcos-node/dcos-node-diagnostics/)
+- [设置监控和警报，以便尽早解决问题](/mesosphere/dcos/1.10/cli/command-reference/dcos-node/dcos-node-diagnostics/)
 
 我们将首先了解在 DC/OS 上部署应用程序时可能遇到的[一些潜在问题](/mesosphere/dcos/cn/1.11/tutorials/dcos-debug/problems/)。接下来，我们将了解用于调试的[标准工具集](/mesosphere/dcos/cn/1.11/tutorials/dcos-debug/tools/)。然后，在介绍[使用这些工具的一般策略](/mesosphere/dcos/cn/1.11/tutorials/dcos-debug/gen-strat/)后，我们用两个[具体实例](/mesosphere/dcos/cn/1.11/tutorials/dcos-debug/scenarios/)来说明策略在实践中的作用。我们鼓励您首先尝试自己调试这些挑战，但我们也提供了调试这些挑战的详细指导。在 [dcos-debugging github 存储库](https://github.com/dcos-labs/dcos-debugging/tree/master/1.10/) 中还有更多这样的方案。此外，请随时为此存储库提供您自己的调试方案。
