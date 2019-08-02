@@ -28,7 +28,7 @@ metadata:
   creationTimestamp: "2019-06-08T03:25:20.939527Z"
 spec:
   kubernetes:
-    version: 1.15.0
+    version: 1.15.1
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -50,7 +50,7 @@ spec:
 After you modify the version information, you can start the upgrade process by running the following Konvoy command:
 
 ```bash
-konvoy up -y
+konvoy up --upgrade -y
 This process will take about 20 minutes to complete (additional time may be required for larger clusters)
 
 STAGE [Determining Upgrade Safety]

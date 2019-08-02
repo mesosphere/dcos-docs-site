@@ -18,7 +18,7 @@ Before starting the installation, you should verify that your environment meets 
   You must have Docker Desktop installed on the host where the Konvoy command-line interface (CLI) will run.
   For example, if you installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] _v1.15.0 or newer_
+* [kubectl][install_kubectl] _v1.15.1 or newer_
 
   You must have for `kubectl` installed on the host where the Konvoy command-line interface (CLI) will run to enable interaction with the running cluster.
 
@@ -54,6 +54,23 @@ For all hosts that are part of the cluster--that is, all hosts except the **depl
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
 * Swap is disabled.
+
+## Networking
+
+Please make sure the following domains are accessible from the control plane nodes and worker nodes.
+
+* k8s.gcr.io
+* registry.hub.docker.com
+* quay.io
+* packages.cloud.google.com
+* download.docker.com
+* github.com
+* grafana.com
+* raw.githubusercontent.com
+* mesosphere.github.io
+* storage.googleapis.com
+
+For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, `github.com` are accessible.
 
 # Edit the inventory file
 
@@ -267,8 +284,6 @@ Konvoy uses the [static local volume provisioner][static_pv_provisioner] to perf
 
 To mount local volumes:
 
-1. Verify local volumes stay mounted after the host is rebooted by using an [Ansible playbook](https://docs.ansible.com/ansible/latest/user_guide/playbooks.html) and your Konvoy inventory file.
-
 1. Format and mount the volume by running commands similar to the following:
 
     ```bash
@@ -283,6 +298,8 @@ To mount local volumes:
     ```bash
     echo UUID=`sudo blkid -s UUID -o value /dev/path/to/disk` /mnt/disks/$DISK_UUID ext4 defaults 0 2 | sudo tee -a /etc/fstab
     ```
+
+1. Verify local volumes stay mounted after the host is rebooted.
 
 For more information about how to mount local volumes, see the [Operations][static_pv_provisioner_operations] guide for Kubernetes.
 

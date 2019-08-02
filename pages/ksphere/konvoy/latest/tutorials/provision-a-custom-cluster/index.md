@@ -45,8 +45,6 @@ To provision a customized cluster on Amazon Web Services (AWS):
         - us-west-2c
         tags:
           owner: hector
-      adminCIDRBlocks:
-      - 0.0.0.0/0
       nodePools:
       - name: node
         count: 4
@@ -101,7 +99,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
       creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
     spec:
       kubernetes:
-        version: 1.15.0
+        version: 1.15.1
         networking:
           podSubnet: 192.168.0.0/16
           serviceSubnet: 10.0.0.0/18
