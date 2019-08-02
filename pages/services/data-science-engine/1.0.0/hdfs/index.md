@@ -78,6 +78,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
     ```bash
     hdfs dfs -ls -R mnist/mnist_csv_model
     ```
+
 # S3
 
 You can read/write files to S3 using environment variable-based secrets to pass your AWS credentials.
