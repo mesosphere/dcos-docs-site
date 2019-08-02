@@ -101,51 +101,6 @@ This configuration places the contents of `{{ model.packageName }}/my-secret-fil
 
 <p class="message--note"><strong>NOTE: </strong> If the content size of binary secrets is greater than 4KB, Mesos' security module will reject container execution due to the overhead.
 
-# {{ model.techName }} SSL
-
-SSL support in {{ model.techName }} encrypts the following channels:
-
-* From the [DC/OS admin router][11] to the dispatcher.
-* Files served from the drivers to their executors.
-
-To enable SSL, a Java keystore (and, optionally, truststore) must be provided, along with their passwords. The first three settings below are **required** during job submission. If using a truststore, the last two are also **required**:
-
-| Variable                         | Description                                     |
-|----------------------------------|-------------------------------------------------|
-| `--keystore-secret-path`         | Path to keystore in secret store                |
-| `--keystore-password`            | The password used to access the keystore        |
-| `--private-key-password`         | The password for the private key                |
-| `--truststore-secret-path`       | Path to truststore in secret store              |
-| `--truststore-password`          | The password used to access the truststore      |
-
-In addition, there are a number of {{ model.techName }} configuration variables relevant to SSL setup.  These configuration settings are **optional**:
-| Variable                         | Description           | Default value |
-|----------------------------------|-----------------------|---------------|
-| `{{ model.packageName }}.ssl.enabledAlgorithms`    | Allowed cyphers       | JVM defaults  |
-| `{{ model.packageName }}.ssl.protocol`             | Protocol              | TLS           |
-
-The keystore and truststore are created using the [Java keytool][12]. The keystore must contain one private key and its signed public key. The truststore is optional and might contain a self-signed root-CA certificate that is explicitly trusted by Java.
-Add the stores to your secrets in the DC/OS secret store. For example, if your keystores and truststores are `server.jks` and `trust.jks`, respectively, then use the following commands to add them to the secret store:
-
-```bash
-dcos security secrets create /{{ model.packageName }}/keystore --text-file server.jks
-dcos security secrets create /{{ model.packageName }}/truststore --text-file trust.jks
-```
-
-You must add the following configurations to your `dcos {{ model.packageName }} run ` command. The ones in parentheses are optional:
-
-```bash
-
-dcos {{ model.packageName }} run --verbose --submit-args="\
---keystore-secret-path=<path/to/keystore, e.g. {{ model.packageName }}/keystore> \
---keystore-password=<password to keystore> \
---private-key-password=<password to private key in keystore> \
-(—-truststore-secret-path=<path/to/truststore, for example, {{ model.packageName }}/truststore> \)
-(--truststore-password=<password to truststore> \)
-(—-conf {{ model.packageName }}.ssl.enabledAlgorithms=<cipher, for example, TLS_RSA_WITH_AES_128_CBC_SHA256> \)
---class <{{ model.packageName }} Main class> <{{ model.packageName }} Application JAR> [application args]"
-```
-
 
 [11]: https://docs.mesosphere.com/latest/overview/architecture/components/
 [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
