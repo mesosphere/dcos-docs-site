@@ -35,6 +35,7 @@ Use the following `DCOS CLI` commands to rapidly provision a service account wit
     dcos security org users grant <service-account-id> dcos:mesos:master:task:principal:<service-account-id> create
     dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/{{ model.serviceName }} create
     ```
+You can also provision a service account using the UI. 
 
 ## Using the secret store
 
