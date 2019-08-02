@@ -100,4 +100,8 @@ You can read/write files to S3 using environment variable-based secrets to pass 
       }
     }
     ```
+<<<<<<< HEAD
 You can also specify credentials through the UI.
+=======
+You can also specify them through the UI.
+>>>>>>> Extracted Spark History server to a separate page
