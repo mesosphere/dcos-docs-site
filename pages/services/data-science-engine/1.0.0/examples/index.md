@@ -14,11 +14,6 @@ This section contains examples for using {{ model.techName }}.
 Perform a default installation by following the instructions in the [Quick Start Guide](/services/data-science-engine/1.0.0/quick-start/) section.
 
 To run any job, first you have to open the lab and choose the notebook you want to run.
-
-You can select from many notebooks available in the lab e.g. Scala, Python, R, etc.
-Notebook consists of cells and each cell can be of type `markdown` or `code`. 
-In the `markdown` cell, you can write text or html. In the `code` cell, you can type your code as shown in the example below.
-
 You can select from many notebooks available in the lab, for example, Scala, Python, R, and so forth.
 Notebook consists of cells; each cell can be of type `markdown` or `code`. 
 In the `markdown` cell, you can write text or html. In the `code` cell, you can type your code as shown in the example below.
