@@ -29,6 +29,11 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
 
     For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/mesosphere/dcos/1.14/installing/installation-faq/#iam-backup)
 
+1. Backup /var/lib/dcos/exhibitor-tls-artifacts if it exists.
+
+    ```bash
+    tar czf exhibitor-tls-artifacts.tar.gz /var/lib/dcos/exhibitor-tls-artifacts
+    ```
 1. Shut down the master node you want to replace.
 
 1. Add the new master node to replace the one taken offline in the previous step.
@@ -38,6 +43,14 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
     If you have configured **static master discovery** in your `config.yaml` file (`master_discovery: static`):
     - Verify that the new server has the same internal IP address as the old master node.
     - Verify that the old server is completely unreachable from the cluster.
+    - Copy exhibitor-tls-artifacts.tar.gz to the new master node.
+        ```bash
+        scp exhibitor-tls-artifacts.tar.gz root@<new-master-host>:/root
+        ```
+    - Extract the archive on the master
+        ```bash
+        tar xzf /root/exhibitor-tls-artifacts.tar.gz -C /
+        ```
     - Install the new master as you would normally.
     
     **Dynamic master discovery**

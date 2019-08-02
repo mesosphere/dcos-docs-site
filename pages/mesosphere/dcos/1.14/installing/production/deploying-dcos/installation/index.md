@@ -275,6 +275,15 @@ enable_ipv6: 'false'
     - 'foo.bar.com'
     - '.baz.com'
 
+[enterprise]
+## Create a bootstrap pre-shared key (Optional)
+[/enterprise]
+
+For additional security, create a random pre-shared key. This key will be used to authenticate requests very early in the installation process. 
+```bash
+mkdir genconf/ca
+cat /dev/urandom | tr -dc 'a-z' | fold -w 16 | head -n1 > genconf/psk
+```
 <a name="custom-build-file"></a>
 # Install DC/OS
 
@@ -353,6 +362,11 @@ At this point your directory structure should resemble:
     ```
 
 3.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file:
+    * If created, copy the pre-shared key to your master nodes at /var/lib/dcos/dcos-bootstrap-ca-psk
+
+        ```bash
+        scp genconf/ca/psk <master-ip>:/var/lib/dcos/dcos-bootstrap-ca-psk
+        ```
 
     * SSH to your master nodes.
 
@@ -415,21 +429,15 @@ At this point your directory structure should resemble:
 
     __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/ports/) documentation.
 
-5.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`.
+5.  Monitor the DC/OS web interface and wait for it to display at: `http://<master-node-public-ip>/`. 
 
-    <p class="message--note"><strong>NOTE: </strong>This process can take about 10 minutes. During this time, you will see the Master nodes become visible on the Exhibitor consoles and come online, eventually showing a green light.</p>
-
-![Exhibitor for ZooKeeper](/mesosphere/dcos/1.14/img/chef-zk-status.png)
-
-Figure 2. Exhibitor for ZooKeeper
-
-   When the status icons are green, you can access the DC/OS web interface.
-
-6.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting][11] documentation.
+    <p class="message--note"><strong>NOTE: </strong>This process can take about 10 minutes.</p>
 
     <p class="message--note"><strong>NOTE: </strong>After clicking <strong>Log In To DC/OS</strong>, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.</p>
 
-7.  Enter your administrator username and password.
+If the panel does not load, take a look at the [troubleshooting][11] documentation.
+
+6.  Enter your administrator username and password.
 
 ![Login screen](/mesosphere/dcos/1.14/img/ui-installer-auth2.png)
 
