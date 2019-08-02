@@ -40,7 +40,7 @@ Installing CLI subcommand for package [spark] version [1.1.0-2.1.1]
 New command available: dcos spark
 DC/OS Spark is being installed!
 
-Documentation: https://docs.mesosphere.com/services/spark/
+Documentation: /mesosphere/dcos/services/spark/
 Issues: https://docs.mesosphere.com/support/
 ```
 

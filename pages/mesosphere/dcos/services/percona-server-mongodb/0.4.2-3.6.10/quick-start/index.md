@@ -12,7 +12,7 @@ render: mustache
 
 # Prerequisites
 
-- [DC/OS installed on your cluster](https://docs.mesosphere.com/latest/administration/installing/).
+- [DC/OS installed on your cluster](/mesosphere/dcos/latest/administration/installing/).
 
 # Steps
 
@@ -33,7 +33,7 @@ render: mustache
     $ openssl rand -base64 756
     ```
 
-1. Install and configure {{ model.serviceName }} from [the DC/OS web interface](https://docs.mesosphere.com/latest/usage/webinterface/) by adding the 4 x generated passwords and key to the required fields of the `Mongodb Credentials` section of the service config.
+1. Install and configure {{ model.serviceName }} from [the DC/OS web interface](/mesosphere/dcos/latest/usage/webinterface/) by adding the 4 x generated passwords and key to the required fields of the `Mongodb Credentials` section of the service config.
 
 1. The service will now deploy with a default configuration. You can monitor its deployment via the **Services** tab of the DC/OS web interface.
 
@@ -115,4 +115,4 @@ render: mustache
 
 # See Also
 
-- [Connecting clients](https://docs.mesosphere.com/services/{{ model.serviceName }}/0.4.2-3.6.10/connecting-clients/)
+- [Connecting clients](/mesosphere/dcos/services/{{ model.serviceName }}/0.4.2-3.6.10/connecting-clients/)

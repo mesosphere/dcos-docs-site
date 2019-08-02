@@ -12,7 +12,7 @@ render: mustache
 
 ## Supported Versions
 
-DC/OS and certified package version support policy are described in detail [here](https://docs.mesosphere.com/version-policy/).
+DC/OS and certified package version support policy are described in detail [here](/mesosphere/dcos/version-policy/).
 
 ## Package Versioning Scheme
 

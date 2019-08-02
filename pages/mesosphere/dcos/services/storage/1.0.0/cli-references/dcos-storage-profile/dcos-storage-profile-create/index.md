@@ -72,7 +72,7 @@ create volumes that fit it. This field is optional.
 The `spec.volume-configuration` field provides parameters that override the
 plugin defaults when volumes of this volume profile are created. The available
 parameters are plugin-specific and are described on the documentation page for
-the specific plugin, <https://docs.mesosphere.com/storage/latest/volume-plugins/>.
+the specific plugin, </mesosphere/dcos/storage/latest/volume-plugins/>.
 This field is optional.
 
 Exactly one of `spec.block` or `spec.mount` must be specified.

@@ -39,7 +39,7 @@ The issues that have been fixed in DC/OS 1.13.2 are grouped by feature, function
 - DCOS-53589 - Telegraf reports `procstat` metrics only for DC/OS systemd services, instead of all processes.
 
 ## Security 
-Introduced a mechanism for protecting the Exhibitor service from unauthorized access from within the cluster, using state-of-the-art mutual TLS authentication. See [documentation](https://docs.mesosphere.com/1.13/security/ent/tls-ssl/exhibitor/). This mechanism is intended to replace the rudimentary `exhibitor_admin_password-based` mechanism.
+Introduced a mechanism for protecting the Exhibitor service from unauthorized access from within the cluster, using state-of-the-art mutual TLS authentication. See [documentation](/mesosphere/dcos/1.13/security/ent/tls-ssl/exhibitor/). This mechanism is intended to replace the rudimentary `exhibitor_admin_password-based` mechanism.
 
 ## Storage
 DCOS-43777- When creating a DC/OS storage volume using the DC/OS UI, the resulting persistent entry of the created JSON app definition does not have a type set. Hence, the default type value `root` is used. In this release, the DC/OS UI is bumped to v2.82.5.

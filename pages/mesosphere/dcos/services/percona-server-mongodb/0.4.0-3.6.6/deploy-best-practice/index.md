@@ -14,7 +14,7 @@ The following resources are the service default, recommended for Development and
 - 3 x MongoDB Nodes `count`
 - 1 x CPUs per node
 - 1024MB RAM per node
-- 1000MB Disk per node, ['ROOT' Disk-type](https://docs.mesosphere.com/1.10/storage/mount-disk-resources/)
+- 1000MB Disk per node, ['ROOT' Disk-type](/mesosphere/dcos/1.10/storage/mount-disk-resources/)
 
 # Production MongoDB Node Requirements
 
@@ -22,7 +22,7 @@ The following resources are recommended for a production deployment:
 - 3 x MongoDB Nodes `count`
 - 4 x CPUs per node
 - 4096MB RAM per node
-- 8000MB Disk per node, [MOUNT Disk-type](https://docs.mesosphere.com/1.10/storage/mount-disk-resources/)
+- 8000MB Disk per node, [MOUNT Disk-type](/mesosphere/dcos/1.10/storage/mount-disk-resources/)
 - ['XFS' filesystem](https://en.wikipedia.org/wiki/XFS)
 
 <table class=“table” bgcolor=#ffd000>

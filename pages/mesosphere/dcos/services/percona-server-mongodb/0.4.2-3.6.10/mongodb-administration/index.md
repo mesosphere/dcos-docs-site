@@ -12,7 +12,7 @@ render: mustache
 
 ## Back up and Restore
 
-Please see the ["Disaster Recovery"](https://docs.mesosphere.com/services/{{ model.serviceName }}/0.4.2-3.6.10/disaster-recovery/) section.
+Please see the ["Disaster Recovery"](/mesosphere/dcos/services/{{ model.serviceName }}/0.4.2-3.6.10/disaster-recovery/) section.
 
 ## Scaling
 
@@ -42,7 +42,7 @@ To list the current count/scale using the CLI:
 
 ## Monitoring
 
-Monitoring of [{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the [DC/OS Metrics component](https://docs.mesosphere.com/1.12/metrics/). Please see the [Metrics API](https://docs.mesosphere.com/1.12/metrics/metrics-api/) documentation for more information on using these metrics.
+Monitoring of [{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the [DC/OS Metrics component](/mesosphere/dcos/1.12/metrics/). Please see the [Metrics API](/mesosphere/dcos/1.12/metrics/metrics-api/) documentation for more information on using these metrics.
 
 To enable DC/OS Metrics, toggle the `Enabled` flag in the `Dcos Metrics` section of the service configuration. 
 
@@ -50,7 +50,7 @@ To enable DC/OS Metrics, toggle the `Enabled` flag in the `Dcos Metrics` section
 ## SSL/TLS Connections
 [/enterprise]
 
-You can enable the SSL/TLS transport security capabilities of [{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) using the {{ model.serviceName }} service combined with the DC/OS [Secret Store feature](https://docs.mesosphere.com/1.12/security/ent/secrets/) (DC/OS Enterprise Edition only).
+You can enable the SSL/TLS transport security capabilities of [{{ model.techName }}](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) using the {{ model.serviceName }} service combined with the DC/OS [Secret Store feature](/mesosphere/dcos/1.12/security/ent/secrets/) (DC/OS Enterprise Edition only).
 
 3 x SSL [security modes](https://docs.mongodb.com/manual/reference/configuration-options/#net.ssl.mode) are possible with this feature:
 1. **allowSSL** - Both insecure and ssl-secured connections are allowed.

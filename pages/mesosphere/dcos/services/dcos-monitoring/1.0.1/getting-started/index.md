@@ -22,7 +22,7 @@ Alertmanager is off by default and must be configured by the user in order to be
 
 ## Download the package
 
-The {{ model.techName }} package is installable via the [catalog](https://docs.mesosphere.com/1.13/gui/catalog/).
+The {{ model.techName }} package is installable via the [catalog](/mesosphere/dcos/1.13/gui/catalog/).
 
 ## Install the service
 
@@ -62,7 +62,7 @@ You can also go to the **Services > Deployments** tab of the DC/OS GUI to monito
 
 # Access Grafana dashboards
 
-<p class="message--warning"><strong>WARNING: </strong>It is recommended to access Grafana via <a href="https://docs.mesosphere.com/services/edge-lb/1.3/">Edge-LB</a>. If you access Grafana via AdminRouter then it can limit the capabilities of Grafana. For example, some graphs will not work under load.</p>
+<p class="message--warning"><strong>WARNING: </strong>It is recommended to access Grafana via <a href="/mesosphere/dcos/services/edge-lb/1.3/">Edge-LB</a>. If you access Grafana via AdminRouter then it can limit the capabilities of Grafana. For example, some graphs will not work under load.</p>
 
 Assuming the service name is `{{ model.serviceName }}` (default), you should be able to access the Grafana dashboards using the following URL:
 

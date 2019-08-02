@@ -35,7 +35,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 ## 集成了 Apache Mesos 1.5, Marathon 1.6 和 Kubernetes 1.9。
 - DC/OS 1.11.0 基于 Mesos 1.5。查看 [Mesos 更改日志](https://github.com/apache/mesos/blob/1.5.x/CHANGELOG)。
 - DC/OS 1.11.0 与最新的 1.6 版 Marathon 集成。有关 Marathon 1.6 的更多信息，请参阅 [Marathon 更改日志](https://github.com/mesosphere/marathon/blob/master/changelog.md)。
-- DC/OS 1.11.0 支持最新的 Kubernetes 1.9 容器调度程序。有关 DC/OS 上 Kubernetes 1.0 的更多信息，[查看文档](https://docs.mesosphere.com/services/kubernetes/1.0.0-1.9.3)。
+- DC/OS 1.11.0 支持最新的 Kubernetes 1.9 容器调度程序。有关 DC/OS 上 Kubernetes 1.0 的更多信息，[查看文档](/mesosphere/dcos/services/kubernetes/1.0.0-1.9.3)。
 
 ## 平台
 - 故障域感知。利用故障域感知使服务高度可用，并能在需要时增加容量。[查看文档](/mesosphere/dcos/cn/1.11/deploying-services/fault-domain-awareness/)。[enterprise type="inline" size="small" /]
@@ -49,7 +49,7 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 
 ## 网络
 [enterprise]
-- Edge-LB 1.0 RC 候选版本。[查看文档](https://docs.mesosphere.com/services/edge-lb/1.0/)
+- Edge-LB 1.0 RC 候选版本。[查看文档](/mesosphere/dcos/services/edge-lb/1.0/)
 [/enterprise]
 - 现在 Docker 容器支持IPv6。
 - DC/OS 网络堆栈的性能改进。所有网络组件 (minuteman、navstar、spartan) 被整合到一个被称为 `dcos-net` 的单个 systemd 单元中。请查看有关 [网络软件重构](/mesosphere/dcos/cn/1.11/networking/#a-note-on-software-re-architecture) 的注释，进一步了解网络堆栈的重新分解。
@@ -94,4 +94,4 @@ DC/OS 1.11.0 候选版本 1 有许多限制，将在 GA 时解决。
 - DCOS_OSS-1733 - 配置参数 `dns_forward_zones` 现在采用对象列表，而不是嵌套列表。
 - DCOS_OSS-2130 - `systemd-networkd` 必须启用，DC/OS 网络才能配合 CoreOS 工作。
 
-<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="/mesosphere/dcos/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>

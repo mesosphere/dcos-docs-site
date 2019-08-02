@@ -40,7 +40,7 @@ dcos node log --mesos-id=<node-id>
 
 如需更多信息，请参阅“服务和任务日志”[快速入门指南](/mesosphere/dcos/1.12/monitoring/logging/quickstart/)。
 
-<p class="message--note"><strong>注意：</strong>DC/OS 可以将任务日志的副本发送到主机的 journald，但由于已知的系统性能问题，默认情况下会禁用此功能，有关详细信息，请参阅<a href="https://docs.mesosphere.com/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">配置文档</a> </p>。
+<p class="message--note"><strong>注意：</strong>DC/OS 可以将任务日志的副本发送到主机的 journald，但由于已知的系统性能问题，默认情况下会禁用此功能，有关详细信息，请参阅<a href="/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">配置文档</a> </p>。
 
 ## 系统日志
 

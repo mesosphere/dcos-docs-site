@@ -388,4 +388,4 @@ dcos  {{ model.packageName }} run --verbose --submit-args="\
  [7]: #custom
  [16]: https://github.com/mesosphere/dcos-vagrant
  [19]: #custom-user
- [20]: https://docs.mesosphere.com/services/ {{ model.packageName }}/2.8.0-2.4.0/limitations/
+ [20]: /mesosphere/dcos/services/ {{ model.packageName }}/2.8.0-2.4.0/limitations/

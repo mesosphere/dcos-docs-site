@@ -110,7 +110,7 @@ An extremely useful tool for diagnosing task state is the ability to run command
 ### Prerequisites
 
 - SSH keys for accessing your cluster configured, for example, via `ssh-add`. SSH is used behind the scenes to get into the cluster.
-- A recent version of the [DC/OS CLI](https://docs.mesosphere.com/latest/cli/) with support for the `task exec` command.
+- A recent version of the [DC/OS CLI](/mesosphere/dcos/latest/cli/) with support for the `task exec` command.
 
 ### Using `dcos task exec`    
 

@@ -27,7 +27,7 @@ EOF
 Figure 1. - Secret value shown in Secret Store
 
 ## Prerequisites
-- A secret with ID of `{{ model.serviceName }}/config-secret` stored in the [DC/OS Secret Store.](https://docs.mesosphere.com/1.12/security/ent/secrets/create-secrets/)
+- A secret with ID of `{{ model.serviceName }}/config-secret` stored in the [DC/OS Secret Store.](/mesosphere/dcos/1.12/security/ent/secrets/create-secrets/)
 
 
 ### Install the Service

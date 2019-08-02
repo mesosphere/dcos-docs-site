@@ -110,7 +110,7 @@ featureMaturity:
 - Updated `libmesos`  version with a critical bug fix.
 
 ### Documentation
-- Added a [page](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/limits/) documenting results from scale testing of Spark on DC/OS.
+- Added a [page](/mesosphere/dcos/services/spark/2.3.1-2.2.1-2/limits/) documenting results from scale testing of Spark on DC/OS.
 
 ## Version 2.3.0-2.2.1-2
 

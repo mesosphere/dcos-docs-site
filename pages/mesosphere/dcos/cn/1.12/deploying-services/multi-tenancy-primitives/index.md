@@ -55,10 +55,10 @@ excerpt: DC/OS 中多租户的引物
 
 # 实现
 您可以使用以下资源来学习如何实现 Marathon on Marathon 和 Spark 配额：
-- [部署非本地 Marathon 实例](https://docs.mesosphere.com/1.12/deploying-services/marathon-on-marathon/)
-- [Spark 配额](https://docs.mesosphere.com/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
+- [部署非本地 Marathon 实例](/mesosphere/dcos/1.12/deploying-services/marathon-on-marathon/)
+- [Spark 配额](/mesosphere/dcos/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
 
-在下面的示例中，建议从安装了 [DC/OS CLI](https://docs.mesosphere.com/1.12/cli/) 的主机运行应用程序。
+在下面的示例中，建议从安装了 [DC/OS CLI](/mesosphere/dcos/1.12/cli/) 的主机运行应用程序。
 
 <p class="message--note"><strong>注意：</strong>在复制和粘贴到编辑器或终端时，需要清除下面的 JSON 示例中的所有双引号。</p>
 

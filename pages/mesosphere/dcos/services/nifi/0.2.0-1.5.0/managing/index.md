@@ -29,7 +29,7 @@ DC/OS Enterprise 1.10 introduces a convenient command line option that allows fo
 
 + DC/OS Enterprise 1.10 or newer.
 + Service with 1.5.0 version.
-+ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
++ [The DC/OS CLI](/mesosphere/dcos/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
   + You can install just the subcommand CLI by running `dcos package install --cli --yes nifi`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
@@ -424,4 +424,4 @@ To check the metrics for the NiFi instances on individual agent nodes, we need t
      ```shell
       curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
      ```  
-More details about Metrics can be found [here](https://docs.mesosphere.com/1.10/metrics/quickstart/).
+More details about Metrics can be found [here](/mesosphere/dcos/1.10/metrics/quickstart/).

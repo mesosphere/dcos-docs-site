@@ -28,7 +28,7 @@ DC/OS Enterprise 1.10 introduces a convenient command line option that allows fo
 
 + DC/OS Enterprise 1.10 or later.
 + Service with 1.5.0 version.
-+ [The DC/OS CLI](https://docs.mesosphere.com/latest/cli/install/) installed and available.
++ [The DC/OS CLI](/mesosphere/dcos/latest/cli/install/) installed and available.
 + The service's subcommand available and installed on your local machine.
   + You can install just the subcommand CLI by running `dcos package install --cli --yes nifi`.
   + If you are running an earlier version of the subcommand CLI that does not have the `update` command, uninstall it and reinstall your CLI, using these commands:

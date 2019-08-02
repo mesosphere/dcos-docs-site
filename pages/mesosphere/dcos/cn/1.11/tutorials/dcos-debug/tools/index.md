@@ -246,7 +246,7 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 
 有时，任务日志提供的帮助不足。在这些情况下，使用您最倾向的 Linux 工具（例如 `curl`、`cat`、`ping` 等）来获得交互式视角可能是一个值得做的步骤。
 
-例如，如果您使用 [Universal Container Runtime (UCR)] (https://docs.mesosphere.com/latest/deploying-services/containerizers/ucr/)，则可以使用 `dcos task exec`，如下所示：
+例如，如果您使用 [Universal Container Runtime (UCR)] (/mesosphere/dcos/latest/deploying-services/containerizers/ucr/)，则可以使用 `dcos task exec`，如下所示：
 
 ```bash
 dcos task exec -it <mycontainerid>

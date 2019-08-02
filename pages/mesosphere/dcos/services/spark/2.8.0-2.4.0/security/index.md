@@ -10,7 +10,7 @@ model: /mesosphere/dcos/services/spark/data.yml
 
 This section describes how to configure secure DC/OS service accounts for {{ model.techShortName }}.
 
-When running in [DC/OS strict security mode](https://docs.mesosphere.com/latest/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/mesosphere/dcos/services/spark/2.8.0-2.4.0/security/#provision-a-service-account).
+When running in [DC/OS strict security mode](/mesosphere/dcos/latest/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/mesosphere/dcos/services/spark/2.8.0-2.4.0/security/#provision-a-service-account).
 
 #include /mesosphere/dcos/services/include/service-account.tmpl
 
@@ -22,7 +22,7 @@ Use the following `curl` commands to rapidly provision the {{ model.techShortNam
 
 When running in [DC/OS strict security mode](/mesosphere/dcos/1.12/security/ent/#security-modes/), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/mesosphere/dcos/1.12/security/ent/#service/).
 
-Follow these instructions to [authenticate in strict mode](https://docs.mesosphere.com/services/spark/spark-auth/).
+Follow these instructions to [authenticate in strict mode](/mesosphere/dcos/services/spark/spark-auth/).
 
 # Using the secret store
 
@@ -197,7 +197,7 @@ dcos spark run --submit-args="\
 "
 ```
 
- [11]: https://docs.mesosphere.com/latest/overview/architecture/components/
+ [11]: /mesosphere/dcos/latest/overview/architecture/components/
  [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
- [13]: https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets
- [14]: https://docs.mesosphere.com/latest/security/ent/secrets/
+ [13]: /mesosphere/dcos/latest/security/ent/#spaces-for-secrets
+ [14]: /mesosphere/dcos/latest/security/ent/secrets/

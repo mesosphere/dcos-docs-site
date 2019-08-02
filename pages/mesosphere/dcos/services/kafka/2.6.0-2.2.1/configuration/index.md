@@ -79,6 +79,6 @@ The grace period must also be respected when a broker is shut down before replac
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must create the necessary <a href="https://docs.mesosphere.com/latest/security/ent/secrets/">DC/OS Secrets</a> for the options: access_file, password_file, key_store, key_store_password_file, trust_store and trust_store_password_file.</p>
+<p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must create the necessary <a href="/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secrets</a> for the options: access_file, password_file, key_store, key_store_password_file, trust_store and trust_store_password_file.</p>
 
-Refer to [Secure JMX](https://docs.mesosphere.com/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise) for a more detailed configuration process.
+Refer to [Secure JMX](/mesosphere/dcos/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise) for a more detailed configuration process.

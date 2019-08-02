@@ -60,7 +60,7 @@ DC/OS 1.11.1 于 2018 年 4 月 18 日发布。
 
 - DCOS-22128 - 使用带卷的 Pod 时，如果 Pod 中的某个容器未配置成挂载卷，集群将无法通过 UI 访问任何服务。作为替代办法，使用带卷的 Pod 时，可使用 CLI。
 
-<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="https://docs.mesosphere.com/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>
+<p class="message--note"><strong>注意: </strong> Kubernetes 包依赖关系记录 <a href="/mesosphere/dcos/services/kubernetes/1.2.0-1.10.5/install">在此处</a>。</p>
 
 # 关于 DC/OS 1.11
 
@@ -85,7 +85,7 @@ DC/OS 1.11 包含许多新功能，重点是：
  - 支持 Docker 镜像拉取秘钥。[enterprise type="inline" size="small" /]
 
 # 网络
-- Edge-LB 1.0。[查看文档](https://docs.mesosphere.com/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
+- Edge-LB 1.0。[查看文档](/mesosphere/dcos/services/edge-lb/1.0/) [enterprise type="inline" size="small" /]
 - Docker 容器现在支持 IPv6。
 - DC/OS 网络堆栈的性能改进 - 所有网络组件 (minuteman、navstar、spartan) 被整合到一个被称为 `dcos-net` 的单个 systemd 单元中。请查看此 [注意](/mesosphere/dcos/cn/1.11/networking/#a-note-on-software-re-architecture)，以进一步了解网络堆栈的重新分解。
 - 配置参数 `dns_forward_zones` 现在采用对象列表，而不是嵌套列表（[DCOS_OSS-1733](https://jira.mesosphere.com/browse/DCOS_OSS-1733)）。[查看文档](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#dns-forward-zones) 以了解其使用情况。
@@ -102,7 +102,7 @@ DC/OS 1.11 包含许多新功能，重点是：
 - 统一日志记录 API 提供对容器（任务）和系统组件日志的简单访问。[查看文档](/mesosphere/dcos/cn/1.11/monitoring/logging/logging-api/logging-v2/)。
 
 ### 存储
-- DC/OS 存储服务 0.1 (beta) - DSS 用户能够根据配置文件或策略动态地创建卷，以调整其应用程序的存储要求。该特性利用行业标准容器存储接口 (CSI) 让 Mesosphere、社区和合作伙伴能够提高开发 DC/OS 中存储特性的效率。[查看文档](https://docs.mesosphere.com/services/storage/latest/).[enterprise type="inline" size="small" /]
+- DC/OS 存储服务 0.1 (beta) - DSS 用户能够根据配置文件或策略动态地创建卷，以调整其应用程序的存储要求。该特性利用行业标准容器存储接口 (CSI) 让 Mesosphere、社区和合作伙伴能够提高开发 DC/OS 中存储特性的效率。[查看文档](/mesosphere/dcos/services/storage/latest/).[enterprise type="inline" size="small" /]
 - Pod 现已支持永久卷。[查看文档](/mesosphere/dcos/cn/1.11/deploying-services/pods/).[beta type="inline" size="small" /]
 
 <p class="message--note"><strong>注意: </strong> 因为这些存储特性在 1.11 中为 beta，因此必须明确启用。不建议将 beta 特性用于生产用途，但却是指出项目前进方向的良好指示。</p>
@@ -117,6 +117,6 @@ DC/OS 1.11 包含许多新功能，重点是：
 
 ## <a name="known-issues"></a>已知问题
 - DCOS-9751 - Marathon 未能在禁用 -> 宽容升级期间与 Mesos 管理节点进行认证。
-- DCOS-18368 - GUI 安装工具已在 1.11 中停用，将不再继续运行。它将在 1.12 中停用。有关其他安装方法的详细信息，[查看文档](https://docs.mesosphere.com/1.11/installing)。
+- DCOS-18368 - GUI 安装工具已在 1.11 中停用，将不再继续运行。它将在 1.12 中停用。有关其他安装方法的详细信息，[查看文档](/mesosphere/dcos/1.11/installing)。
 - DCOS-19047 - 在从 1.10.x 升级到 1.11 时，`dcos-secrets` 服务不可用。[enterprise type="inline" size="small" /]
 - INFINITY-3116 - 删除失败的 mnist Tensorflow 软件包从未完成。

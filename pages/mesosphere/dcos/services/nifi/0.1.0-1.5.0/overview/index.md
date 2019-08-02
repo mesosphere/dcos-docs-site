@@ -14,7 +14,7 @@ The following components work together to deploy and maintain the DC/OS Apache N
 
 - Mesos
 
-    Mesos is the foundation of the DC/OS cluster. Everything launched within the cluster is allocated resources and managed by Mesos. A typical Mesos cluster has one or three Masters that manage resources for the entire cluster. On DC/OS, the machines running the Mesos Masters will typically run other cluster services as well, such as Marathon and Cosmos, as local system processes. Separate from the Master machines are the Agent machines, which are where in-cluster processes are run. For more information on Mesos architecture, see the [Apache Mesos documentation](https://mesos.apache.org/documentation/latest/architecture/). For more information on DC/OS architecture, see the [DC/OS architecture documentation](https://docs.mesosphere.com/latest/overview/architecture/).
+    Mesos is the foundation of the DC/OS cluster. Everything launched within the cluster is allocated resources and managed by Mesos. A typical Mesos cluster has one or three Masters that manage resources for the entire cluster. On DC/OS, the machines running the Mesos Masters will typically run other cluster services as well, such as Marathon and Cosmos, as local system processes. Separate from the Master machines are the Agent machines, which are where in-cluster processes are run. For more information on Mesos architecture, see the [Apache Mesos documentation](https://mesos.apache.org/documentation/latest/architecture/). For more information on DC/OS architecture, see the [DC/OS architecture documentation](/mesosphere/dcos/latest/overview/architecture/).
 
 - ZooKeeper
 
@@ -36,7 +36,7 @@ The following components work together to deploy and maintain the DC/OS Apache N
 
     DC/OS Apache NiFi is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named ‘Cosmos’) creates a Marathon app that contains a rendered version of the marathon.json.mustache template provided by the package. For DC/OS Apache NiFi, this Marathon app is the Scheduler for the service
 
-    For further discussion of DC/OS components, see the [architecture documentation](https://docs.mesosphere.com/latest/overview/architecture/components/).
+    For further discussion of DC/OS components, see the [architecture documentation](/mesosphere/dcos/latest/overview/architecture/components/).
 
 # Deployment
 

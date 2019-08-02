@@ -21,12 +21,12 @@ With transport encryption enabled, DC/OS {{model.techName }} will automatically 
 DC/OS {{model.techName }} uses the CN of the SSL certificate as the principal for a given Node.
 For example, CN={{ model.serviceName }}-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C=US.
 
-The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
+The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
 
-<p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is required to use <a href="https://docs.mesosphere.com/latest/security/ent/tls-ssl/">SSL authentication</a> for authentication, but is optional for Kerberos authentication.</p>
+<p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is required to use <a href="/mesosphere/dcos/latest/security/ent/tls-ssl/">SSL authentication</a> for authentication, but is optional for Kerberos authentication.</p>
 
 ## Prerequisites
-- A DC/OS Service Account with a secret stored in the [DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
+- A DC/OS Service Account with a secret stored in the [DC/OS Secret Store.](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/)
 - DC/OS superuser permissions for modifying the permissions of the Service Account.
 
 ## Configure Transport Encryption
@@ -99,7 +99,7 @@ Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password 
 
 Documentation for adding a file to the secret store can be found [here.](/mesosphere/dcos/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
 
-<p class="message--note"><strong>NOTE: </strong>Secrets access is controlled by <a href="https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets">DC/OS Spaces</a>, which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.</p>
+<p class="message--note"><strong>NOTE: </strong>Secrets access is controlled by <a href="/mesosphere/dcos/latest/security/ent/#spaces-for-secrets">DC/OS Spaces</a>, which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.</p>
 
 ### 3. Install the Service
 Install the DC/OS {{ model.techName }} service with the following options in addition to your own:

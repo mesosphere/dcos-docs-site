@@ -55,7 +55,7 @@ dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edg
 ## <a name="build"></a>Deploying a local Universe containing Edge-LB
 [/enterprise]
 
-If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](https://docs.mesosphere.com/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
+If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](/mesosphere/dcos/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
 **Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
@@ -72,7 +72,7 @@ If you need to deploy a local Universe containing your own set of packages, you 
     sudo make base
     ```
 
-1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions obtained in [Obtaining package artifacts](https://docs.mesosphere.com/services/edge-lb/1.3/installing/#obtaining-package-artifacts) section.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
+1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions obtained in [Obtaining package artifacts](/mesosphere/dcos/services/edge-lb/1.3/installing/#obtaining-package-artifacts) section.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
 
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb.json

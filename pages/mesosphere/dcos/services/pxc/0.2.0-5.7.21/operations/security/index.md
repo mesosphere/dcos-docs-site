@@ -16,12 +16,12 @@ The DC/OS {{ model.techName }} Dervice supports {{ model.techName }}’s native 
 ## Transport Encryption and SSL Authentication
 With transport encryption enabled, the DC/OS {{ model.techName }} Service will automatically deploy all nodes with the correct configuration to encrypt communication via SSL. The nodes will communicate securely between themselves using SSL. SSL authentication requires that all `{{ model.packageName }}` nodes present a valid certificate. From this certificate, their identity can be derived for communicating between nodes.
 
-The service uses the [DC/OS CA](https://docs.mesosphere.com/latest/security/ent/tls-ssl/) to generate the SSL artifacts to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
+The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
 
-<p class="message--note"><strong>NOTE: </strong> Transport encryption must be enabled in order to use <a href="https://docs.mesosphere.com/1.10/security/ent/tls-ssl/">SSL authentication</a> for authentication.</p>
+<p class="message--note"><strong>NOTE: </strong> Transport encryption must be enabled in order to use <a href="/mesosphere/dcos/1.10/security/ent/tls-ssl/">SSL authentication</a> for authentication.</p>
 
 ## Prerequisites
-- A DC/OS Service Account with a secret stored in the [DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
+- A DC/OS Service Account with a secret stored in the [DC/OS Secret Store.](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/)
 - DC/OS Superuser permissions for modifying the permissions of the service account
 
 ## Configure Transport Encryption

@@ -10,7 +10,7 @@ enterprise: false
 
 ## Backup and Restore
 
-Please see the ["Disaster Recovery"](https://docs.mesosphere.com/services/percona-server-mongodb/0.4.0-3.6.6/disaster-recovery/) section.
+Please see the ["Disaster Recovery"](/mesosphere/dcos/services/percona-server-mongodb/0.4.0-3.6.6/disaster-recovery/) section.
 
 ## Scaling
 
@@ -40,7 +40,7 @@ To list the current count/scale using the CLI:
 
 ## Monitoring
 
-Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the [DC/OS Metrics component](https://docs.mesosphere.com/1.11/metrics/). Please see the [Metrics API](https://docs.mesosphere.com/1.11/metrics/metrics-api/) documentation for more information on using these metrics.
+Monitoring of [Percona Server for MongoDB](https://www.percona.com/software/mongo-database/percona-server-for-mongodb) is possible using the [DC/OS Metrics component](/mesosphere/dcos/1.11/metrics/). Please see the [Metrics API](/mesosphere/dcos/1.11/metrics/metrics-api/) documentation for more information on using these metrics.
 
 To enable DC/OS Metrics, ensure the `Enabled` flag in the `Dcos Metrics` section of the service configuration. 
 

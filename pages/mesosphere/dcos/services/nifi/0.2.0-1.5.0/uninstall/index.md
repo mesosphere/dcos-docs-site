@@ -154,7 +154,7 @@ If you are running DC/OS 1.9, follow these steps:
 ```shell
        dcos package uninstall --app-id=/test/nifi nifi
 ```                   
-     2. Clean up remaining reserved resources with the framework cleaner script, janitor.py. See [DC/OS documentation](https://docs.mesosphere.com/1.11/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+     2. Clean up remaining reserved resources with the framework cleaner script, janitor.py. See [DC/OS documentation](/mesosphere/dcos/1.11/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
 
 ```shell
        dcos package uninstall --app-id=/test/nifi nifi

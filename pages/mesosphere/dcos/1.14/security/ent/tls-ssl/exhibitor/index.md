@@ -16,7 +16,7 @@ By default, the Exhibitor HTTP service is open to any client that can reach port
 
 The strategy for securing Exhibitor is mutual TLS authentication. In order to secure Exhibitor you must first create a unique root CA certificate. This CA certificate is used to sign various end entity certificates for the Admin Router and Exhibitor services. Creating a public key infrastructure that outputs PEM and Java KeyStore formatted artifacts is not a trivial task. To make this processes easier, a simple tool has been created for producing the necessary files.
 
-<p class="message--note"><strong>NOTE: </strong>This guide is only compatible with clusters which use <i>static</i> master discovery, <i>master_http_loadbalancer</i> is not currently supported. (https://docs.mesosphere.com/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
+<p class="message--note"><strong>NOTE: </strong>This guide is only compatible with clusters which use <i>static</i> master discovery, <i>master_http_loadbalancer</i> is not currently supported. (/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
 
 ## Using the tool
 
@@ -36,7 +36,7 @@ The expected output is shown below:
 
     Generates Admin Router and Exhibitor TLS artifacts. NODES should consist
     of a space separated list of master IP addresses. See
-    https://docs.mesosphere.com/1.14/security/ent/tls-ssl/exhibitor/
+    /mesosphere/dcos/1.14/security/ent/tls-ssl/exhibitor/
 
     Options:
     -d, --output-directory TEXT  Directory to put artifacts in. This

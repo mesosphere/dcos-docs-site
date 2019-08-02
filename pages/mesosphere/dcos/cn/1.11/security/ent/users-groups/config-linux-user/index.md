@@ -19,7 +19,7 @@ enterprise: true
 
 许多 Universe 服务忽略其用户帐户的覆盖，在 `strict` 模式下除外。我们提供覆盖服务默认 Linux 用户的详细步骤，该服务在[服务账户](/mesosphere/dcos/cn/1.11/security/ent/service-auth/)中支持此覆盖。有关逐步说明，请参阅与感兴趣的服务相关的部分。程序还包括如何配置服务以使用加密和服务帐户。
 
-请记住，授予权限，以对服务账户用户在 `dcos:mesos:master:task:user[:<linux-user-name>]` 资源上执行 `create` 的操作，<linux-user-name>Universe 服务使用该服务账户用户启动。请参阅 [Mesos 权限](https://docs.mesosphere.com/1.11/security/ent/perms-reference/#mesos-permissions)，了解更多信息。
+请记住，授予权限，以对服务账户用户在 `dcos:mesos:master:task:user[:<linux-user-name>]` 资源上执行 `create` 的操作，<linux-user-name>Universe 服务使用该服务账户用户启动。请参阅 [Mesos 权限](/mesosphere/dcos/1.11/security/ent/perms-reference/#mesos-permissions)，了解更多信息。
 
 # <a name="marathon-app-def"></a>通过 Marathon 应用定义覆盖默认 Linux 用户
 

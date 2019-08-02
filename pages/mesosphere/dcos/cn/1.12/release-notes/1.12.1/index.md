@@ -153,7 +153,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 高密度多 Kubernetes (HDMK) 使操作者能够在 DC/OS 上运行多个 Kubernetes 群集时充分利用智能资源池。与每个虚拟机运行单个 Kubernetes 节点的其他 Kubernetes 发行版相比，Mesosphere HDMK 使用其智能资源池将多个 Kubernetes 节点打包到连接裸机、虚拟机和公共云实例的同一服务器上，从而显著节省成本并提高资源利用效率。[详细了解 DC/OS 上的 Kubernetes](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/)。
 
 ### Mesosphere Jupyter 服务 (MJS)
-- 提供安全的 [云原生 Jupyter](https://docs.mesosphere.com/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
+- 提供安全的 [云原生 Jupyter](/mesosphere/dcos/services/beta-jupyter/)笔记本即服务，使数据科学家能够在弹性 GPU 池上执行分析和分布式机器学习，并可访问大型快速数据服务。
 - 安全连接到 S3 和（Kerberose 授权的）HDFS 上的数据湖和数据集。
 - 支持 GPU 的 Spark 和分布式 TensorFlow。
 - OpenID Connect 身份认证和授权，支持 Windows 集成身份认证（WIA）和活动目录联合服务（ADFS）。
@@ -168,7 +168,7 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 [enterprise]
 ### 专用包注册表
 [/enterprise]
-- 已启用 [本地包分发和管理](https://docs.mesosphere.com/1.12/administering-clusters/repo/package-registry/)。
+- 已启用 [本地包分发和管理](/mesosphere/dcos/1.12/administering-clusters/repo/package-registry/)。
 - 已启用气隙式虚拟专用云包管理。
 - 简化包工件管理。
 - 用于在群集中添加/删除/更新包的特定于包的控件。
@@ -179,14 +179,14 @@ DC/OS 1.12 包括许多新特性和功能。主要特性和增强功能集中在
 - 引入一种统一的基于 Terraform 的开源工具，用于在 AWS、GCP 和 Azure 上配置、部署、安装、升级和停用 DC/OS。
 - 通过快速启动过程实现直观简化的安装，只需 10-15 分钟即可通过几个简单的步骤启动 DC/OS 群集。
 - 正式推荐为 Mesosphere 支持的安装方法，内置最佳实践（即持续升级的顺序管理节点和并行代理节点）。
-- 重组 [Mesosphere 安装文档](https://docs.mesosphere.com/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
-- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越升级特定的 [升级路径](https://docs.mesosphere.com/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越升级支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
+- 重组 [Mesosphere 安装文档](/mesosphere/dcos/1.12/installing/evaluation/)，整理 Mesosphere 支持的安装方法和社区支持的安装方法。
+- 扩展后的 DC/OS 升级路径使 Mesosphere 能够在支持的 DC/OS 补丁版本中的跨越升级特定的 [升级路径](/mesosphere/dcos/1.12/installing/production/upgrading/#supported-upgrade-paths)（即一次完成从 1.11.1 => 1.11.5 的升级）并跨越升级支持的  DC/OS 主要版本之间的升级路径（例如，让您能够一次完成从 1.11.7 到 1.12.1 的升级）。
 
 [enterprise]
 ### LDAP 和网络增强功能
 [/enterprise]
 - 匿名 LDAP 绑定符合标准化企业 LDAP 集成模式，无需专用的 DC/OS 集成 LDAP 用户。
-= 动态 LDAP 同步功能自动同步 [LDAP 用户帐户组](https://docs.mesosphere.com/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录](https://docs.mesosphere.com/1.12/security/ent/ldap/)。
+= 动态 LDAP 同步功能自动同步 [LDAP 用户帐户组](/mesosphere/dcos/1.12/security/ent/users-groups/)，而无需使用导入 DC/OS 的帐户手动同步 [LDAP 目录](/mesosphere/dcos/1.12/security/ent/ldap/)。
 - 网络组件增强功能，有 150 多个错误修复，具有受限的可见性记录。
 - 改进了 DNS  聚合时间（亚秒）性能。
 - 可覆盖网络的可配置 MTU。

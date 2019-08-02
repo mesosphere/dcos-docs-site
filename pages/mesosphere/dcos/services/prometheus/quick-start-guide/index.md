@@ -36,7 +36,7 @@ The framework provides options to enter the Prometheus, AlertManager and Rules c
 ## Accessing the Prometheus UI with EdgeLB (Enterprise Feature)
 
 Once the framework is up and running:
-1. [Install EdgeLB](https://docs.mesosphere.com/services/edge-lb/1.1/installing/).
+1. [Install EdgeLB](/mesosphere/dcos/services/edge-lb/1.1/installing/).
 2. Create a file named `prometheus-edgelb.json` containing the following `edge-lb` configuration:
 
 ```

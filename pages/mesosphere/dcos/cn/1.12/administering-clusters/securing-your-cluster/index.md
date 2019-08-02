@@ -78,7 +78,7 @@ Admin Router 控制对管理区的访问。
 公共区中的代理节点被标记为特殊角色，以便只能在此处安排特定任务。这些代理节点具有公共和专用 IP 地址，也只能在其
 `iptables` 防火墙中打开特定端口。
 
-默认情况下，使用基于云的安装程序（例如 AWS Cloudformation 模板）时，大量端口都会接触到公共区的互联网。在生产系统中，这些端口不太会全都暴露出来。建议您关闭除 80 和 443 之外的所有端口（针对 HTTP/HTTPS 流量），并使用带有 HTTPS 的 [Marathon-LB](https://docs.mesosphere.com/services/marathon-lb/)来管理入口流量。
+默认情况下，使用基于云的安装程序（例如 AWS Cloudformation 模板）时，大量端口都会接触到公共区的互联网。在生产系统中，这些端口不太会全都暴露出来。建议您关闭除 80 和 443 之外的所有端口（针对 HTTP/HTTPS 流量），并使用带有 HTTPS 的 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/)来管理入口流量。
 
 ### 典型 AWS 部署
 

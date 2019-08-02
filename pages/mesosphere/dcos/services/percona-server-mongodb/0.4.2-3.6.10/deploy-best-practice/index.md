@@ -16,7 +16,7 @@ The following resources are the service default, recommended for development and
 - 3 x {{ model.dbName }} Nodes `count`
 - 1 x CPUs per node
 - 1024MB RAM per node
-- 1000MB Disk per node, ['ROOT' Disk-type](https://docs.mesosphere.com/1.10/storage/mount-disk-resources/)
+- 1000MB Disk per node, ['ROOT' Disk-type](/mesosphere/dcos/1.10/storage/mount-disk-resources/)
 
 # Production {{ model.dbName }} Node Requirements
 
@@ -24,7 +24,7 @@ The following resources are recommended for a production deployment:
 - 3 x {{ model.dbName }} Nodes `count`
 - 4 x CPUs per node
 - 4096MB RAM per node
-- 8000MB Disk per node, [MOUNT Disk-type](https://docs.mesosphere.com/1.10/storage/mount-disk-resources/)
+- 8000MB Disk per node, [MOUNT Disk-type](/mesosphere/dcos/1.10/storage/mount-disk-resources/)
 - ['XFS' filesystem](https://en.wikipedia.org/wiki/XFS)
 
 <p class="message--warning"><strong>WARNING: </strong> Disks cannot be resized after deployment. Adjust the disk space requirements for the volume of your use case.</p> 

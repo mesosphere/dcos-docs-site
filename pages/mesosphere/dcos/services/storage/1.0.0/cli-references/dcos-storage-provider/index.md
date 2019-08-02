@@ -45,7 +45,7 @@ volume plugin will ensure that it is properly configured and running with the
 correct environment variables and command-line flags.
 
 For a list of DSS volume plugins, have a look at the "Volume plugins" section in
-the documentation: <https://docs.mesosphere.com/services/storage/>
+the documentation: </mesosphere/dcos/services/storage/>
 
 Let's imagine Dan has a DC/OS cluster on which he would like to run workloads
 that use persistent storage. Dan's cluster consists of masters, agents and

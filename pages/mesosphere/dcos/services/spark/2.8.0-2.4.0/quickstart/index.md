@@ -36,7 +36,7 @@ This page explains how to install the DC/OS {{ model.techName }} service.
     New command available: dcos spark
     DC/OS {{ model.techShortName }} is being installed!
 
-    	Documentation: https://docs.mesosphere.com/services/{{ model.packageName }}/
+    	Documentation: /mesosphere/dcos/services/{{ model.packageName }}/
     	Issues: https://docs.mesosphere.com/support/
     ```
 
@@ -145,5 +145,5 @@ This page explains how to install the DC/OS {{ model.techName }} service.
 ## Next steps
 
 - To view the status of your job, run the `dcos spark webui` command then visit the {{ model.techShortName }} cluster dispatcher UI at `http://<dcos-url>/service/spark/` .
-- To view the logs, see the documentation for [Mesosphere DC/OS monitoring](https://docs.mesosphere.com/1.12/monitoring/logging/).
+- To view the logs, see the documentation for [Mesosphere DC/OS monitoring](/mesosphere/dcos/1.12/monitoring/logging/).
 - To view details about your {{ model.techShortName }} job, run the `dcos task log --completed <submissionId>` command.

@@ -7,7 +7,7 @@ excerpt: Getting started using both dynamic and pre-provisioned Kubernetes volum
 ---
 
 This simple tutorial demonstrates how to setup Kubernetes deployments with Kubernetes [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) using the [Amazon EBS CSI driver](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) for volume lifecycle management.
-The instructions in what follows assume you have `kubectl` access to your Kubernetes cluster being managed by [MKE](https://docs.mesosphere.com/services/kubernetes/2.2.1-1.13.4/overview/).
+The instructions in what follows assume you have `kubectl` access to your Kubernetes cluster being managed by [MKE](/mesosphere/dcos/services/kubernetes/2.2.1-1.13.4/overview/).
 
 # Prerequisites
 

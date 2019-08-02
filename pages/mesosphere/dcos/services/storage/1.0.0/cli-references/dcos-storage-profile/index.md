@@ -33,7 +33,7 @@ The volume profile also lets you define volume configuration that will apply
 to all volumes created using that volume profile. The specific volume
 configuration that may be provided depends on the volume plugin (e.g., lvm)
 and is described in the "Volume plugins" section for that plugin in the
-documentation: <https://docs.mesosphere.com/services/storage/>
+documentation: </mesosphere/dcos/services/storage/>
 
 Let's use the scenarios described above to walk through the process.
 
@@ -220,7 +220,7 @@ created using this volume profile will be mirrored across the two underlying
 devices using the LVM RAID functionality for logical volumes. The available
 `volume-configuration` fields are given in the documentation for the lvm plugin
 in the "Volume plugins" section of the DC/OS Storage Service documentation:
-<https://docs.mesosphere.com/services/storage/>
+</mesosphere/dcos/services/storage/>
 
 ```bash
 cat <<EOF | dcos storage profile create

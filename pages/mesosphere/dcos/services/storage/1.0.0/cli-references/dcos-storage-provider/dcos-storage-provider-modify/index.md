@@ -57,7 +57,7 @@ newest plugin configuration version for the provider's plugin is substituted.
 
 The `spec.plugin-configuration` field is plugin specific. Consult the supported
 configuration items under the `Volume Plugins` section of the DC/OS Storage
-Service documentation (<https://docs.mesosphere.com/services/storage/>).
+Service documentation (</mesosphere/dcos/services/storage/>).
 This field is optional. If it is not provided the provider's
 plugin-configuration field is not modified.
 

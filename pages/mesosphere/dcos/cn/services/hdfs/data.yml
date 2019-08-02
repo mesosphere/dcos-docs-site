@@ -11,7 +11,7 @@ install:
   minNodeCount: 五个
   customRequirements: “- 每个代理节点必须有 4 GB 的内存和 5 GiB 的磁盘空间，且每个代理节点都必须有以下这些端口：8480、8485、9000、9001、9002、9005、 9006 和 9007。”
   nodeDescription: 有三个 journal 节点、两个名称节点和三个数据节点
-  serviceAccountInstructionsUrl: https://docs.mesosphere.com/services/hdfs/hdfs-auth/
+  serviceAccountInstructionsUrl: /mesosphere/dcos/services/hdfs/hdfs-auth/
 
 managing:
   podType: 数据

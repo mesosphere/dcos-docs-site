@@ -11,13 +11,13 @@ render: mustache
 ---
 
 # Prerequisites
-- [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](https://docs.mesosphere.com/latest/security/ent/service-auth/custom-service-auth/)
+- [A DC/OS Service Account with a secret stored in the DC/OS Secret Store.](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/)
 - DC/OS Superuser permissions for modifying the permissions of the service account.
 
 - DC/OS CLI, either Enterprise or Open Source:
-   - [DC/OS CLI](https://docs.mesosphere.com/1.10/cli/install/) installed and be logged in as a superuser.
-   - [Enterprise DC/OS CLI 1.10 or later installed](https://docs.mesosphere.com/1.10/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](https://docs.mesosphere.com/1.10/security/ent/) is permissive or strict, you must [get the root cert](https://docs.mesosphere.com/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+   - [DC/OS CLI](/mesosphere/dcos/1.10/cli/install/) installed and be logged in as a superuser.
+   - [Enterprise DC/OS CLI 1.10 or later installed](/mesosphere/dcos/1.10/cli/enterprise-cli/#ent-cli-install).
+- If your [security mode](/mesosphere/dcos/1.10/security/ent/) is permissive or strict, you must [get the root cert](/mesosphere/dcos/1.10/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 #include /mesosphere/dcos/services/include/service-account.tmpl
 

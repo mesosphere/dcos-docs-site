@@ -3,11 +3,11 @@ backends:
   auth:
     server: '127.0.0.1:8101'
     name: DC/OS Authentication (OAuth)
-    reference: 'https://docs.mesosphere.com/1.9/security/ent/iam-api/'
+    reference: '/mesosphere/dcos/1.9/security/ent/iam-api/'
   cosmos:
     server: '127.0.0.1:7070'
     name: DC/OS Package Manager (Cosmos)
-    reference: 'https://docs.mesosphere.com/1.9/deploying-services/package-api/'
+    reference: '/mesosphere/dcos/1.9/deploying-services/package-api/'
   dcos_history_service:
     server: 'leader.mesos:15055'
     name: DC/OS History
@@ -16,7 +16,7 @@ backends:
     server: '127.0.0.1:1050'
     name: DC/OS Diagnostics (3DT)
     reference: >-
-      https://docs.mesosphere.com/1.9/monitoring/#system-health-http-api-endpoint
+      /mesosphere/dcos/1.9/monitoring/#system-health-http-api-endpoint
   exhibitor:
     server: '127.0.0.1:8181'
     name: Exhibitor (Zookeeper)
@@ -24,11 +24,11 @@ backends:
   log:
     server: 'unix:/run/dcos/dcos-log.sock'
     name: DC/OS Log
-    reference: 'https://docs.mesosphere.com/1.9/monitoring/logging/logging-api/'
+    reference: '/mesosphere/dcos/1.9/monitoring/logging/logging-api/'
   marathon:
     server: 'master.mesos:8080'
     name: Marathon
-    reference: 'https://docs.mesosphere.com/1.9/deploying-services/marathon-api/'
+    reference: '/mesosphere/dcos/1.9/deploying-services/marathon-api/'
   mesos:
     server: 'leader.mesos:5050'
     name: Apache Mesos
@@ -36,18 +36,18 @@ backends:
   mesos_dns:
     server: 'master.mesos:8123'
     name: Mesos DNS
-    reference: 'https://docs.mesosphere.com/1.9/networking/mesos-dns/mesos-dns-api/'
+    reference: '/mesosphere/dcos/1.9/networking/mesos-dns/mesos-dns-api/'
   metrics:
     server: 'unix:/run/dcos/dcos-metrics-master.sock'
     name: DC/OS Metrics
-    reference: 'https://docs.mesosphere.com/1.9/metrics/metrics-api/'
+    reference: '/mesosphere/dcos/1.9/metrics/metrics-api/'
   navstar:
     server: '127.0.0.1:62080'
     name: Navstar
   pkgpanda:
     server: 'unix:/run/dcos/pkgpanda-api.sock'
     name: DC/OS Component Package Manager (Pkgpanda)
-    reference: 'https://docs.mesosphere.com/1.9/administering-clusters/component-management/'
+    reference: '/mesosphere/dcos/1.9/administering-clusters/component-management/'
 routes:
   /:
     group: Root

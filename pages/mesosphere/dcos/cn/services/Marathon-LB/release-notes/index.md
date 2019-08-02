@@ -33,7 +33,7 @@ $ git shortlog v1.11.3..HEAD
 
 ## 已知问题
 
-* 现有自定义 `HAPROXY_HEAD` 模板将导致 v1.12.0 不能正常启动。请在您自定义的`HAPROXY_HEAD` 的全局部分删除 `daemon` 并添加 `stats socket /var/run/haproxy/socket expose-fd listeners` 以解决该问题。如需更多信息，请点击此处：[https://docs.mesosphere.com/services/marathon-lb/advanced/#global-template](https://docs.mesosphere.com/services/marathon-lb/advanced/#global-template)
+* 现有自定义 `HAPROXY_HEAD` 模板将导致 v1.12.0 不能正常启动。请在您自定义的`HAPROXY_HEAD` 的全局部分删除 `daemon` 并添加 `stats socket /var/run/haproxy/socket expose-fd listeners` 以解决该问题。如需更多信息，请点击此处：[/mesosphere/dcos/services/marathon-lb/advanced/#global-template](/mesosphere/dcos/services/marathon-lb/advanced/#global-template)
 
 # 先前版本
 

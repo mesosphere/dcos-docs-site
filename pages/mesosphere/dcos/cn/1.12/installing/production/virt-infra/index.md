@@ -22,7 +22,7 @@ excerpt: 在虚拟化基础架构上运行 DC/OS - 最佳实践
 
 # 时间保留指南
 
-DC/OS 群集需要节点之间的强大时间同步，以实现最佳功能。请检查您的 DC/OS 群集上 [NTP 已启用](https://docs.mesosphere.com/1.12/installing/production/system-requirements/#enable-ntp) ，帮助确保此类强大同步。
+DC/OS 群集需要节点之间的强大时间同步，以实现最佳功能。请检查您的 DC/OS 群集上 [NTP 已启用](/mesosphere/dcos/1.12/installing/production/system-requirements/#enable-ntp) ，帮助确保此类强大同步。
 
 ## 建议：
 
