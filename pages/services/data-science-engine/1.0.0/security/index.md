@@ -13,7 +13,7 @@ When running in DC/OS strict security mode, both the {{ model.techName }} and Sp
 #include /services/include/service-account.tmpl
 
 # Create and assign permissions
-In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster. 
+In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster.
 
 Use the following `DCOS CLI` commands to rapidly provision a service account with the required permissions:
 
@@ -35,7 +35,7 @@ Use the following `DCOS CLI` commands to rapidly provision a service account wit
     dcos security org users grant <service-account-id> dcos:mesos:master:task:principal:<service-account-id> create
     dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/{{ model.serviceName }} create
     ```
-You can also provision a service account using the UI. 
+You can also provision a service account using the UI.
 
 ## Using the secret store
 
@@ -78,12 +78,12 @@ Once a secret has been added to the secret store, you can include it in the serv
 ```
 
 Provided secrets will be automatically mounted to {{ model.techName }}'s sandbox. The secrets will also be made available to all Spark executors by adding them to the following Spark configuration properties:
--`spark.mesos.executor.secret.names` 
--`spark.mesos.executor.secret.<filenames|envkeys>` 
+-`spark.mesos.executor.secret.names`
+-`spark.mesos.executor.secret.<filenames|envkeys>`
 
 # Limitations
 
-There must be an equal number of sinks and secret sources: files (`secret_filenames`) and environment variables(`secret_envkeys`). For example:
+When using environment variables and file-based secrets,  there must be an equal number of sinks and secret sources. That is, the keys `secret_names`, `secret_filenames`, and `secret_envkeys` must have the same number of values. For example:
 
 ```json
 "service":{
@@ -91,7 +91,7 @@ There must be an equal number of sinks and secret sources: files (`secret_filena
     "extra_spark_secrets": {
       "secret_names": "/{{ model.packageName }}/my-secret-file,/{{ model.packageName }}/my-secret-envvar",
       "secret_filenames": "target-secret-file,placeholder-file",
-	"secret_envkeys": "PLACEHOLDER,SECRET_ENVVAR"
+      "secret_envkeys": "PLACEHOLDER,SECRET_ENVVAR"
     }
   }
 }
