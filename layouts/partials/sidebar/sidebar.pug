@@ -12,7 +12,7 @@ mixin renderSidebarHeader()
                 a(href=val.path, class='sidebar__dropdown__link')!= val.navigationTitle || val.title
       div(class='sidebar__dropdown__toggle')
         p(class='sidebar__dropdown__text')
-          span(class='sidebar__dropdown__text__title')!= (type) ? type.title : 'NOPE'
+          span(class='sidebar__dropdown__text__title')!= (type) ? type.title : ' '
           span(class='sidebar__dropdown__text__version')!= ' ' + versionTitle
         if showDropdown
           i(class='sidebar__dropdown__icon', data-feather='chevron-down')
