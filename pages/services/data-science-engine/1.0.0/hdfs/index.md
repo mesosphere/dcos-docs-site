@@ -84,7 +84,6 @@ You can read/write files to S3 using environment variable-based secrets to pass 
 
 1. Upload your credentials to the DC/OS secret store:
 
-<<<<<<< HEAD
     ```bash
     dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
     dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
@@ -101,68 +100,3 @@ You can read/write files to S3 using environment variable-based secrets to pass 
     }
     ```
 You can also specify credentials through the UI.
-=======
-```bash
-dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
-dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
-```
-
-1. After uploading your credentials, {{ model.techName }} jobs can get the credentials directly:
-
-```bash
-dcos {{ model.packageName }} run --submit-args="\
-...
---conf {{ model.packageName }}.mesos.containerizer=mesos  # required for secrets
---conf {{ model.packageName }}.mesos.driver.secret.names=<secret_path_for_key_id>,<secret_path_for_secret_key>
---conf {{ model.packageName }}.mesos.driver.secret.envkeys=AWS_ACCESS_KEY_ID,AWS_SECRET_ACCESS_KEY
-...
-```
-
-
-# Enabling the Spark History Server
-
-{{ model.techName }} includes the Spark History Server (SHS), which is enabled by default. It is highly recommended to use HDFS as the backend storage for SHS.
-
-## Installing HDFS
-
-<p class="message--note"><strong>NOTE: </strong>HDFS requires five private nodes.</p>
-
-1. Install HDFS:
-
-```bash
-dcos package install hdfs
-```
-
-1. Create a history HDFS directory (default is `/history`). SSH into your cluster and run:
-
-```bash
-docker run -it mesosphere/hdfs-client:1.0.0-2.6.0 bash
-./bin/hdfs dfs -mkdir /history
-```
-
-1. Configure "Spark EventLog Directory" to point to the created HDFS directory in `service.json`:
-
-```json
-{
-  "spark": {
-    "spark_history_fs_logdirectory": "hdfs://hdfs/history"
-   }
-}
-```
-1.  Enable the Spark Event log and set the HDFS directory:
-
-```json
-{
-  "spark": {
-    "spark_eventlog_enabled": true,
-   "spark_eventlog_dir": "hdfs://hdfs/history"
-   }
-}
-```
-
-1. Restart the `{{ model.serviceName }}` to apply the changes.
-
-
-## Confirm history server installation
-View your job in the dispatcher at `http://<dcos_url>/service/{{ model.serviceName }}/sparkhistory`. The information displayed includes a link to the history server entry for that job.
->>>>>>> Update pages/services/data-science-engine/1.0.0/hdfs/index.md
