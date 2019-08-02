@@ -13,7 +13,7 @@ Resource management in this context refers to concepts such as reservations of r
 
 This page covers the multi-tenancy primitives: Multi-Tenant quota management primitives, two examples of real-world scenarios, implementation instructions, and reference links.
 
-# Multi-Tenant Quota Management Primitives
+# Multi-Tenant Resource Management Primitives
 The key concepts of multi-tenancy primitives include the following:
 
 ## Roles
