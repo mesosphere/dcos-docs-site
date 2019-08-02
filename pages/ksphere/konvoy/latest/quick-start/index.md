@@ -23,7 +23,7 @@ Before starting the Konvoy installation, you should verify the following:
 * You have a Linux or macOS computer with a supported version of the operating system.
 * You have the [aws][install_aws] command-line utility if you are installing on an AWS cloud instance.
 * You have [Docker Desktop][install_docker] _version 18.09.2 or newer_.
-* You have [kubectl][install_kubectl] _v1.15.0 or newer_ for interacting with the running cluster.
+* You have [kubectl][install_kubectl] _v1.15.1 or newer_ for interacting with the running cluster.
 * You have a valid AWS account with [credentials configured][aws_credentials].
   You need to be authorized to create the following resources in the AWS account:
   * EC2 Instances
@@ -63,9 +63,7 @@ You start the installation process by downloading the Konvoy package tarball.
 
 To download the package, follow these steps:
 
-1. Contact your account representative or [konvoy-beta@mesosphere.com](mailto:konvoy-beta@mesosphere.com) to get the latest release of Konvoy.
-
-1. Download the tarball to your local Downloads directory.
+1. [Download][download-link] the tarball to your local Downloads directory.
 
     For example, if you are installing on macOS, download the compressed archive to the default `~/Downloads` directory.
 
@@ -225,13 +223,13 @@ The command returns output similar to the following:
 
 ```text
 NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.0
-ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.0
-ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.0
-ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.0
-ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.0
-ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.0
-ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.0
+ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.1
+ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.1
+ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.1
+ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.1
+ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.1
+ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.1
+ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.1
 ```
 
 ## Next steps
@@ -250,6 +248,7 @@ For more details, see the following topics:
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [install_aws]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
+[download-link]:https://support.mesosphere.com/s/downloads/konvoy/1.0
 [calico]: https://www.projectcalico.org/
 [coredns]: https://coredns.io/
 [aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver

@@ -40,8 +40,6 @@ spec:
     - us-west-2c
     tags:
       owner: konvoy-owner
-  adminCIDRBlocks:
-  - 0.0.0.0/0
   nodePools:
   - name: worker
     count: 4
@@ -83,7 +81,7 @@ metadata:
   creationTimestamp: "2019-07-09T16:10:19.932534-04:00"
 spec:
   kubernetes:
-    version: 1.15.0
+    version: 1.15.1
     controlPlane:
       controlPlaneEndpointOverride: ""
       keepalived:
@@ -155,7 +153,6 @@ spec:
 | `spec.provider`        | defines the provider used to provision the cluster                      | `aws`         |
 | `spec.aws`             | contains AWS specific options                                           | See [spec.aws](#spec-aws) |
 | `spec.docker`          | contains Docker specific options                                        | See [spec.docker](#spec-docker) |
-| `spec.adminCIDRBlocks` | the [CIDR blocks][cidr_blocks] that defines IP addresses to access the cluster through [AWS Security Groups][aws_security_groups] for SSH and Kubernetes control plane external access | `[0.0.0.0/0]` |
 | `spec.nodePools`       | a list of nodes to create, there must be at least one controlPlane pool | See [spec.nodePools](#spec-nodepools) |
 | `spec.sshCredentials`  | contains credentials information for accessing machines in a cluster    | See [spec.sshCredentials](#spec-sshcredentials) |
 | `spec.version`         | version of a konvoy cluster                                             | `v0.0.20`     |
@@ -232,7 +229,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | Specifies the version of kubernete to deploy.  | `1.15.0`                |
+| `kubernetes.version`           | Specifies the version of kubernete to deploy.  | `1.15.1`                |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#spec-kubernetes-controlplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#spec-kubernetes-networking) |
 | `kubernetes.cloudProvider`     | Specifies the object that defines which cloud-provider to enable.    | See [spec.kubernetes.clouldProvider](#spec-kubernetes-cloudprovider)  |

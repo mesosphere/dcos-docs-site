@@ -11,9 +11,9 @@ Kubernetes provides the foundation of a Konvoy cluster.
 Because of this fundamental relationship, you should be familiar with a few key concepts and terms.
 The topics in this section provide a brief overview of the native Kubernetes architecture, the core components of the Konvoy cluster, and a simplified view of the Konvoy architecture and the operational workflow for a Konvoy cluster.
 
-The following diagram provides an architectural overview to help you visualize the key components of the cluster:
+The following diagram provides a simplified architectural overview to help you visualize the key components of the cluster:
 
-![Architectural overview](../img/simplified-konvoy-architecture.png)
+![Architectural overview](../img/Konvoy-arch-diagram.png)
 
 # Master components for the Kubernetes control plane
 
@@ -40,7 +40,7 @@ The controllers include:
 - A service account and token controller that creates default accounts and access tokens for new service namespaces.
 - `cloud-controller-manager` runs controllers that interact with the underlying cloud providers.
 
-For more information about any of the master components or Kubernetes control plane, see the [Kubernetes](https://kubernetes.io/docs/concepts/overview/components/) documentation.
+For more information about any of the master components or Kubernetes control plane, see the [Kubernetes][kubedoc] documentation.
 
 # Worker nodes
 
@@ -59,5 +59,7 @@ Because they provide cluster-level features, addons are defined in the `kube-sys
 
 Konvoy supplements the native Kubernetes cluster by providing a predefined and preconfigured set of addons.
 Because this predefined set of addons provide critical features for managing a Kubernetes cluster in a production environment, the default set of addons are identified as Konvoy **platform services** and are a key part of delivering an **opinionated Kubernetes** solution.
-
+<!--
 # Basic operational workflow
+-->
+[kubedoc]:https://kubernetes.io/docs/concepts/overview/components/

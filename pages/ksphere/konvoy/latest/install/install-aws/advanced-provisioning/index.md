@@ -3,13 +3,96 @@ layout: layout.pug
 navigationTitle: Advanced provisioning options (AWS)
 title: Advanced provisioning options (AWS)
 menuWeight: 5
-excerpt: Configure advanced provisioning options for installing Konvoy on a public cloud infrastructure (AWS)
+excerpt: Configure advanced provisioning options for installing Konvoy on AWS
 enterprise: false
 ---
 
-The topics in this section describe advanced provisioning and configuration options for Konvoy when deploying on a public AWS cloud instance.
+The topics in this section describe advanced provisioning and configuration options for Konvoy when deploying on AWS.
 
-## Using region-specific Amazon Machine Image (AMI) identifiers
+# Customize region and availability zones
+
+Konvoy supports provisioning hosts across multiple availability zones in an AWS region.
+For instance, the following configuration will instruct Konvoy to provision hosts across the three zones in `us-west-2` region.
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy
+spec:
+  provider: aws
+  aws:
+    region: us-west-2
+    availabilityZones:
+    - us-west-2a
+    - us-west-2b
+    - us-west-2c
+```
+
+# Customize instance types, volumes and Amazon Machine Images (AMI)
+
+Konvoy allows users to customize instance types, volumes and AMI images for their clusters like the following.
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy
+spec:
+  provider: aws
+  aws:
+    provider: aws
+    aws:
+      region: us-west-2
+      availabilityZones:
+      - us-west-2a
+      - us-west-2b
+      - us-west-2c
+  nodePools:
+  - name: node
+    count: 4
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: gp2
+      imagefsVolumeEnabled: true
+      imagefsVolumeType: gp2
+      imagefsVolumeSize: 160
+      type: t3.xlarge
+      imageID: ami-01ed306a12b7d1c96
+  - name: control-plane
+    controlPlane: true
+    count: 3
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: gp2
+      imagefsVolumeEnabled: true
+      imagefsVolumeType: gp2
+      imagefsVolumeSize: 160
+      type: t3.large
+      imageID: ami-01ed306a12b7d1c96
+```
+
+## Instance types
+
+For each [node pool][node_pools], the user can customize the instance type for instances in that node pool (i.e., `type` field).
+All instances in a single node pool must have the same instance type.
+
+All the available instance types can be found [here][aws_instance_types].
+
+## Instance volumes
+
+For each [node pool][node_pools], the user can customize the instance volumes attached to the instances in that node pool.
+There are two types of instance volumes:
+
+* Root volume: this is the root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if imagefs volume is enabled).
+* Imagefs volume: this is the dedicated disk for providing storage for container image layers.
+
+Imagefs volume is optional.
+If disabled, the root volume will be used to storage container image layers.
+
+Users can customize the sizes (in GB) and [types][ebs_volume_types] (use API Name) of those volumes.
+
+## Amazon Machine Images (AMI)
 
 In AWS, different regions use unique Amazon Machine Image (AMI) identifiers for the same operating system image.
 Depending on your region and operating system combination, you might need to specify an image identifier for the `ClusterProvisioner` setting before provisioning.
@@ -35,47 +118,10 @@ us-west-2      = "ami-01ed306a12b7d1c96"
 ```
 
 If you are deploying Konvoy in a region that is not included in the predefined listed, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file.
-For example, you would modify the `ClusterProvisioner` section of the `cluster.yaml` file to specify the `region`, `availabilityZones`, and `imageID`:
 
-```yaml
-kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
-metadata:
-  name: dkkonvoy201
-  creationTimestamp: "2019-06-03T16:21:18.5149792Z"
-spec:
-  provider: aws
-  providerOptions:
-    region: __some_region__
-    availabilityZones:
-    - __some_region_az__
-  nodePools:
-  - name: node
-    count: 4
-    machine:
-      rootVolumeSize: 80
-      rootVolumeType: gp2
-      imagefsVolumeEnabled: true
-      imagefsVolumeType: gp2
-      imagefsVolumeSize: 160
-      type: t3.xlarge
-      imageID: __some_id__
-  - name: control-plane
-    controlPlane: true
-    count: 3
-    machine:
-      rootVolumeSize: 80
-      rootVolumeType: gp2
-      imagefsVolumeEnabled: true
-      imagefsVolumeType: gp2
-      imagefsVolumeSize: 160
-      type: t3.large
-      imageID: __some_id__
-```
+Konvoy is tested with the [CentOS Linux 7][ami_centos7] image.
 
-Konvoy is tested with the [CentOS Linux 7](https://aws.amazon.com/marketplace/pp/B00O7WM7QW) image.
-
-## Adding custom Terraform resources for provisioning
+# Adding custom Terraform resources for provisioning
 
 It is possible to provide custom `*.tf` resource files when provisioning.
 If you create additional resource files, they are used along with the default `*.tf` resource files during the provisioning process.
@@ -116,197 +162,8 @@ To add custom resource files for provisioning:
 
     This output in this example indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an S3 bucket.
 
-## Using a bastion node pool for SSH
-
-It is possible to use a set of nodes that are not part of the cluster to proxy SSH connections to the rest of the nodes.
-To do this, you can specify a `bastion` node name in the `nodePool` section of the `cluster.yaml` file.
-For example:
-
-```yaml
-  - name: bastion
-    bastion: true
-    count: 2
-    machine:
-      rootVolumeSize: 10
-      rootVolumeType: gp2
-      type: t3.small
-```
-
-If you are using `aws` as the cluster provisioner, this setting automatically creates two new EC2 instances with security groups configured to:
-
-- allow proxy SSH connections to the rest of the nodes.
-- block remote SSH access to the the cluster EC2 instances.
-
-If you use this setting, the `inventory.yaml` file is generated with new vars similar to the following:
-
-```yaml
-all:
-  vars:
-    bastion_hosts: [ec2-18-237-7-198.us-west-2.compute.amazonaws.com, ec2-34-221-251-83.us-west-2.compute.amazonaws.com]
-    bastion_user: "centos"
-    bastion_port: 22
-```
-
-In this example:
-
-- `bastion_hosts:` lists the hosts through which a proxy secure shell connection can be made. A host from this list is selected randomly for each SSH connection.
-- `bastion_user` specifies the user account used to open the secure shell connection into the hosts listed as `bastion_hosts`.
-- `bastion_port` specifies the port used to open the secure shell connection into the hosts listed as `bastion_hosts`.
-
-If you are using bastion nodes, keep in mind that `ssh-agent` is required and you should not specify `ssh_private_key_file` in `inventory.yaml`.
-When you run `konvoy up`, Konvoy validates that a valid private key has been loaded in the `ssh-agent` for the provided public key.
-
-## Addon configuration
-
-Most of the addons in `cluster.yaml` are managed by [Helm](https://Helm.sh).
-You can modify the Helm values of these addons as illustrated in the following example:
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
-metadata:
-  name: konvoy
-  creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
-spec:
-  kubernetes:
-    version: 1.15.0
-    networking:
-      podSubnet: 192.168.0.0/16
-      serviceSubnet: 10.0.0.0/18
-    cloudProvider:
-      provider: aws
-    podSecurityPolicy:
-      enabled: false
-  containerRuntime:
-    containerd:
-      version: 1.2.5
-  addons:
-    configVersion: v0.0.11
-    addonList:
-    - name: velero
-      enabled: false
-    - name: helm
-      enabled: true
-    - name: awsebsprovisioner
-      enabled: false
-    - name: awsebscsiprovisioner
-      enabled: true
-    - name: opsportal
-      enabled: true
-    - name: elasticsearch
-      enabled: true
-    - name: fluentbit
-      enabled: true
-    - name: kibana
-      enabled: true
-    - name: prometheus
-      enabled: true
-      values: |
-        prometheus:
-          prometheusSpec:
-            tolerations:
-              - key: "dedicated"
-                operator: "Equal"
-                value: "monitoring"
-                effect: "NoExecute"
-            nodeSelector:
-              dedicated: "monitoring"
-            resources:
-              limits:
-                cpu: "4"
-                memory: "28Gi"
-              requests:
-                cpu: "2"
-                memory: "8Gi"
-          storageSpec:
-            volumeClaimTemplate:
-              spec:
-                resources:
-                  requests:
-                    storage: "100Gi"
-    - name: traefik
-      enabled: true
-    - name: dashboard
-      enabled: true
-  version: v0.0.15-10-g57dff48
----
-```
-
-To find the proper keys and values, you must identify the associated Helm chart for each addon in the [kubeaddons-configs][kubeaddons-configs_templates] repository.
-
-For example, the `kibana` addon points to [`stable/kibana@3.0.0`][helm_kibana] in [this file][kubeaddons-configs_kibana].
-
-Addons like `prometheus` and `elasticsearch` can point to multiple Helm charts outside of the `kubeaddons-configs`.
-
-## Labels and taints
-
-You can use `cluster.yaml` to configure and taint nodes.
-
-1. Run the `konvoy init` command.
-
-1. Modify `cluster.yaml` and add a new pool:
-
-    ```yaml
-    kind: ClusterProvisioner
-    apiVersion: konvoy.mesosphere.io/v1alpha1
-    spec:
-      nodePools:
-      - name: monitoring
-        count: 2
-        machine:
-          rootVolumeSize: 80
-          rootVolumeType: gp2
-          imagefsVolumeEnabled: true
-          imagefsVolumeSize: 160
-          imagefsVolumeType: gp2
-          type: t3.xlarge
-    ---
-    kind: ClusterConfiguration
-    apiVersion: konvoy.mesosphere.io/v1alpha1
-    spec:
-      nodePools:
-      - name: monitoring
-        labels:
-        - key: dedicated
-          value: monitoring
-        taints:
-        - key: dedicated
-          value: monitoring
-          effect: NoExecute
-    ```
-
-    If using pre-provisioned `inventory.yaml` file, specify the `node_pool` var:
-
-    ```yaml
-    node:
-      hosts:
-        172.17.0.1:
-          node_pool: worker
-        172.17.0.2:
-          node_pool: monitoring
-    ```
-
-1. Enable Prometheus and set custom values similar to the example in [Addon configuration](#addon-configuration):
-
-    ```yaml
-      - name: prometheus
-        enabled: true
-        values: |
-          prometheus:
-            prometheusSpec:
-              tolerations:
-                - key: "dedicated"
-                  operator: "Equal"
-                  value: "monitoring"
-                  effect: "NoExecute"
-              nodeSelector:
-                dedicated: "monitoring"
-    ```
-
-1. Run the `konvoy up` command.
-
-    This `konvoy up` command then create a cluster with an additional two nodes labeled with `dedicated=monitoring` and a matching taint and the Prometheus addon is modified to use those labels for `nodeSelector` and to tolerate those taints.
-
-[kubeaddons-configs_templates]: https://github.com/mesosphere/kubeaddons-configs/tree/master/templates
-[helm_kibana]: https://github.com/helm/charts/blob/bca1e989ee38cb95815760188e8aee4286b0df1c/stable/kibana/Chart.yaml#L2-L3
-[kubeaddons-configs_kibana]: https://github.com/mesosphere/kubeaddons-configs/blob/65d7a7ae26d4bebd7035d713a5ea5db656ac2659/templates/kibana.yaml#L11-L12
+[ami_centos7]: https://aws.amazon.com/marketplace/pp/B00O7WM7QW
+[node_pools]: ../../node-pools/
+[aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
+[ephemeral_storage]: ../../../storage/
+[ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
