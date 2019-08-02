@@ -838,3 +838,8 @@
 /release-notes/open-source-attribution/ /1.10/release-notes/open-source-attribution/;
 /support/ https://support.mesosphere.com;
 ~^/docs/(.*)$ /$1;
+~^/([0-9]+\.[0-9]+/.*)$ /dcos/mesosphere/$1;
+~^/(services/.*)$ /dcos/mesosphere/$1;
+~^/(cn/.*)$ /dcos/mesosphere/$1;
+~^/(version-policy/.*)$ /dcos/mesosphere/$1;
+~^/(search/.*)$ /dcos/mesosphere/$1;
