@@ -13,7 +13,9 @@ When running in DC/OS strict security mode, both the {{ model.techName }} and Sp
 #include /services/include/service-account.tmpl
 
 # Create and assign permissions
-{{ model.techName }} Notebook allows launching Spark applications which require additional permissions for the authentication with Mesos master and launching of executors (worker tasks) on a cluster. Use the following `DCOS CLI` commands to rapidly provision the {{ model.techName }} service account with the required permissions. You can also provision the service account through the UI.
+In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster. 
+
+Use the following `DCOS CLI` commands to rapidly provision a service account with the required permissions:
 
 1. Grant the permissions and the allowed actions to the service account using the following commands. Some of these permissions may exist already. Run these commands with your service account name (`<service-account-id>`) specified:
 
