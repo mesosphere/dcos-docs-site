@@ -94,6 +94,5 @@ You can configure SHS to use HDFS with the following steps:
 
 3. Restart the `{{ model.serviceName }}` to apply the changes.
 
-
 ## Confirm Spark History Server installation
 Spark History Server UI is available at `http://<dcos_url>/service/{{ model.serviceName }}/sparkhistory`, listing incomplete and completed applications and attempts.
