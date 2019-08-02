@@ -8,7 +8,7 @@ model: /services/data-science-engine/data.yml
 render: mustache
 ---
 This section describes how to configure secure DC/OS service accounts for {{ model.techName }}.
-When running in DC/OS strict security mode, both the {{ model.techName }} Notebook and Spark applications launched from it must authenticate to Mesos using a DC/OS service account.
+When running in DC/OS strict security mode, both the {{ model.techName }} and Spark applications launched from it must authenticate to Mesos using a DC/OS service account.
 
 #include /services/include/service-account.tmpl
 
