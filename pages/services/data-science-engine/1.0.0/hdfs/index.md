@@ -90,7 +90,7 @@ You can read/write files to S3 using environment variable-based secrets to pass 
     dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
     ```
 
-1. After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
+2. After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
 
     ```json
     {
