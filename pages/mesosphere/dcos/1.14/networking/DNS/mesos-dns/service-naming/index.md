@@ -206,7 +206,7 @@ Mesos-DNS generates a few special records:
 *   For every known DC/OS master: A records (`master.mesos`)
 *   For every known DC/OS agent: A records (`slave.mesos`) and SRV records (`_slave._tcp.mesos`)
 
-<p class="message--important"><strong>IMPORTANT: </strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/1.14/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</p> 
+<p class="message--important"><strong>IMPORTANT: </strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/mesosphere/dcos/1.14/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</p> 
 
 
 There is a delay between the election of a new master and the update of leader/master records in Mesos-DNS. Mesos-DNS also supports requests for SOA and NS records for the Mesos domain. DNS requests for records of other types in the Mesos domain will return `NXDOMAIN`. Mesos-DNS does not support PTR records needed for reverse lookups. Mesos-DNS also generates A records for itself that list all the IP addresses that Mesos-DNS will answer lookup requests on. The hostname for these A records is `ns1.mesos`.

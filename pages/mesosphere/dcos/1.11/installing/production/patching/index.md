@@ -308,7 +308,7 @@ This procedure patches to DC/OS 1.11 in [permissive security mode](/mesosphere/d
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Any <a href="/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.</td> 
+  <td align=justify style=color:white><strong>Important:</strong> Any <a href="/mesosphere/dcos/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.</td> 
 </tr> 
 </table>
 

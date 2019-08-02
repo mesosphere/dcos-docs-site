@@ -295,7 +295,7 @@ enterprise: true
    }
    ```
   <p class="message--note"><strong>注意: </strong>
-由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅<a href="/cn/1.11//security/ent/#spaces">命名空间</a>。</p>
+由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅<a href="/mesosphere/dcos/cn/1.11//security/ent/#spaces">命名空间</a>。</p>
 
 3. 使用描述性名称保存文件，如 `mypod.json`。
 

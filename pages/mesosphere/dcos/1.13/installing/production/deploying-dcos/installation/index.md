@@ -61,7 +61,7 @@ Before installing DC/OS, your cluster must meet the software and hardware [requi
 
 In this step, an IP detection script is created. This script reports the IP address of each node across the cluster. Each node in a DC/OS cluster has a unique IP address that is used to communicate between nodes in the cluster. The IP detection script prints the unique IPv4 address of a node to STDOUT each time DC/OS is started on the node.
 
-<p class="message--note"><strong>NOTE: </strong>The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be <a href="/1.13/installing/production/uninstalling/">uninstalled</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>The IP address of a node must not change after DC/OS is installed on the node. For example, the IP address should not change when a node is rebooted or if the DHCP lease is renewed. If the IP address of a node does change, the node must be <a href="/mesosphere/dcos/1.13/installing/production/uninstalling/">uninstalled</a>.</p>
 
 <p class="message--note"><strong>NOTE: </strong>The script must return the same IP address as specified in the <code>config.yaml</code>. For example, if the private master IP is specified as <code>10.2.30.4</code> in the <code>config.yaml</code>, your script should return this same value when run on the master.</p>
 
@@ -287,8 +287,8 @@ In this step, you will create a custom DC/OS build file on your bootstrap node a
 <p class="message--note"><strong>NOTE: </strong>Due to a cluster configuration issue with overlay networks, we recommend setting <code>enable_ipv6</code> to <code>false</code> in <code>config.yaml</code> when upgrading or configuring a new cluster. If you have already upgraded to DC/OS 1.13.x without configuring <code>enable_ipv6</code> or if <code>config.yaml</code> file is set to <code>true</code>, then do not add new nodes.</p>
 
 You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
-<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="/1.13/installing/troubleshooting/">troubleshooting</a> for more information.</p>
-<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="/1.13/installing/production/uninstalling/">uninstall</a> instructions.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Do not install DC/OS until you have these items working: <code>ip-detect script</code>, <code>DNS</code>, and <code>NTP</code> on all DC/OS nodes with time synchronized. See <a href="/mesosphere/dcos/1.13/installing/troubleshooting/">troubleshooting</a> for more information.</p>
+<p class="message--note"><strong>NOTE: </strong>If something goes wrong and you want to rerun your setup, use the cluster <a href="/mesosphere/dcos/1.13/installing/production/uninstalling/">uninstall</a> instructions.</p>
 
 **Prerequisites**
 
@@ -443,7 +443,7 @@ You are done! The UI dashboard will now be displayed.
 
 Figure 4. DC/OS UI dashboard
 
-<p class="message--note"><strong>NOTE: </strong>You can also use <a href="/1.13/installing/evaluation/mesosphere-supported-methods/">Universal Installer</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
+<p class="message--note"><strong>NOTE: </strong>You can also use <a href="/mesosphere/dcos/1.13/installing/evaluation/mesosphere-supported-methods/">Universal Installer</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
 
 ### Next Steps: Enterprise and Open Source users
 

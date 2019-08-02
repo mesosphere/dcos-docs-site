@@ -89,7 +89,7 @@ DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有�
 
 在 DC/OS 中，有多个选项用于访问这些日志：**DC/OS GUI** **DC/OS CLI** 或 HTTP 端点。此外，DC/OS 默认循环日志，以防止利用所有可用磁盘空间。
 
-<p class="message--note"><strong>注意：</strong>需要可扩展的方式来管理和搜索日志吗？ 为日志聚合和筛选构建 <a href="/1.12/monitoring/logging/aggregating/filter-elk/">ELK 堆栈</a>可能是值得的。</p>
+<p class="message--note"><strong>注意：</strong>需要可扩展的方式来管理和搜索日志吗？ 为日志聚合和筛选构建 <a href="/mesosphere/dcos/1.12/monitoring/logging/aggregating/filter-elk/">ELK 堆栈</a>可能是值得的。</p>
 
 有时它可以临时帮助提高写入日志的详细程度，以为调试获得更详细的故障排除信息。对于大多数组件，可通过访问端点来完成。例如，如果要在服务器接收 API 调用后将 [Mesos 代理节点的日志级别](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) 提高 5 分钟，则可以执行以下简单的两步过程：
 

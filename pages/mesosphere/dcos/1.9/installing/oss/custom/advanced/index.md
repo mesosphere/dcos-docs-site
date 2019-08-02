@@ -34,7 +34,7 @@ The DC/OS installation creates these folders:
   </tr>
   <tr>
     <td><code>/var/lib/dcos/exhibitor/zookeeper</code></td>
-    <td>Contains the <a href="/1.9/overview/concepts/#mesos-exhibitor-zookeeper">ZooKeeper</a> data.</td>
+    <td>Contains the <a href="/mesosphere/dcos/1.9/overview/concepts/#mesos-exhibitor-zookeeper">ZooKeeper</a> data.</td>
   </tr>
   <tr>
     <td><code>/var/lib/docker</code></td>

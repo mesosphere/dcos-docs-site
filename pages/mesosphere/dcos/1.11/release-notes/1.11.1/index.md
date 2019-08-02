@@ -60,7 +60,7 @@ DC/OS 1.11.1 was released on April 18, 2018.
 
 - DCOS-22128 - When using pods with volumes, if a container in the pod is not configured to mount the volume, the cluster cannot access any service via the UI. As a workaround, when using pods with volumes, use the CLI instead.
 
-<p class="message--note"><strong>NOTE: </strong>The Kubernetes package dependencies are documented <a href="/services/kubernetes/1.2.0-1.10.5/install">here</a>></p>
+<p class="message--note"><strong>NOTE: </strong>The Kubernetes package dependencies are documented <a href="/mesosphere/dcos/services/kubernetes/1.2.0-1.10.5/install">here</a>></p>
 
 # About DC/OS 1.11
 

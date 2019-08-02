@@ -32,7 +32,7 @@ enterprise: false
 
 DC/OS 服务和 CLI 子命令同样采用 [打包格式和资料库][11] 。
 
-<p class="message--note"><strong>注意: </strong>CLI 模块为 <a href="/cn/1.11/administering-clusters/multiple-clusters/">集群专用</a>且存储于 <tt>~/.dcos/clusters/<cluster_id>/subcommands</tt>。必须为每个集群安装 CLI 模块。例如，如果连接到集群 1 并安装 Spark 模块，则连接到也运行 Spark 的集群 2。在安装该集群的模块之前，Spark CLI 命令不可用。</p>
+<p class="message--note"><strong>注意: </strong>CLI 模块为 <a href="/mesosphere/dcos/cn/1.11/administering-clusters/multiple-clusters/">集群专用</a>且存储于 <tt>~/.dcos/clusters/<cluster_id>/subcommands</tt>。必须为每个集群安装 CLI 模块。例如，如果连接到集群 1 并安装 Spark 模块，则连接到也运行 Spark 的集群 2。在安装该集群的模块之前，Spark CLI 命令不可用。</p>
 
 ## 创建 DC/OS CLI 子命令
 

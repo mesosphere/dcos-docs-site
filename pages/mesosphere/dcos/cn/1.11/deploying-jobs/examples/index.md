@@ -180,7 +180,7 @@ enterprise: true
 
  1. 在 **Permissions Strings** 字段中复制并粘贴权限。指定您的作业组 (`dev/batch`)、作业名称 (`job1`) 和操作 (`read`)。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:metronome:metronome:jobs:/dev/batch/job1 read,update`。
 
-    <p class="message--important"><strong>重要信息：</strong>您的<a href="/1.11/security/ent/#security-modes">安全模式</a>必须是宽容或严格。</p>
+    <p class="message--important"><strong>重要信息：</strong>您的<a href="/mesosphere/dcos/1.11/security/ent/#security-modes">安全模式</a>必须是宽容或严格。</p>
 
     ```bash
     dcos:adminrouter:service:metronome full

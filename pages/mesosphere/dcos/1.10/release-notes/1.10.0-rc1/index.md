@@ -15,7 +15,7 @@ These are the release notes for DC/OS 1.10.0 Release Candidate 1.
 
 DC/OS 1.10 Release Candidate 1 has a number of limitations that will be resolved at GA time.
 <ul>
-<li>You must upgrade Marathon-LB <em>before</em> upgrading to DC/OS 1.10.0. See the <a href="/1.10/installing/production/upgrading/">upgrade section</a> for more information.</li>
+<li>You must upgrade Marathon-LB <em>before</em> upgrading to DC/OS 1.10.0. See the <a href="/mesosphere/dcos/1.10/installing/production/upgrading/">upgrade section</a> for more information.</li>
 
 <li>During upgrade to 1.10, there is a brief moment when the DNS resolution does not work. If a health check runs at that moment, it will fail and services will be reported as unhealthy.</li>
 </ul>

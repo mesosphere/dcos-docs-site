@@ -14,7 +14,7 @@ By default, a [new user](/mesosphere/dcos/1.11/security/ent/users-groups/) has n
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Only <a href="/1.11/security/ent/perms-reference/#superuser">superusers</a> can view the Dashboard, Nodes, and Cluster -> Overview tabs.</td> 
+  <td align=justify style=color:white><strong>Important:</strong> Only <a href="/mesosphere/dcos/1.11/security/ent/perms-reference/#superuser">superusers</a> can view the Dashboard, Nodes, and Cluster -> Overview tabs.</td> 
 </tr> 
 </table>
 

@@ -8,7 +8,7 @@ excerpt: 更新命令行界面
 enterprise: false
 ---
 
-根据当前安装的 DC/OS CLI 版本，您可以选择将 CLI 更新为群集的最新版本或安装特定版本。另请注意，如果您从 PyPI 或 DC/OS UI 1.7 或更早版本下载 CLI，则必须完全<a href="/1.12/cli/uninstall/">卸载</a> CLI，然后安装新版本的软件进行升级。
+根据当前安装的 DC/OS CLI 版本，您可以选择将 CLI 更新为群集的最新版本或安装特定版本。另请注意，如果您从 PyPI 或 DC/OS UI 1.7 或更早版本下载 CLI，则必须完全<a href="/mesosphere/dcos/1.12/cli/uninstall/">卸载</a> CLI，然后安装新版本的软件进行升级。
 
 # <a name="upgrade"></a>使用 Web 界面升级 CLI
 

@@ -194,7 +194,7 @@ In this step, you create a custom DC/OS build file on your bootstrap node and th
 **Important:** 
 
 - Do not install DC/OS until you have these items working: ip-detect script, DNS, and NTP everywhere. For help with troubleshooting, see the [documentation](/mesosphere/dcos/1.9/installing/ent/troubleshooting/).
-- If something goes wrong and you want to rerun your setup, use these cluster <a href="/1.9/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
+- If something goes wrong and you want to rerun your setup, use these cluster <a href="/mesosphere/dcos/1.9/installing/ent/custom/uninstall/" target="_blank">cleanup instructions</a>.
 
 To install DC/OS:
 

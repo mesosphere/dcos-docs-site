@@ -214,7 +214,7 @@ You can perform a custom installation from either the web interface or the CLI.
 
 <h2>Modify known hosts</h2>
 
-With the <code>known-hosts</code> option you can specify a space-separated list of hostnames to retrieve the SSH public keys from. This list will be populated on the Jenkins master when the bootstrap script runs (at container launch time). You must manually ensure that the SSH known hosts list is populated in any Jenkins agent containers. This is discussed further in <a href="/services/jenkins/custom-docker/">Customizing your Docker container</a> and you can see an example in the <a href="https://github.com/mesosphere/dcos-jenkins-dind-agent/"><code>dcos-jenkins-dind-agent</code></a> repo.
+With the <code>known-hosts</code> option you can specify a space-separated list of hostnames to retrieve the SSH public keys from. This list will be populated on the Jenkins master when the bootstrap script runs (at container launch time). You must manually ensure that the SSH known hosts list is populated in any Jenkins agent containers. This is discussed further in <a href="/mesosphere/dcos/services/jenkins/custom-docker/">Customizing your Docker container</a> and you can see an example in the <a href="https://github.com/mesosphere/dcos-jenkins-dind-agent/"><code>dcos-jenkins-dind-agent</code></a> repo.
 
 <pre><code>{
     "service": {

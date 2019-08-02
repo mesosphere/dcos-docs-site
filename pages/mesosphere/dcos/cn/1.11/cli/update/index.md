@@ -12,7 +12,7 @@ enterprise: false
 
 # <a name="upgrade"></a>升级 CLI
 
-<p class="message--note"><strong>注意: </strong> 如果您从 PyPI 下载 CLI 或从 DC/OS UI 版本 1.7 或更早版本下载，您必须完全,<a href="/cn/1.11/cli/uninstall/">卸载></a> CLI。您无法升级。</p>
+<p class="message--note"><strong>注意: </strong> 如果您从 PyPI 下载 CLI 或从 DC/OS UI 版本 1.7 或更早版本下载，您必须完全,<a href="/mesosphere/dcos/cn/1.11/cli/uninstall/">卸载></a> CLI。您无法升级。</p>
 
 您可以将现有 DC/OS CLI 安装升级到最新版本。
 

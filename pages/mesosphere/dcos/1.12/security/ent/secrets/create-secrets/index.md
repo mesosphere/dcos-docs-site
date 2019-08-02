@@ -57,7 +57,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
 This procedure describes how to create a secret called `my-secret` inside the `developer` path.
 
-<p class="message--note"><strong>NOTE: </strong>You must follow the steps in <a href="/1.12/security/ent/tls-ssl/get-cert/">Obtaining the DC/OS CA bundle</a> before issuing the curl commands in this section.</p>
+<p class="message--note"><strong>NOTE: </strong>You must follow the steps in <a href="/mesosphere/dcos/1.12/security/ent/tls-ssl/get-cert/">Obtaining the DC/OS CA bundle</a> before issuing the curl commands in this section.</p>
 
 
 1. Use `dcos auth login` log in to the CLI.

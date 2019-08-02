@@ -42,7 +42,7 @@ enterprise: false
 
 # 配置服务以使用 CNI 插件
 
-<p class="message--note"><strong>注意: </strong> 您的服务必须使用 <a href="/cn/1.11/deploying-services/containerizers/ucr/">通用容器运行时 (UCR)</a>。</p>
+<p class="message--note"><strong>注意: </strong> 您的服务必须使用 <a href="/mesosphere/dcos/cn/1.11/deploying-services/containerizers/ucr/">通用容器运行时 (UCR)</a>。</p>
 
 添加 `ipAddress.networkName` 参数到服务定义。`networkName` 必须匹配在上一步中配置文件的 `name` 参数。此例中，它是 `dcos`。
 

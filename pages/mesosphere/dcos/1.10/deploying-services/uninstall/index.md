@@ -29,7 +29,7 @@ dcos package uninstall chronos
 
 ## Web interface
 
-<p class="message--note"><strong>NOTE: </strong>The Edge-LB service cannot be uninstalled using this procedure. Please follow the steps in the <a href="/services/edge-lb/1.2/uninstalling/">Edge-LB uninstall documentation</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>The Edge-LB service cannot be uninstalled using this procedure. Please follow the steps in the <a href="/mesosphere/dcos/services/edge-lb/1.2/uninstalling/">Edge-LB uninstall documentation</a>.</p>
 
 You can uninstall services from the DC/OS web interface from the **Services** tab. The Services tab provides a full-featured interface to the native DC/OS Marathon instance.
 

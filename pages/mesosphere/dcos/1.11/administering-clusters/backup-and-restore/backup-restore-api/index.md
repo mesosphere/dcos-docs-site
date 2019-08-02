@@ -12,7 +12,7 @@ You can use the Backup and Restore API to create and restore backups of your clu
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> See the <a href="/1.11/administering-clusters/backup-and-restore/#limitations">Limitations</a> of backup and restore.</td> 
+  <td align=justify style=color:white><strong>Important:</strong> See the <a href="/mesosphere/dcos/1.11/administering-clusters/backup-and-restore/#limitations">Limitations</a> of backup and restore.</td> 
 </tr> 
 </table>
 

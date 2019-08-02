@@ -89,7 +89,7 @@ DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequenc
 
 <table class=“table” bgcolor=#858585>
 <tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/1.11/security/ent/hardening/#zk">Hardening</a> for more information.</td> 
+  <td align=justify style=color:white><strong>Important:</strong> Each cluster will use the same default ZooKeeper credentials unless you change them during an install or upgrade (strongly recommended). See <a href="/mesosphere/dcos/1.11/security/ent/hardening/#zk">Hardening</a> for more information.</td> 
 </tr> 
 </table>
 

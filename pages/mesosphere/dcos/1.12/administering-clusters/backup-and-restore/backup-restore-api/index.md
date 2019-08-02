@@ -10,7 +10,7 @@ enterprise: true
 
 You can use the Backup and Restore API to create and restore backups of your cluster.
 
-<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
 
 
 # Routes

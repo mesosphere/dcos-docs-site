@@ -8,7 +8,7 @@ excerpt: Updating the command line interface
 enterprise: false
 ---
 
-Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/1.11/cli/uninstall/">uninstall</a> the CLI then install a new version of the software to upgrade.
+Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/mesosphere/dcos/1.11/cli/uninstall/">uninstall</a> the CLI then install a new version of the software to upgrade.
 
 # <a name="upgrade"></a>Upgrade the CLI using the web interface
 

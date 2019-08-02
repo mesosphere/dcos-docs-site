@@ -12,7 +12,7 @@ enterprise: true
 
 您可以授予用户访问 [**作业**屏幕](/mesosphere/dcos/cn/1.12/gui/jobs/) 的权限。新用户默认没有权限。
 
- <p class="message--note"><strong>注意：</strong>此过程授予访问<strong>作业</strong>屏幕及其内部所有作业的全部用户权限。如欲配置细分用户访问权限，请参阅<a href="/1.12/deploying-services/service-groups/">文档</a>。</p>
+ <p class="message--note"><strong>注意：</strong>此过程授予访问<strong>作业</strong>屏幕及其内部所有作业的全部用户权限。如欲配置细分用户访问权限，请参阅<a href="/mesosphere/dcos/1.12/deploying-services/service-groups/">文档</a>。</p>
 
 
 

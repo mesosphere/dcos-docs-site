@@ -78,7 +78,7 @@ enterprise: true
 1. 执行以下 ZooKeeper 命令以获得额外权限，必要时使用 ZooKeeper 超级用户的实际用户名和密码替换 `super:secret` 。
 
     <p class="message--note"><strong>注意: </strong>
-  默认情况下，DC/OS 将 ZooKeeper 超级用户设置为 <tt>super:secret</tt>，但我们建议<a href="/cn/1.11/install/production/advanced-configuration/configuration-reference/#zk-superuser">更改默认值</a>。</p>
+  默认情况下，DC/OS 将 ZooKeeper 超级用户设置为 <tt>super:secret</tt>，但我们建议<a href="/mesosphere/dcos/cn/1.11/install/production/advanced-configuration/configuration-reference/#zk-superuser">更改默认值</a>。</p>
 
   ```bash
   addauth digest super:secret

@@ -11,7 +11,7 @@ enterprise: false
 
 The `dcos service log` command displays the service logs.
 
-<p class="message--important"><strong>IMPORTANT: </strong> To view the native DC/OS Marathon logs using the <code>dcos service log marathon</code> command, you must be on the same network or connected by VPN to your cluster. For more information, see <a href="/1.12/monitoring/logging/quickstart/">Accessing native DC/OS Marathon logs.</p>
+<p class="message--important"><strong>IMPORTANT: </strong> To view the native DC/OS Marathon logs using the <code>dcos service log marathon</code> command, you must be on the same network or connected by VPN to your cluster. For more information, see <a href="/mesosphere/dcos/1.12/monitoring/logging/quickstart/">Accessing native DC/OS Marathon logs.</p>
 
 # Usage
 

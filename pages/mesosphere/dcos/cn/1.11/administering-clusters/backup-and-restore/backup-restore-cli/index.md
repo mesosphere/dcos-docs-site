@@ -13,7 +13,7 @@ enterprise: true
 - [DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 已安装。
 - [DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.11/cli/enterprise-cli/) 已安装。
 
-<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</p>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的 <a href="/mesosphere/dcos/1.11/administering-clusters/backup-and-restore/#limitations">限制</a> 。</p>
 
 
 # 备份集群

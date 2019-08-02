@@ -181,7 +181,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         <table class=“table” bgcolor=#858585>
         <tr> 
-        <td align=justify style=color:white><strong>Important:</strong> Your <a href="/1.11/security/ent/#security-modes">security mode</a> must be either permissive or strict.</td> 
+        <td align=justify style=color:white><strong>Important:</strong> Your <a href="/mesosphere/dcos/1.11/security/ent/#security-modes">security mode</a> must be either permissive or strict.</td> 
         </tr> 
         </table>
 

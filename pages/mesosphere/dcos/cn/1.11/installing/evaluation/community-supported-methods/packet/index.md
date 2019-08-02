@@ -35,7 +35,7 @@ oss: true
 
 ## 安装 DC/OS
 
-<p class="message--important"><strong>重要信息：</strong>使用此方法就会默认打开网络。因此<a href="/1.12/administering-clusters/securing-your-cluster/#network-security">网络安全</a>是一个需要谨慎的问题，管理员应尽快解决。</p>
+<p class="message--important"><strong>重要信息：</strong>使用此方法就会默认打开网络。因此<a href="/mesosphere/dcos/1.12/administering-clusters/securing-your-cluster/#network-security">网络安全</a>是一个需要谨慎的问题，管理员应尽快解决。</p>
 
 1. 使用“先决条件”部分提供的链接上的说明下载和安装 Terraform。
 

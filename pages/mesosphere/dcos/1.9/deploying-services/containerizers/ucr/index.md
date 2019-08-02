@@ -63,7 +63,7 @@ The Mesos containerizer provides a `credential` with a `principal` and an option
 **Important:** If you leave the `args` field empty, the default entry point will be the launch command for the container. If your container does not have a default entry point, you must specify a command in the `args` field. If you do not, your service will fail to deploy.
 
 # Limitations
-- The UCR is a <a href="/1.9/overview/feature-maturity/">preview</a> feature in DC/OS 1.9.
+- The UCR is a <a href="/mesosphere/dcos/1.9/overview/feature-maturity/">preview</a> feature in DC/OS 1.9.
 - The UCR does not support the following: runtime privileges, Docker options, force pull, named ports, numbered ports, bridge networking, port mapping, private registries with container authentication.
 
 # Further Reading

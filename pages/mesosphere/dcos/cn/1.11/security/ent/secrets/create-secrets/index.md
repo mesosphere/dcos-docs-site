@@ -55,7 +55,7 @@ enterprise: true
 本程序介绍了如何在 `developer` 路径内创建名为 `my-secret` 的密钥。
 
 <p class="message--note"><strong>注意: </strong>
-如果您<a href="/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise">安全模式</a>为 <tt>permissive</tt> 或 <tt>strict</tt>，则在本部分中发出 curl 命令之前，必须遵循中的步骤<a href="/cn/1.11/security/ent/tls-ssl/get-cert/">获取 DC/OS CA 捆绑包</a>。如果您的<a href="/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise">安全模式</a>为 <tt>disabled</tt>，则必须在将其发出前从命令中删除 <tt>--cacert dcos-ca.crt</tt>。</p>
+如果您<a href="/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise">安全模式</a>为 <tt>permissive</tt> 或 <tt>strict</tt>，则在本部分中发出 curl 命令之前，必须遵循中的步骤<a href="/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/">获取 DC/OS CA 捆绑包</a>。如果您的<a href="/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise">安全模式</a>为 <tt>disabled</tt>，则必须在将其发出前从命令中删除 <tt>--cacert dcos-ca.crt</tt>。</p>
 
 1. 使用 `dcos auth login` 登录到 CLI。
 

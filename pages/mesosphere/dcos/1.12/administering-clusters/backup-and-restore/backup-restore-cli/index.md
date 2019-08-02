@@ -13,7 +13,7 @@ enterprise: true
 - The [DC/OS CLI](/mesosphere/dcos/1.12/cli/install/) installed.
 - The [DC/OS Enterprise CLI](/mesosphere/dcos/1.12/cli/enterprise-cli/) installed.
 
-<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
 
 
 # Backing up a cluster

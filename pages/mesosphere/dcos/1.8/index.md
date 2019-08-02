@@ -12,6 +12,6 @@ excerpt:
 - Go to the [Release Notes for 1.11](/mesosphere/dcos/1.11/release-notes/1.11.0/) or learn about [Upgrading to 1.11](/mesosphere/dcos/1.11/installing/production/upgrading/)
 - Go to the [Release Notes for 1.12](/mesosphere/dcos/1.12/release-notes/1.12.0) or learn about [Upgrading to 1.12](/mesosphere/dcos/1.12/installing/production/upgrading/)
 
-<p class="message--note"><strong>NOTE: </strong> Operators can now jump to later versions of DC/OS along specific upgrade paths rather than by major release iteration. Visit the <a href="/1.12/installing/production/upgrading/#supported-upgrade-paths">Upgrade Paths Matrix</a> to help plan your upgrade strategy.</p>
+<p class="message--note"><strong>NOTE: </strong> Operators can now jump to later versions of DC/OS along specific upgrade paths rather than by major release iteration. Visit the <a href="/mesosphere/dcos/1.12/installing/production/upgrading/#supported-upgrade-paths">Upgrade Paths Matrix</a> to help plan your upgrade strategy.</p>
 
 You can also visit the [version policy page](/mesosphere/dcos/version-policy/) for more information on DC/OS versioning and a list of supported operating environments.

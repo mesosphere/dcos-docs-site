@@ -76,7 +76,7 @@ Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。
 
 Metronome 作业定义提供 `"user"` 密钥，可用于覆盖默认 Linux 用户。
 
-<p class="message--note"><strong>注意：</strong>有关创建和部署作业的更多信息，请参阅<a href="/1.12/deploying-jobs/quickstart/">作业文档</a>。</p>
+<p class="message--note"><strong>注意：</strong>有关创建和部署作业的更多信息，请参阅<a href="/mesosphere/dcos/1.12/deploying-jobs/quickstart/">作业文档</a>。</p>
 
 
 以下程序将引导您完成快速教程，以展示所有权如何运作。在开始之前，请确保：

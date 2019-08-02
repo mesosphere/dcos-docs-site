@@ -14,7 +14,7 @@ menuWeight: 20
 oauth_enabled: 'false'
 ```
 
-<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/1.12/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>
+<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>
 
 
 
@@ -30,4 +30,4 @@ oauth_enabled: 'false'
 
 
 
-<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/1.12/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>
+<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>
