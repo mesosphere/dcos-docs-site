@@ -23,13 +23,13 @@ if paths[2] === 'services' && paths[3]
     if tmpItem
       - item = tmpItem
 
-// Version Policy
-if paths[2] === 'version-policy'
-  - var versionTitle = "Version Policy Page"
-  - var menu = hierarchy.findByPath('/mesosphere/dcos')
-  - item = menu
-  - item.children = menu.children.filter(child => child.id != 'cn')
-  - var type = item
+//- // Version Policy
+//- if paths[2] === 'version-policy'
+//-   - var versionTitle = "Version Policy Page"
+//-   - var menu = hierarchy.findByPath('/mesosphere/dcos')
+//-   - item = menu
+//-   - item.children = menu.children.filter(child => child.id != 'cn')
+//-   - var type = item
 
 
 // DC/OS Docs
