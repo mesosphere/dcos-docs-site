@@ -26,7 +26,7 @@ If you install a service in `permissive` mode and do not specify a service accou
 
 - [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/1.12/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- If your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/latest/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 <a name="SetPermsOutsideCluster"></a>
 

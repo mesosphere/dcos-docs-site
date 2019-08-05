@@ -105,7 +105,7 @@ DC/OS {{ model.techName }} 分布 1.X 采用 Scala 2.10 编译。DC/OS Apache Sp
 [13]: http://spark.apache.org/docs/latest/submitting-applications.html
 [14]: http://spark.apache.org/docs/latest/configuration.html#spark-properties
 [15]: http://spark.apache.org/docs/latest/configuration.html#overriding-configuration-directory
-[16]: https://dcos.io/docs/overview/design/overlay/
-[17]: https://dcos.io/docs/1.9/deploying-services/containerizers/ucr/
+[16]: /mesosphere/dcos/latest/overview/design/overlay/
+[17]: /mesosphere/dcos/latest/deploying-services/containerizers/ucr/
 [18]: http://mesos.apache.org/documentation/latest/endpoints/master/teardown/
 
