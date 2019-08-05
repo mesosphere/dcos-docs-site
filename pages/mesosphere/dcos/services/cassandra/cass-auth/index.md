@@ -12,7 +12,7 @@ In Cassandra 2.3.0-3.0.16 and later, these topics have been divided up among the
 
 # Configuring DC/OS Access
 
-This topic describes how to configure DC/OS access for Cassandra. Depending on your [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes/), Cassandra requires [service authentication](/mesosphere/dcos/1.10/security/ent/service-auth/) for access to DC/OS.
+This topic describes how to configure DC/OS access for Cassandra. Depending on your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/), Cassandra requires [service authentication](/mesosphere/dcos/1.10/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -24,9 +24,9 @@ If you install a service in permissive mode and do not specify a service account
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/mesosphere/dcos/1.9/cli/install/) and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/1.9/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/mesosphere/dcos/1.9/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/1.9/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- [DC/OS CLI installed](/mesosphere/dcos/latest/cli/install/) and be logged in as a superuser.
+- [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install).
+- If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/latest/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI.

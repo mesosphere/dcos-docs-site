@@ -15,7 +15,7 @@ Kafka is available in the Universe and can be installed by using either the web 
 
 # <a name="install-enterprise"></a>Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/services/kafka/kafka-auth/) before installing Kafka. You will need a `superuser` permission to create the service account. The following is a list of [security modes](/mesosphere/dcos/1.9/security/ent/#security-modes):
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/services/kafka/kafka-auth/) before installing Kafka. You will need a `superuser` permission to create the service account. The following is a list of [security modes](/mesosphere/dcos/latest/security/ent/#security-modes):
 
 	- `strict` security mode requires a service account.
 	- `permissive` security mode a service account is optional.
@@ -45,7 +45,7 @@ All `dcos kafka` CLI commands have a `--name` argument allowing the user to spec
 $ dcos kafka --name=<kafka-dev> <cmd>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Alternatively, you can <a href="/mesosphere/dcos/1.9/deploying-services/install/">install Kafka from the DC/OS web interface</a>. If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. </p>
+<p class="message--note"><strong>NOTE: </strong>Alternatively, you can <a href="/mesosphere/dcos/latest/deploying-services/install/">install Kafka from the DC/OS web interface</a>. If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. </p>
 
 Enter the following command from the DC/OS CLI:
 

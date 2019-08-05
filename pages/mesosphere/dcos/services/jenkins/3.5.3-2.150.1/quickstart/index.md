@@ -31,7 +31,7 @@ DC/OS 1.8 or later
 
 <h2>Using the CLI</h2>
 
-<p><strong>Tip:</strong> To install Jenkins using the CLI, you must have the <a href="/mesosphere/dcos/1.8/usage/cli/install/">CLI installed</a>.
+<p><strong>Tip:</strong> To install Jenkins using the CLI, you must have the <a href="/mesosphere/dcos/latest/cli/install">CLI installed</a>.
 
 From the CLI, type the following command to install Jenkins for DC/OS.
 
