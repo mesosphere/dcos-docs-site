@@ -27,7 +27,7 @@ dcos package install chronos
 
 ## Installing a service using the UI
 
-From the DC/OS UI you can install services from the **Services** or **{{ model.packageRepo }}** tab. The {{ model.packageRepo }} tab shows all of the available DC/OS services from package [repositories](/mesosphere/dcos/1.13/administering-clusters/repo/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
+From the DC/OS UI you can install services from the **Services** or **{{ model.packageRepo }}** tab. The {{ model.packageRepo }} tab shows all of the available DC/OS services from package [repositories](/mesosphere/dcos/1.13/administering-clusters/package-registry/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
 
 ### {{ model.packageRepo }} tab

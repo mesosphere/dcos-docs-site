@@ -57,5 +57,5 @@ In addition to the software that runs in the datacenter, DC/OS includes and inte
 
 - [GUI](/mesosphere/dcos/1.14/gui/)
 - [CLI](/mesosphere/dcos/1.14/cli/)
-- [package repository](/mesosphere/dcos/1.14/administering-clusters/repo/)
+- [package repository](/mesosphere/dcos/1.14/administering-clusters/package-registry/)
 - [container registry](/mesosphere/dcos/1.14/overview/concepts/#container-registry)
