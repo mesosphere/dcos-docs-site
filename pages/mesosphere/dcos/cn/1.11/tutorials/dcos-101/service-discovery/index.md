@@ -36,7 +36,7 @@ menuWeight: 4
 
 # Mesos-DNS
 
- [Mesos-DNS](/mesosphere/dcos/cn/1.11/networking/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从集群中的任何节点解析。这些条目的命名模式为 *task.scheduler.mesos*
+ [Mesos-DNS](/mesosphere/dcos/cn/1.11/networking/DNS/mesos-dns/) 为每个任务分配 DNS 条目，这些条目可从集群中的任何节点解析。这些条目的命名模式为 *task.scheduler.mesos*
 
  作业的默认调度程序为 [Marathon](/mesosphere/dcos/cn/1.11/overview/architecture/components/#marathon)，因此，Redis 服务的 Mesos-DNS 名称为 *redis.marathon.mesos*。
 

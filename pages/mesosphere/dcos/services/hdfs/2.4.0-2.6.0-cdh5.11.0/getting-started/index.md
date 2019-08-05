@@ -218,7 +218,7 @@ $ curl -v -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X P
 
 
 ## Virtual networks
-HDFS supports deployment on [virtual networks](/mesosphere/dcos/1.10/networking/virtual-networks/) on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
+HDFS supports deployment on [virtual networks](/mesosphere/dcos/1.10/networking/SDN/dcos-overlay/) on DC/OS (including the `dcos` overlay network), allowing each container to have its own IP address and not use the ports resources on the agent. This can be specified by passing the following configuration during installation:
 ```json
 {
     "service": {

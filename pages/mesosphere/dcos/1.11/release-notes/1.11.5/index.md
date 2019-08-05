@@ -100,7 +100,7 @@ Provide feedback on the new features and services at: [support.mesosphere.com](h
 - Decommission node - Support for permanently decommissioning nodes makes it easier to manage “spot” cloud instances, allowing for immediate task rescheduling. [View the documentation](/mesosphere/dcos/1.11/hybrid-cloud/features/decommission-nodes/)
 - UCR
   - Support for Docker image garbage collection. [View the documentation](/mesosphere/dcos/1.11/deploying-services/containerizers/).
-  -  Support for Docker image pull secrets. [View the documentation](/mesosphere/dcos/1.11/installing/ent/custom/configuration/configuration-parameters/#cluster-docker-credentials). An example for Docker credentials is [here](/mesosphere/dcos/1.11/installing/ent/custom/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
+  -  Support for Docker image pull secrets. [View the documentation](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#cluster-docker-credentials). An example for Docker credentials is [here](/mesosphere/dcos/1.11/installing/production/deploying-dcos/configuration/examples/#docker-credentials). [enterprise type="inline" size="small" /]
 
 ### Networking
 - Edge-LB 1.0. [View the documentation](/mesosphere/dcos/services/edge-lb/1.0/). [enterprise type="inline" size="small" /]

@@ -13,9 +13,9 @@ Your cluster will become more secure as you move from `disabled` to `permissive`
 
 - Ensure the network is setup according to the information for [securing your cluster](/mesosphere/dcos/1.11/administering-clusters/securing-your-cluster/).
 
-- <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/mesosphere/dcos/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) to `true`.
+- <a name="secure-flag"></a>In `permissive` and `strict` modes, set the [`auth_cookie_secure_flag`](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#auth-cookie-secure-flag-enterprise) to `true`.
 
-- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/mesosphere/dcos/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-superuser), [`zk_master_credentials`](/mesosphere/dcos/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-master), and [`zk_agent_credentials`](/mesosphere/dcos/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-agent).
+- <a name="zk"></a>Do not use the default ZooKeeper credentials. Instead, specify long, random values for the following: [`zk_super_credentials`](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#zk-superuser), [`zk_master_credentials`](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#zk-master), and [`zk_agent_credentials`](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#zk-agent).
 
 - [Get the root certificate of your DC/OS CA](/mesosphere/dcos/1.11/security/ent/tls-ssl/get-cert/#oob) and manually provision [browsers](/mesosphere/dcos/1.11/security/ent/tls-ssl/ca-trust-browser/), [DC/OS CLI](/mesosphere/dcos/1.11/security/ent/tls-ssl/ca-trust-cli/), [curl](/mesosphere/dcos/1.11/security/ent/tls-ssl/ca-trust-curl/), and other clients with it.
 

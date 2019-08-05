@@ -142,7 +142,7 @@ To update a cluster from permissive security to strict security, complete the fo
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
     1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node patch script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node patch script URL".
-    1.  Run the [nginx](install) container to serve the installation files.
+    1.  Run the [nginx](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/) container to serve the installation files.
 
 1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
 

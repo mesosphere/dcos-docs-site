@@ -607,7 +607,7 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
     - 8.8.4.4
     - 8.8.8.8
     ```
--  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/mesosphere/dcos/1.11/networking/mesos-dns/).
+-  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/mesosphere/dcos/1.11/networking/DNS/mesos-dns/).
 
 <p class="message--warning"><strong>WARNING: </strong>If you set the <code>resolvers</code> parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.</p>
 
@@ -683,7 +683,7 @@ Indicates whether to enable the DC/OS proxy.
 
     **Note:** Wildcard characters (`*`) are not supported.</p>
 
-    For more information, see the [examples](/mesosphere/dcos/1.11/installing/ent/custom/configuration/examples/#http-proxy).
+    For more information, see the [examples](/mesosphere/dcos/1.11/installing/production/deploying-dcos/configuration/examples/#http-proxy).
 
     <p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a></p>
 

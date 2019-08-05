@@ -260,7 +260,7 @@ You can use the following options to further configure the Docker credentials:
             *  `cluster_docker_credentials_write_to_etc: 'false'` Do not write a credentials file.
     *  `cluster_docker_credentials_dcos_owned: 'false'` The credentials file is stored in `/etc/mesosphere/docker_credentials`.
 
-For more information, see the [examples](/mesosphere/dcos/1.12/installing/ent/custom/configuration/examples/#docker-credentials).
+For more information, see the [examples](/mesosphere/dcos/1.12/installing/production/deploying-dcos/configuration/examples/#docker-credentials).
 
 ### cluster_docker_credentials_enabled
 Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_credentials`](#cluster-docker-credentials) to Mesos.
@@ -355,11 +355,11 @@ For more information, see the [system requirements](/mesosphere/dcos/1.12/instal
         **Note:** The last three bytes must be `00`.
 
         *  `overlays`
-            *  `name` The canonical name (see [limitations](/mesosphere/dcos/1.12/networking/virtual-networks/) for constraints on naming virtual networks).
+            *  `name` The canonical name (see [limitations](/mesosphere/dcos/1.12/networking/SDN/dcos-overlay/) for constraints on naming virtual networks).
             *  `subnet` The subnet that is allocated to the virtual network.
             *  `prefix` The size of the subnet that is allocated to each agent and thus defines the number of agents on which the overlay can run. The size of the subnet is carved from the overlay subnet.
 
- For more information, see the [example](/mesosphere/dcos/1.12/installing/ent/custom/configuration/examples/#overlay) and [documentation](/mesosphere/dcos/1.12/networking/virtual-networks/).
+ For more information, see the [example](/mesosphere/dcos/1.12/installing/production/deploying-dcos/configuration/examples/#overlay) and [documentation](/mesosphere/dcos/1.12/networking/SDN/dcos-overlay/).
 
 ### dcos_ucr_default_bridge_subnet
 Takes an IPv4 subnet. The subnet is allocated to the bridge `ucr-br0` created by the `mesos-bridge` CNI network. The `mesos-bridge` CNI network represents the network that is used to launch UCR containers when bridge-mode networking is selected for UCR containers.
@@ -406,7 +406,7 @@ The amount of time to wait before removing docker containers (i.e., `docker rm`)
 ### enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/mesosphere/dcos/1.12/installing/ent/cloud/) template installations.
+*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/mesosphere/dcos/1.12installing/evaluation/mesosphere-supported-methods) template installations.
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/mesosphere/dcos/1.12/installing/ent/custom/) installations.
 
 ### enable_mesos_input_plugin
@@ -625,7 +625,7 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
     - 8.8.4.4
     - 8.8.8.8
     ```
--  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/mesosphere/dcos/1.12/networking/mesos-dns/).
+-  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/mesosphere/dcos/1.12/networking/DNS/mesos-dns/).
 
 <p class="message--warning"><strong>WARNING: </strong>If you set the <code>resolvers</code> parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.</p>
 
@@ -698,7 +698,7 @@ Indicates whether to enable the DC/OS proxy.
 
     **Note:** Wildcard characters (`*`) are not supported.</p>
 
-    For more information, see the [examples](/mesosphere/dcos/1.12/installing/ent/custom/configuration/examples/#http-proxy).
+    For more information, see the [examples](/mesosphere/dcos/1.12/installing/production/deploying-dcos/configuration/examples/#http-proxy).
 
     <p class="message--note"><strong>NOTE: </strong>You should also configure an HTTP proxy for <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker</a></p>
 

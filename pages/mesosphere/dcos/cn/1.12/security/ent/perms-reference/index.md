@@ -72,7 +72,7 @@ HTTP 端点，Admin Router 自身执行授权。例如，
 | `dcos:adminrouter:ops:cockroachdb`<br>控制对 [CockroachDB UI](https://www.cockroachlabs.com/docs/v1.1/admin-ui-overview-dashboard.html) 的访问。| x | | | | |
 | `dcos:adminrouter:ops:exhibitor`<br>控制对 Exhibitor UI 和 API 的访问。此权限允许用户在卸载服务之后[删除 ZooKeeper 状态](/mesosphere/dcos/cn/1.12/deploying-services/uninstall/#framework-cleaner)。| x | | | | |
 | `dcos:adminrouter:ops:historyservice`<br>控制对 [历史服务](/mesosphere/dcos/cn/1.12/overview/architecture/components/#dcos-history) 的访问。这包括从 Mesos 访问可能的敏感数据，例如，所有框架的名称、其使用的资源以及每种状态中的任务数量。| x | | | | |
-| `dcos:adminrouter:ops:mesos-dns`<br> 控制对 [Mesos DNS API](/mesosphere/dcos/cn/1.12/networking/mesos-dns/mesos-dns-api/) 的访问。| x | | | | |
+| `dcos:adminrouter:ops:mesos-dns`<br> 控制对 [Mesos DNS API](/mesosphere/dcos/cn/1.12/networking/DNS/mesos-dns/mesos-dns-api/) 的访问。| x | | | | |
 | `dcos:adminrouter:ops:mesos`<br> 控制对 Mesos 管理节点 UI 和 API 的访问。| x | | | | |
 | `dcos:adminrouter:ops:metadata`<br> 控制对 [元数据端点](/mesosphere/dcos/cn/1.12/api/master-routes/#metadata) 的访问。| x | | | | |
 | `dcos:adminrouter:ops:networking`<br> 控制对 [网络度量标准](/mesosphere/dcos/cn/1.12/api/master-routes/#network-metrics) 端点的访问。| x | | | | |

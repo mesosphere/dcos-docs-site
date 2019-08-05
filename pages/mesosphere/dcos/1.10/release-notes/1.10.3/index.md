@@ -41,8 +41,8 @@ You can find additional information and a more robust remediation procedure in <
 - Support for RHEL 7.4.
 - Updated to Mesos 1.4.0 ([changelog](https://git-wip-us.apache.org/repos/asf?p=mesos.git;a=blob_plain;f=CHANGELOG;hb=1.4.0)).
 - Updated to Marathon 1.5.2 ([changelog](https://github.com/mesosphere/marathon/releases/tag/v1.5.2)).
-- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/mesosphere/dcos/1.10/installing/ent/custom/configuration/examples/#docker-credentials).
-- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/mesosphere/dcos/1.10/installing/ent/custom/configuration/configuration-parameters/#ca-certificate-path-enterprise).
+- DCOS-17947 - Updated configuration example for a cluster that uses [custom Docker credentials](/mesosphere/dcos/1.10/installing/production/deploying-dcos/configuration/examples/#docker-credentials).
+- DCOS-19360 - Added clarifications to the [custom CA certificate installation documentation](/mesosphere/dcos/1.10/installing/production/advanced-configuration/configuration-reference/#ca-certificate-path-enterprise).
 - DOCS-1925 - Clarified how operators can [recover from a full agent disk](/mesosphere/dcos/1.10/administering-clusters/recovering-agent-disk-space/).
 - DOCS-2153 - Updated [Metrics names](/mesosphere/dcos/1.10/metrics/reference/).
 

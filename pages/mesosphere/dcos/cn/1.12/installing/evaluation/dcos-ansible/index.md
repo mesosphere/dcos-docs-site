@@ -19,7 +19,7 @@ excerpt: 自动安装、升级和配置 DC/OS 的 Enterprise 和开源版本
 
 ## 将 Mesosphere DC/OS Ansible 角色与 Mesosphere 通用安装工具结合使用
 
-Mesosphere 支持使用一组 [通用安装工具](/mesosphere/dcos/cn/1.12/installing/evaluation/mesosphere-supported-methods/)构建基础架构，采用一种特别的 [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge)和 Ansible 来管理 DC/OS 软件的生命周期。
+Mesosphere 支持使用一组 [通用安装工具](/mesosphere/dcos/cn/1.12/installing/evaluation/)构建基础架构，采用一种特别的 [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge)和 Ansible 来管理 DC/OS 软件的生命周期。
 
 ```hcl
 module "dcos-ansible-bridge" {

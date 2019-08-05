@@ -451,7 +451,7 @@ enable_ipv6: 'false'
 
 图 4. DC/OS UI 仪表板
 
-<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="/mesosphere/dcos/cn/1.11/installing/evaluation/mesosphere-supported-methods/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
+<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="/mesosphere/dcos/cn/1.11/installing/evaluation/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
 
 ### 后续步骤：Enterprise 和开源用户
 

@@ -9,7 +9,7 @@ enterprise: true
 
 ## 关于安装 Marathon-LB
 
-安装流程因您的 [安全模式而异](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)。有关分步说明，请参阅与安全模式相对应的部分。
+安装流程因您的 [安全模式而异](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)。有关分步说明，请参阅与安全模式相对应的部分。
 
 - [`disabled` 和 `permissive` 模式](#mlb-disabled-install)
 - [`strict` 模式](#mlb-strict-perm-install)
@@ -54,7 +54,7 @@ dcos package install --options=config.json marathon-lb
 
 **先决条件：**
 
-- Marathon-LB 需要一个`strict` [安全模式](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise)中的服务帐户。只有具有 `superuser` 权限的用户才能创建服务帐户。请参阅 [Provisioning Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/mlb-auth/) 了解说明。
+- Marathon-LB 需要一个`strict` [安全模式](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise)中的服务帐户。只有具有 `superuser` 权限的用户才能创建服务帐户。请参阅 [Provisioning Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/mlb-auth/) 了解说明。
 
 - [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.11/cli/install/) 并作为具有 [必要权限](/mesosphere/dcos/cn/1.11/security/ent/perms-reference/)的用户通过 `dcos auth login` 登录。
 
