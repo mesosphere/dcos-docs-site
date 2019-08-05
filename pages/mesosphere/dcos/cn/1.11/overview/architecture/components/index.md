@@ -364,7 +364,7 @@ Mesos DNS 提供集群内基于域名的服务发现。
 
 - [文档](http://mesosphere.github.io/mesos-dns/)
 - [来源](https://github.com/mesosphere/mesos-dns)
-- [API 参考](/mesosphere/dcos/cn/1.11/networking/mesos-dns/mesos-dns-api/)
+- [API 参考](/mesosphere/dcos/cn/1.11/networking/DNS/mesos-dns/mesos-dns-api/)
 
 <a name="dns-forwarder"></a>
 

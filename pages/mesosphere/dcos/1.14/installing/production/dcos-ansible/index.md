@@ -60,7 +60,7 @@ To learn more about using Terraform as your deployment manager visit the [Univer
 
 ## Using the Mesosphere DC/OS Ansible roles in combination with the Mesosphere Universal Installer
 
-Mesosphere supports the use of a combination of the [Universal Installer](/mesosphere/dcos/1.14/installing/evaluation/mesosphere-supported-methods/) for infrastructure, a special [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge) and Ansible to manage the life cycle of the DC/OS software.
+Mesosphere supports the use of a combination of the [Universal Installer](/mesosphere/dcos/1.14/installing/evaluation/) for infrastructure, a special [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge) and Ansible to manage the life cycle of the DC/OS software.
 
 ```hcl
 module "dcos-ansible-bridge" {

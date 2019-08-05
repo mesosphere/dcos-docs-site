@@ -11,9 +11,9 @@ enterprise: true
 
 当您从 `disabled` 转为 `permissive` 转为 `strict` [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)时，您的集群将变得更加安全。但是，有许多设置可以独立于安全模式进行修改，以提高集群的安全性。
 
-- <a name="secure-flag"></a>在 `permissive` 和 `strict` 模式下，将[`auth_cookie_secure_flag`](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#auth-cookie-secure-flag-enterprise) 设置为 `true`。
+- <a name="secure-flag"></a>在 `permissive` 和 `strict` 模式下，将[`auth_cookie_secure_flag`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#auth-cookie-secure-flag-enterprise) 设置为 `true`。
 
-- <a name="zk"></a>不要使用默认 ZooKeeper 凭据。而是为以下内容指定长的随机值：[`zk_super_credentials`](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-superuser)、[`zk_master_credentials`](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-master) 和 [`zk_agent_credentials`](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#zk-agent)。
+- <a name="zk"></a>不要使用默认 ZooKeeper 凭据。而是为以下内容指定长的随机值：[`zk_super_credentials`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#zk-superuser)、[`zk_master_credentials`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#zk-master) 和 [`zk_agent_credentials`](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#zk-agent)。
 
 - [获取 DC/OS CA 的根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/#oob) 并手动配置 [浏览器](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-trust-browser/)、[DC/OS CLI](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-trust-cli/)、[curl](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-trust-curl/) 和其他客户端。
 

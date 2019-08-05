@@ -321,7 +321,7 @@ Mesos 取决于 ZooKeeper，后者是管理集群状态的高性能协调服务�
 
 Mesos-DNS 是一个 DC/OS 组件，可在集群内提供服务发现。Mesos-DNS 允许在 Mesos 上运行的应用程序和服务通过使用域名系统 (DNS) 找到彼此，与服务在整个互联网中发现彼此的方式相似。
 
-如需更多信息，请参阅 [Mesos-DNS 文档](/mesosphere/dcos/cn/1.11/networking/mesos-dns/)。
+如需更多信息，请参阅 [Mesos-DNS 文档](/mesosphere/dcos/cn/1.11/networking/DNS/mesos-dns/)。
 
 # <a name="marathon-concepts"></a>Marathon 概念
 

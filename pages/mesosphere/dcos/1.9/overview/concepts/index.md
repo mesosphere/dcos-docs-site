@@ -337,7 +337,7 @@ Mesos depends on ZooKeeper, a high-performance coordination service to manage th
 
 Mesos-DNS is a DC/OS component that provides service discovery within the cluster. Mesos-DNS allows applications and services that are running on Mesos to find each other by using the domain name system (DNS), similar to how services discover each other throughout the Internet.
 
-For more information, see the [Mesos-DNS documentation](/mesosphere/dcos/1.9/networking/mesos-dns/).
+For more information, see the [Mesos-DNS documentation](/mesosphere/dcos/1.9/networking/DNS/mesos-dns/).
 
 # <a name="marathon-concepts"></a>Marathon Concepts
 

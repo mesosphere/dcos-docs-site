@@ -213,7 +213,7 @@ The Enterprise template specifies three Mesos masters, static master discovery l
 
 The Open Source template specifies three Mesos masters, three ZooKeeper instances for Exhibitor storage, static master discovery list, internal storage backend for Exhibitor, a custom proxy, and cloud specific DNS resolvers. [oss type="inline" size="small" /]
 
-If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/mesosphere/dcos/1.13/installing/ent/custom/configuration/configuration-parameters/).
+If your servers are installed with a domain name in your `/etc/resolv.conf`, add the `dns_search` parameter. For parameter descriptions and configuration examples, see the [documentation](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/).
 
 <p class="message--note"><strong>NOTE: </strong>If AWS DNS IP is not available in your country, you can replace the AWS DNS IP servers <code>8.8.8.8</code> and <code>8.8.4.4</code> with your local DNS servers.</p>
 <p class="message--note"><strong>NOTE: </strong>If you specify <code>master_discovery: static</code>, you must also create a script to map internal IPs to public IPs on your bootstrap node (for example, <code>genconf/ip-detect-public</code>). This script is then referenced in <code>ip_detect_public_filename: "relative-path-from-dcos-generate-config.sh"</code>.</p>
@@ -443,7 +443,7 @@ You are done! The UI dashboard will now be displayed.
 
 Figure 4. DC/OS UI dashboard
 
-<p class="message--note"><strong>NOTE: </strong>You can also use <a href="/mesosphere/dcos/1.13/installing/evaluation/mesosphere-supported-methods/">Universal Installer</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
+<p class="message--note"><strong>NOTE: </strong>You can also use <a href="/mesosphere/dcos/1.13/installing/evaluation/">Universal Installer</a> to deploy DC/OS on AWS, Azure, or GCP in production.</p>
 
 ### Next Steps: Enterprise and Open Source users
 

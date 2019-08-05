@@ -64,7 +64,7 @@ This mode provides some of the security features, but does not include the Mesos
 This mode provides the most robust security posture and requires a significant amount of configuration.
 
 ## <a name="set"></a>Setting your security mode
-The security mode is set during [DC/OS installation](/mesosphere/dcos/1.11/installing/production/deploying-dcos/installation/) and can only be changed by performing an [upgrade](/mesosphere/dcos/1.11/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/mesosphere/dcos/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise).
+The security mode is set during [DC/OS installation](/mesosphere/dcos/1.11/installing/production/deploying-dcos/installation/) and can only be changed by performing an [upgrade](/mesosphere/dcos/1.11/installing/production/upgrading/). The security mode is set in the installation configuration file with the [`security` parameter](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 <table class=“table” bgcolor=#858585>
 <tr> 
@@ -83,7 +83,7 @@ You can use either of the following methods to determine the security mode of an
 # <a name="authentication"></a>Authentication
 All requests from outside of the DC/OS cluster require an authentication token. Depending on your security mode, in-cluster authentication tokens may be required. For more information, see the [Service Accounts documentation](/mesosphere/dcos/1.11/security/ent/service-auth/).
 
-The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/mesosphere/dcos/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise).
+The DC/OS authentication token is a [JSON web token (JWT)](https://jwt.io/introduction/) that expires five days after issuance by default. The default expiration can be modified during a [custom install or upgrade](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#bouncer-expiration-auth-token-days-enterprise).
 
 DC/OS provisions masters with ZooKeeper credentials during the bootstrap sequence. This allows the masters to nominate themselves as potential Mesos leaders.
 

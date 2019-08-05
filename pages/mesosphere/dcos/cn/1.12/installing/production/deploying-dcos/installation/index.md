@@ -214,7 +214,7 @@ Enterprise 指定三个Mesos 管理节点、静态管理节点发现列表、Exh
 
 该开源模板指定三个 Mesos 管理节点、三个用于 Exhibitor 存储的 ZooKeeper 实例、静态管理节点发现列表、Exhibitor 的内部存储后端、一个自定义代理，以及云专用的 DNS 解析器。[oss type="inline" size="small" /]
 
-如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/1.12/installing/ent/custom/configuration/configuration-parameters/)。
+如果服务器在您的 `/etc/resolv.conf` 中安装时带有域名，请添加 `dns_search` 参数。有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/)。
 
 <p class="message--note"><strong>注意：</strong>如果 AWS DNS IP 在您的国家/地区不可用，可以使用本地 DNS 服务器替换 AWS DNS IP 服务器 <code>8.8.8.8</code> 和 <code>8.8.4.4</code>。</p>
 <p class="message--note"><strong>注意：</strong>- 如果您指定 <code>master_discovery: static</code>，则还必须创建脚本，以将内部 IP 映射到 bootstrap 节点上的公共 IP（例如，<code>genconf/ip-detect-public</code>）。然后，此脚本在 <code>ip_detect_public_filename: " relative-path-from-dcos-generate-config.sh"</code> 中引用。</p>
@@ -445,7 +445,7 @@ enable_ipv6: 'false'
 
 图 4. DC/OS UI 仪表板
 
-<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="/mesosphere/dcos/1.12/installing/evaluation/mesosphere-supported-methods/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
+<p class="message--note"><strong>注意：</strong>您也可以使用 <a href="/mesosphere/dcos/1.12/installing/evaluation/">Universal 安装工具</a>在 AWS、Azure 或 GCP 上部署 DC/OS 用于生产。</p>
 
 ### 后续步骤：Enterprise 和开源用户
 

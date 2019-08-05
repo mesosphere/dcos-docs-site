@@ -93,7 +93,7 @@ excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
     aws_template_storage_secret_access_key: <your-secret-access_key>
     ```
 
-    有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/cn/1.12/installing/ent/custom/configuration/configuration-parameters/)。
+    有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/cn/1.12/installing/production/advanced-configuration/configuration-reference/)。
 
 1. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 物件和模板的自定义版本并将其上传到指定的 s3 bucket。
 

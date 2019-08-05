@@ -63,7 +63,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 此模式提供最强大的安全状态，需要大量配置。
 
 ## <a name="set"></a>设置安全模式
-安全模式在 [DC/OS 安装](/mesosphere/dcos/cn/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行[升级](/mesosphere/dcos/cn/1.11/installing/ent/upgrading/) 进行更改。安全模式已在有 [`security` 参数](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#security-enterprise) 的安装配置文件设置。
+安全模式在 [DC/OS 安装](/mesosphere/dcos/cn/1.11/installing/ent/custom/advanced/) 过程中设置，并且只能通过执行[升级](/mesosphere/dcos/cn/1.11/installing/ent/upgrading/) 进行更改。安全模式已在有 [`security` 参数](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) 的安装配置文件设置。
 
 <p class="message--important"><strong>重要信息：</strong>升级期间，您只能从“禁用”移至“宽容”，从“宽容”移至“严格”。</p>
 
@@ -78,7 +78,7 @@ DC/OS 基于 Linux 内核和 userspace。保护任何 Linux 系统的最佳实�
 # <a name="authentication"></a>身份认证
 DC/OS 集群外部的所有请求都需要认证令牌。根据您的安全模式，可能会要求集群内认证令牌。如需更多信息，请参阅 [服务账户文档](/mesosphere/dcos/cn/1.11/security/ent/service-auth/)。
 
-DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级](/mesosphere/dcos/cn/1.11/installing/ent/custom/configuration/configuration-parameters/#bouncer-expiration-auth-token-days-enterprise) 期间进行修改。
+DC/OS 认证令牌是 [JSON Web 令牌 (JWT)](https://jwt.io/introduction/)，默认情况下，在发布后五天到期。默认到期时间可在 [自定义安装或升级](/mesosphere/dcos/cn/1.11/installing/production/advanced-configuration/configuration-reference/#bouncer-expiration-auth-token-days-enterprise) 期间进行修改。
 
 在  bootstrap 序列期间，DC/OS 使用 ZooKeeper 凭据配置管理节点。这使得管理节点可以将自己指定为潜在的 Mesos 管理节点。
 

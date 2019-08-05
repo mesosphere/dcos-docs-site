@@ -455,7 +455,7 @@ In a world where machines are given numbers instead of names, tasks are schedule
   <ul>
     <li><a href="http://mesosphere.github.io/mesos-dns/">Documentation</a></li>
     <li><a href="https://github.com/mesosphere/mesos-dns">Source</a></li>
-    <li><a href="/mesosphere/dcos/1.9/networking/mesos-dns/mesos-dns-api/">API Reference</a></li>
+    <li><a href="/mesosphere/dcos/1.9/networking/DNS/mesos-dns/mesos-dns-api/">API Reference</a></li>
   </ul>
 </p>
 </div>

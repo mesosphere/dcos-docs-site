@@ -16,7 +16,7 @@ excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 |----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
 | [agent_list](#agent-list) | [专用代理] `-`主机名的 IPv4 地址的 YAML 嵌套列表（(/1.12/overview/concepts/#private-agent-node)）。|
 | aws_template_storage_access_key_id | 拥有 AWS S3 bucket 的帐户的 [访问密钥 ID]（http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys）。|
-| aws_template_storage_bucket | 包含 [自定义高级 AWS 模板](/mesosphere/dcos/1.12/installing/ent/cloud/aws/advanced/#create-your-templates) 的 S3 bucket 的名称。 |
+| aws_template_storage_bucket | 包含 [自定义高级 AWS 模板](/mesosphere/dcos/1.12installing/evaluation/mesosphere-supported-methodsaws/advanced/#create-your-templates) 的 S3 bucket 的名称。 |
 | aws_template_storage_bucket_path | S3 bucket 内模板工件存储位置的路径。
 | aws_template_storage_region_name | 包含 S3 bucket 的分域。 |
 | aws_template_storage_secret_access_key | 拥有 AWS S3 bucket 的帐户的 [秘密访问密钥] (http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys)。|
@@ -217,7 +217,7 @@ bouncer_expiration_auth_token_days: '0.5'
  * `cluster_docker_credentials_write_to_etc: 'false'` 请勿写入凭据文件。
  * `cluster_docker_credentials_dcos_owned: 'false'` 凭据文件存储在 `/etc/mesosphere/docker_credentials` 中。
 
-如需更多信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/ent/custom/configuration/examples/#docker-credentials)。
+如需更多信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/production/deploying-dcos/configuration/examples/#docker-credentials)。
 
 ### cluster_docker_credentials_enabled
 是否向 Mesos 传递包含 [`cluster_docker_credentials`](#cluster-docker-credentials) 的 Mesos `--docker_config` 选项。
@@ -256,7 +256,7 @@ Mesos 用于从中拉取 Docker 镜像的自定义 URL。设置后将把 Mesos �
  - `cmd` - 指定运行状况检查命令字符串的阵列
  - `timeout` - 指定在认定检查失败之前需等待（以秒为单位）的时间。超时的检查通常状态为 `3 (UNKNOWN)`
 
-有关如何使用这些自定义检查的详细信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/ent/custom/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/mesosphere/dcos/1.12/installing/ent/custom/node-cluster-health-check/) 文档。
+有关如何使用这些自定义检查的详细信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/production/deploying-dcos/configuration/examples/#custom-checks) 以及 [节点和群集运行状况检查](/mesosphere/dcos/1.12/installing/ent/custom/node-cluster-health-check/) 文档。
 
 
 ### dcos_audit_logging [enterprise type="inline" size="small" /]
@@ -300,11 +300,11 @@ Mesos 用于从中拉取 Docker 镜像的自定义 URL。设置后将把 Mesos �
 
       *  `overlays`
 
- * `name` 典型名称（参见 [限制](/mesosphere/dcos/1.12/networking/virtual-networks/)，了解有关命名虚拟网络的限制）。
+ * `name` 典型名称（参见 [限制](/mesosphere/dcos/1.12/networking/SDN/dcos-overlay/)，了解有关命名虚拟网络的限制）。
  * `subnet` 分配给虚拟网络的子网。
  * `prefix` 分配给每个代理的子网大小，进而定义覆盖网络可运行的代理的数量。子网的大小在来自覆盖子网。
 
- 如需更多信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/ent/custom/configuration/examples/#overlay) 和 [文档](/mesosphere/dcos/1.12/networking/virtual-networks/)。
+ 如需更多信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/production/deploying-dcos/configuration/examples/#overlay) 和 [文档](/mesosphere/dcos/1.12/networking/SDN/dcos-overlay/)。
 
 ### dns_bind_ip_blacklist
 
@@ -345,7 +345,7 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 ### enable_docker_gc
 指示是否运行 [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。您可以使用 `/etc/` 配置参数，设置运行时间行为。如需更多信息，请参阅 [文档](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
 
-* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云] (/1.12/installing/ent/cloud/) 模板安装的默认值。
+* `enable_docker_gc: 'true'` 请每小时运行一次 docker-gc 脚本。这是 [云] (/1.12installing/evaluation/mesosphere-supported-methods) 模板安装的默认值。
 * `enable_docker_gc: 'false'` 请勿每小时运行一次 docker-gc 脚本。这是 [自定义] (/1.12/installing/ent/custom/) 安装的默认值。
 
 ### enable_mesos_input_plugin
@@ -540,7 +540,7 @@ DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表（`-`）。最多可指定
     - 8.8.4.4
     - 8.8.8.8
     ```
-- 如果没有 DNS 基础架构且没有权限访问互联网 DNS 服务器，您可以指定 `resolvers: []`。指定该设置后，发送到非 `.mesos` 的所有请求都将回复一个错误。如需更多信息，请参阅 Mesos-DNS [文档](/mesosphere/dcos/1.12/networking/mesos-dns/)。
+- 如果没有 DNS 基础架构且没有权限访问互联网 DNS 服务器，您可以指定 `resolvers: []`。指定该设置后，发送到非 `.mesos` 的所有请求都将回复一个错误。如需更多信息，请参阅 Mesos-DNS [文档](/mesosphere/dcos/1.12/networking/DNS/mesos-dns/)。
 
 <p class="message--warning"><strong>警告：</strong>如果设置的 `resolvers` 参数不正确，您将永久损坏配置，必须重新安装 DC/OS。</p>
 
@@ -619,7 +619,7 @@ SSH 用户名，例如 `centos`。
 
 <p class="message--note"><strong>注意：</strong>不支持通配符（`*`）。</p>
 
-如需更多信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/ent/custom/configuration/examples/#http-proxy)。
+如需更多信息，请参阅 [示例](/mesosphere/dcos/1.12/installing/production/deploying-dcos/configuration/examples/#http-proxy)。
 
 <p class="message--note"><strong>注意：</strong>还应为 <a href="https://docs.docker.com/engine/admin/systemd/#/http-proxy">Docker 配置 HTTP 代理。</a></p>
 
