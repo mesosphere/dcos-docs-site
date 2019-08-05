@@ -24,7 +24,7 @@ If you install a service in permissive mode and do not specify a service account
 
 - [DC/OS CLI installed](/mesosphere/dcos/latest/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14 or later installed](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install).
-- If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/latest/networking/tls-ssl/get-cert/) before issuing the curl commands in this section.
+- If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/latest/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created uses the Enterprise DC/OS CLI.

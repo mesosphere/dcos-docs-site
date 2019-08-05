@@ -11,7 +11,7 @@ enterprise: false
 
 ## 先决条件
 
-* 遵照 [Edge-LB 安装指南] 安装 Edge-LB(/services/edge-lb/1.1/installing) 指令。
+* 遵照 [Edge-LB 安装指南] 安装 Edge-LB(/mesosphere/dcos/cn/services/edge-lb/1.1/installing) 指令。
 * DC/OS CLI 已安装并配置为与 DC/OS 集群进行通信，并且 `edgelb` 已安装 CLI 包。
 * 至少有一个 DC/OS 专用代理节点来运行负载均衡服务（更多最好）。
 * 至少一个 DC/OS 公用代理节点。
