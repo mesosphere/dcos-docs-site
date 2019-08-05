@@ -7,6 +7,7 @@ menuWeight: 30
 category: Workload
 image: img/confluent.png
 ---
+# Confluent Platform
 
 Confluent Platform is a streaming platform that enables you to organize and manage data from many different sources with one reliable, high performance system.
 
@@ -47,6 +48,35 @@ kafka:
   metricReporter:
     enabled: true
 ```
+
+#### enable load balancing for external access
+
+There are a few more things that you have to edit in the `providers/aws.yaml` helm values file in case you want access to the Confluent platform services from outside the Konvoy cluster.
+
+Here we show how to do that configuration for the `kafka cluster`, but it works analogues for the other platform services.
+
+For `kafka` enable `loadBalancer`, and set the `domain` to one you own.
+
+```yaml
+kafka:
+  name: kafka
+  replicas: 3
+  ...
+  loadBalancer:
+    enabled: true
+    domain: "mydomain.com"
+  ...
+```
+
+The assumption is that the `brokers` of the `kafka cluster` are available at the following external endpoints.
+
+```
+b0.mydomain.com
+b1.mydomain.com
+b2.mydomain.com
+```
+
+For this to be true you will have to create `CNAME DNS record's` with your DNS provider (e.g. AWS Route 53, ...) once the cluster is up and running. More on this in a later step.
 
 ### install the operator
 
@@ -120,6 +150,8 @@ helm install -f ./providers/aws.yaml --name ksql --namespace operator --set ksql
 
 ### access the platform
 
+#### access to control center
+
 We can use `port forwarding` to access the `controlcenter` service, the console of the platform.
 
 ```sh
@@ -127,6 +159,8 @@ kubectl port-forward service/controlcenter 9021:9021 -n operator
 ```
 
 Once you run the command open your browser on [http://localhost:9091]). Login with the username and password that you find in the controlcenter section of the `provider/aws.yaml` file, default is `admin/Developer1`.
+
+#### internal access to kafka
 
 Next validate that we can interact with the `kafka cluster` itself.
 
@@ -171,6 +205,45 @@ And then `consume` them.
 kafka-console-consumer --from-beginning --topic ravi --bootstrap-server kafka:9071 --consumer.config kafka.properties
 ```
 
+#### external access to kafka
+
+This step assumes that you enabled `external load balancer` access for `kafka` as described earlier.
+
+Once the `kafka cluster` is up and running you should see the following `Services` with their `external IP's`. Note the IP's will be different in your case.
+
+```sh
+kubectl get services -n operator
+
+NAME                         TYPE           CLUSTER-IP    EXTERNAL-IP                                                               PORT(S)                                        AGE
+...
+kafka-0-lb                   LoadBalancer   10.0.27.180   ab6c807cf45d34b2d8bc82e06c267ad9-601100096.us-west-2.elb.amazonaws.com    9092:31232/TCP                                 21m
+kafka-1-lb                   LoadBalancer   10.0.27.139   a368d00ce18a04d59aea7b7d3bbd579a-561986806.us-west-2.elb.amazonaws.com    9092:31076/TCP                                 21m
+kafka-2-lb                   LoadBalancer   10.0.58.175   a4396d1859ecd4b7ca8334c002d69243-499801305.us-west-2.elb.amazonaws.com    9092:32187/TCP                                 21m
+kafka-bootstrap-lb           LoadBalancer   10.0.52.87    a46558d70ca424fcdbc008e29e7d48a8-1982953157.us-west-2.elb.amazonaws.com   9092:31129/TCP                                 21m
+...
+```
+
+Use your respective `external IP's` to create the following `CNAME DNS record's` with your DNS provider (e.g. AWS Route 53, ...).
+
+```
+b0.mydomain.com      -->   ab6c807cf45d34b2d8bc82e06c267ad9-601100096.us-west-2.elb.amazonaws.com
+b1.mydomain.com      -->   a368d00ce18a04d59aea7b7d3bbd579a-561986806.us-west-2.elb.amazonaws.com
+b2.mydomain.com      -->   a46558d70ca424fcdbc008e29e7d48a8-1982953157.us-west-2.elb.amazonaws.com
+kafka.mydomain.com   -->   a46558d70ca424fcdbc008e29e7d48a8-1982953157.us-west-2.elb.amazonaws.com
+```
+
+Next use `control center` to create a `new topic named ravi`.
+
+In the following use `kafkacat` to `produce` and `consume` from the new topic. On `Mac OS X` kafkacat can be installed using `brew`. You can run `kafkacat` from one command line in sequence. First use `kafkacat -P ...` to produce a few messages and then use `kafkacat -C ...` to consume them.
+
+```
+kafkacat -P -t ravi -b kafka.mydomain.com:9092 -X security.protocol=SASL_PLAINTEXT -X sasl.mechanisms=PLAIN -X sasl.username=test -X sasl.password=test123
+```
+
+```
+kafkacat -C -t ravi -b kafka.mydomain.com:9092 -X security.protocol=SASL_PLAINTEXT -X sasl.mechanisms=PLAIN -X sasl.username=test -X sasl.password=test123
+```
+
 ### delete the platform
 
 ```
@@ -189,8 +262,8 @@ helm delete --purge operator
 
 ### documentation
 
-* [confluent operator](https://docs.confluent.io/current/installation/operator/index.html)
 * [confluent operator and platform install](https://docs.confluent.io/current/installation/operator/co-deployment.html)
+* [confluent operator](https://docs.confluent.io/current/installation/operator/index.html)
 * [confluent platform](https://docs.confluent.io/current/index.html)
 
 #### release notes
