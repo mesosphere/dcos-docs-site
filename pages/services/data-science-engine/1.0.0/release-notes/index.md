@@ -21,17 +21,17 @@ This is the first release for {{ model.techName }}.
 
 {{ model.techName }} 1.0 includes the following components:
 
-- Framework lifecycle for upgrades and updates 
+- Framework lifecycle for upgrades and updates
 - 24/7 Mesosphere engineering support for all components included in the stack
     - {{ model.techName }}
-    - Spark and Spark History Server 
-    - TensorFlow
+    - Spark and Spark History Server 2.4.0
+    - TensorFlow 1.13.1
     - TensorFlow on Spark
     - Tensorboard
     - Integration to pool CPU and GPU compute resources in the entire cluster
     - Easy configurable resource quota to dynamically share cluster resources
-    - Secure AuthN+Z to the Notebook UI with OpenID Connect 
+    - Secure AuthN+Z to the Notebook UI with OpenID Connect
     - Secured access to datasets on Kerberized HDFS and Authenticated S3 Buckets
     - Pre-installed Python, R , Scala and many more kernels
-    - Pre-installed Apache Toree kernels (Spark, R, Scala) 
+    - Pre-installed Apache Toree kernels (Spark, R, Scala)
     - Pre-installed popular Python and R libraries
