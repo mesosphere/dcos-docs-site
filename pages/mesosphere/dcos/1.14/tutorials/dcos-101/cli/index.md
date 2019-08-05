@@ -22,15 +22,15 @@ You have access to your cluster and have already taken a first look at the GUI. 
 
 # Steps
   * Install the DC/OS CLI
-    * Follow the steps [here](/mesosphere/dcos/cli/install/) or the `Install CLI` instruction in the lower left corner of the DC/OS GUI.
+    * Follow the steps [here](latest/cli/install/) or the `Install CLI` instruction in the lower left corner of the DC/OS GUI.
     * Make sure you are authorized to connect to your cluster by running `dcos auth login`. This is necessary to prevent access from unauthorized people to your cluster.
-    * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/mesosphere/dcos/security/ent/users-groups/) for details
+    * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/mesosphere/dcos/1.14/security/ent/users-groups/) for details
 
   * Explore the cluster:
       * Check the running services with `dcos service`. Unless you already installed additional services, there should be two services running on your cluster: Marathon (basically the DC/OS init system) and metronome (basically the DC/OS cron scheduler).
       * Check the connected nodes with `dcos node list`. This command displays some basic information about the connected agent and master nodes in your cluster.
       * Explore the logs of the leading mesos master with `dcos node log --leader`. Mesos is basically the kernel of DC/OS and this tutorial explores the Mesos logs at multiple times during this tutorial.
-      * To explore more CLI options, enter the `dcos help` command. There are also help options of the individual commands available e.g., `dcos node --help`. Alternatively, check the [CLI documentation](/mesosphere/dcos/cli/).
+      * To explore more CLI options, enter the `dcos help` command. There are also help options of the individual commands available e.g., `dcos node --help`. Alternatively, check the [CLI documentation](/mesosphere/dcos/1.14/cli/).
 
 # Outcome
 Congratulations! You have successfully connected to your cluster using the DC/OS CLI, and started exploring some of the CLI commands.
@@ -41,10 +41,10 @@ You have already encountered several DC/OS components (including Mesos, Marathon
 But what other components make up DC/OS?
 
 ## DC/OS components
-Here are the DC/OS components that are relevant to this tutorial. A full description of all components can be found in the [documentation](/mesosphere/dcos/overview/architecture/components/).
-* [Marathon](/mesosphere/dcos/overview/architecture/components/#marathon) starts and monitors DC/OS applications and services.
-* Apache [Mesos](/mesosphere/dcos/overview/architecture/components/#apache-mesos) is the kernel of DC/OS and responsible for low-level task maintenance.
-* [Mesos DNS](/mesosphere/dcos/overview/architecture/components/#mesos-dns) provides service discovery within the cluster.
-* [Minuteman](/mesosphere/dcos/overview/architecture/components/#minuteman) is the internal layer 4 load balancer.
-* [Admin Router](/mesosphere/dcos/overview/architecture/components/#admin-router) is an open source NGINX configuration that provides central authentication and proxy to DC/OS services.
-* [{{ model.packageRepo }}](/mesosphere/dcos/overview/architecture/components/#dcos-package-manager) is the package repository that holds the DC/OS services (e.g. Apache Spark or Apache Cassandra) that you can install on your cluster directly from the DC/OS GUI and CLI.
+Here are the DC/OS components that are relevant to this tutorial. A full description of all components can be found in the [documentation](/mesosphere/dcos/1.14/overview/architecture/components/).
+* [Marathon](/mesosphere/dcos/1.14/overview/architecture/components/#marathon) starts and monitors DC/OS applications and services.
+* Apache [Mesos](/mesosphere/dcos/1.14/overview/architecture/components/#apache-mesos) is the kernel of DC/OS and responsible for low-level task maintenance.
+* [Mesos DNS](/mesosphere/dcos/1.14/overview/architecture/components/#mesos-dns) provides service discovery within the cluster.
+* [Minuteman](/mesosphere/dcos/1.14/overview/architecture/components/#minuteman) is the internal layer 4 load balancer.
+* [Admin Router](/mesosphere/dcos/1.14/overview/architecture/components/#admin-router) is an open source NGINX configuration that provides central authentication and proxy to DC/OS services.
+* [{{ model.packageRepo }}](/mesosphere/dcos/1.14/overview/architecture/components/#dcos-package-manager) is the package repository that holds the DC/OS services (e.g. Apache Spark or Apache Cassandra) that you can install on your cluster directly from the DC/OS GUI and CLI.
