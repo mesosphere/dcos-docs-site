@@ -32,12 +32,6 @@ Click the `Review & Run` button to display the Edit Configuration page.
 
 Configure the package settings using  the DC/OS UI or by clicking JSON Editor and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
 
-At a minimum, you must specify the external public agent host name as a Networking configuration setting. For more information about customizing the configuration, see the Install and Customize pages.
-
-Click Networking.
-
-Under External Access, select Enabled, and enter name of the public agent host used to access the JupyterLab package.
-
 Click Review & Run.
 
 Review the installation notes, then click Run Service to deploy the {{ model.packageName }} package.
@@ -68,7 +62,7 @@ From DC/OS, select Services, then click on the "Open" icon for the `jupyter` ser
 
 ![Open JupyterLab](img/dcos-jupyter-new-window.png)
 
-This will open a new window or tab in the browser for JupyterLab.  Log in using the password you specified during the installation of the {{ model.packageName }} package
+This will open a new window or tab in the browser for JupyterLab.  Log in using the password specified during the installation of the {{ model.packageName }} package in "Service" -> "Jupyter Password" option or use `jupyter` by default.
 
    - In JupyterLab, create a new notebook by selecting File -> New -> Notebook
    
@@ -114,5 +108,4 @@ This will open a new window or tab in the browser for JupyterLab.  Log in using 
 # Next steps
 
 - To view the logs, see the documentation for Mesosphere DC/OS monitoring.
-- To view details about your {{ model.packageName }} job, run the `dcos task log --completed <submissionId>` command.
 
