@@ -19,7 +19,7 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
 ```
 ## From the web interface
 
-Alternatively, you can [install from the DC/OS web interface](/latest/deploying-services/install/#installing-a-service-using-the-gui). If you install {{ model.techName }} from the DC/OS web interface, the `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
+Alternatively, you can [install from the DC/OS web interface](/mesosphere/dcos/latest/deploying-services/install/#installing-a-service-using-the-gui). If you install {{ model.techName }} from the DC/OS web interface, the `dcos {{ model.packageName }}` CLI commands are not automatically installed to your workstation. They may be manually installed using the DC/OS CLI:
 
 ```bash
 dcos package install {{ model.packageName }} --cli
@@ -28,7 +28,7 @@ dcos package install {{ model.packageName }} --cli
 After running the `package install` command, the service will begin installing.
 
 # Enterprise DC/OS installation
-Depending on the [security mode](/latest/security/ent/#security-modes) of the Enterprise DC/OS cluster, Enterprise DC/OS users may need to create a custom .json file and use it to install {{ model.techName }}.
+Depending on the [security mode](/mesosphere/dcos/latest/security/ent/#security-modes) of the Enterprise DC/OS cluster, Enterprise DC/OS users may need to create a custom .json file and use it to install {{ model.techName }}.
 
 ## <a name="create-json"></a>Create a Configuration File
 Create a custom configuration file that will be used to install {{ model.techName }}, and save it as `config.json`. Specify the service account (`<service_account_id>`) and a secret path (`{{ model.packageName }}/<secret-name>`) .

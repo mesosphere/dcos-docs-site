@@ -7,9 +7,9 @@ The DC/OS {{ model.techName }} Service implements a REST API that may be accesse
 
 REST API requests must be authenticated. This authentication is only applicable for interacting with the {{ model.techName }} REST API directly. You do not need the token to access the {{ model.techName }} nodes themselves.
 
-If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/latest/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/latest/security/ent/iam-api/), but you will need to manually refresh the token.
+If you are using Enterprise DC/OS, follow these instructions to [create a service account and an authentication token](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires. To get started more quickly, you can also [get the authentication token without a service account](/mesosphere/dcos/latest/security/ent/iam-api/), but you will need to manually refresh the token.
 
-If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint](/latest/security/oss/iam-api/).
+If you are using open source DC/OS, follow these instructions to [pass your HTTP API token to the DC/OS endpoint](/mesosphere/dcos/latest/security/oss/iam-api/).
 
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 

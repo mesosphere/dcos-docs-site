@@ -4,9 +4,9 @@ DC/OS {{ model.techName }} 服务实施可从群集外部访问的 REST API。�
 
 REST API 请求必须经过身份认证。此身份认证仅适用于直接与 {{ model.techName }} REST API 的交互。访问 {{ model.techName }} 节点自身不需要令牌。
 
-如果您正在使用 Enterprise DC/OS，请遵循以下说明 [创建服务帐户和身份认证令牌](/cn/1.11/security/ent/service-auth/custom-service-auth/)。然后，您可以配置服务以在其到期时自动刷新身份认证令牌。要更快速地开始，您还可以[在没有服务帐户的情况下获得认证令牌](/latest/security/ent/iam-api/)，但您需要手动刷新令牌。
+如果您正在使用 Enterprise DC/OS，请遵循以下说明 [创建服务帐户和身份认证令牌](/mesosphere/dcos/cn/1.11/security/ent/service-auth/custom-service-auth/)。然后，您可以配置服务以在其到期时自动刷新身份认证令牌。要更快速地开始，您还可以[在没有服务帐户的情况下获得认证令牌](/mesosphere/dcos/latest/security/ent/iam-api/)，但您需要手动刷新令牌。
 
-如果您正在使用开源 DC/OS，请遵循以下说明 [将您的 HTTP API 令牌传递到 DC/OS 端点](/cn/1.11/security/oss/iam-api/)。
+如果您正在使用开源 DC/OS，请遵循以下说明 [将您的 HTTP API 令牌传递到 DC/OS 端点](/mesosphere/dcos/cn/1.11/security/oss/iam-api/)。
 
 您拥有身份认证令牌之后，您可以将其存储在环境变量中，并在您的 REST API 调用中引用：
 
@@ -16,7 +16,7 @@ $ export auth_token=uSeR_t0k3n
 
 本文中的`curl`示例假定身份认证令牌已存储在名为`auth_token`的环境变量中。
 
-如果您正在使用 Enterprise DC/OS，安全模式安装在调用 REST 时也可能需要 `--ca-cert` 标记。请参阅 [在 cURL 请求中获取并传递 DC/OS 证书](/cn/1.11/security/ent/tls-ssl/get-cert/#using-curl-to-retrieve-the-dcos-ca-bundle) 了解如何使用 `--cacert` 标记。如果您的安全模式是 `disabled`，不要使用 `--ca-cert` 标记。
+如果您正在使用 Enterprise DC/OS，安全模式安装在调用 REST 时也可能需要 `--ca-cert` 标记。请参阅 [在 cURL 请求中获取并传递 DC/OS 证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/#using-curl-to-retrieve-the-dcos-ca-bundle) 了解如何使用 `--cacert` 标记。如果您的安全模式是 `disabled`，不要使用 `--ca-cert` 标记。
 
 # Plan API
 

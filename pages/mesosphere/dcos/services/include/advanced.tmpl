@@ -12,7 +12,7 @@ The following components work together to deploy and maintain the DC/OS {{ model
 
 - Mesos
 
-  Mesos is the foundation of the DC/OS cluster. Mesos allocates resources and manages everything launched within the cluster. A typical Mesos cluster has one or three Masters that manage resources for the entire cluster. On DC/OS, the machines running the Mesos Masters will typically run other cluster services as well, such as Marathon and Cosmos, as local system processes. The Agent machines are separate from the Master machines; the Agent machines are where in-cluster processes are run. For more information on Mesos architecture, see the [Apache Mesos documentation](https://mesos.apache.org/documentation/latest/architecture/). For more information on DC/OS architecture, see the [DC/OS architecture documentation](/latest/overview/architecture/).
+  Mesos is the foundation of the DC/OS cluster. Mesos allocates resources and manages everything launched within the cluster. A typical Mesos cluster has one or three Masters that manage resources for the entire cluster. On DC/OS, the machines running the Mesos Masters will typically run other cluster services as well, such as Marathon and Cosmos, as local system processes. The Agent machines are separate from the Master machines; the Agent machines are where in-cluster processes are run. For more information on Mesos architecture, see the [Apache Mesos documentation](https://mesos.apache.org/documentation/latest/architecture/). For more information on DC/OS architecture, see the [DC/OS architecture documentation](/mesosphere/dcos/latest/overview/architecture/).
 
 - ZooKeeper
 
@@ -26,7 +26,7 @@ The following components work together to deploy and maintain the DC/OS {{ model
 
   {{ model.techName }} is packaged for deployment on DC/OS. DC/OS packages follow the [Universe schema](https://github.com/mesosphere/universe), which defines how packages expose customization options at initial installation. When a package is installed on the cluster, the packaging service (named 'Cosmos') creates a Marathon app that contains a rendered version of the `marathon.json.mustache` template provided by the package. For DC/OS {{ model.techName }}, this Marathon app is the scheduler for the service.
 
-For further discussion of DC/OS components, see the [architecture documentation](/latest/overview/architecture/components/).
+For further discussion of DC/OS components, see the [architecture documentation](/mesosphere/dcos/latest/overview/architecture/components/).
 
 ## Deployment
 
@@ -173,7 +173,7 @@ Volumes are advertised as resources by Mesos, and Mesos offers multiple types of
 - __MOUNT__ volumes:
     - Use a dedicated partition.
     - Have dedicated I/O for the partition.
-    - Require [additional configuration](/latest/storage/mount-disk-resources/) when setting up the DC/OS cluster.
+    - Require [additional configuration](/mesosphere/dcos/latest/storage/mount-disk-resources/) when setting up the DC/OS cluster.
     - Are allocated the entire partition, so allocated space can far exceed what was originally requested. MOUNT volumes cannot be further subdivided between services.
 
 The fact that MOUNT volumes cannot be subdivided between services means that if multiple services are deployed with MOUNT volumes, they can quickly be unable to densely colocate within the cluster unless many MOUNT volumes are created on each agent. Let's look at the following deployment scenario across three DC/OS agent machines, each with two enabled MOUNT volumes labeled A and B:
