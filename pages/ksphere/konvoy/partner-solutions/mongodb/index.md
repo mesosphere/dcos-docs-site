@@ -7,6 +7,7 @@ menuWeight: 100
 category: Workload
 image: img/mongodb.png
 ---
+# MongoDB
 
 MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era.
 
@@ -16,7 +17,12 @@ MongoDB is a general purpose, document-based, distributed database built for mod
 
 Before you can get started with the operator you need either an account on [MongoDB Cloud Manager](http://cloud.mongodb.com) or install [MongoDB Ops Manager](https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/) outside of the Konvoy cluster on a `dedicated VM`.
 
-Once you have access to `Cloud Manager` or your own `Ops Manager` you need to go to you `account settings`. There create an `api key` and `whitelist the ips` of your Konvoy cluster worker nodes.
+Once you have either access to `Cloud Manager` or your own `Ops Manager` you use it to create an `api key` and to `whitelist the ips` of your Konvoy cluster worker nodes.
+
+For `Cloud Manager`, you'll need to configure a [Programmatic API key](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/) and an IP whitelist of your Konvoy cluster worker nodes. The steps for creating the API key you can find [here](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/#manage-programmatic-access-to-an-organization).
+
+For `Ops Manager` go to you `account settings`. There create an `api key` and `whitelist the ips` of your Konvoy cluster worker nodes.
+
 
 ### install the operator
 
@@ -40,15 +46,9 @@ helm template helm_chart > operator.yaml
 kubectl apply -f operator.yaml
 ```
 
-When clusters get created using the operator they need to be able to access the `mongodb ops manager`. A `secret` with the credentials and a `config map` with the ops manager address and project is required.
+When clusters get created using the operator they need to be able to access either `MongoDB Cloud Manager` or `MongoDB Ops Manager`. A `secret` with the credentials and a `config map` with the respective manager address and project is required.
 
-Lets first create the `ops-manager-secret`.
-
-```sh
-kubectl -n mongodb create secret generic ops-manager-secret --from-literal="user=<first.last@example.com>" --from-literal="publicApiKey=<my-public-api-key>"
-```
-
-While the former secret creation still works also for MongoDB Cloud Manager, its no longer the recommended way. MongoDB Cloud Manager recently introduced a more secure model for API access, where all access is controlled through `Programmatic API` keys. So, if you're using Cloud Manager, you'll need to configure a [Programmatic API key](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/) and an IP whitelist. The steps for creating the API key you can find [here](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/#manage-programmatic-access-to-an-organization). In the following yaml snippet set the `user` key in the secret to the programmatic api key `publicApiKey` value and, albeit confusing, set the `publicApiKey` value of the secret to the `privateApiKey` value from Cloud Manager you copied when creating the key.
+For `MongoDB Cloud Manager` you create the `ops-manager-secret` the following way. In the yaml snippet set the `user` key in the secret to the programmatic api key `publicApiKey` value and, albeit confusing, set the `publicApiKey` value of the secret to the `privateApiKey` value from Cloud Manager you copied when creating the key.
 
 ```sh
 cat <<EOF | kubectl apply -f -
@@ -61,6 +61,12 @@ stringData:
   user: "JXPIDQEA"      # This is the Public Key value
   publicApiKey: "<Paste the privateApiKey value from Cloud Manager here!>"
 EOF
+```
+
+For `MongoDB Ops Manager` you create the `ops-manager-secret` the following way.
+
+```sh
+kubectl -n mongodb create secret generic ops-manager-secret --from-literal="user=<first.last@example.com>" --from-literal="publicApiKey=<my-public-api-key>"
 ```
 
 Next we create the configmap `ops-manager-cm`. The `baseUrl` is `https://cloud.mongodb.com` if you use `MongoDB Cloud Manager`, or `http://<ops-manager-hostname>:8080` if you use `MongoDB Ops Manager`.
@@ -187,6 +193,7 @@ kubectl delete -f operator.yaml
 * [mongodb ops manager production install](https://docs.opsmanager.mongodb.com/current/installation/)
 * [mongodb](https://docs.mongodb.com/)
 * [mongodb shell](https://docs.mongodb.com/manual/mongo/)
+* [mongodb compass - explore and manipulate your data](https://www.mongodb.com/products/compass)
 
 #### release notes
 

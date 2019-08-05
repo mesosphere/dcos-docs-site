@@ -4,7 +4,7 @@ navigationTitle: Aqua
 title: Aqua
 excerpt: Aqua the Cloud Native Security Platform
 menuWeight: 10
-category: Security
+category: Networking and Security
 image: img/aqua.png
 ---
 
