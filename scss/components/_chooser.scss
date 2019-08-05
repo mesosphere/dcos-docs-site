@@ -1,5 +1,6 @@
 .chooser {
     // border: 1px solid deeppink !important;
+    display: none;
     position: relative;
     cursor: pointer;
     margin-right: 20px;
@@ -111,6 +112,7 @@
         transform: rotate(180deg);
     }
     @include md {
+        display: initial;
         &-current {
             a {
                 font-size: 18px;
