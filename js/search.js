@@ -6,7 +6,7 @@ const landingContainer = document.querySelector('.landing');
 
 const algoliaProjectId = ALGOLIA_PROJECT_ID;
 const algoliaPublicKey = ALGOLIA_PUBLIC_KEY;
-const algoliaIndex = ALGOLIA_INDEX;
+const algoliaIndex = window.location.pathname.split('/').slice(1, 3).join('-');
 
 //
 //

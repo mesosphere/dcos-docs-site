@@ -296,7 +296,6 @@ if (ALGOLIA_UPDATE === 'true') {
     CB.use(algolia({
         projectId: ALGOLIA_PROJECT_ID,
         privateKey: ALGOLIA_PRIVATE_KEY,
-        index: ALGOLIA_INDEX,
         skipSections: ALGOLIA_SKIP_SECTIONS,
         renderPathPattern: pathPatternRegex,
     }));

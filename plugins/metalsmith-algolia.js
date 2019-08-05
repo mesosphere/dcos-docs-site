@@ -13,14 +13,13 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   /**
    * Algolia Configuration
    * @param {Object} options
-   * @param {string} options.projectIds
+   * @param {string} options.projectId
    * @param {string} options.privateKey
-   * @param {string} options.index
    * @param {array} options.skipSections
    * @param {string} options.renderPathPattern
    */
 
-  const parameters = ['projectId', 'privateKey', 'index'];
+  const parameters = ['projectId', 'privateKey'];
 
   for (let i = 0; i < parameters.length; i += 1) {
     const parameter = parameters[i];
@@ -31,22 +30,25 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   }
 
   const client = algoliasearch(options.projectId, options.privateKey);
-  const index = client.initIndex(options.index);
+  const indices = {
+    'mesosphere-dcos': client.initIndex('mesosphere-dcos'),
+    'ksphere-konvoy': client.initIndex('ksphere-konvoy')
+  }
 
-  /**
-   * Algolia Indexing Settings
-   */
-  index.setSettings({
-    distinct: true,
-    attributeForDistinct: 'path',
-    searchableAttributes: ['title', 'excerpt', 'content'],
-    attributesToSnippet: [
-      'excerpt:40',
-      'content:40',
-    ],
-    attributesForFaceting: ['section', 'product', 'version', 'type'],
-    customRanking: ['asc(section)', 'desc(product)', 'asc(versionWeight)'],
-  });
+  // /**
+  //  * Algolia Indexing Settings
+  //  */
+  // index.setSettings({
+  //   distinct: true,
+  //   attributeForDistinct: 'path',
+  //   searchableAttributes: ['title', 'excerpt', 'content'],
+  //   attributesToSnippet: [
+  //     'excerpt:40',
+  //     'content:40',
+  //   ],
+  //   attributesForFaceting: ['section', 'product', 'version', 'type'],
+  //   customRanking: ['asc(section)', 'desc(product)', 'asc(versionWeight)'],
+  // });
 
   return function metalsmithAlgoliaMiddleware(files, metalsmith, done) {
     const metadata = metalsmith.metadata();
@@ -61,84 +63,181 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       return;
     }
 
-    const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
-
     // Remove index objects that no longer exist
-    const start = new Promise((resolve, reject) => {
-      const browser = index.browseAll();
-      let hits = [];
+    const filenames = Object.keys(files);
 
-      browser.on('result', function onResult(content) {
-        hits = hits.concat(content.hits);
-      });
+    const filesToIndex = {};
 
-      browser.on('error', function onError(err) {
-        throw err;
-      });
-
-      browser.on('end', function onEnd() {
-        const existingFiles = Object.keys(files).filter(file => extname(file) === '.html');
-        debug('%d local files', existingFiles.length);
-        const indexObjectIDs = hits.map(hit => hit.objectID);
-        debug('%d existing objectIDs in index', indexObjectIDs.length);
-
-        const objectIDsToDelete = indexObjectIDs.filter(id => !files[id])
-        debug('Deleting %d old objectIDs from index...', objectIDsToDelete.length);
-
-        index.deleteObjects(objectIDsToDelete, () => {
-          resolve();
-        });
-      });
+    filenames.forEach(filename => {
+      if(htmlFile(filename) && !inExcludedSection(filename, options.skipSections, options.renderPathPattern)) {
+        // Only index files that are two directories deep, aka mesosphere/dcos/...
+        const indexName = filename.split('/').slice(0, 2).join('-');
+        if (!indexName.includes('index.html')) {
+          filesToIndex[indexName] = filesToIndex[indexName]  || [];
+          filesToIndex[indexName].push(files[filename]);
+        }
+      }
     });
 
-    // Update index objects with current file info
-    // TODO: only update files that have changed since last commit
-    start.then(() => {
-      const promises = [];
-      const objects = [];
+    // index the objects
+    const products = {
+      dcos: 'DC/OS',
+      konvoy: 'Konvoy'
+    };
 
-      Object.keys(files).forEach((file) => {
-        if (inExcludedSection(file, options.skipSections, options.renderPathPattern)) {
-          return;
+    const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
+
+    const productize = (file, indexFile) => {
+      const paths = file.path.split('/');
+      indexFile.product = products[paths[1]];
+
+      indexFile.versionNumber = '';
+
+      // DC/OS
+      if (paths[1] === 'dcos') {
+        if (paths[2] === 'services') {
+          indexFile.section = 'Service Docs';
+          if (paths[3]) {
+            indexFile.product = paths[3]
+              .split('-')
+              .map(word => {
+                word[0] = word[0].toUpperCase();
+                return word;
+              })
+            .join(' ');
+          }
+          if (paths[4]) {
+            indexFile.versionNumber = paths[4];
+            indexFile.versionWeight = semverMap[paths[3]][paths[4]];
+          }
+        } else {
+          indexFile.section = 'DC/OS Docs';
+          if (isVersion(paths[2])) {
+            indexFile.versionNumber = paths[2];
+            indexFile.versionWeight = semverMap.dcos[paths[2]];
+          }
         }
-        if (extname(file) !== '.html') return;
-        const fileData = files[file];
-        const postContent = sanitize(fileData.contents, file);
-        const postParts = convertStringToArray(postContent, 9000);
-        postParts.forEach((value, _index) => {
-          const record = getSharedAttributes(fileData, hierarchy, semverMap);
-          if (!record) return;
-          record.objectID = file;
-          record.content = transform(value);
-          record.createIfNotExists = true;
-          objects.push(record);
+      } else if (paths[1] === 'konvoy') {
+        if (paths[2] === 'partner-solutions') {
+          indexFile.section = 'Partner Solutions Docs';
+        } else if (paths[2] === 'latest') {
+          indexFile.section = 'Konvoy Docs';
+        }
+      }
+      indexFile.version = indexFile.product;
+
+      if (indexFile.versionNumber !== '') {
+        indexFile.version += ' ' + indexFile.versionNumber;
+      }
+    };
+
+    Object.keys(filesToIndex).forEach(indexName => {
+      const index = indices[indexName];
+
+      const start = new Promise((resolve, reject) => {
+        const browser = index.browseAll();
+        let hits = [];
+
+        browser.on('result', function onResult(content) {
+          hits = hits.concat(content.hits);
+        });
+
+        browser.on('error', function onError(err) {
+          throw err;
+        });
+
+        browser.on('end', function onEnd() {
+          const existingFiles = Object.keys(files).filter(file => extname(file) === '.html');
+          debug('%d local files', existingFiles.length);
+          const indexObjectIDs = hits.map(hit => hit.objectID);
+          debug('%d existing objectIDs in index', indexObjectIDs.length);
+
+          const objectIDsToDelete = indexObjectIDs.filter(id => !files[id])
+          debug('Deleting %d old objectIDs from index...', objectIDsToDelete.length);
+
+          index.deleteObjects(objectIDsToDelete, () => {
+            resolve();
+          });
         });
       });
 
-      for (let i = 0; i < objects.length; i += 1) {
-        const object = objects[i];
-        promises.push(
-          new Promise((resolve, reject) => {
-            index.partialUpdateObject(object, (err, _content) => {
-              if (err) {
-                console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
-                reject(err);
-              } else {
-                // debug(`Algolia: Updating "${object.objectID}"`);
-              }
-              resolve();
-            });
-          }),
-        );
-      }
+      const files = filesToIndex[indexName];
 
-      promises.reduce((promise, item) => {
-        return promise.then(() => item.then());
-      }, Promise.resolve()).then(() => {
-        done();
+      const toAlgolia = (file) => {
+        const indexFile = {};
+        indexFile['objectID'] = file['path'];
+        indexFile['title'] = file['title'];
+        indexFile['excerpt'] = file['excerpt'];
+        indexFile['path'] = file['path'];
+        indexFile.createIfNotExists = true;
+
+        if (file.enterprise) indexFile.type = 'Enterprise';
+        if (file.oss) indexFile.type = 'Open Source';
+        if (file.community) indexFile.type = 'Community';
+
+        indexFile['content'] = transform(sanitize(file.contents, file.path));
+
+        productize(file, indexFile);
+
+        return indexFile;
+      };
+
+      const algoliaObjects = files.map(file => toAlgolia(file));
+
+      start.then(() => {
+        const promises = [];
+
+        for (let i = 0; i < algoliaObjects.length; i += 1) {
+          const object = algoliaObjects[i];
+          promises.push(
+            new Promise((resolve, reject) => {
+              index.partialUpdateObject(object, (err, _content) => {
+                if (err) {
+                  console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
+                  reject(err);
+                } else {
+                  // debug(`Algolia: Updating "${object.objectID}"`);
+                }
+                resolve();
+              });
+            }),
+          );
+        }
+
+        promises.reduce((promise, item) => {
+          return promise.then(() => item.then());
+        }, Promise.resolve()).then(() => {
+          done();
+        });
       });
     });
   };
+};
+
+//
+// Used methods
+//
+
+const htmlFile = (filename) => extname(filename) === '.html';
+
+const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
+  if (renderPathPattern) {
+    const pathPatternRegex = RegExp(renderPathPattern);
+    if (!pathPatternRegex.test(filePath)) {
+      return true;
+    }
+  }
+
+  for (let i = 0; i < skipSections.length; i += 1) {
+    const skipSection = skipSections[i];
+    const regex = RegExp(skipSection);
+
+    if (regex.test(filePath)) {
+      return true;
+    }
+  }
+
+  return false;
 };
 
 const transformations = {
@@ -165,166 +264,8 @@ const transform = (content) => {
     replacedContent = replacedContent.replace(htmlEntRegex, replacement);
   });
 
-  return replacedContent;
+  return replacedContent.slice(0, 500);
 };
-
-// File paths caught here will not be indexed for search.
-// This is determined by the ALGOLIA_SKIP_SECTIONS environment variable.
-const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
-  if (renderPathPattern) {
-    const pathPatternRegex = RegExp(renderPathPattern);
-    if (!pathPatternRegex.test(filePath)) {
-      return true;
-    }
-  }
-
-  for (let i = 0; i < skipSections.length; i += 1) {
-    const skipSection = skipSections[i];
-    const regex = RegExp(skipSection);
-
-    if (regex.test(filePath)) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
-// Build a sorted map that ranks semver
-const buildSemverMap = (files, skipSections, renderPathPattern) => {
-
-  const services = {
-    dcos: [],
-  };
-
-  const cleanVersion = (version) => {
-    if (semverRegex().test(version)) {
-      return version;
-    }
-    const v = version.split('.');
-    if (v.length < 3) {
-      v.push('0');
-    }
-    return v.slice(0, 3).join('.');
-  };
-
-  // Filter
-  const filePaths = Object.keys(files);
-  for (let i = 0; i < filePaths.length; i += 1) {
-    const file = filePaths[i];
-    const pathParts = file.split('/');
-    if (inExcludedSection(file, skipSections, renderPathPattern)) {
-      continue;
-    } else if (pathParts[0] === 'services' && pathParts[2] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[2])) {
-      if (!services[pathParts[1]]) {
-        services[pathParts[1]] = [];
-      }
-      const serviceVersions = services[pathParts[1]];
-      if (serviceVersions.indexOf(pathParts[2]) === -1) {
-        serviceVersions.push(pathParts[2]);
-      }
-    } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0]) && services.dcos.indexOf(pathParts[0]) === -1) {
-      services.dcos.push(pathParts[0]);
-    }
-  }
-
-  const map = {};
-  Object.keys(services).forEach((service) => {
-    const serviceVersions = services[service];
-    const versionsCleaned = serviceVersions.map(cleanVersion);
-    const versionsSorted = semverSort.desc(versionsCleaned);
-
-    serviceVersions.forEach((version) => {
-      const cv = cleanVersion(version);
-      const weight = versionsSorted.indexOf(cv);
-
-      map[version] = {
-        version: cv,
-        weight,
-      };
-    });
-  });
-
-  return map;
-};
-
-// Get shared attributes for a record.
-const getSharedAttributes = (fileData, hierarchy, semverMap) => {
-  const pathParts = fileData.path.split('/');
-  const record = {};
-
-  if (pathParts[0] === 'test') {
-    return null;
-  } else if (pathParts[0] === '404') {
-    return null;
-  } else if (pathParts[0] === 'services') {
-    let product;
-    record.section = 'Service Docs';
-    // If in /services/product/**
-    if (pathParts[1]) {
-      const productPath = pathParts.slice(0, 2).join('/');
-      product = hierarchy.findByPath(productPath).title || '';
-      if (product) {
-        record.product = product;
-      }
-    }
-    // If in /services/product/version/**
-    if (pathParts[2]) {
-      const regex = /^(v|)[0-9].[0-9](.*)/g;
-      const isVersion = regex.test(pathParts[2]);
-      if (isVersion) {
-        record.version = `${product} ${pathParts[2].substr(1)}`;
-        record.versionNumber = pathParts[2].substr(1);
-        record.versionWeight = semverMap[pathParts[2]].weight;
-      }
-    }
-  } else if (/^[0-9]\.[0-9](.*)/.test(pathParts[0])) {
-    // Docs version
-    const product = 'DC/OS';
-    record.section = 'DC/OS Docs';
-    record.product = product;
-    // If in /1.*/*
-    if (pathParts[0]) {
-      record.version = `${product} ${pathParts[0]}`;
-      record.versionNumber = pathParts[0];
-      record.versionWeight = semverMap[pathParts[0]].weight;
-    }
-  } else {
-    return null;
-  }
-
-  let type = '';
-  if (fileData.enterprise) type = 'Enterprise';
-  if (fileData.oss) type = 'Open Source';
-
-  record.title = fileData.title;
-  record.path = fileData.path;
-  record.type = type;
-
-  if (!record.title) {
-    console.error(`Warning: ${record.path} has no title and will not be indexed.`);
-    return null;
-  }
-  if (!record.product) {
-    console.error(`Warning: ${record.path} has no product and will not be indexed.`);
-    return null;
-  }
-
-  // Excerpt
-  if (fileData.excerpt) {
-    record.excerpt = fileData.excerpt;
-  } else {
-    const content = sanitize(fileData.contents, fileData.path);
-    const contentWords = content.split(' ');
-    const excerpt = contentWords.slice(0,40).join(' ');
-    record.excerpt = excerpt;
-  }
-
-  return record;
-};
-
-// Trim whitespace from of string.
-const trim = string => string.replace(/^\s+|\s+$/g, '');
 
 /**
  * Parses buffer to string and sanitizes html.
@@ -370,13 +311,59 @@ const sanitize = (buffer, file) => {
   return '';
 };
 
-// Push content to array.
-const convertStringToArray = (str, maxPartSize) => {
-  const chunkArr = [];
-  let leftStr = str;
-  do {
-    chunkArr.push(leftStr.substring(0, maxPartSize));
-    leftStr = leftStr.substring(maxPartSize, leftStr.length);
-  } while (leftStr.length > 0);
-  return chunkArr;
+// Trim whitespace from of string.
+const trim = string => string.replace(/^\s+|\s+$/g, '');
+
+const isVersion = (version) => /^[0-9]\.[0-9](.*)/.test(version);
+
+const buildSemverMap = (files, skipSections, renderPathPattern) => {
+  const services = {
+    dcos: [],
+  };
+
+  // Filter
+  const filePaths = Object.keys(files);
+  for (let i = 0; i < filePaths.length; i += 1) {
+    const file = filePaths[i];
+    const pathParts = file.split('/');
+    if (inExcludedSection(file, skipSections, renderPathPattern)) {
+      continue;
+    } else if (pathParts[2] === 'services' && pathParts[4] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[4])) {
+      services[pathParts[3]] = services[pathParts[3]] || [];
+      const serviceVersions = services[pathParts[3]];
+      if (serviceVersions.indexOf(pathParts[4]) === -1) {
+        serviceVersions.push(pathParts[4]);
+      }
+    } else if (isVersion(pathParts[2]) && services.dcos.indexOf(pathParts[2]) === -1) {
+      services.dcos.push(pathParts[2]);
+    }
+  }
+
+  const map = {};
+  Object.keys(services).forEach((service) => {
+    const serviceVersions = services[service];
+    const versionsCleaned = serviceVersions.map(cleanVersion);
+    const versionsSorted = semverSort.desc(versionsCleaned);
+
+    serviceVersions.forEach((version) => {
+      const cv = cleanVersion(version);
+      const weight = versionsSorted.indexOf(cv);
+
+      map[service] = map[service] || {};
+      map[service][version] = weight;
+    });
+  });
+
+  return map;
+};
+
+const cleanVersion = (version) => {
+  if (semverRegex().test(version)) {
+    return version;
+  }
+  const v = version.split('.');
+  if (v.length < 3) {
+    v.push('0');
+  }
+  return v.slice(0, 3).join('.');
 };
