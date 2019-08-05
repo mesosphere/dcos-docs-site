@@ -67,18 +67,24 @@ You can configure SHS to use HDFS with the following steps:
     ./bin/hdfs dfs -mkdir /history
     ```
 
-## Configurring {{ model.techName }}
+## Configuring Spark History Server
 
 1. Configure "Spark History Log Directory" to point to the created HDFS directory in `service.json`:
 
 ```json
 {
+    "service": {
+      "jupyter_conf_urls": "<DCOS HDFS endpoint>"
+    },
     "spark": {
         "start_spark_history_server": true,
         "spark_history_fs_logdirectory": "hdfs://hdfs/history"
     }
 }
 ```
+
+To find more about configuring HDFS integration of {{model.techName}} follow [Using HDFS with DC/OS Data Science Engine](/services/data-science-engine/1.0.0/hdfs/) section.
+
 2.  Enable the Spark Event log and set the HDFS directory:
 
 ```json

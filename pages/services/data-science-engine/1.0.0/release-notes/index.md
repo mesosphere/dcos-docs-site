@@ -32,6 +32,6 @@ This is the first release for {{ model.techName }}.
     - Easy configurable resource quota to dynamically share cluster resources
     - Secure AuthN+Z to the Notebook UI with OpenID Connect
     - Secured access to datasets on Kerberized HDFS and Authenticated S3 Buckets
-    - Pre-installed Python, R , Scala and many more kernels
+    - Pre-installed Python, R, Scala, and many more kernels
     - Pre-installed Apache Toree kernels (Spark, R, Scala)
     - Pre-installed popular Python and R libraries

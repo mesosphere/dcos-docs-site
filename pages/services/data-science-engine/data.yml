@@ -13,5 +13,3 @@ install:
 security:
  defaultPassword: jupyter
  defaultClientId: notebook
-
- 

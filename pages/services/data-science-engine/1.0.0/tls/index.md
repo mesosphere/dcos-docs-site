@@ -1,19 +1,19 @@
 ---
 layout: layout.pug
-navigationTitle: SSL
-excerpt: SSL/TLS Support 
-title: SSL
+navigationTitle: TLS
+excerpt: TLS/TLS Support
+title: TLS
 menuWeight: 8
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
 
-# {{ model.techName }} SSL
+# {{ model.techName }} TLS
 
-SSL support in {{ model.techName }} encrypts the following channels:
+TLS support in {{ model.techName }} encrypts the following channels:
 
-* From the [DC/OS admin router][11] to the dispatcher.
-* Files served from the drivers to their executors.
+* From the [DC/OS admin router][11] to the {{ model.techName }}.
+* Files served from the Spark Driver launched by {{ model.techName }} to Spark Executors.
 
 The keystore and truststore are created using the [Java keytool][12]. The keystore must contain one private key and its signed public key. The truststore is optional and might contain a self-signed root-CA certificate that is explicitly trusted by Java.
 
@@ -28,7 +28,7 @@ dcos security secrets create /{{ model.packageName }}/key_password --value chang
 dcos security secrets create /{{ model.packageName }}/truststore_password --value changeit
 ```
 
-To enable SSL, a Java keystore (and, optionally, truststore) must be provided, along with their passwords. The first four settings below are **required** during job submission. If using a truststore, the next three are also **required**. Last one is optional:
+To enable TLS, a Java keystore (and, optionally, truststore) must be provided, along with their passwords. The first four settings below are **required** during job submission. If using a truststore, the next three are also **required**. Last one is optional:
 
 ```json
 {

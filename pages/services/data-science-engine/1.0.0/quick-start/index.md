@@ -58,32 +58,32 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
 
 # Run a Python Notebook Using Spark
 
-From DC/OS, select Services, then click on the "Open" icon for the `jupyter` service.
+From DC/OS, select Services, then click on the "Open" icon for the {{ model.serviceName }}.
 
 ![Open JupyterLab](img/dcos-jupyter-new-window.png)
 
 This will open a new window or tab in the browser for JupyterLab.  Log in using the password specified during the installation of the {{ model.packageName }} package in "Service" -> "Jupyter Password" option or use `jupyter` by default.
 
    - In JupyterLab, create a new notebook by selecting File -> New -> Notebook
-   
+
    ![Create new notebook](img/jupyterlab-menu-file-new-notebook.png)
-   
+
    - Select Python 3 as the kernel language
-   
+
    - Rename the notebook to "Estimate Pi.ipynb" using the menu at File -> Rename Notebook...
-   
+
    - Paste the following Python code into the notebook.  If desired, you can type sections of code into separate cells as shown below.
-   
+
 
    ![Estimate Pi notebook](img/jupyterlab-estimate-pi-notebook-code.png)
-   
+
    ```python
    from pyspark import SparkContext, SparkConf
    import random
-   
+
    conf = SparkConf().setAppName("pi-estimation")
    sc = SparkContext(conf=conf)
-   
+
    num_samples = 100000000
    def inside(p):     
      x, y = random.random(), random.random()
@@ -91,21 +91,29 @@ This will open a new window or tab in the browser for JupyterLab.  Log in using 
    count = sc.parallelize(range(0, num_samples)).filter(inside).count()
    pi = 4 * count / num_samples
    print(pi)
-   
+
    sc.stop()
    ```
 
 
 - Run the notebook.
-   
-      From the menu, select Run -> Run All Cells
-      
-      The notebook will run for some time, then print out the calculated value.
-      
-      Expected output: 3.1413234
-   
 
-# Next steps
+   - From the menu, select Run -> Run All Cells
 
-- To view the logs, see the documentation for Mesosphere DC/OS monitoring.
+   - The notebook will run for some time, then print out the calculated value.
 
+   - Expected output: 3.1413234
+
+
+# Enable GPU support
+
+{{ model.techName }} supports GPU acceleration if the cluster nodes have GPUs available and CUDA drivers installed. To enable GPU support for {{ model.techName }} add the following configuration in service config:
+
+```json
+"service": {
+    "gpu": {
+        "enabled": true,
+        "gpus": "<desired number of GPUs to allocate for the service>"
+    }
+}
+```
