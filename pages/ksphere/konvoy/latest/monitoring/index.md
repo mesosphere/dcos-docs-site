@@ -7,6 +7,8 @@ excerpt: Monitor and collect metrics for Kubernetes, platform services, and appl
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 Konvoy enables you to monitor both the state of the cluster itself and the health and availability of the processes running on the cluster.
 By default, Konvoy provides monitoring services using a pre-configured monitoring stack based on the Prometheus open-source project and its broader ecosystem.
 

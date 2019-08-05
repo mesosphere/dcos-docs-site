@@ -7,6 +7,8 @@ excerpt: Configure networking for Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 This section describes different networking components that come together to form Konvoy networking stack.
 It assumes the familiarity with Kubernetes networking to explain the specifics of networking in Konvoy.
 

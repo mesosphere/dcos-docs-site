@@ -7,6 +7,8 @@ excerpt: Learn how to provision a static local volume for a Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 The `localvolumeprovisioner` addon uses the [local volume static provisioner][localstorage] to manage persistent volumes for pre-allocated disks.
 It does this by watching the `/mnt/disks` folder on each host and creating persistent volumes in the `localvolumeprovisioner` storage class for each disk that is discovered in this folder.
 
@@ -55,6 +57,7 @@ Before starting this tutorial, you should verify the following:
     ```bash
     kubectl get pv
     ```
+
     The command displays output similar to the following:
 
     ```bash

@@ -7,6 +7,8 @@ excerpt: Learn how to expose applications using the LoadBalancer (layer-4) servi
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 Kubernetes enables you to define a logical set of **pods** and an access policy as a **Service**.
 You can then use services and **service types** to control how your applications receive traffic.
 The **LoadBalancer** service type creates an external load balancer in the public cloud infrastructure and assigns a fixed, external IP to the service.

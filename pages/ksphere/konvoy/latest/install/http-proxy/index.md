@@ -7,6 +7,8 @@ excerpt: Configure HTTP proxy for the Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 For some production environments, direct access to the Internet could be blocked.
 In those environments, they typically only allow Internet access through HTTP or HTTPS proxies.
 

@@ -7,6 +7,8 @@ excerpt: Learn how to use Portworx for persistent volume storage
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 Portworx is a software-defined storage solution that provides high-availability persistent volume storage for containerized stateful applications running on Kubernetes clusters.
 
 This tutorial demonstrates how to leverage Portworx to provide persistent volumes for applications running on a Konvoy cluster.

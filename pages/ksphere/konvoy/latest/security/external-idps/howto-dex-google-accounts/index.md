@@ -7,13 +7,13 @@ excerpt: Connect your Konvoy cluster to Google Accounts
 enterprise: false
 ---
 
-# How to connect Konvoy to Google Accounts
+## How to connect Konvoy to Google Accounts
 
 This guide shows how to configure your Konvoy cluster so that users can log in with Google Accounts credentials via single sign-on.
 
 This requires your Konvoy cluster to be reachable via a public DNS name. In this example let's say this is `https://<public-cluster-dns-name>/`
 
-## Step 1: set up Google project and Google OAuth app
+### Step 1: set up Google project and Google OAuth app
 
 1. Go to [Google's developer console] and create a project.
 2. Select that project.
@@ -24,7 +24,7 @@ This requires your Konvoy cluster to be reachable via a public DNS name. In this
 7. Under `Authorized redirect URIs` insert `https://<public-cluster-dns-name>/dex/callback`.
 8. Save the configuration and note down the client ID and the client secret.
 
-## Step 2: modify Konvoy `cluster.yaml`
+### Step 2: modify Konvoy `cluster.yaml`
 
 In step 1 you have created an OpenID Connect identity provider served by Google Accounts.
 
@@ -50,13 +50,13 @@ See below for an example (and fill in your client ID, client secret, and `<publi
               userNameKey: email
 ```
 
-## Step 3: reconfigure the Konvoy cluster
+### Step 3: reconfigure the Konvoy cluster
 
 If you already have a Konvoy cluster running please re-configure Dex in that cluster.
 Running `konvoy up` again should achieve that goal.
 If that does not take effect then do a `konvoy reset` followed by another `konvoy up`.
 
-## Step 4: log in
+### Step 4: log in
 
 Visit `https://<public-cluster-dns-name>/token` and initiate a login flow.
 On the login page choose the `Log in with Google Accounts` button, and follow the login flow.

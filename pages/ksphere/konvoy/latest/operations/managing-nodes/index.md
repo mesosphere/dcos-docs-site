@@ -7,6 +7,8 @@ excerpt: Adding compute capacity to your Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 # Adding Nodes to an AWS Cluster
 
 **NOTE** This process only applies to clusters created by Konvoy, using Terraform.

@@ -7,6 +7,8 @@ excerpt: Learn how to configure Ingress settings for load balancing (layer-7)
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 **Ingress** is the name used to describe an API object that manages external access to the services in a cluster.
 Typically, an ingress exposes HTTP and HTTPS routes from outside the cluster to services running within the cluster.
 

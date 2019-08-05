@@ -26,7 +26,7 @@ If the node is not in the `Ready` state, you may skip the draining process.
 Next, you need to destroy that node to be able to provision a new node.
 The procedure depends if you have provisioned via a `cloud provider` or running machines `on-prem`.
 
-# Cloud-Provider
+## Cloud-Provider
 
 When provisioning a cluster using `Konvoy` on AWS, you can manually delete the machine via the AWS web console.
 Once the machine was terminated, the following command will reconcile the state of the cluster and provision a new node.
@@ -40,7 +40,7 @@ konvoy up
 That command will reconcile the state of the cluster and configure the new node.
 Now this new worker node should appear `Ready` when running `kubectl get nodes`.
 
-# On-Prem
+## On-Prem
 
 When provisioning your own infrastructure via an `inventory.yaml` file, you can manually delete the node by removing it from the `inventory.yaml` file.
 Next you should add the new worker node entry in the inventory file and run:

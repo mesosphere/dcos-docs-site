@@ -15,7 +15,7 @@ The following diagram provides a simplified architectural overview to help you v
 
 ![Architectural overview](../img/Konvoy-arch-diagram.png)
 
-# Master components for the Kubernetes control plane
+## Master components for the Kubernetes control plane
 
 The native Kubernetes cluster consists of **master components** that provide the cluster’s **control plane** and **worker nodes** that run users' containers and maintain the runtime environment.
 
@@ -42,7 +42,7 @@ The controllers include:
 
 For more information about any of the master components or Kubernetes control plane, see the [Kubernetes][kubedoc] documentation.
 
-# Worker nodes
+## Worker nodes
 
 Worker nodes maintain running pods and provide the runtime environment for the native Kubernetes cluster.
 Each work node includes the following key components:
@@ -51,7 +51,7 @@ Each work node includes the following key components:
 - The `kube-proxy` serves as a network proxy that runs on each node in the cluster to enforce network routing and connection forwarding rules.
 - The Kubernetes container runtime manages any supported type of container, such as Docker or `containerd`, that runs on the cluster.
 
-# Platform service add-ons
+## Platform service add-ons
 
 The native Kubernetes cluster supports a set of **addons**.
 Addons use Kubernetes resources to implement specific cluster-level features.
@@ -60,6 +60,6 @@ Because they provide cluster-level features, addons are defined in the `kube-sys
 Konvoy supplements the native Kubernetes cluster by providing a predefined and preconfigured set of addons.
 Because this predefined set of addons provide critical features for managing a Kubernetes cluster in a production environment, the default set of addons are identified as Konvoy **platform services** and are a key part of delivering an **opinionated Kubernetes** solution.
 <!--
-# Basic operational workflow
+## Basic operational workflow
 -->
 [kubedoc]:https://kubernetes.io/docs/concepts/overview/components/

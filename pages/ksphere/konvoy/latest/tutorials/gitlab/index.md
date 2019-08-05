@@ -7,6 +7,8 @@ excerpt: Learn how to install GitLab Enterprise on a Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 This guide describes how to install [GitLab Enterprise](https://gitlab.com) on Konvoy via the [GitLab Helm chart](https://docs.gitlab.com/charts/), with services exposed over HTTPS, using a self-signed wildcard certificate.
 
 This was tested on Konvoy 0.6 running on AWS, using version 2.1.2 of the GitLab Helm chart.

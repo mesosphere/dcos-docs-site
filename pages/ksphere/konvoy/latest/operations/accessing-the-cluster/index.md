@@ -7,7 +7,7 @@ excerpt: Access the Konvoy cluster using the operations portal, command-line int
 enterprise: false
 ---
 
-# Using the operations portal
+## Using the operations portal
 
 When Konvoy completes the provisioning of the cluster, it provides the access details of the cluster's operations portal.
 
@@ -40,7 +40,7 @@ This UI is hosted on a web application within the cluster, which runs on the clu
 
 You'll then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to addon services such as Grafana.
 
-# Using kubectl
+## Using kubectl
 
 One of the most common ways to perform administrative tasks and interact with a Kubernetes cluster is through the `kubectl` command-line interface.
 With `kubectl`, you can run commands against native Kubernetes clusters to retrieve information about key cluster activities and to control specific cluster-level components and operations.
@@ -53,12 +53,12 @@ For example, you can use `kubectl` to:
 
 For a complete list of `kubectl` operations, see [Overview of kubectl](https://kubernetes.io/docs/reference/kubectl/overview/).
 
-## Install kubectl
+### Install kubectl
 
 The specific steps required in install kubectl depend on your operating system platform.
 For platform-specific instructions to help you install kubectl, see the appropriate Kubernetes [installation and setup information][0] for the platform you use.
 
-## Configure kubectl (for cluster administrators)
+### Configure kubectl (for cluster administrators)
 
 The `kubectl` program uses information in its configuration file to customize operations for a specific cluster.
 By default, the configuration file for `kubectl` is named `config` and is located in the `$HOME/.kube` directory.
@@ -72,7 +72,7 @@ konvoy apply kubeconfig
 
 The `konvoy apply kubeconfig` command applies the contents of the local Konvoy `admin.conf` configuration file to your existing default configuration.
 
-## Configure kubectl (for authorized users)
+### Configure kubectl (for authorized users)
 
 This section illustrates how non-administrative users could access the cluster's API, using `kubectl` and credentials derived from their third-party single-sign-on environment.
 
@@ -97,12 +97,12 @@ Supposing your user should have administrative permissions, the following comman
 kubectl create clusterrolebinding rb_admin_${USERNAME} --clusterrole=cluster-admin --user=${USERNAME}
 ```
 
-## Common kubectl command examples
+### Common kubectl command examples
 
 The following sections highlight several important commands that are particularly relevant for working with **konvoy** clusters.
 For information about other commands that are generally useful, see [the kubectl cheatsheet][1].
 
-### Viewing addons and system pods
+#### Viewing addons and system pods
 
 Konvoy clusters come with a series of addons deployed.
 These addons live in one of three namespaces:

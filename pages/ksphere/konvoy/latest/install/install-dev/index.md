@@ -7,6 +7,8 @@ excerpt: Install Konvoy on a developer machine
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 You can also use Konvoy to deploy Kubernetes on a single laptop using Docker to simulate cluster nodes and networking topology.
 This is very useful for development and end-to-end testing with Konvoy.
 

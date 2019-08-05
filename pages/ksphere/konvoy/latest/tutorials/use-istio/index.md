@@ -7,6 +7,8 @@ excerpt: Learn how to integrate microservices managed by Istio into a Konvoy clu
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 Istio helps you manage cloud-based deployments by providing an open-source service mesh to connect, secure, control, and observe microservices.
 
 This tutorial demonstrates how to expose an application running on the Konvoy cluster using the LoadBalancer (layer-4) service type.

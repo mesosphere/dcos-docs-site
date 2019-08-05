@@ -6,6 +6,8 @@ excerpt: Deploy production-ready Kubernetes with Konvoy
 menuWeight: 1
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 Konvoy is a complete, standalone distribution of Kubernetes that includes a native Kubernetes cluster pre-packaged for deployment with a complement of best-in-class add-on services enabled by default and ready for immediate use.
 By combining the native Kubernetes cluster with all of the components required for operation and lifecycle management, Konvoy provides an out-of-the-box and production-ready Kubernetes ecosystem that you can install using a single command-line instruction.
 
