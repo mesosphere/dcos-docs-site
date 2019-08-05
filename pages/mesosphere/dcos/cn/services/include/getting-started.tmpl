@@ -17,7 +17,7 @@ $ dcos package install {{ model.packageName }}
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
 ```
 
-或者，您可以 [从 DC/OS Web 界面安装](/cn/1.11/deploying-services/install/#installing-a-service-using-the-gui)。如果您从 DC/OS Web 界面安装 {{ model.techName }}，`dcos {{ model.packageName }}` CLI 命令不会自动安装到工作站中。可以使用 DC/OS CLI 手动安装它们：
+或者，您可以 [从 DC/OS Web 界面安装](/mesosphere/dcos/cn/1.11/deploying-services/install/#installing-a-service-using-the-gui)。如果您从 DC/OS Web 界面安装 {{ model.techName }}，`dcos {{ model.packageName }}` CLI 命令不会自动安装到工作站中。可以使用 DC/OS CLI 手动安装它们：
 
 ```bash
 dcos package install {{ model.packageName }} --cli
@@ -26,7 +26,7 @@ dcos package install {{ model.packageName }} --cli
 运行 `package install` 命令后，服务将开始安装。
 
 # Enterprise DC/OS 安装
-根据 Enterprise DC/OS 群集的 [安全模式](/cn/1.11/security/ent/#security-modes)，Enterprise DC/OS 用户可能需要创建自定义 .json 文件并使用它来安装 {{ model.techName }}。
+根据 Enterprise DC/OS 群集的 [安全模式](/mesosphere/dcos/cn/1.11/security/ent/#security-modes)，Enterprise DC/OS 用户可能需要创建自定义 .json 文件并使用它来安装 {{ model.techName }}。
 
 ## <a name="create-json"></a>创建配置文件
 创建将用于安装 {{ model.techName }} 的自定义配置文件，并将其保存为 `config.json`。指定服务帐户 (`<service_account_id>`) 和秘密的道路 (`{{ model.packageName }}/<secret-name>`) .

@@ -12,7 +12,7 @@ DC/OS  {{ model.techName }} 服务的高级特性。
 
 - Mesos
 
- Mesos 是 DC/OS 群集的基础。Mesos 分配资源并管理群集内启动的一切。典型的 Mesos 群集具有一个或三个管理节点，可管理整个群集的资源。在 DC/OS 上，运行 Mesos 管理节点的机器通常也会运行作为本地系统进程的其他群集服务，例如 Marathon 和 Cosmos。代理机与管理节点所在的机器分开；代理机是运行集群内进程的地方。有关 Mesos 架构的更多信息，请参阅 [Apache Mesos 文档](https://mesos.apache.org/documentation/latest/architecture/)。有关 DC/OS 架构的更多信息，请参阅 [DC/OS 架构文档](/latest/overview/architecture/)。
+ Mesos 是 DC/OS 群集的基础。Mesos 分配资源并管理群集内启动的一切。典型的 Mesos 群集具有一个或三个管理节点，可管理整个群集的资源。在 DC/OS 上，运行 Mesos 管理节点的机器通常也会运行作为本地系统进程的其他群集服务，例如 Marathon 和 Cosmos。代理机与管理节点所在的机器分开；代理机是运行集群内进程的地方。有关 Mesos 架构的更多信息，请参阅 [Apache Mesos 文档](https://mesos.apache.org/documentation/latest/architecture/)。有关 DC/OS 架构的更多信息，请参阅 [DC/OS 架构文档](/mesosphere/dcos/latest/overview/architecture/)。
 
 - ZooKeeper
 
@@ -26,7 +26,7 @@ DC/OS  {{ model.techName }} 服务的高级特性。
 
  {{ model.techName }} 包装用于在 DC/OS 上部署。DC/OS 包遵循 [Universe 架构](https://github.com/mesosphere/universe)，其定义了包如何在初始安装时显示自定义选项。在集群上安装包时，包装服务（名为“Cosmos”）创建一个 Marathon 应用，其中包含由包提供的 `marathon.json.mustache` 模板的渲染版本。对于 DC/OS {{ model.techName }}，此 Marathon 应用是服务的调度程序。
 
-有关 DC/OS 组件的进一步讨论，请参阅 [架构文档](/latest/overview/architecture/components/)。
+有关 DC/OS 组件的进一步讨论，请参阅 [架构文档](/mesosphere/dcos/latest/overview/architecture/components/)。
 
 ## 部署
 
@@ -171,7 +171,7 @@ Mesos 将定期通知已预订的 Scheduler，告知群集中的资源情况。S
 - __MOUNT__ 卷：
  - 使用专用分区。
  - 为该分区设置专用 I/O。
- - 设置 DC/OS 群集时需要 [其他配置](/latest/storage/mount-disk-resources/) 。
+ - 设置 DC/OS 群集时需要 [其他配置](/mesosphere/dcos/latest/storage/mount-disk-resources/) 。
  - 被分配整个分区，所以分配的空间可能远远超过最初请求的空间。不能在服务之间进一步细分 MOUNT 卷。
 
 不能在服务之间再细分 MOUNT 卷意味着：如果多个服务使用 MOUNT 卷进行部署，则除非每个代理上都创建了许多 MOUNT 卷，否则 MOUNT 卷可能很快就无法在集群中密集地共置。让我们来看看以下在三个 DC/OS 代理机的部署情景，每个代理机都带有标记为 A 和 B 的两个 MOUNT 卷：
