@@ -9,7 +9,7 @@ enterprise: true
 Edge-LB uses templates to configure load balancing settings.
 This tutorial illustrates how you can create a custom `haproxy` template for Edge-LB to support Basic authentication.
 
-In this tutoria;, you use settings in the custom `haproxy` template to create at a simple `userlist` that defines the authenticated and authorized users who are allowed access using `frontend` and `backend` configuration settings.
+In this tutorial, you use settings in the custom `haproxy` template to create at a simple `userlist` that defines the authenticated and authorized users who are allowed access using `frontend` and `backend` configuration settings.
 
 # Before you begin
 * You must have an active and properly-configured DC/OS Enterprise cluster.
