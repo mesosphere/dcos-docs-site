@@ -138,7 +138,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
     /hello-nginx   64  0.1    1/1    N/A       ---      False      MESOS    N/A
     ```
 
-1.  If you used the [AWS CloudFormation templates](/mesosphere/dcos/1.13/installing/oss/cloud/aws/) to expose the app to the port specified in your app definition (for example, port 80), you must reconfigure the health check on the public ELB.
+1.  If you used the [AWS CloudFormation templates](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/) to expose the app to the port specified in your app definition (for example, port 80), you must reconfigure the health check on the public ELB.
     1. In CloudFormation, check the checkbox next to your stack.
     2. Click the **Resources** tab.
     3. Search for **PublicSlaveLoadBalancer**.
@@ -155,7 +155,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
 
 # Learn more
 
-Learn how to load balance your app on a public node using [Marathon-LB](/mesosphere/dcos/1.13/networking/marathon-lb/mlb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/mesosphere/dcos/services/marathon-lb/latest/mlb-basic-tutorial/).
 
 
  [1]: https://www.docker.com

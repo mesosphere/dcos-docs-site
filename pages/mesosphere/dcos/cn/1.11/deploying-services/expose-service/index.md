@@ -89,4 +89,4 @@ DC/OS 代理节点在 [安装](/mesosphere/dcos/cn/1.11/installing/)过程中可
 
 ## 后续步骤
 
-了解如何使用 [Marathon-LB](/mesosphere/dcos/cn/1.11/networking/marathon-lb/mlb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
+了解如何使用 [Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/latest/mlb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。

@@ -102,7 +102,6 @@ This section explains how to deploy a local Universe containing certified Univer
     sudo systemctl status dcos-local-universe-http
     sudo systemctl status dcos-local-universe-registry
     ```
-<a href="configure-multiple"></a>
 
 ## Configuring multiple masters
 
@@ -114,7 +113,7 @@ If you only have one master, skip to **Linking local Universe to master** below.
     host master.mesos
     ```
 
-1.  Use [secure copy](https://linux.die.net/man/1/scp) to transfer the Universe and registry files to one of the other masters. Replace `<master-IP>` with the IP address of the other master.
+2.  Use [secure copy](https://linux.die.net/man/1/scp) to transfer the Universe and registry files to one of the other masters. Replace `<master-IP>` with the IP address of the other master.
 
     ```bash
     scp local-universe.tar.gz core@<master-IP>:~
@@ -122,13 +121,13 @@ If you only have one master, skip to **Linking local Universe to master** below.
     scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:~
     ```
 
-1.  [SSH](/mesosphere/dcos/1.12/administering-clusters/sshcluster/) into the master that you just copied these files to.
+3.  [SSH](/mesosphere/dcos/1.12/administering-clusters/sshcluster/) into the master that you just copied these files to.
 
     ```bash
     ssh -A core@<master_IP>
     ```
 
-1.  Confirm that the files were successfully copied.
+4.  Confirm that the files were successfully copied.
 
     ```
     ls
@@ -140,39 +139,39 @@ If you only have one master, skip to **Linking local Universe to master** below.
     dcos-local-universe-http.service  dcos-local-universe-registry.service  local-universe.tar.gz
     ```
 
-1.  Move the registry files into the `/etc/systemd/system/` directory.
+5.  Move the registry files into the `/etc/systemd/system/` directory.
 
     ```
     sudo mv dcos-local-universe-registry.service /etc/systemd/system/
     sudo mv dcos-local-universe-http.service /etc/systemd/system/
     ```
 
-1.  Confirm that the files were successfully copied into `/etc/systemd/system/`.
+6.  Confirm that the files were successfully copied into `/etc/systemd/system/`.
 
     ```bash
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1.  Load the Universe into the local Docker instance. This may take some time to complete.
+7.  Load the Universe into the local Docker instance. This may take some time to complete.
 
     ```
     docker load < local-universe.tar.gz
     ```
 
-1.  Restart the Docker daemon.
+8.  Restart the Docker daemon.
 
     ```bash
     sudo systemctl daemon-reload
     ```
 
-1.  Start the `dcos-local-universe-http` and `dcos-local-universe-registry` services.
+9.  Start the `dcos-local-universe-http` and `dcos-local-universe-registry` services.
 
     ```bash
     sudo systemctl start dcos-local-universe-http
     sudo systemctl start dcos-local-universe-registry
     ```
 
-1.  Confirm that the services are now up and running.
+10. Confirm that the services are now up and running.
 
     ```bash
     sudo systemctl status dcos-local-universe-http

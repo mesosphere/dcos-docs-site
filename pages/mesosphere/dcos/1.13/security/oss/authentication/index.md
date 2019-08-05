@@ -36,7 +36,7 @@ You can disable authentication using one of the following ways:
     ```
     For more information, see the configuration [documentation](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/).
 
-2. Disable authentication using cloud installation on [AWS](/mesosphere/dcos/1.13/installing/oss/cloud/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+2. Disable authentication using cloud installation on [AWS](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/): You can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
 <p class="message--warning"><strong>WARNING: </strong>You cannot disable authentication using cloud installation on <a href ="/1.13/installing/evaluation/azure/">Azure</a>.</p>
 

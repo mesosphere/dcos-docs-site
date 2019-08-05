@@ -27,7 +27,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
 ###  Prerequisites
 - The AWS DC/OS advanced template [system requirements](/mesosphere/dcos/1.12/installing/production/system-requirements/).
-- The `zen.sh` script copied to your local machine. The script and instructions are [here](/mesosphere/dcos/1.12/installing/oss/cloud/aws/advanced/).
+- The `zen.sh` script copied to your local machine. The script and instructions are [here](/mesosphere/dcos/1.12/installing/evaluation/community-supported-methods/aws/advanced/).
 
 ### Create Dependencies
 
@@ -43,7 +43,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
     </tr> 
     </table>
 
-1. Follow the instructions [here](/mesosphere/dcos/1.12/installing/oss/cloud/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
+1. Follow the instructions [here](/mesosphere/dcos/1.12/installing/evaluation/community-supported-methods/aws/advanced/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
 
 1. On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
 

@@ -552,7 +552,7 @@ For an example of a pod that uses a persistent volume, see [Create a pod with a 
 
 ## IP-per-Pod Networking
 
-The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/mesosphere/dcos/1.14/installing/oss/cloud/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
+The following pod definition specifies a virtual (user) network named `dcos`. The `networks:mode:container` field creates the virtual network. The `name` field is optional. If you have installed DC/OS using [our AWS templates](/mesosphere/dcos/1.14/installing/evaluation/community-supported-methods/aws/), the default virtual network name is `dcos`. <!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {
