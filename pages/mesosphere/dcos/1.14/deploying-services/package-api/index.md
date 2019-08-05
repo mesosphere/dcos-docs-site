@@ -12,7 +12,7 @@ You can install DC/OS services by using the Package Management API. DC/OS servic
 
 The [DC/OS Package Manager (Cosmos) component](/mesosphere/dcos/1.14/overview/architecture/components/#dcos-package-manager) runs on all master nodes.
 
-For information about managing package repositories, see [Managing Package Repositories](/mesosphere/dcos/1.14/administering-clusters/repo/).
+For information about managing package repositories, see [Managing Package Repositories](/mesosphere/dcos/1.14/administering-clusters/package-registry/).
 
 For information about managing services, see [Deploying Services and Pods](/mesosphere/dcos/1.14/deploying-services/).
 

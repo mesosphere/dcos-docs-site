@@ -35,7 +35,7 @@ dcos package search [<query> --json]
 
 # Examples
 
-For an example, see the [documentation](/mesosphere/dcos/1.13/administering-clusters/repo/).
+For an example, see the [documentation](/mesosphere/dcos/1.13/administering-clusters/package-registry/).
 
 # Parent command
 
