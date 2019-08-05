@@ -13,8 +13,8 @@ This page explains how to install the {{ model.techName }} Service.
 # Prerequisites
 
 
-- DC/OS and DC/OS CLI installed with a minimum of {{ install.minNodeCount } agent nodes, with {{ install.nodeDescription }}.
-- Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See Provisioning a service account for more information.
+- DC/OS and DC/OS CLI installed with a minimum of {{ model.nodeDescription }}.
+- Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/data-science-engine/1.0.0/security/#provisioning-a-service-account) for more information.
 
 | Security Mode | Service Account |
 |----------------|------------------|
@@ -24,17 +24,17 @@ This page explains how to install the {{ model.techName }} Service.
 
 # Install {{ model.techName }}
 
-## From the DC/OS Web UI
+## From the DC/OS UI
 
-Select the Catalog tab, and search for 'data-science'. Select the {{ model.packageName }} package.
+1. Select the **Catalog** tab, and search for {{ model.techName }}. Select the {{ model.packageName }} package.
 
-Click the `Review & Run` button to display the Edit Configuration page.
+1. Click the **Review & Run** button to display the **Edit Configuration** page.
 
-Configure the package settings using  the DC/OS UI or by clicking JSON Editor and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
+1. Configure the package settings using  the DC/OS UI or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
 
-Click Review & Run.
+1. Click **Review & Run**.
 
-Review the installation notes, then click Run Service to deploy the {{ model.packageName }} package.
+1. Review the installation notes, then click **Run Service** to deploy the {{ model.packageName }} package.
 
 
 ## From the command line
@@ -58,24 +58,26 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
 
 # Run a Python Notebook Using Spark
 
-From DC/OS, select Services, then click on the "Open" icon for the {{ model.serviceName }}.
+1. From DC/OS , select **Services**, then click on the "Open" icon for the {{ model.serviceName }}.
 
-![Open JupyterLab](img/dcos-jupyter-new-window.png)
+    ![Open JupyterLab](/services/data-science-engine/img/dcos-jupyter-new-window.png)
 
-This will open a new window or tab in the browser for JupyterLab.  Log in using the password specified during the installation of the {{ model.packageName }} package in "Service" -> "Jupyter Password" option or use `jupyter` by default.
+    Figure 1 - Open new Jupyter window
 
-   - In JupyterLab, create a new notebook by selecting File -> New -> Notebook
+    This will open a new window or tab in the browser for JupyterLab.  Log in using the password specified during the installation of the {{ model.packageName }} package in **Service -> Jupyter Password** option or use `jupyter` by default.
 
-   ![Create new notebook](img/jupyterlab-menu-file-new-notebook.png)
+1. In JupyterLab, create a new notebook by selecting **File > New > Notebook**:
 
-   - Select Python 3 as the kernel language
+   ![Create new notebook](/services/data-science-engine/img/jupyterlab-menu-file-new-notebook.png)
 
-   - Rename the notebook to "Estimate Pi.ipynb" using the menu at File -> Rename Notebook...
+   Figure 2 - Create a new notebook
 
-   - Paste the following Python code into the notebook.  If desired, you can type sections of code into separate cells as shown below.
+1. Select Python 3 as the kernel language.
 
+1. Rename the notebook to "Estimate Pi.ipynb" using the menu at **File -> Rename Notebook**.
 
-   ![Estimate Pi notebook](img/jupyterlab-estimate-pi-notebook-code.png)
+1. Paste the following Python code into the notebook.  If desired, you can type sections of code into separate cells as shown below.
+
 
    ```python
    from pyspark import SparkContext, SparkConf
@@ -96,11 +98,7 @@ This will open a new window or tab in the browser for JupyterLab.  Log in using 
    ```
 
 
-- Run the notebook.
-
-   - From the menu, select Run -> Run All Cells
-
-   - The notebook will run for some time, then print out the calculated value.
+1. Run the notebook. From the menu, select **Run -> Run All Cells**. The notebook will run for some time, then print out the calculated value.
 
    - Expected output: 3.1413234
 

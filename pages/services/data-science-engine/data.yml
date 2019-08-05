@@ -3,13 +3,8 @@
 packageName: data-science-engine
 serviceName: data-science-engine
 techName: DC/OS Data Science Engine
+nickName: DSEngine
+minNodeCount: three
+nodeDescription: three agent nodes, with eight GB of memory and 10 GB of disk space
 
-# Values specific to certain templates:
 
-install:
- minNodeCount: three
- nodeDescription: three agent nodes, with eight GB of memory and 10 GB of disk space
-
-security:
- defaultPassword: jupyter
- defaultClientId: notebook

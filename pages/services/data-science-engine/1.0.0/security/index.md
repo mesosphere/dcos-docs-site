@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle: Security
-excerpt: Protecting your data
+excerpt: Configuring secure DC/OS service accounts 
 title: Security
-menuWeight: 8
+menuWeight: 10
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
@@ -35,16 +35,16 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:princi
 dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/{{ model.serviceName }} create
 ```
     
-You can also provision a service account using the UI.
+<!-- You can also provision a service account using the UI. -->
 
 ## Using the secret store
 
-DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.techName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. For details about how to use secrets, see understanding secrets.
+DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. For details about how to use secrets, see understanding secrets.
 
 ### Where to place secrets
 
 For a secret to be available to {{ model.techName }}, it must be placed in a path
-that can be accessed by the {{ model.techName }} service. If only {{ model.techName }} requires access to a secret, you can store the secret in a path that matches the name of the {{ model.techName }} service (for example, `{{ model.packageName }}/secret`).  
+that can be accessed by the {{ model.nickName }} service. If only {{ model.nickName }} requires access to a secret, you can store the secret in a path that matches the name of the {{ model.packageName }} service (for example, `{{ model.packageName }}/secret`).  
 
 ## Limitations
 

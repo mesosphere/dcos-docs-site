@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-excerpt: Release notes for 1.0
+excerpt: Release notes for 1.0.0
 title: Release Notes
 menuWeight: 0
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
 
-# Release notes for {{ model.techName }} version 1.0
+# Release notes for {{ model.techName }} version 1.0.0
 
 This is the first release for {{ model.techName }}.
 
@@ -19,7 +19,7 @@ This is the first release for {{ model.techName }}.
 
 ## {{ model.techName }} components
 
-{{ model.techName }} 1.0 includes the following components:
+{{ model.techName }} 1.0.0 includes the following components:
 
 - Framework lifecycle for upgrades and updates
 - 24/7 Mesosphere engineering support for all components included in the stack

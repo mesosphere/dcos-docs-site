@@ -29,9 +29,11 @@ Within the {{ model.techName }} service configuration, set `service.jupyter_conf
 You can also specify the URLs through the UI. If you are using the default installation of HDFS from Mesosphere, this would be `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints` for HDFS service installed with `hdfs` name.
 
 ## Example of Using HDFS with Spark
-Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend. Launch Terminal from Notebook UI and run the following commands:
+Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage backend.
 
-1. Clone TensorFlow on Spark repository and download sample dataset:
+1. Launch **Terminal** from the Notebook UI.
+
+1. Clone the `TensorFlow on Spark` repository and download the sample dataset:
 
     ```bash
     rm -rf TensorFlowOnSpark && git clone https://github.com/yahoo/TensorFlowOnSpark
@@ -40,13 +42,13 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
     unzip -d mnist/ mnist.zip
     ```
 
-2. List files in the target HDFS directory and remove it if it is not empty.
+1. List the files in the target HDFS directory and remove it if it is not empty.
 
     ```bash
     hdfs dfs -ls -R mnist/ && hdfs dfs -rm -R mnist/
     ```
 
-3. Generate sample data and save to HDFS.
+1. Generate sample data and save to HDFS.
 
     ```bash
     spark-submit \
@@ -58,7 +60,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
     hdfs dfs -ls -R  mnist
     ```
 
-4. Train the model and checkpoint it to the target directory in HDFS.
+1. Train the model and checkpoint it to the target directory in HDFS.
 
     ```bash
     spark-submit \
@@ -73,7 +75,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
       --model mnist/mnist_csv_model
     ```
 
-5. Verify model is saved.
+1. Verify that the model has been saved.
 
     ```bash
     hdfs dfs -ls -R mnist/mnist_csv_model
@@ -100,4 +102,4 @@ You can read/write files to S3 using environment variable-based secrets to pass 
       }
     }
     ```
-You can also specify credentials through the UI.
+<!-- You can also specify credentials through the UI. -->

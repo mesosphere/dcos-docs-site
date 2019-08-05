@@ -32,22 +32,24 @@ Kerberos is an authentication system that allows {{ model.techName }} to retriev
 
 Make sure your `keytab` file is in the DC/OS secret store, under a path that is accessible by the {{ model.packageName }} service.
 
-## Example of Using HDFS with Spark in Kerberized Environment
+## Example: Using HDFS with Spark in a Kerberized Environment
 Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend in Kerberized environment. First of all, you need to make sure that HDFS service is installed and {{model.techName}} is configured with its endpoint. To find more about configuring HDFS integration of {{model.techName}} follow [Using HDFS with DC/OS Data Science Engine](/services/data-science-engine/1.0.0/hdfs/) section.
 
-Make sure HDFS Client service is installed and running with Kerberos enabled option. After that, you can run the following commands to setup a directory on HDFS with proper permissions:
+1. Make sure HDFS Client service is installed and running with the "Kerberos enabled" option. 
 
-```bash
-# Suppose the HDFS Client version you are running is "2.6.0-cdh5.0.1", then command will be
-dcos task exec hdfs-client /bin/bash -c '/hadoop-2.6.0-cdh5.9.1/bin/hdfs dfs -mkdir -p /{{ model.packageName }}'
-# Suppose the name of the primary mentioned above is "jupyter"
-dcos task exec hdfs-client /bin/bash -c '/hadoop-2.6.0-cdh5.9.1/bin/hdfs dfs -chown jupyter:jupyter /{{ model.packageName }}'
-dcos task exec hdfs-client /bin/bash -c '/hadoop-2.6.0-cdh5.9.1/bin/hdfs dfs -chmod 700 /{{ model.packageName }}'
-```
+1. Run the following commands to set up a directory on HDFS with proper permissions:
 
-Launch Terminal from Notebook UI and run the following commands:
+    ```bash
+    # Suppose the HDFS Client version you are running is "2.6.0-cdh5.0.1", then command will be
+    dcos task exec hdfs-client /bin/bash -c '/hadoop-2.6.0-cdh5.9.1/bin/hdfs dfs -mkdir -p /{{ model.packageName }}'
+    # Suppose the name of the primary mentioned above is "jupyter"
+    dcos task exec hdfs-client /bin/bash -c '/hadoop-2.6.0-cdh5.9.1/bin/hdfs dfs -chown jupyter:jupyter /{{ model.packageName }}'
+    dcos task exec hdfs-client /bin/bash -c '/hadoop-2.6.0-cdh5.9.1/bin/hdfs dfs -chmod 700 /{{ model.packageName }}'
+    ```
 
-1. Clone TensorFlow on Spark repository and download sample dataset:
+1. Launch **Terminal** from the Notebook UI.
+
+1. Clone `TensorFlow on Spark` repository and download a sample dataset:
 
     ```bash
     rm -rf TensorFlowOnSpark && git clone https://github.com/yahoo/TensorFlowOnSpark
@@ -56,13 +58,13 @@ Launch Terminal from Notebook UI and run the following commands:
     unzip -d mnist/ mnist.zip
     ```
 
-2. List files in the target HDFS directory and remove it if it is not empty.
+1. List files in the target HDFS directory and remove it if it is not empty.
 
     ```bash
     hdfs dfs -ls -R /{{ model.packageName }}/mnist_kerberos && hdfs dfs -rm -R /{{ model.packageName }}/mnist_kerberos
     ```
 
-3. Generate sample data and save to HDFS.
+1. Generate sample data and save to HDFS.
 
     ```bash
     spark-submit \
@@ -74,7 +76,7 @@ Launch Terminal from Notebook UI and run the following commands:
     hdfs dfs -ls -R /{{ model.packageName }}/mnist_kerberos
     ```
 
-4. Train the model and checkpoint it to the target directory in HDFS. You'll need to specify two additional options to distribute Kerberos ticket cache file to executors: `--files <Kerberos ticket cache file>` and `--conf spark.executorEnv.KRB5CCNAME="/mnt/mesos/sandbox/krb5cc_99"`. Kerberos ticket cache file will be used by executors for authentication with Kerberized HDFS:
+1. Train the model and checkpoint it to the target directory in HDFS. You will need to specify two additional options to distribute Kerberos ticket cache file to executors: `--files <Kerberos ticket cache file>` and `--conf spark.executorEnv.KRB5CCNAME="/mnt/mesos/sandbox/krb5cc_99"`. The Kerberos ticket cache file will be used by executors for authentication with Kerberized HDFS:
 
     ```bash
     spark-submit \
@@ -90,7 +92,7 @@ Launch Terminal from Notebook UI and run the following commands:
       --model /{{ model.packageName }}/mnist_kerberos/mnist_csv_model
     ```
 
-5. Verify model is saved.
+5. Verify that the model has been saved.
 
     ```bash
     hdfs dfs -ls -R /{{ model.packageName }}/mnist_kerberos/mnist_csv_model

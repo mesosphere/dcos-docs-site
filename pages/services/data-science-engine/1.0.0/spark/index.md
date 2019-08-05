@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle: Spark
-excerpt: {{ model.techName }} Spark integration
+excerpt: DC/OS Data Science Engine and Spark integration
 title: Spark
 menuWeight: 8
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
 
-{{ model.techName }} comes with Apache Spark integration and allows running Spark jobs from {{ model.techName }} notebooks and terminal.
+{{ model.techName }} comes with Apache Spark integration and allows running Spark jobs from {{ model.nickName }} notebooks and terminal.
 
 # Launching a Spark job
 ## Using Terminal
@@ -18,7 +18,7 @@ Open a `Terminal` from Notebook UI and run example `spark-submit` job:
 spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
 ```
 
-## Using Python Notebook
+## Using a Python Notebook
 Open a `Python Notebook` and put the following code in a code cell.
 ```python
 from __future__ import print_function
@@ -42,7 +42,11 @@ spark.stop
 ```
 
 # Spark UI
-Spark Web UI starts automatically when a SparkContext is created and is available at `http://<dcos_url>/service/{{ model.serviceName }}/sparkui`.
+The Spark UI starts automatically when a SparkContext is created and is available at 
+
+```bash
+http://<dcos_url>/service/{{ model.serviceName }}/sparkui
+```
 
 # Spark History Server
 
@@ -69,36 +73,36 @@ You can configure SHS to use HDFS with the following steps:
 
 ## Configuring Spark History Server
 
-1. Configure "Spark History Log Directory" to point to the created HDFS directory in `service.json`:
+1. Configure **Spark History Log Directory** to point to the created HDFS directory in `service.json`:
 
-```json
-{
-    "service": {
-      "jupyter_conf_urls": "<DCOS HDFS endpoint>"
-    },
-    "spark": {
-        "start_spark_history_server": true,
-        "spark_history_fs_logdirectory": "hdfs://hdfs/history"
+    ```json
+    {
+        "service": {
+        "jupyter_conf_urls": "<DCOS HDFS endpoint>"
+        },
+        "spark": {
+            "start_spark_history_server": true,
+            "spark_history_fs_logdirectory": "hdfs://hdfs/history"
+        }
     }
-}
-```
+    ```
 
-To find more about configuring HDFS integration of {{model.techName}} follow [Using HDFS with DC/OS Data Science Engine](/services/data-science-engine/1.0.0/hdfs/) section.
+    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/services/data-science-engine/1.0.0/hdfs/) documentation.
 
-2.  Enable the Spark Event log and set the HDFS directory:
+1.  Enable the `Spark Event` log and set the HDFS directory:
 
-```json
-{
-    "spark": {
-        "start_spark_history_server": true,
-        "spark_history_fs_logdirectory": "hdfs://hdfs/history",
-        "spark_eventlog_enabled": true,
-        "spark_eventlog_dir": "hdfs://hdfs/history"
+    ```json
+    {
+        "spark": {
+            "start_spark_history_server": true,
+            "spark_history_fs_logdirectory": "hdfs://hdfs/history",
+            "spark_eventlog_enabled": true,
+            "spark_eventlog_dir": "hdfs://hdfs/history"
+        }
     }
-}
-```
+    ```
 
-3. Restart the `{{ model.serviceName }}` to apply the changes.
+1. Restart the {{ model.serviceName }} Service to apply the changes.
 
 ## Confirm Spark History Server installation
 Spark History Server UI is available at `http://<dcos_url>/service/{{ model.serviceName }}/sparkhistory`, listing incomplete and completed applications and attempts.

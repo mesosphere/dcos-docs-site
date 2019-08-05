@@ -2,15 +2,14 @@
 layout: layout.pug
 navigationTitle: TensorFlow
 excerpt: TensorFlow with DC/OS Data Science Engine
-title: HDFS
-menuWeight: 4
+title: TensorFlow
+menuWeight: 12
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
+TensorFlow is an end-to-end open source platform for machine learning. It is included in your {{ model.techName }} installation.
 
-# TensorFlow
-
-{{ model.techName }} comes with TensorFlow included which allows using it in Python notebooks.
+# Using TensorFlow with Python
 
 Open a `Python Notebook` and put the following sections in a different code cells.
 
@@ -60,11 +59,13 @@ print("predicted number: {}".format(pred.argmax()))
 
 # TensorFlow on Spark
 
-{{ model.techName }} includes TensorFlow on Spark integration which allows  to run TensorFlow in a distributed mode using Apache Spark as an engine.
+{{ model.techName }} includes `TensorFlow on Spark` integration which allows you to run TensorFlow in a distributed mode, using Apache Spark as an engine.
 
-Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend. Launch Terminal from Notebook UI and run the following commands:
+Here is an example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend. 
 
-1. Clone TensorFlow on Spark repository and download sample dataset:
+1. Launch **Terminal** from Notebook UI.
+
+1. Clone the `TensorFlow on Spark` repository and download the sample dataset:
 
     ```bash
     rm -rf TensorFlowOnSpark && git clone https://github.com/yahoo/TensorFlowOnSpark
@@ -73,13 +74,13 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
     unzip -d mnist/ mnist.zip
     ```
 
-2. List files in the target HDFS directory and remove it if it is not empty.
+1. List files in the target HDFS directory and remove it if it is not empty.
 
     ```bash
     hdfs dfs -ls -R mnist/ && hdfs dfs -rm -R mnist/
     ```
 
-3. Generate sample data and save to HDFS.
+1. Generate sample data and save to HDFS.
 
     ```bash
     spark-submit \
@@ -91,7 +92,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
     hdfs dfs -ls -R  mnist
     ```
 
-4. Train the model and checkpoint it to the target directory in HDFS.
+1. Train the model and checkpoint it to the target directory in HDFS.
 
     ```bash
     spark-submit \
@@ -106,7 +107,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
       --model mnist/mnist_csv_model
     ```
 
-5. Verify model is saved.
+1. Verify that model has been saved.
 
     ```bash
     hdfs dfs -ls -R mnist/mnist_csv_model
@@ -114,7 +115,7 @@ Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage 
 
 # TensorBoard
 
-{{ model.techName }} comes with TensorBoard installed. It can be found at
+{{ model.techName }} comes with `TensorBoard` installed. It can be found at
 `http://<dcos-url>/service/{{model.serviceName}}/tensorboard/`.
 
 ## Log directory
@@ -130,7 +131,7 @@ Here is an example:
     dcos package install hdfs
     ```
 
-2. Install {{ model.packageName }} with overridden log directory option:
+1. Install {{ model.packageName }} with overridden log directory option:
 
     ```bash
     dcos package install --options=dse-options.json {{ model.serviceName }}
@@ -146,11 +147,11 @@ Here is an example:
     }
     ```
 
-3. Open TensorBoard at `https://<dcos-url>/service/{{model.serviceName}}/tensorboard/` and confirm the change.
+1. Open TensorBoard at `https://<dcos-url>/service/{{model.serviceName}}/tensorboard/` and confirm the change.
 
 ## Disabling TensorBoard
 
-{{ model.techName }} can be installed with TensorBoard disabled by using the following configuration:
+{{ model.techName }} can be installed with `TensorBoard` disabled by using the following configuration:
 
 ```json
 {

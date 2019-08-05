@@ -16,7 +16,7 @@ Perform a default installation by following the instructions in the [Quick Start
 To run any job, first you have to open the lab and choose the notebook you want to run.
 You can select from many notebooks available in the lab, for example, Scala, Python, R, and so forth.
 Notebook consists of cells; each cell can be of type `markdown` or `code`.
-In the `markdown` cell, you can write text or html. In the `code` cell, you can type your code as shown in the example below.
+In the `markdown` cell, you can write text or HTML. In the `code` cell, you can type your code as shown in the example below.
 
 ## Python Kernel
 Open a `Python Notebook` and put the following sections in a different code cells.
@@ -185,7 +185,7 @@ sum
 
 ## Launching a Spark job
 ### Using Terminal
-Open a `Terminal` from Notebook UI and run example `spark-submit` job:
+Open a `Terminal` from the Notebook UI and run an example `spark-submit` job:
 
 ```bash
 spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
