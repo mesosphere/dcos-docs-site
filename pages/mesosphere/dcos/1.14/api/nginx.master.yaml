@@ -39,7 +39,7 @@ backends:
   mesos_dns:
     server: '127.0.0.1:8123'
     name: Mesos DNS
-    reference: 'https://docs.d2iq.com/1.14/networking/mesos-dns/mesos-dns-api/'
+    reference: 'https://docs.d2iq.com/1.14/networking/DNS/mesos-dns/mesos-dns-api/'
   metrics:
     server: 'unix:/run/dcos/dcos-metrics-master.sock'
     name: DC/OS Metrics

@@ -75,7 +75,7 @@ oauth_enabled: 'false'
 ```
 For more information, see the configuration [documentation](/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/).
 
-If you are doing a cloud installation on [AWS](/mesosphere/dcos/1.12/installing/oss/cloud/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
+If you are doing a cloud installation on [AWS](/mesosphere/dcos/1.12/installing/evaluation/community-supported-methods/aws/), you can set the `OAuthEnabled` option to `false` on the **Specify Details** step to disable authentication.
 
 If you are doing a cloud installation on [Azure](/mesosphere/dcos/1.12/installing/evaluation/azure/), you cannot disable authentication. This option will be added in a future releasealong with other options to customize authentication.
 

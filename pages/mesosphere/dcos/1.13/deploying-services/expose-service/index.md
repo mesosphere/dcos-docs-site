@@ -13,8 +13,9 @@ enterprise: false
 DC/OS agent nodes can be designated as [public](/mesosphere/dcos/1.13/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/1.13/overview/concepts/#private-agent-node) during [installation](/mesosphere/dcos/1.13/installing/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.
 
 To launch a service on a public node, you must 
-1. [Create a Marathon app definition](#create-app) with the `"acceptedResourceRoles":["slave_public"]` parameter specified
-1. [Configure](#config-lb) an edge load balancer and a service discovery mechanism
+- [Create a Marathon app definition](#create-a-marathon-app-definition)
+- [Configure edge load balancer](#configure-edge-load-balancer)
+  - [Learn more](#learn-more)
 
 **Prerequisites:**
 
@@ -87,7 +88,7 @@ To launch a service on a public node, you must
 
 1.  Configure an edge load balancer and service discovery mechanism.
 
-    - AWS users: If you installed DC/OS by using the [AWS CloudFormation templates](/mesosphere/dcos/1.13/installing/oss/cloud/aws/), an ELB is included. However, you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
+    - AWS users: If you installed DC/OS by using the [AWS CloudFormation templates](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/), an ELB is included. However, you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
     - All other users: You can use [Marathon-LB](/mesosphere/dcos/1.13/networking/marathon-lb/), a rapid proxy and load balancer that is based on HAProxy.
 
 1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/).
@@ -100,4 +101,4 @@ To launch a service on a public node, you must
 
 ## Learn more
 
-Learn how to load balance your app on a public node using [Marathon-LB](/mesosphere/dcos/1.13/networking/marathon-lb/mlb-basic-tutorial/).
+Learn how to load balance your app on a public node using [Marathon-LB](/mesosphere/dcos/services/marathon-lb/latest/mlb-basic-tutorial/).

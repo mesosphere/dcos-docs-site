@@ -102,7 +102,6 @@ enterprise: false
     sudo systemctl status dcos-local-universe-http
     sudo systemctl status dcos-local-universe-registry
     ```
-<a href="configure-multiple"></a>
 
 ## 配置多个管理节点
 
@@ -114,7 +113,7 @@ enterprise: false
     host master.mesos
     ```
 
-1. 使用 [安全副本](https://linux.die.net/man/1/scp) 将 Universe 和注册表文件传输到其他管理节点之一。将 `<master-IP>` 替换为另一个管理节点的 IP 地址。
+2. 使用 [安全副本](https://linux.die.net/man/1/scp) 将 Universe 和注册表文件传输到其他管理节点之一。将 `<master-IP>` 替换为另一个管理节点的 IP 地址。
 
     ```bash
     scp local-universe.tar.gz core@<master-IP>:~
@@ -122,13 +121,13 @@ enterprise: false
     scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:~
     ```
 
-1. [SSH](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
+3. [SSH](/mesosphere/dcos/cn/1.12/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
 
     ```bash
     ssh -A core@<master_IP>
     ```
 
-1. 确认文件已成功复制。
+4. 确认文件已成功复制。
 
     ```
     ls
@@ -140,39 +139,39 @@ enterprise: false
     dcos-local-universe-http.service  dcos-local-universe-registry.service  local-universe.tar.gz
     ```
 
-1. 将注册表文件移动到 `/etc/systemd/system/` 目录。
+5. 将注册表文件移动到 `/etc/systemd/system/` 目录。
 
     ```
     sudo mv dcos-local-universe-registry.service /etc/systemd/system/
     sudo mv dcos-local-universe-http.service /etc/systemd/system/
     ```
 
-1. 确认文件已成功复制到 `/etc/systemd/system/`。
+6. 确认文件已成功复制到 `/etc/systemd/system/`。
 
     ```bash
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1. 将 Universe 加载到本地 Docker 实例中。这可能需要一些时间才能完成。
+7. 将 Universe 加载到本地 Docker 实例中。这可能需要一些时间才能完成。
 
     ```
     docker load < local-universe.tar.gz
     ```
 
-1. 重新启动 Docker 守护程序。
+8. 重新启动 Docker 守护程序。
 
     ```bash
     sudo systemctl daemon-reload
     ```
 
-1. 启动 `dcos-local-universe-http` 和 `dcos-local-universe-registry` 服务。
+9. 启动 `dcos-local-universe-http` 和 `dcos-local-universe-registry` 服务。
 
     ```bash
     sudo systemctl start dcos-local-universe-http
     sudo systemctl start dcos-local-universe-registry
     ```
 
-1. 确认服务现已启动和运行。
+10. 确认服务现已启动和运行。
 
     ```bash
     sudo systemctl status dcos-local-universe-http
