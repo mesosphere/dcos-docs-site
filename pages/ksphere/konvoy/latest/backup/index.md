@@ -7,6 +7,8 @@ excerpt: Back up and restore the Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 For production clusters, regular maintenance should include routine backup operations on a regular basis to ensure data integrity and reduce the risk of data loss due to unexpected events.
 Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
 

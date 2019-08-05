@@ -7,6 +7,8 @@ excerpt: Configure advanced provisioning options for installing Konvoy on AWS
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 The topics in this section describe advanced provisioning and configuration options for Konvoy when deploying on AWS.
 
 # Customize region and availability zones

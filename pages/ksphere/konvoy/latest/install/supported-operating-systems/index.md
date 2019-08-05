@@ -9,13 +9,13 @@ enterprise: false
 
 Konvoy supports the following base Operating Systems.
 
-# CentOS
+## CentOS
 
 | OS Release | Kernel Version |
 |------------|----------------|
 | [CentOS 7.6][centos_7_6] | 3.10.0-957 |
 
-# RHEL
+## RHEL
 
 | OS Release | Kernel Version |
 |------------|----------------|

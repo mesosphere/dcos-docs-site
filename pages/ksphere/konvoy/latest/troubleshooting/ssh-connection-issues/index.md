@@ -7,7 +7,7 @@ excerpt: SSH connection issues
 enterprise: false
 ---
 
-# Too many authentication failures
+## Too many authentication failures
 
 If SSH agent forwarding is used, sometimes you might see the following error.
 

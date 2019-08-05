@@ -20,7 +20,7 @@ For Konvoy, the `cluster.yaml` file defines the following configuration resource
 In addition to the `cluster.yaml` file, Konvoy clusters require you to have an `inventory.yaml` file.
 For information about the format and settings in an `inventory.yaml` file, see [Working with inventory files](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
 
-# Sample cluster configuration file
+## Sample cluster configuration file
 
 The following example illustrates the contents of a `cluster.yaml` file with both the `ClusterProvisioner` and `ClusterConfiguration` sections defined.
 In this example, the `cluster.yaml` file specifies `AWS` as the public cloud provisioner:
@@ -146,7 +146,7 @@ spec:
   version: v0.3.0
 ```
 
-# ClusterProvisioner settings
+## ClusterProvisioner settings
 
 | Parameter              | Description                                                             | Default       |
 | ---------------------- | ----------------------------------------------------------------------- | ------------- |
@@ -157,7 +157,7 @@ spec:
 | `spec.sshCredentials`  | contains credentials information for accessing machines in a cluster    | See [spec.sshCredentials](#spec-sshcredentials) |
 | `spec.version`         | version of a konvoy cluster                                             | `v0.0.20`     |
 
-## spec.aws
+### spec.aws
 
 | Parameter               | Description                                                                      | Default               |
 | ----------------------- | -------------------------------------------------------------------------------- | --------------------- |
@@ -165,7 +165,7 @@ spec:
 | `aws.availabilityZones` | availability zones to deploy a cluster in a region                               | `[us-west-2c]`        |
 | `aws.tags`              | additional [tags][aws_tags] for the resources provisioned through the Konvoy CLI | `[owner: <username>]` |
 
-## spec.docker
+### spec.docker
 
 The default value of this entire object is `omitted`.
 
@@ -175,11 +175,11 @@ The default value of this entire object is `omitted`.
 | `aws.sshControlPlaneMappedPortBase` | the beginning of the port range that will be used for exposing the control plane on the host | N/A     |
 | `aws.sshWorkerMappedPortBase`       | the beginning of the port range that will be used for SSH to the worker nodes                | N/A     |
 
-## spec.nodePools
+### spec.nodePools
 
 `spec.nodePools` is comprised of an array of `nodePool`s.
 
-### nodePool
+#### nodePool
 
 | Parameter               | Description                                                                                    | Default\[0]       | Default\[1]       |
 | ----------------------- | ---------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
@@ -188,11 +188,11 @@ The default value of this entire object is `omitted`.
 | `nodePool.count`        | Defines the number of nodes in a node-pool. You should set the `count` to an odd number for `controlPlane` nodes to help keep `etcd` store consistent. A node pool count of 3 is considered “highly available” to protect against failures. | `4`               | `3`               |
 | `nodePool.machine`      | Specifies cloud-provider details about the machine types to use.                                          | See [spec.nodePool.machine](#spec-nodepool-machine) | See \[0] |
 
-### spec.nodePool.machine
+#### spec.nodePool.machine
 
 `spec.nodePool.machine` varies depending on the `spec.provider`.
 
-#### AWS (machine)
+##### AWS (machine)
 
 | Parameter                     | Description                                                                                     | Default\[0]   | Default\[1] |
 | ----------------------------- | ----------------------------------------------------------------------------------------------- | ------------- | ----------- |
@@ -205,7 +205,7 @@ The default value of this entire object is `omitted`.
 | `machine.imagefsVolumeType`   | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                         | `gp2`         | See \[0]    |
 | `machine.type`                | Specifies the [EC2 instance type][ec2_instance_types] to use.                                             | `t3.xlarge`   | `t3.large`  |
 
-## spec.sshCredentials
+### spec.sshCredentials
 
 | Parameter                       | Description                                                                   | Default               |
 | ------------------------------- | ----------------------------------------------------------------------------- | --------------------- |
@@ -213,7 +213,7 @@ The default value of this entire object is `omitted`.
 | `sshCredentials.publicKeyFile`  | Specifies the path and name of the public key file to use when accessing a machine through ssh.  | `<clustername>`-ssh.pub |
 | `sshCredentials.privateKeyFile` | Specifies the path and name of the private key file to use when accessing a machine through ssh. | `<clustername>`-ssh.pem |
 
-# ClusterConfiguration settings
+## ClusterConfiguration settings
 
 | Parameter               | Description                            | Default                                  |
 | ----------------------- | -------------------------------------- | ---------------------------------------- |
@@ -225,7 +225,7 @@ The default value of this entire object is `omitted`.
 | `spec.addons`           | Specifies the list of addons that can be deployed.  | See [spec.addons](#spec-addons) |
 | `spec.version`          | version of a konvoy cluster            | `v0.0.20`                                |
 
-## spec.kubernetes
+### spec.kubernetes
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
@@ -236,14 +236,14 @@ The default value of this entire object is `omitted`.
 | `kubernetes.podSecurityPolicy` | Specifies the object that defines whether to enable pod security policies. | See [spec.kubernetes.podSecurityPolicy](#spec-kubernetes-podsecuritypolicy)    |
 | `kubernetes.preflightChecks`   | Specifies the object that defines what errors to ignore for Ansible pre-flight checks. | See [spec.kubernetes.preflightChecks](#spec-kubernetes-preflightchecks)    |
 
-### spec.kubernetes.controlPlane
+#### spec.kubernetes.controlPlane
 
 | Parameter                                  | Description                                                    | Default  |
 | ------------------------------------------ | -------------------------------------------------------------- | -------- |
 | `controlPlane.controlPlaneEndpointOverride`| Overrides the `control_plane_endpoint` from `inventory.yaml`.   | `""`      |
 | `controlPlane.keepalived`                   | Specifies the object that defines keepalived configuration.     | See [spec.kubernetes.controlPlane.keepalived](#spec-kubernetes-controlplane-keepalived)  |
 
-### spec.kubernetes.controlPlane.keepalived
+#### spec.kubernetes.controlPlane.keepalived
 
 | Parameter              | Description                      | Default  |
 | -----------------------| ---------------------------------| -------- |
@@ -251,7 +251,7 @@ The default value of this entire object is `omitted`.
 | `keepalived.interface` | Specifies the interface to run keepalived on.  | `omitted("")` |
 | `keepalived.vrid`      | Specifies the virtual router id for keepalived. | `omitted ("random")` |
 
-### spec.kubernetes.networking
+#### spec.kubernetes.networking
 
 | Parameter                  | Description                                                                      | Default          |
 | -------------------------- | -------------------------------------------------------------------------------- | ---------------- |
@@ -261,29 +261,29 @@ The default value of this entire object is `omitted`.
 | `networking.httpsProxy`    | Specifies the address to the HTTPs proxy to set `HTTPS_PROXY` env variable during installation. | `""`             |
 | `networking.noProxy`       | Specifies the list of addresses to pass to `NO_PROXY`, all node addresses, podSubnet, serviceSubnet, controlPlane endpoint and `127.0.0.1` and `localhost` are automatically set. | `[]` |
 
-### spec.kubernetes.cloudProvider
+#### spec.kubernetes.cloudProvider
 
 | Parameter                | Description                               | Default |
 | ------------------------ | ----------------------------------------- | ------- |
 | `cloudProvider.provider` | Defines the provider for cloud services.  | `aws`   |
 
-### spec.kubernetes.podSecurityPolicy
+#### spec.kubernetes.podSecurityPolicy
 
 | Parameter                   | Description               | Default |
 | --------------------------- | ------------------------- | ------- |
 | `podSecurityPolicy.enabled` | Enables podSecurity policy. | `false` |
 
-### spec.kubernetes.preflightChecks
+#### spec.kubernetes.preflightChecks
 
 | Parameter                   | Description               | Default |
 | --------------------------- | ------------------------- | ------- |
 | `preflightChecks.errorsToIgnore` | Specifies a comma separated list of errors to ignore for ansible preflight checks, default depends on provider.  | `""` |
 
-## spec.nodePools
+### spec.nodePools
 
 `spec.nodePools` is comprised of an array of `spec.nodePool`s.
 
-### spec.nodePool
+#### spec.nodePool
 
 | Parameter       | Description                                                                | Default\[0] |  Default\[1] |
 | --------------- | -------------------------------------------------------------------------- | ----------- | ------------ |
@@ -291,22 +291,22 @@ The default value of this entire object is `omitted`.
 | `labels`        | Specifies the user-defined `spec.nodePool.label`s to set on all nodes in the nodePool.   | See [spec.nodePools.labels](#spec-nodepools-labels) | See \[0]   |
 | `taints`        | Specifies the user-defined `spec.nodePool.taints`s to set on all nodes in the nodePool.  | See [spec.nodePools.taints](#spec-nodepools-taints) | See \[0]   |
 
-## spec.nodePools.labels
+### spec.nodePools.labels
 
 `spec.nodePools.labels` is comprised of an array of `label`s, the default value is `omitted ([])`.
 
-## spec.nodePool.label
+### spec.nodePool.label
 
 | Parameter       | Description                                                                | Default    |
 | --------------- | ------------ | ---------- |
 | `key`           | label key    | `omitted ("")`         |
 | `value`         | Specifies the user-defined labels to set on all nodes in the nodePool.               | `omitted ("")`         |
 
-## spec.nodePools.taints
+### spec.nodePools.taints
 
 `spec.nodePools.taints` is comprised of an array of `taint`s, the default value is `omitted ([])`.
 
-## spec.nodePool.taint
+### spec.nodePool.taint
 
 | Parameter       | Description                                                                | Default    |
 | --------------- | ------------ | ---------- |
@@ -314,43 +314,43 @@ The default value of this entire object is `omitted`.
 | `value`         | Specifies the user=defined labels to set on all nodes in the nodePool.                | `omitted ("")` |
 | `effect`        | Determines the effect of the taint. The vallid settings are: `"NoSchedule"`, `"PreferNoSchedule"`, `"NoExecute"`    | `omitted ("")` |
 
-### spec.containerRuntime
+#### spec.containerRuntime
 
 | Parameter                     | Description                                               | Default  |
 | ----------------------------- | --------------------------------------------------------- | -------- |
 | `containerRuntime.containerd` | Defines the [containerd][containerd] runtime.          | See [spec.containerRuntime.containerd](#spec-containerruntime-containerd)    |
 
-### spec.containerRuntime.containerd
+#### spec.containerRuntime.containerd
 
 | Parameter               | Description                                                    | Default  |
 | ----------------------- | -------------------------------------------------------------- | -------- |
 | `containerd.version`    | Specifies the version of the [containerd][containerd] runtime.      | `1.2.5`    |
 | `containerd.configData` | Contains data for configuring the [containerd][containerd].    | See [spec.containerRuntime.containerd.configData](#spec-containerruntime-containerd-configdata)    |
 
-### spec.containerNetworking
+#### spec.containerNetworking
 
 | Parameter                     | Description                                               | Default  |
 | ----------------------------- | --------------------------------------------------------- | -------- |
 | `containerNetworking.calico` | Defines the [containerd][containerd] runtime.          | See [spec.containerRuntime.containerd](#spec-containernetworking-calico)  |
 
-### spec.containerNetworking.calico
+#### spec.containerNetworking.calico
 
 | Parameter               | Description                                                    | Default  |
 | ----------------------- | -------------------------------------------------------------- | -------- |
 | `calico.version`    | Specifies the version of the [containerd][containerd] runtime.     | `v3.8.0`    |
 
-### spec.containerRuntime.containerd.configData
+#### spec.containerRuntime.containerd.configData
 
 | Parameter            | Description                                                          | Default  |
 | -------------------- | -------------------------------------------------------------------- | -------- |
 | `configData.data`    | Specifies the [TOML configuration][containerd_config] of containerd.             | `""`     |
 | `containerd.replace` | enable to use `configData.data`. otherwise, merge `configData.data` with the internal default. | `false`    |
 
-## spec.imageRegistries
+### spec.imageRegistries
 
 `spec.imageRegistries` is comprised of an array of `imageRegistry`s. The default value of this entire object is `omitted`.
 
-### imageRegistry
+#### imageRegistry
 
 | Parameter       | Description                                                             | Default    |
 | --------------- | ----------------------------------------------------------------------- | ---------- |
@@ -360,18 +360,18 @@ The default value of this entire object is `omitted`.
 | `auth`          | Contains the base64 encoded `username:password`.                                    | N/A        |
 | `identityToken` | Used to authenticate the user and get an access token.          | N/A        |
 
-## spec.addons
+### spec.addons
 
 | Parameter              | Description                                            | Default    |
 | ---------------------- | ------------------------------------------------------ | ---------- |
 | `addons.configVersion` | Specifies the version of the addon configuration files to use.       | `v0.0.20`  |
 | `addons.addonsList`    | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#spec-addons-addonslist) |
 
-### spec.addons.addonsList
+#### spec.addons.addonsList
 
 `spec.addonsList` is comprised of an array of `addon`s. The default values vary depending on the `provider` given on generation.
 
-### addon
+#### addon
 
 Properties of an `addon` object.
 

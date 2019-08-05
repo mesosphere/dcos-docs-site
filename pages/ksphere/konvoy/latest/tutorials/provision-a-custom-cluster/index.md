@@ -18,16 +18,17 @@ The steps are similar if you are provisioning the cluster using an internal netw
 
 To provision a customized cluster on Amazon Web Services (AWS):
 
-1. Generate the configuration files by running the following command:
+1.  Generate the configuration files by running the following command:
 
     ```bash
     konvoy init --provisioner=aws
     ```
 
-1. Edit the provisioner configuration settings in the `cluster.yaml` cluster configuration file.
+1.  Edit the provisioner configuration settings in the `cluster.yaml` cluster configuration file.
 
     You can edit the cluster configuration settings to suit your needs.
-    For example, you can change the node count or add custom tags to all resources created by the installer by modifying the corresponding settings in the `cluster.yaml` file under the `ClusterProvisioner` section.
+    For example, you can change the node count or add custom tags to all resources created by the installer by modifying
+    the corresponding settings in the `cluster.yaml` file under the `ClusterProvisioner` section.
 
     The following example illustrates the `ClusterProvisioner` settings defined in the `cluster.yaml` cluster configuration file:
 
@@ -72,7 +73,8 @@ To provision a customized cluster on Amazon Web Services (AWS):
       version: v0.0.15-10-g57dff48
     ```
 
-    As illustrated in this example, you can modify the `nodePools` section to configure the nodes of your cluster by changing the `nodePools.count` from `4` to `5` or the node type by changing the `nodePools.machine.type` from `t3.xlarge` to `t3.large`.
+    As illustrated in this example, you can modify the `nodePools` section to configure the nodes of your cluster by changing the `nodePools.count` from `4` to `5`
+    or the node type by changing the `nodePools.machine.type` from `t3.xlarge` to `t3.large`.
 
     You can also modify the `tags` section to extend the lifetime of your cluster.
     This change might be useful, for example, if your AWS administrator has created a job to remove cloud resources based on AWS resource tags.
@@ -87,7 +89,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
 
     For more information about customizing provisioning settings, see [Cluster provisioning][provisioning].
 
-1. Edit the `ClusterConfiguration` section of `cluster.yaml` configuration file to change which addons you want to enable or disable.
+1.  Edit the `ClusterConfiguration` section of `cluster.yaml` configuration file to change which addons you want to enable or disable.
 
     The following example illustrates the `ClusterConfiguration` settings defined in the `cluster.yaml` cluster configuration file:
 
@@ -144,7 +146,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
 
     For more information about customizing cluster configuration settings, see [Cluster configuration][clusterconfig].
 
-1. Provision the cluster with your customized settings by running the following command:
+1.  Provision the cluster with your customized settings by running the following command:
 
     ```bash
     konvoy up
@@ -159,4 +161,4 @@ You can delete this file after the cluster is created because it is regenerated 
 [quickstart]:../../quick-start/
 [provisioning]:../../reference/cluster-provisioner/
 [clusterconfig]:../../reference/cluster-configuration/
-[defaultsettings]:../../quick-start/#provision-and-deploy-the-cluster-and-addons
+[defaultsettings]:../../quick-start/#install-with-default-settings

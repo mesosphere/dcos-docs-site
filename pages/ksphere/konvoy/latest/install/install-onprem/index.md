@@ -7,6 +7,8 @@ excerpt: Install Konvoy in an on-premise environment
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an on-premise environment.
 
 # Before you begin

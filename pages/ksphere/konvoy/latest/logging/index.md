@@ -7,6 +7,8 @@ excerpt: Collect and visualize the logs from Kubernetes, platform services, and 
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 Konvoy ships with a pre-configured logging stack that allows you to collect and visualize the cluster logs over time.
 The primary components of the Konvoy logging stack include the following platform service add-ons:
 

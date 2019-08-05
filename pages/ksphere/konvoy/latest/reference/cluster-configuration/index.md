@@ -7,6 +7,8 @@ excerpt: Review cluster configuration settings defined in the cluster.yaml file
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 As discussed in the [Quick start](../../quick-start/) and [Install and upgrade](../../install-upgrade/) sections, the `cluster.yaml` file defines all of the key settings that are used to create and customize a Konvoy cluster.
 Therefore, you should be familiar with this file and its configuration options before attempting to modify a deployed cluster or provision a customized cluster.
 

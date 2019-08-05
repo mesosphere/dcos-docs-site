@@ -7,6 +7,8 @@ excerpt: Learn how to deploy a sample application on the Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 After you have a basic Konvoy cluster installed and ready to use, you might want to test operations by deploying a simple, sample application.
 This task is **optional** and is only intended to demonstrate the basic steps for deploying applications in a production environment.
 If you are configuring the Konvoy cluster for a production deployment, you can use this section to learn the deployment process.

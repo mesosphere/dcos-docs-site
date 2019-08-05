@@ -7,11 +7,11 @@ excerpt: Connect your Konvoy cluster to an external LDAP directory
 enterprise: false
 ---
 
-# How to connect Konvoy to an external LDAP directory
+## How to connect Konvoy to an external LDAP directory
 
 This guide shows how to configure your Konvoy cluster so that users can log in with the credentials stored in an external LDAP directory service.
 
-## Step 1: build Dex LDAP connector config
+### Step 1: build Dex LDAP connector config
 
 The first step is to build a Dex LDAP connector configuration document adjusted to the specific directory at hand.
 Because each LDAP directory is set up in its own special way this step is non-trivial.
@@ -20,7 +20,7 @@ The most important resource is the Dex LDAP connector reference documentation, a
 Note: For Konvoy's Dex it is important to build a proper `userSearch` configuration.
 `groupSearch`, however, does not need to be configured for the time being.
 
-## Step 2: modify Konvoy `cluster.yaml`
+### Step 2: modify Konvoy `cluster.yaml`
 
 Modify your Konvoy cluster's main configuration file `cluster.yaml` for adding the Dex LDAP connector configuration from step 1.
 See below for an example (in this example, we are configuring the Konvoy cluster to connect to the [FreeIPA demo directory](https://www.freeipa.org/page/Demo)):
@@ -52,24 +52,24 @@ See below for an example (in this example, we are configuring the Konvoy cluster
 Also note that for demoing purposes the configuration shown above uses `insecureSkipVerify: true`.
 In production, the LDAP communication should be protected with properly configured transport layer security (TLS).
 
-## Step 3: reconfigure the Konvoy cluster
+### Step 3: reconfigure the Konvoy cluster
 
 If you already have a Konvoy cluster running please re-configure Dex in that cluster.
 Running `konvoy up` again should achieve that goal.
 If that does not take effect then do a `konvoy reset` followed by another `konvoy up`.
 
-## Step 4: log in
+### Step 4: log in
 
 Visit `https://<your-cluster-host>/token` and initiate a login flow.
 On the login page choose the `Log in with <ldap-name>` button. Enter the LDAP credentials, and log in.
 
-## Debugging help
+### Debugging help
 
 It is likely that the Dex LDAP connector configuration is not quite right from the start.
 In that case you need to be able to debug the problem and iterate on it.
 The Dex log output contains helpful error messages as indicated by the following examples.
 
-### Errors upon Dex startup
+#### Errors upon Dex startup
 
 If the Dex configuration fragment provided in the Konvoy `cluster.yaml` results in an invalid Dex config then Dex will not properly start up.
 In that case the Dex logs will provide error details:
@@ -81,7 +81,7 @@ error parse config file /etc/dex/cfg/config.yaml: error unmarshaling JSON: parse
 
 One symptom of Dex not starting up is that `https://<cluster>/ops/landing` throws a 5xx HTTP error response after timing out.
 
-### Errors upon login
+#### Errors upon login
 
 Most problems with the Dex LDAP connector configuration will become apparent only upon a login attempt.
 A login failing as of misconfiguration will result in an error page showing only `Internal Server Error` and `Login error`.
@@ -108,7 +108,7 @@ Solving problems like this requires to carefully review the structure of the dir
 
 Notably, with some directories it can be hard to generally distinguish the cases "properly configured, and user not found" (login fails in an expected way) and "not properly configured, and therefore user not found" (login fails in an unexpected way).
 
-### Example for successful login
+#### Example for successful login
 
 For comparison, these are log lines emitted by Dex upon successful login:
 

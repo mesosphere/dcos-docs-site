@@ -7,6 +7,8 @@ excerpt: Prepare for and install Konvoy on AWS
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 This section guides you through the basic steps to prepare your environment and install Konvoy on AWS.
 
 ## Prerequisites

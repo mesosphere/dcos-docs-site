@@ -7,6 +7,8 @@ excerpt: Manage storage options including local and mounted persistent volumes
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 # Kubernetes Storage Overview
 
 A workload (i.e., Pod) on Kubernetes typically requires two types of storage: ephemeral storage and persistent storage.

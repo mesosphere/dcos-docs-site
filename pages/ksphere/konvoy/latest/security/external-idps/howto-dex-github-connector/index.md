@@ -7,11 +7,11 @@ excerpt: Connect your Konvoy cluster to a GitHub OAuth App
 enterprise: false
 ---
 
-# How to connect Konvoy to a GitHub OAuth App
+## How to connect Konvoy to a GitHub OAuth App
 
 This guide shows how to configure your Konvoy cluster so that users can log in with GitHub credentials.
 
-## Login using a GitHub Organization account
+### Login using a GitHub Organization account
 
 Login using a GitHub Organization account allows you to provide access to all members of a GitHub Organization or to members of specific teams within an Organization.
 
@@ -46,7 +46,7 @@ Step 5: As a member of the GitHub organization, visit `https://<your-cluster-hos
 
 To only allow users from specific teams in the GitHub organization, see the [Dex GitHub Connector documentation].
 
-## Login using a GitHub Individual account
+### Login using a GitHub Individual account
 
 Login using a GitHub Individual account allows you to provide access to the single user that owns the account.
 

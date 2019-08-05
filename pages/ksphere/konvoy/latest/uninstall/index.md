@@ -11,15 +11,16 @@ Konvoy clusters that have been deployed using the `konvoy up` command can be rem
 The `konvoy down` command enables you to remove the cluster and its related infrastructure without manual clean-up operations.
 However, the `konvoy down` command requires access to the state files that were created when you deployed the cluster using the `konvoy up` command.
 
-# Identify the state files for a cluster
+## Identify the state files for a cluster
 
 By default, the `konvoy up` command creates these state files in a specific subdirectory associated with your cluster.
-For example, if you installed the Konvoy cluster using the instructions in the [Quick start](../quick-start/), you might have a subdirectory named `konvoy-quickstart` that you created before running the `konvoy up` command.
+For example, if you installed the Konvoy cluster using the instructions in the [Quick start](../quick-start/),
+you might have a subdirectory named `konvoy-quickstart` that you created before running the `konvoy up` command.
 The subdirectory contains the state files that are associated with a specific cluster instance.
 
 Before running the `konvoy down` command for any cluster, you should verify that the subdirectory for that cluster's state files exists and is accessible.
 
-# Verify cluster resources to be removed
+## Verify cluster resources to be removed
 
 Before removing a cluster that relies on a public cloud infrastructure, you should keep in mind that running the `konvoy down` command:
 
@@ -35,7 +36,7 @@ When you run `konvoy down`, the command removes all of the AWS infrastructure re
 
 To completely remove Konvoy cluster resources:
 
-1. Locate volumes created by Kubernetes by listing the persistent volumes using the following `kubectl` command:
+1.  Locate volumes created by Kubernetes by listing the persistent volumes using the following `kubectl` command:
 
     ```bash
     kubectl get persistentvolumes -o custom-columns=NAME:.metadata.name,STORAGECLASS:.spec.storageClassName
@@ -55,7 +56,7 @@ To completely remove Konvoy cluster resources:
     pvc-f951b4aa-8e08-11e9-a615-0ae6f30d517a   ebs-csi-driver
     ```
 
-1. Find the volumes tagged with `CSIVolumeName: VOLUME_NAME` using the `aws-cli` by running commands similar to the following:
+1.  Find the volumes tagged with `CSIVolumeName: VOLUME_NAME` using the `aws-cli` by running commands similar to the following:
 
     ```bash
     aws ec2 describe-volumes --filters "Name=tag:CSIVolumeName,Values=pvc-024e0dfc-8e09-11e9-92cb-0a859d0d78a0"
@@ -98,9 +99,9 @@ To completely remove Konvoy cluster resources:
     }
     ```
 
-1. Delete the Kubernetes volumes, if necessary.
+1.  Delete the Kubernetes volumes, if necessary.
 
-1. Change to the directory that contains your cluster's state files, then run the following command:
+1.  Change to the directory that contains your cluster's state files, then run the following command:
 
     ```bash
     konvoy down
@@ -113,7 +114,7 @@ To completely remove Konvoy cluster resources:
 
     After `konvoy down` removes load balancers and security groups, it uses Terraform to delete the resources created by the `konvoy up` command and Terraform provisioning.
 
-# Skip the removal of Kubernetes resources
+## Skip the removal of Kubernetes resources
 
 As an alternative to removing all cluster resources, you can skip deleting resources created by Kubernetes.
 To remove AWS resources for a cluster without deleting the resources created by Kubernetes, run the following command:
@@ -122,7 +123,7 @@ To remove AWS resources for a cluster without deleting the resources created by 
 konvoy down --skip-clean-kubernetes
 ```
 
-# Clean up failed teardown operations
+## Clean up failed teardown operations
 
 If a failure occurs during a `konvoy down` teardown operation, it is possible for some cluster data or infrastructure components to be left behind.
 For example, if the Konvoy cluster is deployed on a public cloud such as AWS, an unsuccessful or incomplete teardown operation can potentially leave behind the following cluster components:
@@ -140,16 +141,16 @@ If the failure was caused by a temporary condition, re-running the `konvoy down`
 If the failure persists, however, destroying the cluster might require manual intervention.
 For example, you might need to manually remove cluster artifacts to return to a clean state.
 
-## Report failed operations
+### Report failed operations
 
-If a persistent failure occurs during clean-up operations, you should report the failure as an [issue](https://github.com/mesosphere/konvoy/issues) in the [konvoy repository](https://github.com/mesosphere/konvoy).
+If a persistent failure occurs during clean-up operations, you should report it.
 Reporting the issue can help to ensure that testing and automation can be added to address the cause of the failure.
 
 In most cases, you can address the failure by manually removing resources using your infrastructure provider's API.
 However, you should use caution when removing components manually.
 Removing resources manually can lead to unexpected downtime and data loss.
 
-## Find resources to remove manually
+### Find resources to remove manually
 
 If you need to manually remove cluster resources, you can find the resources created by Terraform by searching for the `name` in the `cluster.yaml` file.
 Many of these resources are named using the following format: `<CLUSTER_NAME><4 character hash>-resource-name`, for example,`cluster_name143a-worker-0`.
@@ -157,7 +158,7 @@ Resources are also tagged with `konvoy/clusterName: CLUSTER_NAME` and `ClusterPr
 
 Formats for resources created by Kubernetes can vary greatly, but a useful tag is `kubernetes.io/cluster/cluster_name` (ex. `kubernetes.io/cluster/konvoy143a`).
 
-# Get additional information
+## Get additional information
 
 The following resources contain useful information for AWS-based deployments in particular:
 

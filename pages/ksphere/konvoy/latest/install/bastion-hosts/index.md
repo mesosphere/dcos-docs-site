@@ -7,6 +7,8 @@ excerpt: Configure bastion hosts for access to the Konvoy cluster
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+
 A **bastion host** is a server that provides a defensive barrier to protect access to a private network from an external network, such as the internet.
 
 Bastion hosts are important because, as a cluster administrator, you often want to deploy all of the nodes in a cluster on a private network for security reasons.
