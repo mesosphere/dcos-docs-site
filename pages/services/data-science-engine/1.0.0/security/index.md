@@ -17,24 +17,24 @@ In strict mode, any Spark applications launched by the {{ model.techName }} will
 
 Use the following `DCOS CLI` commands to rapidly provision a service account with the required permissions:
 
+```bash
+# Allows the default user 'nobody' to execute tasks
+dcos security org users grant <service-account-id> dcos:mesos:master:task:user:nobody create
+dcos security org users grant <service-account-id> dcos:mesos:agent:task:user:nobody create
 
-    ```bash
-    # Allows the default user 'nobody' to execute tasks
-    dcos security org users grant <service-account-id> dcos:mesos:master:task:user:nobody create
-    dcos security org users grant <service-account-id> dcos:mesos:agent:task:user:nobody create
+# Allows Spark framework to reserve cluster resources using <service-account-id> role and principal
+dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:<service-account-id> create
+dcos security org users grant <service-account-id> dcos:mesos:master:reservation:role:<service-account-id> create
+dcos security org users grant <service-account-id> dcos:mesos:master:reservation:principal:<service-account-id> delete
+dcos security org users grant <service-account-id> dcos:mesos:master:volume:role:<service-account-id> create
+dcos security org users grant <service-account-id> dcos:mesos:master:volume:principal:<service-account-id> delete
 
-    # Allows Spark framework to reserve cluster resources using <service-account-id> role and principal
-    dcos security org users grant <service-account-id> dcos:mesos:master:framework:role:<service-account-id> create
-    dcos security org users grant <service-account-id> dcos:mesos:master:reservation:role:<service-account-id> create
-    dcos security org users grant <service-account-id> dcos:mesos:master:reservation:principal:<service-account-id> delete
-    dcos security org users grant <service-account-id> dcos:mesos:master:volume:role:<service-account-id> create
-    dcos security org users grant <service-account-id> dcos:mesos:master:volume:principal:<service-account-id> delete
-
-    # Allows Spark framework to launch tasks using <service-account-id> role and principal
-    dcos security org users grant <service-account-id> dcos:mesos:master:task:role:<service-account-id> create
-    dcos security org users grant <service-account-id> dcos:mesos:master:task:principal:<service-account-id> create
-    dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/{{ model.serviceName }} create
-    ```
+# Allows Spark framework to launch tasks using <service-account-id> role and principal
+dcos security org users grant <service-account-id> dcos:mesos:master:task:role:<service-account-id> create
+dcos security org users grant <service-account-id> dcos:mesos:master:task:principal:<service-account-id> create
+dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/{{ model.serviceName }} create
+```
+    
 You can also provision a service account using the UI.
 
 ## Using the secret store
