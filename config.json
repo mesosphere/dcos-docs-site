@@ -10,7 +10,6 @@
     "staging": {
         "DO_NOT_BUILD": [
             "test/**",
-            "mesosphere/dcos/1.14/**"
         ],
         "DO_NOT_INDEX": [
             "^cn"
