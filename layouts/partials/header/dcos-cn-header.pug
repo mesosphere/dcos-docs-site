@@ -6,6 +6,11 @@
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'mesosphere')
 
+- var otherProductPages = menuPages.filter(page => page.menus.indexOf('konvoy-header') != -1)
+- var otherPages = otherProductPages.sort((a, b) => a.menuWeight - b.menuWeight)
+
+- var mobileMenuItems = pages.concat(otherPages)
+
 - function isItemActive(itemPath)
   if itemPath == '/mesosphere/dcos/cn'
     if path == '/mesosphere/dcos/cn'

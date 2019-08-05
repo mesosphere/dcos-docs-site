@@ -4,6 +4,15 @@
 - var isDCOS = paths[1] == 'dcos'
 - var isKonvoy = paths[1] == 'konvoy'
 
+- var menuPages = hierarchy.find('menus')
+- var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-header') != -1)
+- var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
+- var otherProductPages = menuPages.filter(page => page.menus.indexOf('konvoy-header') != -1)
+- var otherPages = otherProductPages.sort((a, b) => a.menuWeight - b.menuWeight)
+
+- var mobileMenuItems = pages.concat(otherPages)
+
+
 doctype html
 html(lang='en')
   head
@@ -31,7 +40,7 @@ html(lang='en')
           //-       - itemClass['header__menu-item--active'] = val.path == '/'
           //-       li(class=itemClass)
           //-         a(href=val.path)!= val.title
-      //- include partials/header/header-dropdown.pug
+        include partials/header/header-dropdown.pug
       div(role='main', class='layout__content')
         main(class='content content__404')
           div(class=containerClass)

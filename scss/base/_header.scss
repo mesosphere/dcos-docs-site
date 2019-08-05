@@ -12,6 +12,9 @@
     &__logo {
         display: none;
     }
+    &__drawer {
+        margin-left: 1rem;
+    }
     &__dropdown {
         display: flex;
         align-items: center;
@@ -129,6 +132,7 @@
         width: 20px;
         height: 20px;
         color: $color-purple-d3;
+        margin-right: 1rem;
     }
     @include md {
         &__drawer {
