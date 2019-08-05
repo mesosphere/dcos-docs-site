@@ -24,7 +24,7 @@ You can use the DC/OS web-based console or the core DC/OS command-line interface
 1. Delete each pool returned from the list command in the previous step by running the following command:
 
     ```bash
-    dcos edgelb pool delete <pool-name>
+    dcos edgelb delete <pool-name>
     ```
     Deleting pools automatically uninstalls managed load balancers.
 
@@ -41,7 +41,7 @@ You can use the DC/OS web-based console or the core DC/OS command-line interface
     dcos package repo remove edgelb-pool-aws
     ```
 
-1. 1. Remove all Amazon Web Services (AWS) Elastic Load Balancer (ELB) instances, if applicable, by running the following command:
+1. Remove all Amazon Web Services (AWS) Elastic Load Balancer (ELB) instances, if applicable, by running the following command:
 
     ```bash
     dcos edgelb cleanup
