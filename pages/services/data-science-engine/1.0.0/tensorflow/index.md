@@ -50,7 +50,7 @@ Here is an example:
     }
     ```
 
-3. Open TensorBoard at `https://<dcos-url>/service/{{ model.service-name }}/tensorboard/` and confirm the change.
+3. Open TensorBoard at `https://<dcos-url>/service/{{ model.serviceName }}/tensorboard/` and confirm the change.
 
 ## Disabling TensorBoard
 
