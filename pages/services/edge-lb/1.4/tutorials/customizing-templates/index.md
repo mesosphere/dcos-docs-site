@@ -24,10 +24,16 @@ To create a custom template for Basic authentication:
 
 1. Create an Edge-LB pool as described in [Expose and load balance a service](/services/edge-lb/1.4/getting-started/single-lb).
 
-1. Fetch the default template for the Edge-LB pool and save it to a file names `haproxy.tmpl` by running the following command:
+1. Fetch the template for the Edge-LB pool you created in the previous step and save it to a file named `haproxy.tmpl` by running the following command:
 
     ```bash
-    dcos edgelb template show > haproxy.tmpl
+    dcos edgelb template show <pool-name> > haproxy.tmpl
+    ```
+
+    For example, if the pool you created was `ping-lb`, you would run the following command:
+
+    ```bash
+    dcos edgelb template show ping-lb > haproxy.tmpl
     ```
 
 1. Open the `haproxy.tmpl` template you created in the previous step in a text editor.
@@ -36,7 +42,7 @@ To create a custom template for Basic authentication:
 
     For example:
 
-    ```text
+    ```bash
     userlist basic-auth
       group regular-users
       group admin-users
@@ -51,7 +57,7 @@ To create a custom template for Basic authentication:
 
     For example:
 
-    ```text
+    ```bash
     acl example-auth http_auth(basic-auth)
     http-request auth realm example unless example-auth
     ```
@@ -60,7 +66,7 @@ To create a custom template for Basic authentication:
 
     For example:
 
-    ```text
+    ```bash
     acl itadmin-auth http_auth_group(basic-auth) admin-users
     http-request auth realm itadmin unless itadmin-auth
     ```
@@ -69,7 +75,7 @@ To create a custom template for Basic authentication:
 
     For example:
 
-    ```text
+    ```bash
     acl guest-users hdr_dom(host) -i guest.example.org
     acl basic-auth-user http_auth(basic-auth)
     acl basic-auth-user-with-group  http_auth_group(basic-auth) admin-users regular-users
@@ -81,7 +87,7 @@ To create a custom template for Basic authentication:
 
 For example:
 
-    ```text
+    ```bash
     userlist basic-auth
       group regular-users
       group admin-users
@@ -137,8 +143,14 @@ For example:
       server guest 10.0.10.17:80
     ```
 
-1. Create an Edge-LB pool to use the custom template by running a command similar to the following:
+1. Update the Edge-LB pool to use the custom template by running a command similar to the following:
 
-```bash
-dcos edgelb create  <pool-name> haproxy.tmpl
-```
+    ```bash
+    dcos edgelb template update <pool-name> haproxy.tmpl
+    ```
+
+    For example, if the pool is `ping-lb`, you would run the following command:
+
+    ```bash
+    dcos edgelb template update ping-lb haproxy.tmpl
+    ```
