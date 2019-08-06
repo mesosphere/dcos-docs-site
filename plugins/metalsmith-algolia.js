@@ -63,7 +63,6 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       return;
     }
 
-    // Remove index objects that no longer exist
     const filenames = Object.keys(files);
 
     const filesToIndex = {};
@@ -134,6 +133,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     Object.keys(filesToIndex).forEach(indexName => {
       const index = indices[indexName];
 
+      // Remove index objects that no longer exist
       const start = new Promise((resolve, reject) => {
         const browser = index.browseAll();
         let hits = [];
@@ -147,12 +147,16 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         });
 
         browser.on('end', function onEnd() {
-          const existingFiles = Object.keys(files).filter(file => extname(file) === '.html');
-          debug('%d local files', existingFiles.length);
+          const existingFiles = {};
+          Object.keys(files)
+            .filter(file => extname(file) === '.html')
+            .forEach(filename => existingFiles[files[filename].path] = true);
+
+          debug('%d local files', Object.keys(existingFiles).length);
           const indexObjectIDs = hits.map(hit => hit.objectID);
           debug('%d existing objectIDs in index', indexObjectIDs.length);
 
-          const objectIDsToDelete = indexObjectIDs.filter(id => !files[id])
+          const objectIDsToDelete = indexObjectIDs.filter(id => !existingFiles[id])
           debug('Deleting %d old objectIDs from index...', objectIDsToDelete.length);
 
           index.deleteObjects(objectIDsToDelete, () => {
@@ -167,7 +171,6 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         const indexFile = {};
         indexFile['objectID'] = file['path'];
         indexFile['title'] = file['title'];
-        indexFile['excerpt'] = file['excerpt'];
         indexFile['path'] = file['path'];
         indexFile.createIfNotExists = true;
 
@@ -176,6 +179,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         if (file.community) indexFile.type = 'Community';
 
         indexFile['content'] = transform(sanitize(file.contents, file.path));
+        indexFile['excerpt'] = indexFile['content'].slice(0, 200);
 
         productize(file, indexFile);
 

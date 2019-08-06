@@ -12,7 +12,7 @@ const algoliaIndex = window.location.pathname.split('/').slice(1, 3).join('-');
 //
 //
 
-if (landingContainer && process.env.NODE_ENV === 'production') {
+if (landingContainer) {
     const client = algoliasearch(algoliaProjectId, algoliaPublicKey);
     const index = client.initIndex(algoliaIndex);
 

@@ -1,10 +1,13 @@
 document.addEventListener("DOMContentLoaded", () => {
     const gridFilters = document.querySelector('.grid-filters');
+    if (!gridFilters) return;
 
     const categorySelection = gridFilters.querySelector('.grid-filters__category');
+    if (!categorySelection) return;
 
     // Categories selection
     const grid = document.querySelector('.grid-toc');
+    if (!grid) return;
     let selectedCategory = 'view-all';
 
     function updateCat(selectedCategory) {

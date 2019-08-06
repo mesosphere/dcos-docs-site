@@ -1,5 +1,6 @@
 class Localizer {
     constructor(el) {
+        if (!el) return;
         this.el = el;
         this.list = this.el.querySelector('#localizer-list');
         this.svg = this.el.querySelector('#localizer-svg');
