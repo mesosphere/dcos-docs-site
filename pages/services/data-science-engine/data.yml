@@ -7,4 +7,13 @@ nickName: DSEngine
 minNodeCount: three
 nodeDescription: three agent nodes, with eight GB of memory and 10 GB of disk space
 
+# Values specific to certain templates:
 
+
+security:
+defaultClientId: notebook
+defaultPassword: jupyter
+
+install:
+  minNodeCount: three
+  nodeDescription: three agent nodes, with eight GB of memory and 10 GB of disk space

@@ -1,11 +1,13 @@
 ---
 layout: layout.pug
 navigationTitle: Spark
-excerpt: DC/OS Data Science Engine and Spark integration
+excerpt: Using Spark with DC/OS Data Science Engine 
 title: Spark
 menuWeight: 8
 model: /services/data-science-engine/data.yml
 render: mustache
+enterprise: true
+
 ---
 
 {{ model.techName }} comes with Apache Spark integration and allows running Spark jobs from notebooks and a terminal.

@@ -4,6 +4,7 @@ navigationTitle: Kerberos
 excerpt: Using Kerberos with DC/OS Data Science Engine to retrieve and write data securely
 title: Kerberos
 menuWeight: 5
+enterprise: true
 model: /services/data-science-engine/data.yml
 render: mustache
 ---

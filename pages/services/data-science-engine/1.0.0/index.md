@@ -4,6 +4,7 @@ navigationTitle: DC/OS Data Science Engine
 excerpt: DC/OS Data Science Engine is the next-generation interface for Project Jupyter.
 title: DC/OS Data Science Engine
 menuWeight: 1
+enterprise: true
 model: /services/data-science-engine/data.yml
 render: mustache
 ---

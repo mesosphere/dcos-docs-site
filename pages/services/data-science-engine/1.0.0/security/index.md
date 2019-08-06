@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle: Security
 excerpt: Configuring secure DC/OS service accounts 
 title: Security
+enterprise: true
 menuWeight: 10
 model: /services/data-science-engine/data.yml
 render: mustache
@@ -109,30 +110,30 @@ Each instance can have different authentication mechanisms configured.
 
 ## Password Authentication (default)
 
-The default {{ model.techName }} password is set to`{{ model.security.defaultPassword }}`. You can override it with `service.jupyter_password` option.
+The default {{ model.techName }} password is set to`jupyter`. You can override it with the `service.jupyter_password` option.
 
 ## OpenID Connect 
 
 You can choose to enable OpenID Connect authentication. The OpenID Connect flow will be triggered if `oidc.enabled` is
 `true` and both `oidc.discovery_uri` and `oidc.client_secret` are set, since they are the minimal options.
 
-Default client name is `{{ model.security.defaultClientId }}` and it can be overridden with `oidc.client_id` option.
+The default client name is `notebook` and it can be overridden with the `oidc.client_id` option.
 
-Here is an example of a simple OpenID configuration for {{ model.techName }}:
+Here is an example of a simple OpenID Connect configuration for {{ model.techName }}:
 
 ```json
 {
   "oidc": {
       "enabled": true,
       "discovery_uri": "https://keycloak.example.com/auth/realms/notebook/.well-known/openid-configuration",
-      "client_id": "dse-client",
+      "client_id": "{{ model.serviceName }}-client",
       "client_secret": "11111111-2222-3333-4444-555555555555"
   }
 }
 ```
 
-There are a few more options for advanced OpenID Connect configuration, that can be found in `Oidc` section when
-installing {{ model.techName }} from the catalog in DC/OS UI. 
+<!-- There are a few more options for advanced OpenID Connect configuration, that can be found in the `Oidc` section when
+installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
 
  
 

@@ -6,6 +6,8 @@ title: Quick Start
 menuWeight: 2
 model: /services/data-science-engine/data.yml
 render: mustache
+enterprise: true
+
 ---
 
 This page explains how to install the {{ model.techName }} Service.

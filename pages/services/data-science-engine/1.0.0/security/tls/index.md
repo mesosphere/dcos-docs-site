@@ -1,14 +1,13 @@
 ---
 layout: layout.pug
 navigationTitle: TLS
-excerpt: TLS/TLS Support
+excerpt: Using TLS to encrypt channels for greater security
 title: TLS
 menuWeight: 9
+enterprise: true
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
-
-# {{ model.techName }} TLS
 
 TLS support in {{ model.techName }} encrypts the following channels:
 
@@ -28,7 +27,7 @@ dcos security secrets create /{{ model.packageName }}/key_password --value chang
 dcos security secrets create /{{ model.packageName }}/truststore_password --value changeit
 ```
 
-To enable TLS, a Java keystore (and, optionally, truststore) must be provided, along with their passwords. The first four settings below are **required** during job submission. If using a truststore, the next three are also **required**. Last one is optional:
+To enable TLS, a Java keystore (and, optionally, truststore) must be provided, along with their passwords. The first four settings below are **required** during job submission. If using a truststore, the next three are also **required**. The last one is optional:
 
 ```json
 {

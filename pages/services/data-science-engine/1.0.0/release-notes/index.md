@@ -4,6 +4,7 @@ navigationTitle: Release Notes
 excerpt: Release notes for 1.0.0
 title: Release Notes
 menuWeight: 0
+enterprise: true
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
@@ -14,7 +15,7 @@ This is the first release for {{ model.techName }}.
 
 {{ model.techName }} was released on 6 August 2019.
 
-{{ model.techName }} works on any infrastructure (cloud, bare metal and virtual)
+{{ model.techName }} works on any infrastructure (cloud, bare metal and virtual).
 
 
 ## {{ model.techName }} components

@@ -6,6 +6,8 @@ title: Overview
 menuWeight: 1
 model: /services/data-science-engine/data.yml
 render: mustache
+enterprise: true
+
 ---
 
 {{ model.techName }} supports and develops the interactive computing products Jupyter Notebook and Jupyter Hub. 

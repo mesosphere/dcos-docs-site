@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Examples
-excerpt: Usage examples
-title: Examples
+navigationTitle: Supported Kernels  
+excerpt: Using DC/OS Data Science Engine with Kernels
+title: Supported Kernels
 menuWeight: 7
+enterprise: true
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
@@ -15,11 +16,11 @@ Perform a default installation by following the instructions in the [Quick Start
 
 To run any job, first you have to open the lab and choose the notebook you want to run.
 You can select from many notebooks available in the lab, for example, Scala, Python, R, and so forth.
-Notebook consists of cells; each cell can be of type `markdown` or `code`.
+A Notebook consists of cells; each cell can be of type `markdown` or `code`.
 In the `markdown` cell, you can write text or HTML. In the `code` cell, you can type your code as shown in the example below.
 
 ## Python Kernel
-Open a `Python Notebook` and put the following sections in a different code cells.
+Open a `Python Notebook` and put the following sections in  different code cells.
 
 ```python
 def initMatrix(nrow, ncol):
@@ -192,7 +193,7 @@ spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphe
 ```
 
 ### Using Python Notebook
-Open a `Python Notebook` and put the following code in a code cell:
+Open a `Python Notebook` and put the following in a code cell:
 
 ```python
 from __future__ import print_function

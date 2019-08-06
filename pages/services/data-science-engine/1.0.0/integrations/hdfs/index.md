@@ -6,6 +6,8 @@ title: HDFS
 menuWeight: 4
 model: /services/data-science-engine/data.yml
 render: mustache
+enterprise: true
+
 ---
 
 # Prerequisites

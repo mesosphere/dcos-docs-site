@@ -1,11 +1,13 @@
 ---
 layout: layout.pug
 navigationTitle: TensorFlow
-excerpt: TensorFlow with DC/OS Data Science Engine
+excerpt: Using TensorFlow with DC/OS Data Science Engine
 title: TensorFlow
 menuWeight: 12
 model: /services/data-science-engine/data.yml
 render: mustache
+enterprise: true
+
 ---
 TensorFlow is an end-to-end open source platform for machine learning. It is included in your {{ model.techName }} installation.
 
@@ -131,7 +133,7 @@ Here is an example:
     dcos package install hdfs
     ```
 
-1. Install {{ model.packageName }} with overridden log directory option:
+1. Install `{{ model.packageName }}` with overridden log directory option:
 
     ```bash
     dcos package install --options=options.json {{ model.serviceName }}

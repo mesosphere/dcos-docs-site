@@ -6,6 +6,7 @@ title: DC/OS Data Science Engine
 menuWeight: 1
 model: /services/data-science-engine/data.yml
 render: mustache
+enterprise: true
 ---
 Welcome to the documentation for {{ model.techName }} services. 
 

@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle: Uninstall
 excerpt: Deleting your instance of DC/OS Data Science Engine
 title: Uninstall
-menuWeight: 15
+menuWeight: 90
+enterprise: true
 model: /services/data-science-engine/data.yml
 render: mustache
 ---
