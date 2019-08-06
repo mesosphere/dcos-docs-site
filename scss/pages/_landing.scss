@@ -37,7 +37,7 @@
             top: 50%;
             right: 1rem;
             padding: 0;
-            transform: translateY(-50%);
+            // transform: translateY(-50%);
             border: none;
             background: transparent;
             color: $color-purple-d3 !important;
@@ -190,6 +190,7 @@
             &__drawer {
                 opacity: 0;
                 pointer-events: none;
+                display: none;
             }
             // &__menu {
             //     &-item {

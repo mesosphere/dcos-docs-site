@@ -22,15 +22,15 @@
         font-size: 18px;
         line-height: 1;
         &-icon {
-            height: 18px;
+            height: 16px;
         }
         strong {
             margin: 0 0.5rem;
         }
         svg {
             display: block;
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             transition: all 0.3s $ease-in-out-cubic;
         }
     }
@@ -150,7 +150,9 @@
             flex: 1;
             height: 20px;
             &-item {
-                font-size: 18px;
+                a {
+                    font-size: 18px;
+                }
             }
         }
         &__logo {
