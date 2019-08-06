@@ -85,7 +85,7 @@ To create a custom template for Basic authentication:
 
 1. Verify your user list and the access control rules you have set for the `frontend` and `backend` sections.
 
-For example:
+    For example:
 
     ```bash
     userlist basic-auth
