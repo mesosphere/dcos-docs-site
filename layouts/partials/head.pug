@@ -16,6 +16,10 @@ if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
   - var newUrl = '/' + p.join('/')
   if hierarchy.checkIfPathExists(newUrl)
     - canonicalHref = url + newUrl
+    
+
+- var isDCOS = paths[1] == 'dcos'
+- var isKonvoy = paths[1] == 'konvoy'
 
 meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
@@ -23,7 +27,11 @@ title!= pageTitle
 meta(name='description', content=pageDescription)
 link(rel='icon' href='/assets/favicon.ico')
 link(rel='stylesheet', type='text/css', href='/css/styles.css')
-link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title='Search documentation site')
+
+if isKonvoy
+  link(rel='search', type='application/opensearchdescription+xml', href='/assets/k-opensearch.xml', title='Search Konvoy Docs')
+else
+  link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title='Search documentation site')
 
 if canonicalHref
   link(rel='canonical', href=canonicalHref)
