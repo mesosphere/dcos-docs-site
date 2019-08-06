@@ -2,7 +2,7 @@
 <OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/" xmlns:sfdc="http://salesforce.com/2016/federatedsearch/1.0">
   <ShortName>Konvoy Docs Search</ShortName>
   <Contact>awayne@mesosphere.com</Contact>
-  <Url type="text/html" template="https://docs.mesosphere.com/ksphere/konvoy/search/?s={searchTerms}" method="GET"/>
+  <Url type="text/html" template="https://docs.d2iq.com/ksphere/konvoy/search/?s={searchTerms}" method="GET"/>
   <Url type="application/atom+xml" sfdc:maxTotalResults="500" template="https://wovccri6j5.execute-api.us-west-2.amazonaws.com/default/support-algolia?q={searchTerms}"/>
   <Attribution>
     Copyright 2018, All Rights Reserved
