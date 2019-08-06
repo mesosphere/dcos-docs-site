@@ -134,10 +134,10 @@ Here is an example:
 1. Install {{ model.packageName }} with overridden log directory option:
 
     ```bash
-    dcos package install --options=dse-options.json {{ model.serviceName }}
+    dcos package install --options=options.json {{ model.serviceName }}
    ```
 
-    With `dse-options.json` having the following content:
+    With `options.json` having the following content:
 
     ```json
     {

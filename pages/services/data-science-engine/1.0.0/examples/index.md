@@ -115,7 +115,7 @@ return mat.sum();
 ```
 
 ## R Kernel
-Open an `R Notebook` and put the following sections in different code cells.
+Open an `R Notebook` and put the following in a code cell.
 
 ```r
 mat <- matrix(data = seq(1, 100, by=1), nrow = 10, ncol = 10)
@@ -130,7 +130,7 @@ print(sum)
 ```
 
 ## Clojure Kernel
-Open a `Clojure Notebook` and put the following sections in different code cells.
+Open a `Clojure Notebook` and put the following in a code cell.
 
 ```clojure
 ;; add numbers from 1 to 100
@@ -138,7 +138,7 @@ Open a `Clojure Notebook` and put the following sections in different code cells
 ```
 
 ## Groovy Kernel
-Open a `Groovy Notebook` and put the following sections in different code cells.
+Open a `Groovy Notebook` and put the following in a code cell.
 
 ```groovy
 def sum = 0

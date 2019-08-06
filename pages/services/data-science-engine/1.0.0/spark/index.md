@@ -8,11 +8,11 @@ model: /services/data-science-engine/data.yml
 render: mustache
 ---
 
-{{ model.techName }} comes with Apache Spark integration and allows running Spark jobs from {{ model.nickName }} notebooks and terminal.
+{{ model.techName }} comes with Apache Spark integration and allows running Spark jobs from notebooks and a terminal.
 
 # Launching a Spark job
 ## Using Terminal
-Open a `Terminal` from Notebook UI and run example `spark-submit` job:
+Open a `Terminal` from the Notebook UI and run this example `spark-submit` job:
 
 ```bash
 spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
@@ -42,7 +42,7 @@ spark.stop
 ```
 
 # Spark UI
-The Spark UI starts automatically when a SparkContext is created and is available at 
+The Spark UI starts automatically when a SparkContext is created, and is available at 
 
 ```bash
 http://<dcos_url>/service/{{ model.serviceName }}/sparkui
@@ -105,4 +105,4 @@ You can configure SHS to use HDFS with the following steps:
 1. Restart the {{ model.serviceName }} Service to apply the changes.
 
 ## Confirm Spark History Server installation
-Spark History Server UI is available at `http://<dcos_url>/service/{{ model.serviceName }}/sparkhistory`, listing incomplete and completed applications and attempts.
+The Spark History Server UI is available at `http://<dcos_url>/service/{{ model.serviceName }}/sparkhistory`, listing incomplete and completed applications and attempts.
