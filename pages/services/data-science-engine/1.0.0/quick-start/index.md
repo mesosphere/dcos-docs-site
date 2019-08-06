@@ -16,6 +16,8 @@ This page explains how to install the {{ model.techName }} Service.
 - DC/OS and DC/OS CLI installed with a minimum of {{ model.nodeDescription }}.
 - Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/data-science-engine/1.0.0/security/#provisioning-a-service-account) for more information.
 
+<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="/services/data-science-engine/1.0.0/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
+
 | Security Mode | Service Account |
 |----------------|------------------|
 | Disabled | Not available |

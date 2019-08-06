@@ -8,6 +8,10 @@ model: /services/data-science-engine/data.yml
 render: mustache
 ---
 
+# Prerequisites
+
+<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="/services/data-science-engine/1.0.0/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
+
 If you plan to read and write from HDFS using {{ model.techName }}, there are two Hadoop configuration files that you should include in the {{ model.productName }} classpath:
 
 - `hdfs-site.xml`, which provides default behaviors for the HDFS client.
@@ -16,6 +20,8 @@ If you plan to read and write from HDFS using {{ model.techName }}, there are tw
 You can specify the location of these files at install time or for each {{ model.techName }} instance.
 
 # Configuring {{ model.techName }} to work with HDFS
+
+
 
 Within the {{ model.techName }} service configuration, set `service.jupyter_conf_urls` to be a list of URLs that serves your `hdfs-site.xml` and `core-site.xml`. The following example uses `http://mydomain.com/hdfs-config/hdfs-site.xml` and `http://mydomain.com/hdfs-config/core-site.xml` URLs:
 
@@ -31,7 +37,7 @@ You can also specify the URLs through the UI. If you are using the default insta
 ## Example of Using HDFS with Spark
 Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage backend.
 
-1. Launch **Terminal** from the Notebook UI.
+1. Launch **Terminal** from the Notebook UI. This step is mandatory; all subsequent commands will be executed from the Terminal.
 
 1. Clone the `TensorFlow on Spark` repository and download the sample dataset:
 
