@@ -81,15 +81,15 @@ html(lang='en')
         if headerSphereItems
           include partials/header/mesosphere-dropdown.pug
         section(class='header__search', role='search')
-          form(class='header__search-form', action='/search/', method='GET')
+          form(class='header__search-form', action='/ksphere/konvoy/search/', method='GET')
             label(class='header__search-label', for='header-search-input')
               i(class='header__icon', data-feather='search')
             input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
       include partials/header/header-dropdown.pug
       div(class='landing__hero')
         h1(class='landing__title')!= sectionTitle
-        form(class='landing__search', action='/search/', method='GET')
-          input(class='landing__search-input', id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
+        form(class='landing__search', action='/ksphere/konvoy/search/', method='GET')
+          input(class='landing__search-input', id='landing-search-input', placeholder='Search Konvoy Docs', tabindex='1', type='text', name='q')
           button(class='landing__search-button')
             i(data-feather='search')
 
