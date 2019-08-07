@@ -5,7 +5,7 @@ excerpt: Deleting your instance of DC/OS Data Science Engine
 title: Uninstall
 menuWeight: 90
 enterprise: true
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 To uninstall {{ model.techName }}, run the following command:

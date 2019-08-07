@@ -5,13 +5,13 @@ excerpt: Configuring secure DC/OS service accounts
 title: Security
 enterprise: true
 menuWeight: 10
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 This section describes how to configure secure DC/OS service accounts for {{ model.techName }}.
 When running in DC/OS strict security mode, both the {{ model.techName }} and Spark applications launched from it must authenticate to Mesos using a DC/OS service account.
 
-#include /services/include/service-account.tmpl
+#include /mesosphere/dcos/services/include/service-account.tmpl
 
 # Create and assign permissions
 In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster.

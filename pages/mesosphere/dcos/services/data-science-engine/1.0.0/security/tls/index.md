@@ -5,7 +5,7 @@ excerpt: Using TLS to encrypt channels for greater security
 title: TLS
 menuWeight: 9
 enterprise: true
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 

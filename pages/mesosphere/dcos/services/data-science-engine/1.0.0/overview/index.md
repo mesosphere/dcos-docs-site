@@ -4,7 +4,7 @@ navigationTitle: Overview
 excerpt: Overview of DC/OS Data Science Engine features
 title: Overview
 menuWeight: 1
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 enterprise: true
 

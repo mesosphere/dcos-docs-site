@@ -4,7 +4,7 @@ navigationTitle: Spark
 excerpt: Using Spark with DC/OS Data Science Engine 
 title: Spark
 menuWeight: 8
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 enterprise: true
 
@@ -89,7 +89,7 @@ You can configure SHS to use HDFS with the following steps:
     }
     ```
 
-    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/services/data-science-engine/1.0.0/hdfs/) documentation.
+    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/1.0.0/hdfs/) documentation.
 
 1.  Enable the `Spark Event` log and set the HDFS directory:
 

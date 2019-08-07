@@ -5,7 +5,7 @@ excerpt: Using Kerberos with DC/OS Data Science Engine to retrieve and write dat
 title: Kerberos
 menuWeight: 5
 enterprise: true
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 Kerberos is an authentication system that allows {{ model.techName }} to retrieve and write data securely to a Kerberos-enabled HDFS cluster. Long-running jobs will renew their delegation tokens (authentication credentials). This section assumes you have previously set up a Kerberos-enabled HDFS cluster.
@@ -34,7 +34,7 @@ Kerberos is an authentication system that allows {{ model.techName }} to retriev
 Make sure your `keytab` file is in the DC/OS secret store, under a path that is accessible by the {{ model.packageName }} service.
 
 ## Example: Using HDFS with Spark in a Kerberized Environment
-Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend in Kerberized environment. First of all, you need to make sure that HDFS service is installed and {{model.techName}} is configured with its endpoint. To find more about configuring HDFS integration of {{model.techName}} follow [Using HDFS with DC/OS Data Science Engine](/services/data-science-engine/1.0.0/hdfs/) section.
+Here is the example notebook of `Tensorflow on Spark` using `HDFS` as a storage backend in Kerberized environment. First of all, you need to make sure that HDFS service is installed and {{model.techName}} is configured with its endpoint. To find more about configuring HDFS integration of {{model.techName}} follow [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/1.0.0/hdfs/) section.
 
 1. Make sure HDFS Client service is installed and running with the "Kerberos enabled" option. 
 

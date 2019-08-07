@@ -5,7 +5,7 @@ excerpt: Release notes for 1.0.0
 title: Release Notes
 menuWeight: 0
 enterprise: true
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
