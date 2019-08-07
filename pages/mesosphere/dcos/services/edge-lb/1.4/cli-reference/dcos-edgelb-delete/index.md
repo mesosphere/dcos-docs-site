@@ -22,7 +22,7 @@ dcos edgelb delete <pool-name> [options]
 |-----------------|-------------|
 | `--help, -h`    | Display usage. |
 | `--verbose`     | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| `--name="<name>"` | Specify the name of the service instance to query. |
 
 # Parent command
 

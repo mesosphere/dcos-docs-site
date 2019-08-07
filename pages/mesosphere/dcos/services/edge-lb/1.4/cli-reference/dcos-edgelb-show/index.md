@@ -22,7 +22,7 @@ dcos edgelb show <pool-name> [options]
 |-----------------|-------------|
 | `--help, -h`   | Display usage information. |
 | `--verbose, -v`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 | `--reference` | Display the configuration reference. |
 | `--convert-to-json=<pool-file>` | Converts local YAML file to JSON. |
 | `--json` | Show unparsed JSON response. |

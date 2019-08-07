@@ -22,7 +22,7 @@ dcos edgelb lb-config <pool-name> [options]
 |-----------------|-------------|
 | `--help, -h`   | Display usage information. |
 | `--verbose, -v`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 | `--raw` | Show unparsed load balancer configuration. |
 
 # Parent command

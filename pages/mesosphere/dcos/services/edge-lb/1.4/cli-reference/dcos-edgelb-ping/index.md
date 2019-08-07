@@ -22,7 +22,7 @@ dcos edgelb ping [options]
 |-----------------|-------------|
 | `--help, -h`   | Display usage information. |
 | `--verbose, -v`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 # Parent command
 

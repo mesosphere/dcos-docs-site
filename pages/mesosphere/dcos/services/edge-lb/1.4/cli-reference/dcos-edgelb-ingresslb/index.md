@@ -1,29 +1,28 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos edgelb endpoints
-title: dcos edgelb endpoints
-menuWeight: 15
-excerpt: List all endpoints for a pool
+navigationTitle:  dcos edgelb ingresslb
+title: dcos edgelb ingresslb
+menuWeight: 16
+excerpt: List all inbound (ingress) endpoints for a specified pool
 enterprise: true
 ---
 
 # Description
-The `dcos edgelb endpoints` command returns a list of all endpoints for a pool. The internal IP address and ports for a pool can be found with this command.
-
+The `dcos edgelb ingresslb` command returns a list of all inbound (ingress) endpoints for a load balancing pool.
 
 # Usage
 
 ```bash
-dcos edgelb endpoints <pool-name> [options]
+dcos edgelb ingresslb <pool-name> [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
 |-----------------|-------------|
-| `--help, -h`   | Display usage. |
+| `--help, -h`   | Display usage information. |
 | `--verbose, -v`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
 # Parent command
