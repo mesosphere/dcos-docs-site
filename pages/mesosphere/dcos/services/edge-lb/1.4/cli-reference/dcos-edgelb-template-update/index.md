@@ -34,4 +34,4 @@ dcos edgelb template update <pool-name> <template-file> [options]
 
 # Examples
 
-See the [Edge-LB Usage](../../usage/).
+For an example that illustrates updating a customized template, see [Customizing Edge-LB templates](../../tutorials/customizing-templates).

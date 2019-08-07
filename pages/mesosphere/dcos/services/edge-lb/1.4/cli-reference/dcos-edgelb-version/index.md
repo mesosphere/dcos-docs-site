@@ -32,4 +32,15 @@ dcos edgelb [options] version
 
 # Examples
 
-See the [Edge-LB Usage](../../usage/).
+To display version information for the Edge-LB API server and pool if you have an Edge-LB service instance named `edgelb-eu`, you would run the following command:
+
+```bash
+dcos edgelb --name="edgelb-eu" version
+```
+
+The command returns information similar to the following:
+
+```bash
+client = v1.4.0
+server = v1.4.0
+```
