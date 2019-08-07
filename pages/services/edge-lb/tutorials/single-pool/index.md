@@ -65,7 +65,7 @@ This tutorial demonstrates how to set up three services with a single Edge-LB po
     dcos marathon app add ping.json
     ```
 
-1. Open a text editor, then copy and paste the following sample app definition to create the `nginx.json` file: 
+1. Open a text editor, then copy and paste the following sample app definition to create the `nginx.json` file:
 
     ```json
     {
@@ -234,31 +234,31 @@ This tutorial demonstrates how to set up three services with a single Edge-LB po
     ```
 
 # Verify deployment status
-1. Verify that the services and the pool instance have been deployed sucessfully by running the following command: 
+1. Verify that the services and the pool instance have been deployed sucessfully by running the following command:
 
     ```bash
     dcos marathon app list
     ```
 
-1. Verify the pool configuration for frontend and stats ports by running the following command: 
+1. Verify the pool configuration for frontend and stats ports by running the following command:
 
     ```bash
     dcos edgelb list
     ```
 
-1. Verify the pool-related configuration settings by running the following command: 
+1. Verify the pool-related configuration settings by running the following command:
 
     ```bash
     dcos edgelb show multi-lb
     ```
 
-1. Verify the Mesos tasks for the services and the Edge-LB pool instances by running the following command: 
+1. Verify the Mesos tasks for the services and the Edge-LB pool instances by running the following command:
 
     ```bash
-    dcos task
+    dcos task list
     ```
 
-1. Verify that the Edge-LB pool instance was deployed successfully with the configured frontend and backend ports: 
+1. Verify that the Edge-LB pool instance was deployed successfully with the configured frontend and backend ports:
 
     ```bash
     dcos edgelb endpoints multi-lb
@@ -281,6 +281,6 @@ This tutorial demonstrates how to set up three services with a single Edge-LB po
     When you navigate to the public IP address and specified port, you should see the following pages:
     - `pong`
     - `Welcome to Nginx`
-    - `Hello from Marathon!` 
+    - `Hello from Marathon!`
 
     If you cannot access one of the pages, check that the Edge-LB frontend ports do not conflict with other ports you are currently using.

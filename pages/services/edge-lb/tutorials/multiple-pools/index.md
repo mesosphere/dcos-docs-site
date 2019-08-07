@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: How to set up load balancing for multiple services using multiple Edge-LB pool instances
 enterprise: true
 ---
-This tutorial demonstrates how to deploy three services with three different Edge-LB pool instances, with one pool instance per service. You typically implement this type of deployment scenario to provide high availability when you have multiple services with high demand, that require added capacity to ensure reliability and responsiveness, or that involve transaction processing with high resource consumption or performance overhead. 
+This tutorial demonstrates how to deploy three services with three different Edge-LB pool instances, with one pool instance per service. You typically implement this type of deployment scenario to provide high availability when you have multiple services with high demand, that require added capacity to ensure reliability and responsiveness, or that involve transaction processing with high resource consumption or performance overhead.
 
 For example, if you have ten services running on a DC/OS Enterprise cluster, you might want to configure ten separate Edge-LB pool instances, with one pool per service, to distribute the traffic for all ten services. If a fault occurs with one of the pools in the cluster, the disruption is contained to only affect that service in the pool instance. Other services continue routing traffic to the correct backend instances without interruption.
 
@@ -315,25 +315,25 @@ For example, if you have ten services running on a DC/OS Enterprise cluster, you
     ```
 
 # Verify deployment status
-1. Verify all services and pool instances have been deployed sucessfully by running the following command: 
+1. Verify all services and pool instances have been deployed sucessfully by running the following command:
 
     ```bash
     dcos marathon app list
     ```
 
-1. Verify the pool configuration for frontend and stats ports by running the following command: 
+1. Verify the pool configuration for frontend and stats ports by running the following command:
 
     ```bash
     dcos edgelb list
     ```
 
-1. Verify the Mesos tasks for the services and the Edge-LB pool instances by running the following command: 
+1. Verify the Mesos tasks for the services and the Edge-LB pool instances by running the following command:
 
     ```bash
-    dcos task
+    dcos task list
     ```
 
-1. Verify the pool configuration endpoints for each Edge-LB pool by running the following commands: 
+1. Verify the pool configuration endpoints for each Edge-LB pool by running the following commands:
 
     ```bash
     dcos edgelb endpoints ping-lb
@@ -373,8 +373,8 @@ For example, if you have ten services running on a DC/OS Enterprise cluster, you
     When you navigate to the public IP address and specified port for each load balanced service, you should see the following pages:
     - `pong`
     - `Welcome to Nginx`
-    - `Hello from Marathon!` 
+    - `Hello from Marathon!`
 
     If you cannot access one of the pages, check that the Edge-LB frontend ports do not conflict with other ports you are currently using.
 
-    If you are deploying multiple Edge-LN pool instances, you should also be sure that the Edge-LB pool instance names are unique. For example, the pool instance names used in this tutorial are `ping-lb-pool`, `nginx-lb-ppool`, and `echo-lb-pool` so that the instance names do not duplicate the pool names used in other examples or tutorials. 
+    If you are deploying multiple Edge-LN pool instances, you should also be sure that the Edge-LB pool instance names are unique. For example, the pool instance names used in this tutorial are `ping-lb-pool`, `nginx-lb-ppool`, and `echo-lb-pool` so that the instance names do not duplicate the pool names used in other examples or tutorials.

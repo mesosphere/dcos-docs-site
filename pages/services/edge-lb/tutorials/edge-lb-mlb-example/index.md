@@ -6,7 +6,7 @@ menuWeight: 16
 excerpt: Demonstrates differences between Marathon-LB and Edge-LB load balancing services
 enterprise: true
 ---
-This tutorial demonstrates exposing and accessing the `nginx` service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers. 
+This tutorial demonstrates exposing and accessing the `nginx` service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers.
 
 # Before you begin
 * You must have the Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
@@ -21,7 +21,7 @@ This tutorial illustrates the differences between configuring load balancing usi
 - Create and deploy a sample Marathon app called `nginx`.
 - Configure and deploy Marathon-LB using the Marathon service `nginx-mlb`.
 - Configure and deploy load balancing using the Edge-LB pool instance called `nginx-edgelb`.
-- Access the sample `nginx` app through the public agent URL. 
+- Access the sample `nginx` app through the public agent URL.
 
 # Configure the sample app for Marathon-LB
 1. Open a text editor, then copy and paste the following sample app definition to create the `nginx-mlb.json` file:
@@ -174,7 +174,7 @@ This tutorial illustrates the differences between configuring load balancing usi
 1. Verify the mesos task relevant to services and the pool instances by running the following command:
 
     ```bash
-    dcos task
+    dcos task list
     ```
 
 1. Verify that the Edge-LB pool named `nginx-edgelb` has been deployed successfully by running the following command:
@@ -195,7 +195,7 @@ This tutorial illustrates the differences between configuring load balancing usi
     http://<public_agent_public_IP>:10020
     ```
 
-    You should see a page for `Welcome to Nginx - through Marathon-LB`. For example: 
+    You should see a page for `Welcome to Nginx - through Marathon-LB`. For example:
     <p>
     <img src="/services/edge-lb/img/Edge-MLB-nginx.png" alt="Welcome page for a service using Marathon-LB">
     </p>
@@ -210,7 +210,7 @@ This tutorial illustrates the differences between configuring load balancing usi
     <img src="/services/edge-lb/img/Edge-HAProxy-stats.png" alt="Statistics for a service exposed using Marathon-LB">
     </p>
 
-1. Access the `nginx` service that was exposed through Edge-LB using the public agent IP and the frontend port number. 
+1. Access the `nginx` service that was exposed through Edge-LB using the public agent IP and the frontend port number.
 
     ```bash
     http://<public_agent_public_IP>:15001
@@ -226,7 +226,7 @@ This tutorial illustrates the differences between configuring load balancing usi
     ```bash
     http://<public_agent_public_IP>:1025
     ```
-    
+
     For example:
     <p>
     <img src="/services/edge-lb/img/Edge-HAProxy-stats-2.png" alt="Statistics for a service exposed using Edge-LB">
