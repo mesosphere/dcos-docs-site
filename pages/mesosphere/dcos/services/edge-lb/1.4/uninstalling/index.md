@@ -29,7 +29,16 @@ enterprise: false
     dcos package uninstall edgelb
     ```
 
-1.  Remove the Universe repositories.
+1.  Remove the Edge-LB repositories.
+
+    In most cases, you can remove the repositories by running the following commands:
+
+    ```bash
+    dcos package repo remove edgelb
+    dcos package repo remove edgelb-pool
+    ```
+
+    If you installed Edge-LB AWS repositories, remove them by running the following commands:
 
     ```bash
     dcos package repo remove edgelb-aws

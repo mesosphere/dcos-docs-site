@@ -35,4 +35,4 @@ dcos edgelb template create <pool-name> <template-file> [options]
 
 # Examples
 
-For an example that illustrates creating a customized template, see [Edge-LB Usage](../../tutorials/).
+For an example that illustrates creating a customized template, see [Customizing Edge-LB templates](../../tutorials/customizing-templates).

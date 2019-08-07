@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Customizing Edge-LB templates
 title: Customizing Edge-LB templates
-menuWeight: 10
+menuWeight: 40
 excerpt: How to customize Edge-LB load balancing by modifying templates.
 enterprise: true
 ---
