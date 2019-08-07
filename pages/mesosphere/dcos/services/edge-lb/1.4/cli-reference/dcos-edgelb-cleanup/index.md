@@ -13,20 +13,20 @@ The `dcos edgelb cleanup` command lists and removes all Amazon Web Services (AWS
 # Usage
 
 ```bash
-dcos edgelb cleanup
+dcos edgelb cleanup [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
+|-----------------|-------------|
 | `--yes` | Remove Elastic Load Balancers without prompting for confirmation. |
 | `--apiserver-app-id=APISERVER-APP-ID` | Specify the Marathon application ID of the Edge-LB API server associated with the AWS Elastic Load Balancer. |
-| `--pool-name=POOL-NAME` | Edge-LB pool name. You can specify multiple pool names separated by commas (,). |
+| `--pool-name=POOL-NAME` | Specify the Edge-LB pool name. You can specify multiple pool names separated by commas (,). |
 | `--elb-name=ELB-NAME` | Specify the Elastic Load Balancer name. |
 | `--force` | Force the removal of the Elastic Load Balancers. |
-| `--help, h`   | Display usage information. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
 
 # Parent command
 

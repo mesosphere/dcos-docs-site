@@ -13,16 +13,16 @@ The `dcos edgelb update` command uploads a new pool configuration file to the Ed
 # Usage
 
 ```bash
-dcos edgelb update [<flags>] <pool-file>
+dcos edgelb update [options] <pool-file>
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`          | Display usage information. |
+| `--verbose, -v`       | Enable additional logging of requests and responses. |
+| `--name="<name>"`     | Specify the name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
 # Parent command

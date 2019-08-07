@@ -13,16 +13,16 @@ The `dcos edgelb version` command displays the current Edge-LB version.
 # Usage
 
 ```bash
-dcos edgelb [<flags>] version
+dcos edgelb [options] version
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 # Parent command
 

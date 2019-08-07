@@ -7,7 +7,6 @@ excerpt: Update a custom config template for a pool of load balancers
 enterprise: true
 ---
 
-
 # Description
 The `dcos edgelb template update` command updates a custom config template for a pool of load-balancers.
 
@@ -16,16 +15,16 @@ The rendered `haproxy.cfg` for a pool is generated using a template named `hapro
 # Usage
 
 ```bash
-dcos edgelb template update <pool-name> <template-file>
+dcos edgelb template update <pool-name> <template-file> [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 # Parent command
 

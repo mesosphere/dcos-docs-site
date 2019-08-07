@@ -8,22 +8,22 @@ enterprise: true
 ---
 
 # Description
-The `dcos edgelb status` command returns a list of load-balancer task information associated with a pool, such as agent IP address, task ID, etc. 
+The `dcos edgelb status` command returns a list of load-balancer task information associated with a pool, such as agent IP address, task ID, etc.
 
 # Usage
 
 ```bash
-dcos edgelb status [<flags>] <pool-name>
+dcos edgelb status <pool-name> [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
-| `--task-ids` | Only Display the task ids. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
+| `--task-ids` | Display only the task identifiers. |
 | `--json` | Show unparsed JSON response. |
 
 # Parent command

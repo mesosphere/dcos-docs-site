@@ -10,6 +10,7 @@ enterprise: true
 # Description
 The `dcos edgelb endpoints` command returns a list of all endpoints for a pool. The internal IP address and ports for a pool can be found with this command.
 
+
 # Usage
 
 ```bash
@@ -20,9 +21,9 @@ dcos edgelb endpoints <pool-name> [options]
 
 | Name, shorthand | Description |
 |-----------------|-------------|
-| `--help, -h`   | Display usage information. |
+| `--help, -h`   | Display usage. |
 | `--verbose, -v`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Specify the name of the service instance to query. |
+| `--name="<name>"`   | Name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
 # Parent command

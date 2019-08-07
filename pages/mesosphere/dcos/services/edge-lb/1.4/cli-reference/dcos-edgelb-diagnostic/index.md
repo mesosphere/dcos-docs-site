@@ -13,17 +13,17 @@ The `dcos edgelb diagnostic` command collects diagnostic information for Edge-LB
 # Usage
 
 ```bash
-dcos edgelb diagnostic [<flags>]
+dcos edgelb diagnostic [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
+|-----------------|-------------|
 | `--bundles-dir=BUNDLES-DIR` | Specify the folder under which the diagnostic bundle will be located. You can specify the directory using an absolute or relative path. By default, the current directory is used. |
-| `--help, h`   | Display usage information. |
-| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools will be included. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools are included. |
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v` | Enable additional logging of requests and responses. |
 
 # Parent command
 

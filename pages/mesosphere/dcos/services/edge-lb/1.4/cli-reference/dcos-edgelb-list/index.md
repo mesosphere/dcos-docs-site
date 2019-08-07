@@ -13,16 +13,16 @@ The `dcos edgelb list` command returns a list of the names and a summary of all 
 # Usage
 
 ```bash
-dcos edgelb list [<flags>]
+dcos edgelb list [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
 # Parent command
@@ -32,5 +32,17 @@ dcos edgelb list [<flags>]
 | [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
+To list ingress endpoints for the Edge-LB pool named `paris-prod-lb`, run the following command:
 
-See the [Edge-LB Usage](../../usage/).
+```bash
+dcos edgelb ingresslb paris-prod-lb
+```
+<!--
+The command returns information similar to the following:
+
+```bash
+  NAME      APIVERSION  COUNT  ROLE          PORTS
+  ping-lb   V2          5      slave_public
+  multi-lb  V2          1      slave_public
+```
+-->

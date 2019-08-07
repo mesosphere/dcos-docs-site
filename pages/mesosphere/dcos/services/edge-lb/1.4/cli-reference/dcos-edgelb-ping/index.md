@@ -13,15 +13,15 @@ The `dcos edgelb ping` command lets you test the readiness of the Edge-LB API se
 # Usage
 
 ```bash
-dcos edgelb ping
+dcos edgelb ping [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
 
 # Parent command
@@ -31,5 +31,14 @@ dcos edgelb ping
 | [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
+To test the connection to the Edge-LB API server, run the following command:
 
-See the [Edge-LB Usage](../../usage/).
+```bash
+dcos edgelb ping
+```
+
+If the connection is successful, the command returns the following:
+
+```bash
+pong
+```

@@ -4,7 +4,6 @@ navigationTitle:  CLI Reference
 title: CLI Reference
 menuWeight: 70
 excerpt: Reference for all CLI commands in the Edge-LB package
-
 enterprise: false
 ---
 
@@ -14,13 +13,14 @@ The Edge-LB CLI subcommands allow you to configure and manage your Edge-LB load 
 # Usage
 
 ```bash
-dcos edgelb [<flags>] [OPTIONS] [<args> ...]
+dcos edgelb [options] <command> [<args>]
 ```
 
 # Options
+The following general purpose options can be added to most `dcos edgelb` commands.
 
 | Name, shorthand       | Description |
-|----------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------------|-------------|
+| `--help, -h`          | Display usage information. |
+| `--verbose, -v`       | Enable additional logging of requests and responses. |
+| `--name="<name>"`     | Specify the name of the service instance to query. |

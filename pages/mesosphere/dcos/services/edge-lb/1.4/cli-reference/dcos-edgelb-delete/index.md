@@ -10,19 +10,18 @@ enterprise: true
 # Description
 The `dcos edgelb delete` command deletes a pool and uninstalls the deployed load balancers.
 
-
 # Usage
 
 ```bash
-dcos edgelb delete <pool-name>
+dcos edgelb delete <pool-name> [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage. |
+| `--verbose`     | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
 
 # Parent command

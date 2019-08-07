@@ -13,15 +13,15 @@ The `dcos edgelb show` command shows the pool definition for a given pool name. 
 # Usage
 
 ```bash
-dcos edgelb show [<flags>] [<pool-name>]
+dcos edgelb show <pool-name> [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Name of the service instance to query. |
 | `--reference` | Display the configuration reference. |
 | `--convert-to-json=<pool-file>` | Converts local YAML file to JSON. |
@@ -34,5 +34,35 @@ dcos edgelb show [<flags>] [<pool-name>]
 | [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
+To display the pool definition information for the ping-lb Edge-LB pool, run the following command:
 
-See the [Edge-LB Usage](../../usage/).
+```bash
+dcos edgelb show ping-lb
+```
+
+The command retunrs information similar to the following:
+
+```bash
+Summary:
+  NAME         ping-lb
+  APIVERSION   V2
+  COUNT        5
+  ROLE         slave_public
+  CONSTRAINTS  hostname:UNIQUE
+  STATSPORT    0
+
+Frontends:
+  NAME                    PORT   PROTOCOL
+  frontend_0.0.0.0_15001  15001  HTTP
+
+Backends:
+  FRONTEND                NAME          PROTOCOL  BALANCE
+  frontend_0.0.0.0_15001  ping-backend  HTTP      roundrobin
+
+Marathon Services:
+  BACKEND       TYPE     SERVICE  CONTAINER  PORT       CHECK
+  ping-backend  AUTO_IP  /ping               pong-port  enabled
+
+Mesos Services:
+  BACKEND  TYPE  FRAMEWORK  TASK  PORT  CHECK
+```

@@ -13,17 +13,15 @@ The `dcos edgelb create` command creates a single pool from a definition file wr
 # Usage
 
 ```bash
-dcos edgelb create [<flags>] <pool-file>
+dcos edgelb create <pool-file> [options]
 ```
 
 # Options
 
-| Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
-| `--json`  | Show unparsed JSON response. |
+| Name, shorthand | Description    |
+|-----------------|----------------|
+| `--help, -h`    | Display usage. |
+| `--json`        | Show unparsed JSON response. |
 
 # Parent command
 

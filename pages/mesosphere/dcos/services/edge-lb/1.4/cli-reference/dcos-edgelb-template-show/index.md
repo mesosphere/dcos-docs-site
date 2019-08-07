@@ -7,7 +7,6 @@ excerpt: Display load-balancer config template for a pool
 enterprise: true
 ---
 
-
 # Description
 The `dcos edgelb template show` command shows the load-balancer config template for an individual pool. If pool-name is omitted, the default template is shown.
 
@@ -16,16 +15,16 @@ The rendered `haproxy.cfg` for a pool is generated using a template named `hapro
 # Usage
 
 ```bash
-dcos edgelb template show [<pool-name>]
+dcos edgelb template show <pool-name> [options]
 ```
 
 # Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 # Parent command
 
