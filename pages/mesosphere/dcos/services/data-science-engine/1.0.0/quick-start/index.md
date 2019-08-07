@@ -4,7 +4,7 @@ navigationTitle: Quick Start Guide
 excerpt: Get up and running with DC/OS Data Science Engine
 title: Quick Start
 menuWeight: 2
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 enterprise: true
 
@@ -16,7 +16,7 @@ This page explains how to install the {{ model.techName }} Service.
 
 
 - DC/OS and DC/OS CLI installed with a minimum of {{ model.nodeDescription }}.
-- Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/services/data-science-engine/1.0.0/security/#provisioning-a-service-account) for more information.
+- Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/mesosphere/dcos/services/data-science-engine/1.0.0/security/#provisioning-a-service-account) for more information.
 
 <p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="/services/data-science-engine/1.0.0/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
 
@@ -64,7 +64,7 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
 
 1. From DC/OS , select **Services**, then click on the "Open" icon for the {{ model.serviceName }}.
 
-    ![Open JupyterLab](/services/data-science-engine/img/dcos-jupyter-new-window.png)
+    ![Open JupyterLab](/mesosphere/dcos/services/data-science-engine/img/dcos-jupyter-new-window.png)
 
     Figure 1 - Open new Jupyter window
 
@@ -72,7 +72,7 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
 
 1. In JupyterLab, create a new notebook by selecting **File > New > Notebook**:
 
-   ![Create new notebook](/services/data-science-engine/img/jupyterlab-menu-file-new-notebook.png)
+   ![Create new notebook](/mesosphere/dcos/services/data-science-engine/img/jupyterlab-menu-file-new-notebook.png)
 
    Figure 2 - Create a new notebook
 

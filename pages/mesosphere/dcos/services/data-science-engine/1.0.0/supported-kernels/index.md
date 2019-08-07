@@ -5,14 +5,14 @@ excerpt: Using DC/OS Data Science Engine with Kernels
 title: Supported Kernels
 menuWeight: 7
 enterprise: true
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 This section contains examples for using {{ model.techName }}.
 
 # Basic
 
-Perform a default installation by following the instructions in the [Quick Start Guide](/services/data-science-engine/1.0.0/quick-start/) section.
+Perform a default installation by following the instructions in the [Quick Start Guide](/mesosphere/dcos/services/data-science-engine/1.0.0/quick-start/) section.
 
 To run any job, first you have to open the lab and choose the notebook you want to run.
 You can select from many notebooks available in the lab, for example, Scala, Python, R, and so forth.

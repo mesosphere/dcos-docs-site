@@ -5,7 +5,7 @@ excerpt: DC/OS Data Science Engine is the next-generation interface for Project 
 title: DC/OS Data Science Engine
 menuWeight: 1
 enterprise: true
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 Welcome to the documentation for version 1.0.0 of the {{ model.techName }} service. 

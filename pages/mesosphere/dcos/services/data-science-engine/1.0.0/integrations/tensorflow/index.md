@@ -4,7 +4,7 @@ navigationTitle: TensorFlow
 excerpt: Using TensorFlow with DC/OS Data Science Engine
 title: TensorFlow
 menuWeight: 12
-model: /services/data-science-engine/data.yml
+model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 enterprise: true
 
