@@ -18,7 +18,7 @@ This page explains how to install the {{ model.techName }} Service.
 - DC/OS and DC/OS CLI installed with a minimum of {{ model.nodeDescription }}.
 - Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/mesosphere/dcos/services/data-science-engine/1.0.0/security/#provisioning-a-service-account) for more information.
 
-<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="/services/data-science-engine/1.0.0/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
+<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="https://docs.d2iq.com/mesosphere/dcos/services/data-science-engine/1.0.0/integrations/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
 
 | Security Mode | Service Account |
 |----------------|------------------|
@@ -32,13 +32,13 @@ This page explains how to install the {{ model.techName }} Service.
 
 1. Select the **Catalog** tab, and search for {{ model.techName }}. Select the {{ model.packageName }} package.
 
-1. Click the **Review & Run** button to display the **Edit Configuration** page.
+2. Click the **Review & Run** button to display the **Edit Configuration** page.
 
-1. Configure the package settings using  the DC/OS UI or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
+3. Configure the package settings using  the DC/OS UI or by clicking **JSON Editor** and modifying the app definition manually. For example, you might customize the package by enabling HDFS support.
 
-1. Click **Review & Run**.
+4. Click **Review & Run**.
 
-1. Review the installation notes, then click **Run Service** to deploy the {{ model.packageName }} package.
+5. Review the installation notes, then click **Run Service** to deploy the {{ model.packageName }} package.
 
 
 ## From the command line
@@ -55,8 +55,8 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
    Installing Marathon app for package [{{ model.packageName }}] version [2.8.0-2.4.0]
    DC/OS {{ model.packageName }} is being installed!
 
-       Documentation: https://docs.mesosphere.com/services/{{ model.packageName }}/
-       Issues: https://docs.mesosphere.com/support/
+       Documentation: https://docs.d2iq.com/services/{{ model.packageName }}/
+       Issues: https://docs.d2iq.com/support/
    ```
 
 

@@ -17,7 +17,7 @@ enterprise: true
 Open a `Terminal` from the Notebook UI and run this example `spark-submit` job:
 
 ```bash
-spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
+spark-submit --class org.apache.spark.examples.SparkPi http://downloads.d2iq.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
 ```
 
 ## Using a Python Notebook
@@ -89,7 +89,7 @@ You can configure SHS to use HDFS with the following steps:
     }
     ```
 
-    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/1.0.0/hdfs/) documentation.
+    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/1.0.0/integrations/hdfs/) documentation.
 
 1.  Enable the `Spark Event` log and set the HDFS directory:
 
