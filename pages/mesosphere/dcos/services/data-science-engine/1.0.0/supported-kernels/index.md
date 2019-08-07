@@ -189,7 +189,7 @@ sum
 Open a `Terminal` from the Notebook UI and run an example `spark-submit` job:
 
 ```bash
-spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
+spark-submit --class org.apache.spark.examples.SparkPi http://downloads.d2iq.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
 ```
 
 ### Using Python Notebook

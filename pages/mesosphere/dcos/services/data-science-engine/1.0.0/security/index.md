@@ -138,7 +138,7 @@ installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
  
 
 
-[11]: https://docs.mesosphere.com/latest/overview/architecture/components/
+[11]: https://docs.d2iq.com/latest/overview/architecture/components/
 [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
-[13]: https://docs.mesosphere.com/latest/security/ent/#spaces-for-secrets
-[14]: https://docs.mesosphere.com/latest/security/ent/secrets/
+[13]: https://docs.d2iq.com/latest/security/ent/#spaces-for-secrets
+[14]: https://docs.d2iq.com/latest/security/ent/secrets/

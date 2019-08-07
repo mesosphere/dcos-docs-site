@@ -12,7 +12,7 @@ enterprise: true
 
 # Prerequisites
 
-<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="/services/data-science-engine/1.0.0/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
+<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="https://docs.d2iq.com/mesosphere/dcos/services/data-science-engine/1.0.0/integrations/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
 
 If you plan to read and write from HDFS using {{ model.techName }}, there are two Hadoop configuration files that you should include in the {{ model.productName }} classpath:
 
