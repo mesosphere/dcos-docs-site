@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 # Description
-The `dcos edgelb template create` command creates a custom config template for a pool of load-balancers.
+The `dcos edgelb template create` command creates a custom configuration template for a pool of load balancers.
 
 The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
@@ -35,4 +35,4 @@ dcos edgelb template create <pool-name> <template-file> [options]
 
 # Examples
 
-See the [Edge-LB Usage](../../usage/).
+For an example that illustrates creating a customized template, see [Edge-LB Usage](../../tutorials/).

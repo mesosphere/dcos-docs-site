@@ -32,12 +32,12 @@ dcos edgelb list [options]
 | [dcos edgelb](../../cli-reference/) |  Manage Edge-LB. |
 
 # Examples
-To list ingress endpoints for the Edge-LB pool named `paris-prod-lb`, run the following command:
+To list basic information about the Edge-LB pools currently deployed, you would run the following command:
 
 ```bash
-dcos edgelb ingresslb paris-prod-lb
+dcos edgelb list
 ```
-<!--
+
 The command returns information similar to the following:
 
 ```bash
@@ -45,4 +45,3 @@ The command returns information similar to the following:
   ping-lb   V2          5      slave_public
   multi-lb  V2          1      slave_public
 ```
--->

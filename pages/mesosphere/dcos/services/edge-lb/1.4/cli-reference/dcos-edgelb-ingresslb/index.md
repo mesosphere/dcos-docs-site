@@ -33,4 +33,17 @@ dcos edgelb ingresslb <pool-name> [options]
 
 # Examples
 
-See the [Edge-LB Usage](../../usage/).
+To list the load balancing ingress endpoints for the Edge-LB pool named `paris-prod-lb`, you would run the following command:
+
+```bash
+dcos edgelb ingresslb paris-prod-lb
+```
+<!--
+The command returns information similar to the following:
+
+```bash
+  NAME      APIVERSION  COUNT  ROLE          PORTS
+  ping-lb   V2          5      slave_public
+  multi-lb  V2          1      slave_public
+```
+-->

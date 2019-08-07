@@ -32,4 +32,20 @@ dcos edgelb delete <pool-name> [options]
 
 # Examples
 
-See the [Edge-LB Usage](../../usage/).
+To delete the Edge-LB pool named `pubs-multi-lb`, you would run the following command:
+
+```bash
+dcos edgelb delete pubs-multi-lb
+```
+
+If the pool name you specified is currently deployed, the command returns information similar to the following:
+
+```bash
+Successfully deleted pubs-delete-lb. Check the DC/OS web UI for pool uninstall status.
+```
+
+To see detailed logging information when deleting the `pubs-multi-lb` pool file, you would run the following command:
+
+```bash
+dcos edgelb delete pubs-multi-lb --verbose
+```

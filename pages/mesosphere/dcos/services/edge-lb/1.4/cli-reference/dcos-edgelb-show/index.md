@@ -40,7 +40,7 @@ To display the pool definition information for the ping-lb Edge-LB pool, run the
 dcos edgelb show ping-lb
 ```
 
-The command retunrs information similar to the following:
+The command returns information similar to the following:
 
 ```bash
 Summary:
