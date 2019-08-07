@@ -34,7 +34,16 @@ You can use the DC/OS web-based console or the core DC/OS command-line interface
     dcos package uninstall edgelb
     ```
 
-1. Remove the Edge-LB package repositories by running the following commands:
+1. Remove the Edge-LB package repositories.
+
+    In most cases, you can remove the repositories by running the following commands:
+
+    ```bash
+    dcos package repo remove edgelb
+    dcos package repo remove edgelb-pool
+    ```
+
+    If you installed Edge-LB AWS repositories, remove them by running the following commands:
 
     ```bash
     dcos package repo remove edgelb-aws
