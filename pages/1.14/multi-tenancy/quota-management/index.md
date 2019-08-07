@@ -57,7 +57,7 @@ You can also view quota information in the DC/OS UI by going to the Quota tab in
 For updating existing quota on a group, use the following command:
 
 ```bash
-dcos quota update dev --cpu 20 --me, 2048
+dcos quota update dev --cpu 20 --mem, 2048
 ```
 
 # Deleting quota
