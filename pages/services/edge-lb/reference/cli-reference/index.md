@@ -26,23 +26,24 @@ Use this command to return information about a specified Edge-LB service instanc
 ### Usage
 
 ```bash
-dcos edgelb [<flags>] [OPTIONS] [<arguments> ...]
+dcos edgelb [options] <command> [<args>]
 ```
 
 ### Options
+The following general purpose options can be added to most `dcos edgelb` commands.
 
-| Name, shorthand       | Description |
-|----------|-------------|
-| `--help, h`   | Display usage information. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+| Name, shorthand  | Description |
+|------------------|-------------|
+| `--help, -h`     | Display usage information. |
+| `--verbose, -v`  | Enable additional logging of requests and responses. |
 | `--name="<name>"`   | Specify the name of the Edge-LB service instance to query. |
 
 ### Permissions
 Depending on the operation you want to perform, the Edge-LB service account or user account that manages Edge-LB pools might need specific permissions. For operations that require read access to an Edge-LB pool, the service or user account must have the following permission:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/pools/<pool-name>
-</code>
+```
 
 # dcos edgelb cleanup
 Use this command to list and remove all Amazon Web Services (AWS) Elastic Load Balancer (ELB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster.
@@ -50,7 +51,7 @@ Use this command to list and remove all Amazon Web Services (AWS) Elastic Load B
 ### Usage
 
 ```bash
-dcos edgelb cleanup
+dcos edgelb cleanup [options]
 ```
 
 ### Options
@@ -62,17 +63,17 @@ dcos edgelb cleanup
 | `--pool-name=POOL-NAME` | Edge-LB pool name. You can specify multiple pool names separated by commas (,). |
 | `--elb-name=ELB-NAME` | Specify the Elastic Load Balancer name. |
 | `--force` | Force the removal of the Elastic Load Balancers. |
-| `--help, h`   | Display usage information. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v` | Enable additional logging of requests and responses. |
 
 ### Permissions
 To remove the Elastic Load Balancer framework that was created by Edge-LB when deployed on AWS instances, the Edge-LB service account or user account must have the following permissions:
 
-<code>
+```
 dcos:adminrouter:service:marathon full
 dcos:adminrouter:package full
 dcos:adminrouter:service:edgelb full
-</code>
+```
 
 ### Example
 After uninstalling Edge-LB packages, you can use the following command to remove remnants of the Elastic load balancer deployed on AWS instances:
@@ -98,6 +99,7 @@ Begin to delete ELB dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG
 Deleted ELB dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG
 1/1 ELBs are deleted
 ```
+
 For additional information about deleting Edge-LB pools and uninstalling Edge-LB packages, see [Uninstalling Edge-LB](../../how-to-tasks/uninstalling/).
 
 # dcos edgelb create
@@ -106,42 +108,55 @@ Use this command to create a single pool given a pool configuration file written
 ### Usage
 
 ```bash
-dcos edgelb create [<flags>] <pool-file>
+dcos edgelb create <pool-file> [options]
 ```
 
 ### Options
 
-| Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| Name, shorthand | Description    |
+|-----------------|----------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v` | Enable additional logging of requests and responses. |
+| `--name="<name>"` | Specify the name of the service instance to query. |
 | `--json`  | Show unparsed JSON response. |
 
 ### Permissions
 To create a new Edge-LB pool, the Edge-LB service account or user account must have the following permission:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/v2/pools full
-</code>
+```
 
 If you are working with the API specification for v1, the permissions required are:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/v1/loadbalancers
-</code>
+```
 
 ### Examples
 
-After launching a service and creating a [pool configuration file](/services/edge-lb/reference/pool-configuration-reference), you can use the following command to deploy it:
+To deploy the `ping-lb.json` pool configuration file to create the `ping-lb` pool instance, you would run the following command:
 
-`dcos edgelb create <pool-configuration-file>`
+```bash
+dcos edgelb create ping-lb.json
+```
 
-For example, to create a new Edge-LB pool that uses the customized configuration file `my-edgelb-options`:
+To see detailed logging information when deploying the `ping-lb.json` pool configuration file, you would run the following command:
 
-`dcos edgelb create my-edge-lb-options`
+```bash
+dcos edgelb create ping-lb.json --verbose
+```
 
-For additional examples of pool configuration, see [Tutorials](/services/edge-lb/tutorials/).
+With the `--verbose` option, the command returns information similar to the following:
+
+```bash
+Using provided envvar DCOS_ACS_TOKEN for config value core.dcos_acs_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNTY1NjI5NzQ5fQ.fpTMGfpzYQFAC880mCIA7H-THaPWxGQ7VEH8SA62Du8e7S63g5i7NhDeJo3G_CTjytpXNfeCo7n3zV7qod-nIe6WU4xa7ntG385eRwUmUNQ2eqlUjikwNDqhF9crd3EfKHELKA1Cj2sF5BB8ZlrXT_2LShflhdEmDWTB39xDKfk1FjXGGGVYz8WByK0JpYT_d_gjaZUUAGd__oI49J0xe5tPcoJZDMQBbW3ZqiTvAi2494Bdv9kWESXBSdUpA8czChgwR5S3YYOQfxq7q08Ls_eW5ZvDdgWodt3IwK7wBvpkG2jRs-QwJp4uSf29eAU8UOKNHvZD2EpMDVKpIfZJ9g
+Using provided envvar DCOS_ACS_TOKEN for config value core.dcos_acs_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOiJib290c3RyYXB1c2VyIiwiZXhwIjoxNTY1NjI5NzQ5fQ.fpTMGfpzYQFAC880mCIA7H-THaPWxGQ7VEH8SA62Du8e7S63g5i7NhDeJo3G_CTjytpXNfeCo7n3zV7qod-nIe6WU4xa7ntG385eRwUmUNQ2eqlUjikwNDqhF9crd3EfKHELKA1Cj2sF5BB8ZlrXT_2LShflhdEmDWTB39xDKfk1FjXGGGVYz8WByK0JpYT_d_gjaZUUAGd__oI49J0xe5tPcoJZDMQBbW3ZqiTvAi2494Bdv9kWESXBSdUpA8czChgwR5S3YYOQfxq7q08Ls_eW5ZvDdgWodt3IwK7wBvpkG2jRs-QwJp4uSf29eAU8UOKNHvZD2EpMDVKpIfZJ9g
+Using provided envvar DCOS_URL for config value core.dcos_url=http://sidebet-elasticloa-1eczlth9vickm-865389251.us-west-2.elb.amazonaws.com
+Successfully created ping-lb. Check "dcos edgelb show ping-lb" or "dcos edgelb status ping-lb" for deployment status
+```
+
+For more examples of pool configuration files, see [Getting started with Edge-LB](../../getting-started/) and [Tutorials](../../tutorials).
 
 # dcos edgelb delete
 Use this command to delete an existing pool and uninstall the deployed load balancers.
@@ -149,26 +164,42 @@ Use this command to delete an existing pool and uninstall the deployed load bala
 ### Usage
 
 ```bash
-dcos edgelb delete <pool-name>
+dcos edgelb delete <pool-name> [options]
 ```
 
 ### Options
 
-| Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| Name, shorthand   | Description |
+|-------------------|-------------|
+| `--help, -h`      | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"` | Specify the name of the service instance to query. |
 
 ### Permissions
 To delete an existing pool and uninstall the deployed load balancers, the Edge-LB service account or user account must have the following permission for a specified pool:
 
-`dcos:adminrouter:service:edgelb:/v2/pools/<pool-name> full`
+```
+dcos:adminrouter:service:edgelb:/v2/pools/<pool-name> full
+```
 
 ### Examples
-To delete an existing Edge-LB pool named `aqua01` and uninstall the deployed load balancer instances for this pool:
+To delete the Edge-LB pool named `pubs-multi-lb`, you would run the following command:
 
-`dcos edgelb delete aqua01`
+```bash
+dcos edgelb delete pubs-multi-lb
+```
+
+If the pool name you specified is currently deployed, the command returns information similar to the following:
+
+```bash
+Successfully deleted pubs-delete-lb. Check the DC/OS web UI for pool uninstall status.
+```
+
+To see detailed logging information when deleting the `pubs-multi-lb` pool file, you would run the following command:
+
+```bash
+dcos edgelb delete pubs-multi-lb --verbose
+```
 
 # dcos edgelb diagnostic
 Use the `dcos edgelb diagnostic` command to collect diagnostic information for Edge-LB pools and package the diagnostics in a support bundle for troubleshooting and analysis.
@@ -176,7 +207,7 @@ Use the `dcos edgelb diagnostic` command to collect diagnostic information for E
 ### Usage
 
 ```bash
-dcos edgelb diagnostic [<flags>]
+dcos edgelb diagnostic [options]
 ```
 
 ### Options
@@ -184,16 +215,16 @@ dcos edgelb diagnostic [<flags>]
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--bundles-dir=BUNDLES-DIR` | Specify the folder under which the diagnostic bundle will be located. You can specify the directory using an absolute or relative path. By default, the current directory is used. |
-| `--help, h`   | Display usage information. |
-| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools will be included. |
-| `--verbose`   | Enable additional logging of requests and responses. |
+| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools are included. |
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v` | Enable additional logging of requests and responses. |
 
 ### Permissions
 To create a diagnostic bundle for Edge-LB pools, the Edge-LB service account or user account must have the following permission for a specified pool:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/v2/pools full
-</code>
+```
 
 ### Examples
 To collect diagnostic bundles for all Edge-LB pools, run the following command:
@@ -224,43 +255,173 @@ Use this command to return a list of all endpoints for a pool. You can also use 
 ### Usage
 
 ```bash
-dcos edgelb endpoints [<flags>] <pool-name>
+dcos edgelb endpoints <pool-name> [options]
 ```
 
 ### Options
 
-| Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
-| `--json` | Show unparsed JSON response. |
+| Name, shorthand   | Description |
+|-------------------|-------------|
+| `--help, -h`      | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"` | Specify the name of the service instance to query. |
+| `--json`          | Show unparsed JSON response. |
 
 <!-- ### Permissions -->
 
 <!-- ### Examples -->
 
+# dcos edgelb ingresslb
+
+Use this command to return a list of all inbound (ingress) endpoints for a specified load balancing pool.
+
+# Usage
+
+```bash
+dcos edgelb ingresslb <pool-name> [options]
+```
+
+# Options
+
+| Name, shorthand   | Description |
+|-------------------|-------------|
+| `--help, -h`      | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"` | Specify the name of the service instance to query. |
+| `--json`          | Show unparsed JSON response. |
+
+<!--### Permissions -->
+
+### Examples
+
+To list the load balancing ingress endpoints for the Edge-LB pool named `paris-prod-lb`, you would run the following command:
+
+```bash
+dcos edgelb ingresslb paris-prod-lb
+```
+<!--
+The command returns information similar to the following:
+
+```bash
+  NAME      APIVERSION  COUNT  ROLE          PORTS
+  ping-lb   V2          5      slave_public
+  multi-lb  V2          1      slave_public
+```
+-->
+
 # dcos edgelb lb-config
-Use this command to show the running load-balancer config associated with the pool. You can view the active load balancer configuration for all load balancers in a pool.
+Use this command to show the running loa balancer configuration associated with the pool. You can view the active load balancer configuration for all load balancers in a pool.
 
 ### Usage
 
 ```bash
-dcos edgelb lb-config [<flags>] <pool-name>
+dcos edgelb lb-config <pool-name> [options]
 ```
 
 ### Options
 
-| Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
-| `--raw` | Show unparsed load-balancer config. |
+| Name, shorthand   | Description |
+|-------------------|-------------|
+| `--help, -h`      | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"` | Specify the name of the service instance to query. |
+| `--raw`           | Show unparsed load balancer configuration. |
 
 <!-- ### Permissions -->
 
-<!-- ### Examples -->
+### Examples
+
+The following command displays the load balancer configuration settings for the `ping-lb` pool:
+
+```bash
+dcos edgelb lb-config ping-lb
+```
+
+The command displays the `haproxy` load balancer template with content similar to the following:
+
+```bash
+global
+  # Do not enable as haproxy works under a supervisor and must not fork into
+  # the background:
+  # daemon
+  log /dev/log local0
+  spread-checks 5
+  max-spread-checks 15000
+  maxconn 50000
+  tune.ssl.default-dh-param 2048
+  ssl-default-bind-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
+  ssl-default-bind-options no-sslv3 no-tlsv10 no-tls-tickets
+  ssl-default-server-ciphers ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA384:DHE-RSA-AES128-SHA256:DHE-RSA-AES256-SHA256:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:!aNULL:!MD5:!DSS
+  ssl-default-server-options no-sslv3 no-tlsv10 no-tls-tickets
+  # Required to provide seamless reloads. The supervisor config for haproxy
+  # adds '-W' option to enable master-worker model:
+  stats socket /var/run/haproxy/socket expose-fd listeners
+  server-state-file global
+  server-state-base /var/state/haproxy/
+  lua-load "$LBWORKDIR/haproxy/lua/getpids.lua"
+  lua-load "$LBWORKDIR/haproxy/lua/getconfig.lua"
+  lua-load "$LBWORKDIR/haproxy/lua/getmaps.lua"
+  lua-load "$LBWORKDIR/haproxy/lua/signalmlb.lua"
+defaults
+  load-server-state-from-file global
+  log               global
+  retries                   3
+  backlog               10000
+  maxconn               10000
+  timeout connect          3s
+  timeout client          30s
+  timeout server          30s
+  timeout tunnel        3600s
+  timeout http-keep-alive  1s
+  timeout http-request    15s
+  timeout queue           30s
+  timeout tarpit          60s
+  option            dontlognull
+  option            http-server-close
+  option            redispatch
+  default-server resolve-prefer ipv4
+  default-server init-addr last,libc,none
+resolvers default_resolvers
+  nameserver ns1 198.51.100.1:53
+  nameserver ns2 198.51.100.2:53
+  nameserver ns3 198.51.100.3:53
+  hold valid           2s
+  hold other           2s
+  hold refused         2s
+  hold nx              2s
+  hold timeout         2s
+  hold valid           2s
+listen stats
+  bind 0.0.0.0:$HAPROXY_STATS_PORT
+  balance
+  mode http
+  stats enable
+  monitor-uri /_haproxy_health_check
+  acl getpid path /_haproxy_getpids
+  http-request use-service lua.getpids if getpid
+  acl getvhostmap path /_haproxy_getvhostmap
+  http-request use-service lua.getvhostmap if getvhostmap
+  acl getappmap path /_haproxy_getappmap
+  http-request use-service lua.getappmap if getappmap
+  acl getconfig path /_haproxy_getconfig
+  http-request use-service lua.getconfig if getconfig
+  acl signalmlbhup path /_mlb_signal/hup
+  http-request use-service lua.signalmlbhup if signalmlbhup
+  acl signalmlbusr1 path /_mlb_signal/usr1
+  http-request use-service lua.signalmlbusr1 if signalmlbusr1
+  frontend frontend_0.0.0.0_15001
+    bind 0.0.0.0:15001
+      mode http
+      option httplog
+      default_backend ping-backend
+  backend ping-backend
+    balance roundrobin
+      mode http
+          option forwardfor
+          http-request set-header X-Forwarded-Port %[dst_port]
+          http-request add-header X-Forwarded-Proto https if { ssl_fc }
+            server agentip_10.0.1.128_10006 10.0.1.128:10006 check
+```
 
 # dcos edgelb list
 Use this command to return a list of pool configuration names and a summary of all configured pools.
@@ -268,33 +429,46 @@ Use this command to return a list of pool configuration names and a summary of a
 ### Usage
 
 ```bash
-dcos edgelb list [<flags>]
+dcos edgelb list [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
 ### Permissions
 To list Edge-LB pool information, the Edge-LB service account or user account must have the following permission:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/config full
-</code>
+```
 
 ### Examples
-To list detailed Edge-LB pool configuration information for all Edge-LB pool instances:
 
-`dcos edgelb list --verbose`
+To list basic information about the Edge-LB pools currently deployed, you would run the following command:
 
-To list detailed Edge-LB pool configuration information for the `sanfrancisco05` Edge-LB pool instance:
+```bash
+dcos edgelb list
+```
 
-`dcos edgelb list --name sanfrancisco05 --verbose`
+The command returns information similar to the following:
+
+```bash
+  NAME      APIVERSION  COUNT  ROLE          PORTS
+  ping-lb   V2          5      slave_public
+  multi-lb  V2          1      slave_public
+```
+
+To list detailed Edge-LB pool configuration information for the `sanfrancisco05` Edge-LB pool instance, you would run the following command:
+
+```bash
+dcos edgelb list --name sanfrancisco05 --verbose
+```
 
 # dcos edgelb ping
 Use this command to test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command will return an HTTP error if the API is not yet available.
@@ -302,28 +476,36 @@ Use this command to test the readiness of the Edge-LB API server. A successful r
 ### Usage
 
 ```bash
-dcos edgelb ping
+dcos edgelb ping [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 ### Permissions
 To test Edge-LB connectivity by sending a `ping` request, the Edge-LB service account or user account must have the following permission:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/ping full
-</code>
+```
 
 ### Examples
-To test the connection to the `sanfrancisco05` Edge-LB pool by sending a `ping` request:
+To test the connection to the Edge-LB API server, run the following command:
 
-`dcos edgelb ping --name sanfrancisco05`
+```bash
+dcos edgelb ping
+```
+
+If the connection is successful, the command returns the following:
+
+```bash
+pong
+```
 
 # dcos edgelb show
 Use this command to show the pool definition for a given pool name. If you don't specify a pool name, the command returns information for all pool configurations.
@@ -333,16 +515,16 @@ You can also use this command to convert YAML files to their equivalent JSON for
 ### Usage
 
 ```bash
-dcos edgelb show [<flags>] [<pool-name>]
+dcos edgelb show <pool-name> [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 | `--reference` | Display the configuration reference. |
 | `--convert-to-json=<pool-file>` | Converts local YAML file to JSON. |
 | `--json` | Show unparsed JSON response. |
@@ -350,9 +532,44 @@ dcos edgelb show [<flags>] [<pool-name>]
 <!--### Permissions-->
 
 ### Examples
+To display the pool definition information for the ping-lb Edge-LB pool, run the following command:
+
+```bash
+dcos edgelb show ping-lb
+```
+
+The command returns information similar to the following:
+
+```bash
+Summary:
+  NAME         ping-lb
+  APIVERSION   V2
+  COUNT        5
+  ROLE         slave_public
+  CONSTRAINTS  hostname:UNIQUE
+  STATSPORT    0
+
+Frontends:
+  NAME                    PORT   PROTOCOL
+  frontend_0.0.0.0_15001  15001  HTTP
+
+Backends:
+  FRONTEND                NAME          PROTOCOL  BALANCE
+  frontend_0.0.0.0_15001  ping-backend  HTTP      roundrobin
+
+Marathon Services:
+  BACKEND       TYPE     SERVICE  CONTAINER  PORT       CHECK
+  ping-backend  AUTO_IP  /ping               pong-port  enabled
+
+Mesos Services:
+  BACKEND  TYPE  FRAMEWORK  TASK  PORT  CHECK
+```
+
 To convert a YAML configuration file to JSON and output the results to standard output (`stdout`), run the following command:
 
-`dcos edgelb show --convert-to-json=/path/to/yaml`
+```bash
+dcos edgelb show --convert-to-json=/path/to/yaml
+```
 
 # dcos edgelb status
 Use this command to return a list of the load balancer task information associated with a pool. For example, you can run this command to return the agent IP address and task ID for a specified Edge-LB pool.
@@ -360,17 +577,17 @@ Use this command to return a list of the load balancer task information associat
 ### Usage
 
 ```bash
-dcos edgelb status [<flags>] <pool-name>
+dcos edgelb status <pool-name> [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
-| `--task-ids` | Only Display the task ids. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
+| `--task-ids` | Display only the task identifiers. |
 | `--json` | Show unparsed JSON response. |
 
 <!-- ### Permissions -->
@@ -385,21 +602,22 @@ The rendered `haproxy.cfg` for a pool is generated using a template named `hapro
 ### Usage
 
 ```bash
-dcos edgelb template create <pool-name> <template-file>
+dcos edgelb template create <pool-name> <template-file> [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`   | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
 <!-- ### Permissions -->
 
-<!-- ### Examples -->
+### Examples
+For an example that illustrates creating a customized template, see [Customizing Edge-LB templates](../../tutorials/customizing-templates).
 
 # dcos edgelb template delete
 Use this command to revert a custom configuration template to its default value.
@@ -409,16 +627,16 @@ The rendered `haproxy.cfg` for a pool is generated using a template named `hapro
 ### Usage
 
 ```bash
-dcos edgelb template delete <pool-name>
+dcos edgelb template delete <pool-name> [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v` | Enable additional logging of requests and responses. |
+| `--name="<name>"` | Specify the name of the service instance to query. |
 
 <!-- ### Permissions -->
 
@@ -432,16 +650,16 @@ The rendered `haproxy.cfg` for a pool is generated using a template named `hapro
 ### Usage
 
 ```bash
-dcos edgelb template show [<pool-name>]
+dcos edgelb template show <pool-name> [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 <!-- ### Permissions -->
 
@@ -455,20 +673,21 @@ The rendered `haproxy.cfg` for a pool is generated using a template named `hapro
 ### Usage
 
 ```bash
-dcos edgelb template update <pool-name> <template-file>
+dcos edgelb template update <pool-name> <template-file> [options]
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 <!-- ### Permissions -->
 
-<!-- ### Examples -->
+### Examples
+For an example that illustrates updating a customized template, see [Customizing Edge-LB templates](../../tutorials/customizing-templates).
 
 # dcos edgelb update
 Use this command to upload a new pool configuration file to the Edge-LB `apiserver`, updating the running pool of load balancers.
@@ -476,42 +695,46 @@ Use this command to upload a new pool configuration file to the Edge-LB `apiserv
 ### Usage
 
 ```bash
-dcos edgelb update [<flags>] <pool-file>
+dcos edgelb update [options] <pool-file>
 ```
 
 ### Options
 
-| Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+| Name, shorthand       | Description |
+|-----------------------|-------------|
+| `--help, -h`          | Display usage information. |
+| `--verbose, -v`       | Enable additional logging of requests and responses. |
+| `--name="<name>"`     | Specify the name of the service instance to query. |
 | `--json` | Show unparsed JSON response. |
 
 ### Permissions
 To update an existing pool, the Edge-LB service account or user account must have the following permissions for a specified pool:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/v2/pools/<pool-name> full
 dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name> full
-</code>
+```
 
 If you are working with the API specification for v1, the permissions required are:
 
-<code>
+```
 dcos:adminrouter:service:edgelb:/v1/loadbalancers/<pool-name>
 dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>
-</code>
+```
 
 ### Examples
 
-You can update a pool's configuration with the following command:
+To update the pool configuration settings for an existing Edge-LB pool, you would run a command similar to the following:
 
-`dcos edgelb update <pool-configuration-file>`
+```bash
+dcos edgelb update <pool-configuration-file>
+```
 
 For example, if you want to update a pool to use the `mysampleconfig` pool configuration file:
 
-`dcos edgelb update mysampleconfig`
+```bash
+dcos edgelb update mysampleconfig
+```
 
 # dcos edgelb version
 Use this command to display the current Edge-LB version you have installed.
@@ -519,17 +742,30 @@ Use this command to display the current Edge-LB version you have installed.
 ### Usage
 
 ```bash
-dcos edgelb [<flags>] version
+dcos edgelb [options] version
 ```
 
 ### Options
 
 | Name, shorthand | Description |
-|---------|-------------|
-| `--help, h`   | Display usage. |
-| `--verbose`   | Enable additional logging of requests and responses. |
-| `--name="<name>"`   | Name of the service instance to query. |
+|-----------------|-------------|
+| `--help, -h`    | Display usage information. |
+| `--verbose, -v`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Specify the name of the service instance to query. |
 
 <!-- ### Permissions -->
 
-<!-- ### Examples -->
+### Examples
+
+To display version information for the Edge-LB API server and pool if you have an Edge-LB service instance named `edgelb-eu`, you would run the following command:
+
+```bash
+dcos edgelb --name="edgelb-eu" version
+```
+
+The command returns information similar to the following:
+
+```bash
+client = v1.4.0
+server = v1.4.0
+```
