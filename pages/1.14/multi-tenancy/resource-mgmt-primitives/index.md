@@ -7,13 +7,13 @@ excerpt: Reserving resources to support multi-tenancy
 render: mustache
 model: /1.14/data.yml
 ---
-Resources in DC/OS can be reserved and prioritized using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via the API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights.
+Resources in DC/OS can be reserved and prioritized using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as most of them are only accessible via the API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights.
 
 Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster, and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas. Secondly, with mixed workloads on a single cluster where one class of frameworks may have a higher weight (priority) than another, resources with high priority should be able to deploy faster than a lower weight framework.
 
 This page covers the multi-tenancy primitives: Multi-Tenant quota management primitives, two examples of real-world scenarios, implementation instructions, and reference links.
 
-# Multi-Tenant Quota Management Primitives
+# Multi-Tenant Resource Management Primitives
 The key concepts of multi-tenancy primitives include the following:
 
 ## Roles
