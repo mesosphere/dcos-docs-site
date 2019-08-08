@@ -37,7 +37,7 @@ The Edge-LB Pool is a group of identically configured load balancers. Traffic to
 
 These are the individual instances of the load balancer software (such as HAProxy). These accept traffic and route it to the appropriate services within the DC/OS cluster.
 
-# Multiple Edge-LB Instances
+# Multiple Edge-LB Pools
 
 Multiple Edge-LB pools can be configured across multiple DC/OS public nodes to create a highly-available load balancing environment and to support increased throughput. There are two primary external architectures that support this:
 

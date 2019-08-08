@@ -29,6 +29,10 @@
     "DO_NOT_BUILD": [],
     "DO_NOT_INDEX": []
   },
+  "alpha": {
+    "DO_NOT_BUILD": [],
+    "DO_NOT_INDEX": []
+  },
   "always": {
     "DO_NOT_BUILD": [
       "services/kafka-zookeeper/2.2.0-3.4.11/**",
