@@ -11,16 +11,18 @@ render: mustache
 # Release Notes for HDFS Service version 2.6.0-3.2.0
 
 ## Feature
-- HDFS cluster can be accessed from outside the DC/OS cluster by setting up an external DNS. This feature can be utilized through `custom_domain` property.
+- Added support for custom domains. See [custom domains](/mesosphere/dcos/services/{{ model.serviceName }}/2.6.0-3.2.0/operations/security/#forwarding-dns-and-custom-domain)
+- Added support for DC/OS Storage Service (DSS). See [DSS documentation](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/)
+- Added marathon service scheduler checks
 
 ## Bug Fixes
-- A bug in Apache Derby has been fixed here temporarily. Bug referred to miscalculation of number of bytes read for an principal entry in the Kerberos keytab file. This is addressed in this PR: ([#44](https://github.com/apache/directory-kerby/pull/44)). There is also a ticket in Apache Hadoop repository: ([#16283](https://issues.apache.org/jira/browse/HADOOP-16283)).
-
-## Improvements
-- rollingUpgrade feature of Hdfs is used to upgrade the framework to latest Apache HDFS version.
+- Fixed a bug in Apache Derby related to the miscalculation of bytes read for a principal entry in the Kerberos keytab file. See [HADOOP-16283](https://issues.apache.org/jira/browse/HADOOP-16283)).
 
 ## Updates
-- Hadoop tar ball has been updated with snappy library.
+- Updated HDFS version to `3.2.0`. Note: our package no longer includes Cloudera's `cdh` variant
+- Hadoop tar ball has been updated with Snappy 1.1.4 library.
+- Updated the SDK to version `0.56.1` 
+- Oracle JDK is replaced by OpenJDK 8
 
 <!-- # Release Notes for HDFS Service version 2.5.0-2.6.0-cdh5.11.0
 
