@@ -42,7 +42,7 @@ npm run build
 RUN echo "google-site-verification: google48ddb4a5390a503f.html" > /src/build/google48ddb4a5390a503f.html
 
 # robots
-RUN if [ "${GIT_BRANCH}" != "master" ]; then mv src/build/assets/robots.txt src/build/robots.txt  fi
+RUN if [ "${GIT_BRANCH}" != "master" ]; then mv assets/robots.txt build/robots.txt; fi
 
 #
 # Nginx
