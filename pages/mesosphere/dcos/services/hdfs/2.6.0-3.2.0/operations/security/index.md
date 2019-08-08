@@ -176,3 +176,21 @@ where `<custom mapping>` is a base64-encoded string.
 [This](https://hortonworks.com/blog/fine-tune-your-apache-hadoop-security-settings/) article has a good description of how to build a custom mapping, under the section "Kerberos Principals and UNIX User Names".
 
 <p class="message--note"><strong>NOTE: </strong>In DC/OS 1.11 and later, the DC/OS UI will automatically encode and decode the mapping to and from base64. If installing from the CLI or from the UI in a version earlier than DC/OS 1.11, it is necessary to do the encoding manually.</p>
+
+## Forwarding DNS and Custom Domain
+
+Every DC/OS cluster has a unique cryptographic ID which can be used to forward DNS queries to that cluster. To securely expose the service outside the cluster, external clients must have an upstream resolver configured to forward DNS queries to the DC/OS cluster of the service as described [here](/mesosphere/dcos/latest/networking/DNS/mesos-dns/expose-mesos-zone/).
+
+With only forwarding configured, DNS entries within the DC/OS cluster will be resolvable at `<task-domain>.autoip.dcos.<cryptographic-id>.dcos.directory`. However, if you configure a DNS alias, you can use a custom domain. For example, `<task-domain>.cluster-1.acmeco.net`. In either case, the DC/OS {{ model.techName }} service will need to be installed with an additional security option:
+```json
+{
+    "service": {
+        "security": {
+            "custom_domain": "<custom-domain>"
+        }
+    }
+}
+```
+where `<custom-domain>` is one of `autoip.dcos.<cryptographic-id>.dcos.directory` or your organization's specific domain (e.g., `cluster-1.acmeco.net`).
+
+As a concrete example, using the custom domain of `cluster-1.acmeco.net` the node 0 task would have a host of `node-0-server.<service-name>.cluster-1.acmeco.net`.
