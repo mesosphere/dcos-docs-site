@@ -45,10 +45,10 @@ Then use that ID with the `dcos node drain` command:
 dcos node drain <mesos-agent-id>
 ```
 
-The maximum grace period (aka `timeout`) and/or decommission options may be specified like so:
+The maximum grace period and/or decommission options may be specified like so:
 
 ```bash
-dcos node drain <mesos-agent-id> --timeout=10m --decommission
+dcos node drain <mesos-agent-id> --max-grace-period=10m --decommission
 ```
 
 Once draining on an agent has begun, you can monitor the tasks on that node by running:
@@ -95,7 +95,7 @@ You may also monitor the draining of an agent via the DC/OS UI. To do so, naviga
 
 Once draining is initiated on an agent node, it cannot be cancelled. This command should be used with caution, especially if executed with the `--decommission` option, as this results in the node's permanent removal from the cluster when draining is complete.
 
-If a node becomes stuck in the `DRAINING` state and does not transition to `DRAINED` after the expected duration (either the duration specified in the `--timeout` argument, or the longest kill grace period of the tasks running on the node), then it should be inspected to determine the cause. It is not necessary to issue the `dcos node drain` command again once a node is in the `DRAINING` state; this will have no effect. If all tasks on the node have terminated, then it's possible that either a terminal task status update has not been acknowledged by the relevant service, or a resource operation on that node has not finished. To rule out the former, inspect the relevant services which were running tasks on the node and ensure that they are running and available. You can list the tasks on the node to discover which services may not have acknowledged their terminal updates:
+If a node becomes stuck in the `DRAINING` state and does not transition to `DRAINED` after the expected duration (either the duration specified in the `--max-grace-period` argument, or the longest kill grace period of the tasks running on the node), then it should be inspected to determine the cause. It is not necessary to issue the `dcos node drain` command again once a node is in the `DRAINING` state; this will have no effect. If all tasks on the node have terminated, then it's possible that either a terminal task status update has not been acknowledged by the relevant service, or a resource operation on that node has not finished. To rule out the former, inspect the relevant services which were running tasks on the node and ensure that they are running and available. You can list the tasks on the node to discover which services may not have acknowledged their terminal updates:
 
 ```bash
 dcos task list --agent-id=<mesos-agent-id>
