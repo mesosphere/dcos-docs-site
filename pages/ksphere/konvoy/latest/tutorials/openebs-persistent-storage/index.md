@@ -23,10 +23,6 @@ Before starting this tutorial, you should verify the following:
 
 - You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings, see the [Quick start][quickstart].
 
-## Install storage provider prerequisites
-
-The OpenEBS storage provider requires that the `iSCSI client` runs on all worker nodes. Use the following script to install and start the iSCSI client.
-
 ## Set environment variables
 
 1. Update the following environment variables:
