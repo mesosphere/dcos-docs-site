@@ -81,7 +81,7 @@ Before you can use OpenEBS to provide persistent volume storage for pods running
     kubectl get pods --n openebs 
     ```
 
-### Create OpenEBS cStor storage pools
+## Create OpenEBS cStor storage pool claim
 
 OpenEBS provides multiple storage engines such as Jiva, cStor and LocalPV Provisioner for different use cases. If you want use additional disks (local disks or EBS) and create pools out of disks attached to your worker nodes it is recommended to use cStor Storage Engine.
 
@@ -132,7 +132,7 @@ Installing the operator in the previous step will also install `ndm` (Node Disk 
     EOF
     ```
 
-## Create the OpenEBS storage class
+## Create OpenEBS storage class
 
 In this step, we create a `storage class` named `openebs-cstor-default`. This `storage class` will use the `storage pool` created out of `blockdevices` we have specified with an additional annotation that makes it the default storage class for the Konvoy cluster.
 
@@ -158,7 +158,7 @@ In this step, we create a `storage class` named `openebs-cstor-default`. This `s
     
     This command creates a volume on OpenEBS with three replicas.
 
-## Verify storage provider
+## Verify OpenEBS persistent volumes
 
 1. Do a quick verification creating a persistent volume claim and a pod using it.
 
