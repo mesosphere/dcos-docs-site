@@ -20,7 +20,7 @@ services:
       - "80:80"
       - "443:443"
     volumes:
-      - docs-build:/src/build
+      - ./build:/src/build
   test:
     depends_on:
       - docs

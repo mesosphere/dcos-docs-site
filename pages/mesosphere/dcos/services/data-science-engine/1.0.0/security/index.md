@@ -8,12 +8,13 @@ menuWeight: 10
 model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
+
 This section describes how to configure secure DC/OS service accounts for {{ model.techName }}.
 When running in DC/OS strict security mode, both the {{ model.techName }} and Spark applications launched from it must authenticate to Mesos using a DC/OS service account.
 
 # <a name="provision-a-service-account"></a>Provisioning a service account
 
-This section describes how to configure DC/OS access for {{ model.techName }}. Depending on your [security mode](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/#security-modes/), {{ model.techName }} may require [service authentication](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/service-auth/) for access to DC/OS.
+This section describes how to configure DC/OS access for {{ model.techName }}. Depending on your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/), {{ model.techName }} may require [service authentication](/mesosphere/dcos/latest/security/ent/service-auth/) for access to DC/OS.
 
 | Security mode | Service Account |
 |---------------|-----------------------|
@@ -21,13 +22,13 @@ This section describes how to configure DC/OS access for {{ model.techName }}. D
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/perms-reference/#superuser).
+If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](/mesosphere/dcos/latest/security/ent/perms-reference/#superuser-permissions).
 
 ## Prerequisites:
 
-- [DC/OS CLI installed](https://docs.d2iq.com/mesosphere/dcos/latest/cli/install/) and be logged in as a superuser.
-- [Enterprise DC/OS CLI 0.4.14 or later](https://docs.d2iq.com/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install) installed.
-- If your [security mode](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](https://docs.d2iq.com/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
+- [DC/OS CLI installed](/mesosphere/dcos/latest/cli/install/) and be logged in as a superuser.
+- [Enterprise DC/OS CLI 0.4.14](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install) or later installed.
+- If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/latest/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI.
@@ -38,7 +39,7 @@ Create a public-private key pair and save each value into a separate file within
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use the <a href="https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
 
 
 # <a name="create-a-service-account"></a>Create a Service Account
@@ -107,7 +108,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id
 
 ## Using the secret store
 
-DC/OS Enterprise allows users to add privileged information in the form of a file to the <a href="https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secret Store</a>. These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. 
+DC/OS Enterprise allows users to add privileged information in the form of a file to the <a href="/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secret Store</a>. These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. 
 
 ### Where to place secrets
 
@@ -206,7 +207,7 @@ installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
  
 
 
-[11]: https://docs.d2iq.com/latest/overview/architecture/components/
+[11]: /latest/overview/architecture/components/
 [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
-[13]: https://docs.d2iq.com/latest/security/ent/#spaces-for-secrets
-[14]: https://docs.d2iq.com/latest/security/ent/secrets/
+[13]: /latest/security/ent/#spaces-for-secrets
+[14]: /latest/security/ent/secrets/
