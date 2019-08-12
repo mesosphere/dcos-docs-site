@@ -10,19 +10,19 @@ render: mustache
 
 # Release Notes for HDFS Service version 2.6.0-3.2.0
 
-## Feature
+## Updates
+- Updated HDFS version to `3.2.0`. Note: our package no longer includes Cloudera's `cdh` variant
+- Updated Snappy library to version `1.1.4` in the Hadoop tar ball.
+- Updated the SDK to version `0.56.1`
+- Oracle JDK is replaced with OpenJDK 8
+
+## Features
 - Added support for custom domains. See [custom domains](/mesosphere/dcos/services/{{ model.serviceName }}/2.6.0-3.2.0/operations/security/#forwarding-dns-and-custom-domain)
 - Added support for DC/OS Storage Service (DSS). See [DSS documentation](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/)
 - Added marathon service scheduler checks
 
 ## Bug Fixes
 - Fixed a bug in Apache Derby related to the miscalculation of bytes read for a principal entry in the Kerberos keytab file. See [HADOOP-16283](https://issues.apache.org/jira/browse/HADOOP-16283)).
-
-## Updates
-- Updated HDFS version to `3.2.0`. Note: our package no longer includes Cloudera's `cdh` variant
-- Hadoop tar ball has been updated with Snappy 1.1.4 library.
-- Updated the SDK to version `0.56.1` 
-- Oracle JDK is replaced by OpenJDK 8
 
 <!-- # Release Notes for HDFS Service version 2.5.0-2.6.0-cdh5.11.0
 
