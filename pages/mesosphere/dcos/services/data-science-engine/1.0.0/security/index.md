@@ -11,7 +11,74 @@ render: mustache
 This section describes how to configure secure DC/OS service accounts for {{ model.techName }}.
 When running in DC/OS strict security mode, both the {{ model.techName }} and Spark applications launched from it must authenticate to Mesos using a DC/OS service account.
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+# <a name="provision-a-service-account"></a>Provisioning a service account
+
+This section describes how to configure DC/OS access for {{ model.techName }}. Depending on your [security mode](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/#security-modes/), {{ model.techName }} may require [service authentication](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/service-auth/) for access to DC/OS.
+
+| Security mode | Service Account |
+|---------------|-----------------------|
+| Disabled      | Not available   |
+| Permissive    | Optional   |
+| Strict        | Required |
+
+If you install a service in permissive mode and do not specify a service account, Metronome and Marathon will act as if requests made by this service are made by an account with the [superuser permission](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/perms-reference/#superuser).
+
+## Prerequisites:
+
+- [DC/OS CLI installed](https://docs.d2iq.com/mesosphere/dcos/latest/cli/install/) and be logged in as a superuser.
+- [Enterprise DC/OS CLI 0.4.14 or later](https://docs.d2iq.com/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install) installed.
+- If your [security mode](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](https://docs.d2iq.com/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
+
+# <a name="create-a-keypair"></a>Create a Key Pair
+In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI.
+
+Create a public-private key pair and save each value into a separate file within the current directory.
+
+```bash
+dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
+```
+
+<p class="message--note"><strong>NOTE: </strong>You can use the <a href="https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secret Store</a> to secure the key pair.</p>
+
+
+# <a name="create-a-service-account"></a>Create a Service Account
+
+From a terminal prompt, create a new service account (for example, `{{ model.serviceName }}`) containing the public key (`<your-public-key>.pem`).
+
+```bash
+dcos security org service-accounts create -p <your-public-key>.pem -d <description> {{ model.serviceName }}
+```
+
+You can verify your new service account using the following command.
+
+```bash
+dcos security org service-accounts show {{ model.serviceName }}
+```
+
+# <a name="create-an-sa-secret"></a>Create a Secret
+Create a secret (`{{ model.packageName }}/<secret-name>`) with your service account and private key specified (`<private-key>.pem`).
+
+<p class="message--note"><strong>NOTE: </strong>If you store your secret in a path that matches the service name, for example, service name and secret path are both <tt>{{ model.serviceName }}</tt>, then only the service named <tt>{{ model.serviceName }}</tt> can access it.</p>
+
+
+## Permissive
+
+```bash
+dcos security secrets create-sa-secret <private-key>.pem <service-account-id> {{ model.serviceName }}/<secret-name>
+```
+
+## Strict
+
+```bash
+dcos security secrets create-sa-secret --strict <private-key>.pem <service-account-id> {{ model.packageName }}/<secret-name>
+```
+
+You can list the secrets with this command:
+
+```bash
+dcos security secrets list /
+```
+
 
 # Create and assign permissions
 In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster.
@@ -40,12 +107,12 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id
 
 ## Using the secret store
 
-DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. For details about how to use secrets, see understanding secrets.
+DC/OS Enterprise allows users to add privileged information in the form of a file to the <a href="https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secret Store</a>. These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. 
 
 ### Where to place secrets
 
 For a secret to be available to {{ model.techName }}, it must be placed in a path
-that can be accessed by the {{ model.nickName }} service. If only {{ model.nickName }} requires access to a secret, you can store the secret in a path that matches the name of the {{ model.packageName }} service (for example, `{{ model.packageName }}/secret`).  
+that can be accessed by the {{ model.nickName }} service. If only {{ model.nickName }} requires access to a secret, you can store the secret in a path that matches the name of the {{ model.nickName }} service (for example, `{{ model.packageName }}/secret`).  
 
 ## Limitations
 
@@ -53,18 +120,19 @@ Anyone who has access to the {{ model.techName }}'s notebook has access to all s
 
 ## Binary secrets
 
-You can store binary files, like a Kerberos keytab, in the DC/OS secrets store. In DC/OS 1.11 and later, you can create secrets from binary files directly. In DC/OS 1.10 or earlier, files must be base64-encoded--as specified in RFC 4648--before being stored as secrets.
+You can store binary files, like a Kerberos keytab, in the DC/OS Secrets Store. In DC/OS 1.11 and later, you can create secrets from binary files directly. 
 
-### DC/OS 1.11 and later
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab`, run the following command:
 
 ```bash
 dcos security secrets create --file kerb5.keytab mysecret
 ```
 
+In DC/OS 1.10 or earlier, files must be base64-encoded--as specified in RFC 4648--before being stored as secrets.
+
 # Using Mesos secrets in Spark jobs
 
-Once a secret has been added to the secret store, you can include it in the service's configuration under the `security` section:
+Once a secret has been added to the Secret Store, you can include it in the service's configuration under the `security` section:
 
 ```json
 "service": {
@@ -84,7 +152,7 @@ Provided secrets will be automatically mounted to {{ model.techName }}'s sandbox
 
 # Limitations
 
-When using environment variables and file-based secrets,  there must be an equal number of sinks and secret sources. That is, the keys `secret_names`, `secret_filenames`, and `secret_envkeys` must have the same number of values. For example:
+When using environment variables and file-based secrets, there must be an equal number of sinks and secret sources. That is, the keys `secret_names`, `secret_filenames`, and `secret_envkeys` must have the same number of values. For example:
 
 ```json
 "service":{
@@ -100,7 +168,7 @@ When using environment variables and file-based secrets,  there must be an equal
 
 This configuration places the contents of `{{ model.packageName }}/my-secret-file` into the `target-secret-file` as well as the `PLACEHOLDER` environment variable. Additionally, the contents of `{{ model.packageName }}/my-secret-envvar` are exported to the `SECRET_ENVVAR` and written to the `placeholder-file`.
 
-<p class="message--note"><strong>NOTE: </strong> If the content size of binary secrets is greater than 4KB, Mesos' security module will reject container execution due to the overhead.
+<p class="message--note"><strong>NOTE: </strong> If the content size of binary secrets is greater than 4KB, Mesos' security module will reject container execution due to the overhead.</p>
 
 
 # Authenticating to your {{ model.techName }} instance
