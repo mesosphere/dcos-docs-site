@@ -8,11 +8,13 @@ enterprise: true
 render: mustache
 model: /1.13/data.yml
 ---
+TEST
 
 You can manage secrets and certificates from the Secrets page.
 
 ![Secrets](/1.13/img/GUI-Secrets-Secrets_View_With_Secrets-1_12.png)
 Figure 1 - Secrets page
+
 
 
 For complete details on creating and managing Secrets, see the [Secrets](/1.13/security/ent/secrets) documentation.
@@ -35,15 +37,15 @@ For complete details on creating and managing Secrets, see the [Secrets](/1.13/s
 
 1. Type or paste the secret into the **Value** box.
 
-    ![Secret ID/Value Fields](/1.13/img/create-secret.png)
+    ![Secret ID/Value Fields](/1.13/img/GUI-Secrets-Create-New-Keypair.png)
 
-    Figure 3. Creating a new Secret
+    Figure 3. Creating a new Secret with a Key-Value pair
 
 1. Click **Create**.
 
 # Creating secrets from a file 
 
-This procedure describes how to use a file to create a secret using the DC/OS web interface.
+This procedure describes how to use a file to create a secret using the DC/OS UI.
 
 1. Log in to the DC/OS UI as a user with the `dcos:superuser` permission.
 1. Click the **Secrets** tab on the left hand navigation menu.
@@ -61,7 +63,7 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
 1. In the ID box, provide the name of your secret and its path, if any.
 
-    ![Create New Secret](/1.13/img/GUI-Secrets-Create-New-Secret.png)
+    ![Create New Secret](/mesosphere/dcos/1.13/gui/secrets/1.13/img/GUI-Secrets-Create-New-Secret.png)
 
     Figure 6. Create New Secret dialog
 
