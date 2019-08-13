@@ -42,6 +42,15 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id
 
 <!-- You can also provision a service account using the UI. -->
 
+To configure Spark for using created service account and permissions, add the following configuration under `spark` section:
+```json
+"spark": {
+    "spark_mesos_principal": "<service-account-id>",
+    "spark_mesos_secret": "<service-account-secret>",
+    "spark_mesos_role": "<service-account-id>"
+}
+```
+
 ## Using the secret store
 
 DC/OS Enterprise allows users to add privileged information in the form of a file to the DC/OS secret store. These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. For details about how to use secrets, see understanding secrets.
