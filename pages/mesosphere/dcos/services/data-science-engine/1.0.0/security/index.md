@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Security
-excerpt: Configuring secure DC/OS service accounts 
+excerpt: Configuring secure DC/OS service accounts
 title: Security
 enterprise: true
 menuWeight: 10
@@ -84,6 +84,8 @@ dcos security secrets list /
 # Create and assign permissions
 In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster.
 
+<p class="message--note"><strong>NOTE: </strong> Spark applications launched by the {{ model.techName }} do not require an additional service account setup and will reuse service account created for {{ model.techName }} with additional required permissions.
+
 Use the following `DCOS CLI` commands to rapidly provision a service account with the required permissions:
 
 ```bash
@@ -101,9 +103,11 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 # Allows Spark framework to launch tasks using <service-account-id> role and principal
 dcos security org users grant <service-account-id> dcos:mesos:master:task:role:<service-account-id> create
 dcos security org users grant <service-account-id> dcos:mesos:master:task:principal:<service-account-id> create
-dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:/{{ model.serviceName }} create
+dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:{{ model.serviceName }} create
 ```
-    
+
+<p class="message--note"><strong>NOTE: </strong> For the permission that allows an app launching tasks which has a form  `dcos:mesos:master:task:app_id:<service name>`, `<service name>` must be equal to the service name specified in options.json or in UI when {{ model.techName }} is installed.
+
 <!-- You can also provision a service account using the UI. -->
 
 ## Using the secret store
@@ -181,7 +185,7 @@ Each instance can have different authentication mechanisms configured.
 
 The default {{ model.techName }} password is set to`jupyter`. You can override it with the `service.jupyter_password` option.
 
-## OpenID Connect 
+## OpenID Connect
 
 You can choose to enable OpenID Connect authentication. The OpenID Connect flow will be triggered if `oidc.enabled` is
 `true` and both `oidc.discovery_uri` and `oidc.client_secret` are set, since they are the minimal options.
@@ -204,7 +208,7 @@ Here is an example of a simple OpenID Connect configuration for {{ model.techNam
 <!-- There are a few more options for advanced OpenID Connect configuration, that can be found in the `Oidc` section when
 installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
 
- 
+
 
 
 [11]: /mesosphere/dcos/latest/overview/architecture/components/
