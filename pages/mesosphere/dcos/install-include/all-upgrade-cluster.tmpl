@@ -7,8 +7,13 @@ Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS.
     ```bash
     dcos_version = "1.13.3"
     ```
+2.  We also should make sure having the latest version of the Terraform modules. So we tell Terraform to request those from the registry.
 
-2. Re-run the execution plan, terraform will notice the change in version and run accordingly.
+    ```bash
+    terraform get -update
+    ```
+
+3. Re-run the execution plan, terraform will notice the change in version and run accordingly.
 
     ```bash
     terraform plan -out=plan.out
@@ -20,7 +25,7 @@ Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS.
     <img src="./images/upgrade/terraform-plan.png" />
     </p>
 
-3. Apply the plan.
+4. Apply the plan.
 
     ```bash
     terraform apply plan.out
