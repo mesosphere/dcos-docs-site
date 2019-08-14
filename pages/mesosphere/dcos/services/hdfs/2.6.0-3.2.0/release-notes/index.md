@@ -12,7 +12,7 @@ render: mustache
 
 ## Updates
 - Updated HDFS version to `3.2.0`. Note: our package no longer includes Cloudera's `cdh` variant
-- Updated Snappy library to version `1.1.4` in the Hadoop tar ball.
+- Updated Snappy library to version `1.1.4`.
 - Updated the SDK to version `0.56.1`
 - Oracle JDK is replaced with OpenJDK 8
 
