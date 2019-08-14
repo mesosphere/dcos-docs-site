@@ -16,9 +16,9 @@ When running in DC/OS strict security mode, both the {{ model.techName }} and Sp
 # Create and assign permissions
 In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster.
 
-<p class="message--note"><strong>NOTE: </strong> Spark applications launched by the {{ model.techName }} do not require an additional service account setup and will reuse service account created for {{ model.techName }} with additional required permissions.</p>
+<p class="message--note"><strong>NOTE: </strong> Spark applications launched by the {{ model.techName }} do not require an additional service account setup and will reuse the service account created for {{ model.techName }} with additional required permissions.</p>
 
-Use the following `DCOS CLI` commands to rapidly provision a service account with the required permissions:
+Use the following DC/OS CLI commands to rapidly provision a service account with the required permissions:
 
 ```bash
 # Allows the default user 'nobody' to execute tasks
@@ -35,10 +35,10 @@ dcos security org users grant <service-account-id> dcos:mesos:master:volume:prin
 # Allows Spark framework to launch tasks using <service-account-id> role and principal
 dcos security org users grant <service-account-id> dcos:mesos:master:task:role:<service-account-id> create
 dcos security org users grant <service-account-id> dcos:mesos:master:task:principal:<service-account-id> create
-dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:{{ model.serviceName }} create
+dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:<service-account-name> create
 ```
 
-<p class="message--note"><strong>NOTE: </strong> For the permission that allows an app launching tasks which has a form  <code>dcos:mesos:master:task:app_id:&#60service-name&#62</code>, <tt>&#60service-name&#62</tt> must be equal to the service name specified in the options.json or as entered into the UI when {{ model.techName }} is installed.
+<p class="message--note"><strong>NOTE: </strong> The default service account name is <tt>data-science-engine</tt>, however, please ensure that the <tt>&#60service-account-name&#62</tt> entered here is the same as the service name specified in the options.json or in the UI when {{ model.techName }} is installed.
 
 <!-- You can also provision a service account using the UI. -->
 
