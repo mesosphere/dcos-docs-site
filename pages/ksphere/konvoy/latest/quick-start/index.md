@@ -25,7 +25,7 @@ Before starting the Konvoy installation, you should verify the following:
 -   You have a Linux or macOS computer with a supported version of the operating system.
 -   You have the [aws][install_aws] command-line utility if you are installing on an AWS cloud instance.
 -   You have [Docker Desktop][install_docker] _version 18.09.2 or newer_.
--   You have [kubectl][install_kubectl] _v1.15.1 or newer_ for interacting with the running cluster.
+-   You have [kubectl][install_kubectl] _v1.15.2 or newer_ for interacting with the running cluster.
 -   You have a valid AWS account with [credentials configured][aws_credentials].
     You need to be authorized to create the following resources in the AWS account:
     - EC2 Instances
@@ -223,13 +223,13 @@ The command returns output similar to the following:
 
 ```text
 NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.1
-ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.1
-ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.1
-ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.1
-ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.1
-ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.1
-ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.1
+ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.2
+ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.2
+ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.2
+ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.2
+ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.2
+ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.2
+ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.2
 ```
 
 ### Next steps

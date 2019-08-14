@@ -85,7 +85,7 @@ metadata:
   creationTimestamp: "2019-07-09T16:10:19.932534-04:00"
 spec:
   kubernetes:
-    version: 1.15.1
+    version: 1.15.2
     controlPlane:
       controlPlaneEndpointOverride: ""
       keepalived:
@@ -166,7 +166,7 @@ spec:
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | version of kubernete to deploy                              | `1.15.1`                |
+| `kubernetes.version`           | version of kubernete to deploy                              | `1.15.2`                |
 | `kubernetes.controlPlane`      | object that defines control plane configuration             | See [spec.kubernetes.controlPlane](#spec-kubernetes-controlplane) |
 | `kubernetes.networking`        | object that defines cluster networking                      | See [spec.kubernetes.networking](#spec-kubernetes-networking) |
 | `kubernetes.cloudProvider`     | object that defines which cloud-provider to enable          | See [spec.kubernetes.clouldProvider](#spec-kubernetes-cloudprovider)  |

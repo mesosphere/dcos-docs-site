@@ -76,10 +76,10 @@ After you have configured and tested SSH agent forwarding, you can configure the
 
 For example, configure the following bastion host settings in the `inventory.yaml` file:
 
-* `bastion_hosts`: lists the hosts through which a proxy SSH connection can be made.
+* `bastion.hosts` lists the hosts through which a proxy secure shell connection can be made.
    A host from this list is selected randomly for each SSH connection.
-* `bastion_user`: specifies the user account used to open the SSH connection into the hosts listed as `bastion_hosts`.
-* `bastion_port`: specifies the port used to open the SSH connection into the hosts listed as `bastion_hosts`.
+* `ansible_user` specifies the user account used to open the secure shell connection into the hosts listed as `bastion.hosts`.
+* `ansible_port` specifies the port used to open the secure shell connection into the hosts listed as `bastion.hosts`.
 
 The following example illustrates how to configure these settings in the `inventory.yaml` file:
 
@@ -105,14 +105,20 @@ node:
       ansible_host: 10.0.139.120
       node_pool: worker
 
+bastion:
+  hosts:
+    10.0.131.50:
+      ansible_host: 10.0.131.50
+  vars:
+    ansible_user: "centos"
+    ansible_port: 22
+
 all:
   vars:
+    version: v1beta1
     order: sorted
     ansible_user: "centos"
     ansible_port: 22
-    bastion_hosts: [10.0.131.50]
-    bastion_user: "centos"
-    bastion_port: 22
 ```
 
 You should note that you must specify the `ansible_user` and `ansible_port`.
@@ -157,11 +163,13 @@ When a Konvoy cluster is deployed on an Amazon Web Services cloud instance, the 
 The generated `inventory.yaml` file will be similar to the following:
 
 ```yaml
-all:
+bastion:
+  hosts:
+    10.0.131.50:
+      ansible_host: 10.0.131.50
   vars:
-    bastion_hosts: [ec2-18-237-7-198.us-west-2.compute.amazonaws.com, ec2-34-221-251-83.us-west-2.compute.amazonaws.com]
-    bastion_user: "centos"
-    bastion_port: 22
+    ansible_user: "centos"
+    ansible_port: 22
 ```
 
 [bastion_host]: https://en.wikipedia.org/wiki/Bastion_host

@@ -15,9 +15,9 @@ Version 1.0 - Released 3 August 2019
 
 | Kubernetes support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.1 |
+|**Minimum** | 1.15.2 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.1 |
+|**Default** | 1.15.2 |
 
 Konvoy is a complete, standalone distribution of Kubernetes that enables you to provision native Kubernetes clusters with a suite of
 [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community tools.
@@ -145,13 +145,6 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 -   Upgrades might fail when `workers` is set to one.
 
     The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
-
--   Kubernetes RPM packages might be upgraded unintentionally via yum.
-
-    The Kubernetes RPM packages (kubelet, kubeadm, kubectl, containerd.io) are managed by Konvoy, and are not supposed to be upgraded when a user issues a `yum update`.
-    Currently, these RPM packages are not excluded for update.
-    To workaround that, the user needs to use the following command `yum update --exclude=kubelet*  --exclude=kubeadm* --exclude=kubctl* --exclude=containerd*` to update other system packages.
-    One could also add `exclude=kubelet* kubeadm* kubctl* containerd*` to `/etc/yum.conf`.
 
 <!--
 ### Previous releases
