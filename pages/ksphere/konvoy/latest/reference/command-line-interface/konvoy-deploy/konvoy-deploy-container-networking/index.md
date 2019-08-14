@@ -5,16 +5,16 @@ title: konvoy deploy container-networking
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-excerpt: Deploy container netowrking
+excerpt: Deploy container networking
 ---
 
 ## konvoy deploy container-networking
 
-Deploy container netowrking
+Deploy container networking
 
 ### Synopsis
 
-Deploy container netowrking
+Deploy container networking
 
 ```
 konvoy deploy container-networking [flags]

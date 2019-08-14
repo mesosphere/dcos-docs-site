@@ -45,6 +45,7 @@ node:
 
 all:
   vars:
+    version: v1beta1
     order: sorted
     ansible_user: "centos"
     ansible_port: 22

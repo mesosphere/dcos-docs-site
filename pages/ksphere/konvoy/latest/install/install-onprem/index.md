@@ -20,7 +20,7 @@ Before starting the installation, you should verify that your environment meets 
   You must have Docker Desktop installed on the host where the Konvoy command-line interface (CLI) will run.
   For example, if you installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] _v1.15.1 or newer_
+* [kubectl][install_kubectl] _v1.15.2 or newer_
 
   You must have for `kubectl` installed on the host where the Konvoy command-line interface (CLI) will run to enable interaction with the running cluster.
 
@@ -152,6 +152,7 @@ node:
 
 all:
   vars:
+    version: v1beta1
     order: sorted
     ansible_user: "centos"
     ansible_port: 22
