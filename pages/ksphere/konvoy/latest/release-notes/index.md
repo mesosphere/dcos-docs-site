@@ -9,7 +9,7 @@ enterprise: false
 
 ## Release Notes
 
-Version 1.0 - Released 3 August 2019
+Version 1.1 - Released 14 August 2019
 
 [Download](#TBA)
 
