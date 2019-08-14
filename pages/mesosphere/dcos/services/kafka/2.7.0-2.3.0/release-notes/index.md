@@ -11,6 +11,7 @@ render: mustache
 ## Version 2.7.0-2.3.0
 
 ### Updates
+- Upgrade the base dcos-commons SDK version to `0.56.2`.
 - Upgrade the base tech version of Apache Kafka to `2.3.0`. See Kafka's Release Notes for [2.3.0](https://www.apache.org/dist/kafka/2.3.0/RELEASE_NOTES.html) for details.
 - Option to configure new listener config `max.connections` which limits the number of active connections on each listener.
 
