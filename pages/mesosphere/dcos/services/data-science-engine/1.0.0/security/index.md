@@ -16,7 +16,7 @@ When running in DC/OS strict security mode, both the {{ model.techName }} and Sp
 # Create and assign permissions
 In strict mode, any Spark applications launched by the {{ model.techName }} will require additional permissions for authenticating with Mesos. This includes the launching of executors (worker tasks) on the cluster.
 
-<p class="message--note"><strong>NOTE: </strong> Spark applications launched by the {{ model.techName }} do not require an additional service account setup and will reuse service account created for {{ model.techName }} with additional required permissions.
+<p class="message--note"><strong>NOTE: </strong> Spark applications launched by the {{ model.techName }} do not require an additional service account setup and will reuse service account created for {{ model.techName }} with additional required permissions.</p>
 
 Use the following `DCOS CLI` commands to rapidly provision a service account with the required permissions:
 
@@ -38,11 +38,12 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:princi
 dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:{{ model.serviceName }} create
 ```
 
-<p class="message--note"><strong>NOTE: </strong> For the permission that allows an app launching tasks which has a form  `dcos:mesos:master:task:app_id:<service name>`, `<service name>` must be equal to the service name specified in options.json or in UI when {{ model.techName }} is installed.
+<p class="message--note"><strong>NOTE: </strong> For the permission that allows an app launching tasks which has a form  <code>dcos:mesos:master:task:app_id:&#60service-name&#62</code>, <tt>&#60service-name&#62</tt> must be equal to the service name specified in the options.json or as entered into the UI when {{ model.techName }} is installed.
 
 <!-- You can also provision a service account using the UI. -->
 
-To configure Spark for using created service account and permissions, add the following configuration under `spark` section:
+To configure Spark for using created service account and permissions, add the following configuration under the `spark` section:
+
 ```json
 "spark": {
     "spark_mesos_principal": "<service-account-id>",
