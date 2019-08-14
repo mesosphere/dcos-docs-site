@@ -108,7 +108,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id
 
 ## Using the secret store
 
-DC/OS Enterprise allows users to add privileged information in the form of a file to the <a href="/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secret Store</a>. These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. 
+DC/OS Enterprise allows users to add privileged information in the form of a file to the [DC/OS Secret Store](/mesosphere/dcos/latest/security/ent/secrets/). These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. 
 
 ### Where to place secrets
 
@@ -207,7 +207,7 @@ installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
  
 
 
-[11]: /latest/overview/architecture/components/
+[11]: /mesosphere/dcos/latest/overview/architecture/components/
 [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
-[13]: /latest/security/ent/#spaces-for-secrets
-[14]: /latest/security/ent/secrets/
+[13]: /mesosphere/dcos/latest/security/ent/#spaces-for-secrets
+[14]: /mesosphere/dcos/latest/security/ent/secrets/
