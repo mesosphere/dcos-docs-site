@@ -66,3 +66,56 @@ In order for {{ model.techShortName }} to function correctly, you must perform s
   </tr>
 
 </table>
+
+## Using Volume Profiles
+
+Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. 
+
+<p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
+
+DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
+
+If you want to deploy Hdfs with DSS, please follow [this tutorial](/mesosphere/dcos/services/storage/1.0.0/tutorials/cassandra-dss-volumes/) which illustrates, how to deploy Cassandra with DSS.
+
+Once the DC/OS cluster is running and volume profiles are created, you can deploy Hdfs with the following configs:
+
+```bash
+cat > hdfs-options.json <<EOF
+{
+    "journal_node": {
+        "volume_profile": "hdfs",
+        "disk_type": "MOUNT"
+    },
+    "name_node": {
+        "volume_profile": "hdfs",
+        "disk_type": "MOUNT"
+    },
+    "data_node": {
+        "volume_profile": "hdfs",
+        "disk_type": "MOUNT"
+    }
+}
+EOF
+```
+```
+dcos package install hdfs --options=hdfs-options.json
+```
+<p class="message--note"><strong>NOTE: </strong>Hdfs will be configured to look for <code>MOUNT</code> volumes with the <code>hdfs</code> profile.</p> 
+
+Once the Hdfs service finishes deploying its tasks will be running with the specified volume profiles.
+
+```bash
+dcos hdfs update status
+deploy (serial strategy) (COMPLETE)
+├─ journal (serial strategy) (COMPLETE)
+│  ├─ journal-0:[node] (COMPLETE)
+│  ├─ journal-1:[node] (COMPLETE)
+│  └─ journal-2:[node] (COMPLETE)
+├─ name (serial strategy) (COMPLETE)
+│  ├─ name-0:[node, zkfc] (COMPLETE)
+│  └─ name-1:[node, zkfc] (COMPLETE)
+└─ data (serial strategy) (COMPLETE)
+   ├─ data-0:[node] (COMPLETE)
+   ├─ data-1:[node] (COMPLETE)
+   └─ data-2:[node] (COMPLETE)
+```
