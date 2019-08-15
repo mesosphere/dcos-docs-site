@@ -74,7 +74,7 @@ render: mustache
 ## Bug Fixes
 
 -   Fixed Kibana service URL (`<cluster-url>/service/kibana`). This makes Kibana's service URL work out of the box even when X-Pack Security is enabled. This was a limitation in the previous version, where we required Kibana to be exposed with EdgeLB. Which is still possible, but not required anymore. ([#3036](https://github.com/mesosphere/dcos-commons/pull/3036))
--   Fixed issue where setting `http.cors.allow-origin` to `*` would cause the deploy to fail to due the Elasticsearch configuration file be compiled with incorrectly escaped content. ([#23](https://github.com/mesosphere/dcos-elastic-service/pull/23))
+-   Fixed issue where setting `http.cors.allow-origin` to `*` would cause the deployment to fail due to the Elasticsearch configuration file being compiled with incorrectly escaped content. ([#23](https://github.com/mesosphere/dcos-elastic-service/pull/23))
 -   Fixed the duplicate `Xmx` and `Xms` JVM flags in the command to start the Elasticsearch process. This didn't actually cause any issues because the JVM only considers the last ones, which were the ones we were configuring, but inspecting the command with `ps aux` would show both, which could be confusing to operators. ([#2975](https://github.com/mesosphere/dcos-commons/pull/2975))
 
 
