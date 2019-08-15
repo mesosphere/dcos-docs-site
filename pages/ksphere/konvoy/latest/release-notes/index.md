@@ -11,7 +11,6 @@ enterprise: false
 
 ### Version 1.1.0 - Released 12 August 2019
 
-[Download](#TBA)
 
 | Kubernetes support | Version |
 | ------------------ | ------- |
