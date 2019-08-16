@@ -106,7 +106,7 @@ const currentYear = (new Date()).getFullYear();
 MS.metadata({
     url: 'https://docs.d2iq.com',
     siteTitle: 'D2iQ Docs',
-    siteDescription: 'Welcome to the documentation pages for D2IQ. Visit one of the product ' +
+    siteDescription: 'Welcome to the documentation pages for D2iQ. Visit one of the product ' +
         'pages to get started.',
     copyright: `&copy; ${currentYear} D2iQ, Inc. All rights reserved.`,
     env: process.env.NODE_ENV,
