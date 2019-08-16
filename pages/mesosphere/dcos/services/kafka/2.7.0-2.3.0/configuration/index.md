@@ -89,9 +89,7 @@ Volume profiles are used to classify volumes. For example, users can group SSDs 
 
 <p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
 
-DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
-
-If you want to deploy Kafka with DSS, please follow [this tutorial](/mesosphere/dcos/services/storage/1.0.0/tutorials/cassandra-dss-volumes/)
+[DC/OS Storage Service (DSS)](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy Kafka with the following configs:
 
@@ -115,11 +113,10 @@ Once the Kafka service finishes deploying its tasks will be running with the spe
 ```bash
 dcos kafka update status
 deploy (serial strategy) (COMPLETE)
-└─ node-deploy (serial strategy) (COMPLETE)
-   ├─ node-0:[server] (COMPLETE)
-   ├─ node-0:[init_system_keyspaces] (COMPLETE)
-   ├─ node-1:[server] (COMPLETE)
-   └─ node-2:[server] (COMPLETE)
+└─ broker (serial strategy) (COMPLETE)
+   ├─ kafka-0:[broker] (COMPLETE)
+   ├─ kafka-1:[broker] (COMPLETE)
+   └─ kafka-2:[broker] (COMPLETE)
 ```
 
 ## Configuring Service Health Checks
