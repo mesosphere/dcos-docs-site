@@ -4,7 +4,7 @@
   background: $color-purple;
   height: 100%;
   &__header {
-    height: 80px;
+    height: 70px;
     box-shadow: 0 0px 40px -40px rgba(0, 0, 0, 0.1);
     background: rgba(125, 88, 255, 0.1);
   }
@@ -15,7 +15,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 80px;
+      height: 70px;
       padding: 0 2rem;
       font-weight: 500;
       user-select: none;
@@ -43,7 +43,7 @@
     }
     &__list {
       position: absolute;
-      top: 80px;
+      top: 70px;
       margin: 0;
       padding: 0;
       width: 100%;
