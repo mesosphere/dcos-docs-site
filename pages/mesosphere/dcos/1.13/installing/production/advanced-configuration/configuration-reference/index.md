@@ -221,7 +221,7 @@ The [secret access key](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cre
 Whether to upload the customized advanced AWS templates to an S3 bucket.
 
 ### bootstrap_url
- (Required) The URL path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos_install_tmp` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos_install_tmp`.
+ (Required) The URL path for the DC/OS installer to store the customized DC/OS build files. If you are using the automated DC/OS installer, you should specify `bootstrap_url: file:///opt/dcos-install` unless you have moved the installer assets. By default the automated DC/OS installer places the build files in `file:///opt/dcos-install`.
 
 ### bouncer_expiration_auth_token_days [enterprise type="inline" size="small" /]
 This parameter sets the auth token time-to-live (TTL) for Identity and Access Management. You must specify the value in Python float syntax wrapped in a YAML string. By default, the token expires after five days. For example, to set the token lifetime to half a day:
