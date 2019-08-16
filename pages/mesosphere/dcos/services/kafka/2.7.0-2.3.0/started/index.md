@@ -185,58 +185,6 @@ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
 }
 ```
 
-<!-- need to update this with current information for different deployments
-When using the `STAGE` deployment strategy, an update plan will initially pause without doing any update to ensure the plan is correct. It will look like this:
-
-    curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
-    GET <dcos_url>/service/kafka/v1/plan HTTP/1.1
-
-    {
-      "phases": [
-        {
-          "id": "9f8927de-d0df-4f72-bd0d-55e3f2c3ab21",
-          "name": "Reconciliation",
-          "steps": [
-            {
-              "id": "2d137273-249b-455e-a65c-3c83228890b3",
-              "status": "COMPLETE",
-              "name": "Reconciliation",
-              "message": "Reconciliation complete"
-            }
-          ],
-          "status": "COMPLETE"
-        },
-        {
-          "id": "a7742963-f7e1-4640-8bd0-2fb28dc04045",
-          "name": "Update to: 6092e4ec-8ffb-49eb-807b-877a85ef8859",
-          "steps": [
-            {
-              "id": "b4453fb0-b4cc-4996-a05c-762673f75e6d",
-              "status": "PENDING",
-              "name": "broker-0",
-              "message": "Broker-0 is WAITING"
-            },
-            {
-              "id": "b8a8de9f-8758-4d0f-b785-0a38751a2c94",
-              "status": "PENDING",
-              "name": "broker-1",
-              "message": "Broker-1 is WAITIN"
-            },
-            {
-              "id": "49e85522-1bcf-4edb-9456-712e8a537dbc",
-              "status": "PENDING",
-              "name": "broker-2",
-              "message": "Broker-2 is PENDING"
-            }
-          ],
-          "status": "WAITING"
-        }
-      ],
-      "errors": [],
-      "status": "WAITING"
-    }
--->
-
 <p class="message--note"><strong>NOTE: </strong>After a configuration update, you may see an error from Mesos-DNS; this will go away 10 seconds after the update.</p>
 
 Enter the `continue` command to execute the first step:
