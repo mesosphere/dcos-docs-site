@@ -85,11 +85,11 @@ Refer to [Secure JMX](/mesosphere/dcos/services/kafka/2.6.0-2.2.1/advanced/#secu
 
 ## Configuring Volume Profiles
 
+[DC/OS Storage Service (DSS)](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
+
 Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. 
 
 <p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
-
-[DC/OS Storage Service (DSS)](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy Kafka with the following configs:
 
