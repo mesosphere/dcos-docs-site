@@ -48,7 +48,7 @@ In order for {{ model.techShortName }} to function correctly, you must perform s
     <td>/etc/sysctl.conf</td>
     <td>vm.swappiness</td>
     <td>0</td>
-    <td>If the OS swaps out the HDFS processes, they can fail to respond to RPC requests, resulting in the process being marked `down` by the cluster. This can be particularly troublesome for name nodes and journal nodes.</td>
+    <td>If the OS swaps out the HDFS processes, they can fail to respond to RPC requests, resulting in the process being marked DOWN by the cluster. This can be particularly troublesome for name nodes and journal nodes.</td>
   </tr>
 
   <tr>
@@ -73,9 +73,7 @@ Volume profiles are used to classify volumes. For example, users can group SSDs 
 
 <p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
 
-DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
-
-If you want to deploy Hdfs with DSS, please follow [this tutorial](/mesosphere/dcos/services/storage/1.0.0/tutorials/cassandra-dss-volumes/) which illustrates, how to deploy Cassandra with DSS.
+[DC/OS Storage Service (DSS)](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy Hdfs with the following configs:
 
