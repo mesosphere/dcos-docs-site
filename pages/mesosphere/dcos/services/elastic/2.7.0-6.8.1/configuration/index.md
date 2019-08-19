@@ -118,6 +118,59 @@ You can do this base64 encoding as part of your automated workflow, or you can d
 
 <p class="message--note"><strong>NOTE: </strong>You must only specify configuration options that are not already exposed in <code>config.json</code>.</p>
 
+## Using Volume Profiles
+
+Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. 
+
+<p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
+
+[DC/OS Storage Service (DSS)](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
+
+Once the DC/OS cluster is running and volume profiles are created, you can deploy Elasticsearch with the following configs:
+
+```bash
+cat > elastic-options.json <<EOF
+{
+	"master_nodes": {
+		"volume_profile": "elastic",
+		"disk_type": "MOUNT"
+	},
+	"data_nodes": {
+		"volume_profile": "elastic",
+		"disk_type": "MOUNT"
+	},
+	"ingest_nodes": {
+		"volume_profile": "elastic",
+		"disk_type": "MOUNT"
+	},
+	"coordinator_nodes": {
+		"volume_profile": "elastic",
+		"disk_type": "MOUNT"
+	}
+}
+EOF
+```
+```
+dcos package install elastic --options=elastic-options.json
+```
+<p class="message--note"><strong>NOTE: </strong>Elasticsearch will be configured to look for <code>MOUNT</code> volumes with the <code>elastic</code> profile.</p> 
+
+Once the Elasticsearch service finishes deploying its tasks will be running with the specified volume profiles.
+
+```bash
+dcos elastic update status
+deploy (serial strategy) (COMPLETE)
+├─ master-update (serial strategy) (COMPLETE)
+│  ├─ master-0:[node] (COMPLETE)
+│  ├─ master-1:[node] (COMPLETE)
+│  └─ master-2:[node] (COMPLETE)
+├─ data-update (serial strategy) (COMPLETE)
+│  ├─ data-0:[node] (COMPLETE)
+│  └─ data-1:[node] (COMPLETE)
+├─ ingest-update (serial strategy) (COMPLETE)
+└─ coordinator-update (serial strategy) (COMPLETE)
+   └─ coordinator-0:[node] (COMPLETE)
+```
 
 ## Kibana
 
