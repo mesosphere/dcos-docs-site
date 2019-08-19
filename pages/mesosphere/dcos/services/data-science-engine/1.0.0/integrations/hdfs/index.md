@@ -110,4 +110,21 @@ You can read/write files to S3 using environment variable-based secrets to pass 
       }
     }
     ```
+
+3. To make Spark integration use credentials-based access to S3, Spark's credentials provider should be changed to `com.amazonaws.auth.EnvironmentVariableCredentialsProvider` in the service options:
+
+    ```json
+    {
+      "spark": {
+        "spark_hadoop_fs_s3a_aws_credentials_provider": "com.amazonaws.auth.EnvironmentVariableCredentialsProvider"
+      },
+      "s3": {
+        "aws_access_key_id": "<secret_path_for_key_id>",
+        "aws_secret_access_key": "<secret_path_for_secret_key>"
+      }
+    }
+    ```
+
+<p class="message--note"><strong>NOTE: </strong> Provided <tt>aws_access_key_id</tt> and <tt>aws_secret_access_key</tt> are the names of secrets so in order to access them, a service account and service account secret must be specified in the configuration of {{ model.techName }}.
+
 <!-- You can also specify credentials through the UI. -->
