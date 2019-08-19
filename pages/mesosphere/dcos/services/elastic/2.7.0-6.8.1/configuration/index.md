@@ -254,3 +254,13 @@ To see a list of all possible options, run the following command to show the con
 ```bash
 dcos package describe kibana |  jq -r '.package.config'
 ```
+
+## Custom Kibana YAML
+
+Many Kibana options are exposed via the package configuration in `config.json`, but there may be times when you need to add something custom to the `kibana.yml` file. For instance, if you have written a custom plugin that requires special configuration, you must specify this block of YAML for the {{ model.techName }} service to use.
+
+Add your custom YAML when installing or updating the {{ model.techName }} service. In the DC/OS UI, click **Configure**. In the left navigation bar, click `kibana` and find the field for specifying custom kibana YAML. You must base64 encode your block of YAML and enter this string into the field.
+
+You can do this base64 encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
+
+<p class="message--note"><strong>NOTE: </strong>You must only specify configuration options that are not already exposed in <code>config.json</code>.</p>
