@@ -75,5 +75,18 @@ And here is the same health check specified by using the DC/OS UI.
 
 Figure 1. Web interface health check
 
+## Command health check performance
+
+When deploying a service which makes use of command health checks, the resources consumed by the health check itself must be considered. If the command executed by the health check requires significant CPU or memory to run, those resources should be added to the resource requirements of the task. In cases where a task only specifies a very small amount of CPU, even a trivial health check will have trouble running reliably, so at least 1.0 CPUs should be specified on any task making use of a command health check.
+
+When tasks specify frequent health checks with an interval of just a few seconds, or when a large number of tasks with command health checks are running on a single machine, the large number of health checks may impact agent performance. Testing has shown that an agent node may have the capacity to run about 10-18 health checks per second, depending on the hardware. In order to estimate the total health check rate your workload may run on an agent, a calculation like the following may be performed:
+
+```
+Health check interval of 30 seconds = 2 health checks per minute
+30 tasks running on an agent = 60 health checks per minute, or 1 health check per second
+```
+
+When deploying production workloads which use command health checks, **hands-on testing is the most important tool you can use** to determine appropriate command health check settings. Before going into production, run tests which execute a realistic number of your services with command health checks on a single agent node, and apply a realistic real-world load to those services in order to determine whether or not the health checks can reliably succeed given the resource allocations you have specified for the tasks.
+
 ## More information
 Check out [this blog post](https://mesosphere.com/blog/2017/05/16/13-factor-app-building-releasing-for-cloud-native/) for more information about health checks.
