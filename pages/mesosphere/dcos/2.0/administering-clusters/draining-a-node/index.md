@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Draining a Node
+navigationTitle: Draining a Node
 title: Draining a Node
 menuWeight: 801
 excerpt: Draining an agent node in an active DC/OS cluster
@@ -18,8 +18,8 @@ Initiating draining will cause all tasks on the target agent node to receive a k
 
 ### Prerequisites:
 
-*   [DC/OS CLI installed and configured](/mesosphere/dcos/2.0/cli/).
-*   Sufficient [permissions](/mesosphere/dcos/2.0/security/ent/perms-reference) to drain nodes (Enterprise DC/OS only).
+- [DC/OS CLI installed and configured](/mesosphere/dcos/1.14/cli/).
+- Sufficient [permissions](/mesosphere/dcos/1.14/security/ent/perms-reference) to drain nodes (Enterprise DC/OS only).
 
 ### Maximum Grace Period
 
@@ -116,3 +116,37 @@ This will stop any new workloads from being launched on that agent. At this poin
 ```bash
 dcos node reactivate <mesos-agent-id>
 ```
+
+## Draining in the DC/OS Console
+
+To drain a node using the DC/OS web-based console:
+
+1.  Open a web browser and log in with administrative user name and password.
+
+1.  Click Nodes to display information about your agent nodes.
+
+1.  Scroll right to reveal the actions menu for the active node you want to drain.
+
+1.  Click Drain and a dialog will appear.
+
+    The maximum grace period may be specified in the Drain dialog. This represents the maximum amount of time allowed for tasks to gracefully terminate and overrides a default value of several seconds.
+
+  <p>
+    <img src="/1.14/img/draining-ui-actions.png" alt="Draining or deactivating a node">
+  </p>
+
+The status column in the Nodes overview will change to reflect the maintenance status of the node.
+
+## Decommissioning a Node
+
+When draining a node, you have the option to [decommission](/mesosphere/dcos/1.14/administering-clusters/delete-node/) it once draining is complete.
+
+<p class="message--important"><strong>IMPORTANT: </strong>If the decommission option is enabled when draining, the node will be removed from the Nodes overview table altogether and cannot rejoin the cluster</p>
+
+## Deactivating / Reactivating a Node for Manual Draining
+
+[Deactivating the node](#draining-an-agent-node-manually) for manual draining is also possible using the actions menu. When maintenance is complete and you are ready to reactivate the node and allow it to rejoin the cluster, click the Reactivate action from the menu:
+
+<p>
+  <img src="/1.14/img/draining-ui-reactivate.png" alt="Reactivating a node">
+</p>
