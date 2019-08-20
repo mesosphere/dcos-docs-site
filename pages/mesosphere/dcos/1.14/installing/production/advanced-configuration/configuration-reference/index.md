@@ -251,7 +251,7 @@ Use this to set up a custom CA certificate. See [using a Custom CA Certificate](
 Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. 
 
 ### exhibitor_tls_required [enterprise type="inline" size="small" /]
-By default this option is set to `false`, when `true` failures during Exhibitor TLS initialization are treated critical exceptions. Otherwise, failures are logged and Exhibitor continues to operate without TLS protections.
+When required, failures during Exhibitor TLS bootstrap will prevent DC/OS from starting. By default, failures are logged and Exhibitor will fallback to insecure mode.
 
 ### exhibitor_bootstrap_ca_url [enterprise type="inline" size="small" /]
 
