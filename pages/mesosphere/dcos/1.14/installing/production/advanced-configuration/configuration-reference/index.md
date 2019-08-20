@@ -255,7 +255,7 @@ By default this option is set to `false`, when `true` failures during Exhibitor 
 
 ### exhibitor_bootstrap_ca_url [enterprise type="inline" size="small" /]
 
-Optional parameter which specifies the bootstrap CA service URL. If not present, the URL is determined using the bootstrap_url.
+Optional parameter used for generating the TLS artifacts for the automated Exhibitor lock-down. This option should only be used when a bootstrap node is unavailable during DC/OS installation.
 
 ### cluster_docker_credentials
 
