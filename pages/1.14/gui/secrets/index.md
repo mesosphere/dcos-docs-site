@@ -9,7 +9,7 @@ render: mustache
 model: /1.14/data.yml
 ---
 
-You can manage secrets and certificates from the Secrets page.
+You can manage secrets and certificates from the Secrets page. Secrets can be created with a new keypair or from your own file.
 
 ![Secrets](/1.14/img/GUI-Secrets-Secrets_View_With_Secrets-1_12.png)
 Figure 1 - Secrets page
@@ -30,17 +30,25 @@ For complete details on creating and managing Secrets, see the [Secrets](/1.14/s
 
     ![New Secret](/1.14/img/new-secret.png)
 
-    Figure 2. New Secret icon
+    Figure 2 - New Secret icon
 
-1. In the **ID** box, provide the name of your secret and its path, if any.
+    If you have no current secrets, a **Create Secret** screen will be displayed. Click on the **Create Secret** button.
+
+    ![Create Secret](/1.14/img/GUI-Secrets-Create-Secret.png)
+
+    Figure 3 - Create Secret button
+
+1. In the **ID** box of the **Create New Secret** screen, provide the name of your secret and its path, if any.
+
+1. Click **Key-Value Pair**.
 
 1. Type or paste the secret into the **Value** box.
 
-    ![Secret ID/Value Fields](/1.14/img/create-secret.png)
+    ![Secret ID/Value Fields](/1.14/img/GUI-Secrets-Create-New-Keypair.png)
 
-    Figure 3. Creating a new Secret
+    Figure 4 - Creating a new Secret
 
-1. Click **Create**.
+1. Click **Create Secret**.
 
 # Creating secrets from a file 
 
@@ -52,26 +60,26 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
     ![New Secret](/1.14/img/new-secret.png)
 
-    Figure 4. Secrets screen
+    Figure 5 - Secrets screen
 
-    If you have no current secrets, a Create Secret screen will be displayed. Click on the **Create Secret** button.
+    If you have no current secrets, a **Create Secret** screen will be displayed. Click on the **Create Secret** button.
 
     ![Create Secret](/1.14/img/GUI-Secrets-Create-Secret.png)
 
-    Figure 5. Create Secret button
+    Figure 6 - Create Secret button
 
-1. In the ID box, provide the name of your secret and its path, if any.
+1. In the ID box of the **Create New Secret** screen, type the name of your secret and its path, if any.
 
     ![Create New Secret](/1.14/img/GUI-Secrets-Create-New-Secret.png)
 
-    Figure 6. Create New Secret dialog
+    Figure 7 - Create New Secret dialog
 
 1. Select **File** as Type.
 1. Click **Choose File**.
 1. Find and select the file you wish to create a secret from.
 1. Click **Create Secret**.
 
-Returning to the Secrets screen, you can see that your secret has been deployed.
+Returning to the **Secrets** screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/1.14/img/GUI-Secrets-Deployed.jpeg)
-   Figure 7. Secret deployed
+   Figure 8 - Secret deployed

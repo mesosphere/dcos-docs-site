@@ -49,7 +49,7 @@ Secrets should include paths, unless you want to allow all services to access it
 
     ![Secret ID Keypair](/1.13/img/GUI-Secrets-Create-New-Keypair.png)
 
-    Figure 2. Creating a new keypair 
+    Figure 2 - Creating a new keypair 
 
 1. Select **Key-Value Pair** as Type.
 
@@ -61,7 +61,7 @@ Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/1.13/img/GUI-Secrets-Secrets-Keypair-Deployed.png)
 
-   Figure 3. Secret with keypair deployed
+   Figure 3 - Secret with keypair deployed
 
 # <a name="api"></a>Creating key-value pair secrets using the API
 

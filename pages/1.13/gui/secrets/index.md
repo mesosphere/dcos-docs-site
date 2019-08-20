@@ -30,7 +30,7 @@ For complete details on creating and managing Secrets, see the [Secrets](/1.13/s
 
     ![New Secret](/1.13/img/new-secret.png)
 
-    Figure 2. New Secret icon
+    Figure 2 - New Secret icon
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
@@ -38,7 +38,17 @@ For complete details on creating and managing Secrets, see the [Secrets](/1.13/s
 
     ![Secret ID/Value Fields](/1.13/img/GUI-Secrets-Create-New-Keypair.png)
 
-    Figure 3. Creating a new Secret with a Key-Value pair
+    Figure 3 - Creating a new Secret with a Key-Value pair
 
-1. Click **Create**.
+1. Select **Key-Value Pair** as Type.
+
+1. Type or paste the secret into the **Value** box.
+
+1. Click **Create Secret**.
+
+Returning to the Secrets screen, you can see that your secret has been deployed.
+
+   ![Secret deployed](/1.13/img/GUI-Secrets-Secrets-Keypair-Deployed.png)
+
+   Figure 4 - Secret with keypair deployed
 
