@@ -2,13 +2,13 @@
 layout: layout.pug
 navigationTitle: Wallarm
 title: Wallarm
-excerpt: Wallarm the Next Generation Web Applicaton Firewall
+excerpt: Wallarm Advaced Cloud-Native Web Applicaton Firewall
 menuWeight: 150
 category: Networking and Security
 image: img/wallarm.png
 ---
 
-Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to protect your cloud applications and APIs.
+Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to protect your cloud applications and APIs. Wallarm installs natively in Kubernetes environment.
 
 ## quick start
 
