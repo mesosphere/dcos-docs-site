@@ -63,6 +63,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.11.8</th>
     <th>1.11.9</th>
     <th>1.11.10</th>
+    <th>1.11.11</th>
    </tr>
    <tr>
     <th>1.11.0</th>
@@ -76,6 +77,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
@@ -91,6 +93,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.2</th>
@@ -105,6 +108,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.3</th>
@@ -119,6 +123,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.4</th>
@@ -127,6 +132,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -147,6 +153,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.6</th>
@@ -157,6 +164,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -175,6 +183,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.8</th>
@@ -187,6 +196,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
@@ -203,6 +213,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.10</th>
@@ -217,8 +228,9 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
    </tr>
-</table>  
+</table>
 
 ## Modifying DC/OS configuration
 
@@ -307,9 +319,9 @@ This procedure patches to DC/OS 1.11 in [permissive security mode](/mesosphere/d
 - Your cluster must be [patched to DC/OS 1.11](#current-security) and running in [disabled security mode](/mesosphere/dcos/1.11/installing/production/advanced-configuration/configuration-reference/#security-enterprise) before it can be patched to permissive mode. If your cluster was running in permissive mode before it was patched to DC/OS 1.10, you can skip this procedure.
 
 <table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> Any <a href="/mesosphere/dcos/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.</td> 
-</tr> 
+<tr>
+  <td align=justify style=color:white><strong>Important:</strong> Any <a href="/mesosphere/dcos/1.11/installing/production/deploying-dcos/node-cluster-health-check/#custom-health-checks">custom node or cluster health checks</a> you have configured will fail for a patch from disabled to permissive security mode. A future release will allow you to bypass the health checks.</td>
+</tr>
 </table>
 
 To update a cluster from disabled security to permissive security, complete the following procedure:
@@ -380,7 +392,7 @@ Proceed with patching every master node one at a time in any order using the fol
         **Note:** If you are patching from permissive to strict mode, this URL will be `curl https://...` and you will need a JWT for access. [enterprise type="inline" size="small" /]
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/1.11/release-notes/), for example `1.5.1`.
 1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
-      
+
     ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
@@ -459,4 +471,3 @@ sudo journalctl -u dcos-mesos-slave
 ## Notes:
 
 - Packages available in the DC/OS 1.11 Universe are newer than those in the older versions of Universe. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve an existing state.
-
