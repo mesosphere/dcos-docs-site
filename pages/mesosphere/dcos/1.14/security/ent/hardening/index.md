@@ -35,3 +35,4 @@ Your cluster will become more secure as you move from `permissive` to `strict` [
 
 - [Override the Linux user account of your services](/mesosphere/dcos/1.14/security/ent/users-groups/config-linux-user/) to use a less privileged account such as `nobody`.
 
+- Enforce Exhibitor service security by [setting exhibitor_tls_required](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#exhibitor-tls-required) to `true` in your config.yml. If your cluster is already deployed, Exhibitor security can be [enabled manually](/mesosphere/dcos/1.14/security/ent/tls-ssl/exhibitor).
