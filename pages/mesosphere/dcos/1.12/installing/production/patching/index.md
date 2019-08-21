@@ -56,10 +56,12 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.12.1</th>
     <th>1.12.2</th>
     <th>1.12.3</th>
+    <th>1.12.4</th>
    </tr>
    <tr>
     <th>1.12.0</th>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -70,12 +72,14 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.12.2</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
    <tr>
@@ -84,7 +88,8 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
-</table>  
+    <td Align = "center">⚫</td>
+</table>
 
 
 ## Modifying DC/OS configuration
@@ -232,7 +237,7 @@ Proceed with patching every master node one at a time in any order using the fol
         |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
     ```
-    
+
     If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
@@ -301,4 +306,3 @@ sudo journalctl -u dcos-mesos-slave
 ## Notes
 
 Packages available in the DC/OS 1.12 Universe are newer than those in the older versions of Universe. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve an existing state.
-
