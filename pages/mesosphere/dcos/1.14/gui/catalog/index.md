@@ -29,7 +29,7 @@ Documentation supporting these certified packages can be found on the [DC/OS Ser
 
 Community packages have been contributed by Mesosphere partners and members of the open source community. They are not verified by Mesosphere to be interoperable with DC/OS. However, they offer many functions not available in the Certified {{ model.packageRepo }}. New packages are offered on a regular basis. Some of them have Mesosphere-specific documentation available on the [DC/OS Service Docs page](/mesosphere/dcos/services/).
 
-![Community packages](/mesosphere/dcos/1.14/img/GUI-Catalog-Community-Packages-1_14.png)
+![packages](/mesosphere/dcos/1.14/img/GUI-Catalog-Community-Packages-1_14.png)
 
 Figure 2 - Community packages
 
