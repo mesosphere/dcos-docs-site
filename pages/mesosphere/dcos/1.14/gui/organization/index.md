@@ -105,7 +105,7 @@ Figure 7 - **Groups > Users** tab
 
 ## Service Accounts
 
-From the Groups > Service Accounts tab, you can add already-established service accounts to your group.
+From the **Groups > Service Accounts** tab, you can add already-established service accounts to your group.
 
 ![Groups Users](/mesosphere/dcos/1.14/img/GUI-Organization-Groups-Service-Accounts.png)
 
