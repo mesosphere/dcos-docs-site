@@ -10,7 +10,7 @@ model: /1.14/data.yml
 ---
 
 
-You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid copying-and-pasting.
+You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid copying-and-pasting. 
 
 See [Configuring services and pods to use secrets](/1.14/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
 
@@ -44,17 +44,27 @@ Secrets should include paths, unless you want to allow all services to access it
 
     ![New Secret](/1.14/img/new-secret.png)
 
-    Figure 1. New Secret icon
+    Figure 1 - New Secret icon
 
-1. In the **ID** box, provide the name of your secret and its path, if any.
+    If you have no current secrets, a **Create Secret** screen will be displayed. Click on the **Create Secret** button.
+
+    ![Create Secret](/1.14/img/GUI-Secrets-Create-Secret.png)
+
+    Figure 2 - Create Secret button
+
+1. In the **ID** box of the **Create New Secret** screen, type the name of your secret and its path, if any.
 
     ![Secret ID Keypair](/1.14/img/GUI-Secrets-Create-New-Keypair.png)
 
-    Figure 2. Creating a new keypair 
+    Figure 3 - Creating a new keypair 
 
 1. Select **Key-Value Pair** as Type.
 
 1. Type or paste the secret into the **Value** box.
+
+    ![Secret ID/Value Fields](/1.14/img/GUI-Secrets-Create-New-Keypair.png)
+
+    Figure 4 - Creating a new Secret
 
 1. Click **Create Secret**.
 
@@ -62,7 +72,7 @@ Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/1.14/img/GUI-Secrets-Secrets-Keypair-Deployed.png)
 
-   Figure 3. Secret with keypair deployed
+   Figure 5 - Secret with keypair deployed
 
 # <a name="api"></a>Creating key-value pair secrets using the API
 
@@ -119,19 +129,19 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
     ![New Secret](/1.14/img/new-secret.png)
 
-    Figure 4. Secrets screen
+    Figure 6 - Secrets screen
 
     If you have no current secrets, a Create Secret screen will be displayed. Click on the **Create Secret** button.
 
     ![Create Secret](/1.14/img/GUI-Secrets-Create-Secret.png)
 
-    Figure 5. Create Secret button
+    Figure 7 - Create Secret button
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
     ![Create New Secret](/1.14/img/GUI-Secrets-Create-New-Secret.png)
 
-    Figure 6. Create New Secret dialog showing file chosen
+    Figure 8 - Create New Secret dialog showing file chosen
 
 1. Select **File** as Type.
 1. Click **Choose File**.
@@ -142,4 +152,4 @@ Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/1.14/img/GUI-Secrets-Deployed.jpeg)
 
-   Figure 7. Secret deployed
+   Figure 9 - Secret deployed

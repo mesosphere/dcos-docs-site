@@ -10,7 +10,7 @@ model: /1.13/data.yml
 ---
 
 
-You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid copying-and-pasting.
+You can create secrets in DC/OS by using a key-value pair. 
 
 See [Configuring services and pods to use secrets](/1.13/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
 

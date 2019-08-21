@@ -38,9 +38,9 @@ For complete details on creating and managing Secrets, see the [Secrets](/1.14/s
 
     Figure 3 - Create Secret button
 
-1. In the **ID** box of the **Create New Secret** screen, provide the name of your secret and its path, if any.
+1. In the **ID** box of the **Create New Secret** screen, type the name of your secret and its path, if any.
 
-1. Click **Key-Value Pair**.
+1. Select **Key-Value Pair** as Type.
 
 1. Type or paste the secret into the **Value** box.
 
