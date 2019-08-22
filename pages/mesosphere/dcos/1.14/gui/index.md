@@ -62,6 +62,7 @@ You can change the language in which the UI is displayed.
 
 1. Click **Save**.
 
+<a name="settings-language"></a>
 **From the Settings menu**
 
 1. Click on **Settings > UI Settings**.
