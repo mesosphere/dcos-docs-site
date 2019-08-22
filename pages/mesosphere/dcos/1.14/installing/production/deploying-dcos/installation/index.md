@@ -283,6 +283,7 @@ For additional security, create a random pre-shared key. This key will be used t
 ```bash
 mkdir genconf/ca
 cat /dev/urandom | tr -dc 'a-z' | fold -w 16 | head -n1 > genconf/ca/psk
+chmod 600 genconf/ca/psk
 ```
 <a name="custom-build-file"></a>
 # Install DC/OS
@@ -365,7 +366,7 @@ At this point your directory structure should resemble:
     * If created, copy the pre-shared key to your master nodes at /var/lib/dcos/.dcos-bootstrap-ca-psk
 
         ```bash
-        scp genconf/ca/psk <master-ip>:/var/lib/dcos/.dcos-bootstrap-ca-psk
+        scp -p genconf/ca/psk <master-ip>:/var/lib/dcos/.dcos-bootstrap-ca-psk
         ```
 
     * SSH to your master nodes.
