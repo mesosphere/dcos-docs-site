@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.14/data.yml
 
 
 # Description
-The dcos diagnostics delete command allows you to delete diagnostics bundles.
+The `dcos diagnostics delete` command allows you to delete diagnostics bundles.
 
 # Usage
 
