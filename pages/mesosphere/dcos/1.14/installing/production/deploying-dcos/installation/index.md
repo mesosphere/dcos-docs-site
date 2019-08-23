@@ -279,10 +279,11 @@ enable_ipv6: 'false'
 ## Create a bootstrap pre-shared key (Optional)
 [/enterprise]
 
-For additional security, create a random pre-shared key. This key will be used to authenticate requests very early in the installation process. 
+For additional security, create a random pre-shared key. This key will be used to authenticate requests very early in the installation process. This key will later be transferred to your master nodes and should be present on your bootstrap node at genconf/ca/psk for the duration of the installation process.
 ```bash
 mkdir genconf/ca
-cat /dev/urandom | tr -dc 'a-z' | fold -w 16 | head -n1 > genconf/psk
+cat /dev/urandom | tr -dc 'a-z' | fold -w 16 | head -n1 > genconf/ca/psk
+chmod 600 genconf/ca/psk
 ```
 <a name="custom-build-file"></a>
 # Install DC/OS
@@ -362,10 +363,10 @@ At this point your directory structure should resemble:
     ```
 
 3.  <A name="masterinstall"></A> Run the following commands on each of your master nodes in succession to install DC/OS using your custom build file:
-    * If created, copy the pre-shared key to your master nodes at /var/lib/dcos/dcos-bootstrap-ca-psk
+    * If created, copy the pre-shared key to your master nodes at /var/lib/dcos/.dcos-bootstrap-ca-psk
 
         ```bash
-        scp genconf/ca/psk <master-ip>:/var/lib/dcos/dcos-bootstrap-ca-psk
+        scp -p genconf/ca/psk <master-ip>:/var/lib/dcos/.dcos-bootstrap-ca-psk
         ```
 
     * SSH to your master nodes.

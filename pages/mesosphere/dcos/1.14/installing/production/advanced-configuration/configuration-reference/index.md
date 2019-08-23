@@ -100,7 +100,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [ca_certificate_path](#ca-certificate-path-enterprise)                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | [ca_certificate_key_path](#ca-certificate-key-path-enterprise)           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | [ca_certificate_chain_path](#ca-certificate-chain-path-enterprise)       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
-| [exhibitor_tls_required](#exhibitor-tls-required-enterprise)             | Indicates whether to halt on Exhibitor TLS bootstrap failures or continue without enabling TLS [enterprise type="inline" size="small" /] |
+| [exhibitor_tls_required](#exhibitor-tls-required-enterprise)             | When `true` DC/OS will fail to launch when Exhibitor TLS initialization fails [enterprise type="inline" size="small" /]  |
 | [exhibitor_bootstrap_ca_url](#exhibitor-bootstrap-ca-url-enterprise)     | Specify a custom CA service URL for exhibitor TLS bootstrapping. This is an advanced option and should only be used when performing non-standard installations [enterprise type="inline" size="small" /]  |
 | [license_key_contents](#license-key-contents-enterprise)    | Optional override parameter to provide the license key contents directly in the config.yaml. If this parameter is specified, any key saved to `genconf/license.txt` will be ignored. [enterprise type="inline" size="small" /]  |
 | [iam_ldap_sync_interval](#iam-ldap-sync-interval-enterprise) | Interval in seconds between LDAP synchronization operations. [enterprise type="inline" size="small" /] |
@@ -251,7 +251,7 @@ Use this to set up a custom CA certificate. See [using a Custom CA Certificate](
 Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. 
 
 ### exhibitor_tls_required [enterprise type="inline" size="small" /]
-When required, failures during Exhibitor TLS bootstrap will prevent DC/OS from starting. By default, failures are logged and Exhibitor will fallback to insecure mode.
+When `true`, failures during Exhibitor TLS bootstrap will prevent DC/OS from starting. By default, failures are logged and Exhibitor will fallback to insecure mode.
 
 ### exhibitor_bootstrap_ca_url [enterprise type="inline" size="small" /]
 
