@@ -73,25 +73,6 @@ The IAM database is restored from the backup file and the cluster is operational
 
 <a name="zk-backup"></a>
 
-## Q. How do I backup ZooKeeper using Guano?
+## Q. How do I backup ZooKeeper?
 
-There may be instances where you need to backup the state of ZooKeeper. Use the following steps to backup ZooKeeper using Guano. 
-
-1. Download the Guano ZooKeeper utility.
-
-```bash
-sudo wget https://s3.eu-central-1.amazonaws.com/adyatlov-public/guano-0.1a.jar.zip
-```
-
-2. Unzip the utility.
-
-```bash
-unzip guano-0.1a.jar.zip
-```
-
-3. Run the following command to backup your ZooKeeper state.
-
-```bash
-/opt/mesosphere/bin/dcos-shell java -jar guano-0.1a.jar -u super -p secret -d / -o /tmp/mesos-zk-backup -s $ZKHOST:2181 && tar -zcvf zkstate.tar.gz /tmp/mesos-zk-backup/
-```
-
+ZooKeeper should be backed up by following the guide [Backup and Restore DC/OS ZooKeeper State](/mesosphere/dcos/1.14/administering-clusters/backup-and-restore/zookeeper/).
