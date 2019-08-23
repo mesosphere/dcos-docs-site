@@ -1,14 +1,14 @@
 ---
 layout: layout.pug
 navigationTitle: ZooKeeper State
-title: Backup and Restore ZooKeeper
+title: Back up and Restore ZooKeeper
 menuWeight: 1
 excerpt: Backing up and restoring DC/OS ZooKeeper state
 render: mustache
 model: /mesosphere/dcos/1.14/data.yml
 --- 
 
-Backup the state of ZooKeeper inside a DC/OS cluster, and later restore from that backup.
+Back up the state of ZooKeeper inside a DC/OS cluster, and later restore from that backup.
 
 You may wish to back up the ZooKeeper state of your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade. It is highly recommended to backup ZooKeeper state regularly to be prepared for the worst-case scenario.
 

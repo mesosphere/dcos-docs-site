@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Backup and Restore
 title: Backup and Restore
 menuWeight: 7
-excerpt: Backing up and restoring important bits of your cluster
+excerpt: Backing up and restoring the important bits of your cluster
 render: mustache
 model: /mesosphere/dcos/1.14/data.yml
 --- 
