@@ -29,7 +29,7 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
 
     For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/mesosphere/dcos/1.14/installing/installation-faq/#iam-backup)
 
-1. Backup /var/lib/dcos/exhibitor-tls-artifacts if it exists.
+1. Back up /var/lib/dcos/exhibitor-tls-artifacts if it exists.
 
     ```bash
     tar czf exhibitor-tls-artifacts.tar.gz /var/lib/dcos/exhibitor-tls-artifacts
