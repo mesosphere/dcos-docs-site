@@ -8,9 +8,9 @@ render: mustache
 model: /mesosphere/dcos/1.14/data.yml
 --- 
 
-Back up the state of ZooKeeper inside a DC/OS cluster, and later restore from that backup.
+This section describes the process of backing up and restoring the state of ZooKeeper running inside a DC/OS cluster.
 
-You may wish to back up the ZooKeeper state of your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade. It is highly recommended to backup ZooKeeper state regularly to be prepared for the worst-case scenario.
+Backing up ZooKeeper will allow you to return a cluster to a known good state. As such, it is highly recommended to backup ZooKeeper state regularly to be prepared for the worst-case scenario. When performing maintenance operations, such as an upgrade or downgrade, you may wish to back up the ZooKeeper state before beginning the maintenance.
 
 <p class="message--important"><strong>IMPORTANT: </strong>
 Restoring ZooKeeper from a backup should be the last resort to recover a DC/OS cluster. It is only applicable after confirming that the cluster has suffered permanent data loss including the ZooKeeper state.
@@ -20,7 +20,7 @@ Restoring ZooKeeper from a backup should be the last resort to recover a DC/OS c
 
 ## Backup
 
-The ZooKeeper cluster within DC/OS is a system that provides distributed consensus between its nodes running on each master node. The ZooKeeper state can only progress once all nodes in the cluster have seen and agreed on a certain value. This implies that state of any one ZooKeeper node will contain the entire state information up until a certain point in time. Therefore backing up only one ZooKeeper node is sufficient to get reasonably close to the latest state for a ZooKeeper cluster backup. Creating the backup takes time and therefore in live system the backed up information will not be current. This problem could be avoided by stopping all ZooKeeper instances but that is not desirable in highly available system.
+The ZooKeeper cluster within DC/OS is a system that provides distributed consensus between member nodes. An instance of ZooKeeper is running on each master node and these instances service the entire cluster. The ZooKeeper state can only progress once all nodes in the cluster have seen and agreed on a certain value. This implies that state of any one ZooKeeper node will contain the entire state information up until a certain point in time. Therefore backing up only one ZooKeeper node is sufficient to get reasonably close to the latest state for a ZooKeeper cluster backup. Creating the backup takes time and therefore in live system at the end of the procedure the backup will most likely no longer reflect the current state. The data available at the beginning of the procedure will however be captured.
 
 ## Restore
 
@@ -83,6 +83,26 @@ systemctl start dcos-exhibitor
 
 ```bash
 curl https://<master-host-ip>/exhibitor/exhibitor/v1/cluster/status
+[
+  {
+    "code": 3,
+    "description": "serving",
+    "hostname": "172.31.12.169",
+    "isLeader": true
+  },
+  {
+    "code": 3,
+    "description": "serving",
+    "hostname": "172.31.13.255",
+    "isLeader": false
+  },
+  {
+    "code": 3,
+    "description": "serving",
+    "hostname": "172.31.17.144",
+    "isLeader": false
+  }
+]
 ```
 
 Once all instances are in `serving` state and a leader has been elected the restore procedure was successful.
