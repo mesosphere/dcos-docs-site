@@ -97,7 +97,7 @@ Installing the Portworx storage provider requires to do the following steps
 
 ##### install the storage provider yaml manifest
 
-Portworx comes with a [browser wizard](https://docs.portworx.com/portworx-install-with-kubernetes/cloud/aws/aws-asg/#) to create the yaml manifest.
+Portworx comes with a [install wizard](https://install.portworx.com/) to create the yaml manifest.
 
 The wizard has `4 sections` that you have to go through.
 
