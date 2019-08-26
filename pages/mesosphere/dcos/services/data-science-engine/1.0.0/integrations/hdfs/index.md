@@ -91,12 +91,12 @@ Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage 
 
 # S3
 
-To set up S3 connectivity, you must be on a cluster in permissive mode.
+To set up S3 connectivity, you must be on a cluster in permissive or strict mode.
 
 1.  Set up a Service Account for {{ model.techName }} and its secrets.
 
     ```bash
-    DSENGINE_SA=dsengine_sa
+    export DSENGINE_SA=dsengine_sa
     ```
 1.  Store your AWS keys as secrets.
     
