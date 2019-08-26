@@ -260,3 +260,9 @@ kubectl port-forward service/px-lighthouse 8080:80 -n kube-system
 #### maintenance & support
 
 * [portworx support](https://docs.portworx.com/support/)
+
+#### spec generator
+
+* [spec generator] (https://install.portworx.com/)
+
+
