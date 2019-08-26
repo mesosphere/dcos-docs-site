@@ -81,7 +81,7 @@ The following procedure will take a Google IdP as an example and walk you throug
 
 1. Paste the client secret value from Google into the **Client Secret** field.
 
-    ![Google IdP Configuration](/mesosphere/dcos/1.9/img/oidc-google.png) 
+    ![Google IdP Configuration](/mesosphere/dcos/1.9/img/GUI-LDAP-Add-Oidc.png) 
 
 11. Click **Submit**.
 
