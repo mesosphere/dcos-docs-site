@@ -91,40 +91,80 @@ Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage 
 
 # S3
 
-You can read/write files to S3 using environment variable-based secrets to pass your AWS credentials.
+To set up S3 connectivity, you must be on a cluster in permissive mode.
+
+1.  Set up a Service Account for {{ model.techName }} and its secrets.
+
+    ```bash
+    DSENGINE_SA=dsengine_sa
+    ```
+1.  Store your AWS keys as secrets.
+    
+    ```bash
+    dcos security secrets create aws_access_key_id -v ${AWS_ACCESS_KEY_ID}
+    dcos security secrets create aws_secret_access_key -v ${AWS_SECRET_ACCESS_KEY}
+    ```
+
+1.  Generate the service account key pair:
+
+    ```bash
+    dcos security org service-accounts keypair {{ model.serviceName }}-private.pem {{ model.serviceName }}-public.pem
+    ```
+
+1.  Store the service account key pair as secrets:
+
+    ```bash
+    dcos security secrets create {{ model.serviceName }}/private_key -f {{ model.serviceName }}-private.pem 
+    dcos security secrets create {{ model.serviceName }}/public_key -f {{ model.serviceName }}-public.pem 
+    ```
+
+1.  Create the service account:
+
+    ```bash
+    dcos security org service-accounts create -p {{ model.serviceName }}-public.pem -d "{{ model.nickName }} SA" ${DSENGINE_SA}
+    dcos security org service-accounts show ${DSENGINE_SA}
+    ```
+1.  Store the service account secret.
+    ```
+    dcos security secrets create-sa-secret {{ model.serviceName }}-private.pem ${DSENGINE_SA} ${DSENGINE_SA}
+    dcos security secrets list /
+    ```
+
+
+<!-- You can read/write files to S3 using environment variable-based secrets to pass your AWS credentials.
 
 1. Upload your credentials to the DC/OS secret store:
 
-    ```bash
-    dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
-    dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
-    ```
+  ```bash
+  dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
+  dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
+  ```
 
 2. After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
 
-    ```json
-    {
-      "s3": {
-        "aws_access_key_id": "<secret_path_for_key_id>",
-        "aws_secret_access_key": "<secret_path_for_secret_key>"
-      }
+  ```json
+  {
+    "s3": {
+      "aws_access_key_id": "<secret_path_for_key_id>",
+      "aws_secret_access_key": "<secret_path_for_secret_key>"
     }
-    ```
+  }
+  ```
 
 3. To make Spark integration use credentials-based access to S3, Spark's credentials provider should be changed to `com.amazonaws.auth.EnvironmentVariableCredentialsProvider` in the service options:
 
-    ```json
-    {
-      "spark": {
-        "spark_hadoop_fs_s3a_aws_credentials_provider": "com.amazonaws.auth.EnvironmentVariableCredentialsProvider"
-      },
-      "s3": {
-        "aws_access_key_id": "<secret_path_for_key_id>",
-        "aws_secret_access_key": "<secret_path_for_secret_key>"
-      }
+  ```json
+  {
+    "spark": {
+      "spark_hadoop_fs_s3a_aws_credentials_provider": "com.amazonaws.auth.EnvironmentVariableCredentialsProvider"
+    },
+    "s3": {
+      "aws_access_key_id": "<secret_path_for_key_id>",
+      "aws_secret_access_key": "<secret_path_for_secret_key>"
     }
-    ```
+  }
+  ``` -->
 
-<p class="message--note"><strong>NOTE: </strong> Provided <tt>aws_access_key_id</tt> and <tt>aws_secret_access_key</tt> are the names of secrets so in order to access them, a service account and service account secret must be specified in the configuration of {{ model.techName }}.
+<p class="message--note"><strong>NOTE: </strong> The provided <tt>aws_access_key_id</tt> and <tt>aws_secret_access_key</tt> are the names of secrets, so in order to access them, a service account and service account secret must be specified in the {{ model.techName }} configuration.</p>
 
 <!-- You can also specify credentials through the UI. -->
