@@ -73,7 +73,7 @@ You can add a Google OpenID Connect IdP in Google or DC/OS.
 
 1. Paste the client secret value from Google into the **Client Secret** field.
 
-    ![Google IdP Configuration](/mesosphere/dcos/1.13/img/oidc-google.png)
+    ![Google IdP Configuration](/mesosphere/dcos/1.13/img/GUI-LDAP-Add-Oidc.png)
 
     Figure 1. Google IdP configuration
 
