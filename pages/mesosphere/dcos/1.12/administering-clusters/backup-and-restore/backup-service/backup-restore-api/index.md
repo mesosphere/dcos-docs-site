@@ -4,13 +4,14 @@ navigationTitle:  Backup and Restore API
 title: Backup and Restore API
 menuWeight: 10
 excerpt: Backing up and restoring your cluster using the API
-
 enterprise: true
+render: mustache
+model: /mesosphere/dcos/1.12/data.yml
 ---
 
 You can use the Backup and Restore API to create and restore backups of your cluster.
 
-<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section.</p>
 
 
 # Routes
@@ -58,4 +59,4 @@ To assign permissions to your account, see the [permissions reference](/mesosphe
 
 The Backup and Restore API allows you to manage backup and restore operations on your DC/OS cluster.
 
-[swagger api='/mesosphere/dcos/1.12/api/backup-restore.yaml']
+[swagger api='/mesosphere/dcos/1.14/api/backup-restore.yaml']
