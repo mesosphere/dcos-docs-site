@@ -48,21 +48,21 @@ Before starting this tutorial, you should verify the following:
     apiVersion: extensions/v1beta1
     kind: Ingress
     metadata:
-    name: echo
+      name: echo
     spec:
-    rules:
-    - host: "http-echo-1.com"
+      rules:
+      - host: "http-echo-1.com"
         http:
-        paths:
-        - backend:
-            serviceName: http-echo-1
-            servicePort: 80
-    - host: "http-echo-2.com"
+          paths:
+          - backend:
+              serviceName: http-echo-1
+              servicePort: 80
+      - host: "http-echo-2.com"
         http:
-        paths:
-        - backend:
-            serviceName: http-echo-2
-            servicePort: 80
+          paths:
+          - backend:
+              serviceName: http-echo-2
+              servicePort: 80
     EOF
     ```
 

@@ -17,7 +17,8 @@ As a production-ready solution, Konvoy provides the Velero add-on by default, to
 For on-premise deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 For production use-cases, it's advisable to provide an *external* storage volume for Minio to use.
 
-**NOTE** If you intend to use the cluster *without* an external storage volume for Minio, you should [fetch the latest backup](#fetching-a-backup-archive) and store it in a known, secured location at a regular interval. For example, if you aren't using an external storage volume, you should back up and archive the cluster on a weekly basis.
+**NOTE** If you intend to use the cluster *without* an external storage volume for Minio, you should [fetch the latest backup](#fetching-a-backup-archive) and store it in a known, secured location at a regular interval.
+For example, if you aren't using an external storage volume, you should back up and archive the cluster on a weekly basis.
 
 ## Install the Velero command-line interface
 
@@ -26,7 +27,7 @@ For example, you can use the Velero command-line interface to back up or restore
 
 By default, Konvoy sets up Velero to use Minio over TLS using a self-signed certificate.
 Currently, the Velero command-line interface does not handle self-signed certificates.
-Until an upstream fix is released, please use [our patched 1.0.0 version of Velero](https://github.com/mesosphere/velero/releases/tag/v1.0.0-patch).
+Until an upstream fix is released, please use [our patched 1.0.0 version of Velero](https://github.com/mesosphere/velero/releases/tag/v1.0.0-patch), which adds a `--insecureskipverify` flag.
 
 ## Regular backup operations
 
@@ -39,7 +40,7 @@ For production clusters, you should be familiar with the following basic adminis
 
 ### Set a backup schedule
 
-By default, Konvoy configures a regular, automatic backup of the cluster's state in velero.
+By default, Konvoy configures a regular, automatic backup of the cluster's state in Velero.
 The default settings do the following:
 
 - create backups on a daily basis
@@ -96,7 +97,7 @@ velero backup get
 To download a selected archive to your current working directory on your local workstation, run a command similar to the following:
 
 ```shell
-velero backup download BACKUP_NAME
+velero backup download BACKUP_NAME --insecureskipverify
 ```
 
 ### Back up on demand
@@ -137,24 +138,22 @@ addons:
 ...
 ```
 
-Then you may apply the configuration change by running
+Then you may apply the configuration change by running:
 
 ```shell
 konvoy deploy addons -y
 ```
 
-Finally check your deployment via
+Finally, check your deployment to verify that the configuration change was applied correctly:
 
 ```shell
 helm get values velero-kubeaddons
 ```
 
-to verify that the configuration change was applied correctly.
-
 To restore cluster data on-demand from a selected backup snapshot available in the cluster, run a command similar to the following:
 
 ```shell
-velero restore create BACKUP_NAME
+velero restore create --from-backup BACKUP_NAME
 ```
 
 ## Enable or disable the backup addon
@@ -169,7 +168,7 @@ addons:
 ...
 ```
 
-If you want to replace the Velero platform service add-on with a different backup add-on service, you can disable the `velero` add-on by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
+If you want to replace the Velero add-on with a different backup add-on service, you can disable the `velero` add-on by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
 
 ```yaml
 addons:
@@ -178,7 +177,7 @@ addons:
 ...
 ```
 
-Before disabling the Velero platform service add-on, however, be sure you have a recent backup that you can use to restore the cluster in the event there is a problem converting to the new backup service.
+Before disabling the Velero platform service add-on, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.
 
 After making changes to your `cluster.yaml`, you must run `konvoy up` to apply them to the running cluster.
 
