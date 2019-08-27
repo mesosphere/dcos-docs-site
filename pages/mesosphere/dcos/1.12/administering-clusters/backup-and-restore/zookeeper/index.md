@@ -4,8 +4,6 @@ navigationTitle: ZooKeeper State
 title: Back up and Restore ZooKeeper
 menuWeight: 1
 excerpt: Backing up and restoring DC/OS ZooKeeper state
-render: mustache
-model: /mesosphere/dcos/1.12/data.yml
 --- 
 
 This section describes the process of backing up and restoring the state of ZooKeeper running inside a DC/OS cluster.

@@ -4,8 +4,6 @@ navigationTitle:  Backup and Restore
 title: Backup and Restore
 menuWeight: 7
 excerpt: Backing up and restoring the important bits of your cluster
-render: mustache
-model: /mesosphere/dcos/1.12/data.yml
 --- 
 
 You may wish to back up your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade.

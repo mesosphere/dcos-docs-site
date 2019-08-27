@@ -3,10 +3,9 @@ layout: layout.pug
 navigationTitle:  Backup and Restore Service
 title: Backup and Restore Service
 menuWeight: 7
+
 excerpt: Backing up and restoring the native Marathon instance of your clusters
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.12/data.yml
 --- 
 
 You can back up the state of the native Marathon instance of your cluster, and later restore from that backup.
