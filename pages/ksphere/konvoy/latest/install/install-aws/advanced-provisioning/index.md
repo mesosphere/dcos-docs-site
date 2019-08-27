@@ -164,6 +164,136 @@ To add custom resource files for provisioning:
 
     This output in this example indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an S3 bucket.
 
+## Using existing infrastructure
+
+### VPC
+It is possible to use an existing VPC if so desired.
+To do so you must modify the `cluster.yaml` file and change the `ProvisionerConfig` in the following way:
+
+```yaml
+...
+spec:
+  provider: aws
+  # if your provider is aws, you MUST also define the aws field
+  aws:
+    region: us-west-2
+    # the vpc must have enabled DNS Hostname and DNS Resolution
+    vpc:
+      ID: "vpc-0a0e1da174c837629"
+      routeTableID: "rtb-012e0ee9392c58881"
+...
+```
+
+It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
+
+**NOTE:** Optionally you can use an existing internet-gateway by defining the `vpc.internetGatewayID` field.
+
+### Subnets
+An existing vpc may already contain`subnets` for use, you may define them in the following way:
+
+```yaml
+...
+spec:
+  provider: aws
+  aws:
+    region: us-west-2
+    # vpc must be defined and it must have enabled DNS hostname and resolution
+    vpc:
+      ID: "vpc-0a0e1da174c837629"
+      routeTableID: "rtb-012e0ee9392c58881"
+    # the ELB that will be used by the kube-apiserver
+    elb:
+      internal: false
+      subnetIDs:
+        - subnet-0f95d617b26dab1d1
+    availabilityZones:
+        - us-west-2c
+  nodePools:
+  - name: worker
+     count: 4
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: gp2
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: gp2
+      type: t3.xlarge
+      aws:
+        # Each pool now has subnets, they must match the number of regions and in the same order as the `availabilityZones`
+        subnetIDs:
+        - subnet-04c6fb3908305d4ca
+  - name: control-plane
+    controlPlane: true
+    count: 3
+    machine:
+      rootVolumeSize: 80
+       rootVolumeType: gp2
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: gp2
+      type: t3.large
+      aws:
+        # Subnets should be private
+        subnetIDs:
+        - subnet-0eae44ba52375f398
+  - name: bastion
+    bastion: true
+    count: 0
+    machine:
+      rootVolumeSize: 10
+      rootVolumeType: gp2
+      type: t3.small
+      aws:
+        # Should be a subnet with public ips, this is required to access your bastion
+        subnetIDs:
+        - subnet-0g95d316n26daask29
+...
+```
+
+The number of `IDs` in each type of subnet must match the number of `aws.availabilityZones` defined and they must be listed in the same order as the `aws.availabilityZones`.
+The public subnet must be set to automatically set up public ip's on launch.
+
+Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing nodepools.
+That could lead collisions in CIDR blocks and failure to deploy, the recommendation here then is for a full list of subnets be known along with the nodepools desired.
+
+For the most part the nodepools created should exist in a private network configuration, which is konvoy's default approach.
+Bastion hosts allow for secure access to one's cluster, but since they do need to be accessed externally they should be deployed with a subnet where public ips are created.
+
+### IAM Instance Profiles
+An existing IAM instance profile can be used, provided that the right policies must be set:
+
+```yaml
+...
+spec:
+  provider: aws
+  nodePools:
+  - name: worker
+     count: 1
+    machine:
+      aws:
+        iam:
+          instanceProfile:
+            name: "some-k8s-instance-profile"
+...
+```
+
+or you may instead use the ARN:
+
+```yaml
+...
+spec:
+  provider: aws
+  nodePools:
+  - name: worker
+     count: 1
+    machine:
+      aws:
+        iam:
+          instanceProfile:
+            arn: "arn:aws:iam::273854932432:instance-profile/some-k8s-instance-profile"
+...
+```
+
 [ami_centos7]: https://aws.amazon.com/marketplace/pp/B00O7WM7QW
 [node_pools]: ../../node-pools/
 [aws_instance_types]: https://aws.amazon.com/ec2/instance-types/

@@ -16,8 +16,8 @@ Konvoy can be configured to use HTTP/HTTPS proxy for Internet access.
 This applies to all Kubernetes components, as well as workloads running on top of Kubernetes assuming the workloads understand standard HTTP/HTTPS proxy environment variables:
 
 * `HTTP_PROXY`: the HTTP proxy server address.
-* `HTTPS_PROXY`: the HTTPS proxy server address.
-* `NO_PROXY`: comma separated list of IPs and domain names that do not subject to proxy settings.
+* `HTTPS_PROXY`: the HTTPS proxy server address. (Ansible only supports `http:`)
+* `NO_PROXY`: a list of IPs and domain names that do not subject to proxy settings.
 
 # Before you start
 
@@ -42,11 +42,15 @@ spec:
   kubernetes:
     networking:
       httpProxy: "http://proxy.company.com:3128"
-      httpsProxy: "https://proxy.company.com:3129"
-      noProxy: "localhost,127.0.0.1,company.com,mycluster.icp:8500"
+      httpsProxy: "http://proxy.company.com:3129"
+      noProxy:
+        - "localhost"
+        - "127.0.0.1"
+        - "company.com"
+        - "mycluster.icp:8500"
 ```
 
-The above example configures the Konvoy cluster to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `https://proxy.company.com:3129`for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
+The above example configures the Kubernetes cluster installed by Konvoy to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `http://proxy.company.com:3129` for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
 
 All the proxy related fields are optional.
 
@@ -55,3 +59,6 @@ The proxy configuration will be applied automatically by Konvoy after you run
 ```bash
 konvoy up
 ```
+
+**Important** if the machine where the `konvoy` binary is being run from requires the HTTP/HTTPS proxy for Internet access, you must set the same `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` as environment variables before running `konvoy`.
+These proxy settings will be used by the binary itself (not Kubernetes cluster machines) to download addon configurations over the Internet.

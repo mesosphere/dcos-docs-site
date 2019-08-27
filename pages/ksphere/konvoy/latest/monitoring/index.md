@@ -32,7 +32,7 @@ Once Prometheus is enabled in Konvoy, it installs the `prometheus-operator` to c
 The `prometheus-operator` deploys the following set of Prometheus components to expose metrics from nodes, Kubernetes units, and running apps:
 
 * prometheus-operator: orchestrates various components in the monitoring pipeline.
-* prometheus: collects metrics, save them in a time series database, and serving queries.
+* prometheus: collects metrics, saves them in a time series database, and serves queries.
 * alertmanager: handles alerts sent by client applications such as the Prometheus server.
 * node-exporter: is deployed on each node to collect the machine hardware and OS metrics.
 * kube-state-metrics: is a simple service that listens to the Kubernetes API server and generates metrics about the state of the objects.
@@ -40,7 +40,7 @@ The `prometheus-operator` deploys the following set of Prometheus components to 
 * service monitors: collects internal Kubernetes components.
 
 A detailed description of the exposed metrics can be found [here][kube_state_exposed_metrics].
-The `service-monitors` collects internal Kubernetes components but they can also be extended to monitor customer apps as explained [here](#monitoring-applications).
+The `service-monitors` collect internal Kubernetes components but they can also be extended to monitor customer apps as explained [here](#monitoring-applications).
 
 ## Grafana Dashboards
 
@@ -59,6 +59,7 @@ Konvoy ships with the following set of default dashboards:
 * FluentBit
 * Volume Space Usage
 * Elasticsearch
+* Velero
 
 Initially, all of the dashboards are enabled by default.
 However, you can disable any of them when defining the cluster requirements for Prometheus in the `cluster.yaml` file.
@@ -71,10 +72,9 @@ For example, if you want to disable the `elasticsearch` and `traefik` dashboards
   values: |
     mesosphereResources:
      create: true
-     rules:
-       etcd: true
      dashboards:
        apiserver: true
+       calico: true
        controlmanager: true
        elasticsearch: false
        grafana: true
@@ -83,7 +83,8 @@ For example, if you want to disable the `elasticsearch` and `traefik` dashboards
        localvolumeusage: true
        prometheusoverview: true
        scheduler: true
-       traefik: false  
+       traefik: false
+       velero: true
 ```
 
 Similarly, you could disable all of the default dashboards by setting the `defaultDashboardsEnabled` property to `false` under Prometheus in the `cluster.yaml` file.
@@ -97,7 +98,7 @@ For example:
      defaultDashboardsEnabled: false  
 ```
 
-To access to Grafana UI, you can browse to the landing page and then search for the Grafana dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/grafana`.
+To access the Grafana UI, you can browse to the landing page and then search for the Grafana dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/grafana`.
 
 ### Adding custom dashboards
 
@@ -149,7 +150,7 @@ After you decide how to create your custom dashboard, you can configure it when 
 
 ## Configuring alerts using AlertManager
 
-To keep your clusters and applications healthy and driving your productivity forward, you need to stay informed of all events occurring in your cluster.
+To keep your clusters and applications healthy and drive your productivity forward, you need to stay informed of all events occurring in your cluster.
 Konvoy helps you to stay informed of these events by using the `alertmanager` of the `prometheus-operator`.
 
 Konvoy is configured with some pre-defined alerts to monitor for specific events and to send you alerts related to:
@@ -183,6 +184,21 @@ For example, if you want to disable the default `etcd` and `node` alert rules, y
         node: false
 ```
 
+Alert rules for the Velero platform service add-on are turned off by default.
+You can enable them in the `cluster.yaml` file by providing the desired configuration.
+They should be enabled only if the add-on is enabled.
+If the add-on is disabled, the alert rules should also be disabled to avoid alert misfires.
+
+```yaml
+- name: prometheus
+  enabled: true
+  values: |
+    mesosphereResources:
+     create: true
+     rules:
+       velero: true
+```
+
 To create a custom alert rule named `my-rule-file`, you can modify the Prometheus definition in the `cluster.yaml` file as follows:
 
 ```yaml
@@ -199,13 +215,13 @@ To create a custom alert rule named `my-rule-file`, you can modify the Prometheu
 ```
 
 After you set up your alerts, you can manage each alert using the Prometheus web console to mute/unmute firing alerts, as well as to perform other operations.
-For more information about configuring `alertmanager`, see the [Prometheus website][alertmanager_config].
+For more information about configuring the `alertmanager`, see the [Prometheus website][alertmanager_config].
 
-To access to Prometheus Alert UI, you can browse to the landing page and then search for the Prometheus Alert Manager dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/alertmanager`.
+To access the Prometheus Alertmanager UI, you can browse to the landing page and then search for the Prometheus Alertmanager dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/alertmanager`.
 
 ### Notify Prometheus Alerts in Slack
 
-To hook the Prometheus `alertmanager` notification system, you need to overwrite the existing configuration.
+To hook up the Prometheus `alertmanager` notification system, you need to overwrite the existing configuration.
 
 The following file, named `alertmanager.yaml`, configures the `alertmanager` to use the Incoming Webhooks feature of Slack (`slack_api_url: https://hooks.slack.com/services/<HOOK_ID>`) to fire all the alerts to a specific channel `#MY-SLACK-CHANNEL-NAME`.
 
@@ -220,7 +236,7 @@ route:
   group_interval: 5m
   repeat_interval: 1h
 
-  # If an alert isn't caught by a route, send it slack.
+  # If an alert isn't caught by a route, send it to slack.
   receiver: slack_general
   routes:
     - match:
@@ -246,7 +262,7 @@ templates:
   - '*.tmpl'
 ```
 
-The following file, named  `notification.tmpl`, is a template that defines the a pretty format for the fired notifications:
+The following file, named  `notification.tmpl`, is a template that defines a pretty format for the fired notifications:
 
 ```text
 {{ define "__titlelink" }}
@@ -307,7 +323,7 @@ By default, the `prometheus-operator` provides the following service monitors to
 * kube-dns/coredns
 * kube-proxy
 
-The operator is in charge of iterating over all of these `ServiceMonitor` objects and collects the metrics from these defined components.
+The operator is in charge of iterating over all of these `ServiceMonitor` objects and collecting the metrics from these defined components.
 
 The following example illustrates how to retrieve application metrics. In this example:
 
@@ -315,7 +331,7 @@ The following example illustrates how to retrieve application metrics. In this e
 * The sample app listens and exposes metrics on port 8080
 * The app is assumed to already be running
 
-To prepare for monitoring of the sample app, you create a service that selects the pods that have `my-app` as the value defined for their app label setting.
+To prepare for monitoring of the sample app, you can create a service that selects the pods that have `my-app` as the value defined for their app label setting.
 
 The service object also specifies the port on which the metrics are exposed.
 The `ServiceMonitor` has a label selector to select services and their underlying endpoint objects.
@@ -378,7 +394,7 @@ In this example, you would modify the Prometheus settings to have the operator c
 
 ## Set a specific storage capacity for Prometheus
 
-When defining the requirements of a Konvoy cluster, you can specify the capacity and resource requirements of Prometheus by modifying settings in the `cluster.yaml` definition to your desire, as shown below:
+When defining the requirements of a Konvoy cluster, you can specify the capacity and resource requirements of Prometheus by modifying the settings in the `cluster.yaml` definition to your desire, as shown below:
 
 ```yaml
 - name: prometheus

@@ -67,7 +67,6 @@ version: konvoy.mesosphere.io/v1alpha1
 spec:
   nodePools:
   - name: worker
-  - name: control-plane
   - name: monitoring
     labels:
       - key: dedicated

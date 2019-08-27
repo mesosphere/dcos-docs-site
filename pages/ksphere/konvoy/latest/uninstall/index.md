@@ -32,87 +32,22 @@ Before removing a cluster that relies on a public cloud infrastructure, you shou
 By default, when you run `konvoy up`, the command creates AWS resources through [Terraform][terraform] operations.
 After the Konvoy deployment of the Kubernetes cluster is initialized and running, Kubernetes itself can create additional resources such as load balancers, security groups, and storage volumes.
 
-When you run `konvoy down`, the command removes all of the AWS infrastructure resources create for the cluster. After running the command, only the **volumes created by Kubernetes** itself remain.
+When you run `konvoy down`, the command removes all of the AWS infrastructure resources create for the cluster, including any volumes that are backing PersistentVolumesClaims with a `Delete` [ReclaimPolicy][reclaim-policy].
 
 To completely remove Konvoy cluster resources:
 
-1.  Locate volumes created by Kubernetes by listing the persistent volumes using the following `kubectl` command:
+Change to the directory that contains your cluster's state files, then run the following command:
 
-    ```bash
-    kubectl get persistentvolumes -o custom-columns=NAME:.metadata.name,STORAGECLASS:.spec.storageClassName
-    ```
+```bash
+konvoy down
+```
 
-    The command returns output similar to the following:
+The command prompts you with a time estimate for completing the operation. You can respond by typing `Y` to proceed.
 
-    ```text
-    # Output:
-    NAME                                       STORAGECLASS
-    pvc-024e0dfc-8e09-11e9-92cb-0a859d0d78a0   ebs-csi-driver
-    pvc-1d54359a-8e09-11e9-92cb-0a859d0d78a0   ebs-csi-driver
-    pvc-1ecacd60-8e09-11e9-92cb-0a859d0d78a0   ebs-csi-driver
-    pvc-3bfee13e-8e09-11e9-92cb-0a859d0d78a0   ebs-csi-driver
-    pvc-f6e08b63-8e08-11e9-92cb-0a859d0d78a0   ebs-csi-driver
-    pvc-f6eb2786-8e08-11e9-92cb-0a859d0d78a0   ebs-csi-driver
-    pvc-f951b4aa-8e08-11e9-a615-0ae6f30d517a   ebs-csi-driver
-    ```
+The `konvoy down` command then begins removing cluster resources by deleting load balancers, security groups and volumes.
+It deletes these resources using the AWS API to ensure they are deleted quickly.
 
-1.  Find the volumes tagged with `CSIVolumeName: VOLUME_NAME` using the `aws-cli` by running commands similar to the following:
-
-    ```bash
-    aws ec2 describe-volumes --filters "Name=tag:CSIVolumeName,Values=pvc-024e0dfc-8e09-11e9-92cb-0a859d0d78a0"
-    ```
-
-    This sample command finds one volume (`pvc-024e0dfc-8e09-11e9-92cb-0a859d0d78a0`) and returns output similar to the following:
-
-    ```text
-    # Output:
-    {
-      "Volumes": [
-        {
-          "Attachments": [
-            {
-              "AttachTime": "2019-06-13T18:28:23.000Z",
-              "Device": "/dev/xvdct",
-              "InstanceId": "i-0ece8ecd51efa694a",
-              "State": "attached",
-              "VolumeId": "vol-09f0cc1e780856883",
-              "DeleteOnTermination": false
-            }
-          ],
-          "AvailabilityZone": "us-west-2c",
-          "CreateTime": "2019-06-13T18:28:15.915Z",
-          "Encrypted": false,
-          "Size": 50,
-          "SnapshotId": "",
-          "State": "in-use",
-          "VolumeId": "vol-09f0cc1e780856883",
-          "Iops": 150,
-          "Tags": [
-            {
-              "Key": "CSIVolumeName",
-              "Value": "pvc-024e0dfc-8e09-11e9-92cb-0a859d0d78a0"
-            }
-          ],
-          "VolumeType": "gp2"
-        }
-      ]
-    }
-    ```
-
-1.  Delete the Kubernetes volumes, if necessary.
-
-1.  Change to the directory that contains your cluster's state files, then run the following command:
-
-    ```bash
-    konvoy down
-    ```
-
-    The command prompts you with a time estimate for completing the operation. You can respond by typing `Y` to proceed.
-
-    The `konvoy down` command then begins removing cluster resources by deleting load balancers and security groups.
-    It deletes these resources using the AWS API to ensure they are deleted quickly.
-
-    After `konvoy down` removes load balancers and security groups, it uses Terraform to delete the resources created by the `konvoy up` command and Terraform provisioning.
+After `konvoy down` removes these resources, it uses Terraform to delete the resources created by the `konvoy up` command and Terraform provisioning.
 
 ## Skip the removal of Kubernetes resources
 
@@ -170,3 +105,4 @@ The following resources contain useful information for AWS-based deployments in 
 [1]:https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-deleting-volume.html
 [2]:https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/terminating-instances.html
 [terraform]: https://www.terraform.io
+[reclaim-policy]: https://kubernetes.io/docs/tasks/administer-cluster/change-pv-reclaim-policy/

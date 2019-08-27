@@ -81,7 +81,7 @@ metadata:
   creationTimestamp: "2019-07-09T16:10:19.932534-04:00"
 spec:
   kubernetes:
-    version: 1.15.2
+    version: 1.15.3
     controlPlane:
       controlPlaneEndpointOverride: ""
       keepalived:
@@ -164,6 +164,35 @@ spec:
 | `aws.region`            | [AWS region][aws_region] where your cluster is hosted                            |  `us-west-2`          |
 | `aws.availabilityZones` | availability zones to deploy a cluster in a region                               | `[us-west-2c]`        |
 | `aws.tags`              | additional [tags][aws_tags] for the resources provisioned through the Konvoy CLI | `[owner: <username>]` |
+| `aws.vpc`               | [AWS VPC][aws_vpc_and_subnets] to use when deploying a cluster                   | N/A                   |  
+| `aws.elb`               | [AWS ELB][aws_elb] The ELB used by the kube-apiservers                           | N/A                   |
+
+### spec.aws.iam
+
+| Parameter  | Description                                                                       | Default |
+| ---------- | --------------------------------------------------------------------------------- | ------- |
+| `iam.role` | [AWS Role][aws_role] information with policies to be used by a kubernetes cluster | N/A     |
+
+### spec.aws.iam.role
+
+| Parameter   | Description                                                         | Default |
+| ----------- | ------------------------------------------------------------------- | ------- |
+| `role.name` | name of the role with policies required to run a kubernetes cluster | `""`    |
+| `role.arn`  | ARN of the role  with policies required to run a kubernetes cluster | `""`    |
+
+### spec.vpc
+
+| Parameter               | Description                                                                 | Default |
+| ----------------------- | ----------------------------------------------------------------------------| ------- |
+| `vpc.ID`                | [AWS VPC][aws_vpc_and_subnets] ID where the cluster should be launched      | `""`    |
+| `vpc.routeTableID`      | [AWS RouteTable][aws_route_table] ID that is used by the subnets in the VPC | `""`    |
+| `vpc.internetGatewayID` | [AWS Internet Gateway][aws_internet_gateway] ID assigned to the VPC         | `""`    |
+
+### spec.elb
+| Parameter               | Description                                                                 | Default |
+| ----------------------- | ----------------------------------------------------------------------------| ------- |
+| `elb.internal`          | Set to true to make the ELB internal                                        | false   |
+| `elb.subnetIDs`         | [AWS Subnet][aws_vpc_and_subnets] IDs where ELBs will be launched on        | `[]`    |
 
 ### spec.docker
 
@@ -194,22 +223,24 @@ The default value of this entire object is `omitted`.
 
 ##### AWS (machine)
 
-| Parameter                     | Description                                                                                     | Default\[0]   | Default\[1] |
-| ----------------------------- | ----------------------------------------------------------------------------------------------- | ------------- | ----------- |
-| `machine.imageID`             | [AWS AMI][aws_ami] Specifies the image ID that will be used for the instances instead of the default image.  | `omitted ("")`| See \[0]    |
-| `machine.imageName`           | Specifies the Docker image that is used instead of the default image.                                        | `omitted ("")`| See \[0]    |
-| `machine.rootVolumeSize`      | Specifies the size of root volume to use that is mounted on each machine in a node-pool in GiBs.             | `80`          | See \[0]    |
-| `machine.rootVolumeType`      | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                         | `gp2`         | See \[0]    |
-| `machine.imagefsVolumeEnabled`| Specifies whether to enable dedicated disk for image filesystem (for example, `/var/lib/containerd`).      |  `true`       | See \[0]    |
-| `machine.imagefsVolumeSize`   | Specifies the size of imagefs volume to use that is mounted on each machine in a node-pool in GiBs.         | `160`         | See \[0]    |
-| `machine.imagefsVolumeType`   | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                         | `gp2`         | See \[0]    |
-| `machine.type`                | Specifies the [EC2 instance type][ec2_instance_types] to use.                                             | `t3.xlarge`   | `t3.large`  |
+| Parameter                     | Description                                                                                                 | Default\[0]    | Default\[1] |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
+| `machine.imageID`             | [AWS AMI][aws_ami] Specifies the image ID that will be used for the instances instead of the default image. | `omitted ("")` | See \[0]    |
+| `machine.imageName`           | Specifies the Docker image that is used instead of the default image.                                       | `omitted ("")` | See \[0]    |
+| `machine.rootVolumeSize`      | Specifies the size of root volume to use that is mounted on each machine in a node-pool in GiBs.            | `80`           | See \[0]    |
+| `machine.rootVolumeType`      | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                      | `gp2`          | See \[0]    |
+| `machine.imagefsVolumeEnabled`| Specifies whether to enable dedicated disk for image filesystem (for example, `/var/lib/containerd`).       |  `true`        | See \[0]    |
+| `machine.imagefsVolumeSize`   | Specifies the size of imagefs volume to use that is mounted on each machine in a node-pool in GiBs.         | `160`          | See \[0]    |
+| `machine.imagefsVolumeType`   | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                      | `gp2`          | See \[0]    |
+| `machine.type`                | Specifies the [EC2 instance type][ec2_instance_types] to use.                                               | `t3.xlarge`    | `t3.large`  |
+| `machine.aws.subnetIDs`       | Specifies the [AWS Subnet][aws_vpc_and_subnets] to launch instances unto.                                   | `[]`           | `[]`        |
+| `machine.aws.iam`             | [AWS IAM][aws_iam] represents access control details                                                        | N/A            |             |
 
 ### spec.sshCredentials
 
-| Parameter                       | Description                                                                   | Default               |
-| ------------------------------- | ----------------------------------------------------------------------------- | --------------------- |
-| `sshCredentials.user`           | Specifies the user name to use when accessing a machine throough ssh.                          | `centos`              |
+| Parameter                       | Description                                                                                      | Default                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------ | ----------------------- |
+| `sshCredentials.user`           | Specifies the user name to use when accessing a machine throough ssh.                            | `centos`                |
 | `sshCredentials.publicKeyFile`  | Specifies the path and name of the public key file to use when accessing a machine through ssh.  | `<clustername>`-ssh.pub |
 | `sshCredentials.privateKeyFile` | Specifies the path and name of the private key file to use when accessing a machine through ssh. | `<clustername>`-ssh.pem |
 
@@ -229,7 +260,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | Specifies the version of kubernete to deploy.  | `1.15.2`                |
+| `kubernetes.version`           | Specifies the version of kubernete to deploy.  | `1.15.3`                |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#spec-kubernetes-controlplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#spec-kubernetes-networking) |
 | `kubernetes.cloudProvider`     | Specifies the object that defines which cloud-provider to enable.    | See [spec.kubernetes.clouldProvider](#spec-kubernetes-cloudprovider)  |
@@ -390,3 +421,9 @@ Properties of an `addon` object.
 [containerd]: https://containerd.io
 [containerd_config]: https://github.com/containerd/cri/blob/master/docs/config.md
 [aws_ami]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html
+[aws_iam]: https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+[aws_role]: https://docs.aws.amazon.com/IAM/latest/APIReference/API_Role.html
+[aws_vpc_and_subnets]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
+[aws_route_table]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html
+[aws_internet_gateway]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
+[aws_elb]: https://aws.amazon.com/elasticloadbalancing/

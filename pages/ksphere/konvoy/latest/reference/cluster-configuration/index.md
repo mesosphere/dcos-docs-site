@@ -85,7 +85,7 @@ metadata:
   creationTimestamp: "2019-07-09T16:10:19.932534-04:00"
 spec:
   kubernetes:
-    version: 1.15.2
+    version: 1.15.3
     controlPlane:
       controlPlaneEndpointOverride: ""
       keepalived:
@@ -154,31 +154,31 @@ spec:
 
 | Parameter               | Description                            | Default                                  |
 | ----------------------- | -------------------------------------- | ---------------------------------------- |
-| `spec.kubernetes`       | defines Kubernetes specific properties | See [spec.kubernetes](#spec-kubernetes)  |
-| `spec.containerRuntime` | container runtime to use               | See [spec.containerRuntime](#spec-containerruntime) |
-| `spec.containerNetworking` | container networking to use               | See [spec.containerNetworking](#spec-containernetworking) |
-| `spec.imageRegistries`  | container image registries auth details | See [spec.imageRegistries](#spec-imageregistries) |
-| `spec.nodePools`        | nodePool configuration                  | See [spec.imageRegistries](#spec-nodepools) |
-| `spec.addons`           | list of addons that can be deployed    | See [spec.addons](#spec-addons) |
+| `spec.kubernetes`       | defines Kubernetes specific properties | See [spec.kubernetes](#speckubernetes)  |
+| `spec.containerRuntime` | container runtime to use               | See [spec.containerRuntime](#speccontainerruntime) |
+| `spec.containerNetworking` | container networking to use               | See [spec.containerNetworking](#speccontainernetworking) |
+| `spec.imageRegistries`  | container image registries auth details | See [spec.imageRegistries](#specimageregistries) |
+| `spec.nodePools`        | nodePool configuration                  | See [spec.imageRegistries](#specnodepools) |
+| `spec.addons`           | list of addons that can be deployed    | See [spec.addons](#specaddons) |
 | `spec.version`          | version of a konvoy cluster            | `v0.0.20`                                |
 
 ## spec.kubernetes
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | version of kubernete to deploy                              | `1.15.2`                |
-| `kubernetes.controlPlane`      | object that defines control plane configuration             | See [spec.kubernetes.controlPlane](#spec-kubernetes-controlplane) |
-| `kubernetes.networking`        | object that defines cluster networking                      | See [spec.kubernetes.networking](#spec-kubernetes-networking) |
-| `kubernetes.cloudProvider`     | object that defines which cloud-provider to enable          | See [spec.kubernetes.clouldProvider](#spec-kubernetes-cloudprovider)  |
-| `kubernetes.podSecurityPolicy` | object that defines whether to enable pod security policies | See [spec.kubernetes.podSecurityPolicy](#spec-kubernetes-podsecuritypolicy)    |
-| `kubernetes.preflightChecks`   | object that defines what errors to ignore for ansible preflight checks | See [spec.kubernetes.preflightChecks](#spec-kubernetes-preflightchecks)    |
+| `kubernetes.version`           | version of kubernete to deploy                              | `1.15.3`                |
+| `kubernetes.controlPlane`      | object that defines control plane configuration             | See [spec.kubernetes.controlPlane](#speckubernetescontrolplane) |
+| `kubernetes.networking`        | object that defines cluster networking                      | See [spec.kubernetes.networking](#speckubernetesnetworking) |
+| `kubernetes.cloudProvider`     | object that defines which cloud-provider to enable          | See [spec.kubernetes.clouldProvider](#speckubernetescloudprovider)  |
+| `kubernetes.podSecurityPolicy` | object that defines whether to enable pod security policies | See [spec.kubernetes.podSecurityPolicy](#speckubernetespodsecuritypolicy)    |
+| `kubernetes.preflightChecks`   | object that defines what errors to ignore for ansible preflight checks | See [spec.kubernetes.preflightChecks](#speckubernetespreflightchecks)    |
 
 ### spec.kubernetes.controlPlane
 
 | Parameter                                  | Description                                                    | Default  |
 | ------------------------------------------ | -------------------------------------------------------------- | -------- |
 | `controlPlane.controlPlaneEndpointOverride`| overrides the `control_plane_endpoint` from `inventory.yaml`   | `""`      |
-| `controlPlane.keepalived`                   | object that defines keepalived configuration                  | See [spec.kubernetes.controlPlane.keepalived](#spec-kubernetes-controlplane-keepalived)  |
+| `controlPlane.keepalived`                   | object that defines keepalived configuration                  | See [spec.kubernetes.controlPlane.keepalived](#speckubernetescontrolplanekeepalived)  |
 
 ### spec.kubernetes.controlPlane.keepalived
 
@@ -225,8 +225,8 @@ spec:
 | Parameter       | Description                                                                | Default\[0] |  Default\[1] |
 | --------------- | -------------------------------------------------------------------------- | ----------- | ------------ |
 | `name`          | the nodePool name corresponding to one in ClusterProvisioner.spec.nodePool | `"worker"`  | "control-plane" |
-| `labels`        | user defined `spec.nodePool.label`s to set on all nodes in the nodePool    | See [spec.nodePools.labels](#spec-nodepools-labels) | See \[0]   |
-| `taints`        | user defined `spec.nodePool.taints`s to set on all nodes in the nodePool   | See [spec.nodePools.taints](#spec-nodepools-taints) | See \[0]   |
+| `labels`        | user defined `spec.nodePool.label`s to set on all nodes in the nodePool    | See [spec.nodePools.labels](#specnodepoolslabels) | See \[0]   |
+| `taints`        | user defined `spec.nodePool.taints`s to set on all nodes in the nodePool   | See [spec.nodePools.taints](#specnodepoolstaints) | See \[0]   |
 
 #### spec.nodePools.labels
 
@@ -255,20 +255,20 @@ spec:
 
 | Parameter                     | Description                                               | Default  |
 | ----------------------------- | --------------------------------------------------------- | -------- |
-| `containerRuntime.containerd` | defines the [containerd][containerd] runtime              | See [spec.containerRuntime.containerd](#spec-containerruntime-containerd)    |
+| `containerRuntime.containerd` | defines the [containerd][containerd] runtime              | See [spec.containerRuntime.containerd](#speccontainerruntimecontainerd)    |
 
 ### spec.containerRuntime.containerd
 
 | Parameter               | Description                                                    | Default  |
 | ----------------------- | -------------------------------------------------------------- | -------- |
 | `containerd.version`    | the version of the [containerd][containerd] runtime            | `1.2.5`    |
-| `containerd.configData` | contains data for configuring the [containerd][containerd]     | See [spec.containerRuntime.containerd.configData](#spec-containerruntime-containerd-configdata)    |
+| `containerd.configData` | contains data for configuring the [containerd][containerd]     | See [spec.containerRuntime.containerd.configData](#speccontainerruntimecontainerdconfigdata)    |
 
 ## spec.containerNetworking
 
 | Parameter                     | Description                                               | Default  |
 | ----------------------------- | --------------------------------------------------------- | -------- |
-| `containerNetworking.calico` | defines the [containerd][containerd] runtime              | See [spec.containerRuntime.containerd](#spec-containernetworking-calico)  |
+| `containerNetworking.calico` | defines the [containerd][containerd] runtime              | See [spec.containerRuntime.containerd](#speccontainernetworkingcalico)  |
 
 ### spec.containerNetworking.calico
 
