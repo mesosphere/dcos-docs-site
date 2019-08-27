@@ -58,4 +58,4 @@ To assign permissions to your account, see the [permissions reference](/mesosphe
 
 The Backup and Restore API allows you to manage backup and restore operations on your DC/OS cluster.
 
-[swagger api='/mesosphere/dcos/1.14/api/backup-restore.yaml']
+[swagger api='/mesosphere/dcos/1.12/api/backup-restore.yaml']
