@@ -91,9 +91,9 @@ Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage 
 
 # S3
 
-To set up S3 connectivity, you must be on a cluster in permissive or strict mode.
+To set up S3 connectivity, you must be on a cluster in permissive or strict mode. If a service account has not been created, follow these steps to create one.
 
-1.  Set up a Service Account for {{ model.techName }} and its secrets.
+1.  Set up a service account for {{ model.techName }} and its secrets.
 
     ```bash
     export DSENGINE_SA=dsengine_sa
