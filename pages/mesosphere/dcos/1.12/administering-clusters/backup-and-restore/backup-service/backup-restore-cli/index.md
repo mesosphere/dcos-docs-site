@@ -4,14 +4,17 @@ navigationTitle:  Backup and Restore CLI
 title: Backup and Restore CLI
 menuWeight: 0
 excerpt: Backing up and restoring your cluster using the CLI
-
 enterprise: true
+render: mustache
+model: /mesosphere/dcos/1.12/data.yml
 ---
+You can use the CLI to create and restore backups of your cluster.
+
 
 # Prerequisites
-- A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/mesosphere/dcos/1.12/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/mesosphere/dcos/1.12/cli/enterprise-cli/) installed.
+- A DC/OS Enterprise cluster
+- The [DC/OS CLI](/mesosphere/dcos/1.14/cli/install/) installed
+- The [DC/OS Enterprise CLI](/mesosphere/dcos/1.14/cli/enterprise-cli/) installed
 
 <p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
 
@@ -20,8 +23,7 @@ enterprise: true
 
 Backups are stored on the local file system of the master node. The backup state is maintained by a service running in the cluster, and backup/restore operations are initiated by hitting this service directly.
 
-1. Create a backup and assign it a meaningful label.
-   The label has the following restrictions:
+1. Create a backup and assign it a meaningful label. The label has the following restrictions:
    - It must be between 3 and 25 characters in length.
    - It cannot start with `..`.
    - It must be composed of the following characters: [A-Za-z0-9_.-].
@@ -30,25 +32,25 @@ Backups are stored on the local file system of the master node. The backup state
    dcos backup create --label=<backup-label>
    ```
 
-1. Verify your backup has been created.
+1. Verify that your backup has been created.
 
    ```bash
    dcos backup list
    ```
 
-   Or use the following command to refine your search results to the label you used when you created the backup.
+   Or use the following command to restrict your search results to the label you used when you created the backup.
 
    ```bash
    dcos backup list [label]
    ```
 
-   The backup will initially transition into the `STATUS_BACKING_UP` state, and should eventually arrive at `STATUS_READY`. If something goes wrong, it will show a state of `STATUS_ERROR`. Use `dcos backup show <backup-id>` to inspect why Marathon errored out during the course of the backup.
+   The backup will initially transition into the `STATUS_BACKING_UP` state, and should eventually arrive at `STATUS_READY`. If something goes wrong, it will show a state of `STATUS_ERROR`. Use `dcos backup show <backup-id>` to discover why Marathon errored out during the course of the backup.
 
 1. Use the ID produced by `dcos backup list` to refer to your backup in subsequent commands. A backup ID will resemble `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`.
 
 ## Deleting a backup
 
-1. Delete an unneeded backup.
+Delete an unneeded backup.
 
    ```bash
    dcos backup delete <backup-id>
