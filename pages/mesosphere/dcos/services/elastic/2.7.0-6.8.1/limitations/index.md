@@ -12,12 +12,6 @@ render: mustache
 
 Elasticsearch provides two ways of updating settings: persistent (through `elasticsearch.yml` file) and transient (through [Elasticsearch Cluster Update Settings API](https://www.elastic.co/guide/en/elasticsearch/reference/current/cluster-update-settings.html)). The service's Configuration Options are carried over to the tasks' `elasticsearch.yml` file automatically. Out-of-band configuration changes (either via Elasticsearch's Cluster Update Settings API or externally modifying `elasticsearch.yml` files) will not persist in case of a restart, failure recovery, or upgrade.
 
-## Kibana configured with X-Pack Security enabled
-
-If Kibana is configured with `kibana.elasticsearch_xpack_security_enabled` set to `true` the default DC/OS service link (`https://<cluster-url>/service/<kibana-service-name>`) will not work. This is due to a change in how Kibana deals with `Authorization` HTTP headers starting in version 6.3.
-
-As a workaround, you should be able to expose Kibana using [EdgeLB](/mesosphere/dcos/services/edge-lb/) by following the following how-to: [Expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/2.7.0-6.8.1/how-to-guides#expose-kibana-using-edgelb).
-
 #include /mesosphere/dcos/services/include/limitations.tmpl
 #include /mesosphere/dcos/services/include/limitations-zones.tmpl
 #include /mesosphere/dcos/services/include/limitations-regions.tmpl
