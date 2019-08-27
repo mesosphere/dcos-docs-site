@@ -3,10 +3,9 @@ layout: layout.pug
 navigationTitle:  Backup and Restore CLI
 title: Backup and Restore CLI
 menuWeight: 0
+
 excerpt: Backing up and restoring your cluster using the CLI
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.12/data.yml
 ---
 You can use the CLI to create and restore backups of your cluster.
 
