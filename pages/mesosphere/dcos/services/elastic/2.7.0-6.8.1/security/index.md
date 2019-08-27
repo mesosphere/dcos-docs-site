@@ -16,6 +16,8 @@ A good overview of X-Pack can be found [here](https://www.elastic.co/guide/en/el
 
 <p class="message--note"><strong>NOTE: </strong> These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
+For a step-by-step guide on how to have a secure Elastic installation check out the how-to section for [deploying a secure Elastic service](/mesosphere/dcos/services/elastic/2.7.0-6.8.1/how-to-guides/#deploying-a-security-elastic-service).
+
 ## Transport Encryption
 
 #include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
