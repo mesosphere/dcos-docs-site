@@ -12,7 +12,7 @@ The Services page provides a full-featured interface to the native DC/OS Maratho
 
 ![Services](/mesosphere/dcos/1.14/img/GUI-Services-Enterprise.png)
 
-Figure 1 - Services page
+Figure 1 - Services page 
 
 # Filtering your display
 
