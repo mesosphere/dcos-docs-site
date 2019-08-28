@@ -10,9 +10,11 @@ model: /mesosphere/dcos/1.14/data.yml
 
 The Services page provides a full-featured interface to the native DC/OS Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
-![Services](/mesosphere/dcos/1.14/img/services-ee.png)
+![Services](/mesosphere/dcos/1.14/img/GUI-Services-Enterprise.png)
 
 Figure 1 - Services page
+
+# Filtering your display
 
 By default, all of your services are displayed, sorted by service name. You can also sort the services by health status, version, region, instances, CPU, memory, disk space or GPU usage.
 
@@ -28,7 +30,13 @@ By default, all of your services are displayed, sorted by service name. You can 
 | Disk | The amount of disk space in use |
 | GPU | The amount of GPU in use |
 
-## Service Status
+To set up a filter for your display, click on the down arrow in the search box. 
+
+![Sort menu](/mesosphere/dcos/1.14/img/GUI-Services-Sort-List.png)
+
+Figure 2 - Sort menu
+
+# Service Status
 
 | Status | Description |
 |----------|----------------|
@@ -39,7 +47,7 @@ By default, all of your services are displayed, sorted by service name. You can 
 
 ## SDK Service Status
 
-Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/) are leveraging Mesos native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status are specific to SDK based schedulers and their lifecycle.
+Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/) leverage Mesos native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status levels are specific to SDK based schedulers and their lifecycle.
 
 | Status | Description |
 |----------|----------------|
@@ -55,13 +63,13 @@ Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commo
 | Restoring | One or more monitored restore plans is in-progress. |
 | Service Unavailable | Scheduler encountered an error with one or more monitored plans. |
 
-## Tabs
+# Tabs
 
-Click the service name to open the Services Instance page. The Services Instance page organizes information about services under five tabs. Each tab lists information in an easy to review listing of the configuration and performance of the service.
+Click the service name to open the Services Instance page. The Services Instance page organizes information about services under five tabs. Each tab lists information about the configuration and performance of the service.
 
 ![Instances](/mesosphere/dcos/1.14/img/services-instances-panel.png)
 
-Figure 2 - Services instances 
+Figure 3 - Services instances 
 
 
 
@@ -71,7 +79,7 @@ Figure 2 - Services instances
 | Configuration |  Service and Networking configuration variables. |
 | <a name="debug"></a>Debug |  Displays task statistics to help you troubleshoot issues with your cluster. |
 | Endpoints |  Service configuration variables such as container images, container runtime, and advanced networking settings. |
-| Plans | Displays all of a service's Deployment Plans so that you can track the status of a currently running or finished service. A drop-down menu lets you switch between plans. |
+| Plans | Displays all of a service's Deployment Plans so that you can track the status of a currently running or finished service. A drop-down menu lets you switch between plans. This tab may not appear in all Service instances, depending on the Service configuration.|
 
 For services with a UI, hover over the service name and click ![open service](/mesosphere/dcos/1.14/img/open-service.png) to view it. You can access the Mesos UI at `<hostname>/mesos`.
 
@@ -83,4 +91,6 @@ In the following figure, Marathon has failed to launch a service; DC/OS displays
 
 ![Failure warning](/mesosphere/dcos/1.14/img/GUI-Services-Failure-To-Launch.png)
 
-Figure 3 - Debug tab showing warning
+Figure 4 - Debug tab showing warning
+
+For more information about deploying services, see the [Deploying Services and Pods](/mesosphere/dcos/1.14/deploying-services/) documentation.
