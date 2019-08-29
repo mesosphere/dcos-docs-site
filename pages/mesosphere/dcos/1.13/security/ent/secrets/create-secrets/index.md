@@ -8,9 +8,7 @@ enterprise: true
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-
-
-You can create secrets in DC/OS by using a key-value pair or as a file. Both methods add a name and secret value to the secret store. You may find it convenient to add a secret as a file if you already have a secret value stored in a file locally and want to avoid copying-and-pasting.
+You can create secrets in DC/OS by using a key-value pair.
 
 See [Configuring services and pods to use secrets](/mesosphere/dcos/1.13/security/ent/secrets/use-secrets/) for information on how to reference these secrets in your app or pod definition.
 
@@ -43,13 +41,13 @@ Secrets should include paths, unless you want to allow all services to access it
 
     ![New Secret](/mesosphere/dcos/1.13/img/new-secret.png)
 
-    Figure 1. New Secret icon
+    Figure 1 - New Secret icon
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
     ![Secret ID Keypair](/mesosphere/dcos/1.13/img/GUI-Secrets-Create-New-Keypair.png)
 
-    Figure 2. Creating a new keypair 
+    Figure 2 - Creating a new keypair 
 
 1. Select **Key-Value Pair** as Type.
 
@@ -61,7 +59,7 @@ Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/mesosphere/dcos/1.13/img/GUI-Secrets-Secrets-Keypair-Deployed.png)
 
-   Figure 3. Secret with keypair deployed
+   Figure 3 - Secret with keypair deployed
 
 # <a name="api"></a>Creating key-value pair secrets using the API
 
@@ -90,23 +88,6 @@ This procedure describes how to create a key/value pair secret called `my-secret
    dcos security secrets create --value=top-secret developer/my-secret
    ```
 
-# Creating secrets from a file via the DC/OS Enterprise CLI
-
-This procedure describes how to use a file to create a secret called `my-secret` inside the `developer` path using the DC/OS Enterprise CLI.
-
-The contents of the file (referred to below as `my-secret.txt`) can be any text value.
-
-<p class="message--note"><strong>NOTE: </strong>As of DC/OS 1.10, you can only upload a secret as a file from the DC/OS CLI. The maximum file size for a secret is approximately one MiB, subtracting approximately one KB for the secret store metadata.</p>
-
-1. Use `dcos auth login` to log into the CLI. You can find more information about this command in the [CLI Reference](/mesosphere/dcos/1.13/cli/command-reference/dcos-auth/dcos-auth-login/).
-
-1. Use the following command to create the new secret.
-
-  ```bash
-  dcos security secrets create -f my-secret.txt developer/my-secret
-  ```
-
-  <p class="message--important"><strong>IMPORTANT: </strong>The maximum file size for a secret is approximately one MB, subtracting approximately one KB for the secret store metadata.</p>
 
 # Creating secrets from a file via the DC/OS UI
 
@@ -118,19 +99,19 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
     ![New Secret](/mesosphere/dcos/1.13/img/new-secret.png)
 
-    Figure 4. Secrets screen
+    Figure 4 - Secrets screen
 
     If you have no current secrets, a **Create Secret** screen will be displayed. Click on the **Create Secret** button.
 
     ![Create Secret](/mesosphere/dcos/1.13/img/GUI-Secrets-Create-Secret.png)
 
-    Figure 5. Create Secret button
+    Figure 5 - Create Secret button
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
     ![Create New Secret](/mesosphere/dcos/1.13/img/GUI-Secrets-Create-New-Secret.png)
 
-    Figure 6. Create New Secret dialog showing file chosen
+    Figure 6 - Create New Secret dialog showing file chosen
 
 1. Select **File** as Type.
 1. Click **Choose File**.
@@ -140,4 +121,4 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/mesosphere/dcos/1.13/img/GUI-Secrets-Deployed.jpeg)
-   Figure 7. Secret deployed
+   Figure 7 - Secret deployed

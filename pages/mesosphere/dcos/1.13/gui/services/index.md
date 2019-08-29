@@ -10,7 +10,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 The Services page provides a full-featured interface to the native DC/OS Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
-![Services](/mesosphere/dcos/1.13/img/services-ee.png)
+![Services](/1.13/img/services-ee.png)
 
 Figure 1 - Services page
 
@@ -59,7 +59,7 @@ Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commo
 
 Click the service name to open the Services Instance page. The Services Instance page organizes information about services under five tabs. Each tab lists information in an easy to review listing of the configuration and performance of the service.
 
-![Instances](/mesosphere/dcos/1.13/img/services-instances-panel.png)
+![Instances](/1.13/img/services-instances-panel.png)
 
 Figure 2 - Services instances 
 
@@ -73,5 +73,14 @@ Figure 2 - Services instances
 | Endpoints |  Service configuration variables such as container images, container runtime, and advanced networking settings. |
 | Plans | Displays all of a service's Deployment Plans so that you can track the status of a currently running or finished service. A drop-down menu lets you switch between plans. |
 
-For services with a UI, hover over the service name and click ![open service](/mesosphere/dcos/1.13/img/open-service.png) to view it. You can access the Mesos UI at `<hostname>/mesos`.
+For services with a UI, hover over the service name and click ![open service](/1.13/img/open-service.png) to view it. You can access the Mesos UI at `<hostname>/mesos`.
 
+# Debugging service deployments using the UI
+
+The **Services > Debug** tab displays the last changes, task failures, and other status messages, which can help debug issues with service deployments.
+
+In the following figure, Marathon has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
+
+![Failure warning](/1.13/img/GUI-Services-Failure-To-Launch.png)
+
+Figure 2 - Debug tab showing warning

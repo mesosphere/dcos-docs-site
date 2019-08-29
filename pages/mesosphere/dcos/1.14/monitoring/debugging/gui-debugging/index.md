@@ -33,3 +33,10 @@ Figure 2 - **Services > Debug** tab
 
 You will also see a **Summary** of resource offers and what percentage of those offers matched your pod or service's requirements, as well as a **Details** section that lists the host where your service or pod is running and which resource offers were successful and unsuccessful for each deployment. You can use the information on this page to learn where and how you need to modify your service or pod definition.
 
+### Example
+
+In the following figure, Marathon has failed to launch a service; the **Services > Debug** tab displays a warning message. A pop-up message states that the error has cleared and that the service is now launching.
+
+![Failure warning](/mesosphere/dcos/1.14/img/GUI-Services-Failure-To-Launch.png)
+
+Figure 3 - Debug tab showing warning
