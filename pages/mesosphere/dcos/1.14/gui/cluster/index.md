@@ -8,13 +8,13 @@ render: mustache
 model: /mesosphere/dcos/1.14/data.yml
 ---
 
-From the UI, you can view a summary of the statistics for a single cluster or for [linked clusters](/1.14/administering-clusters/multiple-clusters/cluster-links/).
+From the UI, you can view a summary of the statistics for a single cluster or for [linked clusters](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-links/).
 
 # Overview
 
 To see a display of the details of your cluster configuration, click on **Cluster > Overview**.  
 
-![Cluster Overview](/1.14/img/GUI-Cluster-Overview.png)
+![Cluster Overview](/mesosphere/dcos/1.14/img/GUI-Cluster-Overview.png)
 
 Figure 1 - Cluster Overview
 
@@ -22,7 +22,7 @@ This view displays General details, Mesos details, Marathon details, and informa
 
 You can see the IP address of your cluster from the drop down menu in the upper right corner.
 
-![Cluster menu](/1.14/img/GUI-Cluster-Menu.png)
+![Cluster menu](/mesosphere/dcos/1.14/img/GUI-Cluster-Menu.png)
 
 Figure 2 - Cluster menu
 
@@ -33,10 +33,10 @@ Multiple clusters are used for isolation (for example, testing versus production
 To see a display of the details of your linked clusters, click on **Linked Clusters**.
 
 
-![Linked clusters](/1.14/img/GUI-Cluster-Linked-Clusters.png)
+![Linked clusters](/mesosphere/dcos/1.14/img/GUI-Cluster-Linked-Clusters-Tab-Link.png)
 
 Figure 3 - Linked clusters
 
-For detailed information about linked clusters see the  [multiple clusters](/1.14/administering-clusters/multiple-clusters/cluster-links/) documentation.
+For detailed information about linked clusters see the  [multiple clusters](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-links/) documentation.
 
 
