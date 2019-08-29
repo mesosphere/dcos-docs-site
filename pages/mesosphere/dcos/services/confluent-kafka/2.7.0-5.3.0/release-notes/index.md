@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes 
-excerpt: Release Notes for version 2.6.0-5.1.2
+excerpt: Release Notes for version 2.7.0-5.3.0
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
@@ -9,7 +9,25 @@ render: mustache
 ---
 
 
+# Version 2.7.0-5.3.0
 
+## Updates
+
+- Upgrade the base dcos-commons SDK version to `0.56.2`.
+- Upgrade the base tech version of Confluent Kafka to `5.3.0`. 
+- Oracle JDK is replaced by OpenJDK 8
+- Option to configure new listener config `max.connections` which limits the number of active connections on each listener.
+
+## New Features
+
+- Added support for DC/OS Storage Service (DSS). See official [DSS docs](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0) for more details.
+- User can enable advanced service health checks. Option to choose between a simple port-based check and an advanced producer-consumer check based on a custom heartbeat topic.
+- Support for Secure JMX
+- Added marathon service scheduler checks
+- Service will fetch all required resources over HTTPS
+- Autosuggestion available for Service Account and Secrets when launching the service from DC/OS UI
+
+<!--
 # Version 2.6.0-5.1.2
 
 ## Updates
@@ -21,7 +39,6 @@ render: mustache
 
 - The inter_broker_protocol_version now defaults to the 2.1. Check how to upgrade without downtime [upgrade](/mesosphere/dcos/services/confluent-kafka/2.6.0-5.1.2/updates/#upgrading-from-412-to-512)
 
-<!--
 # Version 2.4.0-4.1.1
 
 ## Updates
