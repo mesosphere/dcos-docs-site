@@ -359,10 +359,14 @@ Configure the number of brokers running in a given Kafka cluster. The default co
 
 ## Broker Port
 
-Configure the port number that the brokers listen on. If the port is set to a particular value, this will be the port used by all brokers. The default port is 9092.  Note that this requires that `placement-strategy` be set to `NODE` to take effect, since having every broker listening on the same port requires that they be placed on different hosts. Setting the port to 0 indicates that each Broker should have a random port in the 9092-10092 range.
+Configure the port number that the brokers listen on. If the `brokers.port` is set to a particular value, this will be the port used by all brokers. Note that this requires that `placement-strategy` be set to `NODE` to take effect, since having every broker listening on the same port requires that they be placed on different hosts. By default the port is set to `0` indicating that each Broker will have a random port from the port range offered by the Mesos Agent between `1025` and `32000` 
 
-*   **In DC/OS CLI options.json**: `broker-port`: integer (default: `9092`)
-*   **DC/OS web interface**: `BROKER_PORT`: `integer`
+*   **In DC/OS CLI options.json**: `brokers.port`: integer (default: `0`)
+*   **DC/OS web interface**: `Port`: `integer`
+
+{{ model.techName }} brokers also get assigned a VIP hostname for load-balancing purposes. This VIP is `broker.<SERVICE_NAME>.l4lb.thisdcos.directory:9092`, where `<SERVICE_NAME>` is the service name you have provided when creating the Kafka cluster. By default the `<SERVICE_NAME>` is `{{ model.serviceName }}`, so, by default, the VIP is `broker.{{ model.serviceName }}.l4lb.thisdcos.directory:9092`.
+
+When `security.transport_encryption.enabled` is `true` the VIP hostname uses the port `9093`
 
 ## Configure Broker Placement Strategy <!-- replace this with a discussion of PLACEMENT_CONSTRAINTS? -->
 
