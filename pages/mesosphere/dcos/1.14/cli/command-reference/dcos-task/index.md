@@ -13,7 +13,7 @@ enterprise: false
 
 The `dcos task` commands let you manage DC/OS tasks.
 
-**This command is deprecated since DC/OS 1.14, use `dcos task list` instead.**
+**This command is deprecated since DC/OS 1.14; use `dcos task list` instead.**
 
 # Usage
 
