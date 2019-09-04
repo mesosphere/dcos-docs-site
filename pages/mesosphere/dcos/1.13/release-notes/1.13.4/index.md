@@ -39,14 +39,14 @@ The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, function
 
 
 ## Diagnostics
-- Archive `/var/log/mesos-state.tar` added to all Diagnostics bundles. (DCOS-56403)
+- Archive `/var/log/mesos-state.tar` has been added to all Diagnostics bundles. (DCOS-56403)
 
 
 ## Installation
 
 - Windows build package now proceeds with the correct subset of packages. (DCOS_OSS-5429)
 - Mesos agent no longer deadlocks in RPC authenticatee. (DCOS-57388)
-- `systemd` timer and service unit included in `dcos-diagnostics` package so that the installer picks them up during installation. (DCOS-56379)
+- `systemd` timer and service unit are now included in `dcos-diagnostics` package so that the installer picks them up during installation. (DCOS-56379)
  - Added variant `windows` to Python package. (DCOS-45547)
 
 
