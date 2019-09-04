@@ -36,6 +36,8 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 # Issues fixed in DC/OS 1.13.4
 The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, functional area, or component. 
+- Mesos agent no longer deadlocks in RPC authenticatee. (DCOS-57388)
+- Fixed issue where jobs and group names appeared duplicated when the job name matched the group name. (DCOS-54937)
 
 
 ## Diagnostics
@@ -44,26 +46,24 @@ The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, function
 
 ## Installation
 
-- Windows build package now proceeds with the correct subset of packages. (DCOS_OSS-5429)
-- Mesos agent no longer deadlocks in RPC authenticatee. (DCOS-57388)
+- Windows build package now proceeds with the correct subset of package and added variant `windows` to Python package. (DCOS_OSS-5429, DCOS-45547)
 - `systemd` timer and service unit are now included in `dcos-diagnostics` package so that the installer picks them up during installation. (DCOS-56379)
- - Added variant `windows` to Python package. (DCOS-45547)
+
 
 
 [enterprise]
 ## Security
 [/enterprise]
-- DC/OS signal now able to extract license ID (DCOS-57291)
-- Pre-flight checking for Docker 1.19 revised to allow user to choose lowest client and server options (DCOS-56831)
-- Enterprise CLI no longer fails due to transient network error while downloading `dcos-security-cli`. (DCOS-54793)
+<!-- - DC/OS signal now able to extract license ID (DCOS-57291) -->
+<!-- - Pre-flight checking for Docker 1.19 revised to allow user to choose lowest client and server options (DCOS-56831) -->
+<!-- - Enterprise CLI no longer fails due to transient network error while downloading `dcos-security-cli`. (DCOS-54793) -->
 - Fixed authorization for MULTI_ROLE frameworks. (DCOS-54635)
 
 ## Deploying Jobs
-- Jobs list no longer shows job twice if name matches group. (DCOS-54937)
 
 # Marathon
 
-- Marathon version upgraded to 1.8.222  (DCOS_OSS-5460).
-- Added `maintenanceEnabled` status to informational endpoint. (MARATHON-8660)
-- Removed references to Mesos set attributes. You cannot specify Mesos set attributes. (MARATHON-7977)
-- Changed `clean_marathon_state` to `module` scoped so that it can exist in EE and OSS, and coexist with `module` scoped fixtures which create Marathon resources. (DCOS-45746)
+<!-- - Marathon version upgraded to 1.8.222  (DCOS_OSS-5460). -->
+<!-- - Added `maintenanceEnabled` status to informational endpoint. (MARATHON-8660) -->
+<!-- - Removed references to Mesos set attributes. You cannot specify Mesos set attributes. (MARATHON-7977) -->
+<!-- - Changed `clean_marathon_state` to `module` scoped so that it can exist in EE and OSS, and coexist with `module` scoped fixtures which create Marathon resources. (DCOS-45746) -->
