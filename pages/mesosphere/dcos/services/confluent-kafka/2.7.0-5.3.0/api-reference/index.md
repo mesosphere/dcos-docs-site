@@ -147,7 +147,7 @@ $ curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mode
 
 ## View Topic Offsets
 
-There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as [described in the Kafka documentation][15].
+There is an optional `--time` parameter which may be set to either "first", "last", or a timestamp in milliseconds as [described in the Kafka documentation](https://kafka.apache.org/documentation/).
 
 ```bash
 $ dcos {{ model.packageName }} --name={{ model.serviceName }} topic offsets topic1 --time=last
@@ -236,7 +236,7 @@ $ curl -X DELETE -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ mo
 }
 ```
 
-Note the warning in the output from the commands above. You can change the indicated "delete.topic.enable" configuration value as a configuration change.
+Note the warning in the output from the commands above. You can change the indicated `delete.topic.enable` configuration value as a configuration change.
 
 ## List Under Replicated Partitions
 
