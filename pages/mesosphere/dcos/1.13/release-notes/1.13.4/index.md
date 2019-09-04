@@ -15,19 +15,6 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 
 DC/OS 1.13.4 includes the following components:
 
-<!-- - DC/OS Enterprise UI updated to 1.13+v2.82.7 and plugins to 1.13+v2.82.7+33076c53.
-
-- DC/OS Enterprise plugins updated to 1.13+v2.82.7+33076c53.
-
-- DC/OS core CLI updated to 1.13-patch.5 bundled in the private registry.
-
-- Apache Mesos 1.8.x [change log](https://github.com/apache/mesos/blob/07d053f68b75505a4386913f05d521fa5e36373d/CHANGELOG).
-
-- Marathon 1.8.207 [change log](https://github.com/mesosphere/marathon/tree/9f3550487).
-
-- Metronome 0.6.33 [change log](https://github.com/dcos/metronome/releases/tag/v0.6.33).
- -->
-
  - Marathon 1.8.222  (DCOS_OSS-5460).
 
 
@@ -54,16 +41,5 @@ The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, function
 [enterprise]
 ## Security
 [/enterprise]
-<!-- - DC/OS signal now able to extract license ID (DCOS-57291) -->
-<!-- - Pre-flight checking for Docker 1.19 revised to allow user to choose lowest client and server options (DCOS-56831) -->
-<!-- - Enterprise CLI no longer fails due to transient network error while downloading `dcos-security-cli`. (DCOS-54793) -->
 - Fixed authorization for MULTI_ROLE frameworks. (DCOS-54635)
 
-## Deploying Jobs
-
-# Marathon
-
-<!-- - Marathon version upgraded to 1.8.222  (DCOS_OSS-5460). -->
-<!-- - Added `maintenanceEnabled` status to informational endpoint. (MARATHON-8660) -->
-<!-- - Removed references to Mesos set attributes. You cannot specify Mesos set attributes. (MARATHON-7977) -->
-<!-- - Changed `clean_marathon_state` to `module` scoped so that it can exist in EE and OSS, and coexist with `module` scoped fixtures which create Marathon resources. (DCOS-45746) -->
