@@ -21,16 +21,16 @@ render: mustache
 
 | Option | Description |
 |----------------------|-------------|
-| **jmx.enabled** | Enables the secure JMX |
-| **jmx.port** | JMX port |
-| **jmx.rmi_port** | JMX RMI port |
-| **jmx.access_file** | The path to the secret in the Secret Store that has the contents of the access file. |
-| **jmx.password_file** | The path to the secret in the Secret Store that has the contents of the password file. |
-| **jmx.key_store** | The path to the secret in the Secret Store that has the contents of the key store. |
-| **jmx.key_store_password_file** | The path to the secret in the Secret Store that has the contents of the key store password file. |
-| **jmx.add_trust_store** | Enables the user provided trust store. |
-| **jmx.trust_store** | The path to the secret in the Secret Store that has the contents of the trust store. |
-| **jmx.trust_store_password_file** | The path to the secret in the Secret Store that has the contents of the trust store password file. |
+| jmx.enabled | Enables the secure JMX |
+| jmx.port | JMX port |
+| jmx.rmi_port | JMX RMI port |
+| jmx.access_file | The path to the secret in the Secret Store that has the contents of the access file. |
+| jmx.password_file | The path to the secret in the Secret Store that has the contents of the password file. |
+| jmx.key_store | The path to the secret in the Secret Store that has the contents of the key store. |
+| jmx.key_store_password_file | The path to the secret in the Secret Store that has the contents of the key store password file. |
+| jmx.add_trust_store | Enables the user provided trust store. |
+| jmx.trust_store | The path to the secret in the Secret Store that has the contents of the trust store. |
+| jmx.trust_store_password_file | The path to the secret in the Secret Store that has the contents of the trust store password file. |
 
 Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.1.2/adminguide/radminjmxenablepwdssl.html">here</a>.
 
@@ -125,15 +125,15 @@ DC/OS {{ model.techName }} supports service oriented health checks allowing you 
 
 | Option | Description |
 |----------------------|-------------|
-| **health_check.enabled** | Enables the health checks |
-| **health_check.method** | "PORT" or "FUNCTIONAL" |
-| **health_check.interval** | The period in seconds to wait after the last health check has completed to start the next check. |
-| **health_check.delay** | An amount of time in seconds to wait before starting the health check attempts. |
-| **health_check.timeout** | An amount of time in seconds to wait for a health check to succeed. |
-| **health_check.grace-period** | An amount of time in seconds after the task is launched during which health check failures are ignored. Once a health check succeeds for the first time, the grace period does not apply anymore. Note that it includes delay seconds, i.e., setting grace_period seconds < delay seconds has no effect. |
-| **health_check.max-consecutive-failures** | It is the maximum consecutive number of failures after which task will be killed. |
-| **health_check.health-check-topic-prefix** | Prefix for the health check topic name. Used when "FUNCTIONAL" health check method is selected. |
-| **service.security.kerberos.health_check_primary** | The [Kerberos](/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/security/#authentication) primary used by Kafka health check if enabled. |
+| health_check.enabled | Enables the health checks |
+| health_check.method | "PORT" or "FUNCTIONAL" |
+| health_check.interval | The period in seconds to wait after the last health check has completed to start the next check. |
+| health_check.delay | An amount of time in seconds to wait before starting the health check attempts. |
+| health_check.timeout | An amount of time in seconds to wait for a health check to succeed. |
+| health_check.grace-period | An amount of time in seconds after the task is launched during which health check failures are ignored. Once a health check succeeds for the first time, the grace period does not apply anymore. Note that it includes delay seconds, i.e., setting grace_period seconds < delay seconds has no effect. |
+| health_check.max-consecutive-failures | It is the maximum consecutive number of failures after which task will be killed. |
+| health_check.health-check-topic-prefix | Prefix for the health check topic name. Used when "FUNCTIONAL" health check method is selected. |
+| service.security.kerberos.health_check_primary | The [Kerberos](/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/security/#authentication) primary used by Kafka health check if enabled. |
 
 ### Health Check Methods
 
