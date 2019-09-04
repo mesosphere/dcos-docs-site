@@ -24,24 +24,26 @@ To avoid any downtime, during the upgrade, some Kafka nodes will be on Confluent
 
 To avoid any potential downtime caused by this, change the protocol version used when upgrading Confluent.
 
-- Set up CLI to connect to a soak cluster
-- Update your `options_file.json` with the following contents:
-  ```
-  {
-	  ...
-	  "kafka": {
-		  ...
-		  "inter_broker_protocol_version": "1.0"
-		  ...
-	  }
-	  ...
-  }
-	  ```
+1. Set up CLI to connect to a soak cluster.
+1. Update your `options_file.json` with the following contents:
 
-- And update your service like so:
- ```
- ~$ dcos package install --cli --yes {{ model.packageName }}
- ~$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start \
-	 --package-version=2.6.0-5.3.0 \
-	 --options=options_file.json
-```
+	```
+	{
+		...
+		"kafka": {
+			...
+			"inter_broker_protocol_version": "1.0"
+			...
+		}
+		...
+	}
+		```
+
+1. And update your service like so:
+
+	```
+	~$ dcos package install --cli --yes {{ model.packageName }}
+	~$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start \
+		--package-version=2.6.0-5.3.0 \
+		--options=options_file.json
+	```
