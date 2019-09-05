@@ -15,7 +15,6 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 
 DC/OS 1.13.4 includes the following components:
 
- - Marathon 1.8.222  (DCOS_OSS-5460).
 
 
 # Release summary
@@ -23,8 +22,11 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 # Issues fixed in DC/OS 1.13.4
 The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, functional area, or component. 
+
+ - Encrypted volumes now allowed with Portworx and UCR. (COPS-5219)
+
 - Mesos agent no longer deadlocks in RPC authenticatee. (DCOS-57388)
-- Fixed issue where jobs and group names appeared duplicated when the job name matched the group name. (DCOS-54937)
+- Fixed issue where jobs and group names appeared duplicated when the job name matched the group name. (DCOS-54937, COPS-5208)
 
 
 ## Diagnostics
@@ -33,7 +35,7 @@ The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, function
 
 ## Installation
 
-- Windows build package now proceeds with the correct subset of package and added variant `windows` to Python package. (DCOS_OSS-5429, DCOS-45547)
+- Windows build package now proceeds with the correct subset of packages; added variant `windows` to Python package. (DCOS_OSS-5429, DCOS-45547)
 - `systemd` timer and service unit are now included in `dcos-diagnostics` package so that the installer picks them up during installation. (DCOS-56379)
 
 
