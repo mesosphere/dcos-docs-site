@@ -25,8 +25,8 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
   + You can install just the subcommand CLI by running `dcos package install --cli {{ model.packageName }}`.
   + If you are running an older version of the subcommand CLI that doesn't have the `update` command, uninstall and reinstall your CLI.
     ```bash
-    $ dcos package uninstall --cli {{ model.packageName }}
-    $ dcos package install --cli {{ model.packageName }}
+    dcos package uninstall --cli {{ model.packageName }}
+    dcos package install --cli {{ model.packageName }}
     ```
 
 ### Preparing configuration
@@ -34,7 +34,7 @@ Enterprise DC/OS 1.10 introduces a convenient command line option that allows fo
 If you installed the service with Enterprise DC/OS 1.10, you can fetch the full configuration of a service, including any default values that were applied during installation. For example:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} describe > options.json
+dcos {{ model.packageName }} --name={{ model.serviceName }} describe > options.json
 ```
 
 Make any configuration changes to this `options.json` file.
@@ -54,34 +54,34 @@ First, we will fetch the default application's environment, current application'
 
 1. Get the version of the package that is currently installed:
     ```bash
-    $ PACKAGE_VERSION=$(dcos package list | grep {{ model.packageName }} | awk '{print $2}')
+    PACKAGE_VERSION=$(dcos package list | grep {{ model.packageName }} | awk '{print $2}')
     ```
 
 1. Then fetch and save the environment variables that have been set for the service:
     ```bash
-    $ dcos marathon app show {{ model.serviceName }} | jq .env > current_env.json
+    dcos marathon app show {{ model.serviceName }} | jq .env > current_env.json
     ```
 
 1. To identify those values that are custom, we'll get the default environment variables for this version of the service:
     ```bash
-    $ dcos package describe --package-version=$PACKAGE_VERSION --render --app {{ model.serviceName }} | jq .env > default_env.json
+    dcos package describe --package-version=$PACKAGE_VERSION --render --app {{ model.serviceName }} | jq .env > default_env.json
     ```
 
 1. We'll also get the entire application template:
     ```bash
-    $ dcos package describe {{ model.serviceName }} --app > marathon.json.mustache
+    dcos package describe {{ model.serviceName }} --app > marathon.json.mustache
     ```
 
 With these files, `options.json` can be recreated.
 
 1. Use `jq` and `diff` to compare the two:
     ```bash
-    $ diff <(jq -S . default_env.json) <(jq -S . current_env.json)
+    diff <(jq -S . default_env.json) <(jq -S . current_env.json)
     ```
 
 1. Now compare these values to the values contained in the `env` section in application template:
     ```bash
-    $ less marathon.json.mustache
+    less marathon.json.mustache
     ```
 
 1. Use the variable names (e.g. `{{=<% %>=}}{{service.name}}<%={{ }}=%>`) to create a new `options.json` file as described in Initial service configuration.
@@ -91,7 +91,7 @@ With these files, `options.json` can be recreated.
 Once you are ready to begin, initiate an update using the DC/OS CLI, passing in the updated `options.json` file:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
+dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
 ```
 
 You will receive an acknowledgement message and the DC/OS package manager will restart the Scheduler in Marathon.
@@ -123,42 +123,42 @@ To see a full listing of available options, run `dcos package describe --config 
 
 1.  Optional: Create a JSON options file with any custom configuration, such as a non-default `DEPLOY_STRATEGY`.
 
-```json
-{
-  "env": {
-    "DEPLOY_STRATEGY": "parallel-canary"
+  ```json
+  {
+    "env": {
+      "DEPLOY_STRATEGY": "parallel-canary"
+    }
   }
-}
-```
+  ```
 
 
 1.  Install the latest version of the {{ model.packageName }} package with the specified options:
 
-```bash
-$ dcos package install {{ model.packageName }} -—options=options.json
-```
+  ```bash
+  dcos package install {{ model.packageName }} -—options=options.json
+  ```
 
 # Pod Info
 
 Comprehensive information is available about every pod.  To list all pods:
 
-```bash
-dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
-[
-  "{{ model.managing.podType }}-0",
-  "{{ model.managing.podType }}-1",
-  ...
-]
-```
+  ```bash
+  dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
+  [
+    "{{ model.managing.podType }}-0",
+    "{{ model.managing.podType }}-1",
+    ...
+  ]
+  ```
 
 To view information about a pod, run the following command from the CLI.
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod info <{{ model.managing.podType }}-id>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod info <{{ model.managing.podType }}-id>
 ```
 
 For example:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod info {{ model.managing.podType }}-0
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod info {{ model.managing.podType }}-0
 {
   ... lots of JSON ...
 }
@@ -168,13 +168,13 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} pod info {{ model.
 Similarly, the status for any pod may also be queried.
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod status <{{ model.managing.podType }}-id>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod status <{{ model.managing.podType }}-id>
 ```
 
 For example:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod status {{ model.managing.podType }}-1
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod status {{ model.managing.podType }}-1
 [
   {
     "name": "{{ model.managing.podType }}-1-{{ model.managing.taskType }}",
@@ -198,7 +198,7 @@ After the pod has been paused, it may be started again, at which point it will b
 Here is an example session where a `{{ model.managing.podType }}-1` pod is crash looping due to some corrupted data in a persistent volume. The operator pauses the `{{ model.managing.podType }}-1` pod, then uses `task exec` to repair the pod. Following this, the operator starts the pod and it resumes normal operation:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause {{ model.managing.podType }}-1
+dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause {{ model.managing.podType }}-1
 {
   "pod": "{{ model.managing.podType }}-1",
   "tasks": [
@@ -206,7 +206,7 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause {{
   ]
 }
 
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod status
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod status
 {{ model.serviceName }}
 └─ {{ model.managing.podType }}
    ├─ {{ model.managing.podType }}-0
@@ -216,10 +216,10 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} pod status
 
 ... repeat "pod status" until {{ model.managing.podType }}-1 is PAUSED ...
 
-$ dcos task exec --interactive --tty {{ model.managing.podType }}-1-{{ model.managing.taskType }} /bin/bash
+dcos task exec --interactive --tty {{ model.managing.podType }}-1-{{ model.managing.taskType }} /bin/bash
 {{ model.managing.podType }}-1-node$ ./repair-{{ model.managing.podType }} && exit
 
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume {{ model.managing.podType }}-1
+dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume {{ model.managing.podType }}-1
 {
   "pod": "{{ model.managing.podType }}-1",
   "tasks": [
@@ -227,7 +227,7 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume {
   ]
 }
 
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod status
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod status
 {{ model.serviceName }}
 └─ {{ model.managing.podType }}
    ├─ {{ model.managing.podType }}-0
@@ -252,25 +252,25 @@ The `update package-versions` command allows you to view the versions of a servi
 
 For example, run:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update package-versions
+dcos {{ model.packageName }} --name={{ model.serviceName }} update package-versions
 ```
 
 ## Upgrading or downgrading a service
 
 1. Before updating the service itself, update its CLI subcommand to the new version:
    ```bash
-   $ dcos package uninstall --cli {{ model.packageName }}
-   $ dcos package install --cli {{ model.packageName }} --package-version="1.1.6-5.0.7"
+   dcos package uninstall --cli {{ model.packageName }}
+   dcos package install --cli {{ model.packageName }} --package-version="1.1.6-5.0.7"
    ```
 1. Once the CLI subcommand has been updated, call the update start command, passing in the version. For example, to update DC/OS {{ model.techName }} Service to version `1.1.6-5.0.7`:
    ```bash
-   $ dcos {{ model.packageName }} --name={{ model.serviceName }} update start --package-version="1.1.6-5.0.7"
+   dcos {{ model.packageName }} --name={{ model.serviceName }} update start --package-version="1.1.6-5.0.7"
    ```
 
 If you are missing mandatory configuration parameters, the `update` command will return an error. To supply missing values, you can also provide an `options.json` file (see [Updating configuration](#updating-configuration)):
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json --package-version="1.1.6-5.0.7"
+dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json --package-version="1.1.6-5.0.7"
 ```
 
 See [Advanced update actions](#advanced-update-actions) for commands you can use to inspect and manipulate an update after it has started.
@@ -290,7 +290,7 @@ Once the Scheduler has been restarted, it will begin a new deployment plan as in
 You can query the status of the update as follows:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update status
+dcos {{ model.packageName }} --name={{ model.serviceName }} update status
 ```
 
 If the Scheduler is still restarting, DC/OS will not be able to route to it and this command will return an error message. Wait a short while and try again. You can also go to the Services tab of the DC/OS GUI to check the status of the restart.
@@ -300,7 +300,7 @@ If the Scheduler is still restarting, DC/OS will not be able to route to it and 
 To pause an ongoing update, issue a pause command:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update pause
+dcos {{ model.packageName }} --name={{ model.serviceName }} update pause
 ```
 
 You will receive an error message if the plan has already completed or has been paused. Once completed, the plan will enter the `WAITING` state.
@@ -310,7 +310,7 @@ You will receive an error message if the plan has already completed or has been 
 If a plan is in a `WAITING` state, as a result of being paused or reaching a breakpoint that requires manual operator verification, you can use the `resume` command to continue the plan:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update resume
+dcos {{ model.packageName }} --name={{ model.serviceName }} update resume
 ```
 
 You will receive an error message if you attempt to `resume` a plan that is already in progress or has already completed.
@@ -320,7 +320,7 @@ You will receive an error message if you attempt to `resume` a plan that is alre
 In order to manually "complete" a step (such that the Scheduler stops attempting to launch a task), you can issue a `force-complete` command. This will instruct to Scheduler to mark a specific step within a phase as complete. You need to specify both the phase and the step, for example:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update force-complete service-phase {{ model.managing.podType }}-0:[task]
+dcos {{ model.packageName }} --name={{ model.serviceName }} update force-complete service-phase {{ model.managing.podType }}-0:[task]
 ```
 
 ## Force Restart
@@ -329,17 +329,17 @@ Similar to force complete, you can also force a restart. This can either be done
 
 To restart the entire plan:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update force-restart
+dcos {{ model.packageName }} --name={{ model.serviceName }} update force-restart
 ```
 
 Or for all steps in a single phase:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update force-restart service-phase
+dcos {{ model.packageName }} --name={{ model.serviceName }} update force-restart service-phase
 ```
 
 Or for a specific step within a specific phase:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} update force-restart service-phase {{ model.managing.podType }}-0:[task]
+dcos {{ model.packageName }} --name={{ model.serviceName }} update force-restart service-phase {{ model.managing.podType }}-0:[task]
 ```
 
 <!-- END DUPLICATE BLOCK -->

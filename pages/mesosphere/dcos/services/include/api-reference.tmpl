@@ -1,6 +1,3 @@
-
-<!-- Use file in the API-Reference section. -->
-
 The DC/OS {{ model.techName }} Service implements a REST API that may be accessed from outside the cluster. The `<dcos_url>` parameter referenced below indicates the base URL of the DC/OS cluster on which the DC/OS {{ model.techName }} Service is deployed.
 
 # REST API Authentication
@@ -14,7 +11,7 @@ If you are using open source DC/OS, follow these instructions to [pass your HTTP
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 
 ```bash
-$ export auth_token=uSeR_t0k3n
+export auth_token=uSeR_t0k3n
 ```
 
 The `curl` examples in this document assume that an auth token has been stored in an environment variable named `auth_token`.
@@ -30,11 +27,11 @@ The Plan API provides endpoints for monitoring and controlling service installat
 You may list the configured plans for the service. By default, all services at least have a `deploy` plan and a `recovery` plan. Some services may have additional custom plans defined.
 
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans
 ```
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
 ```
 
 ## View plan
@@ -42,17 +39,17 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
 You may view the current state of a listed plan:
 
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans/<plan>
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans/<plan>
 ```
 
 The CLI may be used to show a formatted tree of the plan (default), or the underlying JSON data as retrieved from the above HTTP endpoint:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan>
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan>
 ```
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan> --json
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan> --json
 ```
 
 ## Pause plan
@@ -60,11 +57,11 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show <plan> -
 The installation will pause after completing the operation of the current node and wait for user input before proceeding further.
 
 ```bash
-$ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans/deploy/interrupt
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/plans/deploy/interrupt
 ```
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause deploy
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause deploy
 ```
 
 ## Resume plan
@@ -72,11 +69,11 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause deploy
 The REST API request below will resume the operation at the next pending node.
 
 ```bash
-$ curl -X PUT -H "Authorization:token=$auth_token" <dcos_surl>/service/{{ model.serviceName }}/v1/plans/deploy/continue
+curl -X PUT -H "Authorization:token=$auth_token" <dcos_surl>/service/{{ model.serviceName }}/v1/plans/deploy/continue
 ```
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan continue deploy
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan continue deploy
 ```
 
 # Nodes API
@@ -89,12 +86,12 @@ A list of available node ids can be retrieved by sending a GET request to `/v1/p
 
 CLI Example
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
 ```
 
 HTTP Example
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod
 ```
 
 ## Node Info
@@ -102,17 +99,17 @@ $ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceN
 You can retrieve node information by sending a GET request to `/v1/pod/<node-id>/info`:
 
 ```bash
-$ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/info
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/info
 ```
 
 CLI Example
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod info journalnode-0
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod info journalnode-0
 ```
 
 HTTP Example
 ```bash
-$ curl  -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/journalnode-0/info
+curl  -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/journalnode-0/info
 ```
 
 ## Replace a Node
@@ -121,12 +118,12 @@ The `replace endpoint` command can be used to replace a node with an instance ru
 
 CLI Example
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <node-id>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <node-id>
 ```
 
 HTTP Example
 ```bash
-$ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/replace
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/replace
 ```
 
 If the operation succeeds, a `200 OK` is returned.
@@ -137,12 +134,12 @@ The `restart endpoint` command can be used to restart a node in place on the sam
 
 CLI Example
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <node-id>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <node-id>
 ```
 
 HTTP Example
 ```bash
-$ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/restart
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/restart
 ```
 
 If the operation succeeds a `200 OK` is returned.
@@ -158,7 +155,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <nod
 
 HTTP Example
 ```bash
-$ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/pause
+curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/pod/<node-id>/pause
 ```
 
 # Configuration API
@@ -171,12 +168,12 @@ You can view the current target configuration by sending a GET request to `/v1/c
 
 CLI Example
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} config target
+dcos {{ model.packageName }} --name={{ model.serviceName }} config target
 ```
 
 HTTP Example
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations/target
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations/target
 ```
 
 ## List Configs
@@ -185,7 +182,7 @@ You can list all configuration IDs by sending a GET request to `/v1/configuratio
 
 CLI Example
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} config list
+dcos {{ model.packageName }} --name={{ model.serviceName }} config list
 [
   "319ebe89-42e2-40e2-9169-8568e2421023",
   "294235f2-8504-4194-b43d-664443f2132b"
@@ -194,7 +191,7 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} config list
 
 HTTP Example
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations
 [
   "319ebe89-42e2-40e2-9169-8568e2421023",
   "294235f2-8504-4194-b43d-664443f2132b"
@@ -207,10 +204,10 @@ You can view a specific configuration by sending a GET request to `/v1/configura
 
 CLI Example
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
+dcos {{ model.packageName }} --name={{ model.serviceName }} config show 9a8d4308-ab9d-4121-b460-696ec3368ad6
 ```
 
 HTTP Example
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations/9a8d4308-ab9d-4121-b460-696ec3368ad6
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/configurations/9a8d4308-ab9d-4121-b460-696ec3368ad6
 ```

@@ -247,7 +247,7 @@ You can store binary files, like a Kerberos keytab, in the DC/OS secrets store. 
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab` run:
 
 ```bash
-$ dcos security secrets create --file kerb5.keytab mysecret
+dcos security secrets create --file kerb5.keytab mysecret
 ```
 
 #### DC/OS 1.10 or earlier
@@ -255,35 +255,27 @@ $ dcos security secrets create --file kerb5.keytab mysecret
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab`, first encode it using the `base64` command line utility. The following example uses BSD `base64` (default on Mac OS).
 
 ```bash
-$ base64 --input krb5.keytab > kerb5.keytab.base64-encoded
+base64 --input krb5.keytab > kerb5.keytab.base64-encoded
 ```
 
 Alternatively, GNU `base64` (the default on Linux) inserts line-feeds in the encoded data by default. Disable line-wrapping with the `-w 0` argument.
 
 ```bash
-$ base64 -w 0 krb5.keytab > kerb5.keytab.base64-encoded
+base64 -w 0 krb5.keytab > kerb5.keytab.base64-encoded
 ```
 
 Now that the file is encoded it can be stored as a secret.
 
 ```bash
-$ dcos security secrets create --text-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
+dcos security secrets create --text-file kerb5.keytab.base64-encoded some/path/__dcos_base64__mysecret
 ```
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Important:</strong> The secret name <strong>must</strong> be prefixed with "__dcos_base64__".</td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT: </strong> The secret name <strong>must</strong> be prefixed with "__dcos_base64__".</p>
 
 
 When the `some/path/__dcos_base64__mysecret` secret is [referenced in your service definition](https://mesosphere.github.io/dcos-commons/developer-guide.html), its base64-decoded contents will be made available as a [temporary file](http://mesos.apache.org/documentation/latest/secrets/#file-based-secrets) in your service task containers.
 
-<table class=“table note” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>Note:</strong> Make sure to only refer to binary secrets as files, since holding binary content in environment variables is discouraged.</td> 
-</tr> 
-</table>
+<p class="message--note"><strong>NOTE: </strong> Make sure to only refer to binary secrets as files, since holding binary content in environment variables is discouraged.</p> 
 
 
 ## Service Scheduler Metrics

@@ -3,7 +3,7 @@
 After a configuration change, the service may enter an unhealthy state. This commonly occurs when an invalid configuration change was made by the user. Certain configuration values may not be changed, or may not be decreased. To verify whether this is the case, check the service's `deploy` plan for any errors.
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> plan show deploy
+dcos {{ model.packageName }} --name=<service-name> plan show deploy
 ```
 
 ## Accessing Logs
@@ -35,19 +35,19 @@ The DC/OS {{ model.techName }} service is resilient to temporary pod failures, a
 The following command should be used to get a list of available pods.
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> pod list
+dcos {{ model.packageName }} --name=<service-name> pod list
 ```
 
 The following command should then be used to replace the pod residing on the failed machine, using the appropriate `pod_name` provided in the above list.
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> pod replace <pod_name>
+dcos {{ model.packageName }} --name=<service-name> pod replace <pod_name>
 ```
 
 The pod recovery may then be monitored via the `recovery` plan.
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> plan show recovery
+dcos {{ model.packageName }} --name=<service-name> plan show recovery
 ```
 
 ## Restarting a Node
@@ -57,19 +57,19 @@ If you must forcibly restart a pod's processes but do not wish to clear that pod
 The following command should be used to get a list of available pods.
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> pod list
+dcos {{ model.packageName }} --name=<service-name> pod list
 ```
 
 The following command should then be used to restart the pod, using the appropriate `pod_name` provided in the above list.
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> pod restart <pod_name>
+dcos {{ model.packageName }} --name=<service-name> pod restart <pod_name>
 ```
 
 The pod recovery may then be monitored via the `recovery` plan.
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> plan show recovery
+dcos {{ model.packageName }} --name=<service-name> plan show recovery
 ```
 
 ## Tasks not deploying / Resource starvation

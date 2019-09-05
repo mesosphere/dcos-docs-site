@@ -3,11 +3,13 @@
 If you are using DC/OS 1.10 or later and the installed service has a version later than 2.0.0-x, then uninstalling the service is simple.
 
 From the DC/OS CLI, enter 
+
 ```
 dcos package uninstall --app-id=<service-name> {{ model.packageName }}
 ```
 
 ### Uninstall process
+
 <p class="message--warning"><strong>WARNING: </strong>Once the uninstall operation has begun, it cannot be cancelled because doing so can leave the service in an uncertain, half-destroyed state. Any data stored in reserved disk resources will be irretrievably lost.</p>
 
 Uninstalling the service consists of the following steps:
@@ -23,13 +25,13 @@ Uninstalling the service consists of the following steps:
 
 There are certain situations under which the automated uninstall process cannot complete without manual intervention.
 
-#### <a name="zombie-service-scheduler"></a>Zombie service scheduler
+### <a name="zombie-service-scheduler"></a>Zombie service scheduler
 
 If the service scheduler reports in its `stdout` that the uninstall is complete, but the scheduler is not removed from the system, you can safely delete it via Marathon.
 
-#### Missing DC/OS agent
+### Missing DC/OS agent
 
-The service will not complete the uninstall if it is not able to unreserve all the resources it has previously reserved. A common cause of this is a DC/OS agent that the service had reserved resources for, which is no longer part of the DC/OS cluster.
+The service will not complete the uninstall if it is not able to unreserve all the resources it has previously reserved. A common cause of this is a DC/OS agent for which the service had reserved resources, which is no longer part of the DC/OS cluster.
 
 - If the agent is only temporarily gone due to maintenance, the service will unreserve the resources when the agent returns to the cluster.
 
@@ -43,7 +45,7 @@ First determine what resources the service is waiting on.
 - HTTP: `https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy`
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
 deploy (IN_PROGRESS)
 ├─ kill-tasks (COMPLETE)
 │  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
@@ -67,15 +69,15 @@ As we can see above, some of the resources to unreserve are stuck in a `PENDING`
 - HTTP: `https://yourcluster.com/service/{{ model.serviceName }}/v1/plans/deploy/forceComplete?phase=unreserve-resources&step=unreserve-<UUID>`
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-402d51f5-6014-4ca3-bd13-324dae62b888
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-402d51f5-6014-4ca3-bd13-324dae62b888
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-cb95e869-277f-48b9-954f-08c0d7a26bcf
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete deploy unreserve-resources unreserve-5dd56b1d-4522-4bbd-88b5-de9fa0f181f2
 ```
 
 At this point the scheduler should show a `COMPLETE` state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
 ```
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
 deploy (IN_PROGRESS)
 ├─ kill-tasks (COMPLETE)
 │  ├─ kill-task-node-0-server__1a4114bc-48bb-47f6-be99-1b5ca6d55c4e (COMPLETE)
@@ -104,10 +106,10 @@ If it is not possible to recover in other ways, then the service can be manually
 - Delete the uninstalling scheduler from Marathon.
 - Unregister the service from Mesos using its UUID as follows:
   ```bash
-  $ dcos service --inactive | grep {{ model.serviceName }}
+  dcos service --inactive | grep {{ model.serviceName }}
   {{ model.serviceName }}     False     3    3.3  6240.0  15768.0  <UUID>
 
-  $ dcos service shutdown <UUID>
+  dcos service shutdown <UUID>
   ```
 - Run `janitor.py` to clean up the remaining reserved resources, as described in the DC/OS 1.9 instructions below.
 
@@ -119,9 +121,9 @@ If you are running DC/OS 1.9 or earlier, or a version of the {{ model.techName }
 1. Clean up remaining reserved resources with the framework cleaner script, `janitor.py`.
 
 ```bash
-$ MY_SERVICE_NAME=<service-name>
-$ dcos package uninstall --app-id=$MY_SERVICE_NAME {{ model.packageName }}`.
-$ dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
+MY_SERVICE_NAME=<service-name>
+dcos package uninstall --app-id=$MY_SERVICE_NAME {{ model.packageName }}`.
+dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
     -r $MY_SERVICE_NAME-role \
     -p $MY_SERVICE_NAME-principal \
     -z dcos-service-$MY_SERVICE_NAME"
