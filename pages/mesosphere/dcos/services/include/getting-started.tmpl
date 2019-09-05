@@ -7,7 +7,7 @@ To start a basic test cluster {{ model.install.nodeDescription }}, run the follo
 
 
 ```bash
-$ dcos package install {{ model.packageName }}
+dcos package install {{ model.packageName }}
 ```
 
 This command creates a new instance with the default name `{{ model.serviceName }}`. Two instances cannot share the same name, so installing additional instances beyond the default instance requires customizing the `name` at install time for each additional instance.
@@ -15,7 +15,7 @@ This command creates a new instance with the default name `{{ model.serviceName 
 All `dcos {{ model.packageName }}` CLI commands have a `--name` argument allowing you to specify which instance to query. If you do not specify a service name, the CLI assumes a default value matching the package name, `{{ model.packageName }}`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
+dcos {{ model.packageName }} --name={{ model.serviceName }} <cmd>
 ```
 ## From the web interface
 

@@ -13,7 +13,7 @@ Every plan is made up of a set of phases, each of which consists of one or more 
 A list of plans can be retrieved using the CLI command:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
 
 ```
 
@@ -22,7 +22,7 @@ $ dcos {{ model.packageName }} --name={{ model.serviceName }} plan list
 View the current status of a plan using the CLI command:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status <plan-name>
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan status <plan-name>
 ```
 
 For example, the status of the completed deploy plan of the service will be:
@@ -31,7 +31,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status deploy
 {{ model.operations.complete-deploy}}
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Passing the <code>--json</code> flag to the <code>status</code> command will return a JSON response which has UUIDs for the phases and steps of a plan. These UUIDs can be useful in the other plan commands.</p>
+<p class="message--note"><strong>NOTE: </strong>Passing the <tt>--json</tt> flag to the <tt>status</tt> command will return a JSON response which has UUIDs for the phases and steps of a plan. These UUIDs can be useful in the other plan commands.</p>
 
 
 ### Operating on a plan
@@ -41,21 +41,21 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} plan status deploy
 Start a plan with the CLI command:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan start <plan-name>
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan start <plan-name>
 ```
 
 #### Pause
 Pauses the plan, or a specific phase in that plan with the provided phase name (or UUID).
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause <plan (required)> <phase (optional)>
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan pause <plan (required)> <phase (optional)>
 ```
 
 #### Stop
 Stops the running plan with the provided name.
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan stop <plan>
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan stop <plan>
 ```
 
 Plan Stop differs from Plan Pause in the following ways:
@@ -66,21 +66,21 @@ Plan Stop differs from Plan Pause in the following ways:
 Resumes the plan, or a specific phase in that plan, with the provided phase name (or UUID).
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} plan resume <plan (required)> <phase (optional)>
+dcos {{ model.packageName }} --name={{ model.serviceName }} plan resume <plan (required)> <phase (optional)>
 ```
 
 #### Force-Restart
 Restarts the specified step, phase if no step is specified, or plan if no phase is specified.
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-restart <plan (required)> <phase (optional)> <step (optional)>
+dcos {{ model.packageName }} --name={{ model.serviceName }} force-restart <plan (required)> <phase (optional)> <step (optional)>
 ```
 
 #### Force-Complete
 Force completes a specific step in the provided phase of the plan. From the CLI it is only possible to force complete a step. The HTTP API supports force completing on phases and plans in their entirety.
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} force-complete <plan (required)> <phase (required)> <step (required)>
+dcos {{ model.packageName }} --name={{ model.serviceName }} force-complete <plan (required)> <phase (required)> <step (required)>
 ```
 
 ## Pod Operations
@@ -94,14 +94,14 @@ A deployed instance of the DC/OS {{ model.techName }} service is made up of a se
 
 To list all the pods of the service run the CLI command:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
 ```
 
 ### Status
 
 To view the status of all pods or optionally just one pod run the CLI command:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod <pod-name (optional)>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod <pod-name (optional)>
 ```
 
 This will show any status overrides for pods and their tasks.
@@ -110,7 +110,7 @@ This will show any status overrides for pods and their tasks.
 
 To restart a pod in place, use the CLI command:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <pod-name>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod restart <pod-name>
 ```
 
 This will kill the tasks of the pod, and relaunch them in-place. The progress of the restart can be monitored by watching the `recovery` plan of the service.
@@ -121,7 +121,7 @@ Replace should be used **only** when the current instance of the pod should be c
 
 Issue a replace by running the CLI command:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <pod-name>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod replace <pod-name>
 ```
 
 ### Pause
@@ -130,12 +130,12 @@ Pausing a pod relaunches it in an idle command state. This allows you to debug t
 
 Using pause and `dcos task exec` is a very powerful debugging tool. To pause a pod use the CLI command:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name>
+dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name>
 ```
 
 To pause a specific task of a pod append the `-t <task-name>` flag,
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name> -t <task-name>
+dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod pause <pod-name> -t <task-name>
 ```
 
 Use the `pod status` command to check what tasks and pods are in an overridden state.
@@ -144,7 +144,7 @@ Use the `pod status` command to check what tasks and pods are in an overridden s
 
 To resume a paused pod or task use the CLI command:
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume <pod-name> [-t <task-name>]
+dcos {{ model.packageName }} --name={{ model.serviceName }} debug pod resume <pod-name> [-t <task-name>]
 ```
 
 Check the `pod status` command to verify that the pod (or task) has properly resumed.
@@ -174,7 +174,7 @@ Access both the files and logs of a service by clicking on its `sandbox` link.
 
 [<img src="/services/img/ops-guide-scheduler-sandbox.png" alt="contents of a scheduler sandbox" width="400"/>](/services/img/ops-guide-scheduler-sandbox.png)
 
-Figure 1. Scheduler sandbox
+Figure 1 - Scheduler sandbox
 
 ### DC/OS CLI
 
@@ -193,5 +193,5 @@ In the Agent view, you will see a list of frameworks with a presence on that Age
 [<img src="/services/img/ops-guide-agent.png" alt="view of tasks running on a given agent" width="400"/>](/services/img/ops-guide-agent.png)
 
 
-Figure 2. List of frameworks
+Figure 2 - List of frameworks
 

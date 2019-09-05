@@ -10,7 +10,7 @@ The following are some examples of how to customize the installation of your {{ 
 In each case, you would create a new {{ model.techName }} instance using the custom configuration as follows:
 
 ```bash
-$ dcos package install {{ model.packageName }} --options=sample-{{ model.serviceName }}.json
+dcos package install {{ model.packageName }} --options=sample-{{ model.serviceName }}.json
 ```
 
 We recommend that you store your custom configuration in source control.
@@ -30,7 +30,7 @@ By default, the {{ model.techName }} service is installed with a service name of
 When the above JSON configuration is passed to the `package install {{ model.packageName }}` command via the `--options` argument, the new service will use the name specified in that JSON configuration:
 
 ```bash
-$ dcos package install {{ model.packageName }} --options={{ model.serviceName }}-other.json
+dcos package install {{ model.packageName }} --options={{ model.serviceName }}-other.json
 ```
 
 Multiple instances of {{ model.techName }} may be installed into your DC/OS cluster by customizing the name of each instance. For example, you might have one instance of {{ model.techName }} named `{{ model.serviceName }}-staging` and another named `{{ model.serviceName }}-prod`, each with its own custom configuration.
@@ -63,25 +63,25 @@ After you've installed the service under a custom name or under a folder, it may
 For example, if you had an instance named `{{ model.serviceName }}-dev`, the following command would invoke a `pod list` command against it:
 
 ```bash
-$ dcos {{ model.packageName }} --name={{ model.serviceName }}-dev pod list
+dcos {{ model.packageName }} --name={{ model.serviceName }}-dev pod list
 ```
 
 The same query would be over HTTP as follows:
 
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}-dev/v1/pod
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}-dev/v1/pod
 ```
 
 Likewise, if you had an instance in a folder like `/foldered/path/to/{{ model.serviceName }}`, the following command would invoke a `pod list` command against it:
 
 ```bash
-$ dcos {{ model.packageName }} --name=/foldered/path/to/{{ model.serviceName }} pod list
+dcos {{ model.packageName }} --name=/foldered/path/to/{{ model.serviceName }} pod list
 ```
 
 Similarly, it could be queried directly over HTTP as follows:
 
 ```bash
-$ curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/{{ model.serviceName }}-dev/v1/pod
+curl -H "Authorization:token=$auth_token" <dcos_url>/service/foldered/path/to/{{ model.serviceName }}-dev/v1/pod
 ```
 
 You may add a `-v` (verbose) argument to any `dcos {{ model.packageName }}` command to see the underlying HTTP queries that are being made. This can be a useful tool to see where the CLI is getting its information. In practice, `dcos {{ model.packageName }}` commands are a thin wrapper around an HTTP interface provided by the DC/OS {{ model.techName }} Service itself.
