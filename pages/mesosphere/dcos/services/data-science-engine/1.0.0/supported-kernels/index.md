@@ -216,8 +216,10 @@ print("Pi is roughly %f" % (4.0 * count / n))
 spark.stop
 ```
 
-### Using BeakerX Magic
-Open a `Scala Notebook` and put the following in a seperate code cells:
+### Using BeakerX Kernel
+BeakerX Kernel supports Spark magic which allows configuring and starting Spark Session via UI.
+
+To use BeakerX Spark Magic, open a `Scala Notebook` and put the following in a seperate code cells:
 
 ```scala
 %%spark --start
@@ -228,7 +230,7 @@ val count = spark.sparkContext.parallelize(1 to 10000).sum()
 count
 ```
 
-If you want to use HDFS as a storage, you have to add following line in a first cell of the notebook.
+If you want to use HDFS as a storage or as event log directory for Spark History Server, HDFS configuration files should be added to the classpath. To make HDFS configuration available for the notebook add the following line in a first cell of the notebook.
 
 ```scala
 %classpath add jar /mnt/mesos/sandbox/hadoop_conf
