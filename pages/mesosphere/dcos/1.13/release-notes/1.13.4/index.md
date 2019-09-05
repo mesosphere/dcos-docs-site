@@ -16,28 +16,23 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 DC/OS 1.13.4 includes the following components:
 
 
-
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 # Issues fixed in DC/OS 1.13.4
 The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, functional area, or component. 
 
- - Encrypted volumes are now allowed with Portworx and UCR. Added parameter 'shared' on external volumes; if shared is `true`, unique validation for the volume name is excluded. (MARATHON-8681, COPS-5219)
-
+- Encrypted volumes are now allowed with Portworx and UCR. Added parameter 'shared' on external volumes; if shared is `true`, unique validation for the volume name is excluded. (MARATHON-8681, COPS-5219)
 - Mesos agent no longer deadlocks in RPC authenticatee. (DCOS-57388)
 - Fixed issue where jobs and group names appeared duplicated when the job name matched the group name. (DCOS-54937, COPS-5208)
 
-
 ## Diagnostics
 - Archive `/var/log/mesos-state.tar` has been added to all Diagnostics bundles. (DCOS-56403)
-
 
 ## Installation
 
 - Windows build package now proceeds with the correct subset of packages; added variant `windows` to Python package. (DCOS_OSS-5429, DCOS-45547)
 - `systemd` timer and service unit are now included in `dcos-diagnostics` package so that the installer picks them up during installation. (DCOS-56379)
-
 
 
 [enterprise]
