@@ -18,22 +18,21 @@ MinIO is a distributed object storage service for high performance, high scale d
 
 Install the MinIO operator.
 ```
-kubectl create -f https://github.com/minio/minio-operator/blob/master/docs/minio-operator.yaml?raw=true
+kubectl create -f https://github.com/minio/minio-operator/blob/master/minio-operator.yaml?raw=true
 ```
 
 ### install the cluster
 
 Install the MinIO cluster.
 ```
-kubectl create -f https://github.com/minio/minio-operator/blob/master/docs/minio-examples/minio-secret.yaml?raw=true
-kubectl create -f https://github.com/minio/minio-operator/blob/master/docs/minio-examples/minioinstance.yaml?raw=true
+kubectl create -f https://github.com/minio/minio-operator/blob/master/examples/minioinstance-with-external-service.yaml?raw=true
 ```
 
 ### access the cluster
 
 Enable localhost access to the MinIO console.
 ```
-kubectl port-forward service/minio 9000
+kubectl port-forward service/minio-service 9000
 ```
 
 Click to open the [MinIO console](http://localhost:9000).
@@ -47,15 +46,14 @@ echo $(kubectl get secret minio-creds-secret -o=jsonpath='{.data.secretkey}' | b
 
 Delete the cluster.
 ```
-kubectl delete -f https://github.com/minio/minio-operator/blob/master/docs/minio-examples/minioinstance.yaml?raw=true
-kubectl delete -f https://github.com/minio/minio-operator/blob/master/docs/minio-examples/minio-secret.yaml?raw=true
+kubectl delete -f https://github.com/minio/minio-operator/blob/master/examples/minioinstance-with-external-service.yaml?raw=true
 ```
 
 **Note:** If the `velero addon` is installed in your `Konvoy cluster` then you `must not delete` the `MinIO operator`, skip the following delete step.
 
 Delete the operator.
 ```
-kubectl delete -f https://github.com/minio/minio-operator/blob/master/docs/minio-operator.yaml?raw=true
+kubectl delete -f https://github.com/minio/minio-operator/blob/master/minio-operator.yaml?raw=true
 ```
 
 

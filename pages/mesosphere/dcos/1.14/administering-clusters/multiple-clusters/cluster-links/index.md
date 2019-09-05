@@ -82,33 +82,41 @@ If you run `dcos cluster list`, `<linked-cluster>` will have an asterisk by its 
 
 ### Switch to a linked cluster from the DC/OS UI
 
+1.  From the left hand navigation menu, select **Cluster > Linked Clusters**.
+
+    ![Linked Cluster link](/mesosphere/dcos/1.14/img/GUI-Cluster-Linked-Clusters-Tab-Link.png)
+
+    Figure 1 - Linked Clusters link
+
 1.  At the top-right corner of the DC/OS UI, click the down arrow to the right of your cluster name.
 
     ![open cluster popup](/mesosphere/dcos/1.14/img/open-cluster-popup.png)
 
-    Figure 1. Open cluster menu
+    Figure 2 - Open cluster menu
 
 1.  Select **Switch Cluster**.
 
     ![swi cluster](/mesosphere/dcos/1.14/img/switch-cluster-1-12.png)
 
-    Figure 2. Switch clusters
+    Figure 3 - Switch clusters
 
 1. Click the name of the cluster to switch to.
 
     ![swi linked cluster](/mesosphere/dcos/1.14/img/switch-linked-cluster.png)
 
-    Figure 3. Switching to linked cluster
+    Figure 4 - Switching to linked cluster
 
-If you are logged in as a superuser you can also switch to a linked cluster in the Linked Clusters tab.
+#### Switching clusters as a superuser    
+    
+If you are logged in as a superuser you can also switch directly to a linked cluster in the **Linked Clusters** tab.
 
-1. Select **Cluster -> Linked Clusters**.
+1. Select **Cluster > Linked Clusters**.
 
-1. At the far right of the cluster to switch to, click the vertical ellipsis and select **Switch**.
+1. At the far right, click the vertical ellipsis and select **Switch**.
 
-   ![swi linked cluster2](/mesosphere/dcos/1.14/img/switch-linked-cluster2.png)
+   ![swi linked cluster2](/mesosphere/dcos/1.14/img/GUI-Linked-Clusters-Switch.png)
 
-   Figure 4. Switching to linked clusters
+   Figure 5 - Switching to linked clusters
 
 
 # Linking and switching cluster examples
@@ -211,15 +219,15 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
    ![google login](/mesosphere/dcos/1.14/img/google-login.png)
 
-   Figure 5. Google login
+   Figure 6 - Google login
 
-1. From the top right corner, click the down arrow next to the cluster name.
+1.  At the top-right corner of the DC/OS UI, click the down arrow to the right of your cluster name.
 
-   ![swi cluster](/mesosphere/dcos/1.14/img/switch-cluster-1-12.png)
+    ![open cluster popup](/mesosphere/dcos/1.14/img/open-cluster-popup.png)
 
-   Figure 6. Switch cluster
+    Figure 7 - Switch cluster
 
-1. Click **Switch Cluster**. In the Linked Clusters pane, select cluster `cluster-b`. Cluster `cluster-b`’s UI displays.
+1. Click **Switch Cluster**. 
 
 
 ### Switch clusters using the CLI with Google SSO

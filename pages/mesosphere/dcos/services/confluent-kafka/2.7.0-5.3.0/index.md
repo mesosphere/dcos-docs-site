@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Confluent Kafka 2.6.0-5.1.2
+navigationTitle: Confluent Kafka 2.7.0-5.3.0
 excerpt: DC/OS Confluent Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees.
-title: Confluent Kafka 2.6.0-5.1.2
+title: Confluent Kafka 2.7.0-5.3.0
 menuWeight: 1
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
@@ -32,7 +32,7 @@ DC/OS {{ model.techName }} provides the following features:
 *   High availability runtime configuration and software updates
 *   Storage volumes for enhanced data durability, known as Mesos Dynamic Reservations and Persistent Volumes
 *   Integration with syslog-compatible logging services for diagnostics and troubleshooting
-*   Integration with statsd-compatible metrics services for capacity and performance monitoring
+*   Integration with `statsd`-compatible metrics services for capacity and performance monitoring
 
 # Related Services
 

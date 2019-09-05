@@ -14,22 +14,22 @@ render: mustache
 
 ## Log Retention Bytes
 
-The "disk" configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated "disk" configuration. See the Configuration section for instructions for customizing these values.
+The "disk" configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated "disk" configuration. See the [Configuring](/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/configuration/) section for instructions for customizing these values.
 
 ## Security
 
 ### Kafka CLI
 
-When any security functions are enabled, the Kafka service CLI sub-command `topic` will not function. While the service CLI convenience functions will not work, the tooling bundled with [Apache Kafka](https://cwiki.apache.org/confluence/display/KAFKA/System+Tools) and other tools that support the enabled security modes will of course work.
+When any security functions are enabled, the Kafka service CLI sub-command `topic` will not function. While the service CLI convenience functions will not work, the tooling bundled with [Apache Kafka](https://cwiki.apache.org/confluence/display/KAFKA/System+Tools) and other tools that support the enabled security modes will work.
 
 
 ### Kerberos
 
-When Kerberos is enabled, the broker VIP is disabled as Kerberized clients will not be able to use it. This is because each Kafka broker uses a specific Kerberos principal and cannot accept connections from a single unified principal which the VIP would require.
+When Kerberos is enabled, the broker VIP is disabled since Kerberized clients will not be able to use it. This is because each Kafka broker uses a specific Kerberos principal and cannot accept connections from a single unified principal which the VIP would require.
 
 ### Toggling Kerberos
 
-Kerberos authentication can be toggled (enabled / disabled), but this triggers a rolling restart of the cluster. Clients configured with the old security settings will lose connectivity during and after this process. It is recommended that backups are made and downtime is scheduled.
+Kerberos authentication can be toggled (enabled/disabled), but this triggers a rolling restart of the cluster. Clients configured with the old security settings will lose connectivity during and after this process. It is recommended that backups are made and downtime is scheduled.
 
 ### Toggling Transport Encryption
 

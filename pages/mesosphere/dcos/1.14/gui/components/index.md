@@ -12,6 +12,7 @@ The Components tab shows you a snapshot of your DC/OS components. It displays th
 
 ![Components](/mesosphere/dcos/1.14/img/GUI-Components-Main-View.png)
 
+
 Figure 1 - Components tab
 
 ## Health checks
