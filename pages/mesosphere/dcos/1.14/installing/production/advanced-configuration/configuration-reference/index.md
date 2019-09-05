@@ -14,8 +14,8 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 
 # Cluster Setup
 
-| Parameter                              | Description                                                                                                                                               |
-|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name     | Description  |
+|------|---------|
 | [agent_list](#agent-list)                                              | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/mesosphere/dcos/1.14/overview/concepts/#private-agent-node) host names. |
 | [aws_template_storage_access_key_id](#aws-template-storage-access-key-id)         | The [access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
 | [aws_template_storage_bucket](#aws-template-storage-bucket)                | The name of an S3 bucket to contain [customized advanced AWS templates](/mesosphere/dcos/1.14/installing/evaluation/community-supported-methods/aws/advanced/#create-your-templates). |
@@ -69,13 +69,13 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 [/enterprise]
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag needs to be turned on to use the [DC/OS Storage Service (DSS)](/mesosphere/dcos/services/storage/) [enterprise type="inline" size="small" /]|
+| [feature_dcos_storage_enabled](#feature-dcos-storage-enabled-enterprise)           | A flag, if set, will enable advanced storage features in DC/OS, including Mesos [CSI](https://github.com/container-storage-interface/spec) support and pre-installed CSI device plugins. This feature flag must be turned on to use the [DC/OS Storage Service (DSS)](/mesosphere/dcos/services/storage/) [enterprise type="inline" size="small" /]|
 
 # Performance and Tuning
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [docker_remove_delay](#docker-remove-delay) | The amount of time to wait before removing docker containers (i.e., `docker rm`) after Mesos regards the container as TERMINATED. |
+| [docker_remove_delay](#docker-remove-delay) | The amount of time to wait before removing docker containers (for example, `docker rm`) after Mesos regards the container as TERMINATED. |
 | [dcos_audit_logging](#dcos-audit-logging-enterprise)  | Indicates whether security decisions (authentication, authorization) are logged for Mesos, Marathon, and Jobs. [enterprise type="inline" size="small" /] |
 | [enable_docker_gc](#enable-docker-gc)     | Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. |
 | [gc_delay](#gc-delay)                     | The maximum amount of time to wait before cleaning up the executor directories. |
@@ -134,7 +134,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 
 | Parameter                    | Description                                                                                                                                                       |
 |------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| [enable_mesos_input_plugin](#enable-mesos-input-plugin)    | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Default value is `true`. **NOTE:** DC/OS 1.13 supports the Mesos input plugin by default. |
+| [enable_mesos_input_plugin](#enable-mesos-input-plugin)    | Indicates whether to enable Telegraf's Mesos input plugin to collect Mesos metrics from Mesos masters and agents. Default value is `true`. DC/OS 1.13 supports the Mesos input plugin by default. |
 
 # Parameter Descriptions
 
@@ -152,7 +152,7 @@ Indicates whether to enable TLS 1.0 in Admin Router. Changing this setting has n
 - `adminrouter_tls_1_0_enabled: 'true'` Enable the TLS 1.0 protocol in Admin Router.
 - `adminrouter_tls_1_0_enabled: 'false'` Disable the TLS 1.0 protocol in Admin Router. This is the default value.
 
-You are advised not to enable TLS 1.0 as the protocol is considered insecure.
+You are advised not to enable TLS 1.0, as the protocol is considered insecure.
 
 If you have already installed your cluster and would like to change this in place, you can go through an [upgrade](/mesosphere/dcos/1.14/installing/production/upgrading/) with the `adminrouter_tls_1_0_enabled` parameter set to the desired value.
 
@@ -165,23 +165,23 @@ Indicates whether to enable TLS 1.1 in Admin Router. Changing this setting has n
 If you have already installed your cluster and would like to change this in-place, you can go through an [upgrade](/mesosphere/dcos/1.14/installing/production/upgrading/) with the `adminrouter_tls_1_1_enabled` parameter set to the desired value.
 
 ### adminrouter_tls_1_2_enabled [enterprise type="inline" size="small" /]
-Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has no effect in internal Admin Router configuration on agent nodes.
+Indicates whether to enable TLS 1.2 in Admin Router. Changing this setting has no effect on internal Admin Router configuration on agent nodes.
 
 - `adminrouter_tls_1_2_enabled: 'true'` Enable the TLS 1.2 protocol in Admin Router. This is the default value.
 - `adminrouter_tls_1_2_enabled: 'false'` Disable the TLS 1.2 protocol in Admin Router.
 
-It is advised to keep this protocol version enabled as its most secure widely supported TLS version.
+It is advised to keep this protocol version enabled as it is the most secure widely supported TLS version.
 
 If you have already installed your cluster and would like to change this in place, you can go through an [upgrade](/mesosphere/dcos/1.14/installing/production/upgrading/) with the `adminrouter_tls_1_2_enabled` parameter set to the desired value.
 
 ### adminrouter_tls_cipher_suite [enterprise type="inline" size="small" /]
 Provide a custom list of TLS cipher suites. The value will be passed directly into Admin Router's [`ssl_ciphers`](http://nginx.org/en/docs/http/ngx_http_ssl_module.html#ssl_ciphers) configuration directive. There is no validation of this string. Setting it incorrectly will cause DC/OS installation to fail. This configuration settings affects only Admin Routers running on DC/OS master nodes.
 
-If not provided the default value `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;` is used.
+If not provided, the default value `EECDH+AES128:RSA+AES128:EECDH+AES256:RSA+AES256:EECDH+3DES:RSA+3DES:!MD5;` is used.
 
 To validate the accuracy of the provided value, use the `openssl ciphers` utility and provide your own value: `openssl ciphers <cipher-suites>`. For a list of all available ciphers see the [OpenSSL documentation](https://www.openssl.org/docs/man1.0.2/apps/ciphers.html).
 
-**Note:** Due to Java jurisdiction limitations, it is not possible to install DC/OS with only AES256 cipher suites.
+<p class="message--note"><strong>NOTE: </strong>Due to Java jurisdiction limitations, it is not possible to install DC/OS with only AES256 cipher suites.</p>
 
 ### adminrouter_x_frame_options
 Set the `X-Frame-Options` header value for the DC/OS UI. Default is set to `DENY`.
@@ -240,15 +240,15 @@ For more information, see the [security](/mesosphere/dcos/1.14/security/ent/) do
 
 ### ca_certificate_path   [enterprise type="inline" size="small" /]              
 
-Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. 
+Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) documentation for a detailed configuration parameter reference. 
 
 ### ca_certificate_key_path  [enterprise type="inline" size="small" /]       
 
-Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. 
+Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) documentation for a detailed configuration parameter reference. 
 
 ### ca_certificate_chain_path  [enterprise type="inline" size="small" /]
 
-Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. 
+Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/1.14/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) documentation for a detailed configuration parameter reference. 
 
 ### exhibitor_tls_required [enterprise type="inline" size="small" /]
 When `true`, failures during Exhibitor TLS bootstrap will prevent DC/OS from starting. By default, failures are logged and Exhibitor will fallback to insecure mode.
@@ -262,7 +262,7 @@ Optional parameter used for generating the TLS artifacts for the automated Exhib
 The dictionary of Docker credentials to pass.
 
 - If unset, a default empty credentials file is created at `/etc/mesosphere/docker_credentials` during DC/OS install. A sysadmin can change credentials as needed. A `systemctl restart dcos-mesos-slave` or `systemctl restart dcos-mesos-slave-public` is required for changes to take effect.
-- You can also specify by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write it as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
+- You can also specify this value by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write it as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
 
 **Note:**
 - `cluster_docker_credentials` takes effect only when [`cluster_docker_credentials_enabled`](#cluster-docker-credentials-enabled) is set to `'true'`
@@ -286,7 +286,7 @@ Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_c
 *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
 
 ### cluster_docker_registry_url
-The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local {{ model.packageRepo }} into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local {{ model.packageRepo }}](/mesosphere/dcos/1.14/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/mesosphere/dcos/1.14/deploying-services/private-docker-registry/) for more information.
+The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL that Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local {{ model.packageRepo }} into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local {{ model.packageRepo }}](/mesosphere/dcos/1.14/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/mesosphere/dcos/1.14/deploying-services/private-docker-registry/) for more information.
 
 ### cluster_name
 The name of your cluster.
@@ -294,9 +294,9 @@ The name of your cluster.
 ### cosmos_config
 The dictionary of packaging configuration to pass to the [DC/OS package manager](https://github.com/dcos/cosmos). If set, the following options must also be specified.
 
-* `package_storage_uri`
+- `package_storage_uri`
   Where to permanently store DC/OS packages. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/packages`.
-* `staged_package_storage_uri`
+- `staged_package_storage_uri`
    Where to temporarily store DC/OS packages while they are being added. The value must be a file URL, for example, `file:///var/lib/dcos/cosmos/staged-packages`.
 
 ### custom_checks
@@ -307,7 +307,7 @@ Custom installation checks that are added to the default check configuration pro
     - `<check-name>` - The custom name of your health check
     - `description` - Specify a description of the check
     - `cmd` - Specify an array of health check command strings
-    - `timeout` - Specify how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
+    - `timeout` - Specifies how long to wait, in seconds, before assuming the check failed. A check that times out is assumed to have a status of `3 (UNKNOWN)`
 
 - `node_checks` - This group of parameters specifies node health checks.
 
@@ -336,20 +336,20 @@ Indicates whether layer-4 load-balancing is available for IPv6 containers.
 
 ### dcos_net_cluster_identity
 
-This feature ensures that the nodes from a cluster have a unique identifier that prevents unauthorized 'cross-talk' between clusters. Default value is `false`.
+This parameter ensures that the nodes from a cluster have a unique identifier that prevents unauthorized 'cross-talk' between clusters. Default value is `false`.
 
 
 ### dcos_overlay_enable
 Indicates whether to enable DC/OS virtual networks.
 
-**Note:** Virtual networks require Docker version 1.12 or later but, if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the [system requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/).
+<p class="message--note"><strong>NOTE: </strong>Virtual networks require Docker version 1.12 or later, but if you are using Docker 1.12 or earlier then you must specify `dcos_overlay_enable: 'false'`. For more information, see the <a href="/mesosphere/dcos/1.14/installing/production/system-requirements/">system requirements.</p>
 
 *  `dcos_overlay_enable: 'false'` Do not enable the DC/OS virtual network.
 *  `dcos_overlay_enable: 'true'` Enable the DC/OS virtual network. This is the default value. After the virtual network is enabled, you can also specify the following parameters:
 
     *  `dcos_overlay_config_attempts` Specifies how many failed configuration attempts are allowed before the overlay configuration modules stop trying to configure a virtual network.
 
-        **Note:** The failures might be related to a malfunctioning Docker daemon.
+        <p class="message--note"><strong>NOTE: </strong>The failures might be related to a malfunctioning Docker daemon.</p>
 
     *  `dcos_overlay_mtu` The maximum transmission unit (MTU) of the Virtual Ethernet (vEth) on the containers that are launched on the overlay.
 
@@ -367,7 +367,7 @@ Indicates whether to enable DC/OS virtual networks.
 
         *  `vtep_subnet` A dedicated address space that is used for the VxLAN backend for the virtual network. This address space should not be accessible from outside the agents or master.
         *  `vtep_mac_oui` The MAC address of the interface connecting to the virtual network in the public node.
-        **Note:** The last three bytes must be `00`.
+        The last three bytes must be `00`.
 
         *  `overlays`
             *  `name` The canonical name (see [limitations](/mesosphere/dcos/1.14/networking/SDN/dcos-overlay/) for constraints on naming virtual networks).
@@ -415,10 +415,10 @@ dns_search: dc1.example.com dc1.example.com example.com dc1.example.com dc2.exam
 ```
 
 ### docker_remove_delay
-The amount of time to wait before removing docker containers (i.e., `docker rm`) after Mesos regards the container as TERMINATED (e.g., 3days, 2weeks, etc). This only applies for the Docker Containerizer. It is recommended that you accept the default value 1 hour.
+The amount of time to wait before removing docker containers (i.e., `docker rm`) after Mesos regards the container as TERMINATED (for example, 3days, 2weeks, etc). This only applies for the Docker Containerizer. It is recommended that you accept the default value 1 hour.
 
 ### enable_docker_gc
-Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection)
+Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection).
 
 *  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/mesosphere/dcos/1.14installing/evaluation/mesosphere-supported-methods) template installations.
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [custom](/mesosphere/dcos/1.14/installing/ent/custom/) installations.
@@ -436,7 +436,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
 *   `exhibitor_storage_backend: static`
     The Exhibitor storage backend is managed internally within your cluster.
 
-<p class="message--note"><strong>NOTE: </strong>If <a href ="/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to `master_http_loadbalancer`, then exhibitor_storage_backend cannot be set to `static`.</p>
+<p class="message--note"><strong>NOTE: </strong>If <a href ="/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master_discovery</a> is set to <tt>master_http_loadbalancer</tt>, then exhibitor_storage_backend cannot be set to <tt>static</tt>.</p>
 
 *   `exhibitor_storage_backend: zookeeper`
     The ZooKeeper instance for shared storage. If you use a ZooKeeper instance to bootstrap Exhibitor, this ZooKeeper instance must be separate from your DC/OS cluster. You must have at least 3 ZooKeeper instances running at all times for high availability. If you specify `zookeeper`, you must also specify these parameters.
@@ -455,15 +455,16 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
     *  `exhibitor_explicit_keys`
        Indicates whether you are using AWS API keys to grant Exhibitor access to S3.
         *  `exhibitor_explicit_keys: 'true'`
-           If you're  using AWS API keys to manually grant Exhibitor access.
+           If you are  using AWS API keys to manually grant Exhibitor access.
         *  `exhibitor_explicit_keys: 'false'`
-           If you're using AWS Identity and Access Management (IAM) to grant Exhibitor access to s3.
+           If you are using AWS Identity and Access Management (IAM) to grant Exhibitor access to S3.
     *  `s3_bucket`
        The name of your S3 bucket.
     *  `s3_prefix`
        The S3 prefix to be used within your S3 bucket to be used by Exhibitor.
 
-       **Note:** AWS EC2 Classic is not supported.
+       <p class="message--note"><strong>NOTE: </strong>AWS EC2 Classic is not supported.</p>
+       
 *   `exhibitor_storage_backend: azure`
     An Azure Storage Account for shared storage. The data will be stored under the container named `dcos-exhibitor`. If you specify `azure`, you must also specify these parameters:
     *  `exhibitor_azure_account_name`
@@ -560,11 +561,9 @@ Indicates whether the leading Mesos master should log the offers sent to schedul
         
         <p class="message--note"><strong>NOTE: </strong>The internal load balancer must work in TCP mode, without any TLS termination.</p>
     
-    *  `num_masters` (Required) The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be fewer during failures.
-        **Note:**
-
-        * If master_discovery is set to `master_http_loadbalancer`, then [exhibitor_storage_backend](#exhibitor-storage-backend) cannot be set to `static`.
-        * On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability. It is recommended to use aws_s3 for the exhibitor storage backend since we can rely on s3 to manage quorum size when the master nodes are unavailable.
+    *  `num_masters` (Required) The number of Mesos masters in your DC/OS cluster. It cannot be changed later. The number of masters behind the load balancer must never be greater than this number, though it can be lower during failures.
+    
+        <p class="message--note"><strong>NOTE: </strong> If master_discovery is set to <tt>master_http_loadbalancer</tt>, then <tt>exhibitor-storage-backend</tt> cannot be set to <tt>static</tt>.  On platforms like AWS where internal IPs are allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability. It is recommended to use <tt>aws_s3</tt> for the exhibitor storage backend, since we can rely on S3 to manage quorum size when the master nodes are unavailable.</p>
 
 ### master_dns_bindall
 Indicates whether the master DNS port is open. An open master DNS port listens publicly on the masters. If you are upgrading, set this parameter to `true`.
@@ -579,7 +578,7 @@ The DNS name or IP address for the load balancer. If specified, this is included
 The location of the Mesos work directory on agent and public agent nodes. This defines the `work_dir` parameter for Mesos agents in the cluster. The default is `/var/lib/mesos/slave`. For details, see [Mesos documentation](https://mesos.apache.org/documentation/latest/configuration/agent/).
 
 ### mesos_container_log_sink
-DC/OS can send copies of task logs to a host's journald, however this is disabled by default because of a known performance problem in [systemd](https://github.com/systemd/systemd/issues/5102) which was [fixed](https://github.com/systemd/systemd/pull/6392) on July 31, 2017 and included in systemd v235. However, some Linux distributions do not use this version of systemd, for example CentOS 7.4 as of July 2018 uses systemd v219. Thus DC/OS by default does not have logrotate and journald enabled. If this feature is desired, ensure a modern version of systemd is in use in order to avoid this systemd performance problem.
+DC/OS can send copies of task logs to a host's `journald`; however, this is disabled by default because of a known performance problem in [systemd](https://github.com/systemd/systemd/issues/5102) which was [fixed](https://github.com/systemd/systemd/pull/6392) on July 31, 2017 and included in systemd v235. However, some Linux distributions do not use this version of systemd; for example, CentOS 7.4 as of July 2018 uses systemd v219. Thus DC/OS by default does not have logrotate and journald enabled. If this feature is desired, ensure a modern version of systemd is in use in order to avoid this systemd performance problem.
 
 The log manager for containers (tasks). The options are:
 
@@ -592,7 +591,7 @@ The default is `logrotate`. Due to performance issues, `journald` is not recomme
 ### mesos_dns_set_truncate_bit
 Indicates whether Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet.
 
-*  `mesos_dns_set_truncate_bit: 'true'`  Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet and is truncated. This is the default behavior and is in compliance with RFC7766.
+*  `mesos_dns_set_truncate_bit: 'true'`  Mesos-DNS sets the truncate bit if the response is too large to fit in a single packet and is truncated. This is the default behavior and complies with RFC7766.
 *  `mesos_dns_set_truncate_bit: 'false'`  Mesos-DNS does not set the truncate bit if the response is too large to fit in a single packet. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to `false` and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they are not and therefore will not trigger a retry over TCP. This behavior does not conform to RFC7766.
 
 For more information regarding truncated DNS responses and retrying over TCP see [RFC7766 - DNS Transport over TCP - Implementation Requirements](https://tools.ietf.org/html/rfc7766).
@@ -611,18 +610,18 @@ Indicates whether to enable Seccomp support for UCR containers.
 
 For more information, see the [Seccomp documentation](http://mesos.apache.org/documentation/latest/isolators/linux-seccomp/).
 
-**Note**: DC/OS provides a default Seccomp profile, which can be enabled for UCR containers via the [`mesos_seccomp_profile_name`](#mesos-seccomp-profile-name) option.
+<p class="message--note"><strong>NOTE: </strong>DC/OS provides a default Seccomp profile, which can be enabled for UCR containers via the <tt>mesos-seccomp-profile-name</tt> option.</p>
 
 ### mesos_seccomp_profile_name
 
 Specifies the name of the default Seccomp profile which is applied cluster-wide for UCR containers. If unset, a Seccomp profile is not applied by default. If you set this configuration option to `default.json`, Mesos agents will use built-in Seccomp profile. This profile is a slightly modified version of a Docker default profile. It can be found in `/opt/mesosphere/etc/dcos/mesos/seccomp`. It is highly recommended to use the built-in default Seccomp profile.
 
-**Note**: This option requires the [`mesos_seccomp_enable`](#mesos-seccomp-enable) option to be turned on.
+<p class="message--note"><strong>NOTE: </strong>This option requires the <tt>mesos_seccomp_enable</tt> option to be turned on.</p>
 
 ### network_cni_root_dir_persist
 Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.
 
-<p class="message--note"><strong>NOTE: </strong>It requires a reboot of the host for this flag to take effect.</p>
+<p class="message--note"><strong>NOTE: </strong>The host must be rebooted for this flag to take effect.</p>
 
 ### oauth_enabled [oss type="inline" size="small" /]
 Indicates whether to enable authentication for your cluster. <!-- DC/OS auth -->
@@ -658,7 +657,7 @@ A YAML nested list (`-`) of DNS resolvers for your DC/OS cluster nodes. You can 
     ```
 -  If you do not have a DNS infrastructure and do not have access to internet DNS servers, you can specify `resolvers: []`. By specifying this setting, all requests to non-`.mesos` will return an error. For more information, see the Mesos-DNS [documentation](/mesosphere/dcos/1.14/networking/DNS/mesos-dns/).
 
-<p class="message--warning"><strong>WARNING: </strong>If you set the <code>resolvers</code> parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.</p>
+<p class="message--warning"><strong>WARNING: </strong>If you set the <tt>resolvers</tt> parameter incorrectly, you will permanently damage your configuration and have to reinstall DC/OS.</p>
 
 ### rexray_config
 The <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target="_blank">REX-Ray</a> configuration for enabling external persistent volumes in Marathon. REX-Ray is a storage orchestration engine. The following is an example configuration.
@@ -729,13 +728,13 @@ Indicates whether to enable the DC/OS proxy.
 *  `use_proxy: 'false'` Do not configure DC/OS [components](/mesosphere/dcos/1.14/overview/architecture/components/) to use a custom proxy. This is the default value.
 *  `use_proxy: 'true'` Configure DC/OS [components](/mesosphere/dcos/1.14/overview/architecture/components/) to use a custom proxy. If you specify `use_proxy: 'true'`, you can also specify these parameters:
 
-    **Note:** The specified proxies must be resolvable from the provided list of [resolvers](#resolvers).
+    <p class="message--note"><strong>NOTE: </strong>The specified proxies must be resolvable from the provided list of resolvers.</p>
 
     *  `http_proxy: http://<user>:<pass>@<proxy_host>:<http_proxy_port>` The HTTP proxy.
     *  `https_proxy: https://<user>:<pass>@<proxy_host>:<https_proxy_port>` The HTTPS proxy.
     *  `no_proxy`: A YAML nested list (`-`) of subdomains to exclude from forwarding to the `https_proxy`. If the address matches one of these strings, or the host is within the domain of one of these strings, http(s) requests to that node are not proxied. For example, the `no_proxy` list can be a list of internal IP addresses.
 
-    **Note:** Wildcard characters (`*`) are not supported.</p>
+    <p class="message--note"><strong>NOTE: </strong>Wildcard characters (<tt>*</tt>) are not supported.</p>
 
     For more information, see the [examples](/mesosphere/dcos/1.14/installing/production/deploying-dcos/configuration/examples/#http-proxy).
 
