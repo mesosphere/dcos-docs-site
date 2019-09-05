@@ -215,3 +215,23 @@ count = spark.sparkContext.parallelize(range(1, n + 1), partitions).map(f).reduc
 print("Pi is roughly %f" % (4.0 * count / n))
 spark.stop
 ```
+
+### Using BeakerX Magic
+Open a `Scala Notebook` and put the following in a seperate code cells:
+
+```scala
+%%spark --start
+```
+
+```scala
+val count = spark.sparkContext.parallelize(1 to 10000).sum()
+count
+```
+
+If you want to use HDFS as a storage, you have to add following line in a first cell of the notebook.
+
+```scala
+%classpath add jar /mnt/mesos/sandbox/hadoop_conf
+```
+
+Where `hadoop_conf` is a directory holding Hadoop configuration files such as `core-site.xml` and `hdfs-site.xml`.
