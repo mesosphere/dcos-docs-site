@@ -12,7 +12,7 @@ render: mustache
 ## Updates
 
 - Upgraded SDK library to version `0.56.3`
-- Support for [Secure JMX](/mesosphere/dcos/services/{{ model.serviceName }}/2.7.0-3.11.4/advanced/#secure-jmx-enterprise)
+- Added support for [Secure JMX](/mesosphere/dcos/services/{{ model.serviceName }}/2.7.0-3.11.4/advanced/#secure-jmx-enterprise)
 
 <!-- 
 # Release Notes for Cassandra Service version 2.5.0-3.11.3

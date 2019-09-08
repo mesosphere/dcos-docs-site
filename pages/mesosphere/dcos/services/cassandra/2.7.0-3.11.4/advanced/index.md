@@ -14,7 +14,7 @@ render: mustache
 ## Secure JMX
 [/enterprise]
 
-{{ model.techName }} supports Secure JMX allowing you to remotely manage and monitor the Cassandra.
+{{ model.techName }} supports Secure JMX allowing you to remotely manage and monitor Cassandra.
 
 ### Configuration Options
 
@@ -112,7 +112,7 @@ Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.
   }
   ```
 
-7. Install Apache cassandra with the options file you created.
+7. Install Cassandra with the options file you created.
 
   ```bash
   dcos package install cassandra --options="options.json"
