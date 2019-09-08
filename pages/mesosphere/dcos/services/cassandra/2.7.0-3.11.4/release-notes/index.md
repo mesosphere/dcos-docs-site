@@ -14,7 +14,33 @@ render: mustache
 - Upgraded SDK library to version `0.56.3`
 - Added support for [Secure JMX](/mesosphere/dcos/services/{{ model.serviceName }}/2.7.0-3.11.4/advanced/#secure-jmx-enterprise)
 
-<!-- 
+<!--
+# Release Notes for Cassandra Service version 2.6.0-3.11.4
+
+## Updates
+
+- Upgraded {{ model.techShortName }} to version `3.11.4`
+- Upgraded SDK library to version `0.56.1`
+- Oracle JDK has been replaced with OpenJDK 8
+
+## New Features
+
+- Added support for both [custom](/mesosphere/dcos/services/{{ model.serviceName }}/2.6.0-3.11.4/configuration/#custom-authentication-and-authorization) and {{model.techName}}'s [native](/mesosphere/dcos/services/{{ model.serviceName }}/2.6.0-3.11.4/configuration/#native-authentication-and-authorization) authentication and authorization mechanisms 
+- Added support for DSS volume profiles 
+- User defined functions are now configurable
+- Added [custom domain](/mesosphere/dcos/services/{{ model.serviceName }}/2.6.0-3.11.4/security/#forwarding-dns-and-custom-domain) support
+
+## Improvements
+
+- Many of Cassandra's parameters are now configurable from the DC/OS UI.
+
+## Upgrading your cluster from 2.5.0-3.11.3 to 2.6.0-3.11.4
+
+- Run the following command to upgrade your Cassandra package: 
+  ```
+  dcos cassandra update start --package-version=2.6.0-3.11.4 --replace
+  ```
+
 # Release Notes for Cassandra Service version 2.5.0-3.11.3
 
 ## Upgrades
@@ -30,8 +56,7 @@ render: mustache
 ## Improvements
 
 - Service names are now validated with a regex
- -->
-<!-- 
+
 # Version 2.4.0-3.0.16
 
 ## Bug Fixes
