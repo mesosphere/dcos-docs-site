@@ -41,7 +41,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * CoreDNS v1.5.0
 * Calico v3.8.0
 * dcos-commons v0.56.1
-* Add option to deploy etcd cluster with 5 nodes. When high_availability is set to \"true\" in the package JSON, a Kubernetes cluster with 3 etcd nodes will be created. However, some Kubernetes clusters require more than 3 etcd nodes for production. Cluster administrators can use this option for those scenarios. This option will provision 5 etcd nodes for the Kubernetes cluster instead. To deploy an etcd cluster with 5 nodes it requires a cluster with at least 5 private agents.
+* Add option to deploy etcd cluster with 5 nodes. When high_availability is set to \"true\" in the package JSON, a Kubernetes cluster with 3 etcd nodes will be created. However, some Kubernetes clusters require more than 3 etcd nodes for production. Cluster administrators can use this option for those scenarios. This option will provision 5 etcd nodes for the Kubernetes cluster instead. Deploying an etcd cluster with 5 nodes requires a cluster with at least 5 private agents.
 * Add required options to configure an OIDC authentication provider for the Kubernetes API Server. See [Configuring the API Server](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#configuring-the-api-server) for more information.
 
 #### Bug Fixes
@@ -77,7 +77,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * Calico 3.6.1
 * The `node-role.kubernetes.io/master=` label for the control-plane nodes is now set through the Kubernetes API instead of using the `kubelet --node-labels` flag. This happens because [setting any `kubernetes.io` prefixed labels has been deprecated in Kubernetes 1.13 and will be removed in Kubernetes 1.15](https://github.com/kubernetes/kubernetes/pull/68267).
 * dcos-commons: 0.56.0
-* Add option to expose Kubernetes cluster metrics. If dcos-monitoring package is installed the Kubernetes cluster metrics are automatically ingested to DC/OS metrics pipeline.
+* Add option to expose Kubernetes cluster metrics. If dcos-monitoring package is installed, the Kubernetes cluster metrics are automatically ingested by DC/OS metrics pipeline.
 
 ### Changelog since 2.2.2-1.13.5
 
@@ -114,7 +114,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * Docker v18.09.3
 * Calico v3.5.2
 * Support for Mesos pre-reserved roles for etcd, control-plane, public-node and private-node, and placement rules for etcd.
-* Modify how etcd placement constraints are defined, there is now a separate `etcd.placement` option. For backwards compatibility, if it's left empty the value from `kubernetes.control_plane_placement` will be used.
+* Modify how etcd placement constraints are defined, there is now a separate `etcd.placement` option. For backwards compatibility, if left empty, the value from `kubernetes.control_plane_placement` will be used.
 
 #### Bug Fixes
 
