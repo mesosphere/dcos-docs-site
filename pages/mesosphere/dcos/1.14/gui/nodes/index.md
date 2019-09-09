@@ -29,7 +29,7 @@ Figure 3 - Nodes "donut" view
 
 # Masters tab
 
-The **Masters** tab shows information about the masters in the cluster. You can see the leader and non-leaders in the cluster, with their corresponding IP and port, region, version, started time, and elected time.
+The **Masters** tab displays information about the masters in the cluster. You can see the leader and non-leaders in the cluster, with their corresponding IP and port, region, version, started time, and elected time.
 
 ![Nodes](/mesosphere/dcos/1.14/img/nodes-masters-ee-dcos-1-12.png)
 
@@ -38,7 +38,7 @@ Figure 4 - Masters tab
 
 # Nodes instance
 
-Clicking on a node opens the **Nodes** instance page, which provides more information about the node. You can use the Search box or the drop down filter to narrow your list. The Nodes instance page has three tabs: [Tasks](#tasks), [Health](#health), and [Details](#details). The **Tasks** tab is displayed by default.
+Clicking on a **Host IP** opens a Nodes instance page, which provides more information about the node. You can use the Search box or the drop down filter to narrow your list. The **Nodes** instance page has three tabs: [Tasks](#tasks), [Health](#health), and [Details](#details). The **Tasks** tab is displayed by default.
 
 ## Tasks
 
@@ -51,16 +51,18 @@ The **Tasks** tab displays the following information:
 
 | Name | Description |
 |----------|-----------|
-| Name |       |
-| Host |       |
-| Zone |       |
-| Region |       |
-| Status |       |
-| Health |       |
-| Logs |   |
-| CPU |       |
-| Mem |       |
-| GPU |       |
+| ID | Unique identifier for this instance of a service. Consists of the name of the service (for example, `confluent-kafka` plus configuration details.)  |
+| Name |  Unique name of this instance of a service. Consists of a series of words separated by dashes (for example, `data-science-engine`). Each word must be at least 1 alphanumeric character and may only contain digits (`0-9`), dashes (`-`), dots (`.`), and lowercase letters (`a-z`). The word may not begin or end with a dash.     |
+| Host |  IP address of this node.     |
+| Zone |   Cloud provider zone.    |
+| Region | Cloud provider region. If left undefined this will run in your local region. |
+| Status |  The current state of the node.     |
+| Health | The current health of the node.      |
+| Logs | Clicking on the "View Logs" icon will open the logs for this instance of the service.  |
+| CPU |  The number of CPU shares allocated to the process.     |
+| Mem |  The amount of memory, in MB, allocated to the process.    |
+| GPU |   Number of GPUs available to this node.    |
+| Updated | Time, in minutes, since last update. |
 
 A vertical line of dots in the upper right corner opens a menu which allows you to drain or deactivate a node. 
 
@@ -86,7 +88,7 @@ Figure 7 - Health checks filter
 
 ## Details
 
-The Nodes > Details tab will show you the identification information for this node, as well as its Status and Resources.
+The **Nodes > Details** tab will show you the identification information for this node, as well as its Status and Resources.
 
 ![Details panel](/mesosphere/dcos/1.14/img/GUI-Nodes-Details-Tab.png)
 
@@ -94,9 +96,9 @@ Figure 8 - Nodes details tab
 
 ### Service details
 
-If you click on the name of the service, for example, HDFS, you will see the **Nodes > Service Details** page. This will display information about the configuration, labels, Marathon configuration, and health check status.
+If you click on the name of the service (for example, HDFS), you will see the **Nodes > Service Details** page. This will display information about the configuration, labels, Marathon configuration, and health check status.
 
-![Nodes details page](/mesosphere/dcos/1.14/GUI-Nodes-Service-Details.png)
+![Service details page](/mesosphere/dcos/1.14/img/GUI-Nodes-Services-Details.png)
  
 Figure 9 - Service details
 
@@ -106,23 +108,29 @@ The Files tab for your service displays a Working Directory, which will display 
 
 ![Files tab](/mesosphere/dcos/1.14/img/GUI-Nodes-Services-Files.png)
 
+Figure 8 - Files tab
+
 #### Logs tab
 
 If you click on the **Logs** tab, you will see the log kept by DC/OS for your cluster. 
 
-![Logs](/mesosphere/dcos/1.14/img/GUI-Nodes-Service-Logs.png)
+![Logs](/mesosphere/dcos/1.14/img/GUI-Nodes-Services-Logs.png)
 
-Figure 8 - Logs
+Figure 9 - Logs
 
 You can filter the results by `stderr` and `stdout` filters. To download a copy of the log, click on the down arrow on the right hand side of the menu.
 
-For complete details on logging, see the [Logging](/mesosphere/dcos/1.14/monitoring/logging/) documentation.
+For complete details on logging, see the [Logging](/mesosphere/dcos/1.14/monitoring/logging/) documentation. You can also find the command line interface commands for logging in the [CLI Command Reference](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/dcos-node-log/) documentation.
 
 ### Host details
 
 If you click on the IP address of the host, you will see the Tasks view by default.
 
-![Nodes tasks]()
+![Nodes tasks](/mesosphere/dcos/1.14/img/GUI-Nodes-Tasks-Tab.png)
 
-Figure 9 - Node tasks
+Figure 10 - Node tasks
 
+
+# CLI equivalent commands
+
+For information about the command line interface commands for **Nodes**, see the [CLI Command Reference](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) documentation.
