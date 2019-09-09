@@ -11,7 +11,7 @@ render: mustache
 
 ## Updates
 
-- Upgraded SDK library to version `0.56.3`
+- Upgraded SDK library to version `0.57.0`
 - Added support for [Secure JMX](/mesosphere/dcos/services/{{ model.serviceName }}/2.7.0-3.11.4/advanced/#secure-jmx-enterprise)
 
 <!--
