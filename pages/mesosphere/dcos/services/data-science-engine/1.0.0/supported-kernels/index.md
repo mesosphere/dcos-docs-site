@@ -217,7 +217,7 @@ spark.stop
 ```
 
 ### Using BeakerX Kernel
-BeakerX Kernel supports Spark magic which allows configuring and starting Spark Session via UI.
+[BeakerX Kernel](http://beakerx.com/) supports Spark Magic, which allows you to configure and start a Spark session via the UI.
 
 To use BeakerX Spark Magic, open a `Scala Notebook` and put the following in a seperate code cells:
 
@@ -225,15 +225,17 @@ To use BeakerX Spark Magic, open a `Scala Notebook` and put the following in a s
 %%spark --start
 ```
 
+
 ```scala
 val count = spark.sparkContext.parallelize(1 to 10000).sum()
 count
 ```
 
-If you want to use HDFS as a storage or as event log directory for Spark History Server, HDFS configuration files should be added to the classpath. To make HDFS configuration available for the notebook add the following line in a first cell of the notebook.
+If you want to use HDFS as storage or as an event log directory for a Spark History Server, HDFS configuration files should be added to the classpath. To make HDFS configuration available for the notebook, add the following line in a first cell of the notebook,
 
 ```scala
 %classpath add jar /mnt/mesos/sandbox/hadoop_conf
 ```
 
-Where `hadoop_conf` is a directory holding Hadoop configuration files such as `core-site.xml` and `hdfs-site.xml`.
+where `hadoop_conf` is a directory holding Hadoop configuration files, such as `core-site.xml` and `hdfs-site.xml`.
+
