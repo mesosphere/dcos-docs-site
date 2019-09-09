@@ -219,7 +219,7 @@ spark.stop
 ### Using BeakerX Kernel
 [BeakerX Kernel](http://beakerx.com/) supports Spark Magic, which allows you to configure and start a Spark session via the UI.
 
-To use BeakerX Spark Magic, open a `Scala Notebook` and put the following in a seperate code cells:
+To use BeakerX Spark Magic, open a `Scala Notebook` and put the following in a separate code cells:
 
 ```scala
 %%spark --start
