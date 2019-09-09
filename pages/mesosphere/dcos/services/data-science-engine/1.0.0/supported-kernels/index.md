@@ -231,7 +231,7 @@ val count = spark.sparkContext.parallelize(1 to 10000).sum()
 count
 ```
 
-If you want to use HDFS as storage or as an event log directory for a Spark History Server, HDFS configuration files should be added to the classpath. To make HDFS configuration available for the notebook, add the following line in a first cell of the notebook,
+If you want to use HDFS as storage or as an event log directory for a Spark History Server, HDFS configuration files should be added to the classpath. To make HDFS configuration available for the notebook, add the following line in the first cell of the notebook:
 
 ```scala
 %classpath add jar /mnt/mesos/sandbox/hadoop_conf
