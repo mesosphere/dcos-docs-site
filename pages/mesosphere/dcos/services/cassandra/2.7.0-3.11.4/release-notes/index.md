@@ -11,12 +11,12 @@ render: mustache
 
 ## Updates
 
-- Upgraded SDK library to version `0.57.0`
+- Upgraded SDK library to version `0.57.0`. For more information see [SDK Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
 - Added support for [Secure JMX](/mesosphere/dcos/services/{{ model.serviceName }}/2.7.0-3.11.4/advanced/#secure-jmx-enterprise)
 
 ## Upgrading your cluster from 2.5.0-3.11.3 to 2.7.0-3.11.4
 
-- Run the following command to upgrade your Cassandra package: 
+- If upgrading from version `2.5.0-3.11.3`, you'll need to run the following command to successfully upgrade your Cassandra package: 
   ```
   dcos cassandra update start --package-version=2.7.0-3.11.4 --replace
   ```
