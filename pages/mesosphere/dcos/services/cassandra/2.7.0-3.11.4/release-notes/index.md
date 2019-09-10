@@ -20,8 +20,7 @@ render: mustache
   ```
   dcos cassandra update start --package-version=2.7.0-3.11.4 --replace
   ```
-  
-<!--
+
 # Release Notes for Cassandra Service version 2.6.0-3.11.4
 
 ## Updates
@@ -50,6 +49,7 @@ render: mustache
 
 # Release Notes for Cassandra Service version 2.5.0-3.11.3
 
+<!--
 ## Upgrades
 
 - Upgrade {{ model.techShortName }} to version `3.11.3`
