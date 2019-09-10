@@ -75,3 +75,12 @@ Figure 2 - Services instances
 
 For services with a UI, hover over the service name and click ![open service](/mesosphere/dcos/1.13/img/open-service.png) to view it. You can access the Mesos UI at `<hostname>/mesos`.
 
+# Debugging service deployments using the UI
+
+The **Services > Debug** tab displays the last changes, task failures, and other status messages, which can help debug issues with service deployments.
+
+In the following figure, Marathon has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
+
+![Failure warning](/mesosphere/dcos/1.13/img/GUI-Services-Failure-To-Launch.png)
+
+Figure 3 - Debug tab showing warning
