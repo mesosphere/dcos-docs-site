@@ -1,6 +1,6 @@
 # changes 4-12-19 CK
 # Aaron should see all code changes (things not in /pages)
-* @niartenyaw
+* @ck4adventure
 
 # Leave out notifications for pages by leaving blank
 /pages/
@@ -11,9 +11,9 @@
 
 # Networking
 # change to notify networking team only 
-/pages/services/edge-lb/ @networking-team
-/pages/*/networking/ @networking-team
+/pages/mesosphere/dcos/services/edge-lb/ @networking-team
+/pages/mesosphere/dcos/*/networking/ @networking-team
 
 # Storage
 # change to notify storage team only
-/pages/services/storage/ @mesosphere/mesosphere-storage
+/pages/mesosphere/dcos/services/storage/ @mesosphere/mesosphere-storage
