@@ -43,13 +43,13 @@ Secrets should include paths, unless you want to allow all services to access it
 
     ![New Secret](/mesosphere/dcos/1.13/img/new-secret.png)
 
-    Figure 1. New Secret icon
+    Figure 1 - New Secret icon
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
     ![Secret ID Keypair](/mesosphere/dcos/1.13/img/GUI-Secrets-Create-New-Keypair.png)
 
-    Figure 2. Creating a new keypair 
+    Figure 2 - Creating a new keypair 
 
 1. Select **Key-Value Pair** as Type.
 
@@ -57,11 +57,11 @@ Secrets should include paths, unless you want to allow all services to access it
 
 1. Click **Create Secret**.
 
-Returning to the Secrets screen, you can see that your secret has been deployed.
+1. Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/mesosphere/dcos/1.13/img/GUI-Secrets-Secrets-Keypair-Deployed.png)
 
-   Figure 3. Secret with keypair deployed
+   Figure 3 - Secret with keypair deployed
 
 # <a name="api"></a>Creating key-value pair secrets using the API
 
@@ -118,26 +118,25 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
     ![New Secret](/mesosphere/dcos/1.13/img/new-secret.png)
 
-    Figure 4. Secrets screen
+    Figure 4 - Secrets screen
 
     If you have no current secrets, a **Create Secret** screen will be displayed. Click on the **Create Secret** button.
 
     ![Create Secret](/mesosphere/dcos/1.13/img/GUI-Secrets-Create-Secret.png)
 
-    Figure 5. Create Secret button
+    Figure 5 - Create Secret button
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
     ![Create New Secret](/mesosphere/dcos/1.13/img/GUI-Secrets-Create-New-Secret.png)
 
-    Figure 6. Create New Secret dialog showing file chosen
+    Figure 6 - Create New Secret dialog showing file chosen
 
 1. Select **File** as Type.
 1. Click **Choose File**.
 1. Find and select the file you wish to create a secret from.
 1. Click **Create Secret**.
-
-Returning to the Secrets screen, you can see that your secret has been deployed.
+1. Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/mesosphere/dcos/1.13/img/GUI-Secrets-Deployed.jpeg)
-   Figure 7. Secret deployed
+   Figure 7 - Secret deployed
