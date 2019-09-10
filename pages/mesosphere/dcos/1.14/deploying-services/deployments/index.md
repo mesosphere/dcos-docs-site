@@ -25,7 +25,7 @@ In this example, the application `app` is dependent on the application `db`.
 
 ![dependency diagram](/mesosphere/dcos/1.14/img/dependency.png)
 
-Figure 1. Deployment diagram
+Figure 1 - Deployment diagram
 
 Here is the deployment order:
 

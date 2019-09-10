@@ -44,17 +44,26 @@ Secrets should include paths, unless you want to allow all services to access it
 
     ![New Secret](/mesosphere/dcos/1.14/img/new-secret.png)
 
-    Figure 1. New Secret icon
+    Figure 1 - New Secret icon
 
-1. In the **ID** box, provide the name of your secret and its path, if any.
+    If you have no current secrets, a **Create Secret** screen will be displayed. Click on the **Create Secret** button.
 
-    ![Secret ID Keypair](/mesosphere/dcos/1.14/img/GUI-Secrets-Create-New-Keypair.png)
+    ![Create Secret](/1.14/img/GUI-Secrets-Create-Secret.png)
 
-    Figure 2. Creating a new keypair 
+    Figure 2 - Create Secret button
+
+1. In the **ID** box of the **Create New Secret** screen, type the name of your secret and its path, if any.
+
+    ![Secret ID Keypair](/1.14/img/GUI-Secrets-Create-New-Keypair.png)
+
+    Figure 3 - Creating a new keypair 
 
 1. Select **Key-Value Pair** as Type.
 
 1. Type or paste the secret into the **Value** box.
+    ![Secret ID/Value Fields](/1.14/img/GUI-Secrets-Create-New-Keypair.png)
+
+    Figure 4 - Creating a new Secret
 
 1. Click **Create Secret**.
 
@@ -62,7 +71,7 @@ Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/mesosphere/dcos/1.14/img/GUI-Secrets-Secrets-Keypair-Deployed.png)
 
-   Figure 3. Secret with keypair deployed
+   Figure 5 - Secret with keypair deployed
 
 # <a name="api"></a>Creating key-value pair secrets using the API
 
@@ -90,6 +99,7 @@ This procedure describes how to create a key/value pair secret called `my-secret
    ```bash
    dcos security secrets create --value=top-secret developer/my-secret
    ```
+   
 
 # Creating secrets from a file via the DC/OS Enterprise CLI
 
@@ -119,19 +129,19 @@ This procedure describes how to use a file to create a secret using the DC/OS we
 
     ![New Secret](/mesosphere/dcos/1.14/img/new-secret.png)
 
-    Figure 4. Secrets screen
+    Figure 6 - Secrets screen
 
     If you have no current secrets, a Create Secret screen will be displayed. Click on the **Create Secret** button.
 
     ![Create Secret](/mesosphere/dcos/1.14/img/GUI-Secrets-Create-Secret.png)
 
-    Figure 5. Create Secret button
+    Figure 7 - Create Secret button
 
 1. In the **ID** box, provide the name of your secret and its path, if any.
 
     ![Create New Secret](/mesosphere/dcos/1.14/img/GUI-Secrets-Create-New-Secret.png)
 
-    Figure 6. Create New Secret dialog showing file chosen
+    Figure 8 - Create New Secret dialog showing file chosen
 
 1. Select **File** as Type.
 1. Click **Choose File**.
@@ -142,4 +152,4 @@ Returning to the Secrets screen, you can see that your secret has been deployed.
 
    ![Secret deployed](/mesosphere/dcos/1.14/img/GUI-Secrets-Deployed.jpeg)
 
-   Figure 7. Secret deployed
+   Figure 9-  Secret deployed
