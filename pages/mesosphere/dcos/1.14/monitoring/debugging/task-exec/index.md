@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Using dcos task exec
 title: Using dcos task exec
-menuWeight: 20
+menuWeight: 12
 excerpt: Using the dcos task exec command inside a task container
 beta: true
 enterprise: false
