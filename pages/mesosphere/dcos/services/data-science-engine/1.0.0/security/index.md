@@ -28,7 +28,7 @@ If you install a service in permissive mode and do not specify a service account
 
 - [DC/OS CLI installed](/mesosphere/dcos/latest/cli/install/) and be logged in as a superuser.
 - [Enterprise DC/OS CLI 0.4.14](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-install) or later installed.
-- If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/latest/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
+- If your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/) is `permissive` or `strict`, you must [get the root cert](/mesosphere/dcos/latest/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
 # <a name="create-a-keypair"></a>Create a Key Pair
 In this step, a 2048-bit RSA public-private key pair is created using the Enterprise DC/OS CLI.
@@ -113,16 +113,22 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id
 To configure Spark for using created service account and permissions, add the following configuration under the `spark` section:
 
 ```json
-"spark": {
-    "spark_mesos_principal": "<service-account-id>",
-    "spark_mesos_secret": "<service-account-secret>",
-    "spark_mesos_role": "<service-account-id>"
+{
+  "service": {
+      "service_account": "<service-account-id>",
+      "service_account_secret": "<service-account-secret>",
+  },
+  "spark": {
+      "spark_mesos_principal": "<service-account-id>",
+      "spark_mesos_secret": "<service-account-secret>",
+      "spark_mesos_role": "<service-account-id>"
+  }
 }
 ```
 
 ## Using the secret store
 
-DC/OS Enterprise allows users to add privileged information in the form of a file to the [DC/OS Secret Store](/mesosphere/dcos/latest/security/ent/secrets/). These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files. 
+DC/OS Enterprise allows users to add privileged information in the form of a file to the [DC/OS Secret Store](/mesosphere/dcos/latest/security/ent/secrets/). These files can be referenced in {{ model.nickName }} jobs and used for authentication and authorization with various external services (for example, HDFS). For example, you can use this functionality to pass Kerberos `keytab` files.
 
 ### Where to place secrets
 
@@ -135,7 +141,7 @@ Anyone who has access to the {{ model.techName }}'s notebook has access to all s
 
 ## Binary secrets
 
-You can store binary files, like a Kerberos keytab, in the DC/OS Secrets Store. In DC/OS 1.11 and later, you can create secrets from binary files directly. 
+You can store binary files, like a Kerberos keytab, in the DC/OS Secrets Store. In DC/OS 1.11 and later, you can create secrets from binary files directly.
 
 To create a secret called `mysecret` with the binary contents of `kerb5.keytab`, run the following command:
 
@@ -150,7 +156,11 @@ In DC/OS 1.10 or earlier, files must be base64-encoded--as specified in RFC 4648
 Once a secret has been added to the Secret Store, you can include it in the service's configuration under the `security` section:
 
 ```json
-"service": {
+{
+  "service": {
+      "service_account": "<service-account-id>",
+      "service_account_secret": "<service-account-secret>",
+  },
   "security": {
     "extra_spark_secrets": {
       "secret_names": "/{{ model.packageName }}/my-secret",
@@ -165,12 +175,18 @@ Provided secrets will be automatically mounted to {{ model.techName }}'s sandbox
 -`spark.mesos.executor.secret.names`
 -`spark.mesos.executor.secret.<filenames|envkeys>`
 
+<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
+
 # Limitations
 
 When using environment variables and file-based secrets, there must be an equal number of sinks and secret sources. That is, the keys `secret_names`, `secret_filenames`, and `secret_envkeys` must have the same number of values. For example:
 
 ```json
-"service":{
+{
+  "service": {
+      "service_account": "<service-account-id>",
+      "service_account_secret": "<service-account-secret>",
+  },
   "security": {
     "extra_spark_secrets": {
       "secret_names": "/{{ model.packageName }}/my-secret-file,/{{ model.packageName }}/my-secret-envvar",
@@ -180,11 +196,11 @@ When using environment variables and file-based secrets, there must be an equal 
   }
 }
 ```
+<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
 
 This configuration places the contents of `{{ model.packageName }}/my-secret-file` into the `target-secret-file` as well as the `PLACEHOLDER` environment variable. Additionally, the contents of `{{ model.packageName }}/my-secret-envvar` are exported to the `SECRET_ENVVAR` and written to the `placeholder-file`.
 
 <p class="message--note"><strong>NOTE: </strong> If the content size of binary secrets is greater than 4KB, Mesos' security module will reject container execution due to the overhead.</p>
-
 
 # Authenticating to your {{ model.techName }} instance
 
@@ -206,6 +222,10 @@ Here is an example of a simple OpenID Connect configuration for {{ model.techNam
 
 ```json
 {
+  "service": {
+      "service_account": "<service-account-id>",
+      "service_account_secret": "<service-account-secret>",
+  },
   "oidc": {
       "enabled": true,
       "discovery_uri": "https://keycloak.example.com/auth/realms/notebook/.well-known/openid-configuration",
@@ -215,6 +235,7 @@ Here is an example of a simple OpenID Connect configuration for {{ model.techNam
 }
 ```
 
+<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
 <!-- There are a few more options for advanced OpenID Connect configuration, that can be found in the `Oidc` section when
 installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
 
