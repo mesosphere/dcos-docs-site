@@ -24,7 +24,7 @@ Getting started with a test instance of the DC/OS {{ model.techName }} service i
 
 ## Installation from the DC/OS CLI
 
-To start a basic test cluster, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. More information about installing DC/OS Apache {{ model.techShortName }} on Enterprise DC/OS is available on the [Authenticating DC/OS Services](/mesosphere/dcos/1.13/security/ent/service-auth/custom-service-auth/) documentation. 
+To start a basic test cluster, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. More information about installing DC/OS Apache {{ model.techShortName }} on Enterprise DC/OS is available in the [Authenticating DC/OS Services](/mesosphere/dcos/1.13/security/ent/service-auth/custom-service-auth/) documentation. 
 
 ```shell
 dcos package install {{ model.serviceName }}
@@ -32,16 +32,16 @@ dcos package install {{ model.serviceName }}
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
 
 ```
-$ dcos package install {{ model.serviceName }} --options=<options>.json
+dcos package install {{ model.serviceName }} --options=<options>.json
 ```
 
 It is recommended that this custom configuration is stored in source control.
 
 For more information about building the `options.json` file, see the [DC/OS documentation](/mesosphere/dcos/1.11/deploying-services/config-universe-service/) for service configuration access.
 
-## Installation from the DC/OS Web Interface
+## Installation from the DC/OS UI
 
-You can [install DC/OS Apache {{ model.techShortName }} from the DC/OS web interface](/mesosphere/dcos/1.13/deploying-services/install/). If you install DC/OS Apache {{ model.techShortName }} from the web interface, you must install the DC/OS Apache {{ model.techShortName }} CLI subcommands separately. From the DC/OS CLI, enter the following command:
+You can [install DC/OS Apache {{ model.techShortName }} from the DC/OS UI](/mesosphere/dcos/1.14/deploying-services/install/). If you install DC/OS Apache {{ model.techShortName }} from the web interface, you must install the DC/OS Apache {{ model.techShortName }} CLI subcommands separately. From the DC/OS CLI, enter the following command:
 ```bash
 dcos package install {{ model.serviceName }} --cli
 ```
@@ -49,11 +49,11 @@ Choose `ADVANCED INSTALLATION` to perform a custom installation.
 
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and above, you can integrate your SDK-based service with DC/OS ACLs to grant users and groups access to only certain services. You can achieve the integration by installing your service into a folder, and then restricting access to some number of folders. Folders also allow you to namespace services. For instance, `staging/{{ model.serviceName }}` and `production/{{ model.serviceName }}`.
+In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to restrict users and groups only to certain services. You will install your service into a folder, and then restrict access to some number of folders. Folders also allow you to assign namespaces to services; for example, `staging/{{ model.serviceName }}` and `production/{{ model.serviceName }}`.
 
-Use the following steps to perform the integration with DC/OS access controls:
+Use the following steps to integrate with DC/OS access controls:
 
-1. In the DC/OS GUI, you must create a group and then add a user to the group or create an user. Click **Organization** > **Groups** > **+** or **Organization** > **Users** > **+**. If you create a group, you must also create a user and add them to the group.
+1. In the DC/OS UI, you must create a group and then add a user to the group or create an user. Click **Organization** > **Groups** > **+** or **Organization** > **Users** > **+**. If you create a group, you must also create a user and add them to the group.
 1. Give the user permissions for the folder where you will install your service. In this example, we are creating a user called `developer`, who will have access to the `/testing` folder.
    Select the group or user you created. Select **ADD PERMISSION** and then toggle to **INSERT PERMISSION STRING**. Add each of the following permissions to your user or group and then click **ADD PERMISSIONS**.
 
@@ -68,7 +68,7 @@ Use the following steps to perform the integration with DC/OS access controls:
 
    The slashes in your service name are interpreted as folders. You are deploying {{ model.techShortName }} in the `/testing` folder. Any user with access to the `/testing` folder will have access to the service.
 
-<p class="message--note"><strong>NOTE: </strong>Services cannot be renamed because the location of the service is specified in the name and you cannot move services between folders. DC/OS 1.9 and earlier does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
+<p class="message--note"><strong>NOTE: </strong>Services cannot be renamed because the location of the service is specified in the name and you cannot move services between folders. DC/OS 1.9 does not accept slashes in service names. You may be able to create the service, but you will encounter unexpected problems.</p>
 
 ### Interacting with your foldered service
 

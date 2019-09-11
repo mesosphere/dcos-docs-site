@@ -81,7 +81,7 @@ dcos {{ model.packageName }} --name=<service-name> pod replace node-0
 The output of a recovery plan is as follows:
 
 ```bash
-$ dcos {{ model.packageName }} --name=<service-name> plan show recovery
+dcos {{ model.packageName }} --name=<service-name> plan show recovery
 recovery (IN_PROGRESS)
 └─ permanent-node-failure-recovery (IN_PROGRESS)
    ├─ node-0:[server] (COMPLETE)

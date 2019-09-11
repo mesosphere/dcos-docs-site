@@ -22,7 +22,7 @@ The service does not support performing backup and restore with authentication/a
 
 ## Node Count
 
-The DC/OS {{ model.techName }} service must be deployed with at least {{ model.minNodeCount }} nodes.
+The DC/OS {{ model.techName }} service must be deployed with at least {{ model.install.minNodeCount }} nodes.
 
 ### Toggling Transport Encryption
 

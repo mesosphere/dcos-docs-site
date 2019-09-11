@@ -172,25 +172,25 @@ To replicate data across data centers, {{ model.techName }} requires that you co
 
 1. Launch the first cluster with the default configuration.
 
-```shell
-dcos package install {{ model.packageName }}
-```
+    ```shell
+    dcos package install {{ model.packageName }}
+    ```
 
-2. Create an `options.json` file for the second cluster that specifies a different service name and data center name.
+1. Create an `options.json` file for the second cluster that specifies a different service name and data center name.
 
-```json
-{
-  "service": {
-    "name": "{{ model.serviceName }}2",
-    "data_center": "dc2"
-  }
-}
-```
+    ```json
+    {
+      "service": {
+        "name": "{{ model.serviceName }}2",
+        "data_center": "dc2"
+      }
+    }
+    ```
 
-3. Launch the second cluster with the following custom options.
-```
-dcos package install {{ model.packageName }} --options=<options.json>
-```
+1. Launch the second cluster with the following custom options.
+    ```
+    dcos package install {{ model.packageName }} --options=<options.json>
+    ```
 
 ### Get the seed node IP addresses
 
@@ -198,63 +198,67 @@ dcos package install {{ model.packageName }} --options=<options.json>
 
 1. Get the list of seed node addresses for the first cluster.
 
-```shell
-dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints node
-```
+    ```shell
+    dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints node
+    ```
 
-Alternatively, you can get the list of seed node addresses from the scheduler HTTP API.
+    Alternatively, you can get the list of seed node addresses from the scheduler HTTP API.
 
-```json
-DCOS_AUTH_TOKEN=$(dcos config show core.dcos_acs_token)
-DCOS_URL=$(dcos config show core.dcos_url)
-curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.serviceName }}/v1/endpoints/node
-```
+    ```json
+    DCOS_AUTH_TOKEN=$(dcos config show core.dcos_acs_token)
+    DCOS_URL=$(dcos config show core.dcos_url)
+    curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.serviceName }}/v1/endpoints/node
+    ```
 
-The output is as follows:
+    The output should look like this:
 
-```
-{
-  "address": [
-    "10.0.1.236:9042",
-    "10.0.0.119:9042"
-  ],
-  "dns": [
-    "node-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042",
-    "node-1-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042"
-  ],
-  "vip": "node.{{ model.serviceName }}.l4lb.thisdcos.directory:9042"
-}
-```
+    ```
+    {
+      "address": [
+        "10.0.1.236:9042",
+        "10.0.0.119:9042"
+      ],
+      "dns": [
+        "node-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042",
+        "node-1-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042"
+      ],
+      "vip": "node.{{ model.serviceName }}.l4lb.thisdcos.directory:9042"
+    }
+    ```
 
-Note the IPs in the `address` field.
+    Note the IPs in the `address` field.
 
-2. Run the same command for your second {{ model.techShortName }} cluster and note the IPs in the `address` field:
+1. Run the same command for your second {{ model.techShortName }} cluster and note the IPs in the `address` field:
 
-```
-dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
-```
+    ```
+    dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
+    ```
 
 ### Update configuration for both clusters
 
 1. Create an `options2.json` file with the IP addresses of the first cluster (`{{ model.serviceName }}`):
 
-```json
-{
-  "service": {
-    "remote_seeds": "10.0.1.236:9042,10.0.0.119:9042"
-  }
-}
-```
+    ```json
+    {
+      "service": {
+        "remote_seeds": "10.0.1.236:9042,10.0.0.119:9042"
+      }
+    }
+    ```
 
-2. Update the configuration of the second cluster.
+1. Update the configuration of the second cluster.
 
-```
-dcos {{ model.packageName }} --name={{ model.serviceName}}2 update start --options=options2.json
-```
+    ```
+    dcos {{ model.packageName }} --name={{ model.serviceName}}2 update start --options=options2.json
+    ```
 
-Perform the same operation on the first cluster, creating an `options.json` which contains the IP addresses of the second cluster (`{{ model.serviceName }}2`)'s seed nodes in the `service.remote_seeds` field. Then, update the first cluster's configuration: `dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json`.
+1. Perform the same operation on the first cluster, creating an `options.json` which contains the IP addresses of the second cluster (`{{ model.serviceName }}2`)'s seed nodes in the `service.remote_seeds` field. 
 
-Both schedulers will restart after each receives the configuration update, and each cluster will communicate with the seed nodes from the other cluster to establish a multi-data center topology. Repeat this above process for each new cluster you add.
+1. Then, update the first cluster's configuration: `dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json`.
+
+Both schedulers will restart after each receives the configuration update, and each cluster will communicate with the seed nodes from the other cluster to establish a multi-data center topology. Repeat this process for each new cluster you add.
+
+### Monitoring your progress
 
 You can monitor the progress of the update for the first cluster using the following command:
 
@@ -268,7 +272,7 @@ You can monitor the progress of the update for the second cluster using the foll
 dcos {{ model.packageName }} --name={{ model.serviceName }}2 update status
 ```
 
-The output is as follows:
+The output should look like this:
 
 ```shell
 deploy (IN_PROGRESS)
