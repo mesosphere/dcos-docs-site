@@ -23,8 +23,6 @@ You can specify the location of these files at install time or for each {{ model
 
 # Configuring {{ model.techName }} to work with HDFS
 
-
-
 Within the {{ model.techName }} service configuration, set `service.jupyter_conf_urls` to be a list of URLs that serves your `hdfs-site.xml` and `core-site.xml`. The following example uses `http://mydomain.com/hdfs-config/hdfs-site.xml` and `http://mydomain.com/hdfs-config/core-site.xml` URLs:
 
 ```json
@@ -91,47 +89,7 @@ Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage 
 
 # S3
 
-To set up S3 connectivity, you must be on a cluster in permissive or strict mode. If a service account has not been created, follow these steps to create one.
-
-1.  Set up a service account for {{ model.techName }} and its secrets.
-
-    ```bash
-    export DSENGINE_SA=dsengine_sa
-    ```
-1.  Store your AWS keys as secrets.
-    
-    ```bash
-    dcos security secrets create aws_access_key_id -v ${AWS_ACCESS_KEY_ID}
-    dcos security secrets create aws_secret_access_key -v ${AWS_SECRET_ACCESS_KEY}
-    ```
-
-1.  Generate the service account key pair:
-
-    ```bash
-    dcos security org service-accounts keypair {{ model.serviceName }}-private.pem {{ model.serviceName }}-public.pem
-    ```
-
-1.  Store the service account key pair as secrets:
-
-    ```bash
-    dcos security secrets create {{ model.serviceName }}/private_key -f {{ model.serviceName }}-private.pem 
-    dcos security secrets create {{ model.serviceName }}/public_key -f {{ model.serviceName }}-public.pem 
-    ```
-
-1.  Create the service account:
-
-    ```bash
-    dcos security org service-accounts create -p {{ model.serviceName }}-public.pem -d "{{ model.nickName }} SA" ${DSENGINE_SA}
-    dcos security org service-accounts show ${DSENGINE_SA}
-    ```
-1.  Store the service account secret.
-    ```
-    dcos security secrets create-sa-secret {{ model.serviceName }}-private.pem ${DSENGINE_SA} ${DSENGINE_SA}
-    dcos security secrets list /
-    ```
-
-
-<!-- You can read/write files to S3 using environment variable-based secrets to pass your AWS credentials.
+To set up S3 connectivity, you must be on a cluster in permissive or strict mode. If a service account has not been created, follow the steps described in Security section to create one. After service account is created follow these steps to create AWS credentials secrets and configure {{ model.techName }} to use them for authenticating with S3:
 
 1. Upload your credentials to the DC/OS secret store:
 
@@ -140,21 +98,37 @@ To set up S3 connectivity, you must be on a cluster in permissive or strict mode
   dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
   ```
 
+1. Grant the previously created service account read access to the secrets:
+
+  ```bash
+  dcos security org users grant <SERVICE_ACCOUNT> dcos:secrets:list:default:<secret_path_for_key_id> read
+  dcos security org users grant <SERVICE_ACCOUNT> dcos:secrets:list:default:<secret_path_for_secret_key> read
+  ```
+
 2. After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
 
   ```json
   {
+    "service": {
+        "service_account": "<service-account-id>",
+        "service_account_secret": "<service-account-secret>",
+    },
     "s3": {
       "aws_access_key_id": "<secret_path_for_key_id>",
       "aws_secret_access_key": "<secret_path_for_secret_key>"
     }
   }
   ```
+<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
 
 3. To make Spark integration use credentials-based access to S3, Spark's credentials provider should be changed to `com.amazonaws.auth.EnvironmentVariableCredentialsProvider` in the service options:
 
   ```json
   {
+    "service": {
+        "service_account": "<service-account-id>",
+        "service_account_secret": "<service-account-secret>",
+    },
     "spark": {
       "spark_hadoop_fs_s3a_aws_credentials_provider": "com.amazonaws.auth.EnvironmentVariableCredentialsProvider"
     },
