@@ -60,6 +60,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.13.1</th>
     <th>1.13.2</th>
     <th>1.13.3</th>
+    <th>1.13.4</th>
    </tr>
    <tr>
     <th>1.13.0</th>
