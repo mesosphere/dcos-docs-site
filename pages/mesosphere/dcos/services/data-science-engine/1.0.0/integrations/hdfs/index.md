@@ -137,7 +137,7 @@ To set up S3 connectivity, you must be on a cluster in permissive or strict mode
       "aws_secret_access_key": "<secret_path_for_secret_key>"
     }
   }
-  ``` -->
+  ```
 
 <p class="message--note"><strong>NOTE: </strong> The provided <tt>aws_access_key_id</tt> and <tt>aws_secret_access_key</tt> are the names of secrets, so in order to access them, a service account and service account secret must be specified in the {{ model.techName }} configuration.</p>
 
