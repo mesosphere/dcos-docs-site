@@ -35,7 +35,7 @@ Before starting this tutorial, you should verify the following:
     export PATH=$PWD/bin:$PATH
     ```
 
-1. Install Istio using Helm by runbubg the following commands:
+1. Install Istio using Helm by running the following commands:
 
     ```bash
     helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
