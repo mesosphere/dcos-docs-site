@@ -186,21 +186,22 @@ To learn how to do this, see [Controlling user access to services](/mesosphere/d
 
 ## <a name="secrets"></a>Spaces for secrets
 
-The secret path controls which services, eg Marathon apps, can access it. If you do not specify a path when storing a secret, any service can access it.
+The secret path controls which services (a service usually is a Marathon application started on DC/OS' Root Marathon)
+can access it. If you do not specify a path when storing a secret, any service can access it.
 
 Secret paths work in conjunction with service groups to control access. However, you do not need to have service groups to control access to secrets, you can also use the name of the service. The following table provides a few examples to show how it works.
 
 | Secret              | Service                  | Can service access secret? |
 |---------------------|--------------------------|----------------------------|
-| `prod/database-key` | `/marathon-user/my-app`  | No                         |
-| `bi/s3-key`         | `/bi/hdfs/loader`        | Yes                        |
-| `bi/hdfs/ec2-key`   | `/bi/spark/executor`     | No                         |
-| `hdfs/secret`       | `/hdfs`                  | Yes                        |
+| `/prod/database-key` | `/marathon-user/my-app`  | No                         |
+| `/bi/s3-key`         | `/bi/hdfs/loader`        | Yes                        |
+| `/bi/hdfs/ec2-key`   | `/bi/spark/executor`     | No                         |
+| `/hdfs/secret`       | `/hdfs`                  | Yes                        |
 
-Here the Marathon app `my-app` cannot access the secret `prod/database-key` because it is in group `marathon-user` and
-not `prod`. The service `loader` in `bi/hdfs` has access to `s3-key` because both reside in `bi`.  However, `executor`
+Here the Marathon app `my-app` cannot access the secret `prod/database-key` because it is in service group `marathon-user` and
+not in service group `prod`. The service `loader` in `bi/hdfs` has access to `s3-key` because both reside in `bi`.  However, `executor`
 in `bi/spark` cannot access `ec2-key` in `bi/hdfs` since it is not a child of `hdfs` but `spark`. Note that most
-services are probably pods or apps scheduled by the root Marathon.
+services are probably pods or apps scheduled by DC/OS' Root Marathon.
 
 ### Notes
 
