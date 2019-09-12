@@ -252,6 +252,7 @@ The default value of this entire object is `omitted`.
 | `spec.containerRuntime` | Specifies the container runtime to use.         | See [spec.containerRuntime](#spec-containerruntime) |
 | `spec.containerNetworking` | Specifies the container networking to use.          | See [spec.containerNetworking](#spec-containernetworking) |
 | `spec.imageRegistries`  | Specifies the container image registries authentication details. | See [spec.imageRegistries](#spec-imageregistries) |
+| `spec.packageRepository`  | configure packages repositories | See [spec.packageRepository](#specpackageRepository) |
 | `spec.nodePools`        | Specifies the nodePool configuration.         | See [spec.imageRegistries](#spec-nodepools) |
 | `spec.addons`           | Specifies the list of addons that can be deployed.  | See [spec.addons](#spec-addons) |
 | `spec.version`          | version of a konvoy cluster            | `v0.0.20`                                |
@@ -376,6 +377,12 @@ The default value of this entire object is `omitted`.
 | -------------------- | -------------------------------------------------------------------- | -------- |
 | `configData.data`    | Specifies the [TOML configuration][containerd_config] of containerd.             | `""`     |
 | `containerd.replace` | enable to use `configData.data`. otherwise, merge `configData.data` with the internal default. | `false`    |
+
+## spec.packageRepository
+
+| Parameter                   | Description               | Default |
+| --------------------------- | ------------------------- | ------- |
+| `packageRepository.defaultRepositoryInstallationDisabled` | disable the installation of Konvoy custom repositories  | `false` |
 
 ### spec.imageRegistries
 

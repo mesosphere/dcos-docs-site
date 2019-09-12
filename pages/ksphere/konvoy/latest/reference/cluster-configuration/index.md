@@ -158,6 +158,7 @@ spec:
 | `spec.containerRuntime` | container runtime to use               | See [spec.containerRuntime](#speccontainerruntime) |
 | `spec.containerNetworking` | container networking to use               | See [spec.containerNetworking](#speccontainernetworking) |
 | `spec.imageRegistries`  | container image registries auth details | See [spec.imageRegistries](#specimageregistries) |
+| `spec.packageRepository`  | configure packages repositories | See [spec.packageRepository](#specpackageRepository) |
 | `spec.nodePools`        | nodePool configuration                  | See [spec.imageRegistries](#specnodepools) |
 | `spec.addons`           | list of addons that can be deployed    | See [spec.addons](#specaddons) |
 | `spec.version`          | version of a konvoy cluster            | `v0.0.20`                                |
@@ -177,10 +178,17 @@ spec:
 
 | Parameter                                  | Description                                                    | Default  |
 | ------------------------------------------ | -------------------------------------------------------------- | -------- |
-| `controlPlane.controlPlaneEndpointOverride`| overrides the `control_plane_endpoint` from `inventory.yaml`   | `""`      |
-| `controlPlane.keepalived`                   | object that defines keepalived configuration                  | See [spec.kubernetes.controlPlane.keepalived](#speckubernetescontrolplanekeepalived)  |
+| `controlPlane.controlPlaneEndpointOverride`| overrides the `control_plane_endpoint` from `inventory.yaml`   | `""`     |
+| `controlPlane.certificate`                 | certificate related configurations for the control plane       | see [spec.kubernetes.controlPlane.certificate](#speckubernetescontrolplanecertificate) |
+| `controlPlane.keepalived`                  | object that defines keepalived configuration                   | see [spec.kubernetes.controlPlane.keepalived](#speckubernetescontrolplanekeepalived)   |
 
-### spec.kubernetes.controlPlane.keepalived
+#### spec.kubernetes.controlPlane.certificate
+
+| Parameter                             | Description                                                    | Default  |
+| --------------------------------------| ---------------------------------------------------------------| -------- |
+| `certificate.subjectAlternativeNames` | Subject Alternative Names (SAN) for the control plane endpoint | `[]`     |
+
+#### spec.kubernetes.controlPlane.keepalived
 
 | Parameter              | Description                      | Default  |
 | -----------------------| ---------------------------------| -------- |
@@ -282,6 +290,12 @@ spec:
 | -------------------- | -------------------------------------------------------------------- | -------- |
 | `configData.data`    | [TOML configuration][containerd_config] of containerd                | `""`     |
 | `containerd.replace` | enable to use `configData.data`. otherwise, merge `configData.data` with the internal default. | `false`    |
+
+## spec.packageRepository
+
+| Parameter                   | Description               | Default |
+| --------------------------- | ------------------------- | ------- |
+| `packageRepository.defaultRepositoryInstallationDisabled` | disable the installation of Konvoy custom repositories  | `false` |
 
 ## spec.imageRegistries
 
