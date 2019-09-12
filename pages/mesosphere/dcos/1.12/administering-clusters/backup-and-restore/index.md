@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Backing up and restoring the important bits of your cluster
 --- 
 
-You may wish to back up your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade or if you install a Universe package that does not perform as expected.
+You may wish to back up your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade or if you install a Catalog package that does not perform as expected.
 
 This section provides guidance on how to back up and restore the state of particular DC/OS components via dedicated procedures.
 

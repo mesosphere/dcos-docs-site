@@ -76,7 +76,7 @@ Delete an unneeded backup.
    dcos backup show <backup-id>
    ```
 
-   The `restores.component_status.marathon` parameter of the JSON output will show `STATUS_RESTORING`, and then `STATUS_READY`.
+The `restores.component_status.marathon` parameter of the JSON output will show `STATUS_RESTORING`, and then `STATUS_READY`.
 
 <a name="zookeeper"></a>
 
