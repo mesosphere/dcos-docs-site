@@ -69,7 +69,6 @@ Note that in this example:
 It is not a requirement that these match any configuration options related to the actual Kibana service, so you could name them differently.
 
 The pool fields that actually map to the actual Kibana service are under `haproxy.backends`:
-- `rewriteHttp.path.fromPath` should match the Kibana Marathon app service path
 - `services.endpoint.portName` should match the Kibana Marathon app port name
 - `services.marathon.serviceID` should match the Kibana service name
 
@@ -105,12 +104,6 @@ echo "{
       {
         \"name\": \"kibana-backend\",
         \"protocol\": \"HTTP\",
-        \"rewriteHttp\": {
-          \"path\": {
-            \"fromPath\": \"${kibana_service_path}\",
-            \"toPath\": \"/\"
-          }
-        },
         \"services\": [
           {
             \"marathon\": {
@@ -153,12 +146,6 @@ Which will end up looking like:
       {
         "name": "kibana-backend",
         "protocol": "HTTP",
-        "rewriteHttp": {
-          "path": {
-            "fromPath": "/service//production/kibana",
-            "toPath": "/"
-          }
-        },
         "services": [
           {
             "marathon": {
