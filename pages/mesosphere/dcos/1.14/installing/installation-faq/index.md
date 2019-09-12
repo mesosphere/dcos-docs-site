@@ -53,9 +53,9 @@ If Auto Scaling groups are in use, the node will be replaced automatically.
 
 <a name="iam-backup"></a>
 
-## Q. How do I backup the IAM database?
+## Q. How do I back up the IAM database?
 
-- To backup the IAM database to a file run the following command on one of the master nodes:
+- To back up the IAM database to a file run the following command on one of the master nodes:
 
 ```bash
 dcos-shell iam-database-backup > ~/iam-backup.sql
@@ -73,6 +73,6 @@ The IAM database is restored from the backup file and the cluster is operational
 
 <a name="zk-backup"></a>
 
-## Q. How do I backup ZooKeeper?
+## Q. How do I back up ZooKeeper?
 
-ZooKeeper should be backed up by following the guide [Backup and Restore DC/OS ZooKeeper State](/mesosphere/dcos/1.14/administering-clusters/backup-and-restore/zookeeper/).
+To back up ZooKeeper, follow the guide to back up and restore the [DC/OS ZooKeeper State](/mesosphere/dcos/1.14/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper).

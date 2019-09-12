@@ -5,15 +5,18 @@ title: Backup and Restore CLI
 menuWeight: 0
 excerpt: Backing up and restoring your cluster using the CLI
 enterprise: true
+render: mustache
+model: /mesosphere/dcos/1.14/data.yml
 ---
 You can use the CLI to create and restore backups of your cluster. You can also choose to back up and restore the state of [ZooKeeper](#zookeeper) running inside a DC/OS cluster.
 
-# Prerequisites
-- A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/mesosphere/dcos/1.12/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/mesosphere/dcos/1.12/cli/enterprise-cli/) installed.
 
-<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="http://localhost:3000/mesosphere/dcos/1.12/administering-clusters/backup-and-restore/#limitations">Limitations</a> section.</p>
+# Prerequisites
+- A DC/OS Enterprise cluster
+- The [DC/OS CLI](/mesosphere/dcos/1.14/cli/install/) installed
+- The [DC/OS Enterprise CLI](/mesosphere/dcos/1.14/cli/enterprise-cli/) installed
+
+<p class="message--important"><strong>IMPORTANT: </strong>See the <a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">Limitations</a> section of Backup and Restore.</p>
 
 # Backing up a cluster
 
@@ -72,7 +75,7 @@ Delete an unneeded backup.
    dcos backup show <backup-id>
    ```
 
-The `restores.component_status.marathon` parameter of the JSON output will show `STATUS_RESTORING`, and then `STATUS_READY`.
+   The `restores.component_status.marathon` parameter of the JSON output will show `STATUS_RESTORING`, and then `STATUS_READY`.
 
 <a name="zookeeper"></a>
 
