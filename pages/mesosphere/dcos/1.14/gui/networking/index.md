@@ -33,9 +33,9 @@ The **Tasks** tab lists the following information:
 
 | Name | Description |
 |---------|--------------|
-| Task |   |
-| Container IP |        |
-| Port Mappings |        |
+| Task | Task name.  |
+| Container IP |    IP address of the container.     |
+| Port Mappings |  Host port to container port mapping, if it exists.      |
 
 ## Details
 
@@ -43,8 +43,8 @@ The **Details** tab lists the following information:
 
 | Name | Description |
 |---------|--------------|
-| Name |   |
-| IP Subnet |        |
+| Name |  Name of the virtual network.  |
+| IP Subnet |    IP subnet of the network.    |
 
 # Service Addresses tab
 
@@ -56,11 +56,11 @@ Figure 3 - Service Addresses tab
 
 | Name | Description |
 |---------|--------------|
-| Name |   |
-| Successes |        |
-| Failures | |
-| Failure % | |
-| P99 Latency |   |
+| Name | Mesos DNS name.  |
+| Successes |  Number of successful requests.      |
+| Failures | Number of failed requests. |
+| Failure % | Failure rate. |
+| P99 Latency | P99 latency means that 99% of the requests should be faster than given latency. In other words only 1% of the requests are allowed to be slower.  |
 
 ## Service Addresses detail tabs
 
