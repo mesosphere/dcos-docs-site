@@ -27,7 +27,7 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
 1.  From a terminal prompt, use the following commands to download the local Universe and its service definitions onto your local drive.
 
     ```bash
-    curl -v https://downloads.mesosphere.com/universe/public/local-universe.tar.gz -o local-universe.tar.gz
+    curl -v https://s3.amazonaws.com/downloads.mesosphere.io/universe/public/local-universe.tar.gz -o local-universe.tar.gz
     curl -v https://raw.githubusercontent.com/mesosphere/universe/version-3.x/docker/local-universe/dcos-local-universe-http.service -o dcos-local-universe-http.service
     curl -v https://raw.githubusercontent.com/mesosphere/universe/version-3.x/docker/local-universe/dcos-local-universe-registry.service -o dcos-local-universe-registry.service
     ```

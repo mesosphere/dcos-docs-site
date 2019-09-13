@@ -29,7 +29,7 @@ enterprise: false
 1. 从终端提示符中，使用以下命令将本地 Universe 及其服务定义下载到您的本地驱动器。
 
     ```bash
-    curl -v https://downloads.mesosphere.com/universe/public/local-universe.tar.gz -o local-universe.tar.gz
+    curl -v https://s3.amazonaws.com/downloads.mesosphere.io/universe/public/local-universe.tar.gz -o local-universe.tar.gz
     curl -v https://raw.githubusercontent.com/mesosphere/universe/version-3.x/docker/local-universe/dcos-local-universe-http.service -o dcos-local-universe-http.service
     curl -v https://raw.githubusercontent.com/mesosphere/universe/version-3.x/docker/local-universe/dcos-local-universe-registry.service -o dcos-local-universe-registry.service
     ```
