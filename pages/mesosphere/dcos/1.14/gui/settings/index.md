@@ -27,7 +27,10 @@ The **UI Settings** tab allows you to manage your DC/OS UI version and the langu
 
 ## DC/OS UI Details
 
-The **DC/OS UI Details** section shows you which version of the UI is installed; note that this is **not** the version of DC/OS which is currently installed. You have the option to use an earlier version of the UI. 
+The **DC/OS UI Details** section shows you which version of the UI is installed; note that this is **not** the version of DC/OS which is currently installed. 
+
+### Rollback
+You can revert your UI version to an earlier one if you need to. DC/OS comes with a pre-bundled UI version. As you update the UI using the **Settings** page, we keep the pre-bundled version in case it becomes necessary to roll back. Therefore if you roll back, you will be getting the pre-bundled version that came with your DC/OS installation. 
 
 Click on the **Rollback** button to load the earlier version of the UI.
 
@@ -70,11 +73,11 @@ You can add a repository, with its associated services, to your DC/OS Enterprise
 
     Figure 5 - Adding a repository
 
-    | Name | Value |
-    |-----|-----|
-    | Repository Name | Name of the repository you want to add.  |
-    | URL |  Path to the repository you want to add.  |
-    | Priority | 0, 1, or 2 |
+   | Name | Description |
+   |---------|-------------|
+   | Repository Name | Name of the repository you want to add.  |
+   | URL |  Path to the repository you want to add.  |
+   | Priority | 0, 1, or 2 |
 
 1. Click **Add Repository**.
 
@@ -113,7 +116,7 @@ To add a directory, click on the **Add Directory** button. Further details about
 
 # Identity Providers
 
-DC/OS supports the use of identity provider-based authentication. Detailed information about how to set up identity provider-based authentication can be found in the [documentation](/mesosphere/dcos/1.14/security/ent/sso/). We provide information for [configuring a SAML identity provider](/mesosphere/dcos/1.14/security/ent/sso/setup-saml/) or an [OpenID Connect IdP](/mesosphere/dcos/1.14/security/ent/sso/setup-openid/).
+DC/OS supports the use of identity provider-based authentication. Detailed information about how to set up identity provider-based authentication can be found in the [documentation](/mesosphere/dcos/1.14/security/ent/sso/). We provide information for configuring a [SAML identity provider](/mesosphere/dcos/1.14/security/ent/sso/setup-saml/) or an [OpenID Connect IdP](/mesosphere/dcos/1.14/security/ent/sso/setup-openid/).
 
 ![Identity providers](/mesosphere/dcos/1.14/img/GUI-Settings-LDAP-Add-Oidc.png)
 
