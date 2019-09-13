@@ -277,7 +277,7 @@ interface.
 
 4.  Perform all of the steps as described in [Installing the default Universe packages][5].
 
- [1]: https://downloads.mesosphere.com/universe/public/local-universe.tar.gz
+ [1]: https://s3.amazonaws.com/downloads.mesosphere.io/universe/public/local-universe.tar.gz
  [2]: https://raw.githubusercontent.com/mesosphere/universe/version-3.x/local/dcos-local-universe-http.service
  [3]: https://raw.githubusercontent.com/mesosphere/universe/version-3.x/local/dcos-local-universe-registry.service
  [4]: #build
