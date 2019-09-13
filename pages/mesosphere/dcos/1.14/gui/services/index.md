@@ -47,7 +47,7 @@ Figure 2 - Sort menu
 
 ## SDK Service Status
 
-Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/) leverage Mesos native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status levels are specific to SDK based schedulers and their lifecycle.
+Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/), leveraging Mesos native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status levels are specific to SDK based schedulers and their lifecycle.
 
 | Status | Description |
 |----------|----------------|
