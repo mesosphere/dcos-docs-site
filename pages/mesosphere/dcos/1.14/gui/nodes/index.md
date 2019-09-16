@@ -78,13 +78,13 @@ The **Health** tab displays the status of your node's health checks.
 
 ![Health tab](/mesosphere/dcos/1.14/img/GUI-Nodes-Health-Tab.png)
 
-Figure 6 - **Nodes > Health** tab
+Figure 7 - **Nodes > Health** tab
 
 You can filter this list using the **All Health Checks** drop down menu.
 
 ![All health checks menu](/mesosphere/dcos/1.14/img/GUI-Nodes-Health-Filter.png)
 
-Figure 7 - Health checks filter
+Figure 8 - Health checks filter
 
 ## Details
 
@@ -92,7 +92,7 @@ The **Nodes > Details** tab will show you the identification information for thi
 
 ![Details panel](/mesosphere/dcos/1.14/img/GUI-Nodes-Details-Tab.png)
 
-Figure 8 - Nodes details tab
+Figure 9 - Nodes details tab
 
 ### Service details
 
@@ -100,7 +100,7 @@ If you click on the name of the service (for example, HDFS), you will see the **
 
 ![Service details page](/mesosphere/dcos/1.14/img/GUI-Nodes-Services-Details.png)
  
-Figure 9 - Service details
+Figure 10 - Service details
 
 #### Files tab
 
@@ -108,7 +108,7 @@ The Files tab for your service displays a Working Directory, which will display 
 
 ![Files tab](/mesosphere/dcos/1.14/img/GUI-Nodes-Services-Files.png)
 
-Figure 8 - Files tab
+Figure 11 - Files tab
 
 #### Logs tab
 
@@ -116,7 +116,7 @@ If you click on the **Logs** tab, you will see the log kept by DC/OS for your cl
 
 ![Logs](/mesosphere/dcos/1.14/img/GUI-Nodes-Services-Logs.png)
 
-Figure 9 - Logs
+Figure 12 - Logs
 
 You can filter the results by `stderr` and `stdout` filters. To download a copy of the log, click on the down arrow on the right hand side of the menu.
 
@@ -128,7 +128,7 @@ If you click on the IP address of the host, you will see the Tasks view by defau
 
 ![Nodes tasks](/mesosphere/dcos/1.14/img/GUI-Nodes-Tasks-Tab.png)
 
-Figure 10 - Node tasks
+Figure 13 - Node tasks
 
 
 # CLI equivalent commands
