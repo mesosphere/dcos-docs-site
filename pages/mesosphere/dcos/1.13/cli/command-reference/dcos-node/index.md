@@ -13,7 +13,7 @@ enterprise: false
 # Description
 The `dcos node` commands allow you to view DC/OS node information.
 
-**This command is deprecated since DC/OS 1.13, use `dcos node list` instead.**
+**Use of the `dcos node` command for listing nodes is deprecated from 1.13 onward. To list dcos nodes, use the `dcos node list` command instead**
 
 # Usage
 
