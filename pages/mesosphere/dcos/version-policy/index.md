@@ -199,6 +199,7 @@ Use the following legend table to see the supported/not supported service for th
 <table class="table">
     <tr>
     <th><strong>CLI</strong></th>
+    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     <th><strong>DC/OS 1.11 Latest Stable</strong></th>
@@ -207,18 +208,28 @@ Use the following legend table to see the supported/not supported service for th
         <td>DC/OS CLI 0.6.x</td>
         <td></td>
         <td></td>
+        <td></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>DC/OS CLI 0.7.x</td>
+        <td></td>
         <td></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td></td>
     </tr>
     <tr>
         <td>DC/OS CLI 0.8.x</td>
+        <td></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>DC/OS CLI 1.x</td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td></td>
     </tr>
 </table>
