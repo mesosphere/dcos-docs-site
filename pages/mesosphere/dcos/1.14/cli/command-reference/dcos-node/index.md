@@ -8,12 +8,10 @@ render: mustache
 model: /mesosphere/dcos/1.14/data.yml
 enterprise: false
 ---
-
+<p class="message--warning"><strong>WARNING: </strong>Use of the <tt>dcos node</tt> command for listing nodes is deprecated from DC/OS 1.13 onward. To list dcos nodes, use the <tt><a href="/mesosphere/dcos/1.14/cli/command-reference/dcos-node/dcos-node-list/">dcos node list</a></tt> command instead.</p>
 
 # Description
 The `dcos node` commands allow you to view DC/OS node information.
-
-**This command is deprecated since DC/OS 1.13, use `dcos node list` instead.**
 
 # Usage
 
