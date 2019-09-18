@@ -76,7 +76,7 @@ to maintain performance, the following disk mounting configurations are
 recommended:
 - Masters:
     - / - P10
-    - /var/lib/etcd - (for those running etcd on CoreOS) - P10
+    - /var/lib/etcd - (for those running etcd) - P10
     - /var/log - P10
     - /var/lib/dcos/exhibitor - P10
 - Public Agents:

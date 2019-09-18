@@ -107,7 +107,7 @@ As it is difficult to maintain `bash`, we simplified the installation method as 
 
 It is possible to make an entire host image that has been configured instead of a tarball that goes on top. Here are some reasons why this does not make sense as the sole method for installation:
 
-- Endless distribution updates. Every time RHEL released a package update, we would be required to test, bundle and distribute that. This becomes even harder with CoreOS as we would end up actually forking the project.
+- Endless distribution updates. Every time RHEL released a package update, we would be required to test, bundle and distribute that.
 - You want to choose their distribution. Some have existing support contracts with Canonical and some with RedHat.
 - You want to configure the base OS. There are security policies and configuration that must be applied to the host.
 

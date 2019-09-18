@@ -48,7 +48,7 @@ If you are on the same network as your cluster or connected by a VPN, you can us
     dcos node ssh --master-proxy --leader
     ```
 
-    The default user is `core` for CoreOS. If you are using CentOS, enter:
+    The default user is dependant on your OS. If you are using CentOS, enter:
 
     ```bash
     dcos node ssh --master-proxy --leader --user=centos
@@ -109,7 +109,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             Figure 4. PuTTY SSH options
 
-        4.  Log in as user "core" if you are running CoreOS. The default user on CentOS is "centos".
+        4.  Log in as user "centos" if you are running CentOS. The default user will differ based on your OS.
 
             ![Windows Login](/mesosphere/dcos/1.13/img/windowscore.png)
 
@@ -151,7 +151,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             2.  In the **Category** pane on the left side of the PuTTY window, choose **Session** and enter the master node IP address in the **Host Name (or IP address)** field.
 
-            4.  Log in as user "core" if you are running CoreOS. The default user on CentOS is "centos".
+            4.  Log in as user "centos" if you are running CentOS. The default user will differ based on your OS.
 
                 ![Windows Login](/mesosphere/dcos/1.13/img/windowscore.png)
 

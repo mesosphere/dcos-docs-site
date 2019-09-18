@@ -143,7 +143,7 @@ EBS volumes are also namespaced by their availability zone (AZ), and an EBS volu
 
 REX-Ray by default will fail after 13 EBS volumes are attached. Use the [config option useLargeDeviceRange to extend this limit][13], which was introduced in RexRay v0.11.4.
 
-EBS volumes present as non-volatile memory express (NVMe) devices on certain newer EC2 instance types. Support for NVMe was only added to RexRay in v0.11.4. You will need to take the following prerequisite steps for RexRay to work with NVMe devices on CentOS (on newer CoreOS AMIs this is unnecessary):
+EBS volumes present as non-volatile memory express (NVMe) devices on certain newer EC2 instance types. Support for NVMe was only added to RexRay in v0.11.4. You will need to take the following prerequisite steps for RexRay to work with NVMe devices on CentOS (on newer AMIs this may be unnecessary):
 
    
 1. Install the NVMe CLI command.
