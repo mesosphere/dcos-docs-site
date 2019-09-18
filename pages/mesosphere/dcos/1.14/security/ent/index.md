@@ -187,7 +187,7 @@ To learn how to do this, see [Controlling user access to services](/mesosphere/d
 ## <a name="secrets"></a>Spaces for secrets
 
 The secret path controls which services (a service usually is a Marathon application started on DC/OS' Root Marathon)
-can access it. If you do not specify a path when storing a secret, any service can access it.
+can access it. Be aware that any service can access a secret stored at the top level.
 
 Secret paths work in conjunction with service groups to control access. However, you do not need to have service groups to control access to secrets, you can also use the name of the service. The following table provides a few examples to show how it works.
 
