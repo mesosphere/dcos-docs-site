@@ -9,11 +9,11 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 
+<p class="message--warning"><strong>WARNING: </strong>Use of the <tt>dcos node</tt> command for listing nodes is deprecated from DC/OS 1.13 onward. To list dcos nodes, use the <tt><a href="/mesosphere/dcos/1.13/cli/command-reference/dcos-node/dcos-node-list/">dcos node list</a></tt> command instead.</p>
 
 # Description
 The `dcos node` commands allow you to view DC/OS node information.
 
-**Use of the `dcos node` command for listing nodes is deprecated from 1.13 onward. To list dcos nodes, use the `dcos node list` command instead**
 
 # Usage
 
