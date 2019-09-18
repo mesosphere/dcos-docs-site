@@ -29,7 +29,7 @@ in detail to understand the theoretical background of the recommendations herein
 Given the need to separate synchronous from asynchronous I/O loads in order to maintain performance, we recommend the following disk mounting configuration:
 - Masters:
     - / - P10
-    - /var/lib/etcd - (for those running etcd on CoreOS) - P10
+    - /var/lib/etcd - (for those running etcd) - P10
     - /var/log - P10
     - /var/lib/dcos/exhibitor - P10
 - Public Agents:

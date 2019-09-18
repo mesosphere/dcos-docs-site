@@ -471,7 +471,7 @@ In this step, you log in as a authorized user to the non-native Marathon DC/OS s
 
 - When launching docker containers, the user `nobody` may not have enough rights to successfully run. For example, starting an `nginx` Docker container as the user `nobody` will fail because `nobody` does not have write permissions to `/var/log`, which `nginx` needs.
 
-- User `nobody` has different UIDs on different systems (99 on coreos, 65534 on ubuntu). Depending on the agent's distribution, you may need to modify the container image so that UIDs match! The same goes if you use the user `bob`.
+- User `nobody` has different UIDs on different systems (the default is usually 65534). Depending on the agent's distribution, you may need to modify the container image so that UIDs match! The same goes if you use the user `bob`.
 
 - When using custom users (for example, `bob`), the user must exist on the agent, or in the case of using containers, within the container.
 

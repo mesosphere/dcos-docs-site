@@ -51,34 +51,6 @@ DC/OS will run on the tested platform components and operating environments. The
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
-### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
-<table class="table">
-    <tr>
-    <th><strong>Platform Component</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
-    </tr>
-    <tr>
-        <td>CoreOS 2079.3.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
-    </tr>
-    <tr>
-        <td>CoreOS 2023.5.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-    </tr>
-    <tr>
-        <td>CoreOS 2023.4.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-    </tr>
-</table>
-
 ### <a name="CentOS-support-matrix"></a>CentOS support matrix
 <table class="table">
     <tr>
@@ -135,6 +107,28 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
 </table>
 
+### <a name="Ubuntu-support-matrix"></a>Ubuntu support matrix
+<table class="table">
+    <tr>
+    <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    </tr>
+    <tr>
+        <td>Ubuntu 18.04.3 LTS</td>
+        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+    </tr>
+    <tr>
+        <td>Ubuntu 16.04.6 LTS</td>
+        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+    </tr>
+</table>
+
 ### <a name="Oracle-support-matrix"></a>Oracle support matrix
 <table class="table">
     <tr>
@@ -160,6 +154,35 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p>
+    </tr>
+</table>
+
+### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
+NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have ceased qualifying it as an Operating System. This chart shows the final qualified versions of DC/OS for the final qualified versions CoreOS.
+<table class="table">
+    <tr>
+    <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    </tr>
+    <tr>
+        <td>CoreOS 2079.3.0</td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 2023.5.0</td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+    </tr>
+    <tr>
+        <td>CoreOS 2023.4.0</td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
 </table>
 

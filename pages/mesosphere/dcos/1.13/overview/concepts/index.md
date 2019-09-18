@@ -123,7 +123,8 @@ A host operating system is the [operating system](https://en.wikipedia.org/wiki/
 
 - [CentOS](https://www.centos.org/)
 - [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
-- [CoreOS](https://coreos.com/)
+- [Ubuntu](https://ubuntu.com/)
+- [Oracle Linux](https://www.oracle.com/linux/)
 
 While the host OS manages local tasks and machine resources, DC/OS manages cluster tasks and resources so that you do not need to interact with the host operating systems on the nodes.
 

@@ -173,8 +173,8 @@ Docker must be installed on all bootstrap and cluster nodes. The supported Docke
 
 Each Linux distribution requires Docker to be installed in a specific way:
 
-- **CentOS/RHEL** - [Install Docker from Docker's yum repository][1].
-- **CoreOS** - Comes with Docker pre-installed and pre-configured.
+- **CentOS/RHEL/Oracle Linux** - [Install Docker from Docker's yum repository][1].
+- **Ubuntu** - Install Docker using the apt command.
 
 For more more information, see Docker's <a href="https://docs.docker.com/install/" target="_blank">distribution-specific installation instructions</a>.
 
@@ -252,7 +252,6 @@ On each of your cluster nodes, follow the below instructions:
     * Current mode: `disabled`
     * Current mode: `permissive`
     * Current mode: `enforcing`, given that `Loaded policy name` is `targeted`
-      This mode is not supported on CoreOS.
 
     To change the mode from `enforcing` to `permissive` run the following command:
 
