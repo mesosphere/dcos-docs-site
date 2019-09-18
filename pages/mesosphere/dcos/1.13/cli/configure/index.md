@@ -33,20 +33,19 @@ export DCOS_CLUSTER=<cluster_name>
 
 The path to a DC/OS configuration directory. If you want the DC/OS configuration directory to be `/home/jdoe/config`, set the variable with the command:
 
+
 ```bash
 export DCOS_DIR=/home/jdoe/config
 ```
 
-1. Optionally set `DCOS_DIR` and run `dcos cluster setup` command.
+Optionally, set `DCOS_DIR` and run `dcos cluster setup` command.
 
 ```bash
 export DCOS_DIR=<path/to/config_dir> # optional, default when not set is ~/.dcos
 dcos cluster setup <url>
 ```
 
-* Define `no_proxy` for domains that you do not want to use the proxy for:
-
-   This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. Generates a newly setup cluster [as seen here](/mesosphere/dcos/1.13/cli/index#setupcluster).
+You can define `no_proxy` for domains that you do not want to use the proxy for. This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. It generates a newly setup cluster [as seen here](/mesosphere/dcos/1.13/cli/index#setupcluster).
 
 <a name="dcos-ssl-verify"></a>
 
