@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-<p class="message--warning"><strong>WARNING: </strong>Do not use the DC/OS web interface or CLI (Marathon) to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI or the Edge-LB API.</p>
+<p class="message--warning"><strong>WARNING: </strong>Do not use the DC/OS UI or the Marathon CLI to create or destroy services managed by Edge-LB. Operations must be performed exclusively through the Edge-LB CLI or the Edge-LB API.</p>
 
 1.  List the pools which are managed by Edge-LB
 

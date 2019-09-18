@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-Due to the fact that Edge-LB is installed as a DC/OS service, not as a built-in component, superuser permissions (`dcos:superuser`) or the user or group permissions listed below are required to use Edge-LB.
+Since Edge-LB is installed as a DC/OS service, not as a built-in component, superuser permissions (`dcos:superuser`) or the user or group permissions listed below are required to use Edge-LB.
 
 # Permission Considerations
 

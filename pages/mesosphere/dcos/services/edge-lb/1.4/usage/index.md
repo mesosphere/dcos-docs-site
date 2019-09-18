@@ -85,7 +85,7 @@ The properties of this reload enable strategies like
 A change to the load balancer pool (such as adding a secret) will trigger a relaunch of all load balancers in the pool. This relaunch has the following properties:
 
 - Traffic currently flowing through the given load balancer is dropped when it is stopped. To minimize the impact, we suggest running more than one load balancer within the pool.
-- Only one load balancer is stopped in the pool during the update at a time.
+- During pool updates, only one load balancer is stopped at a time.
 - The load balancer will be relaunched on the same node (unless the node itself has failed).
 
 <p class="message--warning"><strong> WARNING: </strong>The number of instances of load balancers cannot be scaled down. This limitation will be addressed in a future Edge-LB release.</p>
