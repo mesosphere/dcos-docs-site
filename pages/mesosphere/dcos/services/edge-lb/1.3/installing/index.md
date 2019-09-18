@@ -29,12 +29,13 @@ The Edge-LB package comprises two components:
 
 - An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
 
-You must install Universe repositories for the Edge-LB API server and the Edge-LB pool in order to install Edge-LB.
+You must install Universe repositories for the Edge-LB API server and the Edge-LB pool to install Edge-LB.
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
 ## Obtaining package artifacts
-In order to install both packages, you need to obtain package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
+
+To install both packages (Edge-LB API Server and Edge-LB Pools), you need to obtain the respective package artifacts. They can be downloaded from <a href="https://support.mesosphere.com/hc/en-us/articles/213198586">Mesosphere customer support site</a>.
 
 <p class="message--note"><strong>NOTE: </strong>You will get a "page not found" message if you attempt to download the artifacts without logging in using your customer service account.</p>
 
@@ -72,7 +73,7 @@ If you need to deploy a local Universe containing your own set of packages, you 
     sudo make base
     ```
 
-1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions obtained in [Obtaining package artifacts](/mesosphere/dcos/services/edge-lb/1.3/installing/#obtaining-package-artifacts) section.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
+1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions during the [Obtaining package artifacts](/mesosphere/dcos/services/edge-lb/1.3/installing/#obtaining-package-artifacts) step.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
 
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb.json

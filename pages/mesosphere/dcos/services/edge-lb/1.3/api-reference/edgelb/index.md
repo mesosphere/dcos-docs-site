@@ -16,7 +16,7 @@ The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS
 
 # API Versions
 
-A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, with a more intuitive way to select services/backends for HAProxy.
+A new top-level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, with a more intuitive way to select services/backends for HAProxy.
 
 The V1 and V2 specifications were merged into a single spec; however, there are still separate [v1](/mesosphere/dcos/services/edge-lb/1.3/pool-configuration/v1-examples/) and [v2](/mesosphere/dcos/services/edge-lb/1.3/pool-configuration/v2-examples/) docs for reference configs, pool examples, etc.
 
@@ -43,7 +43,7 @@ The Edge-LB API also requires authorization via the following permissions:
 |-------|----------|
 | `/service/edgelb/` | `dcos:adminrouter:service:edge-lb` |
 
-All routes may also be reached by users with the `dcos:superuser` permission.
+Users with the dcos:superuser permissions may reach all routes.
 
 To assign permissions to your account, see [Assigning permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/).
 

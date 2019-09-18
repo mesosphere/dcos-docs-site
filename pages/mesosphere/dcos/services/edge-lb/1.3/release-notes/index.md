@@ -39,7 +39,7 @@ Edge-LB Service version 1.3.1 was released April 29, 2019.
 
 - Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with `ext4` may have connection issues.
 
-- If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
+- If a pool is configured with invalid constraints (e.g. some example if possible) it must be removed manually since a fail on proper creation leads to a failure in proper removal.
 
 # Release notes for Edge-LB version 1.3.0
 Edge-LB Service version 1.3.0 was released February 6, 2019.
@@ -77,4 +77,4 @@ Edge-LB Service version 1.3.0 was released February 6, 2019.
 
 - Edge-LB running on a CentOS/RHEL 7.2 node where `/var/lib/mesos` is formatted with `ext4` may have connection issues.
 
-- If a pool is configured with invalid constraints, that pool will not be properly created and will not respect pool deletion. It must be removed manually.
+- If a pool is configured with invalid constraints (e.g. some example if possible) it must be removed manually since a fail on proper creation leads to a failure in proper removal.
