@@ -35,7 +35,7 @@ The path to a DC/OS configuration directory. If you want the DC/OS configuration
 export DCOS_DIR=/home/jdoe/config
 ```
 
-The next time you'll run the `dcos cluster setup command`, the cluster configuration will be created under `/home/jdoe/clusters/<cluster_id>/` instead of the default `~/.dcos/clusters/<cluster_id>/`.
+The next time you can run the `dcos cluster setup command`, the cluster configuration will be created under `/home/jdoe/clusters/<cluster_id>/` instead of the default `~/.dcos/clusters/<cluster_id>/`.
 
 <a name="dcos-ssl-verify"></a>
 
