@@ -14,7 +14,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 
 # Cluster Setup
 
-| Name     | Description  |
+| Parameter     | Description  |
 |------|---------|
 | [agent_list](#agent-list)                                              | A YAML nested list (`-`) of IPv4 addresses to your [private agent](/mesosphere/dcos/1.14/overview/concepts/#private-agent-node) host names. |
 | [aws_template_storage_access_key_id](#aws-template-storage-access-key-id)         | The [access key ID](http://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) of the account owning the AWS S3 bucket. |
