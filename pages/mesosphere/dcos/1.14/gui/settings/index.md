@@ -94,7 +94,7 @@ You can also deploy a local Catalog containing your own set of packages. See the
 
 ![Delete repo](/mesosphere/dcos/1.14/img/GUI-Settings-Package-Repositories-Delete.png)
 
-Figure 5 - Deleting a package repository
+Figure 6 - Deleting a package repository
 
 # Secret Stores 
 
@@ -102,7 +102,7 @@ The Secret Stores tab displays a list of all your current Secret Stores, as well
 
 ![Secret Stores](/mesosphere/dcos/1.14/img/GUI-Settings-Secret-Stores.png)
 
-Figure 6 - Language preferences menu
+Figure 7 - Language preferences menu
 
 # LDAP Directory
 
@@ -110,7 +110,7 @@ You can set up an LDAP connection to avoid having to recreate your user accounts
 
 ![Add Directory dialog](/mesosphere/dcos/1.14/img/ldap-add-dir-conn.png)
 
-Figure 7 - Adding an LDAP connection
+Figure 8 - Adding an LDAP connection
 
 To add a directory, click on the **Add Directory** button. Further details about setting up connections, importing your contacts, and importing a group can be found in the [LDAP Authentication](/mesosphere/dcos/1.14/security/ent/ldap/) documentation.
 
@@ -120,4 +120,4 @@ DC/OS supports the use of identity provider-based authentication. Detailed infor
 
 ![Identity providers](/mesosphere/dcos/1.14/img/GUI-Settings-LDAP-Add-Oidc.png)
 
-Figure 8 - Adding an identity provider
+Figure 9 - Adding an identity provider
