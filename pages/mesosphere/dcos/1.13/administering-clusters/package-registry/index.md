@@ -91,7 +91,7 @@ When using Amazon S3, refer to [Amazon S3 Regions & Endpoints](https://docs.aws.
 
 #### S3 bucket name and path
 
-The combiniation of an S3 bucket name and path inside the bucket should be unique to each deployment of Package registry. Multiple instances from each deployment will ensure synchronized access to this bucket.
+The combination of an S3 bucket name and path inside the bucket should be unique to each deployment of Package registry. Multiple instances from each deployment will ensure synchronized access to this bucket.
 
 #### Upload the S3 credential to the DC/OS Secret store
 
