@@ -258,8 +258,14 @@ Mesosphere hosts all its certified packages at [downloads.mesosphere.com/univers
       chmod +x dcos-registry
       # Make sure the executable works
       ./dcos-registry registry --help
+
+      # You can use this binary in the following manner:
+      ./dcos-registry registry --version
+      ./dcos-registry registry <your-subcommand>
       ```
-      In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions.
+      In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
+
+      <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry<tt> suffix does not work.</p>
 
 ### Instructions to generate `.dcos` bundle
 
