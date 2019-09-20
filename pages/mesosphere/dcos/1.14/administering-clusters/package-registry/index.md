@@ -91,7 +91,7 @@ When using Amazon S3, refer to [Amazon S3 Regions & Endpoints](https://docs.aws.
 
 #### S3 bucket name and path
 
-The combiniation of an S3 bucket name and path inside the bucket should be unique to each deployment of Package registry. Multiple instances from each deployment will ensure synchronized access to this bucket.
+The combination of an S3 bucket name and path inside the bucket should be unique to each deployment of Package registry. Multiple instances from each deployment will ensure synchronized access to this bucket.
 
 #### Upload the S3 credential to the DC/OS Secret store
 
@@ -258,8 +258,13 @@ Mesosphere hosts all its certified packages at [downloads.mesosphere.com/univers
       chmod +x dcos-registry
       # Make sure the executable works
       ./dcos-registry registry --help
+      # You can use this binary in the following manner:
+      ./dcos-registry registry --version
+      ./dcos-registry registry <your-subcommand>
       ```
-      In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions.
+      In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
+
+      <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry<tt> suffix does not work.</p>
 
 ### Instructions to generate `.dcos` bundle
 
