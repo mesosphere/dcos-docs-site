@@ -143,6 +143,25 @@ network until another network is specified in job submit arguments.
 
 You can check the existing limitations of virtual network support [here][20].
 
+## Configure {{ model.techShortName }} role enforcement
+
+DC/OS {{ model.techShortName }} by default launches submitted applications (Drivers) with the same role it is running itself.
+Users can always provide `spark.mesos.role` as a part of their application configuration and override the role of Dispatcher.
+For the cases when Dispatcher role needs to be enforced so that users are not allowed to override it, add the following configuration flag:
+
+```json
+{
+  "service": {
+    "role": "<dispatcher role>",
+    "enforce_role": true
+  }
+}
+```
+
+If `spark.mesos.role` is not provided via `spark-submit` or `dcos spark run` the Dispatcher will assign its own role to the Drivers. In case `spark.mesos.role` has a different value than the Dispatcher's role - the submission will be rejected.
+
+<p class="message--note"><strong>NOTE: </strong>When {{ model.techShortName }} is installed in a Marathon group with group role enforced, it will use Marathon group to register with Mesos and will automatically enforce that role.</p>
+
 # Minimal installation
 
 For development purposes, use [dcos-vagrant][16] to install {{ model.techShortName }} on a local DC/OS cluster.
