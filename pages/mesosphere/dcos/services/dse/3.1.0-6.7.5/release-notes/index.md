@@ -1,12 +1,19 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-excerpt: Release Notes for DSE v. 3.0.0-6.7.2
+excerpt: Release Notes for DSE v. 3.1.0-6.7.5
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
+
+# Version 3.1.0-6.7.5
+
+## Updates
+- Upgraded DSE to version `6.7.5` and OpsCenter to version `6.7.4`
+- Upgraded SDK to `0.57.1` 
+
 
 # Version 3.0.0-6.7.2
 

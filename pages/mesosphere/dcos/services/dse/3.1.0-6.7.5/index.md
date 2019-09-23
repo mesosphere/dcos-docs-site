@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: DSE 3.0.0-6.7.2
-title: DSE 3.0.0-6.7.2
+navigationTitle: DSE 3.1.0-6.7.5
+title: DSE 3.1.0-6.7.5
 menuWeight: 1
 excerpt: Build and run cloud-native applications
 model: /mesosphere/dcos/services/dse/data.yml
