@@ -7,9 +7,9 @@ excerpt: Release notes for DC/OS 1.13.5, including Open Source attribution, and 
 ---
 DC/OS 1.13.5 was released on September .
 
-[button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.4/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.4/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.5/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the [support website](https://support.mesosphere.com/s/downloads). For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
@@ -21,31 +21,23 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 - Updated to Mesos [1.8.2-dev](https://github.com/apache/mesos/blob/adc958f553c3728aab5529de56b0ddc30c0f9b68/CHANGELOG)
 
-- Metronome post-install configuration can be added to /var/lib/dcos/metronome/environment (DCOS_OSS-5509)
+- Updated to Marathon 1.8.227.
 
-- Mesos overlay networking: support dropping agents from the state. (DCOS_OSS-5536)
 
 # Issues fixed in DC/OS 1.13.5
 The issues that have been fixed in DC/OS 1.13.5 are grouped by feature, functional area, or component. 
-
-- [enterprise][Marathon] Marathon bug fixed in which a service could get stuck if a failure occurred while Mesos tried to create a reservation (MARATHON-8693) [/enterprise]
-
-- [Admin Router] Improved service routing robustness by omitting Marathon apps with wrongly specified DCOS_SERVICE_PORT_INDEX values. (DCOS_OSS-5491)
+- [enterprise]Marathon: Fixed a bug in which a service could get stuck if a failure occurred while Mesos tried to create a reservation. (MARATHON-8693) [/enterprise]
+- [enterprise]Updated `dcos-backup` to support accessing Exhibitor through Admin Router. This is needed when [Exhibitor mutual TLS authentication](https://docs.d2iq.com/mesosphere/dcos/1.12/security/ent/tls-ssl/exhibitor/) is enabled. (DCOS-57704)[/enterprise]
+- Metronome: Post-install configuration can now be added to /var/lib/dcos/metronome/environment. (DCOS_OSS-5509)
+- Mesos overlay networking: Added an HTTP endpoint for dropping agents from the state.  (DCOS_OSS-5536)
+- Admin Router: Improved service routing robustness by omitting Marathon apps with wrongly specified `DCOS_SERVICE_PORT_INDEX` values. (DCOS_OSS-5491)
 
 
 ## Diagnostics
+- [enterprise]Reduce the amount of storage logs in the diagnostic bundle. (DCOS-58314)[/enterprise]
+- [enterprise]Strict volume name validation was not relaxed enough in DC/OS release 1.13.4; this has been resolved. (MARATHON-8697)[/enterprise]
+- Diagnostics bundle: Added a REST API with performance improvements. (DCOS_OSS-5098)
+- Diagnostics bundle: Fixed a bug in which the bundle creation job duration was shown as ever-increasing, even after the job finished.  (DCOS_OSS-5494)
 
-- [enterprise]Limit number of lines of storage logs in diagnostic bundle (DCOS-58314).[/enterprise]
 
-- Added new diagnostics bundle REST API with performance improvements. (DCOS_OSS-5098)
-
-- Fixes increasing diagnostics job duration when job is done (DCOS_OSS-5494)
-
-## Installation
-
-[enterprise]
-## Security
-[/enterprise]
-
-- [enterprise][Marathon] Strict volume name validation was not relaxed enough in 1.13.4; this has been resolved (MARATHON-8697)[/enterprise]
 
