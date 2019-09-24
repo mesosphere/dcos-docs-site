@@ -29,7 +29,6 @@ When the driver fails, executors are terminated, and the entire {{ model.techSho
 the Dispatcher adds exponential backoff between restarts. 
 
 Starting from DC/OS 2.0 the Driver will restart without backoff if the node it was running on is draining.
-the node it was running on is draining.
 
 ## Executors
 
