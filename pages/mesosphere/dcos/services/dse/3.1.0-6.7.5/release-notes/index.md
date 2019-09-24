@@ -12,7 +12,31 @@ render: mustache
 
 ## Updates
 - Upgraded DSE to version `6.7.5` and OpsCenter to version `6.7.4`
-- Upgraded SDK to `0.57.1`. For more information see [SDK Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
+- Upgraded SDK to `0.57.1`. For more information see SDK's Release Notes for: 
+  - [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
+  - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
+  - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
+  - [0.56.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.2)
+  - [0.56.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.1)
+  - [0.56.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.0)
+  - [0.55.5](https://github.com/mesosphere/dcos-commons/releases/tag/0.55.5)
+
+## New Features
+- Added support for DSS volume profiles
+- Added [custom domain](/mesosphere/dcos/services/{{ model.serviceName }}/3.1.0-6.7.5/security/#forwarding-dns-and-custom-domain) support
+-
+
+## Improvements
+- Remove Non-HTTPS resources and references by replacing them with HTTPS ones.
+- Added more directories to the PATH.
+- Added descriptions for configuration parameters.
+- Updated UI URLs to redirect to correct reference doc pages.
+- Exclude OpsCenter keyspace from list of keyspaces managed by Repair Services.
+- Accurate Scheduler Plan status in the UI
+
+## Bug Fixes
+- Used correct YAML markup for TPC-related configurations: TPC CORES, TPC IO CORES, IO GLOBAL QUEUE DEPTH.
+- Added correct configuration parameters for memtable size specification: MEMTABLE HEAP SPACE IN MB, MEMTABLE OFFHEAP SPACE IN MB
 
 
 # Version 3.0.0-6.7.2
