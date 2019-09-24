@@ -6,9 +6,10 @@ menuWeight: 500
 excerpt: Securing DC/OS with a TLS enabled Exhibitor ensemble
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-<p class="message--note"><strong>NOTE: </strong>Starting with DC/OS 1.14, Exhibitor is secured by default in most circumstances. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes:
+# Verifying that Exhibitor is secured 
+
+Starting with DC/OS 1.14, Exhibitor is secured by default in most circumstances. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
 
 
     curl -LI \
@@ -24,22 +25,18 @@ If you see the following, Exhibitor has been secured on your cluster:
     Content-Length: 0
     Server: Jetty(1.5.6-SNAPSHOT)
 
-</p>
-
-
-By default, the Exhibitor HTTP service is open to any client that can reach port 8181 on a master node. This page describes a method for protecting the Exhibitor service from unauthorized access. Once enabled, HTTP clients must access Exhibitor through Admin Router; thus applying the Admin Router access control policy to the Exhibitor service.
-
-<p class="message--note"><strong>NOTE: </strong>When accessing Exhibitor through Admin Router (https://master_host/exhibitor), authenticated users must have the <i>dcos:adminrouter:ops:exhibitor</i> privilege with the <i>full</i> action identifier</p>
-
 # Securing Exhibitor
 
+Previously, the Exhibitor HTTP service was open to any client that can reach port 8181 on a master node. This page describes a method for protecting the Exhibitor service from unauthorized access. Once enabled, HTTP clients must access Exhibitor through Admin Router; thus applying the Admin Router access control policy to the Exhibitor service.
 The strategy for securing Exhibitor is mutual TLS authentication. In order to secure Exhibitor you must first create a unique root CA certificate. This CA certificate is used to sign various end entity certificates for the Admin Router and Exhibitor services. Creating a public key infrastructure that outputs PEM and Java KeyStore formatted artifacts is not a trivial task. To make this processes easier, a simple tool has been created for producing the necessary files.
 
-<p class="message--note"><strong>NOTE: </strong>This guide is only compatible with clusters which use <i>static</i> master discovery, <i>master_http_loadbalancer</i> is not currently supported. (/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
+This guide is only compatible with clusters which use **static** master discovery, `master_http_loadbalancer` is not currently supported. Please see the configuration reference for [master discovery](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required).
+
+<p class="message--note"><strong>NOTE: </strong>When accessing Exhibitor through Admin Router <code>https://master_host/exhibitor</code>, authenticated users must have the <code>dcos:adminrouter:ops:exhibitor</code> privilege with the <i>full</i> action identifier</p>
 
 ## Using the tool
 
-<p class="message--note"><strong>NOTE: </strong>A working Docker installation is required. If Docker is not available see https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md for information on running the command natively.</p>
+Prerequisite: A working Docker installation is required. If Docker is not available see the [exhibitor readme](https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md) for information on running the command natively.
 
 Download the script from the <a href=https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases>GitHub release page</a> and run it:
 
@@ -64,7 +61,7 @@ The expected output is shown below:
 
 
 
-### Generating the artifacts
+## Generating the artifacts
 To generate the TLS artifacts, run the tool with the master node IP addresses as positional arguments. Use the IP addresses found in the `master_list` field of the DC/OS configuration file, config.yml. If this file is not available, running `/opt/mesosphere/bin/detect_ip` on each master node will produce the correct address.
 
 As an example, if your master nodes are `10.192.0.2, 10.192.0.3, 10.192.0.4`, invoke the script using:
