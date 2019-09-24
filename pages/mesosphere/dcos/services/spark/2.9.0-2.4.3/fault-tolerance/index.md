@@ -26,7 +26,9 @@ Batch jobs are resilient to executor failures, but not driver failures. The Disp
 ## Driver
 
 When the driver fails, executors are terminated, and the entire {{ model.techShortName }} application fails.  If you submitted your job with the `--supervise` option, then the Dispatcher restarts the job. For the cases when submitted job keeps failing,
-the Dispatcher adds exponential backoff between restarts. Starting from DC/OS 2.0 the Driver restarted without backoff in case
+the Dispatcher adds exponential backoff between restarts. 
+
+Starting from DC/OS 2.0 the Driver will restart without backoff if the node it was running on is draining.
 the node it was running on is draining.
 
 ## Executors
