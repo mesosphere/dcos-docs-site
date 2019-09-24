@@ -15,7 +15,7 @@ model: /mesosphere/dcos/services/spark/data.yml
 - Marathon group role enforcement support for DCOS 1.14
 - Role propagation from Dispatcher to all submitted Spark applications
 - Dispatcher role enforcement for submitted Spark applications
-- Node draining support
+- [Node draining support](doc:fault-tolerance/#driver)
 - Executor memory overhead config property support
 - Mesos secrets support by Dispatcher
 - Standardized metric names and metric tags for monitoring
