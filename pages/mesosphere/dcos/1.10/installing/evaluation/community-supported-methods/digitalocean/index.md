@@ -8,14 +8,13 @@ oss: true
 model: /mesosphere/dcos/1.10/installing/data.yml
 render: mustache
 ---
-
-<p class="message--warning"><strong>DISCLAIMER: </strong>This is a community driven project and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. This page explains how to install DC/OS cluster on DigitalOcean on Terraform. It is intended for reference only and is not recommended for production use. Upgrades are not supported with the following installation methods.</p>
-
-<p class="message--note"><strong>NOTE: </strong>Contact the <a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">mailing list</a> or <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack channel</a>for community support.</p>
-
 You can create a DC/OS cluster on DigitalOcean using Terraform.
 
 The included Terraform templates are configured to run Mesosphere DC/OS on DigitalOcean. Depending on the DC/OS services that you install, or the amount of computing power your workload needs, you might have to modify the templates to suit your needs. You can modify the Terraform templates, but Mesosphere cannot assist in troubleshooting. If you require support with droplet creation or other related issues, email <a href="mailto:support@digitalocean.com"></a>, visit the unofficial DigitalOcean IRC channel (#digitalocean on freenode) or consider [DC/OS Enterprise](https://mesosphere.com/).
+
+<p class="message--warning"><strong>DISCLAIMER: </strong>This is a community driven project and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. This page explains how to install DC/OS cluster on DigitalOcean on Terraform. It is intended for reference only and is not recommended for production use. Upgrades are not supported with the following installation methods.</p>
+
+<p class="message--note"><strong>NOTE: </strong>Contact the <a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">mailing list</a> or <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack channel</a>for community support.</p>
 
 ## Security
 
