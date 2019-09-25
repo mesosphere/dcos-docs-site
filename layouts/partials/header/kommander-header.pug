@@ -1,0 +1,22 @@
+- var semanticVersion = /^[0-9]+\.[0-9]+/
+- var menuPages = hierarchy.find('menus')
+
+- var productPages = menuPages.filter(page => page.menus.indexOf('kommander-header') != -1)
+- var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
+
+- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'ksphere')
+
+- var sectionTitle = 'Kommander Documentation'
+
+//TODO:: refactor itemActive
+- function isItemActive(itemPath)
+  - var itemPaths = itemPath.split('/')
+  if itemPath == '/ksphere/kommander/latest'
+    if paths[2] == 'latest'
+      - return true
+  if itemPath == '/ksphere/kommander/partner-solutions'
+    if paths[2] == 'partner-solutions'
+      - return true
+
+include header.pug

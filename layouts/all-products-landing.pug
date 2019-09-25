@@ -11,6 +11,9 @@
 - var dispatchDocs = ksphereDocs.children.filter(child => child.id == 'dispatch')[0]
 - var latestDispatchDocs = dispatchDocs.children.filter(child => child.id == 'latest')[0]
 
+- var kommDocs = ksphereDocs.children.filter(child => child.id == 'kommander')[0]
+- var latestKommDocs = kommDocs.children.filter(child => child.id == 'latest')[0]
+
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
 - var pages = headerSphereItems
@@ -48,6 +51,15 @@ mixin renderProductBlurbs()
         for folder in latestDispatchDocs.children.slice(0,4)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
+      a(class='blurb__link-group' href='/ksphere/kommander')
+        h3(class='blurb__header') Kommander
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') Snazzy Kommander tagline here
+      ul(class="blurb__links")
+        for folder in latestKommDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
+
 doctype html
 html(lang='en')
   head
@@ -90,6 +102,11 @@ html(lang='en')
             div(class='landing__tile-logo-container')
               img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
             h3(class='landing__tile-title') Dispatch
+          a(href="/ksphere/kommander", class='landing__hero-tile')
+            div(class='landing__tile-logo-container')
+              img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
+            h3(class='landing__tile-title') Kommander
+
 
       div(class='landing__container')
         +renderProductBlurbs()
@@ -98,7 +115,7 @@ html(lang='en')
             i(data-feather='book', class='landing__external-icon')
             h3(class='landing__external-title')
               a(class='landing__external-link', href='https://d2iq.com/training/') Get Training
-            p(class='landing__external-description') Learn to use and administer Konvoy and other products in real-time training courses, in person or online, offered by D2iQ.
+            p(class='landing__external-description') Learn to use and administer D2iQ products in real-time training courses, in person or online, offered by D2iQ.
           div(class='landing__external-item')
             i(data-feather='users', class='landing__external-icon')
             h3(class='landing__external-title')
