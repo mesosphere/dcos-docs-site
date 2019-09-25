@@ -28,10 +28,10 @@ For more information about service accounts, see [Security](/mesosphere/dcos/1.1
 To install the DC/OS {{ model.techName }} service, run the following command on the DC/OS CLI. This installs the {{ model.techShortName }} DC/OS service, {{ model.techShortName }} CLI, dispatcher, and, optionally, the history server. See [Custom installation][7] to install the history server.
 
 ```bash
-dcos package install  {{ model.packageName }}
+dcos package install {{ model.packageName }}
 ```
 
-Go to the **Services** > **Deployments** tab of the DC/OS GUI to monitor the deployment. When it has finished deploying, visit {{ model.techShortName }} at `http://<dcos-url>/service/ {{ model.packageName }}/`.
+Go to the **Services** > **Deployments** tab of the DC/OS GUI to monitor the deployment. When it has finished deploying, visit {{ model.techShortName }} at `http://<dcos-url>/service/{{ model.packageName }}/`.
 
 You can also [install {{ model.techShortName }} via the DC/OS GUI](/mesosphere/dcos/1.12/installing/).
 
@@ -41,7 +41,7 @@ You can install the {{ model.techShortName }} CLI with this command. This is use
 <p class="message--important"><strong>IMPORTANT: </strong>If you install {{ model.techShortName }} via the DC/OS GUI, you must install the {{ model.techShortName }} CLI as a separate step from the DC/OS CLI.</p>
 
 ```bash
-dcos package install  {{ model.packageName }} --cli
+dcos package install {{ model.packageName }} --cli
 ```
 
 <a name="custom"></a>
@@ -64,20 +64,20 @@ To customize the installation:
 1. Install {{ model.techShortName }} with the configuration specified in the `options.json` file:
 
     ```bash
-    dcos package install --options=options.json  {{ model.packageName }}
+    dcos package install --options=options.json {{ model.packageName }}
     ```
 
 1. Run this command to see all configuration options:
 
     ```bash
-    dcos package describe  {{ model.packageName }} --config
+    dcos package describe {{ model.packageName }} --config
     ```
 <a name="custom-dist"></a>
 ## Customize {{ model.techShortName }} distribution
 
 DC/OS {{ model.techName }} does not support arbitrary {{ model.techShortName }} distributions, but Mesosphere does provide multiple pre-built distributions, primarily used to select Hadoop versions.  
 
-To use one of these distributions, select your {{ model.techShortName }} distribution from [here](https://github.com/mesosphere/ {{ model.packageName }}-build/blob/master/docs/ {{ model.packageName }}-versions.md), then select the corresponding Docker image from [here](https://hub.docker.com/r/mesosphere/ {{ model.packageName }}/tags/), then use those values to set the following configuration variables:
+To use one of these distributions, select your {{ model.techShortName }} distribution from [here](https://github.com/mesosphere/{{ model.packageName }}-build/blob/master/docs/{{ model.packageName }}-versions.md), then select the corresponding Docker image from [here](https://hub.docker.com/r/mesosphere/{{ model.packageName }}/tags/), then use those values to set the following configuration variables:
 
 ```json
 {
@@ -177,7 +177,7 @@ For development purposes, use [dcos-vagrant][16] to install {{ model.techShortNa
 1. Run a simple job:
 
    ```bash
-   dcos {{ model.packageName }} run --submit-args="--class org.apache. {{ model.packageName }}.examples.SparkPi https://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 30"
+   dcos {{ model.packageName }} run --submit-args="--class org.apache. {{ model.packageName }}.examples.SparkPi https://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.3.2.jar 30"
    ```
 
 <p class="message--important"><strong>IMPORTANT: </strong>A limited resource environment such as DC/OS Vagrant restricts some of the features available in DC/OS {{ model.techName }}. For example, you must have enough resources to start up a 5-agent cluster, otherwise you will not be able to install DC/OS HDFS an enable the history server.</p>
@@ -267,7 +267,7 @@ If your cluster is set up for [strict](/mesosphere/dcos/1.12/security/ent/#stric
     For example, on a strict-mode DC/OS cluster:
 
     ```bash
-    dcos security secrets create-sa-secret --strict private-key.pem sp{{ model.packageName }}ark-principal {{ model.packageName }}/{{ model.packageName }}-secret
+    dcos security secrets create-sa-secret --strict private-key.pem {{ model.packageName }}-principal {{ model.packageName }}/{{ model.packageName }}-secret
     ```
 
 1. Use the `dcos security secrets list /` command to verify that the secrets were created:
@@ -279,7 +279,7 @@ If your cluster is set up for [strict](/mesosphere/dcos/1.12/security/ent/#stric
 ## Assigning permissions
 Permissions must be created so that the {{ model.techShortName }} service will be able to start {{ model.techShortName }} jobs and so the jobs themselves can launch the executors that perform the work on their behalf. There are a few points to keep in mind depending on your cluster:
 
-*   {{ model.techShortName }} runs by default under the Mesos default role, which is represented by the `*` symbol. You can deploy multiple instances of {{ model.techShortName }} without modifying this default. If you want to override the default {{ model.techShortName }} role, you must modify these code samples accordingly. We use `{{ model.packageName }}-service-role` to designate the role used below.
+* {{ model.techShortName }} runs by default under the Mesos default role, which is represented by the `*` symbol. You can deploy multiple instances of {{ model.techShortName }} without modifying this default. If you want to override the default {{ model.techShortName }} role, you must modify these code samples accordingly. We use `{{ model.packageName }}-service-role` to designate the role used below.
 
 Permissions can also be assigned through the GUI.
 
@@ -314,7 +314,7 @@ Permissions can also be assigned through the GUI.
 
 1.  Make a configuration file with the following before installing {{ model.techShortName }}, these settings can also be set through the GUI:
     ```json
-    cat  {{ model.packageName }}-strict-options.json
+    cat {{ model.packageName }}-strict-options.json
     {
     "service": {
             "service_account": "<service-account-id>",
@@ -351,10 +351,10 @@ You must add configuration parameters to your {{ model.techShortName }} jobs whe
 To run a job on a strict mode cluster, you must add the `principal` to the command line. For example:
 
 ```bash
-dcos  {{ model.packageName }} run --verbose --submit-args=" \
---conf  {{ model.packageName }}.mesos.principal=<service-account> \
---conf  {{ model.packageName }}.mesos.containerizer=mesos \
---class org.apache. {{ model.packageName }}.examples. {{ model.packageName }}Pi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
+dcos {{ model.packageName }} run --verbose --submit-args=" \
+--conf {{ model.packageName }}.mesos.principal=<service-account> \
+--conf {{ model.packageName }}.mesos.containerizer=mesos \
+--class org.apache. {{ model.packageName }}.examples. {{ model.packageName }}Pi http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.3.2.jar 100"
 ```
 
 ## Running jobs as a different user
@@ -366,29 +366,29 @@ If you run Dispatcher as `root` and want to submit a job as a different user e.g
 For UCR containerizer it is sufficient to provide ` {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody` configuration property when submitting a job:
 
 ```bash
-dcos  {{ model.packageName }} run --verbose --submit-args="\
---conf  {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
---class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
+dcos {{ model.packageName }} run --verbose --submit-args="\
+--conf {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
+--class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.3.2.jar 100"
 ```
 
 ### Docker Engine
 If you want to use the [Docker Engine](/mesosphere/dcos/1.10/deploying-services/containerizers/docker-containerizer/) instead of the [Universal Container Runtime](/mesosphere/dcos/1.10/deploying-services/containerizers/ucr/), you must specify ` {{ model.packageName }}.mesos.executor.docker.parameters=user=nobody` in addition to ` {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody` to run the Docker container as this user:
 
 ```bash
-dcos  {{ model.packageName }} run --verbose --submit-args="\
---conf  {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
---conf  {{ model.packageName }}.mesos.executor.docker.parameters=user=nobody \
---class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
+dcos {{ model.packageName }} run --verbose --submit-args="\
+--conf {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
+--conf {{ model.packageName }}.mesos.executor.docker.parameters=user=nobody \
+--class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.3.2.jar 100"
 ```
 
 If the hosts in your cluster have a UID for `nobody` other than 65534 (see [Customize {{ model.techShortName }} user][19]), you will need to provide a valid UID as a parameter to Docker containerizer via
-`--conf  {{ model.packageName }}.mesos.executor.docker.parameters=user=UID`:
+`--conf {{ model.packageName }}.mesos.executor.docker.parameters=user=UID`:
 
 ```bash
-dcos  {{ model.packageName }} run --verbose --submit-args="\
---conf  {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
---conf  {{ model.packageName }}.mesos.executor.docker.parameters=user=99 \
---class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar 100"
+dcos {{ model.packageName }} run --verbose --submit-args="\
+--conf {{ model.packageName }}.mesos.driverEnv.SPARK_USER=nobody \
+--conf {{ model.packageName }}.mesos.executor.docker.parameters=user=99 \
+--class org.apache. {{ model.packageName }}.examples.SparkPi http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.3.2.jar 100"
 ```
 <p class="message--note"><strong>NOTE: </strong>UID should typically be set to 99 when running as nobody (default) on RHEL/CentOS</p>
 
@@ -398,13 +398,13 @@ To run a job in a virtual network and/or with network plugin labels assigned, on
 in submit arguments:
 
 ```bash
-dcos  {{ model.packageName }} run --verbose --submit-args="\
---conf  {{ model.packageName }}.mesos.network.name=dcos \
---conf  {{ model.packageName }}.mesos.network.labels=key_1:value_1,key_2:value_2 \
---class org.apache. {{ model.packageName }}.examples.GroupByTest http://downloads.mesosphere.com/ {{ model.packageName }}/assets/ {{ model.packageName }}-examples_2.11-2.3.2.jar"
+dcos {{ model.packageName }} run --verbose --submit-args="\
+--conf {{ model.packageName }}.mesos.network.name=dcos \
+--conf {{ model.packageName }}.mesos.network.labels=key_1:value_1,key_2:value_2 \
+--class org.apache. {{ model.packageName }}.examples.GroupByTest http://downloads.mesosphere.com/{{ model.packageName }}/assets/{{ model.packageName }}-examples_2.11-2.3.2.jar"
 ```
 
  [7]: #custom
  [16]: https://github.com/mesosphere/dcos-vagrant
  [19]: #custom-user
- [20]: /mesosphere/dcos/services/ {{ model.packageName }}/2.9.0-2.4.3/limitations/
+ [20]: /mesosphere/dcos/services/{{ model.packageName }}/2.9.0-2.4.3/limitations/
