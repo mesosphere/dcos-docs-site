@@ -25,9 +25,10 @@ Batch jobs are resilient to executor failures, but not driver failures. The Disp
 
 ## Driver
 
-When the driver fails, executors are terminated, and the entire {{ model.techShortName }} application fails.  If you submitted your job with the `--supervise` option, then the Dispatcher restarts the job. For the cases when submitted job keeps failing,
-the Dispatcher adds exponential backoff between restarts. Starting from DC/OS 2.0 the Driver restarted without backoff in case
-the node it was running on is draining.
+When the driver fails, executors are terminated, and the entire {{ model.techShortName }} application fails.  If you submitted your job with the `--supervise` option, then the Dispatcher restarts the job. For the cases when the submitted job keeps failing,
+the Dispatcher adds exponential backoff between restarts. 
+
+Starting from DC/OS 2.0 the Driver will restart without backoff if the node upon which it was running is draining.
 
 ## Executors
 
@@ -86,14 +87,14 @@ This is the default configuration.  Data stored in the receiver is replicated, a
 
 - Reliable receivers, write-ahead logging
 
-With write-ahead logging enabled, data stored in the receiver is written to a highly available store such as S3 or HDFS.  This means that an app can recover from even a driver failure.
+With write-ahead logging enabled, data stored in the receiver is written to a highly available store such as S3 or HDFS.  This means that an application can recover from even a driver failure.
 
   executor failure => **no data loss**  
   driver failure => **no data loss**
 
 - Direct Kafka consumer, no checkpointing
 
-Since {{ model.techShortName }} 1.3, the {{ model.techShortName }} + Kafka integration has supported an experimental direct consumer, which does not use traditional receivers.  With the direct consumer approach, RDDs read directly from kafka, rather than buffering data in receivers.
+Since {{ model.techShortName }} 1.3, the {{ model.techShortName }} + Kafka integration has supported an experimental direct consumer, which does not use traditional receivers.  With the direct consumer approach, RDDs read directly from Kafka, rather than buffering data in the receivers.
 
 However, when a driver restarts without checkpointing, the driver starts reading from the latest Kafka offset, rather than where the previous driver left off.
 
@@ -131,7 +132,7 @@ The direct Kafka consumer avoids the problem described above by reading directly
 
 # Mesos checkpointing
 
-Enabling Mesos checkpointing allows {{ model.techName }} Driver and Executors to tolerate Mesos agent upgrades and unexpected crashes without experiencing any downtime. If checkpointing enabled, the Mesos agents that are running {{ model.techName }} Executors will write the framework pid, executor process IDs and status updates to disk. If the Agent exits (e.g., due to a crash or as part of upgrading Mesos), this checkpointed data allows the restarted Agent to reconnect to executors that were started by the old instance of the Agent. Enabling checkpointing improves fault tolerance, at the cost of a (usually small) increase in disk I/O.
+Enabling Mesos checkpointing allows {{ model.techName }} Driver and Executors to tolerate Mesos agent upgrades and unexpected crashes without experiencing any downtime. If checkpointing is enabled, the Mesos agents that are running {{ model.techName }} Executors will write the framework pid, executor process IDs, and status updates to disk. If the Agent exits (e.g., due to a crash or as part of upgrading Mesos), this checkpointed data allows the restarted Agent to reconnect to executors that were started by the old instance of the Agent. Enabling checkpointing improves fault tolerance, at the cost of a (usually small) increase in disk I/O.
 
 DC/OS {{ model.techName }} service runs with checkpointing enabled by default allowing {{ model.techName }} Drivers to tolerate agent restarts. To enable checkpointing for {{ model.techName }} Executors configuration property `spark.mesos.checkpoint` should be set to `true`.
 
