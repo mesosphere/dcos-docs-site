@@ -114,7 +114,7 @@ MS.metadata({
     dcosDocsLatest: '1.13',
     dcosCNDocsLatest: '1.12',
     konvoyDocsLatest: 'latest',
-    kommanderDocsLatest: '0.1',
+    kommanderDocsLatest: 'latest',
 });
 
 // Source
