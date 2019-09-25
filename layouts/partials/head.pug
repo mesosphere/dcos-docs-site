@@ -20,6 +20,7 @@ if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
 
 - var isDCOS = paths[1] == 'dcos'
 - var isKonvoy = paths[1] == 'konvoy'
+- var isKommander = paths[1] == 'kommander'
 
 meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
@@ -30,6 +31,8 @@ link(rel='stylesheet', type='text/css', href='/css/styles.css')
 
 if isKonvoy
   link(rel='search', type='application/opensearchdescription+xml', href='/assets/k-opensearch.xml', title='Search Konvoy Docs')
+else if isKommander
+  link(rel='search', type='application/opensearchdescription+xml', href='/assets/k-opensearch.xml', title='Search Kommander Docs')
 else
   link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title='Search documentation site')
 
