@@ -32,20 +32,6 @@ model: /mesosphere/dcos/services/spark/data.yml
 ### Breaking changes
 - Standardized metrics rename existing metrics by moving variable parts of metric names to tags
 
-## Version Spark and Spark history 2.7.0-2.4.0
-
-### New features
-- Upgraded Spark and Spark History Server to 2.4.0
-
-### Updates
-- {{ model.techShortName }} Mesos Dispatcher uses the same user for running {{ model.techShortName }} jobs as itself and defaults to `nobody`
-- Switched to [dcos-commons](https://github.com/mesosphere/dcos-commons/) bootstrap script for IP address detection
-
-### Breaking changes
-- Removed configuration option `use_bootstrap_for_IP_detect` since we now use `bootstrap` by default for Spark container IP detection which works across all containerizers: `DOCKER` & `MESOS` (UCR) and networking modes: `HOST` & CNI Virtual Networks.
-
-
-
 ## Version Spark and Spark history 2.8.0-2.4.0
 
 ### New features
