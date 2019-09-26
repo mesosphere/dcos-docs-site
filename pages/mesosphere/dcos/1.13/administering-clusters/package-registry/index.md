@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for a flexible and seamless management of your packages.
+DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However, this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for flexible and seamless management of your packages.
 
 For a full list of the configuration options available for the DC/OS Package Registry, use the following command:
 
@@ -41,14 +41,14 @@ dcos registry activate --options=<custom-options-file>
 ```
 
 # Configuration
-If you have a configuration file from one of the previous installations, you can skip this section and continue to the next section of installing the package-registry.
+If you have a configuration file from one of the previous installations, skip this section and continue to the next section of installing the package-registry.
 
 Package registry can be configured with the following options during deployment:
 
 1. [Storage Options](#storage-options) (Local storage OR Mount Volumes OR S3 Compatible Storage)
 1. [Service namespacing and secrets](#service-namespacing-and-secrets)
 
-If you have a config file from one of the previous installations, you can skip this section and continue to the next section of installing the package-registry.
+If you have a config file from one of the previous installations, skip this section and continue to the next section of installing the package-registry.
 
 ## Storage options
 
@@ -59,7 +59,7 @@ Package registry can be configured to use one of:
 
 ### Local storage
 
-Package registry would use local storage by default, which is **NOT recommended** for production usage. Configure a persistent volume or S3-compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section.
+Package registry uses local storage by default, which is **NOT recommended** for production usage. Configure a persistent volume or S3-compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section.
 
 ### Mount volume option
 
@@ -87,11 +87,11 @@ To configure a DC/OS Package Registry to store DC/OS Packages using S3 storage, 
 
 #### S3 Endpoint details
 
-When using Amazon S3, refer to [Amazon S3 Regions & Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for more details on possible endpoints. Package registry has been tested and known to work with Amazon S3 and Minio storage. It can work with any other S3 compatible storage. Contact Mesosphere support if you face problems connecting with other S3 compatible storage.
+When using Amazon S3, refer to [Amazon S3 Regions & Endpoints](https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region) for more details on possible endpoints. Package registry has been tested and is known to work with Amazon S3 and Minio storage. It can work with any other S3 compatible storage. Contact Mesosphere support if you face problems connecting with other S3 compatible storage.
 
 #### S3 bucket name and path
 
-The combination of an S3 bucket name and path inside the bucket should be unique to each deployment of Package registry. Multiple instances from each deployment will ensure synchronized access to this bucket.
+The combination of an S3 bucket name and path inside the bucket should be unique to each deployment of Package registry. Multiple instances from each deployment ensures synchronized access to this bucket.
 
 #### Upload the S3 credential to the DC/OS Secret store
 
@@ -222,7 +222,7 @@ This would launch the Marathon app for `package-registry`. This usually takes a 
 dcos package repo add --index=0 "Registry" https://dcos-registry.marathon.l4lb.thisdcos.directory/repo
 ```
 
-If you get errors in executing above command, wait for a couple of minutes (to account for the latency in `package-registry` becoming healthy and its DNS entry being propagated to all master nodes) and try again.
+If you get errors in executing this command, wait for a couple of minutes (to account for the latency in `package-registry` becoming healthy and its DNS entry being propagated to all master nodes) and try again.
 
 # Using package registry
 
@@ -263,13 +263,13 @@ Mesosphere hosts all its certified packages at [downloads.mesosphere.com/univers
       ./dcos-registry registry --version
       ./dcos-registry registry <your-subcommand>
       ```
-      In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
+      In the rest of the instructions on this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
 
       <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry<tt> suffix does not work.</p>
 
 ### Instructions to generate `.dcos` bundle
 
-The `package-registry` CLI can be used to bundle your package into a `.dcos` file that can be used by the `package-registry`. Assume that the {{ model.packageRepo }} package files are in a directory called `/path/to/package/`. It should contain the following package definition files:
+The `package-registry` CLI bundles your package into a `.dcos` file that can be used by the `package-registry`. Assume that the {{ model.packageRepo }} package files are in a directory called `/path/to/package/`. It should contain the following package definition files:
 
 ```
 ➜ tree
@@ -307,19 +307,19 @@ After executing all the above steps, you should have a brand new `.dcos` file.
 
 ## Uploading the packages to package-registry
 
-Now that you have all the `.dcos` files you need, you can continue to execute :
+Now that you have all the `.dcos` files you need, you can continue to execute:
 
 ```bash
 dcos registry add --dcos-file <your-file>.dcos
 ```
 
-This is asynchronous and takes couple of minutes for the package to be visible in your {{ model.packageRepo }}. Even if the above command errors out (which can happen even on a successful upload in slow network connections), you can track the status of the upload by executing:
+This is asynchronous and takes a couple of minutes for the package to be visible in your {{ model.packageRepo }}. Even if the above command errors out (which can happen even on a successful upload in slow network connections), you can track the status of the upload by executing:
 
 ```bash
 dcos registry describe --package-name=<package-name> --package-version=<package-version>
 ```
 
-Be patient and wait for couple minutes for the package to be uploaded, processed and made visible in the {{ model.packageRepo }}.
+Be patient and wait for a couple minutes for the package to be uploaded, processed and made visible in the {{ model.packageRepo }}.
 
 See `dcos registry --help` for an exhaustive list of operations that you can use to manage the packages in Package registry. The `registry` subcommand allows you to `add`, `remove` and `describe` a package.
 
