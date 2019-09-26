@@ -44,7 +44,7 @@ The Edge-LB API also requires authorization via the following permissions:
 |-------|----------|
 | `/service/edgelb/` | `dcos:adminrouter:service:edge-lb` |
 
-Users with the dcos:superuser permissions may reach all routes.
+Users with the `dcos:superuser` permissions may reach all routes.
 
 To assign permissions to your account, see [Assigning permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/).
 
