@@ -10,26 +10,52 @@ enterprise: false
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
 For production clusters, regular maintenance should include routine backup operations on a regular basis to ensure data integrity and reduce the risk of data loss due to unexpected events.
-Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
+Backup operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
+
+# Velero
 
 As a production-ready solution, Konvoy provides the Velero add-on by default, to support backup and restore operations for your Kubernetes cluster and persistent volumes.
 
 For on-premise deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 For production use-cases, it's advisable to provide an *external* storage volume for Minio to use.
 
-**NOTE** If you intend to use the cluster *without* an external storage volume for Minio, you should [fetch the latest backup](#fetching-a-backup-archive) and store it in a known, secured location at a regular interval.
-For example, if you aren't using an external storage volume, you should back up and archive the cluster on a weekly basis.
+<p class="message--note"><strong>NOTE: </strong>If you intend to use the cluster <strong>without</strong> an external storage volume for Minio, you should <a href="https://docs.d2iq.com/ksphere/konvoy/latest/backup/#fetching-a-backup-archive">fetch the latest backup</a> and store it in a known, secure location at a regular interval. For example, if you are not using an external storage volume, you should back up and archive the cluster on a weekly basis.</p>
 
 ## Install the Velero command-line interface
 
 Although installing the Velero command-line interface is optional and independent of deploying a Konvoy cluster, having access to the command-line interface provides several benefits.
-For example, you can use the Velero command-line interface to back up or restore a cluster on-demand or to modify certain settings without changing the Velero platform service configuration.
+For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero platform service configuration.
 
 By default, Konvoy sets up Velero to use Minio over TLS using a self-signed certificate.
 Currently, the Velero command-line interface does not handle self-signed certificates.
-Until an upstream fix is released, please use [our patched 1.0.0 version of Velero](https://github.com/mesosphere/velero/releases/tag/v1.0.0-patch), which adds a `--insecureskipverify` flag.
+Until an upstream fix is released, please use [our patched 1.0.0 version of Velero](https://github.com/mesosphere/velero/releases/tag/v1.0.0-patch), which adds an `--insecureskipverify` flag.
 
-## Regular backup operations
+# Enable or disable the backup add-on
+
+You can enable or disable the Velero platform service add-on in the `ClusterConfiguration` section of the `cluster.yaml` file.
+For example, you can enable the `Velero` add-on using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
+
+```yaml
+addons:
+- name: velero
+  enabled: true
+...
+```
+
+If you want to replace the Velero add-on with a different backup add-on service, you can disable the `velero` add-on by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
+
+```yaml
+addons:
+- name: velero
+  enabled: false
+...
+```
+
+Before disabling the Velero platform service add-on, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.
+
+After making changes to your `cluster.yaml`, you must run `konvoy up` to apply them to the running cluster.
+
+# Regular backup operations
 
 For production clusters, you should be familiar with the following basic administrative functions Velero provides:
 
@@ -38,7 +64,7 @@ For production clusters, you should be familiar with the following basic adminis
 - [Run on-demand backups](#back-up-on-demand)
 - [Restore from a backup archive](#restore-a-cluster)
 
-### Set a backup schedule
+## Set a backup schedule
 
 By default, Konvoy configures a regular, automatic backup of the cluster's state in Velero.
 The default settings do the following:
@@ -86,7 +112,7 @@ velero create schedule system-critical --include-namespaces=kube-system,kube-pub
 
 The Velero command-line interface provides many more options worth exploring. You can also find tutorials for [disaster recovery][velero-dr] and [cluster migration][velero-cm] on the Velero community site.
 
-### Fetching a backup archive
+## Fetching a backup archive
 
 To list the available backup archives in your cluster, run the following command:
 
@@ -100,7 +126,7 @@ To download a selected archive to your current working directory on your local w
 velero backup download BACKUP_NAME --insecureskipverify
 ```
 
-### Back up on demand
+## Back up on demand
 
 In some cases, you might find it necessary create a backup outside of the regularly-scheduled interval.
 For example, if you are preparing to upgrade any components or modify your cluster configuration, you should perform a backup immediately before taking that action.
@@ -111,7 +137,7 @@ You can then create a backup by running a command similar to the following:
 velero backup create BACKUP_NAME
 ```
 
-### Restore a cluster
+# Restore a cluster
 
 Before attempting to restore the cluster state using the Velero command-line interface, you should verify the following requirements:
 
@@ -156,30 +182,7 @@ To restore cluster data on-demand from a selected backup snapshot available in t
 velero restore create --from-backup BACKUP_NAME
 ```
 
-## Enable or disable the backup addon
 
-You can enable or disable the Velero platform service add-on in the `ClusterConfiguration` section of the `cluster.yaml` file.
-For example, you can enable the `Velero` add-on using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
-
-```yaml
-addons:
-- name: velero
-  enabled: true
-...
-```
-
-If you want to replace the Velero add-on with a different backup add-on service, you can disable the `velero` add-on by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
-
-```yaml
-addons:
-- name: velero
-  enabled: false
-...
-```
-
-Before disabling the Velero platform service add-on, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.
-
-After making changes to your `cluster.yaml`, you must run `konvoy up` to apply them to the running cluster.
 
 # Backup service diagnostics
 
@@ -190,7 +193,7 @@ kubectl get all -n velero
 ```
 
 If the Velero platform service add-on is currently running, you can generate diagnostic information about Velero backup and restore operations.
-For example, you can run the following commands retrieve backup and restore information that you can use to assess the overall health of Velero in your cluster:
+For example, you can run the following commands to retrieve, back up, and restore information that you can use to assess the overall health of Velero in your cluster:
 
 ```bash
 velero get schedules
