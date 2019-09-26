@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 
-Edge-LB configuration files should preferably be written in JSON format. YAML is historically supported, but it will be deprecated in the future. We recommend users to migrate their YAML files to JSON
+Edge-LB configuration files should preferably be written in JSON format. YAML is historically supported, but it will be deprecated in the future. We recommend users to migrate their YAML files to JSON.
 
 # Convert YAML to JSON
 
