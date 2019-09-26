@@ -5,7 +5,7 @@ title: Release notes for 1.13.5
 menuWeight: 2
 excerpt: Release notes for DC/OS 1.13.5, including Open Source attribution, and version policy.
 ---
-DC/OS 1.13.5 was released on September .
+DC/OS 1.13.5 was released on 2 October 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -27,7 +27,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Issues fixed in DC/OS 1.13.5
 The issues that have been fixed in DC/OS 1.13.5 are grouped by feature, functional area, or component. 
 - [enterprise]Marathon: Fixed a bug in which a service could get stuck if a failure occurred while Mesos tried to create a reservation. (MARATHON-8693) [/enterprise]
-- [enterprise]Updated `dcos-backup` to support accessing Exhibitor through Admin Router. This is needed when [Exhibitor mutual TLS authentication](https://docs.d2iq.com/mesosphere/dcos/1.12/security/ent/tls-ssl/exhibitor/) is enabled. (DCOS-57704)[/enterprise]
+- [enterprise]Updated `dcos-backup` to support accessing Exhibitor through Admin Router. This is needed when [Exhibitor mutual TLS authentication](https://docs.d2iq.com/mesosphere/dcos/1.13/security/ent/tls-ssl/exhibitor/) is enabled. (DCOS-57704)[/enterprise]
 - Metronome: Post-install configuration can now be added to /var/lib/dcos/metronome/environment. (DCOS_OSS-5509)
 - Mesos overlay networking: Added an HTTP endpoint for dropping agents from the state.  (DCOS_OSS-5536)
 - Admin Router: Improved service routing robustness by omitting Marathon apps with wrongly specified `DCOS_SERVICE_PORT_INDEX` values. (DCOS_OSS-5491)
