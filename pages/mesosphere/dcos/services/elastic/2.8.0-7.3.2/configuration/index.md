@@ -172,6 +172,58 @@ deploy (serial strategy) (COMPLETE)
    └─ coordinator-0:[node] (COMPLETE)
 ```
 
+## Elasticsearch Metrics
+
+`Elasticsearch Prometheus Exporter` collect Metrics for `Prometheus`. 
+
+## Grafana dashboards
+
+**dcos-monitoring** configuration:
+
+```json
+{
+  "grafana": {
+    "dashboard_config_repository": {
+      "url": "https://github.com/dcos/grafana-dashboards",
+      "path": "dashboards/elasticsearch",
+      "reference_name": "",
+      "credentials": {
+        "username_secret": "",
+        "password_secret": "",
+        "deploy_key_secret": ""
+      }
+    }
+  }
+}
+```
+**dashboard_config_repository.path** contains files:
+- `elasticsearch.json`
+
+## Prometheus alerts
+
+**dcos-monitoring** configuration:
+
+```json
+{
+  "prometheus": {
+    "alert_rules_repository": {
+      "url": "https://github.com/dcos/prometheus-alert-rules",
+      "path": "rules/elasticsearch",
+      "reference_name": "",
+      "credentials": {
+        "username_secret": "",
+        "password_secret": "",
+        "deploy_key_secret": ""
+      }
+    }
+  }
+}
+```
+**alert_rules_repository.path** contains files:
+
+- `elasticsearch.rules`
+- `elasticsearch.yml`
+
 ## Kibana
 
 [Kibana](https://www.elastic.co/products/kibana) lets you visualize your Elasticsearch data and navigate the {{ model.techName }} Stack. You can install Kibana like any other DC/OS package via the **Catalog** tab of the DC/OS UI or via the DC/OS CLI with:
