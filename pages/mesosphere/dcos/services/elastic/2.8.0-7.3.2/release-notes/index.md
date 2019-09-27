@@ -33,7 +33,7 @@ render: mustache
 
 ## New Features
 
--   Added Prometheus exporter for metrics. ([#41](https://github.com/mesosphere/dcos-elastic-service/pull/41)) 
+-   Added [Prometheus exporter](https://github.com/justwatchcom/elasticsearch_exporter) for metrics. ([#41](https://github.com/mesosphere/dcos-elastic-service/pull/41)) 
 
     New settings are:
     
@@ -48,9 +48,11 @@ render: mustache
     -   `prometheus_exporter.readiness_check.delay` (integer, default `0`, minimum `0`)
     -   `prometheus_exporter.readiness_check.timeout` (integer, default `10`, minimum `10`)
 
--   Added [Alerts](https://github.com/justwatchcom/elasticsearch_exporter) based on Prometheus metrics. ([#50](https://github.com/mesosphere/dcos-elastic-service/pull/50))
+-   Added [Alerts](https://grafana.com/grafana/dashboards/2322) based on Prometheus metrics. ([#50](https://github.com/mesosphere/dcos-elastic-service/pull/50) [#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
 
 -   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
+
+    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/2.8.0-7.3.2/configuration/#elasticsearch-metrics)
 
 -   Exposed `xpack.security.transport.ssl.client_authentication` `xpack.security.http.ssl.client_authentication` `xpack.security.transport.ssl.verification_mode` ([#46](https://github.com/mesosphere/dcos-elastic-service/pull/46))
 
