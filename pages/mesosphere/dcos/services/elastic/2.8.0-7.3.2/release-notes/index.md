@@ -21,12 +21,13 @@ render: mustache
 ## Upgrades
 
 -   Upgraded Elasticsearch and Kibana to [7.3.2](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/release-notes-7.3.2.html). ([#45](https://github.com/mesosphere/dcos-elastic-service/pull/45) [#47](https://github.com/mesosphere/dcos-elastic-service/pull/47))
--   Upgraded SDK version from `0.56.2` to `0.57.0`. ([#43](https://github.com/mesosphere/dcos-elastic-service/pull/43))
+-   Upgraded SDK version from `0.56.2` to `0.57.1`. ([#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
 
     Please take a look at the following SDK change logs for more information:
 
     -   [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
     -   [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
+    -   [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
 
 
 <a id="orgce810fb"></a>
