@@ -11,11 +11,9 @@ render: mustache
 ## Version 2.8.0-2.3.0
 
 ### Updates
-- Updated the SDK to version `0.57.1`. For more information, see release notes for previous SDK releases:
-  - [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
+- Updated the SDK to version `0.57.0`. For more information, see release notes for previous SDK releases:
   - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
   - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
-  - [0.56.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.2)
 
 ### New Features
 - Added new CLI commands ([PR #447](https://github.com/mesosphere/dcos-kafka-service/pull/447)): 
