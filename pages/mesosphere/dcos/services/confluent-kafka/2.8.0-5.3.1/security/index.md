@@ -26,7 +26,7 @@ enterprise: true
 
 #include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
-<p class="message--note"><strong>NOTE: </strong> Enabling transport encryption is <strong>required</strong> in order to use <a href="/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/security/#ssl-authentication">SSL authentication</a> for <a href="http://localhost:3000/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/security/#authentication">authentication</a>, but is optional for <a href="http://localhost:3000/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/security/#kerberos-authentication">Kerberos authentication</a>.</p>
+<p class="message--note"><strong>NOTE: </strong> Enabling transport encryption is <strong>required</strong> in order to use <a href="/mesosphere/dcos/services/confluent-kafka/latest/security/#ssl-authentication">SSL authentication</a> for <a href="http://localhost:3000/mesosphere/dcos/services/confluent-kafka/latest/security/#authentication">authentication</a>, but is optional for <a href="http://localhost:3000/mesosphere/dcos/services/confluent-kafka/latest/security/#kerberos-authentication">Kerberos authentication</a>.</p>
 
 #include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 

@@ -133,7 +133,7 @@ DC/OS {{ model.techName }} supports service oriented health checks allowing you 
 | health_check.grace-period | An amount of time in seconds after the task is launched during which health check failures are ignored. Once a health check succeeds for the first time, the grace period does not apply anymore. Note that it includes delay seconds, i.e., setting grace_period seconds < delay seconds has no effect. |
 | health_check.max-consecutive-failures | It is the maximum consecutive number of failures after which task will be killed. |
 | health_check.health-check-topic-prefix | Prefix for the health check topic name. Used when "FUNCTIONAL" health check method is selected. |
-| service.security.kerberos.health_check_primary | The [Kerberos](/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/security/#authentication) primary used by Kafka health check if enabled. |
+| service.security.kerberos.health_check_primary | The [Kerberos](/mesosphere/dcos/services/confluent-kafka/latest/security/#authentication) primary used by Kafka health check if enabled. |
 
 ### Health Check Methods
 
@@ -157,7 +157,7 @@ This method will check if the broker port is open. Only the broker on which the 
 
 It checks if the broker can send and receive messages from a client. Only the broker on which the health check is running will be checked as each broker will have its own health check.
 The health checks produces a random message to a user configurable topic and then tries to consume the last produced message.
-When [Kerberos](/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/security/#authentication) and or [Transport Encryption](mesosphere/dcos/services/kafka/2.7.0-2.3.0/security/#transport-encryption) is enabled the health check produces only a single random message to a topic and will attempt to consume that same first message of the topic at each health-check interval.
+When [Kerberos](/mesosphere/dcos/services/confluent-kafka/latest/security/#authentication) and or [Transport Encryption](mesosphere/dcos/services/kafka/latest/security/#transport-encryption) is enabled the health check produces only a single random message to a topic and will attempt to consume that same first message of the topic at each health-check interval.
 
 ```json
 {

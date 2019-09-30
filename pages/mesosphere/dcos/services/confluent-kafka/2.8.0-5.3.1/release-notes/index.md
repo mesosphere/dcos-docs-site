@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes 
-excerpt: Release Notes for version 2.7.0-5.3.0
+excerpt: Release Notes for version 2.8.0-5.3.1
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
