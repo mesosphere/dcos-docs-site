@@ -8,7 +8,41 @@ model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 
-# Release Notes for HDFS Service version 2.6.0-3.2.0
+# Release Notes for HDFS version 2.7.0-3.2.1
+
+## Updates
+- Updated base-tech to version `3.2.1`
+- Updated SDK to version `0.57.0`. For more information see release-notes for previous SDK releases:
+  - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
+  - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
+  - [0.56.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.2)
+
+## Features
+- Added CLI support for native `hdfs` base-tech commands such as `dfs`. Users can now execute commands via: 
+  - ```
+  - dcos hdfs hdfs {cmd} {args}
+  - ```
+  - For example:
+  - ```
+  - dcos hdfs hdfs dfs -mkdir /tmp
+  - dcos hdfs hdfs dfs -ls /
+  - ```
+  - For the full list of executable commands, refer to [HDFS docs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html)
+- By upgrading the SDK, the HDFS now comes with support for:
+  - Quota enforcement
+  - Node draining
+
+# Upgrading the DC/OS HDFS Package
+- This DC/OS package can be upgraded from the following versions:
+  - `2.6.0-3.2.0`
+  - `2.5.0-2.6.0-cdh5.11.0`
+- To upgrade HDFS, users can run the following command:
+  - ```
+  - dcos hdfs update start --package-version=2.7.0-3.2.1
+  - ```
+
+
+# Release Notes for HDFS version 2.6.0-3.2.0
 
 ## Updates
 - Updated HDFS version to `3.2.0`. Note: our package no longer includes Cloudera's `cdh` variant
@@ -17,7 +51,7 @@ render: mustache
 - Oracle JDK is replaced with OpenJDK 8
 
 ## Features
-- Added support for custom domains. See [custom domains](/mesosphere/dcos/services/{{ model.serviceName }}/2.6.0-3.2.0/operations/security/#forwarding-dns-and-custom-domain)
+- Added support for custom domains. See [custom domains](/mesosphere/dcos/services/{{ model.serviceName }}/latest/operations/security/#forwarding-dns-and-custom-domain)
 - Added support for DC/OS Storage Service (DSS). See [DSS documentation](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/)
 - Added marathon service scheduler checks
 
