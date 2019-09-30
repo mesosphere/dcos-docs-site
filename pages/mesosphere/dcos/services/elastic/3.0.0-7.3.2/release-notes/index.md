@@ -8,7 +8,7 @@ model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 
-# Release notes for Elastic Service version 2.8.0-7.3.2
+# Release notes for Elastic Service version 3.0.0-7.3.2
 
 - [Upgrades](#orgdf76f77)
 - [New Features](#orgce810fb)
@@ -53,7 +53,7 @@ render: mustache
 
 -   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
 
-    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/2.8.0-7.3.2/configuration/#elasticsearch-metrics)
+    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.0.0-7.3.2/configuration/#elasticsearch-metrics)
 
 -   Exposed `xpack.security.transport.ssl.client_authentication` `xpack.security.http.ssl.client_authentication` `xpack.security.transport.ssl.verification_mode` ([#46](https://github.com/mesosphere/dcos-elastic-service/pull/46))
 
