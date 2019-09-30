@@ -7,7 +7,7 @@
 ~^/mesosphere/dcos/services/dse/latest/(.*) /mesosphere/dcos/services/dse/3.0.0-6.7.2/$1;
 ~^/mesosphere/dcos/services/edge-lb/latest/(.*) /mesosphere/dcos/services/edge-lb/1.4/$1;
 ~^/mesosphere/dcos/services/elastic/latest/(.*) /mesosphere/dcos/services/elastic/2.7.0-6.8.1/$1;
-~^/mesosphere/dcos/services/hdfs/latest/(.*) /mesosphere/dcos/services/hdfs/2.6.0-3.2.0/$1;
+~^/mesosphere/dcos/services/hdfs/latest/(.*) /mesosphere/dcos/services/hdfs/2.7.0-3.2.1/$1;
 ~^/mesosphere/dcos/services/jenkins/latest/(.*) /mesosphere/dcos/services/jenkins/3.5.4-2.150.1/$1;
 ~^/mesosphere/dcos/services/kafka/latest/(.*) /mesosphere/dcos/services/kafka/2.7.0-2.3.0/$1;
 ~^/mesosphere/dcos/services/kubernetes/latest/(.*) /mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/$1;

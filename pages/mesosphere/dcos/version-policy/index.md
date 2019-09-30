@@ -365,7 +365,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>HDFS 2.6.x-3.2.0 (Recommended)</td>
+        <td>HDFS 2.7.x-3.2.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
