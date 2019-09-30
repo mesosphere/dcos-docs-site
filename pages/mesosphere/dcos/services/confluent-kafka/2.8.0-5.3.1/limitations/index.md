@@ -14,7 +14,7 @@ render: mustache
 
 ## Log Retention Bytes
 
-The "disk" configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated "disk" configuration. See the [Configuring](/mesosphere/dcos/services/confluent-kafka/2.7.0-5.3.0/configuration/) section for instructions for customizing these values.
+The "disk" configuration value is denominated in MB. We recommend you set the configuration value `log_retention_bytes` to a value smaller than the indicated "disk" configuration. See the [Configuring](/mesosphere/dcos/services/confluent-kafka/latest/configuration/) section for instructions for customizing these values.
 
 ## Security
 
