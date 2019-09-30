@@ -17,7 +17,7 @@ render: mustache
   - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
 
 ### New Features
-- By upgrading the SDK, Kafka now comes with support for:
+- By upgrading the SDK, Confluent-Kafka now comes with support for:
   - Quota enforcement
   - Node draining
 
