@@ -19,16 +19,16 @@ render: mustache
 
 ## Features
 - Added CLI support for native `hdfs` base-tech commands such as `dfs`. Users can now execute commands via: 
-  - ```
-  - dcos hdfs hdfs {cmd} {args}
-  - ```
+  ```
+  dcos hdfs hdfs {cmd} {args}
+  ```
   - For example:
-  - ```
-  - dcos hdfs hdfs dfs -mkdir /tmp
-  - dcos hdfs hdfs dfs -ls /
-  - ```
+  ```
+  dcos hdfs hdfs dfs -mkdir /tmp
+  dcos hdfs hdfs dfs -ls /
+  ```
   - For the full list of executable commands, refer to [HDFS docs](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HDFSCommands.html)
-- By upgrading the SDK, the HDFS now comes with support for:
+- By upgrading the SDK, HDFS now comes with support for:
   - Quota enforcement
   - Node draining
 
@@ -37,9 +37,9 @@ render: mustache
   - `2.6.0-3.2.0`
   - `2.5.0-2.6.0-cdh5.11.0`
 - To upgrade HDFS, users can run the following command:
-  - ```
-  - dcos hdfs update start --package-version=2.7.0-3.2.1
-  - ```
+  ```
+  dcos hdfs update start --package-version=2.7.0-3.2.1
+  ```
 
 
 # Release Notes for HDFS version 2.6.0-3.2.0
