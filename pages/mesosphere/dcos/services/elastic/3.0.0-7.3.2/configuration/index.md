@@ -174,7 +174,11 @@ deploy (serial strategy) (COMPLETE)
 
 ## Elasticsearch Metrics
 
-`Elasticsearch Prometheus Exporter` collect Metrics for `Prometheus`. 
+`Elasticsearch Prometheus Exporter` collect Metrics for `Prometheus`.
+ 
+Preconfigured `alert-rules`/`grafana-dashboards` stored in  `dcos/grafana-dashboards`/`dcos/prometheus-alert-rules` repositories.
+
+Otherwise you can use your one and just point them in `dcos-monitoring` configuration.   
 
 ## Grafana dashboards
 
