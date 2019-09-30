@@ -141,4 +141,4 @@ DC/OS {{ model.techName }} supports service oriented health checks allowing you 
 }
 ```
 
-Refer to [Service Health Checks](/mesosphere/dcos/services/kafka/2.7.0-2.3.0/advanced/#service-health-check) for a more detailed configuration process.
+Refer to [Service Health Checks](/mesosphere/dcos/services/kafka/latest/advanced/#service-health-check) for a more detailed configuration process.

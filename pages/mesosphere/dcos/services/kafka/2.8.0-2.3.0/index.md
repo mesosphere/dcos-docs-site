@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kafka 2.7.0-2.3.0
+navigationTitle: Kafka 2.8.0-2.3.0
 excerpt:
-title: Kafka 2.7.0-2.3.0
+title: Kafka 2.8.0-2.3.0
 menuWeight: 1
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
