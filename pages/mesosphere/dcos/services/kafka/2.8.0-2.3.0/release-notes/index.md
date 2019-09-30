@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Release notes for 2.7.0-2.3.0
+excerpt: Release notes for 2.8.0-2.3.0
 title: Release Notes
 menuWeight: 5
 model: /mesosphere/dcos/services/kafka/data.yml
