@@ -33,7 +33,7 @@ spec:
 
 # Customize instance types, volumes and Amazon Machine Images (AMI)
 
-Konvoy allows users to customize instance types, volumes and AMI images for their clusters like the following.
+Konvoy allows you to customize instance types, volumes and AMI images for your clusters, as in the following YAML file:
 
 ```yaml
 kind: ClusterProvisioner
@@ -50,7 +50,7 @@ spec:
       - us-west-2a
       - us-west-2b
       - us-west-2c
-  nodePools:
+  node pools:
   - name: node
     count: 4
     machine:
@@ -76,20 +76,20 @@ spec:
 
 ## Instance types
 
-For each [node pool][node_pools], the user can customize the instance type for instances in that node pool (i.e., `type` field).
+For each [node pool][node_pools], you can customize the instance type for instances in that node pool (i.e., `type` field).
 All instances in a single node pool must have the same instance type.
 
 All the available instance types can be found [here][aws_instance_types].
 
 ## Instance volumes
 
-For each [node pool][node_pools], the user can customize the instance volumes attached to the instances in that node pool.
+For each [node pool][node_pools], you can customize the instance volumes attached to the instances in that node pool.
 There are two types of instance volumes:
 
-* Root volume: this is the root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if imagefs volume is enabled).
-* Imagefs volume: this is the dedicated disk for providing storage for container image layers.
+* Root volume: this is the root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if `imagefs` volume is enabled).
+* `imagefs` volume: this is the dedicated disk for providing storage for container image layers.
 
-Imagefs volume is optional.
+`imagefs` volume is optional.
 If disabled, the root volume will be used to storage container image layers.
 
 Users can customize the sizes (in GB) and [types][ebs_volume_types] (use API Name) of those volumes.
@@ -119,7 +119,7 @@ us-west-1      = "ami-074e2d6769f445be5"
 us-west-2      = "ami-01ed306a12b7d1c96"
 ```
 
-If you are deploying Konvoy in a region that is not included in the predefined listed, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file.
+If you are deploying Konvoy in a region that is not included in the predefined identifiers listed, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file.
 
 Konvoy is tested with the [CentOS Linux 7][ami_centos7] image.
 
@@ -150,8 +150,8 @@ To add custom resource files for provisioning:
     EOF
     ```
 
-    Keep in mind that Konvoy merges any files you add to the `extras/provisioner` directory with the default `*.tf` resource files during the provisioning process.
-    If you add a file name to the `extras/provisioner` directory that already exists in the default `*.tf` resource files, the contents of the default `*.tf` resource file are replaced with the contents from the custom file you added to the `extras/provisioner` directory.
+    <p class="message--note"><strong>NOTE: </strong>Konvoy merges any files you add to the <tt>extras/provisioner</tt> directory with the default <tt>*.tf</tt> resource files during the provisioning process.
+    If you add a file name to the <tt>extras/provisioner</tt> directory that already exists in the default <tt>*.tf</tt> resource files, the contents of the default <tt>*.tf</tt> resource file are replaced with the contents from the custom file you added to the <tt>extras/provisioner</tt> directory.</p>
 
 1. Run the `konvoy up` command.
 
@@ -162,7 +162,7 @@ To add custom resource files for provisioning:
     use this backend unless the backend configuration changes.
     ```
 
-    This output in this example indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an S3 bucket.
+    The output in this example indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an S3 bucket.
 
 ## Using existing infrastructure
 
@@ -186,10 +186,10 @@ spec:
 
 It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
 
-**NOTE:** Optionally you can use an existing internet-gateway by defining the `vpc.internetGatewayID` field.
+<p class="message--note"><strong>NOTE: </strong>Optionally you can use an existing internet-gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
 
 ### Subnets
-An existing vpc may already contain`subnets` for use, you may define them in the following way:
+An existing VPC may already contain `subnets` for use. You may define them in the following way:
 
 ```yaml
 ...
@@ -208,7 +208,7 @@ spec:
         - subnet-0f95d617b26dab1d1
     availabilityZones:
         - us-west-2c
-  nodePools:
+  node pools:
   - name: worker
      count: 4
     machine:
@@ -250,13 +250,13 @@ spec:
 ...
 ```
 
-The number of `IDs` in each type of subnet must match the number of `aws.availabilityZones` defined and they must be listed in the same order as the `aws.availabilityZones`.
-The public subnet must be set to automatically set up public ip's on launch.
+The number of `ID`s in each type of subnet must match the number of `aws.availabilityZone`s defined, and they must be listed in the same order as the `aws.availabilityZone`s.
+The public subnet must be set to automatically set up public IPs on launch.
 
-Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing nodepools.
-That could lead collisions in CIDR blocks and failure to deploy, the recommendation here then is for a full list of subnets be known along with the nodepools desired.
+Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing node pools.
+That could lead collisions in CIDR blocks and failure to deploy. If this happens, we recommend that a full list of subnets be known along with the node pools desired.
 
-For the most part the nodepools created should exist in a private network configuration, which is konvoy's default approach.
+For the most part the node pools created should exist in a private network configuration, which is Konvoy's default approach.
 Bastion hosts allow for secure access to one's cluster, but since they do need to be accessed externally they should be deployed with a subnet where public ips are created.
 
 ### IAM Instance Profiles
@@ -266,7 +266,7 @@ An existing IAM instance profile can be used, provided that the right policies m
 ...
 spec:
   provider: aws
-  nodePools:
+  node pools:
   - name: worker
      count: 1
     machine:
@@ -283,7 +283,7 @@ or you may instead use the ARN:
 ...
 spec:
   provider: aws
-  nodePools:
+  node pools:
   - name: worker
      count: 1
     machine:

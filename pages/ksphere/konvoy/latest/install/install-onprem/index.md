@@ -11,18 +11,13 @@ enterprise: false
 
 The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an on-premise environment.
 
-# Before you begin
+# Prerequisites
 
 Before starting the installation, you should verify that your environment meets the following basic requirements:
 
-* [Docker Desktop][install_docker] _version 18.09.2 or newer_
+* [Docker Desktop][install_docker] version 18.09.2 or later. You must have Docker Desktop installed on the host where the Konvoy command-line interface (CLI) will run. For example, if you installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-  You must have Docker Desktop installed on the host where the Konvoy command-line interface (CLI) will run.
-  For example, if you installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
-
-* [kubectl][install_kubectl] _v1.15.3 or newer_
-
-  You must have for `kubectl` installed on the host where the Konvoy command-line interface (CLI) will run to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.15.3 or later. You must have for `kubectl` installed on the host where the Konvoy command-line interface (CLI) will run to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -35,17 +30,14 @@ Before starting the installation, you should verify that your environment meets 
 
 ## Worker nodes
 
-* You should have at least three worker nodes.
-
-  The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
+* You should have at least three worker nodes. The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
 
 * Each worker node should have at least:
   * 8 cores
   * 16 GiB memory
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
-* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
-  Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
+* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
 
@@ -81,7 +73,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 
 1. Create an empty working directory on the computer you are using as the deploy host.
 
-   For example, you might run the following on your laptop:
+   For example, you might run the following:
 
    ```bash
    mkdir konvoy-deploy

@@ -77,9 +77,9 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 #### Disclaimer
 
-**This versions contains a bug where it will fail when retrying an installation, upgrading or addding additional nodes, it is strongly recommended to use a newer version.**
+<p class="message--warning"><strong>WARNING: </strong>This version contains a bug where it will fail when retrying an installation, upgrading or addding additional nodes, it is strongly recommended to use a newer version.</p>
 
-The marker file on the nodes was being set with incorrect permissions and a change in the Konvoy wrapper surfaced this error, the user inside the Konvoy not being able to read the file.
+The marker file on the nodes was being set with incorrect permissions and a change in the Konvoy wrapper surfaced this error, meaning that the user inside the Konvoy could not read the file.
 
 The error you might see will be something similar to:
 
@@ -104,11 +104,11 @@ N/A
 
 #### Improvements
 
-- Validate the minmum docker version and that it is running on the host before using it in Konvoy.
+- Validate the minmum Docker version and that it is running on the host before using it in Konvoy.
 - Use `--mount` instead of `-v` to mount volumes into the Konvoy container, required for eventual Windows support.
 - New `konvoy diagnose` flags `--logs-all-namespaces` and `--logs-namespaces=[kubeaddons,kube-system]` to provide a better control of what Kubernetes pod logs to collect.
-- New `konvoy image list|upgrade` commands to be able to automatically list and download future release of the Konvoy image. Download the Konvoy wrapper will no longer be required(unless you require wrapper specific changes) to be able to use new versions of Konvoy.
-- Ability to disabled the installation of new OS package repositories. Useful for when your hosts already have the required package repositories configured.
+- New `konvoy image list|upgrade` commands to be able to automatically list and download future release of the Konvoy image. It will no longer be necessary to download the Konvoy wrapper (unless you require wrapper specific changes) to use new versions of Konvoy.
+- Ability to disable the installation of new OS package repositories. Useful for when your hosts already have the required package repositories configured.
 
 ```yaml
 kind: ClusterConfiguration
