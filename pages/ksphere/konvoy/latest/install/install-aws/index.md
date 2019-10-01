@@ -15,7 +15,7 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws][install_aws] command line utility
 * [Docker Desktop][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.15.3 or newer_ (for interacting with the running cluster)
+* [kubectl][install_kubectl] _v1.15.4 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured][aws_credentials].
   You need to be authorized to create the following resources in the AWS account:
   * EC2 Instances
@@ -28,6 +28,96 @@ This section guides you through the basic steps to prepare your environment and 
   * Security Groups
   * Route Tables
   * IAM Roles
+
+Below is the minimal IAM policy required:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Konvoy",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:AttachInternetGateway",
+                "ec2:AttachVolume",
+                "ec2:AuthorizeSecurityGroupEgress",
+                "ec2:AuthorizeSecurityGroupIngress",
+                "ec2:CreateInternetGateway",
+                "ec2:CreateRoute",
+                "ec2:CreateSecurityGroup",
+                "ec2:CreateSubnet",
+                "ec2:CreateTags",
+                "ec2:CreateVolume",
+                "ec2:CreateVpc",
+                "ec2:DeleteInternetGateway",
+                "ec2:DeleteKeyPair",
+                "ec2:DeleteSecurityGroup",
+                "ec2:DeleteSubnet",
+                "ec2:DeleteVolume",
+                "ec2:DeleteVpc",
+                "ec2:DescribeAccountAttributes",
+                "ec2:DescribeAvailabilityZones",
+                "ec2:DescribeImages",
+                "ec2:DescribeInstanceAttribute",
+                "ec2:DescribeInstanceCreditSpecifications",
+                "ec2:DescribeInstances",
+                "ec2:DescribeInternetGateways",
+                "ec2:DescribeKeyPairs",
+                "ec2:DescribeNetworkAcls",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeTags",
+                "ec2:DescribeVolumes",
+                "ec2:DescribeVpcAttribute",
+                "ec2:DescribeVpcClassicLink",
+                "ec2:DescribeVpcClassicLinkDnsSupport",
+                "ec2:DescribeVpcs",
+                "ec2:DetachInternetGateway",
+                "ec2:DetachNetworkInterface",
+                "ec2:DetachVolume",
+                "ec2:ImportKeyPair",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:ModifySubnetAttribute",
+                "ec2:ModifyVpcAttribute",
+                "ec2:RevokeSecurityGroupEgress",
+                "ec2:RevokeSecurityGroupIngress",
+                "ec2:RunInstances",
+                "ec2:TerminateInstances",
+                "elasticloadbalancing:AddTags",
+                "elasticloadbalancing:ApplySecurityGroupsToLoadBalancer",
+                "elasticloadbalancing:AttachLoadBalancerToSubnets",
+                "elasticloadbalancing:ConfigureHealthCheck",
+                "elasticloadbalancing:CreateLoadBalancer",
+                "elasticloadbalancing:CreateLoadBalancerListeners",
+                "elasticloadbalancing:DeleteLoadBalancer",
+                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTags",
+                "elasticloadbalancing:ModifyLoadBalancerAttributes",
+                "elasticloadbalancing:RegisterInstancesWithLoadBalancer",
+                "iam:AddRoleToInstanceProfile",
+                "iam:CreateInstanceProfile",
+                "iam:CreateRole",
+                "iam:DeleteInstanceProfile",
+                "iam:DeleteRole",
+                "iam:DeleteRolePolicy",
+                "iam:GetInstanceProfile",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListInstanceProfilesForRole",
+                "iam:PassRole",
+                "iam:PutRolePolicy",
+                "iam:RemoveRoleFromInstanceProfile",
+                "sts:GetCallerIdentity"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
 
 ## Installation
 
@@ -113,7 +203,7 @@ The dashboard and services may take a few minutes to be accessible.
 
 When the `konvoy up` completes its setup operations, the following files are generated:
 
-* `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster provisioning configuration][cluster_provision] and [your addons][addons_config].
+* `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster configuration][cluster_configuration].
 * `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
 * `inventory.yaml` - is an [Ansible Inventory file][inventory].
 * `state` folder - contains Terraform files, including a [state file][state].
@@ -125,10 +215,9 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [prerequisites]: #prerequisites
-[cluster_provision]: ./cluster_provision.md
-[addons_config]: ./customize_addons.md
-[kubectl]: ../operations/kubectl_basics.md
-[ops_portal]: ../operations/ops_portal.md
+[cluster_configuration]: ../../reference/cluster-configuration/
+[kubectl]: ../../operations/accessing-the-cluster/index.md#using-kubectl
+[ops_portal]: ../../operations/accessing-the-cluster/index.md#using-the-operations-portal
 [ec2]: https://aws.amazon.com/ec2/
 [control_plane]: https://kubernetes.io/docs/concepts/overview/components/
 [pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod/

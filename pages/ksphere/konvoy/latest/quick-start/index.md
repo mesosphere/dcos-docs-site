@@ -25,7 +25,7 @@ Before starting the Konvoy installation, you should verify the following:
 -   You have a Linux or macOS computer with a supported version of the operating system.
 -   You have the [aws][install_aws] command-line utility if you are installing on an AWS cloud instance.
 -   You have [Docker Desktop][install_docker] _version 18.09.2 or newer_.
--   You have [kubectl][install_kubectl] _v1.15.3 or newer_ for interacting with the running cluster.
+-   You have [kubectl][install_kubectl] _v1.15.4 or newer_ for interacting with the running cluster.
 -   You have a valid AWS account with [credentials configured][aws_credentials].
     You need to be authorized to create the following resources in the AWS account:
     - EC2 Instances
@@ -54,7 +54,7 @@ Many important Kubernetes functions _do not work_ if your client is outdated.
 You can verify the version of `kubectl` you have installed is supported by running the following command:
 
 ```bash
-kubectl version --short=true`
+kubectl version --short=true
 ```
 
 ### Download and extract the Konvoy package
@@ -93,7 +93,7 @@ To download the package, follow these steps:
 1.  Verify you have valid **AWS security credentials** to deploy the cluster on AWS.
 
     This step is not required if you are installing Konvoy on an on-premise environment.
-    For information about installing in an on-premise environment, see [Install on-premise](../install/install_onprem/).
+    For information about installing in an on-premise environment, see [Install on-premise](../install/install-onprem).
 
 1.  Create a directory for storing state information for your cluster by running the following commands:
 
@@ -171,8 +171,7 @@ The default _operations portal_ provides links to several dashboards of the inst
 - Traefik dashboards for inbound HTTP traffic
 - Kubernetes dashboard for cluster activity
 
-After you log in to the operations portal, you can view [diagnostics](#generate-cluster-diagnostics)
-and [dashboards](../operations/accessing-the-cluster/#ops-portal-dashboards) to see information about
+After you log in to the operations portal, you can view the [dashboards](../operations/accessing-the-cluster/index.md#using-the-operations-portal) to see information about
 cluster activity performance.
 
 Although these are the most common next steps, you don't need to log in to the operations portal or run basic diagnostics to verify a successful installation.
@@ -223,13 +222,13 @@ The command returns output similar to the following:
 
 ```text
 NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.3
-ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.3
-ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.3
-ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.3
-ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.3
-ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.3
-ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.3
+ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.4
+ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.4
+ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.4
+ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.4
+ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.4
+ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.4
+ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.4
 ```
 
 ### Next steps

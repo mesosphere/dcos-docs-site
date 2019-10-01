@@ -20,7 +20,7 @@ Before starting the installation, you should verify that your environment meets 
   You must have Docker Desktop installed on the host where the Konvoy command-line interface (CLI) will run.
   For example, if you installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] _v1.15.3 or newer_
+* [kubectl][install_kubectl] _v1.15.4 or newer_
 
   You must have for `kubectl` installed on the host where the Konvoy command-line interface (CLI) will run to enable interaction with the running cluster.
 
@@ -162,6 +162,53 @@ all:
 
 After you edit the inventory file, you need to edit the generated `cluster.yaml` file.
 The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster.
+
+## Configure the RPM and DEB package repository
+
+By default Konvoy will add new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
+If the required repositories are already configured in your environment, you may disable this behavior by setting the value of `defaultRepositoryInstallationDisabled` to `true`.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1alpha1
+spec:
+ packageRepository:
+   defaultRepositoryInstallationDisabled: true
+```
+
+Below is the list of all package repositories that are added by Konvoy.
+
+The RPM repositories:
+
+```text
+[docker]
+name = Docker Repository
+baseurl = https://download.docker.com/linux/centos/7/x86_64/stable/
+gpgcheck = 1
+gpgkey = https://download.docker.com/linux/centos/gpg
+```
+
+```text
+[kubernetes]
+name=Konvoy Kubernetes package repository
+baseurl=https://packages.d2iq.com/konvoy/rpm/stable/centos/7/x86_64
+gpgcheck=1
+gpgkey=https://packages.d2iq.com/konvoy/rpm-gpg-pub-key
+```
+
+The DEB repositories:
+
+```text
+deb https://packages.cloud.google.com/apt/ kubernetes-xenial main
+
+https://packages.cloud.google.com/apt/doc/apt-key.gpg
+```
+
+```text
+deb https://download.docker.com/linux/ubuntu/ xenial stable
+
+https://download.docker.com/linux/ubuntu/
+```
 
 ## Configure the control plane
 
@@ -390,13 +437,12 @@ If the cluster was recently created, the dashboard and services may take a few m
 
 When the `konvoy up` completes its setup operations, the following files are generated:
 
-* `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize your cluster and [your add-ons][addons_config].
+* `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster configuration][cluster_configuration].
 * `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
 * `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 * `runs` folder - which contains logging information.
 
-[addons_config]: ./customize_addons.md
-[kubectl]: ../operations/kubectl_basics.md
+[kubectl]: ../../operations/accessing-the-cluster/index.md#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -408,7 +454,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
 [kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [metallb]: https://metallb.universe.tf
-[ops_portal]: ../operations/ops_portal.md
+[ops_portal]: ../../operations/accessing-the-cluster/index.md#using-the-operations-portal
 [local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
 [static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md

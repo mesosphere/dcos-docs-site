@@ -15,7 +15,7 @@ This guide shows how to configure your Konvoy cluster so that users can log in w
 
 The first step is to build a Dex LDAP connector configuration document adjusted to the specific directory at hand.
 Because each LDAP directory is set up in its own special way this step is non-trivial.
-The most important resource is the Dex LDAP connector reference documentation, available [here](dex-ldap-connector).
+The most important resource is the Dex LDAP connector reference documentation, available [here][dex-ldap-connector].
 
 Note: For Konvoy's Dex it is important to build a proper `userSearch` configuration.
 `groupSearch`, however, does not need to be configured for the time being.

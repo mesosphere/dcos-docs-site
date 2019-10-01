@@ -15,7 +15,7 @@ enterprise: false
 If your cluster was provisioned manually, please follow the steps in [Adding Nodes to an On-Premise Cluster](#adding-nodes-to-an-on-premise-cluster)
 
 **NOTE** This process should only be applied on healthy clusters.
-If you're attempting to recover from a node failure, please see [Recovering from Node Failure][node_failure_recovery] instead.
+If you're attempting to recover from a node failure, please see [Replace a Failed Node][replace-failed-node] instead.
 
 After the initial provisioning of a cluster, the same `konvoy` tools can be used to add nodes.
 
@@ -78,4 +78,4 @@ With this information and the files above, proceed with the following steps:
 [node-labels-affinity]: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/
 [taints-and-tolerations]: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/
 [assign-pods-to-nodes]: https://kubernetes.io/docs/tasks/configure-pod-container/assign-pods-nodes/
-[node_failure_recovery]: ../../troubleshooting/replacing-a-failed-node/
+[replace-failed-node]: ../../troubleshooting/replace-a-failed-node/

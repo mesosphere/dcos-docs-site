@@ -27,10 +27,8 @@ The requirement to use SSH agent forwarding enables the bastion host to authenti
 
 If you already have a private and public key pair for connecting to the cluster from the deployment machine, you can configure a bastion host for an on-premise cluster by doing the following:
 
-* [Configure SSH agent forwarding](#ssh-agent-forwarding)
-* [Configure the inventory file](#inventory)
-
-<a name="ssh-agent-forwarding"></a>
+* [Configure SSH agent forwarding](#configure-ssh-agent-forwarding)
+* [Configure the inventory file](#configure-the-inventory-file)
 
 ### Configure SSH agent forwarding
 
@@ -65,8 +63,6 @@ For this example, the key pair consists of the private key `${HOME}/.ssh/id_rsa`
     ```
 
 If you are able to connect to the remote host without providing a password, you have successfully configured SSH agent forwarding.
-
-<a name="inventory"></a>
 
 ### Configure the inventory file
 

@@ -95,7 +95,7 @@ For example:
   enabled: true
   values: |
     grafana:
-     defaultDashboardsEnabled: false  
+     defaultDashboardsEnabled: false
 ```
 
 To access the Grafana UI, you can browse to the landing page and then search for the Grafana dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/grafana`.
@@ -145,7 +145,7 @@ After you decide how to create your custom dashboard, you can configure it when 
                   "links": [],
                   "refresh": false,
                   ...
-              }  
+              }
 ```
 
 ## Configuring alerts using AlertManager
@@ -354,16 +354,14 @@ spec:
 ```
 
 This service object is discovered by a `ServiceMonitor`, which defines the selector to match the labels with those defined in the service.
-The app label must have the value `servicemonitor.myapp.io/path: "metrics"`.
+The app label must have the value `my-app`.
 
 ```yaml
 apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
-  name: my-app
+  name: my-app-service-monitor
   namespace: my-namespace
-  labels:
-    servicemonitor.myapp.io/path: "metrics"
 spec:
   selector:
     matchLabels:
@@ -383,14 +381,22 @@ In this example, you would modify the Prometheus settings to have the operator c
         - name: my-app-service-monitor
           selector:
             matchLabels:
-              servicemonitor.myapp.io/path: "metrics"
+              app: my-app
           namespaceSelector:
             matchNames:
               - my-namespace
           endpoints:
             - port: metrics
-              interval: 30s  
+              interval: 30s
 ```
+
+To apply these changes to your Konvoy cluster run:
+
+```bash
+konvoy deploy addons
+```
+
+Official documentation about using a `ServiceMonitor` to monitor an app with the prometheus-operator on Kubernetes can be found [here](https://github.com/coreos/prometheus-operator/blob/master/Documentation/user-guides/getting-started.md#related-resources).
 
 ## Set a specific storage capacity for Prometheus
 
