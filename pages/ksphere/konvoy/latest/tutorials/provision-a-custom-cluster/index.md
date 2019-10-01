@@ -101,7 +101,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
       creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
     spec:
       kubernetes:
-        version: 1.15.3
+        version: 1.15.4
         networking:
           podSubnet: 192.168.0.0/16
           serviceSubnet: 10.0.0.0/18
@@ -159,6 +159,6 @@ The `cluster.tmp.yaml` file is the file that Ansible uses during its execution.
 You can delete this file after the cluster is created because it is regenerated every time you execute the `konvoy up` command.
 
 [quickstart]:../../quick-start/
-[provisioning]:../../reference/cluster-provisioner/
+[provisioning]:../../reference/cluster-configuration/
 [clusterconfig]:../../reference/cluster-configuration/
-[defaultsettings]:../../quick-start/#install-with-default-settings
+[defaultsettings]:../../quick-start/

@@ -98,4 +98,4 @@ Before starting this tutorial, you should verify the following:
     Connection closed by foreign host.
     ```
 
-    [quickstart]:../../quickstart/
+    [quickstart]:../../quick-start/

@@ -9,9 +9,86 @@ enterprise: false
 
 ## Release Notes
 
-### Version 1.1.5 - September 11 August 2019
+### Version 1.2.0 - Released 30 September 2019
 
-[Download](#TBA)
+| Kubernetes support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.0 |
+|**Maximum** | 1.15.x |
+|**Default** | 1.15.4 |
+
+#### Disclaimer
+
+**You must follow modify your `cluster.yaml` with the changes described when upgrading from a previous version:**
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1alpha1
+spec:
+  kubernetes:
+    version: 1.15.4
+  addons:
+    configVersion: stable-1.15.4-1
+    addonsList:
+    - name: cert-manager
+      enabled: true
+    ...
+```
+
+Including appending the `cert-manager` addon to the list of addons.
+
+#### Breaking changes
+
+N/A
+
+#### Improvements
+
+- Use the Kubernetes [Downward API](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/) `status.podIP` value to set the IP for Calico to use. This will enable Konvoy to better support machines with multiple network interfaces, without the need for the user to configure the Calico installation.  
+- The `konvoy diagnose` now puts cluster-level data into a separate tarball `cluster-data.tar.gz` so it's easily accessible.
+- Set ssh `IdentitiesOnly=yes` when a private key is provided to avoid the max keys error `Too many authentication failures` in the ssh-agent.
+- Set `oidc-groups-claim` in the kube-apiserver pod, allowing for the use of the user’s group in the claim.
+
+#### Addons improvements
+
+- Add support to the `awsebscsiprovisioner` addon to support HTTP_PROXY settings.
+- New [cert-manager](https://github.com/jetstack/cert-manager) addon.
+
+#### Bug fixes
+
+N/A
+
+#### Component version changes
+
+- Calico `v3.8.2`
+- Kubernetes `v1.15.4`
+
+#### Known issues and limitations
+
+Known issues and limitations don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios.
+The issues are grouped by feature, functional area, or component.
+Where applicable, issue descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
+
+-   Docker provisioner reports potential issues if there are insufficient resources.
+
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
+
+-   Dex should always be enabled.
+
+    For this release of Konvoy, `dex`, `dex-k8s-auth`, and `traefik-auth` are tightly coupled and must all be enabled.
+    Disabling any of these add-ons will prevent certain operations from working correctly.
+    This tight coupling will be addressed in a future release.
+
+-   The authentication token has no permissions.
+
+    After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
+    To enable the authenticated user to perform administrative actions, you must manually add role bindings.
+
+-   Upgrades might fail when `workers` is set to one.
+
+    The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
+
+### Version 1.1.5 - Released 11 September 2019
 
 | Kubernetes support | Version |
 | ------------------ | ------- |
@@ -65,15 +142,13 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
     The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
 
-### Version 1.1.4 - September 10 August 2019
-
-[Download](#TBA)
+### Version 1.1.4 - Released 10 September 2019
 
 | Kubernetes support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.3 |
+|**Default** | 1.15.4 |
 
 #### Disclaimer
 
@@ -164,13 +239,11 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 ### Version 1.1.3 - Released 28 August 2019
 
-[Download](#TBA)
-
 | Kubernetes support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.3 |
+|**Default** | 1.15.4 |
 
 #### Breaking changes
 
@@ -235,13 +308,11 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 ### Version 1.1.2 - Released 27 August 2019
 
-[Download](#TBA)
-
 | Kubernetes support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.3 |
+|**Default** | 1.15.4 |
 
 #### Breaking changes
 
@@ -301,8 +372,6 @@ Where applicable, issue descriptions include one or more issue tracking identifi
     The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
 
 ### Version 1.1.1 - Released 19 August 2019
-
-[Download](#TBA)
 
 | Kubernetes support | Version |
 | ------------------ | ------- |
@@ -458,8 +527,6 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 ### Version 1.1.0 - Released 12 August 2019
 
-[Download](#TBA)
-
 | Kubernetes support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
@@ -559,8 +626,6 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 ### Version 1.0.0 - Released 3 August 2019
 
-[Download](#TBA)
-
 | Kubernetes support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
@@ -571,8 +636,6 @@ Konvoy is a complete, standalone distribution of Kubernetes that enables you to 
 [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community tools.
 
 This is the initial release.
-
-If you have Konvoy deployed in a production environment, see [Known issues and limitations](#known-issues) to see if any potential operational changes for specific scenarios apply to your environment.
 
 #### What's new in this release
 

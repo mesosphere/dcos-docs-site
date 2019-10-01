@@ -124,4 +124,4 @@ Before starting this tutorial, you should verify the following:
 When the resource provider claim is released, the volume is deleted.
 
 [localstorage]:https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[quickstart]:../../quickstart/
+[quickstart]:../../quick-start/
