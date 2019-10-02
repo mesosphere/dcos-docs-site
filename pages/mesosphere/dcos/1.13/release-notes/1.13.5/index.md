@@ -31,8 +31,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 - Admin Router: Improved service routing robustness by omitting Marathon apps with wrongly specified `DCOS_SERVICE_PORT_INDEX` values. (COPS-5147, DCOS_OSS-5491)
 - Strict volume name validation was not relaxed enough in DC/OS release 1.13.4; this has been resolved. (MARATHON-8697, MARATHON-8681, COPS-5219)
 - Mesos: Fixed race condition between two terminal task status updates for Docker/Command executor. (COPS-4995, MESOS-9887)
-- Fixed a problem with the `dcos-iam-ldap-sync` service failing to start correctly after a system reboot (COPS-4814)
-- Fixed an issue in which CLI commands fail due to the locale settings on the server. (COPS-4756, DCOS-52179)
+
 
 ## Diagnostics
 - [enterprise]Reduce the amount of storage logs in the diagnostic bundle. (DCOS-58314)[/enterprise]
