@@ -18,7 +18,7 @@ The default Konvoy monitoring stack:
 * Includes a default set of Grafana dashboard to help you visualize the status of the cluster and its add-on services
 * Supports predefined critical error and warning alerts to immediately notify you if there is a problem with cluster operations or availability.
 
-By incorporating Prometheus, Konvoy helps you visualize all the exposed metrics from your different nodes, Kubernetes objects, and addon applications running in your cluster.
+By incorporating Prometheus, Konvoy helps you visualize all the exposed metrics from your different nodes, Kubernetes objects, and add-on applications running in your cluster.
 The default monitoring stack also enables you to add metrics from any of your deployed applications, making those applications part of the overall Prometheus metrics stream.
 
 ![monitoring-stack](monitoring.png)
@@ -294,8 +294,8 @@ The following file, named  `notification.tmpl`, is a template that defines a pre
 Finally, we need to apply these changes to the `alertmanager`, as follows:
 
 ```bash
-kubectl create secret generic -n kubeaddons \
-  alertmanager-prometheus-kubeaddons-prom-alertmanager \
+kubectl create secret generic -n kubeadd-ons \
+  alertmanager-prometheus-kubeadd-ons-prom-alertmanager \
   --from-file=alertmanager.yaml \
   --from-file=notification.tmpl \
   --dry-run -o yaml | kubectl apply -f -

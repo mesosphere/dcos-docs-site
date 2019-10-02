@@ -82,7 +82,7 @@ The above configuration will add label `dedicated: monitoring` and apply `dedica
 Note that all node pools specified in inventory file (i.e., `inventory.yaml`) should have a corresponding entry in `spec.nodePools` section of `ClusterConfiguration`.
 If not, the validation will fail.
 
-Then, configure the Prometheus addon like the following so that it will be scheduled on the dedicated node (i.e., `monitoring` node pool).
+Then, configure the Prometheus add-on like the following so that it will be scheduled on the dedicated node (i.e., `monitoring` node pool).
 
 ```yaml
 - name: prometheus

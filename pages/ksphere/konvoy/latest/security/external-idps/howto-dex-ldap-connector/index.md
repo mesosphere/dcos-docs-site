@@ -75,7 +75,7 @@ If the Dex configuration fragment provided in the Konvoy `cluster.yaml` results 
 In that case the Dex logs will provide error details:
 
 ```bash
-kubectl logs -f dex-kubeaddons-66675fcb7c-snxb8  -n kubeaddons --kubeconfig=admin.conf
+kubectl logs -f dex-kubeadd-ons-66675fcb7c-snxb8  -n kubeadd-ons --kubeconfig=admin.conf
 error parse config file /etc/dex/cfg/config.yaml: error unmarshaling JSON: parse connector config: illegal base64 data at input byte 0
 ```
 
@@ -89,7 +89,7 @@ A login failing as of misconfiguration will result in an error page showing only
 The root cause can then usually be found by reading the Dex log, as shown in the following example:
 
 ```bash
-kubectl logs -f dex-kubeaddons-5d55b6b94b-9pm2d  -n kubeaddons --kubeconfig=admin.conf
+kubectl logs -f dex-kubeadd-ons-5d55b6b94b-9pm2d  -n kubeadd-ons --kubeconfig=admin.conf
 [...]
 time="2019-07-29T13:03:57Z" level=error msg="Failed to login user: failed to connect: LDAP Result Code 200 \"Network Error\": dial tcp: lookup freeipa.example.com on 10.255.0.10:53: no such host"
 ```

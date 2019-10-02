@@ -73,14 +73,14 @@ Before starting this tutorial, you should verify the following:
 1. Run the following command to get the URL of the load balancer created on AWS for the Traefik service:
 
     ```bash
-    kubectl get svc traefik-kubeaddons -n kubeaddons
+    kubectl get svc traefik-kubeadd-ons -n kubeadd-ons
     ```
 
     This command displays the internal and external IP addresses for the exposed service.
 
     ```bash
     NAME                 TYPE           CLUSTER-IP    EXTERNAL-IP                                                             PORT(S)                                     AGE
-    traefik-kubeaddons   LoadBalancer   10.0.24.215   abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com   80:31169/TCP,443:32297/TCP,8080:31923/TCP   4h22m
+    traefik-kubeadd-ons   LoadBalancer   10.0.24.215   abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com   80:31169/TCP,443:32297/TCP,8080:31923/TCP   4h22m
     ```
 
 1. Validate that you can access the web application Pods by running the following commands:

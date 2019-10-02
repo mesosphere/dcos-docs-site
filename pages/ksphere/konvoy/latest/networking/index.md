@@ -179,8 +179,8 @@ The following example illustrates the Layer2 configuration in the `cluster.yaml`
 
 ```yaml
 spec:
-  addons:
-    addonsList:
+  add-ons:
+    add-onsList:
     - name: metallb
       enabled: true
       values: |-
@@ -200,8 +200,8 @@ The following example illustrates the BGP configuration in the `cluster.yaml` co
 
 ```yaml
 spec:
-  addons:
-    addonsList:
+  add-ons:
+    add-onsList:
     - name: metallb
       enabled: true
       values: |-

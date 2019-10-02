@@ -14,7 +14,7 @@ MinIO is a distributed object storage service for high performance, high scale d
 
 ### install the operator
 
-**Note:** If the `velero addon` is installed in your `Konvoy cluster` it will already have installed the `MinIO operator` so you `must skip` the operator install step.
+**Note:** If the `velero add-on` is installed in your `Konvoy cluster` it will already have installed the `MinIO operator` so you `must skip` the operator install step.
 
 Install the MinIO operator.
 ```
@@ -49,7 +49,7 @@ Delete the cluster.
 kubectl delete -f https://github.com/minio/minio-operator/blob/master/examples/minioinstance-with-external-service.yaml?raw=true
 ```
 
-**Note:** If the `velero addon` is installed in your `Konvoy cluster` then you `must not delete` the `MinIO operator`, skip the following delete step.
+**Note:** If the `velero add-on` is installed in your `Konvoy cluster` then you `must not delete` the `MinIO operator`, skip the following delete step.
 
 Delete the operator.
 ```

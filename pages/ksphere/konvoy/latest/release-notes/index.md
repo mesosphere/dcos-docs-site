@@ -106,7 +106,7 @@ N/A
 
 - Validate the minmum Docker version and that it is running on the host before using it in Konvoy.
 - Use `--mount` instead of `-v` to mount volumes into the Konvoy container, required for eventual Windows support.
-- New `konvoy diagnose` flags `--logs-all-namespaces` and `--logs-namespaces=[kubeaddons,kube-system]` to provide a better control of what Kubernetes pod logs to collect.
+- New `konvoy diagnose` flags `--logs-all-namespaces` and `--logs-namespaces=[kubeadd-ons,kube-system]` to provide a better control of what Kubernetes pod logs to collect.
 - New `konvoy image list|upgrade` commands to be able to automatically list and download future release of the Konvoy image. It will no longer be necessary to download the Konvoy wrapper (unless you require wrapper specific changes) to use new versions of Konvoy.
 - Ability to disable the installation of new OS package repositories. Useful for when your hosts already have the required package repositories configured.
 

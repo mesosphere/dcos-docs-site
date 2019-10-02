@@ -37,7 +37,7 @@ Before starting the installation, you should verify that your environment meets 
   * 16 GiB memory
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
-* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
+* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default add-on configurations are used.
 
 ## Operating system and services for all nodes
 
@@ -230,8 +230,8 @@ The following example illustrates the layer2 configuration in the `cluster.yaml`
 
 ```yaml
 spec:
-  addons:
-    addonsList:
+  add-ons:
+    add-onsList:
     - name: metallb
       enabled: true
       values: |-
@@ -247,8 +247,8 @@ The following example illustrates the BGP configuration in the `cluster.yaml` co
 
 ```yaml
 spec:
-  addons:
-    addonsList:
+  add-ons:
+    add-onsList:
     - name: metallb
       enabled: true
       values: |-
@@ -345,7 +345,7 @@ Specifically, the `konvoy up` command does the following:
   * [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][promethsus_adapter]) to collect and evaluate metrics for monitoring and alerting.
   * [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
   * [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
-  * Operations portal to centralize access to addon dashboards.
+  * Operations portal to centralize access to add-on dashboards.
   * [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
   * [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
   * [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
@@ -382,12 +382,12 @@ If the cluster was recently created, the dashboard and services may take a few m
 
 When the `konvoy up` completes its setup operations, the following files are generated:
 
-* `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize your cluster and [your add-ons][addons_config].
+* `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize your cluster and [your add-ons][add-ons_config].
 * `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
 * `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 * `runs` folder - which contains logging information.
 
-[addons_config]: ./customize_addons.md
+[add-ons_config]: ./customize_add-ons.md
 [kubectl]: ../operations/kubectl_basics.md
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [install_docker]: https://www.docker.com/products/docker-desktop

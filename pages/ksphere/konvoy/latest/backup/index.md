@@ -36,7 +36,7 @@ You can enable or disable the Velero platform service add-on in the `ClusterConf
 For example, you can enable the `Velero` add-on using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
 
 ```yaml
-addons:
+add-ons:
 - name: velero
   enabled: true
 ...
@@ -45,7 +45,7 @@ addons:
 If you want to replace the Velero add-on with a different backup add-on service, you can disable the `velero` add-on by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
 
 ```yaml
-addons:
+add-ons:
 - name: velero
   enabled: false
 ...
@@ -90,16 +90,16 @@ To change the default backup service settings:
     velero get schedules
     ```
 
-1. Delete the `velero-kubeaddons-default` schedule by running the following command:
+1. Delete the `velero-kubeadd-ons-default` schedule by running the following command:
 
     ```bash
-    velero delete schedule velero-kubeaddons-default
+    velero delete schedule velero-kubeadd-ons-default
     ```
 
 1. Replace the default schedule with your custom settings by running the following command:
 
     ```bash
-    velero create schedule velero-kubeaddons-default --schedule="@every 24h"
+    velero create schedule velero-kubeadd-ons-default --schedule="@every 24h"
     ```
 
 You can also create backup schedules for specific namespaces.
@@ -107,7 +107,7 @@ Creating a backup for a specific namespace can be useful for clusters running mu
 For example:
 
 ```bash
-velero create schedule system-critical --include-namespaces=kube-system,kube-public,kubeaddons --schedule="@every 24h"
+velero create schedule system-critical --include-namespaces=kube-system,kube-public,kubeadd-ons --schedule="@every 24h"
 ```
 
 The Velero command-line interface provides many more options worth exploring. You can also find tutorials for [disaster recovery][velero-dr] and [cluster migration][velero-cm] on the Velero community site.
@@ -151,10 +151,10 @@ To list the available backup archives for your cluster, run the following comman
 velero backup get
 ```
 
-To set Velero to a `restore-only-mode`, modify the Velero addon in the `ClusterConfiguration` of the `cluster.yaml` file:
+To set Velero to a `restore-only-mode`, modify the Velero add-on in the `ClusterConfiguration` of the `cluster.yaml` file:
 
 ```yaml
-addons:
+add-ons:
 ...
 - name: velero
   enabled: true
@@ -167,13 +167,13 @@ addons:
 Then you may apply the configuration change by running:
 
 ```shell
-konvoy deploy addons -y
+konvoy deploy add-ons -y
 ```
 
 Finally, check your deployment to verify that the configuration change was applied correctly:
 
 ```shell
-helm get values velero-kubeaddons
+helm get values velero-kubeadd-ons
 ```
 
 To restore cluster data on-demand from a selected backup snapshot available in the cluster, run a command similar to the following:
@@ -206,7 +206,7 @@ velero get snapshot-locations
 [velero-dr]: https://heptio.github.io/velero/v0.11.0/disaster-case
 [velero-cm]: https://heptio.github.io/velero/v0.11.0/migration-case
 [velero-troubleshooting]: https://heptio.github.io/velero/v0.11.0/debugging-install
-[kubeaddons]:https://github.com/mesosphere/kubeaddons-configs
+[kubeadd-ons]:https://github.com/mesosphere/kubeadd-ons-configs
 [releases]:https://github.com/heptio/velero/releases
 [minio]:https://velero.io/docs/v1.0.0/get-started/
 [velero-get-started]: https://heptio.github.io/velero/v0.11.0/get-started

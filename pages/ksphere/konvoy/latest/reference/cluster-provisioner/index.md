@@ -108,9 +108,9 @@ spec:
         replace: false
   nodePools:
   - name: worker
-  addons:
+  add-ons:
     configVersion: v0.0.23
-    addonsList:
+    add-onsList:
     - name: awsebscsiprovisioner
       enabled: true
     - name: awsebsprovisioner
@@ -254,7 +254,7 @@ The default value of this entire object is `omitted`.
 | `spec.imageRegistries`  | Specifies the container image registries authentication details. | See [spec.imageRegistries](#spec-imageregistries) |
 | `spec.packageRepository`  | configure packages repositories | See [spec.packageRepository](#specpackageRepository) |
 | `spec.nodePools`        | Specifies the nodePool configuration.         | See [spec.imageRegistries](#spec-nodepools) |
-| `spec.addons`           | Specifies the list of addons that can be deployed.  | See [spec.addons](#spec-addons) |
+| `spec.add-ons`           | Specifies the list of add-ons that can be deployed.  | See [spec.add-ons](#spec-add-ons) |
 | `spec.version`          | version of a konvoy cluster            | `v0.0.20`                                |
 
 ### spec.kubernetes
@@ -398,26 +398,26 @@ The default value of this entire object is `omitted`.
 | `auth`          | Contains the base64 encoded `username:password`.                                    | N/A        |
 | `identityToken` | Used to authenticate the user and get an access token.          | N/A        |
 
-### spec.addons
+### spec.add-ons
 
 | Parameter              | Description                                            | Default    |
 | ---------------------- | ------------------------------------------------------ | ---------- |
-| `addons.configVersion` | Specifies the version of the addon configuration files to use.       | `v0.0.20`  |
-| `addons.addonsList`    | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#spec-addons-addonslist) |
+| `add-ons.configVersion` | Specifies the version of the add-on configuration files to use.       | `v0.0.20`  |
+| `add-ons.add-onsList`    | Specifies the list of add-on objects that can be deployed, if enabled.  | See [spec.add-ons.add-onsList](#spec-add-ons-add-onslist) |
 
-#### spec.addons.addonsList
+#### spec.add-ons.add-onsList
 
-`spec.addonsList` is comprised of an array of `addon`s. The default values vary depending on the `provider` given on generation.
+`spec.add-onsList` is comprised of an array of `add-on`s. The default values vary depending on the `provider` given on generation.
 
-#### addon
+#### add-on
 
-Properties of an `addon` object.
+Properties of an `add-on` object.
 
 | Parameter | Description                                                   |
 | --------- | ------------------------------------------------------------- |
-| `name`    | Specifies the name of the addon.                                            |
-| `enabled` | Enables the addon to be deployed.                                    |
-| `values`  | Overrides the values found in default addon configuration file. |
+| `name`    | Specifies the name of the add-on.                                            |
+| `enabled` | Enables the add-on to be deployed.                                    |
+| `values`  | Overrides the values found in default add-on configuration file. |
 
 [cidr_blocks]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_blocks
 [aws_security_groups]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html

@@ -18,24 +18,24 @@ The following shows how you can setup `Konvoy` with `OpenEBS` with `cStor Engine
 
 Installing Konvoy with a different persistent storage provider currently requires a three phase install.
 
-1. `konvoy up` with addons that don't require persistent storage
+1. `konvoy up` with add-ons that don't require persistent storage
 1. install storage provider
-1. `konvoy up` with addons that require persistent storage
+1. `konvoy up` with add-ons that require persistent storage
 
-#### (1) `konvoy up` with addons that don't require persistent storage
+#### (1) `konvoy up` with add-ons that don't require persistent storage
 
 First run `konvoy init` so that you get the `cluster.yaml` file.
 ```
 konvoy init --provisioner=aws
 ```
 
-In the `cluster.yaml` file `disable` all aws ebs/storage addons, and all addons that require persistent storage.
+In the `cluster.yaml` file `disable` all aws ebs/storage add-ons, and all add-ons that require persistent storage.
 
 ```yaml
 ...
-addons:
+add-ons:
   configVersion: v0.0.45
-  addonsList:
+  add-onsList:
   - name: awsebscsiprovisioner
     enabled: false
   - name: awsebsprovisioner
@@ -278,15 +278,15 @@ EOF
 
 If all things work fine, the pod created should be up and running, and data should be written to `/data/output` on the volume.
 
-#### (3) `konvoy up` with addons that require persistent storage
+#### (3) `konvoy up` with add-ons that require persistent storage
 
-In the `cluster.yaml` file `enable` all addons that require persistent storage.
+In the `cluster.yaml` file `enable` all add-ons that require persistent storage.
 
 ```yaml
 ...
-addons:
+add-ons:
   configVersion: v0.0.45
-  addonsList:
+  add-onsList:
   - name: awsebscsiprovisioner
     enabled: false
   - name: awsebsprovisioner
@@ -333,11 +333,11 @@ Next, update the Konvoy cluster.
 konvoy up
 ```
 
-When complete you should see in the addons listed also those that require persistent storage, e.g prometheus, elasticsearch, ... .
+When complete you should see in the add-ons listed also those that require persistent storage, e.g prometheus, elasticsearch, ... .
 
 ### verify
 
-First, check that in the `kubeaddons` and `velero` namespaces all persistent volume claims got created successfully.
+First, check that in the `kubeadd-ons` and `velero` namespaces all persistent volume claims got created successfully.
 
 Next, launch from the ops portal graphana or kibana and see that you actually get data.
 

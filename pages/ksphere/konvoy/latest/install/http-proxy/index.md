@@ -61,4 +61,4 @@ konvoy up
 ```
 
 **Important** if the machine where the `konvoy` binary is being run from requires the HTTP/HTTPS proxy for Internet access, you must set the same `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` as environment variables before running `konvoy`.
-These proxy settings will be used by the binary itself (not Kubernetes cluster machines) to download addon configurations over the Internet.
+These proxy settings will be used by the binary itself (not Kubernetes cluster machines) to download add-on configurations over the Internet.

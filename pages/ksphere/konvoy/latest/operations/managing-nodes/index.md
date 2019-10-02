@@ -11,11 +11,11 @@ enterprise: false
 
 # Adding Nodes to an AWS Cluster
 
-**NOTE** This process only applies to clusters created by Konvoy, using Terraform.
-If your cluster was provisioned manually, please follow the steps in [Adding Nodes to an On-Premise Cluster](#adding-nodes-to-an-on-premise-cluster)
+<p class="message--note"><strong>NOTE: </STRONG> This process only applies to clusters created by Konvoy, using Terraform.
+If your cluster was provisioned manually, please follow the steps in <a href="/ksphere/konvoy/latest/operations/managing-nodes/#adding-nodes-to-an-on-premise-cluster">Adding Nodes to an On-Premise Cluster</a></p>
 
-**NOTE** This process should only be applied on healthy clusters.
-If you're attempting to recover from a node failure, please see [Recovering from Node Failure][node_failure_recovery] instead.
+<p class="message--note"><strong>NOTE: </STRONG> This process should only be applied on healthy clusters.
+If you are attempting to recover from a node failure, please see <a href="/ksphere/konvoy/latest/troubleshooting/replace-a-failed-node/">Recovering from Node Failure</a> instead.</p>
 
 After the initial provisioning of a cluster, the same `konvoy` tools can be used to add nodes.
 
@@ -27,7 +27,7 @@ To safely add nodes to a running AWS cluster, you'll need access to the files fr
 - The administrative certificates for reaching the Kubernetes API, `admin.conf`.
 - The SSH keys used to configure nodes, as referenced in `cluster.yaml`.
 
-**NOTE** Customized Terraform configurations may rely on an S3 bucket for shared state, which would not reqiure this file locally.
+<p class="message--note"><strong>NOTE: </STRONG> Customized Terraform configurations may rely on an S3 bucket for shared state, which would not require this file locally.</p>
 
 With these files in the current working directory, proceed with the following steps:
 
@@ -42,8 +42,7 @@ In the output, you'll see your additional nodes joined to the cluster, with an `
 
 # Adding Nodes to an On-Premise Cluster
 
-**NOTE** This process applies to clusters whose infrastructure was manually provisioned.
-This will include most on-prem environments, as well as some AWS clusters that were configured without the use of Konvoy's Terraform integration.
+<p class="message--note"><strong>NOTE: </STRONG> This process applies to clusters whose infrastructure was manually provisioned. This will include most on-prem environments, as well as some AWS clusters that were configured without the use of Konvoy's Terraform integration.</p>
 
 To safely add nodes to a running on-prem cluster, you'll need the following files from the cluster's maintenance repository:
 

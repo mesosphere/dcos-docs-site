@@ -12,7 +12,7 @@ enterprise: false
 When Konvoy completes the provisioning of the cluster, it provides the access details of the cluster's operations portal.
 
 ```text
-Kubernetes cluster and addons deployed successfully!
+Kubernetes cluster and add-ons deployed successfully!
 
 Run `konvoy apply kubeconfig` to update kubectl credentials.
 
@@ -38,7 +38,7 @@ This UI is hosted on a web application within the cluster, which runs on the clu
 2. Click the "Launch Console" button
 3. Enter your username and password as noted above, and click "Login".
 
-You'll then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to addon services such as Grafana.
+You'll then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to add-on services such as Grafana.
 
 ## Using kubectl
 
@@ -102,21 +102,21 @@ kubectl create clusterrolebinding rb_admin_${USERNAME} --clusterrole=cluster-adm
 The following sections highlight several important commands that are particularly relevant for working with **konvoy** clusters.
 For information about other commands that are generally useful, see [the kubectl cheatsheet][1].
 
-#### Viewing addons and system pods
+#### Viewing add-ons and system pods
 
-Konvoy clusters come with a series of addons deployed.
-These addons live in one of three namespaces:
+Konvoy clusters come with a series of add-ons deployed.
+These add-ons live in one of three namespaces:
 
-- `kube-system`: Core Kubernetes components, and a limited set of addons that require administrative access to the cluster deploy here
+- `kube-system`: Core Kubernetes components, and a limited set of add-ons that require administrative access to the cluster deploy here
 - `velero`: Velero (used for cluster backup and restore) and its components are deployed here
-- `kubeaddons`: Most addons will be deployed here unless otherwise specified
+- `kubeadd-ons`: Most add-ons will be deployed here unless otherwise specified
 
-For a basic status check of all the addon- and system-related pods, run the following commands:
+For a basic status check of all the add-on- and system-related pods, run the following commands:
 
 ```bash
 kubectl -n kube-system get pods
 kubectl -n velero get pods
-kubectl -n kubeaddons get pods
+kubectl -n kubeadd-ons get pods
 ```
 
 [0]:https://kubernetes.io/docs/tasks/tools/install-kubectl/

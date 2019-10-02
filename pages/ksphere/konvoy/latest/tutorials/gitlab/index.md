@@ -33,16 +33,16 @@ For more on configuring TLS, see [here](https://docs.gitlab.com/charts/installat
    Run `kubectl edit -n kube-system configmap/coredns` and add this to CoreDNS config:
 
    ```coredns
-       rewrite name gitlab.gitlab.local traefik-kubeaddons.kubeaddons.svc.cluster.local
-       rewrite name registry.gitlab.local traefik-kubeaddons.kubeaddons.svc.cluster.local
-       rewrite name minio.gitlab.local traefik-kubeaddons.kubeaddons.svc.cluster.local
+       rewrite name gitlab.gitlab.local traefik-kubeadd-ons.kubeadd-ons.svc.cluster.local
+       rewrite name registry.gitlab.local traefik-kubeadd-ons.kubeadd-ons.svc.cluster.local
+       rewrite name minio.gitlab.local traefik-kubeadd-ons.kubeadd-ons.svc.cluster.local
    ```
 
 1. Configure your local environment to resolve Gitlab's domain to an external IP for the Traefik ingress controller.
    Run this command to add an entry for `gitlab.gitlab.local` to your `/etc/hosts`:
 
    ```bash
-   echo -e "\n# GitLab on Konvoy\n$(dig +short $(kubectl --namespace=kubeaddons get service traefik-kubeaddons --template='{{(index .status.loadBalancer.ingress 0).hostname}}') | head -1)\tgitlab.gitlab.local" | sudo tee -a /etc/hosts
+   echo -e "\n# GitLab on Konvoy\n$(dig +short $(kubectl --namespace=kubeadd-ons get service traefik-kubeadd-ons --template='{{(index .status.loadBalancer.ingress 0).hostname}}') | head -1)\tgitlab.gitlab.local" | sudo tee -a /etc/hosts
    ```
 
 1. Create the file `gitlab-values.yaml` containing this chart configuration:

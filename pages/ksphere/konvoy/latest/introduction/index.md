@@ -26,28 +26,28 @@ Konvoy provides the following features and functionalities:
 
     Provision the cluster infrastructure on cloud provider using Terraform (currently AWS) or pre-deploy a physical or virtual infrastructure, then deploy using Konvoy.
 
-- Core addons for networking and storage production-readiness
+- Core add-ons for networking and storage production-readiness
 
-    Install and enable a default set of core addons to provide the most common features required to run the Kubernetes cluster in production, including the following:
+    Install and enable a default set of core add-ons to provide the most common features required to run the Kubernetes cluster in production, including the following:
 
   - Calico (Network overlay)
   - Traefik (Ingress provider)
   - Local storage class (default)
 
-- Core addons for collecting metrics and logging
+- Core add-ons for collecting metrics and logging
 
-    Install and enable a default set of core addons for monitoring, metrics, and logging, including the following:
+    Install and enable a default set of core add-ons for monitoring, metrics, and logging, including the following:
 
   - Monitoring and metrics using Prometheus, AlertManager, Grafana, and Telegraf
   - Logging using Fluent Bit, Elasticsearch, and Kibana
 
-- Operational infrastructure addons
+- Operational infrastructure add-ons
 
-    Install and enable a default set of addons for backup and restore using open source tools (CNCF stack) and to configure the cluster with best practices for security and operations.
+    Install and enable a default set of add-ons for backup and restore using open source tools (CNCF stack) and to configure the cluster with best practices for security and operations.
 
 - Operational dashboards
 
-    Access web-based dashboards for the Kubernetes cluster and addons from a single entry point.
+    Access web-based dashboards for the Kubernetes cluster and add-ons from a single entry point.
 
 - Lifecycle management
 

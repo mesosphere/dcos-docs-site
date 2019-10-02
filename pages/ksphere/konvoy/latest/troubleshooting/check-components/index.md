@@ -48,13 +48,13 @@ PLAY RECAP *********************************************************************
 The pre-flight command is particularly useful if you are providing your own infrastructure for the Kubernetes deployment.
 For example, you can use the `konvoy check preflight` command to verify your hosts' configuration and state before running the `konvoy deploy` command to deploy your Kubernetes infrastructure.
 
-## Check addons
+## Check add-ons
 
-By default, Konvoy deploys several addon applications.
-You can check the integrity for these addons by running the following command:
+By default, Konvoy deploys several add-on applications.
+You can check the integrity for these add-ons by running the following command:
 
 ```bash
-konvoy check addons
+konvoy check add-ons
 ```
 
 The command then displays output similar to the following:
@@ -69,8 +69,8 @@ traefik                                                                [OK]
 velero                                                                 [OK]
 ```
 
-The `konvoy check addons` command is particularly useful as the first step to take if you need to to diagnose issues with addon components in the cluster.
-For example, this command highlights whether any addons have problems by providing information about any errors or failures detected.
+The `konvoy check add-ons` command is particularly useful as the first step to take if you need to to diagnose issues with add-on components in the cluster.
+For example, this command highlights whether any add-ons have problems by providing information about any errors or failures detected.
 
 ## Check Kubernetes
 

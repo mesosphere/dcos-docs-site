@@ -112,9 +112,9 @@ spec:
         replace: false
   nodePools:
   - name: worker
-  addons:
+  add-ons:
     configVersion: v0.0.23
-    addonsList:
+    add-onsList:
     - name: awsebscsiprovisioner
       enabled: true
     - name: awsebsprovisioner
@@ -160,7 +160,7 @@ spec:
 | `spec.imageRegistries`  | container image registries auth details | See [spec.imageRegistries](#specimageregistries) |
 | `spec.packageRepository`  | configure packages repositories | See [spec.packageRepository](#specpackageRepository) |
 | `spec.nodePools`        | nodePool configuration                  | See [spec.imageRegistries](#specnodepools) |
-| `spec.addons`           | list of addons that can be deployed    | See [spec.addons](#specaddons) |
+| `spec.add-ons`           | list of add-ons that can be deployed    | See [spec.add-ons](#specadd-ons) |
 | `spec.version`          | version of a konvoy cluster            | `v0.0.20`                                |
 
 ## spec.kubernetes
@@ -311,26 +311,26 @@ spec:
 | `auth`          | base64 encoded `username:password`                                      | N/A        |
 | `identityToken` | used to authenticate the user and get an access token                   | N/A        |
 
-## spec.addons
+## spec.add-ons
 
 | Parameter              | Description                                            | Default    |
 | ---------------------- | ------------------------------------------------------ | ---------- |
-| `addons.configVersion` | version of the addon configuration files to use        | `v0.0.20`  |
-| `addons.addonsList`    | list of addon objects that can be deployed if enabled  | See [spec.addons.addonsList](#spec-addons-addonslist) |
+| `add-ons.configVersion` | version of the add-on configuration files to use        | `v0.0.20`  |
+| `add-ons.add-onsList`    | list of add-on objects that can be deployed if enabled  | See [spec.add-ons.add-onsList](#spec-add-ons-add-onslist) |
 
-### spec.addons.addonsList
+### spec.add-ons.add-onsList
 
-`spec.nodePools` is comprised of an array of `addon`s. The default values vary depending on the `provider` given on generation.
+`spec.nodePools` is comprised of an array of `add-on`s. The default values vary depending on the `provider` given on generation.
 
-### addon
+### add-on
 
-Properties of an `addon` object.
+Properties of an `add-on` object.
 
 | Parameter | Description                                                   |
 | --------- | ------------------------------------------------------------- |
-| `name`    | name of the addon                                             |
-| `enabled` | enable to deploy the addon                                    |
-| `values`  | overrides to values found in default addon configuration file |
+| `name`    | name of the add-on                                             |
+| `enabled` | enable to deploy the add-on                                    |
+| `values`  | overrides to values found in default add-on configuration file |
 
 [cidr_blocks]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_blocks
 [aws_security_groups]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html
