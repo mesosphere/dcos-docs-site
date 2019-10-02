@@ -9,7 +9,7 @@ DC/OS 1.13.5 was released on 2 October 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.5/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/1.13.5/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the [support website](https://support.mesosphere.com/s/downloads). For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
