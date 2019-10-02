@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes
 title: Release notes
-menuWeight: 15
+menuWeight: 0
 excerpt: View release-specific information for Konvoy
 enterprise: false
 ---

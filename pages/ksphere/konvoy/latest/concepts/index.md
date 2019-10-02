@@ -15,6 +15,8 @@ The following diagram provides a simplified architectural overview to help you v
 
 ![Architectural overview](../img/Konvoy-arch-diagram.png)
 
+Figure 1 - Architectural overview
+
 ## Master components for the Kubernetes control plane
 
 The native Kubernetes cluster consists of **master components** that provide the cluster’s **control plane** and **worker nodes** that run users' containers and maintain the runtime environment.

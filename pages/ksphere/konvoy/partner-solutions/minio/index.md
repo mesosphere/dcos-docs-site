@@ -49,7 +49,7 @@ Delete the cluster.
 kubectl delete -f https://github.com/minio/minio-operator/blob/master/examples/minioinstance-with-external-service.yaml?raw=true
 ```
 
-**Note:** If the `velero add-on` is installed in your `Konvoy cluster` then you `must not delete` the `MinIO operator`, skip the following delete step.
+<p class="message--important"><strong>IMPORTANT: </strong>If the <tt>velero add-on</tt> is installed in your <tt>Konvoy cluster</ttt> then you <strong>must not delete</strong> the <tt>MinIO operator</tt>. Skip the following delete step.</p>
 
 Delete the operator.
 ```

@@ -15,13 +15,15 @@ By default, Konvoy provides monitoring services using a pre-configured monitorin
 The default Konvoy monitoring stack:
 
 * Provides in-depth monitoring of Kubernetes components and Konvoy platform service add-ons.
-* Includes a default set of Grafana dashboard to help you visualize the status of the cluster and its add-on services
+* Includes a default set of Grafana dashboards to help you visualize the status of the cluster and its add-on services
 * Supports predefined critical error and warning alerts to immediately notify you if there is a problem with cluster operations or availability.
 
 By incorporating Prometheus, Konvoy helps you visualize all the exposed metrics from your different nodes, Kubernetes objects, and add-on applications running in your cluster.
 The default monitoring stack also enables you to add metrics from any of your deployed applications, making those applications part of the overall Prometheus metrics stream.
 
-![monitoring-stack](monitoring.png)
+![monitoring-stack](../img/monitoring.png)
+
+Figure 1 - Monitoring stack components
 
 In the diagram above, the main components of the monitoring stack and their mission are shown for a Konvoy cluster.
 

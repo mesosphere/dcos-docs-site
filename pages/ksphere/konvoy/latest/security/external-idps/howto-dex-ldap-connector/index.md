@@ -47,7 +47,7 @@ See below for an example (in this example, we are configuring the Konvoy cluster
                 emailAttr: mail
 ```
 
-**Note**: The value for the LDAP connector `name` parameter (here: `FreeIPA Demo1 (LDAP directory)`) will appear on one of the login buttons in the Konvoy user interface (choose an expressive name).
+<p class="message--note"><strong>NOTE: </strong> The value for the LDAP connector <tt>name</tt> parameter (here: <tt>FreeIPA Demo1 (LDAP directory)</tt>) will appear on one of the login buttons in the Konvoy user interface. You should choose an expressive name.</p>
 
 Also note that for demoing purposes the configuration shown above uses `insecureSkipVerify: true`.
 In production, the LDAP communication should be protected with properly configured transport layer security (TLS).
