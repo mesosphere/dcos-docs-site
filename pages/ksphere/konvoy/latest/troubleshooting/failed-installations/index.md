@@ -15,7 +15,7 @@ For general [Kubernetes][0] troubleshooting tips, see the [Kubernetes troublesho
 On occasion, failures can occur during installation (for example, `konvoy up` or `konvoy deploy`).
 
 The most common reason for provisioning failures is errors communicating with the API for the underlying *infrastructure provider*.
-For example, if you are deploying on a public cloud using the Amazon Web Services (AWS) infrastructure, the most common reason for the deployment to fail is caused by error that occurs during a call to the AWS API.
+For example, if you are deploying on a public cloud using the Amazon Web Services (AWS) infrastructure, the most common reason for the deployment to fail is caused by an error that occurs during a call to the AWS API.
 
 Because Konvoy uses the `terraform` program for some steps in the cluster provisioning process, calls to the provisioning infrastructure that use the provider API are visible as [Terraform][2] errors.
 If provisioning problems occur, one of the first steps you should take to troubleshoot the issue is to make the output for the `konvoy up` command more verbose by adding the `--verbose` command-line option. For example:
