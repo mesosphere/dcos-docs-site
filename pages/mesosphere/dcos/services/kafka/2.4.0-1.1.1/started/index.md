@@ -78,7 +78,7 @@ $ dcos package install --options=sample-kafka-minimal.json kafka
 
 ## Custom Installation
 
-Customize the defaults by creating a JSON file. Then, pass it to `dcos package install` using the `--options` parameter.
+Customize the defaults by creating a JSON file; then pass it to `dcos package install` using the `--options` parameter.
 
 Sample JSON options file named `sample-kafka-custom.json`:
 
@@ -132,22 +132,22 @@ $ dcos package install kafka --options=kafka1.json
 
 # Changing Configuration at Runtime
 
-You can customize your cluster in-place when it is up and running.
+You can customize your cluster in-place after it is up and running.
 
 The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS web interface.
 
 Use the following steps to change configurations at runtime.
 
 1.  Go to the `Services` tab of the DC/OS web interface.
-1.  Click the name of the Kafka service to be updated.
-1.  Within the Kafka instance details view, click the menu in the upper right, then choose **Edit**.
-1.  In the dialog that appears, click the **Environment** tab and update any field(s) to their desired value(s). For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT`. Do not edit the value for `FRAMEWORK_NAME` or `BROKER_DISK`.
+1.  Select the name of the Kafka service to be updated.
+1.  Within the Kafka instance details view, select the menu in the upper right, then choose **Edit**.
+1.  In the dialog that appears, select the **Environment** tab and update any fields to their desired values. For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT`. Do not edit the value for `FRAMEWORK_NAME` or `BROKER_DISK`.
 1.  Choose a `DEPLOY_STRATEGY`: serial, serial-canary, parallel-canary, or parallel. See the SDK Developer guide for more information on [deployment plan strategies](https://mesosphere.github.io/dcos-commons/developer-guide.html#plans). <!-- I'm not sure I like this solution, since users aren't going to have the context for the dev guide). -->
-1.  Click **REVIEW & RUN** to apply any changes and cleanly reload the Kafka scheduler. The Kafka cluster itself will persist across the change.
+1.  Select **REVIEW & RUN** to apply any changes and cleanly reload the Kafka scheduler. The Kafka cluster itself will persist across the change.
 
 ## Configuration Update REST API
 
-Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](api-reference.md) section for information on how this request must be authenticated.
+Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](api-reference.md) topic for information on how this request must be authenticated.
 
 ```bash
 $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
