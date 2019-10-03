@@ -33,7 +33,7 @@ konvoy up --provisioner=docker [--cluster-name <YOUR_SPECIFIED_NAME>]
 ```
 
 This command creates Docker containers each of which simulates a cluster host.
-And then, it installs the Kubernetes cluster in those Docker containers, and installs default addons to support the Kubernetes cluster.
+And then it installs the Kubernetes cluster in those Docker containers, and installs default addons to support the Kubernetes cluster.
 
 Specifically, the `konvoy up --provisioner=docker` command does the following:
 
@@ -77,7 +77,7 @@ Near the end of the output, addons are installed.
 You can access user interfaces to monitor your cluster through the [Operations Portal][ops_portal].
 After you run the `konvoy up --provisioner=docker` command, if the installation is successful, the command output displays the information you need to access the Operations Portal.
 
-For example, you should see information similar to this:
+You should see information similar to this:
 
 ```text
 Kubernetes cluster and addons deployed successfully!
@@ -124,7 +124,7 @@ The Docker based install essentially simulates an on-premise environment.
 ## Accessing cluster nodes
 
 As mentioned above, cluster nodes are simulated using Docker containers.
-To access the nodes, you simply just need to `docker exec` into the corresponding container.
+To access the nodes, `docker exec` into the corresponding container.
 
 First, list the containers running:
 
