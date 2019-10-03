@@ -87,7 +87,7 @@ For example, if you want to disable the `elasticsearch` and `traefik` dashboards
        velero: true
 ```
 
-Similarly, you could disable all of the default dashboards by setting the `defaultDashboardsEnabled` property to `false` under Prometheus in the `cluster.yaml` file.
+Similarly, you can disable all of the default dashboards by setting the `defaultDashboardsEnabled` property to `false` under Prometheus in the `cluster.yaml` file.
 For example:
 
 ```yaml
@@ -98,7 +98,7 @@ For example:
      defaultDashboardsEnabled: false
 ```
 
-To access the Grafana UI, you can browse to the landing page and then search for the Grafana dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/grafana`.
+To access the Grafana UI, browse to the landing page and then search for the Grafana dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/grafana`.
 
 ### Adding custom dashboards
 
@@ -217,7 +217,7 @@ To create a custom alert rule named `my-rule-file`, you can modify the Prometheu
 After you set up your alerts, you can manage each alert using the Prometheus web console to mute/unmute firing alerts, as well as to perform other operations.
 For more information about configuring the `alertmanager`, see the [Prometheus website][alertmanager_config].
 
-To access the Prometheus Alertmanager UI, you can browse to the landing page and then search for the Prometheus Alertmanager dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/alertmanager`.
+To access the Prometheus Alertmanager UI, browse to the landing page and then search for the Prometheus Alertmanager dashboard, e.g. `https://<CLUSTER_URL>/ops/portal/alertmanager`.
 
 ### Notify Prometheus Alerts in Slack
 
@@ -291,7 +291,7 @@ The following file, named  `notification.tmpl`, is a template that defines a pre
 {{ define "slack.default.text" }}{{ template "__text" . }}{{ end }}
 ```
 
-Finally, we need to apply these changes to the `alertmanager`, as follows:
+Finally, apply these changes to the `alertmanager` as follows:
 
 ```bash
 kubectl create secret generic -n kubeaddons \
@@ -390,7 +390,7 @@ In this example, you would modify the Prometheus settings to have the operator c
               interval: 30s
 ```
 
-To apply these changes to your Konvoy cluster run:
+To apply these changes to your Konvoy cluster, run:
 
 ```bash
 konvoy deploy addons
@@ -400,7 +400,7 @@ Official documentation about using a `ServiceMonitor` to monitor an app with the
 
 ## Set a specific storage capacity for Prometheus
 
-When defining the requirements of a Konvoy cluster, you can specify the capacity and resource requirements of Prometheus by modifying the settings in the `cluster.yaml` definition to your desire, as shown below:
+When defining the requirements of a Konvoy cluster, you can specify the capacity and resource requirements of Prometheus by modifying the settings in the `cluster.yaml` definition as shown below:
 
 ```yaml
 - name: prometheus
