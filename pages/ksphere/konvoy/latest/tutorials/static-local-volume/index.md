@@ -52,7 +52,7 @@ Before starting this tutorial, you should verify the following:
 
     When you run this command, the local volume provisioned detects the `example-volume` volume and adds it as a persistent volume to the `localvolumeprovisioner` storage class.
 
-1. Verify the persisten volume by running the following command:
+1. Verify the persistent volume by running the following command:
 
     ```bash
     kubectl get pv
