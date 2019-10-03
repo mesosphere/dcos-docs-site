@@ -52,7 +52,7 @@ spec:
 
 The above example configures the Kubernetes cluster installed by Konvoy to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `http://proxy.company.com:3129` for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
 
-The above configuration only applies to the core Kubernetes components, you will need to configure the HTTP_PROXY settings for all other workloads that require access to the internet, including some of the addons.
+Since the above configuration only applies to the core Kubernetes components, you now must configure the HTTP_PROXY settings for all other workloads that require access to the Internet, including some of the addons.
 Edit the cluster configuration file `cluster.yaml` addons section.
 
 ```yaml
