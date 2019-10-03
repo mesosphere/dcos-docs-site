@@ -12,7 +12,7 @@ be upgraded to compatible Konvoy versions.
 
 ## Konvoy CLI available versions
 
-You can verify which version your CLI can be upgraded to by running the following command:
+You can verify to which version your CLI can be upgraded by running the following command:
 
 ```bash
 konvoy image list
