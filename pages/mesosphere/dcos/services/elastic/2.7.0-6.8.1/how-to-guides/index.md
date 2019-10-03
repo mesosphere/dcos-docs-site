@@ -12,7 +12,7 @@ render: mustache
 
 ## 1. Specify the name and settings for your Elastic and Kibana services
 
-These will be used in subsequent commands. If you have existing Elastic or Kibana configuration JSON file, the values should match.
+The names will be used in subsequent commands. If you have an existing Elastic or Kibana configuration JSON file, the values should match.
 
 ```bash
 service_name="elastic"
@@ -197,7 +197,7 @@ dcos task exec "${master_0_task_id}" \
 
 ## 18. Create Kibana configuration file
 
-This step is not necessary if you already have a configuration file for Kibana, but make sure to verify it on the next step. It's important that the password setting is configured with the Kibana password returned from in the "set up initial passwords" step above.
+This step is not necessary if you already have a configuration file for Kibana, but make sure to verify it on the next step. It is important that the password setting is configured with the Kibana password returned from the "set up initial passwords" step above.
 
 ```bash
 cat <<EOF > "${kibana_options_file}"
@@ -249,7 +249,7 @@ dcos marathon app show "${kibana_service_name}" | jq -r '.tasksHealthy'
 
 ## (Optional) Verify the current license
 
-This should be a new Elasticsearch installation, so the cluster will be running under a "basic" license unless it was changed. You might want to [install an actual license](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/update-license.html). In this guide we'll start a [trial license](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/start-trial.html).
+This should be a new Elasticsearch installation, so the cluster will be running under a "basic" license unless it was changed. You might want to [install an actual license](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/update-license.html). In this guide we will start a [trial license](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/start-trial.html).
 
 ```bash
 dcos task exec "${master_0_task_id}" \
@@ -270,9 +270,9 @@ dcos task exec "${master_0_task_id}" \
      "${protocol}://${coordinator_vip}/_xpack/license/start_trial?acknowledge=true&pretty"
 ```
 
-That's it! Assuming all steps worked you should have a secure deployment of Elasticsearch and Kibana. From here you can use the [Elasticsearch APIs](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/security-api.html) to change passwords, manage users, permissions and roles.
+That's it! Assuming all steps worked, you should have a secure deployment of Elasticsearch and Kibana. From here you can use the [Elasticsearch APIs](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/security-api.html) to change passwords, manage users, permissions and roles.
 
-If you change passwords don't forget to update the Elastic service with the health-check credentials like it was done in the "Configure Elastic with initial credentials" step.
+If you change passwords, don't forget to update the Elastic service with the health-check credentials like it was done in the "Configure Elastic with initial credentials" step.
 
 For more details check out the [Elasticsearch security documentation](https://www.elastic.co/guide/en/elasticsearch/reference/current/configuring-security.html).
 
@@ -297,7 +297,7 @@ edgelb-pool  v1.3.0   True      True       EdgeLB Pool on DC/OS
 
 If it does, you can skip the `dcos package repo add` commands below.
 
-**Otherwise**, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/) and the [Certified packages and DC/OS versions](/mesosphere/dcos/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
+**Otherwise**, if you see a `No packages found` message, add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/) and the [Certified packages and DC/OS versions](/mesosphere/dcos/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
 
 Use commands similar to the following to install the Edge-LB packages:
 
@@ -436,7 +436,7 @@ Now you can install the Kibana Edge-LB pool with:
 dcos edgelb create kibana_pool.json
 ```
 
-Again, installation will take a moment. If `TASK_RUNNING` appears in the output of the following command it means that the pool is up and running.
+Again, installation will take a moment. If `TASK_RUNNING` appears in the output of the following command, it means that the pool is up and running.
 
 ```bash
 dcos edgelb status kibana
@@ -446,13 +446,13 @@ At this point, Kibana should already be accessible through `http://$public_agent
 
 ## 3. Accessing Kibana
 
-If you only have one public agent and you know its IP address, it should be easy to access Kibana. If not, there are a few commands that might help you out.
+If you only have one public agent and you know its IP address, it should be easy to access Kibana. If not, there are a few commands that might help.
 
 ### Get IP address of public agent running Kibana pool
 
-This step requires that you have SSH access to the DC/OS cluster nodes. Make sure you do before proceding.
+This step requires that you have SSH access to the DC/OS cluster nodes. Make sure you do before proceeding.
 
-Here we're using the `kibana` pool name in the `dcos edgelb status` command. If you named the pool something else make sure to use it instead.
+Here we're using the `kibana` pool name in the `dcos edgelb status` command. If you named the pool something else, make sure to use it instead.
 
 ```bash
 agent_private_ip="$(dcos edgelb status kibana --json | jq -r '.[0].status.containerStatus.networkInfos[0].ipAddresses[0].ipAddress')"
