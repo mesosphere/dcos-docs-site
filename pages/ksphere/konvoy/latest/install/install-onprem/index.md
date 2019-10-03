@@ -13,12 +13,12 @@ The topics in this section guide you through the basic steps to prepare your env
 
 # Before you begin
 
-Before starting the installation, you should verify that your environment meets the following basic requirements:
+Before installing, verify that your environment meets the following basic requirements:
 
 * [Docker Desktop][install_docker] _version 18.09.2 or newer_
 
   You must have Docker Desktop installed on the host where the Konvoy command-line interface (CLI) will run.
-  For example, if you installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
+  For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
 * [kubectl][install_kubectl] _v1.15.4 or newer_
 
@@ -49,7 +49,7 @@ Before starting the installation, you should verify that your environment meets 
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster--that is, all hosts except the **deploy host**--you should verify the following configuration requirements:
+For all hosts that are part of the cluster--except the **deploy host**--you should verify the following configuration requirements:
 
 * CentOS 7.6 is installed.
 * Firewalld is disabled.
@@ -59,7 +59,7 @@ For all hosts that are part of the cluster--that is, all hosts except the **depl
 
 ## Networking
 
-Please make sure the following domains are accessible from the control plane nodes and worker nodes.
+Make sure the following domains are accessible from the control plane nodes and worker nodes.
 
 * k8s.gcr.io
 * registry.hub.docker.com
@@ -72,7 +72,7 @@ Please make sure the following domains are accessible from the control plane nod
 * mesosphere.github.io
 * storage.googleapis.com
 
-For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, `github.com` are accessible.
+For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, and `github.com` are accessible.
 
 # Edit the inventory file
 
@@ -100,7 +100,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 
 The inventory file `inventory.yaml` follows the standard [Ansible inventory file yaml format][ansible_inventory] for hosts and groups.
 
-For Konvoy, you need to specify two [groups][ansible_group]
+For Konvoy, specify two [groups][ansible_group]
 
 * `control-plane`
 * `node`
@@ -112,13 +112,13 @@ The `node` group defines the host IP addresses for your worker nodes.
 
 The IP addresses you specify in the inventory file can be the private IP addresses you use in your internal network.
 The primary requirement is that all of the hosts in the cluster can communicate with each other using the IP addresses you specify.
-You should keep in mind that placing all of the hosts in the same subnet (for example, 10.0.50.0/24), can simplify the cluster configuration significantly.
+Note that placing all of the hosts in the same subnet (for example, 10.0.50.0/24) can simplify the cluster configuration significantly.
 
 For each host, you can also optionally specify the `ansible_host` attribute if you want Ansible to use different host names to reach the hosts.
 
 ## Ensuring connectivity
 
-You should make sure that the computer you are using as the **deploy host** can open secure shell (SSH) connections to communicate with each host specified in the inventory file.
+Make sure that the computer you are using as the **deploy host** can open secure shell (SSH) connections to communicate with each host specified in the inventory file.
 To ensure a successful installation, the `ansible_user` account must be able to open a secure shell on each host without typing password.
 
 You could to use `ssh-agent` to pass identity keys and passphrases for authentication.
@@ -160,12 +160,12 @@ all:
 
 # Configure the Kubernetes cluster
 
-After you edit the inventory file, you need to edit the generated `cluster.yaml` file.
+After you edit the inventory file, edit the generated `cluster.yaml` file.
 The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster.
 
 ## Configure the RPM and DEB package repository
 
-By default Konvoy will add new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
+By default Konvoy adds new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
 If the required repositories are already configured in your environment, you may disable this behavior by setting the value of `defaultRepositoryInstallationDisabled` to `true`.
 
 ```yaml
@@ -351,7 +351,7 @@ To mount local volumes:
 
 1. Verify local volumes stay mounted after the host is rebooted.
 
-For more information about how to mount local volumes, see the [Operations][static_pv_provisioner_operations] guide for Kubernetes.
+For more information on how to mount local volumes, see the [Operations][static_pv_provisioner_operations] guide for Kubernetes.
 
 Note that if your stateful workload is using a [local persistent volume][local_persistent_volume], it cannot be moved to a different node.
 If the node fails, the stateful workload might lose its data.
@@ -419,7 +419,7 @@ You can access user interfaces to monitor your cluster through the [operations p
 
 After you run the `konvoy up` command, if the installation is successful, the command output displays the information you need to access the operations portal.
 
-For example, you should see information similar to this:
+You should see information similar to this:
 
 ```text
 Run `konvoy apply kubeconfig` to update kubectl credentials.
