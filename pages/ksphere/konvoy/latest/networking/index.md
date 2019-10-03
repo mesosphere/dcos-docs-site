@@ -10,7 +10,7 @@ enterprise: false
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
 This section describes different networking components that come together to form Konvoy networking stack.
-It assumes the familiarity with Kubernetes networking to explain the specifics of networking in Konvoy.
+It assumes familiarity with Kubernetes networking to explain the specifics of networking in Konvoy.
 
 ## Highly Available Control-Plane
 
@@ -101,7 +101,7 @@ Konvoy ships with the default CIDR as `192.168.0.0/16`. One needs to make sure t
 
 Calico supports a wide range of [network policy][calico_policy].
 It has tight integration with Kubernetes network policy.
-One could use `kubectl` to configure Kubernetes network policy which would be enforced by Calico.
+You can use `kubectl` to configure Kubernetes network policy which would be enforced by Calico.
 Further, Calico extends Kubernetes network policy through custom CRDs which can be configured using [calicoctl][calicoctl].
 More details about Calico network policy can be found [here][calico_security]
 
@@ -128,13 +128,13 @@ The default CoreDNS configuration is as shown below:
 ```
 
 As shown in the above config, by default, CoreDNS is shipped with `error`, `health`, `prometheus`, `forward`, `loop`, `reload`, `loadbalance` plugins enabled.
-The detail explanation of all these plugins can be found [here][coredns_plugins].
+Detailed explanations for all of these plugins can be found [here][coredns_plugins].
 
 CoreDNS configuration can be modified by updating the configmap named `coredns` in `kube-system` namespace.
 
 ## Load Balancing
 
-Discussion around Load Balancing can be split into two:
+Discussion around Load Balancing can be split into two categories:
 
 * Load balancing for the traffic within a Kubernetes cluster
 * Load balancing for the traffic coming from outside the cluster
@@ -142,8 +142,8 @@ Discussion around Load Balancing can be split into two:
 ### Load balancing for internal traffic
 
 Load balancing within a Kubernetes cluster is exposed through a service of type `ClusterIP`.
-`ClusterIP` is similar to a virtual IP (VIP) which presents a single IP address to the client and load balance the traffic to the backends servers.
-The actual load balancing happens via iptables rules or ipvs configuration which are programmed by a Kubernetes component called `kube-proxy`.
+`ClusterIP` is similar to a virtual IP (VIP), which presents a single IP address to the client and load balance the traffic to the backends servers.
+The actual load balancing happens via iptables rules or ipvs configuration, which are programmed by a Kubernetes component called `kube-proxy`.
 By default, `kube-proxy` runs in iptables mode.
 It configures iptables to intercept any traffic destined towards `ClusterIP` and send traffic to the real servers based on the probabilistic iptables rules.
 `Kube-proxy` configuration can be altered by updating the configmap named `kube-proxy` in the `kube-system` namespace.
