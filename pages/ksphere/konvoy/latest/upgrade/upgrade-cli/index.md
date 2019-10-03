@@ -21,7 +21,7 @@ konvoy image list
   v1.1.4         | 1.15.3
 ```
 
-This command lists all the available versions to which your current CLI can be upgraded to.
+This command lists all the available versions to which your current CLI can be upgraded.
 This list also shows the default Kubernetes version of each Konvoy version.
 
 This command uses the Docker Hub to fetch all the available Konvoy versions.
@@ -32,7 +32,7 @@ or equal to **v1.1.4**.
 ### Using a private Docker registry
 
 If you are using a [private Docker registry][docker_registry] for your clusters, you can list all the
-available versions passing some additional arguments to the previous command.
+available versions, passing some additional arguments to the previous command.
 
 For instance, if your private Docker registry provides a basic authentication mechanism (username/password).
 You need to pass the following arguments, where `docker-registry-skip-verify` is optional
