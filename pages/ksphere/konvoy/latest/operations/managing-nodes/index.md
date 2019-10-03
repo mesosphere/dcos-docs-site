@@ -12,10 +12,10 @@ enterprise: false
 # Adding Nodes to an AWS Cluster
 
 **NOTE** This process only applies to clusters created by Konvoy, using Terraform.
-If your cluster was provisioned manually, please follow the steps in [Adding Nodes to an On-Premise Cluster](#adding-nodes-to-an-on-premise-cluster)
+If your cluster was provisioned manually, follow the steps in [Adding Nodes to an On-Premise Cluster](#adding-nodes-to-an-on-premise-cluster)
 
 **NOTE** This process should only be applied on healthy clusters.
-If you're attempting to recover from a node failure, please see [Replace a Failed Node][replace-failed-node] instead.
+If you're attempting to recover from a node failure, see [Replace a Failed Node][replace-failed-node] instead.
 
 After the initial provisioning of a cluster, the same `konvoy` tools can be used to add nodes.
 
