@@ -24,13 +24,13 @@ render: mustache
 - Master transport port: You can pick whichever port works for your DC/OS cluster. The default is 9300. If you want multiple master nodes from different clusters on the same host, specify different master HTTP and transport ports for each cluster. If you want to ensure a particular distribution of nodes of one task type (such as master nodes spread across multiple racks, data nodes on one class of machines), specify this via the Marathon placement constraint.
 - Serial vs Parallel deployment. By default, the DC/OS {{ model.techName }} Service tells DC/OS to install everything in parallel. You can change this to serial in order to have each node installed one at a time.
 - Serial vs Parallel update. By default, the DC/OS {{ model.techName }} Service tells DC/OS to update everything serially. You can change this to parallel in order to have each node updated at the same time. This is required, for instance, when you turn X-Pack Security on or off.
-- A custom YAML file can be appended to `elasticsearch.yml` on each node
+- A custom YAML file can be appended to `elasticsearch.yml` on each node.
 
 ### Immutable settings 
 
-At cluster creation time via {{ model.techName }} package UI or JSON options file via CLI), the following settings cannot be changed after installation:
+At cluster creation time via {{ model.techName }} package UI or JSON options file (via CLI), the following settings cannot be changed after installation:
 
-- Service name (aka cluster name). Can be hyphenated, but not underscored
+- Service name (aka cluster name). Can be hyphenated, but not underscored.
 - Master transport port
 - Disk sizes/types
 
@@ -46,7 +46,7 @@ At cluster creation time via {{ model.techName }} package UI or JSON options fil
 - Deployment/Upgrade strategy (serial/parallel). Note that serial deployment does not yet wait for the cluster to reach green before proceeding to the next node. This is a known limitation.
 - Custom `elasticsearch.yml`
 
-Any other modifiable settings are covered by the various Elasticsearch APIs (cluster settings, index settings, templates, aliases, scripts). It is possible that some of the more common cluster settings will get exposed in future versions of the DC/OS{{ model.techName }} Service.
+Any other modifiable settings are covered by the various Elasticsearch APIs (cluster settings, index settings, templates, aliases, scripts). It is possible that some of the more common cluster settings will get exposed in future versions of the DC/OS {{ model.techName }} Service.
 
 ## X-Pack Security
 
@@ -54,14 +54,14 @@ Any other modifiable settings are covered by the various Elasticsearch APIs (clu
 
 You must set the update strategy to `parallel` when you toggle X-Pack Security in order to force a full cluster restart. Afterwards, you should set the update strategy back to `serial` for future updates.
 
-You can toggle this setting at any time. This gives you the option of launching an {{ model.techName }} cluster without X-Pack Security and then later enabling it. Or, you can run a cluster with X-Pack Security enabled and, if at the end of the 30-day trial period you don't wish to purchase a license, you can disable it without losing access to your data.
+You can toggle this setting at any time. This gives you the option of launching an {{ model.techName }} cluster without X-Pack Security and then later enabling it. Or, you can run a cluster with X-Pack Security enabled and, if at the end of the 30-day trial period you do not wish to purchase a license, you can disable it without losing access to your data.
 
 ### License Expiration
 
 If you let your license expire, remember these two important points:
 
-1. Your data is still there.
-1. All data operations (read and write) continue to work.
+- Your data is still there.
+- All data operations (read and write) continue to work.
 
 [Graph](https://www.elastic.co/guide/en/x-pack/current/graph-getting-started.html), [Machine Learning](https://www.elastic.co/guide/en/x-pack/current/ml-getting-started.html), [Alerting and Notification](https://www.elastic.co/guide/en/x-pack/current/watcher-getting-started.html), [Monitoring](https://www.elastic.co/guide/en/x-pack/current/monitoring-getting-started.html), and [Security](https://www.elastic.co/guide/en/x-pack/current/security-getting-started.html) features all operate with reduced functionality when the license expires.
 
@@ -73,13 +73,13 @@ Each task in the cluster performs one and only one of the following roles: maste
 
 The default placement strategy specifies that no two nodes of any type are distributed to the same agent. You can specify further [Marathon placement constraints](http://mesosphere.github.io/marathon/docs/constraints.html) for each node type. For example, you can specify that ingest nodes are deployed on a rack with high-CPU servers.
 
-![agent](/mesosphere/dcos/services/elastic/2.2.0-5.6.5/img/private-nodes-by-agent.png)
+![agent](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/img/private-nodes-by-agent.png)
 
-Figure 1. - Private nodes displayed by agent
+Figure 1 - Private nodes displayed by agent
 
-![vip](/mesosphere/dcos/services/elastic/2.2.0-5.6.5/img/private-node-by-vip.png)
+![vip](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/img/private-node-by-vip.png)
 
-Figure 2. - Private nodes displayed by VIP
+Figure 2 - Private nodes displayed by VIP
 
 No matter how big or small the cluster is, there will always be exactly 3 master-only nodes with `minimum_master_nodes = 2`.
 
@@ -96,7 +96,7 @@ The master/data/ingest/coordinator nodes are set up to only perform their one ro
 
 ### Minimal Topology
 
-You can set up a minimal development/staging cluster without ingest nodes, or coordinator nodes. You’ll still get 3 master nodes placed on 3 separate hosts. If you don’t care about replication, you can even use just 1 data node.
+You can set up a minimal development/staging cluster without ingest nodes, or coordinator nodes. You will still get 3 master nodes placed on 3 separate hosts. If you do not care about replication, you can even use just 1 data node.
 
 Note that the default monitoring behavior is to try to write to an ingest node every few seconds. Without an ingest node, you will see frequent warnings in your master node error logs. While they can be ignored, you can turn them off by disabling X-Pack monitoring in your cluster, like this:
 
@@ -112,7 +112,7 @@ curl -XPUT -u elastic:changeme master.<service-dns>.l4lb.thisdcos.directory:9200
 
 Many Elasticsearch options are exposed via the package configuration in `config.json`, but there may be times when you need to add something custom to the `elasticsearch.yml` file. For instance, if you have written a custom plugin that requires special configuration, you must specify this block of YAML for the {{ model.techName }} service to use.
 
-Add your custom YAML when installing or updating the {{ model.techName }} service. In the DC/OS UI, click **Configure**. In the left navigation bar, click `elasticsearch` and find the field for specifying custom elasticsearch YAML. You must base64 encode your block of YAML and enter this string into the field.
+Add your custom YAML when installing or updating the {{ model.techName }} service. In the DC/OS UI, click **Configure**. In the left navigation bar, click `elasticsearch` and find the field for specifying a custom Elasticsearch YAML. You must base64 encode your block of YAML and enter this string into the field.
 
 You can do this base64 encoding as part of your automated workflow, or you can do it manually with an [online converter](https://www.base64encode.org).
 
@@ -126,7 +126,7 @@ Volume profiles are used to classify volumes. For example, users can group SSDs 
 
 [DC/OS Storage Service (DSS)](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
-Once the DC/OS cluster is running and volume profiles are created, you can deploy Elasticsearch with the following configs:
+Once the DC/OS cluster is running and volume profiles are created, you can deploy Elasticsearch with the following configuration:
 
 ```bash
 cat > elastic-options.json <<EOF
@@ -150,12 +150,12 @@ cat > elastic-options.json <<EOF
 }
 EOF
 ```
-```
+```bash
 dcos package install elastic --options=elastic-options.json
 ```
 <p class="message--note"><strong>NOTE: </strong>Elasticsearch will be configured to look for <code>MOUNT</code> volumes with the <code>elastic</code> profile.</p> 
 
-Once the Elasticsearch service finishes deploying its tasks will be running with the specified volume profiles.
+Once the Elasticsearch service finishes deploying, its tasks will be running with the specified volume profiles.
 
 ```bash
 dcos elastic update status
@@ -178,7 +178,8 @@ deploy (serial strategy) (COMPLETE)
  
 Preconfigured `alert-rules`/`grafana-dashboards` stored in  `dcos/grafana-dashboards`/`dcos/prometheus-alert-rules` repositories.
 
-Otherwise you can use your one and just point them in `dcos-monitoring` configuration.   
+Otherwise you can use your one and just point them in `dcos-monitoring` configuration.
+<!-- What does "use your one" mean?    -->
 
 ## Grafana dashboards
 
@@ -230,7 +231,7 @@ Otherwise you can use your one and just point them in `dcos-monitoring` configur
 
 ## Kibana
 
-[Kibana](https://www.elastic.co/products/kibana) lets you visualize your Elasticsearch data and navigate the {{ model.techName }} Stack. You can install Kibana like any other DC/OS package via the **Catalog** tab of the DC/OS UI or via the DC/OS CLI with:
+[Kibana](https://www.elastic.co/products/kibana) is an open source data visualization plugin for Elasticsearch that lets you visualize your Elasticsearch data and navigate the {{ model.techName }} Stack. You can install Kibana like any other DC/OS package via the **Catalog** tab of the DC/OS UI or via the DC/OS CLI with:
 
 ```bash
 dcos package install kibana
@@ -246,7 +247,7 @@ dcos package install kibana --options=kibana.json
 
 #### Make sure that Kibana is up and running
 
-Services usually take a moment to finish being installed and ready to use. We can check if our Kibana service is ready with the following command:
+Services usually take a moment to finish being installed and ready to use. You can check if your Kibana service is ready with the following command:
 
 ```bash
 dcos marathon app show kibana | jq -r '.tasksHealthy'
@@ -261,15 +262,15 @@ Another good indication that Kibana is ready is when the following line appears 
 
 #### Kibana without X-Pack Security enabled
 
-If Kibana was installed without X-Pack Security enabled you should be able to access it through the default DC/OS UI Service link (`https://<cluster-url>/service/<kibana-service-name>`).
+If Kibana was installed without X-Pack Security enabled, you should be able to access it through the default DC/OS UI Service link (`https://<cluster-url>/service/<kibana-service-name>`).
 
 #### Kibana with X-Pack Security enabled
 
-Otherwise, due to a currently known [limitation](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/limitations#kibana-configured-with-x-pack-security-enabled) you won't be able to access it through the default DC/OS 1.11 UI Service link. In this case you must [expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/how-to-guides#expose-kibana-using-edgelb).
+Due to a currently known [limitation](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/limitations#kibana-configured-with-x-pack-security-enabled), if you installed Kibana with X-Pack Security enabled, you will not be able to access it through the default DC/OS 1.11 UI Service link. In this case you must [expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/how-to-guides#expose-kibana-using-edgelb).
 
 ### Configuration Guidelines
 
-- Service name (`service.name`): This needs to be unique for each instance of the service that is running. The default is `kibana`.
+- Service name (`service.name`): This must be unique for each instance of the service that is running. The default is `kibana`.
 - Service user (`service.user`): This must be a non-root user that already exists on each agent. The default user is `nobody`.
 - If you have X-Pack Security enabled in {{ model.techName }} (`elasticsearch.xpack_security_enabled: true`), you must also have it enabled in Kibana (`kibana.elasticsearch_xpack_security_enabled: true`).
 - Elasticsearch credentials (`kibana.user` and `kibana.password`): If you have X-Pack Security enabled, Kibana will use these credentials for authorized requests to Elasticsearch. The default user is `kibana`, and the password must be configured through the service options.
@@ -279,10 +280,10 @@ Otherwise, due to a currently known [limitation](/mesosphere/dcos/services/elast
 
 You can customize the Kibana installation in a variety of ways by specifying a JSON options file. For example, here is a sample JSON options file that:
 
-1. Sets the service name to `another-kibana`
-2. Sets the password for Kibana requests to an Elasticsearch cluster configured with authentication
-3. Configures Kibana to [communicate with Elasticsearch via TLS](https://www.elastic.co/guide/en/kibana/current/configuring-tls.html)
-4. Turns on X-Pack Security, so that Kibana works against an Elasticsearch similarly configured. 
+- Sets the service name to `another-kibana`
+- Sets the password for Kibana requests to an Elasticsearch cluster configured with authentication
+- Configures Kibana to [communicate with Elasticsearch via TLS](https://www.elastic.co/guide/en/kibana/current/configuring-tls.html)
+- Turns on X-Pack Security, so that Kibana works against an Elasticsearch similarly configured 
 
 `another_kibana.json`
 ```json
