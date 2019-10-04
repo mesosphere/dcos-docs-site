@@ -314,7 +314,7 @@ PUT <dcos_url>/service/kafka/v1/interrupt HTTP/1.1
 }
 ```
 
-<p class="message--warning"><strong>WARNING: </strong>The interrupt command cannot terminate a step that is `InProgress`, but it will stop the change on the subsequent steps.</p>
+<p class="message--warning"><strong>WARNING: </strong>The interrupt command cannot terminate a step that is <code>InProgress</code>, but it will stop the change on the subsequent steps.</p>
 
 # Configuration Options
 
@@ -439,7 +439,7 @@ Kafka service allows configuration of JVM Heap Size for the broker JVM process. 
 
 * **DC/OS web interface**: Set the environment variable `BROKER_HEAP_MB`: `2000`
 
-**Note**: The total memory allocated for the Mesos task is specified by the `BROKER_MEM` configuration parameter. The value for `BROKER_HEAP_MB` should not be greater than `BROKER_MEM` value. Also, if `BROKER_MEM` is greater than `BROKER_HEAP_MB` then the Linux operating system will use `BROKER_MEM` - `BROKER_HEAP_MB` for [PageCache](https://en.wikipedia.org/wiki/Page_cache).
+<p class="message--note"><strong>NOTE: </strong>The total memory allocated for the Mesos task is specified by the <code>BROKER_MEM</code> configuration parameter. The value for <code>BROKER_HEAP_MB</code> should not be greater than <code>BROKER_MEM</code> value. Also, if <code>BROKER_MEM</code> is greater than <code>BROKER_HEAP_MB</code> then the Linux operating system will use <code>BROKER_MEM</code> - <code>BROKER_HEAP_MB</code> for [PageCache](https://en.wikipedia.org/wiki/Page_cache).</p>
 
 ## Alternate ZooKeeper
 

@@ -139,15 +139,15 @@ The {{ model.techShortName }} scheduler runs as a Marathon process and can be re
 Use the following steps to change configurations at runtime:
 
 1.  Go to the `Services` tab of the DC/OS web interface.
-1.  Click on name of the {{ model.techShortName }} service to be updated.
-1.  Within the {{ model.techShortName }} instance details view, click the menu in the upper right, then choose **Edit**.
-1.  In the dialog that appears, click the **Environment** tab and update any field(s) to their desired value(s). For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT`. Do not edit the value for `FRAMEWORK_NAME` or `BROKER_DISK`.
+1.  Select the name of the Kafka service to be updated.
+1.  Within the Kafka instance details view, select the menu in the upper right, then choose **Edit**.
+1.  In the dialog that appears, select the **Environment** tab and update any fields to their desired values. For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT`. Do not edit the value for `FRAMEWORK_NAME` or `BROKER_DISK`.
 1.  Choose a `DEPLOY_STRATEGY`: serial, serial-canary, parallel-canary, or parallel. See the SDK Developer guide for more information on [deployment plan strategies](https://mesosphere.github.io/dcos-commons/developer-guide.html#plans). <!-- I'm not sure I like this solution, since users aren't going to have the context for the dev guide). -->
-1.  Click **REVIEW & RUN** to apply any changes and cleanly reload the {{ model.techShortName }} scheduler. The {{ model.techShortName }} cluster itself will persist across the change.
+1.  Select **REVIEW & RUN** to apply any changes and cleanly reload the {{ model.techShortName }} scheduler. The {{ model.techShortName }} cluster itself will persist across the change.
 
 ## Configuration Update REST API
 
-Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](api-reference.md) section for information on how this request must be authenticated.
+Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](api-reference.md) topic for information on how this request must be authenticated.
 
 ```bash
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
@@ -387,7 +387,7 @@ When configured to `MOUNT` disk type, the scheduler selects a disk on an agent w
 
 * **DC/OS web interface**: Set the environment variable `BROKER_HEAP_MB`: `2000`
 
-<p class="message--note"><strong>NOTE: </strong>The total memory allocated for the Mesos task is specified by the `BROKER_MEM` configuration parameter. The value for `BROKER_HEAP_MB` should not be greater than `BROKER_MEM` value. Also, if `BROKER_MEM` is greater than `BROKER_HEAP_MB` then the Linux operating system will use `BROKER_MEM` - `BROKER_HEAP_MB` for [PageCache](https://en.wikipedia.org/wiki/Page_cache).</p>
+<p class="message--note"><strong>NOTE: </strong>The total memory allocated for the Mesos task is specified by the <code>BROKER_MEM</code> configuration parameter. The value for <code>BROKER_HEAP_MB</code> should not be greater than <code>BROKER_MEM</code> value. Also, if <code>BROKER_MEM</code> is greater than <code>BROKER_HEAP_MB</code> then the Linux operating system will use <code>BROKER_MEM</code> - <code>BROKER_HEAP_MB</code> for [PageCache](https://en.wikipedia.org/wiki/Page_cache).</p>
 
 ## Alternate ZooKeeper
 
