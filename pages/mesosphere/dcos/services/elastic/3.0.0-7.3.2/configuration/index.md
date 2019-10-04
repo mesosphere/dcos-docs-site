@@ -26,7 +26,7 @@ render: mustache
 - Serial vs Parallel update. By default, the DC/OS {{ model.techName }} Service tells DC/OS to update everything serially. You can change this to parallel in order to have each node updated at the same time. This is required, for instance, when you turn X-Pack Security on or off.
 - A custom YAML file can be appended to `elasticsearch.yml` on each node.
 
-### Immutable settings 
+### Immutable Settings 
 
 At cluster creation time via {{ model.techName }} package UI or JSON options file (via CLI), the following settings cannot be changed after installation:
 
@@ -34,7 +34,7 @@ At cluster creation time via {{ model.techName }} package UI or JSON options fil
 - Master transport port
 - Disk sizes/types
 
-### Modifiable settings
+### Modifiable Settings
 
 - Plugins
 - CPU
@@ -73,11 +73,11 @@ Each task in the cluster performs one and only one of the following roles: maste
 
 The default placement strategy specifies that no two nodes of any type are distributed to the same agent. You can specify further [Marathon placement constraints](http://mesosphere.github.io/marathon/docs/constraints.html) for each node type. For example, you can specify that ingest nodes are deployed on a rack with high-CPU servers.
 
-![agent](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/img/private-nodes-by-agent.png)
+![agent](../img/private-nodes-by-agent.png)
 
-Figure 1 - Private nodes displayed by agent
+Figure 1 - Private nodes displayed by agent 
 
-![vip](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/img/private-node-by-vip.png)
+![vip](../img/private-node-by-vip.png)
 
 Figure 2 - Private nodes displayed by VIP
 
@@ -181,7 +181,7 @@ Preconfigured `alert-rules`/`grafana-dashboards` stored in  `dcos/grafana-dashbo
 Otherwise you can use your one and just point them in `dcos-monitoring` configuration.
 <!-- What does "use your one" mean?    -->
 
-## Grafana dashboards
+## Grafana Dashboards
 
 **dcos-monitoring** configuration:
 
@@ -204,7 +204,7 @@ Otherwise you can use your one and just point them in `dcos-monitoring` configur
 **dashboard_config_repository.path** contains files:
 - `elasticsearch.json`
 
-## Prometheus alerts
+## Prometheus Alerts
 
 **dcos-monitoring** configuration:
 
