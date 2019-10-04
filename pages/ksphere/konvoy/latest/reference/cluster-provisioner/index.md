@@ -254,7 +254,7 @@ The default value of this entire object is `omitted`.
 | `spec.imageRegistries`  | Specifies the container image registries authentication details. | See [spec.imageRegistries](#spec-imageregistries) |
 | `spec.packageRepository`  | configure packages repositories | See [spec.packageRepository](#specpackageRepository) |
 | `spec.nodePools`        | Specifies the nodePool configuration.         | See [spec.imageRegistries](#spec-nodepools) |
-| `spec.addons`           | Specifies the list of addons that can be deployed.  | See [spec.addons](#spec-addons) |
+| `spec.addons`           | Specifies the list of add-ons that can be deployed.  | See [spec.addons](#spec-addons) |
 | `spec.version`          | version of a konvoy cluster            | `v0.0.20`                                |
 
 ### spec.kubernetes
@@ -402,12 +402,12 @@ The default value of this entire object is `omitted`.
 
 | Parameter              | Description                                            | Default    |
 | ---------------------- | ------------------------------------------------------ | ---------- |
-| `addons.configVersion` | Specifies the version of the addon configuration files to use.       | `v0.0.20`  |
-| `addons.addonsList`    | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#spec-addons-addonslist) |
+| `addons.configVersion` | Specifies the version of the add-on configuration files to use.       | `v0.0.20`  |
+| `addons.addonsList`    | Specifies the list of add-on objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#spec-addons-addonslist) |
 
 #### spec.addons.addonsList
 
-`spec.addonsList` is comprised of an array of `addon`s. The default values vary depending on the `provider` given on generation.
+`spec.addonsList` is comprised of an array of add-ons. The default values vary depending on the `provider` given on generation.
 
 #### addon
 
@@ -415,9 +415,9 @@ Properties of an `addon` object.
 
 | Parameter | Description                                                   |
 | --------- | ------------------------------------------------------------- |
-| `name`    | Specifies the name of the addon.                                            |
-| `enabled` | Enables the addon to be deployed.                                    |
-| `values`  | Overrides the values found in default addon configuration file. |
+| `name`    | Specifies the name of the add-on.                                            |
+| `enabled` | Enables the add-on to be deployed.                                    |
+| `values`  | Overrides the values found in default add-on configuration file. |
 
 [cidr_blocks]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_blocks
 [aws_security_groups]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html

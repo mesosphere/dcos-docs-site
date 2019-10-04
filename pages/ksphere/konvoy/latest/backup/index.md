@@ -17,8 +17,7 @@ As a production-ready solution, Konvoy provides the Velero add-on by default, to
 For on-premise deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 For production use-cases, it's advisable to provide an *external* storage volume for Minio to use.
 
-**NOTE** If you intend to use the cluster *without* an external storage volume for Minio, you should [fetch the latest backup](#fetching-a-backup-archive) and store it in a known, secured location at a regular interval.
-For example, if you aren't using an external storage volume, you should back up and archive the cluster on a weekly basis.
+<p class="message--note"><strong>NOTE: </strong> If you intend to use the cluster *without* an external storage volume for Minio, you should <a href="#fetching-a-backup-archive">fetch the latest backup</a> and store it in a known, secured location at a regular interval. For example, if you aren't using an external storage volume, you should back up and archive the cluster on a weekly basis. </p>
 
 ## Install the Velero command-line interface
 
@@ -84,7 +83,7 @@ For example:
 velero create schedule system-critical --include-namespaces=kube-system,kube-public,kubeaddons --schedule="@every 24h"
 ```
 
-The Velero command-line interface provides many more options worth exploring. You can also find tutorials for [disaster recovery][velero-dr] and [cluster migration][velero-cm] on the Velero community site.
+The Velero command line interface provides many more options worth exploring. You can also find tutorials for [disaster recovery][velero-dr] and [cluster migration][velero-cm] on the Velero community site.
 
 ### Fetching a backup archive
 
@@ -125,7 +124,7 @@ To list the available backup archives for your cluster, run the following comman
 velero backup get
 ```
 
-To set Velero to a `restore-only-mode`, modify the Velero addon in the `ClusterConfiguration` of the `cluster.yaml` file:
+To set Velero to a `restore-only-mode`, modify the Velero add-on in the `ClusterConfiguration` of the `cluster.yaml` file:
 
 ```yaml
 addons:
@@ -150,13 +149,13 @@ Finally, check your deployment to verify that the configuration change was appli
 helm get values velero-kubeaddons
 ```
 
-To restore cluster data on-demand from a selected backup snapshot available in the cluster, run a command similar to the following:
+To restore cluster data on demand from a selected backup snapshot available in the cluster, run a command similar to the following:
 
 ```shell
 velero restore create --from-backup BACKUP_NAME
 ```
 
-## Enable or disable the backup addon
+## Enable or disable the backup add-on
 
 You can enable or disable the Velero platform service add-on in the `ClusterConfiguration` section of the `cluster.yaml` file.
 For example, you can enable the `Velero` add-on using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
@@ -168,7 +167,9 @@ addons:
 ...
 ```
 
-If you want to replace the Velero add-on with a different backup add-on service, you can disable the `velero` add-on by modifying the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
+If you want to replace the Velero add-on with a different backup add-on service, you can disable the `velero` add-on. Before disabling the Velero platform service add-on, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service. 
+
+Modify the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
 
 ```yaml
 addons:
@@ -177,7 +178,6 @@ addons:
 ...
 ```
 
-Before disabling the Velero platform service add-on, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.
 
 After making changes to your `cluster.yaml`, you must run `konvoy up` to apply them to the running cluster.
 

@@ -134,7 +134,7 @@ Running Kubernetes health checks is recommended when:
 
 **NOTE** Control plane components in Konvoy are deployed as containers, so some debugging efforts may require [local node debugging with crictl][ts-crictl].
 
-## Verify installed addons
+## Verify installed add-ons
 
 Konvoy provides a suite of opertional tools, to fulfill a production-ready Kubernetes environment.
 This command ensures that they're all installed and running correctly:
@@ -145,18 +145,18 @@ konvoy check addons
 
 In particular, this checks:
 
-- All enabled addons are installed and running
-- The deployed addons match the configuration of `cluster.yaml`
+- All enabled add-ons are installed and running
+- The deployed add-ons match the configuration of `cluster.yaml`
 
-**NOTE** If you manually customize components of a deployed addon, without tuning the associated `values` field for that addon in `cluster.yaml`, this command may report an error in your addon deployment.
+**NOTE** If you manually customize components of a deployed add-on, without tuning the associated `values` field for that add-on in `cluster.yaml`, this command may report an error in your add-on deployment.
 
-Running addon health checks is recommended when:
+Running add-on health checks is recommended when:
 
-- Any Konvoy addon is unreachable or unresponsive, e.g. Prometheus is down
+- Any Konvoy add-on is unreachable or unresponsive, e.g. Prometheus is down
 - Logging and metrics data are not updating in Kibana and Grafana
 - An application deployed with an Ingress is unreachable
 
-**NOTE** In Konvoy, addons behave like applications.
+**NOTE** In Konvoy, add-ons behave like applications.
 For further insight, review [the Kubernetes application troubleshooting guide][ts-application].
 
 [ts-overview]: https://kubernetes.io/docs/tasks/debug-application-cluster/troubleshooting/

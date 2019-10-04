@@ -9,25 +9,25 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-This section describes different networking components that come together to form Konvoy networking stack.
-It assumes familiarity with Kubernetes networking to explain the specifics of networking in Konvoy.
+This section describes different networking components that come together to form a Konvoy networking stack.
+It assumes familiarity with Kubernetes networking.
 
 ## Highly Available Control-Plane
 
-Konvoy ships with highly available control plane in case of multi-master Kubernetes deployment.
+Konvoy ships with a highly available control plane, in case of multi-master Kubernetes deployment.
 
 ### AWS
 
-In the cloud, the high availability is provided through cloud provider load balancer.
+In the cloud, high availability is provided through the cloud provider's load balancer.
 
 ### On-premise
 
 In on-premise, Konvoy ships with [Keepalived][keepalived].
 Keepalived provides two main functionalities - High Availability and Load Balancing.
 It uses [VRRP][vrrp] (Virtual Router Redundancy Protocol) to provide high availability.
-VRRP allows having a virtual IP (VIP) assigned to participating machines where it is active only on one of the machines.
+VRRP allows you to have a virtual IP (VIP) assigned to participating machines, where it is active only on one of the machines.
 VRRP provides high availability by ensuring that virtual IP is active as long as at least one of the participating machines is active.
-Konvoy uses Keepalived for high availability of the control plane.
+Konvoy uses Keepalived to maintain high availability of the control plane.
 
 To use `Keepalived`:
 
@@ -38,9 +38,9 @@ To use `Keepalived`:
   * from the computer that is used to deploy Kubernetes.
 
   If the reserved virtual IP address is in the same subnet as the rest of the cluster nodes then nothing more needs to be configured.
-  However, if it is in a different subnet then one may need to configure appropriate routes to ensures connectivity with the virtual IP address.
+  However, if it is in a different subnet then you may need to configure appropriate routes to ensures connectivity with the virtual IP address.
   Further, the virtual IP address may share an interface with the primary IP address of the interface.
-  In such cases, one needs to disable any IP or MAC spoofing from the infrastructure firewall.
+  In such cases, you must be able to disable any IP or MAC spoofing from the infrastructure firewall.
 
 The following example illustrates the configuration if the reserved virtual IP address is `10.0.50.20`:
 
@@ -57,11 +57,11 @@ spec:
 
 The IP address specified in `spec.kubernetes.controlPlane.controlPlaneEndpointOverride` is used for Keepalived VIP.
 This value is optional if it is already specified in `inventory.yaml` as part of `all.vars.control_plane_endpoint`.
-One could set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface for the Keepalived VIP.
+You can set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface for the Keepalived VIP.
 This field is optional.
 If not set, Konvoy will automatically detect the network interface to use based on the route to the VIP.
 
-Further, one could set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][keepalived_conf] used by Keepalived.
+Further, you could set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][keepalived_conf] used by Keepalived.
 This field is optional.
 If not set, Konvoy will randomly pick a Virtual Router ID for you.
 
@@ -95,7 +95,7 @@ spec:
       serviceSubnet: 10.0.51.0/24
 ```
 
-Konvoy ships with the default CIDR as `192.168.0.0/16`. One needs to make sure that `podSubnet` should not overlap with `serviceSubnet`.
+Konvoy ships with the default CIDR as `192.168.0.0/16`. You should make sure that `podSubnet` does not overlap with `serviceSubnet`.
 
 ### Network Policy
 
@@ -107,7 +107,7 @@ More details about Calico network policy can be found [here][calico_security]
 
 ## Service Discovery
 
-Konvoy ships with [CoreDNS][coredns] to provide DNS based service discovery.
+Konvoy ships with [CoreDNS][coredns] to provide a DNS based service discovery.
 The default CoreDNS configuration is as shown below:
 
 ```yaml
@@ -142,7 +142,7 @@ Discussion around Load Balancing can be split into two categories:
 ### Load balancing for internal traffic
 
 Load balancing within a Kubernetes cluster is exposed through a service of type `ClusterIP`.
-`ClusterIP` is similar to a virtual IP (VIP), which presents a single IP address to the client and load balance the traffic to the backends servers.
+`ClusterIP` is similar to a virtual IP (VIP), which presents a single IP address to the client and load balances the traffic to the backend servers.
 The actual load balancing happens via iptables rules or ipvs configuration, which are programmed by a Kubernetes component called `kube-proxy`.
 By default, `kube-proxy` runs in iptables mode.
 It configures iptables to intercept any traffic destined towards `ClusterIP` and send traffic to the real servers based on the probabilistic iptables rules.
@@ -169,9 +169,9 @@ To use MetalLB for add-on load balancing:
   * from the computer that is used to deploy Kubernetes.
 
 If the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes then nothing more needs to be configured.
-However, if it is in a different subnet then one may need to configure appropriate routes to ensures connectivity with the virtual IP address.
+However, if it is in a different subnet then upi may need to configure appropriate routes to ensures connectivity with the virtual IP address.
 Further, the virtual IP addresses may share an interface with the primary IP address of the interface.
-In such cases, one needs to disable any IP or MAC spoofing from the infrastructure firewall.
+In such cases, you must disable any IP or MAC spoofing from the infrastructure firewall.
 
 MetalLB can be configured in two modes - Layer2 and BGP.
 

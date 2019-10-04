@@ -21,7 +21,9 @@ For example, the container runtime, journald facility, and systemd configuration
 
 The following diagram illustrates how different components of the logging stack provide information about the Konvoy cluster.
 
-![logging-stack](logging.png)
+![logging-stack](../img/logging.png)
+
+Figure 1 - Logging stack
 
 # Accessing cluster logs
 

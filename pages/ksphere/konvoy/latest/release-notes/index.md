@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Release notes
-title: Release notes
-menuWeight: 15
+navigationTitle: Release Notes
+title: Release Notes
+menuWeight: 0
 excerpt: View release-specific information for Konvoy
 enterprise: false
 ---
@@ -11,7 +11,7 @@ enterprise: false
 
 ### Version 1.2.0 - Released 30 September 2019
 
-| Kubernetes support | Version |
+| Kubernetes Support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
@@ -19,7 +19,7 @@ enterprise: false
 
 #### Disclaimer
 
-**You must follow modify your `cluster.yaml` with the changes described when upgrading from a previous version:**
+**You must modify your `cluster.yaml` with these changes when upgrading from a previous version:**
 
 ```yaml
 kind: ClusterConfiguration
@@ -35,7 +35,7 @@ spec:
     ...
 ```
 
-Including appending the `cert-manager` addon to the list of addons.
+You must also append the `cert-manager` add-on to the list of add-ons.
 
 #### Breaking changes
 
@@ -43,15 +43,15 @@ N/A
 
 #### Improvements
 
-- Use the Kubernetes [Downward API](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/) `status.podIP` value to set the IP for Calico to use. This will enable Konvoy to better support machines with multiple network interfaces, without the need for the user to configure the Calico installation.  
-- The `konvoy diagnose` now puts cluster-level data into a separate tarball `cluster-data.tar.gz` so it's easily accessible.
-- Set ssh `IdentitiesOnly=yes` when a private key is provided to avoid the max keys error `Too many authentication failures` in the ssh-agent.
-- Set `oidc-groups-claim` in the kube-apiserver pod, allowing for the use of the user’s group in the claim.
+- Use the Kubernetes [Downward API](https://kubernetes.io/docs/tasks/inject-data-application/downward-api-volume-expose-pod-information/) `status.podIP` value to set the IP for Calico to use. This will enable Konvoy to better support machines with multiple network interfaces, without the need for you to configure the Calico installation.  
+- The `konvoy diagnose` now puts cluster-level data into a separate tarball `cluster-data.tar.gz` so it is easily accessible.
+- Set SSH `IdentitiesOnly=yes` when a private key is provided to avoid the max keys error `Too many authentication failures` in the ssh-agent.
+- Set `oidc-groups-claim` in the `kube-apiserver` pod, allowing for the use of the user’s group in the claim.
 
-#### Addons improvements
+#### add-ons improvements
 
-- Add support to the `awsebscsiprovisioner` addon to support HTTP_PROXY settings.
-- New [cert-manager](https://github.com/jetstack/cert-manager) addon.
+- Add support to the `awsebscsiprovisioner` add-on to support HTTP_PROXY settings.
+- New [cert-manager](https://github.com/jetstack/cert-manager) add-on.
 
 #### Bug fixes
 
@@ -64,14 +64,14 @@ N/A
 
 #### Known issues and limitations
 
-Known issues and limitations don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios.
+Known issues and limitations do not necessarily affect all customers, but might require changes to your environment to address specific scenarios.
 The issues are grouped by feature, functional area, or component.
 Where applicable, issue descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
-    For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
+    For example, if you see an error message similar to `could not check tiller installation`, the root cause is typically insufficient resources.
 
 -   Dex should always be enabled.
 
@@ -90,7 +90,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 ### Version 1.1.5 - Released 11 September 2019
 
-| Kubernetes support | Version |
+| Kubernetes Support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
@@ -104,7 +104,7 @@ N/A
 
 N/A
 
-#### Addons improvements
+#### add-ons improvements
 
 - Relax the check comparing tiller and helm client version, allowing you to upgrade from any previous versions of Konvoy.
 
@@ -124,7 +124,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
     For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
 
 -   Dex should always be enabled.
@@ -196,7 +196,7 @@ spec:
 - New preflight check to validate a node will be able to route traffic to Kubernetes service IPs.
 - Remove the cluster SSH key from the host `ssh-agent` when running `konvoy down`, preventing errors caused by hitting a limit in the number of keys in the agent.
 
-#### Addons improvements
+#### add-ons improvements
 
 - Log `minio-operator` logs to stdout so they show up when running `kubectl get logs`.
 
@@ -219,7 +219,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
     For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
 
 -   Dex should always be enabled.
@@ -268,7 +268,7 @@ spec:
 
 - Use default values in `cluster.yaml` for any missing fields.
 
-#### Addons improvements
+#### add-ons improvements
 
 N/A
 
@@ -288,7 +288,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
     For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
 
 -   Dex should always be enabled.
@@ -324,7 +324,7 @@ N/A
 - Fetch kube-apiserver audit logs during `diagnose`.
 - Support running `konvoy` from a machine that is behind an HTTP proxy by passing `HTTP_PROXY`, `HTTPS_PROXY` and `NO_PROXY` environment variables to the binary.
 
-#### Addons improvements
+#### add-ons improvements
 
 - Minor Grafana dashboard fixes.
 - New Grafana dashboard for velero.
@@ -353,7 +353,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
     For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
 
 -   Dex should always be enabled.
@@ -482,7 +482,7 @@ spec:
             name: "custom-ip-control-plane"
 ```
 
-#### Addons improvements
+#### add-ons improvements
 
 N/A
 
@@ -507,7 +507,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
     For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
 
 -   Dex should always be enabled.
@@ -582,7 +582,7 @@ all:
 - [AWS] Force detach EBS volumes when deleting them, preventing possible errors when running `konvoy down`.
 - Fix a well known [kmem issue](https://github.com/kubernetes/kubernetes/issues/61937) by using a custom built Kubelet with kmem accounting disabled.
 
-#### Addons improvements
+#### add-ons improvements
 
 - Enabled the service monitor for Velero.
 - Added dashboards for Calico and Velero.
@@ -606,7 +606,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
     For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
 
 -   Dex should always be enabled.
@@ -655,7 +655,7 @@ Highlights for the features and capabilities introduced in this release are grou
 -   Supports `bastion` host-based installation.
 -   Supports HTTP proxy.
 -   Supports the use of labels and taints for creating node pools.
--   Installs a default set of platform service components (Addons) to support the following features:
+-   Installs a default set of platform service components (add-ons) to support the following features:
     - Monitoring and alerting
     - Logging
     - Storage (CSI)
@@ -715,13 +715,13 @@ Highlights for the features and capabilities introduced in this release are grou
 -   Provides backup and restore services for the cluster state using Velero, including:
     - Scheduled automatic backups
     - Use of minio for S3 storage
--   Provides a method for upgrading Kubernetes and the associated Addons.
+-   Provides a method for upgrading Kubernetes and the associated add-ons.
 -   Provides a method for deleting the cluster.
 -   Provides troubleshooting tools, including
     - Pre-flight checks
     - Node checks
     - Kubernetes checks
-    - Addon checks
+    - add-on checks
     - Diagnostics bundle generation
 
 For more information about any of these features,see the [Konvoy documentation][konvoy-doc].
@@ -736,7 +736,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy add-ons.
     For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
 
 -   EL7-based distributions run out of memory.

@@ -166,8 +166,7 @@ To add custom resource files for provisioning:
 
 ## Using existing infrastructure
 
-**NOTE:** The following steps require the creation of a `cluster.yaml` configuration file.
-If you do not already have that file, create it by running `konvoy init`.
+<p class="message--note"><strong>NOTE: </strong> The following steps require the creation of a <tt>cluster.yaml</tt> configuration file. If you do not already have that file, create it by running <tt>konvoy init</tt>.</p>
 
 ### VPC
 It is possible to use an existing VPC if so desired.
@@ -191,10 +190,10 @@ It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
 
 The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
 
-**NOTE:** Optionally you can use an existing internet-gateway by defining the `vpc.internetGatewayID` field.
+<p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing Internet gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
 
 ### Subnets
-An existing vpc may already contain`subnets` for use, you may define them in the following way:
+An existing VPC may already contain`subnets` for use; you may define them in the following way:
 
 ```yaml
 ...
@@ -256,15 +255,15 @@ spec:
 ```
 
 The number of `IDs` in each type of subnet must match the number of `aws.availabilityZones` defined and they must be listed in the same order as the `aws.availabilityZones`.
-The public subnet must be set to automatically set up public ip's on launch.
+The public subnet must be set to automatically set up public IPs on launch.
 
 Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing nodepools.
-That could lead collisions in CIDR blocks and failure to deploy, the recommendation here then is for a full list of subnets be known along with the nodepools desired.
+That could lead to collisions in CIDR blocks and failure to deploy; in that case we recommend a full list of subnets be known along with the nodepools desired.
 
-For the most part the nodepools created should exist in a private network configuration, which is konvoy's default approach.
-Bastion hosts allow for secure access to one's cluster, but since they do need to be accessed externally they should be deployed with a subnet where public ips are created.
+For the most part the nodepools created should exist in a private network configuration, which is Konvoy's default approach.
+Bastion hosts allow for secure access to your cluster, but since they do need to be accessed externally they should be deployed with a subnet where public IPs are created.
 
-The default Subent CIDR blocks that are created by Konvoy are as follows:
+The default Subnet CIDR blocks that are created by Konvoy are as follows:
 
 * Public Subnet: `10.0.64.0/18`
 * Private Subnet: `10.0.128.0/18`
@@ -272,7 +271,7 @@ The default Subent CIDR blocks that are created by Konvoy are as follows:
 
 Similarly to the VPC, you may choose to use these blocks or define any other appropriate block.
 
-**NOTE:** Keep in mind the default value of `spec.kubernetes.networking.serviceSubnet` is set to `10.0.0.0/18`, the blocks you choose must not overlap with the `serviceSubnet`.
+<p class="message--note"><strong>NOTE: </strong>Keep in mind that the default value of <tt>spec.kubernetes.networking.serviceSubnet</tt> is set to <tt>10.0.0.0/18</tt>. The blocks you choose must not overlap with the <tt>serviceSubnet</tt>.</p>
 
 ### IAM Instance Profiles
 An existing IAM instance profile can be used, provided that the right policies must be set:

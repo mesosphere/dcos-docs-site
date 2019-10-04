@@ -22,7 +22,7 @@ The steps for configuring a bastion host depend on whether your cluster is insta
 
 ## Configure a bastion host for an on-premise cluster
 
-To use a bastion host for an on-premise deployment, you *must* use [SSH agent forwarding][ssh_agent].
+To use a bastion host for an on-premise deployment, you **must** use [SSH agent forwarding][ssh_agent].
 The requirement to use SSH agent forwarding enables the bastion host to authenticate with the cluster nodes using keys on the deployment machine without copying or storing any keys on the bastion host itself.
 
 If you already have a private and public key pair for connecting to the cluster from the deployment machine, you can configure a bastion host for an on-premise cluster by doing the following:
@@ -54,7 +54,7 @@ For this example, the key pair consists of the private key `${HOME}/.ssh/id_rsa`
       ssh-add ${HOME}/.ssh/id_rsa
       ```
 
-1. Verify the SSH agent forwarding is configured properly by manually opening a secure shell session connection to one of the cluster nodes.
+1. Verify that the SSH agent forwarding is configured properly by manually opening a secure shell session connection to one of the cluster nodes.
 
     For example, log in by running a command similar to the following:
 
@@ -115,10 +115,10 @@ all:
     ansible_port: 22
 ```
 
-You should note that you must specify the `ansible_user` and `ansible_port`.
+Note that you must specify the `ansible_user` and `ansible_port`.
 These settings define the user name and port number that the bastion host uses to establish the SSH connection between the bastion host and the cluster host.
 
-In editing the `inventory.yaml` file, you should also keep in mind that SSH agent forwarding is required and, therefore, you MUST NOT specify any value for the `ansible_ssh_private_key_file` setting.
+In editing the `inventory.yaml` file, you should also keep in mind that SSH agent forwarding is required and, therefore, you **must not** specify any value for the `ansible_ssh_private_key_file` setting.
 When you run `konvoy up`, Konvoy validates that a valid private key has been loaded in the SSH agent for the provided public key.
 
 ## Configure a bastion host for cluster deployed on AWS
@@ -149,9 +149,9 @@ Using the `nodePool` settings, the AWS provisioner automatically creates two new
 * Allow proxy SSH connections to the rest of the nodes.
 * Block remote SSH access to the cluster EC2 instances.
 
-Notice that `spec.sshCredentials.privateKeyFile` MUST NOT be specified.
+Notice that `spec.sshCredentials.privateKeyFile` **must not** be specified.
 This would inform Konvoy to look for private keys in the SSH agent, instead of generating a new key pair.
-Remember that SSH agent forwarding is *required* for using bastion hosts.
+Remember that SSH agent forwarding is **required** for using bastion hosts.
 
 When a Konvoy cluster is deployed on an Amazon Web Services cloud instance, the Ansible inventory file, `inventory.yaml`, is automatically generated.
 The generated `inventory.yaml` file will be similar to the following:

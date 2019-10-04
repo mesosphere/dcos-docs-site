@@ -15,14 +15,14 @@ The topics in this section guide you through the basic steps to prepare your env
 
 Before installing, verify that your environment meets the following basic requirements:
 
-* [Docker Desktop][install_docker] _version 18.09.2 or newer_
+* [Docker Desktop][install_docker] version 18.09.2 or later
 
-  You must have Docker Desktop installed on the host where the Konvoy command-line interface (CLI) will run.
+  You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] _v1.15.4 or newer_
+* [kubectl][install_kubectl] v1.15.4 or later
 
-  You must have for `kubectl` installed on the host where the Konvoy command-line interface (CLI) will run to enable interaction with the running cluster.
+  You must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -31,7 +31,7 @@ Before installing, verify that your environment meets the following basic requir
 * Each control plane node should have at least:
   * 8 cores
   * 16 GiB memory
-  * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
+  * 80 GiB of free space in the root partition, and the root partition must be less than 85% full.
 
 ## Worker nodes
 
@@ -45,11 +45,11 @@ Before installing, verify that your environment meets the following basic requir
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
-  Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
+  Each volume must have **at least** 55 GiB of capacity if the default add-on configurations are used.
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster--except the **deploy host**--you should verify the following configuration requirements:
+For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
 * CentOS 7.6 is installed.
 * Firewalld is disabled.
@@ -121,7 +121,7 @@ For each host, you can also optionally specify the `ansible_host` attribute if y
 Make sure that the computer you are using as the **deploy host** can open secure shell (SSH) connections to communicate with each host specified in the inventory file.
 To ensure a successful installation, the `ansible_user` account must be able to open a secure shell on each host without typing password.
 
-You could to use `ssh-agent` to pass identity keys and passphrases for authentication.
+You can use `ssh-agent` to pass identity keys and passphrases for authentication.
 
 ## Sample inventory file
 
@@ -279,7 +279,7 @@ To use MetalLB for add-on load balancing:
 If all cluster hosts and the reserved virtual IP addresses are in the same subnet, you typically do not need to perform any additional configuration to your networking infrastructure.
 If you are using more than one subnet for the cluster, however, you should work with your networking team to ensure connectivity between all hosts and the reserved range of virtual IP addresses.
 
-MetalLB can be configured in two modes - layer2 and bgp.
+MetalLB can be configured in two modes - layer2 and BGP.
 
 The following example illustrates the layer2 configuration in the `cluster.yaml` configuration file:
 
@@ -343,13 +343,13 @@ To mount local volumes:
     sudo mount -t ext4 /dev/path/to/disk /mnt/disks/$DISK_UUID
     ```
 
-1. Persistent the mount entry by adding it to `/etc/fstab` as follows:
+1. Persist the mount entry by adding it to `/etc/fstab` as follows:
 
     ```bash
     echo UUID=`sudo blkid -s UUID -o value /dev/path/to/disk` /mnt/disks/$DISK_UUID ext4 defaults 0 2 | sudo tee -a /etc/fstab
     ```
 
-1. Verify local volumes stay mounted after the host is rebooted.
+1. Verify that local volumes stay mounted after the host is rebooted.
 
 For more information on how to mount local volumes, see the [Operations][static_pv_provisioner_operations] guide for Kubernetes.
 
@@ -400,7 +400,7 @@ Specifically, the `konvoy up` command does the following:
   * [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][promethsus_adapter]) to collect and evaluate metrics for monitoring and alerting.
   * [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
   * [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
-  * Operations portal to centralize access to addon dashboards.
+  * Operations portal to centralize access to add-on dashboards.
   * [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
   * [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
   * [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
