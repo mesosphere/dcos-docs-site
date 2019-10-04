@@ -7,12 +7,16 @@ excerpt: Upgrade Kubernetes for your Konvoy cluster
 enterprise: false
 ---
 
-Before upgrading, keep in mind there is an inherent risk to upgrading any Kubernetes cluster because any failure or error could result in unexpected downtime or loss of data.
+Before upgrading, keep in mind there is an inherent risk in upgrading any Kubernetes cluster, because any failure or error could result in unexpected downtime or loss of data.
 You should take whatever precautions are necessary before starting the upgrade process.
 For example, you should be sure to back up the cluster state and all cluster-related files using [velero](https://github.com/heptio/velero) before you upgrade.
 
 You should also keep in mind that cluster add-ons require a specific minimum version of Kubernetes to be installed.
-You can verify the version you have installed before upgrading by running the `kubectl version --short=true` command.
+You can verify the version you have installed before upgrading by running the command
+
+```bash
+kubectl version --short=true
+``` 
 
 ## Konvoy upgrade
 
@@ -28,13 +32,13 @@ metadata:
   creationTimestamp: "2019-06-08T03:25:20.939527Z"
 spec:
   kubernetes:
-    version: 1.15.4
+    version: 1.15.3
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
 ```
 
-If you want to upgrade to a newer patch version of `1.15`, then you would change the version string like this:
+If you want to upgrade to a newer patch version of `1.15`, then you must change the version string like this:
 
 ```yaml
 kind: ClusterConfiguration
@@ -51,7 +55,7 @@ After you modify the version information, you can start the upgrade process by r
 
 ```bash
 konvoy up --upgrade -y
-This process will take about 20 minutes to complete (additional time may be required for larger clusters)
+This process will take about 20 minutes to complete (additional time may be required for larger clusters).
 
 STAGE [Determining Upgrade Safety]
 ...

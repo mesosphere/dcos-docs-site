@@ -148,9 +148,9 @@ The integration will be turned on by default and does not require any configurat
 Konvoy creates a [default storage class][default_storage_class] backed by AWS EBS CSI plugin by default.
 This means if the user does not specify a storage class in his/her `PersistentVolumeClaim`, it will default to the AWS EBS CSI plugin.
 
-All the addons installed by Konvoy will use the default storage class.
+All the add-ons installed by Konvoy will use the default storage class.
 
-If a user wants to use a different storage vendor, he/she will need to either disable the AWS EBS CSI plugin (i.e., by disable the `awsebscsiprovisioner` addon), or set the `storageclass.isDefault` field to `false` for the addon.
+If a user wants to use a different storage vendor, he/she will need to either disable the AWS EBS CSI plugin (i.e., by disable the `awsebscsiprovisioner` add-on), or set the `storageclass.isDefault` field to `false` for the add-on.
 
 ```yaml
 kind: ClusterConfiguration
@@ -283,7 +283,7 @@ This section describes how to remove the LVM volume created in the last section.
 ## Third party storage integration
 
 This is similar to that in AWS deployment.
-The user will need to either turn off the local volume provisioner addon, or set the `storageclass.isDefault` field to `false` for the addon.
+The user will need to either turn off the local volume provisioner add-on, or set the `storageclass.isDefault` field to `false` for the add-on.
 
 ```yaml
 kind: ClusterConfiguration

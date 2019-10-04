@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Accessing the cluster
 title: Accessing the cluster
 menuWeight: 1
-excerpt: Access the Konvoy cluster using the operations portal, command-line interface, or kubectl
+excerpt: Access the Konvoy cluster using the operations portal, command line interface, or kubectl
 enterprise: false
 ---
 
@@ -31,18 +31,18 @@ This can also be retrieved after the cluster is deployed, with the following com
 konvoy get ops-portal
 ```
 
-The URL provided in these details offers access to the _operations portal_, a web UI which links to various dashboards of the tooling integrated on Konvoy Kubernetes clusters.
+The URL provided in these details offers access to the **operations portal**, a web UI which links to various dashboards of the tooling integrated on Konvoy Kubernetes clusters.
 This UI is hosted on a web application within the cluster, which runs on the cluster's ingress load balancer.
 
 1. Enter that URL in your browser.
 2. Click the "Launch Console" button
 3. Enter your username and password as noted above, and click "Login".
 
-You'll then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to addon services such as Grafana.
+You will then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to add-on services such as Grafana.
 
 ## Using kubectl
 
-One of the most common ways to perform administrative tasks and interact with a Kubernetes cluster is through the `kubectl` command-line interface.
+One of the most common ways to perform administrative tasks and interact with a Kubernetes cluster is through the `kubectl` command line interface.
 With `kubectl`, you can run commands against native Kubernetes clusters to retrieve information about key cluster activities and to control specific cluster-level components and operations.
 
 For example, you can use `kubectl` to:
@@ -82,7 +82,8 @@ This section illustrates how non-administrative users could access the cluster's
 4. Log in using your username and password, or using a third-party integrated sign-on.
 5. Follow instructions and execute commands in your terminal, as directed on the page.
 
-**NOTE** by default, new users who log in this way will *NOT* have permissions on the cluster's API.
+<p class="message--note"><strong>NOTE: </strong>By default, new users who log in this way will <strong>not</strong> have permissions on the cluster's API. </p>
+
 Your cluster administrator must grant you permissions on the cluster, through a Kubernetes [role-binding][role_binding].
 
 An unprivileged user will receive errors like the following via `kubectl`:
@@ -102,16 +103,16 @@ kubectl create clusterrolebinding rb_admin_${USERNAME} --clusterrole=cluster-adm
 The following sections highlight several important commands that are particularly relevant for working with **konvoy** clusters.
 For information about other commands that are generally useful, see [the kubectl cheatsheet][1].
 
-#### Viewing addons and system pods
+#### Viewing add-ons and system pods
 
-Konvoy clusters come with a series of addons deployed.
-These addons live in one of three namespaces:
+Konvoy clusters come with a series of add-ons deployed.
+These add-ons live in one of three namespaces:
 
-- `kube-system`: Core Kubernetes components, and a limited set of addons that require administrative access to the cluster deploy here
+- `kube-system`: Core Kubernetes components, and a limited set of add-ons that require administrative access to the cluster deploy here
 - `velero`: Velero (used for cluster backup and restore) and its components are deployed here
-- `kubeaddons`: Most addons will be deployed here unless otherwise specified
+- `kubeaddons`: Most add-ons will be deployed here unless otherwise specified
 
-For a basic status check of all the addon- and system-related pods, run the following commands:
+For a basic status check of all the add-on and system-related pods, run the following commands:
 
 ```bash
 kubectl -n kube-system get pods
