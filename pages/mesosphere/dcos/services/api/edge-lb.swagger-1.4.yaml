@@ -1,0 +1,132 @@
+swagger: '2.0'
+info:
+  title: dcos_edge_lb
+  description: Create and manage load balancers with DCOS Edge LB API
+  version: 1.0.0
+schemes:
+  - http
+  - https
+basePath: /
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /ping:
+    get:
+      description: Healthcheck endpoint.
+      operationId: Ping
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: Pong.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+  /version:
+    get:
+      description: Returns the installed Edge-LB package version.
+      operationId: Version
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: Version.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+  /config:
+    get:
+      description: Get the entire configuration object including v1 and v2 pools.
+      operationId: GetConfigContainer
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: A configuration object containing all load balancer pools.
+          schema:
+            $ref: '#/definitions/ConfigContainer'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+  '/pools/{name}':
+    get:
+      description: Returns a v1 or v2 load balancer pool based on a single name.
+      operationId: GetPoolContainer
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Load balancer pool response.
+          schema:
+            $ref: '#/definitions/PoolContainer'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  APIVersion:
+    type: string
+    enum:
+      - V1
+      - V2
+  ConfigContainer:
+    type: object
+    description: Object used internally as an interface to handle multple model versions.
+    properties:
+      pools:
+        type: array
+        description: Array of pool containers.
+        items:
+          $ref: '#/definitions/PoolContainer'
+  PoolContainer:
+    type: object
+    description: Object used internally as an interface to handle multple model versions.
+    default:
+      {
+      "apiVersion": "V1"
+      }
+    properties:
+      apiVersion:
+        description: The api / schema version of this pool object
+        $ref: '#/definitions/APIVersion'
+      name:
+        type:
+          string
+      namespace:
+        type:
+          string
+        x-nullable: true
+      v1:
+        $ref: '#/definitions/V1Pool'
+      v2:
+        $ref: '#/definitions/V2Pool'
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+
+# vim: ts=2 sts=2 sw=2:
