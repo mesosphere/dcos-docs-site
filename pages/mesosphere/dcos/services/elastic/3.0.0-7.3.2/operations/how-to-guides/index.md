@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: How-To Guides
-excerpt: Optional operations
-title: How-To Guides
+navigationTitle: Kibana and Edge-LB
+excerpt: How to expose Kibana using Edge-LB
+title: Kibana and Edge-LB
 menuWeight: 120
 model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
@@ -29,7 +29,7 @@ edgelb-pool  v1.3.0   True      True       EdgeLB Pool on DC/OS
 
 If it does, you can skip the `dcos package repo add` commands below.
 
-**Otherwise**, if you see a `No packages found` message you'll need to add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/) and the [Certified packages and DC/OS versions](/mesosphere/dcos/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
+**Otherwise**, if you see a `No packages found` message you will need to add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/) and the [Certified packages and DC/OS versions](/mesosphere/dcos/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
 
 Use commands similar to the following to install the Edge-LB packages:
 
