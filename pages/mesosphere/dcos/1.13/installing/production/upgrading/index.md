@@ -174,7 +174,7 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
    <tr>
     <th></th>
-    <th Colspan = "2" Align = "center"><strong>Upgrade To</strong></th>
+    <th Colspan = "6" Align = "center"><strong>Upgrade To</strong></th>
    </tr>
     <th></th>
     <th Align = "center">1.13.0</th>
