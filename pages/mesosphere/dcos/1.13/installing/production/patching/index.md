@@ -53,7 +53,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
    <tr>
     <th></th>
-    <th Colspan = "20" Align = "center"><strong>Patch To</strong></th>
+    <th Colspan = "6" Align = "center"><strong>Patch To</strong></th>
    </tr>
     <th></th>
     <th>1.13.1</th>
@@ -96,7 +96,6 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
    </tr>
    <tr>
     <th>1.13.4</th>
-    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
