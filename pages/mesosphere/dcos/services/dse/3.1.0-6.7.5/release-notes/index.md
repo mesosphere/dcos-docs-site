@@ -23,11 +23,11 @@ render: mustache
 
 ## New Features
 - Added support for DSS volume profiles
-- Added [custom domain](/mesosphere/dcos/services/{{ model.serviceName }}/3.1.0-6.7.5/security/#forwarding-dns-and-custom-domain) support
+- Added [custom domain](/mesosphere/dcos/services/{{ model.serviceName }}/latest/security/#forwarding-dns-and-custom-domain) support
 
 
 ## Improvements
-- Remove Non-HTTPS resources and references by replacing them with HTTPS ones
+- Remove non-HTTPS resources and references by replacing them with HTTPS ones
 - Added more directories to the PATH (resources/cassandra/bin, resources/cassandra/tools/bin)
 - Added descriptions for configuration parameters
 - Updated UI URLs to redirect to correct reference doc pages
