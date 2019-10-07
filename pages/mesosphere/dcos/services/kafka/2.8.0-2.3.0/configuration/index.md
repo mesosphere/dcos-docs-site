@@ -14,7 +14,7 @@ render: mustache
 
 ## Configuring the ZooKeeper Connection
 
-{{ model.techName }} requires a running ZooKeeper ensemble to perform its own internal accounting. By default, the DC/OS {{ model.techName }} Service uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster at `master.mesos:2181/dcos-service-<servicename>`. At install time, you can configure an alternate ZooKeeper for {{ model.techName }} to use. This enables you to increase {{ model.techName }}'s capacity and removes the DC/OS System ZooKeeper ensemble's involvement in running it.
+{{ model.techName }} requires a running ZooKeeper ensemble to perform its own internal accounting. By default, the DC/OS {{ model.techName }} Service uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster at `master.mesos:2181/dcos-service-<servicename>`. At install time, you can configure an alternate ZooKeeper for {{ model.techShortName }} to use. This enables you to increase {{ model.techShortName }}'s capacity and removes the DC/OS System ZooKeeper ensemble's involvement in running it.
 
 To configure an alternate Zookeeper instance:
 
@@ -30,13 +30,13 @@ To configure an alternate Zookeeper instance:
     }
     ```
 
-1. Install {{ model.techName }} with the options file you created.
+1. Install {{ model.techShortName }} with the options file you created.
 
     ```bash
     dcos package install {{ model.packageName }} --options="options.json"
     ```
 
-You can also update an already-running {{ model.techName }} instance from the DC/OS CLI, in case you need to migrate your ZooKeeper data elsewhere.
+You can also update an already-running {{ model.techShortName }} instance from the DC/OS CLI, in case you need to migrate your ZooKeeper data elsewhere.
 
 <p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must first copy the data from your current ZooKeeper ensemble to the new ZooKeeper ensemble. The new location must have the same data as the previous location during the migration.</p>
 
@@ -79,7 +79,7 @@ The grace period must also be respected when a broker is shut down before replac
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must create the necessary <a href="/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secrets</a> for the options: access_file, password_file, key_store, key_store_password_file, trust_store and trust_store_password_file.</p>
+<p class="message--note"><strong>NOTE: </strong> Before performing this configuration change, you must create the necessary <a href="/mesosphere/dcos/latest/security/ent/secrets/">DC/OS Secrets</a> for the options: <tt>access_file</tt>, <tt>password_file</tt>, <tt>key_store</tt>, <tt>key_store_password_file</tt>, <tt>trust_store</tt>, and <tt>trust_store_password_file</tt>.</p>
 
 Refer to [Secure JMX](/mesosphere/dcos/services/kafka/2.6.0-2.2.1/advanced/#secure-jmx-enterprise) for a more detailed configuration process.
 
@@ -91,7 +91,7 @@ Volume profiles are used to classify volumes. For example, users can group SSDs 
 
 <p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
 
-Once the DC/OS cluster is running and volume profiles are created, you can deploy Kafka with the following configs:
+Once the DC/OS cluster is running and volume profiles are created, you can deploy {{ model.techShortName }} with the following configs:
 
 ```bash
 cat > kafka-options.json <<EOF
@@ -106,9 +106,9 @@ EOF
 ```
 dcos package install kafka --options=kafka-options.json
 ```
-<p class="message--note"><strong>NOTE: </strong>Kafka will be configured to look for <code>MOUNT</code> volumes with the <code>kafka</code> profile.</p> 
+<p class="message--note"><strong>NOTE: </strong>Kafka will be configured to look for <tt>MOUNT</tt> volumes with the <tt>kafka</tt> profile.</p> 
 
-Once the Kafka service finishes deploying its tasks will be running with the specified volume profiles.
+Once the {{ model.techShortName }} service finishes deploying, its tasks will be running with the specified volume profiles.
 
 ```bash
 dcos kafka update status
@@ -121,7 +121,7 @@ deploy (serial strategy) (COMPLETE)
 
 ## Configuring Service Health Checks
 
-DC/OS {{ model.techName }} supports service oriented health checks allowing you to monitor your service health in details. This can be specified by passing the following configuration during installation:
+DC/OS {{ model.techName }} supports service oriented health checks, allowing you to monitor your service health in detail. This can be specified by passing the following configuration during installation:
 
 ```json
 {
