@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Advanced Features of DSE
+navigationTitle: Advanced Features 
 excerpt: Advanced features of the DC/OS DataStax Enterprise service
-title: Advanced Features of DSE
+title: Advanced Features
 menuWeight: 25
 model: /mesosphere/dcos/services/dse/data.yml
 render: mustache

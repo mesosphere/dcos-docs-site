@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Uninstalling DSE
+navigationTitle: Uninstalling 
 excerpt: Uninstalling DataStax Enterprise
-title: Uninstalling DSE
+title: Uninstalling 
 menuWeight: 60
 model: /mesosphere/dcos/services/dse/data.yml
 render: mustache

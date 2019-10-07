@@ -11,8 +11,8 @@ render: mustache
 # Version 3.1.0-6.7.5
 
 ## Updates
-- Upgraded DSE to version `6.7.5` and OpsCenter to version `6.7.4`
-- Upgraded SDK to `0.57.1`. For more information see SDK's Release Notes for: 
+- Upgraded {{ model.techShortName }} to version 6.7.5 and {{ model.techOpsName }} to version 6.7.4
+- Upgraded SDK to 0.57.1. For more information see SDK's Release Notes for: 
   - [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
   - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
   - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
@@ -31,7 +31,7 @@ render: mustache
 - Added more directories to the PATH (resources/cassandra/bin, resources/cassandra/tools/bin)
 - Added descriptions for configuration parameters
 - Updated UI URLs to redirect to correct reference doc pages
-- Exclude OpsCenter keyspace from list of keyspaces managed by Repair Services
+- Exclude {{ model.techOpsName }} keyspace from list of keyspaces managed by Repair Services
 - Accurate Scheduler Plan status in the UI
 
 ## Bug Fixes
@@ -42,7 +42,7 @@ render: mustache
 # Version 3.0.0-6.7.2
 
 ## Updates
-- Upgraded DSE to version `6.7.2` and OpsCenter to version `6.7.1`
+- Upgraded {{ model.techShortName }} to version `6.7.2` and {{ model.techOpsName }} to version `6.7.1`
 - Upgraded SDK to `0.55.4` 
 
 ## New Features
@@ -67,26 +67,26 @@ render: mustache
 	- Improving logging, debuggability, and bug fixes
 	- Please read SDK-related release notes to learn more: https://github.com/mesosphere/dcos-commons/releases
 
-## Upgrading your cluster from DSE 5.1 to 6.7
-Due to the complexity of upgrading to DSE 6.7, it is highly advised that you attempt the upgrade on a test cluster before upgrading in your production environment.
+## Upgrading your cluster from {{ model.techShortName }} 5.1 to 6.7
+Due to the complexity of upgrading to {{ model.techShortName }} 6.7, it is highly advised that you attempt the upgrade on a test cluster before upgrading in your production environment.
 
-In order to upgrade your cluster from DSE 5.1 to DSE 6.7 you must:
-- Review official DSE upgrade docs: https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html
+In order to upgrade your cluster from {{ model.techShortName }} 5.1 to {{ model.techShortName }} 6.7 you must:
+- Review official {{ model.techShortName }} upgrade docs: https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html
   - follow instructions in the [Upgrade restrictions and limitations](https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html#Upgraderestrictionsandlimitations)
   - if using CFS, copy your data from it
   - Using `cqlsh`, drop CFS keyspaces: `cfs` and `cfs_archive`
-- Run the following command to upgrade your DSE package: 
+- Run the following command to upgrade your {{ model.techShortName }} package: 
   ```
   dcos datastax-dse update start --package-version=3.0.0-6.7.2
   ```
-	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each DSE node to version `6.7.2`
+	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each {{ model.techShortName }} node to version `6.7.2`
 	<p class="message--important"><strong>IMPORTANT: </strong>Before upgrading, make sure the agent running <code>dse-0-node</code> has more than 0.25 CPU available. This is required to run the <code>compact-storage</code> task. You may have to move other services running on that agent to accommodate.</p>
 
-- After DSE upgrade, you can upgrade OpsCenter with the following command: 
+- After {{ model.techShortName }} upgrade, you can upgrade {{ model.techOpsName }} with the following command: 
   ```
   dcos datastax-ops update start --package-version=3.0.0-6.7.1
   ```
-- After OpsCenter upgrade succeeds, run the following command to convert sstables to the proper version:
+- After {{ model.techOpsName }} upgrade succeeds, run the following command to convert sstables to the proper version:
 	```
 	dcos datastax-dse plan start nodetool-ser \
 	  [-p NODETOOL_CONNECTION_OPTS='-p 7199']  \  ## optional
@@ -99,13 +99,13 @@ In order to upgrade your cluster from DSE 5.1 to DSE 6.7 you must:
 # Version 2.4.0-5.1.10
 
 ## Improvements
-- Update to {{ model.shortTechName }} 5.1.10 and OpsCenter 6.1.9
+- Update to {{ model.shortTechName }} 5.1.10 and {{ model.techOpsName }} 6.1.9
 
 # Version 2.3.0-5.1.2
 
 ## New Features
 
-- DataStax {{ model.shortTechName }} and DataStax OpsCenter now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
+- DataStax {{ model.shortTechName }} and DataStax {{ model.techOpsName }} now isolate their `/tmp` task directories by making them Mesos [`SANDBOX_PATH` volume sources](https://github.com/apache/mesos/blob/master/docs/container-volume.md#sandbox_path-volume-source). ([#2467](https://github.com/mesosphere/dcos-commons/pull/2467) and [#2486](https://github.com/mesosphere/dcos-commons/pull/2486))
 
 ## Improvements
 
@@ -125,7 +125,7 @@ In order to upgrade your cluster from DSE 5.1 to DSE 6.7 you must:
 ## New Features
 
 - Ability to pause a service pod for debugging and recovery purposes. ([#1989](https://github.com/mesosphere/dcos-commons/pull/1989))
-- Support for starting/stopping Cassandra for PIT backup/restore support via OpsCenter.
+- Support for starting/stopping Cassandra for PIT backup/restore support via {{ model.techOpsName }}.
 - Support for the automated provisioning of TLS artifacts to secure service communication.
 
 ## Updates
@@ -144,11 +144,11 @@ In order to upgrade your cluster from DSE 5.1 to DSE 6.7 you must:
 
 ## Bug Fixes
 
-- Permission denied error when attempting to create a backup in OpsCenter
+- Permission denied error when attempting to create a backup in {{ model.techOpsName }}
 
 ## Improvements
 
-- Exposed additional OpsCenter agent options to the {{ model.shortTechName }} DC/OS service
+- Exposed additional {{ model.techOpsName }} agent options to the {{ model.shortTechName }} DC/OS service
 - Exposed commitlog_archiving.properties file and associated options to the {{ model.shortTechName }} DC/OS service
 
 ## Breaking Changes
