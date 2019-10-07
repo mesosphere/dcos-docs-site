@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Limitations of DSE
+navigationTitle: Limitations
 excerpt: Limitations of DC/OS DSE
-title: Limitations of DSE
+title: Limitations
 menuWeight: 100
 model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
@@ -12,11 +12,11 @@ render: mustache
 #include /mesosphere/dcos/services/include/limitations-zones.tmpl
 
 ## Service Limits
-- Multiple {{ model.shortTechName }} instances on a host is not supported in production.
-- Stopping or restarting a {{ model.shortTechName }} node from OpsCenter is not supported. Use `dcos pod restart` to restart {{ model.shortTechName }} nodes from the DC/OS CLI.
-- A single OpsCenter cannot manage multiple {{ model.shortTechName }} clusters, but can manage multiple DCs in the same cluster.
+- Multiple {{ model.shortTechName }} instances on a host are not supported in production.
+- Stopping or restarting a {{ model.shortTechName }} node from {{ model.techOpsName }} is not supported. Use `dcos pod restart` to restart {{ model.shortTechName }} nodes from the DC/OS CLI.
+- A single {{ model.techOpsName }} cannot manage multiple {{ model.shortTechName }} clusters, but can manage multiple DCs in the same cluster.
 - A {{ model.shortTechName }} node will restart if its associated {{ model.shortTechName }} Agent process crashes.
-- Point-in-time restore functionality through the OpsCenter UI is not supported.
+- Point-in-time restore functionality through the {{ model.techOpsName }} UI is not supported.
 
 ## Automatic failed node recovery
 

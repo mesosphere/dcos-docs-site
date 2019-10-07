@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: API Reference for DSE
+navigationTitle: API Reference
 excerpt: API Reference of the DC/OS DataStax Enterprise service
 title: API Reference
 menuWeight: 90

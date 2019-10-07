@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Troubleshooting DSE
+navigationTitle: Troubleshooting 
 excerpt: Diagnosing issues in DSE
-title: Troubleshooting DSE
+title: Troubleshooting 
 menuWeight: 70
 model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
