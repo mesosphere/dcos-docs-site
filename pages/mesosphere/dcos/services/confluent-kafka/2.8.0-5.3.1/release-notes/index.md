@@ -11,8 +11,8 @@ render: mustache
 ## Version 2.8.0-2.3.0
 
 ### Updates
-- Updated the base tech version of Confluent Kafka to `5.3.1`.
-- Updated the SDK to version `0.57.0`. For more information, see release notes for previous SDK releases:
+- Update the base tech version of Confluent Kafka to `5.3.1`.
+- Update the SDK to version `0.57.0`. For more information, see release notes for previous SDK releases:
   - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
   - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
 
