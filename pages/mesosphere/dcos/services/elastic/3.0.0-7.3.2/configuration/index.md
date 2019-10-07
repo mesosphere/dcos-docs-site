@@ -174,11 +174,7 @@ deploy (serial strategy) (COMPLETE)
 
 ## Elasticsearch Metrics
 
-`Elasticsearch Prometheus Exporter` collect Metrics for `Prometheus`.
- 
-Preconfigured `alert-rules`/`grafana-dashboards` stored in  `dcos/grafana-dashboards`/`dcos/prometheus-alert-rules` repositories.
-
-Otherwise you can use your one and just point them in `dcos-monitoring` configuration.
+Elasticsearch Prometheus Exporter collects Metrics for Prometheus. Preconfigured `alert-rules` and/or `grafana-dashboards` are stored in  `dcos/grafana-dashboards` and/or `dcos/prometheus-alert-rules` repositories. Otherwise you can use your one and just point them in `dcos-monitoring` configuration.
 <!-- What does "use your one" mean?    -->
 
 ## Grafana Dashboards
@@ -224,7 +220,7 @@ Otherwise you can use your one and just point them in `dcos-monitoring` configur
   }
 }
 ```
-**alert_rules_repository.path** contains files:
+**alert_rules_repository.path** contains the files:
 
 - `elasticsearch.rules`
 - `elasticsearch.yml`
