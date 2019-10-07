@@ -36,7 +36,7 @@ render: mustache
 - This DC/OS package can be upgraded from the following versions:
   - `2.6.0-3.2.0`
   - `2.5.0-2.6.0-cdh5.11.0`
-- To upgrade HDFS, users can run the following command:
+- To upgrade HDFS, run the following command:
   ```
   dcos hdfs update start --package-version=2.7.0-3.2.1
   ```
