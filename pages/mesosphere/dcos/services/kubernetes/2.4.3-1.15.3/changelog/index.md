@@ -8,6 +8,17 @@ excerpt: Changelog for DC/OS Kubernetes
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
+## Version 2.4.3-1.15.3
+
+### Changelog since 2.4.2-1.15.3
+
+#### Improvements
+
+* dcos-commons 0.57.0
+* Adds configuration options for DC/OS Quota support. See [Quota Support](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/operations/quota-support/) for more details.
+* Control Plane tasks are now launched with labels that support auto exposure of Kubernetes API via [EdgeLB](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/operations/exposing-the-kubernetes-api-marathonlb-edgelb/)
+
+
 ## Version 2.4.2-1.15.3
 
 ### Changelog since 2.4.1-1.15.2
@@ -16,7 +27,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 * Kubernetes 1.15.3
 * dcos-commons 0.56.3
-* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators or other components of the system.
+* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators or other components of the system.
 
 ### Changelog since 2.4.0-1.15.1
 
@@ -41,7 +52,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * CoreDNS v1.5.0
 * Calico v3.8.0
 * dcos-commons v0.56.1
-* Add option to deploy etcd cluster with 5 nodes. When high_availability is set to \"true\" in the package JSON, a Kubernetes cluster with 3 etcd nodes will be created. However, some Kubernetes clusters require more than 3 etcd nodes for production. Cluster administrators can use this option for those scenarios. This option will provision 5 etcd nodes for the Kubernetes cluster instead. To deploy an etcd cluster with 5 nodes it requires a cluster with at least 5 private agents.
+* Add option to deploy etcd cluster with 5 nodes. When high_availability is set to \"true\" in the package JSON, a Kubernetes cluster with 3 etcd nodes will be created. However, some Kubernetes clusters require more than 3 etcd nodes for production. Cluster administrators can use this option for those scenarios. This option will provision 5 etcd nodes for the Kubernetes cluster instead. Deploying an etcd cluster with 5 nodes requires a cluster with at least 5 private agents.
 * Add required options to configure an OIDC authentication provider for the Kubernetes API Server. See [Configuring the API Server](https://kubernetes.io/docs/reference/access-authn-authz/authentication/#configuring-the-api-server) for more information.
 
 #### Bug Fixes
@@ -77,7 +88,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * Calico 3.6.1
 * The `node-role.kubernetes.io/master=` label for the control-plane nodes is now set through the Kubernetes API instead of using the `kubelet --node-labels` flag. This happens because [setting any `kubernetes.io` prefixed labels has been deprecated in Kubernetes 1.13 and will be removed in Kubernetes 1.15](https://github.com/kubernetes/kubernetes/pull/68267).
 * dcos-commons: 0.56.0
-* Add option to expose Kubernetes cluster metrics. If dcos-monitoring package is installed the Kubernetes cluster metrics are automatically ingested to DC/OS metrics pipeline.
+* Add option to expose Kubernetes cluster metrics. If dcos-monitoring package is installed, the Kubernetes cluster metrics are automatically ingested by DC/OS metrics pipeline.
 
 ### Changelog since 2.2.2-1.13.5
 
@@ -93,7 +104,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Fix a few items in the [limitations section](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/limitations/).
+* Fix a few items in the [limitations section](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/limitations/).
 
 ### Changelog since 2.2.1-1.13.4
 
@@ -114,7 +125,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * Docker v18.09.3
 * Calico v3.5.2
 * Support for Mesos pre-reserved roles for etcd, control-plane, public-node and private-node, and placement rules for etcd.
-* Modify how etcd placement constraints are defined, there is now a separate `etcd.placement` option. For backwards compatibility, if it's left empty the value from `kubernetes.control_plane_placement` will be used.
+* Modify how etcd placement constraints are defined, there is now a separate `etcd.placement` option. For backwards compatibility, if left empty, the value from `kubernetes.control_plane_placement` will be used.
 
 #### Bug Fixes
 
@@ -123,7 +134,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Fix the [`etcd` snapshotting](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/operations/troubleshooting/) instructions.
+* Fix the [`etcd` snapshotting](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/operations/troubleshooting/) instructions.
 * Add section `Mesos Roles` to `Advanced Installation` page.
 
 ## Version 2.2.0-1.13.3
@@ -146,7 +157,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Add a [Storage](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/operations/storage/) page documenting Container Storage Interface (CSI).
+* Add a [Storage](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/operations/storage/) page documenting Container Storage Interface (CSI).
 
 ---
 ## Version 2.1.1-1.12.5
@@ -190,7 +201,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Documentation section on how to [upgrade](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
+* Documentation section on how to [upgrade](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/operations/upgrade/#Mesosphere-Kubernetes-Engine) the `kubernetes` package.
 
 ---
 ## Version 2.0.1-1.12.2
@@ -238,7 +249,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Documentation
 
-* Add an [Overview](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/overview/) page explaining in detail what changed since the 1.x series of releases.
-* Add a [CLI](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/cli/) page detailing the new Mesosphere Kubernetes Engine CLI.
-* Merge `Advanced Installation` page merging its content into [Customizing your Installation](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/operations/customizing-install/).
-* Add a [Private Docker Registry](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/operations/private-docker-registry/) page explaining how to configure it.
+* Add an [Overview](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/overview/) page explaining in detail what changed since the 1.x series of releases.
+* Add a [CLI](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/cli/) page detailing the new Mesosphere Kubernetes Engine CLI.
+* Merge `Advanced Installation` page merging its content into [Customizing your Installation](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/operations/customizing-install/).
+* Add a [Private Docker Registry](/mesosphere/dcos/services/kubernetes/2.4.3-1.15.3/operations/private-docker-registry/) page explaining how to configure it.
