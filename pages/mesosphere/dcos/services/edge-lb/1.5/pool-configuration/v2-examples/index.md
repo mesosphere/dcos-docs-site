@@ -581,3 +581,42 @@ In this example we create a pool that will be launched on the virtual network pr
   }
 }
 ```
+
+# Self Service Auto Pool Marathon Application
+
+```json
+{
+  "id": "/auto-pool-bridge",
+  "labels": {
+      "edgelb.expose": "true",
+      "edgelb.template": "default",
+      "edgelb.first.frontend.certificates": "$AUTOCERT",
+      "edgelb.first.frontend.rules": "hostEq:www.test.com|pathBeg:/bridge",
+      "edgelb.first.backend.rewriteHttp.path": "/bridge:/id"
+  },
+  "instances": 1,
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "mesosphere/id-server:2.1.0"
+    },
+    "portMappings": [
+      {
+        "containerPort": 80,
+        "hostPort": 0,
+        "protocol": "tcp",
+        "name": "id"
+      }
+    ]
+  },
+  "cpus": 0.1,
+  "requirePorts": false,
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "mem": 32,
+  "cmd": "/start 80 bridge"
+}
+```
