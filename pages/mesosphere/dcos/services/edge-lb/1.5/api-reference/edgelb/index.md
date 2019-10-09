@@ -16,7 +16,7 @@ The Edge-LB API was initially released alongside DC/OS 1.10.0 and requires DC/OS
 
 # API Versions
 
-A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, with a more intuitive way to select services/backends for HAProxy.
+A new top level configuration field named `apiVersion` was introduced in Edge-LB v1.0.0. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in apiVersion `V1`) has been replaced with `pool.haproxy.backends.services`, which includes a more intuitive way to select services/backends for HAProxy.
 
 The V1 and V2 specifications were merged into a single spec; however, there are still separate [v1](/mesosphere/dcos/services/edge-lb/1.5/pool-configuration/v1-examples/) and [v2](/mesosphere/dcos/services/edge-lb/1.5/pool-configuration/v2-examples/) docs for reference configs, pool examples, etc.
 
@@ -27,7 +27,7 @@ Access to the Edge-LB API is proxied through the Admin Router on the master node
 ```
 /service/edgelb/
 ```
-Keep in mind that the path to Edge-LB endpoints might be different if you have change the service name. For example, if you have changed the default Edge-LB service name to append a geographic location, such as `edgelb-emea`, then the path to the service would be `/service/edgelb-emea`.
+Note that the path to Edge-LB endpoints may be different if you have changed the service name. For example, if you have changed the default Edge-LB service name to append a geographic location, such as `edgelb-emea`, then the path to the service would be `/service/edgelb-emea`.
 
 To determine the address of your cluster, see [Cluster Access](/mesosphere/dcos/1.13/api/access/).
 
