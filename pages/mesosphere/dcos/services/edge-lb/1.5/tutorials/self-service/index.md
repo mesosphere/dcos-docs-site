@@ -7,7 +7,7 @@ excerpt: Exposing applications using Self Service Auto Pools.
 enterprise: true
 ---
 
-Edge-LB supports automatic provisioning of the pools based on the Marathon app labels / SDK tasks labels (annotations). Pool configuration is driven from a pool template. A default pool template is created at the time of Edge-LB installation. The template is rendered into a pool configuration based on the values of the app / task [labels](../../concepts/self-service/#supported-labels).
+This tutorial demonstrates how to set labels on Marathon applications to expose those applications via Self Service Auto Pools. In addition, the proceedure for creating new Auto Pools and editing the template used by an Auto Pool is shown. Self ervice Auto Pools enable the operator to delegate application exposure to the developers responsible for that application.
 
 ## Exposing an application
 
