@@ -7,7 +7,7 @@ excerpt: Describes how you can automaticly expose applications with task labels
 enterprise: true
 ---
 
-Edge-LB supports automatic provisioning of the pools based on the Marathon app labels / SDK tasks labels (annotations). Pool configuration is driven from a pool template. A default pool template is created at the time of Edge-LB installation. The template is rendered into a pool configuration based on the values of the app / task [labels](#supported-labels) (discussed below).
+Self Service Auto Pools streamlines deployment by enabling developers to _self-service_ [pools](../architecture/#edge-lb-pool) using Marathon app labels or SDK task labels (annotations). Edge-LB automatically provisions pools using pool templates. A default pool template is created at the time of Edge-LB installation. The template is rendered into a pool configuration based on the values of the app / task [labels](#supported-labels) (discussed below).
 
 ## Default Pool
 
