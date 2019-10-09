@@ -9,6 +9,13 @@ enterprise: true
 
 This tutorial demonstrates how to set labels on Marathon applications to expose those applications via Self Service Auto Pools. In addition, the proceedure for creating new Auto Pools and editing the template used by an Auto Pool is shown. Self ervice Auto Pools enable the operator to delegate application exposure to the developers responsible for that application.
 
+# Prerequisites
+
+* Edge-LB is installed following the [Edge-LB Installation Guide](../..//getting-started/installing/).
+* * The DC/OS CLI is installed and configured to communicate with the DC/OS cluster, and the `edgelb` CLI package has been installed.
+* * One (or more) DC/OS private agent node to run the load balanced service.
+* * One (or more) DC/OS public agent nodes to run the auto pools.
+
 ## Exposing an application
 
 An application is exposed out by setting the label `edgelb.expose` to the string `true`. For example the application:
