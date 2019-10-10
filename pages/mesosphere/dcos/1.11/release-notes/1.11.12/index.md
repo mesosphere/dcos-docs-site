@@ -12,7 +12,7 @@ DC/OS version 1.11.12 was released on October 10, 2019.
 
 [button color="light" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.11.12/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
-DC/OS 1.11.11 includes the following components:
+DC/OS 1.11.12 includes the following components:
 - Apache Mesos 1.5.4 [change log](https://github.com/apache/mesos/blob/6a8b61b59498dcea64d9380a233d517ce65dc2ef/CHANGELOG).
 - Marathon 1.6.585 [change log](https://github.com/mesosphere/marathon/blob/3e0898228572e5c758c4ae17838fc5a9b0459e92/changelog.md).
 - Metronome 0.6.18 [change log](https://github.com/dcos/metronome/releases/tag/v0.4.5).
