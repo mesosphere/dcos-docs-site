@@ -21,3 +21,6 @@ secrets.sh
 .pdf-bundle-url
 
 .env
+
+# editor plugins
+.vscode
