@@ -38,15 +38,40 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 - Fix preflight Docker version check failing for docker 1.19. (DCOS-56831)
 
-- [Metronome] Querying run detail with `embed=history`, `successfulFinishedRuns` and `failedFinishedRuns` contains new field tasks which is an array of `taskId`s of that finished run. This will allow users to query task IDs even for finished job runs.
+- Fix problems with Docker version > 1.19 which added new entries to `docker version` output. (DCOS-57676)
 
-- [Metronome] Fixes Metronome where it did not use the revive operation.
+- [Metronome] Fix Metronome where it did not use the revive operation.
 
-- [Metronome] Fixes daylight saving issues.
+- [Metronome] Fix daylight saving issues.
+
+- [Metronome] Users can retrieve the Mesos `taskid` of finished tasks. (DCOS_OSS-5258)
 
 - DC/OS Net: Fix support for big sets in the ipset manager. (COPS-5229)
 
 - Remove nogroup creation. (COPS-5220)
+
+- Fix potential deadlock in RPC authenticatee. (DCOS-57338)
+
+- Fix issue with `dcos-signal` not reporting `customer_id` from customer environments. (DCOS-55882)
+
+- Update command to extract CLI download URLs to variables to make it easy to update them. (DCOS-57266)
+
+- Fix bug where Mesos master memory use seems to increase. (DCOS-55315)
+
+- Update to make DC/OS Signal report the license ID. (DCOS-57291)
+
+- Fix authorization for MULTI_ROLE frameworks. (DCOS-54635) [enterprise type="inline" size="small" /] 
+
+- Fix AWS Onprem with static backend and security permissive CI. (DCOS-52080) [enterprise type="inline" size="small" /]
+
+- Fix issue where Metronome rejects a job with an unused secret. (COPS-4706, DCOS_OSS-5019)
+
+- Fix LDAP UI issue in which it is too easy to accidentally press the delete button. (DCOS-54673, COPS-4804)
+
+- Fix LDAP UI issue where modifying any setting in the UI reverts hidden settings to default. (DCOS-54672, COPS-4857)
+
+- Fix issue where user is unable to filter service addresses/VIPs by name in UI. (DCOS-54671, COPS-4796)
+
 
 # About DC/OS 1.11
 
