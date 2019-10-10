@@ -266,7 +266,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.0/release-notes/), for example `1.5.1`.
 	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
 	    ```bash
-        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
+        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
         | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
