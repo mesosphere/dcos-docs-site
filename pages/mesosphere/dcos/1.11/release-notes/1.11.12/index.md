@@ -66,11 +66,11 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 - Fix issue where Metronome rejects a job with an unused secret. (COPS-4706, DCOS_OSS-5019)
 
-- Fix LDAP UI issue in which it is too easy to accidentally press the delete button. (DCOS-54673, COPS-4804)
+- Fix LDAP UI issue in which it is too easy to accidentally press the delete button. (COPS-4804, DCOS-54673)
 
-- Fix LDAP UI issue where modifying any setting in the UI reverts hidden settings to default. (DCOS-54672, COPS-4857)
+- Fix LDAP UI issue where modifying any setting in the UI reverts hidden settings to default. (COPS-4857, DCOS-54672)
 
-- Fix issue where user is unable to filter service addresses/VIPs by name in UI. (DCOS-54671, COPS-4796)
+- Fix issue where user is unable to filter service addresses/VIPs by name in UI. (COPS-4796, DCOS-54671)
 
 
 # About DC/OS 1.11
