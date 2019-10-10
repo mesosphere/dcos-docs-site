@@ -8,9 +8,9 @@ excerpt: Release notes for DC/OS 1.11.12
 
 DC/OS version 1.11.12 was released on October 10, 2019.
 
-[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="purple" href="https://downloads.dcos.io/dcos/stable/1.11.12/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="light" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.11.11/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
+[button color="light" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.11.12/dcos_generate_config.ee.sh"]Download DC/OS Enterprise[/button]
 
 DC/OS 1.11.11 includes the following components:
 - Apache Mesos 1.5.4 [change log](https://github.com/apache/mesos/blob/6a8b61b59498dcea64d9380a233d517ce65dc2ef/CHANGELOG).
