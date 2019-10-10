@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool-template create
 title: dcos edgelb pool-template create
 menuWeight: 45
-excerpt: Create a self service auto pool template
+excerpt: Create a self-service auto pool template
 enterprise: true
 ---
 
 # Description
-The `dcos edgelb pool-template create` command creates a self service auto pool template.
+The `dcos edgelb pool-template create` command creates a self-service auto pool template.
 
 The configuration for a pool is generated using a template named `pool.json.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
