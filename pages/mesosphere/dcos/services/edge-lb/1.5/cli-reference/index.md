@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 # Description
-The Edge-LB CLI subcommands allow you to configure and manage your Edge-LB load balancer(s) from the DC/OS CLI.
+The Edge-LB CLI subcommands allow you to configure and manage your Edge-LB load balancers from the DC/OS CLI.
 
 # Usage
 
