@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool-template delete
 title: dcos edgelb pool-template delete
 menuWeight: 45
-excerpt: Remove a Self Service Auto Pool template
+excerpt: Remove a Self-Service Auto Pool template
 enterprise: true
 ---
 
 # Description
-The `dcos edgelb pool-template delete` command removes a Self Service Auto Pool template and deletes the pool if it is running.
+The `dcos edgelb pool-template delete` command removes a Self-Service Auto Pool template and deletes the pool if it is running.
 
 
 # Usage
