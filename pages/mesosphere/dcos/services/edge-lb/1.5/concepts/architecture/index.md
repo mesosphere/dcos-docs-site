@@ -13,7 +13,7 @@ Edge-LB has a 3-part architecture:
 
 These components run on top of DC/OS.
 
-Edge-LB runs as a DC/OS service launched by [Marathon](/mesosphere/dcos/latest/deploying-services/). The API server component of Edge-LB launches the load balancer pool(s). From the perspective of Marathon, the pool is another DC/OS service.
+Edge-LB runs as a DC/OS service launched by [Marathon](/mesosphere/dcos/latest/deploying-services/). The API server component of Edge-LB launches the load balancer pools. From the perspective of Marathon, the pool is another DC/OS service.
 
 The diagram below shows how configuration and outside requests flow through Edge-LB to the application backend tasks.
 
@@ -35,13 +35,12 @@ The Edge-LB Pool is a group of identically configured load balancers. Traffic to
 
 ## <a name="edge-lb-load-balancer"></a>Edge-LB Load Balancer
 
-These are the individual instances of the load balancer software (such as HAProxy). These accept traffic and route it to the appropriate services within the DC/OS cluster.
+These are the individual instances of the load balancer software (such as HAProxy)that accept traffic and route it to the appropriate services within the DC/OS cluster.
 
 # Multiple Edge-LB Pools
 
-Multiple Edge-LB pools can be configured across multiple DC/OS public nodes to create a highly-available load balancing environment and to support increased throughput. There are two primary external architectures that support this:
+Multiple Edge-LB pools can be configured across multiple DC/OS public nodes to create a highly-available load balancing environment and support increased throughput. There are two primary external architectures that support this:
 
-- External Load Balancer: Configures multiple Edge-LB pools such that the Edge-LB load balancers that are on DC/OS public nodes are behind an external load balancer. Direct end users or clients to the external load balancer device, which will then load balance the traffic between the multiple Edge-LB pools. The external load balancer can be a cloud-based load balancer, such as an AWS Elastic Load Balancer (ELB), an Azure Load Balancer, or a physical load balancer such as an F5 or Cisco ACE device.
+- External Load Balancer: Configures multiple Edge-LB pools such that the Edge-LB load balancers that are on DC/OS public nodes are behind an external load balancer. Direct end users or clients to the external load balancer device, which will then load balance the traffic between the multiple Edge-LB pools. The external load balancer can be a cloud-based load balancer such as an AWS Elastic Load Balancer (ELB), an Azure Load Balancer, or a physical load balancer such as an F5 or Cisco ACE device.
 
-
-- Round Robin DNS: Configures DNS such that a single DNS entry responds with IP addresses corresponding to a different Edge-LB pool. The DNS will round robin between the VIPs for each Edge-LB pool.
+- Round Robin DNS: Configures DNS such that a single DNS entry responds with IP addresses corresponding to a different Edge-LB pool. The DNS round robins between the VIPs for each Edge-LB pool.
