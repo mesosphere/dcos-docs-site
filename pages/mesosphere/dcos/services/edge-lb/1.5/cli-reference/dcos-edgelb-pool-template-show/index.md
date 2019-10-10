@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool-template show
 title: dcos edgelb pool-template show
 menuWeight: 45
-excerpt: Display Self Service Auto Pool template
+excerpt: Display Self-Service Auto Pool template
 enterprise: true
 ---
 
 
 # Description
-The `dcos edgelb pool-template show` command shows the Self Service Auto Pool template for an individual template.
+The `dcos edgelb pool-template show` command shows the Self-Service Auto Pool template for an individual template.
 
 # Usage
 
