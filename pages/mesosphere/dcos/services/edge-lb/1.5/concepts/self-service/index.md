@@ -45,7 +45,7 @@ An example Marathon application can be found in the [example apps](../../pool-co
 
 The default pool template selects tasks with the label `"edgelb.expose" : true`. It can then be further customized using labels.
 
-Some labels use a `<group>` in their name. This can be any ASCII string value with the exception of `expose`, `template`, `delimiter`, `item_delimiter`, `key_delimiter`, and cannot contain a `.`. It is use is two fold:
+Some labels use a `<group>` in their name. This can be any ASCII string value with the exception of `expose`, `template`, `delimiter`, `item_delimiter`, `key_delimiter`, and cannot contain a `.`. It is used for two tasks:
 
 1. To group `frontend` and `backend` options, allowing a single task to be exposed out in multiple frontends.
 2. To group `backend` services, such as multiple instances on a marathon app. All tasks with the same `<group>` will be listed as a separate service entry in a single `backend` named by the group. The default group if no options are provided is `__default__`.
@@ -74,7 +74,7 @@ It is recommended to use the `<group>` field to describe the frontend app, such 
 
 ## Managing Pool Templates
 
-Multiple Auto Pools can be deployed by creating additional `poolTemplate`'s via the api or command line. When created, the new `poolTemplate` is a copy of the default template which can then be modified if desired. In addition the status of template rendering can be obtained.
+Multiple Auto Pools can be deployed by creating additional `poolTemplate`'s via the api or command line. When created, the new `poolTemplate` is a copy of the default template which can then be modified, if desired. In addition, the status of template rendering can be obtained.
 
 | action | api method | api path | cli command |
 |---|---|---|---|
@@ -187,7 +187,7 @@ Templates must use the `renderPoolTemplate` function to render a `define`'d temp
 
 The default template transforms the task list into an intermediary representation and then uses that representation to render the final pool configuration or determine that no tasks met its selection.
 
-For example if the `mesosTasks` function returned the following (shown in JSON for convenience):
+For example, if the `mesosTasks` function returned the following (shown in JSON for convenience):
 
 ```json
 [
@@ -249,7 +249,7 @@ The default template pool will use `parseTaskLabels` to transform the labels int
 }
 ```
 
-This format is them further transformed within the template into the global intermediary variables `$BACKENDS`, `$FRONTENDS` and `$SECRETS`:
+This format is then further transformed within the template into the global intermediary variables `$BACKENDS`, `$FRONTENDS` and `$SECRETS`:
 
 #### `$BACKENDS`
 
