@@ -41,9 +41,9 @@ To download the Edge-LB packages:
     <img src="/services/edge-lb/img/support-login-sample.png" alt="Log in with a registered email address and password">
     </p>
 
-    You must have an account to download the Edge-LB pacakges. If you have not previously registered an email address for an account, click [create a new account](https://support.mesosphere.com/CommunitiesSelfReg) to get started.
+    You must have an account to download the Edge-LB pacakges. If you have not previously registered an email address for an account, select [create a new account](https://support.mesosphere.com/CommunitiesSelfReg) to get started.
 
-1. Open [Downloads](https://support.mesosphere.com/s/downloads?t=1551917897670) directly or click **My Account**, then click [Downloads](https://support.mesosphere.com/s/downloads) to view the list of packages available for download.
+1. Open [Downloads](https://support.mesosphere.com/s/downloads?t=1551917897670) directly or select **My Account**, then [Downloads](https://support.mesosphere.com/s/downloads) to view the list of packages available for download.
 
     By default, the most recent DC/OS packages that are available for download are listed.
 
@@ -62,7 +62,7 @@ To download the Edge-LB packages:
     <img src="/services/edge-lb/img/Edge-LB-artifacts.png" alt="Edge-LB API and pool packages available for download">
     </p>
 
-1. Click **Download** to download each package to your working directory.
+1. Select **Download** to download each package to your working directory.
 
     Each **Download** link identifies a package URL for a JSON file you use to add the packages to the repository. <!--For example, the **Download** link for the Edge-LB pool package is `https://downloads.mesosphere.com/edgelb-pool/v1.3.0/assets/stub-universe-edgelb-pool.json`. --> You can copy the contents of each file to a local directory or include the HTTPS URL path in the command line you use to add Edge-LB to the package repository.
 
@@ -85,7 +85,7 @@ To add the Edge-LB API server and pool packages to the package repository:
     dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
     ```
 
-1. Open the DC/OS web-based console, then click **Catalog** to verify the Edge-LB and Edge-LB pool services have been added.
+1. Open the DC/OS web-based console, then select **Catalog** to verify the Edge-LB and Edge-LB pool services have been added.
     <p>
     <img src="/services/edge-lb/img/edge-lb-catalog-tiles.png" alt="Edge-LB and Edge-LB pool services displayed in the catalog">
     </p>
@@ -96,50 +96,50 @@ After you download the package artifacts and add the Edge-LB packages to the rep
 If you have successfully downloaded and added Edge-LB packages, you can continue to the instructions for [creating a service account](#create-service-account).
 
 ## Editing settings before adding a service account
-If you are not configuring a dedicated service account for managing Edge-LB pools, you can begin configuring Edge-LB settings by selecting the Edge-LB tiles in the Catalog, then clicking **Review & Run**.
+If you are not configuring a dedicated service account for managing Edge-LB pools, you can begin configuring Edge-LB settings by selecting the Edge-LB tiles in the Catalog, then selecting **Review & Run**.
 
-1. Open the DC/OS web-based console, then click **Catalog**.
+1. Open the DC/OS web-based console, then select **Catalog**.
 
 1. Type a string such as `edge` in the **Search catalog** field.
 
-1. Click **edgelb** to display the service summary.
+1. Select **edgelb** to display the service summary.
     <p>
     <img src="/services/edge-lb/img/edgelb-review-run-summary.png" alt="Configuring Edge-LB settings from the catalog">
     </p>
 
-1. Click **Review & Run** to edit the Edge-LB configuration settings by modifying the fields displayed or by clicking JSON Editor to edit the JSON file directly. 
+1. Select **Review & Run** to edit the Edge-LB configuration settings by modifying the fields displayed or by selecting JSON Editor to edit the JSON file directly. 
     <p>
     <img src="/services/edge-lb/img/edgelb-api-config-settings.png" alt="Configuring Edge-LB API settings">
     </p>
 
-1. Click **Review & Run**, then click **Run Service** to install the Edge-LB API server package with the configuration settings specified.
+1. Select **Review & Run**, then select **Run Service** to install the Edge-LB API server package with the configuration settings specified.
 
 1. Repeat steps 1 through 4 to configure **Service** settings for the Edge-LB pool. 
     <p>
     <img src="/services/edge-lb/img/edgelb-pool-config-settings.png" alt="Configuring Edge-LB API settings">
     </p>
 
-1. Click **Edgelbpool** to specify the following required properties:
+1. Select **Edgelbpool** to specify the following required properties:
     - count
     - cpus
     - mem
     - disk 
 
-    You can specify additional pool configuration properties, as needed, then click **Review & Run**.
+    You can specify additional pool configuration properties, as needed, then select **Review & Run**.
 
-1. Click **Run Service** to install the Edge-LB pool service.
+1. Select **Run Service** to install the Edge-LB pool service.
 
-1. Click **Services** to verify the Edge-LB API and Edge-LB pool services are installed and running.
+1. Select **Services** to verify the Edge-LB API and Edge-LB pool services are installed and running.
     <p>
     <img src="/services/edge-lb/img/edgelb-deployment-status.png" alt="Configuring Edge-LB API settings">
     </p>
 
-Although you can add and modify settings directly in the web-based console from the Catalog, do not start the services until after you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start but not be able to resolve to a healthy Running state.
+Although you can add and modify settings directly in the web-based console from the catalog, do not start the services until after you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start but will not be able to resolve to a healthy Running state.
 
 <a name="create-local-repo"></a>
 
 # Deploy using a local catalog
-If you have an isolated network that cannot connect directly to the internet, you need to deploy a local catlog containing your own set of packages. To create the local catalog, you must build a customized Docker image repository before you can add the Edge-LB packages. 
+If you have an isolated network that cannot connect directly to the internet, you must deploy a local catlog containing your own set of packages. To create the local catalog, you must build a customized Docker image repository before you can add the Edge-LB packages. 
 
 For detailed instructions about creating a local catalog, see [DC/OS universe deployment](/mesosphere/dcos/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
