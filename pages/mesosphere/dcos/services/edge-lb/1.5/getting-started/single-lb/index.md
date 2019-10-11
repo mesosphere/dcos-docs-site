@@ -59,7 +59,7 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     }
     ```
 
-    In this sample app defintion, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields don't match, the pool will not deploy successfully.
+    In this sample app defintion, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields do no match, the pool will not deploy successfully.
 
 1. Deploy the `ping` service by installing the `ping.json` app definition by running the following command:
 
