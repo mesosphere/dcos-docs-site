@@ -38,7 +38,7 @@ This UI is hosted on a web application within the cluster, which runs on the clu
 2. Click the "Launch Console" button
 3. Enter your username and password as noted above, and click "Login".
 
-You will then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to add-on services such as Grafana.
+You will then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to addon services such as Grafana.
 
 ## Using kubectl
 
@@ -103,16 +103,16 @@ kubectl create clusterrolebinding rb_admin_${USERNAME} --clusterrole=cluster-adm
 The following sections highlight several important commands that are particularly relevant for working with **konvoy** clusters.
 For information about other commands that are generally useful, see [the kubectl cheatsheet][1].
 
-#### Viewing add-ons and system pods
+#### Viewing addons and system pods
 
-Konvoy clusters come with a series of add-ons deployed.
-These add-ons live in one of three namespaces:
+Konvoy clusters come with a series of addons deployed.
+These addons live in one of three namespaces:
 
-- `kube-system`: Core Kubernetes components, and a limited set of add-ons that require administrative access to the cluster deploy here
+- `kube-system`: Core Kubernetes components, and a limited set of addons that require administrative access to the cluster deploy here
 - `velero`: Velero (used for cluster backup and restore) and its components are deployed here
-- `kubeaddons`: Most add-ons will be deployed here unless otherwise specified
+- `kubeaddons`: Most addons will be deployed here unless otherwise specified
 
-For a basic status check of all the add-on and system-related pods, run the following commands:
+For a basic status check of all the addon and system-related pods, run the following commands:
 
 ```bash
 kubectl -n kube-system get pods

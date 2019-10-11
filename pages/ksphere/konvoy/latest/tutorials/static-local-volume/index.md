@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-The `localvolumeprovisioner` add-on uses the [local volume static provisioner][localstorage] to manage persistent volumes for pre-allocated disks.
+The `localvolumeprovisioner` addon uses the [local volume static provisioner][localstorage] to manage persistent volumes for pre-allocated disks.
 It does this by watching the `/mnt/disks` folder on each host and creating persistent volumes in the `localvolumeprovisioner` storage class for each disk that is discovered in this folder.
 
 - Persistent volumes with a 'Filesystem' volume-mode are discovered if they are mounted under `/mnt/disks`.
@@ -22,15 +22,15 @@ Before starting this tutorial, you should verify the following:
 
 - You have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
-- You have a provisioned `konvoy` cluster that is configured to use the `localvolumeprovisioner` add-on, but have not any add-ons to the cluster.
+- You have a provisioned `konvoy` cluster that is configured to use the `localvolumeprovisioner` addon, but have not any addons to the cluster.
 
   For this tutorial, you **should not deploy** using all of the default settings as described in the [Quick start][quickstart].
 
-  This distinction between provisioning and deployment is important because some add-ons might depend on the storage class provided by the `localvolumeprovisioner` add-on and might fail to start if it isn't configured yet.
+  This distinction between provisioning and deployment is important because some addons might depend on the storage class provided by the `localvolumeprovisioner` addon and might fail to start if it isn't configured yet.
 
 ## Provision the cluster and a volume
 
-1. Provision the Kubernetes cluster without deploying add-ons by running the following command:
+1. Provision the Kubernetes cluster without deploying addons by running the following command:
 
     ```bash
     konvoy provision
@@ -44,7 +44,7 @@ Before starting this tutorial, you should verify the following:
     ansible -i inventory.yaml node -m shell -a "mkdir -p /mnt/disks/example-volume && mount -t tmpfs example-volume /mnt/disks/example-volume"
     ```
 
-1. Deploy the `konvoy` cluster with add-ons by running the following command:
+1. Deploy the `konvoy` cluster with addons by running the following command:
 
     ```bash
     konvoy up

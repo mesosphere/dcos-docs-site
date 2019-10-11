@@ -104,7 +104,7 @@ Start the installation process by downloading the Konvoy package tarball. To dow
     For example, state files stored in this directory are required to tear down a cluster.
     If you were to delete the state information or this directory, destroying the cluster would require you to manually perform clean-up tasks.
 
-1.  Deploy with all of the default settings and add-ons by running the following command:
+1.  Deploy with all of the default settings and addons by running the following command:
 
     ```bash
     konvoy up
@@ -114,7 +114,7 @@ The `konvoy up` command performs the following tasks:
 
 -   Provisions three control plane machines of `t3.large` (a highly-available control-plane API).
 -   Provisions four worker machines of `t3.xlarge` on AWS.
--   Deploys all of the following default add-ons:
+-   Deploys all of the following default addons:
     - [Calico][calico] to provide pod network, and policy-driven perimeter network security.
     - [CoreDNS][coredns] for DNS and service discovery.
     - [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
@@ -125,7 +125,7 @@ The `konvoy up` command performs the following tasks:
     - [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][promethsus_adapter]) to collect and evaluate metrics for monitoring and alerting.
     - [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
     - [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
-    - Operations portal to centralize access to add-on dashboards.
+    - Operations portal to centralize access to addon dashboards.
     - [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
     - [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
     - [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
@@ -157,9 +157,9 @@ For a production cluster, you can modify the cluster configuration to use your o
 
 You can then use this information to access the operations portal and associated dashboards.
 
-### Explore the cluster and add-ons
+### Explore the cluster and addons
 
-Use the URL you copied from the deployment output (for example, <a href="https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing">https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing</a> to access the cluster's dashboards using the **operations portal**.
+Use the URL you copied from the deployment output (for example, `https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing`) to access the cluster's dashboards using the **operations portal**.
 
 The default operations portal provides links to several dashboards of the installed services, including:
 
@@ -173,7 +173,7 @@ After you log in to the operations portal, you can view the [dashboards](../oper
 cluster activity performance.
 
 Although these are the most common next steps, you do not need to log in to the operations portal or run basic diagnostics to verify a successful installation.
-If there were issues with installing or bringing the Kubernetes cluster online, the add-ons installation would fail.
+If there were issues with installing or bringing the Kubernetes cluster online, the addons installation would fail.
 
 ### Merge the kubeconfig
 

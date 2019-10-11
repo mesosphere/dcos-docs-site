@@ -23,12 +23,12 @@ konvoy diagnose [flags]
 ### Options
 
 ```
-  -h, --help                          help for diagnose
-      --logs-all-namespaces           include logs from pods in all namespaces
+  -h, --help                      help for diagnose
+      --logs-all-namespaces       include logs from pods in all namespaces
       --logs-namespaces stringArray   include logs from pods in the given namespaces (default [kubeaddons,kube-system])
-  -o, --output string                 file name to use for storing the diagnostics bundle in (default "/src/github.com/mesosphere/konvoy/20190910T223752.tar.gz")
-  -s, --since d                       Log files will be queried up to <since> in the past. Supports d and `h` for days and hours respectively (default "2d")
-  -y, --yes                           run command without prompting
+  -o, --output string             file name to use for storing the diagnostics bundle in (default "/src/github.com/mesosphere/konvoy/20190910T223752.tar.gz")
+  -s, --since d                   Log files will be queried up to <since> in the past. Supports d and `h` for days and hours respectively (default "2d")
+  -y, --yes                       run command without prompting
 ```
 
 ### SEE ALSO

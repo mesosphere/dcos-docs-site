@@ -12,7 +12,7 @@ enterprise: false
 For production clusters, regular maintenance should include routine backup operations on a regular basis to ensure data integrity and reduce the risk of data loss due to unexpected events.
 Back up operations should include the cluster state, application state, and the running configuration of both stateless and stateful applications in the cluster.
 
-As a production-ready solution, Konvoy provides the Velero add-on by default, to support backup and restore operations for your Kubernetes cluster and persistent volumes.
+As a production-ready solution, Konvoy provides the Velero addon by default, to support backup and restore operations for your Kubernetes cluster and persistent volumes.
 
 For on-premise deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 For production use-cases, it's advisable to provide an *external* storage volume for Minio to use.
@@ -124,7 +124,7 @@ To list the available backup archives for your cluster, run the following comman
 velero backup get
 ```
 
-To set Velero to a `restore-only-mode`, modify the Velero add-on in the `ClusterConfiguration` of the `cluster.yaml` file:
+To set Velero to a `restore-only-mode`, modify the Velero addon in the `ClusterConfiguration` of the `cluster.yaml` file:
 
 ```yaml
 addons:
@@ -155,10 +155,10 @@ To restore cluster data on demand from a selected backup snapshot available in t
 velero restore create --from-backup BACKUP_NAME
 ```
 
-## Enable or disable the backup add-on
+## Enable or disable the backup addon
 
-You can enable or disable the Velero platform service add-on in the `ClusterConfiguration` section of the `cluster.yaml` file.
-For example, you can enable the `Velero` add-on using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
+You can enable or disable the Velero platform service addon in the `ClusterConfiguration` section of the `cluster.yaml` file.
+For example, you can enable the `Velero` addon using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
 
 ```yaml
 addons:
@@ -167,7 +167,7 @@ addons:
 ...
 ```
 
-If you want to replace the Velero add-on with a different backup add-on service, you can disable the `velero` add-on. Before disabling the Velero platform service add-on, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service. 
+If you want to replace the Velero addon with a different backup addon service, you can disable the `velero` addon. Before disabling the Velero platform service addon, however, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.
 
 Modify the `ClusterConfiguration` section of the `cluster.yaml` file as follows:
 
@@ -177,7 +177,6 @@ addons:
   enabled: false
 ...
 ```
-
 
 After making changes to your `cluster.yaml`, you must run `konvoy up` to apply them to the running cluster.
 
@@ -189,7 +188,7 @@ You can check whether the Velero service is currently running on your cluster th
 kubectl get all -n velero
 ```
 
-If the Velero platform service add-on is currently running, you can generate diagnostic information about Velero backup and restore operations.
+If the Velero platform service addon is currently running, you can generate diagnostic information about Velero backup and restore operations.
 For example, you can run the following commands retrieve backup and restore information that you can use to assess the overall health of Velero in your cluster:
 
 ```bash

@@ -119,7 +119,8 @@ spec:
       nvidia:
         enabled: false
   addons:
-    configVersion: stable-1.15.4-0
+    configRepository: https://github.com/mesosphere/kubeaddons-configs
+    configVersion: stable-1.15.4-4
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -199,10 +200,11 @@ spec:
 ### spec.vpc
 
 | Parameter               | Description                                                                 | Default |
-| ----------------------- | ----------------------------------------------------------------------------| ------- |
+| ----------------------------- | -------------------------------------------------------------------------------------- | ------- |
 | `vpc.ID`                | [AWS VPC][aws_vpc_and_subnets] ID where the cluster should be launched      | `""`    |
 | `vpc.routeTableID`      | [AWS RouteTable][aws_route_table] ID that is used by the subnets in the VPC | `""`    |
 | `vpc.internetGatewayID` | [AWS Internet Gateway][aws_internet_gateway] ID assigned to the VPC         | `""`    |
+| `vpc.internetGatewayDisabled` | Disable creating an [AWS Internet Gateway][aws_internet_gateway] when creating the VPC | `false` |
 
 ### spec.elb
 | Parameter               | Description                                                                 | Default |
@@ -270,7 +272,7 @@ The default value of this entire object is `omitted`.
 | `spec.imageRegistries`  | Specifies the container image registries authentication details. | See [spec.imageRegistries](#specimageregistries) |
 | `spec.packageRepository`  | Configure packages repositories | See [spec.packageRepository](#specpackageRepository) |
 | `spec.nodePools`        | Specifies the nodePool configuration.         | See [spec.nodePools](#specnodepools) |
-| `spec.add-ons`           | Specifies the list of add-ons that can be deployed.  | See [spec.addons](#specaddons) |
+| `spec.addons`           | Specifies the list of addons that can be deployed.  | See [spec.addons](#specaddons) |
 | `spec.version`          | version of a konvoy cluster            | `v1.2.0`                                |
 
 ### spec.kubernetes
@@ -436,14 +438,15 @@ The default value of this entire object is `omitted`.
 
 ### spec.addons
 
-| Parameter              | Description                                            | Default    |
-| ---------------------- | ------------------------------------------------------ | ---------- |
-| `addons.configVersion` | Specifies the version of the add-on configuration files to use.       | `stable-1.15.4-0`  |
-| `addons.addonsList`    | Specifies the list of add-on objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#specaddonsaddonslist) |
+| Parameter                 | Description                                            | Default       |
+| ------------------------- | ------------------------------------------------------ | ------------- |
+| `addons.configRepository` | Specifies the git repo of the addon configuration files to use.        | `https://github.com/mesosphere/kubeaddons-configs` |
+| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.4-4`  |
+| `addons.addonsList`       | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#specaddonsaddonslist) |
 
 #### spec.addons.addonsList
 
-`spec.addonsList` is comprised of an array of add-ons. The default values vary depending on the `provider` given on generation.
+`spec.addonsList` is comprised of an array of `addon`s. The default values vary depending on the `provider` given on generation.
 
 #### addon
 
@@ -451,9 +454,9 @@ Properties of an `addon` object.
 
 | Parameter | Description                                                   |
 | --------- | ------------------------------------------------------------- |
-| `name`    | Specifies the name of the add-on.                                            |
-| `enabled` | Enables the add-on to be deployed.                                    |
-| `values`  | Overrides the values found in default add-on configuration file. |
+| `name`    | Specifies the name of the addon.                                            |
+| `enabled` | Enables the addon to be deployed.                                    |
+| `values`  | Overrides the values found in default addon configuration file. |
 
 [cidr_blocks]: https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#CIDR_blocks
 [aws_security_groups]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html

@@ -19,7 +19,7 @@ Step 1: Create a Konvoy cluster.
 
 Step 2: In a GitHub organization account, [add a new OAuth app]. For the Authorization callback URL, use `https://<your-cluster-host>/dex/callback`.
 
-Step 3: Modify the `dex` add-on in your `cluster.yaml` to
+Step 3: Modify the `dex` addon in your `cluster.yaml` to
 
 ```yaml
     - name: dex
@@ -54,7 +54,7 @@ Step 1: Create a Konvoy cluster.
 
 Step 2: In your GitHub account, [add a new OAuth app]. For the Authorization callback URL, use `https://<your-cluster-host>/dex/callback`.
 
-Step 3: Modify the `dex` add-on in your `cluster.yaml` to
+Step 3: Modify the `dex` addon in your `cluster.yaml` to
 
 ```yaml
     - name: dex
