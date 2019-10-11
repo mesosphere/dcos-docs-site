@@ -39,7 +39,7 @@ Konvoy uses Dex to provide OpenID Connect single sign-on to the cluster.
 
 Dex can be configured to use multiple connectors, including GitHub, LDAP, and SAML 2.0.
 The [Dex Connector documentation] describes how to configure different connectors.
-The configuration can be added as the `values` field in the `dex` add-on.
+The configuration can be added as the `values` field in the `dex` addon.
 
 Examples of tested configurations are described in the [External Providers] section.
 

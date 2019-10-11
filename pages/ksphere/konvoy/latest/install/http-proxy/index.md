@@ -52,15 +52,14 @@ spec:
 
 The above example configures the Kubernetes cluster installed by Konvoy to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `http://proxy.company.com:3129` for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
 
-Since the above configuration only applies to the core Kubernetes components, you now must configure the HTTP_PROXY settings for all other workloads that require access to the Internet, including some of the add-ons.
-Edit the cluster configuration file `cluster.yaml` add-ons section.
+Since the above configuration only applies to the core Kubernetes components, you now must configure the HTTP_PROXY settings for all other workloads that require access to the Internet, including some of the addons.
+Edit the cluster configuration file `cluster.yaml` addons section.
 
 ```yaml
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   addons:
-    configVersion: dkoshkin-http-proxy
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -95,4 +94,4 @@ konvoy up
 
 <p class="message--important"><strong>IMPORTANT: </strong> if the machine from which the <tt>konvoy</tt> binary is being run requires the HTTP/HTTPS proxy for Internet access, you must set the same <tt>HTTP_PROXY</tt>, <tt>HTTPS_PROXY</tt>, and <tt>NO_PROXY</tt> as environment variables before running <tt>konvoy</tt>.</p>
 
-These proxy settings will be used by the binary itself (not Kubernetes cluster machines) to download add-on configurations over the Internet.
+These proxy settings will be used by the binary itself (not Kubernetes cluster machines) to download addon configurations over the Internet.

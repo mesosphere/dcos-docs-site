@@ -89,7 +89,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
 
     For more information about customizing provisioning settings, see [Cluster provisioning][provisioning].
 
-1.  Edit the `ClusterConfiguration` section of `cluster.yaml` configuration file to change which add-ons you want to enable or disable.
+1.  Edit the `ClusterConfiguration` section of `cluster.yaml` configuration file to change which addons you want to enable or disable.
 
     The following example illustrates the `ClusterConfiguration` settings defined in the `cluster.yaml` cluster configuration file:
 
@@ -140,9 +140,9 @@ To provision a customized cluster on Amazon Web Services (AWS):
       version: v0.0.15-10-g57dff48
     ```
 
-    In this example, you can disable the `fluentbit` add-on by changing the `enabled` from `true` to `false`.
+    In this example, you can disable the `fluentbit` addon by changing the `enabled` from `true` to `false`.
 
-    **NOTE:** The add-ons `helm` and `opsportal` are *required* and a cluster cannot be provisioned until they are enabled.
+    **NOTE:** The addons `helm` and `opsportal` are *required* and a cluster cannot be provisioned until they are enabled.
 
     For more information about customizing cluster configuration settings, see [Cluster configuration][clusterconfig].
 
@@ -152,7 +152,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
     konvoy up
     ```
 
-The `konvoy up` command provisions the cluster similar to how it is provisioned using the default settings as described in [Provision and deploy the cluster and add-ons][defaultsettings].
+The `konvoy up` command provisions the cluster similar to how it is provisioned using the default settings as described in [Provision and deploy the cluster and addons][defaultsettings].
 
 However, customized provisioning creates a `cluster.tmp.yaml` file that contains the default values merged with any your user-provided overrides.
 The `cluster.tmp.yaml` file is the file that Ansible uses during its execution.

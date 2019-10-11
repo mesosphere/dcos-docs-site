@@ -8,7 +8,7 @@ menuWeight: 1
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-Konvoy is a complete, standalone distribution of Kubernetes that includes a native Kubernetes cluster pre-packaged for deployment with a complement of best-in-class add-on services enabled by default and ready for immediate use.
+Konvoy is a complete, standalone distribution of Kubernetes that includes a native Kubernetes cluster pre-packaged for deployment with a complement of best-in-class addon services enabled by default and ready for immediate use.
 By combining the native Kubernetes cluster with all of the components required for operation and lifecycle management, Konvoy provides an out-of-the-box and production-ready Kubernetes ecosystem that you can install using a single command-line instruction.
 
 Because Konvoy packages all of its components as a fully integrated and tested solution with complete technical support, Konvoy enables organization to easily provision Kubernetes clusters into a production environment.
@@ -26,28 +26,28 @@ Konvoy provides the following features and functionalities:
 
     Provision the cluster infrastructure on cloud provider using Terraform (currently AWS) or pre-deploy a physical or virtual infrastructure, then deploy using Konvoy.
 
-- Core add-ons for networking and storage production-readiness
+- Core addons for networking and storage production-readiness
 
-    Install and enable a default set of core add-ons to provide the most common features required to run the Kubernetes cluster in production, including the following:
+    Install and enable a default set of core addons to provide the most common features required to run the Kubernetes cluster in production, including the following:
 
   - Calico (Network overlay)
   - Traefik (Ingress provider)
   - Local storage class (default)
 
-- Core add-ons for collecting metrics and logging
+- Core addons for collecting metrics and logging
 
-    Install and enable a default set of core add-ons for monitoring, metrics, and logging, including the following:
+    Install and enable a default set of core addons for monitoring, metrics, and logging, including the following:
 
   - Monitoring and metrics using Prometheus, AlertManager, Grafana, and Telegraf
   - Logging using Fluent Bit, Elasticsearch, and Kibana
 
-- Operational infrastructure add-ons
+- Operational infrastructure addons
 
-    Install and enable a default set of add-ons for backup and restore using open source tools (CNCF stack) and to configure the cluster with best practices for security and operations.
+    Install and enable a default set of addons for backup and restore using open source tools (CNCF stack) and to configure the cluster with best practices for security and operations.
 
 - Operational dashboards
 
-    Access web-based dashboards for the Kubernetes cluster and add-ons from a single entry point.
+    Access web-based dashboards for the Kubernetes cluster and addons from a single entry point.
 
 - Lifecycle management
 

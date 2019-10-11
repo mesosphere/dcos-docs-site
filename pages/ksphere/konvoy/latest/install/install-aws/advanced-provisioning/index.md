@@ -173,7 +173,10 @@ It is possible to use an existing VPC if so desired.
 To do so you must modify the `cluster.yaml` file and change the `ProvisionerConfig` in the following way:
 
 ```yaml
-...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy
 spec:
   provider: aws
   # if your provider is aws, you MUST also define the aws field
@@ -190,10 +193,53 @@ It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
 
 The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
 
-<p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing Internet gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
+<p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing Internet Gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
+
+It is also possible to disable creating the internet-gateway by modifying a few options in the `cluster.yaml` configuration file.
+Doing so will also automatically set the kube-apiserver ELB to be `internal` and will not associate public IPs for all the EC2 instances.
+Depending on how you addons are configured, you may also need to add an annotation to use an `internal` ELB.
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy
+spec:
+  provider: aws
+  aws:
+    region: us-west-2
+    # the vpc must have enabled DNS Hostname and DNS Resolution
+    vpc:
+      ID: "vpc-0a0e1da174c837629"
+      routeTableID: "rtb-012e0ee9392c58881"
+      internetGatewayDisabled: true
+---
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy
+spec:
+  ...
+  addons:
+    addonsList:
+    - name: traefik
+      enabled: true
+      values: |
+        service:
+          annotations:
+            "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
+    - name: velero
+      enabled: true
+      values: |
+        minioBackendConfiguration:
+          service:
+            annotations:
+              "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
+    ...
+```
 
 ### Subnets
-An existing VPC may already contain`subnets` for use; you may define them in the following way:
+An existing VPC may already contain `subnets` for use, you may define them in the following way:
 
 ```yaml
 ...

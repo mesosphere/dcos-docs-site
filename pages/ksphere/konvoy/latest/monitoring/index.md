@@ -14,11 +14,11 @@ By default, Konvoy provides monitoring services using a pre-configured monitorin
 
 The default Konvoy monitoring stack:
 
-* Provides in-depth monitoring of Kubernetes components and Konvoy platform service add-ons.
-* Includes a default set of Grafana dashboard to help you visualize the status of the cluster and its add-on services
+* Provides in-depth monitoring of Kubernetes components and Konvoy platform service addons.
+* Includes a default set of Grafana dashboard to help you visualize the status of the cluster and its addon services
 * Supports predefined critical error and warning alerts to immediately notify you if there is a problem with cluster operations or availability.
 
-By incorporating Prometheus, Konvoy helps you visualize all the exposed metrics from your different nodes, Kubernetes objects, and add-on applications running in your cluster.
+By incorporating Prometheus, Konvoy helps you visualize all the exposed metrics from your different nodes, Kubernetes objects, and addon applications running in your cluster.
 The default monitoring stack also enables you to add metrics from any of your deployed applications, making those applications part of the overall Prometheus metrics stream.
 
 ![monitoring-stack](../img/monitoring.png)
@@ -186,10 +186,10 @@ For example, if you want to disable the default `etcd` and `node` alert rules, y
         node: false
 ```
 
-Alert rules for the Velero platform service add-on are turned off by default.
+Alert rules for the Velero platform service addon are turned off by default.
 You can enable them in the `cluster.yaml` file by providing the desired configuration.
-They should be enabled only if the add-on is enabled.
-If the add-on is disabled, the alert rules should also be disabled to avoid alert misfires.
+They should be enabled only if the addon is enabled.
+If the addon is disabled, the alert rules should also be disabled to avoid alert misfires.
 
 ```yaml
 - name: prometheus

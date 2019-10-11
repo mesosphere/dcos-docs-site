@@ -18,13 +18,13 @@ You can use those tools to validate your installation.
 konvoy check
 ```
 
-The `check` command will validate all nodes components, including container runtime, the kubernetes control plane, and all add-ons.
+The `check` command will validate all nodes components, including container runtime, the kubernetes control plane, and all addons.
 See more details about what those commands do [here][troubleshooting_tools].
 If your install is successful, all the above commands should return success.
 
 ## Verify all pods are running
 
-All pods installed by Konvoy (such as add-ons) should be in `Running` or `Completed` status if the install is successful.
+All pods installed by Konvoy (such as addons) should be in `Running` or `Completed` status if the install is successful.
 
 ```bash
 kubectl get pods --all-namespaces

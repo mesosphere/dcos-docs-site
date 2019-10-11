@@ -9,4 +9,4 @@ enterprise: false
 
 Installing Konvoy generates a `cluster.yaml` configuration file.
 The `cluster.yaml` configuration file uses YAML formatting to define cluster configuration and cluster provisioning details.
-You can use the sections in this file to custom resources and the platform service add-ons you deploy.
+You can use the sections in this file to custom resources and the platform service addons you deploy.

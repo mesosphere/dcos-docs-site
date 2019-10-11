@@ -45,7 +45,7 @@ Before installing, verify that your environment meets the following basic requir
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
-  Each volume must have **at least** 55 GiB of capacity if the default add-on configurations are used.
+  Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
 
@@ -158,6 +158,26 @@ all:
     ansible_port: 22
 ```
 
+## Specifying a local kubeaddons-configs repo
+
+When using Konvoy with its default addons options, the tool will try to fetch the list of available addons from a public GitHub [kubeaddons-configs repo][kubeaddons_repo] when initializing and validating the `cluster.yaml` file.
+If in your environment access to that repo is blocked, you may also use a local clone of the above repo.
+
+Assuming that the repo was cloned in the local directory to `./kubeaddons-configs`, use the `--addons-config-repository` flag with the `konvoy init`, `konvoy up`, `konvoy provision` commands.
+
+This will result in your `cluster.yaml` containing the details below:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1alpha1
+spec:
+  addons:
+    configRepository: ./kubeaddons-configs
+    configVersion: stable-1.15.4-4
+```
+
+You can also specify a remote git repo hosted in your organization using the same `--addons-config-repository` flag.
+
 # Configure the Kubernetes cluster
 
 After you edit the inventory file, edit the generated `cluster.yaml` file.
@@ -266,9 +286,9 @@ When configuring these settings, you should make sure that the values you set fo
 
 Konvoy supports [Service][kubernetes_service] type `LoadBalancer` out-of-the-box for on-premise deployments if you do not have a third-party load balancer.
 
-The default load balancer service for add-ons is based on [MetalLB][metallb].
+The default load balancer service for addons is based on [MetalLB][metallb].
 
-To use MetalLB for add-on load balancing:
+To use MetalLB for addon load balancing:
 
 * Identify and reserve a range of virtual IP addresses (VIPs) from your networking infrastructure.
 
@@ -279,7 +299,7 @@ To use MetalLB for add-on load balancing:
 If all cluster hosts and the reserved virtual IP addresses are in the same subnet, you typically do not need to perform any additional configuration to your networking infrastructure.
 If you are using more than one subnet for the cluster, however, you should work with your networking team to ensure connectivity between all hosts and the reserved range of virtual IP addresses.
 
-MetalLB can be configured in two modes - layer2 and BGP.
+MetalLB can be configured in two modes - `layer2` and `bgp`.
 
 The following example illustrates the layer2 configuration in the `cluster.yaml` configuration file:
 
@@ -384,11 +404,11 @@ After verifying your infrastructure, you can create a Konvoy Kubernetes cluster 
 konvoy up
 ```
 
-This command installs Kubernetes, and installs default add-ons to support your Kubernetes cluster.
+This command installs Kubernetes, and installs default addons to support your Kubernetes cluster.
 
 Specifically, the `konvoy up` command does the following:
 
-* Deploys all of the following default add-ons:
+* Deploys all of the following default addons:
   * [Calico][calico] to provide pod network, and policy-driven perimeter network security.
   * [CoreDNS][coredns] for DNS and service discovery.
   * [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
@@ -400,7 +420,7 @@ Specifically, the `konvoy up` command does the following:
   * [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][promethsus_adapter]) to collect and evaluate metrics for monitoring and alerting.
   * [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
   * [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
-  * Operations portal to centralize access to add-on dashboards.
+  * Operations portal to centralize access to addon dashboards.
   * [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
   * [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
   * [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
@@ -411,7 +431,7 @@ This set of configuration options is the recommended environment for small clust
 
 As the `konvoy up` command runs, it displays information about the operations performed.
 For example, you can view the command output to see when [Ansible][ansible] connects to the hosts and installs Kubernetes.
-Once the Kubernetes cluster is up, the `konvoy up` command installs the add-ons specified for the cluster.
+Once the Kubernetes cluster is up, the `konvoy up` command installs the addons specified for the cluster.
 
 # Viewing cluster operations
 
@@ -477,3 +497,4 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
 [traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+[kubeaddons_repo]: https://github.com/mesosphere/kubeaddons-configs

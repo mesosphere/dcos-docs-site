@@ -160,7 +160,7 @@ In cloud, the load balancer is provided by the cloud provider.
 
 In on-premise, Konvoy ships with [MetalLB][metallb].
 
-To use MetalLB for add-on load balancing:
+To use MetalLB for addon load balancing:
 
 * Identify and reserve a virtual IP (VIP) address range from the networking infrastructure.
 
@@ -169,7 +169,7 @@ To use MetalLB for add-on load balancing:
   * from the computer that is used to deploy Kubernetes.
 
 If the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes then nothing more needs to be configured.
-However, if it is in a different subnet then upi may need to configure appropriate routes to ensures connectivity with the virtual IP address.
+However, if it is in a different subnet then you may need to configure appropriate routes to ensures connectivity with the virtual IP address.
 Further, the virtual IP addresses may share an interface with the primary IP address of the interface.
 In such cases, you must disable any IP or MAC spoofing from the infrastructure firewall.
 
