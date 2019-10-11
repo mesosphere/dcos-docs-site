@@ -45,7 +45,7 @@ mixin renderProductBlurbs()
         div(class='blurb__desc__wrapper')
           p(class='blurb__desc') Snazzy Kommander tagline here
       ul(class="blurb__links")
-        for folder in latestKommDocs.children.slice(0,4)
+        for folder in latestKommDocs.children.slice(0,2)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
 
