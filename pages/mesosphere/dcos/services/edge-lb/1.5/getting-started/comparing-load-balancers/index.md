@@ -21,7 +21,7 @@ Marathon-LB can only handle load-balancing for services that are defined and run
 
 Unlike Marathon-LB, Edge-LB can expose and distributing access requests to any services running on the DC/OS Enterprise cluster. Edge-LB supports load balancing for all DC/OS workloads, including the tasks associated with Mesos frameworks and with other data services. 
 
-As the DC/OS cluster ecosystem extends beyond Marathon-based apps. Edge-LB enables you to broaden your load balancing coverage to handle inbound requests for apps based on other data services such as Cassandra and Kafka. Similarly, Edge-LB enables you to extend load balancing support to access requests for services deployed on Kubernetes-based clusters running with Mesosphere automation. 
+As the DC/OS cluster ecosystem extends beyond Marathon-based apps. Edge-LB enables you to broaden your load balancing coverage to handle inbound requests for apps based on other data services such as Cassandra and Kafka. Similarly, Edge-LB enables you to extend load balancing support to access requests for services deployed on Kubernetes-based clusters running with D2IQ automation. 
 
 Because Edge-LB is built as a DC/OS framework, it can leverage the same DC/OS SDK that all of your production data services are using. This means that you get the same reliability and platform integration that your mission critical databases and analytics applications are using. With the DC/OS SDK as its foundation, Edge-LB can seamlessly incorporate new features as DC/OS expands.
 
