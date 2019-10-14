@@ -147,10 +147,10 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
    <caption>DC/OS 1.11 to 1.12 Upgrade Paths</caption>
    <tr>
-    <th Rowspan = "16" Align = "center"><strong>Upgrade<br>From</strong></th>
+    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
    <tr>
    <th></th>
-    <th Colspan = "5" Align = "center"><strong>Upgrade To</strong></th>
+    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
    </tr>
     <th></th>
     <th Align = "center">1.12.0</th>
@@ -254,6 +254,14 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <th>1.11.11</th>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.12</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
