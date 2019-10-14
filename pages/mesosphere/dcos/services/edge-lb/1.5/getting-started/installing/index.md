@@ -398,6 +398,8 @@ vi edge-lb-options.json
     }
     ```
 
+    *NOTE* when setting the `service.name` value, the `edgelb.service_name` for the dcos command line should be set to the same value: `dcos config set edgelb.service_name dcos-edgelb/api`.
+
 1. Save the configuration file. 
 
 1. Add the configuration file to source control so that you can update configuration at a later time.
