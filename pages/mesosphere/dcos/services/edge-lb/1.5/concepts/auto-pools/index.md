@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: Self Service Auto Pools
-title: Self Service Auto Pools
+navigationTitle: Auto Pools
+title: Auto Pools
 menuWeight: 1
 excerpt: Describes how you can automaticly expose applications with task labels
 enterprise: true
 ---
 
-Self Service Auto Pools streamlines deployment by enabling developers to _self-service_ [pools](../architecture/#edge-lb-pool) using Marathon app labels or SDK task labels (annotations). Edge-LB automatically provisions pools using pool templates. A default pool template is created at the time of Edge-LB installation. The template is rendered into a pool configuration based on the values of the app / task [labels](#supported-labels) (discussed below).
+Auto Pools streamlines deployment by enabling [pools](../architecture/#edge-lb-pool) to automatically be configured, start, and stop using Marathon app labels or SDK task labels (annotations). Edge-LB automatically provisions pools using pool templates. A default pool template is created at the time of Edge-LB installation. The template is rendered into a pool configuration based on the values of the app / task [labels](#supported-labels) (discussed below).
 
 ## Default Pool
 
@@ -41,7 +41,7 @@ All the supported [labels](#supported-labels) with a `<group>` of `secure` and `
 }
 ```
 
-An example Marathon application can be found in the [example apps](../../pool-configuration/v2-examples/#self-service-auto-pool-marathon-application). For an in depth tutorial exposing applications, please see the [tutorial](../../tutorials/self-service/).
+An example Marathon application can be found in the [example apps](../../pool-configuration/v2-examples/#auto-pool-marathon-application). For an in depth tutorial exposing applications, please see the [tutorial](../../tutorials/auto-pools/).
 
 The default pool template selects tasks with the label `"edgelb.expose" : true`. It can then be further customized using labels.
 

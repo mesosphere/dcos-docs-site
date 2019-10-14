@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool-template status
 title: dcos edgelb pool-template status
 menuWeight: 45
-excerpt: Display rendering status of a Self-Service Auto Pool template
+excerpt: Display rendering status of an Auto Pool template
 enterprise: true
 ---
 
 
 # Description
-The `dcos edgelb pool-template status` command shows the rendering status of a Self-Service Auto Pool template.
+The `dcos edgelb pool-template status` command shows the rendering status of an Auto Pool template.
 
 # Usage
 
