@@ -24,4 +24,4 @@ Edge-LB Service version 1.5.0 was released Month Day, Year.
 - The apiserver now uses `container/bridge` network type.
 
 # Known issues and limitations
-- Auto Pool updates are slow with more than 5 templates, or large changes to mesos state (many apps starting or stopping).
+- Auto Pool updates are slower as the number of templates increases, or large changes to mesos state (many apps starting or stopping).
