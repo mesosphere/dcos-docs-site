@@ -582,7 +582,7 @@ In this example we create a pool that will be launched on the virtual network pr
 }
 ```
 
-# Self Service Auto Pool Marathon Application
+# Auto Pool Marathon Application
 
 ```json
 {

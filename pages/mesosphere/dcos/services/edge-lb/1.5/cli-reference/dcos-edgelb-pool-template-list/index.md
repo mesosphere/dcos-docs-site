@@ -3,12 +3,12 @@ layout: layout.pug
 navigationTitle:  dcos edgelb pool-template list
 title: dcos edgelb list
 menuWeight: 45
-excerpt: List the names of the currently configured Self-Service Auto Pools
+excerpt: List the names of the currently configured Auto Pools
 enterprise: true
 ---
 
 # Description
-The `dcos edgelb pool-template list` command lists the names of the currently configured Self-Service Auto Pools
+The `dcos edgelb pool-template list` command lists the names of the currently configured Auto Pools
 
 # Usage
 
