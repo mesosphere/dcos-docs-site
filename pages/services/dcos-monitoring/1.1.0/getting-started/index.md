@@ -10,7 +10,7 @@ model: ../data.yml
 
 This page describes how to download and install the {{ model.techName }} service.
 By default, Prometheus and Grafana are run with the default configuration options.
-Alertmanager is off by default and must be configured by the user in order to be run.
+Alertmanager is off by default and must be configured to be turned on.
 
 # Prerequisites
 
