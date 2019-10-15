@@ -22,6 +22,7 @@ Edge-LB Service version 1.5.0 was released Month Day, Year.
 - Adds apiserver, cloud-controller, dcos-template, lbmgr, and mesos-listener exporter for metrics.
 - Metric names renamed in line with Prometheus community guideline.
 - The apiserver now uses `container/bridge` network type.
+- [Pool constraints](../pool-configuration/v2-reference/#pool) now support region placement constraints.
 
 # Known issues and limitations
 - Auto Pool updates are slower as the number of templates increases, or large changes to mesos state (many apps starting or stopping).
