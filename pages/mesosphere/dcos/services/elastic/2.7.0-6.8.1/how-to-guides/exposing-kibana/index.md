@@ -10,9 +10,9 @@ render: mustache
 
 # Expose Kibana using Edge-LB
 
-1. Install Edge-LB
+## Install Edge-LB
 
-First, check if Edge-LB is available on your DC/OS cluster by running:
+1. First, check if Edge-LB is available on your DC/OS cluster by running:
 
 ```bash
 dcos package search edgelb
@@ -56,7 +56,7 @@ dcos edgelb --name edgelb ping
 
 An output of `pong` means that Edge-LB is ready.
 
-2. Create an Edge-LB pool for Kibana
+## Create an Edge-LB pool for Kibana
 
 The following command will create an Edge-LB pool task running on one of your DC/OS cluster's public agents, which will allow Kibana to be accessed from outside the cluster network, given that the selected port on the agent machine is open.
 
@@ -189,7 +189,7 @@ dcos edgelb status kibana
 
 At this point, Kibana should already be accessible through `http://$public_agent_ip_or_url:80`.
 
-3. Accessing Kibana
+## Accessing Kibana
 
 If you only have one public agent and you know its IP address, it should be easy to access Kibana. If not, there are a few commands that might help.
 
