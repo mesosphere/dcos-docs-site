@@ -11,7 +11,7 @@ This section provides reference information for all Edge-LB pool configuration s
 
 # Configuration reference
 
-The API reference, in swaggger format, can be found by running the command below. It contains all possible options and a short description for each endpoint.
+The API reference, in swagger format, can be found by running the command below. It contains all possible options and a short description for each endpoint.
 
 ```
 dcos edgelb show --reference
