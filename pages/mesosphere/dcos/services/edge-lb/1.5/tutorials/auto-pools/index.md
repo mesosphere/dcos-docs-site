@@ -7,7 +7,7 @@ excerpt: Exposing applications using Auto Pools.
 enterprise: true
 ---
 
-This tutorial demonstrates how to set labels on Marathon applications to expose those applications via Auto Pools. In addition, the proceedure for creating new Auto Pools and editing the template used by an Auto Pool is shown. Self ervice Auto Pools enable the operator to delegate application exposure to the developers responsible for that application.
+This tutorial demonstrates how to set labels on Marathon applications to expose those applications via Auto Pools. In addition, the proceedure for creating new Auto Pools and editing the template used by an Auto Pool is shown. Auto Pools enable the operator to delegate application exposure to the developers responsible for that application.
 
 # Prerequisites
 
