@@ -11,8 +11,8 @@ excerpt: Creating an Ingress controller for your Kubernetes cluster
 # Running an Ingress controller
 
 An Ingress is a collection of rules that allow inbound connections to reach the cluster services.
-In order to expose HTTP/S (L7) apps to the outside world - at least outside the DC/OS cluster - one can rely on [Kubernetes `Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress) resources.
-However, simply creating the resource will have no effect. An Ingress controller is needed to satisfy an Ingress.
+To expose HTTP/S (L7) apps to the outside world - at least outside the DC/OS cluster - you can rely on [Kubernetes `Ingress`](https://kubernetes.io/docs/concepts/services-networking/ingress) resources.
+However, just creating the resource will have no effect. An Ingress controller is needed to satisfy an Ingress.
 
 ## dklb the EdgeLB Ingress controller for DC/OS Kubernetes.
 
@@ -28,10 +28,10 @@ This package does not install or provide support for any specific Ingress contro
 - The abovementioned DC/OS agent(s) must have no running workloads that reserve and/or bind to ports `80` or `443`.
 - The Kubernetes cluster must have at least one public Kubernetes node.
 
-With respect to the second bullet item, it is worth noting that port reservations in DC/OS work on an honor-system basis. This means that there may be workloads running on a public DC/OS agent that actually **bind** to ports `80` and/or `443` without actually **reserving** them. The reverse is also true - for example, DC/OS Kubernetes will **reserve** ports `80` and `443` on all public DC/OS agents where public Kubernetes nodes are deployed so that they can be used for ingress, but won't actually **bind** to them.
+For the second bullet item, note that port reservations in DC/OS work on an honor-system basis. This means that there may be workloads running on a public DC/OS agent that actually **bind** to ports `80` and/or `443` without actually **reserving** them. The reverse is also true - for example, DC/OS Kubernetes will **reserve** ports `80` and `443` on all public DC/OS agents where public Kubernetes nodes are deployed so that they can be used for ingress, but won't actually **bind** to them.
 
 Based on your availability needs, it is advised to have multiple public Kubernetes nodes.
-In order to specify the number of public Kubernetes nodes, you must set the value of the `kubernetes.public_node_count` option, accordingly:
+TO specify the number of public Kubernetes nodes, you must set the value of the `kubernetes.public_node_count` option, accordingly:
 
 ```json
 {
@@ -163,13 +163,13 @@ spec:
 EOF
 ```
 
-Kubernetes will take care of setting up Traefik Ingress controller accordingly:
+Kubernetes will set up Traefik Ingress controller accordingly:
 
 - Bind each Traefik pod port `TCP 80` port to the agent's network - This is the most straightforward way to expose Traefik, since DC/OS firewall allows incoming traffic on public DC/OS agents' port `TCP 80`. However, you are responsible for making sure that no other application is binding port `TCP 80` port on all public DC/OS agents where public Kubernetes nodes are scheduled onto, risking unpredictable failure.
 - Make use of the Kubernetes [`nodeSelector` predicate](https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector) to force Traefik pods to be scheduled onto public Kubernetes nodes alone.
 - Make use of the `node-type.kubernetes.dcos.io/public` [node taint](https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/) so that the Traefik pods can actually be scheduled onto the public Kubernetes nodes.
 
-Assuming the Kubernetes cluster has two (2) public nodes, there should be two (2) instances of Traefik running:
+Assuming the Kubernetes cluster has two public nodes, there should be two instances of Traefik running:
 
 ```shell
 $ kubectl -n kube-system get pods | grep traefik
@@ -179,8 +179,8 @@ traefik-ingress-controller-z8rdb                                              1/
 
 #### Accessing an Ingress resource
 
-Assuming the Kubernetes cluster only has one (1) single public Kubernetes node on public DC/OS agent `pa`, with public IP `pa-ip`, the Ingress controller will be made accessible at `http://<pa-ip>`.
-There's no need to specify the port since the `http://` scheme already translates to `TCP 80`, and the `https://` scheme translates to `TCP 443`.
+Assuming the Kubernetes cluster only has one single public Kubernetes node on public DC/OS agent `pa`, with public IP `pa-ip`, the Ingress controller will be made accessible at `http://<pa-ip>`.
+There is no need to specify the port since the `http://` scheme already translates to `TCP 80`, and the `https://` scheme translates to `TCP 443`.
 
 We will now deploy an application and expose it through an Ingress.
 
