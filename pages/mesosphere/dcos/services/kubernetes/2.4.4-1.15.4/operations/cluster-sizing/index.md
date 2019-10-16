@@ -121,7 +121,7 @@ Doing so will cause permanent data loss.
 
 ## `etcd` cluster with 5 nodes
 
-An etcd cluster automatically recovers from temporary failures. For a cluster of size N, it can withstand up to (N-1)/2 permanent failures. When a member permanently fails it loses access to the cluster. If the cluster permanently loses more than (N-1)/2 members then it fails, losing quorum. Once quorum is lost, the cluster cannot reach consensus and cannot continue accepting updates.
+An etcd cluster automatically recovers from temporary failures. For a cluster of size N, it can withstand up to (N-1)/2 permanent failures. When a member permanently fails, it loses access to the cluster. If the cluster permanently loses more than (N-1)/2 members then it fails, losing quorum. Once quorum is lost, the cluster cannot reach consensus and cannot continue accepting updates.
 
 To increase etcd cluster availability you need to set both `.kubernetes.high_availability` and `etcd.5_etcd_nodes` to `true`. To deploy an etcd cluster with 5 nodes it requires a cluster with at least 5 private agents.
 
