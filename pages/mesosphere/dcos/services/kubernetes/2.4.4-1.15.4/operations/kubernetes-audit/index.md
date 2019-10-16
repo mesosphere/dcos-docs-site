@@ -94,9 +94,9 @@ rules:
       - "RequestReceived"
 ```
 
-1. Create a file with the above content and name it, for example, `kubernetes-cluster-audit-policy.yaml`.
+1. Create a file with the above content and name it similar to `kubernetes-cluster-audit-policy.yaml`.
 
-1. To setup a policy for your cluster you need to create a DC/OS secret. In this example, we'll create a secret named `kubernetes-cluster/audit-policy` using the file created in the above step.
+1. Create a DC/OS secret. This then allows you to setup a policy for your cluster. In this example, we will create a secret named `kubernetes-cluster/audit-policy` using the file created in the above step.
 
 ```shell
 $ dcos security secrets create -f kubernetes-cluster-audit-policy.yaml kubernetes-cluster/audit-policy
@@ -104,7 +104,7 @@ $ dcos security secrets create -f kubernetes-cluster-audit-policy.yaml kubernete
 
 <p class="message--important"><strong>IMPORTANT: </strong>The service account for the Kubernetes cluster requires permissions to read the secret containing the audit policy.</p>
 
-1. To enable Kubernetes cluster auditing you need to set `.kubernetes.audit.policy` with the name of the DC/OS secret where the policy is stored.
+1. To enable Kubernetes cluster auditing, set `.kubernetes.audit.policy` with the name of the DC/OS secret where the policy is stored.
 
 ```json
 {
