@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kibana and Edge-LB
-excerpt: How to expose Kibana using Edge-LB
-title: Kibana and Edge-LB
+navigationTitle: How-To Guides
+excerpt: How-To Guides
+title: How-To Guides
 menuWeight: 120
 model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
