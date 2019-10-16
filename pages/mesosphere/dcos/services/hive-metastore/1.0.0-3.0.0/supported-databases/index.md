@@ -24,7 +24,7 @@ dcos package install {{ model.packageName }}
 
 
 ### Install the {{ model.techShortName }}  with MySQL
-The {{ model.techShortName }} can also be backed by a MySQL database. This is recommended for production use.
+The {{ model.techShortName }} can also be backed by a MySQL database. 
 
 - Users must deploy MySQL:
 
