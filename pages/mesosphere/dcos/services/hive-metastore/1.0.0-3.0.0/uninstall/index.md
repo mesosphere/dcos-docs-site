@@ -4,7 +4,7 @@ navigationTitle: Uninstall
 excerpt: Uninstalling Hive Metastore
 title: Uninstalling Hive Metastore
 menuWeight: 55
-model: /mesosphere/dcos/services/cassandra/data.yml
+model: /mesosphere/dcos/services/hive-metastore/data.yml
 render: mustache
 ---
 
