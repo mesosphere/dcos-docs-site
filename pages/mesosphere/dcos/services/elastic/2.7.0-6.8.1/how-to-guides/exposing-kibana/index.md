@@ -14,47 +14,40 @@ render: mustache
 
 1. First, check if Edge-LB is available on your DC/OS cluster by running:
 
-```bash
-dcos package search edgelb
-```
+    ```bash
+    dcos package search edgelb
+    ```
 
-The output should look something like:
+    The output should look something like:
 
-```text
-$ dcos package search edgelb
-NAME         VERSION  SELECTED  FRAMEWORK  DESCRIPTION
-edgelb       v1.3.0   True      False      EdgeLB on DC/OS
-edgelb-pool  v1.3.0   True      True       EdgeLB Pool on DC/OS
-```
+    ```text
+    $ dcos package search edgelb
+    NAME         VERSION  SELECTED  FRAMEWORK  DESCRIPTION
+    edgelb       v1.3.0   True      False      EdgeLB on DC/OS
+    edgelb-pool  v1.3.0   True      True       EdgeLB Pool on DC/OS
+    ```
 
-If it does, you can skip the `dcos package repo add` commands below.
+    If it does, you can skip the `dcos package repo add` commands below.
 
-**Otherwise**, if you see a `No packages found` message, add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/) and the [Certified packages and DC/OS versions](/mesosphere/dcos/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
+    **Otherwise**, if you see a `No packages found` message, add a couple of package repositories to your cluster. For information about the current Edge-LB version support and compatibility, see the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/) and the [Certified packages and DC/OS versions](/mesosphere/dcos/version-policy/#certified-packages-and-dcos-versions/) to compatibility matrix.
 
-Use commands similar to the following to install the Edge-LB packages:
+1. Use commands similar to the following to install the Edge-LB packages:
 
-```bash
-dcos package repo add edgelb https://downloads.mesosphere.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
+    ```bash
+    dcos package repo add edgelb https://downloads.mesosphere.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
 
-dcos package repo add edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
-```
+    dcos package repo add edgelb-pool https://downloads.mesosphere.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
+    ```
 
-Now install Edge-LB with:
+1. Now install Edge-LB with:
 
-```bash
-dcos package install edgelb
-```
+    ```bash
+    dcos package install edgelb
+    ```
 
-For more information about installing and configuring Edge-LB, see the installation instructions in the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/).
-<!-- [Edge-LB installation instructions](/mesosphere/dcos/services/edge-lb/getting-started/installing/). -->
+    For more information about installing and configuring Edge-LB, see the installation instructions in the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/).
+    <!-- [Edge-LB installation instructions](/mesosphere/dcos/services/edge-lb/getting-started/installing/). -->
 
-The installation will take a moment. You can determine if Edge-LB is installed and has been deployed successfully by running the following command:
-
-```bash
-dcos edgelb --name edgelb ping
-```
-
-An output of `pong` means that Edge-LB is ready.
 
 ## Create an Edge-LB pool for Kibana
 
@@ -73,119 +66,119 @@ The pool fields that actually map to the actual Kibana service are under `haprox
 - `services.endpoint.portName` should match the Kibana Marathon app port name
 - `services.marathon.serviceID` should match the Kibana service name
 
-Let's get the remaining configuration parameters that will map the Edge-LB pool to the actual Kibana service. We'll use them in the pool configuration. Make sure to use a different name or port based on your needs.
+1. Let's get the remaining configuration parameters that will map the Edge-LB pool to the actual Kibana service. We'll use them in the pool configuration. Make sure to use a different name or port based on your needs.
 
-```bash
-kibana_service_name="/production/kibana"
-kibana_proxy_port=80
-kibana_service_path="/service/${kibana_service_name}"
-kibana_port_name="$(dcos marathon app show "${kibana_service_name}" | jq -r '.portDefinitions[0].name')"
-```
+    ```bash
+    kibana_service_name="/production/kibana"
+    kibana_proxy_port=80
+    kibana_service_path="/service/${kibana_service_name}"
+    kibana_port_name="$(dcos marathon app show "${kibana_service_name}" | jq -r '.portDefinitions[0].name')"
+    ```
 
-```bash
-echo "{
-  \"apiVersion\": \"V2\",
-  \"role\": \"slave_public\",
-  \"name\": \"kibana\",
-  \"count\": 1,
-  \"haproxy\": {
-    \"stats\": {
-      \"bindPort\": 9090
-    },
-    \"frontends\": [
-      {
-        \"bindPort\": ${kibana_proxy_port},
-        \"linkBackend\": {
-          \"defaultBackend\": \"kibana-backend\"
+    ```bash
+    echo "{
+      \"apiVersion\": \"V2\",
+      \"role\": \"slave_public\",
+      \"name\": \"kibana\",
+      \"count\": 1,
+      \"haproxy\": {
+        \"stats\": {
+          \"bindPort\": 9090
         },
-        \"protocol\": \"HTTP\"
-      }
-    ],
-    \"backends\": [
-      {
-        \"name\": \"kibana-backend\",
-        \"protocol\": \"HTTP\",
-        \"rewriteHttp\": {
-          \"path\": {
-            \"fromPath\": \"${kibana_service_path}\",
-            \"toPath\": \"/\"
-          }
-        },
-        \"services\": [
+        \"frontends\": [
           {
-            \"marathon\": {
-              \"serviceID\": \"${kibana_service_name}\"
+            \"bindPort\": ${kibana_proxy_port},
+            \"linkBackend\": {
+              \"defaultBackend\": \"kibana-backend\"
             },
-            \"endpoint\": {
-              \"portName\": \"${kibana_port_name}\"
-            }
+            \"protocol\": \"HTTP\"
+          }
+        ],
+        \"backends\": [
+          {
+            \"name\": \"kibana-backend\",
+            \"protocol\": \"HTTP\",
+            \"rewriteHttp\": {
+              \"path\": {
+                \"fromPath\": \"${kibana_service_path}\",
+                \"toPath\": \"/\"
+              }
+            },
+            \"services\": [
+              {
+                \"marathon\": {
+                  \"serviceID\": \"${kibana_service_name}\"
+                },
+                \"endpoint\": {
+                  \"portName\": \"${kibana_port_name}\"
+                }
+              }
+            ]
           }
         ]
       }
-    ]
-  }
-}" > kibana_pool.json
-```
+    }" > kibana_pool.json
+    ```
 
-Which will end up looking like:
+    Which will end up looking like:
 
-`kibana_pool.json`
-```json
-{
-  "apiVersion": "V2",
-  "role": "slave_public",
-  "name": "kibana",
-  "count": 1,
-  "haproxy": {
-    "stats": {
-      "bindPort": 9090
-    },
-    "frontends": [
-      {
-        "bindPort": 80,
-        "linkBackend": {
-          "defaultBackend": "kibana-backend"
+    `kibana_pool.json`
+    ```json
+    {
+      "apiVersion": "V2",
+      "role": "slave_public",
+      "name": "kibana",
+      "count": 1,
+      "haproxy": {
+        "stats": {
+          "bindPort": 9090
         },
-        "protocol": "HTTP"
-      }
-    ],
-    "backends": [
-      {
-        "name": "kibana-backend",
-        "protocol": "HTTP",
-        "rewriteHttp": {
-          "path": {
-            "fromPath": "/service//production/kibana",
-            "toPath": "/"
-          }
-        },
-        "services": [
+        "frontends": [
           {
-            "marathon": {
-              "serviceID": "/production/kibana"
+            "bindPort": 80,
+            "linkBackend": {
+              "defaultBackend": "kibana-backend"
             },
-            "endpoint": {
-              "portName": "kibana"
-            }
+            "protocol": "HTTP"
+          }
+        ],
+        "backends": [
+          {
+            "name": "kibana-backend",
+            "protocol": "HTTP",
+            "rewriteHttp": {
+              "path": {
+                "fromPath": "/service//production/kibana",
+                "toPath": "/"
+              }
+            },
+            "services": [
+              {
+                "marathon": {
+                  "serviceID": "/production/kibana"
+                },
+                "endpoint": {
+                  "portName": "kibana"
+                }
+              }
+            ]
           }
         ]
       }
-    ]
-  }
-}
-```
+    }
+    ```
 
-Now you can install the Kibana Edge-LB pool with:
+1. Now you can install the Kibana Edge-LB pool with:
 
-```bash
-dcos edgelb create kibana_pool.json
-```
+    ```bash
+    dcos edgelb create kibana_pool.json
+    ```
 
-Again, installation will take a moment. If `TASK_RUNNING` appears in the output of the following command, it means that the pool is up and running.
+    Again, installation will take a moment. If `TASK_RUNNING` appears in the output of the following command, it means that the pool is up and running.
 
-```bash
-dcos edgelb status kibana
-```
+    ```bash
+    dcos edgelb status kibana
+    ```
 
 At this point, Kibana should already be accessible through `http://$public_agent_ip_or_url:80`.
 
@@ -207,26 +200,26 @@ agent_public_ip="$(dcos node ssh --option StrictHostKeyChecking=no --option LogL
 
 Now that we have the public agent IP address where the Edge-LB Kibana pool task is running, we should be able to access Kibana.
 
-If Kibana has X-Pack Security enabled, you'll first need to access `http://$public_agent_ip_or_address/login` to authenticate with the Kibana server. Use credentials that are stored in your Elasticsearch cluster.
+1. If Kibana has X-Pack Security enabled, you'll first need to access `http://$public_agent_ip_or_address/login` to authenticate with the Kibana server. Use credentials that are stored in your Elasticsearch cluster.
 
-```bash
-kibana_url="http://${agent_public_ip}"
-```
+    ```bash
+    kibana_url="http://${agent_public_ip}"
+    ```
 
-```bash
-kibana_login_url="${kibana_url}/login"
-```
+    ```bash
+    kibana_login_url="${kibana_url}/login"
+    ```
 
-```bash
-command -v xdg-open && xdg-open "${kibana_login_url}" || open "${kibana_login_url}"
-```
+    ```bash
+    command -v xdg-open && xdg-open "${kibana_login_url}" || open "${kibana_login_url}"
+    ```
 
-After authenticating, or if Kibana doesn't have X-Pack Security enabled, Kibana should be available at `http://$public_agent_ip_or_url/service/kibana/app/kibana`.
+1. After authenticating, or if Kibana doesn't have X-Pack Security enabled, Kibana should be available at `http://$public_agent_ip_or_url/service/kibana/app/kibana`.
 
-```bash
-kibana_authenticated_url="${kibana_url}/service/${kibana_service_name}/app/kibana"
-```
+    ```bash
+    kibana_authenticated_url="${kibana_url}/service/${kibana_service_name}/app/kibana"
+    ```
 
-```bash
-command -v xdg-open && xdg-open "${kibana_authenticated_url}" || open "${kibana_authenticated_url}"
-```
+    ```bash
+    command -v xdg-open && xdg-open "${kibana_authenticated_url}" || open "${kibana_authenticated_url}"
+    ```
