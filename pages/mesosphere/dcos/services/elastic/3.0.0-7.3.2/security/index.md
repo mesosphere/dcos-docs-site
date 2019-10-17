@@ -10,7 +10,7 @@ render: mustache
 
 # DC/OS {{ model.techName }} Security
 
-The DC/OS {{ model.techName }} service supports {{ model.techName }}'s X-Pack transport encryption mechanisms. The service provides automation and orchestration to simplify the use of these important features. At this time, X-Pack's authentication and authorization features are not supported.
+The DC/OS {{ model.techName }} service supports {{ model.techName }}'s X-Pack transport encryption mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
 A good overview of X-Pack can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/setup-xpack.html).
 
