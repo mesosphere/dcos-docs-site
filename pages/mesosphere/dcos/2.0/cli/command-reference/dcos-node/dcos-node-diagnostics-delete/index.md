@@ -6,14 +6,14 @@ menuWeight: 4
 excerpt: Displaying the details of diagnostics bundles
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
 # Description
 The dcos node diagnostics delete command allows you to view the details of diagnostics bundles.
 
-**This command is deprecated since DC/OS 1.14; please use `dcos diagnostics delete` instead.**
+**This command is deprecated since DC/OS 2.0; please use `dcos diagnostics delete` instead.**
 
 # Usage
 
@@ -37,5 +37,5 @@ dcos node diagnostics delete <bundle>
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

@@ -5,7 +5,7 @@ title: dcos marathon group remove
 menuWeight: 19
 excerpt: Removing a Marathon application from DC/OS
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -36,5 +36,5 @@ dcos marathon group remove [--force] <group-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

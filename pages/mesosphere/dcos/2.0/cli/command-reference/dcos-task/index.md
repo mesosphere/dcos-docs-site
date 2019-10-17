@@ -5,7 +5,7 @@ title: dcos task
 menuWeight: 16
 excerpt: Managing DC/OS tasks
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -13,7 +13,7 @@ enterprise: false
 
 The `dcos task` commands let you manage DC/OS tasks.
 
-**This command is deprecated since DC/OS 1.14; use `dcos task list` instead.**
+**This command is deprecated since DC/OS 2.0; use `dcos task list` instead.**
 
 # Usage
 

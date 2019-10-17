@@ -5,7 +5,7 @@ title: Overview
 menuWeight: 20
 excerpt: Getting started with DC/OS fundamentals
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

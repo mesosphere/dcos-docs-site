@@ -6,10 +6,10 @@ menuWeight: 2
 excerpt: Configuring the command line interface
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
-You can access DC/OS CLI configuration with the [dcos cluster](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/) and [dcos config](/mesosphere/dcos/1.14/cli/command-reference/dcos-config/) command groups.
+You can access DC/OS CLI configuration with the [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) and [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) command groups.
 
 # Environment variables
 
@@ -19,7 +19,7 @@ The DC/OS CLI supports the following environment variables, which can be set dyn
 
 #### `DCOS_CLUSTER`
 
-To set the [attached cluster](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/dcos-cluster-attach/), set the variable with the command:
+To set the [attached cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-attach/), set the variable with the command:
 
 ```bash
 export DCOS_CLUSTER=<cluster_name>

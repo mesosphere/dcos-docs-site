@@ -5,7 +5,7 @@ title: Monitoring Services
 menuWeight: 3
 excerpt: Monitoring deployed DC/OS services from the CLI and UI
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -28,7 +28,7 @@ kafka     <privatenode3>   True     0    0.0    0.0     0.0   <service-id3>
 
 ## UI
 
-See the monitoring [documentation](/mesosphere/dcos/1.14/monitoring/).
+See the monitoring [documentation](/mesosphere/dcos/2.0/monitoring/).
 
 # Monitoring user-created services
 
@@ -46,4 +46,4 @@ suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150
 
 ## UI
 
-See the monitoring [documentation](/mesosphere/dcos/1.14/monitoring/). 
+See the monitoring [documentation](/mesosphere/dcos/2.0/monitoring/). 

@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Configuring an OpenID identity provider
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -73,7 +73,7 @@ You can add a Google OpenID Connect IdP in Google or DC/OS.
 
 1. Paste the client secret value from Google into the **Client Secret** field.
 
-    ![Google IdP Configuration](/mesosphere/dcos/1.14/img/GUI-LDAP-Add-Oidc.png)
+    ![Google IdP Configuration](/mesosphere/dcos/2.0/img/GUI-LDAP-Add-Oidc.png)
 
     Figure 1. Google IdP configuration
 
@@ -113,11 +113,11 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. You should see your new user listed there.
 
-1. Assign this user the appropriate [permissions](/mesosphere/dcos/1.14/security/ent/perms-reference/).
+1. Assign this user the appropriate [permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/).
 
 ### <a name="using-cli"></a>Using the DC/OS CLI
 
-**Prerequisite:** [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/).
+**Prerequisite:** [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/).
 
 1. Use the following command to log in as your new user.
 
@@ -137,7 +137,7 @@ You can use either of the following to verify that you have set up your IdP corr
 
 1. You should see a message similar to the following.
 
-    ![CLI IdP Auth Token](/mesosphere/dcos/1.14/img/cli-auth-token.png)
+    ![CLI IdP Auth Token](/mesosphere/dcos/2.0/img/cli-auth-token.png)
 
     Figure 2. CLI IdP auth token
 

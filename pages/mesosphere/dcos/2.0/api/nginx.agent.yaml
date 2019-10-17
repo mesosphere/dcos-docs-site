@@ -3,19 +3,19 @@ backends:
   dcos_diagnostics:
     server: 'unix:/run/dcos/dcos-diagnostics.sock'
     name: DC/OS Diagnostics
-    reference: 'https://docs.d2iq.com/1.14/monitoring/#system-health-http-api-endpoint'
+    reference: 'https://docs.d2iq.com/mesosphere/dcos/2.0/monitoring/#system-health-http-api-endpoint'
   log:
     server: 'unix:/run/dcos/dcos-log.sock'
     name: DC/OS Log
-    reference: 'https://docs.d2iq.com/1.14/monitoring/logging/logging-reference/'
+    reference: 'https://docs.d2iq.com/mesosphere/dcos/2.0/monitoring/logging/logging-reference/'
   metrics:
     server: 'unix:/run/dcos/dcos-metrics-agent.sock'
     name: DC/OS Metrics
-    reference: 'https://docs.d2iq.com/1.14/metrics/metrics-api/'
+    reference: 'https://docs.d2iq.com/mesosphere/dcos/2.0/metrics/metrics-api/'
   pkgpanda:
     server: 'unix:/run/dcos/pkgpanda-api.sock'
     name: DC/OS Component Package Manager (Pkgpanda)
-    reference: 'https://docs.d2iq.com/1.14/administering-clusters/component-management/'
+    reference: 'https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/component-management/'
 routes:
   /internal/acs/api/v1/internal/policyquery:
     group: Authentication

@@ -5,7 +5,7 @@ title: dcos plugin list
 menuWeight: 2
 excerpt: Displaying a list of the installed CLI plugins
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -31,4 +31,4 @@ dcos plugin list [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/mesosphere/dcos/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |
+| [dcos plugin](/mesosphere/dcos/2.0/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |

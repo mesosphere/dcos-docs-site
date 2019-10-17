@@ -5,7 +5,7 @@ title: Connection
 menuWeight: 1
 excerpt: Configuring your connection to the LDAP server 
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -16,7 +16,7 @@ In this section, you will specify the address, protocol and certificates to be u
 
 1.  Click **Add Directory**.
 
-   ![Add Directory dialog](/mesosphere/dcos/1.14/img/ldap-add-dir-conn.png)
+   ![Add Directory dialog](/mesosphere/dcos/2.0/img/ldap-add-dir-conn.png)
 
    Figure 1. Add Directory dialog
 
@@ -47,4 +47,4 @@ In this section, you will specify the address, protocol and certificates to be u
 
 1. To ensure that your DC/OS cluster does not accept connections from parties other than the designated LDAP directory server, paste the root CA certificate of the LDAP directory server and any intermediate certificates in the **CA certificate chain (Optional)** field. We highly recommend completing this step to establish a secure communication channel with the LDAP directory server.
 
-1.  Specify your authentication method and parameters, as discussed in the [authentication section](/mesosphere/dcos/1.14/security/ent/ldap/ldap-auth/).
+1.  Specify your authentication method and parameters, as discussed in the [authentication section](/mesosphere/dcos/2.0/security/ent/ldap/ldap-auth/).

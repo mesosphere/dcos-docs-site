@@ -5,12 +5,12 @@ title: Exposing a Service
 menuWeight: 5
 excerpt: Launching a service with a Marathon app definition
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
 
-DC/OS agent nodes can be designated as [public](/mesosphere/dcos/1.14/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/1.14/overview/concepts/#private-agent-node) during [installation](/mesosphere/dcos/1.14/installing/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.
+DC/OS agent nodes can be designated as [public](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node) during [installation](/mesosphere/dcos/2.0/installing/). Public agent nodes provide access from outside of the cluster via infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.
 
 To launch a service on a public node, you must 
 1. [Create a Marathon app definition](#create-app) with the `"acceptedResourceRoles":["slave_public"]` parameter specified
@@ -18,8 +18,8 @@ To launch a service on a public node, you must
 
 **Prerequisites:**
 
-* DC/OS is [installed](/mesosphere/dcos/1.14/installing/)
-* DC/OS CLI is [installed](/mesosphere/dcos/1.14/cli/install/)
+* DC/OS is [installed](/mesosphere/dcos/2.0/installing/)
+* DC/OS CLI is [installed](/mesosphere/dcos/2.0/cli/install/)
 
 <a name="create-app"></a>
 
@@ -56,7 +56,7 @@ To launch a service on a public node, you must
     }
     ```
 
-    For more information about the `acceptedResourceRoles` parameter, see the Marathon API [documentation](/mesosphere/dcos/1.14/deploying-services/marathon-api/).
+    For more information about the `acceptedResourceRoles` parameter, see the Marathon API [documentation](/mesosphere/dcos/2.0/deploying-services/marathon-api/).
 
 1.  Add your app to Marathon by using this command, where `myApp.json` is the file containing your Marathon app definition.
 
@@ -64,7 +64,7 @@ To launch a service on a public node, you must
     dcos marathon app add myApp.json
     ```
 
-    If this is added successfully, there is no output. You can also add your app by using the **Services** tab of the DC/OS [UI](/mesosphere/dcos/1.14/gui/services/).
+    If this is added successfully, there is no output. You can also add your app by using the **Services** tab of the DC/OS [UI](/mesosphere/dcos/2.0/gui/services/).
 
 1.  Verify that the app is added with this command:
 
@@ -79,7 +79,7 @@ To launch a service on a public node, you must
     /myApp   64  0.1    0/1    ---      scale       DOCKER   None
     ```
 
-    You can also view deployed apps by using the **Services** tab of the DC/OS [UI](/mesosphere/dcos/1.14/gui/services/).
+    You can also view deployed apps by using the **Services** tab of the DC/OS [UI](/mesosphere/dcos/2.0/gui/services/).
 
 <a name="config-lb"></a>
 
@@ -87,14 +87,14 @@ To launch a service on a public node, you must
 
 1.  Configure an edge load balancer and service discovery mechanism.
 
-    - AWS users: If you installed DC/OS by using the [AWS CloudFormation templates](/mesosphere/dcos/1.14/installing/evaluation/community-supported-methods/aws/), an ELB is included. However, you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
+    - AWS users: If you installed DC/OS by using the [AWS CloudFormation templates](/mesosphere/dcos/2.0/installing/evaluation/community-supported-methods/aws/), an ELB is included. However, you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
     - All other users: You can use [Marathon-LB](/mesosphere/dcos/services/marathon-lb/latest/), a rapid proxy and load balancer that is based on HAProxy.
 
-1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/mesosphere/dcos/1.14/administering-clusters/locate-public-agent/).
+1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/).
 
     You should see the following message in your browser:
 
-    ![Hello Brave World](/mesosphere/dcos/1.14/img/helloworld.png)
+    ![Hello Brave World](/mesosphere/dcos/2.0/img/helloworld.png)
 
     Figure 1. Confirmation page
 

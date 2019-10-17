@@ -5,7 +5,7 @@ title: dcos security cluster ca newcert
 menuWeight: 5
 excerpt: Creating and signing a new certificate
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
@@ -69,4 +69,4 @@ private_key: '-----BEGIN RSA PRIVATE KEY-----
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster ca](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |
+| [dcos security cluster ca](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |

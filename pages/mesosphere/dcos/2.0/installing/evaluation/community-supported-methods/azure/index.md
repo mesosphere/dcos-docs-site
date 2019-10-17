@@ -5,7 +5,7 @@ title: Running DC/OS on Azure
 navigationTitle: Azure
 menuWeight: 10
 oss: true
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

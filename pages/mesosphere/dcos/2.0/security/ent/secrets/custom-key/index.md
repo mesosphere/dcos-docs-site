@@ -5,7 +5,7 @@ title: Reinitializing the Secret Store with a custom GPG keypair
 menuWeight: -1
 excerpt: Using a custom GPG pair to reinitialize the Secret Store
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -14,14 +14,14 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/)
+- [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
-- You must follow the steps in [Downloading the Root Cert](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
+- You must follow the steps in [Downloading the Root Cert](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
 ## <a name="1"></a>Edit your SECRETS_BOOTSTRAP value
 
-1. [SSH into your master](/mesosphere/dcos/1.14/administering-clusters/sshcluster/).
+1. [SSH into your master](/mesosphere/dcos/2.0/administering-clusters/sshcluster/).
 
 2. Open the `dcos-secrets.env` file in your choice of editor.
 
@@ -71,7 +71,7 @@ In this section, you will re-initalize the secret store with a custom GPG pair.
 
 1. Execute the following ZooKeeper command to gain additional privileges, replacing `super:secret` if necessary with the actual user name and password of the ZooKeeper superuser.
 
-  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
+  <p class="message--note"><strong>NOTE: </strong>By default, DC/OS sets the ZooKeeper superuser to <code>super:secret</code>, but we recommend <a href="/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#zk-superuser">changing the default</a>.</p>
 
 
    ```bash
@@ -158,4 +158,4 @@ You do not **have** to use GPG to generate the keypair. We provide these instruc
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/mesosphere/dcos/1.14/security/ent/secrets/unseal-store/#unseal-cust-keys).
+Congratulations! You have successfully reinitialized your Secret Store. To unseal it, refer to [Unsealing a Secret Store sealed with custom keys](/mesosphere/dcos/2.0/security/ent/secrets/unseal-store/#unseal-cust-keys).

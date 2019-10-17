@@ -5,7 +5,7 @@ title: dcos package repo list
 menuWeight: 6
 excerpt: Displaying the package repository sources
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -30,10 +30,10 @@ dcos package repo list [--json]
 
 # Examples
 
-For an example, see the [documentation](/mesosphere/dcos/1.14/administering-clusters/package-registry/).
+For an example, see the [documentation](/mesosphere/dcos/2.0/administering-clusters/package-registry/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/1.14/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

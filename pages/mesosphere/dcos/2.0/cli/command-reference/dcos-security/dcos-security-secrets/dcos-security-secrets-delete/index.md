@@ -5,7 +5,7 @@ title: dcos security secrets delete
 menuWeight: 310
 excerpt: Deleting a secret
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
@@ -36,4 +36,4 @@ dcos security secrets delete [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

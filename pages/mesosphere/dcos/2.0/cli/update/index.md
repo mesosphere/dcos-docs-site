@@ -6,10 +6,10 @@ menuWeight: 3
 excerpt: Updating the command line interface
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
-Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/mesosphere/dcos/1.14/cli/uninstall/">uninstall</a> the CLI, then install a new version of the software to upgrade.
+Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/mesosphere/dcos/2.0/cli/uninstall/">uninstall</a> the CLI, then install a new version of the software to upgrade.
 
 <a name="upgrade"></a>
 
@@ -25,19 +25,19 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
 1.  Then, navigate to your DC/OS UI and click the down arrow to the right of your cluster name in the top right corner.
 
-    ![open cluster popup](/mesosphere/dcos/1.14/img/open-cluster-popup.png)
+    ![open cluster popup](/mesosphere/dcos/2.0/img/open-cluster-popup.png)
 
     Figure 1. Open cluster popup menu
 
 1. Select **Install CLI** to bring up the installation commands.
 
-    ![CLI install UI](/mesosphere/dcos/1.14/img/install-cli.png)
+    ![CLI install UI](/mesosphere/dcos/2.0/img/install-cli.png)
 
     Figure 2. Select **Install CLI**
 
 1. Copy and paste the code snippets appropriate to your OS into your terminal and press the return key. This automatically downloads, moves, and runs the setup command for the cluster. The last command to run, `dcos`, will display an overview of the dcos commands.
 
-    ![CLI copy/paste](/mesosphere/dcos/1.14/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
+    ![CLI copy/paste](/mesosphere/dcos/2.0/img/CLI-Installation-GUI_Popup_Linux-1.12.png)
 
     Figure 3. Code snippet window
 
@@ -48,7 +48,7 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
                 NAME                          ID                    STATUS    VERSION        URL
     *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.13.0         http://example.com
-       mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  1.14-dev       http://example-1.com
+       mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  2.0-dev       http://example-1.com
     ```
 
 # Upgrading/Downgrading to a specific version of the CLI manually
@@ -90,9 +90,9 @@ The recommended method to install the DC/OS CLI is by getting a preformatted set
 
                 NAME                          ID                    STATUS    VERSION        URL
     *  kjdskjd-ds-derr-1     0e2f90b-ded3-458b-8157-0365c8bd1ca4  AVAILABLE  1.13.0         http://example.com
-       mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  1.14-dev       http://example-1.com
+       mr-clr-714024134      e71432a-8c60-48f0-bb14-ddf287775cdb  AVAILABLE  2.0-dev       http://example-1.com
     ```
 
 If your system is unable to find the executable, you may need to re-open the command prompt or add the installation directory to your PATH environment variable manually.
 
-For information about configuration options when using the DC/OS CLI, see [Configuring the command-line interface](/mesosphere/dcos/1.14/cli/configure/). For information about authentication and authorization when using the DC/OS CLI, see the appropriate [Security](/mesosphere/dcos/1.14/security/) section.
+For information about configuration options when using the DC/OS CLI, see [Configuring the command-line interface](/mesosphere/dcos/2.0/cli/configure/). For information about authentication and authorization when using the DC/OS CLI, see the appropriate [Security](/mesosphere/dcos/2.0/security/) section.

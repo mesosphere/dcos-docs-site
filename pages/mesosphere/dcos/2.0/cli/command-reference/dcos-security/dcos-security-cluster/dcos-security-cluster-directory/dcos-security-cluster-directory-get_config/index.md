@@ -5,7 +5,7 @@ title: dcos security cluster directory get_config
 menuWeight: 32
 excerpt: Retrieving an LDAP configuration
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
@@ -30,5 +30,5 @@ dcos security cluster directory get_config [OPTIONS]
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster directory](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
+| [dcos security cluster directory](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
 

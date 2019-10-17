@@ -4,7 +4,7 @@ navigationTitle: Quota Management
 title: Quota Management
 menuWeight: 5
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 excerpt: Using groups and quota management for multi-tenancy
 ---
 Groups provide the foundation for supporting multi-tenant clusters using DC/OS. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.
@@ -20,8 +20,8 @@ Additionally, services launched inside a given group are configured to use the r
 
 # Prerequisites
 
-* [DC/OS CLI installed and configured](/mesosphere/dcos/1.14/cli/).
-* Sufficient [permissions](/mesosphere/dcos/1.14/security/ent/perms-reference) to manage quota (Enterprise DC/OS only).
+* [DC/OS CLI installed and configured](/mesosphere/dcos/2.0/cli/).
+* Sufficient [permissions](/mesosphere/dcos/2.0/security/ent/perms-reference) to manage quota (Enterprise DC/OS only).
 
     Quota management operations are typically done by the cluster administrator.
 

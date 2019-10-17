@@ -6,12 +6,12 @@ menuWeight: 2
 excerpt: Showing the cluster configuration file
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description
 
-The `dcos config show` command will display the DC/OS configuration file contents of the currently [attached cluster](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/dcos-cluster-attach/).
+The `dcos config show` command will display the DC/OS configuration file contents of the currently [attached cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-attach/).
 
 # Usage
 
@@ -69,4 +69,4 @@ core.dcos_url http://mycluster-elasticl-7qbh2zcfyz6h-4734.us-east-1.elb.amazonaw
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/mesosphere/dcos/1.14/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
+| [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

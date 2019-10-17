@@ -5,7 +5,7 @@ title: Service Naming
 menuWeight: 0
 excerpt: Understanding Mesos-DNS service naming conventions
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -206,7 +206,7 @@ Mesos-DNS generates a few special records:
 *   For every known DC/OS master: A records (`master.mesos`)
 *   For every known DC/OS agent: A records (`slave.mesos`) and SRV records (`_slave._tcp.mesos`)
 
-<p class="message--important"><strong>IMPORTANT: </strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/mesosphere/dcos/1.14/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</p> 
+<p class="message--important"><strong>IMPORTANT: </strong> To query the leading master node, always query "leader.mesos", not "master.mesos". See <a href="/mesosphere/dcos/2.0/networking/DNS/mesos-dns/troubleshooting/#leader">this FAQ entry</a> for more information.</p> 
 
 
 There is a delay between the election of a new master and the update of leader/master records in Mesos-DNS. Mesos-DNS also supports requests for SOA and NS records for the Mesos domain. DNS requests for records of other types in the Mesos domain will return `NXDOMAIN`. Mesos-DNS does not support PTR records needed for reverse lookups. Mesos-DNS also generates A records for itself that list all the IP addresses that Mesos-DNS will answer lookup requests on. The hostname for these A records is `ns1.mesos`.
@@ -229,7 +229,7 @@ If a service launches multiple tasks with the same name, the DNS lookup will ret
 
 You can get a comprehensive list of the apps running on your DC/OS cluster nodes.
 
-**Prerequisites:** [DC/OS and DC/OS CLI](/mesosphere/dcos/1.14/installing/) are installed.
+**Prerequisites:** [DC/OS and DC/OS CLI](/mesosphere/dcos/2.0/installing/) are installed.
 
 1.  SSH into your node. For example, use this CLI command to SSH to your master:
 
@@ -237,7 +237,7 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
     dcos node ssh --leader --master-proxy
     ```
 
-    For more information, see the SSH [documentation](/mesosphere/dcos/1.14/administering-clusters/sshcluster/).
+    For more information, see the SSH [documentation](/mesosphere/dcos/2.0/administering-clusters/sshcluster/).
 
 2.  Run this command from your master node to view the node details:
 
@@ -353,7 +353,7 @@ You can get a comprehensive list of the apps running on your DC/OS cluster nodes
 
 
 
- [1]: /mesosphere/dcos/1.14/overview/concepts/
+ [1]: /mesosphere/dcos/2.0/overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc1123
  [4]: https://tools.ietf.org/html/rfc952

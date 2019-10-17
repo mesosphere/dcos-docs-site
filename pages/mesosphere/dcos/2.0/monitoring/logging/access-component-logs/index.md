@@ -5,22 +5,22 @@ title: Accessing system and component logs
 menuWeight: 1
 excerpt: Managing user access to system and component logs
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: true
 ---
 
 You can restrict user access to system and component logs.
 
-Here is the [permission](/mesosphere/dcos/1.14/security/ent/perms-reference/) that is required to view the system and component logs:
+Here is the [permission](/mesosphere/dcos/2.0/security/ent/perms-reference/) that is required to view the system and component logs:
 
 |     Permission string     | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
-| `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/mesosphere/dcos/1.14/api/master-routes/#system).                                                                                                                                                                      | x    |   |   |   |   |
+| `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/mesosphere/dcos/2.0/api/master-routes/#system).                                                                                                                                                                      | x    |   |   |   |   |
 
 **Prerequisites:**
 
-- DC/OS and DC/OS CLI are [installed](/mesosphere/dcos/1.14/installing/) and you are logged in as a superuser.
+- DC/OS and DC/OS CLI are [installed](/mesosphere/dcos/2.0/installing/) and you are logged in as a superuser.
 
 # Via the DC/OS web interface
 
@@ -28,13 +28,13 @@ Here is the [permission](/mesosphere/dcos/1.14/security/ent/perms-reference/) th
 
 1.  Select **Organization** and choose **Users**. Select an existing or create a new user.
 
-    ![New user](/mesosphere/dcos/1.14/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
+    ![New user](/mesosphere/dcos/2.0/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
 
     Figure 1. New user screen
 
 1.  From the **Permissions** tab, select **ADD PERMISSION**.
 
-    ![Add permission to user](/mesosphere/dcos/1.14/img/GUI-Organization-Users-User_Main_View.png)
+    ![Add permission to user](/mesosphere/dcos/2.0/img/GUI-Organization-Users-User_Main_View.png)
 
     Figure 2. Add Permission button
 
@@ -44,13 +44,13 @@ Here is the [permission](/mesosphere/dcos/1.14/security/ent/perms-reference/) th
     dcos:adminrouter:ops:system-logs full
     ```
 
-    ![Add permission](/mesosphere/dcos/1.14/img/GUI-Organization-User-Add_Single_User_Perm_String-1_12.png)
+    ![Add permission](/mesosphere/dcos/2.0/img/GUI-Organization-User-Add_Single_User_Perm_String-1_12.png)
 
     Figure 3. Permission string dialog
 
     The **Permissions** tab should now look like this:
 
-    ![prod-group permissions complete](/mesosphere/dcos/1.14/img/GUI-Organization-Users-User_View_w_Perm.png)
+    ![prod-group permissions complete](/mesosphere/dcos/2.0/img/GUI-Organization-Users-User_View_w_Perm.png)
 
     Figure 4. Permissions have been added
 
@@ -79,7 +79,7 @@ Here is the [permission](/mesosphere/dcos/1.14/security/ent/perms-reference/) th
 # Via the IAM API
 
 **Prerequisite:**
-You must [get the root cert](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
+You must [get the root cert](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/) before issuing the curl commands in this section.
 
 ### Tips
 

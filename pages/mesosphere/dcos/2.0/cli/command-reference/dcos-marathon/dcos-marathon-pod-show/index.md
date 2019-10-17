@@ -6,7 +6,7 @@ menuWeight: 27
 excerpt: Displaying detailed information for a specific pod
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
@@ -46,4 +46,4 @@ You can use the `show` command to read data about the pod programmatically.
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

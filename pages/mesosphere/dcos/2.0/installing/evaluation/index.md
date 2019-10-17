@@ -4,7 +4,7 @@ navigationTitle:  Cloud Installation
 title: Cloud Installation
 menuWeight: 10
 excerpt: Guide to Installing DC/OS on cloud environments using the Mesosphere Universal Installer
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 13
 excerpt: Display the debugging queue of waiting Marathon app deployments
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
@@ -36,5 +36,5 @@ dcos marathon debug summary <app-id> [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

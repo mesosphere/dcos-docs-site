@@ -6,7 +6,7 @@ menuWeight: 90
 excerpt: DCOS GUI Update Service 
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The DC/OS GUI Update Service updates the current version of the DC/OS GUI using new versions published to the {{ model.packageRepo }}. This service allows you to update your GUI without having to update your version of DC/OS.
@@ -25,4 +25,4 @@ After the update API request is successfully processed there is a lag between th
 
 ## Resources
 
-[swagger api='/mesosphere/dcos/1.14/api/endpoints.yaml']
+[swagger api='/mesosphere/dcos/2.0/api/endpoints.yaml']

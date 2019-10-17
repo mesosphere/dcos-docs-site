@@ -5,7 +5,7 @@ title: Tutorial - Autoscaling using requests per second
 menuWeight: 1
 excerpt: Setting up microscaling based on requests per second
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

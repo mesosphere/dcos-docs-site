@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Starting an application
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
@@ -40,6 +40,6 @@ dcos marathon app start [--force] <app-id> [<instances>]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 

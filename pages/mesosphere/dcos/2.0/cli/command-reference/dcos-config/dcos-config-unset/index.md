@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Removing a property from the configuration file
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
@@ -53,4 +53,4 @@ Removed [core.ssl_verify]
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/mesosphere/dcos/1.14/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
+| [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

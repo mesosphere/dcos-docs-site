@@ -5,7 +5,7 @@ title: Tutorial - Autoscaling Marathon services using CPU and memory
 menuWeight: 0
 excerpt: Autoscaling Marathon services using CPU and memory
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -80,4 +80,4 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
 
 For more information, see the [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) repository.
 
- [1]: /mesosphere/dcos/1.14/installing/
+ [1]: /mesosphere/dcos/2.0/installing/

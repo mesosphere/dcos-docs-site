@@ -5,7 +5,7 @@ title: dcos node list
 menuWeight: 6
 excerpt: Displaying DC/OS node information
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -56,13 +56,13 @@ To use this command to return public-facing IP addresses, your service or user a
 <code>dcos:adminrouter:ops:networking full</code>
 </p>
 
-If you run the `dcos node list` command without this permission, the command returns node information but does not include the Public IP address column in the output. For more information about setting and managing permissions, see [Permissions Management](/mesosphere/dcos/1.14/security/ent/perms-management/) and [Permissions Reference](/mesosphere/dcos/1.14/security/ent/perms-reference/).
+If you run the `dcos node list` command without this permission, the command returns node information but does not include the Public IP address column in the output. For more information about setting and managing permissions, see [Permissions Management](/mesosphere/dcos/2.0/security/ent/perms-management/) and [Permissions Reference](/mesosphere/dcos/2.0/security/ent/perms-reference/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 # Example
 To following example illustrates how you can use this command to find the public-facing IP address for nodes in a small cluster:

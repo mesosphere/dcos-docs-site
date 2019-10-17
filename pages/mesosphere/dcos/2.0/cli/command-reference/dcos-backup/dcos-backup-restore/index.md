@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: Restoring from a backup
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description
@@ -65,5 +65,5 @@ dcos backup restore <backup id> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/1.14/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/mesosphere/dcos/2.0/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

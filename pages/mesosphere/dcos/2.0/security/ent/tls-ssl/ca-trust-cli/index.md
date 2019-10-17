@@ -5,19 +5,19 @@ title: Establishing trust in your CLI
 menuWeight: 300
 excerpt: Establishing trust in your CLI
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 By default, the DC/OS CLI does not verify the signer of TLS certificates. We recommend completing the following brief procedure to ensure that the DC/OS CLI trusts only your DC/OS CA and refuses connections with other parties.
 
-<p class="message--note"><strong>NOTE: </strong>This procedure should be unnecessary if you have <a href="/mesosphere/dcos/1.14/security/ent/tls-ssl/haproxy-adminrouter/">set up a proxy</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>This procedure should be unnecessary if you have <a href="/mesosphere/dcos/2.0/security/ent/tls-ssl/haproxy-adminrouter/">set up a proxy</a>.</p>
 
 
 By default, the DC/OS CLI does not verify the signer of TLS certificates. We recommend completing the following brief procedure to ensure that the DC/OS CLI trusts only your DC/OS CA and refuses connections with other parties.
 
-**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/).
+**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/).
 
 1. Use the following command to change the default and to set the DC/OS CLI to trust your DC/OS CA.
 

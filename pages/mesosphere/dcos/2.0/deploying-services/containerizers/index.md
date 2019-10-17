@@ -5,14 +5,14 @@ title: Using Containerizers
 menuWeight: 40
 excerpt: Using containerizers with Docker Engine and Universal Container Runtime
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
 A containerizer provides a containerization and resource isolation abstraction around a specific container runtime. DC/OS containerizers support the following container runtimes:
 
-- [Universal Container Runtime](/mesosphere/dcos/1.14/deploying-services/containerizers/ucr/).
-- [Docker Engine](/mesosphere/dcos/1.14/deploying-services/containerizers/docker-containerizer/).
+- [Universal Container Runtime](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/).
+- [Docker Engine](/mesosphere/dcos/2.0/deploying-services/containerizers/docker-containerizer/).
 
 The advantages of Universal Container Runtime (UCR) are:
 

@@ -5,7 +5,7 @@ title: dcos diagnostics
 menuWeight: 5
 excerpt: Handling DC/OS diagnostics bundles
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

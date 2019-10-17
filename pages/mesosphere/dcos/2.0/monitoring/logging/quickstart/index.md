@@ -5,18 +5,18 @@ title: Logging Quick Start
 menuWeight: 0
 excerpt: Getting started with DC/OS logging
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: false
 ---
 
-Use this guide to get started with DC/OS logging. Many of the commands used here are described more fully in the [CLI Command Reference](/mesosphere/dcos/1.14/cli/command-reference/dcos-task/).
+Use this guide to get started with DC/OS logging. Many of the commands used here are described more fully in the [CLI Command Reference](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/).
 
 **Prerequisites:**
 
-- You must have DC/OS and the DC/OS CLI [installed](/mesosphere/dcos/1.14/installing/).
+- You must have DC/OS and the DC/OS CLI [installed](/mesosphere/dcos/2.0/installing/).
 
-- You must be logged in as as a superuser or have been granted user access to logging. For more information, see [Accessing system and component logs](/mesosphere/dcos/1.14/monitoring/logging/access-component-logs/) and [Accessing task logs](/mesosphere/dcos/1.14/monitoring/logging/access-task-logs/).
+- You must be logged in as as a superuser or have been granted user access to logging. For more information, see [Accessing system and component logs](/mesosphere/dcos/2.0/monitoring/logging/access-component-logs/) and [Accessing task logs](/mesosphere/dcos/2.0/monitoring/logging/access-task-logs/).
 
 # Deploy a sample app
 Deploy a sample Marathon app for use in this Quick Start Guide.
@@ -99,7 +99,7 @@ You can access the Mesos `stderr` and `stdout` logs natively through the DC/OS C
 
 # View the Mesos task and system logs
 
-You can view logs from tasks or the host subsystem with the `dcos node log` command. find more information on these commands in the [CLI Command Reference](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) section.
+You can view logs from tasks or the host subsystem with the `dcos node log` command. find more information on these commands in the [CLI Command Reference](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) section.
 
 1.  Run this command to view the leading Mesos master logs:
 

@@ -5,7 +5,7 @@ title: dcos node metrics summary
 menuWeight: 11
 excerpt: Summarizing the details of Mesos agent nodes
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -32,5 +32,5 @@ dcos node metrics summary <mesos-id> [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

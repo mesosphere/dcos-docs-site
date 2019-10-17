@@ -5,7 +5,7 @@ title: dcos security org groups grant
 menuWeight: 143
 excerpt: Granting permissions to a group
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
@@ -36,4 +36,4 @@ dcos security org groups grant [OPTIONS] GID RID ACTION
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster org groups](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
+| [dcos security cluster org groups](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

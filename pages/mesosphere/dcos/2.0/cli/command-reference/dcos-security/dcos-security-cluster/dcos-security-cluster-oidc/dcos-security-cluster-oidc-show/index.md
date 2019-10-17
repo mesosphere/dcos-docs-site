@@ -5,7 +5,7 @@ title: dcos security cluster oidc show
 menuWeight: 65
 excerpt: Viewing the DC/OS Certificate Authority information
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
@@ -39,4 +39,4 @@ dcos security cluster oidc show [OPTIONS] [OIDC_ID]...
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster oidc](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | Manage your OIDC settings. |
+| [dcos security cluster oidc](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | Manage your OIDC settings. |
