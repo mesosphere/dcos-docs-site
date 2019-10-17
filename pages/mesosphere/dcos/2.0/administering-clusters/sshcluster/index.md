@@ -161,9 +161,9 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             1.  From the Mesos web interface, copy the agent node hostname. You can find hostnames on the **Frameworks** (`<master-node-IPaddress>/mesos/#/frameworks`) or **Slaves** page (`<master-node-IPaddress>/mesos/#/slaves`).
 
-            2.  SSH into the agent node as the user `core` with the agent node hostname specified:
+            2.  SSH into the agent node as the user `centos` with the agent node hostname specified:
 
-                    ssh core@<agent-node-hostname>
+                    ssh centos@<agent-node-hostname>
 
  [1]: /mesosphere/dcos/2.0/cli/command-reference/
  [2]: #unix
