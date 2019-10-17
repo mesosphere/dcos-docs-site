@@ -5,7 +5,7 @@ title: Using Virtual IP Addresses
 menuWeight: 10
 excerpt: Using virtual IP addresses
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. DC/OS VIPs are **name-based**, which means clients connect with a service address instead of an IP address.
@@ -35,7 +35,7 @@ VIPs follow this naming convention:
 
 ## Creating a VIP
 
-1.  From the DC/OS [GUI](/mesosphere/dcos/1.14/gui/), click on the **Services** tab, then on **RUN A SERVICE**.
+1.  From the DC/OS [GUI](/mesosphere/dcos/2.0/gui/), click on the **Services** tab, then on **RUN A SERVICE**.
 1.  From the **Networking** tab, select  **NETWORK TYPE** > **Virtual Network: dcos**.
 1.  Expand **ADD SERVICE ENDPOINT** and provide responses for:
 
@@ -46,7 +46,7 @@ VIPs follow this naming convention:
 
       As you fill in these fields, the service addresses that Marathon sets up will appear at the bottom of the screen. You can assign multiple VIPs to your app by clicking **ADD SERVICE ENDPOINT**.
 
-      ![VIP service definition](/mesosphere/dcos/1.14/img/vip-service-definition.png)
+      ![VIP service definition](/mesosphere/dcos/2.0/img/vip-service-definition.png)
 
       Figure 1 - VIP service definition screen
 
@@ -56,11 +56,11 @@ VIPs follow this naming convention:
 
 You can click on the **Networking** tab to view networking details for your service.
 
-![VIP output](/mesosphere/dcos/1.14/img/GUI-Networking-Networks-Detail.png)
+![VIP output](/mesosphere/dcos/2.0/img/GUI-Networking-Networks-Detail.png)
  
 Figure 2 - Service definition output
 
-For more information on port configuration, see the [Marathon ports documentation](/mesosphere/dcos/1.14/deploying-services/service-ports/).
+For more information on port configuration, see the [Marathon ports documentation](/mesosphere/dcos/2.0/deploying-services/service-ports/).
 
 ## Using VIPs with DC/OS Services
 
@@ -73,7 +73,7 @@ Follow these steps to view the VIP for Kafka.
 1.  Click **Networking** > **Networks** and select **dcos**.
 1.  Select your task to view details.
 
-    ![Service details](/mesosphere/dcos/1.14/img/GUI-Networking-Service-Addresses-Detail.png)
+    ![Service details](/mesosphere/dcos/2.0/img/GUI-Networking-Service-Addresses-Detail.png)
 
     Figure 3 - VIP service details
 
@@ -110,4 +110,4 @@ You can use this VIP to address any one of the Kafka brokers in the cluster.
 
 This behavior is often experienced with applications that have long lived connections, such as databases (for example, PostgreSQL). To fix, try turning on keepalives. The keepalive can be an application specific mechanism like a heartbeat, or something in the protocol like a TCP keepalive. A keepalive is required because a load balancer cannot differentiate between idle or dead connections as no packets are sent in either case. The default timeout depends on the kernel configuration, but is usually 5 minutes.
 
- [1]: /mesosphere/dcos/1.14/deploying-services/service-ports/
+ [1]: /mesosphere/dcos/2.0/deploying-services/service-ports/

@@ -5,7 +5,7 @@ title: Granting Access to dcos task exec
 menuWeight: 10
 excerpt: Granting access for debugging
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: true
 ---
@@ -15,10 +15,10 @@ You can grant users access to containers for debugging sessions.
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/mesosphere/dcos/1.14/cli/install/) and be logged in as a superuser.
-- A [user account](/mesosphere/dcos/1.14/security/ent/users-groups/) to assign permissions to
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/) and be logged in as a superuser.
+- A [user account](/mesosphere/dcos/2.0/security/ent/users-groups/) to assign permissions to
 
-All CLI commands can also be executed via the [IAM API](/mesosphere/dcos/1.14/security/ent/iam-api/). You can see more detail about the `dcos security org users` commands in the [CLI Command Reference section](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/).
+All CLI commands can also be executed via the [IAM API](/mesosphere/dcos/2.0/security/ent/iam-api/). You can see more detail about the `dcos security org users` commands in the [CLI Command Reference section](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/).
 
 ## Permissive
 

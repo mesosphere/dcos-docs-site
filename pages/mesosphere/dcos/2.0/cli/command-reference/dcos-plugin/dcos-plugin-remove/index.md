@@ -5,7 +5,7 @@ title: dcos plugin remove
 menuWeight: 7
 excerpt: Uninstalling a plugin
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -29,4 +29,4 @@ dcos plugin remove <plugin>
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/mesosphere/dcos/1.14/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS CLI plugins. |
+| [dcos plugin](/mesosphere/dcos/2.0/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS CLI plugins. |

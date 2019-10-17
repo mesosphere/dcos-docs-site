@@ -5,7 +5,7 @@ title: dcos quota create
 menuWeight: 1
 excerpt: Creating a quota
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -35,4 +35,4 @@ dcos quota create <group> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos quota](/mesosphere/dcos/1.14/cli/command-reference/dcos-quota/)   | Managing DC/OS quotas. |
+| [dcos quota](/mesosphere/dcos/2.0/cli/command-reference/dcos-quota/)   | Managing DC/OS quotas. |

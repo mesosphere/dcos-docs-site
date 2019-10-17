@@ -5,7 +5,7 @@ title: dcos security cluster ca profile
 menuWeight: 15
 excerpt: Managing the DC/OS Certificate Authority
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
@@ -33,4 +33,4 @@ dcos security cluster ca profile [OPTIONS]
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster ca](/mesosphere/dcos/1.14/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |
+| [dcos security cluster ca](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |

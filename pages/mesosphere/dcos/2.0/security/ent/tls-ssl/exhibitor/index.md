@@ -9,7 +9,7 @@ enterprise: true
 
 # Verifying that Exhibitor is secured 
 
-Starting with DC/OS 1.14, Exhibitor is secured by default in most circumstances. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
+Starting with DC/OS 2.0, Exhibitor is secured by default in most circumstances. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
 
 
     curl -LI \
@@ -30,7 +30,7 @@ If you see the following, Exhibitor has been secured on your cluster:
 Previously, the Exhibitor HTTP service was open to any client that can reach port 8181 on a master node. This page describes a method for protecting the Exhibitor service from unauthorized access. Once enabled, HTTP clients must access Exhibitor through Admin Router; thus applying the Admin Router access control policy to the Exhibitor service.
 The strategy for securing Exhibitor is mutual TLS authentication. In order to secure Exhibitor you must first create a unique root CA certificate. This CA certificate is used to sign various end entity certificates for the Admin Router and Exhibitor services. Creating a public key infrastructure that outputs PEM and Java KeyStore formatted artifacts is not a trivial task. To make this processes easier, a simple tool has been created for producing the necessary files.
 
-This guide is only compatible with clusters which use **static** master discovery, `master_http_loadbalancer` is not currently supported. Please see the configuration reference for [master discovery](/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/#master-discovery-required).
+This guide is only compatible with clusters which use **static** master discovery, `master_http_loadbalancer` is not currently supported. Please see the configuration reference for [master discovery](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#master-discovery-required).
 
 <p class="message--note"><strong>NOTE: </strong>When accessing Exhibitor through Admin Router <code>https://master_host/exhibitor</code>, authenticated users must have the <code>dcos:adminrouter:ops:exhibitor</code> privilege with the <i>full</i> action identifier</p>
 
@@ -52,7 +52,7 @@ The expected output is shown below:
 
     Generates Admin Router and Exhibitor TLS artifacts. NODES should consist
     of a space separated list of master IP addresses. See
-    /mesosphere/dcos/1.14/security/ent/tls-ssl/exhibitor/
+    /mesosphere/dcos/2.0/security/ent/tls-ssl/exhibitor/
 
     Options:
     -d, --output-directory TEXT  Directory to put artifacts in. This

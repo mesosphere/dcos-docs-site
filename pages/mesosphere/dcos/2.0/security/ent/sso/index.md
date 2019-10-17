@@ -6,7 +6,7 @@ menuWeight: 70
 excerpt: Configuring identity provider-based authentication
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
@@ -28,5 +28,5 @@ When a user attempts to log on from the DC/OS web interface, they will be presen
 
 DC/OS Enterprise supports two types of identity provider-based authentication methods: [Security Assertion Markup Language (SAML)](https://wiki.oasis-open.org/security/FrontPage) and [OpenID Connect (OIDC)](http://openid.net/connect/):
 
-- Adding a [SAML Identity Provider](/mesosphere/dcos/1.14/security/ent/sso/setup-saml/)
-- Adding an [OpenID Identity Provider](/mesosphere/dcos/1.14/security/ent/sso/setup-openid/):
+- Adding a [SAML Identity Provider](/mesosphere/dcos/2.0/security/ent/sso/setup-saml/)
+- Adding an [OpenID Identity Provider](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/):

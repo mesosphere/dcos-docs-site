@@ -5,7 +5,7 @@ title: Boot Sequence
 menuWeight: 6
 excerpt: Understanding the DC/OS component services boot sequence
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -95,4 +95,4 @@ The following is the boot sequence of a DC/OS scheduler service:
 
 ### More information
 
-For more information about tasks and services, see [Distributed Process Management](/mesosphere/dcos/1.14/overview/architecture/distributed-process-management/).
+For more information about tasks and services, see [Distributed Process Management](/mesosphere/dcos/2.0/overview/architecture/distributed-process-management/).

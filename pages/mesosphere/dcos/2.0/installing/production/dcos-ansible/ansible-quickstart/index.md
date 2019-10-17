@@ -31,7 +31,7 @@ If you’re new to Ansible and/or want to deploy DC/OS using Ansible quickly and
    - 1 Private Agent
    - 1 Public Agent
 
-Please see the [minimum system requirements](/mesosphere/dcos/1.14/installing/production/system-requirements/) and supported CentOS and Redhat Enterprise Linux (RHEL) [versions for your nodes](/mesosphere/dcos/version-policy/#dcos-platform-version-compatibility-matrix/), especially when planning for production environments.
+Please see the [minimum system requirements](/mesosphere/dcos/2.0/installing/production/system-requirements/) and supported CentOS and Redhat Enterprise Linux (RHEL) [versions for your nodes](/mesosphere/dcos/version-policy/#dcos-platform-version-compatibility-matrix/), especially when planning for production environments.
 For more information on setting up SSH connections for Ansible see the [remote connections documentation](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information).
 If you are installing DC/OS Enterprise Edition, you will also need an appropriate license key.
 
@@ -108,7 +108,7 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
     # license_key_contents: “YOUR_ENT_LICENSE_CONTENTS”
     #
     # This is an ip-detect script example which also stands for ip_detect_public_contents
-    # more info about ip-detect can be found here: /mesosphere/dcos/1.14/installing/production/deploying-dcos/installation/#create-an-ip-detection-script
+    # more info about ip-detect can be found here: /mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#create-an-ip-detection-script
     # ip_detect_contents: |
     #   #!/bin/sh
     #   set -o nounset -o errexit
@@ -188,13 +188,13 @@ If you installed DC/OS Enterprise, you can login with default demo credentials. 
 * `username: bootstrapuser`
 * `password: deleteme`
 
-![enterprise-Login-Page](/mesosphere/dcos/1.14/img/dcos-ee-login.png)
+![enterprise-Login-Page](/mesosphere/dcos/2.0/img/dcos-ee-login.png)
 
 
 
 If you installed DC/OS Open Source, select the OAuth provider of your choice. [oss type="inline" size="small" /]
 
-![oss-login-page](/mesosphere/dcos/1.14/img/dcos-oe-login.png)
+![oss-login-page](/mesosphere/dcos/2.0/img/dcos-oe-login.png)
 
 ## Upgrading and managing your cluster
 Upgrading your cluster to a newer version of DC/OS and making configuration changes is incredibly easy with Ansible. The modules have been designed to automatically detect the state of your cluster and nodes, and automatically get them to the newer declared state. It is even possible to change your agents configuration and upgrade DC/OS at the same time.

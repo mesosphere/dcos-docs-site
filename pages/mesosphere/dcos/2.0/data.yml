@@ -5,5 +5,5 @@ serviceName: dcos
 techName: DC/OS
 productName: DC/OS
 packageRepo: Catalog
-folder_version: '1.14'
-version: 1.14
+folder_version: '2.0'
+version: 2.0

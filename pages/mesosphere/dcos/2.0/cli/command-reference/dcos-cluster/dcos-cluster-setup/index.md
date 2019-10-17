@@ -6,13 +6,13 @@ menuWeight: 6
 excerpt: Configuring the CLI to communicate with a cluster
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description
 The `dcos cluster setup` command will configure the connection to a DC/OS cluster, authenticate to DC/OS, and attach to the cluster.
 
-It will also automatically install the [Core and Enterprise CLI plugins](/mesosphere/dcos/1.14/cli/plugins/).
+It will also automatically install the [Core and Enterprise CLI plugins](/mesosphere/dcos/2.0/cli/plugins/).
 
 # Usage
 
@@ -48,10 +48,10 @@ If you do not specify one of the SSL options `--insecure`, `--no-check`, or `--c
 
 
 # Examples
-For examples, see [Cluster Connections](/mesosphere/dcos/1.14/administering-clusters/multiple-clusters/cluster-connections/).
+For examples, see [Cluster Connections](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-connections/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/mesosphere/dcos/1.14/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
+| [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |

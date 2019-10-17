@@ -5,7 +5,7 @@ title: dcos task metrics summary
 menuWeight: 11
 excerpt: Display key metrics for a task
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -30,4 +30,4 @@ dcos task metrics summary <task-id> [--json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/mesosphere/dcos/1.14/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |

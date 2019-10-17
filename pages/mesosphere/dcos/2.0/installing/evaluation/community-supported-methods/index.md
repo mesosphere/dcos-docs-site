@@ -4,7 +4,7 @@ excerpt: Use CloudFormation, AzureRM or other Terraform templates to install DC/
 title: Other Installation methods
 navigationTitle: Other Installation methods
 menuWeight: 10
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

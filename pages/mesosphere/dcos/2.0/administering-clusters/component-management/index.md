@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Installing and managing DC/OS component services
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The component management API controls installation and management of DC/OS component services.
@@ -27,12 +27,12 @@ Component packages built by the package builder are distributed as part of the D
 
 ## Component health
 
-Component health is monitored by the DC/OS Diagnostics component. For more information about component monitoring, see [Monitoring](/mesosphere/dcos/1.14/monitoring/).
+Component health is monitored by the DC/OS Diagnostics component. For more information about component monitoring, see [Monitoring](/mesosphere/dcos/2.0/monitoring/).
 
 
 ## Component logs
 
-Component logs are sent to `journald` and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/mesosphere/dcos/1.14/monitoring/logging/).
+Component logs are sent to `journald` and exposed by the DC/OS Log component. For more information about component logs, see [Logging](/mesosphere/dcos/2.0/monitoring/logging/).
 
 
 ## Routes
@@ -42,4 +42,4 @@ The component management API is exposed through Admin Router and Admin Router Ag
 
 ## Resources
 
-[swagger api='/mesosphere/dcos/1.14/api/pkgpanda.yaml']
+[swagger api='/mesosphere/dcos/2.0/api/pkgpanda.yaml']

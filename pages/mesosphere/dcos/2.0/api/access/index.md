@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Gaining access to a cluster URL
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Gaining access to a cluster URL
@@ -29,7 +29,7 @@ You can find the hostname of a specific agent node by using the following method
 - Log into the DC/OS GUI, navigate to the Nodes page, and copy the hostname of the desired node.
 - Log into the DC/OS CLI, list the nodes with `dcos node`, and copy the hostname of the desired node.
 
-To determine which agents are public agents, see [Finding a Public Agent IP](/mesosphere/dcos/1.14/administering-clusters/locate-public-agent/).
+To determine which agents are public agents, see [Finding a Public Agent IP](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/).
 
 
 # Ingress
@@ -42,4 +42,4 @@ Public agent nodes are usually publicly accessible. [Marathon-LB](/mesosphere/dc
 
 In development or local deployments, you usually have direct access to the nodes by IP.
 
-For more information, see [Securing Your Cluster](/mesosphere/dcos/1.14/administering-clusters/).
+For more information, see [Securing Your Cluster](/mesosphere/dcos/2.0/administering-clusters/).

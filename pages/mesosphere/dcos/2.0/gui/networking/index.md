@@ -5,13 +5,13 @@ title: Networking
 menuWeight: 6
 excerpt: Using the Network menu
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The Networking screen provides a comprehensive view of the health of your virtual IP addresses (VIPs).
 
 
-![Tweeter scaled](/mesosphere/dcos/1.14/img/GUI-Networking-Main.png)
+![Tweeter scaled](/mesosphere/dcos/2.0/img/GUI-Networking-Main.png)
 
 Figure 1 - Networking tab
 
@@ -23,7 +23,7 @@ The **Networks** tab lists the networks currently deployed on your cluster. This
 
 If you click on the name of a network, you can see the Networks detail page, with two tabs: **Tasks** and **Details**.
 
-![Networks Detail](/mesosphere/dcos/1.14/img/GUI-Networking-Networks-Detail.png)
+![Networks Detail](/mesosphere/dcos/2.0/img/GUI-Networking-Networks-Detail.png)
 
 Figure 2 - Networks detail
 
@@ -50,7 +50,7 @@ The **Details** tab lists the following information:
 
 The Service Addresses tab displays a summary of the statistics for each network service address:
 
-![Service Addresses tab](/mesosphere/dcos/1.14/img/GUI-Networking-Service-Addresses-Main.png)
+![Service Addresses tab](/mesosphere/dcos/2.0/img/GUI-Networking-Service-Addresses-Main.png)
 
 Figure 3 - Service Addresses tab
 
@@ -66,7 +66,7 @@ Figure 3 - Service Addresses tab
 
 If you click on the name of a running service, you will access the **Backends** page, which will display more detail about the performance of the specified network.  
 
-![Service Address Backends](/mesosphere/dcos/1.14/img/GUI-Networking-Service-Addresses-Backends.png)
+![Service Address Backends](/mesosphere/dcos/2.0/img/GUI-Networking-Service-Addresses-Backends.png)
 
 Figure 4 - Backends page
 
@@ -74,7 +74,7 @@ The same information found in the **Service Addresses** page is displayed, but w
 
 If you click on the Name of the local IP address, you will access information about any clients.
 
-![Service Address Detail 2](/mesosphere/dcos/1.14/img/GUI-Networking-Service-Addresses-Detail.png)
+![Service Address Detail 2](/mesosphere/dcos/2.0/img/GUI-Networking-Service-Addresses-Detail.png)
 
 Figure 5 - Service Addresses detail page showing clients
 
@@ -83,5 +83,5 @@ Figure 5 - Service Addresses detail page showing clients
 
 DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. 
 
-For detailed information on creating a virtual IP, see the [Networking documentation](/mesosphere/dcos/1.14/networking/load-balancing-vips/virtual-ip-addresses/#creating-a-vip).
+For detailed information on creating a virtual IP, see the [Networking documentation](/mesosphere/dcos/2.0/networking/load-balancing-vips/virtual-ip-addresses/#creating-a-vip).
 .

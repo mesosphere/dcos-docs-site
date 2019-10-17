@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Running a DC/OS job
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
@@ -49,4 +49,4 @@ dcos job run my-job
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/1.14/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

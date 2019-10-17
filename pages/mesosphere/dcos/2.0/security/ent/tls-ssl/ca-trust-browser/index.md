@@ -5,14 +5,14 @@ title: Establishing trust in your DC/OS CA
 menuWeight: 200
 excerpt: Configuring Chrome and Firefox to trust your DC/OS CA.
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/mesosphere/dcos/1.14/security/ent/tls-ssl/get-cert/).
+**Prerequisite:** A local copy of the [root certificate of your DC/OS CA](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/).
 
 The procedure for adding your DC/OS CA as a trusted root certificate authority varies by operating system and browser. Refer to the section that corresponds to your browser/operating system pair.
 

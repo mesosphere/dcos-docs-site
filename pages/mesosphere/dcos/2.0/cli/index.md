@@ -6,12 +6,12 @@ menuWeight: 50
 excerpt: Understanding the command line interface utility in DC/OS
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The DC/OS command line interface (DC/OS CLI) utility allows you to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks.
 
-DC/OS 2.0 requires the DC/OS CLI >= 0.8. To install it, [follow these instructions](/mesosphere/dcos/1.14/cli/install/).
+DC/OS 2.0 requires the DC/OS CLI >= 0.8. To install it, [follow these instructions](/mesosphere/dcos/2.0/cli/install/).
 
 To list available commands, run `dcos` with no parameters:
 
@@ -70,7 +70,7 @@ In order to interact with your cluster, you first need to set up the CLI.
 dcos cluster setup <cluster-url>
 ```
 
-After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/mesosphere/dcos/1.14/cli/plugins/), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
+After following the login procedure, your CLI is now ready to interact with your cluster. You will notice that it now has additional commands such as `marathon`, `node`, `package` etc. These commands come from the [plugins](/mesosphere/dcos/2.0/cli/plugins/), dcos-core-cli and, if applicable, dcos-enterprise-cli, which is automatically installed as part of the setup command.
 
 To display the DC/OS CLI version, run:
 

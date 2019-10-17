@@ -5,7 +5,7 @@ title: dcos node drain
 menuWeight: 6
 excerpt: Draining an agent so that its tasks get rescheduled
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
@@ -38,5 +38,5 @@ dcos node drain <mesos-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

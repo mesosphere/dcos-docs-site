@@ -5,7 +5,7 @@ title: Running DC/OS on DigitalOcean
 navigationTitle: DigitalOcean
 menuWeight: 40
 oss: true
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 You can create a DC/OS cluster on DigitalOcean using Terraform.

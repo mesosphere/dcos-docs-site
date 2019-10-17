@@ -6,7 +6,7 @@ menuWeight: 24
 excerpt: Stopping one or more running pod instances
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description
@@ -34,5 +34,5 @@ dcos marathon pod kill <pod-id> [<instance-ids>...]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/1.14/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

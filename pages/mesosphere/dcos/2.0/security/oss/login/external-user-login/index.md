@@ -4,7 +4,7 @@ navigationTitle:  External User Login
 title: External User Login
 excerpt: Logging in to DC/OS as an external user
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 10
 ---
 
@@ -13,9 +13,9 @@ menuWeight: 10
 # Login using the DC/OS CLI
 
 **Prerequisite:**
-- [DC/OS CLI](/mesosphere/dcos/1.14/cli/)
+- [DC/OS CLI](/mesosphere/dcos/2.0/cli/)
 
-1.  To log in to the DC/OS CLI, enter the following [auth login](/mesosphere/dcos/1.14/cli/command-reference/dcos-auth/dcos-auth-login/) command.
+1.  To log in to the DC/OS CLI, enter the following [auth login](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) command.
 
     ```bash
     dcos auth login --provider dcos-oidc-auth0

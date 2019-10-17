@@ -5,7 +5,7 @@ title: Fault Domain Awareness with Zones
 menuWeight: 5
 excerpt: Understanding fault domains
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

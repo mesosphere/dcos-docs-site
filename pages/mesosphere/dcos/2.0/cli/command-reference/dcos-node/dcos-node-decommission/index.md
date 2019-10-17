@@ -5,7 +5,7 @@ excerpt: Decommissioning a DC/OS node
 title: dcos node decommission
 menuWeight: 1
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description
@@ -29,4 +29,4 @@ dcos node decommission <mesos-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |

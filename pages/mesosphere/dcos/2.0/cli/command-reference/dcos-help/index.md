@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Displaying DC/OS CLI help information
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description
@@ -80,7 +80,7 @@ Use "dcos [command] --help" for more information about a command.
 
 ## Display help for `dcos config` command
 
-The `dcos help config` command is the same as [`dcos config --help`](/mesosphere/dcos/1.14/cli/command-reference/dcos-config/).
+The `dcos help config` command is the same as [`dcos config --help`](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/).
 
 ```bash
 dcos help config

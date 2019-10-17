@@ -6,15 +6,15 @@ menuWeight: 0
 enterprise: true
 excerpt: Using the command line interface to manage your DC/OS license
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The `dcos license` commands are also documented in the [CLI Command Reference](/mesosphere/dcos/1.14/cli/command-reference/dcos-license/) documentation.
+The `dcos license` commands are also documented in the [CLI Command Reference](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) documentation.
 
 # Prerequisites
 - A DC/OS Enterprise cluster.
-- The [DC/OS CLI](/mesosphere/dcos/1.14/cli/install/) installed.
-- The [DC/OS Enterprise CLI](/mesosphere/dcos/1.14/cli/plugins/#enterprise-cli-plugin) installed.
+- The [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) installed.
+- The [DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/plugins/#enterprise-cli-plugin) installed.
 
 
 # List licenses

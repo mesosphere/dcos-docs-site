@@ -6,7 +6,7 @@ menuWeight: 801
 excerpt: Draining an agent node in an active DC/OS cluster
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 You can drain tasks from an agent node in an active DC/OS cluster in order to take the node down for maintenance or to remove it permanently from the cluster. Nodes may be drained and their progress may be monitored via the DC/OS CLI or UI.
@@ -18,8 +18,8 @@ Initiating draining will cause all tasks on the target agent node to receive a k
 
 ### Prerequisites:
 
-*   [DC/OS CLI installed and configured](/mesosphere/dcos/1.14/cli/).
-*   Sufficient [permissions](/mesosphere/dcos/1.14/security/ent/perms-reference) to drain nodes (Enterprise DC/OS only).
+*   [DC/OS CLI installed and configured](/mesosphere/dcos/2.0/cli/).
+*   Sufficient [permissions](/mesosphere/dcos/2.0/security/ent/perms-reference) to drain nodes (Enterprise DC/OS only).
 
 ### Maximum Grace Period
 
@@ -111,7 +111,7 @@ While the automatic draining procedure described above is likely sufficient for 
 dcos node deactivate <mesos-agent-id>
 ```
 
-This will stop any new workloads from being launched on that agent. At this point, the APIs exposed by individual services may be used to kill any tasks running on the node. For example, for typical apps and pods launched via the DC/OS UI, the [API of the Marathon container orchestrator](/mesosphere/dcos/1.14/deploying-services/marathon-api/) can be used to terminate the associated tasks. Once all tasks on the node have been killed, it can be taken down for maintenance, and then reactivated once maintenance is complete:
+This will stop any new workloads from being launched on that agent. At this point, the APIs exposed by individual services may be used to kill any tasks running on the node. For example, for typical apps and pods launched via the DC/OS UI, the [API of the Marathon container orchestrator](/mesosphere/dcos/2.0/deploying-services/marathon-api/) can be used to terminate the associated tasks. Once all tasks on the node have been killed, it can be taken down for maintenance, and then reactivated once maintenance is complete:
 
 ```bash
 dcos node reactivate <mesos-agent-id>

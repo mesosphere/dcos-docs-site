@@ -5,7 +5,7 @@ title: External Persistent Volumes
 menuWeight: 20
 excerpt: Using external persistent volumes with Marathon
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: false
 ---
@@ -182,7 +182,7 @@ To troubleshoot external volumes, consult the agent or system logs. If you are u
 
 [4]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]: http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/
-[6]: /mesosphere/dcos/1.14/deploying-services/creating-services/
+[6]: /mesosphere/dcos/2.0/deploying-services/creating-services/
 [7]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directories
 [8]: #implicit-vol
 [9]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/

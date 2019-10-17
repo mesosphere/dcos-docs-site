@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Downloading the diagnostics bundle
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/1.14/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
@@ -14,7 +14,7 @@ model: /mesosphere/dcos/1.14/data.yml
 # Description
 The `dcos node diagnostics download` command allows you to download the diagnostics bundle to a specific location.
 
-**This command is deprecated since DC/OS 1.14; please use `dcos diagnostics download` instead.**
+**This command is deprecated since DC/OS 2.0; please use `dcos diagnostics download` instead.**
 
 # Usage
 
@@ -39,6 +39,6 @@ dcos node diagnostics download <bundle> [--location=<location>]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/1.14/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 
