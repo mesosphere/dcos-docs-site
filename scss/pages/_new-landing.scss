@@ -38,6 +38,7 @@
         min-height: 150px;
         z-index: 10;
         transition: all 250ms ease-out;
+        margin: 20px;
     }
     &__hero-tile:hover {
         box-shadow: 0 8px 20px 0 rgba(45, 45, 45, .23);
