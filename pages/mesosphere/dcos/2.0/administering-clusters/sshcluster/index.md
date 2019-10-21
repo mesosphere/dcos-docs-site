@@ -48,7 +48,7 @@ If you are on the same network as your cluster or connected by a VPN, you can us
     dcos node ssh --master-proxy --leader
     ```
 
-    The default user is `core` for CoreOS. If you are using CentOS, enter:
+    The default user is dependent upon your OS. If you are using CentOS, enter:
 
     ```bash
     dcos node ssh --master-proxy --leader --user=centos
