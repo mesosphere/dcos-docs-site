@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/data.yml
 ---
 
-The Version Policy page was updated on April 5, 2019.
+The Version Policy page was updated on October 21, 2019.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
@@ -33,9 +33,9 @@ Mesosphere shall provide support services for customers under a current agreemen
 
 * **Major Version**: Upon the availability of a new DC/OS Major version, 2.0.0, Maintenance versions prior to (N-2) Minor versions of the previous (N-1) major release would not be supported. Major Versions also count towards advancing the Minor number version.<br>
 
-Thus, upon the release of 2.0.0 where 1.10.4 and 1.9.7 are available:
-   - Minor Versions 1.10.2 (1.10.4 and - 2) and older would no longer be supported.
-   - Minor Versions 1.9.4 (1.9.4 and - 2) and older would no longer be supported.
+Thus, upon the release of 2.0.0 where 1.13.4 and 1.12.5 are available:
+   - Minor Versions 1.13.2 (1.13.4 and - 2) would be supported, while older versions (1.13.1) would no longer be supported.
+   - Minor Versions 1.12.3 (1.12.5 and - 2) would be supported, while older versions (1.12.2) would no longer be supported.
 
 * **Minor Version**: Upon the availability of a new DC/OS Minor version 1.11.0, minor versions prior to and including 1.8.0 will no longer be supported as (N-2) includes 1.11 (N), 1.10 (N-1) and 1.9 (N-2).
 * **Maintenance Version**: Upon the availability of DC/OS Maintenance version 1.10.5, Maintenance versions prior to and including 1.10.0 will no longer be supported as (N-4) includes 1.10.5 (N), 1.10.4 (N-1), 1.10.3 (N-2), 1.10.2 (N-3) and 1.10.1 (N-4).<br>
