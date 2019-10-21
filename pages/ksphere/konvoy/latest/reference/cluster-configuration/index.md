@@ -82,7 +82,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:12:55.6996713Z"
 spec:
   kubernetes:
-    version: 1.15.4
+    version: 1.15.5
     controlPlane:
       controlPlaneEndpointOverride: ""
       certificate: {}
@@ -120,7 +120,7 @@ spec:
         enabled: false
   addons:
     configRepository: https://github.com/mesosphere/kubeaddons-configs
-    configVersion: stable-1.15.4-4
+    configVersion: stable-1.15.5-0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -279,7 +279,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.15.4`                |
+| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.15.5`                |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#speckubernetescontrolplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#speckubernetesnetworking) |
 | `kubernetes.cloudProvider`     | Specifies the object that defines which cloud-provider to enable.    | See [spec.kubernetes.clouldProvider](#speckubernetescloudprovider)  |
@@ -441,7 +441,7 @@ The default value of this entire object is `omitted`.
 | Parameter                 | Description                                            | Default       |
 | ------------------------- | ------------------------------------------------------ | ------------- |
 | `addons.configRepository` | Specifies the git repo of the addon configuration files to use.        | `https://github.com/mesosphere/kubeaddons-configs` |
-| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.4-4`  |
+| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.5-0`  |
 | `addons.addonsList`       | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#specaddonsaddonslist) |
 
 #### spec.addons.addonsList

@@ -20,7 +20,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] v1.15.4 or later
+* [kubectl][install_kubectl] v1.15.5 or later
 
   You must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run, to enable interaction with the running cluster.
 
@@ -173,7 +173,7 @@ apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   addons:
     configRepository: ./kubeaddons-configs
-    configVersion: stable-1.15.4-4
+    configVersion: stable-1.15.5-0
 ```
 
 You can also specify a remote git repo hosted in your organization using the same `--addons-config-repository` flag.

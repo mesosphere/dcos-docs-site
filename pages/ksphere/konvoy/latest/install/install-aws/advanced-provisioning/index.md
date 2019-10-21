@@ -191,11 +191,13 @@ spec:
 
 It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
 
+<p class="message--note"><strong>NOTE: </strong> When creating the VPC you must have the DNS resolution option enabled, unless you are setting <tt>vpc.internetGatewayDisabled: true</tt>.</p>
+
 The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
 
 <p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing Internet Gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
 
-It is also possible to disable creating the internet-gateway by modifying a few options in the `cluster.yaml` configuration file.
+It is also possible to disable creating the Internet Gateway by modifying a few options in the `cluster.yaml` configuration file.
 Doing so will also automatically set the kube-apiserver ELB to be `internal` and will not associate public IPs for all the EC2 instances.
 Depending on how you addons are configured, you may also need to add an annotation to use an `internal` ELB.
 
@@ -319,6 +321,14 @@ Similarly to the VPC, you may choose to use these blocks or define any other app
 
 <p class="message--note"><strong>NOTE: </strong>Keep in mind that the default value of <tt>spec.kubernetes.networking.serviceSubnet</tt> is set to <tt>10.0.0.0/18</tt>. The blocks you choose must not overlap with the <tt>serviceSubnet</tt>.</p>
 
+If you are relying on the Kubernetes [Cloud Providers feature][cloud_provider] and are creating a cluster spanning multiple availability zones(AZ), you must tag the subnets that are being used by the `control-plane` nodepool, doing so will result in Kubernetes creating the ELBs for services of type `LoadBalancer` in those Subnets.
+The tags should be as following, where `__CLUSTER_NAME__` corresponds to the `cluster_name` printed after running `konvoy provision`:
+
+```text
+kubernetes.io/cluster = __CLUSTER_NAME__
+kubernetes.io/cluster/__CLUSTER_NAME__ = owned
+```
+
 ### IAM Instance Profiles
 An existing IAM instance profile can be used, provided that the right policies must be set:
 
@@ -359,3 +369,4 @@ spec:
 [aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
 [ephemeral_storage]: ../../../storage/
 [ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
+[cloud_provider]: https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
