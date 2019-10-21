@@ -141,17 +141,17 @@ Although you can add and modify settings directly in the web-based console from 
 # Deploy using a local catalog
 If you have an isolated network that cannot connect directly to the internet, you need to deploy a local catlog containing your own set of packages. To create the local catalog, you must build a customized Docker image repository before you can add the Edge-LB packages. 
 
-For detailed instructions about creating a local catalog, see [DC/OS universe deployment](/mesosphere/dcos/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
+For detailed instructions about creating a local catalog, see [DC/OS catalog deployment](/mesosphere/dcos/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
 ## Before you begin
 You must have access to [Git](https://git-scm.com/) to create the local catalog. If you are using `git` on UNIX or Linux, see the [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Create the local repository
-Before you can add Edge-LB packages to your local catalog, you must copy the Mesosphere Universe repository to create a local directory location.
+Before you can add Edge-LB packages to your local catalog, you must copy the Mesosphere Catalog repository to create a local directory location.
 
 1. Open a shell terminal where you can run `git` commands.
 
-1. Clone the Universe repository by running a command similar to the following:
+1. Clone the Catalog repository by running a command similar to the following:
 
     ```bash
     git clone https://github.com/mesosphere/universe.git --branch version-3.x
@@ -197,7 +197,7 @@ Before you can add Edge-LB packages to your local catalog, you must copy the Mes
 
 1. Compress the Docker image into the `local-universe.tar.gz` file.
 
-1. Perform the additional steps as described in [Deploying a local Universe containing Certified Universe packages](/mesosphere/dcos/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
+1. Perform the additional steps as described in [Deploying a local Catalog containing Certified Catalog packages](/mesosphere/dcos/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
 After you add the Edge-LB packages to the local catalog, you are ready to create and configure permissions for the service account you want to use to manage Edge-LB server and load balancer operations. Continue to the instructions for [creating a service account](#create-service-account).
 

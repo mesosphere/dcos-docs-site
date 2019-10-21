@@ -29,7 +29,7 @@ The Edge-LB package comprises two components:
 
 - An **Edge-LB pool** can be used to launch one or more instances of a load balancer to create a single highly available load balancer. Currently the Edge-LB pool supports only HAProxy as a load balancer.
 
-You must install Universe repositories for the Edge-LB API server and the Edge-LB pool to install Edge-LB.
+You must install Catalog repositories for the Edge-LB API server and the Edge-LB pool to install Edge-LB.
 
 <p class="message--note"><strong>NOTE: </strong>If your environment is behind a firewall or otherwise not able to access the public catalog, then you must use a local catalog.</p>
 
@@ -42,7 +42,7 @@ To install both packages (Edge-LB API Server and Edge-LB Pools), you need to obt
 Once you have these artifacts, they need to be made accessible to the cluster via an HTTP server. The address of the HTTP server will be used in the next step.
 
 ## Add them to the package repository
-Having the address where the artifacts for the Edge-LB API server and Edge-LB pool repositories are available, use the following command to add them to the universe package repository:
+Having the address where the artifacts for the Edge-LB API server and Edge-LB pool repositories are available, use the following command to add them to the Catalog package repository:
 
 ```bash
 dcos package repo add --index=0 edgelb https://downloads.mesosphere.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
@@ -53,14 +53,14 @@ dcos package repo add --index=0 edgelb-pool https://downloads.mesosphere.com/edg
 ```
 
 [enterprise]
-## <a name="build"></a>Deploying a local Universe containing Edge-LB
+## <a name="build"></a>Deploying a local Catalog containing Edge-LB
 [/enterprise]
 
-If you need to deploy a local Universe containing your own set of packages, you must build a customized local Universe Docker image. The following instructions are based on the [DC/OS universe deployment instructions](/mesosphere/dcos/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
+If you need to deploy a local Catalog containing your own set of packages, you must build a customized local Catalog Docker image. The following instructions are based on the [DC/OS Catalog deployment instructions](/mesosphere/dcos/1.13/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
 **Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
-1.  Clone the Universe repository:
+1.  Clone the Catalog repository:
 
     ```bash
     git clone https://github.com/mesosphere/universe.git --branch version-3.x
@@ -73,7 +73,7 @@ If you need to deploy a local Universe containing your own set of packages, you 
     sudo make base
     ```
 
-1. Use `add-stub-universe.sh` script to add to the Universe the JSON definitions during the [Obtaining package artifacts](/mesosphere/dcos/services/edge-lb/1.3/installing/#obtaining-package-artifacts) step.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
+1. Use `add-stub-universe.sh` script to add to the Catalog the JSON definitions during the [Obtaining package artifacts](/mesosphere/dcos/services/edge-lb/1.3/installing/#obtaining-package-artifacts) step.  Each run of the `add-stub-universe.sh` script will process the JSON file, generate the necessary JSON and Mustache files, and add them to `stub-repo/packages/<X>/<packagename>`.
 
 ```bash
 bash add-stub-universe.sh -j stub-universe-edgelb.json
@@ -89,13 +89,13 @@ bash add-stub-universe.sh -j stub-universe-edgelb-pool.json
 cp -rpv stub-repo/packages/* ../../repo/packages
 ```
 
-1. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Universe packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
+1. You can then build the `mesosphere/universe` Docker image and compress it to the `local-universe.tar.gz` file. Specify a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable. To minimize the container size and download time, you can select only what you need. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified Catalog packages are included. To view which packages are Certified, click the **Catalog** tab in the DC/OS web interface.
 
     ```bash
     sudo make DCOS_VERSION=1.13 DCOS_PACKAGE_INCLUDE=“edgelb:v1.3.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
     ```
 
-1.  Perform all of the steps as described in [Deploying a local Universe containing Certified Universe packages](/mesosphere/dcos/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
+1.  Perform all of the steps as described in [Deploying a local Catalog containing Certified Catalog packages](/mesosphere/dcos/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
 
 
 # Create a service account
