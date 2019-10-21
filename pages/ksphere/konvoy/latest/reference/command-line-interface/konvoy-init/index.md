@@ -24,7 +24,7 @@ konvoy init [flags]
 
 ```
       --addons-config-repository string   The git repo containing the addons configurations (default "https://github.com/mesosphere/kubeaddons-configs")
-      --addons-config-version string      The git repo containing the addons version (default "stable-1.15.4-4")
+      --addons-config-version string      The git repo containing the addons version (default "stable-1.15.5-0")
       --cluster-name string               Name used to prefix the cluster and all the created resources (default "konvoy")
   -h, --help                              help for init
       --provisioner string                select a provisoner [aws|docker|none] (default "aws")

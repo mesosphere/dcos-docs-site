@@ -32,7 +32,7 @@ metadata:
   creationTimestamp: "2019-06-08T03:25:20.939527Z"
 spec:
   kubernetes:
-    version: 1.15.4
+    version: 1.15.5
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -48,7 +48,7 @@ metadata:
   creationTimestamp: "2019-06-08T03:25:20.939527Z"
 spec:
   kubernetes:
-    version: 1.15.4
+    version: 1.15.5
 ```
 
 After you modify the version information, you can start the upgrade process by running the following Konvoy command:

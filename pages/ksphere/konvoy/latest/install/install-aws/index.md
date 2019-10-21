@@ -15,7 +15,7 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws][install_aws] command line utility
 * [Docker Desktop][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.15.4 or newer_ (for interacting with the running cluster)
+* [kubectl][install_kubectl] _v1.15.5 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured][aws_credentials].
   You need to be authorized to create the following resources in the AWS account:
   * EC2 Instances
@@ -52,6 +52,8 @@ Below is the minimal IAM policy required:
                 "ec2:CreateVpc",
                 "ec2:DeleteInternetGateway",
                 "ec2:DeleteKeyPair",
+                "ec2:DeleteRoute",
+                "ec2:DeleteTags",
                 "ec2:DeleteSecurityGroup",
                 "ec2:DeleteSubnet",
                 "ec2:DeleteVolume",

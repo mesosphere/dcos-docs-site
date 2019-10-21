@@ -9,13 +9,64 @@ enterprise: false
 
 ## Release Notes
 
-### Version 1.2.2 - Released 11 October 2019
+### Version 1.2.3 - Released 21 October 2019
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.4 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.4 |
+|**Default** | 1.15.5 |
+
+#### Improvements
+
+- Set default Kubernetes version to `v1.15.5` that fixes [CVE-2019-11253](https://github.com/kubernetes/kubernetes/issues/83253).
+
+#### Addons improvements
+
+N/A
+
+#### Bug fixes
+
+- Fix a bug where the containerd version was not being set when installing the Debian package, the RPM package always correctly used the version from `cluster.yaml`.
+- Fix a bug where setting `spec.containerRuntime.containerd.configData.data` in `cluster.yaml` failed.
+
+#### Component version changes
+
+- Kubernetes `v1.15.5`
+
+#### Known issues and limitations
+
+Known issues and limitations don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios.
+The issues are grouped by feature, functional area, or component.
+Where applicable, issue descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
+
+-   Docker provisioner reports potential issues if there are insufficient resources.
+
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
+
+-   Dex should always be enabled.
+
+    For this release of Konvoy, `dex`, `dex-k8s-auth`, and `traefik-auth` are tightly coupled and must all be enabled.
+    Disabling any of these addons will prevent certain operations from working correctly.
+    This tight coupling will be addressed in a future release.
+
+-   The authentication token has no permissions.
+
+    After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
+    To enable the authenticated user to perform administrative actions, you must manually add role bindings.
+
+-   Upgrades might fail when `workers` is set to one.
+
+    The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
+
+### Version 1.2.2 - Released 11 October 2019
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.5 |
+|**Maximum** | 1.15.x |
+|**Default** | 1.15.5 |
 
 #### Improvements
 
@@ -31,7 +82,7 @@ enterprise: false
 
 #### Component version changes
 
-- Kubeaddons v0.1.5
+- Kubeaddons `v0.1.5`
 
 #### Known issues and limitations
 
@@ -63,9 +114,9 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.4 |
+|**Minimum** | 1.15.5 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.4 |
+|**Default** | 1.15.5 |
 
 #### Improvements
 
@@ -115,7 +166,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.4 |
+|**Default** | 1.15.5 |
 
 #### Disclaimer
 
@@ -126,9 +177,9 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.15.4
+    version: 1.15.5
   addons:
-    configVersion: stable-1.15.4-1
+    configVersion: stable-1.15.5-1
     addonsList:
     - name: cert-manager
       enabled: true
@@ -160,7 +211,7 @@ N/A
 #### Component version changes
 
 - Calico `v3.8.2`
-- Kubernetes `v1.15.4`
+- Kubernetes `v1.15.5`
 
 #### Known issues and limitations
 
@@ -248,7 +299,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.4 |
+|**Default** | 1.15.5 |
 
 #### Disclaimer
 
@@ -343,7 +394,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.4 |
+|**Default** | 1.15.5 |
 
 #### Breaking changes
 
@@ -412,7 +463,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.4 |
+|**Default** | 1.15.5 |
 
 #### Breaking changes
 
