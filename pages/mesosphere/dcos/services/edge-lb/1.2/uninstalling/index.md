@@ -29,7 +29,7 @@ enterprise: false
     dcos package uninstall edgelb
     ```
 
-1.  Remove the Universe repositories.
+1.  Remove the Catalog repositories.
 
     ```bash
     dcos package repo remove edgelb-aws
