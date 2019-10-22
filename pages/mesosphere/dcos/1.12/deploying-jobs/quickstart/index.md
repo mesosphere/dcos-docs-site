@@ -120,12 +120,56 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
     dcos job list
     ```
 
-## Set a concurrency policy for scheduled jobs
-If you use a schedule to start a job, you can define a concurrency policy for the job. A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running.
+## Concurrency policy for scheduled jobs
+If you use a schedule to start a job, you can define a concurrency policy for the job. A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running. 
 
 For example, assume you have a job scheduled to start every day at 3:00AM, and you have set the concurrency policy for the job set to FORBID. If there is an instance of that job already running at 3:00AM--either because a previously-triggered job run is still active or has been triggered manually outside of the schedule--the scheduled start time will not trigger a new job to run. If there are no jobs running at the next scheduled start time, a new job instance starts and runs as scheduled.
 
-If you want to allow scheduled jobs to be triggered while  other instances of the same job are running, you can set the `concurrencyPolicy` to ALLOW.
+If you want to allow scheduled jobs to be triggered while  other instances of the same job are running, you can set the `concurrencyPolicy` to ALLOW. 
+
+Note: A `concurrencyPolicy` set to FORBID does *not* prevent you from starting a new job instance manually - for example via the API - even if one is already running. It only prevents a schedule to start a new job instance.
+
+## MaxLaunchDelay
+The `maxLaunchDelay` specifies the maximum amount of time in seconds mesos allows a task until it starts. This applies only to the actual startup on a mesos agent, and includes time to fetch an image, etc. It does not include the time required to schedule the job instance.
+
+## Restart policy
+Per default, metronome only tries to start a job instance once - the default restart policy is NEVER. The alternative is to set the restart policy to ON_FAILURE, which configures metronome to restart the task until it completes successfully or the `activeDeadlineSeconds` is reached.
+
+If no `activeDeadlineSeconds` is defined, metronome tries restarting the task indefinitely, which may lead to issues if the task will never complete successfully - it is advised to always set an `activeDeadlineSeconds`.
+
+```json
+{
+  ...
+  "run" : {
+    "cpus" : 0.01,
+    "mem" : 32,
+    "disk" : 0,
+    "cmd" : "sleep 60",
+    "restart" : {
+      "policy" : "ON_FAILURE",
+      "activeDeadlineSeconds" : 30
+    }
+  },
+  ...
+}
+```
+
+## TaskKillGracePeriod
+The `taskKillGracePeriodSeconds` can be used to define the time between the SIGTERM and SIGKILL that is send to a task on stop. See Marathons documentation on `taskKillGracePeriodSeconds` for more information
+
+```json
+{
+  ...
+  "run" : {
+    "cpus" : 0.01,
+    "mem" : 32,
+    "disk" : 0,
+    "cmd" : "sleep 60",
+    "taskKillGracePeriodSeconds" : 30
+  },
+  ...
+}
+```
 
 ## Create a schedule-only JSON file
 If you specify a schedule for a job in the JSON file for that job, you can assign only one schedule for the job to run under.
