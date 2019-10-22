@@ -34,7 +34,7 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 - As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. See the [Shared Memory](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory) documentation. (DCOS-54618).
 - DC/OS has a new container debug endpoint, and diagnostic bundle includes the debug endpoint tracking data for stuck task. (DCOS-55383)
 - Added the ability to drain agent nodes via the DC/OS CLI and UI. See [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/) documentation for more details. (DCOS-53654)
-- Created new diagnostics bundle REST API with performance improvements. (DCOS_OSS-5098)
+- Created new diagnostics bundle REST API with performance improvements. Deprecated legacy routes and created a more RESTful API for generating diagnostics bundles. This change makes the bundle generation scale much faster. (DCOS_OSS-5098)
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
 - Added L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
 - Marathon relaxed name validation for external volumes. As there are some external volume providers which require options in the volume name, the strict validation of the name on the external volume is now removed. In addition, previously Marathon would validate that an external volume with the same name is only used once across all apps. However, multiple external volume providers now allow shared access to mounted volumes, so we introduced a way to disable the uniqueness check. (MARATHON-8681)
@@ -47,10 +47,12 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 - Optimize memory and CPU usage in `dcos-net`. (DCOS_OSS-5269, DCOS_OSS-5268)
 - Enable Mesos IPC namespace isolator for configurable IPC namespace and `/dev/shm`. (DCOS-54618)
 - Upgrade Admin Router's underlying OpenResty/nginx from 1.13.x to 1.15.x. (DCOS_OSS-5320)
+- DC/OS Net: Wait until agents become active before fanning out Mesos tasks. (DCOS_OSS-5463)
 - Bump Mesos modules to have overlay metrics exposed. (DCOS_OSS-5322)
 - Marathon API performance has been improved. JSON serialization is 50% faster and has 50% less memory overhead.
-- DC/OS no longer increases the rate limit for `journald` logging, to reduce cases of journald being overloaded and blocking other services. (DCOS-53763)
-
+- DC/OS no longer increases the rate limit for `journald` logging, to reduce cases of `journald` being overloaded and blocking other services. (DCOS-53763)
+- Fix preflight Docker version check failing for Docker 1.19. (DCOS-56831)
+- Added framework ID tags to Mesos framework metrics. (DCOS-53302)
 
 ## Third-party updates and compatibility
 
@@ -65,16 +67,19 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
 
-
-
-### Deprecated or decommissioned features
-
-
-# Updated components change lists
+- When deciding whether to push an overlay network update to Lashup or not, only VTEP IP address and subnet are used, which leads to dropped updates. (DCOS_OSS-5620)
+- /v2/pods and /v2/tasks do not include any information about existing (already-launched) instances. This makes diagnosing problems with pods difficult. (DCOS_OSS-5616)
+- Very large quota values can crash Mesos master. (DCOS-59695)
+- Mesos modules in Enterprise version can cause deadlock during process. (DCOS-57401)
+- Mesos Resources Summary dashboard should show quota limits instead of guarantees. (DCOS-57261)
+- Marathon crash-looping after receiving a very long error message from a task's fetcher. (COPS-5365, MARATHON-8698)
+- Task is marked as FAILED after being marked as FINISHED. (COPS-4995)
+- ACL gives inappropriate access to tasks (COPS-4929)
 
 
 # Previous releases
-To review changes from a recent previous release, see the following links:
+To review changes from the most recent previous releases, see the following links:
 - [Release version 1.10.11](/mesosphere/dcos/1.10/release-notes/1.10.11/) - 12 February 2019.
-- [Release version 1.11.10](/mesosphere/dcos/1.11/release-notes/1.11.10/) - 12 February 2019.
-- [Release version 1.12.3](/mesosphere/dcos/1.12/release-notes/1.12.3/) - 14 March 2019.
+- [Release version 1.11.12](/mesosphere/dcos/1.11/release-notes/1.11.12/) - 10 October  2019.
+- [Release version 1.12.4](/mesosphere/dcos/1.12/release-notes/1.12.4/) - 2 July 2019.
+- [Release version 1.13.5](/mesosphere/dcos/1.13/release-notes/1.13.5/) - 2 October 2019
