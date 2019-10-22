@@ -138,7 +138,7 @@ Pods also support host volumes. A pod volume parameter can declare a `host` fiel
 
 ## Shared Memory
 
-As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. Task can have either their own private shared memory, or can use a shared memory segment defined by the executor:
+As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. Tasks can have either their own private shared memory, or can use a shared memory segment defined by the executor:
 
 It is possible to define a `linuxInfo` object on the container and/or executor, defining a `ipcInfo` with a `mode` and `shmSize`.
 
@@ -147,11 +147,11 @@ The rules are generally:
 For `mode`
 - PRIVATE: The container/executor has a private shared memory segment
 - SHARE_PARENT: The container/executor uses the shared memory segment of its respective parent.
-<p class="message--note"></strong>NOTE: </strong>If SHARE_PARENT this is used on an executor, the shared memory namespace is shared with the agent. <b>This can be forbidden in the mesos configuration and may not always work.</b></p>
+<p class="message--note"></strong>NOTE: </strong>If SHARE_PARENT is used on an executor, the shared memory namespace is shared with the agent. <b>This may be forbidden in the Mesos configuration and may not always work.</b></p>
         
 For `shmSize`
 - Can only be used if the mode is PRIVATE
-- Allows to define the size of the shared memory segment in megabytes
+- Allows you to define the size of the shared memory segment in megabytes
     
 ### Private shared memory segement for task
 This example defines a pod with one container that has a private shared memory segment with a size of 16MB.
