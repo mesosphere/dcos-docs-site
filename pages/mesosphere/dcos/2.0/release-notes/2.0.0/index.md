@@ -28,34 +28,34 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 - Updated to Metronome 0.6.33 which has the following benefits: When querying run detail with embed=history, `successfulFinishedRuns` and `failedFinishedRuns` contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task IDs even for finished job runs. 
 - Updated to the latest version of cron-utils 9.0.0 and removed threeten-backport. This fixes a number of cron related issues in the underlying dependencies. Fixed a bug when task status was not updated after the task turned running (when querying embed=activeRuns). Fixes DCOS_OSS-5166 where metronome did not use the revive operation.
 
-# New features and capabilities
+# New features and capabilities 
 
-
-- DC/OS has improved Multi Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. See [documentation](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas) for more details. (DCOS-54186).
-- DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR (DCOS-54618).
+- DC/OS has improved Multi Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. See [Quota Management](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas) documentation for more details. (DCOS-54186).
+- As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. See the [Shared Memory](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory) documentation. (DCOS-54618).
 - DC/OS has a new container debug endpoint, and diagnostic bundle includes the debug endpoint tracking data for stuck task. (DCOS-55383)
-- Added the ability to drain agent nodes via the DC/OS CLI and UI. See [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/) for more details. (DCOS-53654)
+- Added the ability to drain agent nodes via the DC/OS CLI and UI. See [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/) documentation for more details. (DCOS-53654)
 - Created new diagnostics bundle REST API with performance improvements. (DCOS_OSS-5098)
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
-- Updated Telegraf to process Mesos operations metrics (DCOS_OSS-5023)
 - Added L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
 - Marathon relaxed name validation for external volumes. As there are some external volume providers which require options in the volume name, the strict validation of the name on the external volume is now removed. In addition, previously Marathon would validate that an external volume with the same name is only used once across all apps. However, multiple external volume providers now allow shared access to mounted volumes, so we introduced a way to disable the uniqueness check. (MARATHON-8681)
-
+- Add a new DC/OS configuration parameter `mesos_docker_volume_chown`, to change Docker volume ownership to the task user. By default, this parameter defaults to `false`; if this parameter is set as `true`, Mesos will change the ownership of a Docker volume non-recursively to be the task user when launching a container. It is not recommended that this option be enabled  if there is any Docker volume shared by multiple non-root users. (DCOS_OSS-5381, COPS-5176, MESOS-9908)
 
 # Fixed and improved issues
 
-- Updated ref of `dvdcli` to fix `dvdcli` package build (DCOS-53581)
-- Fixed performance degradation in Lashup. As of now, `dcos-dns` uses a new LWW mode to gossip dns zone updates. (DCOS_OSS-4240)
-- Optimized memory and CPU usage in `dcos-net`. (DCOS_OSS-5269, DCOS_OSS-5268)
-- Enabled Mesos IPC namespace isolator for configurable IPC namespace and `/dev/shm`. (DCOS-54618)
-- Upgraded Admin Router's underlying OpenResty/nginx from 1.13.x to 1.15.x. (DCOS_OSS-5320)
-- Bumped Mesos modules to have overlay metrics exposed. (DCOS_OSS-5322)
+- Update ref of `dvdcli` to fix `dvdcli` package build (DCOS-53581)
+- Fix performance degradation in Lashup. As of now, `dcos-dns` uses a new LWW mode to gossip dns zone updates. (DCOS_OSS-4240)
+- Optimize memory and CPU usage in `dcos-net`. (DCOS_OSS-5269, DCOS_OSS-5268)
+- Enable Mesos IPC namespace isolator for configurable IPC namespace and `/dev/shm`. (DCOS-54618)
+- Upgrade Admin Router's underlying OpenResty/nginx from 1.13.x to 1.15.x. (DCOS_OSS-5320)
+- Bump Mesos modules to have overlay metrics exposed. (DCOS_OSS-5322)
 - Marathon API performance has been improved. JSON serialization is 50% faster and has 50% less memory overhead.
-- DC/OS no longer increases the rate limit for journald logging, to reduce cases of journald being overloaded and blocking other services. (DCOS-53763)
+- DC/OS no longer increases the rate limit for `journald` logging, to reduce cases of journald being overloaded and blocking other services. (DCOS-53763)
+
 
 ## Third-party updates and compatibility
 
-- Telegraf now supports specifying port names for `task-label` based Prometheus endpoints discovery. (DCOS-55100)
+<!-- - Telegraf now supports specifying port names for `task-label` based Prometheus endpoints discovery. (DCOS-55100) -->
+- Mesos has recently added new metrics related to operation feedback. The `telegraf` plugin has been updated in order to publish those metrics to Prometheus. Updated Telegraf to process Mesos operations metrics (DCOS_OSS-5023, DCOS-51344).
 - Upgraded Erlang OTP to release 22.0.3. (DCOS_OSS-5276)
 - Upgraded platform CPython to release 3.6.8. (DCOS_OSS-5318)
 - Upgraded CockroachDB to release 2.1.8. (DCOS_OSS-5360)
