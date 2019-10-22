@@ -24,20 +24,23 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 
 - Updated DC/OS UI to master+v2.150.2.
 - Updated to Mesos 1.9. (DCOS_OSS-5342)
-- Updated Marathon to 1.9.99
-
+- Updated Marathon to 1.9.100. Marathon 1.9 brings support for multi-role, enabling you to launch services for different roles (against different Mesos quotas) with the same Marathon instance.
+- Updated to Metronome 0.6.33 which has the following benefits: When querying run detail with embed=history, `successfulFinishedRuns` and `failedFinishedRuns` contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task IDs even for finished job runs. 
+- Updated to the latest version of cron-utils 9.0.0 and removed threeten-backport. This fixes a number of cron related issues in the underlying dependencies. Fixed a bug when task status was not updated after the task turned running (when querying embed=activeRuns). Fixes DCOS_OSS-5166 where metronome did not use the revive operation.
 
 # New features and capabilities
 
 
-- DC/OS has improved Multi Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for marathon based and SDK based services. See [documentation](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas) for more details. (DCOS-54186).
+- DC/OS has improved Multi Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. See [documentation](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas) for more details. (DCOS-54186).
 - DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR (DCOS-54618).
 - DC/OS has a new container debug endpoint, and diagnostic bundle includes the debug endpoint tracking data for stuck task. (DCOS-55383)
-- Added the ability to drain agent nodes via the DC/OS CLI and UI. See [documentation](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/) for more details. (DCOS-53654)
+- Added the ability to drain agent nodes via the DC/OS CLI and UI. See [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/) for more details. (DCOS-53654)
 - Created new diagnostics bundle REST API with performance improvements. (DCOS_OSS-5098)
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
 - Updated Telegraf to process Mesos operations metrics (DCOS_OSS-5023)
 - Added L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
+- Marathon relaxed name validation for external volumes. As there are some external volume providers which require options in the volume name, the strict validation of the name on the external volume is now removed. In addition, previously Marathon would validate that an external volume with the same name is only used once across all apps. However, multiple external volume providers now allow shared access to mounted volumes, so we introduced a way to disable the uniqueness check. (MARATHON-8681)
+
 
 # Fixed and improved issues
 
@@ -48,7 +51,7 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 - Upgraded Admin Router's underlying OpenResty/nginx from 1.13.x to 1.15.x. (DCOS_OSS-5320)
 - Bumped Mesos modules to have overlay metrics exposed. (DCOS_OSS-5322)
 - Marathon API performance has been improved. JSON serialization is 50% faster and has 50% less memory overhead.
-
+- DC/OS no longer increases the rate limit for journald logging, to reduce cases of journald being overloaded and blocking other services. (DCOS-53763)
 
 ## Third-party updates and compatibility
 
@@ -59,11 +62,10 @@ If you have DC/OS deployed in a production environment, see [Known issues and li
 - Upgraded platform curl from 7.59.0 to 7.65.1. (DCOS_OSS-5319)
 - Upgraded platform OpenSSL from 1.0.2x to release 1.1.1x. (DCOS-54108)
 
-
-
-
 # Known issues and limitations
 This section covers any known issues or limitations that don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios. The issues are grouped by feature, functional area, or component. Where applicable, issue descriptions include one or more tracking identifiers enclosed in parenthesis for reference.
+
+
 
 ### Deprecated or decommissioned features
 
