@@ -375,7 +375,6 @@ The `taskKillGracePeriodSeconds` can be used to define the time between the SIGT
   ...
 }
 ```
-
 ## Create a schedule-only JSON file
 If you specify a schedule for a job in the JSON file for that job, you can assign only one schedule for the job to run under.
 
