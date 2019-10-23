@@ -195,9 +195,9 @@ It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
 
 The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
 
-<p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing Internet Gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
+<p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing internet gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
 
-It is also possible to disable creating the Internet Gateway by modifying a few options in the `cluster.yaml` configuration file.
+It is also possible to disable creating the internet gateway by modifying a few options in the `cluster.yaml` configuration file.
 Doing so will also automatically set the kube-apiserver ELB to be `internal` and will not associate public IPs for all the EC2 instances.
 Depending on how you addons are configured, you may also need to add an annotation to use an `internal` ELB.
 
