@@ -9,3 +9,7 @@ render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/advanced.tmpl
+
+# Deploy service using DSS Volume Profile
+
+#include /mesosphere/dcos/services/include/dcos-storage-service-volume-profile-tutorial.tmpl
