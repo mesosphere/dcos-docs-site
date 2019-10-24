@@ -41,111 +41,39 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
 | ⚫ | Supported |
 | ◯ | Not Supported |
 
-
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
-   <caption>DC/OS 1.11 to 1.13 Upgrade Paths</caption>
+   <caption>DC/OS 1.13 to 2.0 Upgrade Paths</caption>
    <tr>
-    <th Rowspan = "15" Align = "center"><strong>Upgrade<br>From</strong></th>
-   <tr>
-    <th></th>
-    <th Colspan = "2" Align = "center"><strong>Upgrade To</strong></th>
-   </tr>
-    <th></th>
-    <th Align = "center">1.13.0</th>
-    <th Align = "center">1.13.1</th>
-   </tr>
-   <tr>
-    <th>1.11.0</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.1</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.2</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.3</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.4</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.5</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.6</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.7</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.11.8</th>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-   </tr>
-   <tr>
-    <th>1.11.9</th>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-   </tr>
-   <tr>
-    <th>1.11.10</th>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-   </tr>
-      <tr>
-    <th>1.11.11</th>
-    <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
-   </tr>
-</table>
-<br>
-<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
-   <caption>DC/OS 1.12 to 1.13 Upgrade Paths</caption>
-   <tr>
-    <th Rowspan = "7" Align = "center"><strong>Upgrade<br>From</strong></th>
+    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
    <tr>
     <th></th>
-    <th Colspan = "2" Align = "center"><strong>Upgrade To</strong></th>
+    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
    </tr>
     <th></th>
-    <th Align = "center">1.13.0</th>
-    <th Align = "center">1.13.1</th>
+    <th Align = "center">2.0.0</th>
    </tr>
    <tr>
-    <th>1.12.0</th>
-    <td Align = "center">◯</td>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.12.1</th>
-    <td Align = "center">⚫</td>
+    <th>1.13.0</th>
     <td Align = "center">⚫</td>
    </tr>
    <tr>
-    <th>1.12.2</th>
-    <td Align = "center">⚫</td>
+    <th>1.13.1</th>
     <td Align = "center">⚫</td>
    </tr>
    <tr>
-   <th>1.12.3</th>
+    <th>1.13.2</th>
     <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.3</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.4</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.5</th>
     <td Align = "center">⚫</td>
    </tr>
   </table>
