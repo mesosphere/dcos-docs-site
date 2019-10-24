@@ -20,7 +20,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 
 ## Important guidelines
 
-- The Production installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/mesosphere/dcos/2.0/installing/production/deploying-dcos/) before proceeding.
+- The Production installation method is the **only** recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/mesosphere/dcos/2.0/installing/production/deploying-dcos/) before proceeding.
 - Review the [release notes](/mesosphere/dcos/2.0/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
@@ -80,7 +80,7 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-You _cannot_ change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.11 to 1.12 and add more public agents. You can add more public agents with a patch to 1.12 and then upgrade to 1.13, or you can upgrade to 1.13 and then add more public agents by [patching 1.13](/mesosphere/dcos/2.0/installing/production/patching/) after the upgrade.
+You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.11 to 1.12 and add more public agents. You can add more public agents with a patch to 1.12 and then upgrade to 1.13, or you can upgrade to 1.13 and then add more public agents by [patching 1.13](/mesosphere/dcos/2.0/installing/production/patching/) after the upgrade.
 
 # Instructions
 These steps must be performed for version upgrades.
@@ -97,7 +97,7 @@ These steps must be performed for version upgrades.
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the DC/OS [Production Installation][install] instructions.
 - Take a [snapshot of ZooKeeper](/mesosphere/dcos/2.0/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
-- *Important:* Take a [snapshot of the IAM database](/mesosphere/dcos/2.0/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. This is very easy to do and should be considered a necessity.
+- Take a [snapshot of the IAM database](/mesosphere/dcos/2.0/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. **This is very easy to do and should be considered a necessity.**
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 
 <p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). In such a case, you must remove that line in order to disable event subscribers.</p>
@@ -195,17 +195,18 @@ Proceed with upgrading every master node one at a time in any order using the fo
 
 1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
 
-	    ```bash
-        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
-        |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
-        |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-		```
-		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated. [enterprise type="inline" size="small" /]
+    ```bash
+    sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
+    |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
+    |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    ```
+		
+    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated. [enterprise type="inline" size="small" /]
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
@@ -282,7 +283,7 @@ sudo journalctl -u dcos-mesos-slave
 
 ### Notes:
 
-- Packages available in the DC/OS 1.13 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
+- Packages available in the DC/OS 2.0 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
 
 [install]: /mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#custom-build-file
 [cmd]: /mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#nginx-cmd
