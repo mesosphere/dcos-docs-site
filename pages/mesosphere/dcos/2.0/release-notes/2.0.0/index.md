@@ -47,10 +47,13 @@ DC/OS introduces the following parameters to UCR support:
 - `mesos_disallow_sharing_agent_ipc_namespace` can be used to control whether the top-level Mesos container is allowed to share the Mesos agent host's IPC namespace and `/dev/shm`. The default value is `false`. (DCOS-56619)
 - `mesos_default_container_shm_size` can be used to specify the default size of the `/dev/shm` for the Mesos container which has its own `/dev/shm`. The format is [number][unit], where `number` must be a positive integer and un`it can be B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes) or TB (terabytes). (DCOS-56619)
 
+<!-- ## Self Service Edge Load Balancer
+
+I have no info for this. -->
+
 ## Other Improvements
 
 - DC/OS has a new container debug endpoint, and the diagnostic bundle includes the debug endpoint tracking data for a stuck task. (DCOS-55383)
-- 
 - Create new diagnostics bundle REST API with performance improvements. Deprecate legacy routes and create a more RESTful API for generating diagnostics bundles. This change makes the bundle generation scale much faster. (DCOS_OSS-5098)
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
 - Add L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
@@ -74,7 +77,7 @@ DC/OS introduces the following parameters to UCR support:
 
 ## Third-party Updates and Compatibility
 
-<!-- - Telegraf now supports specifying port names for `task-label` based Prometheus endpoints discovery. (DCOS-55100) -->
+- Telegraf now supports specifying port names for `task-label` based Prometheus endpoints discovery. (DCOS-55100) 
 - Update Telegraf to process Mesos operations metrics. (DCOS_OSS-5023, DCOS-51344) 
 - Upgrade Erlang OTP to release 22.0.3. (DCOS_OSS-5276)
 - Upgrade platform CPython to release 3.6.8. (DCOS_OSS-5318)
