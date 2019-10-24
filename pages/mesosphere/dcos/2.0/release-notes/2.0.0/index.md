@@ -25,7 +25,7 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 - Updated DC/OS UI to master+v2.150.2.
 - Updated to Mesos 1.9. (DCOS_OSS-5342)
 - Updated Marathon to 1.9.100. Marathon 1.9 brings multi-role support, enabling you to launch services for different roles (against different Mesos quotas) with the same Marathon instance.
-- Updated to Metronome 0.6.33 which has the following benefits: When querying run detail with embed=history, `successfulFinishedRuns` and `failedFinishedRuns` contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task IDs even for finished job runs. 
+- Updated to Metronome 0.6.33 which has the following benefits: When querying run detail with embed=history, `successfulFinishedRuns` and `failedFinishedRuns` contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task IDs even for finished job runs. (DCOS_OSS-5166)
 
 
 # New Features and Capabilities 
@@ -72,6 +72,8 @@ I have no info for this. -->
 - Improved Marathon API performance. JSON serialization is 50% faster and has 50% less memory overhead.
 - DC/OS no longer increases the rate limit for `journald` logging, to reduce cases of `journald` being overloaded and blocking other services. (DCOS-53763)
 - Fix preflight Docker version check failing for Docker 1.19. (DCOS-56831)
+- Bump Telegraf to have Mesos overlay module metrics collected. (DCOS_OSS-5323)
+- Wrong value in `dcos_service_port_index` breaks Admin Router cache. (COPS-5147, DCOS_OSS-5491)
 - Add framework ID tags to Mesos framework metrics. (DCOS-53302)
 - The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. For more details, see [`mesos_seccomp_enabled`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
 
@@ -84,7 +86,7 @@ I have no info for this. -->
 - Upgrade CockroachDB to release 2.1.8. (DCOS_OSS-5360)
 - Upgrade platform curl from 7.59.0 to 7.65.1. (DCOS_OSS-5319)
 - Upgrade platform OpenSSL from 1.0.2x to release 1.1.1x. (DCOS-54108)
-- Bump Telegraf to have Mesos overlay module metrics collected. (DCOS_OSS-5323)
+
 <!-- - Updated to the latest version of cron-utils 9.0.0 and removed threeten-backport. This fixes a number of cron related issues in the underlying dependencies. Fixed a bug when task status was not updated after the task turned running (when querying embed=activeRuns). Fixes DCOS_OSS-5166 where metronome did not use the revive operation. -->
 
 # Known Issues and Limitations
@@ -99,6 +101,7 @@ This section covers any known issues or limitations. These do not necessarily af
 - ACL gives inappropriate access to tasks. (COPS-4929)
 - When deploying a service with an L4-VIP, it can take up to 10 minutes until the VIP is available. (COPS-5081, DCOS_OSS-5356)
 - The `dcos-net` logs show too many entries on masters. (COPS-5229, DCOS-57506)
+- Grafana fails to load because of file permission error. (DCOS-59209)
 
 # Previous Releases
 To review changes from the most recent previous releases, see the following links:
