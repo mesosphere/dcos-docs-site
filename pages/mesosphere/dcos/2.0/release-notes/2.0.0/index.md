@@ -30,14 +30,14 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 
 # New Features and Capabilities 
 
-- DC/OS has improved Multi Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. See [Quota Management](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas) documentation for more details. (DCOS-54186) 
-- As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. See the [Shared Memory](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory) documentation. (DCOS-54618) 
+- DC/OS has improved Multi Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. For more details, see [Quota Management](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas). (DCOS-54186) 
+- As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. For more details, see [Shared Memory](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory). (DCOS-54618) 
 - DC/OS has a new container debug endpoint, and the diagnostic bundle includes the debug endpoint tracking data for a stuck task. (DCOS-55383)
-- Add the ability to drain agent nodes via the DC/OS CLI and UI. See the [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/) documentation for more details. (DCOS-53654)
+- Add the ability to drain agent nodes via the DC/OS CLI and UI. For more details, see [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/). (DCOS-53654)
 - Create new diagnostics bundle REST API with performance improvements. Deprecate legacy routes and create a more RESTful API for generating diagnostics bundles. This change makes the bundle generation scale much faster. (DCOS_OSS-5098)
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
 - Add L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
-- Previously Marathon would validate that an external volume with the same name is only used once across all apps. Multiple external volume providers now allow shared access to mounted volumes, so we introduce a way to disable the uniqueness check. (MARATHON-8681)
+- Previously, Marathon would validate that an external volume with the same name is only used once across all apps. Multiple external volume providers now allow shared access to mounted volumes, so we introduce a way to disable the uniqueness check. (MARATHON-8681)
 - Add a new DC/OS configuration parameter `mesos_docker_volume_chown`, to change Docker volume ownership to the task user. By default, this parameter defaults to `false`; if this parameter is set as `true`, Mesos will change the ownership of a Docker volume non-recursively to be the task user when launching a container. It is not recommended that this option be enabled  if there is any Docker volume shared by multiple non-root users. (COPS-5176, DCOS_OSS-5381, MESOS-9908)
 
 # Fixed and Improved Issues
@@ -47,13 +47,13 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 - Optimize memory and CPU usage in `dcos-net`. (DCOS_OSS-5269, DCOS_OSS-5268)
 - Remove `nogroup` group from installation. (COPS-5220, DCOS-59427)
 - Upgrade Admin Router's underlying OpenResty/nginx from 1.13.x to 1.15.x. (DCOS_OSS-5320)
-- DC/OS Net: Wait until agents become active before fanning out Mesos tasks. (DCOS_OSS-5463)
+- In `dcos-net`, use cached Mesos state in case of Mesos instability. (DCOS_OSS-5463)
 - Bump Mesos modules to have overlay metrics exposed. (DCOS_OSS-5322)
-- Marathon API performance has been improved. JSON serialization is 50% faster and has 50% less memory overhead.
+- Improved Marathon API performance. JSON serialization is 50% faster and has 50% less memory overhead.
 - DC/OS no longer increases the rate limit for `journald` logging, to reduce cases of `journald` being overloaded and blocking other services. (DCOS-53763)
 - Fix preflight Docker version check failing for Docker 1.19. (DCOS-56831)
 - Add framework ID tags to Mesos framework metrics. (DCOS-53302)
-- The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, please note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. See the [`mesos_seccomp_enabled` documentation](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and the [`mesos_seccomp_profile_name` documentation](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
+- The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. For more details, see [`mesos_seccomp_enabled`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
 
 ## Third-party Updates and Compatibility
 
@@ -70,7 +70,6 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 # Known Issues and Limitations
 This section covers any known issues or limitations. These do not necessarily affect all customers, but might require changes to your environment to address specific scenarios. Where applicable, issue descriptions include one or more tracking identifiers, enclosed in parenthesis for reference.
 
-- When deciding whether to push an overlay network update to Lashup or not, only VTEP IP address and subnet are used, which leads to dropped updates. (DCOS_OSS-5620)
 - `/v2/pods` and `/v2/tasks` do not include any information about existing instances. (DCOS_OSS-5616)
 - Very large quota values can crash Mesos master. (DCOS-59695)
 - Mesos modules in Enterprise version can cause deadlock during process. (DCOS-57401)
