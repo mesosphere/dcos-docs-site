@@ -30,10 +30,27 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 
 # New Features and Capabilities 
 
-- DC/OS has improved Multi Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. For more details, see [Quota Management](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas). (DCOS-54186) 
-- As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. For more details, see [Shared Memory](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory). (DCOS-54618) 
+## Multi-Tenancy Support
+
+DC/OS has improved Multi-Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. For more details, see [Quota Management](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas). (DCOS-54186) 
+
+## Node Draining Enables Graceful Maintenance
+
+DC/OS adds the ability to drain agent nodes via the DC/OS CLI and UI. For more details, see [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/). (DCOS-53654)
+
+## UCR Support for Applications Requiring Configurable Shared Memory
+
+As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. For more details, see [Shared Memory](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory). (DCOS-54618) 
+
+DC/OS introduces the following parameters to UCR support:
+
+- `mesos_disallow_sharing_agent_ipc_namespace` can be used to control whether the top-level Mesos container is allowed to share the Mesos agent host's IPC namespace and `/dev/shm`. The default value is `false`. (DCOS-56619)
+- `mesos_default_container_shm_size` can be used to specify the default size of the `/dev/shm` for the Mesos container which has its own `/dev/shm`. The format is [number][unit], where `number` must be a positive integer and un`it can be B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes) or TB (terabytes). (DCOS-56619)
+
+## Other Improvements
+
 - DC/OS has a new container debug endpoint, and the diagnostic bundle includes the debug endpoint tracking data for a stuck task. (DCOS-55383)
-- Add the ability to drain agent nodes via the DC/OS CLI and UI. For more details, see [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/). (DCOS-53654)
+- 
 - Create new diagnostics bundle REST API with performance improvements. Deprecate legacy routes and create a more RESTful API for generating diagnostics bundles. This change makes the bundle generation scale much faster. (DCOS_OSS-5098)
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
 - Add L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
