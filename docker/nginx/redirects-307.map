@@ -1,4 +1,4 @@
-~^/mesosphere/dcos/latest/(.*)$ /mesosphere/dcos/1.13/$1;
+~^/mesosphere/dcos/latest/(.*)$ /mesosphere/dcos/2.0/$1;
 ~^/mesosphere/dcos/services/cassandra/latest/(.*) /mesosphere/dcos/services/cassandra/2.7.0-3.11.4/$1;
 ~^/mesosphere/dcos/services/confluent-kafka/latest/(.*) /mesosphere/dcos/services/confluent-kafka/2.8.0-5.3.1/$1;
 ~^/mesosphere/dcos/services/confluent-zookeeper/latest/(.*) /mesosphere/dcos/services/confluent-zookeeper/2.6.0-5.1.2e/$1;
