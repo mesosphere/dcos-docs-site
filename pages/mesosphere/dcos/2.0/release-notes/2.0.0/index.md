@@ -88,7 +88,7 @@ I have no info for this. -->
 <!-- - Updated to the latest version of cron-utils 9.0.0 and removed threeten-backport. This fixes a number of cron related issues in the underlying dependencies. Fixed a bug when task status was not updated after the task turned running (when querying embed=activeRuns). Fixes DCOS_OSS-5166 where metronome did not use the revive operation. -->
 
 # Known Issues and Limitations
-This section covers any known issues or limitations. These do not necessarily affect all customers, but might require changes to your environment to address specific scenarios. Where applicable, issue descriptions include one or more tracking identifiers, enclosed in parenthesis for reference.
+This section covers any known issues or limitations. These do not necessarily affect all customers, but might require changes to your environment to address specific scenarios. Where applicable, issue descriptions include one or more tracking identifiers for reference, enclosed in parentheses.
 
 - `/v2/pods` and `/v2/tasks` do not include any information about existing instances. (DCOS_OSS-5616)
 - Very large quota values can crash Mesos master. (DCOS-59695)
@@ -97,7 +97,7 @@ This section covers any known issues or limitations. These do not necessarily af
 - Marathon crash-loops after receiving a very long error message from a task's fetcher. (COPS-5365, MARATHON-8698)
 - Task is marked as FAILED after being marked as FINISHED. (COPS-4995)
 - ACL gives inappropriate access to tasks. (COPS-4929)
-- When deploying a service with a L4-VIP, it can take up to 10 minutes until the VIP is available. (COPS-5081, DCOS_OSS-5356)
+- When deploying a service with an L4-VIP, it can take up to 10 minutes until the VIP is available. (COPS-5081, DCOS_OSS-5356)
 - The `dcos-net` logs show too many entries on masters. (COPS-5229, DCOS-57506)
 
 # Previous Releases
