@@ -11,7 +11,7 @@ render: mustache
 # Version 2.7.0-5.1.2e
 
 ## Updates
-- Updated the SDK to version `0.57.0`.
+- Upgraded the SDK to version `0.57.0`. See [SDK's Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0) for more information.
 
 ## New Features
 - Added support for DC/OS Storage Service (DSS). See official [DSS docs](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0) for more details.
