@@ -13,7 +13,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # Description
 The `dcos node diagnostics` command allows you to view the details of diagnostics bundles.
 
-**This command is deprecated since DC/OS 2.0; please use `dcos diagnostics` instead.**
+<p class="message--warning"><strong>WARNING: </strong>This command is deprecated since DC/OS 2.0; please use <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/"><tt>dcos diagnostics</tt></a> instead.</p>
 
 # Usage
 

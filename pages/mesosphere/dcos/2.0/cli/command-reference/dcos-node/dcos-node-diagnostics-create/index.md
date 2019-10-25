@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # Description
 The `dcos node diagnostics create` command allows you to create a diagnostics bundle.
 
-**This command is deprecated since DC/OS 2.0; please use `dcos diagnostics create` instead.**
+<p class="message--warning"><strong>WARNING: </strong>This command is deprecated since DC/OS 2.0; please use <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/dcos-diagnostics-create/"><tt>dcos diagnostics create</tt></a> instead.</p>
 
 # Usage
 
