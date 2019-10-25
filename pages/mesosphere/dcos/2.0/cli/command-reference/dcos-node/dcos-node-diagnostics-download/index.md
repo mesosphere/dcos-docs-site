@@ -14,7 +14,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # Description
 The `dcos node diagnostics download` command allows you to download the diagnostics bundle to a specific location.
 
-**This command is deprecated since DC/OS 2.0; please use `dcos diagnostics download` instead.**
+<p class="message--warning"><strong>WARNING: </strong>This command is deprecated since DC/OS 2.0; please use <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/dcos-diagnostics-download/"><tt>dcos diagnostics download</tt></a> instead.</p>
 
 # Usage
 
