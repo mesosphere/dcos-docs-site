@@ -107,6 +107,8 @@ This section covers any known issues or limitations. These do not necessarily af
 - When deploying a service with an L4-VIP, it can take up to 10 minutes until the VIP is available. (COPS-5081, DCOS_OSS-5356)
 - The `dcos-net` logs show too many entries on masters. (COPS-5229, DCOS-57506)
 - Grafana fails to load because of file permission error. (DCOS-59209)
+- MKE is not rescheduled when a drained node is re-activated. (DCOS-59788)
+- DC/OS overlay networks are not compared by value, but should be.  Only VTEP IP address and subnets are used. Until this issue is fixed, use VTEP IP and Subnets only, instead of NAMED overlay networks. (DCOS_OSS-5620)
 
 # Previous Releases
 To review changes from the most recent previous releases, see the following links:
