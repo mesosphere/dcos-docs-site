@@ -81,6 +81,13 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 - Wrong value in `dcos_service_port_index` breaks Admin Router cache. (COPS-5147, DCOS_OSS-5491)
 - Add framework ID tags to Mesos framework metrics. (DCOS-53302)
 - The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. For more details, see [`mesos_seccomp_enabled`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
+- Very large quota values can crash Mesos master. (DCOS-59695)
+- Marathon crash-loops after receiving a very long error message from a task's fetcher. (COPS-5365, MARATHON-8698)
+- ACL gives inappropriate access to tasks. (COPS-4929)
+- When deploying a service with an L4-VIP, it can take up to 10 minutes until the VIP is available. (COPS-5081, DCOS_OSS-5356)
+- The `dcos-net` logs show too many entries on masters. (COPS-5229, DCOS-57506)
+
+
 
 ## Third-party Updates and Compatibility
 
@@ -92,23 +99,21 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 - Upgrade platform curl from 7.59.0 to 7.65.1. (DCOS_OSS-5319)
 - Upgrade platform OpenSSL from 1.0.2x to release 1.1.1x. (DCOS-54108)
 
+
+
 <!-- - Updated to the latest version of cron-utils 9.0.0 and removed threeten-backport. This fixes a number of cron related issues in the underlying dependencies. Fixed a bug when task status was not updated after the task turned running (when querying embed=activeRuns). Fixes DCOS_OSS-5166 where metronome did not use the revive operation. -->
 
 # Known Issues and Limitations
 This section covers any known issues or limitations. These do not necessarily affect all customers, but might require changes to your environment to address specific scenarios. Where applicable, issue descriptions include one or more tracking identifiers for reference, enclosed in parentheses.
 
 - `/v2/pods` and `/v2/tasks` do not include any information about existing instances. (DCOS_OSS-5616)
-- Very large quota values can crash Mesos master. (DCOS-59695)
 - Mesos modules in Enterprise version can cause deadlock during process. (DCOS-57401)
 - Mesos Resources Summary dashboard should show quota limits instead of guarantees. (DCOS-57261)
-- Marathon crash-loops after receiving a very long error message from a task's fetcher. (COPS-5365, MARATHON-8698)
-- Task is marked as FAILED after being marked as FINISHED. (COPS-4995)
-- ACL gives inappropriate access to tasks. (COPS-4929)
-- When deploying a service with an L4-VIP, it can take up to 10 minutes until the VIP is available. (COPS-5081, DCOS_OSS-5356)
-- The `dcos-net` logs show too many entries on masters. (COPS-5229, DCOS-57506)
 - Grafana fails to load because of file permission error. (DCOS-59209)
-- MKE is not rescheduled when a drained node is re-activated. (DCOS-59788)
 - DC/OS overlay networks are not compared by value, but should be.  Only VTEP IP address and subnets are used. Until this issue is fixed, use VTEP IP and Subnets only, instead of NAMED overlay networks. (DCOS_OSS-5620)
+
+<!-- - Task is marked as FAILED after being marked as FINISHED. (COPS-4995) -->
+
 
 # Previous Releases
 To review changes from the most recent previous releases, see the following links:
