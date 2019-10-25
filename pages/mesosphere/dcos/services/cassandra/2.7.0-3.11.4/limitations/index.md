@@ -16,10 +16,6 @@ render: mustache
 
 Custom JVM options are not currently supported in this version or earlier versions.
 
-## Backup/Restore
-
-The service does not support performing backup and restore with authentication/authorization enabled in this version or earlier versions.
-
 ## Node Count
 
 The DC/OS {{ model.techName }} service must be deployed with at least {{ model.install.minNodeCount }} nodes.
