@@ -69,11 +69,13 @@ Once quota is set on a group by an administrator, regular users can simply deplo
 
 # Migrating services
 
-For backwards compatibility, any existing top-level groups will have `enforceRole` property set to false. Consequently, existing or new services launched in such groups continue to use their legacy role instead of the group role.
+For backwards compatibility, any existing top-level groups will have `enforceRole` property set to false. Consequently, existing and new services launched in such groups continue to use their legacy role instead of the group role. To modify this and cause new services to consume quota, run:
 
-To migrate a stateless service that uses a legacy role to a group role, a user can simply update the role field of the service via a normal update.
+```bash
+dcos marathon group update /dev enforeceRole=true # only needed for groups created before DC/OS 2.0
+```
 
-For example:
+Existing services will continue to not consume quota and must be migrated. To migrate a stateless service that uses a legacy role to a group role, a user can simply update the role field of the service via a app / pod update:
 
 ```bash
 dcos marathon app update /dev/my-app role=dev
