@@ -15,7 +15,7 @@ The topics in this section discuss how you can use **groups** to manage resource
 You can define a **quota** to specify the maximum resources that the services in a group can use. Once the limit is reached, no new services or scaling up of existing services is allowed.
 
 Quota in DC/OS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/) primitive in Apache Mesos.
-Specifically, the quota set on a DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev").
+Specifically, the quota set on a top-level DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev").
 Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
 
 # Prerequisites
@@ -27,14 +27,9 @@ Additionally, services launched inside a given group are configured to use the r
 
 # Creating a group
 
-You should set the `enforceRole=true` property on a group to ensure that any new services launched in a group are properly limited by quota.
-
 ```bash
 dcos marathon group add --id /dev. # If the group doesn't exist
-dcos marathon group update /dev enforceRole=true
 ```
-
-In future versions of DC/OS, this property will be set to `true` automatically.
 
 # Setting quota
 
@@ -74,14 +69,14 @@ Once quota is set on a group by an administrator, regular users can simply deplo
 
 # Migrating services
 
-For backwards compatibility, any existing and new groups will have `enforceRole` property set to false. Consequently, existing or new services launched in such groups continue to use their legacy role (actual role depends on the service) instead of the group role.
+For backwards compatibility, any existing top-level groups will have `enforceRole` property set to false. Consequently, existing or new services launched in such groups continue to use their legacy role instead of the group role.
 
-To migrate a stateless service that uses a legacy role to a group role, a user can simply reconfigure the role of the service to group role and do an update.
+To migrate a stateless service that uses a legacy role to a group role, a user can simply update the role field of the service via a normal update.
 
 For example:
 
 ```bash
-dcos marathon app update my-app role=dev
+dcos marathon app update /dev/my-app role=dev
 ```
 
 To migrate a stateful service (for example, DC/OS Kafka, DC/OS Cassandra), a user has to update the role of the service and run a `pod replace` command for each of the corresponding pods. Note that the `pod replace` command causes local persistent data to be lost.
