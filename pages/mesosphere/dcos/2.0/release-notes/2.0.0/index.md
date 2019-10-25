@@ -51,10 +51,15 @@ DC/OS introduces the following parameters to UCR support:
 
 I have no info for this. -->
 
+## New Diagnostics Commands
+
+DC/OS introduces a new diagnostic service with the addition of the [`dcos diagnostics`](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) suite of CLI commands. A  more RESTful API will generate diagnostics bundles for troubleshooting DC/OS issues. This decentralized model will generate a local bundle on every node, and then merge all local bundles. This change greatly reduces the amount of time needed to generate a diagnostic bundle. (DCOS_OSS-5098)
+- Create new diagnostics bundle REST API with performance improvements. 
+- Deprecate legacy routes and create a more RESTful API for generating diagnostics bundles.  
+
 ## Other Improvements
 
 - DC/OS has a new container debug endpoint, and the diagnostic bundle includes the debug endpoint tracking data for a stuck task. (DCOS-55383)
-- Create new diagnostics bundle REST API with performance improvements. Deprecate legacy routes and create a more RESTful API for generating diagnostics bundles. This change makes the bundle generation scale much faster. (DCOS_OSS-5098)
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
 - Add L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
 - Previously, Marathon would validate that an external volume with the same name is only used once across all apps. Multiple external volume providers now allow shared access to mounted volumes, so we introduce a way to disable the uniqueness check. (MARATHON-8681)
