@@ -45,11 +45,7 @@ As tasks in a pod are running on the same agent, it is possible to define a shar
 DC/OS introduces the following parameters to UCR support:
 
 - `mesos_disallow_sharing_agent_ipc_namespace` can be used to control whether the top-level Mesos container is allowed to share the Mesos agent host's IPC namespace and `/dev/shm`. The default value is `false`. (DCOS-56619)
-- `mesos_default_container_shm_size` can be used to specify the default size of the `/dev/shm` for the Mesos container which has its own `/dev/shm`. The format is [number][unit], where `number` must be a positive integer and un`it can be B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes) or TB (terabytes). (DCOS-56619)
-
-<!-- ## Self Service Edge Load Balancer
-
-I have no info for this. -->
+- `mesos_default_container_shm_size` can be used to specify the default size of the `/dev/shm` for the Mesos container which has its own `/dev/shm`. The format is [number][unit], where `number` must be a positive integer and `unit` can be B (bytes), KB (kilobytes), MB (megabytes), GB (gigabytes) or TB (terabytes). (DCOS-56619)
 
 ## New Diagnostics Commands
 
@@ -78,7 +74,7 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 - DC/OS no longer increases the rate limit for `journald` logging, to reduce cases of `journald` being overloaded and blocking other services. (DCOS-53763)
 - Fix preflight Docker version check failing for Docker 1.19. (DCOS-56831)
 - Bump Telegraf to have Mesos overlay module metrics collected. (DCOS_OSS-5323)
-- Wrong value in `dcos_service_port_index` breaks Admin Router cache. (COPS-5147, DCOS_OSS-5491)
+- Fix wrong value in `dcos_service_port_index` that breaks Admin Router cache. (COPS-5147, DCOS_OSS-5491)
 - Add framework ID tags to Mesos framework metrics. (DCOS-53302)
 - The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. For more details, see [`mesos_seccomp_enabled`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
 - Very large quota values can crash Mesos master. (DCOS-59695)
