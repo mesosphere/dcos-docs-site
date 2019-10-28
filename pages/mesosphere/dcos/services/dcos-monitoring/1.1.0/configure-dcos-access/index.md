@@ -71,6 +71,9 @@ dcos security org users grant {{ model.packageName }}-principal dcos:secrets:def
 dcos security org users grant {{ model.packageName }}-principal dcos:secrets:list:default:/{{ model.packageName }} read
 ```
 
+<p class="message--IMPORTANT"><strong>IMPORTANT: </strong>Starting in DC/OS 2.0, when installing the service into a group/folder (e.g. `infra/`), the `role` permissions must be modified to use the group name (`infra`) instead of `{{ model.packageName }}-role`.
+See the [SDK v0.57.0 release notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0) for more information.</p>
+
 # Create a Configuration file
 
 Create a custom options file that is used to install {{ model.techName }} service and save the file as (`options.json`).
