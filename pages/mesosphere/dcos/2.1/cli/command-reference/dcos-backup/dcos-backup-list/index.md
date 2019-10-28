@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: Listing backups
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
@@ -58,5 +58,5 @@ backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27     1.13.0      STATUS_READY     2
 
 | Command | Description |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/2.0/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
+| [dcos backup](/mesosphere/dcos/2.1/cli/command-reference/dcos-backup/) |  Create, delete, list, restore and show backup commands. |
 

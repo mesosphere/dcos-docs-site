@@ -5,7 +5,7 @@ title: User Account Management
 menuWeight: 10
 excerpt: Managing DC/OS user accounts
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

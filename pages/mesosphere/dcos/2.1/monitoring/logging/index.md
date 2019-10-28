@@ -5,7 +5,7 @@ title: Logging
 menuWeight: 3
 excerpt: Understanding diagnostic and status logs for DC/OS core components and services
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 beta: false
 enterprise: false
 ---
@@ -38,11 +38,11 @@ To access the logs for an agent node, run `dcos node` to get the Mesos IDs of yo
 dcos node log --mesos-id=<node-id>
 ```
 
-You can download all the log files for your service from the **Services > Services** tab in the [DC/OS web interface](/mesosphere/dcos/2.0/gui/). You can also monitor `stdout`/`stderr`.
+You can download all the log files for your service from the **Services > Services** tab in the [DC/OS web interface](/mesosphere/dcos/2.1/gui/). You can also monitor `stdout`/`stderr`.
 
-For more information, see the Service and Task Logs [quick start guide](/mesosphere/dcos/2.0/monitoring/logging/quickstart/).
+For more information, see the Service and Task Logs [quick start guide](/mesosphere/dcos/2.1/monitoring/logging/quickstart/).
 
-<p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">configuration documentation</a></p>.
+<p class="message--note"><strong>NOTE: </strong> DC/OS can send copies of task logs to the host's journald, but this is disabled by default because of a known systemd performance problem, for details see the <a href="/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">configuration documentation</a></p>.
 
 ## System logs
 
@@ -52,7 +52,7 @@ DC/OS components use `systemd-journald` to store their logs. To access the DC/OS
 journalctl -u "dcos-*" -b
 ```
 
-You can view the logs for specific [components](/mesosphere/dcos/2.0/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
+You can view the logs for specific [components](/mesosphere/dcos/2.1/overview/architecture/components/) by entering the component name. For example, to access Admin Router logs, run this command:
 
 ```bash
 journalctl -u dcos-nginx -b
@@ -60,16 +60,16 @@ journalctl -u dcos-nginx -b
 
 You can find which components are unhealthy in the DC/OS web interface **Nodes** tab.
 
-![system health](/mesosphere/dcos/2.0/img/GUI-Nodes-Main_View_Agents-1_12.png)
+![system health](/mesosphere/dcos/2.1/img/GUI-Nodes-Main_View_Agents-1_12.png)
 
 Figure 1. System health log showing nodes
 
 # Log aggregation
 
-Streaming logs from machines in your cluster is not always the best solution for examining events and debugging issues. <!-- In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit logs to Fluent Bit](/mesosphere/dcos/2.0/monitoring/logging/configure-task-logs/). -->Currently we suggest one of these options for log aggregation:
+Streaming logs from machines in your cluster is not always the best solution for examining events and debugging issues. <!-- In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit logs to Fluent Bit](/mesosphere/dcos/2.1/monitoring/logging/configure-task-logs/). -->Currently we suggest one of these options for log aggregation:
 
-- [Log Management with ELK](/mesosphere/dcos/2.0/monitoring/logging/aggregating/elk/)
-- [Log Management with Splunk](/mesosphere/dcos/2.0/monitoring/logging/aggregating/splunk/)
+- [Log Management with ELK](/mesosphere/dcos/2.1/monitoring/logging/aggregating/elk/)
+- [Log Management with Splunk](/mesosphere/dcos/2.1/monitoring/logging/aggregating/splunk/)
 
 
-[5]: /mesosphere/dcos/2.0/administering-clusters/sshcluster/
+[5]: /mesosphere/dcos/2.1/administering-clusters/sshcluster/

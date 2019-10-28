@@ -4,7 +4,7 @@ title: Basic
 navigationTitle: Basic
 menuWeight: 5
 excerpt: Creating a DC/OS cluster using DC/OS templates
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 render: mustache
 ---
 

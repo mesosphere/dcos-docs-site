@@ -5,7 +5,7 @@ title: dcos license status
 menuWeight: 4
 excerpt: Reviewing the cluster license status
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -46,11 +46,11 @@ dcos license status
 dcos license status --breaches
 0
 ```
-For more examples, see [Licenses](/mesosphere/dcos/2.0/administering-clusters/licenses/).
+For more examples, see [Licenses](/mesosphere/dcos/2.1/administering-clusters/licenses/).
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/mesosphere/dcos/2.1/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |

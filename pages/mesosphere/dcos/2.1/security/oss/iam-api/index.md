@@ -5,7 +5,7 @@ title: Identity and Access Management API
 menuWeight: 40
 excerpt: Using the DC/OS Identity and Access Management API
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -38,19 +38,19 @@ All IAM endpoints require an authentication token--except the `auth` endpoints. 
 
 DC/OS Open Source supports three types of users that can be managed via the `/users` API endpoint.
 
-The [User account management](/mesosphere/dcos/2.0/security/oss/user-account-management/) documentation covers invocation of available operations in detail.
+The [User account management](/mesosphere/dcos/2.1/security/oss/user-account-management/) documentation covers invocation of available operations in detail.
 
 # Authentication token verification
 
 The IAM can provide third-party entities with public key information via the `/auth/jwks` API endpoint for verifying DC/OS Authentication tokens out-of-band.
 
-See [Out-of-band token verification](/mesosphere/dcos/2.0/security/oss/authentication/out-of-band-verification/) on how to implement authentication token verification on behalf of the IAM.
+See [Out-of-band token verification](/mesosphere/dcos/2.1/security/oss/authentication/out-of-band-verification/) on how to implement authentication token verification on behalf of the IAM.
 
 # API reference
 
-[swagger api='/mesosphere/dcos/2.0/api/oss-iam.yaml']
+[swagger api='/mesosphere/dcos/2.1/api/oss-iam.yaml']
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/mesosphere/dcos/2.0/monitoring/logging/) for instructions.
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/mesosphere/dcos/2.1/monitoring/logging/) for instructions.
 

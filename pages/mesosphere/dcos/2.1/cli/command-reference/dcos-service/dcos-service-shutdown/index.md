@@ -5,7 +5,7 @@ title: dcos service shutdown
 menuWeight: 2
 excerpt: Shutting down a service
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -35,4 +35,4 @@ dcos service shutdown <service-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos service](/mesosphere/dcos/2.0/cli/command-reference/dcos-service/)   | Manage DC/OS services. |
+| [dcos service](/mesosphere/dcos/2.1/cli/command-reference/dcos-service/)   | Manage DC/OS services. |

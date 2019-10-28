@@ -5,7 +5,7 @@ title: dcos security secrets list
 menuWeight: 315
 excerpt: Listing secrets
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -37,4 +37,4 @@ dcos security secrets list [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

@@ -5,7 +5,7 @@ title: dcos security cluster saml modify
 menuWeight: 80
 excerpt: Modifying an existing SAML provider configuration
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -41,4 +41,4 @@ dcos security cluster saml modify [OPTIONS] SAML_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster saml](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |
+| [dcos security cluster saml](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | Manage your Security Assertion Markup Language (SAML) settings. |

@@ -4,7 +4,7 @@ navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 excerpt: Uninstalling a package
 enterprise: false
 ---
@@ -38,11 +38,11 @@ dcos package uninstall <package-name> [--cli | [--app [--app-id=<app-id> | --all
 
 # Examples
 
-For an example, see the [documentation](/mesosphere/dcos/2.0/deploying-services/uninstall/).
+For an example, see the [documentation](/mesosphere/dcos/2.1/deploying-services/uninstall/).
 
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/2.1/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

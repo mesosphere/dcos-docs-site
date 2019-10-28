@@ -6,7 +6,7 @@ menuWeight: 9
 excerpt: Updating a job schedule
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 
@@ -36,6 +36,6 @@ dcos job schedule update <job-id> <schedule-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/2.1/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
 
 

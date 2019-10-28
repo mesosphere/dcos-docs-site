@@ -4,7 +4,7 @@ excerpt: Guide for DC/OS on AWS using the Universal Installer
 title: DC/OS on AWS using the Universal Installer
 navigationTitle: AWS
 menuWeight: 0
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 render: mustache
 ---
 #include /mesosphere/dcos/install-include/aws-intro-and-prereqs.tmpl

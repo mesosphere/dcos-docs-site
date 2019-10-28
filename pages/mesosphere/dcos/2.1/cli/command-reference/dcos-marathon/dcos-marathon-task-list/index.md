@@ -6,7 +6,7 @@ menuWeight: 29
 excerpt: Displaying all tasks
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 
@@ -38,6 +38,6 @@ dcos marathon task list [--json|--quiet] [<app-id>]
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.1/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 

@@ -5,7 +5,7 @@ title: Versioning and Release Policy
 menuWeight: 110
 excerpt: Understanding DC/OS versioning and releases
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 The format of Mesosphere DC/OS version number is: <code>&lt;Release&gt;.&lt;Version&gt;.&lt;Minor&gt;</code>.
 
@@ -45,7 +45,7 @@ All Mesosphere-driven Service Frameworks and their attached baseline technology 
 
 For example, if we have three pieces of technology: DC/OS, Framework, and Apache Kafka.
 
-![version policy framework](/mesosphere/dcos/2.0/img/version-policy-1.png)
+![version policy framework](/mesosphere/dcos/2.1/img/version-policy-1.png)
 
 Figure 1. Version policy framework
 
@@ -68,6 +68,6 @@ Our interoperability guarantees in the scenario above will be as follows:
 
 # Mesosphere Versioning and Upgrade Policy
 
-![version policy framework](/mesosphere/dcos/2.0/img/version-policy-2.png)
+![version policy framework](/mesosphere/dcos/2.1/img/version-policy-2.png)
 
 Figure 1. Version policy framework

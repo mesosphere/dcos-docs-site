@@ -4,7 +4,7 @@ excerpt: Part 7 of the DC/OS 101 tutorial
 title: Tutorial - Understanding Resources
 navigationTitle: Understanding Resources
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 7
 ---
 
@@ -15,8 +15,8 @@ Welcome to part 7 of the DC/OS 101 Tutorial.
 
 
 # Prerequisites
-* A [running DC/OS cluster](/mesosphere/dcos/2.0/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/2.0/tutorials/dcos-101/cli/).
-* [app2](/mesosphere/dcos/2.0/tutorials/dcos-101/app2/) deployed and running in your cluster.
+* A [running DC/OS cluster](/mesosphere/dcos/2.1/tutorials/dcos-101/cli/) with [the DC/OS CLI installed](/mesosphere/dcos/2.1/tutorials/dcos-101/cli/).
+* [app2](/mesosphere/dcos/2.1/tutorials/dcos-101/app2/) deployed and running in your cluster.
 
 # Objective
 

@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Log-in to your DC/OS cluster
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
@@ -36,4 +36,4 @@ dcos auth login [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/2.1/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

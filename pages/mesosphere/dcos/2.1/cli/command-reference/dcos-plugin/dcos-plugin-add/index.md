@@ -5,7 +5,7 @@ title: dcos plugin add
 menuWeight: 1
 excerpt: Adding a CLI plugin
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -37,4 +37,4 @@ dcos plugin add <resource> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos plugin](/mesosphere/dcos/2.0/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |
+| [dcos plugin](/mesosphere/dcos/2.1/cli/command-reference/dcos-plugin/)   | Install and manage DC/OS software plugins. |

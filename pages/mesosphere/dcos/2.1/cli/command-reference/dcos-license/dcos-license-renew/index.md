@@ -5,7 +5,7 @@ title: dcos license renew
 menuWeight: 3
 excerpt: Renewing a cluster license
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -36,7 +36,7 @@ dcos license renew [OPTIONS] PATH
 
 
 # Examples
-For examples, see [Licenses](/mesosphere/dcos/2.0/administering-clusters/licenses/).
+For examples, see [Licenses](/mesosphere/dcos/2.1/administering-clusters/licenses/).
 
 # Parent command
 

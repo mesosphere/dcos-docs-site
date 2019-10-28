@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Mesosphere DC/OS 2.0
-title: Documentation for Mesosphere DC/OS 2.0
-version: 2.0
+navigationTitle:  Mesosphere DC/OS 2.1
+title: Documentation for Mesosphere DC/OS 2.1
+version: 2.1
 menuWeight: 0
 excerpt: Learning DC/OS
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
-Welcome to the documentation for DC/OS 2.0. For information about new and changed features, see the [release notes](/mesosphere/dcos/2.0/release-notes/).
+Welcome to the documentation for DC/OS 2.1. For information about new and changed features, see the [release notes](/mesosphere/dcos/2.1/release-notes/).

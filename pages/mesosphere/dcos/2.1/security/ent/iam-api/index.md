@@ -5,7 +5,7 @@ title: Identity and Access Management API
 menuWeight: 110
 excerpt: Managing users and permissions with the IAM API
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -46,7 +46,7 @@ To get an authentication token, pass the credentials of a local user or service 
 
 To log in local user accounts supply `uid` and `password` in the request.
 
-<p class="message--note"><strong>NOTE: </strong>Read how to <a href="/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-trust-curl/">establish trust in curl commands</a> with DC/OS.</p>
+<p class="message--note"><strong>NOTE: </strong>Read how to <a href="/mesosphere/dcos/2.1/security/ent/tls-ssl/ca-trust-curl/">establish trust in curl commands</a> with DC/OS.</p>
 
 
 ```bash
@@ -89,7 +89,7 @@ The DC/OS authentication token is also a RFC 7519 JWT of type RS256.
 
 ### Using the DC/OS CLI
 
-When you log in to the [DC/OS CLI](/mesosphere/dcos/2.0/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in `curl` commands (discussed in the next section).
+When you log in to the [DC/OS CLI](/mesosphere/dcos/2.1/cli/) using `dcos auth login`, it stores the authentication token value locally. You can reference this value as a variable in `curl` commands (discussed in the next section).
 
 Alternatively, you can use the following command to get the authentication token value.
 
@@ -125,14 +125,14 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## Refreshing the authentication token
 
-Authentication tokens expire after five days, by default. If your program needs to run longer than five days, you will need a service account. See [provisioning custom services](/mesosphere/dcos/2.0/security/ent/service-auth/custom-service-auth/) for more information.
+Authentication tokens expire after five days, by default. If your program needs to run longer than five days, you will need a service account. See [provisioning custom services](/mesosphere/dcos/2.1/security/ent/service-auth/custom-service-auth/) for more information.
 
 
 # API reference
 
-[swagger api='/mesosphere/dcos/2.0/api/ent-iam.yaml']
+[swagger api='/mesosphere/dcos/2.1/api/ent-iam.yaml']
 
 
 # Logging
 
-While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/mesosphere/dcos/2.0/monitoring/logging/) for instructions.
+While the API returns informative error messages, you may also find it useful to check the logs of the service. Refer to [Service and Task Logging](/mesosphere/dcos/2.1/monitoring/logging/) for instructions.

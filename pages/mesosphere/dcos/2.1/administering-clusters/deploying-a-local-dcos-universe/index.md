@@ -6,7 +6,7 @@ menuWeight: 1000
 excerpt: Installing and running DC/OS services on a local Catalog datacenter
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 <p class="message--important"><strong>IMPORTANT: </strong> If you are using DC/OS Enterprise, use <tt>package-registry</tt> for seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>
@@ -15,7 +15,7 @@ You can install and run DC/OS services on a datacenter without Internet access b
 
 **Prerequisites:**
 
-- [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/).
+- [DC/OS CLI installed](/mesosphere/dcos/2.1/cli/install/).
 
 - Logged into the DC/OS CLI. On DC/OS Enterprise, you must be logged in as a user with the `dcos:superuser` permission.
 <p class="message--note"><strong>NOTE: </strong>As the {{ model.packageRepo }} tarball is over two gigabytes in size it may take some time to download it to your local drive and upload it to each master.</p>
@@ -40,7 +40,7 @@ This section explains how to deploy a local {{ model.packageRepo }} containing c
     scp dcos-local-universe-registry.service core@<master-IP>:~
     ```
 
-1.  [SSH](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) into the master using the following command. Replace `<master-IP>` with the IP address used in the previous commands.
+1.  [SSH](/mesosphere/dcos/2.1/administering-clusters/sshcluster/) into the master using the following command. Replace `<master-IP>` with the IP address used in the previous commands.
 
     ```bash
     ssh -A core@<master-IP>
@@ -119,7 +119,7 @@ If you only have one master, skip to [Linking local {{ model.packageRepo }} to m
     scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:~
     ```
 
-3.  [SSH](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) into the master that you just copied these files to.
+3.  [SSH](/mesosphere/dcos/2.1/administering-clusters/sshcluster/) into the master that you just copied these files to.
 
     ```bash
     ssh -A core@<master_IP>
@@ -197,7 +197,7 @@ Repeat this section until you have completed this procedure for all of your mast
     dcos package repo add local-{{ model.packageRepo }} http://master.mesos:8082/repo
     ```
     
-1.  [SSH into one of your agent nodes.](/mesosphere/dcos/2.0/administering-clusters/sshcluster/)
+1.  [SSH into one of your agent nodes.](/mesosphere/dcos/2.1/administering-clusters/sshcluster/)
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -270,7 +270,7 @@ included. To view which packages are Certified, click the **Catalog** tab in the
 interface.
 
     ```bash
-    sudo make DCOS_VERSION=1.13 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
+    sudo make DCOS_VERSION=2.1 DCOS_PACKAGE_INCLUDE="cassandra:1.0.25-3.0.10,marathon:1.4.2" local-universe
     ```
 
 1.  Perform all of the steps as described in [Certified {{ model.packageRepo }} packages](#certified).

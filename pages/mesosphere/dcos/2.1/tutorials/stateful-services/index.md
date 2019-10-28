@@ -5,7 +5,7 @@ navigationTitle: Running Stateful Services on DC/OS
 menuWeight: 2
 excerpt: Tutorial - Running stateful services on DC/OS
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
@@ -149,9 +149,9 @@ dcos marathon app remove postgres
 
 ## Appendix
 
-For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/mesosphere/dcos/2.0/storage/).
+For further information on stateful services in DC/OS, visit the [Storage section of the documentation](/mesosphere/dcos/2.1/storage/).
 
 
-[1]: /mesosphere/dcos/2.0/installing/
-[2]: /mesosphere/dcos/2.0/cli/install/
+[1]: /mesosphere/dcos/2.1/installing/
+[2]: /mesosphere/dcos/2.1/cli/install/
 [4]: postgres.marathon.json

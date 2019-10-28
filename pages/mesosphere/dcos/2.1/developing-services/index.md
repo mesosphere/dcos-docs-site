@@ -4,14 +4,14 @@ title: Developing DC/OS Services
 menuWeight: 160
 excerpt: Developing your own DC/OS components
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
 
 This section describes the developer-specific DC/OS components, explaining what is necessary to package and provide your own service on DC/OS. 
 
-The Mesosphere Distributed Cloud Operating System (DC/OS) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache Mesos by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/mesosphere/dcos/2.0/administering-clusters/package-registry/) that catalogs those packages.
+The Mesosphere Distributed Cloud Operating System (DC/OS) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache Mesos by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/mesosphere/dcos/2.1/administering-clusters/package-registry/) that catalogs those packages.
 
 # <a name="universe"></a>Package Repositories
 

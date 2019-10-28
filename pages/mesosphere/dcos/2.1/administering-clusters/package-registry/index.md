@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: Using the web interface or CLI to manage your package repositories
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
@@ -20,7 +20,7 @@ dcos package describe package-registry --config
 ```
 You can find more information about the `dcos package` commands in the [CLI documentation](/mesosphere/dcos/1.13/cli/command-reference/dcos-package/).
 
-For a detailed description of how to configure and deploy DC/OS Services, see [Configuring {{ model.packageRepo }} Services](/mesosphere/dcos/2.0/deploying-services/config-universe-service/).
+For a detailed description of how to configure and deploy DC/OS Services, see [Configuring {{ model.packageRepo }} Services](/mesosphere/dcos/2.1/deploying-services/config-universe-service/).
 
 # Default installation
 
@@ -63,7 +63,7 @@ Package registry would use local storage by default, which is **NOT recommended*
 
 ### Mount volume option
 
-To create mount volumes on DC/OS, refer to the [Mount Volume](/mesosphere/dcos/2.0/storage/mount-disk-resources/) documentation, which includes an example that creates a loopback device. The rest of this guide assumes you have a mount volume created at `/dcos/package-registry`. You must specify the `container-path` and a `pinned-hostname`, which refers to the hostname of the agent on which the volume is mounted. The following options can be used to configure `package-registry` to use a mount volume :
+To create mount volumes on DC/OS, refer to the [Mount Volume](/mesosphere/dcos/2.1/storage/mount-disk-resources/) documentation, which includes an example that creates a loopback device. The rest of this guide assumes you have a mount volume created at `/dcos/package-registry`. You must specify the `container-path` and a `pinned-hostname`, which refers to the hostname of the agent on which the volume is mounted. The following options can be used to configure `package-registry` to use a mount volume :
 
 ```json
 {

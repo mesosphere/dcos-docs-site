@@ -5,7 +5,7 @@ title: Software Defined Networks
 menuWeight: 4
 excerpt: Understanding DC/OS support for SDNs
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 

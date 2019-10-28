@@ -4,7 +4,7 @@ title: Scenario 1
 navigationTitle: Scenario 1
 excerpt: Tutorial - Resource Allocation
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 1
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
@@ -85,7 +85,7 @@ Figure 4. Rsource allocation details
 
 Interesting. According to this, some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
 
-To check the roles of different resources let us have a [look at the state-summary endpoint](/mesosphere/dcos/2.0/tutorials/dcos-debug/tools/#state-summary), which you can access at `https://<master-ip>/mesos/state-summary`.
+To check the roles of different resources let us have a [look at the state-summary endpoint](/mesosphere/dcos/2.1/tutorials/dcos-debug/tools/#state-summary), which you can access at `https://<master-ip>/mesos/state-summary`.
 
 That endpoint will give us a rather long json output, so it is helpful to use jq to make the output readable:
 
@@ -119,7 +119,7 @@ We now know that **the issue is that there are not enough resources in the desir
 
 ##### When your application framework (e.g. Marathon) is not accepting resource offers, check whether there are sufficient resources available in the respective resource role.
 
-This was a straightforward scenario with too few CPU resources. Typically resource issues are more likely caused by more complex factors - such as improperly configured [port resources](/mesosphere/dcos/2.0/deploying-services/service-ports/) or [placement constraints](/mesosphere/dcos/2.0/deploying-services/marathon-constraints/). Nonetheless, this general workflow pattern still applies.
+This was a straightforward scenario with too few CPU resources. Typically resource issues are more likely caused by more complex factors - such as improperly configured [port resources](/mesosphere/dcos/2.1/deploying-services/service-ports/) or [placement constraints](/mesosphere/dcos/2.1/deploying-services/marathon-constraints/). Nonetheless, this general workflow pattern still applies.
 
 ### Cleanup
 

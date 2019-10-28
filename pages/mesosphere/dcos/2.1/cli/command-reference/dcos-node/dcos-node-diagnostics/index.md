@@ -6,14 +6,14 @@ menuWeight: 2
 excerpt: Displaying the details of diagnostics bundles
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 
 # Description
 The `dcos node diagnostics` command allows you to view the details of diagnostics bundles.
 
-<p class="message--warning"><strong>WARNING: </strong>This command is deprecated since DC/OS 2.0; please use <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/"><tt>dcos diagnostics</tt></a> instead.</p>
+<p class="message--warning"><strong>WARNING: </strong>This command is deprecated since DC/OS 2.0; please use <a href="/mesosphere/dcos/2.1/cli/command-reference/dcos-diagnostics/"><tt>dcos diagnostics</tt></a> instead.</p>
 
 # Usage
 
@@ -66,5 +66,5 @@ dcos node diagnostics --status
 
 | Command | Description |
 |---------|-------------|
-| [`dcos node`](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [`dcos node`](/mesosphere/dcos/2.1/cli/command-reference/dcos-node/) | View DC/OS node information. |
 

@@ -5,7 +5,7 @@ title: Local Persistent Volumes
 menuWeight: 10
 excerpt: Using local persistent volumes
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -346,7 +346,7 @@ Creating an app definition for PostgreSQL on Marathon is similar to creating a d
 
 ## Pod with persistent volume
 
-The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/mesosphere/dcos/2.0/deploying-services/pods/).
+The following example will create a pod with two containers and one shared persistent volume. Also see [Pods](/mesosphere/dcos/2.1/deploying-services/pods/).
 
 ```json
 {

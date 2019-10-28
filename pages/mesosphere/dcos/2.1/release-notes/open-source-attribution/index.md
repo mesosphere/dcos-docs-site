@@ -4,7 +4,7 @@ title: Open Source Attribution
 menuWeight: 100
 excerpt: List of third party open source software provided by Mesosphere
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 The table below lists the third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
