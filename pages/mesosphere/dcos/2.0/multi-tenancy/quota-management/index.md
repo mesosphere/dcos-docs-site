@@ -31,7 +31,7 @@ You should set the `enforceRole=true` property on a group to ensure that any new
 
 ```bash
 dcos marathon group add --id /dev. # If the group doesn't exist
-dcos marathon group update /dev enforeceRole=true
+dcos marathon group update /dev enforceRole=true
 ```
 
 In future versions of DC/OS, this property will be set to `true` automatically.
