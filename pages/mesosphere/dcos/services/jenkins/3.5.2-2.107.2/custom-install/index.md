@@ -206,7 +206,7 @@ You can perform a custom installation from either the web interface or the CLI.
         "name": "jenkins-pinned"
     },
     "storage": {
-        "host-volume": "/var/jepnkins_data",
+        "host-volume": "/var/jenkins_data",
         "pinned-hostname": "10.0.0.100"
     }
 }
