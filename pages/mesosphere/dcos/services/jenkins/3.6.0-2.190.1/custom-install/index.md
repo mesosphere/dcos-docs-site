@@ -70,7 +70,7 @@ The exact configuration can change between releases of the DC/OS Jenkins Service
         "name": "jenkins-pinned"
     },
     "storage": {
-        "host-volume": "/var/jepkins_data",
+        "host-volume": "/var/jenkins_data",
         "pinned-hostname": "10.0.0.100"
     }
 }
