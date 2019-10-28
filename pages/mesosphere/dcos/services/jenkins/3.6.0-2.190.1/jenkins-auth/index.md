@@ -131,9 +131,9 @@ The DC/OS Jenkins service starting with DC/OS 2.0 supports multi-tenancy. Users 
 `dev` will be the group in which the Jenkins service will be deployed. The *role* used by the service can be configured with the default of `*`.  In `strict` mode, the service will require permissions granted for this `*` role.
 
 ### Role used by Jenkins Agents
-- DC/OS 2.0 and later clusters
+- DC/OS 2.0 and later clusters - 
 When quota is enforced on the group, the Jenkins agents will inherit the same role as the Jenkins master.
-- DC/OS 1.13 and older clusters
+- DC/OS 1.13 and older clusters - 
 The role used by the Jenkins agents can be configured via `role.jenkins-agent-role` in the configuration options.
 
 ## Creating and assigning the permissions
