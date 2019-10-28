@@ -3,13 +3,15 @@
     "DO_NOT_BUILD": [
       "test/**",
       "1.14/**",
-      "mesosphere/dcos/1.14/**"
+      "mesosphere/dcos/1.14/**",
+      "mesosphere/dcos/2.1/**"
     ],
     "DO_NOT_INDEX": []
   },
   "staging": {
     "DO_NOT_BUILD": [
-      "test/**"
+      "test/**",
+      "mesosphere/dcos/2.1/**"
     ],
     "DO_NOT_INDEX": [
       "^cn"
@@ -37,7 +39,14 @@
     "DO_NOT_INDEX": []
   },
   "alpha": {
-    "DO_NOT_BUILD": [],
+    "DO_NOT_BUILD": [
+      "mesosphere/dcos/1.7/**",
+      "mesosphere/dcos/1.8/**",
+      "mesosphere/dcos/1.9/**",
+      "mesosphere/dcos/1.10/**",
+      "mesosphere/dcos/1.11/**",
+      "mesosphere/dcos/1.12/**"
+    ],
     "DO_NOT_INDEX": []
   },
   "always": {
