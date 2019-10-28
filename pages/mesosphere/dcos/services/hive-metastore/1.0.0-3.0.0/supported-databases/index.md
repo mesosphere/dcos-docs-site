@@ -16,7 +16,7 @@ The DC/OS {{ model.techName }} supports the following relational databases (RDBM
  - Percona-MySQL
 
 ### Install the {{ model.techShortName }} with Derby
-By default, {{ model.techName }} configuration is set to the default embedded Derby database for development usage. However, it is not intended for use beyond simple testing.
+By default, the {{ model.techName }} configuration is set to the default embedded Derby database for development usage. However, it is not intended for use beyond simple testing.
 
 ```
 dcos package install {{ model.packageName }}
@@ -39,7 +39,7 @@ The {{ model.techShortName }} can also be backed by a MySQL database.
    
    - Create a custom config file that will be used to install `{{ model.serviceName }} `, and save it as `metastore-options.json`.
 
-      ```
+      ```json
       {
         "hive_metastore": {
           "database": "mysql",
@@ -62,7 +62,7 @@ Percona-MySQL is an enterprise-grade HA drop-in replacement for MySQL. To enable
    
   - Create a custom config file that will be used to install `percona-pxc-mysql`, and save it as `percona-options.json`.
 
-      ```
+      ```json
       {
         "pxc-advanced": {
           "pxc_strict_mode": "PERMISSIVE"
@@ -79,7 +79,7 @@ Percona-MySQL is an enterprise-grade HA drop-in replacement for MySQL. To enable
    
    - Create a custom config file that will be used to install `hive-metastore`, and save it as `metastore-options.json`.
 
-      ```
+      ```json
       {
         "hive_metastore": {
           "database": "mysql",
