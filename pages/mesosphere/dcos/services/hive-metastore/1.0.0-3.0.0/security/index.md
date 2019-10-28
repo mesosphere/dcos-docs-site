@@ -21,13 +21,13 @@ enterprise: true
 
 #include /mesosphere/dcos/services/include/security-create-permissions.tmpl
 
-# <a name="Using the Secret Store for Passwords></a> Using the Secret Store for Passwords
+# Using the Secret Store for Passwords
 
-Enterprise DC/OS provides a secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content. Detailed information as described [here](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets)
+Enterprise DC/OS provides a Secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content. Detailed information can be found [here](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets)
 
 All tasks defined in the pod will have access to secret data. If the content of the secret is changed, the relevant pod needs to be restarted so that it can get updated content from the secret store.
 
-We can use secrets in Hive Metastore to store database passwords. We can use the secret store as follows in order to store and use secrets in Hive Metastore service:
+We can use secrets in {{ model.techName }} to store database passwords. We can use the secret store as follows in order to store and use secrets in {{ model.techName }} service:
 
 1. From the left-side navigation menu, click on `Secrets`.
 
@@ -37,9 +37,9 @@ We can use secrets in Hive Metastore to store database passwords. We can use the
 
 ![Creating Secrets](https://downloads.mesosphere.com/hive-metastore/assets/secret_docs_screen1.png)
 
-4. Now, go to the Hive Metastore's service configuration page for a fresh deployment of service using secrets. Click on 'Hive Metastore' configuration menu to proceed.
+4. Now, go to the {{ model.techName }}'s service configuration page for a fresh deployment of service using secrets. Click on '{{ model.techName }}' configuration menu to proceed.
 
-![Hive Metastore Configuration](https://downloads.mesosphere.com/hive-metastore/assets/secret_docs_screen2.png)
+![{{ model.techName }} Configuration](https://downloads.mesosphere.com/hive-metastore/assets/secret_docs_screen2.png)
 
 5. Scroll down and look for the `Enable Secrets` checkbox. Check the box to enable secrets. Now, enter the `ID` of the secret created earlier in the `Database Password` field. Click 'Review & Run'. The service will now be deployed using secrets.
 
