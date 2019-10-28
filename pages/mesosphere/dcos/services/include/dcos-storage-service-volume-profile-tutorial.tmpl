@@ -47,7 +47,7 @@ Here is a step-by-step procedure about how to use DSS volumes in conjunction to 
 
 3. Install the DC/OS Storage Service
 
-    Please follow the instructions provided on [installation guide](../../../storage/1.0.0/install) for DC/OS Storage Service(DSS).
+    Please follow the instructions provided in the [installation guide](../../../storage/1.0.0/install) for DC/OS Storage Service(DSS).
 
 4. Create the `devices` and `lvm` volume providers on 3 agent nodes.
 
@@ -169,7 +169,7 @@ Here is a step-by-step procedure about how to use DSS volumes in conjunction to 
     ```
 
 5. Create a volume profile `{{ model.serviceName }}` for mount volumes that will match the created `lvm` volume providers.
-Volumes that have profile `{{ model.serviceName }}` will be formatted with the `xfs` filesystem, as specified in the profile definition.
+Volumes that have the profile `{{ model.serviceName }}` will be formatted with the `xfs` filesystem, as specified in the profile definition.
 
     ```bash
     cat <<EOF | dcos storage profile create
