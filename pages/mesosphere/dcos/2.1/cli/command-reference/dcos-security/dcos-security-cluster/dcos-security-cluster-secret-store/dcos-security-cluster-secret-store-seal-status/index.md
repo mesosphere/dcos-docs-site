@@ -5,7 +5,7 @@ title: dcos security cluster secret-store seal-status
 menuWeight: 92
 excerpt: Viewing the seal status of a secrets store
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -37,4 +37,4 @@ dcos security cluster secret-store seal-status [OPTIONS] STORE_ID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster secret-store](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |
+| [dcos security cluster secret-store](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |

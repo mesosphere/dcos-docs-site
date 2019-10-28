@@ -4,7 +4,7 @@ title: Configuration Reference - Azure
 excerpt: Configuring your DC/OS installation on Azure using the Mesosphere Universal Installer
 navigationTitle: Configuration Reference
 menuWeight: 3
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 render: mustache
 ---
 

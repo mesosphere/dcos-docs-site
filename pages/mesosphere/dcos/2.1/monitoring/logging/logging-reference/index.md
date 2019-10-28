@@ -5,7 +5,7 @@ title: Logging Reference
 menuWeight: 3
 excerpt: Using the Logging API
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 beta: false
 enterprise: false
 ---
@@ -14,7 +14,7 @@ enterprise: false
 
 The Logging API exposes node, component, and container (task) logs.
 
-The Logging API is backed by the [DC/OS Log component](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster. For more information about using the Logging API, see [Logging](/mesosphere/dcos/2.0/monitoring/logging/). For usage examples, see [Logging API Examples](/mesosphere/dcos/2.0/monitoring/logging/logging-api-examples/).
+The Logging API is backed by the [DC/OS Log component](/mesosphere/dcos/2.1/overview/architecture/components/#dcos-log), which runs on all nodes in the cluster. For more information about using the Logging API, see [Logging](/mesosphere/dcos/2.1/monitoring/logging/). For usage examples, see [Logging API Examples](/mesosphere/dcos/2.1/monitoring/logging/logging-api-examples/).
 
 ## Compatibility
 
@@ -22,7 +22,7 @@ The Logging API has been updated significantly for DC/OS 1.11 and later.
 
 In versions of DC/OS prior to 1.11, task logs were available via [files API](http://mesos.apache.org/documentation/latest/endpoints/#files-1). Now you can leverage the consolidated API for both component and task logs.
 
-In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the [Mesos task journald log sink was disabled due to [journald performance issues](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
+In versions of DC/OS prior to 1.11, node and component logs were managed by `journald`. However, the [Mesos task journald log sink was disabled due to [journald performance issues](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink). So container log files for older versions are only accessible via the [Mesos task sandbox files API](http://mesos.apache.org/documentation/latest/sandbox/).
 
 The following code may be useful:
 
@@ -64,7 +64,7 @@ Access to the Logging API of the agent nodes is proxied through the master node 
 /system/v1/agent/{agent_id}/
 ```
 
-To determine the address of your cluster, see [Cluster Access](/mesosphere/dcos/2.0/api/access/).
+To determine the address of your cluster, see [Cluster Access](/mesosphere/dcos/2.1/api/access/).
 
 
 ### Discovery Endpoints
@@ -76,7 +76,7 @@ The parameters used in the request come from mesos `state.json` and are called "
 
 ## Auth
 
-All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/mesosphere/dcos/2.0/security/ent/iam-api/#/obtaining-an-authentication-token/) and [Passing an authentication token](/mesosphere/dcos/2.0/security/ent/iam-api/#/passing-an-authentication-token/).
+All Logging API routes require authentication to use. To authenticate API requests, see [Obtaining an authentication token](/mesosphere/dcos/2.1/security/ent/iam-api/#/obtaining-an-authentication-token/) and [Passing an authentication token](/mesosphere/dcos/2.1/security/ent/iam-api/#/passing-an-authentication-token/).
 
 The Logging API also requires authorization via the following permissions:
 | Path |  Permission |
@@ -84,7 +84,7 @@ The Logging API also requires authorization via the following permissions:
 | /system/v1/logs/v2/ | dcos:adminrouter:ops:system-logs |
 | /system/v1/agent/{agent_id}/logs/v2/ | dcos:adminrouter:system:agent |
 
-All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/mesosphere/dcos/2.0/security/ent/perms-reference/).
+All routes may also be reached by users with the _dcos:superuser_ permission. To assign permissions to your account, see [Permissions Reference](/mesosphere/dcos/2.1/security/ent/perms-reference/).
 
 ## Format
 
@@ -100,7 +100,7 @@ DC/OS Logging follows the [Server-Sent-Event specifications](https://www.w3.org/
 
  The following resources are available under both of the [above routes](#routes):
 
- [swagger api='/mesosphere/dcos/2.0/api/logs2.yaml']
+ [swagger api='/mesosphere/dcos/2.1/api/logs2.yaml']
 
 # Fluent Bit
 

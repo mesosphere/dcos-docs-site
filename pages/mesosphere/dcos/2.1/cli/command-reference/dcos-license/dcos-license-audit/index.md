@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Getting the cluster license audit records
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
@@ -27,10 +27,10 @@ dcos license audit [OPTIONS] COMMAND [ARGS]...
 
 
 # Examples
-For examples, see [Licenses](/mesosphere/dcos/2.0/administering-clusters/licenses/).
+For examples, see [Licenses](/mesosphere/dcos/2.1/administering-clusters/licenses/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos license](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |
+| [dcos license](/mesosphere/dcos/2.1/cli/command-reference/dcos-license/) | Manage DC/OS cluster licenses. |

@@ -4,7 +4,7 @@ navigationTitle:  DC/OS 101
 excerpt: Understanding the basics of DC/OS
 title: Tutorial - DC/OS 101
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 0
 ---
 

@@ -5,7 +5,7 @@ title: dcos marathon app show
 menuWeight: 6
 excerpt: Viewing the json file for an app
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -195,4 +195,4 @@ dcos marathon app show spark
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.1/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

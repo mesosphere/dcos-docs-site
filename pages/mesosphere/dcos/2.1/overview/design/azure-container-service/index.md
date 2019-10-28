@@ -4,7 +4,7 @@ excerpt: Understanding how DC/OS implements the Azure Container Service
 title: The Azure Container Service
 navigationTitle: ACS
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 2
 ---
 
@@ -24,9 +24,9 @@ DC/OS is powered by Apache Mesos, used as the distributed kernel of a set of com
 
 DC/OS applications function as system components in its distributed user space. The system Marathon component is the distributed `init` for DC/OS; but this also includes the Admin Router service, the Mesos-DNS service, Exhibitor, and other system-wide components that are used by user processes and manage the masters and agents.
 
-For a more comprehensive architectural description of DC/OS, see [DC/OS Architecture](/mesosphere/dcos/2.0/overview/architecture/).
+For a more comprehensive architectural description of DC/OS, see [DC/OS Architecture](/mesosphere/dcos/2.1/overview/architecture/).
 
-For a more complete discussion of components, see [DC/OS Components](/mesosphere/dcos/2.0/overview/architecture/components/).
+For a more complete discussion of components, see [DC/OS Components](/mesosphere/dcos/2.1/overview/architecture/components/).
 
 ### Why DC/OS and not Mesos?
 
@@ -91,7 +91,7 @@ The Azure Container Service implementation brings several more benefits to you:
 
 The default ACS architecture looks like this:
 
-![Azure Container Service architecture using DC/OS.](/mesosphere/dcos/2.0/img/dcos-acs.png)
+![Azure Container Service architecture using DC/OS.](/mesosphere/dcos/2.1/img/dcos-acs.png)
 
 Figure 1 - Azure Container Service architecture using DC/OS
 

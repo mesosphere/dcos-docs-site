@@ -5,7 +5,7 @@ title: dcos auth logout
 menuWeight: 3
 excerpt: Logging out of a DC/OS cluster
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -28,5 +28,5 @@ dcos auth logout [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/2.1/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
 

@@ -78,7 +78,7 @@ Figure 3. ZooKeeper/Exhibitor web interface
 
 ## Logs
 
-Logs are useful tools for seeing events and the conditions that occurred before they emerged. Often logs include error messages that can supply helpful information regarding the cause of the error. As logging is an important topic in its own right, we recommend the [DC/OS logging documentation](/mesosphere/dcos/2.0/monitoring/logging/#system-logs), for more information.
+Logs are useful tools for seeing events and the conditions that occurred before they emerged. Often logs include error messages that can supply helpful information regarding the cause of the error. As logging is an important topic in its own right, we recommend the [DC/OS logging documentation](/mesosphere/dcos/2.1/monitoring/logging/#system-logs), for more information.
 
 DC/OS has a number of different sources for logs. In general, these are the most helpful logs for application debugging:
 
@@ -90,7 +90,7 @@ DC/OS has a number of different sources for logs. In general, these are the most
 
 In DC/OS, there are multiple options for accessing any of these logs: the **DC/OS web interface** the **DC/OS CLI**, or HTTP endpoints. Moreover, DC/OS rotate logs by default to prevent utilizing all available disk space.
 
-<p class="message--note"><strong>NOTE: </strong>Need a scalable way to manage and search your logs? It could be worth building an <a href="/mesosphere/dcos/2.0/monitoring/logging/aggregating/filter-elk/">ELK stack</a> for log aggregation and filtering.</p>
+<p class="message--note"><strong>NOTE: </strong>Need a scalable way to manage and search your logs? It could be worth building an <a href="/mesosphere/dcos/2.1/monitoring/logging/aggregating/filter-elk/">ELK stack</a> for log aggregation and filtering.</p>
 
 Sometimes it can help to increase the level of detail written to a log temporarily to obtain more detailed troubleshooting information for debugging. For most components, this can be done by accessing an endpoint. For example, if you want to increase [the log level of a Mesos Agent](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) for 5 minutes after the server receives the API call, you could follow something like this simple two-step process:
 
@@ -198,7 +198,7 @@ You can either retrieve the master logs from the Mesos web interface via `<clust
 
 ### System Logs
 
-We have now covered the most important log sources in the DC/OS environment, but there are many more logs available. Every DC/OS component writes a log. As mentioned above, [each DC/OS component](/mesosphere/dcos/2.0/overview/architecture/components/) is running as one Systemd unit. You can [retrieve the logs directly](/mesosphere/dcos/latest/monitoring/logging/#system-logs) on the particular node by SSHing into the node, and then typing `journalctl -u <systemd-unit-name>`. Two of the more common system units to consider during debugging (besides Mesos and Marathon) are the `docker.service` and the `dcos-exhibitor.service`.
+We have now covered the most important log sources in the DC/OS environment, but there are many more logs available. Every DC/OS component writes a log. As mentioned above, [each DC/OS component](/mesosphere/dcos/2.1/overview/architecture/components/) is running as one Systemd unit. You can [retrieve the logs directly](/mesosphere/dcos/latest/monitoring/logging/#system-logs) on the particular node by SSHing into the node, and then typing `journalctl -u <systemd-unit-name>`. Two of the more common system units to consider during debugging (besides Mesos and Marathon) are the `docker.service` and the `dcos-exhibitor.service`.
 
 As an example, consider the system unit for the docker daemon on the Mesos agent `ffc913d8-4012-4953-b693-1acc33b400ce-S0` (recall the `dcos node` command retrieves the Mesos ID).
 
@@ -291,4 +291,4 @@ The [DC/OS community](https://dcos.io/community/?_ga=2.183442662.1394567794.1525
 
 ## Other Tools
 
-There are other debugging tools as well -- [internal to DC/OS](/mesosphere/dcos/2.0/monitoring/debugging/) as well as external tools like [Sysdig](https://sysdig.com/blog/monitoring-mesos/) or [Instana](https://www.instana.com/). These tools can be especially helpful in determining non DC/OS specific issues (e.g., Linux Kernel or networking problems).
+There are other debugging tools as well -- [internal to DC/OS](/mesosphere/dcos/2.1/monitoring/debugging/) as well as external tools like [Sysdig](https://sysdig.com/blog/monitoring-mesos/) or [Instana](https://www.instana.com/). These tools can be especially helpful in determining non DC/OS specific issues (e.g., Linux Kernel or networking problems).

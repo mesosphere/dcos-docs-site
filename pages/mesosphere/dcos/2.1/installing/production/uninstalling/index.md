@@ -5,7 +5,7 @@ navigationTitle: Uninstalling
 menuWeight: 30
 excerpt: Removing DC/OS
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 {{ model.techName }} offers an uninstall script for removing {{ model.techName }} from your system.  To remove {{ model.techName }} from a master, agent or public agent you must push the uninstall script to the node you would like to scrub {{ model.techName }} from, make it executable and then run it with sudo privileges.

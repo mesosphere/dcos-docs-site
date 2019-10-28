@@ -5,7 +5,7 @@ title: dcos job schedule add
 menuWeight: 6
 excerpt: Adding a schedule to a job
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -35,10 +35,10 @@ dcos job schedule add <job-id> <schedule-file>
 
 # Examples
 
-For examples using `job add`, see the [documentation](/mesosphere/dcos/2.0/deploying-jobs/examples/#create-job-schedule).
+For examples using `job add`, see the [documentation](/mesosphere/dcos/2.1/deploying-jobs/examples/#create-job-schedule).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/2.1/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

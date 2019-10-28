@@ -4,7 +4,7 @@ excerpt: Guide for DC/OS on Azure using the Mesosphere Universal Installer
 title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
 menuWeight: 2
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 render: mustache
 ---
 

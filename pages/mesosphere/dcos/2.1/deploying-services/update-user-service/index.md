@@ -5,14 +5,14 @@ title: Updating a User-Created Service
 menuWeight: 3
 excerpt: Updating the configuration of a deployed app
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
 
-You can easily view and update the configuration of a deployed app by using the [`dcos marathon`](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) CLI commands.
+You can easily view and update the configuration of a deployed app by using the [`dcos marathon`](/mesosphere/dcos/2.1/cli/command-reference/dcos-marathon/) CLI commands.
 
-The process for updating packages from the UI is different. For more information, see the [documentation](/mesosphere/dcos/2.0/deploying-services/config-universe-service/).
+The process for updating packages from the UI is different. For more information, see the [documentation](/mesosphere/dcos/2.1/deploying-services/config-universe-service/).
 
 # Update all Environment Variables
 
@@ -62,4 +62,4 @@ dcos marathon app update test-app < env_vars.json
 dcos marathon app show test-app | jq '.env'
 ```
 
- [1]: /mesosphere/dcos/2.0/cli/
+ [1]: /mesosphere/dcos/2.1/cli/

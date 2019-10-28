@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Restarting an application
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 
@@ -37,6 +37,6 @@ dcos marathon app restart [--force] <app-id>
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.1/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 
 

@@ -4,7 +4,7 @@ title: Running DC/OS on AWS EC2 Advanced
 navigationTitle: Advanced
 menuWeight: 10
 excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 render: mustache
 ---
 

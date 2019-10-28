@@ -6,15 +6,15 @@ menuWeight: 3
 excerpt: Linking a connected cluster to another cluster
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
-The `dcos cluster link` command lets you configure uni-directional links from a cluster to one or more clusters. When accessing a cluster you can view the clusters linked to it. You can [attach](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
+The `dcos cluster link` command lets you configure uni-directional links from a cluster to one or more clusters. When accessing a cluster you can view the clusters linked to it. You can [attach](/mesosphere/dcos/2.1/cli/command-reference/dcos-cluster/dcos-cluster-attach/) to a linked cluster without needing to run `dcos cluster setup` beforehand.
 
 **Prerequisites**
 
-- The [`dcos cluster setup`](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command you used to set up the clusters to be linked must specify the same authentication provider.
+- The [`dcos cluster setup`](/mesosphere/dcos/2.1/cli/command-reference/dcos-cluster/dcos-cluster-setup/) command you used to set up the clusters to be linked must specify the same authentication provider.
 
 
 # Usage
@@ -49,7 +49,7 @@ If the cluster links successfully there is no output to the console.
 
 
 # Examples
-For examples, see [Cluster Links](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/).
+For examples, see [Cluster Links](/mesosphere/dcos/2.1/administering-clusters/multiple-clusters/cluster-links/).
 
 
 
@@ -57,4 +57,4 @@ For examples, see [Cluster Links](/mesosphere/dcos/2.0/administering-clusters/mu
 
 | Command | Description |
 |---------|-------------|
-| [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |
+| [dcos cluster](/mesosphere/dcos/2.1/cli/command-reference/dcos-cluster/) | Manage DC/OS clusters. |

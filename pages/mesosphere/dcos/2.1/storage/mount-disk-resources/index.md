@@ -5,7 +5,7 @@ title: Mount Disk Resources
 menuWeight: 0
 excerpt: Using Mesos to mount storage resources
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -33,13 +33,13 @@ Please note that this example handles **adding** resources exclusively and can n
     Note there are no references yet for `/dcos/volume0`.
 
 1.  Stop the agent.
-    - On a [private](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node) agent:
+    - On a [private](/mesosphere/dcos/2.1/overview/concepts/#private-agent-node) agent:
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
-    - On a [public](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node) agent:
+    - On a [public](/mesosphere/dcos/2.1/overview/concepts/#public-agent-node) agent:
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
@@ -176,7 +176,7 @@ Please note that this example handles **adding** resources exclusively and can n
 
 After running this service, navigate to the **Services > Volumes** tab in the web interface:
 
-![Mount disk](/mesosphere/dcos/2.0/img/mount-disk.png)
+![Mount disk](/mesosphere/dcos/2.1/img/mount-disk.png)
 
 Figure 1. Services > Volumes tab
 

@@ -35,4 +35,4 @@ dcos task download <task> [<path>] [OPTION]
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/mesosphere/dcos/2.1/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |

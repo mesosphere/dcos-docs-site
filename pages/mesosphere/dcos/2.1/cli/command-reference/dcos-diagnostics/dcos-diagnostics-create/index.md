@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Creating a diagnostics bundle
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
@@ -35,5 +35,5 @@ a697769a-2d5d-4b2a-a2ec-055b9fe9eecf
 
 | Command | Description |
 |---------|-------------|
-| [dcos diagnostics](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) | Handling DC/OS diagnostics bundles |
+| [dcos diagnostics](/mesosphere/dcos/2.1/cli/command-reference/dcos-diagnostics/) | Handling DC/OS diagnostics bundles |
 

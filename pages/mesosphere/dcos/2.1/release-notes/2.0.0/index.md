@@ -1,17 +1,17 @@
 ---
 layout: layout.pug
-navigationTitle: Release notes for 2.0.0
-title: Release notes for 2.0.0
+navigationTitle: Release notes for 2.1.0
+title: Release notes for 2.1.0
 menuWeight: 5
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
-excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and version policy.
+model: /mesosphere/dcos/2.1/data.yml
+excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
-DC/OS 2.0.0 was released on 25 October 2019.
+DC/OS 2.1.0 was released on Day Month, 2020.
 
-[button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://downloads.dcos.io/dcos/stable/2.1.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.0.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.1.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
@@ -32,15 +32,15 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 
 ## Multi-Tenancy Support
 
-DC/OS has improved Multi-Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. For more details, see [Quota Management](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas). (DCOS-54186) 
+DC/OS has improved Multi-Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. For more details, see [Quota Management](/mesosphere/dcos/2.1/multi-tenancy/quota-management/#quotas). (DCOS-54186) 
 
 ## Node Draining Enables Graceful Maintenance
 
-DC/OS adds the ability to drain agent nodes via the DC/OS CLI and UI. For more details, see [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/). (DCOS-53654)
+DC/OS adds the ability to drain agent nodes via the DC/OS CLI and UI. For more details, see [Draining a Node](/mesosphere/dcos/2.1/administering-clusters/draining-a-node/). (DCOS-53654)
 
 ## UCR Support for Applications Requiring Configurable Shared Memory
 
-As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. For more details, see [Shared Memory](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory). (DCOS-54618) 
+As tasks in a pod are running on the same agent, it is possible to define a shared memory segment for tasks. DC/OS supports configurable `/dev/shm` size and IPC namespace in UCR. For more details, see [Shared Memory](/mesosphere/dcos/2.1/deploying-services/pods/technical-overview/#shared-memory). (DCOS-54618) 
 
 DC/OS introduces the following parameters to UCR support:
 
@@ -49,7 +49,7 @@ DC/OS introduces the following parameters to UCR support:
 
 ## New Diagnostics Commands
 
-DC/OS introduces a new diagnostic service with the addition of the [`dcos diagnostics`](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) suite of CLI commands. A  more RESTful API will generate diagnostics bundles for troubleshooting DC/OS issues. This decentralized model will generate a local bundle on every node, and then merge all local bundles. This change greatly reduces the amount of time needed to generate a diagnostic bundle. (DCOS_OSS-5098)
+DC/OS introduces a new diagnostic service with the addition of the [`dcos diagnostics`](/mesosphere/dcos/2.1/cli/command-reference/dcos-diagnostics/) suite of CLI commands. A  more RESTful API will generate diagnostics bundles for troubleshooting DC/OS issues. This decentralized model will generate a local bundle on every node, and then merge all local bundles. This change greatly reduces the amount of time needed to generate a diagnostic bundle. (DCOS_OSS-5098)
 - Create new diagnostics bundle REST API with performance improvements. 
 - Deprecate legacy routes and create a more RESTful API for generating diagnostics bundles.  
 
@@ -76,7 +76,7 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 - Bump Telegraf to have Mesos overlay module metrics collected. (DCOS_OSS-5323)
 - Fix wrong value in `dcos_service_port_index` that breaks Admin Router cache. (COPS-5147, DCOS_OSS-5491)
 - Add framework ID tags to Mesos framework metrics. (DCOS-53302)
-- The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. For more details, see [`mesos_seccomp_enabled`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
+- The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. For more details, see [`mesos_seccomp_enabled`](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
 - Very large quota values can crash Mesos master. (DCOS-59695)
 - Marathon crash-loops after receiving a very long error message from a task's fetcher. (COPS-5365, MARATHON-8698)
 - ACL gives inappropriate access to tasks. (COPS-4929)

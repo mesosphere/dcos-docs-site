@@ -5,7 +5,7 @@ title: Metrics Reference
 menuWeight: 7
 excerpt: Understanding metrics collected by DC/OS
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 beta: false
 enterprise: false
 ---

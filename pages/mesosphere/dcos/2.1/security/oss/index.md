@@ -3,12 +3,12 @@ layout: layout.pug
 excerpt: Managing security in your datacenter using DC/OS Open Source
 title: DC/OS Open Source Security
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 80
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Ensure the network is set up according to the information for [securing your cluster](/mesosphere/dcos/2.0/administering-clusters/securing-your-cluster/).
+Ensure the network is set up according to the information for [securing your cluster](/mesosphere/dcos/2.1/administering-clusters/securing-your-cluster/).
 
 All access management in DC/OS is done via the DC/OS Identity and Access Manager (IAM). This includes user account management, login, and authentication token distribution. The IAM provides an HTTP API for managing user accounts in a RESTful fashion.
 
@@ -29,5 +29,5 @@ security features as well as on introducing new ones in the coming releases.
 
 # Next Steps
 
-- [Understand DC/OS security](/mesosphere/dcos/2.0/administering-clusters/)
-- [Learn how to monitor a DC/OS cluster](/mesosphere/dcos/2.0/monitoring/)
+- [Understand DC/OS security](/mesosphere/dcos/2.1/administering-clusters/)
+- [Learn how to monitor a DC/OS cluster](/mesosphere/dcos/2.1/monitoring/)

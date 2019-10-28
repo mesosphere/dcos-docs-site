@@ -5,10 +5,10 @@ title: dcos marathon app update
 menuWeight: 9
 excerpt: Updating an application
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
@@ -39,10 +39,10 @@ dcos marathon app update [--force] <app-id> [<properties>...]
 
 # Examples
 
-For examples, see the [documentation](/mesosphere/dcos/2.0/deploying-services/update-user-service/).
+For examples, see the [documentation](/mesosphere/dcos/2.1/deploying-services/update-user-service/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.1/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |

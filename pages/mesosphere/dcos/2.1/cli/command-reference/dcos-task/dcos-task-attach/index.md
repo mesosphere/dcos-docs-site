@@ -5,7 +5,7 @@ title: dcos task attach
 menuWeight: 1
 excerpt: Attaching a process inside of a task's container
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -35,4 +35,4 @@ To detach from a task, type the sequence `CTRL-p CTRL-q`.
 
 | Command | Description |
 |---------|-------------|
-| [dcos task](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |
+| [dcos task](/mesosphere/dcos/2.1/cli/command-reference/dcos-task/)   | Manage DC/OS tasks. |

@@ -5,7 +5,7 @@ title: dcos job schedule remove
 menuWeight: 7
 excerpt: Removing a job schedule
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -49,4 +49,4 @@ dcos job remove my-job
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/2.1/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

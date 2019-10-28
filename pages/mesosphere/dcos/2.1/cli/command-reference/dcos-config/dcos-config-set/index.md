@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Adding or setting DC/OS configuration properties
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
@@ -36,7 +36,7 @@ dcos config set <name> <value> [flags]
 
 | Name  | Value |
 |-----------------------|------------------------------------------------|
-| `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see [the IAM API](/mesosphere/dcos/2.0/security/oss/iam-api/). |
+| `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see [the IAM API](/mesosphere/dcos/2.1/security/oss/iam-api/). |
 | `core.dcos_url`         | The public master URL of your DC/OS cluster|
 | `core.mesos_master_url` | The Mesos master URL. Defaults to `core.dcos_url` |
 | `core.pagination`       | Indicates whether to paginate output. Defaults to true.|
@@ -93,4 +93,4 @@ To verify that the property has been set, use `dcos config show`:
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
+| [dcos config](/mesosphere/dcos/2.1/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

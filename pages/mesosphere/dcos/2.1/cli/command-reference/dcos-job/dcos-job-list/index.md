@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Displaying all job definitions
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 
@@ -31,4 +31,4 @@ dcos job list [--json|--quiet]
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/2.1/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

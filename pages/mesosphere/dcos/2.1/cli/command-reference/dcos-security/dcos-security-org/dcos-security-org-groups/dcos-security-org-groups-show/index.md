@@ -5,7 +5,7 @@ title: dcos security org groups show
 menuWeight: 155
 excerpt: Viewing information about a group
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -36,4 +36,4 @@ dcos security org groups show [OPTIONS] [GIDS]...
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster org groups](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
+| [dcos security cluster org groups](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

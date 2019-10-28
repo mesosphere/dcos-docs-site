@@ -5,7 +5,7 @@ title: Metrics Quick Start
 menuWeight: 1
 excerpt: Getting Started with metrics in DC/OS
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 beta: false
 ---
 
@@ -14,7 +14,7 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/2.1/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 

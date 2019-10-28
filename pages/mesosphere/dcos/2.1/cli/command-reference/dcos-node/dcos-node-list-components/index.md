@@ -5,7 +5,7 @@ title: dcos node list-components
 menuWeight: 7
 excerpt: Displaying the available DC/OS components on a specified node
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -32,6 +32,6 @@ dcos node list-components [--leader --mesos-id=<mesos-id> --json]
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.1/cli/command-reference/dcos-node/) | View DC/OS node information. |
 
 

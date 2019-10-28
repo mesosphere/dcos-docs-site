@@ -6,21 +6,21 @@ menuWeight: 60
 excerpt: Granting access to the Components Tab
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-You can grant users access to the [**Components**](/mesosphere/dcos/2.0/gui/components/) tab. By default, new users have no permissions.
+You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/components/) tab. By default, new users have no permissions.
 
 ## <a name="network-access-via-ui"></a>Grant Access by using the UI
 
 **Prerequisites:**
 
-- A DC/OS user account without the `dcos:superuser` [permission](/mesosphere/dcos/2.0/security/ent/users-groups/).
+- A DC/OS user account without the `dcos:superuser` [permission](/mesosphere/dcos/2.1/security/ent/users-groups/).
 
 1. Log in to the DC/OS UI as a user with the `superuser` permission.
 
-   ![Login](/mesosphere/dcos/2.0/img/LOGIN-EE-Modal_View-1_12.png)
+   ![Login](/mesosphere/dcos/2.1/img/LOGIN-EE-Modal_View-1_12.png)
 
     Figure 1. Log in to the UI
 
@@ -28,7 +28,7 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.0/gui/comp
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/mesosphere/dcos/2.0/img/GUI-Organization-Users-List_View-1_12.png)
+    ![Add permission cory](/mesosphere/dcos/2.1/img/GUI-Organization-Users-List_View-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 
@@ -36,11 +36,11 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.0/gui/comp
 
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
-    ![Add permission](/mesosphere/dcos/2.0/img/services-tab-user3.png)
+    ![Add permission](/mesosphere/dcos/2.1/img/services-tab-user3.png)
     
     Figure 3. Add permission 
 
-1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/2.0/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
+1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/2.1/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
     ## Permissive
 
@@ -64,8 +64,8 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.0/gui/comp
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/) and be logged in as a superuser.
-- You must [get the root cert](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/2.1/cli/install/) and be logged in as a superuser.
+- You must [get the root cert](/mesosphere/dcos/2.1/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section.
 
 ### Notes
 

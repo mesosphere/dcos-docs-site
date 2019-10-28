@@ -6,7 +6,7 @@ menuWeight: 17
 excerpt: Adding a Marathon group
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 
@@ -31,11 +31,11 @@ dcos marathon group add [<group-resource>]
 
 | Name |  Description |
 |---------|-------------|
-| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/mesosphere/dcos/2.0/deploying-services/marathon-api/). |
+| `<group-resource>`   | Path to a file or HTTP(S) URL that contains the group's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description see the [documentation](/mesosphere/dcos/2.1/deploying-services/marathon-api/). |
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.1/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
 

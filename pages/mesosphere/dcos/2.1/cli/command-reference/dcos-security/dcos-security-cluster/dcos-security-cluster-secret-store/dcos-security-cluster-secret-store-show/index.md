@@ -5,7 +5,7 @@ title: dcos security cluster secret-store show
 menuWeight: 95
 excerpt: Viewing the configured secrets stores
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -52,4 +52,4 @@ default:
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster secret-store](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |
+| [dcos security cluster secret-store](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | Display settings for your secret store. |

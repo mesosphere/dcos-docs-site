@@ -4,7 +4,7 @@ navigationTitle:  Debugging Applications on DC/OS
 title: Tutorial -  Debugging Applications on DC/OS
 excerpt: Debugging application deployment issues in distributed systems
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 55
 ---
 
@@ -22,6 +22,6 @@ It can be encouraging to keep in mind that failures are highly likely when worki
 
 - [Design your applications for debuggability](https://schd.ws/hosted_files/mesosconeu17/a6/MesosCon%20EU%202017%20University%20Slides.pdf)
 - [Follow best practices for deployments](https://mesosphere.com/blog/improving-your-deployments/)
-- [Set up monitoring and alerts so you can resolve issues as early as possible](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/dcos-node-diagnostics/)
+- [Set up monitoring and alerts so you can resolve issues as early as possible](/mesosphere/dcos/2.1/cli/command-reference/dcos-node/dcos-node-diagnostics/)
 
-We will first look at [some potential problems](/mesosphere/dcos/2.0/tutorials/dcos-debug/problems/) you might face when deploying an application on DC/OS. Next, we will look at the [standard set of tools](/mesosphere/dcos/2.0/tutorials/dcos-debug/tools/) for debugging. Then, after introducing [a general strategy for using those tools](/mesosphere/dcos/2.0/tutorials/dcos-debug/gen-strat/), we have two [concrete examples](/mesosphere/dcos/2.0/tutorials/dcos-debug/scenarios/) to illustrate how the strategy works in practice. We encourage you to first try debugging these challenges yourself, but we also provide detailed guidance for debugging them as well. There are even more scenarios like these in the [dcos-debugging github repository](https://github.com/dcos-labs/dcos-debugging/tree/master/1.10/). Also please feel free to contribute your own debugging scenarios to this repository.
+We will first look at [some potential problems](/mesosphere/dcos/2.1/tutorials/dcos-debug/problems/) you might face when deploying an application on DC/OS. Next, we will look at the [standard set of tools](/mesosphere/dcos/2.1/tutorials/dcos-debug/tools/) for debugging. Then, after introducing [a general strategy for using those tools](/mesosphere/dcos/2.1/tutorials/dcos-debug/gen-strat/), we have two [concrete examples](/mesosphere/dcos/2.1/tutorials/dcos-debug/scenarios/) to illustrate how the strategy works in practice. We encourage you to first try debugging these challenges yourself, but we also provide detailed guidance for debugging them as well. There are even more scenarios like these in the [dcos-debugging github repository](https://github.com/dcos-labs/dcos-debugging/tree/master/1.10/). Also please feel free to contribute your own debugging scenarios to this repository.

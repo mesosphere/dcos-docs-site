@@ -5,12 +5,12 @@ title: Services
 menuWeight: 2
 excerpt: Using the Services menu
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 The Services page provides a full-featured interface to the native DC/OS Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
-![Services](/mesosphere/dcos/2.0/img/GUI-Services-Enterprise.png)
+![Services](/mesosphere/dcos/2.1/img/GUI-Services-Enterprise.png)
 
 Figure 1 - Services page 
 
@@ -32,7 +32,7 @@ By default, all of your services are displayed, sorted by service name. You can 
 
 To set up a filter for your display, click on the down arrow in the search box. 
 
-![Sort menu](/mesosphere/dcos/2.0/img/GUI-Services-Sort-List.png)
+![Sort menu](/mesosphere/dcos/2.1/img/GUI-Services-Sort-List.png)
 
 Figure 2 - Sort menu
 
@@ -67,7 +67,7 @@ Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commo
 
 Click the service name to open the Services Instance page. The Services Instance page organizes information about services under five tabs. Each tab lists information about the configuration and performance of the service.
 
-![Instances](/mesosphere/dcos/2.0/img/services-instances-panel.png)
+![Instances](/mesosphere/dcos/2.1/img/services-instances-panel.png)
 
 Figure 3 - Services instances 
 
@@ -81,7 +81,7 @@ Figure 3 - Services instances
 | Endpoints |  Service configuration variables such as container images, container runtime, and advanced networking settings. |
 | Plans | Displays all of a service's Deployment Plans so that you can track the status of a currently running or finished service. A drop-down menu lets you switch between plans. This tab may not appear in all Service instances, depending on the Service configuration.|
 
-For services with a UI, hover over the service name and click ![open service](/mesosphere/dcos/2.0/img/open-service.png) to view it. You can access the Mesos UI at `<hostname>/mesos`.
+For services with a UI, hover over the service name and click ![open service](/mesosphere/dcos/2.1/img/open-service.png) to view it. You can access the Mesos UI at `<hostname>/mesos`.
 
 # Debugging using the UI
 
@@ -89,8 +89,8 @@ The **Services > Debug** tab displays the last changes, task failures, and other
 
 In the following figure, Marathon has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
 
-![Failure warning](/mesosphere/dcos/2.0/img/GUI-Services-Failure-To-Launch.png)
+![Failure warning](/mesosphere/dcos/2.1/img/GUI-Services-Failure-To-Launch.png)
 
 Figure 4 - Debug tab showing warning
 
-For more information about deploying services, see the [Deploying Services and Pods](/mesosphere/dcos/2.0/deploying-services/) documentation.
+For more information about deploying services, see the [Deploying Services and Pods](/mesosphere/dcos/2.1/deploying-services/) documentation.

@@ -5,7 +5,7 @@ title: Configure Task Handling
 menuWeight: 0
 excerpt: Configuring Marathon for unreachable tasks
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 

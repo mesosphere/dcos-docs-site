@@ -5,7 +5,7 @@ title: dcos security cluster directory import_group
 menuWeight: 33
 excerpt: Importing an LDAP group
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -35,4 +35,4 @@ dcos security cluster directory import_user [OPTIONS] GID
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster directory](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |
+| [dcos security cluster directory](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | Manage LDAP settings. |

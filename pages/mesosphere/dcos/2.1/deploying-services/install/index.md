@@ -5,7 +5,7 @@ title: Installing Services
 menuWeight: 0
 excerpt: Installing and verifying a service using the CLI or the UI
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -17,7 +17,7 @@ The general syntax for installing a service with the CLI is:
 dcos package install [--options=<config-file-name>.json] <servicename>
 ```
 
-Use the optional `--options` flag to specify the name of the customized JSON file you created in [advanced configuration](/mesosphere/dcos/2.0/deploying-services/config-universe-service/).
+Use the optional `--options` flag to specify the name of the customized JSON file you created in [advanced configuration](/mesosphere/dcos/2.1/deploying-services/config-universe-service/).
 
 For example, use the following command to install Chronos with the default parameters.
 
@@ -27,28 +27,28 @@ dcos package install chronos
 
 ## Installing a service using the UI
 
-From the DC/OS UI you can install services from the **Services** or **{{ model.packageRepo }}** tab. The {{ model.packageRepo }} tab shows all of the available DC/OS services from package [repositories](/mesosphere/dcos/2.0/administering-clusters/package-registry/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
+From the DC/OS UI you can install services from the **Services** or **{{ model.packageRepo }}** tab. The {{ model.packageRepo }} tab shows all of the available DC/OS services from package [repositories](/mesosphere/dcos/2.1/administering-clusters/package-registry/). The Services tab provides a full featured interface to the native DC/OS Marathon instance.
 
 
 ### {{ model.packageRepo }} tab
 
-1.  Navigate to the [**{{ model.packageRepo }}**](/mesosphere/dcos/2.0/gui/catalog/) tab in the DC/OS UI.
+1.  Navigate to the [**{{ model.packageRepo }}**](/mesosphere/dcos/2.1/gui/catalog/) tab in the DC/OS UI.
 
-    ![{{ model.packageRepo }}](/mesosphere/dcos/2.0/img/GUI-Catalog-Main_View-1_12.png)
+    ![{{ model.packageRepo }}](/mesosphere/dcos/2.1/img/GUI-Catalog-Main_View-1_12.png)
 
     Figure 1. {{ model.packageRepo }} 
 
 2.  Click a package.
     1. Click **REVIEW & RUN**.
-    2. Optionally click [**EDIT**](/mesosphere/dcos/2.0/deploying-services/config-universe-service/), customize parameters, and click **REVIEW & RUN**.
+    2. Optionally click [**EDIT**](/mesosphere/dcos/2.1/deploying-services/config-universe-service/), customize parameters, and click **REVIEW & RUN**.
     3. Click **RUN SERVICE**.
 
 ### Services tab
 
-1.  Navigate to the [**Services**](/mesosphere/dcos/2.0/gui/services/) tab in the DC/OS UI.
+1.  Navigate to the [**Services**](/mesosphere/dcos/2.1/gui/services/) tab in the DC/OS UI.
 1.  Click **RUN A SERVICE** and specify your Marathon app definition.
 
-    ![service tab](/mesosphere/dcos/2.0/img/GUI-Services-No_Services_Running-1_12.png)
+    ![service tab](/mesosphere/dcos/2.1/img/GUI-Services-No_Services_Running-1_12.png)
 
     Figure 2. Services screen
 
@@ -62,9 +62,9 @@ dcos package list
 
 ### UI
 
-Go to the **Services** tab and confirm that the service is running. For more information, see the UI [documentation](/mesosphere/dcos/2.0/gui/services/).
+Go to the **Services** tab and confirm that the service is running. For more information, see the UI [documentation](/mesosphere/dcos/2.1/gui/services/).
 
-![Services](/mesosphere/dcos/2.0/img/GUI-Services-Running_Services_View-1_12.png)
+![Services](/mesosphere/dcos/2.1/img/GUI-Services-Running_Services_View-1_12.png)
 
 Figure 3. Service is running
 

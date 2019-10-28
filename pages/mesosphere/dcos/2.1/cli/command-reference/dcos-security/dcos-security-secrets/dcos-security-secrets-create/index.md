@@ -5,7 +5,7 @@ title: dcos security secrets create
 menuWeight: 300
 excerpt: Creating and storing a secret
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 
@@ -38,4 +38,4 @@ dcos security secrets create [OPTIONS] PATH
 
 | Command | Description |
 |---------|-------------|
-| [dcos security secrets](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |
+| [dcos security secrets](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-secrets/) |  Manage your secrets. |

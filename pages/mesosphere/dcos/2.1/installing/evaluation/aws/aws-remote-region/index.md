@@ -5,7 +5,7 @@ title: Multi-Region DC/OS on AWS using the Universal Installer
 navigationTitle: AWS Multi-Region Support
 menuWeight: 1
 enterprise: true
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 render: mustache
 ---
 

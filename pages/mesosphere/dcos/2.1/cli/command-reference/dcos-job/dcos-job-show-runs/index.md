@@ -5,7 +5,7 @@ title: dcos job show runs
 menuWeight: 11
 excerpt: Displaying the status of job runs
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -58,4 +58,4 @@ my-scheduled-job  20170217230705AfpRn  2017-02-17T23:07:05.218+0000
 
 | Command | Description |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |
+| [dcos job](/mesosphere/dcos/2.1/cli/command-reference/dcos-job/) |  Deploy and manage jobs in DC/OS. |

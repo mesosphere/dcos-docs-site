@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Listing login providers for a cluster
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description
@@ -52,4 +52,4 @@ dcos-users     Authenticate using a standard DC/OS user account (using username 
 
 | Command | Description |
 |---------|-------------|
-| [dcos auth](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |
+| [dcos auth](/mesosphere/dcos/2.1/cli/command-reference/dcos-auth/) |  Manage DC/OS identity and access. |

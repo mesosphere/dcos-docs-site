@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Downloading a diagnostics bundle
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 ---
 
 
@@ -37,5 +37,5 @@ dcos diagnostics download <bundle-id> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos diagnostics](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) | Handling DC/OS diagnostics bundles |
+| [dcos diagnostics](/mesosphere/dcos/2.1/cli/command-reference/dcos-diagnostics/) | Handling DC/OS diagnostics bundles |
 

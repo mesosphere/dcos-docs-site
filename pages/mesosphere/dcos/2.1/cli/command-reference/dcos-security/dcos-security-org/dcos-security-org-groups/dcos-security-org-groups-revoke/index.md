@@ -5,7 +5,7 @@ title: dcos security org groups revoke
 menuWeight: 155
 excerpt: Revoke permission for a group to act on a resource
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 # Description
@@ -35,4 +35,4 @@ dcos security org groups revoke [OPTIONS] GID RID ACTION
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster org groups](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |
+| [dcos security cluster org groups](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  Manage user groups and group membership. |

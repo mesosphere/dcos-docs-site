@@ -5,7 +5,7 @@ title: dcos quota get
 menuWeight: 1
 excerpt: Getting a quota
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -31,4 +31,4 @@ dcos quota get <group> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos quota](/mesosphere/dcos/2.0/cli/command-reference/dcos-quota/)   | Managing DC/OS quotas. |
+| [dcos quota](/mesosphere/dcos/2.1/cli/command-reference/dcos-quota/)   | Managing DC/OS quotas. |

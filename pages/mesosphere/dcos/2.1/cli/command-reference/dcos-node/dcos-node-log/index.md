@@ -5,7 +5,7 @@ title: dcos node log
 menuWeight: 9
 excerpt: Displaying Mesos logs for nodes
 render: mustache
-model: /mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
@@ -35,4 +35,4 @@ dcos node log [--follow --lines=N --leader --mesos-id=<mesos-id>]  [--component=
 
 | Command | Description |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | View DC/OS node information. |
+| [dcos node](/mesosphere/dcos/2.1/cli/command-reference/dcos-node/) | View DC/OS node information. |
