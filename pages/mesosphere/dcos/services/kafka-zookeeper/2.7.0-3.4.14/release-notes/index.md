@@ -45,7 +45,7 @@ render: mustache
 ## Updates
 - The service now uses Apache ZooKeeper 3.4.13
 ## Bug Fixes
-- [DCOS-40634] Fix a bug where if one node goes down and the other nodes are restarted will cause a crashloop.
+- [DCOS-40634] Fix a bug where if one node goes down and the other nodes are restarted, it will cause a crashloop.
 
 <!-- # Version 2.3.0-3.4.12
 
