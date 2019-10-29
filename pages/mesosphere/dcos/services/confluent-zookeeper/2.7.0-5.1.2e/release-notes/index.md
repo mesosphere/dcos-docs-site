@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt:
+excerpt: Release notes for version 2.7.0-5.1.2e
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
@@ -19,19 +19,20 @@ render: mustache
   - Quota enforcement
   - Node draining
 
-# Version 2.6.0-5.1.2e
-
-## Updates
+<!-- # Version 2.6.0-5.1.2e
+ 
+## Updates 
 
 - Update to {{ model.techName }} version `5.1.2`
-- SDK bumped to `0.55.4`
+- SDK bumped to `0.55.4` -->
 
 <!--
 # Version 2.4.0-4.0.0e
 
 ## Bug Fixes
-- [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down.
+- [DCOS-40634] Fix a bug where restarting more than one server in an ensemble at a time would cause the servers to not be able to start due to waiting for other servers that are also down. -->
 
+<!--
 # Version 2.3.0-4.0.0e
 
 ## Features
@@ -39,14 +40,17 @@ render: mustache
 
 ## Bug Fixes
 - The `zookeeper.autopurge_purge_interval` in the configuration options is now used when configuring the system. Previously, the  `zookeeper.autopurge_snap_retain_count` value with a default of 3 was used (#98)
-- Metrics have been fixed on DC/OS 1.9 clusters (#99)
+- Metrics have been fixed on DC/OS 1.9 clusters (#99) -->
 
+<!--
 # Version 2.2.0-4.0.0e
 
 ## Features
 
 - Support for using a custom top level domain to facilitate exposing the service securely outside of the cluster. Details [here](/mesosphere/dcos/services/confluent-zookeeper/2.2.0-4.0.0e/security/#securely-exposing-dcos-confluent-zookeeper-outside-the-cluster).
-- Support for deploying the service in a remote region.
+- Support for deploying the service in a remote region. -->
+
+<!--
 
 
 # Version 2.1.0-4.0.0e
