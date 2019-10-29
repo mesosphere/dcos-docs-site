@@ -37,8 +37,8 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/comp
 1.  Click **INSERT PERMISSION STRING** to toggle the dialog.
 
     ![Add permission](/mesosphere/dcos/2.1/img/services-tab-user3.png)
-    
-    Figure 3. Add permission 
+
+    Figure 3. Add permission
 
 1.  Copy and paste the permission in the **Permissions Strings** field. Choose the permission strings based on your [security mode](/mesosphere/dcos/2.1/security/ent/#security-modes) and click **ADD PERMISSIONS** and then **Close**.
 
@@ -47,7 +47,6 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/comp
     ### Components Tab
 
     ```
-    dcos:adminrouter:ops:historyservice full
     dcos:adminrouter:ops:system-health full
     ```
 
@@ -56,7 +55,6 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/comp
     ### Components Tab
 
     ```
-    dcos:adminrouter:ops:historyservice full
     dcos:adminrouter:ops:system-health full
     ```
 
@@ -80,11 +78,6 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/comp
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice \
-    -d '{"description":"Grants access to the contents of the Components screen"}'
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health \
     -d '{"description":"Grants access to the Components screen"}'
     ```
@@ -92,8 +85,6 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/comp
 1.  Grant the following privileges to the user `uid`.
 
     ```bash
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
@@ -108,11 +99,6 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/comp
     curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
     -H 'Content-Type: application/json' \
-    $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice \
-    -d '{"description":"Grants access to the contents of the Components screen"}'
-    curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
-    -H 'Content-Type: application/json' \
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health \
     -d '{"description":"Grants access to the Components screen"}'
     ```
@@ -121,11 +107,7 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.1/gui/comp
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
-    -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:historyservice/users/<uid>/full
-    curl -X PUT --cacert dcos-ca.crt \
     -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:ops:system-health/users/<uid>/full
     ```
 
 <p class="message--note"><strong>NOTE: </strong>To grant this permission to a group instead of a user, replace <code>/users/"uid"</code> with <code>/groups/"gid"</code>.</p>
-
-

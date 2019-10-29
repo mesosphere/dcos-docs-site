@@ -53,7 +53,6 @@ For each master node in your DC/OS cluster:
         -u dcos-exhibitor.service          \
         -u dcos-gen-resolvconf.service     \
         -u dcos-gen-resolvconf.timer       \
-        -u dcos-history.service            \
         -u dcos-link-env.service           \
         -u dcos-logrotate-master.timer     \
         -u dcos-marathon.service           \

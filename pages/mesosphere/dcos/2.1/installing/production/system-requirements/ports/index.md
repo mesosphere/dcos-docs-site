@@ -5,7 +5,7 @@ navigationTitle: Ports
 menuWeight: 15
 excerpt: Understanding configured ports for DC/OS deployment
 ---
-This section describes each pre-configured port in your DC/OS deployment. 
+This section describes each pre-configured port in your DC/OS deployment.
 
 [DC/OS components](/mesosphere/dcos/2.1/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
@@ -21,7 +21,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 
 | Port | DC/OS Component | `systemd` Unit | Source | Destination |
 |---|---|---|---|---|
-| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
+| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
 | 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
 | 61420 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
@@ -33,8 +33,8 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 
 | Port | DC/OS Component | systemd Unit | Source | Destination |
 |---|---|---|---|---|
-| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
-| 64000 | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
+| 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
+| 64000 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 
 <p class="message--note"><strong>NOTE: </strong>UDP port 123 is open for communication with NTP.</p>
 
@@ -61,19 +61,18 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 9090 | DC/OS Jobs (Metronome) | `dcos-metronome.service`| agent/master | master |
 | 9443 | DC/OS Jobs (Metronome) SSL | `dcos-metronome.service`| agent/master | master |
 | 9990  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` | localhost| localhost(master) |
-| 15055 | DC/OS History | `dcos-history-service.service` | localhost| localhost(master) |
 | 15101 | Marathon libprocess | `dcos-marathon.service` | master | agent/master |
 | 15201 | DC/OS Jobs (Metronome) libprocess | `dcos-metronome.service`| master | agent/master |
 | 26257 | CockroachDB | `dcos-cockroach.service` | master | master [enterprise type="inline" size="small" /] |
-| 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master | 
+| 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master |
 | 61430 | DC/OS Net | `dcos-net.service` | agent/master | master [enterprise type="inline" size="small" /]|
 | Ephemeral | DC/OS Component Package Manager (Pkgpanda) | `dcos-pkgpanda-api.service` | None | None |
 
 ### UDP
 
 | Port | DC/OS Component | `systemd` Unit | Source | Destination |
-|---|---|---|---|---| 
-| 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master  | 
+|---|---|---|---|---|
+| 61053 | Mesos DNS | `dcos-mesos-net.service` | agent/master | master  |
 
 ## Agent
 

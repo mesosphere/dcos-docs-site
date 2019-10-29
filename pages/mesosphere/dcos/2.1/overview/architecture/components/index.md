@@ -321,25 +321,6 @@ Read the following documentation resources to learn more about DC/OS Signal:
 
 - [Source](https://github.com/dcos/dcos-signal)
 
-<a name="dcos-history"></a>
-
-## DC/OS history
-
-The DC/OS history service caches and exposes the historical system state to facilitate cluster usage statistics in the GUI.
-
-### Deprecated
-
-This service is deprecated and will be removed in a future version.
-
-### System service
-
-- `dcos-history.service`
-
-Read the following documentation resources to learn more about DC/OS History:
-
-- [Source](https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra)
-- [API Reference](https://github.com/dcos/dcos/tree/master/packages/dcos-history/extra#api)
-
 # Networking
 
 In a world where machines are given numbers instead of names, tasks are scheduled automatically, dependencies are declaratively defined, and services run in distributed sets, network administration also needs to be elevated from plugging in cables to configuring software-defined networks. To accomplish this, DC/OS includes a fleet of networking components for routing, proxying, name resolution, virtual IPs, load balancing, and distributed reconfiguration.
@@ -582,7 +563,6 @@ dcos-epmd.service
 dcos-exhibitor.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
-dcos-history.service
 dcos-log-master.service
 dcos-log-master.socket
 dcos-logrotate-master.service

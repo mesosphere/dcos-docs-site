@@ -198,8 +198,6 @@ Here is an example of the JSON telemetry report that is collected:
             "health-unit-dcos-gen-resolvconf-service-unhealthy": 0,
             "health-unit-dcos-gen-resolvconf-timer-total": 3,
             "health-unit-dcos-gen-resolvconf-timer-unhealthy": 0,
-            "health-unit-dcos-history-service-total": 1,
-            "health-unit-dcos-history-service-unhealthy": 0,
             "health-unit-dcos-logrotate-agent-service-total": 2,
             "health-unit-dcos-logrotate-agent-service-unhealthy": 0,
             "health-unit-dcos-logrotate-agent-timer-total": 2,

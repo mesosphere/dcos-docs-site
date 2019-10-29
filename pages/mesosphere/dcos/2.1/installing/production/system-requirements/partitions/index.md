@@ -19,7 +19,6 @@ For the master nodes, the recommended practice is to host the `/var/lib/dcos` di
 - Navstar Lashup distributed database: /var/lib/dcos/navstar/lashup
 - Secrets vault: /var/lib/dcos/secrets/vault
 - Zookeeper distributed database: /var/lib/dcos/exhibitor/zookeeper
-- History Service cache: /var/lib/dcos/dcos-history
 
 ## Agent nodes
 On the agent nodes, you should use separate partitions for the following directories under `/var/lib/mesos`:
