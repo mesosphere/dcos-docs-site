@@ -19,12 +19,12 @@ render: mustache
   - Quota enforcement
   - Node draining
 
-<!-- # Version 2.6.0-5.1.2e
+ # Version 2.5.0-4.1.3e
  
 ## Updates 
 
-- Update to {{ model.techName }} version `5.1.2`
-- SDK bumped to `0.55.4` -->
+- Update to {{ model.techName }} version `4.1.3e`
+- SDK bumped to `0.55.4` 
 
 <!--
 # Version 2.4.0-4.0.0e
