@@ -395,14 +395,14 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Kafka-Zookeeper 2.3.x-3.4.12</td>
+        <td>Kafka-Zookeeper 2.6.x-3.4.14</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <!-- Where is Kafka-ZooKeeper 2.4.x? -->
     <tr>
-        <td>Kafka-Zookeeper 2.5.x-3.4.13 (Recommended)</td>
+        <td>Kafka-Zookeeper 2.7.x-3.4.14 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
