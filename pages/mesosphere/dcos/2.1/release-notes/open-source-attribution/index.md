@@ -43,10 +43,6 @@ The table below lists the third party open source software which is provided by 
 			<td><U><FONT COLOR="#0000FF"><A HREF="https://curl.haxx.se/docs/copyright.html">https://curl.haxx.se/docs/copyright.html</A></U></td>
 		</tr>
 		<tr>
-			<td>dcos-history-service (deprecated)</td>
-			<td><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></td>
-		</tr>
-		<tr>
 			<td>dcos-installer-ui</td>
 			<td><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></td>
 		</tr>

@@ -108,7 +108,6 @@ The following list shows the components used by DC/OS itself. You will note that
 - curl
 - dcos-cluster-id
 - dcos-diagnostics
-- dcos-history-service (deprecated)
 - dcos-image
 - dcos-image-deps
 - dcos-installer
