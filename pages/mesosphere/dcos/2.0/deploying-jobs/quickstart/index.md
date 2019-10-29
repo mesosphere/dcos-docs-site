@@ -335,7 +335,7 @@ If you want to allow scheduled jobs to be triggered while  other instances of th
 Note: A `concurrencyPolicy` set to FORBID does *not* prevent you from starting a new job instance manually - for example via the API - even if one is already running. It only prevents a schedule to start a new job instance.
 
 ## MaxLaunchDelay
-The `maxLaunchDelay` specifies the maximum amount of time in seconds mesos allows a task until it starts. This applies only to the actual startup on a mesos agent, and includes time to fetch an image, etc. It does not include the time required to schedule the job instance.
+The `maxLaunchDelay` is a deprecated configuration option that is not used anymore
 
 ## Restart policy
 Per default, metronome only tries to start a job instance once - the default restart policy is NEVER. The alternative is to set the restart policy to ON_FAILURE, which configures metronome to restart the task until it completes successfully or the `activeDeadlineSeconds` is reached.
