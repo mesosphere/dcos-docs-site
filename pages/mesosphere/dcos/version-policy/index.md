@@ -307,7 +307,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Confluent-ZooKeeper 2.6.x-5.1.2e (Recommended)</td>
+        <td>Confluent-ZooKeeper 2.7.x-5.1.2e (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
