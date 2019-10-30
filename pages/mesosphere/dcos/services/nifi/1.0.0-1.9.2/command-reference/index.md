@@ -6,7 +6,7 @@ menuWeight: 60
 excerpt: Commands used in the DC/OS NiFi Service
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

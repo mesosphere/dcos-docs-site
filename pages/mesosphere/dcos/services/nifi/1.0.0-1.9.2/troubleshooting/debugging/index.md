@@ -6,7 +6,7 @@ menuWeight: 101
 excerpt: Some common errors you might find
 featureMaturity:
 enterprise: false
-model: ../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

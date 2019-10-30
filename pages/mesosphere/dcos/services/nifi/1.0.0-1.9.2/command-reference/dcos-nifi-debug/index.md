@@ -6,7 +6,7 @@ menuWeight: 65
 excerpt: Displays debugging related informations and allows debugging for the NiFi service
 featureMaturity:
 enterprise: false
-model: ../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

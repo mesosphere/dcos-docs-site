@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Start the plan with the provided name and any optional plan arguments.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

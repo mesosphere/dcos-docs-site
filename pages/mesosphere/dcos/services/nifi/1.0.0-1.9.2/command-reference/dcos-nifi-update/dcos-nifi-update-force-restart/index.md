@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Restart update plan, or specific step in the provided phase
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

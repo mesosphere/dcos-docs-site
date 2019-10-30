@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Display the status for tasks in one pod or all pods.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

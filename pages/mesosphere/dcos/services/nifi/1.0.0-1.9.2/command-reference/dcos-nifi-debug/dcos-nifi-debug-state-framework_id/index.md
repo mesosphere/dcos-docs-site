@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Display the Mesos framework ID.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

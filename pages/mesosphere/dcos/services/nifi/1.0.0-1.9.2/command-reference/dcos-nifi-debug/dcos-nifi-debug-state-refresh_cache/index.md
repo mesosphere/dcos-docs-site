@@ -6,7 +6,7 @@ menuWeight: 8
 excerpt: Refresh the state cache.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 15
 excerpt: Getting started with DC/OS Apache NiFi Service
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

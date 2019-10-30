@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Display the status of the plan with the provided plan name.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

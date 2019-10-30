@@ -4,7 +4,7 @@ navigationTitle: Support Policy
 title: Support Policy
 menuWeight: 110
 excerpt: Version and support policies
-model: /mesosphere/dcos/services/elastic/data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Display the full state information for tasks in a pod.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

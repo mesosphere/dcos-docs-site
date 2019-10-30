@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Launches an update operation
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

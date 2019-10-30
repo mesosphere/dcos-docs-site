@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Overview of DC/OS Apache NiFi 0.5.0-1.9.2
 featureMaturity:
 community: true
-model: ../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 
