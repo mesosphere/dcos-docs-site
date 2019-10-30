@@ -115,7 +115,7 @@ Following are the steps for Edge-LB Pool configuration:
               {
                 "endpoint": {
                   "type": "ADDRESS",
-                  "address": "<dns adress obtained from Step 2>",
+                  "address": "<dns address obtained from Step 2>",
                   "port": <port obtained from Step 2>
                 }
               }
