@@ -158,7 +158,7 @@ To start a minimal cluster with a single node, create a JSON options file named 
        "node": {
        "count": 1,
        "mem": 512,
-       "cpu": 0.5
+       "cpus": 0.5
        }
    }
    ```
@@ -183,16 +183,13 @@ Sample JSON options file named `sample-{{ model.packageName }}-custom.json`:
    "service": {
        "name": "test/integration/{{ model.packageName }}",
        "security": {
-           "kerberos": {
+           "kerberos_tls": {
                "enabled": true
-           },
-           "tls_ssl": {
-               "enable": true
            }
        },
        "service_account": "dcos{{ model.packageName }}",
        "service_account_secret": "dcos{{ model.packageName }}secret",
-       "virtual_network_enabled": true
+       "virtual_network_enabled": true,
        "cn_dn_node_identity": "testintegration{{ model.packageName }}"
        }
    }
@@ -261,15 +258,15 @@ In order to define placement constraints as part of an install or update of a se
 
    ```json
    {
-       "hello": {
-       "placement": "[[\"hostname\", \"UNIQUE\"]]"
+       "service": {
+       "placement_constraint": "[[\"hostname\", \"UNIQUE\"]]"
        }
    }
    ```
 This file can be referenced to install a `{{ model.packageName }}` service.
 
    ```shell
-   dcos package install hello-world --options=options.json
+   dcos package install {{ model.packageName }} --options=options.json
    ```
 Likewise, this file can be referenced to update a `{{ model.packageName }}` service.
 
