@@ -147,31 +147,18 @@ If all else fails, you can manually perform the uninstall yourself. To do this, 
 
 1. Delete the uninstalling Scheduler from Marathon.
 1. Unregister the service from Mesos using its UUID as follows:
-
-```shell
-dcos service --inactive | grep {{ model.packageName }}
-{{ model.packageName }}     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
-dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
-```
-
-# Uninstalling in DC/OS 1.9
-
-If you are running DC/OS 1.9, follow these steps:
-
-1. Stop the service. From the DC/OS CLI, enter
     ```shell
-    dcos package uninstall --app-id=<service_name>  <package_name>
-    ```    
-    For example:
-    ```shell
-    dcos package uninstall --app-id=/test/{{ model.serviceName }} {{ model.packageName }}
-    ```                   
-1. Clean up remaining reserved resources with the framework cleaner script, janitor.py. See [DC/OS documentation](/mesosphere/dcos/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+    dcos service --inactive | grep {{ model.packageName }}
+    {{ model.packageName }}     False     3    3.3  6240.0  15768.0  97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+    dcos service shutdown 97a0fd27-8f27-4e14-b2f2-fb61c36972d7-0096
+    ```
+1. Run `janitor.py` to clean up the remaining reserved resources. See [DC/OS documentation](/mesosphere/dcos/latest/deploying-services/uninstall/#framework-cleaner) for more information about the framework cleaner script.
+     ```bash
+     dcos package uninstall {{ model.packageName }}
+     dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
+         -r {{ model.packageName }}-role \
+         -p {{ model.packageName }}-principal \
+         -z dcos-service-{{ model.packageName }}"
+     ```
 
-    ```shell
-    dcos package uninstall --app-id=/test/{{ model.packageName }} {{ model.packageName }}
-    dcos node ssh --master-proxy --leader "docker run mesosphere/janitor /janitor.py \
-    -r /test/{{ model.packageName }}-role \
-    -p /test/{{ model.packageName }}-principal \
-    -z dcos-service-/test/{{ model.packageName }}"
-    ```      
+
