@@ -54,7 +54,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceNam
 
 CLI Example
 ```shell
-dcos {{ model.serviceName }} node status <{{ model.serviceName }}_node_status>
+dcos {{ model.serviceName }} node list_for_status <{{ model.serviceName }}_node_status>
 ```
 
 HTTP Example
@@ -67,7 +67,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceNam
 
 CLI Example
 ```shell
-dcos {{ model.serviceName }} node <{{ model.serviceName }}_node_id>
+dcos {{ model.serviceName }} node get <{{ model.serviceName }}_node_id>
 ```
 
 HTTP Example
