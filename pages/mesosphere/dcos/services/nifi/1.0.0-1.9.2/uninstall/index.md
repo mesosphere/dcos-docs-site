@@ -6,7 +6,7 @@ menuWeight: 40
 excerpt: Uninstalling DC/OS NiFi Services
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

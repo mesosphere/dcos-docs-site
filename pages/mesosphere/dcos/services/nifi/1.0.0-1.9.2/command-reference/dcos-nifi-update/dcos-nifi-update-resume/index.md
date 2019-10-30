@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: Resume update plan
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

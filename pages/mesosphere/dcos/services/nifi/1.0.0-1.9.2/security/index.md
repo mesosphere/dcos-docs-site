@@ -6,7 +6,7 @@ menuWeight: 49
 excerpt: DC/OS NiFi Service encryption, authentication, and authorization
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

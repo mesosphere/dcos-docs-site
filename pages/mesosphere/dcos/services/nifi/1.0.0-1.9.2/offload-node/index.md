@@ -6,7 +6,7 @@ menuWeight: 45
 excerpt: DC/OS NiFi service Offload Node
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

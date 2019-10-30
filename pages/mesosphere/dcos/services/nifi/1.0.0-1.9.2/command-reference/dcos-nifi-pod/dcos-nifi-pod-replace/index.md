@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: Destroy a given pod and moves it to a new agent.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

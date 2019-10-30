@@ -6,7 +6,7 @@ menuWeight: 65
 excerpt: Displays plan related informations and allows plan operations of the NiFi service
 featureMaturity:
 enterprise: false
-model: ../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

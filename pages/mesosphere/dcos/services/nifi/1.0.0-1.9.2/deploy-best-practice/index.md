@@ -6,7 +6,7 @@ menuWeight: 30
 excerpt: Best practices for production deployment
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

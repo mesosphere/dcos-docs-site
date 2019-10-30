@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: List ID of the target configuration.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 66
 excerpt: Displays pod related informations and allows pod operations of the NiFi service
 featureMaturity:
 enterprise: false
-model: ../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

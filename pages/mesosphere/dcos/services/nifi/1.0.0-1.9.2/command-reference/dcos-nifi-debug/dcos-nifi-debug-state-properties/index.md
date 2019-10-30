@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: List names of all custom properties.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

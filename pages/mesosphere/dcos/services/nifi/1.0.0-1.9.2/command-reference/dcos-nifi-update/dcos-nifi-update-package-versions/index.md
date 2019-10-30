@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: View a list of available package versions to downgrade or upgrade to
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

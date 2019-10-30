@@ -6,7 +6,7 @@ menuWeight: 35
 excerpt: Managing your DC/OS NiFi service
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 This section describes various operations tasks you may need. DC/OS {{ model.techName }} allows you to 

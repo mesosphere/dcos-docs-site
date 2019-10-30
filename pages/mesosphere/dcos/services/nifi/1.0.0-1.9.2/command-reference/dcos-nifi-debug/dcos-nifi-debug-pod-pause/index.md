@@ -6,7 +6,7 @@ menuWeight: 9
 excerpt: Pause a pod’s tasks for debugging.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

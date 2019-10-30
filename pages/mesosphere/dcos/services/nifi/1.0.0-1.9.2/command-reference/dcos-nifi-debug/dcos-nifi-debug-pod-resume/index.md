@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Resume a pod’s normal execution following a pause command.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

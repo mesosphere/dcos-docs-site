@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: Display the content of a specified property.
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

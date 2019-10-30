@@ -6,7 +6,7 @@ menuWeight: 90
 excerpt: DC/OS NiFi Service API Reference
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 #include /mesosphere/dcos/services/include/api-reference.tmpl

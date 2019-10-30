@@ -6,7 +6,7 @@ menuWeight: 120
 excerpt: Understanding DC/OS NiFi Services package versioning
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

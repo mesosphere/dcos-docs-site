@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: DC/OS NiFi service secret upload
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

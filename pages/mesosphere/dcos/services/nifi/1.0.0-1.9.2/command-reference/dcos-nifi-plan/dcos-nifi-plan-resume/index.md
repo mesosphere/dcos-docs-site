@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: Resume the plan, or a specific phase in that plan with the provided phase name (or UUID).
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

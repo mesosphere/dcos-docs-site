@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: Force complete a specific step in the provided phase
 featureMaturity:
 enterprise: false
-model: ../../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

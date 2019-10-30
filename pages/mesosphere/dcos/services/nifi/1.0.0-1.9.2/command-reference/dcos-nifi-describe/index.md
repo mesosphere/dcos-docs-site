@@ -6,7 +6,7 @@ menuWeight: 63
 excerpt: View full configuration of the NiFi service.
 featureMaturity:
 enterprise: false
-model: ../../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

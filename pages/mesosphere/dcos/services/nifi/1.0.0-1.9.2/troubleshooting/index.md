@@ -6,7 +6,7 @@ menuWeight: 100
 excerpt: Troubleshooting DC/OS NiFi issues
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 

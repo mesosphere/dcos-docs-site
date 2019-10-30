@@ -6,7 +6,7 @@ menuWeight: 70
 excerpt: Connecting clients through service discovery
 featureMaturity:
 enterprise: false
-model: ../../data.yml
+model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 
