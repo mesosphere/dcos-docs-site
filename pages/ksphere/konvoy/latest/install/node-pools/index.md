@@ -4,7 +4,7 @@ navigationTitle: Node Pools
 title: Node Pools
 menuWeight: 50
 excerpt: Configure node pools for the Konvoy cluster
-enterprise: false
+ 
 ---
 
 In this section, you will learn how to configure multiple node pools for a Konvoy cluster.

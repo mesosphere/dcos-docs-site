@@ -4,7 +4,7 @@ navigationTitle: konvoy init
 title: konvoy init
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
+ 
 excerpt: Create the provision and deploy configuration with default values
 ---
 
