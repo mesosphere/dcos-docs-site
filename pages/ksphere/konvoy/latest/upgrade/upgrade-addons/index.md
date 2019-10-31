@@ -4,7 +4,7 @@ navigationTitle: Upgrade platform service addons
 title: Upgrade platform service addons
 menuWeight: 25
 excerpt: Upgrade individual addon platform services for your Konvoy cluster
-enterprise: false
+ 
 ---
 
 Konvoy platform service addons are managed by a library that pulls default configuration details from the [kubeaddons-configs](https://github.com/mesosphere/kubeaddons-configs) repository.

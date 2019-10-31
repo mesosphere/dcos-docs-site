@@ -1,1 +1,0 @@
-Third party, licensing, legal and copyright info - contacting legal about these. 

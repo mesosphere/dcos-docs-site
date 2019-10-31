@@ -4,7 +4,7 @@ navigationTitle: Upgrade Kubernetes with Konvoy
 title: Upgrade Kubernetes with Konvoy
 menuWeight: 20
 excerpt: Upgrade Kubernetes for your Konvoy cluster
-enterprise: false
+ 
 ---
 
 Before upgrading, keep in mind there is an inherent risk in upgrading any Kubernetes cluster, because any failure or error could result in unexpected downtime or loss of data.

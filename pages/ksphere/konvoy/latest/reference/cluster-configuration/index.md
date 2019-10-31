@@ -4,7 +4,7 @@ navigationTitle: Cluster configuration
 title: Cluster configuration
 menuWeight: 10
 excerpt: Review cluster configuration settings defined in the cluster.yaml file
-enterprise: false
+ 
 ---
 
 As discussed in the [Quick start](../../quick-start/) and [Install](../../install) and [Upgrade](../../upgrade/) sections, the `cluster.yaml` file defines all of the key settings that are used to create and customize a Konvoy cluster.

@@ -4,7 +4,7 @@ navigationTitle: konvoy provision
 title: konvoy provision
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
+ 
 excerpt: Provision the nodes according to the provided Terraform variables file
 ---
 

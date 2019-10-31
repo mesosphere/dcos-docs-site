@@ -4,7 +4,7 @@ navigationTitle: Quick start
 title: Quick start
 menuWeight: 2
 excerpt: Get started by installing a cluster with default configuration settings
-enterprise: false
+ 
 ---
 
 ## Quick Start
