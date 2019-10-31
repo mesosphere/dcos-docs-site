@@ -4,7 +4,7 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: View release-specific information for Konvoy
-enterprise: false
+ 
 ---
 
 ## Release Notes

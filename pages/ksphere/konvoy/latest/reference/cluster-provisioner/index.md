@@ -4,7 +4,7 @@ navigationTitle: Cluster provisioning
 title: Cluster provisioning
 menuWeight: 15
 excerpt: Review cluster provisioner settings defined in the cluster.yaml file
-enterprise: false
+ 
 ---
 
 As discussed in the [Quick start](../../quick-start/) and [Install and upgrade](../../install-upgrade/) sections, the `cluster.yaml` file defines all of the key settings that are used to create and customize a Konvoy cluster.

@@ -1,3 +1,11 @@
+---
+layout: layout.pug
+navigationTitle: Licensing
+title: Licensing
+excerpt: excerpt goes here
+menuWeight: 10
+---
+
 Licensing
 Licenses table shows currently added licenses with name, status, start date, end date, cluster capacity, and secret name
 Under the hood, a license consists of a License custom resource object that references a secret containing the actual license text

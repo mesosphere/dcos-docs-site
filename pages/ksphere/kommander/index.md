@@ -6,4 +6,4 @@ menuWeight: 1
 menus: ['kommander-header']
 ---
 
-Kommander Intro
+Welcome to Kommander
