@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Styra
 title: Styra
 excerpt: Declarative Authorization Service for Kubernetes, built on Open Policy Agent.
-menuWeight: 30
+menuWeight: 130
 category: Networking and Security
 image: img/styra.png
 ---
@@ -21,7 +21,7 @@ Built on open-source ([Open Policy Agent (OPA)](https://www.openpolicyagent.org/
 
 ### access the Styra control plane
 
-[Contact Styra](support@styra.com) to get an account on the Styra SaaS Service. A dedicated tenant URL e.g., `https://<tenantID>.styra.com` along with credentials to login will be provided.
+Contact Styra (<support@styra.com>) to get an account on the Styra SaaS Service. A dedicated tenant URL e.g., `https://<tenantID>.styra.com` along with credentials to login will be provided.
 
 ### install the Open Policy Agent
 
