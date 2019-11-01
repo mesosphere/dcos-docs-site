@@ -5,7 +5,6 @@ title: Tutorials
 menuWeight: 4
 excerpt: Learning to Use Kommander
 ---
-# Tutorials
 
 ### Deploy a Sample Application
 

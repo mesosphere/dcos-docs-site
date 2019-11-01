@@ -6,6 +6,4 @@ menuWeight: 1
 excerpt: View release-specific information for Kommander
 ---
 
-## Release Notes
-
 Kommander RNs

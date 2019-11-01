@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Viewing
 title: Viewing
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 Viewing the Dashboard

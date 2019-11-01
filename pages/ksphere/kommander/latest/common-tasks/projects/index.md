@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Projects
 title: Projects
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 ## Projects
