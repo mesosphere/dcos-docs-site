@@ -6,6 +6,8 @@ menuWeight: 4
 excerpt: Troubleshooting Guide for Kommander
 ---
 
+The following articles help troubleshooting issues with Kommander's host Konvoy cluster.
+
 * [Check Component Integrity](https://docs.d2iq.com/ksphere/konvoy/latest/troubleshooting/check-components/)
 * [Installation Failures](https://docs.d2iq.com/ksphere/konvoy/latest/troubleshooting/failed-installations/)
 * [Add-on Errors and Failures](https://docs.d2iq.com/ksphere/konvoy/latest/troubleshooting/failed-addons/)
