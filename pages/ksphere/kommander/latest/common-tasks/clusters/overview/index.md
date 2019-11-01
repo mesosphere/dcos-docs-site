@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Overview
 title: Overview
 menuWeight: 10
-excerpt: excerpt goes here
+excerpt:
 ---
 Overview
 Cluster dropdown menu

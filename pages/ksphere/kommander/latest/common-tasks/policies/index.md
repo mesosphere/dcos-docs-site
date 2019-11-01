@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Policies
 title: Policies
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 Policies  - Access policies for the project

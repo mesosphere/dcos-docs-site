@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Connect Cluster
 title: Connect Cluster
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 Connect cluster

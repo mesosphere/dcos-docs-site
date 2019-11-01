@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Create Project
 title: Create Project
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 Create Project
