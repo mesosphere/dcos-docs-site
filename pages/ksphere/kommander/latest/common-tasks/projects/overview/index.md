@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Overview
 title: Overview
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 Overview

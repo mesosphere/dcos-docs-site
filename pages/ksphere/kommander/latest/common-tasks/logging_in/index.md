@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Logging In
 title: Logging In
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 Logging in 

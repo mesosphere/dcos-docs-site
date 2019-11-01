@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Usage Guide
 title: Usage Guide
 menuWeight: 10
-excerpt: excerpt goes here
+excerpt:
 ---
 # Usage Guide
 

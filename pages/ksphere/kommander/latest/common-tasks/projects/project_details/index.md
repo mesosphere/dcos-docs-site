@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Project Details
 title: Project Details
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 Platform services. Install a service from the catalog across the clusters in the project
