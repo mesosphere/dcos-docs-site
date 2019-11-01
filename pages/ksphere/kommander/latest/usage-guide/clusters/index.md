@@ -31,7 +31,7 @@ list of all available clusters
   The cluster will be de-provisioned from your cloud provider
   The Cloud Provider used to create the cluster must still be available and active to delete the cluster.
 
-### List view columns
+### List view columns 
 
 - Name - cluster name
 
