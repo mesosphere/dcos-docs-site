@@ -31,7 +31,7 @@ Before starting the Konvoy installation, you should verify the following:
     * IAM Roles
 
 ### Download and Install
-Download Konvoy with Kommander Beta 3 [here](https://github.com/mesosphere/konvoy/releases/tag/v1.3.0-kommander-beta3).
+Download Konvoy with Kommander [here](https://github.com/mesosphere/konvoy/releases).
 
 Download the tarball to your local Downloads directory.
 
@@ -39,7 +39,7 @@ For example, if you are installing on MacOS, download the compressed archive to 
 Afterwards extract the tarball to your local system by running the following command:
 
 ```
-tar -xf ~/Downloads/konvoy_v1.3.0-kommander-beta3_darwin.tar.bz2
+tar -xf ~/Downloads/konvoy-kommander_darwin.tar.bz2
 ```
 
 Copy the Konvoy package files to a directory in your user's `PATH` to ensure you can invoke the konvoy command from any directory.
