@@ -1,0 +1,71 @@
+---
+layout: layout.pug
+navigationTitle: Clusters
+title: Clusters
+menuWeight: 6
+---
+
+## Types
+- **Attached**: A cluster that was not created with Kommander. Attached clusters' lifecycle cannot be managed.
+- **Managed**: A Konvoy cluster that was created with Kommander. Managed clusters' lifecycle can be managed.
+- **Management**: The Konvoy cluster that hosts Kommander.
+
+## Statuses
+| Status | Description |
+|--------|-------------|
+| Pending | This is the initial state when a cluster is created or connected. |
+| Loading Data | The cluster has been added to Kommander and we are fetching details about the cluster. This is the status before `Active`. |
+| Active | The cluster is connected to API server |
+| Provisioning* | The cluster is being created on your cloud provider. This process can take a long time. To follow the progress of creation, click "View Logs" in the dropdown menu. |
+| Joining | Cluster is being joined to the management cluster for federation. |
+| Joined | The join process is done, we wait for the first bit of data from the cluster to arrive |
+| Deleting | Cluster is being deleted. This process may a long time. |
+| Error | There has been an error connecting to the cluster or retrieving data from the cluster. |
+| Failed* | The cluster has failed to be provisioned. For more info on the failure, click "View Logs" in the dropdown menu. |
+| Join Failed | This can happen when kubefed does not have permission to create entities in the target cluster. | 
+| Unjoining | Kubefed cleans up after itself, removing all installed resources on the target cluster. |
+| Unjoined | The cluster has been disconnected from the management cluster. |
+| Unjoin Failed | Unjoining from kubefed failed or some other error with deleting or disconnecting. |
+| Deleting | The cluster and it's resources are being removed from your cloud provider. Click "View Logs" in the dropdown menu to follow progress. This process may a long time. |
+| Deleted | The cluster and it's resources have been removed from your cloud provider. |
+| Provisioned* | The cluster has been created on your cloud provider. |
+
+\* These statuses only happen on Managed clusters
+
+
+## Resources
+
+![Cluster card with resources](../../img/cluster-card.png)
+
+Figure 1. A cluster card with resources
+
+
+| Resource | Description |
+|----------|-------------|
+| CPU Requests | The portion of the allocatable CPU resource that the cluster is requesting to be allocated. Measured in number of cores (e.g.: .5 cores) |
+| CPU Limits | The portion of the allocatable CPU resource that the cluster is limited to allocating. Measured in number of cores (e.g.: .5 cores) |
+| CPU Usage | How much of the allocatable CPU resource that is being consumed. Cannot be higher than the configured CPU limit. Measured in number of cores (e.g.: .5 cores) |
+| Memory Requests | The portion of the allocatable memory resource that the cluster is requesting to be allocated. Measured in bytes (e.g.: 64 MiB)|
+| Memory Limits | The portion of the allocatable memory resource that the cluster is limited to allocating. Measured in bytes (e.g.: 64 MiB)|
+| Memory Usage | How much of the allocatable memory resource that is being consumed. Cannot be higher than the configured memory limit. Measured in bytes (e.g.: 64 MiB)|
+| Disk Requests | The portion of the allocatable ephemeral storage resource that the cluster is requesting to be allocated. Measured in bytes (e.g.: 64 MiB) |
+| Disk Limits | The portion of the allocatable ephemeral storage resource that the cluster is limited to allocating. Measured in bytes (e.g.: 64 MiB) |
+
+For more detailed information, see the [Kubernetes documentation][k8s_resources] about resources.
+
+## Labels
+Labels are used as selectors for Projects. Changing a cluster’s labels may add or remove the cluster from Projects. If a cluster is removed from a project any resources deployed to the cluster from that Project will be removed. If a cluster is added to a project any existing project resources will be deployed to the cluster.
+
+### Valid labels
+- Valid labels must have a key and a value, separated by a colon and a space. For example, "env: dev"
+- Valid label keys and values must be alphanumeric and can contain “-”, “_”, or “.”
+- Valid label keys and values must not start or end with “-”, “_”, or “.”
+
+## Platform Services
+Services that have been installed on your management cluster. You can visit a cluster's detail page to see which platform services have been enabled under the "Manage" section.
+
+![Cluster Detail Page](../../img/cluster-detail-page.png)
+
+Figure 2. Cluster detail page
+
+[k8s_resources]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
