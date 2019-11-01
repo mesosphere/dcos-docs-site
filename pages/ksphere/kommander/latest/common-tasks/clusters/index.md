@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Clusters Overview
 title: Clusters Overview
-excerpt: excerpt goes here
+excerpt:
 menuWeight: 10
 ---
 ## Clusters

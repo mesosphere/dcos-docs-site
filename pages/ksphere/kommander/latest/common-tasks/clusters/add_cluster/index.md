@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Add Cluster
 title: Add Cluster
 menuWeight: 10
-excerpt: excerpt goes here
+excerpt:
 ---
 Create Konvoy Cluster
 Kubernetes Version

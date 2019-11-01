@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: List View Columns
 title: List View Columns
 menuWeight: 10
-excerpt: excerpt goes here
+excerpt:
 ---
 Name
 cluster name
