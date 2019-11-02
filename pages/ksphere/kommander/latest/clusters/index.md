@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle: Clusters
 title: Clusters
 menuWeight: 6
+excerpt: View managed or attached Kubernetes Clusters
 ---
 
 ## Types
