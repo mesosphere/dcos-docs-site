@@ -86,9 +86,9 @@ For more information, see [Cloud Providers](../administrating/#cloud-providers) 
 ## Creating a Project
 You can create projects to deploy consistent configurations and services to clusters. Kommander creates a unique namespace for each managed cluster. After you configure roles, secrets, and application services for a project, Kommander distributes the desired state to each project namespace.
 
-For more information, see the [Projects](../projects) section of the Usage Guide.
+For more information, see the [Projects](../projects) section
 
 ## Adding Clusters
 Connect Kubernetes clusters to Kommander by importing existing clusters or creating new Konvoy clusters.
 
-For more information, see the [Clusters](../clusters) section of the Usage Guide.
+For more information, see the [Clusters](../clusters) section
