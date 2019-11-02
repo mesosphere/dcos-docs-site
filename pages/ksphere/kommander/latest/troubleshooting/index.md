@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting Guide
-menuWeight: 4
+menuWeight: 10
 excerpt: Troubleshooting Guide for Kommander
 ---
 
