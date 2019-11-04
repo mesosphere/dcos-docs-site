@@ -7,11 +7,35 @@ excerpt: View managed or attached Kubernetes Clusters
 ---
 
 ## Types
+
+There are several types of cluster types to be aware of in the Clusters tab.
+
 - **Attached**: A cluster that was not created with Kommander. Attached clusters' lifecycle cannot be managed.
 - **Managed**: A Konvoy cluster that was created with Kommander. Managed clusters' lifecycle can be managed.
 - **Management**: The Konvoy cluster that hosts Kommander.
 
+## Disconnect vs Delete
+
+When you attach a cluster to Kommander that was not created with Kommander, you may later disconnect it. This does not alter the running state of the cluster, but simply removes it from the Kommander UI.
+
+For managed clusters created with Kommander, disconnecting the cluster is not an option, but it can be deleted. This completely removes the cluster and all of its cloud assets.
+
+<p class="message--warning"><strong>WARNING: </strong>
+If you delete the management (Konvoy) cluster, you won't be able to use Kommander to delete the managed clusters that were created by Kommander. Be sure and delete any managed clusters before finally deleting the Konvoy cluster if your intention is to delete all clusters. 
+</p>
+
+## Labels
+
+Cluster labels are matched to the selectors created for projects. Changing a cluster’s labels may add or remove the cluster from projects. If a cluster is removed from a project any resources deployed to the cluster from that Project will be removed. If a cluster is added to a project any existing project resources will be deployed to the cluster.
+
+### Valid labels
+
+- Valid labels must have a key and a value, separated by a colon and a space. For example, "env: dev"
+- Valid label keys and values must be alphanumeric and can contain “-”, “_”, or “.”
+- Valid label keys and values must not start or end with “-”, “_”, or “.”
+
 ## Statuses
+
 | Status | Description |
 |--------|-------------|
 | Pending | This is the initial state when a cluster is created or connected. |
@@ -54,15 +78,8 @@ Figure 1. A cluster card with resources
 
 For more detailed information, see the [Kubernetes documentation][k8s_resources] about resources.
 
-## Labels
-Labels are used as selectors for Projects. Changing a cluster’s labels may add or remove the cluster from Projects. If a cluster is removed from a project any resources deployed to the cluster from that Project will be removed. If a cluster is added to a project any existing project resources will be deployed to the cluster.
-
-### Valid labels
-- Valid labels must have a key and a value, separated by a colon and a space. For example, "env: dev"
-- Valid label keys and values must be alphanumeric and can contain “-”, “_”, or “.”
-- Valid label keys and values must not start or end with “-”, “_”, or “.”
-
 ## Platform Services
+
 Services that have been installed on your management cluster. You can visit a cluster's detail page to see which platform services have been enabled under the "Manage" section.
 
 ![Cluster Detail Page](../../img/cluster-detail-page.png)
