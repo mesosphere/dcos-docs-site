@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Cloud Providers
 title: Cloud Providers
-excerpt: Managing cloud providers used by Kommander.
+excerpt: Managing cloud providers used by Kommander
 ---
 
 ### Configuring an AWS cloud provider:
