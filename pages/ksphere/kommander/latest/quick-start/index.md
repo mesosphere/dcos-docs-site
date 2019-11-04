@@ -1,12 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Getting Started
-title: Getting Started
-menuWeight: 2
+navigationTitle: Quick start
+title: Quick start
+menuWeight: 3
 excerpt: Getting started with Kommander
 ---
-
-Kommander lets you manage multiple Kubernetes clusters across your entire deployment, quickly and seamlessly. Kommander provides a centralized console for deploying, monitoring, and managing production-ready Kubernetes on an enterprise scale.
 
 ## Installation
 
