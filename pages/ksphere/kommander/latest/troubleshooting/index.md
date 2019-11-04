@@ -6,6 +6,12 @@ menuWeight: 10
 excerpt: Troubleshooting Guide for Kommander
 ---
 
+## Deleting the Management Cluster
+
+Once you delete the management cluster, it can no longer be used to manage the lifetime of the managed clusters that it created. You'll need to access your cloud provider's console and manually delete the nodes from there.
+
+## Management Cluster Troubleshooting
+
 The following articles help troubleshooting issues with Kommander's host Konvoy cluster.
 
 * [Check Component Integrity](https://docs.d2iq.com/ksphere/konvoy/latest/troubleshooting/check-components/)
