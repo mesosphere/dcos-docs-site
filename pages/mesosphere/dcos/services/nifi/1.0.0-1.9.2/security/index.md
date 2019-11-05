@@ -97,8 +97,6 @@ The DC/OS {{model.techName }} service uses a keytab containing the above service
 
 Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password of Kerberos User Principal: `{{ model.serviceName }}admin`
 
-Documentation for adding a file to the secret store can be found [here.](/mesosphere/dcos/latest/security/ent/secrets/create-secrets/#creating-secrets-from-a-file-via-the-dcos-enterprise-cli)
-
 <p class="message--note"><strong>NOTE: </strong>Secrets access is controlled by <a href="/mesosphere/dcos/latest/security/ent/#spaces-for-secrets">DC/OS Spaces</a>, which function like namespaces. Any secret in the same DC/OS Space as the service will be accessible by the service.</p>
 
 ### 3. Install the Service
