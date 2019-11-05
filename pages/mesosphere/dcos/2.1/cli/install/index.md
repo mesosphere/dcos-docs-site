@@ -67,16 +67,10 @@ It is strongly recommended that you copy and paste the installation commands fro
     [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
     ```
 
-1. Download the DC/OS CLI binary to your local directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.13), that you want to use.
+1. Download the DC/OS CLI binary to your local directory by running the following command:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
-    ```
-
-    For example, the CLI download for a Linux user on DC/OS 1.13 would look like this:
-
-    ```bash
-    curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.13/dcos -o dcos
+    curl https://downloads.dcos.io/cli/releases/binaries/dcos/linux/x86-64/latest/dcos -o dcos
     ```
 
 1.  Move the CLI binary to your local bin directory.
@@ -107,16 +101,10 @@ It is strongly recommended that you copy and paste the installation commands fro
 
 **The first two steps of this tutorial can be replaced by a simple `brew install dcos-cli` if you have [Homebrew](https://brew.sh) installed.**
 
-1. Download the DC/OS CLI binary `dcos` to your working directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.13), that you want to use:
+1. Download the DC/OS CLI binary to your local directory by running the following command:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
-    ```
-
-    For example, the CLI download for a Mac user on DC/OS 1.13 would look like this:
-
-    ```bash
-    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.13/dcos -o dcos
+    curl https://downloads.dcos.io/cli/releases/binaries/dcos/darwin/x86-64/latest/dcos -o dcos
     ```
 
 1.  Make the CLI binary executable.
@@ -144,16 +132,10 @@ It is strongly recommended that you copy and paste the installation commands fro
 
 1. Open the command line environment using the Administrator credentials.
 
-1. Download the DC/OS CLI binary `dcos` to your working directory by running the following command and replacing `<target-os-type>` with the OS type (`darwin`, `linux`, `windows`), and `<dcos-version>` with the version (such as 1.13), that you want to use:
+1. Download the DC/OS CLI binary to your local directory by running the following command:
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
-    ```
-
-    For example, the CLI download for a Windows user on DC/OS 1.13 would look like this:
-
-    ```bash
-    curl https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.13/dcos.exe -o dcos
+    curl https://downloads.dcos.io/cli/releases/binaries/dcos/windows/x86-64/latest/dcos.exe -o dcos
     ```
 
 1. Change into the directory of the downloaded file if you are not already there.
