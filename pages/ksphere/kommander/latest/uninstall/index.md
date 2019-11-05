@@ -8,4 +8,4 @@ category: K-Sphere
 menuWeight: 10
 ---
 
-Placeholder
+Content coming soon
