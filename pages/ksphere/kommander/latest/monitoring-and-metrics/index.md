@@ -2,10 +2,10 @@
 layout: layout.pug
 navigationTitle: Monitoring and Metrics
 title: Monitoring and Metrics
-featureMaturity: 
- 
+featureMaturity:
+
 category: K-Sphere
 menuWeight: 10
 ---
 
-Placeholder
+Content coming soon
