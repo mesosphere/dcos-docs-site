@@ -16,8 +16,6 @@ This is the first release of the {{ model.techName }}! Please read the documenta
 - Support for high-availability with the ability to horizontally scale out
 - Automatic generation of the `metastore-site.xml` file and exposure of it through the `endpoints` CLI command
 - Beeline CLI support
-- Use of the SDK version `0.57.0`, which enables all the DCOS 2.0 features such as:
-  - node draining
-  - quota enforcement
+- Uses SDK version 0.56.1
 - Support for the [DC/OS Storage Service](https://docs.d2iq.com/mesosphere/dcos/services/storage/)
-- For more information, see the release notes for version [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
+- For more information, see the release notes for version [0.56.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.1)
