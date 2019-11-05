@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Clusters
 title: Clusters
-menuWeight: 6
-excerpt: View managed or attached Kubernetes Clusters
+menuWeight: 7
+excerpt: View clusters created with Kommander or any attached Kubernetes cluster
 ---
 
 ## Types
