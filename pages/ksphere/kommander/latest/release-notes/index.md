@@ -6,4 +6,4 @@ menuWeight: 1
 excerpt: View release-specific information for Kommander
 ---
 
-Kommander RNs
+Kommander is currently in private beta.
