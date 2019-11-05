@@ -5,7 +5,7 @@ title: Monitoring and Metrics
 featureMaturity: 
  
 category: K-Sphere
-menuWeight: 9
+menuWeight: 10
 ---
 
 Placeholder
