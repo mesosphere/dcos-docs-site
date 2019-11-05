@@ -23,8 +23,3 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 - Fixed an issue where if a UCR container is being destroyed and the container is in provisioning state, we will wait for the provisioner to finish provisioning before we start destroying the container. This may cause the container to get stuck at destroying, and more seriously may cause the subsequent containers created from the same image to get stuck at provisioning state. Fixed by adding support for destroying the container in provisioning state so that the subsequent containers created from the same image will not be affected. (COPS-5285, MESOS-9964)
 - Fixed an issue where Marathon begins crash-looping after receiving a very long error messafe from a task's fetcher. (COPS-5365)
 - (DCOS_OSS-5616)
-
-
-## Diagnostics
-- [enterprise] [/enterprise]
-- 
