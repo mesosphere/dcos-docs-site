@@ -17,19 +17,19 @@ This applies to all Kubernetes components, as well as workloads running on top o
 
 * `HTTP_PROXY`: the HTTP proxy server address.
 * `HTTPS_PROXY`: the HTTPS proxy server address. (Ansible only supports `http:`)
-* `NO_PROXY`: a list of IPs and domain names that do not subject to proxy settings.
+* `NO_PROXY`: a list of IPs and domain names that are not subject to proxy settings.
 
 # Before you start
 
-Please make sure the proxy server is running and functional.
-This can be verified using a simple `curl` command from a node in the cluster.
+Make sure the proxy server is running and functional.
+You can verify this using the `curl` command from a node in the cluster.
 Assume `http://proxy.company.com:3128` is the HTTP proxy server address.
 
 ```bash
 http_proxy=http://proxy.company.com:3128 curl --head www.google.com
 ```
 
-If the proxy is working properly, a `200 OK` HTTP response should be received.
+If the proxy is working properly, you receive a `200 OK` HTTP response.
 
 # Install Konvoy with HTTP/HTTPS proxies
 
@@ -50,18 +50,18 @@ spec:
         - "mycluster.icp:8500"
 ```
 
-The above example configures the Kubernetes cluster installed by Konvoy to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `http://proxy.company.com:3129` for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
+This example configures the Kubernetes cluster installed by Konvoy to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `http://proxy.company.com:3129` for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
 
-Since the above configuration only applies to the core Kubernetes components, you now must configure the HTTP_PROXY settings for all other workloads that require access to the Internet.
+This configuration only applies to the core Kubernetes components. In this case, you must next configure the HTTP_PROXY settings for all other workloads that require access to the Internet.
 
-All the proxy related fields are optional.
+All the proxy-related fields are optional.
 
-The proxy configuration will be applied automatically by Konvoy after you run
+Konvoy applies the proxy configuration automatically after you run the following command:
 
 ```bash
 konvoy up
 ```
 
-<p class="message--important"><strong>IMPORTANT: </strong> if the machine from which the <tt>konvoy</tt> binary is being run requires the HTTP/HTTPS proxy for Internet access, you must set the same <tt>HTTP_PROXY</tt>, <tt>HTTPS_PROXY</tt>, and <tt>NO_PROXY</tt> as environment variables before running <tt>konvoy</tt>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>if the machine from which the <tt>konvoy</tt> binary is being run requires the HTTP/HTTPS proxy for Internet access, you must set the same <tt>HTTP_PROXY</tt>, <tt>HTTPS_PROXY</tt>, and <tt>NO_PROXY</tt> as environment variables before running <tt>konvoy</tt>.</p>
 
 These proxy settings will be used by the binary itself (not Kubernetes cluster machines) to download addon configurations over the Internet.
