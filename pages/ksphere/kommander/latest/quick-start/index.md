@@ -31,7 +31,7 @@ Before starting the Konvoy installation, you should verify the following:
 
 ### Download and Install
 
-Download Konvoy with Kommander [here](https://github.com/mesosphere/konvoy/releases).
+Download a free trial version of Konvoy with Kommander [here](https://d2iq.com/solutions/ksphere/konvoy#request-free-trial).
 
 Download the tarball to your local Downloads directory.
 

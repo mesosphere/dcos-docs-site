@@ -8,7 +8,7 @@ menuWeight: 6
 
 ## Licensing
 
-Kommander requires a valid license to continue use beyond adding a single cluster.
+Kommander requires a valid license to continue use beyond adding a second cluster.
 
 The License table shows currently added licenses with name, status, start date, end date, cluster capacity, and secret name.
 
