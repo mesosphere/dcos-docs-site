@@ -9,6 +9,76 @@ enterprise: false
 
 ## Release Notes
 
+### Version 1.2.4 - Released 5 November 2019
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.15.x |
+|**Default** | 1.15.5 |
+
+#### Improvements
+
+-   \[BETA\] New CLI commands and `cluster.yaml` options to support [air-gapped installations](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-airgapped/).
+-   VPC Endpoints are now deployed by default to allow for the pods running in the cluster to connect to the AWS API without requiring the Internet.
+
+    ```yaml
+    kind: ClusterProvisioner
+    apiVersion: konvoy.mesosphere.io/v1alpha1
+    metadata:
+      name: konvoy
+    spec:
+      provider: aws
+      aws:
+        vpc:
+          vpcEndpointsDisabled: true
+    ```
+
+-   Only list stable releases when using the `konvoy image` command.
+-   Define a default AMI to use for the `eu-north-1` region.
+-   Support AMIs with other volumes already mounted, prior to this the installer assumed that the second volume it created would always be `nvme1n1`.
+
+#### Addons improvements
+
+- Remove the need for Internet access when starting Grafana and Kibana pods.
+
+#### Bug fixes
+
+- Fix a bug where node labels and taints were not being set after the initial deploy.
+- Persist kernel modules across restarts.
+
+#### Component version changes
+
+- kubeadd-configs `v1.15.5-1`
+
+#### Known issues and limitations
+
+Known issues and limitations don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios.
+The issues are grouped by feature, functional area, or component.
+Where applicable, issue descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
+
+-   The Deb packages provided were tested with Ubuntu 16.04 LTS - Xenial machines and may not work on other Debian distributions.
+
+-   Docker provisioner reports potential issues if there are insufficient resources.
+
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
+
+-   Dex should always be enabled.
+
+    For this release of Konvoy, `dex`, `dex-k8s-auth`, and `traefik-auth` are tightly coupled and must all be enabled.
+    Disabling any of these addons will prevent certain operations from working correctly.
+    This tight coupling will be addressed in a future release.
+
+-   The authentication token has no permissions.
+
+    After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
+    To enable the authenticated user to perform administrative actions, you must manually add role bindings.
+
+-   Upgrades might fail when `workers` is set to one.
+
+    The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
+
 ### Version 1.2.3 - Released 21 October 2019
 
 | Kubernetes Support | Version |
