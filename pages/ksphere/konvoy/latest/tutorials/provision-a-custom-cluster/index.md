@@ -55,6 +55,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
           imagefsVolumeEnabled: true
           imagefsVolumeType: gp2
           imagefsVolumeSize: 160
+          imagefsVolumeDevice: xvdb
           type: t3.xlarge
       - name: control-plane
         controlPlane: true
@@ -65,6 +66,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
           imagefsVolumeEnabled: true
           imagefsVolumeType: gp2
           imagefsVolumeSize: 160
+          imagefsVolumeDevice: xvdb
           type: t3.large
       sshCredentials:
         user: centos

@@ -50,6 +50,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
       type: t3.xlarge
   - name: control-plane
     controlPlane: true
@@ -60,6 +61,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
       type: t3.large
   - name: bastion
     bastion: true
@@ -120,7 +122,7 @@ spec:
         enabled: false
   addons:
     configRepository: https://github.com/mesosphere/kubeaddons-configs
-    configVersion: stable-1.15.5-0
+    configVersion: stable-1.15.5-1
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -205,6 +207,7 @@ spec:
 | `vpc.routeTableID`      | [AWS RouteTable][aws_route_table] ID that is used by the subnets in the VPC | `""`    |
 | `vpc.internetGatewayID` | [AWS Internet Gateway][aws_internet_gateway] ID assigned to the VPC         | `""`    |
 | `vpc.internetGatewayDisabled` | Disable creating an [AWS Internet Gateway][aws_internet_gateway] when creating the VPC | `false` |
+| `vpc.vpcEndpointsDisabled`    | Disable creating [AWS VPC Endpoints][aws_vpc_endpoints] when creating the VPC | `false` |
 
 ### spec.elb
 | Parameter               | Description                                                                 | Default |
@@ -250,6 +253,7 @@ The default value of this entire object is `omitted`.
 | `machine.imagefsVolumeEnabled`| Specifies whether to enable dedicated disk for image filesystem (for example, `/var/lib/containerd`).       |  `true`        | See \[0]    |
 | `machine.imagefsVolumeSize`   | Specifies the size of imagefs volume to use that is mounted on each machine in a node-pool in GiBs.         | `160`          | See \[0]    |
 | `machine.imagefsVolumeType`   | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                      | `gp2`          | See \[0]    |
+| `machine.imagefsVolumeDevice` | Specifies the [volume's device name][ebs_volume_types] that will be mounted on each machine.                | `xvdb`         | See \[0]    |
 | `machine.type`                | Specifies the [EC2 instance type][ec2_instance_types] to use.                                               | `t3.xlarge`    | `t3.large`  |
 | `machine.aws.subnetIDs`       | Specifies the [AWS Subnet][aws_vpc_and_subnets] to launch instances unto.                                   | `[]`           | `[]`        |
 | `machine.aws.iam`             | [AWS IAM][aws_iam] represents access control details                                                        | N/A            |             |
@@ -435,13 +439,14 @@ The default value of this entire object is `omitted`.
 | `password`      | Specifies the registry password. This setting requires you to provide a value for the `username` setting.             | N/A        |
 | `auth`          | Contains the base64 encoded `username:password`.                                    | N/A        |
 | `identityToken` | Used to authenticate the user and get an access token.          | N/A        |
+| `default`       | When `true` the registry will be used to pull all images during the installation |  `false` |
 
 ### spec.addons
 
 | Parameter                 | Description                                            | Default       |
 | ------------------------- | ------------------------------------------------------ | ------------- |
 | `addons.configRepository` | Specifies the git repo of the addon configuration files to use.        | `https://github.com/mesosphere/kubeaddons-configs` |
-| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.5-0`  |
+| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.5-1`  |
 | `addons.addonsList`       | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#specaddonsaddonslist) |
 
 #### spec.addons.addonsList
@@ -473,5 +478,6 @@ Properties of an `addon` object.
 [aws_vpc_and_subnets]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html
 [aws_route_table]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html
 [aws_internet_gateway]: https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html
+[aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 [aws_elb]: https://aws.amazon.com/elasticloadbalancing/
 [nvidia]: https://docs.nvidia.com/datacenter/kubernetes/kubernetes-upstream/index.html

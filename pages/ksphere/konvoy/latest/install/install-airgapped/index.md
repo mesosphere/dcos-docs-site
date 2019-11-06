@@ -1,15 +1,16 @@
 ---
 layout: layout.pug
-navigationTitle: Install on-premise
-title: Install on-premise
-menuWeight: 30
-excerpt: Install Konvoy in an on-premise environment
+navigationTitle: Install air-gapped
+title: Install air-gapped
+menuWeight: 35
+excerpt: Install Konvoy in an air-gapped environment
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an on-premise environment.
+The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an air-gapped environment.
+**IMPORTANT** air-gapped installation is still in Beta and the process may change in the future.
 
 # Before you begin
 
@@ -23,6 +24,8 @@ Before installing, verify that your environment meets the following basic requir
 * [kubectl][install_kubectl] v1.15.5 or later
 
   You must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run, to enable interaction with the running cluster.
+
+* The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air-gapped installation.
 
 ## Control plane nodes
 
@@ -57,23 +60,6 @@ For all hosts that are part of the cluster -- except the **deploy host** -- you 
 * Docker-ce is uninstalled.
 * Swap is disabled.
 
-## Networking
-
-Make sure the following domains are accessible from the control plane nodes and worker nodes.
-
-* k8s.gcr.io
-* registry.hub.docker.com
-* quay.io
-* packages.cloud.google.com
-* download.docker.com
-* github.com
-* grafana.com
-* raw.githubusercontent.com
-* mesosphere.github.io
-* storage.googleapis.com
-
-For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, and `github.com` are accessible.
-
 # Edit the inventory file
 
 To start the Konvoy installation, you first need an [Ansible][ansible] [inventory file][ansible_inventory] in your current working directory to describe the hosts where you want to install Konvoy.
@@ -91,10 +77,21 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-config-repository $(dirname "$(which konvoy)")/kubeaddons-configs --addons-config-version stable-1.15.5-1-air-gapped [--cluster-name <your-specified-name>]
    ```
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
+
+   The additional `--addons-config-repository` and `--addons-config-version` flag will result in the generated `cluster.yaml` to set the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
+
+   ```yaml
+   kind: ClusterConfiguration
+   apiVersion: konvoy.mesosphere.io/v1alpha1
+   spec:
+     addons:
+       configRepository: /__KONVOY_DIRECTORY__/kubeaddons-configs
+       configVersion: stable-1.15.5-1-air-gapped
+   ```
 
 1. Open inventory file `inventory.yaml` in a text editor to specify the hosts.
 
@@ -158,26 +155,6 @@ all:
     ansible_port: 22
 ```
 
-## Specifying a local kubeaddons-configs repo
-
-When using Konvoy with its default addons options, the tool will try to fetch the list of available addons from a public GitHub [kubeaddons-configs repo][kubeaddons_repo] when initializing and validating the `cluster.yaml` file.
-If in your environment access to that repo is blocked, you may also use a local clone of the above repo.
-
-Assuming that the repo was cloned in the local directory to `./kubeaddons-configs`, use the `--addons-config-repository` flag with the `konvoy init`, `konvoy up`, `konvoy provision` commands.
-
-This will result in your `cluster.yaml` containing the details below:
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
-spec:
-  addons:
-    configRepository: ./kubeaddons-configs
-    configVersion: stable-1.15.5-1
-```
-
-You can also specify a remote git repo hosted in your organization using the same `--addons-config-repository` flag.
-
 # Configure the Kubernetes cluster
 
 After you edit the inventory file, edit the generated `cluster.yaml` file.
@@ -186,7 +163,7 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
 ## Configure the RPM and DEB package repository
 
 By default Konvoy adds new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
-If the required repositories are already configured in your environment, you may disable this behavior by setting the value of `defaultRepositoryInstallationDisabled` to `true`.
+In an air-gapped environment these repos will not be available, but instead the packages will be copied from the konvoy directory
 
 ```yaml
 kind: ClusterConfiguration
@@ -194,52 +171,6 @@ apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
  packageRepository:
    defaultRepositoryInstallationDisabled: true
-```
-
-Below is the list of all package repositories that are added by Konvoy.
-
-The RPM repositories:
-
-```text
-[docker]
-name = Docker Repository
-baseurl = https://download.docker.com/linux/centos/7/x86_64/stable/
-gpgcheck = 1
-gpgkey = https://download.docker.com/linux/centos/gpg
-```
-
-```text
-[kubernetes]
-name=Konvoy Kubernetes package repository
-baseurl=https://packages.d2iq.com/konvoy/rpm/stable/centos/7/x86_64
-gpgcheck=1
-gpgkey=https://packages.d2iq.com/konvoy/rpm-gpg-pub-key
-```
-
-For any Nidia GPU enabled machines there are additional repositories:
-
-```text
-[libnvidia-container]
-baseurl = https://nvidia.github.io/libnvidia-container/centos7/x86_64
-enabled = 1
-gpgcheck = 0
-gpgkey = https://nvidia.github.io/libnvidia-container/gpgkey
-name = libnvidia-container Repository
-repo_gpgcheck = 1
-sslcacert = /etc/pki/tls/certs/ca-bundle.crt
-sslverify = 1
-```
-
-```text
-[nvidia-container-runtime]
-baseurl = https://nvidia.github.io/nvidia-container-runtime/centos7/x86_64
-enabled = 1
-gpgcheck = 0
-gpgkey = https://nvidia.github.io/nvidia-container-runtime/gpgkey
-name = nvidia-container-runtime Repository
-repo_gpgcheck = 1
-sslcacert = /etc/pki/tls/certs/ca-bundle.crt
-sslverify = 1
 ```
 
 The RPM packages installed by Konvoy:
@@ -261,34 +192,6 @@ The RPM packages installed by Konvoy:
 
 There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories
 
-The DEB repositories:
-
-```text
-deb https://packages.cloud.google.com/apt/ kubernetes-xenial main
-
-https://packages.cloud.google.com/apt/doc/apt-key.gpg
-```
-
-```text
-deb https://download.docker.com/linux/ubuntu/ xenial stable
-
-https://download.docker.com/linux/ubuntu/
-```
-
-For any Nidia GPU enabled machines there are additional repositories:
-
-```text
-deb https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64 /
-
-https://nvidia.github.io/libnvidia-container/gpgkey
-```
-
-```text
-deb https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64 /
-
-https://nvidia.github.io/nvidia-container-runtime/gpgkey
-```
-
 The DEB packages installed by Konvoy:
 
 * apt-transport-https
@@ -304,6 +207,34 @@ The DEB packages installed by Konvoy:
 * xfsprogs (only on AWS)
 * nvidia-container-runtime (for GPU enabled machines)
 * net-tools (required for diagnose)
+
+## Configure the image registry
+
+In an air-gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
+
+Set the options in your `cluster.yaml` as follows:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1alpha1
+spec:
+  imageRegistries:
+    - server: https://myregistry:443
+      username: "myuser"
+      password: "mypassword"
+      default: true
+```
+
+This will configure containerd with the provided credentials.
+The presence of `default: true` also instructs Konvoy to configure [containerd mirrors][containerd_mirrors] with all the repositories of the images that are used during installation.
+The file `images.json` contains the full list of images.
+
+Konvoy also provides some convenience CLI commands to setup your registry with the required images.
+Running the below command will pull all of the images, retag them and push them to the specified image registry, making them available during installation.
+
+```text
+konvoy config images seed
+```
 
 ## Configure the control plane
 
@@ -574,3 +505,4 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [kubeaddons_repo]: https://github.com/mesosphere/kubeaddons-configs
 [selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+[containerd_mirrors]: https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint

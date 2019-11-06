@@ -121,6 +121,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
       type: m4.4xlarge
   - name: control-plane
     controlPlane: true
@@ -131,6 +132,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
       type: i3.xlarge
   - name: monitoring
     count: 1

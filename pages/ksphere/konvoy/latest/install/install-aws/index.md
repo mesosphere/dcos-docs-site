@@ -20,6 +20,7 @@ This section guides you through the basic steps to prepare your environment and 
   You need to be authorized to create the following resources in the AWS account:
   * EC2 Instances
   * VPC
+  * VPC Endpoints
   * Subnets
   * Elastic Load Balancer (ELB)
   * Internet Gateway
@@ -50,6 +51,7 @@ Below is the minimal IAM policy required:
                 "ec2:CreateTags",
                 "ec2:CreateVolume",
                 "ec2:CreateVpc",
+                "ec2:CreateVpcEndpoint",
                 "ec2:DeleteInternetGateway",
                 "ec2:DeleteKeyPair",
                 "ec2:DeleteRoute",
@@ -58,6 +60,7 @@ Below is the minimal IAM policy required:
                 "ec2:DeleteSubnet",
                 "ec2:DeleteVolume",
                 "ec2:DeleteVpc",
+                "ec2:DeleteVpcEndpoint",
                 "ec2:DescribeAccountAttributes",
                 "ec2:DescribeAvailabilityZones",
                 "ec2:DescribeImages",

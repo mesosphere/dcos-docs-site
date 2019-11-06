@@ -59,6 +59,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeType: gp2
       imagefsVolumeSize: 160
+      imagefsVolumeDevice: xvdb
       type: t3.xlarge
       imageID: ami-01ed306a12b7d1c96
   - name: control-plane
@@ -70,6 +71,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeType: gp2
       imagefsVolumeSize: 160
+      imagefsVolumeDevice: xvdb
       type: t3.large
       imageID: ami-01ed306a12b7d1c96
 ```
@@ -195,9 +197,9 @@ It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
 
 The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
 
-<p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing internet gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
+<p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing Internet Gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
 
-It is also possible to disable creating the internet gateway by modifying a few options in the `cluster.yaml` configuration file.
+It is also possible to disable creating the Internet Gateway by modifying a few options in the `cluster.yaml` configuration file.
 Doing so will also automatically set the kube-apiserver ELB to be `internal` and will not associate public IPs for all the EC2 instances.
 Depending on how you addons are configured, you may also need to add an annotation to use an `internal` ELB.
 
@@ -240,6 +242,25 @@ spec:
     ...
 ```
 
+### VPC Endpoints
+Konvoy will automatically provision [AWS VPC Endpoints][aws_vpc_endpoints] for `ebs` and `elasticloadbalancing` services.
+This allows for the Kubernetes AWS cloud-provider and AWS EBS CSI driver to function without requiring access to the Internet.
+
+If desired you can disable creating these resources by modifying the `cluster.yaml` file and changing the `ProvisionerConfig` in the following way:
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1alpha1
+metadata:
+  name: konvoy
+spec:
+  provider: aws
+  aws:
+    vpc:
+      vpcEndpointsDisabled: true
+...
+```
+
 ### Subnets
 An existing VPC may already contain `subnets` for use, you may define them in the following way:
 
@@ -269,6 +290,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
       type: t3.xlarge
       aws:
         # Each pool now has subnets, they must match the number of availabilityZones and in the same order as the `availabilityZones`
@@ -283,6 +305,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
       type: t3.large
       aws:
         # Subnets should be private
@@ -370,3 +393,4 @@ spec:
 [ephemeral_storage]: ../../../storage/
 [ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 [cloud_provider]: https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
+[aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html

@@ -24,7 +24,7 @@ konvoy up [flags]
 
 ```
       --addons-config-repository string   The git repo containing the addons configurations (default "https://github.com/mesosphere/kubeaddons-configs")
-      --addons-config-version string      The git repo containing the addons version (default "stable-1.15.5-0")
+      --addons-config-version string      The git repo containing the addons version (default "stable-1.15.5-1")
       --cluster-name string               Name used to prefix the cluster and all the created resources (default "konvoy")
       --force-upgrade                     run an upgrade on all nodes that require it, ignoring upgrade safety checks
   -h, --help                              help for up
