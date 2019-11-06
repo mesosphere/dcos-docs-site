@@ -82,12 +82,6 @@ Kommander supports Github, LDAP and standard OIDC identity providers such as Goo
 
 For more information, see [Identity Providers](../operations/identity-providers) in the Administrating section.
 
-## Connecting to a Cloud Provider
-
-Cloud providers like AWS, Azure and Google can provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys to your preferred cloud provider. It is possible to have many accounts for a single cloud provider.
-
-For more information, see [Cloud Providers](../operations/cloud-providers) in the Administrating section.
-
 ## Creating a Project
 
 You can create projects to deploy consistent configurations and services to clusters. Kommander creates a unique namespace for each managed cluster. After you configure roles, secrets, and application services for a project, Kommander distributes the desired state to each project namespace.
