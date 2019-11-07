@@ -438,31 +438,3 @@ This returns the Java home path:
 ```shell
  sh $MESOS_SANDBOX/{{ model.serviceName }}-toolkit-${NIFI_VERSION}/bin/file-manager.sh -o backup -b {{ model.serviceName }}-backup -c $MESOS_SANDBOX/../../tasks/{{ model.serviceName }}-$POD_INSTANCE_INDEX-node*/{{ model.serviceName }}-{{NIFI_VERSION}} -v;
 ```
-
-# Metrics
-
-To check the metrics for the DC/OS {{model.techName }} instances on individual agent nodes, we need to do the following:
-
-1. In the first step we need to obtain the `dcos auth` token by issuing the following command:
-    ```shell
-        dcos config show core.dcos_acs_token
-    ```
-    Keep a copy of this token for later use.
-
-1. In the next step we need to ssh into the private agent on which we have the tasks running:
-    ```shell
-        dcos node ssh --master-proxy --mesos-id=<agent-mesos-id>
-    ```  
-1. Finally we need to make the following curl requests as per the security settings:
-
-    **TLS and KDC Mode:**
-
-    ```shell
-    curl -k -H "Authorization: token=<acs_token>" https://localhost:61002/system/v1/metrics/v0/containers | jq
-    ```
-    **Non TLS and KDC Mode:**
-
-    ```shell
-    curl -k -H "Authorization: token=<acs_token>" http://localhost:61001/system/v1/metrics/v0/containers | jq
-    ```  
-More details about Metrics can be found [here](/mesosphere/dcos/latest/metrics/quickstart/).
