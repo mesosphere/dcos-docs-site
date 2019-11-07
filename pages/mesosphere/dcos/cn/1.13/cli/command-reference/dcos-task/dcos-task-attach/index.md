@@ -1,0 +1,38 @@
+---
+layout: layout.pug
+navigationTitle:  dcos task attach
+title: dcos task attach
+menuWeight: 1
+excerpt: 在任务容器内部连接进程
+渲染：胡须
+模型：/mesosphere/dcos/1.13/data.yml
+enterprise: false
+---
+
+# 说明
+
+`dcos task attach` 命令允许您将 CLI 连接到已经运行任务的 `stdio`。
+
+```bash
+dcos task attach [--no-stdin] <task>
+```
+
+要从任务中断开，请键入序列 `CTRL-p CTRL-q`。
+
+# 选项
+
+| 名称 | 说明 |
+|---------|-------------|
+| `--no-stdin` | 请勿将 CLI 的 `stdin` 连接到任务。 |
+
+## 位置自变量
+
+| 名称，简写 | 说明 |
+|---------|-------------|
+| `<task>`   |   完整任务 ID、部分任务 ID 或 UNIX Shell 通配符模式（如`my-task*`）。 |
+
+# 父命令
+
+| 命令 | 说明 |
+|---------|-------------|
+| [dcos task](/mesosphere/dcos/1.13/cli/command-reference/dcos-task/) | 管理 DC/OS 任务。|
