@@ -14,7 +14,6 @@ render: mustache
 
 The DC/OS {{model.techName }} service supports DC/OS {{model.techName }}’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
 
-A good overview of these features can be found  [here](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/html/administration-guide.html).
 
 ## Transport Encryption and Kerberos Authentication
 With transport encryption enabled, DC/OS {{model.techName }} will automatically deploy all nodes with the correct configuration to encrypt communication via SSL. The nodes will communicate securely between themselves using SSL. SSL authentication requires that all DC/OS {{model.techName }} Nodes present a valid certificate from which their identity can be derived for communicating between themselves.
@@ -37,8 +36,7 @@ The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) t
 ## Set up the service account
 
 [Grant](/mesosphere/dcos/latest/security/ent/perms-management/) the service account the correct permissions.
-- In DC/OS 1.10, the required permission is `dcos:superuser full`.
-- In DC/OS 1.11 and later, the required permissions are:
+- The required permissions are:
 ```shell
 dcos:secrets:default:/<service name>/* full
 dcos:secrets:list:default:/<service name> read
@@ -47,13 +45,7 @@ dcos:adminrouter:ops:ca:ro full
 ```
 where `<service name>` is the name of the service to be installed.
 
-Run the following DC/OS Enterprise CLI commands to set permissions for the service account on a strict cluster:
 
-```shell
-dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:app_id:<service/name> create
-dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:principal:dev_hdfs create
-dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:principal:dev_hdfs create
-```
 
 ## Transport Encryption for Clients
 
@@ -93,7 +85,7 @@ The DC/OS {{model.techName }} service requires a Kerberos principal for the serv
    ```
 ### 2. Place Service Keytab in DC/OS Secret Store
 
-The DC/OS {{model.techName }} service uses a keytab containing the above service and user principals (service keytab). After creating the principals above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by `name __dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. 
+The DC/OS {{model.techName }} service uses a keytab containing the above service and user principals (service keytab). After creating the principals above, generate the service keytab, making sure to include all the node principals. The DC/OS security modules will handle decoding the file when it is used by the service. 
 
 Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password of Kerberos User Principal: `{{ model.serviceName }}admin`
 
@@ -108,11 +100,11 @@ Install the DC/OS {{ model.techName }} service with the following options in add
      "name": "/demo/{{ model.serviceName }}",
       "security": {
       "kerberos": {
-           "kdc": {
+        "kdc": {
           "hostname": "kdc.marathon.autoip.dcos.thisdcos.directory",
           "port": 2500
         },
-        "keytab_secret": "__dcos_base64___keytab",
+        "keytab_secret": "<keytab secret>",
         "primary": "{{ model.serviceName }}",
         "realm": "LOCAL",
         "service_principal": "{{ model.serviceName }}principal@LOCAL",
@@ -126,8 +118,9 @@ Install the DC/OS {{ model.techName }} service with the following options in add
     "service_account": "dcos_{{ model.serviceName }}",
     "service_account_secret": "dcos_{{ model.serviceName }}_secret",
     "virtual_network_enabled": true,
-    "virtual_network_name": "dcos",
-    }
+    "virtual_network_name": "dcos"
+    },
+    "secrets": {"enable": true}
   }
    ```
 
