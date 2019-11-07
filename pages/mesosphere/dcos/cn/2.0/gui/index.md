@@ -4,7 +4,7 @@ navigationTitle:  GUI
 title: GUI
 menuWeight: 40
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 excerpt: 使用 UI 进行 DC/OS 管理
 ---
 

@@ -5,7 +5,7 @@ title: dcos service
 menuWeight: 14
 excerpt: 管理 DC/OS 服务
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

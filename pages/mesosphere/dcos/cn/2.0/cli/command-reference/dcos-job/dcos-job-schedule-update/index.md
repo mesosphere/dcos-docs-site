@@ -6,7 +6,7 @@ menuWeight: 9
 excerpt: 更新作业时间表
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

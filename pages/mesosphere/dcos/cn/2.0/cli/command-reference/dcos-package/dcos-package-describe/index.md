@@ -4,7 +4,7 @@ navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 excerpt: 获取软件包的详细信息
 enterprise: false
 ---

@@ -5,7 +5,7 @@ title: dcos diagnostics
 menuWeight: 5
 excerpt: 处理 DC/OS 诊断捆绑包
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

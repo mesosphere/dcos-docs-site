@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 终止活动应用程序实例
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

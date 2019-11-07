@@ -5,7 +5,7 @@ title: 用户账户管理
 menuWeight: 10
 excerpt: 管理 DC/OS 用户账户
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

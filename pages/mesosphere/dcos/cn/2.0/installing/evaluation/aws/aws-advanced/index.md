@@ -4,7 +4,7 @@ title: 配置参考 - AWS
 excerpt: 使用 Universal 安装工具在 AWS 上配置您的 DC/OS 安装
 navigationTitle: 配置参考
 menuWeight: 3
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 #包括 /mesosphere/dcos/install-include/aws-extended-example.tmpl

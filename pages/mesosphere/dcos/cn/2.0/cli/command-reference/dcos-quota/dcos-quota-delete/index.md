@@ -5,7 +5,7 @@ title: dcos quota delete
 menuWeight: 1
 excerpt: 删除配额
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

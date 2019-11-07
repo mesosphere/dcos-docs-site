@@ -5,7 +5,7 @@ title: dcos security org groups del_user
 menuWeight: 135
 excerpt: 从组中删除用户
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 # 说明

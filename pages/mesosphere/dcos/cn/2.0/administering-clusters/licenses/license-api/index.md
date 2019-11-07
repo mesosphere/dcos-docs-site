@@ -6,7 +6,7 @@ menuWeight: 3
 enterprise: true
 excerpt: 使用 License API 管理您的 DC/OS 许可证
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 # 路由
 

@@ -5,7 +5,7 @@ title: 本地持久卷
 menuWeight: 10
 excerpt: 使用本地持久卷
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

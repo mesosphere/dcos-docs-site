@@ -5,7 +5,7 @@ title: 教程 - 部署基于 Docker 的服务
 menuWeight: 100
 excerpt: 部署基于 Docker 的服务
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

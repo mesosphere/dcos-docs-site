@@ -6,7 +6,7 @@ menuWeight: 0
 enterprise: true
 excerpt: 使用命令行界面管理您的 DC/OS 许可证
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 `dcos license` 命令也记录在 [CLI 命令参考](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) 文档中。

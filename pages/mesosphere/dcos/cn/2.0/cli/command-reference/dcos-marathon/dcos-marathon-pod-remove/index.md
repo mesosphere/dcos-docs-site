@@ -5,7 +5,7 @@ title: dcos marathon pod remove
 menuWeight: 26
 excerpt: 删除 pod
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

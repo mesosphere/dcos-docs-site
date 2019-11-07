@@ -5,7 +5,7 @@ title: 服务命名
 menuWeight: 0
 excerpt: 了解 Mesos-DNS 服务命名约定
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

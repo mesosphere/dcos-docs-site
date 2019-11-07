@@ -5,7 +5,7 @@ title: 教程 - 使用 Marathon 自动扩展
 menuWeight: 3
 excerpt: 了解自动扩展
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

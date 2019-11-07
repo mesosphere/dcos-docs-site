@@ -4,7 +4,7 @@ excerpt: 了解分布式 DNS
 title: 设计 - 分布式 DNS
 navigationTitle: 分布式 DNS
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 3
 ---
 

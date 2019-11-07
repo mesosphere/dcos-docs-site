@@ -4,7 +4,7 @@ title: 方案 3
 navigationTitle: 方案 3
 excerpt: 教程 - Docker 镜像
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 21
 ---
 #包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl

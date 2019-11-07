@@ -5,7 +5,7 @@ title: 配置任务日志输出和保留
 menuWeight: 2
 excerpt: 影响日志记录的任务环境变量
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: false
 ---

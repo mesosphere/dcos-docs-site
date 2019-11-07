@@ -5,7 +5,7 @@ title: dcos security cluster ca newkey
 menuWeight: 13
 excerpt: 创建新密钥和新的 CSR
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

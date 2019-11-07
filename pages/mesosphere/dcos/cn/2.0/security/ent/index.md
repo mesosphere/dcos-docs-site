@@ -5,7 +5,7 @@ title: DC/OS Enterprise 安全性
 menuWeight: 70
 excerpt: 了解 DC/OS Enterprise 安全功能
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

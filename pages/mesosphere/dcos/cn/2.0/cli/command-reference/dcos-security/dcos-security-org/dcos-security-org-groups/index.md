@@ -5,7 +5,7 @@ title: dcos security org groups
 menuWeight: 120
 excerpt: 管理组和组成员
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 # 说明

@@ -6,7 +6,7 @@ menuWeight: 0
 excerpt: 使用 CLI 备份和恢复群集
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 您可以使用 CLI 来创建和恢复群集的备份。还可以选择备份和恢复在 DC/OS 群集内运行的 [ZooKeeper](#zookeeper) 状态。
 

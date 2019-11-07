@@ -5,7 +5,7 @@ menuWeight: 100
 excerpt: 为自定义应用程序和 pod 配置身份认证
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

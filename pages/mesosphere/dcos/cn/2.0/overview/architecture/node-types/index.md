@@ -5,7 +5,7 @@ title: 节点类型
 menuWeight: 1
 excerpt: 了解三种节点
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

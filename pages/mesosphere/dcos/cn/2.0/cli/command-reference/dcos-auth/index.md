@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: 管理 DC/OS 身份和访问
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

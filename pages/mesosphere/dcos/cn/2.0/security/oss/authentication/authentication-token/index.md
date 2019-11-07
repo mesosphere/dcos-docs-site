@@ -4,7 +4,7 @@ navigationTitle: DC/OS 认证令牌
 title: DC/OS 认证令牌
 excerpt: 了解 DC/OS 认证令牌
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 10
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 12
 excerpt: 显示 Marathon 应用程序部署的当前队列
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: 列出诊断包
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

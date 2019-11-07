@@ -4,7 +4,7 @@ title: 卸载 AWS EC2 上的 DC/OS
 navigationTitle: 卸载
 menuWeight: 15
 excerpt: 卸载 AWS EC2 上运行的 DC/OS
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

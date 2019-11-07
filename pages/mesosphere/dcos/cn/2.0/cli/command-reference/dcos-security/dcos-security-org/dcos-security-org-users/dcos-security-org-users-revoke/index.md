@@ -5,7 +5,7 @@ title: dcos security org users revoke
 menuWeight: 205
 excerpt: 撤销用户权限
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

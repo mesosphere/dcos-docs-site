@@ -6,7 +6,7 @@ menuWeight: 22
 excerpt: 更新 Marathon 组属性
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

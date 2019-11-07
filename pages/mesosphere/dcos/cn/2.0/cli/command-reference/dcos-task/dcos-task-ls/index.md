@@ -5,7 +5,7 @@ title: dcos task ls
 menuWeight: 7
 excerpt: 显示 Mesos 任务目录中的文件列表
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

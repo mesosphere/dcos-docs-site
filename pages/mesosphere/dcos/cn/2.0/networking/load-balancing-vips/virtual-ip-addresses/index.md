@@ -5,7 +5,7 @@ title: 使用虚拟 IP 地址
 menuWeight: 10
 excerpt: 使用虚拟 IP 地址
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 DC/OS 可将流量从单个虚拟 IP (VIP) 映射到多个 IP 地址和端口。DC/OS VIP 是**基于名称的**，这意味着客户端是连接服务地址而非 IP 地址。

@@ -5,7 +5,7 @@ title: 教程 - 创建和运行服务
 menuWeight: 1
 excerpt: 创建和部署服务及容器化服务
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 15
 excerpt: 删除部署的应用程序
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

@@ -6,7 +6,7 @@ menuWeight: 28
 excerpt: 更新 Marathon pod
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

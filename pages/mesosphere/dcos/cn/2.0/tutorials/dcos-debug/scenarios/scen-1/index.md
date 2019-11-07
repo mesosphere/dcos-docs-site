@@ -4,7 +4,7 @@ title: 方案 1
 navigationTitle: 方案 1
 excerpt: 教程 - 资源分配
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
 #包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl

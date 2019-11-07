@@ -5,7 +5,7 @@ title: 多租户原始文件
 menuWeight: 90
 excerpt: DC/OS 中多租户的引物
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 概述

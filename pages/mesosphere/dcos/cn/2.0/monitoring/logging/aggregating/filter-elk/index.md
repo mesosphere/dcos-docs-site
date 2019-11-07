@@ -5,7 +5,7 @@ title: 使用 ELK 筛选日志
 menuWeight: 2
 excerpt: 筛选特定任务的日志输出
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

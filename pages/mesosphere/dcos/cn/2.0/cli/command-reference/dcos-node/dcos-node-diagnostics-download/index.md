@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: 下载诊断捆绑包
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

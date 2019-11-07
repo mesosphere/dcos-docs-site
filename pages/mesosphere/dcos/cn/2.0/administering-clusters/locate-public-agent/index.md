@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 查找公共代理 IP 地址
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 使用已声明的公共代理节点安装 DC/OS 后，您可以导航到公共代理节点的公用 IP 地址。您可以将代理面向公众的 IP 地址公开为网关，以访问在 DC/OS 群集中运行的服务。例如，如果要配置负载均衡以将入站请求分发到群集中的服务，请求通常通过公共 IP 地址前端路由到防火墙后隔离的适当服务实例后端。
 

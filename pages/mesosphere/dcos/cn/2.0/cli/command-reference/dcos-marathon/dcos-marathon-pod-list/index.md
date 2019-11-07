@@ -6,7 +6,7 @@ menuWeight: 25
 excerpt: 查看部署的 pod
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

@@ -4,7 +4,7 @@ navigationTitle: 本地用户账户
 title: 本地用户账户管理
 excerpt: 管理本地用户账户
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 20
 ---
 

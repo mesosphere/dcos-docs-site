@@ -6,7 +6,7 @@ menuWeight: 16
 excerpt: 取消正在进行的应用程序部署
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

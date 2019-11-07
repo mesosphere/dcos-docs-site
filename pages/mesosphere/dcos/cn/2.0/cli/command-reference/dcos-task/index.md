@@ -5,7 +5,7 @@ title: dcos task
 menuWeight: 16
 excerpt: 管理 DC/OS 任务
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

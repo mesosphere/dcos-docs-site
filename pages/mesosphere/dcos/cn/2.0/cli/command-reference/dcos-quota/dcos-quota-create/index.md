@@ -5,7 +5,7 @@ title: dcos quota create
 menuWeight: 1
 excerpt: 创建配额
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

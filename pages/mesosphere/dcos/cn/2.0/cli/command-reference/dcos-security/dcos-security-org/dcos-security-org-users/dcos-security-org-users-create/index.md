@@ -5,7 +5,7 @@ title: dcos security org users create
 menuWeight: 190
 excerpt: 创建新用户
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

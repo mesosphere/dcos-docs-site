@@ -4,7 +4,7 @@ navigationTitle: 故障排除
 title: 用户账户管理故障排除
 excerpt: 排除用户账户管理问题
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 50
 ---
 

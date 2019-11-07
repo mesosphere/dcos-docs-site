@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 使用 Cluster Link API 管理群集链接
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 您可以使用 Cluster Link API 管理群集链接。

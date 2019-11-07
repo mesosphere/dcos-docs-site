@@ -7,7 +7,7 @@ excerpt: 使用 CLI 和 UI 调试 DC/OS
 beta: true
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

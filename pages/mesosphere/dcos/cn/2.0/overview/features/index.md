@@ -4,7 +4,7 @@ navigationTitle:  特性
 title: 特性
 menuWeight: 3
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 excerpt: 了解 DC/OS 的独特特性
 ---
 

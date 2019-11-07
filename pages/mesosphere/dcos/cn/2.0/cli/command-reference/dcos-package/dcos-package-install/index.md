@@ -5,7 +5,7 @@ title: dcos package install
 menuWeight: 1
 excerpt: 安装软件包
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

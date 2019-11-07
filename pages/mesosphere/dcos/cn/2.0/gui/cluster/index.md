@@ -5,7 +5,7 @@ title: 群集
 menuWeight: 8
 excerpt: 使用群集菜单
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 从 UI，您可以查看单个群集或 [链接群集] 统计信息的摘要(/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/)。

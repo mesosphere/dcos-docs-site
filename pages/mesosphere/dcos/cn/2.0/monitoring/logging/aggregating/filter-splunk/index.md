@@ -5,7 +5,7 @@ title: 使用 Splunk 筛选日志
 menuWeight: 4
 excerpt: 使用 Splunk 筛选日志的系统路径
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

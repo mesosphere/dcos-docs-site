@@ -5,7 +5,7 @@ title: 仪表板
 menuWeight: 1
 excerpt: 使用仪表板监控群集的运行状况
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 仪表板是 DC/OS UI 的主页。像快照一样，它提供对有关 DC/OS 群集的高级概述。
 

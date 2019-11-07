@@ -5,7 +5,7 @@ title: dcos security cluster saml modify
 menuWeight: 80
 excerpt: 修改现有 SAML 提供程序配置
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

@@ -5,7 +5,7 @@ title: 在 DigitalOcean 上运行 DC/OS
 navigationTitle: DigitalOcean
 menuWeight: 40
 oss: true
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

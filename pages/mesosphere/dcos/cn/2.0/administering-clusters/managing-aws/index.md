@@ -6,7 +6,7 @@ menuWeight: 9
 excerpt: 扩展 AWS 群集
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 您可以扩展 AWS 群集或更改代理节点的数量。

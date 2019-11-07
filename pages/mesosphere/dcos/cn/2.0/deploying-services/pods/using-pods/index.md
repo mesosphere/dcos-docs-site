@@ -5,7 +5,7 @@ title: 使用 Pod
 menuWeight: 20
 excerpt: 通过 CLI 或 Marathon API 端点创建和管理 Pod
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

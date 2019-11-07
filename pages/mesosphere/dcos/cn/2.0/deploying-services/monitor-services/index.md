@@ -5,7 +5,7 @@ title: 监控服务
 menuWeight: 3
 excerpt: 从 CLI 和 UI 监控部署的 DC/OS 服务
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
