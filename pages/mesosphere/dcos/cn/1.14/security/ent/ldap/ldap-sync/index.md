@@ -1,0 +1,53 @@
+---
+layout: layout.pug
+navigationTitle: 同步
+title: LDAP 同步 
+menuWeight: 4
+excerpt: LDAP 同步
+enterprise: true
+渲染：胡须
+型号：/mesosphere/dcos/1.14/data.yml
+---
+
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
+# 背景
+
+DC/OS Enterprise 支持 [通过 LDAP 进行基于目录的身份认证](/mesosphere/dcos/1.14/security/ent/ldap/)。用户和用户组可以从外部目录导入 DC/OS IAM。查看[管理用户和组](/mesosphere/dcos/1.14/security/ent/users-groups/)。
+
+在较早版本的 DC/OS Enterprise 中，单击即可操作 LDAP 组导入和 LDAP 用户导入。如果用户已从外部目录中删除，则该用户将不会自动从 DC/OS IAM 中删除。同样，如果从目录导入“工程师”用户组，则必须将添加到该组的任何新用户明确添加到 DC/OS IAM。保持导入的用户和用户组在 DC/OS IAM 和目录之间同步对于大型组织的管理员来说是一项艰巨的任务。
+
+在 DC/OS Enterprise 1.12 中，我们添加了自动 LDAP 同步功能。该功能默认处于启用状态，每 30 分钟运行一次。该功能旨在保持 IAM 用户、IAM 用户组以及它们之间的关系能够与外部目录同步。
+
+<p class="message--note"><strong>注意：</strong>LDAP 同步定期发生。有时您会修改外部目录，例如，通过修改组成员身份或移除用户账户来执行权限撤销。在某些情况下，这些更改必须在几秒钟内反映在 DC/OS IAM 中，而不是几分钟，因此不能选择等待下一个 LDAP 同步事件。对于这些情况，您必须对 DC/OS IAM 进行等效更改，而不是等待下一个 LDAP 同步事件。</p>
+
+# LDAP 同步程序
+LDAP 同步仅识别从外部目录导入的 IAM 用户和用户组。LDAP 同步的目的是让导入的用户和用户组镜像对应其在外部目录中的副本。
+
+LDAP 同步程序从 IAM 收集用户集合、用户组和组成员资格详细信息，然后通过 LDAP 查询外部目录以查找相应的实体。接下来，它确定需要对 DC/OS IAM 执行哪些操作才能同步两个数据集。
+
+程序的逻辑如下：
+- 将从 IAM 中删除无法再在外部目录中找到的导入的 IAM 组。任何属于该组的用户都将独立保留 DC/OS IAM。
+- 将从 IAM 中删除无法再在外部目录中找到的导入的 IAM 用户。
+- 如果将用户“Alice”添加到外部目录中导入的“工程师”组，则将在 IAM 中创建新的“Alice”用户，并将其添加为现有“工程师”用户组的成员。如果先前已导入“Alice”用户，因此该用户已存在于 IAM 中，只需将其添加到“工程师”用户组即可。
+- 如果用户“Alice”是导入的“工程师”组的成员，然后在外部目录中删除，则该用户将从 IAM 的“工程师”组中删除。未从 IAM 中删除用户。
+
+<p class="message--note"><strong>注意：</strong>IAM 中的用户组通过什么策略与其在外部目录中的副本相关都取决于它们的名称。因此，重命名外部目录中的用户组相当于删除该用户组并创建具有相同成员集合的新用户组。重命名外部目录中的用户组时要小心！</p>
+
+# 操作详情
+LDAP 同步程序是由每个管理节点上的 DC/OS 组件执行的。它作为名为 `dcos-iam-ldap-sync.service` 的 `systemd` 服务运行，由 `dcos-iam-ldap-sync.timer` systemd 计时器装置定期触发。
+
+该程序在与当前的 Mesos 领导人对应的 DC/OS 管理节点上运行。如果该管理节点发生故障并由此触发 Mesos 领导人重新选举，则将在与新选中的 Mesos 领导人相对应的管理节点上执行 LDAP 同步程序。
+
+LDAP 同步的每次运行都将详细记录到 `systemd` 日志中。可以通过勾选与 Mesos 领导人对应的 DC/OS 管理节点上的记录来检查这些记录。
+
+安装时可配置确切的时长。请参阅 [高级配置] (/mesosphere/dcos/1.14/installing/production/advanced-configuration/)下的 [配置参考] (/mesosphere/dcos/1.14/installing/production/advanced-configuration/configuration-reference/)。
+
+# 导入有有效名称的组
+如果导入 LDAP 组名称用作 DC/OS 组，则请记住，要导入的 LDAP 组必须具有支持的组名称格式。
+
+要导入 LDAP 组，组名称必须符合以下要求：
+- 组名称必须至少包含 1-64 个字符。
+- 组名称只能包含支持的字母数字字符 **a** 到 **z**、**A** 到 **Z**、**0** 到 **9**、连字符 (-)、下划线 (*_*) 或 @。
+- 组名称不得包含空格或任何其他特殊字符。
+
+如果您尝试导入或同步 LDAP 条目时发现错误，请检查在 LDAP 身份存储库中定义的组名称是否包含无效的字符或名称格式。为避免 LDAP 名称冲突，请确保要导入和同步的组有有效的 DC/OS 名称格式。
