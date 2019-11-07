@@ -4,7 +4,7 @@ navigationTitle:  策略
 title: 策略
 excerpt: 教程 - 应用故障排除策略
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 21
 ---
 #包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl

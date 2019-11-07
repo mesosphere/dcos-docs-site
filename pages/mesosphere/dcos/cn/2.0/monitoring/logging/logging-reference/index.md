@@ -5,7 +5,7 @@ title: 记录参考
 menuWeight: 3
 excerpt: 使用日志记录 API
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: false
 ---

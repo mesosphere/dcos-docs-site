@@ -4,7 +4,7 @@ title: 方案 2
 navigationTitle: 方案 2
 excerpt: 教程 - 内存不足
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 11
 ---
 

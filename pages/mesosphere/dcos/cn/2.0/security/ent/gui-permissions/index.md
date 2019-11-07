@@ -5,7 +5,7 @@ title: 授予访问 UI 的权限
 menuWeight: 10
 excerpt: 授予访问 DC/OS UI 的权限
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

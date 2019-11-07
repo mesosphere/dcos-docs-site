@@ -4,7 +4,7 @@ navigationTitle:  群集链接
 title: 群集链接
 menuWeight: 0
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 excerpt: 管理群集链路
 enterprise: true
 ---

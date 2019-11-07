@@ -4,7 +4,7 @@ excerpt: 使用 CloudFormation、AzureRM 或其他 Terraform 模板安装 DC/OS�
 title: 其他安装方法
 navigationTitle: 其他安装方法
 menuWeight: 10
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

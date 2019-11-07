@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 管理群集之间的链接
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 群集链接是群集和另一群集之间的 **单向** 关系。

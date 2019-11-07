@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: 显示工作定义
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

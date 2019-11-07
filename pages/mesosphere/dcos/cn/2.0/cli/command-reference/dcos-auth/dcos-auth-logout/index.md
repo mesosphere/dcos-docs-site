@@ -5,7 +5,7 @@ title: dcos auth logout
 menuWeight: 3
 excerpt: 登出 DC/OS 群集
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: 教程
 menuWeight: 140
 excerpt: DC/OS 入门 
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

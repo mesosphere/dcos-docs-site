@@ -4,7 +4,7 @@ excerpt: DC/OS 101 教程第 7 部分
 title: 教程 - 了解资源
 navigationTitle: 了解资源
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 7
 ---
 

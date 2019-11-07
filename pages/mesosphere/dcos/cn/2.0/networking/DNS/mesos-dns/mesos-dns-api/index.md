@@ -5,7 +5,7 @@ title: Mesos DNS API
 menuWeight: 201
 excerpt: 使用 Mesos DNA API 发现 IP 地址和端口
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

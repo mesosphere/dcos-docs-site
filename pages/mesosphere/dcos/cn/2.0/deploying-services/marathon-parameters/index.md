@@ -5,7 +5,7 @@ title: Marathon 配置参考
 menuWeight: 0
 excerpt: 了解 Marathon 应用定义
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

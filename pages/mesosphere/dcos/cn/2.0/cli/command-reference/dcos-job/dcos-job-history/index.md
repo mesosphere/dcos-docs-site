@@ -5,7 +5,7 @@ title: dcos job history
 menuWeight: 1
 excerpt: 显示作业运行历史记录
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

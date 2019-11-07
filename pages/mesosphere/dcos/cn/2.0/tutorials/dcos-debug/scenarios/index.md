@@ -4,7 +4,7 @@ navigationTitle:  在 DC/OS 上练习部署调试方案
 title: 在 DC/OS 上练习部署调试方案
 excerpt: 教程 - 练习一些调试场景
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 31
 ---
 #包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl

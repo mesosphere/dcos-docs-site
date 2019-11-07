@@ -4,7 +4,7 @@ navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 excerpt: 卸载软件包
 enterprise: false
 ---

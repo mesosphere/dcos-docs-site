@@ -5,7 +5,7 @@ title: 配置服务
 menuWeight: 2
 excerpt: 使用 DC/OS CLI 配置服务
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

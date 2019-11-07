@@ -5,7 +5,7 @@ title: 日志记录快速入门
 menuWeight: 0
 excerpt: DC/OS 日志记录快速入门
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: false
 ---

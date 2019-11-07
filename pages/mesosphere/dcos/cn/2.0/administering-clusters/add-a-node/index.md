@@ -6,7 +6,7 @@ menuWeight: 800
 excerpt: 向现有 DC/OS 群集添加代理节点
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 在安装过程中，代理节点被指定为 [公共](/mesosphere/dcos/latest/overview/concepts/#public-agent-node) 或 [私有](/mesosphere/dcos/latest/overview/concepts/#private-agent-node)节点。默认情况下，它们在 GUI 或 CLI [安装](/mesosphere/dcos/latest/installing/evaluation/) 中被指定为私有节点。

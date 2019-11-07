@@ -5,7 +5,7 @@ title: 身份和访问管理 API
 menuWeight: 40
 excerpt: 使用 DC/OS 身份和访问管理 API
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

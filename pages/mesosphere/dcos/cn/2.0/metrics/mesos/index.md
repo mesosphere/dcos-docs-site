@@ -5,7 +5,7 @@ navigationTitle: Mesos 度量标准
 menuWeight: 3
 excerpt: 使用 Telegraf 监测 Mesos
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

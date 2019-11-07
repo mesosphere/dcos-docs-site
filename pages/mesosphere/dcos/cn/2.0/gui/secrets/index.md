@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: 使用“密钥”页面
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 您可以在“密钥”页面管理密钥和证书。

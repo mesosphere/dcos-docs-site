@@ -5,7 +5,7 @@ title: 节点
 menuWeight: 5
 excerpt: 使用“节点”页面
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 “节点”部分全面展示在整个群集中使用的所有节点。此屏幕有两个选项卡，即**代理节点** 和 **管理节点**。默认情况下，您将看到 **代理节点** 选项卡。

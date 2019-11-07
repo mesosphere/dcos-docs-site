@@ -4,7 +4,7 @@ title: 在 AWS EC2 Advanced 上运行 DC/OS
 navigationTitle: Advanced
 menuWeight: 10
 excerpt: 使用 AWS CloudFormation 模板创建和扩展 DC/OS 群集
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

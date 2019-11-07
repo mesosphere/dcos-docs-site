@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 将连接的群集链接到另一群集
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

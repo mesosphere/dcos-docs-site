@@ -6,7 +6,7 @@ menuWeight: 24
 excerpt: 停止一个或多个正在运行的 pod 实例
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

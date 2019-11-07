@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: 安装和管理 DC/OS 组件服务
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 组件管理 API 控制 DC/OS 组件服务的安装和管理。

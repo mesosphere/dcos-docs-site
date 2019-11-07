@@ -5,7 +5,7 @@ title: 组件
 menuWeight: 9
 excerpt: 使用组件菜单
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 “组件”选项卡显示 DC/OS 组件的快照。它显示了组件的名称和运行状况。

@@ -5,7 +5,7 @@ title: 部署作业
 menuWeight: 120
 excerpt: 在不安装单独服务的情况下创建作业
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: false
 ---

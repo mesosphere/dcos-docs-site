@@ -5,7 +5,7 @@ title: 快速入门
 menuWeight: 0
 excerpt: 从 CLI 或 UI 启动 pod
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

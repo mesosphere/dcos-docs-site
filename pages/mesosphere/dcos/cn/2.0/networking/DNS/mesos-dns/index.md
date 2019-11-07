@@ -5,7 +5,7 @@ title: Mesos-DNS
 menuWeight: 3
 excerpt: 了解 Mesos DNS
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

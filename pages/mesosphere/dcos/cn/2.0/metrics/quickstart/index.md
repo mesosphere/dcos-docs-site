@@ -5,7 +5,7 @@ title: 度量标准快速入门
 menuWeight: 1
 excerpt: DC/OS 度量标准入门
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: false
 ---
 

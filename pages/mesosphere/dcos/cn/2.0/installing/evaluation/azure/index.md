@@ -4,7 +4,7 @@ excerpt: 使用 Mesosphere Universal 安装工具在 Azure 上的 DC/OS 指南
 title: 使用 Universal 安装工具在 Azure 上的 DC/OS
 navigationTitle: Azure
 menuWeight: 2
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 800
 excerpt: 替换现有 DC/OS 群集中的管理节点
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 您可以替换现有 DC/OS 群集中的管理节点。但是，请记住，一次只能替换一个管理节点。以下步骤概述了如何替换 DC/OS 群集的管理节点。
 

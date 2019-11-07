@@ -4,7 +4,7 @@ title: 问题
 navigationTitle:  问题
 excerpt: 教程 - 排除 DC/OS 部署问题
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
 

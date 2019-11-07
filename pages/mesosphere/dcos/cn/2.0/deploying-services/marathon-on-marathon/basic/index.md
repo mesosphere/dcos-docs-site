@@ -5,7 +5,7 @@ title: 使用自定义 Marathon 实例部署服务
 menuWeight: 39
 excerpt: 使用基础非本地 Marathon 实例
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

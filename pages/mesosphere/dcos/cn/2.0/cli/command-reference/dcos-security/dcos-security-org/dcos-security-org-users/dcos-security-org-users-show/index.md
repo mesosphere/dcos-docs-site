@@ -5,7 +5,7 @@ title: dcos security org users show
 menuWeight: 210
 excerpt: 显示用户信息
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

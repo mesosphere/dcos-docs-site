@@ -5,7 +5,7 @@ title: dcos plugin
 menuWeight: 12
 excerpt: 安装和管理 DC/OS CLI 插件
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

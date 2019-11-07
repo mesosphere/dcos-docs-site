@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: LDAP 同步
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

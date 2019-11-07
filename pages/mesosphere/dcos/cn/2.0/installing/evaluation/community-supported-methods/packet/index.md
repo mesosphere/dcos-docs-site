@@ -5,7 +5,7 @@ title: 在 Packet 上运行 DC/OS
 navigationTitle: Packet
 menuWeight: 50
 oss: true
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

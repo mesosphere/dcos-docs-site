@@ -5,7 +5,7 @@ title: dcos marathon app stop
 menuWeight: 8
 excerpt: 停止应用程序
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

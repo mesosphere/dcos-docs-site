@@ -5,7 +5,7 @@ title: 日志记录 API 示例
 menuWeight: 4
 excerpt: 日志记录 API 示例
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: false
 ---

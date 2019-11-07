@@ -4,7 +4,7 @@ title: 基础
 navigationTitle: 基础
 menuWeight: 5
 excerpt: 使用 DC/OS 模板创建 DC/OS 群集
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 

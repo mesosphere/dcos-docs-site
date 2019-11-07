@@ -5,7 +5,7 @@ title: 存储
 menuWeight: 90
 excerpt: 在终止和重新启动时保存您的应用程序
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

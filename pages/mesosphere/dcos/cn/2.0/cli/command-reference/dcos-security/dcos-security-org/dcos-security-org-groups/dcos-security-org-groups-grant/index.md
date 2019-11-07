@@ -5,7 +5,7 @@ title: dcos security org groups grant
 menuWeight: 143
 excerpt: 授予群组权限
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

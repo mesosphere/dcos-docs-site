@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: 获取群集许可证审计记录
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

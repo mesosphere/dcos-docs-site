@@ -5,7 +5,7 @@ title: 使用 SDN
 menuWeight: 20
 excerpt: 使用软件定义的网络
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

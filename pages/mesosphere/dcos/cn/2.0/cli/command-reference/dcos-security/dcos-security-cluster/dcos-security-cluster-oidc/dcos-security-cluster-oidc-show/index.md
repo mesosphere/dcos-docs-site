@@ -5,7 +5,7 @@ title: dcos security cluster oidc show
 menuWeight: 65
 excerpt: 查看 DC/OS 证书颁发机构信息
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

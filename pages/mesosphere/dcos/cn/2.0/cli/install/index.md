@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: 安装 DC/OS 命令行界面
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 ---
 
 安装 DC/OS CLI 的建议方法是从 DC/OS UI 获取预先格式化的命令集，然后在终端运行这些命令。有关详细信息，请参阅操作系统的先决条件和说明：

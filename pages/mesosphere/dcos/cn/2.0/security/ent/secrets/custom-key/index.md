@@ -5,7 +5,7 @@ title: 使用自定义 GPG 密钥对重新初始化密钥存储库
 menuWeight: -1
 excerpt: 使用自定义 GPG 对重新初始化密钥存储库
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -5,7 +5,7 @@ title: 使用 ELK 进行日志管理
 menuWeight: 1
 excerpt: 从群集节点管理系统和应用程序日志
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

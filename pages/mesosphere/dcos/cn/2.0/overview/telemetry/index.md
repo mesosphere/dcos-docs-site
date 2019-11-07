@@ -5,7 +5,7 @@ title: 遥测
 menuWeight: 7
 excerpt: 了解遥测报告组件
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

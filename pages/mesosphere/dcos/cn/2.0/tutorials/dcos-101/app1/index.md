@@ -4,7 +4,7 @@ navigationTitle:  部署第一个应用程序
 excerpt: DC/OS 101 教程第 3 部分
 title: 教程 - 部署第一个应用程序
 render: mustache
-model：/mesosphere/dcos/2.0/data.yml
+model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 3
 ---
 
