@@ -32,6 +32,7 @@ You'll notice in the Create Konvoy Cluster form a variety of options for creatin
 - **Name**: A display name for referencing the cluster
 - **Node Pool Config**: Allows you to specify pools of nodes, their size, and quantity. By default, a control plane pool containing 3 large nodes and a worker pool containing 4 xlarge nodes are suggested by default. Additionally, you can specify labels and node taints as part of each pool.
 - **Add Labels**: By default, your cluster will have some suggested labels applied to it that reflect the cloud provider provisioning. For example, in AWS your cluster may be labelled with the datacenter region as well as `provider: aws`. Cluster labels are matched to the selectors created for projects. Changing a cluster’s labels may add or remove the cluster from projects.
+- **Add Cloud Provider Tags**: Allows you specify tags to be set on all resources created in your cloud provider for this cluster. You can add up to 10 tags in this form. Different cloud providers have varying restrictions on their tags. See the [AWS Tags User Guide][aws_tags] for more information about using tags in AWS.
 
 ### Creating a Konvoy Cluster via YAML
 
@@ -118,3 +119,4 @@ Services that have been installed on your management cluster. You can visit a cl
 Figure 2. Cluster detail page
 
 [k8s_resources]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
+[aws_tags]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html
