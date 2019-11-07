@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: NiFi 0.5.0-1.9.2
-title: NiFi 0.5.0-1.9.2
+navigationTitle: NiFi 1.0.0-1.9.2
+title: NiFi 1.0.0-1.9.2
 menuWeight: 1
-excerpt: Overview of DC/OS Apache NiFi 0.5.0-1.9.2
+excerpt: Overview of DC/OS Apache NiFi 1.0.0-1.9.2
 featureMaturity:
 community: true
 model: /mesosphere/dcos/services/nifi/data.yml
