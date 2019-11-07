@@ -5,8 +5,8 @@ title: dcos job remove
 menuWeight: 4
 excerpt: 删除作业
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

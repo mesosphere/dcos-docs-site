@@ -4,8 +4,8 @@ navigationTitle:  dcos task list
 title: dcos task list
 menuWeight: 2
 excerpt: 列出群集内的任务
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

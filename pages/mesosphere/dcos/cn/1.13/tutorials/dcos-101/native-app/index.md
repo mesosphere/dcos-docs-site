@@ -4,8 +4,8 @@ navigationTitle: 部署和公开本地应用程序
 title: 部署和公开本地应用程序
 excerpt: 使用 UCR 容器部署应用程序，并将其公开以便从群集外部进行访问（第 8 部分）
 menuWeight: 8
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 在[上一教程](/mesosphere/dcos/1.13/tutorials/dcos-101/app1/)中，您部署了一个在群集内部运行并与另一个也在群集内运行的应用程序（Redis 服务）进行交互的应用程序。两个应用程序都不在群集外部公开，也不可供任何外部用户使用。这是因为 DC/OS 支持在两种不同类型的节点上运行应用程序： **专用代理节点** 和 **公共代理节点**。
 

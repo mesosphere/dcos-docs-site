@@ -4,8 +4,8 @@ navigationTitle:  创建服务
 title: 创建服务
 menuWeight: 1
 excerpt: 使用 Marathon 定义 DC/OS 服务
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

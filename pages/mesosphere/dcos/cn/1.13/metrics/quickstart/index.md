@@ -4,8 +4,8 @@ navigationTitle:  快速入门
 title: 度量标准快速入门
 menuWeight: 1
 excerpt: DC/OS 度量标准入门
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 beta: false
 ---
 

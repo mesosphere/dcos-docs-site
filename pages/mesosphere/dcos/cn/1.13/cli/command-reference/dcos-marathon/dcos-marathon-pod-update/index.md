@@ -5,8 +5,8 @@ title: dcos marathon pod update
 menuWeight: 28
 excerpt: 更新 Marathon pod
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

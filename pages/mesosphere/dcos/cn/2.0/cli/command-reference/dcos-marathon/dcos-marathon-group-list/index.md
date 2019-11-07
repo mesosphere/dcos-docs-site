@@ -5,8 +5,8 @@ title: dcos marathon group list
 menuWeight: 18
 excerpt: 显示组列表
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

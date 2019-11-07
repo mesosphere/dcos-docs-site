@@ -4,8 +4,8 @@ navigationTitle:  CLI 规范
 title: CLI 规范
 menuWeight: 3
 excerpt: 使用命令行界面
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 本文档适用于创建新 DC/OS CLI 子命令的开发人员。另请参阅 [{{ model.packageRepo }} 入门指南][1]。

@@ -112,9 +112,9 @@ MS.metadata({
     env: process.env.NODE_ENV,
     gitBranch: GIT_BRANCH,
     dcosDocsLatest: '2.0',
-    dcosCNDocsLatest: '1.12',
+    dcosCNDocsLatest: '2.0',
     konvoyDocsLatest: 'latest',
-    kommanderDocsLatest: '0.1',
+    kommanderDocsLatest: 'latest',
 });
 
 // Source

@@ -4,8 +4,8 @@ navigationTitle:  dcos auth logout
 title: dcos auth logout
 menuWeight: 3
 excerpt: 登出 DC/OS 群集
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

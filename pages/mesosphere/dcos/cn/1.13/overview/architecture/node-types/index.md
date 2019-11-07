@@ -4,8 +4,8 @@ navigationTitle:  节点类型
 title: 节点类型
 menuWeight: 1
 excerpt: 了解三种节点
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

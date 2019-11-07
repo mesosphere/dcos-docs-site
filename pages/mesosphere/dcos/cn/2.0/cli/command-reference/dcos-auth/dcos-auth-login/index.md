@@ -5,8 +5,8 @@ title: dcos auth login
 menuWeight: 2
 excerpt: 登录到 DC/OS 群集
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

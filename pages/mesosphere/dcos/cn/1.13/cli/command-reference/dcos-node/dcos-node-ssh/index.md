@@ -4,8 +4,8 @@ navigationTitle:  dcos node ssh
 title: dcos node ssh
 menuWeight: 15
 excerpt: 建立与主节点或代理节点的 SSH 连接
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -5,8 +5,8 @@ title: 在 Packet 上运行 DC/OS
 navigationTitle: Packet
 menuWeight: 50
 oss: true
-模型：/mesosphere/dcos/1.13/data.yml
-渲染：胡须
+model：/mesosphere/dcos/1.13/data.yml
+render: mustache
 ---
 
 <p class="message--warning"><strong>免责声明：</strong>这是<a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">社区推动的项目</a>，未正式获得 Mesosphere 支持。这种安装方法用于快速演示和验证概念。本页说明如何使用 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。Terraform 仅供参考，不建议用于生产目的。下列安装方法不支持升级。</p>

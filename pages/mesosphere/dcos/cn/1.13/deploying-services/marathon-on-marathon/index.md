@@ -4,8 +4,8 @@ navigationTitle:  使用自定义 Marathon
 title: 使用自定义 Marathon
 menuWeight: 39
 excerpt: 部署非本地 Marathon 实例
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

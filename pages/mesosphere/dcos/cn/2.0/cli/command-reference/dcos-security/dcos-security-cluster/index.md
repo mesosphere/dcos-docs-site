@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster
 title: dcos security cluster
 menuWeight: 10
 excerpt: 群集管理命令
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

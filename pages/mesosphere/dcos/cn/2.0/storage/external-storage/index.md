@@ -4,8 +4,8 @@ navigationTitle:  外部持久卷
 title: 外部持久卷
 menuWeight: 20
 excerpt: 通过 Marathon 使用外部持久卷
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: false
 ---

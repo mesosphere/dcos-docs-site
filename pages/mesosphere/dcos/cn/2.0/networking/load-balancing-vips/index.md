@@ -4,8 +4,8 @@ navigationTitle:  负载均衡和虚拟 IP (VIP)
 title: 负载均衡和虚拟 IP (VIP)
 menuWeight: 1
 excerpt: 了解负载均衡和虚拟 IP
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

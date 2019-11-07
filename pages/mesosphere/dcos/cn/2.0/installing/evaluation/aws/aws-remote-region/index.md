@@ -5,8 +5,8 @@ title: 使用 Universal 安装工具在 AWS 上的多分域 DC/OS
 navigationTitle: AWS 多分域支持
 menuWeight: 1
 enterprise: true
-型号：/mesosphere/dcos/2.0/data.yml
-渲染：胡须
+model：/mesosphere/dcos/2.0/data.yml
+render: mustache
 ---
 
 #包括 /mesosphere/dcos/install-include/aws-remote-region-all.tmpl

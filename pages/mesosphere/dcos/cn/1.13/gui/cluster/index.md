@@ -4,8 +4,8 @@ navigationTitle:  群集
 title: 群集
 menuWeight: 8
 excerpt: 使用群集菜单
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 群集菜单有两个选项卡：

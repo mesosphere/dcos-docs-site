@@ -4,8 +4,8 @@ navigationTitle:  授予访问 Mesos GUI 的权限
 title: 授予访问 Mesos GUI 的权限
 menuWeight: 31
 excerpt: 授予访问 Mesos GUI 的权限
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

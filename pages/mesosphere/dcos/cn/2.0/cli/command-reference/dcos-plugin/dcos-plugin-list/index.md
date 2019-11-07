@@ -4,8 +4,8 @@ navigationTitle:  dcos plugin list
 title: dcos plugin list
 menuWeight: 2
 excerpt: 显示已安装的 CLI 插件列表
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

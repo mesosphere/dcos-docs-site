@@ -5,8 +5,8 @@ title: dcos diagnostics create
 menuWeight: 3
 excerpt: 创建诊断捆绑包
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

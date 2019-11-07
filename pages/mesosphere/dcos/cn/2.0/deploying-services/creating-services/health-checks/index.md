@@ -4,8 +4,8 @@ navigationTitle:  状况检查
 title: 状况检查
 menuWeight: 200
 excerpt: 定义 DC/OS 服务的运行状况检查
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

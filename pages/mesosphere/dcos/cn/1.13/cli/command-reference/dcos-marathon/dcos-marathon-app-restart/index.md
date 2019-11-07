@@ -5,8 +5,8 @@ title: dcos marathon app restart
 menuWeight: 5
 excerpt: 重新启动应用程序
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

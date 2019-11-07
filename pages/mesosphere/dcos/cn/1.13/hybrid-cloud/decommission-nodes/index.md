@@ -4,8 +4,8 @@ navigationTitle:  停用节点
 title: 停用节点
 menuWeight: 15
 excerpt: 停用节点
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

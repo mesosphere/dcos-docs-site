@@ -5,8 +5,8 @@ title: 添加本地用户
 menuWeight: 10
 excerpt: 使用 Web 界面或 CLI 添加本地用户
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

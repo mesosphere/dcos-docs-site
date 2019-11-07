@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  身份认证
 title: 身份认证
 excerpt: 针对 DC/OS 验证用户
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 30
 ---
 

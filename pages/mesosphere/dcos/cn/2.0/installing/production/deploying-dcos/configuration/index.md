@@ -4,8 +4,8 @@ navigationTitle:  # 配置
 title: # 配置
 menuWeight: 5
 excerpt: 使用 YAML 文件配置 DC/OS 参数
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

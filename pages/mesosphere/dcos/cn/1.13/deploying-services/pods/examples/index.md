@@ -4,8 +4,8 @@ navigationTitle: Pod 示例
 title: Pod 示例
 menuWeight: 30
 excerpt: 了解字段定义和 Pod 示例
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

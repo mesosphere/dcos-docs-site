@@ -5,8 +5,8 @@ title: dcos job kill
 menuWeight: 2
 excerpt: 结束 DC/OS 作业
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

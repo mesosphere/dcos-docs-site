@@ -4,8 +4,8 @@ title: 在 DC/OS 上运行有状态服务
 navigationTitle: 在 DC/OS 上运行有状态服务
 menuWeight: 2
 excerpt: 教程 - 在 DC/OS 上运行有状态服务
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 #包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl

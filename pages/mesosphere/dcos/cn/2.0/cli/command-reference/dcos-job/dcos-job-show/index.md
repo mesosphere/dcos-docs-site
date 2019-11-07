@@ -5,8 +5,8 @@ title: dcos job show
 menuWeight: 10
 excerpt: 显示工作定义
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

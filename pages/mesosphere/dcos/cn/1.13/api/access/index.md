@@ -5,8 +5,8 @@ title: 群集访问
 menuWeight: 1
 excerpt: 获取群集 URL 的访问权限
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 # 获取群集 URL 的访问权限

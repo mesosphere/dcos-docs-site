@@ -5,8 +5,8 @@ title: 权限参考
 menuWeight: 40
 excerpt: 了解 DC/OS 访问和权限参考
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

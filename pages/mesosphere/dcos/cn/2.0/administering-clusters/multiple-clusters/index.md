@@ -4,8 +4,8 @@ navigationTitle:  多群集
 title: 多群集
 menuWeight: 3
 excerpt: 使用 DC/OS 管理多群集
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 组织通常部署和管理多个 DC/OS 群集。多群集用于隔离（例如，测试与生产）、适应地理分布等等情境。DC/OS 多群集操作可让操作员和用户轻松管理和访问多个 DC/OS 群集。

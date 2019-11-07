@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  策略
 title: 策略
 excerpt: 教程 - 应用故障排除策略
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 21
 ---
 #包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl

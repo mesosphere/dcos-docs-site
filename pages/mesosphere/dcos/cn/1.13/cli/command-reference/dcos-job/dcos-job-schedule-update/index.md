@@ -5,8 +5,8 @@ title: dcos job schedule update
 menuWeight: 9
 excerpt: 更新作业时间表
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

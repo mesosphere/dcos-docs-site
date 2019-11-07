@@ -5,8 +5,8 @@ title: 卸载 CLI
 menuWeight: 4
 excerpt: 卸载 DC/OS 命令行界面
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 您可以使用这些命令为操作系统卸载 CLI。

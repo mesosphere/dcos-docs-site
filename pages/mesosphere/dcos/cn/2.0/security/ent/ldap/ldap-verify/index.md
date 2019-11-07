@@ -5,8 +5,8 @@ title: 验证
 menuWeight: 3
 excerpt: 验证与 LDAP 服务器的连接
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

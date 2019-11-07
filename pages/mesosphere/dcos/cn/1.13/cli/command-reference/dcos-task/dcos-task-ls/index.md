@@ -4,8 +4,8 @@ navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 7
 excerpt: 显示 Mesos 任务目录中的文件列表
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

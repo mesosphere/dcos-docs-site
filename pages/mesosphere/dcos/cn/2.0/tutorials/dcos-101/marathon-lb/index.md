@@ -3,8 +3,8 @@ layout: layout.pug
 excerpt: DC/OS 101 教程第 6 部分
 title: 教程 - 公开应用程序
 navigationTitle: 公开应用程序
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 6
 ---
 

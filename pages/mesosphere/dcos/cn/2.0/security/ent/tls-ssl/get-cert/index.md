@@ -3,8 +3,8 @@ layout: layout.pug
 title: 获取 DC/OS CA 捆绑包
 menuWeight: 100
 excerpt: 获取 DC/OS CA 捆绑包
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

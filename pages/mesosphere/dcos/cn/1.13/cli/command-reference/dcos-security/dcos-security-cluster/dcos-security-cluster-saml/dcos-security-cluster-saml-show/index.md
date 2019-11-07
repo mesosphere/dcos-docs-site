@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster saml show
 title: dcos security cluster saml show
 menuWeight: 85
 excerpt: 查看现有 SAML 提供程序配置
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

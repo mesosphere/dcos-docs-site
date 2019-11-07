@@ -4,8 +4,8 @@ navigationTitle:  部署作业
 title: 部署作业
 menuWeight: 120
 excerpt: 在不安装单独服务的情况下创建作业
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 beta: true
 enterprise: false
 ---

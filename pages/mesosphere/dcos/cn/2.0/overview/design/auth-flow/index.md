@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  认证架构
 excerpt: 了解认证操作
 title: 认证架构
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
 

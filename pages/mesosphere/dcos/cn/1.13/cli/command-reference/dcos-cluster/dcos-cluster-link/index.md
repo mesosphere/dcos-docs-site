@@ -5,8 +5,8 @@ title: dcos cluster link
 menuWeight: 3
 excerpt: 将连接的群集链接到另一群集
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

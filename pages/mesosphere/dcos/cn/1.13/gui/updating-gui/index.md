@@ -5,8 +5,8 @@ title: 更新 GUI
 menuWeight: 90
 excerpt: DCOS GUI 更新服务 
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 DC/OS GUI 更新服务使用发布到 {{ model.packageRepo }} 的新版本更新当前版本的 DC/OS GUI。此服务允许您更新 GUI，而无需更新 DC/OS 版本。

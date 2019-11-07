@@ -4,8 +4,8 @@ navigationTitle:  分布式进程管理
 title: 分布式进程管理
 menuWeight: 5
 excerpt: 了解 DC/OS 群集中的分布式进程管理
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -5,8 +5,8 @@ title: dcos license
 excerpt: 管理您的 DC/OS 许可证
 menuWeight: 9
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 `dcos license` 命令允许您查看许可证的状态、审核您的许可证以及获取或更新许可证。
 

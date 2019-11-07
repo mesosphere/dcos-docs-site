@@ -4,8 +4,8 @@ navigationTitle: 登录
 title: 登录
 excerpt: 登录到 DC/OS 群集
 menuWeight: 20
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

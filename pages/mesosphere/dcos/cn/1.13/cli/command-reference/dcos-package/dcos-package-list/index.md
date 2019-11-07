@@ -4,8 +4,8 @@ navigationTitle:  dcos package list
 title: dcos package list
 menuWeight: 2
 excerpt: 显示已安装的 DC/OS 软件包列表
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

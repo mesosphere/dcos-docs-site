@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: 配额管理
 title: 配额管理
 menuWeight: 5
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 excerpt: 为多租户使用组和配额管理
 ---
 组为支持使用 DC/OS 的多租户群集而提供基础。组让您能够创建服务、权限、密匙和配额的逻辑集合。然后，您可以使用这些逻辑集合将组映射到特定团队、项目或业务线。

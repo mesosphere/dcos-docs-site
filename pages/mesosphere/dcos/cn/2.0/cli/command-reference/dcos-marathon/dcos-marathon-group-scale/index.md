@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon group scale
 title: dcos marathon group scale
 menuWeight: 20
 excerpt: 扩展组
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

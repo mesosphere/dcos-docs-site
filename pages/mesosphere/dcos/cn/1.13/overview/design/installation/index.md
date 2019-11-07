@@ -3,8 +3,8 @@ layout: layout.pug
 excerpt: 了解安装过程的工作原理
 title: 安装设计
 navigationTitle: 安装
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 menuWeight: 4
 ---
 

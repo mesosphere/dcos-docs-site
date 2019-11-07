@@ -4,8 +4,8 @@ navigationTitle:  安全计算配置文件
 title: 安全计算配置文件
 menuWeight: 31
 excerpt: 介绍如何配置 DC/OS 以使用 Linux 安全计算 (seccomp) 配置文件
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml 
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml 
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

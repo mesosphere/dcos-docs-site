@@ -5,8 +5,8 @@ title: 重置超级用户
 menuWeight: 30
 excerpt: 使用 DC/OS 重置超级用户脚本重置现有用户或创建新用户
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

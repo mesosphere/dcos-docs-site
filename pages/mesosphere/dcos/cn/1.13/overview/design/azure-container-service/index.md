@@ -3,8 +3,8 @@ layout: layout.pug
 excerpt: 了解 DC/OS 如何实现 Azure 容器服务
 title: Azure 容器服务
 navigationTitle: ACS
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 menuWeight: 2
 ---
 

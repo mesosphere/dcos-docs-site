@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster secret-store unseal
 title: dcos security cluster secret-store unseal
 menuWeight: 115
 excerpt: 拆封密钥存储库
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # 说明

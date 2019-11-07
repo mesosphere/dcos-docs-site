@@ -5,8 +5,8 @@ title: dcos node diagnostics delete
 menuWeight: 4
 excerpt: 显示诊断捆绑包的详细信息
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

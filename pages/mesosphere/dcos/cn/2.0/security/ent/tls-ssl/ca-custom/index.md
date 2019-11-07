@@ -5,8 +5,8 @@ title: 配置自定义 CA 证书
 menuWeight: 50
 excerpt: 配置 DC/OS Enterprise 以使用自定义 CA 证书
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

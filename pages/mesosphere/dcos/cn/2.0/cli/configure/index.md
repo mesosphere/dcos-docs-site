@@ -5,8 +5,8 @@ title: 配置 CLI
 menuWeight: 2
 excerpt: 配置命令行界面
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 您可以使用 [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) 和 [dcos confi](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) 命令组访问 DC/OS CLI 配置。

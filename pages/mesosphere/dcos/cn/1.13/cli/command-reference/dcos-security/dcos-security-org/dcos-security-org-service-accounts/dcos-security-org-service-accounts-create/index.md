@@ -4,8 +4,8 @@ navigationTitle:  dcos security org service-accounts create
 title: dcos security org service-accounts create
 menuWeight: 165
 excerpt: 创建服务帐户
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

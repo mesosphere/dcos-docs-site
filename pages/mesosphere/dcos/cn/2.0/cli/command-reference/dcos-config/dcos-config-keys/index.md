@@ -5,7 +5,7 @@ title: dcos config keys
 menuWeight: 1
 excerpt: 检索 DC/OS 配置属性密钥列表
 enterprise: false
-渲染：胡须
+render: mustache
 型号：/mesosphere/dcos/data.yml
 ---
 

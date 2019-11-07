@@ -4,8 +4,8 @@ navigationTitle:  常见问题
 title: 常见问题
 menuWeight: 120
 excerpt: 关于部署 Marathon 服务的常见问题
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

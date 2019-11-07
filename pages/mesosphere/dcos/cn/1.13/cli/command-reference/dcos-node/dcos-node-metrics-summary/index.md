@@ -4,8 +4,8 @@ navigationTitle:  dcos node metrics summary
 title: dcos node metrics summary
 menuWeight: 11
 excerpt: 汇总 Mesos 代理节点的详细信息
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

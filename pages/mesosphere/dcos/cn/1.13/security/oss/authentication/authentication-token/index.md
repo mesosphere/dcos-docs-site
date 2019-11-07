@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: DC/OS 认证令牌
 title: DC/OS 认证令牌
 excerpt: 了解 DC/OS 认证令牌
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 menuWeight: 10
 ---
 

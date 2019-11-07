@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster directory import_group
 title: dcos security cluster directory import_group
 menuWeight: 33
 excerpt: 导入一个 LDAP 组
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

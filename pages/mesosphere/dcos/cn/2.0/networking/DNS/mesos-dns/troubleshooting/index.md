@@ -4,8 +4,8 @@ navigationTitle:  “故障排除”
 title: “故障排除”
 menuWeight: 400
 excerpt: Mesos DNS 故障排除
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

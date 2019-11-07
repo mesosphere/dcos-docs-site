@@ -4,8 +4,8 @@ navigationTitle:  dcos node dns
 title: dcos node dns
 menuWeight: 6
 excerpt: 查看 DC/OS 节点信息
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

@@ -5,8 +5,8 @@ title: dcos marathon pod show
 menuWeight: 27
 excerpt: 显示特定 pod 的详细信息
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

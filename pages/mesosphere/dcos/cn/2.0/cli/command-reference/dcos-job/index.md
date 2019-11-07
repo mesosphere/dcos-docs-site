@@ -5,8 +5,8 @@ title: dcos job
 menuWeight: 8
 excerpt: 在 DC/OS 中部署和管理作业
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

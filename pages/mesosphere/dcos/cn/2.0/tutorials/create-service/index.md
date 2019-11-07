@@ -4,8 +4,8 @@ navigationTitle:  创建和运行服务
 title: 教程 - 创建和运行服务
 menuWeight: 1
 excerpt: 创建和部署服务及容器化服务
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

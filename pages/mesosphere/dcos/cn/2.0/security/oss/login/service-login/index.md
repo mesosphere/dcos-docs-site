@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  服务登录
 title: 服务登录
 excerpt: 以服务身份登录到 DC/OS
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 30
 ---
 

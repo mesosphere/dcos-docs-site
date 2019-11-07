@@ -4,8 +4,8 @@ navigationTitle:  dcos cluster
 title: dcos cluster
 menuWeight: 3
 excerpt: 管理与 DC/OS 群集的连接
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -4,8 +4,8 @@ navigationTitle:  dcos security org groups members
 title: dcos security org groups members
 menuWeight: 145
 excerpt: 列出组成员
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # 说明

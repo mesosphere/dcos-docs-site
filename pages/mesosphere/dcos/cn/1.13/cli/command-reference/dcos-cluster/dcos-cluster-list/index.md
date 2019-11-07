@@ -5,8 +5,8 @@ title: dcos cluster list
 menuWeight: 3
 excerpt: 列出已连接的群集
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

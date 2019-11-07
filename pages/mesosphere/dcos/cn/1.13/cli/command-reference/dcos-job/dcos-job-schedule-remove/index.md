@@ -4,8 +4,8 @@ navigationTitle:  dcos job schedule remove
 title: dcos job schedule remove
 menuWeight: 7
 excerpt: 删除作业时间表
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

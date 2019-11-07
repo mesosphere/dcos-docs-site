@@ -5,8 +5,8 @@ title: dcos backup
 menuWeight: 2
 excerpt: 创建备份并从其中恢复
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

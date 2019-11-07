@@ -4,8 +4,8 @@ navigationTitle:  dcos security org users create
 title: dcos security org users create
 menuWeight: 190
 excerpt: 创建新用户
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

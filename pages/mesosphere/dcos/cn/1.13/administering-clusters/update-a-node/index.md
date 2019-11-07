@@ -5,8 +5,8 @@ title: 更新节点
 menuWeight: 801
 excerpt: 更新活动 DC/OS 群集中的代理节点
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 您可以使用维护窗口或通过手动终止代理来更新活动 DC/OS 群集中的代理节点。维护窗口是首选方法，因为这通常更稳定，不容易出错。

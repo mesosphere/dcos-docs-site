@@ -4,8 +4,8 @@ navigationTitle:  授予对 Services 选项卡的访问权限
 title: 授予对 Services 选项卡的访问权限
 menuWeight: 10
 excerpt: 授予对 Services 选项卡的访问权限
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

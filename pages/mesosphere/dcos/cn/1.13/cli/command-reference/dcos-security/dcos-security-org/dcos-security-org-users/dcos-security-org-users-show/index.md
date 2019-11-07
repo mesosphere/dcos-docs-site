@@ -4,8 +4,8 @@ navigationTitle:  dcos security org users show
 title: dcos security org users show
 menuWeight: 210
 excerpt: 显示用户信息
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

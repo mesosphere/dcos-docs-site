@@ -4,8 +4,8 @@ navigationTitle:  dcos security org groups delete
 title: dcos security org groups delete
 menuWeight: 140
 excerpt: 删除组
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 # 说明

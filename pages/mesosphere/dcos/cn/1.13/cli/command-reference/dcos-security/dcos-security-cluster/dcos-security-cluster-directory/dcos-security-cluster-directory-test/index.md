@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster directory test
 title: dcos security cluster directory test
 menuWeight: 40
 excerpt: 测试与 LDAP 后端的连接
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # 说明

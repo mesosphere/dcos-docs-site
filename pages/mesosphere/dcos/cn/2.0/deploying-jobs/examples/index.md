@@ -4,8 +4,8 @@ navigationTitle:  示例
 title: 作业示例
 menuWeight: 20
 excerpt: 作业常见使用情景示例。
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: true
 ---

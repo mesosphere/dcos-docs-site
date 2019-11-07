@@ -4,8 +4,8 @@ navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
 excerpt: 了解 Mesos DNS
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

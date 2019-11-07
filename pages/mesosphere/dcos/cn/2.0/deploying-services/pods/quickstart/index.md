@@ -4,8 +4,8 @@ navigationTitle:  快速入门
 title: 快速入门
 menuWeight: 0
 excerpt: 从 CLI 或 UI 启动 pod
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

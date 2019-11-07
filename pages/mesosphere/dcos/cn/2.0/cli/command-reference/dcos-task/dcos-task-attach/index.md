@@ -4,8 +4,8 @@ navigationTitle:  dcos task attach
 title: dcos task attach
 menuWeight: 1
 excerpt: 在任务容器内部连接进程
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

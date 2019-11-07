@@ -4,8 +4,8 @@ navigationTitle:  授予 dcos 任务执行的访问权限
 title: 授予 dcos 任务执行的访问权限
 menuWeight: 10
 excerpt: 授予调试的访问权限
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: true
 ---

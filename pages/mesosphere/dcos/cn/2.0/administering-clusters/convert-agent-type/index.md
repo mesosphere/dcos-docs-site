@@ -5,8 +5,8 @@ title: 转换代理节点类型
 menuWeight: 700
 excerpt: 将代理节点转换为公共或私有代理节点。
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 您可以将代理节点转换为现有 DC/OS 群集的公共或私有节点。

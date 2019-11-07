@@ -5,8 +5,8 @@ title: dcos marathon pod kill
 menuWeight: 24
 excerpt: 停止一个或多个正在运行的 pod 实例
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

@@ -4,8 +4,8 @@ navigationTitle:  Pod
 title: Pod
 menuWeight: 85
 excerpt: 使用 pod 共享组资源
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -4,8 +4,8 @@ title: 向 Datadog 导出 DC/OS 度量标准
 navigationTitle: 向 Datadog 导出 DC/OS 度量标准
 menuWeight: 4
 excerpt: 向 Datadog 发送 DC/OS 度量标准
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 beta: true
 ---
 

@@ -2,8 +2,8 @@
 layout: layout.pug
 excerpt: 使用 DC/OS 开源管理数据中心的安全
 title: DC/OS 开源安全
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 80
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

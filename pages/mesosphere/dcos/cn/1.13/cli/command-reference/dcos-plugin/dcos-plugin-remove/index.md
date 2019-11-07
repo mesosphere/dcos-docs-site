@@ -4,8 +4,8 @@ navigationTitle:  dcos plugin remove
 title: dcos plugin remove
 menuWeight: 7
 excerpt: 卸载插件
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

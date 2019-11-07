@@ -4,8 +4,8 @@ navigationTitle:  dcos quota get
 title: dcos quota get
 menuWeight: 1
 excerpt: 获取配额
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

@@ -3,8 +3,8 @@ layout: layout.pug
 excerpt: 在 Admin Router 前配置 HAProxy
 title: HAProxy 和 Admin Router
 navigationTitle: HAProxy 和 Admin Router
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 50
 ---
 

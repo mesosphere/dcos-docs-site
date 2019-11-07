@@ -5,8 +5,8 @@ title: 关闭和停用节点
 menuWeight: 810
 excerpt: 关闭和停用代理节点
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 在 DC/OS 1.12 及更高版本中，删除节点涉及两个步骤：

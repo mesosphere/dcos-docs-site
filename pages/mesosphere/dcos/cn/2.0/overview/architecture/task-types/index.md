@@ -4,8 +4,8 @@ navigationTitle:  任务类型
 title: 任务类型
 menuWeight: 2
 excerpt: 了解 Mesos 任务
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

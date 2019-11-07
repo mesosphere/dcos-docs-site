@@ -5,8 +5,8 @@ title: dcos
 menuWeight: 0
 excerpt: 管理您的 DC/OS 安装
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

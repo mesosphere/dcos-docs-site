@@ -5,8 +5,8 @@ title: SSH 至节点
 menuWeight: 0
 excerpt: 与您的 DC/OS 群集建立 SSH 连接 
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

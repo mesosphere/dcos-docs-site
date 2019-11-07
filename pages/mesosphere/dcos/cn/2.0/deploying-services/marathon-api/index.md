@@ -4,8 +4,8 @@ navigationTitle:  Marathon  API
 title: Marathon  API
 menuWeight: 40
 excerpt: 使用 Marathon  API 管理长期运行的容器化服务
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

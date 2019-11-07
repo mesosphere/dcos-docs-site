@@ -5,8 +5,8 @@ title: dcos cluster setup
 menuWeight: 6
 excerpt: 配置 CLI 以便与群集通信
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

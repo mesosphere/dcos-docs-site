@@ -4,8 +4,8 @@ navigationTitle:  升级
 title: 升级
 menuWeight: 25
 excerpt: 升级 DC/OS 群集
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 升级是指在主要版本之间移动以添加新特性，或以新特性/功能替代现有特性的过程。只有您使用高级安装过程在群集上安装 DC/OS 时，才能升级 DC/OS。

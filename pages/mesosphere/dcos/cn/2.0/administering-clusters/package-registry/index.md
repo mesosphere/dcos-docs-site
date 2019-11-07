@@ -5,8 +5,8 @@ title: 包注册表
 menuWeight: 50
 excerpt: 使用 Web 界面或 CLI 管理包资源库
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

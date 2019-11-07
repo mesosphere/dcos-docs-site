@@ -4,8 +4,8 @@ navigationTitle:  备份和恢复
 title: 备份和恢复
 menuWeight: 7
 excerpt: 备份和恢复群集的重要部分
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 --- 
 
 您可能希望在执行升级或降级之前备份群集。如果升级过程中发生错误或安装了未按预期执行的 {{ model.packageRepo }} 包，则可能需要将群集恢复至已知的良好状态。

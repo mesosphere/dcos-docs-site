@@ -4,8 +4,8 @@ navigationTitle:  挂载磁盘资源
 title: 挂载磁盘资源
 menuWeight: 0
 excerpt: 使用 Mesos 挂载存储资源
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

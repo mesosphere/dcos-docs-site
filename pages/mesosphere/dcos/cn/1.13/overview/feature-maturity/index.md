@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  特性成熟度
 title: 特性成熟度
 menuWeight: 10
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 excerpt: 了解 Mesosphere 的特性成熟度生命周期
 
 enterprise: false

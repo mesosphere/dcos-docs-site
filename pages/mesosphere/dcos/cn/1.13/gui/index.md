@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  GUI
 title: GUI
 menuWeight: 40
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 excerpt: 使用 UI 进行 DC/OS 管理
 ---
 

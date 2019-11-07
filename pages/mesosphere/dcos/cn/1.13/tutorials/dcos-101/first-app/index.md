@@ -4,8 +4,8 @@ navigationTitle:  部署第一个应用程序
 title: 部署第一个应用程序
 excerpt: 介绍如何在群集上定义和部署示例服务实例（第 4 部分）
 menuWeight: 4
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 现在您已了解如何从 DC/OS 包资源库搜索和安装服务，那么您可以开始部署使用该服务的应用程序了。
 

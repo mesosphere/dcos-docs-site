@@ -4,8 +4,8 @@ navigationTitle:  架构
 title: 架构
 menuWeight: 2
 excerpt: 了解 DC/OS 架构
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

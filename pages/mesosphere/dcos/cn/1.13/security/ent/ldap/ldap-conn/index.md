@@ -4,8 +4,8 @@ navigationTitle:  连接
 title: 连接 
 menuWeight: 1
 excerpt: 配置与 LDAP 服务器的连接 
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -5,8 +5,8 @@ title: dcos cluster remove
 menuWeight: 4
 excerpt: 从 DC/OS CLI 中删除连接的群集
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

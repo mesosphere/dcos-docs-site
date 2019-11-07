@@ -5,8 +5,8 @@ title: dcos job update
 menuWeight: 12
 excerpt: 更新工作
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

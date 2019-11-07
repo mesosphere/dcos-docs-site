@@ -4,8 +4,8 @@ navigationTitle:  Docker Engine
 title: Docker Engine
 menuWeight: 20
 excerpt: 从 Docker 镜像启动 Docker 容器
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

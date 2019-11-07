@@ -6,8 +6,8 @@ menuWeight: 115
 excerpt: 使用 CLI 和 UI 调试 DC/OS
 beta: true
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

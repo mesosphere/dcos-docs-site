@@ -4,8 +4,8 @@ navigationTitle:  dcos package search
 title: dcos package search
 menuWeight: 6
 excerpt: 搜索软件包存储库
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

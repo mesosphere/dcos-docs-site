@@ -5,8 +5,8 @@ title: CLI 插件
 menuWeight: 5
 excerpt: 如何扩展命令行界面
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 插件扩展了 CLI 的功能，用于针对群集的操作。

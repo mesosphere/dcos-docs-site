@@ -4,8 +4,8 @@ navigationTitle:  云安装
 title: 云安装
 menuWeight: 10
 excerpt: 使用 Mesosphere Universal 安装工具在云环境中安装 DC/OS 的指南
-模型：/mesosphere/dcos/1.13/data.yml
-渲染：胡须
+model：/mesosphere/dcos/1.13/data.yml
+render: mustache
 ---
 
 # 关于 Mesosphere Universal 安装工具

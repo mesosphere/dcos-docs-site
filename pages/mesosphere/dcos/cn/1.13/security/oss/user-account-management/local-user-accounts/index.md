@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: 本地用户帐户
 title: 本地用户帐户管理
 excerpt: 管理本地用户帐户
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 menuWeight: 20
 ---
 

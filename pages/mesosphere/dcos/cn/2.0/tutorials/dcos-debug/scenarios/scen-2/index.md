@@ -3,8 +3,8 @@ layout: layout.pug
 title: 方案 2
 navigationTitle: 方案 2
 excerpt: 教程 - 内存不足
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 11
 ---
 

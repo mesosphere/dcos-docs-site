@@ -4,8 +4,8 @@ navigationTitle:  配置任务处理
 title: 配置任务处理
 menuWeight: 0
 excerpt: 为无法访问的任务配置 Marathon
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

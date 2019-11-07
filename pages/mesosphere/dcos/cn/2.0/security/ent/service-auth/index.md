@@ -5,8 +5,8 @@ title: 服务认证
 menuWeight: 80
 excerpt: 认证服务帐户
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

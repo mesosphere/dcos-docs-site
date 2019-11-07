@@ -6,7 +6,7 @@ menuWeight: 5
 enterprise: false
 excerpt: DC/OS 部署的软硬件要求
 
-渲染：胡须 
+render: mustache 
 ---
 
 # 硬件先决条件

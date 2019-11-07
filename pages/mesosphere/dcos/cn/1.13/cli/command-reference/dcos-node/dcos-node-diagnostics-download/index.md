@@ -5,8 +5,8 @@ title: dcos node diagnostics download
 menuWeight: 5
 excerpt: 下载诊断捆绑包
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

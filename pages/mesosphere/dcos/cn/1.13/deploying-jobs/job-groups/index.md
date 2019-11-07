@@ -4,8 +4,8 @@ navigationTitle:  授予对作业的访问权限
 title: 授予对作业的访问权限
 menuWeight: 200
 excerpt: 使用 CLI 或 UI 授予对作业的访问权限
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

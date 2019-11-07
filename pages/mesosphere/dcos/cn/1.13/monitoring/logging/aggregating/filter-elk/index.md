@@ -4,8 +4,8 @@ navigationTitle:  使用 ELK 筛选日志
 title: 使用 ELK 筛选日志
 menuWeight: 2
 excerpt: 筛选特定任务的日志输出
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

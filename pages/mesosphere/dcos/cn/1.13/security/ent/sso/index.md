@@ -5,8 +5,8 @@ title: 基于身份提供程序的身份认证
 menuWeight: 70
 excerpt: 配置基于身份提供程序的身份认证
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

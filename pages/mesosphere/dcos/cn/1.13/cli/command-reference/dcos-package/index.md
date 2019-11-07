@@ -4,8 +4,8 @@ navigationTitle:  dcos package
 title: dcos package
 menuWeight: 12
 excerpt: 安装和管理 DC/OS 服务包
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

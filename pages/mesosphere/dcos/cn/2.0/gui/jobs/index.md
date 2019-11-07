@@ -4,8 +4,8 @@ navigationTitle:  作业
 title: 作业
 menuWeight: 3
 excerpt: 创建和管理作业的本机支持。
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 “作业”选项卡为创建、计划和管理作业提供本地支持。从侧面菜单中，点击 **作业**。显示屏将单个显示您当前的所有作业，若分组，则在组文件夹中显示。
