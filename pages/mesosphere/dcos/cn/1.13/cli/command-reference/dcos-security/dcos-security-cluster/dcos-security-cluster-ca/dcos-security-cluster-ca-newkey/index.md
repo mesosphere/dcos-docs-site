@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster ca newkey
 title: dcos security cluster ca newkey
 menuWeight: 13
 excerpt: 创建新密钥和新的 CSR
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

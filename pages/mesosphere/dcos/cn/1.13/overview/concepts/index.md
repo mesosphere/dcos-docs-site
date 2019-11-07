@@ -4,8 +4,8 @@ navigationTitle:  概念
 title: 概念
 menuWeight: 5
 excerpt: 了解 DC/OS 概念和术语
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

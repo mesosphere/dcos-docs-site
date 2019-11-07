@@ -5,8 +5,8 @@ title: dcos marathon pod add
 menuWeight: 23
 excerpt: 添加 pod
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

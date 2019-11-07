@@ -4,8 +4,8 @@ navigationTitle:  dcos plugin add
 title: dcos plugin add
 menuWeight: 1
 excerpt: 添加 CLI 插件
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

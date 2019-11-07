@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: 故障域感知和容量扩展
 title: 故障域感知和容量扩展
 menuWeight: 3
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 excerpt: 了解故障域
 enterprise: true
 ---

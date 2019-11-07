@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  负载均衡
 excerpt: DC/OS 101 教程第 8 部分
 title: 教程 - 负载均衡
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 8
 ---
 

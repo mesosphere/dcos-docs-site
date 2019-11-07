@@ -3,8 +3,8 @@ layout: layout.pug
 excerpt: DC/OS 101 教程第 1 部分
 title: 教程 - 第一步
 navigationTitle: 第一步
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
 

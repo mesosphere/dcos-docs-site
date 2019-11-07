@@ -3,8 +3,8 @@ layout: layout.pug
 excerpt: DC/OS 101 教程第 4 部分
 title: 教程 - 连接应用程序/服务发现
 navigationTitle: 服务发现
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 4
 ---
 

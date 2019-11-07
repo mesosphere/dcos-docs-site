@@ -4,8 +4,8 @@ navigationTitle:  在 Admin Router 前配置 HAProxy
 title: 在 Admin Router 前配置 HAProxy
 menuWeight: 6
 excerpt: 使用 HAProxy 为 DC/OS Admin Router 设置 HTTP 代理
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

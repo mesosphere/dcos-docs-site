@@ -4,8 +4,8 @@ navigationTitle:  dcos security secrets delete
 title: dcos security secrets delete
 menuWeight: 310
 excerpt: 删除密钥
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

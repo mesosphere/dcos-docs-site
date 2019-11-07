@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon about
 title: dcos marathon about
 menuWeight: 0
 excerpt: 为 DC/OS Marathon 显示 info.json 文件
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

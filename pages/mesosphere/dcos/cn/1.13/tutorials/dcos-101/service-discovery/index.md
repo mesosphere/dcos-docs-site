@@ -4,8 +4,8 @@ navigationTitle: 发现部署的服务
 title: 发现部署的服务
 excerpt: 演示如何发现并连接到您的 DC/OS 群集中的服务（第 7 部分）
 menuWeight: 7
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 在上一教程中，您部署了连接到 Redis 服务的 [示例应用程序](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py)。如果您查看该应用程序的脚本，则可能已经注意到以下连接到 Redis 服务的行：
 

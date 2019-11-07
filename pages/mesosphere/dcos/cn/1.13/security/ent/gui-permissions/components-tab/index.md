@@ -5,8 +5,8 @@ title: 授予访问“组件”选项卡的权限
 menuWeight: 60
 excerpt: 授予访问“组件”选项卡的权限
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

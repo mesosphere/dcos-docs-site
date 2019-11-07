@@ -4,8 +4,8 @@ navigationTitle: 度量标准
 title: 度量标准
 menuWeight: 100
 excerpt: 了解 DC/OS 的度量标准组件
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 beta: false
 enterprise: false
 ---

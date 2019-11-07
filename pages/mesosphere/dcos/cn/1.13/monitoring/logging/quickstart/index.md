@@ -4,8 +4,8 @@ navigationTitle:  快速入门
 title: 日志记录快速入门
 menuWeight: 0
 excerpt: DC/OS 日志记录快速入门
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 beta: false
 enterprise: false
 ---

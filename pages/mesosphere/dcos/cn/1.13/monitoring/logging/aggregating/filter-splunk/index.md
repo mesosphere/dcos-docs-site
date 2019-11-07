@@ -4,8 +4,8 @@ navigationTitle:  使用 Splunk 筛选日志
 title: 使用 Splunk 筛选日志
 menuWeight: 4
 excerpt: 使用 Splunk 筛选日志的系统路径
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

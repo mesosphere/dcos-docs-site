@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  指定身份认证和参数
 title: 指定身份认证和参数
 menuWeight: 2
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 excerpt: 为 LDAP 目录指定身份认证方法和参数
 enterprise: true
 ---

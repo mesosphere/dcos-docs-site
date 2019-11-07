@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon deployment list
 title: dcos marathon deployment list
 menuWeight: 14
 excerpt: 显示当前部署的应用程序列表
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

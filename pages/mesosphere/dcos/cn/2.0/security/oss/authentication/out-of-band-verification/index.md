@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  带外令牌验证
 title: 带外令牌验证
 excerpt: 带外验证 DC/OS 认证令牌
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 20
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

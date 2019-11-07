@@ -4,8 +4,8 @@ navigationTitle: 分配和扩展资源
 title: 分配和扩展资源
 excerpt: 提供用于扩展分配给部署的应用程序的资源的策略和示例（第 9 部分）
 menuWeight: 9
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 此时，您已经了解到如何创建群集以及如何部署和测试群集上运行的应用程序和服务。您已经使用在 Docker 和 DC/OS UCR 容器中运行的单个命令和应用程序。通过本教程，您将通过容器编排了解到一些核心利益提供商，并执行一些常见的资源扩展任务。
 

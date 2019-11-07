@@ -4,8 +4,8 @@ navigationTitle:  概述
 title: 概述
 menuWeight: 20
 excerpt: DC/OS 基础知识入门
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

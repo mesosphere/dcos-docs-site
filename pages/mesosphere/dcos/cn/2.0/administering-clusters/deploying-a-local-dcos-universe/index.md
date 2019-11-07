@@ -5,8 +5,8 @@ title: 部署本地目录
 menuWeight: 1000
 excerpt: 在本地目录数据中心安装和运行 DC/OS 服务
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 <p class="message--important"><strong></strong>重要信息：如果您是使用 DC/OS Enterprise，则使用 <tt>package-registry</tt> 无缝管理气隙环境中的包。本地 {{ model.packageRepo }} 支持已弃用。</p>

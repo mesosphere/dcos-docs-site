@@ -5,8 +5,8 @@ title: dcos backup show
 menuWeight: 50
 excerpt: 查看备份详情
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

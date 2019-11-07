@@ -4,8 +4,8 @@ navigationTitle:  网络
 title: 网络
 menuWeight: 6
 excerpt: 使用网络菜单
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 “网络”屏幕全面展示虚拟 IP 地址 (VIP) 运行状况。

@@ -5,8 +5,8 @@ title: dcos marathon task list
 menuWeight: 29
 excerpt: 显示所有任务
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

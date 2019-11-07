@@ -4,8 +4,8 @@ navigationTitle:  在 DC/OS CA 中建立信任
 title: 在 DC/OS CA 中建立信任
 menuWeight: 200
 excerpt: 配置 Chrome 和 Firefox 以信任您的 DC/OS CA。
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: true
 ---

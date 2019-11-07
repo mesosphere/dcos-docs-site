@@ -4,8 +4,8 @@ navigationTitle:  监控服务
 title: 监控服务
 menuWeight: 3
 excerpt: 在 CLI 和 UI 监控部署的 DC/OS 服务
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

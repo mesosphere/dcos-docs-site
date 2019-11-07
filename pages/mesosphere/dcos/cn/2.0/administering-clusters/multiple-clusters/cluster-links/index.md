@@ -5,8 +5,8 @@ title: 群集链接
 menuWeight: 3
 excerpt: 管理群集之间的链接
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 群集链接是群集和另一群集之间的 **单向** 关系。

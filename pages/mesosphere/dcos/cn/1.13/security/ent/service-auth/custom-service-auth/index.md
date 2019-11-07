@@ -4,8 +4,8 @@ title: 认证 DC/OS 服务
 menuWeight: 100
 excerpt: 为自定义应用程序和 pod 配置身份认证
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

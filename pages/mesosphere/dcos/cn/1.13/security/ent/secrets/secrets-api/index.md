@@ -5,8 +5,8 @@ title: 密钥 API
 menuWeight: 7
 excerpt: 了解密钥 API
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

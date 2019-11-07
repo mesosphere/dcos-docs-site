@@ -5,8 +5,8 @@ title: 使用证书颁发机构 API
 menuWeight: 500
 excerpt: 查看、创建和签署证书
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

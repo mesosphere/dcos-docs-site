@@ -4,8 +4,8 @@ navigationTitle:  控制对任务日志的访问
 title: 控制对任务日志的访问
 menuWeight: 2
 excerpt: 使用 Marathon 群组管理用户对任务日志的访问
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 beta: false
 enterprise: true
 ---

@@ -5,8 +5,8 @@ title: dcos auth list-providers
 menuWeight: 1
 excerpt: 列出群集的登录提供商
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

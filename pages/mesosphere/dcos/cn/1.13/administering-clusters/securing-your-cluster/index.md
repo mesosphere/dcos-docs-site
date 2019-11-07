@@ -4,8 +4,8 @@ navigationTitle:  保护群集
 title: 保护群集
 excerpt: 理解 DC/OS 中的安全特性
 menuWeight: 7
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 # 一般安全概念

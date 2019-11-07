@@ -4,8 +4,8 @@ title: 卸载 DC/OS
 navigationTitle: 卸载
 menuWeight: 30
 excerpt: 移除 DC/OS
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 {{ model.techName }} 提供从用于系统中移除 {{ model.techName }} 的卸载脚本。要从某个管理节点、代理节点或公共节点移除 {{ model.techName }}，必须将卸载脚本推送到您希望刷新 {{ model.techName }} 的节点，使其可执行，然后使用 Sudo 权限运行此脚本。

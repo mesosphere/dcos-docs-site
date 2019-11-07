@@ -3,8 +3,8 @@ layout: layout.pug
 title: 方案 1
 navigationTitle: 方案 1
 excerpt: 教程 - 资源分配
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
 #包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl

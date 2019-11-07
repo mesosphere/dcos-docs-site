@@ -5,8 +5,8 @@ title: 配置 OpenID 身份提供程序
 menuWeight: 2
 excerpt: 配置 OpenID 身份提供程序
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

@@ -5,8 +5,8 @@ title: dcos diagnostics delete
 menuWeight: 4
 excerpt: 删除捆绑包
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

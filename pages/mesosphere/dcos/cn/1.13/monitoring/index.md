@@ -4,8 +4,8 @@ navigationTitle:  监控、日志记录和调试
 title: 监控、日志记录和调试
 menuWeight: 110
 excerpt: 了解如何通过 DC/OS 监控数据中心运行的健康状况
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

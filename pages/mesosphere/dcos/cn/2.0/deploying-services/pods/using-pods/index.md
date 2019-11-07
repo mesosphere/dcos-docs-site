@@ -4,8 +4,8 @@ navigationTitle:  使用 Pod
 title: 使用 Pod
 menuWeight: 20
 excerpt: 通过 CLI 或 Marathon API 端点创建和管理 Pod
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

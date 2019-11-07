@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19
 excerpt: 从 DC/OS 中删除 Marathon 应用程序
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -4,8 +4,8 @@ navigationTitle:  配置服务
 title: 配置服务
 menuWeight: 2
 excerpt: 使用 DC/OS CLI 配置服务
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -4,8 +4,8 @@ navigationTitle:  dcos security secrets list
 title: dcos security secrets list
 menuWeight: 315
 excerpt: 列出密钥
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

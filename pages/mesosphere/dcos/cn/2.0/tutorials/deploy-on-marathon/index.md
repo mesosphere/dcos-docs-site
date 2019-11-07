@@ -4,8 +4,8 @@ navigationTitle:  使用 Jenkins 部署 Marathon 应用程序
 title: 使用 Jenkins 部署 Marathon 应用程序
 menuWeight: 4
 excerpt: 教程 - 使用 Jenkins for DC/OS 在 Marathon 上部署应用程序
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

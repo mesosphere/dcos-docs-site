@@ -5,8 +5,8 @@ title: dcos marathon deployment stop
 menuWeight: 16
 excerpt: 取消正在进行的应用程序部署
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

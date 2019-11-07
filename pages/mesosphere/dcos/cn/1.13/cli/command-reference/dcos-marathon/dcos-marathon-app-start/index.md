@@ -5,8 +5,8 @@ title: dcos marathon app start
 menuWeight: 7
 excerpt: 启动应用程序
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

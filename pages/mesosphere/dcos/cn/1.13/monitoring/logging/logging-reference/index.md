@@ -4,8 +4,8 @@ navigationTitle:  日志记录参考
 title: 日志记录参考
 menuWeight: 3
 excerpt: 使用日志记录 API
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 beta: false
 enterprise: false
 ---

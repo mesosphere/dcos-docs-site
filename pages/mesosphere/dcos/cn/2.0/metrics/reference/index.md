@@ -4,8 +4,8 @@ navigationTitle:  度量标准参考
 title: 度量标准参考
 menuWeight: 7
 excerpt: 了解 DC/OS 收集的度量标准
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: false
 ---

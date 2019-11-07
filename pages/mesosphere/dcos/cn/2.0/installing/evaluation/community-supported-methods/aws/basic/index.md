@@ -4,8 +4,8 @@ title: 基础
 navigationTitle: 基础
 menuWeight: 5
 excerpt: 使用 DC/OS 模板创建 DC/OS 群集
-型号：/mesosphere/dcos/2.0/data.yml
-渲染：胡须
+model：/mesosphere/dcos/2.0/data.yml
+render: mustache
 ---
 
 可以使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。

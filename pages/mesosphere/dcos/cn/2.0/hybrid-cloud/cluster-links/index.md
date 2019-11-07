@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  群集链接
 title: 群集链接
 menuWeight: 0
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 excerpt: 管理群集链路
 enterprise: true
 ---

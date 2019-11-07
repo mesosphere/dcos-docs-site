@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  本地用户登录
 title: 本地用户登录
 excerpt: 以本地用户身份登录到 DC/OS
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 menuWeight: 20
 ---
 

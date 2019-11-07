@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster directory import_user
 title: dcos security cluster directory import_user
 menuWeight: 35
 excerpt: 从 LDAP 后端导入一位用户
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # 说明

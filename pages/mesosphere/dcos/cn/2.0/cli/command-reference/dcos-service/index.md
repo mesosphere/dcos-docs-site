@@ -4,8 +4,8 @@ navigationTitle:  dcos service
 title: dcos service
 menuWeight: 14
 excerpt: 管理 DC/OS 服务
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

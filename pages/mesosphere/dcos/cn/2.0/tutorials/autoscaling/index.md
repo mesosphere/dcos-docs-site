@@ -4,8 +4,8 @@ navigationTitle:  使用 Marathon 自动扩展
 title: 教程 - 使用 Marathon 自动扩展
 menuWeight: 3
 excerpt: 了解自动扩展
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

@@ -4,8 +4,8 @@ navigationTitle:  作业
 title: 作业
 menuWeight: 3
 excerpt: 使用“作业”菜单
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 “作业”页面为创建和管理计划作业提供本地支持。可以使用 `cron` 格式设置带有时间表的作业。

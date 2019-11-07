@@ -4,8 +4,8 @@ navigationTitle:  dcos job schedule show
 title: dcos job schedule show
 menuWeight: 8
 excerpt: 查看作业时间表
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: 2.0.0 的发行说明
 title: 2.0.0 的发行说明
 menuWeight: 5
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 excerpt: DC/OS 2.0.0 版本注释，包括开源归属和版本策略。
 ---
 DC/OS 2.0.0 于 // 发布。

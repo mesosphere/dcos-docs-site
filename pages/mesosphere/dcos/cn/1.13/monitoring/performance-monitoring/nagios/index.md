@@ -4,8 +4,8 @@ navigationTitle:  使用 Nagios 监控
 title: 使用 Nagios 监控
 menuWeight: 0
 excerpt: 使用 Nagios 监控 DC/OS 群集
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -4,8 +4,8 @@ navigationTitle:  dcos security org groups del_user
 title: dcos security org groups del_user
 menuWeight: 135
 excerpt: 从组中删除用户
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # 说明

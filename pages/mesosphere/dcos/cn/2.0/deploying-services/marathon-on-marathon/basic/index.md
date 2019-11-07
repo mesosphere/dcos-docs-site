@@ -4,8 +4,8 @@ navigationTitle:  使用自定义 Marathon 实例部署服务
 title: 使用自定义 Marathon 实例部署服务
 menuWeight: 39
 excerpt: 使用基础非本地 Marathon 实例
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

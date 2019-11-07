@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 excerpt: 卸载软件包
 enterprise: false
 ---

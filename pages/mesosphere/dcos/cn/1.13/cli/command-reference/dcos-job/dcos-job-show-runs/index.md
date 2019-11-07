@@ -4,8 +4,8 @@ navigationTitle:  dcos job show runs
 title: dcos job show runs
 menuWeight: 11
 excerpt: 显示作业运行状态
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

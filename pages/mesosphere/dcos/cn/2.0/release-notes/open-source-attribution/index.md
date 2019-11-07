@@ -3,8 +3,8 @@ layout: layout.pug
 title: 开源归属
 menuWeight: 100
 excerpt: Mesosphere 提供的第三方开源软件的列表
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 下表列出了 Mesosphere 提供的与 Mesosphere DC/OS 有关的第三方开源软件。

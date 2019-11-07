@@ -4,8 +4,8 @@ navigationTitle:  dcos security org service-accounts
 title: dcos security org service-accounts
 menuWeight: 160
 excerpt: 撤销组进行资源操作的权限
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

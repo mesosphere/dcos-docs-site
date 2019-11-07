@@ -5,8 +5,8 @@ title: 备份和恢复 API
 menuWeight: 10
 excerpt: 使用 API 备份和恢复群集
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 您可以使用“备份和恢复 API”来创建和恢复群集的备份。

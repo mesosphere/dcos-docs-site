@@ -4,8 +4,8 @@ navigationTitle:  Marathon 配置参考
 title: Marathon 配置参考
 menuWeight: 0
 excerpt: 了解 Marathon 应用定义
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

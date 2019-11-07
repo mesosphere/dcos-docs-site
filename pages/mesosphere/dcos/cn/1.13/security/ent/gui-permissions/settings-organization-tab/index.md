@@ -4,8 +4,8 @@ navigationTitle:  授予对 Settings 和 Organization 选项卡的访问权限
 title: 授予对 Settings 和 Organization 选项卡的访问权限
 menuWeight: 70
 excerpt: 使用 DC/OS UI 或 API 授予对 Settings 和 Organization 选项卡的访问权限
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

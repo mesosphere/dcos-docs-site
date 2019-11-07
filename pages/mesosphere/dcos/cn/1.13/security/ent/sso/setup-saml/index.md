@@ -5,8 +5,8 @@ title: 配置 SAML 身份提供程序
 menuWeight: 1
 excerpt: 配置 SAML 身份提供程序和 OneLogin IdP
 enterprise: true
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

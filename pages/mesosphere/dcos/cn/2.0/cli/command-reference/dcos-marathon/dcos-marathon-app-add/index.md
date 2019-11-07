@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon app add
 title: dcos marathon app add
 menuWeight: 1
 excerpt: 添加应用程序
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

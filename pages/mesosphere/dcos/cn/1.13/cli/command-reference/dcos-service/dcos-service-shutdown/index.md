@@ -4,8 +4,8 @@ navigationTitle:  dcos service shutdown
 title: dcos service shutdown
 menuWeight: 2
 excerpt: 关闭服务
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

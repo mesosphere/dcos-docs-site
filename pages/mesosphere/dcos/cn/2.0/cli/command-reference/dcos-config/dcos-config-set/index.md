@@ -5,8 +5,8 @@ title: dcos config set
 menuWeight: 1
 excerpt: 添加或设置 DC/OS 配置属性
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

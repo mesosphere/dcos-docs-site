@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon pod remove
 title: dcos marathon pod remove
 menuWeight: 26
 excerpt: 删除 pod
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

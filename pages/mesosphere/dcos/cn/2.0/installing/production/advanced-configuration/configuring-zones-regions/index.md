@@ -4,8 +4,8 @@ navigationTitle:  配置分区和分域
 title: 配置分区和分域
 menuWeight: 15
 excerpt: 使用 DC/OS 中的高可用性功能
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 本专题讨论 DC/OS 中的高可用性 (HA) 功能，以及在 DC/OS 上构建 HA 应用程序的最佳做法。

@@ -4,8 +4,8 @@ excerpt: 使用 Universal 安装工具在 GCP 上的 DC/OS 指南
 title: GCP 上使用通用安装工具的 DC/OS
 navigationTitle: GCP
 menuWeight: 4
-型号：/mesosphere/dcos/2.0/data.yml
-渲染：胡须
+model：/mesosphere/dcos/2.0/data.yml
+render: mustache
 ---
 
 #包括 /mesosphere/dcos/install-include/all-intro-and-prereqs.tmpl

@@ -4,8 +4,8 @@ navigationTitle:  使用 GPU
 title: 使用 GPU
 menuWeight: 110
 excerpt: 向您的长期运行 DC/OS 服务添加图形处理单元
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

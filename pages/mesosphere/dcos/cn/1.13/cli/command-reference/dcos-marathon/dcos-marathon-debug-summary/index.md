@@ -5,8 +5,8 @@ title: dcos marathon debug summary
 menuWeight: 13
 excerpt: 显示正在等待的 Marathon 应用程序部署的调试队列
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

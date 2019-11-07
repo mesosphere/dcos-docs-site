@@ -3,8 +3,8 @@ layout: layout.pug
 title: DC/OS Enterprise CLI
 menuWeight: 5
 excerpt: 配置 DC/OS Enterprise 命令行界面
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

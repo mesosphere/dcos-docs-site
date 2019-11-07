@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  部署
 excerpt: 部署多个 Marathon 应用程序
 title: 部署
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 5
 ---
 

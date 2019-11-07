@@ -4,8 +4,8 @@ navigationTitle:  授予访问“密钥”选项卡的权限
 title: 授予访问“密钥”选项卡的权限
 menuWeight: 50
 excerpt: 授予访问“密钥”选项卡的权限
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

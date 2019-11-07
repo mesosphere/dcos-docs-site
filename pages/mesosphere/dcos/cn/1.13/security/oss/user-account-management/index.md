@@ -4,8 +4,8 @@ navigationTitle:  用户帐户管理
 title: 用户帐户管理
 menuWeight: 10
 excerpt: 管理 DC/OS 用户帐户
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

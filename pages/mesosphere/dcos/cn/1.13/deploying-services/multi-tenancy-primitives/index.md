@@ -4,8 +4,8 @@ navigationTitle:  多租户原始文件
 title: 多租户原始文件
 menuWeight: 90
 excerpt: DC/OS 中多租户的引物
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 # 概述

@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster ca newcert
 title: dcos security cluster ca newcert
 menuWeight: 5
 excerpt: 创建和签署新证书
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

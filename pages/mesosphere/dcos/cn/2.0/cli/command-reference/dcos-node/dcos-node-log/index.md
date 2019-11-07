@@ -4,8 +4,8 @@ navigationTitle:  dcos node log
 title: dcos node log
 menuWeight: 9
 excerpt: 显示节点的 Mesos 日志
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

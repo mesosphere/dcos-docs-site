@@ -5,8 +5,8 @@ title: dcos marathon group update
 menuWeight: 22
 excerpt: 更新 Marathon 组属性
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

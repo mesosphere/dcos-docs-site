@@ -4,8 +4,8 @@ navigationTitle: 教程 - 部署基于 Docker 的服务
 title: 教程 - 部署基于 Docker 的服务
 menuWeight: 100
 excerpt: 部署基于 Docker 的服务
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

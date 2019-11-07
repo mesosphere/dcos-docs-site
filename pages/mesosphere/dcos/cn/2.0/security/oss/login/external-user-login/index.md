@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  外部用户登录
 title: 外部用户登录
 excerpt: 以外部用户的身份登录到 DC/OS
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 10
 ---
 

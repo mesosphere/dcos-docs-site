@@ -4,8 +4,8 @@ navigationTitle:  密钥
 title: 密钥
 menuWeight: 60
 excerpt: 了解密钥存储库
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

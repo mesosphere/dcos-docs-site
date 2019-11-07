@@ -5,8 +5,8 @@ title: API 参考
 menuWeight: 150
 excerpt: DC/OS API 参考手册
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 DC/OS API 是由 [DC/OS 组件] (/mesosphere/dcos/2.0/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router] (/mesosphere/dcos/2.0/overview/architecture/components/#admin-router)的 API 网关提供。

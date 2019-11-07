@@ -4,8 +4,8 @@ navigationTitle: 带安全功能的自定义 Marathon
 title: 带安全功能的自定义 Marathon
 menuWeight: 40
 excerpt: 使用高级非本地 Marathon 实例
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

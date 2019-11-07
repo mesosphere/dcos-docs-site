@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster saml add
 title: dcos security cluster saml add
 menuWeight: 70
 excerpt: 配置新的 SAML 提供程序
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 # 说明

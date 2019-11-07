@@ -4,8 +4,8 @@ navigationTitle:  任务处理
 title: 任务处理
 menuWeight: 1
 excerpt: 了解 Marathon 任务类别
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

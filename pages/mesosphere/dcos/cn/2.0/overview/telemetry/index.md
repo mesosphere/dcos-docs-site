@@ -4,8 +4,8 @@ navigationTitle:  遥测
 title: 遥测
 menuWeight: 7
 excerpt: 了解遥测报告组件
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

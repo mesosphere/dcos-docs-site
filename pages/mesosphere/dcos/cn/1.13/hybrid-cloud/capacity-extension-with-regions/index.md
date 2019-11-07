@@ -4,8 +4,8 @@ navigationTitle:  分域容量扩展
 title: 分域容量扩展
 menuWeight: 10
 excerpt: 使用本地和远程分域
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

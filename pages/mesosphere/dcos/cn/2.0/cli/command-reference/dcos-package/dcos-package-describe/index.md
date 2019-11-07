@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  dcos package describe
 title: dcos package describe
 menuWeight: 0
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 excerpt: 获取软件包的详细信息
 enterprise: false
 ---

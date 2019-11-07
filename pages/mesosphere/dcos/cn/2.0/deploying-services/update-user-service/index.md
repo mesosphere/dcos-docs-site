@@ -4,8 +4,8 @@ navigationTitle:  更新用户创建的服务
 title: 更新用户创建的服务
 menuWeight: 3
 excerpt: 更新已部署应用程序的配置
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

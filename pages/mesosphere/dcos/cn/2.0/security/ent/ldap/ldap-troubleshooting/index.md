@@ -5,8 +5,8 @@ title: 排除 LDAP 错误
 menuWeight: 5
 excerpt: 排除 LDAP 目录的常见身份认证和配置问题
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 轻量目录访问协议 (LDAP) 为访问目录服务提供一个轻量客户端-服务器协议。协议提供基于标准的方法，用于为基于 X.500 的目录服务定义对象及其属性。LDAP 通过 TCP/IP 或其他以连接为导向的传输服务运行。
 

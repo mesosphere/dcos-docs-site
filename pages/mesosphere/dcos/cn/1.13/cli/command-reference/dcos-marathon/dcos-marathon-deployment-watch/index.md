@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon deployment watch
 title: dcos marathon deployment watch
 menuWeight: 16
 excerpt: 监控应用程序部署
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

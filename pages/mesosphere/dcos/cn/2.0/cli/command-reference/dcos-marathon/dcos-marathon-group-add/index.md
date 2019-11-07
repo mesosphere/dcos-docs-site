@@ -5,8 +5,8 @@ title: dcos marathon group add
 menuWeight: 17
 excerpt: 添加 Marathon 组
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 

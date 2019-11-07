@@ -5,8 +5,8 @@ navigationTitle: 限制对 DC/OS 服务组的访问
 menuWeight: 90
 excerpt: 使用 DC/OS UI 在宽容模式下实现多租户
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

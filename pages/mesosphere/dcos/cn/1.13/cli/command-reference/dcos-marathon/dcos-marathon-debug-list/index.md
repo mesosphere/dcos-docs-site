@@ -5,8 +5,8 @@ title: dcos marathon debug list
 menuWeight: 12
 excerpt: 显示 Marathon 应用程序部署的当前队列
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 

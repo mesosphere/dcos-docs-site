@@ -4,8 +4,8 @@ navigationTitle:  日志记录 API 示例
 title: 日志记录 API 示例
 menuWeight: 4
 excerpt: 日志记录 API 示例
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 beta: false
 enterprise: false
 ---

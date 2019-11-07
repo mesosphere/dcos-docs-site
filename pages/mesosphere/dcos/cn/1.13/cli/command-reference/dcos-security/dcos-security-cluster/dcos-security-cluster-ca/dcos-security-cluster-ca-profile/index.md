@@ -4,8 +4,8 @@ navigationTitle:  dcos security cluster ca profile
 title: dcos security cluster ca profile
 menuWeight: 15
 excerpt: 管理 DC/OS 证书颁发机构
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

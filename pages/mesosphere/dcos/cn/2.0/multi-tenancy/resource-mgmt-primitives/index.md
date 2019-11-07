@@ -4,8 +4,8 @@ navigationTitle: 资源管理原语
 title: 资源管理原语
 menuWeight: 10
 excerpt: 预留资源以支持多租户
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 可以使用角色、预留、配额和权重的组合来保留 DC/OS 中的资源并确定其优先级。这些功能均由 Apache Mesos 提供，位于 DC/OS 的核心，称为 `Primitives`，因为它们中的绝大多数都只能通过 API 访问，尚未集成到 DC/OS UI 或 CLI 中。在使用配额，预留和权重时，用户需要良好的监控来代替可用/已用的资源。
 

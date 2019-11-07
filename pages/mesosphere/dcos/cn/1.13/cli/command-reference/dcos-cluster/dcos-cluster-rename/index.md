@@ -5,8 +5,8 @@ title: dcos cluster rename
 menuWeight: 5
 excerpt: 重命名群集
 enterprise: false
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

@@ -4,8 +4,8 @@ navigationTitle:  dcos task log
 title: dcos task log
 menuWeight: 5
 excerpt: 显示任务日志
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

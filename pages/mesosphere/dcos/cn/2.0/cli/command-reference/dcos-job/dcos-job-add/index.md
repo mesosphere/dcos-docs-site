@@ -5,8 +5,8 @@ title: dcos job add
 menuWeight: 0
 excerpt: 添加工作
 enterprise: false
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

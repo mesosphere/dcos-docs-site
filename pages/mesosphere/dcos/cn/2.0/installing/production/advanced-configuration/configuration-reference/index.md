@@ -4,8 +4,8 @@ navigationTitle:  配置参考
 title: 配置参考
 menuWeight: 5
 excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 # 配置参数

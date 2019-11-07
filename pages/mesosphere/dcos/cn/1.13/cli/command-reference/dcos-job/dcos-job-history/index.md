@@ -4,8 +4,8 @@ navigationTitle:  dcos job history
 title: dcos job history
 menuWeight: 1
 excerpt: 显示作业运行历史记录
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

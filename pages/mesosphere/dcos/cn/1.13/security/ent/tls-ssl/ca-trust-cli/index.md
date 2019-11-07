@@ -4,8 +4,8 @@ navigationTitle:  在 CLI 中建立信任
 title: 在 CLI 中建立信任
 menuWeight: 300
 excerpt: 在 CLI 中建立信任
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

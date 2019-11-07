@@ -4,8 +4,8 @@ navigationTitle:  使用 Splunk 进行日志管理
 title: 使用 Splunk 进行日志管理
 menuWeight: 3
 excerpt: 使用 Splunk 服务器管理系统和应用程序日志
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

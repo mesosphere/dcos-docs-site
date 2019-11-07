@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  部署第一个应用程序
 excerpt: DC/OS 101 教程第 3 部分
 title: 教程 - 部署第一个应用程序
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 menuWeight: 3
 ---
 

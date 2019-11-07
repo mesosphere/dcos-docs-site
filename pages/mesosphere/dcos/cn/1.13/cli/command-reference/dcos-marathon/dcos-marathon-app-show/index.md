@@ -4,8 +4,8 @@ navigationTitle:  dcos marathon app show
 title: dcos marathon app show
 menuWeight: 6
 excerpt: 查看应用程序的 JSON 文件
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

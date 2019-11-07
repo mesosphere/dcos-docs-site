@@ -4,8 +4,8 @@ navigationTitle:  身份和访问管理 API
 title: 身份和访问管理 API
 menuWeight: 110
 excerpt: 使用 IAM API 管理用户和权限
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

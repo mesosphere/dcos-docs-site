@@ -4,8 +4,8 @@ navigationTitle: 模板参考
 title: 模板参考
 menuWeight: 5
 excerpt: 高级模板参数
-模型：/mesosphere/dcos/1.13/data.yml
-渲染：胡须
+model：/mesosphere/dcos/1.13/data.yml
+render: mustache
 ---
 
 这些高级模板参数是分别在各个 JSON 文件中指定的。在 DC/OS 安装期间，这些模板文件用于生成自定义 DC/OS 构架。

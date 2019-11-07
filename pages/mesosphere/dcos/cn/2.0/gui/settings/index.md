@@ -5,8 +5,8 @@ title: 设置
 menuWeight: 10
 excerpt: 使用“设置”菜单
 enterprise: true
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 
 从 **设置**选项卡，您可以管理 

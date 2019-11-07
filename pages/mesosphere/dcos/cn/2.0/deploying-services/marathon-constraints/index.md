@@ -4,8 +4,8 @@ navigationTitle:  Marathon 布局约束
 title: Marathon 布局约束
 menuWeight: 3
 excerpt: 了解 Marathon 布局约束
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 

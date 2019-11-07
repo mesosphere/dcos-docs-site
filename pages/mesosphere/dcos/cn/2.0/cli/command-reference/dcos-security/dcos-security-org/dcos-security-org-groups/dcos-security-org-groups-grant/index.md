@@ -4,8 +4,8 @@ navigationTitle:  dcos security org groups grant
 title: dcos security org groups grant
 menuWeight: 143
 excerpt: 授予群组权限
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

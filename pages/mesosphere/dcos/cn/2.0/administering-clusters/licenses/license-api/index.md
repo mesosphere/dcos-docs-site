@@ -5,8 +5,8 @@ title: License API
 menuWeight: 3
 enterprise: true
 excerpt: 使用 License API 管理您的 DC/OS 许可证
-渲染：胡须
-型号：/mesosphere/dcos/2.0/data.yml
+render: mustache
+model：/mesosphere/dcos/2.0/data.yml
 ---
 # 路由
 

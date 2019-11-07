@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: 故障排除
 title: 排除用户帐户管理故障
 excerpt: 排除用户帐户管理问题
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 menuWeight: 50
 ---
 

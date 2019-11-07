@@ -4,8 +4,8 @@ navigationTitle:  分区故障域感知
 title: 分区故障域感知
 menuWeight: 5
 excerpt: 了解故障域
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

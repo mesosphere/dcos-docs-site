@@ -4,8 +4,8 @@ navigationTitle: 1.13.1 的发行说明
 title: 1.13.1 的发行说明
 menuWeight: 10
 excerpt: DC/OS 1.13.1 版本注释，包括开源属性和版本策略。
-渲染：胡须
-模型：/mesosphere/dcos/1.13/data.yml
+render: mustache
+model：/mesosphere/dcos/1.13/data.yml
 ---
 DC/OS 1.13.1 于 2019 年 5 月 31 日发布。
 
