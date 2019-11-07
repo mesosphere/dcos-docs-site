@@ -80,18 +80,13 @@ When TLS is enabled, an endpoint named `node-tls` should also be listed. To veri
 
 Following are the steps for Edge-LB Pool configuration:
 
-1. Install the `edgelb cli`
-    ```shell
-    dcos package install --cli edgelb --yes
-    ```
+1. [Install the `Edge-LB`](/mesosphere/dcos/services/edge-lb/latest/getting-started/installing/)
+
 1. Get the DNS address using the following:
     ```shell
     dcos {{ model.serviceName }} endpoints node --name=<service_name>
     ```  
 1. Create the configuration file `edgelb-pool-config.json` with required parameters to access `{{ model.serviceName }}` on the web.
-
-    Example without TLS and Kerberos:
-
       ```json
     {
       "apiVersion": "V2",
@@ -124,61 +119,6 @@ Following are the steps for Edge-LB Pool configuration:
         ]
       }
     }
-      ```
-    Example with TLS and Kerberos:
-
-      ```json
-    {
-      "apiVersion": "V2",
-      "name": "{{ model.serviceName }}proxy",
-      "count": 1,
-      "autoCertificate": true,
-      "haproxy": {
-          "frontends": [
-            {
-                "bindPort": 8443,
-                "protocol": "HTTPS",
-                "certificates": [
-                  "$AUTOCERT"
-                ],
-                "linkBackend": {
-                  "defaultBackend": "{{ model.serviceName }}service"
-                }
-            }
-          ],
-          "backends": [
-            {
-                "name": "{{ model.serviceName }}service",
-                "protocol": "HTTPS",
-                "rewriteHttp": {
-                  "host": <dns adress obtained from Step 2>,
-                  "path": {
-                      "fromPath": "/{{ model.serviceName }}",
-                      "toPath": "/{{ model.serviceName }}"
-                  },
-                  "request": {
-                      "forwardfor": true,
-                      "xForwardedPort": true,
-                      "xForwardedProtoHttpsIfTls": true,
-                      "setHostHeader": true,
-                      "rewritePath": true
-                  }
-                },
-                "services": [
-                  {
-                      "endpoint": {
-                        "type": "ADDRESS",
-                        "address": <dns adress obtained from Step 2>,
-                        "port": <port obtained from Step 2>
-                      }
-                  }
-                ]
-            }
-          ]
-      }
-    }
-
-      ```
 
 1. Create `edge-pool` using the above `edgelb-pool-config.json` file.
     ```shell
