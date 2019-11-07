@@ -19,11 +19,11 @@ Before installing, verify that your environment meets the following basic requir
 * [Docker Desktop][install_docker] version 18.09.2 or later
 
   You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
-  For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
+  For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker Desktop.
 
 * [kubectl][install_kubectl] v1.15.5 or later
 
-  You must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run, to enable interaction with the running cluster.
+  To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
 * The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air-gapped installation.
 
