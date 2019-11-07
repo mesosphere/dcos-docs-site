@@ -1,13 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  Troubleshooting
+navigationTitle: Troubleshooting
+excerpt: Diagnosing DC/OS Nifi issues
 title: Troubleshooting
-menuWeight: 100
-excerpt: Troubleshooting DC/OS NiFi issues
-featureMaturity:
-enterprise: false
+menuWeight: 70
 model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 
-The following topics address some common issues you may encounter while configuring or managing your DC/OS {{model.techName }} service.
+#include /mesosphere/dcos/services/include/troubleshooting.tmpl
