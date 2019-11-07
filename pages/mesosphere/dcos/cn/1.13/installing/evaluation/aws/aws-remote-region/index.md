@@ -9,4 +9,4 @@ model：/mesosphere/dcos/1.13/data.yml
 render: mustache
 ---
 
-#包括 /mesosphere/dcos/install-include/aws-remote-region-all.tmpl
+#include /mesosphere/dcos/install-include/aws-remote-region-all.tmpl

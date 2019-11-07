@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-#包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 本教程演示如何在大约 15 分钟内在 DC/OS 上构建完整的负载均衡数据管道！
 

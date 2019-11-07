@@ -7,7 +7,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
-#包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <a name=c1></a>
 

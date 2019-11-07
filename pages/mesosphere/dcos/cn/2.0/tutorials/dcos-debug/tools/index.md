@@ -6,7 +6,7 @@ menuWeight: 11
 ---
 <!-- II. Tools Section -->
 
-#包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 
 <a name="tools"></a>
