@@ -7,12 +7,12 @@ menuWeight: 5
 model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
-#包括 /mesosphere/dcos/install-include/gcp-extended-example.tmpl
+#include /mesosphere/dcos/install-include/gcp-extended-example.tmpl
 
-#包括 /mesosphere/dcos/install-include/all-dcos-versions.tmpl
+#include /mesosphere/dcos/install-include/all-dcos-versions.tmpl
 
-#包括 /mesosphere/dcos/install-include/all-node-os-versions.tmpl
+#include /mesosphere/dcos/install-include/all-node-os-versions.tmpl
 
-#包括 /mesosphere/dcos/install-include/gcp-inputs-table.tmpl
+#include /mesosphere/dcos/install-include/gcp-inputs-table.tmpl
 
-#包括 /mesosphere/dcos/install-include/all-outputs-table.tmpl
+#include /mesosphere/dcos/install-include/all-outputs-table.tmpl

@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-#包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 本教程向您展示如何在 DC/OS 上安装和运行有状态服务。有状态服务对持久数据起作用。每次启动时，简单**无**状态服务在空沙盒中运行。相反，**有**状态服务使用驻留在群集中代理节点上的持久卷，直到被明确销毁。
 

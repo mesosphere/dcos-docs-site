@@ -8,12 +8,12 @@ model：/mesosphere/dcos/1.13/data.yml
 render: mustache
 ---
 
-#包括 /mesosphere/dcos/install-include/azure-extended-example.tmpl
+#include /mesosphere/dcos/install-include/azure-extended-example.tmpl
 
-#包括 /mesosphere/dcos/install-include/all-dcos-versions.tmpl
+#include /mesosphere/dcos/install-include/all-dcos-versions.tmpl
 
-#包括 /mesosphere/dcos/install-include/all-node-os-versions.tmpl
+#include /mesosphere/dcos/install-include/all-node-os-versions.tmpl
 
-#包括 /mesosphere/dcos/install-include/azurerm-inputs-table.tmpl
+#include /mesosphere/dcos/install-include/azurerm-inputs-table.tmpl
 
-#包括 /mesosphere/dcos/install-include/all-outputs-table.tmpl
+#include /mesosphere/dcos/install-include/all-outputs-table.tmpl

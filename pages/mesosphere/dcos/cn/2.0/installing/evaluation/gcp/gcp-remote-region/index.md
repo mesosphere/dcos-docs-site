@@ -9,4 +9,4 @@ enterprise: true
 render: mustache
 ---
 
-#包括 /mesosphere/dcos/install-include/gcp-remote-region-all.tmpl
+#include /mesosphere/dcos/install-include/gcp-remote-region-all.tmpl

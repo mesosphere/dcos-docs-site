@@ -11,7 +11,7 @@ menuWeight: 2
 本教程指导您在 DC/OS 群集上设置 [Microscaling Systems][2] 的 Microscaling 演示。
 
 
-#包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 [Microscaling][1] 调整计算群集内运行的任务的平衡。
 这允许您的基础架构

@@ -8,7 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 8
 ---
 
-#包括 /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 
 欢迎阅读 DC/OS 101 教程第 8 部分。

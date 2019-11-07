@@ -56,7 +56,7 @@ Admin Router 访问 DC/OS 软件包 API。
 
 ## <a name="admin-router"></a>Admin Router 权限
 
-#包括 /mesosphere/dcos/include/permissions-inheritance-disclaimer.tmpl
+#include /mesosphere/dcos/include/permissions-inheritance-disclaimer.tmpl
 
 
 对 DC/OS 群集发出的大多数 HTTP 请求都通过 Admin Router。对于许多

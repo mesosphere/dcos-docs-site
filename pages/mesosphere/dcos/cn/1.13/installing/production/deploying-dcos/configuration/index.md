@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  # 配置
-title: # 配置
+navigationTitle: 配置
+title: 配置
 menuWeight: 5
 excerpt: 使用 YAML 文件配置 DC/OS 参数
 render: mustache
