@@ -12,5 +12,9 @@ security:
     , "allow_plaintext": <true|false default false>
 
 install:
-  nodeCount: at least 3 private
+  nodeCount: three
   minMemory: 512MB
+
+managing:
+  podType: nifi
+  taskType: node
