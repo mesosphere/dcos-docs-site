@@ -35,16 +35,24 @@ The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) t
 
 ## Set up the service account
 
-[Grant](/mesosphere/dcos/latest/security/ent/perms-management/) the service account the correct permissions.
-- The required permissions are:
+[Grant](/mesosphere/dcos/latest/security/ent/perms-management/) the service account the correct permissions. The required permissions are:
+    
 ```shell
-dcos:secrets:default:/<service name>/* full
-dcos:secrets:list:default:/<service name> read
-dcos:adminrouter:ops:ca:rw full
-dcos:adminrouter:ops:ca:ro full
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:agent:task:user:${USER} create
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:user:${USER} create
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:framework:role:${FOLDER_ROLE} create
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:principal:${SERVICE_ACCOUNT} delete
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:role:${FOLDER_ROLE} create
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:principal:${SERVICE_ACCOUNT} delete
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:role:${FOLDER_ROLE} create
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:secrets:default:/<service name>/* full
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:secrets:list:default:/<service name> read
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:adminrouter:ops:ca:rw full
+dcos security org users grant ${SERVICE_ACCOUNT} dcos:adminrouter:ops:ca:ro full
 ```
-where `<service name>` is the name of the service to be installed.
-
+    
+- In DC/OS before 2.0 `FOLDER_ROLE` is path for service with slashes replaced by double undescores e.g. `fully__qualified__path__{$SERVICE_NAME}-role`. 
+- In DC/OS 2.0 and later `FOLDER_ROLE` is the name of the top-level group where the service is located.
 
 
 ## Transport Encryption for Clients
