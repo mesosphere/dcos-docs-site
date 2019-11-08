@@ -37,7 +37,7 @@ DC/OS 基于 Linux 内核和用户空间。保护任何 Linux 系统的最佳实
 
 您可能希望向外部设备开放端口 22，以允许使用安全外壳（`ssh`）的管理任务。
 虽然 DC/OS 组件当前不支持专用网络选择，但您可以将
-`ssh` 配置为可以使用 [`ListenAddress`] (https://man.openbsd.org/sshd_config#ListenAddress)指示访问专用管理网络。
+`ssh` 配置为可以使用 [`ListenAddress`](https://man.openbsd.org/sshd_config#ListenAddress)指示访问专用管理网络。
 
 # 安全区
 
@@ -80,7 +80,7 @@ Admin Router 控制对管理区的访问。
 公共区中的代理节点被标记为特殊角色，以便只能在此处安排特定任务。这些代理节点具有公共和专用 IP 地址，也只能在其
 `iptables` 防火墙中打开特定端口。
 
-默认情况下，使用基于云的安装程序（例如 AWS Cloudformation 模板）时，大量端口都会接触到公共区的互联网。在生产系统中，这些端口全都会暴露出来。建议您关闭除 80 和 443 之外的所有端口（针对 HTTP/HTTPS 流量），并使用带有 HTTPS 的 [Marathon-LB] (/mesosphere/dcos/services/marathon-lb/1.13/)来管理入口流量。
+默认情况下，使用基于云的安装程序（例如 AWS Cloudformation 模板）时，大量端口都会接触到公共区的互联网。在生产系统中，这些端口全都会暴露出来。建议您关闭除 80 和 443 之外的所有端口（针对 HTTP/HTTPS 流量），并使用带有 HTTPS 的 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.13/)来管理入口流量。
 
 ### 典型 AWS 部署
 
