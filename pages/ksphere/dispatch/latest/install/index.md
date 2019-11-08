@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Install
-title: Install
+navigationTitle: Installing
+title: Installing Dispatch
 menuWeight: 4
 excerpt: Installing Dispatch
 enterprise: false
