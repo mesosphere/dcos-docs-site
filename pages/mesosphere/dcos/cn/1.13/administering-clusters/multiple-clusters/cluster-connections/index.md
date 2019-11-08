@@ -8,7 +8,7 @@ render: mustache
 model：/mesosphere/dcos/1.13/data.yml
 ---
 
-使用 [dcos cluster] (/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/) 命令连接到多个 DC/OS 群集。
+使用 [dcos cluster](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/) 命令连接到多个 DC/OS 群集。
 
 `dcos cluster` 命令有子命令，用于设置连接并附加到群集以及重命名和删除群集。
 

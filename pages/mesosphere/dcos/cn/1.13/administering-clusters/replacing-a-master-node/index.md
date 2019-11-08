@@ -49,4 +49,4 @@ model：/mesosphere/dcos/1.13/data.yml
 
     <p class="message--important"><strong>重要信息：</strong>此步骤为必需的。先确保确认新管理节点已成功加入群集，然后再替换任何其他管理节点或执行任何其他管理任务。</p>
     
-    要验证管理节点替换是否已成功完成，请按照 [升级管理节点] 中所述的步骤来验证升级(/mesosphere/dcos/1.13/installing/production/upgrading/#dcos-masters)。
+    要验证管理节点替换是否已成功完成，请按照 [升级管理节点 中所述的步骤来验证升级](/mesosphere/dcos/1.13/installing/production/upgrading/#dcos-masters)。
