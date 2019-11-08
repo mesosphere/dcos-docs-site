@@ -54,9 +54,9 @@ mixin renderProductBlurbs()
       a(class='blurb__link-group' href='/ksphere/kommander')
         h3(class='blurb__header') Kommander
         div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Snazzy Kommander tagline here
+          p(class='blurb__desc') Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
       ul(class="blurb__links")
-        for folder in latestKommDocs.children.slice(0,2)
+        for folder in latestKommDocs.children.slice(0,4)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
 
