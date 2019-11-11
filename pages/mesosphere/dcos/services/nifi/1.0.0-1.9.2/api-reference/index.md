@@ -63,7 +63,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/nodes/status/<{{ model.serviceName }}_node_status>
 ```
 
-## Details of a DC/OS {{model.techName }} Node
+## Details of a DC/OS {{ model.techName }} Node
 
 CLI Example
 ```shell
@@ -90,7 +90,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/nodes/remove/<{{ model.serviceName }}_node_id>
 ```
 
-## Control DC/OS {{model.techName }} Node using GET endpoint
+## Control DC/OS {{ model.techName }} Node using GET endpoint
 All DC/OS {{model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) uses GET method can be accessed from either the DC/OS CLI or HTTP.
 
 CLI Example

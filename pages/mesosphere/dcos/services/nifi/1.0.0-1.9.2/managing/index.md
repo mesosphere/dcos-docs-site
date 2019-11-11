@@ -9,7 +9,7 @@ enterprise: false
 model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
-This section describes various operations tasks you may need. DC/OS {{ model.techName }} allows you to 
+This section describes various operations tasks you may need. DC/OS {{ model.techName }} allows you to: 
 - Update your configuration after launch
 - Update your placement constraints
 - Add, replace, restart or resize a node
@@ -26,7 +26,6 @@ After making a change, the Scheduler will be restarted, and it will automaticall
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence.
 
 Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations).
-
 
 The instructions below describe how to update the configuration for a running DC/OS service.
 

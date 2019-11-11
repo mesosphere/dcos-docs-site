@@ -16,7 +16,7 @@ The following image shows the recommended hardware for a DC/OS {{model.techName 
 
 ![Hardware Recommendation](../img/HardwareRecommendation.png)
 
-Figure 1. Hardware sizing recommendations for DC/OS {{model.techName }}
+Figure - Hardware sizing recommendations for DC/OS {{model.techName }}
 
 ## Disk Recommendations
 
