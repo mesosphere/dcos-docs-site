@@ -187,3 +187,19 @@ Follow these instructions for DC/OS 1.10 and later. If you are using DC/OS 1.9 o
     1. Go to the service view of `{{ model.serviceName }}-3` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and update `{{ model.techShortName }}_EXTERNAL_SEEDS` = `dse-0-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-2-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1` and `{{ model.serviceName }}-2`).
     1. Wait for the seed update to roll out across `{{ model.serviceName }}-3` nodes.
 1. Now, each of the three DCs has seed nodes configured for the other DCs. Because we used `.autoip.dcos.thisdcos.directory` hostnames, which automatically update to follow the tasks, we won't need to reconfigure seeds if they're moved between systems in the DC/OS cluster.
+
+## Using Volume Profiles
+
+Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. 
+
+<p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
+
+DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
+
+If you want to deploy DSE with DSS, please follow [tutorial for cassandra](/mesosphere/dcos/services/storage/1.0.0/tutorials/cassandra-dss-volumes/) and same way we can to deploy DSE.
+
+Once the DC/OS cluster is running and volume profiles are created, you can deploy DSE with the volume profile.
+
+<p class="message--note"><strong>NOTE: </strong>Cassandra will be configured to look for <code>MOUNT</code> volumes with the specified volume profile.</p> 
+
+Once the Cassandra service finishes deploying its tasks will be running with the specified volume profiles.
