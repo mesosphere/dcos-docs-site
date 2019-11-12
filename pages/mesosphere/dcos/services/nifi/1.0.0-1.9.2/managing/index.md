@@ -15,11 +15,11 @@ This section describes various operations tasks you may need. DC/OS {{ model.tec
 - Add, replace, restart or resize a node
 - Back up your application
 - Use the DC/OS {{ model.techName }} Administration Toolkit
-- User metrics to troubleshoot your nodes
+- Use metrics to troubleshoot your nodes
 
 # Updating Configuration
 
-You can make changes to the service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles DC/OS {{model.techName }} deployment itself.
+You can make changes to the service after it has been launched. Configuration management is handled by the Scheduler process, which in turn handles DC/OS {{ model.techName }} deployment itself.
 
 After making a change, the Scheduler will be restarted, and it will automatically deploy any detected changes to the service, one node at a time. For example, a given change will first be applied to `{{ model.serviceName }}-0`, then `{{ model.serviceName }}-1`, and so on.
 
@@ -31,7 +31,7 @@ The instructions below describe how to update the configuration for a running DC
 
 ### DC/OS Enterprise 1.10 and later
 
-DC/OS Enterprise 1.10 introduces a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
+DC/OS Enterprise 1.10 introduced a convenient command line option that allows for easier updates to a service's configuration, as well as allowing users to inspect the status of an update, to pause and resume updates, and to restart or complete steps if necessary.
 
 #### Prerequisites
 
@@ -294,7 +294,7 @@ dcos {{ model.serviceName }} update force-restart service-phase service-0:[node]
 
 ## Backing up
 
-The DC/OS {{model.techName }} framework allows you to back up your DC/OS {{model.techName }} application to Amazon S3. The following information/values are required for backup.
+The DC/OS {{ model.techName }} framework allows you to back up your DC/OS {{ model.techName }} application to Amazon S3. The following information/values are required for backup.
 
 1. AWS_ACCESS_KEY_ID
 1. AWS_SECRET_ACCESS_KEY
@@ -316,7 +316,7 @@ This plan can be executed with the following command:
  dcos {{ model.serviceName }} --name=<service_name> plan start <plan_name> -p <plan_parameters>
 }
 ```
-or with a command, including plan parameters itself:
+or with this command, including plan parameters itself:
 ```shell
 {
  dcos {{ model.serviceName }} --name=<SERVICE_NAME> plan start backup-s3 \
@@ -331,42 +331,43 @@ or with a command, including plan parameters itself:
 
 
 
-Once this plan execution is completed, the backup will be uploaded to S3.
-The DC/OS {{model.techName }} backup is taken using the DC/OS {{model.techName }} toolkit. The DC/OS {{model.techName }} backup will be done using three sidecar tasks:
+Once this plan is completed, the backup will be uploaded to S3.
+The DC/OS {{ model.techName }} backup is taken using the DC/OS {{ model.techName }} toolkit. The DC/OS {{ model.techName }} backup will be done using three sidecar tasks:
 
 1. **Backup** - Back up to local node (ROOT/MOUNT). The Backup task is responsible for backing up the local application to the local node, which may be on the ROOT or Mount Volume.
 
     [<img src="../img/Backup.png" alt="backup" width="800"/>](../img/Backup.png)
 
-    Figure 1. Backing up to local node
-
+    Figure 1 - Backing up to local node
 
 1. **Upload_to_S3** - Upload the backup from the local node to S3. This sidecar task takes the backup created in Step 1, from the ROOT/Mount volume, and uploads it to Amazon S3 in the Bucket Name specified.
 
     [<img src="../img/S3Upload.png" alt="S3Upload.png" width="800"/>](../img/S3Upload.png) 
 
-    Figure 2. S3 upload      
+    Figure 2 - S3 upload      
 
 1. **Cleanup** - Remove the backup from local node. When Step 2 is complete and the backup has been uploaded to S3, a sidecar task known as Cleanup is triggered. This task cleans up/removes the backup folder from the local Root/Mount volumes.
 
     [<img src="../img/Cleanup.png" alt="cleanup" width="800"/>](../img/Cleanup.png)
 
-    Figure 3. Cleanup service
+    Figure 3 - Cleanup service
 
 <!-- How does a user restore the service? -->
 
-# DC/OS {{model.techName }} Toolkit Commands
+# DC/OS {{ model.techName }} Toolkit Commands
 
 
-The Admin Toolkit contains command line utilities for administrators to support DC/OS {{model.techName }} maintenance in standalone and clustered environments. These utilities include:
+The Admin Toolkit contains command line utilities for administrators to support DC/OS {{ model.techName }} maintenance in standalone and clustered environments. These utilities include:
 
-- **Notify** — The notification tool allows administrators to send bulletins to the DC/OS {{model.techName }} UI using the command line.
+- **Notify** — The notification tool allows administrators to send bulletins to the DC/OS {{ model.techName }} UI using the command line.
 - **Node Manager** — The node manager tool allows administrators to perform a status check on a node as well as to connect, disconnect, or remove nodes that are part of a cluster.
-- **File Manager** — The file manager tool allows administrators to backup, install or restore a DC/OS {{model.techName }} installation from backup.
+- **File Manager** — The file manager tool allows administrators to backup, install or restore a DC/OS {{ model.techName }} installation from backup.
 
-The Administration Toolkit is bundled with the `{{ model.serviceName }}-toolkit` and can be executed with scripts found in the `bin` folder. Further documentation is available at [DC/OS {{model.techName }} Administration Toolkit](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/html/administration-guide.html#admin-toolkit).
+The Administration Toolkit is bundled with the `{{ model.serviceName }}-toolkit` and can be executed with scripts found in the `bin` folder. Further documentation is available at [DC/OS {{ model.techName }} Administration Toolkit](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/html/administration-guide.html#admin-toolkit).
 
-To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a `dcos task exec` command to a DC/OS {{model.techName }} node. 
+### Executing Toolkit commands
+
+To execute the DC/OS {{ model.techName }} Administration Toolkit commands, run  a `dcos task exec` command to a DC/OS {{ model.techName }} node. 
 
 1. Set the JAVA_HOME using the command:
     ```shell
@@ -400,7 +401,7 @@ To execute the DC/OS {{model.techName }} Administration Toolkit commands, run  a
     -v,--verbose Verbose messaging (optional)
     ```
 
-**Example**
+### Checking for `dcos` tasks
 
 To check for `dcos` tasks:
 
@@ -414,17 +415,24 @@ NAME            HOST         USER   STATE  ID                                   
 {{ model.serviceName }}-1-metrics  10.0.0.58   nobody    R    {{ model.serviceName }}-1-metrics__e58b8f2d-e19f-48f7-b154-6d11e65c54a9  1d166af3-8666-4f3e-8add-dcaad139c900-S5  
 {{ model.serviceName }}-1-node     10.0.0.58   nobody    R    {{ model.serviceName }}-1-node__1a3d71c6-3c23-4a96-bba3-859de2c0615d     1d166af3-8666-4f3e-8add-dcaad139c900-S5
 ```
+
+### Entering a `dcos` node
+
 To enter into a `dcos` node
 
 ```shell
 dcos task exec -ti {{ model.serviceName }}-0-node__68c0d8a0-4c36-4a86-a287-5dc67ce19fde bash
 ```
 
+### Setting the Java Path
+
 To set the Java Path
 
 ```shell
 export JAVA_HOME=$(ls -d $MESOS_SANDBOX/jdk*/jre*/) && export JAVA_HOME=${JAVA_HOME%/} && export PATH=$(ls -d $JAVA_HOME/bin):$PATH
 ```
+### Checking for Java Home
+
 To check for Java Home, run the following command:
 ```shell
 echo $JAVA_HOME
@@ -433,7 +441,8 @@ This returns the Java home path:
 ```shell
 /var/lib/mesos/slave/slaves/1d166af3-8666-4f3e-8add-dcaad139c900-S1/frameworks/1d166af3-8666-4f3e-8add-dcaad139c900-0003/executors/{{ model.serviceName }}__78b829b7-3963-4083-b33b-4147fcab559f/runs/fb826e37-17e6-4349-b7c4-63060b51ff0a/containers/8bd354e5-a2a6-4185-9454-647b98b9b327/jdk1.8.0_162/jre
 ```
-**Example of Backup Command through Toolkit**
+### Example of Backup Command through Toolkit
+
 ```shell
  sh $MESOS_SANDBOX/{{ model.serviceName }}-toolkit-${NIFI_VERSION}/bin/file-manager.sh -o backup -b {{ model.serviceName }}-backup -c $MESOS_SANDBOX/../../tasks/{{ model.serviceName }}-$POD_INSTANCE_INDEX-node*/{{ model.serviceName }}-{{NIFI_VERSION}} -v;
 ```

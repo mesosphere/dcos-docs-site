@@ -14,7 +14,7 @@ render: mustache
 
 ## Configurations
 
-The “disk” configuration value is denominated in MB. We recommend that you set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the [Configuring section](../install) for instructions for customizing these values.
+The “disk” configuration value is denominated in MB. We recommend that you set the configuration value `log_retention_bytes` to a value smaller than the indicated “disk” configuration. See the section on [installing with custom configurations](../configuration/#installing-with-custom-configuration/) for instructions for customizing these values.
 
 ## Legacy User Support
 
@@ -27,4 +27,4 @@ LDAP integration, OpenID Connect and Apache Knox are not supported.
 
 ## Installation Limitations
 
-The minimum memory requirement for DC/OS {{ model.techName }} installation is {{ model.install.minMemory }}. DC/OS {{model.techName }} installation will take time since the size of DC/OS {{model.techName }} application is approximately 1.10GB. The approximate installation time required would be around 20~25 minutes for a two node cluster.
+The minimum memory requirement for DC/OS {{ model.techName }} installation is {{ model.install.minMemory }}. DC/OS {{ model.techName }} installation will take time since the size of DC/OS {{ model.techName }} application is approximately 1.10GB. The approximate installation time required would be around 20~25 minutes for a two node cluster.
