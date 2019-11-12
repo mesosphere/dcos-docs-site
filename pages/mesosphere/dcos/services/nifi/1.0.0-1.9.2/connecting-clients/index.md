@@ -70,10 +70,10 @@ This JSON array contains a list of valid nodes that the client can use to connec
 
 When TLS is enabled, an endpoint named `node-tls` should also be listed. To verify a TLS connection from a client, the DC/OS trust bundle with a CA certificate is required.
 
-# Accessing the DC/OS {{model.techName }} UI with Edge-LB configuration
+# Accessing the DC/OS {{ model.techName }} UI with Edge-LB configuration
 
 ### Assumptions
-  - DC/OS {{model.techName }} is installed on DC/OS without TLS and Kerberos
+  - DC/OS {{ model.techName }} is installed on DC/OS without TLS and Kerberos
   - Edge-LB is installed (with service account and service account secret in strict mode)
 
 ## Steps

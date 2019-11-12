@@ -10,7 +10,7 @@ model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
 
-The DC/OS {{model.techName }} service supports the offload node feature of {{ model.techName }}. 
+The DC/OS {{ model.techName }} service supports the offload node feature of {{ model.techName }}. 
 
 ## Steps
 

@@ -13,18 +13,18 @@ render: mustache
 
 
 # Service Status Info
-Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if  DC/OS {{model.techName }} is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
-You can use this request to troubleshoot: if you think  DC/OS {{model.techName }} should be receiving resource offers, but is not, you can use this API call to see if  DC/OS {{model.techName }} is suppressed.
+Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if  DC/OS {{ model.techName }} is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
+You can use this request to troubleshoot: if you think  DC/OS {{ model.techName }} should be receiving resource offers, but is not, you can use this API call to see if  DC/OS {{ model.techName }} is suppressed.
 
 ```shell
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/state/properties/suppressed"
 ```
 
-# DC/OS {{model.techName }} Node Operations
-These operations provide access to the DC/OS {{model.techName }} cluster node using the available DC/OS {{model.techName }} REST API. The Rest API provides programmatic access to command and control a DC/OS {{model.techName }} instance in real time. You can see the [DC/OS {{model.techName }} REST API](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) for more about the available API.
+# DC/OS {{ model.techName }} Node Operations
+These operations provide access to the DC/OS {{ model.techName }} cluster node using the available DC/OS {{ model.techName }} REST API. The Rest API provides programmatic access to command and control a DC/OS {{ model.techName }} instance in real time. You can see the [DC/OS {{ model.techName }} REST API](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) for more about the available API.
 
 
-## List DC/OS {{model.techName }} Cluster Summary
+## List DC/OS {{ model.techName }} Cluster Summary
 
 CLI Example
 ```shell
@@ -37,7 +37,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/cluster/
 ```
 
-## List DC/OS {{model.techName }} Node
+## List DC/OS {{ model.techName }} Node
 
 CLI Example
 ```shell
@@ -50,7 +50,7 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/nodes/
 ```
 
-## List DC/OS {{model.techName }} Node for a status
+## List DC/OS {{ model.techName }} Node for a status
 
 CLI Example
 ```shell
@@ -77,7 +77,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceNam
 ```
 
 
-## Remove a DC/OS {{model.techName }} Node
+## Remove a DC/OS {{ model.techName }} Node
 
 CLI Example
 ```shell
@@ -91,7 +91,7 @@ curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceNam
 ```
 
 ## Control DC/OS {{ model.techName }} Node using GET endpoint
-All DC/OS {{model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) uses GET method can be accessed from either the DC/OS CLI or HTTP.
+All DC/OS {{ model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) uses GET method can be accessed from either the DC/OS CLI or HTTP.
 
 CLI Example
 ```shell
@@ -104,8 +104,8 @@ HTTP Example
 curl -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.serviceName }}/v1/{{ model.serviceName }}-api/get?uri=<{{ model.serviceName }}_get_endpoints_uri>
 ```
 
-## Control DC/OS {{model.techName }} Node using POST endpoint
-All DC/OS {{model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) uses POST method can be accessed from either the DC/OS CLI or HTTP.
+## Control DC/OS {{ model.techName }} Node using POST endpoint
+All DC/OS {{ model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) uses POST method can be accessed from either the DC/OS CLI or HTTP.
 
 CLI Example
 ```shell
@@ -132,8 +132,8 @@ curl -X POST -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.se
 }
 ```
 
-## Control DC/OS {{model.techName }} Node using PUT endpoint
-All DC/OS {{model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) using the PUT method can be accessed from either the DC/OS CLI or HTTP.
+## Control DC/OS {{ model.techName }} Node using PUT endpoint
+All DC/OS {{ model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) using the PUT method can be accessed from either the DC/OS CLI or HTTP.
 
 CLI Example
 ```shell
@@ -160,8 +160,8 @@ curl -X PUT -H "Authorization:token=$auth_token" <dcos_url>/service/{{ model.ser
 }
 ```
 
-## Control DC/OS {{model.techName }} Node using DELETE endpoint
-All DC/OS {{model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) using the DELETE method can be accessed from either the DC/OS CLI or HTTP.
+## Control DC/OS {{ model.techName }} Node using DELETE endpoint
+All DC/OS {{ model.techName }} [endpoints](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/rest-api/index.html) using the DELETE method can be accessed from either the DC/OS CLI or HTTP.
 
 CLI Example
 ```shell
