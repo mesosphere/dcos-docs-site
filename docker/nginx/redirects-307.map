@@ -4,7 +4,7 @@
 ~^/mesosphere/dcos/services/confluent-zookeeper/latest/(.*) /mesosphere/dcos/services/confluent-zookeeper/2.6.0-5.1.2e/$1;
 ~^/mesosphere/dcos/services/couchbase/latest/(.*) /mesosphere/dcos/services/couchbase/0.3.0-5.5.3/$1;
 ~^/mesosphere/dcos/services/data-science-engine/latest/(.*) /mesosphere/dcos/services/data-science-engine/1.0.0/$1;
-~^/mesosphere/dcos/services/dse/latest/(.*) /mesosphere/dcos/services/dse/3.0.0-6.7.2/$1;
+~^/mesosphere/dcos/services/dse/latest/(.*) /mesosphere/dcos/services/dse/3.1.0-6.7.6/$1;
 ~^/mesosphere/dcos/services/edge-lb/latest/(.*) /mesosphere/dcos/services/edge-lb/1.5/$1;
 ~^/mesosphere/dcos/services/elastic/latest/(.*) /mesosphere/dcos/services/elastic/2.7.0-6.8.1/$1;
 ~^/mesosphere/dcos/services/hdfs/latest/(.*) /mesosphere/dcos/services/hdfs/2.7.0-3.2.1/$1;
