@@ -28,4 +28,6 @@ Nodes are not automatically replaced by the service in the event a system goes d
 
 ## Rack-aware replication
 
-Rack awareness within the DC/OS {{ model.shortTechName }} Service is not currently supported, but is planned to be supported with a future release of DC/OS.
+Rack awareness within the DC/OS {{ model.shortTechName }} Service is not currently supported.
+
+
