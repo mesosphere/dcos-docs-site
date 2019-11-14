@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Configuation
+navigationTitle: Configuration
 excerpt: Configuring DSE
 title: Configuration
 menuWeight: 20
