@@ -42,7 +42,7 @@ In order to upgrade your cluster from {{ model.techShortName }} 5.1.10 to {{ mod
 1. After {{ model.techShortName }} upgrade, you can upgrade {{ model.techOpsName }} with the following command: 
 
     ```
-    dcos datastax-ops update start --package-version=3.1.0-6.7.5
+    dcos datastax-ops update start --package-version=3.1.0-6.7.6
     ```
 1. After the {{ model.techOpsName }} upgrade finishes, run the following command to convert `sstables` to the proper version:
 	```
