@@ -1,0 +1,386 @@
+---
+layout: layout.pug
+navigationTitle:  Set Up Repo
+title: Setting up a repository in Dispatch
+menuWeight: 2
+excerpt: Setting up a Repository
+---
+
+# Setting up a repository to use Dispatch
+
+## Setup a repository
+
+First, let's write some code to deploy. For this tutorial, we will fork a simple
+"hello world" application prepared for this purpose. Visit [the cicd-hello-world
+repository](https://github.com/mesosphere/cicd-hello-world) and "Fork" it to
+your personal account.
+
+The repository contains various branches named `step_1`, `step_2`, etc. These
+correspond to the steps in this tutorial, as well as steps in the next tutorial:
+[Deployment with Gitops and Argo CD](./deployment.md). The `master` branch is in
+a very basic state. We will add to it as we progress through the tutorials.
+
+Clone your new "cicd-hello-world" repository from your personal fork to your
+workstation. Looking at the source code, you see the following files:
+
+* *main.go* contains the code for the Go web server.
+* *Dockerfile* describes how to build a docker image from the application source
+  code.
+* *README.md*
+* *License* contains a license file. The application was forked from the example
+  'hello-app' application at
+  https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/tree/bc8e412670e5f8dd94189e80a0908d08ade196cc/hello-app
+
+## Write a basic Dispatchfile
+
+Now we write a basic Dispatchfile and save it as `Dispatchfile` in your cloned repository:
+
+```
+resource "src-git": {
+  type: "git"
+  param url: "$(context.git.url)"
+  param revision: "$(context.git.commit)"
+}
+
+task "test": {
+  inputs: ["src-git"]
+
+  steps: [
+    {
+      name: "test"
+      image: "golang:1.13.0-buster"
+      command: [ "go", "test", "./..." ]
+      workingDir: "/workspace/src-git"
+    }
+  ]
+}
+
+actions: [
+  {
+    tasks: ["test"]
+    on push branches: ["master"]
+  },
+  {
+    tasks: ["test"]
+    on pull_request chatops: ["test"]
+  }
+]
+```
+
+A Dispatchfile has three parts:
+
+* `task`: defines a set of steps (containers) to run, these do the work of the pipeline.
+* `resource`: resources define git repositories, images, and other artifacts that are consumed or produced by a task.
+* `actions`: defines which tasks to run for which events.
+
+In our example:
+
+* The `src-git` resource clones the current repository into each task that specifies `src-git` in its `inputs`.
+* The `test` task runs a step that runs all defined Go unit tests.
+* There are two `actions` defined:
+  * One that runs the `test` task on any push to the `master` branch.
+  * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/build`.
+
+Once you've saved the file, you can add and commit the `Dispatchfile` to your git
+repository's master branch, then push it to GitHub:
+
+```sh
+git add Dispatchfile
+git commit -m 'Dispatchfile: initial commit with test task'
+git push
+```
+
+## Trigger a build locally
+
+To run your Dispatchfile, simply run:
+
+```
+dispatch build local --tasks test
+```
+
+Alternatively, run it in a running Dispatch cluster with:
+
+```sh
+dispatch build tekton --tasks test --follow
+```
+
+This will submit the Dispatchfile to your Dispatch cluster, run it, and display the results to you.
+
+Once this command exits successfully, you can view the result of the build on GitHub.
+
+Visit https://github.com/your-user/cicd-hello-world/commits/master in your browser (replace "your-user" with your actual GitHub username).
+
+Notice that the new commit "Dispatchfile: initial commit with test task" has a
+green checkmark. That means that the build succeeded.
+
+You can click on the the green checkmark and then click on "Details" in order to
+view the build log of your first CI pipeline. It is not very glamarous yet, but
+it is a good start.
+
+### Build a Docker image
+
+In the previous example, we only ran our tests. Now let's build a Docker image.
+
+First, we need to add a new "docker-image" resource. Dispatch uses this resource
+definition to identify the docker image that we are going to build, and push the
+resulting image to DockerHub.
+
+We add the "docker-image" resource below the "src-git" resource. The order in
+which they are defined is not important.
+
+```
+resource "src-git": {
+  type: "git"
+  param url: "$(context.git.url)"
+  param revision: "$(context.git.commit)"
+}
+
+resource "docker-image": {
+  type: "image"
+  param url: "your-user/hello-world:$(context.build.name)"
+  param digest: "$(inputs.resources.docker-image.digest)"
+}
+...
+```
+
+Make sure you replace `your-user` in the `docker-image` resource definition with
+your real DockerHub username. Running the pipeline defined in our Dispatchfile
+will push a new docker image called "hello-world" to your DockerHub account.
+
+If you're unsure exactly what changes to make, you can have a look at the diff here: https://github.com/mesosphere/cicd-hello-world/compare/step_1
+
+Next, we'll add a new "build" task definition that will build our docker image.
+We add the "build" task definition below the "test" task definition. The order
+in which tasks are defined is not important.
+
+```
+...
+task "test": {
+  inputs: ["src-git"]
+
+  steps: [
+    {
+      name: "test"
+      image: "golang:1.13.0-buster"
+      command: [ "go", "test", "./..." ]
+      workingDir: "/workspace/src-git"
+    }
+  ]
+}
+
+task "build": {
+  inputs: ["src-git"]
+  outputs: ["docker-image"]
+  deps: ["test"]
+
+  steps: [
+    {
+      name: "build-and-push"
+      image: "chhsiao/kaniko-executor"
+      args: [
+        "--destination=$(outputs.resources.docker-image.url)",
+        "--context=/workspace/src-git",
+        "--oci-layout-path=/builder/home/image-outputs/docker-image",
+        "--dockerfile=/workspace/src-git/Dockerfile"
+      ],
+      env: [
+        {
+          name: "DOCKER_CONFIG",
+          value: "/builder/home/.docker"
+        }
+      ]
+    }
+  ]
+}
+...
+```
+
+Next, let's modify the list of actions at the bottom of the file to execute the new "build" task:
+
+```
+...
+
+actions: [
+  {
+    tasks: ["build"]
+    on push branches: ["master"]
+  },
+  {
+    tasks: ["build"]
+    on pull_request chatops: ["build"]
+  },
+  {
+    tasks: ["build"]
+    on push tags: ["*"]
+  }
+]
+```
+
+If you're unsure exactly what changes to make, you can have a look at the diff here: https://github.com/mesosphere/cicd-hello-world/compare/step_1...step_2
+
+Since the "build" task depends on the "test" task, we do not need to explicitly
+list the "test" task in the actions where the "build" task is specified. If you
+prefer to do so you can, by specifying `tasks: ["test", "build"]` instead of
+`tasks: ["build"]`, but in this tutorial we will not do so. Dispatch
+automatically resolves dependencies between tasks and will run all the tasks
+specified in the action, as well as all the tasks on which they depend
+(transitively).
+
+In this section, we have added three things to our Dispatchfile:
+
+* An `image` resource that specifies the image that we are publishing in our pipeline.
+  * The `$(context.build.name)` variable in the image URL is used to infer the tag to use for the built Docker image from the current build context (either the branch or tag).
+  * The `image` resource can be used by other steps to refer to the newly built image by its digest.
+* A `build` task that builds and pushes the Docker image. The `docker-image` is its output resource, it has `src-git` as an input resource, and it depends on the `test` task completing successfully.
+* A new `on push tags` action that will run our build whenever a new Git tag is pushed.
+
+See the [complete pipeline configuration reference](pipeline-configuration.md) for further assistance configuring your pipeline.
+
+Once you've made these modifications to the Dispatchfile, you can `add`, `commit` and `push` your changes:
+
+```sh
+git add Dispatchfile
+git commit -m 'Dispatchfile: add docker-image resource and build task'
+git push
+```
+
+If you like, you can run the Dispatch pipeline once more by executing the following command:
+
+```sh
+dispatch build local --tasks build
+```
+
+Alternatively, run it in a running Dispatch cluster with:
+
+```sh
+dispatch build tekton --tasks build --follow
+```
+
+Once this command exits successfully, you can view the result of the build on GitHub.
+
+Visit https://github.com/your-user/cicd-hello-world/commits/master in your browser (replace "your-user" with your actual GitHub username).
+
+Notice that the latest commit "Dispatchfile: add docker-image" has a green
+checkmark. As before, this means that the build succeeded.
+
+Click on the the green checkmark and then click on the "Details" next to the
+"build" task in order to view the build log. Once the build succeeds, you can
+visit DockerHub and see the new image has been pushed. To do so, open your
+browser at https://hub.docker.com/r/your-user/hello-world (remember to
+replace "your-user" in the URL with your actual DockerHub username)
+
+In [the commit
+log](https://github.com/your-user/cicd-hello-world/commits/master) you can see
+that the latest commit now shows a green checkmark, too.
+
+## Add repository to Dispatch
+
+You are now ready to have the Dispatch service execute your Dispatchfile on pull requests against your repository.
+
+Ensure you are logged in to github:
+
+```
+dispatch login github --user $YOURUSERNAME --token $YOURGITHUBTOKEN --secret my-github
+```
+
+In your shell, navigate to your local git checkout of the `cicd-hello-world`
+repository and run the following command:
+
+```
+dispatch create repository --secret my-github
+```
+
+The service account that is used when creating pipelines can be overriden with the `--service-account` flag.
+
+Ensure that the secret used in `create repository` matches the secret for the credentials that should be used and
+that the secret is included in the list of secrets that the correct service account has access to it (`build-bot` by default):
+
+```
+$ kubectl patch serviceaccounts build-bot --type=json -p '[{"op":"add","path":"/secrets/0","value":{"name":"my-github"}}]'
+```
+
+The `dispatch create repository` command creates a `Repository` object in Kubernetes for your repository
+which tells Dispatch which credentials to use, to create a webhook with Github, and how to handle events
+received from Github. See [the Repository CRD documentation](./repository_crd.md) for details on the Repository object.
+
+Run `kubectl describe repositories -n dispatch` to see the newly created `Repository` object.
+
+You can see the newly created webhook by opening your browser to
+https://github.com/your-user/cicd-hello-world/settings/hooks (remember to
+replace "your-user" with your real GitHub username). The green checkmark
+indicates that GitHub is able to successfully deliver webhook events to your
+Dispatch installation.
+
+## Create a Pull Request
+
+We are now ready to perform our first real CI build. We will,
+
+- Modify the `main.go` file and commit our changes to a new feature branch.
+- Create a pull request from our feature branch.
+- GitHub will deliver a GitHub event to Dispatch using the new webhook.
+- Dispatch will execute a build as defined by our Dispatchfile.
+- Dispatch will report the result of the build to the GitHub.
+- The result will be shown on the the pull request as a status check.
+
+You can use the GitHub editor to modify the `main.go` file on your fork of the
+cicd-hello-world repository or you can create a local feature branch, use your
+favourite editor to edit the file, commit your change, and push your feature
+branch to your fork of the cicd-hello-world repository.
+
+You can see the exact changes suggested here by looking at this diff:
+https://github.com/mesosphere/cicd-hello-world/compare/step_2...step_3
+
+Once you push your feature branch to your fork, you can visit
+https://github.com/your-user/cicd-hello-world/commits/master (replace
+`your-user` with your actual GitHub username) and create a pull request from
+your feature branch against the master branch _of your fork_.
+
+A few seconds after you've created your pull request, you will see Dispatch
+report that a new CI build has started. You can click on the Details link to
+follow the build as it proceeds. Once it completes successfully, that status
+will be reported back to GitHub and your pull request will show that all its
+checks are passing. Merge the pull request.
+
+Merging the pull request applies your feature branch's commits to the `master`
+branch of your fork. As we've modified the `master` branch, another CI build is
+triggered. You can view the new round of CI by opening your browser at
+https://github.com/your-user/cicd-hello-world/commits/master (replace
+`your-user` with your actual GitHub username) and clicking on the yellow dot or
+green checkmark next to the latest "Merge" commit.
+
+*NOTE: the following relies on functionality not yet released in Dispatch v0.1.0*
+
+Now that we've modified master and confirmed that the current `master` branch
+passed CI, we will use the GitHub UI to tag a new release.
+
+1. Open your browser at https://github.com/your-user/cicd-hello-world/releases
+(replace `your-user` with your actual GitHub username)
+1. Click the "Create a new release" button.
+1. In the "Tag version" text field, enter `v0.1`.
+1. Leave the "Target" as `Target: master`.
+1. For "Release title" enter "v0.1-alpha"
+1. Leave the description text box empty.
+1. Check the "This is a pre-release" checkbox.
+1. Hit the "Publish release" button.
+
+You have now tagged and created a new release. Creating a tag starts another CI
+build. There is no link in the GitHub UI that can take you directly to the new
+build. Instead, you can view the build status of the last `master` build and
+navigate from there to the latest build (which will be for the tag we just
+created.)
+
+1. Open your browser at https://github.com/your-user/cicd-hello-world/commits/master
+1. Click on the green checkmark next to the latest commit.
+1. Click on the "Details" link next to "build". This takes you to the now-familiar Tekton dashboard.
+1. In the sidebar click on "PipelineRuns".
+1. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
+1. Once it completes, if will push a docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
+
+You have successfully created a release.
+
+Now that you have configured CI for your project, proceed to the next tutorial:
+[Deployment with Gitops and Argo CD](./deployment.md)
+
+## Slack notifications
+
+If you would like to receive notifications in a Slack channel, add the [Github Slack integration](https://slack.github.com/) to your Slack channel.
