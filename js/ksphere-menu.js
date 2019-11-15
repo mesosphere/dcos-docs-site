@@ -55,5 +55,7 @@ class Spherer {
 
 document.addEventListener('DOMContentLoaded', () => {
     const sphereNav = document.querySelector('#ks');
-    new Spherer(sphereNav);
+    if (sphereNav) {
+      new Spherer(sphereNav);
+    }
 });

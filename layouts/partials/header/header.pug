@@ -21,6 +21,8 @@ header(class='header')
           a(href='https://support.d2iq.com') Support
   if isKonvoy
     include mesosphere-dropdown.pug
+  if isDispatch
+    include mesosphere-dropdown.pug
   if isDCOS
     include ksphere-dropdown.pug
     include localization-dropdown.pug
