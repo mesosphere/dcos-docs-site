@@ -36,7 +36,7 @@ render: mustache
 ## Bug Fixes
 - Used correct YAML markup for TPC-related configurations: TPC CORES, TPC IO CORES, IO GLOBAL QUEUE DEPTH
 - DSEFS could be enabled independently from DSE Analytics
-- Ignore error code of nodetool commands, stop command to run indifinitely.
+- Ignore error code of `nodetool` commands; stops command from running indefinitely.
 - Save OpsCenter event-plugins on volume, Alert sending configuration are now persisted between OpsCenter restarts.
 - Fix OpsCenter UI shows gray ring on restart
 
