@@ -31,6 +31,19 @@ helm repo update
 
 **Note:** Konvoy is using `containerd`. There is currently an issue with the Lightbend container registry (i.e. bintray, JFrog internal JIRA JBT-2988) when pulling private images. Thats why we need the additional steps described in this section until the issue gets resolved.
 
+**Note:** In your Konvoy `cluster.yaml file` remove the line `-  AlwaysPullImages` before creating the cluster with `konvoy up`.
+```yaml
+...
+spec:
+  kubernetes:
+    admissionPlugins:
+      enabled:
+      - NodeRestriction
+      - AlwaysPullImages
+      disabled: []
+...
+```
+
 Use your `Lightbend credentials` to login to the `Lightbend container registry`.
 
 ```sh
@@ -60,20 +73,6 @@ for ip in $IPS; do
   scp -o StrictHostKeyChecking=no -i $KEY_FILE lb.tar.gz centos@$ip:/tmp;
   ssh -o StrictHostKeyChecking=no -i $KEY_FILE centos@$ip sudo ctr -n k8s.io image import /tmp/lb.tar.gz;
 done
-```
-
-In your Konvoy `cluster.yaml file` remove the line `-  AlwaysPullImages` and do a `konvoy up`.
-
-```yaml
-...
-spec:
-  kubernetes:
-    admissionPlugins:
-      enabled:
-      - NodeRestriction
-      - AlwaysPullImages
-      disabled: []
-...      
 ```
 
 ### installing the Lightbend console
