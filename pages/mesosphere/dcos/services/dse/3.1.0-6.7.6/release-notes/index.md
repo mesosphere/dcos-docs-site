@@ -37,8 +37,8 @@ render: mustache
 - Used correct YAML markup for TPC-related configurations: TPC CORES, TPC IO CORES, IO GLOBAL QUEUE DEPTH
 - DSEFS could be enabled independently from DSE Analytics
 - Ignore error code of `nodetool` commands; stops command from running indefinitely.
-- Save OpsCenter event-plugins on volume, Alert sending configuration are now persisted between OpsCenter restarts.
-- Fix OpsCenter UI shows gray ring on restart
+- Fixed OpsCenter event-plugins not being saved and getting lost on restart. Now, alert-sending configurations are now persisted between OpsCenter restarts.
+- Fixed OpsCenter UI from showing a gray ring after a restart
 
 ## Upgrading your cluster from {{ model.techShortName }} 5.1.10 to 6.7.6
 Due to the complexity of upgrading to {{ model.techShortName }} 6.7, we strongly advise that you attempt the upgrade on a test cluster before upgrading in your production environment. See the [update section](/mesosphere/dcos/services/dse/3.1.0-6.7.6/updates/) for specific instructions.
