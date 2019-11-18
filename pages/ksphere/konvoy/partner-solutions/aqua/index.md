@@ -49,6 +49,19 @@ cd aqua-helm
 
 **Note:** Konvoy is using `containerd`. There is currently an issue with the Aqua container registry when pulling private images. Thats why we need the additional steps described in this section until the issue gets resolved.
 
+**Note:** In your Konvoy `cluster.yaml file` remove the line `-  AlwaysPullImages` before creating the cluster with `konvoy up`.
+```yaml
+...
+spec:
+  kubernetes:
+    admissionPlugins:
+      enabled:
+      - NodeRestriction
+      - AlwaysPullImages
+      disabled: []
+...
+```
+
 Use your `Aqua credentials` to login to the `Aqua container registry`.
 
 ```sh
@@ -80,20 +93,6 @@ for ip in $IPS; do
   scp -o StrictHostKeyChecking=no -i $KEY_FILE aqua.tar.gz centos@$ip:/tmp;
   ssh -o StrictHostKeyChecking=no -i $KEY_FILE centos@$ip sudo ctr -n k8s.io image import /tmp/aqua.tar.gz;
 done
-```
-
-In your Konvoy `cluster.yaml file` remove the line `-  AlwaysPullImages` and do a `konvoy up`.
-
-```yaml
-...
-spec:
-  kubernetes:
-    admissionPlugins:
-      enabled:
-      - NodeRestriction
-      - AlwaysPullImages
-      disabled: []
-...
 ```
 
 ### install the Aqua server, database, and gateway
