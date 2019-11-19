@@ -8,7 +8,9 @@ category: K-Sphere
 menuWeight: 5
 ---
 
-After downloading [Konvoy with Kommander](https://github.com/mesosphere/konvoy/releases) see the detailed instructions found at the [Konvoy installation guide](/ksphere/konvoy/latest/install/)
+### Obtaining Konvoy with Kommander
+
+[Sign up to be notified](https://d2iq.com/solutions/ksphere/kommander#get-notified) about Kommander availability and then see the detailed instructions found at the [Konvoy installation guide](/ksphere/konvoy/latest/install/)
 
 ### Logging in with Username and Password
 
