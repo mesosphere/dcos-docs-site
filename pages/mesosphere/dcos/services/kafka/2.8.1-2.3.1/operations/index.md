@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Managing Kafka
 title: Operations
-menuWeight: 30
+menuWeight: 15
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---

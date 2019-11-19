@@ -11,11 +11,11 @@ render: mustache
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->
 
 
-Kafka is available in the Universe and can be installed by using either the web interface or the DC/OS CLI.
+{{ model.techName }} is available from the DC/OS Catalog and can be installed using either the DC/OS UI or the DC/OS CLI.
 
 # <a name="install-enterprise"></a>Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/services/kafka/kafka-auth/) before installing Kafka. You will need a `superuser` permission to create the service account. The following is a list of [security modes](/mesosphere/dcos/latest/security/ent/#security-modes):
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/services/kafka/kafka-auth/) before installing {{ model.techShortName }}. You will need a `superuser` permission to create the service account. The following is a list of [security modes](/mesosphere/dcos/latest/security/ent/#security-modes):
 
 	- `strict` security mode requires a service account.
 	- `permissive` security mode a service account is optional.
@@ -24,38 +24,38 @@ Kafka is available in the Universe and can be installed by using either the web 
 
 # Types of Installation Methods
 There are four types of installation methods:
-1. Default installation is the basic installation method. This method is used to install Kafka on a DC/OS cluster using CLI commands.
-2. Minimal installation is used to install Kafka on a local C/OS cluster using [dcos-vagrant](https://github.com/mesosphere/dcos-vagrant) and is specific for development purposes.
-3. Custom installation is used to install Kafka on DC/OS cluster using a customized JSON file.
-4. Multiple Kafka cluster installation is used to install multiple Kafka clusters using custom configurations.
+1. Default installation is the basic installation method. This method is used to install {{ model.techShortName }} on a DC/OS cluster using CLI commands.
+2. Minimal installation is used to install {{ model.techShortName }} on a local C/OS cluster using [dcos-vagrant](https://github.com/mesosphere/dcos-vagrant) and is specific for development purposes.
+3. Custom installation is used to install {{ model.techShortName }} on DC/OS cluster using a customized JSON file.
+4. Multiple {{ model.techShortName }} cluster installation is used to install multiple {{ model.techShortName }} clusters using custom configurations.
 
 ## Default Installation
 
-To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing Kafka on Enterprise DC/OS](#install-enterprise).
+To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing {{ model.techShortName }} on Enterprise DC/OS](#install-enterprise).
 
 ```bash
-$ dcos package install kafka
+dcos package install kafka
 ```
 
-This command creates a new Kafka cluster with the default name `kafka`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires [customizing the `name` at install time][4] for each additional instance.
+This command creates a new {{ model.techShortName }} cluster with the default name `kafka`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires [customizing the `name` at install time][4] for each additional instance.
 
-All `dcos kafka` CLI commands have a `--name` argument allowing the user to specify which Kafka instance to query. If you do not specify a service name, the CLI assumes the default value, `kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
+All `dcos kafka` CLI commands have a `--name` argument allowing the user to specify which {{ model.techShortName }} instance to query. If you do not specify a service name, the CLI assumes the default value, `kafka`. The default value for `--name` can be customized via the DC/OS CLI configuration:
 
 ```bash
-$ dcos kafka --name=<kafka-dev> <cmd>
+dcos kafka --name=<kafka-dev> <cmd>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Alternatively, you can <a href="/mesosphere/dcos/latest/deploying-services/install/">install Kafka from the DC/OS web interface</a>. If you install Kafka from the web interface, you must install the Kafka DC/OS CLI subcommands separately. </p>
+<p class="message--note"><strong>NOTE: </strong>Alternatively, you can <a href="/mesosphere/dcos/latest/deploying-services/install/">install {{ model.techShortName }} from the DC/OS web interface</a>. If you install {{ model.techShortName }} from the web interface, you must install the {{ model.techShortName }} DC/OS CLI subcommands separately. </p>
 
 Enter the following command from the DC/OS CLI:
 
 ```bash
-$ dcos package install kafka --cli
+dcos package install kafka --cli
 ```
 
 ## Minimal Installation
 
-For development purposes, you can use [dcos-vagrant][5] to install Kafka on a local DC/OS cluster.
+For development purposes, you can use [dcos-vagrant][5] to install {{ model.techShortName }} on a local DC/OS cluster.
 
 To start a minimal cluster with a single broker, create a JSON options file named `sample-kafka-minimal.json`:
 
@@ -72,15 +72,15 @@ To start a minimal cluster with a single broker, create a JSON options file name
 The command below creates a cluster using `sample-kafka-minimal.json`:
 
 ```bash
-$ dcos package install --options=sample-kafka-minimal.json kafka
+dcos package install --options=sample-kafka-minimal.json kafka
 ```
 
 
 ## Custom Installation
 
-Customize the defaults by creating a JSON file; then pass it to `dcos package install` using the `--options` parameter.
+Customize the defaults by creating a JSON file. Then, pass it to `dcos package install` using the `--options` parameter.
 
-Sample JSON options file named `sample-kafka-custom.json`:
+A sample JSON options file is named as sample-kafka-custom.json:
 
 ```json
 {
@@ -99,31 +99,31 @@ Sample JSON options file named `sample-kafka-custom.json`:
 }
 ```
 
-The command below creates a cluster using `sample-kafka.json`:
+The following command creates a cluster using `sample-kafka.json`:
 
 ```bash
-$ dcos package install --options=sample-kafka-custom.json kafka
+dcos package install --options=sample-kafka-custom.json kafka
 ```
 
 <p class="message--important"><strong>IMPORTANT: </strong>It is highly recommended to store your custom configuration in source control.</p>
 
-See [Configuration Options][6] for a list of fields that can be customized via an options JSON file when the Kafka cluster is created.
+See [Configuration Options][6] for a list of fields that can be customized via an JSON options file when the {{ model.techShortName }} cluster is created.
 
-## Multiple Kafka cluster installation
+## Multiple {{ model.techShortName }} cluster installation
 
-Installing multiple Kafka clusters is identical to installing Kafka clusters with custom configurations as described above. The only requirement on the operator is that a unique `name` is specified for each installation.
+Installing multiple {{ model.techShortName }} clusters is identical to installing {{ model.techShortName }} clusters with custom configurations as described above. The only requirement on the operator is that a unique `name` is specified for each installation.
 
-See the example below:
+See the following example:
 
 ```
-$ cat kafka1.json
+cat kafka1.json
 {
     "service": {
         "name": "kafka1"
     }
 }
 
-$ dcos package install kafka --options=kafka1.json
+dcos package install kafka --options=kafka1.json
 ```
 
  [4]: #custom-installation
@@ -132,25 +132,25 @@ $ dcos package install kafka --options=kafka1.json
 
 # Changing Configuration at Runtime
 
-You can customize your cluster in-place after it is up and running.
+You can customize your cluster in-place when it is up and running.
 
-The Kafka scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS web interface.
+The {{ model.techShortName }} scheduler runs as a Marathon process and can be reconfigured by changing values from the DC/OS web interface.
 
-Use the following steps to change configurations at runtime.
+Use the following steps to change configurations at runtime:
 
 1.  Go to the `Services` tab of the DC/OS web interface.
 1.  Select the name of the Kafka service to be updated.
 1.  Within the Kafka instance details view, select the menu in the upper right, then choose **Edit**.
 1.  In the dialog that appears, select the **Environment** tab and update any fields to their desired values. For example, to [increase the number of Brokers][8], edit the value for `BROKER_COUNT`. Do not edit the value for `FRAMEWORK_NAME` or `BROKER_DISK`.
 1.  Choose a `DEPLOY_STRATEGY`: serial, serial-canary, parallel-canary, or parallel. See the SDK Developer guide for more information on [deployment plan strategies](https://mesosphere.github.io/dcos-commons/developer-guide.html#plans). <!-- I'm not sure I like this solution, since users aren't going to have the context for the dev guide). -->
-1.  Select **REVIEW & RUN** to apply any changes and cleanly reload the Kafka scheduler. The Kafka cluster itself will persist across the change.
+1.  Select **REVIEW & RUN** to apply any changes and cleanly reload the {{ model.techShortName }} scheduler. The {{ model.techShortName }} cluster itself will persist across the change.
 
 ## Configuration Update REST API
 
 Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](api-reference.md) topic for information on how this request must be authenticated.
 
 ```bash
-$ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
+curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
 
 {
     "phases": [
@@ -185,64 +185,12 @@ $ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
 }
 ```
 
-<!-- need to update this with current information for different deployments
-When using the `STAGE` deployment strategy, an update plan will initially pause without doing any update to ensure the plan is correct. It will look like this:
-
-    curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
-    GET <dcos_url>/service/kafka/v1/plan HTTP/1.1
-
-    {
-      "phases": [
-        {
-          "id": "9f8927de-d0df-4f72-bd0d-55e3f2c3ab21",
-          "name": "Reconciliation",
-          "steps": [
-            {
-              "id": "2d137273-249b-455e-a65c-3c83228890b3",
-              "status": "COMPLETE",
-              "name": "Reconciliation",
-              "message": "Reconciliation complete"
-            }
-          ],
-          "status": "COMPLETE"
-        },
-        {
-          "id": "a7742963-f7e1-4640-8bd0-2fb28dc04045",
-          "name": "Update to: 6092e4ec-8ffb-49eb-807b-877a85ef8859",
-          "steps": [
-            {
-              "id": "b4453fb0-b4cc-4996-a05c-762673f75e6d",
-              "status": "PENDING",
-              "name": "broker-0",
-              "message": "Broker-0 is WAITING"
-            },
-            {
-              "id": "b8a8de9f-8758-4d0f-b785-0a38751a2c94",
-              "status": "PENDING",
-              "name": "broker-1",
-              "message": "Broker-1 is WAITIN"
-            },
-            {
-              "id": "49e85522-1bcf-4edb-9456-712e8a537dbc",
-              "status": "PENDING",
-              "name": "broker-2",
-              "message": "Broker-2 is PENDING"
-            }
-          ],
-          "status": "WAITING"
-        }
-      ],
-      "errors": [],
-      "status": "WAITING"
-    }
--->
-
 <p class="message--note"><strong>NOTE: </strong>After a configuration update, you may see an error from Mesos-DNS; this will go away 10 seconds after the update.</p>
 
 Enter the `continue` command to execute the first step:
 
 ```bash
-$ curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan?cmd=continue"
+curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan?cmd=continue"
 PUT <dcos_url>/service/kafka/v1/continue HTTP/1.1
 
 {
@@ -250,10 +198,10 @@ PUT <dcos_url>/service/kafka/v1/continue HTTP/1.1
 }
 ```
 
-After you execute the continue operation, the plan will look like the following code block:
+After you execute the continue operation, you will be see the following code block:
 
 ```bash
-$ curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
+curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
 GET <dcos_url>/service/kafka/v1/plan HTTP/1.1
 
 {
@@ -306,7 +254,7 @@ GET <dcos_url>/service/kafka/v1/plan HTTP/1.1
 If you enter `continue` a second time, the rest of the plan will be executed without further interruption. If you want to interrupt a configuration update that is in progress, enter the `interrupt` command:
 
 ```bash
-$ curl -X PUT -H "Authorization: token=$auth_token"  "<dcos_url>/service/kafka/v1/plan?cmd=interrupt"
+curl -X PUT -H "Authorization: token=$auth_token"  "<dcos_url>/service/kafka/v1/plan?cmd=interrupt"
 PUT <dcos_url>/service/kafka/v1/interrupt HTTP/1.1
 
 {
@@ -314,15 +262,15 @@ PUT <dcos_url>/service/kafka/v1/interrupt HTTP/1.1
 }
 ```
 
-<p class="message--warning"><strong>WARNING: </strong>The interrupt command cannot terminate a step that is <code>InProgress</code>, but it will stop the change on the subsequent steps.</p>
+<p class="message--warning"><strong>WARNING: </strong>The interrupt command cannot terminate a step that is `InProgress`, but it will stop the change on the subsequent steps.</p>
 
 # Configuration Options
 
-The following describes the most commonly used features of the Kafka service and how to configure them via the DC/OS CLI and from the DC/OS web interface. View the [default `config.json` in DC/OS Universe][11] to see all possible configuration options.
+The following describes the most commonly used features of the {{ model.techShortName }} service and how to configure them via the DC/OS CLI and from the DC/OS web interface. View the [default `config.json` in DC/OS Universe][11] to see all possible configuration options.
 
 ## Service Name
 
-The name of this Kafka instance in DC/OS. This is an option that cannot be changed once the Kafka cluster is started: it can only be configured via the DC/OS CLI `--options` flag when the Kafka instance is created.
+A Service Name is the name of the {{ model.techShortName }} instance in DC/OS. This is an option that cannot be changed once the {{ model.techShortName }} cluster is started: it can only be configured via the DC/OS CLI `--options` flag when the {{ model.techShortName }} instance is created.
 
 *   **In DC/OS CLI options.json**: `name`: string (default: `kafka`)
 *   **DC/OS web interface**: The service name cannot be changed after the cluster has started.
@@ -338,46 +286,46 @@ Use the graceful shutdown configuraiton option to provide the broker sufficient
 time during shutdown. This ensure that all in-memory data is flushed to disk and
 all state is replicated. When a broker has sufficient time to shut down, the
 subsequent restart will be nearly as fast as the first startup. This is a large
-contributor to the Kafka service's high availability.
+contributor to the {{ model.techShortName }} service's high availability.
 
 You can observe the graceful shutdown feature via the following log entries:
 
 1. The task launch log line contains `kill_policy { grace_period { nanoseconds: 30000000000 } }`.
 1. The task graceful shutdown log line contains SIGTERM as well as the grace time granted.
-1. The underlying Kafka logging of shutdown operations includes a stream of subsystem shutdowns prior to the overarching system
+1. The underlying {{ model.techShortName }} logging of shutdown operations includes a stream of subsystem shutdowns prior to the overarching system
    shutdown indicated by the entry `[Kafka Server 1], shut down completed (kafka.server.KafkaServer)`.
-1. The presence (or not) of a SIGKILL log line indicating that the underlying Kafka broker did not shutdown cleanly within the
+1. The presence (or not) of a SIGKILL log line indicating that the underlying {{ model.techShortName }} broker did not shutdown cleanly within the
    allotted grace period.
 1. The task status update marked by `TASK_KILLED`, indicating the end of the shutdown activity.
 
 ## Broker Count
 
-Configure the number of brokers running in a given Kafka cluster. The default count at installation is three brokers. This number may be increased, but not decreased, after installation.
+Configure the number of brokers running in a given {{ model.techShortName }} cluster. The default count at installation is three brokers. This number may be increased, but not decreased, after installation.
 
 *   **In DC/OS CLI options.json**: `broker-count`: integer (default: `3`)
 *   **DC/OS web interface**: `BROKER_COUNT`: `integer`
 
 ## Broker Port
 
-Configure the port number that the brokers listen on. If the `brokers.port` is set to a particular value, this will be the port used by all brokers. Note that this requires that `placement-strategy` be set to `NODE` to take effect, since having every broker listening on the same port requires that they be placed on different hosts. By default the port is set to `0`, indicating that each Broker will have a random port from the port range offered by the Mesos Agent between `1025` and `32000` 
+Configure the port number that the brokers listen on. If the `brokers.port` is set to a particular value, this will be the port used by all brokers. Note that this requires that `placement-strategy` be set to `NODE` to take effect, since having every broker listening on the same port requires that they be placed on different hosts. By default the port is set to `0` indicating that each Broker will have a random port from the port range offered by the Mesos Agent between `1025` and `32000` 
 
 *   **In DC/OS CLI options.json**: `brokers.port`: integer (default: `0`)
 *   **DC/OS web interface**: `Port`: `integer`
 
-{{ model.techName }} brokers also get assigned a VIP hostname for load-balancing purposes. This VIP is `broker.<SERVICE_NAME>.l4lb.thisdcos.directory:9092`, where `<SERVICE_NAME>` is the service name you have provided when creating the Kafka cluster. By default, the `<SERVICE_NAME>` is `{{ model.serviceName }}` therefore, by default, the VIP is `broker.{{ model.serviceName }}.l4lb.thisdcos.directory:9092`.
+{{ model.techName }} brokers also get assigned a VIP hostname for load-balancing purposes. This VIP is `broker.<SERVICE_NAME>.l4lb.thisdcos.directory:9092`, where `<SERVICE_NAME>` is the service name you have provided when creating the Kafka cluster. By default the `<SERVICE_NAME>` is `{{ model.serviceName }}`, so, by default, the VIP is `broker.{{ model.serviceName }}.l4lb.thisdcos.directory:9092`.
 
 When `security.transport_encryption.enabled` is `true` the VIP hostname uses the port `9093`
 
 ## Configure Broker Placement Strategy <!-- replace this with a discussion of PLACEMENT_CONSTRAINTS? -->
 
-`ANY` allows brokers to be placed on any node with sufficient resources, while `NODE` ensures that all brokers within a given Kafka cluster are never colocated on the same node. This is an option that cannot be changed once the Kafka cluster is started: it can only be configured via the DC/OS CLI `--options` flag when the Kafka instance is created.
+`ANY` allows brokers to be placed on any node with sufficient resources, while `NODE` ensures that all brokers within a given {{ model.techShortName }} cluster are never colocated on the same node. This is an option that cannot be changed once the {{ model.techShortName }} cluster is started: it can only be configured via the DC/OS CLI `--options` flag when the {{ model.techShortName }} instance is created.
 
 *   **In DC/OS CLI options.json**: `placement-strategy`: `ANY` or `NODE` (default: `ANY`)
 *   **DC/OS web interface**: `PLACEMENT_STRATEGY`: `ANY` or `NODE`
 
-## Configure Kafka Broker Properties
+## Configure {{ model.techShortName }} Broker Properties
 
-Kafka Brokers are configured through settings in a server.properties file deployed with each Broker. The settings here can be specified at installation time or during a post-deployment configuration update. They are set in the DC/OS Universe's config.json as options such as:
+{{ model.techShortName }} Brokers are configured through settings in a server.properties file deployed with each Broker. The settings here can be specified at installation time or during a post-deployment configuration update. They are set in the DC/OS Universe's config.json as options such as:
 
 ```json
     "log_retention_hours": {
@@ -388,7 +336,7 @@ Kafka Brokers are configured through settings in a server.properties file deploy
     },
 ```
 
-The defaults can be overridden at install time by specifying an options.json file with a format like this:
+The defaults can be overridden at install time by specifying an options.json file with the following format:
 
 ```json
     {
@@ -398,7 +346,7 @@ The defaults can be overridden at install time by specifying an options.json fil
     }
 ```
 
-These same values are also represented as environment variables for the scheduler in the form `KAFKA_OVERRIDE_LOG_RETENTION_HOURS` and may be modified through the DC/OS web interface and deployed during a rolling upgrade as [described here][12].
+These same values are also represented as environment variables for the scheduler in the form `KAFKA_OVERRIDE_LOG_RETENTION_HOURS` and may be modified through the DC/OS web interface and deployed during a rolling upgrade as described in [changing configuration at runtime](/mesosphere/dcos/services/kafka/2.6.0-2.2.1/started/#changing-configuration-at-runtime).
 
 <a name="disk-type"></a>
 ## Disk Type
@@ -406,9 +354,9 @@ These same values are also represented as environment variables for the schedule
 The type of disks that can be used for storing broker data are: `ROOT` (default) and `MOUNT`.  The type of disk may only be specified at install time.
 
 * `ROOT`: Broker data is stored on the same volume as the agent work directory. Broker tasks will use the configured amount of disk space.
-* `MOUNT`: Broker data will be stored on a dedicated volume attached to the agent. Dedicated MOUNT volumes have performance advantages and a disk error on these MOUNT volumes will be correctly reported to Kafka.
+* `MOUNT`: Broker data will be stored on a dedicated volume attached to the agent. Dedicated MOUNT volumes have performance advantages and a disk error on these MOUNT volumes will be correctly reported to {{ model.techShortName }}.
 
-Configure Kafka service to use dedicated disk volumes:
+Configure {{ model.techShortName }} service to use dedicated disk volumes, as follows:
 * **DC/OS cli options.json**:
 
 ```json
@@ -425,7 +373,7 @@ When configured to `MOUNT` disk type, the scheduler selects a disk on an agent w
 
 ## JVM Heap Size
 
-Kafka service allows configuration of JVM Heap Size for the broker JVM process. Use the following configuration options:
+{{ model.techShortName }} service allows configuration of JVM Heap Size for the broker JVM process. Use the following configuration options:
 
 ```json
     {
@@ -443,7 +391,7 @@ Kafka service allows configuration of JVM Heap Size for the broker JVM process. 
 
 ## Alternate ZooKeeper
 
-By default the Kafka framework uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster. You can configure an alternate ZooKeeper at install time.
+By default the {{ model.techShortName }} framework uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster. You can configure an alternate ZooKeeper at install time.
 
 Use the following configuration options:
 
@@ -481,14 +429,13 @@ To enable automated replacement using the following options:
 
 * **DC/OS web interface**: Set the environment variable `ENABLE_REPLACEMENT`: `true` to enable replacement.
 
-<p class="message--warning"><strong>WARNING: </strong>text</p>
-**Warning:** The replacement mechanism is not aware of whether the broker has been destructively replaced with the latest copy of data. You may lose data depending on your replication policy, the degree, and duration of the permanent failures.
+<p class="message--warning"><strong>WARNING: </strong>The replacement mechanism is not aware of whether the broker has been destructively replaced with the latest copy of data. You may lose data depending on your replication policy, the degree, and duration of the permanent failures.</p>
 
 The following configuration options control the circumstances under which a broker is replaced.
 
 ### Minumum Grace Period
 
-Configure the minimum amount of time before a broker should be replaced:
+Configure the minimum amount of time before a broker should be replaced.
 
 * **DC/OS CLI options.json**:
 
@@ -524,7 +471,7 @@ The following configurations control the health checks that determine when a bro
 
 ### Enable Health Check
 
-Enable health checks on brokers:
+Enable health checks on brokers.
 
 ```json
     {
@@ -540,7 +487,7 @@ Enable health checks on brokers:
 
 ### Health Check Delay
 
-Set the amount of time before the health check begins:
+Set the amount of time before the health check begins.
 
 ```json
     {
@@ -556,7 +503,7 @@ Set the amount of time before the health check begins:
 
 ### Health Check Interval
 
-Set the interval between health checks:
+Set the interval between health checks.
 
 ```json
     {
@@ -572,7 +519,8 @@ Set the interval between health checks:
 
 ### Health Check Timeout
 
-Set the time a health check can take to complete before it is considered a failed check:
+Set the time a health check can take to complete before it is considered a failed check.
+
 ```json
     {
         "health_check_timeout_sec":{
@@ -587,7 +535,7 @@ Set the time a health check can take to complete before it is considered a faile
 
 ### Health Check Grace Period
 
-Set the amount of time after the delay before health check failures count toward the maximum number of consecutive failures:
+Set the amount of time after the delay before health check failures count toward the maximum number of consecutive failures.
 
 ```json
     {
