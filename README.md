@@ -1,22 +1,20 @@
-# DC/OS Documentation
+## D2iQ Documentation and Website Repo
 
-## Environments
+## Build Statuses
 
-| Branch | Site Build | PDF Build | Link Checker | URL |
-| ------ | ---------- | --------- | ------------ | --- |
-| review | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-review)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-review/) | NA | NA | http://docs-review.mesosphere.com/ |
-| develop | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-develop)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-develop/) | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-develop-pdf)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-develop-pdf/) | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-develop-test)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-develop-test/) | <https://docs-dev.mesosphere.com> |
-| staging | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-staging)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-staging/) | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-staging-pdf)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-staging-pdf/) | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-staging-test)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-staging-test/) | <https://docs-staging.mesosphere.com> |
-| master | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-master)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-master/) | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-master-pdf)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-master-pdf/) | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-master-test)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-master-test/) | <https://docs.d2iq.com> |
+| Branch | Site Build  | URL |
+| ------ | ----------  | --- |
+| review | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-review)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-review/) | <http://docs-review.mesosphere.com/> |
+| dcos-docs-site-alpha | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-alpha)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-alpha/) | <http://docs-alpha.d2iq.com/> |
+| beta-dispatch | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=beta-dispatch)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/beta-dispatch/) | <http://beta-dispatch.d2iq.com/> |
+| beta-kommander | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=beta-kommander)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/beta-kommander/) | <http://beta-kommander.d2iq.com/> |
+| staging | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-staging)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-staging/) | <https://docs-staging.mesosphere.com> |
+| master | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-master)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-master/) | <https://docs.d2iq.com> |
 
-## Prerequisites
-
-- Docker
-- Docker Compose
 
 ## Development and Contribution
 
-[Wiki](https://github.com/mesosphere/dcos-docs-site/wiki) contains all development information and [contribution guidelines](https://github.com/mesosphere/dcos-docs-site/wiki/Contributing).
+To get started with the docs, please see [this temporary guide](https://hackmd.io/@ck4adventure/BJgrt4L5B/%2FxJo7K0hyR-GpmQNz7jU0Fw) while we re-write the wiki.
 
 To report a bug or issue, please file an issue [here](https://jira.mesosphere.com/secure/CreateIssueDetails!init.jspa?pid=10006&issuetype=3&priority=3&components&summary=Enter+a+brief+description+here).
 
