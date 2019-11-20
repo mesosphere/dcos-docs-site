@@ -117,21 +117,3 @@ Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCe
       Leave login_password as admin (when you install the package the first time)
       ```
       Once your {{ model.shortTechName }} Package service instance is ready, you can use "admin" and "admin" as the username and the password to log into OpsCenter to start managing your {{ model.shortTechName }} cluster.
-
-## <a name="Forwarding DNS and Custom Domain"></a> Forwarding DNS and Custom Domain
-
-Every DC/OS cluster has a unique cryptographic ID which can be used to forward DNS queries to that cluster. To securely expose the service outside the cluster, external clients must have an upstream resolver configured to forward DNS queries to the DC/OS cluster of the service as described [here](/mesosphere/dcos/latest/networking/DNS/mesos-dns/expose-mesos-zone/).
-
-With only forwarding configured, DNS entries within the DC/OS cluster will be resolvable at `<task-domain>.autoip.dcos.<cryptographic-id>.dcos.directory`. However, if you configure a DNS alias, you can use a custom domain. For example, `<task-domain>.cluster-1.acmeco.net`. In either case, the DC/OS {{ model.techName }} service will need to be installed with an additional security option:
-```json
-{
-    "service": {
-        "security": {
-            "custom_domain": "<custom-domain>"
-        }
-    }
-}
-```
-where `<custom-domain>` is one of `autoip.dcos.<cryptographic-id>.dcos.directory` or your organization's specific domain (e.g., `cluster-1.acmeco.net`).
-
-As a concrete example, using the custom domain of `cluster-1.acmeco.net` the node 0 task would have a host of `dse-0-node.<service-name>.cluster-1.acmeco.net`.
