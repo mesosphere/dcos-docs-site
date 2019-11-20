@@ -5,7 +5,7 @@ title: Release notes for 2.0.1
 menuWeight: 2
 excerpt: Release notes for DC/OS 2.0.1
 ---
-DC/OS 1.13.6 was released on 20 November 2019.
+DC/OS 2.0.1 was released on 20 November 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
