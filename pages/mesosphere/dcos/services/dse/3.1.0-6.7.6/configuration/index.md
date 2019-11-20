@@ -200,6 +200,6 @@ If you want to deploy DSE with DSS, please follow [tutorial for cassandra](/meso
 
 Once the DC/OS cluster is running and volume profiles are created, you can deploy DSE with the volume profile.
 
-<p class="message--note"><strong>NOTE: </strong>DSE will be configured to look for <code>MOUNT</code> volumes with the specified volume profile.</p> 
+<p class="message--note"><strong>NOTE: </strong>Cassandra will be configured to look for <code>MOUNT</code> volumes with the specified volume profile.</p> 
 
-Once the DSE service finishes deploying its tasks will be running with the specified volume profiles.
+Once the Cassandra service finishes deploying its tasks will be running with the specified volume profiles.
