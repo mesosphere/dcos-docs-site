@@ -342,7 +342,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>²DataStax-DSE 3.1.x-6.7.6 (Recommended)</td>
+        <td>²DataStax-DSE 3.1.x-6.7.5 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
