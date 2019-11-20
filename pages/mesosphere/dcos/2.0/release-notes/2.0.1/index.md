@@ -17,9 +17,6 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 # Release summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
-# Fixed and Improved Issues in DC/OS 1.13.6
-<!-- The issues that have been fixed and improved in DC/OS 1.13.6 are grouped by feature, functional area, or component.  -->
-- Fixed an issue where after upgrading to the latest version of MacOS Catalina, DC/OS certificates were identified as invalid. (DCOS-60264, DCOS-60205, COPS-5417)
-- Fixed an issue where if a UCR container is being destroyed and the container is in provisioning state, we will wait for the provisioner to finish before we start destroying the container. This may cause the container to get stuck at destroying, and more seriously may cause the subsequent containers created from the same image to get stuck at provisioning state. Fixed by adding support for destroying the container in provisioning state so that the subsequent containers created from the same image will not be affected. (COPS-5285, MESOS-9964)
-- Fixed an issue where Marathon begins crash-looping after receiving a very long error message from a task's fetcher. (COPS-5365)
-- Improved diagnosing problems with pods. (DCOS_OSS-5616)
+# Fixed and Improved Issues in DC/OS 2.0.1
+<!-- The issues that have been fixed and improved in DC/OS 2.0.1 are grouped by feature, functional area, or component.  -->
+- Fixed an issue where unfinished deployments prevent DCOS instances running on Marathon 1.9.100 from migrating properly. 
