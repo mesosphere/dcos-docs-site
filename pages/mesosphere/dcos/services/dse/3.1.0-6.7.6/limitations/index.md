@@ -18,11 +18,9 @@ render: mustache
 - A {{ model.shortTechName }} node will restart if its associated {{ model.shortTechName }} Agent process crashes.
 - Point-in-time restore functionality through the {{ model.techOpsName }} UI is not supported.
 
-## Failed node recovery
+## Automatic failed node recovery
 
-A manual `nodetool removenode` call is currently required when replacing nodes. 
-
-<!-- This is planned to be automated in a future release. -->
+A manual `nodetool removenode` call is currently required when replacing nodes. This is planned to be automated in a future release.
 
 Nodes are not automatically replaced by the service in the event a system goes down. You may either manually replace nodes or build your own ruleset and automation to perform this operation automatically.
 
