@@ -24,7 +24,7 @@ render: mustache
 ## New Features
 - Added support for DSS volume profiles
 - Added [custom domain](/mesosphere/dcos/services/{{ model.serviceName }}/3.1.0-6.7.5/security/#forwarding-dns-and-custom-domain) support
-
+-
 
 ## Improvements
 - Remove Non-HTTPS resources and references by replacing them with HTTPS ones.
