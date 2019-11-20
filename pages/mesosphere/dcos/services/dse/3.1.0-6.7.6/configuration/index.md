@@ -40,17 +40,17 @@ The amount of RAM allocated to each {{ model.techShortName }} Node may be custom
 If the allocated memory is customized, you must also update the `heap` value under that section as well. As a rule of thumb we recommend that `heap` be set to half of `mem`. For example, for a `mem` value of `32000`, `heap` should be `16000`. If you do not do this, you may see restarted `dse-#-node` tasks due to memory errors.
 
 ### Ports
-Each port exposed by {{ model.techShortName }} components may be customized via the service configuration. If you wish to install multiple instances of {{ model.techShortName }} and have them colocate on the same machines, you must ensure that **no** ports are common between those instances. You only need to customize ports if you require multiple instances sharing a single machine. This customization is optional otherwise.
+Each port exposed by {{ model.techShortName }} components may be customized via the service configuration. If you wish to install multiple instances of {{ model.techShortName }} and have them colocate on the same machines, you must ensure that **no** ports are common between those instances. Customizing ports is only needed if you require multiple instances sharing a single machine. This customization is optional otherwise.
 
 Each component's ports may be customized in the following configuration sections:
 - {{ model.techShortName }} Nodes (as a group): `Node placement constraint` under **dsenode**.
-- {{ model.techOpsName }} (if built-in instance is enabled): `{{ model.techOpsName }} placement constraint` under {{ model.techOpsName }}.
+- {{ model.techOpsName }} (if built-in instance is enabled): `{{ model.techOpsName }} placement constraint` under **opscenter**.
 
-<p class="message--note"><strong>NOTE: </strong>In a multi-DC environment, all {{ model.techName }} DCs within a {{ model.techShortName }} Cluster <strong>must</strong> share the same port configuration. Co-location of {{ model.techShortName }} nodes within the same {{ model.techShortName }} Cluster is not supported.</p>
+<p class="message--note"><strong>NOTE: </strong>In a multi-DC environment, all DataStax Enterprise DCs within a DSE Cluster <strong>must</strong> share the same port configuration. Co-location of DSE nodes within the same DSE Cluster is not supported.</p>
 
 ### Storage Volumes
 The {{ model.techShortName }} DC/OS service supports two volume types:
-- `ROOT` volumes are effectively an isolated directory on the root volume, sharing IO/spindles with the rest of the host system.
+- `ROOT` volumes are effectively an isolated _directory_ on the root volume, sharing IO/spindles with the rest of the host system.
 - `MOUNT` volumes are a dedicated device or partition on a separate volume, with dedicated IO/spindles.
 
 `MOUNT` volumes require [additional configuration on each DC/OS agent system](/mesosphere/dcos/latest/storage/mount-disk-resources/), so the service currently uses `ROOT` volumes by default. To ensure reliable and consistent performance in a production environment, you must configure **two MOUNT volumes** on the machines which will run {{ model.techShortName }} in your cluster, and then configure the following as `MOUNT` volumes under **dsenode**:
@@ -59,18 +59,17 @@ The {{ model.techShortName }} DC/OS service supports two volume types:
 Using `ROOT` volumes for these is not supported in production.
 
 ### Separate volume for commit log data
-If you are using non-magnetic disks, then a good approach is to keep your commit log data files on the same volume as your {{ model.techShortName }} data. This is the default configuration.  If you need to keep commit log data on a separate volume, you can do so.  The service install provides options for enabling that feature and provisioning a separate mount point for commit log data.  Be aware that if you choose to use a separate volume, you will not be able to change it back later.
+If you are using non-magnetic disks, then a good approach is to keep your commit log data files on the same volume as your dse data. This is the default configuration.  If you need to keep commit log data on a separate volume, you can do so.  The service install provides options for enabling that feature and provisioning a separate mount point for commit log data.  Just be warned that if you choose to use a separate volume, you will not be able to change it back later.
 
 ### Placement Constraints
 Placement constraints allow you to customize where a {{ model.techShortName }} instance is deployed in the DC/OS cluster. Placement constraints may be configured separately for each of the node types in the following locations:
 
   - {{ model.techShortName }} Nodes (as a group): `Node placement constraint` under **dsenode**.
-  - {{ model.techOpsName }} (if built-in instance is enabled): `{{ model.techOpsName }} placement constraint` under {{ model.techOpsName }}.
+  - {{ model.techOpsName }} (if built-in instance is enabled): `{{ model.techOpsName }} placement constraint` under **opscenter**.
 
 Placement constraints support all [Marathon operators (reference)](http://mesosphere.github.io/marathon/docs/constraints.html) with this syntax: `field:OPERATOR[:parameter]`. For example, if the reference lists `[["hostname", "UNIQUE"]]`, you should  use `hostname:UNIQUE`.
 
 A common task is to specify a list of whitelisted systems to deploy to. To achieve this, use the following syntax for the placement constraint:
-
 ```
 hostname:LIKE:10.0.0.159|10.0.1.202|10.0.3.3
 ```
@@ -85,15 +84,15 @@ You must include spare capacity in this list so that if one of the whitelisted s
 ### dse.yaml and cassandra.yaml settings
 Nearly all settings for `dse.yaml` and `cassandra.yaml` are exposed as configuration options, allowing them to be deployed and updated automatically by the service.
 
-- `dse.yaml` options are listed under the {{ model.techShortName }} section
-- `cassandra.yaml` options are listed under the Cassandra section
+- `dse.yaml` options are listed under the **dse** section
+- `cassandra.yaml` options are listed under the **cassandra** section
 
 For more information on each setting, view {{ model.techMidName }}'s documentation for [dse.yaml](https://docs.datastax.com/en/latest-dse/datastax_enterprise/config/configDseYaml.html) and [cassandra.yaml](https://docs.datastax.com/en/cassandra/3.0/cassandra/configuration/configCassandra_yaml.html).
 
 ## Use Built-In or External {{ model.techOpsName }}
-{{ model.techShortName }} DC/OS provides the **{{ model.opsPackageName }}** package, which you can install to get a default {{ model.techOpsName }} dashboard.  If you prefer to use an external {{ model.techOpsName }} instance, you can configure the {{ model.techShortName }} service to point to an externally managed {{ model.techOpsName }}.
+{{ model.techShortName }} DC/OS provides the **{{ model.opsPackageName }}** package, which you can install to get a default {{ model.techOpsName }} dashboard.  If you prefer to use an external {{ model.techOpsName }} instance, you can configure the **dse** service to point to an externally managed {{ model.techOpsName }}.
 
-Follow these steps to configure {{ model.techShortName }} to use an external {{ model.techOpsName }} (in the {{ model.techOpsName }} section of the {{ model.techShortName }} installation screen).
+Follow these steps to configure **dse** to use an external **opscenter** (in the {{ model.techOpsName }} section of the **dse** installation screen).
 
 1. Check the **ENABLE DATASTAX OPSCENTER** checkbox.
 1. Set the **OPSCENTER HOST NAME** field to the hostname of your external {{ model.techOpsName }} instance.
@@ -121,7 +120,7 @@ Follow these instructions for DC/OS 1.10 and later. If you are using DC/OS 1.9 o
     - In **cluster**, set:
         - `{{ model.techShortName }} Datacenter` = `dc_datastax_2`
         - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s seeds)
-    - In {{ model.techOpsName }}, set:
+    - In **opscenter**, set:
         - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s OpsCenter)
 1. Add a third {{ model.techShortName }} service from the DC/OS Catalog. Deploy `{{ model.serviceName }}-3` with the following customizations:
     - In **service**, set:
@@ -129,7 +128,7 @@ Follow these instructions for DC/OS 1.10 and later. If you are using DC/OS 1.9 o
     - In **cluster**, set:
         - `{{ model.techShortName }} Datacenter` = `dc_datastax_3`
         - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s seeds)
-    - In {{ model.techOpsName }}, set:
+    - In **opscenter**, set:
         - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s OpsCenter)
 1. Wait for `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3` to finish deploying. Then, update the seed nodes across all the instances:
     1. Create a local file called `dse-1-options.json`. Paste the following into the file.
@@ -170,7 +169,7 @@ Follow these instructions for DC/OS 1.10 and later. If you are using DC/OS 1.9 o
     - In **cluster**, set:
         - `{{ model.techShortName }} Datacenter` = `dc_datastax_2`
         - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s seeds)
-    - In {{ model.techOpsName }}, set:
+    - In **opscenter**, set:
         - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-2` to `{{ model.serviceName }}-1`'s OpsCenter)
 1. Add a third {{ model.techShortName }} service from the DC/OS Catalog. Deploy `{{ model.serviceName }}-3` with the following customizations:
     - In **service**, set:
@@ -178,7 +177,7 @@ Follow these instructions for DC/OS 1.10 and later. If you are using DC/OS 1.9 o
     - In **cluster**, set:
         - `{{ model.techShortName }} Datacenter` = `dc_datastax_3`
         - `External Seed Nodes` = `dse-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s seeds)
-    - In {{ model.techOpsName }}, set:
+    - In **opscenter**, set:
         - `OPSCENTER HOSTNAME` = `opscenter-0-node.{{ model.serviceName }}-1.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-3` to `{{ model.serviceName }}-1`'s OpsCenter)
 1. Wait for `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3` to finish deploying. Then, update the seed nodes across all the instances:
     1. Go to the service view of `{{ model.serviceName }}-1` in the DC/OS UI. Click the menu in the upper right and then choose **Edit**. Go to the **Environment** tab and set `{{ model.techShortName }}_EXTERNAL_SEEDS` = `dse-0-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-2.autoip.dcos.thisdcos.directory,dse-0-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory,dse-1-node.{{ model.serviceName }}-3.autoip.dcos.thisdcos.directory` (point `{{ model.serviceName }}-1` to `{{ model.serviceName }}-2` and `{{ model.serviceName }}-3`).
@@ -195,12 +194,12 @@ Volume profiles are used to classify volumes. For example, users can group SSDs 
 
 <p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes or other ephemeral identifiers.</p> 
 
-[DC/OS Storage Service (DSS)](/mesosphere/dcos/services/storage/latest/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
+DC/OS Storage Service (DSS) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
-If you want to deploy {{ model.techShortName }} with DSS, please follow our [tutorial for Cassandra](/mesosphere/dcos/services/storage/1.0.0/tutorials/cassandra-dss-volumes/) and use the same procedure to deploy {{ model.techShortName }}.
+If you want to deploy DSE with DSS, please follow [tutorial for cassandra](/mesosphere/dcos/services/storage/1.0.0/tutorials/cassandra-dss-volumes/) and same way we can to deploy DSE.
 
-After the DC/OS cluster is running and volume profiles are created, you can deploy {{ model.techShortName }} with the volume profile.
+Once the DC/OS cluster is running and volume profiles are created, you can deploy DSE with the volume profile.
 
-<p class="message--note"><strong>NOTE: </strong>{{ model.techShortName }} will be configured to look for <code>MOUNT</code> volumes with the specified volume profile.</p> 
+<p class="message--note"><strong>NOTE: </strong>DSE will be configured to look for <code>MOUNT</code> volumes with the specified volume profile.</p> 
 
-After the {{ model.techShortName }} service finishes deploying, its tasks will be running with the specified volume profiles.
+Once the DSE service finishes deploying its tasks will be running with the specified volume profiles.
