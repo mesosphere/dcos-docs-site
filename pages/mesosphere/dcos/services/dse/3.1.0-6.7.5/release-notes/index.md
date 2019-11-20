@@ -27,15 +27,15 @@ render: mustache
 
 
 ## Improvements
-- Remove Non-HTTPS resources and references by replacing them with HTTPS ones
-- Added more directories to the PATH (resources/cassandra/bin, resources/cassandra/tools/bin)
-- Added descriptions for configuration parameters
-- Updated UI URLs to redirect to correct reference doc pages
-- Exclude OpsCenter keyspace from list of keyspaces managed by Repair Services
+- Remove Non-HTTPS resources and references by replacing them with HTTPS ones.
+- Added more directories to the PATH.
+- Added descriptions for configuration parameters.
+- Updated UI URLs to redirect to correct reference doc pages.
+- Exclude OpsCenter keyspace from list of keyspaces managed by Repair Services.
 - Accurate Scheduler Plan status in the UI
 
 ## Bug Fixes
-- Used correct YAML markup for TPC-related configurations: TPC CORES, TPC IO CORES, IO GLOBAL QUEUE DEPTH
+- Used correct YAML markup for TPC-related configurations: TPC CORES, TPC IO CORES, IO GLOBAL QUEUE DEPTH.
 - Added correct configuration parameters for memtable size specification: MEMTABLE HEAP SPACE IN MB, MEMTABLE OFFHEAP SPACE IN MB
 
 
