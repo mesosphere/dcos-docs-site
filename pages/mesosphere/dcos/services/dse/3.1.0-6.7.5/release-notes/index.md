@@ -11,9 +11,9 @@ render: mustache
 # Version 3.1.0-6.7.5
 
 ## Updates
-- Upgraded {{ model.techShortName }} to version 6.7.6 and {{ model.techOpsName }} to version 6.7.5
-- Upgraded SDK to 0.57.0.post0. For more information see SDK's Release Notes for: 
-  - [0.57.0.post0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0.post0)
+- Upgraded {{ model.techShortName }} to version 6.7.5 and {{ model.techOpsName }} to version 6.7.4
+- Upgraded SDK to 0.57.1. For more information see SDK's Release Notes for: 
+  - [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
   - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
   - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
   - [0.56.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.2)
@@ -22,8 +22,9 @@ render: mustache
   - [0.55.5](https://github.com/mesosphere/dcos-commons/releases/tag/0.55.5)
 
 ## New Features
-- Added support for DSS [volume profiles] (/mesosphere/dcos/services/{{ model.serviceName }}/latest/configuration/#using-volume-profiles)
+- Added support for DSS volume profiles
 - Added [custom domain](/mesosphere/dcos/services/{{ model.serviceName }}/latest/security/#forwarding-dns-and-custom-domain) support
+
 
 ## Improvements
 - Remove non-HTTPS resources and references by replacing them with HTTPS ones
@@ -35,42 +36,7 @@ render: mustache
 
 ## Bug Fixes
 - Used correct YAML markup for TPC-related configurations: TPC CORES, TPC IO CORES, IO GLOBAL QUEUE DEPTH
-- DSEFS could be enabled independently from DSE Analytics
-
-## Upgrading your cluster from {{ model.techShortName }} 5.1.10 to 6.7.6
-Due to the complexity of upgrading to {{ model.techShortName }} 6.7, it is highly advised that you attempt the upgrade on a test cluster before upgrading in your production environment.
-
-Also we will advice to upgrade 5.1.10 directly to 6.7.6 skiping 6.7.2, as it has some problem in upgrade when TLS enabled. 
-
-In order to upgrade your cluster from {{ model.techShortName }} 5.1.10 to {{ model.techShortName }} 6.7.6 you must:
-- Review official {{ model.techShortName }} upgrade docs: https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html
-  - follow instructions in the [Upgrade restrictions and limitations](https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html#Upgraderestrictionsandlimitations)
-  - if using CFS, copy your data from it
-  - Using `cqlsh`, drop CFS keyspaces: `cfs` and `cfs_archive`
--  If authentication is configured by client in the cluster then before running upgrade command user will need to create file dse-data/cqlshrc on the node-0 with authentication options like below :
-  ```
-  [authentication]
-  username = user
-  password = password
-  ```
-- Run the following command to upgrade your {{ model.techShortName }} package: 
-  ```
-  dcos datastax-dse update start --package-version=3.1.0-6.7.6
-  ```
-	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each {{ model.techShortName }} node to version `6.7.6`
-
-- After {{ model.techShortName }} upgrade, you can upgrade {{ model.techOpsName }} with the following command: 
-  ```
-  dcos datastax-ops update start --package-version=3.1.0-6.7.5
-  ```
-- After {{ model.techOpsName }} upgrade succeeds, run the following command to convert sstables to the proper version:
-	```
-	dcos datastax-dse plan start nodetool-ser \
-	  [-p NODETOOL_CONNECTION_OPTS='-p 7199']  \  ## optional
-	  -p NODETOOL_SUBCOMMAND='upgradesstables'  \
-	  -p NODETOOL_CMD_ARGS='-a'
-	```
-	<p class="message--important"><strong>IMPORTANT: </strong>This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, `pause` the plan and investigate.
+- Added correct configuration parameters for memtable size specification: MEMTABLE HEAP SPACE IN MB, MEMTABLE OFFHEAP SPACE IN MB
 
 
 # Version 3.0.0-6.7.2
@@ -100,6 +66,34 @@ In order to upgrade your cluster from {{ model.techShortName }} 5.1.10 to {{ mod
 	- [Scheduler metrics](https://github.com/mesosphere/dcos-commons/releases/tag/0.52.0)
 	- Improving logging, debuggability, and bug fixes
 	- Please read SDK-related release notes to learn more: https://github.com/mesosphere/dcos-commons/releases
+
+## Upgrading your cluster from {{ model.techShortName }} 5.1 to 6.7
+Due to the complexity of upgrading to {{ model.techShortName }} 6.7, it is highly advised that you attempt the upgrade on a test cluster before upgrading in your production environment.
+
+In order to upgrade your cluster from {{ model.techShortName }} 5.1 to {{ model.techShortName }} 6.7 you must:
+- Review official {{ model.techShortName }} upgrade docs: https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html
+  - follow instructions in the [Upgrade restrictions and limitations](https://docs.datastax.com/en/upgrade/doc/upgrade/datastax_enterprise/upgdDSE51to67.html#Upgraderestrictionsandlimitations)
+  - if using CFS, copy your data from it
+  - Using `cqlsh`, drop CFS keyspaces: `cfs` and `cfs_archive`
+- Run the following command to upgrade your {{ model.techShortName }} package: 
+  ```
+  dcos datastax-dse update start --package-version=3.0.0-6.7.2
+  ```
+	- This will run a script to drop `COMPACT_STORAGE` from all keyspaces and then upgrade each {{ model.techShortName }} node to version `6.7.2`
+	<p class="message--important"><strong>IMPORTANT: </strong>Before upgrading, make sure the agent running <code>dse-0-node</code> has more than 0.25 CPU available. This is required to run the <code>compact-storage</code> task. You may have to move other services running on that agent to accommodate.</p>
+
+- After {{ model.techShortName }} upgrade, you can upgrade {{ model.techOpsName }} with the following command: 
+  ```
+  dcos datastax-ops update start --package-version=3.0.0-6.7.1
+  ```
+- After {{ model.techOpsName }} upgrade succeeds, run the following command to convert sstables to the proper version:
+	```
+	dcos datastax-dse plan start nodetool-ser \
+	  [-p NODETOOL_CONNECTION_OPTS='-p 7199']  \  ## optional
+	  -p NODETOOL_SUBCOMMAND='upgradesstables'  \
+	  -p NODETOOL_CMD_ARGS='-a'
+	```
+	<p class="message--important"><strong>IMPORTANT: </strong>This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, `pause` the plan and investigate.
 
 
 # Version 2.4.0-5.1.10
