@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Security
+navigationTitle: Security for DSE
 excerpt: Security, encryption and authorization for DSE
 title: Security
 menuWeight: 50
@@ -22,8 +22,8 @@ The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s nati
 
 #include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 
-## {{ model.techShortName }} Authentication/Authorization Schemes
-{{ model.shortTechName }} in DC/OS currently supports both internal and LDAP authentication/authorization schemes.  You can configure both schemes and then select the order in which they are used, or you can configure just one, in which case only that scheme will be used.  {{ model.shortTechName }} will try to authenticate with the default scheme first and fall back to the alternate scheme if it has been configured. More information about how {{ model.shortTechName }} handles this can be found in [DataStax's documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secDSEUnifiedAuthAbout.html)
+## DSE Authentication/Authorization Schemes
+{{ model.shortTechName }} in DC/OS currently supports both internal and ldap authentication/authorization schemes.  You can configure both schemes and then select the order in which they are used, or you can configure just one, in which case only that scheme will be used.  {{ model.shortTechName }} will try to authenticate with the default scheme first and fall back to the alternate scheme if it has been configured. More information about how {{ model.shortTechName }} handles this can be found in [DataStax's documentation](http://docs.datastax.com/en/dse/5.1/dse-admin/datastax_enterprise/security/secDSEUnifiedAuthAbout.html)
 
 ## Enabling {{ model.shortTechName }} Authentication/Authorization
 To enable {{ model.shortTechName }} authentication/authorization, follow these steps:
@@ -46,7 +46,7 @@ To enable {{ model.shortTechName }} authentication/authorization, follow these s
 
 
 ## {{ model.shortTechName }} LDAP Configuration
-When you enable LDAP authentication in {{ model.techName }}, users and groups that are managed by external LDAP servers can be authenticated by {{ model.techName }}.  To enable LDAP authentication with your {{ model.shortTechName }} cluster, you need to configure the followings:
+When you enable LDAP authentication in DataStax Enterprise, users and groups that are managed by external LDAP servers can be authenticated by DataStax Enterprise.  To enable LDAP authentication with your {{ model.shortTechName }} cluster, you need to configure the followings:
 
    1. In the Advanced Installation wizard, you need to configure the following fields according to your LDAP settings:
       ```
@@ -78,45 +78,45 @@ When you enable LDAP authentication in {{ model.techName }}, users and groups th
       ```
       Please refer to [DataStax's documentation](http://docs.datastax.com/en/latest-dse/datastax_enterprise/sec/authLdapConfig.html) for more detailed description of each field above.
 
-## {{ model.techOpsName }} LDAP Configuration
-Configure LDAP (Lightweight Directory Access Protocol) for users accessing {{ model.techOpsName }}.
+## OpsCenter LDAP Configuration
+Configure LDAP (Lightweight Directory Access Protocol) for users accessing OpsCenter.
 
-In the Advanced Installation wizard, configure the following fields according to your LDAP settings:
-   ```
-   In "opscenter" tab,
-   Check Authentication Configuration's checkbox
-   Set login_user to a LDAP user's uid belonging to one or more LDAP groups in "admin_group_name" field below
-   Set login_password (the password associated with the login_user field above)
-   Set method to LDAP
-   Check LDAP Configuration's checkbox
-   Set server_host to your LDAP server FQDN or IP address
-   Set server_port of your LDAP server port (default is 389)
-   Set search_dn  ex. cn=admin,dc=example,dc=org
-   Set search_password  ex. secret
-   Set user_search_base  ex. ou=People,dc=example,dc=org
-   Set user_search_filter  ex. (uid={0})
-   Set user_memberof_attribute  ex. memberof
-   Set group_search_type  ex. directory_search
-   Set group_search_base  ex. ou=Groups,dc=example,dc=org
-   Set group_search_filter_with_dn  ex. (member={0})
-   Set group_name_attribute  ex. cn
-   Set admin_group_name  ex. mygroup, manager, developer
-   ```
-Please refer to [DataStax's documentation](https://docs.datastax.com/en/latest-opsc/opsc/configure/opscConfigLDAP.html) for more detailed description of each field above.
-Once your {{ model.shortTechName }} Package service instance is ready, you can use your LDAP account to log in to {{ model.techOpsName }} to manage your {{ model.shortTechName }} cluster.
+   1. In Advanced Installation wizard, you need to configure the following fields according to your LDAP settings:
+      ```
+      In "opscenter" tab,
+      Check Authentication Configuration's checkbox
+      Set login_user to a LDAP user's uid belonging to one or more LDAP groups in "admin_group_name" field below
+      Set login_password (the password associated with the login_user field above)
+      Set method to LDAP
+      Check LDAP Configuration's checkbox
+      Set server_host to your LDAP server FQDN or IP address
+      Set server_port of your LDAP server port (default is 389)
+      Set search_dn  ex. cn=admin,dc=example,dc=org
+      Set search_password  ex. secret
+      Set user_search_base  ex. ou=People,dc=example,dc=org
+      Set user_search_filter  ex. (uid={0})
+      Set user_memberof_attribute  ex. memberof
+      Set group_search_type  ex. directory_search
+      Set group_search_base  ex. ou=Groups,dc=example,dc=org
+      Set group_search_filter_with_dn  ex. (member={0})
+      Set group_name_attribute  ex. cn
+      Set admin_group_name  ex. mygroup, manager, developer
+      ```
+      Please refer to [DataStax's documentation](https://docs.datastax.com/en/latest-opsc/opsc/configure/opscConfigLDAP.html) for more detailed description of each field above.
+      Once your {{ model.shortTechName }} Package service instance is ready, you can use your LDAP account to log in to OpsCenter to manage your {{ model.shortTechName }} cluster.
 
-## {{ model.techOpsName }} Internal Authentication Configuration
+## OpsCenter Internal Authentication Configuraton
 
 
-In the Advanced Installation wizard, configure the following fields:
+   1. In the Advanced Installation wizard, you need to configure the following fields:
 
-   ```
-   In "opscenter" tab,
-   Check Authentication Configuration's checkbox
-   Leave login_user as admin (when you install the package the first time)
-   Leave login_password as admin (when you install the package the first time)
-   ```
-Once your {{ model.shortTechName }} Package service instance is ready, you can use "admin" and "admin" as the username and the password to log in to {{ model.techOpsName }} to start managing your {{ model.shortTechName }} cluster.
+      ```
+      In "opscenter" tab,
+      Check Authentication Configuration's checkbox
+      Leave login_user as admin (when you install the package the first time)
+      Leave login_password as admin (when you install the package the first time)
+      ```
+      Once your {{ model.shortTechName }} Package service instance is ready, you can use "admin" and "admin" as the username and the password to log into OpsCenter to start managing your {{ model.shortTechName }} cluster.
 
 ## <a name="Forwarding DNS and Custom Domain"></a> Forwarding DNS and Custom Domain
 
