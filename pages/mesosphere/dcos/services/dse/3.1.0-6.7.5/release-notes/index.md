@@ -12,7 +12,7 @@ render: mustache
 
 ## Updates
 - Upgraded DSE to version `6.7.5` and OpsCenter to version `6.7.4`
-- Upgraded SDK to `0.57.1`. For more information see [SDK Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
+- Upgraded SDK to `0.57.1` 
 
 
 # Version 3.0.0-6.7.2
