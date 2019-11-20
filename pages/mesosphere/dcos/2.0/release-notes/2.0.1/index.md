@@ -19,4 +19,4 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 # Fixed and Improved Issues in DC/OS 2.0.1
 <!-- The issues that have been fixed and improved in DC/OS 2.0.1 are grouped by feature, functional area, or component.  -->
-- Fixed an issue where unfinished deployments prevent DCOS instances running on Marathon 1.9.100 from migrating properly. 
+- Fixed an issue where unfinished Marathon deployments would prevent a successful upgrade to DC/OS 2.0.```
