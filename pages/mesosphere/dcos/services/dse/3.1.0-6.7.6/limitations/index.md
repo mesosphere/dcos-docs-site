@@ -22,4 +22,6 @@ render: mustache
 
 A manual `nodetool removenode` call is currently required when replacing nodes. 
 
+<!-- This is planned to be automated in a future release. -->
+
 Nodes are not automatically replaced by the service in the event a system goes down. You may either manually replace nodes or build your own ruleset and automation to perform this operation automatically.
