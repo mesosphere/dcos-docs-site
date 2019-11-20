@@ -13,7 +13,7 @@ render: mustache
 ### Updates
 - Upgrade the base tech version of Apache Kafka to `2.3.1`. See Kafka's Release Notes for [2.3.1](https://www.apache.org/dist/kafka/2.3.1/RELEASE_NOTES.html) for details.
 
-### New Features
+### Improvements
 - Improve status check to verify topic successfully created in Zookeeper. In case of failure, the service returns `500 INTERNAL_SERVER_ERROR` instead of `200 OK`. 
 
 ## Version 2.8.0-2.3.0
