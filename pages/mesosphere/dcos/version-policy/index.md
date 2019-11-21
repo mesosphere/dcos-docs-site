@@ -44,10 +44,10 @@ Thus, upon the release of 2.0.0 where 1.13.4 and 1.12.5 are available:
 
 DC/OS will run on the tested platform components and operating environments. The list of support matrix for platform components and operating environments are as follows:
 
-##### [CoreOS support matrix](#CoreOS-support-matrix)
 ##### [CentOS support matrix](#CentOS-support-matrix)
 ##### [RHEL support matrix](#RHEL-support-matrix)
-##### [Oracle support matrix](#Oracle-support-matrix)
+##### [Oracle Linux support matrix](#Oracle-support-matrix)
+##### [Ubuntu support matrix](#Ubuntu-support-matrix)
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
@@ -55,27 +55,27 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    </tr>
+    <tr>
+        <td>CentOS 7.7</td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
     </tr>
     <tr>
         <td>CentOS 7.6</td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
     </tr>
     <tr>
         <td>CentOS 7.5</td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-    </tr>
-    <tr>
-        <td>CentOS 7.4</td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
     </tr>
 </table>
 
@@ -83,27 +83,27 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
+    </tr>
+    <tr>
+        <td>RHEL 7.7</td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
     </tr>
     <tr>
         <td>RHEL 7.5</td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-    </tr>
-    <tr>
-        <td>RHEL 7.4</td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker EE 19.03.2<br>Docker EE 18.09.9<br>Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.10</p></td>
     </tr>
 </table>
 
@@ -111,19 +111,19 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Ubuntu 18.04.3 LTS</td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>Ubuntu 16.04.6 LTS</td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
     </tr>
@@ -133,27 +133,27 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Oracle Linux 7.6 </td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.5 </td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
+        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.4 </td>
+        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p>
     </tr>
 </table>
 
@@ -164,11 +164,9 @@ NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have 
     <th><strong>Platform Component</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>CoreOS 2079.3.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
     </tr>
@@ -176,11 +174,9 @@ NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have 
         <td>CoreOS 2023.5.0</td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
     <tr>
         <td>CoreOS 2023.4.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
