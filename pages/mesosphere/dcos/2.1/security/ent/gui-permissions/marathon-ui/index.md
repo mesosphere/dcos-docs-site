@@ -29,7 +29,7 @@ You can grant users access to the Marathon Tab. By default, new users have no pe
 
 1.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/mesosphere/dcos/2.1/img/GUI-Organization-Users-User_Main_View.png)
+    ![Add permission cory](/mesosphere/dcos/2.1/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     Figure 2. Select user or group to grant permissions to
 
