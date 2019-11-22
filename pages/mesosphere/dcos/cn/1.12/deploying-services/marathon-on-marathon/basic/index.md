@@ -195,7 +195,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加 cory 权限](/mesosphere/dcos/1.12/img/GUI-Organization-Users-User_Main_View.png)
+    ![添加 cory 权限](/mesosphere/dcos/1.12/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     图 2. 选择用户或组权限
 
