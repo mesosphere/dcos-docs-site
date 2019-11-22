@@ -32,7 +32,7 @@ You can grant users access to the [**Jobs** screen](/mesosphere/dcos/1.12/gui/jo
 
 3.  Select the name of the user or group to grant the permission to.
 
-    ![Add permission cory](/mesosphere/dcos/1.12/img/GUI-Organization-Users-List_View-1_12.png)
+    ![Add permission cory](/mesosphere/dcos/1.12/img/GUI-Organization-Users-User_Main_View.png)
 
     Figure 2. Select user or group to grant permissions to
 
