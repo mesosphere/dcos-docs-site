@@ -116,8 +116,8 @@ In this step, an IP detection script is created. This script reports the IP addr
 ```bash
 #!/usr/bin/env bash
 set -o nounset -o errexit
-MASTER_IP=172.28.128.3
-echo $(/usr/sbin/ip route show to match 172.28.128.3 | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
+MASTER_IP="172.28.128.3"
+echo $(ip route show to match $MASTER_IP | grep -Eo '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}' | tail -1)
 ```
 
 [oss type="inline" size="small" /]
