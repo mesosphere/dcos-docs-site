@@ -21,10 +21,10 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 <!-- The issues that have been fixed and improved in DC/OS 2.0.1 are grouped by feature, functional area, or component.  -->
 - Fixed an issue where unfinished Marathon deployments would prevent a successful upgrade to DC/OS 2.0.```
 
-dcos-net: task update leads to two DNS zone updates. (DCOS_OSS-5495)
+- Fixed an issue in dcos-net where a task update was leading to two DNS zone updates. (DCOS_OSS-5495)
 
-DC/OS overlay networks should be compared by-value. (DCOS_OSS-5620)
+- When deciding whether to push a network overlay to Lasuhup, DC/OS now compares by value, in addition to TIEP IP address and subnet. (DCOS_OSS-5620)
 
-Drop labels from Lashup's kv_message_queue_overflows_total metric. (DCOS_OSS-5634)
+- Labels from Lashup's kv_message_queue_overflows_total metric have been removed to improve the ability to shed load. (DCOS_OSS-5634)
 
-Reserve all agent VTEP IPs upon recovering from replicated log. (DCOS_OSS-5626)
+- DC/OS now reserves all agent VTEP IPs upon recovering from replicated logs. (DCOS_OSS-5626)
