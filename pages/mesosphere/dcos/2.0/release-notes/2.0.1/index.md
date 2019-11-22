@@ -5,7 +5,7 @@ title: Release notes for 2.0.1
 menuWeight: 2
 excerpt: Release notes for DC/OS 2.0.1
 ---
-DC/OS 2.0.1 was released on 20 November 2019.
+DC/OS 2.0.1 was released on 22 November 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -19,7 +19,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 # Fixed and Improved Issues in DC/OS 2.0.1
 <!-- The issues that have been fixed and improved in DC/OS 2.0.1 are grouped by feature, functional area, or component.  -->
-- Fixed an issue where unfinished Marathon deployments would prevent a successful upgrade to DC/OS 2.0.```
+- Fixed an issue where unfinished Marathon deployments would prevent a successful upgrade to DC/OS 2.0.
 
 - Fixed an issue in dcos-net where a task update was leading to two DNS zone updates. (DCOS_OSS-5495)
 
