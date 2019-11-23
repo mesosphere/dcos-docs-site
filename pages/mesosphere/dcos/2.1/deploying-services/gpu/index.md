@@ -21,6 +21,8 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
     -  **enable_gpu_isolation**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`.
     -  **gpus_are_scarce**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. It is important to note that this setting will influence which agent nodes of a GPU-aware framework will be deployed on DC/OS. This setting does not influence the individual tasks which the frameworks might launch while the framework is running. It is possible for a framework to schedule a non-GPU task on an agent node where GPU's are present.
+    -  **marathon_gpu_scheduling_behavior**: Indicates whether Marathon will schedule non-GPU tasks on nodes with an available GPU. Default is `restricted`.
+    -  **metronome_gpu_scheduling_behavior**: Indicates whether Metronome will schedule non-GPU tasks on nodes with an available GPU. Default is `restricted`.
 
     For more information, see the [configuration parameter documentation](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuring-gpu-nodes/) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 
