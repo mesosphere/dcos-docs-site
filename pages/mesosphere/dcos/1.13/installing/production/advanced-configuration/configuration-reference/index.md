@@ -36,11 +36,13 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [gpus_are_scarce](#gpus-are-scarce)                                   | Indicates whether to treat GPUs as a scarce resource in the cluster. |
 | [ip_detect_public_filename](#ip-detect-public-filename)               | The IP detect file to use in your cluster.  |
 | [log_offers](#log-offers)                                             | Indicates whether the leading Mesos master should log the offers sent to schedulers. Default is true. |
+| [marathon_gpu_scheduling_behavior](#marathon-gpu-scheduling-behavior) | Indicates whether Marathon will schedule non-GPU tasks on nodes with an available GPU. Default is `restricted`. |
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer-enterprise)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
 | [mesos_seccomp_enabled](#mesos-seccomp-enabled)                       | Indicates whether to enable Seccomp support for UCR containers. |
 | [mesos_seccomp_profile_name](#mesos-seccomp-profile-name)             | The name of the default Seccomp profile. |
+| [metronome_gpu_scheduling_behavior](#metronome-gpu-scheduling-behavior) | Indicates whether Metronome will schedule non-GPU tasks on nodes with an available GPU. Default is `restricted`. |
 | [platform](#platform)                                                 | The infrastructure platform. |
 | [public_agent_list](#public-agent-list)                               | A YAML nested list (`-`) of IPv4 addresses to your [public agent](/mesosphere/dcos/1.13/overview/concepts/#public-agent-node) host names.  |
 | [rexray_config](#rexray-config)                                       | The [REX-Ray](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/) configuration method for enabling external persistent volumes in Marathon. You cannot specify both `rexray_config` and `rexray_config_preset`.|
@@ -527,6 +529,10 @@ Indicates whether the leading Mesos master should log the offers sent to schedul
 - `log_offers: true` Enable Mesos offer logging for your cluster. This is the default value.
 - `log_offers: false` Disable Mesos offer logging for your cluster.
 
+### marathon_gpu_scheduling_behavior
+
+Indicates whether Marathon will schedule non-GPU tasks on nodes with an available GPU. Default is `restricted`, set to `undefined` to allow non-GPU tasks to be scheduled on agents with an available GPU. See also: `metronome_gpu_scheduling_behavior`
+
 ### master_discovery
 
 (Required) The Mesos master discovery method. The available options are `static` or `master_http_loadbalancer`.
@@ -609,6 +615,10 @@ For more information, see the [Seccomp documentation](http://mesos.apache.org/do
 Specifies the name of the default Seccomp profile which is applied cluster-wide for UCR containers. If unset, a Seccomp profile is not applied by default. If you set this configuration option to `default.json`, Mesos agents will use built-in Seccomp profile. This profile is a slightly modified version of a Docker default profile. It can be found in `/opt/mesosphere/etc/dcos/mesos/seccomp`. It is highly recommended to use the built-in default Seccomp profile.
 
 **Note**: This option requires the [`mesos_seccomp_enable`](#mesos-seccomp-enable) option to be turned on.
+
+### metronome_gpu_scheduling_behavior
+
+Indicates whether Metronome will schedule non-GPU tasks on nodes with an available GPU. Default is `restricted`, set to `undefined` to allow non-GPU tasks to be scheduled on agents with an available GPU. See also: `marathon_gpu_scheduling_behavior`
 
 ### network_cni_root_dir_persist
 Specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node.
