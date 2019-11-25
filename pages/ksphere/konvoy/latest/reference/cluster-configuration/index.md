@@ -122,7 +122,7 @@ spec:
         enabled: false
   addons:
     configRepository: https://github.com/mesosphere/kubeaddons-configs
-    configVersion: stable-1.15.5-1
+    configVersion: stable-1.15.5-2
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -446,7 +446,7 @@ The default value of this entire object is `omitted`.
 | Parameter                 | Description                                            | Default       |
 | ------------------------- | ------------------------------------------------------ | ------------- |
 | `addons.configRepository` | Specifies the git repo of the addon configuration files to use.        | `https://github.com/mesosphere/kubeaddons-configs` |
-| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.5-1`  |
+| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.5-2`  |
 | `addons.addonsList`       | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#specaddonsaddonslist) |
 
 #### spec.addons.addonsList

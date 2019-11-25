@@ -173,7 +173,7 @@ apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   addons:
     configRepository: ./kubeaddons-configs
-    configVersion: stable-1.15.5-1
+    configVersion: stable-1.15.5-2
 ```
 
 You can also specify a remote git repo hosted in your organization using the same `--addons-config-repository` flag.
