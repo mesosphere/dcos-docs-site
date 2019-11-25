@@ -9,6 +9,63 @@ enterprise: false
 
 ## Release Notes
 
+### Version 1.2.5 - Released 8 November 2019
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.15.x |
+|**Default** | 1.15.5 |
+
+#### Improvements
+
+- The command `konvoy config images save` will now save the tars alongside the `konvoy` binary and the `images.json` file in the `images/` directory.
+- New command `konvoy config images load` to load the docker image tars from a local `images/` directory.
+- The command `konvoy config images seed` will first check for local docker image tars in `images/` before trying to pull it from a remote repo.
+- The air-gapped release tar now contains an `images/` directory with all required images.
+
+#### Addons improvements
+
+N/A
+
+#### Bug fixes
+
+- Fix a bug where air-gapped artifacts were not being properly mounted in the Konvoy container, preventing the air-gapped installation on certain environments.
+- Fix a bug where the Konvoy wrapper did not load the Konvoy image before trying to pull it.
+- Fix a bug preventing traefik-forward-auth working with domain-based authentication.
+
+#### Component version changes
+
+N/A
+
+#### Known issues and limitations
+
+Known issues and limitations don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios.
+The issues are grouped by feature, functional area, or component.
+Where applicable, issue descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
+
+-   The Deb packages provided were tested with Ubuntu 16.04 LTS - Xenial machines and may not work on other Debian distributions.
+
+-   Docker provisioner reports potential issues if there are insufficient resources.
+
+    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
+    For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
+
+-   Dex should always be enabled.
+
+    For this release of Konvoy, `dex`, `dex-k8s-auth`, and `traefik-auth` are tightly coupled and must all be enabled.
+    Disabling any of these addons will prevent certain operations from working correctly.
+    This tight coupling will be addressed in a future release.
+
+-   The authentication token has no permissions.
+
+    After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
+    To enable the authenticated user to perform administrative actions, you must manually add role bindings.
+
+-   Upgrades might fail when `workers` is set to one.
+
+    The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
+
 ### Version 1.2.4 - Released 5 November 2019
 
 | Kubernetes Support | Version |
@@ -49,7 +106,7 @@ enterprise: false
 
 #### Component version changes
 
-- kubeadd-configs `v1.15.5-1`
+- kubeadd-configs `v1.15.5-2`
 
 #### Known issues and limitations
 
@@ -103,6 +160,7 @@ N/A
 #### Component version changes
 
 - Kubernetes `v1.15.5`
+- kubeadd-configs `v1.15.5-1`
 
 #### Known issues and limitations
 

@@ -77,7 +77,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-config-repository $(dirname "$(which konvoy)")/kubeaddons-configs --addons-config-version stable-1.15.5-1-air-gapped [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-config-repository $(dirname "$(which konvoy)")/kubeaddons-configs --addons-config-version stable-1.15.5-2-air-gapped [--cluster-name <your-specified-name>]
    ```
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
@@ -90,7 +90,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    spec:
      addons:
        configRepository: /__KONVOY_DIRECTORY__/kubeaddons-configs
-       configVersion: stable-1.15.5-1-air-gapped
+       configVersion: stable-1.15.5-2-air-gapped
    ```
 
 1. Open inventory file `inventory.yaml` in a text editor to specify the hosts.
@@ -234,6 +234,14 @@ Running the below command will pull all of the images, retag them and push them 
 
 ```text
 konvoy config images seed
+```
+
+You can also place an `images/` directory alongside the `konvoy` binary to load the images instead of pulling from remote repositories.
+
+The command below can be used generate the `images/` directory and save all of the images required for the installation.
+
+```text
+konvoy config images save
 ```
 
 ## Configure the control plane
