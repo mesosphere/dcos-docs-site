@@ -21,6 +21,8 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 <!-- The issues that have been fixed and improved in DC/OS 2.0.1 are grouped by feature, functional area, or component.  -->
 - Fixed an issue where unfinished Marathon deployments would prevent a successful upgrade to DC/OS 2.0.
 
+- Decreased the amount of Mesos agent memory used in DC/OS 2.0.  
+
 - Fixed an issue in dcos-net where a task update was leading to two DNS zone updates. (DCOS_OSS-5495)
 
 - When deciding whether to push a network overlay to Lasuhup, DC/OS now compares by value, in addition to TIEP IP address and subnet. (DCOS_OSS-5620)
