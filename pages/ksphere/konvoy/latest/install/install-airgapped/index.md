@@ -229,16 +229,16 @@ This will configure containerd with the provided credentials.
 The presence of `default: true` also instructs Konvoy to configure [containerd mirrors][containerd_mirrors] with all the repositories of the images that are used during installation.
 The file `images.json` contains the full list of images.
 
-Konvoy also provides some convenience CLI commands to setup your registry with the required images.
-Running the below command will pull all of the images, retag them and push them to the specified image registry, making them available during installation.
+Konvoy also provides convenient CLI commands to setup your registry with the required images.
+Running the command below pulls all of the images, retags them, and pushes them to the specified image registry. This makes them available during installation.
 
 ```text
 konvoy config images seed
 ```
 
-You can also place an `images/` directory alongside the `konvoy` binary to load the images instead of pulling from remote repositories.
+You can also create an `images/` directory alongside the `konvoy` binary, to load the images instead of pulling from remote repositories.
 
-The command below can be used generate the `images/` directory and save all of the images required for the installation.
+The command below generates the `images/` directory and saves all of the images required for the installation.
 
 ```text
 konvoy config images save
