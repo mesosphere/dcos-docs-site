@@ -10,11 +10,11 @@ excerpt: Manage installation related configuration
 
 ## konvoy config
 
-Manage installation related configuration
+Manage an installation related configuration
 
 ### Synopsis
 
-Manage installation related configuration
+Manage an installation related configuration.
 
 ### Options
 
