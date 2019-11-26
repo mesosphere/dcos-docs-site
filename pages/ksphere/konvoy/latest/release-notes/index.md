@@ -19,9 +19,9 @@ enterprise: false
 
 #### Improvements
 
-- The command `konvoy config images save` will now save the tars alongside the `konvoy` binary and the `images.json` file in the `images/` directory.
-- New command `konvoy config images load` to load the docker image tars from a local `images/` directory.
-- The command `konvoy config images seed` will first check for local docker image tars in `images/` before trying to pull it from a remote repo.
+- The command `konvoy config images save` now saves the tars with the `konvoy` binary and the `images.json` file in the `images/` directory.
+- New command `konvoy config images load` loads docker image tars from a local `images/` directory.
+- The command `konvoy config images seed` first checks for local docker image tars in the `images/` directory before trying to pull it from a remote repo.
 - The air-gapped release tar now contains an `images/` directory with all required images.
 
 #### Addons improvements
@@ -30,9 +30,9 @@ N/A
 
 #### Bug fixes
 
-- Fix a bug where air-gapped artifacts were not being properly mounted in the Konvoy container, preventing the air-gapped installation on certain environments.
-- Fix a bug where the Konvoy wrapper did not load the Konvoy image before trying to pull it.
-- Fix a bug preventing traefik-forward-auth working with domain-based authentication.
+- Fixed a bug where air-gapped artifacts were not properly mounted in the Konvoy container, preventing the air-gapped installation on certain environments.
+- Fixed a bug where the Konvoy wrapper did not load the Konvoy image before trying to pull the image.
+- Fixed a bug preventing traefik-forward-auth from working with domain-based authentication.
 
 #### Component version changes
 
@@ -48,23 +48,23 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 -   Docker provisioner reports potential issues if there are insufficient resources.
 
-    If you attempt to deploy a cluster on a machine that does not have enough resources, you might see issues when the installation starts to deploy Addons.
-    For example, if you see an error message similar to _could not check tiller installation_, the root cause is typically insufficient resources.
+    If you deploy a cluster on a machine with insufficient resources, there can be issues when the installation starts to deploy Addons.
+    Error messages similar to _could not check tiller installation_ are typically caused by insufficient resources.
 
 -   Dex should always be enabled.
 
-    For this release of Konvoy, `dex`, `dex-k8s-auth`, and `traefik-auth` are tightly coupled and must all be enabled.
-    Disabling any of these addons will prevent certain operations from working correctly.
-    This tight coupling will be addressed in a future release.
+    For this Konvoy release, `dex`, `dex-k8s-auth`, and `traefik-auth` are tightly coupled and must all be enabled.
+    Disabling any of these addons prevents certain operations from correctly working.
+    This issue will be addressed in a future release.
 
 -   The authentication token has no permissions.
 
-    After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
-    To enable the authenticated user to perform administrative actions, you must manually add role bindings.
+    After logging on through an identity provider, regardless of the source (password or otherwise), the identified user has no permissions assigned.
+    To enable an authenticated user to perform administrative actions, you must manually add role bindings.
 
 -   Upgrades might fail when `workers` is set to one.
 
-    The upgrade command might fail when the cluster is configured with only one worker. To work around this issue, add an additional worker for the upgrade.
+    The upgrade command might fail when the cluster is configured with only one worker. Add an additional worker, for the upgrade, to workaround this issue.
 
 ### Version 1.2.4 - Released 5 November 2019
 
