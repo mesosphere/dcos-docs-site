@@ -27,7 +27,7 @@ excerpt:
 * [konvoy apply](./konvoy-apply/)	 - Updates certain configuration in the existing kubeconfig file
 * [konvoy check](./konvoy-check/)	 - Run checks on the health of the cluster
 * [konvoy completion](./konvoy-completion/)	 - Output shell completion code for the specified shell (bash or zsh)
-* [konvoy config](./konvoy-config/)	 - Manage installation related configuration
+* [konvoy config](./konvoy-config/)	 - Manage an installation related configuration
 * [konvoy deploy](./konvoy-deploy/)	 - Deploy a fully functioning Kubernetes cluster and addons
 * [konvoy diagnose](./konvoy-diagnose/)	 - Creates a diagnostics bundle of the cluster
 * [konvoy down](./konvoy-down/)	 - Destroy the Kubernetes cluster
