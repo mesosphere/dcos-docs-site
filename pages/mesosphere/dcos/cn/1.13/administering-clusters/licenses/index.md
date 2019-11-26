@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  许可证
 title: 许可证
-menuWeight: 1100
+menuWeight: 11
 enterprise: true
 excerpt: 根据您的许可证要求管理您的群集
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 DC/OS 许可组件允许您根据许可证要求管理群集。DC/OS 许可跟踪群集许可证的状态、收集信息以检查是否已违反任何许可条款，并支持在延长或更改合同时更新许可证的操作。

@@ -6,7 +6,7 @@ menuWeight: 60
 excerpt: 管理您的 DC/OS 群集
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

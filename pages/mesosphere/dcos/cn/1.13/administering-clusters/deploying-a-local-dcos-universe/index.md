@@ -2,11 +2,11 @@
 layout: layout.pug
 navigationTitle:  部署本地目录
 title: 部署本地目录
-menuWeight: 1000
+menuWeight: 10
 excerpt: 在本地目录数据中心安装和运行 DC/OS 服务
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 <p class="message--important"><strong></strong>重要信息：如果您正在使用 DC/OS Enterprise，使用 <tt>package-registry</tt> 无缝管理气隙环境中的包。本地 {{ model.packagerepo }} 支持已弃用。</p>
