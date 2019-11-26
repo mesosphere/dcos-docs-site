@@ -10,11 +10,11 @@ excerpt: Pull, retag and push all docker images used during the installation
 
 ## konvoy config images seed
 
-Pull, retag and push all docker images used during the installation
+Pull, retag, and push all docker images used during the installation
 
 ### Synopsis
 
-Pull, retag and push all docker images used during the installation
+Pull, retag, and push all docker images used during the installation.
 
 ```
 konvoy config images seed [flags]
