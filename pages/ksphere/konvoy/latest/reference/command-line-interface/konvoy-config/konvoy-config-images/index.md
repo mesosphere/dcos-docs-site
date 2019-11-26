@@ -14,7 +14,7 @@ Manage docker images for installation
 
 ### Synopsis
 
-Manage docker images for installation
+Manage docker images for installation.
 
 ### Options
 
