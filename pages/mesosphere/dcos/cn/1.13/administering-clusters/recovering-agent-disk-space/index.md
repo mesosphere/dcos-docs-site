@@ -6,7 +6,7 @@ menuWeight: 900
 excerpt: 恢复代理节点卷上的空间
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 如果任务填满代理节点的保留卷，有一些选项可以恢复空间：
