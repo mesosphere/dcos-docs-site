@@ -1,19 +1,19 @@
 ---
 layout: layout.pug
-navigationTitle:  Cluster Link API
-title: Cluster Link API
+navigationTitle:  群集链接 API
+title: 集群链接 API
 menuWeight: 3
-excerpt: 使用 Cluster Link API 管理群集链接
+excerpt: 使用 集群链接 API 管理群集链接
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
-您可以使用 Cluster Link API 管理群集链接。
+您可以使用 集群链接 API 管理群集链接。
 
 # 路由
 
-对 Cluster Link API 的访问是通过每个管理节点上的 Admin Router 使用以下路由以代理的方式完成：
+对 集群链接 API 的访问是通过每个管理节点上的 Admin Router 使用以下路由以代理的方式完成：
 
 ```
 /cluster/v1/links
@@ -23,7 +23,7 @@ model：/mesosphere/dcos/1.13/data.yml
 
 # 格式
 
-Cluster Link API 请求和响应主体在 JSON 中格式化。
+集群链接 API 请求和响应主体在 JSON 中格式化。
 
 请求必须包含接受标题：
 
@@ -39,11 +39,11 @@ Content-Type: application/json
 
 # 身份认证
 
-使用所有 Cluster Link API 路由都需要身份验证。
+使用所有 集群链接 API 路由都需要身份验证。
 
 要验证 API 请求，请参阅 [获取认证令牌](/mesosphere/dcos/1.13/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/mesosphere/dcos/1.13/security/ent/iam-api/#passing-an-authentication-token)。
 
-Cluster Link API 还需要通过以下权限授权：
+集群链接 API 还需要通过以下权限授权：
 
 | 资源 ID | 操作 |
 |-------------|--------|
@@ -56,6 +56,6 @@ Cluster Link API 还需要通过以下权限授权：
 
 API 参考
 
-Cluster Link API 允许您管理 DC/OS 群集上的群集链接操作。
+集群链接 API 允许您管理 DC/OS 群集上的群集链接操作。
 
 [swagger api='/mesosphere/dcos/1.13/api/cluster-link.yaml']
