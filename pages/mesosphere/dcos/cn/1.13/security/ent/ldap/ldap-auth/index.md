@@ -4,7 +4,7 @@ navigationTitle:  指定身份认证和参数
 title: 指定身份认证和参数
 menuWeight: 2
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 excerpt: 为 LDAP 目录指定身份认证方法和参数
 enterprise: true
 ---

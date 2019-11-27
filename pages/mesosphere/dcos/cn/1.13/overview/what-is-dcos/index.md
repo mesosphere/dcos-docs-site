@@ -5,7 +5,7 @@ title: 什么是 DC/OS？
 menuWeight: 1
 excerpt: 了解 DC/OS
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

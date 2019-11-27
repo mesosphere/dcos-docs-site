@@ -4,7 +4,7 @@ excerpt: 使用 Universal 安装工具在 AWS 上的 DC/OS 指南
 title: 使用 Universal 安装工具在 AWS 上的 DC/OS
 navigationTitle: AWS
 menuWeight: 0
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 render: mustache
 ---
 #include /mesosphere/dcos/install-include/aws-intro-and-prereqs.tmpl

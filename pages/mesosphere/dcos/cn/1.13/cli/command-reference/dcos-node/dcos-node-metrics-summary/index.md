@@ -5,7 +5,7 @@ title: dcos node metrics summary
 menuWeight: 11
 excerpt: 汇总 Mesos 代理节点的详细信息
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

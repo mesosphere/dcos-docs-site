@@ -5,7 +5,7 @@ title: 使用容器化工具
 menuWeight: 40
 excerpt: 使用具有 Docker Engine 和 Universal Container Runtime 的容器化工具
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

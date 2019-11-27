@@ -5,7 +5,7 @@ title: dcos security cluster secret-store status
 menuWeight: 105
 excerpt: 管理 DC/OS 证书颁发机构
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

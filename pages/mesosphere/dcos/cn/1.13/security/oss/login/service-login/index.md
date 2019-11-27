@@ -4,7 +4,7 @@ navigationTitle:  服务登录
 title: 服务登录
 excerpt: 作为服务登录到 DC/OS
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 30
 ---
 

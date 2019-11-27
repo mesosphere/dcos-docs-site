@@ -5,7 +5,7 @@ navigationTitle: 度量标准插件架构
 menuWeight: 0
 excerpt: DC/OS 如何收集和发布度量标准
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

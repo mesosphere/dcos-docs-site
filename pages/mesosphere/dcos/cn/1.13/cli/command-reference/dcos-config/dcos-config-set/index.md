@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: 添加或设置 DC/OS 配置属性
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

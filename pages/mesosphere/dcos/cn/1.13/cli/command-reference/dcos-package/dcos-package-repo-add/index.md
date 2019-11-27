@@ -5,7 +5,7 @@ title: dcos package repo add
 menuWeight: 3
 excerpt: 将软件包存储库添加到 DC/OS
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: DC/OS 简介
 excerpt: 提供分步说明，以介绍基本 DC/OS 群集任务
 menuWeight: 0
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 如果您是出于测试或评估目的而将演示环境设置为“概念验证”，或为应用程序开发或特定项目创建小型集群，则可以按照本教程中的步骤尝试使用 DC/OS。
 

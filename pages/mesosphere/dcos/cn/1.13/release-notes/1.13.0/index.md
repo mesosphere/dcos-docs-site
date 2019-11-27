@@ -4,7 +4,7 @@ navigationTitle: 1.13.0 的发行说明
 title: 1.13.0 的发行说明
 menuWeight: 15
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 excerpt: DC/OS 1.13.0 版本的注释，包括开源归属和版本策略。
 ---
 DC/OS 1.13.0 版于 2019 年 5 月 8 日发布。

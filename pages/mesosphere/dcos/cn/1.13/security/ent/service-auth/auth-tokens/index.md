@@ -6,7 +6,7 @@ menuWeight: 200
 excerpt: 管理 JSON Web 令牌
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

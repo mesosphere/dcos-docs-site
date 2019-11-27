@@ -4,7 +4,7 @@ title: DC/OS Enterprise CLI
 menuWeight: 5
 excerpt: 配置 DC/OS Enterprise 命令行界面
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

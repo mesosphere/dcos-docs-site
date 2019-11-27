@@ -5,7 +5,7 @@ title: 版本控制和发布策略
 menuWeight: 110
 excerpt: 了解 DC/OS 版本控制和发布
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 Mesosphere DC/OS 版本号的格式为：<code>&lt;发布&gt;。&lt;版本&gt;。&lt;次要&gt;</code>。
 

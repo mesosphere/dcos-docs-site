@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 显示所有已安装的应用程序
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

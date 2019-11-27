@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: 重命名群集
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

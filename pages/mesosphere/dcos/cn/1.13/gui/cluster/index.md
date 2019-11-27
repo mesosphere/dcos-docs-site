@@ -5,7 +5,7 @@ title: 群集
 menuWeight: 8
 excerpt: 使用群集菜单
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 群集菜单有两个选项卡：

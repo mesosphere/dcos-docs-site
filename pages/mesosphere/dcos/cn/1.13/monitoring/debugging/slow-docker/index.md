@@ -5,7 +5,7 @@ title: Docker 应用和部署缓慢
 menuWeight: 40
 excerpt: 解决 Docker 应用和部署缓慢问题
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

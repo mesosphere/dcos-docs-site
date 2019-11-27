@@ -4,7 +4,7 @@ navigationTitle:  高可用性
 title: 高可用性
 menuWeight: 6
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 excerpt: 了解 DC/OS 中的高可用特性和最佳实践
 enterprise: false
 ---

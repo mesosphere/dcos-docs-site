@@ -5,7 +5,7 @@ title: dcos security cluster
 menuWeight: 10
 excerpt: 群集管理命令
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

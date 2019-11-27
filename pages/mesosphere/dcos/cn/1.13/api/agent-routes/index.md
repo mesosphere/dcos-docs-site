@@ -5,7 +5,7 @@ title: 代理路由
 menuWeight: 11
 excerpt: 在 DC/OS 代理节点上运行的 Admin Router。
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 在 DC/OS 代理节点上运行的 Admin Router 代理。它公开以下 API 路由。
 

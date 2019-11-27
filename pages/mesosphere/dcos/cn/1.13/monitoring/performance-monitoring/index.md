@@ -5,7 +5,7 @@ title: 性能监控
 menuWeight: 1
 excerpt: 监控 DC/OS 群集
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

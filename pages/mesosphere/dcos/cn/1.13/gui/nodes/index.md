@@ -5,7 +5,7 @@ title: 节点
 menuWeight: 5
 excerpt: 使用“节点”页面
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 “节点”页面全面展示整个群集中使用的所有节点。您可以查看显示 CPU、内存或磁盘分配百分比的图表。

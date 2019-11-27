@@ -5,7 +5,7 @@ title: 创建群集
 menuWeight: 1
 excerpt: 让我们通过创建群集开始您的 DC/OS 之旅（第 1 部分）
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 本教程演示使用最常见的默认配置选项创建小型 DC/OS 群集以及验证对群集的访问的基本步骤。您必须成功完成本教程中的步骤，然后才能执行任何其他管理任务或探索其他功能。
 

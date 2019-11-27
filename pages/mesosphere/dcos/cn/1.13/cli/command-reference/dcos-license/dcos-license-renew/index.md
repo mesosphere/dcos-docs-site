@@ -5,7 +5,7 @@ title: dcos license renew
 menuWeight: 3
 excerpt: 更新群集许可证
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

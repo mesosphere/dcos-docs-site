@@ -5,7 +5,7 @@ title: dcos security org users delete
 menuWeight: 195
 excerpt: 删除用户
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

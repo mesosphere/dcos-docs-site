@@ -5,7 +5,7 @@ title: Docker Engine
 menuWeight: 20
 excerpt: 从 Docker 镜像启动 Docker 容器
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

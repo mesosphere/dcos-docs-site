@@ -5,7 +5,7 @@ title: Marathon 布局约束
 menuWeight: 3
 excerpt: 了解 Marathon 布局约束
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

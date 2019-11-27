@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: 管理 DC/OS 配置文件
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

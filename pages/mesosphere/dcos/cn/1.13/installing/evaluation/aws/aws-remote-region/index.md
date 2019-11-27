@@ -5,7 +5,7 @@ title: 使用 Universal 安装工具的 AWS 上多分域 DC/OS
 navigationTitle: AWS 多分域支持
 menuWeight: 1
 enterprise: true
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 render: mustache
 ---
 

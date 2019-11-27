@@ -5,7 +5,7 @@ title: 外部持久卷
 menuWeight: 20
 excerpt: 通过 Marathon 使用外部持久卷
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 beta: true
 enterprise: false
 ---

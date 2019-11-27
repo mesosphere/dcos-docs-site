@@ -4,7 +4,7 @@ navigationTitle:  混合云
 title: 混合云
 menuWeight: 115
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 excerpt: 了解混合云的功能
 ---
 

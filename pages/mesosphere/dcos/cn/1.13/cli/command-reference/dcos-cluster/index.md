@@ -5,7 +5,7 @@ title: dcos cluster
 menuWeight: 3
 excerpt: 管理与 DC/OS 群集的连接
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

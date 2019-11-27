@@ -4,7 +4,7 @@ title: 获取 DC/OS CA 捆绑包
 menuWeight: 100
 excerpt: 获取 DC/OS CA 捆绑包
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

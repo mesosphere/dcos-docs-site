@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: 重新启动应用程序
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

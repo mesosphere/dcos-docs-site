@@ -4,7 +4,7 @@ navigationTitle:  身份认证
 title: 身份认证
 excerpt: 针对 DC/OS 验证用户
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 30
 ---
 

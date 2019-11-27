@@ -5,7 +5,7 @@ title: 安装第一个包
 excerpt: 说明如何安装示例服务包（第 3 部分）
 menuWeight: 3
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 现在您已经在管理节点和代理节点上安装和运行了 DC/OS 集群，并且已经安装了可与集群一起使用的 DC/OS 命令行界面 (CLI)，那么可以开始将包和应用程序添加到集群了。
 

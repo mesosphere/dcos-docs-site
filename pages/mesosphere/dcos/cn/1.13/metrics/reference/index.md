@@ -5,7 +5,7 @@ title: 度量标准参考
 menuWeight: 7
 excerpt: 了解 DC/OS 收集的度量标准
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 beta: false
 enterprise: false
 ---

@@ -4,7 +4,7 @@ excerpt: 在 Admin Router 前配置 HAProxy
 title: HAProxy 和 Admin Router
 navigationTitle: HAProxy 和 Admin Router
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 50
 ---
 

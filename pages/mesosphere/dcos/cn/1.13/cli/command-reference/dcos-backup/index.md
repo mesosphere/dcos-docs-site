@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 创建备份并从其中恢复
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

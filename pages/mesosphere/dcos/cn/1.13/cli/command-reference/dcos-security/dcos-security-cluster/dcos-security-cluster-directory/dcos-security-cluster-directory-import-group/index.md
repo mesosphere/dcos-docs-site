@@ -5,7 +5,7 @@ title: dcos security cluster directory import_group
 menuWeight: 33
 excerpt: 导入一个 LDAP 组
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

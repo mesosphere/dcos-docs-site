@@ -4,7 +4,7 @@ navigationTitle:  特性成熟度
 title: 特性成熟度
 menuWeight: 10
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 excerpt: 了解 Mesosphere 的特性成熟度生命周期
 
 enterprise: false

@@ -5,7 +5,7 @@ title: 配置参考
 menuWeight: 5
 excerpt: DC/OS Enterprise 和 DC/OS 开源可用的配置参数
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 配置参数

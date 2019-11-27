@@ -5,7 +5,7 @@ title: 架构
 menuWeight: 2
 excerpt: 了解 DC/OS 架构
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

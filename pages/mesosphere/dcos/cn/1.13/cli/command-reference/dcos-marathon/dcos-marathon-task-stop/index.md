@@ -5,7 +5,7 @@ title: dcos marathon task stop
 menuWeight: 31
 excerpt: 停止任务
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

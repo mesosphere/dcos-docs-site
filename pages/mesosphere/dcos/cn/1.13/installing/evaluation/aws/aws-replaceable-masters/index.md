@@ -4,7 +4,7 @@ excerpt: 在 AWS 上使用 Universal 安装工具的可替换管理节点
 title: 在 AWS 上使用 Universal 安装工具的可替换管理节点
 navigationTitle: AWS 可替换管理节点
 menuWeight: 2
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 render: mustache
 ---
 

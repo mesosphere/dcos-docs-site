@@ -5,7 +5,7 @@ title: 添加外部用户
 menuWeight: 20
 excerpt: 将外部用户添加到 DC/OS
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

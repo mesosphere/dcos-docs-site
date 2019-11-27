@@ -4,7 +4,7 @@ title: AWS
 navigationTitle: AWS
 menuWeight: 5
 excerpt: 使用 AWS CloudFormation 上的模板为 Amazon Web Services 安装 DC/OS 群集
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 render: mustache
 ---
 

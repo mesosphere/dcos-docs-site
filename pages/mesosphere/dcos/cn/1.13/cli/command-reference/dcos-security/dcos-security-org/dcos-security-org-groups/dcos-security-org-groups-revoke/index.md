@@ -5,7 +5,7 @@ title: dcos security org groups revoke
 menuWeight: 155
 excerpt: 撤销组进行资源操作的权限
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # 说明
