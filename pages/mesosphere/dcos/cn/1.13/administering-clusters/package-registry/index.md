@@ -6,12 +6,12 @@ menuWeight: 50
 excerpt: 使用 Web 界面或 CLI 管理包资源库
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS 预配置了 {{ model.packageRepo }}](https://github.com/mesosphere/universe) 包资源库作为 DC/OS 包的提供程序。但这是假设有互联网访问，而这种假设并非总是可能的。对于气隙环境，DC/OS Enterprise 提供包注册表，以便对包进行灵活无缝的管理。
+DC/OS 预配置了 [包注册表](https://github.com/mesosphere/universe) 包资源库作为 DC/OS 包的提供程序。但这是假设有互联网访问，而这种假设并非总是可能的。对于气隙环境，DC/OS Enterprise 提供包注册表，以便对包进行灵活无缝的管理。
 
 有关 DC/OS 包注册表可用配置选项的完整列表，请使用以下命令获取：
 
@@ -20,7 +20,7 @@ dcos package describe package-registry --config
 ```
 您可以在 [CLI 文档](/mesosphere/dcos/1.13/cli/command-reference/dcos-package/)中找到有关 `dcos package` 命令的更多信息。
 
-有关如何配置和部署 DC/OS 服务的详细说明，请参阅 [配置 {{ model.packageRepo }} 服务](/mesosphere/dcos/1.13/deploying-services/config-universe-service/)。
+有关如何配置和部署 DC/OS 服务的详细说明，请参阅 [配置 包注册表 服务](/mesosphere/dcos/1.13/deploying-services/config-universe-service/)。
 
 # 默认安装
 
@@ -46,7 +46,7 @@ dcos registry activate --options=<custom-options-file>
 在部署期间，可以使用以下选项来配置包注册表：
 
 1. [存储选项](#storage-options)（本地存储或挂载卷或 S3 兼容存储）
-1. [服务命名空间和密钥](#service-namespacing and-secrets)
+1. [服务命名空间和密钥](/mesosphere/dcos/cn/1.13/administering-clusters/package-registry/#service-namespacing-and-secrets)
 
 如果您具有先前安装之一的配置文件，则可以跳过本部分，然后继续进行安装包注册表的下一部分。
 
@@ -234,11 +234,11 @@ dcos package repo add --index=0 "Registry" https://dcos-registry.marathon.l4lb.t
 
 ## 构建包
 
-Mesosphere 将其所有已认证包托管在 [downloads.mesosphere.com/universe/packages/packages.html](https://downloads.mesosphere.com/universe/packages/packages.html)。如果您需要的包可用，您可以下载并跳转至下一个部分，以将这些 `.dcos` 文件上传到您的群集。当 {{ model.packagerepo }} 包正在开发中并且您希望在创建拉取请求前对其进行测试，或者如果您希望构建非认证（社区）包，此部分非常有用。
+Mesosphere 将其所有已认证包托管在 [downloads.mesosphere.com/universe/packages/packages.html](https://downloads.mesosphere.com/universe/packages/packages.html)。如果您需要的包可用，您可以下载并跳转至下一个部分，以将这些 `.dcos` 文件上传到您的群集。当 {{ model.packageRepo }} 包正在开发中并且您希望在创建拉取请求前对其进行测试，或者如果您希望构建非认证（社区）包，此部分非常有用。
 
 ### 要求
 
-1. 确保您拥有有效的 {{ model.packagerepo }} 包定义文件 ([Schema](https://github.com/mesosphere/universe/tree/version-3.x/repo/meta/schema))。请注意，`package-registry` 仅支持使用 v4 或 {{ model.packagerepo }} 打包系统的更高模式打包的包。请参阅 [创建包](https://github.com/mesosphere/universe#creating-a-package)，了解更多详细信息。
+1. 确保您拥有有效的 {{ model.packageRepo }} 包定义文件 ([Schema](https://github.com/mesosphere/universe/tree/version-3.x/repo/meta/schema))。请注意，`package-registry` 仅支持使用 v4 或 {{ model.packageRepo }} 打包系统的更高模式打包的包。请参阅 [创建包](https://github.com/mesosphere/universe#creating-a-package)，了解更多详细信息。
 1. `docker` 安装在系统中（**如果** 您的包使用 Docker 镜像）。
 1. 包注册表 CLI 也需要安装。实现这一点有两种方法。
    1. 从 DC/OS 群集中安装 `package-registry` CLI。
@@ -263,7 +263,7 @@ Mesosphere 将其所有已认证包托管在 [downloads.mesosphere.com/universe/
 
 ### 生成 `.dcos` 捆绑包的说明
 
-`package-registry`CLI 可用于将包捆绑到 `.dcos` 文件，该文件可以被 `package-registry` 使用。假设 {{ model.packagerepo }} 包文件位于名为 `/path/to/package/` 的目录中。它应包含以下包定义文件：
+`package-registry`CLI 可用于将包捆绑到 `.dcos` 文件，该文件可以被 `package-registry` 使用。假设 {{ model.packageRepo }} 包文件位于名为 `/path/to/package/` 的目录中。它应包含以下包定义文件：
 
 ```
 ➜ tree
@@ -307,13 +307,13 @@ dcos registry build --build-definition-file=/path/to/output/<json-build-defintio
 dcos registry add --dcos-file <your-file>.dcos
 ```
 
-这是异步操作，需要几分钟的时间才能在您的 {{ model.packagerepo }} 中看到该包。即使上述命令出错（即使在网络连接缓慢下成功上传时也可能发生），您可以通过执行以下步骤跟踪上传状态：
+这是异步操作，需要几分钟的时间才能在您的 {{ model.packageRepo }} 中看到该包。即使上述命令出错（即使在网络连接缓慢下成功上传时也可能发生），您可以通过执行以下步骤跟踪上传状态：
 
 ```bash
 dcos registry describe --package-name=<package-name> --package-version=<package-version>
 ```
 
-请耐心等待几分钟，以便包得以上传、处理以及在 {{ model.packagerepo }} 中可见。
+请耐心等待几分钟，以便包得以上传、处理以及在 {{ model.packageRepo }} 中可见。
 
 请参阅 `dcos registry --help`，了解可用于管理包注册表中包的操作详尽列表。`registry` 子命令允许您 `add`、`remove` 和 `describe` 包。
 

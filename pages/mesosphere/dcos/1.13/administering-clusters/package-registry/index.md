@@ -59,7 +59,7 @@ Package registry can be configured to use one of:
 
 ### Local storage
 
-Package registry uses local storage by default, which is **NOT recommended** for production usage. Configure a persistent volume or S3-compatible storage for production usage. If you are using this for developement purposes and wish to use local storage, skip to the next section.
+Package registry uses local storage by default, which is **NOT recommended** for production usage. Configure a persistent volume or S3-compatible storage for production usage. If you are using this for development purposes and wish to use local storage, skip to the next section.
 
 ### Mount volume option
 
