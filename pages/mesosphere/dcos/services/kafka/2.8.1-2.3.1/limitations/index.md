@@ -14,7 +14,7 @@ render: mustache
 
 ## Log Retention Bytes
 
-The `disk` configuration value is denominated in MB. It is recommended that you set the configuration value `log_retention_bytes` to a value smaller than the indicated `disk` configuration. See the [Configuration](/mesosphere/dcos/services/kafka/2.8.1-2.3.1/configuration/) section for instructions on customizing these values.
+The `disk` configuration value is denominated in MB. We recommend that you set the configuration value `log_retention_bytes` to a value smaller than the indicated `disk` configuration. See the [Configuration](/mesosphere/dcos/services/kafka/latest/configuration/) section for instructions on customizing these values.
 
 ## Security
 
@@ -29,10 +29,10 @@ When Kerberos is enabled, the broker VIP is disabled, as Kerberized clients will
 
 ### Toggling Kerberos
 
-Kerberos authentication can be toggled (enabled/disabled), but this triggers a rolling restart of the cluster. Clients configured with the old security settings will lose connectivity during and after this process. It is recommended that you back up your files and schedule downtime. 
+Kerberos authentication can be toggled (enabled/disabled), but this triggers a rolling restart of the cluster. Clients configured with the old security settings will lose connectivity during and after this process. We recommend that you back up your files and schedule downtime. 
 
 ### Toggling Transport Encryption
 
-Transport encryption using TLS can be toggled (enabled/disabled), but this triggers a rolling restart of the cluster. As each broker restarts, a client may lose connectivity based on its security settings and the value of the `service.security.transport_encryption.allow_plaintext` configuration option. It is recommended that you back up your files and schedule downtime.
+Transport encryption using TLS can be toggled (enabled/disabled), but this triggers a rolling restart of the cluster. As each broker restarts, a client may lose connectivity based on its security settings and the value of the `service.security.transport_encryption.allow_plaintext` configuration option. We recommend that you back up your files and schedule downtime.
 
 To enable TLS, a service account and corresponding secret is required. Since it is not possible to change the service account used by a service, we recommend that the service be deployed with an explicit service account, to allow for TLS to be enabled at a later stage.
