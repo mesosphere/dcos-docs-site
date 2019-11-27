@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 查找公共代理 IP 地址
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 使用已声明的公共代理节点安装 DC/OS 后，您可以导航到公共代理节点的公用 IP 地址。您可以将代理的面向公众的 IP 地址公开为网关，以访问在 DC/OS 群集中运行的服务。例如，如果要配置负载平衡以将入站请求分发到群集中的服务，请求通常通过公共 IP 地址前端路由到防火墙后隔离的适当服务实例后端。
 
@@ -52,6 +52,7 @@ model：/mesosphere/dcos/1.13/data.yml
 1. 查看命令输出以找到指定为公共代理的节点面向公众的 IP 地址。
 
     例如，命令返回类似于以下内容的节点信息：
+
     ```bash
     HOSTNAME         IP       PUBLIC IP(S)                     ID                           TYPE           REGION           ZONE       
     10.0.5.46      10.0.5.46   34.223.48.55    ecb5e39c-2d3e-4eea-8c07-af0c4e9e8443-S1  agent (public)    aws/us-west-2  aws/us-west-2d  
@@ -111,7 +112,7 @@ curl -skSL -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -H 
 [{"updated":"2019-01-07T22:22:22.171Z","public_ips":["34.212.37.79"],"private_ip":"10.0.6.210","hostname":"ip-10-0-6-210"},{"updated":"2019-01-07T22:22:22.119Z","public_ips":["52.25.254.97"],"private_ip":"10.0.6.181","hostname":"ip-10-0-6-181"},{"updated":"2019-01-07T22:21:09.585Z","public_ips":["54.218.23.75"],"private_ip":"10.0.6.148","hostname":"ip-10-0-6-148"},{"updated":"2019-01-07T22:22:28.582Z","public_ips":[],"private_ip":"10.0.1.139","hostname":"ip-10-0-1-139"},{"updated":"2019-01-07T22:22:28.649Z","public_ips":[],"private_ip":"10.0.0.138","hostname":"ip-10-0-0-138"}]
 ```
 
-<!-您还可以直接在管理节点上执行 cURL 命令，以使用类似于以下内容的命令从中央位置查找公共代理的公共 IP 地址：
+<!-- 您还可以直接在管理节点上执行 cURL 命令，以使用类似于以下内容的命令从中央位置查找公共代理的公共 IP 地址：
 
 ```bash
 curl http://localhost:62080/v1/nodes
@@ -130,7 +131,7 @@ curl http://localhost:62080/v1/nodes
     - 54.218.23.75
 
     与之前示例一样，没有用于专用节点的公共 IP 地址。
--->
+ -->
 
 ## 格式化 API 输出
 如果您已安装 `jq` 或 `python`，则可以使用更多可读 JSON 格式解析 API 输出以显示节点信息。例如，通过运行以下命令，您可以执行 API 调用并将输出传递到 `jq` 进行格式化：
@@ -198,7 +199,7 @@ for id in $(dcos node --json | jq --raw-output '.[] | select(.attributes.public_
 
 以下是返回公共 IP 地址 `52.39.29.79` 的示例：
 
-```
+```bash
 for id in $(dcos node --json | jq --raw-output '.[] | select(.attributes.public_ip == "true") | .id'); do dcos node ssh --option StrictHostKeyChecking=no --option LogLevel=quiet --master-proxy --mesos-id=$id "curl -s ifconfig.co" ; done 2>/dev/null
 52.39.29.79
 ```
