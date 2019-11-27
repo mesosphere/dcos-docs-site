@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 从配置文件中删除属性
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

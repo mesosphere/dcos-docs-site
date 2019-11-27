@@ -5,7 +5,7 @@ title: 部署卡住
 menuWeight: 30
 excerpt: 了解邀约匹配和失败的部署
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 # 邀约匹配如何起作用

@@ -5,7 +5,7 @@ title: 使用虚拟 IP 地址
 menuWeight: 10
 excerpt: 使用虚拟 IP 地址
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

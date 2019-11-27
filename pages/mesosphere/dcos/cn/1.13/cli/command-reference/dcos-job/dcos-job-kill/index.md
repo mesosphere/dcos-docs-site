@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 结束 DC/OS 作业
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

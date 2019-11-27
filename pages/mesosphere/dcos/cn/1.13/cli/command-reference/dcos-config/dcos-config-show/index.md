@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 显示群集配置文件
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

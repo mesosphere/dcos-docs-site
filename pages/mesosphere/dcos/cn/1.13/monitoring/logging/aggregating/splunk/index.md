@@ -5,7 +5,7 @@ title: 使用 Splunk 进行日志管理
 menuWeight: 3
 excerpt: 使用 Splunk 服务器管理系统和应用程序日志
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

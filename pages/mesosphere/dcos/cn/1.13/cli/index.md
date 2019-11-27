@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: 了解 DC/OS 中的命令行界面实用程序
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 DC/OS 命令行界面 (DC/OS CLI) 实用程序允许您管理群集以及管理服务和任务。

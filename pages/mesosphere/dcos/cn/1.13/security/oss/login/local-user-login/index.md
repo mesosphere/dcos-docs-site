@@ -4,7 +4,7 @@ navigationTitle:  本地用户登录
 title: 本地用户登录
 excerpt: 以本地用户身份登录到 DC/OS
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 20
 ---
 

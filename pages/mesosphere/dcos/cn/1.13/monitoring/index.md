@@ -5,7 +5,7 @@ title: 监控、日志记录和调试
 menuWeight: 110
 excerpt: 了解如何通过 DC/OS 监控数据中心运行的健康状况
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

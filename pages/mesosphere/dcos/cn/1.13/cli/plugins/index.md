@@ -6,7 +6,7 @@ menuWeight: 5
 excerpt: 如何扩展命令行界面
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 插件扩展了 CLI 的功能，用于针对群集的操作。

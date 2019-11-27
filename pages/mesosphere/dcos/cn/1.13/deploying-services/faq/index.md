@@ -5,7 +5,7 @@ title: 常见问题
 menuWeight: 120
 excerpt: 关于部署 Marathon 服务的常见问题
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

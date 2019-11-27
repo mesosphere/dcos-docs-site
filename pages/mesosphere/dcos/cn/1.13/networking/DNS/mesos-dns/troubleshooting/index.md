@@ -5,7 +5,7 @@ title: “故障排除”
 menuWeight: 400
 excerpt: Mesos DNS 故障排除
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

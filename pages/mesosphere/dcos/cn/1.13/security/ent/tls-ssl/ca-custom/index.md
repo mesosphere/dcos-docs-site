@@ -6,7 +6,7 @@ menuWeight: 50
 excerpt: 配置 DC/OS Enterprise 以使用自定义 CA 证书
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

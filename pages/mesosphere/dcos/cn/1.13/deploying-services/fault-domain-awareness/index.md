@@ -4,7 +4,7 @@ navigationTitle: 故障域感知和容量扩展
 title: 故障域感知和容量扩展
 menuWeight: 3
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 excerpt: 了解故障域
 enterprise: true
 ---

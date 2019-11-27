@@ -5,7 +5,7 @@ title: 概述
 menuWeight: 20
 excerpt: DC/OS 基础知识入门
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

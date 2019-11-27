@@ -5,7 +5,7 @@ title: 管理用户和组
 menuWeight: 0
 excerpt: 管理用户和组
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

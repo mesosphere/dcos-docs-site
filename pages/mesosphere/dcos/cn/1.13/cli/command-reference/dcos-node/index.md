@@ -5,7 +5,7 @@ title: dcos node
 menuWeight: 11
 excerpt: 显示 DC/OS 节点信息
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

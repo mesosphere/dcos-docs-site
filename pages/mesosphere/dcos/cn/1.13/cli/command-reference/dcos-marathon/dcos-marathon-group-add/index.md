@@ -6,7 +6,7 @@ menuWeight: 17
 excerpt: 添加 Marathon 组
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

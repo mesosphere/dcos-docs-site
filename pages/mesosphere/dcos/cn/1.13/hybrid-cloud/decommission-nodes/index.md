@@ -5,7 +5,7 @@ title: 停用节点
 menuWeight: 15
 excerpt: 停用节点
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

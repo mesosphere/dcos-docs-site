@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 配置 OpenID 身份提供程序
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

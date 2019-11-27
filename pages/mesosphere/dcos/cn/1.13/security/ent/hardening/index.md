@@ -5,7 +5,7 @@ title: 强化
 menuWeight: 100
 excerpt: 增加群集的安全性
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

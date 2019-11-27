@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: 列出群集的登录提供商
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

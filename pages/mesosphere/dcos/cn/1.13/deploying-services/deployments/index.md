@@ -4,7 +4,7 @@ navigationTitle:  部署
 excerpt: 部署多个 Marathon 应用程序
 title: 部署
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 5
 ---
 

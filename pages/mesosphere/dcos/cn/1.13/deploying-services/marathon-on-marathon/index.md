@@ -5,7 +5,7 @@ title: 使用自定义 Marathon
 menuWeight: 39
 excerpt: 部署非本地 Marathon 实例
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

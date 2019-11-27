@@ -5,7 +5,7 @@ title: 组织
 menuWeight: 11
 excerpt: 使用“组织”菜单
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 您可以在“组织”页面中管理用户访问。“组织”菜单包含三个选项卡：

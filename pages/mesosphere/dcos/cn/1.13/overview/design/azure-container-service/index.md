@@ -4,7 +4,7 @@ excerpt: 了解 DC/OS 如何实现 Azure 容器服务
 title: Azure 容器服务
 navigationTitle: ACS
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 2
 ---
 

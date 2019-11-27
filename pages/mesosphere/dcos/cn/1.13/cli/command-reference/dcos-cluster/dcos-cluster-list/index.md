@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 列出已连接的群集
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

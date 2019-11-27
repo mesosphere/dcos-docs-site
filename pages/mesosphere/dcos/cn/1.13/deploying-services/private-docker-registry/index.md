@@ -5,7 +5,7 @@ title: 使用专用 Docker 注册表
 menuWeight: 4
 excerpt: 创建专用 Docker 注册表的存档
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

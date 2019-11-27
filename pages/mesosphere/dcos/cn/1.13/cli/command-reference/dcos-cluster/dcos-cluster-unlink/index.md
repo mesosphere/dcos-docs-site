@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: 取消另一个群集对一个群集的链接
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

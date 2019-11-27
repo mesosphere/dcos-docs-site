@@ -4,7 +4,7 @@ navigationTitle: 服务账户
 title: 服务帐户管理
 excerpt: 管理服务帐户
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 30
 ---
 

@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: 提供用于创建、调度和管理在 DC/OS 群集上运行的作业的说明（第 6 部分）
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 您可以通过以下任何方式创建和管理 DC/OS 群集的作业：
 - 采用 DC/OS 基于 Web 的管理控制台 GUI 的交互方式。

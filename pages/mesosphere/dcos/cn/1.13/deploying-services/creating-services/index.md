@@ -5,7 +5,7 @@ title: 创建服务
 menuWeight: 1
 excerpt: 使用 Marathon 定义 DC/OS 服务
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

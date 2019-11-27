@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 将 CLI 附加到已连接或链接的群集
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

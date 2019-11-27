@@ -6,7 +6,7 @@ menuWeight: 90
 excerpt: 使用 DC/OS UI 在宽容模式下实现多租户
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

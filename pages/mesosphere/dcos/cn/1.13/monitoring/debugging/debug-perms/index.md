@@ -5,7 +5,7 @@ title: 授予 dcos 任务执行的访问权限
 menuWeight: 4
 excerpt: 授予调试的访问权限
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 beta: true
 enterprise: true
 ---

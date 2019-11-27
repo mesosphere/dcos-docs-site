@@ -5,7 +5,7 @@ title: 打补丁
 menuWeight: 20
 excerpt: 了解群集补丁
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 DC/OS 补丁描述了一组更改和支持数据，用于更新、修复或改进 DC/OS 的特性/功能。包含次要变更的单点发布也称为补丁。

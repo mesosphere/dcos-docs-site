@@ -5,7 +5,7 @@ title: dcos security secrets delete
 menuWeight: 310
 excerpt: 删除密钥
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

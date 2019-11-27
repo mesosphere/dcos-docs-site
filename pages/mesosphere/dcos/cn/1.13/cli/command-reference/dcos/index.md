@@ -6,7 +6,7 @@ menuWeight: 0
 excerpt: 管理您的 DC/OS 安装
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

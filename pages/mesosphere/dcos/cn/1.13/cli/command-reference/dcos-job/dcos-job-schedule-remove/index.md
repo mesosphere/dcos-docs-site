@@ -5,7 +5,7 @@ title: dcos job schedule remove
 menuWeight: 7
 excerpt: 删除作业时间表
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

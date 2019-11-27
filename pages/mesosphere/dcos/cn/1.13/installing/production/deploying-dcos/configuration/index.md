@@ -5,7 +5,7 @@ title: 配置
 menuWeight: 5
 excerpt: 使用 YAML 文件配置 DC/OS 参数
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

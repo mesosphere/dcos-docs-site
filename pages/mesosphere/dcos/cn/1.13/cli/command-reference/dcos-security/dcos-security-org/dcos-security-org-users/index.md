@@ -5,7 +5,7 @@ title: dcos security org users
 menuWeight: 185
 excerpt: 管理用户
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

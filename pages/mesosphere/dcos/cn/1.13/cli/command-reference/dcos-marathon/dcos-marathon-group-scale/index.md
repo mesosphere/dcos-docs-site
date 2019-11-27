@@ -5,7 +5,7 @@ title: dcos marathon group scale
 menuWeight: 20
 excerpt: 扩展组
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

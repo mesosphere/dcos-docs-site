@@ -5,7 +5,7 @@ title: dcos node list-components
 menuWeight: 7
 excerpt: 在指定节点上显示可用的 DC/OS 组件
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

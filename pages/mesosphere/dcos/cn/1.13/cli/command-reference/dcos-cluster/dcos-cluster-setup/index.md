@@ -6,7 +6,7 @@ menuWeight: 6
 excerpt: 配置 CLI 以便与群集通信
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

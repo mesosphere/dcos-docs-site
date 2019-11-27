@@ -5,7 +5,7 @@ title: Pod 示例
 menuWeight: 30
 excerpt: 了解字段定义和 Pod 示例
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: 任务处理
 menuWeight: 1
 excerpt: 了解 Marathon 任务类别
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

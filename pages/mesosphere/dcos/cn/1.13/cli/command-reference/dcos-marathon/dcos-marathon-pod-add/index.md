@@ -6,7 +6,7 @@ menuWeight: 23
 excerpt: 添加 pod
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

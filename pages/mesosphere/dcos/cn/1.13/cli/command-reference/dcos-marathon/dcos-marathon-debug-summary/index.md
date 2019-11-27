@@ -6,7 +6,7 @@ menuWeight: 13
 excerpt: 显示正在等待的 Marathon 应用程序部署的调试队列
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

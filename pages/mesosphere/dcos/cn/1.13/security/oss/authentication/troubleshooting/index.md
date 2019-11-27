@@ -4,7 +4,7 @@ navigationTitle: 故障排除
 title: 排除身份认证故障 
 excerpt: 在 DC/OS 中排除身份验证问题
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 50
 ---
 # 广告拦截器和 DC/OS UI

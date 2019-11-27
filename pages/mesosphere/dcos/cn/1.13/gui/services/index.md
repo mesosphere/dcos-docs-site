@@ -5,7 +5,7 @@ title: 服务
 menuWeight: 2
 excerpt: 使用“服务”菜单
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 “服务”页面为本地 DC/OS Marathon 实例提供了完整的功能界面。其全面展示正在运行的所有服务。您可以按健康状况、状态或服务名称筛选服务。

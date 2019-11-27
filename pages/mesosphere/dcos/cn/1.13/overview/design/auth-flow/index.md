@@ -4,7 +4,7 @@ navigationTitle:  认证架构
 excerpt: 了解认证操作
 title: 认证架构
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 1
 ---
 

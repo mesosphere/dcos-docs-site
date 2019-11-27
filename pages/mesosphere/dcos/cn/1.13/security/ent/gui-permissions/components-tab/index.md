@@ -6,7 +6,7 @@ menuWeight: 60
 excerpt: 授予访问“组件”选项卡的权限
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

@@ -6,7 +6,7 @@ menuWeight: 2
 excerpt: 理解组件、资源和路由版本控制
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 DC/OS API 由多个松散耦合组件支持；有些是独立项目，其他是专为 DC/OS 设计的项目。因此，其支持多种版本控制机制：组件、路由和资源版本控制。

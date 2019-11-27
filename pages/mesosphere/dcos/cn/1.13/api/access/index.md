@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: 获取群集 URL 的访问权限
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 获取群集 URL 的访问权限

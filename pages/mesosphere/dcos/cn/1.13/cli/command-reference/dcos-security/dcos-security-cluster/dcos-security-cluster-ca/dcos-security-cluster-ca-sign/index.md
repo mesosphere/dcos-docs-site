@@ -5,7 +5,7 @@ title: dcos security cluster ca sign
 menuWeight: 20
 excerpt: 签名 CSR
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

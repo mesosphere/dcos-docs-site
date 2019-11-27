@@ -6,7 +6,7 @@ menuWeight: 0
 excerpt: 与您的 DC/OS 群集建立 SSH 连接 
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

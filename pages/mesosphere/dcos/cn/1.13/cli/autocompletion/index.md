@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: 启用 CLI 自动完成
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 支持 CLI 的自动完成以运行 `bash` 和 `zsh`。这允许您按 Tab 键获取子命令的访问权限，并自动完成正在编写的子命令。

@@ -5,7 +5,7 @@ title: 任务类型
 menuWeight: 2
 excerpt: 了解 Mesos 任务
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

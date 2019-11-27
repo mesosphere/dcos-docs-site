@@ -5,7 +5,7 @@ title: cos security cluster oidc modify
 menuWeight: 60
 excerpt: 修改现有 OIDC 提供程序配置
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

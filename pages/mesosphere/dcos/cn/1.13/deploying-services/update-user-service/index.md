@@ -5,7 +5,7 @@ title: 更新用户创建的服务
 menuWeight: 3
 excerpt: 更新已部署应用程序的配置
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

@@ -5,7 +5,7 @@ title: 仪表板
 menuWeight: 1
 excerpt: 使用仪表板
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 仪表板是 DC/OS UI 的主页。该界面提供有关 DC/OS 群集的高级概述。
 

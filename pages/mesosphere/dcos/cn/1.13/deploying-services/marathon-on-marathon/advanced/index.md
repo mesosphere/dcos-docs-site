@@ -5,7 +5,7 @@ title: 带安全功能的自定义 Marathon
 menuWeight: 40
 excerpt: 使用高级非本地 Marathon 实例
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

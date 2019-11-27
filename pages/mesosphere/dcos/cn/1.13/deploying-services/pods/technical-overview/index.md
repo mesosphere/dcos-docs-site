@@ -5,7 +5,7 @@ title: 技术概述
 menuWeight: 10
 excerpt: 了解 Pod
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

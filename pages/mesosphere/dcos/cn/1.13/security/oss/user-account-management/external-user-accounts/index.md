@@ -4,7 +4,7 @@ navigationTitle: 外部用户帐户
 title: 外部用户帐户管理
 excerpt: 管理外部用户帐户
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 10
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

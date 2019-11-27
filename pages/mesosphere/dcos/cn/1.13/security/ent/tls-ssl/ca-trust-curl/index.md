@@ -5,7 +5,7 @@ title: 在 curl 命令中建立信任
 menuWeight: 400
 excerpt: 在 curl 命令中建立信任
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

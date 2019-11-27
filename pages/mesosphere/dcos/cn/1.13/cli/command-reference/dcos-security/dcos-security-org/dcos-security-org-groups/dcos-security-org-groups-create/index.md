@@ -5,7 +5,7 @@ title: dcos security org groups create
 menuWeight: 130
 excerpt: 创建用户组
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # 说明

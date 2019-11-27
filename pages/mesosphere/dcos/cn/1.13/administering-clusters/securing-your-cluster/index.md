@@ -5,7 +5,7 @@ title: 保护群集
 excerpt: 理解 DC/OS 中的安全特性
 menuWeight: 7
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 一般安全概念

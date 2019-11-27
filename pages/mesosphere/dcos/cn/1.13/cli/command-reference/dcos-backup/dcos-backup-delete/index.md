@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: 删除备份
 enterprise: true
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

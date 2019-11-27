@@ -5,7 +5,7 @@ title: dcos job schedule show
 menuWeight: 8
 excerpt: 查看作业时间表
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

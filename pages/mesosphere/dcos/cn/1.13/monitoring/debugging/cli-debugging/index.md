@@ -4,7 +4,7 @@ title: 从 DC/OS CLI 调试
 menuWeight: 10
 excerpt: 从命令行界面调试 DC/OS
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 beta: true
 enterprise: false
 ---

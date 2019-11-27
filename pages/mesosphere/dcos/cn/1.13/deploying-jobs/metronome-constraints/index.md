@@ -5,7 +5,7 @@ title: Metronome 放置约束
 menuWeight: 3
 excerpt: 了解 Metronome 放置约束
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 

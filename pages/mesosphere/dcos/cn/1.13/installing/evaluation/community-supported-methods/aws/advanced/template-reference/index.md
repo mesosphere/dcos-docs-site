@@ -4,7 +4,7 @@ navigationTitle: 模板参考
 title: 模板参考
 menuWeight: 5
 excerpt: 高级模板参数
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 render: mustache
 ---
 

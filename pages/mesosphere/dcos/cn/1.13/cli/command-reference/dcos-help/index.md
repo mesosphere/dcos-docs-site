@@ -6,7 +6,7 @@ menuWeight: 7
 excerpt: 显示 DC/OS CLI 帮助信息
 enterprise: false
 render: mustache
-model：/mesosphere/dcos/1.13/data.yml
+model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明
