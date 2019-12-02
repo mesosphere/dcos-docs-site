@@ -44,20 +44,103 @@ You can define a maintenance schedule to evacuate your tasks prior to changing a
     }
     ```
 
-    For a more complex example, see the [maintain-agents.sh](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/maintain-agents.sh) script.
+1.  Using that maintenance schedule JSON file, create the maintenance window. This script can be used to do so:
 
-1.  Invoke the `⁠⁠⁠⁠machine/down` endpoint with the machine JSON definition specified. For example, [here](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) is a script that calls `/machine/down/`.
+    ```shell
+    #!/usr/bin/env bash
+    
+    set -o errexit -o nounset -o pipefail
+    
+    maintenance_json_file=$1
+    
+    # Set maintenance window to start five minutes from now
+    unavailability_start=$(python -c \
+        "import time; print(int(time.time()*1000000000)+60000000000)")
+    
+    machines=$(jq -e '[.windows[].machine_ids[].ip]' \
+        "${maintenance_json_file}")
+    echo "Setting a Maintenance Schedule for the following machines: ${machines}"
+    
+    # Substitute unavailability.start.nanoseconds from 1 to unavailability_start
+    maintenance_json=$(jq -er \
+        ".windows[].unavailability.start.nanoseconds=$unavailability_start" \
+        "${maintenance_json_file}")
+    echo "Maintenance Schedule: $maintenance_json"
+    
+    curl -skSL \
+        -X POST \
+        -d "${maintenance_json}" \
+        -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+        -H "Content-Type: application/json" \
+        "$(dcos config show core.dcos_url)/mesos/maintenance/schedule" | \
+        jq -er '.'
+    
+    echo "Maintenance Status:"
+    curl -skSL \
+        -X GET \
+        -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+        -H "Content-Type: application/json" \
+        "$(dcos config show core.dcos_url)/mesos/maintenance/status" |\
+        jq -er '.'
+    ```
 
-    <p class="message--important"><strong>IMPORTANT: </strong>Invoking <code>machine/down</code> sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives.</p>
-
-1.  Perform your maintenance.
-1.  Add the nodes back to your cluster by invoking the `⁠⁠⁠⁠machine/up` endpoint with the add agents JSON definition specified. For example:
+1.  Define a machine definition JSON file:
 
     ```json
     [
       { "hostname" : "10.0.2.107", "ip" : "10.0.2.107" },
       { "hostname" : "10.0.2.5", "ip" : "10.0.2.5" }
     ]
+    ```
+
+1.  Using that file, invoke the `machine/down` endpoint. This script can be used to do so:
+
+    ```shell
+    #!/usr/bin/env bash
+    
+    set -o errexit -o nounset -o pipefail
+    
+    machines_json_file=$1
+    
+    machines=$(jq -e '[.[].ip]' \
+        "${machines_json_file}")
+    
+    echo "Taking down the following machines for maintenance: ${machines}"
+    
+    curl -skSL \
+        -X POST \
+        -d "@${machines_json_file}" \
+        -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+        -H "Content-Type: application/json" \
+        "$(dcos config show core.dcos_url)/mesos/machine/down" |\
+        jq -er '.'
+    ```
+
+    <p class="message--important"><strong>IMPORTANT: </strong>Invoking <code>machine/down</code> sends a ⁠⁠⁠⁠TASK_LOST⁠⁠⁠⁠ message for any tasks that were running on the agent. Some DC/OS services, for example Marathon, will relocate tasks, but others will not, for example Kafka and Cassandra. For more information, see the DC/OS service guides and the Mesos maintenance primitives.</p>
+
+1.  Perform your maintenance.
+
+1.  Add the nodes back to your cluster by invoking the `machine/up` endpoint using the machine definition JSON file. This script can be used to do so:
+
+    ```shell
+    #!/usr/bin/env bash
+
+    set -o errexit -o nounset -o pipefail
+
+    machines_json_file=$1
+
+    machines=$(jq -e '[.[].ip]' \
+        "${machines_json_file}")
+
+    echo "Bringing agents back up from maintenance: ${machines}"
+
+    curl -skSL \
+        -X POST \
+        -d "@${machines_json_file}" \
+        -H "Authorization: token=$(dcos config show core.dcos_acs_token)" \
+        -H "Content-Type: application/json" \
+        "$(dcos config show core.dcos_url)/mesos/machine/up" |\
+        jq -er '.'
     ```
 
 # Manually killing agents
