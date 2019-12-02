@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: API Reference
-excerpt: REST API reference
-title: API Reference
+navigationTitle: REST API Reference
+excerpt: REST API Reference
+title: REST API Reference
 menuWeight: 90
 model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
