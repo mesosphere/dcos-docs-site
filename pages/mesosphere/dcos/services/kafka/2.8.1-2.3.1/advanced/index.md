@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: advanced features
 excerpt: Advanced features of Kafka
-title: Advanced
+title: Advanced features
 menuWeight: 80
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
