@@ -11,9 +11,9 @@ model: /mesosphere/dcos/1.13/data.yml
 使用已声明的公共代理节点安装 DC/OS 后，您可以导航到公共代理节点的公用 IP 地址。您可以将代理的面向公众的 IP 地址公开为网关，以访问在 DC/OS 群集中运行的服务。例如，如果要配置负载平衡以将入站请求分发到群集中的服务，请求通常通过公共 IP 地址前端路由到防火墙后隔离的适当服务实例后端。
 
 # 开始之前
-- 您必须已安装 DC/OS，有至少一个管理节点和至少一个[公共代理](/mesosphere/dcos/1.13/overview/concepts/#public-agent-node) 节点。
-- 您必须已安装最新版本的 DC/OS [CLI](/mesosphere/dcos/1.13/cli/)。
-- 您必须已安装 [secure shell (ssh)](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) 并配置为允许远程会话访问群集节点。
+- 您必须已安装 DC/OS，有至少一个管理节点和至少一个[公共代理](/mesosphere/dcos/cn/1.13/overview/concepts/#public-agent-node) 节点。
+- 您必须已安装最新版本的 DC/OS [CLI](/mesosphere/dcos/cn/1.13/cli/)。
+- 您必须已安装 [secure shell (ssh)](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/) 并配置为允许远程会话访问群集节点。
 - 如果您想要格式化来自 API 调用的输出，您应该已安装 [jq](https://github.com/stedolan/jq/wiki/Installation) 或 [Python](https://www.python.org/)。
   如果您使用旧版本的 DC/OS 群集，您也可以使用 [jq](https://github.com/stedolan/jq/wiki/Installation) 或者其他程序，以查找公共代理 IP 地址。
 

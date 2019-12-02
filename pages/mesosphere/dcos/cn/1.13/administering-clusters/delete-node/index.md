@@ -13,13 +13,13 @@ model: /mesosphere/dcos/1.13/data.yml
 * 告知 DC/OS 将节点标记为 `GONE`
 * 停止相应的 Mesos 从设备 `systemd` 单元
 
-如果您的节点以意外方式停工，您只需要 [停用节点](/mesosphere/dcos/1.13/administering-clusters/delete-node/#decommission-the-node/)。
+如果您的节点以意外方式停工，您只需要 [停用节点](/mesosphere/dcos/cn/1.13/administering-clusters/delete-node/#decommission-the-node/)。
 
 # 停用节点
 
 当 Mesos 检测到某个节点已停止时，它将节点置于 `UNREACHABLE` 状态，因为 Mesos 不知道节点是暂时停止并将重新上线，还是永久停止。如果您知道节点不会返回，您可以明确告诉 Mesos 将节点置于 `GONE` 状态。
 
-节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许返回和在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。如果这些任务使用[本地持久卷](/mesosphere/dcos/1.13/storage/persistent-volume)，一旦得知代理离开，负责任的框架将放弃这些本地持久卷。它们将在其他合适的代理中自动创建带有新的预留和卷的新任务。
+节点停用后，对应的代理 ID 被内部标记为 `GONE` 并且不允许返回和在管理节点上重新注册。节点上运行的任务已过渡到 `TASK_GONE_BY_OPERATOR` 状态。如果这些任务使用[本地持久卷](/mesosphere/dcos/cn/1.13/storage/persistent-volume)，一旦得知代理离开，负责任的框架将放弃这些本地持久卷。它们将在其他合适的代理中自动创建带有新的预留和卷的新任务。
 
 您应该在以下情况下停用节点。
 
@@ -53,7 +53,7 @@ dcos node decommission <mesos-agent-id>
 
 如果 DC/OS 节点仍在运行，Mesos从进程将继续尝试注册（并且由于代理被标记为已消失，注册会被拒绝）。您可以通过停止 Mesos 从进程（以 `systemd` 单元运行），停止这些尝试。
 
-1. [SSH 至代理节点](/mesosphere/dcos/1.13/administering-clusters/sshcluster/)（您希望关闭的）。
+1. [SSH 至代理节点](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)（您希望关闭的）。
 
 1. 输入以下命令，停止节点。
 

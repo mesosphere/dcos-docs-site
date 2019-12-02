@@ -15,7 +15,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 **前提条件：**
 
-- [已安装 DC/OS CLI](/mesosphere/dcos/1.13/cli/install/)。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/)。
 
 - 登录到 DC/OS CLI。在 DC/OS Enterprise 上，您必须以具有 `dcos:superuser` 权限的用户登录。
 <p class="message--note"><strong>注意：</strong>由于 {{ model.packageRepo }} tarball 文件大小超过 2 GB，将其下载到您的本地驱动器，并将其上传到每个管理节点可能需要一些时间。</p>
@@ -40,7 +40,7 @@ model: /mesosphere/dcos/1.13/data.yml
     scp dcos-local-universe-registry.service core@<master-IP>:~
     ```
 
-1. 使用以下命令 [SSH](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) 至管理节点。将 `<master-IP>` 替换为先前命令中使用的 IP 地址。
+1. 使用以下命令 [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/) 至管理节点。将 `<master-IP>` 替换为先前命令中使用的 IP 地址。
 
     ```bash
     ssh -A core@<master-IP>
@@ -119,7 +119,7 @@ model: /mesosphere/dcos/1.13/data.yml
     scp /etc/systemd/system/dcos-local-universe-http.service core@<master-IP>:~
     ```
 
-3. [SSH](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
+3. [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/) 至收到这些复制文件的管理节点中
 
     ```bash
     ssh -A core@<master_IP>
@@ -197,7 +197,7 @@ model: /mesosphere/dcos/1.13/data.yml
     dcos package repo add local-{{ model.packageRepo }} http://master.mesos:8082/repo
     ```
     
-1. [SSH 至您的代理节点之一。](/mesosphere/dcos/1.13/administering-clusters/sshcluster/)
+1. [SSH 至您的代理节点之一。](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
