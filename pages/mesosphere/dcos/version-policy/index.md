@@ -62,19 +62,19 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <tr>
         <td>CentOS 7.7</td>
         <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>CentOS 7.6</td>
         <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>CentOS 7.5</td>
         <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
@@ -89,20 +89,20 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>RHEL 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>RHEL 7.5</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Qualification in Progress</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
