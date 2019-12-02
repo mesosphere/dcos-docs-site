@@ -18,9 +18,9 @@ DC/OS 预配置了 [包注册表](https://github.com/mesosphere/universe) 包资
 ```bash
 dcos package describe package-registry --config
 ```
-您可以在 [CLI 文档](/mesosphere/dcos/1.13/cli/command-reference/dcos-package/)中找到有关 `dcos package` 命令的更多信息。
+您可以在 [CLI 文档](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/)中找到有关 `dcos package` 命令的更多信息。
 
-有关如何配置和部署 DC/OS 服务的详细说明，请参阅 [配置 包注册表 服务](/mesosphere/dcos/1.13/deploying-services/config-universe-service/)。
+有关如何配置和部署 DC/OS 服务的详细说明，请参阅 [配置 包注册表 服务](/mesosphere/dcos/cn/1.13/deploying-services/config-universe-service/)。
 
 # 默认安装
 
@@ -63,7 +63,7 @@ dcos registry activate --options=<custom-options-file>
 
 ### 挂载卷选项
 
-在 DC/OS 上创建挂载卷，请参阅[装载卷](/mesosphere/dcos/1.13/storage/mount-disk-resources/)文档，其中包括创建回送设备的示例。本指南的其余部分假定您的挂载卷已创建在 `/dcos/package-registry` 上。您必须指定 `container-path` 和 `pinned-hostname`，它是指挂载卷的代理的主机名。可以使用以下选项配置 `package-registry` 以使用挂载卷：
+在 DC/OS 上创建挂载卷，请参阅[装载卷](/mesosphere/dcos/cn/1.13/storage/mount-disk-resources/)文档，其中包括创建回送设备的示例。本指南的其余部分假定您的挂载卷已创建在 `/dcos/package-registry` 上。您必须指定 `container-path` 和 `pinned-hostname`，它是指挂载卷的代理的主机名。可以使用以下选项配置 `package-registry` 以使用挂载卷：
 
 ```json
 {

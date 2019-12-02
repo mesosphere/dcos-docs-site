@@ -22,7 +22,7 @@ DC/OS 基于 Linux 内核和用户空间。保护任何 Linux 系统的最佳实
 您必须采用适当的网络机制，防止未经授权访问群集节点。
 
 根据群集环境，这可能包括：
-- 使用物理或虚拟子网隔离 [DC/OS 安全区]（#安全区）；
+- 使用物理或虚拟子网隔离 [DC/OS 安全区](/mesosphere/dcos/cn/1.13/administering-clusters/securing-your-cluster/)
 - 使用路由器防火墙或安全组限制对端口的访问；
 - 在节点上使用防火墙软件（例如，`iptables`）来限制对端口的访问。
 
@@ -33,7 +33,7 @@ DC/OS 基于 Linux 内核和用户空间。保护任何 Linux 系统的最佳实
 - 从代理节点到管理节点：允许在 TCP 端口 8201 和 26257 之外的所有端口上建立连接。
 - 从外部设备到管理节点：阻止除 TCP 端口 80 和 443 之外的所有端口上的连接请求。
 - 从外部设备到专用代理节点：阻止所有端口上的连接请求。
-- 从外部设备到共用代理节点：阻止所有端口上的连接请求 [广告端口范围](/mesosphere/dcos/1.13/installing/production/system-requirements/ports/#agent)。
+- 从外部设备到共用代理节点：阻止所有端口上的连接请求 [广告端口范围](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/ports/#agent)。
 
 您可能希望向外部设备开放端口 22，以允许使用安全外壳（`ssh`）的管理任务。
 虽然 DC/OS 组件当前不支持专用网络选择，但您可以将
@@ -56,7 +56,7 @@ DC/OS 基于 Linux 内核和用户空间。保护任何 Linux 系统的最佳实
 
 Admin Router 控制对管理区的访问。
 
-传入 DC/OS 群集的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org) ，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点以获取未经身份认证的请求。为了请求进行身份认证，它必须在其身份认证标头中提供有效的认证令牌。可通过验证流程获得令牌。请参阅 [安全文档](/mesosphere/dcos/1.13/security/)了解详情。
+传入 DC/OS 群集的 HTTP 请求通过 Admin Router 代理（使用 [Nginx](http://nginx.org) ，其核心是 [OpenResty](https://openresty.org)）。Admin Router 拒绝访问大多数 HTTP 端点以获取未经身份认证的请求。为了请求进行身份认证，它必须在其身份认证标头中提供有效的认证令牌。可通过验证流程获得令牌。请参阅 [安全文档](/mesosphere/dcos/cn/1.13/security/)了解详情。
 
 经过认证的用户有权在其群集中执行任何操作。除了是否有权访问服务之外，DC/OS 目前还没有细分的访问权限控制。
 
@@ -64,7 +64,7 @@ Admin Router 控制对管理区的访问。
 
 默认情况下，Admin Router 将允许未加密的 HTTP 流量。我们认为这样不安全，您必须提供有效的 TLS 证书并将所有 HTTP 流量重定向到 HTTPS，才能妥善保障安全访问群集。在您获得有效的 TLS 证书之后，在每个管理节点上安装证书。将证书和私钥复制到众所周知的位置，如在 `/etc/ssl/certs` 位置下。
 
-如果您在 Admin Router 前运行 HAProxy，您应该保护它们之间的通信。有关保护您的通信的信息，请参阅[文档](/mesosphere/dcos/1.13/security/oss/tls-ssl/haproxy-adminrouter/)。
+如果您在 Admin Router 前运行 HAProxy，您应该保护它们之间的通信。有关保护您的通信的信息，请参阅[文档](/mesosphere/dcos/cn/1.13/security/oss/tls-ssl/haproxy-adminrouter/)。
 
 ## 专用区
 

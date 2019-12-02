@@ -27,12 +27,12 @@ DC/OS 组件包管理器 (Pkgpanda) 实施组件管理 API，并在所有 DC/OS 
 
 ## 组件健康状况
 
-组件健康状况由 DC/OS 诊断组件监控。有关组件监控的更多信息，请参阅[监控](/mesosphere/dcos/1.13/monitoring/)。
+组件健康状况由 DC/OS 诊断组件监控。有关组件监控的更多信息，请参阅[监控](/mesosphere/dcos/cn/1.13/monitoring/)。
 
 
 ## 组件日志
 
-组件日志被发送到 `journald` 并被 DC/OS Log 组件公开。有关组件日志的详细信息，请参阅 [日志记录](/mesosphere/dcos/1.13/monitoring/logging/)。
+组件日志被发送到 `journald` 并被 DC/OS Log 组件公开。有关组件日志的详细信息，请参阅 [日志记录](/mesosphere/dcos/cn/1.13/monitoring/logging/)。
 
 
 ## 路由

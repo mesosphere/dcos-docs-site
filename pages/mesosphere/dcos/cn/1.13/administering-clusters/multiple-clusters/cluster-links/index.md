@@ -11,16 +11,16 @@ model: /mesosphere/dcos/1.13/data.yml
 
 群集链接是群集和另一群集之间的 **单向** 关系。
 
-您可以使用 DC/OS CLI [dcos cluster link](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [cluster link API](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-link-api/) 添加和删除一个群集到另一个群集的链接。设置链接后，您可以使用 CLI 或 UI 在群集之间轻松切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换群集。
+您可以使用 DC/OS CLI [dcos cluster link](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [cluster link API](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-link-api/) 添加和删除一个群集到另一个群集的链接。设置链接后，您可以使用 CLI 或 UI 在群集之间轻松切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换群集。
 
-您必须以超级用户身份登录或具有相应的群集链接 [权限](/mesosphere/dcos/1.13/security/ent/perms-reference/#cluster-linker)以查看、添加和删除链接以及授予权限以查看链接的群集。
+您必须以超级用户身份登录或具有相应的群集链接 [权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#cluster-linker)以查看、添加和删除链接以及授予权限以查看链接的群集。
 
 
 # 启用使用 SSO 访问群集链接
 
 作为超级用户：
 
-1. 配置 [OpenID IDP](/mesosphere/dcos/1.13/security/ent/sso/setup-openid/)。
+1. 配置 [OpenID IDP](/mesosphere/dcos/cn/1.13/security/ent/sso/setup-openid/)。
     1. 确保在 Google Dev 控制台中的 **授权 Javascript 源** 和 **授权重定向 URL** 字段中均提供两个群集 URL。
     1. 提供 OIDC 名称，如“google-idp”。
     1. 配置 OIDC 时，确保两个群集使用相同的 `Client-Id` 和 `Client-Secret` 。
@@ -56,7 +56,7 @@ Choose the login method and provider to enable switching to this linked cluster:
 
 # 查看链接的群集
 
-要查看所有链接的群集，运行 `dcos cluster list` 命令。如果群集已链接，但未设置，其状态为 `UNCONFIGURED`。如果群集已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的群集](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
+要查看所有链接的群集，运行 `dcos cluster list` 命令。如果群集已链接，但未设置，其状态为 `UNCONFIGURED`。如果群集已链接和附加，其状态为 `AVAILABLE`。另请参阅 [查看连接的群集](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
 
 # 删除群集的链接
 

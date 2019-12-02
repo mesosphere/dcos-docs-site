@@ -9,12 +9,12 @@ render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 
-`dcos license` 命令也记录在 [CLI 命令参考](/mesosphere/dcos/1.13/cli/command-reference/dcos-license/) 文档中。
+`dcos license` 命令也记录在 [CLI 命令参考](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-license/) 文档中。
 
 # 先决条件
 - 一个 DC/OS Enterprise 群集。
-- [DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) 已安装。
-- [DC/OS Enterprise CLI](/mesosphere/dcos/1.13/cli/plugins/#enterprise-cli-plugin) 已安装。
+- [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 已安装。
+- [DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.13/cli/plugins/#enterprise-cli-plugin) 已安装。
 
 
 # 列示许可证

@@ -62,7 +62,7 @@ model: /mesosphere/dcos/1.13/data.yml
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
-    要查找代理 ID，选择 DC/OS [UI](/mesosphere/dcos/1.13/gui/) 中的 **节点** 选项卡并单击 **详细信息**。
+    要查找代理 ID，选择 DC/OS [UI](/mesosphere/dcos/cn/1.13/gui/) 中的 **节点** 选项卡并单击 **详细信息**。
 
     ![Web 界面节点 ID](/mesosphere/dcos/1.13/img/GUI-Nodes-Selected_Node_Detail_View-1_12.png)
 
@@ -165,6 +165,6 @@ model: /mesosphere/dcos/1.13/data.yml
 
                     ssh core@<agent-node-hostname>
 
- [1]: /mesosphere/dcos/1.13/cli/command-reference/
+ [1]: /mesosphere/dcos/cn/1.13/cli/command-reference/
  [2]: #unix
  [3]: #windows
