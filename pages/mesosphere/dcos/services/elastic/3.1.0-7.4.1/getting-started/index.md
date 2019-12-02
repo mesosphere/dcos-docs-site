@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt:
+navigationTitle: Getting Started
+excerpt: Getting Started
 title: Getting Started
 menuWeight: 12
 model: /mesosphere/dcos/services/elastic/data.yml
