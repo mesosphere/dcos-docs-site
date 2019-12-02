@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Release Notes
 excerpt: Release notes for 2.8.1-2.3.1
 title: Release Notes
 menuWeight: 5
@@ -31,7 +31,6 @@ render: mustache
 - By upgrading the SDK, Kafka now comes with support for:
   - Quota enforcement
   - Node draining 
-
 
 ## Version 2.7.0-2.3.0
 
