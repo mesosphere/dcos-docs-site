@@ -22,7 +22,7 @@ Please contact your customer success team for additional guidance.
 
 # Time Keeping Guidelines
 
-A DC/OS cluster requires robust time synchronization between nodes for optimal functionality. Please check that [NTP is enabled](/mesosphere/dcos/2.1/installing/production/system-requirements/#enable-ntp) on your DC/OS cluster to help ensure such robust synchronization.
+A DC/OS cluster requires robust time synchronization between nodes for optimal functionality. Please check that [NTP is enabled](/mesosphere/dcos/2.1/installing/production/system-requirements/#synchronize-time-for-all-nodes-in-the-cluster) on your DC/OS cluster to help ensure such robust synchronization.
 
 ## Recommendations:
 
