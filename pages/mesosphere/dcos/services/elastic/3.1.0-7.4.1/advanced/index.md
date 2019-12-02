@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Advanced
-excerpt: Advanced features of Elastic
+excerpt: Elastic Advanced Features
 title: Advanced
 menuWeight: 80
 model: /mesosphere/dcos/services/elastic/data.yml
