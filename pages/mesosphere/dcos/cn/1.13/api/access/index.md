@@ -29,7 +29,7 @@ model: /mesosphere/dcos/1.13/data.yml
 - 登录 DC/OS GUI，导航到“节点”页面并复制所需节点的主机名。
 - 登录 DC/OS CLI，列出带有 `dcos node` 的节点，并复制所需节点的主机名。
 
-要确定哪些代理是公共代理，参见[查找公共代理 IP](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/)。
+要确定哪些代理是公共代理，参见[查找公共代理 IP](/mesosphere/dcos/cn/1.13/administering-clusters/locate-public-agent/)。
 
 
 # Ingress
@@ -42,4 +42,4 @@ model: /mesosphere/dcos/1.13/data.yml
 
 在开发或本地部署中，您通常可以通过 IP 直接访问节点。
 
-有关详细信息，请参阅[保护您的群集](/mesosphere/dcos/1.13/administering-clusters/)。
+有关详细信息，请参阅[保护您的群集](/mesosphere/dcos/cn/1.13/administering-clusters/)。
