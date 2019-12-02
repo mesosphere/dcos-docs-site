@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:
+navigationTitle: Configuring Kafka and ZooKeeper
 excerpt: Configuring Kafka and ZooKeeper
-title: Configuration
+title: Configuring Kafka and ZooKeeper
 menuWeight: 20
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
