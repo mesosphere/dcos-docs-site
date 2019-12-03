@@ -22,7 +22,7 @@ dcos cluster attach <cluster> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 显示使用情况。|
+| `--help, h` | 显示使用情况。|
 
 ## 位置自变量
 
@@ -42,10 +42,10 @@ dcos cluster list
 ```
 
 
-如需更多示例，请参阅 [群集连接](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-connections/) 和 [群集链接](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-links/)。
+如需更多示例，请参阅 [群集连接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/) 和 [群集链接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-links/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster]](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接 |
+| [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接 |

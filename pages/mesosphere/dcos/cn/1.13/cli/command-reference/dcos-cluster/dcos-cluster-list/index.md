@@ -66,10 +66,10 @@ dcos cluster list --json
 ]
 ```
 
-如需更多示例，请参阅 [群集连接](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
+如需更多示例，请参阅 [群集连接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster] ](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
+|  [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
