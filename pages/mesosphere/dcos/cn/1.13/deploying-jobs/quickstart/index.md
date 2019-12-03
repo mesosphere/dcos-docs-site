@@ -18,7 +18,7 @@ model: /mesosphere/dcos/1.13/data.yml
 用于作业相关操作的 DC/OS 应用程序编程接口 (API) 提供了可通过 DC/OS 基于 Web 的管理控制台和命令行界面 (CLI) 访问的基础功能。因此，在大多数情况下，只有将该功能与自定义程序或自动化脚本集成时，才能直接使用 API。
 
 # 使用 DC/OS UI 管理作业
-您可以通过 DC/OS UI 交互地管理最常见的作业相关活动。例如，您可以直接从基于 Web 的控制台的 **作业** 选项卡添加、修改、运行和删除作业。但是，DC/OS UI 仅提供通过 `dcos job` CLI 和作业 API 提供的作业相关功能子集的访问权限。对于更多高级作业配置和活动，使用 [`dcos job`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/) 命令或 [作业 API](/mesosphere/dcos/1.13/deploying-jobs/quickstart/#jobs-api)。
+您可以通过 DC/OS UI 交互地管理最常见的作业相关活动。例如，您可以直接从基于 Web 的控制台的 **作业** 选项卡添加、修改、运行和删除作业。但是，DC/OS UI 仅提供通过 `dcos job` CLI 和作业 API 提供的作业相关功能子集的访问权限。对于更多高级作业配置和活动，使用 [`dcos job`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/) 命令或 [作业 API](/mesosphere/dcos/cn/1.13/deploying-jobs/quickstart/#jobs-api)。
 
 ## 添加作业
 1. 导航到 Web 浏览器中 DC/OS 基于 Web 的控制台的 URL。
@@ -71,7 +71,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
     - 键入 **计划 ID**，以定义作业计划的唯一标识符。计划标识符必须为至少 2 个字符的字符串，并且只能包含数字 (`0-9`)、连字符 (`-`)和小写字母 (`a-z`)。计划标识符开头或结尾不得用连字符。
 
-    - 选择 **CRON 计划**，以指定 `cron` 格式的计划。使用 [this crontab generator]（http://crontab.guru）获取帮助。您还可以设置 **时区** 以应用于 cron 计划。例如，您可能在不同时区中有节点，并希望使用标准化 UTC 时间或特定本地时区（如 America/New_York）运行作业。
+    - 选择 **CRON 计划**，以指定 `cron` 格式的计划。使用 [this crontab generator](http://crontab.guru）获取帮助。您还可以设置 **时区** 以应用于 cron 计划。例如，您可能在不同时区中有节点，并希望使用标准化 UTC 时间或特定本地时区（如 America/New_York）运行作业。
 
     - 选择 **启动截止日期**，以秒为单位设置启动作业的时间（如果由于任何原因错过了计划时间）。错过的作业执行被视为失败的作业。
 
@@ -89,7 +89,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
     - 选择 **添加工件**，以提供一个或多个您希望传递给提取程序模块并在运行时解析的工件 URI，以及您希望为每个 URI 执行的操作：执行、提取或缓存。
 
-        ![添加作业工件 URI 和操作](/mesosphere/dcos/1.13/img/job-artifacts-uri.png)
+        ![添加作业工件 URI 和操作](/mesosphere/dcos/cn/1.13/img/job-artifacts-uri.png)
 
         图 2. 添加工件 URI 和操作
 
@@ -99,7 +99,7 @@ model: /mesosphere/dcos/1.13/data.yml
         
         - 如果选择 **失败**，则可以使用 **坚持尝试时间** 字段设置尝试重新启动作业的时间限制。例如，如果希望在等待 30 秒后尝试重新启动作业，请将 **坚持尝试时间** 设置为 30。如果未为“坚持尝试时间”设置任何值，则 DC/OS 将继续尝试无限期地重新启动失败的作业。
 
-    - 单击 **添加标签**，以指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。您可以通过单击 **添加标签** 为希望包括的每个名称/值对添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/1.13/tutorials/task-labels/)。
+    - 单击 **添加标签**，以指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。您可以通过单击 **添加标签** 为希望包括的每个名称/值对添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/cn/1.13/tutorials/task-labels/)。
 
 1. 单击 **提交** 以创建作业。
 
@@ -110,7 +110,7 @@ model: /mesosphere/dcos/1.13/data.yml
     图 3. 作业列表
 
 ## 向作业组添加作业
-您可以将作业添加到现有的作业组中，或在创建作业时创建新的作业组。在作业 ID 中使用点可将作业嵌套在一个组中。例如，如果您使用作业 ID `marketing.myjob` 添加作业，则在 `marketing` 作业组中创建新的 `myjob`。在 DC/OS Enterprise 中，您可以使用作业组实现细粒度用户访问。如需更多关于通过作业组控制作业访问权限的信息，请参阅 [授予对作业的访问权限](/mesosphere/dcos/1.13/deploying-jobs/job-groups/)。
+您可以将作业添加到现有的作业组中，或在创建作业时创建新的作业组。在作业 ID 中使用点可将作业嵌套在一个组中。例如，如果您使用作业 ID `marketing.myjob` 添加作业，则在 `marketing` 作业组中创建新的 `myjob`。在 DC/OS Enterprise 中，您可以使用作业组实现细粒度用户访问。如需更多关于通过作业组控制作业访问权限的信息，请参阅 [授予对作业的访问权限](/mesosphere/dcos/cn/1.13/deploying-jobs/job-groups/)。
 
 ## 修改、查看或删除特定作业
 您可以查看和修改与作业相关的信息，包括通过 DC/OS UI 交互运行历史和配置设置的详细信息。从 **作业** 选项卡，单击作业名称。然后您可以使用右上角的菜单编辑、运行、禁用或删除选定的作业。

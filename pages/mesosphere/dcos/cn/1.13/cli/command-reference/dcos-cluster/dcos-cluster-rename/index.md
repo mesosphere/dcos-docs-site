@@ -32,7 +32,7 @@ dcos cluster rename <cluster> <name> [flags]
 
 
 # 示例
-有关示例，请参阅 [群集连接](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
+有关示例，请参阅 [群集连接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
 
 # 父命令
 

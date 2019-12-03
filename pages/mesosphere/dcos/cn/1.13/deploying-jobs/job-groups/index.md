@@ -9,12 +9,12 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 
-您可以使用 DC/OS UI、CLI 或 [API](/mesosphere/dcos/1.13/security/ent/iam-api/) 来实现对作业的细粒度用户访问。[Metronome 权限](/mesosphere/dcos/1.13/security/ent/perms-reference/#marathon-metronome) 允许您在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
+您可以使用 DC/OS UI、CLI 或 [API](/mesosphere/dcos/cn/1.13/security/ent/iam-api/) 来实现对作业的细粒度用户访问。[Metronome 权限](/mesosphere/dcos/1.13/security/ent/perms-reference/#marathon-metronome) 允许您在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
 
 **前提条件：**
 
 - 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
-- 用于分配权限的[用户帐户](/mesosphere/dcos/1.13/security/ent/users-groups/)。
+- 用于分配权限的[用户帐户](/mesosphere/dcos/cn/1.13/security/ent/users-groups/)。
 
 <a name="job-group-access-via-ui"></a>
 
@@ -42,7 +42,7 @@ enterprise: true
 
     图 3. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/1.13/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/cn/1.13/security/ent/#security-modes)。
 
     ### 宽容
 

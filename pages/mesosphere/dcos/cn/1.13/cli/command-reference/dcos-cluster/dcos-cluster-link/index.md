@@ -49,7 +49,7 @@ dcos cluster link <cluster> [flags]
 
 
 # 示例
-有关示例，请参阅 [群集链接](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-links/)。
+有关示例，请参阅 [群集链接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-links/)。
 
 
 
@@ -57,4 +57,4 @@ dcos cluster link <cluster> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster] ](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
+|  [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
