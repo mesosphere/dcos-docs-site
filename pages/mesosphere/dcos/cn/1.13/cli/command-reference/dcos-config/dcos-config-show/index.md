@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 说明
 
-`dcos config show` 命令将显示当前 [附加的群集] 的 DC/OS 配置文件内容(/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-attach/)。
+`dcos config show` 命令将显示当前 [附加的群集](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 的 DC/OS 配置文件内容。
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos config set <name> <value> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 显示使用情况。|
+|  `--help, h` | 显示使用情况。|
 
 # 位置自变量
 
