@@ -58,5 +58,5 @@ backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27     1.13.0      STATUS_READY     2
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 备份](/mesosphere/dcos/1.13/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [DCOS 备份](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
 
