@@ -33,4 +33,4 @@ dcos license audit [OPTIONS] COMMAND [ARGS]...
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license] ](/mesosphere/dcos/1.13/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license] ](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |

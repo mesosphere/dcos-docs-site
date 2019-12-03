@@ -29,7 +29,7 @@ Marathon 应用程序通常代表长期运行的服务，有许多实例在多�
 
     在上述示例中， `cmd` 是执行的命令。它的值由底层的 Mesos 执行器通过 `/bin/sh -c ${cmd}` 包装。
 
-1. 使用 [DC/OS CLI](/mesosphere/dcos/1.13/cli/) 将服务添加到 DC/OS。
+1. 使用 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/) 将服务添加到 DC/OS。
 
     ```bash
     dcos marathon app add <your-service-name>.json

@@ -13,7 +13,7 @@ enterprise: true
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) 并以超级用户登户身份登录。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
 - 用于分配权限的[用户帐户](/mesosphere/dcos/1.13/security/ent/users-groups/)。
 
 <a name="job-group-access-via-ui"></a>
@@ -94,7 +94,7 @@ enterprise: true
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) 并以超级用户登户身份登录。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
 
 **提示：**
 

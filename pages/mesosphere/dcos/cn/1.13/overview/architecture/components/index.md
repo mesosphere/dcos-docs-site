@@ -133,7 +133,7 @@ DC/OS CLI 是基于终端的远程客户端。
 
 阅读以下文档资源，了解有关 DC/OS CLI 的更多信息：
 
-- [文档](/mesosphere/dcos/1.13/cli/)
+- [文档](/mesosphere/dcos/cn/1.13/cli/)
 - [来源](https://github.com/dcos/dcos-cli)
 
 # 容器编排

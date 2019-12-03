@@ -52,4 +52,4 @@ default:
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集密钥存储库](/mesosphere/dcos/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 您的密钥存储库的显示设置。 |
+| [DCOS 安全群集密钥存储库](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 您的密钥存储库的显示设置。 |

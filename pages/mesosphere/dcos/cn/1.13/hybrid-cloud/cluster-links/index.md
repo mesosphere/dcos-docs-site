@@ -11,7 +11,7 @@ enterprise: true
 
 群集链接是群集和另一群集之间的 **单向** 关系。
 
-您可以使用 DC/OS CLI [dcos cluster link] (/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [cluster link API](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-link-api/)添加和删除一个群集到另一个群集的链接。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换群集。
+您可以使用 DC/OS CLI [dcos cluster link] (/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) 和 [dcos cluster unlink](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) 命令和 [cluster link API](/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-link-api/)添加和删除一个群集到另一个群集的链接。设置链接后，您可以使用 CLI 或 UI 轻松在群集之间切换。如果已经使用 SSO 提供程序设置链接，您不需要提供凭证即可切换群集。
 
 您必须是超级用户或具有相应的群集链路 [权限] (/mesosphere/dcos/1.13/security/ent/perms-reference/#cluster-linker)才能查看、添加和删除链路并授予查看链路群集的权限。
 

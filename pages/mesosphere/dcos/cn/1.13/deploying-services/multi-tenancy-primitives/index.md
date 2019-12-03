@@ -60,7 +60,7 @@ model: /mesosphere/dcos/1.13/data.yml
 - [部署非本地 Marathon 实例](/mesosphere/dcos/1.13/deploying-services/marathon-on-marathon/)
 - [Spark 配额](/mesosphere/dcos/services/spark/2.8.0-2.4.0/job-scheduling/#quota-for-drivers-and-executors)
 
-在下面的示例中，建议从安装了 [DC / OS CLI] (/mesosphere/dcos/1.13/cli/) 的主机运行应用程序。
+在下面的示例中，建议从安装了 [DC / OS CLI] (/mesosphere/dcos/cn/1.13/cli/) 的主机运行应用程序。
 
 ## 角色
 [角色] (https://mesos.apache.org/documentation/latest/roles/) 指的是分配给框架、任务或代理的标记或标签。默认角色名为 <sup> `*` </sup>，群集中的所有现有角色都可以通过 Mesos UI 查看：`https://<cluster-name-or-IP>/mesos/#/roles`。

@@ -10,11 +10,11 @@ model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明
-`dcos cluster link` 命令使您能够配置从一个群集指向一个或多个群集的单向链接。访问群集时，您可以查看与其链接的群集。您可以[附加](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 链接的群集，无需事先运行 `dcos cluster setup`。
+`dcos cluster link` 命令使您能够配置从一个群集指向一个或多个群集的单向链接。访问群集时，您可以查看与其链接的群集。您可以[附加](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-attach/) 链接的群集，无需事先运行 `dcos cluster setup`。
 
 **前提条件**
 
-- 您使用 [`dcos cluster setup`](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令设置要被链接的群集，必须指定相同的身份认证提供程序。
+- 您使用 [`dcos cluster setup`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-setup/)命令设置要被链接的群集，必须指定相同的身份认证提供程序。
 
 
 # 使用
@@ -57,4 +57,4 @@ dcos cluster link <cluster> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster] ](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
+|  [dcos cluster] ](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |

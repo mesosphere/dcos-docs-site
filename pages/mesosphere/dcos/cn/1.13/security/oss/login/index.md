@@ -26,6 +26,6 @@ DC/OS 处理多种用户类型。可通过 [IAM API] 管理用户帐户(/mesosph
 
 # 用户注销
 
-用户无法主动登出 DC/OS。只要已颁发的 DC/OS 认证令牌存在且有效，那么被颁发该令牌的用户就可以操作 DC/OS 群集。但是，用户可以决定删除其拥有的任何有效的 DC/OS 认证令牌。DC/OS CLI [auth logout](/mesosphere/dcos/1.13/cli/command-reference/dcos-auth/dcos-auth-logout/) 命令正是这样操作。
+用户无法主动登出 DC/OS。只要已颁发的 DC/OS 认证令牌存在且有效，那么被颁发该令牌的用户就可以操作 DC/OS 群集。但是，用户可以决定删除其拥有的任何有效的 DC/OS 认证令牌。DC/OS CLI [auth logout](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-auth/dcos-auth-logout/) 命令正是这样操作。
 
 <p class="message--note"><strong>注意：</strong>无法撤销对 DC/OS 群集的访问，除非等到认证令牌到期。</p>

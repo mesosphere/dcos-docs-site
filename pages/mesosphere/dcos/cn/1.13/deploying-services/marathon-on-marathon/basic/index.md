@@ -14,7 +14,7 @@ enterprise: true
 **前提条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/1.13/installing/)。
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/1.13/cli/enterprise-cli/#ent-cli-install)。
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-install)。
 - 您必须以超级用户身份登录。
 - 对群集的 SSH 访问。
 

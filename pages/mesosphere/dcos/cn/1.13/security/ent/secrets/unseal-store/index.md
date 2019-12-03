@@ -29,7 +29,7 @@ model: /mesosphere/dcos/1.13/data.yml
 **前提条件：**
 
 
-- [DC/OS CLI 已安装](/mesosphere/dcos/1.13/cli/install/)
+- [DC/OS CLI 已安装](/mesosphere/dcos/cn/1.13/cli/install/)
 - 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
 - 必须遵守 [下载根证书] (/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/)中的步骤才能发布此部分的 `curl` 命令。
 

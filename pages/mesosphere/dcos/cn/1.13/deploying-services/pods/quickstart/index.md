@@ -11,7 +11,7 @@ enterprise: false
 
 ## 先决条件
 - DC/OS [已安装](/mesosphere/dcos/1.13/installing/)
-- DC/OS CLI [已安装](/mesosphere/dcos/1.13/cli/install/)
+- DC/OS CLI [已安装](/mesosphere/dcos/cn/1.13/cli/install/)
 
 # 在 DC/OS CLI 中启动 Pod
 

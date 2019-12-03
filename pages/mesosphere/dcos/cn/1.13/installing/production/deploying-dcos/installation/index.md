@@ -465,7 +465,7 @@ enable_ipv6: 'false'
 [6]: /mesosphere/dcos/1.13/img/dashboard-ee.png
 [7]: /mesosphere/dcos/1.13/security/ent/users-groups/
 [8]: /mesosphere/dcos/1.13/security/ent/users-groups/
-[9]: /mesosphere/dcos/1.13/cli/install/
+[9]: /mesosphere/dcos/cn/1.13/cli/install/
 [12]: /mesosphere/dcos/1.13/installing/production/deploying-dcos/node-cluster-health-check/
 [10]: /mesosphere/dcos/1.13/installing/oss/troubleshooting/
 [11]: /mesosphere/dcos/1.13/installing/oss/custom/uninstall/

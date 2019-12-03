@@ -112,7 +112,7 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 
 ## 前提条件
 * 目前仅支持 Linux 和 macOS。
-* [DC/OS CLI](/mesosphere/dcos/1.13/cli/install/)。
+* [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/)。
 * DC/OS 隧道包。运行 `dcos package install tunnel-cli --cli`。
 * [SSH 访问](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) （仅限密钥认证）。
 * [OpenVPN 客户端](https://openvpn.net/index.php/open-source/downloads.html) 用于 VPN 功能。

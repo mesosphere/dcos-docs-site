@@ -37,4 +37,4 @@ dcos plugin add <resource> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 插件](/mesosphere/dcos/1.13/cli/command-reference/dcos-plugin/) | 安装和管理 DC/OS 软件插件。 |
+| [DCOS 插件](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-plugin/) | 安装和管理 DC/OS 软件插件。 |

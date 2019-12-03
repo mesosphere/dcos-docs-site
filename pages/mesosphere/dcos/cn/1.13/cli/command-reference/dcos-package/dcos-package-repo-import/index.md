@@ -35,4 +35,4 @@ dcos package repo import <repos-file>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/1.13/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|

@@ -42,4 +42,4 @@ dcos job add <job-file>
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/1.13/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+|  [dcos job](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|

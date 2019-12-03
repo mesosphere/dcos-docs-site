@@ -30,7 +30,7 @@ model: /mesosphere/dcos/1.13/data.yml
 # 使用 CLI 添加本地用户
 
 **前提条件：**
-- [DC/OS Enterprise CLI](/mesosphere/dcos/1.13/cli/enterprise-cli/)
+- [DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/)
 
 
 1. 使用此命令创建名为 `services` 的用户组。

@@ -27,7 +27,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 - 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥]中的步骤(/mesosphere/dcos/1.13/security/ent/secrets/create-secrets/)，则您将满足此先决条件。
 
-- [已安装 DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/mesosphere/dcos/1.13/cli/enterprise-cli/#ent-cli-install)。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-install)。
 - 您必须 [获取根证书](/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
 - 您的[安全模式]的适当权限(/mesosphere/dcos/1.13/security/ent/#security-modes)。
 

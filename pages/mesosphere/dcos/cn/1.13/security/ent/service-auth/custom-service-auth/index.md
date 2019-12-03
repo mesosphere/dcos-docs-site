@@ -13,8 +13,8 @@ model: /mesosphere/dcos/1.13/data.yml
 
 **前提条件：**
 
-- [已安装 DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) 并以超级用户身份登录。
-- [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/1.13/cli/enterprise-cli/#ent-cli-install)。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户身份登录。
+- [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-install)。
 - 必须 [获取根证书](/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) 才能在本部分发出 `curl` 命令。
 
 # <a name="create-a-keypair"></a>创建密钥对

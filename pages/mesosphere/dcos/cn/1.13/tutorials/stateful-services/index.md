@@ -151,5 +151,5 @@ dcos marathon app remove postgres
 
 
 [1]: /mesosphere/dcos/1.13/installing/
-[2]: /mesosphere/dcos/1.13/cli/install/
+[2]: /mesosphere/dcos/cn/1.13/cli/install/
 [4]: postgres.marathon.json

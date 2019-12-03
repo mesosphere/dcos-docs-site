@@ -38,4 +38,4 @@ dcos cluster rename <cluster> <name> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/) | 管理您的 DC/OS 群集 |
+| [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理您的 DC/OS 群集 |

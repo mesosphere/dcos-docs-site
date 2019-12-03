@@ -29,7 +29,7 @@ model: /mesosphere/dcos/1.13/data.yml
 - 如何查看、修改和删除作业。
 
 # 使用 DC/OS 基于 Web 的界面管理作业
-您可以通过 DC/OS 基于 Web 的界面交互式管理最常见的作业相关活动。例如，您可以直接从基于 Web 的控制台的 **作业** 选项卡添加、修改、运行和删除作业。但是，DC/OS 基于 Web 的界面仅提供对通过 `dcos job` CLI 和作业 API 提供的作业相关功能的子集的访问。对于更多高级作业配置和活动，使用 [`dcos job`](/mesosphere/dcos/1.13/cli/command-reference/dcos-job/) 命令或 [作业 API](/mesosphere/dcos/1.13/deploying-jobs/quickstart/#jobs-api)。
+您可以通过 DC/OS 基于 Web 的界面交互式管理最常见的作业相关活动。例如，您可以直接从基于 Web 的控制台的 **作业** 选项卡添加、修改、运行和删除作业。但是，DC/OS 基于 Web 的界面仅提供对通过 `dcos job` CLI 和作业 API 提供的作业相关功能的子集的访问。对于更多高级作业配置和活动，使用 [`dcos job`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/) 命令或 [作业 API](/mesosphere/dcos/1.13/deploying-jobs/quickstart/#jobs-api)。
 
 ## 添加作业
 1. 导航到 Web 浏览器中 DC/OS 基于 Web 的控制台的 URL。

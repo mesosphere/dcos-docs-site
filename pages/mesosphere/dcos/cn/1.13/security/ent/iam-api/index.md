@@ -89,7 +89,7 @@ DC/OS 认证令牌也是 RS256 类型的 RFC 7519 JWT。
 
 ### 使用 DC/OS CLI
 
-使用 `dcos auth login` 登录 [DC/OS CLI](/mesosphere/dcos/1.13/cli/) 时，它会在本地存储认证令牌值。您可以在 `curl` 命令中将此值引用为变量（在下一部分中讨论）。
+使用 `dcos auth login` 登录 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/) 时，它会在本地存储认证令牌值。您可以在 `curl` 命令中将此值引用为变量（在下一部分中讨论）。
 
 或者，您可以使用以下命令获取认证令牌值。
 

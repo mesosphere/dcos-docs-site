@@ -37,6 +37,6 @@ dcos marathon app restart [--force] <app-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/1.13/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
 
 

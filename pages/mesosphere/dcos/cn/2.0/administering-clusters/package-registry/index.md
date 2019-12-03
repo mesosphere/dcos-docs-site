@@ -18,7 +18,7 @@ DC/OS 预配置了 [Mesosphere {{ model.packageRepo }}](https://github.com/mesos
 ```bash
 dcos package describe package-registry --config
 ```
-您可以在 [CLI 文档] (/mesosphere/dcos/1.13/cli/command-reference/dcos-package/)中找到有关 `dcos package` 命令的更多信息。
+您可以在 [CLI 文档] (/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/)中找到有关 `dcos package` 命令的更多信息。
 
 有关如何配置和部署 DC/OS 服务的详细说明，请参阅 [配置 {{ model.packageRepo }} 服务] (/mesosphere/dcos/2.0/deploying-services/config-universe-service/)。
 
