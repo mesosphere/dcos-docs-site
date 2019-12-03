@@ -10,7 +10,7 @@ model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明
-`dcos cluster attach` 命令将把 CLI 附加到已连接或 [链接](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的群集。当您运行 [`dcos cluster setup`](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，群集自动被附加。
+`dcos cluster attach` 命令将把 CLI 附加到已连接或 [链接](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的群集。当您运行 [`dcos cluster setup`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，群集自动被附加。
 
 # 使用
 
@@ -48,4 +48,4 @@ dcos cluster list
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster]](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接 |
+| [dcos cluster]](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接 |

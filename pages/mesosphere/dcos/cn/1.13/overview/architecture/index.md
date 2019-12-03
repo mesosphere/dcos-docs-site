@@ -56,6 +56,6 @@ Mesosphere 分布式云操作系统 (DC/OS) 是一个运行应用程序、作业
 除了在数据中心运行的软件，DC/OS 还包括多个外部组件并与其集成：
 
 - [GUI](/mesosphere/dcos/1.13/gui/)
-- [CLI](/mesosphere/dcos/1.13/cli/)
+- [CLI](/mesosphere/dcos/cn/1.13/cli/)
 - [包存储库](/mesosphere/dcos/1.13/administering-clusters/package-registry/)
 - [容器注册表](/mesosphere/dcos/1.13/overview/concepts/#container-registry)

@@ -61,7 +61,7 @@ dcos:adminrouter:ops:mesos-dns full</code>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/mesosphere/dcos/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos 节点](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
 
 # 示例
 以下示例说明了如何使用此命令查找小群集中节点面向公众的 IP 地址：

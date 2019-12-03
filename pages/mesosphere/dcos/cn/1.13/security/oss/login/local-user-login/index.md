@@ -13,11 +13,11 @@ menuWeight: 20
 # 通过 DC/OS CLI 登录
 
 **前提条件：**
-- [DC/OS CLI](/mesosphere/dcos/1.13/cli/)
+- [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)
 
-使用 [DC/OS CLI](/mesosphere/dcos/1.13/cli/)，可以通过指定 `dcos-users` 登录提供程序以本地 DC/OS 用户的身份登录。
+使用 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)，可以通过指定 `dcos-users` 登录提供程序以本地 DC/OS 用户的身份登录。
 
-1. 要通过 DC/OS CLI 进行登录，请在以下 [auth login](/mesosphere/dcos/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) 命令中替换 `uid` 和 `password`。
+1. 要通过 DC/OS CLI 进行登录，请在以下 [auth login](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) 命令中替换 `uid` 和 `password`。
 
     ```bash
     dcos auth login --provider=dcos-users --username=<uid> --password=<password>

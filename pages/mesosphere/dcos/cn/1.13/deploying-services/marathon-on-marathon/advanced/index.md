@@ -16,7 +16,7 @@ enterprise: true
 **前提条件：**
 
 - DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/1.13/installing/)。
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/1.13/cli/enterprise-cli/#ent-cli-install)。
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-install)。
 - 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/mesosphere/dcos/1.13/deploying-services/private-docker-registry/) 关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
 - 自定义非本机 Marathon 镜像[部署在您的专用 Docker 注册表中] (/mesosphere/dcos/1.13/deploying-services/private-docker-registry#tarball-instructions)。通过 [支持门户] (https://support.mesosphere.com) 提交故障单以获取企业 Marathon 镜像文件。
 - 您必须以超级用户身份登录。
@@ -121,7 +121,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
      dcos security secrets list /
      ```
 
-  * 查看您的密钥，确保其包含正确的服务帐户 ID、私钥和 `login_endpoint` URL。如果是 `strict` 模式，应为 HTTPS，如果是 `permissive` 模式，则应为 HTTP。如果 URL 不正确，尝试 [升级 DC/OS Enterprise CLI](/mesosphere/dcos/1.13/cli/enterprise-cli/#ent-cli-upgrade)，删除密钥，并重新创建。
+  * 查看您的密钥，确保其包含正确的服务帐户 ID、私钥和 `login_endpoint` URL。如果是 `strict` 模式，应为 HTTPS，如果是 `permissive` 模式，则应为 HTTP。如果 URL 不正确，尝试 [升级 DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-upgrade)，删除密钥，并重新创建。
 
       您可以使用此命令查看内容（需要安装 [jq 1.5 或更高版本] (https://stedolan.github.io/jq/download)）：
 

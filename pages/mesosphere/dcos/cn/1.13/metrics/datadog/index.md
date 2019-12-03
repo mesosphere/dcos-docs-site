@@ -15,7 +15,7 @@ DC/OS 1.12 及更新版本通过 [Telegraf] 发送度量标准(/mesosphere/dcos/
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
 # 配置 Telegraf 以将度量标准导出到 Datadog
 

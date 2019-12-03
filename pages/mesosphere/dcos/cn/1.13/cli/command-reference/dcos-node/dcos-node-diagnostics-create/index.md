@@ -42,5 +42,5 @@ Job has been successfully started, available bundle: bundle-2019-03-18-155293277
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/mesosphere/dcos/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos 节点](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
 

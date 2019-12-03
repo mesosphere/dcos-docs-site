@@ -117,7 +117,7 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 ### <a name="using-cli"></a>使用 DC/OS CLI
 
-**先决条件：**[已安装 DC/OS CLI](/mesosphere/dcos/1.13/cli/install/)。
+**先决条件：**[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/)。
 
 1. 使用以下命令以新用户身份登录。
 

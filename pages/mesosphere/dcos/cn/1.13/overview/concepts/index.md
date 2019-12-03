@@ -32,7 +32,7 @@ DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-me
 
 ## DC/OS CLI
 
-[DC/OS 命令行界面 (CLI)](/mesosphere/dcos/1.13/cli/) 是从终端远程控制和管理 DC/OS 群集的界面。
+[DC/OS 命令行界面 (CLI)](/mesosphere/dcos/cn/1.13/cli/) 是从终端远程控制和管理 DC/OS 群集的界面。
 
 <a name="dcos-cluster"></a>
 

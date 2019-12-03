@@ -86,5 +86,5 @@ Marathon 是 DC/OS 平台的核心组件。Marathon 使 DC/OS 群集能够更好
 
 有关使用 Marathon 的更多信息，请参阅以下主题：
 - [部署服务和 pod](/mesosphere/dcos/1.13/deploying-services/) ，获取有关使用 Marathon 管理您的进程、服务和多个服务 pod 的信息。
-- [DC/OS CLI Marathon 插件](/mesosphere/dcos/1.13/cli/command-reference/dcos-marathon/)，获取有关针对 Marathon 使用 DC/OS CLI 命令的信息。您还可以在终端 shell 中键入 `dcos marathon app --help`，以获取有关 `dcos marathon` 命令的更多信息。
+- [DC/OS CLI Marathon 插件](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/)，获取有关针对 Marathon 使用 DC/OS CLI 命令的信息。您还可以在终端 shell 中键入 `dcos marathon app --help`，以获取有关 `dcos marathon` 命令的更多信息。
 - [重置 API]（http://mesosphere.github.io/marathon/api-console/index.html)，获取有关使用 HTTP 端点的信息。

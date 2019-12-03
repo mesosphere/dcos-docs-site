@@ -72,7 +72,7 @@ dcos service shutdown 7c0a7bd4-3649-4ec1-866c-5db8f2292bf2-0001
 dcos marathon app remove [--force] <app-id>
 ```
 
-如需更多信息，请参阅 [命令名称](/mesosphere/dcos/1.13/cli/command-reference/#dcos-marathon)。
+如需更多信息，请参阅 [命令名称](/mesosphere/dcos/cn/1.13/cli/command-reference/#dcos-marathon)。
 
 ### Web 界面
 

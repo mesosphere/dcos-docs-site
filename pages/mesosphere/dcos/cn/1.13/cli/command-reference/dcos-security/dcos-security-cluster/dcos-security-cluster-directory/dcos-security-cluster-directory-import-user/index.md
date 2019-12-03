@@ -36,4 +36,4 @@ dcos security cluster directory import_user [OPTIONS] UID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集目录](/mesosphere/dcos/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
+| [DCOS 安全群集目录](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |

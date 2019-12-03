@@ -31,7 +31,7 @@ Marathon 应用定义提供用于覆盖默认 Linux 用户的 `"user"` 密钥。
 以下教程将展示所有权如何运作。在开始之前，请确保：
 
 - 代理程序上已存在 Linux 用户帐户。
-- 您已安装并登录到 [DC/OS CLI](/mesosphere/dcos/1.13/cli/)。
+- 您已安装并登录到 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)。
 - 必须遵守 [下载根证书] (/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。
 - 您已授予对`dcos:mesos:master:task:user:<linux-user-name>` DC/OS 服务帐户用户 `create` 资源执行 `dcos_marathon` 操作的权限。
 
@@ -85,7 +85,7 @@ Metronome 作业定义提供 `"user"` 密钥，可用于覆盖默认 Linux 用�
 以下程序将引导您完成快速教程，以展示所有权如何运作。在开始之前，请确保：
 
 - 代理程序上已存在 Linux 用户帐户。
-- 您已安装并登录到 [DC/OS CLI](/mesosphere/dcos/1.13/cli/)。
+- 您已安装并登录到 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)。
 - 必须遵守 [下载根证书] (/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) 中的步骤才能发布此部分的 curl 命令。
 - 您已授予对`dcos:mesos:master:task:user:<linux-user-name>` DC/OS 服务帐户用户 `create` 资源执行 `dcos_metronome` 操作的权限。
 

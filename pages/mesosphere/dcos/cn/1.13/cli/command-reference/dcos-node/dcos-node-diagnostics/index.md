@@ -64,5 +64,5 @@ dcos node diagnostics --status
 
 | 命令 | 说明 |
 |---------|-------------|
-| [`dcos node`](/mesosphere/dcos/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [`dcos node`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
 

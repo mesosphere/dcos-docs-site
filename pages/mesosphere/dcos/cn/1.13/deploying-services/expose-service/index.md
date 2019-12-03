@@ -20,7 +20,7 @@ DC/OS 代理节点在 [安装](/mesosphere/dcos/1.13/installing/)过程中可被
 **前提条件：**
 
 - DC/OS [已安装](/mesosphere/dcos/1.13/installing/)
-- DC/OS CLI [已安装](/mesosphere/dcos/1.13/cli/install/)
+- DC/OS CLI [已安装](/mesosphere/dcos/cn/1.13/cli/install/)
 
 <a name="create-app"></a>
 

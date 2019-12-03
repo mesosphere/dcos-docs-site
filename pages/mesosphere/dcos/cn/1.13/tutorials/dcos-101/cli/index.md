@@ -170,7 +170,7 @@ Options:
       Show usage help
 ```
 
-然后，您可以使用单个命令的 `--help` 选项来查看有关特定命令的使用信息。例如，您可以运行 `dcos node --help` 来查看有关特定 `dcos node` 命令和参数的信息。有关使用 DC/OS 命令行界面的更多信息，请参阅 [CLI 文档](/mesosphere/dcos/1.13/cli/)。
+然后，您可以使用单个命令的 `--help` 选项来查看有关特定命令的使用信息。例如，您可以运行 `dcos node --help` 来查看有关特定 `dcos node` 命令和参数的信息。有关使用 DC/OS 命令行界面的更多信息，请参阅 [CLI 文档](/mesosphere/dcos/cn/1.13/cli/)。
 
 # 后续步骤
 祝贺您！您已使用 DC/OS CLI 成功连接到您的群集，可以开始使用 DC/OS 命令行界面来查看某些可用的任务和信息。

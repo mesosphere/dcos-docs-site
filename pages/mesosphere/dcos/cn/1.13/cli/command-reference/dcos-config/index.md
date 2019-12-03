@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 说明
 
-`dcos config` 命令管理您在运行 [dcos cluster setup] 时创建的 DC/OS 配置文件(/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/dcos-cluster-setup/)。该配置文件位于 `~/.dcos/clusters/<cluster_id>/dcos.toml`。
+`dcos config` 命令管理您在运行 [dcos cluster setup] 时创建的 DC/OS 配置文件(/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/dcos-cluster-setup/)。该配置文件位于 `~/.dcos/clusters/<cluster_id>/dcos.toml`。
 
 # 使用
 

@@ -44,7 +44,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 ## 前提条件
 
 * [DC/OS](/mesosphere/dcos/latest/installing/) 或 [DC/OS Enterprise](/mesosphere/dcos/latest/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
-* [DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) 已安装。
+* [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 已安装。
 * 公共代理节点的公共 IP 地址。在声明了公共代理节点的 DC/OS 已安装后，可以[导航到公共代理节点的公共 IP 地址][9]。
 * Git：
     * ** macOS：**从 [Git 下载]（http://git-scm.com/download/mac）获取安装程序。
@@ -215,7 +215,7 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
  [5]:https://github.com/mesosphere/marathon-lb
  [6]: /mesosphere/dcos/1.13/overview/concepts/
  [9]: /mesosphere/dcos/1.13/administering-clusters/locate-public-agent/
- [11]: /mesosphere/dcos/1.13/cli/command-reference/
+ [11]: /mesosphere/dcos/cn/1.13/cli/command-reference/
  [12]: /mesosphere/dcos/services/marathon-lb/1.13/
  [13]:https://github.com/mesosphere/tweeter
  [14]: /mesosphere/dcos/1.13/img/tweeter.png

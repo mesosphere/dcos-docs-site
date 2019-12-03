@@ -18,7 +18,7 @@ DC/OS 通过认证令牌来处理用户身份验证。认证令牌由身份和�
 
 [登录](/mesosphere/dcos/1.13/security/oss/login/) 到 DC/OS 之后，用户立即会收到 [DC/OS 认证令牌](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token)。DC/OS 认证令牌可用于验证对 API 的后续请求；请参阅 [将认证令牌传递到 API](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/#pass-an-authentication-token-to-the-api)。
 
-DC/OS 认证令牌也被 [DC/OS CLI](/mesosphere/dcos/1.13/cli/) 内部使用，以验证后续的 CLI 命令。仅 DC/OS CLI 版本 0.4.3 及更高版本支持身份认证。有关升级说明，请参阅[此处](/mesosphere/dcos/1.13/cli/update/)。
+DC/OS 认证令牌也被 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/) 内部使用，以验证后续的 CLI 命令。仅 DC/OS CLI 版本 0.4.3 及更高版本支持身份认证。有关升级说明，请参阅[此处](/mesosphere/dcos/cn/1.13/cli/update/)。
 
 在 DC/OS 中，系统的唯一验证器是 [Admin Router](/mesosphere/dcos/1.13/overview/architecture/components/#admin-router)。它根据 [身份和访问管理器 (IAM)] 发出的信息来执行 DC/OS 认证令牌验证(/mesosphere/dcos/1.13/overview/architecture/components/#dcos-iam)。
 

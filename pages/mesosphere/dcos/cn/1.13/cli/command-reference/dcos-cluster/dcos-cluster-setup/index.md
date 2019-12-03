@@ -12,7 +12,7 @@ model: /mesosphere/dcos/1.13/data.yml
 # 说明
 `dcos cluster setup` 命令将配置与 DC/OS 群集的连接、向 DC/OS 进行身份认证以及附加到群集。
 
-它还将自动安装 [Core 和 Enterprise CLI 插件](/mesosphere/dcos/1.13/cli/plugins/)。
+它还将自动安装 [Core 和 Enterprise CLI 插件](/mesosphere/dcos/cn/1.13/cli/plugins/)。
 
 # 使用
 
@@ -54,4 +54,4 @@ model: /mesosphere/dcos/1.13/data.yml
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster] ](/mesosphere/dcos/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
+|  [dcos cluster] ](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |

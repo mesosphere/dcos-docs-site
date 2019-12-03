@@ -23,11 +23,11 @@ menuWeight: 30
 <p class="message--note"><strong>注意：</strong>这演示了服务帐户测试的手动登录。内部生成用于登录过程的服务登录令牌。</p>
 
 **前提条件：**
-- [DC/OS CLI](/mesosphere/dcos/1.13/cli/)
+- [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)
 
-使用 [DC/OS CLI](/mesosphere/dcos/1.13/cli/)，可以通过指定 `dcos-services` 登录提供程序以服务的身份登录。
+使用 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)，可以通过指定 `dcos-services` 登录提供程序以服务的身份登录。
 
-要使用 DC/OS CLI 来测试服务登录，请指定带 [auth login](/mesosphere/dcos/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) 命令的 `dcos-services` 登录提供程序。执行以下命令之前，用相应的值替换 `<service-account-id>` 和 `<private-key-path>`：
+要使用 DC/OS CLI 来测试服务登录，请指定带 [auth login](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) 命令的 `dcos-services` 登录提供程序。执行以下命令之前，用相应的值替换 `<service-account-id>` 和 `<private-key-path>`：
 
 ```bash
 dcos auth login --provider=dcos-users --username=<service-account-id> --private-key=<private-key-path>

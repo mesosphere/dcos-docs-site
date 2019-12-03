@@ -127,7 +127,7 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 ## 命令行界面
 - 通过 DC/OS CLI 识别公共代理节点的面向公众的 IP 地址。<!--(DCOS-44697)-->
 
-    使用此版本，您可以通过运行 `dcos node list` 命令来检索群集中节点面向公众的 IP 地址。有关检索公共 IP 地址的新命令的详细信息，请参见 [DCOS 节点](/mesosphere/dcos/1.13/cli/command-reference/dcos-node/) 命令参考。
+    使用此版本，您可以通过运行 `dcos node list` 命令来检索群集中节点面向公众的 IP 地址。有关检索公共 IP 地址的新命令的详细信息，请参见 [DCOS 节点](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) 命令参考。
 
     如果 DC/OS 部署在**公共云提供程序**上，例如 AWS、Google Cloud 或 Azure，您可以使用 DC/OS 基于 Web 的控制台、命令行界面或 DC/OS 群集节点 API 调用来查找公共代理 IP 地址。如果 DC/OS 安装在内部网络（本地）或专用云上，节点通常不具有独立的公共和专用 IP 地址。对于内部网络或专用云上的节点，公共 IP 地址通常与 DNS 命名空间中为服务器定义的 IP 地址相同。
 
@@ -135,19 +135,19 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     如果您已部署 DC/OS Enterprise 群集，那么在安装基本 CLI 包时，您现在可以自动安装 DC/OS Enterprise CLI。之前，只有在成功安装基本 DC/OS CLI 后，才能手动安装 DC/OS Enterprise CLI。
 
-    有关安装命令行界面 (CLI) 和 CLI 插件的更多信息，请参见 [安装 CLI](/mesosphere/dcos/1.13/cli/install) 和 [安装 DC/OS Enterprise CLI](/mesosphere/dcos/1.13/cli/enterprise-cli/)。
+    有关安装命令行界面 (CLI) 和 CLI 插件的更多信息，请参见 [安装 CLI](/mesosphere/dcos/cn/1.13/cli/install) 和 [安装 DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/)。
 
 - 使用 TAB 键的基本自动完成。<!--(DCOS-39774)-->
 
     现在，您可以使用 TAB 键在输入 DC/OS 命令时实现自动完成。自动完成功通过尝试预测您要输入的命令或子命令的其余部分，能让您更快地在 shell 终端中执行命令。如果建议的文本与您预期的命令匹配，您可以按 TAB 键接受建议并执行命令。
 
-    有关在使用命令行界面 (CLI) 和 CLI 插件时使用自动完成功能的更多信息，请参见 [为 CLI 启用自动完成](/mesosphere/dcos/1.13/cli/autocompletion/)。
+    有关在使用命令行界面 (CLI) 和 CLI 插件时使用自动完成功能的更多信息，请参见 [为 CLI 启用自动完成](/mesosphere/dcos/cn/1.13/cli/autocompletion/)。
 
 - `dcos cluster attach` 和 `dcos cluster remove` 命令的群集名称动态自动完成。<!--(DCOS-47214)-->
 
     现在，您可以使用 TAB 键在运行 `dcos cluster attach` 或 `dcos cluster remove` 命令时实现潜在群集名称的自动完成。
 
-    有关在使用命令行界面 (CLI) 和 CLI 插件时使用自动完成功能的更多信息，请参见 [为 CLI 启用自动完成](/mesosphere/dcos/1.13/cli/autocompletion/)。
+    有关在使用命令行界面 (CLI) 和 CLI 插件时使用自动完成功能的更多信息，请参见 [为 CLI 启用自动完成](/mesosphere/dcos/cn/1.13/cli/autocompletion/)。
 
 - 使用 Homebrew 为 macOS 提供 CLI 支持。<!--(DCOS-47562)-->
 
