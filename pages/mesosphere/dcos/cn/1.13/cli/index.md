@@ -19,14 +19,14 @@ DC/OS CLI 0.4.x 和 0.5.x 针对配置文件的位置使用不同的结构。
 
 DC/OS CLI 0.4.x 具有单个配置文件，默认情况下存储在 `~/.dcos/dcos.toml`。在 DC/OS CLI 0.4.x 中，您可以选择使用 [`DCOS_CONFIG`](#dcos-config) 环境变量更改配置文件的位置。
 
-DC/OS CLI 0.5.x 具有每个连接群集的配置文件，默认情况下存储在 `~/.dcos/clusters/<cluster_id>/dcos.toml` 中。在 DC/OS CLI 0.5.x 中，您可以选择使用 [`DCOS_DIR`]（＃dcos-cdir）环境变量更改配置目录的基本部分（`~/.dcos`）。
+DC/OS CLI 0.5.x 具有每个连接群集的配置文件，默认情况下存储在 `~/.dcos/clusters/<cluster_id>/dcos.toml` 中。在 DC/OS CLI 0.5.x 中，您可以选择使用 [`DCOS_DIR`](＃dcos-cdir）环境变量更改配置目录的基本部分（`~/.dcos`）。
 
 - 如果更新到 DC/OS CLI 0.5.x 并运行任何 CLI 命令，它将触发从旧配置结构到新配置结构的转换。
 - 在调用 `dcos cluster setup` 后（或已经发生转换），如果您尝试使用 `dcos config set` 命令更新群集配置，该命令将显示一条警告消息，指出该命令已弃用且群集配置状态现在可能已损坏。
 
 ## 最新版本安装
 
-DC/OS 1.13 需要 DC/OS CLI >= 0.8。安装时，[请遵循这些说明](/mesosphere/dcos/1.13/cli/install/)。
+DC/OS 1.13 需要 DC/OS CLI >= 0.8。安装时，[请遵循这些说明](/mesosphere/dcos/cn/1.13/cli/install/)。
 
 ## CLI 命令
 
@@ -74,11 +74,11 @@ Use "dcos [command] --help" for more information about a command.
 
 以下命令仅在 CLI 的 Enterprise 版本中可用：
 
-- [`dcos backup`](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-backup/)
-- [`dcos license`](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-license/)
-- [`dcos security`](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-security/)
+- [`dcos backup`](/mesosphere/dcos/cn/{{ model.version }}/cli/command-reference/dcos-backup/)
+- [`dcos license`](/mesosphere/dcos/cn/{{ model.version }}/cli/command-reference/dcos-license/)
+- [`dcos security`](/mesosphere/dcos/cn/{{ model.version }}/cli/command-reference/dcos-security/)
 
-有关安装 CLI 的 DC/OS Enterprise 版本的说明，[请参阅文档](/mesosphere/dcos/{{ model.version }}/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)。
+有关安装 CLI 的 DC/OS Enterprise 版本的说明，[请参阅文档](/mesosphere/dcos/cn/{{ model.version }}/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)。
 
 <a name="setupcluster"></a>
 
@@ -103,13 +103,13 @@ DC/OS CLI 支持以下环境变量，可以动态设置。
 
 #### `DCOS_CLUSTER`（仅限 DC/OS CLI 0.5.x 及更高版本）
 
-[连接的](/mesosphere/dcos/{{ model.version }}/cli/command-reference/dcos-cluster/dcos-cluster-attach/)群集。要设置连接的群集，请使用以下命令设置变量：
+[连接的](/mesosphere/dcos/cn/{{ model.version }}/cli/command-reference/dcos-cluster/dcos-cluster-attach/)群集。要设置连接的群集，请使用以下命令设置变量：
 
 ```bash
 dcos cluster setup <cluster-url>
 ```
 
-在完成登录程序后，您的 CLI 已准备好与您的群集进行交互。您会注意到，现在它有其他命令，例如，`marathon`、`node`、`package` 等。这些命令来自 [插件](/mesosphere/dcos/{{ model.version }}/cli/plugins/)、`dcos-core-cli` 和 `dcos-enterprise-cli`（如适用），它作为设置命令的一部分自动安装。
+在完成登录程序后，您的 CLI 已准备好与您的群集进行交互。您会注意到，现在它有其他命令，例如，`marathon`、`node`、`package` 等。这些命令来自 [插件](/mesosphere/dcos/cn/{{ model.version }}/cli/plugins/)、`dcos-core-cli` 和 `dcos-enterprise-cli`（如适用），它作为设置命令的一部分自动安装。
 
 <a name="dcos-config"></a>
 
@@ -123,7 +123,7 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 
 如果您已经配置了 `DCOS_CONFIG` 环境变量：
 
-- 在转换为[新配置结构] (#configuration-files) 后，不再接受 `DCOS_CONFIG`。
+- 在转换为[新配置结构](#configuration-files) 后，不再接受 `DCOS_CONFIG`。
 - 在调用 `dcos cluster setup` 之前，您可使用 `dcos config set` 更改 `DCOS_CONFIG` 指向的配置。该命令会显示一条警告消息，指出该命令已弃用，建议使用 `dcos cluster setup`。
 
 # 列出群集
@@ -152,7 +152,7 @@ export DCOS_DIR=/home/jdoe/config
 <a name="dcos-ssl-verify"></a>
 
 #### `DCOS_SSL_VERIFY`
-该命令指示是否验证 SSL 证书或设置 SSL 证书路径。您必须手动设置此变量。设置此环境变量相当于在 DC/OS 配置[文件] (#configuration-files) 中设置 `dcos config set core.ssl_verify` 选项。例如，指示您想要设置 SSL 证书的路径：
+该命令指示是否验证 SSL 证书或设置 SSL 证书路径。您必须手动设置此变量。设置此环境变量相当于在 DC/OS 配置[文件](#configuration-files) 中设置 `dcos config set core.ssl_verify` 选项。例如，指示您想要设置 SSL 证书的路径：
 
 ```bash
 $ dcos cluster list
