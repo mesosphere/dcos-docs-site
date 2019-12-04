@@ -41,4 +41,4 @@ dcos task exec [--interactive --tty] <task> <cmd> [<args>...]
 
 # 示例
 
-有关示例，请参阅调试[文档](/mesosphere/dcos/1.13/monitoring/debugging/)。
+有关示例，请参阅调试[文档](/mesosphere/dcos/cn/1.13/monitoring/debugging/)。

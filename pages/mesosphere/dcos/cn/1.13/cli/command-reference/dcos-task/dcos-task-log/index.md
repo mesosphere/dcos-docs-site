@@ -48,7 +48,7 @@ dcos task log [mesosID] exporter.log
 
 # 示例
 
-有关示例，请参阅 [登录文档](/mesosphere/dcos/1.13/monitoring/logging/)。
+有关示例，请参阅 [登录文档](/mesosphere/dcos/cn/1.13/monitoring/logging/)。
 
 
 # 父命令
