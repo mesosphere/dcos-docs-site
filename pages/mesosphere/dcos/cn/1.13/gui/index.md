@@ -10,7 +10,7 @@ excerpt: 使用 UI 进行 DC/OS 管理
 
 DC/OS UI 提供了 DC/OS 群集的丰富图形视图。通过 UI，可以查看整个群集和 DC/OS 服务的当前状态。UI 作为 DC/OS 安装的一部分安装。
 
-![Dashboard](/mesosphere/dcos/1.13/img/dashboard-ee-1-12.png)
+![Dashboard](/mesosphere/dcos/cn/1.13/img/dashboard-ee-1-12.png)
 
 图 1 - 仪表板
 
@@ -24,13 +24,13 @@ DC/OS UI 提供了 DC/OS 群集的丰富图形视图。通过 UI，可以查看�
 
 图 2 - 标题栏用户菜单
 
-在群集菜单中有以下链接：[群集概述](/mesosphere/dcos/1.13/gui/cluster/)、文档和 CLI 安装。
+在群集菜单中有以下链接：[群集概述](/mesosphere/dcos/cn/1.13/gui/cluster/)、文档和 CLI 安装。
 
 ![DC/OS UI Cluster Menu](/mesosphere/dcos/1.13/img/header-bar-cluster-dropdown-1-12.png)
 
 图 3 - 标题栏群集菜单
 
-DC/OS Enterprise 中还有用于管理 [链接群集] (/mesosphere/dcos/1.13/administering-clusters/multiple-clusters/cluster-links/)的链接。
+DC/OS Enterprise 中还有用于管理 [链接群集](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-links/)的链接。
 
 ![DC/OS UI Cluster Menu with Linked Cluster](/mesosphere/dcos/1.13/img/switch-cluster-1-12.png)
 
