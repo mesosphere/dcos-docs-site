@@ -42,4 +42,4 @@ dcos package list [<package-name> --json --app-id=<app-id> --cli]
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/1.13/deploying-services/install/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/1.13/deploying-services/install/)。

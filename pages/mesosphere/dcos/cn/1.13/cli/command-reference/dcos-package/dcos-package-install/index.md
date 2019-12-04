@@ -42,7 +42,7 @@ dcos package install <package-name> [(--cli [--global]) | --app] [--package-vers
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/1.13/deploying-services/config-universe-service/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/1.13/deploying-services/config-universe-service/)。
 
 # 父命令
 
