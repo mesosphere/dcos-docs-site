@@ -13,7 +13,7 @@ enterprise: false
 # 说明
 `dcos node` 命令允许您查看 DC/OS 节点信息。
 
-**自 DC/OS 1.13 以来，此命令已弃用，使用 `dcos node list` 代替。**
+<p class="message--important"><strong>重要: </strong>自 DC/OS 1.13 以来，此命令已弃用，使用 <tt>dcos node list</tt> 代替。</p>
 
 # 使用
 
