@@ -30,7 +30,7 @@ dcos marathon app add <app-resource>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<app-resource>` | 包含应用程序的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/mesosphere/dcos/1.13/deploying-services/marathon-api/)。|
+| `<app-resource>` | 包含应用程序的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/mesosphere/dcos/cn/1.13/deploying-services/marathon-api/)。|
 
 
 # 示例
