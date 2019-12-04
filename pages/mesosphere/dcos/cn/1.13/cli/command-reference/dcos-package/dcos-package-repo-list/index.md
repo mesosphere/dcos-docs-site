@@ -30,7 +30,7 @@ dcos package repo list [--json]
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/1.13/administering-clusters/package-registry/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/1.13/administering-clusters/package-registry/)。
 
 # 父命令
 
