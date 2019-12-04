@@ -34,9 +34,9 @@ dcos job add <job-file>
 
 # 示例
 
-有关作业示例，请参阅[创建作业](/mesosphere/dcos/1.13/deploying-jobs/examples/#create-job)。
+有关作业示例，请参阅[创建作业](/mesosphere/dcos/cn/1.13/deploying-jobs/examples/#create-job)。
 
-有关如何使用此命令创建作业的信息，请参阅 [添加作业](/mesosphere/dcos/1.13/deploying-jobs/quickstart/#add-a-job-2)。
+有关如何使用此命令创建作业的信息，请参阅 [添加作业](/mesosphere/dcos/cn/1.13/deploying-jobs/quickstart/#add-a-job-2)。
 
 # 父命令
 
