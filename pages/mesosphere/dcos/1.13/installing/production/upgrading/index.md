@@ -22,7 +22,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 
 - The Production installation method is the _only_ recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/mesosphere/dcos/1.13/installing/production/deploying-dcos/) before proceeding.
 - Review the [release notes](/mesosphere/dcos/1.13/release-notes/) before upgrading DC/OS.
-- Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Farticle%2FCritical-Issue-with-Overlay-Networking&ec=302). [enterprise type="inline" size="small" /]
+- Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/article/Critical-Issue-with-Overlay-Networking). [enterprise type="inline" size="small" /]
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
 - The DC/OS Enterprise license key must reside in a `genconf/license.txt` file. [enterprise type="inline" size="small" /]
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded.
