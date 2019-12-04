@@ -14,7 +14,7 @@ DC/OS supports allocating GPUs (Graphics Processing Units) to your long-running 
 # Installing DC/OS with GPUs Enabled
 GPUs must be enabled during DC/OS installation. Follow the instructions below to enable GPUs based on your specific DC/OS deployment method.
 
-## Custom DC/OS Installation with GPUs
+## On-Prem DC/OS Installation with GPUs
 
 1.  Install the [NVIDIA Management Library (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml) on each node of your cluster that has GPUs. The minimum required NVIDIA driver version is 340.29. For detailed installation instructions, see the [Mesos GPU support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 1.  Install DC/OS using the [custom advanced installation instructions](/mesosphere/dcos/1.13/installing/production/advanced-configuration/). Here are the GPU-specific configuration parameters:
@@ -26,46 +26,31 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
     For more information, see the [configuration parameter documentation](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuring-gpu-nodes/) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 
-## AWS EC2 DC/OS Installation with GPUs
+## Cloud DC/OS Installation with GPUs using the DC/OS Universal Installer
 
 ###  Prerequisites
-- The AWS DC/OS advanced template [system requirements](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/advanced/template-reference/).
-- The `zen.sh` script copied to your local machine. The script and instructions are [here](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/advanced/).
 
-### Create Dependencies
+- Review the [prerequisites](/mesosphere/dcos/1.13/installing/evaluation/) of the DC/OS Universal Installer.
+- Review the prerequisites of your cloud provider, such as [AWS](/mesosphere/dcos/1.13/installing/evaluation/aws/#prerequisites), [Azure](/mesosphere/dcos/1.13/installing/evaluation/azure/#prerequisites), or [GCP](/mesosphere/dcos/1.13/installing/evaluation/gcp/#prerequisites).
 
-1. Run the `zen.sh` script to create the Zen template dependencies. These dependencies will be used as input to create your stack in CloudFormation.
+### Customize your main.tf
 
-   ```
-   bash ./zen.sh <stack-name>
-   ```
+In the main.tf file you are using to deploy DC/OS, ensure at least one agent is being deployed with one or more GPUs. Also ensure the agent meets all other [agent node requirements](/mesosphere/dcos/1.13/installing/production/system-requirements/#agent-node-requirements).
 
-    <p class="message--important"><strong>IMPORTANT: </strong> You must run the "zen.sh" script before performing the next steps.</p>
+For example, on AWS you can set `private_agents_instance_type` to any GPU-enabled instance type that is available in your region:
 
-1. Follow the instructions [here](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuring-gpu-nodes/#aws-ec2-dcos-installation-with-gpus/) to create a cluster with advanced AWS templates, using the following GPU-specific configuration.
+```
+private_agents_instance_type = "p2.xlarge"
+```
 
-    On the **Create Stack** > **Specify Details** page, specify your stack information and click **Next**. Here are the GPU-specific settings.
-
-      - **CustomAMI** - Specify the custom AMI for your region:
-
-          - us-west-2: `ami-d54a2cad`
-          - us-east-1: `ami-5f5d1449`
-          - ap-southeast-2: `ami-0d50476e`
-
-      - **MasterInstanceType** - Accept the default master instance type (e.g. `m3.xlarge`).
-      - **PrivateAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
-      - **PublicAgentInstanceType** - Specify an [AWS GPU machine type](https://aws.amazon.com/ec2/instance-types/#p2) (e.g., `g2.2xlarge`).
-
-1. On the **Options** page, accept the defaults and click **Next**. You can choose whether to rollback on failure. By default this option is set to **Yes**.
-
-1. On the **Review** page, check the acknowledgement box, then click **Create**. If the **Create New Stack** page is shown, either AWS is still processing your request or you’re looking at a different region. Navigate to the correct region and refresh the page to see your stack.
+Then proceed with the installation as normal. The DC/OS Universal Installer will detect if NVIDIA GPUs are present on an agent and install the required software automatically.
 
 # Using GPUs in Your Apps
 
 You can specify GPUs in your application definitions with the `gpus` parameter.
 
 -  You can only specify whole numbers of GPUs in your application definition. If a fractional amount is selected, launching the task will result in a `TASK_ERROR`.
--  NVIDIA GPU support is only available for tasks launched using the [DC/OS Universal container runtime](/mesosphere/dcos/1.13/deploying-services/containerizers/).
+-  NVIDIA GPU support is only available for tasks launched using the [DC/OS Universal Container Runtime](/mesosphere/dcos/1.13/deploying-services/containerizers/). Docker is not supported.
 
 # Examples
 
