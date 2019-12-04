@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 可以使用 [`dcos marathon`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/) CLI 命令轻松查看和更新已部署应用程序的配置。
 
-在 UI 中更新包的流程不同。如需更多信息，请参阅 [文档](/mesosphere/dcos/1.13/deploying-services/config-universe-service/)。
+在 UI 中更新包的流程不同。如需更多信息，请参阅 [文档](/mesosphere/dcos/cn/1.13/deploying-services/config-universe-service/)。
 
 # 更新所有环境变量
 
