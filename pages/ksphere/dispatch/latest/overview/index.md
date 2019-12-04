@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Overview
 title: Dispatch Overview
 menuWeight: 1
-excerpt: Overview of Dispatch
+excerpt: A Cloud Native, GitOps platform for streamlining development and deployment of container based applications.
 ---
 # Dispatch (Beta)
 
@@ -27,16 +27,16 @@ Dispatch is a cloud-native GitOps platform that enables you to:
 
 ## Installation
 
-Dispatch is built to run on Kubernetes and leverage its native features and services. To install Dispatch onto an existing Kubernetes cluster, see [install Dispatch](./install.md).
+Dispatch is built to run on Kubernetes and leverage its native features and services. To install Dispatch onto an existing Kubernetes cluster, see [install Dispatch](../install/).
 
 ## Continuous Integration (CI)
 
-To build and test your Continuous Integration (CI), leverage multiple declarative languages to rapidly create and execute the pipeline. To set-up CI for your project, follow the [repository configuration instructions](./repo-setup.md).
+To build and test your Continuous Integration (CI), leverage multiple declarative languages to rapidly create and execute the pipeline. To set-up CI for your project, follow the [repository configuration instructions](../repo-setup/).
 
 ### Build pipeline reference
 
-Configuring your CI pipeline using CUE, Starlark, JSON or YAML greatly simplifies pipeline configuration and increases its abilities. For a reference on creating this *Dispatchfile* see [pipeline configuration reference](./pipeline-configuration.md).
+Configuring your CI pipeline using CUE, Starlark, JSON or YAML greatly simplifies pipeline configuration and increases its abilities. For a reference on creating this *Dispatchfile* see [pipeline configuration reference](../pipeline-configuration/).
 
 ## Continuous Deployment (CD)
 
-Automaticallly detect changes to how the application should be deployed or automatically resolve deployment issues. To configure continuous deployment for your project, follow the [deployment instructions](./deployment.md).
+Automaticallly detect changes to how the application should be deployed or automatically resolve deployment issues. To configure continuous deployment for your project, follow the [deployment instructions](../deployment/).
