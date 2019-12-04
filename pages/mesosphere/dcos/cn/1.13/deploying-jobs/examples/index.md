@@ -14,7 +14,7 @@ enterprise: true
 
 **前提条件：**
 
-- 数据中心操作系统和数据中心操作系统 CLI [已安装](/mesosphere/dcos/1.13/installing/)。
+- 数据中心操作系统和数据中心操作系统 CLI [已安装](/mesosphere/dcos/cn/1.13/installing/)。
 
 <a name="create-job"></a>
 
