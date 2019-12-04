@@ -69,4 +69,4 @@ private_key: '-----BEGIN RSA PRIVATE KEY-----
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集 CA](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |
+| [dcos security cluster ca](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |

@@ -36,4 +36,4 @@ dcos security org groups grant [OPTIONS] GID RID ACTION
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 安全群集组织分组](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) | 管理用户组和组成员。 |
+| [dcos security org groups](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) | 管理用户组和组成员。 |
