@@ -1,20 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle:  Deployment
-title: Dispatch Deployment
-menuWeight: 5
-excerpt: Deployment
+navigationTitle:  GitOps Deployment
+title: GitOps Based Deployments
+menuWeight: 3
+excerpt: Implement GitOps processes to Continuously Deploy applications
 ---
-# Deployment with Gitops and Argo CD
+# Deploying Applications with GitOps
 
-Dispatch supports Continuous Deployment (CD) of your software project.
+Dispatch enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a git repo.  This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
 
-Dispatch CD uses GitOps to deploy your software.
-
-This tutorial assumes that you have followed the [Dispatch
-Installation](./install) and [Setting up a repository to use
-Dispatch](./repo-setup) tutorials and have set up Dispatch CI for a hello-world
-application.
+This tutorial assumes that you have followed the [Dispatch Installation](../install/) and [Setting up a repository to use Dispatch](../repo-setup/) tutorials and have set up Dispatch CI for a hello-world application.
 
 ## Quick Start
 
@@ -25,7 +20,8 @@ provide background and go into greater details regarding the individual steps.
 *NOTE: Replace `your-user` with your GitHub username in all the following steps.*
 
 - Fork https://github.com/mesosphere/cicd-hello-world-gitops to your own account.
-- Run `dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops`
+- Run `dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN`
+- Run `dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops --scm-secret gitops-secret-1`
 - Add the GitOps repository as a resource to your hello-world application's Dispatchfile:
   ```
   resource "gitops-git": {
@@ -164,21 +160,31 @@ application's CI, as defined in its Dispatchfile.
 
 The hello-world application sources can be found at
 https://github.com/mesosphere/cicd-hello-world and were used in the [Dispatch
-Installation](./install), [Setting up a repository to use
-Dispatch](./repo-setup), and [Pipeline Configuration
-Reference](./pipeline-configuration) examples elsewhere in the Dispatch
-documentation. If you have followed the [Dispatch Installation](./install) and
-[Setting up a repository to use Dispatch](./repo-setup) tutorials, your local
+Installation](../install/), [Setting up a repository to use
+Dispatch](../repo-setup/), and [Pipeline Configuration
+Reference](../pipeline-configuration/) examples elsewhere in the Dispatch
+documentation. If you have followed the [Dispatch Installation](../install/) and
+[Setting up a repository to use Dispatch](../repo-setup/) tutorials, your local
 `cicd-hello-world` git repository will be up-to-date and ready to follow along.
 For this tutorial, we focus on the Continuous Deployment part of CI/CD.
 
 To get started, we need to add our GitOps repository to Dispatch so that it knows
 to keep our cluster in sync with the Kubernetes manifests in the repository.
 
-On the CLI, execute the following Dispatch CLI command:
+If you already have a service account, say `team-1`, that is configured with a
+GitHub Personal Access Token that you want to use to administer webhooks on the
+gitops repository, you can reuse it as follows:
 
 ```sh
-dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops
+dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops --service-account team-1
+```
+
+If you want to register new credentials with Dispatch to manage webhooks on the
+gitops repository, you can do so as follows:
+
+```sh
+dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
+dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops --scm-secret gitops-secret-1
 ```
 
 You can now open your browser and navigate to the Argo CD UI. The Argo CD UI is

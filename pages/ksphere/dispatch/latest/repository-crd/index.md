@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Repository CRD
 title: Repository CRD
-menuWeight: 2
-excerpt: Repository CRD
+menuWeight: 4
+excerpt: Reference Guide for Configuring a Repository
 ---
 
 
