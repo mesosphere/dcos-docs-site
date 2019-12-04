@@ -31,7 +31,7 @@ dcos marathon group add [<group-resource>]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<group-resource>` | 包含组的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/mesosphere/dcos/1.13/deploying-services/marathon-api/)。|
+| `<group-resource>` | 包含组的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/mesosphere/dcos/cn/1.13/administering-clusters/marathon-api/)。|
 
 # 父命令
 
