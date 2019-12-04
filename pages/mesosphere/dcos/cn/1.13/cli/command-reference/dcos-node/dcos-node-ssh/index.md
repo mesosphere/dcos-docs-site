@@ -42,7 +42,7 @@ dcos node ssh (--leader | --mesos-id=<mesos-id> | --private-ip=<private-ip>) [--
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/1.13/administering-clusters/sshcluster/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)。
 
 # 父命令
 
