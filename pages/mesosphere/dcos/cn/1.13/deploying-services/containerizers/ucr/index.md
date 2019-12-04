@@ -11,7 +11,7 @@ enterprise: false
 
 # 使用 UCR 配置 Mesos 容器
 
-[通用容器运行时 (UCR)] (http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker] (https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/mesosphere/dcos/1.13/deploying-services/containerizers/)。如需要 Docker Engine 的[功能](/mesosphere/dcos/1.13/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。
+[通用容器运行时 (UCR)](http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker](https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)。如需要 Docker Engine 的[功能](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。
 
 ## Docker 注册表支持
 
@@ -36,7 +36,7 @@ UCR 使用 [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) 
 ## DC/OS CLI
 使用此程序从 DC/OS 命令行配置 UCR 的容器。
 
-1. 在 [Marathon 应用定义](/mesosphere/dcos/1.13/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`。在这里，我们使用 `docker` 对象指定 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/mesosphere/dcos/1.13/deploying-services/private-docker-registry/)。
+1. 在 [Marathon 应用定义](/mesosphere/dcos/cn/1.13/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`。在这里，我们使用 `docker` 对象指定 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/mesosphere/dcos/cn/1.13/deploying-services/private-docker-registry/)。
 
 ```json
 {
@@ -90,9 +90,9 @@ UCR 使用 [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) 
 
 # 容器镜像垃圾收集
 
-对于长时间运行的群集，容器镜像可能占用代理机器上的磁盘空间。为了改善操作者使用 UCR 的体验，从 Mesos 1.5.0 开始引入容器镜像垃圾收集 (GC)（请阅读 [Mesos docs] （http://mesos.apache.org/documentation/latest/container-image/#garbage- collect-unused-container-images）了解更多详情）。默认情况下，镜像 GC 在 DC/OS 中是自动的，而操作员可以手动触发。
+对于长时间运行的群集，容器镜像可能占用代理机器上的磁盘空间。为了改善操作者使用 UCR 的体验，从 Mesos 1.5.0 开始引入容器镜像垃圾收集 (GC)（请阅读 [Mesos docs](http://mesos.apache.org/documentation/latest/container-image/#garbage-collect-unused-container-images)了解更多详情）。默认情况下，镜像 GC 在 DC/OS 中是自动的，而操作员可以手动触发。
 
-## [自动镜像 GC] （http://mesos.apache.org/documentation/latest/container-image/#automatic-image-gc-through-agent-flag）
+## [自动镜像 GC](http://mesos.apache.org/documentation/latest/container-image/#automatic-image-gc-through-agent-flag)
 
 容器镜像自动 GC 默认启用，由镜像 GC 配置文件配置。可通过 `/opt/mesosphere/etc/mesos-slave-common` 处的 `MESOS_IMAGE_GC_CONFIG` 环境变量更新此配置文件。默认配置文件位于 `/opt/mesosphere/etc/mesos-slave-image-gc-config.json`，以下是配置文件的参数：
 
@@ -102,7 +102,7 @@ UCR 使用 [Docker v2 registry API](https://docs.docker.com/registry/spec/api/) 
 
 ## [手动镜像 GC](http://mesos.apache.org/documentation/latest/container-image/#manual-image-gc-through-http-api)
 
-容器镜像手动 GC 可通过 HTTP Operator API 触发。有关详细信息，请参阅 [v1 算子 API doc] 中的 `PRUNE_IMAGES` 部分 （http://mesos.apache.org/documentation/latest/operator-http-api/#prune_images）。
+容器镜像手动 GC 可通过 HTTP Operator API 触发。有关详细信息，请参阅 [v1 算子 API doc](http://mesos.apache.org/documentation/latest/operator-http-api/#prune_images)中的 `PRUNE_IMAGES` 部分。
 
 # 延伸阅读
-- [查看 UCR 的 Mesos 文档] （http://mesos.apache.org/documentation/latest/container-image/）。
+- [查看 UCR 的 Mesos 文档](http://mesos.apache.org/documentation/latest/container-image/)。

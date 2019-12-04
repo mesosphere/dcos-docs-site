@@ -44,9 +44,9 @@ Marathon 中的 [服务发现][2] 可提供一些服务发现常见实施的综�
 
 以下示例展示了应该启动以使其工作的命令：
 
-    ```bash
-    dcos spark run --submit-args='--conf spark.mesos.uris=https://path/to/pi.conf --class JavaSparkPiConf https://path/to/sparkPi_without_config_file.jar /mnt/mesos/sandbox/pi.conf'
-    ```
+```bash
+dcos spark run --submit-args='--conf spark.mesos.uris=https://path/to/pi.conf --class JavaSparkPiConf https://path/to/sparkPi_without_config_file.jar /mnt/mesos/sandbox/pi.conf'
+```
 
 更多信息：
 

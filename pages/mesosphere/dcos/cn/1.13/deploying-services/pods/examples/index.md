@@ -9,7 +9,7 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 
-本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/mesosphere/dcos/1.13/deploying-services/marathon-parameters/)。
+本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/mesosphere/dcos/cn/1.13/deploying-services/marathon-parameters/)。
 
 # 带注释的简单 Pod 定义
 
@@ -373,7 +373,7 @@ enterprise: false
 
 # 带有多个容器的 Pod
 
-以下 pod 定义指定了带有 3 个容器的 pod。<!-- Validated by suzanne 6-23-17 -->
+以下 pod 定义指定了带有 3 个容器的 pod。
 
 ```json
 {
@@ -459,7 +459,7 @@ enterprise: false
 
 # 使用临时卷的 Pod
 
-以下 pod 定义指定了称为 `v1` 的临时卷。<!-- Validated by suzanne 6-23-17 -->
+以下 pod 定义指定了称为 `v1` 的临时卷。
 
 ```json
 {
@@ -548,11 +548,11 @@ enterprise: false
 
 # 使用持久卷的 Pod
 
-如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/mesosphere/dcos/1.13/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
+如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/mesosphere/dcos/cn/1.13/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
 
 ## 各 Pod 的 IP 网络
 
-以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/) 安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
+以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/) 安装 DC/OS，则默认虚拟网络名称为 `dcos`。
 
 ```json
 {
@@ -584,7 +584,7 @@ enterprise: false
 }
 ```
 
-此 pod 声明端口 80 的侦听“web”端点。<!-- Validated by suzanne 6-23-17 -->
+此 pod 声明端口 80 的侦听“web”端点。
 
 ```json
 {
@@ -622,7 +622,8 @@ enterprise: false
 ```
 
 此 pod 添加引用了 `web` 端点的运行状况检查。Mesos 将根据 `<container_ip>:80` 执行 HTTP 请求。如果 Mesos 收到 HTTP 200 响应，则会通过运行状况检查。
-<!-- validated by suzanne 6-23-17 -->
+
+
 ```json
 {
    "id":"/pod-with-healthcheck",
