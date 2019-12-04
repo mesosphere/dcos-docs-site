@@ -39,4 +39,4 @@ dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PA
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 安全密钥](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理密钥。 |
+| [dcos security secrets](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理密钥。 |
