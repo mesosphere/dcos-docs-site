@@ -361,7 +361,7 @@ dcos task log --completed <job-run-id>
 ```
 
 # <a name="jobs-api"></a>使用 Jobs API
-您还可以通过对 Jobs API 端点的调用来创建和管理作业。本部分重点介绍通过作业相关的 API 调用执行的最常见任务。关于 Jobs API 的更多完整信息，请参阅 [Jobs API 参考]（http://dcos.github.io/metronome/docs/generated/api.html) 信息。
+您还可以通过对 Jobs API 端点的调用来创建和管理作业。本部分重点介绍通过作业相关的 API 调用执行的最常见任务。关于 Jobs API 的更多完整信息，请参阅 [Jobs API 参考](http://dcos.github.io/metronome/docs/generated/api.html) 信息。
 
 ## 准备使用 API 调用
 本部分中的代码示例说明如何包括 Jobs API 调用来使用客户端 URL (cURL) 程序执行与作业相关的任务。有关使用 `curl` 命令的详细信息，请参阅 [`curl` 手册页](https://curl.haxx.se/docs/manpage.html)。

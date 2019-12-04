@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 
-如 [故障域感知和服务容量扩展] (/mesosphere/dcos/cn/1.13/deploying-services/fault-domain-awareness/)中所述，DC/OS 支持故障域感知。如果您的群集配置在多个区域或分区上，则可以安排 Metronome 作业在远程区域或特定分区中运行。
+如 [故障域感知和服务容量扩展](/mesosphere/dcos/cn/1.13/deploying-services/fault-domain-awareness/)中所述，DC/OS 支持故障域感知。如果您的群集配置在多个区域或分区上，则可以安排 Metronome 作业在远程区域或特定分区中运行。
 
 # 本地和远程分域
 

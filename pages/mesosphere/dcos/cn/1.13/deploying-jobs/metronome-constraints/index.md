@@ -29,9 +29,9 @@ Metronome 支持 Marathon 算子的子集，并且支持 Marathon 的所有特�
 
 ## 属性作为字段名称
 
-如果 `@hostname`、`@region` 或 `@zone` 未指定为字段名称，则字段名称将被解释为 Mesos [代理属性] （http://mesos.apache.org/documentation/attributes-resources/#attributes）。
+如果 `@hostname`、`@region` 或 `@zone` 未指定为字段名称，则字段名称将被解释为 Mesos [代理属性](http://mesos.apache.org/documentation/attributes-resources/#attributes)。
 
-Metronome 支持文本、标量和范围属性值。对于标量和范围，Metronome 将对格式化值进行字符串比较，因为它们将 [根据 Mesos 中的规范] （http://mesos.apache.org/documentation/attributes-resources/#attributes）进行指定。
+Metronome 支持文本、标量和范围属性值。对于标量和范围，Metronome 将对格式化值进行字符串比较，因为它们将 [根据 Mesos 中的规范](http://mesos.apache.org/documentation/attributes-resources/#attributes) 进行指定。
 
 # 算子
 
@@ -39,7 +39,7 @@ Metronome 支持文本、标量和范围属性值。对于标量和范围，Metr
 
 支持 DC/OS 1.12.1 及更高版本。
 
-**值**（必填）：Mesos 标量或文本值，由 [Mesos 属性和资源类型规范] （http://mesos.apache.org/documentation/latest/attributes-resources/#types）指定：
+**值**（必填）：Mesos 标量或文本值，由 [Mesos 属性和资源类型规范](http://mesos.apache.org/documentation/latest/attributes-resources/#types)指定：
 
 ```
 scalar : floatValue
