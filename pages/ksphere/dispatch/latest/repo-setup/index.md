@@ -1,12 +1,106 @@
 ---
 layout: layout.pug
-navigationTitle:  Set Up Repo
-title: Setting up a repository in Dispatch
+navigationTitle:  Code Repository Configuration
+title: Setting up a Repository in Dispatch
 menuWeight: 2
-excerpt: Setting up a Repository
+excerpt: Configure and set up a code repository for access by Dispatch including configuring a Dispatchfile
 ---
 
 # Setting up a repository to use Dispatch
+
+## Credentials
+
+Credentials that are used when a Dispatchfile is executed, to push images and
+clone source repositories, are attached to an individual service account that is
+specified when a Dispatch repository is created. The Dispatchfile's tasks then
+have access to only those credentials that have been attached to the specified
+service account.
+
+A Dispatch repository's Dispatchfile is executed in the context of a specific
+Kubernetes service account. The Dispatchfile's tasks use credentials attached to
+that service account in order to push/pull docker images from a registry or
+clone git repositories. These credentials are stored as Kubernetes secrets with
+special structure and annotations.
+
+Before registering a new repository with Dispatch, you need to create a service
+account and attach credentials to it.
+
+### Create a service account
+
+Create a service account using the dispatch CLI as follows:
+
+```
+dispatch serviceaccount create team-1
+```
+
+This creates a service account named `team-1`.
+
+### Setup GitHub credentials
+
+Create a [Personal Access Token](https://github.com/settings/tokens) for your
+Github account. You need to specify the following permissions:
+
+* FULL access to `admin:repo_hook`: used to register webhooks to report events
+  to the Dispatch build server.
+* FULL access to `repo`: used to download source code whether public or private,
+  report build status to your commits, etc.
+
+After creating the token, remember the secret value. Replace `$YOURGITHUBTOKEN`
+with token secret value in the following command:
+
+```
+dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
+```
+
+The `team-1` service account now has these credentials attached as a
+secret, and any Dispatch repository that is configured to use the
+`team-1` service account will operate on GitHub using these credentials.
+
+### Setup Git SSH credentials
+
+Generate an SSH key pair:
+
+```
+ssh-keygen -t ed25519 -f dispatch.pem
+```
+
+This generates two files:
+
+* The SSH private key `dispatch.pem` (never copy or share this file anywhere you
+  don't trust).
+* The SSH public key `dispatch.pem.pub` which corresponds to the `dispatch.pem`
+  private key file. This file is safe to copy or share publicly.
+
+Add the SSH public key to your GitHub account:
+
+* Visit https://github.com/settings/keys
+* Click "New SSH key".
+* Give the key an appropriate title like "Dispatch test 1".
+* Run `cat ./dispatch.pem.pub` in your terminal, copy the output, and paste it in the "Key" text box on the page.
+* Click "Add SSH key".
+
+Now that we've registered our SSH public key with GitHub, we add the
+corresponding SSH private key to the `team-1` service account:
+
+```
+dispatch login git --service-account team-1 --private-key-path ./dispatch.pem
+```
+
+### Setup Docker Credentials
+
+To load Docker registry credentials from `~/.docker/config.json`, run `login
+docker` and specify only the service account to attach the docker credentials
+to:
+
+```
+dispatch login docker --service-account team-1
+```
+
+Otherwise supply the path to a Docker configuration file:
+
+```
+dispatch login docker --service-account team-1 --docker-config-path /path/to/config.json
+```
 
 ## Setup a repository
 
@@ -17,7 +111,7 @@ your personal account.
 
 The repository contains various branches named `step_1`, `step_2`, etc. These
 correspond to the steps in this tutorial, as well as steps in the next tutorial:
-[Deployment with Gitops and Argo CD](./deployment.md). The `master` branch is in
+[Deployment with Gitops and Argo CD](../deployment/). The `master` branch is in
 a very basic state. We will add to it as we progress through the tutorials.
 
 Clone your new "cicd-hello-world" repository from your personal fork to your
@@ -58,11 +152,15 @@ task "test": {
 actions: [
   {
     tasks: ["test"]
-    on push branches: ["master"]
+    on push: {
+      branches: ["master"]
+    }
   },
   {
     tasks: ["test"]
-    on pull_request chatops: ["test"]
+    on pull_request: {
+      chatops: ["test"]
+    }
   }
 ]
 ```
@@ -95,16 +193,18 @@ git push
 To run your Dispatchfile, simply run:
 
 ```
-dispatch build local --tasks test
+dispatch build local --tasks test --service-account team-1
 ```
 
 Alternatively, run it in a running Dispatch cluster with:
 
 ```sh
-dispatch build tekton --tasks test --follow
+dispatch build tekton --tasks test --service-account team-1 --follow
 ```
 
-This will submit the Dispatchfile to your Dispatch cluster, run it, and display the results to you.
+This will submit the Dispatchfile to your Dispatch cluster, run it using the
+`team-1` service account and its attached credentials, and display the
+results to you.
 
 Once this command exits successfully, you can view the result of the build on GitHub.
 
@@ -203,15 +303,21 @@ Next, let's modify the list of actions at the bottom of the file to execute the 
 actions: [
   {
     tasks: ["build"]
-    on push branches: ["master"]
+    on push: {
+      branches: ["master"]
+    }
   },
   {
     tasks: ["build"]
-    on pull_request chatops: ["build"]
+    on pull_request: {
+      chatops: ["build"]
+    }
   },
   {
     tasks: ["build"]
-    on push tags: ["*"]
+    on tag: {
+      names: ["*"]
+    }
   }
 ]
 ```
@@ -247,13 +353,13 @@ git push
 If you like, you can run the Dispatch pipeline once more by executing the following command:
 
 ```sh
-dispatch build local --tasks build
+dispatch build local --tasks build --service-account team-1
 ```
 
 Alternatively, run it in a running Dispatch cluster with:
 
 ```sh
-dispatch build tekton --tasks build --follow
+dispatch build tekton --tasks build --service-account team-1 --follow
 ```
 
 Once this command exits successfully, you can view the result of the build on GitHub.
@@ -277,31 +383,16 @@ that the latest commit now shows a green checkmark, too.
 
 You are now ready to have the Dispatch service execute your Dispatchfile on pull requests against your repository.
 
-Ensure you are logged in to github:
-
-```
-dispatch login github --user $YOURUSERNAME --token $YOURGITHUBTOKEN --secret my-github
-```
-
 In your shell, navigate to your local git checkout of the `cicd-hello-world`
 repository and run the following command:
 
 ```
-dispatch create repository --secret my-github
-```
-
-The service account that is used when creating pipelines can be overriden with the `--service-account` flag.
-
-Ensure that the secret used in `create repository` matches the secret for the credentials that should be used and
-that the secret is included in the list of secrets that the correct service account has access to it (`build-bot` by default):
-
-```
-$ kubectl patch serviceaccounts build-bot --type=json -p '[{"op":"add","path":"/secrets/0","value":{"name":"my-github"}}]'
+dispatch create repository --service-account team-1
 ```
 
 The `dispatch create repository` command creates a `Repository` object in Kubernetes for your repository
-which tells Dispatch which credentials to use, to create a webhook with Github, and how to handle events
-received from Github. See [the Repository CRD documentation](./repository_crd.md) for details on the Repository object.
+which tells Dispatch which service account and associated credentials to use when executing its Dispatchfile, and how to handle events
+received from Github. See [the Repository CRD documentation](../repository-crd/) for details on the Repository object.
 
 Run `kubectl describe repositories -n dispatch` to see the newly created `Repository` object.
 
@@ -379,7 +470,7 @@ created.)
 You have successfully created a release.
 
 Now that you have configured CI for your project, proceed to the next tutorial:
-[Deployment with Gitops and Argo CD](./deployment.md)
+[Deployment with Gitops and Argo CD](../deployment/)
 
 ## Slack notifications
 

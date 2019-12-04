@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Pipeline Configuration
 title: Dispatch Pipeline Configuration Reference
-menuWeight: 4
-excerpt: Overview of the Pipeline Configuration Reference
+menuWeight: 3
+excerpt: Configure Build and Test pipelines to automate the development process using declarative languages.
 ---
 
 # Pipeline Configuration Reference
@@ -31,7 +31,7 @@ To set your `Dispatchfile` format as JSON, set the first line of your `Dispatchf
 
 JSON is the simplest (but typically most verbose) supported format: when writing JSON syntax, you are writing the Dispatch data structures directly and can simply reference the [configuration reference](#Reference) below.
 
-As an example, we convert the example from [the repository setup guide](repo-setup.md) to JSON:
+As an example, we convert the example from [the repository setup guide](../repo-setup/) to JSON:
 
 ```
 #!json
@@ -169,11 +169,15 @@ task "test": {
 actions: [
   {
     tasks: ["test"]
-    on push branches: ["master"]
+    on push: {
+      branches: ["master"]
+    }
   },
   {
     tasks: ["test"]
-    on pull_request chatops: ["test"]
+    on pull_request: {
+      chatops: ["test"]
+    }
   }
 ]
 ```
@@ -205,7 +209,7 @@ action(tasks = ["test"], on = pullRequest(chatops = ["test"]))
 
 Dispatch datatypes can be referenced with the `p` package, e.g., `p.Pipeline()`, `p.Task()`. Kubernetes datatypes can be referenced with the `v1` package, e.g., `v1.Container()`.
 
-See [the starlark reference](starlark.md) for an overview of the Dispatch standard library methods and data types as well as the [official language reference](https://docs.bazel.build/versions/master/skylark/language.html).
+See [the starlark reference](../starlark-reference/) for an overview of the Dispatch standard library methods and data types as well as the [official language reference](https://docs.bazel.build/versions/master/skylark/language.html).
 
 </p>
 </details>
@@ -353,7 +357,8 @@ The current behavior of pull request conditions is:
 1. If no branches and no chatops are specified, then the action will trigger on any pull request push.
 2. If branches are specified, then it will trigger when a pull request is made where the merge target is in the list of branches. If paths are
    specified, it will only trigger if any changed file matches the paths.
-3. If chatops are specified, then it will trigger when a push is made to a pull request or a comment is made to a pull request that matches the comment.
+3. If chatops are specified, then it will only trigger when a comment starting with a slash (`/`) is made to a pull request, and the word after
+   the slash is in the list of chatops. Chatops can be specified in conjunction with branches and/or paths.
 
 ### Context variables
 
