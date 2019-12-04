@@ -55,9 +55,9 @@ Mesos 管理节点必须位于同一分域，否则它们之间的延迟就会�
 
     <p class="message--important"><strong>重要信息：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
 
-1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
+1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
 
-1. [安装 DC/OS ](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/)。
+1. [安装 DC/OS ](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/)。
 
 1. 测试安装。在 DC/OS  CLI 中输入 `dcos node`。您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
 
@@ -78,7 +78,7 @@ Mesos 管理节点必须位于同一分域，否则它们之间的延迟就会�
 
 ## Marathon 服务和 Pod
 
-在 Marathon 服务或 pod 定义中，可以使用 [布局约束](/mesosphere/dcos/1.13/deploying-services/marathon-constraints/)，以便：
+在 Marathon 服务或 pod 定义中，可以使用 [布局约束](/mesosphere/dcos/cn/1.13/deploying-services/marathon-constraints/)，以便：
 
 - 为您的服务或 pod 指定分区和分域，从而将所有实例都安排在该分域和分区。
 
@@ -129,6 +129,6 @@ Mesos 管理节点必须位于同一分域，否则它们之间的延迟就会�
 
 ### 增加群集容量
 
-要增加容量，请 [添加新节点](/mesosphere/dcos/1.13/administering-clusters/add-a-node/) 到远程分域或您群集的多个分域，然后更新服务以在该分域或多个分域中适当地启动实例。
+要增加容量，请 [添加新节点](/mesosphere/dcos/cn/1.13/administering-clusters/add-a-node/) 到远程分域或您群集的多个分域，然后更新服务以在该分域或多个分域中适当地启动实例。
 
 <p class="message--important"><strong>重要信息：</strong>您无法将服务配置为在多个分域运行。</p>

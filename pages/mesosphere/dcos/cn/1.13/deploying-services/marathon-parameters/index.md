@@ -12,33 +12,33 @@ enterprise: false
 本专题列出了 Marathon 应用定义的所有可用属性，并举例说明显示了所有属性的 JSON 应用定义文件。
 
 - [ Marathon 属性](#Marathon-Properties)
-        - [acceptedResourceRoles](#acceptedResourceRoles)
-        - [args](#args)
-        - [backofffactor]（#backofffactor）
-        - [backoffseconds]（#backoffseconds）
-        - [cmd](#cmd)
-        - [约束](#constraints)
-        - [容器](#container)
-        - [CPU](#cpus)
-        - [依赖关系](#dependencies)
-        - [磁盘](#disk)
-        - [env](#env)
-        - [执行器](#executor)
-        - [获取](#fetch)
-        - [gpus](#gpus)
-        - [healthChecks](#healthChecks)
-        - [id](#id)
-        - [实例](#instances)
-        - [标签](#labels)
-        - [maxLaunchDelaySeconds](#maxLaunchDelaySeconds)
-        - [mem](#mem)
-        - [网络](#networks)
-        - [portDefinitions](#portDefinitions)
-        - [requirePorts](#requirePorts)
-        - [residency](#residency)
-        - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
-        - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
-        - [upgradeStrategy](#upgradeStrategy)
+    - [acceptedResourceRoles](#acceptedResourceRoles)
+    - [args](#args)
+    - [backofffactor](#backofffactor)
+    - [backoffseconds](#backoffseconds)
+    - [cmd](#cmd)
+    - [约束](#constraints)
+    - [容器](#container)
+    - [CPU](#cpus)
+    - [依赖关系](#dependencies)
+    - [磁盘](#disk)
+    - [env](#env)
+    - [执行器](#executor)
+    - [获取](#fetch)
+    - [gpus](#gpus)
+    - [healthChecks](#healthChecks)
+    - [id](#id)
+    - [实例](#instances)
+    - [标签](#labels)
+    - [maxLaunchDelaySeconds](#maxLaunchDelaySeconds)
+    - [mem](#mem)
+    - [网络](#networks)
+    - [portDefinitions](#portDefinitions)
+    - [requirePorts](#requirePorts)
+    - [residency](#residency)
+    - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
+    - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
+    - [upgradeStrategy](#upgradeStrategy)
 - [示例](#Example)
 
 # Marathon 属性
@@ -72,7 +72,7 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
 ### container
 容器信息。
 
-- **type** 容器运行时间类型，为 `MESOS` 或 `DOCKER`。如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/1.13/deploying-services/containerizers/)。
+- **type** 容器运行时间类型，为 `MESOS` 或 `DOCKER`。如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)。
 
 - **portMappings** 主机和容器之间的端口映射阵列。端口映射类似于将 `-p` 传递到 Docker 命令行，以指定主机上与容器内的端口之间的关系。如果在创建时未指定 (null)，则默认为 { "portMappings": [ { "containerPort": 0, "name": "default" } ], ... }。指定空阵列 ([]) 即表示应用程序未使用端口；在此情况下未注入默认值。
 
@@ -95,18 +95,18 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
       - `"privileged": false` 不提供扩展权限。这是默认值。
       - `"privileged": true` 提供扩展权限。
     - **parameters** 用于 Mesos 容器执行的 `docker run` 命令的命令行选项。以此方式传递的参数不保证将来获得支持，因为 Mesos 可能不总是通过 CLI 与 Docker 进行交互。
-    - **pullConfig** 一个密钥，它的值是密钥存储库中的一个字符串化 JSON 对象。参见 [使用专用 Docker 注册表](/mesosphere/dcos/1.13/deploying-services/private-docker-registry/#secret-store-instructions)。
+    - **pullConfig** 一个密钥，它的值是密钥存储库中的一个字符串化 JSON 对象。参见 [使用专用 Docker 注册表](/mesosphere/dcos/cn/1.13/deploying-services/private-docker-registry/#secret-store-instructions)。
 
 - **volume** 容器中可访问的卷。
     - **containerPath** 容器读写数据的路径。
-    - **external** 外部持久卷。参见 [外部持久卷](/mesosphere/dcos/1.13/storage/external-storage/)。
+    - **external** 外部持久卷。参见 [外部持久卷](/mesosphere/dcos/cn/1.13/storage/external-storage/)。
         - **name** 卷驱动程序用来查找外部卷的名称。
         - **provider** 存储提供商。
-        - **options** 用于存储的 Docker 卷驱动程序。DC/OS 支持的 Docker 卷驱动程序只有 [REX-Ray](/mesosphere/dcos/1.13/storage/external-storage/)。
+        - **options** 用于存储的 Docker 卷驱动程序。DC/OS 支持的 Docker 卷驱动程序只有 [REX-Ray](/mesosphere/dcos/cn/1.13/storage/external-storage/)。
         - **size** 外部持久卷的大小（GiB）。
     - **hostPath** 主机路径。
     - **mode** 卷的访问模式，为读写（`RW`） 或只读 (`RO`）模式。
-    - **persistent** 本地持久卷。参见 [本地持久卷](/mesosphere/dcos/1.13/storage/persistent-volume/)。
+    - **persistent** 本地持久卷。参见 [本地持久卷](/mesosphere/dcos/cn/1.13/storage/persistent-volume/)。
         - **size** 本地持久卷的大小 (MiB)。
 
 ### cpus
@@ -140,7 +140,7 @@ URI 包括：
 只有当在使用 DC/OS 通用容器运行时 (UCR) 容器时，此属性才适用。GPU 资源支持对 Docker 容器不可用。
 
 ### healthChecks
-针对应用程序任务运行的一系列检查。Marathon 运行状况检查对群集分布的容器进行定期检查，以确保它们正常运行和响应。如需更多信息，请参阅 [运行状况检查文档](/mesosphere/dcos/1.13/deploying-services/creating-services/health-checks/)。
+针对应用程序任务运行的一系列检查。Marathon 运行状况检查对群集分布的容器进行定期检查，以确保它们正常运行和响应。如需更多信息，请参阅 [运行状况检查文档](/mesosphere/dcos/cn/1.13/deploying-services/creating-services/health-checks/)。
 
 运行状况检查包括：
 
@@ -188,7 +188,7 @@ URI 包括：
 
 
 ### portDefinitions
-代理主机上所需端口资源阵列。阵列中的项目数量决定了为每个任务分配的动态端口数。为端口数为零的端口分配全局唯一（群集范围）的服务端口，并作为应用定义的一部分用于负载均衡定义中。如需更多信息，请参阅 [网络文档](/mesosphere/dcos/1.13/networking/)。
+代理主机上所需端口资源阵列。阵列中的项目数量决定了为每个任务分配的动态端口数。为端口数为零的端口分配全局唯一（群集范围）的服务端口，并作为应用定义的一部分用于负载均衡定义中。如需更多信息，请参阅 [网络文档](/mesosphere/dcos/cn/1.13/networking/)。
 
 端口定义包括：
 
@@ -203,7 +203,7 @@ URI 包括：
 
 0 的特殊端口值告诉 Marathon 从 Mesos 资源邀约中选择所有主机端口，并在配置服务端口范围内选择所有服务端口。
 
-在 [`container.portMappings`](#container) 中为 Docker 容器配置端口分配。如果使用 [通用容器运行时](/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/)，请将零作为端口值传递，为各个应用实例生成一个或多个任意自由端口。如需更多信息，请参阅 [容器](/mesosphere/dcos/1.13/deploying-services/containerizers/)。
+在 [`container.portMappings`](#container) 中为 Docker 容器配置端口分配。如果使用 [通用容器运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/)，请将零作为端口值传递，为各个应用实例生成一个或多个任意自由端口。如需更多信息，请参阅 [容器](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)。
 
 ### requirePorts
 是不是自动分配任务的主机端口。
@@ -212,7 +212,7 @@ URI 包括：
 - `"requirePorts": true` 提前手动指定端口。Marathon 将仅安排有指定端口可用的主机上的相关任务。
 
 ### residency
-设置有状态的应用程序。如需更多信息，请参阅 [本地持久卷](/mesosphere/dcos/1.13/storage/persistent-volume/)。**Deprecated**。
+设置有状态的应用程序。如需更多信息，请参阅 [本地持久卷](/mesosphere/dcos/cn/1.13/storage/persistent-volume/)。**Deprecated**。
 
 - **taskLostBehavior** 指示 Marathon 是否会在收到 `TASK_LOST` 状态更新之后，在另一个节点启动任务。
 

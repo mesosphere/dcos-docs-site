@@ -17,7 +17,7 @@ enterprise: false
 dcos package install [--options=<config-file-name>.json] <servicename>
 ```
 
-使用可选 `--options` 标记指定您在 [高级配置] 中创建的自定义 JSON 文件的名称(/mesosphere/dcos/1.13/deploying-services/config-universe-service/)。
+使用可选 `--options` 标记指定您在 [高级配置](/mesosphere/dcos/cn/1.13/deploying-services/config-universe-service/) 中创建的自定义 JSON 文件的名称。
 
 例如，使用以下命令安装具有默认参数的 Chronos。
 
@@ -27,12 +27,12 @@ dcos package install chronos
 
 ## 使用 UI 安装服务
 
-在 DC/OS UI 中，您可以从 **服务** 或 **{{ model.packagerepo }}** 选项卡安装服务。“{{ model.packageRepo }}”选项卡显示包 [资源库] 中所有可用的 DC/OS 服务(/mesosphere/dcos/1.13/administering-clusters/package-registry/)。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
+在 DC/OS UI 中，您可以从 **服务** 或 **{{ model.packageRepo }}** 选项卡安装服务。“{{ model.packageRepo }}”选项卡显示包 [资源库](/mesosphere/dcos/cn/1.13/administering-clusters/package-registry/) 中所有可用的 DC/OS 服务。“服务”选项卡为本地 DC/OS Marathon 实例提供了完整的功能界面。
 
 
 ### {{ model.packageRepo }} 选项卡
 
-1. 导航至 DC/OS UI 中的 [**{{ model.packageRepo }}**](/mesosphere/dcos/1.13/gui/catalog/) 选项卡。
+1. 导航至 DC/OS UI 中的 [**{{ model.packageRepo }}**](/mesosphere/dcos/cn/1.13/gui/catalog/) 选项卡。
 
     ![{{ model.packageRepo }}](/mesosphere/dcos/1.13/img/GUI-Catalog-Main_View-1_12.png)
 
@@ -40,12 +40,12 @@ dcos package install chronos
 
 2. 单击包。
     1. 单击 **审查并运行**。
-    2. 可选择单击 [**编辑**](/mesosphere/dcos/1.13/deploying-services/config-universe-service/)，自定义参数，然后单击 **查看并运行**。
+    2. 可选择单击 [**编辑**](/mesosphere/dcos/cn/1.13/deploying-services/config-universe-service/)，自定义参数，然后单击 **查看并运行**。
     3. 单击 **运行服务**。
 
 ### Services 选项卡
 
-1. 导航至 DC/OS UI 中的 [**服务**](/mesosphere/dcos/1.13/gui/services/) 选项卡。
+1. 导航至 DC/OS UI 中的 [**服务**](/mesosphere/dcos/cn/1.13/gui/services/) 选项卡。
 1. 单击 **运行服务**，并指定您的 Marathon 应用定义。
 
     ![service tab](/mesosphere/dcos/1.13/img/GUI-Services-No_Services_Running-1_12.png)

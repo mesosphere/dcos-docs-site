@@ -16,19 +16,19 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 
 ## 配备 GPU 的自定义 DC/OS 安装
 
-1. 在每个具有 GPU 的群集节点上安装 [NVIDIA 管理库 (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml)。所需的 NVIDIA 驱动程序最低版本为 340.29。有关详细的安装说明，请参阅 [Mesos GPU 支持文档] （http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies）。
-1. 使用 [自定义高级安装说明] 安装 DC/OS (/mesosphere/dcos/1.13/installing/production/advanced-configuration/)。以下是 GPU 特定的配置参数：
+1. 在每个具有 GPU 的群集节点上安装 [NVIDIA 管理库 (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml)。所需的 NVIDIA 驱动程序最低版本为 340.29。有关详细的安装说明，请参阅 [Mesos GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies)。
+1. 使用 [自定义高级安装说明](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/) 安装 DC/OS 。以下是 GPU 特定的配置参数：
 
     - **enable_gpu_isolation**：指示是否在 DC/OS 中启用 GPU 支持。默认设置为 `enable_gpu_isolation: 'true'`。
     - **gpus_are_scarce**：指示是否将 GPU 作为群集中的稀缺资源。默认设置为 `gpus_are_scarce: 'true'`，这意味着 DC/OS 仅为配置为占用 GPU 资源的服务保留 GPU 节点。值得注意的是，此设置将影响 GPU 感知框架的哪些代理节点将部署在 DC/OS 上 。此设置不影响框架在运行时可能启动的具体任务。框架可以在有 GPU 的代理节点上安排非 GPU 任务。
 
-    有关更多信息，请参阅 [配置参数文档] (/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuring-gpu-nodes/) 和 Mesos [Nvidia GPU 支持文档] （http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies）。
+    有关更多信息，请参阅 [配置参数文档](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuring-gpu-nodes/) 和 Mesos [Nvidia GPU 支持文档](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencie)s。
 
 ## 带有 GPU 的 AWS EC2 DC/OS 安装
 
 ## 先决条件
-- AWS DC/OS 高级模板 [系统要求](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/advanced/template-reference/)。
-- 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/advanced/)。
+- AWS DC/OS 高级模板 [系统要求](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/advanced/template-reference/)。
+- 复制到本地机器的 `zen.sh` 脚本。脚本和说明在 [此处](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/advanced/)。
 
 ### 创建依赖关系
 
@@ -40,7 +40,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 
     <p class="message--important"><strong></strong>重要信息：执行后续步骤前，必须运行“zen.sh”脚本。</p>
 
-1. 请根据 [此处](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuring-gpu-nodes/#aws-ec2-dcos-installation-with-gpus/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
+1. 请根据 [此处](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuring-gpu-nodes/#aws-ec2-dcos-installation-with-gpus/) 说明，使用以下 GPU 专用配置创建具有高级 AWS 模板的群集。
 
     在 **创建堆栈** > **指定详情**页面指定您的堆栈信息并单击 **下一步**。以下是 GPU 特定设置。
 
@@ -108,7 +108,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 您还将在服务的 **配置** 选项卡上看到 DC/OS  GUI 的 **GPU** 条目。
 
 ## 基于 Docker 的应用定义
-在本示例中部署了一个具有 GPU 的应用程序，用于指定 Docker 容器和 [DC/OS 通用容器运行时间 (UCR)](/mesosphere/dcos/1.13/deploying-services/containerizers/) （容器类型为 `MESOS`）。
+在本示例中部署了一个具有 GPU 的应用程序，用于指定 Docker 容器和 [DC/OS 通用容器运行时间 (UCR)](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/) （容器类型为 `MESOS`）。
 
 1. 创建名为 `docker-gpu-test.json` 的应用定义。
 
@@ -137,14 +137,14 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
     dcos marathon app add docker-gpu-test.json
     ```
 
-1. 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/mesosphere/dcos/1.13/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **健康** 页面访问日志。
+1. 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/mesosphere/dcos/cn/1.13/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **健康** 页面访问日志。
 
 
 您还将在服务页面的 **配置** 选项卡上看到 **GPU** 条目。
 
 ## 详细了解 GPU
 
-- [什么是 GPU 计算？] （http://www.nvidia.com/object/what-is-gpu-computing.html）
+- [什么是 GPU 计算？](http://www.nvidia.com/object/what-is-gpu-computing.html)
 - [Mesos NVIDIA GPU 支持](https://github.com/apache/mesos/blob/master/docs/gpu-support.md)。
 - [教程：使用 TensorFlow、Nvidia 和 Apache Mesos (DC/OS ) 进行深入学习](https://dcos.io/blog/2017/tutorial-deep-learning-with-tensorflow-nvidia-and-apache-mesos-dc-os-part-1/index.html)。
 - 演示文稿：[在 Apache Mesos 上 Docker 容器中支持 GPU](https://docs.google.com/presentation/d/1FnuEW2ic5d-cpSyVOUMfUSM7WxJlZtTAAWt2dZXJ52A/edit#slide=id.p)。
