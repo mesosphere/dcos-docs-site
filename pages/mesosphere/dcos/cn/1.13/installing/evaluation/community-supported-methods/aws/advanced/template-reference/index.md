@@ -14,7 +14,7 @@ render: mustache
 [Zen](#zen) 模板编排各个组件模板，用于创建 DC/OS 群集。
 
 #### 代理模板
-[代理](#private-agent) 模板创建 [公共](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#public-agent-node) 或 [专用](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。
+[代理](#private-agent) 模板创建 [公共](/mesosphere/dcos/cn/{{ model.folder_version }}/overview/concepts/#public-agent-node) 或 [专用](/mesosphere/dcos/cn/{{ model.folder_version }}/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。
 
 #### 管理节点模板
 [管理节点](#master) 模板在已创建基础架构堆栈的基础上创建管理节点。
@@ -77,7 +77,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
     <td>供所有公共代理节点使用的子网 ID</td>
   </tr>
   <tr>
-    <td>Vpc</td>
+    <td>VPC</td>
     <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
   </tr>
 </table>
@@ -236,7 +236,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
     <td>供所有公共代理节点使用的子网 ID</td>
   </tr>
   <tr>
-    <td>Vpc</td>
+    <td>VPC</td>
     <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
   </tr>
 </table>

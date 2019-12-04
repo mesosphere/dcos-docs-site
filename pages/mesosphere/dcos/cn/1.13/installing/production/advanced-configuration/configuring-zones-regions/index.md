@@ -16,7 +16,7 @@ model: /mesosphere/dcos/1.13/data.yml
 区域是具有隔离电源、网络和连接的故障域。通常，分区是云提供商管理的单个数据中心或本地独立的故障域。例如，AWS 可用性分区或 GCP 分区。分区内的服务器通过高带宽（例如，1-10+ Gbps）、低延迟（高达 1 ms）和低成本链接建立连接。
 
 ## 分域
-分域是由一个或多个分区组成的地理分域，例如一片地铁区域。分域内的分区通过高带宽（例如，[1-4 Gbps](https://blog.serverdensity.com/network-performance-aws-google-rackspace-softlayer/)）、低延迟（高达 10 ms）、低成本建立链接。分域通常通过可变带宽通过公共互联网连接（例如，10-100 Mbps(https://cloudharmony.com/speedtest-for-aws)） 和延迟 ([100-500 ms](https://www.concurrencylabs.com/blog/choose-your-aws-region-wisely/)) 链接。
+分域是由一个或多个分区组成的地理分域，例如一片地铁区域。分域内的分区通过高带宽（例如，[1-4 Gbps](https://blog.serverdensity.com/network-performance-aws-google-rackspace-softlayer/)）、低延迟（高达 10 ms）、低成本建立链接。分域通常通过可变带宽通过公共互联网连接（例如，[10-100 Mbps](https://cloudharmony.com/speedtest-for-aws)） 和延迟 [100-500 ms](https://www.concurrencylabs.com/blog/choose-your-aws-region-wisely/) 链接。
 
 ## 机架
 机架通常由一组服务器（节点）组成。机架有自己的电源和开关，它们全都安装在同一框架上。在 AWS 等公共云平台上，机架没有等效概念。
@@ -85,8 +85,8 @@ HA 服务应当分离，责任在服务之间分派。例如，Web 服务应从�
 
 快速故障切换可通过以下方式实现：
 
- * 使用 HA 负载均衡器，如 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.13/)，或内部 [第 4 层负载均衡器](/mesosphere/dcos/1.13/networking/load-balancing-vips/)。
- * 根据 [12 因素应用] (http://12factor.net/) 原则构建应用程序。
+ * 使用 HA 负载均衡器，如 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.13/)，或内部 [第 4 层负载均衡器](/mesosphere/dcos/cn/1.13/networking/load-balancing-vips/)。
+ * 根据 [12 因素应用](http://12factor.net/) 原则构建应用程序。
  * 在构建服务时遵循 REST 最佳做法：尤其是避免在请求之间在服务器上存储客户端状态。
 
 许多 DC/OS 服务在出现错误时遵循故障快速切换模式。具体而言，出现不可恢复的情况时（如失去领导作用），Mesos 和 Marathon 都将关闭。

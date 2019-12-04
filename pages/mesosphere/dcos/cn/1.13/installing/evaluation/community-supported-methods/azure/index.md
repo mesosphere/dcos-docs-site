@@ -248,6 +248,6 @@ dcos package search
 - [安装 DC/OS 命令行界面 (CLI)][2]
 - [扩展注意事项][4]
 
-[1]: /mesosphere/dcos/{{ model.folder_version }}/security/ent/users-groups/
-[2]: /mesosphere/dcos/{{ model.folder_version }}/cli/install/
+[1]: /mesosphere/dcos/cn/{{ model.folder_version }}/security/ent/users-groups/
+[2]: /mesosphere/dcos/cn/{{ model.folder_version }}/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/
