@@ -14,7 +14,7 @@ render: mustache
 
 可以使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
 
-[message type="warning"] DC/OS CloudFormation 模板仅供参考，因为以下限制不推荐用于生产用途：
+[message type="warning"]<strong>免责声明：</strong>DC/OS CloudFormation 模板仅供参考，因为以下限制不推荐用于生产用途：
 
 - CloudFormation 不允许在自动扩展组内进行协调的零停机就地更新。
 - CloudFormation 不允许自动扩展组的自动零停机更换。
@@ -22,5 +22,5 @@ render: mustache
 - 对 AWS CloudFormation 的 DC/OS 更新尚未完成自动化、验证或记录。
 - Mesosphere, Inc. 不支持经过修改的 CloudFormation 模板。
 
-安装可以就地升级的生产就绪型 DC/OS 的推荐方法是使用 [安装方法](/mesosphere/dcos/{{ model.folder_version }}/installing/production/deploying-dcos/installation/)。
+安装可以就地升级的生产就绪型 DC/OS 的推荐方法是使用 [安装方法](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/production/deploying-dcos/installation/)。
 [/message]

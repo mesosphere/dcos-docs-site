@@ -19,7 +19,7 @@ render: mustache
 
 ## 安全
 
-<p class="message--important"><strong>重要信息：</strong>使用此方法就会默认打开网络。因此<a href="/mesosphere/dcos/{{ model.folder_version }}/administering-clusters/securing-your-cluster/#network-security">网络安全</a>令人担忧，管理员应尽快解决。</p>
+<p class="message--important"><strong>重要信息：</strong>使用此方法就会默认打开网络。因此<a href="/mesosphere/dcos/cn/{{ model.folder_version }}/administering-clusters/securing-your-cluster/#network-security">网络安全</a>令人担忧，管理员应尽快解决。</p>
 
 ## 环境
 
@@ -108,7 +108,7 @@ render: mustache
 
   图 1. Terraform 应用输出
 
-可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/mesosphere/dcos/{{ model.folder_version }}/installing/troubleshooting/) 文档。
+可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/troubleshooting/) 文档。
 
 # 启动 DC/OS
 输入 Mesos 管理节点 IP 地址启动 DC/OS Web 界面：

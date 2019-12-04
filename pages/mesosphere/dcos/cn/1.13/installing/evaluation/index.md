@@ -49,7 +49,7 @@ Terraform 是一种开源基础架构自动化工具，使用模板来管理多�
 ## 其他安装方法
 这些安装方法由社区提供，未经 Mesosphere 测试。在使用以下安装时，升级 DC/OS 不是受支持的功能。
 
-- [AWS 上的 Cloudformation](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) (AWS)：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
+- [AWS 上的 CloudFormation](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) (AWS)：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
 - [Azure 资源管理器模板](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/azure/)：使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
 - [用于 DigitalOcean 的 Mesosphere Universal 安装工具](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/digitalocean/)：使用配置为在 DigitalOcean 上运行 Mesosphere DC/OS 的 Terraform 模板，在 DigitalOcean 上安装您的 DC/OS 群集。
 - [用于 Packet（裸机）的 Mesosphere Universal 安装工具](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/packet/)：裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。

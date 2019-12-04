@@ -20,11 +20,7 @@ render: mustache
 
 模板一起用于创建 DC/OS 群集。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 
-<table class=“table” bgcolor=#858585>
-<tr>
-  <td align=justify style=color:white><strong>重要信息：</strong>此安装方法不支持升级。</td>
-</tr>
-</table>
+<p class="message--warning"><strong>重要信息：</strong>此安装方法不支持升级。</p>
 
 ## 前提条件
 
@@ -97,7 +93,7 @@ render: mustache
     aws_template_storage_secret_access_key: <your-secret-access_key>
 
 
-有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/)。
+有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/)。
 
 3. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 物件和模板的自定义构造并将其上传到指定的 s3 bucket。
 
@@ -216,11 +212,11 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
     * **InternetGateway** 指定 `InternetGatewayID` 脚本的 `zen.sh` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
     * **KeyName** 指定 AWS EC2 密钥对。
     * **MasterInstancEtype** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
-    * **PrivateAgentInstancEcount** 指定专用代理的数量。
+    * **PrivateAgentInstanceCount** 指定专用代理的数量。
     * **PrivateAgentInstancEtype** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
-    * **PrivatEsubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
-    * **PublicAgentInstancEcount** 指定公共代理的数量。
-    * **PublicAgentInstancEtype** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+    * **PrivateSubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
+    * **PublicAgentInstanceCount** 指定公共代理的数量。
+    * **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
     * **PublicSubnet** 指定 `Public SubnetId` 脚本的 `zen.sh` 输出值。所有公共代理都将使用该子网 ID。
     * **Vpc** 指定 `VpcId` 脚本的 `zen.sh` 输出值。所有节点都将使用该 VPC 项下的子网和互联网网关启动。
 
@@ -310,17 +306,17 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 * **InternalMasterLoadBalancerDnsName** 指定主栈 (`<stack-name>-MasterStack-<stack-id>`)的 `InternalMasterLoadBalancerDnsName` 值。可以在 **输出** 选项卡中找到此值。
 * **KeyName** 指定 AWS EC2 密钥对。
-* **PrivateAgentInstancEcount** 指定专用代理的数量。
+* **PrivateAgentInstanceCount** 指定专用代理的数量。
 * **PrivateAgentInstancEtype** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
 * **PrivateAgentSecurityGroup** 指定专用代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 (`<stack-name>-Infrastructure-<stack-id>`) 的 **输出** 选项卡中找到此值。
-* **PrivatEsubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
+* **PrivateSubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
 
 公共代理：
 
 * **InternalMasterLoadBalancerDnsName** 指定主栈 (`<stack-name>-MasterStack-<stack-id>`)的 `InternalMasterLoadBalancerDnsName` 值。可以在 **输出** 选项卡中找到此值。
 * **KeyName** 指定 AWS EC2 密钥对。
-* **PublicAgentInstancEcount** 指定公共代理的数量。
-* **PublicAgentInstancEtype** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+* **PublicAgentInstanceCount** 指定公共代理的数量。
+* **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
 * **PublicAgentSecurityGroup** 指定公共代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 (`<stack-name>-Infrastructure-<stack-id>`) 的 **输出** 选项卡中找到此值。
 * **PublicSubnet** 指定 `Public SubnetId` 脚本的 `zen.sh` 输出值。所有公共代理都将使用该子网 ID。
 
@@ -336,4 +332,4 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 
 # 模板参考
-如需完整的高级配置选项，请参阅模板参考 [文档](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/)。
+如需完整的高级配置选项，请参阅模板参考 [文档](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/)。

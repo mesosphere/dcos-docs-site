@@ -63,16 +63,16 @@ render: mustache
 
     以下字段具有默认值，可根据您的要求进行更改：
 
-    - `packet_facility` - Packet 设施：[ewr1|sjc1|ams1]
-      ewr1 is New Jersey, ams1 is Amsterdam, sjc1 is San Jose - default sjc1
+    - `packet_facility` - Packet 设施：[`ewr1`|`sjc1`|`ams1`]
+      `ewr1` is New Jersey, `ams1` is Amsterdam, `sjc1` is San Jose - default `sjc1`
 
-    - `packet_agent_type` - 用于 DC/OS 代理的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
+    - `packet_agent_type` - 用于 DC/OS 代理的 Packet 服务器类型：[`baremetal_0`|`baremetal_1`|`baremetal_3`]
       选择用于 DC/OS 专用代理的 Packet 服务器类型——默认为 `baremetal_0`
 
-    - `packet_master_type` - 用于 DC/OS 管理节点的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
+    - `packet_master_type` - 用于 DC/OS 管理节点的 Packet 服务器类型：[`baremetal_0`|`baremetal_1`|`baremetal_3`]
       选择用于 DC/OS 管理节点的 Packet 服务器类型——默认为 `baremetal_0`
 
-    - `packet_boot_type` - 用于 DC/OS Boot 节点的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
+    - `packet_boot_type` - 用于 DC/OS Boot 节点的 Packet 服务器类型：[`baremetal_0`|`baremetal_1`|`baremetal_3`]
       选择用于 DC/OS Boot 服务器的 Packet 服务器类型——默认为 `baremetal_0`
 
     - `dcos_cluster_name` - DC/OS 群集的名称——默认为 `packet-dcos`
