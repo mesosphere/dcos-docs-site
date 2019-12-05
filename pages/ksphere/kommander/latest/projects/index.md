@@ -6,7 +6,7 @@ menuWeight: 8
 excerpt: Multi-cluster Configuration Management
 ---
 
-Projects empower teams to deploy their configurations and services to clusters in a consistent way. Using cluster labels to identify target clusters, Kommander relays project configuration, such as applications, secrets, and role-based authorization to dedicated namespaces on managed clusters.
+Projects empower teams to deploy their configurations and services to clusters in a consistent way. Kommander creates a unique namespace for each managed cluster. Using cluster labels to identify target clusters, Kommander relays project configuration, such as applications, secrets, and role-based authorization to dedicated namespaces on managed clusters.
 
 ## Project Namespace
 
@@ -34,7 +34,11 @@ Policies are distributed to all clusters selected by a project and grant access 
 Changing cluster / project labels which lead to deselection which will cause the roles to be removed from the deselected clusters again.
 </p>
 
-## ConfigMaps & Secrets
+## Configuration
+
+In Kommander you can configure ConfigMaps and Secrets for your projects. 
+
+### ConfigMaps & Secrets
 
 Project ConfigMaps and Project Secrets allow you to define those configuration resources once and have them distributed to all project clusters.
 
