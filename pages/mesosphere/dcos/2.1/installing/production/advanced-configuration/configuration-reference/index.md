@@ -550,7 +550,7 @@ Indicates whether Marathon will schedule non-GPU tasks on nodes with an availabl
 *  `master_discovery: static`
    Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address.
 
-   <p class="message--note"><strong>NOTE: </strong>In AWS it is not possible to set a local IP address, thus master_discovery:static can not be utilized.</p>
+   <p class="message--note"><strong>NOTE: </strong>On platforms like AWS where internal IPs are typically allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability. Only use a static master list when you can ensure that the master IPs do not change.</p>
 
    If you specify `static`, you must also specify this parameter:
 
