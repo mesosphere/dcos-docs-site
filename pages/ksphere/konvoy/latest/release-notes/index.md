@@ -9,6 +9,59 @@ enterprise: false
 
 ## Release Notes
 
+### Version 1.2.6 - Release 2 December 2019
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.15.x |
+|**Default** | 1.15.5 |
+
+#### Improvements
+N/A
+
+#### Addons improvements
+
+N/A
+
+#### Bug fixes
+
+- Fix a bug where using a custom VPC ID with VPC Endpoints caused Terraform to fail.
+- Fix a bug when installing an air-gapped cluster would fail if `localhost` does not resolve to `127.0.0.1` on the install machine.
+- Fix a bug when installing an air-gapped would fail if the install machine also does not have access access to the upstream helm repos.
+
+#### Component version changes
+
+- Kubeaddons `v0.1.6`
+
+#### Known issues and limitations
+
+Known issues and limitations don’t necessarily affect all customers, but might require changes to your environment to address specific scenarios.
+The issues are grouped by feature, functional area, or component.
+Where applicable, issue descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference.
+
+-   The Deb packages provided were tested with Ubuntu 16.04 LTS - Xenial machines and may not work on other Debian distributions.
+
+-   Docker provisioner reports potential issues if there are insufficient resources.
+
+    If you deploy a cluster on a machine with insufficient resources, there can be issues when the installation starts to deploy Addons.
+    Error messages similar to _could not check tiller installation_ are typically caused by insufficient resources.
+
+-   Dex should always be enabled.
+
+    For this Konvoy release, `dex`, `dex-k8s-auth`, and `traefik-auth` are tightly coupled and must all be enabled.
+    Disabling any of these addons prevents certain operations from correctly working.
+    This issue will be addressed in a future release.
+
+-   The authentication token has no permissions.
+
+    After logging on through an identity provider, regardless of the source (password or otherwise), the identified user has no permissions assigned.
+    To enable an authenticated user to perform administrative actions, you must manually add role bindings.
+
+-   Upgrades might fail when `workers` is set to one.
+
+    The upgrade command might fail when the cluster is configured with only one worker. Add an additional worker, for the upgrade, to workaround this issue.
+
 ### Version 1.2.5 - Released 8 November 2019
 
 | Kubernetes Support | Version |
@@ -30,9 +83,9 @@ N/A
 
 #### Bug fixes
 
-- Fixed a bug where air-gapped artifacts were not properly mounted in the Konvoy container, preventing the air-gapped installation on certain environments.
-- Fixed a bug where the Konvoy wrapper did not load the Konvoy image before trying to pull the image.
-- Fixed a bug preventing traefik-forward-auth from working with domain-based authentication.
+- Fix a bug where air-gapped artifacts were not properly mounted in the Konvoy container, preventing the air-gapped installation on certain environments.
+- Fix a bug where the Konvoy wrapper did not load the Konvoy image before trying to pull the image.
+- Fix a bug preventing traefik-forward-auth from working with domain-based authentication.
 
 #### Component version changes
 
