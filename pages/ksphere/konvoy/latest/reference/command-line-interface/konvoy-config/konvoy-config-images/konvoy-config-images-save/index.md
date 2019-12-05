@@ -14,7 +14,7 @@ Save all docker images used during the installation as tars
 
 ### Synopsis
 
-Save all docker images, used during the installation, as tars.
+Save all docker images used during the installation as tars
 
 ```
 konvoy config images save [flags]

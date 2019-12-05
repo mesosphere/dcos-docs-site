@@ -14,7 +14,7 @@ List all docker images used during the installation
 
 ### Synopsis
 
-Lists all docker images used during the installation.
+List all docker images used during the installation
 
 ```
 konvoy config images list [flags]
