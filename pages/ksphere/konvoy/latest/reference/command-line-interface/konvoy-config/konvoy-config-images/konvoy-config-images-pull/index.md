@@ -14,7 +14,7 @@ Pull all docker images used during the installation
 
 ### Synopsis
 
-Puls all docker images used during the installation.
+Pull all docker images used during the installation
 
 ```
 konvoy config images pull [flags]

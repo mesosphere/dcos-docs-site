@@ -14,7 +14,7 @@ Load all docker images used during the installation from tars
 
 ### Synopsis
 
-Loads all docker images, used during the installation, from tars.
+Load all docker images used during the installation from tars
 
 ```
 konvoy config images load [flags]
