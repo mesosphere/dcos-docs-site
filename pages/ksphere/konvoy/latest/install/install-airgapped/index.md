@@ -77,12 +77,13 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-config-repository $(dirname "$(which konvoy)")/kubeaddons-configs --addons-config-version stable-1.15.5-2-air-gapped [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-config-repository /opt/konvoy/artifacts/kubeaddons-configs --addons-config-version stable-1.15.5-2-air-gapped [--cluster-name <your-specified-name>]
    ```
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
    The additional `--addons-config-repository` and `--addons-config-version` flag will result in the generated `cluster.yaml` to set the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
+   The path `/opt/konvoy/artifacts/kubeaddons-configs` is the directory path where the `konvoy` binary is mounted from the host into the container. **Note:** This should not be changed unless you are referencing a different `kubeaddons-configs/` than the one provided in the tar.
 
    ```yaml
    kind: ClusterConfiguration
