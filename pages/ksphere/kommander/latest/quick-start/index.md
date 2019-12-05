@@ -10,7 +10,7 @@ excerpt: Getting started with Kommander
 
 ### Before you begin
 
-The installation will rely on AWS as the cloud provider, thus most requirements revolve around having proper access to AWS.
+The *installation* will rely on **AWS** as the cloud provider, thus most requirements revolve around having proper access to AWS.
 
 Before starting the Konvoy installation, you should verify the following:
 
@@ -75,21 +75,3 @@ To retrieve this information again, you can use the following command:
 ```
 konvoy get ops-portal
 ```
-
-### Setting up Identity Providers
-
-Kommander supports Github, LDAP and standard OIDC identity providers such as Google. These identity management providers support the login and authentication process for Kommander and Kubernetes clusters. You can configure as many identity providers as you like. Your users will be able to select from any method when logging in.
-
-For more information, see [Identity Providers](../operations/identity-providers) in the Administrating section.
-
-## Creating a Project
-
-You can create projects to deploy consistent configurations and services to clusters. Kommander creates a unique namespace for each managed cluster. After you configure roles, secrets, and application services for a project, Kommander distributes the desired state to each project namespace.
-
-For more information, see the [Projects](../projects) section
-
-## Adding Clusters
-
-Connect Kubernetes clusters to Kommander by importing existing clusters or creating new Konvoy clusters.
-
-For more information, see the [Clusters](../clusters) section
