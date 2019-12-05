@@ -28,7 +28,7 @@ None.
 
 | Name, shorthand | Default | Description |
 |---------|-------------|-------------|
-| `<nodes>`   |             |  Node to run command upon. A node can be any of the following: IP address, hostname, Mesos ID, or the keywords "all", "masters", "agents". You must use quotation marks around keywords. |
+| `<nodes>`   |             |  Node to run command upon. A node can be any of the following: IP address, hostname, Mesos ID, or the keywords `all`, `masters`, `agents`. |
 
 # Parent command
 
