@@ -436,7 +436,7 @@ Indicates whether the leading Mesos master should log the offers sent to schedul
 *  `master_discovery: static`
    Specifies that Mesos agents are used to discover the masters by giving each agent a static list of master IPs. The masters must not change IP addresses, and if a master is replaced, the new master must take the old master's IP address.
 
-   **Note:** In AWS it is not possible to set a local IP address, thus master_discovery:static can not be utilized.
+   **Note:** On platforms like AWS where internal IPs are typically allocated dynamically, you should not use a static master list. If a master instance were to terminate for any reason, it could lead to cluster instability. Only use a static master list when you can ensure that the master IPs do not change.
 
    If you specify `static`, you must also specify this parameter:
 
