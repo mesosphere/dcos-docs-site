@@ -64,7 +64,7 @@ FAILED! => {"failed": true, "msg": "ERROR! Timeout (12s) waiting for privilege e
 
 [WARNING]: No inventory was parsed, only implicit localhost is available
 
-[WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
+[WARNING]: Provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
 ```
 确保您位于含有清单文件的目录中。有关清单文件的更多信息，请参阅 [Ansible 文档](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory)。
 
@@ -83,7 +83,7 @@ fatal: [172.16.2.65]: FAILED! => {"changed": true, "cmd": ["bash", "dcos_generat
 module.dcos.module.dcos-install.module.dcos-install.null_resource.run_ansible_from_bootstrap_node_to_install_dcos (remote-exec): 	to retry, use: --limit @/dcos_playbook.retry
 ```
 
-上述错误实际上不是 Ansible 错误，但是 dcos 发出的错误会生成配置脚本。请确保您的 DC/OS 配置有正确的密钥值。请参阅 DC/OS 文档了解 [配置参考](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/)。
+上述错误实际上不是 Ansible 错误，但是 dcos 发出的错误会生成配置脚本。请确保您的 DC/OS 配置有正确的密钥值。请参阅 DC/OS 文档了解 [配置参考](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/)。
 
 ## 下载 URL 失败
 确保您已为正在尝试安装的 DC/OS 的版本指定了正确的 URL。您可以通过以下方式找到可用链接：
