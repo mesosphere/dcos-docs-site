@@ -7,6 +7,7 @@ menuWeight: 50
 model: /mesosphere/dcos/services/hive-metastore/data.yml
 render: mustache
 enterprise: true
+quota-aware: true
 ---
 
 # DC/OS {{ model.techName }} Security

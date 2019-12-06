@@ -7,6 +7,7 @@ menuWeight: 50
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 enterprise: true
+quota-aware: true
 ---
 
 
