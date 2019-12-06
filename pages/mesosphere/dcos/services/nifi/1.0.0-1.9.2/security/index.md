@@ -8,6 +8,7 @@ featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
+quota-aware: true
 ---
 
 # DC/OS {{ model.techName }} Security

@@ -4,7 +4,19 @@ Use the following DC/OS CLI commands to rapidly provision the {{ model.techName 
 
 1.  Create the permission.
 
-<p class="message--important"><strong>IMPORTANT: </strong>The value to be used for <tt>&lt;service-role&gt;</tt> will be based on the service name. The table below shows a few examples to show the pattern used by the service as it Mesos role to use. If you need help configuring the permissions for {{ model.packageName }}, please feel to reach out to D2iQ support by filing a support ticket. Replace the instances of <tt>&lt;service-role&gt;</tt> with the correct name (<tt>&lt;name&gt;-role</tt>).</p>
+{{#quota-aware}}
+<p class="message--important"><strong>IMPORTANT: </strong>The value to be used for <tt>&lt;service-role&gt;</tt> will be based on the service name, package version and DC/OS version. The table below shows a few examples of service names and the corresponding Mesos roles they would use. This version of {{ model.packageName }} is quota support built in. To determine whether the service group, you are deploying a service to, has <tt>enforceRole</tt> set to <tt>true</tt> or <tt>false</tt> please check this [KB article](https://support.d2iq.com/s/article/How-to-determine-if-a-top-level-group-is-quota-limited). If you need help configuring the permissions for {{ model.packageName }}, please feel to reach out to D2iQ support by filing a support ticket. Replace the instances of <tt>&lt;service-role&gt;</tt> with the correct name (<tt>&lt;name&gt;-role</tt>).</p>
+
+| **Service name**                       | **&lt;service-role&gt;**<br>DC/OS 1.13 or older<br>DC/OS 2.0 or newer AND enforceRole=false  | **&lt;service-role&gt;**<br>DC/OS 2.0 or newer AND enforceRole=true |
+|----------------------------------------|-----------------------------------------------|-----------------------------------------------|
+| `/{{ model.packageName }}`             |`{{ model.packageName }}-role`                 |`{{ model.packageName }}-role`                 |
+| `/{{ model.packageName }}-prod`        |`{{ model.packageName }}-prod-role`            |`{{ model.packageName }}-prod-role`            |
+| `/team01/{{ model.packageName }}`      |`team01__{{ model.packageName }}-role`         |`team01`                                       |
+| `/team01/prod/{{ model.packageName }}` |`team01__prod__{{ model.packageName }}-role`   |`team01`                                       |
+
+{{/quota-aware}}
+{{^quota-aware}}
+<p class="message--important"><strong>IMPORTANT: </strong>The value to be used for <tt>&lt;service-role&gt;</tt> will be based on the service name. The table below shows a few examples of service names and the corresponding Mesos roles they would use. If you need help configuring the permissions for {{ model.packageName }}, please feel to reach out to D2iQ support by filing a support ticket. Replace the instances of <tt>&lt;service-role&gt;</tt> with the correct name (<tt>&lt;name&gt;-role</tt>).</p>
 
 | Service name                           | &lt;service-role&gt;                           |
 |----------------------------------------|------------------------------------------------|
@@ -12,6 +24,7 @@ Use the following DC/OS CLI commands to rapidly provision the {{ model.techName 
 | `/{{ model.packageName }}-prod`        | `{{ model.packageName }}-prod-role`            |
 | `/team01/{{ model.packageName }}`      | `team01__{{ model.packageName }}-role`         |
 | `/team01/prod/{{ model.packageName }}` | `team01__prod__{{ model.packageName }}-role`   |
+{{/quota-aware}}
 
 ## Permissive 
 
