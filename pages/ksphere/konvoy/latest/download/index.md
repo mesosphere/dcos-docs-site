@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Download
 title: Download Konvoy
 menuWeight: 2
-excerpt: Learn how to download a trial instance of Konvoy 
+excerpt: Learn how to download an instance of Konvoy 
 enterprise: false
 ---
 
