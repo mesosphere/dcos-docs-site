@@ -14,7 +14,7 @@ When you are ready to download Konvoy, there are 2 possible scenarios:
 
 ## <a name="Downloading_Email">Downloading Konvoy via Email Link</a>
 
-After you contact your sales representative, an automated email from our license server will be sent to your account's primary contact with instructions on how to download Konvoy. Select the link corresponding to the OS that you will be using within the email to start your download, then follow the instructions in the [Konvoy Quick Start](../quick-start/) for your next steps.
+After you contact your sales representative, an automated email from our license server will be sent to your company's primary contact with instructions on how to download Konvoy. Select the link corresponding to the OS that you will be using within the email to start your download, then follow the instructions in the [Konvoy Quick Start](../quick-start/) for your next steps.
 
 ## <a name="Downloading_Trial>Downloading Konvoy via the Trial Page
 
