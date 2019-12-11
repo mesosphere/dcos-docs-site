@@ -18,7 +18,7 @@ DC/OS 采集四种度量标准，如下所示：
 
 * **系统：** DC/OS 群集中每个节点的度量标准。
 * **组件：** 组成 DC/OS 的组件的度量标准。
-* **容器：** 关于根据 DC/OS [通用容器运行时] (/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/)或 [Docker 引擎] (/mesosphere/dcos/1.13/deploying-services/containerizers/docker-containerizer/)运行时中运行的任务进行 `cgroup` 分配的度量标准 。
+* **容器：** 关于根据 DC/OS [通用容器运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/)或 [Docker 引擎](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/docker-containerizer/)运行时中运行的任务进行 `cgroup` 分配的度量标准 。
 * **应用程序：** 在通用容器运行时运行的任何应用程序发出的度量标准。
 
 # 度量标准的操作 
@@ -45,7 +45,7 @@ DC/OS 采集四种度量标准，如下所示：
 4. **监控和可视化度量标准：** 建议安装 DC/OS 监控服务，以监控和可视化 DC/OS 群集中的度量标准。请参阅 [服务文档](/mesosphere/dcos/services/dcos-monitoring/1.0.0/operations/install/) 了解有关如何安装和使用该服务的说明。
 
 # Telegraf
-DC/OS 1.12 版或更新版本中的度量标准，使用 [Telegraf](/mesosphere/dcos/1.13/overview/architecture/components/#telegraf) 收集和处理数据。Telegraf 提供插件驱动型架构。自定义 DC/OS 插件提供关于 DC/OS 工作负载和 DC/OS 本身性能的度量标准。Telegraf 使用 `StatsD` 进程提供采集自 DC/OS 群集主机、在这些主机上运行的容器以及在 DC/OS 上运行的应用程序的度量标准。它与 DC/OS 实现本地集成。默认情况下，它在每个节点上以 Prometheus 格式公开来自 `port 61091` 的度量标准，并通过 DC/OS [度量标准 API] (/mesosphere/dcos/1.13/metrics/metrics-api/)以 JSON 格式公开。Telegraf 包含在 DC/OS 分布中，并在群集中的每个主机上运行。
+DC/OS 1.12 版或更新版本中的度量标准，使用 [Telegraf](/mesosphere/dcos/cn/1.13/overview/architecture/components/#telegraf) 收集和处理数据。Telegraf 提供插件驱动型架构。自定义 DC/OS 插件提供关于 DC/OS 工作负载和 DC/OS 本身性能的度量标准。Telegraf 使用 `StatsD` 进程提供采集自 DC/OS 群集主机、在这些主机上运行的容器以及在 DC/OS 上运行的应用程序的度量标准。它与 DC/OS 实现本地集成。默认情况下，它在每个节点上以 Prometheus 格式公开来自 `port 61091` 的度量标准，并通过 DC/OS [度量标准 API](/mesosphere/dcos/cn/1.13/metrics/metrics-api/)以 JSON 格式公开。Telegraf 包含在 DC/OS 分布中，并在群集中的每个主机上运行。
 
 ## 使用 Telegraf
 Telegraf 通过 `dcos_statsd` 插件收集应用程序和自定义度量标准。为每个新任务启动专用的 `StatsD` 服务器。`StatsD` 服务器收到的任何度量标准都标有任务名称及其服务名称。服务器的地址由环境变量（`STATSD_UDP_HOST` 和 `STATSD_UDP_PORT`）提供。
@@ -54,7 +54,7 @@ Telegraf 通过 `dcos_statsd` 插件收集应用程序和自定义度量标准�
 
 `dcos_statsd` 收集的度量标准每 30 秒采集一次。任务必须运行至少 30 秒才能确保收集任务的度量标准。
 
-有关 DC/OS 自动收集的度量标准列表的详细信息，请阅读 [度量标准参考](/mesosphere/dcos/1.13/metrics/reference/) 文档。
+有关 DC/OS 自动收集的度量标准列表的详细信息，请阅读 [度量标准参考](/mesosphere/dcos/cn/1.13/metrics/reference/) 文档。
 
 # 故障排除 
 使用以下故障排除指南解决错误：
