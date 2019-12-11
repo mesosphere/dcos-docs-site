@@ -13,12 +13,14 @@ ZooKeeper 是一项集中协调服务，存储、维护并同步分布式系统�
 因为 ZooKeeper 状态、运作和性能可直接影响 DC/OS 群集的稳定性、弹性和性能，因此，重要的是优化 ZooKeeper 配置，以有效而高效地处理预期群集工作负载。例如，ZooKeeper 写入性能方面的问题往往会导致延迟相关问题并降低群集性能。
 
 # 事务日志和快照
-ZooKeeper 维持 Marathon 编排服务的状态信息，并且在其事务日志和快照中延续数据。对于 DC/OS 群集，ZooKeeper 快照和事务日志都存储在 `/var/lib/dcos/exhibitor` 目录中，并由 Exhibitor 服务管理。使用 DC/OS Exhibitor 的专用日志设备 (`dcos-exhibitor`) 日志文件可帮助避免资源争用和延迟问题。有关基本系统资源要求和磁盘分区的更多信息，请参见 [系统要求](/mesosphere/dcos/1.13/installing/system-requirements)。
+ZooKeeper 维持 Marathon 编排服务的状态信息，并且在其事务日志和快照中延续数据。对于 DC/OS 群集，ZooKeeper 快照和事务日志都存储在 `/var/lib/dcos/exhibitor` 目录中，并由 Exhibitor 服务管理。使用 DC/OS Exhibitor 的专用日志设备 (`dcos-exhibitor`) 日志文件可帮助避免资源争用和延迟问题。有关基本系统资源要求和磁盘分区的更多信息，请参见 [系统要求]( /mesosphere/dcos/cn/1.13/installing/system-requirements)。
 
 # 识别潜在问题
 您可以识别 ZooKeeper 相关问题的一个重要方法是，搜索 DC/OS Exhibitor (`dcos-exhibitor`) 日志文件以查看是否有与同步 (`fsync`) 操作相关的消息。如果写入事务日志时存在磁盘延迟问题，ZooKeeper 可能会记录类似以下内容的消息：
 
-`WARN SyncThread:14  fsync-ing the write ahead log in SyncThread:14 took 14818ms which will adversely effect operation latency. See the ZooKeeper troubleshooting guide`
+<p class="message--warning">
+WARN SyncThread:14  fsync-ing the write ahead log in SyncThread:14 took 14818ms which will adversely effect operation latency. See the ZooKeeper troubleshooting guide
+</p>
 
 # 健康 DC/OS 群集的建议
 因为 ZooKeeper 跟踪状态，因此它对网络延迟导致的超时很敏感。如果您遇到网络带宽超载的问题或客户端会话因网络连接太慢而被终止的问题，这些问题也会让 DC/OS 群集不太可靠。

@@ -5,7 +5,7 @@ title: 系统要求
 menuWeight: 5
 enterprise: false
 excerpt: DC/OS 部署的软硬件要求
-
+model: /mesosphere/dcos/1.13/data.yml
 render: mustache  
 ---
 DC/OS 群集由 **管理节点** 和 **代理节点** 这两种节点组成。代理节点可以是 **公共代理节点** 或 **专用代理节点**。公共代理节点通过负载均衡器为群集中的服务提供北南（外部向内部）的访问。专用代理主机托管群集上部署的容器和服务。除了管理和代理群集节点，每个 DC/OS 安装都包括一个用于 DC/OS 安装和升级文件的独立 ** bootstrap 节点**。一些硬件和软件要求适用于所有节点。其他要求特定于要部署的节点类型。
@@ -81,19 +81,19 @@ sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
 - 如果可以分离存储挂载点，则建议在管理节点上使用以下存储挂载点。这些建议将通过隔离各种服务的 I/O 来优化繁忙 DC/OS 群集的性能。
   | 目录路径 | 描述 |
   |:-------------- | :---------- |
-  | _/var/lib/dcos_ | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的群集或打算以较高速度部署和删除工作负载，则建议将此目录隔离到单独设备上的专用固态硬盘存储。
+  | var/lib/dcos | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的群集或打算以较高速度部署和删除工作负载，则建议将此目录隔离到单独设备上的专用固态硬盘存储。
 
 - 对于会发展到数千个节点的群集，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
   | 目录路径 | 描述 |
   |:-------------- | :---------- |
-  | _/var/lib/dcos/mesos/master_ | 日志记录目录 |
-  | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
-  | _/var/lib/dcos/navstar_ | 对于 Mnesia 数据库 |
-  | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
-  | _/var/lib/dcos/exec_ | 各种 DC/OS 服务所需的临时文件。_/var/lib/dcos/exec_ 目录不得在装载有 `noexec` 选项的卷上。|
-  | _/var/lib/dcos/exhibitor_ | Zookeeper 数据库 |
-  | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | ZooKeeper 事务日志对磁盘写入延迟非常敏感。如果只能提供有限的固态硬盘空间，则这是要放置的目录。这些日志至少必须要有 2 GB 空间。|
+  | /var/lib/dcos/mesos/master | 日志记录目录 |
+  | /var/lib/dcos/cockroach | CockroachDB [enterprise type="inline" size="small" /] |
+  | /var/lib/dcos/navstar | 对于 Mnesia 数据库 |
+  | /var/lib/dcos/secrets | secrets vault [enterprise type="inline" size="small" /] | 
+  | /var/lib/dcos/exec | 各种 DC/OS 服务所需的临时文件。var/lib/dcos/exec_ 目录不得在装载有 `noexec` 选项的卷上。|
+  | /var/lib/dcos/exhibitor | Zookeeper 数据库 |
+  | /var/lib/dcos/exhibitor/zookeeper/transactions_| ZooKeeper 事务日志对磁盘写入延迟非常敏感。如果只能提供有限的固态硬盘空间，则这是要放置的目录。这些日志至少必须要有 2 GB 空间。|
 
 ## 代理节点要求
 
@@ -109,24 +109,24 @@ sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
 在规划代理节点的内存要求时，应确保代理已配置成可尽量减少交换空间的使用。建议的最佳实践是优化群集性能并减少潜在资源消耗问题，以尽可能禁用群集中所有代理的内存交换。
 
 除 [群集中所有管理节点和代理节点] 中所述的要求以外(#CommonReqs)，代理节点必须：
-- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/mesosphere/dcos/1.13/deploying-services/containerizers/)。
+- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)。
 
 - 请勿在您打算使用 DC/OS CLI 的系统上使用 `noexec` 来安装 `/tmp` 目录，除非 TMPDIR 环境变量设置为 `/tmp/` 以外的其他值。使用 `noexec` 选项来安装 `/tmp` 可能会破坏 CLI 功能。
 
 - 如果计划一个拥有数百个代理节点的群集或打算以较高速度部署和删除服务，则建议将此目录隔离到专用固态硬盘存储。
 
-    | 目录路径 | 描述 |
-    |:-------------- | :---------- |
-    | _/var/lib/mesos/_ | 代理节点的大多数 I/O 将定向到此目录。此外，Apache Mesos 在广告中声明的其 UI 的磁盘空间是支持 _/var/lib/mesos_ |的文件系统广告中声明的空间之和
+| 目录路径 | 描述 |
+|:-------------- | :---------- |
+| var/lib/mesos | 代理节点的大多数 I/O 将定向到此目录。此外，Apache Mesos 在广告中声明的其 UI 的磁盘空间是支持 var/lib/mesos |的文件系统广告中声明的空间之和
 
 - 对于会发展到数千个节点的群集，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
-   | 目录路径 | 描述 |
-   |:-------------- |:----------- |
-   | _/var/lib/mesos/slave/slaves_ | 任务的沙盒目录 |
-   | _/var/lib/mesos/slave/volumes_ | 由消耗 ROOT 持久卷的框架使用 |
-   | _/var/lib/mesos/docker/store_ | 存储用来配置 URC 容器的 Docker 镜像层 |
-   | _/var/lib/docker_ | 存储用来配置 Docker 容器的 Docker 镜像层 |
+| 目录路径 | 描述 |
+|:-------------- |:----------- |
+| var/lib/mesos/slave/slaves | 任务的沙盒目录 |
+| var/lib/mesos/slave/volumes | 由消耗 ROOT 持久卷的框架使用 |
+| var/lib/mesos/docker/store | 存储用来配置 URC 容器的 Docker 镜像层 |
+| var/lib/docker | 存储用来配置 Docker 容器的 Docker 镜像层 |
 
 ### <a name="port-and-protocol"></a>端口和协议配置
 
@@ -202,7 +202,7 @@ timedatectl
 
 在安装 DC/OS 之前，您**必须**确保 bootstrap 节点具备以下前提条件。
 
-<p class="message--important"><strong>重要信息：</strong>如果您指定 `exhibitor_storage_backend: zookeeper`，则 bootstrap 节点是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅<a href="/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/">配置参数文档</a>。</p>
+<p class="message--important"><strong>重要信息：</strong>如果您指定 `exhibitor_storage_backend: zookeeper`，则 bootstrap 节点是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅<a href="/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/">配置参数文档</a>。</p>
 
 
 - bootstrap 节点必须与群集节点分开。
@@ -299,6 +299,6 @@ localectl set-locale LANG=en_US.utf8
 - [从 Docker 的 Yum 存储库安装 Docker][1]
 - [DC/OS 安装指南][2]
 
-[1]: /mesosphere/dcos/1.13/installing/production/system-requirements/docker-centos/
+[1]: /mesosphere/dcos/cn/1.13/installing/production/system-requirements/docker-centos/
 
-[2]: /mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/
+[2]: /mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/
