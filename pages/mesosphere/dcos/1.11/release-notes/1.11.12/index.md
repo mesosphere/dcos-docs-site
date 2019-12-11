@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release Notes for 1.11.12
 title: Release Notes for 1.11.12
-menuWeight: 5
+menuWeight: 30
 excerpt: Release notes for DC/OS 1.11.12
 ---
 
