@@ -13,17 +13,17 @@ excerpt: 排除 DC/OS 安装问题
 
 ## IP 检测脚本
 
-您必须具有有效的 [ip-detect](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
+您必须具有有效的 [ip-detect](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
 
   - 额外的行
   - 空白空间
   - 特殊或隐藏字符
 
-我们建议您使用 `ip-detect` [示例](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/)。
+我们建议您使用 `ip-detect` [示例](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/)。
 
 ## DNS 解析器
 
-您必须有正常运行的 DNS 解析器，这在您的 [config.yaml](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下 _必须_ 工作才能支持 DC/OS 服务，包括 Spark：
+您必须有正常运行的 DNS 解析器，这在您的 [config.yaml](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下 _必须_ 工作才能支持 DC/OS 服务，包括 Spark：
 
   - `hostname -f` 返回 FQDN
   - `hostname -s` 返回短主机名
@@ -64,7 +64,7 @@ excerpt: 排除 DC/OS 安装问题
 
 * 验证 Exhibitor 是否已在 `http://<MASTER_IP>:8181/exhibitor` 上运行。如果 Exhibitor 未启动和运行：
 
-    - 对管理节点执行 [SSH](/mesosphere/dcos/1.13/administering-clusters/sshcluster/)，并输入以下命令来检查 Exhibitor 服务日志：
+    - 对管理节点执行 [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)，并输入以下命令来检查 Exhibitor 服务日志：
 
     ```bash
     journalctl -flu dcos-exhibitor
@@ -74,15 +74,15 @@ excerpt: 排除 DC/OS 安装问题
 
 * 要修复挂载有 `/tmp` 的 `noexec`，请运行以下命令：
 
-
+    ```bash
         mount -o remount,exec /tmp
-
+    ```
 
 * 检查 `/exhibitor/v1/cluster/status` 的输出，并验证其是否显示了正确数量的管理节点，所有管理节点是否为 `"serving"`，但只有其中一个被指定为 `"isLeader": true`。
 
-  例如，对管理节点执行 [SSH](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) 并输入以下命令：
+  例如，对管理节点执行 [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/) 并输入以下命令：
 
-
+    ```bash
     curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
         [
                 {
@@ -104,7 +104,7 @@ excerpt: 排除 DC/OS 安装问题
                     "isLeader": true
                 }
             ]
-
+    ```
 
 
 <p class="message--note"><strong>注意：</strong>在多管理节点配置中运行此命令需要 10-15 分钟才能完成。如果 10-15 分钟后未完成，请认真查看 journalctl -flu dcos-exhibitor <code>日志</code>。</p>
@@ -180,7 +180,7 @@ DC/OS 专用和公共代理节点启动。已部署的应用程序和服务在�
 
 
 例如，此处是随着其转为成功状态，Mesos 代理节点日志的一个片段：
-
+```text
     mesos-slave[1080]: I1118 14:00:43.687366 1080 main.cpp:272] 正在启动 Mesos 从设备
     mesos-slave[1080]: I1118 14:00:43.688474 1080 slave.cpp:190] 从设备启动于 1)@10.0.1.108:5051
     mesos-slave[1080]: I1118 14:00:43.688503  1080 slave.cpp:191] 启动时的标记：--appc_store_dir="/tmp/mesos/store/appc" --authenticatee="crammd5" --cgroups_cpu_enable_pids_and_tids_count="false" --cgroups_enable_cfs="false" --cgroups_hierarchy="/sys/fs/cgroup" --cgroups_limit_swap="false" --cgroups_root="mesos" --container_disk_watch_interval="15secs" --containerizers="docker,mesos" --default_role="*" --disk_watch_interval="1mins" --docker="docker" --docker_kill_orphans="true" --docker_remove_delay="1hrs" --docker_socket="/var/run/docker.sock" --docker_stop_timeout="0ns" --enforce_container_disk_quota="false" --executor_environment_variables="{"LD_LIBRARY_PATH":"\/opt\/mesosphere\/lib","PATH":"\/usr\/bin","SASL_PATH":"\/opt\/mesosphere\/lib\/sasl2","SHELL":"\/usr\/bin\/bash"}" --executor_registration_timeout="5mins" --executor_shutdown_grace_period="5secs" --fetcher_cache_dir="/tmp/mesos/fetch" --fetcher_cache_size="2GB" --frameworks_home="" --gc_delay="2days" --gc_disk_headroom="0.1" --hadoop_home="" --help="false" --hostname_lookup="false" --image_provisioner_backend="copy" --initialize_driver_logging="true" --ip_discovery_command="/opt/mesosphere/bin/detect_ip" --isolation="cgroups/cpu,cgroups/mem" --launcher_dir="/opt/mesosphere/packages/mesos--30d3fbeb6747bb086d71385e3e2e0eb74ccdcb8b/libexec/mesos" --log_dir="/var/log/mesos" --logbufsecs="0" --logging_level="INFO" --master="zk://leader.mesos:2181/mesos" --oversubscribed_resources_interval="15secs" --perf_duration="10secs" --perf_interval="1mins" --port="5051" --qos_correction_interval_min="0ns" --quiet="false" --recover="reconnect" --recovery_timeout="15mins" --registration_backoff_factor="1secs" --resource_monitoring_interval="1secs" --resources="ports:[1025-2180,2182-3887,3889-5049,5052-8079,8082-8180,8182-32000]" --revocable_cpu_low_priority="true" --sandbox_directory="/mnt/mesos/sandbox" --slave_subsystems="cpu,memory" --strict="true" --switch_user="true" --systemd_runtime_directory="/run/systemd/system" --version="false" --work_dir="/var/lib/mesos/slave"
@@ -190,7 +190,7 @@ DC/OS 专用和公共代理节点启动。已部署的应用程序和服务在�
     mesos-slave[1080]: I1118 14:00:43.697872 1080 slave.cpp:354] 从设备资源：ports(*):[1025-2180, 2182-3887, 3889-5049, 5052-8079, 8082-8180, 8182-32000]; cpus(*):4; mem(*):14019; disk(*):32541
     mesos-slave[1080]: I1118 14:00:43.697916 1080 slave.cpp:390] 从设备主机名：10.0.1.108
     mesos-slave[1080]: I1118 14:00:43.697928 1080 slave.cpp:395] 从设备检查点：TRUE
-
+```
 
 
 ## <a name="dcos-marathon"></a>DC/OS Marathon
@@ -298,9 +298,9 @@ Mesos-DNS 在 DC/OS 管理节点上启动。Mesos DNS 在群集内提供服务�
 
 ## <a name="zookeeper-and-exhibitor"></a>ZooKeeper 和 Exhibitor
 
-ZooKeeper 和 Exhibitor 在管理节点上启动。Exhibitor 存储位置必须正确配置才能让其工作。如需更多信息，请参阅 [exhibitor_storage_backend](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数。
+ZooKeeper 和 Exhibitor 在管理节点上启动。Exhibitor 存储位置必须正确配置才能让其工作。如需更多信息，请参阅 [exhibitor_storage_backend](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数。
 
-DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已安装的 DC/OS 服务。Exhibitor 在 DC/OS 安装期间自动配置管理节点上的 ZooKeeper。如需更多信息，请参阅 [配置参数](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/)。
+DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已安装的 DC/OS 服务。Exhibitor 在 DC/OS 安装期间自动配置管理节点上的 ZooKeeper。如需更多信息，请参阅 [配置参数](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/)。
 
 * 转到 Exhibitor Web 界面，并在 `<master-hostname>/exhibitor` 中查看状态。
 
@@ -328,10 +328,10 @@ DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已�
 
 
 
- [1]: /mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
+ [1]: /mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/
- [4]: /mesosphere/dcos/1.13/overview/architecture/boot-sequence/
- [5]: /mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/
- [6]: /mesosphere/dcos/1.13/administering-clusters/sshcluster/
+ [3]: /mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/
+ [4]: /mesosphere/dcos/cn/1.13/overview/architecture/boot-sequence/
+ [5]: /mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/
+ [6]: /mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/
 

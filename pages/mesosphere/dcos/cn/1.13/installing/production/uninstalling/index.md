@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: 卸载 DC/OS
-navigationTitle: 卸载
+navigationTitle: 卸载 DC/OS
 menuWeight: 30
 excerpt: 移除 DC/OS
 ---

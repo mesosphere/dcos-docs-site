@@ -69,7 +69,7 @@ excerpt: 在 CenTos/RHEL 上安装 Docker CE 的要求、建议和程序
 
 如需更多通用 Docker 要求，请参阅 [系统要求：Docker][1]。
 
-[1]: /mesosphere/dcos/1.13/installing/production/system-requirements/#docker
+[1]:  /mesosphere/dcos/cn/1.13/installing/production/system-requirements/#docker
 [2]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html
 [3]: https://docs.docker.com/install/linux/docker-ee/rhel
-[4]: /mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/
+[4]:  /mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/
