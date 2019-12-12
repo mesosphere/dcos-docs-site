@@ -41,12 +41,12 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 9. 从浏览器或使用 curl 向 **Issuer URL** 发出 `GET` 请求。
 10. 它应该返回身份提供程序 XML。
 
-  ```xml
-<?xml version="1.0?>
-<EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://app.onelogin.com/saml/metadata/555370">
-  [...]
-</EntityDescriptor>
-  ```
+    ```xml
+    <?xml version="1.0?>
+    <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://app.onelogin.com/saml/metadata/555370">
+    [...]
+    </EntityDescriptor>
+    ```
 
 11. 将 XML 复制到剪贴板或文本编辑器中。
 12. 单击 **Access** 选项卡。激活您希望能够登录到群集的所有角色。例如：**员工**和**工程师**。
@@ -69,7 +69,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 
 ## 获取 DC/OS 回调 URL
 
-此程序使用身份和访问管理 API (IAM API)。有关 IAM API 的更多详细信息，请访问 [IAM API 文档](/mesosphere/dcos/1.13/security/ent/iam-api/)。
+此程序使用身份和访问管理 API (IAM API)。有关 IAM API 的更多详细信息，请访问 [IAM API 文档](/mesosphere/dcos/cn/1.13/security/ent/iam-api/)。
 
 
 1. 使用浏览器或 curl 向 `<your-cluster-URL>/acs/api/v1/auth/saml/providers` 发出 `GET` 请求。
@@ -114,7 +114,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 
 1. 以具有 `dcos:superuser` 权限的用户身份登录 DC/OS GUI。
 2. 在 **Organization** -> **Users** 选项卡中，找到您刚尝试作为用户登录的电子邮件地址，然后双击它。
-3. 为帐户分配所需权限。有关分配权限的详细信息，请访问[权限](/mesosphere/dcos/1.13/security/ent/perms-reference/)文档。
+3. 为帐户分配所需权限。有关分配权限的详细信息，请访问[权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/)文档。
 
 
 # 故障排除 

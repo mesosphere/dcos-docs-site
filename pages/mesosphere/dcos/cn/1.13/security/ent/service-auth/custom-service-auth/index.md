@@ -15,7 +15,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 - [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户身份登录。
 - [已安装 DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-install)。
-- 必须 [获取根证书](/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) 才能在本部分发出 `curl` 命令。
+- 必须 [获取根证书](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/) 才能在本部分发出 `curl` 命令。
 
 # <a name="create-a-keypair"></a>创建密钥对
 使用 DC/OS Enterprise CLI 创建 2048 位 RSA 公私密钥对。将每个值保存到当前目录中的单独文件中。
@@ -24,7 +24,7 @@ model: /mesosphere/dcos/1.13/data.yml
 dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
 ```
 
-使用 [DC/OS 密钥存储库](/mesosphere/dcos/1.13/security/ent/secrets/) 保护钥匙对。
+使用 [DC/OS 密钥存储库](/mesosphere/dcos/cn/1.13/security/ent/secrets/) 保护钥匙对。
 
 # <a name="create-a-service-account"></a>创建服务帐户
 您可以使用 DC/OS Enterprise CLI 或 DC/OS Web 界面创建服务帐户。
@@ -86,7 +86,7 @@ dcos security secrets list /
 ## 确定所需权限
 使用此程序确定服务帐户所需的访问权限。这将允许您排除可能由错误权限导致的任何功能问题。
 
-1. [SSH 到您的节点](/mesosphere/dcos/1.13/administering-clusters/sshcluster/)。
+1. [SSH 到您的节点](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)。
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -110,10 +110,10 @@ dcos security secrets list /
    -h "authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:superuser/users/<service-account-id>/full
    ```
 
-如需更多信息，请参阅 [权限参考](/mesosphere/dcos/1.13/security/ent/perms-reference/)。
+如需更多信息，请参阅 [权限参考](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/)。
 
 ## 分配权限
-使用 [权限参考](/mesosphere/dcos/1.13/security/ent/perms-reference/) 和日志输出，为您的服务分配权限。所有 CLI 命令也可通过 [IAM API] 执行(/mesosphere/dcos/1.13/security/ent/iam-api/)。
+使用 [权限参考](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/) 和日志输出，为您的服务分配权限。所有 CLI 命令也可通过 [IAM API](/mesosphere/dcos/cn/1.13/security/ent/iam-api/) 执行。
 
 ### 使用 CLI
 
@@ -145,14 +145,14 @@ dcos security org users grant <service-account-id> dcos:mesos:master:framework:r
 
 # <a name="req-auth-tok"></a>请求认证令牌
 
-生成 [服务登录令牌] (/mesosphere/dcos/1.13/security/ent/service-auth/)，其中指定了服务帐户（`<service-account-id>`）和私钥（`<private-key>.pem`）。
+生成 [服务登录令牌](/mesosphere/dcos/cn/1.13/security/ent/service-auth/)，其中指定了服务帐户（`<service-account-id>`）和私钥（`<private-key>.pem`）。
 
 ```bash
 dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
 ```
 
 # <a name="pass-tok"></a>在后续请求中传递认证令牌
-服务成功登录后，将创建一个[认证令牌](/mesosphere/dcos/1.13/security/ent/service-auth/)。认证令牌应在后续对 DC/OS 端点的请求中使用。您可以将认证令牌引用为 shell 变量，例如：
+服务成功登录后，将创建一个[认证令牌](/mesosphere/dcos/cn/1.13/security/ent/service-auth/)。认证令牌应在后续对 DC/OS 端点的请求中使用。您可以将认证令牌引用为 shell 变量，例如：
 
 ```
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
