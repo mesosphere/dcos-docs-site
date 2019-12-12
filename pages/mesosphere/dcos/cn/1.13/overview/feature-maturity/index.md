@@ -47,7 +47,7 @@ Mesosphere DC/OS 特性将通过多阶段生命周期发展。此生命周期可
 3. API 修改将接受版本控制（V1、V2 等）。
 4. 对于 DC/OS Enterprise 的客户，反馈和支持应通过 Mesosphere 服务支持条款中概述的方法进行。
 5. 对于 DC/OS Open Source 的客户，反馈应通过社区渠道进行。
-6. GA 特性修改或成熟度生命周期变更可见 [版本注释] (/mesosphere/dcos/1.13/release-notes/)。
+6. GA 特性修改或成熟度生命周期变更可见 [版本注释](/mesosphere/dcos/cn/1.13/release-notes/)。
 
 <a name="deprecated"></a>
 ## 已弃用

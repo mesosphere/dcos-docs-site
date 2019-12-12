@@ -36,7 +36,7 @@ Docker 提供良好的开发体验，但试图在生产中运行 Docker 容器�
 
 DC/OS 使得可以配置多个资源隔离区。
 
-并非所有任务都有相同的要求。有些需要最大程度隔离才能保证性或性能。有些则是临时的、公共的或容易重新启动。最简单的隔离方法是将其分派给 Docker。在 DC/OS 上运行 Docker 容器很容易，但在隔离时 Docker 不好用。[Mesos 容器化工具] (http://mesos.apache.org/documentation/latest/mesos-containerizer/) 更灵活，配有多个独立可配置隔离器以及可插拔的自定义隔离器。Mesos 容器化工具甚至可以运行 Docker 容器，而不会出现 `dockerd` 的脆弱性。
+并非所有任务都有相同的要求。有些需要最大程度隔离才能保证性或性能。有些则是临时的、公共的或容易重新启动。最简单的隔离方法是将其分派给 Docker。在 DC/OS 上运行 Docker 容器很容易，但在隔离时 Docker 不好用。[Mesos 容器化工具](http://mesos.apache.org/documentation/latest/mesos-containerizer/) 更灵活，配有多个独立可配置隔离器以及可插拔的自定义隔离器。Mesos 容器化工具甚至可以运行 Docker 容器，而不会出现 `dockerd` 的脆弱性。
 
 ## <a name="stateful-storage-support"></a>有状态存储支持
 
@@ -110,7 +110,7 @@ DC/OS 包括多个用于自动化服务发现和负载均衡的选项。
 
 分布式服务会产生分布式问题，但您不必自己解决这些问题。DC/OS 包括自动 DNS 端点生成、服务查找用的 API、用于高速内部通信的运输层 (L4) 虚拟 IP 代理，以及用于面向外部的服务的应用层 (L7) 负载均衡。
 
-[企业]
+[enterprise]
 ## <a name="lb—mgmt-plane"></a>分布式负载均衡器的控制和管理平面
 [/enterprise]
 
@@ -122,7 +122,7 @@ DC/OS Enterprise 提供用于服务可用性和性能监控的集中式管理和
 
 DC/OS 提供规范的设计，确保 DC/OS 群集与任何客户端（UI/浏览器、CLI、API 客户端）之间的任何管理和程序性通信均通过管理员安全区进行，并确保所有请求都通过 SSL 安全通道传输。DC/OS 管理节点是管理员安全区内 DC/OS 群集的入口点。更具体地说，API 网关是一个名为“Admin Router”的组件，用作反向代理，管理向 DC/OS 群集的所有管理连接。
 
-[企业]
+[enterprise]
 ## <a name="identity-access-mgmt"></a>身份和访问管理
 [/enterprise]
 
@@ -137,19 +137,19 @@ DC/OS Enterprise 包括内置身份和访问管理，允许您创建用户和组
 
 DC/OS Enterprise IAM 服务还包括对授权控制的支持，授权控制可以分配给上述每个负责人/用户。在表格“主题”中被给予特定权限组的用户可以对“对象”执行“操作”，其中“对象”是到 Marathon 应用程序组特定 DC/OS 服务的 API 端点，“操作”则列举可以对对象执行的一组操作，例如“创建、读取、更新或删除”。
 
-[企业]
+[enterprise]
 ## <a name="identity-provider"></a>具有 LDAP、SAML 和 OpenID 连接的外部身份提供商
 [/enterprise]
 
 DC/OS Enterprise 集成了支持 LDAP v3 接口（包括 Microsoft Active Directory）的身份提供商以及基于 SAML 的提供商，使得您可以从现有用户目录导入 DC/OS 外部的用户，并在 DC/OS 中管理用户和组授权。
 
-[企业]
+[enterprise]
 ## <a name="cluster-encryption"></a>具有加密通信的群集安全
 [/enterprise]
 
 DC/OS Enterprise 设计用于在本地和云中安全地运行。为确保群集安全，DC/OS Enterprise 支持 DC/OS 群集内部组件之间的加密通信。实现的方法是确保 DC/OS 与为 DC/OS 管理节点发放证书的证书颁发机构一起运行，并确保所有代理节点在 bootstrap 时具有已安装的证书 `CA.crt`。此机制确保 DC/OS 群集内部各种服务之间的所有通信均通过安全的 SSL 通道进行。
 
-[企业]
+[enterprise]
 ## <a name="workload-isolation"></a>带容器级授权的工作负载隔离
 [/enterprise]
 
