@@ -12,7 +12,9 @@ enterprise: false
 
 This section describes the management of processes in a DC/OS cluster, from the resource allocation to the execution of a process. At a high level, this interaction takes place between the DC/OS components when you launch a process. Communication occurs between the different layers, such as the user interacting with the scheduler, and within a layer, for example, a master communicating with agents.
 
-Figure 1 - Distributed process management in DC/OS
+![Concept of distributed process management in DC/OS](/mesosphere/dcos/2.0/img/dcos-architecture-distributed-process-management-concept.png)
+
+Figure 1. Distributed process management in DC/OS
 
 Here is an example using the Marathon service and a user launching a container based on a Docker image:
 
