@@ -206,7 +206,7 @@ Mesos-DNS 生成一些特殊记录：
 *   对于每个已知的 DC/OS 管理节点：A 记录 (`master.mesos`)
 * 对于每个已知的 DC/OS 代理节点：A 记录 (`slave.mesos`) 和 SRV 记录 (`_slave._tcp.mesos`)
 
-<p class="message--important"><strong></strong>重要信息：要查询领导管理节点，应始终查询"leader.mesos"，而不是"master.mesos"。如需更多信息，请参阅<a href="/mesosphere/dcos/1.13/networking/DNS/mesos-dns/troubleshooting/#leader">此 FAQ 条目</a>。</p>
+<p class="message--important"><strong></strong>重要信息：要查询领导管理节点，应始终查询"leader.mesos"，而不是"master.mesos"。如需更多信息，请参阅<a href="/mesosphere/dcos/cn/1.13//networking/DNS/mesos-dns/troubleshooting/#leader">此 FAQ 条目</a>。</p>
 
 
 选者新管理节点和更新 Mesos-DNS 中的领导者/管理节点记录之间存在延迟。Mesos-DNS 还支持 Mesos 域的 SOA 和 NS 记录请求。对 Mesos 域中其他类型记录的 DNS 请求将返回 `NXDOMAIN`。Mesos-DNS 不支持反向查找所需的 PTR 记录。Mesos-DNS 还会为自己生成 A 记录，列出了 Mesos-DNS 将答复查找请求的所有 IP 地址。这些 A 记录的主机名是 `ns1.mesos`。
@@ -229,7 +229,7 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
 
 您可以获得在 DC/OS 群集节点上运行的应用程序的综合列表。
 
-**前提条件：** [DC/OS 和 DC/OS CLI](/mesosphere/dcos/1.13/installing/) 已安装。
+**前提条件：** [DC/OS 和 DC/OS CLI](/mesosphere/dcos/cn/1.13//installing/) 已安装。
 
 1. SSH 到您的节点。例如，使用以下命令对管理节点执行 [SSH]：
 
@@ -237,7 +237,7 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
     dcos node ssh --leader --master-proxy
     ```
 
-    如需更多信息，请参阅 SSH [文档](/mesosphere/dcos/1.13/administering-clusters/sshcluster/)。
+    如需更多信息，请参阅 SSH [文档](/mesosphere/dcos/cn/1.13//administering-clusters/sshcluster/)。
 
 2. 从管理节点运行此命令以查看节点详情：
 
@@ -353,7 +353,7 @@ Mesos-DNS 遵循关于名称格式化的 [RFC 1123][3]。用于构建 A 记录�
 
 
 
- [1]: /mesosphere/dcos/1.13/overview/concepts/
+ [1]: /mesosphere/dcos/cn/1.13//overview/concepts/
  [2]: ../troubleshooting/#leader
  [3]: https://tools.ietf.org/html/rfc1123
  [4]: https://tools.ietf.org/html/rfc952
