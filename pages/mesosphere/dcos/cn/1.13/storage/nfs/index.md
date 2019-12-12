@@ -102,4 +102,4 @@ menuWeight: 1
     touch /mnt/data/test.txt
     ```
 
-[1]:https://coreos.com/os/docs/latest/moun-storage.html
+[1]:https://coreos.com/os/docs/latest/mount-storage.html
