@@ -58,7 +58,7 @@ DC/OS Enterprise 身份和访问管理服务 (IAM) 的核心已经开源并添�
 
 - DC/OS 监控服务让您能够导入安排的警报规则。<!--(DCOS-47666)-->
 
-    使用此版本，部署 DC/OS 监控服务让您能够从 [Github 存储库] 导入 Mesosphere 提供的 Prometheus 警报规则(https://github.com/dcos/prometheus-alert-rules)。这些预定义的警报规则让您能够创建有关 DC/OS 群集状态的有意义的警报，包括成功或失败的操作和节点活动。
+    使用此版本，部署 DC/OS 监控服务让您能够从 [Github 存储库](https://github.com/dcos/prometheus-alert-rules) 导入 Mesosphere 提供的 Prometheus 警报规则。这些预定义的警报规则让您能够创建有关 DC/OS 群集状态的有意义的警报，包括成功或失败的操作和节点活动。
 
     Prometheus 警报规则作为 DC/OS 监控服务的一部分自动包含在内。可用于监控的每个 DC/OS 组件或框架都应具有包含所有警报规则的单个规则文件。这些警报规则使用 `rule_files` 配置参数被传输给 Prometheus，并配置成指定以下严重级别之一：
     - **警告** 警报识别需要通知但无需立即采取行动的问题。例如，识别为警告的警报可能会向管理员发送电子邮件通知，但不需要立即响应。
@@ -78,7 +78,7 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 - Marathon
 - Metronome
 
-您还可以收集有关 Telegraf 进程本身运行和性能的信息。此信息与其他度量标准一同存储，可用于使用 DC/OS 监控服务或第三方监控服务进行报告。有关 Telegraf 插件的信息以及 Telegraf 收集的关于其自身性能的度量标准，请参阅 [内部输入插件] 文档(https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal)。
+您还可以收集有关 Telegraf 进程本身运行和性能的信息。此信息与其他度量标准一同存储，可用于使用 DC/OS 监控服务或第三方监控服务进行报告。有关 Telegraf 插件的信息以及 Telegraf 收集的关于其自身性能的度量标准，请参阅 [内部输入插件](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal) 文档。
 
 - 默认情况下，将启用 Mesos 输入插件收集的新卷和网络度量标准。<!--(DCOS-47722, DCOS-47719)-->
 
@@ -90,7 +90,7 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于代理的服务，在 DC/OS 群集中的每个管理节点和代理节点上运行。默认情况下，Telegraf 从同一节点上运行的所有进程收集度量标准，收集的信息经过处理之后被发送到中央度量标准数据库。
 
-    使用此版本，`dcos-telegraf` 程序收集并转发有关 Telegraf 进程本身运行和性能的信息。此信息与其他度量标准一同存储，可用于使用 DC/OS 监控服务或第三方监控服务进行报告。有关 Telegraf 插件的信息以及 Telegraf 收集的关于其自身性能的度量标准，请参阅 [内部输入插件] 文档(https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal)。
+    使用此版本，`dcos-telegraf` 程序收集并转发有关 Telegraf 进程本身运行和性能的信息。此信息与其他度量标准一同存储，可用于使用 DC/OS 监控服务或第三方监控服务进行报告。有关 Telegraf 插件的信息以及 Telegraf 收集的关于其自身性能的度量标准，请参阅 [内部输入插件](https://github.com/influxdata/telegraf/tree/master/plugins/inputs/internal) 文档。
 
 - 使用 Prometheus 格式揭示任务相关度量标准。
 
@@ -113,16 +113,11 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
 - 将故障域分域和区域信息添加到度量标准。<!--DCOS-16570-->
 
-<!-- - Standardized log collection and forwarding through Fluent Bit. (DCOS-43412) -->
-
-<!-- 应用程序和 DC/OS 群集组件日志现在已聚合，让您能够配置对第三方日志存储、搜索和报告服务的转发。之前，转发记录的信息需要在群集节点上安装第三方代理或聚合器服务才能执行此任务。随着引入对 Fluent Bit（一种云本地的多平台日志处理器和转发器）的支持，您现在可以利用易于配置的插件对日志收集、搜索和报告服务执行日志筛选和转发。
-
-有关如何使日志记录与 Fluent Bit 整合，请参见 [日志记录](/mesosphere/dcos/1.13/monitoring/logging/)。-->
 
 有关收集度量标准和配置度量标准插件的更多信息，请参阅以下主题：
-- [度量标准插件架构](/mesosphere/dcos/1.13/metrics/architecture/)
-- [Mesos 度量标准](/mesosphere/dcos/1.13/metrics/mesos/)
-- [配置参考](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/)
+- [度量标准插件架构](/mesosphere/dcos/cn/1.13/metrics/architecture/)
+- [Mesos 度量标准](/mesosphere/dcos/cn/1.13/metrics/mesos/)
+- [配置参考](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/)
 
 ## 命令行界面
 - 通过 DC/OS CLI 识别公共代理节点的面向公众的 IP 地址。<!--(DCOS-44697)-->
@@ -143,8 +138,7 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     有关在使用命令行界面 (CLI) 和 CLI 插件时使用自动完成功能的更多信息，请参见 [为 CLI 启用自动完成](/mesosphere/dcos/cn/1.13/cli/autocompletion/)。
 
-- `dcos cluster attach` 和 `dcos cluster remove` 命令的群集名称动态自动完成。<!--(DCOS-47214)-->
-
+- `dcos cluster attach` 和 `dcos cluster remove` 命令的群集名称动态自动完成。
     现在，您可以使用 TAB 键在运行 `dcos cluster attach` 或 `dcos cluster remove` 命令时实现潜在群集名称的自动完成。
 
     有关在使用命令行界面 (CLI) 和 CLI 插件时使用自动完成功能的更多信息，请参见 [为 CLI 启用自动完成](/mesosphere/dcos/cn/1.13/cli/autocompletion/)。
@@ -164,75 +158,52 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     您可以运行一个命令来返回已安装的 Edge-LB 池包的版本号。使用通过 `edgelb version` 命令返回的版本号，您可以验证 Edge-LB 池和 Edge-LB API 服务器版本是否匹配。Edge-LB API 服务器和 Edge-LB API 池版本号应始终匹配。例如，如果已安装版本 v1.3.0 的 Edge-LB 池包，则 API 服务器版本也应为 v1.3.0。
 
-<!-- 使用 RN 筛选器时不在 1.13 文档中
-- [Kubernetes] Edge-LB TLS/SNI 集成。<!-- (DCOS-47322)
-<no content>
-- Kubernetes Edge=LB 集成：TCP/HTTP <!--(DCOS-28246)
-<no content>
-- [Kubernetes] 多 Kubernetes 区域放置 (DCOS-40924)
-<already in release notes>
-- [Kubernetes] MKE 文档改进 (DCOS-43921)
-<already in release notes>
-- [Kubernetes] 支持 Kubernetes 1.13 (DCOS-44175)
-<already in release notes>
-- [Kubernetes] Kubernetes 的 DC/OS Storageclass (DCOS-43801)
-<already in release notes>
--->
+
 
 - 启用 Edge-LB 池实例，以按比例放大或缩小。<!--(DCOS-28440)-->
 
     如果您不需要配置所有的池实例，则可以将 Edge-LB 池实例的数量从较高数量减少到较低数量。要按比例缩小，只需更新 Edge-LB 池配置文件中的 `count` 变量，以反映所需的 Edge-LB 池实例数量。
 
-<!-- 使用 RN 筛选器时不在 1.13 文档中
-- 构建一个 Ingress 控制器，以将 L4 流量的 Amazon ELB 调配到 Edge-LB (DCOS-46302)
-
-    您可以在公共和专用代理节点上使用 Edge-LB 池实例自动调配 Amazon ELB (NLB)。您也可以从 KuberNetes 群集自动调配网络负载均衡器。在调配 Amazon 网络负载均衡器之后，您可以获取 DNS 元数据端点，以访问通过网络负载均衡器公开的服务。
--->
 
 ## UI
 - 支持 DC/OS UI 独立升级。<!--(DCOS-47632)-->
 
     现在，您可以安装和更新 DC/OS UI 而无需升级 DC/OS 群集。此功能使得可以将 DC/OS 的新更新发布到 DC/OS 目录，并且也可以作为 `.dcos` 文件提供给本地客户。能够在不升级 DC/OS 群集的情况下安装和更新 DC/OS UI 的能力让您能够轻松获取 DC/OS UI 中可用的最新修复和功能，而不影响群集操作。现在，您还可以回滚更新，让您能够在必要时使用最初随 DC/OS 版本发送的 DC/OS UI 版本。
 
-    <!--
-    有关安装或更新 DC/OS UI 而不考虑 DC/OS 部署其他组件更改的更多信息，请参见 [xx]()。->
-
+    
 - 服务的准确状态信息。<!--(DCOS-43460)-->
 
     现在，DC/OS 1.13 UI 在每个基于 SDK 的数据服务的详细信息分节含有新的选项卡。此新选项卡可清楚指明在生命周期内基于 SDK 的服务的状态和进度，包括安装和升级活动。在“详细信息”选项卡上，您可以看到有关当前正在运行或刚刚完成的具体操作计划的信息。您还可以查看每个任务的执行情况，以便能轻松跟踪已部署的计划的进度。
 
-    有关查看服务和操作计划的最新状态的更多信息，请查看 [服务](/mesosphere/dcos/1.13/gui/services/) 文档。
+    有关查看服务和操作计划的最新状态的更多信息，请查看 [服务](/mesosphere/dcos/cn/1.13/gui/services/) 文档。
 
-- 识别 DC/OS UI 中公共代理节点面向公众的 IP 地址。<!--(DCOS-49987)-->
+- 识别 DC/OS UI 中公共代理节点面向公众的 IP 地址。
 
-    使用此版本，您可以在 DC/OS UI 中查看代理节点面向公众的 IP 地址。之前，检索某个节点的公共 IP 地址需要写入一个自定义查询。有关在 DC/OS UI 中查看公共 IP 地址的更多信息，请参见 [查找公共 IP 地址](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/)。
+    使用此版本，您可以在 DC/OS UI 中查看代理节点面向公众的 IP 地址。之前，检索某个节点的公共 IP 地址需要写入一个自定义查询。有关在 DC/OS UI 中查看公共 IP 地址的更多信息，请参见 [查找公共 IP 地址](/mesosphere/dcos/cn/1.13/administering-clusters/locate-public-agent/)。
 
     如果 DC/OS 部署在**公共云提供程序**上，例如 AWS、Google Cloud 或 Azure，您可以使用 DC/OS 基于 Web 的控制台、命令行界面或 DC/OS 群集节点 API 调用来查找公共代理 IP 地址。如果 DC/OS 安装在内部网络（本地）或专用云上，节点通常不具有独立的公共和专用 IP 地址。对于内部网络或专用云上的节点，公共 IP 地址通常与 DNS 命名空间中为服务器定义的 IP 地址相同。
 
-- 添加国际化和本地化支持（I18N 和 L10N - 中文）。<!--(DCOS-39557)-->
+- 添加国际化和本地化支持（I18N 和 L10N - 中文）。
 
     Mesosphere DC/OS 1.13 UI 现已翻译成现代标准汉语。现在，讲现代标准汉语的客户和用户可以轻松地切换 UI 中显示的语言，并能够以英语或中文与 DC/OS 操作和功能交互。DC/OS 文档也已翻译成中文，以支持这些客户。如果客户需求充足，可以提供额外的语言支持。
 
-    有关更改显示语言的信息，请参见 [UI](/mesosphere/dcos/1.13/gui/) 文档。
+    有关更改显示语言的信息，请参见 [UI](/mesosphere/dcos/cn/1.13/gui/) 文档。
 
 ##  安装
-- 使用 Universal 安装工具启用多区域支持。<!--(DCOS-45727)-->
+- 使用 Universal 安装工具启用多区域支持。
 
-    多区域部署可实现 DC/OS 群集的更高可用性，对多个区域的支持对希望维持正常运行时间而不易受区域中断影响的客户而言至关重要。如需更多信息，请参阅 [多区域部署] 文档(/mesosphere/dcos/1.13/installing/evaluation/aws/aws-remote-region/)。
+    多区域部署可实现 DC/OS 群集的更高可用性，对多个区域的支持对希望维持正常运行时间而不易受区域中断影响的客户而言至关重要。如需更多信息，请参阅 [多区域部署](/mesosphere/dcos/cn/1.13/installing/evaluation/aws/aws-remote-region/) 文档。
 
-- Universal 安装工具上的动态管理节点。<!--(DCOS-45725)-->
+- Universal 安装工具上的动态管理节点。
 
-    动态管理节点让您能够创建、销毁和恢复管理节点。使用此功能，您可以使用 Universal 安装工具来缩减或扩大 DC/OS 群集，不仅是能从目前受支持的代理节点，还能从管理节点——如果您认为必须这么做。如需更多信息，请参阅 [可更换的管理节点](/mesosphere/dcos/1.13/installing/evaluation/aws/aws-replaceable-masters/) 文档。
+    动态管理节点让您能够创建、销毁和恢复管理节点。使用此功能，您可以使用 Universal 安装工具来缩减或扩大 DC/OS 群集，不仅是能从目前受支持的代理节点，还能从管理节点——如果您认为必须这么做。如需更多信息，请参阅 [可更换的管理节点](/mesosphere/dcos/cn/1.13/installing/evaluation/aws/aws-replaceable-masters/) 文档。
 
 
 - 通过 Ansible 启用 Universal 安装工具和本地 DC/OS 生命周期管理。<!--(DCOS-45724)-->
 
-    DC/OS Ansible (`dcos-ansible`) 组件是 Ansible 开源调配、配置管理和部署工具的 Mesosphere 提供版，让您能够使用支持的 Ansible 角色在选择的基础架构上安装和升级 DC/OS Open Source 和 DC/OS Enterprise 群集。如需更多信息，请参阅 [Ansible] 的文档(/mesosphere/dcos/1.13/installing/production/dcos-ansible/)。
+    DC/OS Ansible (`dcos-ansible`) 组件是 Ansible 开源调配、配置管理和部署工具的 Mesosphere 提供版，让您能够使用支持的 Ansible 角色在选择的基础架构上安装和升级 DC/OS Open Source 和 DC/OS Enterprise 群集。如需更多信息，请参阅 [Ansible](/mesosphere/dcos/cn/1.13/installing/production/dcos-ansible/) 的文档。
 
-<!-- 使用 RN 筛选器而不在 1.13 文档中
-- 用于调配弹性块存储 (EBS) 卷的 Universal 安装工具。(DCOS-47221)
-    Universal 安装工具能够调配 Amazon 弹性块存储 (Amazon EBS) 卷，并将其附加到 DC/OS 群集中的专用代理节点。有关部署额外存储卷的详细信息，请参见 [调配额外代理卷](/mesosphere/dcos/services/storage/latest/install/provision-extra-volumes/)。
--->
+
 
 ## 作业管理和调度
 - 通过增加对以下各项的支持，增强 DC/OS 作业处理能力：
@@ -250,7 +221,6 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
 - 将 `--gpu_scheduling_behavior` 配置选项的默认值设置为 `restricted`，以防止在作业定义未明确请求 GPU 支持时在已启用 GPU 的代理节点上启动作业。
 
-<!--For more information about using these new features, see []().-->
 
 ## Marathon
 - 启用安全计算 (seccomp) 和 UCR 容器的默认 seccomp 配置文件，以防止安全漏洞。
@@ -270,11 +240,11 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 - 关闭缓慢事件消费者上的连接，以防止过度缓冲并减少对 Marathon 的负载。
 
 ## Mesos 平台和容器化
-- 更新通用容器运行时 (UCR) 以支持 Docker 注册表清单规格 v2_schema2 镜像。<!--(DCOS-43871)-->
+- 更新通用容器运行时 (UCR) 以支持 Docker 注册表清单规格 v2_schema2 镜像
 
     现在，DC/OS 通用容器运行时 (UCR) 完全支持使用 Docker v2_schema2 规格格式化的Docker 镜像。DC/OS 通用容器运行时 (UCR) 还继续支持使用 v2_schema1 格式的 Docker 镜像。
 
-    如需更多信息，请参见 [通用容器运行时](/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/)。
+    如需更多信息，请参见 [通用容器运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/)。
 
 - 增加通信心跳以提高恢复能力。
 
@@ -293,24 +263,17 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 ## 网络
 - 添加新网络 API 端点，以检索公共代理节点的 IP 地址。<!--(DCOS-28127)-->
 
-    此版本引入了一个新的 API 端点，用于访问群集中节点面向公众的 IP 地址。有关检索和查看公共 IP 地址的更多信息，请参见 [查找公共 IP 地址](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/)。
+    此版本引入了一个新的 API 端点，用于访问群集中节点面向公众的 IP 地址。有关检索和查看公共 IP 地址的更多信息，请参见 [查找公共 IP 地址](/mesosphere/dcos/cn/1.13/administering-clusters/locate-public-agent/)。
 
     如果 DC/OS 部署在公共云提供程序上，例如 AWS、Google Cloud 或 Azure，您可以使用 DC/OS 基于 Web 的控制台、命令行界面或 DC/OS 群集节点 API 调用来查找公共代理 IP 地址。如果 DC/OS 安装在内部网络（本地）或专用云上，节点通常不具有独立的公共和专用 IP 地址。对于内部网络或专用云上的节点，公共 IP 地址通常与 DNS 命名空间中为服务器定义的 IP 地址相同。
-<!-- 使用 RN 筛选器时不在 1.13 文档中
-- dcos 监控数据的保留策略 (DCOS-46818)
-    0.4.3 版和更高版本的 dcos 监控服务能够调整 Prometheus 时间序列数据库的保留期。如需更多信息，请参阅：/services/dcos-monitoring/1.0.0/operations/prometheus/storage/
--->
-<!-- 使用 RN 筛选器时不在 1.13 文档中
-- 在未被监控的显示器上显示 Grafana 仪表板 (DCOS-51133)
-    现在，DC/OS 监控服务 `dcos-monitoring` 可以在 SmartTV、自助机或公共面板等只读设备上显示 Grafana 仪表板。
--->
+
 
 ## 安全
-- 扩展 DC/OS 认证架构，以运用于 DC/OS Open Source (OSS) 和 DC/OS Enterprise 群集。<!--(DCOS-28672)-->
+- 扩展 DC/OS 认证架构，以运用于 DC/OS Open Source (OSS) 和 DC/OS Enterprise 群集。
 
     现在，您可以创建统一的服务账户，这些账户可以在 DC/OS OSS 和 DC/OS Enterprise 群集中使用。通过扩展可用于所有 DC/OS 群集的服务账户的支持，您可以选择安装、配置和管理其他包，包括在以 `strict` 模式运行 DC/OS Enterprise DC/OS 时需要服务账户的包。
 
-    有关认证和管理账户的更多信息，请参见 [安全](/mesosphere/dcos/1.13/security) 和 [用户账户管理](/mesosphere/dcos/1.13/security/oss/user-account-management/)。
+    有关认证和管理账户的更多信息，请参见 [安全](/mesosphere/dcos/cn/1.13/security) 和 [用户账户管理](/mesosphere/dcos/cn/1.13/security/oss/user-account-management/)。
 
 - 支持安全计算模式 (seccomp) 配置文件。<!--(DCOS-28442, DCOS-49134)-->
 
@@ -320,10 +283,10 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     如果需要使用最少权限的原则来获取对容器和操作的访问，那么使用安全计算模式配置文件是一个重要选项。
 
-    有关安全计算模式和默认安全计算配置文件的更多信息，请参见 [安全计算配置文件](/mesosphere/dcos/1.13/security/oss/secure-compute-profiles/)。
+    有关安全计算模式和默认安全计算配置文件的更多信息，请参见 [安全计算配置文件](/mesosphere/dcos/cn/1.13/security/oss/secure-compute-profiles/)。
 
 ## 存储
-- 更新 Beta Rex-Ray 以支持 NVMe EBS 卷。<!--(DCOS-50047)-->
+- 更新 Beta Rex-Ray 以支持 NVMe EBS 卷。
 
     Rex-Ray 是一款容器存储编排引擎，能实现云本地工作负载的持久性。使用 Rex-Ray，您可以通过命令行界面 (CLI) 管理本地 Docker 卷驱动程序操作。
 
@@ -335,7 +298,7 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     您可以使用 AWS EBS 容器存储接口 (CSI) 驱动程序管理 Mesosphere Kubernetes 引擎 (MKE) 的存储卷。此驱动程序让 MKE 用户能够部署在 AWS 云实例上的 DC/OS 群集中运行的有状态应用程序。
 
-- 更新对容器存储接口 (CSI) 规范的支持。<!--DCOS-51279,DCOS-50136, DCOS-47222-->
+- 更新对容器存储接口 (CSI) 规范的支持。
 
     使用此版本，DC/OS 支持容器存储接口 (CSI) API 版本 1 (v1) 规范。您可以部署与容器存储接口 (CSI) API 兼容的插件 v0 或 v1 规范，以通过本地存储资源提供程序创建持久卷。DC/OS 自动检测您部署的插件支持的 CSI 版本。
 
@@ -343,7 +306,7 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 在 DC/OS 1.13 中修复的问题按特性、作用区域或组件分组。大多数更改说明都包含一个或多个问题跟踪标识符，放在括号中，以便参考。
 
 ### Admin Router
-- 启用 Admin Router 以处理较长的服务器名 (COPS-4286, DCOS-46277)。<!--listed previously in 1.12.1 RN-->
+- 启用 Admin Router 以处理较长的服务器名 (COPS-4286, DCOS-46277)。
 
     - 此版本修复了 Admin Router 的某个问题，该问题导致某些虚拟机配置无法正常启动。例如，如果您以前使用的服务器名称超出了允许的最大大小，`dcos-adminrouter` 组件就可能无法启动服务器。在此版本中，`packages/adminrouter/extra/src/nginx.master.conf` 文件已更新，支持 64 字符的服务器名称散列 bucket 大小。
 
@@ -428,9 +391,9 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     在更改此选项之前，应该计划代理维护工作，以便尽量减少任何服务中断。如果设置了此选项并重新启动节点，则还应在使用 CNI 插件 `DEL` 命令重新启动后取消设置 `CNI_NETNS` 环境变量，以便插件尽可能多地清理资源（例如，通过释放 IPAM 分配来清理）并返回操作成功的回复。
 
-- 对于使用具有虚拟 IP 地址的 Docker 容器的应用程序，使用 `host_IP:port_number`（而不是用于后端端口映射的 `container_ip:port_number`）来解析对应用程序的访问。<!--listed previously in 1.12.1 RN-->
+- 对于使用具有虚拟 IP 地址的 Docker 容器的应用程序，使用 `host_IP:port_number`（而不是用于后端端口映射的 `container_ip:port_number`）来解析对应用程序的访问。
 
-- 分布式第 4 层负载均衡器(`dcos-l4lb`)网络组件会等待路由流量，直到应用程序向上扩展操作完成或应用程序运行状况检查已通过为止 (COPS-3924, DCOS_OSS-1954)。<!--listed previously in 1.12.1 RN-->
+- 分布式第 4 层负载均衡器(`dcos-l4lb`)网络组件会等待路由流量，直到应用程序向上扩展操作完成或应用程序运行状况检查已通过为止 (COPS-3924, DCOS_OSS-1954)。
 
     如果要缩小应用程序实例的数量，`dcos-l4lb` 进程不会阻止路由流量。只有在确定应用程序的状态不健康或未知时，才会暂停网络流量。
 
@@ -457,11 +420,11 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 如果现有 JSON 配置中有嵌入式调度，并且您希望使用作业表单 JSON 编辑器查看或修改该文件，您必须：
 1. 将 JSON 对象添加为编辑器中的 `job` 属性。
 
-    必须根据最新的 [JOBS API 规范] 格式化作业(https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json)。该 API 规范 (v1) 取代之前的作业 API 规范 (v0)。
+    必须根据最新的 [JOBS API 规范](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/jobspec.schema.json) 格式化作业。该 API 规范 (v1) 取代之前的作业 API 规范 (v0)。
 
 1. 从现有的作业 JSON 配置中复制 `schedules: [ scheduleJSON ]`，并以相同级别将其作为 `schedule: scheduleJSON` 添加到作业属性之后。
 
-    必须根据 [作业 API 调度规范] 格式化调度(https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/schedulespec.schema.json)。该 API 规范 (v1) 取代之前的作业 API 规范 (v0)。
+    必须根据 [作业 API 调度规范](https://github.com/dcos/metronome/blob/master/api/src/main/resources/public/api/v1/schema/schedulespec.schema.json) 格式化调度。该 API 规范 (v1) 取代之前的作业 API 规范 (v0)。
 
 1. 验证调度部分不是阵列。
 
@@ -583,7 +546,7 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
     您不应给应用程序添加以重启、任务或版本结尾的名称（标识符）。例如，应用程序名称 `/restart` 和 `/foo/restart` 是无效的，并且当您尝试发出 GET /v2/apps 请求时会产生错误。如果您的现有应用程序带有任何受限名称，尝试任何操作（删除除外）都将导致错误。在升级 Marathon 之前，应确保应用程序名称符合验证规则。
 
 ### 已弃用或已停用功能
-- 在 DC/OS 1.13 中，DC/OS 历史服务已转变为已停用状态。历史服务计划在 DC/OS 1.14 中停用。您可以在 [Mesosphere DC/OS 功能成熟度生命周期]中找到每个功能成熟度状态的定义(/mesosphere/dcos/1.13/overview/feature-maturity/)。<!--DCOS-50304, DCOS-51996-->
+- 在 DC/OS 1.13 中，DC/OS 历史服务已转变为已停用状态。历史服务计划在 DC/OS 1.14 中停用。您可以在 [Mesosphere DC/OS 功能成熟度生命周期](/mesosphere/dcos/cn/1.13/overview/feature-maturity/)中找到每个功能成熟度状态的定义。
 
 - 之前用于安装 DC/OS 群集组件的一些配置参数不再有效。以下 `dcos_generate_config.sh` 命令行选项已被弃用和停用：
     * `--set-superuser-password`
@@ -597,35 +560,35 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     如果您尝试使用不再有效的选项，安装脚本会显示警告消息。您还可以通过运行 `dcos_generate_config.sh` 脚本以及 `--help` 选项来识别已被弃用的选项。针对不再使用的选项，`--help` 选项的输出显示 [已弃用]。
 
-    这些选项将在 DC/OS 1.14 中删除。如果您有使用任何已弃用选项的脚本或程序，您应该更新它们。<!--(DCOS-48069, DCOS-50263, DCOS-51311, DCOS-51312, DCOS-51174)-->
+    这些选项将在 DC/OS 1.14 中删除。如果您有使用任何已弃用选项的脚本或程序，您应该更新它们。
 
-- CLI 命令 `dcos node` 替换为新命令 `dcos node list`。<!--DCOS-51803-->
+- CLI 命令 `dcos node` 替换为新命令 `dcos node list`。
 
     安装此版本后，运行 `dcos node` 命令会自动重定向到 `dcos node list` 命令的输出。`dcos node list` 命令提供类似于 `dcos node` 命令输出内容的信息，还包括表示每个节点的公用 IP 地址的附加列。
 
     如果您有使用 `dcos node` 命令的输出的脚本或程序，那么您需测试 `dcos node list` 命令所提供的输出，然后根据需要更新您的脚本或程序。
 
-- 基于 Marathon 的 HTTP、HTTPS、TCP 和准备就绪检查 <!--DCOS-42564-->
+- 基于 Marathon 的 HTTP、HTTPS、TCP 和准备就绪检查 
 
     从 DC/OS 1.9 开始，基于 Marathon.的 HTTP、HTTPS 和 TCP 运行状况检查已被弃用。该版本中，基于 Marathon 的准备就绪检查也已经被弃用。
 
     如果您还未这么操作，那么您应该迁移服务，以使用 Mesos 运行状况和常规检查，而不是基于 Marathon 的检查。作为该迁移的一部分，您应该记住，您只能指定一个基于 Mesos 的运行状况检查和一个基于 Mesos 的常规检查。
 
-- App 容器 (`appc`) 镜像的 Marathon 支持在 1.13 中已停用。<!--DCOS-42564-->
+- App 容器 (`appc`) 镜像的 Marathon 支持在 1.13 中已停用。
 
     自 2016 年以来，AppC 镜像没有得到积极的开发。AppC 镜像的支持将在 DC/OS 1.14 中删除。
 
-- 将 `gpu_scheduling_behavior` 配置选项设置为 `undefined` 已不再受支持。<!--DCOS-42564-->
+- 将 `gpu_scheduling_behavior` 配置选项设置为 `undefined` 已不再受支持。
 
     此版本中，`gpu_scheduling_behavior` 配置选项的默认值为 `restricted`。值 `undefined` 已停用。该值将在 DC/OS 1.14 中删除。
 
     如果您有脚本或程序是将 `gpu_scheduling_behavior` 配置选项设置为 `undefined`，您应该根据需要进行更新。
 
-- Marathon 不再支持 `api_heavy_events` 设置。<!--DCOS-42564-->
+- Marathon 不再支持 `api_heavy_events` 设置。
 
     此版本中，`/v2/events` 唯一允许的响应格式为 `light`（根据之前公布的弃用计划）。如果您尝试以指定的 `--deprecated_features=api_heavy_events` 设置启动 Marathon，则启动操作会因出错而失败。
 
-- Marathon 不再支持基于 Kamon 的度量标准和相关的命令行参数。<!--DCOS-42564-->
+- Marathon 不再支持基于 Kamon 的度量标准和相关的命令行参数。
 
     以下与过时的报告工具相关的命令行参数已被删除：
     * `--reporter_graphite`
@@ -634,11 +597,11 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 
     如果您指定其中任何一个 flag，Marathon 都将无法启动。
 
-- 不再支持从备用 Marathon 实例中代理服务器发送事件 (SSE)。<!--DCOS-42564-->
+- 不再支持从备用 Marathon 实例中代理服务器发送事件 (SSE)。
 
     DC/OS 不再允许备用 Marathon 实例从 Marathon leader 代理 `/v2/events`。在这之前，可以使用 `proxy_events` flag 来强制 Marathon 代理 `/v2/events` 的响应。此备用重定向功能和相关 flag 在 1.13 中不再有效。
 
-- Marathon 不再支持 `save_tasks_to_launch_timeout` 设置。<!--DCOS-42564-->
+- Marathon 不再支持 `save_tasks_to_launch_timeout` 设置。
 
     `save_tasks_to_launch_timeout` 选项在 Marathon 1.5 中已被弃用，自此，在 Marathon 运行中使用该选项不会有任何效果。如果您指定 `save_tasks_to_launch_timeout` 设置，Marathon 将无法启动。
 
@@ -648,14 +611,10 @@ DC/OS 度量标准通过 Telegraf 服务收集和管理。Telegraf 提供基于�
 - Marathon 1.8.x [变更日志](https://github.com/mesosphere/marathon/blob/b00f71136a7e35cb76c7df136d49b16b9ead2689/changelog.md)。
 - Metronome 0.6.18 [变更记录](https://github.com/dcos/metronome/blob/b4016b01a349b15df25970877bd62521a49d0cc9/changelog.md)。
 - DC/OS 1.13 [变更日志](https://github.com/dcos/dcos/blob/1.13/CHANGES.md)。
-<!--
-- REX-Ray 0.11.4 [版本信息](https://github.com/rexray/rexray/releases/tag/v0.11.4)。
-- Telegraf 1.9.x [变更日志](https://github.com/influxdata/telegraf/blob/release-1.9/CHANGELOG.md)。
-- Erlang/OTP 21.3 [版本信息](http://erlang.org/download/otp_src_21.3.readme)。
-- Java 8 [版本信息](https://java.com/en/download/faq/release_changes.xml)。-->
+
 
 # 先前版本
 要查看与先前版本的不同，请点击以下链接：
-- [发布版本 1.10.11](/mesosphere/dcos/1.10/release-notes/1.10.11/) - 2019 年 2 月 12 日。
-- [发布版本 1.11.10](/mesosphere/dcos/1.11/release-notes/1.11.10/) - 2019 年 2 月 12 日。
-- [发布版本 1.12.3](/mesosphere/dcos/1.12/release-notes/1.12.3/) - 2019 年 3 月 14 日。
+- [发布版本 1.10.11](/mesosphere/dcos/cn/1.10/release-notes/1.10.11/) - 2019 年 2 月 12 日。
+- [发布版本 1.11.10](/mesosphere/dcos/cn/1.11/release-notes/1.11.10/) - 2019 年 2 月 12 日。
+- [发布版本 1.12.3](/mesosphere/dcos/cn/1.12/release-notes/1.12.3/) - 2019 年 3 月 14 日。

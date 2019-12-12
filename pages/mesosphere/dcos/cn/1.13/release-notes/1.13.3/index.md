@@ -11,7 +11,7 @@ DC/OS 1.13.3 于 2019 年 7 月 24 日发布。
 
 [button color="purple" href="http://downloads.mesosphere.com/dcos-enterprise/stable/1.13.3/dcos_generate_config.ee.sh"]下载 DC/OS Enterprise* [/button]
 
-注册 DC/OS Enterprise 客户可以从 [支持网站] 访问 DC/OS Enterprise 配置文件(https://support.mesosphere.com/s/downloads)。对于新客户，请在尝试下载和安装 DC/OS Enterprise 版本之前，先联系销售代表或发送邮件至 <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a>。
+注册 DC/OS Enterprise 客户可以从 [支持网站](https://support.mesosphere.com/s/downloads) 访问 DC/OS Enterprise 配置文件。对于新客户，请在尝试下载和安装 DC/OS Enterprise 版本之前，先联系销售代表或发送邮件至 <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a>。
 
 DC/OS 1.13.3 包括以下组件：
 

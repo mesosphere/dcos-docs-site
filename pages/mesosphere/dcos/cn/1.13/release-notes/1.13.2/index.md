@@ -39,7 +39,7 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 - DCOS-53589 - Telegraf 仅对 DC/OS systemd 服务报告 `procstat` 度量，而不是所有进程。
 
 ## 安全 
-引入了一种机制，该机制使用最先进的双向 TLS 身份验证来保护群集中的 Exhibitor 服务免受未经授权的访问。查看 [文档](/mesosphere/dcos/1.13/security/ent/tls-ssl/exhibitor/)。该机制旨在替代基础 `exhibitor_admin_password-based` 机制。
+引入了一种机制，该机制使用最先进的双向 TLS 身份验证来保护群集中的 Exhibitor 服务免受未经授权的访问。查看 [文档](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/exhibitor/)。该机制旨在替代基础 `exhibitor_admin_password-based` 机制。
 
 ## 存储
 DCOS-43777- 使用 DC/OS UI 创建 DC/OS 存储卷时，所创建的 JSON 应用定义的结果持久性条目不具有类型集。因此，使用默认类型值 `root`。在本版本中，DC/OS UI 升级至 v2.82.5。
