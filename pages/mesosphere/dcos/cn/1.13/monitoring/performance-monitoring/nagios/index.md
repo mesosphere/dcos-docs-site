@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-Nagios 是分布式主机的常用监控框架。本指南介绍如何使用 [NRPE] 通过 [Nagios Core 4x] (https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-linux.html) 监控 DC/OS 群集(https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/addons.html#nrpe)。
+Nagios 是分布式主机的常用监控框架。本指南介绍如何使用 [NRPE] 通过 [Nagios Core 4x](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-linux.html) 监控 DC/OS 群集[NRPE](https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/addons.html#nrpe)。
 
 ##  安装
 本指南假设您已安装且为群集配置了 Nagios。以下是流行配置管理套件的链接：
