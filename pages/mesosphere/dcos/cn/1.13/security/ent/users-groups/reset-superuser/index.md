@@ -12,9 +12,9 @@ model: /mesosphere/dcos/1.13/data.yml
 
 您可使用 DC/OS 重置超级用户脚本重置现有用户或创建新用户。如果超级用户帐户被锁定或无效，这将非常有用。
 
-**先决条件：**您必须具有 DC/OS 群集的 SSH 访问权限。
+**先决条件:** 您必须具有 DC/OS 群集的 SSH 访问权限。
 
-1. [SSH](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
+1. [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/) 到主节点，使用您选择的方法。
 
     例如：
 

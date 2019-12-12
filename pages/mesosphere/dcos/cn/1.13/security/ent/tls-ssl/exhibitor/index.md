@@ -10,13 +10,13 @@ enterprise: true
 
 默认情况下，Exhibitor HTTP 服务对可以访问管理节点上端口 8181 的任何客户端开放。本页介绍保护 Exhibitor 服务免受未经授权访问的方法。一经启用，HTTP 客户端必须通过 Admin Router 访问 Exhibitor；因此将 Admin Router 访问控制策略应用于 Exhibitor 服务。
 
-<p class="message--note"><strong>注意：</strong>通过 Admin Router 访问 Exhibitor 时 (https://master_host/exhibitor)，已认证用户必须有 <i>dcos:adminrouter:ops:exhibitor</i> 特权以及 <i>全部</i> 操作标识符</p>
+<p class="message--note"><strong>注意：</strong>通过 Admin Router 访问 Exhibitor 时 (https://master_host/exhibitor)，已认证用户必须有 <codei>dcos:adminrouter:ops:exhibitor</code> 特权以及 <code>全部</code> 操作标识符</p>
 
 # 保护 Exhibitor
 
 保护 Exhibitor 的策略是双向 TLS 身份验证。为了保护 Exhibitor，您必须先创建唯一的根 CA 证书。该 CA 证书用于为 Admin Router 和 Exhibitor 服务签署各种端点实体证书。创建输出 PEM 和 Java KeyStore 格式化工件的公钥基础架构不是一件容易的事。为了简化此过程，我们创建了一个简单的工具来生成必要的文件。
 
-<p class="message--note"><strong>注意：</strong>本指南仅适用于使用 <i>static</i> master discovery 的群集，目前不支持 <i>master_http_loadbalancer</i>。(/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
+<p class="message--note"><strong>注意：</strong>本指南仅适用于使用 <i>static</i> master discovery 的群集，目前不支持 <i>master_http_loadbalancer</i>。(/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
 
 ## 使用工具
 
