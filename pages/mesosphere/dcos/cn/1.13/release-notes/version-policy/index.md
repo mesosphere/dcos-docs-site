@@ -70,4 +70,4 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 
 ![版本策略框架](/mesosphere/dcos/1.13/img/version-policy-2.png)
 
-图 1. 版本策略框架
+图 2. 版本策略框架
