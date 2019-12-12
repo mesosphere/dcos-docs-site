@@ -38,11 +38,11 @@ dcos node log --leader
 dcos node log --mesos-id=<node-id>
 ```
 
-您可以从 [DC/OS Web 界面]的**服务 > 服务**选项卡，下载服务的所有日志文件(/mesosphere/dcos/1.13/gui/)。您也可以监控 `stdout`/`stderr`。
+您可以从 [DC/OS Web 界面](/mesosphere/dcos/cn/1.13/gui/)的**服务 > 服务**选项卡，下载服务的所有日志文件。您也可以监控 `stdout`/`stderr`。
 
-如需更多信息，请参阅“服务和任务日志”[快速入门指南](/mesosphere/dcos/1.13/monitoring/logging/quickstart/)。
+如需更多信息，请参阅“服务和任务日志”[快速入门指南](/mesosphere/dcos/cn/1.13/monitoring/logging/quickstart/)。
 
-<p class="message--note"><strong>注意：</strong>DC/OS 可以将任务日志的副本发送到主机的 journald，但由于已知的系统性能问题，默认情况下会禁用此功能，有关详细信息，请参阅<a href="/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">配置文档</a> </p>。
+<p class="message--note"><strong>注意：</strong>DC/OS 可以将任务日志的副本发送到主机的 journald，但由于已知的系统性能问题，默认情况下会禁用此功能，有关详细信息，请参阅<a href="/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#mesos-container-log-sink">配置文档</a> </p>。
 
 ## 系统日志
 
@@ -52,7 +52,7 @@ DC/OS 组件使用 `systemd-journald` 来存储其日志。要访问 DC/OS 核�
 journalctl -u "dcos-*" -b
 ```
 
-输入组件名，您可以查看特定 [组件] (/mesosphere/dcos/1.13/overview/architecture/components/) 的日志。例如，要访问 Admin Router 日志，可运行此命令：
+输入组件名，您可以查看特定 [组件](/mesosphere/dcos/cn/1.13/overview/architecture/components/) 的日志。例如，要访问 Admin Router 日志，可运行此命令：
 
 ```bash
 journalctl -u dcos-nginx -b
@@ -66,10 +66,10 @@ journalctl -u dcos-nginx -b
 
 # 日志聚合
 
-从群集中的机器流式传输日志并非总是检查事件和调试问题的最佳解决方案。<!-- In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit logs to Fluent Bit](/mesosphere/dcos/1.13/monitoring/logging/configure-task-logs/). -->目前，我们建议对日志聚合采取下列方案之一：
+从群集中的机器流式传输日志并非总是检查事件和调试问题的最佳解决方案。目前，我们建议对日志聚合采取下列方案之一：
 
-- [使用 ELK 进行日志管理](/mesosphere/dcos/1.13/monitoring/logging/aggregating/elk/)
-- [使用 Splunk 进行日志管理](/mesosphere/dcos/1.13/monitoring/logging/aggregating/splunk/)
+- [使用 ELK 进行日志管理](/mesosphere/dcos/cn/1.13/monitoring/logging/aggregating/elk/)
+- [使用 Splunk 进行日志管理](/mesosphere/dcos/cn/1.13/monitoring/logging/aggregating/splunk/)
 
 
-[5]: /mesosphere/dcos/1.13/administering-clusters/sshcluster/
+[5]: /mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/
