@@ -11,17 +11,16 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-您可以授予用户访问 [**作业**](/mesosphere/dcos/1.13/gui/jobs/) 选项卡的权限。新用户默认没有权限。
+您可以授予用户访问 [**作业**](/mesosphere/dcos/cn/1.13/gui/jobs/) 选项卡的权限。新用户默认没有权限。
 
- <p class="message--note"><strong>注意：</strong>此过程授予访问<strong>作业</strong>选项卡及其内部所有作业的全部用户权限。如欲配置细分用户访问权限，请参阅 <a href="/mesosphere/dcos/1.13/deploying-services/service-groups/">文档</a>。</p>
-
+ <p class="message--note"><strong>注意：</strong>此过程授予访问<strong>作业</strong>选项卡及其内部所有作业的全部用户权限。如欲配置细分用户访问权限，请参阅 <a href="/mesosphere/dcos/cn/1.13/deploying-services/service-groups/">文档</a>。</p>
 
 
 # <a name="jobs-access-via-ui"></a>使用 UI 授予访问权限
 
 **前提条件：**
 
-- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/1.13/security/ent/users-groups/) 的 DC/OS 用户账户。
+- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/cn/1.13/security/ent/users-groups/) 的 DC/OS 用户账户。
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS UI。
 
@@ -46,7 +45,7 @@ enterprise: true
 
     图 3. 添加权限
 
-6. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/mesosphere/dcos/1.13/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
+6. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/mesosphere/dcos/cn/1.13/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
 
 ## 宽容
 
@@ -93,7 +92,7 @@ dcos:mesos:agent:sandbox:app_id read
 **前提条件：**
 
 - 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
-- 您必须 [获取根证书](/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
+- 您必须 [获取根证书](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
 
 ### Notes
 

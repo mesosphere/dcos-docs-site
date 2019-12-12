@@ -9,7 +9,6 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 身份和访问管理 API (IAM) API 允许您通过 RESTful 界面管理用户、用户组、权限以及 LDAP 配置设置。它提供比 DC/OS UI 更多的功能。
 
@@ -46,7 +45,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 要登录本地用户帐户，请在请求中提供 `uid` 和 `password`。
 
-<p class="message--note"><strong>注意：</strong>查阅如何通过 DC/OS 在 Curl 命令</a> 中 <a href="/mesosphere/dcos/1.13/security/ent/tls-ssl/ca-trust-curl/"> 建立信任。</p>
+<p class="message--note"><strong>注意：</strong>查阅如何通过 DC/OS 在 Curl 命令 中 <a href="/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/ca-trust-curl/"> 建立信任</a>。</p>
 
 
 ```bash
@@ -125,7 +124,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## 刷新认证令牌
 
-默认情况下，认证令牌在五天后过期。如果您的程序需要运行超过五天，则需要一个服务帐户。有关更多信息，请参阅[配置自定义服务](/mesosphere/dcos/1.13/security/ent/service-auth/custom-service-auth/)。
+默认情况下，认证令牌在五天后过期。如果您的程序需要运行超过五天，则需要一个服务帐户。有关更多信息，请参阅[配置自定义服务](/mesosphere/dcos/cn/1.13/security/ent/service-auth/custom-service-auth/)。
 
 
 # API 参考
@@ -135,4 +134,4 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 # 日志记录
 
-虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/mesosphere/dcos/1.13/monitoring/logging/)。
+虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/mesosphere/dcos/cn/1.13/monitoring/logging/)。

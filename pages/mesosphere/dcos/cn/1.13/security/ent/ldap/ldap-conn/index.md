@@ -8,7 +8,6 @@ render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 在本部分中，您将指定用于连接到 LDAP 服务器的地址、协议和证书。
 
@@ -47,4 +46,4 @@ enterprise: true
 
 1. 要确保 DC/OS 群集不接受来自指定 LDAP 目录服务器以外的其他方的连接，请将 LDAP 目录服务器的根 CA 证书和任何中间证书粘贴到 **CA certificate chain (Optional)** 字段中。我们强烈建议您完成此步骤，以便与 LDAP 目录服务器建立安全通信信道。
 
-1. 指定身份认证方法和参数，如[身份认证部分]中所述(/mesosphere/dcos/1.13/security/ent/ldap/ldap-auth/)。
+1. 指定身份认证方法和参数，如[身份认证部分](/mesosphere/dcos/cn/1.13/security/ent/ldap/ldap-auth/)中所述。
