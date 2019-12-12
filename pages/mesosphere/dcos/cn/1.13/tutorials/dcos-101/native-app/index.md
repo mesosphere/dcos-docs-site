@@ -7,7 +7,10 @@ menuWeight: 8
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-在[上一教程](/mesosphere/dcos/1.13/tutorials/dcos-101/app1/)中，您部署了一个在群集内部运行并与另一个也在群集内运行的应用程序（Redis 服务）进行交互的应用程序。两个应用程序都不在群集外部公开，也不可供任何外部用户使用。这是因为 DC/OS 支持在两种不同类型的节点上运行应用程序： **专用代理节点** 和 **公共代理节点**。
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
+
+在[上一教程](/mesosphere/dcos/cn/1.13//tutorials/dcos-101/app1/)中，您部署了一个在群集内部运行并与另一个也在群集内运行的应用程序（Redis 服务）进行交互的应用程序。两个应用程序都不在群集外部公开，也不可供任何外部用户使用。这是因为 DC/OS 支持在两种不同类型的节点上运行应用程序： **专用代理节点** 和 **公共代理节点**。
 
 到目前为止，您只能使用在专用代理节点上运行的应用程序和服务，而这些节点无法从群集外部访问。要向外部世界公开服务或应用程序，您通常使用在公共节点上运行的负载均衡器。
 
@@ -20,7 +23,7 @@ model: /mesosphere/dcos/1.13/data.yml
 在开始本教程前，您应验证以下内容：
 - 您可以通过至少一个管理节点和三个代理节点来访问运行中的 [DC/OS 群集](../start-here/)。
 - 您可以访问安装了 [DC/OS CLI](../cli/) 的计算机。
-- 您拥有在群集中部署和运行的示例 [dcos-101/app1](/mesosphere/dcos/1.13/tutorials/dcos-101/app1/) 应用程序。
+- 您拥有在群集中部署和运行的示例 [dcos-101/app1](/mesosphere/dcos/cn/1.13/tutorials/dcos-101/app1/) 应用程序。
 
 # 学习目的
 完成本教程，您将学习到：
@@ -157,7 +160,7 @@ model: /mesosphere/dcos/1.13/data.yml
 祝贺您！您已部署使用本地 DC/OS UCR 容器的示例应用程序，使用 Marathon-LB 向公众公开该应用程序，并通过使用 Web 前端向 Redis 服务添加新密钥来测试您公开可用的应用程序。
 
 # 相关主题
-DC/OS 使用[容器化工具](/mesosphere/dcos/1.13/deploying-services/containerizers/)在容器中运行任务。在容器中运行任务使您能够将任务彼此隔离并以编程方式控制任务资源。DC/OS 支持两种类型的容器化工具：
+DC/OS 使用[容器化工具](/mesosphere/dcos/cn/1.13//deploying-services/containerizers/)在容器中运行任务。在容器中运行任务使您能够将任务彼此隔离并以编程方式控制任务资源。DC/OS 支持两种类型的容器化工具：
 
 - DC/OS 通用容器化工具运行时（Universal Containerizer Runtime, UCR)
 - Docker 容器化工具

@@ -43,16 +43,16 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 ## 前提条件
 
-* [DC/OS](/mesosphere/dcos/latest/installing/) 或 [DC/OS Enterprise](/mesosphere/dcos/latest/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
+* [DC/OS](/mesosphere/dcos/cn/1.13/installing/) 或 [DC/OS Enterprise](/mesosphere/dcos/cn/1.13/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
 * [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 已安装。
 * 公共代理节点的公共 IP 地址。在声明了公共代理节点的 DC/OS 已安装后，可以[导航到公共代理节点的公共 IP 地址][9]。
 * Git：
-    * ** macOS：**从 [Git 下载]（http://git-scm.com/download/mac）获取安装程序。
+    * ** macOS**从 [Git 下载](http://git-scm.com/download/mac)获取安装程序。
     * **Unix/Linux：**请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
 ## 安装 DC/OS 服务
 
-在此步骤中，您可以从 DC/OS Web 界面 [**Catalog**](/mesosphere/dcos/1.13/gui/catalog/) 选项卡安装 Cassandra、Kafka、Marathon-LB 和 Zeppelin。您还可以使用 `dcos package install`][11] 命令，从 DC/OS CLI 安装 DC/OS 软件包。
+在此步骤中，您可以从 DC/OS Web 界面 [**Catalog**](/mesosphere/dcos/cn/1.13/gui/catalog/) 选项卡安装 Cassandra、Kafka、Marathon-LB 和 Zeppelin。您还可以使用 `dcos package install`][11] 命令，从 DC/OS CLI 安装 DC/OS 软件包。
 
 1. 查找并单击 **cassandra** 软件包，单击 **REVIEW & RUN**，并通过再次单击 **REVIEW & RUN**，然后单击 **RUN SERVICE**，接受默认安装。Cassandra 最多可旋转 3 个节点。当模态警报提示时，单击 **OPEN SERVICE**。
 
@@ -60,7 +60,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 3. 单击 **Catalog** 选项卡。查找并单击 *marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
 
-如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/mesosphere/dcos/services/marathon-lb/1.13/mlb-install/)进行安装。根据您的 [安全模式](/mesosphere/dcos/1.13/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
+如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/mesosphere/dcos/services/marathon-lb/1.13/mlb-install/)进行安装。根据您的 [安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
 
 4. 单击 **Catalog** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
     1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
@@ -80,12 +80,8 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 2. 将 `HAPROXY_0_VHOST` 定义添加到 `tweeter.json` 文件中，该定义具有[公共代理][9] 节点的公共 IP 地址。
 
-    <table class=“table” bgcolor=#858585>
-    <tr>
-    <td align=justify style=color:white><strong>重要信息：</strong>您必须删除前面的“http://”和后面的“/”。
-    </td>
-    </tr>
-    </table>
+    <p class="message--important"><strong>重要信息：</strong>您必须删除前面的“http://”和后面的“/”。
+    </p>
 
     ```json
     ...
@@ -213,8 +209,8 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
  [3]: /mesosphere/dcos/services/spark/latest/
  [4]:http://zeppelin.apache.org/
  [5]:https://github.com/mesosphere/marathon-lb
- [6]: /mesosphere/dcos/1.13/overview/concepts/
- [9]: /mesosphere/dcos/1.13/administering-clusters/locate-public-agent/
+ [6]: /mesosphere/dcos/cn/1.13/overview/concepts/
+ [9]: /mesosphere/dcos/cn/1.13/administering-clusters/locate-public-agent/
  [11]: /mesosphere/dcos/cn/1.13/cli/command-reference/
  [12]: /mesosphere/dcos/services/marathon-lb/1.13/
  [13]:https://github.com/mesosphere/tweeter

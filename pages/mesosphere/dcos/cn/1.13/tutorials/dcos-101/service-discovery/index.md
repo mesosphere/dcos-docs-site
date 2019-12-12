@@ -7,6 +7,8 @@ menuWeight: 7
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
 在上一教程中，您部署了连接到 Redis 服务的 [示例应用程序](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py)。如果您查看该应用程序的脚本，则可能已经注意到以下连接到 Redis 服务的行：
 
 ```

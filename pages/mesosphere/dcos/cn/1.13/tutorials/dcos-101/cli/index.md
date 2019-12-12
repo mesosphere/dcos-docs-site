@@ -5,6 +5,8 @@ title: 安装命令行界面
 navigationTitle: 安装命令行界面
 menuWeight: 2
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
 DC/OS 命令行界面（CLI）为您提供一种方便的方式来执行管理任务、检索组件和操作信息以及监控群集状态和活动。
 
 虽然您可以使用基于 DC/OS Web 的控制台以交互方式执行许多相同的任务，或者使用对 DC/OS 应用程序编程接口 (API) 的调用以编程方式执行许多任务，但大多数群集操作员都以交互式或脚本中的方式使用命令行程序来管理大部分常见群集操作和群集相关的活动。
@@ -177,8 +179,8 @@ Options:
 
 接下来的教程探讨可以通过 DC/OS 基于 Web 的管理控制台或命令行界面执行的其他入门任务：
 - [从包资源库安装第一个服务](../first-package/)
-- [部署您的第一个示例应用程序]](../first-app/)
-- [发现已部署服务]../service-discovery/)
+- [部署您的第一个示例应用程序](../first-app/)
+- [发现已部署服务](../service-discovery/)
 
 # 相关主题
 您已经使用了 DC/OS 架构中的几个核心组件，包括 Mesos 内核，Marathon 和 Metronome。有关这些 DC/OS 组件以及其纳入 DC/OS 平台中的位置或功能和服务的更多信息，请参阅主要 DC/OS [文档](../../../overview/architecture/components/)：

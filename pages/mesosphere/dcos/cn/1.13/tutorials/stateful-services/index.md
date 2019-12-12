@@ -16,7 +16,7 @@ excerpt: 在 DC/OS 上运行有状态服务
 
 有状态服务利用两个基础的 Mesos 功能：
 
-- [动态保留](http：//mesos.apache.org/documentation/latest/reservation/) ，含保留标签
+- [动态保留](http://mesos.apache.org/documentation/latest/reservation/) ，含保留标签
 - [持久卷](http://mesos.apache.org/documentation/latest/persistent-volume/)
 
 **时间估计**：
@@ -32,7 +32,7 @@ excerpt: 在 DC/OS 上运行有状态服务
 ## 前提条件
 
 * [已安装 DC/OS][1]
-- [已安装 DC/OS CLI]
+- [已安装 DC/OS CLI][2]
 * 群集大小：至少一个代理节点，具有 1 个 CPU、1 GB RAM 和 1000 MB 可用磁盘空间。
 
 ## 安装有状态服务 (PostgreSQL)
@@ -147,9 +147,9 @@ dcos marathon app remove postgres
 
 ## 附录
 
-有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/1.13/storage/)。
+有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/cn/1.13/storage/)。
 
 
-[1]: /mesosphere/dcos/1.13/installing/
+[1]: /mesosphere/dcos/cn/1.13/installing/
 [2]: /mesosphere/dcos/cn/1.13/cli/install/
 [4]: postgres.marathon.json

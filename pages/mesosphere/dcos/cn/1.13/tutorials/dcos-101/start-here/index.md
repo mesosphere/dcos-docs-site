@@ -7,6 +7,8 @@ excerpt: 让我们通过创建群集开始您的 DC/OS 之旅（第 1 部分）
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
 本教程演示使用最常见的默认配置选项创建小型 DC/OS 群集以及验证对群集的访问的基本步骤。您必须成功完成本教程中的步骤，然后才能执行任何其他管理任务或探索其他功能。
 
 完成本教程后，您将拥有包含以下内容的单个 DC/OS 群集：
@@ -54,15 +56,15 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 预览您将做的事情
 您需要执行以下关键任务以创建新的 DC/OS 群集：
-- 准备[bootstrap 节点](/mesosphere/dcos/1.13/installing/production/system-requirements/#bootstrap)。
-- 配置 DC/OS [管理节点](/mesosphere/dcos/1.13/installing/production/system-requirements/#master-nodes)。
-- 配置 DC/OS [专用代理节点](/mesosphere/dcos/1.13/installing/production/system-requirements/#agent-nodes)。
-- 配置 DC/OS [公共代理节点](/mesosphere/dcos/1.13/installing/production/system-requirements/#agent-nodes)。
+- 准备[bootstrap 节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#bootstrap)。
+- 配置 DC/OS [管理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#master-nodes)。
+- 配置 DC/OS [专用代理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#agent-nodes)。
+- 配置 DC/OS [公共代理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#agent-nodes)。
 
 # 准备 bootstrap 节点
 1. 确定一台充当新群集的 **bootstrap 节点** 的计算机。
 
-    [bootstrap 节点](/mesosphere/dcos/1.13/installing/production/system-requirements/#bootstrap) 计算机为 DC/OS 群集配置和分发文件提供一个集中位置。bootstrap 节点：
+    [bootstrap 节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#bootstrap) 计算机为 DC/OS 群集配置和分发文件提供一个集中位置。bootstrap 节点：
     - 必须能够使用 SSH 通过网络连接到所有群集节点。
     - 可以在安装完成后进行备份并关闭。
     - 不应包含在 DC/OS 群集中。
@@ -111,16 +113,16 @@ model: /mesosphere/dcos/1.13/data.yml
     security: permissive
     ```
 
-    您可以使用 `config.yaml` 文件设置更多基本和高级的配置选项。有关可用设置和最常用设置示例的信息，请参阅 [高级配置参考](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/) 和 [示例](/mesosphere/dcos/1.13/installing/production/deploying-dcos/configuration/examples/)。
+    您可以使用 `config.yaml` 文件设置更多基本和高级的配置选项。有关可用设置和最常用设置示例的信息，请参阅 [高级配置参考](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/) 和 [示例](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/configuration/examples/)。
 
 1. 保存配置设置。
 
 1. 将所需的脚本或文件添加到 `genconf` 目录。
 
     除了 `config.yaml` 文件，您应该在 `genconf` 目录中提供以下文件：
-    - [ip-detect](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#ip-detect-script) - 所有 DC/OS 群集都需要此脚本。
-    - [license.txt](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#license) - DC/OS 企业群集需要此文件。
-    - [fault-domain-detect](/mesosphere/dcos/1.13/installing/production/deploying-dcos/installation/#fault-domain) - DC/OS 企业群集需要此脚本。
+    - [ip-detect](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#ip-detect-script) - 所有 DC/OS 群集都需要此脚本。
+    - [license.txt](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#license) - DC/OS 企业群集需要此文件。
+    - [fault-domain-detect](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#fault-domain) - DC/OS 企业群集需要此脚本。
 
 ## 创建分发中心
 1. 运行 DC/OS 安装脚本
@@ -244,10 +246,10 @@ model: /mesosphere/dcos/1.13/data.yml
 
 ### 有关安装选项的更多信息
 您还可以使用其他几种方法来安装 DC/OS 群集。例如，如果您正从公共云提供程序（如，AWS、Azure 或 Google 云端平台）在公共云上安装 DC/OS，则还有其他安装选项。有关其他安装选项的信息，请参阅以下主题：
-- [使用 Universal 安装工具在 AWS 上的 DC/OS](/mesosphere/dcos/1.13/installing/evaluation/aws/)
-- [使用 Universal 安装工具在 Azure 上的 DC/OS](/mesosphere/dcos/1.13/installing/evaluation/azure/)
-- [使用 Universal 安装工具在 GCP 上的 DC/OS](/mesosphere/dcos/1.13/installing/evaluation/gcp/)
-- [其他安装方法](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/)
+- [使用 Universal 安装工具在 AWS 上的 DC/OS](/mesosphere/dcos/cn/1.13/installing/evaluation/aws/)
+- [使用 Universal 安装工具在 Azure 上的 DC/OS](/mesosphere/dcos/cn/1.13/installing/evaluation/azure/)
+- [使用 Universal 安装工具在 GCP 上的 DC/OS](/mesosphere/dcos/cn/1.13/installing/evaluation/gcp/)
+- [其他安装方法](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/)
 
 ### 有关群集架构和组件的更多信息
 如需了解 DC/OS 平台以及构成平台架构层的组件，请参阅 [架构概述](../../../overview/architecture/)。

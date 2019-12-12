@@ -7,6 +7,9 @@ menuWeight: 3
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
+
 现在您已经在管理节点和代理节点上安装和运行了 DC/OS 集群，并且已经安装了可与集群一起使用的 DC/OS 命令行界面 (CLI)，那么可以开始将包和应用程序添加到集群了。
 
 # 开始之前
@@ -15,9 +18,7 @@ model: /mesosphere/dcos/1.13/data.yml
 - 您可以访问安装了 [DC/OS CLI](../cli/) 的计算机。
 - 您可以在托管 CLI 的计算机上打开命令行 shell。
 - 您可以在远程群集节点上打开安全 shell (SSH) 会话。
-<!--
-要在本教程中执行一些步骤，您还需要能够访问 `jq` 语言 JSON 处理器，以简化某些命令和输出格式。
-- 下载 [jq](https://stedolan.github.io/jq/download/) 并遵循说明，以为您的操作系统安装 JQ。-->
+
 
 # 学习目的
 完成本教程，您将学习到：
@@ -52,25 +53,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
     如果您已准备好使用 DC/OS 基于 Web 的管理控制台进行安装，则继续 [使用 DC/OS 基于 Web 的控制台进行安装](#install-redis-gui)。
 
-<!--
-1. 单击 **检查和运行**。
 
-1. 验证默认服务名称。
-
-    如有需要，您可以修改服务名称。例如，您可能想将此服务命名为“redis-tutorial”。
-
-1. 单击 **Redis**，验证 CPU 和内存设置。
-
-    ![Redis 配置设置](/mesosphere/dcos/1.13/img/tutorial-redis-config.png)
-
-1. 单击 **检查和运行** 以验证您的 Redis 配置，然后单击 **运行服务**。
-
-    ![Redis 配置设置](/mesosphere/dcos/1.13/img/tutorial-redis-run.png)
-
-1. 单击 **打开服务** 以查看 Redis 部署的状态。
-
-    ![Redis 配置设置](/mesosphere/dcos/1.13/img/tutorial-redis-open-service.png)
--->
 
 ### 使用 DC/OS CLI 进行搜索
 要通过运行 DC/OS CLI 命令来搜索 Redis：
@@ -198,7 +181,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 在计算机（具有访问群集的网络）上打开终端 shell。
 
-1. 在运行 Redis 服务的群集节点上打开安全 shell ([SSH])(/1.13/administering-clusters/sshcluster/) 会话。
+1. 在运行 Redis 服务的群集节点上打开安全 shell ([SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)) 会话。
 
     您可以通过几种方式为在该节点上运行的 Redis 服务决定群集节点地址和 Mesos 任务标识符。
     
@@ -265,12 +248,12 @@ model: /mesosphere/dcos/1.13/data.yml
 接下来的教程探讨可以通过 DC/OS 基于 Web 的管理控制台或命令行界面执行的其他入门任务：
 - [部署您的第一个示例应用程序]](../first-app/)
 - [创建并运行自定义应用程序](../create-service/)
-- [发现已部署服务]../service-discovery/)
+- [发现已部署服务](../service-discovery/)
 - [部署本地容器化应用程序](../native-app/)
   
 # 相关主题
-DC/OS [目录](/mesosphere/dcos/1.13/gui/catalog/)（或 DC/OS 先前版本中的 [universe](https://github.com/mesosphere/universe)）是可安装在 DC/OS 群集上的服务的包资源库。
+DC/OS [目录](/mesosphere/dcos/cn/1.13/gui/catalog/)（或 DC/OS 先前版本中的 [universe](https://github.com/mesosphere/universe)）是可安装在 DC/OS 群集上的服务的包资源库。
 
 包资源库使您可以轻松地在集群中安装经过认证或社区提供的服务，例如，Apache Spark 或 Apache Cassandra，而无需手动查找、下载和配置单独的包。如果您的群集在没有互联网连接的隔离网络上运行，您可以创建和管理自己的站点特定包资源库。
 
-有关创建自己的包资源库（包含自定义包），请参阅 [Deploying a local Universe]（../../../ administering-clusters / deploying-a-local-dcos-universe /）以获取详细信息。
+有关创建自己的包资源库（包含自定义包)，请参阅 [Deploying a local Universe](/mesosphere/dcos/cn/1.13/administering-clusters/deploying-a-local-dcos-universe/) 以获取详细信息。

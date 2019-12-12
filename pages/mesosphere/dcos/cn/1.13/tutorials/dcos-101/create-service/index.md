@@ -6,6 +6,9 @@ menuWeight: 5
 excerpt: 说明如何使用容器来创建和部署单个命令或镜像（第 5 部分）
 enterprise: false
 ---
+
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
 在之前的教程中，您通过预定义的应用程序定义和 Docker 容器文件部署了示例应用程序。本教程介绍如何创建和部署尚未被预定义的示例应用程序。
 
 在本教程中，您将获得实践经验：
@@ -113,10 +116,10 @@ enterprise: false
 # 创建简单的容器化服务
 您可以通过 DC/OS 基于 Web 管理控制台或运行命令行程序来创建和部署容器化服务。
 
-本实践使用一个容器化、长期运行的示例任务，该任务可以从 [Mesosphere Docker Hub 资源库] 中获得(https://hub.docker.com/r/mesosphere/hello-dcos/tags/)。
+本实践使用一个容器化、长期运行的示例任务，该任务可以从 [Mesosphere Docker Hub 资源库](https://hub.docker.com/r/mesosphere/hello-dcos/tags/) 中获得。
 
 ## 使用 DC/OS 基于 Web 的控制台
-1. 打开 Web 浏览器并导航到 [Mesosphere Docker Hub 资源库] 上的 [`hello-dcos`](https://hub.docker.com/r/mesosphere/hello-dcos/tags/)，并复制最新的镜像标签。
+1. 打开 Web 浏览器并导航到 Mesosphere Docker Hub 资源库 上的 [`hello-dcos`](https://hub.docker.com/r/mesosphere/hello-dcos/tags/)，并复制最新的镜像标签。
 
 1. 打开 Web 浏览器并导航到 DC/OS 基于 Web 的控制台的 URL。
 
