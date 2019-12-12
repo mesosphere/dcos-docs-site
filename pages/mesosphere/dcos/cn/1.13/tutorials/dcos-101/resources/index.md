@@ -7,6 +7,8 @@ menuWeight: 9
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
 此时，您已经了解到如何创建群集以及如何部署和测试群集上运行的应用程序和服务。您已经使用在 Docker 和 DC/OS UCR 容器中运行的单个命令和应用程序。通过本教程，您将通过容器编排了解到一些核心利益提供商，并执行一些常见的资源扩展任务。
 
 # 编排和群集管理
@@ -259,5 +261,5 @@ dcos marathon app remove /dcoc-101/oom-app
 # 相关主题
 现在您已经几乎是专家了，您可能希望开始探索更高级的主题和配置选项，例如：
 - 使用应用程序组和 [标签](../../task-labels/)
-- 定义 [布局约束](/mesosphere/dcos/1.13/deploying-services/marathon-constraints/)
-- 在 [pods](/mesosphere/dcos/1.13/deploying-services/pods/) 中部署应用程序
+- 定义 [布局约束](/mesosphere/dcos/cn/1.13//deploying-services/marathon-constraints/)
+- 在 [pods](/mesosphere/dcos/cn/1.13//deploying-services/pods/) 中部署应用程序

@@ -7,6 +7,10 @@ menuWeight: 0
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
+
+
 如果您是出于测试或评估目的而将演示环境设置为“概念验证”，或为应用程序开发或特定项目创建小型集群，则可以按照本教程中的步骤尝试使用 DC/OS。
 
 该 DC/OS 教程简介涵盖以下基本任务：
@@ -25,8 +29,4 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 您会发现什么
 该 DC/OS 简介包含使用 DC/OS 开源和 Enterprise 群集的教程。每个教程说明如何实现特定目标。在大多数情况下，每个目标都涉及一系列步骤。在生产环境中，您可能需要执行其他步骤或选择以不同的顺序执行这些步骤。
-<!--
-# 如何获取更多信息
-在开始之前，您可能需要将 [Glossary]（术语表）加入书签，以便参考。例如，您可以使用 [Glossary]（术语表）来查找不熟悉的概念或术语。
--->
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+

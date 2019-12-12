@@ -24,7 +24,7 @@ enterprise: false
 
 ## 访问 Jenkins for DC/OS
 
-可通过 [DC/OS Web 界面](/mesosphere/dcos/1.13/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
+可通过 [DC/OS Web 界面](/mesosphere/dcos/cn/1.13/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
 
 单击“Jenkins”服务，然后单击“Open Service”访问 Jenkins Web 界面。
 

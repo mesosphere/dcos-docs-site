@@ -5,6 +5,7 @@ navigationTitle: 方案 2
 excerpt: 教程 - 内存不足
 menuWeight: 11
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <a name=c2></a>
 
@@ -56,7 +57,7 @@ Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [201
 
 **现在，我们已经确认，我们已经超出了 [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6) 中先前设置的容器内存限制 **
 
-如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/mesosphere/dcos/1.13/overview/architecture/task-types/#executors)保留一些高开销内存，在本例中为 32 MB。
+如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/mesosphere/dcos/cn/1.13/overview/architecture/task-types/#executors)保留一些高开销内存，在本例中为 32 MB。
 
 请注意，OOM `kill` 是由 Linux 内核本身执行的，因此我们也可以直接检查内核日志：
 
