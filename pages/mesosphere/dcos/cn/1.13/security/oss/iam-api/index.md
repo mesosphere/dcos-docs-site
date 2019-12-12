@@ -38,13 +38,13 @@ API 仅支持 `JSON`。您必须在 HTTP 标头中包含 `application/json` 作�
 
 DC/OS 开源支持可通过 `/users` API 端点管理的三种用户类型。
 
-[用户帐户管理](/mesosphere/dcos/1.13/security/oss/user-account-management/) 文档详细说明了可用操作的调用。
+[用户帐户管理](/mesosphere/dcos/cn/1.13/security/oss/user-account-management/) 文档详细说明了可用操作的调用。
 
 # 认证令牌验证
 
-IAM 可以通过 `/auth/jwks` API 端点为第三方实体提供公钥信息，以带外验证 DC/OS 认证令牌。
+IAM 可以通过 `/auth/jwks` API 端点为第三方实体提供公钥信息，以带外验证 DC/OS 认证令牌。 
 
-参阅 [带外令牌验证](/mesosphere/dcos/1.13/security/oss/authentication/out-of-band-verification/)，以了解如何代表 IAM 实施认证令牌验证。
+参阅 [带外令牌验证](/mesosphere/dcos/cn/1.13/security/oss/authentication/out-of-band-verification/)，以了解如何代表 IAM 实施认证令牌验证。
 
 # API 参考
 
@@ -52,5 +52,5 @@ IAM 可以通过 `/auth/jwks` API 端点为第三方实体提供公钥信息，�
 
 # 日志记录
 
-虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/mesosphere/dcos/1.13/monitoring/logging/)。
+虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/mesosphere/dcos/cn/1.13/monitoring/logging/)。
 

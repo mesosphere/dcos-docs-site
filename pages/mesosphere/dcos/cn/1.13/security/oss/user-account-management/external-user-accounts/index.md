@@ -29,9 +29,9 @@ menuWeight: 10
 
 **前提条件：**
 
-- DC/OS [已安装](/mesosphere/dcos/1.13/installing/)
+- DC/OS [已安装](/mesosphere/dcos/cn/1.13/installing/)
 
-1. [SSH](/mesosphere/dcos/1.13/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
+1. [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
