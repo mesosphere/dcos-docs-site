@@ -12,11 +12,11 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 用户登录
 
-对于 DC/OS 来说，登录是为 [DC/OS 认证令牌] 交换用户凭据的过程(/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/)。
+对于 DC/OS 来说，登录是为 [DC/OS 认证令牌](/mesosphere/dcos/cn/1.13/security/oss/authentication/authentication-token/ 交换用户凭据的过程)。
 
 用户必须获得 DC/OS 身份验证才能使用 DC/OS 群集。在 DC/OS 中，认证令牌的使用期限为五天。认证令牌到期后，用户必须再次登录。
 
-DC/OS 处理多种用户类型。可通过 [IAM API] 管理用户帐户(/mesosphere/dcos/1.13/security/oss/iam-api/)；参见 [用户管理](/mesosphere/dcos/1.13/security/oss/user-management/)。
+DC/OS 处理多种用户类型。可通过 [IAM API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/) 管理用户帐户)；参见 [用户管理](/mesosphere/dcos/cn/1.13/security/oss/user-management/)。
 
 不同用户类型有不同的登录方法，但每一个都会产生一个 DC/OS 认证令牌：
 

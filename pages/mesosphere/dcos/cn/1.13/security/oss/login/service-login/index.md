@@ -64,9 +64,9 @@ DC/OS 的服务登录令牌是通过将服务帐户 ID（借助 (`uid`) 声明�
 ## 通过服务登录令牌登录
 
 **前提条件：**
-- [服务登录令牌](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/service-login/#generate-a-service-login-token)
+- [服务登录令牌](/mesosphere/dcos/cn/1.13/security/oss/authentication/authentication-token/service-login/#generate-a-service-login-token)
 
-在服务登录期间，服务登录令牌会被发送到 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/1.13/security/oss/iam-api/)。
+在服务登录期间，服务登录令牌会被发送到 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/)。
 
 <p class="message--note"><strong>注意：</strong>IAM 将拒绝使用生命期超过 10 分钟的服务登录令牌。</p>
 

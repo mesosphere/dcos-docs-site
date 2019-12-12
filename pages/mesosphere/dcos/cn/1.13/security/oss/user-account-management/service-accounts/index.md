@@ -16,11 +16,11 @@ menuWeight: 30
 
 **前提条件：**
 - [OpenSSL](https://www.openssl.org/)
-- [DC/OS 认证令牌](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
+- [DC/OS 认证令牌](/mesosphere/dcos/cn/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
 
 服务帐户由用户 ID 和 RSA 私钥构成。
 
-1. 要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/1.13/security/oss/iam-api/) 来添加服务帐户，请首先通过 OpenSSL 生成 RSA 私钥。
+1. 要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/) 来添加服务帐户，请首先通过 OpenSSL 生成 RSA 私钥。
 
     ```bash
     openssl genpkey -algorithm RSA -out private-key.pem -pkeyopt rsa_keygen_bits:2048
@@ -49,9 +49,9 @@ menuWeight: 30
 ## 使用 IAM API
 
 **前提条件：**
-- [DC/OS 认证令牌](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
+- [DC/OS 认证令牌](/mesosphere/dcos/cn/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
 
-要使用 [身份和访问管理 (IAM) API](/mesosphere/dcos/1.13/security/oss/iam-api/) 来列出所有已配置服务帐户，请执行以下命令：
+要使用 [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/) 来列出所有已配置服务帐户，请执行以下命令：
 
 ```bash
 curl -i -X GET "http://<host-ip>/acs/api/v1/users?type=service" -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
@@ -62,9 +62,9 @@ curl -i -X GET "http://<host-ip>/acs/api/v1/users?type=service" -H 'Content-Type
 ## 使用 IAM API
 
 **前提条件：**
-- [DC/OS 认证令牌](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
+- [DC/OS 认证令牌](/mesosphere/dcos/cn/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
 
-要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/1.13/security/oss/iam-api/) 来更改服务帐户的公钥，请在 `public-key.pem` 文件中提供一个新的公钥。然后，在以下命令中替换 `<uid>`，并执行命令：
+要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/) 来更改服务帐户的公钥，请在 `public-key.pem` 文件中提供一个新的公钥。然后，在以下命令中替换 `<uid>`，并执行命令：
 
 ```bash
 curl -i -X PATCH http://<host-ip>/acs/api/v1/users/<uid> -d '{"public_key": "'"$(sed ':a;N;$!ba;s/\n/\\n/g' public-key.pem)"'"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
@@ -75,9 +75,9 @@ curl -i -X PATCH http://<host-ip>/acs/api/v1/users/<uid> -d '{"public_key": "'"$
 ## 使用 IAM API
 
 **前提条件：**
-- [DC/OS 认证令牌](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
+- [DC/OS 认证令牌](/mesosphere/dcos/cn/1.13/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
 
-要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/1.13/security/oss/iam-api/) 来删除本地用户帐户，请用相应的值替换 `<uid>` 并执行以下命令：
+要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/) 来删除本地用户帐户，请用相应的值替换 `<uid>` 并执行以下命令：
 
 ```bash
 curl -i -X DELETE http://<host-ip>/acs/api/v1/users/<uid> -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"

@@ -37,7 +37,7 @@ menuWeight: 20
 
 # 通过 IAM API 登录
 
-本地用户可以通过 [身份和访问管理 (IAM) API] 登录(/mesosphere/dcos/1.13/security/oss/iam-api/)。
+本地用户可以通过 [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/) 登录。
 
 1. 要登录本地用户帐户，请在以下命令中替换 `<uid>` 和 `<password>`：
 
