@@ -17,24 +17,24 @@ enterprise: true
 
 在此过程中，您将在单独的 Marathon 群组中部署服务，并授予用户权限以查看这些 Marathon 群组的任务。
 
-以下是对所需 [权限] 的概述(/mesosphere/dcos/1.13/security/ent/perms-reference/)：
+以下是对所需 [权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/) 的概述：
 
-| 权限字符串 | full | C | R | U | D |
+| 权限字符串 | Full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
 | `dcos:adminrouter:ops:mesos`<br>  控制对 Mesos 管理节点 UI 和 API 的访问。                                                                                                                                                                                                  | x    |   |   |   |   |
 | `dcos:adminrouter:ops:slave`<br> 控制对 Mesos 代理节点 UI 和 API 的访问。                                                                                                                                                                                                    | x    |   |   |   |   |
-| `dcos:mesos:agent:executor:app_id[:<service-or-job-group>]`<br>  控制对服务和作业 [执行器信息] 的查看访问(https://mesos.apache.org/documentation/latest/app-framework-development-guide/)。                                                                           |      |   | x |   |   |
+| `dcos:mesos:agent:executor:app_id[:<service-or-job-group>]`<br>  控制对服务和作业 [执行器信息](https://mesos.apache.org/documentation/latest/app-framework-development-guide/) 的查看访问。                                                                           |      |   | x |   |   |
 | `dcos:mesos:agent:framework:role[:<role-name>]`<br>  控制对在特定角色注册的 DC/OS 服务的查看访问。                                                                                                                                                     |      |   | x |   |   |
 | `dcos:mesos:agent:sandbox:app_id[:<service-or-job-group>]`<br>  控制对 Mesos 沙盒的访问。                                                                                                                                                                              |      |   | x |   |   |
 | `dcos:mesos:agent:task:app_id[:<service-or-job-group>]`<br>  控制对任务信息的访问。                                                                                                                                                                                  |      |   | x |   |   |
 | `dcos:mesos:master:executor:app_id[:<service-or-job-group>]`<br>  控制对 [执行器](https://mesos.apache.org/documentation/latest/app-framework-development-guide/) 服务和作业群组的访问。                                                                                    |      |   | x |   |   |
-| `dcos:mesos:master:framework:role[:<role-name>]` <br>  控制按角色对在 [Mesos] 注册为框架的访问(https://mesos.apache.org/documentation/latest/roles/)。                                                                                                    |      | x |   |   |   |
+| `dcos:mesos:master:framework:role[:<role-name>]` <br>  控制按角色对在 [Mesos](https://mesos.apache.org/documentation/latest/roles/) 注册为框架的访问。                                                                                                    |      | x |   |   |   |
 | `dcos:mesos:master:task:app_id[:<service-or-job-group>]`<br>  控制运行任务的访问权限。                                                                                                                                                                                        |      | x |   |   |   |
 
 
 **前提条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/1.13/installing/)，您以超级用户身份登录。
+- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/cn/1.13/installing/)，您以超级用户身份登录。
 
 # 通过 DC/OS Web 界面
 
@@ -48,7 +48,7 @@ enterprise: true
 
 1. 新建一个组。
 
-    ![生产组(/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
+    ![生产组](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
 
     图 2. 创建新组屏幕
 
@@ -117,7 +117,7 @@ enterprise: true
 # 通过 IAM API
 
 **前提条件：**
-您必须 [获取根证书](/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+您必须 [获取根证书](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 ### 提示
 

@@ -15,7 +15,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 `dcos task exec` 命令允许您在任务的容器内执行任意命令，并将其输出返回到本地终端，以了解有关某个特定任务如何表现的更多信息。它提供了非常类似于 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 体验，不需要 SSH 密钥。
 
-要使用调试功能，必须使用 Mesos 容器运行时或通用容器运行时来启动服务或作业。调试不能用于用 Docker 运行时启动的容器。如需更多信息，请参阅 [使用 Mesos 容器化工具](/mesosphere/dcos/1.13/deploying-services/containerizers/)。
+要使用调试功能，必须使用 Mesos 容器运行时或通用容器运行时来启动服务或作业。调试不能用于用 Docker 运行时启动的容器。如需更多信息，请参阅 [使用 Mesos 容器化工具](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)。
 
 您可以在下列模式下执行此命令。
 
@@ -39,7 +39,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 **前提条件：**
 
-- 使用 [DC/OS 通用容器运行时] 启动的容器(/mesosphere/dcos/1.13/deploying-services/containerizers/)
+- 使用 [DC/OS 通用容器运行时] 启动的容器(/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)
 
 # 使用在容器内运行的命令传送输出
 
@@ -153,7 +153,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 启动长期运行的交互式 Bash 会话
 
-此例中，长期运行的 [作业](/mesosphere/dcos/1.13/deploying-jobs/) 通过使用 `dcos job run` 命令来启动，`dcos task exec` 命令用于在该作业的容器内启动交互式 Bash shell。
+此例中，长期运行的 [作业](/mesosphere/dcos/cn/1.13/deploying-jobs/) 通过使用 `dcos job run` 命令来启动，`dcos task exec` 命令用于在该作业的容器内启动交互式 Bash shell。
 
 1. 使用 DC/OS CLI 部署和运行作业：
 

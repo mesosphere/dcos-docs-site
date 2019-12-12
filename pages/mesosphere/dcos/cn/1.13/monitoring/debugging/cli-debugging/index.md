@@ -18,7 +18,7 @@ dcos -—log-level="debug" package install hdfs
 
 # 调试被卡住部署的子命令
 
-DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部署。您也可以从 [DC/OS UI] 使用调试服务和 Pod(/mesosphere/dcos/1.13/monitoring/debugging/gui-debugging/)。
+DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部署。您也可以从 [DC/OS UI](/mesosphere/dcos/cn/1.13/monitoring/debugging/gui-debugging/) 使用调试服务和 Pod。
 
 ## 前提条件
 - DC/OS 群集
@@ -26,7 +26,7 @@ DC/OS CLI 提供一组调试子命令，用于排除卡住的服务或 Pod 部�
 - 部署时卡住的服务或 Pod
 
 ## 应用定义示例
-如果您目前没有在部署时卡住的服务或 Pod，您可以使用以下两个 [Marathon 应用定义](/mesosphere/dcos/1.13/deploying-services/creating-services/) 来验证本节的说明。
+如果您目前没有在部署时卡住的服务或 Pod，您可以使用以下两个 [Marathon 应用定义](/mesosphere/dcos/cn/1.13/deploying-services/creating-services/) 来验证本节的说明。
 
 - mem-app.json
 
@@ -91,7 +91,7 @@ ID            SINCE                     INSTANCES TO LAUNCH  WAITING  PROCESSED 
 
 ## dcos marathon debug summary
 
-一旦您知道哪些服务或 pod 在部署中停滞不前，请使用 [`dcos marathon debug summary /<app-id>|/<pod-id>`命令] (/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/)了解有关具体卡壳服务或 pod 的更多信息。
+一旦您知道哪些服务或 pod 在部署中停滞不前，请使用 [`dcos marathon debug summary /<app-id>|/<pod-id>`命令](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/dcos-marathon-debug-summary/ )了解有关具体卡壳服务或 pod 的更多信息。
 
 ```bash
 dcos marathon debug summary /mem-app
