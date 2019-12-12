@@ -17,11 +17,11 @@ enterprise: true
 - [DC/OS CLI 已安装](/mesosphere/dcos/cn/1.13/cli/install/)
 - 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
 - [安装的 GNU 隐私保护 (GPG)](http：//brewformulas.org/gnupg)
-- 必须遵守 [下载根证书] (/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/)中的步骤才能发布此部分的 `curl` 命令。
+- 必须遵守 [下载根证书] (/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)中的步骤才能发布此部分的 `curl` 命令。
 
 ## <a name="1"></a>编辑 SECRETS_BOOTSTRAP 值
 
-1. [通过 SSH 进入主节点](/mesosphere/dcos/1.13/administering-clusters/sshcluster/)。
+1. [通过 SSH 进入主节点](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)。
 
 2. 在您选择的编辑器中打开 `dcos-secrets.env` 文件。
 
@@ -71,7 +71,7 @@ enterprise: true
 
 1. 执行以下 ZooKeeper 命令以获得额外权限，必要时使用 ZooKeeper 超级用户的实际用户名和密码替换 `super:secret` 。
 
-  <p class="message--note"><strong>注意：</strong>默认情况下，DC/OS 将 Zookeeper 超级用户设置为 <code>super:secret</code>，但我们建议 <a href="/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#zk-superuser">更改默认值</a>。</p>
+  <p class="message--note"><strong>注意：</strong>默认情况下，DC/OS 将 Zookeeper 超级用户设置为 <code>super:secret</code>，但我们建议 <a href="/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#zk-superuser">更改默认值</a>。</p>
 
 
    ```bash
@@ -158,4 +158,4 @@ enterprise: true
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-祝贺您！您已成功重新初始化密钥存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的密钥存储库](/mesosphere/dcos/1.13/security/ent/secrets/unseal-store/#unseal-cust-keys)。
+祝贺您！您已成功重新初始化密钥存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的密钥存储库](/mesosphere/dcos/cn/1.13/security/ent/secrets/unseal-store/#unseal-cust-keys)。
