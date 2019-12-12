@@ -8,7 +8,6 @@ render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 您可以授予用户访问 Marathon 选项卡的权限。新用户默认没有权限。
@@ -17,7 +16,7 @@ enterprise: true
 
 **前提条件：**
 
-- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/1.13/security/ent/users-groups/) 的 DC/OS 用户账户。
+- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/cn/1.13/security/ent/users-groups/) 的 DC/OS 用户账户。
 
 1. 以具有 `dcos:superuser` 权限的用户身份登录 DC/OS UI。
 
@@ -43,7 +42,7 @@ enterprise: true
     图 3. 添加权限 
 
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式] 选择权限字符串(/mesosphere/dcos/1.13/security/ent/#security-modes)，单击**添加权限**，然后单击**关闭**。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
 
 ## 宽容
 
@@ -60,7 +59,7 @@ enterprise: true
   ```
 
 ### 任务详情和日志
-  要查看任务详情和日志，您必须授予访问 [Mesos UI] 的权限(/mesosphere/dcos/1.13/security/ent/gui-permissions/mesos-ui/)。
+  要查看任务详情和日志，您必须授予访问 [Mesos UI](/mesosphere/dcos/cn/1.13/security/ent/gui-permissions/mesos-ui/) 的权限。
 
 ## 严格
 
@@ -77,7 +76,7 @@ dcos:service:marathon:marathon:services:/ full
 ```
 
 ### 任务详情和日志
-    要查看 Marathon 任务详情和日志，您必须授予访问 [Mesos UI] 的权限(/mesosphere/dcos/1.13/security/ent/gui-permissions/mesos-ui/)。
+    要查看 Marathon 任务详情和日志，您必须授予访问 [Mesos UI](/mesosphere/dcos/cn/1.13/security/ent/gui-permissions/mesos-ui/) 的权限。
 
 您可以将 DC/OS 本地 Marathon UI 的 URL 发送给用户：`http://<master-public-ip>/marathon/`。
 
@@ -86,7 +85,7 @@ dcos:service:marathon:marathon:services:/ full
 **前提条件：**
 
 - 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
-- 您必须 [获取根证书](/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
+- 您必须 [获取根证书](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
 
 ### Notes
 
@@ -144,7 +143,7 @@ dcos:service:marathon:marathon:services:/ full
 
 
 ### 任务详情和日志
-要查看任务详情和日志，您必须授予访问 [Mesos UI] 的权限(/mesosphere/dcos/1.13/security/ent/gui-permissions/mesos-ui/)。
+要查看任务详情和日志，您必须授予访问 [Mesos UI](/mesosphere/dcos/cn/1.13/security/ent/gui-permissions/mesos-ui/) 的权限。
 
 ## 严格
 
@@ -193,6 +192,6 @@ dcos:service:marathon:marathon:services:/ full
 
 
 ### 任务详情和日志
-要查看任务详情和日志，您必须授予访问 [Mesos UI] 的权限(/mesosphere/dcos/1.13/security/ent/gui-permissions/mesos-ui/)。
+要查看任务详情和日志，您必须授予访问 [Mesos UI](/mesosphere/dcos/cn/1.13/security/ent/gui-permissions/mesos-ui/) 的权限。
 
 您现在可以将 DC/OS 本地 Marathon UI 的 URL 发送给用户：`http://<master-public-ip>/marathon/`。
