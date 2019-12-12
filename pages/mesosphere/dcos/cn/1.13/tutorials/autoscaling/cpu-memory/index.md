@@ -79,4 +79,4 @@ enterprise: false
 
 欲了解更多信息，请参阅 [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) 存储库。
 
- [1]: /mesosphere/dcos/1.13/installing/
+ [1]: /mesosphere/dcos/cn/1.13/installing/
