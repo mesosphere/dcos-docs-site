@@ -23,7 +23,7 @@ The default monitoring stack also enables you to add metrics from any of your de
 
 ![monitoring-stack](../img/monitoring.png)
 
-Figure 1 - Monitoring stack
+Figure 1 - Monitoring stack components
 
 In the diagram above, the main components of the monitoring stack and their mission are shown for a Konvoy cluster.
 

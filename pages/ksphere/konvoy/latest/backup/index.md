@@ -32,8 +32,9 @@ Until an upstream fix is released, please use [our patched 1.0.0 version of Vele
 
 # Enable or disable the backup addon
 
-You can enable or disable the Velero platform service addon in the `ClusterConfiguration` section of the `cluster.yaml` file.
-For example, you can enable the `Velero` addon using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
+<p class="message--note"><strong>NOTE: </strong>Before disabling the Velero platform service add-on, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
+
+You can enable the `Velero` addon using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
 
 ```yaml
 addons:
@@ -74,6 +75,8 @@ The default settings do the following:
 
 These default settings take effect after the cluster is created.
 If you install Konvoy with the default platform services deployed, the initial backup starts after the cluster is successfully provisioned and ready for use.
+
+### Alternate backup schedules
 
 The Velero CLI provides an easy way to create alternate backup schedules.
 For example:

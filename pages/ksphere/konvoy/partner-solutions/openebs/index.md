@@ -101,7 +101,7 @@ Installing the OpenEBS storage provider requires to do the following steps
 
 The OpenEBS storage provider requires that the `iSCSI client` runs on all worker nodes. Use the following script to install and start the iSCSI client.
 
-**Note:** The script requires the `aws cli` and `jq` commands to be installed. On `Mac OS X` both can be installed using `brew`.
+<p class="message--note"><strong>NOTE: </strong> The script requires that the <tt>aws cli</tt> and <tt>jq</tt> commands must be installed. On Mac OS X, both can be installed using `brew`.</p>
 
 ```sh
 CLUSTER=... # name of your cluster, its the prefix used for worker nodes, check in ec2 console
@@ -124,7 +124,7 @@ done
 
 In this step, we create and attach an `additional disk` to be used by OpenEBS to each worker node. Use the following script to create and attach the disks.
 
-**Note:** The script requires the `aws cli` and `jq` commands to be installed. On `Mac OS X` both can be installed using `brew`.
+<p class="message--note"><strong>NOTE: </strong> The script requires that the <tt>aws cli</tt> and <tt>jq</tt> commands must be installed. On Mac OS X, both can be installed using `brew`.</p>
 
 ```sh
 export CLUSTER=... # name of your cluster, its the prefix used for worker nodes, check in ec2 console
@@ -150,7 +150,7 @@ curl -O https://openebs.github.io/charts/openebs-operator-1.0.0.yaml
 
 Edit the `filter configuration` for the `node device manager` in the `openebs-operator-x.y.z.yaml` file to the following.
 
-**Note:** The devices that the worker nodes have attached from the Konvoy install, here `/dev/nvme0n1,/dev/nvme1n1`, maybe different in your case. You can find out the device names by ssh'ing into one of the worker nodes and using the `lsblk` command.
+<p class="message--note"><strong>NOTE: </strong> The devices that the worker nodes have attached from the Konvoy install, here <tt>/dev/nvme0n1,/dev/nvme1n1</tt>, may be different in your case. You can find out the device names by SSHing into one of the worker nodes and using the <tt>lsblk</tt> command.</p>
 
 ```
 ...
