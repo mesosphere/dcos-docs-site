@@ -9,31 +9,32 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-This section describes different networking components that come together to form a Konvoy networking stack.
-It assumes familiarity with Kubernetes networking.
+This section describes different networking components that come together to form a Konvoy networking stack. It assumes familiarity with Kubernetes networking.
 
-## Highly Available Control-Plane
+# Highly Available Control Plane
 
 Konvoy ships with a highly available control plane, in case of multi-master Kubernetes deployment.
 
-### AWS
+## AWS
 
-In the cloud, high availability is provided through the cloud provider's load balancer.
+High availability is provided through the cloud provider's load balancer.
 
-### On-premise
+## On-premise
 
-In on-premise, Konvoy ships with [Keepalived][keepalived].
-Keepalived provides two main functionalities - High Availability and Load Balancing.
-It uses [VRRP][vrrp] (Virtual Router Redundancy Protocol) to provide high availability.
-VRRP allows you to have a virtual IP (VIP) assigned to participating machines, where it is active only on one of the machines.
+In on-premise deployments, Konvoy ships with [Keepalived][keepalived].
+Keepalived provides two main functionalities - high availability and load balancing.
+It uses the [VRRP][vrrp] (Virtual Router Redundancy Protocol) to provide high availability.
+VRRP allows you assign a virtual IP (VIP) to participating machines, where it is active only on one of the machines.
+
+
 VRRP provides high availability by ensuring that virtual IP is active as long as at least one of the participating machines is active.
 Konvoy uses Keepalived to maintain high availability of the control plane.
 
 To use `Keepalived`:
 
-* Identify and reserve a virtual IP (VIP) address from the networking infrastructure.
+1. Identify and reserve a virtual IP (VIP) address from the networking infrastructure.
 
-* Configure the networking infrastructure so that the reserved virtual IP address is reachable:
+1. Configure the networking infrastructure so that the reserved virtual IP address is reachable:
   * from all hosts specified in the inventory file.
   * from the computer that is used to deploy Kubernetes.
 
@@ -55,27 +56,25 @@ spec:
         vrid: 51           # optional
 ```
 
-The IP address specified in `spec.kubernetes.controlPlane.controlPlaneEndpointOverride` is used for Keepalived VIP.
+The IP address specified in `spec.kubernetes.controlPlane.controlPlaneEndpointOverride` is used for the Keepalived VIP.
 This value is optional if it is already specified in `inventory.yaml` as part of `all.vars.control_plane_endpoint`.
 You can set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface for the Keepalived VIP.
-This field is optional.
-If not set, Konvoy will automatically detect the network interface to use based on the route to the VIP.
+This field is optional; if not set, Konvoy will automatically detect the network interface to use based on the route to the VIP.
 
 Further, you could set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][keepalived_conf] used by Keepalived.
-This field is optional.
-If not set, Konvoy will randomly pick a Virtual Router ID for you.
+This field is optional; if not set, Konvoy will randomly pick a Virtual Router ID for you.
 
-Keepalived is enabled by default for on-premise deployment. However, it could be disabled by setting `spec.kubernetes.controlPlane.keepalived.enabled` to false.
-This is usually done where there is an on-premise load balancer which could be used for high availability of the control plane.
+Keepalived is enabled by default for on-premise deployment. You can disable it by setting `spec.kubernetes.controlPlane.keepalived.enabled` to `false`.
+This is usually done where there is an on-premise load balancer which could be used to maintain high availability of the control plane.
 
-## Pod-to-Pod connectivity
+# Pod-to-Pod connectivity
 
 Konvoy ships with [Calico][calico] as the default CNI plugin to provide pod-to-pod connectivity.
-The yaml for the default installation can be viewed [here][calico_yaml].
-Konvoy exposes two configurations in `cluster.yaml` for Calico - Calico version and PodSubnet. Both these configurations are optional.
+The .yaml file for the default installation can be viewed [here][calico_yaml].
+Konvoy exposes two configurations in `cluster.yaml`, for Calico - Calico version and PodSubnet. Both these configurations are optional.
 
-By default, Konvoy would ship with the latest version of Calico available at the time of Konvoy release.
-However, it can be configured to a specific version as shown below:
+By default, Konvoy ships with the latest version of Calico available at the time of Konvoy release.
+However, you can be configure it to a specific version as shown below:
 
 ```yaml
 spec:
@@ -85,7 +84,7 @@ spec:
         version: v3.8.2
 ```
 
-Further, Calico IPV4 pool CIDR can be set via `spec.kubernetes.networking.podSubnet` in `cluster.yaml` as shown below:
+Further, the Calico IPV4 pool CIDR can be set via `spec.kubernetes.networking.podSubnet` in `cluster.yaml`, as shown below:
 
 ```yaml
 spec:
@@ -95,17 +94,17 @@ spec:
       serviceSubnet: 10.0.51.0/24
 ```
 
-Konvoy ships with the default CIDR as `192.168.0.0/16`. You should make sure that `podSubnet` does not overlap with `serviceSubnet`.
+Konvoy ships with the default CIDR as `192.168.0.0/16`. Make sure that `podSubnet` does not overlap with `serviceSubnet`.
 
-### Network Policy
+## Network Policy
 
-Calico supports a wide range of [network policy][calico_policy].
-It has tight integration with Kubernetes network policy.
+Calico supports a wide range of [network policies][calico_policy].
+It is tightlyu integrated with Kubernetes network policy.
 You can use `kubectl` to configure Kubernetes network policy which would be enforced by Calico.
 Further, Calico extends Kubernetes network policy through custom CRDs which can be configured using [calicoctl][calicoctl].
-More details about Calico network policy can be found [here][calico_security]
+More details about Calico network policy can be found [here][calico_security].
 
-## Service Discovery
+# Service Discovery
 
 Konvoy ships with [CoreDNS][coredns] to provide a DNS based service discovery.
 The default CoreDNS configuration is as shown below:
@@ -127,49 +126,49 @@ The default CoreDNS configuration is as shown below:
 }
 ```
 
-As shown in the above config, by default, CoreDNS is shipped with `error`, `health`, `prometheus`, `forward`, `loop`, `reload`, `loadbalance` plugins enabled.
-Detailed explanations for all of these plugins can be found [here][coredns_plugins].
+As shown in the above configuration, by default, CoreDNS is shipped with `error`, `health`, `prometheus`, `forward`, `loop`, `reload`, `loadbalance` plugins enabled.
+A detailed explanations for all of these plugins can be found [here][coredns_plugins].
 
-CoreDNS configuration can be modified by updating the configmap named `coredns` in `kube-system` namespace.
+You can modify the CoreDNS configuration by updating the `configmap` named `coredns` in `kube-system` namespace.
 
-## Load Balancing
+# Load Balancing
 
-Discussion around Load Balancing can be split into two categories:
+A discussion around Load Balancing can be split into two categories:
 
 * Load balancing for the traffic within a Kubernetes cluster
 * Load balancing for the traffic coming from outside the cluster
 
-### Load balancing for internal traffic
+###Load balancing for internal traffic
 
 Load balancing within a Kubernetes cluster is exposed through a service of type `ClusterIP`.
-`ClusterIP` is similar to a virtual IP (VIP), which presents a single IP address to the client and load balances the traffic to the backend servers.
-The actual load balancing happens via iptables rules or ipvs configuration, which are programmed by a Kubernetes component called `kube-proxy`.
-By default, `kube-proxy` runs in iptables mode.
-It configures iptables to intercept any traffic destined towards `ClusterIP` and send traffic to the real servers based on the probabilistic iptables rules.
-`Kube-proxy` configuration can be altered by updating the configmap named `kube-proxy` in the `kube-system` namespace.
+`ClusterIP` is similar to a virtual IP (VIP) which presents a single IP address to the client and load balances the traffic to the backend servers.
+The actual load balancing happens via `iptables` rules or ipvs configuration, which are programmed by a Kubernetes component called `kube-proxy`.
+By default, `kube-proxy` runs in `iptables` mode.
+It configures `iptables` to intercept any traffic destined towards `ClusterIP` and send traffic to the real servers based on the probabilistic `iptables` rules.
+`Kube-proxy` configuration can be altered by updating the `configmap` named `kube-proxy` in the `kube-system` namespace.
 
-### Load balancing for external traffic
+## Load balancing for external traffic
 
-Kubernetes service of type `LoadBalancer` requires a load balancer to connect an external client to internal service.
+A Kubernetes service of type `LoadBalancer` requires a load balancer to connect an external client to your internal service.
 
-### AWS
+## AWS
 
-In cloud, the load balancer is provided by the cloud provider.
+In cloud deployments, the load balancer is provided by the cloud provider.
 
-### On-premise
+## On-premise
 
-In on-premise, Konvoy ships with [MetalLB][metallb].
+For an on-premise deployment, Konvoy ships with [MetalLB][metallb].
 
 To use MetalLB for addon load balancing:
 
-* Identify and reserve a virtual IP (VIP) address range from the networking infrastructure.
+1. Identify and reserve a virtual IP (VIP) address range from the networking infrastructure.
 
-* Configure the networking infrastructure so that the reserved IP addresses is reachable:
+1. Configure the networking infrastructure so that the reserved IP addresses is reachable:
   * from all hosts specified in the inventory file.
   * from the computer that is used to deploy Kubernetes.
 
-If the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes then nothing more needs to be configured.
-However, if it is in a different subnet then you may need to configure appropriate routes to ensures connectivity with the virtual IP address.
+If the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes, then nothing more needs to be configured.
+However, if it is in a different subnet then you may need to configure appropriate routes to ensure connectivity with the virtual IP address.
 Further, the virtual IP addresses may share an interface with the primary IP address of the interface.
 In such cases, you must disable any IP or MAC spoofing from the infrastructure firewall.
 
@@ -194,7 +193,7 @@ spec:
 
 The number of virtual IP addresses in the reserved range determines the maximum number of services with a type of `LoadBalancer` that you can create in the cluster.
 
-MetalLB in `bgp` mode implements only a minimal functionality of BGP. It only advertizes the virtual IP to peer BGP agent.
+MetalLB in `bgp` mode implements only a minimal functionality of BGP. It only advertises the virtual IP to peer BGP agent.
 
 The following example illustrates the BGP configuration in the `cluster.yaml` configuration file:
 
@@ -217,20 +216,20 @@ spec:
             - 172.40.100.0/24
 ```
 
-In the above configuration, `peers` defines the configuration of the BGP peer such as peer ip address and autonomous system number (asn).
-The `address-pools` section is similar to `layer2` except the protocol.
+In the above configuration, `peers` defines the configuration of the BGP peer such as peer ip address and `autonomous system number` (`asn`).
+The `address-pools` section is similar to `layer2`, except for the protocol.
 
-Further, MetalLB supports advance BGP configuration which can be found [here][metallb_config].
+Further, MetalLB supports advanced BGP configuration which can be found [here][metallb_config].
 
-One needs to make sure that MetalLB subnet should not overlap with `podSubnet` and `serviceSubnet`.
+Make sure that MetalLB subnet does not overlap with `podSubnet` and `serviceSubnet`.
 
-## Ingress
+# Ingress
 
 Konvoy ships with [Traefik][traefik] as the default ingress controller.
 The default Traefik helm chart can be viewed [here][traefik_chart].
 Traefik creates a service of type Load Balancer.
 In the cloud, the cloud provider creates the appropriate load balancer.
-In on-premise, by default, it uses MetalLB. MetalLB can be configured as discussed earlier.
+In on-premise deployment, by default, it uses MetalLB. MetalLB can be configured as discussed earlier.
 
 Further, Traefik supports a lot of functionalities such as Name-based routing, Path-based routing, Traffic splitting etc.
 Details of these functionalities can be viewed [here][traefik_fn].
