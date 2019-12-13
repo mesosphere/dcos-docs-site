@@ -76,7 +76,7 @@ This section explains how to deploy a local {{ model.packageRepo }} containing c
 1.  Load the {{ model.packageRepo }} into the local Docker instance. This may take some time to complete.
 
     ```bash
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
 1.  Restart the `systemd` daemon.
@@ -153,7 +153,7 @@ If you only have one master, skip to [Linking local {{ model.packageRepo }} to m
 7.  Load the {{ model.packageRepo }} into the local Docker instance. This may take some time to complete.
 
     ```
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
 8.  Restart the Docker daemon.
