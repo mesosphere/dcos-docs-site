@@ -17,13 +17,13 @@ The primary components of the Konvoy logging stack include the following platfor
 * Kibana
 
 In addition to these platform services, logging relies on other software and system facilities.
-For example, the container runtime, journald facility, and systemd configuration are used to collect logs and messages from all the machines in the cluster.
+For example, the container runtime, `journald` facility, and systemd configuration are used to collect logs and messages from all the machines in the cluster.
 
 The following diagram illustrates how different components of the logging stack provide information about the Konvoy cluster.
 
 ![logging-stack](../img/logging.png)
 
-Figure 1 - Logging stack
+Figure 1 - Logging stack component
 
 # Accessing cluster logs
 
@@ -125,5 +125,5 @@ Another option to import custom Kibana dashboards can be to use the Kibana web c
     * No, prompt me for each one
     * Yes, overwrite all
 
-**NOTE:** If any visualization or dashboard did not import, the issue is most likely a field that is referenced in the visualization but not indexed.
-Please make sure that you are shipping the correct logs and that the Kibana mapping is refreshed.
+<p class="message--note"><strong>NOTE: </strong> If any visualization or dashboard did not import, the issue is most likely a field that is referenced in the visualization but not indexed. Please make sure that you are shipping the correct logs and that the Kibana mapping is refreshed.</p>
+
