@@ -84,3 +84,5 @@ In the following figure, Marathon has failed to launch a service; DC/OS displays
 ![Failure warning](/mesosphere/dcos/1.13/img/GUI-Services-Failure-to-Launch.png)
 
 Figure 3 - Debug tab showing warning 
+
+For more information about deploying services, see the [Deploying Services and Pods](/mesosphere/dcos/1.13/deploying-services/) documentation.
