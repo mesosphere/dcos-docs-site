@@ -7,16 +7,14 @@ excerpt: Get started by installing a cluster with default configuration settings
 enterprise: false
 ---
 
-## Quick Start
-
 Konvoy is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation (CNCF)][cncf] and community-contributed tools.
 By combining a native Kubernetes cluster as its foundation with a default set of cluster extensions,
 Konvoy provides a complete out-of-the-box solution for organizations that want to deploy production-ready
 Kubernetes.
 
-This quick start guide provides simplified instructions to get your Konvoy cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance.
+This Quick Start guide provides simplified instructions to get your Konvoy cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance.
 
-### Before you begin
+### Prerequisites 
 
 All Konvoy runtime dependencies are bundled in a Docker container and packaged with a wrapper that executes the container and manages these dependencies.
 
@@ -39,59 +37,28 @@ Before starting the Konvoy installation, you should verify the following:
     - Route Tables
     - IAM Roles
 
-#### Install required packages
+# Installing Konvoy
 
-In most cases, you can install the required software using your preferred package manager.
-For example, on a MacOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
-
-```bash
-brew install kubernetes-cli awscli
-```
-
-#### Check the Kubernetes client version
-
-Many important Kubernetes functions **do not work** if your client is outdated.
-You can verify that the version of `kubectl` you have installed is supported by running the following command:
-
-```bash
-kubectl version --short=true
-```
-
-### Download and extract the Konvoy package
-
-Start the installation process by downloading the Konvoy package tarball. To download the package, follow these steps:
-
-1.  Download the tarball to your local Downloads directory.
-
-    For example, if you are installing on MacOS, download the compressed archive to the default `~/Downloads` directory.
-
-1.  Extract the tarball to your local system by running the following command:
+1. Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
 
     ```bash
-    tar -xf ~/Downloads/konvoy_v1.0.0.tar.bz2
-    cd ~/Downloads/konvoy_v1.0.0
+    brew install kubernetes-cli awscli
     ```
-
-1.  Copy the Konvoy package files to a directory in your user PATH to ensure you can invoke the `konvoy` command from any directory.
-
-    For example, copy the package to the `/usr/local/bin/` directory by running the following command:
+1. Check the Kubernetes client version. Many important Kubernetes functions **do not work** if your client is outdated. You can verify that the version of `kubectl` you have installed is supported by running the following command:
 
     ```bash
-    sudo cp ~/Downloads/konvoy_v1.0.0/* /usr/local/bin/
+    kubectl version --short=true`
     ```
 
-1.  Optionally, add `bash` autocompletion for `konvoy` by running the following command:
+1.  Download and extract the Konvoy package. You will need to download and extract the Konvoy package tarball. There are a couple of ways to get the tarball:
 
-    ```bash
-    source <(konvoy completion bash)
-    ```
+    -  You can request a free trial from D2iQ [here](https://d2iq.com/solutions/ksphere/konvoy#request-free-trial). We will send you a link for the tarball.
+    - If you are a D2iQ customer, you can ask your account representative for a trial license.
 
-### Install with default settings
 
-1.  Verify you have valid **AWS security credentials** to deploy the cluster on AWS.
+1. Install with default settings.
 
-    This step is not required if you are installing Konvoy on an on-premise environment.
-    For information about installing in an on-premise environment, see [Install on-premise](../install/install-onprem).
+1.  Verify you have valid **AWS security credentials** to deploy the cluster on AWS. This step is not required if you are installing Konvoy on an on-premise environment. For information about installing in an on-premise environment, see [Install on-premise](../install/install-onprem).
 
 1.  Create a directory for storing state information for your cluster by running the following commands:
 
@@ -109,33 +76,32 @@ Start the installation process by downloading the Konvoy package tarball. To dow
     ```bash
     konvoy up
     ```
+    The `konvoy up` command performs the following tasks:
+    -   Provisions three control plane machines of `t3.large` (a highly-available control-plane API).
+    -   Provisions four worker machines of `t3.xlarge` on AWS.
+    -   Deploys all of the following default addons:
+        - [Calico][calico] to provide pod network, and policy-driven perimeter network security.
+        - [CoreDNS][coredns] for DNS and service discovery.
+        - [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
+        - [AWS EBS CSI driver][aws_ebs_csi] to support persistent volumes.
+        - [Elasticsearch][elasticsearch] (including [Elasticsearch exporter][elasticsearch_exporter]) to enable scalable, high-performance logging pipeline.
+        - [Kibana][kibana] to support data visualization for content indexed by Elasticsearch.
+        - [Fluent Bit][fluentbit] to collect and collate logs from different sources and send logged messages to multiple destinations.
+        - [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][promethsus_adapter]) to collect and evaluate metrics for monitoring and alerting.
+        - [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
+        - [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
+        - Operations portal to centralize access to addon dashboards.
+        - [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
+        - [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
+        - [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
+        - [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
+        - Kommander for multi-cluster management.
 
-The `konvoy up` command performs the following tasks:
+# Verifying your installation
 
--   Provisions three control plane machines of `t3.large` (a highly-available control-plane API).
--   Provisions four worker machines of `t3.xlarge` on AWS.
--   Deploys all of the following default addons:
-    - [Calico][calico] to provide pod network, and policy-driven perimeter network security.
-    - [CoreDNS][coredns] for DNS and service discovery.
-    - [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
-    - [AWS EBS CSI driver][aws_ebs_csi] to support persistent volumes.
-    - [Elasticsearch][elasticsearch] (including [Elasticsearch exporter][elasticsearch_exporter]) to enable scalable, high-performance logging pipeline.
-    - [Kibana][kibana] to support data visualization for content indexed by Elasticsearch.
-    - [Fluent Bit][fluentbit] to collect and collate logs from different sources and send logged messages to multiple destinations.
-    - [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][promethsus_adapter]) to collect and evaluate metrics for monitoring and alerting.
-    - [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
-    - [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
-    - Operations portal to centralize access to addon dashboards.
-    - [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
-    - [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
-    - [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
-    - [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
-    - Kommander for multi-cluster management.
-
-### Verify installation
 
 The `konvoy up` command produces output from Terraform and Ansible provisioning operations.
-When the deployment is complete, you should see a confirmation message similar to the following:
+When deployment is complete, you should see a confirmation message similar to the following:
 
 ```text
 Kubernetes cluster and addons deployed successfully!
@@ -157,11 +123,11 @@ For a production cluster, you can modify the cluster configuration to use your o
 
 You can then use this information to access the operations portal and associated dashboards.
 
-### Explore the cluster and addons
+## Explore the cluster and addons
 
 Use the URL you copied from the deployment output (for example, `https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing`) to access the cluster's dashboards using the **operations portal**.
 
-The default operations portal provides links to several dashboards of the installed services, including:
+The default **operations portal** provides links to several dashboards of the installed services, including:
 
 - Grafana dashboards for metrics
 - Kibana dashboards for logs
@@ -175,7 +141,7 @@ cluster activity performance.
 Although these are the most common next steps, you do not need to log in to the operations portal or run basic diagnostics to verify a successful installation.
 If there were issues with installing or bringing the Kubernetes cluster online, the addons installation would fail.
 
-### Merge the kubeconfig
+# Merge the kubeconfig
 
 Once the cluster is provisioned and functional, you should store its access configuration information in your main `kubeconfig` file before using `kubectl` to interact with the cluster.
 
@@ -188,48 +154,48 @@ To merge the access configuration, use the following command:
 konvoy apply kubeconfig
 ```
 
-#### Specify the kubeconfig location
+1. Specify the kubeconfig location.
 
-By default, the `konvoy apply kubeconfig` command uses the value of the `KUBECONFIG` environment variable to declare the path to the correct configuration file.
-If the `KUBECONFIG` environment variable is not defined, the default path of `~/.kube/config` is used.
+    By default, the `konvoy apply kubeconfig` command uses the value of the `KUBECONFIG` environment variable to declare the path to the correct configuration file.
+    If the `KUBECONFIG` environment variable is not defined, the default path of `~/.kube/config` is used.
 
-You can override the default Kubernetes configuration path in one of two ways:
+    You can override the default Kubernetes configuration path in one of two ways:
 
--   By specifying an alternate path before running the `konvoy apply kubeconfig` command. For example:
+    -   By specifying an alternate path before running the `konvoy apply kubeconfig` command. For example:
+
+        ```bash
+        export KUBECONFIG="${HOME}/.kube/konvoy.conf"
+        konvoy apply kubeconfig
+        ```
+
+    -   By setting `KUBECONFIG` to the path of the current configuration file created and used within `konvoy`. For example:
+
+        ```bash
+        export KUBECONFIG="${PWD}/admin.conf"
+        ```
+
+1. Validate a merged configuration.
+
+   To validate the merged configuration, you should be able to list nodes in the Kubernetes cluster by running the following command:
 
     ```bash
-    export KUBECONFIG="${HOME}/.kube/konvoy.conf"
-    konvoy apply kubeconfig
+    kubectl get nodes
     ```
 
--   By setting `KUBECONFIG` to the path of the current configuration file created and used within `konvoy`. For example:
+    The command returns output similar to the following:
 
-    ```bash
-    export KUBECONFIG="${PWD}/admin.conf"
+    ```text
+    NAME                                         STATUS   ROLES    AGE   VERSION
+    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.5
+    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.5
+    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.5
+    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.5
+    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.5
+    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.5
+    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.5
     ```
 
-#### Validate a merged configuration
-
-To validate the merged configuration, you should be able to list nodes in the Kubernetes cluster by running the following command:
-
-```bash
-kubectl get nodes
-```
-
-The command returns output similar to the following:
-
-```text
-NAME                                         STATUS   ROLES    AGE   VERSION
-ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.15.5
-ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.15.5
-ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.15.5
-ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.15.5
-ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.15.5
-ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.15.5
-ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.15.5
-```
-
-### Next steps
+# Next steps
 
 Now that you have a basic Konvoy cluster installed and ready to use, you might want to test operations by deploying
 a simple, sample application, customizing the cluster configuration, or checking the status of cluster components.

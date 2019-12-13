@@ -14,10 +14,10 @@ This section guides you through the basic steps to prepare your environment and 
 ## Prerequisites
 
 * The [aws][install_aws] command line utility
-* [Docker Desktop][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.15.5 or newer_ (for interacting with the running cluster)
+* [Docker Desktop][install_docker] version 18.09.2 or later
+* [kubectl][install_kubectl] v1.15.5 or later (for interacting with the running cluster)
 * A valid AWS account with [credentials configured][aws_credentials].
-  You need to be authorized to create the following resources in the AWS account:
+  You must be authorized to create the following resources in the AWS account:
   * EC2 Instances
   * VPC
   * VPC Endpoints
@@ -133,6 +133,7 @@ Specifically, the `konvoy up` command does the following:
 
 * Provisions three `t3.large` EC2 instances as Kubernetes master nodes
 * Provisions four `t3.xlarge` EC2 instances as Kubernetes worker nodes
+<a name="aws_add-ons"></a>
 * Deploys all of the following default addons:
   * Calico
   * CoreDNS
