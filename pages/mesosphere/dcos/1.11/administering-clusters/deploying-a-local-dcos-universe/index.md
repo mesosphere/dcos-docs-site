@@ -76,7 +76,7 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
 1.  Load the Universe into the local Docker instance.
 
     ```bash
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
     **Tip:** This may take some time to complete.
@@ -155,7 +155,7 @@ You can deploy a local Universe that includes all Certified packages (easiest), 
 1.  Load the Universe into the local Docker instance.
 
     ```
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
     **Tip:** This may take some time to complete.

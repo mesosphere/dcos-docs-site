@@ -68,7 +68,7 @@ You can install and run DC/OS services on a datacenter without internet access w
 1.  Load the Universe into the local Docker instance.
 
     ```bash
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
     **Tip:** This may take some time to complete.
@@ -147,7 +147,7 @@ You can install and run DC/OS services on a datacenter without internet access w
 1.  Load the Universe into the local Docker instance.
 
     ```
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
     **Tip:** This may take some time to complete.

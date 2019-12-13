@@ -78,7 +78,7 @@ This section explains how to deploy a local Universe containing certified Univer
 1.  Load the Universe into the local Docker instance. This may take some time to complete.
 
     ```bash
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
 1.  Restart the `systemd` daemon.
@@ -155,7 +155,7 @@ If you only have one master, skip to **Linking local Universe to master** below.
 7.  Load the Universe into the local Docker instance. This may take some time to complete.
 
     ```
-    docker load < local-universe.tar.gz
+    sudo docker load < local-universe.tar.gz
     ```
 
 8.  Restart the Docker daemon.
