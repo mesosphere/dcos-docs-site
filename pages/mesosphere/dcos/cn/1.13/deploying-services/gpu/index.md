@@ -63,7 +63,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
 可以通过 `gpus` 参数在应用定义中指定 GPU。
 
 - 只能在应用程序定义中指定整数 GPU。如果选中分数数量，启动任务后就会造成 `TASK_ERROR`。
-- NVIDIA GPU 支持仅适用于使用 [DC/OS 通用容器运行时间] 启动的任务(/mesosphere/dcos/1.13/deploying-services/containerizers/)。
+- NVIDIA GPU 支持仅适用于使用 [DC/OS 通用容器运行时间] 启动的任务(/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)。
 
 # 示例
 
@@ -91,7 +91,7 @@ DC/OS 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服
     dcos marathon app add simple-gpu-test.json
     ```
 
-1. 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/mesosphere/dcos/1.13/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **健康** 页面访问日志。
+1. 服务部署完成后，检查 `stdout` 内容，验证该服务是否采用 `nvidia-smi` 命令产生正确的输出。您会看到如下内容，并且每隔 5 秒重复一次。[通过 DC/OS  CLI](/mesosphere/dcos/cn/1.13/monitoring/logging/quickstart/) 或在 DC/OS 仪表板上的服务 **健康** 页面访问日志。
 
     ```bash
     +------------------------------------------------------+

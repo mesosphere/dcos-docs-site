@@ -21,7 +21,7 @@ DC/OS AWS CloudFormation 模板经优化以运行 DC/OS，但您可能希望根�
 要更改 AWS 的代理节点数：
 
 1. 在 [AWS CloudFormation 管理][3] 页面中，选择您的 DC/OS 群集，然后单击 **更新堆栈**。
-2. 单击到 **指定参数** 页面，为 **PublicSlaveInstanceCount** 和 **SlaveInstanceCcount** 指定新值。
+2. 单击到 **指定参数** 页面，为 **PublicSlaveInstanceCount** 和 **SlaveInstanceCount** 指定新值。
 3. 在 **选项** 页面，接受默认值，然后单击 **下一步**。**提示：** 您可以选择是否退回查看故障。默认情况下，此选项设置为 **是**。
 4. 在 **查看** 页面，选中确认框，然后单击 **创建**。
 

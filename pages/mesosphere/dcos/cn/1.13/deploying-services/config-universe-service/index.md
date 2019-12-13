@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-本主题介绍如何使用 CLI 配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/1.13/gui/services/) 选项卡自定义服务 。
+本主题介绍如何使用 CLI 配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/cn/1.13/gui/services/) 选项卡自定义服务 。
 
 1. 使用 [`dcos package describe --config <package-name>`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/dcos-package-describe/) 命令查看服务的可用配置选项。
 

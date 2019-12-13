@@ -13,7 +13,7 @@ enterprise: true
 
 [Marathon 权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#marathon-metronome) 帮助您按照服务或服务组，限制用户对服务的访问。该部分为您介绍实现这一切的步骤。
 
-[Marathon 权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/mesosphere/dcos/1.13/security/ent/perms-reference/#mesos) 的服务名称、工作名称、服务组或作业组没有区别。因此，您的命名必须是唯一的。
+[Marathon 权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#mesos) 的服务名称、工作名称、服务组或作业组没有区别。因此，您的命名必须是唯一的。
 
 **前提条件：**
 
@@ -42,7 +42,7 @@ enterprise: true
 
 1. 单击**插入权限字符串**以切换对话框。
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/1.13/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-mode选择权限字符串s)。
 
     ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
@@ -170,7 +170,7 @@ enterprise: true
 
     图 5. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/1.13/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)选择权限字符串。
 
     ### 宽容
 
@@ -300,7 +300,7 @@ enterprise: true
 
     图 7. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/1.13/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)选择权限字符串。
 
     ### 宽容
 

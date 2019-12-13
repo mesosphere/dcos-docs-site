@@ -12,6 +12,6 @@ DC/OS 安装过程需要将 DC/OS 安装到一组节点，并在一个节点上�
 
 # 访问 DC/OS 配置文件
 
-- 若要安装 DC/OS Enterprise 版本，请联系销售代表或 <sales@mesosphere.io>。您可以(https://support.mesosphere.com/s/downloads)使用 [登录凭据](https://support.mesosphere.com/s/login/) 从 [支持网站] 访问 DC/OS Enterprise 配置文件。[enterprise type="inline" size="small" /]
+- 若要安装 DC/OS Enterprise 版本，请联系销售代表或 <sales@mesosphere.com>。您可以使用 [登录凭据](https://support.mesosphere.com/s/login/) 从 [支持网站](https://support.mesosphere.com/s/downloads) 访问 DC/OS Enterprise 配置文件。[enterprise type="inline" size="small" /]
 
 - 可在 [此处](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh)下载最新、稳定、开源的 DC/OS 生成配置文件，或在 [开源项目网站](https://dcos.io/releases/) 查找旧版文件。[oss type="inline" size="small" /]

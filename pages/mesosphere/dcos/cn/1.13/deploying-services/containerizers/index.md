@@ -11,8 +11,8 @@ enterprise: false
 
 容器化工具提供围绕特定容器运行时的容器化和资源隔离抽象。DC/OS 容器化工具支持以下容器运行时间：
 
-- [Universal Container Runtime](/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/)。
-- [Docker Engine](/mesosphere/dcos/1.13/deploying-services/containerizers/docker-containerizer/)。
+- [Universal Container Runtime](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/)。
+- [Docker Engine](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/docker-containerizer/)。
 
 Universal Container Runtime (UCR) 的优势如下：
 

@@ -62,7 +62,7 @@ dcos package list
 
 ### UI
 
-转到 **服务** 选项卡，确认服务正在运行。如需更多信息，请参阅 UI [文档](/mesosphere/dcos/1.13/gui/services/)。
+转到 **服务** 选项卡，确认服务正在运行。如需更多信息，请参阅 UI [文档](/mesosphere/dcos/cn/1.13/gui/services/)。
 
 ![Services](/mesosphere/dcos/1.13/img/GUI-Services-Running_Services_View-1_12.png)
 

@@ -45,7 +45,7 @@ enterprise: true
 
 您可以将现有 LDAP 用户组导入到 DC/OS 中。从 DC/OS Enterprise 1.12 开始，LDAP 同步功能支持导入的 LDAP 组。DC/OS 定期同步外部 LDAP 目录，默认设置为间隔 1800 秒（30 分钟）。
 
-**要求：**LDAP 目录中的组条目必须使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
+**要求** LDAP 目录中的组条目必须使用 `member`、`uniquemember` 或 `memberuid` 属性列出其成员。
 
 组大小限制为 100 个用户。要增加此限制数，请联系 Mesosphere 客户支持。如果用户名与现有用户匹配，则不会重新导入。您可以检查日志以确定是否已发生。
 

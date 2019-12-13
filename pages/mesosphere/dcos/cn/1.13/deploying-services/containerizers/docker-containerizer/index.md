@@ -9,9 +9,9 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 
-[Docker Engine](https://www.docker.com/products/docker-engine) 从 Docker 镜像启动 Docker 容器。如需要 Docker Engine 的[功能](/mesosphere/dcos/1.13/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。
+[Docker Engine](https://www.docker.com/products/docker-engine) 从 Docker 镜像启动 Docker 容器。如需要 Docker Engine 的[功能](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。
 
-如果您未使用针对 Docker 引擎特定的功能，您应考虑使用 DC/OS [通用容器运行时](/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/)。DC/OS [通用容器运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/) 提供一些功能，如对 Docker 容器不可用的 GPU 资源支持。
+如果您未使用针对 Docker 引擎特定的功能，您应考虑使用 DC/OS [通用容器运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/)。DC/OS [通用容器运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/) 提供一些功能，如对 Docker 容器不可用的 GPU 资源支持。
 
 # 使用 Docker Engine 配置容器
 

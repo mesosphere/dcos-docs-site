@@ -13,8 +13,8 @@ enterprise: true
 
 ## 术语
 
-- **本地 Marathon ** 作为 DC/OS 安装的一部分安装的 Marathon 实例。此实例在管理节点上运行。
-- **非本地 Marathon ** 可以作为 DC/OS 服务安装的 Marathon 实例。非本地 Marathon 实例在专用代理节点上运行。可能需要额外的专用代理节点，以满足增加的资源需求。
+- **本地 Marathon** 作为 DC/OS 安装的一部分安装的 Marathon 实例。此实例在管理节点上运行。
+- **非本地 Marathon** 可以作为 DC/OS 服务安装的 Marathon 实例。非本地 Marathon 实例在专用代理节点上运行。可能需要额外的专用代理节点，以满足增加的资源需求。
 
 # 隔离资源
 DC/OS Enterprise [安全功能](/mesosphere/dcos/cn/1.13/security/ent/) 提供强大的细粒度访问控制。但是，有时您可能需要分区环境，例如：

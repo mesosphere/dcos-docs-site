@@ -16,7 +16,8 @@ enterprise: true
 
 保护 Exhibitor 的策略是双向 TLS 身份验证。为了保护 Exhibitor，您必须先创建唯一的根 CA 证书。该 CA 证书用于为 Admin Router 和 Exhibitor 服务签署各种端点实体证书。创建输出 PEM 和 Java KeyStore 格式化工件的公钥基础架构不是一件容易的事。为了简化此过程，我们创建了一个简单的工具来生成必要的文件。
 
-<p class="message--note"><strong>注意：</strong>本指南仅适用于使用 <i>static</i> master discovery 的群集，目前不支持 <i>master_http_loadbalancer</i>。(/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
+<p class="message--note"><strong>注意：</strong>本指南仅适用于使用 <i>static</i> master discovery 的群集，目前不支持 
+[master_http_loadbalancer](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#master-discovery-required).</p>
 
 ## 使用工具
 
