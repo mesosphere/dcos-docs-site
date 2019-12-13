@@ -17,7 +17,6 @@ enterprise: true
 
 - [获取 DC/OS CA 的根证书](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/get-cert/#oob) 并手动配置 [浏览器](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-trust-browser/)、[DC/OS CLI](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-trust-cli/)、[curl](/mesosphere/dcos/cn/1.11/security/ent/tls-ssl/ca-trust-curl/) 和其他客户端。
 
-- [使用自定义密匙对重新初始化您的密钥存储库](/mesosphere/dcos/cn/1.11/security/ent/secrets/custom-key/) 并将自定义密匙存储在非常安全的位置。
 - [即使在可选的情况下，也可以使用服务帐户配置服务](/mesosphere/dcos/cn/1.11/security/ent/service-auth/)。
 
 - [使用密匙来存储敏感信息并将其传递给服务](/mesosphere/dcos/cn/1.11/security/ent/secrets/)。
