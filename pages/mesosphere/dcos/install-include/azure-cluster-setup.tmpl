@@ -1,0 +1,86 @@
+# Creating a DC/OS Cluster
+
+1. Let’s start by creating a local folder and cd'ing into it. This folder will be used as the staging ground for downloading all required Terraform modules and holding the configuration for the cluster you are about to create.
+
+    ```bash
+    mkdir dcos-demo && cd dcos-demo
+    ```
+
+2. Create a file in that folder called `main.tf`, which is the configuration file that will be called on each time when terraform runs. The name of this file should always be `main.tf`. Open the file in the code editor of your choice and paste in the following. Notice the copy icon in the upper right hand corner of the code block to copy the code to your clipboard:
+
+    ```hcl
+    provider "azure" {}
+
+    data "http" "whatismyip" {
+      url = "http://whatismyip.akamai.com/"
+    }
+
+    module "dcos" {
+      source  = "dcos-terraform/dcos/azurerm"
+      version = "~> 0.2.0"
+
+      providers = {
+        azure = "azure"
+      }
+
+      cluster_name                      = "my-dcos-demo"
+      ssh_public_key_file               = "<path-to-public-key-file>"
+      admin_ips                         = ["${data.http.whatismyip.body}/32"]
+      location                          = "West US"
+      avset_platform_fault_domain_count = 3
+
+      num_masters        = 3
+      num_private_agents = 2
+      num_public_agents  = 1
+
+      dcos_version = "1.13.3"
+
+      # Enterprise users uncomment this section and comment out below
+      # dcos_variant              = "ee"
+      # dcos_license_key_contents = "${file("./license.txt")}"
+      # Make sure to set your credentials if you do not want the default EE
+      # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}
+      # dcos_superuser_username = "admin"
+
+      dcos_variant = "open"
+    }
+
+    output "masters-ips" {
+      value = "${module.dcos.masters-ips}"
+    }
+
+    output "cluster-address" {
+      value = "${module.dcos.masters-loadbalancer}"
+    }
+
+    output "public-agents-loadbalancer" {
+      value = "${module.dcos.public-agents-loadbalancer}"
+    }
+    ```
+
+3. There are two main variables that must be set to complete the `main.tf`, and you can change any others here at this point too.
+
+    1. `ssh_public_key_file = "<path-to-public-key-file>"`: the path to the public key for your cluster, following our example it would be:
+        ```bash
+        "~/.ssh/arm-key.pub"
+        ```
+
+    2. `location = "West US"`: The way the AzureRM provider is implemented forces us to specify the `location` in the module. If you want to use a different region replace `location` with your desired region.
+
+4. Enterprise users, uncomment/comment the section for the `dcos_variant` to look like this, inserting the location to your license key, and adding superuser credentials if needed. [enterprise type="inline" size="small" /]
+
+    ```hcl
+    dcos_variant              = "ee"
+    dcos_license_key_contents = "${file("./license.txt")}"
+    # dcos_variant = "open"
+    ```
+
+5. If you want to change the cluster name or vary the number of masters/agents, feel free to adjust those values now as well. Cluster names must be unique, consist of alphanumeric characters, '-', '_' or '.', start and end with an alphanumeric character, and be no longer than 24 characters. You can find additional [input variables and their descriptions here](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/azure/advanced-azure/).
+
+    There are also simple helpers listed underneath the module which find your public ip and specify that the following output should be printed once cluster creation is complete:
+
+    - `master-ips` A list of Your DC/OS master nodes
+    - `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
+    - `public-agent-loadbalancer` The URL of your Public routable services.
+
+6. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.

@@ -1,0 +1,181 @@
+The following are answers to common questions and issues when working with Terraform. This document supports both version 0.1 and 0.2.
+
+### Table of Contents
+- [Where can I view the source code for the terraform modules?](#where-can-i-view-the-source-code-for-the-terraform-modules)
+- [Which cloud providers are available for use?](#which-cloud-providers-are-available-for-use)
+- [What variables can I pass to the “convenience wrapper”?](#what-variables-can-i-pass-to-the-convenience-wrapper)
+- [How to set a HTTP proxy?](#how-to-set-a-http-proxy)
+- [How to use multiple zones?](#how-to-use-multiple-zones)
+- [Changing or upgrading DC/OS versions](#changing-or-upgrading-dcos-versions)
+- [Adding additional volumes](#adding-additional-volumes)
+- [Error: not a valid region](#error-not-a-valid-region)
+- [Error: remote exec timeout](#error-remote-exec-timeout)
+- [Error: resource already exists](#error-resource-already-exists)
+- [Error: unknown module referenced](#error-unknown-module-referenced)
+- [Error: validating provider credentials](#error-validating-provider-credentials)
+- [Error: Failed to obtain the IP address when installing Kubernetes](#error-failed-to-obtain-the-ip-address-when-installing-kubernetes)
+- [Error: IAM instance profile creation](#error-iam-instance-profile-creation)
+- [Error: Server certificate with that name already exists.](#error-server-certificate-with-that-name-already-exists)
+- [Error: Uploading server certificate.](#error-uploading-server-certificate)
+
+
+## Where can I view the source code for the terraform modules?
+See the following for important information pertaining to DC/OS Terraform:
+
+- [Terraform Registry](https://registry.terraform.io/modules/dcos-terraform)
+
+- [Github Home Page](https://github.com/dcos-terraform)
+
+## Which cloud providers are available for use?
+Currently we are supporting AWS, Azure and GCP.
+
+See the list of available [cloud providers](https://github.com/dcos-terraform).
+
+## What variables can I pass to the “convenience wrapper”?
+For each of the Cloud Providers (AWS, GCP, Azure), you can find an extensive list of possible variables on the associated [Terraform Registry](https://registry.terraform.io/modules/dcos-terraform) page under “Inputs”.
+
+## How to set a HTTP proxy?
+In enterprise environments, it is standard practice to funnel all http traffic through a http_proxy for security purposes.  The Universal Installer supports http_proxy with the variables:
+`dcos_use_proxy`
+`dcos_http_proxy`
+`dcos_https_proxy`
+`dcos_no_proxy`
+
+These variables are available for you to add to your `main.tf`.  Please refer to the Advanced AWS, GCP, Azure pages for more details.
+
+## How to use multiple zones?
+Multiple zones are supported by default on the Universal Installer for AWS and GCP.  To pin your DC/OS cluster to a specific availability zone, you can input the `availability_zones` variable in your `main.tf`.  If no availability zone is specified for AWS and GCP, the Universal Installer will request and deploy on all available zones.  If high availability is a priority for your DC/OS cluster, configuring the `availability_zones` variable is critical.
+
+## Changing or upgrading DC/OS versions
+Terraform has been designed to handle configuration changes and version updates gracefully. It will determine what changes you are requesting and act accordingly.
+
+If you would like to upgrade the version of DC/OS to a new one, simply modify the `dcos_version` variable in your `main.tf` to your desired version. Then simply issue a `terraform apply` for the changes to take effect.
+
+If you would like to change a DC/OS cluster configuration parameter, such as updating the resolvers, simply make the change to the desired configuration variable in your `main.tf`. Issue a `terraform apply` for the changes to be picked up by the installer. The provisioner will detect a change in the config and perform the changes as necessary.
+
+## Adding additional volumes
+We support adding additionals EBS volumes to private agent instances with the `private_agent_extra_volumes` variable. You can specify the size, type, iops and device name for each desired volume. See the following example for adding 2 additional volumes to a private agent:
+
+```hcl
+private_agent_extra_volumes = [
+    {
+      size        = "100"
+      type        = "gp2"
+      iops        = "3000"
+      device_name = "/dev/xvdi"
+    },
+    {
+      size        = "1000"
+      type        = ""     # Use AWS default.
+      iops        = "0"    # Use AWS default.
+      device_name = "/dev/xvdj"
+    }
+  ]
+}
+```
+
+## Error: not a valid region
+
+```bash
+Error: Error applying plan:
+
+1 error(s) occurred:
+
+* module.dcos.provider.aws: Not a valid region:
+
+Terraform does not automatically rollback in the face of errors.
+Instead, your Terraform state file has been partially updated with
+any resources that successfully completed. Please address the error
+above and apply again to incrementally change your infrastructure.
+```
+
+You have not properly assigned the default region to your AWS Provider. Terraform requires that you have the default region ENV set as a prerequisite.
+
+Simply export the variable: See “AWS Provider” for more info.
+
+```bash
+export AWS_DEFAULT_REGION="us-east-1"
+```
+
+Or, as an alternative, you can also set the region variable to your desired region (`${var.region}`).
+
+## Error: remote exec timeout
+These modules use remote exec over ssh to handle installations and upgrades. You will need to ensure your key is authenticated to the ssh-agent. Add your private key to the ssh-agent:
+```
+ssh-add /your/private/key
+```
+
+## Error: resource already exists
+If you have previously lost state of a recent deployment or are attempting to reuse the same `cluster_name` variable for another deployment, you will see a “duplicate resource” error:
+
+```
+*module.dcos.module.dcos-infrastructure.module.dcos-elb.module.dcos-elb-masters.module.masters.aws_elb.loadbalancer: 1 error(s) occurred:
+
+* aws_elb.loadbalancer: DuplicateLoadBalancerName: Load Balancer named viktors-open-dcos-cluster-master already exists and it is configured with different parameters.
+    status code: 400, request id: 15897298-bdf0-11e8-a0c7-c5b9b43286ee
+```
+
+You will either need to remove the existing resources or change the `cluster_name` of the current deployment to something different.
+
+
+## Error: unknown module referenced
+The Universal Installer is designed for simplicity.  If you run `terraform init` and run into this error message of `Error: output ____: reference to undefined module “____”`, it is likely that there are missing or conflicting files.
+
+Make sure that there are no duplicate Terraform files and that there is one single `main.tf` file in your folder.  After you’ve verified this, run `terraform init`.  This will install all the modules needed to run the Universal Installer.  No `git clone` is required.
+
+## Error: validating provider credentials
+If you run into a message about validating provider credentials or status code of 403, this likely culprit is improper configuration of your credentials.  Please run through your credential setup again and check that they were set up correctly.
+
+## Error: Failed to obtain the IP address when installing Kubernetes
+If you have spun up a DC/OS 1.12 or later cluster with the Universal Installer and reach this error message when installing Kubernetes:
+
+`EXIT with status 1: Failed to obtain the IP address for ‘ip_______.ec2.internal'; the DNS service may not be able to resolve it: Name or service not known`
+
+Please make sure that you are using RHEL or CentOS 7.5 as your instance OS.  CoreOS is not currently a supported operating system for DC/OS.  You can change the operating system of your DC/OS cluster by specifying the variable in `dcos_instance_os` within your `main.tf`.
+
+For details around this requirement for running Kubernetes on DC/OS 1.12 or later, please refer to [this support document](https://mesosphere-community.force.com/s/article/Critical-Issue-Kubernetes-Upgrade-MSPH-2018-0007).
+
+
+## Error: IAM instance profile creation
+A deployment fails with the following example error even after you check the IAM console and you can see that the roles and policies have been deleted:
+
+```bash
+* module.dcos.module.dcos-infrastructure.module.dcos-iam.aws_iam_instance_profile.agent_profile: 1 error(s) occurred:
+
+* aws_iam_instance_profile.agent_profile: Error creating IAM instance profile dcos-<CLUSTER_NAME>-instance_profile: EntityAlreadyExists: Instance Profile dcos-<CLUSTER_NAME>-instance_profile already exists.
+        status code: 409, request id: e3b2fe0b-4f05-11e9-b286-e78361536fef
+* module.dcos.module.dcos-infrastructure.module.dcos-iam.aws_iam_instance_profile.master_profile: 1 error(s) occurred:
+
+* aws_iam_instance_profile.master_profile: Error creating IAM instance profile dcos-<CLUSTER_NAME>-master_instance_profile: EntityAlreadyExists: Instance Profile dcos-<CLUSTER_NAME>-master_instance_profile already exists.
+        status code: 409, request id: e3aeb888-4f05-11e9-b9b4-758e0e14b43e
+```
+
+Even though you have deleted the associated roles/policies, you cannot view the “Instance Profiles” via IAM Console. You should issue the following commands via AWS CLI to remove the instance profiles:
+
+```bash
+aws iam delete-instance-profile --instance-profile-name dcos-<CLUSTER_NAME>-instance_profile
+aws iam delete-instance-profile --instance-profile-name dcos-<CLUSTER_NAME>-master_instance_profile
+```
+
+Once these instance profiles are cleaned up, redeploying the cluster once more will resolve the issue.
+
+## Error: Server certificate with that name already exists.
+
+When provisioning a cluster you may run into an error of “Error uploading server certificate, error: EntityAlreadyExists: The Server Certificate with name already exists.” This is likely due to a failed deployed before using the same cluster name. Issue the following to remove old and then re-apply with terraform.
+
+```bash
+aws iam delete-server-certificate --server-certificate-name <CLUSTER_NAME>-cert
+aws iam delete-server-certificate --server-certificate-name int-<CLUSTER_NAME>-cert
+aws iam delete-server-certificate --server-certificate-name ext-<CLUSTER_NAME>-cert
+```
+
+## Error: Uploading server certificate
+
+When your clock is not synced with an authoritative time server or not set equal to an authoritative time server provided value, you will get an error like this:
+
+```bash
+* aws_iam_server_certificate.selfsigned: Error uploading server certificate, error: MalformedCertificate: Unable to parse certificate. Please ensure the certificate is in PEM format.
+```
+
+Most likely, the server certificate being uploaded with `terraform` has a datetime set in the future and the `aws` API will reject it, sending this error.
+Please make sure that the clock on the machine you are provisioning your cluster from has the time in sync.

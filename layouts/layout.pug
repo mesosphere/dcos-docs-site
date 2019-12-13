@@ -1,15 +1,24 @@
+
+- var paths = path.split('/')
+- var isChinese = paths[2] == 'cn'
+- var isDCOS = paths[1] == 'dcos'
+- var isKonvoy = paths[1] == 'konvoy'
 doctype html
 html(lang='en')
   head
     include partials/head.pug
   body
     div(class='layout')
-      div(class='layout__sidebar layout__drawer')
-        include partials/sidebar.pug
+      if isChinese
+        include partials/header/dcos-cn-header.pug
+      else if isKonvoy
+        include partials/header/konvoy-header.pug
+      else
+        include partials/header/dcos-en-header.pug
+      if isChinese
+        include partials/sidebar/cn-sidebar.pug
+      else
+        include partials/sidebar/en-sidebar.pug
       div(role='main', class='layout__content')
-        include partials/header.pug
-        if pdfToc
-          include partials/print-toc.pug
-        else
-          include partials/content.pug
+        include partials/content.pug
     include partials/scripts.pug

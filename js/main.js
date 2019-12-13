@@ -1,4 +1,4 @@
 // Initialize feather icon replacements
-if (feather) {
+if (typeof feather !== 'undefined') {
   feather.replace();
 }

@@ -1,0 +1,457 @@
+swagger: '2.0'
+
+info:
+  version: "0.0.2"
+  title: DC/OS Log API
+  description: >
+    The second version of the DC/OS Log API.
+    Note that the endpoints in this spec are all *service-specific*. dcos-log
+    is designed to be put behind Admin Router, which provides security for these
+    endpoints. Therefore, on a DC/OS cluster, the final URL to query will resemble:
+        http://<host>/system/v1/agent/<agent-id>/logs/v1/<endpoint>
+    For more information, please consult the project documentation located at
+    <https://github.com/dcos/dcos-log>.
+basePath: "/"
+parameters:
+  filter:
+    name: filter
+    in: query
+    description: >
+      Colon separated filter parameter.
+      For example ?filter=_SYSTEMD_UNIT:dcos-log.service
+    required: false
+    type: string
+  limit:
+    name: limit
+    in: query
+    description: Limit number of log entries.
+    required: false
+    type: integer
+  skip_next:
+    name: skip_next
+    in: query
+    description: Move cursor position forward.
+    required: false
+    type: integer
+  skip_prev:
+    name: skip_prev
+    in: query
+    description: Move cursor position backward.
+    required: false
+    type: integer
+  cursor:
+    name: cursor
+    in: query
+    description: Move current cursor to provided cursor position. In v2 for task logs it could be bytes offset or special values BEG and END. For component logs it should be either special words BEG, END or journald cursor string.
+    required: false
+    type: string
+  read_reverse:
+    name: read_reverse
+    in: query
+    description: Read the journal entries in reverse. The default value is false.
+    required: false
+    type: boolean
+  postfix:
+    name: postfix
+    in: query
+    description: Set file name.
+    required: false
+    type: string
+  skip:
+    name: skip
+    in: query
+    description: Skip N lines from the cursor. Can be negative value meaning moving the position backwards.
+    required: false
+    type: integer
+paths:
+  /v1/range/:
+    get:
+      description: |
+        Gets a range of logs from the beggining of the journal.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip_next"
+        - $ref: "#/parameters/skip_prev"
+        - $ref: "#/parameters/cursor"
+        - $ref: "#/parameters/read_reverse"
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            title: logs Entries
+            type: string
+        204:
+          description: No logs found.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+  /v1/range/download:
+    get:
+      description: |
+        Download compressed logs.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip_next"
+        - $ref: "#/parameters/skip_prev"
+        - $ref: "#/parameters/cursor"
+        - $ref: "#/parameters/read_reverse"
+        - $ref: "#/parameters/postfix"
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            title: logs Entries
+            type: string
+        204:
+          description: No logs found.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+  /v1/range/framework/<framework-id>/executor/<executor-id>/container/<container-id>:
+    get:
+      description: |
+        Gets a range of task logs.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip_next"
+        - $ref: "#/parameters/skip_prev"
+        - $ref: "#/parameters/cursor"
+        - $ref: "#/parameters/read_reverse"
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            title: logs Entries
+            type: string
+        204:
+          description: No logs found.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+  /v1/range/framework/<framework-id>/executor/<executor-id>/container/<container-id>/download:
+    get:
+      description: |
+        Download compressed task logs.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip_next"
+        - $ref: "#/parameters/skip_prev"
+        - $ref: "#/parameters/cursor"
+        - $ref: "#/parameters/read_reverse"
+        - $ref: "#/parameters/postfix"
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            title: logs Entries
+            type: string
+        204:
+          description: No logs found.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+  /v1/stream/:
+    get:
+      description: |
+        Stream the log entries back to client with Server-Sent-Events.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip_next"
+        - $ref: "#/parameters/skip_prev"
+        - $ref: "#/parameters/cursor"
+        - $ref: "#/parameters/read_reverse"
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            title: logs Entries
+            type: string
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+  /v1/stream/framework/<framework-id>/executor/<executor-id>/container/<container-id>:
+    get:
+      description: |
+        Stream the task log entries back to client with Server-Sent-Events.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip_next"
+        - $ref: "#/parameters/skip_prev"
+        - $ref: "#/parameters/cursor"
+        - $ref: "#/parameters/read_reverse"
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            title: logs Entries
+            type: string
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+  /v1/fields/<field>:
+    get:
+      description: |
+        Get all available unique values for a given field.
+      responses:
+        200:
+          description: Successful response.
+          schema:
+            title: response with available fields
+            type: array
+            items:
+              type: string
+        204:
+          description: No content.
+        400:
+          description: Bad request, field not found.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/<task-id>:
+    get:
+      description: |
+        Read default `stdout` file for the given task. Available on master nodes.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip"
+        - $ref: "#/parameters/cursor"
+      responses:
+        200:
+          description: Successful response.
+        404:
+          description: Task not found.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/<task-id>/file/<filename>:
+    get:
+      description: |
+        Read the <filename> for the given task. Available on master nodes.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip"
+        - $ref: "#/parameters/cursor"
+      responses:
+        200:
+          description: Successful response.
+        404:
+          description: Task not found.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/component:
+    get:
+      description: |
+        Read the entire journald log. Available on all nodes.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip"
+        - $ref: "#/parameters/cursor"
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/component/<name>:
+    get:
+      description: |
+        Read the journald logs for a given component name. Available on all nodes.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip"
+        - $ref: "#/parameters/cursor"
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/frameworks/<framework-id>/executors/<executor-id>/runs/<id>/files/browse:
+    get:
+      description: |
+          Browse sandbox files for a given single task
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/frameworks/<framework-id>/executors/<executor-id>/runs/<id>/tasks/<container-id>/files/browse:
+      get:
+        description: |
+            Browse sandbox files for a given POD task.
+        responses:
+          200:
+            description: Successful response.
+          400:
+            description: Bad request.
+          401:
+            description: Not authorized.
+          500:
+            description: Internal server error.
+
+  /v2/task/frameworks/<framework-id>/executors/<executor-id>/runs/<id>/tasks/<container-id>/<file>:
+    get:
+      description: |
+          Read the POD task log. framework-id, executor-id, id, container-id and file are required task unique parameters. Available on agent nodes.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip"
+        - $ref: "#/parameters/cursor"
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/frameworks/<framework-id>/executors/<executor-id>/runs/<id>/tasks/<container-id>/<file>/download:
+    get:
+      description: |
+          Download the POD task log. framework-id, executor-id, id, container-id and file are required task unique parameters. Available on agent nodes.
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/frameworks/<framework-id>/executors/<executor-id>/runs/<container-id>/<file>:
+    get:
+      description: |
+          Read the SINGLE task log. framework-id, executor-id, container-id and file are required task unique parameters. Available on agent nodes.
+      parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip"
+        - $ref: "#/parameters/cursor"
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/frameworks/<framework-id>/executors/<executor-id>/runs/<container-id>/<file>/download:
+    get:
+      description: |
+          Download the SINGLE task log. framework-id, executor-id, container-id and file are required task unique parameters. Available on agent nodes.
+      responses:
+        200:
+          description: Successful response.
+        400:
+          description: Bad request.
+        401:
+          description: Not authorized.
+        500:
+          description: Internal server error.
+
+  /v2/task/<task-id>/file/<file-name>:
+      get:
+        description: |
+            This endpoint discovers the metadata assosiated with a given <task-id> and redirects to a specific endpoint on agent node. Reading <file-name> file.
+        parameters:
+        - $ref: "#/parameters/filter"
+        - $ref: "#/parameters/limit"
+        - $ref: "#/parameters/skip"
+        - $ref: "#/parameters/cursor"
+        responses:
+          200:
+            description: Successful response.
+          400:
+            description: Bad request.
+          401:
+            description: Not authorized.
+          500:
+            description: Internal server error.
+
+  /v2/task/<task-id>/browse:
+      get:
+        description: |
+            This endpoint discovers the metadata assosiated with a given <task-id> and redirects to a specific browsing endpoint on agent node.
+        responses:
+          200:
+            description: Successful response.
+          400:
+            description: Bad request.
+          401:
+            description: Not authorized.
+          500:
+            description: Internal server error.
+
+  /v2/task/<task-id>/download:
+      get:
+        description: |
+            Download stdout for a given <task-id>
+        responses:
+          200:
+            description: Successful response.
+          400:
+            description: Bad request.
+          401:
+            description: Not authorized.
+          500:
+            description: Internal server error.
+
+  /v2/task/<task-id>/file/<file-name>/download:
+      get:
+        description: |
+            Download <file-name> for a given <task-id>
+        responses:
+          200:
+            description: Successful response.
+          400:
+            description: Bad request.
+          401:
+            description: Not authorized.
+          500:
+            description: Internal server error.

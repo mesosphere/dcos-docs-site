@@ -1,0 +1,10 @@
+# Common values:
+
+packageName: spinnaker
+serviceName: spinnaker
+techName:  Spinnaker
+techShortName: Spinnaker
+
+# Values specific to certain templates:
+
+# Values specific to Spinnaker's own docs content:

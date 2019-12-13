@@ -1,0 +1,355 @@
+This guide expects that you already have a running DC/OS cluster based on Universal Installer `0.2`. To learn more about running DC/OS with the Universal Installer have a look into the [Guide for DC/OS on Azure using the Universal Installer](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/azure/).
+
+You will learn how to place additional infrastructure into an Azure remote region. Remote regions will be connected to each other by using the peering functionality of Azure VNETs.
+
+# Prerequisites
+- A running DC/OS Enterprise cluster set up with Universal Installer 0.2 modules
+- A subnet range for your remote region
+
+# Getting started with remote region
+We expect your already running DC/OS clusters `main.tf` will look similar to this example. To deploy a remote region we have to do some changes to your `main.tf`
+
+```hcl
+provider "azure" {}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
+module "dcos" {
+  source  = "dcos-terraform/dcos/aws"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  location                          = "West US"
+  avset_platform_fault_domain_count = 3
+
+  cluster_name        = "my-dcos-demo"
+  ssh_public_key_file = "<path-to-public-key-file>"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+  num_masters        = 3
+  num_private_agents = 2
+  num_public_agents  = 1
+
+  dcos_version = "1.13.3"
+
+  dcos_variant              = "ee"
+  dcos_license_key_contents = "${file("./license.txt")}"
+
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+
+  dcos_instance_os = "centos_7.6"
+}
+
+output "masters-ips" {
+  value = "${module.dcos.masters-ips}"
+}
+
+output "cluster-address" {
+  value = "${module.dcos.masters-loadbalancer}"
+}
+
+output "public-agents-loadbalancer" {
+  value = "${module.dcos.public-agents-loadbalancer}"
+}
+```
+
+## Shared config options
+To create the remote region and its infrastructure we will use the same underlying modules as in our master region. This also means there will be some information needed for both infrastructures like `cluster_name`, `admin_ips` and `ssh_public_key_file`. To make the operation easier you should define local variables in your `main.tf` that will be used in every module.
+
+```hcl
+#...
+
+// lets define variables which are shared between all regions
+locals {
+  ssh_public_key_file = "~/.ssh/id_rsa.pub"
+  cluster_name        = "my-dcos-demo"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+}
+
+#...
+```
+
+### Internal subnetworks
+Part of the shared information is which internal subnets are used in your infrastructure. If you did not specify `subnet_range`, terraform uses the default which is `172.12.0.0/16`. The remote region we want to specify needs its own subnet.
+
+<p class="message--important"><strong>IMPORTANT:</strong> You should not take <code>172.17.0.0/16</code>, it is dockers internal network default which will lead to problems.</p>
+
+To have a clear separation between our master and our remote regions we will take `10.128.0.0/16` as our remote regions subnet. Also, we will use a [map variable](https://www.terraform.io/docs/configuration-0-11/variables.html#maps) to assign the networks to regions. This will make it easier when adding additional regions in the future.
+
+The locals section will now look like this
+
+```hcl
+#...
+
+// lets define variables which are shared between all regions
+locals {
+  ssh_public_key_file       = "~/.ssh/id_rsa.pub"
+  cluster_name              = "my-dcos-demo"
+  admin_ips                 = ["${data.http.whatismyip.body}/32"]
+
+  region_networks = {
+    // dont use 172.17/26 as its used by docker.
+    "master"    = "172.12.0.0/16" // this is the default
+    "West US 2" = "10.128.0.0/16"
+  }
+}
+
+#...
+```
+
+## The remote region
+Before we start changing values within the `dcos` module we will append the infrastructure definition of the remote region to your `main.tf`. In our example case we only want to have private agents in our remote region, and both private and public agents can be put in a remote region.
+
+<p class="message--important"><strong>IMPORTANT:</strong> Running master instances in remote regions is not supported.</p>
+
+To only start private agents we will set `num_bootstrap = 0`, `num_masters = 0` and `num_public_agents = 0`.
+
+Another important topic to mention is naming. To distinguish between instances of your main and your remote region we introduced the `name_prefix` variable which allows you to add a prefix to the name of every resource. In this example we set the `name_prefix` to the short name of the remote region.
+
+In the following example you will also find the [shared config options](#shared-config-options) being used in the module call referenced by e.g. `local.ssh_public_key_file`.
+
+```hcl
+#...
+
+module "dcos-wus2" {
+  source  = "dcos-terraform/infrastructure/azurerm"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  location                          = "West US 2"
+  avset_platform_fault_domain_count = 2
+  subnet_range                      = "${local.region_networks["West US 2"]}"
+
+  admin_ips   = ["${local.admin_ips}"]
+  name_prefix = "wus2"
+
+  cluster_name = "${local.cluster_name}"
+
+  num_bootstrap      = 0
+  num_masters        = 0
+  num_private_agents = 1
+  num_public_agents  = 0
+
+  ssh_public_key_file    = "${local.ssh_public_key_file}"
+}
+
+```
+
+## Peering to the main DC/OS region
+We now need to establish a connection between the two infrastructures. The Universal Installer provides a module for this task. In this module we reference data from both infrastructures the main region holding DC/OS masters and the remote region holding your remote private agents.
+
+The only information this module needs to receive is the output of our `dcos` and `dcos-wus2` modules. We will append this module to the end of your `main.tf`
+
+Here is the example vnet-peering-section
+
+```hcl
+#...
+
+module "vnet-connection-master-wus2" {
+  source  = "dcos-terraform/vnet-peering/azurerm"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  cluster_name               = "${local.cluster_name}"
+  local_region_network       = "master"
+  local_resource_group_name  = "${module.dcos.infrastructure.resource_group_name}"
+  local_vnet_name            = "${module.dcos.infrastructure.vnet_name}"
+  local_vnet_id              = "${module.dcos.infrastructure.vnet_id}"
+  remote_region_network      = "wus2"
+  remote_resource_group_name = "${module.dcos-wus2.resource_group_name}"
+  remote_vnet_name           = "${module.dcos-wus2.vnet_name}"
+  remote_vnet_id             = "${module.dcos-wus2.vnet_id}"
+}
+```
+
+## Changes to dcos module
+At this point its time to do changes to your `dcos` module so it knows about the remote region and is able to install the remote agents.
+
+1. Choose a subnet range. In general this change is not needed but we wanted to make your example pretty specific.
+
+    `subnet_range = "${local.region_networks["master"]}"`
+
+2. Change the cluster_name. As this is a shared resource we will make use of the local variable.
+
+    `cluster_name = "${local.cluster_name}"`
+
+3. List the SSH key. This is also a shared resource and we can make use of the local variable
+
+    `ssh_public_key_file = "${local.ssh_public_key_file}"`
+
+4. Add the admin IPs following the same pattern.
+
+    `admin_ips = ["${local.admin_ips}"`]
+
+5. Add the private agents. This nearly the most important new variable. This tells the DC/OS installation module which other agents need to be installed.
+
+    `additional_private_agent_ips = ["${module.dcos-wus2.private_agents.private_ips}"]`
+
+### Example dcos module
+After the changes above got applied your `dcos` module should look like this
+
+```hcl
+module "dcos" {
+  source  = "dcos-terraform/dcos/azurerm"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  location                          = "West US"
+  avset_platform_fault_domain_count = 3
+  subnet_range                      = "${local.region_networks["master"]}"
+
+  cluster_name        = "${local.cluster_name}"
+  ssh_public_key_file = "${local.ssh_public_key_file}"
+  admin_ips           = ["${local.admin_ips}"]
+
+  num_masters        = 3
+  num_private_agents = 2
+  num_public_agents  = 1
+
+  dcos_version = "1.13.3"
+
+  dcos_variant              = "ee"
+  dcos_license_key_contents = "${file("./license.txt")}"
+
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+
+  dcos_instance_os = "centos_7.6"
+
+  additional_private_agent_ips = ["${module.dcos-wus2.private_agents.private_ips}"]
+}
+```
+
+# Full main.tf example
+Here is the complete `main.tf` you should see once you completed this guide.
+
+```hcl
+provider "azure" {}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
+
+// lets define variables which are shared between all regions
+locals {
+  ssh_public_key_file       = "~/.ssh/id_rsa.pub"
+  cluster_name              = "my-dcos-demo"
+  admin_ips                 = ["${data.http.whatismyip.body}/32"]
+
+  region_networks = {
+    // dont use 172.17/26 as its used by docker.
+    "master"    = "172.12.0.0/16" // this is the default
+    "West US 2" = "172.13.0.0/16"
+  }
+}
+
+module "dcos" {
+  source  = "dcos-terraform/dcos/azurerm"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  location                          = "West US"
+  avset_platform_fault_domain_count = 3
+  subnet_range                      = "${local.region_networks["master"]}"
+
+  cluster_name        = "${local.cluster_name}"
+  ssh_public_key_file = "${local.ssh_public_key_file}"
+  admin_ips           = ["${local.admin_ips}"]
+
+  num_masters        = 3
+  num_private_agents = 2
+  num_public_agents  = 1
+
+  dcos_version = "1.13.3"
+
+  dcos_variant              = "ee"
+  dcos_license_key_contents = "${file("./license.txt")}"
+
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+
+  dcos_instance_os = "centos_7.6"
+
+  additional_private_agent_ips = ["${module.dcos-wus2.private_agents.private_ips}"]
+}
+
+output "masters-ips" {
+  value = "${module.dcos.masters-ips}"
+}
+
+output "cluster-address" {
+  value = "${module.dcos.masters-loadbalancer}"
+}
+
+output "public-agents-loadbalancer" {
+  value = "${module.dcos.public-agents-loadbalancer}"
+}
+
+module "dcos-usw2" {
+  source  = "dcos-terraform/infrastructure/azurerm"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  location                          = "West US 2"
+  avset_platform_fault_domain_count = 2
+  subnet_range                      = "${local.region_networks["West US 2"]}"
+
+  admin_ips   = ["${local.admin_ips}"]
+  name_prefix = "wus2"
+
+  cluster_name = "${local.cluster_name}"
+
+  num_bootstrap      = 0
+  num_masters        = 0
+  num_private_agents = 1
+  num_public_agents  = 0
+
+  ssh_public_key_file    = "${local.ssh_public_key_file}"
+}
+
+module "vnet-connection-master-wus2" {
+  source  = "dcos-terraform/vnet-peering/azurerm"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  cluster_name               = "${local.cluster_name}"
+  local_region_network       = "master"
+  local_resource_group_name  = "${module.dcos.infrastructure.resource_group_name}"
+  local_vnet_name            = "${module.dcos.infrastructure.vnet_name}"
+  local_vnet_id              = "${module.dcos.infrastructure.vnet_id}"
+  remote_region_network      = "wus2"
+  remote_resource_group_name = "${module.dcos-wus2.resource_group_name}"
+  remote_vnet_name           = "${module.dcos-wus2.vnet_name}"
+  remote_vnet_id             = "${module.dcos-wus2.vnet_id}"
+}
+```

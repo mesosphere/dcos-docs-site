@@ -1,0 +1,92 @@
+- var paths = path.split('/')
+- var isChinese = paths[2] == 'cn'
+- var currentPath = '/' + path
+- var ksphereDocs = hierarchy.children.filter(child => child.id === 'ksphere')[0]
+- var konvoyDocs = ksphereDocs.children.filter(child => child.id === 'konvoy')[0]
+- var partnerPages = konvoyDocs.children.filter(child => child.id === 'partner-solutions')[0]
+- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var semverService = /^(v|)[0-9](.*)/
+- var isChinese = paths[2] == 'cn'
+
+
+- 
+  var categories = [
+    "View All",
+    "Networking and Security",
+    "Storage",
+    "Workload"
+  ]
+
+mixin renderGridInputs()
+  div(class='grid-filters')
+    div(class='grid-filters__controls-div')
+      div(class='grid-filters__select-label-div')
+        label(class='grid-filters__select-label')!= 'CHOOSE A CATEGORY'
+      div(class='custom-select')
+        select(class='grid-filters__category')
+          option(class='grid-filters__category__option' value='view-all')!= 'View All'
+          each category, _ in categories
+            - var categoryString = category.toLowerCase().split(' ').join('-')
+            option(class='grid-filters__category__option' value=categoryString)!= category
+    div(class='grid-filters__labels' id="konvoy-labels")
+      div(class='grid-filters__label')
+        input(class='grid-filters__enterprise' type="checkbox" name="enterprise" value="enterprise")
+        label!= 'Include Enterprise'
+      div(class='grid-filters__label')
+        input(class='grid-filters__community' type="checkbox" name="community" value="community")
+        label!= 'Include Community'
+      div(class='grid-filters__label')
+        input(class='grid-filters__beta' type="checkbox" name="beta" value="beta")
+        label!= 'Include Beta'
+
+mixin renderGridToc()
+  div(class='grid-toc' data-categories=categories.join(','))
+    each category, _ in categories
+      - var categoryString = category.toLowerCase().split(' ').join('-')
+      - var categoryClasses = `grid-toc__service-category grid-toc__service-category__${categoryString}`
+      div(class=categoryClasses)
+        h1(class='grid-toc__category-header')!= category
+        - var categoryServices = []
+        each service, _ in partnerPages.children
+          if service.menuWeight != -1 && service.category == category
+            - categoryServices.push(service)
+        each service, _ in categoryServices
+          - latestPath = service.path
+          - var categoryString = category.split(' ').join('-')
+          - var serviceItemClasses = `grid-toc__service-item`
+          div(class=serviceItemClasses)
+            div(class='grid-toc__title-group')
+              h2(class='grid-toc__title')
+                a(href=latestPath)!= service.title
+            p(class='grid-toc__service-desc')!= service.excerpt || 'MISSING'
+            if service.children
+              ul(class='grid-toc__service-list')
+                for version in service.children.slice(0,1)
+                  for folder in version.children.slice(0,3)
+                    li(class='grid-toc__service-list-item')
+                      a(href=folder.path, class='grid-toc__link')!= folder.title
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body(class='landing landing--services')
+    div(class='layout')
+      div(role='main', class='layout__content')
+        include partials/header/konvoy-header.pug
+        div(class='landing__hero')
+          h1(class='landing__title') Konvoy Partner Solutions
+        div(class='landing__container')
+          +renderGridInputs()
+          +renderGridToc()
+        footer(class='landing__footer')
+          div(class='landing__footer__container')
+            a(class='landing__footer__logo__link', href='https://d2iq.com/')
+              img(class='landing__footer__logo', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+            div(class='landing__footer__menu')
+              a(href='https://d2iq.com/terms/') Terms of Service
+              a(href='https://d2iq.com/privacy/') Privacy Policy
+            a(class='landing__footer__copyright', href='https://d2iq.com/')!= copyright
+    script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
+    script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
+    include partials/scripts.pug

@@ -1,0 +1,191 @@
+swagger: '2.0'
+info:
+  title: dcos_edge_lb
+  description: Create and manage load balancers with DCOS Edge LB API
+  version: 1.0.0
+schemes:
+  - http
+  - https
+basePath: /
+produces:
+  - application/json
+consumes:
+  - application/json
+paths:
+  /ping:
+    get:
+      description: Healthcheck endpoint.
+      operationId: Ping
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: Pong.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+  /version:
+    get:
+      description: Returns the installed Edge-LB package version.
+      operationId: Version
+      produces:
+        - text/plain
+      consumes:
+        - text/plain
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: Version.
+          schema:
+            type: string
+        default:
+          description: Unexpected error.
+          schema:
+            type: string
+  /config:
+    get:
+      description: Get the entire configuration object including v1 and v2 pools.
+      operationId: GetConfigContainer
+      parameters: []
+      tags: []
+      responses:
+        '200':
+          description: A configuration object containing all load balancer pools.
+          schema:
+            $ref: '#/definitions/ConfigContainer'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+  '/pools/{name}':
+    get:
+      description: Returns a v1 or v2 load balancer pool based on a single name.
+      operationId: GetPoolContainer
+      parameters:
+        - name: name
+          in: path
+          required: true
+          type: string
+      responses:
+        '200':
+          description: Load balancer pool response.
+          schema:
+            $ref: '#/definitions/PoolContainer'
+        default:
+          description: Unexpected error.
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  APIVersion:
+    type: string
+    enum:
+      - V1
+      - V2
+  PoolType:
+    type: string
+    enum:
+      - static
+      - template-static
+      - template-dynamic
+  RenderStatus:
+    type: string
+    enum:
+      - OK
+      - RENDER_ERR
+      - SUBMIT_ERR
+      - NO_TASKS
+      - NEW
+  PoolTemplate:
+    type: object
+    description: Specifies the configuration of a pool template
+    properties:
+      name:
+        type: string
+        description: Name of the pool template
+        pattern: '^[a-zA-Z0-9][a-zA-Z0-9-]+$'
+    required:
+      - name
+  PoolTemplateStatus:
+    type: object
+    description: Describes the status of the given pool template, e.g. rendering information
+    additionalProperties:
+      type: object
+      properties:
+        status:
+          description: Describes the status of the rendering of the given pool template into a given pool
+          $ref: '#/definitions/RenderStatus'
+        message:
+          type: string
+        statuses:
+          type: object
+          description: Describes the per task status of the rendering of the given pool template
+          additionalProperties:
+            $ref: '#/definitions/TaskStatus'
+  TaskStatus:
+    type: object
+    additionalProperties:
+      type: object
+      properties:
+        message:
+          type: string
+        status:
+          description: Describes the status of the rendering of the given pool template into a given pool
+          $ref: '#/definitions/RenderStatus'
+        uris:
+          type: array
+          items:
+            type: string
+  ConfigContainer:
+    type: object
+    description: Object used internally as an interface to handle multple model versions.
+    properties:
+      pools:
+        type: array
+        description: Array of pool containers.
+        items:
+          $ref: '#/definitions/PoolContainer'
+      poolTemplates:
+        type: array
+        description: Array of pool template containers.
+        items:
+          $ref: '#/definitions/PoolTemplate'
+  PoolContainer:
+    type: object
+    description: Object used internally as an interface to handle multple model versions.
+    default:
+      {
+      "apiVersion": "V1"
+      }
+    properties:
+      apiVersion:
+        description: The api / schema version of this pool object
+        $ref: '#/definitions/APIVersion'
+      name:
+        type:
+          string
+      namespace:
+        type:
+          string
+        x-nullable: true
+      v1:
+        $ref: '#/definitions/V1Pool'
+      v2:
+        $ref: '#/definitions/V2Pool'
+  Error:
+    type: object
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+
+# vim: ts=2 sts=2 sw=2:

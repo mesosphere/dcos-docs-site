@@ -22,6 +22,14 @@ module.exports = {
           use: "css-loader"
         }),
       },
+      {
+        test: /\.js$/,
+        exclude: /(node_modules|vendor|assets)/,
+        loader: 'babel-loader',
+        options: {
+          presets: ['env'],
+        },
+      },
     ],
   },
   plugins: [

@@ -1,0 +1,8 @@
+# Common values:
+
+packageName: hive-metastore
+serviceName: hive-metastore
+techName: Hive Metastore
+techShortName: Metastore
+
+# Values specific to certain templates:

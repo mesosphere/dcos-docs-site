@@ -1,176 +1,188 @@
 .header {
-  position: fixed;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  height: 80px;
-  padding: 0 2rem;
-  background: $color-light;
-  box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
-  z-index: 20;
-  &__logo {
-    display: none;
-  }
-  &__dropdown {
+    position: fixed;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    font-size: 18px;
-    line-height: 1;
-    &-icon {
-      height: 18px;
+    width: 100%;
+    height: 80px;
+    // padding: 0 2rem;
+    background: $color-light;
+    box-shadow: 0 0px 40px rgba(0, 0, 0, 0.1);
+    z-index: 20;
+    &__logo {
+        display: none;
     }
-    strong {
-      margin: 0 0.5rem;
-    }
-    svg {
-      display: block;
-      width: 20px;
-      height: 20px;
-      transition: all 0.3s $ease-in-out-cubic;
-    }
-  }
-  &__main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    flex: 1;
-    transition: all 0.2s $ease-in-out-cubic 0.2s;
-    opacity: 1;
-    &--hide {
-      width: 0;
-      opacity: 0;
-      transition: all 0.2s $ease-in-out-cubic;
-    }
-  }
-  &__menu {
-    display: none;
-    opacity: 1;
-    transition: opacity 0.2s $ease-in-out-cubic 0.2s;
-    &--hide {
-      opacity: 0;
-      transition: opacity 0.2s $ease-in-out-cubic;
-    }
-    &-list {
-      display: flex;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-    }
-    &-item {
-      margin-left: 10px;
-      line-height: 1;
-      a {
-        font-weight: 500;
-        color: $color-grey;
-        text-decoration: none;
-      }
-      &--active {
-        a {
-          color: $color-dark;
-        }
-      }
-    }
-  }
-  &__search {
-    display: block;
-    &-form {
-      display: flex;
-      align-items: center;
-      height: 30px;
-      border-radius: 5px;
-      transition: all 0.2s $ease-in-out-cubic;
-      &--focused {
-        background: $color-purple-light;
-        color: $color-light;
-        transition: background 0.4s $ease-in-out-cubic 0.3s;
-        & .header__icon {
-          color: $color-light;
-          margin: 0 5px 0 0.5rem;
-          transition: color 0.1s $ease-in-out-cubic 0.3s, margin 0.1s $ease-in-out-cubic 0.3s;
-        }
-    }
-    }
-    &-label {
-      order: 1;
-      margin-bottom: 0 !important;
-    }
-    &-input {
-      order: 2;
-      width: 0;
-      height: 30px;
-      border: 0;
-      outline: 0;
-      background: transparent;
-      transition: all 0.2s $ease-in-out-cubic;
-      &:focus {
-        width: 175px;
-        padding: 0.5rem 0;
-        color: $color-light;
-        transition: all 0.4s $ease-in-out-cubic 0.3s;
-        &::-webkit-input-placeholder {
-          color: $color-light;
-        }
-      }
-    }
-    &-submit {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      outline: 0;
-      background: transparent;
-    }
-  }
-  &__icon {
-    display: block;
-    width: 20px;
-    height: 20px;
-    color: $color-purple-light;
-  }
-  @include md {
     &__drawer {
-      display: none;
-    }
-    &__main {
-      justify-content: flex-start;
+        margin-left: 1rem;
     }
     &__dropdown {
-      display: none;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 18px;
+        line-height: 1;
+        &-icon {
+            height: 16px;
+        }
+        strong {
+            margin: 0 0.5rem;
+        }
+        svg {
+            display: block;
+            width: 16px;
+            height: 16px;
+            transition: all 0.3s $ease-in-out-cubic;
+        }
+    }
+    &__main {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        flex: 1;
+        transition: all 0.2s $ease-in-out-cubic 0.2s;
+        opacity: 1;
+        &--hide {
+            width: 0;
+            opacity: 0;
+            transition: all 0.2s $ease-in-out-cubic;
+        }
     }
     &__menu {
-      display: flex;
-      align-items: flex-start;
-      flex: 1;
-      height: 20px;
-    }
-    &__logo {
-      display: block;
-      flex-shrink: 0;
-      &--mobile {
         display: none;
-      }
-      &--desktop {
-        display: block;
-        width: 200px;
-      }
-    }
-  }
-  @include lg {
-    &__menu {
-      &-item {
-        margin-left: 25px;
-      }
+        opacity: 1;
+        transition: opacity 0.2s $ease-in-out-cubic 0.2s;
+        &--hide {
+            opacity: 0;
+            transition: opacity 0.2s $ease-in-out-cubic;
+        }
+        &-list {
+            display: flex;
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+        &-item {
+            margin-left: 10px;
+            line-height: 1;
+            a {
+                font-weight: 500;
+                font-size: 16px;
+                color: $color-v2-grey; //may want to make the dark purple??
+                text-decoration: none;
+            }
+            &--active {
+                a {
+                    color: $color-dark;
+                }
+            }
+        }
     }
     &__search {
-      &-input {
-        width: 75px;
-        padding: 0.5rem;
-      }
+        display: block;
+        &-form {
+            display: flex;
+            align-items: center;
+            height: 30px;
+            border-radius: 5px;
+            transition: all 0.2s $ease-in-out-cubic;
+            &--focused {
+                background: $color-purple-light;
+                color: $color-light;
+                transition: background 0.4s $ease-in-out-cubic 0.3s;
+                & .header__icon {
+                    color: $color-light;
+                    margin: 0 5px 0 0.5rem;
+                    transition: color 0.1s $ease-in-out-cubic 0.3s, margin 0.1s $ease-in-out-cubic 0.3s;
+                }
+            }
+        }
+        &-label {
+            order: 1;
+            margin-bottom: 0 !important;
+        }
+        &-input {
+            order: 2;
+            width: 0;
+            height: 30px;
+            border: 0;
+            outline: 0;
+            background: transparent;
+            transition: all 0.2s $ease-in-out-cubic;
+            &:focus {
+                width: 175px;
+                padding: 0.5rem 0;
+                color: $color-light;
+                transition: all 0.4s $ease-in-out-cubic 0.3s;
+                &::-webkit-input-placeholder {
+                    color: $color-light;
+                }
+            }
+        }
+        &-submit {
+            margin: 0;
+            padding: 0;
+            border: 0;
+            outline: 0;
+            background: transparent;
+        }
     }
-  }
-  @include print {
-    display: none;
-  }
+    &__icon {
+        display: block;
+        width: 20px;
+        height: 20px;
+        color: $color-purple-d3;
+        margin-right: 1rem;
+    }
+    @include md {
+        &__drawer {
+            display: none;
+        }
+        &__main {
+            justify-content: flex-start;
+        }
+        &__dropdown {
+            display: none;
+        }
+        &__menu {
+            display: flex;
+            align-items: flex-start;
+            flex: 1;
+            height: 20px;
+            &-item {
+                a {
+                    font-size: 18px;
+                }
+            }
+        }
+        &__logo {
+            display: block;
+            flex-shrink: 0;
+            &--mobile {
+                display: none;
+            }
+            &--desktop {
+                display: block;
+                // width: 200px;
+                height: 60px;
+                margin-left: 10px;
+            }
+        }
+    }
+    @include lg {
+        &__menu {
+            &-item {
+                margin-left: 25px;
+            }
+        }
+        &__search {
+            &-input {
+                width: 75px;
+                padding: 0.5rem;
+            }
+        }
+    }
+    @include print {
+        display: none;
+    }
 }

@@ -1,0 +1,99 @@
+.localization {
+    position: relative;
+    cursor: pointer;
+    margin-right: 27px;
+    &-current {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 35px;
+        border-radius: 3px;
+        padding: 5px 5px 5px 10px;
+        z-index: 10;
+        background-color: white;
+    }
+    &-transition {
+        transition-duration: 0.4s;
+        transition-timing-function: ease-in-out;
+    }
+    &-list {
+        z-index: 5;
+        display: block;
+        position: absolute;
+        left: 0px;
+        top: 8px;
+        height: 0px;
+        width: 100%;
+        border-radius: 3px;
+        background: $color-purple-d3;
+        list-style: none;
+        padding: 0;
+        transition: height .4s ease;
+        overflow: hidden;
+        display: flex;
+        align-items: center;
+        &-item {
+            line-height: 1;
+        }
+        &-item a {
+            display: block;
+            padding: 5px 5px 5px 10px;
+            font-weight: 400;
+            color: $color-light;
+            text-decoration: none;
+            -webkit-touch-callout: none;
+            /* iOS Safari */
+            -webkit-user-select: none;
+            /* Safari */
+            -khtml-user-select: none;
+            /* Konqueror HTML */
+            -moz-user-select: none;
+            /* Firefox */
+            -ms-user-select: none;
+            /* Internet Explorer/Edge */
+            user-select: none;
+            /* Non-prefixed version, Chrome/Opera */
+        }
+    }
+    &-language {
+        font-weight: 400;
+        color: $color-grey;
+        text-decoration: none;
+        margin-right: 13px;
+        -webkit-touch-callout: none;
+        /* iOS Safari */
+        -webkit-user-select: none;
+        /* Safari */
+        -khtml-user-select: none;
+        /* Konqueror HTML */
+        -moz-user-select: none;
+        /* Firefox */
+        -ms-user-select: none;
+        /* Internet Explorer/Edge */
+        user-select: none;
+        /* Non-prefixed version, Chrome/Opera */
+    }
+    &-svg {
+        @extend .localization-transition;
+        width: 16px;
+        height: 16px;
+    }
+    .show {
+        transition: height .4s ease;
+        height: 35px;
+    }
+    .flipped {
+        transform: rotate(180deg);
+    }
+}
+
+#landing-localization {
+    // margin-right: 13%;
+    &-current {
+        background: none;
+        .localization-language {
+            // color: $color-v2-purple;
+        }
+    }
+}

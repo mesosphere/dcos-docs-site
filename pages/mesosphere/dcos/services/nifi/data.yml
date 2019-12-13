@@ -1,0 +1,20 @@
+# Common values:
+
+packageName: nifi
+serviceName: nifi
+techName: NiFi
+techShortName: NiFi
+
+# Values specific to certain templates:
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+install:
+  nodeCount: three
+  minMemory: 512MB
+
+managing:
+  podType: nifi
+  taskType: node

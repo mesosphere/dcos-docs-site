@@ -1,0 +1,29 @@
+# Common values:
+
+packageName: percona-pxc-mysql
+serviceName: percona-pxc-mysql
+techName: Percona XtraDB Cluster 
+techShortName: Percona XtraDB
+techAcronym: PXC
+serviceAcronym: pxc
+
+# Values specific to certain templates:
+
+operations:
+  complete-deploy: |
+    dcos percona-pxc-mysql --name=percona-pxc-mysql plan status deploy
+      ├─ proxysql (serial strategy) (COMPLETE)
+      │  └─ proxysql-0:[psql] (COMPLETE)
+      ├─ node (serial strategy) (COMPLETE)
+      │  ─ pxc-0:[init] (COMPLETE)
+      │  ├─ pxc-0:[node] (COMPLETE)
+      │  ├─ pxc-1:[node] (COMPLETE)
+      │  └─ pxc-2:[node] (COMPLETE)
+      ├─ mysqldexporter (serial strategy) (COMPLETE)
+      │  └─ mysqldexporter-0:[exporterstart] (COMPLETE)
+        └─ psqlconf (serial strategy) (COMPLETE)
+        └─ psqlconf-0:[mysqlcli] (COMPLETE)
+    
+install:
+  minNodeCount: at least 3 private nodes
+  customRequirements:

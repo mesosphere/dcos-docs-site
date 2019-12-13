@@ -1,0 +1,51 @@
+
+# <a name="give-perms"></a>Create and Assign Permissions
+Use the following DC/OS CLI commands to rapidly provision the {{ model.techName }} service account with the required permissions.
+
+1.  Create the permission.
+
+{{#quota-aware}}
+<p class="message--important"><strong>IMPORTANT: </strong>The value to be used for <tt>&lt;service-role&gt;</tt> will be based on the service name, package version and DC/OS version. The table below shows a few examples of service names and the corresponding Mesos roles they would use. This version of {{ model.packageName }} is quota support built in. To determine whether the service group, you are deploying a service to, has <tt>enforceRole</tt> set to <tt>true</tt> or <tt>false</tt> please check this [KB article](https://support.d2iq.com/s/article/How-to-determine-if-a-top-level-group-is-quota-limited). If you need help configuring the permissions for {{ model.packageName }}, please feel to reach out to D2iQ support by filing a support ticket. Replace the instances of <tt>&lt;service-role&gt;</tt> with the correct name (<tt>&lt;name&gt;-role</tt>).</p>
+
+| **Service name**                       | **&lt;service-role&gt;**<br>DC/OS 1.13 or older<br>DC/OS 2.0 or newer AND enforceRole=false  | **&lt;service-role&gt;**<br>DC/OS 2.0 or newer AND enforceRole=true |
+|----------------------------------------|-----------------------------------------------|-----------------------------------------------|
+| `/{{ model.packageName }}`             |`{{ model.packageName }}-role`                 |`{{ model.packageName }}-role`                 |
+| `/{{ model.packageName }}-prod`        |`{{ model.packageName }}-prod-role`            |`{{ model.packageName }}-prod-role`            |
+| `/team01/{{ model.packageName }}`      |`team01__{{ model.packageName }}-role`         |`team01`                                       |
+| `/team01/prod/{{ model.packageName }}` |`team01__prod__{{ model.packageName }}-role`   |`team01`                                       |
+
+{{/quota-aware}}
+{{^quota-aware}}
+<p class="message--important"><strong>IMPORTANT: </strong>The value to be used for <tt>&lt;service-role&gt;</tt> will be based on the service name. The table below shows a few examples of service names and the corresponding Mesos roles they would use. If you need help configuring the permissions for {{ model.packageName }}, please feel to reach out to D2iQ support by filing a support ticket. Replace the instances of <tt>&lt;service-role&gt;</tt> with the correct name (<tt>&lt;name&gt;-role</tt>).</p>
+
+| Service name                           | &lt;service-role&gt;                           |
+|----------------------------------------|------------------------------------------------|
+| `/{{ model.packageName }}`             | `{{ model.packageName }}-role`                 |
+| `/{{ model.packageName }}-prod`        | `{{ model.packageName }}-prod-role`            |
+| `/team01/{{ model.packageName }}`      | `team01__{{ model.packageName }}-role`         |
+| `/team01/prod/{{ model.packageName }}` | `team01__prod__{{ model.packageName }}-role`   |
+{{/quota-aware}}
+
+## Permissive 
+
+Run these commands with the service account name you created for the service in the *Create a Service Account* step above. For example we are using {{ model.packageName }}
+
+```bash
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:framework:role:<service-role> create --description "Allow registering as a framework of role <service-role> with Mesos master"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:reservation:role:<service-role> create --description "Allow creating Mesos resource reservations of role <service-role>"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:volume:role:<service-role> create --description "Allow creating Mesos persistent volumes of role <service-role>"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:reservation:principal:{{ model.packageName }} delete --description "Allow unreserving Mesos resource reservations with principal {{ model.packageName }}"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:volume:principal:{{ model.packageName }} delete --description "Allow deleting Mesos persistent volumes with principal {{ model.packageName }}"
+```
+
+## Strict
+Run these commands with the service account name you created for the service in the *Create a Service Account* step above. For example we are using {{ model.packageName }}
+
+```bash
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:task:user:nobody create --description "Allow running a task as linux user nobody"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:framework:role:<service-role> create --description "Allow registering as a framework of role <service-role> with Mesos master"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:reservation:role:<service-role> create --description "Allow creating Mesos resource reservations of role <service-role>"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:volume:role:<service-role> create --description "Allow creating Mesos persistent volumes of role <service-role>"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:reservation:principal:{{ model.packageName }} delete --description "Allow unreserving Mesos resource reservations with principal {{ model.packageName }}"
+dcos security org users grant {{ model.packageName }} dcos:mesos:master:volume:principal:{{ model.packageName }} delete --description "Allow deleting Mesos persistent volumes with principal {{ model.packageName }}"
+```

@@ -4,7 +4,7 @@
   background: $color-purple;
   height: 100%;
   &__header {
-    height: 80px;
+    height: 70px;
     box-shadow: 0 0px 40px -40px rgba(0, 0, 0, 0.1);
     background: rgba(125, 88, 255, 0.1);
   }
@@ -15,7 +15,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      height: 80px;
+      height: 70px;
       padding: 0 2rem;
       font-weight: 500;
       user-select: none;
@@ -43,13 +43,13 @@
     }
     &__list {
       position: absolute;
-      top: 80px;
+      top: 70px;
       margin: 0;
       padding: 0;
       width: 100%;
       height: 0;
       list-style-type: none;
-      background: $color-purple-light;
+      background: $color-purple-d3;
       opacity: 0;
       visibility: hidden;
       box-shadow: inset 0 40px 40px -40px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.1);
@@ -77,7 +77,7 @@
       }
     }
     &--active {
-      background: $color-purple-light;
+      background: $color-purple-d3;
       & .sidebar__dropdown__list {
           height: auto;
           visibility: visible;
@@ -154,15 +154,16 @@
       }
       &--active {
         > .sidebar__nav__item__container .sidebar__nav__text {
-          color: $color-purple-light;
+          color: $color-light;
+          font-weight: bolder;
         }
         > .sidebar__nav__item__container .sidebar__nav__icon {
-          color: $color-purple-light;
+          color: $color-light;
           transform: rotate(90deg);
         }
       }
       &--active-on {
-        background: $color-purple-light;
+        background: $color-purple-d3;
         > .sidebar__nav__item__container .sidebar__nav__text {
           color: $color-light;
         }
@@ -196,7 +197,7 @@
   }
   @include md {
     &__nav {
-      font-size: 14px;
+      // font-size: 14px;
       &__icon {
         &:hover {
           opacity: 0.3;
@@ -206,7 +207,7 @@
         line-height: 1.25rem;
         margin-bottom: 0;
         &:hover {
-          background: $color-purple-light;
+          background: $color-purple-d3;
           > .sidebar__nav__item__container .sidebar__nav__text {
             color: $color-light;
           }

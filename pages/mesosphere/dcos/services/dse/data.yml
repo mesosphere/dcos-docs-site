@@ -1,0 +1,24 @@
+# Common values:
+
+packageName: datastax-dse
+serviceName: datastax-dse
+techName: DataStax Enterprise
+techShortName: DSE
+techMidName: DataStax
+techOpsName: OpsCenter
+opsPackageName: datastax-ops
+
+
+# Values specific to certain templates:
+
+security:
+  plaintext:  |
+    , "allow_plaintext": <true|false default false>
+
+operations:
+  complete-deploy: |
+    deploy (serial strategy) (COMPLETE)
+    └─ dse-phase (serial strategy) (COMPLETE)
+       ├─ dse-0:[node, agent] (COMPLETE)
+       ├─ dse-1:[node, agent] (COMPLETE)
+       └─ dse-2:[node, agent] (COMPLETE)

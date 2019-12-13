@@ -13,138 +13,151 @@ const minify = require('html-minifier').minify;
  * effect from using es6 template strings.
  * @param {string} html
  */
-const sanitize = (html) => {
-  return html.replace(/^ +| +$/gm, "");
-};
+const sanitize = html => html.replace(/^ +| +$/gm, '');
 
 /**
  * Capitalize for message label (warning, error, etc)
  */
-const capitalize = (string) => {
-  return string.charAt(0).toUpperCase() + string.slice(1);
-};
+const capitalize = string => string.charAt(0).toUpperCase() + string.slice(1);
 
 const shortcodes = {
 
-  /**
-   * Icons
-   * @param {string} buf
-   * @param {Object} opts
-   */
-  'icon': (buf, opts) => {
-    return sanitize(`
+    /**
+     * Icons
+     * @param {string} buf
+     * @param {Object} opts
+     */
+    icon: (buf, opts) => sanitize(`
       <i class="icon" data-feather="${opts.glyph}"></i>
-    `)
-  },
+    `),
 
-  /**
-   * Message
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.type
-   * @param {boolean} opts.fill
-   */
-  'message': (buf, opts) => {
-    let colorClass;
-    let messageType = '';
-    if(opts.fill == false && opts.type) {
-      colorClass = `message--outline-${opts.type}`;
-      messageType = `${capitalize(opts.type)}: `;
-    }
-    else if(opts.fill == false) {
-      colorClass = `message--outline`;
-    }
-    else if(opts.type) {
-      colorClass = `message--${opts.type}`;
-      messageType = `${capitalize(opts.type)}: `;
-    }
-    return sanitize(`
+    /**
+     * Message
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.type
+     * @param {boolean} opts.fill
+     */
+    message: (buf, opts) => {
+        let colorClass;
+        let messageType = '';
+        if (opts.fill === false && opts.type) {
+            colorClass = `message--outline-${opts.type}`;
+            messageType = `${capitalize(opts.type)}: `;
+        } else if (opts.fill === false) {
+            colorClass = 'message--outline';
+        } else if (opts.type) {
+            colorClass = `message--${opts.type}`;
+            messageType = `${capitalize(opts.type)}: `;
+        }
+        return sanitize(`
       <div class="message ${colorClass}"><strong>${messageType}</strong>${buf}</div>
     `);
-  },
+    },
 
-  /**
-   * Enterprise
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.size
-   * @param {string} opts.type
-   */
-  'enterprise': (buf, opts) => {
-    let size = opts.size;
-    let type = opts.type;
-    if (!opts.size) {
-      size = 'large';
-    }
-    if (!opts.type) {
-      type = 'block';
-    } else if (opts.type = 'inline' || 'inline-block') {
-      type = 'inline';
-    }
-    if (buf) {
-      return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span>`)
-    } else {
-      return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span></span>`)
-    }
-  },
+    /**
+     * Enterprise
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.size
+     * @param {string} opts.type
+     */
+    enterprise: (buf, opts) => {
+        let size = opts.size;
+        let type = opts.type;
+        if (!opts.size) {
+            size = 'large';
+        }
+        if (!opts.type) {
+            type = 'block';
+        } else if (opts.type === 'inline' || opts.type === 'inline-block') {
+            type = 'inline';
+        }
+        if (buf) {
+            return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span>`);
+        }
+        return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--enterprise">Enterprise</span></span>`);
+    },
 
-  /**
-   * OSS
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.size
-   * @param {string} opts.type
-   */
-  'oss': (buf, opts) => {
-    let size = opts.size;
-    let type = opts.type;
-    if (!opts.size) {
-      size = 'large';
-    }
-    if (!opts.type) {
-      type = 'block';
-    } else if (opts.type = 'inline' || 'inline-block') {
-      type = 'inline';
-    }
-    if (buf) {
-      return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>`)
-    } else {
-      return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span></span>`)
-    }
-  },
+    /**
+     * Community
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.size
+     * @param {string} opts.type
+     */
+    community: (buf, opts) => {
+        let size = opts.size;
+        let type = opts.type;
+        if (!opts.size) {
+            size = 'large';
+        }
+        if (!opts.type) {
+            type = 'block';
+        } else if (opts.type === 'inline' || opts.type === 'inline-block') {
+            type = 'inline';
+        }
+        if (buf) {
+            return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--community">Community</span>`);
+        }
+        return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--community">Community</span></span>`);
+    },
 
 
-  /**
-   * Beta
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.size
-   * @param {string} opts.type
-   */
-  'beta': (buf, opts) => {
-    let size = opts.size;
-    let type = opts.type;
-    if (!opts.size) {
-      size = 'large';
-    }
-    if (!opts.type) {
-      type = 'block';
-    } else if (opts.type = 'inline' || 'inline-block') {
-      type = 'inline';
-    }
-    if (buf) {
-      return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span>`)
-    } else {
-      return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span></span>`)
-    }
-  },
-  /**
-   * Switch
-   * @param {string} buf
-   * @param {Object} opts
-   */
-  'switch': (buf, opts) => {
-    return sanitize(`
+    /**
+     * OSS
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.size
+     * @param {string} opts.type
+     */
+    oss: (buf, opts) => {
+        let size = opts.size;
+        let type = opts.type;
+        if (!opts.size) {
+            size = 'large';
+        }
+        if (!opts.type) {
+            type = 'block';
+        } else if (opts.type === 'inline' || opts.type === 'inline-block') {
+            type = 'inline';
+        }
+        if (buf) {
+            return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span>`);
+        }
+        return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--oss">Open Source</span></span>`);
+    },
+
+
+    /**
+     * Beta
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.size
+     * @param {string} opts.type
+     */
+    beta: (buf, opts) => {
+        let size = opts.size;
+        let type = opts.type;
+        if (!opts.size) {
+            size = 'large';
+        }
+        if (!opts.type) {
+            type = 'block';
+        } else if (opts.type === 'inline' || opts.type === 'inline-block') {
+            type = 'inline';
+        }
+        if (buf) {
+            return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span>`);
+        }
+        return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--beta">Beta</span></span>`);
+    },
+    /**
+     * Switch
+     * @param {string} buf
+     * @param {Object} opts
+     */
+    switch: (buf, _opts) => sanitize(`
       <div class="switch">
         <div class="switch__filters">
         </div>
@@ -152,119 +165,82 @@ const shortcodes = {
           ${buf}
         </div>
       </div>
-    `);
-  },
-  
-  /**
-   * Preview
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.size
-   * @param {string} opts.type
-   */
-  'preview': (buf, opts) => {
-    let size = opts.size;
-    let type = opts.type;
-    if (!opts.size) {
-      size = 'large';
-    }
-    if (!opts.type) {
-      type = 'block';
-    } else if (opts.type = 'inline' || 'inline-block') {
-      type = 'inline';
-    }
-    if (buf) {
-      return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span>`)
-    } else {
-      return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span></span>`)
-    }
-  },
-  /**
-   * Switch
-   * @param {string} buf
-   * @param {Object} opts
-   */
-  'switch': (buf, opts) => {
-    return sanitize(`
-      <div class="switch">
-        <div class="switch__filters">
-        </div>
-        <div class="switch__cases">
-          ${buf}
-        </div>
-      </div>
-    `);
-  },
-  
-  /**
-   * Experimental
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.size
-   * @param {string} opts.type
-   */
-  'experimental': (buf, opts) => {
-    let size = opts.size;
-    let type = opts.type;
-    if (!opts.size) {
-      size = 'large';
-    }
-    if (!opts.type) {
-      type = 'block';
-    } else if (opts.type = 'inline' || 'inline-block') {
-      type = 'inline';
-    }
-    if (buf) {
-      return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--experimental">Experimental</span>`)
-    } else {
-      return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--experimental">Experimental</span></span>`)
-    }
-  },
-  /**
-   * Switch
-   * @param {string} buf
-   * @param {Object} opts
-   */
-  'switch': (buf, opts) => {
-    return sanitize(`
-      <div class="switch">
-        <div class="switch__filters">
-        </div>
-        <div class="switch__cases">
-          ${buf}
-        </div>
-      </div>
-    `);
-  },
+    `),
 
+    /**
+     * Preview
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.size
+     * @param {string} opts.type
+     */
+    preview: (buf, opts) => {
+        let size = opts.size;
+        let type = opts.type;
+        if (!opts.size) {
+            size = 'large';
+        }
+        if (!opts.type) {
+            type = 'block';
+        } else if (opts.type === 'inline' || opts.type === 'inline-block') {
+            type = 'inline';
+        }
+        if (buf) {
+            return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span>`);
+        }
+        return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--preview">Preview</span></span>`);
+    },
 
-  /**
-   * Case
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {Object} opts.filter
-   */
-  'case': (buf, opts) => {
-    // If filter is enterprise or oss, will style as pill from badge shortcode
-    // Any other text will default to oss badge styling
-    let badge = 'badge--' + opts.filter.toLowerCase();
-    return sanitize(`
+    /**
+     * Experimental
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.size
+     * @param {string} opts.type
+     */
+    experimental: (buf, opts) => {
+        let size = opts.size;
+        let type = opts.type;
+        if (!opts.size) {
+            size = 'large';
+        }
+        if (!opts.type) {
+            type = 'block';
+        } else if (opts.type === 'inline' || opts.type === 'inline-block') {
+            type = 'inline';
+        }
+        if (buf) {
+            return sanitize(`${buf} <span class="badge badge--shortcode badge--${size} badge--${type} badge--experimental">Experimental</span>`);
+        }
+        return sanitize(`<span class="badge__container badge__container--${type}"><span class="badge badge--shortcode badge--${size} badge--${type} badge--experimental">Experimental</span></span>`);
+    },
+
+    /**
+     * Case
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {Object} opts.filter
+     */
+    case: (buf, opts) => {
+        // If filter is enterprise or oss, will style as pill from badge shortcode
+        // Any other text will default to oss badge styling
+        const badge = `badge--${opts.filter.toLowerCase()}`;
+        return sanitize(`
       <div class="switch__case-print-badge">
         <p class="badge badge--shortcode badge--small ${badge}">${opts.filter}</p>
       </div>
       <div class="switch__case" data-filter="${opts.filter}">${buf}</div>
     `);
-  },
+    },
 
-  /**
-   * Swagger
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.api
-   */
-  'swagger': (buf, opts) => {
-
-    const swaggerSVGs = `
+    /**
+     * Swagger
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.api
+     */
+    swagger: (buf, opts) => {
+        const swaggerSVGs = `
       <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0">
         <defs>
           <symbol viewBox="0 0 20 20" id="large-arrow">
@@ -277,81 +253,72 @@ const shortcodes = {
       </svg>
     `;
 
-    // PDF env will use pre rendered SwaggerUI from build-swagger
-    if(process.env.NODE_ENV === "pdf") {
+        // PDF env will use pre rendered SwaggerUI from build-swagger
+        if (process.env.NODE_ENV === 'pdf') {
+            // Check if exists
+            const configFilePath = path.join('./pages', opts.api);
+            const configFileExists = fs.existsSync(configFilePath);
 
-      // Check if exists
-      let configFilePath = path.join('./pages', opts.api);
-      let configFileExists = fs.existsSync(configFilePath);
+            if (!configFileExists) {
+                throw new Error(`SwaggerUI config file does not exist ${configFilePath}`);
+            }
 
-      if(!configFileExists) {
-        throw new Error('SwaggerUI config file does not exist ' + configFilePath);
-      }
+            const buildFileDir = opts.api.replace('.yaml', '');
+            const buildFilePath = path.join('./build-swagger', buildFileDir, 'index.html');
+            const buildFileExists = fs.existsSync(buildFilePath);
 
-      let buildFileDir = opts.api.replace('.yaml', '');
-      let buildFilePath = path.join('./build-swagger', buildFileDir, 'index.html');
-      let buildFileExists = fs.existsSync(buildFilePath);
+            if (!buildFileExists) {
+                throw new Error(`SwaggerUI build file does not exist ${buildFilePath}`);
+            }
 
-      if(!buildFileExists) {
-        throw new Error('SwaggerUI build file does not exist ' + buildFilePath);
-      }
+            // Read file
+            const contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
 
-      // Read file
-      let contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
+            // Hide from headings
+            const $ = cheerio.load(contents);
+            $('h1, h2, h3').each(el => $(el).attr('data-hide', true));
 
-      // Hide from headings
-      var $ = cheerio.load(contents);
-      $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
+            // Output
+            return sanitize(`${swaggerSVGs}<div class="swagger-ui-pdf">${$.html()}</div>`);
+        }
+        // Else, regular on-demand rendering of SwaggerUI
+        // Output
+        return sanitize(`${swaggerSVGs}<div class="swagger-ui" data-api="${opts.api}" ></div>`);
+    },
 
-      // Output
-      return sanitize(`${swaggerSVGs}<div class="swagger-ui-pdf">${$.html()}</div>`);
-    }
+    /**
+     * Ngindox
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.api
+     */
+    ngindox: (buf, opts) => {
+        // Check if exists
+        const configFilePath = path.join('./pages', opts.api);
+        const configFileExists = fs.existsSync(configFilePath);
 
-    // Regular on-demand rendering of SwaggerUI
-    else {
+        if (!configFileExists) {
+            throw new Error(`Ngindox config file does not exist ${configFilePath}`);
+        }
 
-      // Output
-      return sanitize(`${swaggerSVGs}<div class="swagger-ui" data-api="${opts.api}" ></div>`);
+        const buildFileDir = opts.api.replace('.yaml', '');
+        const buildFilePath = path.join('./build-ngindox', buildFileDir, 'index.html');
+        const buildFileExists = fs.existsSync(buildFilePath);
 
-    }
+        if (!buildFileExists) {
+            throw new Error(`Ngindox build file does not exist ${buildFilePath}`);
+        }
 
+        // Read file
+        const contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
 
-  },
+        // Hide from headings
+        const $ = cheerio.load(contents);
+        $('h1, h2, h3').each(el => $(el).attr('data-hide', true));
 
-  /**
-   * Ngindox
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.api
-   */
-  'ngindox': (buf, opts) => {
-
-    // Check if exists
-    let configFilePath = path.join('./pages', opts.api);
-    let configFileExists = fs.existsSync(configFilePath);
-
-    if(!configFileExists) {
-      throw new Error('Ngindox config file does not exist ' + configFilePath);
-    }
-
-    let buildFileDir = opts.api.replace('.yaml', '');
-    let buildFilePath = path.join('./build-ngindox', buildFileDir, 'index.html');
-    let buildFileExists = fs.existsSync(buildFilePath);
-
-    if(!buildFileExists) {
-      throw new Error('Ngindox build file does not exist ' + buildFilePath);
-    }
-
-    // Read file
-    let contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
-
-    // Hide from headings
-    var $ = cheerio.load(contents);
-    $('h1, h2, h3').each(function() { $(this).attr('data-hide', true) });
-
-    // PDF
-    if(process.env.NODE_ENV === "pdf") {
-      $('body').append(`
+        // PDF
+        if (process.env.NODE_ENV === 'pdf') {
+            $('body').append(`
         <style>
           #ngindox .route-meta {
             display: block !important;
@@ -363,78 +330,75 @@ const shortcodes = {
           }
         </style>
       `);
-    }
+        }
 
-    // Output
-    return sanitize($.html());
+        // Output
+        return sanitize($.html());
+    },
 
-  },
-
-  /**
-   * Image
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.src
-   * @param {string} opts.srcset
-   * @param {string} opts.sizes
-   * @param {string} opts.alt
-   * @param {string} opts.type
-   */
-  'image': (buf, opts) => {
-    if (opts.srcset && opts.sizes) {
-      return sanitize(`
+    /**
+     * Image
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.src
+     * @param {string} opts.srcset
+     * @param {string} opts.sizes
+     * @param {string} opts.alt
+     * @param {string} opts.type
+     */
+    image: (buf, opts) => {
+        if (opts.srcset && opts.sizes) {
+            return sanitize(`
         <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img srcset=${opts.srcset} sizes=${opts.sizes} src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
-      `)
-    }
-    return sanitize(`
+      `);
+        }
+
+        return sanitize(`
       <div class="img__wrapper img__wrapper--${opts.type}"><a href=${opts.src} target="_blank"><img src=${opts.src} alt=${opts.alt} class="img--${opts.type}"></a><p class="img__caption img__caption--${opts.type}">${opts.caption}</p></div>
     `);
-  },
+    },
 
-  /**
-   * Tooltip
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.content
-   */
-  'tooltip': (buf, opts) => {
-    return sanitize(`
+    /**
+     * Tooltip
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.content
+     */
+    tooltip: (buf, opts) => sanitize(`
       <span class="tooltip" data-tooltip data-content="${opts.content}">${buf}</span>
-    `);
-  },
+    `),
 
-  /**
-   * Button
-   * @param {string} buf
-   * @param {Object} opts
-   * @param {string} opts.type
-   * @param {string} opts.size
-   * @param {string} opts.color
-   * @param {string} opts.href
-   */
-  'button': (buf, opts) => {
-    if (!opts.color) {
-      opts.color = 'purple';
-    }
-    if (!opts.size) {
-      opts.size = 'large';
-    }
-    if (!opts.type) {
-      opts.type = 'button';
-    }
-    let classes = `btn--${opts.color} btn--${opts.size}`;
-    if (opts.href) {
-      return sanitize(`
+    /**
+     * Button
+     * @param {string} buf
+     * @param {Object} opts
+     * @param {string} opts.type
+     * @param {string} opts.size
+     * @param {string} opts.color
+     * @param {string} opts.href
+     */
+    button: (buf, givenOpts) => {
+        const opts = Object.assign({}, givenOpts);
+        if (!opts.color) {
+            opts.color = 'purple';
+        }
+        if (!opts.size) {
+            opts.size = 'large';
+        }
+        if (!opts.type) {
+            opts.type = 'button';
+        }
+        const classes = `btn--${opts.color} btn--${opts.size}`;
+        if (opts.href) {
+            return sanitize(`
       <a href="${opts.href}" target="_blank"><button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button></a>
     `);
-    } else {
-      return sanitize(`
+        }
+
+        return sanitize(`
       <button type=${opts.type} class="btn ${classes}">${buf.toUpperCase()}</button>
     `);
-    }
-
-  },
-
+    },
 };
 
 module.exports = shortcodes;

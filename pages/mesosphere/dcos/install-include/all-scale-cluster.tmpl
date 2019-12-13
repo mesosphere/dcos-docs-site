@@ -1,0 +1,42 @@
+# Scaling Your Cluster
+Terraform makes it easy to scale your cluster to add additional agents (public or private) once the initial cluster has been created. Simply follow the instructions below.
+
+1. Increase the value for the `num_private_agents` and/or `num_public_agents` in your `main.tf` file. In this example we are going to scale our cluster from 2 private agents to 3, changing just that line, and saving the file.
+
+    ```bash
+    num_masters        = "1"
+    num_private_agents = "3"
+    num_public_agents  = "1"
+    ```
+
+2. Now that we’ve made changes to our `main.tf`, we need to re-run our new execution plan.
+
+    ```bash
+    terraform plan -out=plan.out
+    ```
+
+    Doing this helps us to ensure that our state is stable and to confirm that we will only be creating the resources necessary to scale our Private Agents to the desired number.
+
+    <p align=center>
+    <img src="./images/scale/terraform-plan.png" />
+    </p>
+
+    You should see a message similar to above.  There will be 3 resources added as a result of scaling up our cluster’s Private Agents (1 instance resource & 2 null resources which handle the DC/OS installation & prerequisites behind the scenes).
+
+3. Now that our plan is set, just like before, let’s get Terraform to build/deploy it.
+
+    ```bash
+    terraform apply plan.out
+    ```
+
+    <p align=center>
+    <img src="./images/scale/terraform-apply.png" />
+    </p>
+
+    Once you see an output like the message above, check your DC/OS cluster to ensure the additional agents have been added.
+
+    You should see now 4 total nodes connected like below via the DC/OS UI.
+
+    <p align=center>
+    <img src="./images/scale/node-count-4.png" />
+    </p>

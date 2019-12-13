@@ -1,0 +1,53 @@
+- var containerClass = headings.length > 0 ? 'content__container content__container--with-sections' : 'content__container'
+- var paths = path.split('/')
+- var isChinese = paths[2] == 'cn'
+- var isDCOS = paths[1] == 'dcos'
+- var isKonvoy = paths[1] == 'konvoy'
+
+- var menuPages = hierarchy.find('menus')
+- var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-header') != -1)
+- var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
+- var otherProductPages = menuPages.filter(page => page.menus.indexOf('konvoy-header') != -1)
+- var otherPages = otherProductPages.sort((a, b) => a.menuWeight - b.menuWeight)
+
+- var mobileMenuItems = pages.concat(otherPages)
+
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body
+    div(class='layout')
+      header(class='header' style="position: fixed;")
+        a(class='header__drawer')
+          i(class='header__icon', data-feather='menu')
+        a(href='/', class='header__logo')
+          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--mobile
+          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--desktop
+        div(class='header__main')
+          div(class='header__dropdown')
+            img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+            strong!= sectionTitle
+            i(data-feather='chevron-down')
+        include partials/header/mesosphere-dropdown.pug
+        include partials/header/ksphere-dropdown.pug
+          //- nav(class='header__menu')
+          //-   ul(class='header__menu-list')
+          //-     each val, index in headerItems
+          //-       - var itemClass = {}
+          //-       - itemClass['header__menu-item'] = true
+          //-       - itemClass['header__menu-item--active'] = val.path == '/'
+          //-       li(class=itemClass)
+          //-         a(href=val.path)!= val.title
+        include partials/header/header-dropdown.pug
+      div(role='main', class='layout__content')
+        main(class='content content__404')
+          div(class=containerClass)
+            div(class='content__header')
+              div(class='content__header__row')
+                h1(class='content__header-title')!= title
+            article(class='content__article ')
+              != contents
+        include partials/search-results.pug
+    include partials/scripts.pug

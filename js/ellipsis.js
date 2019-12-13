@@ -15,6 +15,6 @@ const handleEllipsis = () => {
   }
 };
 
-window.onload = handleEllipsis;
-window.onresize = handleEllipsis;
+window.addEventListener('load', handleEllipsis);
+window.addEventListener('resize', handleEllipsis);
 

@@ -3,10 +3,9 @@
 - var githubPath = 'https://github.com/mesosphere/dcos-docs-site/tree/' + githubBranch + '/pages/' + path + '/index.md'
 - var slackPath = 'https://dcos-community.slack.com/';
 - var rssPath = (rss) ? '/' + path + '/rss.xml' : ''
-if !rssPath
-  - var parent = hierarchy.findParent(path, 'rss', true)
-  if parent
-    - rssPath = parent.path + '/rss.xml'
+
+if (!title)
+  - throw `File ${path} does not contain a title`
 - var feedbackPath = 'https://jira.dcos.io/secure/CreateIssueDetails!init.jspa'
 - feedbackPath += '?pid=14105'
 - feedbackPath += '&issuetype=1'
@@ -15,6 +14,7 @@ if !rssPath
 - feedbackPath += '&labels=documentation'
 - feedbackPath += '&components=19804'
 - feedbackPath += '&priority=3'
+- feedbackPath += '&customfield_12300=44' // Sets the team field to Documentation Team
 
 div(class='actions')
   ul(class='actions__list')
@@ -22,10 +22,10 @@ div(class='actions')
       a(href='/', class='actions__link addthis_button')
         i(class='actions__icon', data-feather='share')
         span(class='actions__text') Share
-    li(class='actions__item')
-      a(href=pdfPath, class='actions__link', target="_blank")
-        i(class='actions__icon', data-feather='download')
-        span(class='actions__text') Download
+    //- li(class='actions__item')
+    //-   a(href=pdfPath, class='actions__link', target="_blank")
+    //-     i(class='actions__icon', data-feather='download')
+    //-     span(class='actions__text') Download
     li(class='actions__item')
       a(href='javascript:window.print()', class='actions__link')
         i(class='actions__icon', data-feather='printer')
@@ -38,12 +38,6 @@ div(class='actions')
       a(href=slackPath, class='actions__link', target="_blank")
         i(class='actions__icon', data-feather='slack')
         span(class='actions__text') Discuss
-    if rssPath
-      li(class='actions__item')
-        a(href=rssPath, class='actions__link', target="_blank")
-          svg(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 16 22', class='actions__icon actions__icon--rss')
-            path(d='M2.64 5.98c-.509-.282-1.115.068-1.312.527-.146.547.067 1.116.7 1.213l.44-1.64zM8 11.663l.866-.5-.866.5zm.342 7.193c-.097.633.24 1.016.7 1.212.633.097 1.19-.34 1.299-.75l-2-.462zM1.942 7.77c2.299.982 3.992 2.314 5.192 4.392l1.732-1C7.516 8.824 5.25 6.9 2.64 5.981l-.7 1.789zm5.192 4.392c1.2 2.079 1.607 4.384 1.208 6.693l1.949.376c.559-2.632-.075-5.73-1.425-8.069l-1.732 1zM3.98.994c-.547-.146-1.066.154-1.3.75-.196.46.154 1.066.7 1.213l.6-1.963zm9.3 19.11a.967.967 0 0 0 .7 1.213c.434-.25.867-.5 1.05-1.183l-1.95-.376zM3.38 2.957c3.43 1.138 6.355 3.606 8.205 6.81l1.732-1C11.167 5.043 7.731 2.292 3.93.907l-.55 2.05zm8.205 6.81c1.8 3.118 2.374 6.712 1.696 10.337l1.949.376c.751-3.898.137-8.162-1.963-11.8l-1.732 1zM1.44 10.83c-.46-.196-1.116.068-1.313.528-.196.46.067 1.116.527 1.312L1.7 10.68zm2.114 6.863c.2.346.5.866 1.22.912.36.024.88-.276.802-.81l-2.058.035zM.568 12.72c1.106.516 1.766 1.059 2.366 2.098l1.732-1c-.8-1.386-1.933-2.348-3.276-3.074L.568 12.72zm2.366 2.098c.5.866.74 1.882.534 2.925l1.972.016c.193-1.266-.074-2.728-.874-4.114l-1.732 1z', fill='currentColor')
-          span(class='actions__text') RSS
     li(class='actions__item')
       a(href=feedbackPath, class='actions__link', target="_blank")
         i(class='actions__icon', data-feather='message-square')

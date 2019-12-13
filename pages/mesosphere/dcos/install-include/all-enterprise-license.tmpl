@@ -1,0 +1,14 @@
+## Verify you have a license key for Enterprise Edition
+DC/OS Enterprise requires a valid license key provided by Mesosphere that will be passed into the `main.tf` configuration file as `dcos_license_key_contents`. If you do not set a password, the default superuser and password will be available for log in:
+
+Username: `bootstrapuser` <br>
+Password: `deleteme`
+
+<p class="message--important"><strong>IMPORTANT: </strong>You should NOT use the default credentials in a production environment. When you create or identify an administrative account for the production environment, you also need to generate a password hash for the account.</p>
+
+To set superuser credentials for the first log in, add the following values into your `main.tf` along with your license key. The password will need to be hashed to SHA-512.
+
+```hcl
+dcos_superuser_username      = "superuser-name"
+dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash")}
+```

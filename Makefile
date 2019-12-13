@@ -2,22 +2,23 @@
 # Util
 #
 
+
 clean: ## Remove all build folders
 	./scripts/clean.sh
 
 reduce-pages:
 	./scripts/reduce-pages.sh
 
-#
-# Migration
-#
 
-migration:
-	./scripts/migration.sh
+nginx-test: ## Test and run Nginx config
+	./scripts/nginx-test.sh
 
 #
-# Redirects
+# Link Management
 #
+
+redirects-replace-old:
+	./scripts/links/redirects_replace_old.sh
 
 build-redirects:
 	npm run crawler
@@ -26,25 +27,9 @@ build-redirects:
 # Build
 #
 
+## Rebuild nginx, swagger, and static content
 build-development: build-api
 	npm run dev
-
-#
-# Build PDF
-#
-
-build-pdf-production:
-	./scripts/pdf.sh ./build ./build-pdf
-
-build-pdf-concat-production:
-	./scripts/pdf-concat.sh ./pages ./build-pdf
-
-build-pdf-development: build-api docker-development-up-pdf
-	npm run build-pdf
-	./scripts/pdf.sh ./build/1.10 ./build-pdf http://0.0.0.0:8002/
-
-build-pdf-concat-development:
-	./scripts/pdf-concat.sh ./pages ./build-pdf
 
 #
 # Build API
@@ -65,17 +50,11 @@ build-ngindox:
 docker-site-build: ## Build site docker image. Required env vars: ALGOLIA_PROJECT_ID, ALGOLIA_PUBLIC_KEY, ALGOLIA_PRIVATE_KEY, ALGOLIA_INDEX
 	./scripts/build-site.sh
 
-docker-pdf-build: ## Build pdf docker image.
-	./scripts/build-pdf.sh
-
 docker-site-run: ## Run site container.
-	docker-compose -f ./docker/docker-compose.production.yml up -d docs
-
-docker-pdf-run: ## Run pdf container.
-	docker-compose -f ./docker/docker-compose.production.yml up -d pdf
+	docker-compose up -d docs
 
 docker-site-check-links: ## Run link checker test
-	docker-compose -f ./docker/docker-compose.production.yml up test
+	docker-compose up test
 
 docker-purge:
 	./scripts/docker-purge.sh

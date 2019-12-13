@@ -14,8 +14,8 @@ make docker-site-run
 
 function cleanup() {
   echo "Stopping and removing docker container..."
-  docker-compose -f ./docker/docker-compose.production.yml stop docs
-  docker-compose -f ./docker/docker-compose.production.yml rm -f docs
+  docker-compose stop docs
+  docker-compose rm -f docs
 }
 trap 'cleanup' EXIT
 

@@ -1,0 +1,25 @@
+
+- var enPaths = paths.slice(2)
+ 
+div(class='chooser' id="localizer")
+  div(class='chooser-current')
+    a(class='chooser-title')!= isChinese ? '中文 (简体)' : 'English'
+    svg(class="chooser-svg" id="localizer-svg")
+      path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
+  ul(class='chooser-list' id="localizer-list")
+    if isChinese
+      - var enPath = `/${paths.slice(3).join('/')}`
+      li(class='chooser-list-item')
+        - var fullPath = "/mesosphere/dcos".concat(enPath)
+        a(href=fullPath) English
+    else
+      - function findLongestCnPath(inPath)
+        if inPath.length == 0
+          - return '/mesosphere/dcos/cn/'
+        - var currPath = `/mesosphere/dcos/cn/${inPath.join('/')}`
+        if hierarchy.checkIfPathExists(currPath)
+          - return currPath
+        - return findLongestCnPath(inPath.slice(0, inPath.length - 1))
+      li(class='chooser-list-item')
+        - var longest = findLongestCnPath(enPaths)
+        a(href=longest) 中文 (简体)

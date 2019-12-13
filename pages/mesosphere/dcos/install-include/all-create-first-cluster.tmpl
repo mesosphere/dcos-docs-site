@@ -1,0 +1,67 @@
+## Initialize terraform and create a cluster
+1. Now the action of actually creating your cluster and installing DC/OS begins. First, initialize the project's local settings and data.  Make sure you are still working in the same folder where you created your `main.tf` file, and run the initialization.
+
+    ```bash
+    terraform init -upgrade
+    ```
+
+    ```text
+    Terraform has been successfully initialized!
+
+    You may now begin working with Terraform. Try running "terraform plan" to see
+    any changes that are required for your infrastructure. All Terraform commands
+    should now work.
+
+    If you ever set or change modules or backend configuration for Terraform,
+    rerun this command to reinitialize your environment. If you forget, other
+    commands will detect it and remind you to do so if necessary.
+    ```
+
+    <p class="message--note"><strong>Note: </strong>If terraform is not able to connect to your provider, ensure that you are logged in and are exporting your credentials and necessary region information for your cloud provider.</p>
+
+2.  After Terraform has been initialized, the next step is to run the execution planner and save the plan to a static file - in this case, `plan.out`.
+
+      ```bash
+      terraform plan -out=plan.out
+      ```
+
+    Writing the execution plan to a file allows us to pass the execution plan to the `apply` command below as well help us guarantee the accuracy of the plan. Note that this file is ONLY readable by Terraform.
+
+      Afterwards, we should see a message like the one below, confirming that we have successfully saved to the `plan.out` file.  This file should appear in your `dcos-demo` folder alongside `main.tf`.
+
+      ```bash
+      Plan: 74 to add, 3 to change, 0 to destroy.
+
+      ------------------------------------------------------------------------
+
+      This plan was saved to: plan.out
+
+      To perform exactly these actions, run the following command to apply:
+        terraform apply "plan.out"
+      ```
+
+      Every time you run `terraform plan`, the output will always detail the resources your plan will be adding, changing or destroying.  Since we are creating our DC/OS cluster for the very first time, our output tells us that our plan will result in adding 38 pieces of infrastructure/resources.
+
+3.  The next step is to get Terraform to build/deploy our plan.  Run the command below.
+
+    ```bash
+    terraform apply plan.out
+    ```
+
+    Sit back and enjoy! The infrastructure of your DC/OS cluster is being created while you watch. This may take a few minutes.
+
+    Once Terraform has completed applying the plan, you should see output similar to the following:
+
+    ```text
+    Apply complete! Resources: 74 added, 0 changed, 0 destroyed.
+
+    Outputs:
+
+    cluster-address = testing-123-958581895.us-east-1.elb.amazonaws.com
+    masters-ips = [
+        3.93.239.91
+    ]
+    public-agents-loadbalancer = ext-testing-123-40f11d1227e88057.elb.us-east-1.amazonaws.com
+    ```
+
+    And congratulations - you’re up and running!

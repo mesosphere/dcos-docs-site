@@ -1,88 +1,109 @@
 #!/bin/bash
-#
+
+# sed needs different args to -i depending on the flavor of the tool that is installed
+sedi () {
+    sed --version >/dev/null 2>&1 && sed -i "$@" || sed -i "" "$@"
+}
+
 echo "------------------------------"
 echo " Merging Kubernetes"
 echo "------------------------------"
 
-# Get values for version and directory variable
-
+# Get values for version
 version=$1
 if [ -z "$1" ]; then echo "Enter a version tag as the first argument."; exit 1; fi
-directory=$2
-if [ -z "$2" ]; then echo "Enter a directory name as the second argument."; exit 1; fi
-
-# Create directory structure
-
-echo "Creating new directories"
-mkdir -p ./pages/services/kubernetes/$directory
-mkdir -p ./pages/services/kubernetes/$directory/img
-echo "New directories created: pages/services/kubernetes/$directory and pages/services/kubernetes/$directory/img"
+skip=$2
+# Package name, default to "kubernetes"
+name=${3:-kubernetes}
 
 # Move to the top level of the repo
 
 root="$(git rev-parse --show-toplevel)"
 cd $root
 
-# pull dcos-kubernetes
-git remote rm dcos-kubernetes
-git remote add dcos-kubernetes git@github.com:mesosphere/dcos-kubernetes.git
-git fetch dcos-kubernetes > /dev/null 2>&1
+# pull dcos-kubernetes-cluster
+git remote rm dcos-kubernetes-cluster
+git remote add dcos-kubernetes-cluster git@github.com:mesosphere/dcos-kubernetes-cluster.git
+git fetch dcos-kubernetes-cluster > /dev/null 2>&1
 
 # checkout
 git checkout tags/$version docs/package
 
-# checkout each file in the merge list from dcos-kubernetes/master
-for p in `find docs/package -type f`; do
-  echo $p
-  # markdown files only
-  if [ ${p: -3} == ".md" ]; then
-    # remove any dodgy control characters - sometimes copied in from commands
-    sed -i -e 's/ *//g' $p
+# remove any user specified directories
+if [ -n "$skip" ]; then
+  echo "Skipping $skip"
+  for d in $(echo $skip | sed "s/,/ /g"); do rm -rf docs/package/$d; done
+fi
 
-    # insert tag ( markdown files only )
-    awk -v n=2 '/---/ { if (++count == n) sub(/---/, "---\n\n<!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes -->\n"); } 1{print}' $p > tmp && mv tmp $p
-    # remove https://docs.mesosphere.com from links
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.10/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.11/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
-    awk '{gsub(/https:\/\/docs.mesosphere.com\/service-docs\//,"/services/");}{print}' $p > tmp && mv tmp $p
+# always remove lates/ directory it will never be copied
+rm -rf docs/package/latest
 
-    # add full path for images
-    awk -v directory="$directory" '{gsub(/\(img/,"(/services/kubernetes/"directory"/img");}{print;}' $p > tmp && mv tmp $p
-    
-    # if it's not an index file, make a directory from the filename, rename file to "index.md"
-    if [ ${p: -8} != "index.md" ]; then
-      directory_from_filename=$p
-      tmp_val=$(echo "$directory_from_filename" | sed 's/...$//')
-      directory_from_filename=$tmp_val
-      mkdir -p $directory_from_filename
-      mv $p $directory_from_filename/index.md
+# checkout each file in the merge list from tags/$version
+for d in docs/package/*/; do
+  echo $d
+  for p in `find $d -type f`; do
+    echo $p
+    # markdown files only
+    if [ ${p: -3} == ".md" ]; then
+      # remove any dodgy control characters - sometimes copied in from commands
+      sedi -e 's/ *//g' $p
+
+      awk '{gsub(/https:\/\/docs.mesosphere.com\//,"/mesosphere/dcos/services/");}{print}' $p > tmp && mv tmp $p
+
+      awk '{gsub(/\]\(\/services\/kubernetes/,"](/mesosphere/dcos/services/kubernetes");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/services\/edge-lb/,"mesosphere/dcos/services/edge-lb");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/services\/marathon-lb/,"mesosphere/dcos/services/marathon-lb");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/1.12\/cli/,"mesosphere/dcos/1.12/cli");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/1.12\/security/,"mesosphere/dcos/1.12/security");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/1.12\/administering-clusters/,"mesosphere/dcos/1.12/administering-clusters");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/1.12\/networking/,"mesosphere/dcos/1.12/networking");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/1.12\/overview/,"mesosphere/dcos/1.12/overview");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\/tutorial-kubernetes-storage-basic/,"/mesosphere/dcos/tutorial-kubernetes-storage-basic");}{print}' $p > tmp && mv tmp $p
+
+      # remove https://docs.mesosphere.com from links
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.10\//,"/1.10/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.11\//,"/1.11/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/1.12\//,"/1.12/");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/https:\/\/docs.mesosphere.com\/latest\//,"/latest/");}{print}' $p > tmp && mv tmp $p
+
+      awk '{gsub(/services\/services\/kubernetes/,"services/kubernetes");}{print}' $p > tmp && mv tmp $p
+
+      # add full path for images
+      awk -v directory=$(basename $d) -v name="$name" '{gsub(/\([.][.]\/img/,"(/mesosphere/dcos/services/"name"/"directory"/img");}{print;}' $p > tmp && mv tmp $p
     fi
-    
-  fi
-
+  done
 done
 
 # Fix up relative links after prettifying structure above
-sed -i -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
+# sedi -e 's/](\(.*\)\.md)/](..\/\1)/' $(find docs/package/ -name '*.md')
 
-cp -r docs/package/* ./pages/services/kubernetes/$directory
+# Backup 1.x docs
+mkdir tmp_backup && mv ./pages/mesosphere/dcos/services/$name/1.* tmp_backup/
+
+# Remove old docs
+rm -rf ./pages/mesosphere/dcos/services/$name
+mkdir -p ./pages/mesosphere/dcos/services/$name
+
+# Restore backup 1.x docs
+mv tmp_backup/* ./pages/mesosphere/dcos/services/$name
+rm -rf tmp_backup
+
+# Copy new docs
+cp -r docs/package/* ./pages/mesosphere/dcos/services/$name
 
 git rm -rf docs/
 rm -rf docs/
 
-# Add version information to latest index file
-
-sed -i -e "s/^navigationTitle: .*$/navigationTitle: Kubernetes $directory/g" ./pages/services/kubernetes/$directory/index.md
-sed -i -e "s/^title: .*$/title: Kubernetes $directory/g" ./pages/services/kubernetes/$directory/index.md
-
 # Update sort order of index files
-
-weight=10
-for i in $( ls -r ./pages/services/kubernetes/*/index.md ); do
-  sed -i "s/^menuWeight:.*$/menuWeight: ${weight}/" $i
-  weight=$(expr ${weight} + 10)
+# Skipping any files with a menuWeight of -1
+weight=1
+for i in $( ls -r ./pages/mesosphere/dcos/services/$name/*/index.md ); do
+  cw=$(grep 'menuWeight: ' $i | sed 's/^.*: //')
+  if [ "$cw" -ne "-1" ]; then
+    sedi "s/^menuWeight:.*$/menuWeight: ${weight}/" $i
+    weight=$(expr ${weight} + 1)
+  fi
 done
 
 echo "------------------------------"

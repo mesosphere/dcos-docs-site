@@ -11,7 +11,7 @@ if (sidebarDropdown && sidebarDropdownList) {
 if (sidebarItems.length) {
   sidebarItems.forEach((menu) => {
     const caret = menu.querySelector('svg');
-    caret.addEventListener('click', toggleMenu);
+    if (caret) caret.addEventListener('click', toggleMenu);
   });
 }
 

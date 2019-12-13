@@ -1,0 +1,109 @@
+- var paths = path.split('/')
+- var semanticVersion = /^[0-9]\.[0-9].*$/
+
+- var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
+- var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
+- var latestDcosDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
+
+- var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
+- var konvoyDocs = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
+- var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
+
+- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
+- var pages = headerSphereItems
+- var sectionTitle = 'D2IQ Documentation'
+
+
+
+mixin renderProductBlurbs()
+  div(class='blurb__container')
+    div(class='blurb__item')
+      a(class='blurb__link-group' href='/mesosphere/dcos')
+        h3(class='blurb__header') Mesosphere DC/OS
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It lets you manage multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
+      ul(class="blurb__links")
+        for folder in latestDcosDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
+    div(class='blurb__item')
+      a(class='blurb__link-group' href='/ksphere/konvoy')
+        h3(class='blurb__header') Konvoy
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') Developed to address the exploding demand for Kubernetes, D2iQ’s Konvoy is a unique Kubernetes distribution designed to enable companies to leverage Kubernetes for an easy, enterprise-grade experience.  While there are many Kubernetes distributions in the industry, simply installing Kubernetes is not enough.  Organizations require a broader set of services for their production operations such as monitoring, logging, DNS and networking.  In addition to providing a simplified install of Kubernetes, D2iQ’s product and engineering teams did the difficult work for you by providing an opinionated set of supporting services from the vast cloud-native landscape and integrating them for an out-of-the-box, production-ready experience.  The result is a significant reduction in the man-power involved in standing up a production-ready Kubernetes environment and an accelerated time-to-market for your application development needs. 
+      ul(class="blurb__links")
+        for folder in latestKonvoyDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
+
+doctype html
+html(lang='en')
+  head
+    include partials/head.pug
+  body(class='landing landing--dcos')
+    div(class='layout')
+      header(class='header' style="position: fixed;")
+        a(class='header__drawer')
+          i(class='header__icon', data-feather='menu')
+        a(href='/', class='header__logo')
+          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--mobile
+          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--desktop
+        div(class='header__main')
+          div(class='header__dropdown')
+            img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+            strong!= sectionTitle
+            i(data-feather='chevron-down')
+        include partials/header/mesosphere-dropdown.pug
+        include partials/header/ksphere-dropdown.pug
+          //- nav(class='header__menu')
+          //-   ul(class='header__menu-list')
+          //-     each val, index in headerItems
+          //-       - var itemClass = {}
+          //-       - itemClass['header__menu-item'] = true
+          //-       - itemClass['header__menu-item--active'] = val.path == '/'
+          //-       li(class=itemClass)
+          //-         a(href=val.path)!= val.title
+      include partials/header/header-dropdown.pug
+      div(class='landing__main-hero')
+        div(class='landing__hero-tile-container')
+          a(href="/mesosphere/dcos", class='landing__hero-tile')
+            div(class='landing__tile-logo-container')
+              img(class='landing__tile-logo' src='/assets/mesosphere-icon--color.svg')
+            h3(class='landing__tile-title') Mesosphere DC/OS
+          a(href="/ksphere/konvoy", class='landing__hero-tile')
+            div(class='landing__tile-logo-container')
+              img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
+            h3(class='landing__tile-title') Konvoy
+
+
+      div(class='landing__container')
+        +renderProductBlurbs()
+        div(class='landing__external')
+          div(class='landing__external-item')
+            i(data-feather='book', class='landing__external-icon')
+            h3(class='landing__external-title')
+              a(class='landing__external-link', href='https://d2iq.com/training/') Get Training
+            p(class='landing__external-description') Learn to use and administer Konvoy and other products in real-time training courses, in person or online, offered by D2iQ.
+          div(class='landing__external-item')
+            i(data-feather='users', class='landing__external-icon')
+            h3(class='landing__external-title')
+              a(class='landing__external-link', href='https://dcos.io/community/') Join the Community
+            p(class='landing__external-description') Join the community to get help via mailing list or Slack.
+          div(class='landing__external-item')
+            i(data-feather='slack', class='landing__external-icon')
+            h3(class='landing__external-title')
+              a(class='landing__external-link', href='http://chat.dcos.io/') Find us on Slack
+            p(class='landing__external-description') Ask questions in the general channel and participate in day 2 ops, networking, packaging, and UX working groups.
+
+      footer(class='landing__footer')
+        div(class='landing__footer__container')
+          a(class='landing__footer__logo__link', href='https://d2iq.com/')
+            img(class='landing__footer__logo', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+          div(class='landing__footer__menu')
+            a(href='https://d2iq.com/terms/') Terms of Service
+            a(href='https://d2iq.com/privacy/') Privacy Policy
+          a(class='landing__footer__copyright', href='https://d2iq.com/')!= copyright
+    script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
+    script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
+    include partials/scripts.pug

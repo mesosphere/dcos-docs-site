@@ -1,9 +1,0 @@
-version: '3.1'
-
-services:
-  pdf:
-    image: openlabs/docker-wkhtmltopdf-aas
-    volumes:
-      - ../:/tmp/pdf
-    ports:
-     - "8002:80"

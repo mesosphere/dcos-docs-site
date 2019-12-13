@@ -1,0 +1,33 @@
+version: '3.1'
+
+services:
+  docs:
+    image: mesosphere/dcos-docs-site
+    build:
+      context: .
+      dockerfile: "./docker/Dockerfile.${ENV}"
+      args:
+        nginx_dir: ./docker/nginx
+        git_branch: ${GIT_BRANCH}
+        algolia_update: ${ALGOLIA_UPDATE}
+        algolia_project_id: ${ALGOLIA_PROJECT_ID}
+        algolia_public_key: ${ALGOLIA_PUBLIC_KEY}
+        algolia_private_key: ${ALGOLIA_PRIVATE_KEY}
+        algolia_index: ${ALGOLIA_INDEX}
+        algolia_skip_sections: ${ALGOLIA_SKIP_SECTIONS}
+        metalsmith_skip_sections: ${METALSMITH_SKIP_SECTIONS}
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - docs-build:/src/build
+  test:
+    depends_on:
+      - docs
+    image: 18fgsa/html-proofer
+    volumes:
+      - docs-build:/src/build
+    command: /src/build --empty-alt-ignore --log-level=debug --url-swap \/latest\/(.*):'/1.13/\1'
+
+volumes:
+  docs-build:

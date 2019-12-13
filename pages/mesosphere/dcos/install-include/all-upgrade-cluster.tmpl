@@ -1,0 +1,38 @@
+# Upgrading Your Cluster
+
+Terraform also makes it easy to upgrade our cluster to a newer version of DC/OS. If you are interested in learning more about the upgrade procedure that Terraform performs, please see the official [DC/OS Upgrade documentation](/mesosphere/dcos/{{ model.folder_version }}/installing/production/upgrading/).
+
+1. In order to perform an upgrade, we need to go back to our `main.tf` and modify the current DC/OS Version (`dcos_version`) to a newer version, such as `1.13.3` for this example.
+
+    ```bash
+    dcos_version = "1.13.3"
+    ```
+2.  We also should make sure having the latest version of the Terraform modules. So we tell Terraform to request those from the registry.
+
+    ```bash
+    terraform get -update
+    ```
+
+3. Re-run the execution plan, terraform will notice the change in version and run accordingly.
+
+    ```bash
+    terraform plan -out=plan.out
+    ```
+
+    You should see an output like below, with your `main.tf` now set for normal operations on a new version of DC/OS.
+
+    <p align=center>
+    <img src="./images/upgrade/terraform-plan.png" />
+    </p>
+
+4. Apply the plan.
+
+    ```bash
+    terraform apply plan.out
+    ```
+
+    Once the apply completes, you can verify that the cluster was upgraded via the DC/OS UI.
+
+    <p align=center>
+    <img src="./images/upgrade/cluster-details-open.png" />
+    </p>

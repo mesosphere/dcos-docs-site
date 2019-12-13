@@ -1,0 +1,31 @@
+.tabs {
+  &__buttons {
+    display: flex;
+    margin-top: 2rem;
+    border-bottom: solid 1px $color-grey-medium;
+
+    list-style: none;
+    padding: 0;
+  }
+
+  &__button a {
+    display: block;
+    color: #101319;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+  }
+  &__button {
+    display: inline-block;
+    margin-left: 0.5rem;
+
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    border-color: $color-grey-medium;
+    margin-bottom: -1px
+  }
+
+  &__button__selected {
+    border-color: $color-grey-medium $color-grey-medium #fff;
+  }
+}

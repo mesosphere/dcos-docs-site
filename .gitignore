@@ -11,9 +11,16 @@ package-lock.json
 ./**/*.tmp
 .tmp
 .revision
+.byebug_history
+secrets.sh
 
 # files used by CI
 .site-image
 .pdf-image
 .pdf-bundle-path
 .pdf-bundle-url
+
+.env
+
+# editor plugins
+.vscode

@@ -1,64 +1,68 @@
 .badge {
-  display: inline-block;
-  font-size: 0.9rem;
-  font-weight: 400;
-  padding: 0;
-  color: $color-grey;
-  border: 1px solid $color-grey;
-  border-radius: 3px;
-  padding: 0.5rem 0.7rem 0.5rem 0.7rem;
-  margin: 0.5rem 0;
-  line-height: 1;
-  text-transform: uppercase;
-  &__container {
-    // position: relative;
-    display: block;
-    &--inline {
-      display: inline;
+    display: inline-block;
+    font-size: 0.9rem;
+    font-weight: 400;
+    padding: 0;
+    color: $color-grey;
+    border: 1px solid $color-grey;
+    border-radius: 3px;
+    padding: 0.5rem 0.7rem 0.5rem 0.7rem;
+    margin: 0.5rem 0;
+    line-height: 1;
+    text-transform: uppercase;
+    &__container {
+        // position: relative;
+        display: block;
+        &--inline {
+            display: inline;
+        }
     }
-  }
-  &-shortcode-container {
-    position: relative;
-  }
-  &--shortcode {
-    margin: 0;
-    /*
+    &-shortcode-container {
+        position: relative;
+    }
+    &--shortcode {
+        margin: 0;
+        /*
     + * {
       margin-top: 0;
     }
     */
-  }
-  &--content-header {
-    margin: 0.75rem 1rem 0;
-    white-space: nowrap;
-  }
-  &--oss {
-    color: $color-grey;
-    border: 1px solid $color-grey;
-  }
-  &--enterprise {
-    color: $color-purple-light;
-    border: 1px solid $color-purple-light;
-  }
-  &--beta {
-    color: $color-pink;
-    border: 1px solid $color-pink;
-  }
-  &--preview {
-    color: $color-pink;
-    border: 1px solid $color-pink;
-  }
-  &--experimental {
-    color: $color-pink;
-    border: 1px solid $color-pink;
-  }
-  &--small {
-    font-size: 0.7rem;
-    padding: 0.4rem 0.6rem 0.3rem 0.6rem;
-  }
-  &--inline {
-    display: inline-block;
-  }
+    }
+    &--content-header {
+        margin: 0.75rem 1rem 0;
+        white-space: nowrap;
+    }
+    &--oss {
+        color: $color-grey;
+        border: 1px solid $color-grey;
+    }
+    &--community {
+        color: $color-grey;
+        border: 1px solid $color-grey;
+    }
+    &--enterprise {
+        color: $color-purple-d3;
+        border: 1px solid $color-purple-d3;
+    }
+    &--beta {
+        color: $color-pink;
+        border: 1px solid $color-pink;
+    }
+    &--preview {
+        color: $color-pink;
+        border: 1px solid $color-pink;
+    }
+    &--experimental {
+        color: $color-pink;
+        border: 1px solid $color-pink;
+    }
+    &--small {
+        font-size: 0.7rem;
+        padding: 0.4rem 0.6rem 0.3rem 0.6rem;
+    }
+    &--inline {
+        display: inline-block;
+    }
 }
 
 h1,
@@ -67,9 +71,9 @@ h3,
 h4,
 h5,
 h6 {
-  display: flex;
-  align-items: center;
-  .badge {
-    margin-left: 0.5rem;
-  }
+    display: flex;
+    align-items: center;
+    .badge {
+        margin-left: 0.5rem;
+    }
 }

@@ -1,10 +1,28 @@
+- var paths = path.split('/')
+- var isChinese = paths[2] == 'cn'
+- var isDCOS = paths[1] == 'dcos'
+- var isKonvoy = paths[1] == 'konvoy'
+- var sectionTitle = 'D2IQ Documentation'
 doctype html
 html(lang='en')
   head
     include partials/head.pug
   body
     div(class='layout')
+      header(class='header' style="position: fixed;")
+        a(class='header__drawer')
+          i(class='header__icon', data-feather='menu')
+        a(href='/', class='header__logo')
+          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--mobile
+          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--desktop
+        div(class='header__main')
+          div(class='header__dropdown')
+            img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+            strong!= sectionTitle
+            i(data-feather='chevron-down')
+        include partials/header/mesosphere-dropdown.pug
+        include partials/header/ksphere-dropdown.pug
+      include partials/header/header-dropdown.pug
       div(role='main', class='layout__content')
-        include partials/header.pug
         include partials/search-results.pug
     include partials/scripts.pug

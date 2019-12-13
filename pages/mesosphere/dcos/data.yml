@@ -1,0 +1,7 @@
+# Common values:
+
+packageName: dcos
+serviceName: dcos
+techName: DC/OS
+productName: DC/OS
+packageRepo: Catalog

@@ -1,7 +1,10 @@
 ---
-layout: dcos-docs-landing.pug
-title: DC/OS Docs
-navigationTitle: DC/OS Docs
-menus: ['header']
+layout: all-products-landing.pug
+navigationTitle: D2IQ Documentation
+title: D2IQ Documentation
+featureMaturity:
+enterprise: false
 menuWeight: 0
 ---
+
+Top level page.

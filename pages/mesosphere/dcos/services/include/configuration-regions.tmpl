@@ -1,0 +1,13 @@
+### Regions
+
+The service parameter `region` can be used to deploy the service in an alternate region. By default the service is deployed in the "local" region, which is the region the DC/OS masters are running in. To install a service in a specific reason, include in its options:
+```json
+{
+  "service": {
+    "region": "<region>"
+  }
+}
+```
+
+<p class="message--warning"><strong>WARNING: </strong>A service may not be moved between regions.</p>
+

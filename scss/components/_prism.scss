@@ -13,7 +13,6 @@ code {
   border-radius: 3px;
   font-weight: 0.9rem;
   margin: 0;
-  word-break: break-all;
 }
 
 pre {
@@ -28,6 +27,7 @@ pre {
     background: transparent;
     // font-size: 0.8rem;
     font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+    margin-right: 15px;
   }
 }
 
@@ -41,40 +41,38 @@ code.language-markdown {
 
 /* Toolbar */
 
-pre.code-toolbar {
-  .toolbar {
-    position: fixed;
-    top: 0;
-    right: 0;
-    opacity: 0.8;
-    width: auto;
-  }
-  .toolbar,
-  .toolbar-item {
-    height: 100%;
-  }
-  .toolbar a {
-    background-color: transparent;
-    transition: background-color 0.3s ease-in-out;
-    border-radius: 0;
-    max-height: 40px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: flex-end;
-    padding: 12px;
-    transition: 0.3s background-position ease;
-    background-image: url('~/assets/content_copy_white_192x192.png');
-    background-size: 14px 14px;
-    background-repeat: no-repeat;
-    background-position: center;
-    color: transparent;
-    font-size: 11px;
-    box-shadow: none;
-  }
+.toolbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  opacity: 0.8;
+  width: auto;
+}
+.toolbar,
+.toolbar-item {
+  height: 100%;
+}
+.toolbar a {
+  background-color: transparent;
+  transition: background-color 0.3s ease-in-out;
+  border-radius: 0;
+  max-height: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 12px;
+  transition: 0.3s background-position ease;
+  background-image: url('~/assets/content_copy_white_192x192.png');
+  background-size: 14px 14px;
+  background-repeat: no-repeat;
+  background-position: center;
+  color: transparent;
+  font-size: 11px;
+  box-shadow: none;
 }
 
-pre.code-toolbar:hover>.toolbar:hover a:hover {
+.toolbar:hover a:hover {
   background-position: left;
   padding-left: 18px;
   color: #fff;

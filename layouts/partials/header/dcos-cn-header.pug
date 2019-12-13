@@ -1,0 +1,29 @@
+- var semanticVersion = /^[0-9]+\.[0-9]+/
+- var menuPages = hierarchy.find('menus')
+- var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-cn-header') != -1)
+- var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
+
+- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
+- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'mesosphere')
+
+- var otherProductPages = menuPages.filter(page => page.menus.indexOf('konvoy-header') != -1)
+- var otherPages = otherProductPages.sort((a, b) => a.menuWeight - b.menuWeight)
+
+- var mobileMenuItems = pages.concat(otherPages)
+
+- function isItemActive(itemPath)
+  if itemPath == '/mesosphere/dcos/cn'
+    if path == '/mesosphere/dcos/cn'
+      - return true
+    - return semanticVersion.test(paths[2])
+  if itemPath == '/mesosphere/dcos/cn/services'
+    if `/${path}`.startsWith(itemPath)
+      - return !`/${path}`.startsWith(`${itemPath}/kubernetes`)
+    - return false
+  - return `/${path}`.startsWith('/mesosphere/dcos/cn/services/kubernetes')
+
+- var sectionTitle = 'DC/OS文档'
+if paths[3] === 'services'
+  - sectionTitle = '服务文档'
+
+include header.pug

@@ -1,0 +1,54 @@
+- var paths = path.split('/')
+- var currentPath = '/' + path
+- var item = hierarchy
+- var type = null
+- var versionTitle = ''
+- var semver = /^[0-9]+\.[0-9]+/
+- var semverService = /^(v|)[0-9](.*)/
+- var dropdown = []
+
+
+// Service Docs
+if paths[2] === 'services' && paths[3]
+  - item = hierarchy.findByPath('/mesosphere/dcos' + '/' + paths[2] + '/' + paths[3])
+  - var versioned = item.children.reduce((acc, x) => acc + semverService.test(x.id), false)
+  - type = hierarchy.findByPath('/mesosphere/dcos' + '/' + paths[2] + '/' + paths[3])
+  if versioned
+    - versionTitle = paths[4]
+    if !semverService.test(paths[4])
+      - versionTitle = navigationTitle || title
+    - dropdown = type.children
+    if paths[4]
+      - tmpItem = hierarchy.findByPath('/mesosphere/dcos/services' + '/' + paths[3] + '/' + paths[4])
+    if tmpItem
+      - item = tmpItem
+
+//- // Version Policy
+//- if paths[2] === 'version-policy'
+//-   - var versionTitle = "Version Policy Page"
+//-   - var menu = hierarchy.findByPath('/mesosphere/dcos')
+//-   - item = menu
+//-   - item.children = menu.children.filter(child => child.id != 'cn')
+//-   - var type = item
+
+
+// DC/OS Docs
+if paths[1] === 'dcos' && semver.test(paths[2])
+  - var mesosDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
+  - type = mesosDocs.children.filter(child => child.id == 'dcos')[0]
+  - dropdown = type.children.filter(item => semver.test(item.id))
+  - item = hierarchy.findByPath('/mesosphere/' + paths[1] + '/' + paths[2])
+  - versionTitle = paths[2]
+  
+// Konvoy Docs
+if paths[1] === 'konvoy'
+  - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
+  - type = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
+  - dropdown = type.children.filter(item => semver.test(item.id))
+  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
+  - versionTitle = ""
+
+
+- dropdown = dropdown.filter(item => item.menuWeight != -1)
+
+include sidebar.pug

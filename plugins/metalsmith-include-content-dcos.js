@@ -1,5 +1,3 @@
-'use strict';
-
 const debug = require('debug')('metalsmith-include-content-dcos');
 const pluginKit = require('metalsmith-plugin-kit');
 
@@ -14,40 +12,40 @@ const pluginKit = require('metalsmith-plugin-kit');
  *
  * @return {Function}
  */
-module.exports = function (options) {
-    options = pluginKit.defaultOptions({
-        pattern: '^#include ([^ ]+)$',
-        match: '**/*.md',
-        matchOptions: {},
-    }, options);
+module.exports = function metalsmithIncludeContentDcos(givenOptions) {
+  const options = pluginKit.defaultOptions({
+    pattern: '^#include ([^ ]+)$',
+    match: '**/*.md',
+    matchOptions: {},
+  }, givenOptions);
 
-    const patternExp = new RegExp(options.pattern, 'gmi');
+  const patternExp = new RegExp(options.pattern, 'gmi');
 
-    const replaceCb = function(filename, files, content) {
-        //debug('Processing includes for %s...', filename);
-        return content.replace(patternExp, function(match, includePath) {
-            // Trim any leading slash: /foo/bar/file.txt => foo/bar/file.txt
-            if (includePath.startsWith('/')) {
-                includePath = includePath.slice(1)
-            }
-            // Trim any whitespace, e.g. trailing newline from regex:
-            includePath = includePath.trim()
-
-            debug('Including %s in %s...', includePath, filename);
-            if (!files[includePath]) {
-                throw new Error('Unable to find include file ' + includePath + ' requested by ' + filename)
-            }
-            // RECURSE: Handle nested includes, if any (intentionally ignores options.match)
-            return replaceCb(includePath, files, files[includePath].contents.toString());
-        });
-    };
-
-    return pluginKit.middleware({
-        each: (filename, file, files, metalsmith) => {
-            files[filename].contents = replaceCb(filename, files, file.contents.toString());
-        },
-        match: options.match,
-        matchOptions: options.matchOptions,
-        name: 'metalsmith-include-content-dcos',
+  const replaceCb = function replaceCb(filename, files, content) {
+    // debug('Processing includes for %s...', filename);
+    return content.replace(patternExp, (match, includePath) => {
+      let path = includePath;
+      // Trim any leading slash: /foo/bar/file.txt => foo/bar/file.txt
+      if (includePath.startsWith('/')) {
+        path = path.slice(1);
+      }
+      // Trim any whitespace, e.g. trailing newline from regex:
+      path = path.trim();
+      debug('Including %s in %s...', path, filename);
+      if (!files[path]) {
+        throw new Error(`Unable to find include file ${path} requested by ${filename}`);
+      }
+      // RECURSE: Handle nested includes, if any (intentionally ignores options.match)
+      return replaceCb(path, files, files[path].contents.toString());
     });
+  };
+
+  return pluginKit.middleware({
+    each: (filename, file, files, metalsmith) => {
+      files[filename].contents = replaceCb(filename, files, file.contents.toString());
+    },
+    match: options.match,
+    matchOptions: options.matchOptions,
+    name: 'metalsmith-include-content-dcos',
+  });
 };

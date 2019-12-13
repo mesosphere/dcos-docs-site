@@ -3,22 +3,31 @@
 if pageHierarchy.children.length > 0
   div(class='grid')
     each val, index in pageHierarchy.children
-      - var label = null;
-      - label = (val.enterprise) ? 'ENTERPRISE' : label
-      - label = (val.oss) ? 'OPEN SOURCE' : label
-      - label = (val.beta) ? 'BETA' : label
-      - var labelClass =  {}
-      - labelClass['grid__label'] = true
-      - labelClass['grid__label--oss'] = label === 'OPEN SOURCE'
-      - labelClass['grid__label--enterprise'] = label === 'ENTERPRISE'
-      - labelClass['grid__label--beta'] = label === 'BETA'
-      - labelClass['grid__label--preview'] = label === 'PREVIEW'
-      - labelClass['grid__label--experimental'] = label === 'EXPERIMENTAL'
+      if typeof val.menuWeight !== 'number' || val.menuWeight == -1
+        - continue
+      - var labels = [];
+      - labels = (val.enterprise) ? [...labels, 'ENTERPRISE'] : labels
+      - labels = (val.oss) ? [...labels, 'OPEN SOURCE'] : labels
+      - labels = (val.community) ? [...labels, 'COMMUNITY'] : labels
+      - labels = (val.beta) ? [...labels, 'BETA'] : labels
+      - labels = (val.experimental) ? [...labels, 'EXPERIMENTAL'] : labels
       a(href=val.path, class='grid__item')
         div(class='grid__header__wrapper')
           h3(class='grid__header')!= val.title
-          if label
-            h6(class=labelClass)!= label
+          if labels.length > 0
+            div(class='grid__label__wrapper')
+              - for (let idx = 0; idx < labels.length; idx++) {
+                - var label = labels[idx]
+                - var labelClass =  {}
+                - labelClass['grid__label'] = true
+                - labelClass['grid__label--oss'] = label === 'OPEN SOURCE'
+                - labelClass['grid__label--community'] = label === 'COMMUNITY'
+                - labelClass['grid__label--enterprise'] = label === 'ENTERPRISE'
+                - labelClass['grid__label--beta'] = label === 'BETA'
+                - labelClass['grid__label--preview'] = label === 'PREVIEW'
+                - labelClass['grid__label--experimental'] = label === 'EXPERIMENTAL'
+                h6(class=labelClass)!= label
+              - }
         div(class='grid__desc__wrapper')
           p(class='grid__desc')!= val.excerpt
             span(class='grid__desc__ellipsis') &#8230;Read More

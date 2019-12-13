@@ -1,0 +1,25 @@
+.notes {
+  margin: 1.5rem 0 0;
+  line-height: 1.5rem;
+  padding: 1rem;
+  border: 1px solid $color-dark;
+  border-radius: 3px;
+  color: $color-dark;
+  background: $color-gold;
+  font-weight: 500;
+  *:not(a):not(.badge):not(.tooltip) {
+    color: inherit;
+  }
+  &--warning-bg {
+    border: 2px solid $color-dark;
+    color: $color-dark;
+    background: $color-gold;
+    padding: 10px;
+  }
+  &--note-bg {
+    color: $color-light;
+    background: $color-purple-d3;
+    padding: 10px;
+    border: 2px solid $color-dark;
+  }
+}
