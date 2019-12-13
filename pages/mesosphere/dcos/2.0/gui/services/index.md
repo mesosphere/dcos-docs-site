@@ -89,7 +89,7 @@ The **Services > Debug** tab displays the last changes, task failures, and other
 
 In the following figure, Marathon has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
 
-![Failure warning](/mesosphere/dcos/2.0/img/GUI-Services-Failure-To-Launch.png)
+![Failure warning](/mesosphere/dcos/2.0/img/GUI-Services-Failure-to-Launch.png)
 
 Figure 4 - Debug tab showing warning
 
