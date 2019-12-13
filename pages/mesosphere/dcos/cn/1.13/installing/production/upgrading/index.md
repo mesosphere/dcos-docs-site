@@ -381,7 +381,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-如果您的升级因为 [自定义节点或群集检查] 而失败( /mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/node-cluster-health-check/)，运行以下命令可了解更多详细信息：
+如果您的升级因为 [自定义节点或群集检查](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/node-cluster-health-check/) 而失败，运行以下命令可了解更多详细信息：
 ```bash
 dcos-check-runner check node-poststart
 dcos-check-runner check cluster

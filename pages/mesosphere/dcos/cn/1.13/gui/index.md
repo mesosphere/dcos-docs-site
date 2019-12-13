@@ -10,7 +10,7 @@ excerpt: 使用 UI 进行 DC/OS 管理
 
 DC/OS UI 提供了 DC/OS 群集的丰富图形视图。通过 UI，可以查看整个群集和 DC/OS 服务的当前状态。UI 作为 DC/OS 安装的一部分安装。
 
-![Dashboard](/mesosphere/dcos/cn/1.13/img/dashboard-ee-1-12.png)
+![Dashboard](/mesosphere/dcos/1.13/img/dashboard-ee-1-12.png)
 
 图 1 - 仪表板
 

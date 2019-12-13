@@ -17,7 +17,7 @@ enterprise: true
 
 如果 LDAP 用户名在 [可分辨名称 (DN)](https://www.ldap.com/ldap-dns-and-rdns) 中，则可以使用简单绑定连接到 LDAP 目录。否则，搜索/绑定连接应涵盖所有其他情况。
 
-查看 [管理用户和组] 中的 DC/OS 用户 ID 要求(/mesosphere/dcos/cn/1.13/security/ent/users-groups/)。
+查看 [管理用户和组](/mesosphere/dcos/cn/1.13/security/ent/users-groups/) 中的 DC/OS 用户 ID 要求。
 
 **要求** 目录服务器必须支持 [LDAP 3](https://tools.ietf.org/html/rfc4511)。
 

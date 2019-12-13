@@ -160,5 +160,5 @@ enterprise: false
 
  [1]:https://www.docker.com
  [2]:https://hub.docker.com
- [3]: /mesosphere/dcos/1.13/installing/
+ [3]: /mesosphere/dcos/cn/1.13/installing/
  [4]: /mesosphere/dcos/cn/1.13/cli/install/

@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 DC/OS 密钥存储库]（#secret-store-instructions），并在服务或 pod 定义中进行引用。
+若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 DC/OS [密钥存储库](#secret-store-instructions)，并在服务或 pod 定义中进行引用。
 
 <a name="uri-instructions"></a>
 # 将专用 Docker 注册表凭据引用为 URI
@@ -91,9 +91,9 @@ enterprise: false
 
 # 引用密钥存储库中的专用 Docker 注册表凭据 [enterprise type="inline" size="small" /]
 
-按照以下步骤向 [DC/OS Enterprise 密钥存储库] 添加 Docker 注册表凭据(/mesosphere/dcos/1.13/security/ent/secrets/)，然后在服务定义中引用该密钥。
+按照以下步骤向 [DC/OS Enterprise 密钥存储库](/mesosphere/dcos/cn/1.13/security/ent/secrets/) 添加 Docker 注册表凭据，然后在服务定义中引用该密钥。
 
-<p class="message--important"><strong>重要信息：</strong>此功能仅适用于<a href="/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/">通用容器运行时</a>。如果需要使用 Docker Engine，请遵循上述 URI 说明。</p>
+<p class="message--important"><strong>重要信息：</strong>此功能仅适用于<a href="/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/">通用容器运行时</a>。如果需要使用 Docker Engine，请遵循上述 URI 说明。</p>
 
 ## 步骤 1：创建凭据文件
 
@@ -132,7 +132,7 @@ enterprise: false
     echo -n myuser@domain.com:hard-to-guess-password | base64
     ```
 
-1. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/mesosphere/dcos/1.13/security/ent/secrets/create-secrets/)。
+1. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/mesosphere/dcos/cn/1.13/security/ent/secrets/create-secrets/)。
 
    <p class="message--note"><strong>注意：</strong>自 DC/OS 版本 1.10.0 开始，您只能使用 DC/OS CLI 将文件添加到密钥存储库。</p>
 
