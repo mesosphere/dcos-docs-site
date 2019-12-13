@@ -68,11 +68,6 @@ enterprise: false
 
 Alternatively, click the **Nodes** tab in the DC/OS GUI. The Nodes table will display the region and zone columns for each agent.
 
-# Use
-
-User-created Marathon services and pods support both zone and region awareness. The following beta versions of DC/OS data services support zone awareness: Cassandra, Elastic, HDFS, Kafka, and Spark. Consult the individual service documentation for more information about configuring zone awareness for DC/OS data services. 
-
-
 ## Marathon services and pods
 
 In your Marathon service or pod definition, you can use [placement constraints](/mesosphere/dcos/2.1/deploying-services/marathon-constraints/) to:
