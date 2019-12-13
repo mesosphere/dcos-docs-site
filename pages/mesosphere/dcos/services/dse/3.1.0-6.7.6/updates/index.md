@@ -15,7 +15,13 @@ Due to the complexity of upgrading to {{ model.techShortName }} 6.7, we strongly
 
 Also we advise that you upgrade 5.1.10 directly to 6.7.6, skipping 6.7.2, as it has a problem in upgrading when TLS is enabled. 
 
-<p class="message--important"><strong>IMPORTANT: </strong>This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, <tt>pause</tt> the plan and investigate.</p>
+<p class="message--important"><strong>IMPORTANT: </strong> 
+<ul>
+<li>This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, <tt>pause</tt> the plan and investigate.</li>
+<li>Value of one of the properties <tt>dse_search</tt> or <tt>dse_analytics</tt> should be set to <tt>true</tt> before upgrading due to some limitation, later it can be set as needed. </li>
+<li>Upgrade will not work on DC/OS 2.0.0 becasue of a bug, please use latest DC/OS 2.x.x instead.</li>
+</ul>
+</p>
 
 ## Prerequisites
 
