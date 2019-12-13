@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Configuring DC/OS access for NiFi
 title: Configuring DC/OS access for NiFi
-menuWeight: 4
+menuWeight: 1010
 excerpt: Configuring DC/OS access for NiFi
 featureMaturity:
 community: true
