@@ -51,7 +51,7 @@ You must have less than 100ms latency between regions.
     }
     ```
 
-    We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+    We provide [fault domain detect scripts for AWS, GCP and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
     <p class="message--important"> <strong>IMPORTANT:</strong> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
