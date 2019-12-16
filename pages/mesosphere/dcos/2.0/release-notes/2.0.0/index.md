@@ -7,13 +7,18 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and version policy.
 ---
-DC/OS 2.0.0 was released on 25 October 2019.
+DC/OS &Alt0174; 2.0.0 was released on 25 October 2019.
+
+DC/OS &Alt153; DC/OS &Alt0153
+
+DC/OS &reg; DC/OS &Alt174; DC/OS &Alt0174
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.0.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download and install DC/OS Enterprise.
+
 
 # Release Summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
