@@ -9,8 +9,6 @@ excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and v
 ---
 DC/OS &reg; 2.0.0 was released on 25 October 2019.
 
-DC/OS &trade; &copy;
-
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.0.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
@@ -19,14 +17,14 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 
 
 # Release Summary
-DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
+D2iQ&reg; DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages, such as Marathon and Metronome, used in DC/OS.
 
 If you have DC/OS deployed in a production environment, see [Known Issues and Limitations](#known-issues-and-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
 - Updated DC/OS UI to master+v2.150.2.
-- Updated to Mesos 1.9. (DCOS_OSS-5342)
+- Updated to Apache&reg; Mesos&reg; 1.9. (DCOS_OSS-5342)
 - Updated Marathon to 1.9.100. Marathon 1.9 brings multi-role support, enabling you to launch services for different roles (against different Mesos quotas) with the same Marathon instance.
 - Updated to Metronome 0.6.33 which has the following benefits: When querying run detail with embed=history, `successfulFinishedRuns` and `failedFinishedRuns` contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task IDs even for finished job runs. (DCOS_OSS-5166)
 
@@ -39,7 +37,7 @@ DC/OS has improved Multi-Tenancy support by adding quota management for service 
 
 ## Node Draining Enables Graceful Maintenance
 
-DC/OS adds the ability to drain agent nodes via the DC/OS CLI and UI. For more details, see [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/). (DCOS-53654)
+DC/OS adds the ability to drain agent nodes using both the DC/OS CLI and UI. For more details, see [Draining a Node](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/). (DCOS-53654)
 
 ## UCR Support for Applications Requiring Configurable Shared Memory
 
@@ -62,7 +60,7 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 - Metronome post-install configuration can be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5309)
 - Add L4LB metrics in DC/OS Net. (DCOS_OSS-5011)
 - Previously, Marathon would validate that an external volume with the same name is only used once across all apps. Multiple external volume providers now allow shared access to mounted volumes, so we introduce a way to disable the uniqueness check. (MARATHON-8681)
-- Add a new DC/OS configuration parameter `mesos_docker_volume_chown`, to change Docker volume ownership to the task user. By default, this parameter defaults to `false`; if this parameter is set as `true`, Mesos will change the ownership of a Docker volume non-recursively to be the task user when launching a container. It is not recommended that this option be enabled  if there is any Docker volume shared by multiple non-root users. (COPS-5176, DCOS_OSS-5381, MESOS-9908)
+- Add a new DC/OS configuration parameter `mesos_docker_volume_chown`, to change Docker&reg; volume ownership to the task user. By default, this parameter defaults to `false`; if this parameter is set as `true`, Mesos will change the ownership of a Docker volume non-recursively to be the task user when launching a container. It is not recommended that this option be enabled  if there is any Docker volume shared by multiple non-root users. (COPS-5176, DCOS_OSS-5381, MESOS-9908)
 
 # Fixed and Improved Issues
 
@@ -70,13 +68,13 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 - Fix performance degradation in Lashup. As of now, `dcos-dns` uses a new LWW mode to gossip DNS zone updates. (DCOS_OSS-4240)
 - Optimize memory and CPU usage in `dcos-net`. (DCOS_OSS-5269, DCOS_OSS-5268)
 - Remove `nogroup` group from installation. (COPS-5220, DCOS-59427)
-- Upgrade Admin Router's underlying OpenResty/nginx from 1.13.x to 1.15.x. (DCOS_OSS-5320)
+- Upgrade Admin Router's underlying OpenResty&reg;/nginx from 1.13.x to 1.15.x. (DCOS_OSS-5320)
 - In `dcos-net`, use cached Mesos state in case of Mesos instability. (DCOS_OSS-5463)
 - Bump Mesos modules to have overlay metrics exposed. (DCOS_OSS-5322)
 - Improved Marathon API performance. JSON serialization is 50% faster and has 50% less memory overhead.
 - DC/OS no longer increases the rate limit for `journald` logging, to reduce cases of `journald` being overloaded and blocking other services. (DCOS-53763)
-- Fix preflight Docker version check failing for Docker 1.19. (DCOS-56831)
-- Bump Telegraf to have Mesos overlay module metrics collected. (DCOS_OSS-5323)
+- Fix preflight Docker&reg; version check failing for Docker 1.19. (DCOS-56831)
+- Bump Telegraf&trade; to have Mesos overlay module metrics collected. (DCOS_OSS-5323)
 - Fix wrong value in `dcos_service_port_index` that breaks Admin Router cache. (COPS-5147, DCOS_OSS-5491)
 - Add framework ID tags to Mesos framework metrics. (DCOS-53302)
 - The DC/OS configuration variable `mesos_seccomp_enabled` now defaults to `true`, with `mesos_seccomp_profile_name` set to `default.json`. This is not expected to break tasks. If you experience problems, though, note that seccomp can be disabled for individual tasks through the DC/OS SDK and Marathon. For more details, see [`mesos_seccomp_enabled`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) and [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name). (DCOS-50038)
@@ -92,11 +90,11 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 
 - Telegraf now supports specifying port names for `task-label` based Prometheus endpoints discovery. (DCOS-55100) 
 - Update Telegraf to process Mesos operations metrics. (DCOS_OSS-5023, DCOS-51344) 
-- Upgrade Erlang OTP to release 22.0.3. (DCOS_OSS-5276)
+- Upgrade Erlang/OTP to release 22.0.3. (DCOS_OSS-5276)
 - Upgrade platform CPython to release 3.6.8. (DCOS_OSS-5318)
-- Upgrade CockroachDB to release 2.1.8. (DCOS_OSS-5360)
-- Upgrade platform curl from 7.59.0 to 7.65.1. (DCOS_OSS-5319)
-- Upgrade platform OpenSSL from 1.0.2x to release 1.1.1x. (DCOS-54108)
+- Upgrade CockroachDB&reg; to release 2.1.8. (DCOS_OSS-5360)
+- Upgrade platform cURL&copy; from 7.59.0 to 7.65.1. (DCOS_OSS-5319)
+- Upgrade platform OpenSSL&copy; from 1.0.2x to release 1.1.1x. (DCOS-54108)
 
 
 
@@ -106,7 +104,7 @@ DC/OS introduces a new diagnostic service with the addition of the [`dcos diagno
 This section covers any known issues or limitations. These do not necessarily affect all customers, but might require changes to your environment to address specific scenarios. Where applicable, issue descriptions include one or more tracking identifiers for reference, enclosed in parentheses.
 
 - `/v2/pods` and `/v2/tasks` do not include any information about existing instances. (DCOS_OSS-5616)
-- Mesos modules in Enterprise version can cause deadlock during process. (DCOS-57401)
+- Mesos modules in DC/OS Enterprise version can cause deadlock during process. (DCOS-57401)
 - Mesos Resources Summary dashboard should show quota limits instead of guarantees. (DCOS-57261)
 - Grafana fails to load because of file permission error. (DCOS-59209)
 - DC/OS overlay networks are not compared by value, but should be.  Only VTEP IP address and subnets are used. Until this issue is fixed, use VTEP IP and Subnets only, instead of NAMED overlay networks. (DCOS_OSS-5620)
