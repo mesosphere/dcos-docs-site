@@ -25,7 +25,7 @@ Usage:
 Commands:
     debug
         Debug the dcos-monitoring service
-    desribe
+    describe
         Show the configuration for dcos-monitoring
     endpoints
         Show the endpoints for dcos-monitoring
