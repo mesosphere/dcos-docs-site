@@ -481,8 +481,8 @@ By default, fault domain awareness is enabled and the installer will expect inpu
 ### feature_dcos_storage_enabled [enterprise type="inline" size="small" /]
 
 Enables advanced storage features in DC/OS including [CSI](https://github.com/container-storage-interface/spec) support for Mesos, and support for pre-installed CSI device plugins.
-* `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS. This is the default value.
-* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is necessary to use the [DC/OS Storage Service (DSS)](/mesosphere/dcos/services/storage/)
+* `feature_dcos_storage_enabled: 'false'` Disables CSI support in  DC/OS.
+* `feature_dcos_storage_enabled: 'true'` Enables CSI support in DC/OS. This is the default value and it is necessary to use the [DC/OS Storage Service (DSS)](/mesosphere/dcos/services/storage/)
 
 ### gc_delay
 The maximum amount of time to wait before cleaning up the executor directories. It is recommended that you accept the default value of two days.
