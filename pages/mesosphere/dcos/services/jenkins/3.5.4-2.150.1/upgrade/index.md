@@ -12,10 +12,10 @@ enterprise: false
 To upgrade from one version of the Jenkins for DC/OS package to another, simply uninstall the current version, update your package repository cache, and install a new version.
 
 <ol>
-<li>Uninstall Jenkins as per the instructions in <a href="/mesosphere/dcos/services/jenkins/uninstall/">Uninstalling</a>. Any builds that are current in progress or queued will be lost.</p></li>
+<li>Uninstall Jenkins as per the instructions in <a href="../uninstall/">Uninstalling</a>. Any builds that are current in progress or queued will be lost.</p></li>
 <li><p>Use the CLI to update your local cache of the package repository. 
     dcos package update</p></li>
-<li><p>Install Jenkins, again following the instructions on <a href="/mesosphere/dcos/services/jenkins/custom-install/">Customizing your install</a>. Make sure you use the same configuration file as previously, specifically pointing Jenkins to the same <code>host-volume</code>.</p></li>
+<li><p>Install Jenkins, again following the instructions on <a href="../custom-install/">Customizing your install</a>. Make sure you use the same configuration file as previously, specifically pointing Jenkins to the same <code>host-volume</code>.</p></li>
 <li><p>Currently it is necessary to upgrade plugins by hand using the Jenkins UI at <code>&lt;dcos_url&gt;/service/jenkins/pluginManager</code>.</p></li>
 </ol>
 
