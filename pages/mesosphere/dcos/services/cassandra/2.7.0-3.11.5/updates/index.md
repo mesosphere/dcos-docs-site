@@ -12,8 +12,8 @@ render: mustache
 
 # Upgrading directly from 2.5.0-3.11.3
 
-- It is possible to upgrade directly to `2.7.0-3.11.4` from version `2.5.0-3.11.3`. However, you'll need to run the following command to successfully upgrade your {{ model.techName }} package: 
+- It is possible to upgrade directly to `2.7.0-3.11.5` from version `2.5.0-3.11.3`. However, you'll need to run the following command to successfully upgrade your {{ model.techName }} package: 
 
   ```
-  dcos {{ model.serviceName }} update start --package-version=2.7.0-3.11.4 --replace
+  dcos {{ model.serviceName }} update start --package-version=2.7.0-3.11.5 --replace
   ```
