@@ -7,11 +7,9 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and version policy.
 ---
-DC/OS &Alt0174; 2.0.0 was released on 25 October 2019.
+DC/OS &reg; 2.0.0 was released on 25 October 2019.
 
-DC/OS &Alt153; DC/OS &Alt0153
-
-DC/OS &reg; DC/OS &Alt174; DC/OS &Alt0174
+DC/OS &trade; &copy;
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
