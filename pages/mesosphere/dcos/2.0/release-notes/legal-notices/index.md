@@ -60,6 +60,8 @@ OneLogin is a registered trademark or trademark of OneLogin, Inc.
 
 OpenID Connect and OpenID are registered trademarks of the Open ID Foundation in numerous countries.
 
+OpenResty is a registered trademark of OpenResty, Inc.
+
 Percona, PerconaXtraDB, PerconaXtraDB Cluster, Percona Server, XtraDB, are registered trademarks or trademarks of Percona.
 
 Python is a registered trademark of the Python Software Foundation, or PSF.
