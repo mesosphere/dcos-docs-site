@@ -90,7 +90,7 @@ By default, DC/OS Package Registry stores DC/OS Packages on the local filesystem
 To add the Package Registry to DC/OS Package Manager, use the following command:
 
 ```bash
-dcos package repo add --index=0 Registry https://registry.marathon.l4lb.thisdcos.directory/repo
+dcos package repo add --index=0 Registry https://dcos-registry.marathon.l4lb.thisdcos.directory/repo
 ```
 
 <p class="message--note"><strong>NOTE: </strong>This assumes that the DC/OS Package Registry was installed using <code>registry</code> (the default) as the service name. If this is not the case, please update the URL accordingly, (replacing <code>registry</code> with the actual service name).</p>
