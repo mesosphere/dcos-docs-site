@@ -197,7 +197,7 @@ Here is a sample configuration file for the service:
             "path" : "my-path-in-bucket",
             "endpoint" : "https://s3.us-east-1.amazonaws.com"
         },
-        "service-account-secret-path" : "dcos-registry-secret"
+        "service-account-secret-path" : "registry-private-key"
     },
     "service": {
         "mem" : 2048,
