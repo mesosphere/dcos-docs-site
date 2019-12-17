@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 1.13.1
 title: Release notes for 1.13.1
-menuWeight: 10
+menuWeight: 30
 excerpt: Release notes for DC/OS 1.13.1, including Open Source attribution, and version policy.
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml

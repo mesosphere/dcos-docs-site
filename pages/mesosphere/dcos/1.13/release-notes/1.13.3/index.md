@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 1.13.3
 title: Release notes for 1.13.3
-menuWeight: 4
+menuWeight: 20
 excerpt: Release notes for DC/OS 1.13.3, including Open Source attribution, and version policy.
 ---
 DC/OS 1.13.3 was released on July 24, 2019.
