@@ -7,15 +7,16 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Using groups and quota management for multi-tenancy
 ---
-
-Groups provide the foundation for supporting multi-tenant clusters using DC/OS&trade;. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.
+Groups provide the foundation for supporting multi-tenant clusters using Mesosphere&reg; DC/OS&trade;. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.
 
 The topics in this section discuss how you can use **groups** to manage resources by setting quota restrictions to support multi-tenancy.
 
 # Quotas
 You can define a **quota** to specify the maximum resources that the services in a group can use. Once the limit is reached, no new services or scaling up of existing services is allowed.
 
-Quota in DC/OS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/) primitive in Apache&reg; Mesos&reg;. Specifically, the quota set on a top-level DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev"). Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
+Quota in DC/OS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/) primitive in Apache&reg; Mesos&reg;.
+Specifically, the quota set on a top-level DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev").
+Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
 
 # Prerequisites
 

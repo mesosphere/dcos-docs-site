@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-DC/OS provides an east-west layer-4 load balancer (Minuteman) that enables multi-tier microservices architectures. It acts as a TCP layer-4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency.
+Mesosphere&reg; DC/OS&trade; provides an east-west layer-4 load balancer (Minuteman) that enables multi-tier microservices architectures. It acts as a TCP layer-4 load balancer and leverages load-balancing features within the Linux kernel to achieve near line-rate throughputs and latency.
 
 The features include:
 - Distributed load balancing of applications.
@@ -34,7 +34,7 @@ When you launch a set of tasks, DC/OS distributes them to a set of nodes in the 
 Keep long-running persistent connections, otherwise, you can quickly fill up the TCP socket table. The default local port range on Linux allows source connections from 32768 to 61000. This allows 28232 connections to be established between a given source IP and a destination address and port pair. TCP connections must go through the time wait state prior to being reclaimed. The Linux kernel's default TCP time wait period is 120 seconds. Without persistent connections, you would exhaust the connection table by only making 235 new connections per second.
 
 #### Health checks
-Use Mesos health checks. Mesos health checks are surfaced to the load balancing layer. Marathon only converts **command** [health checks](/mesosphere/dcos/2.0/deploying-services/creating-services/health-checks/) to Mesos health checks. You can simulate HTTP health checks via a command similar to:
+Use Apache&reg; Mesos&trade; health checks. Mesos health checks are surfaced to the load balancing layer. Marathon only converts **command** [health checks](/mesosphere/dcos/2.0/deploying-services/creating-services/health-checks/) to Mesos health checks. You can simulate HTTP health checks via a command similar to:
 
  ```bash
  test "$(curl -4 -w '%{http_code}' -s http://localhost:${PORT0}/|cut -f1 -d" ")" == 200
@@ -42,7 +42,7 @@ Use Mesos health checks. Mesos health checks are surfaced to the load balancing 
 
  This ensures the HTTP status code returned is 200. It also assumes your application binds to localhost. The `${PORT0}` is set as a variable by Marathon. You should not use TCP health checks because they may provide misleading information about the liveness of a service.
 
-<p class="message--note"><strong>NOTE: </strong>Docker container command health checks are run inside the Docker container. For example, if cURL is used to check NGINX, the NGINX container must have cURL installed, or the container must mount `/opt/mesosphere` in RW mode.</p>
+<p class="message--note"><strong>NOTE: </strong>Docker&reg; container command health checks are run inside the Docker container. For example, if cURL is used to check NGINX, the NGINX container must have cURL installed, or the container must mount `/opt/mesosphere` in RW mode.</p>
 
 ## Troubleshooting
 

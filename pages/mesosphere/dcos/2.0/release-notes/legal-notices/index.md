@@ -7,7 +7,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein.  D2iQ software products may additionally include third-party and open source software.
+D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein.  D2iQ software products may additionally include third-party open source software.
 
 # Trademarks and Registered Trademarks
 
@@ -17,7 +17,7 @@ Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Ama
 
 Ansible, CentOS, CoreOS, RHEL, Red Hat Enterprise Linux, and RHCE are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the United States and other countries.
 
-APACHE, Apache Cassandra, Cassandra, Flink, Hadoop, HDFS, Apache Kafka, Kafka, the Kafka logo, Hive, Mesos, NiFi, Zookeeper, and the Apache feather logo and Apache Mesos project logo are registered trademarks of The Apache Software Foundation in the United States and other countries. Derby RDBS, Spark, and Zeppelin are trademarks of The Apache Software Foundation in the United States and other countries.
+APACHE, Apache Cassandra, Cassandra, Flink, Hadoop, HDFS, Apache Kafka, Kafka, the Kafka logo, Hive, Mesos, NiFi, Zookeeper, and the Apache feather logo and Apache Mesos project logo are registered trademarks of The Apache Software Foundation in the United States and other countries. Derby RDBS, Marathon, and Spark are trademarks of The Apache Software Foundation in the United States and other countries.
 
 Azure, Azure Container Service, ACS, Azure Resource Manager, Microsoft Windows Server, Active Directory, and Microsoft are registered trademarks or trademarks of the Microsoft Corporation.
 
@@ -39,7 +39,7 @@ Google is a registered trademark, and Google Cloud Platform, GCP,  Google Cloud 
 
 HAProxy is a registered trademark in the United States and France.
 
-JavaScript and Oracle are trademarks or registered trademarks of the Oracle Corporation and/or its affiliates.
+JavaScript, MySQL, and Oracle are trademarks or registered trademarks of the Oracle Corporation and/or its affiliates.
 
 JENKINS and Debian are registered trademarks of SOFTWARE IN THE PUBLIC INTEREST, INC.
 
@@ -63,11 +63,13 @@ OpenResty is a registered trademark of OpenResty, Inc.
 
 Percona, PerconaXtraDB, PerconaXtraDB Cluster, Percona Server, XtraDB, are registered trademarks or trademarks of Percona.
 
+PostgreSQL is a registered trademark of the PostgreSQL Community Association of Canada.
+
 Python is a registered trademark of the Python Software Foundation, or PSF.
 
 REX-ray is a registered trademark of DELL, Inc.
 
-Ruby and Ruby on Rails are registered trademarks of David Heinemeier Hansson (david@heineneierhansson.com).
+Segment is a trademark or registered trademark of Segment.io, Inc.
 
 Splunk is a registered trademark of Splunk, Inc. in the United States and other countries. 
 

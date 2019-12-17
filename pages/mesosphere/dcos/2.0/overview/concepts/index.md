@@ -9,18 +9,18 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-DC/OS is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with; however, they might be used in a different way in DC/OS.
+Mesosphere&reg; DC/OS&trade; is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with, however, they may be used in a different way in DC/OS.
 <a name="dcos"></a>
 
 # DC/OS
 
 DC/OS is a [distributed operating system](https://en.wikipedia.org/wiki/Distributed_operating_system) for the datacenter.
 
-Unlike traditional distributed operating systems, DC/OS is also a container platform that manages containerized tasks based on native executables or container images, like [Docker images](https://docs.docker.com/engine/tutorials/dockerimages/). Also unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
+Unlike traditional distributed operating systems, DC/OS is also a container platform that manages containerized tasks based on native executables or container images, like [Docker&reg; images](https://docs.docker.com/engine/tutorials/dockerimages/). Also unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
 
-DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
+DC/OS is made up of many components, most notably a distributed systems kernel ([Apache&reg; Mesos&reg;](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
 
-While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
+While DC/OS itself is open source, premium distributions like [Mesosphere&reg; DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
 
 <a name="dcos-gui"></a>
 
@@ -121,9 +121,9 @@ A host operating system is the [operating system](https://en.wikipedia.org/wiki/
 
 - DC/OS currently supports the following host operating systems:
 
-- [CentOS](https://www.centos.org/)
-- [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
-- [CoreOS](https://coreos.com/)
+- [CentOS&reg;](https://www.centos.org/)
+- [RHEL&reg;](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
+- [CoreOS&reg;](https://coreos.com/)
 
 While the host OS manages local tasks and machine resources, DC/OS manages cluster tasks and resources so that you do not need to interact with the host operating systems on the nodes.
 
@@ -144,7 +144,7 @@ For more information, see the [system requirements](/mesosphere/dcos/2.0/install
 
 # Services
 
-A DC/OS service is a set of one or more service instances that can be started and stopped as a group and restarted automatically if they exit before being stopped.
+A Mesosphere&reg; DC/OS&trade; Service is a set of one or more service instances that can be started and stopped as a group, and restarted automatically if they exit before being stopped.
 
 - Service is currently a DC/OS GUI abstraction that translates to Marathon apps and pods in the CLI and API. This distinction will change over time as the name "service" is pushed upstream into component APIs.
 - Sometimes "service" may also refer to a `systemd` service on the host operating system. These are generally considered components and do not actually run on Marathon or Mesos.
@@ -154,7 +154,7 @@ A DC/OS service is a set of one or more service instances that can be started an
 
 ## Marathon service
 
-A Marathon service consists of zero or more containerized service instances. Each service instance consists of one or more containerized Mesos tasks.
+A Marathon service consists of zero or more containerized service instances. Each service instance consists of one or more containerized Apache Mesos tasks.
 
 - Marathon apps and pods are both considered services.
     - Marathon app instances map one-to-one with tasks.
@@ -292,7 +292,7 @@ For more information about deploying using a cloud template, see [Mesosphere ins
 
 # Mesos concepts
 
-The following terms are contextually correct when talking about Apache Mesos, but may be hidden by other abstraction within DC/OS.
+The following terms are contextually correct when discussing Apache Mesos, but may be hidden by other abstraction within DC/OS.
 
 - [Apache Mesos](#apache-mesos)
 - [Master](#mesos-master)
@@ -355,7 +355,7 @@ For more information about framework schedulers and executors, see the [Applicat
 
 A Mesos scheduler is a program that defines new Mesos tasks and assigns resources to them (placing them on specific nodes). A scheduler receives resource offers describing CPU, RAM, etc., and allocates them for discrete tasks that can be launched by Mesos agents. A scheduler must register with Mesos as a framework.
 
-**Examples:** Kafka, Marathon, Cassandra.
+**Examples:** Kafka&reg;, Marathon, Cassandra&reg;.
 
 <a name="mesos-framework"></a>
 

@@ -7,16 +7,16 @@ excerpt: Installing the Enterprise and Open Source versions of DC/OS
 
 ## Introducing the Mesosphere Universal Installer
 
-The Mesosphere Universal Installer is now the supported installation method for DC/OS on AWS, Azure and GCP. The cloud installation guide starts with a short demo to get your first cluster up and running. From there, you can easily start modifying your demo installation into a production cluster - all from the very same setup.
+The Mesosphere&reg; Universal Installer is now the supported installation method for DC/OS&trade; on AWS&reg;, Azure&reg;, and GCP&reg;. The cloud installation guide starts with a short demo to get your first cluster up and running. From there, you can easily start modifying your demo installation into a production cluster - all from the very same setup.
 
 
 ##### Jump to the getting started guide for your cloud provider:
 
-#### [Amazon Web Services](/mesosphere/dcos/2.0/installing/evaluation/aws/)
+#### [Amazon Web Services&reg;](/mesosphere/dcos/2.0/installing/evaluation/aws/)
 
-#### [Azure Resource Manager](/mesosphere/dcos/2.0/installing/evaluation/azure/)
+#### [Azure Resource Manager&reg;](/mesosphere/dcos/2.0/installing/evaluation/azure/)
 
-#### [Google Cloud Platform](/mesosphere/dcos/2.0/installing/evaluation/gcp/)
+#### [Google Cloud Platform&reg;](/mesosphere/dcos/2.0/installing/evaluation/gcp/)
 
 
 ## About the Mesosphere Universal Installer

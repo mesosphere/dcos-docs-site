@@ -7,6 +7,7 @@ excerpt: Reserving resources to support multi-tenancy
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
+Resources in Mesosphere&reg; DC/OS&trade; can be reserved and prioritized using a combination of roles, reservations, quotas, and weights. These features are provided by Apache&reg; Mesos&reg;, at the core of DC/OS and are referred to as `Primitives`, as most of them are only accessible through the API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights.
 
 Resources in DC/OS&reg; can be reserved and prioritized using a combination of roles, reservations, quotas, and weights. These features are provided by Apache&reg; Mesos&reg;, at the core of DC/OS and are referred to as `Primitives`, as most of them are only accessible through the API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights.
 
@@ -18,7 +19,7 @@ This page covers the multi-tenancy primitives: Multi-Tenant quota management pri
 The key concepts of multi-tenancy primitives include the following:
 
 ## Roles
-Roles refer to a resource consumer within the cluster. The resource consumer could represent a user within an organization, but it could also represent a team, a group, or a service. It most commonly refers to a class or type of activity which is running. In DC/OS, schedulers subscribe to one or more roles in order to receive resources and schedule work on behalf of the resource consumer(s) they are servicing. Examples of schedulers include Marathon&trade;, Kubernetes&reg;, and a number of the certified frameworks in the DC/OS {{ model.packageRepo }} such as Kafka&reg; and Cassandra&reg;, which have been built to include their own schedulers.
+Roles refer to a resource consumer within the cluster. The resource consumer could represent a user within an organization, but it could also represent a team, a group, or a service. It most commonly refers to a class or type of activity which is running. In DC/OS, schedulers subscribe to one or more roles in order to receive resources and schedule work on behalf of the resource consumer(s) they are servicing. Examples of schedulers include Marathon&trade;, Kubernetes&reg;, and a number of the certified frameworks in the DC/OS {{ model.packageRepo }} such as Kafka&reg; and Cassandra&reg;, which have been built to include their own scheduler.
 
 There are two default roles which frameworks will subscribe to:
 - `*` on private agents
@@ -39,7 +40,7 @@ Weights refer to a mechanism for prioritizing one role over another, to allow al
 These concepts are described based on two real-world scenarios of existing customer use cases.
 
 ## Analytics platform with weighted Spark roles
-This example is based on a customer’s use case of an analytics pipeline. The primary workload is Spark&trade; with three tiers of Spark jobs, tagged with roles; "low" - 1, "medium" - 2, and "high" - 3, representing the priority and weights accordingly.
+This example is based on a customer’s use case of an analytics pipeline. The primary workload is Spark&trade; with three tiers of Spark jobs, tagged with roles: "low" - 1, "medium" - 2, and "high" - 3, representing the priority and weights accordingly.
 
 In practice, the high role is allocated three times the fair share of offers (resources) than medium, which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM.
 
@@ -228,7 +229,7 @@ There are further options related to dynamic and static operations and amending 
 [Quotas](https://mesos.apache.org/documentation/latest/quota/) specify a minimum amount of resources that the role is guaranteed to receive (unless the total resources in the cluster are less than the configured quota resources, which often indicates a misconfiguration).
 
 ### Adding
-Quotas cannot be updated after they are applied. They must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
+Quotas cannot be updated once applied. They must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
 
 ```json
 tee set-quota.json << EOF
@@ -328,7 +329,7 @@ If successful, expect a `HTTP/1.1 200 OK` response.
 [Weights](https://mesos.apache.org/documentation/latest/weights/) are used to control the relative share of cluster resources that is offered to different roles.
 
 ### Applying
-This applies a weight of `five` to role `perf`.
+This example applies a weight of `five` to role `perf`.
 
 ```json
 tee set-weight.json << EOF
@@ -380,11 +381,11 @@ Connection: keep-alive
 ```
 
 ### Removing
-Weights cannot be removed after they are set. They can be amended using the same method as updating the weight. If you wish to reset the weight for a role, you could set it back to `two` which is the same weight as the default role <sup>`*`</sup>.
+Weights cannot be removed once set, but they can be amended using the same method as applying to update the weight. If you want to reset the weight for a role, you could set it back to `two` which is the same weight as the default role <sup>`*`</sup>.
 
 
 ## Marathon on Marathon
-The DC/OS {{ model.packageRepo }} includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets or ACLs. See the [Marathon on Marathon documentation](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/basic/).
+The DC/OS {{ model.packageRepo }} includes Marathon, which can be used to deploy a MoM. It should be noted that this is only useful for DC/OS OSS installations, as it does not provide support for Strict mode, Secrets, or ACLs. See the [Marathon on Marathon documentation](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/basic/).
 
 To install DC/OS Enterprise MoM, you must contact Mesosphere Support for the Enterprise MoM tarball, then deploy it using the root Marathon. See the [custom non-native Marathon documentation](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/advanced/).
 

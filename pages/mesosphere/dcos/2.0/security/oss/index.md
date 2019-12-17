@@ -10,9 +10,9 @@ menuWeight: 80
 
 Ensure the network is set up according to the information for [securing your cluster](/mesosphere/dcos/2.0/administering-clusters/securing-your-cluster/).
 
-All access management in DC/OS is done via the DC/OS Identity and Access Manager (IAM). This includes user account management, login, and authentication token distribution. The IAM provides an HTTP API for managing user accounts in a RESTful fashion.
+All access management in Mesosphere&reg; DC/OS&trade; is done through the DC/OS Identity and Access Manager (IAM). This includes user account management, login, and authentication token distribution. The IAM provides an HTTP API for managing user accounts in a RESTful fashion.
 
-Authentication tokens can be obtained using [OpenID Connect 1.0](https://openid.net/specs/openid-connect-core-1_0.html), which is an identity layer built on top of the [OAuth 2.0](http://oauth.net/2/) protocol.
+Authentication tokens can be obtained using [OpenID Connect&reg; 1.0](https://openid.net/specs/openid-connect-core-1_0.html), which is an identity layer built on top of the [OAuth 2.0](http://oauth.net/2/) protocol.
 
 Local user and service accounts can be configured for logging in without external dependencies and for automating authentication against the cluster in a secure manner.
 

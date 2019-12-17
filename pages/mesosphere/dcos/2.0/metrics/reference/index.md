@@ -11,9 +11,9 @@ enterprise: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Mesosphere DC/OS collects basic system metrics--such as CPU and memory--for nodes and containers automatically. Mesosphere DC/OS also collects metadata about the different categories of metrics. For more information about the metadata metrics, see [Dimensions](#Dimensions).
+Mesosphere&reg; DC/OS&trade; collects basic system metrics - such as CPU and memory - for nodes and containers automatically. Mesosphere DC/OS also collects metadata about the different categories of metrics. For more information about the metadata metrics, see [Dimensions](#Dimensions).
 
-You should note that automatically-collected metrics are only available for containers that provide endpoint statistics. For example, Docker containers do not provide networking data for DC/OS to consume, so the networking metrics that are available for UCR containers are not available for Docker containers.
+You should note that automatically-collected metrics are only available for containers that provide endpoint statistics. For example, Docker&reg; containers do not provide networking data for DC/OS to consume, so the networking metrics that are available for UCR containers are not available for Docker containers.
 
 <a name="Node"></a>
 
@@ -55,7 +55,7 @@ You should note that automatically-collected metrics are only available for cont
 | `filesystem.inode.total`    | Total inodes in bytes. |
 | `filesystem.inode.used`    | Inodes used in bytes.  |
 
-<p class="message--note"><strong>NOTE: </strong>The tag <code>path</code> is automatically populated based on the mount path of the local filesystem (for example, <code>/</code>, <code>/boot</code>, etc).</p>
+<p class="message--note"><strong>NOTE: </strong>The tag <code>path</code> is automatically populated based on the mount path of the local filesystem (for example, <code>/</code>, <code>/boot</code>, and so on).</p>
 
 <a name="NodeNetwork"></a>
 
@@ -72,7 +72,7 @@ You should note that automatically-collected metrics are only available for cont
 | `network.out.errors`    | Number of uploaded bytes in error.  |
 | `network.out.packets`    | Number of packets uploaded. |
 
-<p class="message--note"><strong>NOTE: </strong>The tag <code>interface</code> is automatically populated based on the type of the network interface (for example, <code>spartan</code>, <code>d-dcos</code>, <code>minuteman</code>, etc).</p>
+<p class="message--note"><strong>NOTE: </strong>The tag <code>interface</code> is automatically populated based on the type of the network interface (for example, <code>spartan</code>, <code>d-dcos</code>, <code>minuteman</code>, and so on).</p>
 
 ## Process
 
@@ -127,7 +127,7 @@ The following per-process resource utilization metrics are collected.
 | procstat.signals_pending | The number of signals pending to be handled by the process. |
 | procstat.voluntary_context_switches | The number of times the process was context-switched voluntarily. |
 
-Source: [AWS DOCS - Collect Process Metrics with the procstat Plugin](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-procstat-process-metrics.html)
+Source: [AWS&reg; DOCS - Collect Process Metrics with the procstat Plugin](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-procstat-process-metrics.html)
 
 <a name="Container"></a>
 
@@ -187,7 +187,7 @@ Dimensions are metadata about the metrics. The following table lists the availab
 
 | Dimension | Description | Entity |
 |-----------|-------------|--------|
-| `mesos_id`   | The Mesos ID of the node.  | node, container |
+| `mesos_id`   | The Apache&reg; Mesos&reg; ID of the node.  | node, container |
 | `cluster_id`   |  The ID of the Mesos cluster. | node, container |
 | `container_id`  | The ID of the container.  | metric, container |
 | `executor_name`   |  The name of the task executor. | metric |
@@ -199,4 +199,3 @@ Dimensions are metadata about the metrics. The following table lists the availab
 
 Read the following resource for more information on Metrics:
 1. [Additional Mesos volume and Network metrics](http://mesos.apache.org/documentation/latest/monitoring/) documentation.
-

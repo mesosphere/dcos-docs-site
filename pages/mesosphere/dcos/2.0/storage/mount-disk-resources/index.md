@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-With DC/OS, you can configure Mesos [`Mount` disk resources][1] across your cluster by mounting storage resources on agents using a well-known path.
+With Mesosphere&reg; DC/OS&trade;, you can configure Apache&reg; Mesos&reg; [`Mount` disk resources][1] across your cluster by mounting storage resources on agents using a well-known path.
 
 When a DC/OS agent starts, it scans for volumes that match the pattern `/dcos/volume<N>`, where `<N>` is an integer. The agent is then automatically configured to offer these disk resources to other services.
 
@@ -101,7 +101,7 @@ Please note that this example handles **adding** resources exclusively and can n
     May 05 19:18:58 dcos-agent-public-01234567000001 mesos-slave[1891]: " --oversubscribed_resources_interval="15secs" --perf_duration="10secs" --perf_interval="1mins" --port="5051" --qos_correction_interval_min="0ns" --quiet="false" --recover="reconnect" --recovery_timeout="15mins" --registration_backoff_factor="1secs" --resources="[{"name": "ports", "type": "RANGES", "ranges": {"range": [{"end": 21, "begin": 1}, {"end": 5050, "begin": 23}, {"end": 32000, "begin": 5052}]}}, {"name": "disk", "type": "SCALAR", "disk": {"source": {"mount": {"root": "/dcos/volume0"}, "type": ""}}, "role": "*", "scalar": {"value": 74}}, {"name": "disk", "type": "SCALAR", "role": "*", "scalar": {"value": 47540}}]" --revocable_cpu_low_priority="true" --sandbox_directory="/mnt/mesos/sandbox" --slave_subsystems="cpu,memory" --strict="true" --switch_user="true" --systemd_enable_support="true" --systemd_runtime_directory="/run/systemd/system" --version="false" --work_dir="/var/lib/mesos/slave"
     ```
 
-# Example using a mount volume within a Marathon app
+# Example using a mount volume within a Marathon&trade; app
 
 ```json
 {
@@ -184,16 +184,16 @@ Figure 1. Services > Volumes tab
 
 Cloud provider storage services are typically used to back DC/OS mount volumes. This reference material can be useful when designing a production DC/OS deployment:
 
-* [Amazon: EBS][2]
-* [Azure: About disks and VHDs for Azure virtual machines][3]
-* [Azure: Introduction to Microsoft Azure storage][4]
+* [Amazon: EBS&reg;][2]
+* [Azure&reg;: About disks and VHDs for Azure virtual machines][3]
+* [Azure: Introduction to Microsoft&reg; Azure storage][4]
 
 # Best practices
 
-`Mount` disk resources are primarily for stateful services like Kafka and Cassandra which can benefit from having dedicated storage available throughout the cluster. Any service that uses a `Mount` disk resource has exclusive access to the reserved resource. However, it is still important to consider the performance and reliability requirements for the service. The performance of a `Mount` disk resource is based on the characteristic of the underlying storage and DC/OS does not provide any data replication services. Consider the following:
+`Mount` disk resources are primarily for stateful services like Kafka&reg; and Cassandra&reg; which can benefit from having dedicated storage available throughout the cluster. Any service that uses a `Mount` disk resource has exclusive access to the reserved resource. However, it is still important to consider the performance and reliability requirements for the service. The performance of a `Mount` disk resource is based on the characteristic of the underlying storage and DC/OS does not provide any data replication services. Consider the following:
 
 * Use `Mount` disk resources with stateful services that have strict storage requirements.
-* Carefully consider the filesystem type, storage media (network attached, SSD, etc.), and volume characteristics (RAID levels, sizing, etc.) based on the storage needs and requirements of the stateful service.
+* Carefully consider the filesystem type, storage media (network attached, SSD, and so forth), and volume characteristics (RAID levels, sizing, and so forth) based on the storage needs and requirements of the stateful service.
 * Label Mesos agents using a Mesos attribute that reflects the characteristics of the agent's disk mounts, e.g. IOPS200, RAID1, etc.
 * Associate stateful services with storage agents using Mesos Attribute constraints.
 * Consider isolating demanding storage services to dedicated storage agents, since the filesystem page cache is a host-level shared resource.

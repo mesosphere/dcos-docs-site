@@ -33,7 +33,7 @@ You must have working DNS resolvers, specified in your [config.yaml](/mesosphere
 When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
 
  1. Exhibitor
- 1. Mesos master
+ 1. Apache&reg; Mesos&reg; master
  1. Mesos DNS
  1. DNS Forwarder
  1. DC/OS Marathon
@@ -70,7 +70,7 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
     journalctl -flu dcos-exhibitor
     ```
 
-* Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log.
+* Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper&trade; because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log.
 
 * To repair `/tmp` mounted with `noexec` run the following command:
 
