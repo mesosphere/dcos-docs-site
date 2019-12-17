@@ -7,18 +7,35 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 enterprise: true
 ---
 
+# Release notes for Edge-LB version 1.5.1
+
+Edge-LB Service version 1.5.1 was released on 17 December 2019.
+
+## Bug Fixes
+- EdgeLB TLS certificates now include the full bundle of the intermediate certs in the CC's cert (DCOS-60770)
+- Fixed a case where EdgeLB 1.5 is using the wrong container IP address (DCOS-60517)
+
+## Other Changes
+- Bumped SDK version to v0.57.2 to tackle a deployment issue
+- We are now collecting diagnostic bundle for all pools by default.
+
+## Known issues and limitations
+
+- Auto Pool updates are slower as the number of templates increases, or large changes to the Mesos state occur, such as many apps starting or stopping.
+
+
 # Release notes for Edge-LB version 1.5.0
 
 Edge-LB Service version 1.5.0 was released on 30 October 2019.
 
-# Breaking Changes
+## Breaking Changes
 - Templates now use [Sprig](http://masterminds.github.io/sprig/) template functions instead of custom functions. The [`env`](http://masterminds.github.io/sprig/os.html) functions are not exposed to templates.
 
-# Deprecation
+## Deprecation
 
 - The v1 API is now deprecated and may be removed in a future release
 
-# New features and capabilities
+## New features and capabilities
 
 - Auto Pools automatically start a pool from a template with values from mesos task labels.
 - The certificate generated for `$AUTOCERT` is now valid for 10 years and has a random serial number.
@@ -28,6 +45,6 @@ Edge-LB Service version 1.5.0 was released on 30 October 2019.
 - The `apiserver` now uses `container/bridge` network type.
 - [Pool constraints](../pool-configuration/v2-reference/#pool) now support region placement constraints.
 
-# Known issues and limitations
+## Known issues and limitations
 
 - Auto Pool updates are slower as the number of templates increases, or large changes to the Mesos state occur, such as many apps starting or stopping.
