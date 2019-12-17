@@ -27,5 +27,5 @@ DC/OS AWS CloudFormation 模板经优化以运行 DC/OS，但您可能希望根�
 
 您的新机器需要几分钟才能完成初始化；您可以在 EC2 控制台中查看。DC/OS Web 界面将在新节点注册时即进行更新。
 
- [2]: /mesosphere/dcos/2.0/installing/evaluation/community-supported-methods/aws/
+ [2]: /mesosphere/dcos/cn/2.0/installing/evaluation/community-supported-methods/aws/
  [3]:https://console.aws.amazon.com/cloudformation/home

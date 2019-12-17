@@ -11,14 +11,14 @@ model: /mesosphere/dcos/2.0/data.yml
 
 您可以将代理节点转换为现有 DC/OS 群集的公共或私有节点。
 
-在安装过程中，代理节点被指定为 [公共](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node) 或 [私有](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node)节点。默认情况下，它们在 [GUI][1] 或 [CLI][2] 安装中被指定为 `private`。
+在安装过程中，代理节点被指定为 [公共](/mesosphere/dcos/cn/2.0/overview/concepts/#public-agent-node) 或 [私有](/mesosphere/dcos/cn/2.0/overview/concepts/#private-agent-node)节点。默认情况下，它们在 [GUI][1] 或 [CLI][2] 安装中被指定为 `private`。
 
 ### 先决条件：
 这些步骤必须在配置为 DC/OS 节点的机器上执行。在此转换过程中将终止在节点上运行的任何任务。
 
-1. 使用[自定义](/mesosphere/dcos/2.0/installing/evaluation/)安装方法安装 DC/OS。
-2. 至少部署一个[管理](/mesosphere/dcos/2.0/overview/concepts/#master)和一个[专用](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node)代理节点。
-*   获取来自您的[安装](/mesosphere/dcos/2.0/installing/evaluation/#backup)的存档 DC/OS 安装工具文件 (`dcos-install.tar`)。
+1. 使用[自定义](/mesosphere/dcos/cn/2.0/installing/evaluation/)安装方法安装 DC/OS。
+2. 至少部署一个[管理](/mesosphere/dcos/cn/2.0/overview/concepts/#master)和一个[专用](/mesosphere/dcos/cn/2.0/overview/concepts/#private-agent-node)代理节点。
+*   获取来自您的[安装](/mesosphere/dcos/cn/2.0/installing/evaluation/#backup)的存档 DC/OS 安装工具文件 (`dcos-install.tar`)。
 *   安装 CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
 *   安装并配置 SSH。需要访问 DC/OS 群集中的节点。
 
@@ -62,7 +62,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ### 安装 DC/OS 并转换代理节点
 
-1. 复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到正在被转换的节点上。此存档在 GUI 或 CLI [安装](/mesosphere/dcos/2.0/installing/evaluation/)方法期间创建。
+1. 复制存档的 DC/OS 安装程序文件（`dcos-install.tar`）到正在被转换的节点上。此存档在 GUI 或 CLI [安装](/mesosphere/dcos/cn/2.0/installing/evaluation/)方法期间创建。
 
 1. 将文件复制到代理节点。例如，您可以使用安全拷贝 (scp) 来复制 `dcos-install.tar` 到您的主目录：
 
@@ -102,5 +102,5 @@ model: /mesosphere/dcos/2.0/data.yml
     sudo bash /opt/dcos_install_tmp/dcos_install.sh slave_public
     ```
 
- [1]: /mesosphere/dcos/2.0/installing/evaluation/
- [2]: /mesosphere/dcos/2.0/installing/evaluation/
+ [1]: /mesosphere/dcos/cn/2.0/installing/evaluation/
+ [2]: /mesosphere/dcos/cn/2.0/installing/evaluation/

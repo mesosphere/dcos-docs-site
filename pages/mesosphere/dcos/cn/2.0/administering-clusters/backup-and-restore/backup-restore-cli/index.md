@@ -13,10 +13,10 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 先决条件
 - DC/OS Enterprise 群集
-- [DC/OS CLI 已安装](/mesosphere/dcos/2.0/cli/install/)
-- 安装的 [DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/)
+- [DC/OS CLI 已安装](/mesosphere/dcos/cn/2.0/cli/install/)
+- 安装的 [DC/OS Enterprise CLI](/mesosphere/dcos/cn/2.0/cli/enterprise-cli/)
 
-<p class="message--important"><strong>重要信息：</strong>请参见备份和恢复的<a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
+<p class="message--important"><strong>重要信息：</strong>请参见备份和恢复的<a href="/mesosphere/dcos/cn/2.0/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
 
 # 备份群集
 
