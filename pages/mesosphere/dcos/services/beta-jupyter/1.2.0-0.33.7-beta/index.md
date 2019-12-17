@@ -6,6 +6,8 @@ menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
+model: /mesosphere/dcos/services/beta-jupyter/data.yml
+render: mustache
 ---
 Welcome to Mesosphere DC/OS Jupyter! Jupyter is a user interface for interactive and reproducible computing on the DC/OS platform. By deploying from the user interface or command-line, you agree to the [Terms and Conditions](https://mesosphere.com/catalog-terms-conditions/#community-services) that apply to the {{ model.techName }} service.
 
