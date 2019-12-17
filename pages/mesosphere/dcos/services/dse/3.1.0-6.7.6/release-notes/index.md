@@ -11,8 +11,8 @@ render: mustache
 # Version 3.1.0-6.7.6
 
 ## Updates
-- Upgraded {{ model.techShortName }} to version 6.7.6 and {{ model.techOpsName }} to version 6.7.6.
-- Upgraded SDK to 0.57.0.post0. For more information see the SDK's Release Notes for: 
+- Upgraded both {{ model.techShortName }} and {{ model.techOpsName }} to version `6.7.6`.
+- Upgraded SDK to `0.57.0.post0`. For more information see the SDK's Release Notes for: 
   - [0.57.0.post0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0.post0)
   - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
   - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
@@ -42,4 +42,3 @@ render: mustache
 
 ## Upgrading your cluster from {{ model.techShortName }} 5.1.10 to 6.7.6
 Due to the complexity of upgrading to {{ model.techShortName }} 6.7, we strongly advise that you attempt the upgrade on a test cluster before upgrading in your production environment. See the [update section](/mesosphere/dcos/services/dse/3.1.0-6.7.6/updates/) for specific instructions.
-
