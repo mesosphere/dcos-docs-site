@@ -19,7 +19,7 @@ As a production-ready solution, Konvoy provides the Velero addon by default, to 
 For on-premise deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 For production use-cases, it's advisable to provide an *external* storage volume for Minio to use.
 
-<p class="message--note"><strong>NOTE: </strong>If you intend to use the cluster <strong>without</strong> an external storage volume for Minio, you should <a href="https://docs.d2iq.com/ksphere/konvoy/latest/backup/#fetching-a-backup-archive">fetch the latest backup</a> and store it in a known, secure location at a regular interval. For example, if you are not using an external storage volume, you should back up and archive the cluster on a weekly basis.</p>
+<p class="message--note"><strong>NOTE: </strong>If you intend to use the cluster without an external storage volume for Minio, you should <a href="https://docs.d2iq.com/ksphere/konvoy/latest/backup/#fetching-a-backup-archive">fetch the latest backup</a> and store it in a known, secure location at a regular interval. For example, if you are not using an external storage volume, you should back up and archive the cluster on a weekly basis.</p>
 
 ## Install the Velero command-line interface
 
