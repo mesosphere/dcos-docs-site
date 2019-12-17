@@ -19,7 +19,7 @@ model: /mesosphere/dcos/2.0/data.yml
     dcos-shell java -jar guano-0.1a.jar -u super -p secret -d / -o /tmp/mesos-zk-backup -s $ZKHOST:2181 && tar -zcvf zkstate.tar.gz /tmp/mesos-zk-backup/
     ```
 
-    有关使用 Guano 实用程序备份 ZooKeeper 的更多信息，请参阅 [如何使用 Guano 备份 ZooKeeper？](/mesosphere/dcos/2.0/installing/installation-faq/#zk-backup)
+    有关使用 Guano 实用程序备份 ZooKeeper 的更多信息，请参阅 [如何使用 Guano 备份 ZooKeeper？](/mesosphere/dcos/cn/2.0/installing/installation-faq/#zk-backup)
 
 1. 通过在管理节点上运行类似于以下内容的命令，将 DC/OS 身份和访问管理 CockroachDB 数据库备份到文件：
 
@@ -27,7 +27,7 @@ model: /mesosphere/dcos/2.0/data.yml
     dcos-shell iam-database-backup > ~/iam-backup.sql
     ```
 
-    有关备份 DC/OS 身份和访问管理 CockroachDB 数据库的更多信息，请参阅 [如何备份 IAM 数据库？](/mesosphere/dcos/2.0/installing/installation-faq/#iam-backup)
+    有关备份 DC/OS 身份和访问管理 CockroachDB 数据库的更多信息，请参阅 [如何备份 IAM 数据库？](/mesosphere/dcos/cn/2.0/installing/installation-faq/#iam-backup)
 
 1. 关闭您想替换的管理节点。
 
@@ -49,4 +49,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
     <p class="message--important"><strong>重要信息：</strong>此步骤为必需的。确保确认新管理节点已成功加入群集，然后再替换任何其他管理节点或执行任何其他管理任务。</p>
     
-    要验证管理节点替换是否已成功完成，请按照 [升级管理节点] 中所述的步骤来验证升级(/mesosphere/dcos/2.0/installing/production/upgrading/#dcos-masters)。
+    要验证管理节点替换是否已成功完成，请按照 [升级管理节点] 中所述的步骤来验证升级(/mesosphere/dcos/cn/2.0/installing/production/upgrading/#dcos-masters)。

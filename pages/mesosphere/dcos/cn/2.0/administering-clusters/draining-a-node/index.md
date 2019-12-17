@@ -18,8 +18,8 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ### 先决条件：
 
-*   [已安装并配置 DC/OS CLI](/mesosphere/dcos/2.0/cli/)。
-*   有足够 [权限](/mesosphere/dcos/2.0/security/ent/perms-reference) 排空节点（仅限 Enterprise DC/OS）。
+*   [已安装并配置 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)。
+*   有足够 [权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference) 排空节点（仅限 Enterprise DC/OS）。
 
 ### 最大宽限期
 
@@ -111,7 +111,7 @@ dcos task list --agent-id=<mesos-agent-id>
 dcos node deactivate <mesos-agent-id>
 ```
 
-这将停止在该代理节点上启动任何新工作负载。此时，个别服务公开的 API 可用于关闭节点上运行的任何任务。例如，对于通过 DC/OS UI 启动的典型应用程序和 pod，[Marathon 容器编排器的 API](/mesosphere/dcos/2.0/deploying-services/marathon-api/) 可用于终止相关任务。关闭节点上的所有任务后，可以取下节点进行维护，然后在维护完成后再重新激活：
+这将停止在该代理节点上启动任何新工作负载。此时，个别服务公开的 API 可用于关闭节点上运行的任何任务。例如，对于通过 DC/OS UI 启动的典型应用程序和 pod，[Marathon 容器编排器的 API](/mesosphere/dcos/cn/2.0/deploying-services/marathon-api/) 可用于终止相关任务。关闭节点上的所有任务后，可以取下节点进行维护，然后在维护完成后再重新激活：
 
 ```bash
 dcos node reactivate <mesos-agent-id>
