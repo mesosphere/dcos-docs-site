@@ -12,15 +12,15 @@ enterprise: false
 
 # Leader/Follower Architecture
 
-A common pattern in high availability (HA) systems is the leader/follower concept. This is also sometimes referred to as: master/agent, primary/replica, or some combination thereof. This architecture is used when you have one authoritative process, with N standby processes. In some systems, the standby processes might also be capable of serving requests or performing other operations. For example, when running a database like MySQL with a master and replica, the replica is able to serve read-only requests, but it cannot accept writes; only the master will accept writes. In DC/OS, a number of components follow the leader/follower pattern. We will discuss some of them  and how they work.
+A common pattern in high availability (HA) systems is the leader/follower concept. This is also sometimes referred to as: master/agent, primary/replica, or some combination thereof. This architecture is used when you have one authoritative process, with N standby processes. In some systems, the standby processes might also be capable of serving requests or performing other operations. For example, when running a database like MySQL with a master and replica, the replica is able to serve read-only requests, but it cannot accept writes. Only the master will accept writes. In DC/OS, a number of components follow the leader/follower pattern. We will discuss some of them and how they work.
 
 #### Mesos
 
-Mesos can be run in high availability mode, which requires running three or five masters. When run in HA mode, one master is elected as the leader, while the other masters are followers. Each master has a replicated log which contains some state about the cluster. ZooKeeper performs an election to select the leading master. For more detail on this, see the [Mesos HA documentation](https://mesos.apache.org/documentation/latest/high-availability/).
+Apache&reg; Mesos&reg; can be run in high availability mode, which requires running three or five masters. When run in HA mode, one master is elected as the leader, while the other masters are followers. Each master has a replicated log which contains some state about the cluster. ZooKeeper performs an election to select the leading master. For more detail on this, see the [Mesos HA documentation](https://mesos.apache.org/documentation/latest/high-availability/).
 
 #### Marathon
 
-Marathon can be run in high availability mode, which allows you to run multiple Marathon instances (at least two for HA), with one elected leader. Marathon uses ZooKeeper for leader election. The followers do not accept writes or API requests; instead, the followers proxy all API requests to the leading Marathon instance.
+Marathon&trade; can be run in high availability mode, which allows you to run multiple Marathon instances (at least two for HA), with one elected leader. Marathon uses ZooKeeper&trade; for leader election. The followers do not accept writes or API requests; instead, the followers proxy all API requests to the leading Marathon instance.
 
 #### ZooKeeper
 
@@ -62,4 +62,4 @@ When failures do occur, failover [should be as fast as possible](https://en.wiki
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best practices when building services: in particular, avoiding storing client state on the server between requests.
 
-A number of DC/OS services follow the fail-fast pattern in the event of errors. Specifically, both Mesos and Marathon will shut down in the case of unrecoverable conditions such as losing leadership.
+A number of DC/OS services follow the fail-fast pattern in the event of errors. Specifically, both Apache Mesos and Marathon will shut down in the case of unrecoverable conditions such as losing leadership.

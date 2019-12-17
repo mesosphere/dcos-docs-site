@@ -10,7 +10,7 @@ beta: false
 enterprise: false
 ---
 
-DC/OS&trade; cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database.
+Mesosphere&reg; DC/OS&trade; cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database.
 
 ## Service, task, and node logs
 
@@ -69,7 +69,6 @@ Figure 1. System health log showing nodes
 Streaming logs from machines in your cluster is not always the best solution for examining events and debugging issues. <!-- In cases where you need a history of what has happened, you require a method for storing and aggregating logs. DC/OS comes with a built-in log pipeline based on [Fluent Bit](https://fluentbit.io/), an open source log processor and forwarder. Fluent Bit runs on each node, both masters and agents, in DC/OS. It gathers metrics from each component by tailing logs from journald. Tasks running on Mesos can also optionally [transmit logs to Fluent Bit](/mesosphere/dcos/2.0/monitoring/logging/configure-task-logs/). -->Currently we suggest one of these options for log aggregation:
 
 - [Log Management with ELK](/mesosphere/dcos/2.0/monitoring/logging/aggregating/elk/)
-- [Log Management with Splunk](/mesosphere/dcos/2.0/monitoring/logging/aggregating/splunk/)
-
+- [Log Management with Splunk&reg;](/mesosphere/dcos/2.0/monitoring/logging/aggregating/splunk/)
 
 [5]: /mesosphere/dcos/2.0/administering-clusters/sshcluster/

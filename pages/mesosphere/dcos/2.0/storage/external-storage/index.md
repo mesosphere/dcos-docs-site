@@ -10,11 +10,11 @@ beta: true
 enterprise: false
 ---
 
-Use external volumes when fault tolerance is crucial for your app. If a host fails, the native Marathon instance reschedules your app on another host, along with its associated data, without user intervention. External volumes also typically offer a larger amount of storage.
+Use external volumes when fault tolerance is crucial for your app. If a host fails, the native Marathon&trade; instance reschedules your app on another host, along with its associated data, without user intervention. External volumes also typically offer a larger amount of storage.
 
-Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon's Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
+Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL&reg;, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon&reg; Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
 
-Note that volume sizes are specified in gibibyte (GiB) units.
+Note that volume sizes are specified in gibibyte (GiB) units (2x10(30) or 1,073,741,824 bytes).
  
 # Creating an application with an external persistent volume
 
@@ -67,7 +67,7 @@ The `cmd` in this app definition appends the output of the `date` command to `te
 -  You cannot change volume parameters after you create the application.
 -  Marathon will not launch apps with external volumes if `upgradeStrategy.minimumHealthCapacity` is greater than 0.5, or if `upgradeStrategy.maximumOverCapacity` does not equal 0.
 
-### Using a Docker Engine
+### Using a Docker&reg; Engine
 
 Below is a sample app definition that uses a Docker Engine and specifies an external volume. The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
@@ -107,7 +107,7 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 #### Volume configuration options
 
 * `containerPath` must be absolute.
-*  Only certain versions of Docker are compatible with the REX-Ray volume driver. Refer to the [REX-Ray documentation][11].
+*  Only certain versions of Docker are compatible with the REX-Ray&reg; volume driver. Refer to the [REX-Ray documentation][11].
 
 ## Create an application from the DC/OS UI
 
@@ -126,7 +126,7 @@ The default implicit volume size is 16 GiB. If you are using the Universal Conta
 
 Apps that use external volumes can only be scaled to a single instance because a volume can only attach to a single task at a time.
 
-If you scale your app down to 0 instances, the volume is detached from the agent where it was mounted, but it is not deleted. If you scale your app up again, the data that was associated with it is still be available.
+If you scale your app down to 0 instances, the volume is detached from the agent where it was mounted, but it is not deleted. If you scale your app up again, the data that was associated with it is still available.
 
 # Potential issues
 
@@ -136,7 +136,7 @@ If you scale your app down to 0 instances, the volume is detached from the agent
 *   If you are using Docker, you must use a compatible Docker version. Refer to the [REX-Ray documentation][11] to learn which versions of Docker are compatible with the REX-Ray volume driver.
 *   Launch time might increase for applications that create volumes implicitly. The amount of the increase depends on several factors which include the size and type of the volume. Your storage provider's method of handling volumes can also influence launch time for implicitly created volumes.
 
-##   EBS specific
+## EBS specific
 Volumes created on the same AWS account share a namespace. Choose unique volume names to avoid conflicts when multiple clusters are launched under the same account.
 
 EBS volumes are also namespaced by their availability zone (AZ), and an EBS volume [can only be attached to an EC2 instance in the same AZ][12]. As a result, attempts to launch a task in an agent running in a different AZ will lead to the creation of a new volume of the same name. If you create a cluster in one AZ, destroy it, be sure to create your cluster in the same AZ if you wish to reuse any external volumes. If a cluster spans multiple AZs, use Marathon constraints to only launch an instance in the same AZ.

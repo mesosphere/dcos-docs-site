@@ -8,14 +8,14 @@ model: /mesosphere/dcos/2.0/data.yml
 excerpt: Understanding the unique features of DC/OS
 ---
 
-This is an overview of the unique features of DC/OS.
+This is an overview of the unique features of Mesosphere&reg; DC/OS&trade;.
 
 
 ## <a name="high-resource-utilization"></a>High resource utilization
 
 DC/OS makes it easy to get the most out of your computing resources. Deciding where to run processes to best utilize cluster resources is hard. Deciding where to place long-running services which have changing resource requirements over time is even harder. In reality, there is no single scheduler that can efficiently and effectively place all types of tasks.
 
-DC/OS manages this problem by separating resource management from task scheduling. Mesos manages CPU, memory, disk, and GPU resources. Task placement is delegated to higher level schedulers that are more aware of their task's specific requirements and constraints. This model, known as two-level scheduling, enables multiple workloads to be colocated efficiently.
+DC/OS manages this problem by separating resource management from task scheduling. Apache&reg; Mesos&reg; manages CPU, memory, disk, and GPU resources. Task placement is delegated to higher level schedulers that are more aware of their task's specific requirements and constraints. This model, known as two-level scheduling, enables multiple workloads to be colocated efficiently.
 
 ## <a name="mixed-workload-colocation"></a>Mixed workload colocation
 
@@ -28,15 +28,15 @@ DC/OS makes it easy to run all your computing tasks on the same hardware.
 
 ## <a name="container-orchestration"></a>Container orchestration
 
-DC/OS provides easy-to-use container orchestration right out of the box.
+DC/OS provides easy-to-use container orchestration right out-of-the-box.
 
-Docker provides a great development experience, but trying to run Docker containers in production presents significant challenges. To overcome these challenges, DC/OS includes Marathon as a core component, giving you a production-grade, well-tested scheduler that is capable of orchestrating both containerized and non-containerized workloads. With Marathon, you have the ability to reach extreme scale, scheduling tens of thousands of tasks across thousands of nodes. You can use highly configurable declarative application definitions to enforce advanced placement constraints with node, cluster, and grouping affinities.
+Docker&reg; provides a great development experience, but trying to run Docker containers in production presents some significant challenges. To overcome these challenges, DC/OS includes Marathon&trade; as a core component, giving you a production-grade, well-tested scheduler that is capable of orchestrating both containerized and non-containerized workloads. With Marathon, you have the ability to reach extreme scale, scheduling tens of thousands of tasks across thousands of nodes. You can use highly configurable declarative application definitions to enforce advanced placement constraints with node, cluster, and grouping affinities.
 
 ## <a name="extensible-resource-isolation"></a>Extensible resource isolation
 
 DC/OS makes it possible to configure multiple resource isolation zones.
 
-Not all tasks have the same requirements. Some require maximum isolation for security or performance guarantees. Others are ephemeral, public, or easily restarted. The simplest isolation method is to just delegate to Docker. It is trivial to run Docker containers on DC/OS, but Docker is a bit of a blunt instrument when it comes to isolation. The [Mesos containerizer](http://mesos.apache.org/documentation/latest/mesos-containerizer/) is much more flexible, with multiple independently configurable isolators, and pluggable custom isolators. The Mesos containerizer can even run Docker containers without being chained to the fragility of `dockerd`.
+Not all tasks have the same requirements. Some require maximum isolation for security or performance guarantees. Others are ephemeral, public, or easily restarted. The simplest isolation method is to just delegate to Docker. It is trivial to run Docker containers on DC/OS, but isolation in Docker is not so straightforward. The [Mesos containerizer](http://mesos.apache.org/documentation/latest/mesos-containerizer/) is more flexible, with multiple independently configurable isolators and pluggable custom isolators. The Mesos containerizer can even run Docker containers without being chained to the fragility of `dockerd`.
 
 ## <a name="stateful-storage-support"></a>Stateful storage support
 
@@ -153,11 +153,11 @@ DC/OS Enterprise is designed to run securely on-premises and in the cloud. To en
 ## <a name="workload-isolation"></a>Workload isolation with container level authorization
 [/enterprise]
 
-DC/OS Enterprise supports fine-grained workload isolation to enable multiple business groups within an organization to run containers and workloads within a shared cluster. You are guaranteed that there is security isolation in addition to performance isolation provided by Linux cGroups between the varying workloads. Workload security isolation is performed by the DC/OS Authorization module that runs on every agent node. This module is responsible for making authorization checks against DC/OS IAM Service to verify that the user/owner of the workload is authorized to perform the action they are trying to execute anywhere within the cluster, including on the Agent node.
+DC/OS Enterprise supports fine-grained workload isolation to enable multiple business groups within an organization to run containers and workloads within a shared cluster. You are guaranteed that there is security isolation in addition to performance isolation provided by Linux&reg; cGroups between the varying workloads. Workload security isolation is performed by the DC/OS Authorization module that runs on every agent node. This module is responsible for making authorization checks against DC/OS IAM Service to verify that the user/owner of the workload is authorized to perform the action they are trying to execute anywhere within the cluster, including on the Agent node.
 
 ## <a name="software-defined-networks"></a>IP per container with extensible virtual networks (SDN)
 
-DC/OS comes built-in with support for virtual networks, leveraging the Container Network Interface (CNI) standard. By default, one virtual network named `dcos` is created and any container that attaches to a Virtual Network receives its own dedicated IP. This allows you to run workloads that are not friendly to dynamically assigned ports and would rather bind the existing ports that are in their existing app configuration. Now, with support for dedicated IP/Container, workloads are free to bind to any port, since every container can access the entire available port range.
+DC/OS comes built-in with support for virtual networks, leveraging the Container Network Interface (CNI&trade;) standard. By default, one virtual network named `dcos` is created and any container that attaches to a Virtual Network receives its own dedicated IP. This allows you to run workloads that are not friendly to dynamically assigned ports and would rather bind the existing ports that are in their existing app configuration. Now, with support for dedicated IP/Container, workloads are free to bind to any port, since every container can access the entire available port range.
 
 ## <a name="network-isolation"></a>Network Isolation of virtual network subnets
 

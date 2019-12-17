@@ -10,13 +10,13 @@ beta: false
 ---
 
 
-This page explains how to get started with metrics in DC/OS. A metrics pipeline is natively integrated with DC/OS and no additional setup is required.
+This page explains how to get started with metrics in Mesosphere&reg; DC/OS&trade;. A metrics pipeline is natively integrated with DC/OS and no additional setup is required.
 
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
-1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
+1.  Optional: Deploy a sample Marathon&trade; app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 
     1.  Create the following Marathon app definition and save as `test-metrics.json`.
 
@@ -37,7 +37,7 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
         dcos marathon app add test-metrics.json
         ```
 
-2.  To get the Mesos ID of the node that is running your app, run `dcos task` followed by `dcos node`. 
+2.  To get the Apache&reg; Mesos&reg; ID of the node that is running your app, run `dcos task` followed by `dcos node`. 
     For example:
 
     1.  Running `dcos task` shows that host `10.0.0.193` is running the Marathon task `test-metrics.93fffc0c-fddf-11e6-9080-f60c51db292b`.
