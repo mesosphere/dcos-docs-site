@@ -3,28 +3,27 @@ layout: layout.pug
 navigationTitle: Release notes
 title: Release notes
 menuWeight: 1
-excerpt: Discover the new features, updates, and known limitations in this release of the Edge-LB service
+excerpt: Discover the new features, updates, and known limitations in this release of DC/OS for Edge-LB
 enterprise: true
 ---
 
-# Release notes for Edge-LB version 1.5.1
+# DC/OS for Edge-LB Service version 1.5.1 Release Notes
 
 Edge-LB Service version 1.5.1 was released on 17 December 2019.
 
 ## Bug Fixes
-- EdgeLB TLS certificates now include the full bundle of the intermediate certs in the CC's cert (DCOS-60770)
-- Fixed a case where EdgeLB 1.5 is using the wrong container IP address (DCOS-60517)
+- Edge-LB TLS certificates now include the full bundle of intermediate certificates in the CC's cert. (DCOS-60770)
+- Edge-LB 1.5 is now using the correct container IP address. (DCOS-60517)
 
 ## Other Changes
-- Bumped SDK version to v0.57.2 to tackle a deployment issue
-- We are now collecting diagnostic bundle for all pools by default.
+- Upgraded SDK version to v0.57.2 to resolve a deployment issue.
+- Began collecting diagnostic bundle for all pools, by default.
 
 ## Known issues and limitations
 
-- Auto Pool updates are slower as the number of templates increases, or large changes to the Mesos state occur, such as many apps starting or stopping.
+- Auto Pool updates become slower as the number of templates increases, or as large changes to the Mesos state occur, such as many apps starting or stopping.
 
-
-# Release notes for Edge-LB version 1.5.0
+# DC/OS for Edge-LB Service version 1.5.0 Release Notes
 
 Edge-LB Service version 1.5.0 was released on 30 October 2019.
 
@@ -33,7 +32,7 @@ Edge-LB Service version 1.5.0 was released on 30 October 2019.
 
 ## Deprecation
 
-- The v1 API is now deprecated and may be removed in a future release
+- The v1 API is now deprecated and may be removed in a future release.
 
 ## New features and capabilities
 
@@ -47,4 +46,4 @@ Edge-LB Service version 1.5.0 was released on 30 October 2019.
 
 ## Known issues and limitations
 
-- Auto Pool updates are slower as the number of templates increases, or large changes to the Mesos state occur, such as many apps starting or stopping.
+- Auto Pool updates become slower as the number of templates increases, or as large changes to the Mesos state occur, such as many apps starting or stopping.
