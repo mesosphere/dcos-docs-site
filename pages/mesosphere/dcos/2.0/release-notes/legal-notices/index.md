@@ -37,6 +37,8 @@ ElasticSearch, Logstash, and Kibana are registered trademarks of Elasticsearch B
 
 Google is a registered trademark, and Google Cloud Platform, GCP,  Google Cloud Platform service, GCP infrastructure platform, Google Cloud enterprise services, and TensorFlow open-source software library are trademarks of Google, Inc.
 
+Grafana is a trademark of Coding Instinct AB.
+
 HAProxy is a registered trademark in the United States and France.
 
 JavaScript, MySQL, and Oracle are trademarks or registered trademarks of the Oracle Corporation and/or its affiliates.
