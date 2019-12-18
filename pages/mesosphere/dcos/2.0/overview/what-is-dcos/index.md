@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-As a distributed system, &d2iQ&reg; DC/OS&trade; is itself a distributed system, a cluster manager, a container platform, and an operating system.
+As a distributed system, Mesosphere&reg; DC/OS&trade; is itself a distributed system, a cluster manager, a container platform, and an operating system.
 
 ## Distributed System
 
@@ -17,11 +17,11 @@ As a distributed system, DC/OS includes a group of agent nodes that are coordina
 
 ## Cluster Manager
 
-As a cluster manager, DC/OS manages both resources and tasks running on the agent nodes. The agent nodes provide resources to the cluster. Those resources are then bundled into resource offers and made available to registered schedulers. The schedulers then accept these offers and allocate their resources to specific tasks, indirectly placing tasks on specific agent nodes. The agent nodes then spawn executors to manage each task type and the executors run and manage the tasks assigned to them. Unlike external cluster provisioners, DC/OS runs in the cluster and manages the lifecycle of the tasks it launches. This cluster management functionality is provided primarily by [Apache Mesos](/mesosphere/dcos/2.0/overview/concepts/#apache-mesos).
+As a cluster manager, DC/OS manages both resources and tasks running on the agent nodes. The agent nodes provide resources to the cluster. Those resources are then bundled into resource offers and made available to registered schedulers. The schedulers then accept these offers and allocate their resources to specific tasks, indirectly placing tasks on specific agent nodes. The agent nodes then spawn executors to manage each task type and the executors run and manage the tasks assigned to them. Unlike external cluster provisioners, DC/OS runs in the cluster and manages the lifecycle of the tasks it launches. This cluster management functionality is provided primarily by [Apache&reg; Mesos&reg;](/mesosphere/dcos/2.0/overview/concepts/#apache-mesos).
 
 ## Container Platform
 
-As a container platform, DC/OS includes two built-in task schedulers (Marathon and DC/OS Jobs (Metronome)) and two container runtimes (Docker&reg; and Apache&reg; Mesos&reg;). Combined, this functionality is commonly referred to as container orchestration. In addition to the built-in schedulers for services and jobs, DC/OS also supports custom schedulers for handling more complex application-specific operational logic. Stateful services like databases and message queues often take advantage of these custom schedulers to handle advanced scenarios such as setup, tear down, backup, restore, migration, synchronization, and rebalancing.
+As a container platform, DC/OS includes two built-in task schedulers (Marathon&trade; and DC/OS Jobs (Metronome)) and two container runtimes (Docker&reg; and Mesos). Combined, this functionality is commonly referred to as container orchestration. In addition to the built-in schedulers for services and jobs, DC/OS also supports custom schedulers for handling more complex application-specific operational logic. Stateful services like databases and message queues often take advantage of these custom schedulers to handle advanced scenarios such as setup, tear down, backup, restore, migration, synchronization, and rebalancing.
 
 All tasks on DC/OS are containerized. Containers can be started from images downloaded from a container repository (such as [Docker Hub](https://hub.docker.com/)) or they can be native executables (such as binaries or scripts) containerized at runtime. While Docker is currently required on every node, it may become optional in the future, as components and packages migrate to using the Mesos Universal Container Runtime for imaged and native workloads.
 

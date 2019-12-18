@@ -31,7 +31,7 @@ Statistics for an agent are prefixed with:
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/2.0/api/access/). The agent ID of a node is its Mesos ID.
+To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/2.0/api/access/). The agent ID of a node is its Apache&reg; Mesos&reg; ID.
 
 
 # Format

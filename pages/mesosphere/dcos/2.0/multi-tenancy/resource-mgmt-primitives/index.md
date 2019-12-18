@@ -76,7 +76,7 @@ In the following example, a role called `high` is assigned to a Spark task at ru
 [Reservations](https://mesos.apache.org/documentation/latest/reservation/) can be manually configured and are used by SDK frameworks. In both cases, an authorized user must be declared which is referred to as the principal/framework or an operator. In the case of SDK frameworks in DC/OS this is also known as the service account.
 
 ### Adding
-Adding reserves resources on a specific agent with ID `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` for role "low", guaranteeing `four` CPU shares and `512MB` of RAM. When any task with a role of "low" requests offers that match what this agent has reserved then the task will be guaranteed to the agent itself.
+Adding reserves resources on a specific agent with ID `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` for role "low", guaranteeing `four` CPU shares and `512MB` of RAM. When any task with a role of "low" requests offers that match what this agent has reserved, then the task will be guaranteed to the agent itself.
 
 <p class="message--note"><strong>NOTE: </strong>The principal of <code>bootstrapuser</code> differs for each user. In this example, the principal of <code>bootstrapuser</code> is my superuser account.</p>
 
@@ -226,10 +226,10 @@ curl -i -k \
 There are further options related to dynamic and static operations and amending existing reservations that can be found in the reference links.
 
 ## Quotas
-[Quotas](https://mesos.apache.org/documentation/latest/quota/) specify a minimum amount of resources that the role is guaranteed to receive (unless the total resources in the cluster are less than the configured quota resources, which often indicates a misconfiguration).
+[Quotas](https://mesos.apache.org/documentation/latest/quota/) specify a minimum number of resources that the role is guaranteed to receive (unless the total resources in the cluster are less than the configured quota resources, which often indicates a misconfiguration).
 
 ### Adding
-Quotas cannot be updated once applied. They must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
+Quotas cannot be updated after they are applied. They must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
 
 ```json
 tee set-quota.json << EOF
@@ -381,7 +381,7 @@ Connection: keep-alive
 ```
 
 ### Removing
-Weights cannot be removed once set, but they can be amended using the same method as applying to update the weight. If you want to reset the weight for a role, you could set it back to `two` which is the same weight as the default role <sup>`*`</sup>.
+Weights cannot be removed after they are set, but they can be amended using the same method as applying to update the weight. If you want to reset the weight for a role, you could set it back to `two` which is the same weight as the default role <sup>`*`</sup>.
 
 
 ## Marathon on Marathon

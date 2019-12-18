@@ -98,7 +98,7 @@ Mesos provides a number of [metrics][2] for monitoring. Here are the ones that a
 
 *   `master/slaves_active` (counter) This metric provides the number of active agents. The number of active agents is calculated by adding `slaves_connected` and `slave_disconnected`.
 *   `master/slaves_connected` (counter) This metric provides the number of connected agents. This number should equal the total number of Mesos agents (`slaves_active`). Use this metric to determine the general health of your cluster as a percentage of the total.
-*   `master/elected` (gauge) This metric indicates whether this is the elected master. This metric should be fetched from all masters, and add up to 1. If this number is not 1 for a period of time, your system administrator should be notified (PagerDuty etc).
+*   `master/elected` (gauge) This metric indicates whether this is the elected master. This metric should be fetched from all masters, and add up to 1. If this number is not 1 for a period of time, your system administrator should be notified (PagerDuty and so on).
 *   `master/uptime_secs` (gauge) This metric provides the master uptime, in seconds. This number should be at least 5 minutes (300 seconds) to indicate a stable master. You can use this metric to detect "flapping". For example, if the master has an uptime of less than 1 minute (60 seconds) for more than 10 minutes, it has probably restarted 10 or more times.
 *   `master/messages_decline_offers` (counter) This metric provides the number of declined offers. This number should equal the number of agents x the number of frameworks. If this number drops to a low value, something is probably getting starved.
 

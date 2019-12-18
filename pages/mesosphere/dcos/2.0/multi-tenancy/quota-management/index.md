@@ -27,6 +27,8 @@ Additionally, services launched inside a given group are configured to use the r
 
 # Creating a group
 
+To create a new group, dev, use the following command:
+
 ```bash
 dcos marathon group add --id /dev. # If the group doesn't exist
 ```
