@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: SAML connector
+navigationTitle: SAML
 title: SAML connector
 menuWeight: 10
 excerpt: Connect your Konvoy cluster to an Idp using SAML
@@ -11,13 +11,11 @@ enterprise: false
 
 This guide shows how to configure your Konvoy cluster to use SAML to connect to an Idp.
 
-### Connect Konvoy to an Idp using SAML
+Step 1: Create a Konvoy cluster
 
-Step 1: Create a Konvoy cluster.
+Step 2: Configure the Idp 
 
-Step 2: Configure Idp 
-
-Below is a sample metadata file that would need to upload to your Idp
+The metadata file you must upload to your Idp will look similar to:
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <EntityDescriptor xmlns="urn:oasis:names:tc:SAML:2.0:metadata" entityID="https://<your-cluster-host>/dex">
@@ -28,7 +26,7 @@ Below is a sample metadata file that would need to upload to your Idp
 </EntityDescriptor>
 ```
 
-Step 3: Modify the `dex` addon in your `cluster.yaml` to
+Step 3: Modify the `dex` addon in your `cluster.yaml` file:
 
 ```yaml
     - name: dex
@@ -67,4 +65,4 @@ Step 5: Run `konvoy up` to deploy modified Dex.
 
 Step 6: Visit `https://<your-cluster-host>/ops/landing` to login to ops portal.
 
-Step 7: Click `Launch Console` and follow the authentication steps
+Step 7: Select `Launch Console` and follow the authentication steps.
