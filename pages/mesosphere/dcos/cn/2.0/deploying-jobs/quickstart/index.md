@@ -14,7 +14,7 @@ model: /mesosphere/dcos/2.0/data.yml
 - 使用 DC/OS [CLI](#cli) 交互式或编程式
 - 直接通过调用用于作业相关操作的 DC/OS 应用程序编程接口 ([API](#jobs-api)
 
-DC/OS UI 仅提供通过 `dcos job` CLI 和作业 API 提供的作业相关功能子集的访问权限。对于更多高级作业配置和活动，请使用 CLI  [`dcos job`](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) 命令或 [作业 API](/mesosphere/dcos/2.0/deploying-jobs/quickstart/#jobs-api)。
+DC/OS UI 仅提供通过 `dcos job` CLI 和作业 API 提供的作业相关功能子集的访问权限。对于更多高级作业配置和活动，请使用 CLI  [`dcos job`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/) 命令或 [作业 API](/mesosphere/dcos/cn/2.0/deploying-jobs/quickstart/#jobs-api)。
 
 DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的基础功能。在大多数情况下，只有将其与自定义程序或自动化脚本集成时，才能直接使用 API。
 
@@ -78,7 +78,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 | [运行配置](#run-configuration) | 作业的高级设置。 |
 | [密钥](#secrets) | 设置一个密钥存储库，以保护私钥、API 令牌等重要值。 |
     
-有关每个配置屏幕参数和值的详细信息，请参阅 [作业](/mesosphere/dcos/2.0/gui/jobs/) 文档。
+有关每个配置屏幕参数和值的详细信息，请参阅 [作业](/mesosphere/dcos/cn/2.0/gui/jobs/) 文档。
 
 ### General 常规
 
@@ -88,14 +88,14 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 
 图 6 - 常规配置选项卡
 
-此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/2.0/gui/jobs/#general/)文档中找到。
+此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/cn/2.0/gui/jobs/#general/)文档中找到。
 
 <!-- * **作业 ID** - 定义新作业的唯一标识符。作业 ID 为必填字段。您还可以使用此设置管理作业操作。
 * **描述** - 提供新作业的可选描述。
 * **CPU** - 指定作业所需的 CPU 内核数。所有作业都必须填写此字段。
 * **Mem** - 指定作业所需的内存大小，以 MB 为单位。所有作业都必须填写此字段。
 * **磁盘** - 指定作业所需的磁盘空间大小，以 MB 为单位。所有作业都必须填写此字段。
-* **GPU** - 指定分配用于处理作业的 GPU（图形处理单元）内核数。此字段仅适用于在节点上运行的作业，该节点配置为使用 GPU（图形处理单元）内核和任务，而该 GPU 内核和任务使用 DC/OS [通用容器运行时](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/) 容器启动。GPU 资源支持对于 Docker 容器或镜像不可用。
+* **GPU** - 指定分配用于处理作业的 GPU（图形处理单元）内核数。此字段仅适用于在节点上运行的作业，该节点配置为使用 GPU（图形处理单元）内核和任务，而该 GPU 内核和任务使用 DC/OS [通用容器运行时](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/ucr/) 容器启动。GPU 资源支持对于 Docker 容器或镜像不可用。
 
 选择相应作业类型，以运行一个或多个特定命令或 Docker 容器镜像。
 * 选择 **命令专用**，指定您希望新作业执行的一个或多个命令。
@@ -150,7 +150,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 
 图 9 - **作业 > 计划** 选项卡
 
-此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/2.0/gui/jobs/#schedule/)文档中找到。
+此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/cn/2.0/gui/jobs/#schedule/)文档中找到。
 
 定义计划之后，您可以通过选择或取消选择 **启用计划** 选项来激活或停用。提交新的作业定义后，您还可以在需要时修改或删除计划。
 
@@ -162,7 +162,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 
 图 10 - **作业 > 环境** 选项卡
 
-此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/2.0/gui/jobs/#environment/)文档中找到。
+此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/cn/2.0/gui/jobs/#environment/)文档中找到。
 
 
 ### 卷
@@ -173,7 +173,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 
 图 11 - **作业 > 卷** 选项卡
 
-此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/2.0/gui/jobs/#volumes/)文档中找到。
+此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/cn/2.0/gui/jobs/#volumes/)文档中找到。
 
 ### 放置
 
@@ -183,7 +183,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 
 图 12 - **作业 > 放置** 选项卡
 
-此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/2.0/gui/jobs/#placement/)文档中找到。
+此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/cn/2.0/gui/jobs/#placement/)文档中找到。
 
 ### 运行配置
 
@@ -214,9 +214,9 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
         
         - 如果选择 **失效**，则可以使用 **坚持尝试时间** 字段设置尝试重新启动作业的时间限制。例如，如果希望在等待 30 秒后尝试重新启动作业，请将 **坚持尝试时间** 设置为 30。如果未为“坚持尝试时间”设置任何值，DC/OS 将继续尝试无限期地重新启动失败的作业。
 
-    - 单击 **添加标签**，以指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。对于希望包括的每个名称/值对，您可以通过单击 **添加标签** 添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/2.0/tutorials/task-labels/)。-->
+    - 单击 **添加标签**，以指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。对于希望包括的每个名称/值对，您可以通过单击 **添加标签** 添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/cn/2.0/tutorials/task-labels/)。-->
 
-此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/2.0/gui/jobs/#run-configuration/)文档中找到。
+此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/cn/2.0/gui/jobs/#run-configuration/)文档中找到。
 
 
 ### 密钥
@@ -227,7 +227,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 
 图 14 - 密钥选项卡
 
-此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/2.0/gui/jobs/#secrets/)文档中找到。
+此选项卡的参数和允许的值可在 UI 的 [作业] (/mesosphere/dcos/cn/2.0/gui/jobs/#secrets/)文档中找到。
 
 ## 提交
 
@@ -242,7 +242,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 ## 向作业组添加作业
 您可以将作业添加到现有的作业组，或在创建作业时创建新的作业组。在作业 ID 中使用句点可将作业嵌套在一个组中。例如，如果您使用作业 ID `marketing.myjob` 来添加作业，可在 `marketing` 作业组中创建新的 `myjob`。在 DC/OS Enterprise 中，您可以使用作业组实现细粒度用户访问。
 
-如需更多关于通过作业组控制作业访问权限的信息，请参阅 [授予对作业的访问权限](/mesosphere/dcos/2.0/deploying-jobs/job-groups/)。
+如需更多关于通过作业组控制作业访问权限的信息，请参阅 [授予对作业的访问权限](/mesosphere/dcos/cn/2.0/deploying-jobs/job-groups/)。
 
 ## 查看、修改或删除特定作业
 您可以查看和修改与作业相关的信息，包括通过 DC/OS UI 交互式运行历史和配置设置的详细信息。从 **作业** 选项卡，单击作业名称。然后您可以使用右上角的菜单编辑、运行、禁用或删除选定的作业。
@@ -262,7 +262,7 @@ DC/OS 应用程序编程接口 (API) 提供可通过 DC/OS UI 和 CLI 访问的�
 <a name="cli"></a>
 
 # 使用 DC/OS CLI 管理作业
-您可以使用 `dcos job` 命令从 DC/OS CLI 中创建和管理作业。若要查看带有使用信息的可用命令的完整列表，请运行 `dcos job --help` 或查阅 [CLI 文档](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/)。
+您可以使用 `dcos job` 命令从 DC/OS CLI 中创建和管理作业。若要查看带有使用信息的可用命令的完整列表，请运行 `dcos job --help` 或查阅 [CLI 文档](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/)。
 
 <a name="cli-add-job"></a>
 
@@ -415,7 +415,7 @@ dcos job run mytestjob
 但是，如果计划用于启动作业，则作业的并发策略会确定是否触发新的作业运行实例。能够控制作业是否同时运行是手动或使用计划触发作业运行之间的主要差异之一。
 
 ## 从命令行移除作业
-只要作业没有任何活动的作业实例在运行，您就可以使用命令行程序 [`dcos job remove <job-id>`](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/dcos-job-remove/)移除作业。如果作业有任何当前正在运行的实例，则必须停止所有当前活动的作业。停止所有正在运行的作业实例后，可以使用 `dcos job remove <job-id>` 命令移除该作业。
+只要作业没有任何活动的作业实例在运行，您就可以使用命令行程序 [`dcos job remove <job-id>`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/dcos-job-remove/)移除作业。如果作业有任何当前正在运行的实例，则必须停止所有当前活动的作业。停止所有正在运行的作业实例后，可以使用 `dcos job remove <job-id>` 命令移除该作业。
 
 若要移除作业：
 1. 通过运行类似以下内容的命令检查活动作业的状态：
