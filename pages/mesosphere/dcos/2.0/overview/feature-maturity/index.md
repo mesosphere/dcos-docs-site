@@ -33,7 +33,7 @@ Features that are labeled "Beta" are offered to consumers who want to have early
 1. Beta features may be subject to reduced or different security, compliance and privacy commitments.
 1. Beta features may be subject to reduced performance, scalability or capacity commitments.
 1. Beta features are not guaranteed to be promoted from Beta to GA.
-1. Feedback on beta features may be provided via non-standard channels like email, slack channels or community forums, based on testing, usage and experiences.
+1. Feedback on beta features may be provided through non-standard channels like email, slack channels or community forums, based on testing, usage and experiences.
 
 <p class="message--important"><strong>IMPORTANT: </strong>Any use of a Beta version or feature of Mesosphere DC/OS Enterprise is subject to the <a href="https://mesosphere.com/mesosphere-support-terms/">Evaluation Terms</a>, to the exclusion of all other terms.</p>
 
