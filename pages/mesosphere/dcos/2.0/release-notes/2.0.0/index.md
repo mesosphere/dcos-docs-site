@@ -106,7 +106,7 @@ This section covers any known issues or limitations. These do not necessarily af
 - `/v2/pods` and `/v2/tasks` do not include any information about existing instances. (DCOS_OSS-5616)
 - Mesos modules in DC/OS Enterprise version can cause deadlock during process. (DCOS-57401)
 - Mesos Resources Summary dashboard should show quota limits instead of guarantees. (DCOS-57261)
-- Grafana fails to load because of file permission error. (DCOS-59209)
+- Grafana&trade; fails to load because of file permission error. (DCOS-59209)
 - DC/OS overlay networks are not compared by value, but should be.  Only VTEP IP address and subnets are used. Until this issue is fixed, use VTEP IP and Subnets only, instead of NAMED overlay networks. (DCOS_OSS-5620)
 - MKE is not rescheduled when a drained node is re-activated. (DCOS-59788)
 

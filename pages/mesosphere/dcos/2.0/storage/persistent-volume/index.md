@@ -180,7 +180,7 @@ Be aware of the following issues and limitations when using stateful application
 
 ## Resource requirements
 
-Currently, the resource requirements - volume size, cpu usage, memory requirements, and so forth - of a stateful application **cannot** be changed once you have deployed the app definition.
+Currently, the resource requirements - volume size, CPU usage, memory requirements, and so forth - of a stateful application **cannot** be changed once you have deployed the app definition.
 
 ## Replication and backups
 
@@ -209,7 +209,7 @@ The temporary Mesos sandbox is still the target for the `stdout` and `stderr` lo
 
 ## Stateful MySQL on Marathon
 
-The default MySQL Docker image does not allow you to change the data folder. Since we cannot define a persistent volume with an absolute nested `containerPath` like `/var/lib/mysql`, we configure a workaround to set up a Docker mount from hostPath `mysqldata` (relative to the Mesos sandbox) to `/var/lib/mysql` (the path that MySQL attempts to read/write):
+The default MySQL Docker&reg; image does not allow you to change the data folder. Since we cannot define a persistent volume with an absolute nested `containerPath` like `/var/lib/mysql`, we configure a workaround to set up a Docker mount from hostPath `mysqldata` (relative to the Mesos sandbox) to `/var/lib/mysql` (the path that MySQL attempts to read/write):
 
 ```json
 {
@@ -446,7 +446,7 @@ The following example will create a pod with two containers and one shared persi
 
 ## Inspect/delete suspended stateful tasks
 
-To destroy and clean up persistent volumes and free the reserved resources associated with a task, perform two steps:
+To destroy and clean up persistent volumes and free the reserved resources associated with a task, perform these steps:
 
 1. Locate the agent containing the persistent volume and remove the data inside it.
 1. Send an HTTP DELETE request to Marathon that includes the `wipe=true` flag.

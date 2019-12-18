@@ -21,7 +21,7 @@ DC/OS manages this problem by separating resource management from task schedulin
 
 DC/OS makes it easy to run all your computing tasks on the same hardware.
 
-- For scheduling long-running services, DC/OS tightly integrates with Marathon to provide a solid stage on which to launch microservices, web applications, or other schedulers.
+- For scheduling long-running services, DC/OS tightly integrates with Marathon&trade; to provide a solid stage on which to launch microservices, web applications, or other schedulers.
 - For other types of work, DC/OS makes it easy to select and install from a library of industry-standard schedulers. This opens the door to running batch jobs, analytics pipelines, message queues, big data storage, and more.
 - For complex custom workloads, you can even write your own scheduler to optimize and precisely control the scheduling logic for specific tasks.
 
@@ -30,7 +30,7 @@ DC/OS makes it easy to run all your computing tasks on the same hardware.
 
 DC/OS provides easy-to-use container orchestration right out-of-the-box.
 
-Docker&reg; provides a great development experience, but trying to run Docker containers in production presents some significant challenges. To overcome these challenges, DC/OS includes Marathon&trade; as a core component, giving you a production-grade, well-tested scheduler that is capable of orchestrating both containerized and non-containerized workloads. With Marathon, you have the ability to reach extreme scale, scheduling tens of thousands of tasks across thousands of nodes. You can use highly configurable declarative application definitions to enforce advanced placement constraints with node, cluster, and grouping affinities.
+Docker&reg; provides a great development experience, but trying to run Docker containers in production presents some significant challenges. To overcome these challenges, DC/OS includes Marathon as a core component, giving you a production-grade, well-tested scheduler that is capable of orchestrating both containerized and non-containerized workloads. With Marathon, you have the ability to reach extreme scale, scheduling tens of thousands of tasks across thousands of nodes. You can use highly configurable declarative application definitions to enforce advanced placement constraints with node, cluster, and grouping affinities.
 
 ## <a name="extensible-resource-isolation"></a>Extensible resource isolation
 
@@ -60,7 +60,7 @@ The Mesosphere {{ model.packageRepo }} Package Repository connects you with a li
 The DC/OS Installer makes it easy to install DC/OS on any cluster of physical or virtual machines.
 
 - For users with their own on-premise hardware or virtual machine provisioning infrastructure, the CLI Installer provides a quick, intuitive way to install DC/OS.
-- For users deploying to the public cloud, DC/OS offers several configurable cloud provisioning templates for AWS, Azure, and Packet.
+- For users deploying to the public cloud, DC/OS offers several configurable cloud provisioning templates for AWS&reg;, Azure&reg;, and Packet.
 - For the advanced user, the Advanced Installer provides a scriptable, automatable interface to integrate with your prefered configuration management system.
 
 

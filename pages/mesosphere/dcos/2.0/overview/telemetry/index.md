@@ -10,13 +10,13 @@ enterprise: false
 ---
 
 
-To continuously improve the Mesosphere&reg; DC/OS&reg; experience, a telemetry component is included that reports anonymous usage data to Mesosphere. This data is used to monitor the reliability of core DC/OS components, installations, user interface, and to find out which features are most popular.
+To improve the Mesosphere&reg; DC/OS&reg; experience continuously, a telemetry component is included that reports anonymous usage data to D2iQ&reg;. This data is used to monitor the reliability of core DC/OS components, installations, user interface, and to find out which features are most popular.
 
 - [Core telemetry](#core)
 - [User interface telemetry](#user-interface)
 
 # <a name="core"></a>Core telemetry
-The [DC/OS Signal](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
+The [DC/OS Signal](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment&reg;](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
 
 The information reported by DC/OS Signal comes from several components: DC/OS Diagnostics, Apache&reg; Mesos&reg;, and DC/OS Package Manager (Cosmos).
 
@@ -58,12 +58,12 @@ For each category this data is collected:
 </td>
 </tr>
 <tr><td>environmentVersion</td>
-<td>This is the version of DC/OS. For example, if you are using DC/OS 1.13:
+<td>This is the version of DC/OS. For example, if you are using DC/OS 2.0:
 <pre>
-"environmentVersion": "1.13",
+"environmentVersion": "2.0",
 </pre></td></tr>
 <tr><td>provider</td>
-<td>This is the platform that DC/OS is running on. Possible values are <code>aws</code>, <code>on-prem</code>, and <code>azure</code>. For example, if you are running on AWS:
+<td>This is the platform on which DC/OS is running. Possible values are <code>aws</code>, <code>on-prem</code>, and <code>azure</code>. For example, if you are running on AWS&reg;:
 <pre>
 "provider": "aws",
 </pre></td></tr>
@@ -288,11 +288,11 @@ Here is an example of the JSON telemetry report that is collected:
 
 # <a name="user-interface"></a>User interface telemetry
 
-The DC/OS UI sends two types of notifications to [Segment%trade;](https://segment.com/docs/), which Mesosphere then uses to track usage metrics and customer support:
+The DC/OS UI sends two types of notifications to [Segment](https://segment.com/docs/), which Mesosphere then uses to track usage metrics and customer support:
 
 - Login information
 - The pages you have viewed while navigating the UI
 
 ## Opting Out
 
-You can also choose to opt out of the telemetry features. For more information, see  [Opt-Out](/mesosphere/dcos/2.0/installing/production/deploying-dcos/opt-out/).
+You can also choose to opt out of the telemetry features. For more information, see [Opt-Out](/mesosphere/dcos/2.0/installing/production/deploying-dcos/opt-out/).

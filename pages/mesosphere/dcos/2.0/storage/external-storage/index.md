@@ -14,7 +14,7 @@ Use external volumes when fault tolerance is crucial for your app. If a host fai
 
 Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL&reg;, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon&reg; Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
 
-Note that volume sizes are specified in gibibyte (GiB) units (2x10(30) or 1,073,741,824 bytes).
+Note that volume sizes are specified in gibibyte (GiB) units (2<sup>30</sup> or 1,073,741,824 bytes).
  
 # Creating an application with an external persistent volume
 
@@ -57,7 +57,7 @@ The `cmd` in this app definition appends the output of the `date` command to `te
 
 #### Volume configuration options
 
--  `containerPath`: The path where the volume is mounted inside the container. For Mesos external volumes, this must be a single-level path relative to the container; it cannot contain a forward slash (`/`). For more information, see [the REX-Ray documentation on data directories][7].
+-  `containerPath`: The path where the volume is mounted inside the container. For Mesos external volumes, this must be a single-level path relative to the container; it cannot contain a forward slash (`/`). For more information, see [the REX-Ray&reg; documentation on data directories][7].
 -  `mode`: The access mode of the volume. Currently, `"RW"` is the only possible value and will let your application read from and write to the volume.
 -  `external.size`: The size of the volume in **GiB**.
 -  `external.name`: The name that your volume driver uses to look up your volume. When your task is staged on an agent, the volume driver queries the storage service for a volume with this name. If one does not exist, it is [created implicitly][8]. Otherwise, the existing volume is reused.
@@ -107,7 +107,7 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 #### Volume configuration options
 
 * `containerPath` must be absolute.
-*  Only certain versions of Docker are compatible with the REX-Ray&reg; volume driver. Refer to the [REX-Ray documentation][11].
+*  Only certain versions of Docker are compatible with the REX-Ray volume driver. Refer to the [REX-Ray documentation][11].
 
 ## Create an application from the DC/OS UI
 
