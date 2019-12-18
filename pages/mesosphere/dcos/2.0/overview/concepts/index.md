@@ -165,7 +165,7 @@ A Marathon service consists of zero or more containerized service instances. Eac
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
 - A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers such as DC/OS Jobs (Metronome) or Jenkins have their own names for abstractions around Mesos tasks.
 
-**Examples:** Cassandra (scheduler), Marathon-on-Marathon, Kafka (scheduler), Nginx, Tweeter.
+**Examples:** Cassandra&reg; (scheduler), Marathon-on-Marathon, Kafka&reg; (scheduler), Nginx&trade;, Tweeter.
 
 <a name="systemd-service"></a>
 
@@ -196,7 +196,7 @@ A user service is a Marathon service that is not a system service, owned by a us
 
 - This distinction is new and still evolving as namespacing is transformed into a system-wide first class pattern and mapped to fine-grained user and user group permissions.
 
-**Examples:** Jenkins, Cassandra, Kafka, Tweeter.
+**Examples:** Jenkins&reg;, Cassandra, Kafka, Tweeter.
 
 <a name="dcos-service-group"></a>
 
@@ -221,7 +221,7 @@ A DC/OS scheduler is a Mesos scheduler that runs as a `systemd` service on maste
 
 The key differences between a DC/OS scheduler and Mesos scheduler are where it runs and how it is installed.
 - Some schedulers come pre-installed as DC/OS components (for exmaple, Marathon, DC/OS Jobs (Metronome)).
-- Some schedulers can be installed by users as user services (for example Kafka&reg;, Cassandra&reg;).
+- Some schedulers can be installed by users as user services (for example Kafka and Cassandra).
 - Some schedulers run as multiple service instances to provide high availability (such as Marathon).
 
 In certain security modes within DC/OS Enterprise, a DC/OS scheduler must authenticate and be authorized using a service account to register with Mesos as a framework.
