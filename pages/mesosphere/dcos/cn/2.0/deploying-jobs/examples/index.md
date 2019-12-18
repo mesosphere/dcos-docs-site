@@ -14,7 +14,7 @@ enterprise: true
 
 **前提条件：**
 
-- 数据中心操作系统和数据中心操作系统 CLI [已安装](/mesosphere/dcos/2.0/installing/)。
+- 数据中心操作系统和数据中心操作系统 CLI [已安装](/mesosphere/dcos/cn/2.0/installing/)。
 
 <a name="create-job"></a>
 
@@ -147,7 +147,7 @@ enterprise: true
     1. 在 **ID** 字段中，键入 `dev.batch.job1`。
     1. 在 **Command** 字段中，键入 `sleep 1000`（或其他有效的 shell 命令）并单击 **CREATE A JOB**。
 
-        ![创建作业](/mesosphere/dcos/2.0/img/GUI-Jobs-New_Job_Modal_w_devbatchjob-1_12.png)
+        ![创建作业](/mesosphere/dcos/1.13/img/GUI-Jobs-New_Job_Modal_w_devbatchjob-1_12.png)
 
         图 2. 新作业屏幕
 
