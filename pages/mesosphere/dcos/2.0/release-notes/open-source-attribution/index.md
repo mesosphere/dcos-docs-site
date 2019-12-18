@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
-excerpt: List of third party open source software provided by Mesosphere
+excerpt: List of third party open source software provided by D2iQ&reg
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

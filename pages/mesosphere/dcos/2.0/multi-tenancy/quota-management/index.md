@@ -12,7 +12,7 @@ Groups provide the foundation for supporting multi-tenant clusters using Mesosph
 The topics in this section discuss how you can use **groups** to manage resources by setting quota restrictions to support multi-tenancy.
 
 # Quotas
-You can define a **quota** to specify the maximum resources that the services in a group can use. Once the limit is reached, no new services or scaling up of existing services is allowed.
+You can define a **quota** to specify the maximum resources that the services in a group can use. After the limit is reached, no new services or scaling up of existing services is allowed.
 
 Quota in DC/OS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/) primitive in Apache&reg; Mesos&reg;.
 Specifically, the quota set on a top-level DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev").
@@ -67,7 +67,7 @@ dcos quota delete dev
 Note that deleting quota doesn't affect any running services inside the group. Services will keep running, but they won't be limited by quota anymore.
 
 # Deploying services
-Once quota is set on a group by an administrator, regular users can simply deploy their services in a group as usual. If the `enforceRole` property is set on the group, the service will be automatically configured to use the group role and hence limited by the quota. If the property is not set, but users want their service be limited by a quota, they can configure their service with the group role manually.
+After a quota is set on a group by an administrator, regular users can deploy their services in a group as usual. If the `enforceRole` property is set on the group, the service will be automatically configured to use the group role and hence limited by the quota. If the property is not set, but users want their service be limited by a quota, they can configure their service with the group role manually.
 
 # Migrating services
 

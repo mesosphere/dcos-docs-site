@@ -13,7 +13,7 @@ enterprise: false
 
 # <a name="lifecycle"></a>Mesosphere DC/OS Feature Maturity Lifecycle
 
-A Mesosphere&reg; DC/OS&trade; feature progresse through a multi-stage lifecycle. This lifecycle can be used to determine if and when a given feature is used for various stages of deployment.  These stages of deployment can include, but are not limited to, development, testing, evaluation or production.  In order to determine if a feature should be used, you should carefully examine the ramifications of using the feature based on its Maturity State as described below.
+A Mesosphere&reg; DC/OS&trade; feature progresses through a multi-stage lifecycle. This lifecycle can be used to determine if and when a given feature is used for various stages of deployment.  These stages of deployment can include, but are not limited to, development, testing, evaluation or production.  In order to determine if a feature should be used, you should carefully examine the ramifications of using the feature based on its Maturity State as described below.
 
 A feature can encompass Apps, Services, Frameworks, Components or Packages that are part of Mesosphere DC/OS or its catalog. The five maturity states of a Mesosphere DC/OS feature are illustrated below, and progress from left-to-right starting with Beta and ending with Decommissioned.
 
