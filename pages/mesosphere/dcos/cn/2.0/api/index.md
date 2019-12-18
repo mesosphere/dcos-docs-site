@@ -9,10 +9,11 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-DC/OS API 是由 [DC/OS 组件] (/mesosphere/dcos/2.0/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router] (/mesosphere/dcos/2.0/overview/architecture/components/#admin-router)的 API 网关提供。
+DC/OS API 是由 [DC/OS 组件](/mesosphere/dcos/cn/2.0/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router](/mesosphere/dcos/cn/2.0/overview/architecture/components/#admin-router)的 API 网关提供。
 
-<img src="/2.0/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
+<img src="/mesosphere/dcos/2.0/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 图 1. DC/OS API 路由示意图
+
 
 # API 网关
 
@@ -25,9 +26,9 @@ Admin Router 是基于 NGINX 的 API 网关，具有以下功能：
 
 Admin Router 在每个 DC/OS 节点上运行，其有如下两种配置：
 
-- **Admin Router 管理节点** 公开 [管理节点路由](/mesosphere/dcos/2.0/api/master-routes/)。此配置在每个管理节点上运行，用作与 DC/OS 组件交互的主 API 网关。
+- **Admin Router 管理节点** 公开 [管理节点路由](/mesosphere/dcos/cn/2.0/api/master-routes/)。此配置在每个管理节点上运行，用作与 DC/OS 组件交互的主 API 网关。
 
-- **Admin Router 代理节点** 公开 [代理路由](/mesosphere/dcos/2.0/api/agent-routes/)。此配置在每个代理节点上运行，并提供用于监视、调试和管理的路由。
+- **Admin Router 代理节点** 公开 [代理路由](/mesosphere/dcos/cn/2.0/api/agent-routes/)。此配置在每个代理节点上运行，并提供用于监视、调试和管理的路由。
 
 某些代理路由，如日志和度量标准，通过管理节点 Admin Router 代理以允许外部访问。
 其他路由，如组件管理，仅供内部使用。
@@ -46,12 +47,12 @@ Admin Router 公开若干路由类型：
 
 # 群集访问
 
-要确定群集的 URL，请参阅 [群集访问](/mesosphere/dcos/2.0/api/access/)。
+要确定群集的 URL，请参阅 [群集访问](/mesosphere/dcos/cn/2.0/api/access/)。
 
 
 # 版本控制
 
-DC/OS API 部分按组件、路由或资源进行版本控制。有关版本控制机制的详细信息，请参阅[版本控制](/mesosphere/dcos/2.0/api/versioning/)。
+DC/OS API 部分按组件、路由或资源进行版本控制。有关版本控制机制的详细信息，请参阅[版本控制](/mesosphere/dcos/cn/2.0/api/versioning/)。
 
 # 身份认证
 
@@ -61,10 +62,10 @@ DC/OS API 部分按组件、路由或资源进行版本控制。有关版本控�
 
 大多数认证路由也需要通过权限授权。DC/OS Enterprise 中的权限包含分层资源标识符和操作（创建、读取、更新、删除、全部）。权限执行可以在两个级别执行。
 
-- **粗粒度权限** 是在路由级别 [由 Admin Router 执行](/mesosphere/dcos/2.0/security/ent/perms-reference/#admin-router)。
+- **粗粒度权限** 是在路由级别 [由 Admin Router 执行](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#admin-router)。
 - **细粒度权限** 由单个后端组件服务执行。
 
-[权限管理](/mesosphere/dcos/2.0/security/ent/perms-management/)可通过具有 [超级用户权限](/mesosphere/dcos/2.0/security/ent/perms-reference/#superuser) 的用户使用 [身份和访问管理 API](/mesosphere/dcos/2.0/security/ent/iam-api/)执行。具有超级用户权限的用户也有隐式权限访问所有路由。
+[权限管理](/mesosphere/dcos/2.0/security/ent/perms-management/)可通过具有 [超级用户权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#superuser) 的用户使用 [身份和访问管理 API](/mesosphere/dcos/cn/2.0/security/ent/iam-api/)执行。具有超级用户权限的用户也有隐式权限访问所有路由。
 
 # 路由使用
 
