@@ -91,7 +91,7 @@ DC/OS 的覆盖技术设计有以下假设：
 主控模块将作为 Mesos 管理节点的一部分运行，具有以下职责：
 1. 它负责为每个代理分配子网。我们将更详细地描述主控模块将如何使用复制日志来定点检查此信息在故障切换至新的主控时是否恢复。
 1. 它将监听代理覆盖模块以注册和恢复为其分配的子网。代理覆盖模块还将使用此端点了解分配给其的覆盖子网（在多个虚拟网络的情况下）、分配给覆盖网络中每个 Mesos 和 Docker 网桥的子网，以及分配给其的 VTEP IP 和 MAC 地址。
-1. 它通过 HTTP 端点 `overlay-master/state` 来展示 DC/OS 中所有虚拟网络的状态。此端点的响应由以下 protobuf 支持：https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86
+1. 它通过 HTTP 端点 `overlay-master/state` 来展示 DC/OS 中所有虚拟网络的状态。此端点的响应由以下 protobuf 支持：`https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86`
 
 #### 代理 Mesos 覆盖模块：
 
