@@ -70,7 +70,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 6 -“停用”菜单
 
-有关排空节点的更多信息，请参见 [排空节点](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/)。有关停用节点的更多信息，请参阅关于如何 [关闭和停用节点] 的文档(/mesosphere/dcos/2.0/administering-clusters/delete-node/)。
+有关排空节点的更多信息，请参见 [排空节点](/mesosphere/dcos/cn/2.0/administering-clusters/draining-a-node/)。有关停用节点的更多信息，请参阅关于如何 [关闭和停用节点](/mesosphere/dcos/cn/2.0/administering-clusters/delete-node/) 的文档。
 
 ## 运行状况
 
@@ -120,7 +120,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 您可以按 `stderr` 和 `stdout` 筛选条件来筛选结果。要下载日志副本，请单击菜单右侧的向下箭头。
 
-有关日志记录的完整详情，请参阅 [日志记录](/mesosphere/dcos/2.0/monitoring/logging/) 文档。您还可以在 [CLI 命令参考] 文档中找到用于日志记录的命令行界面命令(/mesosphere/dcos/2.0/cli/command-reference/dcos-node/dcos-node-log/)。
+有关日志记录的完整详情，请参阅 [日志记录](/mesosphere/dcos/cn/2.0/monitoring/logging/) 文档。您还可以在 [CLI 命令参考](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/dcos-node-log/) 文档中找到用于日志记录的命令行界面命令。
 
 ### 主机详情
 

@@ -83,5 +83,5 @@ model: /mesosphere/dcos/2.0/data.yml
 
 DC/OS 可将流量从单个虚拟 IP (VIP) 映射到多个 IP 地址和端口。
 
-有关创建虚拟 IP 的详细信息，请参阅 [网络文档](/mesosphere/dcos/2.0/networking/load-balancing-vips/virtual-ip-addresses/#creating-a-vip)。
+有关创建虚拟 IP 的详细信息，请参阅 [网络文档](/mesosphere/dcos/cn/2.0/networking/load-balancing-vips/virtual-ip-addresses/#creating-a-vip)。
 .

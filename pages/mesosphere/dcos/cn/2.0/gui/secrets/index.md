@@ -15,7 +15,7 @@ model: /mesosphere/dcos/2.0/data.yml
 图 1 - “密匙”页面
 
 
-有关创建和管理密匙的完整详情，请参阅 [密匙](/mesosphere/dcos/2.0/security/ent/secrets) 文档。
+有关创建和管理密匙的完整详情，请参阅 [密匙](/mesosphere/dcos/cn/2.0/security/ent/secrets) 文档。
 
 <p class="message--important"><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB，减去了大约 1 KB 的密钥存储库元数据。</p>
 

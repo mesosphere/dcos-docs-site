@@ -59,7 +59,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 包存储库
 
-**包存储库** 选项卡列出了 DC/OS 群集上当前已配置的所有包存储库。有关包注册表选项的详细信息，请参阅 [包注册表文档](/mesosphere/dcos/2.0/administering-clusters/package-registry/)。您还会发现 [部署本地目录文档](/mesosphere/dcos/2.0/administering-clusters/deploying-a-local-dcos-universe/) 也有用。
+**包存储库** 选项卡列出了 DC/OS 群集上当前已配置的所有包存储库。有关包注册表选项的详细信息，请参阅 [包注册表文档](/mesosphere/dcos/cn/2.0/administering-clusters/package-registry/)。您还会发现 [部署本地目录文档](/mesosphere/dcos/cn/2.0/administering-clusters/deploying-a-local-dcos-universe/) 也有用。
 
 ## 添加资源库
 
@@ -81,9 +81,9 @@ model: /mesosphere/dcos/2.0/data.yml
 
 1. 单击 **添加存储库**。
 
-您可以在 [配置服务] (/mesosphere/dcos/2.0/deploying-services/config-universe-service/) 文档中找到有关部署目录的更多信息。
+您可以在 [配置服务](/mesosphere/dcos/cn/2.0/deploying-services/config-universe-service/) 文档中找到有关部署目录的更多信息。
 
-您还可以部署包含您自己的包集合的本地目录。请参阅 [选定包](/mesosphere/dcos/2.0/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) 文档。
+您还可以部署包含您自己的包集合的本地目录。请参阅 [选定包](/mesosphere/dcos/cn/2.0/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) 文档。
 
 ## 删除存储库
 
@@ -98,7 +98,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 密钥存储库 
 
-“密钥存储库”选项卡显示您当前所有密钥存储库的列表，以及与每密钥存储库相关的类型。此页面上不可以执行操作，但可以从 [密钥](/mesosphere/dcos/2.0/gui/secrets/) 选项卡管理密钥。
+“密钥存储库”选项卡显示您当前所有密钥存储库的列表，以及与每密钥存储库相关的类型。此页面上不可以执行操作，但可以从 [密钥](/mesosphere/dcos/cn/2.0/gui/secrets/) 选项卡管理密钥。
 
 ![密钥存储库](/mesosphere/dcos/2.0/img/GUI-Settings-Secret-Stores.png)
 
@@ -112,11 +112,11 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 8 - 添加 LDAP 连接
 
-要添加一个目录，请单击 **添加目录** 按钮。关于设置连接、导入联系人和导入组的更多详细信息可在 [LDAP 认证] (/mesosphere/dcos/2.0/security/ent/ldap/)文档中找到。
+要添加一个目录，请单击 **添加目录** 按钮。关于设置连接、导入联系人和导入组的更多详细信息可在 [LDAP 认证](/mesosphere/dcos/cn/2.0/security/ent/ldap/)文档中找到。
 
 # 身份提供者
 
-DC/OS 支持使用基于身份提供者的认证。有关如何设置基于身份提供者的认证的详细信息，请参阅 [文档](/mesosphere/dcos/2.0/security/ent/sso/)。我们提供配置 [SAML 身份提供者](/mesosphere/dcos/2.0/security/ent/sso/setup-saml/) 或 [OpenID Connect IdP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/) 的信息。
+DC/OS 支持使用基于身份提供者的认证。有关如何设置基于身份提供者的认证的详细信息，请参阅 [文档](/mesosphere/dcos/cn/2.0/security/ent/sso/)。我们提供配置 [SAML 身份提供者](/mesosphere/dcos/cn/2.0/security/ent/sso/setup-saml/) 或 [OpenID Connect IdP](/mesosphere/dcos/cn/2.0/security/ent/sso/setup-openid/) 的信息。
 
 ![身份提供者](/mesosphere/dcos/2.0/img/GUI-Settings-LDAP-Add-Oidc.png)
 
