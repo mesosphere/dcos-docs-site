@@ -9,9 +9,9 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-Plugins extend the functionality of the CLI for cluster specific actions.
+Plugins extend the functionality of the DC/OS&trade; CLI for cluster-specific actions.
 
-Plugins are cluster-specific; when switching between different clusters, the CLI will automatically use the proper set of plugins installed for that cluster.
+Plugins are cluster-specific. When switching between different clusters, the CLI automatically uses the proper set of plugins installed for that cluster.
 
 
 # Core CLI Plugin
@@ -32,7 +32,7 @@ The subcommands included in this plugin are:
 
 # Enterprise CLI Plugin
 
-Commands that are specific to a DC/OS EE version are packaged into a plugin called `dcos-enterprise-cli`.
+Commands that are specific to a DC/OS Enterprise version are packaged into a plugin called `dcos-enterprise-cli`.
 
 The CLI automatically installs this plugin during [dcos cluster setup](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-setup/) when it detects a DC/OS EE cluster.
 

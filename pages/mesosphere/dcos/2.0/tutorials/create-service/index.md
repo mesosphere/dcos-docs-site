@@ -11,8 +11,7 @@ enterprise: false
 
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
-
-This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS web interface and the CLI.
+This tutorial shows how to create and deploy a simple one-command service and a containerized service using both the DC/OS&trade; web interface and the CLI.
 
 ### Prerequisites
 - [A DC/OS cluster](/mesosphere/dcos/2.0/installing/)
@@ -30,7 +29,7 @@ Create and run a simple service from the DC/OS web interface:
    1. In the **COMMAND** field, enter `sleep 10`.
    1. Click **MORE SETTINGS** and choose your container runtime.
 
-      -  **DOCKER ENGINE** Use this option if you require specific features of the Docker package. If you select this option, you must specify a Docker container image in the **CONTAINER IMAGE** field.
+      -  **DOCKER ENGINE** Use this option if you require specific features of the Docker&reg; package. If you select this option, you must specify a Docker container image in the **CONTAINER IMAGE** field.
       -  **UNIVERSAL CONTAINER RUNTIME (UCR)**  Universal Container Runtime (UCR) using native Mesos engine. Supports Docker file format, multiple containers (pods), and GPU resources. If you select this option, you can optionally specify a Docker container image in the **CONTAINER IMAGE** field.
 
       For more information, see [Using Containerizers](/mesosphere/dcos/2.0/deploying-services/containerizers/).

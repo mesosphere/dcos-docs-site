@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-Organizations typically deploy and manage multiple DC/OS clusters. Multiple clusters are used for isolation (for example, testing versus production), accommodating geographic distribution, and so on. DC/OS multiple cluster operations make management and access of multiple DC/OS clusters easy for both operators and users.
+Organizations typically deploy and manage multiple DC/OS&trade; clusters. Multiple clusters are used for isolation (for example, testing versus production), accommodating geographic distribution, and so on. DC/OS multiple cluster operations make management and access of multiple DC/OS clusters easy for both operators and users.
 
 DC/OS has two categories of operations for managing multiple clusters:
 

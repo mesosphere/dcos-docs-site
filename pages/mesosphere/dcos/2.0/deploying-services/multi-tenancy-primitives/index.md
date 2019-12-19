@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Overview
-Resources in DC/OS can be reserved and prioritized using a combination of roles, reservations, quotas, and weights. These features are provided by Apache Mesos, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible via the API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. 
+Resources in DC/OS&reg; can be reserved and prioritized using a combination of roles, reservations, quotas, and weights. These features are provided by Apache&reg; Mesos&reg;, at the core of DC/OS and are referred to as `Primitives`, as they are only accessible through the API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights. 
 
 Resource management in this context refers to concepts such as reservations of resources on agents, resource quotas, and weights (priorities) for frameworks. These are useful for a number of scenarios, such as configuring multi-tenant environments, where multiple teams or projects co-exist on the same DC/OS cluster, and the available resources (CPU, RAM, disk, and ports) must be carved up and guaranteed for each cluster with guaranteed quotas. Secondly, with mixed workloads on a single cluster where one class of frameworks may have a higher weight (priority) than another, resources with high priority should be able to deploy faster than a lower weight framework.
 
@@ -19,7 +19,7 @@ This page covers the multi-tenancy primitives: Multi-Tenant quota management pri
 The key concepts of multi-tenancy primitives include the following:
 
 ## Roles
-Roles refer to a resource consumer within the cluster. The resource consumer could represent a user within an organization, but it could also represent a team, a group, or a service. It most commonly refers to a class or type of activity which is running. In DC/OS, schedulers subscribe to one or more roles in order to receive resources and schedule work on behalf of the resource consumer(s) they are servicing. Examples of schedulers include Marathon, Kubernetes, and a number of the certified frameworks in the DC/OS {{ model.packageRepo }} such as Kafka and Cassandra, which have been built to include their own scheduler.
+Roles refer to a resource consumer within the cluster. The resource consumer could represent a user within an organization, but it could also represent a team, a group, or a service. It most commonly refers to a class or type of activity which is running. In DC/OS, schedulers subscribe to one or more roles in order to receive resources and schedule work on behalf of the resource consumer(s) they are servicing. Examples of schedulers include Marathon&trade;, Kubernetes&reg;, and a number of the certified frameworks in the DC/OS {{ model.packageRepo }} such as Kafka and Cassandra, which have been built to include their own scheduler.
 
 There are two default roles which frameworks will subscribe to:
 - `*` on private agents
@@ -28,7 +28,7 @@ There are two default roles which frameworks will subscribe to:
 Frameworks from the {{ model.packageRepo }} deploy with their own roles and unique roles can be created on demand. 
 
 ## Reservations
-Reservations refer to where the resources are reserved on targeted public and private agents for a specific role. Statically reserved resources are applied on agent (public/private) startup and cannot be amended for other roles without restarting the agent. Dynamically reserved resources enable operators and authorized frameworks to reserve and un-reserve resources after agent startup and on demand. All SDK based frameworks, like Kafka and Cassandra (certified frameworks listed in the DC/OS {{ model.packageRepo }}) leverage dynamic reservations for reserving the resources they intend to use with a deployment.
+Reservations refer to where the resources are reserved on targeted public and private agents for a specific role. Statically reserved resources are applied on agent (public/private) startup and cannot be amended for other roles without restarting the agent. Dynamically reserved resources enable operators and authorized frameworks to reserve and un-reserve resources after agent startup and on demand. All SDK-based frameworks, like Kafka&reg; and Cassandra&reg; (certified frameworks listed in the DC/OS {{ model.packageRepo }}) leverage dynamic reservations for reserving the resources they intend to use with a deployment.
 
 ## Quotas
 Quotas refer to a mechanism for guaranteeing that a role will receive a specific amount of resources. Today, quotas are a maximal; if a quota is defined and the task for the role is deployed, then those resources will be reserved immediately, whether the task scales up to use them or not. Other tasks will not be able to make use of those resources even though they may not be used by the task they are provided for. Dynamic quotas, where the task will only use what it needs at the time but is guaranteed to reach its quota, revocable resources and over-subscription are planned for a future release.
@@ -40,14 +40,14 @@ Weights refer to a mechanism for prioritizing one role over another, to allow al
 These concepts are described based on two real-world scenarios of existing customer use cases. 
 
 ## Analytics platform with weighted Spark roles
-This example is based on a customer’s use case of an analytics pipeline. The primary workload is Spark with three tiers of Spark jobs, tagged with roles; "low" - 1, "medium" - 2, and "high" - 3, representing the priority and weights accordingly. 
+This example is based on a customer’s use case of an analytics pipeline. The primary workload is Spark&trade; with three tiers of Spark jobs, tagged with roles; "low" - 1, "medium" - 2, and "high" - 3, representing the priority and weights accordingly. 
 
-In practice, the "high" role is allocated three times the fair share of offers (resources) than "medium", which will be provided twice the fair share of "low". Alongside weights, the "high" priority Spark role is provided a quota of `x` CPU shares and `y` RAM. 
+In practice, the high role is allocated three times the fair share of offers (resources) than medium, which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM. 
 
-As Spark jobs are deployed, the "high" priority Spark jobs receive their offers over the "medium" and "low" roles. Given that the "medium" and "low" priority roles do not have a quota applied, "medium" roles will be provided offers sooner than "low" priority roles, but there is no quota for "medium", so if "medium" requires `z` cores and they are not available, it will receive however many are available at that time.
+As Spark jobs are deployed, the high priority Spark jobs receive their offers over the medium and low roles. Given that the medium and low priority roles do not have a quota applied, medium roles will be provided offers sooner than low priority roles. There is no quota for medium, so if medium requires `z` cores and they are not available, it will receive however many are available at that time.
 
 ## Jenkins in Marathon on Marathon
-In this example, a customer runs Jenkins (CI/CD pipeline) as a service with hundreds of instances, one instance for each development team that requires a service run.
+In this example, a customer runs Jenkins&reg; (CI/CD pipeline) as a service with hundreds of instances, one instance for each development team that requires a service run.
 
 On the DC/OS cluster, there are other applications-as-a-service deployed as Marathon tasks. Each application, including Jenkins, is grouped in its own instance of Marathon (referred to as Marathon on Marathon or MoM) and in DC/OS documentation as non-native Marathon - where native Marathon is the default Marathon that ships with DC/OS. Conceptually, there is a native Marathon and non-native Marathon on Marathon that are dedicated for grouping other tasks.
 
@@ -229,7 +229,7 @@ There are further options related to dynamic and static operations and amending 
 [Quotas](https://mesos.apache.org/documentation/latest/quota/) specify a minimum amount of resources that the role is guaranteed to receive (unless the total resources in the cluster are less than the configured quota resources, which often indicates a misconfiguration). 
 
 ### Adding
-Quotas cannot be updated once applied; they must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
+Quotas cannot be updated after they are applied. They must be removed and added again. The following example applies a quota of `two` CPU shares and `4GB` of RAM to a role called `high`.
 
 ```json
 tee set-quota.json << EOF
@@ -381,7 +381,7 @@ Connection: keep-alive
 ```
 
 ### Removing
-Weights cannot be removed once set; they can be amended using the same method as applying to update the weight. If you wish to reset the weight for a role, you could set it back to `two` which is the same weight as the default role <sup>`*`</sup>.
+Weights cannot be removed after they are set. They can be amended using the same method used to update the weight. If you want to reset the weight for a role, you could set it back to `two` which is the same weight as the default role <sup>`*`</sup>.
 
 
 ## Marathon on Marathon

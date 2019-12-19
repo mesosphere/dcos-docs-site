@@ -22,7 +22,7 @@ For complete details on creating and managing Secrets, see the [Secrets](/mesosp
 
 # Creating key-value pair secrets 
 
-1. Log in to the DC/OS UI as a user with the `dcos:superuser` permission.
+1. Log in to the DC/OS&trade; UI as a user with the `dcos:superuser` permission.
 
 1. Open the **Secrets** tab.
 

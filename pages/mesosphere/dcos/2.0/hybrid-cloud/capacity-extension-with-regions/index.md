@@ -9,10 +9,9 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-
 # Local and remote regions
 
-- The **local region** is the region running the Mesos master nodes.
+- The **local region** is the region running the Apache&reg; Mesos&reg; master nodes.
 - A **remote region** contains only Mesos agent nodes. There is usually high latency between a remote region and the local region.
 
 
@@ -20,7 +19,7 @@ enterprise: false
 
 ### Considerations
 
-- Consider the future needs of the services in your cluster. You must define regions and zones at install time, though you can add or remove nodes from regions and zones after installation. If you need to update fault domain detect script, you must re-install DC/OS.
+- Consider the future needs of the services in your cluster. You must define regions and zones at install time, though you can add or remove nodes from regions and zones after installation. If you need to update fault domain detect script, you must re-install DC/OS&trade;.
 
 - Mesos master nodes must be in the same region to avoid the latency between them to be very high. They should be spread across zones for fault tolerance.
 
@@ -28,7 +27,7 @@ enterprise: false
 
 ### Steps
 
-1. Create a fault domain detect script to run on each node to detect the node's fault domain (Enterprise only). During installation, the output of this script is passed to Mesos.
+1. Create a fault domain detect script to run on each node to detect the node's fault domain (DC/OS Enterprise only). During installation, the output of this script is passed to Mesos.
 
     We recommend the format for the script output be:
 
@@ -45,9 +44,9 @@ enterprise: false
     }
     ```
 
-    We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+    DC/OS provides [fault domain detect scripts for AWS&reg; and Azure&reg; nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has AWS nodes and Azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on-premise cluster.
 
-    <p class="message--important"><strong>IMPORTANT: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
+    <p class="message--important"><strong>IMPORTANT: </strong>This script will not work if you use proxies in your environment. If you use a proxy, you will need to make modifications.</p>
 
 1. Add this script to the `genconf` folder of your bootstrap node. [More information](/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
@@ -67,6 +66,11 @@ enterprise: false
 	```
 
 Alternatively, click the **Nodes** tab in the DC/OS GUI. The Nodes table will display the region and zone columns for each agent.
+
+# Use
+
+User-created Marathon&trade; services and pods support both zone and region awareness. The following beta versions of DC/OS data services support zone awareness: Cassandra&reg;, Elastic, HDFS&trade;, Kafka&reg;, and Spark&trade;. Consult the individual service documentation for more information about configuring zone awareness for DC/OS data services. 
+
 
 ## Marathon services and pods
 

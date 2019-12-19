@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-You may manage user access from the Organization page. The Organization menu has 3 sub-menus:
+You can manage user access from the Organization page. The Organization menu has 3 sub-menus:
 
 - [Users](#users)
 - Groups
@@ -34,7 +34,7 @@ You can also filter this list by:
 |-------|-------|
 | All | Shows all users |
 | Local | Local user accounts exist only in DC/OS. |
-| External |  DC/OS stores only the user’s ID or user name, along with other DC/OS-specific information, such as permissions and group membership. DC/OS never receives or stores the passwords of external users. Instead, it delegates the verification of the user’s credentials to one of the following: LDAP directory, SAML, or OpenID Connect. See [Managing Users and Groups](/mesosphere/dcos/2.0/security/ent/users-groups/) for more information. |
+| External |  DC/OS stores only the user’s ID or user name, along with other DC/OS-specific information, such as permissions and group membership. DC/OS never receives or stores the passwords of external users. Instead, it delegates the verification of the user’s credentials to one of the following: LDAP directory, SAML, or OpenID Connect&reg;. See [Managing Users and Groups](/mesosphere/dcos/2.0/security/ent/users-groups/) for more information. |
 
 
 If you click on the name of a user, the User page for that individual will be displayed. This page has three tabs: [Permissions](#permissions), [Group Membership](#group-membership), and [Details](#details).
@@ -80,7 +80,7 @@ DC/OS Enterprise allows you to create groups of users and import groups of users
 
 Figure 5 - Groups main page
 
-If you click on the ID of a group, you can open up a Details page for it. This page has 3 tabs: [Permissions](#permissions-2), [Users](#users-2), and [Service Accounts](#service-accounts).
+If you click on the ID of a group, you can open a Details page for it. This page has 3 tabs: [Permissions](#permissions-2), [Users](#users-2), and [Service Accounts](#service-accounts).
 
 <a name="permissions-2"></a>
 

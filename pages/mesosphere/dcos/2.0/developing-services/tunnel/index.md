@@ -8,11 +8,12 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
-<p class="message--warning"><strong>WARNING: </strong>DC/OS Tunnel is appropriate for development, debugging, and testing <strong>only</strong>. Do not use DC/OS Tunnel in production.</p>
 
-<p class="message--important"><strong>IMPORTANT: </strong> Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.<p>
+<p class="message--warning"><strong>WARNING: </strong>DC/OS&trade; Tunnel is appropriate for development, debugging, and testing <strong>only</strong>. Do not use DC/OS Tunnel in production.</p>
 
-When developing services on DC/OS, you may find it helpful to access your cluster from your local machine via SOCKS proxy, HTTP proxy, or VPN. For instance, you can work from your own development environment and immediately test against your DC/OS cluster.
+<p class="message--important"><strong>IMPORTANT: </strong> Mesosphere&reg; does not support Ubuntu&reg; as an operating system for DC/OS, even when using Microsoft Azure&reg;.<p>
+
+When developing services on DC/OS, you may find it helpful to access your cluster from your local machine using SOCKS proxy, HTTP proxy, or VPN. For instance, you can work from your own development environment and immediately test against your DC/OS cluster.
 
 # SOCKS
 DC/OS Tunnel can run a SOCKS proxy over SSH to the cluster. SOCKS proxies work for any protocol, but your client must be configured to use the proxy, which runs on port 1080 by default.
@@ -29,7 +30,7 @@ Though you must configure your client to use the HTTP proxy in standard mode, it
 
 <a name="srv"></a>
 ### SRV Records
-A SRV DNS record is a mapping from a name to a IP/port pair. DC/OS creates SRV records in the form `_<port-name>._<service-name>._tcp.marathon.mesos`. The HTTP proxy exposes these as URLs. This feature can be useful for communicating with DC/OS services.
+An SRV DNS record is a mapping from a name to a IP/port pair. DC/OS creates SRV records in the form `_<port-name>._<service-name>._tcp.marathon.mesos`. The HTTP proxy exposes these as URLs. This feature can be useful for communicating with DC/OS services.
 
 # VPN
 DC/OS Tunnel provides you with full access to the DNS, masters, and agents from within the cluster. OpenVPN requires root privileges to configure these routes.
@@ -111,7 +112,7 @@ DC/OS Tunnel provides you with full access to the DNS, masters, and agents from 
 # Using DC/OS Tunnel
 
 ## Prerequisites
-* Only Linux and macOS are currently supported.
+* Only Linux&reg; and macOS&reg; are currently supported.
 * The [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/).
 * The DC/OS Tunnel package. Run `dcos package install tunnel-cli --cli`.
 * [SSH access](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) (key authentication only).

@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-Marathon sorts tasks into three categories: initial, non-terminal, and terminal. Tasks within these categories may be in one of several states, as summarized in the diagram below. To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events).
+Marathon&trade; sorts tasks into three categories: initial, non-terminal, and terminal. Tasks within these categories may be in one of several states, as summarized in the diagram below. To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events).
 
 You can also [configure Marathon's behavior when a task is unreachable](/mesosphere/dcos/2.0/deploying-services/task-handling/configure-task-handling/).
 
@@ -38,12 +38,12 @@ The task failed to launch because of a transient error. The task's executor neve
 case TASK_GONE => Gone
 ```
 
-The task was running on an agent that has been shutdown (e.g., the agent become partitioned, rebooted, and then reconnected to the master; any tasks running before the reboot will transition from UNREACHABLE to GONE). The task is no longer running. After Marathon marks the task as gone, it expunges the task and starts a new one.
+The task was running on an agent that has been shutdown (for example, the agent was partitioned, rebooted, and then reconnected to the master. Any tasks running before the reboot will transition from UNREACHABLE to GONE). The task is no longer running. After Marathon marks the task as gone, it expunges the task and starts a new one.
 
 ```
 case TASK_GONE_BY_OPERATOR => Gone
 ```
-The task was running on an agent that the master cannot contact; the operator has asserted that the agent has been shutdown, but this has not been directly confirmed by the master. If the operator is correct, the task is not running and this is a terminal state; if the operator is mistaken, the task might still be running, and might return to the RUNNING state in the future. After Marathon marks the task as failed, it expunges the task and starts a new one.
+The task was running on an agent that the master cannot contact; the operator has asserted that the agent has been shutdown, but this has not been directly confirmed by the master. If the operator is correct, the task is not running and this is a terminal state. If the operator is mistaken, the task might still be running, and might return to the RUNNING state in the future. After Marathon marks the task as failed, it expunges the task and starts a new one.
 
 If the task was configured to use [Local Persistent Volumes](/mesosphere/dcos/2.0/storage/persistent-volume), these will be abandoned given that the agent is considered to be gone and not able to offer those volumes. A new task will be created as a replacement, with new volumes for its use.
 
@@ -88,4 +88,3 @@ The task is being killed by the executor.
 case TASK_UNREACHABLE => Unreachable
 ```
 The task was running on an agent that has lost contact with the master, typically due to a network failure or partition. The task may or may not still be running. When Marathon receives a "task unreachable" message, it starts a replacement task. If the time unreachable exceeds 15 minutes, Marathon marks the task as Unknown and then expunges the task.
-

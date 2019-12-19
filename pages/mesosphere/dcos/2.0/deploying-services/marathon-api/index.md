@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-The Marathon API allows you to manage long-running containerized services (apps and pods). The Marathon API is backed by the [Marathon component](/mesosphere/dcos/2.0/overview/architecture/components/#marathon), which runs on the master nodes. One of the Marathon instances is elected as leader, while the rest are hot backups in case of failure. All API requests must go through the Marathon leader. To enforce this, Admin Router proxies requests from any master node to the Marathon leader.
+The Marathon&trade; API allows you to manage long-running containerized services (apps and pods). The Marathon API is backed by the [Marathon component](/mesosphere/dcos/2.0/overview/architecture/components/#marathon), which runs on the master nodes. One of the Marathon instances is elected as leader, while the rest are hot backups in case of failure. All API requests must go through the Marathon leader. To enforce this, Admin Router proxies requests from any master node to the Marathon leader.
 
 For more information about using Marathon, see [Deploying Services and Pods](/mesosphere/dcos/2.0/deploying-services/).
 

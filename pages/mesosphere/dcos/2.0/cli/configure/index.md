@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-You can access DC/OS CLI configuration with the [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) and [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) command groups.
+You can access DC/OS&trade; CLI configuration with the [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) and [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) command groups.
 
 # Environment variables
 

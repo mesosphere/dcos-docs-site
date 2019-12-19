@@ -10,4 +10,4 @@ model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
-DC/OS makes it easy to set up and manage clusters. This section describes how to add and delete nodes, recover disk space, secure your cluster, and perform several other maintenance operations on your cluster.
+Mesosphere&reg; DC/OS&trade; makes it easy to set up and manage clusters. This section describes how to add and delete nodes, recover disk space, secure your cluster, and perform several other maintenance operations on your cluster.

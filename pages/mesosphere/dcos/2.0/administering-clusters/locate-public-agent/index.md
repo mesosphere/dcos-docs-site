@@ -8,16 +8,16 @@ enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-After you have installed DC/OS with a public agent node declared, you can navigate to the public IP address of your public agent node. You can expose the public-facing IP address for an agent as a gateway for access to services that are running inside the DC/OS cluster. For example, if you are configuring load balancing to distribute inbound requests to the services in a cluster, the requests are typically routed through the public IP address frontend to an appropriate service instance backend isolated behind a firewall. 
+After you have installed DC/OS&trade; with a public agent node declared, you can navigate to the public IP address of your public agent node. You can expose the public-facing IP address for an agent as a gateway for access to services that are running inside the DC/OS cluster. For example, if you are configuring load balancing to distribute inbound requests to the services in a cluster, the requests are typically routed through the public IP address frontend to an appropriate service instance backend isolated behind a firewall. 
 
 # Before you begin
 - You must have DC/OS installed with at least one master node and at least one [public agent](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node) node.
 - You must have the most recent version of the DC/OS [CLI](/mesosphere/dcos/2.0/cli/) installed.
 - You must have [secure shell (SSH)](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) installed and configured to allow remote session access to cluster nodes.
-- You should have [jq](https://github.com/stedolan/jq/wiki/Installation) or [Python](https://www.python.org/) installed if you want to format the output from an API call.
+- You should have [jq](https://github.com/stedolan/jq/wiki/Installation) or [Python&reg;](https://www.python.org/) installed if you want to format the output from an API call.
   You can also use [jq](https://github.com/stedolan/jq/wiki/Installation) or another program to find public agent IP addresses if you are using an older version of the DC/OS cluster. 
 
-<p class="message--note"><strong>NOTE: </strong>You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS, Google Cloud, or Azure. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is often the same as the IP address defined for the server in the DNS namespace.</p>
+<p class="message--note"><strong>NOTE: </strong>You can look up the public agent IP address using the DC/OS web-based console, command-line interface, or API calls for DC/OS cluster nodes if DC/OS is deployed on a public cloud provider such as AWS&reg;, Google Cloud&reg;, or Azure&reg;. If DC/OS is installed on an internal network (on-premise) or a private cloud, nodes do not typically have separate public and private IP addresses. For nodes on an internal network or private cloud, the public IP address is often the same as the IP address defined for the server in the DNS namespace.</p>
 
 # Viewing public IP addresses in the DC/OS console
 You can view the public agent IP addresses for the nodes in a cluster interactively from the DC/OS web-based administrative console.

@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-You can convert agent nodes to public or private for an existing DC/OS cluster.
+You can convert agent nodes to public or private for an existing DC/OS&trade; cluster.
 
 Agent nodes are designated as [public](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node) during installation. By default, they are designated as `private` during [GUI][1] or [CLI][2] installation.
 

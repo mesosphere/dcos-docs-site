@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-This topic lists all available properties for Marathon application definitions and an example JSON application definition file with all properties shown.
+This topic lists all available properties for Marathon&trade; application definitions and an example JSON application definition file with all properties shown.
 
 - [Marathon Properties](#Marathon-Properties)
         - [acceptedResourceRoles](#acceptedResourceRoles)
@@ -44,7 +44,7 @@ This topic lists all available properties for Marathon application definitions a
 # Marathon Properties
 
 ### acceptedResourceRoles
-An array of resource roles. Marathon considers only resource offers with roles in this list for launching tasks of this app. For more information, see the [Mesos documentation](http://mesos.apache.org/documentation/latest/roles/).
+An array of resource roles. Marathon considers only resource offers with roles in this list for launching tasks of this app. For more information, see the [Apache&reg; Mesos&reg; documentation](http://mesos.apache.org/documentation/latest/roles/).
 
 ### args
 An array of strings that specifies the command to run. The `args` field may be used in place of `cmd` even when using the default command executor.
@@ -54,7 +54,7 @@ An array of strings that specifies the command to run. The `args` field may be u
 ### backoffFactor
 The multiplicand to apply to the `backoffSeconds` value. The default value is `1.15`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the [`maxLaunchDelaySeconds`](#maxlaunchdelayseconds) value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 300`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 300 seconds before repeating this cycle.
 
-This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos slaves. This applies also to tasks that are killed due to failing too many health checks.
+This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos slaves. This applies also to tasks that are killed because they failed too many health checks.
 
 ### backoffSeconds
 The amount of time (in seconds) before Marathon retries launching a failed task. The default is `1`. The `backoffSeconds` and `backoffFactor` values are multiplied until they reach the `maxLaunchDelaySeconds` value. After they reach that value, Marathon waits `maxLaunchDelaySeconds` before repeating this cycle exponentially. For example, if `backoffSeconds: 3`, `backoffFactor: 2`, and `maxLaunchDelaySeconds: 300`, there will be ten attempts to launch a failed task, each three seconds apart. After these ten attempts, Marathon will wait 300 seconds before repeating this cycle.
@@ -62,7 +62,7 @@ The amount of time (in seconds) before Marathon retries launching a failed task.
 This prevents sandboxes associated with consecutively failing tasks from filling up the hard disk on Mesos agents. This applies also to tasks that are killed due to failing too many health checks.
 
 ### cmd
-The command that is executed. This value is wrapped by Mesos via `/bin/sh -c ${app.cmd}`.
+The command that is executed. This value is wrapped by Mesos using the command, `/bin/sh -c ${app.cmd}`.
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must specify either <code>cmd</code> or <code>args</code> in all app definitions. It is invalid to supply both <code>cmd</code> and <code>args</code> in the same app.</p>
 
@@ -78,23 +78,23 @@ The container information.
 
   A port mapping consists of:
 
-  - **containerPort** The container port (e.g., `8080`).
-  - **hostPort** The host port (e.g., `0`). The default value is `0`. In [networking mode](#networks) `container`, the `hostPort` is not required, but if left unspecified Marathon will not randomly allocate a port. When using `container/bridge` mode, an unspecified (null) value for `hostPort` sets `hostPort: 0`.
-  - **servicePort** The service port (e.g., `9000`).
+  - **containerPort** The container port (for example, `8080`).
+  - **hostPort** The host port (for example, `0`). The default value is `0`. In [networking mode](#networks) `container`, the `hostPort` is not required, but if left unspecified Marathon will not randomly allocate a port. When using `container/bridge` mode, an unspecified (null) value for `hostPort` sets `hostPort: 0`.
+  - **servicePort** The service port (for example, `9000`).
   - **protocol** The HTTP protocol, either `tcp` or `udp`.
   
   Port mappings are used in conjunction with `container` and `container/bridge` [networking mode](#networks) and ignored when used in conjunction with `host` networking mode. When used in conjunction with multiple `container` networks, each mapping entry that specifies a `hostPort` must also declare a `name` that identifies the network for which the mapping applies (a single `hostPort` may be mapped to only one container network, and `name` defaults to all container networks for a pod or app).
   - [`requirePorts`](#requirePorts) does not apply to `portMappings`.
   - Future versions of Marathon may fail to validate apps that declare `container.portMappings` with network modes other than `container` or `container/bridge`.
 
-- **docker** The Docker container information.
+- **docker** The Docker&reg; container information.
 
     - **forcePullImage** Whether to pull the image, regardless if it is already available on the local system.
     - **image** The path to the Docker image.
     - **privileged** Whether to give extended privileges to this container. For more information, see the [Docker run command](https://docs.docker.com/engine/reference/commandline/run/).
       - `"privileged": false` Do not give extended privileges. This is the default value.
       - `"privileged": true` Give extended privileges.
-    - **parameters** Command-line options for the `docker run` command executed by the Mesos containerizer. Parameters passed in this manner are not guaranteed to be supported in the future, as Mesos may not always interact with Docker via the CLI.
+    - **parameters** Command-line options for the `docker run` command executed by the Mesos containerizer. Parameters passed in this manner are not guaranteed to be supported in the future, as Mesos may not always interact with Docker through the CLI.
     - **pullConfig** A secret whose value is a stringified JSON object in a Secret Store. See [Using a Private Docker Registry](/mesosphere/dcos/2.0/deploying-services/private-docker-registry/#secret-store-instructions).
 
 - **volumes** The volumes accessible to the container.
@@ -192,7 +192,7 @@ An array of required port resources on the agent host. The number of items in th
 
 A port definition consists of:
 
-- **port** An integer in the range 0, 65535.
+- **port** An integer in the range 0 - 65535.
 - **name** Name of the service hosted on this port. If specified, it must be unique over all port definitions.
 - **labels** Metadata to be interpreted by external applications such as firewalls.
 - **protocol** The HTTP protocol, either `tcp` or `udp`.

@@ -8,7 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-The DC/OS Enterprise CLI provides commands for DC/OS Enterprise features:
+The DC/OS&trade; Enterprise CLI provides commands for DC/OS Enterprise features:
 
 - [`dcos backup`](/mesosphere/dcos/2.0/cli/command-reference/dcos-backup/)
 - [`dcos license`](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/)
@@ -25,11 +25,11 @@ The previous installation process using `dcos package install dcos-enterprise-cl
 ## Deprecated installation (DC/OS <= 1.12)
 ### Prerequisite
 
-The DC/OS CLI must already be [installed](/mesosphere/dcos/2.0/cli/install/).
+The DC/OS CLI must have been previously [installed](/mesosphere/dcos/2.0/cli/install/).
 
 <p class="message--note"><strong>NOTE: </strong>The DC/OS Enterprise CLI must be installed from the DC/OS CLI. You cannot install the DC/OS Enterprise CLI from the {{ model.packageRepo }} in the web interface.</p>
 
-To install the DC/OS Enterprise CLI, issue the following command from a terminal prompt.
+To install the DC/OS Enterprise CLI, issue the following command from a terminal prompt:
 
 ```bash
 dcos package install dcos-enterprise-cli
@@ -41,7 +41,7 @@ dcos package install dcos-enterprise-cli
 
 ### Upgrading the DC/OS Enterprise CLI
 
-A reinstall of the DC/OS Enterprise CLI upgrades the package.
+A re-install of the DC/OS Enterprise CLI upgrades the package.
 
 ```bash
 dcos package install dcos-enterprise-cli

@@ -8,7 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 excerpt: Using the UI for DC/OS management
 ---
 
-The DC/OS UI provides a rich graphical view of your DC/OS cluster. With the UI you can view the current state of your entire cluster and DC/OS services. The UI is installed as a part of your DC/OS installation.
+The Mesosphere&reg; DC/OS&trade; UI provides a rich graphical view of your DC/OS cluster. With the UI you can view the current state of your entire cluster and DC/OS services. The UI is installed as a part of your DC/OS installation.
 
 ![Dashboard](/mesosphere/dcos/2.0/img/dashboard-ee-1-12.png)
 

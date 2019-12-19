@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-Marathon placement constraints control where services run, to allow optimizing for either fault tolerance (by spreading a task out on multiple nodes) or locality (by running all of a service's tasks on the same node). Constraints have three parts: a field name, an operator, and an optional parameter. The field name can be the hostname of the agent node or any attribute of the agent node.
+Marathon&trade; placement constraints control where services run, to allow optimizing for either fault tolerance (by spreading a task out on multiple nodes) or locality (by running all of a service's tasks on the same node). Constraints have three parts: a field name, an operator, and an optional parameter. The field name can be the hostname of the agent node or any attribute of the agent node.
 
 # Field Names
 
@@ -27,7 +27,7 @@ Use the `@region` and `@zone` field names to configure [fault domain awareness a
 
 ## Attribute as field name
 
-If `@hostname`, `@region`, or `@zone` are not specified as field names, then the field name is interpreted as a Mesos agent node attribute. A Mesos agent node attribute allows you to tag an agent node. See `mesos-slave --help` to learn how to set the attributes. If the specified attribute is not defined on the agent node, most operators will refuse to run tasks on it. In fact, only the `UNLIKE` operator will (and always will) accept this offer for now, while other operators will always refuse it.
+If `@hostname`, `@region`, or `@zone` are not specified as field names, then the field name is interpreted as an Apache&reg; Mesos&reg; agent node attribute. A Mesos agent node attribute allows you to tag an agent node. See `mesos-slave --help` to learn how to set the attributes. If the specified attribute is not defined on the agent node, most operators will refuse to run tasks on it. In fact, only the `UNLIKE` operator will (and always will) accept this offer for now, while other operators will always refuse it.
 
 Marathon supports text, scalar, range, and set attribute values. For scalars, ranges, and sets, Marathon will perform a string comparison on the formatted values. The format matches that of the Mesos attribute formatting. For ranges and sets, the format is `[begin-end,...]` and `{item,...}` respectively. For example, you might have a range formatted as `[100-200]` and a set formatted as `{a,b,c}`. Regex is allowed for LIKE and UNLIKE operators; to match ANY value, use the string `.*`.
 
@@ -164,7 +164,7 @@ If the attribute in question is a scalar, it is rounded to the nearest thousandt
 }
 ```
 
-Marathon only knows about different values of the attribute (e.g. "`rack_id`") by analyzing incoming offers from Mesos. If tasks are not already spread across all possible values, specify the number of values in constraints. If you do not specify the number of values, you might find that the tasks are only distributed in one value, even though you are using the `GROUP_BY` constraint. For example, if you are spreading across 3 racks, use:
+Marathon only knows about different values of the attribute (for example, "`rack_id`") by analyzing incoming offers from Mesos. If tasks are not already spread across all possible values, specify the number of values in constraints. If you do not specify the number of values, you might find that the tasks are only distributed in one value, even though you are using the `GROUP_BY` constraint. For example, if you are spreading across 3 racks, use:
 
 ``` json
 {

@@ -8,11 +8,11 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-As described in [fault domain awareness and capacity extension for services](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/), DC/OS supports fault domain awareness. If your cluster is configured over multiple regions or zones, it is possible to schedule your Metronome job to run in a remote region, or a specific zone.
+As described in [fault domain awareness and capacity extension for services](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/), DC/OS&trade; supports fault domain awareness. If your cluster is configured over multiple regions or zones, it is possible to schedule your Metronome job to run in a remote region, or a specific zone.
 
 # Local and remote regions
 
-- The **local region** is the region running the Mesos master nodes.
+- The **local region** is the region running the Apache&reg; Mesos&reg; master nodes.
 - A **remote region** contains only Mesos agent nodes.
 
 # Use

@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The Services page provides a full-featured interface to the native DC/OS Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
+The Services page provides a full-featured interface to the native DC/OS&trade; Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.
 
 ![Services](/mesosphere/dcos/2.0/img/GUI-Services-Enterprise.png)
 
@@ -47,7 +47,7 @@ Figure 2 - Sort menu
 
 ## SDK Service Status
 
-Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/), leveraging Mesos native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status levels are specific to SDK based schedulers and their lifecycle.
+Scheduler tasks based on the [DC/OS SDK](https://mesosphere.github.io/dcos-commons/), leveraging APache&reg; Mesos&reg; native checks in order to provide more detailed information about their status than the above [Service Status](#service-status). These status levels are specific to SDK-based schedulers and their lifecycle.
 
 | Status | Description |
 |----------|----------------|
@@ -87,7 +87,7 @@ For services with a UI, hover over the service name and click ![open service](/m
 
 The **Services > Debug** tab displays the last changes, task failures, and other status messages, which can help debug issues with service deployments.
 
-In the following figure, Marathon has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
+In the following figure, Marathon&trade; has failed to launch a service; DC/OS displays a warning message and then a message stating that the error has cleared and that the service is now launching.
 
 ![Failure warning](/mesosphere/dcos/2.0/img/GUI-Services-Failure-to-Launch.png)
 

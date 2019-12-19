@@ -9,4 +9,4 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-This Command Reference describes CLI commands that are unique to DC/OS.
+This Command Reference describes CLI commands that are unique to DC/OS&trade;.

@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-You can implement fine-grained user access to services using either the DC/OS web interface or the [API](/mesosphere/dcos/2.0/security/ent/iam-api/), or the CLI.
+You can implement fine-grained user access to services using either the DC/OS&trade; web interface or the [API](/mesosphere/dcos/2.0/security/ent/iam-api/), or the CLI.
 
 The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to services on either a per service or a per service group basis. This section walks you through the steps to accomplish this.  
 
@@ -32,7 +32,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
-1.  Select the name of the user or group to grant the permission to.
+1.  Select the name of the user or group to which you want to grant permission.
 
     ![Add permission cory](/mesosphere/dcos/2.0/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
@@ -89,7 +89,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 1.  Click **ADD PERMISSIONS** and then **Close**.
 
-## <a name="root-service-cli"></a>Via the CLI
+## <a name="root-service-cli"></a>Using the CLI
 
 **Prerequisites:**
 
@@ -146,7 +146,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 # <a name="service-in-group"></a>Granting access to a service in a service group
 
-## <a name="service-in-group-ui"></a>Via the DC/OS web interface
+## <a name="service-in-group-ui"></a>Using the DC/OS web interface
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
@@ -156,7 +156,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
-1.  Select the name of the user or group to grant the permission to.
+1.  Select the name of the user or group to which you want to grant permission.
 
     ![Add permission cory](/mesosphere/dcos/2.0/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
@@ -217,7 +217,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 1.  Click **ADD PERMISSIONS** and then **Close**.
 
-## <a name="service-in-group-cli"></a>Via the CLI
+## <a name="service-in-group-cli"></a>Using the CLI
 
 **Prerequisites:**
 
@@ -276,7 +276,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 # <a name="service-group"></a>Granting a user access to a service group
 
-## <a name="service-group-ui"></a>Via the DC/OS web interface
+## <a name="service-group-ui"></a>Using the DC/OS web interface
 
 1. Log into the DC/OS web interface as a user with the `superuser` permission.
 
@@ -286,7 +286,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 1.  Select **Organization** and choose **Users** or **Groups**.
 
-1.  Select the name of the user or group to grant the permission to.
+1.  Select the name of the user or group to which you want to grant permission.
 
     ![Add permission cory](/mesosphere/dcos/2.0/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
@@ -347,7 +347,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 1.  Click **ADD PERMISSIONS** and then **Close**.   
 
-## <a name="service-group-cli"></a>Via the CLI
+## <a name="service-group-cli"></a>Using the CLI
 
 **Prerequisites:**
 

@@ -9,11 +9,11 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The recommended method to install the DC/OS CLI is by getting the preformatted set of commands from the DC/OS UI and running them in the terminal. See the prerequisites and instructions for your operating system for more information:
+The recommended method to install the DC/OS&trade; CLI is by getting the preformatted set of commands from the DC/OS UI and running them in the terminal. See the prerequisites and instructions for your operating system for more information:
 
-- [Installing on Linux](#linux)
-- [Installing on macOS](#macos)
-- [Installing on Windows](#windows)
+- [Installing on Linux&reg;](#linux)
+- [Installing on macOS&reg;](#macos)
+- [Installing on Windows&reg;](#windows)
 
 # Prerequisites
 
@@ -29,9 +29,9 @@ The recommended method to install the DC/OS CLI is by getting the preformatted s
 
 
 # Prerequisites for macOS
--  You must be running MacOS 10.10 Yosemite (deprecated), or later. The next version of the DC/OS CLI will require macOS 10.11 El Capitan or later.
+-  You must be running macOS 10.10 Yosemite (deprecated), or later. The next version of the DC/OS CLI will require macOS 10.11 El Capitan or later.
 - A model running on a Haswell CPU (2014), or later.
-- You must be able to run `cURL` program on the system hosting the CLI. If you don't have `cURL`, follow the instructions in [Install curl on macOS](http://macappstore.org/curl/) to install it.
+- You must be able to run `cURL` program on the system hosting the CLI. If you don't have `cURL`, follow the instructions in [Install cURL on macOS](http://macappstore.org/curl/) to install it.
 
 # Prerequisites for Windows
 - Windows 10 64-bit or later.

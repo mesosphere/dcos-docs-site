@@ -9,11 +9,13 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-In order to support cloud bursting by adding nodes, you also must support decomissioning nodes. Deleting a node involves two steps: telling DC/OS to mark the node as `GONE`, and stopping the corresponding Mesos slave `systemd` unit.
+In order to support cloud bursting by adding nodes, you also must support decomissioning nodes. Deleting a node involves two steps:
+1. Telling DC/OS&trade; to mark the node as `GONE`, and
+2. Stopping the corresponding Apache&reg; Mesos&reg; slave `systemd` unit.
 
-If your node has gone down in an unplanned way, you only have to [decommission the node](/mesosphere/dcos/2.0/administering-clusters/delete-node/#decommission-the-node/).
+If your node has gone down in an unplanned way, you may need to [decommission the node](/mesosphere/dcos/2.0/administering-clusters/delete-node/#decommission-the-node/).
 
-<p class="message--warning"><strong>WARNING: </strong>You should decommission a node only if the node will never be coming back (for example, the EC2 VM is destroyed). Once a node is decommissioned, the corresponding agent ID is marked as GONE internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to <code>TASK_GONE_BY_OPERATOR</code> state.</p>
+<p class="message--warning"><strong>WARNING: </strong>You should decommission a node only if the node will never be coming back (for example, the EC2&reg; VM is destroyed). After a node is decommissioned, the corresponding agent ID is marked as GONE internally and not allowed to come back and re-register with the master. Any tasks running on the node are transitioned to <code>TASK_GONE_BY_OPERATOR</code> state.</p>
 
 
 # Shut down the node

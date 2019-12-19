@@ -9,10 +9,10 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-You can uninstall the CLI with these commands for your operating system.
+You can uninstall the DC/OS&trade; CLI with these commands for your operating system.
 
-- [Unix, Linux, and macOS](#unixlinuxosx)
-- [Windows](#windows)
+- [UNIX&reg;, Linux&reg;, and macOS&reg;](#unixlinuxosx)
+- [Windows&reg;](#windows)
 
 ## <a name="unixlinuxosx"></a>Unix, Linux, and macOS
 

@@ -8,10 +8,11 @@ enterprise: true
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-You can replace a master node in an existing DC/OS cluster. You should keep in mind, however, that you should only ever replace one master at a time. The following steps summarize how to replace a master node for a DC/OS cluster.
+
+You can replace a master node in an existing DC/OS&trade; cluster. You should keep in mind, however, that you should only ever replace one master at a time. The following steps summarize how to replace a master node for a DC/OS cluster.
 
 # To replace a master node
-1. Back up ZooKeeper state information using Exhibitor, the Guano utility, or a custom script.
+1. Back up ZooKeeper&trade; state information using Exhibitor, the Guano utility, or a custom script.
 
     For example, if you download and extract the Guano utility, you can run a command similar to the following on the master node:
 
@@ -21,7 +22,7 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
 
     For more information about backing up ZooKeeper using the Guano utility, see [How do I backup ZooKeeper using Guano?](/mesosphere/dcos/2.0/installing/installation-faq/#zk-backup)
 
-1. Back up the DC/OS identity and access management CockroachDB database to a file by running a command similar to the following on the master node:
+1. Back up the DC/OS identity and access management CockroachDB&reg; database to a file by running a command similar to the following on the master node:
 
     ```bash
     dcos-shell iam-database-backup > ~/iam-backup.sql

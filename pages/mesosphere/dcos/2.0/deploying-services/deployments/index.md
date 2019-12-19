@@ -8,7 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 5
 ---
 
-Every change in the definition of applications or groups in DC/OS is performed as a Marathon deployment. A [deployment](/mesosphere/dcos/2.0/deploying-services/marathon-api/) is a set of actions, including:
+Every change in the definition of applications or groups in DC/OS&trade; is performed as a Marathon&trade; deployment. A [deployment](/mesosphere/dcos/2.0/deploying-services/marathon-api/) is a set of actions, including:
 
 - Start
 - Stop

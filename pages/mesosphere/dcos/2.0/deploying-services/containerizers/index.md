@@ -9,17 +9,17 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-A containerizer provides a containerization and resource isolation abstraction around a specific container runtime. DC/OS containerizers support the following container runtimes:
+A containerizer provides a containerization and resource isolation abstraction around a specific container runtime. DC/OS&trade; containerizers support the following container runtimes:
 
 - [Universal Container Runtime](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/).
 - [Docker Engine](/mesosphere/dcos/2.0/deploying-services/containerizers/docker-containerizer/).
 
 The advantages of Universal Container Runtime (UCR) are:
 
-* Removes your dependency on the Docker Engine. If the Docker Engine is not responsive, restarting the Engine causes all containers on the host to stop. In addition, Docker must be installed on each of your agent nodes and you must upgrade Docker on the agent nodes each time a new version of Docker is released.
+* Removes your dependency on the Docker&reg; Engine. If the Docker Engine is not responsive, restarting the Engine causes all containers on the host to stop. In addition, Docker must be installed on each of your agent nodes and you must upgrade Docker on the agent nodes each time a new version of Docker is released.
 * Is more stable and allows deployment at scale
 * Offers features not available in the Docker Engine, such as GPU and CNI support
-* Allows you to take advantage of continuing innovation within both the Mesos and DC/OS, including features such as IP per container, strict container isolation, and more. Refer to the [features matrix](#container-runtime-features) for  additional information.
+* Allows you to take advantage of continuing innovation within both Apache&reg; Mesos&reg; and DC/OS, including features such as IP per container, strict container isolation, and more. Refer to the [features matrix](#container-runtime-features) for  additional information.
 * Supports collection of container image garbage either automatically or manually
 
 In summary, using the UCR instead of the Docker Engine:

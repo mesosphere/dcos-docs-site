@@ -8,11 +8,11 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 --- 
 
-You may wish to back up your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade or if you install a {{ model.packageRepo }} package that does not perform as expected.
+You may want to back up your cluster before performing an upgrade or downgrade. You may need to restore your cluster to a known good state if something goes wrong during an upgrade or if you install a {{ model.packageRepo }} package that does not perform as expected.
 
-This section provides guidance on how to back up and restore the state of particular DC/OS components via dedicated procedures.
+This section provides guidance on how to back up and restore the state of particular DC/OS&trade; components using dedicated procedures.
 
-DC/OS Enterprise users may want to back up and restore the native DC/OS Marathon instance state by using the DC/OS backup service. You can back up the state of the native Marathon instance of your cluster, and later restore from that backup. You can also choose to back up and restore the state of [ZooKeeper](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper-backup-and-restore) running inside a DC/OS cluster.
+DC/OS Enterprise users may want to back up and restore the native DC/OS Marathon instance state by using the DC/OS backup service. You can back up the state of the native Marathon instance of your cluster, and later restore from that backup. You can also choose to back up and restore the state of [ZooKeeper&trade;](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper-backup-and-restore) running inside a DC/OS cluster.
 
 
 # Limitations

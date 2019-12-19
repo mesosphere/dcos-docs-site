@@ -12,16 +12,16 @@ model: /mesosphere/dcos/2.0/data.yml
 
 If you are on the same network as your cluster or connected by a VPN, you can use the `dcos node ssh` command to SSH into your cluster. For more information, see the [dcos node section][1] of the CLI reference.
 
-*   [SSH to your DC/OS cluster on Unix/Linux (macOS, Ubuntu, etc)][2]
-*   [SSH to your DC/OS cluster on Windows][3]
+*   [SSH to your DC/OS&trade; cluster on UNIX&reg;/Linux&reg; (macOS&reg;, Ubuntu&reg;, and so on)][2]
+*   [SSH to your DC/OS cluster on Windows&reg;][3]
 
 **Prerequisite:**
 
 *   An unencrypted SSH key that can be used to authenticate with the cluster nodes over SSH. Encrypted SSH keys are not supported.
 
-## <a name="unix"></a>SSH to your DC/OS cluster on Unix/Linux (macOS, Ubuntu, etc)
+## <a name="unix"></a>SSH to your DC/OS cluster on Unix/Linux (macOS, Ubuntu, and so on)
 
-<p class="message--warning"><strong>WARNING: </strong>Mesosphere does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure.</p>
+<p class="message--warning"><strong>WARNING: </strong>D2iQ&reg; does not support Ubuntu as an operating system for DC/OS, even when using Microsoft Azure&reg;.</p>
 
 1.  Change the permissions on the `.pem` file to owner read/write using the `chmod` command.
 
@@ -48,7 +48,7 @@ If you are on the same network as your cluster or connected by a VPN, you can us
     dcos node ssh --master-proxy --leader
     ```
 
-    The default user is dependent upon your OS. If you are using CentOS, enter:
+    The default user is dependent upon your OS. If you are using CentOS&reg;, enter:
 
     ```bash
     dcos node ssh --master-proxy --leader --user=centos

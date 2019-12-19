@@ -9,14 +9,13 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-
-You can monitor deployed DC/OS services from the CLI and UI.
+You can monitor deployed DC/OS&trade; services from the CLI and UI.
 
 # Monitoring {{ model.packageRepo }} services
 
 ## CLI
 
-From the DC/OS CLI, enter the `dcos service` command. In this example you can see the installed DC/OS services Chronos, HDFS, and Kafka.
+From the DC/OS CLI, enter the `dcos service` command. In this example you can see the installed DC/OS services for Chronos, HDFS&trade;, and Kafka&reg;.
 
 ```bash
 dcos service

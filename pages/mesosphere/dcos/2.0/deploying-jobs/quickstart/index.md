@@ -9,10 +9,10 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-You can create and administer jobs for the DC/OS cluster in any of the following ways:
+You can create and administer jobs for the DC/OS&reg; cluster in any of the following ways:
 - interactively with the [DC/OS UI](#managing-jobs)
 - interactively or programmatically with the DC/OS [CLI](#cli)
-- directly through calls to the DC/OS application programming interface ([API](#jobs-api) for job-related operations
+- directly through calls to the DC/OS application programming interface ([API](#jobs-api)) for job-related operations
 
 The DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the CLI [`dcos job`](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) commands or the [Jobs API](/mesosphere/dcos/2.0/deploying-jobs/quickstart/#jobs-api).
 
@@ -33,7 +33,7 @@ Note that in all the **Jobs** UI configuration screens, you can choose to view t
 
 <!-- Where are JSON files created here stored? Can that location be configured? -->
 
-Edits made to either interface will be immediately reflected in the other. For example, if you enter a value in any field in the left hand UI, it will be added to the JSON file on the right hand. 
+Edits made to either interface are immediately reflected in the other. For example, if you enter a value in any field in the left hand UI, it is added to the JSON file on the right hand window. 
 
 To dismiss the **JSON Editor** screen, click the toggle again.
 
@@ -55,9 +55,9 @@ Figure 3 - Create a Job button
 
 ![Plus sign](/mesosphere/dcos/2.0/img/GUI-Jobs-Create-a-Job.png)
 
-Figure 4 - Click on plus sign
+Figure 4 - Click on the plus sign
 
-A configuration screen for a new job will appear. Note that this screen is the same as that used for editing jobs. 
+A configuration screen for a new job will appear. Note that this screen is the same as the screen for editing jobs. 
 
 ![Job configuration screen](/mesosphere/dcos/2.0/img/GUI-Jobs-New-Job.png)
 
@@ -70,7 +70,7 @@ You will see eight tabs on the left hand side of the screen. These help you name
 | Name | Description |
 |------|--------------|
 | [General](#general) | Sets the most basic job settings, such as the job identifier, CPU, memory and disk requirements.|
-| [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker Engine. |
+| [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker&reg; Engine. |
 | [Schedule](#schedule) | Sets up a schedule for your job. You can use the `cron` format. |
 | [Environment](#environment) | Specifies environment variables to be attached to each instance of your job.|
 | [Volumes](#volumes) | Configures a stateful job by setting up a persistent volume.|
