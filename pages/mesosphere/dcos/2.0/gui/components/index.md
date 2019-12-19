@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The Components tab shows you a snapshot of your DC/OS components. It displays the name and health status of your components. 
+The Components tab shows you a snapshot of your DC/OS&trade; components. It displays the name and health status of your components. 
 
 ![Components](/mesosphere/dcos/2.0/img/GUI-Components-Main_View.png)
 

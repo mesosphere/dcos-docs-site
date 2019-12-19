@@ -7,7 +7,7 @@ excerpt: Using the Dashboard to monitor the health of your cluster
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-The Dashboard is the home page of the DC/OS UI. Like a snapshot, it provides a high-level overview of your DC/OS cluster. 
+The Dashboard is the home page of the DC/OS&trade; UI. Like a snapshot, it provides a high-level overview of your DC/OS cluster. 
 
 ![Dashboard](/mesosphere/dcos/2.0/img/GUI-Dashboard.png)
 

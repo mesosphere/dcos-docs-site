@@ -14,7 +14,7 @@ These examples provide common usage scenarios for jobs.
 
 **Prerequisite:**
 
-- [DC/OS](/mesosphere/dcos/2.0/installing/) and the [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) installed.
+- [DC/OS&trade;](/mesosphere/dcos/2.0/installing/) and the [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) installed.
 
 <a name="create-job"></a>
 

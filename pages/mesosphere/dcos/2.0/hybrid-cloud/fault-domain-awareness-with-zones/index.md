@@ -13,9 +13,9 @@ enterprise: false
 
 A fault domain is a section of a network, for example, a rack in a datacenter or an entire datacenter, that is vulnerable to damage if a critical device or system fails. All instances within a fault domain share similar failure and latency characteristics. Instances in the same fault domain are all affected by failure events within the domain. Placing instances in more than one fault domain reduces the risk that a failure will affect all instances.
 
-DC/OS now supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
+DC/OS&trade; supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed.
 
-DC/OS currently supports Mesos' two-level hierarchical fault domains: zone and region.
+DC/OS currently supports the two-level hierarchical fault domains in Apache&reg; Mesos&reg;: zone and region.
 
 
 # Zone fault domains

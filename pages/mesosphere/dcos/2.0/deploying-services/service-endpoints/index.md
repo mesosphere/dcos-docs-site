@@ -9,14 +9,13 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-
-Containerized services can be placed anywhere in the cluster. Many DC/OS services provide endpoints to allow clients to find them.
+Containerized services can be placed anywhere in the cluster. Many DC/OS&trade; services provide endpoints to allow clients to find them.
 
 # Discovering endpoints
 You can find a service's endpoints, if available, from the DC/OS web interface. Click **Services**, then the name of your service. Click the **Endpoints** tab.
 
 ## Discovering endpoints for certified DC/OS services
-The following services also offer CLI commands and an API to discover endpoints: Cassandra, Confluent Kafka, DSE, Elastic, and HDFS.
+The following services also offer CLI commands and an API to discover endpoints: Cassandra&reg;, Confluent&reg; Kafka, DSE, Elastic, and HDFS&trade;.
 
 - CLI:
   - List endpoint types: `dcos <package-name> endpoints`

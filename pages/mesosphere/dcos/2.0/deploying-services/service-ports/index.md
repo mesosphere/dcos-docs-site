@@ -9,20 +9,19 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-
 You can use [virtual addresses (VIPs)](/mesosphere/dcos/2.0/networking/load-balancing-vips/virtual-ip-addresses/) to make port management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.
 
 # Definitions
 
-**containerPort**: A container port specifies a port within a container. This is only necessary as part of a port mapping when using `BRIDGE` or `USER` mode networking with a Docker container.
+**containerPort**: A container port specifies a port within a container. This is only necessary as part of a port mapping when using `BRIDGE` or `USER` mode networking with a Docker&reg; container.
 
 **hostPort**: A host port specifies a port on the host to bind to. When used with `BRIDGE` or `USER` mode networking, you specify a port mapping from a host port to a container port. In `HOST` networking, requested ports are host ports by default. Note that only host ports are made available to a task through environment variables.
 
 **BRIDGE networking**: used by Docker applications that specify `BRIDGE` mode networking. In this mode, container ports are mapped to host ports. In this mode, applications bind to the specified ports within the container and Docker networking binds to the specified ports on the host.
 
-**USER networking**: used by Docker applications that specify `USER` mode networking. In this mode, container ports are mapped to host ports. In this mode, applications bind to the specified ports within the container and Docker networking binds to the specified ports on the host. `USER` network mode is expected to be useful when integrating with "user-defined" Docker networks. In the Mesos world such networks are often made accessible via CNI plugins used in concert with a Mesos CNI network isolator.
+**USER networking**: used by Docker applications that specify `USER` mode networking. In this mode, container ports are mapped to host ports. In this mode, applications bind to the specified ports within the container and Docker networking binds to the specified ports on the host. `USER` network mode is expected to be useful when integrating with "user-defined" Docker networks. In the Mesos world such networks are often made accessible through CNI&reg; plugins used in concert with an Apache&reg; Mesos&reg; CNI network isolator.
 
-**HOST networking**: used by non-Docker Marathon applications and Docker applications that use `HOST` mode networking. In this mode, applications bind directly to one or more ports on the host machine.
+**HOST networking**: used by non-Docker Marathon&trade; applications and Docker applications that use `HOST` mode networking. In this mode, applications bind directly to one or more ports on the host machine.
 
 **portMapping**: In Docker `BRIDGE` mode, a port mapping is necessary for every port that should be reachable from outside of your container. A port mapping is a tuple containing a host port, container port, service port and protocol. Multiple port mappings may be specified for a Marathon application; an unspecified `hostPort` defaults to `0` (meaning that Marathon will assign one at random). In Docker `USER` mode the semantic for `hostPort` slightly changes: `hostPort` is not required for `USER` mode and if left unspecified Marathon WILL NOT automatically allocate one at random. This allows containers to be deployed on `USER` networks that include `containerPort` and discovery information, but do NOT expose those ports on the host network (and by implication would not consume host port resources).
 
@@ -87,9 +86,9 @@ Or through the `portDefinitions` array:
 ```
 
 
-In this example, we specify three randomly assigned host ports which would then be available to our command via the environment variables `$PORT0`, `$PORT1` and `$PORT2`. Marathon will also randomly assign three service posts in addition to these three host ports.
+In this example, we specify three randomly assigned host ports which would then be available to our command using the environment variables `$PORT0`, `$PORT1` and `$PORT2`. Marathon will also randomly assign three service posts in addition to these three host ports.
 
-You can also specify specific service ports:
+You can also use specific service ports:
 
 ```json
     "ports": [
@@ -105,7 +104,7 @@ Or:
     ],
 ```
 
-In this case, host ports `$PORT0`, `$PORT1` and `$PORT3` remain randomly assigned. However, the three service ports for this application are now `2001`, `2002` and `3000`. As with the previous example, it is necessary to use a service discovery solution such as HAProxy to proxy requests from service ports to host ports. If you want the applications service ports to be equal to its host ports, you can set `requirePorts` to `true` (`requirePorts` is `false` by default). This will tell Marathon to only schedule this application on agents which have these ports available:
+In this case, host ports `$PORT0`, `$PORT1` and `$PORT3` remain randomly assigned. However, the three service ports for this application are now `2001`, `2002` and `3000`. As with the previous example, it is necessary to use a service discovery solution such as HAProxy&reg; to proxy requests from service ports to host ports. If you want the applications service ports to be equal to its host ports, you can set `requirePorts` to `true` (`requirePorts` is `false` by default). This will tell Marathon to only schedule this application on agents which have these ports available:
 
 ```json
     "ports": [

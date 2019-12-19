@@ -9,10 +9,9 @@ excerpt: Understanding fault domains
 enterprise: true
 ---
 
-
 A fault domain is a section of a network, for example, a rack in a datacenter or an entire datacenter, that is vulnerable to damage if a critical device or system fails. All instances within a fault domain share similar failure and latency characteristics. Instances in the same fault domain are all affected by failure events within the domain. Placing instances in more than one fault domain reduces the risk that a failure will affect all instances.
 
-DC/OS now supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. DC/OS currently supports Mesos' 2-level hierarchical fault domains: zone and region.
+DC/OS&trade; supports fault domain awareness. Use fault domain awareness to make your services highly available and to allow for increased capacity when needed. DC/OS currently supports the 2-level hierarchical fault domains in Apache&reg; Mesos&reg;: zone and region.
 
 # Zone fault domains
 Zone fault domains offer a moderate degree of fault isolation because they share the same region. However, network latency between zones in the same region is moderately low (typically < 10ms). For on-premise deployments, a zone would be a physical data center rack. For public cloud deployments, a zone would be the "availability zone" concept provided by most cloud providers. If your goal is high availability, and/or your services are latency-sensitive, place your instances in a one region and balance them across zones.
@@ -51,7 +50,7 @@ You must have less than 100ms latency between regions.
     }
     ```
 
-    We provide [fault domain detect scripts for AWS, GCP and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
+    We provide [fault domain detect scripts for AWS&reg;, GCP&reg;, and Azure&reg; nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
     <p class="message--important"> <strong>IMPORTANT:</strong> This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
@@ -72,10 +71,13 @@ You must have less than 100ms latency between regions.
 
 Alternatively, click the **Nodes** tab in the DC/OS GUI. The Nodes table will show region and zone columns for each agent.
 
+# Use
+
+User-created Marathon services and pods support both zone and region awareness. The following beta versions of DC/OS data services support zone awareness: Cassandra&reg;, Elastic, HDFS&trade;, Kafka&reg;, and Spark&trade;. Consult the individual service documentation for more information about configuring zone awareness for DC/OS data services. <!-- todo: link to appropriate pages when the betas are released -->
 
 ## Marathon services and pods
 
-In your Marathon service or pod definition, you can use [placement constraints](/mesosphere/dcos/2.0/deploying-services/marathon-constraints/) to:
+In your Marathon&trade; service or pod definition, you can use [placement constraints](/mesosphere/dcos/2.0/deploying-services/marathon-constraints/) to:
 
 - Specify a region and zone for your service or pod, so that all instances will be scheduled only in that region and zone.
 

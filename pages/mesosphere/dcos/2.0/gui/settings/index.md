@@ -9,8 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-From the **Settings** tab, you can manage 
-
+From the **Settings** tab, you can manage:
 - UI Settings
 - Package repositories
 - Secret Stores
@@ -87,7 +86,7 @@ You can also deploy a local Catalog containing your own set of packages. See the
 
 ## Deleting a Repository
 
-<p class="message--warning"><strong>WARNING: </strong>If you delete a repository, you will not be able to install any packages belonging to that repository any more.</p> 
+<p class="message--warning"><strong>WARNING: </strong>If you delete a repository, you will no longer be able to install any packages belonging to that repository.</p> 
 
 1. Hover your mouse over the right hand side of the listing. 
 1. A **Delete** button will appear. Click it to delete your repository. You will be asked to confirm this deletion. 
@@ -116,7 +115,7 @@ To add a directory, click on the **Add Directory** button. Further details about
 
 # Identity Providers
 
-DC/OS supports the use of identity provider-based authentication. Detailed information about how to set up identity provider-based authentication can be found in the [documentation](/mesosphere/dcos/2.0/security/ent/sso/). We provide information for configuring a [SAML identity provider](/mesosphere/dcos/2.0/security/ent/sso/setup-saml/) or an [OpenID Connect IdP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/).
+DC/OS supports the use of identity provider-based authentication. Detailed information about how to set up identity provider-based authentication can be found in the [documentation](/mesosphere/dcos/2.0/security/ent/sso/). We provide information for configuring a [SAML identity provider](/mesosphere/dcos/2.0/security/ent/sso/setup-saml/) or an [OpenID Connect&reg; IdP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/).
 
 ![Identity providers](/mesosphere/dcos/2.0/img/GUI-Settings-LDAP-Add-Oidc.png)
 

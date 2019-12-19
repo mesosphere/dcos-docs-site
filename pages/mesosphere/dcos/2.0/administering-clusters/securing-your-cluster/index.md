@@ -10,12 +10,13 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # General security concepts
 
-DC/OS is based on a Linux kernel and user space. The same best practices for
-securing any Linux system apply to securing DC/OS, including setting correct
-file permissions, restricting root and normal user accounts, protecting
-network interfaces with `iptables` or other firewalls, and regularly applying
-updates from the Linux distribution used with DC/OS to ensure that system
-libraries, utilities and core services like systemd and OpenSSH are secure.
+DC/OS&trade; is based on a Linux&reg; kernel and user space. The same best practices for
+securing any Linux system apply to securing DC/OS, including:
+- Setting correct file permissions
+- Restricting root and normal user accounts
+- Protecting network interfaces with `iptables` or other firewalls
+- Regularly applying updates from the Linux distribution used with DC/OS to ensure that system
+libraries, utilities and core services like systemd and OpenSSH are secure
 
 # Network security
 
@@ -41,8 +42,7 @@ Although DC/OS components do not currently support private network selection, yo
 
 # Security zones
 
-At the highest level we can distinguish three security zones in a DC/OS
-deployment, namely the admin, private, and public security zones.
+At the highest level we can distinguish three security zones in a DC/OS deployment: admin, private, and public.
 
 ## Admin zone
 
@@ -56,15 +56,15 @@ ranges are permitted to access the admin zone.
 
 Access to the admin zone is controlled by Admin Router.
 
-HTTP requests incoming to your DC/OS cluster are proxied through Admin Router (using [Nginx](http://nginx.org) with [OpenResty](https://openresty.org) at its core). Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it must present a valid authentication token in its Authorization header. A token can be obtained by going through the authentication process. See the [Security documentation](/mesosphere/dcos/2.0/security/) for more information.
+HTTP requests incoming to your DC/OS cluster are proxied through Admin Router (using [Nginx&trade;](http://nginx.org) with [OpenResty&reg;](https://openresty.org) at its core). Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it must present a valid authentication token in its Authorization header. A token can be obtained by going through the authentication process. See the [Security documentation](/mesosphere/dcos/2.0/security/) for more information.
 
 Authenticated users are authorized to perform any actions in their cluster. There is currently no fine-grained access control in DC/OS besides having access or not having access to services.
 
 #### Steps for securing Admin Router
 
-By default, Admin Router will permit unencrypted HTTP traffic. This is not considered secure, and you must provide a valid TLS certificate and redirect all HTTP traffic to HTTPS to properly secure access to your cluster. After you have a valid TLS certificate, install the certificate on each master. Copy the certificate and private key to a well known location, such as under `/etc/ssl/certs`.
+By default, Admin Router will permit unencrypted HTTP traffic. This is not considered secure, and you must provide a valid TLS certificate and redirect all HTTP traffic to HTTPS to secure access to your cluster properly. After you have a valid TLS certificate, install the certificate on each master. Copy the certificate and private key to a well known location, such as under `/etc/ssl/certs`.
 
-If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/mesosphere/dcos/2.0/security/ent/tls-ssl/haproxy-adminrouter/).
+If you run HAProxy&reg; in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/mesosphere/dcos/2.0/security/ent/tls-ssl/haproxy-adminrouter/).
 
 ## Private zone
 
@@ -75,12 +75,12 @@ nodes are run.
 
 ## Public zone
 
-The optional **public** zone is where publicly accessible applications are run. Generally, only a small number of agent nodes are run in this zone. The edge router forwards traffic to applications running in the private zone.
+The optional **public** zone is where publicly-accessible applications are run. Generally, only a small number of agent nodes are run in this zone. The edge router forwards traffic to applications running in the private zone.
 
 The agent nodes in the public zone are labeled with a special role so that only specific tasks can be scheduled here. These agent nodes have both public and private IP addresses and only specific ports should be open in their
 `iptables` firewall.
 
-By default, when using the cloud-based installers such as the AWS CloudFormation templates, a large number of ports are exposed to the Internet for the public zone. In production systems, it is unlikely that you would expose all of these ports. It is recommended that you close all ports except 80 and 443 (for HTTP/HTTPS traffic) and use [Marathon-LB](/mesosphere/dcos/services/marathon-lb/latest/) with HTTPS to manage ingress traffic.
+By default, when using the cloud-based installers such as the AWS&reg; CloudFormation templates, a large number of ports are exposed to the Internet for the public zone. In production systems, it is unlikely that you would expose all of these ports. It is recommended that you close all ports except 80 and 443 (for HTTP/HTTPS traffic) and use [Marathon-LB](/mesosphere/dcos/services/marathon-lb/latest/) with HTTPS to manage ingress traffic.
 
 ### Typical AWS deployment
 

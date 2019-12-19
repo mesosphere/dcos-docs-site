@@ -9,16 +9,16 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-You can implement fine-grained user access to jobs by using either the DC/OS UI, the CLI or [the API](/mesosphere/dcos/2.0/security/ent/iam-api/). The [Metronome permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
+You can implement fine-grained user access to jobs by using either the DC/OS&trade; UI, the CLI or [the API](/mesosphere/dcos/2.0/security/ent/iam-api/). The [Metronome permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#marathon-metronome) allow you to restrict a user's access to jobs on either a per job or a per job group basis. This section walks you through the steps to accomplish this.
 
 **Prerequisites:**
 
 - You must have the [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/) and be logged in as a superuser.
-- A [user account](/mesosphere/dcos/2.0/security/ent/users-groups/) to assign permissions to.
+- An existing [user account](/mesosphere/dcos/2.0/security/ent/users-groups/) to which you can assign permissions.
 
 <a name="job-group-access-via-ui"></a>
 
-# Via the DC/OS UI
+# Using the DC/OS UI
 
 1. Log into the DC/OS UI as a user with the `superuser` permission.
 
@@ -90,7 +90,7 @@ You can implement fine-grained user access to jobs by using either the DC/OS UI,
 1.  Click **ADD PERMISSIONS** and then **Close**.
 
 
-# <a name="job-group-access-via-cli"></a>Via the CLI
+# <a name="job-group-access-via-cli"></a>Using the CLI
 
 **Prerequisites:**
 

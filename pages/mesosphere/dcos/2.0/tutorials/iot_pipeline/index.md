@@ -10,11 +10,11 @@ model: /mesosphere/dcos/2.0/data.yml
 
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
-This tutorial demonstrates how you can build a complete load-balanced data pipeline on DC/OS in about 15 minutes!
+This tutorial demonstrates how you can build a complete, load-balanced data pipeline on DC/OS&trade; in about 15 minutes!
 
 # Overview
 
-In this tutorial you will install and deploy a containerized Ruby on Rails app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin to perform real-time analytics on the data created by Tweeter.
+In this tutorial you will install and deploy a containerized Ruby on Rails&reg; app named Tweeter. Tweeter is an app similar to Twitter that you can use to post 140-character messages to the internet. Then, you use Zeppelin&trade; to perform real-time analytics on the data created by Tweeter.
 
 You will learn:
 
@@ -27,13 +27,13 @@ You will learn:
 This tutorial uses DC/OS to launch and deploy these microservices to your cluster:
 
 ### Cassandra
-The [Cassandra][1] database is used on the back-end to store the Tweeter app data.
+The [Cassandra&reg;][1] database is used on the back-end to store the Tweeter app data.
 
 ### Kafka
-The [Kafka][2] publish-subscribe message service receives tweets from Cassandra and routes them to Zeppelin for real-time analytics.
+The [Kafka&reg;][2] publish-subscribe message service receives tweets from Cassandra and routes them to Zeppelin for real-time analytics.
 
 ### Marathon-LB
-[Marathon-LB][12] is an HAProxy based load balancer for Marathon only. It is useful when you require external routing or layer 7 load balancing features.
+[Marathon-LB][12] is an HAProxy&reg;-based load balancer for Marathon&trade; only. It is useful when you require external routing or layer 7 load balancing features.
 
 ### Zeppelin
 [Zeppelin][4] is an interactive analytics notebook that works with DC/OS Spark on the back-end to enable interactive analytics and visualization. Because it is possible for Spark and Zeppelin to consume all of your cluster resources, you must specify a maximum number of cores for the Zeppelin service.
@@ -49,8 +49,8 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 *  [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
-    *   **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
-    *   **Unix/Linux:** See these [installation instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
+    *   **macOS&reg;:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
+    *   **UNIX&reg;/Linux&reg;:** See these [installation instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
 
 ## Install DC/OS services
 
@@ -62,7 +62,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **{{ model.packageRepo }}** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/mesosphere/dcos/services/marathon-lb/latest/mlb-install/). Depending on your [security mode](/mesosphere/dcos/2.0/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on a DC/OS Enterprise cluster, try installing it following [these instructions](/mesosphere/dcos/services/marathon-lb/latest/mlb-install/). Depending on your [security mode](/mesosphere/dcos/2.0/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **{{ model.packageRepo }}** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.

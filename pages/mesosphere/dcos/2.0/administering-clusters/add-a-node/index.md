@@ -13,7 +13,7 @@ Agent nodes are designated as [public](/mesosphere/dcos/latest/overview/concepts
 
 ## Prerequisites:
 
-*   DC/OS installed using the [custom](/mesosphere/dcos/latest/installing/production/deploying-dcos/installation/) installation method
+*   DC/OS&trade; installed using the [custom](/mesosphere/dcos/latest/installing/production/deploying-dcos/installation/) installation method
 *   The archived DC/OS installer file (`dcos-install.tar`) from your [installation](/mesosphere/dcos/latest/installing/evaluation/)
 *   Available agent nodes that satisfy the [system requirements](/mesosphere/dcos/latest/installing/production/system-requirements/)
 *   The CLI JSON processor [jq](https://github.com/stedolan/jq/wiki/Installation)

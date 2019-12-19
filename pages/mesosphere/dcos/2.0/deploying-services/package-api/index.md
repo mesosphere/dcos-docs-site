@@ -8,7 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-You can install DC/OS services by using the Package Management API. DC/OS services are installed from packages that are stored in a package registry, such as the [Mesosphere {{ model.packageRepo }}](/mesosphere/dcos/2.0/overview/concepts/#mesosphere-universe).
+You can install DC/OS&trade; services by using the Package Management API. DC/OS services are installed from packages that are stored in a package registry, such as the [Mesosphere {{ model.packageRepo }}](/mesosphere/dcos/2.0/overview/concepts/#mesosphere-universe).
 
 The [DC/OS Package Manager (Cosmos) component](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-package-manager) runs on all master nodes.
 

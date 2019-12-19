@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-<p class="message--important"><strong>IMPORTANT: </strong> If you are using DC/OS Enterprise, use <tt>package-registry</tt> for seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>
+<p class="message--important"><strong>IMPORTANT: </strong> If you are using DC/OS&trade; Enterprise, use <tt>package-registry</tt> for seamless management of packages in air-gapped environments. Local {{ model.packageRepo }} support is deprecated.</p>
 
 You can install and run DC/OS services on a datacenter without Internet access by using a local [{{ model.packageRepo }}](https://github.com/mesosphere/universe). You can deploy a local {{ model.packageRepo }} that includes all Certified packages (basic), or a local {{ model.packageRepo }} that includes selected packages (advanced).
 
@@ -18,7 +18,7 @@ You can install and run DC/OS services on a datacenter without Internet access b
 - [DC/OS CLI installed](/mesosphere/dcos/2.0/cli/install/).
 
 - Logged into the DC/OS CLI. On DC/OS Enterprise, you must be logged in as a user with the `dcos:superuser` permission.
-<p class="message--note"><strong>NOTE: </strong>As the {{ model.packageRepo }} tarball is over two gigabytes in size it may take some time to download it to your local drive and upload it to each master.</p>
+<p class="message--note"><strong>NOTE: </strong>Since the {{ model.packageRepo }} tarball is over two gigabytes in size, it may take some time to download it to your local drive and upload it to each master.</p>
 
 # <a name="certified"></a>Certified {{ model.packageRepo }} packages
 
@@ -73,7 +73,7 @@ This section explains how to deploy a local {{ model.packageRepo }} containing c
     ls -la /etc/systemd/system/dcos-local-universe-*
     ```
 
-1.  Load the {{ model.packageRepo }} into the local Docker instance. This may take some time to complete.
+1.  Load the {{ model.packageRepo }} into the local Docker&reg; instance. This may take some time to complete.
 
     ```bash
     sudo docker load < local-universe.tar.gz
@@ -211,21 +211,21 @@ Repeat this section until you have completed this procedure for all of your mast
     sudo systemctl restart docker
     ```
 
-1. Configure the Apache Mesos fetcher to trust the downloaded Docker certificate.
+1. Configure the Apache&reg; Mesos&reg; fetcher to trust the downloaded Docker certificate.
 
-   1. Copy the certificate:
-   ```
-   sudo cp /etc/docker/certs.d/master.mesos:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
-   ```
-   1. Generate a hash:
-   ```
-   cd /var/lib/dcos/pki/tls/certs/
-   openssl x509 -hash -noout -in docker-registry-ca.crt
-   ```
-   1. Create a soft link. You will need to create the `/pki/tls/certs` directory on the public agent.
-   ```
-   sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
-   ```
+    1. Copy the certificate:
+    ```
+    sudo cp /etc/docker/certs.d/master.mesos:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
+    ```
+    1. Generate a hash:
+    ```
+    cd /var/lib/dcos/pki/tls/certs/
+    openssl x509 -hash -noout -in docker-registry-ca.crt
+    ```
+    1. Create a soft link. You will need to create the `/pki/tls/certs` directory on the public agent.
+    ```
+    sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
+    ```
   
 1.  Close the SSH session by typing `exit`, or open a new terminal prompt. Repeat these steps on each agent node.
 1.  To verify your success, log into the DC/OS web interface and click the **{{ model.packageRepo }}** tab. You should see a list of Certified packages. Install one of the packages.
@@ -246,7 +246,7 @@ Repeat this section until you have completed this procedure for all of your mast
 
 # <a name="build"></a>Selected packages
 
-**Prerequisite:** [Git](https://git-scm.com/). On Unix/Linux, see these <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">installation instructions</a>.
+**Prerequisite:** [Git](https://git-scm.com/). On UNIX&reg;/Linux&reg;, see these <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git" target="_blank">installation instructions</a>.
 
 To deploy a local {{ model.packageRepo }} containing your own set of packages you must build a customized local {{ model.packageRepo }} Docker image.
 

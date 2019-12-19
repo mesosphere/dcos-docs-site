@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-Services can be uninstalled from the CLI. If a {{ model.packageRepo }} service has any reserved resources that could not be cleaned up by the normal uninstall process, you may also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper, along with any data associated with it.
+Services can be uninstalled from the DC/OS&trade; CLI. If a {{ model.packageRepo }} service has any reserved resources that could not be cleaned up by the normal uninstall process, you may also need to run the framework cleaner script. The [framework cleaner script](#framework-cleaner) removes the service instance from ZooKeeper&trade;, along with any data associated with it.
 
 # Uninstalling {{ model.packageRepo }} services
 
@@ -88,16 +88,16 @@ You can uninstall services from the DC/OS web interface, from the **Services** t
 
 ### About the cleanup
 
-If your service has reserved resources and it did not completely clean itself up automatically, you can use the framework cleaner docker image, `mesosphere/janitor`, to simplify the process of removing your service instance from ZooKeeper and destroying all the data associated with it. **On DC/OS 1.10+ clusters, this should only be necessary in rare circumstances such as a failed uninstall.** The package's documentation may have its own additional information in an "Uninstall" section.
+If your service has reserved resources and it did not completely clean itself up automatically, you can use the framework cleaner Docker&reg; image, `mesosphere/janitor`, to simplify the process of removing your service instance from ZooKeeper and destroying all the data associated with it. **On DC/OS 1.10+ clusters, this should only be necessary in rare circumstances such as a failed uninstall.** The package's documentation may have its own additional information in an "Uninstall" section.
 
-There are two ways to run the framework cleaner script. The preferred method is via the DC/OS CLI. If the CLI is unavailable, you can also run the image as a self-deleting Marathon task.
+There are two ways to run the framework cleaner script. The preferred method is using the DC/OS CLI. If the CLI is unavailable, you can also run the image as a self-deleting Marathon task.
 
 ### Configuring the cleanup
 
 The script takes the following flags:
 
 * `-r <role>`: The role of the resources to be deleted
-* `-z <zk-node>`: The configuration zookeeper node to be deleted
+* `-z <zk-node>`: The configuration Zookeeper node to be deleted
 
 The command would be run as follows:
 
@@ -200,7 +200,7 @@ Here is an example of the output for a successful run for a sample installation:
     Successfully deleted znode 'dcos-service-sample' (code=200), if znode existed.
     Cleanup completed successfully.
 
-If you run the script via Marathon, you will also see the following output:
+If you run the script from Marathon, you will also see the following output:
 
     Deleting self from Marathon to avoid run loop: /janitor
     Successfully deleted self from marathon (code=200): /janitor

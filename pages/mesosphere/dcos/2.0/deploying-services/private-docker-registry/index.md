@@ -9,8 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-
-To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In DC/OS Enterprise, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
+To supply credentials to pull from a private Docker&reg; registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In DC/OS&trade; Enterprise, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
 
 <a name="uri-instructions"></a>
 # Referencing private Docker registry credentials as a URI
@@ -48,7 +47,7 @@ To supply credentials to pull from a private Docker registry, create an archive 
     ```
 
 
-<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example using RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3&reg;</a>. Consider the security implications of your chosen approach carefully.</p>
 
 
 ## Step 2: Add URI path to service definition

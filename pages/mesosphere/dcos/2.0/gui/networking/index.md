@@ -56,7 +56,7 @@ Figure 3 - Service Addresses tab
 
 | Name | Description |
 |---------|--------------|
-| Name | Mesos DNS name.  |
+| Name | Apache&reg; Mesos&reg; DNS name.  |
 | Successes |  Number of successful requests.      |
 | Failures | Number of failed requests. |
 | Failure % | Failure rate. |
@@ -84,4 +84,3 @@ Figure 5 - Service Addresses detail page showing clients
 DC/OS can map traffic from a single Virtual IP (VIP) to multiple IP addresses and ports. 
 
 For detailed information on creating a virtual IP, see the [Networking documentation](/mesosphere/dcos/2.0/networking/load-balancing-vips/virtual-ip-addresses/#creating-a-vip).
-.

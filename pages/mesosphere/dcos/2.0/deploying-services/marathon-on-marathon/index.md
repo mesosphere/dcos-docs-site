@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-This topic describes how to deploy non-native instances of Marathon to isolate Mesos roles, reservations, and quotas for your DC/OS cluster.  
+This topic describes how to deploy non-native instances of Marathon&trade; to isolate Apache&reg; Mesos&reg; roles, reservations, and quotas for your DC/OS&trade; cluster.  
 
 ## Terminology
 

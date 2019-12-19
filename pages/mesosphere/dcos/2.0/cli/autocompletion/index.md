@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-Autocompletion for the CLI is supported for `bash` and `zsh`. This allows you to press TAB to get access to subcommands and autocomplete the ones you are writing.
+Autocompletion for the DC/OS&trade; CLI is supported for `bash` and `zsh`. This allows you to press TAB to get access to subcommands and auto-complete the commands you are writing.
 
 For example, after enabling autcompletion, typing `dcos clus[TAB]` will give you `dcos cluster`.
 
@@ -24,8 +24,8 @@ To complete other commands, you will have to be attached to a cluster and added 
 
 If you want to enable autocompletion for the CLI in `bash` you must install `bash-completion`.
 
-macOS:  `brew install bash-completion` \
-Debian/Ubuntu: `apt-get install bash-completion`
+macOS&reg;:  `brew install bash-completion` \
+Debian&reg;/Ubuntu&reg;: `apt-get install bash-completion`
 
 To activate the completions you must add two lines to your `.profile`:
 ```

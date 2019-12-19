@@ -9,14 +9,14 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The DC/OS API is a collection of routes backed by [DC/OS components](/mesosphere/dcos/2.0/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/mesosphere/dcos/2.0/overview/architecture/components/#admin-router).
+The DC/OS&trade; API is a collection of routes backed by [DC/OS components](/mesosphere/dcos/2.0/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/mesosphere/dcos/2.0/overview/architecture/components/#admin-router).
 
 <img src="/mesosphere/dcos/2.0/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 Figure 1. DC/OS API routing schematic
 
 # API Gateway
 
-Admin Router is an API gateway built on top of NGINX with the following goals:
+Admin Router is an API gateway built on top of NGINX&reg; with the following goals:
 
 - Present a unified control plane for the DC/OS API
 - Proxy API requests to component services on master and agent nodes
@@ -59,9 +59,9 @@ Some routes are unauthenticated, but most require an authentication token. For d
 
 # Authorization
 
-Most authenticated routes also require authorization via permissions. Permissions in DC/OS Enterprise consist of a hierarchical resource identifier and an action (create, read, update, delete, full). Permission enforcement can be performed at two levels.
+Most authenticated routes also require authorization using permissions. Permissions in DC/OS Enterprise consist of a hierarchical resource identifier and an action (create, read, update, delete, full). Permission enforcement can be performed at two levels:
 
-- **Course-grained permissions** are [enforced by Admin Router](/mesosphere/dcos/2.0/security/ent/perms-reference/#admin-router) at the route level.
+- **Coarse-grained permissions** are [enforced by Admin Router](/mesosphere/dcos/2.0/security/ent/perms-reference/#admin-router) at the route level.
 - **Fine-grained permissions** are enforced by individual backend component services.
 
 [Permissions Management](/mesosphere/dcos/2.0/security/ent/perms-management/) can be performed by users with the [Superuser permission](/mesosphere/dcos/2.0/security/ent/perms-reference/#superuser) using the [Identity and Access Management API](/mesosphere/dcos/2.0/security/ent/iam-api/). Users with the Superuser permission also have implicit permission to access all routes.
@@ -74,7 +74,7 @@ Most authenticated routes also require authorization via permissions. Permission
     <cluster-url>/<route>/<resource-path>
     ```
 
-    For example, get the Mesos version from: `https://dcos.example.com/mesos/version`
+    For example, get the Apache&reg; Mesos&reg; version from: `https://dcos.example.com/mesos/version`
 
 - **File routes** have no backend component, but may serve a directory of files or a single file. So for file routes, specify the file path instead of the backend component resource path.
 

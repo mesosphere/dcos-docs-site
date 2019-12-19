@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The component management API controls installation and management of DC/OS component services.
+The component management API controls installation and management of DC/OS&trade; component services.
 
 It is used by the DC/OS installer during install, upgrade, and uninstall. It is not designed for interaction by DC/OS users.
 

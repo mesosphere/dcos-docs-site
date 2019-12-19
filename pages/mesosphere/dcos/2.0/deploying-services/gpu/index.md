@@ -9,14 +9,14 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-DC/OS supports allocating GPUs (Graphics Processing Units) to your long-running DC/OS services. Adding GPUs to your services can dramatically accelerate big data workloads. With GPU-based scheduling, you can share cluster resources for traditional and machine learning workloads, as well as dynamically allocate GPU resources inside those clusters and free them when needed. You can reserve GPU resources for the workloads that need them, or pool these GPU-enabled resources with the rest of the infrastructure for higher overall utilization. After installing DC/OS with GPUs enabled, you can specify GPUs in your application definitions with the `gpus` parameter.
+DC/OS&trade; supports allocating GPUs (Graphics Processing Units) to your long-running DC/OS services. Adding GPUs to your services can dramatically accelerate big data workloads. With GPU-based scheduling, you can share cluster resources for traditional and machine learning workloads, as well as dynamically allocate GPU resources inside those clusters and free them when needed. You can reserve GPU resources for the workloads that need them, or pool these GPU-enabled resources with the rest of the infrastructure for higher overall utilization. After installing DC/OS with GPUs enabled, you can specify GPUs in your application definitions with the `gpus` parameter.
 
 # Installing DC/OS with GPUs Enabled
 GPUs must be enabled during DC/OS installation. Follow the instructions below to enable GPUs based on your specific DC/OS deployment method.
 
 ## On-Prem DC/OS Installation with GPUs
 
-1.  Install the [NVIDIA Management Library (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml) on each node of your cluster that has GPUs. The minimum required NVIDIA driver version is 340.29. For detailed installation instructions, see the [Mesos GPU support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
+1.  Install the [NVIDIA&reg; Management Library (NVML)](https://developer.nvidia.com/nvidia-management-library-nvml) on each node of your cluster that has GPUs. The minimum required NVIDIA driver version is 340.29. For detailed installation instructions, see the [Apache&reg; Mesos&reg; GPU support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 1.  Install DC/OS using the [custom advanced installation instructions](/mesosphere/dcos/2.0/installing/production/advanced-configuration/). Here are the GPU-specific configuration parameters:
 
     -  **enable_gpu_isolation**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`.
@@ -26,7 +26,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
     For more information, see the [configuration parameter documentation](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuring-gpu-nodes/) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 
-## Cloud DC/OS Installation with GPUs using the DC/OS Universal Installer
+## AWS EC2&reg; DC/OS Installation with GPUs
 
 ###  Prerequisites
 
@@ -94,7 +94,7 @@ In this example, a simple sleep app is defined which uses GPUs.
 
 You will also see an entry for **GPU** in the DC/OS GUI on the **Configuration** tab for your service.
 
-## Docker-Based Application Definition
+## Docker&reg;-Based Application Definition
 In this example, an app is deployed with GPUs that specifies a Docker container and the [DC/OS Universal Container Runtime (UCR)](/mesosphere/dcos/2.0/deploying-services/containerizers/) (container type to `MESOS`).
 
 1.  Create an app definition named `docker-gpu-test.json`.

@@ -11,7 +11,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for a flexible and seamless management of your packages.
+Mesosphere&reg; DC/OS&trade; comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for a flexible and seamless management of your packages.
 
 For a full list of the configuration options available for the DC/OS Package Registry, run the following command:
 
@@ -24,7 +24,7 @@ For a detailed description of how to configure and deploy DC/OS Services, see [C
 
 # Default installation
 
-Package registry can be activated out of box by executing the following command(s):
+Package registry can be activated out-of-the-box by executing the following command(s):
 
 ```bash
 # Install the package-registry CLI
@@ -45,7 +45,7 @@ If you have a configuration file from one of the previous installations, you can
 
 Package registry can be configured with the following options during deployment:
 
-1. [Storage Options](#storage-options) (Local storage OR Mount Volumes OR S3 Compatible Storage)
+1. [Storage Options](#storage-options) (Local storage OR Mount Volumes OR Amazon S3&reg; Compatible Storage)
 1. [Service namespacing and secrets](#service-namespacing-and-secrets)
 
 If you have a config file from one of the previous installations, you can skip this section and continue to the next section of installing the package-registry.
@@ -101,7 +101,7 @@ Create (or use an existing file) an S3 credential file and use it to create a fi
 dcos security secrets create -f ~/.aws/credentials dcos-registry-s3-credential-file
 ```
 
-For information on how to create an AWS Credential file, see the [AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html).
+For information on how to create an AWS&reg; Credential file, see the [AWS CLI User Guide](https://docs.aws.amazon.com/cli/latest/userguide/cli-config-files.html).
 
 The final `s3` config should look something like this:
 
@@ -123,7 +123,7 @@ The final `s3` config should look something like this:
 
 ## Service namespacing and secrets
 
-By default, package registry is installed as a marathon app with `dcos-registry` as its ID. This name has unique significance because the `dockerd` on agents are configured to trust the package registry instance at `dcos-registry.marathon.l4lb.thisdcos.directory:443`. If you decide to change this name, you need to configure the `dockerd` to trust the custom name your registry is deployed at `<your-custom-name>.marathon.l4lb.thisdcos.directory:443`. For example, if you install package registry under `/my/custom/dcos-registry` namespace, then ensure that the registry is accessible at `https://mycustomdcos-registry.marathon.l4lb.thisdcos.directory` (internal to cluster):
+By default, package registry is installed as a marathon app with `dcos-registry` as its ID. This name has unique significance because the `dockerd` processes on agents are configured to trust the package registry instance at `dcos-registry.marathon.l4lb.thisdcos.directory:443`. If you decide to change this name, you need to configure the `dockerd` process to trust the custom name your registry is deployed at `<your-custom-name>.marathon.l4lb.thisdcos.directory:443`. For example, if you install package registry under `/my/custom/dcos-registry` namespace, then ensure that the registry is accessible at `https://mycustomdcos-registry.marathon.l4lb.thisdcos.directory` (internal to cluster):
 
 ```bash
 curl -k https://mycustomdcos-registry.marathon.l4lb.thisdcos.directory
@@ -215,7 +215,7 @@ Now that you have successfully created the config file (referred to as `package-
 dcos package install package-registry --options=package-registry-options.json
 ```
 
-This would launch the Marathon app for `package-registry`. This usually takes a couple of minutes. As soon as `package-registry` is healthy, you can add it as one of the package repositories in DC/OS. This can be done by:
+This would launch the Marathon&trade; app for `package-registry`. This usually takes a couple of minutes. As soon as `package-registry` is healthy, you can add it as one of the package repositories in DC/OS. This can be done by:
 
 ```bash
 # Change the repo name and URL if you need to customize
@@ -234,7 +234,7 @@ After `package-registry` is installed, you can start adding packages to it. The 
 
 ## Building the packages
 
-Mesosphere hosts all its certified packages at [downloads.mesosphere.com/universe/packages/packages.html](https://downloads.mesosphere.com/universe/packages/packages.html). If the packages you need are available there, you can download them and skip to the next section of uploading these `.dcos` files to your cluster. When a {{ model.packageRepo }} package is under development and you want to test it before creating a pull request, or if you want to build a non certified (community) package, this section is useful.
+Mesosphere DC/OS hosts all its certified packages at [downloads.mesosphere.com/universe/packages/packages.html](https://downloads.mesosphere.com/universe/packages/packages.html). If the packages you need are available there, you can download them and skip to the next section of uploading these `.dcos` files to your cluster. When a {{ model.packageRepo }} package is under development and you want to test it before creating a pull request, or if you want to build a non certified (community) package, this section is useful.
 
 ### Requirements
 
@@ -264,7 +264,7 @@ Mesosphere hosts all its certified packages at [downloads.mesosphere.com/univers
       ```
       In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
 
-      <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry<tt> suffix does not work.</p>
+      <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry</tt> suffix does not work.</p>
 
 ### Instructions to generate `.dcos` bundle
 
@@ -288,7 +288,7 @@ mkdir /path/to/output
 dcos registry migrate --package-directory=/path/to/package --output-directory=/path/to/output
 
 # `build` to download all the requrired assets and generate a `.dcos` file. This may take a while.
-dcos registry build --build-definition-file=/path/to/output/<json-build-defintion-generated-above> --output-directory=/path/to/output
+dcos registry build --build-definition-file=/path/to/output/<json-build-definition-generated-above> --output-directory=/path/to/output
 ```
 
 If all these steps are completed successfully, your `/path/to/output` directory should look similar to the following:

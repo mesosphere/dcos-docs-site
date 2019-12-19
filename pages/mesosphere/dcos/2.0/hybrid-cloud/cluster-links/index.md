@@ -11,7 +11,7 @@ enterprise: true
 
 A cluster link is a **unidirectional** relationship between a cluster and another cluster.
 
-You add and remove links from one cluster to another cluster using DC/OS CLI [dcos cluster link](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-link/) and [dcos cluster unlink](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) commands and the [cluster link API](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-link-api/). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
+You add and remove links from one cluster to another cluster using DC/OS&trade; CLI [dcos cluster link](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-link/) and [dcos cluster unlink](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-unlink/) commands and the [cluster link API](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-link-api/). Once a link is set up you can easily switch between clusters using the CLI or UI. If the links have been set up using an SSO provider, you will not need to provide credentials to switch clusters.
 
 You must be a superuser or have the appropriate cluster link [permission](/mesosphere/dcos/2.0/security/ent/perms-reference/#cluster-linker) to view, add, and remove links and grant permissions to view linked clusters.
 
@@ -20,7 +20,7 @@ You must be a superuser or have the appropriate cluster link [permission](/mesos
 
 As superuser:
 
-1. Configure an [OpenID IDP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/).
+1. Configure an [OpenID:reg; IdP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/).
     1. Ensure both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Dev console.
     1. Give the OIDC name such as "google-idp".
     1. Ensure both clusters use the same `Client-Id` and `Client-Secret` when configuring OIDC.
@@ -114,7 +114,7 @@ If you are a superuser, you can also switch to a linked cluster in the Linked Cl
 
 # Example of linking and switching cluster
 
-## Link clusters as a superuser operator via CLI
+## Link clusters as a superuser operator using CLI
 
 1. Set up cluster `cluster-a` using the `dcos-user` provider.
 
@@ -158,7 +158,7 @@ If you are a superuser, you can also switch to a linked cluster in the Linked Cl
     (1-2):
     ```
 
-1. Choose Google IDP (2).
+1. Choose Google&reg; IDP (2).
 
     ```
     (1-2): 2

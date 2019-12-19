@@ -10,9 +10,9 @@ model: /mesosphere/dcos/2.0/data.yml
 
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
-This tutorial shows you how to install and run stateful services on DC/OS. A stateful service acts on persistent data. Simple, state**less** services run in an empty sandbox each time they are launched. In contrast, state**ful** services make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.
+This tutorial shows you how to install and run stateful services on DC/OS&trade;. A stateful service acts on persistent data. Simple, state**less** services run in an empty sandbox each time they are launched. In contrast, state**ful** services make use of persistent volumes that reside on agents in a cluster until explicitly destroyed.
 
-These persistent volumes are mounted into a task's Mesos sandbox and are therefore continuously accessible to a service. DC/OS creates persistent volumes for each task and all resources required to run the task are dynamically reserved. That way, DC/OS ensures that a service can be relaunched and can reuse its data when needed. This is useful for databases, caches, and other data-aware services.
+These persistent volumes are mounted into a task's Apache&reg; Mesos&reg; sandbox and are therefore continuously accessible to a service. DC/OS creates persistent volumes for each task and all resources required to run the task are dynamically reserved. That way, DC/OS ensures that a service can be relaunched and can reuse its data when needed. This is useful for databases, caches, and other data-aware services.
 
 If the service you intend to run does not replicate data on its own, you need to take care of backups or have a suitable replication strategy.
 
@@ -39,7 +39,7 @@ This tutorial is for developers who want to run stateful services on DC/OS.
 
 ## Install a Stateful Service (PostgreSQL)
 
-This is the DC/OS service definition JSON to start the official PostgreSQL Docker image:
+This is the DC/OS service definition JSON to start the official PostgreSQL&reg; Docker&reg; image:
 
 ```json
 {

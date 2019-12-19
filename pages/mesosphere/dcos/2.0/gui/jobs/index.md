@@ -24,7 +24,7 @@ Click on the down arrow next to each column name to sort the list.
 
 # Creating a new job
 
-There are two ways to create a job in the DC/OS UI.
+There are two ways to create a job in the DC/OS&trade; UI.
 
 - If you have no jobs configured, the Jobs screen will contain a notice that you have no active jobs, and a **Create a Job** button. 
 
@@ -67,7 +67,7 @@ You will see eight tabs on the left hand side of the screen. These help you name
 | Name | Description |
 |------|--------------|
 | [General](#general) | Sets the most basic job settings, such as the job identifier, CPU, memory and disk requirements.|
-| [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker Engine. |
+| [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker&reg; Engine. |
 | [Schedule](#schedule) | Sets up a schedule for your job. You can use the `cron` format. |
 | [Environment](#environment) | Specifies environment variables to be attached to each instance of your job.|
 | [Volumes](#volumes) | Configures a stateful job by setting up a persistent volume.|

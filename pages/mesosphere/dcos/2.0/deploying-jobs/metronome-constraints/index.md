@@ -11,7 +11,7 @@ enterprise: false
 
 Metronome placement constraints control where jobs run. Constraints have three parts: a field name, an operator, and a value. The field can be the hostname of the agent or any attribute of the agent.
 
-Metronome supports a subset of Marathon operators, and supports all of Marathon's special field names.
+Metronome supports a subset of Marathon&trade; operators, and supports all of Marathon's special field names.
 
 # Field Names
 
@@ -37,7 +37,7 @@ Metronome supports text, scalar and range attribute values. For scalars and rang
 
 ## IS operator
 
-Supported in DC/OS 1.12.1 and later.
+Supported in DC/OS&trade; 1.12.1 and later.
 
 **Value** (required): A Mesos Scalar or Text value, as specified by the [Mesos Attributes and Resources Type Specification](http://mesos.apache.org/documentation/latest/attributes-resources/#types):
 

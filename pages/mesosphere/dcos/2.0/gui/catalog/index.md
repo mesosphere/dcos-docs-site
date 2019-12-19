@@ -8,15 +8,15 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The {{ model.packageRepo }} page shows all of the available DC/OS services. You can install packages from the DC/OS {{ model.packageRepo }} with a single click. The packages can be installed with defaults or customized directly in the user interface.
+The {{ model.packageRepo }} page shows all of the available DC/OS&trade; services. You can install packages from the DC/OS {{ model.packageRepo }} with a single click. The packages can be installed with defaults or customized directly in the user interface.
 
 # Types of packages
 
-Mesosphere offers two kinds of service packages: Certified and Community.
+D2iQ&reg; offers two kinds of service packages: Certified and Community.
 
 ## Certified packages
 
-Certified packages are verified by Mesosphere to be interoperable with DC/OS. 
+Certified packages are verified by D2iQ to be interoperable with DC/OS. 
 
 ![Certified packages](/mesosphere/dcos/2.0/img/GUI-Catalog-Certified-Services-1_14.png)
 
@@ -27,7 +27,7 @@ Documentation supporting these certified packages can be found on the [DC/OS Ser
 
 ## Community packages
 
-Community packages have been contributed by Mesosphere partners and members of the open source community. They are not verified by Mesosphere to be interoperable with DC/OS. However, they offer many functions not available in the Certified {{ model.packageRepo }}. New packages are offered on a regular basis. Some of them have Mesosphere-specific documentation available on the [DC/OS Service Docs page](/mesosphere/dcos/services/).
+Community packages have been contributed by D2iQ partners and members of the open source community. They are not verified by D2iQ to be interoperable with DC/OS. However, they offer many functions not available in the Certified {{ model.packageRepo }}. New packages are offered on a regular basis. Some of them have Mesosphere-specific documentation available on the [DC/OS Service Docs page](/mesosphere/dcos/services/).
 
 ![packages](/mesosphere/dcos/2.0/img/GUI-Catalog-Community-Packages-1_14.png)
 

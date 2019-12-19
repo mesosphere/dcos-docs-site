@@ -18,7 +18,7 @@ To see a display of the details of your cluster configuration, click on **Cluste
 
 Figure 1 - Cluster Overview
 
-This view displays General details, Mesos details, Marathon details, and information about your Bootstrap configuration. 
+This view displays General details, Apache&reg; Mesos&reg; details, Marathon&trade; details, and information about your Bootstrap configuration. 
 
 You can see the IP address of your cluster from the drop down menu in the upper right corner.
 

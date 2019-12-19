@@ -9,11 +9,11 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-You can scale your AWS cluster or change the number of agent nodes.
+You can scale your AWS&reg; cluster or change the number of agent nodes.
 
 ## Scaling an AWS cluster
 
-The DC/OS AWS CloudFormation template is optimized to run DC/OS, but you might want to change the number of agent nodes based on your needs.
+The DC/OS&trademark; AWS&reg; CloudFormation template is optimized to run DC/OS, but you might want to change the number of agent nodes based on your needs.
 
 <p class="message--warning"><strong>WARNING: </strong>Scaling down your AWS cluster could result in data loss. We recommend that you scale down one node at a time, letting the DC/OS service recover. For example, if you are running a DC/OS service and you scale down from 10 to 5 nodes, this could result in losing all the instances of your service.</p>
 

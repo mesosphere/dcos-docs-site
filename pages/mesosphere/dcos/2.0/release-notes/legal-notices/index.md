@@ -18,7 +18,7 @@ Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Ama
 
 Ansible, CentOS, CoreOS, RHEL, Red Hat Enterprise Linux, and RHCE are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the United States and other countries.
 
-APACHE, Apache Cassandra, Cassandra, Flink, Hadoop, HDFS, Apache Kafka, Kafka, the Kafka logo, Hive, Mesos, NiFi, Zookeeper, and the Apache feather logo and Apache Mesos project logo are registered trademarks of The Apache Software Foundation in the United States and other countries. Derby RDBS and Spark are trademarks of The Apache Software Foundation in the United States and other countries.
+APACHE, Apache Cassandra, Cassandra, Flink, Hadoop, HDFS, Apache Kafka, Kafka, the Kafka logo, Hive, Mesos, NiFi, Zookeeper, and the Apache feather logo and Apache Mesos project logo are registered trademarks of The Apache Software Foundation in the United States and other countries. Derby RDBS, Spark, and Zeppelin are trademarks of The Apache Software Foundation in the United States and other countries.
 
 Azure, Azure Container Service, ACS, Azure Resource Manager, Microsoft Windows Server, Active Directory, and Microsoft are registered trademarks or trademarks of the Microsoft Corporation.
 
@@ -42,13 +42,13 @@ HAProxy is a registered trademark in the United States and France.
 
 JavaScript and Oracle are trademarks or registered trademarks of the Oracle Corporation and/or its affiliates.
 
-JENKINS is a registered trademark of SOFTWARE IN THE PUBLIC INTEREST, INC.
+JENKINS and Debian are registered trademarks of SOFTWARE IN THE PUBLIC INTEREST, INC.
 
 The Jupyter name is a trademark of Project Jupyter and is registered with the US Patent & Trademark Office. Jupyter, Jupyter Notebook, JupyterHub, and JupyterLab are open source projects supported by Project Jupyter.
 
 Kubernetes is a graduated project of the Cloud Native Computing Foundation, or CNCF. Cloud Native Computing Foundation, CNCF, Kubernetes, K8s, Prometheus, and The Linux Foundation are registered trademarks of the The Linux Foundation. CNI and Spinnaker are trademarks of The Linux Foundation. Additional trademarks and registered trademarks can be found at <https://www.linuxfoundation.org/trademark-list/>.
 
-Mac, MacBook, and Mac/OS are registered trademarks of Apple, Inc in the United States and other countries. 
+Mac, MacBook, and macOS are registered trademarks of Apple, Inc in the United States and other countries.
 
 Nagios, the Nagios logo, and Nagios graphics are the service marks, trademarks, or registered trademarks of Nagios Enterprises.
 
@@ -68,6 +68,8 @@ Python is a registered trademark of the Python Software Foundation, or PSF.
 
 REX-ray is a registered trademark of DELL, Inc.
 
+Ruby and Ruby on Rails are registered trademarks of David Heinemeier Hansson (david@heineneierhansson.com).
+
 Splunk is a registered trademark of Splunk, Inc. in the United States and other countries. 
 
 Telegraf is a trademark of InfluxData, Inc.
@@ -77,6 +79,8 @@ Tensorflow is an open source machine learning platform.
 Terraform and Vault are trademarks or service marks of Hashicorp, Inc.
 
 Ubuntu and Canonical are registered trademarks of Canonical Ltd.
+
+UNIX is registered trademark of The Open Group in the United States and other countries.
 
 VMware ESXi and VMware are registered trademarks of VMware, Inc. in the UNited States and other countries.
 

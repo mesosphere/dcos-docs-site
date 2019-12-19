@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-This topic describes how to use the CLI to configure services. You can also customize services by using the [**Services**](/mesosphere/dcos/2.0/gui/services/) tab in the DC/OS UI.
+This topic describes how to use the CLI to configure services. You can also customize services by using the [**Services**](/mesosphere/dcos/2.0/gui/services/) tab in the DC/OS&trade; UI.
 
 1. View the available configuration options for the service with the [`dcos package describe --config <package-name>`](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/dcos-package-describe/) command.
 
@@ -17,7 +17,7 @@ This topic describes how to use the CLI to configure services. You can also cust
     dcos package describe --config marathon
     ```
 
-    The output should look like:
+    The output should appear similar to the following:
 
     ```json
     {

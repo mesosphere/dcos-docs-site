@@ -9,12 +9,11 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-
-We have collected some questions we often encounter concerning the usage of DC/OS. Do you have a new question you would like answered, or do you have the answer to a question? Use the `Contribute` button at the top of this page to suggest it, or check out how you can [contribute](https://dcos.io/contribute/) the answer to it.
+We have collected some questions we often encounter concerning the usage of DC/OS&trade;. Do you have a new question you would like answered, or do you have the answer to a question? Use the `Contribute` button at the top of this page to suggest it, or check out how you can [contribute](https://dcos.io/contribute/) the answer to it.
 
 ## Why is my Marathon app stuck in Waiting?
 
-This most commonly occurs when an application being launched has higher system requirements than any of the available offers coming to Marathon via Mesos. The deployment will eventually fail; check system requirements and increase the resources to the application if you want the deployment to succeed.
+This most commonly occurs when an application being launched has higher system requirements than any of the available offers coming to Marathon&trade; from Apache&reg; Mesos&reg;. The deployment will eventually fail; check system requirements and increase the resources to the application if you want the deployment to succeed.
 
 ## Why is my Marathon app launching on a private agent instead of a public agent?
 
@@ -40,7 +39,7 @@ A comprehensive overview of a few common service discovery implementations is av
 
 This is not currently supported. 
 
-## How can I upload files to Spark driver/executor?
+## How can I upload files to Spark&trade; driver/executor?
 
 Here is the example of a command you should launch to make it work:
 
@@ -56,13 +55,13 @@ More info:
 
 ## How does the installer work?
 
-DC/OS is installed in your environment using a dynamically generated setup file. This file is generated using specific parameters that are set during configuration. This installation file contains a Bash install script and a Docker container that is loaded with everything you need to deploy a customized DC/OS build.
+DC/OS is installed in your environment using a dynamically-generated setup file. This file is generated using specific parameters that are set during configuration. This installation file contains a Bash install script and a Docker container that is loaded with everything you need to deploy a customized DC/OS build.
 
 For more information, see the installation [documentation](/mesosphere/dcos/2.0/installing/).
 
 ## What versions of kernel, local OS, Docker Engine, Union Mount are recommended?
 
-We recommend using CoreOS, matched with its correct versions and sensible defaults of Docker, filesystem, and other settings.
+We recommend using CoreOS&reg;, matched with its correct versions and sensible defaults of Docker, filesystem, and other settings.
 
 [1]: /mesosphere/dcos/2.0/networking/load-balancing-vips/
 [2]: /mesosphere/dcos/2.0/networking/
