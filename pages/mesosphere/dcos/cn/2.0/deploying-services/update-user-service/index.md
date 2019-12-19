@@ -10,13 +10,13 @@ enterprise: false
 ---
 
 
-可以使用 [`dcos marathon`](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) CLI 命令轻松查看和更新已部署应用程序的配置。
+可以使用 [`dcos marathon`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) CLI 命令轻松查看和更新已部署应用程序的配置。
 
-在 UI 中更新包的流程不同。如需更多信息，请参阅 [文档](/mesosphere/dcos/2.0/deploying-services/config-universe-service/)。
+在 UI 中更新包的流程不同。如需更多信息，请参阅 [文档](/mesosphere/dcos/cn/2.0/deploying-services/config-universe-service/)。
 
 # 更新所有环境变量
 
-使用 DC/OS CLI 中的 `dcos marathon app update` 命令更新服务的 JSON 服务定义的所有方面。例如，按照以下说明更新服务定义的环境变量（[`env` 字段] [1]）。
+使用 DC/OS CLI 中的 `dcos marathon app update` 命令更新服务的 JSON 服务定义的所有方面。例如，按照以下说明更新服务定义的环境变量([`env` 字段](/mesosphere/dcos/cn/2.0/cli/))。
 
 ```bash
 dcos marathon app update test-app env='{"APISERVER_PORT":"25502"}'
@@ -62,4 +62,4 @@ dcos marathon app update test-app < env_vars.json
 dcos marathon app show test-app | jq '.env'
 ```
 
- [1]: /mesosphere/dcos/2.0/cli/
+ [1]: /mesosphere/dcos/cn/2.0/cli/
