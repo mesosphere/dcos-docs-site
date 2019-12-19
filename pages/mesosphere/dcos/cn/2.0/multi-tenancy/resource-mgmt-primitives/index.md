@@ -55,13 +55,13 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 实现
 您可以使用以下资源来学习如何实现 Marathon on Marathon 和 Spark 配额：
-- [部署非本地 Marathon 实例](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/)
+- [部署非本地 Marathon 实例](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/)
 - [Spark 配额](/mesosphere/dcos/services/spark/2.8.0-2.4.0/job-scheduling/#quota-for-drivers-and-executors)
 
-在下面的示例中，建议从安装了 [DC / OS CLI] (/mesosphere/dcos/2.0/cli/) 的主机运行应用程序。
+在下面的示例中，建议从安装了 [DC / OS CLI](/mesosphere/dcos/cn/2.0/cli/) 的主机运行应用程序。
 
 ## 角色
-[角色] (https://mesos.apache.org/documentation/latest/roles/) 指的是分配给框架、任务或代理的标记或标签。默认角色名为 <sup> `*` </sup>，群集中的所有现有角色都可以通过 Mesos UI 查看：`https://<cluster-name-or-IP>/mesos/#/roles`。
+[角色](https://mesos.apache.org/documentation/latest/roles/) 指的是分配给框架、任务或代理的标记或标签。默认角色名为 <sup> `*` </sup>，群集中的所有现有角色都可以通过 Mesos UI 查看：`https://<cluster-name-or-IP>/mesos/#/roles`。
 
 
 在以下示例中，在运行时将名为 `high` 的角色分配给 Spark 任务。可以执行 Spark 任务的多个实例，确保它们都能从与 `high` 相关联的资源管理中受益。
@@ -71,7 +71,7 @@ model: /mesosphere/dcos/2.0/data.yml
 - `confluent_kafka_role`  角色不需要明确管理，比如配置新角色并将其分配给任务。它们在部署任务或配置权重或配额时按需创建。同样也不应删除角色，它们要在群集的持续时间内一直存在。
 
 ## 保留
-[预留] (https://mesos.apache.org/documentation/latest/reservation/)可以手动配置并由 SDK 框架使用。在这两种情况下都必须声明授权用户，称为主体/框架或操作者。对于 DC/OS 中的 SDK 框架，这也称为服务帐户。
+[预留](https://mesos.apache.org/documentation/latest/reservation/)可以手动配置并由 SDK 框架使用。在这两种情况下都必须声明授权用户，称为主体/框架或操作者。对于 DC/OS 中的 SDK 框架，这也称为服务帐户。
 
 ### 添加
 在 ID 为 `312dc1dc-9b39-474f-8295-87fc43872e7c-S0` 的特定代理上为低级角色添加预留资源，保证 `four` CPU 份额和 `512MB` RAM。当具有低请求角色的任何任务提供与此代理程序预留的资源匹配时，该任务在代理本身的资源空间将会得到保证。
@@ -383,9 +383,9 @@ Connection: keep-alive
 
 
 ## Marathon on Marathon
-DC/OS {{ model.packageRepo }} 包括 Marathon，可用于部署 MoM。应该注意，这仅适用于 DC/OS OSS 安装，但不提供对严格模式、密钥或 ACL 的支持。请参阅 [Marathon on Marathon 文档](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/basic/)。
+DC/OS {{ model.packageRepo }} 包括 Marathon，可用于部署 MoM。应该注意，这仅适用于 DC/OS OSS 安装，但不提供对严格模式、密钥或 ACL 的支持。请参阅 [Marathon on Marathon 文档](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/basic/)。
 
-要安装 DC/OS Enterprise MoM，您必须联系 Mesosphere 服务支持以获取 Enterprise MoM tarball，然后使用根 Marathon 进行部署。请参阅 [自定义非本地 Marathon 文档](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/advanced/)。
+要安装 DC/OS Enterprise MoM，您必须联系 Mesosphere 服务支持以获取 Enterprise MoM tarball，然后使用根 Marathon 进行部署。请参阅 [自定义非本地 Marathon 文档](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/advanced/)。
 
 # 其他资源
 您可以使用以下附加资源进一步了解：
