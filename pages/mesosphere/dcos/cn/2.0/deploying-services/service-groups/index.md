@@ -9,16 +9,16 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-可以使用 DC/OS Web 界面、[API](/mesosphere/dcos/2.0/security/ent/iam-api/) 或 CLI，对服务实施细粒度用户访问 。
+可以使用 DC/OS Web 界面、[API](/mesosphere/dcos/cn/2.0/security/ent/iam-api/) 或 CLI，对服务实施细粒度用户访问 。
 
-[Marathon 权限](/mesosphere/dcos/2.0/security/ent/perms-reference/#marathon-metronome) 帮助您按照服务或服务组，限制用户对服务的访问。该部分为您介绍实现这一切的步骤。
+[Marathon 权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#marathon-metronome) 帮助您按照服务或服务组，限制用户对服务的访问。该部分为您介绍实现这一切的步骤。
 
-[Marathon 权限](/mesosphere/dcos/2.0/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/mesosphere/dcos/2.0/security/ent/perms-reference/#mesos) 的服务名称、工作名称、服务组或作业组没有区别。因此，您的命名必须是唯一的。
+[Marathon 权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#marathon-metronome) 和 [Mesos 权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#mesos) 的服务名称、工作名称、服务组或作业组没有区别。因此，您的命名必须是唯一的。
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 并以超级用户登户身份登录。
-- 用于分配权限的[用户帐户](/mesosphere/dcos/2.0/security/ent/users-groups/)。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 并以超级用户登户身份登录。
+- 用于分配权限的[用户帐户](/mesosphere/dcos/cn/2.0/security/ent/users-groups/)。
 
 # <a name="root-service"></a>授权访问服务
 
@@ -42,7 +42,7 @@ enterprise: true
 
 1. 单击**插入权限字符串**以切换对话框。
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/2.0/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)选择权限字符串。
 
     ![添加权限](/mesosphere/dcos/2.0/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
@@ -93,7 +93,7 @@ enterprise: true
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 并以超级用户登户身份登录。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 并以超级用户登户身份登录。
 
 - 向组而不是用户授予权限，将 `users grant <uid>` 替换为 `groups grant <gid>`。
 
@@ -170,7 +170,7 @@ enterprise: true
 
     图 5. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/2.0/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)选择权限字符串。
 
     ### 宽容
 
@@ -221,7 +221,7 @@ enterprise: true
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 并以超级用户登户身份登录。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 并以超级用户登户身份登录。
 
 **提示：**
 
@@ -300,7 +300,7 @@ enterprise: true
 
     图 7. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/2.0/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)选择权限字符串。
 
     ### 宽容
 
@@ -351,7 +351,7 @@ enterprise: true
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 并以超级用户登户身份登录。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 并以超级用户登户身份登录。
 
 **提示：**
 
