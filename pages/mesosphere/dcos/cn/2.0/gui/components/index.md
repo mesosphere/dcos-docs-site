@@ -16,7 +16,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ## 运行状况检查
 
-此屏幕显示每个组件的名称和运行状况。您可以按健康或不健康的组件对列表进行筛选。有关运行状况检查的更多信息，请参阅 [运行状况检查文档](/mesosphere/dcos/2.0/deploying-services/creating-services/health-checks/)。
+此屏幕显示每个组件的名称和运行状况。您可以按健康或不健康的组件对列表进行筛选。有关运行状况检查的更多信息，请参阅 [运行状况检查文档](/mesosphere/dcos/cn/2.0/deploying-services/creating-services/health-checks/)。
 
 ### 运行状况报告
 
@@ -36,4 +36,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 3 - 节点详情
 
-有关系统组件的更多信息，请参阅 [组件管理文档](/mesosphere/dcos/2.0/administering-clusters/component-management/)。
+有关系统组件的更多信息，请参阅 [组件管理文档](/mesosphere/dcos/cn/2.0/administering-clusters/component-management/)。

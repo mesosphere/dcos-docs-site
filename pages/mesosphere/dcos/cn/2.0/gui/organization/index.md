@@ -34,7 +34,7 @@ model: /mesosphere/dcos/2.0/data.yml
 |-------|-------|
 | 全部 | 显示所有用户 |
 | 本地 | 本地用户账户仅存在于 DC/OS 中。 |
-| 外部 |  DC/OS 仅存储用户的 ID 或用户名以及其他 DC/OS 特定信息，如权限和组成员。DC/OS 从不接收或存储外部用户的密码。相反，它将用户凭据的验证委派给以下其中一项：LDAP 目录、SAML 或 OpenID Connect。请参见 [管理用户和组](/mesosphere/dcos/2.0/security/ent/users-groups/) 了解更多信息。 |
+| 外部 |  DC/OS 仅存储用户的 ID 或用户名以及其他 DC/OS 特定信息，如权限和组成员。DC/OS 从不接收或存储外部用户的密码。相反，它将用户凭据的验证委派给以下其中一项：LDAP 目录、SAML 或 OpenID Connect。请参见 [管理用户和组](/mesosphere/dcos/cn/2.0/security/ent/users-groups/) 了解更多信息。 |
 
 
 如果单击用户名称，将显示该个人的“用户”页面。此页面有三个选项卡：[权限](#permissions)、[组成员](#group-membership) 和 [详情](#details)。
@@ -46,7 +46,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 2 - **权限** 选项卡
 
-在此页面上，您可以编辑用户权限或完全删除用户。如需更多信息，请参阅 [权限管理](/mesosphere/dcos/2.0/security/ent/perms-management/) 文档。
+在此页面上，您可以编辑用户权限或完全删除用户。如需更多信息，请参阅 [权限管理](/mesosphere/dcos/cn/2.0/security/ent/perms-management/) 文档。
 
 ## 组成员
 
@@ -111,4 +111,4 @@ DC/OS Enterprise 允许您创建用户组，并从 LDAP 导入用户组。组可
 
 图 8 - **组 > 服务账户** 选项卡
 
-有关管理组的更多信息，请参阅 [管理用户和组](/mesosphere/dcos/2.0/security/ent/users-groups/) 文档。
+有关管理组的更多信息，请参阅 [管理用户和组](/mesosphere/dcos/cn/2.0/security/ent/users-groups/) 文档。

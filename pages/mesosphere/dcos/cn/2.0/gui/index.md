@@ -24,13 +24,13 @@ DC/OS UI 提供了 DC/OS 群集的丰富图形视图。通过 UI，您可以查�
 
 图 2 -“标题栏用户”菜单
 
-在群集菜单中有以下链接：[群集概述](/mesosphere/dcos/2.0/gui/cluster/)、文档和 CLI 安装。
+在群集菜单中有以下链接：[群集概述](/mesosphere/dcos/cn/2.0/gui/cluster/)、文档和 CLI 安装。
 
 ![DC/OS UI Cluster Menu](/mesosphere/dcos/2.0/img/header-bar-cluster-dropdown-1-12.png)
 
 图 3 -“标题栏群集”菜单
 
-DC/OS Enterprise 中还有用于管理 [链接群集] (/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/)的链接。
+DC/OS Enterprise 中还有用于管理 [链接群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/)的链接。
 
 ![DC/OS UI Cluster Menu with Linked Cluster](/mesosphere/dcos/2.0/img/switch-cluster-1-12.png)
 

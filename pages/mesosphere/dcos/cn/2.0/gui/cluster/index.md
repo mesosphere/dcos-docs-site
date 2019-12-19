@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-从 UI，您可以查看单个群集或 [链接群集] 统计信息的摘要(/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/)。
+从 UI，您可以查看单个群集或 [链接群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/) 统计信息的摘要。
 
 # 概述
 
@@ -37,6 +37,6 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 3 - 链接群集
 
-有关链接群集的详细信息，请参阅 [多个群集](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/) 文档。
+有关链接群集的详细信息，请参阅 [多个群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/) 文档。
 
 

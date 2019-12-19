@@ -93,4 +93,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 4 - 显示警告的“调试”选项卡
 
-有关部署服务的更多信息，请参阅 [部署服务和 Pod](/mesosphere/dcos/2.0/deploying-services/) 文档。
+有关部署服务的更多信息，请参阅 [部署服务和 Pod](/mesosphere/dcos/cn/2.0/deploying-services/) 文档。
