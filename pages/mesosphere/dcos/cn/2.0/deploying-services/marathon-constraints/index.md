@@ -23,7 +23,7 @@ Marathon 放置约束能够控制服务的运行位置，以便优化容错性�
 
 ### 分域和分区作为字段名称
 
-使用 `@region` 和 `@zone` 字段名称配置 [故障域感知和容量扩展](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/)。
+使用 `@region` 和 `@zone` 字段名称配置 [故障域感知和容量扩展](/mesosphere/dcos/cn/2.0/deploying-services/fault-domain-awareness/)。
 
 ## 属性作为字段名称
 
@@ -177,7 +177,7 @@ Marathon 通过分析 Mesos 传入的邀约，仅知道属性的不同值（例�
 
 ## IS 算子
 
-**值**（必填）：Mesos 标量或文本值，由 [Mesos 属性和资源类型规范] （http://mesos.apache.org/documentation/latest/attributes-resources/#types）指定：
+**值**（必填）：Mesos 标量或文本值，由 [Mesos 属性和资源类型规范](http://mesos.apache.org/documentation/latest/attributes-resources/#types)指定：
 
 ```
 scalar : floatValue

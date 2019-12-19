@@ -146,7 +146,7 @@ URI 包括：
 
 - **gracePeriodSeconds** 指定在任务启动后立即忽略运行状况检查的时间（秒）；或直至首次达到的健康的时间。
 - **intervalSeconds** 指定运行状况检查间隔的等待时间（秒）。
-- **maxLogitivEfailures** 指定发生多少次连续运行状况检查故障之后才能关闭任务。
+- **maxLogitiveFailures** 指定发生多少次连续运行状况检查故障之后才能关闭任务。
 - **path** 如果是 `"protocol": "HTTP"`，此选项则指定任务运行状况端点的路径。例如， `"/path/to/health"`。
 - **portIndex** 指定用于运行状况请求的端口阵列中的端口号。应用程序可借助端口号使用任何端口（例如 `"[0, 0, 0]"`），而且任务可以借助端口环境变量启动，例如 `$PORT1`。
 - **协议** 指定请求的协议：`HTTP`、`HTTPS`、`TCP` 或 `Command`。

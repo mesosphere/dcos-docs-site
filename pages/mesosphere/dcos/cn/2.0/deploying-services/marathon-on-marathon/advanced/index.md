@@ -9,16 +9,16 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例  (Marathon on Marathon) 。高级非本地 Marathon 程序只能在您需要 [密钥](/mesosphere/dcos/2.0/security/ent/secrets/) 或细粒度 ACL 时使用。否则，请使用 [基本程序] (/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/basic/)。
+本专题描述了如何部署具有独立角色、保留、配额和安全功能的非本地 Marathon 实例  (Marathon on Marathon) 。高级非本地 Marathon 程序只能在您需要 [密钥](/mesosphere/dcos/cn/2.0/security/ent/secrets/) 或细粒度 ACL 时使用。否则，请使用 [基本程序](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/basic/)。
 
-对于本程序，我们假设您已从支持团队成员获得了 Marathon 的企业版。如果您仍然需要企业工件，则需要首先通过 [Mesosphere 支持门户] (https://support.mesosphere.com/s/) 提交故障单。企业工件作为 Docker 镜像文件提供，并包含 Marathon 以及 Marathon 插件，可启用 DC/OS Enterprise 功能 - 例如密钥和细分访问权限控制。
+对于本程序，我们假设您已从支持团队成员获得了 Marathon 的企业版。如果您仍然需要企业工件，则需要首先通过 [Mesosphere 支持门户](https://support.mesosphere.com/s/) 提交故障单。企业工件作为 Docker 镜像文件提供，并包含 Marathon 以及 Marathon 插件，可启用 DC/OS Enterprise 功能 - 例如密钥和细分访问权限控制。
 
-**前提条件：**
+**前提条件**
 
-- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/2.0/installing/)。
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/2.0/cli/enterprise-cli/#ent-cli-install)。
-- 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/mesosphere/dcos/2.0/deploying-services/private-docker-registry/) 关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
-- 自定义非本机 Marathon 镜像[部署在您的专用 Docker 注册表中] (/mesosphere/dcos/2.0/deploying-services/private-docker-registry#tarball-instructions)。通过 [支持门户] (https://support.mesosphere.com) 提交故障单以获取企业 Marathon 镜像文件。
+- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/cn/2.0/installing/)。
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/2.0/cli/enterprise-cli/#ent-cli-install)。
+- 每个专用 DC/OS 代理可以通过网络访问的专用 Docker 注册表。可以遵循 [以下](/mesosphere/dcos/cn/2.0/deploying-services/private-docker-registry/) 关于如何在 Marathon 中设置，或使用其他选项的说明（如 [DockerHub](https://hub.docker.com/)、[Amazon EC2 容器注册表](https://aws.amazon.com/ecr/)和 [Quay](https://quay.io/)）。
+- 自定义非本机 Marathon 镜像[部署在您的专用 Docker 注册表中](/mesosphere/dcos/cn/2.0/deploying-services/private-docker-registry#tarball-instructions)。通过 [支持门户](https://support.mesosphere.com) 提交故障单以获取企业 Marathon 镜像文件。
 - 您必须以超级用户身份登录。
 - 对群集的 SSH 访问。
 
@@ -32,11 +32,11 @@ enterprise: true
 
 | 变量 | 描述 |
 |--------------------------|--------------------------------------------|
-| `${MESOS_ROLE}` | 新 Marathon 实例将使用的 [Mesos 角色] (https://mesos.apache.org/documentation/latest/roles/)的名称。该名称应该全部小写，并且是有效的 [Mesos 角色名称] (https://mesos.apache.org/documentation/latest/roles/#invalid-role-names)，例如 `"marathon_ee"`。|
-| `${SERVICE_ACCOUNT}` | Marathon 用来和 DC/OS 中的其他服务进行通信的 [服务帐户] (/mesosphere/dcos/2.0/security/ent/service-auth/) 的名称。名称应仅包含字母、数字、`@`、`.`、`\`、`_` 和 `-`。例如 `"marathon_user_ee"` |
-| `${MARATHON_INSTANCE_NAME}` | 新 Marathon 实例的服务名称，由根 Marathon 实例启动。这应该是有效的 [Marathon 服务名称] (https://mesosphere.github.io/marathon/docs/application-basics.html)，例如 `"mom_ee"`。|
-| `${SERVICE_ACCOUNT_SECRET}` | [密钥存储库] (/mesosphere/dcos/2.0/security/ent/secrets/)中的密钥路径，用于保存 Marathon 将使用的私钥以及要在 DC/OS 上进行身份认证的 `${SERVICE_ACCOUNT}` 帐户。此名称 **不得**包含一个领导的 `/`。有效示例： `"marathon_user_ee_secret"` |
-| `${DOCKER_REGISTRY_SECRET}` | [密钥] (/mesosphere/dcos/2.0/security/ent/secrets/)的名称，用于保存从专用注册表中获取 Marathon Docker 镜像的凭据。此名称 **不得**包含一个领导的 `/`。有效示例： `"registry_secret"`。 |
+| `${MESOS_ROLE}` | 新 Marathon 实例将使用的 [Mesos 角色](https://mesos.apache.org/documentation/latest/roles/)的名称。该名称应该全部小写，并且是有效的 [Mesos 角色名称](https://mesos.apache.org/documentation/latest/roles/#invalid-role-names)，例如 `"marathon_ee"`。|
+| `${SERVICE_ACCOUNT}` | Marathon 用来和 DC/OS 中的其他服务进行通信的 [服务帐户](/mesosphere/dcos/cn/2.0/security/ent/service-auth/) 的名称。名称应仅包含字母、数字、`@`、`.`、`\`、`_` 和 `-`。例如 `"marathon_user_ee"` |
+| `${MARATHON_INSTANCE_NAME}` | 新 Marathon 实例的服务名称，由根 Marathon 实例启动。这应该是有效的 [Marathon 服务名称](https://mesosphere.github.io/marathon/docs/application-basics.html)，例如 `"mom_ee"`。|
+| `${SERVICE_ACCOUNT_SECRET}` | [密钥存储库](/mesosphere/dcos/cn/2.0/security/ent/secrets/)中的密钥路径，用于保存 Marathon 将使用的私钥以及要在 DC/OS 上进行身份认证的 `${SERVICE_ACCOUNT}` 帐户。此名称 **不得**包含一个领导的 `/`。有效示例： `"marathon_user_ee_secret"` |
+| `${DOCKER_REGISTRY_SECRET}` | [密钥](/mesosphere/dcos/cn/2.0/security/ent/secrets/)的名称，用于保存从专用注册表中获取 Marathon Docker 镜像的凭据。此名称 **不得**包含一个领导的 `/`。有效示例： `"registry_secret"`。 |
 | `${PRIVATE_KEY}` | PEM 格式化私钥文件的路径（在本地文件系统中，不确定是否存在），最好以 `.pem` 为后缀 |
 | `${PUBLIC_KEY}` | PEM 格式化公钥文件的路径（在本地文件系统中，不确定是否存在），最好以 `.pem` 为后缀 |
 | `${MARATHON_IMAGE}` | 专用存储库中的 Marathon 镜像的名称**，例如 `private-repo/marathon-dcos-ee`。|
@@ -64,15 +64,15 @@ MARATHON_TAG="..."
 
 在以下步骤中，我们假设您已经：
 
-1. 将 Marathon 企业镜像推送到您的专用注册表[（说明）] (/mesosphere/dcos/2.0/deploying-services/private-docker-registry#tarball-instructions)，名称为 `${MARATHON_IMAGE}:${MARATHON_TAG}`。
-1. 将您的专用 Docker 凭据存储在密钥存储库 [（说明）] (/mesosphere/dcos/2.0/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise)中，名称为 `${DOCKER_REGISTRY_SECRET}`。
+1. 将 Marathon 企业镜像推送到您的专用注册表[（说明）](/mesosphere/dcos/cn/2.0/deploying-services/private-docker-registry#tarball-instructions)，名称为 `${MARATHON_IMAGE}:${MARATHON_TAG}`。
+1. 将您的专用 Docker 凭据存储在密钥存储库 [（说明）](/mesosphere/dcos/cn/2.0/deploying-services/private-docker-registry/#referencing-private-docker-registry-credentials-in-the-secrets-store-enterprise)中，名称为 `${DOCKER_REGISTRY_SECRET}`。
 
     <p class="message--warning"><strong>警告：</strong>密钥的名称应该位于根路径（例如 <code>/some-secret-name</code>）中，或者以应用程序的名称为前缀（例如 <code>/${MARATHON_INSTANCE_NAME}/some-secret-name</code>）。如果不这样做，将使根 Marathon 无法读取密钥值，并且无法启动自定义 Marathon-on-Marathon 实例。</p>
 
 # 步骤 2：创建 Marathon 服务帐户
-本步骤创建了 Marathon [服务账户](/mesosphere/dcos/2.0/security/ent/service-auth/) 。Marathon 将使用此帐户对其余 DC/OS 组件进行身份认证。稍后授予此帐户的权限将定义允许 Marathon 执行的操作。
+本步骤创建了 Marathon [服务账户](/mesosphere/dcos/cn/2.0/security/ent/service-auth/) 。Marathon 将使用此帐户对其余 DC/OS 组件进行身份认证。稍后授予此帐户的权限将定义允许 Marathon 执行的操作。
 
-Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/mesosphere/dcos/2.0/security/ent/#security-modes)。
+Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)。
 
 | 安全模式 |  Marathon 服务帐户 |
 |---------------|--------------------------|
@@ -81,7 +81,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
 
 1. 创建 2048 位 RSA 公私密钥对 (`${PRIVATE_KEY}` 和 `${PUBLIC_KEY}`) 并将值分别保存到当前目录中的单独文件中。
 
-    使用以下命令，我们创建一个公私密钥对。公钥将用于创建 Marathon 服务帐户。我们将私钥存储在 [密钥存储库] (/mesosphere/dcos/2.0/security/ent/secrets/) 然后将其传递至 Marathon，供其进行自我授权。
+    使用以下命令，我们创建一个公私密钥对。公钥将用于创建 Marathon 服务帐户。我们将私钥存储在 [密钥存储库](/mesosphere/dcos/cn/2.0/security/ent/secrets/) 然后将其传递至 Marathon，供其进行自我授权。
 
     ```bash
     dcos security org service-accounts keypair ${PRIVATE_KEY} ${PUBLIC_KEY}
@@ -121,9 +121,9 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
      dcos security secrets list /
      ```
 
-  * 查看您的密钥，确保其包含正确的服务帐户 ID、私钥和 `login_endpoint` URL。如果是 `strict` 模式，应为 HTTPS，如果是 `permissive` 模式，则应为 HTTP。如果 URL 不正确，尝试 [升级 DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/#ent-cli-upgrade)，删除密钥，并重新创建。
+  * 查看您的密钥，确保其包含正确的服务帐户 ID、私钥和 `login_endpoint` URL。如果是 `strict` 模式，应为 HTTPS，如果是 `permissive` 模式，则应为 HTTP。如果 URL 不正确，尝试 [升级 DC/OS Enterprise CLI](/mesosphere/dcos/cn/2.0/cli/enterprise-cli/#ent-cli-upgrade)，删除密钥，并重新创建。
 
-      您可以使用此命令查看内容（需要安装 [jq 1.5 或更高版本] (https://stedolan.github.io/jq/download)）：
+      您可以使用此命令查看内容（需要安装 [jq 1.5 或更高版本](https://stedolan.github.io/jq/download)）：
 
       ```bash
       dcos security secrets get ${SERVICE_ACCOUNT_SECRET} --json | jq -r .value | jq
@@ -140,7 +140,7 @@ Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全
 | 宽容 | 不可用 |
 | 严格 | 必填 |
 
-所有 CLI 命令也可通过 [IAM API] 执行(/mesosphere/dcos/2.0/security/ent/iam-api/)。
+所有 CLI 命令也可通过 [IAM API](/mesosphere/dcos/cn/2.0/security/ent/iam-api/) 执行。
 
 授予服务帐户 `${SERVICE_ACCOUNT}` 权限，以启动将作为 Linux 用户 `nobody` 执行的 Mesos 任务。
 
@@ -161,11 +161,11 @@ dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:princi
 # 步骤 5：安装具有分配角色 {.tabs} 的非本地 Marathon 实例
 在此步骤中，非本地 Marathon 实例安装在 DC/OS上，并分配了 Mesos 角色。
 
-1. 创建一个自定义 JSON 配置，用于安装自定义非本机 Marathon 实例。JSON 文件内容因您的 [安全模式] 而有所不同(/mesosphere/dcos/2.0/security/ent/#security-modes)。
+1. 创建一个自定义 JSON 配置，用于安装自定义非本机 Marathon 实例。JSON 文件内容因您的 [安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes) 而有所不同。
 
     确保使用正确的值替换 JSON 文件中的所有 `${VARIABLES}`。
 
-    或者，如果已在终端会话中导出变量（如 [变量部分] (#variables-in-example) 中所述），则可以使用以下命令自动将所有替代变量替换为其导出值。所得文件将保存为 `marathon-filled.json`：
+    或者，如果已在终端会话中导出变量（如 [变量部分](#variables-in-example) 中所述），则可以使用以下命令自动将所有替代变量替换为其导出值。所得文件将保存为 `marathon-filled.json`：
 
     ```bash
     perl -p -e 's/\$\{(\w+)\}/(exists $ENV{$1}?$ENV{$1}:"<missing-variable-$1>")/eg' < marathon.json > marathon-filled.json

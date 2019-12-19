@@ -9,9 +9,9 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-[Docker Engine](https://www.docker.com/products/docker-engine) 从 Docker 镜像启动 Docker 容器。如需要 Docker 引擎的[功能](/mesosphere/dcos/2.0/deploying-services/containerizers/#container-runtime-features)，请使用 Docker 引擎。
+[Docker Engine](https://www.docker.com/products/docker-engine) 从 Docker 镜像启动 Docker 容器。如需要 Docker 引擎的[功能](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/#container-runtime-features)，请使用 Docker 引擎。
 
-如果您未使用针对 Docker 引擎的特定功能，则应考虑使用 DC/OS [通用容器运行时](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/)。DC/OS [通用容器运行时](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/) 提供一些功能，如对 Docker 容器不可用的 GPU 资源支持。
+如果您未使用针对 Docker 引擎的特定功能，则应考虑使用 DC/OS [通用容器运行时](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/ucr/)。DC/OS [通用容器运行时](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/ucr/) 提供一些功能，如对 Docker 容器不可用的 GPU 资源支持。
 
 # 使用 Docker Engine 配置容器
 
@@ -42,7 +42,7 @@ enterprise: false
 
 ## DC/OS CLI
 
-在 [Marathon 应用定义](/mesosphere/dcos/2.0/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `DOCKER`。
+在 [Marathon 应用定义](/mesosphere/dcos/cn/2.0/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `DOCKER`。
 
 ```json
 {  
@@ -65,8 +65,8 @@ enterprise: false
 }
 ```
 
-有关示例，请参阅[部署基于 Docker 的服务](/mesosphere/dcos/2.0/deploying-services/creating-services/deploy-docker-app/)。
+有关示例，请参阅[部署基于 Docker 的服务](/mesosphere/dcos/cn/2.0/deploying-services/creating-services/deploy-docker-app/)。
 
 # 延伸阅读
 
-- [查看 Docker 容器化工具的 Mesos 文档] （http://mesos.apache.org/documentation/latest/docker-containerizer/）。
+- [查看 Docker 容器化工具的 Mesos 文档](http://mesos.apache.org/documentation/latest/docker-containerizer/)。

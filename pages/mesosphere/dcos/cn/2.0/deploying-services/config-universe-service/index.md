@@ -9,9 +9,9 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-本主题介绍如何使用 CLI 来配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/2.0/gui/services/) 选项卡自定义服务 。
+本主题介绍如何使用 CLI 来配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/cn/2.0/gui/services/) 选项卡自定义服务 。
 
-1. 使用 [`dcos package describe --config <package-name>`](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/dcos-package-describe/) 命令来查看服务的可用配置选项。
+1. 使用 [`dcos package describe --config <package-name>`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/dcos-package-describe/) 命令来查看服务的可用配置选项。
 
     ```bash
     dcos package describe --config marathon
@@ -73,4 +73,4 @@ enterprise: false
     dcos package install --options=marathon-config.json marathon
     ```
 
-如需更多信息，请参阅 [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/) 命令参考文档。
+如需更多信息，请参阅 [dcos package](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/) 命令参考文档。

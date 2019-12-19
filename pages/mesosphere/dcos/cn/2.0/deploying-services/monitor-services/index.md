@@ -28,7 +28,7 @@ kafka     <privatenode3>   True     0    0.0    0.0     0.0   <service-id3>
 
 ## UI
 
-查看监控 [文档](/mesosphere/dcos/2.0/monitoring/)。
+查看监控 [文档](/mesosphere/dcos/cn/2.0/monitoring/)。
 
 # 监控用户创建的服务
 
@@ -46,4 +46,4 @@ suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150
 
 ## UI
 
-查看监控 [文档](/mesosphere/dcos/2.0/monitoring/)。
+查看监控 [文档](/mesosphere/dcos/cn/2.0/monitoring/)。

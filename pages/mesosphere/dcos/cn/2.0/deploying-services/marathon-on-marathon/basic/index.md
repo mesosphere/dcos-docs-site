@@ -9,12 +9,12 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/mesosphere/dcos/2.0/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用[自定义非本地 Marathon 程序](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/advanced/)。
+本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/mesosphere/dcos/cn/2.0/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用[自定义非本地 Marathon 程序](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/advanced/)。
 
 **前提条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/2.0/installing/)。
-- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/2.0/cli/enterprise-cli/#ent-cli-install)。
+- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/cn/2.0/installing/)。
+- [DC/OS Enterprise CLI 0.4.14 或更高版本](/mesosphere/dcos/cn/2.0/cli/enterprise-cli/#ent-cli-install)。
 - 您必须以超级用户身份登录。
 - 对群集的 SSH 访问。
 
@@ -27,7 +27,7 @@ enterprise: true
 
 
 
-1. [SSH](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) 到专用代理节点。
+1. [SSH](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/) 到专用代理节点。
 
    ```bash
    dcos node ssh --master-proxy --mesos-id=<agent-id>
@@ -139,7 +139,7 @@ curl -i -k \
     dcos package install --options=marathon-config.json marathon
     ```
 # 第 3 步 - 创建 Marathon 服务帐户
-步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/mesosphere/dcos/2.0/security/ent/#security-modes)。
+步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)。
 
 | 安全模式 |  Marathon 服务帐户 |
 |---------------|----------------------|
@@ -161,7 +161,7 @@ curl -i -k \
 # 第 4 步 - 分配权限（仅限严格模式）
 在此步骤中，权限被分配至 Marathon-on-Marathon 实例。在严格模式下需要权限，而在宽容安全模式将其忽略即可。
 
-所有 CLI 命令也可通过 [IAM API] 执行(/mesosphere/dcos/2.0/security/ent/iam-api/)。
+所有 CLI 命令也可通过 [IAM API](/mesosphere/dcos/cn/2.0/security/ent/iam-api/) 执行。
 
 | 安全模式 | 权限 |
 |---------------|----------------------|
@@ -208,7 +208,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
     图 3. 添加权限。
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/2.0/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/cn/2.0/security/ent/#security-modes)。
 
     ### 宽容
 
