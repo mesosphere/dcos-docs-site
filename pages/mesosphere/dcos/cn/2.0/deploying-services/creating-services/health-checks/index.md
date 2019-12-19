@@ -14,7 +14,7 @@ enterprise: false
 在启动任务时立即开始运行状况检查。它们由 Mesos 在运行相应任务的代理节点上进行本地执行。运行状况检查的执行尽可能接近任务，因此它们不受网络故障的影响。运行状况检查将委派给运行任务的代理节点。这允许执行运行状况检查的任务数量与群集中的代理节点数量一起水平扩展。
 
 - 默认运行状况检查利用 Mesos 对任务状态 `TASK_RUNNING => healthy` 的了解。
-- Marathon 通过 [REST API](/mesosphere/dcos/2.0/deploying-services/marathon-api/) 提供任务资源的 `health` 成员，您可以将其添加到服务定义中。
+- Marathon 通过 [REST API](/mesosphere/dcos/cn/2.0/deploying-services/marathon-api/) 提供任务资源的 `health` 成员，您可以将其添加到服务定义中。
 
 如果满足这两个条件，则视为运行状况检查：
 
