@@ -11,7 +11,7 @@ enterprise: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例如 CPU 和内存）。Mesosphere DC/OS 还收集关于不同类别度量标准的元数据。有关元数据度量的更多信息，请参阅 [维度]（#Dimensions）。
+Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例如 CPU 和内存）。Mesosphere DC/OS 还收集关于不同类别度量标准的元数据。有关元数据度量的更多信息，请参阅 [维度](#Dimensions)。
 
 请注意，自动收集的度量标准仅适用于提供端点统计信息的容器。例如，Docker 容器不提供用于 DC/OS 的网络连接数据，因此可用于 UCR 容器的网络连接度量标准不适用于 Docker 容器。
 
@@ -198,5 +198,5 @@ Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例
 
 
 阅读以下资源，了解有关度量标准的更多信息：
-1. [其他 Mesos 卷和网络度量标准](http://mesos.apache.org/documentation/latest/monitoring/) 文档。
+[其他 Mesos 卷和网络度量标准](http://mesos.apache.org/documentation/latest/monitoring/) 文档。
 

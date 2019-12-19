@@ -14,7 +14,7 @@ beta: false
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
 1. 可选：部署一个示例 Marathon 应用程序供在本快速入门指南中使用。如果您已有任务在 DC/OS 上运行，则可以跳过此设置步骤。
 
@@ -58,139 +58,138 @@ beta: false
 
 3. 查看度量标准。
 
-    - **<a name="container-metrics"></a>特定任务的容器度量标准**
+- **<a name="container-metrics"></a>特定任务的容器度量标准**
 
-        关于特定容器的资源消耗的概述，请执行以下命令：
+    关于特定容器的资源消耗的概述，请执行以下命令：
 
-        ```bash
-        dcos task metrics summary <task-id>
-        ```
+    ```bash
+    dcos task metrics summary <task-id>
+    ```
 
-        输出应类似于：
+    输出应类似于：
 
-        ```bash
-        CPU           MEM              DISK
-        0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
-        ```
+    ```bash
+    CPU           MEM              DISK
+    0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
+    ```
 
-    - **<a name="task-metrics"></a>特定任务的所有度量标准**
+- **<a name="task-metrics"></a>特定任务的所有度量标准**
 
-        要获取与任务相关的所有度量标准的详细列表，请执行以下命令：
+  要获取与任务相关的所有度量标准的详细列表，请执行以下命令：
 
-        ```bash
-        dcos task metrics details <task-id>
-        ```
-        输出是容器资源利用率和工作负载传输的度量标准的组合。
-        例如：
+  ```bash
+  dcos task metrics details <task-id>
+  ```
+  输出是容器资源利用率和工作负载传输的度量标准的组合。
+  例如：
 
+  ```bash
+  NAME                      VALUE
+  cpus.limit                0.20            
+  cpus.nr_periods           1272            
+  cpus.nr_throttled         8               
+  cpus.system_time_secs     0.23            
+  cpus.throttled_time_secs  0.45            
+  cpus.user_time_secs       0.15            
+  mem.anon_bytes            9359360         
+  mem.cache_bytes           106496          
+  mem.file_bytes            106496          
+  mem.limit_bytes           44040192        
+  mem.rss_bytes             9359360         
+  mem.total_bytes           9465856      
+  perf.timestamp            1556720487.68
+  ```
 
-        ```bash
-        NAME                      VALUE
-        cpus.limit                0.20            
-        cpus.nr_periods           1272            
-        cpus.nr_throttled         8               
-        cpus.system_time_secs     0.23            
-        cpus.throttled_time_secs  0.45            
-        cpus.user_time_secs       0.15            
-        mem.anon_bytes            9359360         
-        mem.cache_bytes           106496          
-        mem.file_bytes            106496          
-        mem.limit_bytes           44040192        
-        mem.rss_bytes             9359360         
-        mem.total_bytes           9465856      
-        perf.timestamp            1556720487.68
-        ```
+  CPU、磁盘和内存统计来自 Mesos 提供的容器数据。`statsd_tester.time.uptime`.
+  统计数据来自应用程序本身。
 
-        CPU、磁盘和内存统计来自 Mesos 提供的容器数据。`statsd_tester.time.uptime`.
-        统计数据来自应用程序本身。
+- **<a name="host-metrics"></a>主机级度量标准**
 
-    - **<a name="host-metrics"></a>主机级度量标准**
+    对于任务数据，主机级度量标准以摘要或详细表格的形式提供。
+    要查看主机级度量标准，请执行以下命令：
 
-        对于任务数据，主机级度量标准以摘要或详细表格的形式提供。
-        要查看主机级度量标准，请执行以下命令：
+    ```bash
+    dcos node metrics details <mesos-id>
+    ```
 
-        ```bash
-        dcos node metrics details <mesos-id>
-        ```
+    输出显示关于节点上可用资源及其利用率的统计数据。
+    例如：
 
-        输出显示关于节点上可用资源及其利用率的统计数据。
-        例如：
+    ```bash
+    NAME                       VALUE      TAGS
+    cpu.idle                   99.56%
+    cpu.system                 0.09%
+    cpu.total                  0.34%
+    cpu.user                   0.25%
+    cpu.wait                   0.01%
+    filesystem.capacity.free   134.75GiB  path: /
+    filesystem.capacity.total  143.02GiB  path: /
+    filesystem.capacity.used   2.33GiB    path: /
+    filesystem.inode.free      38425263   path: /
+    filesystem.inode.total     38504832   path: /
+    filesystem.inode.used      79569      path: /
+    load.15min                 0
+    load.1min                  0
+    load.5min                  0
+    memory.buffers             0.08GiB
+    memory.cached              2.41GiB
+    memory.free                12.63GiB
+    memory.total               15.67GiB
+    process.count              175
+    swap.free                  0.00GiB
+    swap.total                 0.00GiB
+    swap.used                  0.00GiB
+    system.uptime              28627
+    ```
 
-        ```bash
-        NAME                       VALUE      TAGS
-        cpu.idle                   99.56%
-        cpu.system                 0.09%
-        cpu.total                  0.34%
-        cpu.user                   0.25%
-        cpu.wait                   0.01%
-        filesystem.capacity.free   134.75GiB  path: /
-        filesystem.capacity.total  143.02GiB  path: /
-        filesystem.capacity.used   2.33GiB    path: /
-        filesystem.inode.free      38425263   path: /
-        filesystem.inode.total     38504832   path: /
-        filesystem.inode.used      79569      path: /
-        load.15min                 0
-        load.1min                  0
-        load.5min                  0
-        memory.buffers             0.08GiB
-        memory.cached              2.41GiB
-        memory.free                12.63GiB
-        memory.total               15.67GiB
-        process.count              175
-        swap.free                  0.00GiB
-        swap.total                 0.00GiB
-        swap.used                  0.00GiB
-        system.uptime              28627
-        ```
+- **<a name="script-metrics"></a>度量标准的有计划使用**
 
-    - **<a name="script-metrics"></a>度量标准的有计划使用**
+    所有 dcos-cli 度量标准命令都可以与 `--json` 一起执行，用于脚本。
+    例如：
 
-        所有 dcos-cli 度量标准命令都可以与 `--json` 一起执行，用于脚本。
-        例如：
+    ```bash
+    dcos node metrics summary <mesos-id> --json
+    ```
 
-        ```bash
-        dcos node metrics summary <mesos-id> --json
-        ```
+    输出显示所有相同的数据，但以 JSON 格式显示，以方便解析：
 
-        输出显示所有相同的数据，但以 JSON 格式显示，以方便解析：
-
-        ```json
-        [
-          {
-            "name": "cpu.total",
-            "timestamp": "2018-04-09T23:46:16.834008315Z",
-            "value": 0.32,
-            "unit": "percent"
-          },
-          {
-            "name": "memory.total",
-            "timestamp": "2018-04-09T23:46:16.834650407Z",
-            "value": 16830304256,
-            "unit": "bytes"
-          },
-          {
-            "name": "memory.free",
-            "timestamp": "2018-04-09T23:46:16.834650407Z",
-            "value": 13553008640,
-            "unit": "bytes"
-          },
-          {
-            "name": "filesystem.capacity.total",
-            "timestamp": "2018-04-09T23:46:16.834373702Z",
-            "value": 153567944704,
-            "tags": {
-              "path": "/"
-            },
-            "unit": "bytes"
-          },
-          {
-            "name": "filesystem.capacity.used",
-            "timestamp": "2018-04-09T23:46:16.834373702Z",
-            "value": 2498990080,
-            "tags": {
-              "path": "/"
-            },
-            "unit": "bytes"
-          }
-        ]
-        ```
+    ```json
+    [
+      {
+        "name": "cpu.total",
+        "timestamp": "2018-04-09T23:46:16.834008315Z",
+        "value": 0.32,
+        "unit": "percent"
+      },
+      {
+        "name": "memory.total",
+        "timestamp": "2018-04-09T23:46:16.834650407Z",
+        "value": 16830304256,
+        "unit": "bytes"
+      },
+      {
+        "name": "memory.free",
+        "timestamp": "2018-04-09T23:46:16.834650407Z",
+        "value": 13553008640,
+        "unit": "bytes"
+      },
+      {
+        "name": "filesystem.capacity.total",
+        "timestamp": "2018-04-09T23:46:16.834373702Z",
+        "value": 153567944704,
+        "tags": {
+          "path": "/"
+        },
+        "unit": "bytes"
+      },
+      {
+        "name": "filesystem.capacity.used",
+        "timestamp": "2018-04-09T23:46:16.834373702Z",
+        "value": 2498990080,
+        "tags": {
+          "path": "/"
+        },
+        "unit": "bytes"
+      }
+    ]
+    ```
