@@ -182,7 +182,7 @@ EBS 卷也由其可用区 (AZ) 命名，并且 EBS 卷 [只能连接到同一 AZ
 
 [4]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
 [5]:http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/
-[6]: /mesosphere/dcos/2.0/deploying-services/creating-services/
+[6]: /mesosphere/dcos/cn/2.0/deploying-services/creating-services/
 [7]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directories
 [8]: #implicit-vol
 [9]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/

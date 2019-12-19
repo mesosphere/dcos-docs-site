@@ -33,13 +33,13 @@ enterprise: false
     请注意，`/dcos/volume0` 尚无引用。
 
 1. 停止代理节点。
-    - 在[专用](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node)代理节点上：
+    - 在[专用](/mesosphere/dcos/cn/2.0/overview/concepts/#private-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
-    - 在[公共](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node)代理节点上：
+    - 在[公共](/mesosphere/dcos/cn/2.0/overview/concepts/#public-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
