@@ -33,4 +33,5 @@ Telegraf 在节点上启动时，它会加载配置文件和配置目录的内�
 
 Telegraf 通过为每个节点上的度量标准提供单一来源，缩减了从群集中运行的每个进程收集度量标准的复杂性。Telegraf 还将识别元数据（例如原始任务名称）添加到其收集的度量标准中，以使度量标准更易于读取。如果没有这种元数据，在 Mesos 上运行的任务的度量标准很难通过其原始容器 ID（一个较长的随机散列） 来识别。
 
-[Telegraf 的 DC/OS 分支] (https://github.com/dcos/telegraf)包括每个插件的技术文档和示例配置。
+[Telegraf 的 DC/OS 分支](https://github.com/dcos/telegraf)包括每个插件的技术文档和示例配置。
+
