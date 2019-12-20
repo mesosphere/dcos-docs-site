@@ -7,6 +7,7 @@ excerpt: Understanding DC/OS versioning and releases
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
+
 The format of a Mesosphere&reg; DC/OS&trade; version number is: <code>&lt;Release&gt;.&lt;Version&gt;.&lt;Minor&gt;</code>.
 
 # Release numbering

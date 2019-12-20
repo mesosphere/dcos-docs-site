@@ -10,11 +10,11 @@ beta: false
 enterprise: false
 ---
 
-DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database.
+DC/OS&trade; cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database.
 
 ## Service, task, and node logs
 
-The logging component provides an HTTP API `/system/v1/logs/` that exposes the system logs. You can access information about DC/OS scheduler services, like Marathon or Kafka, with the following CLI command:
+The logging component provides an HTTP API `/system/v1/logs/` that exposes the system logs. You can access information about DC/OS scheduler services, like Marathon&trade; or Kafka&reg;, with the following CLI command:
 
 ```bash
 dcos service log --follow <scheduler-service-name>
@@ -32,7 +32,7 @@ You access the logs for the master node with the following CLI command:
 dcos node log --leader
 ```
 
-To access the logs for an agent node, run `dcos node` to get the Mesos IDs of your nodes, then run the following CLI command:
+To access the logs for an agent node, run `dcos node` to get the Apache&reg; Mesos&reg; IDs of your nodes, then run the following CLI command:
 
 ```bash
 dcos node log --mesos-id=<node-id>
