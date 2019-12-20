@@ -35,7 +35,7 @@ model: /mesosphere/dcos/2.0/data.yml
 ## 此脚本能做什么
 此脚本将从名为 $HOSTNAME 的计算机上卸载所有 {{ model.techName }} 二进制文件、库和日志文件。
 
-它将留下 [卸载日志] 后留下(/var/log/dcos.uninstall.log)，其中详细说明了从机器中移除的所有文件。
+它将留下 [卸载日志](/var/log/dcos.uninstall.log) 后留下，其中详细说明了从机器中移除的所有文件。
 
 - 运行卸载脚本后，机器处于可以再次清洁安装 {{ model.techName }} 的状态。
 - 此脚本用于从管理节点和代理节点移除 {{ model.techName }}，不应用于卸载 bootstrap 节点。
