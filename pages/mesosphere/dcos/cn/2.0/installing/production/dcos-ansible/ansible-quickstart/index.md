@@ -31,7 +31,7 @@ excerpt: 指导完成通过 Ansible 安装 DC/OS。
    - 1 个专用代理
    - 1 个公共代理
 
-请参阅 [最低系统要求](/mesosphere/dcos/2.0/installing/production/system-requirements/) 以及支持的 CentOS 和 Redhat Enterprise Linux (RHEL) [您的节点的版本](/mesosphere/dcos/version-policy/#dcos-platform-version-compatibility-matrix/)，尤其是在针对生产环境进行计划时。
+请参阅 [最低系统要求](/mesosphere/dcos/cn/2.0/installing/production/system-requirements/) 以及支持的 CentOS 和 Redhat Enterprise Linux (RHEL) [您的节点的版本](/mesosphere/dcos/version-policy/#dcos-platform-version-compatibility-matrix/)，尤其是在针对生产环境进行计划时。
 有关为 Ansible 设置 SSH 连接的更多信息，请参阅 [远程连接文档](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information)。
 如果您要安装 DC/OS Enterprise Edition，则还需要一个适当的许可密钥。
 
@@ -108,7 +108,7 @@ excerpt: 指导完成通过 Ansible 安装 DC/OS。
     # license_key_contents: “YOUR_ENT_LICENSE_CONTENTS”
     #
     # 这是一个 ip-detect 脚本示例，它也表示 ip_detect_public_contents
-    # 有关 ip-detect 的更多信息可在此处找到：/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#create-an-ip-detection-script
+    # 有关 ip-detect 的更多信息可在此处找到：/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/#create-an-ip-detection-script
     # ip_detect_contents: |
     #   #!/bin/sh
     #   set -o nounset -o errexit
@@ -188,13 +188,13 @@ If you installed DC/OS Enterprise, you can login with default demo credentials. 
 * `username: bootstrapuser`
 * `password: deleteme`
 
-![enterprise-Login-Page](/mesosphere/dcos/2.0/img/dcos-ee-login.png)
+![enterprise-Login-Page](/mesosphere/dcos/cn/2.0/img/dcos-ee-login.png)
 
 
 
 If you installed DC/OS Open Source, select the OAuth provider of your choice. [oss type="inline" size="small" /]
 
-![oss-login-page](/mesosphere/dcos/2.0/img/dcos-oe-login.png)
+![oss-login-page](/mesosphere/dcos/cn/2.0/img/dcos-oe-login.png)
 
 ## Upgrading and managing your cluster
 Upgrading your cluster to a newer version of DC/OS and making configuration changes is incredibly easy with Ansible. The modules have been designed to automatically detect the state of your cluster and nodes, and automatically get them to the newer declared state. It is even possible to change your agents configuration and upgrade DC/OS at the same time.

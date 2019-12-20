@@ -22,5 +22,5 @@ render: mustache
 - 对 AWS CloudFormation 的 DC/OS 更新尚未完成自动化、验证或记录。
 - Mesosphere, Inc. 不支持经过修改的 CloudFormation 模板。
 
-安装可以就地升级的生产就绪型 DC/OS 的推荐方法是使用 [安装方法](/mesosphere/dcos/{{ model.folder_version }}/installing/production/deploying-dcos/installation/)。
+安装可以就地升级的生产就绪型 DC/OS 的推荐方法是使用 [安装方法](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/production/deploying-dcos/installation/)。
 [/message]

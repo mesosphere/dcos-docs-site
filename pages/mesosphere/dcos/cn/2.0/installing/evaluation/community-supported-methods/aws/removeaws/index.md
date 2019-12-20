@@ -8,7 +8,6 @@ model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 
-<!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 可以使用本说明卸载 AWS EC2 上运行的 DC/OS。
 
