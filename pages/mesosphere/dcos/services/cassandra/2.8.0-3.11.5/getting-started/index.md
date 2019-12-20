@@ -12,7 +12,7 @@ Getting started with a test instance of the DC/OS {{ model.techName }} service i
 
 ## Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may need to [provision a service account](/mesosphere/dcos/services/{{ model.serviceName }}/2.7.0-3.11.5/security/#provisioning-a-service-account) before installing. You will be able to create the service account only if you have a `superuser` permission.
+- Depending on your security mode in Enterprise DC/OS, you may need to [provision a service account](/mesosphere/dcos/services/{{ model.serviceName }}/2.8.0-3.11.5/security/#provisioning-a-service-account) before installing. You will be able to create the service account only if you have a `superuser` permission.
 	- `strict` [security mode](/mesosphere/dcos/latest/security/ent/#security-modes) requires a service account.
 	- `permissive` security mode a service account is optional.
 	- `disabled` security mode does not require a service account.
