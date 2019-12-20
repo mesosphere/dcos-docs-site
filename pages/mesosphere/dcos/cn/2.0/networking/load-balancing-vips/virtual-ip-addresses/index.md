@@ -35,7 +35,7 @@ VIP 遵循以下命名约定：
 
 ## 创建 VIP
 
-1. 从 DC/OS [GUI](/mesosphere/dcos/2.0/gui/)，单击**服务**选项卡，然后单击**运行服务**。
+1. 从 DC/OS [GUI](/mesosphere/dcos/cn/2.0/gui/)，单击**服务**选项卡，然后单击**运行服务**。
 1. 在**网络**选项卡上，选择**网络类型** > **虚拟网络：dcos**。
 1. 展开**添加服务端点**，为以下内容提供回复：
 
@@ -60,7 +60,7 @@ VIP 遵循以下命名约定：
  
 图 2 - 服务定义输出
 
-有关端口配置的更多信息，请参阅 [Marathon 端口文档](/mesosphere/dcos/2.0/deploying-services/service-ports/)。
+有关端口配置的更多信息，请参阅 [Marathon 端口文档](/mesosphere/dcos/cn/2.0/deploying-services/service-ports/)。
 
 ## 通过 DC/OS 服务使用 VIP
 
@@ -110,4 +110,4 @@ VIP 遵循以下命名约定：
 
 数据库等长时间连接的应用程序（如 Postgresql）通常会出现这种情况。若要修复，请尝试开启 keepalive。keepalive 可以是应用程序特定的机制（如心跳），或是 TCP keepalive 等协议中的某些内容。需要有 keepalive，因为负载均衡器无法区分空闲连接或死机连接，原因是数据包在任何一种情况下都不会被发送。默认超时取决于内核配置，但通常为 5 分钟。
 
- [1]: /mesosphere/dcos/2.0/deploying-services/service-ports/
+ [1]: /mesosphere/dcos/cn/2.0/deploying-services/service-ports/
