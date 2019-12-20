@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 您可以使用键值对或作为文件在 DC/OS 中创建密钥。两种方法都将名称和密钥值添加到密钥存储库中。如果您已将密钥值存储在本地文件中，并希望避免复制和粘贴，那么您可能会发现将密钥添加为文件会很方便。
 
-有关如何在应用程序或 pod 定义中引用这些密钥的信息，请参阅[配置服务和 pod 以使用密钥](/mesosphere/dcos/2.0/security/ent/secrets/use-secrets/)。
+有关如何在应用程序或 pod 定义中引用这些密钥的信息，请参阅[配置服务和 pod 以使用密钥](/mesosphere/dcos/cn/2.0/security/ent/secrets/use-secrets/)。
 
 <p class="message--important"><strong>重要信息：</strong>密钥的最大文件大小约为 1 MB，减去了大约 1 KB 的密钥存储库元数据。</p>
 
@@ -21,7 +21,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 以下部分解释了如何使用 UI、CLI 和密钥 API，将密钥创建为键/值对和文件。
 
-密钥应包括路径，除非您希望允许所有服务访问其值。有关密钥路径的更多信息，请参阅[空间](/mesosphere/dcos/2.0/security/ent/#spaces)。
+密钥应包括路径，除非您希望允许所有服务访问其值。有关密钥路径的更多信息，请参阅[空间](/mesosphere/dcos/cn/2.0/security/ent/#spaces)。
 
 ## 前提条件
 
@@ -30,9 +30,9 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ### DC/OS CLI 或密钥 API
 
-- 有关从 CLI 或 API 创建密钥所需的权限，请参阅[密钥存储库权限](/mesosphere/dcos/2.0/security/ent/perms-reference/#secrets)。您配置的权限必须包括允许用户创建的密钥名称。每个密钥必须拥有一项权限。密钥名称和权限名称必须匹配。
+- 有关从 CLI 或 API 创建密钥所需的权限，请参阅[密钥存储库权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#secrets)。您配置的权限必须包括允许用户创建的密钥名称。每个密钥必须拥有一项权限。密钥名称和权限名称必须匹配。
 
-- [已安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/#ent-cli-install)。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/mesosphere/dcos/cn/2.0/cli/enterprise-cli/#ent-cli-install)。
 
 # <a name="ui"></a>使用 UI 创建键值对密钥
 
@@ -77,7 +77,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 本程序介绍了如何在 `developer` 路径内创建名为 `my-secret` 的密钥。
 
-<p class="message--note"><strong>注意：</strong>在发出本部分中的 curl 命令之前，必须遵循 <a href="/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/">获取 DC/OS CA 捆绑包</a> 中的步骤。</p>
+<p class="message--note"><strong>注意：</strong>在发出本部分中的 curl 命令之前，必须遵循 <a href="/mesosphere/dcos/cn/2.0/security/ent/tls-ssl/get-cert/">获取 DC/OS CA 捆绑包</a> 中的步骤。</p>
 
 
 1. 使用 `dcos auth login` 登录到 CLI。
@@ -92,7 +92,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 本程序介绍了如何使用 DC/OS Enterprise CLI 在 `developer` 路径内创建名为 `my-secret` 的键/值对密钥。
 
-1. 使用 `dcos auth login` 登录到 CLI。您可在 [CLI 参考](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 中找到有关此命令的更多信息。
+1. 使用 `dcos auth login` 登录到 CLI。您可在 [CLI 参考](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 中找到有关此命令的更多信息。
 
 1. 使用以下命令创建新密钥。
 
@@ -109,7 +109,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 <p class="message--note"><strong>注意：</strong>从 DC/OS 1.10 开始，您只能从 DC/OS CLI 上传密钥作为文件。密钥的最大文件大小约为 1 MiB，减去了密钥存储库元数据的大约 1 KB。</p>
 
-1. 使用 `dcos auth login` 登录到 CLI。您可在 [CLI 参考](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 中找到有关此命令的更多信息。
+1. 使用 `dcos auth login` 登录到 CLI。您可在 [CLI 参考](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 中找到有关此命令的更多信息。
 
 1. 使用以下命令创建新密钥。
 

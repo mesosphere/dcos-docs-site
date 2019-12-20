@@ -5,22 +5,24 @@ title: 通过双向 TLS 保护 Exhibitor
 menuWeight: 500
 excerpt: 通过启用 TLS 的 Exhibitor 组合来保护 DC/OS
 enterprise: true
+render: mustache
+model: /mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 默认情况下，Exhibitor HTTP 服务对可以访问主节点上端口 8181 的任何客户端开放。本页介绍保护一种 Exhibitor 服务免受未经授权访问的方法。启用后，HTTP 客户端必须通过 Admin Router 访问 Exhibitor，因而将 Admin Router 访问控制策略应用于 Exhibitor 服务。
 
-<p class="message--note"><strong>注意：</strong>通过 Admin Router 访问 Exhibitor 时 (https://master_host/exhibitor)，已认证用户必须有 <i>dcos:adminrouter:ops:exhibitor</i> 特权以及 <i>全部</i> 操作标识符</p>
+<p class="message--note"><strong>注意：</strong>通过 Admin Router 访问 Exhibitor 时 <tt>https://master_host/exhibitor</tt>，已认证用户必须有 <tt>dcos:adminrouter:ops:exhibitor</tt> 特权以及 全部 操作标识符.</p>
 
 # 保护 Exhibitor
 
 保护 Exhibitor 的策略是双向 TLS 认证。为了保护 Exhibitor，必须先创建唯一性根 CA 证书。该 CA 证书用于为 Admin Router 和 Exhibitor 服务签署各种端点实体证书。创建输出 PEM 和 Java KeyStore 格式化工件的公钥基础架构不是一件容易的事。为了简化此过程，我们创建了一个简单的工具来生成必要的文件。
 
-<p class="message--note"><strong>注意：</strong>本指南仅适用于使用<i>静态</i>管理节点发现的群集，目前不支持 <i>master_http_loadbalancer</i>。(/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#master-discovery-required)</p>
+<p class="message--note"><strong>注意：</strong>本指南仅适用于使用静态管理节点发现的群集，目前不支持 <tt>"master_http_loadbalancer"</tt>。请参阅配置参考<a href="/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/#master-discovery-required">master discovery.</a></p>
 
 ## 使用工具
 
-<p class="message--note"><strong>注意：</strong>需要有效的 Docker 安装。如果 Docker 不可用，请参见 https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md，以获取关于本地运行命令的信息。</p>
+<p class="message--note"><strong>注意：</strong>需要有效的 Docker 安装。如果 Docker 不可用，请参见 <a href="https://github.com/mesosphere/exhibitor-tls-artifacts-gen/blob/master/README.md">exhibitor README</a>，以获取关于本地运行命令的信息。</p>
 
 从 <a href=https://github.com/mesosphere/exhibitor-tls-artifacts-gen/releases>Github 发布页面</a> 下载脚本并运行：
 
@@ -55,14 +57,14 @@ chmod +x exhibitor-tls-artifacts
 ```
 
 上述命令会在当前的目录中创建名为 `artifacts` 的目录（在运行命令之前该目录不得存在）。在 `artifacts` 下方，您会找到 root-cert.pem 和 truststore.jks。这些文件包含 PEM 和 Java Keystore 格式的根 CA 证书。`artifacts` 目录还包含 3 个子目录，即 `10.192.0.2`、`10.192.0.3` 和 `10.192.0.4`。每个子目录包含以下文件：
-
+```
     client-cert.pem
     client-key.pem
     clientstore.jks
     root-cert.pem
     serverstore.jks
     truststore.jks
-
+```
 这些目录包含保护每个 Exhibitor 节点的所有必要文件。
 
 ## 安装工件

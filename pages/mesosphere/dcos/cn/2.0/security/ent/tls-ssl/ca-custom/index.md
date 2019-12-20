@@ -8,7 +8,6 @@ enterprise: true
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 每个 DC/OS Enterprise 群集都有自己的 DC/OS 证书颁发机构 (CA)。默认情况下，CA 使用在安装 DC/OS 期间生成的全局唯一根 CA 证书。根 CA 证书用于为 DC/OS 组件（如 Admin Router）签署证书。您可以将 DC/OS Enterprise 配置为使用自定义 CA 证书，而不是使用自动生成的根 CA 证书，该证书可以是根 CA 证书，也可以是中间 CA 证书。（参见 [以下](#example-use-cases) 示例）
@@ -49,7 +48,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 要使用自定义 CA 证书安装 DC/OS Enterprise，您需要：
 
-- 使用 [高级 DC/OS 安装方法](/mesosphere/dcos/2.0/installing/ent/custom/advanced/)。不支持其他安装方法。
+- 使用 [高级 DC/OS 安装方法](/mesosphere/dcos/cn/2.0/installing/ent/custom/advanced/)。不支持其他安装方法。
 - 包含自定义 CA 证书的文件。
 - 包含与自定义 CA 证书相关联的私钥的文件。
 - 包含与自定义 CA 证书相关联的证书链的文件，如果 CA **不是** 自签名根 CA。
@@ -123,7 +122,7 @@ bootstrap 节点上 `$DCOS_INSTALL_DIR/genconf/` 目录中的自定义 CA 证书
 
 **先决条件**
 
-- 通过高级安装程序安装 DC/OS Enterprise 是根据相应[文档](/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/)编写，直至文档的[**安装 DC/OS**](/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#install-dcos)部分。
+- 通过高级安装程序安装 DC/OS Enterprise 是根据相应[文档](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/)编写，直至文档的[**安装 DC/OS**](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/#install-dcos)部分。
 
 - 在 bootstrap 节点上，带有自定义 CA 证书、关联的私钥和可选的 CA 证书链的文件已放入 `$DCOS_INSTALL_DIR/genconf/` 的目录中。（请参阅上面的[部分](#manually-placing-custom)，了解更多详细说明）
 
@@ -160,10 +159,10 @@ ca_certificate_chain_path: genconf/dcos-ca-certificate-chain.crt
 请注意，在使用根证书作为自定义 CA 证书设置 DC/OS Enterprise 时，不得存在 `ca_certificate_chain_path`。
 
 ##  安装
-按照[高级安装程序文档](/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#install-dcos)中的说明继续安装。请注意，当执行 `dcos_generate_config.ee.sh` 时，当前工作目录必须是 `$DCOS_INSTALL_DIR` 目录。
+按照[高级安装程序文档](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/#install-dcos)中的说明继续安装。请注意，当执行 `dcos_generate_config.ee.sh` 时，当前工作目录必须是 `$DCOS_INSTALL_DIR` 目录。
 
 ## 验证安装
-验证是否使用自定义 CA 证书正确安装 DC/OS Enterprise 群集的一种方法是启动到 Admin Router 的 TLS 连接，Admin Router 在安装后会显示自定义 CA 签署的证书。为此，您首先需要获取已部署群集的 DC/OS CA 捆绑包。[本页面](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/)显示了您如何做到这一点。
+验证是否使用自定义 CA 证书正确安装 DC/OS Enterprise 群集的一种方法是启动到 Admin Router 的 TLS 连接，Admin Router 在安装后会显示自定义 CA 签署的证书。为此，您首先需要获取已部署群集的 DC/OS CA 捆绑包。[本页面](/mesosphere/dcos/cn/2.0/security/ent/tls-ssl/get-cert/)显示了您如何做到这一点。
 
 如果您已经获得 DC/OS CA 捆绑包，并将其存储在名为 `dcos-ca.crt` 的文件中，在包含 `dcos-ca.crt` 文件的目录中发出以下命令，以检查主节点上的 Admin Router 是否使用自定义 CA 签署的证书：
 
@@ -199,7 +198,7 @@ verify return:1
 
 存在以下文件：
 
-- 在 botstrap 节点上：
+- 在 bootstrap 节点上：
     - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件
     - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件
 
@@ -228,7 +227,7 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 
 在该用例中，自定义 CA 证书是由 root CA 直接颁发的中间 CA 证书。CA 证书链只包含该根 CA 证书。存在以下文件：
 
-- 在 botstrap 节点上：
+- 在 bootstrap 节点上：
     - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件， 格式为 PEM
     - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件，格式为 PKCS#8
     - 仅包含 PEM 格式的根 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` 文件

@@ -13,7 +13,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # 刷新令牌
 服务可以使用各种方式刷新其令牌。理想情况下，服务应计算令牌到期之前的时间长度，该时间长度嵌入令牌本身，并在它到期之前请求新的令牌。但是，服务也可以等待，直到其收到 `401` 以请求新令牌。
 
-您可能需要使用服务帐户配置服务，具体取决于您的 [安全模式](/mesosphere/dcos/2.0/security/ent/#security-modes) 以及服务请求的来源。
+您可能需要使用服务帐户配置服务，具体取决于您的 [安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes) 以及服务请求的来源。
 
 API 使用者应能够在当前认证令牌到期时处理。
 
@@ -21,7 +21,7 @@ API 使用者应能够在当前认证令牌到期时处理。
 - **到期前续订** 使用此方法，令牌将在到期前刷新。服务可以在到期之前安排异步令牌续订。它可以获取新的认证令牌，而旧的认证令牌仍然有效。这可防止由过期认证令牌引起的延迟峰值。
 
 # RS256 身份认证 JWT 带外验证
-DC/OS 服务可使用公钥加密技术代表 [DC/OS Identity and Access Manager (Bouncer)](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-iam) 组件对传入请求进行身份认证。如果客户端显示的认证令牌已由 Bouncer 使用 Bouncer 的私钥和 RS256 算法签名，则此方法有效。
+DC/OS 服务可使用公钥加密技术代表 [DC/OS Identity and Access Manager (Bouncer)](/mesosphere/dcos/cn/2.0/overview/architecture/components/#dcos-iam) 组件对传入请求进行身份认证。如果客户端显示的认证令牌已由 Bouncer 使用 Bouncer 的私钥和 RS256 算法签名，则此方法有效。
 
 ## Bouncer JSON Web Key Set (JWKS) 端点
 Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公匙详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517)。在该数据结构内，公钥根据 [RFC 7518](https://tools.ietf.org/html/rfc7518) 进行参数化。
@@ -47,7 +47,7 @@ curl localhost:8101/acs/api/v1/auth/jwks
 ## 从 JWKS 数据构建公钥
 完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`)。两者均为整数。在上一个示例中，指数参数以 `e` 的值编码，模数以 `n` 的值编码。
 
-整数是“Base64urLuInt”编码。此编码由 [RFC 7518] 指定(https://tools.ietf.org/html/rfc7518#section-6.3)：
+整数是“Base64urLuInt”编码。此编码由 [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3) 指定：
 
 <blockquote>将正整数值或零整数值表示为值的无符号大端表示的 base64url 编码作为八位字节序列。八位字节序列 **必须**使用代表值所需的最小八位字节数。零表示为 BASE64URL（单个零值八位字节），即“AA”。</blockquote>
 
