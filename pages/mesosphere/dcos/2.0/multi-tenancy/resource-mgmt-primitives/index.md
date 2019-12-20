@@ -38,8 +38,8 @@ Weights refer to a mechanism for prioritizing one role over another, to allow al
 # Examples
 These concepts are described based on two real-world scenarios of existing customer use cases.
 
-## Analytics platform with weighted Spark&trade; roles
-This example is based on a customer’s use case of an analytics pipeline. The primary workload is Spark with three tiers of Spark jobs, tagged with roles; "low" - 1, "medium" - 2, and "high" - 3, representing the priority and weights accordingly.
+## Analytics platform with weighted Spark roles
+This example is based on a customer’s use case of an analytics pipeline. The primary workload is Spark&trade; with three tiers of Spark jobs, tagged with roles; "low" - 1, "medium" - 2, and "high" - 3, representing the priority and weights accordingly.
 
 In practice, the high role is allocated three times the fair share of offers (resources) than medium, which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM.
 

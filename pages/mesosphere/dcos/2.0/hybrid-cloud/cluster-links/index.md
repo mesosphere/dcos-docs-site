@@ -20,8 +20,8 @@ You must be a superuser or have the appropriate cluster link [permission](/mesos
 
 As superuser:
 
-1. Configure an [OpenID:reg; IdP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/).
-    1. Ensure both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google Dev console.
+1. Configure an [OpenID&reg; IdP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/).
+    1. Ensure both cluster URLs are provided in **Authorized JavaScript origins** and **Authorized redirect URIs** fields in the Google&reg; Dev console.
     1. Give the OIDC name such as "google-idp".
     1. Ensure both clusters use the same `Client-Id` and `Client-Secret` when configuring OIDC.
 1. Provide each user with permission to see services and linked clusters:

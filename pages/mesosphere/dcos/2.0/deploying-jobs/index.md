@@ -16,7 +16,7 @@ You can create scheduled jobs in DC/OS&trade; without installing a separate serv
 
 ## Functionality
 
-You can create a job as a single command that you include when you create the job, or you can point to a Docker&reg. image.
+You can create a job as a single command that you include when you create the job, or you can point to a Docker&reg; image.
 
 When you create your job, you can specify:
 

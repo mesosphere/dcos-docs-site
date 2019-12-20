@@ -328,14 +328,14 @@ You can create and manage jobs from the DC/OS CLI using `dcos job` commands. To 
 ## Concurrency policy for scheduled jobs
 If you use a schedule to start a job, you can define a concurrency policy for the job. A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running. 
 
-For example, assume you have a job scheduled to start every day at 3:00AM, and you have set the concurrency policy for the job set to FORBID. If there is an instance of that job already running at 3:00AM--either because a previously-triggered job run is still active or has been triggered manually outside of the schedule--the scheduled start time will not trigger a new job to run. If there are no jobs running at the next scheduled start time, a new job instance starts and runs as scheduled.
+For example, assume you have a job scheduled to start every day at 3:00AM, and you have set the concurrency policy for the job set to FORBID. If there is an instance of that job already running at 3:00AM - either because a previously-triggered job run is still active or has been triggered manually outside of the schedule - the scheduled start time will not trigger a new job to run. If there are no jobs running at the next scheduled start time, a new job instance starts and runs as scheduled.
 
 If you want to allow scheduled jobs to be triggered while  other instances of the same job are running, you can set the `concurrencyPolicy` to ALLOW. 
 
-Note: A `concurrencyPolicy` set to FORBID does *not* prevent you from starting a new job instance manually - for example via the API - even if one is already running. It only prevents a schedule to start a new job instance.
+Note: A `concurrencyPolicy` set to FORBID does *not* prevent you from starting a new job instance manually - for example through the API - even if one is already running. It only prevents a schedule to start a new job instance.
 
 ## MaxLaunchDelay
-The `maxLaunchDelay` is a deprecated configuration option that is not used anymore
+The `maxLaunchDelay` is a deprecated configuration option and is no longer used.
 
 ## Restart policy
 Per default, metronome only tries to start a job instance once - the default restart policy is NEVER. The alternative is to set the restart policy to ON_FAILURE, which configures metronome to restart the task until it completes successfully or the `activeDeadlineSeconds` is reached.
@@ -376,13 +376,13 @@ The `taskKillGracePeriodSeconds` can be used to define the time between the SIGT
 }
 ```
 ## Create a schedule-only JSON file
-If you specify a schedule for a job in the JSON file for that job, you can assign only one schedule for the job to run under.
+If you specify a schedule for a job in the JSON file for that job, you can assign only one schedule under which the job runs.
 
 If you want to use the same schedule for more than one job, however, you can create a separate JSON file specifically for the schedule. You can then use the `dcos job schedule add <job-id> <schedule-file>` command to associate a job with the schedule.
 
 1. Open a file in a text editor to [create a new job](#cli-add-job) file in JSON format, if necessary.
 
-    You must use the job `id` you define for the job to associate a schedule JSON file with the job. To prevent schedule conflicts or unexpected job runs, you should not define schedule parameters for a job if you want to use the schedule-only JSON file to control when a job runs.
+    You must use the job `id` you define for the job to associate a schedule JSON file with the job. To prevent schedule conflicts or unexpected job runs, you should not define schedule parameters for a job if you want to use the schedule-only JSON file to control *when* a job runs.
 
 1. Open a new file in a text editor to create the schedule you want to use in JSON format.
 
@@ -480,7 +480,7 @@ To remove a job:
     ```
 
 ## Modify a job from the command line
-To modify your job, update your JSON job file, then run
+To modify your job, update your JSON job file, then run the command:
 
 ```
 dcos job update <job-file>.json
@@ -490,7 +490,7 @@ dcos job update <job-file>.json
 You can update the schedule of your job in two ways, depending if your job has a schedule specified in the `<job-file>.json` or if your job's schedule is kept in a separate file.
 
 #### Modify a job with a schedule
-Modify the `schedules` parameter of your `<job-file>.json`. Then run
+Modify the `schedules` parameter of your `<job-file>.json`. Then run the command:
 
 ```
 dcos job update <job-file>.json
@@ -518,20 +518,20 @@ List all previous runs of your job:
 dcos job history <job-id>
 ```
 
-To view details about your job, run:
+To view details about your job, run the command:
 
 ```
 dcos job show <job-id>
 ```
 
-To view details about your job's schedule, run:
+To view details about your job's schedule, run the command:
 
 ```
 dcos job schedule show <job-id>
 ```
 
 ### View job logs
-To view the log for your job:
+To view the log for your job, run the command:
 
 ```
 dcos task log --completed <job-id>
