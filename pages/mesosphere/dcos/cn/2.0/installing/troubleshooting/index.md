@@ -180,7 +180,7 @@ journalctl -u dcos-marathon -b
 
 
 例如，此处是随着其转为成功状态，Mesos 代理节点日志的一个片段：
-```
+```bash
 mesos-slave[1080]: I1118 14:00:43.687366  1080 main.cpp:272] Starting Mesos slave
 mesos-slave[1080]: I1118 14:00:43.688474  1080 slave.cpp:190] Slave started on 1)@10.0.1.108:5051
 mesos-slave[1080]: I1118 14:00:43.688503  1080 slave.cpp:191] Flags at startup: --appc_store_dir="/tmp/mesos/store/appc" --authenticatee="crammd5" --cgroups_cpu_enable_pids_and_tids_count="false" --cgroups_enable_cfs="false" --cgroups_hierarchy="/sys/fs/cgroup" --cgroups_limit_swap="false" --cgroups_root="mesos" --container_disk_watch_interval="15secs" --containerizers="docker,mesos" --default_role="*" --disk_watch_interval="1mins" --docker="docker" --docker_kill_orphans="true" --docker_remove_delay="1hrs" --docker_socket="/var/run/docker.sock" --docker_stop_timeout="0ns" --enforce_container_disk_quota="false" --executor_environment_variables="{"LD_LIBRARY_PATH":"\/opt\/mesosphere\/lib","PATH":"\/usr\/bin","SASL_PATH":"\/opt\/mesosphere\/lib\/sasl2","SHELL":"\/usr\/bin\/bash"}" --executor_registration_timeout="5mins" --executor_shutdown_grace_period="5secs" --fetcher_cache_dir="/tmp/mesos/fetch" --fetcher_cache_size="2GB" --frameworks_home="" --gc_delay="2days" --gc_disk_headroom="0.1" --hadoop_home="" --help="false" --hostname_lookup="false" --image_provisioner_backend="copy" --initialize_driver_logging="true" --ip_discovery_command="/opt/mesosphere/bin/detect_ip" --isolation="cgroups/cpu,cgroups/mem" --launcher_dir="/opt/mesosphere/packages/mesos--30d3fbeb6747bb086d71385e3e2e0eb74ccdcb8b/libexec/mesos" --log_dir="/var/log/mesos" --logbufsecs="0" --logging_level="INFO" --master="zk://leader.mesos:2181/mesos" --oversubscribed_resources_interval="15secs" --perf_duration="10secs" --perf_interval="1mins" --port="5051" --qos_correction_interval_min="0ns" --quiet="false" --recover="reconnect" --recovery_timeout="15mins" --registration_backoff_factor="1secs" --resource_monitoring_interval="1secs" --resources="ports:[1025-2180,2182-3887,3889-5049,5052-8079,8082-8180,8182-32000]" --revocable_cpu_low_priority="true" --sandbox_directory="/mnt/mesos/sandbox" --slave_subsystems="cpu,memory" --strict="true" --switch_user="true" --systemd_runtime_directory="/run/systemd/system" --version="false" --work_dir="/var/lib/mesos/slave"
@@ -210,7 +210,7 @@ journalctl -u dcos-marathon -b
 
 
 例如，此处是随着其转为成功状态，DC/PS Marathon 日志的一个片段：
-```
+```bash
 java[1288]: I1118 13:59:39.125041  1363 group.cpp:331] Group process (group(1)@10.0.7.166:48531) connected to ZooKeeper
 java[1288]: I1118 13:59:39.125100  1363 group.cpp:805] Syncing group operations: queue size (joins, cancels, datas) = (0, 0, 0)
 java[1288]: I1118 13:59:39.125121  1363 group.cpp:403] Trying to create path '/mesos' in ZooKeeper
@@ -239,7 +239,7 @@ journalctl -u dcos-gen-resolvconf -b
 ```
 
 例如，此处是随着其转为成功状态，gen_resolvconf 日志的一个片段：
-```
+```bash
 systemd[1]: Started Update systemd-resolved for mesos-dns.
 systemd[1]: Starting Update systemd-resolved for mesos-dns...
 gen_resolvconf.py[1073]: options timeout:1
@@ -266,7 +266,7 @@ journalctl -u dcos-mesos-master -b
 
 例如，此处是随着其转为成功状态，Mesos 管理节点日志的一个片段：
 
-```
+```bash
 mesos-master[1250]: I1118 13:59:33.890916  1250 master.cpp:376] Master cdcb6222-65a1-4d60-83af-33dadec41e92 (10.0.7.166) started on 10.0.7.166:5050
 mesos-master[1250]: I1118 13:59:33.890945  1250 master.cpp:378] Flags at startup: --allocation_interval="1secs" --allocator="HierarchicalDRF" --authenticate="false" --authenticate_slaves="false" --authenticators="crammd5" --authorizers="local" --cluster="pool-880dfdbf0f2845bf8191" --framework_sorter="drf" --help="false" --hostname_lookup="false" --initialize *driver_logging="true" --ip_discovery_command="/opt/mesosphere/bin/detect_ip" --log_auto_initialize="true" --log_dir="/var/log/mesos" --logbufsecs="0" --logging_level="INFO" --max* slave_ping_timeouts="5" --port="5050" --quiet="false" --quorum="1" --recovery_slave_removal_limit="100%" --registry="replicated_log" --registry_fetch_timeout="1mins" --registry_sto re_timeout="5secs" --registry_strict="false" --roles="slave_public" --root_submissions="true" --slave_ping_timeout="15secs" --slave_reregister_timeout="10mins" --user_sorter="drf" --version="false" --webui_dir="/opt/mesosphere/packages/mesos--30d3fbeb6747bb086d71385e3e2e0eb74ccdcb8b/share/mesos/webui" --weights="slave_public=1" --work_dir="/var/lib/mesos/mas ter" --zk="zk://127.0.0.1:2181/mesos" --zk_session_timeout="10secs" mesos-master[1250]: 2015-11-18 13:59:33,891:1250(0x7f14427fc700):ZOO_INFO@check_events@1750: session establishment complete on server [127.0.0.1:2181], sessionId=0x1511ae440bc0001, negotiated timeout=10000
 ```
@@ -286,7 +286,7 @@ journalctl -u dcos-mesos-dns -b
 
 
 例如，此处是随着其转为成功状态，Mesos-DNS 日志的一个片段：
-```
+```bash
 mesos-dns[1197]: I1118 13:59:34.763885 1197 detect.go:135] changing leader node from "" -> "json.info_0000000001"
 mesos-dns[1197]: I1118 13:59:34.764537 1197 detect.go:145] detected master info: &MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}
 mesos-dns[1197]: VERY VERBOSE: 2015/11/18 13:59:34 masters.go:47: Updated leader: &MasterInfo{Id:*cdcb6222-65a1-4d60-83af-33dadec41e92,Ip:*2785476618,Port:*5050,Pid:*master@10.0.7.166:5050,Hostname:*10\.0.7.166,Version:*0\.25.0,Address:&Address{Hostname:*10\.0.7.166,Ip:*10\.0.7.166,Port:*5050,XXX_unrecognized:[],},XXX_unrecognized:[],}
@@ -315,7 +315,7 @@ journalctl -u dcos-exhibitor -b
 
 
 例如，此处是随着其转为成功状态，Exhibitor 日志的一个片段：
-```
+```bash
 INFO  com.netflix.exhibitor.core.activity.ActivityLog  Automatic Instance Management will change the server list:  ==> 1:10.0.7.166 [ActivityQueue-0]
 INFO  com.netflix.exhibitor.core.activity.ActivityLog  State: serving [ActivityQueue-0]
 INFO  com.netflix.exhibitor.core.activity.ActivityLog  Server list has changed [ActivityQueue-0]
