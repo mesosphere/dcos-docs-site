@@ -28,5 +28,5 @@ model: /mesosphere/dcos/2.0/data.yml
 
 DC/OS Enterprise 支持两种基于身份提供程序的身份认证方法：[安全声明标记语言 (SAML)](https://wiki.oasis-open.org/security/FrontPage) 和 [OpenID Connect (OIDC)](http://openid.net/connect/)：
 
-- 添加 [SAML 身份提供程序](/mesosphere/dcos/2.0/security/ent/sso/setup-saml/)
-- 添加 [OpenID 身份提供程序](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/)：
+- 添加 [SAML 身份提供程序](/mesosphere/dcos/cn/2.0/security/ent/sso/setup-saml/)
+- 添加 [OpenID 身份提供程序](/mesosphere/dcos/cn/2.0/security/ent/sso/setup-openid/)：

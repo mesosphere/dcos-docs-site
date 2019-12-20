@@ -8,7 +8,6 @@ model: /mesosphere/dcos/2.0/data.yml
 excerpt: 为 LDAP 目录指定身份认证方法和参数
 enterprise: true
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 在此部分中，您将为 LDAP 目录设置身份认证方法和参数。您可以使用两种绑定类型和两种身份认证方法。
@@ -26,9 +25,9 @@ enterprise: true
 
 您可以使用两种身份认证方法。
 
-- 简单绑定。通过简单绑定的身份认证是验证 LDAP 客户端的最常见方式，但您也可以选择搜索绑定身份认证方法。您可以匿名绑定，也可以提供 LDAP 凭据，例如“查找 DN”和“查找密码”。在任一情况下，您都必须提供用户 DN 模板。如果您的 LDAP 用户名是 [可分辨名称 (DN)] 的一部分，请选择简单绑定(https://www.ldap.com/ldap-dns-and-rdns)。
+- 简单绑定。通过简单绑定的身份认证是验证 LDAP 客户端的最常见方式，但您也可以选择搜索绑定身份认证方法。您可以匿名绑定，也可以提供 LDAP 凭据，例如“查找 DN”和“查找密码”。在任一情况下，您都必须提供用户 DN 模板。如果您的 LDAP 用户名是 [可分辨名称 (DN)](https://www.ldap.com/ldap-dns-and-rdns) 的一部分，请选择简单绑定。
 
-- 搜索绑定。虽然简单的绑定连接只需一步即可完成，但搜索/绑定操作需要两个步骤。首先，在目录中搜索用户名属性。如果找到，则进行绑定操作以检查用户对外部目录的凭据。您必须指定用户搜索库和用户搜索筛选模板。在某些方法中，您还必须指定“查找 DN”和“查找密码”。如果您的 LDAP 用户名不是 [可分辨名称 (DN) 的一部分]，请选择搜索绑定(https://www.ldap.com/ldap-dns-and-rdns)。
+- 搜索绑定。虽然简单的绑定连接只需一步即可完成，但搜索/绑定操作需要两个步骤。首先，在目录中搜索用户名属性。如果找到，则进行绑定操作以检查用户对外部目录的凭据。您必须指定用户搜索库和用户搜索筛选模板。在某些方法中，您还必须指定“查找 DN”和“查找密码”。如果您的 LDAP 用户名不是 [可分辨名称 (DN) 的一部分](https://www.ldap.com/ldap-dns-and-rdns)，请选择搜索绑定。
 
 ## 使用简单绑定的匿名绑定
 
@@ -53,7 +52,7 @@ enterprise: true
 
 1. 单击 **Add Directory**。
 
-1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
 
 ## 使用搜索绑定的匿名绑定
 
@@ -62,7 +61,7 @@ enterprise: true
 1. 在 **添加目录** 窗口中，单击 **身份认证**。
 1. 在 **绑定类型**下，单击 **匿名绑定**。
 1. 在 **身份认证方法**下，单击 **搜索绑定**。
-1. 在 **User Search Base**（用户搜索库）字段中，指定目录中要开始搜索 LDAP 用户名的位置。这应为[搜索库对象]的 DN(https://technet.microsoft.com/en-us/library/cc978021.aspx)。例如：
+1. 在 **User Search Base**（用户搜索库）字段中，指定目录中要开始搜索 LDAP 用户名的位置。这应为[搜索库对象](https://technet.microsoft.com/en-us/library/cc978021.aspx)的 DN。例如：
 
     ```bash
     cn=Users,dc=example,dc=com 
@@ -81,7 +80,7 @@ enterprise: true
     图 2. “使用搜索绑定的匿名绑定”参数
 
 1. 单击 **Add Directory**。
-1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
 
 ## 使用简单绑定的 LDAP 凭据
 
@@ -118,7 +117,7 @@ enterprise: true
 
 1. 单击 **Add Directory**。
 
-1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
 
 ## 使用搜索绑定的 LDAP 凭据
 
@@ -157,5 +156,5 @@ enterprise: true
     图 4. “使用搜索绑定的 LDAP 凭据”参数
 
 1. 单击 **Add Directory**。
-1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
 

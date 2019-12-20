@@ -8,15 +8,14 @@ enterprise: true
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 在本部分，您将看到如何使用 DC/OS UI 在宽容模式下实现多租户。
 
-本教程演示如何在宽容[安全模式](/mesosphere/dcos/2.0/security/ent/#security-modes)下实现 DC/OS 服务的用户权限。完成后，您将通过使用 DC/OS 权限获得多租户。
+本教程演示如何在宽容[安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)下实现 DC/OS 服务的用户权限。完成后，您将通过使用 DC/OS 权限获得多租户。
 
 **前提条件：**
 
-- DC/OS Enterprise [已安装](/mesosphere/dcos/2.0/installing/)在宽容[模式](/mesosphere/dcos/2.0/security/ent/#security-modes)下。
+- DC/OS Enterprise [已安装](/mesosphere/dcos/cn/2.0/installing/)在宽容[模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)下。
 
 
 ## 创建用户和组
@@ -251,7 +250,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ## DC/OS UI：监控用户帐户 
 
-1. 注销当前用户，然后以具有[超级用户](/mesosphere/dcos/2.0/security/ent/perms-reference/#superuser)权限的用户身份返回。您将看到，两个服务都在 `prod-a` 和 `prod-b-groups` 中运行。
+1. 注销当前用户，然后以具有[超级用户](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#superuser)权限的用户身份返回。您将看到，两个服务都在 `prod-a` 和 `prod-b-groups` 中运行。
 
     ![prod-a-group](/mesosphere/dcos/2.0/img/GUI-Services-Services_List_w_Groups-1_12.png)
 

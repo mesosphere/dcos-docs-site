@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 # 背景
 
-DC/OS Enterprise 支持 [通过 LDAP 进行基于目录的身份认证](/mesosphere/dcos/2.0/security/ent/ldap/)。用户和用户组可以从外部目录导入 DC/OS IAM。查看[管理用户和组](/mesosphere/dcos/2.0/security/ent/users-groups/)。
+DC/OS Enterprise 支持 [通过 LDAP 进行基于目录的身份认证](/mesosphere/dcos/cn/2.0/security/ent/ldap/)。用户和用户组可以从外部目录导入 DC/OS IAM。查看[管理用户和组](/mesosphere/dcos/cn/2.0/security/ent/users-groups/)。
 
 在较早版本的 DC/OS Enterprise 中，单击即可操作 LDAP 组导入和 LDAP 用户导入。如果用户已从外部目录中删除，则该用户将不会自动从 DC/OS IAM 中删除。同样，如果从目录导入“工程师”用户组，则必须将添加到该组的任何新用户明确添加到 DC/OS IAM。保持导入的用户和用户组在 DC/OS IAM 和目录之间同步对于大型组织的管理员来说是一项艰巨的任务。
 
@@ -40,7 +40,7 @@ LDAP 同步程序是由每个管理节点上的 DC/OS 组件执行的。它作�
 
 LDAP 同步的每次运行都将详细记录到 `systemd` 日志中。可以通过勾选与 Mesos 领导人对应的 DC/OS 管理节点上的记录来检查这些记录。
 
-安装时可配置确切的时长。请参阅 [高级配置] (/mesosphere/dcos/2.0/installing/production/advanced-configuration/)下的 [配置参考] (/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/)。
+安装时可配置确切的时长。请参阅 [高级配置](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/)下的 [配置参考](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/)。
 
 # 导入有有效名称的组
 如果导入 LDAP 组名称用作 DC/OS 组，则请记住，要导入的 LDAP 组必须具有支持的组名称格式。
