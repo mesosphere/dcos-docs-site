@@ -21,17 +21,17 @@ DC/OS 的 Apache Mesos 内核允许您使用完全公平调度器严格的 CPU �
 
 ## 提高 CPU 分配
 
-如果由于 DC/OS  1.10 或更新版本而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/mesosphere/dcos/2.0/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务] (/mesosphere/dcos/2.0/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
+如果由于 DC/OS  1.10 或更新版本而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/mesosphere/dcos/cn/2.0/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/mesosphere/dcos/cn/2.0/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
 
 ## 使用 DC/OS Pod 增强资源
 
-容器化应用程序通常具有资源密集型启动阶段。传统上，具有高启动要求的任务仅在其生命周期的持续时间内被分配额外资源，一旦不再需要这些资源，则会付出降低群集利用率的代价。通过利用 DC/OS Pod 的资源会计策略，可以创建一个“空”启动容器/任务来请求额外资源并使它们可用于实际需要它们的任务，然后在合理时间段过后完成并放弃这些资源。有关更多信息和示例 pod 定义，请参阅此 [资源提升博客文章] (https://mesosphere.com/blog/application-jvm-startup/)。
+容器化应用程序通常具有资源密集型启动阶段。传统上，具有高启动要求的任务仅在其生命周期的持续时间内被分配额外资源，一旦不再需要这些资源，则会付出降低群集利用率的代价。通过利用 DC/OS Pod 的资源会计策略，可以创建一个“空”启动容器/任务来请求额外资源并使它们可用于实际需要它们的任务，然后在合理时间段过后完成并放弃这些资源。有关更多信息和示例 pod 定义，请参阅此 [资源提升博客文章](https://mesosphere.com/blog/application-jvm-startup/)。
 
 ## 更改 Mesos 代理节点配置
 
 在特殊情况下，您可能想要更改 Mesos 代理节点的配置，以不使用严格的 CFS CPU 限制。如果大部分应用程序在启动期间有 CPU 峰值，但之后消耗较低，或者您有其他高级 CPU 负载，则考虑这一点。只有在不需要严格的 CPU 分离时，才能更改默认行为。
 
-您需要通过更改 Mesos 代理节点配置来更改 DC/OS（或 Mesos）装置的配置。如果您正在考虑更改此配置，请参阅 [Mesos 超额订阅] (http://mesos.apache.org/documentation/latest/oversubscription/) 文档，以了解其他注意事项和配置选项。
+您需要通过更改 Mesos 代理节点配置来更改 DC/OS（或 Mesos）装置的配置。如果您正在考虑更改此配置，请参阅 [Mesos 超额订阅](http://mesos.apache.org/documentation/latest/oversubscription/) 文档，以了解其他注意事项和配置选项。
 
 ### 配置代理以使用 CPU 份额
 

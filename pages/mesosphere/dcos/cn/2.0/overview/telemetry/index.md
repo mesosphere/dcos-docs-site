@@ -16,7 +16,7 @@ enterprise: false
 - [用户界面遥测](#user-interface)
 
 # <a name="core"></a>核心遥测
-[DC/OS 信号](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-signal) 组件查询领导管理节点上的诊断服务 `/system/health/v1/report` 端点，并将此数据发送给 [区块](https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用率度量标准和客户支持。
+[DC/OS 信号](/mesosphere/dcos/cn/2.0/overview/architecture/components/#dcos-signal) 组件查询领导管理节点上的诊断服务 `/system/health/v1/report` 端点，并将此数据发送给 [区块](https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用率度量标准和客户支持。
 
 DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 DC/OS 包管理器 (Cosmos)。
 
@@ -83,14 +83,14 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 
 ## 诊断
 
-此信息从 [DC/OS 诊断] (/mesosphere/dcos/2.0/overview/architecture/components/#dcos-diagnostics) 组件收集。对于每个 `systemd` 单元，将收集以下信息，其中 `<UNIT_NAME>` 是组件名称：
+此信息从 [DC/OS 诊断](/mesosphere/dcos/cn/2.0/overview/architecture/components/#dcos-diagnostics) 组件收集。对于每个 `systemd` 单元，将收集以下信息，其中 `<UNIT_NAME>` 是组件名称：
 
 ```
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
 ## Mesos
-此信息从 [Apache Mesos] (/mesosphere/dcos/2.0/overview/architecture/components/#apache-mesos) 组件收集。
+此信息从 [Apache Mesos](/mesosphere/dcos/cn/2.0/overview/architecture/components/#apache-mesos) 组件收集。
 
 <table class="table">
 <tr>
@@ -123,7 +123,7 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 
 
 ## 包管理器
-此信息从 [DC/OS 包管理器 (Cosmos) ](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-package-manager) 组件收集。
+此信息从 [DC/OS 包管理器 (Cosmos)](/mesosphere/dcos/cn/2.0/overview/architecture/components/#dcos-package-manager) 组件收集。
 
 <table class="table">
 <tr>
@@ -288,11 +288,11 @@ DC/OS 信号报告的信息来自多个组件：DC/OS 诊断、Apache Mesos 和 
 
 # <a name="user-interface"></a>用户界面遥测
 
-DC/OS UI 向 [区块] 发送两种通知(https://segment.com/docs/)，Mesosphere 然后用它来跟踪使用度量标准和客户支持：
+DC/OS UI 向 [区块](https://segment.com/docs/) 发送两种通知，Mesosphere 然后用它来跟踪使用度量标准和客户支持：
 
 - 登录信息
 - 在浏览 UI 时查看的页面
 
 ## 选择退出
 
-您也可选择退出遥测功能。如需更多信息，请参阅 [退出](/mesosphere/dcos/2.0/installing/production/deploying-dcos/opt-out/)
+您也可选择退出遥测功能。如需更多信息，请参阅 [退出](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/opt-out/)

@@ -35,7 +35,7 @@ enterprise: false
 
 在下图中，Marathon 无法启动服务；**服务 > 调试** 选项卡显示警告消息。弹出消息表示错误已清除，服务正在启动。
 
-![失败警告](/mesosphere/dcos/2.0/img/GUI-Services-Failure-To-Launch.png)
+![失败警告](/mesosphere/dcos/2.0/img/GUI-Services-Failure-to-Launch.png)
 
 图 3 - 显示警告的“调试”选项卡
 

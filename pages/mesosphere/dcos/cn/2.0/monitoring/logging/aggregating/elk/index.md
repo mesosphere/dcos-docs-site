@@ -63,11 +63,7 @@ enterprise: false
       hosts: ["$ELK_HOSTNAME:$ELK_PORT"]
     ```
 
-<table class=“table” bgcolor=#7d58ff>
-<tr> 
-  <td align=justify style=color:white><strong>重要信息：</strong>代理节点 Filebeat 配置要求任务将日志写入 `stdout` 和 `stderr`。某些 DC/OS 服务（包括 Cassandra 和 Kafka）不会将日志写入 `stdout` 和 `stderr`。如果要记录这些服务，您必须自定义代理节点 Filebeat 配置。</td>
-</tr> 
-</table>
+<p class="message--important"><strong>重要信息：</strong>代理节点 Filebeat 配置要求任务将日志写入 <tt>stdout</tt> 和 <tt>stderr</tt>。某些 DC/OS 服务（包括 Cassandra 和 Kafka）不会将日志写入 <tt>stdout</tt> 和 <tt>stderr</tt>。如果要记录这些服务，您必须自定义代理节点 Filebeat 配置。</p>
 
 ## <a name="all-2"></a>步骤 2：为分析日志设置服务
 

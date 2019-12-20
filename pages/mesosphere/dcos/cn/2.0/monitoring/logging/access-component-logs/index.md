@@ -12,15 +12,15 @@ enterprise: true
 
 您可以限制用户对系统和组件日志的访问。
 
-以下是查看系统和组件日志所需的 [权限](/mesosphere/dcos/2.0/security/ent/perms-reference/)：
+以下是查看系统和组件日志所需的 [权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/)：
 
 | 权限字符串 | full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
-| `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API] 的访问](/mesosphere/dcos/2.0/api/master-routes/#system)。                                                                                                                                                                      | x    |   |   |   |   |
+| `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API](/mesosphere/dcos/cn/2.0/api/master-routes/#system) 的访问]。                                                                                                                                                                      | x    |   |   |   |   |
 
 **前提条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/2.0/installing/)，您以超级用户身份登录。
+- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/cn/2.0/installing/)，您以超级用户身份登录。
 
 # 通过 DC/OS Web 界面
 
@@ -79,7 +79,7 @@ enterprise: true
 # 通过 IAM API
 
 **前提条件：**
-您必须 [获取根证书](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+您必须 [获取根证书](/mesosphere/dcos/cn/2.0/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 ### 提示
 

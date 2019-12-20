@@ -36,7 +36,7 @@ Docker 提供良好的开发体验，但试图在生产中运行 Docker 容器�
 
 DC/OS 使得可以配置多个资源隔离区。
 
-并非所有任务都有相同的要求。有些需要最大程度隔离才能保证性或性能。有些则是临时的、公共的或容易重新启动。最简单的隔离方法是将其分派给 Docker。在 DC/OS 上运行 Docker 容器很容易，但在隔离时 Docker 不好用。[Mesos 容器化工具] (http://mesos.apache.org/documentation/latest/mesos-containerizer/) 更灵活，配有多个独立可配置隔离器以及可插拔的自定义隔离器。Mesos 容器化工具甚至可以运行 Docker 容器，而不会出现 `dockerd` 的脆弱性。
+并非所有任务都有相同的要求。有些需要最大程度隔离才能保证性或性能。有些则是临时的、公共的或容易重新启动。最简单的隔离方法是将其分派给 Docker。在 DC/OS 上运行 Docker 容器很容易，但在隔离时 Docker 不好用。[Mesos 容器化工具](http://mesos.apache.org/documentation/latest/mesos-containerizer/) 更灵活，配有多个独立可配置隔离器以及可插拔的自定义隔离器。Mesos 容器化工具甚至可以运行 Docker 容器，而不会出现 `dockerd` 的脆弱性。
 
 ## <a name="stateful-storage-support"></a>有状态存储支持
 

@@ -11,11 +11,11 @@ model: /mesosphere/dcos/2.0/data.yml
 
 监控构成 DC/OS 的所有部件的健康状况对数据中心操作员和排除难以诊断的漏洞都至关重要。您可以从 DC/OS UI 的组件健康状况页面，监控群集组件的健康状况。组件健康状况页面显示来自系统健康 API 的信息，后者监控核心 DC/OS 组件。
 
-DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop.org/wiki/Software/systemd/)。这些组件由我们的内部诊断实用工具 (`dcos-diagnostics.service`) 进行监控。此实用程序扫描所有 DC/OS 单元，然后揭示每个主机上的 HTTP API。有关 DC/OS 组件的完整说明，请参阅 [文档](/mesosphere/dcos/2.0/overview/architecture/components/)。组件健康状况页面提供 systemd 中运行的所有 DC/OS 系统组件的健康状况。您可以按健康状况、主机 IP 地址或特定 systemd 进行深入查看。
+DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop.org/wiki/Software/systemd/)。这些组件由我们的内部诊断实用工具 (`dcos-diagnostics.service`) 进行监控。此实用程序扫描所有 DC/OS 单元，然后揭示每个主机上的 HTTP API。有关 DC/OS 组件的完整说明，请参阅 [文档](/mesosphere/dcos/cn/2.0/overview/architecture/components/)。组件健康状况页面提供 systemd 中运行的所有 DC/OS 系统组件的健康状况。您可以按健康状况、主机 IP 地址或特定 systemd 进行深入查看。
 
 ## 入门
 
-启动 [DC/OS UI](/mesosphere/dcos/2.0/gui/) 并导航到 **系统 -> 组件** 页面。您可以按健康状况对组件进行排序。
+启动 [DC/OS UI](/mesosphere/dcos/cn/2.0/gui/) 并导航到 **系统 -> 组件** 页面。您可以按健康状况对组件进行排序。
 
 ![系统健康](/mesosphere/dcos/2.0/img/GUI-Components-List_View-1_12.png)
 
@@ -105,8 +105,8 @@ DC/OS 用户界面使用这些聚合端点生成您在系统健康状况控制�
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /mesosphere/dcos/2.0/security/
- [7]: /mesosphere/dcos/2.0/networking/load-balancing-vips/
- [8]: /mesosphere/dcos/2.0/overview/concepts/#private-agent-node
- [9]: /mesosphere/dcos/2.0/overview/concepts/#public-agent-node
+ [6]: /mesosphere/dcos/cn/2.0/security/
+ [7]: /mesosphere/dcos/cn/2.0/networking/load-balancing-vips/
+ [8]: /mesosphere/dcos/cn/2.0/overview/concepts/#private-agent-node
+ [9]: /mesosphere/dcos/cn/2.0/overview/concepts/#public-agent-node
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/
