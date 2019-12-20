@@ -11,7 +11,6 @@ D2iQ and its licensors are the owners of all right, title and interest in and to
 
 # Trademarks and Registered Trademarks
 
-
 D2iQ, Mesosphere, Konvoy, and Kommander are registered trademarks of D2iQ, Inc.
 
 Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Amazon EC2, EC2, and related graphics, logos, page headers, button icons, scripts, and service names are trademarks, registered trademarks, or trade dress of Amazon Web Services in the U.S. and/or other countries.

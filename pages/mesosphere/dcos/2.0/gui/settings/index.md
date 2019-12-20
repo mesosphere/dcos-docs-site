@@ -22,7 +22,7 @@ Figure 1 - **Settings > Package Repositories** tab
 
 # UI Settings
 
-The **UI Settings** tab allows you to manage your DC/OS UI version and the language in which the UI is presented.
+The **UI Settings** tab allows you to manage your DC/OS&trade; UI version and the language in which the UI is presented.
 
 ## DC/OS UI Details
 
