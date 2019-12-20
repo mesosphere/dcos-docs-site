@@ -33,7 +33,7 @@ You can also filter this list by:
 | Name | Description |
 |-------|-------|
 | All | Shows all users |
-| Local | Local user accounts exist only in DC/OS. |
+| Local | Local user accounts exist only in DC/OS&trade;. |
 | External |  DC/OS stores only the user’s ID or user name, along with other DC/OS-specific information, such as permissions and group membership. DC/OS never receives or stores the passwords of external users. Instead, it delegates the verification of the user’s credentials to one of the following: LDAP directory, SAML, or OpenID Connect&reg;. See [Managing Users and Groups](/mesosphere/dcos/2.0/security/ent/users-groups/) for more information. |
 
 

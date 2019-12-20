@@ -9,9 +9,9 @@ enterprise: false
 ---
 
 
-This section describes the developer-specific DC/OS components, explaining what is necessary to package and provide your own service on DC/OS. 
+This section describes the developer-specific DC/OS&trade; components, explaining what is necessary to package and provide your own service on DC/OS. 
 
-The Mesosphere Distributed Cloud Operating System (DC/OS) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache Mesos by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/mesosphere/dcos/2.0/administering-clusters/package-registry/) that catalogs those packages.
+The Mesosphere&reg; Distributed Cloud Operating System (DC/OS&trade;) provides the optimal user experience possible for orchestrating and managing a datacenter. If you are an Apache Mesos developer, you are already familiar with developing a framework. DC/OS extends Apache&reg; Mesos&reg; by including a web interface for health checks and monitoring, a command-line, a service packaging description, and a [repository](/mesosphere/dcos/2.0/administering-clusters/package-registry/) that catalogs those packages.
 
 # <a name="universe"></a>Package Repositories
 
@@ -21,7 +21,7 @@ All packaged services are required to meet a certain standard as defined by Meso
 
 # DC/OS service structure
 
-Each DC/OS service in the {{ model.packageRepo }} repo is comprised of JSON configuration files. These files are used create the packages that are installed on DC/OS.
+Each DC/OS service in the {{ model.packageRepo }} repo is composed of JSON configuration files. These files are used create the packages that are installed on DC/OS.
 
 | Filename               | Description                                                                                              | Required |
 |------------------------|----------------------------------------------------------------------------------------------------------|----------|

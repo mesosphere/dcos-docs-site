@@ -1,14 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  SSHing into Nodes
-title: SSHing into Nodes
+navigationTitle:  Access Nodes with SSH
+title: Access Nodes with SSH
 menuWeight: 0
 excerpt: Setting up an SSH connection into your DC/OS cluster 
 enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-
 
 If you are on the same network as your cluster or connected by a VPN, you can use the `dcos node ssh` command to SSH into your cluster. For more information, see the [dcos node section][1] of the CLI reference.
 
@@ -151,7 +150,7 @@ To install these programs, download the Windows installer <a href="http://www.ch
 
             2.  In the **Category** pane on the left side of the PuTTY window, choose **Session** and enter the master node IP address in the **Host Name (or IP address)** field.
 
-            4.  Log in as user "core" if you are running CoreOS. The default user on CentOS is "centos".
+            4.  Log in as user "core" if you are running CoreOS&reg;. The default user on CentOS&reg; is "centos".
 
                 ![Windows Login](/mesosphere/dcos/2.0/img/windowscore.png)
 

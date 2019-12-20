@@ -7,16 +7,15 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Using groups and quota management for multi-tenancy
 ---
-Groups provide the foundation for supporting multi-tenant clusters using DC/OS. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.
+
+Groups provide the foundation for supporting multi-tenant clusters using DC/OS&trade;. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.
 
 The topics in this section discuss how you can use **groups** to manage resources by setting quota restrictions to support multi-tenancy.
 
 # Quotas
 You can define a **quota** to specify the maximum resources that the services in a group can use. Once the limit is reached, no new services or scaling up of existing services is allowed.
 
-Quota in DC/OS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/) primitive in Apache Mesos.
-Specifically, the quota set on a top-level DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev").
-Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
+Quota in DC/OS is built on top of the [Quota Limits](https://mesos.apache.org/documentation/latest/quota/) primitive in Apache&reg; Mesos&reg;. Specifically, the quota set on a top-level DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev"). Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
 
 # Prerequisites
 
@@ -75,13 +74,13 @@ For backwards compatibility, any existing top-level groups will have `enforceRol
 dcos marathon group update /dev enforeceRole=true # only needed for groups created before DC/OS 2.0
 ```
 
-Existing services will continue to not consume quota and must be migrated. To migrate a stateless service that uses a legacy role to a group role, a user can simply update the role field of the service via a app / pod update:
+Existing services will continue to not consume quota and must be migrated. To migrate a stateless service that uses a legacy role to a group role, a user can update the role field of the service through an app or pod update:
 
 ```bash
 dcos marathon app update /dev/my-app role=dev
 ```
 
-To migrate a stateful service (for example, DC/OS Kafka, DC/OS Cassandra), a user has to update the role of the service and run a `pod replace` command for each of the corresponding pods. Note that the `pod replace` command causes local persistent data to be lost.
+To migrate a stateful service (for example, DC/OS service for Kafka&reg;, DC/OS service for Cassandra&reg;), a user has to update the role of the service and run a `pod replace` command for each of the corresponding pods. Note that the `pod replace` command causes local persistent data to be lost.
 
 Before running the `pod replace` command:
 
