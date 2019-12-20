@@ -11,13 +11,13 @@ excerpt: 关于安装 DC/OS 的常见问题
 我们建议从新群集开始，以确保所有默认值都设置为预期值。这样可防止版本和配置不匹配引起的意外条件。
 
 ## 问：DC/OS 的操作系统要求是什么？
-请参阅 [系统要求](/mesosphere/dcos/2.0/installing/production/system-requirements/) 文档。
+请参阅 [系统要求](/mesosphere/dcos/cn/2.0/installing/production/system-requirements/) 文档。
 
 ## 问：DC/OS 是否安装 ZooKeeper？
 DC/OS 运行自己的 ZooKeeper，由 Exhibitor 和 `systemd` 监督。
 
 ## 问：创建群集后是否需要维护 bootstrap 节点？
-如果您在群集配置 [文件] `exhibitor_storage_backend: static`中指定的 Exhibitor 存储后端类型不是 (/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/)，则必须保留在群集生命周期内一直保留外部存储库，方便首要实例选举。如果您的群集是任务攸关群集，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以容忍外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
+如果您在群集配置 [文件](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/) `exhibitor_storage_backend: static`中指定的 Exhibitor 存储后端类型不是 ，则必须保留在群集生命周期内一直保留外部存储库，方便首要实例选举。如果您的群集是任务攸关群集，则应使用 S3 加固外部存储库或运行 bootstrap ZooKeeper 担当 quorum。可以容忍外部存储库的服务中断，但永久性的状态丢失可能导致意外状况。
 
 ## 问：如何将 Mesos 属性添加到节点以使用 Marathon 限制？
 
@@ -75,4 +75,4 @@ IAM 数据库从备份文件中恢复，群集正常运行。
 
 ## 问：我如何备份 ZooKeeper？
 
-要备份 ZooKeeper，请按照指南备份和恢复 [DC/OS ZooKeeper 状态](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper)。
+要备份 ZooKeeper，请按照指南备份和恢复 [DC/OS ZooKeeper 状态](/mesosphere/dcos/cn/2.0/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper)。

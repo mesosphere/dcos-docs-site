@@ -214,7 +214,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 - 要连接至 `http://localhost:8000` 进行操作，SSH 命令必须在本地机器上运行，而不是在虚拟机内运行。
 - 在上述示例中，假设端口 `8000` 在本地机器上可用。
-- 所显示的 SSH 命令仅可在 Mac 或 Linux 上运行。对于 Windows，请使用具有类似端口转发配置的 [PuTTY]（http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html），另请参阅 [如何在 Azure 上使用带有 Windows 的 SSH](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/)。
+- 所显示的 SSH 命令仅可在 Mac 或 Linux 上运行。对于 Windows，请使用具有类似端口转发配置的 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)，另请参阅 [如何在 Azure 上使用带有 Windows 的 SSH](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/)。
 - 如需了解有关 SSH 密钥生成的更多信息，请参阅 [GitHub 教程](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)。
 
 通过 SSH 隧道连接时，DC/OS UI 不会显示正确的 IP 地址或 CLI 安装命令。
@@ -248,6 +248,6 @@ dcos package search
 - [安装 DC/OS 命令行界面 (CLI)][2]
 - [扩展注意事项][4]
 
-[1]: /mesosphere/dcos/{{ model.folder_version }}/security/ent/users-groups/
-[2]: /mesosphere/dcos/{{ model.folder_version }}/cli/install/
+[1]: /mesosphere/dcos/cn/{{ model.folder_version }}/security/ent/users-groups/
+[2]: /mesosphere/dcos/cn/{{ model.folder_version }}/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

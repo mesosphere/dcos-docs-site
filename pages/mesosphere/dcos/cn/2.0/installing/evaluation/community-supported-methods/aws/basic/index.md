@@ -17,13 +17,10 @@ render: mustache
 
 这些说明提供了一个基础的 AWS CloudFormation 模板，可以创建适合演示和 POC 的 DC/OS 群集。这是开始使用 AWS CloudFormation 的 DC/OS 模板的最快方式。
 
-有关完整的 DC/OS 配置选项集，请参阅 [高级 AWS 安装指南](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/advanced/)。
+有关完整的 DC/OS 配置选项集，请参阅 [高级 AWS 安装指南](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/advanced/)。
 
-<table class=“table” bgcolor=#858585>
-<tr>
-  <td align=justify style=color:white><strong>重要信息：</strong>此安装方法不支持升级。</td>
-</tr>
-</table>
+<p class="message--important"><strong>重要信息：</strong>此安装方法不支持升级。</p>
+
 
 # 系统要求
 
@@ -32,8 +29,8 @@ render: mustache
 AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（例如，分布式数据存储）无法正常工作。
 
 * 可选择一个或三个 Mesos 管理节点。
-* 默认值为五个 [专用](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#private-agent-node) Mesos 代理节点。
-* 默认值为一个 [公共](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#public-agent-node) Mesos 代理节点。默认情况为，端口已关闭，运行状况检查配置为 Marathon-LB。端口 80 和 443 配置为 AWS 弹性负载均衡器。
+* 默认值为五个 [专用](/mesosphere/dcos/cn/{{ model.folder_version }}/overview/concepts/#private-agent-node) Mesos 代理节点。
+* 默认值为一个 [公共](/mesosphere/dcos/cn/{{ model.folder_version }}/overview/concepts/#public-agent-node) Mesos 代理节点。默认情况为，端口已关闭，运行状况检查配置为 Marathon-LB。端口 80 和 443 配置为 AWS 弹性负载均衡器。
 
 ## 软件
 
@@ -48,7 +45,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 # 创建 DC/OS 群集堆栈
 
-[企业]
+[enterprise]
 ## Enterprise 用户
 [/enterprise]
 
@@ -58,11 +55,8 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 3. 在 **选择模板** 页面的**选择模板**字段，单击 **指定 Amazon S3 模板 URL** 单选按钮，然后将销售发送的模板 URL 粘贴进去。
 
-<table class=“table” bgcolor=#ffd000>
-<tr>
-  <td align=justify style=color:black><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</td>
-</tr>
-</table>
+<p class="message--important"><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</p>
+
 
    ![Launch stack](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-aws-step2b.png)
 
@@ -92,12 +86,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 
 3. 在 **指定详情** 页面指定群集名称（`Stack name`）、密钥对（`KeyName`）、是否启用 OAuth 身份认证（`OAuthEnabled`）、公共代理节点数（`PublicSlaveInstanceCount`）、专用代理节点数（`SlaveInstanceCount`），然后单击 **下一步**。
 
-<table class=“table” bgcolor=#ffd000>
-<tr>
-  <td align=justify style=color:black><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</td>
-</tr>
-</table>
-
+<p class="message--important"><strong>警告：</strong>请勿单击 <strong>查看/编辑设计程序中的模板</strong> 链接并编辑模板。DC/OS 模板是为运行 DC/OS 配置的。如果修改模板，您可能无法在 DC/OS 群集上运行某些包。</p>
 
 4. 转到“所有用户”部分的第 6 步。
 
@@ -118,11 +107,8 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 * 状态从 CREATE_IN_PROGRESS 更改为 CREATE_COMPLETE。
 
 **故障排除：** ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅**事件**选项卡。
-<table class=“table” bgcolor=#858585>
-<tr>
-  <td align=justify style=color:white><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅<strong>事件</strong>选项卡。</td>
-</tr>
-</table>
+<p class="message--important"><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅<strong>事件</strong>选项卡。</p>
+
 
 # <a name="launchdcos"></a>打开并登录 DC/OS GUI
 
@@ -157,7 +143,7 @@ AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge<
 - [添加用户到群集][3]
 - [扩展注意事项][4]
 
- [1]: /mesosphere/dcos/{{ model.folder_version }}/administering-clusters/managing-aws/
- [2]: /mesosphere/dcos/{{ model.folder_version }}/cli/install/
- [3]: /mesosphere/dcos/{{ model.folder_version }}/security/ent/users-groups/
+ [1]: /mesosphere/dcos/cn/{{ model.folder_version }}/administering-clusters/managing-aws/
+ [2]: /mesosphere/dcos/cn/{{ model.folder_version }}/cli/install/
+ [3]: /mesosphere/dcos/cn/{{ model.folder_version }}/security/ent/users-groups/
  [4]: https://aws.amazon.com/autoscaling/

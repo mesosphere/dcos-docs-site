@@ -20,7 +20,7 @@ excerpt: 使用 DC/OS Ansible 时经常问的问题和常见问题
 
 
 ## 官方文档和链接
-DC/OS Ansible 资源库在 [Github 在此处公布] 托管(https://github.com/dcos/dcos-ansible)
+DC/OS Ansible 资源库在 [Github 在此处公布](https://github.com/dcos/dcos-ansible) 托管
 
 官方的 Ansible Galaxy 页面和版本 [可在此处找到](https://galaxy.ansible.com/dcos/dcos_ansible)。
 
@@ -79,7 +79,7 @@ fatal: [172.16.2.65]: FAILED! => {"changed": true, "cmd": ["bash", "dcos_generat
 module.dcos.module.dcos-install.module.dcos-install.null_resource.run_ansible_from_bootstrap_node_to_install_dcos (remote-exec): 	to retry, use: --limit @/dcos_playbook.retry
 ```
 
-上述错误实际上不是 Ansible 错误，但是 dcos 发出的错误会生成配置脚本。请确保您的 DC/OS 配置有正确的键值。请参阅 DC/OS 文档了解 [配置参考](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/)。
+上述错误实际上不是 Ansible 错误，但是 dcos 发出的错误会生成配置脚本。请确保您的 DC/OS 配置有正确的键值。请参阅 DC/OS 文档了解 [配置参考](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/)。
 
 ## 下载 URL 失败
 确保您已为正在尝试安装的 DC/OS 的版本指定了正确的 URL。您可以通过以下方式找到可用链接：
