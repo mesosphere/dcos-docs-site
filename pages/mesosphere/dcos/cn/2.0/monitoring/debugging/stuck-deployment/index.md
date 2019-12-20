@@ -14,13 +14,13 @@ enterprise: false
 
 在下图中，Marathon 无法启动服务；DC/OS 显示警告消息，然后显示一条消息，表示错误已清除，服务现在正在启动。
 
-![失败警告](/mesosphere/dcos/2.0/img/GUI-Services-Failure-To-Launch.png)
+![失败警告](/mesosphere/dcos/2.0/img/GUI-Services-Failure-to-Launch.png)
 
 图 1 - 显示警告的“调试”选项卡
 
 # 邀约匹配如何起作用
 
-由于 Mesos 资源邀约无法匹配来自服务或 Pod [Marathon 应用定义] 的资源请求，DC/OS 服务或 Pod 可能无法部署(/mesosphere/dcos/2.0/deploying-services/creating-services/)。
+由于 Mesos 资源邀约无法匹配来自服务或 Pod [Marathon 应用定义](/mesosphere/dcos/2.0/deploying-services/creating-services/) 的资源请求，DC/OS 服务或 Pod 可能无法部署。
 
 以下是对邀约匹配过程的概述。
 

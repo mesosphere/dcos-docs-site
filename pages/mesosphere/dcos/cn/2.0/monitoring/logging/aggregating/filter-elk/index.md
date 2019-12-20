@@ -27,7 +27,7 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
     TASKPATH ^/var/lib/mesos/slave/slaves/%{PATHELEM:agent}/frameworks/%{PATHELEM:framework}/executors/%{PATHELEM:executor}/runs/%{PATHELEM:run}
     ```
 
-2. 更新 Logstash 实例的配置文件以包括下列 `grok` 筛选器，此处 `$PATTERNS_DIR` 将以您的自定义模式目录替代：
+1. 更新 Logstash 实例的配置文件以包括下列 `grok` 筛选器，此处 `$PATTERNS_DIR` 将以您的自定义模式目录替代：
 
     ```
     filter {
@@ -38,7 +38,7 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
     }
     ```
 
-3. 启动 Logstash。
+1. 启动 Logstash。
 
     Logstash 将提取 `agent`、`framework`、`executor` 和 `run` 字段。这些字段显示在所有 Mesos 任务日志事件的元数据中。Elasticsearch 查询也会显示这些字段的结果。
 
@@ -69,35 +69,32 @@ DC/OS 任务日志的文件系统路径包含代理 ID、框架 ID 和执行器 
 
 以下是一些查询模板示例。使用群集中的实际值替换模板参数 `$executor1`、`$framework2`，以及任何其他内容。
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>警示：</strong>请勿更改这些示例中的引号，否则查询将不起作用。如果您创建自定义查询，请注意引号的放置。</td>
-</tr> 
-</table>
+<p class="message--warning"><strong>警示：</strong>请勿更改这些示例中的引号，否则查询将不起作用。如果您创建自定义查询，请注意引号的放置。</p>
 
 * 与特定执行器相关的日志 `$executor1`，包括从该执行器运行的任务的日志：
-
-        "$executor1"
-
+   ```
+   "$executor1"
+   ```
 * 与特定执行器有关的非任务日志 `$executor1`：
-
-        "$executor1" 且非 executor:$executor1
-
+   ```
+   "$executor1" AND NOT executor=$executor1
+   ```
 * 框架的日志（包括任务日志）`$framework1`，如果 `$executor1` 和 `$executor2` 是该框架的执行器：
-
-        "$framework1" 或 "$executor1" 或 "$executor2"
-
+   ```
+   "$framework1" OR "$executor1" OR "$executor2"
+   ```
 * 框架的非任务日志`$framework1`，如果 `$executor1` 和 `$executor2` 是该框架的执行器：
-
-        ("$framework1" 或 "$executor1" 或 "$executor2") 且非 (framework:$framework1 或 executor:$executor1 或 executor:$executor2)
-
+   ```
+   ("$framework1" OR "$executor1" OR "$executor2") AND NOT (framework=$framework1 OR executor=$executor1 OR executor=$executor2)
+   ```
 * 特定代理主机上 `$agent_host1` 框架的日志 `$framework1`：
-
-        host:$agent_host1 且 ("$framework1" 或 "$executor1" 或 "$executor2")
-
+   ```
+   host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2")
+   ```
 * 带主机 `$agent_host1` 的特定代理 `$agent1` 上框架 `$framework1` 的非任务日志：
-
-        host:$agent_host1 和 ("$framework1" 或 "$executor1" 或 "$executor2") 且非 agent:$agent
+   ```
+   host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2") AND NOT agent=$agent
+   ```
 
 [1]: ../elk/
 [2]: http://logz.io

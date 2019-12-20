@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  授予 dcos 任务执行的访问权限
-title: 授予 dcos 任务执行的访问权限
+navigationTitle:  授予 dcos task exec
+title: 授予 dcos task exec
 menuWeight: 4
 excerpt: 授予调试的访问权限
 render: mustache

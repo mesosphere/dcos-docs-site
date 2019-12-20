@@ -47,7 +47,7 @@ enterprise: false
 在任务沙盒内并创建附加文件，用于轮换这些
 日志 (`*.logrotate.conf` 和 `*.logrotate.state`)。
 
-请参阅 [记录参考](/mesosphere/dcos/2.0/monitoring/logging/logging-reference/)
+请参阅 [记录参考](/mesosphere/dcos/cn/2.0/monitoring/logging/logging-reference/)
 了解如何读取这些日志的信息。
 
 ## 最大大小

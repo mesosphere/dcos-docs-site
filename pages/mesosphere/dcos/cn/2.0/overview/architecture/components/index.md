@@ -14,7 +14,7 @@ DC/OS 由许多开源微服务组件组成，经过精心调整和配置以协�
 
 图 1 - DC/OS 组件
 
-从表面上看，DC/OS 是处理容器编排、包管理和安全的包容性容器平台。从根本上说，DC/OS 是建立在 [Apache Mesos] (http://mesos.apache.org/) 基础之上的操作系统，处理群集管理和软件定义网络，同时简化日志记录和度量标准收集。
+从表面上看，DC/OS 是处理容器编排、包管理和安全的包容性容器平台。从根本上说，DC/OS 是建立在 [Apache Mesos](http://mesos.apache.org/) 基础之上的操作系统，处理群集管理和软件定义网络，同时简化日志记录和度量标准收集。
 
 <a name="cluster-management"><a>
 
@@ -26,7 +26,7 @@ DC/OS 提供了一种作为单个群集级别系统查看和操作大量单个�
 
 ## Apache Mesos
 
-Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点] 上的单个执行器、任务和资源(/mesosphere/dcos/2.0/overview/concepts/#dcos-agent-node)。Mesos Agent Public 是配置用于在 [DC/OS 公共代理节点] 上运行的 Mesos 代理节点(/mesosphere/dcos/2.0/overview/concepts/#public-agent-node)。
+Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点](/mesosphere/dcos/cn/2.0/overview/concepts/#dcos-agent-node) 上的单个执行器、任务和资源。Mesos Agent Public 是配置用于在 [DC/OS 公共代理节点](/mesosphere/dcos/cn/2.0/overview/concepts/#public-agent-node) 上运行的 Mesos 代理节点。
 
 ### 系统服务
 
@@ -84,7 +84,7 @@ DC/OS 安装工具（`dcos_generate_config.ee.sh`）生成安装工件并安装 
 
 阅读以下文档资源，了解有关 DC/OS 和安装方法的更多信息：
 
-- [文档](/mesosphere/dcos/2.0/installing/)
+- [文档](/mesosphere/dcos/cn/2.0/installing/)
 - [来源](https://github.com/dcos/dcos)
 
 [企业]
@@ -101,8 +101,8 @@ DC/OS 备份提供 DC/OS 组件状态的备份和恢复（在 1.10 中仅 Marath
 
 阅读以下文档资源，了解有关备份和恢复群集的更多信息：
 
-- [文档](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/)
-- [API 参考](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-api/)
+- [文档](/mesosphere/dcos/cn/2.0/administering-clusters/backup-and-restore/)
+- [API 参考](/mesosphere/dcos/cn/2.0/administering-clusters/backup-and-restore/backup-restore-api/)
 
 
 <a name="dcos-gui"></a>
@@ -117,7 +117,7 @@ DC/OS GUI（Web 界面）是基于浏览器的系统仪表盘和控制中心。
 
 阅读以下文档资源，了解有关 DC/OS GUI 的更多信息：
 
-- [文档](/mesosphere/dcos/2.0/gui/)
+- [文档](/mesosphere/dcos/cn/2.0/gui/)
 - [来源](https://github.com/dcos/dcos-ui)
 
 
@@ -133,7 +133,7 @@ DC/OS CLI 是基于终端的远程客户端。
 
 阅读以下文档资源，了解有关 DC/OS CLI 的更多信息：
 
-- [文档](/mesosphere/dcos/2.0/cli/)
+- [文档](/mesosphere/dcos/cn/2.0/cli/)
 - [来源](https://github.com/dcos/dcos-cli)
 
 # 容器编排
@@ -153,9 +153,9 @@ Marathon 编排长期的容器化服务（应用程序和 Pod）。
 阅读以下文档资源，了解有关 DC/OS Marathon 的更多信息：
 
 - [网站](https://mesosphere.github.io/marathon/)
-- [文档](/mesosphere/dcos/2.0/deploying-services/)
+- [文档](/mesosphere/dcos/cn/2.0/deploying-services/)
 - [来源](https://github.com/mesosphere/marathon)
-- [API 参考](/mesosphere/dcos/2.0/deploying-services/marathon-api/)
+- [API 参考](/mesosphere/dcos/cn/2.0/deploying-services/marathon-api/)
 
 <a name="dcos-jobs"></a>
 
@@ -169,13 +169,13 @@ DC/OS 作业（Metronome）编排短期的、计划的或即时的容器化作�
 
 阅读以下文档资源，了解有关 DC/OS Metronome 的更多信息：
 
-- [文档](/mesosphere/dcos/2.0/deploying-jobs/)
+- [文档](/mesosphere/dcos/cn/2.0/deploying-jobs/)
 - [来源](https://github.com/dcos/metronome)
 - [API 参考](https://dcos.github.io/metronome/docs/generated/api.html)
 
 # 容器运行时
 
-容器运行时在隔离操作系统级别环境中执行和管理机器一级的进程。DC/OS 使用 [Mesos 的容器化工具抽象]（http://mesos.apache.org/documentation/latest/containerizers/）支持多个容器运行时。
+容器运行时在隔离操作系统级别环境中执行和管理机器一级的进程。DC/OS 使用 [Mesos 的容器化工具抽象](http://mesos.apache.org/documentation/latest/containerizers/)支持多个容器运行时。
 
 <a name="universal-container-runtime"></a>
 
@@ -227,7 +227,7 @@ Docker GC 定期收集 Docker“垃圾”容器和图像。
 没有任何软件能完美运行，尤其是在首次运行时。在整个群集分配任务以及分析和调试这些服务的正常模式都会变得繁琐。DC/OS 包括多个组件，通过聚合、缓存和流式传输日志、度量标准和群集状态元数据来减轻调试分布式系统的辛苦。
 
 <a name="dcos-network-metrics"></a>
-[企业]
+[enterprise]
 
 ## DC/OS 网络度量标准
 [/enterprise]
@@ -252,7 +252,7 @@ DC/OS 诊断汇总并揭示组件的健康状态。DC/OS 诊断也被称为 DC/O
 阅读以下文档资源，了解有关 DC/OS 诊断的更多信息：
 
 - [来源](https://github.com/dcos/dcos-diagnostics)
-- [API 参考](/mesosphere/dcos/2.0/monitoring/#system-health-http-api-endpoint)
+- [API 参考](/mesosphere/dcos/cn/2.0/monitoring/#system-health-http-api-endpoint)
 
 <a name="dcos-log"></a>
 
@@ -270,7 +270,7 @@ DC/OS 日志服务揭示节点、组件和容器（任务）日志。
 阅读以下文档资源，了解有关 DC/OS 日志的更多信息：
 
 - [来源](https://github.com/dcos/dcos-log)
-- [API 参考](/mesosphere/dcos/2.0/monitoring/logging/logging-reference/)
+- [API 参考](/mesosphere/dcos/cn/2.0/monitoring/logging/logging-reference/)
 
 <a name="logrotate"></a>
 
@@ -304,13 +304,13 @@ Telegraf 是一个可配置的度量标准管道。它默认收集系统、容�
 阅读以下文档资源，了解有关 DC/OS Telegraf 的更多信息：
 
 - [来源](https://github.com/dcos/telegraf)
-- [API 参考](/mesosphere/dcos/2.0/metrics/metrics-api/)
+- [API 参考](/mesosphere/dcos/cn/2.0/metrics/metrics-api/)
 
 <a name="dcos-signal"></a>
 
 ## DC/OS 信号
 
-DC/OS 信号服务报告群集遥测和分析，以帮助改进 DC/OS。管理员可以在安装时间 [选择退出遥测](/mesosphere/dcos/2.0/installing/production/deploying-dcos/opt-out/#telemetry)。
+DC/OS 信号服务报告群集遥测和分析，以帮助改进 DC/OS。管理员可以在安装时间 [选择退出遥测](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/opt-out/#telemetry)。
 
 ### 系统服务
 
@@ -348,7 +348,7 @@ DC/OS 历史记录服务缓存并揭示历史系统状态，以促进 GUI 中的
 
 ## Admin Router
 
-Admin Router 使用 [NGINX] 揭示组件和服务的统一控制平面代理(https://www.nginx.com/)。Admin Router 代理为节点特定的健康、日志、度量标准和包管理内部端点提供代理。
+Admin Router 使用 [NGINX](https://www.nginx.com/) 揭示组件和服务的统一控制平面代理。Admin Router 代理为节点特定的健康、日志、度量标准和包管理内部端点提供代理。
 
 ### 系统服务
 
@@ -373,7 +373,7 @@ Mesos DNS 提供群集内基于域名的服务发现。
 
 - [文档](http://mesosphere.github.io/mesos-dns/)
 - [来源](https://github.com/mesosphere/mesos-dns)
-- [API 参考](/mesosphere/dcos/2.0/networking/DNS/mesos-dns/mesos-dns-api/)
+- [API 参考](/mesosphere/dcos/cn/2.0/networking/DNS/mesos-dns/mesos-dns-api/)
 
 <a name="dns-forwarder"></a>
 
@@ -417,7 +417,7 @@ Mesos DNS 提供群集内基于域名的服务发现。
 
 ## DC/OS 包管理器 (Cosmos)
 
-DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 包资源库] 中的 DC/OS 包(/mesosphere/dcos/2.0/administering-clusters/package-registry/)，如 [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe)。
+DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 包资源库](/mesosphere/dcos/cn/2.0/administering-clusters/package-registry/) 中的 DC/OS 包，如 [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe)。
 
 ### 系统服务
 
@@ -426,7 +426,7 @@ DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 包资源库] 中的 DC/OS �
 阅读以下文档资源，了解有关 DC/OS 包管理器（Cosmos）的更多信息：
 
 - [来源](https://github.com/dcos/cosmos)
-- [API 参考](/mesosphere/dcos/2.0/deploying-services/package-api/)
+- [API 参考](/mesosphere/dcos/cn/2.0/deploying-services/package-api/)
 
 <a name="dcos-component-package-manager"></a>
 
@@ -443,9 +443,9 @@ DC/OS 组件包管理器 (Pkgpanda) 安装和管理 DC/OS 组件。
 阅读以下文档资源，了解有关 DC/OS 组件包管理器 (Pkgpanda) 的更多信息：
 
 - [来源](https://github.com/dcos/dcos/tree/master/pkgpanda)
-- [API 参考](/mesosphere/dcos/2.0/administering-clusters/component-management/)
+- [API 参考](/mesosphere/dcos/cn/2.0/administering-clusters/component-management/)
 
-[企业]
+[enterprise]
 # IAM 和安全
 [/enterprise]
 
@@ -463,8 +463,8 @@ DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐�
 
 阅读以下文档资源，了解有关 DC/OS 标识和访问管理器 (Bouncer) 的更多信息：
 
-- [文档](/mesosphere/dcos/2.0/security/)
-- [API 参考](/mesosphere/dcos/2.0/security/ent/iam-api/)
+- [文档](/mesosphere/dcos/cn/2.0/security/)
+- [API 参考](/mesosphere/dcos/cn/2.0/security/ent/iam-api/)
 
 <a name="cockroachdb"></a>
 
@@ -495,8 +495,8 @@ DC/OS 证书颁发机构 (CA) 发布已签署的数字证书，确保通信安�
 
 阅读以下文档资源，了解有关 DC/OS 证书颁发机构的更多信息：
 
-- [文档](/mesosphere/dcos/2.0/security/ent/tls-ssl/)
-- [API 参考](/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-api/)
+- [文档](/mesosphere/dcos/cn/2.0/security/ent/tls-ssl/)
+- [API 参考](/mesosphere/dcos/cn/2.0/security/ent/tls-ssl/ca-api/)
 
 <a name="dcos-secrets"></a>
 
@@ -509,8 +509,8 @@ DC/OS 密钥提供一个安全的 API，用于存储并从 Vault （一个密钥
 - `dcos-secrets.service`
 
 阅读以下文档资源，了解有关 DC/OS 密钥的更多信息：
-- [文档](/mesosphere/dcos/2.0/security/ent/secrets/)
-- [API 参考](/mesosphere/dcos/2.0/security/ent/secrets/secrets-api/)
+- [文档](/mesosphere/dcos/cn/2.0/security/ent/secrets/)
+- [API 参考](/mesosphere/dcos/cn/2.0/security/ent/secrets/secrets-api/)
 
 <a name="vault"></a>
 ## Vault
@@ -560,7 +560,7 @@ DC/OS 组件由 [DC/OS 组件包管理器 (Pkgpanda)](https://github.com/dcos/dc
 
 # `Systemd` 服务
 
-大多数 DC/OS 组件在 DC/OS 节点上作为 [systemd 服务] (/mesosphere/dcos/2.0/overview/concepts/#systemd-service)运行。
+大多数 DC/OS 组件在 DC/OS 节点上作为 [systemd 服务](/mesosphere/dcos/cn/2.0/overview/concepts/#systemd-service)运行。
 
 要查看 `systemd` 在任何特定节点上运行的组件的列表，请列出 `/etc/systemd/system/dcos.target.wants/` 目录的内容或执行 `systemctl | grep dcos-` 以查看其当前状态。
 

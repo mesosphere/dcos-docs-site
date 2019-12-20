@@ -26,7 +26,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 ## 使用中的 DC/OS 覆盖网络
 
-![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/mesosphere/dcos/2.0/img/overlay-in-action-redesigned.png)
+![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置](/mesosphere/dcos/2.0/img/overlay-in-action-redesigned.png)。
 
 图 1 - 代理配置  
 
@@ -61,14 +61,14 @@ DC/OS 的覆盖技术设计有以下假设：
 ### 挑战
 
 
-从 [不同主机上的容器到容器通信] 的数据包步骤中明显可知(/mesosphere/dcos/2.0/overview/design/overlay/#container-to-container-different-hosts) ，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
+从 [不同主机上的容器到容器通信](/mesosphere/dcos/cn/2.0/overview/design/overlay/#container-to-container-different-hosts) 的数据包步骤中明显可知 ，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
 
 - 在 DC/OS 中，我们需要一个 SAM（子网分配模块），该模块将通知子网代理节点，表示已对其进行了分配。
 - 在代理中，我们需要一个实体，该实体为 Docker 守护程序配置了子网（图 1，9.0.1.128/25 网络）中已分配给 Docker 守护程序的那部分。
 - 在代理中，我们需要一个实体，该实体将 IP 地址分配给由 `MesosContainerizer` 启动的容器（图 1，9.0.1.0/25 网络）。
 - 在 DC/OS 中，我们需要一个实体，该实体将使用所有代理上存在的所有 VTEP 的 MAC 地址，以及正确封装数据包所需的解封信息（代理 IP、UDP 端口），为每个代理上的 VxLAN 转发数据库编程。该实体还需要用所有 VTEP 的 MAC 地址对每个代理上的 ARP 缓存编程，用于其对应的 IP 地址。
 
-只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战] 一节列出的元数据(/mesosphere/dcos/2.0/overview/design/overlay/#challenges) 进行配置和编程，以使其正常运行。
+只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战](/mesosphere/dcos/cn/2.0/overview/design/overlay/#challenges) 一节列出的元数据 进行配置和编程，以使其正常运行。
 
 ## 软件架构
 
@@ -91,7 +91,7 @@ DC/OS 的覆盖技术设计有以下假设：
 主控模块将作为 Mesos 管理节点的一部分运行，具有以下职责：
 1. 它负责为每个代理分配子网。我们将更详细地描述主控模块将如何使用复制日志来定点检查此信息在故障切换至新的主控时是否恢复。
 1. 它将监听代理覆盖模块以注册和恢复为其分配的子网。代理覆盖模块还将使用此端点了解分配给其的覆盖子网（在多个虚拟网络的情况下）、分配给覆盖网络中每个 Mesos 和 Docker 网桥的子网，以及分配给其的 VTEP IP 和 MAC 地址。
-1. 它通过 HTTP 端点 `overlay-master/state` 来展示 DC/OS 中所有虚拟网络的状态。此端点的响应由以下 protobuf 支持：https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86
+1. 它通过 HTTP 端点 `overlay-master/state` 来展示 DC/OS 中所有虚拟网络的状态。此端点的响应由以下 protobuf 支持：`https://github.com/dcos/mesos-overlay-modules/blob/master/include/overlay/overlay.proto#L86`
 
 #### 代理 Mesos 覆盖模块：
 
