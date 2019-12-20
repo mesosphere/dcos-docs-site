@@ -12,8 +12,6 @@ excerpt: Getting started with Kommander
 
 The *installation* will rely on **AWS** as the cloud provider, thus most requirements revolve around having proper access to AWS.
 
-<p class="message--note"><strong>NOTE: </strong> Currently for installation, Kommander ships with a specific version of Konvoy. Installing that version of Konvoy installs Kommander.</p>
-
 Before starting the Konvoy installation, you should verify the following:
 
 - Access to a specific version of Konvoy
