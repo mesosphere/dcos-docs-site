@@ -38,7 +38,7 @@ Weights refer to a mechanism for prioritizing one role over another, to allow al
 # Examples
 These concepts are described based on two real-world scenarios of existing customer use cases.
 
-## Analytics platform with weighted Spark roles
+## Analytics platform with weighted Spark&trade; roles
 This example is based on a customer’s use case of an analytics pipeline. The primary workload is Spark with three tiers of Spark jobs, tagged with roles; "low" - 1, "medium" - 2, and "high" - 3, representing the priority and weights accordingly.
 
 In practice, the high role is allocated three times the fair share of offers (resources) than medium, which will be provided twice the fair share of low. Alongside weights, the high priority Spark role is provided a quota of `x` CPU shares and `y` RAM.
@@ -55,7 +55,7 @@ Each MoM hosts one of the groups of the application, and each has a role and quo
 In summary, Jenkins-as-a-service is a very dynamic workload, with hundreds of Jenkins agents being run on demand. Having good visibility of the resources available and understanding when the quota is reached are important parameters for tuning, availability and growth. The Spark example measures how much sooner the "high" role tasks ran than the "low",  to inform the tuning of the weights.
 
 # Implementation
-You can use the following resources to learn how to implement both Marathon on Marathon and Spark&trade; quotas:
+You can use the following resources to learn how to implement both Marathon on Marathon and Spark quotas:
 - [Deploying non-native instances of Marathon](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/)
 - [Spark Quota](/mesosphere/dcos/services/spark/2.8.0-2.4.0/job-scheduling/#quota-for-drivers-and-executors)
 
