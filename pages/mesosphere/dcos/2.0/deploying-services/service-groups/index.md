@@ -101,7 +101,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 -  **DC/OS service access:**
 
-   1.  Grant the following privileges to the user `uid` for a particular service (`<service-name>`).
+    Grant the following privileges to the user `uid` for a particular service (`<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -110,7 +110,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 -  **DC/OS service tasks and logs:**
 
-   1.  Grant the following privileges to the user `uid`.
+    Grant the following privileges to the user `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -121,7 +121,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 -  **DC/OS service access:**
 
-   1.  Grant the following privileges to the user `uid` for a particular service (`<service-name>`).
+    Grant the following privileges to the user `uid` for a particular service (`<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -130,7 +130,7 @@ The [Marathon permissions](/mesosphere/dcos/2.0/security/ent/perms-reference/#ma
 
 -  **DC/OS service tasks and logs:**
 
-   1.  Grant the following privileges to the user `uid` for a particular service (`<service-name>`).
+    Grant the following privileges to the user `uid` for a particular service (`<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
