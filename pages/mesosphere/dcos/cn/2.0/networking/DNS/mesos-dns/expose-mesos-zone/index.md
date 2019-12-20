@@ -41,7 +41,7 @@ enterprise: false
 
 1. 在 `named.conf` 文件中创新一个区域条目。此例中，使用了 `contoso.com`：
 
-    ```
+    ```bash
     zone "contoso.com" {
             type master;
             file "/etc/bind/db.contoso.com";
@@ -50,7 +50,7 @@ enterprise: false
 
 1. 填充区域文件：
 
-    ```
+    ```bash
     $TTL    604800
     @       IN      SOA     localhost. root.localhost. (
                                   1         ; Serial
@@ -67,7 +67,7 @@ enterprise: false
 
 - 要使用现有区域，请添加 DNAME 记录：
 
-    ```
+    ```bash
     @       IN      DNAME   mesos.yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory.
     ```
 
@@ -75,6 +75,6 @@ enterprise: false
 
 - 要给高级域取别名，请在 DNAME 记录中指定该值。此例中，`foo` 的别名为 `foo.contoso.com`：
 
-    ```
+    ```bash
     foo       IN      DNAME   mesos.yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory.
     ```
