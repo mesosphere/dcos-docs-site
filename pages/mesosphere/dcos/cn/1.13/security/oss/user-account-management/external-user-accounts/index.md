@@ -46,6 +46,6 @@ menuWeight: 10
 1. 在 **Users** 屏幕中，选择用户名，然后单击 **Delete**。
 2. 单击 **Delete** 以确认操作。
 
-<img src="/1.13/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
+![新 DC/OS 用户](/mesosphere/dcos/2.0/img/1-11-delete-user.png)
 
  图 2. 删除用户

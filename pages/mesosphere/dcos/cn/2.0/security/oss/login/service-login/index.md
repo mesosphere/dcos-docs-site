@@ -8,7 +8,6 @@ model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 30
 ---
 
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 # 安全服务登录
 
@@ -23,11 +22,11 @@ menuWeight: 30
 <p class="message--note"><strong>注意：</strong>这演示了服务账户测试的手动登录。内部生成用于登录过程的服务登录令牌。</p>
 
 **前提条件：**
-- [DC/OS CLI](/mesosphere/dcos/2.0/cli/)
+- [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)
 
-使用 [DC/OS CLI](/mesosphere/dcos/2.0/cli/)，可以通过指定 `dcos-services` 登录提供商，以服务的身份登录。
+使用 [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)，可以通过指定 `dcos-services` 登录提供商，以服务的身份登录。
 
-要使用 DC/OS CLI 来测试服务登录，请通过 [auth login](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令指定 `dcos-services` 登录提供商。在执行以下命令之前，先用相应的值替换 `<service-account-id>` 和 `<private-key-path>`：
+要使用 DC/OS CLI 来测试服务登录，请通过 [auth login](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令指定 `dcos-services` 登录提供商。在执行以下命令之前，先用相应的值替换 `<service-account-id>` 和 `<private-key-path>`：
 
 ```bash
 dcos auth login --provider=dcos-users --username=<service-account-id> --private-key=<private-key-path>
@@ -64,9 +63,9 @@ DC/OS 的服务登录令牌是通过将服务账户 ID（借助 (`uid`) 声明�
 ## 使用服务登录令牌登录
 
 **前提条件：**
-- [服务登录令牌](/mesosphere/dcos/2.0/security/oss/authentication/authentication-token/service-login/#generate-a-service-login-token)
+- [服务登录令牌](/mesosphere/dcos/cn/2.0/security/oss/authentication/authentication-token/service-login/#generate-a-service-login-token)
 
-在服务登录期间，服务登录令牌会被发送到 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/2.0/security/oss/iam-api/)。
+在服务登录期间，服务登录令牌会被发送到 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/2.0/security/oss/iam-api/)。
 
 <p class="message--note"><strong>注意：</strong>IAM 将拒绝使用生命期超过 10 分钟的服务登录令牌。</p>
 
