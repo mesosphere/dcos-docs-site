@@ -7,13 +7,13 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-D2iQ and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein.  D2iQ software products may additionally include third-party open source software.
+D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein.  D2iQ software products may additionally include third-party and open source software.
 
 # Trademarks and Registered Trademarks
 
 D2iQ, Mesosphere, Konvoy, and Kommander are registered trademarks of D2iQ, Inc.
 
-Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Amazon EC2, EC2, and related graphics, logos, page headers, button icons, scripts, and service names are trademarks, registered trademarks, or trade dress of Amazon Web Services in the U.S. and/or other countries.
+Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Amazon EC2, EC2, Elastic Load Balancer, ELB, and related graphics, logos, page headers, button icons, scripts, and service names are trademarks, registered trademarks, or trade dress of Amazon Web Services in the U.S. and/or other countries.
 
 Ansible, CentOS, CoreOS, RHEL, Red Hat Enterprise Linux, and RHCE are trademarks or registered trademarks of Red Hat, Inc. or its subsidiaries in the United States and other countries.
 
