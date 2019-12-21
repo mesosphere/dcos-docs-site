@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-根据当前安装的 DC/OS CLI 版本，您可以选择将 CLI 更新为群集的最新版本或安装特定版本。另请注意，如果您从 PyPI 或 DC/OS UI 1.7 或更早版本下载 CLI，则必须完全<a href="/mesosphere/dcos/2.0/cli/uninstall/">卸载</a> CLI，然后安装新版本的软件进行升级。
+根据当前安装的 DC/OS CLI 版本，您可以选择将 CLI 更新为群集的最新版本或安装特定版本。另请注意，如果您从 PyPI 或 DC/OS UI 1.7 或更早版本下载 CLI，则必须完全<a href="/mesosphere/dcos/cn/2.0/cli/uninstall/">卸载</a> CLI，然后安装新版本的软件进行升级。
 
 <a name="upgrade"></a>
 
@@ -95,4 +95,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
 如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。
 
-有关使用 DC/OS CLI 时配置选项的信息，请参阅 [配置命令行界面](/mesosphere/dcos/2.0/cli/configure/)。有关使用 DC/OS CLI 时认证和授权的信息，请参阅相应的 [安全](/mesosphere/dcos/2.0/security/) 部分。
+有关使用 DC/OS CLI 时配置选项的信息，请参阅 [配置命令行界面](/mesosphere/dcos/cn/2.0/cli/configure/)。有关使用 DC/OS CLI 时认证和授权的信息，请参阅相应的 [安全](/mesosphere/dcos/cn/2.0/security/) 部分。
