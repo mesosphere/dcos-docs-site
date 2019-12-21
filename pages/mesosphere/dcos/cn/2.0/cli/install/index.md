@@ -97,9 +97,9 @@ model: /mesosphere/dcos/2.0/data.yml
     dcos cluster setup http://example.com
     ```
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/mesosphere/dcos/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/mesosphere/dcos/cn/2.0/security/)。
 
-    您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
+    您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
 
 <a name="macos"></a>
 
@@ -132,7 +132,7 @@ model: /mesosphere/dcos/2.0/data.yml
     ```
     如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/2.0/security/)。
 
     您的 CLI 现在应通过您的群集进行身份认证！
 
@@ -170,7 +170,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
     <p class="message--note"><strong>注意：</strong>如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/2.0/security/)。
 
     您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 

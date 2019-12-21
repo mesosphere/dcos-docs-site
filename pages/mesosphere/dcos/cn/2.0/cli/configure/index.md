@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-您可以使用 [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) 和 [dcos confi](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) 命令组访问 DC/OS CLI 配置。
+您可以使用 [dcos cluster](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/) 和 [dcos confi](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-config/) 命令组访问 DC/OS CLI 配置。
 
 # 环境变量
 
@@ -18,7 +18,7 @@ DC/OS CLI 支持以下环境变量，可以动态设置。
 <a name="dcos-cluster"></a>
 #### `DCOS_CLUSTER`
 
-要设置 [连接的群集](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-attach/)，请使用以下命令设置变量：
+要设置 [连接的群集](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/dcos-cluster-attach/)，请使用以下命令设置变量：
 
 ```bash
 export DCOS_CLUSTER=<cluster_name>
@@ -46,7 +46,7 @@ dcos cluster setup <url>
 
 * 为您不想使用代理的域定义 `no_proxy`：
 
-   此设置根据 `$DCOS_DIR/clusters/<cluster_id>` 下的群集配置生成和更新。生成新设置群集 [如此处所示](/mesosphere/dcos/2.0/cli/#setupcluster)。
+   此设置根据 `$DCOS_DIR/clusters/<cluster_id>` 下的群集配置生成和更新。生成新设置群集 [如此处所示](/mesosphere/dcos/cn/2.0/cli/#setupcluster)。
 
 <a name="dcos-ssl-verify"></a>
 
