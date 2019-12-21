@@ -213,16 +213,16 @@ Repeat this section until you have completed this procedure for all of your mast
 
 1. Configure the Apache&reg; Mesos&reg; fetcher to trust the downloaded Docker certificate.
 
-    1. Copy the certificate:
+    - Copy the certificate:
     ```
     sudo cp /etc/docker/certs.d/master.mesos:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
     ```
-    1. Generate a hash:
+    - Generate a hash:
     ```
     cd /var/lib/dcos/pki/tls/certs/
     openssl x509 -hash -noout -in docker-registry-ca.crt
     ```
-    1. Create a soft link. You will need to create the `/pki/tls/certs` directory on the public agent.
+    - Create a soft link. You will need to create the `/pki/tls/certs` directory on the public agent.
     ```
     sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
     ```
@@ -274,4 +274,3 @@ interface.
     ```
 
 1.  Perform all of the steps as described in [Certified {{ model.packageRepo }} packages](#certified).
-

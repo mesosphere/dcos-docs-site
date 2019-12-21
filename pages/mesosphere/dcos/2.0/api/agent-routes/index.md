@@ -7,7 +7,7 @@ excerpt: Admin Router running on DC/OS agent nodes.
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-Admin Router Agent runs on DC/OS agent nodes. It exposes the following API routes.
+Admin Router Agent runs on DC/OS&trade; agent nodes. It exposes the following API routes.
 
 -   Admin Router Agent listens on port `61001` (HTTP).
 

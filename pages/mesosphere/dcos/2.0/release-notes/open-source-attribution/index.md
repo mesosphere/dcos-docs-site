@@ -7,7 +7,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-The table below lists the third party open source software which is provided by Mesosphere in connection with Mesosphere DC/OS.
+The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Mesosphere&reg; DC/OS&trade;.
 
 <table class="table">
 		<tr>

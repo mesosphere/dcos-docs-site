@@ -11,7 +11,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # Gaining access to a cluster URL
 
-- Log into the DC/OS web interface and copy the scheme and domain name from the browser address bar.
+- Log into the DC/OS&trade; web interface and copy the scheme and domain name from the browser address bar.
 - Log into the DC/OS CLI and type `dcos config show core.dcos_url` to get the cluster URL.
 
 
@@ -34,7 +34,7 @@ To determine which agents are public agents, see [Finding a Public Agent IP](/me
 
 # Ingress
 
-In most production deployments, administrative access to the cluster should be routed through an external proxy to the DC/OS master nodes, distributing traffic load between the master nodes. For example, the default AWS templates configure an AWS Elastic Load Balancer.
+In most production deployments, administrative access to the cluster should be routed through an external proxy to the DC/OS master nodes, distributing traffic load between the master nodes. For example, the default AWS&reg; templates configure an AWS Elastic Load Balancer&reg; (ELB&reg;).
 
 Master nodes and private agent nodes are usually not publicly accessible. For security reasons, ingress to these nodes should be controlled by a router or firewall. To manage the cluster, administrators and operators should use a VPN server inside the firewall, on the same networks as the DC/OS nodes. Using VPN ensures that you can securely access the nodes directly from your workstation.
 
