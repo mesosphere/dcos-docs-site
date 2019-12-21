@@ -36,7 +36,7 @@ JWT 有效负载
 
 # 生命周期和续订
 
-在 DC/OS Open Source 中，认证令牌在发放后的五天内有效。五天后，您必须再次登录才能获取新的令牌。使用 [服务账户](/mesosphere/dcos/2.0/security/oss/user-account-management/service-accounts/) 和 [服务登录](/mesosphere/dcos/2.0/security/oss/login/service-login/) 可在部署长期运行服务时轻松自动化该过程。
+在 DC/OS Open Source 中，认证令牌在发放后的五天内有效。五天后，您必须再次登录才能获取新的令牌。使用 [服务账户](/mesosphere/dcos/cn/2.0/security/oss/user-account-management/service-accounts/) 和 [服务登录](/mesosphere/dcos/cn/2.0/security/oss/login/service-login/) 可在部署长期运行服务时轻松自动化该过程。
 
 # 获取 DC/OS 认证令牌
 
@@ -44,14 +44,14 @@ JWT 有效负载
 
 若要获得认证令牌，您可以参考以下类型的用户特定登录文档。
 
-* [外部用户登录](/mesosphere/dcos/2.0/security/oss/login/external-user-login/)
-* [本地用户登录](/mesosphere/dcos/2.0/security/oss/login/local-user-login/)
-* [服务登录](/mesosphere/dcos/2.0/security/oss/login/service-login/)
+* [外部用户登录](/mesosphere/dcos/cn/2.0/security/oss/login/external-user-login/)
+* [本地用户登录](/mesosphere/dcos/cn/2.0/security/oss/login/local-user-login/)
+* [服务登录](/mesosphere/dcos/cn/2.0/security/oss/login/service-login/)
 
 # 将认证令牌传递到 API
 
 ## 先决条件
-- [DC/OS 认证令牌](/mesosphere/dcos/2.0/security/oss/authentication/authentication-token/)
+- [DC/OS 认证令牌](/mesosphere/dcos/cn/2.0/security/oss/authentication/authentication-token/)
 
 您可以对 DC/OS 群集的 HTTP API 端点进行外部调用。您必须首先获取认证令牌，然后将其纳入您的 HTTP 请求中。
 DC/OS 认证令牌必须在 `Authorization` HTTP 标头中传递。标头值必须以 `token=` 开头，后跟令牌，如下所示。

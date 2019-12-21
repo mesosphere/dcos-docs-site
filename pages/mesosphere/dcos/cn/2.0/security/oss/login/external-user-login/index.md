@@ -13,9 +13,9 @@ menuWeight: 10
 # 使用 DC/OS CLI 登录
 
 **前提条件：**
-- [DC/OS CLI](/mesosphere/dcos/2.0/cli/)
+- [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)
 
-1. 要登录到 DC/OS CLI，请输入以下 [auth login](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令。
+1. 要登录到 DC/OS CLI，请输入以下 [auth login](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令。
 
     ```bash
     dcos auth login --provider dcos-oidc-auth0
