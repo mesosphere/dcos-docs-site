@@ -8,7 +8,7 @@ enterprise: false
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-This tutorial shows how to scale a service using the UI and the CLI.
+This tutorial shows how to scale a service using the DC/OS&trade; UI and the CLI.
 
 # Scale Your Service from the UI
 

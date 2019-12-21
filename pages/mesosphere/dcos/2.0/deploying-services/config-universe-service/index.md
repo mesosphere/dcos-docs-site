@@ -24,7 +24,7 @@ This topic describes how to use the CLI to configure services. You can also cust
     ...
       "service": {
         "additionalProperties": false,
-        "description": "Marathon app configuration properties.",
+        "description": "Marathon&reg; app configuration properties.",
         "properties": {
           "cpus": {
             "default": 2,

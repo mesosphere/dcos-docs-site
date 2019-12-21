@@ -16,7 +16,7 @@ The process for updating packages from the UI is different. For more information
 
 # Update all Environment Variables
 
-Use the `dcos marathon app update` command from the DC/OS CLI to update any aspect of your service's JSON service definition. For instance, follow the instructions below to update the environment variable ([`env` field][1]) of the service definition.
+Use the `dcos marathon app update` command from the DC/OS&trade; CLI to update any aspect of your service's JSON service definition. For instance, follow the instructions below to update the environment variable ([`env` field][1]) of the service definition.
 
 ```bash
 dcos marathon app update test-app env='{"APISERVER_PORT":"25502"}'
