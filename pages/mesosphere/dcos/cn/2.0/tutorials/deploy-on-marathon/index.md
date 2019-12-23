@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 本教程介绍如何使用 Jenkins for DC/OS 在 [Marathon][1] 上部署应用程序。本教程将指导您创建新的 Jenkins 作业，在源代码更改时发布 Docker 容器，并根据项目的 `marathon.json` 文件中包含的[应用定义][3] 将这些更改部署到 Marathon。
 
@@ -25,7 +25,7 @@ enterprise: false
 
 ## 访问 Jenkins for DC/OS
 
-可通过 [DC/OS Web 界面](/mesosphere/dcos/2.0/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
+可通过 [DC/OS Web 界面](/mesosphere/dcos/cn/2.0/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
 
 单击“Jenkins”服务，然后单击“Open Service”访问 Jenkins Web 界面。
 
@@ -74,7 +74,7 @@ Jenkins 作业执行以下操作：
 
 这些步骤可以使用 **Docker Build and Publish** 插件通过单个构建步骤执行，这已经包含并可供使用。在 **Add build step** 下拉列表中选择 **Docker Build and Publish** 选项。
 
-![dcos-velocity-jenkins-build-docker.png](/mesosphere/dcos/2.0/img/dcos-velocity-jenkins-build-docker.png)
+![dcos-velocity-jenkins-build-docker.png](/mesosphere/dcos/cn/2.0/img/dcos-velocity-jenkins-build-docker.png)
 
 图 5. Docker “Add build step” 选项
 

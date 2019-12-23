@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 您可以使用自动扩展来根据使用情况自动增加或减少计算资源，从而只使用所需的资源。以下是一些教程，向您展示如何为您的服务实施自动扩展。
 

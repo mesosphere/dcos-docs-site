@@ -8,14 +8,14 @@ model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 3
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 欢迎阅读 DC/OS 101 教程第 3 部分
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/mesosphere/dcos/2.0/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/2.0/tutorials/dcos-101/cli/)。
-* [Redis](/mesosphere/dcos/2.0/tutorials/dcos-101/redis-package/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/mesosphere/dcos/cn/2.0/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/tutorials/dcos-101/cli/)。
+* [Redis](/mesosphere/dcos/cn/2.0/tutorials/dcos-101/redis-package/) 已部署并在您的群集中运行。
 
 
 # 目的
@@ -39,7 +39,7 @@ menuWeight: 3
 您验证了应用程序正在运行并已与先前部署的 Redis 服务成功连接。
 
 # 深入研究
-您刚刚直接使用 [Marathon] 部署了第一个应用程序(https://mesosphere.github.io/marathon/)。另请注意，Redis 服务本身是通过 Marathon 运行的。
+您刚刚直接使用 [Marathon](https://mesosphere.github.io/marathon/) 部署了第一个应用程序。另请注意，Redis 服务本身是通过 Marathon 运行的。
 Marathon 被称为 DC/OS 的初始化系统，因为其主要工作是支持长时间运行服务。
 Marathon 还允许扩展或卸载应用程序。
 除 DC/OS GUI 以外，还有多种选项可以在 Marathon 上部署和维护应用程序：

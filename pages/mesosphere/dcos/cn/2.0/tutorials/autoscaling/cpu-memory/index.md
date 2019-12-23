@@ -11,7 +11,7 @@ enterprise: false
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 
 您可以使用 Python 服务 `marathon-autoscale.py` 根据 Mesos 报告的利用率指标自动扩展您的 Marathon 应用程序。您可以从 DC/OS 群集中运行此服务。`marathon-autoscale.py` 旨在演示在 DC/OS 上运行服务时可能出现的情况。
@@ -80,4 +80,4 @@ enterprise: false
 
 欲了解更多信息，请参阅 [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) 存储库。
 
- [1]: /mesosphere/dcos/2.0/installing/
+ [1]: /mesosphere/dcos/cn/2.0/installing/

@@ -9,7 +9,7 @@ menuWeight: 1
 ---
 
 <!-- I. Problems Section -->
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 <a name="problems"></a>
 
@@ -23,6 +23,6 @@ menuWeight: 1
 - 反复重新启动
 - 无法在 DC/OS 群集内部（或外部）访问
 
-DC/OS 包括 [多个不同组件](/mesosphere/dcos/2.0/overview/architecture/components/) - 最著名的是 [Apache Mesos](http://mesos.apache.org/) 和 [Marathon](https://mesosphere.github.io/marathon/)。由于任何这些组件都可能涉及您遇到的问题，因此甚至很难找到导致问题的组件。因此，本教程旨在涵盖若干类型的此类问题。
+DC/OS 包括 [多个不同组件](/mesosphere/dcos/cn/2.0/overview/architecture/components/) - 最著名的是 [Apache Mesos](http://mesos.apache.org/) 和 [Marathon](https://mesosphere.github.io/marathon/)。由于任何这些组件都可能涉及您遇到的问题，因此甚至很难找到导致问题的组件。因此，本教程旨在涵盖若干类型的此类问题。
 
 当然，除了应用程序相关故障外，还有其他几类可能影响您群集的问题；网络问题、DC/OS 安装问题和 DC/OS 内部配置问题都可能导致您的群集中出现问题。虽然这些超出了本教程的范围，但我们鼓励您通过我们的[社区渠道](https://dcos.io/community/)提供想法和反馈。
