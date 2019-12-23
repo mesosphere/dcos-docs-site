@@ -9,7 +9,7 @@ menuWeight: 0
 ---
 
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 本 DC/OS 101 教程将指导您完成开始使用 DC/OS 所需的步骤。
 

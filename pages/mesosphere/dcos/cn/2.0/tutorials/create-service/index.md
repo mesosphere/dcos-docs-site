@@ -9,13 +9,13 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 
 本教程介绍如何使用 DC/OS Web 界面和 CLI 创建和部署简单的单命令服务和容器化服务。
 
 ## 先决条件
-- [DC/OS 群集](/mesosphere/dcos/2.0/installing/)
+- [DC/OS 群集](/mesosphere/dcos/cn/2.0/installing/)
 
 # 单命令服务
 
@@ -33,7 +33,7 @@ enterprise: false
       - **DOCKER ENGINE** 如果您需要 Docker 软件包的特定功能，请使用此选项。如果选择此选项，则必须在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
       - **UNIVERSAL CONTAINER RUNTIME (UCR)** Universal Container Runtime (UCR) 使用本地 Mesos 引擎。支持 Docker 文件格式、多个容器 (pod) 以及 GPU 资源。如果选择此选项，则可选择在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
 
-      如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/2.0/deploying-services/containerizers/)。
+      如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/)。
 
 1. 单击**查看和运行**和**运行服务**。
 
