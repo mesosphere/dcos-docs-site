@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Starklark Reference
-title: Starklark Reference
+navigationTitle:  Starlark Reference
+title: Starlark Reference
 menuWeight: 4
 excerpt: Reference Guide for Configuring Dispatch pipelines with Starlark.
 ---
