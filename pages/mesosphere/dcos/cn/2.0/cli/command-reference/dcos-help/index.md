@@ -80,7 +80,7 @@ Use "dcos [command] --help" for more information about a command.
 
 ## 显示 `dcos config` 命令的帮助
 
-`dcos help config` 命令与 [`dcos config --help`](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/)一样。
+`dcos help config` 命令与 [`dcos config --help`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-config/)一样。
 
 ```bash
 dcos help config

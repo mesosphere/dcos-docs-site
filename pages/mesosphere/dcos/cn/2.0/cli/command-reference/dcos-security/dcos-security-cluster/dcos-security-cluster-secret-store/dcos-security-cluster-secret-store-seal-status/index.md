@@ -37,4 +37,4 @@ dcos security cluster secret-store seal-status [OPTIONS] STORE_ID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集密钥存储库](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 您的密钥存储库的显示设置。 |
+| [dcos security cluster secret-store](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 您的密钥存储库的显示设置。 |

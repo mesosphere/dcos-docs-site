@@ -38,8 +38,8 @@ dcos package list [<package-name> --json --app-id=<app-id> --cli]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/2.0/deploying-services/install/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/2.0/deploying-services/install/)。

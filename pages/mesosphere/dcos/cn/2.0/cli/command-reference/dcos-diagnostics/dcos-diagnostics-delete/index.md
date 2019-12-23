@@ -35,5 +35,5 @@ dcos diagnostics delete <bundle-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos diagnostics](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
+| [dcos diagnostics](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
 

@@ -39,10 +39,10 @@ dcos marathon app update [--force] <app-id> [<properties>...]
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/2.0/deploying-services/update-user-service/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/2.0/deploying-services/update-user-service/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|

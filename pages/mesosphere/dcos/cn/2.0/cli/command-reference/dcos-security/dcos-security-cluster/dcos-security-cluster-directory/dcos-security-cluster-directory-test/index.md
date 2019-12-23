@@ -35,4 +35,4 @@ dcos security cluster directory test [OPTIONS] UID PASSWORD
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集目录](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
+| [dcos security cluster directory](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
