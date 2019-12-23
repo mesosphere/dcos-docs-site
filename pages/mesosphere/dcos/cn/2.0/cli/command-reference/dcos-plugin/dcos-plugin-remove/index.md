@@ -29,4 +29,4 @@ dcos plugin remove <plugin>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 插件](/mesosphere/dcos/2.0/cli/command-reference/dcos-plugin/) | 安装和管理 DC/OS CLI 插件 |
+| [dcos plugin](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-plugin/) | 安装和管理 DC/OS 软件插件。 |

@@ -35,4 +35,4 @@ dcos service shutdown <service-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos service](/mesosphere/dcos/2.0/cli/command-reference/dcos-service/) | 管理 DC/OS 服务。|
+| [dcos service](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-service/) | 管理 DC/OS 服务。|

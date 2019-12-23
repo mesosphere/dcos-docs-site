@@ -30,4 +30,4 @@ dcos quota delete <group> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos quota](/mesosphere/dcos/2.0/cli/command-reference/dcos-quota/)   | 管理 DC/OS 配额。 |
+| [dcos quota](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-quota/)   | 管理 DC/OS 配额。 |

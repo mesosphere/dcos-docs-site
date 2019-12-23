@@ -37,4 +37,4 @@ dcos security cluster saml add [OPTIONS] SAML_ID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集 SAML](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | 管理您的安全声明标记语言 (SAML) 设置。 |
+| [dcos security cluster saml ](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | 管理您的安全声明标记语言 (SAML) 设置。 |
