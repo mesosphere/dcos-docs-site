@@ -272,6 +272,7 @@ Docker 镜像现在将使用提供的安全凭证进行拉取。
     ```bash
     cd /var/lib/dcos/pki/tls/certs/
     openssl x509 -hash -noout -in docker-registry-ca.crt
+    ```
 
 1. 从可信的证书创建一个标志性的链接到公共代理的 `/var/lib/dcos/pki/tls/certs` 注册表。
 
