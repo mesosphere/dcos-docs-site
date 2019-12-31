@@ -301,10 +301,10 @@ Docker 镜像现在将使用提供的安全凭证进行拉取。
 
   您应可以看到类似这样的输出:
 
-```bash
-存储库标记镜像 ID 创建大小
-mesosphere/marathon-dcos-ee 1.4.0-RC4_1.9.4 d1ffa68a50c0 3 months ago 926.4 MB
-```
+  ```bash
+  REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+  mesosphere/marathon-dcos-ee   1.4.0-RC4_1.9.4     d1ffa68a50c0        3 months ago        926.4 MB
+  ```
 
 ## 第2步: 将镜像推送到注册表
 
