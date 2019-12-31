@@ -265,7 +265,7 @@ Mesosphere hosts all its certified packages at [downloads.mesosphere.com/univers
       ```
       In the rest of the instructions on this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
 
-      <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry<tt> suffix does not work.</p>
+      <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry</tt> suffix does not work.</p>
 
 ### Instructions to generate `.dcos` bundle
 
