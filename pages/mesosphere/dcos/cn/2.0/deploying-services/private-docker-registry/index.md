@@ -298,14 +298,14 @@ If you asked your sales representative for an enterprise version of Marathon, yo
     **Tip:** You can view the Marathon image with this command.
 
     ```
-    Docker 镜像
+    docker images
     ```
 
     You should see output similar to this:
 
     ```bash
-    存储库                    标记                 镜像 ID            已创建             大小
-    mesosphere/marathon-dcos-ee 1.4.0-RC4_1.9.4 d1ffa68a50c0 3 months ago 926.4 MB
+    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+    mesosphere/marathon-dcos-ee   1.4.0-RC4_1.9.4     d1ffa68a50c0        3 months ago        926.4 MB
     ```
 
 ## Step 2: Push the image to the repository
