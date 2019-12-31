@@ -273,6 +273,7 @@ To configure a custom certificate for accessing the private Docker registry and 
     ```bash
     cd /var/lib/dcos/pki/tls/certs/
     openssl x509 -hash -noout -in docker-registry-ca.crt
+    ```
 
 1. Create a symbolic link from the trusted certificate to the `/var/lib/dcos/pki/tls/certs` directory on the public agent.
 
