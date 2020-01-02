@@ -30,7 +30,6 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 - DC/OS now uses Golang 1.10.8 to build CockroachDB which corrects an issue that prevented CockroachDB from recovering properly after a time skew was encountered. (DCOS-61502)
 - [Mesos] Support quoted realms in WWW-Authenticate header which fixes an issue that prevented the UCR from pulling from Docker registries configured with authentication that used quoted realms.(DCOS-61529)
 - The Service tab in DC/OS now displays services as expected. (DCOS-61439)
-- Fixed an issue where (DCOS-60342)
 - Fixed an issue where (DCOS-59959)
 - Fixed an issue that could prevent updates to the overlay network configuration from being properly propagated to all the nodes in the cluster. (DCOS_OSS-5620)
 - Fixed an issue that could cause 'dcos-net' to stop responding when under heavy load.(DCOS_OSS-5634)
