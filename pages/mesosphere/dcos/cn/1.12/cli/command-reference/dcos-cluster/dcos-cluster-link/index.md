@@ -34,7 +34,7 @@ dcos cluster link <cluster> [flags]
 | `--no-check` | 不检查从群集下载的 CA 证书。（不安全） 仅适用于 Enterprise DC/OS。[enterprise type="inline" size="small" /]|
 | `--password string` | 在命令行中指定密码（不安全）。|
 | `--password-file string` | 指定包含密码的文件的路径。|
-| `--private-key string` | 指定包含服务 acc`ount 私钥的文件路径。 |
+| `--private-key string` | 指定包含服务帐户私钥的文件路径。 |
 | `--provider string` | 指定要使用的登录提供程序。 |
 | `--username string` | 指定登录用户名。 |
 
