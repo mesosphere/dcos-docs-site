@@ -14,9 +14,9 @@ DC/OS Version 1.12.5 was released on 20 January 2020.
 
 DC/OS 1.12.5 includes the following components:
 
-- Apache Mesos 1.7.3-dev [change log](https://github.com/apache/mesos/blob/d8acd9cfacd2edf8500f07f63a8837aa0ddd14ba/CHANGELOG).
-- Marathon 1.7.216 [change log](https://github.com/mesosphere/marathon/blob/9e2a9b579b968a2664df03099b03eaf86ffc7efc/changelog.md).
-- Metronome 0.6.33 [change log](https://github.com/dcos/metronome/blob/b8a73dd3cc3c2da035222031ccbbcf5c836ede7b/changelog.md).
+- Apache Mesos 1.7.3-dev [change log](https://github.com/apache/mesos/blob/d8acd9cfacd2edf8500f07f63a8837aa0ddd14ba/CHANGELOG)
+- Marathon 1.7.216 [change log](https://github.com/mesosphere/marathon/blob/9e2a9b579b968a2664df03099b03eaf86ffc7efc/changelog.md)
+- Metronome 0.6.33 [change log](https://github.com/dcos/metronome/blob/b8a73dd3cc3c2da035222031ccbbcf5c836ede7b/changelog.md)
 
 # Release summary
 
@@ -25,28 +25,36 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Issues fixed in DC/OS 1.12.5
 The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
-Updated Signal service to release 1.6.0
+- The DC/OS diagnostics bundle now inlcudes Mesos state logs content, located at /var/log/mesos-state.tar.gz. (DCOS-56403)
+- Added 3 new environment files to Mesos systemd. (DCOS-49092)
 
-Signal now sends telemetry data every 5 minutes instead of every hour. This is to align the frequency with DC/OS Enterprise.
 
-Mesos overlay networking: support dropping agents from the state. (DCOS_OSS-5536)
 
-Updated DC/OS UI to 1.12+v2.26.18.
 
-Added user controlled environment file for Mesos processes (DCOS-49092)
 
-[Metronome] Querying run detail with embed=history, successfulFinishedRuns and failedFinishedRuns contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task ids even for finished job runs.
+_______________________
 
-[Metronome] Fixes metronome where it did not use the revive operation.
 
-[Metronome] Updates to fix daylight saving issues.
-[Metronome] post-install configuration can be added to /var/lib/dcos/metronome/environment (DCOS_OSS-5509)
+- Updated Signal service to release 1.6.0
 
-Changed dcos-zk backup and dcos-zk restore to exit early if ZooKeeper is running. (DCOS_OSS-5353)
+- Signal now sends telemetry data every 5 minutes instead of every hour. This is to align the frequency with DC/OS Enterprise.
 
-Fix preflight docker version check failing for docker 1.19. (DCOS-56831)
+- Mesos overlay networking: support dropping agents from the state. (DCOS_OSS-5536)
 
-The content of /var/log/mesos-state.tar.gz is now included in the diagnostics bundle. (DCOS-56403)
+- Updated DC/OS UI to 1.12+v2.26.18.
+
+
+- [Metronome] Querying run detail with embed=history, successfulFinishedRuns and failedFinishedRuns contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task ids even for finished job runs.
+
+- [Metronome] Fixes metronome where it did not use the revive operation.
+
+- [Metronome] Updates to fix daylight saving issues.
+- [Metronome] post-install configuration can be added to /var/lib/dcos/metronome/environment (DCOS_OSS-5509)
+
+- Changed dcos-zk backup and dcos-zk restore to exit early if ZooKeeper is running. (DCOS_OSS-5353)
+
+- Fix preflight docker version check failing for docker 1.19. (DCOS-56831)
+
 
 Prune VIPs with no backends in order to avoid unbounded growth of state and messages exchanged among dcos-net processes. (DCOS_OSS-5356)
 
