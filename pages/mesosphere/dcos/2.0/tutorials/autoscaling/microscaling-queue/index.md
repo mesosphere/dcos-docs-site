@@ -7,15 +7,15 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 2
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 This tutorial walks you through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster.
 
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+
 
 [Microscaling][1] adjusts the balance of tasks running within your compute cluster.
-This allows your infrastructure to automatically reallocate
-resources from lower to higher priority tasks, reacting within seconds to a change in demand.
+This allows your infrastructure to automatically reallocate resources from lower to higher priority tasks, reacting within seconds to a change in demand.
 Microscaling monitors whether the higher priority task is meeting a performance target. In this tutorial, the performance target is maintaining the length of a configured queue value. The higher priority task is scaled up when the target is not met,
 and down when it is exceeded. The lower priority tasks can use the spare resources.  
 
@@ -129,7 +129,7 @@ After you've finished with the demo you should delete the Azure resources so tha
 * Sign in to the [Azure Portal][9].
 * Select Resource Groups from the left hand menu.
 * Find and delete the Resource Group you created for the Azure Queue.
-* If you created an ACS cluster for this demo, you'll want to delete the Resource Group for that too.
+* If you created an ACS cluster for this demo, delete the Resource Group for that, too.
 
 # Next Steps
 
