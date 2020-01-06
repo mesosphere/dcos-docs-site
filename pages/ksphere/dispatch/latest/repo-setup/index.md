@@ -88,15 +88,15 @@ dispatch login git --service-account team-1 --private-key-path ./dispatch.pem
 
 ### Setup Docker Credentials
 
-To load Docker registry credentials from `~/.docker/config.json`, run `login
-docker` and specify only the service account to attach the docker credentials
-to:
+Dispatch loads Docker registry credentials from Docker's default config file (typically `$HOME/.docker/config.json`),
+so you should first ensure you have already logged in on all used registries through Docker CLI. To load Docker
+registry credentials, run the `login docker` subcommand and specify the service account to attach the credentials to:
 
 ```
 dispatch login docker --service-account team-1
 ```
 
-Otherwise supply the path to a Docker configuration file:
+Alternatively, you can supply the path to a non-default Docker config file:
 
 ```
 dispatch login docker --service-account team-1 --docker-config-path /path/to/config.json
@@ -378,6 +378,28 @@ replace "your-user" in the URL with your actual DockerHub username)
 In [the commit
 log](https://github.com/your-user/cicd-hello-world/commits/master) you can see
 that the latest commit now shows a green checkmark, too.
+
+#### Push to a private docker registry
+
+
+If you want to push docker images to a private docker registry as part of your
+pipeline, say to `https://docker-registry.local/`, with service account `team-1`, you can execute the following command:
+
+```
+docker login https://docker-registry.local
+dispatch login docker --service-account team-1
+```
+
+Once you have configured credentials for the service account to use when accessing the private docker registry, you can push your image to it by prefixing the image name with the hostname of the private docker registry in your Dispatchfile as follows:
+
+```
+resource "docker-image": {
+  type: "image"
+  param url: "docker-registry.local/hello-world:$(context.build.name)"
+  param digest: "$(inputs.resources.docker-image.digest)"
+}
+```
+
 
 ## Add repository to Dispatch
 
