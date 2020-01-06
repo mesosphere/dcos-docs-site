@@ -1,18 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle:  Logs
-title: View Logs in Kibana
+navigationTitle:  Logging
+title: Logging in Kibana
 menuWeight: 2
 excerpt: Learn how to explore Dispatch logs in Kibana
 ---
 
-# View Dispatch Logs in Kibana
+# Dispatch Logging in Kibana
 
 In Konvoy clusters, logs from Dispatch components and tasks can be found in Kibana.
 
 ## Dispatch component logs
 
-To view the dispatch component logs from Kibana UI, the query syntax can be used. For example:
+In order to view the dispatch component logs from Kibana UI, the query syntax can be used. For example:
 
 * To view `event-sink` pod logs:
 ```json

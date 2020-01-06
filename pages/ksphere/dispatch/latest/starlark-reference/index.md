@@ -11,7 +11,7 @@ excerpt: Reference Guide for Configuring Dispatch pipelines with Starlark.
 
 [Starlark](https://github.com/bazelbuild/starlark) is a configuration language originally developed for use in the Bazel build tool which is based on Python. Using Starlark, developers can take advantage of language features they're used to in regular development (loops, user defined functions, conditionals, modules, testing, editor integrations, etc). Additionally, the Dispatch project provides a basic standard library that can be utilized to make it simpler to define pipelines.
 
-See [the repository setup guide](../repo_setup/) and [the pipeline reference](../pipeline-configuration/) for complete documentation on configuring your pipeline.
+See [the repository setup guide](repo-setup.md) and [the pipeline reference](pipeline-configuration.md) for complete documentation on configuring your pipeline.
 
 ## Unit testing
 
