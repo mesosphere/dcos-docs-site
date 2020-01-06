@@ -168,19 +168,28 @@ documentation. If you have followed the [Dispatch Installation](../install/) and
 `cicd-hello-world` git repository will be up-to-date and ready to follow along.
 For this tutorial, we focus on the Continuous Deployment part of CI/CD.
 
-To get started, we need to add our GitOps repository to Dispatch so that it knows
+For this tutorial, the GitOps repository is public. If it was a private
+repository, you would need to create a new GitHub Personal Access Token that
+grants READ access to the GitOps repository. You would then add that access
+token using the following command:
+
+```sh
+dispatch gitops creds add https://github.com/your-user/cicd-hello-world-gitops --username your-user --token $GITOPSTOKEN
+```
+
+Next, we need to add our GitOps repository to Dispatch so that it knows
 to keep our cluster in sync with the Kubernetes manifests in the repository.
 
 If you already have a service account, say `team-1`, that is configured with a
 GitHub Personal Access Token that you want to use to administer webhooks on the
-gitops repository, you can reuse it as follows:
+GitOps repository, you can reuse it as follows:
 
 ```sh
 dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops --service-account team-1
 ```
 
 If you want to register new credentials with Dispatch to manage webhooks on the
-gitops repository, you can do so as follows:
+GitOps repository, you can do so as follows:
 
 ```sh
 dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
