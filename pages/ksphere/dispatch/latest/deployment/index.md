@@ -3,19 +3,19 @@ layout: layout.pug
 navigationTitle:  GitOps Deployment
 title: GitOps Based Deployments
 menuWeight: 3
-excerpt: Implement GitOps processes to Continuously Deploy applications
+excerpt: Implement GitOps processes to Continuously Deploy Applications
 ---
 # Deploying Applications with GitOps
 
-Dispatch enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a git repo.  This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
+Dispatch enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a git repo. This ensures that the application deployment can be automated, audited, and declaratively deployed to the infrastructure.
 
-This tutorial assumes that you have followed the [Dispatch Installation](../install/) and [Setting up a repository to use Dispatch](../repo-setup/) tutorials and have set up Dispatch CI for a hello-world application.
+This tutorial assumes that you have followed the [Dispatch Installation](../install/) and [Setting up a repository to use Dispatch](../repo-setup/) topics and have set up Dispatch CI for a hello-world application.
 
 ## Quick Start
 
-This section provides a dense set of instructions for deploying a hello-world
+This section provides a set of instructions for deploying a hello-world
 application to your kubernetes cluster using Dispatch. The subsequent sections
-provide background and go into greater details regarding the individual steps.
+provide background and go into greater detail regarding the individual steps.
 
 *NOTE: Replace `your-user` with your GitHub username in all the following steps.*
 
@@ -69,7 +69,7 @@ provide background and go into greater details regarding the individual steps.
   for Argo CD to automatically pick up the change to the GitOps repository and
   deploy those changes to the cluster.
 
-Now that you've configured CI to build your application and CD to deploy it, an
+Now that you have configured CI to build your application and CD to deploy it, an
 example of the day-to-day workflow is:
 
 - Modify the `main.go` file in your hello-world application's git repo. Edit the
@@ -106,11 +106,11 @@ The benefits of following a GitOps deployment strategy are:
   to catch issues early.
 - *Clear change log and audit trail*. The git commit log serves as an audit
   trail to answer the question: "_Who_ changed _what_, _when_?" Having such
-  information readily available allows you to reach out to the right people when
+  information readily available allows you to reach out to the correct people when
   fixing or triaging a production incident to determine the _why_ and correctly
-  resolve the issue as quickly as possible. Additionally, Dispatch's CD component
+  resolve the issue as quickly as possible. Additionally, the Dispatch CD component
   (Argo CD) maintains a separate audit trail in the form of Kubernetes Events,
-  as changes to a git repository don't include exactly when those changes were
+  as changes to a git repository do not include exactly when those changes were
   deployed.
 - *Avoid configuration drift*. The scope of manual changes made by operators
   expands over time. It soon becomes difficult to know which cluster
@@ -120,7 +120,7 @@ The benefits of following a GitOps deployment strategy are:
   simple, reproducible deployment to multiple different clusters by having a
   single source of truth for cluster and application configuration.
 
-That said, there are some cases when live debugging is necessary in order to
+With that said, there are some cases when live debugging is necessary to
 resolve an incident in the minimum amount of time. In such cases, a pull
 request-based workflow adds expensive overhead when you need it least. Dispatch's
 CD strategy supports this scenario by letting you disable the Auto Sync feature.
@@ -140,12 +140,12 @@ of Dispatch.
 
 ## Setup GitOps repository
 
-First, we need to create a git repository for GitOps. Going forward, we omit
+First, create a git repository for GitOps. Going forward, we omit
 "git" and refer to this repository as the "GitOps repository".
 
 1. Log in to https://github.com
-1. Visit https://github.com/mesosphere/cicd-hello-world-gitops and fork the
-   repository to your own GitHub account. For this tutorial, we assume that the
+1. Go to https://github.com/mesosphere/cicd-hello-world-gitops and fork the
+   repository to your own GitHub account. For these steps, we assume that the
    GitOps repository is _public_. Dispatch will deploy the kubernetes manifests
    defined in this GitOps repository to your cluster.
 1. Assuming your GitHub user or organization is `your-user`, you now have a GitOps
@@ -164,12 +164,12 @@ Installation](../install/), [Setting up a repository to use
 Dispatch](../repo-setup/), and [Pipeline Configuration
 Reference](../pipeline-configuration/) examples elsewhere in the Dispatch
 documentation. If you have followed the [Dispatch Installation](../install/) and
-[Setting up a repository to use Dispatch](../repo-setup/) tutorials, your local
-`cicd-hello-world` git repository will be up-to-date and ready to follow along.
+[Setting up a repository to use Dispatch](../repo-setup/) topics, your local
+`cicd-hello-world` git repository will be up-to-date and ready to continue.
 For this tutorial, we focus on the Continuous Deployment part of CI/CD.
 
-For this tutorial, the GitOps repository is public. If it was a private
-repository, you would need to create a new GitHub Personal Access Token that
+For this topic, the GitOps repository must be public. If it were a private
+repository, you must create a new GitHub Personal Access Token that
 grants READ access to the GitOps repository. You would then add that access
 token using the following command:
 
@@ -177,10 +177,10 @@ token using the following command:
 dispatch gitops creds add https://github.com/your-user/cicd-hello-world-gitops --username your-user --token $GITOPSTOKEN
 ```
 
-Next, we need to add our GitOps repository to Dispatch so that it knows
-to keep our cluster in sync with the Kubernetes manifests in the repository.
+Next, add our GitOps repository to Dispatch so that it knows
+to keep the cluster in sync with the Kubernetes manifests in the repository.
 
-If you already have a service account, say `team-1`, that is configured with a
+If you already have a service account (for example: `team-1`) that is configured with a
 GitHub Personal Access Token that you want to use to administer webhooks on the
 GitOps repository, you can reuse it as follows:
 
@@ -196,10 +196,9 @@ dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --toke
 dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops --scm-secret gitops-secret-1
 ```
 
-You can now open your browser and navigate to the Argo CD UI. The Argo CD UI is
-available at the `/dispatch/argo-cd` URL relative to your Kubernetes cluster's URL.
+You can now open your browser and navigate to the Argo CD UI at the `/dispatch/argo-cd` URL relative to your Kubernetes cluster's URL.
 
-You can see that the hello-world application has been created. If you click on
+You can see that the hello-world application has been created. If you select on
 the hello-world application you can see a visualization of the various
 Kubernetes resources related to the hello-world application: Ingress, Service,
 Deployment, ReplicaSet, and Pod. You can further click on any of the resources
