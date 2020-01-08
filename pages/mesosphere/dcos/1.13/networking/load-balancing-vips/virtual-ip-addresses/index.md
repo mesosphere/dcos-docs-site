@@ -38,30 +38,34 @@ VIPs follow this naming convention:
 
 ## Creating a VIP
 
-1.  From the DC/OS [GUI](/mesosphere/dcos/1.13/gui/), click on the **Services** tab, then on **RUN A SERVICE**.
-    1.  From the **Networking** tab, select  **NETWORK TYPE** > **Virtual Network: dcos**.
-    2.  Expand **ADD SERVICE ENDPOINT** and provide responses for:
+1.  From the DC/OS [GUI](/mesosphere/dcos/1.13/gui/), choose the **Services** tab, then **RUN A SERVICE**. 
+  1.  Choose a container configuration from the screen.
 
-        -  **CONTAINER PORT**
-        -  **SERVICE ENDPOINT NAME**
-        -  **PORT MAPPING**
-        -  **LOAD BALANCED SERVICE ADDRESS**
+      ![Configuration menu](/mesosphere/dcos/1.13/img/GUI-Services-Networking-Container-Config-Menu.png) 
 
-        As you fill in these fields, the service addresses that Marathon sets up will appear at the bottom of the screen. You can assign multiple VIPs to your app by clicking **ADD SERVICE ENDPOINT**.
+      Figure 1 - Container configuration menu
 
-        ![VIP service definition](/mesosphere/dcos/1.13/img/vip-service-definition.png)
+  1.  The configuration menu will appear. From the **Networking** tab, select  **NETWORK TYPE** > **Virtual Network: dcos**.
+        ![Networking config page](/mesosphere/dcos/1.13/img/GUI-Services-Container-Config-Menu.png)
 
-        Figure 1. VIP service definition screen
+        Figure 2. Networking Configuration screen
 
-        In Figure 1, clients can access the service at `my-service.marathon.l4lb.thisdcos.directory:5555`.
+  1.  Under **Service Endpoints**, expand **ADD SERVICE ENDPOINT** and provide responses for:
 
-    1.  Click **REVIEW & RUN** and **RUN SERVICE**.
+      -  **CONTAINER PORT**
+      -  **SERVICE ENDPOINT NAME**
+      -  **PORT MAPPING**
+      -  **ENABLE LOAD BALANCED SERVICE ADDRESS**
+
+        As you fill in these fields, the service addresses that Marathon sets up will appear at the bottom of the screen. You can assign more VIPs to your app by expanding **ADD SERVICE ENDPOINT** again.
+
+  1.  Choose **REVIEW & RUN** and **RUN SERVICE**.
 
 You can click on the **Networking** tab to view networking details for your service.
 
-![VIP output](/mesosphere/dcos/1.13/img/vip-service-definition-output.png)
+![Networking](/mesosphere/dcos/1.13/img/GUI-Networking-Networks_View-1_12.png)
  
-Figure 2. Service definition output
+Figure 3 - Networking details
 
 For more information on port configuration, see the [Marathon ports documentation](/mesosphere/dcos/1.13/deploying-services/service-ports/).
 
@@ -78,7 +82,7 @@ Follow these steps to view the VIP for Kafka.
 
     ![Service details](/mesosphere/dcos/1.13/img/vip-service-details.png)
 
-    Figure 3. VIP service details
+    Figure 4 - VIP service details
 
 ### Via the CLI
 
