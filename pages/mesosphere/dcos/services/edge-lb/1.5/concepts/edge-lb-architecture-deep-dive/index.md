@@ -6,6 +6,7 @@ menuWeight: 20
 excerpt: Provides a more detailed view of Edge-LB components within the network topology for a cluster
 enterprise: true
 ---
+
 Edge-LB provides layer-7 inbound load balancing and proxying through the Edge-LB API server and Edge-LB pools. This section provides a deeper view into the details of the Edge-LB architecture and how it works.
 
 The following diagram provides a more detailed representation of the Edge-LB architecture.
@@ -41,14 +42,11 @@ Edge-LB pool has two sub-components:
 
 ## Load balancer manager (lbmgr)
 
-The load balancing manager (`lbmgr`) in Edge-LB pool instances manages the life cycle of the HAProxy load balancer.
-It is the `lbmgr` component that takes the appropriate action for the pool when it receives requests from API server.
+The load balancing manager (`lbmgr`) in Edge-LB pool instances is a non-distributed process that runs along with the HAProxy load balancer. `lbmgr` takes the appropriate action for the pool when it receives requests from the API server.
 
-The `lbmgr` component monitors the HAProxy instances for the Edge-LB pool.
-For example, if an HAProxy instance goes down because an agent is disconnected, the `lbmgr` process creates a new HAProxy instance to replace it on another available agent.
+The `lbmgr` component monitors the HAProxy instances for the Edge-LB pool and restarts HAProxy in the same container, when needed. For example, if an HAProxy instance goes down because an agent is disconnected, the `lbmgr` process creates a new HAProxy instance to replace it on another available agent.
 
-The `lbmgr` component also validates new load balancer configuration settings and reloads HAProxy load balancer instances, when necessary.
-For example, the `lbmgr` component manages the timeout interval for reloading the HAProxy instance.
+The `lbmgr` component also validates new load balancer configuration settings and reloads HAProxy load balancer instances, when necessary. For example, the `lbmgr` component manages the timeout interval for reloading the HAProxy instance.
 
 ## HAProxy instances
 

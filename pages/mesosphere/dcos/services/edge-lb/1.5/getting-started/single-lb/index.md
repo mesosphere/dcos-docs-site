@@ -6,20 +6,21 @@ menuWeight: 10
 excerpt: Illustrates the basic steps for load balancing a single service running on DC/OS
 enterprise: true
 ---
-This tutorial demonstrates how to prepare load balancing for access to a single DC/OS service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way organizations get started with a load balancing solution.
+This tutorial demonstrates how to prepare load balancing for access to a single DC/OS&trade; service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way organizations get started with a load balancing solution.
 
 # Before you begin
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster.
+* A DC/OS Enterprise cluster that has at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Preview of what you'll do
 This tutorial illustrates how to configure an Edge-LB instance to provide public access to a simple Marathon app. In this tutorial, you will:
-- Create and deploy a sample Marathon app called `ping`.
-- Expose the `ping` app through the Edge-LB pool instance called `ping-lb`.
-- Access the sample `ping` app through the public agent URL.
+* Create and deploy a sample Marathon app called `ping`.
+* Expose the `ping` app through the Edge-LB pool instance called `ping-lb`.
+* Access the sample `ping` app through the public agent URL.
 
 # Create the sample app definition
 1. Open a text editor, then copy and paste the following sample app definition to create the `ping.json` file:
@@ -113,21 +114,18 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     }
     ```
 
-1. Review the configuration settings to verify they meet the following requirements:
+1. Review the configuration settings to verify they meet the following guidelines and requirements:
     - The `name` indicates the pool instance name.
-      In this sample pool configuration file, the instance name is `ping-lb` and you must have this information to edit, update, or delete the Edge-LB pool instance after you deploy it.
+      In this sample pool configuration file, the instance name is `ping-lb`. You must have this name to edit, update, or delete the Edge-LB pool instance after you deploy it.
 
     - The `haproxy.frontends.linkBackend.defaultBackend` must match the `haproxy.backends.name` value.
       In this sample pool configuration file, the backend name is `ping-backend`.
 
-    - The `haproxy.backends.endpoint.portName` in the pool configuration file must match the `portDefinitions.name` in the app definition file.
-      In this sample pool configuration file, the name is `pong-port`.
+    - The `haproxy.backends.endpoint.portName` in the pool configuration file must match the `portDefinitions.name` in the app definition file. In this sample pool configuration file, the name is `pong-port`.
 
-    - The `haproxy.frontends.bindPort` setting indicates the port used to access the app.
-      In this sample pool configuration file, the app is accessible on port 15001.
+    - The `haproxy.frontends.bindPort` setting indicates the port used to access the app. In this sample pool configuration file, the app is accessible on port 15001.
 
-    - The `haproxy.stats.bindPort` setting indicates that the port for accessing load-balancing statistics.
-    In this sample configuration file, the setting of `0` specifies that the port be dynamically allocated.
+    - The `haproxy.stats.bindPort` setting indicates that the port for accessing load-balancing statistics. In this sample configuration file, the setting of `0` specifies that the port is dynamically allocated.
 
     - The `haproxy.backends.marathon.serviceID` must match the name of the app definition.
       In this sample pool configuration file, the service name is `\ping`.
@@ -140,7 +138,7 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     dcos edgelb create ping-lb.json
     ```
 
-    This command displays a confirmation message similar to the following:
+    The command displays a confirmation message similar to the following:
     ```
     Successfully created ping-lb. Check "dcos edgelb show ping-lb" or "dcos edgelb status ping-lb" for deployment status
     ```
@@ -151,7 +149,7 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     dcos marathon app list
     ```
 
-    This command displays information similar to the following:
+    The command displays information similar to the following:
     ```
     ID                          MEM   CPUS  TASKS  HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
     /dcos-edgelb/api            1024   1     1/1    1/1       ---      False      MESOS    cp -vR /dcosfilestmp/*...
@@ -196,7 +194,7 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     stats_port      1025   10.0.5.105
     ```
 
-    Optionally, you can view the Edge-LB pool configuration as formatted output or in JSON file format by running one of the the following command:
+    Optionally, you can view the Edge-LB pool configuration as formatted output or in JSON file format by running one of the following commands:
 
     ```bash
     dcos edgelb show ping-lb
@@ -204,7 +202,7 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     dcos edgelb show ping-lb --json
     ```
 
-    For example, you might see output similar to the following:
+    As an example, you will see output similar to the following:
 
     ```bash
     Summary:
@@ -232,11 +230,11 @@ This tutorial illustrates how to configure an Edge-LB instance to provide public
     ```
 
 # Access the sample load balanced service
-After you have configured and tested the `ping` service and `ping-lb` pool configuration file, you can verify you have access the service.
+After you have configured and tested the `ping` service and `ping-lb` pool configuration file, you can verify you have access to the service.
 
 1. Open a web browser and navigate to the public-facing IP address.
 
-    If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console or by running the following command:
+    If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console, or by running the following command:
 
     ```bash
     dcos node list

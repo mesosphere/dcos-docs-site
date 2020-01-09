@@ -6,9 +6,10 @@ menuWeight: 16
 excerpt: Describes how you can integrate Edge-LB with cloud provider load balancers
 enterprise: true
 ---
+
 When you define the configuration settings for an Edge-LB pool, you have the option to support automatic provisioning and lifecycle management of cloud provider load balancers.
 
-There are several benefits to having a public cloud load balancer--such as the AWS Network Load Balancer (NLB)--deployed in front of an Edge-LB pool and managed by the Edge-LB server.
+There are several benefits to having a public cloud load balancer - such as the AWS&reg; Network Load Balancer (NLB) - deployed in front of an Edge-LB pool and managed by the Edge-LB server.
 
 For example, using the public cloud load balancer in combination with Edge-LB:
 
@@ -24,7 +25,7 @@ The following diagram provides a simplified view of the architecture with a clou
 
 ![Integrating a cloud provider load balancer](../../img/Edge-LB-cloud-arch.png)
 
-You should note that, currently, Edge-LB only supports using AWS Network Load Balancers (NLB) for integrated cloud provider load balancing. For information about deploying and configuring AWS Network Load Balancers (NLB), see the AWS documentation for [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html).
+You should note that, currently, Edge-LB supports only AWS Network Load Balancers (NLB) for integrated cloud provider load balancing. For information about deploying and configuring AWS Network Load Balancers (NLB), see the AWS documentation for [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html).
 
 # Configuring cloud provider settings
 Cloud provider load balancers such as the AWS Network Load Balancer are configured with a top-level `cloudProvider` field in the Edge-LB pool configuration file.
@@ -79,9 +80,9 @@ The `aws` cloud provider field also has a subfield of `elbs`. The `elbs` field c
 - `tags` - Specifies an array of user-defined tag name and value pairs. The tags you specify using this field are applied to load balancers and target groups in addition to the [internal tags](#internal-tagging) that are automatically defined by the Edge-LB API server.
 
 ## Specifying subnets
-You can define the subnets that are associated an AWS Network Load Balancer either manually or automatically.
+You can define the subnets that are associated with an AWS Network Load Balancer either manually or automatically.
 
-To specify subnets manually, you can add a `subnets` field to the cloud provider configuration details in the Edge-LB pool configuration file. For example, the following code snippet illustrates how to manually specify `subnet-1234567890abcdefgi` for the cloud provider load balancer:
+To specify subnets manually, you can add a `subnets` field to the cloud provider configuration details in the Edge-LB pool configuration file. For example, the following code snippet illustrates how to specify `subnet-1234567890abcdefgi` manually for the cloud provider load balancer:
 
 ```json
 {
@@ -122,13 +123,13 @@ You can associate Elastic IP addresses with any AWS Network Load Balancer that E
 ```
 
 As this example illustrates, you can specify the Elastic network addresses using:
-- an IPv4 address like `1.1.1.1` in the example.
-- an allocation ID like `eipalloc-12345678` in the example.
+- an IPv4 address, like the value  `1.1.1.1` in the example.
+- an allocation ID, like the value `eipalloc-12345678` in the example.
 
 If you use an IPv4 address, the address is resolved into the corresponding allocation ID before it is associated with the NLB.
 
 ## Enabling Transport Layer Security (TLS)
-By default, AWS Network Load Balancer listeners use the TCP protocol. If you want to enable secure encrypted communication using Transport Layer Security and secure socket layer (SSL) certificates, you should do the following in the Edge-LB pool configuration file:
+By default, AWS Network Load Balancer listeners use the TCP protocol. If you want to enable secure encrypted communication using Transport Layer Security and Secure Socket Layer (SSL) certificates, you should do the following in the Edge-LB pool configuration file:
 - Set the `protocol` field to TLS.
 - Set the `policy` field to specify a [secure socket layer (SSL) policy](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies).
 - Set the `certificates` field to specify one or more [SSL certificates](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#tls-listener-certificates).
@@ -151,10 +152,10 @@ For example, the following code snippet illustrates how to specify configuration
   ]
 ```
 
-As this example illustrates, you can specify multiple certificates using certificate [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
+As this example illustrates, you can specify multiple certificates using the certificate [Amazon Resource Names (ARNs)](https://docs.aws.amazon.com/general/latest/gr/aws-arns-and-namespaces.html).
 
 ## Enabling access logging
-You can log requests made to the TLS listeners by setting the `accessLogS3Location` field to <bucket-name>/prefix or just <bucket-name>.
+You can log requests made to the TLS listeners by setting the `accessLogS3Location` field to `<bucket-name>/prefix` or just `<bucket-name>`.
 
 For example, the following code snippet illustrates how to enable logging for inbound requests that use the secure TLS protocol:
 
@@ -200,10 +201,10 @@ The following code excerpt illustrates how you can set the `deletionProtection` 
 }
 ```
 
-Accidental deletion protection is disabled by default. If you enable deletion protection, you should keep in mind that deleting an Edge-LB pool associated with the AWS Network Load Balancer will not delete the AWS Network Load Balancer. If you want to delete all of the AWS Network Load Balancers associated with an Edge-LB pool when you delete the Edge-LB pool, you should set the `deletionProtection` field to `false` for all AWS Network Load Balancers before you delete the Edge-LB pool.
+Accidental deletion protection is disabled by default. If you enable deletion protection, you should keep in mind that deleting an Edge-LB pool associated with the AWS Network Load Balancer will not delete the AWS Network Load Balancer. If you want to delete all of the AWS Network Load Balancers associated with an Edge-LB pool when you delete the Edge-LB pool, you should set the `deletionProtection` field to `false` for all AWS Network Load Balancers **before** you delete the Edge-LB pool.
 
 ### Using existing Amazon Resource Names
-Edge-LB can manage an existing AWS Network Load Balancers by specifying the AWS Network Load Balancer resouce names in the `cloudProvider` section of the Edge-LB pool configuration file.
+Edge-LB can manage an existing AWS Network Load Balancer by specifying the AWS Network Load Balancer resource names in the `cloudProvider` section of the Edge-LB pool configuration file.
 
 The following code excerpt illustrates how you can use Amazon Resource Names (ARNs) to associate an existing AWS Network Load Balancer with an Edge-LB pool in the Edge-LB pool configuration file:
 
@@ -221,29 +222,31 @@ The following code excerpt illustrates how you can use Amazon Resource Names (AR
 }
 ```
 
-If you specify a custom ARN identifier in the pool configuration file, Edge-LB assumes that there is an existing Network Load Balancer for the pool to use. In this scenario, the Edge-LB API server does not attempt to create or delete a Network Load Balancer for the pool. Instead, Edge-LB attempts to manage resources for the specified Network Load Balancer. Therefore, if you want to use an existing Network Load Balancer, you should be sure that the existing Network Load Balancer configuration aligns with the configuration settings specified in the Edge-LB pool configuration file. For example, if you enable access logging for the existing Network Load Balancer, you should also enable access logging in the corresponding pool configuration file to ensure that setting is used.
+If you specify a custom ARN identifier in the pool configuration file, Edge-LB assumes that there is an existing Network Load Balancer for the pool to use. In this scenario, the Edge-LB API server does not attempt to create or delete a Network Load Balancer for the pool. Instead, Edge-LB attempts to manage resources for the specified Network Load Balancer. Therefore, if you want to use an existing Network Load Balancer, you should be sure that the existing Network Load Balancer configuration aligns with the configuration settings specified in the Edge-LB pool configuration file. For example, if you enable access logging for the existing Network Load Balancer, you should also enable access logging in the corresponding pool configuration to ensure that setting is used.
 
 If there is a conflict between the configuration of the existing Network Load Balancer and the settings defined in the pool configuration file that use that Network Load Balancer, the pool configuration settings override the existing Network Load Balancer configuration.
 
 ## Internal tagging
 Load balancers are automatically defined with the following information in addition to any user-defined tags:
 
-- `DC/OS:EdgeLB:ClusterID` that specifies a cluster identifier for the DC/OS cluster Edge-LB is running on. For example: 18f21a68-058f-4d14-8055-e61ed91e3794.
+- `DC/OS:EdgeLB:ClusterID` - specifies a cluster identifier for the DC/OS cluster on which Edge-LB is running. For example: 18f21a68-058f-4d14-8055-e61ed91e3794.
 
-- `DC/OS:EdgeLB:ApplicationID` that specifies the Marathon application identifier for the Edge-LB API server. For example, /dcos-edgelb/api.
+- `DC/OS:EdgeLB:ApplicationID` - specifies the Marathon application identifier for the Edge-LB API server. For example, /dcos-edgelb/api.
 
-- `DC/OS:EdgeLB:PoolName` that specifies a name of pool the load balancer belongs to. For example: test-http-pool-with-aws-nlb.
+- `DC/OS:EdgeLB:PoolName` - specifies a name of pool the load balancer belongs to. For example: test-http-pool-with-aws-nlb.
 
-- `DC/OS:EdgeLB:LoadBalancerName` that specifies the original load balancer name. For example: echo.
+- `DC/OS:EdgeLB:LoadBalancerName` - specifies the original load balancer name. For example: echo.
 
 Target groups have two additional tags:
 
-- `DC/OS:EdgeLB:FrontendName` that specifies the name of a corresponding frontend. For example: echo.
+- `DC/OS:EdgeLB:FrontendName` - specifies the name of a corresponding frontend. For example: echo.
 
-- `DC/OS:EdgeLB:ListenerPort` that specifies a port number. For example: 80.
+- `DC/OS:EdgeLB:ListenerPort` - specifies a port number. For example: 80.
 
 ## Required permissions
-Either the instance on which Edge-LB API server is running on, or the IAM user that is specified using an AWS access key at the time of Edge-LB installation should have the following AWS API permissions in order to be able to manage Network Load Balancers:
+To manage Network Load Balancers, the following AWS API permissions are needed by one of these two:
+- the instance on which the Edge-LB API server is running, or...
+- the IAM user that is specified using an AWS access key at the time of Edge-LB installation.
 
 ```
 elasticloadbalancing:DescribeLoadBalancers
