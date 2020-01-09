@@ -22,18 +22,16 @@ The following diagram provides an example of this type of application-specific E
 <img src="/services/edge-lb/img/Edge-LB-app-pool-arch.png" alt="Using multiple Edge-LB pool instances">
 </p>
 
-This diagram illustrates Edge-LB pool instances with each pool instance deployed for a single service. If the Edge-LB pool instance that handles load balancing for MySQL goes down, Edge-LB continues to load balance traffic for NGINX pool instances.
+This diagram illustrates Edge-LB pool instances with each pool instance deployed for a single service. If the Edge-LB pool instance that handles load balancing for MySQL&reg; goes down, Edge-LB continues to load balance traffic for NGINX&trade; pool instances.
 
 # Using multiple public agent nodes
 
-One of the key ways you can ensuring high availability for load balanced applications is by deploying  Edge-LB on more than one public agent in the DC/OS cluster.
-Deploying Edge-LB on multiple public agents provides additional flexibility for how you route traffic to different pool instances in a production cluster and helps to minimize the likelihood of service interruptions if a pool goes down.
+One of the key ways you can ensure high availability for load balanced applications is by deploying Edge-LB on more than one public agent in the DC/OS&trade; cluster. Deploying Edge-LB on multiple public agents provides additional flexibility for how you route traffic to different pool instances in a production cluster, and helps to minimize the likelihood of service interruptions if a pool goes down.
 
 # Automatic scaling based on resource consumption
 
 Edge-LB templates also contribute to high availability by automatically configuring the load balancer to adjust as applications scale up and scale down using DC/OS application-aware scheduling.
 
-When an application scales to consume more resources, such as expanding to additional tasks and nodes, Edge-LB can automatically react and automatically include the new application tasks into the backend of the load balancer pool.
-Because Edge-LB manages these changes without user intervention, it enables DC/OS to provide elastic scaling for applications running on the platform.
+When an application scales up to consume more resources, such as expanding to additional tasks and nodes, Edge-LB can automatically react by including the new application tasks into the backend of the load balancer pool. Because Edge-LB manages these changes without user intervention, it enables DC/OS to provide elastic scaling for applications running on the platform.
 
 Multiple Edge-LB pools can be configured across multiple DC/OS public nodes to create a highly-available load balancing environment and to support increased throughput.

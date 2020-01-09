@@ -6,22 +6,23 @@ menuWeight: 16
 excerpt: Demonstrates differences between Marathon-LB and Edge-LB load balancing services
 enterprise: true
 ---
-This tutorial demonstrates exposing and accessing the `nginx` service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers. 
+
+This tutorial demonstrates exposing and accessing the NGINX&trade; service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers.
 
 # Before you begin
-* You must have the Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
-* You must have Marathon-LB installed as described in the Marathon-LB [installation instructions](/services/marathon-lb/1.12.x/mlb-install).
+You must have:
+* The Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS&trade; cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+* Marathon-LB installed as described in the Marathon-LB [installation instructions](/services/marathon-lb/1.12.x/mlb-install).
 
 # Preview of what you'll do
 This tutorial illustrates the differences between configuring load balancing using Marathon-LB and an Edge-LB pool to provide public access to a simple Marathon app. In this tutorial, you will:
-- Create and deploy a sample Marathon app called `nginx`.
-- Configure and deploy Marathon-LB using the Marathon service `nginx-mlb`.
-- Configure and deploy load balancing using the Edge-LB pool instance called `nginx-edgelb`.
-- Access the sample `nginx` app through the public agent URL. 
+* Create and deploy a sample Marathon app called `nginx`.
+* Configure and deploy Marathon-LB using the Marathon service `nginx-mlb`.
+* Configure and deploy load balancing using the Edge-LB pool instance called `nginx-edgelb`.
+* Access the sample `nginx` app through the public agent URL. 
 
 # Configure the sample app for Marathon-LB
 1. Open a text editor, then copy and paste the following sample app definition to create the `nginx-mlb.json` file:
@@ -59,7 +60,7 @@ This tutorial illustrates the differences between configuring load balancing usi
     }
     ```
 
-    This sample app definition for `nginx-mlb.json` includes the public IP address used to expose and access the `nginx` service.
+    This sample app definition includes the public IP address used to expose and access the `nginx` service.
 
 1. Deploy the `nginx` service by adding the `nginx-mlb.json` app definition to the cluster:
 
@@ -73,7 +74,7 @@ This tutorial illustrates the differences between configuring load balancing usi
     http://<Public agent IP address>:10020
     ```
 
-    The previous steps illustrate how you can deploy the `nginx` service through Marathon-LB.
+These steps illustrate how you can deploy the `nginx` service through Marathon-LB.
 
 # Configure Edge-LB for the sample app
 1. Open a text editor, then copy and paste the following sample app definition to create the `nginx.json` file:
@@ -159,7 +160,7 @@ This tutorial illustrates the differences between configuring load balancing usi
     ```
 
 # Verify deployment status for sample apps
-1. Verify Marathon-LB and Edge-LB API server packages has been deployed sucessfully by running the following command:
+1. Verify that the Marathon-LB and Edge-LB API server packages have been deployed sucessfully by running the following command:
 
     ```bash
     dcos package list
@@ -188,6 +189,7 @@ This tutorial illustrates the differences between configuring load balancing usi
     ```bash
     dcos edgelb endpoints nginx-edgelb
     ```
+    
 # Verify service access
 1. Access the `nginx-mlb` service using the public IP address and port specified in the `nginx-mlb.json` file.
 
