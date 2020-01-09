@@ -9,6 +9,10 @@ enterprise: false
 
 ## Release Notes
 
+[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
+
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
+
 ### Version 1.2.6 - Release 2 December 2019
 
 | Kubernetes Support | Version |
