@@ -6,32 +6,34 @@ menuWeight: 10
 excerpt: How to deploy with two load-balanced versions of the same service
 enterprise: true
 ---
-A blue/green deployment strategy provides a method for achieving zero-downtime when you need to run two versions of the same service--that is, a "blue" version and a "green" version--simultaneously. With a blue/green deployment, you can have two fully-scaled versions of the same service running at the same time on the same cluster. You can then use the load balancer to switch between the two versions, as needed.
 
-This type of deployment supports rolling updates where one version of a service can be taken down and upgraded or rolled back without disrupting access to the other version of the same service. Similarly, if something goes wrong with one version of a service, you can quickly switch to routing requests to the other version of the service by adjusting the load balancer settings.
+A blue/green deployment strategy provides a method for achieving zero-downtime when you need to run two versions of the same service - that is, a "blue" version and a "green" version - simultaneously. With a blue/green deployment, you can have two fully-scaled versions of the same service running at the same time on the same cluster. You can then use the load balancer to switch between the two versions, as needed.
+
+This type of deployment supports rolling updates where one version of a service can be taken down and upgraded, or rolled back,without disrupting access to the other version of the same service. Similarly, if something goes wrong with one version of a service, you can quickly switch to routing requests to the other version of the service by adjusting the load balancer settings.
 
 # Before you begin
-Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages.
+Before you create Edge-LB pools and pool configuration files, you should have DC/OS&trade; Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages.
 
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
-* You must have enough capacity on the DC/OS Enterprise cluster for two fully-deployed services.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+* Enough capacity on the DC/OS Enterprise cluster for two fully-deployed services.
 
 For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
 
 # Preview of what you'll do
-This tutorial illustrates how to configure services and load balancing to support a blue/green deployment scenario. In this tutorial, you will:
-- Create and deploy a load balancing configuration file for a sample `web-server` application identified as the "blue" version of the service.
-- Create and deploy a load balancing configuration file for a second "green" version of the `web-server` application.
-- Verify the load balancer is routing traffic successfully to the "blue" version of the service.
-- Update the Edge-LB configuration to route traffic to the "green" version of the service.
-- Verify the load balancer routes traffic to the "green" version of the service.
-- Access the sample application through the public agent IP address and frontend port.
+This tutorial shows how to configure services and load balancing to support a blue/green deployment scenario. In this tutorial, you will:
 
-By completing the steps in this tutorial, you can see how to switch to a newer or different version of the same service with zero-downtime and have the Edge-LB load balancer automatically adjust the traffic routed between the blue and green versions of the service. 
+* Create and deploy a load balancing configuration file for a sample `web-server` application identified as the "blue" version of the service.
+* Create and deploy a load balancing configuration file for a second, "green" version of the `web-server` application.
+* Verify the load balancer is routing traffic successfully to the "blue" version of the service.
+* Update the Edge-LB configuration to route traffic to the "green" version of the service.
+* Verify the load balancer routes traffic to the "green" version of the service.
+* Access the sample application through the public agent IP address and frontend port.
+
+By completing the steps in this tutorial, you can see how to switch to a newer or different version of the same service with zero-downtime, and have the Edge-LB load balancer automatically adjust the traffic routed between the blue and green versions of the service.
 
 # Create and deploy the "blue" sample app definition
 1. Open a text editor to create the sample app definition for the `svc-blue` service in the `svc-blue.json` file:
@@ -112,8 +114,7 @@ By completing the steps in this tutorial, you can see how to switch to a newer o
     ```
 
 # Configure load balancing for the "blue" service
-1. Open a text editor to create the pool configuration file
-for the sample service in the `sample-deployment-config.json` file:
+1. Open a text editor to create the pool configuration file for the sample service in the `sample-deployment-config.json` file:
 
     ```bash
     vi sample-deployment-config.json
@@ -190,7 +191,7 @@ for the sample service in the `sample-deployment-config.json` file:
    dcos marathon app add svc-green.json
    ```
 
-1. Verify the blue and green versions of the sample service and the Edge-LB pool instance have been deployed successfully by running the following command: 
+1. Verify the blue and green versions of the sample service and the Edge-LB pool instance have been deployed successfully by running the following command:
 
     ```bash
     dcos marathon app list
@@ -244,3 +245,4 @@ for the sample service in the `sample-deployment-config.json` file:
     If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console or by running the `dcos node list` command.
 
     In most cases, the `dcos node list` command returns information that includes both the private and public IP addresses for each node. You should keep in mind, however, that the public and private IP addresses returned might not be accurate if the Edge-LB pool uses virtual networks.
+    

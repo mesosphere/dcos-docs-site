@@ -6,16 +6,17 @@ menuWeight: 5
 excerpt: How to set up multiple load balancer instances for a DC/OS cluster running on AWS
 enterprise: true
 ---
-This tutorial demonstrates how to set up multiple Edge-LB load balancer instances in a single pool behind a single Amazon Web Services (AWS) Classic Load Balancer. You can perform similar steps to configure Edge-LB load balancers for AWS Application Load Balancers or AWS Network Load Balancers. In the scenario for this tutorial, you can use multiple Edge-LB pool instances to create a highly-available load balanced environment on a DC/OS cluster running on a public cloud instance. Using Edge-LB in combination with a public cloud load balancing service like AWS Classic Load Balancer improves network efficiency, application performance, and processing throughput.
+
+This tutorial demonstrates how to set up multiple Edge-LB load balancer instances in a single pool behind a single Amazon Web Services&reg; (AWS&reg;) Classic Load Balancer. You can perform similar steps to configure Edge-LB load balancers for the AWS Application Load Balancer or the AWS Network Load Balancer&reg;. In the scenario for this tutorial, you can use multiple Edge-LB pool instances to create a highly-available load balanced environment on a DC/OS&trade; cluster running on a public cloud instance. Using Edge-LB in combination with a public cloud load balancing service like AWS Classic Load Balancer improves network efficiency, application performance, and processing throughput.
  
 # Before you begin
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service.
-* The DC/OS Enterprise cluster must have two or more **public agent** nodes running in the virtual private cloud (VPC) of shared computing resources 
-* You must have a cloud provider account with sufficient permissions to create and manage AWS load balancers.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service.
+* A DC/OS Enterprise cluster with two or more **public agent** nodes running in the virtual private cloud (VPC) of shared computing resources.
+* A cloud provider account with sufficient permissions to create and manage AWS load balancers.
 
 If you plan to adapt this tutorial to use Edge-LB with AWS Application Load Balancers or AWS Network Load Balancers, you must have the DC/OS agent nodes configured for multiple AWS availability zones.
 
@@ -81,8 +82,7 @@ If you plan to adapt this tutorial to use Edge-LB with AWS Application Load Bala
     ```
 
 # Configure load balancing for the sample service
-1. Open a text editor to create the pool configuration file
-for the sample service in the `multi-lb-config.json` file:
+1. Open a text editor to create the pool configuration file for the sample service in the `multi-lb-config.json` file:
 
     ```bash
     vi multi-lb-config.json
@@ -131,7 +131,7 @@ for the sample service in the `multi-lb-config.json` file:
    dcos edgelb create multi-lb-config.json
    ```
 
-    This command should display confirmation that the pool was successfully created. You can run either of the following commands to verify the Edge-LB pool deployment status:
+    This command should display confirmation that the pool was successfully created. You can run either of these commands to verify the Edge-LB pool deployment status:
     - dcos edgelb show multi-lb-config
     - dcos edgelb status multi-lb-config
 
@@ -158,7 +158,7 @@ for the sample service in the `multi-lb-config.json` file:
     dcos edgelb endpoints multi-lb-config
     ```
 
-    When DC/OS is deployed on an AWS cloud instance, however, you must find the public-facing IP address provided by Amazon that is associated with the node to view the sample service. You can then specify that information in the browser to access the sample service through the load balancer. The public-facing IP address provided by Amazon for the node might be a concatenated string similar to `http://luxi-test-publicsl-1jqww865xiuoa-1008229330.us-west-2.elb.amazonaws.com:80`.
+    When DC/OS is deployed on an AWS cloud instance, however, you must find the public-facing IP address provided by Amazon&reg; that is associated with the node to view the sample service. You can then specify that information in the browser to access the sample service through the load balancer. The public-facing IP address provided by Amazon for the node might be a concatenated string similar to `http://luxi-test-publicsl-1jqww865xiuoa-1008229330.us-west-2.elb.amazonaws.com:80`.
 
     ![Sample service](/services/edge-lb/img/customer-sample-app.png)
 
@@ -183,7 +183,7 @@ This tutorial focuses on using Edge-LB with Amazon Web Services (AWS) classic lo
 
 1. On the Define Load Balancer page:
     * Provide a name for your Classic Load Balancer.
-    * Select the VPC that your instances are part of.
+    * Select the VPC of which your instances are a part.
 
 1. Specify the following settings under Load Balancer Protocol:
     * Protocol: HTTP
@@ -191,7 +191,7 @@ This tutorial focuses on using Edge-LB with Amazon Web Services (AWS) classic lo
     * Instance Protocol: HTTP
     * Instance Port: 80
 
-1. Click the **+** sign next to the subnets that each of your instances are part of.
+1. Click the **+** sign next to the subnets of which each of your instances are a part.
 
     To find details about the VPC and subnets used for your cloud instance, use the AWS Management Console to navigate to Services > Compute > EC2 > **Running Instances**.
 
@@ -214,7 +214,7 @@ This tutorial focuses on using Edge-LB with Amazon Web Services (AWS) classic lo
 
 1. Click **Next: Add EC2 Instances**, then select the instances that correspond to your public agent nodes.
 
-1. Click **Next: Add Tags** to specify any optional tags for the EC2 classic load balancer.
+1. Click **Next: Add Tags** to specify any optional tags for the EC2&reg; classic load balancer.
 
     You can use the optional tags to find and filter classic load balancer information when needed.
 
@@ -224,9 +224,9 @@ This tutorial focuses on using Edge-LB with Amazon Web Services (AWS) classic lo
 On the Load Balancer page in the AWS Management Console, you can check the status of the classic load balancer by clicking **Instances**. Depending on the network topology, bandwidth, and latency, it can take time for the new classic load balancer instance to be registered. After your instances are properly registered and displayed in the list of load balancer instances, you can access information about the load balancer by clicking the load balancer name.
 
 ## Set up an AWS application or network load balancer
-If you deploy DC/OS on an AWS cloud instance, your environment can also include an AWS Application Load Balancer or an AWS Network Load Balancer. 
+If you deploy DC/OS on an AWS cloud instance, your environment can also include an AWS Application Load Balancer or an AWS Network Load Balancer.
 
-- The AWS Application Load Balancer (ALB) is a layer-7 load balancer that supports HTTP requests with HTTP connections that terminate as inbound traffic on the Application Load Balancer. 
+- The AWS Application Load Balancer (ALB) is a layer-7 load balancer that supports HTTP requests with HTTP connections that terminate as inbound traffic on the Application Load Balancer.
 
 - The AWS Network Load Balancer is a layer-4 load balancer that distributes TCP traffic with HTTP connections that terminate on the EC2 instance itself, or when used with Edge-LB, directly on the Edge-LB pool load balancer instance.
 
@@ -247,12 +247,12 @@ To configure an application or network load balancer to work with DC/OS:
     * Provide a name for the Application Load Balancer or Network Load Balancer.
     * Select **internet-facing** and **ipv4**.
     * Under **Listeners**, specify:
-      - **HTTP** and **80** for an Application Load Balancer.
-      - **TCP** and **80** for a Network Load Balancer.
-    * Select the VPC that your instances are part of.
-    * Select the Subnets that your instances are part of.
+      * **HTTP** and **80** for an Application Load Balancer.
+      * **TCP** and **80** for a Network Load Balancer.
+    * Select the VPC of which your instances are a part.
+    * Select the Subnets of which your instances are a part.
 
-    You can only specify one subnet for each Availability Zone. You must specify a subnet from at least two availability zones to support high-availability load balancing. Because of this requirement, you must have at least two availability zones and two subnets to configure the Amazon application or network load balancer.
+    You can only specify one subnet for each Availability Zone. You must specify a subnet from at least two availability zones to support high-availability load balancing. As a result of this requirement, you must have at least two availability zones and two subnets to configure the Amazon application or network load balancer.
 
 1. Click **Next: Configure Security Settings** to continue.
 

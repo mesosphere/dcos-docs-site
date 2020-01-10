@@ -7,12 +7,12 @@ excerpt: How to connect to Kubernetes from a DC/OS Enterprise cluster using Edge
 enterprise: true
 ---
 
-This tutorial demonstrates how to connect to a Kubernetes cluster using the Edge-LB service for inbound load-balancing. In this tutorial, you will configure one Edge-LB pool to handle load-balancing for requests to access Kubernetes.
+This tutorial demonstrates how to connect to a Kubernetes&reg; cluster using the Edge-LB service for inbound load-balancing. In this tutorial, you will configure one Edge-LB pool to handle load-balancing for requests to access Kubernetes.
 
 For more information about setting up and working with Kubernetes clusters, see [Kubernetes](/services/kubernetes/git).
 
 # Before you begin
-You can use Edge-LB to provide inbound load balancing when you connect to a private Kubernetes cluster from outside of a DC/OS cluster.
+You can use Edge-LB to provide inbound load balancing when you connect to a private Kubernetes cluster from outside of a DC/OS&reg; cluster.
 
 To prepare Edge-LB to work with DC/OS and Kubernetes:
 
@@ -25,11 +25,11 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
 1. Download the current Edge-LB repository files using the [latest available binaries](https://support.mesosphere.com/s/downloads).
 
-    For example, you can download the repositories from the support site using your browser if you log in to the Mesosphere Support portal with an enterprise customer service account.
+    For example, you can download the repositories from the support site using your browser if you log in to the D2iQ&reg; Support portal with an enterprise customer service account.
     <p>
     <img src="/services/edge-lb/img/download-edge-lb.png" alt="Downloading Edge-LB from Mesosphere Support">
     </p>
-    
+
     Alternatively, you can run commands similar to the following to download DC/OS Edge-LB packages:
 
     ```bash
@@ -37,9 +37,7 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
     dcos package repo add --index=0 edgelb-pool https://<insert download link>/stub-universe-edgelb-pool.json
     ```
 
-1. Create an Edge-LB service account with a public/private key pair.
-
-    For example, open a shell terminal and use the DC/OS enterprise CLI to create the service account and certificate credentials:
+1. Create an Edge-LB service account with a public/private key pair using these DC/OS enterprise CLI shell commands to create the service account and certificate credentials:
 
     ```bash
     dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
@@ -49,9 +47,7 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
     dcos security org groups add_user superusers edge-lb-principal
     ```
 
-1. Create a customized configuration JSON file to install Edge-LB with its service account.
-
-    For example, create a text file named `edge-lb-options.json` and add the following configuration settings to it:
+1. Create a customized configuration JSON file to install Edge-LB with its service account by creating a text file named `edge-lb-options.json` and add the following configuration settings to it:
 
     ```json
     {
@@ -176,15 +172,11 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
 1. Find the public IP address for the Edge-LB deployment.
 
-    For example:
-
     ```bash
     dcos task exec -it edgelb-pool-0-server curl ifconfig.co
     ```
 
 1. Save the IP address as a variable.
-
-    For example:
 
     ```bash
     export EDGELB_PUBLIC_AGENT_IP=<output_of_above>
