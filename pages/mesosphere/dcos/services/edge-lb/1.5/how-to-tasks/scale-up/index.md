@@ -6,23 +6,24 @@ menuWeight: 33
 excerpt: How to scale up and scale down load balancer instances
 enterprise: true
 ---
-As you refine the deployment of agent nodes and services for your DC/OS Enterprise cluster, you might find that you need to add or reduce the number of load balancing pool instances that are distributing workload to your backend servers. 
+
+As you refine the deployment of agent nodes and services for your DC/OS&trade; Enterprise cluster, you might find that you need to add or reduce the number of load balancing pool instances that are distributing workload to your backend servers.
 
 # Before you begin
-Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
+Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages. 
 
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
 
 # Scaling up Edge-LB pool instances
-You can achieve high availability for load-balancing application traffic by increasing Edge-LB pool’s HAProxy instances. You can simply update the existing Edge-LB pool configuration by modifying the ‘count’ variable to increase the number of HAProxy instances.
+You can achieve high availability for load-balancing application traffic by increasing Edge-LB pool’s HAProxy instances. To do this, update the existing Edge-LB pool configuration ‘count’ variable to increase the number of HAProxy instances.
 
-The following steps illustrate how to create an Edge-LB pool configuration file to scale up the number of instances for a deployed `nginx` service.
+The following steps show how to create an Edge-LB pool configuration file to scale up the number of instances for a deployed NGINX&trade; service.
 
 # To add Edge-LB load balancer instances
 1. Open a text editor to create the `scaleup-nginx-lb.json` pool configuration file:
@@ -73,7 +74,7 @@ The following steps illustrate how to create an Edge-LB pool configuration file 
 
     In this sample baseline configuration, the `count` variable is set to 1. With this setting, the Edge-LB pool uses one load balancer instance from one of the public agents to distribute incoming traffic from all available public agent nodes.
 
-1. Modify the sample Edge-LB pool configuration file to scale up the number of Edge-LB pool instances from 1 to 3.
+1. Modify the sample Edge-LB pool configuration file to scale up the number of Edge-LB pool instances by changing the `count` setting from 1 to 3.
 
     ```bash
     vi scaleup-nginx-lb.json
@@ -129,7 +130,7 @@ The following steps illustrate how to create an Edge-LB pool configuration file 
     dcos edgelb status scaleup-nginx-lb
     ```
 
-    You should see two pools listed in the output for this command. You can also see the Edge-LB endpoints with the `dcos edgelb endpoint` command. In the command output, the `count` column displays the number of load balancer instances you have specified in the Edge-LB pool configuration file. 
+    You should see two pools listed in the output for this command. You can also see the Edge-LB endpoints with the `dcos edgelb endpoint` command. In the command output, the `count` column displays the number of load balancer instances you have specified in the Edge-LB pool configuration file.
     
     To view the output from the endpoints subcommand, run the following command:
 
@@ -137,7 +138,7 @@ The following steps illustrate how to create an Edge-LB pool configuration file 
     dcos edgelb endpoints scaleup-nginx-lb
     ```
 
-    You can only scale up to the total number of public agents you have available in the DC/OS cluster. For example, if you have deployed five public agent nodess in your DC/OS cluster, you can scale up to a maximum of five Edge-LB load balancer instances. If you change the `count` setting to a number greater than the number of public agents you have deployed--for example, by setting the `count` to 6--only the maximum of five Edge-LB load balancer instances are available to handle the traffic from the five available public agents.
+    You can only scale up to the total number of public agents you have available in the DC/OS cluster. For example, if you have deployed five public agent nodes in your DC/OS cluster, you can scale up to a maximum of five Edge-LB load balancer instances. If you change the `count` setting to a number greater than the number of public agents you have deployed - for example, by setting the `count` to 6 - only the maximum of five Edge-LB load balancer instances are available to handle the traffic from the five available public agents.
 
 # Scale down Edge-LB pool instances
 To scale down Edge-LB pool instances, you can change the `count` setting to a lower number. For example, if the previous count in the Edge-LB pool configuration file was 5, you can scale down the number of instances available by changing the `count` setting to 2.

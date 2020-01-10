@@ -6,6 +6,7 @@ menuWeight: 15
 excerpt: Describes how to use multiple Edge-LB instances to support high-availability for services
 enterprise: true
 ---
+
 Edge-LB uses its pools to provide high availability in two key ways:
 
 - If an existing Edge-LB pool instance goes down on a healthy agent node, the Edge-LB server creates a replacement pool instance on the same agent and continues to satisfy all requests without any user intervention.

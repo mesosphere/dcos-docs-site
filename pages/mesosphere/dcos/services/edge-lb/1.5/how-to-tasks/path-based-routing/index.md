@@ -6,16 +6,16 @@ menuWeight: 24
 excerpt: How to configure path-based routing for Edge-LB
 enterprise: true
 ---
+
 This section provides examples that illustrate how to set Edge-LB pool configuration options for path-based routing of inbound traffic.
 
 # Before you begin
-Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
+Before you create Edge-LB pools and pool configuration files, you should have DC/OS&trade; Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
 
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
 
@@ -75,20 +75,22 @@ This pool configures a load balancer which sends traffic to the `httpd` backend 
 # Modifying path values
 The following examples illustrate how the path would be changed for different `fromPath` and `toPath` values:
 
-* `fromPath: "/nginx"`, `toPath: ""`, request: `/nginx` -> `/`
-* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx` -> `/`
-* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/` -> `/`
-* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/index.html` -> `/index.html`
-* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/subpath/index.html` -> `/subpath/index.html`
-* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx` -> `/nginx` (The path is not rewritten in this case because the request did not match `/nginx/`)
-* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx/` -> `/`
-* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx` -> `/subpath`
-* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/` -> `/subpath/`
-* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/index.html` -> `/subpath/index.html`
-* `fromPath: "/nginx"`, `toPath: "/subpath/"`, request: `/nginx/index.html` -> `/subpath//index.html` (Note that for cases other than `toPath: ""` or `toPath: "/"`, it is suggested that the `fromPath` and `toPath` either both end in `/`, or neither do because the rewritten path could otherwise end up with a double slash.)
-* `fromPath: "/nginx/"`, `toPath: "/subpath/"`, request: `/nginx/index.html` -> `/subpath/index.html`
+* `fromPath: "/nginx"`, `toPath: ""`, request: `/nginx` --> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx` --> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/` --> `/`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/index.html` --> `/index.html`
+* `fromPath: "/nginx"`, `toPath: "/"`, request: `/nginx/subpath/index.html` --> `/subpath/index.html`
+* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx` --> `/nginx`
+    (The path is not rewritten in this case because the request did not match `/nginx/`)
+* `fromPath: "/nginx/"`, `toPath: ""`, request: `/nginx/` --> `/`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx` --> `/subpath`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/` --> `/subpath/`
+* `fromPath: "/nginx"`, `toPath: "/subpath"`, request: `/nginx/index.html` --> `/subpath/index.html`
+* `fromPath: "/nginx"`, `toPath: "/subpath/"`, request: `/nginx/index.html` --> `/subpath//index.html`
+    (Note that for cases other than `toPath: ""` or `toPath: "/"`, it is suggested that the `fromPath` and `toPath` either both end in `/`, or neither do, because the rewritten path could otherwise end up with a double slash.)
+* `fromPath: "/nginx/"`, `toPath: "/subpath/"`, request: `/nginx/index.html` --> `/subpath/index.html`
 
-We used `pool.haproxy.frontend.linkBackend.pathBeg` in this example to match on the beginning of a path. Other useful fields are:
+This example uses `pool.haproxy.frontend.linkBackend.pathBeg` to match on the beginning of a path. Other useful fields are:
 
 * `pathBeg`: Match on path beginning
 * `pathEnd`: Match on path ending

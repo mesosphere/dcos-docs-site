@@ -6,16 +6,17 @@ menuWeight: 22
 excerpt: Provides examples for configuring security settings for Edge-LB pools
 enterprise: true
 ---
-Edge-LB runs on DC/OS Enterprise clusters with permissive or strict security. You can also use secure socket layer (SSL) certificates to secure the gateway between the external network and the DC/OS cluster. This section provides code examples that illustrate how to set security-related Edge-LB pool configuration options.
+
+Edge-LB runs on DC/OS&trade; Enterprise clusters with permissive or strict security. You can also use secure socket layer (SSL) certificates to secure the gateway between the external network and the DC/OS cluster. This section provides code examples that illustrate how to set security-related Edge-LB pool configuration options.
 
 # Before you begin
-Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use and have previously downloaded and installed the latest Edge-LB packages. 
+Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages. 
 
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
 

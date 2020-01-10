@@ -39,7 +39,7 @@ Google is a registered trademark, and Google Cloud Platform, GCP,  Google Cloud 
 
 HAProxy is a registered trademark in the United States and France.
 
-JavaScript and Oracle are trademarks or registered trademarks of the Oracle Corporation and/or its affiliates.
+JavaScript, MySQL, and Oracle are trademarks or registered trademarks of the Oracle Corporation and/or its affiliates.
 
 JENKINS and Debian are registered trademarks of SOFTWARE IN THE PUBLIC INTEREST, INC.
 

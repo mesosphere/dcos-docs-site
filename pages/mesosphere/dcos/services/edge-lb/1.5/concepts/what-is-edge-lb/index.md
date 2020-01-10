@@ -6,6 +6,7 @@ menuWeight: 5
 excerpt: Introduces the high-level capability that Edge-LB provides
 enterprise: true
 ---
+
 Conceptually, a load balancer provides a network layer that distributes client requests to applications. In its simplest form, you can picture load balancing like this:
 
 ![Load balancing in its simplest form](../../img/Simple-LB.png)
