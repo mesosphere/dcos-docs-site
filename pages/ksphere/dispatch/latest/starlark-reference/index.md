@@ -11,7 +11,7 @@ excerpt: Reference Guide for Configuring Dispatch pipelines with Starlark.
 
 [Starlark](https://github.com/bazelbuild/starlark) is a configuration language originally developed for use in the Bazel build tool which is based on Python. Using Starlark, developers can take advantage of language features they're used to in regular development (loops, user defined functions, conditionals, modules, testing, editor integrations, etc). Additionally, the Dispatch project provides a basic standard library that can be utilized to make it simpler to define pipelines.
 
-See [the repository setup guide](../repo-setup/) and [the pipeline reference](../pipeline-configuration/) for complete documentation on configuring your pipeline.
+See [the repository setup guide](../repo_setup/) and [the pipeline reference](../pipeline-configuration/) for complete documentation on configuring your pipeline.
 
 ## Unit testing
 
@@ -20,16 +20,22 @@ Any method that starts with `test_` in your Dispatchfile is run immediately afte
 ```
 #!starlark
 
-task("test", steps=[v1.Container(
+task("test", steps=[k8s.corev1.Container(
     name="test",
     image="golang:1.13.0-buster",
     command=["go", "test", "./..."],
-    workingDir="/workspace"
+    workingDir="/workspace",
+    resources = k8s.corev1.ResourceRequirements(
+        limits = {
+            "cpu": k8s.resource_quantity("1000m"),
+            "memory": k8s.resource_quantity("8Gi")
+        }
+    )
 )])
 
 def test_task(ctx):
     test_pipeline = p.Pipeline()
-    task("test", steps=[v1.Container(name="test")], pipeline=test_pipeline)
+    task("test", steps=[k8s.corev1.Container(name="test")], pipeline=test_pipeline)
 
     if test_pipeline.tasks["test"].steps[0].name != "test":
         fail("invalid task output")
@@ -40,6 +46,31 @@ def test_task(ctx):
 Dispatch provides a number of standard library methods that can be used to simplify pipeline definition. In addition to the Dispatch standard library, the entire [Starlark standard library](https://docs.bazel.build/versions/master/skylark/language.html) is also available for use.
 
 Most methods have an optional `pipeline` parameter that can be used for passing in pipelines other than the main pipeline object for use in unit tests (see [unit testing](#Unit_testing)). If not specified, it defaults to the global pipeline object.
+
+### Kubernetes helpers
+
+#### k8s.resource_quantity
+
+`k8s.resource_quantity(quantity)`
+
+Allows defining a Kubernetes resource quantity for use in a Kubernetes limit or request.
+
+Example usage:
+
+```
+task("test", inputs=["git"], steps=[k8s.corev1.Container(
+    name="test",
+    image="golang:1.13.0-buster",
+    command=["go", "test", "./..."],
+    workingDir="/workspace/git",
+    resources = k8s.corev1.ResourceRequirements(
+        limits = {
+            "cpu": k8s.resource_quantity("1000m"),
+            "memory": k8s.resource_quantity("8Gi")
+        }
+    )
+)])
+```
 
 ### Task helpers
 
@@ -52,7 +83,7 @@ Defines a new task in a pipeline.
 Example usage:
 
 ```
-task("test", inputs=["git"], steps=[v1.Container(
+task("test", inputs=["git"], steps=[k8s.corev1.Container(
     name="test",
     image="golang:1.13.0-buster",
     command=["go", "test", "./..."],

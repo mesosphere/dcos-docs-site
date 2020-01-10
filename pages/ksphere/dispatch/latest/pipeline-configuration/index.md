@@ -196,18 +196,24 @@ actions: [
 
 gitResource("src-git", url="$(context.git.url)", revision="$(context.git.commit)")
 
-task("test", inputs = ["src-git"], steps = [v1.Container(
+task("test", inputs = ["src-git"], steps = [k8s.corev1.Container(
     name = "test",
     image = "golang:1.13.0-buster",
     command = [ "go", "test", "./..." ],
-    workingDir = "/workspace/src-git"
+    workingDir = "/workspace/src-git",
+    resources = k8s.corev1.ResourceRequirements(
+        limits = {
+            "cpu": k8s.resource_quantity("1000m"),
+            "memory": k8s.resource_quantity("8Gi")
+        }
+    )
 )])
 
 action(tasks = ["test"], on = push(branches = ["master"]))
 action(tasks = ["test"], on = pullRequest(chatops = ["test"]))
 ```
 
-Dispatch datatypes can be referenced with the `p` package, e.g., `p.Pipeline()`, `p.Task()`. Kubernetes datatypes can be referenced with the `v1` package, e.g., `v1.Container()`.
+Dispatch datatypes can be referenced with the `p` package, e.g., `p.Pipeline()`, `p.Task()`. Kubernetes datatypes can be referenced with the `k8s` package, e.g., `k8s.corev1.Container()`, `k8s.metav1.ObjectMeta()`.
 
 See [the starlark reference](../starlark-reference/) for an overview of the Dispatch standard library methods and data types as well as the [official language reference](https://docs.bazel.build/versions/master/skylark/language.html).
 

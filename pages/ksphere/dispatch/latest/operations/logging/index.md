@@ -10,7 +10,20 @@ excerpt: Learn how to explore Dispatch logs in Kibana
 
 In Konvoy clusters, logs from Dispatch components and tasks can be found in Kibana.
 
-## Dispatch component logs
+## Dispatch Component logs
+
+Dispatch CLI supports viewing the logs of [pipelines controller](/charts/dispatch/charts/tekton/templates/tekton.yaml) and [event sink](/charts/dispatch/templates/event-sink.yaml) components.
+
+To view the logs for `pipelines-controller`:
+```
+dispatch logs pipelines-controller
+```
+Log level can be tweaked by setting it in Deployment object for controller. Controller output is structured by default and contains information about the pipeline launches.
+
+To view the logs for `event-sink` (which is responsible for listening and processing git repo events):
+```
+dispatch logs event-sink
+```
 
 In order to view the dispatch component logs from Kibana UI, the query syntax can be used. For example:
 
