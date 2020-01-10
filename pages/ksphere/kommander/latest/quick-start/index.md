@@ -5,30 +5,12 @@ title: Quick start
 menuWeight: 3
 excerpt: Getting started with Kommander
 ---
+Kommander is tool that provides a command console for deploying, monitoring and managing production-ready Kubernetes clusters on an enterprise scale. Kommander supports both Konvoy and non-Konvoy clusters.
 
-## Installation
+### Prerequisites
 
-### Before you begin
-
-The *installation* will rely on **AWS** as the cloud provider, thus most requirements revolve around having proper access to AWS.
-
-Before starting the Konvoy installation, you should verify the following:
-
-- Access to a specific version of Konvoy
-- Access to https://github.com/mesosphere/kubeaddons-configs
-- A valid AWS account with credentials configured.
-- You need to be authorized to create the following resources in the AWS account:
-  - EC2 Instances
-  - VPC
-  - Subnets
-  - Elastic Load Balancer (ELB)
-  - Internet Gateway
-  - NAT Gateway
-  - Elastic Block Storage (EBS) Volumes
-  - Security Groups
-  - Route Tables
-  - IAM Roles
-
+Currently the Kommander installation also installs Konvoy. Prerequisites and initial requirements for Kommander are the same as those for Konvoy. Refer to [Konvoy prerequisites](/ksphere/konvoy/latest/quick-start/#prequisites) for more information.
+ 
 ### Download and Install
 
 Download a free trial version of Konvoy with Kommander [here](https://d2iq.com/solutions/ksphere/konvoy#request-free-trial).
