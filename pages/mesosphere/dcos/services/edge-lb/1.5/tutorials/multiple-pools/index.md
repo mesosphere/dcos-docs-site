@@ -6,16 +6,17 @@ menuWeight: 7
 excerpt: How to set up load balancing for multiple services using multiple Edge-LB pool instances
 enterprise: true
 ---
-This tutorial demonstrates how to deploy three services with three different Edge-LB pool instances, with one pool instance per service. You typically implement this type of deployment scenario to provide high availability when you have multiple services with high demand, that require added capacity to ensure reliability and responsiveness, or that involve transaction processing with high resource consumption or performance overhead.
 
-For example, if you have ten services running on a DC/OS Enterprise cluster, you might want to configure ten separate Edge-LB pool instances, with one pool per service, to distribute the traffic for all ten services. If a fault occurs with one of the pools in the cluster, the disruption is contained to only affect that service in the pool instance. Other services continue routing traffic to the correct backend instances without interruption.
+This tutorial demonstrates how to deploy three services with three different Edge-LB pool instances, with one pool instance per service. You would typically implement this type of deployment scenario to provide high availability when you have multiple services with high demand, that require added capacity to ensure reliability and responsiveness, or that involve transaction processing with high resource consumption or performance overhead.
+
+For example, if you have ten services running on a DC/OS&trade; Enterprise cluster, you might want to configure ten separate Edge-LB pool instances, with one pool per service, to distribute the traffic for all ten services. If a fault occurs with one of the pools in the cluster, the disruption is contained to only affect that service in the pool instance. Other services continue routing traffic to the correct backend instances without interruption.
 
 # Before you begin
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Create and deploy the ping sample app
 1. Open a text editor to create the sample app definition for the `ping` service in the `ping.json` file:
@@ -121,7 +122,7 @@ For example, if you have ten services running on a DC/OS Enterprise cluster, you
     ```
 
 # Create and deploy the nginx sample app
-1. Open a text editor to create the sample app definition for the `nginx` service in the `nginx.json` file:
+1. Open a text editor to create the sample app definition for the NGINX&trade; service in the `nginx.json` file:
 
     ```bash
     vi nginx.json
@@ -372,7 +373,7 @@ For example, if you have ten services running on a DC/OS Enterprise cluster, you
 
     When you navigate to the public IP address and specified port for each load balanced service, you should see the following pages:
     - `pong`
-    - `Welcome to Nginx`
+    - `Welcome to NGINX`
     - `Hello from Marathon!`
 
     If you cannot access one of the pages, check that the Edge-LB frontend ports do not conflict with other ports you are currently using.

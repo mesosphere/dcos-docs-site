@@ -6,15 +6,16 @@ menuWeight: 10
 excerpt: How to customize Edge-LB load balancing by modifying templates.
 enterprise: true
 ---
-Edge-LB uses templates to configure load balancing settings.
-This tutorial illustrates how you can create a custom `haproxy` template for Edge-LB to support Basic authentication.
+
+Edge-LB uses templates to configure load balancing settings. This tutorial illustrates how you can create a custom `haproxy` template for Edge-LB to support Basic authentication.
 
 In this tutorial, you use settings in the custom `haproxy` template to create at a simple `userlist` that defines the authenticated and authorized users who are allowed access using `frontend` and `backend` configuration settings.
 
 # Before you begin
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.4/getting-started/installing).
-* You must have the `edgelb` command-line interface (CLI) installed.
+You must have:
+* An active and properly-configured DC/OS Enterprise cluster.
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.4/getting-started/installing).
+* The `edgelb` command-line interface (CLI) installed.
 
 # Create a custom template
 
@@ -53,7 +54,7 @@ To create a custom template for Basic authentication:
       user guest insecure-password guestpassword
     ```
 
-1. Create an access control list (ACL) rule inside of the `backend` section for the users and groups you defined in the `userlist` who are allowed to access the load balanced service.
+1. Create an access control list (ACL) rule inside the `backend` section for the users and groups you defined in the `userlist` who are allowed to access the load balanced service.
 
     For example:
 
@@ -62,7 +63,7 @@ To create a custom template for Basic authentication:
     http-request auth realm example unless example-auth
     ```
 
-1. Create an access control list (ACL) rule inside `backend` section to grant different access rights to users who belong to the `admin-users` group  that you defined in the `userlist`.
+1. Create an access control list (ACL) rule inside the `backend` section to grant different access rights to users who belong to the `admin-users` group  that you defined in the `userlist`.
 
     For example:
 
@@ -71,7 +72,7 @@ To create a custom template for Basic authentication:
     http-request auth realm itadmin unless itadmin-auth
     ```
 
-1. Create additional access control list (ACL) rules inside `frontend` section to grant limited access to the users who do not belong to the `admin-users` or `regular-users` groups that you defined in the `userlist`.
+1. Create additional access control list (ACL) rules inside the `frontend` section to grant limited access to the users who do not belong to the `admin-users` or `regular-users` groups that you defined in the `userlist`.
 
     For example:
 
