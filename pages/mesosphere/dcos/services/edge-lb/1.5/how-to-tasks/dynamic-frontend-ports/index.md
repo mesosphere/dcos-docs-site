@@ -6,17 +6,18 @@ menuWeight: 31
 excerpt: How to configure a frontend port dynamically for Edge-LB load balancing
 enterprise: true
 ---
-You can configure the frontend ports used to expose and access the service for Edge-LB load balancing.  You can choose to manually specify the frontend port for each service or have Edge-LB automatically assign a port by setting a configuration option. 
+
+You can configure the frontend ports used to expose and access the service for Edge-LB load balancing.  You can choose to specify the frontend port for each service manually, or have Edge-LB automatically assign a port by setting a configuration option.
 
 # Before you begin
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Configuring dynamic selection of frontend ports
-With Edge-LB, you can dynamically assign the port used to access load balancing statistics by modifying the Edge-LB pool configuration file. Through the settings in the pool configuration file, you can control whether Edge-LB should use a predefined port or automatically assign a port for accessing load balancing statistics. 
+With Edge-LB, you can dynamically assign the port used to access load balancing statistics by modifying the Edge-LB pool configuration file. Using the settings in the pool configuration file, you can control whether Edge-LB should use a predefined port, or automatically assign a port for accessing load balancing statistics.
 
 # Create the sample pool configuration file
 1. Open a text editor, then copy and paste the following sample `nginx-lb.json` pool configuration file that automatically sets the frontend port assignment:
@@ -96,4 +97,4 @@ By leveraging dynamic port allocation:
 - You can avoid the limitations imposed by using the default stats port 9090 which restricted you to deploying only one Edge-LB pool per agent. 
 - You can eliminate the need to identify and specify manual port assignments for Edge-LB pools running on the same agent.
 
-When a public cloud load balancer like Amazon Web Services (AWS) Elastic load balancer (ELB) is positioned as an access point in front of an Edge-LB pool, the Elastic load balancer managed the proxy and load-balancing responsibilities between the client and the Edge-LB pool. In this type of scenario, assigning the frontend port dynamically enables you to use multiple frontend ports for multiple Edge-LB pools on the same agent, which results in more efficient resource consumption and utilization.
+When a public cloud load balancer like Amazon&reg; Web Services (AWS&reg;) Elastic Load Balancer&reg; (ELB&reg;) is positioned as an access point in front of an Edge-LB pool, the Elastic Load Balancer manages the proxy and load-balancing responsibilities between the client and the Edge-LB pool. In this scenario, assigning the frontend port dynamically enables you to use multiple frontend ports for multiple Edge-LB pools on the same agent, which results in more efficient resource consumption and utilization.

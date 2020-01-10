@@ -6,19 +6,20 @@ menuWeight: 32
 excerpt: How to configure the statistics port dynamically for Edge-LB load balancing
 enterprise: true
 ---
-You can configure the port used as the endpoint for viewing Edge-LB load balancing statistics. By default, you view load balancing statistics by connecting to the public agent IP address using the `haproxy?stats` endpoint and port 9090. However, you can choose to manually specify the statistics port you want to use or have Edge-LB automatically assign a port by setting a configuration option. 
+
+You can configure the port used as the endpoint for viewing Edge-LB load balancing statistics. By default, you view load balancing statistics by connecting to the public agent IP address using the `haproxy?stats` endpoint and port 9090. However, you can choose to specify the statistics port you want to use manually, or have Edge-LB automatically assign a port by setting a configuration option.
 
 # Before you begin
-* You must have Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
-* You must have the core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
-* You must have the `edgelb` command-line interface (CLI) installed.
-* You must have an active and properly-configured DC/OS Enterprise cluster.
-* The DC/OS Enterprise cluster must have at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
+You must have:
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS&trade; cluster.
+* The `edgelb` command-line interface (CLI) installed.
+* An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Configuring dynamic selection of the stats port
 With Edge-LB, you can dynamically assign the port used to access load balancing statistics by modifying the Edge-LB pool configuration file. Through the settings in the pool configuration file, you can control whether Edge-LB should use a predefined port or automatically assign a port for accessing load balancing statistics. 
 
-Because you control this setting in the pool configuration file, and therefore, for a given set of Edge-LB pool instances, you can choose to deploy separate pool configuration files for services that should use the default port, a predefined port, or a dynamically-assigned port.
+Because you control this setting in the pool configuration file, for a given set of Edge-LB pool instances, you can choose to deploy separate pool configuration files for services that should use the default port, a predefined port, or a dynamically-assigned port.
 
 # Create the sample pool configuration file
 
@@ -56,7 +57,7 @@ Because you control this setting in the pool configuration file, and therefore, 
     }
     ```
 
-    In this sample configuration file, the `haproxy.stats.bindPort` setting is `0`. This setting indicates that you want Edge-LB to automatically select the port to use for the `stats` endpoint.
+    In this sample, the `haproxy.stats.bindPort` setting is `0`, indicating that you want Edge-LB to select the port to use for the `stats` endpoint automatically.
 
 1. Deploy the Edge-LB pool configuration by running the following command:
 
@@ -70,7 +71,7 @@ Because you control this setting in the pool configuration file, and therefore, 
     dcos edgelb endpoints nginx-lb
     ```
 
-    This command displays a confirmation message similar to the following if deployment is successful:
+    This command displays a confirmation message similar to the following, if deployment is successful:
 
     ```
     NAME            PORT   INTERNAL IP           
@@ -92,7 +93,7 @@ To use dynamic port selection, delete the previous pool configuration and create
 # Enabling dynamic port allocation for multiple pools
 Assigning the port used for the stats endpoint dynamically enables you to deploy more than one pool on an agent node without manually setting different values for each pool.  
 
-By leveraging dynamic port allocation:
-- You can deploy multiple pools on the same agent without worrying about port conflicts.
-- You can avoid the limitations imposed by using the default stats port 9090 which restricted you to deploying only one Edge-LB pool per agent. 
-- You can eliminate the need to identify and specify manual port assignments for Edge-LB pools running on the same agent.
+By leveraging dynamic port allocation, you can:
+- Deploy multiple pools on the same agent without worrying about port conflicts.
+- Avoid the limitations imposed by using the default stats port 9090 which restricted you to deploying only one Edge-LB pool per agent.
+- Eliminate the need to identify and specify manual port assignments for Edge-LB pools running on the same agent.

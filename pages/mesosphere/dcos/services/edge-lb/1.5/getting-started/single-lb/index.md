@@ -6,7 +6,8 @@ menuWeight: 10
 excerpt: Illustrates the basic steps for load balancing a single service running on DC/OS
 enterprise: true
 ---
-This tutorial demonstrates how to prepare load balancing for access to a single DC/OS&trade; service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way organizations get started with a load balancing solution.
+
+This tutorial demonstrates how to prepare load balancing for access to a single DC/OS&trade; service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way that organizations get started with a load balancing solution.
 
 # Before you begin
 You must have:
@@ -17,7 +18,7 @@ You must have:
 * A DC/OS Enterprise cluster that has at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Preview of what you'll do
-This tutorial illustrates how to configure an Edge-LB instance to provide public access to a simple Marathon app. In this tutorial, you will:
+This tutorial shows how to configure an Edge-LB instance to provide public access to a simple Marathon app. In this tutorial, you will:
 * Create and deploy a sample Marathon app called `ping`.
 * Expose the `ping` app through the Edge-LB pool instance called `ping-lb`.
 * Access the sample `ping` app through the public agent URL.
