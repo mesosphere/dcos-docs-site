@@ -17,6 +17,8 @@ DC/OS 1.12.5 includes the following components:
 - Apache Mesos 1.7.3-dev [change log](https://github.com/apache/mesos/blob/d8acd9cfacd2edf8500f07f63a8837aa0ddd14ba/CHANGELOG)
 - Marathon 1.7.216 [change log](https://github.com/mesosphere/marathon/blob/9e2a9b579b968a2664df03099b03eaf86ffc7efc/changelog.md)
 - Metronome 0.6.33 [change log](https://github.com/dcos/metronome/blob/b8a73dd3cc3c2da035222031ccbbcf5c836ede7b/changelog.md)
+- Updated DC/OS UI to 1.12+v2.26.18.
+- Updated Signal service to release 1.6.0
 
 # Release summary
 
@@ -40,6 +42,14 @@ The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, function
 - Fixed nodes and applications not pingable on 2.0. (COPS-5575, DCOS-60956)
 - Fixed DC/OS Backup for Exhibitor TLS. (COPS-5313, DCOS-60918)
 - Added support for Mesos overlay networking to drop agents from the state. (DCOS_OSS-5536)
+- DC/OS now supports multi-role framework in the authorization module. ( DCOS-54635)
+- The time it takes to deploy a service with a L4-VIP has been reduced by pruning VIPs, which reduced growth of state messages exchanged among dcos-net processes.  (DCOS-56071, DCOS_OSS-5356)
+- You can now delete a service endpoint via Form. (DCOS-21472) 
+- You can now save Docker parameters, as expected. (DCOS-45226)
+- Fixed tests: autouse=True in Marathon fixture. (DCOS-45746) 
+- Fixed TypeError in ResourcesUtil.getAvailableResources (DCOS-46307)
+- Error message for invalid input in package creation now goes away after updating the field. (DCOS-46413) 
+
 
 
 
@@ -50,23 +60,11 @@ The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, function
 _______________________
 
 
-- Updated Signal service to release 1.6.0
-
-- Signal now sends telemetry data every 5 minutes instead of every hour. This is to align the frequency with DC/OS Enterprise.
-
-
-- Updated DC/OS UI to 1.12+v2.26.18.
-
-
 - [Metronome] Querying run detail with embed=history, successfulFinishedRuns and failedFinishedRuns contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task ids even for finished job runs.
 
 - [Metronome] Fixes metronome where it did not use the revive operation.
 
 - [Metronome] Updates to fix daylight saving issues.
-
-
-Prune VIPs with no backends in order to avoid unbounded growth of state and messages exchanged among dcos-net processes. (DCOS_OSS-5356)
-
 
 
 <!-- TLS + backups is only supported on 1.12.5+ (COPS-5313, DCOS-60918) This may have already been added to earlier release notes. -->
