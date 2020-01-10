@@ -25,7 +25,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Issues fixed in DC/OS 1.12.5
 The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
 
-- The DC/OS diagnostics bundle now inlcudes Mesos state logs content, located at /var/log/mesos-state.tar.gz. (DCOS-56403)
+- The DC/OS diagnostics bundle now includes Mesos state logs content, located at /var/log/mesos-state.tar.gz. (DCOS-56403)
 - Added 3 new environment files to Mesos systemd. (DCOS-49092)
 
 
@@ -71,3 +71,9 @@ Increase number of diagnostics fetchers (DCOS-51483)
 DC/OS overlay networks should be compared by-value. (DCOS_OSS-5620)
 
 Reserve all agent VTEP IPs upon recovering from replicated log. (DCOS_OSS-5626)
+
+Nodes and applications are not pingable on 2.0 (COPS-5575, DCOS-60956)
+
+DC/OS Backup fix for Exhibitor TLS (COPS-5313, DCOS-60918)
+
+<!-- TLS + backups is only supported on 1.12.5+ (COPS-5313, DCOS-60918) This may have already been added to earlier release notes. -->
