@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB HAProxy templates
 title: Edge-LB HAProxy templates
-menuWeight: -1
+menuWeight: 86
 excerpt: Lists configuration templates you can use for HAProxy load balancers
 enterprise: true
 ---
@@ -10,10 +10,10 @@ enterprise: true
 # Templates and labels
 The following is a list of available configuration **templates** that can be used with `HAProxy` load balancers. Some templates are global-only (such as `HAPROXY_HEAD`), but most can be specified on a per service port basis as **app labels** to override global settings.
 
-The templates and app labels that can be set per-service-port include an index identifier {n} in template or label name. The index identifier corresponds to service port index, beginning at 0, to which app label applies. For example, you could specify `HAPROXY_0_BACKEND_HEAD` to override global template `HAPROXY_BACKUP_HEAD` for first port of a given application.
+The templates and app labels that you can set per-service-port include an index identifier {n} in template or label name. The index identifier corresponds to service port index, beginning at 0, to which app label applies. For example, you could specify `HAPROXY_0_BACKEND_HEAD` to override global template `HAPROXY_BACKUP_HEAD` for first port of a given application.
 
 ## Backend template settings
-Use following template and app labels to configure backend settings for load balancer.
+Use following template and app labels to configure backend settings for the load balancer.
 
 <table class="table" style="table-layout: fixed">
 <colgroup>
@@ -26,22 +26,17 @@ Use following template and app labels to configure backend settings for load bal
 </tr>
 <tbody valign="top">
 <tr>
-<td><code>HAPROXY_BACKEND_HEAD</code></td><td>Defines type of load balancing and connection mode for a backend. The default load balancing type (algorithm) is <code>roundrobin</code>. The default connection mode is <code>tcp</code>.
+<td><code>HAPROXY_BACKEND_HEAD</code></td><td>Defines the type of load balancing and connection mode for a backend. The default load balancing type (algorithm) is <code>roundrobin</code>. The default connection mode is <code>tcp</code>.
 
 The valid values for load balancing type include:
 
-* <code>roundrobin</code> - Each server is used in turns, according to their weights. 
-  This algorithm is dynamic and ensures processing time remains equally distributed. 
-* <code>static-rr</code> - Each server is used in turns, according to their weights. 
-  This algorithm is as similar to roundrobin except that it is static.
-* <code>leastconn</code> - The server with least number of connections receives next connection request. 
-  Round-robin selection is performed within groups of servers that have same load to ensure that all servers are used. This algorithm is recommended when long sessions, such as LDAP or SQL sessions are expected, is not appropriate for protocols using short sessions such as HTTP.
-* <code>source</code> - The source IP address is hashed and divided by total weight of running servers to designate which server should receive request. 
-  This algorithm ensures that same client IP address always reaches same server as long as no server goes down or up. If hash result changes because number of running servers has changed, clients  are directed to a different server. This algorithm is generally used with TCP mode or for clients that refuse session cookies.
-* <code>uri</code> - This algorithm hashes either left part of URI (before question mark) or whole URI (if "whole" parameter is present) and divides hash value by total weight of running servers. 
-  The result designates which server receives request.
+* <code>roundrobin</code> - Each server is used in turns, according to their weights. This algorithm is dynamic and ensures processing time remains equally distributed.
+* <code>static-rr</code> - Each server is used in turns, according to their weights. This algorithm is as similar to roundrobin except that it is static.
+* <code>leastconn</code> - The server with least number of connections receives next connection request. Round-robin selection is performed within groups of servers that have same load to ensure that all servers are used. This algorithm is recommended when long sessions, such as LDAP or SQL sessions are expected, is not appropriate for protocols using short sessions such as HTTP.
+* <code>source</code> - The source IP address is hashed and divided by total weight of running servers to designate which server should receive request. This algorithm ensures that same client IP address always reaches the same server as long as no server goes down or comes up. If the hash result changes because number of running servers has changed, clients are directed to a different server. This algorithm is generally used with TCP mode or for clients that refuse session cookies.
+* <code>uri</code> - This algorithm hashes either left part of URI (before question mark) or whole URI (if "whole" parameter is present) and divides hash value by total weight of running servers. The result designates which server receives request.
   
-You can set connection mode to `tcp`, `http`, or `health`. 
+You can set connection mode to `tcp`, `http`, or `health`.
 
 The default template for `HAPROXY_BACKEND_HEAD` is:
 <code>backend {backend}
@@ -52,7 +47,7 @@ The default template for `HAPROXY_BACKEND_HEAD` is:
 You can override this template using following app label for first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_HEAD": "\nbackend {backend}\n  balance {balance}\n  mode {mode}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_BACKEND_HSTS<br>_OPTIONS</code></td><td>Specifies backend options to use where <code>HAPROXY_{n}_USE_HSTS</code> app label that enables HSTS response header for HTTP clients is set to true. 
+<tr><td><code>HAPROXY_BACKEND_HSTS<br>_OPTIONS</code></td><td>Specifies backend options to use where <code>HAPROXY_{n}_USE_HSTS</code> app label that enables HSTS response header for HTTP clients is set to true.
 
 The default template for `HAPROXY_BACKEND_HSTS_OPTIONS` is:
 <code>rspadd Strict-Transport-Security:\ max-age=15768000</code>
@@ -63,7 +58,7 @@ You can override this template using following app label for first port (`0`) of
 
 <tr><td><code>HAPROXY_BACKEND_HTTP<br>_HEALTHCHECK_OPTIONS</code></td><td>Sets HTTP health check options, such as health check timeout interval and consecutive failures allowed. 
 
-The valid options for first health check or first health check for a given service are exposed as follows:
+The valid options for first health check, or first health check for a given service, are exposed as follows:
 - healthCheckPortIndex
 - healthCheckPort
 - healthCheckProtocol
@@ -89,7 +84,7 @@ The default template for `HAPROXY_BACKEND_HTTP_OPTIONS` is:
   http-request set-header X-Forwarded-Port %[dst_port]
   http-request add-header X-Forwarded-Proto https if { ssl_fc }</code>
 
-You can override this template using following app label for first port (`0`) of a given app:
+You can override this template using the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_HTTP_OPTIONS": "  option forwardfor\n  http-request set-header X-Forwarded-Port %[dst_port]\n  http-request add-header X-Forwarded-Proto https if { ssl_fc }\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_BACKEND_REDIRECT<br>_HTTP_TO_HTTPS</code></td><td>Redirects backends if HAPROXY_{n}_REDIRECT_TO_HTTPS label is set to true. 
@@ -97,7 +92,7 @@ You can override this template using following app label for first port (`0`) of
 The default template for `HAPROXY_BACKEND_REDIRECT_HTTP_TO_HTTPS` is:
 <code>redirect scheme https code 301 if !{{ ssl_fc }} host_{cleanedUpHostname}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>HAPROXY_0_BACKEND_REDIRECT_HTTP_TO_HTTPS": " redirect scheme https code 301 if !{{ ssl_fc }} host_{cleanedUpHostname}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_BACKEND_REDIRECT<br>_HTTP_TO_HTTPS_WITH_PATH</code></td><td>Redirects backends if `HAPROXY_{n}_REDIRECT_TO_HTTPS_WITH_PATH` label is set to true, but includes a path. 
@@ -105,12 +100,12 @@ You can override this template with following app label for first port (`0`) of 
 The default template for <code style="word-break: break-word;">HAPROXY_BACKEND_REDIRECT_HTTP_TO_HTTPS_WITH_PATH</code> is:
 <code>redirect scheme https code 301 if !{{ ssl_fc }} host_{cleanedUpHostname} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code style="word-break: break-word;">"HAPROXY_0_BACKEND_REDIRECT_HTTP_TO_HTTPS_WITH_PATH": " redirect scheme https code 301 if !{{ ssl_fc }} host_{cleanedUpHostname} path_{backend}\n"</code>
 </td></tr>
 <tr><td><code>HAPROXY_BACKEND_SERVER<br>_HTTP_HEALTHCHECK_OPTIONS </code></td><td>Sets HTTP health check options, such as health check timeout interval, for a single server. 
 
-The valid options for first health check or first health check for a given service are exposed as follows:
+The valid options for first health check, or first health check for a given service, are exposed as follows:
 - healthCheckPortIndex
 - healthCheckPort
 - healthCheckProtocol
@@ -125,7 +120,7 @@ The valid options for first health check or first health check for a given servi
 The default template for `HAPROXY_BACKEND_SERVER_HTTP_HEALTHCHECK_OPTIONS` is:
 <code> check inter {healthCheckIntervalSeconds}s fall {healthCheckFalls}{healthCheckPortOptions}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_SERVER_HTTP_HEALTHCHECK_OPTIONS": "  check inter {healthCheckIntervalSeconds}s fall {healthCheckFalls}{healthCheckPortOptions}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_BACKEND_SERVER<br>_OPTIONS </code></td><td>Specifies options for each server added to a backend. 
@@ -133,12 +128,12 @@ You can override this template with following app label for first port (`0`) of 
 The default template for HAPROXY_BACKEND_SERVER_OPTIONS is:
 <code> server {serverName} {host_ipv4}:{port}{cookieOptions}{healthCheckOptions}{otherOptions}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_SERVER_OPTIONS": "  server {serverName} {host_ipv4}:{port}{cookieOptions}{healthCheckOptions}{otherOptions}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_BACKEND_SERVER<br>_TCP_HEALTHCHECK<br>_OPTIONS </code></td><td>Sets TCP health check options, such as health check timeout interval, for a single server.
 
-The valid options for first health check or first health check for a given service are exposed as follows:
+The valid options for first health check, or first health check for a given service, are exposed as follows:
 - healthCheckPortIndex
 - healthCheckPort
 - healthCheckProtocol
@@ -152,7 +147,7 @@ The valid options for first health check or first health check for a given servi
 The default template for `HAPROXY_BACKEND_SERVER_TCP_HEALTHCHECK_OPTIONS` is:
 <code>check inter {healthCheckIntervalSeconds}s fall {healthCheckFalls}{healthCheckPortOptions}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_SERVER_TCP_HEALTHCHECK_OPTIONS": "  check inter {healthCheckIntervalSeconds}s fall {healthCheckFalls}{healthCheckPortOptions}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_BACKEND_STICKY_OPTIONS </code></td><td>Sets a cookie for services where HAPROXY_{n}_STICKY is true.
@@ -160,12 +155,12 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_BACKEND_STICKY_OPTIONS` is:
 <code> cookie mesosphere_server_id insert indirect nocache</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_STICKY_OPTIONS": "  cookie mesosphere_server_id insert indirect nocache\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_BACKEND_TCP<br>_HEALTHCHECK_OPTIONS </code></td><td>Sets TCP health check options,such as timeout check. 
 
-The valid options for first health check or first health check for a given service are exposed as follows:
+The valid options for first health check, or first health check for a given service, are exposed as follows:
 - healthCheckPortIndex
 - healthCheckPort
 - healthCheckProtocol
@@ -176,15 +171,15 @@ The valid options for first health check or first health check for a given servi
 - healthCheckFalls (healthCheckMaxConsecutiveFailures + 1)
 - healthCheckPortOptions (port {healthCheckPort})
 
-The default template for `HAPROXY_BACKEND_TCP_HEALTHCHECK_OPTIONS` is an empty string. 
+The default template for `HAPROXY_BACKEND_TCP_HEALTHCHECK_OPTIONS` is an empty string.
 
 The following example sets a timeout check:
 <code> timeout check {healthCheckTimeoutSeconds}s</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_BACKEND_TCP_HEALTHCHECK_OPTIONS": ""</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_BACKEND_HEAD </code></td><td>Defines HTTPS backend for vhost. 
+<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_BACKEND_HEAD </code></td><td>Defines HTTPS backend for vhost.
 
 You must enable `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application.
 
@@ -192,18 +187,18 @@ The default template for `HAPROXY_HTTPS_GROUPED_VHOST_BACKEND_HEAD` is:
 <code>backend {name}
   server loopback-for-tls abns@{name} send-proxy-v2</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTP_BACKEND<br>_ACL_ALLOW_DENY </code></td><td>Denies access for all IP addresses (or IP ranges) that are not explicitly allowed to access HTTP backend. Use this template with HAPROXY_HTTP_BACKEND_NETWORK_ALLOWED_ACL. This template is a global template that cannot be modified by service port or per application. 
+<tr><td><code>HAPROXY_HTTP_BACKEND<br>_ACL_ALLOW_DENY </code></td><td>Denies access for all IP addresses (or IP ranges) that are not explicitly allowed to access an HTTP backend. Use this template with HAPROXY_HTTP_BACKEND_NETWORK_ALLOWED_ACL. This template is a global template that cannot be modified by service port or per application. 
 
 The default template for `HAPROXY_HTTP_BACKEND_ACL_ALLOW_DENY` is:
 <code> http-request allow if network_allowed
   http-request deny</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTP_BACKEND<br>_NETWORK_ALLOWED_ACL </code></td><td>Specifies IP addresses (or IP  ranges) that have access to HTTP backend. This template is a global template that cannot be modified by service port or per application. 
+<tr><td><code>HAPROXY_HTTP_BACKEND<br>_NETWORK_ALLOWED_ACL </code></td><td>Specifies IP addresses (or IP  ranges) that have access to an HTTP backend. This template is a global template that cannot be modified by service port or per application.
 
 The default template for `HAPROXY_HTTP_BACKEND_NETWORK_ALLOWED_ACL` is:
 <code>acl network_allowed src {network_allowed}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_BACKEND_NETWORK_ALLOWED_ACL": "  acl network_allowed src {network_allowed}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_BACKEND<br>_PROXYPASS_GLUE</code></td><td>Specifies backend glue for HAPROXY_{n}_HTTP_BACKEND_PROXYPASS_PATH. 
@@ -212,7 +207,7 @@ The default template for `HAPROXY_HTTP_BACKEND_PROXYPASS_GLUE` is:
 <code>http-request set-header Host {hostname}
   reqirep  "^([^ :]*)\ {proxypath}/?(.*)" "\1\ /\2" </code>
 
-You can override this template with following app label for first port (`0`)of a given app:
+You can override this template with the following app label for the first port (`0`)of a given app:
 <code>"HAPROXY_0_HTTP_BACKEND_PROXYPASS_GLUE": "  http-request set-header Host {hostname}\n  reqirep  \"^([^ :]*)\\ {proxypath}/?(.*)\" \"\\1\\ /\\2\"\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_BACKEND_REDIR </code></td><td>Sets path to which you want to redirect root of domain. 
@@ -222,7 +217,7 @@ The default template for `HAPROXY_HTTP_BACKEND_REDIR` is:
   acl is_domain hdr(host) -i {hostname}
   redirect code 301 location {redirpath} if is_domain is_root</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_BACKEND_REDIR": "  acl is_root path -i /\n  acl is_domain hdr(host) -i {hostname}\n  redirect code 301 location {redirpath} if is_domain is_root\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_BACKEND<br>_REVPROXY_GLUE </code></td><td>Specifies backend glue for HAPROXY_{n}_HTTP_BACKEND_REVPROXY_PATH. 
@@ -231,7 +226,7 @@ The default template for `HAPROXY_HTTP_BACKEND_REVPROXY_GLUE` is:
 <code>acl hdr_location res.hdr(Location) -m found
   rspirep "^Location: (https?://{hostname}(:[0-9]+)?)?(/.*)" "Location:   {rootpath} if hdr_location"</code>
 
-You can override this template with following app label for first port (`0`)of a given app:
+You can override this template with the following app label for the first port (`0`)of a given app:
 <code>"HAPROXY_0_HTTP_BACKEND_REVPROXY_GLUE": "  acl hdr_location res.hdr(Location) -m found\n  rspirep \"^Location: (https?://{hostname}(:[0-9]+)?)?(/.*)\" \"Location:   {rootpath} if hdr_location\"\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_TCP_BACKEND<br>_ACL_ALLOW_DENY </code></td><td>Denies access for all IP addresses (or IP address ranges) that are not explicitly allowed to access TCP backend. This global template cannot be overridden by service port or application. 
@@ -245,13 +240,13 @@ The default template for `HAPROXY_TCP_BACKEND_ACL_ALLOW_DENY` is:
 The default template for `HAPROXY_TCP_BACKEND_NETWORK_ALLOWED_ACL` is:
 <code>acl network_allowed src {network_allowed}</code>
 
-You can override this template with following app label for first port (`0`) of a given app: 
+You can override this template with the following app label for the first port (`0`) of a given app: 
 <code>"HAPROXY_0_TCP_BACKEND_NETWORK_ALLOWED_ACL": "  acl network_allowed src {network_allowed}\n"</code></td></tr>
 </tbody>
 </table>
 
 ## Frontend template settings
-Use following template and app labels to configure frontend settings for load balancer.
+Use the following template and app labels to configure frontend settings for load balancer.
 
 <table class="table" style="table-layout: fixed">
 <colgroup>
@@ -268,7 +263,7 @@ Use following template and app labels to configure frontend settings for load ba
 The default template for `HAPROXY_FRONTEND_BACKEND_GLUE` is:
 <code> use_backend {backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_FRONTEND_BACKEND_GLUE": "  use_backend {backend}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_FRONTEND_HEAD </code></td><td>Defines address and port to bind to for this frontend. 
@@ -278,7 +273,7 @@ The default template for `HAPROXY_FRONTEND_HEAD` is:
   bind {bindAddr}:{servicePort}{sslCert}{bindOptions}
   mode {mode}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_FRONTEND_HEAD": "\nfrontend {backend}\n  bind {bindAddr}:{servicePort}{sslCert}{bindOptions}\n  mode {mode}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL </code></td><td>Specifies ACL that performs SNI based hostname matching for HAPROXY_HTTPS_FRONTEND_HEAD template. 
@@ -286,7 +281,7 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_HTTPS_FRONTEND_ACL` is:
 <code>use_backend {backend} if {{ ssl_fc_sni {hostname} }}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_ACL": "  use_backend {backend} if {{ ssl_fc_sni {hostname} }}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL_ONLY_WITH_PATH </code></td><td>Defines access control list (ACL) frontend that matches a particular host name with a path. This template is similar to HTTP_FRONTEND_ACL_ONLY_WITH_PATH, but is only applicable for HTTPS requests.
@@ -294,7 +289,7 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_HTTPS_FRONTEND_ACL_ONLY_WITH_PATH` is:
 <code>acl path_{backend} path_beg {path}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_ACL_ONLY_WITH_PATH": "  acl path_{backend} path_beg {path}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL_WITH_AUTH </code></td><td>Specifies access control list (ACL) that glues a backend to corresponding virtual host of HAPROXY_HTTPS_FRONTEND_HEAD through HTTP Basic authentication. 
@@ -304,7 +299,7 @@ The default template for `HAPROXY_HTTPS_FRONTEND_ACL_WITH_AUTH` is:
   http-request auth realm "{realm}" if {{ ssl_fc_sni {hostname} }} !auth_{cleanedUpHostname}
   use_backend {backend} if {{ ssl_fc_sni {hostname} }}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_ACL_WITH_AUTH": "  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n  http-request auth realm \"{realm}\" if {{ ssl_fc_sni {hostname} }} !auth_{cleanedUpHostname}\n  use_backend {backend} if {{ ssl_fc_sni {hostname} }}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL_WITH_AUTH<br>_AND_PATH</td><td>Specifies ACL that glues a backend to corresponding virtual host with path of HAPROXY_HTTPS_FRONTEND_HEAD through HTTP Basic authentication. 
@@ -314,7 +309,7 @@ The default template for `HAPROXY_HTTPS_FRONTEND_ACL_WITH_AUTH_AND_PATH` is:
   http-request auth realm "{realm}" if {{ ssl_fc_sni {hostname} }} path_{backend} !auth_{cleanedUpHostname}
   use_backend {backend} if {{ ssl_fc_sni {hostname} }} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_ACL_WITH_AUTH_AND_PATH": "  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n  http-request auth realm \"{realm}\" if {{ ssl_fc_sni {hostname} }} path_{backend} !auth_{cleanedUpHostname}\n  use_backend {backend} if {{ ssl_fc_sni {hostname} }} path_{backend}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ACL_WITH_PATH </code></td><td>Specifies ACL that performs SNI based hostname matching with path for HAPROXY_HTTPS_FRONTEND_HEAD template. 
@@ -322,7 +317,7 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_HTTPS_FRONTEND_ACL_WITH_PATH` is:
 <code> use_backend {backend} if {{ ssl_fc_sni {hostname} }} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_ACL_WITH_PATH": "  use_backend {backend} if {{ ssl_fc_sni {hostname} }} path_{backend}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_AUTH_ACL_ONLY </code></td><td>Specifies HTTP authentication ACL for corresponding virtual host. 
@@ -330,7 +325,7 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_HTTPS_FRONTEND_AUTH_ACL_ONLY` is:
 <code> acl auth_{cleanedUpHostname} http_auth(user_{backend})<code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_AUTH_ACL_ONLY": "  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_AUTH_REQUEST_ONLY </code></td><td>Specifies HTTP authentication request forthe corresponding virtual host. 
@@ -338,7 +333,7 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_HTTPS_FRONTEND_AUTH_REQUEST_ONLY` is:
 <code> http-request auth realm "{realm}" if {{ ssl_fc_sni {hostname} }} !auth_{cleanedUpHostname}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_AUTH_REQUEST_ONLY": "  http-request auth realm \"{realm}\" if {{ ssl_fc_sni {hostname} }} !auth_{cleanedUpHostname}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTPS_FRONTEND_HEAD </code></td><td>Specifies an HTTPS frontend for encrypted connections that binds to port *:443 by default and gathers all virtual hosts as defined by HAPROXY_{n}_VHOST label. This template is a global template that cannot be modified by service port or per application.
@@ -348,15 +343,15 @@ You must modify this template setting if you want to include your SSL certificat
   bind *:443 ssl {sslCerts}
   mode http</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ROUTING_ONLY_WITH<br>_PATH_AND_AUTH </code></td><td>Works in combination with HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH to glue ACL names to appropriate backend. 
+<tr><td><code>HAPROXY_HTTPS_FRONTEND<br>_ROUTING_ONLY_WITH<br>_PATH_AND_AUTH </code></td><td>Works in combination with HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH to glue ACL names to appropriate backend.
 The default template for `HAPROXY_HTTPS_FRONTEND_ROUTING_ONLY_WITH_PATH_AND_AUTH` is:
 <code> http-request auth realm "{realm}" if host_{cleanedUpHostname} path_{backend} !auth_{cleanedUpHostname}
   use_backend {backend} if host_{cleanedUpHostname} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTPS_FRONTEND_ROUTING_ONLY_WITH_PATH_AND_AUTH": "  http-request auth realm \"{realm}\" if host_{cleanedUpHostname} path_{backend} !auth_{cleanedUpHostname}\n  use_backend {backend} if host_{cleanedUpHostname} path_{backend}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_FRONTEND_HEAD </code></td><td>Defines HTTPS frontend for encrypted connections that binds to port *:443 by default and gathers all virtual hosts as defined by HAPROXY_{n}_VHOST label. This template is useful for adding client certificates per domain. 
+<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_FRONTEND_HEAD </code></td><td>Defines HTTPS frontend for encrypted connections that binds to port *:443 by default and gathers all virtual hosts as defined by HAPROXY_{n}_VHOST label. This template is useful for adding client certificates per domain.
 
 You must enable `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application.
 
@@ -367,16 +362,16 @@ The default template for `HAPROXY_HTTPS_GROUPED_FRONTEND_HEAD` is:
   tcp-request inspect-delay 5s
   tcp-request content accept if { req_ssl_hello_type 1 }</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_FRONTEND_ACL </code></td><td>Specifies a route rule HTTPS entrypoint. 
+<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_FRONTEND_ACL </code></td><td>Specifies a route rule HTTPS entrypoint.
 
-You must enable `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application.
+You must enable the `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application.
 
 The default template for `HAPROXY_HTTPS_GROUPED_VHOST_FRONTEND_ACL` is:
 <code> use_backend {backend} if {{ req_ssl_sni -i {host} }}</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_FRONTEND_HEAD </code></td><td>Specifies HTTPS frontend for virtual host. 
+<tr><td><code>HAPROXY_HTTPS_GROUPED<br>_VHOST_FRONTEND_HEAD </code></td><td>Specifies HTTPS frontend for virtual host.
 
-You must enable `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application. The default template for `HAPROXY_HTTPS_GROUPED_VHOST_FRONTEND_HEAD` is:
+You must enable the `group-https-by-vhost` option to use this setting. This template is a global template that cannot be modified by service port or per application. The default template for `HAPROXY_HTTPS_GROUPED_VHOST_FRONTEND_HEAD` is:
 <code>frontend {name}
   mode http
   bind abns@{name} accept-proxy ssl {sslCerts}{bindOpts}</code></td></tr>
@@ -387,7 +382,7 @@ The default template for `HAPROXY_HTTP_FRONTEND_AC`L` is:
 <code> acl host_{cleanedUpHostname} hdr(host) -i {hostname}
   use_backend {backend} if host_{cleanedUpHostname}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ACL": "  acl host_{cleanedUpHostname} hdr(host) -i {hostname}\n  use_backend {backend} if host_{cleanedUpHostname}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ACL_ONLY </code></td><td>Defines access control list (ACL) that matches a particular host name. Unlike HAPROXY_HTTP_FRONTEND_ACL, this template only includes ACL portion. It does not glue access control list (ACL) to backend. You should only use this template if you have multiple virtual hosts routing to same backend. 
@@ -395,7 +390,7 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_HTTP_FRONTEND_ACL_ONLY` is:
 <code> acl host_{cleanedUpHostname} hdr(host) -i {hostname}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ACL_ONLY": "  acl host_{cleanedUpHostname} hdr(host) -i {hostname}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ACL_ONLY_WITH_PATH </code></td><td>Defines access control list (ACL) that matches a particular host name with a path. Unlike HAPROXY_HTTP_FRONTEND_ACL_WITH_PATH, this template only includes ACL portion. It does not glue access control list (ACL) to backend. You should only use this template if you have multiple virtual hosts routing to same backend. 
@@ -403,7 +398,7 @@ You can override this template with following app label for first port (`0`) of 
 The default template for `HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH` is:
 <code> acl path_{backend} path_beg {path} </code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ACL_ONLY_WITH_PATH": " acl path_{backend} path_beg {path}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ACL_ONLY_WITH<br>_PATH_AND_AUTH </code></td><td>Defines access control list (ACL) that matches a particular host name with a path and authentication method. Unlike HAPROXY_HTTP_FRONTEND_ACL_WITH_PATH, this template only includes ACL portion. It does not glue access control list (ACL) to backend. You should only use this template if you have multiple virtual hosts routing to same backend. 
@@ -412,7 +407,7 @@ The default template for `HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH_AND_AUTH` is:
 <code>acl path_{backend} path_beg {path}
   acl auth_{cleanedUpHostname} http_auth(user_{backend})</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ACL_ONLY_WITH_PATH_AND_AUTH": "  acl path_{backend} path_beg {path}\n  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ACL_WITH_AUTH </code></td><td>Specifies access control list (ACL) that glues a backend to corresponding virtual host specified by HAPROXY_HTTP_FRONTEND_HEAD setting through HTTP Basic authentication. 
@@ -424,7 +419,7 @@ The default template for `HAPROXY_HTTP_FRONTEND_ACL_WITH_AUTH` is:
   http-request auth realm "{realm}" if host_{cleanedUpHostname} !auth_{cleanedUpHostname}
   use_backend {backend} if host_{cleanedUpHostname}<code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ACL_WITH_AUTH": "  acl host_{cleanedUpHostname} hdr(host) -i {hostname}\n  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n  http-request auth realm \"{realm}\" if host_{cleanedUpHostname} !auth_{cleanedUpHostname}\n  use_backend {backend} if host_{cleanedUpHostname}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ACL_WITH_AUTH<br>_AND_PATH </code></td><td>Specifies access control list (ACL) that glues a backend to corresponding virtual host with path specified by HAPROXY_HTTP_FRONTEND_HEAD setting through HTTP Basic authentication. 
@@ -437,7 +432,7 @@ The default template for `HAPROXY_HTTP_FRONTEND_ACL_WITH_AUTH_AND_PATH` is:
   http-request auth realm "{realm}" if host_{cleanedUpHostname} path_{backend} !auth_{cleanedUpHostname}
   use_backend {backend} if host_{cleanedUpHostname} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ACL_WITH_AUTH_AND_PATH": "  acl host_{cleanedUpHostname} hdr(host) -i {hostname}\n  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n  acl path_{backend} path_beg {path}\n  http-request auth realm \"{realm}\" if host_{cleanedUpHostname} path_{backend} !auth_{cleanedUpHostname}\n  use_backend {backend} if host_{cleanedUpHostname} path_{backend}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ACL_WITH_PATH </code></td><td>Specifies access control list (ACL) that glues a backend to corresponding virtual host with path specified by HAPROXY_HTTP_FRONTEND_HEAD setting. 
@@ -447,7 +442,7 @@ The default template for `HAPROXY_HTTP_FRONTEND_ACL_WITH_PATH` is:
   acl path_{backend} path_beg {path}
   use_backend {backend} if host_{cleanedUpHostname} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ACL_WITH_PATH": "  acl host_{cleanedUpHostname} hdr(host) -i {hostname}\n  acl path_{backend} path_beg {path}\n  use_backend {backend} if host_{cleanedUpHostname} path_{backend}\n"</code></td></tr>
 
 <tr><td><code>HAPROXY_HTTP_FRONTEND<br>_APPID_ACL </code></td><td>Specifies access control list (ACL) that glues a backend to corresponding app specified by HAPROXY_HTTP_FRONTEND_APPID_HEAD setting. 
@@ -456,96 +451,96 @@ The default template for `HAPROXY_HTTP_FRONTEND_APPID_ACL` is:
 <code>acl app_{cleanedUpAppId} hdr(x-marathon-app-id) -i {appId}
   use_backend {backend} if app_{cleanedUpAppId}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_APPID_ACL": "  acl app_{cleanedUpAppId} hdr(x-marathon-app-id) -i {appId}\n  use_backend {backend} if app_{cleanedUpAppId}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_APPID_HEAD </code></td><td>Specifies HTTP frontend that binds to port *:9091 by default and gathers all apps in HTTP mode. To use this frontend to forward to your app, configure app with HAPROXY_0_MODE=http then you can access it via a call to :9091 with header "X-Marathon-App-Id" set to Marathon AppId. Note multiple HTTP ports being exposed by same marathon app are not supported. Only first HTTP port is available using this frontend. 
+<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_APPID_HEAD </code></td><td>Specifies the HTTP frontend that binds to port *:9091 by default and gathers all apps in HTTP mode. To use this frontend to forward to your app, configure app with HAPROXY_0_MODE=http. Then you can access it using a call to :9091 with header "X-Marathon-App-Id" set to Marathon AppId. Note that multiple HTTP ports being exposed by the same Marathon app are not supported. Only the first HTTP port is available using this frontend.
 
-This template is a global template that cannot be modified by service port or per application. 
+This template is a global template that cannot be modified by service port or per application.
 
 The default template for `HAPROXY_HTTP_FRONTEND_APPID_HEAD` is:
 <code>frontend marathon_http_appid_in
   bind *:9091
   mode http</code></td></tr>
-<tr><td><code>HAPROXY_HTTP_FRONTEND_HEAD </code></td><td>Specifies HTTP frontend that binds to port *:80 by default and gathers all virtual hosts as defined by HAPROXY_{n}_VHOST label. This template is a global template that cannot be modified by service port or per application. 
+<tr><td><code>HAPROXY_HTTP_FRONTEND_HEAD </code></td><td>Specifies the HTTP frontend that binds to port *:80 by default and gathers all virtual hosts as defined by HAPROXY_{n}_VHOST label. This template is a global template that cannot be modified by service port or per application.
 
 The default template for `HAPROXY_HTTP_FRONTEND_HEAD` is:
 <code>frontend marathon_http_in
   bind *:80
   mode http</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY </code></td><td>Works in combination with HAPROXY_HTTP_FRONTEND_ACL_ONLY setting to map access control list (ACL) names to their appropriate backends. 
+<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY </code></td><td>Works in combination with the HAPROXY_HTTP_FRONTEND_ACL_ONLY setting to map access control list (ACL) names to their appropriate backends.
 
 The default template for `HAPROXY_HTTP_FRONTEND_ROUTING_ONLY` is:
 <code> use_backend {backend} if host_{cleanedUpHostname}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ROUTING_ONLY": "  use_backend {backend} if host_{cleanedUpHostname}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY_WITH_AUT </code></td><td>Works in combination with HAPROXY_HTTP_FRONTEND_ACL_ONLY setting to map access control list name to appropriate backend and to add HTTP Basic authentication. 
+<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY_WITH_AUT </code></td><td>Works in combination with the HAPROXY_HTTP_FRONTEND_ACL_ONLY setting to map access control list name to appropriate backend and to add HTTP Basic authentication.
 
 The default template for `HAPROXY_HTTP_FRONTEND_ROUTING_ONLY_WITH_AUTH` is:
 <code>acl auth_{cleanedUpHostname} http_auth(user_{backend})
   http-request auth realm "{realm}" if host_{cleanedUpHostname} !auth_{cleanedUpHostname}
   use_backend {backend} if host_{cleanedUpHostname}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ROUTING_ONLY_WITH_AUTH": "  acl auth_{cleanedUpHostname} http_auth(user_{backend})\n  http-request auth realm \"{realm}\" if host_{cleanedUpHostname} !auth_{cleanedUpHostname}\n  use_backend {backend} if host_{cleanedUpHostname}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY_WITH_PATH</code></td><td>Works in combination with HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH setting to map access control list (ACL) names to appropriate backend. 
+<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY_WITH_PATH</code></td><td>Works in combination with the HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH setting to map access control list (ACL) names to appropriate backend.
 
 The default template for `HAPROXY_HTTP_FRONTEND_ROUTING_ONLY_WITH_PATH` is:
 <code>use_backend {backend} if host_{cleanedUpHostname} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ROUTING_ONLY_WITH_PATH": "  use_backend {backend} if host_{cleanedUpHostname} path_{backend}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY_WITH<br>_PATH_AND_AUTH </code></td><td>Works in combination with HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH setting to map access control list names to appropriate backend. 
+<tr><td><code>HAPROXY_HTTP_FRONTEND<br>_ROUTING_ONLY_WITH<br>_PATH_AND_AUTH </code></td><td>Works in combination with the  HAPROXY_HTTP_FRONTEND_ACL_ONLY_WITH_PATH setting to map access control list names to appropriate backend.
 
 The default template for `HAPROXY_HTTP_FRONTEND_ROUTING_ONLY_WITH_PATH_AND_AUTH` is:
 <code>http-request auth realm "{realm}" if host_{cleanedUpHostname} path_{backend} !auth_{cleanedUpHostname}
   use_backend {backend} if host_{cleanedUpHostname} path_{backend}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_HTTP_FRONTEND_ROUTING_ONLY_WITH_PATH_AND_AUTH": "  http-request auth realm \"{realm}\" if host_{cleanedUpHostname} path_{backend} !auth_{cleanedUpHostname}\n  use_backend {backend} if host_{cleanedUpHostname} path_{backend}\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_MAP_HTTPS<br>_FRONTEND_ACL </code></td><td>Specifies access control list (ACL) that performs SNI-based host name matching for HAPROXY_HTTPS_FRONTEND_HEAD template using HAProxy maps. 
+<tr><td><code>HAPROXY_MAP_HTTPS<br>_FRONTEND_ACL </code></td><td>Specifies the access control list (ACL) that performs SNI-based host name matching for HAPROXY_HTTPS_FRONTEND_HEAD template using HAProxy maps.
 
 The default template for `HAPROXY_MAP_HTTPS_FRONTEND_ACL` is:
 <code>use_backend %[ssl_fc_sni,lower,map({haproxy_dir}/domain2backend.map)</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_MAP_HTTPS_FRONTEND_ACL": "  use_backend %[ssl_fc_sni,lower,map({haproxy_dir}/domain2backend.map)]\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_MAP_HTTP<br>_FRONTEND_ACL </code></td><td>Specifies access control list (ACL) that glues a backend to corresponding virtual host specified by HAPROXY_HTTP_FRONTEND_HEAD setting using HAProxy maps. 
+<tr><td><code>HAPROXY_MAP_HTTP<br>_FRONTEND_ACL </code></td><td>Specifies the access control list (ACL) that glues a backend to a corresponding virtual host specified by HAPROXY_HTTP_FRONTEND_HEAD setting using HAProxy maps.
 
 The default template for `HAPROXY_MAP_HTTP_FRONTEND_ACL` is:
 <code style="word-break: break-word;">use_backend %[req.hdr(host),lower,regsub(:.*$,,),map({haproxy_dir}/domain2backend.map)</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code style="word-break: break-word;">"HAPROXY_0_MAP_HTTP_FRONTEND_ACL": "  use_backend %[req.hdr(host),lower,regsub(:.*$,,),map({haproxy_dir}/domain2backend.map)]\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_MAP_HTTP<br>_FRONTEND_ACL_ONLY </code></td><td> Defines access control list (ACL) that matches a particular host name, You should only use this template if you have multiple virtual hosts routing to same backend in HAProxy map. 
+<tr><td><code>HAPROXY_MAP_HTTP<br>_FRONTEND_ACL_ONLY </code></td><td> Defines access control list (ACL) that matches a particular host name. You should only use this template if you have multiple virtual hosts routing to the same backend in HAProxy map.
 
 The default template for `HAPROXY_MAP_HTTP_FRONTEND_ACL_ONLY` is:
 <code style="word-break: break-word;">use_backend %[req.hdr(host),lower,regsub(:.*$,,),map({haproxy_dir}/domain2backend.map)</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code style="word-break: break-word;">"HAPROXY_0_MAP_HTTP_FRONTEND_ACL_ONLY": "  use_backend %[req.hdr(host),lower,regsub(:.*$,,),map({haproxy_dir}/domain2backend.map)]\n"</code></td></tr>
 
-<tr><td><code>HAPROXY_MAP_HTTP<br>_FRONTEND_APPID_ACL </code></td><td>Specifies access control list (ACL) that glues a backend to corresponding app specified by HAPROXY_HTTP_FRONTEND_APPID_HEAD setting using HAProxy maps. 
+<tr><td><code>HAPROXY_MAP_HTTP<br>_FRONTEND_APPID_ACL </code></td><td>Specifies the access control list (ACL) that glues a backend to a corresponding app specified by HAPROXY_HTTP_FRONTEND_APPID_HEAD setting using HAProxy maps.
 
 The default template for `HAPROXY_MAP_HTTP_FRONTEND_APPID_ACL` is:
 <code>use_backend %[req.hdr(x-marathon-app-id),lower,map({haproxy_dir}/app2backend.map)</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_MAP_HTTP_FRONTEND_APPID_ACL": "  use_backend %[req.hdr(x-marathon-app-id),lower,map({haproxy_dir}/app2backend.map)]\n"</code>
 </td></tr>
 </tbody>
 </table>
 
 ## User authentication list setting
-Use following template and app label to configure basic user name and password settings for load balancer.
+Use the following template and app label to configure basic user name and password settings for load balancer.
 
 <table class="table" style="table-layout: fixed">
 <colgroup>
@@ -557,19 +552,19 @@ Use following template and app label to configure basic user name and password s
 <th style="font-weight:bold">Description and examples</th>
 </tr>
 <tbody valign="top">
-<tr><td><code>HAPROXY_USERLIST_HEAD </code></td><td>Specifies user list for HTTP Basic authentication. 
+<tr><td><code>HAPROXY_USERLIST_HEAD </code></td><td>Specifies user list for HTTP Basic authentication.
 
 The default template for `HAPROXY_USERLIST_HEAD` is:
 <code>userlist user_{backend}
   user {user} password {passwd}</code>
 
-You can override this template with following app label for first port (`0`) of a given app:
+You can override this template with the following app label for the first port (`0`) of a given app:
 <code>"HAPROXY_0_USERLIST_HEAD": "\nuserlist user_{backend}\n  user {user} password {passwd}\n"</code></td></tr>
 </tbody>
 </table>
 
 ## Global header settings
-Use following template to configure default header settings for load balancer.
+Use the following template to configure default header settings for load balancer.
 
 <table class="table" style="table-layout: fixed">
 <colgroup>
@@ -581,7 +576,7 @@ Use following template to configure default header settings for load balancer.
 <th style="font-weight:bold">Description and examples</th>
 </tr>
 <tbody valign="top">
-<tr><td><code>HAPROXY_HEAD </code></td><td>Specifies header information for HAProxy configuration file. This template contains global settings and defaults. This template cannot be overridden by service port or application-based settings.
+<tr><td><code>HAPROXY_HEAD </code></td><td>Specifies header information for the HAProxy configuration file. This template contains global settings and defaults. This template cannot be overridden by service port or application-based settings.
 
 The default template for `HAPROXY_HEAD` is:
 <pre>
@@ -645,7 +640,7 @@ listen stats
 </table>
 
 ## Additional application labels
-You can use following labels to configure additional application settings.
+You can use the following labels to configure additional application settings.
 
 <table>
   <colgroup>
@@ -661,7 +656,7 @@ You can use following labels to configure additional application settings.
     <td><code>HAPROXY_{n}_AUTH</code></td>
     <td>Specifies HTTP authentication method to use for application on given service port index. 
     
-  For example, you can use this label to specify realm name for Basic authentication:
+  For example, you can use this label to specify the realm name for Basic authentication:
   
   <code>
     HAPROXY_0_AUTH = realm:username:encryptedpassword
@@ -671,9 +666,9 @@ You can use following labels to configure additional application settings.
   </tr>
 
   <tr><td><code>HAPROXY_{n}_BACKEND_<br>HEALTHCHECK_PORT_<br>INDEX</code></td>
-  <td>Sets index of port to use as dedicated port for backend health checks associated with a given service port. By default, index for backend health check is same as index used for service port.
+  <td>Sets the index of a port to use as dedicated port for backend health checks associated with a given service port. By default, the index for a backend health check is same as index used for the service port.
 
-  For example, if an app exposes two ports--`9000` and `9001`--you can specify one port for application activity, and one port for for receiving health check information:
+  For example, if an app exposes two ports - `9000` and `9001` - you can specify one port for application activity, and one port for for receiving health check information:
 
   <code>portMappings": [ 
     { "containerPort": 9000, "hostPort": 0, "servicePort": 0, "protocol": "tcp" },
@@ -688,9 +683,9 @@ You can use following labels to configure additional application settings.
 </tr>
 
 <tr><td><code>HAPROXY_{n}_BACKEND<br>_NETWORK_ALLOWED_ACL</code></td> 
-<td>Sets IP addresses (or IP address ranges) that have been granted access to backend.  
+<td>Sets the IP addresses (or IP address ranges) that have been granted access to backend.  
 
-For example, you could set following app label to restrict access to specified IP addresses `10.1.40.0/24` and `10.1.55.43`:
+For example, you could set the following app label to restrict access to specified IP addresses `10.1.40.0/24` and `10.1.55.43`:
 
 <code>
 HAPROXY_0_BACKEND_NETWORK_ALLOWED_ACL = '10.1.40.0/24 10.1.55.43'
@@ -701,20 +696,20 @@ By default, every IP address is allowed.
 </tr>
 
 <tr><td><code>HAPROXY_{n}_BACKEND_<br>WEIGHT</code></td>
-<td>Specifies order in which to enforce permissions if there are multiple backends sharing access control lists for virtual hosts and paths. For example, if you are using a virtual host and have path access control lists that are shared by multiple backends, order of ACLs affects how permissions are granted for application. 
+<td>Specifies the order in which to enforce permissions if there are multiple backends sharing access control lists for virtual hosts and paths. For example, if you are using a virtual host and have path access control lists that are shared by multiple backends, the order of ACLs affects how permissions are granted for application.
 
-With `HAPROXY_{n}_BACKEND_WEIGHT`, you can change order used to evaluated ACLs by specifying a weight. The ACLs for backends are then applied from largest to smallest weight. 
+With `HAPROXY_{n}_BACKEND_WEIGHT`, you can change the order used to evaluated ACLs by specifying a weight. The ACLs for backends are then applied from largest to smallest weight.
 
-If you don’t specify a value, default weight of zero (0) is used. By default, any backends that use `HAPROXY_{n}_PATH` will have a weight of 1.
+If you don’t specify a value, the default weight is zero (0). By default, any backends that use `HAPROXY_{n}_PATH` will have a weight of 1.
 
 <code>HAPROXY_0_BACKEND_WEIGHT = 1</code>
 </td>
 </tr>
 
 <tr><td><code>HAPROXY_{n}_BALANCE</code></td>
-<td>Sets load balancing algorithm to be used in a backend. The default is `roundrobin`. 
+<td>Sets the load balancing algorithm to be used in a backend. The default is `roundrobin`.
 
-For example: 
+For example:
 
 <code>
 HAPROXY_0_BALANCE = 'leastconn'
@@ -722,7 +717,7 @@ HAPROXY_0_BALANCE = 'leastconn'
 </tr>
 
 <tr><td><code>HAPROXY_{n}_BIND_ADDR</code></td>
-<td>Binds load balancer to specific address for service. 
+<td>Binds load balancer to specific address for service.
 
 For example:
 
@@ -734,7 +729,7 @@ HAPROXY _0_BIND_ADDR = '10.0.0.42'
 
 <tr><td><code>HAPROXY_{n}_BIND_<br>OPTIONS</code></td><td>Sets additional bind options.
 
-For example: 
+For example:
 
 <code>
 HAPROXY_0_BIND_OPTIONS = 'ciphers AES128+EECDH:AES128+EDH force-tlsv12 no-sslv3 no-tlsv10'
@@ -746,17 +741,17 @@ HAPROXY_0_BIND_OPTIONS = 'ciphers AES128+EECDH:AES128+EDH force-tlsv12 no-sslv3 
 </tr>
 
 <tr><td><code>HAPROXY_DEPLOYMENT<br>_COLOUR</code></td>
-<td>Specifies color to use for blue/green deployment. This label is used if you run `bluegreen_deploy.py` script to determine state of a deployment. You generally do not need to modify this label setting unless you implement your own deployment orchestrator.</td>
+<td>Specifies the color to use for blue/green deployment. This label is used if you run `bluegreen_deploy.py` script to determine the state of a deployment. You generally do not need to modify this label setting unless you implement your own deployment orchestrator.</td>
 </tr>
 
 <tr><td><code>HAPROXY_DEPLOYMENT<br>_GROUP</code></td>
-<td>Specifies deployment group to which this app belongs.</td>
+<td>Specifies the deployment group to which this app belongs.</td>
 </tr>
 
 <tr><td><code>HAPROXY_DEPLOYMENT<br>_STARTED_AT</code></td>
-<td>Specifies time at which a deployment started. You generally do not need to modify this unless you implement your own deployment orchestrator.</td></tr>
+<td>Specifies the time at which a deployment started. You generally do not need to modify this unless you implement your own deployment orchestrator.</td></tr>
 <tr><td><code>HAPROXY_DEPLOYMENT_<br>TARGET_INSTANCES</code></td>
-<td>Specifies target number of app instances to seek during deployment. You generally do not need to modify this unless you implement your own deployment orchestrator.</td>
+<td>Specifies the target number of app instances to seek during deployment. You generally do not need to modify this value unless you implement your own deployment orchestrator.</td>
 </tr>
 
 <tr><td><code>HAPROXY_{n}_ENABLED</code></td>
@@ -768,7 +763,7 @@ For example:
 </tr>
 
 <tr><td><code>HAPROXY_{n}_GROUP</code></td>
-<td>Specifies HAProxy group per service. This app label enables you to use a different HAProxy group per service port. This label setting overrides `HAPROXY_GROUP` for particular service. If you have both external and internal services running on same set of instances on different ports, you can use this setting to add them to different HAProxy configurations. 
+<td>Specifies the HAProxy group per service. This app label enables you to use a different HAProxy group per service port. This label setting overrides `HAPROXY_GROUP` for particular service. If you have both external and internal services running on same set of instances on different ports, you can use this setting to add them to different HAProxy configurations. 
 
 For example:
 

@@ -7,7 +7,7 @@ excerpt: Provides reference for Edge-LB REST API endpoints
 enterprise: true
 ---
 
-The Edge-LB API enables users to create and manage pools of Edge-LB load balancers. There are two versions of the Edge-LB API. The two models are almost identical, with one important difference: the `pool.haproxy.backends.servers` configuration setting has been replaced with [`pool.haproxy.backends.services`](/services/edge-lb/api-reference/pool-configuration-reference/#pool.haproxy.backends.services) in the latest version of the Edge-LB API. This change provides a more intuitive way to select services and backends for HAProxy. In addition, the Edge-LB API includes a top-level `apiVersion` configuration field to specify which version of an API call you want to use. 
+The Edge-LB API enables users to create and manage pools of Edge-LB load balancers. There are two versions of the Edge-LB API. The two models are almost identical, with one important difference: the `pool.haproxy.backends.servers` configuration setting was replaced with [`pool.haproxy.backends.services`](/services/edge-lb/api-reference/pool-configuration-reference/#pool.haproxy.backends.services) in the Edge-LB API. This change provides a more intuitive way to select services and backends for HAProxy. In addition, the Edge-LB API includes a top-level `apiVersion` configuration field to specify which version of an API call you want to use.
 
 Because of the similarity between the Edge-LB API version 1 (`V1`) and version 2 (`V2`), the configuration reference information and examples reflect the Edge-LB API V2 specification. If you require documentation specifically for the Edge-LB API V1 specification, see [Edge-LB API v1](/services/edge-lb/reference/v1-reference/#api-v1).
 
@@ -19,7 +19,7 @@ Access to the Edge-LB API is proxied through the Admin Router on the master node
 /service/edgelb/
 ```
 
-Keep in mind that the path to Edge-LB endpoints might be different if you have change the service name. For example, if you have changed the default Edge-LB service name to append a geographic location, such as `edgelb-emea`, then the path to the service would be `/service/edgelb-emea`.
+Note that the path to Edge-LB endpoints might be different if you change the service name. For example, if you changed the default Edge-LB service name to append a geographic location, such as `edgelb-emea`, the path to the service would be `/service/edgelb-emea`.
 
 To determine the address of your cluster, see [Cluster Access](/latest/api/access/).
 
@@ -28,7 +28,7 @@ All Edge-LB API routes require authentication to use.
 
 To authenticate API requests, see [Obtaining an authentication token](/1.12/security/ent/iam-api/#obtaining-an-authentication-token) and [Passing an authentication token](1.12/security/ent/iam-api/#passing-an-authentication-token).
 
-The Edge-LB API also requires authorization via the following permissions:
+The Edge-LB API also requires authorization through the following permissions:
 
 | Route | Permission |
 |-------|----------|

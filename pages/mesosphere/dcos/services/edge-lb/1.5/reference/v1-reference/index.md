@@ -7,14 +7,14 @@ excerpt: Provides reference information for Edge-LB pool configuration settings 
 enterprise: true
 ---
 
-The tables below describe all possible configuration options if you are using the [Edge-LB REST API version 1](#api-v1). For examples of pool configuration settings when you are working with the Edge-LB REST API version 1 specification, see [Pool configuration examples (REST API V1)](/services/edge-lb/reference/v1-reference/pool-config-v1-examples/).
+The tables below describe the possible configuration options if you are using the [Edge-LB REST API version 1](#api-v1). For examples of pool configuration settings when you are working with the Edge-LB REST API version 1 specification, see [Pool configuration examples (REST API V1)](/services/edge-lb/reference/v1-reference/pool-config-v1-examples/).
 
 # Configuration guidelines
 
 - If a default is not set, it will be left empty, even for objects.
 - Set defaults in the object that is furthest from the root object.
 - Always set a default for arrays.
-- The purpose of "nullable" is to allow the output JSON field to be set to the `golang` "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
+- The "nullable" value allows the output JSON field to be set to the `golang` "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
 - Actual validation is done in the code, not expressed in swagger.
 - Since an empty boolean is interpreted as "false", do not set a default.
 - Use CamelCase.

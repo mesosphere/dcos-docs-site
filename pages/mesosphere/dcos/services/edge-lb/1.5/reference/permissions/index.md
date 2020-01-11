@@ -7,14 +7,14 @@ excerpt: Service account and user permissions required to use the Edge-LB packag
 enterprise: true
 ---
 
-Because Edge-LB is installed as a DC/OS service, not as a built-in component, you must grant either `superuser` permissions (`dcos:superuser`) or the specific user or group permissions listed in this section to perform administrative tasks when you are running Edge-LB.
+Because Edge-LB is installed as a DC/OS&trade; service, not as a built-in component, you must grant either `superuser` permissions (`dcos:superuser`), or the specific user or group permissions listed in this section to perform administrative tasks when you are running Edge-LB.
 
 In general, you use the DC/OS Enterprise command-line interface to view and modify cluster-related permissions. For information about installing the DC/OS Enterprise command-line interface (CLI) and plug-ins, see [CLI plug-ins](/1.13/cli/plugins/). For more information about how to set and manage permissions, see [managing permissions](/1.13/security/ent/perms-management/) and the DC/OS [permissions reference](/1.13/security/ent/perms-management/).
 
 # General permission requirements
 
 - Superuser permissions allow a user to manage all Edge-LB pools. Use this option if you do not need to configure fine-grained access.
-- Grant a user or group the permissions below for finer grained access to the Edge-LB pools. Using this method, you can restrict service accounts to have access to pools you specify.
+- Grant a user or group the permissions below for finer-grained access to the Edge-LB pools. Using this method, you can restrict service accounts to have access to pools you specify.
 
 # Installation permissions
 
@@ -68,6 +68,7 @@ For example, to grant the Edge-LB service account permissions to the `edge-lb-pr
 
 ## Adding a service principal account to the superusers group
 If you are not using the least-privilege security model, you can add the Edge-LB service account to the `superusers` group to simplify adding and updating permissions. For example, you can аdd the `edge-lb-principal` service account to the `superusers` group by running a command similar to this:
+
 `dcos security org groups add_user superusers edge-lb-principal`
 
 # Multi-tenant permissions
@@ -80,29 +81,31 @@ To grant limited permissions to manage only a single Edge-LB pool, the user must
 - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
 
 You can add the permissions required for managing a pool in a multi-tenant environment to an account by running a command similar to this:
-`dcos security org users grant [OPTIONS] UID RID ACTION`
+
+    `dcos security org users grant [OPTIONS] UID RID ACTION`
 
 For example, to grant the permissions for single pool management in a multi-tenant environment to the `sf-tenant-08` account:
-`dcos security org users grant sf-tenant-08 dcos:adminrouter:service:edgelb:/ping full`
+
+    `dcos security org users grant sf-tenant-08 dcos:adminrouter:service:edgelb:/ping full`
 
 # Task-specific endpoint permissions
 The following permissions for endpoints are used by the `dcos edgelb` CLI subcommand. Permissions can be granted individually:
 
-- Ping:
+* Ping:
     - `dcos:adminrouter:service:edgelb:/ping`
-- List pools:
+* List pools:
     - `dcos:adminrouter:service:edgelb:/config`
-- Read pool:
+* Read pool:
     - `dcos:adminrouter:service:edgelb:/pools/<pool-name>`
-- Create V1 pool:
+* Create V1 pool:
     - `dcos:adminrouter:service:edgelb:/v1/loadbalancers`
-- Update V1 pool:
+* Update V1 pool:
     - `dcos:adminrouter:service:edgelb:/v1/loadbalancers/<pool-name>`
     - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
-- Create V2 pool:
+* Create V2 pool:
     - `dcos:adminrouter:service:edgelb:/v2/pools`
-- Update V2 pool:
+* Update V2 pool:
     - `dcos:adminrouter:service:edgelb:/v2/pools/<pool-name>`
     - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
-- Delete pool
+* Delete pool
     - `dcos:adminrouter:service:edgelb:/v2/pools/<pool-name>`

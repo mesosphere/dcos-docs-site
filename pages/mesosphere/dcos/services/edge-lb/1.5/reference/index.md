@@ -9,7 +9,7 @@ enterprise: true
 ---
 
 Edge-LB reference information includes the following:
-* Specific permissions required for installing and managing Edge-LB pools in a DC/OS Enterprise cluster.
+* Specific permissions required for installing and managing Edge-LB pools in a DC/OS&trade; Enterprise cluster.
 
 * Syntax and usage details for the Edge-LB command-line interface (CLI).
 
@@ -17,6 +17,6 @@ Edge-LB reference information includes the following:
 
 * Edge-LB pool configuration settings and examples.
 
-* Edge-LB HAProxy endpoints for returning information about HAProxy operations and activity.
+* Edge-LB HAProxy&reg; endpoints for returning information about HAProxy operations and activity.
 
 * HAProxy templates and labels that you can use to customize Edge-LB load balancing configuration settings.

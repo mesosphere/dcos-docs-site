@@ -7,12 +7,12 @@ excerpt: Provides usage and reference information for Edge-LB commands
 enterprise: true
 ---
 
-You can use the Edge-LB command-line interface (CLI) commands and subcommands to configure and manage your Edge-LB load balancer instances from a shell terminal or programmatically.
+You can use the Edge-LB command-line interface (CLI) commands and subcommands to configure and manage your Edge-LB load balancer instances programmatically or from a shell terminal.
 
 # Adding the Edge-LB command-line interface package
 In most cases, you add the Edge-LB command-line interface (CLI) as part of your initial installation of the Edge-LB API server and Edge-LB pool packages when you are preparing to deploy Edge-LB load balancing. However, one of the key benefits of running containerized services is that they can be placed anywhere in the cluster.
 
-Because you can deploy packages anywhere on the cluster, you might find that you need to install the Edge-LB command-line interface (CLI) on additional computers for other administrators. To simplify access to the Edge-LB command-line programs, you can install the CLI as a separate package by running the following command:
+Since you can deploy packages anywhere on the cluster, you might find that you need to install the Edge-LB command-line interface (CLI) on additional computers for other administrators. To simplify access to the Edge-LB command-line programs, you can install the CLI as a separate package by running the following command:
 
 ```bash
 dcos package install --cli edgelb --yes
@@ -46,7 +46,7 @@ dcos:adminrouter:service:edgelb:/pools/<pool-name>
 ```
 
 # dcos edgelb cleanup
-Use this command to list and remove all Amazon Web Services (AWS) Elastic Load Balancer (ELB) instances that remain after Edge-LB has been uninstalled from a DC/OS cluster.
+Use this command to list and remove all Amazon Web Services&reg; (AWS&reg;) Elastic Load Balancer&reg; (ELB&reg;) instances that remain after Edge-LB has been uninstalled from a DC/OS&trade; cluster.
 
 ### Usage
 
@@ -214,8 +214,8 @@ dcos edgelb diagnostic [options]
 
 | Name, shorthand | Description |
 |-----------------|-------------|
-| `--bundles-dir=BUNDLES-DIR` | Specify the folder under which the diagnostic bundle will be located. You can specify the directory using an absolute or relative path. By default, the current directory is used. |
-| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected. For example, pool_name1,pool_name2. By default, all pools are included. |
+| `--bundles-dir=BUNDLES-DIR` | Specify the folder in which the diagnostic bundle will reside. You can specify the directory using an absolute or relative path. The default value is the current directory. |
+| `--pool-names=POOL-NAMES` | List pools, separated by commas (,), for which diagnostics data should be collected, in the format, pool_name1,pool_name2. By default, all pools are included. |
 | `--help, -h`   | Display usage information. |
 | `--verbose, -v` | Enable additional logging of requests and responses. |
 
@@ -239,9 +239,9 @@ To collect diagnostic bundles for specific Edge-LB pools, include the pool names
 dcos edgelb diagnostic --pool-names=sf-edgelb,roma-edge-lb,hk-edgelb
 ```
 
-This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools pools and saves it in the current working directory.
+This command generates diagnostic bundle with the logs files from the `sf-edgelb`, `roma-edgelb`, and `hk-edgelb` pools and saves it in the current working directory.
 
-To collect diagnostic bundles for a specific Edge-LB pool and place the file in a specific directory instead of the current working directory, run a command similar to the following:
+To collect diagnostic bundles for a specific Edge-LB pool and place the file in a specific directory, instead of the current working directory, run a command similar to the following:
 
 ```bash
 dcos edgelb diagnostic --pool-names=sf-edgelb --bundles-dir=/usr/share/mydiag
@@ -643,7 +643,7 @@ dcos edgelb template delete <pool-name> [options]
 <!-- ### Examples -->
 
 # dcos edgelb template show
-Use this command to shows the load balancer configuration template for an individual pool. If you don't specify a pool name, the command returns information for the default template.
+Use this command to show the load balancer configuration template for an individual pool. If you don't specify a pool name, the command returns information for the default template.
 
 The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
