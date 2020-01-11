@@ -80,4 +80,4 @@ where
 
 Alternatively, metadata can be retrieved using DC/OS&trade; CLI by running `dcos edgelb endpoints <pool-name> --json`.
 
-For further details on what AWS&reg; might look like, see [Integrating with cloud providers](../../concepts/cloud-connector/).
+For further details on what AWS&reg; might look like, see [Integrating with cloud providers](/services/edge-lb/1.5/concepts/cloud-connector/).

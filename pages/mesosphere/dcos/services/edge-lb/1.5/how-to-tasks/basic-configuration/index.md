@@ -13,12 +13,12 @@ This section provides examples that illustrate how to set some of the most basic
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS&trade; Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages.
 
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
-For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
+For information about installing Edge-LB packages, see the [installation](/services/edge-lb/1.5/getting-started/installing/) instructions.
 
 # Using Edge-LB for a sample Marathon application
 DC/OS services typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you need to know the Apache &reg; Mesos&reg; `task` name and `port` name. With this information, you can then configure an Edge-LB pool to handle load balancing for that Marathon application.

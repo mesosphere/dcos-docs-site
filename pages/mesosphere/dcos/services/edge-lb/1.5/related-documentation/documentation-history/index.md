@@ -7,11 +7,13 @@ excerpt: Summarizes the timeline for Edge-LB documentation and feature updates
 enterprise: true
 ---
 
+**%%% Baker will need input from SMEs on this page...**
+
 Edge-LB updates are listed by release date, with the most recent changes listed first. If a feature or enhancement is related to a reported issue or customer request, one or more issue tracking identifiers are included and enclosed in parenthesis for reference.
 
 |<b> Edge-LB feature description</b> | <b>Edge-LB version</b> | <b>Date</b> |
 |-------------------------------| ----------------- | ----------- |
-Expose task without pre-defined APache&reg; Mesos&reg;-assigned ports | 1.3.0 | February 2019 |
+Expose task without pre-defined Apache&reg; Mesos&reg;-assigned ports | 1.3.0 | February 2019 |
 Enable dynamic allocation of the HAProxy&reg; STATS port | 1.3.0 | February 2019 |
 Enable dynamic allocation of the HAProxy Frontend port | 1.3.0 | February 2019 |
 Scale down Edge-LB pool instances | 1.3.0 | February 2019 |

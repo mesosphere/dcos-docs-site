@@ -6,11 +6,12 @@ menuWeight: 30
 excerpt: How to expose tasks using a pre-assigned port for Edge-LB load balancing
 enterprise: true
 ---
+
 You can expose tasks for load balancing using a pre-assigned port or by assigning a port dynamically.
 
 # Before you begin
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.

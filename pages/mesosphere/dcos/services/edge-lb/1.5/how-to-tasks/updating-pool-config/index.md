@@ -15,7 +15,7 @@ If you need to update pool configuration settings after deployment, you can choo
 
 # Before you begin
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster.

@@ -6,11 +6,12 @@ menuWeight: 6
 excerpt: How to load balance multiple services in a single Edge-LB instance
 enterprise: true
 ---
+
 This tutorial demonstrates how to set up three services with a single Edge-LB pool instance. This flexibility allows you to configure Edge-LB pools depending on your needs to achieve high availability in your environment. For example, if you have 90 services running on the DC/OS&trade; cluster, you can configure 30 Edge-LB pool instances with 3 services each to load balance all 90 services.
 
 # Before you begin
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.

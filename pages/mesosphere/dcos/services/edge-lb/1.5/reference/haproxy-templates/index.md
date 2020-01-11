@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 # Templates and labels
-The following is a list of available configuration **templates** that can be used with `HAProxy` load balancers. Some templates are global-only (such as `HAPROXY_HEAD`), but most can be specified on a per service port basis as **app labels** to override global settings.
+The following is a list of available configuration **templates** that can be used with HAProxy&reg; load balancers. Some templates are global-only (such as `HAPROXY_HEAD`), but most can be specified on a per service port basis as **app labels** to override global settings.
 
 The templates and app labels that you can set per-service-port include an index identifier {n} in template or label name. The index identifier corresponds to service port index, beginning at 0, to which app label applies. For example, you could specify `HAPROXY_0_BACKEND_HEAD` to override global template `HAPROXY_BACKUP_HEAD` for first port of a given application.
 

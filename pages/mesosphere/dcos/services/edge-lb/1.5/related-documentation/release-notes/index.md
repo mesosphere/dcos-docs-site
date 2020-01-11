@@ -9,7 +9,7 @@ enterprise: true
 
 The Edge-LB release notes summarize release-specific changes to fix issues or update Edge-LB features for DC/OS&trade; Enterprise clusters.
 
-If you have DC/OS deployed in a production environment, see [Known issues and limitations](/services/edge-lb/related-documentation/known-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
+If you have DC/OS deployed in a production environment, see [Known issues and limitations](/services/edge-lb/1.5/related-documentation/known-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
 # DC/OS for Edge-LB Service version 1.5.1 Release Notes
 

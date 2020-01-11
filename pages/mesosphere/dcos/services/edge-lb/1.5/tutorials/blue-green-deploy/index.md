@@ -15,13 +15,13 @@ This type of deployment supports rolling updates where one version of a service 
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS&trade; Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages.
 
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 * Enough capacity on the DC/OS Enterprise cluster for two fully-deployed services.
 
-For information about installing Edge-LB packages, see the [installation](/services/edge-lb/getting-started/installing/) instructions.
+For information about installing Edge-LB packages, see the [installation](/services/edge-lb/1.5/getting-started/installing/) instructions.
 
 # Preview of what you'll do
 This tutorial shows how to configure services and load balancing to support a blue/green deployment scenario. In this tutorial, you will:

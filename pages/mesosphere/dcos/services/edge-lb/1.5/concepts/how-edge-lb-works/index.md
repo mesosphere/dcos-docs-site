@@ -8,7 +8,7 @@ enterprise: true
 ---
 
 Edge-LB is designed to handle load balancing and proxying for a distributed architecture.
-It is usually deployed on the **public agent nodes** of a cluster so that the services running on the cluster remain protected inside of a security perimeter. The public agent nodes are typically in demilitarized zones (DMZ) or in perimeter external networks that are outside of the DC/OS cluster and your organizational WAN, LAN, or VPN networks.
+It is usually deployed on the **public agent nodes** of a cluster so that the services running on the cluster remain protected inside of a security perimeter. The public agent nodes are typically in demilitarized zones (DMZs) or in perimeter external networks that are outside of the DC/OS cluster and your organizational WAN, LAN, or VPN networks.
 
 In general, you should deploy Edge-LB on **multiple public nodes** to support high availability for traffic entering the cluster.
 
@@ -49,5 +49,5 @@ As a cluster administrator, you can deploy Edge-LB pools to handle specific tena
 The following diagram provides a simplified architectural view of Edge-LB:
 
 <p>
-<img src="/services/edge-lb/img/Edge-LB-component-arch.png" alt="Core components of the Edge-LB architecture">
+<img src="/services/edge-lb/1.5/img/Edge-LB-component-arch.png" alt="Core components of the Edge-LB architecture">
 </p>
