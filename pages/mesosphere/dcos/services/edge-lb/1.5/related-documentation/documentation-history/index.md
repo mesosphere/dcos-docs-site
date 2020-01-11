@@ -11,10 +11,9 @@ Edge-LB updates are listed by release date, with the most recent changes listed 
 
 |<b> Edge-LB feature description</b> | <b>Edge-LB version</b> | <b>Date</b> |
 |-------------------------------| ----------------- | ----------- |
-Expose task without pre-defined Mesos-assigned ports | 1.3.0 | February 2019 |
-Enable dynamic allocation of the HAProxy STATS port | 1.3.0 | February 2019 |
+Expose task without pre-defined APache&reg; Mesos&reg;-assigned ports | 1.3.0 | February 2019 |
+Enable dynamic allocation of the HAProxy&reg; STATS port | 1.3.0 | February 2019 |
 Enable dynamic allocation of the HAProxy Frontend port | 1.3.0 | February 2019 |
 Scale down Edge-LB pool instances | 1.3.0 | February 2019 |
 Edge-LB pool packages can be uniquely identified by a version naumber. | 1.2.0 | September 2018
 Logging improvements capture nore detailed information about Edge-LB operations and activity. | 1.2.0 | September 2018
-

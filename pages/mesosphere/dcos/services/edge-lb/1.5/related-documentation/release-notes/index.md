@@ -7,27 +7,70 @@ excerpt: Provides release-specific information for Edge-LB
 enterprise: true
 ---
 
-The Edge-LB release notes summarize release-specific changes to fix issues or update Edge-LB features for DC/OS Enterprise clusters.
+The Edge-LB release notes summarize release-specific changes to fix issues or update Edge-LB features for DC/OS&trade; Enterprise clusters.
 
 If you have DC/OS deployed in a production environment, see [Known issues and limitations](/services/edge-lb/related-documentation/known-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
-# Edge-LB version 1.4
-Edge-LB service version 1.4.0 was released July 24, 2019.
+# DC/OS for Edge-LB Service version 1.5.1 Release Notes
+
+Edge-LB Service version 1.5.1 was released on 17 December 2019.
+
+## Bug Fixes
+- Edge-LB TLS certificates now include the full bundle of intermediate certificates in the CC's cert. (DCOS-60770)
+- Edge-LB 1.5 is now using the correct container IP address. (DCOS-60517)
+
+## Other Changes
+- Upgraded SDK version to v0.57.2 to resolve a deployment issue.
+- Began collecting diagnostic bundle for all pools, by default.
+
+## Known issues and limitations
+
+- Auto Pool updates become slower as the number of templates increases, or as large changes to the Apache&reg; Mesos&reg; state occur, such as many apps starting or stopping.
+
+
+# DC/OS for Edge-LB Service version 1.5.0 Release Notes
+
+Edge-LB Service version 1.5.0 was released on 30 October 2019.
+
+## Breaking Changes
+- Templates now use [Sprig](http://masterminds.github.io/sprig/) template functions instead of custom functions. The [`env`](http://masterminds.github.io/sprig/os.html) functions are not exposed to templates.
+
+## Deprecation
+
+- The v1 API is now deprecated and D2iQ&reg; may remove it in a future release.
+
+## New features and capabilities
+
+- Auto Pools automatically start a pool from a template with values from mesos task labels.
+- The certificate generated for `$AUTOCERT` is now valid for 10 years and has a random serial number.
+- Updates the SDK version from 0.55.2 to 0.57.0.
+- Adds `apiserver`, `cloud-controller`, `dcos-template`, `lbmgr`, and `mesos-listener` exporter for metrics.
+- Metric names renamed in line with Prometheus community guideline.
+- The `apiserver` now uses `container/bridge` network type.
+- [Pool constraints](../pool-configuration/v2-reference/#pool) now support region placement constraints.
+
+## Known issues and limitations
+
+- Auto Pool updates become slower as the number of templates increases, or as large changes to the Mesos state occur, such as many apps starting or stopping.
+
+# Edge-LB verion 1.4
+Edge-LB service version 1.4.0 was released June 24, 2019.
 
 ### New features and capabilities
-- Introduces automatic provisioning and lifecycle management for AWS Network Load Balancers (NLB).
-- Adds a new command-line program for removing AWS load balancer instances created for Edge-LB if you uninstall Edge-LB.
+- Introduces automatic provisioning and lifecycle management for AWS&reg; Network Load Balancers&reg; (NLB&reg;).
+- Adds a new command-line program for removing AWS load balancer instances created for Edge-LB, if you uninstall Edge-LB.
 - Provides a new command-line program for collecting logs and creating diagnostic bundles for Edge-LB operations.
-- Updates the HAProxy version to 2.0.1
+- Updates the HAProxy&reg; version to 2.0.1
 - Updates the Golang version to 1.12.7
 - Removes the use of sidecar
 - Adds haproxy exporter for HAProxy metrics
+
 
 # Edge-LB version 1.3.1
 Edge-LB service version 1.3.1 was released April 29, 2019.
 
 ### New features and capabilities
-* Includes Mesos health checks when generating the list of active backends.
+* Includes Apache Mesos health checks when generating the list of active backends.
 * Provides Edge-LB artifacts as a .dcos package bundle.
 * Updates the SDK version from 0.55.2 to 0.55.4.
 * Updates the HAProxy version to 1.9.4.
@@ -39,11 +82,12 @@ Edge-LB service version 1.3.1 was released April 29, 2019.
 ### Issues fixed in this release
 * DCOS-45719 - Edge-LB waits for load balanced applications to to be running in a healthy state before routing traffic to them. This change prevents Edge-LB from routing traffic to an application before it completes its startup operations and its first health check.
 * DCOS-47839 - Users can specify the Edge-LB pool frontend using either the name or port setting.
-* DCOS-44077 - The mesos-listener program that communicates with Edge-LB includes improvements to tests coverage and code refactoring.
+* DCOS-44077 - The Mesos-listener program that communicates with Edge-LB includes improvements to tests coverage and code refactoring.
 * DCOS-51865 - Edge-LB contiuous integration has been enhanced through testing and code refactoring.
 * DCOS-48059 - Edge-LB can successfully return the task id and task status for both server and sidecar tasks.
 * DCOS-46502 - Validates regular expressions from user input.
 * DCOS-48132 - The Edge-LB dcos-template monitors and reloads its configuration file to prevent Edge-LB pool updates from generating errors when there are frequent pool changes.
+
 
 # Edge-LB version 1.3.0
 Edge-LB service version 1.3.0 was released February 6, 2019.
@@ -63,6 +107,7 @@ Edge-LB service version 1.3.0 was released February 6, 2019.
 * DCOS-46510 - Supports load balancer configuration settings that include duplicate backends.
 * DCOS-46837 - Protects against installing a pool with given name while a different pool with the same name is still uninstalling. This change prevents the framework scheduler from crashes caused by conflicting uninstall and install operations.
 * DCOS-48009 - Updates the location used for `$ENVFILE` certificates to match the location where the Edge-LB load balancer expects to find them.
+
 
 # Edge-LB version 1.2
 This section summarizes changes integrated into Edge-LB from Edge-LB 1.2.0 (September 2018) to Edge-LB 1.2.3 (November 2018), with the most recent changes listed first.

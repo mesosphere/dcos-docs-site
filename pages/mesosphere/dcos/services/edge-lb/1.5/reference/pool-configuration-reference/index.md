@@ -7,28 +7,28 @@ excerpt: Provides reference information for Edge-LB pool configurations settings
 enterprise: true
 ---
 
-The tables in this section describe all possible configuration options. Most configuration options have default values that are applicable and appropriate for most organizations. You can modify the default configuration values to suit your requirements, if needed. However, you should review and test any configuration changes carefully before deploying them to a production environment.
+The tables in this section describe the possible configuration options. Most configuration options have default values that are applicable and appropriate for most organizations. You can modify the default configuration values to suit your requirements, if needed. However, you should review and test any configuration changes carefully before deploying them to a production environment.
 
 # Before you modify configuration settings
 If you plan to modify the Edge-LB pool configuration options, you should keep the following guidelines in mind:
-- If a configuration option does not have a default value and you do not explicitly set a value, the configuration is left as empty (unconfigured), even for objects.
-- You should set default values in the object that is furthest from the root object.
-- You should always set a default for arrays.
-- The purpose of a "nullable" configuration option is to allow the output JSON field to be set to the Go language "zero value". Without "nullable" support, the configuration option would be removed from the resulting JSON.
-- Actual validation is done in the code, not expressed in swagger.
-- If the data type for a configuration option is a boolean, an empty value is interpreted as "false". For boolean configuration options, you should not set a default value.
-- Use CamelCase to set configuration values.
-- Swagger only validates enumerated (enum) data values if the configuration option is a top level definition.
+* If a configuration option does not have a default value and you do not explicitly set a value, the configuration is left as empty (unconfigured), even for objects.
+* You should set default values in the object that is furthest from the root object.
+* You should always set a default for arrays.
+* The purpose of a "nullable" configuration option is to allow the output JSON field to be set to the Go language "zero value". Without "nullable" support, the configuration option would be removed from the resulting JSON.
+* Actual validation is done in the code, not expressed in swagger.
+* If the data type for a configuration option is a boolean, an empty value is interpreted as "false". For boolean configuration options, you should not set a default value.
+* Use CamelCase to set configuration values.
+* Swagger only validates enumerated (enum) data values if the configuration option is a top level definition.
 
 # API version compatibility
-There are two versions of the Edge-LB API specification. The top-level configuration field `apiVersion` is used to distinguish between the two versions of the API specification. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in `apiVersion` V1) has been replaced with `pool.haproxy.backends.services` to a more intuitive way to select services and backends for HAProxy load balancers. 
+There are two versions of the Edge-LB API specification. The top-level configuration field `apiVersion` is used to distinguish between the two versions of the API specification. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in `apiVersion` V1) was replaced with `pool.haproxy.backends.services` -  a more intuitive way to select services and backends for HAProxy&reg; load balancers.
 
 Because the specifications are nearly identical, the reference information in this section provides details for the latest version of the Edge-LB API specification (V2). If you need pool configuration information for working with the older specification, see [Edge-LB pool configuration (REST API V1)](/services/edge-lb/reference/v1-reference/).
 
 # Configuration file input format
-Edge-LB accepts configuration files in either YAML or JSON format. In most cases, however, you should use JSON and migrate any previous configuration settings from YAML format to JSON. 
+Edge-LB accepts configuration files in either YAML or JSON format. In most cases, however, you should use JSON and migrate any previous configuration settings from YAML format to JSON.
 
-Because the YAML file format is intended for deprecation in favor or JSON format, the Edge-LB command-line inteface includes a command to convert YAML files to their equivalent JSON format. 
+Because the YAML file format is intended for deprecation in favor or JSON format, the Edge-LB command-line inteface includes a command to convert YAML files to their equivalent JSON format.
 
 To convert a YAML configuration file to JSON and output the results to standard output (`stdout`), run the following command:
 
@@ -67,7 +67,7 @@ Nullable: true.</td>
 </tr>
 <tr><td>packageName</td><td>string</td><td>Specifies the Edge-LB package name.</td></tr>
 <tr><td>packageVersion</td><td>string</td> <td>Specifies the Edge-LB package version number.</td></tr>
-<tr><td>role</td><td>string</td><td>Specifies the Mesos role for load balancers. Defaults to "slave_public" so that load balancers run on public agent nodes. You can use the asterisk (*) wild card to run load balancers on private agents. For more information about working with roles, see <a href="http://mesos.apache.org/documentation/latest/roles/">Mesos roles</a>. </td></tr>
+<tr><td>role</td><td>string</td><td>Specifies the Apache&reg; Mesos&reg; role for load balancers. Defaults to "slave_public" so that load balancers run on public agent nodes. You can use the asterisk (*) wild card to run load balancers on private agents. For more information about working with roles, see <a href="http://mesos.apache.org/documentation/latest/roles/">Mesos roles</a>. </td></tr>
 <tr><td>cpus</td><td>number</td><td>Specifies CPU requirements.</td></tr>
 <tr><td>cpusAdminOverhead</td><td>number</td><td>Specifies CPU requirements for administrative overhead.</td><tr>
 <tr><td>mem</td><td>int32</td><td>Specifies general memory requirements (in MB).</td></tr>
@@ -76,7 +76,7 @@ Nullable: true.</td>
 <tr><td>count</td><td>integer</td><td>Specifies the number of load balancer instances in the pool.
 <br />
 Nullable: true.</td></tr>
-<tr><td>constraints</td><td>string</td><td>Specifies Marathon style constraints for load balancer instance placement.
+<tr><td>constraints</td><td>string</td><td>Specifies Marathon-style constraints for load balancer instance placement.
 <br />
 Nullable: true.</td></tr>
 <tr><td>ports</td><td>array</td><td>Specifies the override ports to allocate for each load balancer instance.
@@ -193,14 +193,14 @@ Nullable: true.</td></tr>
 <li>For autoCertificate, use `$AUTOCERT`.</li>
 type: string
 </ul></td></tr>
-<tr><td>redirectToHttps</td><td>object</td><td>Setting this option to the empty object is enough to redirect all traffic from HTTP (this frontend) to HTTPS (port 443). 
+<tr><td>redirectToHttps</td><td>object</td><td>Setting this option to the empty object is enough to redirect all traffic from HTTP (this frontend) to HTTPS (port 443).
 <ul><li><a href="#redirect-https-prop">except</a></li>
 <li><a href="#redirect-https-prop">items</a></li>
 </ul>
 The default is `except`.</td></tr>
 <tr><td>miscStrs</td><td>array of strings</td><td>Specifies additional template lines inserted before `use_backend`</td></tr>
 <tr><td>protocol</td><td></td><td>The frontend protocol is how clients/users communicate with HAProxy.</td></tr>
-<tr><td>linkBackend</td><td>object</td><td>Specifies the backends to send traffic to. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.
+<tr><td>linkBackend</td><td>object</td><td>Specifies the backends to which to send traffic. This can be expressed with a variety of filters such as matching on the hostname or the HTTP URL path.
 <ul>
 <li><a href="#backend-prop">defaultBackend</a></li>
 <li><a href="#backend-prop">map</a></li>
@@ -224,7 +224,7 @@ The default is `map`.</td></tr>
 <th style="font-weight:bold">Description and related properties</th>
 <tbody valign="top">
 <tr><td>except</td><td>array</td><td>You can additionally set a whitelist of fields that must be matched to allow HTTP.</td></tr>
-<tr><td>items</td><td>object</td><td>Boolean AND will be applied with every selected value. 
+<tr><td>items</td><td>object</td><td>Boolean AND will be applied with every selected value.
 <ul>
 <li><a href="#items-prop">host</a></li>
 <li><a href="#items-prop">pathBeg</a></li>
@@ -298,8 +298,8 @@ defaultBackend</td><td>string</td><td>This is the default backend that is routed
 <th style="font-weight:bold">Type</th>
 <th style="font-weight:bold">Description and related properties</th>
 <tbody valign="top">
-<tr><td>name</td><td>string</td><td>Defines the name the frontend refers to.</td></tr>
-<tr><td>protocol</td><td>string</td><td>Determines the backend protocol used. The backend protocol is how HAProxy communicates with the servers it is load balancing.</td></tr>
+<tr><td>name</td><td>string</td><td>Defines the name to which the frontend refers.</td></tr>
+<tr><td>protocol</td><td>string</td><td>Determines the backend protocol used. The backend protocol is how HAProxy communicates with the servers for which it is performing load balancing.</td></tr>
 <tr><td>rewriteHttp</td><td></td><td>Manipulates HTTP headers. There is no effect unless the protocol is either HTTP or HTTPS.</td></tr>
 <tr><td>balance</td><td>string</td><td>Specifies the load balancing strategy. For example, `roundrobin` or `leastconn`. For more information about load balancing algorithms you can use, see `HAPROXY_BACKEND_HEAD` in <a href="/services/edge-lb/reference/haproxy-templates-labels"> HAProxy templates and labels</a>.</td></tr>
 <tr><td>customCheck</td><td>object</td><td>Specifies alternate forms of healthchecks.

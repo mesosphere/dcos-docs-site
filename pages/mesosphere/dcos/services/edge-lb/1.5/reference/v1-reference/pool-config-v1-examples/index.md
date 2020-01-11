@@ -7,13 +7,13 @@ excerpt: Provides pool configuration examples for Edge-LB pool (REST API V1)
 enterprise: true
 ---
 
-If you are creating and managing Edge-LB pools using the Edge-LB RESTful API version 1 specification, set the top-level configuration field `apiVersion` to `v1` to indicate that you are using the older version of the API specification to create and modify Edge-LB pool configuration files. 
+If you are creating and managing Edge-LB pools using the Edge-LB RESTful API version 1 specification, set the top-level configuration field `apiVersion` to `v1` to indicate that you are using the older version of the API specification to create and modify Edge-LB pool configuration files.
 
 The code examples in this section illustrate configuration settings written in JSON to work with the [Edge-LB REST API V1](/services/edge-lb/reference/v1-reference/#api-v1) specification.
 
-## Marathon apps and DC/OS services
+## Marathon&trade; apps and DC/OS&trade; services
 
-DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the Mesos `task` name and `port` name.
+DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the APache&reg; Mesos&reg; `task` name and `port` name.
 
 For example, in the following snippet of a Marathon app definition, the `task` name is `my-app` and the `port` name is `web`.
 
@@ -71,8 +71,11 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
 ## SSL/TLS certificates
 
 There are three different ways to get and use a certificate:
+* Automaically-generated, self-signed certificates
+* DC/OS Secrets
+* Environment variables (not secured)
 
-### Automatically generated self-signed certificate
+### Automatically generated, self-signed certificate
 
 ```json
 {
@@ -224,7 +227,7 @@ There are three different ways to get and use a certificate:
 
 ## Virtual Networks
 
-In this example we create a pool that will be launched on the virtual network provided by a DC/OS overlay called "dcos". In general, you can launch a pool on any CNI network, by setting `pool.virtualNetworks[].name` to the CNI network name.
+This example shows creation of a pool that will be launched on the virtual network provided by a DC/OS overlay called "dcos". In general, you can launch a pool on any CNI&trade; network, by setting `pool.virtualNetworks[].name` to the CNI network name.
 
 ```json
 {

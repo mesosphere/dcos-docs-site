@@ -9,7 +9,7 @@ enterprise: true
 
 # Metadata
 
-Edge-LB exposes certain information about its individual pool servers through the `/service/edgelb/pools/v2/<pool-name>/metadata` endpoint. 
+Edge-LB exposes certain information about its individual pool servers through the `/service/edgelb/pools/v2/<pool-name>/metadata` endpoint.
 
 The following example illustrates pool metadata in JSON format:
 
@@ -78,6 +78,6 @@ where
     - `port` is a port number a particular pool server listens on for incoming connections.
 - `stats` is an array of entries witn information on how to reach load balancer `haproxy` API. The format is the same as the one of `frontends.endpoints`.
 
-Alternatively, metadata can be retrieved using DC/OS CLI by running `dcos edgelb endpoints <pool-name> --json`.
+Alternatively, metadata can be retrieved using DC/OS&trade; CLI by running `dcos edgelb endpoints <pool-name> --json`.
 
-For further details on what `aws` might look like, see [Integrating with cloud providers](../../concepts/cloud-connector/).
+For further details on what AWS&reg; might look like, see [Integrating with cloud providers](../../concepts/cloud-connector/).
