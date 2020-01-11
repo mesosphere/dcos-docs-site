@@ -12,8 +12,10 @@ This tutorial demonstrates how to deploy three services with three different Edg
 For example, if you have ten services running on a DC/OS&trade; Enterprise cluster, you might want to configure ten separate Edge-LB pool instances, with one pool per service, to distribute the traffic for all ten services. If a fault occurs with one of the pools in the cluster, the disruption is contained to only affect that service in the pool instance. Other services continue routing traffic to the correct backend instances without interruption.
 
 # Before you begin
+
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+
+* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.

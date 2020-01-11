@@ -23,11 +23,11 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
 # Set up the Edge-LB service account
 
-1. Download the current Edge-LB repository files using the [latest available binaries](https://support.mesosphere.com/s/downloads).
+1. Download the current Edge-LB repository files using the [latest available binaries](https://support.d2iq.com/s/downloads).
 
     For example, you can download the repositories from the support site using your browser if you log in to the D2iQ&reg; Support portal with an enterprise customer service account.
     <p>
-    <img src="/services/edge-lb/img/download-edge-lb.png" alt="Downloading Edge-LB from Mesosphere Support">
+    <img src="/services/edge-lb/1.5/img/download-edge-lb.png" alt="Downloading Edge-LB from D2iQ Support">
     </p>
 
     Alternatively, you can run commands similar to the following to download DC/OS Edge-LB packages:

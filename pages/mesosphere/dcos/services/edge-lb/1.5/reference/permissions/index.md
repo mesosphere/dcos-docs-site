@@ -9,7 +9,7 @@ enterprise: true
 
 Because Edge-LB is installed as a DC/OS&trade; service, not as a built-in component, you must grant either `superuser` permissions (`dcos:superuser`), or the specific user or group permissions listed in this section to perform administrative tasks when you are running Edge-LB.
 
-In general, you use the DC/OS Enterprise command-line interface to view and modify cluster-related permissions. For information about installing the DC/OS Enterprise command-line interface (CLI) and plug-ins, see [CLI plug-ins](/1.13/cli/plugins/). For more information about how to set and manage permissions, see [managing permissions](/1.13/security/ent/perms-management/) and the DC/OS [permissions reference](/1.13/security/ent/perms-management/).
+In general, you use the DC/OS Enterprise command-line interface to view and modify cluster-related permissions. For information about installing the DC/OS Enterprise command-line interface (CLI) and plug-ins, see [CLI plug-ins](/2.0/cli/plugins/). For more information about how to set and manage permissions, see [managing permissions](/2.0/security/ent/perms-management/) and the DC/OS [permissions reference](/2.0/security/ent/perms-management/).
 
 # General permission requirements
 
@@ -32,9 +32,9 @@ For example, to grant installation permissions to the user account `patsmith`:
 `dcos security org users grant patsmith dcos:adminrouter:package full`
 
 # Service account permissions
-The [service account](/services/edge-lb/1.2/installing/#create-a-service-account/) used for Edge-LB operations must be configured with sufficient administrative permissions. For simplicity, you can add the service account principal to the `superusers` group. However, if you are using the principle of least privilege to secure administrative activity for the cluster, you can grant the specific individual permissions necessary.
+The [service account](/services/edge-lb/1.5/installing/#create-a-service-account/) used for Edge-LB operations must be configured with sufficient administrative permissions. For simplicity, you can add the service account principal to the `superusers` group. However, if you are using the principle of least privilege to secure administrative activity for the cluster, you can grant the specific individual permissions necessary.
 
-If you are using the principle of least privilege, follow the steps for creating a public/private key pair and a service account principal described in [preparing a service account](/services/edge-lb/how-to-tasks/installing), then grant the following permissions to the service account principal:
+If you are using the principle of least privilege, follow the steps for creating a public/private key pair and a service account principal described in [preparing a service account](/services/edge-lb/1.5/how-to-tasks/installing), then grant the following permissions to the service account principal:
 
 - `dcos:adminrouter:ops:ca:rw`
 - `dcos:adminrouter:ops:ca:ro`

@@ -7,7 +7,7 @@ excerpt: Lists known limitations and issues for Edge-LB
 enterprise: true
 ---
 
-Depending on the configuration of Edge_LB and your cluster environment, you might experience some limitations in Edge-LB features or functionality. Unlike issues that are typically found and fixed in minor or patch version updates, technical limitations can span multiple versions.
+Depending on the configuration of Edge-LB and your cluster environment, you might experience some limitations in Edge-LB features or functionality. Unlike issues that are typically found and fixed in minor or patch version updates, technical limitations can span multiple versions.
 
 ## Current limitations
 <!--* Edge-LB supports all [security modes](/1.13/security/ent/#security-modes) in DC/OS 1.11 and later.-->
@@ -26,7 +26,7 @@ The number of load balancer instances ocannot be scaled down | Edge-LB 1.0.2 (an
 
 # Known Edge-LB issues
 
-* The steps provided in the DC/OS web interface to uninstall Edge-LB are incorrect. Follow the steps in [Uninstall](/services/edge-lb/1.2/uninstalling/) to uninstall Edge-LB. %%% this must be fixed prior to merging to Production!!!
+* The steps provided in the DC/OS web interface to uninstall Edge-LB are incorrect. Follow the steps in [Uninstall](/services/edge-lb/1.5/uninstalling/) to uninstall Edge-LB.
 
 * If you attempt to configure a pool with invalid constraints, the pool will not be created properly and will not respect pool deletion. To address this issue, you must manually remove the pool and recreate it.
 

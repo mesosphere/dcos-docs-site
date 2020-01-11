@@ -23,7 +23,7 @@ If you plan to modify the Edge-LB pool configuration options, you should keep th
 # API version compatibility
 There are two versions of the Edge-LB API specification. The top-level configuration field `apiVersion` is used to distinguish between the two versions of the API specification. The two models are almost identical, with one important difference: `pool.haproxy.backends.servers` (in `apiVersion` V1) was replaced with `pool.haproxy.backends.services` -  a more intuitive way to select services and backends for HAProxy&reg; load balancers.
 
-Because the specifications are nearly identical, the reference information in this section provides details for the latest version of the Edge-LB API specification (V2). If you need pool configuration information for working with the older specification, see [Edge-LB pool configuration (REST API V1)](/services/edge-lb/reference/v1-reference/).
+Because the specifications are nearly identical, the reference information in this section provides details for the latest version of the Edge-LB API specification (V2). If you need pool configuration information for working with the older specification, see [Edge-LB pool configuration (REST API V1)](/services/edge-lb/1.5/reference/v1-reference/).
 
 # Configuration file input format
 Edge-LB accepts configuration files in either YAML or JSON format. In most cases, however, you should use JSON and migrate any previous configuration settings from YAML format to JSON.
@@ -34,7 +34,7 @@ To convert a YAML configuration file to JSON and output the results to standard 
 
 `dcos edgelb show --convert-to-json=/path/to/yaml`
 
-For more information about using Edge-LB commands, see the [Edge-LB command-line interface](/services/edge-lb/reference/cli-reference/) reference information.
+For more information about using Edge-LB commands, see the [Edge-LB command-line interface](/services/edge-lb/1.5/reference/cli-reference/) reference information.
 
 <a name="pool"></a>
 
@@ -301,7 +301,7 @@ defaultBackend</td><td>string</td><td>This is the default backend that is routed
 <tr><td>name</td><td>string</td><td>Defines the name to which the frontend refers.</td></tr>
 <tr><td>protocol</td><td>string</td><td>Determines the backend protocol used. The backend protocol is how HAProxy communicates with the servers for which it is performing load balancing.</td></tr>
 <tr><td>rewriteHttp</td><td></td><td>Manipulates HTTP headers. There is no effect unless the protocol is either HTTP or HTTPS.</td></tr>
-<tr><td>balance</td><td>string</td><td>Specifies the load balancing strategy. For example, `roundrobin` or `leastconn`. For more information about load balancing algorithms you can use, see `HAPROXY_BACKEND_HEAD` in <a href="/services/edge-lb/reference/haproxy-templates-labels"> HAProxy templates and labels</a>.</td></tr>
+<tr><td>balance</td><td>string</td><td>Specifies the load balancing strategy. For example, `roundrobin` or `leastconn`. For more information about load balancing algorithms you can use, see `HAPROXY_BACKEND_HEAD` in <a href="/services/edge-lb/1.5/reference/haproxy-templates-labels"> HAProxy templates and labels</a>.</td></tr>
 <tr><td>customCheck</td><td>object</td><td>Specifies alternate forms of healthchecks.
 <ul>
 <li><a href="#customCheck-prop">httpchk</a></li>

@@ -20,7 +20,7 @@ By deploying dedicated Edge-LB pools per application or framework, you can ensur
 The following diagram provides an example of this type of application-specific Edge-LB pool usage:
 
 <p>
-<img src="/services/edge-lb/img/Edge-LB-app-pool-arch.png" alt="Using multiple Edge-LB pool instances">
+<img src="/services/edge-lb/1.5/img/Edge-LB-app-pool-arch.png" alt="Using multiple Edge-LB pool instances">
 </p>
 
 This diagram illustrates Edge-LB pool instances with each pool instance deployed for a single service. If the Edge-LB pool instance that handles load balancing for MySQL&reg; goes down, Edge-LB continues to load balance traffic for NGINX&trade; pool instances.

@@ -11,7 +11,7 @@ This tutorial demonstrates exposing and accessing the NGINX&trade; service by us
 
 # Before you begin
 You must have:
-* Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
 * The DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
@@ -231,5 +231,5 @@ This tutorial shows the differences between configuring load balancing using Mar
 
     For example:
     <p>
-    <img src="/services/edge-lb/img/Edge-HAProxy-stats-2.png" alt="Statistics for a service exposed using Edge-LB">
+    <img src="/services/edge-lb/1.5/img/Edge-HAProxy-stats-2.png" alt="Statistics for a service exposed using Edge-LB">
     </p>
