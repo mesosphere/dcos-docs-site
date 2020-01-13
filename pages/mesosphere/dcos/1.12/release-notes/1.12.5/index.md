@@ -39,7 +39,7 @@ The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, function
 - Increased number of diagnostics fetchers (DCOS-51483) 
 - Fixed DC/OS overlay networks update comparison to use all fields. (DCOS_OSS-5620)
 - All agent VTEP IPs reserve when recovering from replicated log. (DCOS_OSS-5626)
-- Fixed nodes and applications not pingable on 2.0. (COPS-5575, DCOS-60956)
+- Set network interfaces as unmanaged for networkd only on CoreOS, which fixes an issue that could prevent the overlay network from working properly in some situations.(COPS-5575, DCOS-60956)
 - Fixed DC/OS Backup for Exhibitor TLS. (COPS-5313, DCOS-60918)
 - Added support for Mesos overlay networking to drop agents from the state. (DCOS_OSS-5536)
 - DC/OS now supports multi-role framework in the authorization module. ( DCOS-54635)
