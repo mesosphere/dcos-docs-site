@@ -51,7 +51,6 @@ The issues that have been fixed in DC/OS 1.12.5 are listed below. Most change de
 - The time it takes to deploy a service with a L4-VIP has been reduced by pruning VIPs, which reduced growth of state messages exchanged among dcos-net processes.  (DCOS-56071, DCOS_OSS-5356)
 - You can now delete a service endpoint via Form. (DCOS-21472) 
 - You can now save Docker parameters, as expected. (DCOS-45226)
-- Fixed tests: autouse=True in Marathon fixture. (DCOS-45746) 
 - Fixed TypeError in ResourcesUtil.getAvailableResources (DCOS-46307)
 - Error message for invalid input in package creation now goes away after updating the field. (DCOS-46413) 
 - Fixed an issue where Mesos master memory use seems to increase (DCOS-55315)
