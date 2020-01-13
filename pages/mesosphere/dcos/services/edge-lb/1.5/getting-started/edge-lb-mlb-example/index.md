@@ -11,18 +11,18 @@ This tutorial demonstrates exposing and accessing the NGINX&trade; service by us
 
 # Before you begin
 You must have:
-* The Edge-LB API server installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* The Edge-LB API server installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/getting-started/installing).
 * The DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS&trade; cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
-* Marathon-LB installed as described in the Marathon-LB [installation instructions](/services/marathon-lb/1.12.x/mlb-install).
+* Marathon-LB installed as described in the Marathon-LB [installation instructions](/mesosphere/dcos/services/marathon-lb/1.12.x/mlb-install).
 
 # Preview of what you'll do
 This tutorial illustrates the differences between configuring load balancing using Marathon-LB and an Edge-LB pool to provide public access to a simple Marathon app. In this tutorial, you will:
 * Create and deploy a sample Marathon app called `nginx`.
 * Configure and deploy Marathon-LB using the Marathon service `nginx-mlb`.
 * Configure and deploy load balancing using the Edge-LB pool instance called `nginx-edgelb`.
-* Access the sample `nginx` app through the public agent URL. 
+* Access the sample `nginx` app through the public agent URL.
 
 # Configure the sample app for Marathon-LB
 1. Open a text editor, then copy and paste the following sample app definition to create the `nginx-mlb.json` file:
@@ -160,7 +160,7 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     ```
 
 # Verify deployment status for sample apps
-1. Verify that the Marathon-LB and Edge-LB API server packages have been deployed sucessfully by running the following command:
+1. Verify that the Marathon-LB and Edge-LB API server packages deployed sucessfully by running the following command:
 
     ```bash
     dcos package list
@@ -172,24 +172,24 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     dcos marathon app list
     ```
 
-1. Verify the mesos task relevant to services and the pool instances by running the following command:
+1. Verify the Apache&reg; Mesos&reg; task relevant to services and the pool instances by running the following command:
 
     ```bash
     dcos task
     ```
 
-1. Verify that the Edge-LB pool named `nginx-edgelb` has been deployed successfully by running the following command:
+1. Verify that the Edge-LB pool named `nginx-edgelb` deployed successfully by running the following command:
 
     ```bash
     dcos edgelb list
     ```
 
-1. Verify that the Edge-LB pool instance was deployed successfully with the configured frontend and backend ports by running the following command:
+1. Verify that the Edge-LB pool instance deployed successfully with the configured frontend and backend ports by running the following command:
 
     ```bash
     dcos edgelb endpoints nginx-edgelb
     ```
-    
+
 # Verify service access
 1. Access the `nginx-mlb` service using the public IP address and port specified in the `nginx-mlb.json` file.
 
@@ -199,7 +199,7 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
 
     You should see a page for `Welcome to Nginx - through Marathon-LB`. For example: 
     <p>
-    <img src="/services/edge-lb/img/Edge-MLB-nginx.png" alt="Welcome page for a service using Marathon-LB">
+    <img src="/mesosphere/dcos/services/edge-lb/1.5/img/Edge-MLB-nginx.png" alt="Welcome page for a service using Marathon-LB">
     </p>
 
 1. View the load balancing statistics for the `nginx` service deployed using Marathon-LB using the default HAProxy `stats` port 9090:
@@ -207,9 +207,10 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     ```bash
     http://<public_agent_public_IP>:9090
     ```
+
     For example:
     <p>
-    <img src="/services/edge-lb/img/Edge-HAProxy-stats.png" alt="Statistics for a service exposed using Marathon-LB">
+    <img src="/mesosphere/dcos/services/edge-lb/1.5/img/Edge-HAProxy-stats.png" alt="Statistics for a service exposed using Marathon-LB">
     </p>
 
 1. Access the `nginx` service that was exposed through Edge-LB using the public agent IP and the frontend port number. 
@@ -220,7 +221,7 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     You should see a page for `Welcome to Nginx - through Edge-LB`. For example:
 
     <p>
-    <img src="/services/edge-lb/img/Edge-LB-welcome-nginx.png" alt="Welcome page for a service using Edge-LB">
+    <img src="/mesosphere/dcos/services/edge-lb/1.5/img/Edge-LB-welcome-nginx.png" alt="Welcome page for a service using Edge-LB">
     </p>
 
 1. View the load balancing statistics for the `nginx` service deployed using Edge-LB using the predefined HAProxy `stats` port 1025:
@@ -231,5 +232,5 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     
     For example:
     <p>
-    <img src="/services/edge-lb/img/Edge-HAProxy-stats-2.png" alt="Statistics for a service exposed using Edge-LB">
+    <img src="/mesosphere/dcos/services/edge-lb/1.5/img/Edge-HAProxy-stats-2.png" alt="Statistics for a service exposed using Edge-LB">
     </p>

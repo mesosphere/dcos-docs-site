@@ -49,5 +49,5 @@ As a cluster administrator, you can deploy Edge-LB pools to handle specific tena
 The following diagram provides a simplified architectural view of Edge-LB:
 
 <p>
-<img src="/services/edge-lb/1.5/img/Edge-LB-component-arch.png" alt="Core components of the Edge-LB architecture">
+<img src="/mesosphere/dcos/services/edge-lb/1.5/img/Edge-LB-component-arch.png" alt="Core components of the Edge-LB architecture">
 </p>

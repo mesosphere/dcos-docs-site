@@ -11,7 +11,7 @@ You can use the DC/OS&trade; CLI client to find the Edge-LB version that you hav
 
 # Before you begin
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster.
@@ -34,4 +34,4 @@ You must have:
 
     This example output indicates that the current Edge-LB API server version is v1.3.0 and the CLI client that is interacting with the Edge-LB server is also version v1.3.0.
 
-For more specific information about the latest supported Edge-LB version and Edge-LB compatibility with the latest releases of DC/OS, see the Edge-LB [version policy](/services/edge-lb/1.5/related-documentation/version-support/) summary and the [version compatibility matrix](/version-policy/#certified-packages-and-dcos-versions).
+For more specific information about the latest supported Edge-LB version and Edge-LB compatibility with the latest releases of DC/OS, see the Edge-LB [version policy](/mesosphere/dcos/services/edge-lb/1.5/related-documentation/version-support/) summary and the [version compatibility matrix](/mesosphere/dcos/2.0/release-notes/version-policy/#certified-packages-and-dcos-versions).

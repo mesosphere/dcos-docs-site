@@ -14,9 +14,9 @@ The steps to follow depend on the deployment scenario you want to implement. For
 For most production deployments, however, you should create a unique service account for installing and managing Edge-LB.
 
 # Before you begin
-- You must have the [DC/OS CLI](/2.0/cli/install/) and [DC/OS Enterprise CLI](/2.0/cli/enterprise-cli/) installed.
-- You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/services/edge-lb/1.5/reference/permissions/#installation-permissions).
-- You must have a registered customer account to log in to the [D2iQ&reg; support portal](https://https://support.d2iq.com/s/.
+- You must have the [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) and [DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/) installed.
+- You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/mesosphere/dcos/services/edge-lb/1.5/reference/permissions/#installation-permissions).
+- You must have a registered customer account to log in to the [D2iQ&reg; support portal](https://support.d2iq.com/s/).
 - You must have network access to download the %%% link needed... [remote Edge-LB repositories](https://support.d2iq.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
 
   If your cluster is behind a firewall, is restricted to an internal network with no access to the internet, or unable to access the public catalog for any reason, then you must add Edge-LB packages using a **local catalog**. For more information about installing using a local catalog, see [Deploy using a local catalog](#create-local-repo).
@@ -29,7 +29,7 @@ You must have access to the following Edge-LB packages:
 These packages are available for download from the D2iQ&reg; support portal. You must be able to access the repositories for both the Edge-LB API server and Edge-LB pool packages to install Edge-LB.
 
 Depending on whether you have internet access, follow the corresponding instructions to get the Edge-LB packages:
-- [Download artifacts directly](#download-artifacts) from the internet.
+- [Download package artifacts directly](#download-artifacts) from the internet.
 - [Create a local catalog](#create-local-repo) and add artifacts to the local catalog.
 
 <a name="download-artifacts">
@@ -43,7 +43,7 @@ To download the Edge-LB packages:
 
     You must have an account to download the Edge-LB packages. If you have not previously registered an email address for an account, click [create a new account](https://support.d2iq.com/CommunitiesSelfReg) to get started.
 
-1. Open [Downloads](https://support.d2iq.com/s/downloads?t=1551917897670) directly or click **My Account**, then click [Downloads](https://support.d2iq.com/s/downloads) to view the list of packages available for download.
+1. Open [Downloads](https://support.d2iq.com/s/downloads?t=1551917897670) directly or click **My Account**, then click Downloads to view the list of packages available for download.
 
     By default, the most recent DC/OS packages that are available for download are listed.
 
@@ -110,7 +110,7 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
 
 1. Click **Services** to verify the Edge-LB API and Edge-LB pool services are installed and running.
     <p>
-    <img src="/services/edge-lb/1.5/img/edgelb-deployment-status.png" alt="Configuring Edge-LB API settings">
+    <img src="/mesosphere/dcos/services/edge-lb/1.5/img/edgelb-deployment-status.png" alt="Configuring Edge-LB API settings">
     </p>
 
 <p class="message--important"><strong>IMPORTANT: </strong>Although you can add and modify settings directly in the web-based console from the Catalog, do not start the services until **after** you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start, but it will not be able to resolve to a healthy Running state.</p>
@@ -120,7 +120,7 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
 # Deploy using a local catalog
 If you have an isolated network that cannot connect directly to the Internet, you need to deploy a local catalog containing your own set of packages. To create the local catalog, you must build a customized Docker&reg; image repository before you can add the Edge-LB packages.
 
-For detailed instructions about creating a local catalog, see [DC/OS universe deployment](/2.0/administering-clusters/deploying-a-local-dcos-universe/#certified).
+For detailed instructions about creating a local catalog, see [DC/OS universe deployment](/mesosphere/dcos/2.0/administering-clusters/deploying-a-local-dcos-universe/#certified).
 
 ## Before you begin
 You must have access to [Git](https://git-scm.com/) to create the local catalog. If you are using `git` on UNIX&reg; or Linux&reg;, see the [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
@@ -167,7 +167,7 @@ Before you can add Edge-LB packages to your local catalog, you must copy the Mes
 
 1. Build the `mesosphere/universe` Docker image by specifying a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable.
 
-    For example: %%% should the edge-lb version numbers in this example be updated to later versions?
+    For example:    ***%%% should the edge-lb version numbers in this example be updated to later versions?***
 
     ```bash
     sudo make DCOS_VERSION=1.12 DCOS_PACKAGE_INCLUDE=“edgelb:v1.2.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
@@ -183,7 +183,7 @@ After you add the Edge-LB packages to the local catalog, you are ready to create
 <a name="create-service-account"></a>
 
 # Create a service account
-The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests. [Service accounts](/2.0/security/ent/service-auth/) are used in conjunction with public/private key pairs, secrets, permissions, and authentication tokens to provide secure access for services running on DC/OS Enterprise clusters. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
+The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests. [Service accounts](/mesosphere/dcos/2.0/security/ent/service-auth/) are used in conjunction with public/private key pairs, secrets, permissions, and authentication tokens to provide secure access for services running on DC/OS Enterprise clusters. Service accounts control the communications and DC/OS API actions that the services are permitted to make.
 
 Creating a service account involves the following steps:
 - Create a public/private key pair
@@ -194,7 +194,7 @@ Creating a service account involves the following steps:
 The secret store is used by Edge-LB to retrieve and install SSL certificates on the Edge-LB pools. The SSL certificates enable transport layer security (TLS) for all HTTP-based traffic between client requests and service backends.
 
 ## To create a service account for Edge-LB
-1. Open a shell terminal where you have access to the [DC/OS Enterprise command-line interface (CLI)](/2.0/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
+1. Open a shell terminal where you have access to the [DC/OS Enterprise command-line interface (CLI)](/mesosphere/dcos/2.0/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
 
 1. Create a public/private key pair and save each value into a separate file by running a command similar to the following:
 
@@ -215,7 +215,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     ```bash
     dcos security org service-accounts show edge-lb-principal
     ```
-    
+
     The command displays output similar to the following:
 
     ```
@@ -251,7 +251,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 
     If the DC/OS cluster security mode is **disabled**, remove the `--strict` parameter.
 
-    For more information about creating and storing secrets for services, see [Configuring services and pods](2.0/security/ent/secrets/use-secrets/) and [Spaces](2.0/security/ent/#spaces).
+    For more information about creating and storing secrets for services, see [Configuring services and pods](/mesosphere/dcos2.0/security/ent/secrets/use-secrets/) and [Spaces](/mesosphere/dcos2.0/security/ent/#spaces).
 
 1. List the secrets created by running the command:
 
@@ -339,7 +339,7 @@ After configuring service authentication, you must create a JSON options file wi
     - Use `true` (default) for permissive or strict security
     - Use `false` for disabled security
 
-    For example:    
+    For example:
 
     ```json
     {
@@ -355,8 +355,8 @@ After configuring service authentication, you must create a JSON options file wi
 
 1. Specify other configuration settings, as needed.
 
-    For example, you can specify the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/services/edge-lb/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`).
-    
+    For example, you can specify the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/mesosphere/dcos/services/edge-lb/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`).
+
     ```json
     {
         "service": {
@@ -373,7 +373,7 @@ After configuring service authentication, you must create a JSON options file wi
     }
     ```
 
-1. Save the configuration file. 
+1. Save the configuration file.
 
 1. Add the configuration file to source control so that you can update configuration at a later time.
 
@@ -412,6 +412,6 @@ After you have added the packages to the cluster catalog, created a secure servi
 
     When Edge-LB is ready, the ping command should return the `pong` response in standard output (`stdout`).
 
-- For more information about configuring Edge-LB, see the Edge-LB  [pool configuration](/services/edge-lb/1.5/reference/pool-configuration-reference) reference section.
+- For more information about configuring Edge-LB, see the Edge-LB  [pool configuration](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference) reference section.
 
-- For more information about the available Edge-LB commands, see the Edge-LB [command-line](/services/edge-lb/1.5/reference/cli-reference) reference section.
+- For more information about the available Edge-LB commands, see the Edge-LB [command-line](/mesosphere/dcos/services/edge-lb/1.5/reference/cli-reference) reference section.

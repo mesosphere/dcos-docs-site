@@ -11,7 +11,7 @@ This tutorial demonstrates how to set up multiple Edge-LB load balancer instance
  
 # Before you begin
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service.
@@ -132,8 +132,8 @@ If you plan to adapt this tutorial to use Edge-LB with AWS Application Load Bala
    ```
 
     This command should display confirmation that the pool was successfully created. You can run either of these commands to verify the Edge-LB pool deployment status:
-    - dcos edgelb show multi-lb-config
-    - dcos edgelb status multi-lb-config
+    * dcos edgelb show multi-lb-config
+    * dcos edgelb status multi-lb-config
 
 1. Verify the deployment of the sample service by running the following command:
 
@@ -160,13 +160,13 @@ If you plan to adapt this tutorial to use Edge-LB with AWS Application Load Bala
 
     When DC/OS is deployed on an AWS cloud instance, however, you must find the public-facing IP address provided by Amazon&reg; that is associated with the node to view the sample service. You can then specify that information in the browser to access the sample service through the load balancer. The public-facing IP address provided by Amazon for the node might be a concatenated string similar to `http://luxi-test-publicsl-1jqww865xiuoa-1008229330.us-west-2.elb.amazonaws.com:80`.
 
-    ![Sample service](/services/edge-lb/1.5/img/customer-sample-app.png)
+    ![Sample service](/mesosphere/dcos/services/edge-lb/1.5/img/customer-sample-app.png)
 
 # Prepare the external load balancer
 This tutorial illustrates load balancing for a DC/OS cluster running on an Amazon Web Services (AWS) public or private cloud instance. AWS supports three types of Elastic Load Balancing solutions:
-- Application Load Balancers
-- Network Load Balancers
-- Classic Load Balancers
+* Application Load Balancers
+* Network Load Balancers
+* Classic Load Balancers
 
 This tutorial focuses on using Edge-LB with Amazon Web Services (AWS) classic load balancers. The AWS Elastic classic load balancer supports TCP, SSL/TLS, HTTP,  and HTTPS connections for both EC2-Classic and virtual private cloud (VPC) cluster deployments.
 

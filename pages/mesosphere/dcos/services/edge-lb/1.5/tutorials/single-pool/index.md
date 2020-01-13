@@ -11,7 +11,7 @@ This tutorial demonstrates how to set up three services with a single Edge-LB po
 
 # Before you begin
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
@@ -266,22 +266,22 @@ You must have:
     ```
 # Verify service access using frontend ports
 1. Verify that you can access the following deployed services using the public IP address and the assigned frontend ports.
-    - `ping` service:
+    * `ping` service:
       ```bash
       http://<public_agent_public_IP>:15001
       ```
-    - `nginx` service:
+    * `nginx` service:
       ```bash
       http://<public_agent_public_IP>:15002
       ```
-    - `echo` service:
+    * `echo` service:
       ```bash
       http://<public_agent_public_IP>:15003
       ```
 
     When you navigate to the public IP address and specified port, you should see the following pages:
-    - `pong`
-    - `Welcome to Nginx`
-    - `Hello from Marathon!`
+    * `pong`
+    * `Welcome to Nginx`
+    * `Hello from Marathon!`
 
     If you cannot access one of the pages, check that the Edge-LB frontend ports do not conflict with other ports you are currently using.

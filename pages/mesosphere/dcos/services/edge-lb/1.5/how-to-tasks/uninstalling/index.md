@@ -14,7 +14,7 @@ You can use the DC/OS web-based console or the core DC/OS command-line interface
 # Before you begin
 
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The `edgelb` command-line interface (CLI) installed.
 
 # To uninstall Edge-LB

@@ -13,12 +13,12 @@ As you refine the deployment of agent nodes and services for your DC/OS&trade; E
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages. 
 
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
-For information about installing Edge-LB packages, see the [installation](/services/edge-lb/1.5/getting-started/installing/) instructions.
+For information about installing Edge-LB packages, see the [installation](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing/) instructions.
 
 # Scaling up Edge-LB pool instances
 You can achieve high availability for load-balancing application traffic by increasing Edge-LB pool’s HAProxy instances. To do this, update the existing Edge-LB pool configuration ‘count’ variable to increase the number of HAProxy instances.

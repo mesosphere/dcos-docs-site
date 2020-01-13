@@ -13,12 +13,12 @@ This section describes the common reload and relaunch scenarios for Edge-LB pool
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS&trade; Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages.
 
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
-For information about installing Edge-LB packages, see the [installation](/services/edge-lb/1.5/getting-started/installing/) instructions.
+For information about installing Edge-LB packages, see the [installation](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing/) instructions.
 
 # Normal reload scenario
 A change to a service (such as scaling up) that is load balanced by a pool, automatically triggers a reload of the pool configuration file, and restarts the load balancer instances for that service.
@@ -30,10 +30,10 @@ During this type of normal reload scenario, you can expect the following behavio
 
 * All the new connections will be proxied using the new reloaded configuration.
 
-This type of reload occurs at most once every 3 seconds. Normal reload operations play a key role in enabling zero-downtime deployment strategies like the one described in the [Blue/Green service deployment](/services/edge-lb/1.5/tutorials/blue-green-deploy) tutorial.
+This type of reload occurs at most once every 3 seconds. Normal reload operations play a key role in enabling zero-downtime deployment strategies like the one described in the [Blue/Green service deployment](/mesosphere/dcos/services/edge-lb/1.5/tutorials/blue-green-deploy) tutorial.
 
 # Load balancer relaunch scenario
-A change to the load balancer pool (such as adding a secret) triggers a relaunch of all load balancers in the pool. 
+A change to the load balancer pool (such as adding a secret) triggers a relaunch of all load balancers in the pool.
 
 During this type of load balancer relaunch scenario, you can expect the following behavior:
 * Traffic currently flowing through the given load balancer is dropped when it is stopped. To minimize the impact of stopping and restarting a load balancer instance, you should run more than one load balancer instance within the pool.
