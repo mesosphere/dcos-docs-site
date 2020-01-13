@@ -58,21 +58,10 @@ The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, function
 - Fixed an issue where Secrets sometimes disappear from JSON editor in UI (COPS-4928, DCOS-55692)
 - Fixed an issue where the UI form deletes `networkNames` property from pod endpoints (DCOS-50452)
 - Secret generator no longer produces extra authentication warnings in Enterprise Mesos modules (COPS-4767, DCOS-52793)
-
-
-
-
-
-
-
-_______________________
-
-
-- [Metronome] Querying run detail with embed=history, successfulFinishedRuns and failedFinishedRuns contains new field tasks which is an array of taskIds of that finished run. This will allow people to query task ids even for finished job runs.
-
-- [Metronome] Fixes metronome where it did not use the revive operation.
-
-- [Metronome] Updates to fix daylight saving issues.
-
-
-<!-- TLS + backups is only supported on 1.12.5+ (COPS-5313, DCOS-60918) This may have already been added to earlier release notes. -->
+- DC/OS now supports DESTROY_RAW_DISK authorization action. (DCOS-50932)
+- Under heavy load, direct requests to the IAM could be slowed down, making the IAM slow to respond to all requests. Mesos master now uses a login endpoint that goes through Admin Router, reducing the effect of any slow senders. This addresses a rare error condition in which the IAM system can become unavailable, potentially leading to Mesos task launch errors in the strict security mode. (DCOS-56053)
+- Package specific icons are now showing up properly for all services installed from Universe. (DCOS-53674, COPS-4710) 
+- Fixed a licensing permissions error, that resulted in the following message, "error getting LicenseID. Got error: Get http://unix/licenses: dial unix /run/dcos/dcos-licensing.sock: connect: permission denied" (DCOS-57291)
+- Updated code to unify frequency between DC/OS Signal EE and OSS; signal now sends telemetry data every five minutes. (DCOS-57281)
+- Updated DC/OS master to accept the most up to date plugins. Pinned the dcos CLI plugins in every DC/OS branch for both OSS and Enterprise versions, and consolidated all dcos cli instantiations into one fixture. (DCOS-57266)
+- Completed merge signal work for both Enterprise and OSS versions. (DCOS-57062)
