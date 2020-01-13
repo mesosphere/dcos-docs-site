@@ -14,16 +14,16 @@ In this tutorial, you use settings in the custom `haproxy` template to create at
 # Before you begin
 You must have:
 * An active and properly-configured DC/OS Enterprise cluster.
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The `edgelb` command-line interface (CLI) installed.
 
 # Create a custom template
 
 To create a custom template for Basic authentication:
 
-1. Install Edge-LB as described [Installing Edge-LB](/services/edge-lb/1.5/getting-started/installing).
+1. Install Edge-LB as described [Installing Edge-LB](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 
-1. Create an Edge-LB pool as described in [Expose and load balance a service](/services/edge-lb/1.5/getting-started/single-lb).
+1. Create an Edge-LB pool as described in [Expose and load balance a service](/mesosphere/dcos/services/edge-lb/1.5/getting-started/single-lb).
 
 1. Fetch the template for the Edge-LB pool you created in the previous step and save it to a file named `haproxy.tmpl` by running the following command:
 

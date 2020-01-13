@@ -2,14 +2,16 @@
 layout: layout.pug
 navigationTitle: Connecting to Kubernetes using Edge-LB
 title: Connecting to Kubernetes using Edge-LB
-menuWeight: -1
+menuWeight: 17
 excerpt: How to connect to Kubernetes from a DC/OS Enterprise cluster using Edge-LB load balancer
 enterprise: true
 ---
 
+***%%% This topic was hidden from view using a negative menuWeight value - is it correct and should we display it? ***
+
 This tutorial demonstrates how to connect to a Kubernetes&reg; cluster using the Edge-LB service for inbound load-balancing. In this tutorial, you will configure one Edge-LB pool to handle load-balancing for requests to access Kubernetes.
 
-For more information about setting up and working with Kubernetes clusters, see [Kubernetes](/services/kubernetes/git).
+For more information about setting up and working with Kubernetes clusters, see [Kubernetes](/mesosphere/dcos/services/kubernetes/git).  ***%%%...to which K8s version shiuld this link resolve?***
 
 # Before you begin
 You can use Edge-LB to provide inbound load balancing when you connect to a private Kubernetes cluster from outside of a DC/OS&reg; cluster.
@@ -27,7 +29,7 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
     For example, you can download the repositories from the support site using your browser if you log in to the D2iQ&reg; Support portal with an enterprise customer service account.
     <p>
-    <img src="/services/edge-lb/1.5/img/download-edge-lb.png" alt="Downloading Edge-LB from D2iQ Support">
+    <img src="/mesosphere/dcos/services/edge-lb/1.5/img/download-edge-lb.png" alt="Downloading Edge-LB from D2iQ Support">
     </p>
 
     Alternatively, you can run commands similar to the following to download DC/OS Edge-LB packages:
@@ -184,4 +186,4 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
 # Test Kubernetes connections and view the dashboard
 
-After you have configured Edge-LB to connect to your Kubernetes clusters, you can [test connections and view the Kubernetes Dashboard](/services/kubernetes/2.1.1-1.12.5/getting-started/test-connect/) using a web proxy on your browser.
+After you have configured Edge-LB to connect to your Kubernetes clusters, you can [test connections and view the Kubernetes Dashboard](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/getting-started/test-connect/) using a web proxy on your browser.        ***%%% Is 2.1.1-1.12.5 the best version to which to link? Latest is 2.4.5-1.15.5.***

@@ -7,7 +7,7 @@ excerpt: How to configure East-West internal-only load balancing using Edge-LB
 enterprise: true
 ---
 
-In most cases, load balancing for traffic inside of a DC/OS&trade; cluster - referred to **internal** or **East-West** load balancing - is managed through the DC/OS layer-4 load-balancer (`dcos-l4lb`), which is part of the networking layer (`dcos-net`) of the DC/OS platform. With the DC/OS layer-4 load-balancer, you configure load balancing through [virtual IP addresses](/latest/networking/load-balancing-vips) in app definitions without creating a separate load balancing configuration file.
+In most cases, load balancing for traffic inside of a DC/OS&trade; cluster - referred to **internal** or **East-West** load balancing - is managed through the DC/OS layer-4 load-balancer (`dcos-l4lb`), which is part of the networking layer (`dcos-net`) of the DC/OS platform. With the DC/OS layer-4 load-balancer, you configure load balancing through [virtual IP addresses](/mesosphere/dcos/2.0/networking/load-balancing-vips) in app definitions without creating a separate load balancing configuration file.
 
 In some cases, however, you might find it desirable or necessary to use Edge-LB for load balancing the traffic inside of a DC/OS cluster. For example, if you need layer-7 load balancing capability at the application level for traffic within the cluster, you can configure an Edge-LB pool to handle load balancing for internal-only traffic.
 
@@ -17,12 +17,12 @@ This section shows how to set Edge-LB pool configuration options to enable inter
 Before you create Edge-LB pools and pool configuration files, you should have DC/OS Enterprise cluster nodes installed and ready to use, and have previously downloaded and installed the latest Edge-LB packages.
 
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/1.5/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
-For information about installing Edge-LB packages, see the [installation](/services/edge-lb/1.5/getting-started/installing/) instructions.
+For information about installing Edge-LB packages, see the [installation](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing/) instructions.
 
 # Configure internal (East / West) load balancing
 If you have client requests originating inside of a cluster for access to applications running on private agent nodes, you may want to configure one or more Edge-LB pools to route those requests for internal load balancing.

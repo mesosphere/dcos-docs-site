@@ -23,7 +23,7 @@ For example, using the public cloud load balancer in combination with Edge-LB:
 
 The following diagram provides a simplified view of the architecture with a cloud provider load balancer deployed between the Edge-LB API server and an Edge-LB pool.
 
-![Integrating a cloud provider load balancer](../../1.5/img/Edge-LB-cloud-arch.png)
+![Integrating a cloud provider load balancer](/mesosphere/dcos/services/edge-lb/1.5/img/Edge-LB-cloud-arch.png)
 
 You should note that, currently, Edge-LB supports only AWS Network Load Balancers (NLB) for integrated cloud provider load balancing. For information about deploying and configuring AWS Network Load Balancers (NLB), see the AWS documentation for [Network Load Balancers](https://docs.aws.amazon.com/elasticloadbalancing/latest/network/introduction.html).
 
