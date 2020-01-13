@@ -57,7 +57,7 @@ The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, function
 - Fixed an issue where newly added public agents were not showing up in the DC/OS UI. (COPS-5606, DCOS-61274)
 - Fixed an issue where Secrets sometimes disappear from JSON editor in UI (COPS-4928, DCOS-55692)
 - Fixed an issue where the UI form deletes `networkNames` property from pod endpoints (DCOS-50452)
-
+- Secret generator no longer produces extra authentication warnings in Enterprise Mesos modules (COPS-4767, DCOS-52793)
 
 
 
