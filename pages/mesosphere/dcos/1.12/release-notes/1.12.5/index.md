@@ -6,7 +6,7 @@ menuWeight: 3
 excerpt: Release notes for DC/OS 1.12.5
 ---
 
-DC/OS Version 1.12.5 was released on 10 January 2020.
+DC/OS Version 1.12.5 was released on 13 January 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.12.5/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
