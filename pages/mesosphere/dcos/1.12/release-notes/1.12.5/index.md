@@ -41,6 +41,7 @@ The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, function
 - All agent VTEP IPs reserve when recovering from replicated log. (DCOS_OSS-5626)
 - Set network interfaces as unmanaged for networkd only on CoreOS, which fixes an issue that could prevent the overlay network from working properly in some situations.(COPS-5575, DCOS-60956)
 - Fixed DC/OS clients that do not adhere to Exhibitor TLS. (DCOS-57704)	
+- Fixed configuration updates for DC/OS 1.12.5 (DCOS-55360)
 - Changed dcos-e2e version to get higher log retention in 1.12, 1.13 and master branches. (DCOS-58001)	
 - Fixed incorrect dcos-diagnostics HTTP response status codes for GET/DELETE. (DCOS-58105)	
 - Fixed DC/OS clients that do not adhere to Exhibitor TLS for versions 1.12 and 1.13. (DCOS-58361)
