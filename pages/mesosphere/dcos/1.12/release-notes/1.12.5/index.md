@@ -69,3 +69,10 @@ The issues that have been fixed in DC/OS 1.12.5 are listed below. Most change de
 - Updated code to unify frequency between DC/OS Signal EE and OSS; signal now sends telemetry data every five minutes. (DCOS-57281)
 - Updated DC/OS master to accept the most up to date plugins. Pinned the dcos CLI plugins in every DC/OS branch for both OSS and Enterprise versions, and consolidated all dcos cli instantiations into one fixture. (DCOS-57266)
 - Completed merge signal work for both Enterprise and OSS versions. (DCOS-57062)
+- Fixed dcos:mesos:master:framework:role:* ACL giving unauthorized access to tasks. (COPS-4929)
+- Fixed job syntax naming bug on Metronome. (COPS-5208)
+- Fixed MacOS Catalina certificate issue with Chrome 77.0.3865.90 for both DC/OS and Konvoy. (COPS-5417)
+- Added correct icons for services that are installed from Universe, but are not classified as Frameworks. (COPS-4727)
+- The time it takes to deploy a service with an L4-VIP has been reduced by pruning VIPs, which reduced growth of state messages exchanged among dcos-net processes. (COPS-5081)
+- Introduced an HTTP endpoint that accepts a list of agent IP addresses to remove from the Apache Mesos overlay state. It was needed to drop such records for agents that are removed.(COPS-5281 / DCOS_OSS-5536)
+
