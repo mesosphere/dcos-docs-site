@@ -25,7 +25,7 @@ DC/OS 1.12.5 includes the following components:
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment. 
 
 # Issues fixed in DC/OS 1.12.5
-The issues that have been fixed in DC/OS 1.12.5 are grouped by feature, functional area, or component. Most change descriptions include one or more issue tracking identifiers for reference.
+The issues that have been fixed in DC/OS 1.12.5 are listed below. Most change descriptions include one or more issue tracking identifiers for reference.
 
 - The DC/OS diagnostics bundle now includes Mesos state logs content, located at `/var/log/mesos-state.tar.gz`. (DCOS-56403)
 - Added 3 new environment files to Mesos systemd. (DCOS-49092)
