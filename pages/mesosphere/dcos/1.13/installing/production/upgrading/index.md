@@ -277,6 +277,16 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
+   <th>1.12.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
   </table>
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
