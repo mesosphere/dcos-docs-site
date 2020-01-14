@@ -31,7 +31,6 @@ The issues that have been fixed in DC/OS 1.12.5 are listed below. Most change de
 - Added support for user managed environment files to mesos systemd units. (DCOS-49092)
 - [Metronome] post-install configuration can be added to `/var/lib/dcos/metronome/environment` (DCOS_OSS-5509)
 - Changed `dcos-zk backup` and `dcos-zk restore` to exit early if ZooKeeper is running. (DCOS_OSS-5353)
-- Fixed preflight docker version check failing on unknown versions. (DCOS-56831)
 - DC/OS Net: Fix support for big sets in the IPset manager. (DCOS-57506, COPS-5229)
 - Added new diagnostic REST API bundle with performance improvements. (DCOS_OSS-5098)
 - Fixed old diagnostics bundle from increasing diagnostics job duration when job was done. (DCOS_OSS-5494)
