@@ -24,6 +24,8 @@ The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, function
 
 - Mesos agent no longer deadlocks in RPC authenticatee. (DCOS-57388)
 - Fixed issue where jobs and group names appeared duplicated when the job name matched the group name. (DCOS-54937, COPS-5208)
+- Fixed preflight Docker® version check failing for Docker 1.19. (DCOS-56831)ß
+
 
 ## Diagnostics
 - Archive `/var/log/mesos-state.tar` has been added to all Diagnostics bundles. (DCOS-56403)
@@ -38,4 +40,3 @@ The issues that have been fixed in DC/OS 1.13.4 are grouped by feature, function
 ## Security
 [/enterprise]
 - Fixed authorization for MULTI_ROLE frameworks. (DCOS-54635)
-
