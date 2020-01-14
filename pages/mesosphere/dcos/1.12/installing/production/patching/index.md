@@ -57,10 +57,12 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.12.2</th>
     <th>1.12.3</th>
     <th>1.12.4</th>
+    <th>1.12.5</th>
    </tr>
    <tr>
     <th>1.12.0</th>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -73,12 +75,14 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.12.2</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
@@ -89,6 +93,17 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.12.4</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+   </tr>
 </table>
 
 
