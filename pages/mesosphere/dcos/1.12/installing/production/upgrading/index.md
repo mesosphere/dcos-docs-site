@@ -57,9 +57,11 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <th Align = "center">1.12.2</th>
     <th Align = "center">1.12.3</th>
     <th Align = "center">1.12.4</th>
+    <th Align = "center">1.12.5</th>
    </tr>
    <tr>
     <th>1.10.0</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -73,9 +75,11 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.2</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -89,9 +93,11 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.4</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -105,10 +111,12 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.6</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -121,12 +129,14 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.8</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
@@ -137,6 +147,7 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.10</th>
@@ -145,6 +156,7 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.10.11</th>
@@ -152,6 +164,7 @@ The following tables list the supported upgrade paths for DC/OS 1.12.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
   </table>
