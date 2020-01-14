@@ -179,7 +179,7 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.11</th>
@@ -194,6 +194,17 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
    </tr>
    <tr>
     <th>1.11.12</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.13</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
