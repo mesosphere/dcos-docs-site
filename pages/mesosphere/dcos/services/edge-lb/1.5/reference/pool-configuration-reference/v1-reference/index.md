@@ -1,20 +1,22 @@
 ---
 layout: layout.pug
-navigationTitle:  Edge-LB pool configuration V1
-title: Pool configuration (REST API V1)
-menuWeight: 81
-excerpt: Provides reference information for Edge-LB pool configuration settings (REST API V1)
+navigationTitle:  V1 Pool Reference
+title: V1 Pool Reference
+menuWeight: 84
+excerpt: Reference for all Edge-LB pool configurations options in the V1 API
 enterprise: true
 ---
 
-The tables below describe the possible configuration options if you are using the [Edge-LB REST API version 1](#api-v1). For examples of pool configuration settings when you are working with the Edge-LB REST API version 1 specification, see [Pool configuration examples (REST API V1)](/services/edge-lb/reference/v1-reference/pool-config-v1-examples/).
+# V1 Pool Reference
 
-# Configuration guidelines
+The tables below describe all possible configuration options. The majority of fields have sensible defaults and should be modified with caution.
+
+## Configuration Guidelines
 
 - If a default is not set, it will be left empty, even for objects.
 - Set defaults in the object that is furthest from the root object.
 - Always set a default for arrays.
-- The "nullable" value allows the output JSON field to be set to the `golang` "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
+- The purpose of "nullable" is to allow the output JSON field to be set to the `golang` "zero value". Without "nullable", the field will be removed altogether from the resulting JSON.
 - Actual validation is done in the code, not expressed in swagger.
 - Since an empty boolean is interpreted as "false", do not set a default.
 - Use CamelCase.
@@ -265,12 +267,3 @@ The pool contains information on resources that the pool needs. Changes made to 
 | --------------- | ----------- |
 | code            | int32       |
 | message         | string      |
-
-<a name="api-v1">
-
-# REST API V1 specification
-The following resources are available if you are working with the Edge-LB REST API version 1 specification:
-
-[swagger api='/services/api/edge-lb-v1.yaml']
-
-For examples of pool configuration settings when you are working with the Edge-LB REST API version 1 specification, see [Pool configuration examples (REST API V1)](/services/edge-lb/reference/v1-reference/pool-cofig-v1-examples).
