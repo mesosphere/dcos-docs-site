@@ -9,16 +9,16 @@ Kommander is tool that provides a command console for deploying, monitoring and 
 
 ### Prerequisites
 
-Currently the Kommander installation also installs Konvoy. Prerequisites and initial requirements for Kommander are the same as those for Konvoy. Refer to [Konvoy prerequisites](/ksphere/konvoy/latest/quick-start/#prequisites) for more information.
+Currently, installing Kommander also installs Konvoy. Prerequisites and initial requirements for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/ksphere/konvoy/latest/quick-start/#prequisites) topic for information.
  
 ### Download and Install
 
-Download a free trial version of Konvoy with Kommander [here](https://d2iq.com/solutions/ksphere/konvoy#request-free-trial).
+To download Konvoy with Kommander, see the [Download Konvoy] (https://docs.d2iq.com/ksphere/konvoy/latest/download/) topic for information.
 
 Download the tarball to your local Downloads directory.
 
 For example, if you are installing on MacOS, download the compressed archive to the default `~/Downloads` directory.
-Afterwards extract the tarball to your local system by running the following command:
+Afterward, extract the tarball to your local system by running the following command:
 
 ```
 tar -xf ~/Downloads/konvoy-kommander_darwin.tar.bz2
