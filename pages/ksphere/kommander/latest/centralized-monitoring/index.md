@@ -25,13 +25,26 @@ The [Thanos Query][thanos_query] component is installed on the Kommander cluster
 Grafana is configured with Thanos Query as its datasource, and comes with a pre-installed dashboard for a global view of all managed clusters, named `Kubernetes / Compute Resources / Clusters `.
 The `Thanos Query` dashboard is also installed by default to monitor the Thanos Query component.
 
-You can access the centralized Grafana UI at `https://<CLUSTER_URL>/ops/portal/kommander/monitoring/grafana`.
+You can access the centralized Grafana UI at:
+
+```
+https://<CLUSTER_URL>/ops/portal/kommander/monitoring/grafana
+```
 
 <p class="message--note"><strong>NOTE: </strong>This is a separate Grafana instance than the one installed on all Konvoy clusters.
 It is dedicated specifically to components related to centralized monitoring.</p>
 
-Optionally, if you would like to access the Thanos Query UI (essentially the Prometheus UI), the UI is exposed at `https://<CLUSTER_URL>/ops/portal/kommander/monitoring/query`.
-You can also check that the managed clusters' Thanos sidecars are successfully added to Thanos Query by navigating to `https://<CLUSTER_URL>/ops/portal/kommander/monitoring/query/stores`.
+Optionally, if you would like to access the Thanos Query UI (essentially the Prometheus UI), the UI is exposed at:
+
+```
+https://<CLUSTER_URL>/ops/portal/kommander/monitoring/query
+```
+
+You can also check that the managed clusters' Thanos sidecars are successfully added to Thanos Query by navigating to:
+
+```
+https://<CLUSTER_URL>/ops/portal/kommander/monitoring/query/stores
+```
 
 To view a specific cluster's metrics, it is recommended that you go directly to that cluster's Grafana UI.
 
@@ -80,7 +93,11 @@ Karma aggregates all alerts from the Alertmanagers running in the managed cluste
 Using the Karma dashboard, you are able to get an overview of each alert and filter by alert type, cluster, and more.
 Silencing alerts via the Karma UI is currently not supported.
 
-You can access the Karma dashboard UI at `https://<CLUSTER_URL>/ops/portal/kommander/monitoring/karma`.
+You can access the Karma dashboard UI at:
+
+```
+https://<CLUSTER_URL>/ops/portal/kommander/monitoring/karma
+```
 
 [thanos_query]: https://thanos.io/components/query.md/
 [grafana_import_dashboards]: https://github.com/helm/charts/tree/master/stable/grafana#import-dashboards
