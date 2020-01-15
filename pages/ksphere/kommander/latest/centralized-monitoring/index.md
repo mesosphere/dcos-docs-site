@@ -51,7 +51,7 @@ For simplicity, this section assumes the desired dashboard definition is in `jso
 }
 ```
 
-After you decide how to create your custom dashboard, you can configure it when deploying Kommander by modifying the `cluster.yaml` file as follows:
+After you create your custom dashboard, you can configure Kommander to deploy it by modifying the `cluster.yaml` file as follows:
 
 ```yaml
 - name: kommander
