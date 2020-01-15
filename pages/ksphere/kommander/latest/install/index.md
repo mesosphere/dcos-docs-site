@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Install
 title: Install
 featureMaturity:
-excerpt: Installation Konvoy with Kommander
+excerpt: Install Konvoy with Kommander
 category: K-Sphere
 menuWeight: 5
 ---
@@ -20,7 +20,7 @@ You can then run `helm search mesosphere-stable` to see the available charts, in
 
 ### Cluster Resource Requirements
 
-The minimum cluster size requirements for the Konvoy management cluster already account for the minimum requirements for Kommander.
+The minimum cluster size requirements for the Konvoy management cluster already account for the minimum requirements for Kommander. The specific request size for the Kommander pod is 256Mi and 0.1 CPU with a limit of 512Mi and 0.5 CPU.
 
 ### Obtaining Konvoy with Kommander
 
@@ -28,7 +28,7 @@ The minimum cluster size requirements for the Konvoy management cluster already 
 
 ### Logging in with Username and Password
 
-After you provision your first Konvoy cluster, your username, password, and a URL to Konvoy will be printed to the command-line. Once in Konvoy, you should see a button labelled "Try Kommander Beta!". If not, check to ensure you've installed the Konvoy release that includes Kommander.
+After you provision your first Konvoy cluster, your username, password, and a URL to Konvoy will be printed to the command-line. Once logged in to Konvoy, you should see a button labelled "Try Kommander Beta!" at the top of the page. If not, check to ensure you've installed the Konvoy release that includes Kommander.
 
 ![Try Kommander button](/ksphere/kommander/img/try-kommander-beta.png)
 
