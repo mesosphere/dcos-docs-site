@@ -23,9 +23,9 @@ For information about installing Edge-LB packages, see the [installation](/mesos
 # Using SSL/TLS certificates
 
 There are three different ways to get and use a certificate for secure communication. You can use:
-- Self-signed or trusted certificates as part of a public key infrastructure (PKI). 
-- Secrets stored as encrypted files in the DC/OS vault.
-- Environment variables stored as secrets in the DC/OS vault.
+* Self-signed or trusted certificates as part of a public key infrastructure (PKI). 
+* Secrets stored as encrypted files in the DC/OS vault.
+* Environment variables stored as secrets in the DC/OS vault.
 
 ## Automatically generated self-signed certificate
 
@@ -107,7 +107,7 @@ There are three different ways to get and use a certificate for secure communica
 }
 ```
 
-## Environment variables (Insecure)
+## Environment variables (Not secured)
 
 ```json
 {

@@ -9,9 +9,9 @@ enterprise: true
 
 # V1 Pool Examples
 
-## Marathon Apps and DC/OS Services
+## Marathon&trade; Apps and DC/OS&trade; Services
 
-DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the Mesos `task` name and `port` name.
+DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the Apache&reg; Mesos&reg; `task` name and `port` name.
 
 For example, in the following snippet of a Marathon app definition, the `task` name is `my-app` and the `port` name is `web`.
 
@@ -69,6 +69,9 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
 ## SSL/TLS certificates
 
 There are three different ways to get and use a certificate:
+* Automatically-generated certificates
+* DC/OS secrets
+* Environment variables (not secured)
 
 ### Automatically generated self-signed certificate
 
@@ -170,7 +173,7 @@ There are three different ways to get and use a certificate:
 }
 ```
 
-### Environment variables (Insecure)
+### Environment variables (not secured)
 
 ```json
 {

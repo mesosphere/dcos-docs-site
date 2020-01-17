@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Edge-LB pool configuration V1
 title: Pool configuration (REST API V1)
-menuWeight: 81
+menuWeight: -1
 excerpt: Provides reference information for Edge-LB pool configuration settings (REST API V1)
 enterprise: true
 ---

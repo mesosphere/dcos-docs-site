@@ -63,7 +63,7 @@ You can perform the necessary steps using the `edgelb-pool` command-line interfa
 
     This command lists all of the Edge-LB pool configurations you have deployed. The pool that has a missing pod in this list identifies the `<pool-name>` you specify in the next step.
 
-3. Get the name of the pod you need to replace (the one that was running on the removed public agent) by running the following command:
+3. Get the name of the pod you need to replace (the pod that was running on the removed public agent):
 
     ```bash
     $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod list

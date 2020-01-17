@@ -7,11 +7,11 @@ excerpt: How to connect to Kubernetes from a DC/OS Enterprise cluster using Edge
 enterprise: true
 ---
 
-***%%% This topic was hidden from view using a negative menuWeight value - is it correct and should we display it? ***
+**%%% This topic was hidden from view using a negative menuWeight value - is it correct and should we display it?**
 
 This tutorial demonstrates how to connect to a Kubernetes&reg; cluster using the Edge-LB service for inbound load-balancing. In this tutorial, you will configure one Edge-LB pool to handle load-balancing for requests to access Kubernetes.
 
-For more information about setting up and working with Kubernetes clusters, see [Kubernetes](/mesosphere/dcos/services/kubernetes/git).  ***%%%...to which K8s version shiuld this link resolve?***
+For more information about setting up and working with Kubernetes clusters, see [Kubernetes](/mesosphere/dcos/services/kubernetes/git).  ***%%%...to which K8s git repo should this link resolve?***
 
 # Before you begin
 You can use Edge-LB to provide inbound load balancing when you connect to a private Kubernetes cluster from outside of a DC/OS&reg; cluster.
@@ -27,11 +27,8 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
 1. Download the current Edge-LB repository files using the [latest available binaries](https://support.d2iq.com/s/downloads).
 
-    For example, you can download the repositories from the support site using your browser if you log in to the D2iQ&reg; Support portal with an enterprise customer service account.
-    <p>
-    <img src="/mesosphere/dcos/services/edge-lb/1.5/img/download-edge-lb.png" alt="Downloading Edge-LB from D2iQ Support">
-    </p>
-
+    For example, you can download the repositories from the support site using your browser if you log in to the [D2iQ&reg; Support portal](http://support.d2iq.com) with an enterprise customer service account.
+    
     Alternatively, you can run commands similar to the following to download DC/OS Edge-LB packages:
 
     ```bash
@@ -63,7 +60,7 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
 1. Save the customized configuration file.
 
-1. Install the `edgelb` package on the DC/OS Enterprise cluster by running a command similar to the following:
+1. Install the `edgelb` package on the DC/OS Enterprise cluster:
 
     ```bash
     dcos package install --options=edge-lb-options.json edgelb --yes
@@ -72,8 +69,6 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 # Create and launch the Edge-LB pool for Kubernetes
 
 1. Copy and save the following Kubernetes and Edge-LB service configuration settings in a file named <strong>`edgelb.json`</strong>.
-
-    For example, paste the following into the `edgelb.json` file using your text editor:
 
     ```json
     {
@@ -138,19 +133,19 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
     }
     ```
 
-1. Deploy the Edge-LB pool for your Kubernetes service by running the following command:
+1. Deploy the Edge-LB pool for your Kubernetes service:
 
     ```bash
     dcos edgelb create edgelb.json
     ```
 
-1. Verify the Edge-LB pool is properly configured using the `list` subcommand.
+1. Verify the Edge-LB pool is properly configured using the `list` subcommand:
 
     ```bash
     dcos edgelb list
     ```
     
-1. Review the command results and confirm your output looks similar to the following:
+1. Review the command results and confirm that your output looks similar to the following:
 
     ```bash
     $ dcos edgelb list
@@ -172,13 +167,13 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
     edgelb-pool-0-server  edgelb-pool-0-server__a6e4b1a1-e63c-4579-a27e-a54328f31321  TASK_RUNNING
     ```
 
-1. Find the public IP address for the Edge-LB deployment.
+1. Find the public IP address for the Edge-LB deployment:
 
     ```bash
     dcos task exec -it edgelb-pool-0-server curl ifconfig.co
     ```
 
-1. Save the IP address as a variable.
+1. Save the IP address as a variable:
 
     ```bash
     export EDGELB_PUBLIC_AGENT_IP=<output_of_above>
@@ -186,4 +181,4 @@ To prepare Edge-LB to work with DC/OS and Kubernetes:
 
 # Test Kubernetes connections and view the dashboard
 
-After you have configured Edge-LB to connect to your Kubernetes clusters, you can [test connections and view the Kubernetes Dashboard](/mesosphere/dcos/services/kubernetes/2.1.1-1.12.5/getting-started/test-connect/) using a web proxy on your browser.        ***%%% Is 2.1.1-1.12.5 the best version to which to link? Latest is 2.4.5-1.15.5.***
+After you have configured Edge-LB to connect to your Kubernetes clusters, you can [test connections and view the Kubernetes Dashboard](/mesosphere/dcos/services/kubernetes/2.4.5-1.15.5/getting-started/test-connect/) using a web proxy on your browser.

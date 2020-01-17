@@ -2,12 +2,12 @@
 layout: layout.pug
 navigationTitle: Expose and load balance a service
 title: Expose and load balance a sample service
-menuWeight: 10
+menuWeight: 15
 excerpt: Illustrates the basic steps for load balancing a single service running on DC/OS
 enterprise: true
 ---
 
-This tutorial demonstrates how to prepare load balancing for access to a single DC/OS&trade; service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way that organizations get started with a load balancing solution.
+These sample exercises demonstrate how to prepare load balancing for access to a single DC/OS&trade; service. For this tutorial, the access requests originate outside of the DC/OS cluster and are routed into the cluster through a public-facing IP address. This scenario illustrates the most common way that organizations get started with a load balancing solution.
 
 # Before you begin
 You must have:
@@ -18,7 +18,7 @@ You must have:
 * A DC/OS Enterprise cluster that has at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Preview of what you'll do
-This tutorial shows how to configure an Edge-LB instance to provide public access to a simple Marathon app. In this tutorial, you will:
+These procedures show you how to configure an Edge-LB instance to provide public access to a simple Marathon&trade; app. In this tutorial, you will:
 * Create and deploy a sample Marathon app called `ping`.
 * Expose the `ping` app through the Edge-LB pool instance called `ping-lb`.
 * Access the sample `ping` app through the public agent URL.
@@ -63,13 +63,13 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
 
     In this sample app defintion, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields don't match, the pool will not deploy successfully.
 
-1. Deploy the `ping` service by installing the `ping.json` app definition by running the following command:
+1. Deploy the `ping` service by installing the `ping.json` app definition:
 
     ```bash
     dcos marathon app add ping.json
     ```
 
-    This command displays a confirmation message similar to the following if deployment is successful:
+    This command displays a confirmation message similar to the following, if deployment is successful:
     ```
     Created deployment dfeec06f-5d64-44e0-b6f2-4ddb61fb0887
     ```
@@ -131,7 +131,7 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
     - The `haproxy.backends.marathon.serviceID` must match the name of the app definition.
       In this sample pool configuration file, the service name is `\ping`.
 
-# Deploy a Edge-LB pool to expose the service
+# Deploy an Edge-LB pool to expose the service
 
 1. Deploy the `ping-lb.json` pool configuration file to create the `ping-lb` pool instance for load balancing access to the `ping` service:
 
@@ -144,7 +144,7 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
     Successfully created ping-lb. Check "dcos edgelb show ping-lb" or "dcos edgelb status ping-lb" for deployment status
     ```
 
-1. Verify the service and the pool instance have been deployed sucessfully by running the following command:
+1. Verify the service and the pool instance have been deployed successfully:
 
     ```bash
     dcos marathon app list
@@ -158,7 +158,7 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
     /ping                        32   0.1    1/1    1/1       ---      False      DOCKER   echo "pong" > index.html &&...
     ```
 
-1. Verify the pool configuration for the frontend and statistics ports by running the following command:
+1. Verify the pool configuration for the frontend and statistics ports:
 
     ```bash
     dcos edgelb list
@@ -169,7 +169,7 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
     ping-lb  V2          5      slave_public  0, 15001
     ```
 
-1. Verify the tasks associated with the deployed services and the pool instance by running the following command:
+1. Verify the tasks associated with the deployed services and the pool instance:
 
     ```bash
     dcos task list
@@ -182,7 +182,7 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
     ping-lb.pools.dcos-edgelb  10.0.2.231  root    R    dcos-edgelb_pools_ping-lb.88344f14-517a-11e9-9149-e2160eee24f2  e9153020-fe99-49d7-9d10-773adf12e726-S1  aws/us-west-2  aws/us-west-2c
     ```
 
-1. Verify that the Edge-LB pool instance was deployed successfully with the configured frontend and backend ports by running the following command:
+1. Verify that the Edge-LB pool instance was deployed successfully with the configured frontend and backend ports:
 
     ```bash
     dcos edgelb endpoints ping-lb
@@ -195,7 +195,7 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
     stats_port      1025   10.0.5.105
     ```
 
-    Optionally, you can view the Edge-LB pool configuration as formatted output or in JSON file format by running one of the following commands:
+    Optionally, you can view the Edge-LB pool configuration as formatted output or in JSON file format using one of the following commands:
 
     ```bash
     dcos edgelb show ping-lb
@@ -203,7 +203,7 @@ This tutorial shows how to configure an Edge-LB instance to provide public acces
     dcos edgelb show ping-lb --json
     ```
 
-    As an example, you will see output similar to the following:
+    You will see output similar to the following:
 
     ```bash
     Summary:
@@ -235,7 +235,7 @@ After you have configured and tested the `ping` service and `ping-lb` pool confi
 
 1. Open a web browser and navigate to the public-facing IP address.
 
-    If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console, or by running the following command:
+    If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console, or by using the command:
 
     ```bash
     dcos node list

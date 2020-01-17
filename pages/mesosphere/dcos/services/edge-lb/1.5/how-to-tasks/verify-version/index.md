@@ -23,15 +23,13 @@ You must have:
     dcos edgelb version
     ```
 
-1. Review the command output.
-
-    The `version` command displays the current Edge-LB version similar to the following:
+1. Review the command output. The `version` command displays the current Edge-LB version similar to the following:
 
     ```bash
-    client = v1.3.0
-    server = v1.3.0
+    client = v1.5.0
+    server = v1.5.0
     ```
 
-    This example output indicates that the current Edge-LB API server version is v1.3.0 and the CLI client that is interacting with the Edge-LB server is also version v1.3.0.
+    This example output indicates that the current Edge-LB API server version is v1.5.0 and the CLI client that is interacting with the Edge-LB server is also version v1.5.0.
 
 For more specific information about the latest supported Edge-LB version and Edge-LB compatibility with the latest releases of DC/OS, see the Edge-LB [version policy](/mesosphere/dcos/services/edge-lb/1.5/related-documentation/version-support/) summary and the [version compatibility matrix](/mesosphere/dcos/2.0/release-notes/version-policy/#certified-packages-and-dcos-versions).

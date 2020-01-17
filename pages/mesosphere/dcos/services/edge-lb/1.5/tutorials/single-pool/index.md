@@ -17,13 +17,8 @@ You must have:
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Create and deploy sample apps
-1. Open a text editor to create the sample app definition for the `ping` service in the `ping.json` file:
 
-    ```bash
-    vi ping.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `ping.json` file:
+1. Copy and paste the following JSON settings to create the sample app definition for the `ping` service in, and save, the `ping.json` file:
 
     ```json
     {
@@ -66,7 +61,7 @@ You must have:
     dcos marathon app add ping.json
     ```
 
-1. Open a text editor, then copy and paste the following sample app definition to create the `nginx.json` file for the NGINX&trade; service:
+1. Copy and paste the following sample app definition to create the `nginx.json` file for the NGINX&trade; service:
 
     ```json
     {
@@ -101,7 +96,7 @@ You must have:
     dcos marathon app add nginx.json
     ```
 
-1. Open a text editor, then copy and paste the following sample app definition to create the `echo.json` file:
+1. Copy and paste the following sample app definition to create the `echo.json` file:
 
     ```json
     {
@@ -140,13 +135,8 @@ You must have:
     dcos marathon app add echo.json
     ```
 # Create the Edge-LB pool configuration file
-1. Open a text editor to create the sample pool configuration file for the deployed services in the `multi-lb-pool.json` file:
 
-    ```bash
-    vi multi-lb-pool.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `multi-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the deployed services in, and save, the `multi-lb-pool.json` file:
 
     ```json
     {
@@ -235,25 +225,25 @@ You must have:
     ```
 
 # Verify deployment status
-1. Verify that the services and the pool instance have been deployed sucessfully by running the following command:
+1. Verify that the services and the pool instance have been deployed successfully :
 
     ```bash
     dcos marathon app list
     ```
 
-1. Verify the pool configuration for frontend and stats ports by running the following command:
+1. Verify the pool configuration for frontend and stats ports:
 
     ```bash
     dcos edgelb list
     ```
 
-1. Verify the pool-related configuration settings by running the following command:
+1. Verify the pool-related configuration settings:
 
     ```bash
     dcos edgelb show multi-lb
     ```
 
-1. Verify the Mesos tasks for the services and the Edge-LB pool instances by running the following command:
+1. Verify the Mesos tasks for the services and the Edge-LB pool instances:
 
     ```bash
     dcos task list
@@ -264,8 +254,10 @@ You must have:
     ```bash
     dcos edgelb endpoints multi-lb
     ```
+
 # Verify service access using frontend ports
-1. Verify that you can access the following deployed services using the public IP address and the assigned frontend ports.
+
+1. Verify that you can access the following deployed services using the public IP address and the assigned frontend ports:
     * `ping` service:
       ```bash
       http://<public_agent_public_IP>:15001
@@ -279,7 +271,7 @@ You must have:
       http://<public_agent_public_IP>:15003
       ```
 
-    When you navigate to the public IP address and specified port, you should see the following pages:
+    When you navigate to the public IP address and specified port, verify that you can see the following pages:
     * `pong`
     * `Welcome to Nginx`
     * `Hello from Marathon!`

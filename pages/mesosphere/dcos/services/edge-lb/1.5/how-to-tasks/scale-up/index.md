@@ -21,17 +21,11 @@ You must have:
 For information about installing Edge-LB packages, see the [installation](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing/) instructions.
 
 # Scaling up Edge-LB pool instances
-You can achieve high availability for load-balancing application traffic by increasing Edge-LB pool’s HAProxy instances. To do this, update the existing Edge-LB pool configuration ‘count’ variable to increase the number of HAProxy instances.
+You can achieve high availability for load-balancing application traffic by increasing Edge-LB pool’s HAProxy instances. To do this, update the existing Edge-LB pool configuration ```count``` variable to increase the number of HAProxy instances.
 
 The following steps show how to create an Edge-LB pool configuration file to scale up the number of instances for a deployed NGINX&trade; service.
 
 # To add Edge-LB load balancer instances
-1. Open a text editor to create the `scaleup-nginx-lb.json` pool configuration file:
-
-    ```bash
-    vi scaleup-nginx-lb.json
-    ```
-
 1. Copy and paste the following sample JSON settings to create a baseline `scaleup-nginx-lb.json` pool configuration file:
 
     ```json
@@ -74,12 +68,8 @@ The following steps show how to create an Edge-LB pool configuration file to sca
 
     In this sample baseline configuration, the `count` variable is set to 1. With this setting, the Edge-LB pool uses one load balancer instance from one of the public agents to distribute incoming traffic from all available public agent nodes.
 
-1. Modify the sample Edge-LB pool configuration file to scale up the number of Edge-LB pool instances by changing the `count` setting from 1 to 3.
+1. Modify the sample Edge-LB pool configuration file, ```scaleup-nginx-lb.json```, to scale up the number of Edge-LB pool instances by changing the `count` setting from 1 to 3.
 
-    ```bash
-    vi scaleup-nginx-lb.json
-    ```
-    For example:
     ```json
     {
       "apiVersion": "V2",
@@ -124,7 +114,7 @@ The following steps show how to create an Edge-LB pool configuration file to sca
     dcos edgelb update scaleup-nginx-lb.json
     ```
 
-1. Verify the change to the number of load balancer instances has been deployed successfully by running the following command:
+1. Verify the change to the number of load balancer instances has been deployed successfully:
 
     ```
     dcos edgelb status scaleup-nginx-lb
@@ -132,7 +122,7 @@ The following steps show how to create an Edge-LB pool configuration file to sca
 
     You should see two pools listed in the output for this command. You can also see the Edge-LB endpoints with the `dcos edgelb endpoint` command. In the command output, the `count` column displays the number of load balancer instances you have specified in the Edge-LB pool configuration file.
     
-    To view the output from the endpoints subcommand, run the following command:
+    To view the output from the endpoints subcommand:
 
     ```
     dcos edgelb endpoints scaleup-nginx-lb
@@ -190,7 +180,7 @@ To scale down the number of Edge-LB load balancer instances:
     dcos edgelb update scaledown-nginx-lb.json
     ```
 
-1. Verify the change to the number of load balancer instances has been deployed successfully by running the following command:
+1. Verify the change to the number of load balancer instances has been deployed successfully:
 
     ```
     dcos edgelb status scaledown-nginx-lb

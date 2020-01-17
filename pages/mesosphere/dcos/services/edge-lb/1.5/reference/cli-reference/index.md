@@ -134,7 +134,6 @@ dcos:adminrouter:service:edgelb:/v1/loadbalancers
 ```
 
 ### Examples
-
 To deploy the `ping-lb.json` pool configuration file to create the `ping-lb` pool instance, you would run the following command:
 
 ```bash
@@ -168,7 +167,6 @@ dcos edgelb delete <pool-name> [options]
 ```
 
 ### Options
-
 | Name, shorthand   | Description |
 |-------------------|-------------|
 | `--help, -h`      | Display usage information. |
@@ -205,13 +203,11 @@ dcos edgelb delete pubs-multi-lb --verbose
 Use the `dcos edgelb diagnostic` command to collect diagnostic information for Edge-LB pools and package the diagnostics in a support bundle for troubleshooting and analysis.
 
 ### Usage
-
 ```bash
 dcos edgelb diagnostic [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--bundles-dir=BUNDLES-DIR` | Specify the folder in which the diagnostic bundle will reside. You can specify the directory using an absolute or relative path. The default value is the current directory. |
@@ -275,14 +271,12 @@ dcos edgelb endpoints <pool-name> [options]
 
 Use this command to return a list of all inbound (ingress) endpoints for a specified load balancing pool.
 
-# Usage
-
+### Usage
 ```bash
 dcos edgelb ingresslb <pool-name> [options]
 ```
 
-# Options
-
+### Options
 | Name, shorthand   | Description |
 |-------------------|-------------|
 | `--help, -h`      | Display usage information. |
@@ -293,7 +287,6 @@ dcos edgelb ingresslb <pool-name> [options]
 <!--### Permissions -->
 
 ### Examples
-
 To list the load balancing ingress endpoints for the Edge-LB pool named `paris-prod-lb`, you would run the following command:
 
 ```bash
@@ -427,13 +420,11 @@ listen stats
 Use this command to return a list of pool configuration names and a summary of all configured pools.
 
 ### Usage
-
 ```bash
 dcos edgelb list [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`   | Display usage information. |
@@ -449,7 +440,6 @@ dcos:adminrouter:service:edgelb:/config full
 ```
 
 ### Examples
-
 To list basic information about the Edge-LB pools currently deployed, you would run the following command:
 
 ```bash
@@ -474,13 +464,11 @@ dcos edgelb list --name sanfrancisco05 --verbose
 Use this command to test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command will return an HTTP error if the API is not yet available.
 
 ### Usage
-
 ```bash
 dcos edgelb ping [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`   | Display usage information. |
@@ -519,7 +507,6 @@ dcos edgelb show <pool-name> [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`   | Display usage information. |
@@ -600,13 +587,11 @@ Use this command to create a custom configuration template for a pool of load ba
 The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 ### Usage
-
 ```bash
 dcos edgelb template create <pool-name> <template-file> [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`   | Display usage information. |
@@ -625,13 +610,11 @@ Use this command to revert a custom configuration template to its default value.
 The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 ### Usage
-
 ```bash
 dcos edgelb template delete <pool-name> [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`    | Display usage information. |
@@ -648,13 +631,11 @@ Use this command to show the load balancer configuration template for an individ
 The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 ### Usage
-
 ```bash
 dcos edgelb template show <pool-name> [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`    | Display usage information. |
@@ -671,13 +652,11 @@ Use this command to update a custom configuration template for a pool of load ba
 The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
 
 ### Usage
-
 ```bash
 dcos edgelb template update <pool-name> <template-file> [options]
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`    | Display usage information. |
@@ -693,13 +672,11 @@ For an example that illustrates updating a customized template, see [Customizing
 Use this command to upload a new pool configuration file to the Edge-LB `apiserver`, updating the running pool of load balancers.
 
 ### Usage
-
 ```bash
 dcos edgelb update [options] <pool-file>
 ```
 
 ### Options
-
 | Name, shorthand       | Description |
 |-----------------------|-------------|
 | `--help, -h`          | Display usage information. |
@@ -723,7 +700,6 @@ dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>
 ```
 
 ### Examples
-
 To update the pool configuration settings for an existing Edge-LB pool, you would run a command similar to the following:
 
 ```bash
@@ -740,13 +716,11 @@ dcos edgelb update mysampleconfig
 Use this command to display the current Edge-LB version you have installed.
 
 ### Usage
-
 ```bash
 dcos edgelb [options] version
 ```
 
 ### Options
-
 | Name, shorthand | Description |
 |-----------------|-------------|
 | `--help, -h`    | Display usage information. |
@@ -756,7 +730,6 @@ dcos edgelb [options] version
 <!-- ### Permissions -->
 
 ### Examples
-
 To display version information for the Edge-LB API server and pool if you have an Edge-LB service instance named `edgelb-eu`, you would run the following command:
 
 ```bash

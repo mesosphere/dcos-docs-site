@@ -7,9 +7,7 @@ excerpt: Provides reference for Edge-LB REST API endpoints
 enterprise: true
 ---
 
-The Edge-LB API enables users to create and manage pools of Edge-LB load balancers. There are two versions of the Edge-LB API. The two models are almost identical, with one important difference: the `pool.haproxy.backends.servers` configuration setting was replaced with [`pool.haproxy.backend.service`](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/#poolhaproxybackendservice) in the Edge-LB API. This change provides a more intuitive way to select services and backends for HAProxy. In addition, the Edge-LB API includes a top-level `apiVersion` configuration field to specify which version of an API call you want to use.
-
-Because of the similarity between the Edge-LB API version 1 (`V1`) and version 2 (`V2`), the configuration reference information and examples reflect the Edge-LB API V2 specification. If you require documentation specifically for the Edge-LB API V1 specification, see [Edge-LB API v1](/mesosphere/dcos/services/edge-lb/1.5/reference/v1-reference/#api-v1).  ***%%% this info is missing and will have to be restored from the original ELB 15...***
+The Edge-LB API enables users to create and manage pools of Edge-LB load balancers. There are two versions of the Edge-LB API, both of which are supported to enable backward compatibility. You can find reference and examples in the [Pool Configuration Reference](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference) section.
 
 # Routes
 
@@ -42,4 +40,5 @@ To assign permissions to your account, see [Assigning permissions](/mesosphere/d
 
 The following resources are available:
 
-[swagger api='/mesosphere/dcos/services/api/edge-lb-v2.yaml']
+[swagger api='/mesosphere/dcos/services/api/edge-lb.swagger-1.5.yaml']
+<!-- previous graphic was: [swagger api='/mesosphere/dcos/services/api/edge-lb-v2.yaml'] >

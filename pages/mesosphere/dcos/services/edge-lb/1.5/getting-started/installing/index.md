@@ -17,7 +17,7 @@ For most production deployments, however, you should create a unique service acc
 - You must have the [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) and [DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/) installed.
 - You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/mesosphere/dcos/services/edge-lb/1.5/reference/permissions/#installation-permissions).
 - You must have a registered customer account to log in to the [D2iQ&reg; support portal](https://support.d2iq.com/s/).
-- You must have network access to download the %%% link needed... [remote Edge-LB repositories](https://support.d2iq.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
+- You must have network access to download the **%%% link needed...** [remote Edge-LB repositories](https://support.d2iq.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
 
   If your cluster is behind a firewall, is restricted to an internal network with no access to the internet, or unable to access the public catalog for any reason, then you must add Edge-LB packages using a **local catalog**. For more information about installing using a local catalog, see [Deploy using a local catalog](#create-local-repo).
 
@@ -64,13 +64,13 @@ To add the Edge-LB API server and pool packages to the package repository:
 
 1. Open a shell terminal where you have access to the DC/OS command-line interface for Enterprise clusters.
 
-1. Add the **Edge-LB API server** package to the repository by running a command similar to the following:
+1. Add the **Edge-LB API server** package to the repository:
 
     ```bash
     dcos package repo add --index=0 edgelb https://downloads.d2iq.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
     ```
 
-1. Add the **Edge-LB pool** package to the repository by running a command similar to the following:
+1. Add the **Edge-LB pool** package to the repository:
 
     ```bash
     dcos package repo add --index=0 edgelb-pool https://downloads.d2iq.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
@@ -130,13 +130,13 @@ Before you can add Edge-LB packages to your local catalog, you must copy the Mes
 
 1. Open a shell terminal where you can run `git` commands.
 
-1. Clone the Universe repository by running a command similar to the following:
+1. Clone the Universe repository:
 
     ```bash
     git clone https://github.com/mesosphere/universe.git --branch version-3.x
     ```
 
-1. Build the `universe-base` image by running a command similar to the following:
+1. Build the `universe-base` image:
 
     ```bash
     cd universe/docker/local-universe/
@@ -147,19 +147,19 @@ Before you can add Edge-LB packages to your local catalog, you must copy the Mes
 
     Each time you run the `add-stub-universe.sh` script, the script processes the JSON file, generates the necessary JSON and Mustache files, and adds them to `stub-repo/packages/<X>/<packagename>`.
 
-    - Add the Edge-LB API server package by running a command similar to the following:
+    - Add the Edge-LB API server package using the command:
 
       ```bash
       bash add-stub-universe.sh -j stub-universe-edgelb.json
       ```
 
-    - Add the Edge-LB pool package by running a command similar to the following:
+    - Add the Edge-LB pool package using the command:
 
       ```bash
       bash add-stub-universe.sh -j stub-universe-edgelb-pool.json
       ```
 
-1. Merge the Edge-LB packages into the primary `universe/repo/packages` directory by running a command similar to the following:
+1. Merge the Edge-LB packages into the primary `universe/repo/packages` directory:
 
     ```bash
     cp -rpv stub-repo/packages/* ../../repo/packages
@@ -167,10 +167,10 @@ Before you can add Edge-LB packages to your local catalog, you must copy the Mes
 
 1. Build the `mesosphere/universe` Docker image by specifying a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable.
 
-    For example:    ***%%% should the edge-lb version numbers in this example be updated to later versions?***
+    For example:
 
     ```bash
-    sudo make DCOS_VERSION=1.12 DCOS_PACKAGE_INCLUDE=“edgelb:v1.2.1,edgelb-pool:v1.2.1,<other-package>:<version>” local-universe
+    sudo make DCOS_VERSION=2.0 DCOS_PACKAGE_INCLUDE=“edgelb:v1.5.1,edgelb-pool:v1.5.1,<other-package>:<version>” local-universe
     ```
     Specifying a list of individual package names and versions minimizes the container size and download time. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified packages are included.
 
@@ -196,7 +196,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 ## To create a service account for Edge-LB
 1. Open a shell terminal where you have access to the [DC/OS Enterprise command-line interface (CLI)](/mesosphere/dcos/2.0/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
 
-1. Create a public/private key pair and save each value into a separate file by running a command similar to the following:
+1. Create a public/private key pair and save each value into a separate file:
 
     ```bash
     dcos security org service-accounts keypair edge-lb-private-key.pem edge-lb-public-key.pem
@@ -204,13 +204,13 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 
     This code sample creates the keys in the current directory. You must have write permission for the directory for the command to complete the operation successfully. Executing this command creates a 2048-bit RSA public/private key pair.
 
-1. Create the security principal (`edge-lb-principal`) for the new service account containing the public key (`edge-lb-public-key.pem`) created in the previous step by running a command similar to the following:
+1. Create the security principal (`edge-lb-principal`) for the new service account containing the public key (`edge-lb-public-key.pem`) created in the previous step:
 
     ```bash
     dcos security org service-accounts create -p edge-lb-public-key.pem -d "Edge-LB service account" edge-lb-principal
     ```
 
-1. Verify the new service account by running a command similar to the following:
+1. Verify the new service account:
 
     ```bash
     dcos security org service-accounts show edge-lb-principal
@@ -243,7 +243,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
         -----END PUBLIC KEY-----'
     ```    
 
-1. Create a secret (`dcos-edgelb/edge-lb-secret`) for the service account principal (`edge-lb-principal`) and private key (`edge-lb-private-key.pem`) by running a command similar to the following:
+1. Create a secret (`dcos-edgelb/edge-lb-secret`) for the service account principal (`edge-lb-principal`) and private key (`edge-lb-private-key.pem`):
 
     ```bash
     dcos security secrets create-sa-secret --strict edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
@@ -253,7 +253,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 
     For more information about creating and storing secrets for services, see [Configuring services and pods](/mesosphere/dcos2.0/security/ent/secrets/use-secrets/) and [Spaces](/mesosphere/dcos2.0/security/ent/#spaces).
 
-1. List the secrets created by running the command:
+1. List the secrets created:
 
     ```bash
     dcos security secrets list /
@@ -276,7 +276,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 
     After adding the service principal to the `supergroups` group, you can continue to [Create a configuration file for service authentication](#create-json) and complete the installation.
 
-    **Granting specific permissions to the service account**:  If you follow the principle of least-privilege, you should not add the service account principal to the `superusers` group. Instead, you should limit the permissions granted to allow only management of DC/OS packages, Marathon tasks, and Edge-LB pool-related activity. You can grant specific permissions to the service account principal by running commands similar to the following:
+    **Granting specific permissions to the service account**:  If you follow the principle of least-privilege, you should not add the service account principal to the `superusers` group. Instead, you should limit the permissions granted to allow only management of DC/OS packages, Marathon tasks, and Edge-LB pool-related activity. You can grant specific permissions to the service account principal using commands similar to the following:
 
     ```bash
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full
@@ -382,7 +382,7 @@ After configuring service authentication, you must create a JSON options file wi
 # Install Edge-LB
 After you have added the packages to the cluster catalog, created a secure service account, and configured settings for Edge-LB in a JSON file, you can install Edge-LB to begin creating and managing load balancing pools.
 
-1. Install Edge-LB by running the following command:
+1. Install Edge-LB using the command:
 
     ```bash
     dcos package install --options=edge-lb-options.json edgelb
