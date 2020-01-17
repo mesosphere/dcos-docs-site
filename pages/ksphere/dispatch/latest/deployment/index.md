@@ -3,116 +3,128 @@ layout: layout.pug
 navigationTitle:  GitOps Deployment
 title: GitOps Based Deployments
 menuWeight: 3
+beta: true
 excerpt: Implement GitOps processes to Continuously Deploy applications
 ---
 # Deploying Applications with GitOps
 
-Dispatch enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a git repo.  This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
+Dispatch enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a Git repository.  This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
 
-This tutorial assumes that you have followed the [Dispatch Installation](../install/) and [Setting up a repository to use Dispatch](../repo-setup/) tutorials and have set up Dispatch CI for a hello-world application.
+This section assumes that you have followed the [Dispatch Installation](../install/) and [Setting up a repository to use Dispatch](../repo-setup/) procedures and have set up Dispatch CI for a hello-world application.
 
 ## Quick Start
 
-This section provides a dense set of instructions for deploying a hello-world
-application to your kubernetes cluster using Dispatch. The subsequent sections
-provide background and go into greater details regarding the individual steps.
+This section provides a set of instructions for deploying a hello-world application to your Kubernetes cluster using Dispatch. The subsequent sections provide background and go into greater details regarding the individual steps.
 
-*NOTE: Replace `your-user` with your GitHub username in all the following steps.*
+<p class="message--note"><strong>NOTE: </strong>Replace <tt>your-user</tt> with your GitHub username in all the following steps.</p>
 
-- Fork https://github.com/mesosphere/cicd-hello-world-gitops to your own account.
-- Run `dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN`
-- Run `dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops --scm-secret gitops-secret-1`
-- Add the GitOps repository as a resource to your hello-world application's Dispatchfile:
-  ```
-  resource "gitops-git": {
-    type: "git"
-    param url: "https://github.com/your-user/cicd-hello-world-gitops"
-  }
-  ```
-- Add a `deploy` task to your hello-world application's Dispatchfile:
-  ```
-  task "deploy": {
-    inputs: ["docker-image", "gitops-git"]
-    steps: [
-      {
-        name: "update-gitops-repo"
-        image: "mesosphere/update-gitops-repo:v1.0"
-        workingDir: "/workspace/gitops-git"
-        args: [
-          "-git-revision=$(context.git.commit)",
-          "-substitute=imageName=your-user/hello-world@$(inputs.resources.docker-image.digest)"
-        ]
+1. Fork https://github.com/mesosphere/cicd-hello-world-gitops to your own account.
+1. Run the following:
+    ```bash
+    dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
+    ```
+1. Run the following:
+    ```bash
+    dispatch gitops app create hello-world --repo=https://github.com/your-user/cicd-hello-world-gitops --scm-secret gitops-secret-1
+    ```
+1. Add the GitOps repository as a resource to your hello-world application's Dispatchfile:
+      ```bash
+      resource "gitops-git": {
+        type: "git"
+        param url: "https://github.com/your-user/cicd-hello-world-gitops"
       }
+      ```
+1. Add a `deploy` task to your hello-world application's Dispatchfile:
+    ```bash
+    task "deploy": {
+      inputs: ["docker-image", "gitops-git"]
+      steps: [
+        {
+          name: "update-gitops-repo"
+          image: "mesosphere/update-gitops-repo:v1.0"
+          workingDir: "/workspace/gitops-git"
+          args: [
+            "-git-revision=$(context.git.commit)",
+            "-substitute=imageName=your-user/hello-world@$(inputs.resources.docker-image.digest)"
+          ]
+        }
+      ]
+    }
+    ```
+
+1. Add the `deploy` task as an action to be taken when the `master` branch is modified:
+
+    ```bash
+    actions: [
+      {
+        tasks: ["build", "deploy"]
+        on push branches: ["master"]
+      },
+      ...
     ]
-  }
-  ```
-- Add the `deploy` task as an action to be taken when the `master` branch is modifed:
-  ```
-  actions: [
-    {
-      tasks: ["build", "deploy"]
-      on push branches: ["master"]
-    },
-    ...
-  ]
-  ```
-- Commit this change to a feature branch, push the branch, create a pull request
-  and merge it into `master` of your hello-world application's git repository.
-- Once merged, a `master` build is triggered. Open your browser to
+    ```
+1. Commit this change to a feature branch, push the branch, create a pull request, and merge it into `master` of your hello-world application's git repository.
+1. After it is merged, a `master` build is triggered. Open your browser to
   `/dispatch/tekton/`, hit the PipelineRuns tab, and notice that a new `master`
   build is running.
-- Once it completes, it will create a new pull request against the GitOps
+
+
+    After the master build completes, it will create a new pull request against the GitOps
   repository. Open the pull request from https://github.com/your-user/cicd-hello-world-gitops/pulls
-- Merge the pull request to `master`.
-- Open the Argo CD UI at `/dispatch/argo-cd`, click on the hello-world application.
-- You can now hit Refresh in the action bar at the top of the page or wait 180s
-  for Argo CD to automatically pick up the change to the GitOps repository and
+1. Merge the pull request to `master`.
+1. Open the Argo CD UI at `/dispatch/argo-cd`, click on the hello-world application.
+    
+    You can now hit `Refresh` in the action bar at the top of the page or wait 180s   for Argo CD to automatically pick up the change to the GitOps repository and
   deploy those changes to the cluster.
+
+## Workflow example
 
 Now that you've configured CI to build your application and CD to deploy it, an
 example of the day-to-day workflow is:
 
-- Modify the `main.go` file in your hello-world application's git repo. Edit the
+1. Modify the `main.go` file in your hello-world application's git repo. Edit the
   message in the last `fmt.Fprintf` at the very bottom of the file.
-- Commit the change to a feature branch, push it, and create a pull request.
-- Once your pull request passes CI and has the necessary number of approvals,
+1. Commit the change to a feature branch, push it, and create a pull request.
+1. After your pull request passes CI and has the necessary number of approvals,
   merge it to `master`.
-- This triggers another round of CI, which you can watch on the PipelineRuns
+1. This triggers another round of CI, which you can watch on the PipelineRuns
   page of the Tekton dashboard hosted at `/dispatch/tekton/`.
-- As the final step of that CI run, a new pull request is opened against the
+1. As the final step of that CI run, a new pull request is opened against the
   GitOps repository at https://github.com/your-user/cicd-hello-world-gitops
-- Review and merge that pull request.
-- Wait 180s or navigate to the Argo CD UI at `/dispatch/argo-cd`, click the
-  hello-world application, and hit Refresh. This triggers deployment of the
-  latest docker image.
-- Open the `/hello-world` URL relative to your cluster URL and notice that the
+1. Review and merge that pull request.
+1. Wait 180 seconds, or navigate to the Argo CD UI at `/dispatch/argo-cd`, then click the
+  hello-world application and hit `Refresh`. This triggers deployment of the
+  latest Docker image.
+ 1. Open the `/hello-world` URL relative to your cluster URL and notice that the
   page now shows your updated message.
 
 The following sections go into more detail.
 
 ## What is GitOps?
 
+<!-- This section should be moved to a concepts page. SS -->
+
 GitOps is a modern software deployment strategy. The configuration describing
-how your application is deployed to a cluster are stored in a git repository.
-The configuration is continuously synchronized from this git repository to the
+how your application is deployed to a cluster are stored in a Git repository.
+The configuration is continuously synchronized from this Git repository to the
 cluster, ensuring that the specified state of the cluster always matches what is
-defined in the "GitOps" git repository.
+defined in the "GitOps" Git repository.
 
 The benefits of following a GitOps deployment strategy are:
 
-- *Familiar, collaborative change and review process*. Engineers are intimately
+* Familiar, collaborative change and review process. Engineers are intimately
   familiar with git-based workflows: branches, pull requests, code reviews, etc.
   GitOps leverages this experience to gate deployment of software and updates
   to catch issues early.
-- *Clear change log and audit trail*. The git commit log serves as an audit
-  trail to answer the question: "_Who_ changed _what_, _when_?" Having such
+* Clear change log and audit trail. The git commit log serves as an audit
+  trail to answer the question: "**Who** changed **what**, and **when**?" Having such
   information readily available allows you to reach out to the right people when
-  fixing or triaging a production incident to determine the _why_ and correctly
+  fixing or triaging a production incident to determine the **why** and correctly
   resolve the issue as quickly as possible. Additionally, Dispatch's CD component
   (Argo CD) maintains a separate audit trail in the form of Kubernetes Events,
   as changes to a git repository don't include exactly when those changes were
   deployed.
-- *Avoid configuration drift*. The scope of manual changes made by operators
+* Avoid configuration drift. The scope of manual changes made by operators
   expands over time. It soon becomes difficult to know which cluster
   configuration is critical and which is left over from temporary workarounds or
   live debugging. Over time, changing project configuration or replicating a
@@ -124,13 +136,13 @@ That said, there are some cases when live debugging is necessary in order to
 resolve an incident in the minimum amount of time. In such cases, a pull
 request-based workflow adds expensive overhead when you need it least. Dispatch's
 CD strategy supports this scenario by letting you disable the Auto Sync feature.
-Once Auto Sync is disabled, Dispatch will stop synchronizing the cluster state
-from the GitOps git repository. This let's you reach for _kubectl_, _helm_ or
+After Auto Sync is disabled, Dispatch will stop synchronizing the cluster state
+from the GitOps git repository. This let's you reach for `kubectl`, `helm` or
 whichever tool you need to resolve the issue.
 
-Once you're done, Dispatch will show that your cluster configuration has diverged
+After you're done, Dispatch will show that your cluster configuration has diverged
 from your GitOps repository. The diff can be viewed in the UI and the changes
-carefully transferred back to the GitOps repository. Once the diff between the
+carefully transferred back to the GitOps repository. After the diff between the
 cluster and the GitOps repository drops to zero, you can safely re-enable Auto
 Sync.
 
@@ -138,7 +150,7 @@ Dispatch leverages the [Argo CD](https://argoproj.github.io/argo-cd/) Open Sourc
 project to manage Continuous Delivery of your software. It is installed as part
 of Dispatch.
 
-## Setup GitOps repository
+## Set Up GitOps repository
 
 First, we need to create a git repository for GitOps. Going forward, we omit
 "git" and refer to this repository as the "GitOps repository".
@@ -146,7 +158,7 @@ First, we need to create a git repository for GitOps. Going forward, we omit
 1. Log in to https://github.com
 1. Visit https://github.com/mesosphere/cicd-hello-world-gitops and fork the
    repository to your own GitHub account. For this tutorial, we assume that the
-   GitOps repository is _public_. Dispatch will deploy the kubernetes manifests
+   GitOps repository is **public**. Dispatch will deploy the Kubernetes manifests
    defined in this GitOps repository to your cluster.
 1. Assuming your GitHub user or organization is `your-user`, you now have a GitOps
    repository at `https://github.com/your-user/cicd-hello-world-gitops`.
@@ -213,21 +225,21 @@ relative to your cluster URL.
 
 Looking at the GitOps repository sources, we see two files:
 
-- _application.yaml.tmpl_ contains all the Kubernetes manifests that define how
+* `application.yaml.tmpl` contains all the Kubernetes manifests that define how
   the hello-world application should be deployed and configured on the cluster.
   It contains a special `$({ .imageName })` string which is replaced with the
   image name and unique SHA256 digest of the Docker image to deploy.
-- _application.yaml_ is generated from _application.yaml.tmpl_ during CI.
+* `application.yaml` is generated from `application.yaml.tmpl` during CI.
 
 In Dispatch Alpha, the regenerate step is performed as part of the hello-world
 application's CI and is defined in its Dispatchfile. For subsequent releases, the
 CI and CD phases will not be coupled in this way: the application's Dispatchfile
-should relate to CI, only, and not be tightly coupled to CD (so that one may
+should relate to CI, only, and not be tightly coupled to CD (so that you may
 deploy the same application to multiple different clusters using different
 GitOps repositories for each cluster.)
 
 Instead of deploying raw Kubernetes manifests as in this example, the GitOps
-repository may contains Helm charts, too. In that case, you will have a
+repository may contain Helm charts, too. In that case, you will have a
 `values.yaml` file specifying an image tag, and a `values.yaml.tmpl` where the
 image tag is replaced with the `$({ .imageName })` placeholder string. During CI,
 when the pull request is created against the GitOps repository, the
@@ -237,8 +249,8 @@ generated as part of the hello-world application's CI, and the resulting file
 contents will overwrite the `values.yaml` file.
 
 The use of template files allows you to mark specific parts of your Kubernetes
-configuration files (e.g., `values.yaml` or `application.yaml`) and have those
-parts get dynamically replaced as part of a successful CI build, with the
+configuration files (for example, `values.yaml` or `application.yaml`) and have those
+parts dynamically replaced as part of a successful CI build, with the
 changes turned into pull requests against your GitOps repository.
 
 We now modify your application's Dispatchfile to open a pull request against the
@@ -282,7 +294,7 @@ list of tasks to run when new commits are pushed to the `master` branch.
 
 Change this:
 
-```
+```sh
 actions: [
   {
     tasks: ["build"]
@@ -294,7 +306,7 @@ actions: [
 
 To this:
 
-```
+```sh
 actions: [
   {
     tasks: ["build", "deploy"]
@@ -310,33 +322,33 @@ here: https://github.com/mesosphere/cicd-hello-world/compare/step_3...step_4
 Make this change on a feature branch of your hello-world application git
 repository, not your hello-world-gitops repository.
 
-Submit submit your change as a pull request to your own hello-world git
+Submit  your change as a pull request to your own hello-world git
 repository, and merge the pull request into the `master` branch. When the pull
 request is merged to your `master` branch, Dispatch will perform the `build` and
 `deploy` tasks. The `build` task will build a new docker image and push it to
 DockerHub as `your-user/hello-world`. The `deploy` task will open a new pull
 request against your GitOps repository to update the Docker image digest in the
-_application.yaml_ with the Docker image name and exact docker image digest of
+`application.yaml` with the Docker image name and exact docker image digest of
 the new Docker image that was built as part of the `build` task.
 
-Once you've merged the pull request to your hello-world application's git
+After you've merged the pull request to your hello-world application's git
 repository, you can visit the `/dispatch/tekton/` URL relative to your cluster
 URL, hit the "PipelineRuns" tab, and notice that a `master` branch build has
 been triggered.
 
-The final step of the PipelinRun is our new `deploy` task. Once it completes, it
+The final step of the PipelinRun is our new `deploy` task. After it completes, it
 will print the URL of the pull request against your GitOps repository. If you
 have Slack integration enabled for your GitOps repository, you will see a
 notification that a new pull request has been created.
 
 ## Deploying the application after GitOps repository is updated
 
-Once you have reviewed the pull request against your GitOps repository, merge it
+After you have reviewed the pull request against your GitOps repository, merge it
 to the `master` branch.
 
 At this point, the GitOps repository has been modified. We expect Argo CD to
 pick up that there were changes (specifically, the Docker image digest has been
-updated). Once it does, it will compare the configuration as defined in the
+updated). After it does, it will compare the configuration as defined in the
 GitOps repository with the configuration running in the cluster and notice that
 the cluster is Out Of Sync with the GitOps repository.
 
@@ -355,10 +367,10 @@ displayed on the `/hello-world` page.
 Open the `main.go` file in the hello-world git repository and change the last
 `fmt.Fprintf` statement to print a message of your choice. Commit your change to
 a new feature branch, create a pull request from your feature branch, and merge
-it to `master`. Once the `master` CI build succeeds, you can see a new pull
+it to `master`. After the `master` CI build succeeds, you can see a new pull
 request was get created against the GitOps repository. Merge it, then trigger an
 Refresh in the Argo CD UI (or wait ~180s) to see Argo CD pick up the change and
 deploy it.
 
-Once deployed, you can visit the `/hello-world` URL relative to your cluster URL
+After deployment, you can visit the `/hello-world` URL relative to your cluster URL
 to see the new message displayed.

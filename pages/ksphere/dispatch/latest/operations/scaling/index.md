@@ -2,8 +2,9 @@
 layout: layout.pug
 navigationTitle:  Scaling Dispatch
 title: Scaling Dispatch
-menuWeight: 3
-excerpt: Scaling a Dispatch installation.
+menuWeight: 5
+beta: true
+excerpt: Scaling Argo CD on Dispatch
 ---
 
 # Scaling Argo CD
@@ -18,6 +19,6 @@ To set extra arguments on a component, set the following Helm arguments:
 
 For example, to increase the number of kubectl commands that can be run simultaneously, run:
 
-```
+```bash
 dispatch init --set 'argo-cd.applicationController.extraArgs[0]=--kubectl-parallelism-limit=20'
 ```

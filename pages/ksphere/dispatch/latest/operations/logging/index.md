@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle:  Logging
 title: Logging in Kibana
 menuWeight: 2
+beta: true
 excerpt: Learn how to explore Dispatch logs in Kibana
 ---
 
@@ -18,7 +19,7 @@ To view the logs for `pipelines-controller`:
 ```
 dispatch logs pipelines-controller
 ```
-Log level can be tweaked by setting it in Deployment object for controller. Controller output is structured by default and contains information about the pipeline launches.
+Log levels can be adjusted by setting them in Deployment object for controller. Controller output is structured by default and contains information about the pipeline launches.
 
 To view the logs for `event-sink` (which is responsible for listening and processing git repo events):
 ```
