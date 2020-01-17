@@ -7,7 +7,7 @@ excerpt: Managing cloud providers used by Kommander
 
 Cloud providers like AWS, Azure and Google can provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys to your preferred cloud provider. It is possible to have many accounts for a single cloud provider.
 
-In order to provision new clusters and subsequently manage them, Kommander needs cloud provider credentials. Currently only AWS is supported, while Azure and GKE are coming soon.
+In order to provision new clusters and subsequently manage them, Kommander needs cloud provider credentials. Currently AWS, Azure and On Premise are supported, GKE is coming soon.
 
 ![Cloud Provider Form](/ksphere/kommander/img/Cloud-provider-unselected.png)
 
@@ -155,6 +155,69 @@ Below is the minimal IAM policy required:
 Figure 7 - Cloud Provider Form with values
 
 Once created, a Cloud Provider’s display name or credentials can be updated.
+
+### Configuring an Azure cloud provider
+
+When creating an Azure cloud provider, you need an [ansible inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html) and ssh keys.
+
+#### Create a new set of credentils via CLI commands
+
+```
+az login
+```
+
+```
+az role assignment cerate --assignee YOUR_USER_LOGIN --role "User Access Administrator"
+```
+
+```
+az account set --subscription=SUBSCRIPTION_ID"
+```
+
+```
+az ad sp create_for_rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+```
+
+The output should look similar to this:
+
+```
+{
+    "appId": "<APP_ID>",
+    "displayName": "azure-cli-...",
+    "name": "http://azure-cli-...",
+    "password": "<PASSWORD>",
+    "tenant": "<TENANT>"
+}
+```
+
+#### Fill out the rest of the form
+
+- Fill out a display name for your cloud provider that you can reference later.
+- Fill out Client ID with the `APP_ID`
+- Fill out Client Secret with the `PASSWORD`
+- Fill out Tenant ID with the `TENANT`
+- Fill out Subscription ID with the `SUBSCRIPTION_ID`
+- Click Verify and Save to verify that the credentials are valid and to save your provider.
+
+![Azure Cloud Provider Form with values](/ksphere/kommander/img/Azure-Cloud-provider-with-values.png)
+
+Figure 8 - Azure Cloud Provider Form with values
+
+Once created, a Cloud Provider’s display name or credentials can be updated.
+
+### Configuring an On Premise provider
+
+When creating an On Premise provider, you need a private SSH key.
+
+- Fill out a display name for your cloud provider that you can reference later.
+- Fill out Private SSH Key with the key you access your infrastructure with.
+- Click Verify and Save to verify that the credentials are valid and to save your provider.
+
+![On Premise Provider Form with values](/ksphere/kommander/img/On-prem-provider-with-values.png)
+
+Figure 9 - On Premise Provider Form with values
+
+Once created, a Provider’s display name or credentials can be updated.
 
 ### Deleting a cloud provider
 
