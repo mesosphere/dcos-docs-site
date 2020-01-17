@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Comparing load balancers
 title: Comparing load balancing services
-menuWeight: 15
+menuWeight: 10
 excerpt: Summarizes the differences between Marathon-LB and Edge-LB load balancing services
 enterprise: true
 ---
@@ -18,7 +18,7 @@ Edge-LB provides similar capabilities, enabling you to load-balance traffic from
 - Advanced deployment, distribution, and configuration options for flexibility and control over how inbound traffic reaches its destination within the DC/OS cluster
 
 # Distributing the workload for supported services
-Marathon-LB can only handle load-balancing for services that are defined and run using the Marathon framework. Marathon-LB cannot recognize or distribute processing for any other services. For example, Marathon-LB cannot handle load balancing for services that run as Apache Mesos&reg; tasks or as task executors. Instead, Marathon-LB listens for traffic through the Marathon event stream service bus, and is therefore limited to exposing and distributing access requests to Marathon-based apps.
+Marathon-LB can only handle load-balancing for services that are defined and run using the Marathon framework. Marathon-LB cannot recognize or distribute processing for any other services. For example, Marathon-LB cannot handle load balancing for services that run as Apache&reg; Mesos&reg; tasks or as task executors. Instead, Marathon-LB listens for traffic through the Marathon event stream service bus, and is therefore limited to exposing and distributing access requests to Marathon-based apps.
 
 Unlike Marathon-LB, Edge-LB can expose and distributing access requests to any services running on the DC/OS Enterprise cluster. Edge-LB supports load balancing for all DC/OS workloads, including the tasks associated with Apache&reg; Mesos&reg; frameworks and with other data services.
 
@@ -45,8 +45,8 @@ Edge-LB supports network components that use the industry-standard Container Net
 
 # Benefits of Edge-LB over Marathon-LB at-a-glance
 The key benefits of the load balancing provided by Edge-LB over those provided by Marathon-LB are: 
-- Edge-LB supports all applications, services, and workloads that you deploy in the DC/OS Enterprise cluster, not just Marathon-based apps.
--	Edge-LB enables you to define multiple Edge-LB pool instances and multiple Edge-LB pools for more granular control and high availability.
--	Edge-LB provides better configuration validation before, during, and after installation.
+* Edge-LB supports all applications, services, and workloads that you deploy in the DC/OS Enterprise cluster, not just Marathon-based apps.
+* Edge-LB enables you to define multiple Edge-LB pool instances and multiple Edge-LB pools for more granular control and high availability.
+* Edge-LB provides better configuration validation before, during, and after installation.
 
-To see the difference between loading balancing using Marathon-LB and Edge-LB for access to services in the cluster, see [Comparing Edge-LB to Marathon-LB](/services/edge-lb/getting-started/edge-lb-mlb-example/).
+To see the difference between loading balancing using Marathon-LB and Edge-LB for access to services in the cluster, see [Comparing Edge-LB to Marathon-LB](/mesosphere/dcos/services/edge-lb/1.5/getting-started/edge-lb-mlb-example/).

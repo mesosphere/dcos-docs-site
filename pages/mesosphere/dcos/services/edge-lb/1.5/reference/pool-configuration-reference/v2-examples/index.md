@@ -9,7 +9,7 @@ enterprise: true
 
 # V2 Pool Examples
 
-## Marathon Apps and DC/OS Services
+## Marathon&trade; Apps and DC/OS&trade; Services
 
 DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the Mesos `task` name and `port` name.
 

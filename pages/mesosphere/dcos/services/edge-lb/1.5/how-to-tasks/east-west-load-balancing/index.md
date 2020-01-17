@@ -69,7 +69,7 @@ If you have client requests originating inside of a cluster for access to applic
 
     * Set the `pool.role` to something other than the default `slave_public` value. In most cases, you can set this field using the `"*"` wildcard unless you have created a separate role for this purpose.
 
-1. Deploy the modified Edge-LB pool configuration by running the following command:
+1. Deploy the modified Edge-LB pool configuration:
 
     ```bash
     dcos edgelb create internal-lb.json

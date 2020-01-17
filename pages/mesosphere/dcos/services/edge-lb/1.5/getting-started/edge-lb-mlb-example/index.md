@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: Comparing Edge-LB to Marathon-LB
-title: Comparing Edge-LB to Marathon-LB
-menuWeight: 16
+navigationTitle: Compare Edge-LB to Marathon-LB
+title: Compare Edge-LB to Marathon-LB
+menuWeight: 18
 excerpt: Demonstrates differences between Marathon-LB and Edge-LB load balancing services
 enterprise: true
 ---
 
-This tutorial demonstrates exposing and accessing the NGINX&trade; service by using Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers.
+These sample exercises demonstrate exposing and accessing the NGINX&trade; service by using both Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers.
 
 # Before you begin
 You must have:
@@ -25,7 +25,10 @@ This tutorial illustrates the differences between configuring load balancing usi
 * Access the sample `nginx` app through the public agent URL.
 
 # Configure the sample app for Marathon-LB
-1. Open a text editor, then copy and paste the following sample app definition to create the `nginx-mlb.json` file:
+
+These steps illustrate how you can configure and deploy the `nginx` service through Marathon-LB.
+
+1. Copy and paste the following sample app definition into your text editor to create the `nginx-mlb.json` file:
 
     ```json
     {
@@ -74,10 +77,11 @@ This tutorial illustrates the differences between configuring load balancing usi
     http://<Public agent IP address>:10020
     ```
 
-These steps illustrate how you can deploy the `nginx` service through Marathon-LB.
+# Configure the sample app for Edge-LB
 
-# Configure Edge-LB for the sample app
-1. Open a text editor, then copy and paste the following sample app definition to create the `nginx.json` file:
+These steps illustrate how you can configure and deploy the `nginx` service through Edge-LB.
+
+1. Copy and paste the following sample app definition in your text editor to create the `nginx.json` file:
 
     ```json
     {
@@ -107,13 +111,13 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     }
     ```
 
-1. Deploy the `nginx` app using the following command:
+1. Deploy the `nginx` app:
 
     ```bash
     dcos marathon app add nginx.json
     ```
 
-1. Open a text editor, then copy and paste the following to create the `nginx-edgelb.json` pool configuration file to expose and access the `nginx` service:
+1. Copy and paste the following in your text editor to create the `nginx-edgelb.json` pool configuration file to expose and access the `nginx` service:
 
     ```json
     {
@@ -153,38 +157,38 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     }
     ```
 
-1. Deploy the Edge-LB pool configuration file to expose and access the `nginx` service by running the following command:
+1. Deploy the Edge-LB pool configuration file to expose and access the `nginx` service:
 
     ```bash
     dcos edgelb create nginx-edgelb.json
     ```
 
 # Verify deployment status for sample apps
-1. Verify that the Marathon-LB and Edge-LB API server packages deployed sucessfully by running the following command:
+1. Verify that the Marathon-LB and Edge-LB API server packages deployed successfully:
 
     ```bash
     dcos package list
     ```
 
-1. Verify the services and pool instances has been deployed sucessfully by running the following command:
+1. Verify the services and pool instances has been deployed sucessfully:
 
     ```bash
     dcos marathon app list
     ```
 
-1. Verify the Apache&reg; Mesos&reg; task relevant to services and the pool instances by running the following command:
+1. Verify the Apache&reg; Mesos&reg; task relevant to services and the pool instances:
 
     ```bash
     dcos task
     ```
 
-1. Verify that the Edge-LB pool named `nginx-edgelb` deployed successfully by running the following command:
+1. Verify that the Edge-LB pool named `nginx-edgelb` deployed successfully:
 
     ```bash
     dcos edgelb list
     ```
 
-1. Verify that the Edge-LB pool instance deployed successfully with the configured frontend and backend ports by running the following command:
+1. Verify that the Edge-LB pool instance deployed successfully with the configured frontend and backend ports:
 
     ```bash
     dcos edgelb endpoints nginx-edgelb
@@ -197,7 +201,7 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     http://<public_agent_public_IP>:10020
     ```
 
-    You should see a page for `Welcome to Nginx - through Marathon-LB`. For example: 
+    You should see a page for `Welcome to Nginx - through Marathon-LB`. For example:
     <p>
     <img src="/mesosphere/dcos/services/edge-lb/1.5/img/Edge-MLB-nginx.png" alt="Welcome page for a service using Marathon-LB">
     </p>
@@ -213,7 +217,7 @@ These steps illustrate how you can deploy the `nginx` service through Marathon-L
     <img src="/mesosphere/dcos/services/edge-lb/1.5/img/Edge-HAProxy-stats.png" alt="Statistics for a service exposed using Marathon-LB">
     </p>
 
-1. Access the `nginx` service that was exposed through Edge-LB using the public agent IP and the frontend port number. 
+1. Access the `nginx` service that was exposed through Edge-LB using the public agent IP and the frontend port number.
 
     ```bash
     http://<public_agent_public_IP>:15001

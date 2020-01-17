@@ -21,13 +21,8 @@ You must have:
 * An active and properly-configured DC/OS Enterprise cluster, with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
 # Create and deploy the ping sample app
-1. Open a text editor to create the sample app definition for the `ping` service in the `ping.json` file:
 
-    ```bash
-    vi ping.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `ping.json` file:
+1. Copy and paste the following JSON settings to create the sample app definition for the `ping` service in, and save, the `ping.json` file:
 
     ```json
     {
@@ -71,13 +66,8 @@ You must have:
     ```
 
 # Create the ping service-specific pool
-1. Open a text editor to create the sample pool configuration file for the `ping` services in the `ping-lb-pool.json` file:
 
-    ```bash
-    vi ping-lb-pool.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `ping-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the `ping` services in, and save, the `ping-lb-pool.json` file:
 
     ```json
     {
@@ -124,13 +114,8 @@ You must have:
     ```
 
 # Create and deploy the nginx sample app
-1. Open a text editor to create the sample app definition for the NGINX&trade; service in the `nginx.json` file:
 
-    ```bash
-    vi nginx.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `nginx.json` file:
+1. Copy and paste the following JSON settings to create the sample app definition for the NGINX&trade; service in, and save, the `nginx.json` file:
 
     ```json
     {
@@ -166,13 +151,8 @@ You must have:
     ```
 
 # Create the nginx service-specific pool
-1. Open a text editor to create the sample pool configuration file for the `nginx` services in the `nginx-lb-pool.json` file:
 
-    ```bash
-    vi nginx-lb-pool.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `nginx-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the `nginx` services in, and save, the `nginx-lb-pool.json` file:
 
     ```json
     {
@@ -219,13 +199,8 @@ You must have:
     ```
 
 # Create and deploy the echo sample app
-1. Open a text editor to create the sample app definition for the `echo` service in the `echo.json` file:
 
-    ```bash
-    vi echo.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `echo.json` file:
+1. Copy and paste the following JSON settings to create the sample app definition for the `echo` service in, and save, the `echo.json` file:
 
     ```json
     {
@@ -265,13 +240,8 @@ You must have:
     ```
 
 # Create the echo service-specific pool
-1. Open a text editor to create the sample pool configuration file for the `echo` services in the `echo-lb-pool.json` file:
 
-    ```bash
-    vi echo-lb-pool.json
-    ```
-
-1. Copy and paste the following JSON settings and save the `echo-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the `echo` services in, and save. the `echo-lb-pool.json` file:
 
     ```json
     {
@@ -318,25 +288,25 @@ You must have:
     ```
 
 # Verify deployment status
-1. Verify all services and pool instances have been deployed sucessfully by running the following command:
+1. Verify all services and pool instances have been deployed successfully:
 
     ```bash
     dcos marathon app list
     ```
 
-1. Verify the pool configuration for frontend and stats ports by running the following command:
+1. Verify the pool configuration for frontend and stats ports:
 
     ```bash
     dcos edgelb list
     ```
 
-1. Verify the Mesos tasks for the services and the Edge-LB pool instances by running the following command:
+1. Verify the Mesos tasks for the services and the Edge-LB pool instances:
 
     ```bash
     dcos task list
     ```
 
-1. Verify the pool configuration endpoints for each Edge-LB pool by running the following commands:
+1. Verify the pool configuration endpoints for each Edge-LB pool:
 
     ```bash
     dcos edgelb endpoints ping-lb
@@ -356,7 +326,7 @@ You must have:
     ```
 
 # Verify service access using frontend ports
-1. Verify that you can access the following deployed services using the public IP address and the assigned frontend ports.
+1. Verify that you can access the following deployed services using the public IP address and the assigned frontend ports:
 
     - `ping` service:
       ```bash
@@ -371,13 +341,13 @@ You must have:
       http://<public_agent_public_IP>:15003
       ```
 
-    In this tutorial, the `ping` load balancing service frontend port is 15001 and the port for HAProxy statistics is 1025. If the public IP address for the public agent node is 34.211.65.249, you could access the service by opening a web browser and specifying `34.211.65.249:15001` and the load balancing statistics for the the service by specifying `34.211.65.249:15001/haproxy?stats`.
+    In this tutorial, the `ping` load balancing service frontend port is 15001 and the port for HAProxy statistics is 1025. If the public IP address for the public agent node is 34.211.65.249, you could access the service by opening a web browser and specifying `34.211.65.249:15001`, and the load balancing statistics for the the service by specifying `34.211.65.249:15001/haproxy?stats`.
 
-    When you navigate to the public IP address and specified port for each load balanced service, you should see the following pages:
+    When you navigate to the public IP address and specified port for each load balanced service, verify that you can see the following pages:
     - `pong`
     - `Welcome to NGINX`
     - `Hello from Marathon!`
 
     If you cannot access one of the pages, check that the Edge-LB frontend ports do not conflict with other ports you are currently using.
 
-    If you are deploying multiple Edge-LN pool instances, you should also be sure that the Edge-LB pool instance names are unique. For example, the pool instance names used in this tutorial are `ping-lb-pool`, `nginx-lb-ppool`, and `echo-lb-pool` so that the instance names do not duplicate the pool names used in other examples or tutorials.
+    If you are deploying multiple Edge-LB pool instances, you should also be sure that the Edge-LB pool instance names are unique. For example, the pool instance names used in this tutorial are `ping-lb-pool`, `nginx-lb-ppool`, and `echo-lb-pool`, so that the instance names do not duplicate the pool names used in other examples or tutorials.

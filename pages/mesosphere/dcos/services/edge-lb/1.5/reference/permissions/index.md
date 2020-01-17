@@ -14,7 +14,7 @@ In general, you use the DC/OS Enterprise command-line interface to view and modi
 # General permission requirements
 
 - Superuser permissions allow a user to manage all Edge-LB pools. Use this option if you do not need to configure fine-grained access.
-- Grant a user or group the permissions below for finer-grained access to the Edge-LB pools. Using this method, you can restrict service accounts to have access to pools you specify.
+- Grant a user or group the permissions that follow for finer-grained access to the Edge-LB pools. Using this method, you can restrict service accounts to have access to pools you specify.
 
 # Installation permissions
 

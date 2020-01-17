@@ -40,7 +40,7 @@ Edge-LB pool has two sub-components:
 - Load balancing manager (lbmgr)
 - HAProxy
 
-## Load balancer manager (lbmgr)
+## Load balancing manager (lbmgr)
 
 The load balancing manager (`lbmgr`) in Edge-LB pool instances is a non-distributed process that runs along with the HAProxy load balancer. `lbmgr` takes the appropriate action for the pool when it receives requests from the API server.
 

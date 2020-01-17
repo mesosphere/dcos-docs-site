@@ -78,7 +78,7 @@ After you identify a Marathon application task name and port, you can create a p
     }
     ```
 
-1. Upload the pool configuration to Edge-LB by running the following command:
+1. Upload the pool configuration to Edge-LB:
 
     ```bash
     dcos edgelb create app-lb.json
@@ -116,7 +116,7 @@ After you identify a Marathon application task name and port, you can create a p
     }
     ```
 
-1. Deploy the service by running the following command:
+1. Deploy the service:
 
     ```bash
     dcos marathon app add my-app.json

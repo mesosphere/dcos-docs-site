@@ -59,7 +59,7 @@ Because you control this setting in the pool configuration file, for a given set
 
     In this sample, the `haproxy.stats.bindPort` setting is `0`, indicating that you want Edge-LB to select the port to use for the `stats` endpoint automatically.
 
-1. Deploy the Edge-LB pool configuration by running the following command:
+1. Deploy the Edge-LB pool configuration:
 
     ```bash
     dcos edgelb create nginx-lb.json

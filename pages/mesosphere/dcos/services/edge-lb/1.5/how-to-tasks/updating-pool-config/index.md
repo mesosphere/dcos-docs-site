@@ -21,7 +21,7 @@ You must have:
 * An active and properly-configured DC/OS Enterprise cluster.
 
 # To update a pool configuration
-1. Open a text editor, then copy and paste the following sample Edge-LB pool configuration to create the `nginx-lb.json` file:
+1. Copy and paste the following sample Edge-LB pool configuration to create the `nginx-lb.json` file:
 
     ```json
     {
@@ -63,31 +63,25 @@ You must have:
 
     This sample Edge-LB pool configuration file deploys one Edge-LB pool instance using the `"count": 1` setting.
 
-1. Open the sample pool configuration file in a text editor by running a command similar to the following:
-
-    ```bash
-    vi nginx-lb.json
-    ```
-
 1. Change the `count` pool instance variable to `3` to scale up the number of Edge-LB pool instances.
 
     ```json
     "count": 3
     ```
 
-1. Update the Edge-LB pool by running the following command:
+1. Update the Edge-LB pool:
 
     ```bash
     dcos edgelb update nginx-lb.json
     ```
 
-1. Verify that the pool configuration was updated by running the following command:
+1. Verify that the pool configuration was updated:
 
     ```bash
     dcos edgelb status nginx-lb
     ```
 
-1. Verify the endpoints that Edge-LB pools are deployed on the public agents by running the following command:
+1. Verify the endpoints that Edge-LB pools are deployed on the public agents:
 
     ```bash
     dcos edgelb endpoints nginx-lb

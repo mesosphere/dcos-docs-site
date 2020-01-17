@@ -13,7 +13,7 @@ The code examples in this section illustrate configuration settings written in J
 
 ## Marathon&trade; apps and DC/OS&trade; services
 
-DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the APache&reg; Mesos&reg; `task` name and `port` name.
+DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the Apache&reg; Mesos&reg; `task` name and `port` name.
 
 For example, in the following snippet of a Marathon app definition, the `task` name is `my-app` and the `port` name is `web`.
 

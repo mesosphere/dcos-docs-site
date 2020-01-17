@@ -18,45 +18,44 @@ You must have:
 * The `edgelb` command-line interface (CLI) installed.
 
 # To uninstall Edge-LB
-1. List the pools which are managed by Edge-LB by running the following command:
+1. List the pools which are managed by Edge-LB:
 
     ```bash
     dcos edgelb list
     ```
 
-1. Delete each pool returned from the list command in the previous step by running the following command:
+1. Delete each pool returned from the list command in the previous step:
 
     ```bash
     dcos edgelb delete <pool-name>
     ```
-    Deleting pools automatically uninstalls managed load balancers.
 
-1. Uninstall the Edge-LB API server by running the following command:
+    <p class="message--note"><strong>NOTE:  </strong>Deleting pools automatically uninstalls managed load balancers.</p>
+
+1. Uninstall the Edge-LB API server:
 
     ```bash
     dcos package uninstall edgelb
     ```
 
-1. Remove the Edge-LB package repositories.
-
-    In most cases, you can remove the repositories by running the following commands:
+1. Remove the Edge-LB package repositories. In most cases, you can remove the repositories with these commands:
 
     ```bash
     dcos package repo remove edgelb
     dcos package repo remove edgelb-pool
     ```
 
-    If you installed Edge-LB AWS repositories, remove them by running the following commands:
+    If you installed Edge-LB AWS repositories, remove them with the commands:
 
     ```bash
     dcos package repo remove edgelb-aws
     dcos package repo remove edgelb-pool-aws
     ```
 
-1. Remove all Amazon Web Services&reg; (AWS&reg;) Elastic Load Balancer&reg; (ELB&reg;) instances, if applicable, by running the following command:
+1. Remove all Amazon Web Services&reg; (AWS&reg;) Elastic Load Balancer&reg; (ELB&reg;) instances, if applicable:
 
     ```bash
     dcos edgelb cleanup
     ```
 
-    If you deployed the cloud connector to use Edge-LB with the Amazon Web Services (AWS) Elastic Load Balancer (ELB), you should run the `dcos edgelb cleanup` command to remove any ELB instances that remain after Edge-LB has been uninstalled from a DC/OS cluster.
+     <p class="message--note"><strong>NOTE:  </strong>If you deployed the cloud connector to use Edge-LB with the Amazon Web Services (AWS) Elastic Load Balancer (ELB), you should run the <strong>dcos edgelb cleanup</strong> command to remove any ELB instances that remain after Edge-LB has been uninstalled from a DC/OS cluster.</p>

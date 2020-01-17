@@ -20,20 +20,20 @@ You must have:
 
 # To upgrade Edge-LB packages
 
-1. Uninstall the `apiserver` package.
+1. Uninstall the `apiserver` package:
 
     ```bash
     dcos package uninstall edgelb --yes
     ```
 
-1. Remove the old package repositories.
+1. Remove the old package repositories:
 
     ```bash
     dcos package repo remove edgelb-aws
     dcos package repo remove edgelb-pool-aws
     ```
 
-1. Add the new package repositories.
+1. Add the new package repositories:
 
     ```bash
     dcos package repo add --index=0 edgelb-aws \
@@ -42,10 +42,10 @@ You must have:
       https://<insert download link>/stub-universe-edgelb-pool.json
     ```
 
-1. Install the new `apiserver`. 
+1. Install the new `apiserver`:
 
-    Use the service account you created when you installed the previous version. For more information about creating and configuring permissions for the service account, see [Installing Edge-LB](/services/edge-lb/1.5/getting-started/installing) and [Service account permissions](/services/edge-lb/1.5/reference/permissions/#service-account-permission).
-    
+    Use the service account you created when you installed the previous version. For more information about creating and configuring permissions for the service account, see [Installing Edge-LB](/mesospshere/dcos/services/edge-lb/1.5/getting-started/installing) and [Service account permissions](/mesosphere/dcos//services/edge-lb/1.5/reference/permissions/#service-account-permission).
+
     The configuration file below matches the one created by following the installation instructions.
 
     ```bash
@@ -70,7 +70,7 @@ You must have:
         - `true` (default) for permissive or strict security
         - `false` for disabled security mode
 
-1. Upgrade each pool.
+1. Upgrade each pool:
 
     ```bash
     dcos edgelb update <pool-file>

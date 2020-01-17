@@ -7,7 +7,7 @@ excerpt: How to customize Edge-LB load balancing by modifying templates.
 enterprise: true
 ---
 
-Edge-LB uses templates to configure load balancing settings. This tutorial illustrates how you can create a custom `haproxy` template for Edge-LB to support Basic authentication.
+Edge-LB uses templates to configure load balancing settings. This tutorial demonstrates how you can create a custom `haproxy` template for Edge-LB to support Basic authentication.
 
 In this tutorial, you use settings in the custom `haproxy` template to create at a simple `userlist` that defines the authenticated and authorized users who are allowed access using `frontend` and `backend` configuration settings.
 
@@ -19,19 +19,19 @@ You must have:
 
 # Create a custom template
 
-To create a custom template for Basic authentication:
+To create a custom template for basic authentication:
 
 1. Install Edge-LB as described [Installing Edge-LB](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 
 1. Create an Edge-LB pool as described in [Expose and load balance a service](/mesosphere/dcos/services/edge-lb/1.5/getting-started/single-lb).
 
-1. Fetch the template for the Edge-LB pool you created in the previous step and save it to a file named `haproxy.tmpl` by running the following command:
+1. Fetch the template for the Edge-LB pool you created in the previous step and save it to a file named `haproxy.tmpl`:
 
     ```bash
     dcos edgelb template show <pool-name> > haproxy.tmpl
     ```
 
-    For example, if the pool you created was `ping-lb`, you would run the following command:
+    For example, if you created the `ping-lb` pool, use the command:
 
     ```bash
     dcos edgelb template show ping-lb > haproxy.tmpl
@@ -39,9 +39,7 @@ To create a custom template for Basic authentication:
 
 1. Open the `haproxy.tmpl` template you created in the previous step in a text editor.
 
-1. Modify the `haproxy.tmpl` file to create a `basic-auth` user list with user names and passwords for a set of regular and administrative users.
-
-    For example:
+1. Modify the `haproxy.tmpl` file to create a `basic-auth` user list with user names and passwords for a set of regular and administrative users:
 
     ```bash
     userlist basic-auth
@@ -54,27 +52,21 @@ To create a custom template for Basic authentication:
       user guest insecure-password guestpassword
     ```
 
-1. Create an access control list (ACL) rule inside the `backend` section for the users and groups you defined in the `userlist` who are allowed to access the load balanced service.
-
-    For example:
+1. Create an access control list (ACL) rule inside the `backend` section for the users and groups you defined in the `userlist` who are allowed to access the load balanced service:
 
     ```bash
     acl example-auth http_auth(basic-auth)
     http-request auth realm example unless example-auth
     ```
 
-1. Create an access control list (ACL) rule inside the `backend` section to grant different access rights to users who belong to the `admin-users` group  that you defined in the `userlist`.
-
-    For example:
+1. Create an access control list (ACL) rule inside the `backend` section to grant different access rights to users who belong to the `admin-users` group  that you defined in the `userlist`:
 
     ```bash
     acl itadmin-auth http_auth_group(basic-auth) admin-users
     http-request auth realm itadmin unless itadmin-auth
     ```
 
-1. Create additional access control list (ACL) rules inside the `frontend` section to grant limited access to the users who do not belong to the `admin-users` or `regular-users` groups that you defined in the `userlist`.
-
-    For example:
+1. Create additional access control list (ACL) rules inside the `frontend` section to grant limited access to the users who do not belong to the `admin-users` or `regular-users` groups that you defined in the `userlist`:
 
     ```bash
     acl guest-users hdr_dom(host) -i guest.example.org
@@ -84,9 +76,7 @@ To create a custom template for Basic authentication:
     use_backend web-guest-production if guest-users
     ```
 
-1. Verify your user list and the access control rules you have set for the `frontend` and `backend` sections.
-
-    For example:
+1. Verify your user list and the access control rules you have set for the `frontend` and `backend` sections:
 
     ```bash
     userlist basic-auth
@@ -144,12 +134,13 @@ To create a custom template for Basic authentication:
       server guest 10.0.10.17:80
     ```
 
-1. Update the Edge-LB pool to use the custom template by running a command similar to the following:
+1. Update the Edge-LB pool to use the custom template:
 
     ```bash
     dcos edgelb template update <pool-name> haproxy.tmpl
     ```
-    For example, if the pool is `ping-lb`, you would run the following command:
+
+    For example, if the pool is `ping-lb`, use the command:
 
     ```bash
     dcos edgelb template update ping-lb haproxy.tmpl
