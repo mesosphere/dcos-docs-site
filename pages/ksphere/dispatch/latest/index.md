@@ -7,4 +7,4 @@ category: K-Sphere
 menuWeight: 0
 ---
 
-Intro to Dispatch goes here
+Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications. 

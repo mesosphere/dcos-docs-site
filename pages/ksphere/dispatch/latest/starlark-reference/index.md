@@ -3,13 +3,14 @@ layout: layout.pug
 navigationTitle:  Starlark Reference
 title: Starlark Reference
 menuWeight: 4
+beta: true
 excerpt: Reference Guide for Configuring Dispatch pipelines with Starlark.
 ---
 
 
 # Starlark reference
 
-[Starlark](https://github.com/bazelbuild/starlark) is a configuration language originally developed for use in the Bazel build tool which is based on Python. Using Starlark, developers can take advantage of language features they're used to in regular development (loops, user defined functions, conditionals, modules, testing, editor integrations, etc). Additionally, the Dispatch project provides a basic standard library that can be utilized to make it simpler to define pipelines.
+[Starlark](https://github.com/bazelbuild/starlark) is a configuration language originally developed for use in the Bazel build tool which is based on Python. Using Starlark, you can take advantage of language features you're used to in regular development (loops, user defined functions, conditionals, modules, testing, editor integrations, etc). Additionally, the Dispatch project provides a basic standard library that can make it simpler to define pipelines.
 
 See [the repository setup guide](../repo_setup/) and [the pipeline reference](../pipeline-configuration/) for complete documentation on configuring your pipeline.
 
@@ -17,7 +18,7 @@ See [the repository setup guide](../repo_setup/) and [the pipeline reference](..
 
 Any method that starts with `test_` in your Dispatchfile is run immediately after parsing the Dispatchfile. This allows you to write tests that verify your methods as well as the formation of your pipeline.
 
-```
+```sh
 #!starlark
 
 task("test", steps=[k8s.corev1.Container(
@@ -57,7 +58,7 @@ Allows defining a Kubernetes resource quantity for use in a Kubernetes limit or 
 
 Example usage:
 
-```
+```sh
 task("test", inputs=["git"], steps=[k8s.corev1.Container(
     name="test",
     image="golang:1.13.0-buster",
@@ -82,7 +83,7 @@ Defines a new task in a pipeline.
 
 Example usage:
 
-```
+```sh
 task("test", inputs=["git"], steps=[k8s.corev1.Container(
     name="test",
     image="golang:1.13.0-buster",
@@ -101,7 +102,7 @@ Defines a new resource in a pipeline.
 
 Example usage:
 
-```
+```sh
 resource("git", params={
     "url": "$(context.git.url)",
     "revision": "$(context.git.commit)"

@@ -3,16 +3,14 @@ layout: layout.pug
 navigationTitle:  Code Repository Configuration
 title: Setting up a Repository in Dispatch
 menuWeight: 2
-excerpt: Configure and set up a code repository for access by Dispatch including configuring a Dispatchfile
+beta: true
+excerpt: Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 
-# Setting up a repository to use Dispatch
+# Credentials
 
-## Credentials
-
-Credentials that are used when a Dispatchfile is executed, to push images and
-clone source repositories, are attached to an individual service account that is
-specified when a Dispatch repository is created. The Dispatchfile's tasks then
+Credentials are used when a Dispatchfile is executed, to push images and
+clone source repositories. These credentials are attached to an individual service account that is specified when a Dispatch repository is created. The Dispatchfile's tasks then
 have access to only those credentials that have been attached to the specified
 service account.
 
@@ -25,111 +23,104 @@ special structure and annotations.
 Before registering a new repository with Dispatch, you need to create a service
 account and attach credentials to it.
 
-### Create a service account
+1. Create a service account using the dispatch CLI as follows:
 
-Create a service account using the dispatch CLI as follows:
+    ```bash
+    dispatch serviceaccount create team-1
+    ```
 
-```
-dispatch serviceaccount create team-1
-```
+    This creates a service account named `team-1`.
 
-This creates a service account named `team-1`.
-
-### Setup GitHub credentials
-
-Create a [Personal Access Token](https://github.com/settings/tokens) for your
+1. Create a [Personal Access Token](https://github.com/settings/tokens) for your
 Github account. You need to specify the following permissions:
 
-* FULL access to `admin:repo_hook`: used to register webhooks to report events
-  to the Dispatch build server.
-* FULL access to `repo`: used to download source code whether public or private,
-  report build status to your commits, etc.
+    * FULL access to `admin:repo_hook`: used to register webhooks to report events
+      to the Dispatch build server.
+    * FULL access to `repo`: used to download source code whether public or private,
+      report build status to your commits, etc.
 
-After creating the token, remember the secret value. Replace `$YOURGITHUBTOKEN`
+1. After creating the token, remember the secret value. Replace `$YOURGITHUBTOKEN`
 with token secret value in the following command:
 
-```
-dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
-```
+    ```bash
+    dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
+    ```
 
-The `team-1` service account now has these credentials attached as a
-secret, and any Dispatch repository that is configured to use the
-`team-1` service account will operate on GitHub using these credentials.
+    The `team-1` service account now has these credentials attached as a
+    secret, and any Dispatch repository that is configured to use the
+    `team-1` service account will operate on GitHub using these credentials.
 
-### Setup Git SSH credentials
+1. Set up Git SSH credentials. Generate an SSH key pair:
 
-Generate an SSH key pair:
+    ```bash
+    ssh-keygen -t ed25519 -f dispatch.pem
+    ```
 
-```
-ssh-keygen -t ed25519 -f dispatch.pem
-```
+    This generates two files:
 
-This generates two files:
+    * The SSH private key `dispatch.pem` (never copy or share this file anywhere you
+      do not trust).
+    * The SSH public key `dispatch.pem.pub` which corresponds to the `dispatch.pem`
+      private key file. This file is safe to copy or share publicly.
 
-* The SSH private key `dispatch.pem` (never copy or share this file anywhere you
-  don't trust).
-* The SSH public key `dispatch.pem.pub` which corresponds to the `dispatch.pem`
-  private key file. This file is safe to copy or share publicly.
+1. Add the SSH public key to your GitHub account:
 
-Add the SSH public key to your GitHub account:
+    * Visit https://github.com/settings/keys
+    * Click "New SSH key".
+    * Give the key an appropriate title like "Dispatch test 1".
+    * Run `cat ./dispatch.pem.pub` in your terminal, copy the output, and paste it in the "Key" text box on the page.
+    * Click "Add SSH key".
 
-* Visit https://github.com/settings/keys
-* Click "New SSH key".
-* Give the key an appropriate title like "Dispatch test 1".
-* Run `cat ./dispatch.pem.pub` in your terminal, copy the output, and paste it in the "Key" text box on the page.
-* Click "Add SSH key".
-
-Now that we've registered our SSH public key with GitHub, we add the
+1. Now that we've registered our SSH public key with GitHub, we add the
 corresponding SSH private key to the `team-1` service account:
 
-```
-dispatch login git --service-account team-1 --private-key-path ./dispatch.pem
-```
+    ```bash
+    dispatch login git --service-account team-1 --private-key-path ./dispatch.pem
+    ```
 
-### Setup Docker Credentials
-
-Dispatch loads Docker registry credentials from Docker's default config file (typically `$HOME/.docker/config.json`),
-so you should first ensure you have already logged in on all used registries through Docker CLI. To load Docker
+1. Set up Docker Credentials. Dispatch loads Docker registry credentials from Docker's default config file (typically `$HOME/.docker/config.json`), so you should first ensure you have already logged in on all used registries through Docker CLI. To load Docker
 registry credentials, run the `login docker` subcommand and specify the service account to attach the credentials to:
 
-```
-dispatch login docker --service-account team-1
-```
+    ```bash
+    dispatch login docker --service-account team-1
+    ```
 
-Alternatively, you can supply the path to a non-default Docker config file:
+    Alternatively, you can supply the path to a non-default Docker config file:
 
-```
-dispatch login docker --service-account team-1 --docker-config-path /path/to/config.json
-```
+    ```bash
+    dispatch login docker --service-account team-1 --docker-config-path /path/to/config.json
+    ```
 
-## Setup a repository
+# Setting up a repository
 
-First, let's write some code to deploy. For this tutorial, we will fork a simple
-"hello world" application prepared for this purpose. Visit [the cicd-hello-world
-repository](https://github.com/mesosphere/cicd-hello-world) and "Fork" it to
+Now that you have set up your credentials, let's write some code to deploy. For this tutorial, we will fork a simple "hello world" application prepared for this purpose. Visit [the cicd-hello-world repository](https://github.com/mesosphere/cicd-hello-world) and fork it to
 your personal account.
+
 
 The repository contains various branches named `step_1`, `step_2`, etc. These
 correspond to the steps in this tutorial, as well as steps in the next tutorial:
 [Deployment with Gitops and Argo CD](../deployment/). The `master` branch is in
 a very basic state. We will add to it as we progress through the tutorials.
 
-Clone your new "cicd-hello-world" repository from your personal fork to your
-workstation. Looking at the source code, you see the following files:
+Clone your new `cicd-hello-world` repository from your personal fork to your
+workstation. Looking at the source code, you will see the following files:
 
-* *main.go* contains the code for the Go web server.
-* *Dockerfile* describes how to build a docker image from the application source
+- **main.go** contains the code for the Go web server.
+
+- **Dockerfile** describes how to build a docker image from the application source
   code.
-* *README.md*
-* *License* contains a license file. The application was forked from the example
+
+- **README.md**
+
+- **License** contains a license file. The application was forked from the example
   'hello-app' application at
   https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/tree/bc8e412670e5f8dd94189e80a0908d08ade196cc/hello-app
 
-## Write a basic Dispatchfile
+## Writing a Basic Dispatchfile
 
-Now we write a basic Dispatchfile and save it as `Dispatchfile` in your cloned repository:
+We will write a basic Dispatchfile and save it as `Dispatchfile` in your cloned repository:
 
-```
+```bash
 resource "src-git": {
   type: "git"
   param url: "$(context.git.url)"
@@ -166,9 +157,9 @@ actions: [
 ```
 
 A Dispatchfile has three parts:
-
-* `task`: defines a set of steps (containers) to run, these do the work of the pipeline.
 * `resource`: resources define git repositories, images, and other artifacts that are consumed or produced by a task.
+* `task`: defines a set of steps (containers) to run, these do the work of the pipeline.
+
 * `actions`: defines which tasks to run for which events.
 
 In our example:
@@ -179,7 +170,7 @@ In our example:
   * One that runs the `test` task on any push to the `master` branch.
   * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/build`.
 
-Once you've saved the file, you can add and commit the `Dispatchfile` to your git
+After you have saved the file, you can add and commit the `Dispatchfile` to your Git
 repository's master branch, then push it to GitHub:
 
 ```sh
@@ -188,11 +179,11 @@ git commit -m 'Dispatchfile: initial commit with test task'
 git push
 ```
 
-## Trigger a build locally
+## Triggering a build locally
 
 To run your Dispatchfile, simply run:
 
-```
+```sh
 dispatch build local --tasks test --service-account team-1
 ```
 
@@ -202,11 +193,14 @@ Alternatively, run it in a running Dispatch cluster with:
 dispatch build tekton --tasks test --service-account team-1 --follow
 ```
 
-This will submit the Dispatchfile to your Dispatch cluster, run it using the
-`team-1` service account and its attached credentials, and display the
+This will 
+* submit the Dispatchfile to your Dispatch cluste
+* run it using the
+`team-1` service account and its attached credentials, and 
+* display the
 results to you.
 
-Once this command exits successfully, you can view the result of the build on GitHub.
+After this command exits successfully, you can view the result of the build on GitHub.
 
 Visit https://github.com/your-user/cicd-hello-world/commits/master in your browser (replace "your-user" with your actual GitHub username).
 
@@ -217,7 +211,7 @@ You can click on the the green checkmark and then click on "Details" in order to
 view the build log of your first CI pipeline. It is not very glamarous yet, but
 it is a good start.
 
-### Build a Docker image
+### Building a Docker image
 
 In the previous example, we only ran our tests. Now let's build a Docker image.
 
@@ -228,7 +222,7 @@ resulting image to DockerHub.
 We add the "docker-image" resource below the "src-git" resource. The order in
 which they are defined is not important.
 
-```
+```sh
 resource "src-git": {
   type: "git"
   param url: "$(context.git.url)"
@@ -253,7 +247,7 @@ Next, we'll add a new "build" task definition that will build our docker image.
 We add the "build" task definition below the "test" task definition. The order
 in which tasks are defined is not important.
 
-```
+```sh
 ...
 task "test": {
   inputs: ["src-git"]
@@ -297,7 +291,7 @@ task "build": {
 
 Next, let's modify the list of actions at the bottom of the file to execute the new "build" task:
 
-```
+```sh
 ...
 
 actions: [
@@ -322,7 +316,7 @@ actions: [
 ]
 ```
 
-If you're unsure exactly what changes to make, you can have a look at the diff here: https://github.com/mesosphere/cicd-hello-world/compare/step_1...step_2
+If you're unsure exactly what changes to make, you can look at the diff here: https://github.com/mesosphere/cicd-hello-world/compare/step_1...step_2
 
 Since the "build" task depends on the "test" task, we do not need to explicitly
 list the "test" task in the actions where the "build" task is specified. If you
@@ -342,7 +336,7 @@ In this section, we have added three things to our Dispatchfile:
 
 See the [complete pipeline configuration reference](pipeline-configuration.md) for further assistance configuring your pipeline.
 
-Once you've made these modifications to the Dispatchfile, you can `add`, `commit` and `push` your changes:
+After you've made these modifications to the Dispatchfile, you can `add`, `commit` and `push` your changes:
 
 ```sh
 git add Dispatchfile
@@ -362,7 +356,7 @@ Alternatively, run it in a running Dispatch cluster with:
 dispatch build tekton --tasks build --service-account team-1 --follow
 ```
 
-Once this command exits successfully, you can view the result of the build on GitHub.
+After this command exits successfully, you can view the result of the build on GitHub.
 
 Visit https://github.com/your-user/cicd-hello-world/commits/master in your browser (replace "your-user" with your actual GitHub username).
 
@@ -370,7 +364,7 @@ Notice that the latest commit "Dispatchfile: add docker-image" has a green
 checkmark. As before, this means that the build succeeded.
 
 Click on the the green checkmark and then click on the "Details" next to the
-"build" task in order to view the build log. Once the build succeeds, you can
+"build" task in order to view the build log. After the build succeeds, you can
 visit DockerHub and see the new image has been pushed. To do so, open your
 browser at https://hub.docker.com/r/your-user/hello-world (remember to
 replace "your-user" in the URL with your actual DockerHub username)
@@ -385,14 +379,14 @@ that the latest commit now shows a green checkmark, too.
 If you want to push docker images to a private docker registry as part of your
 pipeline, say to `https://docker-registry.local/`, with service account `team-1`, you can execute the following command:
 
-```
+```sh
 docker login https://docker-registry.local
 dispatch login docker --service-account team-1
 ```
 
-Once you have configured credentials for the service account to use when accessing the private docker registry, you can push your image to it by prefixing the image name with the hostname of the private docker registry in your Dispatchfile as follows:
+After you have configured credentials for the service account to use when accessing the private docker registry, you can push your image to it by prefixing the image name with the hostname of the private docker registry in your Dispatchfile as follows:
 
-```
+```sh
 resource "docker-image": {
   type: "image"
   param url: "docker-registry.local/hello-world:$(context.build.name)"
@@ -401,14 +395,14 @@ resource "docker-image": {
 ```
 
 
-## Add repository to Dispatch
+## Adding a Repository to Dispatch
 
 You are now ready to have the Dispatch service execute your Dispatchfile on pull requests against your repository.
 
 In your shell, navigate to your local git checkout of the `cicd-hello-world`
 repository and run the following command:
 
-```
+```sh
 dispatch create repository --service-account team-1
 ```
 
@@ -424,7 +418,7 @@ replace "your-user" with your real GitHub username). The green checkmark
 indicates that GitHub is able to successfully deliver webhook events to your
 Dispatch installation.
 
-## Create a Pull Request
+## Creating a Pull Request
 
 We are now ready to perform our first real CI build. We will,
 
@@ -443,14 +437,14 @@ branch to your fork of the cicd-hello-world repository.
 You can see the exact changes suggested here by looking at this diff:
 https://github.com/mesosphere/cicd-hello-world/compare/step_2...step_3
 
-Once you push your feature branch to your fork, you can visit
+After you push your feature branch to your fork, you can visit
 https://github.com/your-user/cicd-hello-world/commits/master (replace
 `your-user` with your actual GitHub username) and create a pull request from
 your feature branch against the master branch _of your fork_.
 
 A few seconds after you've created your pull request, you will see Dispatch
 report that a new CI build has started. You can click on the Details link to
-follow the build as it proceeds. Once it completes successfully, that status
+follow the build as it proceeds. After it completes successfully, that status
 will be reported back to GitHub and your pull request will show that all its
 checks are passing. Merge the pull request.
 
@@ -461,9 +455,9 @@ https://github.com/your-user/cicd-hello-world/commits/master (replace
 `your-user` with your actual GitHub username) and clicking on the yellow dot or
 green checkmark next to the latest "Merge" commit.
 
-*NOTE: the following relies on functionality not yet released in Dispatch v0.1.0*
+<p class="message--caution"><strong>CAUTION: </strong>The following section relies on functionality not yet released in Dispatch v0.1.0</p>
 
-Now that we've modified master and confirmed that the current `master` branch
+Now that we hae modified master and confirmed that the current `master` branch
 passed CI, we will use the GitHub UI to tag a new release.
 
 1. Open your browser at https://github.com/your-user/cicd-hello-world/releases
@@ -487,13 +481,13 @@ created.)
 1. Click on the "Details" link next to "build". This takes you to the now-familiar Tekton dashboard.
 1. In the sidebar click on "PipelineRuns".
 1. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
-1. Once it completes, if will push a docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
+1. After it completes, if will push a docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
 
 You have successfully created a release.
 
 Now that you have configured CI for your project, proceed to the next tutorial:
 [Deployment with Gitops and Argo CD](../deployment/)
 
-## Slack notifications
+## Slack Notifications
 
 If you would like to receive notifications in a Slack channel, add the [Github Slack integration](https://slack.github.com/) to your Slack channel.
