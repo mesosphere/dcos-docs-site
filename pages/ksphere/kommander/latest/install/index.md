@@ -28,7 +28,7 @@ The minimum cluster size requirements for the Konvoy management cluster already 
 
 ### Logging in with Username and Password
 
-After you provision your first Konvoy cluster, your username, password, and a URL to Konvoy will be printed to the command-line. Once logged in to Konvoy, you should see a button labelled "Try Kommander Beta!" at the top of the page. If not, check to ensure you've installed the Konvoy release that includes Kommander.
+After you provision your first Konvoy cluster, your username, password, and a URL to Konvoy is displayed on the command-line. Once logged in to Konvoy, you should see a button labelled "Try Kommander Beta!" at the top of the page. If not, ensure you have installed the Konvoy release that includes Kommander.
 
 ![Try Kommander button](/ksphere/kommander/img/try-kommander-beta.png)
 
