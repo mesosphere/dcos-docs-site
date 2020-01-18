@@ -7,14 +7,14 @@ menuWeight: 60
 category: Storage
 image: img/hedvig.png
 ---
-
+# Hedvig
 The Hedvig Distributed Storage Platform provides a modern software solution that lets you tailor a flexible and efficient data management system built on industry-standard x86 server hardware to support any application, hypervisor, container, or cloud.
 
-## quick start
+## Quick Start
 
 The following shows how you can setup `Konvoy` with `Hedvig` as the default persistent storage provider.
 
-### install
+### Install
 
 Installing Konvoy with a different persistent storage provider currently requires a three phase install.
 
@@ -22,7 +22,7 @@ Installing Konvoy with a different persistent storage provider currently require
 1. install storage provider
 1. `konvoy up` with addons that require persistent storage
 
-#### (1) `konvoy up` with addons that don't require persistent storage
+#### (1) `konvoy up` With Addons That Don'T Require Persistent Storage
 
 First run `konvoy init` so that you get the `cluster.yaml` file.
 ```
@@ -98,7 +98,7 @@ Once the cluster is up apply the `kubeconfig` and make sure that you can interac
 konvoy apply kubeconfig
 ```
 
-#### (2) install storage provider
+#### (2) Install Storage Provider
 
 Installing the `Hedvig` storage provider requires to do the following steps
 
@@ -106,7 +106,7 @@ Installing the `Hedvig` storage provider requires to do the following steps
 * install the storage provider operator
 * create default storage class
 
-##### install storage provider prerequisites
+##### Install Storage Provider Prerequisites
 
 Hedvig Storage Cluster (Hedvig 3.0 or later) has to be installed as a peer to Konvoy. Ensure that the Konvoy worker nodes and the Hedvig Storage Cluster Nodes can communicate with each other.
 
@@ -150,7 +150,7 @@ for ip in $IPS; do
 done
 ```
 
-##### install the storage provider yaml manifests
+##### Install The Storage Provider Yaml Manifests
 
 Contact Hedvig to get download access for `hedvig-csi-installer.tar.gz`. Once downloaded unpack it and change to the `hedvig-csi-installer` folder.
 
@@ -192,7 +192,7 @@ Next we create the `Hedvig dynamic provisioner`.
 ./install_hedwig.sh
 ```
 
-##### create default storage class
+##### Create Default Storage Class
 
 Here we create the default storage class for the Konvoy cluster.
 
@@ -247,7 +247,7 @@ EOF
 
 If all things work fine, the pod created should be up and running, and data should be written to `/data/output` on the volume.
 
-#### (3) `konvoy up` with addons that require persistent storage
+#### (3) `konvoy up` With Addons That Require Persistent Storage
 
 In the `cluster.yaml` file `enable` all addons that require persistent storage.
 ```yaml
@@ -303,15 +303,15 @@ konvoy up
 
 When complete you should see in the addons listed also those that require persistent storage, e.g prometheus, elasticsearch, ... .
 
-### verify
+### Verify
 
 First check that in the `kubeaddons` and `velero` namespaces all persistent volume claims got created successfully.
 
 Next launch from the ops portal graphana or kibana and see that you actually get data.
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
 * [Hedvig Technical Overview](https://go.hedvig.io/WC-TechnicalOverview_LP-Registration-2.html)
 * [Hedvig Product Datasheet](https://go.hedvig.io/rs/896-KUY-430/images/Hedvig%20-%20SDS%20Datasheet.pdf)
@@ -319,12 +319,12 @@ Next launch from the ops portal graphana or kibana and see that you actually get
 * [Persistent Storage for Kubernetes with Hedvig](https://go.hedvig.io/rs/896-KUY-430/images/Hedvig%20-%20Persistent%20Storage%20for%20Kubernetes.pdf)
 * [Hedvig Container-Native Storage Solution Brief ](https://go.hedvig.io/rs/896-KUY-430/images/Hedvig%20-%20Solutions%20Brief%20-%20Containers_v3.0_.pdf)
 
-#### license
+### License
 
 Hedvig is available with `two licensing models`:
 
 An annual subscription pricing model based on required capacity that includes software use and support for a 12-month period.A perpetual capacity-based license. (Support added separately).Each are available in primary storage (all features), backup/archive storage, or object-only storage versions that are priced according to the set of features delivered for the given use cases.
 
-#### maintenance & support
+### Maintenance & Support
 
 * [hedvig support](https://www.hedvig.io/support/)

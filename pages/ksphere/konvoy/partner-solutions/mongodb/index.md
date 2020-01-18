@@ -11,9 +11,9 @@ image: img/mongodb.png
 
 MongoDB is a general purpose, document-based, distributed database built for modern application developers and for the cloud era.
 
-## quick start
+## Quick Start
 
-### prerequisites
+### Prerequisites
 
 Before you can get started with the operator you need either an account on [MongoDB Cloud Manager](http://cloud.mongodb.com) or install [MongoDB Ops Manager](https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/) outside of the Konvoy cluster on a `dedicated VM`.
 
@@ -24,7 +24,7 @@ For `Cloud Manager`, you'll need to configure a [Programmatic API key](https://d
 For `Ops Manager` go to you `account settings`. There create an `api key` and `whitelist the ips` of your Konvoy cluster worker nodes.
 
 
-### install the operator
+### Install The Operator
 
 First clone the `mongodb-enterprise-kubernetes` repository, and change to the `mongodb-enterprise-kubernetes` folder.
 
@@ -84,7 +84,7 @@ data:
 EOF
 ```
 
-### install the cluster
+### Install The Cluster
 
 The MongoDB operator allows you to create [different cluster types](https://docs.mongodb.com/kubernetes-operator/master/deploy/).
 
@@ -121,7 +121,7 @@ mongodb-rs-2                                  1/1     Running   0          113s
 
 In the ops manager UI switch to the `organization` named `myproject` (drop down under your user name top right), you should also see the cluster once you switch to that organization.
 
-### access the cluster
+### Access The Cluster
 
 Exec into one of the mongodb-rs-* pods.
 
@@ -163,7 +163,7 @@ mongodb-rs:PRIMARY> rs.status()
 }
 ```
 
-### delete the cluster and operator
+### Delete The Cluster And Operator
 
 First delete the cluster.
 
@@ -184,26 +184,26 @@ Last we delete the operator
 kubectl delete -f operator.yaml
 ```
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
-* [mongodb operator](https://docs.mongodb.com/kubernetes-operator/master/tutorial/install-k8s-operator/)
-* [mongodb ops manager simple install](https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/)
-* [mongodb ops manager production install](https://docs.opsmanager.mongodb.com/current/installation/)
-* [mongodb](https://docs.mongodb.com/)
-* [mongodb shell](https://docs.mongodb.com/manual/mongo/)
-* [mongodb compass - explore and manipulate your data](https://www.mongodb.com/products/compass)
+* [MongoDB operator](https://docs.mongodb.com/kubernetes-operator/master/tutorial/install-k8s-operator/)
+* [MongoDB ops manager simple install](https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/)
+* [MongoDB ops manager production install](https://docs.opsmanager.mongodb.com/current/installation/)
+* [MongoDB](https://docs.mongodb.com/)
+* [MongoDB shell](https://docs.mongodb.com/manual/mongo/)
+* [MongoDB compass - explore and manipulate your data](https://www.mongodb.com/products/compass)
 
-#### release notes
+### Release Notes
 
-* [mongo db operator release notes](https://docs.mongodb.com/kubernetes-operator/master/release-notes/)
-* [mongo db release notes](https://docs.mongodb.com/manual/release-notes/4.0/)
+* [MongoDB operator release notes](https://docs.mongodb.com/kubernetes-operator/master/release-notes/)
+* [MongoDB release notes](https://docs.mongodb.com/manual/release-notes/4.0/)
 
-#### license
+#### Licensing
 
-* [mongodb licensing](https://www.mongodb.com/community/licensing)
+* [MongoDB licensing](https://www.mongodb.com/community/licensing)
 
-#### maintenance & support
+### maintenance & support
 
-* [mongodb support](https://support.mongodb.com/welcome)
+* [MongoDB support](https://support.mongodb.com/welcome)

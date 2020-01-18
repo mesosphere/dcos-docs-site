@@ -7,14 +7,15 @@ menuWeight: 110
 category: Storage
 image: img/openebs.png
 ---
+# OpenEBS
 
 OpenEBS is the leading open-source project for container-attached and container-native storage on Kubernetes. OpenEBS adopts Container Attached Storage (CAS) approach, where each workload is provided with a dedicated storage controller. OpenEBS implements granular storage policies and isolation that enable users to optimize storage for each specific workload. OpenEBS runs in user space and does not have any Linux kernel module dependencies.
 
-## quick start
+## Quick Start
 
 The following shows how you can setup `Konvoy` with `OpenEBS` with `cStor Engine` as the default persistent storage provider. The setup described here is suitable for a dev test cluster. For production setup considerations follow the links in the information section.
 
-### install
+### Install
 
 Installing Konvoy with a different persistent storage provider currently requires a three phase install.
 
@@ -22,7 +23,7 @@ Installing Konvoy with a different persistent storage provider currently require
 1. install storage provider
 1. `konvoy up` with add-ons that require persistent storage
 
-#### (1) `konvoy up` with add-ons that don't require persistent storage
+#### (1) `konvoy up` With Add-Ons That Don'T Require Persistent Storage
 
 First run `konvoy init` so that you get the `cluster.yaml` file.
 ```
@@ -87,7 +88,7 @@ Once the cluster is up apply the `kubeconfig` and make sure that you can interac
 konvoy apply kubeconfig
 ```
 
-#### (2) install storage provider
+#### (2) Install Storage Provider
 
 Installing the OpenEBS storage provider requires to do the following steps
 
@@ -97,7 +98,7 @@ Installing the OpenEBS storage provider requires to do the following steps
 * create cstor storage pools
 * create default storage class
 
-##### install storage provider prerequisites
+##### Install Storage Provider Prerequisites
 
 The OpenEBS storage provider requires that the `iSCSI client` runs on all worker nodes. Use the following script to install and start the iSCSI client.
 
@@ -120,7 +121,7 @@ for ip in $IPS; do
 done
 ```
 
-##### install additional worker disks
+##### Install Additional Worker Disks
 
 In this step, we create and attach an `additional disk` to be used by OpenEBS to each worker node. Use the following script to create and attach the disks.
 
@@ -140,7 +141,7 @@ aws --region=$REGION ec2 describe-instances |  jq --raw-output ".Reservations[].
 done
 ```
 
-##### install the storage provider operator
+##### Install The Storage Provider Operator
 
 First get the latest `openebs-operator-x.y.z.yaml` file.
 
@@ -173,7 +174,7 @@ Next, we install the storage provider operator.
 kubectl apply -f openebs-operator-1.0.0.yaml
 ```
 
-##### create openebs cstor storage pools
+##### Create Openebs Cstor Storage Pools
 
 Installing the operator in the previous step will also install `ndm` (Node Disk Manager). `ndm` detects the unclaimed storage devices and represents them using the the CR called `blockdevice`.
 Get the list of blockdevices in your cluster.
@@ -219,7 +220,7 @@ spec:
 EOF
 ```
 
-##### create a default storage class
+##### Create A Default Storage Class
 
 In this step, we create a `storage class` named `openebs-cstor-default`. This `storage class` will use the `storage pool` created out of `blockdevices` we have specified with an additional annotation that makes it the default storage class for the konvoy cluster.
 
@@ -278,7 +279,7 @@ EOF
 
 If all things work fine, the pod created should be up and running, and data should be written to `/data/output` on the volume.
 
-#### (3) `konvoy up` with add-ons that require persistent storage
+#### (3) `konvoy up` With Add-Ons That Require Persistent Storage
 
 In the `cluster.yaml` file `enable` all add-ons that require persistent storage.
 
@@ -335,30 +336,30 @@ konvoy up
 
 When complete you should see in the add-ons listed also those that require persistent storage, e.g prometheus, elasticsearch, ... .
 
-### verify
+### Verify
 
 First, check that in the `kubeaddons` and `velero` namespaces all persistent volume claims got created successfully.
 
 Next, launch from the ops portal graphana or kibana and see that you actually get data.
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
 * [openebs documentation](https://docs.openebs.io/)
 * [openebs user guides](https://docs.openebs.io/docs/next/quickstart.html)
 
 
-#### release notes
+### Release Notes
 
-* [openebs release notes](https://github.com/openebs/openebs/releases)
+* [OpenEBS release notes](https://github.com/openebs/openebs/releases)
 
-#### license
+#### Licensing
 
-* [openebs license](https://github.com/openebs/openebs/blob/master/LICENSE)
+* [OpenEBS license](https://github.com/openebs/openebs/blob/master/LICENSE)
 
-#### maintenance & support
+### Maintenance & Support
 
-* [openebs issues](https://github.com/openebs/openebs/issues)
-* [openebs slack](https://openebs.io/join-our-slack-community)
-* [openebs enterprise support](https://mayadata.io)
+* [OpenEBS issues](https://github.com/openebs/openebs/issues)
+* [OpenEBS slack](https://openebs.io/join-our-slack-community)
+* [OpenEBS enterprise support](https://mayadata.io)

@@ -7,6 +7,7 @@ menuWeight: 80
 category: Workload
 image: img/lightbend.png
 ---
+# Lightbend Console
 
 [Lightbend Console](https://developer.lightbend.com/docs/console/current/) enables you to monitor your Reactive applications running on Kubernetes.
 
@@ -14,9 +15,9 @@ The Console provides visibility for KPIs, reactive metrics, monitors and alertin
 
 The Console provides out-of-the-box support for any application instrumented to export metrics to Prometheus. Akka, Lagom, and Play applications that include Lightbend Telemetry (formerly called Cinnamon) provide even deeper insights and can take advantage of pre-built Grafana dashboards. Lightbend Orchestration provides a command line to simplify packaging and deployment of Akka, Lagom, and Play applications.
 
-## quick start
+## Quick Start
 
-### prerequisites
+### Prerequisites
 
 First things first you need to contact Lightbend to get a [Lightbend account](https://www.lightbend.com/lightbend-platform-subscription).
 
@@ -27,7 +28,7 @@ helm repo add es-repo https://repo.lightbend.com/helm-charts
 helm repo update
 ```
 
-### temporary workaround to install the Lightbend container images
+### Temporary Workaround To Install The Lightbend Container Images
 
 **Note:** Konvoy is using `containerd`. There is currently an issue with the Lightbend container registry (i.e. bintray, JFrog internal JIRA JBT-2988) when pulling private images. Thats why we need the additional steps described in this section until the issue gets resolved.
 
@@ -75,7 +76,7 @@ for ip in $IPS; do
 done
 ```
 
-### installing the Lightbend console
+### Installing The Lightbend Console
 
 The helm install requires that you pass your `Lightbend credenitals`. Use the following snippet to create a `credentials.yaml` file.
 
@@ -93,7 +94,7 @@ Install the Lightbend console.
 helm install es-repo/enterprise-suite --name enterprise-console --namespace lightbend --version 1.1.0 --values credentials.yaml
 ```
 
-### accessing the Lightbend console
+### Accessing The Lightbend Console
 
 Enable localhost access to the Lightbend console.
 
@@ -103,7 +104,7 @@ kubectl -n lightbend port-forward svc/console-server 5000:80
 
 Click to open the [Lightbend console](http://localhost:5000).
 
-### installing Lightbend demo applications
+### Installing Lightbend Demo Applications
 
 Lightbend provides [two demo applications](https://github.com/lightbend/lb-demos) to experience the Lightbend platform, `shoppingcartapp` and `drone-tracker`.
 
@@ -114,11 +115,11 @@ git clone https://github.com/lightbend/lb-demos.git
 cd lb-demos
 ```
 
-#### build the examples yourself
+#### Build The Examples Yourself
 
 An overview of the demonstrated features, and instructions to build these examples locally are available in the [lb-demos](https://github.com/lightbend/lb-demos.git) repository.
 
-#### run with prebuilt images
+#### Run With Prebuilt Images
 
 If you want to quickly deploy versions of these apps use the below instructions:
 
@@ -135,29 +136,29 @@ kubectl apply -f drone-tracker.yaml
 kubectl apply -f drone-sim.yaml
 ```
 
-### delete the Lightbend console
+### Delete The Lightbend Console
 
 ```sh
 helm delete --purge enterprise-console
 ```
 
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
-* [lightbend console](https://developer.lightbend.com/docs/console/current/)
-* [lightbend console - helm](https://developer.lightbend.com/docs/console/current/installation/es.html#installing-without-lbc-py)
-* [lightbend demos](https://github.com/lightbend/lb-demos)
+* [Lightbend console](https://developer.lightbend.com/docs/console/current/)
+* [Lightbend console - helm](https://developer.lightbend.com/docs/console/current/installation/es.html#installing-without-lbc-py)
+* [Lightbend demos](https://github.com/lightbend/lb-demos)
 
-#### release notes
+### Release Notes
 
-* [lightbend console release notes](https://developer.lightbend.com/docs/console/current/release-notes/index.html)
+* [Lightbend console release notes](https://developer.lightbend.com/docs/console/current/release-notes/index.html)
 
-#### license
+### Licensing
 
-* [lightbend subscription](https://www.lightbend.com/lightbend-platform-subscription)
+* [Lightbend subscription](https://www.lightbend.com/lightbend-platform-subscription)
 
-#### maintenance & support
+### Maintenance & Support
 
-* [lightbend support](https://support.lightbend.com/)
+* [Lightbend support](https://support.lightbend.com/)

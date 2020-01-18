@@ -7,14 +7,15 @@ menuWeight: 120
 category: Storage
 image: img/portworx.png
 ---
+# Portworx
 
 Portworx is the solution for running stateful containers in production, designed with DevOps in mind. With Portworx, users can manage any database or stateful service on any infrastructure using Kubernetes. Portworx solves the five most common problems DevOps teams encounter when running stateful services in production: persistence, high availability, data automation, security, and support for multiple data stores and infrastructure.
 
-## quick start
+## Quick Start
 
 The following shows how you can setup `Konvoy` with `Portworx` as the default persistent storage provider.
 
-### install
+### Install
 
 Installing Konvoy with a different persistent storage provider currently requires a three phase install.
 
@@ -22,7 +23,7 @@ Installing Konvoy with a different persistent storage provider currently require
 1. install storage provider
 1. `konvoy up` with add-ons that require persistent storage
 
-#### (1) `konvoy up` with add-ons that don't require persistent storage
+#### (1) `konvoy up` With Add-Ons That Don'T Require Persistent Storage
 
 First run `konvoy init` so that you get the `cluster.yaml` file.
 ```
@@ -88,14 +89,14 @@ Once the cluster is up apply the `kubeconfig` and make sure that you can interac
 konvoy apply kubeconfig
 ```
 
-#### (2) install storage provider
+#### (2) Install Storage Provider
 
 Installing the Portworx storage provider requires to do the following steps
 
 * install the storage provider yaml manifest
 * create default storage class
 
-##### install the storage provider yaml manifest
+##### Install The Storage Provider Yaml Manifest
 
 Portworx comes with a [install wizard](https://install.portworx.com/) to create the yaml manifest.
 
@@ -121,7 +122,7 @@ Next we apply the Portworx spec.yaml.
 kubectl apply -f spec.yaml
 ```
 
-##### create default storage class
+##### Create Default Storage Class
 
 Here we create the default storage class for the Konvoy cluster.
 
@@ -176,7 +177,7 @@ EOF
 
 If all things work fine, the pod created should be up and running, and data should be written to `/data/output` on the volume.
 
-#### (3) `konvoy up` with add-ons that require persistent storage
+#### (3) `konvoy up` With Add-Ons That Require Persistent Storage
 
 In the `cluster.yaml` file `enable` all add-ons that require persistent storage.
 ```yaml
@@ -232,7 +233,7 @@ konvoy up
 
 When complete you should see in the add-ons listed also those that require persistent storage, e.g prometheus, elasticsearch, ... .
 
-### verify
+### Verify
 
 First check that in the `kubeaddons` and `velero` namespaces all persistent volume claims got created successfully.
 
@@ -243,20 +244,20 @@ Use `port-forwarding` to access `lighthouse` the Portworx console via your brows
 kubectl port-forward service/px-lighthouse 8080:80 -n kube-system
 ```
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
-* [portworx documentation](https://docs.portworx.com/)
+* [Portworx documentation](https://docs.portworx.com/)
 
-#### release notes
+### Release Notes
 
-* [portworx release notes](https://docs.portworx.com/reference/release-notes/)
+* [Portworx release notes](https://docs.portworx.com/reference/release-notes/)
 
-#### license
+### Licensing
 
-* [portworx licensing](https://docs.portworx.com/reference/knowledge-base/px-licensing/)
+* [Portworx licensing](https://docs.portworx.com/reference/knowledge-base/px-licensing/)
 
-#### maintenance & support
+### Maintenance & Support
 
-* [portworx support](https://docs.portworx.com/support/)
+* [Portworx support](https://docs.portworx.com/support/)

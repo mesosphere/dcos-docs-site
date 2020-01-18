@@ -7,13 +7,13 @@ menuWeight: 40
 category: Workload
 image: img/couchbase.png
 ---
-
+# Couchbase
 The Couchbase Autonomous Operator provides a native integration of Couchbase Server with open source Kubernetes. It enables you to automate the management of common Couchbase tasks such as the configuration, creation, scaling, and recovery of Couchbase clusters. By reducing the complexity of running a Couchbase cluster, it lets you focus on the desired configuration and not worry about the details of manual deployment and lifecycle management.
 
-## quick start
+## Quick Start
 
 
-### prerequisites
+### Prerequisites
 
 Add the Couchbase helm chart repository.
 ```
@@ -21,7 +21,7 @@ helm repo add couchbase https://couchbase-partners.github.io/helm-charts/
 helm repo update
 ```
 
-### install the operator
+### Install The Operator
 
 Install the Couchbase operator.
 ```
@@ -30,7 +30,7 @@ helm install --name mycbop couchbase/couchbase-operator
 
 Learn more abbout the [operator chart specification](https://docs.couchbase.com/operator/current/helm-operator-config.html).
 
-### install the Couchbase cluster
+### Install The Couchbase Cluster
 
 Installing a Couchbase cluster with `persistent volumes` requires to pass a `values yaml` file to the helm install with the persistent volume configuration. Use the following snippet to create a `values-persistent.yaml` file.
 
@@ -66,7 +66,7 @@ helm install -f values-persistent.yaml --name mycbc couchbase/couchbase-cluster
 
 Learn more about the [cluster chart specification](https://docs.couchbase.com/operator/current/helm-cluster-config.html).
 
-### access the cluster
+### Access The Cluster
 
 Enable localhost access to the Couchbase Admin console.
 ```
@@ -80,7 +80,7 @@ Get the password for `user named Administrator` to login.
 echo $(kubectl get secret mycbc-couchbase-cluster -o=jsonpath='{.data.password}' | base64 --decode)
 ```
 
-### delete the cluster and operator
+### Delete The Cluster And Operator
 
 Delete the cluster and operator using the respective release name.
 ```
@@ -88,9 +88,9 @@ helm delete --purge mycbc
 helm delete --purge mycbop
 ```
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
 * [couchbase autonomous operator](https://docs.couchbase.com/operator/current/overview.html)
 * [couchbase autonomous operator - helm](https://docs.couchbase.com/operator/current/helm-setup-guide.html)
@@ -98,15 +98,15 @@ helm delete --purge mycbop
 * [couchbase server sdk's](https://docs.couchbase.com/server/current/sdk/overview.html)
 
 
-#### release notes
+### Release Notes
 
 * [couchbase autonomous operator release notes](https://docs.couchbase.com/operator/current/release-notes.html)
 * [couchbase server release notes](https://docs.couchbase.com/server/current/release-notes/relnotes.html)
 
-#### license
+### License
 
 * [couchbase license](https://www.couchbase.com/legal/agreements#ProductLicenses)
 
-#### maintenance & support
+### Maintenance & Support
 
 * <support@couchbase.com>
