@@ -11,9 +11,9 @@ image: img/confluent.png
 
 Confluent Platform is a streaming platform that enables you to organize and manage data from many different sources with one reliable, high performance system.
 
-## quick start
+## Quick Start
 
-### prerequisites
+### Prerequisites
 
 A `Konvoy cluster` with at least `7 worker nodes` is required to install the `Confluent operator and all platform services`.
 
@@ -49,7 +49,7 @@ kafka:
     enabled: true
 ```
 
-#### enable load balancing for external access
+#### Enable Load Balancing For External Access
 
 There are a few more things that you have to edit in the `providers/aws.yaml` helm values file in case you want access to the Confluent platform services from outside the Konvoy cluster.
 
@@ -78,7 +78,7 @@ b2.mydomain.com
 
 For this to be true you will have to create `CNAME DNS record's` with your DNS provider (e.g. AWS Route 53, ...) once the cluster is up and running. More on this in a later step.
 
-### install the operator
+### Install The Operator
 
 Install the operator.
 
@@ -92,7 +92,7 @@ Update the default service account with the `image pull secret`.
 kubectl -n operator patch serviceaccount default -p '{"imagePullSecrets": [{"name": "confluent-docker-registry" }]}'
 ```
 
-### install the platform
+### Install The Platform
 
 In this section we show how to install an instance of the `Confluent platform`. The platform is made of many services.
 
@@ -148,9 +148,9 @@ Install the `KSQL` service.
 helm install -f ./providers/aws.yaml --name ksql --namespace operator --set ksql.enabled=true ./confluent-operator
 ```
 
-### access the platform
+### Access The Platform
 
-#### access to control center
+#### Access To Control Center
 
 We can use `port forwarding` to access the `controlcenter` service, the console of the platform.
 
@@ -160,7 +160,7 @@ kubectl port-forward service/controlcenter 9021:9021 -n operator
 
 Once you run the command open your browser on [http://localhost:9091]). Login with the username and password that you find in the controlcenter section of the `provider/aws.yaml` file, default is `admin/Developer1`.
 
-#### internal access to kafka
+#### Internal Access To Kafka
 
 Next validate that we can interact with the `kafka cluster` itself.
 
@@ -205,7 +205,7 @@ And then `consume` them.
 kafka-console-consumer --from-beginning --topic ravi --bootstrap-server kafka:9071 --consumer.config kafka.properties
 ```
 
-#### external access to kafka
+#### External Access To Kafka
 
 This step assumes that you enabled `external load balancer` access for `kafka` as described earlier.
 
@@ -244,7 +244,7 @@ kafkacat -P -t ravi -b kafka.mydomain.com:9092 -X security.protocol=SASL_PLAINTE
 kafkacat -C -t ravi -b kafka.mydomain.com:9092 -X security.protocol=SASL_PLAINTEXT -X sasl.mechanisms=PLAIN -X sasl.username=test -X sasl.password=test123
 ```
 
-### delete the platform
+### Delete The Platform
 
 ```
 helm delete --purge ksql
@@ -258,22 +258,22 @@ helm delete --purge operator
 ```
 
 
-## information
+## Information
 
-### documentation
+### Documentation
 
 * [confluent operator and platform install](https://docs.confluent.io/current/installation/operator/co-deployment.html)
 * [confluent operator](https://docs.confluent.io/current/installation/operator/index.html)
 * [confluent platform](https://docs.confluent.io/current/index.html)
 
-#### release notes
+#### Release Notes
 
-* [confluent platform release notes](https://docs.confluent.io/current/release-notes.html)
+* [Confluent platform release notes](https://docs.confluent.io/current/release-notes.html)
 
-#### license
+#### Licensing
 
-* [confluent license agreement](https://www.confluent.io/software-evaluation-license/)
+* [Confluent license agreement](https://www.confluent.io/software-evaluation-license/)
 
-#### maintenance & support
+#### Maintenance & Support
 
-* [confluent support](https://www.confluent.io/confluent-cloud/support/)
+* [Confluent support](https://www.confluent.io/confluent-cloud/support/)

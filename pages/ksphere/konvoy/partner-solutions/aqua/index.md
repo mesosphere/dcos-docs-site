@@ -7,12 +7,13 @@ menuWeight: 10
 category: Networking and Security
 image: img/aqua.png
 ---
+# Aqua
 
 Aqua tames the complexity of securing Kubernetes deployments with policy-driven controls that leverage native K8s capabilities, while adding deeper image assurance, runtime protection, and network security controls.
 
-## quick start
+## Quick Start
 
-### prerequisites
+### Prerequisites
 
 Before you can get started you will need to [contact Aqua Security](https://www.aquasec.com/about-us/contact-us/) to obtain the following.
 
@@ -45,7 +46,7 @@ git clone -b 4.2 https://github.com/aquasecurity/aqua-helm.git
 cd aqua-helm
 ```
 
-#### temporary workaround to install the Aqua container images
+#### Temporary Workaround To Install The Aqua Container Images
 
 **Note:** Konvoy is using `containerd`. There is currently an issue with the Aqua container registry when pulling private images. Thats why we need the additional steps described in this section until the issue gets resolved.
 
@@ -95,7 +96,7 @@ for ip in $IPS; do
 done
 ```
 
-### install the Aqua server, database, and gateway
+### Install The Aqua Server, Database, And Gateway
 
 Let install the Aqua `server`, `database`, and `gateway`.
 
@@ -113,7 +114,7 @@ Click to open the [Aqua CSP console](http://localhost:8080).
 
 When you access the `Aqua CSP console` for the first time, you must enter and confirm the `password` for the `administrator username`. After the login a screen appears where you have to enter the Aqua CSP License Token. After that you have access to the `Aqua dashboard`.
 
-### install the Aqua enforcer
+### Install The Aqua Enforcer
 
 In the `Aqua CSP console` navigate to the `Enforcers` section to create an [Enforcer Group](https://docs.aquasec.com/docs/enforcer-group-settings). Note that the Orchestrator must be set to Kubernetes. Copy the `enforcer token`, we will need it in the next step.
 
@@ -123,7 +124,7 @@ Lets install the enforcer.
 helm upgrade --install --namespace aqua csp-enforcer ./enforcer --set enforcerToken=<aquasec-token>
 ```
 
-### delete Aqua
+### Delete Aqua
 
 Delete the `CSP enforcer` and `CSP`.
 
@@ -132,9 +133,9 @@ helm delete --purge csp-enforcer
 helm delete --purge csp
 ```
 
-## information
+## Information
 
-#### documentation
+#### Documentation
 
 * [aqua helm deploy](https://docs.aquasec.com/docs/std-deployment-kubernetes-helm)
 * [aqua helm deploy git](https://github.com/aquasecurity/aqua-helm/tree/4.2)
@@ -143,10 +144,10 @@ helm delete --purge csp
 * [aqua container security channel](https://www.aquasec.com/resources/virtual-container-security-channel/)
 * [aqua blog](https://blog.aquasec.com/)
 
-#### release notes
+#### Release Notes
 
 * [aqua v4.2 release notes](https://docs.aquasec.com/docs/aqua-version-42-release-notes)
 
-#### license & support
+#### Licensing & Support
 
 * For license and support [contact Aqua Security](https://www.aquasec.com/about-us/contact-us/)

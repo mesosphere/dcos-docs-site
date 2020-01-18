@@ -7,6 +7,7 @@ menuWeight: 130
 category: Networking and Security
 image: img/styra.png
 ---
+# Styra
 
 Styra is the fastest and easiest way to put guardrails around your Kubernetes clusters--whether you’re a developer, an admin, or a bit of both.
 
@@ -17,13 +18,13 @@ Styra is the fastest and easiest way to put guardrails around your Kubernetes cl
 Built on open-source ([Open Policy Agent (OPA)](https://www.openpolicyagent.org/)), and declarative by design, Styra’s simple graphical library of customizable policies lets you easily mitigate risks, reduce human error, and accelerate development.
 
 
-## quick start
+## Quick Start
 
-### access the Styra control plane
+### Access The Styra Control Plane
 
 Contact Styra (<support@styra.com>) to get an account on the Styra SaaS Service. A dedicated tenant URL e.g., `https://<tenantID>.styra.com` along with credentials to login will be provided.
 
-### install the Open Policy Agent
+### Install The Open Policy Agent
 
 In the following section, we will download some `yaml manifests` for installing `OPA`. Let's create a separate folder for those manifests.
 ```sh
@@ -62,11 +63,11 @@ helm install -n styra-system -f values.json styra-k8s-system.tgz
 
 Once they both are installed you can check the `dashboard` for that new System in the `Styra control plane`.
 
-### create your first rule and see it in action
+### Create Your First Rule And See It In Action
 
 The Styra control plane comes with a canned library with `best practices rules`. Go to the getting started document, `https://<tenantID>.styra.com/v1/docs/getting-started-k8s.html`, and learn how to add your first rule, see `section 3 - 6`.
 
-### delete the Open Policy Agent
+### Delete The Open Policy Agent
 
 Delete the `OPA with kube-mgmt sidecar` and the `Styra datasource agent`.
 
@@ -75,20 +76,20 @@ helm delete --purge styra-system
 ```
 
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
 * Product documentation is available from within the control plane, at `https://<tenantID>.styra.com/v1/docs/`. Replace the `tenantID` with what you have received from Styra.
 
-#### release notes
+### Release Notes
 
 * Release notes are available in the `Release Notes` section of the documentation.
 
-#### license
+### Licensing
 
 * Contact <support@styra.com> to get an account and license.
 
-#### maintenance & support
+### Maintenance & Support
 
 * Contact <support@styra.com> for any issues or questions.

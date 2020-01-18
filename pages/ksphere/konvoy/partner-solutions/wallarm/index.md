@@ -7,12 +7,13 @@ menuWeight: 150
 category: Networking and Security
 image: img/wallarm.png
 ---
+# Wallarm
 
 Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to protect your cloud applications and APIs. Wallarm installs natively in Kubernetes environment.
 
-## quick start
+## Quick Start
 
-### prerequisites
+### Prerequisites
 
 First things first you need to [signup](https://my.wallarm.com/signup) for a Wallarm account.
 
@@ -23,7 +24,7 @@ helm repo add wallarm https://repo.wallarm.com/charts/stable
 helm repo update
 ```
 
-### install the Wallarm ingress controller (nginx + Wallarm WAF)
+### Install The Wallarm Ingress Controller (nginx + Wallarm WAF)
 
 In the Wallarm cloud console [create a new node](https://my.wallarm.com/nodes) of type `cloud`, copy the nodes token since you will need that in the next step.
 
@@ -35,7 +36,7 @@ helm install wallarm/wallarm-ingress -n ingress-controller --set controller.wall
 
 Wallarm can be configured through `helm values`, here are the [options](https://github.com/wallarm/ingress-chart/tree/master/wallarm-ingress#configuration).
 
-### create an ingress route
+### Create An Ingress Route
 
 Create an Ingress rule that exposes the `http-echo-service`.
 
@@ -94,7 +95,7 @@ kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-mode=
 kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-instance=1
 ```
 
-### delete the ingress controller
+### Delete The Ingress Controller
 
 Delete the ingress controller.
 
@@ -103,24 +104,24 @@ helm delete --purge ingress-controller
 ```
 
 
-## information
+## Information
 
-#### documentation
+### Documentation
 
-* [wallarm ingress controller](https://docs.wallarm.com/en/admin-en/installation-kubernetes-en.html)
-* [wallarm ingress controller configuration options](https://github.com/wallarm/ingress-chart/tree/master/wallarm-ingress#configuration)
-* [wallarm](https://docs.wallarm.com/en/)
+* [Wallarm ingress controller](https://docs.wallarm.com/en/admin-en/installation-kubernetes-en.html)
+* [Wallarm ingress controller configuration options](https://github.com/wallarm/ingress-chart/tree/master/wallarm-ingress#configuration)
+* [Wallarm](https://docs.wallarm.com/en/)
 
-#### release notes
+### Release Notes
 
 * [v2.12](https://docs.wallarm.com/en/release-notes-en/relnotes-en_v2.12.html)
 * [v2.10](https://docs.wallarm.com/en/release-notes-en/relnotes-en_v2.10.html)
 * [v2.8](https://docs.wallarm.com/en/release-notes-en/relnotes-en_v2.8.html)
 
-#### license
+### Licensing
 
 * [Terms of Service](https://wallarm.com/terms-of-services)
 
-#### maintenance & support
+### Maintenance & Support
 
 * <support@wallarm.com>
