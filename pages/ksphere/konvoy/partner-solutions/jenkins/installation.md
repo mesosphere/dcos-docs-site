@@ -11,13 +11,14 @@ Jenkins can be installed in multiple ways:
 
 - Running Konvoy cluster attached to a Kommander instance.
 
-1. Go to the kommander UI and attach the konvoy clusters in which you desire to install Jenkins.
-2. Create a project with labels matching this clusters if it doesn't already exist
-3. Go to Projects > Select your Project > View Catalog > Select Jenkins > Deploy (after making any necessary changes to the config if needed)
+1. Go to the Kommander UI and attach the Konvoy clusters in which you desire to install Jenkins.
+2. Create a project with labels matching this clusters if it doesn't already exist.
+4. Make any necessary changes to the configuration, if needed.
+3. Go to **Projects > Select your Project > View Catalog > Select Jenkins > Deploy** 
 
-Your Jenkins instance should come up shortly.
+Your Jenkins instance will deploy.
 
-### Installation of jenkins from upstream helm chart in to a konvoy cluster
+### Install Jenkins from upstream helm chart in to a Konvoy cluster
 
 Create ServiceAccount, Role and Rolebinding. Change the permissions as necessary.
 
