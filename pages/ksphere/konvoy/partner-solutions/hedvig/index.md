@@ -10,111 +10,111 @@ image: img/hedvig.png
 # Hedvig
 The Hedvig Distributed Storage Platform provides a modern software solution that lets you tailor a flexible and efficient data management system built on industry-standard x86 server hardware to support any application, hypervisor, container, or cloud.
 
-## Quick Start
+# Quick Start
 
-The following shows how you can setup `Konvoy` with `Hedvig` as the default persistent storage provider.
+The following shows how you can set up `Konvoy` with `Hedvig` as the default persistent storage provider.
 
-### Install
+## Install
 
 Installing Konvoy with a different persistent storage provider currently requires a three phase install.
 
-1. `konvoy up` with addons that don't require persistent storage
-1. install storage provider
-1. `konvoy up` with addons that require persistent storage
+1. Run `konvoy up` with addons that do not require persistent storage.
+1. Install storage provider.
+1. Run `konvoy up` with addons that require persistent storage.
 
-#### (1) `konvoy up` With Addons That Don'T Require Persistent Storage
+### Run `konvoy up` with Addons Not Requiring Persistent Storage
 
-First run `konvoy init` so that you get the `cluster.yaml` file.
-```
-konvoy init --provisioner=aws
-```
+1. Run `konvoy init` so that you get the `cluster.yaml` file.
+    ```bash
+    konvoy init --provisioner=aws
+    ```
 
-In the `cluster.yaml` file `disable` all aws ebs/storage addons, and all addons that require persistent storage.
-```yaml
-...
-addons:
-  configVersion: v0.0.45
-  addonsList:
-  - name: awsebscsiprovisioner
-    enabled: false
-  - name: awsebsprovisioner
-    enabled: false
-  - name: dashboard
-    enabled: true
-  - name: dex
-    enabled: true
-  - name: dex-k8s-authenticator
-    enabled: true
-  - name: elasticsearch
-    enabled: false
-  - name: elasticsearchexporter
-    enabled: false
-  - name: fluentbit
-    enabled: false
-  - name: helm
-    enabled: true
-  - name: kibana
-    enabled: false
-  - name: kommander
-    enabled: true
-  - name: konvoy-ui
-    enabled: true
-  - name: localvolumeprovisioner
-    enabled: false
-  - name: opsportal
-    enabled: true
-  - name: prometheus
-    enabled: false
-  - name: prometheusadapter
-    enabled: false
-  - name: traefik
-    enabled: true
-  - name: traefik-forward-auth
-    enabled: true
-  - name: velero
-    enabled: false
-...
-```
+1. In the `cluster.yaml` file `disable` all AWS ebs/storage addons, and all addons that require persistent storage.
+    ```yaml
+    ...
+    addons:
+      configVersion: v0.0.45
+      addonsList:
+      - name: awsebscsiprovisioner
+        enabled: false
+      - name: awsebsprovisioner
+        enabled: false
+      - name: dashboard
+        enabled: true
+      - name: dex
+        enabled: true
+      - name: dex-k8s-authenticator
+        enabled: true
+      - name: elasticsearch
+        enabled: false
+      - name: elasticsearchexporter
+        enabled: false
+      - name: fluentbit
+        enabled: false
+      - name: helm
+        enabled: true
+      - name: kibana
+        enabled: false
+      - name: kommander
+        enabled: true
+      - name: konvoy-ui
+        enabled: true
+      - name: localvolumeprovisioner
+        enabled: false
+      - name: opsportal
+        enabled: true
+      - name: prometheus
+        enabled: false
+      - name: prometheusadapter
+        enabled: false
+      - name: traefik
+        enabled: true
+      - name: traefik-forward-auth
+        enabled: true
+      - name: velero
+        enabled: false
+    ...
+    ```
 
-The `Hedvig daemonset` installed in the following has the following `resources requirements`, set a `worker instance type` in `cluster.yaml` accordingly.
+1. The `Hedvig daemonset` installed in the following has the following `resources requirements`. Set a `worker instance type` in `cluster.yaml` accordingly.
 
-```
-resources:
-  requests:
-    memory: "4Gi"
-    cpu: "2"
-  limits:
-    memory: "8Gi"
-    cpu: "4"
-```
+    ```bash
+    resources:
+      requests:
+        memory: "4Gi"
+        cpu: "2"
+      limits:
+        memory: "8Gi"
+        cpu: "4"
+    ```
 
-Next install the Konvoy cluster.
-```
-konvoy up
-```
+1. Next install the Konvoy cluster.
+    ```bash
+    konvoy up
+    ```
 
-Once the cluster is up apply the `kubeconfig` and make sure that you can interact with it using `kubectl`.
-```
-konvoy apply kubeconfig
-```
+1. Once the cluster is up, apply the `kubeconfig` and make sure that you can interact with it using `kubectl`.
+    ```bash
+    konvoy apply kubeconfig
+    ```
 
-#### (2) Install Storage Provider
+### Install Storage Provider
 
-Installing the `Hedvig` storage provider requires to do the following steps
+Installing the `Hedvig` storage provider requires the following steps
 
-* install storage provider prerequisites
-* install the storage provider operator
-* create default storage class
+* Install storage provider prerequisites
+* Install the storage provider operator
+* Create default storage class
 
-##### Install Storage Provider Prerequisites
+#### Install Storage Provider Prerequisites
 
-Hedvig Storage Cluster (Hedvig 3.0 or later) has to be installed as a peer to Konvoy. Ensure that the Konvoy worker nodes and the Hedvig Storage Cluster Nodes can communicate with each other.
+Hedvig Storage Cluster (Hedvig 3.0 or later) must be installed as a peer to Konvoy. Ensure that the Konvoy worker nodes and the Hedvig Storage Cluster Nodes can communicate with each other.
 
 The Hedvig storage provider requires that a bunch of linux native prerequisites run on all worker nodes. Use the following script to install the prerequisites.
 
-**Note:** The script requires the `aws cli` and `jq` commands to be installed. On `Mac OS X` both can be installed using `brew`.
+<p class="message--note"><strong>NOTE: </strong>The script requires the <code>aws cli</code> and <code>jq</code> commands to be installed. On Mac OS X, both can be installed using <code>brew</code>.</p>
 
-```sh
+```bash
 CLUSTER=... # name of your cluster, its the prefix used for worker nodes, check in ec2 console
 REGION=us-west-2
 KEY_FILE=... # path to private key file in folder where you ran konvoy -up
@@ -150,164 +150,165 @@ for ip in $IPS; do
 done
 ```
 
-##### Install The Storage Provider Yaml Manifests
+#### Install the Storage Provider Yaml Manifests
 
-Contact Hedvig to get download access for `hedvig-csi-installer.tar.gz`. Once downloaded unpack it and change to the `hedvig-csi-installer` folder.
+1. Contact Hedvig to get download access for `hedvig-csi-installer.tar.gz`. 
+1. Once downloaded, unpack it and change to the `hedvig-csi-installer` folder.
 
-Edit the file `manifests/ds/daemonset.yml` to add the `HEDVIG_SEED` nodes (hostname/IP address) of your Hedvig storage cluster (the seeds should be the Hedvig Storage Node hostname, and the `KUBE_CLUSTER_HEDVIG_ID` you chosen (this ID could be anything, but need to be the same as `KubeClusterID` in `setup/backend.json`).
+1. Edit the file `manifests/ds/daemonset.yml` to add the `HEDVIG_SEED` nodes (hostname/IP address) of your Hedvig storage cluster (the seeds should be the Hedvig Storage Node hostname, and the `KUBE_CLUSTER_HEDVIG_ID` you chosen (this ID could be anything, but need to be the same as `KubeClusterID` in `setup/backend.json`).
 
-```yaml
-...
-env:
-  - name: HEDVIG_SEED_1
-    value: <Hedvig_Seed1>
-  - name: HEDVIG_SEED_2
-    value: <Hedvig_Seed1>
-  - name: HEDVIG_SEED_3
-    value: <Hedvig_Seed1>
-  - name: KUBE_CLUSTER_HEDVIG_ID
-    value: <Kube_Cluster_Id>
-...
-```
+    ```yaml
+    ...
+    env:
+      - name: HEDVIG_SEED_1
+        value: <Hedvig_Seed1>
+      - name: HEDVIG_SEED_2
+        value: <Hedvig_Seed1>
+      - name: HEDVIG_SEED_3
+        value: <Hedvig_Seed1>
+      - name: KUBE_CLUSTER_HEDVIG_ID
+        value: <Kube_Cluster_Id>
+    ...
+    ```
 
-Next we create the `Hedvig IO daemonset`.
-```
-kubectl create -f manifests/ds/daemonset.yml
-```
+1. Create the `Hedvig IO daemonset`.
+    ```bash
+    kubectl create -f manifests/ds/daemonset.yml
+    ```
 
-Edit the file `setup/backend.json`. Specify the name of the Hedvig `StorageCluster`, the `StorageNodes` (hostname/IP address of the seed nodes of the Storage Cluster Nodes), and the `KubeClusterID` you have chosen (this ID should be same as `KUBE_CLUSTER_HEDVIG_ID` setting in `manifests/ds/daemonset.yml`).
+1. Edit the file `setup/backend.json`. Specify the name of the Hedvig `StorageCluster`, the `StorageNodes` (hostname/IP address of the seed nodes of the Storage Cluster Nodes), and the `KubeClusterID` you have chosen (this ID should be same as `KUBE_CLUSTER_HEDVIG_ID` setting in `manifests/ds/daemonset.yml`).
 
-```json
-{
-    "version": 1,
-    "StorageCluster": "Hedvig_CLuster_Name",
-    "StorageNodes": ["Hedvig_Seed1", "Hedvig_Seed2", "Hedvig_Seed3"],
-    "KubeClusterID": "Kube_Cluster_Id"
-}
-```
+    ```json
+    {
+        "version": 1,
+        "StorageCluster": "Hedvig_CLuster_Name",
+        "StorageNodes": ["Hedvig_Seed1", "Hedvig_Seed2", "Hedvig_Seed3"],
+        "KubeClusterID": "Kube_Cluster_Id"
+    }
+    ```
 
-Next we create the `Hedvig dynamic provisioner`.
+1. Create the `Hedvig dynamic provisioner`.
 
-```
-./install_hedwig.sh
-```
+    ```bash
+    ./install_hedwig.sh
+    ```
 
 ##### Create Default Storage Class
 
-Here we create the default storage class for the Konvoy cluster.
+1. Create the default storage class for the Konvoy cluster.
 
-```sh
-cat <<EOF | kubectl apply -f -
-apiVersion: storage.k8s.io/v1
-kind: StorageClass
-metadata:
-  name: sc-hedvig-csi-default
-  annotations:
-    storageclass.kubernetes.io/is-default-class: "true"  
-provisioner: io.hedvig.csi
-parameters:
-  backendType: "hedvig-block"
-EOF
-```
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: storage.k8s.io/v1
+    kind: StorageClass
+    metadata:
+      name: sc-hedvig-csi-default
+      annotations:
+        storageclass.kubernetes.io/is-default-class: "true"  
+    provisioner: io.hedvig.csi
+    parameters:
+      backendType: "hedvig-block"
+    EOF
+    ```
 
-Next we can do a quick verification creating a persistent volume claim and a pod using it.
+1. Do a quick verification creating a persistent volume claim and a pod using it.
 
-```sh
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: pvc-test
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 1Gi
----
-kind: Pod
-apiVersion: v1
-metadata:
-  name: pod-pv-test
-spec:
-  volumes:
-    - name: pv-test
-      persistentVolumeClaim:
-        claimName: pvc-test
-  containers:
-   - name: test
-     image: centos
-     command: ["/bin/sh"]
-     args: ["-c", "while true; do echo \">>> \"$(date) >> /data/output; sleep 10; done"]
-     volumeMounts:
-       - mountPath: "/data"
-         name: pv-test
-EOF
-```
+    ```bash
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: pvc-test
+    spec:
+      accessModes:
+        - ReadWriteOnce
+      resources:
+        requests:
+          storage: 1Gi
+    ---
+    kind: Pod
+    apiVersion: v1
+    metadata:
+      name: pod-pv-test
+    spec:
+      volumes:
+        - name: pv-test
+          persistentVolumeClaim:
+            claimName: pvc-test
+      containers:
+      - name: test
+        image: centos
+        command: ["/bin/sh"]
+        args: ["-c", "while true; do echo \">>> \"$(date) >> /data/output; sleep 10; done"]
+        volumeMounts:
+          - mountPath: "/data"
+            name: pv-test
+    EOF
+    ```
 
 If all things work fine, the pod created should be up and running, and data should be written to `/data/output` on the volume.
 
-#### (3) `konvoy up` With Addons That Require Persistent Storage
+#### Rux `konvoy up` with Addons Requiring Persistent Storage
 
-In the `cluster.yaml` file `enable` all addons that require persistent storage.
-```yaml
-...
-addons:
-  configVersion: v0.0.45
-  addonsList:
-  - name: awsebscsiprovisioner
-    enabled: false
-  - name: awsebsprovisioner
-    enabled: false
-  - name: dashboard
-    enabled: true
-  - name: dex
-    enabled: true
-  - name: dex-k8s-authenticator
-    enabled: true
-  - name: elasticsearch
-    enabled: true
-  - name: elasticsearchexporter
-    enabled: true
-  - name: fluentbit
-    enabled: true
-  - name: helm
-    enabled: true
-  - name: kibana
-    enabled: true
-  - name: kommander
-    enabled: true
-  - name: konvoy-ui
-    enabled: true
-  - name: localvolumeprovisioner
-    enabled: false
-  - name: opsportal
-    enabled: true
-  - name: prometheus
-    enabled: true
-  - name: prometheusadapter
-    enabled: true
-  - name: traefik
-    enabled: true
-  - name: traefik-forward-auth
-    enabled: true
-  - name: velero
-    enabled: true
-...
-```
+1. In the `cluster.yaml` file, enable all addons that require persistent storage.
+    ```yaml
+    ...
+    addons:
+      configVersion: v0.0.45
+      addonsList:
+      - name: awsebscsiprovisioner
+        enabled: false
+      - name: awsebsprovisioner
+        enabled: false
+      - name: dashboard
+        enabled: true
+      - name: dex
+        enabled: true
+      - name: dex-k8s-authenticator
+        enabled: true
+      - name: elasticsearch
+        enabled: true
+      - name: elasticsearchexporter
+        enabled: true
+      - name: fluentbit
+        enabled: true
+      - name: helm
+        enabled: true
+      - name: kibana
+        enabled: true
+      - name: kommander
+        enabled: true
+      - name: konvoy-ui
+        enabled: true
+      - name: localvolumeprovisioner
+        enabled: false
+      - name: opsportal
+        enabled: true
+      - name: prometheus
+        enabled: true
+      - name: prometheusadapter
+        enabled: true
+      - name: traefik
+        enabled: true
+      - name: traefik-forward-auth
+        enabled: true
+      - name: velero
+        enabled: true
+    ...
+    ```
 
-Next update the Konvoy cluster.
-```
-konvoy up
-```
+1. Update the Konvoy cluster.
+    ```bash
+    konvoy up
+    ```
 
-When complete you should see in the addons listed also those that require persistent storage, e.g prometheus, elasticsearch, ... .
+When complete you should see in the addons listed also those that require persistent storage; for example; prometheus, elasticsearch, and so on.
 
 ### Verify
 
-First check that in the `kubeaddons` and `velero` namespaces all persistent volume claims got created successfully.
+1. Check that in the `kubeaddons` and `velero` namespaces, all persistent volume claims were created successfully.
 
-Next launch from the ops portal graphana or kibana and see that you actually get data.
+2. Launch from the ops portal graphana or kibana and see that you actually get data.
 
 ## Information
 
@@ -323,7 +324,10 @@ Next launch from the ops portal graphana or kibana and see that you actually get
 
 Hedvig is available with `two licensing models`:
 
-An annual subscription pricing model based on required capacity that includes software use and support for a 12-month period.A perpetual capacity-based license. (Support added separately).Each are available in primary storage (all features), backup/archive storage, or object-only storage versions that are priced according to the set of features delivered for the given use cases.
+* An annual subscription pricing model based on required capacity that includes software use and support for a 12-month period. 
+* A perpetual capacity-based license. (Support added separately). 
+
+Each is available in primary storage (all features), backup/archive storage, or object-only storage versions that are priced according to the set of features delivered for the given use cases.
 
 ### Maintenance & Support
 
