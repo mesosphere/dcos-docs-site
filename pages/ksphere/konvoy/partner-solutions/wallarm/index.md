@@ -15,85 +15,88 @@ Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to p
 
 ### Prerequisites
 
-First things first you need to [signup](https://my.wallarm.com/signup) for a Wallarm account.
+1. [Sign up](https://my.wallarm.com/signup) for a Wallarm account.
 
-Next add the Wallarm helm chart repository.
+1. Add the Wallarm helm chart repository.
 
-```sh
-helm repo add wallarm https://repo.wallarm.com/charts/stable
-helm repo update
-```
+    ```sh
+    helm repo add wallarm https://repo.wallarm.com/charts/stable
+    helm repo update
+    ```
 
 ### Install The Wallarm Ingress Controller (nginx + Wallarm WAF)
 
-In the Wallarm cloud console [create a new node](https://my.wallarm.com/nodes) of type `cloud`, copy the nodes token since you will need that in the next step.
+1. In the Wallarm cloud console [create a new node](https://my.wallarm.com/nodes) of type `cloud`. 
 
-Install the ingress controller.
+1. Copy the nodes token, since you will need that in the next step.
 
-```sh
-helm install wallarm/wallarm-ingress -n ingress-controller --set controller.wallarm.token=<CLOUD NODE TOKEN> --set controller.wallarm.enabled=true
-```
+1. Install the ingress controller.
 
-Wallarm can be configured through `helm values`, here are the [options](https://github.com/wallarm/ingress-chart/tree/master/wallarm-ingress#configuration).
+    ```sh
+    helm install wallarm/wallarm-ingress -n ingress-controller --set controller.wallarm.token=<CLOUD NODE TOKEN> --set controller.wallarm.enabled=true
+    ```
+
+
+Wallarm can be configured through `helm values`; you can find the [options](https://github.com/wallarm/ingress-chart/tree/master/wallarm-ingress#configuration) here.
 
 ### Create An Ingress Route
 
-Create an Ingress rule that exposes the `http-echo-service`.
+1. Create an ingress rule that exposes the `http-echo-service`.
 
-```sh
-cat <<EOF | kubectl apply -f -
-apiVersion: extensions/v1beta1
-kind: Ingress
-metadata:
-  name: nginx-ingress
-  annotations:
-    kubernetes.io/ingress.class: nginx  
-spec:
-  rules:
-    - http:
-        paths:
-          - path: /
-            backend:
-              serviceName: http-echo-service
-              servicePort: 80
+    ```sh
+    cat <<EOF | kubectl apply -f -
+    apiVersion: extensions/v1beta1
+    kind: Ingress
+    metadata:
+      name: nginx-ingress
+      annotations:
+        kubernetes.io/ingress.class: nginx  
+    spec:
+      rules:
+        - http:
+            paths:
+              - path: /
+                backend:
+                  serviceName: http-echo-service
+                  servicePort: 80
 
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: http-echo-service
-spec:
-  ports:
-    - port: 80
-      targetPort: 5678
-      name: web
-  selector:
-    app: http-echo
-
----
-apiVersion: v1
-kind: Pod
-metadata:
-  name: http-echo
-  labels:
-    app: http-echo
-spec:
-  containers:
-    - name: http-echo
-      image: hashicorp/http-echo
-      args: ['-text="hello world"']
+    ---
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: http-echo-service
+    spec:
       ports:
-        - containerPort: 5678
+        - port: 80
+          targetPort: 5678
           name: web
-EOF
-```
+      selector:
+        app: http-echo
 
-Next enable traffic analysis for the ingress.
+    ---
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: http-echo
+      labels:
+        app: http-echo
+    spec:
+      containers:
+        - name: http-echo
+          image: hashicorp/http-echo
+          args: ['-text="hello world"']
+          ports:
+            - containerPort: 5678
+              name: web
+    EOF
+    ```
 
-```sh
-kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-mode=monitoring
-kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-instance=1
-```
+1. Enable traffic analysis for the ingress.
+
+    ```sh
+    kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-mode=monitoring
+    kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-instance=1
+    ```
 
 ### Delete The Ingress Controller
 
@@ -104,9 +107,7 @@ helm delete --purge ingress-controller
 ```
 
 
-## Information
-
-### Documentation
+## Documentation
 
 * [Wallarm ingress controller](https://docs.wallarm.com/en/admin-en/installation-kubernetes-en.html)
 * [Wallarm ingress controller configuration options](https://github.com/wallarm/ingress-chart/tree/master/wallarm-ingress#configuration)
