@@ -58,6 +58,34 @@ There are several types of cluster types to be aware of in the Clusters tab.
 - **Managed**: A Konvoy cluster that was created with Kommander. Managed clusters' lifecycle can be managed.
 - **Management**: The Konvoy cluster that hosts Kommander.
 
+## Editing Clusters
+
+![Edit a Cluster Action](../../img/edit-cluster-action.png)
+
+### Editing an Attached cluster
+
+For an Attached cluster you can only edit lables that are assigned to it.
+
+![Edit an Attached Cluster](../../img/edit-cluster-attached.png)
+
+### Editing a Managed cluster
+
+For a Managed cluster you can edit its name, labels, cloud provider tags and its node pools.
+
+![Edit a Cluster Form](../../img/edit-cluster-form-name.png)
+
+#### Editing a node pool
+
+When editing a node pool you can only increase the number of nodes in the pool. This is to prevent loosing any workloads that are currently running on the cluster.
+
+You can also add labels and taints to a node pool.
+
+![Edit a Cluster Node Pools](../../img/edit-cluster-node-pools.png)
+
+#### Editing a labels and cloud provider tags
+
+![Edit a Cluster Labels and Cloud Provider Tags](../../img/edit-cluster-labels-tags.png)
+
 ## Disconnect vs Delete
 
 When you attach a cluster to Kommander that was not created with Kommander, you may later disconnect it. This does not alter the running state of the cluster, but simply removes it from the Kommander UI.
