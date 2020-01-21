@@ -15,82 +15,84 @@ MongoDB is a general purpose, document-based, distributed database built for mod
 
 ### Prerequisites
 
-Before you can get started with the operator you need either an account on [MongoDB Cloud Manager](http://cloud.mongodb.com) or install [MongoDB Ops Manager](https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/) outside of the Konvoy cluster on a `dedicated VM`.
+Before you can get started with the operator you need either 
 
-Once you have either access to `Cloud Manager` or your own `Ops Manager` you use it to create an `api key` and to `whitelist the ips` of your Konvoy cluster worker nodes.
+* an account on [MongoDB Cloud Manager](http://cloud.mongodb.com) or 
+* [MongoDB Ops Manager](https://docs.opsmanager.mongodb.com/current/tutorial/install-simple-test-deployment/) installed outside of the Konvoy cluster on a `dedicated VM`
 
-For `Cloud Manager`, you'll need to configure a [Programmatic API key](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/) and an IP whitelist of your Konvoy cluster worker nodes. The steps for creating the API key you can find [here](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/#manage-programmatic-access-to-an-organization).
+Once you have either access to `Cloud Manager` or your own `Ops Manager`, you use it to create an `api key` and to `whitelist the ips` of your Konvoy cluster worker nodes.
 
-For `Ops Manager` go to you `account settings`. There create an `api key` and `whitelist the ips` of your Konvoy cluster worker nodes.
+For `Cloud Manager`, you'll need to configure a [Programmatic API key](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/) and an IP whitelist of your Konvoy cluster worker nodes. The steps for creating the API key are [here](https://docs.cloudmanager.mongodb.com/tutorial/configure-public-api-access/#manage-programmatic-access-to-an-organization).
+
+For `Ops Manager` go to your account settings. There create an `api key` and `whitelist the ips` of your Konvoy cluster worker nodes.
 
 
-### Install The Operator
+### Install the Operator
 
-First clone the `mongodb-enterprise-kubernetes` repository, and change to the `mongodb-enterprise-kubernetes` folder.
+1.  Clone the `mongodb-enterprise-kubernetes` repository, and change to the `mongodb-enterprise-kubernetes` folder.
+    ```bash
+    git clone https://github.com/mongodb/mongodb-enterprise-kubernetes.git
+    cd mongodb-enterprise-kubernetes
+    ```
 
-```sh
-git clone https://github.com/mongodb/mongodb-enterprise-kubernetes.git
-cd mongodb-enterprise-kubernetes
-```
+1. Create the `mongodb namespace`.
 
-Next create the `mongodb namespace`.
+    ```bash
+    kubectl create namespace mongodb
+    ```
 
-```sh
-kubectl create namespace mongodb
-```
+1. Install the `MongoDB operator`.
 
-We then install the `MongoDB operator`.
+    ```bash
+    helm template helm_chart > operator.yaml
+    kubectl apply -f operator.yaml
+    ```
 
-```sh
-helm template helm_chart > operator.yaml
-kubectl apply -f operator.yaml
-```
+1. When clusters are created using the operator, they must be able to access either `MongoDB Cloud Manager` or `MongoDB Ops Manager`. A `secret` with the credentials and a `config map` with the respective manager address and project is required.
 
-When clusters get created using the operator they need to be able to access either `MongoDB Cloud Manager` or `MongoDB Ops Manager`. A `secret` with the credentials and a `config map` with the respective manager address and project is required.
+    For `MongoDB Cloud Manager` you create the `ops-manager-secret` the following way. In the yaml snippet, set the `user` key in the secret to the programmatic api key `publicApiKey` value and, albeit confusing, set the `publicApiKey` value of the secret to the `privateApiKey` value from Cloud Manager you copied when creating the key.
 
-For `MongoDB Cloud Manager` you create the `ops-manager-secret` the following way. In the yaml snippet set the `user` key in the secret to the programmatic api key `publicApiKey` value and, albeit confusing, set the `publicApiKey` value of the secret to the `privateApiKey` value from Cloud Manager you copied when creating the key.
+    ```yaml
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: "ops-manager-secret"
+      namespace: mongodb
+    stringData:
+      user: "JXPIDQEA"      # This is the Public Key value
+      publicApiKey: "<Paste the privateApiKey value from Cloud Manager here!>"
+    EOF
+    ```
 
-```sh
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: Secret
-metadata:
-  name: "ops-manager-secret"
-  namespace: mongodb
-stringData:
-  user: "JXPIDQEA"      # This is the Public Key value
-  publicApiKey: "<Paste the privateApiKey value from Cloud Manager here!>"
-EOF
-```
+    For `MongoDB Ops Manager` you create the `ops-manager-secret` the following way.
 
-For `MongoDB Ops Manager` you create the `ops-manager-secret` the following way.
+    ```bash
+    kubectl -n mongodb create secret generic ops-manager-secret --from-literal="user=<first.last@example.com>" --from-literal="publicApiKey=<my-public-api-key>"
+    ```
 
-```sh
-kubectl -n mongodb create secret generic ops-manager-secret --from-literal="user=<first.last@example.com>" --from-literal="publicApiKey=<my-public-api-key>"
-```
+1. Create the configmap `ops-manager-cm`. The `baseUrl` is `https://cloud.mongodb.com` if you use `MongoDB Cloud Manager`, or `http://<ops-manager-hostname>:8080` if you use `MongoDB Ops Manager`.
 
-Next we create the configmap `ops-manager-cm`. The `baseUrl` is `https://cloud.mongodb.com` if you use `MongoDB Cloud Manager`, or `http://<ops-manager-hostname>:8080` if you use `MongoDB Ops Manager`.
+    ```sh
+    cat <<EOF | kubectl apply -f -
+    apiVersion: v1
+    kind: ConfigMap
+    metadata:
+      name: ops-manager-cm
+      namespace: mongodb
+    data:
+      projectName: "myproject"
+      baseUrl: https://cloud.mongodb.com
+    EOF
+    ```
 
-```sh
-cat <<EOF | kubectl apply -f -
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: ops-manager-cm
-  namespace: mongodb
-data:
-  projectName: "myproject"
-  baseUrl: https://cloud.mongodb.com
-EOF
-```
-
-### Install The Cluster
+### Install the Cluster
 
 The MongoDB operator allows you to create [different cluster types](https://docs.mongodb.com/kubernetes-operator/master/deploy/).
 
-In the following we create a MongoDB cluster of type `replica set`.
+In the following procedure, we create a MongoDB cluster of type `replica set`.
 
-```sh
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: mongodb.com/v1
 kind: MongoDB
@@ -107,82 +109,82 @@ spec:
 EOF
 ```
 
-Checking on the pods in the mongodb namespace you should see the following.
+Checking on the pods in the `mongodb` namespace, you should see the following.
 
-```sh
-kubectl get pods -n mongodb
+  ```bash
+  kubectl get pods -n mongodb
 
-NAME                                          READY   STATUS    RESTARTS   AGE
-mongodb-enterprise-operator-6c9999fd8-vc4g9   1/1     Running   0          22m
-mongodb-rs-0                                  1/1     Running   0          2m9s
-mongodb-rs-1                                  1/1     Running   0          119s
-mongodb-rs-2                                  1/1     Running   0          113s
-```
+  NAME                                          READY   STATUS    RESTARTS   AGE
+  mongodb-enterprise-operator-6c9999fd8-vc4g9   1/1     Running   0          22m
+  mongodb-rs-0                                  1/1     Running   0          2m9s
+  mongodb-rs-1                                  1/1     Running   0          119s
+  mongodb-rs-2                                  1/1     Running   0          113s
+  ```
 
-In the ops manager UI switch to the `organization` named `myproject` (drop down under your user name top right), you should also see the cluster once you switch to that organization.
+In the ops manager UI, switch to the organization named `myproject` (drop down under your user name top right); you should also see the cluster once you switch to that organization.
 
-### Access The Cluster
+### Access the Cluster
 
-Exec into one of the mongodb-rs-* pods.
+1. Exec into one of the mongodb-rs-* pods.
 
-```sh
-kubectl exec -ti -n mongodb mongodb-rs-0 bash
-```
+    ```bash
+    kubectl exec -ti -n mongodb mongodb-rs-0 bash
+    ```
 
-In the pod we run the [mongo shell](https://docs.mongodb.com/manual/mongo/).
+1. In the pod, run the [mongo shell](https://docs.mongodb.com/manual/mongo/).
 
-```sh
-./var/lib/mongodb-mms-automation/mongodb-linux-x86_64-4.0.6/bin/mongo
-```
+    ```bash
+    ./var/lib/mongodb-mms-automation/mongodb-linux-x86_64-4.0.6/bin/mongo
+    ```
 
-Use the mongo shell command `rs.status()` to see the status of the cluster.
+1. Use the mongo shell command `rs.status()` to see the status of the cluster.
 
-```sh
-mongodb-rs:PRIMARY> rs.status()
+    ```bash
+    mongodb-rs:PRIMARY> rs.status()
 
-{
-	...
-	"members" : [
-		{
-			"_id" : 0,
-			"name" : "mongodb-rs-0.mongodb-rs-svc.mongodb.svc.cluster.local:27017",
-                            ...
-		},
-		{
-			"_id" : 1,
-			"name" : "mongodb-rs-1.mongodb-rs-svc.mongodb.svc.cluster.local:27017",
-                            ...
-		},
-		{
-			"_id" : 2,
-			"name" : "mongodb-rs-2.mongodb-rs-svc.mongodb.svc.cluster.local:27017",
-                            ...
-        		}
-	],
-   ...
-}
-```
+    {
+      ...
+      "members" : [
+        {
+          "_id" : 0,
+          "name" : "mongodb-rs-0.mongodb-rs-svc.mongodb.svc.cluster.local:27017",
+                                ...
+        },
+        {
+          "_id" : 1,
+          "name" : "mongodb-rs-1.mongodb-rs-svc.mongodb.svc.cluster.local:27017",
+                                ...
+        },
+        {
+          "_id" : 2,
+          "name" : "mongodb-rs-2.mongodb-rs-svc.mongodb.svc.cluster.local:27017",
+                                ...
+                }
+      ],
+      ...
+    }
+    ```
 
-### Delete The Cluster And Operator
+### Delete the Cluster and Operator
 
-First delete the cluster.
+1. Delete the cluster.
 
-```
-kubectl delete MongoDB mongodb-rs -n mongodb
-```
+    ```bash
+    kubectl delete MongoDB mongodb-rs -n mongodb
+    ```
 
-Next delete the secret and config map.
+1. Delete the secret and config map.
 
-```
-kubectl delete secret ops-manager-secret -n mongodb
-kubectl delete cm ops-manager-cm -n mongodb
-```
+    ```bash
+    kubectl delete secret ops-manager-secret -n mongodb
+    kubectl delete cm ops-manager-cm -n mongodb
+    ```
 
-Last we delete the operator
+1. Delete the operator
 
-```
-kubectl delete -f operator.yaml
-```
+    ```bash
+    kubectl delete -f operator.yaml
+    ```
 
 ## Information
 

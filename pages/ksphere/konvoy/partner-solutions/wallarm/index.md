@@ -9,7 +9,7 @@ image: img/wallarm.png
 ---
 # Wallarm
 
-Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to protect your cloud applications and APIs. Wallarm installs natively in Kubernetes environment.
+Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to protect your cloud applications and APIs. Wallarm installs natively in a Kubernetes environment.
 
 ## Quick Start
 
@@ -19,12 +19,12 @@ Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to p
 
 1. Add the Wallarm helm chart repository.
 
-    ```sh
+    ```bash
     helm repo add wallarm https://repo.wallarm.com/charts/stable
     helm repo update
     ```
 
-### Install The Wallarm Ingress Controller (nginx + Wallarm WAF)
+### Install the Wallarm Ingress Controller (nginx + Wallarm WAF)
 
 1. In the Wallarm cloud console [create a new node](https://my.wallarm.com/nodes) of type `cloud`. 
 
@@ -32,18 +32,18 @@ Wallarm is a DevOps-friendly Web Application Firewall (WAF) uniquely suited to p
 
 1. Install the ingress controller.
 
-    ```sh
+    ```bash
     helm install wallarm/wallarm-ingress -n ingress-controller --set controller.wallarm.token=<CLOUD NODE TOKEN> --set controller.wallarm.enabled=true
     ```
 
 
 Wallarm can be configured through `helm values`; you can find the [options](https://github.com/wallarm/ingress-chart/tree/master/wallarm-ingress#configuration) here.
 
-### Create An Ingress Route
+### Create an Ingress Route
 
 1. Create an ingress rule that exposes the `http-echo-service`.
 
-    ```sh
+    ```bash
     cat <<EOF | kubectl apply -f -
     apiVersion: extensions/v1beta1
     kind: Ingress
@@ -93,12 +93,12 @@ Wallarm can be configured through `helm values`; you can find the [options](http
 
 1. Enable traffic analysis for the ingress.
 
-    ```sh
+    ```bash
     kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-mode=monitoring
     kubectl annotate ingress nginx-ingress nginx.ingress.kubernetes.io/wallarm-instance=1
     ```
 
-### Delete The Ingress Controller
+### Delete the Ingress Controller
 
 Delete the ingress controller.
 
@@ -123,6 +123,6 @@ helm delete --purge ingress-controller
 
 * [Terms of Service](https://wallarm.com/terms-of-services)
 
-### Maintenance & Support
+### Maintenance and Support
 
 * <support@wallarm.com>

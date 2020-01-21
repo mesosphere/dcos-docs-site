@@ -8,21 +8,21 @@ category: Networking and Security
 image: img/cloudflare.png
 ---
 # Argo Tunnel
-Argo Tunnel offers an easy way to expose your services securely to the internet, without opening up firewall ports and configuring ACLs. Argo Tunnel also ensures requests route through Cloudflare before reaching your service so you can be sure attack traffic is stopped with Cloudflare’s WAF and Unmetered DDoS mitigation and authenticated with Access if you’ve enabled those features for your account.
+Argo Tunnel offers an easy way to expose your services securely to the internet, without opening up firewall ports and configuring ACLs. Argo Tunnel also ensures that requests route through Cloudflare before reaching your service, so you can be sure attack traffic is stopped with Cloudflare’s WAF and Unmetered DDoS mitigation and authenticated with Access if you’ve enabled those features for your account.
 
 
 ## Quick Start
 
-The following shows two patterns on how to make your services available through the Cloudflare network using argo tunnel, sidecar and proxy. For each pattern we show how you can get started using `try Cloudflare` and how you use it with a `Cloudflare account`.
+The following section offers two methods to make your services available through the Cloudflare network using Argo Tunnel Sidecar and proxy. For each method, we show how you can get started using `try Cloudflare` and how you use it with a `Cloudflare account`.
 
 A Cloudflare account requires [signup](https://dash.cloudflare.com/sign-up) and you also need to `get argo smart traffic routing enabled`.
 
 
-### Using Argo Tunnel Sidecar With Trycloudflare
+### Using Argo Tunnel Sidecar with Trycloudflare
 
 The following is a pod with two containers, `nginx` the service, `argo-sidecar` the argo tunnel sidecar. Apply the pod using the following script.
 
-```sh
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -45,9 +45,9 @@ spec:
 EOF
 ```
 
-Once the pod is running check its logs for the url that can be used to reach the service via the Cloudflare network.
+Once the pod is running, check its logs for the url that can be used to reach the service via the Cloudflare network.
 
-```
+```bash
 kubectl logs nginx -c argo-sidecar
 
 ...
@@ -58,20 +58,22 @@ time="2019-07-02T01:39:47Z" level=info msg=+------------------------------------
 ...
 ```
 
-### Using Argo Tunnel Sidecar With A Cloudflare Account
+### Using Argo Tunnel Sidecar with a Cloudflare Account
 
-In the following a secret is required. Install `cloudflared` and use it to log into your account to get an access certificate, details [here](https://developers.cloudflare.com/argo-tunnel/quickstart/) see `step 2 & 3`.
+In the following procedure, a secret is required. 
 
-Next create a secret containing the certificate.
-```
-kubectl create secret generic example.com --from-file="$HOME/.cloudflared/cert.pem"
-```
+1. Install `cloudflared` and use it to log in to your account to get an access certificate. The details can be found [here](https://developers.cloudflare.com/argo-tunnel/quickstart/); see `step 2 & 3`.
 
-The following is a pod with two containers, `nginx` the service, `argo-sidecar` the argo tunnel sidecar.
+1. Next, create a secret containing the certificate.
+    ```bash
+    kubectl create secret generic example.com --from-file="$HOME/.cloudflared/cert.pem"
+    ```
 
-Once you applied the pod you can reach the service at `https://hellp.example.com`.
+The following is a pod with two containers, with `nginx` as the service, and `argo-sidecar`as the Argo Tunnel sidecar.
 
-```sh
+After you have applied the pod, you can reach the service at `https://hellp.example.com`.
+
+```bash
 cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: Pod
@@ -107,16 +109,16 @@ EOF
 ### Documentation
 
 * [Try Cloudflare](https://developers.cloudflare.com/argo-tunnel/trycloudflare/)
-* [Cloudflare argo tunnel](https://developers.cloudflare.com/argo-tunnel/quickstart/)
-* [cloudflare argo tunnel sidecar](https://developers.cloudflare.com/argo-tunnel/reference/sidecar/)
+* [Cloudflare Argo Tunnel](https://developers.cloudflare.com/argo-tunnel/quickstart/)
+* [Cloudflare Argo Tunnel sidecar](https://developers.cloudflare.com/argo-tunnel/reference/sidecar/)
 
 ### Release Notes
 
-* [Cloudflare argo tunnel release notes](https://developers.cloudflare.com/argo-tunnel/release-notes/)
+* [Cloudflare Argo Tunnel release notes](https://developers.cloudflare.com/argo-tunnel/release-notes/)
 
 ### Licensing
 
-* [Cloudflare argo tunne licensel](https://developers.cloudflare.com/argo-tunnel/license/)
+* [Cloudflare Argo Tunnel license](https://developers.cloudflare.com/argo-tunnel/license/)
 
 ### Maintenance & Support
 
