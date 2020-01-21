@@ -1,9 +1,9 @@
-# Install Jenkins on Konvoy
+# Install Jenkins&reg; on Konvoy
 
-Jenkins can be installed in multiple ways:
+Jenkins&reg; can be installed in multiple ways:
 
-1. Using the kommander catalog addon (Recommended)
-2. From upstream helm repo
+1. Using the Kommander catalog addon (Recommended)
+2. From an upstream helm repo
 
 ### Install from Kommander Catalog Addons
 
@@ -11,14 +11,14 @@ Jenkins can be installed in multiple ways:
 
 - Running Konvoy cluster attached to a Kommander instance.
 
-1. Go to the Kommander UI and attach the Konvoy clusters in which you desire to install Jenkins.
+1. Go to the Kommander UI and attach the Konvoy clusters in which you desire to install Jenkins&reg;.
 2. Create a project with labels matching this clusters if it doesn't already exist.
 4. Make any necessary changes to the configuration, if needed.
 3. Go to **Projects > Select your Project > View Catalog > Select Jenkins > Deploy** 
 
-Your Jenkins instance will deploy.
+Your Jenkins&reg; instance will deploy.
 
-### Install Jenkins from upstream helm chart in to a Konvoy cluster
+### Install Jenkins&reg; from upstream helm chart in to a Konvoy cluster
 
 Create ServiceAccount, Role and Rolebinding. Change the permissions as necessary.
 
