@@ -170,25 +170,27 @@ az login
 az role assignment cerate --assignee YOUR_USER_LOGIN --role "User Access Administrator"
 ```
 
+Find the `SUBSCRIPTION_ID` of your account, named `id` in the output of this command:
 ```
-az account set --subscription=SUBSCRIPTION_ID"
-```
-
-```
-az ad sp create_for_rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+az account show
 ```
 
-The output should look similar to this:
+Create the service principal for the provider:
+```
+az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
+```
 
+The command returns data needed to create the secret:
 ```
 {
-    "appId": "<APP_ID>",
-    "displayName": "azure-cli-...",
-    "name": "http://azure-cli-...",
-    "password": "<PASSWORD>",
-    "tenant": "<TENANT>"
+  "appId": "APP_ID",
+  "displayName": "name",
+  "name": "http://name",
+  "password": "PASSWORD",
+  "tenant": "TENANT"
 }
 ```
+
 
 #### Fill out the rest of the form
 
