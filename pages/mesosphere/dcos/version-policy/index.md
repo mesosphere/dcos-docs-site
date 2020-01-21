@@ -370,7 +370,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Elastic 2.6.x-6.6.1</td>
+        <td>Elastic 2.7.x-6.8.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -426,12 +426,6 @@ The designations are as follows:
     <!-- Where is Kafka-ZooKeeper 2.4.x? -->
     <tr>
         <td>Kafka-Zookeeper 2.7.x-3.4.14 (Recommended)</td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
-    <tr>
-        <td>Elastic 2.6.x-6.6.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
