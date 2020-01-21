@@ -58,6 +58,15 @@ There are several types of cluster types to be aware of in the Clusters tab.
 - **Managed**: A Konvoy cluster that was created with Kommander. Managed clusters' lifecycle can be managed.
 - **Management**: The Konvoy cluster that hosts Kommander.
 
+## Upgrading Kubernetes version
+
+You can upgrade Kubernetes version on a running cluster from the Clusted Detail page (Figure 2.)
+Select an available desired version from the Version dropdown and confirm your action in the confirmation dialog.
+
+![Update Kubernetes Version Action](../../img/upgrade-kubernetes-action.png)
+
+![Update Kubernetes Version Action](../../img/upgrade-kubernetes-confirmation.png)
+
 ## Editing Clusters
 
 ![Edit a Cluster Action](../../img/edit-cluster-action.png)
