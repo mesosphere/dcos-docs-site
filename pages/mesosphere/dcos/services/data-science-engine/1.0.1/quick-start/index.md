@@ -26,6 +26,8 @@ This page explains how to install the {{ model.techName }} Service.
 | Permissive | Optional |
 | Strict | Required |
 
+<p class="message--note"><strong>NOTE: </strong> Following points need to be considered before installing the service:<ul><li>{{ model.techName }} uses WebSockets to drive the console, thus load balancers and proxies need to be configured accordingly.</li><li>AWS Classic Load Balancer should not be used, because it doesn't support WebSockets.</li><li>The DC/OS Universal Installer uses Classic ELBs (Elastic Load Balancers) for both external and internal load balancing till version 2.0 by default.</li></ul></p>
+
 # Install {{ model.techName }}
 
 ## From the DC/OS UI
