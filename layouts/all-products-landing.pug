@@ -9,7 +9,7 @@
 - var konvoyDocs = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
 - var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
 - var dispatchDocs = ksphereDocs.children.filter(child => child.id == 'dispatch')[0]
-- var latestDispatchDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
+- var latestDispatchDocs = dispatchDocs.children.filter(child => child.id == 'latest')[0]
 
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
