@@ -17,7 +17,7 @@ This is very useful for development and end-to-end testing with Konvoy.
 Before starting the development machine installation, you should verify the following:
 
 * [Docker Desktop][install_docker] version 18.09.2 or later
-* [kubectl][install_kubectl] v1.15.5 or later (for interacting with the running cluster)
+* [kubectl][install_kubectl] v1.16.4 or later (for interacting with the running cluster)
 * Docker is configured with the following minimum requirements for CPU, memory, and disk:
   * 4 CPUs
   * 8 GB memory

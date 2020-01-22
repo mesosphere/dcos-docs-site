@@ -126,4 +126,3 @@ Another option to import custom Kibana dashboards can be to use the Kibana web c
     * Yes, overwrite all
 
 <p class="message--note"><strong>NOTE: </strong> If any visualization or dashboard did not import, the issue is most likely a field that is referenced in the visualization but not indexed. Make sure that you are shipping the correct logs and that the Kibana mapping is refreshed.</p>
-

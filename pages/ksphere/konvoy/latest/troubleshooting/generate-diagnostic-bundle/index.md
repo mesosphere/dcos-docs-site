@@ -43,18 +43,24 @@ To generate the diagnostic bundle
 
     ```bash
     $ tar -xvf 20190705T114114.tar.gz
-    x bundles/172.17.0.3.tar.gz
-    x bundles/172.17.0.2.tar.gz
+    bundles/master_172.17.0.3.tar.gz
+    bundles/worker_172.17.0.2.tar.gz
+    bundles/cluster-data.tar.gz
+    ...
+    ```
 
-    $ tar -xvf bundles/172.17.0.3.tar.gz
-    x iptables-save.txt
-    x ctr-version.txt
-    x containerd.service.log
-    x containerd.service.status.txt
-    x journalctl.log
-    x kubelet.service.log
-    x ansible_facts.json
-    x timedatectl.txt
-    x kubelet.service.status.txt
-    x dmesg.txt
+    As you can see there is a `cluster-data.tar.gz` archive. That file contains cluster-wide data such as pod logs and details about API resources. Node bundles contain node-specific information:
+
+    ```bash
+    $ tar -xvf bundles/master_172.17.0.3.tar.gz
+    iptables-save.txt
+    ctr-version.txt
+    containerd.service.log
+    containerd.service.status.txt
+    journalctl.log
+    kubelet.service.log
+    ansible_facts.json
+    timedatectl.txt
+    kubelet.service.status.txt
+    dmesg.txt
     ```

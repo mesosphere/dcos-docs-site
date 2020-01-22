@@ -56,7 +56,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
           imagefsVolumeType: gp2
           imagefsVolumeSize: 160
           imagefsVolumeDevice: xvdb
-          type: t3.xlarge
+          type: m5.2xlarge
       - name: control-plane
         controlPlane: true
         count: 3
@@ -67,7 +67,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
           imagefsVolumeType: gp2
           imagefsVolumeSize: 160
           imagefsVolumeDevice: xvdb
-          type: t3.large
+          type: m5.xlarge
       sshCredentials:
         user: centos
         publicKeyFile: konvoy-ssh.pub
@@ -76,7 +76,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
     ```
 
     As illustrated in this example, you can modify the `nodePools` section to configure the nodes of your cluster by changing the `nodePools.count` from `4` to `5`
-    or the node type by changing the `nodePools.machine.type` from `t3.xlarge` to `t3.large`.
+    or the node type by changing the `nodePools.machine.type` from `m5.2xlarge` to `m5.xlarge`.
 
     You can also modify the `tags` section to extend the lifetime of your cluster.
     This change might be useful, for example, if your AWS administrator has created a job to remove cloud resources based on AWS resource tags.
@@ -103,7 +103,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
       creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
     spec:
       kubernetes:
-        version: 1.15.5
+        version: 1.16.4
         networking:
           podSubnet: 192.168.0.0/16
           serviceSubnet: 10.0.0.0/18
