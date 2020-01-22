@@ -4,8 +4,7 @@
       "test/**",
       "mesosphere/dcos/1.14/**",
       "mesosphere/dcos/2.1/**",
-      "ksphere/kommander/**",
-      "ksphere/dispatch/**"
+      "ksphere/kommander/**"
     ],
     "DO_NOT_INDEX": []
   },
@@ -13,8 +12,7 @@
     "DO_NOT_BUILD": [
       "test/**",
       "mesosphere/dcos/2.1/**",
-      "ksphere/kommander/**",
-      "ksphere/dispatch/**"
+      "ksphere/kommander/**"
     ],
     "DO_NOT_INDEX": [
       "^cn"
