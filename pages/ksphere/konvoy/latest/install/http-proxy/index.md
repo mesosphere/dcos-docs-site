@@ -43,16 +43,30 @@ spec:
     networking:
       httpProxy: "http://proxy.company.com:3128"
       httpsProxy: "http://proxy.company.com:3129"
-      noProxy:
-        - "localhost"
-        - "127.0.0.1"
-        - "company.com"
-        - "mycluster.icp:8500"
+      noProxy: []
 ```
 
 This example configures the Kubernetes cluster installed by Konvoy to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `http://proxy.company.com:3129` for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
 
 This configuration only applies to the core Kubernetes components. In this case, you must next configure the HTTP_PROXY settings for all other workloads that require access to the Internet.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
+spec:
+  addons:
+    addonsList:
+    - name: kommander
+      enabled: true
+      values: |
+        kommander-cluster-lifecycle:
+          webhook:
+            env:
+              HTTP_PROXY: "http://proxy.company.com:3128"
+              NO_PROXY: "http://proxy.company.com:3128"
+              HTTPS_PROXY: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
+    ...
+```
 
 All the proxy-related fields are optional.
 

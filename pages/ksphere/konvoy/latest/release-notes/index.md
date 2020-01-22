@@ -7,11 +7,271 @@ excerpt: View release-specific information for Konvoy
 enterprise: false
 ---
 
+<!-- markdownlint-disable MD034 -->
+
 ## Release Notes
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
+
+### Version v1.3.0
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.4 |
+
+#### Disclaimer
+
+**You must modify your `cluster.yaml` with these changes when upgrading from a previous version.**
+
+Below is a partial `cluster.yaml` that contains the required changes.
+Note that `apiVersion: konvoy.mesosphere.io/v1alpha1` has not been modified.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1alpha1
+spec:
+  kubernetes:
+    version: 1.16.4
+  containerNetworking:
+    calico:
+      version: v3.10.1
+  addons:
+    configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: stable-1.16.4-2
+    addonsList:
+    ...
+    - name: helm
+      enabled: false # Must change to false or remove from the list
+    - name: defaultstorageclass-protection
+      enabled: true
+    - name: external-dns
+      enabled: true
+      values: |
+        aws:
+          region:
+        domainFilters: []
+    - name: gatekeeper
+      enabled: true
+    - name: kube-oidc-proxy
+      enabled: true
+    - name: reloader
+      enabled: true
+```
+
+Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [refernce document](https://docs.d2iq.com/ksphere/konvoy/latest/reference/cluster-configuration/).
+
+After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to upgrade the Kubernetes and all of the addons.
+
+#### Improvements
+
+-   Add support for `azure` provisioner, refer to the [azure document](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-azure/).
+-   Add support for GPU(Nvidia) machines.
+-   Add support for Debian 10 OS.
+-   Change the default API version in `cluster.yaml` from `konvoy.mesosphere.io/v1alpha1` to `konvoy.mesosphere.io/v1beta1` and use the Kubernetes tooling to generate this API.
+    - Refer to the [reference document](https://docs.d2iq.com/ksphere/konvoy/latest/reference/cluster-configuration/) for the updated options.
+-   Change default machine sizes in AWS to `m5.2xlarge` for worker nodes and `m5.xlarge` for control-plane nodes. No action needed for users with existing clusters. This does not automatically modify the instance types, which would cause your cluster to be completely rebuilt.
+-   Increase default worker count to 4 to accommodate additional addons.
+-   Change default root disk type in AWS to `io1` for better etcd performance.
+-   Change some field names in  `cluster.yaml` for better human readability. No action needed for users with existing clusters. The already generated `cluster.yaml` with `apiVersion: konvoy.mesosphere.io/v1alpha1` can still be used with this version of Konvoy. See below for the changed fields:
+
+    Old `cluster.yaml`:
+
+    ```yaml
+    kind: ClusterProvisioner
+    apiVersion: konvoy.mesosphere.io/v1alpha1
+    spec:
+      provider: aws
+      aws:
+        region: us-west-2
+        vpc:
+          enableInternetGateway: true
+          enableVPCEndpoints: true
+    ---
+    kind: ClusterConfiguration
+    apiVersion: konvoy.mesosphere.io/v1alpha1
+    spec:
+      packageRepository:
+        defaultRepositoryInstallationDisabled: false
+    ```
+
+    New `cluster.yaml`:
+
+    ```yaml
+    kind: ClusterProvisioner
+    apiVersion: konvoy.mesosphere.io/v1alpha1
+    spec:
+      provider: aws
+      aws:
+        region: us-west-2
+        vpc:
+          internetGatewayDisabled: false
+          vpcEndpointsDisabled: false
+    ---
+    kind: ClusterConfiguration
+    apiVersion: konvoy.mesosphere.io/v1alpha1
+    spec:
+      osPackages:
+        enableAdditionalRepositories: true
+    ```
+
+-   Allow specifying the `cgroup-root` option for Kubelets, to better support running `konvoy` in a container.
+
+    ```yaml
+    kind: ClusterConfiguration
+    apiVersion: konvoy.mesosphere.io/v1alpha1
+    spec:
+      kubernetes:
+        kubelet:
+          cgroupRoot: "/kubelet"
+    ```
+
+-   Allow specifying multiple Addon repositories in `cluster.yaml`.
+
+    ```yaml
+    kind: ClusterConfiguration
+    apiVersion: konvoy.mesosphere.io/v1beta1
+    spec:
+      addons:
+      - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+        addonsList:
+        - name: dashboard
+          enabled: true
+        ...
+      - configRepository: https://github.com/myorg/myrepo
+        addonsList:
+        - name: myaddon
+          enabled: true
+    ```
+
+-   Automatically deploy additional Kubernetes resources in `extras/kubernetes` from the working directory.
+-   Add the default Centos7 AMI for `eu-north` region, allowing for automated provisioning in that region.
+-   Add the ability to show infrastructure changes to be made with `konvoy provision --plan-only`.
+-   Fix validation errors to be more human friendly.
+-   New preflight check to validate all nodes have unique hostnames.
+-   Automatically disable memory swap as it is not supported in Kubernetes.
+-   Automatically disable the `firewalld` OS service as it is not supported in Kubernetes.
+-   Add liveness check for Keepalived for automated recovery after failures.
+-   Automatically deploy [Calico Typha](https://github.com/projectcalico/typha) on clusters with more than 50 nodes.
+-   Add support for `vxlan` encapsulation and MTU customization in Calico networking.
+
+    ```yaml
+    spec:
+      kubernetes:
+        containerNetworking:
+          calico:
+            encapsulation: vxlan
+            mtu: 1480
+    ```
+
+-   Allow deploying Calico Route Reflectos nodes. More details can be found in [networking document](https://docs.d2iq.com/ksphere/konvoy/latest/networking).
+-   Add support for SSH proxy. More details can be found in [ssh-configuration document](https://docs.d2iq.com/ksphere/konvoy/latest/install/).
+-   Minor improvements to Ansible scripts to make them more failure resilient.
+-   Configure `chrony` on nodes for proper time synchronization across the cluster.
+-   Improve the process of additional control-plane nodes joining the cluster where a race condition resulted in an error.
+-   Simplify `konvoy image` command to no longer require user pass `--docker-registry-service` and `--docker-registry-auth-service-url` flags.
+-   Archive inside of diagnostics bundles now has a prefix denoting whether the node is a worker or a master.
+-   Collect etcd, kube-apiserver and keepalived logs on master hosts using crictl.
+-   Update the list of namespaces to collect logs from for the diagnostics bundle that includes new addons.
+-   Remove the `net-tools` package. It is no longer needed when collecting the diagnostics.
+
+#### Bug fixes
+
+- Fix a bug related to improper defaulting in `cluster.yaml`.
+- Fix a bug where `kube-proxy` metrics could not be collected by binding the pod to `0.0.0.0` on the host.
+- Fix a bug where it was not possible to pull a new Konvoy image when using an HTTP proxy.
+- Make kernel modules persistent across a node restart.
+- Properly handle OS signals when provisioning.
+- Set package lock for containers.
+- Fix a bug where installing OS packages on Debian would always timeout.
+- Do not always force color output in Ansible which caused extra characters to be printed when running without a TTY.
+- Fix a bug in `konvoy diagnose --log-all-namespaces` that was not fetching logs from any namespaces.
+
+#### Addons improvements
+
+-   The old addons [kubeaddons-configs repo](https://github.com/mesosphere/kubeaddons-configs) is deprecated and is replaced by [kubernetes-base-addons repo](https://github.com/mesosphere/kubernetes-base-addons).
+    - **IMPORTANT** you must update the value of `configRepository` in your `cluster.yaml` before upgrading to the new addons.
+-   The Kommander addon is now in Beta.
+-   New Istio addon is now in Preview.
+-   New Dispatch addon is now in Beta.
+-   It is simpler to use custom certificates for Traefik by specifying the Secret name in the addons' `values` fields, instead of the raw certificate values.
+-   Modify generated addon certificates to be supported on MacOS Catalina.
+-   Fix an issue where addons with CRDs could fail when being upgraded.
+-   Enable volume expansion feature for AWS CSI addon.
+-   Upgrade all addons to support Kubernetes >v1.16.
+-   Allow for passing custom certificate to Traefik.
+-   Upgrade images that contained critical security issues.
+-   Send Kubernetes audit logs to Kibana.
+-   Update CPU and Memory requests and limits of multiple addons to better handle larger clusters.
+-   Added impersonation and group claim support to traefik-forward-auth.
+-   Enable impersonation support for Dashboard 2.0.
+    - **IMPORTANT** When accessing the dashboard, with a user other than the operations user, the user must be granted permissions using the [RBAC API](../security/external-idps/ops-portal-access)
+
+#### Component version changes
+
+- Kubernetes `v1.16.4`
+- Calico `v3.10.1`
+- Kubeaddons `v0.6.2`
+- Helm `v2.16.1`
+- AWS EBS CSI Provisioner `0.3.3`
+- Cert Manager `0.1.5`
+- Kubernetes Dashboard `2.0.0`
+- Dex K8S Authenticator `1.1.12`
+- Dex `1.6.13`
+- Dispatch `v0.4.3`
+- Elasticsearch `1.32.0`
+- Elasticsearch Exporter `2.1.1`
+- External DNS `2.9.4`
+- Flagger `0.19.0`
+- Fluentbit `2.8.4`
+- Gatekeeper `0.3.3`
+- Grafana `6.3.5`
+- Istio `1.4.3`
+- Karma `0.50`
+- Kibana `3.2.5`
+- Kommander `0.3.14`
+- Konvoyconfig `0.0.2`
+- Kube OIDC Proxy `0.1.7`
+- Nvidia `0.2.0`
+- Opsportal `0.1.28`
+- Prometheus `v2.14.0`
+- Prometheus Operator `0.34.0`
+- Prometheus Adapter `0.5.0`
+- Reloader `v0.0.49`
+- Thanos `0.8.1`
+- Traefik Forward Auth `0.2.11`
+- Traefik `1.72.10`
+- Velero `2.2.9`
+
+#### Known issues and limitations
+
+Known issues and limitations do not, necessarily, affect all customers, but may require changes to your environment to address specific scenarios.
+The issues are grouped by feature, functional area, and component.
+
+-   Docker provisioner reports potential issues if there are insufficient resources.
+
+    If you attempt to deploy a cluster on a machine not having enough resources, you might see issues when the installation starts to deploy Addons.
+    For example, if you see an error message like _could not check tiller installation_, the root cause is typically insufficient resources.
+
+-   Dex should always be enabled.
+
+    For this release of Konvoy, `dex`, `dex-k8s-authenticator`, and `traefik-forward-auth` are tightly coupled and must all be enabled.
+    Disabling any of these addons prevents certain operations from working correctly.
+    This tight coupling will be addressed in a future release.
+
+-   The authentication token has no permissions.
+
+    After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
+    To enable the authenticated user to perform administrative actions, you must [manually add role bindings](../security/external-idps/ops-portal-access).
+
+-   Upgrades might fail when `workers` is set to one.
+
+    The upgrade command might fail when the cluster is configured with only one worker. To prevent the command from failing, add an additional worker for the upgrade.
+
+N/A
 
 ### Version 1.2.6 - Release 2 December 2019
 
@@ -217,7 +477,6 @@ N/A
 #### Component version changes
 
 - Kubernetes `v1.15.5`
-- kubeadd-configs `v1.15.5-1`
 
 #### Known issues and limitations
 
@@ -249,17 +508,17 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.5 |
+|**Minimum** | 1.15.4 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Improvements
 
-- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubeaddons-configs](https://github.com/mesosphere/kubeaddons-configs). Documentation can be found [here](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-onprem/#specifying-a-local-kubeaddons-configs-repo).
+- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-onprem/#specifying-a-local-kubernetes-base-addons-repo).
 
 #### Addons improvements
 
-- Support specifying a different git repo when fetching [kubeaddons-configs](https://github.com/mesosphere/kubeaddons-configs).
+- Support specifying a different git repo when fetching [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons).
 
 #### Bug fixes
 
@@ -299,9 +558,9 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.5 |
+|**Minimum** | 1.15.4 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Improvements
 
@@ -349,9 +608,9 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.0 |
+|**Minimum** | 1.15.4 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Disclaimer
 
@@ -362,9 +621,9 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.15.5
+    version: 1.15.4
   addons:
-    configVersion: stable-1.15.5-1
+    configVersion: stable-1.15.4-1
     addonsList:
     - name: cert-manager
       enabled: true
@@ -396,7 +655,7 @@ N/A
 #### Component version changes
 
 - Calico `v3.8.2`
-- Kubernetes `v1.15.5`
+- Kubernetes `v1.15.4`
 
 #### Known issues and limitations
 
@@ -484,14 +743,13 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Disclaimer
 
 <p class="message--warning"><strong>WARNING: </strong>This version contains a bug where it will fail when retrying an installation, upgrading or addding additional nodes, it is strongly recommended to use a newer version.</p>
 
 The marker file on the nodes was being set with incorrect permissions and a change in the Konvoy wrapper surfaced this error, meaning that the user inside the Konvoy could not read the file.
-
 
 The error you might see will be something similar to:
 
@@ -516,7 +774,7 @@ N/A
 
 #### Improvements
 
-- Validate the minmum Docker version and that it is running on the host before using it in Konvoy.
+- Validate the minimum Docker version and that it is running on the host before using it in Konvoy.
 - Use `--mount` instead of `-v` to mount volumes into the Konvoy container, required for eventual Windows support.
 - New `konvoy diagnose` flags `--logs-all-namespaces` and `--logs-namespaces=[kubeaddons,kube-system]` to provide a better control of what Kubernetes pod logs to collect.
 - New `konvoy image list|upgrade` commands to be able to automatically list and download future release of the Konvoy image. It will no longer be necessary to download the Konvoy wrapper (unless you require wrapper specific changes) to use new versions of Konvoy.
@@ -580,7 +838,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Breaking changes
 
@@ -649,7 +907,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 | ------------------ | ------- |
 |**Minimum** | 1.15.0 |
 |**Maximum** | 1.15.x |
-|**Default** | 1.15.5 |
+|**Default** | 1.15.4 |
 
 #### Breaking changes
 

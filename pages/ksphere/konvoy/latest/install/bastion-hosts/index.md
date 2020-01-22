@@ -138,7 +138,7 @@ spec:
     machine:
       rootVolumeSize: 10
       rootVolumeType: gp2
-      type: t3.small
+      type: m5.large
   sshCredentials:
     user: centos
     publicKeyFile: konvoy-ssh.pub

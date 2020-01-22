@@ -60,19 +60,20 @@ spec:
       imagefsVolumeType: gp2
       imagefsVolumeSize: 160
       imagefsVolumeDevice: xvdb
-      type: t3.xlarge
+      type: m5.2xlarge
       imageID: ami-01ed306a12b7d1c96
   - name: control-plane
     controlPlane: true
     count: 3
     machine:
       rootVolumeSize: 80
-      rootVolumeType: gp2
+      rootVolumeType: io1
+      rootVolumeIOPS: 1000
       imagefsVolumeEnabled: true
       imagefsVolumeType: gp2
       imagefsVolumeSize: 160
       imagefsVolumeDevice: xvdb
-      type: t3.large
+      type: m5.xlarge
       imageID: ami-01ed306a12b7d1c96
 ```
 
@@ -216,7 +217,7 @@ spec:
     vpc:
       ID: "vpc-0a0e1da174c837629"
       routeTableID: "rtb-012e0ee9392c58881"
-      internetGatewayDisabled: true
+      enableInternetGateway: false
 ---
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
@@ -239,6 +240,13 @@ spec:
           service:
             annotations:
               "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
+    - enabled: true
+      name: istio
+      values: |
+        gateways:
+          istio-ingressgateway:
+            serviceAnnotations:
+              service.beta.kubernetes.io/aws-load-balancer-internal: "true"
     ...
 ```
 
@@ -257,7 +265,7 @@ spec:
   provider: aws
   aws:
     vpc:
-      vpcEndpointsDisabled: true
+      enableVPCEndpoints: false
 ...
 ```
 
@@ -291,7 +299,7 @@ spec:
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
       imagefsVolumeDevice: xvdb
-      type: t3.xlarge
+      type: m5.2xlarge
       aws:
         # Each pool now has subnets, they must match the number of availabilityZones and in the same order as the `availabilityZones`
         subnetIDs:
@@ -301,12 +309,13 @@ spec:
     count: 3
     machine:
       rootVolumeSize: 80
-       rootVolumeType: gp2
+      rootVolumeType: io1
+      rootVolumeIOPS: 1000
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
       imagefsVolumeDevice: xvdb
-      type: t3.large
+      type: m5.xlarge
       aws:
         # Subnets should be private
         subnetIDs:
@@ -317,7 +326,7 @@ spec:
     machine:
       rootVolumeSize: 10
       rootVolumeType: gp2
-      type: t3.small
+      type: m5.large
       aws:
         # Should be a subnet with public ips, this is required to access your bastion
         subnetIDs:
@@ -386,6 +395,31 @@ spec:
             arn: "arn:aws:iam::273854932432:instance-profile/some-k8s-instance-profile"
 ...
 ```
+
+# Deploying Additional Kubernetes Resources
+
+It is possible to provide additional Kubernetes resources that will be deployed after the base cluster is provisioned but before any of the addons are deployed.
+
+To add custom resource files:
+
+1. Create a new directory named `extras/kubernetes/` to contain your custom resource files.
+
+    ```bash
+    mkdir -p extras/kubernetes
+    ```
+
+1. Create the desired Kubernetes resource files in the `extras/kubernetes/` directory.
+
+1. Run the `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes` command.
+
+    After `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/:
+
+    ```bash
+    STAGE [Deploying Additional Kubernetes Resources]
+
+    secrets/my-secret created
+    ...
+    ```
 
 [ami_centos7]: https://aws.amazon.com/marketplace/pp/B00O7WM7QW
 [node_pools]: ../../node-pools/
