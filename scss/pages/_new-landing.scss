@@ -32,10 +32,10 @@
         border: 1px solid rgba(0, 0, 0, .08);
         border-radius: 4px;
         box-shadow: 0 0 18px 0 rgba(45, 45, 45, .10);
-        height: 45%;
-        width: 45%;
-        min-width: 150px;
-        min-height: 150px;
+        height: 33%;
+        width: 33%;
+        max-width: 250px;
+        max-height: 250px;
         z-index: 10;
         transition: all 250ms ease-out;
     }
