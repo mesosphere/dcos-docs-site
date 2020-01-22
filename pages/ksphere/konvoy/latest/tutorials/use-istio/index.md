@@ -13,7 +13,7 @@ Istio helps you manage cloud-based deployments by providing an open-source servi
 
 This tutorial demonstrates how to expose an application running on the Konvoy cluster using the LoadBalancer (layer-4) service type.
 
-<P class="message--note"><strong>NOTE: </strong>Usage and installation of Istio on Konvoy is currently not supported.</p>
+<P class="message--note"><strong>NOTE: </strong>Usage and installation of Istio on Konvoy is currently a self-service feature.</p>
 
 ## Before you begin
 Before starting this tutorial, you should verify the following:
