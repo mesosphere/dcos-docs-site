@@ -94,6 +94,12 @@ If you add a list of addresses for metallb to use, it assigns those addresses to
     addonsList:
     - name: cert-manager
       enabled: true
+    ...
+  - configRepository: https://github.com/mesosphere/kubeaddons-enterprise
+    configVersion: v0.0.3
+    addonsList:
+    - name: zookeeper
+      enabled: true
 ```
 
 ## Advanced Application of Kubeaddons
