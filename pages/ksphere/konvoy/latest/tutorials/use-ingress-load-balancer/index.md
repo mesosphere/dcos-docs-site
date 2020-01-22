@@ -77,6 +77,7 @@ Before starting this tutorial, you should verify the following:
     ```
 
     This command displays the internal and external IP addresses for the exposed service.
+    (Note that IP addresses and host names are for illustrative purposes. Always use the information from your own cluster)
 
     ```bash
     NAME                 TYPE           CLUSTER-IP    EXTERNAL-IP                                                             PORT(S)                                     AGE
@@ -84,6 +85,7 @@ Before starting this tutorial, you should verify the following:
     ```
 
 1. Validate that you can access the web application Pods by running the following commands:
+  (Note that IP addresses and host names are for illustrative purposes. Always use the information from your own cluster)
 
     ```bash
     curl -k -H "Host: http-echo-1.com" https://abf2e5bda6ca811e982140acb7ee21b7-37522315.us-west-2.elb.amazonaws.com
