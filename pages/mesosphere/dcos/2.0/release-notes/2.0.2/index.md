@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Release notes for 2.0.1
-title: Release notes for 2.0.1
+navigationTitle: Release notes for 2.0.2
+title: Release notes for 2.0.2
 menuWeight: 2
-excerpt: Release notes for DC/OS 2.0.1
+excerpt: Release notes for DC/OS 2.0.2
 ---
-DC/OS 2.0.1 was released on 22 November 2019.
+DC/OS 2.0.2 was released on 30 January 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -18,11 +18,14 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 # Fixed and Improved Issues in DC/OS 2.0.2
 
-MARATHON-8710	Marathon hides resident pod instances with task status TASK_UNKNOWN from /v2/pods/::status
-DCOS_OSS-5643	adminrouter-agent failing to start on older CPUs that are missing SSE 4.2
-DCOS-62548	COPS-5738: Rationale behind an old version of Java
+- DC/OS now show resident instances in /v2/pods/::status when they transition to any task status that may cause them to be excluded. (MARATHON-8710) 
+- Fixed an issue where, after upgrade to DC/OS 2.0, adminrouter-agent was failing to start on older CPUs that were missing SSE 4.2. (DCOS_OSS-5643)
+- Upgraded Java to version ????. (DCOS-62548, COPS-5738)
+
+
+
+
 DCOS-62478	open_source_tests/test_metrics.py test_metrics_agent_statsd Expected statsd metrics not found
 DCOS-62006	Bundle Marathon DC/OS auth requests
 DCOS-61529	Backport MESOS-9968 to DC/OS 1.13
 DCOS-58300	test_registry_cli.test_default_packages_presence is failing on CI. dcos-core-cli package install fails.
-COPS-5738	Rationale behind an old version of Java
