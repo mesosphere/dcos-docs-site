@@ -186,7 +186,7 @@ type TmplMesosTask struct {
 
 Another function `parseTaskLabels` will parse the labels into a nested `dict` structure (discussed below).
 
-Templates must use the `renderPoolTemplate` function to render a `define`'d template. The `define`'d template should either render a pool configuration or call the `noTasks` function to signal that no tasks were selected for the pool and therefore should not be started. (See the `default` pool template for an example)
+Templates must use the `renderPoolTemplate` function to render a `define`'d template. The `define`'d template should either render a pool configuration or call the `noTasks` function to signal that no tasks were selected for the pool and therefore should not be started. (See the default pool [template](https://github.com/mesosphere/dcos-edge-lb/blob/master/container/apiserver/templates/pool.json.ctmpl) for an example).
 
 # Default Template Implementation
 

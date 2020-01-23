@@ -12,7 +12,7 @@ You can use the Edge-LB command-line interface (CLI) commands and subcommands to
 # Adding the Edge-LB command-line interface package
 In most cases, you add the Edge-LB command-line interface (CLI) as part of your initial installation of the Edge-LB API server and Edge-LB pool packages when you are preparing to deploy Edge-LB load balancing. However, one of the key benefits of running containerized services is that they can be placed anywhere in the cluster.
 
-Since you can deploy packages anywhere on the cluster, you might find that you need to install the Edge-LB command-line interface (CLI) on additional computers for other administrators. To simplify access to the Edge-LB command-line programs, you can install the CLI as a separate package by running the following command:
+Since you can deploy packages anywhere on the cluster, you might find that you need to install the Edge-LB command-line interface (CLI) on additional computers for other administrators. To simplify access to the Edge-LB command-line programs, you can install the CLI as a separate package by running the command:
 
 ```bash
 dcos package install --cli edgelb --yes
@@ -76,7 +76,7 @@ dcos:adminrouter:service:edgelb full
 ```
 
 ### Example
-After uninstalling Edge-LB packages, you can use the following command to remove remnants of the Elastic load balancer deployed on AWS instances:
+After uninstalling Edge-LB packages, you can use the command that follows to remove remnants of the Elastic load balancer deployed on AWS instances:
 
 ```bash
 dcos edgelb cleanup --yes
@@ -134,13 +134,13 @@ dcos:adminrouter:service:edgelb:/v1/loadbalancers
 ```
 
 ### Examples
-To deploy the `ping-lb.json` pool configuration file to create the `ping-lb` pool instance, you would run the following command:
+To deploy the `ping-lb.json` pool configuration file to create the `ping-lb` pool instance, you would use the command:
 
 ```bash
 dcos edgelb create ping-lb.json
 ```
 
-To see detailed logging information when deploying the `ping-lb.json` pool configuration file, you would run the following command:
+To see detailed logging information when deploying the `ping-lb.json` pool configuration file, you would use the command:
 
 ```bash
 dcos edgelb create ping-lb.json --verbose
@@ -193,7 +193,7 @@ If the pool name you specified is currently deployed, the command returns inform
 Successfully deleted pubs-delete-lb. Check the DC/OS web UI for pool uninstall status.
 ```
 
-To see detailed logging information when deleting the `pubs-multi-lb` pool file, you would run the following command:
+To see detailed logging information when deleting the `pubs-multi-lb` pool file, you would use the command:
 
 ```bash
 dcos edgelb delete pubs-multi-lb --verbose
@@ -223,7 +223,7 @@ dcos:adminrouter:service:edgelb:/v2/pools full
 ```
 
 ### Examples
-To collect diagnostic bundles for all Edge-LB pools, run the following command:
+To collect diagnostic bundles for all Edge-LB pools, use the command:
 
 ```bash
 dcos edgelb diagnostic
@@ -287,7 +287,7 @@ dcos edgelb ingresslb <pool-name> [options]
 <!--### Permissions -->
 
 ### Examples
-To list the load balancing ingress endpoints for the Edge-LB pool named `paris-prod-lb`, you would run the following command:
+To list the load balancing ingress endpoints for the Edge-LB pool named `paris-prod-lb`, you would use the command:
 
 ```bash
 dcos edgelb ingresslb paris-prod-lb
@@ -416,6 +416,7 @@ listen stats
             server agentip_10.0.1.128_10006 10.0.1.128:10006 check
 ```
 
+
 # dcos edgelb list
 Use this command to return a list of pool configuration names and a summary of all configured pools.
 
@@ -440,7 +441,7 @@ dcos:adminrouter:service:edgelb:/config full
 ```
 
 ### Examples
-To list basic information about the Edge-LB pools currently deployed, you would run the following command:
+To list basic information about the Edge-LB pools currently deployed, you would use the command:
 
 ```bash
 dcos edgelb list
@@ -454,14 +455,14 @@ The command returns information similar to the following:
   multi-lb  V2          1      slave_public
 ```
 
-To list detailed Edge-LB pool configuration information for the `sanfrancisco05` Edge-LB pool instance, you would run the following command:
+To list detailed Edge-LB pool configuration information for the `sanfrancisco05` Edge-LB pool instance, use the command:
 
 ```bash
 dcos edgelb list --name sanfrancisco05 --verbose
 ```
 
 # dcos edgelb ping
-Use this command to test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command will return an HTTP error if the API is not yet available.
+Use this command to test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command returns an HTTP error if the API is not yet available.
 
 ### Usage
 ```bash
@@ -483,7 +484,7 @@ dcos:adminrouter:service:edgelb:/ping full
 ```
 
 ### Examples
-To test the connection to the Edge-LB API server, run the following command:
+To test the connection to the Edge-LB API server, use the command:
 
 ```bash
 dcos edgelb ping
@@ -495,12 +496,172 @@ If the connection is successful, the command returns the following:
 pong
 ```
 
+# dcos edgelb pool-template create
+
+Use this command to create an Auto Pool template.
+
+The configuration for a pool is generated using a template named `pool.json.ctmpl`. Advanced users can modify and upload a custom version of this template.
+
+### Usage
+
+```bash
+dcos edgelb pool-template create <name>
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Name of the service instance to query. |
+| `--json` | Show unparsed JSON response. |
+
+<!--### Permissions-->
+
+### Examples
+
+
+# dcos edgelb pool-template delete
+
+Use this command to remove an Auto Pool template and delete the pool if it is running.
+
+### Usage
+
+```bash
+dcos edgelb pool-template delete <name>
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Name of the service instance to query. |
+
+<!--### Permissions-->
+
+### Examples
+
+# dcos edgelb pool-template list
+
+Use this command to list the names of the currently-configured Auto Pools.
+
+### Usage
+
+```bash
+dcos edgelb pool-template list [<flags>]
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Name of the service instance to query. |
+| `--json` | Show unparsed JSON response. |
+
+<!--### Permissions-->
+
+### Examples
+
+# dcos edgelb pool-template reset
+
+Use this command to revert a custom pool-template to defaults.
+
+### Usage
+
+```bash
+dcos edgelb pool-template reset <name>
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Name of the service instance to query. |
+
+<!--### Permissions-->
+
+### Examples
+
+# dcos edgelb pool-template show
+
+Use this command to show the Auto Pool template for an individual template.
+
+### Usage
+
+```bash
+dcos edgelb pool-template show <name>
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Name of the service instance to query. |
+
+<!--### Permissions-->
+
+### Examples
+
+# dcos edgelb pool-template status
+
+Use this command to show the rendering status of an Auto Pool template.
+
+### Usage
+
+```bash
+dcos edgelb pool-template status <name>
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Name of the service instance to query. |
+
+<!--### Permissions-->
+
+### Examples
+
+# dcos edgelb pool-template update
+
+Use this command to update a custom config template for an Auto Pool.
+
+### Usage
+
+```bash
+dcos edgelb pool-template update <name> <template-file>
+```
+
+### Options
+
+| Name, shorthand | Description |
+|---------|-------------|
+| `--help, h`   | Display usage. |
+| `--verbose`   | Enable additional logging of requests and responses. |
+| `--name="<name>"`   | Name of the service instance to query. |
+
+<!--### Permissions-->
+
+### Examples
+
 # dcos edgelb show
 Use this command to show the pool definition for a given pool name. If you don't specify a pool name, the command returns information for all pool configurations.
 
 You can also use this command to convert YAML files to their equivalent JSON format. If you have configuration files previously written using YAML, you should use this command to convert the configuration settings to their equivalent JSON format.
 
 ### Usage
+***%%% is the sample command missing the [ < flags > ] component?***
 
 ```bash
 dcos edgelb show <pool-name> [options]
@@ -519,7 +680,7 @@ dcos edgelb show <pool-name> [options]
 <!--### Permissions-->
 
 ### Examples
-To display the pool definition information for the ping-lb Edge-LB pool, run the following command:
+To display the pool definition information for the ping-lb Edge-LB pool, use the command:
 
 ```bash
 dcos edgelb show ping-lb
@@ -552,7 +713,7 @@ Mesos Services:
   BACKEND  TYPE  FRAMEWORK  TASK  PORT  CHECK
 ```
 
-To convert a YAML configuration file to JSON and output the results to standard output (`stdout`), run the following command:
+To convert a YAML configuration file to JSON and output the results to standard output (`stdout`), use the command:
 
 ```bash
 dcos edgelb show --convert-to-json=/path/to/yaml
@@ -577,6 +738,8 @@ dcos edgelb status <pool-name> [options]
 | `--task-ids` | Display only the task identifiers. |
 | `--json` | Show unparsed JSON response. |
 
+***%%%what permissions and examples apply to this command?***
+
 <!-- ### Permissions -->
 
 <!-- ### Examples -->
@@ -584,7 +747,7 @@ dcos edgelb status <pool-name> [options]
 # dcos edgelb template create
 Use this command to create a custom configuration template for a pool of load balancers.
 
-The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. Advanced users can modify and upload a custom version of this template.
 
 ### Usage
 ```bash
@@ -628,7 +791,7 @@ dcos edgelb template delete <pool-name> [options]
 # dcos edgelb template show
 Use this command to show the load balancer configuration template for an individual pool. If you don't specify a pool name, the command returns information for the default template.
 
-The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. Advanced users can modify and upload a custom version of this template.
 
 ### Usage
 ```bash
@@ -649,7 +812,7 @@ dcos edgelb template show <pool-name> [options]
 # dcos edgelb template update
 Use this command to update a custom configuration template for a pool of load balancers.
 
-The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. It is possible for advanced users to modify and upload a custom version of this template.
+The rendered `haproxy.cfg` for a pool is generated using a template named `haproxy.cfg.ctmpl`. Advanced users can modify and upload a custom version of this template.
 
 ### Usage
 ```bash
@@ -730,7 +893,7 @@ dcos edgelb [options] version
 <!-- ### Permissions -->
 
 ### Examples
-To display version information for the Edge-LB API server and pool if you have an Edge-LB service instance named `edgelb-eu`, you would run the following command:
+To display version information for the Edge-LB API server and pool with an Edge-LB service instance named `edgelb-eu`, use the command:
 
 ```bash
 dcos edgelb --name="edgelb-eu" version

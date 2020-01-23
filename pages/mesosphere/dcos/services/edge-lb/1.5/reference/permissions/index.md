@@ -36,6 +36,8 @@ The [service account](/mesosphere/dcos/services/edge-lb/1.5/getting-started/inst
 
 If you are using the principle of least privilege, follow the steps for creating a public/private key pair and a service account principal described in [preparing a service account](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing/#preparing-a-service-account), then grant the following permissions to the service account principal:
 
+***%%% should these entries reflect the V2 API in this section and the next? Which API version do we want customers to use? ***
+
 - `dcos:adminrouter:ops:ca:rw`
 - `dcos:adminrouter:ops:ca:ro`
 - `dcos:adminrouter:service:marathon`
@@ -60,14 +62,14 @@ Additionally, grant the following permission **for each Edge-LB pool created**:
 - `dcos:adminrouter:service:dcos-edgelb/pools/<pool-name>`
 
 ## Adding specific permissions for a service principal
-You can add the permissions required for the service account by running a command similar to this:
+You can add the permissions required for the service account using a command similar to this:
 `dcos security org users grant [OPTIONS] UID RID ACTION`
 
 For example, to grant the Edge-LB service account permissions to the `edge-lb-principal` service principal:
 `dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full`
 
 ## Adding a service principal account to the superusers group
-If you are not using the least-privilege security model, you can add the Edge-LB service account to the `superusers` group to simplify adding and updating permissions. For example, you can аdd the `edge-lb-principal` service account to the `superusers` group by running a command similar to this:
+If you are not using the least-privilege security model, you can add the Edge-LB service account to the `superusers` group to simplify adding and updating permissions. For example, you can аdd the `edge-lb-principal` service account to the `superusers` group using a command similar to this:
 
 `dcos security org groups add_user superusers edge-lb-principal`
 
@@ -80,7 +82,7 @@ To grant limited permissions to manage only a single Edge-LB pool, the user must
 - `dcos:adminrouter:service:dcos-edgelb/pools/<pool-name>`
 - `dcos:service:marathon:marathon:services:/dcos-edgelb/pools/<pool-name>`
 
-You can add the permissions required for managing a pool in a multi-tenant environment to an account by running a command similar to this:
+You can add the permissions required for managing a pool in a multi-tenant environment to an account using a command similar to this:
 
     `dcos security org users grant [OPTIONS] UID RID ACTION`
 
@@ -89,7 +91,7 @@ For example, to grant the permissions for single pool management in a multi-tena
     `dcos security org users grant sf-tenant-08 dcos:adminrouter:service:edgelb:/ping full`
 
 # Task-specific endpoint permissions
-The following permissions for endpoints are used by the `dcos edgelb` CLI subcommand. Permissions can be granted individually:
+The following permissions for endpoints are used by the `dcos edgelb` CLI subcommand. You can grant permissions individually:
 
 * Ping:
     - `dcos:adminrouter:service:edgelb:/ping`

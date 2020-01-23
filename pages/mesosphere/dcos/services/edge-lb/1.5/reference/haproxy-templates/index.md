@@ -7,6 +7,8 @@ excerpt: Lists configuration templates you can use for HAProxy load balancers
 enterprise: true
 ---
 
+***This information is not present in th publlished ELB 1.5 version. Is it accurate and should it be included? Also, is this information (and the previous topic) part of the resolution of DCOS_OSS-3752?***
+
 # Templates and labels
 The following is a list of available configuration **templates** that can be used with HAProxy&reg; load balancers. Some templates are global-only (such as `HAPROXY_HEAD`), but most can be specified on a per service port basis as **app labels** to override global settings.
 

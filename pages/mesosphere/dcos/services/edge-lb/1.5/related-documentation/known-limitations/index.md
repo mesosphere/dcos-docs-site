@@ -7,12 +7,16 @@ excerpt: Lists known limitations and issues for Edge-LB
 enterprise: true
 ---
 
+***%%%Was there a business reason that this info wasn't put into the Edge-LB Release Notes? There's a similar but less detailed section in the ELB RelNotes, and this info seems to be focused on (much) older releases.***
+
 Depending on the configuration of Edge-LB and your cluster environment, you might experience some limitations in Edge-LB features or functionality. Unlike issues that are typically found and fixed in minor or patch version updates, technical limitations can span multiple versions.
 
 ## Current limitations
-<!--* Edge-LB supports all [security modes](/1.13/security/ent/#security-modes) in DC/OS 1.11 and later.-->
+***%%%This statement was commented out in Lisa's version - is it correct, and should I leave it in? The word "all" makes me nervous.***
 
-* Edge-LB supports `permissive` and `disabled` security in DC/OS&reg; 1.10, but does not support `strict` security mode on DC/OS 1.10.
+Edge-LB supports all [security modes](/1.13/security/ent/#security-modes) in DC/OS 1.11 and later.
+
+* Edge-LB supports `permissive` and `disabled` security in DC/OS&reg; 1.10, but does not support `strict` security mode on DC/OS 1.10. ***%%%Do we need to keep this since 1.10 is EOL?***
 
 * Edge-LB currently does not support self-service configuration. All configuration must be handled centrally.
 
