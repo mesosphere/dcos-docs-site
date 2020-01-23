@@ -164,6 +164,8 @@ This tutorial illustrates load balancing for a DC/OS cluster running on an Amazo
 
 This tutorial focuses on using Edge-LB with Amazon Web Services (AWS) classic load balancers. The AWS Elastic classic load balancer supports TCP, SSL/TLS, HTTP,  and HTTPS connections for both EC2&reg;-Classic and virtual private cloud (VPC) cluster deployments.
 
+<p class="message--note"><strong>NOTE:  </strong>Edge-LB should not be used with non-HTTP aware load-balancers, as Edge-LB will not be able to recognize the `Connection: close` headers. HAproxy recognizes these headers and closes its end of connection while the L4 load balancer still tries to send requests, and this can cause difficult-to-debug connection timeouts.</p>
+
 ## Create a classic load balancer
 1. Open the AWS Management Console for your cloud instance.
 

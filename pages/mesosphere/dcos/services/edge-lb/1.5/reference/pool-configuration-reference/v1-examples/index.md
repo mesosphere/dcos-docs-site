@@ -69,6 +69,7 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
 ## SSL/TLS certificates
 
 There are three different ways to get and use a certificate:
+
 * Automatically-generated certificates
 * DC/OS secrets
 * Environment variables (not secured)
@@ -225,7 +226,7 @@ There are three different ways to get and use a certificate:
 
 ## Virtual Networks
 
-In this example we create a pool that will be launched on the virtual network provided by a DC/OS overlay called "dcos". In general, you can launch a pool on any CNI network, by setting `pool.virtualNetworks[].name` to the CNI network name.
+In this example, we create a pool that will be launched on the virtual network provided by a DC/OS overlay called "dcos". In general, you can launch a pool on any CNI network, by setting `pool.virtualNetworks[].name` to the CNI network name.
 
 ```json
 {

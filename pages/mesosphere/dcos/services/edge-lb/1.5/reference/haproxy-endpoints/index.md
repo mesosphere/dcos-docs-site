@@ -15,6 +15,8 @@ When an application starts, stops, relocates, or has any change in health status
 
 By default, each load-balancer instance in an **Edge-LB pool** exposes the following endpoints on port `9090`. Alternatively, you can configure which port to use for these endpoints by changing the `pool.haproxy.stats.bindPort` configuration setting.
 
+***%%%The tables in the two different versions are wildly different. I present this one as it has more data. Is it the correct table to use? Or is the table in the published ELB 1.5 version correct?***
+
 | <b>Endpoint</b> | <b>Description</b> |
 | :--- | :-------- |
 |<code>public-node:9090/haproxy?stats</code> | The **Statistics** endpoint produces an HTML page that provides statistical information about the current HAProxy instance, including information about current connections and load balancing activity for the HAProxy instance. You can view the statistics provided by this endpoint in your browser. |

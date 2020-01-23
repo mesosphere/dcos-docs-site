@@ -11,7 +11,7 @@ enterprise: true
 
 ## Marathon&trade; Apps and DC/OS&trade; Services
 
-DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the Mesos `task` name and `port` name.
+DC/OS services are typically run as applications on the Marathon framework. To create a pool configuration file for a Marathon application, you will need to know the Apache&reg; Mesos&reg; `task` name and `port` name.
 
 For example, in the following snippet of a Marathon app definition, the `task` name is `my-app` and the `port` name is `web`.
 
@@ -31,7 +31,7 @@ For example, in the following snippet of a Marathon app definition, the `task` n
 
 # Simple Marathon Application
 
-Below is a simple example of a pool configuration for load-balancing a Marathon application like the one above:
+The following is a simple example of a pool configuration for load-balancing a Marathon application like the one above:
 
 ```json
 {
@@ -64,7 +64,7 @@ Below is a simple example of a pool configuration for load-balancing a Marathon 
 
 # Path Based Routing
 
-This pool configures a load balancer which sends traffic to the `httpd` backend unless the path begins with `/nginx`, in which case it sends traffic to the `nginx` backend. The path in the request is rewritten before getting sent to nginx.
+This pool configures a load balancer which sends traffic to the `httpd` backend unless the path begins with `/nginx`, in which case it sends traffic to the NGINX&trade; backend. The path in the request is rewritten before being sent to NGINX.
 
 ```json
 {
@@ -216,7 +216,7 @@ It should also be noted that this is not always a good idea. Exposing secured in
 
 # Mesos Frameworks and DC/OS Services
 
-For Mesos frameworks and DC/OS services that run tasks which are not managed by Marathon such as Kafka brokers, etc., use the `pool.haproxy.backend.service.mesos` object to filter and select mesos tasks appropriately.
+For Mesos frameworks and DC/OS services that run tasks which are not managed by Marathon such as Kafka&reg; brokers, and so forth, use the `pool.haproxy.backend.service.mesos` object to filter and select mesos tasks appropriately.
 
 ```json
 {
