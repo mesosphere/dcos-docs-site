@@ -4,7 +4,7 @@ navigationTitle: Jenkins
 title: Jenkins
 excerpt: Jenkins on Konvoy
 menuWeight: 70
-category: 
+category: Workload
 ---
 
 # Installing Jenkins&reg; on Konvoy
