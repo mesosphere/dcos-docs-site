@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Aqua
 title: Aqua
-excerpt: Aqua: The Cloud Native Security Platform
+excerpt: The Cloud Native Security Platform
 menuWeight: 10
 category: Networking and Security
 image: img/aqua.png
