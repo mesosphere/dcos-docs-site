@@ -9,40 +9,34 @@ model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
-Building a custom docker image for Spark Executor.
+This guide will show you how to build a custom Docker image for Spark Executor.
 
-# Identify Currently Used Image
+1. To identify the currently used image, open a **Terminal** from the Notebook UI and run the following command:
 
-Open a `Terminal` from the Notebook UI and run the following command:
+    ```bash
+    cat /opt/spark/conf/spark-defaults.conf | grep "spark.mesos.executor.docker.image"
+    # Output would be something like this:
+    # mesosphere/jupyter-service-worker:26a3231f513a686a2fcfb6f9ddb8acd45da467b261311b48a45b2a55bb0f2613
+    ```
 
-```bash
-cat /opt/spark/conf/spark-defaults.conf | grep "spark.mesos.executor.docker.image"
-# Output would be something like this:
-# mesosphere/jupyter-service-worker:26a3231f513a686a2fcfb6f9ddb8acd45da467b261311b48a45b2a55bb0f2613
-```
+1. Create a Dockerfile. On your personal laptop or server, create a file with name `Dockerfile` and put the following content into it:
 
-# Create Dockerfile
+    ```dockerfile
+    FROM mesosphere/jupyter-service-worker:26a3231f513a686a2fcfb6f9ddb8acd45da467b261311b48a45b2a55bb0f2613
+    USER nobody
+    RUN conda install -yq spacy
+    ```
 
-On your personal laptop or server, create a file with name `Dockerfile` and put following content in it:
+1. Build and push the Dockerfile. From the same directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image name is `spacy-example`, the commands will be:
 
-```dockerfile
-FROM mesosphere/jupyter-service-worker:26a3231f513a686a2fcfb6f9ddb8acd45da467b261311b48a45b2a55bb0f2613
-USER nobody
-RUN conda install -yq spacy
-```
+    ```bash
+    docker build -t docker123/spacy-example .
+    docker push docker123/spacy-example
+    ```
 
-# Build and Push Dockerfile
+## Example Notebook
 
-From the same directory, where Dockerfile has been created run commands mentioned below. Assuming that the docker repository name is `docker123` and image name is `spacy-example`, then commands will be:
-
-```bash
-docker build -t docker123/spacy-example .
-docker push docker123/spacy-example
-```
-
-# Example Notebook
-
-Open a `Python Notebook` and put the following in a code cell:
+To create an example, open a `Python Notebook` and put the following in a code cell:
 
 ```python
 import pyspark

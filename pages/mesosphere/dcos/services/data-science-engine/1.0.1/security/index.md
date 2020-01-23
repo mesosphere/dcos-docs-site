@@ -9,7 +9,7 @@ model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
-This section describes how to configure secure DC/OS service accounts for {{ model.techName }}.
+This guide describes how to configure secure DC/OS service accounts for {{ model.techName }}.
 When running in DC/OS strict security mode, both the {{ model.techName }} and Spark applications launched from it must authenticate to Mesos using a DC/OS service account.
 
 # <a name="provision-a-service-account"></a>Provisioning a service account
@@ -106,7 +106,7 @@ dcos security org users grant <service-account-id> dcos:mesos:master:task:princi
 dcos security org users grant <service-account-id> dcos:mesos:master:task:app_id:<service-account-name> create
 ```
 
-<p class="message--note"><strong>NOTE: </strong> The default service account name is <tt>data-science-engine</tt>, however, please ensure that the <tt>&#60service-account-name&#62</tt> entered here is the same as the service name specified in the options.json or in the UI when {{ model.techName }} is installed.
+<p class="message--note"><strong>NOTE: </strong> The default service account name is <tt>data-science-engine</tt>. However, ensure that the <tt>&#60service-account-name&#62</tt> entered here is the same as the service name specified in the options.json or in the UI when {{ model.techName }} is installed.</p>
 
 <!-- You can also provision a service account using the UI. -->
 
@@ -175,7 +175,7 @@ Provided secrets will be automatically mounted to {{ model.techName }}'s sandbox
 -`spark.mesos.executor.secret.names`
 -`spark.mesos.executor.secret.<filenames|envkeys>`
 
-<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
+<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide values for <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
 
 # Limitations
 
@@ -196,7 +196,7 @@ When using environment variables and file-based secrets, there must be an equal 
   }
 }
 ```
-<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
+<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide values for <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
 
 This configuration places the contents of `{{ model.packageName }}/my-secret-file` into the `target-secret-file` as well as the `PLACEHOLDER` environment variable. Additionally, the contents of `{{ model.packageName }}/my-secret-envvar` are exported to the `SECRET_ENVVAR` and written to the `placeholder-file`.
 
@@ -235,7 +235,8 @@ Here is an example of a simple OpenID Connect configuration for {{ model.techNam
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
+<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide values for <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
+
 <!-- There are a few more options for advanced OpenID Connect configuration, that can be found in the `Oidc` section when
 installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
 
@@ -250,7 +251,7 @@ pwd = password
 host = repository.com
 ```
 
-You can use this credential file in any notebook by using `%AddDeps` magic as follows:
+You can use this credential file in any notebook by using `%AddDeps` as follows:
 
 ```notebook
 %AddDeps org.name artifact version --credential /path/to/credentials.prop --repository https://repository.com/artifactory/example-repo-local/

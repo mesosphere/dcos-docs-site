@@ -10,7 +10,7 @@ enterprise: true
 
 ---
 
-{{ model.techName }} comes with Apache Spark integration and allows running Spark jobs from notebooks and a terminal.
+{{ model.techName }} comes with Apache Spark integration and allows you to run Spark jobs from notebooks and a terminal.
 
 # Launching a Spark job
 ## Using Terminal
@@ -52,7 +52,7 @@ http://<dcos_url>/service/{{ model.serviceName }}/sparkui
 
 # Spark History Server
 
-{{ model.techName }} includes the Spark History Server (SHS), which is up and running by default, using `org.apache.spark.deploy.history.FsHistoryProvider` as a default provider with
+{{ model.techName }} includes the Spark History Server (SHS), which is up and running by default, using `org.apache.spark.deploy.history.FsHistoryProvider` as a default provider, with
 `spark.history.fs.logDirectory` set to `file:/mns/mesos/sandbox/`. It is highly recommended to use HDFS as the backend storage for SHS.
 You can configure SHS to use HDFS with the following steps:
 
@@ -104,7 +104,7 @@ You can configure SHS to use HDFS with the following steps:
     }
     ```
 
-1. Restart the {{ model.serviceName }} Service to apply the changes.
+1. Restart the {{ model.serviceName }} service to apply the changes.
 
 ## Confirm Spark History Server installation
 The Spark History Server UI is available at `http://<dcos_url>/service/{{ model.serviceName }}/sparkhistory`, listing incomplete and completed applications and attempts.
