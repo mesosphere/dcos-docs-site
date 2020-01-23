@@ -122,7 +122,7 @@ Installing the Portworx storage provider requires you to do the following steps:
 
 ##### Create Default Storage Class
 
-1. reate the default storage class for the Konvoy cluster.
+1. Create the default storage class for the Konvoy cluster.
 
     ```bash
     cat <<EOF | kubectl apply -f -
@@ -229,15 +229,16 @@ If all things work correctly, the pod created should be up and running, and data
     konvoy up
     ```
 
-When complete, you should see in the add-ons listed also those that require persistent storage, e.g prometheus, elasticsearch, and so forth.
+When complete, you should see in the add-ons listed also those that require persistent storage, such as Prometheus, Elasticsearch, and so forth.
 
 ### Verify
 
 1. Check that in the `kubeaddons` and `velero` namespaces all persistent volume claims got created successfully.
 
-1. Launch from the ops portal graphana or kibana and see that you actually get data.
+1. Launch from the ops portal grafana or kibana and see that you actually get data.
 
-1. Use `port-forwarding` to access `lighthouse` the Portworx console via your browser on [localhost:8080](localhost:8080). You should find the volumes create by the persistent volume claims also here.
+1. Use `port-forwarding` to access `lighthouse` on the Portworx console via your browser on [localhost:8080](localhost:8080). You should find the volumes created by the persistent volume claims also here.
+
     ```bash
     kubectl port-forward service/px-lighthouse 8080:80 -n kube-system
     ```
