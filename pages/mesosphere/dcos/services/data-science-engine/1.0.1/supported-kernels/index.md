@@ -20,7 +20,7 @@ A Notebook consists of cells; each cell can be of type `markdown` or `code`.
 In the `markdown` cell, you can write text or HTML. In the `code` cell, you can type your code as shown in the example below.
 
 ## Python Kernel
-Open a `Python Notebook` and put the following sections in  different code cells.
+Open a `Python Notebook` and put the following sections in different code cells.
 
 ```python
 def initMatrix(nrow, ncol):

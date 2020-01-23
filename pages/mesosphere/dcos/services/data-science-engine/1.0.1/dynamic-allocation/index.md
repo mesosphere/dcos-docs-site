@@ -11,13 +11,17 @@ render: mustache
 
 # Prerequisites
 
-- {{ model.techName }} must use host networking mode due to the specifics of Spark executors communication with Shuffle Service and the way shuffle blocks served. Once Executor has written a shuffle block to disk, it registers the block with the driver and the block location includes the host IP address. The block is then fetched by other executors using this IP. Using a virtual network doesn’t fit in this architecture because each executor will have a unique IP address not representing the physical host where the blocks are located.
-- Shuffle Service must be installed on every host where Spark Executors will be running. Both Shuffle Service and Spark Executors should use the same shared host folder/volume for saving and serving shuffle blocks.
-- Spark user (Linux user running the Shuffle Service and Executors) should have read-write privileges for the shared folder.
+- {{ model.techName }} must use a host networking mode, due to the specifics of Spark executors communication with Shuffle Service and the way shuffle blocks are served. 
+
+  Once Executor has written a shuffle block to disk, it registers the block with the driver and the block location includes the host IP address. The block is then fetched by other executors using this IP. Using a virtual network does not fit in this architecture because each executor will have a unique IP address not representing the physical host where the blocks are located.
+- Shuffle Service must be installed on every host where Spark Executors will be running. 
+  
+  Both Shuffle Service and Spark Executors should use the same shared host folder/volume for saving and serving shuffle blocks.
+- The Spark user (Linux user running the Shuffle Service and Executors) should have read-write privileges for the shared folder.
 
 # Shuffle Service
 
-Run marathon application with configuration mentioned below. The number of instances should be equal to the number of nodes in the cluster. Suppose the number of nodes are 5 in the cluster:
+Run a Marathon application with the configuration shown below. The number of instances should be equal to the number of nodes in the cluster. Suppose the number of nodes are 5 in the cluster:
 
 ```json
 {
@@ -145,7 +149,7 @@ Here are some excerpts from the logs to verify that Shuffle takes place and no i
 20/01/10 22:51:59 INFO executor.Executor: Finished task 85.0 in stage 1.0 (TID 189). 1219 bytes result sent to driver
 ```
 
-On Shuffle Service side, a healthy log in stdout should look as following and include messages about application and executor registration and following removal and cleanup when the application is finished:
+On the Shuffle Service side, a healthy log in stdout should look as following and include messages about application and executor registration and following removal and cleanup when the application is finished:
 
 ```log
 20/01/10 22:46:46 INFO mesos.MesosExternalShuffleBlockHandler: Received registration request from app 1d618e80-45be-4d0f-9892-955cc384041d-0023 (remote address /10.0.2.204:46778, heartbeat timeout 120000 ms).

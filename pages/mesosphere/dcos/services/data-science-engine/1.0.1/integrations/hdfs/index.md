@@ -32,7 +32,7 @@ Within the {{ model.techName }} service configuration, set `service.jupyter_conf
  }
 }
 ```
-You can also specify the URLs through the UI. If you are using the default installation of HDFS from Mesosphere, this would be `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints` for HDFS service installed with `hdfs` name.
+You can also specify the URLs through the UI. If you are using the default installation of HDFS from Mesosphere, this would be `http://api.hdfs.marathon.l4lb.thisdcos.directory/v1/endpoints` for HDFS service installed with the `hdfs` name.
 
 ## Example of Using HDFS with Spark
 Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage backend.
@@ -89,56 +89,58 @@ Here is an example notebook for `Tensorflow on Spark` using `HDFS` as a storage 
 
 # S3
 
-To set up S3 connectivity, you must be on a cluster in permissive or strict mode. If a service account has not been created, follow the steps described in Security section to create one. After service account is created follow these steps to create AWS credentials secrets and configure {{ model.techName }} to use them for authenticating with S3:
+To set up S3 connectivity, you must be on a cluster in permissive or strict mode. If a service account has not been created, follow the steps described in the [Security](/mesosphere/dcos/services/data-science-engine/1.0.1/security/) section to create one. 
+
+After your service account is created, follow these steps to create AWS credentials secrets and configure {{ model.techName }} to use them for authenticating with S3:
 
 1. Upload your credentials to the DC/OS secret store:
 
-  ```bash
-  dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
-  dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
-  ```
+    ```bash
+    dcos security secrets create <secret_path_for_key_id> -v <AWS_ACCESS_KEY_ID>
+    dcos security secrets create <secret_path_for_secret_key> -v <AWS_SECRET_ACCESS_KEY>
+    ```
 
-1. Grant the previously created service account read access to the secrets:
+1. Grant read access to the secrets to the previously created service account:
 
-  ```bash
-  dcos security org users grant <SERVICE_ACCOUNT> dcos:secrets:list:default:<secret_path_for_key_id> read
-  dcos security org users grant <SERVICE_ACCOUNT> dcos:secrets:list:default:<secret_path_for_secret_key> read
-  ```
+    ```bash
+    dcos security org users grant <SERVICE_ACCOUNT> dcos:secrets:list:default:<secret_path_for_key_id> read
+    dcos security org users grant <SERVICE_ACCOUNT> dcos:secrets:list:default:<secret_path_for_secret_key> read
+    ```
 
-2. After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
+1. After uploading your credentials, {{ model.techName }} service can get the credentials via service options:
 
-  ```json
-  {
-    "service": {
-        "service_account": "<service-account-id>",
-        "service_account_secret": "<service-account-secret>",
-    },
-    "s3": {
-      "aws_access_key_id": "<secret_path_for_key_id>",
-      "aws_secret_access_key": "<secret_path_for_secret_key>"
+    ```json
+    {
+      "service": {
+          "service_account": "<service-account-id>",
+          "service_account_secret": "<service-account-secret>",
+      },
+      "s3": {
+        "aws_access_key_id": "<secret_path_for_key_id>",
+        "aws_secret_access_key": "<secret_path_for_secret_key>"
+      }
     }
-  }
-  ```
-<p class="message--note"><strong>NOTE: </strong> It is mandatory to provide <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration in order to access any secrets.</p>
+    ```
+    <p class="message--note"><strong>NOTE: </strong> It is mandatory to provide values for <tt>service_account</tt> and <tt>service_account_secret</tt> in the service configuration, in order to access any secrets.</p>
 
-3. To make Spark integration use credentials-based access to S3, Spark's credentials provider should be changed to `com.amazonaws.auth.EnvironmentVariableCredentialsProvider` in the service options:
+1. To make Spark integration, use credentials-based access to S3. Change Spark's credentials provider to `com.amazonaws.auth.EnvironmentVariableCredentialsProvider` in the service options:
 
-  ```json
-  {
-    "service": {
-        "service_account": "<service-account-id>",
-        "service_account_secret": "<service-account-secret>",
-    },
-    "spark": {
-      "spark_hadoop_fs_s3a_aws_credentials_provider": "com.amazonaws.auth.EnvironmentVariableCredentialsProvider"
-    },
-    "s3": {
-      "aws_access_key_id": "<secret_path_for_key_id>",
-      "aws_secret_access_key": "<secret_path_for_secret_key>"
+    ```json
+    {
+      "service": {
+          "service_account": "<service-account-id>",
+          "service_account_secret": "<service-account-secret>",
+      },
+      "spark": {
+        "spark_hadoop_fs_s3a_aws_credentials_provider": "com.amazonaws.auth.EnvironmentVariableCredentialsProvider"
+      },
+      "s3": {
+        "aws_access_key_id": "<secret_path_for_key_id>",
+        "aws_secret_access_key": "<secret_path_for_secret_key>"
+      }
     }
-  }
-  ```
+    ```
 
-<p class="message--note"><strong>NOTE: </strong> The provided <tt>aws_access_key_id</tt> and <tt>aws_secret_access_key</tt> are the names of secrets, so in order to access them, a service account and service account secret must be specified in the {{ model.techName }} configuration.</p>
+    <p class="message--note"><strong>NOTE: </strong> The provided <tt>aws_access_key_id</tt> and <tt>aws_secret_access_key</tt> are the names of secrets, so in order to access them, a service account and service account secret must be specified in the {{ model.techName }} configuration.</p>
 
 <!-- You can also specify credentials through the UI. -->
