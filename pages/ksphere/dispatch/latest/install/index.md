@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Installation
 title: Dispatch Installation
-menuWeight: 2
+menuWeight: 20
 beta: true
 excerpt: Install and Configure Dispatch into an existing Kubernetes Cluster.
 ---

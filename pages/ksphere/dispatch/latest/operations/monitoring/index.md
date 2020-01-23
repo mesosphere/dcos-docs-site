@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Monitoring
 title: Monitoring Dispatch
-menuWeight: 3
+menuWeight: 4
 beta: true
 excerpt: Configure Prometheus monitoring and dashboards for Dispatch
 ---

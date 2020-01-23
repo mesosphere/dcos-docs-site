@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Pipeline Configuration
 title: Dispatch Pipeline Configuration Reference
-menuWeight: 3
+menuWeight: 40
 beta: true
 excerpt: Configure Build and Test pipelines to automate the development process using declarative languages.
 ---

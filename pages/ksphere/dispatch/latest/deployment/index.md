@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  GitOps Deployment
 title: GitOps Based Deployments
-menuWeight: 3
+menuWeight: 50
 beta: true
 excerpt: Implement GitOps processes to Continuously Deploy applications
 ---
