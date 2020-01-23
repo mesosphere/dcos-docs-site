@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Overview
 title: Dispatch Overview
-menuWeight: 1
+menuWeight: 10
 beta: true
 excerpt: A Cloud Native, GitOps platform for streamlining development and deployment of container based applications.
 ---

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Starlark Reference
 title: Starlark Reference
-menuWeight: 4
+menuWeight: 80
 beta: true
 excerpt: Reference Guide for Configuring Dispatch pipelines with Starlark.
 ---
