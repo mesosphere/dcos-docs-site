@@ -91,7 +91,8 @@ After creating your custom dashboard, configure Kommander to deploy it by modify
 A centralized view of alerts, from managed Konvoy clusters, is provided using an alert dashboard called [Karma][karma_docs].
 Karma aggregates all alerts from the Alertmanagers running in the managed clusters and allows you to visualize these alerts all on one page.
 Using the Karma dashboard, you can get an overview of each alert and filter by alert type, cluster, and more.
-Silencing alerts using the Karma UI is currently not supported.
+
+<p class="message--note"><strong>NOTE: </strong>Silencing alerts using the Karma UI is currently not supported.</p>
 
 You can access the Karma dashboard UI at:
 
@@ -99,7 +100,50 @@ You can access the Karma dashboard UI at:
 https://<CLUSTER_URL>/ops/portal/kommander/monitoring/karma
 ```
 
+<p class="message--note"><strong>NOTE: </strong>When there are no managed Konvoy clusters, the Karma UI will display an error message `Get https://placeholder.invalid/api/v2/status: dial tcp: lookup placeholder.invalid on 10.0.0.10:53: no such host`.
+This is expected, and the error will disappear once Konvoy clusters are connected.</p>
+
+### Federating Prometheus Alerting Rules
+
+You can define additional [Prometheus alerting rules][alerting_rules] on the Kommander cluster and federate them to all of the managed Konvoy clusters by following these instructions:
+
+1. Enable the PrometheusRule type for federation:
+
+    ```
+    kubefedctl enable PrometheusRules --kubefed-namespace kommander
+    ```
+
+1. Modify the existing alertmanager configuration:
+
+    ```
+    kubectl edit PrometheusRules/prometheus-kubeaddons-prom-alertmanager.rules -n kubeaddons
+    ```
+
+1. Append a sample rule:
+
+    ```yaml
+    - alert: MyFederatedAlert
+      annotations:
+        message: A custom alert that will always fire.
+      expr: vector(1)
+      labels:
+        severity: warning
+    ```
+
+1. Federate the rules that you just modified:
+
+    ```
+    kubefedctl federate PrometheusRules prometheus-kubeaddons-prom-alertmanager.rules --kubefed-namespace kommander -n kubeaddons
+    ```
+
+1. Ensure that the clusters selection (`status.clusters`) is appropriately set for your desired federation strategy and check the [propagation status][kubefed_status_docs]:
+
+    ```
+    kubectl get federatedprometheusrules prometheus-kubeaddons-prom-alertmanager.rules -n kubeaddons -oyaml
+    ```
+
 [thanos_query]: https://thanos.io/components/query.md/
 [grafana_import_dashboards]: https://github.com/helm/charts/tree/master/stable/grafana#import-dashboards
 [karma_docs]: https://github.com/prymitive/karma
-
+[alerting_rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
+[kubefed_status_docs]: https://github.com/kubernetes-sigs/kubefed/blob/master/docs/userguide.md#propagation-status
