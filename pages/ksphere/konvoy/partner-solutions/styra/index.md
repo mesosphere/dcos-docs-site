@@ -29,10 +29,10 @@ Contact Styra (<support@styra.com>) to get an account on the Styra SaaS Service.
 In the following section, we will download some `yaml manifests` for installing `OPA`. 
 
 1. Let's create a separate folder for those manifests.
-```bash
-mkdir opa-styra
-cd opa-styra
-```
+    ```bash
+    mkdir opa-styra
+    cd opa-styra
+    ```
 
 1. Next create a new `System` in the `Styra control plane`. Systems are displayed on the left-hand side. To add a new one, click the `+` next to the word Systems on the left-hand side and fill in the following:
 
