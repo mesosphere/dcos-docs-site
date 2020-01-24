@@ -20,12 +20,5 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 - DC/OS now show resident instances in /v2/pods/::status when they transition to any task status that may cause them to be excluded. (MARATHON-8710) 
 - Fixed an issue where, after upgrade to DC/OS 2.0, adminrouter-agent was failing to start on older CPUs that were missing SSE 4.2. (DCOS_OSS-5643)
-- Upgraded Java to version ????. (DCOS-62548, COPS-5738)
-
-
-
-
-DCOS-62478	open_source_tests/test_metrics.py test_metrics_agent_statsd Expected statsd metrics not found
-DCOS-62006	Bundle Marathon DC/OS auth requests
-DCOS-61529	Backport MESOS-9968 to DC/OS 1.13
-DCOS-58300	test_registry_cli.test_default_packages_presence is failing on CI. dcos-core-cli package install fails.
+- Upgraded Java to version 8u232 to bring back in line with previous DC/OS releases. (DCOS-62548, COPS-5738)
+- Marathon will now bundle multiple concurrent authentication requests for the same identity to a single request, reducing thundering-herd effects on the underlying DC/OS authentication infrastructure. (DCOS-62006) 
