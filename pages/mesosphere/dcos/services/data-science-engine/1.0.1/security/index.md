@@ -243,6 +243,8 @@ installing {{ model.techName }} from the catalog in the DC/OS UI.  -->
 
 # Using Arbitrary Secrets
 
+This feature only works for Apache Toree kernel. To know more click [here](https://toree.incubator.apache.org/docs/current/user/faq/).
+
 Suppose you want to use credentials for private repositories. First of all, create a credential property file with following content:
 
 ```properties
@@ -251,11 +253,13 @@ pwd = password
 host = repository.com
 ```
 
-You can use this credential file in any notebook by using `%AddDeps` as follows:
+You can use this credential file in apache toree notebook by using `%AddDeps` magic as follows:
 
-```notebook
+```code
 %AddDeps org.name artifact version --credential /path/to/credentials.prop --repository https://repository.com/artifactory/example-repo-local/
 ```
+
+In order to see all the configuration parameters of `%AddDeps` magic, you should run `%AddDeps` without any arguments or flag.
 
 
 [11]: /mesosphere/dcos/latest/overview/architecture/components/
