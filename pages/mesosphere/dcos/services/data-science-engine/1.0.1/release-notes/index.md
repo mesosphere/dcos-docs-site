@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-excerpt: Release notes for DC/OS Data Science Engine
+excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Data Science Engine
 title: Release Notes
 menuWeight: 0
 enterprise: true
@@ -9,7 +9,7 @@ model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
-These are the release notes for {{ model.techName }} version 1.0.1
+Release Notes for {{ model.techName }} version 1.0.1
 
 ## {{ model.techName }} New Features
 
@@ -19,7 +19,7 @@ These are the release notes for {{ model.techName }} version 1.0.1
 
 ## {{ model.techName }} Bug Fixes
 
-- Fixed configuration of BeakerX kernel so it displays Spark configuration dialog.
+- Fixed Spark configuration dialog in BeakerX kernel.
 - Fixed folder permissions so users can install new packages with `conda` or `pip`.
 - Fixed static resources paths in host mode for components with UI: Spark, History Server, Tensorboard
 
@@ -30,7 +30,7 @@ These are the release notes for {{ model.techName }} version 1.0.1
 
 ## {{ model.techName }} Limitations
 
-- {{ model.techName }} does not fully support root service user. It is recommended to use the default user `nobody`.
+- {{ model.techName }} does not fully support `root` service user. It is recommended to use the default user `nobody`.
 - {{ model.techName }} does not support the installation of Python packages on CoreOS. It is recommended to use CentOS.
 - {{ model.techName }} does not support AWS Classic Load Balancer, because it does not support WebSockets. It is recommended to configure load balancers and proxies to allow WebSockets.
 

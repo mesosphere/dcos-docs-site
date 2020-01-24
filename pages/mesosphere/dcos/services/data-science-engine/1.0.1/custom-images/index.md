@@ -9,7 +9,7 @@ model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
-This guide will show you how to build a custom Docker image for Spark Executor.
+This guide will show you how to build a custom Docker image for Spark Executor. You can use these custom-built images with libraries used in distributed Spark jobs.
 
 1. To identify the currently used image, open a **Terminal** from the Notebook UI and run the following command:
 
@@ -19,7 +19,7 @@ This guide will show you how to build a custom Docker image for Spark Executor.
     # mesosphere/jupyter-service-worker:26a3231f513a686a2fcfb6f9ddb8acd45da467b261311b48a45b2a55bb0f2613
     ```
 
-1. Create a Dockerfile. On your personal laptop or server, create a file with name `Dockerfile` and put the following content into it:
+1. Create a Dockerfile. We will use `conda install -yq spacy` as an example, and will install `spacy` for demo purposes. On your personal laptop or server, create a file with name `Dockerfile` and put the following content into it:
 
     ```dockerfile
     FROM mesosphere/jupyter-service-worker:26a3231f513a686a2fcfb6f9ddb8acd45da467b261311b48a45b2a55bb0f2613
@@ -36,12 +36,14 @@ This guide will show you how to build a custom Docker image for Spark Executor.
 
 ## Example Notebook
 
-To create an example, open a `Python Notebook` and put the following in a code cell:
+In the following example, you will use a user-defined function to import a library we installed in a custom image.
+
+Open a `Python Notebook` and put the following in a code cell:
 
 ```python
 import pyspark
 from pyspark.sql import SparkSession
-
+# Specify custom image to be used, via spark.mesos.executor.docker.image configuration property
 spark = SparkSession.builder.config("spark.mesos.executor.docker.image", "docker123/spacy-example").appName("Test UDF").getOrCreate()
 
 from pyspark.sql.types import StringType

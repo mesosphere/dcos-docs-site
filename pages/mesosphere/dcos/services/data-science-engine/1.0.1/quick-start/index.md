@@ -18,6 +18,13 @@ This guide explains how to install the {{ model.techName }} Service.
 - DC/OS and DC/OS CLI installed with a minimum of {{ model.nodeDescription }}.
 - Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/mesosphere/dcos/services/data-science-engine/1.0.1/security/#provisioning-a-service-account) for more information.
 
+<p class="message--note"><strong>NOTE: </strong>The following points should be considered before installing the service:
+<br />
+* {{ model.techName }} uses WebSockets to drive the console, so load balancers and proxies must be configured accordingly.<br />
+* AWS Classic Load Balancer should not be used, because it does not support WebSockets.
+<br />
+* By default, the DC/OS Universal Installer uses Classic ELBs (Elastic Load Balancers) for both external and internal load balancing until version 2.0.</p>
+
 <p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="https://docs.d2iq.com/mesosphere/dcos/services/data-science-engine/1.0.1/integrations/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
 
 | Security Mode | Service Account |
