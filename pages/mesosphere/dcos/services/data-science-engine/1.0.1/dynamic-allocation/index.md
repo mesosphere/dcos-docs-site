@@ -1,13 +1,15 @@
 ---
 layout: layout.pug
 navigationTitle: Dynamic Allocation 
-excerpt: Enabling Dynamic Allocation with Shuffle Service for DC/OS Data Science Engine Spark
+excerpt: Enabling Dynamic Allocation with Shuffle Service for DC/OS Data Science Engine in Spark
 title: Dynamic Allocation
 menuWeight: 7
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
+
+Spark provides a mechanism to dynamically adjust the resources your application occupies based on the workload. This means that your application may give resources back to the cluster if they are no longer used and request them again later when there is demand. This feature is particularly useful if multiple applications share resources in your cluster.
 
 # Prerequisites
 
