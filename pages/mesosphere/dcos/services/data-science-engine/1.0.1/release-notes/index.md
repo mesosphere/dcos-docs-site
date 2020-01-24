@@ -33,5 +33,3 @@ Release Notes for {{ model.techName }} version 1.0.1
 - {{ model.techName }} does not fully support `root` service user. It is recommended to use the default user `nobody`.
 - {{ model.techName }} does not support the installation of Python packages on CoreOS. It is recommended to use CentOS.
 - {{ model.techName }} does not support AWS Classic Load Balancer, because it does not support WebSockets. It is recommended to configure load balancers and proxies to allow WebSockets.
-
-

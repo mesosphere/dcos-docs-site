@@ -60,3 +60,27 @@ spark.sql("SELECT test_func(id) from test").collect()
 
 spark.stop()
 ```
+
+Expected output would be:
+
+```text
+[Row(test_func(id)='1'),
+ Row(test_func(id)='2'),
+ Row(test_func(id)='3'),
+ Row(test_func(id)='4'),
+ Row(test_func(id)='5'),
+ Row(test_func(id)='6'),
+ Row(test_func(id)='7'),
+ Row(test_func(id)='8'),
+ Row(test_func(id)='9'),
+ Row(test_func(id)='10'),
+ Row(test_func(id)='11'),
+ Row(test_func(id)='12'),
+ Row(test_func(id)='13'),
+ Row(test_func(id)='14'),
+ Row(test_func(id)='15'),
+ Row(test_func(id)='16'),
+ Row(test_func(id)='17'),
+ Row(test_func(id)='18'),
+ Row(test_func(id)='19')]
+```

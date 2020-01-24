@@ -9,7 +9,7 @@ model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
-Spark provides a mechanism to dynamically adjust the resources your application occupies based on the workload. This means that your application may give resources back to the cluster if they are no longer used and request them again later when there is demand. This feature is particularly useful if multiple applications share resources in your cluster.
+Spark provides a mechanism to dynamically adjust the resources your application occupies based on the workload. This means that your application may give resources back to the cluster if they are no longer used and request them again later when there is demand. This feature is particularly useful if multiple applications share resources in your cluster. For more information click [here](https://spark.apache.org/docs/2.4.4/job-scheduling.html#dynamic-resource-allocation).
 
 # Prerequisites
 
