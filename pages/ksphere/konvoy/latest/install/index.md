@@ -11,7 +11,7 @@ When it comes to installing Konvoy for a project, line-of-business, or enterpris
 
 For example, you can:
 
-- Install on a public cloud infrastructure such as Amazon Web Services (AWS).
+- Install on a public cloud infrastructure such as Amazon Web Services (AWS) or Azure.
 - Install on an internal network with a physical (bare metal) or virtual infrastructure.
 - Install on a single laptop with a virtual infrastructure.
 

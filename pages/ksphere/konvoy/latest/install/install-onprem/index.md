@@ -17,14 +17,14 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker Desktop][install_docker] version 18.09.2 or later. You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] v1.15.5 or later. You must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.16.4 or later. You must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
 * You should have at least three control plane nodes.
 
 * Each control plane node should have at least:
-  * 8 cores
+  * 4 cores
   * 16 GiB memory
   * 80 GiB of free space in the root partition, and the root partition must be less than 85% full.
 
@@ -34,7 +34,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * Each worker node should have at least:
   * 8 cores
-  * 16 GiB memory
+  * 32 GiB memory
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.  
@@ -48,6 +48,7 @@ For all hosts that are part of the cluster -- except the **deploy host** -- you 
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
 * Swap is disabled.
+* The `hostnames` for all the machines in the Kubernetes cluster are unique within a single cluster.
 
 ## Networking
 
@@ -86,7 +87,9 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    konvoy init --provisioner=none [--cluster-name <your-specified-name>]
    ```
 
-   Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
+   **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
+
+    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
 1. Open inventory file `inventory.yaml` in a text editor to specify the hosts.
 
@@ -164,8 +167,8 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   addons:
-    configRepository: ./kubeaddons-configs
-    configVersion: stable-1.15.5-2
+    configRepository: ./kubernetes-base-addons
+    configVersion: stable-1.16.4-2
 ```
 
 You can also specify a remote git repo hosted in your organization using the same `--addons-config-repository` flag.
@@ -178,14 +181,14 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
 ## Configure the RPM and DEB package repository
 
 By default Konvoy adds new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
-If the required repositories are already configured in your environment, you may disable this behavior by setting the value of `defaultRepositoryInstallationDisabled` to `true`.
+If the required repositories are already configured in your environment, you may disable this behavior by setting the value of `enableAdditionalRepositories` to `true`.
 
 ```yaml
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
- packageRepository:
-   defaultRepositoryInstallationDisabled: true
+ osPackages:
+   enableAdditionalRepositories: false
 ```
 
 Below is the list of all package repositories that are added by Konvoy.
@@ -195,7 +198,7 @@ The RPM repositories:
 ```text
 [docker]
 name = Docker Repository
-baseurl = https://download.docker.com/linux/centos/7/x86_64/stable/
+baseurl = https://packages.d2iq.com/download.docker.com/linux/centos/7/x86_64/stable/
 gpgcheck = 1
 gpgkey = https://download.docker.com/linux/centos/gpg
 ```
@@ -208,7 +211,7 @@ gpgcheck=1
 gpgkey=https://packages.d2iq.com/konvoy/rpm-gpg-pub-key
 ```
 
-For any Nidia GPU enabled machines there are additional repositories:
+For any Nvidia GPU enabled machines there are additional repositories:
 
 ```text
 [libnvidia-container]
@@ -262,12 +265,12 @@ https://packages.cloud.google.com/apt/doc/apt-key.gpg
 ```
 
 ```text
-deb https://download.docker.com/linux/ubuntu/ xenial stable
+deb https://packages.d2iq.com/download.docker.com/linux/ubuntu/ xenial stable
 
 https://download.docker.com/linux/ubuntu/
 ```
 
-For any Nidia GPU enabled machines there are additional repositories:
+For any Nvidia GPU enabled machines there are additional repositories:
 
 ```text
 deb https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64 /
@@ -284,6 +287,7 @@ https://nvidia.github.io/nvidia-container-runtime/gpgkey
 The DEB packages installed by Konvoy:
 
 * apt-transport-https
+* chrony
 * libseccomp2
 * containerd.io
 * nfs-common
@@ -295,7 +299,8 @@ The DEB packages installed by Konvoy:
 * nvme-cli (only on AWS)
 * xfsprogs (only on AWS)
 * nvidia-container-runtime (for GPU enabled machines)
-* net-tools (required for diagnose)
+
+There may be additional dependencies that need to be installed that can be found in the standard Debian repositories.
 
 ## Configure the control plane
 
@@ -408,6 +413,9 @@ spec:
 
 The number of virtual IP addresses in the reserved range determines the maximum number of services with a type of `LoadBalancer` that you can create in the cluster.
 
+-_NOTE_*: Once this configuration is used to create a LoadBalancer Service, MetalLB will reject reconfiguration that would cause the Service's address to be invalidated.
+To force reconfiguration you must delete all metallb-controller pods.
+
 # Add storage to worker nodes
 
 Konvoy supports [local persistent volume][local_persistent_volume] provisioning out-of-the-box if you do not have a third-party storage vendor.
@@ -500,6 +508,31 @@ As the `konvoy up` command runs, it displays information about the operations pe
 For example, you can view the command output to see when [Ansible][ansible] connects to the hosts and installs Kubernetes.
 Once the Kubernetes cluster is up, the `konvoy up` command installs the addons specified for the cluster.
 
+## Deploying Additional Kubernetes Resources
+
+It is possible to provide additional Kubernetes resources that will be deployed after the base cluster is provisioned but before any of the addons are deployed.
+
+To add custom resource files:
+
+1.  Create a new directory named `extras/kubernetes/` to contain your custom resource files.
+
+    ```bash
+    mkdir -p extras/kubernetes
+    ```
+
+1.  Create the desired Kubernetes resource files in the `extras/kubernetes/` directory.
+
+1.  Run the `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes` command.
+
+    After `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/:
+
+    ```bash
+    STAGE [Deploying Additional Kubernetes Resources]
+
+    secrets/my-secret created
+    ...
+    ```
+
 # Viewing cluster operations
 
 You can access user interfaces to monitor your cluster through the [operations portal][ops_portal].
@@ -564,5 +597,5 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
 [traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[kubeaddons_repo]: https://github.com/mesosphere/kubeaddons-configs
+[kubeaddons_repo]: https://github.com/mesosphere/kubernetes-base-addons
 [selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm

@@ -21,12 +21,19 @@ header(class='header')
           a(href='https://support.d2iq.com') Support
   if isKonvoy
     include mesosphere-dropdown.pug
+  if isDispatch
+    include mesosphere-dropdown.pug
   if isDCOS
     include ksphere-dropdown.pug
     include localization-dropdown.pug
   section(class='header__search', role='search')
       if isKonvoy 
         form(class='header__search-form', action='/ksphere/konvoy/search/', method='GET')
+          input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+          label(class='header__search-label', for='header-search-input')
+            i(class='header__icon', data-feather='search')
+      else if isDispatch
+        form(class='header__search-form', action='/ksphere/dispatch/search/', method='GET')
           input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
           label(class='header__search-label', for='header-search-input')
             i(class='header__icon', data-feather='search')

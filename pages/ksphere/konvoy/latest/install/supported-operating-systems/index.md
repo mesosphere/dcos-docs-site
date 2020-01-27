@@ -32,8 +32,10 @@ Konvoy supports the following base Operating Systems.
 | OS Release | Kernel Version |
 |------------|----------------|
 | [Debian 9 (stretch)][debian_9] | 4.9.0-9 |
+| [Debian 10 (buster)][debian_10] | 4.19.67-2 |
 
 [centos_7_6]: https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1810
 [rhel_7_6]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.6_release_notes/index
 [ubuntu_16]: https://wiki.ubuntu.com/XenialXerus/ReleaseNotes
 [debian_9]: https://www.debian.org/releases/stretch/releasenotes
+[debian_10]: https://www.debian.org/releases/buster/releasenotes

@@ -49,13 +49,8 @@ For instance,
 if you are running [Harbor][harbor] Docker Registry, `konvoy image` talks to the [API to
 authenticate][docker_api_auth] to get some data about the available versions.
 
-Then you need to specify the following arguments:
-
-- `docker-registry-service`: defines the name of the service which hosts the resource in the Docker registry.
-- `docker-registry-auth-service-url`: specifies the docker registry token authentication service url to request bearer tokens.
-
 ```bash
-konvoy image list --docker-registry-url=https://myregistry.com --docker-registry-username=admin --docker-registry-password=Harbor12345 --docker-registry-auth-service-url="https://myregistry.com/service" --docker-registry-service=harbor-registry --docker-registry-skip-verify
+konvoy image list --docker-registry-url=https://myregistry.com --docker-registry-username=admin --docker-registry-password=Harbor12345  --docker-registry-skip-verify
 ```
 
 If you pulled and pushed the Konvoy Docker image under a different image name or Docker
@@ -99,13 +94,13 @@ set the following arguments.
 In this example, we add the required arguments to authenticate to a [Harbor][harbor] Docker repository:
 
 ```bash
-konvoy upgrade --version=v1.1.4 --docker-registry-url=https://myregistry.com --docker-registry-username=admin --docker-registry-password=Harbor12345 --docker-registry-auth-service-url="https://myregistry.com/service" --docker-registry-service=harbor-registry --docker-registry-skip-verify
+konvoy upgrade --version=v1.1.4 --docker-registry-url=https://myregistry.com --docker-registry-username=admin --docker-registry-password=Harbor12345  --docker-registry-skip-verify
 ```
 
 Likewise if you pulled and pushed the Konvoy Docker image under a different image name, you need to include an additional argument to the previous command `docker-registry-repository`.
 
 ```bash
-konvoy upgrade --version=v1.1.4 --docker-registry-url=https://myregistry.com --docker-registry-username=admin --docker-registry-password=Harbor12345 --docker-registry-auth-service-url="https://myregistry.com/service" --docker-registry-service=harbor-registry --docker-registry-skip-verify --docker-registry-repository=library/mesosphere/konvoy
+konvoy upgrade --version=v1.1.4 --docker-registry-url=https://myregistry.com --docker-registry-username=admin --docker-registry-password=Harbor12345  --docker-registry-skip-verify --docker-registry-repository=library/mesosphere/konvoy
 ```
 
 [docker_registry]: https://docs.docker.com/registry/deploying/
