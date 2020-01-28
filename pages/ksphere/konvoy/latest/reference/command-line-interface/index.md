@@ -5,7 +5,7 @@ title: konvoy
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-excerpt: konvoy: deploy and manage Kubernetes clusters
+excerpt: deploy and manage Kubernetes clusters
 ---
 
 ## konvoy
