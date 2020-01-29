@@ -7,12 +7,12 @@ excerpt: Upgrade the Kubernetes version and platform service addons
 enterprise: false
 ---
 
-Before upgrading, keep in mind there is an inherent risk in upgrading any Kubernetes cluster, because any failure or error could result in unexpected downtime or loss of data.
-You should take whatever precautions are necessary before starting the upgrade process.
-For example, you should be sure to back up the cluster state and all cluster-related files using [velero](../../backup) before you upgrade.
+Before upgrading, keep in mind there is inherent risk in upgrading any Kubernetes cluster. Any failure or error can result in unexpected downtime or loss of data.
+Take necessary precautions before starting the upgrade process.
+For example, back up the cluster state and all cluster-related files using [velero](../../backup) before you upgrade.
 
-You should also keep in mind that cluster addons require a specific minimum version of Kubernetes to be installed.
-You can verify the version you have installed before upgrading by running the command
+Also keep in mind that cluster addons require a specific minimum version of Kubernetes to be installed.
+You can verify your installed version before upgrading by running the following command:
 
 ```bash
 kubectl version --short=true
@@ -20,20 +20,20 @@ kubectl version --short=true
 
 A Konvoy upgrade consists of a few distinct steps.
 
-- Download the Konvoy binary and extracting it in your environment similar to how it was done during the initial install.  
+- Download the Konvoy binary and extract it in your environment in the same manner as the initial install.  
 - Update the `cluster.yaml` file with the changes outlined below.
-- Run `konovy up --upgrade` which will first upgrade the version of Kubernetes on all of the control-plane nodes, then the rest of the nodes and then it will be upgrade the platform service addons or install any additional addons specified in the `cluster.yaml` file.
+- Run `konovy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
 
 ## Before you begin
 
-Before upgrading your Kubernetes cluster or any of the addons you must download the desired version of Konvoy by following the steps outlined in the [donwload](../../download) page.
+Before upgrading your Kubernetes cluster, or any of the addons, you must download the specific version of Konvoy by following the steps outlined in the [download](../../download) page.
 
 You must also have access to the `cluster.yaml` file and the SSH keys that were generated during the initial install.
 If you are using one of the public cloud provisioners you must also have access to the `state/` directory that was generated during the initial install.
 
 ## Prepare for Kubernetes upgrade
 
-In the `cluster.yaml` file, modify the `spec.kubernetes.version` value in `ClusterConfiguration` to the desired Kubernetes version.
+In the `cluster.yaml` file, modify the `spec.kubernetes.version` value in `ClusterConfiguration` to the Kubernetes versionyou want.
 
 For example, assume the cluster was launched with the following `ClusterConfiguration` section:
 
@@ -45,7 +45,7 @@ spec:
     version: 1.15.6
 ```
 
-If you want to upgrade to a newer patch version of `1.16.x`, then you would change the version string like so:
+If you want to upgrade to a newer patch version of `1.16.x`, then change the version string like the following:
 
 ```yaml
 kind: ClusterConfiguration
@@ -54,18 +54,17 @@ spec:
   kubernetes:
     version: 1.16.4
 ```
+<p class="message--note"><strong>NOTE: </strong>For certain Konvoy releases you might be required to change the versions for `containerNetworking` or `containerRuntime`. These changes are highlighted in the Release Notes and in the section further down this page.</p>
 
-**NOTE** for certain Konvoy releases you might also be required to change the versions for `containerNetworking` or `containerRuntime`, these changes will be highlighted in the Release Notes and in the section further down on this page.
+During the Kubernetes upgrade process Konvoy does the following:
 
-During the Kubernetes upgrade process Konvoy will do the following:
-
--   Konvoy determines which nodes if any do not already have the required configuration and OS package versions.
--   The stage `STAGE [Determining Upgrade Safety]` will check for any user workloads that may be impacted by the upgrade and mark the nodes where those workloads are running to be "unsafe" to upgrade, skipping the upgrade process on them.
+-   Konvoy determines which nodes do not have the required configuration and OS package versions.
+-   The stage `STAGE [Determining Upgrade Safety]` checks for any user workloads that may be impacted by the upgrade and marks the nodes, where the workloads are running, to be "unsafe" to upgrade, skipping the upgrade process on them.
     - You can force Konvoy to upgrade all of nodes by using the `--force-upgrade` flag.
     - Otherwise you can resolve the safety issues after the initial upgrade and rerun the upgrade process to let Konvoy perform the upgrade on the remaining nodes.
 -   All of the control-plane nodes are upgraded first.
--   The remaining nodes are upgraded one-at-a-time.
-    - The workloads are moved to a different node with `kubectl drain` (this process may take a few minutes before all the workloads are scheduled onto different nodes).
+-   The remaining nodes are upgraded individually.
+    - The workloads are moved to a different node with `kubectl drain`. This process may take a few minutes before all the workloads are scheduled onto different nodes.
     - The Kubernetes and Containerd OS packages are upgraded.
     - The node is uncordoned allowing for workloads to be scheduled on it again.
 
@@ -91,7 +90,7 @@ spec:
     ...
 ```
 
-If you want to upgrade to a newer version of addons, then you must change the version string like so:
+If you want to upgrade to a newer version of addons, then you must change the version string like the following:
 
 ```yaml
 kind: ClusterConfiguration
@@ -104,7 +103,7 @@ spec:
     ...
 ```
 
-During the addons upgrade process, Konvoy will upgrade the platform service addons or install any additional addons specified in the `cluster.yaml` file.
+During the addons upgrade process, Konvoy upgrades the platform service addons or installs any additional addons specified in the `cluster.yaml` file.
 
 ## Upgrading your cluster
 
@@ -128,7 +127,7 @@ STAGE [Deploying Enabled Addons]
 
 You can also separate the above process by first running `konvoy deploy kubernetes --upgrade` and then running `konvoy deploy addons`.
 
-The steps above outline the general process on how an upgrade of Kubernetes and addons can be performed, for some releases the process might differ slightly, below are the steps outlining that process when upgrading to specific versions of Konvoy.
+The steps above outline the general process for performing an upgrade of Kubernetes and addons. For some releases the process might differ slightly. The steps below outline the process when upgrading to specific versions of Konvoy.
 
 ### Upgrading from v1.2.x to v1.3.0
 
@@ -191,3 +190,4 @@ spec:
       enabled: true
     ...
 ```
+
