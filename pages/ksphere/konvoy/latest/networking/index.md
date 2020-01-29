@@ -46,6 +46,8 @@ In such cases, you must be able to disable any IP or MAC spoofing from the infra
 The following example illustrates the configuration if the reserved virtual IP address is `10.0.50.20`:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     controlPlane:
@@ -77,6 +79,8 @@ By default, Konvoy ships with the latest version of Calico available at the time
 However, you can configure it to a specific version as shown below:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     containerNetworking:
@@ -87,6 +91,8 @@ spec:
 Further, the Calico IPV4 pool CIDR can be set via `spec.kubernetes.networking.podSubnet` in `cluster.yaml`, as shown below:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     networking:
@@ -101,6 +107,8 @@ Konvoy ships with the default CIDR as `192.168.0.0/16`. Make sure that `podSubne
 Two ways of encapsulating networking traffic are supported: IP-to-IP and VXLAN. By default, IP-to-IP is enabled:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     containerNetworking:
@@ -111,6 +119,8 @@ spec:
 The following configuration switches it to VXLAN:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     containerNetworking:
@@ -142,6 +152,7 @@ To enable in-cluster BGP Route Reflectors, add at least two nodes (three nodes a
 
 ```yaml
 kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   nodePools:
   - name: route-reflector
@@ -228,6 +239,8 @@ MetalLB can be configured in two modes - Layer2 and BGP.
 The following example illustrates the Layer2 configuration in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
@@ -249,6 +262,8 @@ MetalLB in `bgp` mode implements only a minimal functionality of BGP. It only ad
 The following example illustrates the BGP configuration in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
@@ -306,5 +321,5 @@ Details of these functionalities can be viewed [here][traefik_fn].
 [metallb_config]: https://metallb.universe.tf/configuration/
 [traefik]: https://docs.traefik.io/
 [traefik_chart]: https://github.com/helm/charts/tree/master/stable/traefik
-[traefik_fn]: https://docs.traefik.io/user-guide/kubernetes
+[traefik_fn]: https://docs.traefik.io/v1.7/user-guide/kubernetes/
 [&#185;]: https://github.com/danderson/metallb/issues/348#issuecomment-442218138

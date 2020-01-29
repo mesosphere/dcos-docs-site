@@ -9,11 +9,11 @@ enterprise: false
 
 ## Allowing External Users Access to the Operations Portal
 
-When a new cluster is created by Konvoy an operations user is generated with a random password. This user is added to the `whitelist` of the `traefik-foward-auth` service and is the only user which can access the Operations Portal. After [configuring an external identity provider](../../external-idps), you may want to allow external users access to the Operations Portal and Kubernetes dashboard. The default configuration for `traefik-forward-auth` addon must be updated to achieve this.
+When a new cluster is created by Konvoy an operations user is generated with a random password. This user is added to the `whitelist` of the `traefik-foward-auth` service and is the only user that can access the Operations Portal. After [configuring an external identity provider](../../external-idps), you can allow external users access to the Operations Portal and Kubernetes dashboard. To allow external user access you must update the default configuration for the`traefik-forward-auth` addon.
 
 ## Adding Individual Users
 
-Users from external identity providers are identified by their email address. To add the users marry@example.com and bob@example.com, modify the addon configuration for `traefik-forward-auth` in the `cluster.yaml`
+Users from external identity providers are identified by their email address. For example, to add the users marry@example.com and bob@example.com, modify the addon configuration for `traefik-forward-auth` in the `cluster.yaml` as follows:
 
 ```yaml
 - name: traefik-forward-auth
@@ -35,11 +35,11 @@ Users from external identity providers are identified by their email address. To
 konvoy get ops-portal
 ```
 
-If you would like to disable access for the default operations user, remove the user from the whitelist.
+If you want to disable access for the default operations user, remove the user from the whitelist.
 
 ## Adding Users by Email Domain
 
-It is possible to grant access to all users who belong to a common email domain. To allow access to the `foo.com` and `bar.net` domains modify the configuration to resemble:
+You can also grant access to all users belonging to a common email domain. For example, to allow access to the `foo.com` and `bar.net` domains modify the configuration as follows:
 
 ```yaml
 - name: traefik-forward-auth
@@ -56,17 +56,17 @@ It is possible to grant access to all users who belong to a common email domain.
       domain: foo.com,bar.net
 ```
 
-This configuration will allow any user access to the Operations Portal who is a user in the `foo.com` or `bar.net` domains. The users Marry and Bob will retain access as well. Note that domain is a comma separated list without spaces between the entries.
+This configuration allows any user in the `foo.com` or `bar.net` domains to access the Operations Portal. The users Marry and Bob retain access as well. Note that domain is a comma separated list without spaces between the entries.
 
 ## Security concerns
 
-Any user or domain member in the whitelist has full access to the Operations Portal and any addon dashboard exposed through the ingress, such as the Kibana dashboard. Future versions of the Operations portal will support RBAC, allowing for granular control over access to exposed resources. The Kubernetes dashboard implements RBAC internally and is not affected by this issue, accessing the Kubernetes dashboard with external users is documented in the next section.
+Any user or domain member in the whitelist has full access to the Operations Portal and any addon dashboard accessible through the ingress, such as the Kibana dashboard. Future versions of the Operations Portal will support cluster Role-based Access Control (RBAC), allowing for granular control over access to accessible resources. The Kubernetes dashboard implements RBAC internally and is not affected by this issue. Accessing the Kubernetes dashboard with external users is documented in the next section.
 
 ## Accessing the Kubernetes Dashboard
 
-The Kubernetes dashboard is protected by the cluster Role-based Access Control (RBAC) policy. Users which are authenticated by external identity providers will not have any privileges when accessing the dashboard. Privileges must be granted explicitly by interacting with the RBAC API. This section will provide some basic examples for general usage. Full documentation for the RBAC API can be found in the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
+The Kubernetes dashboard is protected by the RBAC policy. Users which are authenticated by external identity providers do not have any privileges when accessing the dashboard. Privileges must be granted explicitly by interacting with the RBAC API. This section provides some basic examples for general usage. Full documentation for the RBAC API can be found in the [Kubernetes documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
-To make the user `marry@example.com` a cluster administrator, we will need to bind her username to the `cluster-admin` role:
+For example, to make the user `marry@example.com` a cluster administrator, we bind her username to the `cluster-admin` role as follows:
 
 ```shell
 cat << EOF | kubectl apply -f -
@@ -105,7 +105,7 @@ subjects:
 EOF
 ```
 
-If your external identity provider supports group claims, it is possible to bind groups to roles as well. To make the `devops` LDAP group an administrators of the `production` namespace bind the group to the `admin` role:
+If your external identity provider supports group claims, you can also bind groups to roles. To make the `devops` LDAP group administrators of the `production` namespace bind the group to the `admin` role:
 
 ```shell
 cat << EOF | kubectl apply -f -

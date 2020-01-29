@@ -195,7 +195,7 @@ pod/nginx-host-filesystem created
 [gatekeeper-psp]:https://github.com/open-policy-agent/gatekeeper/tree/master/library/pod-security-policy
 [opa]:https://github.com/open-policy-agent/opa
 [opa-constraints]:https://github.com/open-policy-agent/frameworks/tree/master/constraint
-[opa-rego]:https://www.openpolicyagent.org/docs/v0.13.4/how-do-i-write-policies/
+[opa-rego]:https://www.openpolicyagent.org/docs/latest/policy-language/
 [psp]:https://kubernetes.io/docs/concepts/policy/pod-security-policy/
 [certmanager]:https://github.com/jetstack/cert-manager
 [certmanager-install]:https://docs.cert-manager.io/en/latest/getting-started/install/kubernetes.html#installing-with-helm

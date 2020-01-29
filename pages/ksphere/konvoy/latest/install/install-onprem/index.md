@@ -153,7 +153,7 @@ all:
     ansible_port: 22
 ```
 
-## Specifying a local kubeaddons-configs repo
+## Specifying a local kubernetes-base-addons repo
 
 When using Konvoy with its default addons options, the tool will try to fetch the list of available addons from a public GitHub [kubeaddons-configs repo][kubeaddons_repo] when initializing and validating the `cluster.yaml` file.
 If in your environment access to that repo is blocked, you may also use a local clone of the above repo.
@@ -164,7 +164,7 @@ This will result in your `cluster.yaml` containing the details below:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     configRepository: ./kubernetes-base-addons
@@ -185,7 +185,7 @@ If the required repositories are already configured in your environment, you may
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
  osPackages:
    enableAdditionalRepositories: false
@@ -562,7 +562,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 * `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 * `runs` folder - which contains logging information.
 
-[kubectl]: ../../operations/accessing-the-cluster/index.md#using-kubectl
+[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -574,7 +574,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
 [kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [metallb]: https://metallb.universe.tf
-[ops_portal]: ../../operations/accessing-the-cluster/index.md#using-the-operations-portal
+[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
 [local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
 [static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md

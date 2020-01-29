@@ -160,8 +160,6 @@ spec:
       enabled: true
     - name: kube-oidc-proxy
       enabled: true
-    - name: kudo
-      enabled: true
     - name: localvolumeprovisioner
       enabled: false
       values: |

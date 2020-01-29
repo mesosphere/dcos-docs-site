@@ -71,10 +71,24 @@ The cluster name will be used to tag the provisioned infrastructure and the cont
 To customize the cluster name, run the following command:
 
 ```bash
-konvoy up --cluster-name <YOUR_SPECIFIED_NAME>
+konvoy up --cluster-name --provisioner azure <YOUR_SPECIFIED_NAME>
 ```
 
 **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
+
+## Show planned infrastructure changes
+
+Before running `konvoy up` or `konvoy provision` it is also possible to show the calculated changes that would be performed on the infrastructure by [Terraform][terraform].
+
+Running the following command should result in a similar output:
+
+```text
+$ konvoy provision --plan-only
+...
+Plan: 41 to add, 0 to change, 0 to destroy.
+```  
+
+**NOTE:** This command can be run before the initial provisionioning or at any point after modifications are made to the `cluster.yaml` file.
 
 ## Control plane and worker nodes
 
@@ -134,8 +148,8 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [prerequisites]: #prerequisites
 [cluster_configuration]: ../../reference/cluster-configuration/
-[kubectl]: ../../operations/accessing-the-cluster/index.md#using-kubectl
-[ops_portal]: ../../operations/accessing-the-cluster/index.md#using-the-operations-portal
+[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
+[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
 [compute_virtual_machine]: https://azure.microsoft.com/en-ca/services/virtual-machines/
 [control_plane]: https://kubernetes.io/docs/concepts/overview/components/
 [pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
@@ -144,4 +158,4 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 [state]: https://www.terraform.io/docs/state/
-[concepts]: ../../concepts/
+[concepts]: ../../concepts

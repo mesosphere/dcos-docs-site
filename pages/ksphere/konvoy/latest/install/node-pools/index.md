@@ -110,7 +110,7 @@ You can add node pools to the `ClusterProvisioner` configuration like the follow
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   nodePools:
   - name: worker
