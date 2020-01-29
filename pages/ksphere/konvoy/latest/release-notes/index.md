@@ -15,7 +15,29 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
-### Version v1.3.0
+### Version v1.3.1
+
+#### Disclaimer
+
+- The generated release artifacts will now untar in `./konvoy_v1.3.1/konvoy` instead of `./linux/konvoy_v1.3.1/konvoy`.
+
+#### Improvements
+
+- A preflight check will fail if existing PVs (from a previous installation) are found.
+
+#### Bug fixes
+
+- Fix a bug where a failure with `konvoy down` and `konvoy reset` would prematurely delete files required on a retry.
+- Fix a bug in `konvoy reset` that prevented Kubernetes system packages from being removed on Ubuntu 16.04.
+- Add Tekton utility images to the air-gapped release tar.
+
+#### Addons improvements
+
+- Automatically deploy Kudo `v0.8.x` when the Kubeaddons controller is deployed.
+
+#### Component version changes
+
+### Version v1.3.0 - Released 21 January 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -62,17 +84,17 @@ spec:
       enabled: true
 ```
 
-Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [refernce document](https://docs.d2iq.com/ksphere/konvoy/latest/reference/cluster-configuration/).
+Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [refernce document](../reference/cluster-configuration/).
 
 After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to upgrade the Kubernetes and all of the addons.
 
 #### Improvements
 
--   Add support for `azure` provisioner, refer to the [azure document](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-azure/).
+-   Add support for `azure` provisioner, refer to the [azure document](../install/install-azure/).
 -   Add support for GPU(Nvidia) machines.
 -   Add support for Debian 10 OS.
 -   Change the default API version in `cluster.yaml` from `konvoy.mesosphere.io/v1alpha1` to `konvoy.mesosphere.io/v1beta1` and use the Kubernetes tooling to generate this API.
-    - Refer to the [reference document](https://docs.d2iq.com/ksphere/konvoy/latest/reference/cluster-configuration/) for the updated options.
+    - Refer to the [reference document](../reference/cluster-configuration/) for the updated options.
 -   Change default machine sizes in AWS to `m5.2xlarge` for worker nodes and `m5.xlarge` for control-plane nodes. No action needed for users with existing clusters. This does not automatically modify the instance types, which would cause your cluster to be completely rebuilt.
 -   Increase default worker count to 4 to accommodate additional addons.
 -   Change default root disk type in AWS to `io1` for better etcd performance.
@@ -88,8 +110,8 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
       aws:
         region: us-west-2
         vpc:
-          enableInternetGateway: true
-          enableVPCEndpoints: true
+          internetGatewayDisabled: false
+          vpcEndpointsDisabled: false
     ---
     kind: ClusterConfiguration
     apiVersion: konvoy.mesosphere.io/v1alpha1
@@ -102,17 +124,17 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
 
     ```yaml
     kind: ClusterProvisioner
-    apiVersion: konvoy.mesosphere.io/v1alpha1
+    apiVersion: konvoy.mesosphere.io/v1beta1
     spec:
       provider: aws
       aws:
         region: us-west-2
         vpc:
-          internetGatewayDisabled: false
-          vpcEndpointsDisabled: false
+          enableInternetGateway: true
+          enableVPCEndpoints: true
     ---
     kind: ClusterConfiguration
-    apiVersion: konvoy.mesosphere.io/v1alpha1
+    apiVersion: konvoy.mesosphere.io/v1beta1
     spec:
       osPackages:
         enableAdditionalRepositories: true
@@ -122,7 +144,7 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
 
     ```yaml
     kind: ClusterConfiguration
-    apiVersion: konvoy.mesosphere.io/v1alpha1
+    apiVersion: konvoy.mesosphere.io/v1beta1
     spec:
       kubernetes:
         kubelet:
@@ -167,8 +189,8 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
             mtu: 1480
     ```
 
--   Allow deploying Calico Route Reflectos nodes. More details can be found in [networking document](https://docs.d2iq.com/ksphere/konvoy/latest/networking).
--   Add support for SSH proxy. More details can be found in [ssh-configuration document](https://docs.d2iq.com/ksphere/konvoy/latest/install/).
+-   Allow deploying Calico Route Reflectors nodes. More details can be found in [networking](../networking#in-cluster-bgp-route-reflectors).
+-   Add support for SSH proxy. More details can be found in [ssh-configuration](../install/ssh-configuration).
 -   Minor improvements to Ansible scripts to make them more failure resilient.
 -   Configure `chrony` on nodes for proper time synchronization across the cluster.
 -   Improve the process of additional control-plane nodes joining the cluster where a race condition resulted in an error.
@@ -393,7 +415,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 #### Improvements
 
--   \[BETA\] New CLI commands and `cluster.yaml` options to support [air-gapped installations](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-airgapped/).
+-   \[BETA\] New CLI commands and `cluster.yaml` options to support [air-gapped installations](../install/install-airgapped/).
 -   VPC Endpoints are now deployed by default to allow for the pods running in the cluster to connect to the AWS API without requiring the Internet.
 
     ```yaml
@@ -514,7 +536,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 #### Improvements
 
-- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-onprem/#specifying-a-local-kubernetes-base-addons-repo).
+- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](../install/install-onprem#specifying-a-local-kubernetes-base-addons-repo).
 
 #### Addons improvements
 
@@ -564,7 +586,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 #### Improvements
 
-- Provide a new option `vpc.internetGatewayDisabled` to disable creating an Internet Gateway on AWS. Documentation can be found [here](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-aws/advanced-provisioning/#vpc).
+- Provide a new option `vpc.internetGatewayDisabled` to disable creating an Internet Gateway on AWS. Documentation can be found [here](../install/install-aws/advanced-provisioning#vpc).
 
 #### Addons improvements
 

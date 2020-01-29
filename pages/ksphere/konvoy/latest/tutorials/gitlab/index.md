@@ -89,7 +89,7 @@ For more on configuring TLS, see [here](https://docs.gitlab.com/charts/installat
    **NOTE:** You may skip this step if you are using valid signed certificates.
    If you skip this step, you must deploy the GitLab Helm chart without the `gitlab-runner.certsSecretName` configuration parameter.
 1. Wait for GitLab to finish deploying.
-1. Open <https://gitlab.gitlab.local> in a browser.
+1. Open `https://gitlab.gitlab.local` in a browser.
 
 ## Notes
 

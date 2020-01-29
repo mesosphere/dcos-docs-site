@@ -137,7 +137,7 @@ The default **operations portal** provides links to several dashboards of the in
 - Traefik dashboards for inbound HTTP traffic
 - Kubernetes dashboard for cluster activity
 
-After you log in to the operations portal, you can view the [dashboards](../operations/accessing-the-cluster/index.md#using-the-operations-portal) to see information about
+After you log in to the operations portal, you can view the [dashboards](../operations/accessing-the-cluster#using-the-operations-portal) to see information about
 cluster activity performance.
 
 Although these are the most common next steps, you do not need to log in to the operations portal or run basic diagnostics to verify a successful installation.

@@ -18,7 +18,7 @@ For instance, the following configuration will instruct Konvoy to provision host
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
 spec:
@@ -37,7 +37,7 @@ Konvoy allows users to customize instance types, volumes and AMI images for thei
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
 spec:
@@ -177,7 +177,7 @@ To do so you must modify the `cluster.yaml` file and change the `ProvisionerConf
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
 spec:
@@ -206,7 +206,7 @@ Depending on how you addons are configured, you may also need to add an annotati
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
 spec:
@@ -220,7 +220,7 @@ spec:
       enableInternetGateway: false
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
 spec:
@@ -258,7 +258,7 @@ If desired you can disable creating these resources by modifying the `cluster.ya
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
 spec:

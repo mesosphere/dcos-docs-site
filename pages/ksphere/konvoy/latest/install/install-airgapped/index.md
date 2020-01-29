@@ -89,25 +89,12 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 
    ```yaml
    kind: ClusterConfiguration
-   apiVersion: konvoy.mesosphere.io/v1alpha1
+   apiVersion: konvoy.mesosphere.io/v1beta1
    spec:
+   ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
        configVersion: stable-1.16.4-2
-   ```
-
-1. During regular deployment your cluster would have access to publicly hosted Helm chart repos for all of the addons.
-   This is not the case for air-gapped installations, therefore Konvoy can be configured to host the required Helm charts in the cluster.
-   Modify The `addons` section and specify the image containing the Helm charts:
-
-   ```yaml
-     kind: ClusterConfiguration
-     apiVersion: konvoy.mesosphere.io/v1alpha1
-     spec:
-     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: stable-1.16.4-2
-       helmRepository:
-         image: mesosphere/base-addons-chart-repo:stable-1.16.4-2
    ```
 
 1. Open inventory file `inventory.yaml` in a text editor to specify the hosts.
@@ -184,7 +171,7 @@ In an air-gapped environment these repos will not be available, but instead the 
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   osPackages:
     enableAdditionalRepositories: false
@@ -232,7 +219,7 @@ Set the options in your `cluster.yaml` as follows:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   imageRegistries:
     - server: https://myregistry:443
@@ -311,6 +298,24 @@ spec:
 ```
 
 When configuring these settings, you should make sure that the values you set for `podSubnet` and `serviceSubnet` do not overlap with your node subnet and your `keepalived` virtual IP address.
+
+## Configure Addon repository
+
+During regular deployment your cluster would have access to publicly hosted Helm chart repos for all of the addons.
+This is not the case for air-gapped installations, therefore Konvoy can be configured to host the required Helm charts in the cluster.
+Modify the `addons` section and specify the image containing the Helm charts:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
+spec:
+...
+  addons:
+  - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
+    configVersion: stable-1.16.4-2
+    helmRepository:
+      image: mesosphere/base-addons-chart-repo:stable-1.16.4-2
+```
 
 ## Configure MetalLB load balancing
 
@@ -492,7 +497,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 * `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 * `runs` folder - which contains logging information.
 
-[kubectl]: ../../operations/accessing-the-cluster/index.md#using-kubectl
+[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -504,7 +509,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
 [kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [metallb]: https://metallb.universe.tf
-[ops_portal]: ../../operations/accessing-the-cluster/index.md#using-the-operations-portal
+[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
 [local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
 [static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md

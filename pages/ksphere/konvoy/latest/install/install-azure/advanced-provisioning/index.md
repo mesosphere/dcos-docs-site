@@ -194,7 +194,7 @@ spec:
       internal: true
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
 spec:

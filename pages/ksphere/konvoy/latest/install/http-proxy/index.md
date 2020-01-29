@@ -37,7 +37,7 @@ Edit the cluster configuration file `cluster.yaml` to specify HTTP/HTTPS proxies
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     networking:
