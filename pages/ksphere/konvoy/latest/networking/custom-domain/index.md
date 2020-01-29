@@ -1,6 +1,6 @@
 # Configure Konvoy to use a custom domain
 
-To configure a custom domain, update `konvoyconfig` addon in `cluster.yaml`:
+To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml`:
 
 ```yaml
 - name: konvoyconfig
@@ -13,7 +13,7 @@ To configure a custom domain, update `konvoyconfig` addon in `cluster.yaml`:
 ## Use external-dns to create a CNAME
 
 In a cloud environment, you can automate the process of creating a CNAME record
- for your ELB by configuring `external-dns` addon.
+ for your ELB by configuring the `external-dns` addon.
 
 ### AWS
 
@@ -35,10 +35,9 @@ In AWS, the `external-dns` can be configured as:
       - <custom domain>
 ```
 
-*Note* the AWS account should have necessary permissions to update `route 53`.
-More details can be found [here][external-dns].
+<p class="message--note"><strong>NOTE: </strong>The AWS account must have permissions to update `route 53`. More details can be found [here][external-dns].</p>
 
-You would also have to annotate `traefik` addon with the custom domain name.
+You also have to annotate the `traefik` addon with the custom domain name.
 
 ```yaml
 - name: traefik
@@ -51,14 +50,14 @@ You would also have to annotate `traefik` addon with the custom domain name.
 
 ## Configure Konvoy to use custom certificates
 
-It is also possible to configure Konvoy to use custom certificates as an
+You can also configure Konvoy to use custom certificates as an
 additional measure of security.
 
 To configure custom certificates for your domain:
 
 ## Pre-requisites
 
--   Requires minimum Konvoy version >= `v1.3`.
+-   Requires minimum Konvoy version `v1.3` or greater.
 -   A custom domain with the following:
     - Certificate (in PEM-format)
     - Key (unencrypted RSA private key)
@@ -126,3 +125,4 @@ To configure custom certificates for your domain:
 1.  Navigate to `https://<custom-domain>/ops/landing`. Verify the custom certificate is served by the browser.
 
 [external-dns]: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md
+
