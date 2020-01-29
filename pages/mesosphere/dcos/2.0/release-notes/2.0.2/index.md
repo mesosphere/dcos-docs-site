@@ -18,7 +18,12 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 # Fixed and Improved Issues in DC/OS 2.0.2
 
-- DC/OS now shows resident pod instances in /v2/pods/::status when they transition to "unknown", or any other task status that may cause them to be excluded. (MARATHON-8710)
-- Fixed an issue where, after upgrade to DC/OS 2.0, adminrouter-agent was failing to start on older CPUs that were missing SSE 4.2. (DCOS_OSS-5643)
-- Upgraded Java to version 8u232 align with previous DC/OS releases. (DCOS-62548, COPS-5738)
+- Upgraded Java to version 8u232 to align with previous DC/OS releases. (DCOS-62548, COPS-5738)
+
+## Marathon 
 - Marathon will now bundle multiple concurrent authentication requests for the same identity to a single request, reducing thundering-herd effects on the underlying DC/OS authentication infrastructure. (DCOS-62006) 
+- DC/OS now shows resident pod instances in /v2/pods/::status when they transition to "unknown", or any other task status that may cause them to be excluded. (MARATHON-8710)
+
+## Admin Router
+
+- Fixed an issue where, after upgrade to DC/OS 2.0, adminrouter-agent was failing to start on older CPUs that were missing SSE 4.2. (DCOS_OSS-5643)
