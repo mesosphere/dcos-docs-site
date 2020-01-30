@@ -15,7 +15,7 @@ You can use the Cluster Link API to manage cluster links.
 
 Access to the Cluster Link API is proxied through the Admin Router on each master node using the following route:
 
-```
+```bash
 /cluster/v1/links
 ```
 
@@ -27,13 +27,13 @@ The Cluster Link API request and response bodies are formatted in JSON.
 
 Requests must include the accept header:
 
-```
+```bash
 Accept: application/json
 ```
 
 Responses include the content type header:
 
-```
+```bash
 Content-Type: application/json
 ```
 

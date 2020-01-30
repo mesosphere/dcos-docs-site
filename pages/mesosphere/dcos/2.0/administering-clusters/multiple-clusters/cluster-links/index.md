@@ -32,7 +32,7 @@ As superuser:
     4. In the top right, click **Insert Permission String**.
     5. Paste in the permissions:
 
-        ```
+        ```bash
         dcos:adminrouter:ops:mesos full
         dcos:adminrouter:ops:slave full
         dcos:adminrouter:service:marathon full
@@ -125,16 +125,16 @@ If you are logged in as a superuser you can also switch directly to a linked clu
 
 1. Set up cluster `cluster-a` using the `dcos-user` provider.
 
-    ```
-    $ dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
+    ```bash
+    dcos cluster setup --provider=dcos-users https://cluster-a.us-west-2.elb.amazonaws.com
     ```
     The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
     The CLI prompts for superuser credentials. Provide the credentials.
 
 1. Set up `cluster-b` using the `dcos-user` provider.
 
-    ```
-    $ dcos cluster setup --provider=dcos-users https://cluster-b.us-west-2.elb.amazonaws.com
+    ```bash
+    dcos cluster setup --provider=dcos-users https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
     The response requests that you verify the fingerprint of the cluster certificate bundle, which must be accepted with the response `yes`.
@@ -142,7 +142,7 @@ If you are logged in as a superuser you can also switch directly to a linked clu
 
 1. Attach to cluster `cluster-a` and list.
 
-    ```
+    ```bash
     dcos cluster attach cluster-a
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
@@ -152,13 +152,13 @@ If you are logged in as a superuser you can also switch directly to a linked clu
 
 1. Link to cluster `cluster-b` from cluster `cluster-a`.
 
-    ```
+    ```bash
     dcos cluster link https://cluster-b.us-west-2.elb.amazonaws.com
     ```
 
     The CLI prompts you to choose the login provider for switching.
 
-    ```
+    ```text
     Choose the login method and provider to enable switching to this linked cluster:
     1) Log in using a standard DC/OS user account (username and password)
     2) Log in using OpenID Connect (Google IDP)
@@ -167,25 +167,25 @@ If you are logged in as a superuser you can also switch directly to a linked clu
 
 1. Choose Google IDP (2). If the cluster links successfully, there will be no response.
 
-    ```
+    ```bash
     (1-2): 2
     ```
 
 1. Attach to cluster `cluster-b`.
 
-    ```
+    ```bash
     $ dcos cluster attach cluster-b
     ```
 
 1. Link to cluster `cluster-a` from cluster `cluster-b`.
 
-    ```
+    ```bash
     dcos cluster link https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
     The CLI prompts to choose the login provider for switching.
 
-    ```
+    ```text
     Choose the login method and provider to enable switching to this linked cluster:
     1) Log in using a standard DC/OS user account (username and password)
     2) Log in using OpenID Connect (Google IDP)
@@ -194,13 +194,13 @@ If you are logged in as a superuser you can also switch directly to a linked clu
 
 1. Choose Google IDP (2).
 
-    ```
+    ```bash
     (1-2): 2
     ```
 
 1. List clusters.
 
-    ```
+    ```bash
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
     cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.12-dev   https://cluster-b.us-west-2.elb.amazonaws.com
@@ -236,7 +236,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 1. List authentication providers.
 
-    ```
+    ```bash
     dcos auth list-providers https://cluster-a.us-west-2.elb.amazonaws.com
     PROVIDER ID    AUTHENTICATION TYPE
     dcos-services  Log in using a DC/OS service user account (username and private key)
@@ -246,7 +246,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 1. Set up cluster with Google IDP.
 
-    ```
+    ```bash
     dcos cluster setup --provider=google-id https://cluster-a.us-west-2.elb.amazonaws.com
     ```
 
@@ -256,7 +256,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 1. List clusters. The setup cluster shows as AVAILABLE and attached and the previously linked cluster shows as UNCONFIGURED.
 
-    ```
+    ```bash
     dcos cluster list
           NAME                    CLUSTER ID                  STATUS     VERSION                                         URL
      cluster-b  34ddd64a-9301-40b1-bb6a-201ec55a0d80  UNCONFIGURED  1.13-dev   https://cluster-b.us-west-2.elb.amazonaws.com
@@ -265,7 +265,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 1. Attach to UNCONFIGURED cluster.
 
-    ```
+    ```bash
     dcos cluster attach cluster-b
     ```
 
@@ -275,7 +275,7 @@ You can easily switch to a linked cluster that has been set up with the Google O
 
 1. List clusters to verify attachment to `cluster-b`.
 
-    ```
+    ```bash
     dcos cluster list
           NAME                    CLUSTER ID                 STATUS   VERSION                                         URL
     cluster-b*  34ddd64a-9301-40b1-bb6a-201ec55a0d80  AVAILABLE  1.13-dev   https://cluster-b.us-west-2.elb.amazonaws.com

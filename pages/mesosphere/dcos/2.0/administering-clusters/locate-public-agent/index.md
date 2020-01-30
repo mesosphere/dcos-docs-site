@@ -90,6 +90,7 @@ To find public IP addresses by using the DC/OS API:
     ```
 
     For example, you might issue a call with a cluster URL similar to the following to specify where the DC/OS cluster is running:
+
     ```bash
     http://luxi-sf7-elasticl-u70m3un6kcab-1100943753.us-west-2.elb.amazonaws.com/net/v1/nodes
     ```
@@ -198,7 +199,7 @@ for id in $(dcos node --json | jq --raw-output '.[] | select(.attributes.public_
 
 The following is an example that returns the public IP address `52.39.29.79`:
 
-```
+```bash
 for id in $(dcos node --json | jq --raw-output '.[] | select(.attributes.public_ip == "true") | .id'); do dcos node ssh --option StrictHostKeyChecking=no --option LogLevel=quiet --master-proxy --mesos-id=$id "curl -s ifconfig.co" ; done 2>/dev/null
 52.39.29.79
 ```

@@ -18,7 +18,7 @@ You can use the Backup and Restore API to create and restore backups of your clu
 
 Access to the Backup and Restore API is proxied through Admin Router on each master node, using the following route:
 
-```
+```bash
 /system/v1/backup/v1
 ```
 
@@ -28,13 +28,13 @@ To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/late
 
 The Backup and Restore API request and response bodies are formatted in JSON. Requests must include the `accept` header:
 
-```
+```bash
 Accept: application/json
 ```
 
 Responses include the `content type` header:
 
-```
+```sh
 Content-Type: application/json
 ```
 

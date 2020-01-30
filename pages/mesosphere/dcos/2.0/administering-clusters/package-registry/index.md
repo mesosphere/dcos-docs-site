@@ -270,7 +270,7 @@ Mesosphere DC/OS hosts all its certified packages at [downloads.mesosphere.com/u
 
 The `package-registry` CLI can be used to bundle your package into a `.dcos` file that can be used by the `package-registry`. Assume that the {{ model.packageRepo }} package files are in a directory called `/path/to/package/`. It should contain the following package definition files:
 
-```
+```text
 ➜ tree
 .
 ├── config.json
@@ -278,9 +278,10 @@ The `package-registry` CLI can be used to bundle your package into a `.dcos` fil
 ├── package.json
 └── resource.json
 ```
+
 <p class="message--note"><strong>NOTE: </strong>All the assets URIs in the <tt>resource.json</tt> must be accessible to download from your environment. Relative file paths are also accepted.</p>
 
-```bash
+```json
 # Create a temporary work directory to store the build definition and other files necessary to create the bundle.
 mkdir /path/to/output
 
@@ -293,7 +294,7 @@ dcos registry build --build-definition-file=/path/to/output/<json-build-definiti
 
 If all these steps are completed successfully, your `/path/to/output` directory should look similar to the following:
 
-```
+```text
 ➜ tree
 .
 ├── <package-name>-<package-version>.dcos
