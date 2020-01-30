@@ -15,7 +15,7 @@ The `dcos security secrets delete` command deletes a secret, including secrets s
 
 # Usage
 
-```
+```bash
 dcos security secrets delete [OPTIONS] PATH
 ```
 

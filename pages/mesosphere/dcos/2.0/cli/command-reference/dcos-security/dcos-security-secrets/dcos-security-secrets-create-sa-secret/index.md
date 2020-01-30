@@ -15,7 +15,7 @@ The `dcos security secrets create-sa-secret` command allows you to create a serv
 
 # Usage
 
-```
+```bash
 dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PATH
 ```
 
