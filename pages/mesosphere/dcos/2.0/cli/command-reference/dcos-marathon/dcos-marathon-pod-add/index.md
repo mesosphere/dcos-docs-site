@@ -37,7 +37,7 @@ dcos marathon pod add [<pod-resource>]
 ## Add a Pod
 
 To add a pod, first create a JSON pod definition. Then, run the following command:
-```
+```bash
 dcos marathon pod add <pod-json-file>
 ```
 

@@ -37,7 +37,8 @@ dcos marathon pod show <pod-id>
 
 ## Show Pod JSON
 To see the pod definition, run the following command:
-```
+
+```bash
 dcos marathon pod show <pod-id>
 ```
 You can use the `show` command to read data about the pod programmatically.
