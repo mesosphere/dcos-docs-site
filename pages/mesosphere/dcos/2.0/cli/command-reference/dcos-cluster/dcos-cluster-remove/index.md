@@ -38,7 +38,7 @@ The `dcos-cluster remove` command will remove a configured cluster from the DC/O
 
 1. Run the `dcos cluster list` command to get the name of the cluster you want to remove:
 
-    ```
+    ```bash
     dcos cluster list
               NAME                          ID                     STATUS     VERSION                                         URL
         user_81-rd373u5  bb07074e-2c3d-4dc5-8523-75cab9d517cb  UNAVAILABLE  UNKNOWN  http://user_81-elasticl-7qbh2zcfyz6h-407934734.us-east-1.elb.amazonaws.com
@@ -47,14 +47,14 @@ The `dcos-cluster remove` command will remove a configured cluster from the DC/O
 
 1. Run the `dcos cluster remove` command with the name of the cluster you want to remove. In this example, we are removing the cluster named "user_81-rd373u5":
 
-    ```
+    ```bash
     dcos cluster remove user_81-rd373u5
     ```
     If the command completes successfully, there will be no confirmation message.
 
 1. To confirm that the cluster has been removed, run `dcos cluster list` again:
 
-    ```
+    ```bash
     dcos cluster list
             NAME                        ID                    STATUS    VERSION                                         URL
     *  user_45-wosq2gi     7edd47b7-7f22-4bd5-b8a9-b53a204aafd3  AVAILABLE    1.13.0   https://user_45-wo-elasticl-1uwhasco5acg9-2062765490.eu-central-1.elb.amazonaws.com
