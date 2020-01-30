@@ -21,7 +21,7 @@ konvoy init --provisioner=none [--cluster-name <your-specified-name>]
 
 ## Cluster Configuration
 
-After you edit the inventory file, edit the generated cluster.yaml file. The cluster.yaml file provides the configuration details for creating your Konvoy cluster.
+After editing the inventory file, edit the generated cluster.yaml file. The cluster.yaml file provides the configuration details for creating your Konvoy cluster.
 
 See the [Install on-premise](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
 
@@ -29,6 +29,7 @@ See the [Install on-premise](/ksphere/konvoy/latest/install/install-onprem/) gui
 
 ![Add Cluster Options](../../../img/add-cluster.png)
 
-From the Add Cluster menu, select the Upload YAML to Create a Cluster option and select the On Premise Cloud Provider from the Select Cloud Provider field.
+From the **Add Cluster** menu, select the **Upload YAML to Create a Cluster** option and select the **On Premise Cloud Provider** from the **Select Cloud Provider** field.
 
-Paste the contents of the cluster.yaml and inventory.yaml files into the form and click Continue to begin provisioning Konvoy onto your hosts.
+Paste the contents of the cluster.yaml and inventory.yaml files into the form and select **Continue** to begin provisioning Konvoy onto your hosts.
+
