@@ -28,7 +28,7 @@ macOS&reg;:  `brew install bash-completion` \
 Debian&reg;/Ubuntu&reg;: `apt-get install bash-completion`
 
 To activate the completions you must add two lines to your `.profile`:
-```
+```bash
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 eval "$(dcos completion bash)"
 ```
@@ -39,7 +39,7 @@ eval "$(dcos completion bash)"
 
 If you want to enable autocompletion for the CLI in `zsh` you will must add the following two lines to your `.zshrc`:
 
-```
+```bash
 autoload -Uz bashcompinit && bashcompinit
 eval "$(dcos completion zsh)"
 ```
