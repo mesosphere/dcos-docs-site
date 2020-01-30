@@ -81,7 +81,7 @@ When deploying a service which makes use of command health checks, the resources
 
 When tasks specify frequent health checks with an interval of just a few seconds, or when a large number of tasks with command health checks are running on a single machine, the large number of health checks may impact agent performance. Testing has shown that an agent node may have the capacity to run about 10-18 health checks per second, depending on the hardware. In order to estimate the total health check rate your workload may run on an agent, a calculation like the following may be performed:
 
-```
+```text
 Health check interval of 30 seconds = 2 health checks per minute
 30 tasks running on an agent = 60 health checks per minute, or 1 health check per second
 ```
