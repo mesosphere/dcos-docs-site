@@ -31,7 +31,7 @@ If you are new to Ansible, it is highly recommended that you first have a look a
 SSH is the protocol that which Ansible uses to connect and manage hosts via an inventory file. If you need to setup ssh connections between your Ansible control machine and its managed nodes, see the following [Ansible docs](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information).
 
 You can then test connection via the following:
-```
+```bash
 ansible -m ping all
 ```
 
@@ -39,7 +39,7 @@ If you are still getting ssh errors, ensure that you are trying to connect with 
 
 Also if you have a different `ansible.cfg`, it could also be an issue with `host_key_checking`. You could either set this to `False` and try again or ensure that the correct key is added to your ssh agent. You can check that your key is add via:
 
-```
+```bash
 ssh-add -l # for a list of keys
 ssh-add ~/your/key # to add to ssh agent
 ```
@@ -47,7 +47,7 @@ ssh-add ~/your/key # to add to ssh agent
 ## Connection timeout to node
 At times if your network or your node is busy, it is possible to have a timeout such as:
 
-```
+```text
 FAILED! => {"failed": true, "msg": "ERROR! Timeout (12s) waiting for privilege escalation prompt: "}
 ```
 
@@ -57,7 +57,7 @@ If you attempt this multiple times and continue to get the error without a succe
 
 ## No inventory file provided
 When issuing an Asible command you get the following error:
-```
+```text
 [WARNING]: Unable to parse /etc/ansible/hosts as an inventory source
 
 [WARNING]: No inventory was parsed, only implicit localhost is available
@@ -68,12 +68,12 @@ Ensure that you are in a directory that contains an inventory file. For more inf
 
 ## Wrong remote_user configured
 If you are getting errors connecting to machines like below:
-```
+```text
 fatal: [agent2-testsre.sre.mesosphe.re]: UNREACHABLE! => {"changed": false, "msg": "SSH Error: data could not be sent to remote host \"agent2-testsre.sre.mesosphe.re\". Make sure this host can be reached over ssh", "unreachable": true}
 ```
 
 If could be that you attempting to connect with the incorrect remote_user. Please check with your `ansible.cfg` or run command with correct remote user.
-```
+```text
 Failure generating config
 fatal: [172.16.2.65]: FAILED! => {"changed": true, "cmd": ["bash", "dcos_generate_config.ee.sh"], "delta": "0:00:02.724998", "end": "2019-04-08 17:50:51.568479", "msg": "non-zero return code", "rc": 1, "start": "2019-04-08 17:50:48.843481", "stderr": "\u001b[33m====> EXECUTING CONFIGURATION GENERATION\u001b[0m\nGenerating configuration files...\n\u001b[1;31mbouncer_expiration_auth_token_days: bouncer_expiration_auth_token_days must be a number of days or decimal thereof.\u001b[0m", "stderr_lines": ["\u001b[33m====> EXECUTING CONFIGURATION GENERATION\u001b[0m", "Generating configuration files...", "\u001b[1;31mbouncer_expiration_auth_token_days: bouncer_expiration_auth_token_days must be a number of days or decimal thereof.\u001b[0m"], "stdout": "", "stdout_lines": []}
 module.dcos.module.dcos-install.module.dcos-install.null_resource.run_ansible_from_bootstrap_node_to_install_dcos (remote-exec): 	to retry, use: --limit @/dcos_playbook.retry
@@ -90,7 +90,7 @@ Ensure that you have specified a correct URL for your version of DC/OS that you 
 
 ## Mazer install directory
 Different versions of Mazer or custom Mazer installations are maintained via a mazer configuration file. One of these configurations that is maintained in this configuration file is the content_path which is where the content gets installed that is pulled from the galaxy. If you are having issues locating either the content path or the mazer configuration file, please issue the following command to locate the mazer configuration file:
-```
+```bash
 mazer version | grep config
 ```
 
@@ -99,7 +99,7 @@ Inside mazer config file, check the `content_path`. You can see more about the M
 ## DC/OS installation or upgrade fails after replacing bootstrap node
 If you need to replace the bootstrap node instance in your cluster you will need to update the new inventory file to reflect as well as the `bootstrap_url` in your variables file. If you receive the following error after you replace the bootstrap node, please ensure that you have updated the variables file as well.
 
-```
+```text
 TASK [DCOS.master : Upgrade: Run DC/OS master upgrade] **********************************************************************
 fatal: [172.12.8.139]: FAILED! => {"changed": true, "cmd": "set -o pipefail; ./dcos_node_upgrade.sh --verbose | systemd-cat -t dcos-upgrade", "delta": "0:00:27.758455", "end": "2019-04-06 00:59:47.232139", "msg": "non-zero return code", "rc": 1, "start": "2019-04-06 00:59:19.473684", "stderr": "ERROR: Unable to fetch package dcos-config--setup_c0495a51346db67a274d71c612d1f0648ead23d0: Problem fetching http://172.12.6.132:8080/1.12.0/genconf/serve/packages/dcos-config/dcos-config--setup_c0495a51346db67a274d71c612d1f0648ead23d0.tar.xz to /tmp/tmp09jvhnfa.tar.xz because of HTTPConnectionPool(host='172.12.6.132', port=8080): Max retries exceeded with url: /1.12.0/genconf/serve/packages/dcos-config/dcos-config--setup_c0495a51346db67a274d71c612d1f0648ead23d0.tar.xz (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7272a92a90>: Failed to establish a new connection: [Errno 113] No route to host',)). Unable to remove partial download. Future builds may have problems because of it.", "stderr_lines": ["ERROR: Unable to fetch package dcos-config--setup_c0495a51346db67a274d71c612d1f0648ead23d0: Problem fetching http://172.12.6.132:8080/1.12.0/genconf/serve/packages/dcos-config/dcos-config--setup_c0495a51346db67a274d71c612d1f0648ead23d0.tar.xz to /tmp/tmp09jvhnfa.tar.xz because of HTTPConnectionPool(host='172.12.6.132', port=8080): Max retries exceeded with url: /1.12.0/genconf/serve/packages/dcos-config/dcos-config--setup_c0495a51346db67a274d71c612d1f0648ead23d0.tar.xz (Caused by NewConnectionError('<urllib3.connection.HTTPConnection object at 0x7f7272a92a90>: Failed to establish a new connection: [Errno 113] No route to host',)). Unable to remove partial download. Future builds may have problems because of it."], "stdout": "", "stdout_lines": []}
 	to retry, use: --limit @/home/centos/ansible_collections/dcos/dcos_ansible/dcos-ansible-0.51.0/dcos.retry

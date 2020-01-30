@@ -126,7 +126,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 5.  Go to [CloudFormation](https://console.aws.amazon.com/cloudformation/home) and click **Create Stack**.
 6.  On the **Select Template** page, specify the AWS S3 template URL path to your Zen template. For example:
 
-    ```
+    ```html
     https://s3-us-west-2.amazonaws.com/user-aws/templates/config_id/14222z9104081387447be59e178438749d154w3g/cloudformation/ee.el7-zen-1.json
     ```
 
