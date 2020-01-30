@@ -21,7 +21,7 @@ DC/OS&trade; 1.12 and later sends metrics using [Telegraf&trade;](/mesosphere/dc
 
 1. Create a file named `datadog.conf` with the following content:
 
-    ```
+    ```sh
     # Transmit all metrics to Datadog
     [[outputs.datadog]]
       ## Datadog API key
