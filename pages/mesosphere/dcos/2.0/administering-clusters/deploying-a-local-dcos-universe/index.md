@@ -48,13 +48,13 @@ This section explains how to deploy a local {{ model.packageRepo }} containing c
 
 1.  Confirm that the files were successfully copied.
 
-    ```
+    ```text
     ls
     ```
 
     You should see the following files listed.
 
-    ```
+    ```text
     dcos-local-universe-http.service  
     dcos-local-universe-registry.service  
     local-universe.tar.gz
@@ -62,7 +62,7 @@ This section explains how to deploy a local {{ model.packageRepo }} containing c
 
 1.  Move the registry files into the `/etc/systemd/system/` directory.
 
-    ```
+    ```bash
     sudo mv dcos-local-universe-registry.service /etc/systemd/system/
     sudo mv dcos-local-universe-http.service /etc/systemd/system/
     ```
@@ -107,7 +107,7 @@ If you only have one master, skip to [Linking local {{ model.packageRepo }} to m
 
 1.  Use the following command to discover the private IP addresses of all of your masters. Identify the private IP address of the master you are SSHed into right now from the list. It will match the path shown after `core@ip-` in your prompt, where the hyphens become periods.
 
-    ```
+    ```bash
     host master.mesos
     ```
 
@@ -127,19 +127,19 @@ If you only have one master, skip to [Linking local {{ model.packageRepo }} to m
 
 4.  Confirm that the files were successfully copied.
 
-    ```
+    ```bash
     ls
     ```
 
     You should see the following files listed.
 
-    ```
+    ```text
     dcos-local-universe-http.service  dcos-local-universe-registry.service  local-universe.tar.gz
     ```
 
 5.  Move the registry files into the `/etc/systemd/system/` directory.
 
-    ```
+    ```bash
     sudo mv dcos-local-universe-registry.service /etc/systemd/system/
     sudo mv dcos-local-universe-http.service /etc/systemd/system/
     ```
@@ -152,7 +152,7 @@ If you only have one master, skip to [Linking local {{ model.packageRepo }} to m
 
 7.  Load the {{ model.packageRepo }} into the local Docker instance. This may take some time to complete.
 
-    ```
+    ```bash
     sudo docker load < local-universe.tar.gz
     ```
 
@@ -209,7 +209,7 @@ Repeat this section until you have completed this procedure for all of your mast
     sudo mkdir -p /etc/docker/certs.d/master.mesos:5000
     sudo curl -o /etc/docker/certs.d/master.mesos:5000/ca.crt http://master.mesos:8082/certs/domain.crt
     sudo systemctl restart docker
-    ```
+    ```bash
 
 1. Configure the Apache&reg; Mesos&reg; fetcher to trust the downloaded Docker certificate.
 
@@ -218,12 +218,12 @@ Repeat this section until you have completed this procedure for all of your mast
     sudo cp /etc/docker/certs.d/master.mesos:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
     ```
     - Generate a hash:
-    ```
+    ```bash
     cd /var/lib/dcos/pki/tls/certs/
     openssl x509 -hash -noout -in docker-registry-ca.crt
     ```
     - Create a soft link. You will need to create the `/pki/tls/certs` directory on the public agent.
-    ```
+    ```bash
     sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
     ```
   
