@@ -15,7 +15,7 @@ The `dcos backup delete` command will delete an existing backup.
 
 # Usage
 
-```
+```bash
 dcos backup delete <backup id> [flags]
 ```
 
@@ -48,7 +48,7 @@ See the documentation for [`dcos backup list`](/mesosphere/dcos/2.0/cli/command-
 
 1. Use the backup ID to delete the backup:
 
-    ```
+    ```bash
     dcos backup delete backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27
     ```
 

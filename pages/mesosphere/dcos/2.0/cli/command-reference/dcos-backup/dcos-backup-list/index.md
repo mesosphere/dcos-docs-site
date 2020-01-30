@@ -47,7 +47,7 @@ backup3-317c19df-34e4-41a0-93c9-d66c7f307208      1.13.0      STATUS_BACKING_UP 
 
 ## List only backups starting with 'backup-'
 
-```
+```bash
 dcos backup list backup-
 BACKUP ID                                         VERSION     STATUS           TIMESTAMP
 ---------                                         -------     ------           ---------
