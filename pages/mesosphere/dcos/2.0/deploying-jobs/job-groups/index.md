@@ -104,45 +104,45 @@ You can implement fine-grained user access to jobs by using either the DC/OS&tra
 
 -  **DC/OS jobs access:**
 
-    1.  Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
+    Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
 
-        ```bash
-        dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
-        dcos security org users grant <user-name> service:metronome:metronome:jobs:<job-group>/<job-name> full --description "Controls access to <job-group>/<job-name>"
-        ```
+    ```bash
+    dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
+    dcos security org users grant <user-name> service:metronome:metronome:jobs:<job-group>/<job-name> full --description "Controls access to <job-group>/<job-name>"
+    ```
 
 -  **DC/OS service tasks and logs:**
 
-    1.  Grant the permission to a user (`<user-name>`).
+    Grant the permission to a user (`<user-name>`).
 
-        ```bash
-        dcos security org users grant <user-name> adminrouter:ops:mesos full --description "Grants access to the Mesos master API/UI and task details"
-        dcos security org users grant <user-name> adminrouter:ops:slave full --description "Grants access to the Mesos agent API/UI and task details such as logs"
-        ```   
+    ```bash
+    dcos security org users grant <user-name> adminrouter:ops:mesos full --description "Grants access to the Mesos master API/UI and task details"
+    dcos security org users grant <user-name> adminrouter:ops:slave full --description "Grants access to the Mesos agent API/UI and task details such as logs"
+    ```   
 
 ### Strict
 
 -  **DC/OS jobs access:**
 
-    1.  Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
+    Grant the permission to job group (`<job-group>`) and job name (`<job-name>`).
 
-        ```bash
-        dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
-        dcos security org users grant <user-name> service:metronome:metronome:jobs:<job-group>/<job-name> full --description "Controls access to <job-group>/<job-name>"
-        ```
+    ```bash
+    dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
+    dcos security org users grant <user-name> service:metronome:metronome:jobs:<job-group>/<job-name> full --description "Controls access to <job-group>/<job-name>"
+    ```
 
 -  **DC/OS service tasks and logs:**
 
-   1.  Grant the permission to the user (`<user-name>`) and group (`<job-group>`).
+    Grant the permission to the user (`<user-name>`) and group (`<job-group>`).
 
-        ```bash
-        dcos security org users grant <user-name> adminrouter:ops:mesos full --description "Grants access to the Mesos master API/UI and task details"
-        dcos security org users grant <user-name> adminrouter:ops:slave full --description "Grants access to the Mesos agent API/UI and task details such as logs"
-        dcos security org users grant <user-name> mesos:master:framework:role:* read --description "Controls access to frameworks registered with the Mesos default role"
-        dcos security org users grant <user-name> mesos:master:executor:app_id:/<job-group>/<job-name> read --description "Controls access to executors running inside <job-group>/<job-name>"
-        dcos security org users grant <user-name> mesos:master:task:app_id:/<job-group>/<job-name> read --description "Controls access to tasks running inside <job-group>/<job-name>"
-        dcos security org users grant <user-name> mesos:agent:framework:role:* read --description "Controls access to information about frameworks registered under the Mesos default role"
-        dcos security org users grant <user-name> mesos:agent:executor:app_id:/<job-group>/<job-name> read --description "Controls access to executors running inside <job-group>/<job-name>"
-        dcos security org users grant <user-name> mesos:agent:task:app_id:/<job-group>/<job-name> read --description "Controls access to tasks running inside <job-group>/<job-name>"
-        dcos security org users grant <user-name> mesos:agent:sandbox:app_id:/<gid>/ read --description "Controls access to the sandboxes of <job-group>/<job-name>"
-        ```
+    ```bash
+    dcos security org users grant <user-name> adminrouter:ops:mesos full --description "Grants access to the Mesos master API/UI and task details"
+    dcos security org users grant <user-name> adminrouter:ops:slave full --description "Grants access to the Mesos agent API/UI and task details such as logs"
+    dcos security org users grant <user-name> mesos:master:framework:role:* read --description "Controls access to frameworks registered with the Mesos default role"
+    dcos security org users grant <user-name> mesos:master:executor:app_id:/<job-group>/<job-name> read --description "Controls access to executors running inside <job-group>/<job-name>"
+    dcos security org users grant <user-name> mesos:master:task:app_id:/<job-group>/<job-name> read --description "Controls access to tasks running inside <job-group>/<job-name>"
+    dcos security org users grant <user-name> mesos:agent:framework:role:* read --description "Controls access to information about frameworks registered under the Mesos default role"
+    dcos security org users grant <user-name> mesos:agent:executor:app_id:/<job-group>/<job-name> read --description "Controls access to executors running inside <job-group>/<job-name>"
+    dcos security org users grant <user-name> mesos:agent:task:app_id:/<job-group>/<job-name> read --description "Controls access to tasks running inside <job-group>/<job-name>"
+    dcos security org users grant <user-name> mesos:agent:sandbox:app_id:/<gid>/ read --description "Controls access to the sandboxes of <job-group>/<job-name>"
+    ```
