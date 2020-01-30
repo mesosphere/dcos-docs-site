@@ -15,7 +15,7 @@ The `dcos package repo import` command lets you import a file containing a packa
 
 # Usage
 
-```
+```bash
 dcos package repo import <repos-file>
 ```
 
