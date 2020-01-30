@@ -15,7 +15,7 @@ The `dcos security cluster secret-store seal-status` command displays the seal s
 
 # Usage
 
-```
+```bash
 dcos security cluster secret-store seal-status [OPTIONS] STORE_ID
 ```
 

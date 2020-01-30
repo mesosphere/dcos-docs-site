@@ -14,7 +14,7 @@ The `dcos security org groups del_user` command allows you to delete a user from
 
 # Usage
 
-```
+```bash
 dcos security org groups del_user [OPTIONS] GID UID
 ```
 

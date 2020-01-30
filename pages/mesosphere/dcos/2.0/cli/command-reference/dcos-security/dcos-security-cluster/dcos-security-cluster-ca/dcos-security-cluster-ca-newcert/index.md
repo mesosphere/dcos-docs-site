@@ -15,7 +15,7 @@ The `dcos security cluster ca newcert` command allows you to create and sign a n
 
 # Usage
 
-```
+```bash
 dcos security cluster ca newcert [OPTIONS]
 ```
 
@@ -40,7 +40,7 @@ dcos security cluster ca newcert [OPTIONS]
 
 # Example
 
-```
+```text
 dcos security cluster ca newcert --cn Certificate_1 --host SAN-1
 certificate: '-----BEGIN CERTIFICATE-----
 

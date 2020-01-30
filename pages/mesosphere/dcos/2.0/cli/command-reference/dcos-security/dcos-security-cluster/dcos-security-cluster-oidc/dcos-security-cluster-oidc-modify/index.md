@@ -15,7 +15,7 @@ The `cos security cluster oidc modify` command lets you modify an existing OIDC 
 
 # Usage
 
-```
+```bash
 dcos security cluster oidc modify [OPTIONS] OIDC_ID
 ```
 

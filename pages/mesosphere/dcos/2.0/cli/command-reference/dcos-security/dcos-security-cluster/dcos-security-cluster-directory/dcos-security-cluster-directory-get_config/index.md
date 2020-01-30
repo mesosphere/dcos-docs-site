@@ -22,7 +22,7 @@ The `dcos security cluster directory get_config` command will retrieve the curre
 
 # Usage
 
-```
+```bash
 dcos security cluster directory get_config [OPTIONS]
 ```
 

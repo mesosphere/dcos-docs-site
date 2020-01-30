@@ -15,7 +15,7 @@ The `dcos security org service-accounts` commands allow you to manage your secur
 
 # Usage
 
-```
+```bash
 dcos security org service-accounts [OPTIONS] COMMAND [ARGS]...
 ```
 

@@ -15,7 +15,7 @@ The `dcos security org groups grant` command grants the group with the given GID
 
 # Usage
 
-```
+```bash
 dcos security org groups grant [OPTIONS] GID RID ACTION
 ```
 

@@ -15,7 +15,7 @@ The `dcos security cluster secret-store status` command will display information
 
 # Usage
 
-```
+```bash
 dcos security cluster secret-store status [OPTIONS] STORE_ID
 ```
 

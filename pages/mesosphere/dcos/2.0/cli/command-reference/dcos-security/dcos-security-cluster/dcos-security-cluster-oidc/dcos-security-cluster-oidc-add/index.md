@@ -17,7 +17,7 @@ The `dcos security cluster oidc add` command allows you to configure a new OpenI
 
 # Usage
 
-```
+```bash
 dcos security cluster oidc add [OPTIONS] OIDC_ID
 ```
 

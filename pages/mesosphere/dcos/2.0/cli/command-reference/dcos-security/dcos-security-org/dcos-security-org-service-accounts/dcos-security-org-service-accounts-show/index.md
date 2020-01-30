@@ -15,7 +15,7 @@ The `dcos security org service-accounts show` command displays the details of a 
 
 # Usage
 
-```
+```bash
 dcos security org service-accounts show [OPTIONS] [SIDS]...
 ```
 

@@ -16,7 +16,7 @@ The `dcos security cluster ca cacert` command will fetch the PEM-encoded signing
 
 # Usage
 
-```
+```bash
 dcos security cluster ca cacert [OPTIONS]
 ```
 
@@ -29,7 +29,7 @@ dcos security cluster ca cacert [OPTIONS]
 
 # Example
 
-```
+```text
 dcos security cluster ca cacert
 -----BEGIN CERTIFICATE-----
 MIIDszCCApugAwIBAgIQSgKc/+yCRSGVzvbfW0/WaDANBgkqhkiG9w0BAQsFADCB
