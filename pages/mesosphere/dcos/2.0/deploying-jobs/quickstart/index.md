@@ -416,7 +416,7 @@ If you want to use the same schedule for more than one job, however, you can cre
 
     If you attempt to add a schedule definition to a job that already has a schedule defined, the command displays an error similar to the following:
 
-    ``` 
+    ```text
     Error: 409 - requirement failed: A schedule with id nightly already exists
     ```
 
@@ -475,14 +475,14 @@ To remove a job:
 
 1. Verify that you have removed the specified job by running the following command:
 
-    ```
+    ```bash
     dcos job list
     ```
 
 ## Modify a job from the command line
 To modify your job, update your JSON job file, then run the command:
 
-```
+```bash
 dcos job update <job-file>.json
 ```
 
@@ -492,7 +492,7 @@ You can update the schedule of your job in two ways, depending if your job has a
 #### Modify a job with a schedule
 Modify the `schedules` parameter of your `<job-file>.json`. Then run the command:
 
-```
+```bash
 dcos job update <job-file>.json
 ```
 
@@ -508,38 +508,38 @@ dcos job schedule update <job-id> <schedule-file>.json
 ## View job details
 List all jobs:
 
-```
+```bash
 dcos job list
 ```
 
 List all previous runs of your job:
 
-```
+```bash
 dcos job history <job-id>
 ```
 
 To view details about your job, run the command:
 
-```
+```bash
 dcos job show <job-id>
 ```
 
 To view details about your job's schedule, run the command:
 
-```
+```bash
 dcos job schedule show <job-id>
 ```
 
 ### View job logs
 To view the log for your job, run the command:
 
-```
+```bash
 dcos task log --completed <job-id>
 ```
 
 To get the log for only a specific job run, use a job run ID from `dcos job history <job-id>`
 
-```
+```bash
 dcos task log --completed <job-run-id>
 ```
 <a name="jobs-api"></a>
@@ -558,13 +558,13 @@ In addition, one important difference between using the DC/OS CLI or UI and the 
 ## Add a job using an API call
 The following command adds a job called `myjob.json`.
 
-```
+```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs -d@/Users/<your-username>/<myjob>.json
 ```
 
 ## Remove a job using an API call
 The following command removes a job regardless of whether the job is running:
-```
+```bash
 curl -X DELETE -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>?stopCurrentJobRuns=true
 ```
 
@@ -573,19 +573,19 @@ To remove a job only if it is not running, set `stopCurrentJobRuns` to `False`.
 ## Modify or view a job using an API call
 The following command shows all jobs:
 
-```
+```bash
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs
 ```
 
 The following command lists job runs:
 
-```
+```bash
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "$(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>/runs/"
 ```
 
 Stop a run with the following command:
 
-```
+```bash
 curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "$(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>/runs/20160725212507ghwfZ/actions/stop"
 ```
 
@@ -594,7 +594,7 @@ curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" "
 ## Add a schedule to a job
 The following command adds a schedule to a job:
 
-```
+```bash
 curl -X POST -H "Content-Type: application/json" -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<job-id>/schedules -d@<schedule-file>.json
 ```
 
@@ -603,6 +603,6 @@ You can use the DC/OS API to start jobs programmatically. Similar to starting a 
 
 To trigger a job run to start you can use a REST API call similar to the following:
 
-```
+```bash
 curl -X POST -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/{jobId}/runs
 ```

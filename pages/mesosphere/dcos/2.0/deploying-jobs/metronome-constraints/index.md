@@ -41,7 +41,7 @@ Supported in DC/OS&trade; 1.12.1 and later.
 
 **Value** (required): A Mesos Scalar or Text value, as specified by the [Mesos Attributes and Resources Type Specification](http://mesos.apache.org/documentation/latest/attributes-resources/#types):
 
-```
+```bash
 scalar : floatValue
 
 floatValue : ( intValue ( "." intValue )? ) | ...
@@ -55,7 +55,7 @@ text : [a-zA-Z0-9_/.-]
 
 When an `IS` constraint is specified, a task is only launched on nodes that have the specified value.
 
-``` json
+```json
 {
   "id": "sleep-cluster",
   "cmd": "sleep 60",
@@ -126,7 +126,7 @@ If the attribute in question is a scalar, it is rounded to the nearest thousandt
 
 `UNLIKE` is similar to the `LIKE` operator, but instructs Metronome to only run tasks on agents whose field values **do not** match the regular expression.
 
-``` json
+```json
 {
   "description": "Important Job",
   "id": "sleeper",
