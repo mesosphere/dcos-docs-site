@@ -6,6 +6,7 @@ featureMaturity:
  
 category: K-Sphere
 menuWeight: 0
+beta: true
 ---
 
 Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
