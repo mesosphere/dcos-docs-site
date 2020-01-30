@@ -8,8 +8,9 @@ excerpt: A guide for attaching an existing Kubernetes cluster using kubeconfig
 
 ## Attach Kubernetes Cluster
 
-Using the Add Cluster option, you can attach an already existing cluster, even an existing Konvoy cluster, directly to Kommander. Enjoy all the multi-cluster management and monitoring benefits that Kommander provides while keeping your existing cluster on its current provider & infrastructure.
+Using the **Add Cluster** option, you can attach an already existing cluster, or an existing Konvoy cluster, directly to Kommander. You can access the multi-cluster management and monitoring benefits Kommander provides while keeping your existing cluster on its current provider and infrastructure.
 
-Clicking the Connect Cluster option will reveal a UI that accepts a kubeconfig file that you may either paste or upload into the form. You can select the intended context from the Context select list or change the display name provided with the config. Add labels to classify your cluster.
+Selecting the **Connect Cluster** option displays the **Connection Information** dialog box. This dialog box accepts a kubeconfig file, that you can paste, or upload into the field. In the **Conext** select list, you can select the intended context or change the display name provided with the config. You can add labels to classify your cluster.
 
 ![Add Cluster Connect](../../../img/add-cluster-connect.png)
+
