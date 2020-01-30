@@ -8,6 +8,27 @@ excerpt: A guide for creating Konvoy clusters on your own premises' infrastructu
 
 ## Prerequisites
 
-Configured [On-Prem Provider](/ksphere/kommander/latest/operations/cloud-providers/#configuring-an-on-premise-provider)
+- Configured [On-Prem Cloud Provider](/ksphere/kommander/latest/operations/cloud-providers/#configuring-an-on-premise-provider)
+- [konvoy CLI](/ksphere/konvoy/latest/download/)
 
-To start the Konvoy installation, you first need an Ansible inventory file in your current working directory to describe the hosts where you want to install Konvoy. Konvoy will automatically generate the skeleton of the inventory file for you during initialization:
+## Inventory Your Hosts
+
+You need an Ansible inventory file to describe the hosts where you want to install Konvoy. You can use Konvoy to generate the skeleton of your inventory and cluster definitions:
+
+```bash
+konvoy init --provisioner=none [--cluster-name <your-specified-name>]
+```
+
+## Cluster Configuration
+
+After you edit the inventory file, edit the generated cluster.yaml file. The cluster.yaml file provides the configuration details for creating your Konvoy cluster.
+
+See the [Install on-premise](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
+
+## Provision in UI
+
+![Add Cluster Options](../../../img/add-cluster.png)
+
+From the Add Cluster menu, select the Upload YAML to Create a Cluster option and select the On Premise Cloud Provider from the Select Cloud Provider field.
+
+Paste the contents of the cluster.yaml and inventory.yaml files into the form and click Continue to begin provisioning Konvoy onto your hosts.
