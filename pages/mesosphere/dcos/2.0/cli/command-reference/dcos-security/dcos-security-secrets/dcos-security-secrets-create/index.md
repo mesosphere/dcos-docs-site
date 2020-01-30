@@ -14,7 +14,7 @@ enterprise: true
 The `dcos security secrets create` command allows you to create and store secrets under a specific path.
 # Usage
 
-```
+```bash
 dcos security secrets create [OPTIONS] PATH
 ```
 

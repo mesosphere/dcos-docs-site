@@ -15,7 +15,7 @@ The `dcos security secrets list` command will list all secrets stored in a given
 
 # Usage
 
-```
+```bash
 dcos security secrets list [OPTIONS] PATH
 ```
 
