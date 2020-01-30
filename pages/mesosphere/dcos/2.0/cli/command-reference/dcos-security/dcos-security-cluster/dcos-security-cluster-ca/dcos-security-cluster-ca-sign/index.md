@@ -15,7 +15,7 @@ The `dcos security cluster ca sign` command allows you to sign a Certificate Sig
 
 # Usage
 
-```
+```bash
 dcos security cluster ca sign [OPTIONS]
 ```
 

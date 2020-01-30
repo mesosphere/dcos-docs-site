@@ -17,7 +17,7 @@ If multiple providers are specified, only the first ID is evaluated.
 
 # Usage
 
-```
+```bash
 dcos security cluster oidc show [OPTIONS] [OIDC_ID]...
 ```
 

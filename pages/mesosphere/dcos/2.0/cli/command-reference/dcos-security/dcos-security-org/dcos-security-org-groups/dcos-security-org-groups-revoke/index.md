@@ -14,7 +14,7 @@ The `dcos security org groups revoke` command will revoke permission for the gro
 
 # Usage
 
-```
+```bash
 dcos security org groups revoke [OPTIONS] GID RID ACTION
 ```
 

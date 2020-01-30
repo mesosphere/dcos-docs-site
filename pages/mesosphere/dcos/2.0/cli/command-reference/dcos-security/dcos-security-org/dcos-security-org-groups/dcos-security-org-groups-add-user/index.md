@@ -14,7 +14,7 @@ The `dcos security org groups add_user` command allows you to add users to a spe
 
 # Usage
 
-```
+```bash
 dcos security org groups add_user [OPTIONS] GID UID
 ```
 

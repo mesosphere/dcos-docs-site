@@ -15,7 +15,7 @@ The `dcos security org service-accounts delete` command allows you to delete a s
 
 # Usage
 
-```
+```bash
 dcos security org service-accounts delete [OPTIONS] SID
 ```
 

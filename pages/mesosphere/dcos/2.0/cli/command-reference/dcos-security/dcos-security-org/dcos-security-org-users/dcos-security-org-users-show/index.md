@@ -24,7 +24,7 @@ The `dcos security org users show` command will display information about a user
 
 # Usage
 
-```
+```bash
 Usage: dcos security org users show [OPTIONS] [UIDS]...
 
   Print information about a user or users.

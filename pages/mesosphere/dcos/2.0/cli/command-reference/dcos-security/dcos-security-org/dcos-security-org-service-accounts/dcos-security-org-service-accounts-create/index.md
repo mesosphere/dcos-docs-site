@@ -15,7 +15,7 @@ The `dcos security org service-accounts create` command allows you to create a s
 
 # Usage
 
-```
+```bash
 dcos security org service-accounts create [OPTIONS] SID
 ```
 

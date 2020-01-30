@@ -14,7 +14,7 @@ The `dcos security cluster saml add` command lets you configure a new SAML provi
 
 # Usage
 
-```
+```bash
 dcos security cluster saml add [OPTIONS] SAML_ID
 ```
 

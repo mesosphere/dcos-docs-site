@@ -16,7 +16,7 @@ The `dcos security cluster saml modify` command allows you to modify an existing
 
 # Usage
 
-```
+```bash
 dcos security cluster saml modify [OPTIONS] SAML_ID
 ```
 

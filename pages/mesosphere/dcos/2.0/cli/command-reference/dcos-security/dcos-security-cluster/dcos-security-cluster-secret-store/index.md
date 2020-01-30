@@ -16,7 +16,7 @@ The `dcos security cluster secret-store` command displays the settings for your 
 
 # Usage
 
-```
+```bash
 dcos security cluster secret-store [OPTIONS] COMMAND [ARGS]...
 ```
 

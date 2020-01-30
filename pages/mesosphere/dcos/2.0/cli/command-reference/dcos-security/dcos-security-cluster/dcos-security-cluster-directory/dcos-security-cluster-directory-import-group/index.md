@@ -15,7 +15,7 @@ The `dcos security cluster directory import_group` command imports a group of us
 
 # Usage
 
-```
+```bash
 dcos security cluster directory import_user [OPTIONS] GID
 ```
 

@@ -14,7 +14,7 @@ The `dcos security cluster secret-store unseal` command allows you to unseal a g
 
 # Usage
 
-```
+```bash
 dcos security cluster secret-store unseal [OPTIONS] STORE_ID KEY
 ```
 

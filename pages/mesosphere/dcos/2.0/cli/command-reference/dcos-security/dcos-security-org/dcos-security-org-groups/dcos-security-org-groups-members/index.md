@@ -14,7 +14,7 @@ The `dcos security org groups members` command will list all the members in a gr
 
 # Usage
 
-```
+```bash
 dcos security org groups members [OPTIONS] GID
 ```
 

@@ -14,7 +14,7 @@ The `dcos security org groups delete` command allows you to remove a group.
 
 # Usage
 
-```
+```bash
 dcos security org groups delete [OPTIONS] GID
 ```
 

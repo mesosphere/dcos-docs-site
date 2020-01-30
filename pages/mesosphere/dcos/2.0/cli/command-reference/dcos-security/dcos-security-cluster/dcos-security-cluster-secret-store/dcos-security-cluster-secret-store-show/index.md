@@ -17,7 +17,7 @@ If multiple secrets stores are specified, only the first ID is evaluated.
 
 # Usage
 
-```
+```bash
 dcos security cluster secret-store show [OPTIONS] [STORE_ID]...
 ```
 
