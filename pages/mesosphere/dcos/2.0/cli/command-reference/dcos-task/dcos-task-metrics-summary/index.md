@@ -15,7 +15,7 @@ The `dcos task metrics summary` command displays a table of key metrics for the 
 
 # Usage
 
-```
+```bash
 dcos task metrics summary <task-id> [--json]
 ```
 
