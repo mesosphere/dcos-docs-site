@@ -12,7 +12,7 @@ The `dcos license` commands allow you to review the status of your license, audi
 
 # Usage
 
-```
+```bash
 dcos license [OPTIONS] COMMAND [ARGS]...
 ```
 
