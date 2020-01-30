@@ -229,34 +229,34 @@ At this point its time to do changes to your `dcos` module so it knows about the
 
 1. Choose a subnet range. In general this change is not needed but we wanted to make your example pretty specific.
 
-```bash
+
 `subnet_range = "${local.region_networks["master"]}"`
-```
+
 
 2. Add accepted internal networks. Same as in the remote region we need to specify the internal networks to allow internal traffic flow.
-```bash
+
 `accepted_internal_networks = "${values(local.region_networks)}"`
-```
+
 
 3. Change the cluster_name. As this is a shared resource we will make use of the local variable.
-```bash
+
 `cluster_name = "${local.cluster_name}"`
-```
+
 
 4. List the SSH key. This is also a shared resource and we can make use of the local variable
-```bash
+
   `ssh_public_key_file = "${local.ssh_public_key_file}"`
-```
+
 
 5. Add the admin IPs following the same pattern.
-```bash
+
 `admin_ips = ["${local.admin_ips}"`]
-```
+
 
 6. Add the private agents. This nearly the most important new variable. This tells the DC/OS installation module which other agents need to be installed.
-```bash
+
 `additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]`
-```
+
 
 7. Update the providers section. As we change to explicit alias providers we have to point our dcos module to this specific provider.
 
