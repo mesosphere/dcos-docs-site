@@ -236,7 +236,7 @@ The infrastructure template (`infra.json`) defines, and creates, a DC/OS specifi
     <td>Subnet ID for use by all public agent nodes</td>
   </tr>
   <tr>
-    <td>Vpc</td>
+    <td>VPC</td>
     <td>Existing VPC to use. Nodes will be launched using subnets and Internet Gateway under this VPC</td>
   </tr>
 </table>

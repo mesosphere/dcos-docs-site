@@ -30,7 +30,7 @@ A DC/OS cluster requires robust time synchronization between nodes for optimal f
 
   -  Add the following lines to the VM configuration file (.vmx) [to disable time synchronization](https://kb.vmware.com/s/article/1189):
 
-  ```
+  ```bash
   tools.syncTime = "0"
   time.synchronize.continue = "0"
   time.synchronize.restore = "0"
