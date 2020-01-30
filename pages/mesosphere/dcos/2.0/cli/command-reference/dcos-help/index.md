@@ -32,7 +32,7 @@ Type `dcos help [path to command]` for full details.
 
 ## Display output of `dcos help` command without arguments
 
-```
+```bash
 dcos help
 Usage:
   dcos [command]
