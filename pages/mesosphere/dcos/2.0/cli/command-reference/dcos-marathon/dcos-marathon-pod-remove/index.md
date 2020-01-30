@@ -38,7 +38,8 @@ dcos marathon pod remove [--force] <pod-id>
 
 ## Remove a Pod
 Remove a pod with the following command:
-```
+
+```bash
 dcos marathon pod remove <pod-id>
 ```
 
