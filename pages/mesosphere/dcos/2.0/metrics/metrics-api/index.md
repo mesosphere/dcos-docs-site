@@ -19,7 +19,7 @@ To get started with the DC/OS metrics component and how to use the Metrics API, 
 
 Access to the Metrics API is proxied through Admin Router to each node. Statistics for the current leader are prefixed with:
 
-```
+```sh
 /system/v1/metrics/v0/
 ```
 
@@ -27,7 +27,7 @@ Access to the Metrics API is proxied through Admin Router to each node. Statisti
 
 Statistics for an agent are prefixed with:
 
-```
+```sh
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
@@ -40,13 +40,13 @@ The Metrics API request and response bodies are formatted in JSON.
 
 Requests must include the accept header:
 
-```
+```sh
 Accept: application/json
 ```
 
 Responses will include the content type header:
 
-```
+```sh
 Content-Type: application/json
 ```
 
