@@ -12,9 +12,9 @@ enterprise: false
 This document is intended for a developer creating new DC/OS&trade; CLI subcommands. See also [{{ model.packageRepo }} Getting Started][1].
 
 The [DC/OS command-line interface (CLI)](/mesosphere/dcos/2.0/cli/) is a utility to manage cluster nodes, install and manage packages, inspect the cluster state, and manage services and tasks. The DC/OS CLI is open and extensible: anyone can create a new subcommand and make it available for installation by end users. For example, the [Spark&trade; DC/OS service][2] provides CLI extensions for working with Spark. When installed, you can type the following command to submit Spark jobs and query their status:
-
-    dcos spark [<flags>] <command>
-
+```bash
+dcos spark [<flags>] <command>
+```
 
 # How the DC/OS CLI discovers subcommands
 
@@ -23,12 +23,15 @@ When you run the `dcos` command, it searches the current shell's PATH for execut
 ## Installing a CLI subcommand
 
 To install a CLI subcommand, run:
-
-    dcos package install <package>
+```bash
+dcos package install <package>
+```
 
 or
 
-    dcos package install <package> --cli
+```bash
+dcos package install <package> --cli
+```
 
 The same [packaging format and repository][11] is used for both DC/OS services and CLI subcommands.
 
@@ -43,7 +46,7 @@ The same [packaging format and repository][11] is used for both DC/OS services a
 ### Standard flags
 You must assign a standard set of flags to each DC/OS CLI subcommand, described below:
 
-```
+```text
 --info
 --help
 -h
@@ -55,14 +58,14 @@ The `--info` flag shows a short, one-line description of the function of your su
 
 ##### Example from the Spark CLI:
 
-```
+```bash
 dcos spark --info
 Spark DC/OS CLI Module
 ```
 
 When you run the `dcos` command without parameters, the info is returned for each subcommand:
 
-```
+```bash
 dcos | grep spark
       spark        Spark DC/OS CLI Module
 ```
@@ -72,7 +75,7 @@ The  `--help` and `-h` flags both show the detailed usage for your subcommand.
 
 Example from the Marathon&trade; CLI:
 
-```
+```bash
 dcos marathon --help
 Description:
     Deploy and manage applications to DC/OS.

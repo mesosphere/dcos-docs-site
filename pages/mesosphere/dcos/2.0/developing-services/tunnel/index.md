@@ -133,7 +133,7 @@ served by `myapp` to be output output as text.
 ##  Using DC/OS Tunnel to run a SOCKS Proxy
 1. Run the following command from the DC/OS CLI:
 
-    ```
+    ```bash
     dcos tunnel socks
    
     ## Example
@@ -147,7 +147,7 @@ served by `myapp` to be output output as text.
 
 1. Run the following command from the DC/OS CLI:
 
-    ```
+    ```bash
     sudo dcos tunnel http
 
     ## Example
@@ -165,7 +165,7 @@ served by `myapp` to be output output as text.
 ### Standard mode
 1. To run the HTTP proxy in standard mode, without root privileges, use the `--port` flag to configure it to use another port:
 
-    ```
+    ```bash
     dcos tunnel http --port 8000
 
     ## Example
@@ -214,7 +214,7 @@ Alternatively, you can add `name` to the `portMappings` or `portDefinitions` fie
 ##  Using DC/OS Tunnel to run a VPN
 Run the following command from the DC/OS CLI:
 
-```
+```bash
 sudo dcos tunnel vpn
 
 ## Example
@@ -226,14 +226,14 @@ The VPN client attempts to auto-configure DNS, but this functionality does not w
 When you use the VPN, you are virtually within your cluster. You can access
 your master and agent nodes directly:
 
-```
+```bash
 ping master.mesos
 ping slave.mesos
 ```
 
 ### macOS OpenVPN Client Installation
 * If using [homebrew](http://brew.sh/) then install with:
-    ```
+    ```bash
     brew install openvpn
     ```
     Then to use it:
@@ -241,14 +241,14 @@ ping slave.mesos
     Either add `/usr/local/sbin` to your `$PATH`,
 
     or add the flag `--client=/usr/local/sbin/openvpn` like so:
-    ```
+    ```bash
     sudo dcos tunnel vpn --client=/usr/local/sbin/openvpn
     ```
 
 * Another option is to install [TunnelBlick](https://tunnelblick.net/)
     (**Don't run it**, we are only installing it for the `openvpn` executable)
     and add the flag `--client=/Applications/Tunnelblick.app/Contents/Resources/openvpn/openvpn-*/openvpn` like so:
-    ```
+    ```bash
     sudo dcos tunnel vpn --client=/Applications/Tunnelblick.app/Contents/Resources/openvpn/openvpn-*/openvpn
     ```
 
