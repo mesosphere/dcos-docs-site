@@ -101,14 +101,14 @@ Or, as an alternative, you can also set the region variable to your desired regi
 
 ## Error: remote exec timeout
 These modules use remote exec over ssh to handle installations and upgrades. You will need to ensure your key is authenticated to the ssh-agent. Add your private key to the ssh-agent:
-```
+```bash
 ssh-add /your/private/key
 ```
 
 ## Error: resource already exists
 If you have previously lost state of a recent deployment or are attempting to reuse the same `cluster_name` variable for another deployment, you will see a “duplicate resource” error:
 
-```
+```text
 *module.dcos.module.dcos-infrastructure.module.dcos-elb.module.dcos-elb-masters.module.masters.aws_elb.loadbalancer: 1 error(s) occurred:
 
 * aws_elb.loadbalancer: DuplicateLoadBalancerName: Load Balancer named viktors-open-dcos-cluster-master already exists and it is configured with different parameters.
@@ -119,6 +119,7 @@ You will either need to remove the existing resources or change the `cluster_nam
 
 
 ## Error: unknown module referenced
+
 The Universal Installer is designed for simplicity.  If you run `terraform init` and run into this error message of `Error: output ____: reference to undefined module “____”`, it is likely that there are missing or conflicting files.
 
 Make sure that there are no duplicate Terraform files and that there is one single `main.tf` file in your folder.  After you’ve verified this, run `terraform init`.  This will install all the modules needed to run the Universal Installer.  No `git clone` is required.
