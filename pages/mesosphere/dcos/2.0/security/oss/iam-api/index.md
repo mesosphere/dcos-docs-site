@@ -15,9 +15,9 @@ The Identity and Access Management API allows you to manage users through a REST
 # Request and response format
 
 The API supports `JSON` only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
-
+```bash
     Content-Type: application/json
-
+```
 # Host name and base path
 
 The host name to use will vary depending on where your program is running.
@@ -27,8 +27,9 @@ The host name to use will vary depending on where your program is running.
 * If your program runs inside of the cluster, use `master.mesos`.
 
 Append `/acs/api/v1` to the host name, as shown below.
-
+```text
     http://<host-ip>/acs/api/v1
+```
 
 # Authentication
 
