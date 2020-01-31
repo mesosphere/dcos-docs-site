@@ -20,9 +20,9 @@ The Secrets API allows you to manage secrets and perform some back-end functions
 # Request and response format
 
 The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
-
+```bash
     Content-Type: application/json
-
+```
 
 # Host name and base path
 
@@ -33,9 +33,9 @@ The host name to use varies according to where your app is running.
 * If your app will run inside of the cluster, use `master.mesos`.
 
 Append `/secrets/v1/<api_endpoint>` to the host name, as shown below.
-
+```http
     https://<host-name-or-ip>/secrets/v1/<api_endpoint>
-
+```
 
 # Authentication and authorization
 

@@ -17,9 +17,9 @@ The Identity and Access Management (IAM) API allows you to manage users, user gr
 # Request and response format
 
 The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
-
+```text
     Content-Type: application/json
-
+```
 
 # Host name and base path
 
@@ -30,9 +30,9 @@ The host name to use will vary depending on where your program is running.
 * Use `master.mesos`, if your program runs inside of the cluster.
 
 Append `/acs/api/v1` to the host name, as shown below.
-
+```text
     https://<host-ip>/acs/api/v1
-
+```
 
 # Authentication and authorization
 

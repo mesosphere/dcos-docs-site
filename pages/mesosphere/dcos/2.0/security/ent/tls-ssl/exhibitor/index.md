@@ -10,20 +10,22 @@ enterprise: true
 # Verifying that Exhibitor is secured 
 
 Starting with DC/OS 2.0, Exhibitor is secured by default in most circumstances. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
-
+```bash
 
     curl -LI \
         --cacert /var/lib/dcos/exhibitor-tls-artifacts/root-cert.pem \
         --cert /var/lib/dcos/exhibitor-tls-artifacts/client-cert.pem \
         --key /var/lib/dcos/exhibitor-tls-artifacts/client-key.pem \
         https://localhost:8181/exhibitor/v1/ui/index.html
+```
 
 If you see the following, Exhibitor has been secured on your cluster:
-
+```bash
     HTTP/1.1 200 OK
     Content-Type: text/html
     Content-Length: 0
     Server: Jetty(1.5.6-SNAPSHOT)
+```
 
 # Securing Exhibitor
 
@@ -47,7 +49,7 @@ chmod +x exhibitor-tls-artifacts
 ```
 
 The expected output is shown below:
-
+```sh
     Usage: exhibitor-tls-artifacts [OPTIONS] [NODES]...
 
     Generates Admin Router and Exhibitor TLS artifacts. NODES should consist
@@ -58,7 +60,7 @@ The expected output is shown below:
     -d, --output-directory TEXT  Directory to put artifacts in. This
                                  output_directory must not exist.
     --help                       Show this message and exit.
-
+```
 
 
 ## Generating the artifacts
@@ -71,13 +73,14 @@ As an example, if your master nodes are `10.192.0.2, 10.192.0.3, 10.192.0.4`, in
 ```
 
 The above command will create a directory called `artifacts` (which must not exist prior to running the command) in the current directory. Under `artifacts` you will find root-cert.pem and truststore.jks. These files contain the root CA certificate in PEM and java keystore format. The `artifacts` directory will also contain 3 sub-directories, `10.192.0.2`, `10.192.0.3`, and `10.192.0.4`. Each containing the following files:
-
+```text
     client-cert.pem
     client-key.pem
     clientstore.jks
     root-cert.pem
     serverstore.jks
     truststore.jks
+```
 
 These directories contain all necessary files for securing each Exhibitor node.
 

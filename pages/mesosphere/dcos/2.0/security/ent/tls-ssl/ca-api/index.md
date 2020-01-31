@@ -18,9 +18,9 @@ The DC/OS Certificate Authority API allows you to view the TLS certificates used
 ## Request and response format
 
 The API supports JSON only. You must include `application/json` as your `Content-Type` in the HTTP header, as shown below.
-
+```text
     Content-Type: application/json
-
+```
 
 ## Host name and base path
 
@@ -31,9 +31,9 @@ The host name will vary depending on where your app is running.
 * If your app will run inside of the cluster, use `master.mesos`.
 
 Append `/ca/api/v2/` to the host name, as shown below.
-
+```http
     https://<host-name-or-ip>/ca/api/v2/
-
+```
 
 # Authentication and authorization
 
