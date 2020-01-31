@@ -32,7 +32,7 @@ This document does not explain how to set up and configure an Elasticsearch serv
 
 For each master node in your DC/OS cluster, create a file `/etc/fluent-bit/fluent-bit.conf` that includes the default master Fluent Bit config and adds your configuration for the Elasticsearch output plugin. For more information on configuring Fluent Bit to send logs to Elasticsearch, see the [Fluent Bit documentation][1].
 
-```
+```bash
 @INCLUDE /opt/mesosphere/etc/fluent-bit/master.conf
 [OUTPUT]
      Name es
@@ -45,7 +45,7 @@ For each master node in your DC/OS cluster, create a file `/etc/fluent-bit/fluen
 
 For each agent node in your DC/OS cluster, create a file `/etc/fluent-bit/fluent-bit.conf` that includes the default master Fluent Bit config and adds your configuration for the Elasticsearch output plugin. For more information on configuring Fluent Bit to send logs to Elasticsearch, see the [Fluent Bit documentation][1].
 
-```
+```bash
 @INCLUDE /opt/mesosphere/etc/fluent-bit/agent.conf
 [OUTPUT]
      Name es
@@ -60,28 +60,28 @@ For all nodes in your DC/OS cluster:
 
 1.  Create a file `/etc/fluent-bit/fluent-bit.env` that sets the `FLUENT_BIT_CONFIG_FILE` environment variable to the location of your Fluent Bit config:
 
-```
+```bash
 FLUENT_BIT_CONFIG_FILE=/etc/fluent-bit/fluent-bit.conf
 ```
 
 2.  Create a directory `/etc/systemd/system/dcos-fluent-bit.service.d`:
 
-```
-$ sudo mkdir -p /etc/systemd/system/dcos-fluent-bit.service.d
+```bash
+sudo mkdir -p /etc/systemd/system/dcos-fluent-bit.service.d
 ```
 
 3.  Create a file `/etc/systemd/system/dcos-fluent-bit.service.d/override.conf` that applies your custom config to Fluent Bit:
 
-```
+```bash
 [Service]
 EnvironmentFile=/etc/fluent-bit/fluent-bit.env
 ```
 
 4.  Reload systemd to update `dcos-fluent-bit.service`, and restart it:
 
-```
-$ sudo systemctl daemon-reload
-$ sudo systemctl restart dcos-fluent-bit.service
+```bash
+sudo systemctl daemon-reload
+sudo systemctl restart dcos-fluent-bit.service
 ```
 
 # What's Next

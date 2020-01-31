@@ -122,7 +122,7 @@ Mesos provides a number of [metrics][2] for monitoring. Here are the ones that a
     *   Make sure the master nodes have plenty of disk space.
     *   Change the `logrotation` option from `rotate 7` to `maxage 14` or more. For example:
 
-        ```
+        ```bash
         ...
         /var/log/mesos/* {
             olddir /var/log/mesos/archive
