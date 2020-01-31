@@ -121,7 +121,7 @@ This procedure uses the Identity and Access Management API (IAM API). For more d
 
 User logons may fail with the following message.
 
-```
+```text
 SAML SSO authentication not successful. Could not extract the subject identity from the SAML response.
 ```
 

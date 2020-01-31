@@ -32,7 +32,7 @@ If you see an error message indicating the connection to the backend directory f
 
 - DNS cannot resolve the name or IP address for the Active Directory domain controller.
 
-If you encounter this error, check whether the computer where you saw the error has the correct IP address for the network interface and the domain controller. You can check the current IP address and network settings for domain connections using the DHCP server role or manually in the network adapter settings. For example, you can retrieve the current network settings for the computer using `ipconfig` or a similar operating system command to display network configuration details.
+    If you encounter this error, check whether the computer where you saw the error has the correct IP address for the network interface and the domain controller. You can check the current IP address and network settings for domain connections using the DHCP server role or manually in the network adapter settings. For example, you can retrieve the current network settings for the computer using `ipconfig` or a similar operating system command to display network configuration details.
 
 If there is a problem with the port number, host name, or host IP address, edit the values in the LDAP directory settings to specify the correct port, host name, or host IP address.
 
@@ -188,7 +188,7 @@ To look up Active Directory user information using Window PowerShell:
 
 This cmdlet returns all of the properties for the user with the `SAMAccountName` rmcdonald.
 
-```
+```bash
 AccountExpirationDate : 
 accountExpires : 9223372036854775807
 AccountLockoutTime : 

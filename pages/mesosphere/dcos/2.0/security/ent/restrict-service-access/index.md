@@ -72,7 +72,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 1.  Add each of these permissions for the prod-a-group and click **Close**.
 
-    ```
+    ```bash
     dcos:adminrouter:service:marathon full
     dcos:adminrouter:service:nginx full
     dcos:service:marathon:marathon:services:/prod-a full
@@ -93,7 +93,7 @@ This tutorial demonstrates how to implement user permissions for DC/OS services 
 
 1.  Add each of these permissions for the `prod-b-group` and click **Close**.
 
-    ```
+    ```bash
     dcos:adminrouter:service:marathon full
     dcos:adminrouter:service:nginx full
     dcos:service:marathon:marathon:services:/prod-b full

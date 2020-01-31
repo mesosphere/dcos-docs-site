@@ -50,20 +50,20 @@ You can grant users access to the Services tab. By default, new users have no pe
 
 ### Services tab
 
-```
+```bash
 dcos:adminrouter:service:marathon full
 dcos:service:marathon:marathon:services:/ full
 ```
 
 ### Services tasks
 
-```
+```bash
 dcos:adminrouter:ops:mesos full
 ```
 
 ### Task details and logs
 
-```
+```bash
 dcos:adminrouter:ops:slave full
 ```
 
@@ -71,20 +71,20 @@ dcos:adminrouter:ops:slave full
 
 ### Services tab
 
-```
+```bash
 dcos:adminrouter:service:marathon full
 dcos:service:marathon:marathon:services:/ full
 ```
 
 ### Services tasks
 
-```
+```bash
 dcos:adminrouter:ops:mesos full
 ```
 
 ### Task details and logs
 
-```
+```bash
 dcos:adminrouter:ops:slave full
 dcos:mesos:master:framework:role:slave_public read
 dcos:mesos:master:executor:app_id read

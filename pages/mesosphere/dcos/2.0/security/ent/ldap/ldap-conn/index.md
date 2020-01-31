@@ -36,7 +36,7 @@ In this section, you will specify the address, protocol and certificates to be u
 
 1. If the LDAP directory server requires DC/OS to present a [client certificate](https://tools.ietf.org/html/rfc5246#section-7.4.6), paste it into the **Client certificate and private key (Optional)** field. The value should look similar to the following.
 
-    ```
+    ```bash
     -----BEGIN PRIVATE KEY-----
     MIIDtDCCApy...
     -----END PRIVATE KEY-----

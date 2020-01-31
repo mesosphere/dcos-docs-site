@@ -154,7 +154,7 @@ dcos auth login --username=<service-account-id> --private-key=<private-key>.pem
 # <a name="pass-tok"></a>Pass the authentication token in subsequent requests
 After the service has successfully logged in, an [authentication token](/mesosphere/dcos/2.0/security/ent/service-auth/) is created. The authentication token should used in subsequent requests to DC/OS endpoints. You can reference the authentication token as a shell variable, for example:
 
-```
+```bash
 curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 ```
 
