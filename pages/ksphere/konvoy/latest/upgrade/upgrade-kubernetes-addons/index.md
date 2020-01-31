@@ -54,6 +54,7 @@ spec:
   kubernetes:
     version: 1.16.4
 ```
+
 <p class="message--note"><strong>NOTE: </strong>For certain Konvoy releases you might be required to change the versions for `containerNetworking` or `containerRuntime`. These changes are highlighted in the Release Notes and in the section further down this page.</p>
 
 During the Kubernetes upgrade process Konvoy does the following:
@@ -190,4 +191,3 @@ spec:
       enabled: true
     ...
 ```
-
