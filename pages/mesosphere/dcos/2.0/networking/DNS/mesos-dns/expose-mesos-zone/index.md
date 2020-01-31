@@ -41,7 +41,7 @@ Now you can create the zone that you would like to alias to this. You can also s
 
 1.  Create a zone entry in the `named.conf` file. For this example, `contoso.com` is used:
 
-    ```
+    ```bash
     zone "contoso.com" {
             type master;
             file "/etc/bind/db.contoso.com";
@@ -50,7 +50,7 @@ Now you can create the zone that you would like to alias to this. You can also s
 
 1.  Populate the zone file:
 
-    ```
+    ```bash
     $TTL    604800
     @       IN      SOA     localhost. root.localhost. (
                                   1         ; Serial
@@ -67,7 +67,7 @@ Now you can create the zone that you would like to alias to this. You can also s
 
 -   To use an existing zone, add a DNAME record:
 
-    ```
+    ```bash
     @       IN      DNAME   mesos.yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory.
     ```
 
@@ -75,6 +75,6 @@ Now you can create the zone that you would like to alias to this. You can also s
 
 -   To alias a high level domain, specify that value in the DNAME record. In this example, `foo` aliases `foo.contoso.com`:
 
-    ```
+    ```bash
     foo       IN      DNAME   mesos.yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory.
     ```

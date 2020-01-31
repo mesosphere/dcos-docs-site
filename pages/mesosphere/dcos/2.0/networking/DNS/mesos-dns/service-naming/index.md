@@ -28,7 +28,7 @@ An A record associates a hostname to an IP address. When a task is launched by a
 *   The IP address of the task's network container (provided by a Mesos containerizer)
 
 For example, other DC/OS tasks can discover the IP address for a task named `search` launched by the `marathon` service with a lookup for `search.marathon.mesos`:
-
+```text
     dig search.marathon.mesos
 
     ; <<>> DiG 9.8.4-rpz2+rl005.12-P1 <<>> search.marathon.mesos
@@ -42,9 +42,11 @@ For example, other DC/OS tasks can discover the IP address for a task named `sea
 
     ;; ANSWER SECTION:
     search.marathon.mesos.      60  IN  A   10.9.87.94
+```
 
 If the Mesos containerizer that launches the task provides a container IP `10.0.4.1` for the task `search.marathon.mesos`, then the lookup result is:
 
+```text
     dig search.marathon.mesos
 
     ; <<>> DiG 9.8.4-rpz2+rl005.12-P1 <<>> search.marathon.mesos
@@ -58,6 +60,7 @@ If the Mesos containerizer that launches the task provides a container IP `10.0.
 
     ;; ANSWER SECTION:
     search.marathon.mesos.      60  IN  A   10.0.4.1
+```
 
 In addition to the `<task>.<service>.mesos` syntax shown above, Mesos-DNS also generates A records that contain the IP addresses of the agent nodes that are running the task: `<task>.<service>.slave.mesos`.
 
@@ -69,6 +72,7 @@ An SRV record specifies the hostname and port of a service.
 
 For a task named `mytask` launched by a service named `myservice`, Mesos-DNS generates an SRV record `_mytask._protocol.myservice.mesos`, where `protocol` is `udp` or `tcp`. For example, other Mesos tasks can discover a task named `search` launched by the `marathon` service with a query for `_search._tcp.marathon.mesos`:
 
+```bash
     dig _search._tcp.marathon.mesos SRV
 
     ;  DiG 9.8.4-rpz2+rl005.12-P1 &lt;&lt;&gt;&gt; _search._tcp.marathon.mesos SRV
@@ -82,6 +86,7 @@ For a task named `mytask` launched by a service named `myservice`, Mesos-DNS gen
 
     ;; ANSWER SECTION:
     _search._tcp.marathon.mesos.    60 IN SRV 0 0 31302 10.254.132.41.
+```
 
 Mesos-DNS supports the use of a task's DiscoveryInfo for SRV record generation. On a DC/OS cluster, ports are offered by agent nodes in the same way as other resources such as CPU and memory. If DiscoveryInfo is not available, Mesos-DNS uses the ports that were allocated for the task.
 
