@@ -40,6 +40,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [master_discovery](#master-discovery)                                 | (Required) The Mesos master discovery method.         |
 | [master_external_loadbalancer](#master-external-loadbalancer-enterprise)         | The DNS name or IP address for the load balancer.  [enterprise type="inline" size="small" /]      |
 | [mesos_container_log_sink](#mesos-container-log-sink)                 | The log manager for containers (tasks). |
+| [mesos_http_executor_domain_sockets](#mesos-http-executor-domain-sockets) | Whether executors should communicate with the agent over domain sockets instead of local connections. Default is `true`. |
 | [mesos_seccomp_enabled](#mesos-seccomp-enabled)                       | Indicates whether to enable Seccomp support for UCR containers. |
 | [mesos_seccomp_profile_name](#mesos-seccomp-profile-name)             | The name of the default Seccomp profile. |
 | [metronome_gpu_scheduling_behavior](#metronome-gpu-scheduling-behavior) | Indicates whether Metronome will schedule non-GPU tasks on nodes with an available GPU. Default is `restricted`. |
@@ -601,6 +602,16 @@ Indicates whether Mesos-DNS sets the truncate bit if the response is too large t
 *  `mesos_dns_set_truncate_bit: 'false'`  Mesos-DNS does not set the truncate bit if the response is too large to fit in a single packet. If you know your applications crash when resolving truncated DNS responses over TCP, or for performance reasons you want to avoid receiving the complete set of DNS records in response to your DNS requests, you should set this option to `false` and note that the DNS responses you receive from Mesos-DNS may be missing entries that were silently discarded. This means that truncated DNS responses will appear complete even though they are not and therefore will not trigger a retry over TCP. This behavior does not conform to RFC7766.
 
 For more information regarding truncated DNS responses and retrying over TCP see [RFC7766 - DNS Transport over TCP - Implementation Requirements](https://tools.ietf.org/html/rfc7766).
+
+### mesos_http_executor_domain_sockets
+
+Configures whether executors should communicate with the agent over domain sockets instead of local connections.
+
+Mesos containerizer executors typically communicate with the agent over its v1 HTTP API over a local connection. This makes it hard to firewall the agent.
+
+With this flag set to true, the Mesos agent will additionally listen on a domain socket, and executors started with that Mesos agent configuration active will connect over that domain socket instead.
+
+This flag can be set to `true` or `false`; the default value is `true`.
 
 ### mesos_master_work_dir [oss type="inline" size="small" /]
 The location of the Mesos work directory on master nodes. This defines the `work_dir` parameter for Mesos masters in the cluster. The default is `/var/lib/dcos/mesos/master`. For details, see [Mesos documentation](https://mesos.apache.org/documentation/latest/configuration/master/).
