@@ -26,9 +26,9 @@ Resource management and resource isolation between tasks are core functions of a
 
 ## Review App Definition
 
-* Take another look at the app defintion for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
+* Take another look at the app definition for [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go).
 
-```
+```bash
   {
   "id": "/dcos-101/app2",
   "cmd": "chmod u+x app2 && ./app2",
@@ -101,7 +101,7 @@ Vertical scaling involves increasing the amount of resources like CPU or RAM all
 
 <p class="message--warning"><strong>WARNING: </strong>This causes a restart of the app!</p>
 
-* Scale up to 2 CPU's for the app2 instance:
+* Scale up to 2 CPUs for the app2 instance:
 
 `dcos marathon app update /dcos-101/app2 cpus=2`
 * Check that app2 has scaled:
@@ -180,7 +180,7 @@ Check the Marathon log. Potentially you will see the Out of Memory error here, b
 
 Here you see something like:
 
-```
+```text
     Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
 ```
 

@@ -18,7 +18,7 @@ menuWeight: 1
 For this first scenario, deploy [this app definition](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json) as follows:
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
 ```
 
 Check the application status using the DC/OS web interface, you should see something like the following:
@@ -32,7 +32,7 @@ with the status of the application most likely to be “Waiting” followed by s
 You can also check this status from the CLI:
 
 ```bash
-$ dcos marathon app list
+dcos marathon app list
 ```
 
 would produce the following output in response:
@@ -46,7 +46,7 @@ ID              MEM   CPUS  TASKS   HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 Or, if you want to see all ongoing deployments, enter:
 
 ```bash
-$ dcos marathon deployment list
+dcos marathon deployment list
 ```
 
 to see something like the following:

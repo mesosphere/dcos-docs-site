@@ -16,7 +16,7 @@ menuWeight: 21
 Start by deploying this [`dockerimage.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json) file:
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json
 ```
 
 We see the app fail almost immediately:
@@ -38,7 +38,7 @@ Unfortunately, it is completely empty. **Normally we would at least see some out
 So Step 2 is to check the scheduler logs --- in this case Marathon:
 
 ```bash
-$ dcos service log marathon
+dcos service log marathon
 ```
 
 which should produce something like the following output in response:
@@ -52,7 +52,7 @@ Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (
 However, this does not shed much light on why the task failed. So then to [Step 3](/mesosphere/dcos/2.0/tutorials/dcos-debug/gen-strat/#agent-strat) of our [strategy](/mesosphere/dcos/2.0/tutorials/dcos-debug/gen-strat/): check the [Mesos agent logs](/mesosphere/dcos/2.0/tutorials/dcos-debug/tools/#agent-logs) using:
 
 ```bash
-$ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
+dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
 ```
 
 to output something resembling the following:
@@ -74,13 +74,13 @@ Being an application error, we again start by looking at task logs, followed by 
 In this case we have a Docker daemon-specific issue. Many such issues can be uncovered by examining the Mesos Agent logs. In some cases, where we need to dig deeper, accessing the Docker daemon logs is required. First, ssh into the master node:
 
 ```bash
-$ dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
+dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
 ```
 
 then to get the logs:
 
 ```bash
-$ journalct1 -u docker
+journalct1 -u docker
 ```
 
 Please note the more complex pattern used here to retrieve the `mesos-id` in comparison to the earlier example. This pattern lists previously failed tasks as well as running tasks, whereas **the earlier pattern only lists running tasks**.

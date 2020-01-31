@@ -37,13 +37,15 @@ You have already explored these load balancing mechanisms in the context of [ser
 * **Named VIPs**
     * SSH to the leading master node: `dcos node ssh --master-proxy --leader`
     * Use curl to get the raw HTML output from the app:
+    ```bash
+      curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000
+    ```
 
-      `curl dcos-101app2.marathon.l4lb.thisdcos.directory:10000`
-
-      When you do this repeatedly you should see the request being served by different instances.
+    When you do this repeatedly you should see the request being served by different instances.
 * Scale app2 back to one instance:
-
-  `dcos marathon app update /dcos-101/app2 instances=1`
+    ```bash
+    dcos marathon app update /dcos-101/app2 instances=1
+    ```
 
 # Outcome
 You used Marathon-LB and VIPs to load balance requests for two different instances of your app.
