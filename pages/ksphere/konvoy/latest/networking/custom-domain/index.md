@@ -125,4 +125,3 @@ To configure custom certificates for your domain:
 1.  Navigate to `https://<custom-domain>/ops/landing`. Verify the custom certificate is served by the browser.
 
 [external-dns]: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md
-

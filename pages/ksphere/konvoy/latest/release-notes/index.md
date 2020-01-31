@@ -15,6 +15,28 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.3.1
+
+#### Disclaimer
+
+- The generated release artifacts will now untar in `./konvoy_v1.3.1/konvoy` instead of `./linux/konvoy_v1.3.1/konvoy`.
+
+#### Improvements
+
+- A preflight check will fail if existing PVs (from a previous installation) are found.
+
+#### Bug fixes
+
+- Fix a bug where a failure with `konvoy down` and `konvoy reset` would prematurely delete files required on a retry.
+- Fix a bug in `konvoy reset` that prevented Kubernetes system packages from being removed on Ubuntu 16.04.
+- Add Tekton utility images to the air-gapped release tar.
+
+#### Addons improvements
+
+- Automatically deploy Kudo `v0.8.x` when the Kubeaddons controller is deployed.
+
+#### Component version changes
+
 ### Version v1.3.0 - Released 21 January 2020
 
 | Kubernetes Support | Version |
