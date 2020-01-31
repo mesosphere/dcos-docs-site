@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Clusters
 title: Clusters
+beta: true
 menuWeight: 7
 excerpt: View clusters created with Kommander or any connected Kubernetes cluster
 ---

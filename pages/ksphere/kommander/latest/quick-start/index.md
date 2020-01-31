@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Quick start
 title: Quick start
+beta: true
 menuWeight: 3
 excerpt: Getting started with Kommander
 ---

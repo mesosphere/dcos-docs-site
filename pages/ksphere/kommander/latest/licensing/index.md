@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Licensing
 title: Licensing
+beta: true
 excerpt:
 menuWeight: 6
 ---

@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Using Istio with Kommander
 title: Using Istio with Kommander
+beta: true
 menuWeight: 1
 excerpt: Using Istio with Kommander
 ---

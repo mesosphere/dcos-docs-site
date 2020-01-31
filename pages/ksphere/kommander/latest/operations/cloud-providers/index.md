@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Cloud Providers
 title: Cloud Providers
+beta: true
 excerpt: Managing cloud providers used by Kommander
 ---
 

@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Uninstall
 title: Uninstall
+beta: true
 featureMaturity:
 excerpt: Remove Kommander and related infrastructure
 category: K-Sphere

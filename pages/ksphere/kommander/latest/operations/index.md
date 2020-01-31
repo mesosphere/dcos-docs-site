@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Operations
 title: Operations
+beta: true
 excerpt: Centralized cluster management
 menuWeight: 9
 ---

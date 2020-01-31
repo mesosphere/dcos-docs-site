@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Access Control
 title: Access Control
+beta: true
 excerpt: Centrally manage access across clusters
 ---
 

@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Install
 title: Install
+beta: true
 featureMaturity:
 excerpt: Install Konvoy with Kommander
 category: K-Sphere

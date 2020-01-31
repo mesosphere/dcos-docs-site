@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Prerequisites
 title: Prerequisites
+beta: true
 menuWeight: 3
 excerpt: Prerequisites for Kommander
 ---
