@@ -11,9 +11,6 @@ menuWeight: 2
 
 This tutorial walks you through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster.
 
-
-
-
 [Microscaling][1] adjusts the balance of tasks running within your compute cluster.
 This allows your infrastructure to automatically reallocate resources from lower to higher priority tasks, reacting within seconds to a change in demand.
 Microscaling monitors whether the higher priority task is meeting a performance target. In this tutorial, the performance target is maintaining the length of a configured queue value. The higher priority task is scaled up when the target is not met,
