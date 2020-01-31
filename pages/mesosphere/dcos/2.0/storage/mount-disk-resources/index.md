@@ -93,7 +93,7 @@ Please note that this example handles **adding** resources exclusively and can n
 
     In particular, there should be an entry for the agent starting up and the new volume0 `Mount` disk resource:
 
-    ```
+    ```bash
     May 05 19:18:40 dcos-agent-public-01234567000001 systemd[1]: Mounting /dcos/volume0...
     May 05 19:18:42 dcos-agent-public-01234567000001 systemd[1]: Mounted /dcos/volume0.
     May 05 19:18:46 dcos-agent-public-01234567000001 make_disk_resources.py[888]: Found matching mounts : [('/dcos/volume0', 74)]

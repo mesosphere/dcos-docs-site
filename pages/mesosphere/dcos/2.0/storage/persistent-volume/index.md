@@ -453,7 +453,7 @@ To destroy and clean up persistent volumes and free the reserved resources assoc
 
 To locate the agent, inspect the Marathon UI and check out the detached volumes on the **Volumes** tab. Or, query the `/v2/apps` endpoint, which provides information about the `host` and Mesos `slaveId`.
 
-```
+```http
 http GET http://dcos/service/marathon/v2/apps/postgres/tasks
 ```
 
@@ -481,7 +481,7 @@ You can then
 1. Remove the data on disk by `ssh'ing` into the agent and running the `rm -rf <volume-path>/*` command.
 1. Delete the task with `wipe=true`, which will expunge the task information from the Marathon internal repository and eventually destroy the volume and unreserve the resources previously associated with the task:
 
-    ```
+    ```http
     http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab8733-fd96-11e5-8e70-76a1c19f8c3d?wipe=true
     ```
 

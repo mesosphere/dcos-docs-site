@@ -149,19 +149,19 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
 1. Install the NVMe CLI command.
     
     ```bash
-    $ yum install -y nvme-cli
+    yum install -y nvme-cli
     ```
 
 1. Install the necessary udev rule and helper script. These are taken from the [RexRay user guide](https://github.com/rexray/rexray/blob/362035816046e87f7bc5a6ca745760d09a69a40c/.docs/user-guide/storage-providers/aws.md#nvme-support).
 
     ```bash
-    $ cat <<EOF > /etc/udev/rules.d/999-aws-ebs-nvme.rules
+    cat <<EOF > /etc/udev/rules.d/999-aws-ebs-nvme.rules
     KERNEL=="nvme[0-9]*n[0-9]*", ENV{DEVTYPE}=="disk", ATTRS{model}=="Amazon Elastic Block Store", PROGRAM="/usr/local/bin/ebs-nvme-mapping /dev/%k", SYMLINK+="%c"
     EOF
     ```
 1. Create the helper script.
     ```bash
-    $ cat <<EOF > /usr/local/bin/ebs-nvme-mapping
+    cat <<EOF > /usr/local/bin/ebs-nvme-mapping
     #!/bin/bash
     #/usr/local/bin/ebs-nvme-mapping
     vol=$(/usr/sbin/nvme id-ctrl --raw-binary "${1}" | \
@@ -169,11 +169,13 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
     vol=${vol#/dev/}
     [ -n "${vol}" ] && echo "${vol/xvd/sd} ${vol/sd/xvd}"
     EOF
+    ```
+
 1. Set the file permissions on the scripts and reload the udev rules.      
     ```bash
-    $ chown root:root /usr/local/bin/ebs-nvme-mapping
-    $ chmod 700 /usr/local/bin/ebs-nvme-mapping
-    $ udevadm control --reload
+    chown root:root /usr/local/bin/ebs-nvme-mapping
+    chmod 700 /usr/local/bin/ebs-nvme-mapping
+    udevadm control --reload
     ```
 
 ## External volumes   
