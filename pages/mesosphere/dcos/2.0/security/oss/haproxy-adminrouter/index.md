@@ -24,7 +24,7 @@ The following instructions provide a tested [HAProxy](http://www.haproxy.org/) c
 
 <p class="message--note"><strong>NOTE: </strong>You can find your task IP by using the agent IP address DNS entry.</p>
 
-```
+```bash
 <taskname>.<framework_name>.agentip.dcos.thisdcos.directory
 ```
 
@@ -33,7 +33,7 @@ Where:
 * `taskname`: The name of the task.
 * `framework_name`: The name of the framework; if you are unsure, it is probably `marathon`.
 
-  ```
+  ```bash
   global
     daemon
     log 127.0.0.1 local0
