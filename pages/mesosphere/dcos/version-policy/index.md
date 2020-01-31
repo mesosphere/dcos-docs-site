@@ -67,15 +67,15 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>CentOS 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>CentOS 7.6</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
@@ -95,15 +95,15 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>RHEL 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
@@ -117,15 +117,15 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>Ubuntu 18.04.3 LTS</td>
-        <td><p style="text-align: center;">Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>Ubuntu 16.04.6 LTS</td>
-        <td><p style="text-align: center;">Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
