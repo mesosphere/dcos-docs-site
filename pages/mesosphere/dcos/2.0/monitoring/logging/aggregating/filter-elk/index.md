@@ -22,14 +22,14 @@ The file system paths of DC/OS task logs contain information such as the agent I
 
 1.  Create the following `dcos` pattern file in your custom patterns directory, located at `$PATTERNS_DIR`:
 
-    ```
+    ```bash
     PATHELEM [^/]+
     TASKPATH ^/var/lib/mesos/slave/slaves/%{PATHELEM:agent}/frameworks/%{PATHELEM:framework}/executors/%{PATHELEM:executor}/runs/%{PATHELEM:run}
     ```
 
 2.  Update the configuration file for your Logstash instance to include the following `grok` filter, where `$PATTERNS_DIR` is replaced with your custom patterns directory:
 
-    ```
+    ```bash
     filter {
         grok {
             patterns_dir => "$PATTERNS_DIR"

@@ -30,8 +30,9 @@ You can configure Splunk either by using the Splunk [Web interface][2] or by edi
     *   Apply to `source` named `/var/lib/mesos/slave/...`
     *   Type: `Inline`
     *   Extraction/Transform:
-
+        ```text
         /var/lib/mesos/slave/slaves/(?<agent>[^/]+)/frameworks/(?<framework>[^/]+)/executors/(?<executor>[^/]+)/runs/(?<run>[^/]+)/.* in source
+        ```
 
 3.  Click **Save**.
 
@@ -40,13 +41,16 @@ You can configure Splunk either by using the Splunk [Web interface][2] or by edi
 ## <a name="propsconf"></a>props.conf
 
 1.  Add the following entry to `props.conf` (see the [Splunk documentation][4] for details):
-
+    ```text
     [source::/var/lib/mesos/slave/...]
     EXTRACT = /var/lib/mesos/slave/slaves/(?<agent>[^/]+)/frameworks/(?<framework>[^/]+)/executors/(?<executor>[^/]+)/runs/(?<run>[^/]+)/.* in source
+    ```
 
 2.  Run the following search in the Splunk Web interface to ensure the changes take effect:
 
+    ```bash
     extract reload=true
+    ```
 
 The `agent`, `framework`, `executor`, and `run` fields should now be available to use in search queries and appear in the fields associated with Mesos task log events.
 
@@ -74,35 +78,43 @@ The `agent`, `framework`, `executor`, and `run` fields should now be available t
 
 Here are example query templates for aggregating the DC/OS logs with Splunk. Replace the template parameters `$executor1`, `$framework2`, and any others with actual values from your cluster.
 
-<table class=“table” bgcolor=#858585>
-<tr> 
-  <td align=justify style=color:white><strong>Caution:</strong> Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks. </td> 
-</tr> 
-</table>
+<p class="message--important"><strong>IMPORTANT:</strong> Do not change the quotation marks in these examples or the queries will not work. If you create custom queries, be careful with the placement of quotation marks. </p>
+
+ 
+
+
 
 *   Logs related to a specific executor `$executor1`, including logs for tasks run from that executor:
 
-        "$executor1"
-
+    ```bash
+    "$executor1"
+    ```
 *   Non-task logs related to a specific executor `$executor1`:
 
-        "$executor1" AND NOT executor=$executor1
+    ```bash
+    "$executor1" AND NOT executor=$executor1
+    ```
 
 *   Logs (including task logs) for a framework `$framework1`, if `$executor1` and `$executor2` are that framework's executors:
 
-        "$framework1" OR "$executor1" OR "$executor2"
+    ```bash
+    "$framework1" OR "$executor1" OR "$executor2"
+    ```
 
 *   Non-task logs for a framework `$framework1`, if `$executor1` and `$executor2` are that framework's executors:
-
-        ("$framework1" OR "$executor1" OR "$executor2") AND NOT (framework=$framework1 OR executor=$executor1 OR executor=$executor2)
+    ```bash
+    ("$framework1" OR "$executor1" OR "$executor2") AND NOT (framework=$framework1 OR executor=$executor1 OR executor=$executor2)
+    ```
 
 *   Logs for a framework `$framework1` on a specific agent host `$agent_host1`:
-
-        host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2")
+    ```bash
+    host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2")
+    ```
 
 *   Non-task logs for a framework `$framework1` on a specific agent `$agent1` with host `$agent_host1`:
-
-        host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2") AND NOT agent=$agent
+    ```bash
+    host=$agent_host1 AND ("$framework1" OR "$executor1" OR "$executor2") AND NOT agent=$agent
+    ```
 
  [1]: ../splunk/
  [2]: #splunkui
