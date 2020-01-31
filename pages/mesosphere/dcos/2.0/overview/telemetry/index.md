@@ -85,7 +85,7 @@ For each category this data is collected:
 
 This information is collected from the [DC/OS Diagnostics](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-diagnostics) component. For every `systemd` unit, the following information is collected, where `<UNIT_NAME>` is component name:
 
-```
+```bash
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
