@@ -2,16 +2,17 @@
 layout: layout.pug
 navigationTitle: Configure an Azure Cloud Provider
 title: Azure Static Credentials
+beta: true
 excerpt: Configuring an Azure Cloud Provider
 ---
 
 ### Configuring an Azure cloud provider
 
-Before beginning to configure an Azure Cloud provider it's necessary to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+Before you configure an Azure Cloud provider it's necessary to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
-#### Create a new set of credentials via CLI commands
+#### Create a new set of credentials using CLI commands
 
-To begin, you need a valid Azure account with credentials configured. You'll need to be authorized as a Contributor in your Azure account as well as assign roles to a user. Here are the commands needed to create an active directory service principal to delegate to Kommander for creating Konvoy clusters:
+To begin, you need a valid Azure account with credentials configured. You must be authorized as a Contributor in your Azure account and assign roles to a user. The following commands create an active directory service principal, to delegate to Kommander, for creating Konvoy clusters:
 
 ```
 az login
@@ -21,7 +22,7 @@ az login
 az role assignment cerate --assignee YOUR_USER_LOGIN --role "User Access Administrator"
 ```
 
-Find the `SUBSCRIPTION_ID` of your account, named `id` in the output of this command:
+Determine the `SUBSCRIPTION_ID` of your account, named `id` in the output of the following command:
 
 ```
 az account show
@@ -49,19 +50,20 @@ The command returns data needed to create the secret:
 
 In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to Administration > Cloud Providers and click the Add Cloud Provider button.
+Navigate to **Administration > Cloud Providers** and select the **Add Cloud Provider** button.
 
 ![Add Cloud Provider](/ksphere/kommander/img/add-cloud-provider.png)
 
-- Choose a memorable name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
-- Fill out Client ID with the `APP_ID`.
-- Fill out Client Secret with the `PASSWORD`.
-- Fill out Tenant ID with the `TENANT`.
-- Fill out Subscription ID with the `SUBSCRIPTION_ID`.
-- Click Verify and Save to verify that the credentials are valid and to save your provider.
+- Select a name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
+- Fill in Client ID with the `APP_ID` value.
+- Fill in Client Secret with the `PASSWORD` value.
+- Fill in Tenant ID with the `TENANT` value.
+- Fill in Subscription ID with the `SUBSCRIPTION_ID` value.
+- Select **Verify** and **Save** to verify the credentials are valid and to save your provider.
 
 ![Azure Cloud Provider Form with values](/ksphere/kommander/img/Azure-Cloud-provider-with-values.png)
 
 Figure 8 - Azure Cloud Provider Form with values
 
-Once created, a Cloud Provider’s display name or credentials can be updated.
+After the provider is created, a Cloud Provider’s display name or credentials can be updated.
+
