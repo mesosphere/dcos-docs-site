@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Configure an AWS Cloud Provider with a User Role
 title: AWS Role Credentials
+beta: true
 excerpt: Configure an AWS Cloud Provider with a User Role
 ---
 
@@ -157,19 +158,20 @@ EOF
 }
 ```
 
-Refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) for creating a Role for an IAM User
+Refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) for creating a role for an IAM User
 
 In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to Administration > Cloud Providers and click the Add Cloud Provider button.
+Navigate to **Administration > Cloud Providers** and click the **Add Cloud Provider** button.
 
 ![Add Cloud Provider](/ksphere/kommander/img/add-cloud-provider.png)
 
 - Select the Amazon Web Services (AWS) option from the Add Cloud Provider.
 - Ensure "Static" is selected as the Authentication Method.
-- Choose a memorable name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
-- Enter the Role ARN
+- Select a name for your cloud provider. Consider choosing a name that matches the AWS user.
+- Enter the Role ARN.
 - You can add an External ID if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
 
 [iam_roles]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
 [external_id]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
+
