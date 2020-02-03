@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Configure an AWS Cloud Provider with Static Credentials
 title: AWS Static Credentials
+beta: true
 excerpt: Configuring an AWS Cloud Provider with static credentials
 ---
 
@@ -33,7 +34,7 @@ aws iam create-access-key --user-name Kommander
 
 #### Using an existing user
 
-You can use an existing AWS user with [credentials configured][aws_credentials]. The user needs to be authorized to create the following resources in the AWS account:
+You can use an existing AWS user with [credentials configured][aws_credentials]. The user must be authorized to create the following resources in the AWS account:
 
 - EC2 Instances
 - VPC
@@ -141,20 +142,21 @@ Below is the minimal IAM policy required:
 
 In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to Administration > Cloud Providers and click the Add Cloud Provider button.
+Navigate to **Administration > Cloud Providers** and select the **Add Cloud Provider** button.
 
 ![Add Cloud Provider](/ksphere/kommander/img/add-cloud-provider.png)
 
-- Select the Amazon Web Services (AWS) option from the Add Cloud Provider.
-- Ensure "Static" is selected as the Authentication Method.
-- Choose a memorable name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
+- Select the Amazon Web Services (AWS) option from the Add Cloud Provider form.
+- Ensure **Static** is selected as the Authentication Method.
+- Select a name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
 - Fill out the access and secret keys using the keys generated above.
-- Click Verify and Save to verify the credentials are valid and to save your provider.
+- Select **Verify** and **Save** to verify the credentials are valid and to save your provider.
 
 ![Cloud Provider Form with values](/ksphere/kommander/img/Cloud-provider-with-values.png)
 
-Figure 1 - Cloud Provider Form with values
+Cloud Provider Form with values
 
 Once created, a Cloud Provider’s display name or credentials can be updated.
 
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+
