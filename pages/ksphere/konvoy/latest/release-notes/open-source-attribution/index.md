@@ -6,7 +6,7 @@ excerpt: List of third party open source software provided by D2iQ&reg
 render: mustache
 ---
 
-The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Konvoy&trade;.
+The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Konvoy&trade; version 1.3.
 
 |Dependency                 |Version                             |License                                                                                                           |
 |---------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------|
