@@ -13,26 +13,7 @@ Kommander was developed to address the broad issues caused by Kubernetes “clus
 
 <!-- Kommander lets you manage multiple Kubernetes clusters across your entire deployment quickly and seamlessly. Kommander provides a centralized console for deploying, monitoring, and managing production-ready Kubernetes on an enterprise scale. 
 
-Kommander provides management and insights for multiple Kubernetes clusters, and supports both Konvoy or non-Konvoy clusters. Kommander includes essential enterprise-grade capabilities such as:
-
-- Powerful user interface optimized to manage multiple clusters
-- Automated lifecycle management
-- Distributed configuration management-->
-
-
-## Kommander features and benefits
-
-| **Features**                                     | **Benefits**                                                 |
-| ------------------------------------------------ | ------------------------------------------------------------ |
-| **Operations Dashboard**                         | Provides instant visibility and operational efficiency into Kubernetes cluster landscape, helping an organization understand resources and utilization. |
-| **Centralized Monitoring, Logging and Alerting** | Enables central monitoring and alerting of issues arising in operational and application infrastructure and deep cross-cluster logging for easier troubleshooting. As issues are detected, they are resolved before they escalate, saving valuable time. |
-| **Cluster Configuration Manager**                | Simplifies and delivers consistent configuration for services and cross cluster operations. |
-| **Services Catalog**                             | Push button catalog of current cloud native services. This helps organizations to quickly deploy services to multiple clusters. Governance-based access to data services ensures roles and responsibilities are maintained. |
-| **Service-Mesh Integration**                     | Support multiple clusters for larger “as-a-service” needs across many different project teams by combining D2iQ’s Kommander with integrated service mesh. |
-| **Service Version Control**                      | Ensures conformance to sanctioned service versions, reducing security exposure and simplifying services supportability. |
-| **Integration with KUDO Operators**              | Eases the deployment of stateful data services for use in Kubernetes with push-button deployment of services and professional support offerings leveraging the KUDO framework. |
-| **Governance and Policy Administration**         | Assert centralized, delegated, role based, access control and cluster policy to govern clusters, associated services, geographic limitations and to create lines-of-separation across various project initiatives. |
-| **Centralized Authentication**                   | Leverage existing authentication and directory services for secure access and single sign-on to broad cluster based resources. |
+Kommander provides management and insights for multiple Kubernetes clusters, and supports both Konvoy or non-Konvoy clusters. Kommander includes essential enterprise-grade capabilities within a powerful user interface optimized to simplify the operation of multiple Kubernetes clusters across your organization, allowing teams to manage them independently.
 
 <!-- Kommander and Konvoy are separate products. Kommander is free during Beta and will have its own releases, pricing, and roadmap.
 
