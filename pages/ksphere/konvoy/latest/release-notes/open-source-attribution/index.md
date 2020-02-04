@@ -88,33 +88,34 @@ The table below lists the third party open source software which is provided by 
 |gcfg                       |v1.4.0                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://github.com/src-d/gcfg/blob/master/LICENSE)                |
 |tar-split                  |v0.11.1                             |["BSD 3-Clause ""New"" or ""Revised"" License"](https://github.com/vbatts/tar-split/blob/master/LICENSE)          |
 |ssh-agent                  |v0.2.1                              |[Apache License 2.0](https://github.com/xanzy/ssh-agent/blob/master/LICENSE)                                      |
-|atomic                     |v1.4.0                              |[MIT License](https://go.uber.org/atomic/blob/master/LICENSE)                                                     |
-|multierr                   |v1.1.0                              |[MIT License](https://go.uber.org/multierr/blob/master/LICENSE)                                                   |
-|zap                        |v1.10.0                             |[MIT License](https://go.uber.org/zap/blob/master/LICENSE)                                                        |
-|crypto                     |v0.0.0-20191122220453-ac88ee75c92c  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://golang.org/x/crypto/blob/master/LICENSE)                  |
-|net                        |v0.0.0-20191028085509-fe3aa8a45271  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://golang.org/x/net/blob/master/LICENSE)                     |
-|oauth2                     |v0.0.0-20190604053449-0f29369cfe45  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://golang.org/x/oauth2/blob/master/LICENSE)                  |
-|sys                        |v0.0.0-20191120155948-bd437916bb0e  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://golang.org/x/sys/blob/master/LICENSE)                     |
-|text                       |v0.3.2                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://golang.org/x/text/blob/master/LICENSE)                    |
-|time                       |v0.0.0-20190921001708-c4c64cad1fd0  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://golang.org/x/time/blob/master/LICENSE)                    |
-|xerrors                    |v0.0.0-20190717185122-a985d3407aa7  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://golang.org/x/xerrors/blob/master/LICENSE)                 |
-|genproto                   |v0.0.0-20190916214212-f660b8655731  |[Apache License 2.0](https://google.golang.org/genproto/blob/master/LICENSE)                                      |
-|grpc                       |v1.23.1                             |[Apache License 2.0](https://google.golang.org/grpc/blob/master/LICENSE)                                          |
-|inf.v0                     |v0.9.1                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://gopkg.in/inf.v0/blob/master/LICENSE)                      |
-|go-billy.v4                |v4.3.2                              |[Apache License 2.0](https://gopkg.in/src-d/go-billy.v4/blob/master/LICENSE)                                      |
-|go-git.v4                  |v4.13.1                             |[Apache License 2.0](https://gopkg.in/src-d/go-git.v4/blob/master/LICENSE)                                        |
-|warnings.v0                |v0.1.2                              |["BSD 2-Clause ""Simplified"" License"](https://gopkg.in/warnings.v0/blob/master/LICENSE)                         |
-|yaml.v2                    |v2.2.7                              |[Apache License 2.0](https://gopkg.in/yaml.v2/blob/master/LICENSE)                                                |
-|yaml.v3                    |v3.0.0-20191026110619-0b21df46bc1d  |[Apache License 2.0](https://gopkg.in/yaml.v3/blob/master/LICENSE)                                                |
-|api                        |v0.0.0-20190718183219-b59d8169aab5  |[Apache License 2.0](https://k8s.io/api/blob/master/LICENSE)                                                      |
-|apimachinery               |v0.0.0-20190612205821-1799e75a0719  |[Apache License 2.0](https://k8s.io/apimachinery/blob/master/LICENSE)                                             |
-|apiserver                  |v0.0.0-20190718184206-a1aa83af71a7  |[Apache License 2.0](https://k8s.io/apiserver/blob/master/LICENSE)                                                |
-|client-go                  |v0.0.0-20190620085101-78d2af792bab  |[Apache License 2.0](https://k8s.io/client-go/blob/master/LICENSE)                                                |
-|component-base             |v0.0.0-20191016111319-039242c015a9  |[Apache License 2.0](https://k8s.io/component-base/blob/master/LICENSE)                                           |
-|helm                       |v2.16.1+incompatible                |[Apache License 2.0](https://k8s.io/helm/blob/master/LICENSE)                                                     |
-|klog                       |v1.0.0                              |[Apache License 2.0](https://k8s.io/klog/blob/master/LICENSE)                                                     |
-|utils                      |v0.0.0-20191010214722-8d271d903fe4  |[Apache License 2.0](https://k8s.io/utils/blob/master/LICENSE)                                                    |
-|controller-runtime         |v0.3.1-0.20191022174215-ad57a976ffa1|[Apache License 2.0](https://sigs.k8s.io/controller-runtime/blob/master/LICENSE)                                  |
-|yaml                       |v1.1.0                              |[MIT License](https://sigs.k8s.io/yaml/blob/master/LICENSE)                                                       |
+|atomic                     |v1.4.0                              |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)                                              |
+|multierr                   |v1.1.0                              |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)                                              |
+|zap                        |v1.10.0                             |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)                                                        |
+|crypto                     |v0.0.0-20191122220453-ac88ee75c92c  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|net                        |v0.0.0-20191028085509-fe3aa8a45271  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|oauth2                     |v0.0.0-20190604053449-0f29369cfe45  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|sys                        |v0.0.0-20191120155948-bd437916bb0e  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|text                       |v0.3.2                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|time                       |v0.0.0-20190921001708-c4c64cad1fd0  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|xerrors                    |v0.0.0-20190717185122-a985d3407aa7  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|genproto                   |v0.0.0-20190916214212-f660b8655731  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|grpc                       |v1.23.1                             |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|inf.v0                     |v0.9.1                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|go-billy.v4                |v4.3.2                              |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|go-git.v4                  |v4.13.1                             |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|warnings.v0                |v0.1.2                              |["BSD 2-Clause ""Simplified"" License"](https://opensource.org/licenses/BSD-2-Clause)                             |
+|yaml.v2                    |v2.2.7                              |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|yaml.v3                    |v3.0.0-20191026110619-0b21df46bc1d  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|api                        |v0.0.0-20190718183219-b59d8169aab5  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|apimachinery               |v0.0.0-20190612205821-1799e75a0719  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|apiserver                  |v0.0.0-20190718184206-a1aa83af71a7  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|client-go                  |v0.0.0-20190620085101-78d2af792bab  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|component-base             |v0.0.0-20191016111319-039242c015a9  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|helm                       |v2.16.1+incompatible                |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|klog                       |v1.0.0                              |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|utils                      |v0.0.0-20191010214722-8d271d903fe4  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|controller-runtime         |v0.3.1-0.20191022174215-ad57a976ffa1|[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|yaml                       |v1.1.0                              |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)                                              |
+
 
 
