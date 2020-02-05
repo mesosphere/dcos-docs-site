@@ -116,6 +116,3 @@ The table below lists the third party open source software which is provided by 
 |utils                      |v0.0.0-20191010214722-8d271d903fe4  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |controller-runtime         |v0.3.1-0.20191022174215-ad57a976ffa1|[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |yaml                       |v1.1.0                              |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)                                              |
-
-
-
