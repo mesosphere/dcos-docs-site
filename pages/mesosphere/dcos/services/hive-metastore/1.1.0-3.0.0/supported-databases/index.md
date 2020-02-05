@@ -18,7 +18,7 @@ The DC/OS {{ model.techName }} supports the following relational databases (RDBM
 ### Install the {{ model.techShortName }} with Derby
 By default, the {{ model.techName }} configuration is set to the default embedded Derby database for development usage. However, it is not intended for use beyond simple testing.
 
-```
+```shell
 dcos package install {{ model.packageName }}
 ```
 
@@ -28,7 +28,7 @@ The {{ model.techShortName }} can also be backed by a MySQL database.
 
 - Users must deploy MySQL:
 
-   ```
+   ```shell
    dcos package install mysql
    ```
 
@@ -51,14 +51,14 @@ The {{ model.techShortName }} can also be backed by a MySQL database.
       ```
         
     - Deploy the `{{ model.techShortName }}` package:
-      ```
+      ```shell
       dcos package install hive-metastore --options=metastore-options.json
       ```
 
 ### Install Metastore with Percona-MySQL
 Percona-MySQL is an enterprise-grade HA drop-in replacement for MySQL. To enable usage with Percona-MySQL:
 
-- Users must deploy Percona-MySQL with the following configs:
+- Users must deploy Percona-MySQL with the following configurations:
    
   - Create a custom config file that will be used to install `percona-pxc-mysql`, and save it as `percona-options.json`.
 
@@ -71,13 +71,13 @@ Percona-MySQL is an enterprise-grade HA drop-in replacement for MySQL. To enable
       ```
       - `pxc_strict_mode` can also be set to `DISABLED`.
   - Deploy the Percona-MySQL package
-      ```
+      ```shell
       dcos package install percona-pxc-mysql --options=percona-options.json
       ```
   
-- Next, configure the `{{ model.packageName }}` package with the following configs:
+- Next, configure the `{{ model.packageName }}` package with the following configurations:
    
-   - Create a custom config file that will be used to install `hive-metastore`, and save it as `metastore-options.json`.
+   - Create a custom configuration file that will be used to install `hive-metastore`, and save it as `metastore-options.json`.
 
       ```json
       {
@@ -91,15 +91,15 @@ Percona-MySQL is an enterprise-grade HA drop-in replacement for MySQL. To enable
       ```
     - The `database_address` assumes default installation of `percona-pxc-mysql`. If using custom configs, users can find the `vip` endpoint using percona's CLI command:
 
-      ```
-      $ dcos percona-pxc-mysql endpoints pxc-db-port
+      ```shell
+      dcos percona-pxc-mysql endpoints pxc-db-port
       ```
 
     - Deploy the `hive-metastore` package:
-      ```
+      ```shell
       dcos package install hive-metastore --options=metastore-options.json
       ```
    
 - #### Limitations
-  Currently, {{ model.techName }} is only compatible with Percona's `PERMISSIVE` and `DISABLED` modes. See the [limitations](../limitations/index.md) docs for more details.
+  Currently, {{ model.techName }} is only compatible with Percona's `PERMISSIVE` and `DISABLED` modes. See the [limitations](/mesosphere/dcos/services/hive-metastore/1.1.0-3.0.0/limitations/) page for more details.
   

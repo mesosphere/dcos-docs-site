@@ -24,7 +24,7 @@ quota-aware: true
 
 # Using the Secret Store for Passwords
 
-Enterprise DC/OS provides a Secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content. Detailed information can be found [here](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets)
+Enterprise DC/OS provides a Secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content. Detailed information can be found [here](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets).
 
 All tasks defined in the pod will have access to secret data. If the content of the secret is changed, the relevant pod needs to be restarted so that it can get updated content from the secret store.
 
@@ -32,17 +32,19 @@ We can use secrets in {{ model.techName }} to store database passwords. We can u
 
 1. From the left-side navigation menu, click on `Secrets`.
 
-2. From the Secrets page, click on the '+' icon in the top-right corner of the screen to create a new secret key-value pair.
+2. From the Secrets page, click on the `+` icon in the top-right corner of the screen to create a new secret key-value pair.
 
-3. In the `ID` field, provide a unique ID for the key-pair we want to create. This ID will be used later to enable secrets. In the `Value` field, enter the value of the secret i.e. database password, private key, or API token. Lastly, click on `Create Secret`. 
+3. In the `ID` field, provide a unique ID for the key-pair we want to create. This ID will be used later to enable secrets. In the `Value` field, enter the value of the secret; for example, a database password, private key, or API token. Lastly, click on `Create Secret`. 
 
 ![Creating Secrets](https://downloads.mesosphere.com/hive-metastore/assets/secret_docs_screen1.png)
 
-4. Now, go to the {{ model.techName }}'s service configuration page for a fresh deployment of service using secrets. Click on '{{ model.techName }}' configuration menu to proceed.
+4. Go to the {{ model.techName }}'s service configuration page for a fresh deployment of service using secrets. Click on  the {{ model.techName }}  configuration menu to proceed.
 
 ![{{ model.techName }} Configuration](https://downloads.mesosphere.com/hive-metastore/assets/secret_docs_screen2.png)
 
-5. Scroll down and look for the `Enable Secrets` checkbox. Check the box to enable secrets. Now, enter the `ID` of the secret created earlier in the `Database Password` field. Click 'Review & Run'. The service will now be deployed using secrets.
+5. Scroll down and look for the `Enable Secrets` checkbox. Check the box to enable secrets. 
+
+1. Now, enter the `ID` of the secret created earlier in the `Database Password` field. Click **Review & Run**. The service will now be deployed using secrets.
 
 ![Using Secrets as the Database Password](https://downloads.mesosphere.com/hive-metastore/assets/secret_docs_screen3.png)
 
@@ -70,15 +72,15 @@ The DC/OS {{ model.techName }} service requires Kerberos principals for each nod
 - A configurable number of server nodes
 
 The required Kerberos principals will have the form:
-```
+```shell
 <service primary>/node-0-init.<service subdomain>.autoip.dcos.thisdcos.directory@<service realm>
 <service primary>/node-<data-index>-server.<service subdomain>.autoip.dcos.thisdcos.directory@<service realm>
 ```
 with:
-- `service primary = service.security.kerberos.primary`
-- `data index = 0 up to n`
-- `service subdomain = service.name with all `/`'s removed`
-- `service realm = service.security.kerberos.realm`
+- service primary = service.security.kerberos.primary
+- data index = 0 up to n
+- service subdomain = service.name with all `/`'s removed
+- service realm = service.security.kerberos.realm
 
 For example, if installing with these options:
 ```json
@@ -99,7 +101,7 @@ For example, if installing with these options:
 }
 ```
 then the principals to create would be:
-```
+```shell
 example/node-0-init.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/node-0-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/node-1-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
@@ -173,7 +175,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 [Grant](/mesosphere/dcos/latest/security/ent/perms-management/) the service account the correct permissions.
 - In DC/OS 1.10, the required permission is `dcos:superuser full`.
 - In DC/OS 1.11 and later, the required permissions are:
-```
+```shell
 dcos:secrets:default:/<service name>/* full
 dcos:secrets:list:default:/<service name> read
 dcos:adminrouter:ops:ca:rw full
@@ -184,7 +186,7 @@ where `<service name>` is the name of the service to be installed.
 <!-- Not clear if this is the right location DCOS-39455 --> 
 Run the following DC/OS Enterprise CLI commands to set permissions for the service account on a strict cluster:
 
-```
+```shell
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:task:app_id:<service/name> create
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:reservation:principal:dev_hdfs create
 dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:principal:dev_hdfs create

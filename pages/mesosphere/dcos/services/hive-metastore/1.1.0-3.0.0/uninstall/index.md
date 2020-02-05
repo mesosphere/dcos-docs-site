@@ -12,7 +12,7 @@ Uninstalling the service is simple.
 
 From the DC/OS CLI, enter 
 
-```
+```shell
 dcos package uninstall --app-id=<service-name> {{ model.packageName }}
 ```
 
@@ -84,7 +84,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} plan force-complete 
 
 At this point the scheduler should show a `COMPLETE` state for these steps in the plan, allowing it to proceed normally with the uninstall operation:
 
-```
+```shell
 dcos {{ model.packageName }} --name={{ model.serviceName }} plan show deploy
 deploy (IN_PROGRESS)
 ├─ kill-tasks (COMPLETE)
