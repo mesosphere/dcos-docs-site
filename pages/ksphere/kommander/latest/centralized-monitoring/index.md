@@ -27,7 +27,7 @@ Grafana is configured with Thanos Query as its datasource, and comes with a pre-
 The `Thanos Query` dashboard is also installed, by default, to monitor the Thanos Query component.
 
 <p class="message--note"><strong>NOTE: </strong>Metrics from Konvoy clusters are read remotely from Kommander; they are not backed up.
-If a managed cluster goes down, Kommander will no longer collect or present its metrics, including past data.</p>
+If a managed cluster goes down, Kommander no longer collects or presents its metrics, including past data.</p>
 
 You can access the centralized Grafana UI at:
 
