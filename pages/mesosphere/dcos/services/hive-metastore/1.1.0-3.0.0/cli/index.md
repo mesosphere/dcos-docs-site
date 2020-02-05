@@ -63,7 +63,7 @@ You can interact with the {{ model.techName }} via the Beeline CLI.
   
 # <a name="Basic Beeline Queries"></a> Basic Beeline Queries
 
-  Beeline supports a rich set of SQL query functions. Few examples:
+  Beeline supports a rich set of SQL query functions. Here are a few examples:
   ```
   SHOW DATABASES;
   USE <database>;

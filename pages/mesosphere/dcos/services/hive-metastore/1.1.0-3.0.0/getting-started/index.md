@@ -12,26 +12,26 @@ Getting started with a test instance of the DC/OS {{ model.techName }} service i
 
 ## Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may need to [provision a service account](/mesosphere/dcos/services/{{ model.serviceName }}/1.0.0-3.0.0/security/#provisioning-a-service-account) before installing. You will be able to create the service account only if you have a `superuser` permission.
+- Depending on your security mode in Enterprise DC/OS, you may need to [provision a service account](/mesosphere/dcos/services/{{ model.serviceName }}/1.1.0-3.0.0/security/#provisioning-a-service-account) before you install {{ model.techName }}. You will be able to create the service account only if you have `superuser` permission.
 	- `strict` [security mode](/mesosphere/dcos/latest/security/ent/#security-modes) requires a service account.
-	- `permissive` security mode a service account is optional.
+	- `permissive` security mode: a service account is optional.
 	- `disabled` security mode does not require a service account.
 - Your cluster must have at least {{ model.install.minNodeCount }} private nodes.
 {{ model.install.customRequirements }}
 
-<p class="message--note"><strong>NOTE: </strong>The default DC/OS Apache {{ model.techShortName }} installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depending on the context of the deployment.</p>
+<p class="message--note"><strong>NOTE: </strong>The default DC/OS {{ model.techShortName }} installation provides reasonable defaults for trying out the service, but may not be sufficient for production use. You may require different configurations depending on the context of the deployment.</p>
 
 
 ## Installation from the DC/OS CLI
 
-To start a basic test cluster, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. More information about installing DC/OS Apache {{ model.techShortName }} on Enterprise DC/OS is available in the [Authenticating DC/OS Services](/mesosphere/dcos/2.0/security/ent/service-auth/custom-service-auth/) documentation. 
+To start a basic test cluster, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. More information about installing DC/OS {{ model.techShortName }} on Enterprise DC/OS is available in the [Authenticating DC/OS Services](/mesosphere/dcos/2.0/security/ent/service-auth/custom-service-auth/) documentation. 
 
 ```shell
 dcos package install {{ model.serviceName }}
 ```
 You can specify a custom configuration in an `options.json` file and pass it to `dcos package install` using the `--options` parameter.
 
-```
+```json
 dcos package install {{ model.serviceName }} --options=<options>.json
 ```
 
@@ -41,7 +41,7 @@ For more information about building the `options.json` file, see  [Configuring S
 
 ## Installation from the DC/OS UI
 
-You can [install DC/OS Apache {{ model.techShortName }} from the DC/OS UI](/mesosphere/dcos/2.0/deploying-services/install/). If you install DC/OS Apache {{ model.techShortName }} from the web interface, you must install the DC/OS Apache {{ model.techShortName }} CLI subcommands separately. From the DC/OS CLI, enter the following command:
+You can [install DC/OS Apache {{ model.techShortName }} from the DC/OS UI](/mesosphere/dcos/2.0/deploying-services/install/). If you install DC/OS {{ model.techShortName }} from the web interface, you must install the DC/OS {{ model.techShortName }} CLI subcommands separately. From the DC/OS CLI, enter the following command:
 ```bash
 dcos package install {{ model.serviceName }} --cli
 ```
@@ -49,7 +49,7 @@ Choose `ADVANCED INSTALLATION` to perform a custom installation.
 
 ## Integration with DC/OS access controls
 
-In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to restrict users and groups only to certain services. You will install your service into a folder, and then restrict access to some number of folders. Folders also allow you to assign namespaces to services; for example, `staging/{{ model.serviceName }}` and `production/{{ model.serviceName }}`.
+In Enterprise DC/OS 1.10 and later, you can integrate your SDK-based service with DC/OS ACLs to restrict users and groups  to certain services. You will install your service into a folder, and then restrict access to some number of folders. Folders also allow you to assign namespaces to services; for example, `staging/{{ model.serviceName }}` and `production/{{ model.serviceName }}`.
 
 Use the following steps to integrate with DC/OS access controls:
 
