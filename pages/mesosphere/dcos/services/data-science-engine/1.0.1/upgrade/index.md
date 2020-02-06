@@ -26,7 +26,7 @@ render: mustache
     
     <img src="/mesosphere/dcos/services/data-science-engine/img/dcos-data-science-engine-notebook-upload.png" alt="{{ model.techName }} Notebook Upload"/>
 
-1. Then run the following command to unzip the contents of the archive to the `jupyter_data` folder:
+1. Then run the following command to uncompress the contents of the archive to the `jupyter_data` folder:
 
     ```bash
     nobody@e08af121-e9e7-4c0f-8188-23bfead5080a:/mnt/mesos/sandbox$ tar -xvf jupyter_data.tar.gz
