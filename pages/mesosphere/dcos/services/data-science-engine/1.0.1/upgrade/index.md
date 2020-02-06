@@ -11,7 +11,7 @@ render: mustache
 
 {{ model.techName }} does not support in-place upgrades. In order to transition to a new version you must manually back up your data located in your `jupyter_data` folder and upload it to a new instance of {{ model.techName }}, running on the latest version using the following guide.
 
-1. Navigate to the root of your Jupyter Notebook UI and run the following command to compress the contents of your jupyter_data folder:
+1. Navigate to the Notebook terminal from Jupyter Notebook UI and run the following command to compress the contents of your jupyter_data folder:
     ```bash
     nobody@95602332-7dd1-4a24-b2a5-b0fa028c0998:/mnt/mesos/sandbox$ tar -cvf jupyter_data.tar.gz jupyter_data
     ```
