@@ -1,12 +1,25 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-excerpt: Release Notes for DSE v. 3.1.0-6.7.6
+excerpt: Release Notes for DSE v. 3.2.0-6.7.7
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/dse/data.yml
 render: mustache
 ---
+
+# Version 3.2.0-6.7.7
+
+## Updates
+- Upgraded both {{ model.techShortName }} and {{ model.techOpsName }} to version `6.7.7`.
+- Upgraded SDK to `0.57.3`. For more information see the SDK's Release Notes for: 
+  - [0.57.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3)
+  - [0.57.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.2)
+  - [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
+
+## Bug Fixes
+- Allow explicitly specify path for DSEFS data.
+
 
 # Version 3.1.0-6.7.6
 
