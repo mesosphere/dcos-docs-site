@@ -8,6 +8,21 @@ model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 
+# Release notes for Elastic Service version 3.1.0-7.4.1
+
+- [Upgrades](#orgdf76f77)
+
+<a id="orgdf76f77"></a>
+
+## Upgrades
+
+-   Upgraded Elasticsearch and Kibana to [7.4.1](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/release-notes-7.4.1.html)
+
+## Bug Fixes
+
+-   Fixed Kibana Dashboard issue. ([#72](https://github.com/mesosphere/dcos-elastic-service/pull/72)
+
+
 # Release notes for Elastic Service version 3.0.0-7.3.2
 
 - [Upgrades](#orgdf76f77)
@@ -53,7 +68,7 @@ render: mustache
 
 -   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
 
-    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.0.0-7.3.2/configuration/#elasticsearch-metrics)
+    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.1.0-7.4.1/configuration/#elasticsearch-metrics)
 
 -   Exposed `xpack.security.transport.ssl.client_authentication` `xpack.security.http.ssl.client_authentication` `xpack.security.transport.ssl.verification_mode` ([#46](https://github.com/mesosphere/dcos-elastic-service/pull/46))
 
