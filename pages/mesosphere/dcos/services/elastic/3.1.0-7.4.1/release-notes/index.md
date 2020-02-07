@@ -10,9 +10,7 @@ render: mustache
 
 # Release notes for Elastic Service version 3.1.0-7.4.1
 
-- [Upgrades](#orgdf76f77)
-
-<a id="orgdf76f77"></a>
+- [Upgrades]
 
 ## Upgrades
 
