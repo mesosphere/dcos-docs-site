@@ -12,7 +12,7 @@ render: mustache
 
 The DC/OS {{ model.techName }} service supports {{ model.techName }}'s X-Pack transport encryption mechanisms. The service provides automation and orchestration to simplify the use of these important features.
 
-A good overview of X-Pack can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/setup-xpack.html).
+A good overview of X-Pack can be found [here](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/setup-xpack.html).
 
 <p class="message--note"><strong>NOTE: </strong> These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
