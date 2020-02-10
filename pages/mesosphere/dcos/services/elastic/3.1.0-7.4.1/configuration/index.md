@@ -50,7 +50,7 @@ Any other modifiable settings are covered by the various Elasticsearch APIs (clu
 
 ## X-Pack Security
 
-[X-Pack](https://www.elastic.co/guide/en/elasticsearch/reference/6.3/setup-xpack.html) is an {{ model.techName }} Stack extension that provides security, alerting, monitoring, reporting, machine learning, and many other capabilities. By default, when you install Elasticsearch, X-Pack is installed.
+[X-Pack](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/setup-xpack.html) is an {{ model.techName }} Stack extension that provides security, alerting, monitoring, reporting, machine learning, and many other capabilities. By default, when you install Elasticsearch, X-Pack is installed.
 
 You must set the update strategy to `parallel` when you toggle X-Pack Security in order to force a full cluster restart. Afterwards, you should set the update strategy back to `serial` for future updates.
 
