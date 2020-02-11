@@ -13,15 +13,15 @@ If you’re new to Ansible and/or want to deploy DC/OS using Ansible quickly and
 - Upgrade the cluster to a newer version of DC/OS
 
 ## Prerequisites and Setup
-1. You will need to have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) and [Mazer 0.4](https://galaxy.ansible.com/docs/mazer/install.html) installed. See links for additional installation information.
-     With Mac you can brew install and then use your version of pip to install mazer:
+1. 1. You will need to have [Ansible](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html) with a minimum version of `2.9.0` installed. See links for additional installation information.
+     With Mac you can brew install:
      ```bash
-     brew install ansible && pip install mazer==0.4.0
+     brew install ansible
      ```
-     Or, you can use pip to install Ansible and Mazer:
+     Or, you can use pip to install Ansible:
 
       ```bash
-      pip install ansible mazer==0.4.0
+      pip install 'ansible>=2.9.0'
       ```
      For windows installation please refer to the [Ansible documentation](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#control-machine-requirements) for more information on how to install ansible on windows, or you can SSH to the bootstrap host (see below) and deploy and run ansible from there.
 
@@ -38,18 +38,18 @@ If you are installing DC/OS Enterprise Edition, you will also need an appropriat
 <p class="message--note"><strong>Note: </strong>Registered Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, please contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> for more information.</p>
 
 ## Downloading the Content
-We maintain and host our [DC/OS Ansible project on the Ansible Galaxy](https://galaxy.ansible.com/dcos/dcos_ansible) for easy consumption. Currently we, as well as RedHat, propose using the Mazer tool for downloading all the necessary content locally to your machine. For more information on the Mazer tool and how to configure it see the [project docs here](https://galaxy.ansible.com/docs/mazer/index.html).
+We maintain and host our [DC/OS Ansible project on the Ansible Galaxy](https://galaxy.ansible.com/dcos/cluster) for easy consumption. Currently we, as well as RedHat, propose using the `ansible-galaxy` tool for downloading all the necessary content locally to your machine. For more information on the `ansible-galaxy` tool and how to configure it see the [project docs here](https://docs.ansible.com/ansible/latest/cli/ansible-galaxy.html).
 
 1. Issue the following command to download the content:
      ```bash
-     mazer install dcos.dcos_ansible
+     ansible-galaxy collection install dcos.cluster
      ```
 
      This will install content in ` ~/.ansible/collections/ansible_collections` by default. However, if you have an older version of `mazer` or have a different content path set in your `mazer.yml`, it will install there. You can issue `mazer version` to find location your config file for mazer.
 
 2. In your content path, switch to the dcos_ansible roles.
      ```bash
-     cd ~/.ansible/collections/ansible_collections/dcos/dcos_ansible
+     cd ~/.ansible/collections/ansible_collections/dcos/cluster
      ```
 
 3. Mazer will download your roles by version in this directory, for example `dcos-ansible-0.51.0`. Locate the version and switch directories to the desired version for the next steps:
@@ -65,7 +65,7 @@ Once you have downloaded the content locally, you can begin modifying it to fit 
 
 You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please follow the below instructions and adjust according to your variant where noted. Here, we will install version `1.12.3`.
 
-1. Within the `~/.ansible/collections/ansible_collections/dcos/dcos_ansible/dcos-ansible-X.X.X` directory, rename the inventory and group variables example files to new files:
+1. Within the `~/.ansible/collections/ansible_collections/dcos/cluster` directory, rename the inventory and group variables example files to new files:
      ```bash
      mv inventory.example inventory && \
      mv group_vars/all/dcos.yaml.example group_vars/all/dcos.yml
