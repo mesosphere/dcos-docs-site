@@ -17,11 +17,15 @@ render: mustache
   - [0.57.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.2)
   - [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
 
+To update from your current version of {{ model.techName }}, see the [Updates](/mesosphere/dcos/services/dse/3.2.0-6.7.7/updates/) page.
+
 ## Bug Fixes
-- Allow explicitly specify path for DSEFS data.
+- Allow user to explicitly specify path for DSEFS data.
 
 
 # Version 3.1.0-6.7.6
+
+Although version 3.1.0-6.7.6 is no longer supported, the following changes were implemented in it. You will need to be aware of these changes when you upgrade to the current version, 3.2.0-6.7.7.
 
 ## Updates
 - Upgraded both {{ model.techShortName }} and {{ model.techOpsName }} to version `6.7.6`.
