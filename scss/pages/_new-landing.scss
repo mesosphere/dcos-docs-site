@@ -10,7 +10,7 @@
     &__main-hero {
         display: flex;
         justify-content: center;
-        height: 280px; //will need adjusted height
+        // height: 280px; //will need adjusted height
         background: white;
         border-bottom: 1px solid rgba(0, 0, 0, .23);
     }
@@ -32,10 +32,10 @@
         border: 1px solid rgba(0, 0, 0, .08);
         border-radius: 4px;
         box-shadow: 0 0 18px 0 rgba(45, 45, 45, .10);
-        height: 33%;
-        width: 33%;
-        max-width: 250px;
-        max-height: 250px;
+        height: 45%;
+        width: 45%;
+        // max-width: 250px;
+        // max-height: 250px;
         z-index: 10;
         transition: all 250ms ease-out;
         margin: 20px;
@@ -44,12 +44,15 @@
         box-shadow: 0 8px 20px 0 rgba(45, 45, 45, .23);
         transform: translateY(-5px);
     }
+    &__tile-logo-container {
+      // height: 66%
+    }
     &__tile-logo {
         border-radius: 2px;
         background-repeat: no-repeat;
-        margin-top: 20px;
-        height: 60px;
-        width: 60px;
+        // margin-top: 20px;
+        height: 45px; //85
+        width: 45px;
     }
     &__tile-title {
         font-size: 16px;
@@ -57,12 +60,13 @@
         color: $color-v2-purple;
         text-decoration: none;
         margin: 0;
+        text-align: center;
     }
     @include md {
         &__main-hero {
             // display: flex;
             // justify-content: center;
-            height: 450px;
+            // height: 450px;
             // background: white;
             // border-bottom: 1px solid rgba(0, 0, 0, .23);
         }
@@ -70,23 +74,24 @@
             align-items: center;
             justify-content: space-around;
             width: 100%;
-            margin-top: 70px;
+            margin-top: 80px;
             // padding-left: 1rem;
         }
         &__hero-tile {
-            height: 45%;
-            width: 45%;
-            min-width: 300px;
-            min-height: 300px;
+            height: 180px;
+            width: 220px;
+            // min-width: 300px;
+            // min-height: 300px;
         }
         &__tile-logo {
-            margin-top: 20px;
-            height: 160px;
-            width: 160px;
+            // margin-top: 20px;
+            height: 85px;
+            width: 85px;
         }
         &__tile-title {
             font-size: 26px;
             font-weight: bold;
+            text-align: center;
         }
     }
 }
