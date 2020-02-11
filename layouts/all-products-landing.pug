@@ -51,6 +51,7 @@ mixin renderProductBlurbs()
         for folder in latestDispatchDocs.children.slice(0,4)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
+    div(class='blurb__item')
       a(class='blurb__link-group' href='/ksphere/kommander')
         h3(class='blurb__header') Kommander
         div(class='blurb__desc__wrapper')
