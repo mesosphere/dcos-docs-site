@@ -21,12 +21,17 @@ render: mustache
     -   [0.57.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.2)
     -   [0.57.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3)
     
+To upgrade from your current version of {{ model.techName }}, see the [Updates](/mesosphere/dcos/services/elastic/3.1.0-7.4.1/updates/) page.
+
 ## Bug Fixes
 
 -   Fixed Kibana Dashboard issue. ([#72](https://github.com/mesosphere/dcos-elastic-service/pull/72))
 
 
 # Release notes for Elastic Service version 3.0.0-7.3.2
+
+Although version 3.0.0-7.3.2 is no longer supported, the following changes were implemented in it. You will need to be aware of these changes when you upgrade to the current version, 3.1.0-7.4.1.
+
 
 - [Upgrades](#orgdf76f77)
 - [New Features](#orgce810fb)
