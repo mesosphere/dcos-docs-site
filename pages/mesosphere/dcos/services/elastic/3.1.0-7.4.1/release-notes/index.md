@@ -8,14 +8,12 @@ model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 
-# Release notes for Elastic Service version 3.1.0-7.4.1
+# Release notes for {{ model.techName }} Service version 3.1.0-7.4.1
 
 ## Upgrades
 
 -   Upgraded Elasticsearch and Kibana to [7.4.1](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/release-notes-7.4.1.html)
--   Upgraded SDK version from `0.56.3` to `0.57.3`. ([#70](https://github.com/mesosphere/dcos-elastic-service/pull/70))
-
-    Please take a look at the following SDK change logs for more information:
+-   Upgraded SDK version from `0.56.3` to `0.57.3`. ([#70](https://github.com/mesosphere/dcos-elastic-service/pull/70)). The following SDK change logs contain more information:
 
     -   [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
     -   [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
@@ -25,7 +23,7 @@ render: mustache
     
 ## Bug Fixes
 
--   Fixed Kibana Dashboard issue. ([#72](https://github.com/mesosphere/dcos-elastic-service/pull/72)
+-   Fixed Kibana Dashboard issue. ([#72](https://github.com/mesosphere/dcos-elastic-service/pull/72))
 
 
 # Release notes for Elastic Service version 3.0.0-7.3.2
@@ -40,7 +38,7 @@ render: mustache
 
 ## Upgrades
 
--   Upgraded Elasticsearch and Kibana to [7.3.2](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/release-notes-7.3.2.html). ([#45](https://github.com/mesosphere/dcos-elastic-service/pull/45) [#47](https://github.com/mesosphere/dcos-elastic-service/pull/47))
+-   Upgraded Elasticsearch and Kibana to [7.3.2](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/release-notes-7.3.2.html). ([#45](https://github.com/mesosphere/dcos-elastic-service/pull/45), [#47](https://github.com/mesosphere/dcos-elastic-service/pull/47))
 
 <a id="orgce810fb"></a>
 
@@ -61,7 +59,7 @@ render: mustache
     -   `prometheus_exporter.readiness_check.delay` (integer, default `0`, minimum `0`)
     -   `prometheus_exporter.readiness_check.timeout` (integer, default `10`, minimum `10`)
 
--   Added [Alerts](https://grafana.com/grafana/dashboards/2322) based on Prometheus metrics. ([#50](https://github.com/mesosphere/dcos-elastic-service/pull/50) [#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
+-   Added [Alerts](https://grafana.com/grafana/dashboards/2322) based on Prometheus metrics. ([#50](https://github.com/mesosphere/dcos-elastic-service/pull/50), [#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
 
 -   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
 

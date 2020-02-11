@@ -261,7 +261,7 @@ If Kibana was installed without X-Pack Security enabled, you should be able to a
 
 #### Kibana with X-Pack Security enabled
 
-Due to a currently known [limitation](/mesosphere/dcos/services/elastic/3.1.0-7.4.1/limitations#kibana-service-url-does-not-work-on-dcos-111), if you installed Kibana with X-Pack Security enabled, you will not be able to access it through the default DC/OS 1.11 UI Service link. In this case you must [expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/3.1.0-7.4.1/how-to-guides#expose-kibana-using-edgelb).
+Due to a known [limitation](/mesosphere/dcos/services/elastic/3.1.0-7.4.1/limitations#kibana-service-url-does-not-work-on-dcos-111), if you installed Kibana with X-Pack Security enabled, you will not be able to access it through the default DC/OS 1.11 UI Service link. In this case you must [expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/3.1.0-7.4.1/how-to-guides#expose-kibana-using-edgelb).
 
 ### Configuration Guidelines
 
