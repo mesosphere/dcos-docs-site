@@ -6,4 +6,4 @@ featureMaturity:
 enterprise: false
 menuWeight: 0
 ---
-Learn about D2iQ products, from installation to operations and deploying your workloads.
+Learn about D2iQ products, from installation to operations, and deploying your workloads.
