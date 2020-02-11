@@ -42,6 +42,16 @@ mixin renderProductBlurbs()
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
     div(class='blurb__item')
+      a(class='blurb__link-group' href='/ksphere/kommander')
+        h3(class='blurb__header') Kommander
+          p(class='badge badge--beta') BETA
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
+      ul(class="blurb__links")
+        for folder in latestKommDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
+    div(class='blurb__item')
       a(class='blurb__link-group' href='/ksphere/dispatch')
         h3(class='blurb__header') Dispatch
           p(class='badge badge--beta') BETA
@@ -49,15 +59,6 @@ mixin renderProductBlurbs()
           p(class='blurb__desc') Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications.
       ul(class="blurb__links")
         for folder in latestDispatchDocs.children.slice(0,4)
-          li(class="blurb__link")
-            a(href=folder.path)!= folder.title
-    div(class='blurb__item')
-      a(class='blurb__link-group' href='/ksphere/kommander')
-        h3(class='blurb__header') Kommander
-        div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
-      ul(class="blurb__links")
-        for folder in latestKommDocs.children.slice(0,4)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
 
