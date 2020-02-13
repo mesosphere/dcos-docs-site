@@ -8,7 +8,30 @@ model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 
+# Release notes for {{ model.techName }} Service version 3.1.0-7.4.1
+
+## Upgrades
+
+-   Upgraded Elasticsearch and Kibana to [7.4.1](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/release-notes-7.4.1.html)
+-   Upgraded SDK version from `0.56.3` to `0.57.3`. ([#70](https://github.com/mesosphere/dcos-elastic-service/pull/70)). The following SDK change logs contain more information:
+
+    -   [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
+    -   [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
+    -   [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
+    -   [0.57.2](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.2)
+    -   [0.57.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3)
+    
+To upgrade from your current version of {{ model.techName }}, see the [Updates](/mesosphere/dcos/services/elastic/3.1.0-7.4.1/updates/) page.
+
+## Bug Fixes
+
+-   Fixed Kibana Dashboard issue. ([#72](https://github.com/mesosphere/dcos-elastic-service/pull/72))
+
+
 # Release notes for Elastic Service version 3.0.0-7.3.2
+
+Although version 3.0.0-7.3.2 is no longer supported, the following changes were implemented in it. You will need to be aware of these changes when you upgrade to the current version, 3.1.0-7.4.1.
+
 
 - [Upgrades](#orgdf76f77)
 - [New Features](#orgce810fb)
@@ -20,15 +43,7 @@ render: mustache
 
 ## Upgrades
 
--   Upgraded Elasticsearch and Kibana to [7.3.2](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/release-notes-7.3.2.html). ([#45](https://github.com/mesosphere/dcos-elastic-service/pull/45) [#47](https://github.com/mesosphere/dcos-elastic-service/pull/47))
--   Upgraded SDK version from `0.56.2` to `0.57.1`. ([#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
-
-    Please take a look at the following SDK change logs for more information:
-
-    -   [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
-    -   [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
-    -   [0.57.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.1)
-
+-   Upgraded Elasticsearch and Kibana to [7.3.2](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/release-notes-7.3.2.html). ([#45](https://github.com/mesosphere/dcos-elastic-service/pull/45), [#47](https://github.com/mesosphere/dcos-elastic-service/pull/47))
 
 <a id="orgce810fb"></a>
 
@@ -49,11 +64,11 @@ render: mustache
     -   `prometheus_exporter.readiness_check.delay` (integer, default `0`, minimum `0`)
     -   `prometheus_exporter.readiness_check.timeout` (integer, default `10`, minimum `10`)
 
--   Added [Alerts](https://grafana.com/grafana/dashboards/2322) based on Prometheus metrics. ([#50](https://github.com/mesosphere/dcos-elastic-service/pull/50) [#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
+-   Added [Alerts](https://grafana.com/grafana/dashboards/2322) based on Prometheus metrics. ([#50](https://github.com/mesosphere/dcos-elastic-service/pull/50), [#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
 
 -   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
 
-    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.0.0-7.3.2/configuration/#elasticsearch-metrics)
+    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.1.0-7.4.1/configuration/#elasticsearch-metrics)
 
 -   Exposed `xpack.security.transport.ssl.client_authentication` `xpack.security.http.ssl.client_authentication` `xpack.security.transport.ssl.verification_mode` ([#46](https://github.com/mesosphere/dcos-elastic-service/pull/46))
 

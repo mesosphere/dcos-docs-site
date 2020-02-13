@@ -16,7 +16,7 @@ Elasticsearch provides two ways of updating settings: persistent (through `elast
 
 If Kibana is configured with `kibana.elasticsearch_xpack_security_enabled` set to `true` the default DC/OS service link (`https://<cluster-url>/service/<kibana-service-name>`) will not work. This is due to a change in how Kibana deals with `Authorization` HTTP headers starting in version 6.3.
 
-As a workaround, you should be able to expose Kibana using [EdgeLB](/mesosphere/dcos/services/edge-lb/) by following this guide: [Expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/3.0.0-7.3.2/how-to-guides#expose-kibana-using-edgelb).
+As a workaround, you should be able to expose Kibana using [EdgeLB](/mesosphere/dcos/services/edge-lb/) by following this guide: [Expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/3.1.0-7.4.1/how-to-guides#expose-kibana-using-edgelb).
 
 #include /mesosphere/dcos/services/include/limitations.tmpl
 #include /mesosphere/dcos/services/include/limitations-zones.tmpl
@@ -28,7 +28,7 @@ Upgrades and rolling configuration updates do not wait for a cluster green healt
 
 ## Security
 
-Elasticsearch's built-in authentication mechanisms ([realms](https://www.elastic.co/guide/en/elastic-stack-overview/6.6/setting-up-authentication.html)) cannot currently be configured through service configuration options (that is, on package installs or service updates). However, since the [native](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/configuring-native-realm.html) realm is enabled by default by Elasticsearch, it is possible to configure it through the [security APIs](https://www.elastic.co/guide/en/elasticsearch/reference/6.6/security-api.html). These APIs include both authentication and authorization mechanisms.
+Elasticsearch's built-in authentication mechanisms ([realms](https://www.elastic.co/guide/en/elastic-stack-overview/7.4/setting-up-authentication.html)) cannot currently be configured through service configuration options (that is, on package installs or service updates). However, since the [native](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/configuring-native-realm.html) realm is enabled by default by Elasticsearch, it is possible to configure it through the [security APIs](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/security-api.html). These APIs include both authentication and authorization mechanisms.
 
 ### Transport Encryption
 

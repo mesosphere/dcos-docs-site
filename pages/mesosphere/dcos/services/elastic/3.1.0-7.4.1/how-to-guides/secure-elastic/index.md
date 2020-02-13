@@ -228,7 +228,7 @@ render: mustache
 
 ## (Optional) Verify the current license
 
-This should be a new Elasticsearch installation, so the cluster will be running under a "basic" license unless it was changed. You might want to [install an actual license](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/update-license.html). In this guide we will start a [trial license](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/start-trial.html).
+This should be a new Elasticsearch installation, so the cluster will be running under a "basic" license unless it was changed. You might want to [install an actual license](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/update-license.html). In this guide we will start a [trial license](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/start-trial.html).
 
 ```bash
 dcos task exec "${master_0_task_id}" \
@@ -249,7 +249,7 @@ dcos task exec "${master_0_task_id}" \
      "${protocol}://${coordinator_vip}/_xpack/license/start_trial?acknowledge=true&pretty"
 ```
 
-That's it! Assuming all steps worked, you should have a secure deployment of Elasticsearch and Kibana. From here you can use the [Elasticsearch APIs](https://www.elastic.co/guide/en/elasticsearch/reference/7.3/security-api.html) to change passwords, manage users, permissions and roles.
+That's it! Assuming all steps worked, you should have a secure deployment of Elasticsearch and Kibana. From here you can use the [Elasticsearch APIs](https://www.elastic.co/guide/en/elasticsearch/reference/7.4/security-api.html) to change passwords, manage users, permissions and roles.
 
 If you change passwords, don't forget to update the {{ model.techName }} service with the health-check credentials as was done in the "Configure {{ model.techName }} with initial credentials" step.
 

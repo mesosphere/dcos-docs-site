@@ -18,11 +18,9 @@ render: mustache
 
 ## Upgrading your cluster from 1.0.0-3.0.0 to 1.1.0-3.0.0
 
-- It is possible to upgrade from 1.0.0-3.0.0 to 1.1.0-3.0.0
+It is possible to upgrade from 1.0.0-3.0.0 to 1.1.0-3.0.0
   
-  ```
-  dcos {{ model.serviceName }} update start --package-version=1.1.0-3.0.0 --replace
-  ```
+  See the [update section](/mesosphere/dcos/services/hive-metastore/1.1.0-3.0.0/updates/) for specific instructions.
 
 # Release Notes for the {{ model.techName }} Service version 1.0.0-3.0.0
 

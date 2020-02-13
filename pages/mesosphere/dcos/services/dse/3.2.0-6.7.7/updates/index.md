@@ -15,13 +15,13 @@ Due to the complexity of upgrading to {{ model.techShortName }} 6.7, we strongly
 
 Also we advise that you upgrade 5.1.10 directly to 6.7.6, skipping 6.7.2, as it has a problem in upgrading when TLS is enabled. 
 
-<p class="message--important"><strong>IMPORTANT: </strong> 
-<ul>
-<li>This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, <tt>pause</tt> the plan and investigate.</li>
-<li>You must set properties <tt>dse_search</tt> and <tt>dse_analytics</tt> to <tt>true</tt> before upgrading. Afterward, you can reset the configs to the desired value.</li>
-<li>Due to a bug in DC/OS 2.0.0, upgrading DSE to 6.7.6 will not work. Instead, first upgrade DC/OS to 2.0.1 and then upgrade DSE to 6.7.6.</li>
-</ul>
+<p class="message--important"><strong>IMPORTANT: </strong> <br />
+1. This action cannot be undone and you should plan for increased load activity on your cluster. This task should be scheduled for off-peak hours. Should any problems arise, <tt>pause</tt> the plan and investigate.<br />
+2. You must set properties <tt>dse_search</tt> and <tt>dse_analytics</tt> to <tt>true</tt> before upgrading. Afterward, you can reset the configs to the desired value.<br />
+3. Due to a bug in DC/OS 2.0.0, upgrading DSE to 6.7.6 will not work. Instead, first upgrade DC/OS to 2.0.1 and then upgrade DSE to 6.7.6.
 </p>
+
+
 
 ## Prerequisites
 
