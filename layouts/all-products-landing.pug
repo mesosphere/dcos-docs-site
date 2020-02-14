@@ -12,7 +12,7 @@
 - var latestDispatchDocs = dispatchDocs.children.filter(child => child.id == 'latest')[0]
 
 - var kommDocs = ksphereDocs.children.filter(child => child.id == 'kommander')[0]
-- var latestKommDocs = kommDocs.children.filter(child => child.id == 'latest')[0]
+- var latestKommDocs = kommDocs.children.filter(child => child.id == kommanderDocsLatest)[0]
 
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
