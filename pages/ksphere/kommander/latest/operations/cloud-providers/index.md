@@ -156,7 +156,7 @@ Figure 7 - Cloud Provider Form with values
 
 Once created, a Cloud Provider’s display name or credentials can be updated.
 
-### Configuring an Azure cloud provider
+## Configuring an Azure cloud provider
 
 When creating an Azure cloud provider, you need an [Ansible inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html) and ssh keys.
 
