@@ -13,11 +13,11 @@ In order to provision new clusters and manage them, Kommander needs cloud provid
 
 Figure 6 - Cloud Provider Form
 
-### Configuring an AWS cloud provider
+## Configuring an AWS cloud provider
 
 When creating an AWS cloud provider, you need an access id and secret key for a user with a set of minimum  capabilities.
 
-#### Create a new User via CLI commands
+### Create a new User via CLI commands
 ```
 aws iam create-user --user-name Kommander
 ```
@@ -38,7 +38,7 @@ aws iam attach-user-policy --user-name Kommander --policy-arn $(aws iam list-pol
 aws iam create-access-key --user-name Kommander
 ```
 
-#### Using an existing user
+### Using an existing user
 
 You can use an existing AWS user with [credentials configured][aws_credentials]. The user needs to be authorized to create the following resources in the AWS account:
 
@@ -144,7 +144,7 @@ Below is the minimal IAM policy required:
 }
 ```
 
-#### Fill out the rest of the form
+### Fill out the rest of the form
 
 - Fill out the access and secret keys using the keys generated above.
 - Fill out a display name for your cloud provider for later reference.
@@ -158,9 +158,7 @@ Once created, a Cloud Provider’s display name or credentials can be updated.
 
 ## Configuring an Azure cloud provider
 
-When creating an Azure cloud provider, you need an [Ansible inventory file](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html) and ssh keys.
-
-#### Create a new set of credentials via CLI commands
+### Create a new set of credentials via CLI commands
 
 ```
 az login
@@ -192,7 +190,7 @@ The command returns data needed to create the secret:
 ```
 
 
-#### Fill out the rest of the form
+### Fill out the rest of the form
 
 - Fill out a display name for your cloud provider that you can reference later.
 - Fill out Client ID with the `APP_ID`.
@@ -224,7 +222,7 @@ Figure 9 - On Premise Provider Form with values
 
 Once created, a Provider’s display name or credentials can be updated.
 
-### Deleting a cloud provider
+## Deleting a cloud provider
 
 When attempting to delete a cloud provider Kommander first verifies if any existing managed clusters were created using the provider. The cloud provider cannot be deleted until all clusters created with the cloud provider have been deleted. This is to ensure Kommander has access to your cloud provider to remove all resources created for a managed cluster.
 
