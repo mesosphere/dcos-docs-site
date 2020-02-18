@@ -300,6 +300,7 @@ If all these steps are completed successfully, your `/path/to/output` directory 
 ├── <package-name>-<package-version>.dcos
 └── <package-name>-<package-version>.json
 ```
+<p class="message--note"><strong>NOTE: </strong>The <tt>lastUpdated</tt> property has been added <a href="https://github.com/mesosphere/universe/pull/2414">(#2414)</a> manually for many universe packages and this might cause schema errors during migration. In that case, please remove this property and try again.</p>
 
 You can clean up the build definition .json file, as it is no longer needed. Both the `build` and `migrate` subcommands accept an optional `--json` flag to support automation.
 
