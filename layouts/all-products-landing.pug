@@ -11,6 +11,9 @@
 - var dispatchDocs = ksphereDocs.children.filter(child => child.id == 'dispatch')[0]
 - var latestDispatchDocs = dispatchDocs.children.filter(child => child.id == 'latest')[0]
 
+- var kommDocs = ksphereDocs.children.filter(child => child.id == 'kommander')[0]
+- var latestKommDocs = kommDocs.children.filter(child => child.id == kommanderDocsLatest)[0]
+
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
 - var pages = headerSphereItems
@@ -33,9 +36,19 @@ mixin renderProductBlurbs()
       a(class='blurb__link-group' href='/ksphere/konvoy')
         h3(class='blurb__header') Konvoy
         div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Developed to address the exploding demand for Kubernetes, D2iQ’s Konvoy is a unique Kubernetes distribution designed to enable companies to leverage Kubernetes for an easy, enterprise-grade experience.  While there are many Kubernetes distributions in the industry, simply installing Kubernetes is not enough.  Organizations require a broader set of services for their production operations such as monitoring, logging, DNS and networking.  In addition to providing a simplified install of Kubernetes, D2iQ’s product and engineering teams did the difficult work for you by providing an opinionated set of supporting services from the vast cloud-native landscape and integrating them for an out-of-the-box, production-ready experience.  The result is a significant reduction in the man-power involved in standing up a production-ready Kubernetes environment and an accelerated time-to-market for your application development needs. 
+          p(class='blurb__desc') Developed to address the exploding demand for Kubernetes, D2iQ’s Konvoy is a unique Kubernetes distribution designed to enable companies to leverage Kubernetes for an easy, enterprise-grade experience. In addition to providing a simplified install of Kubernetes, D2iQ’s product and engineering teams did the difficult work for you by providing an opinionated set of supporting services from the vast cloud-native landscape and integrating them for an out-of-the-box, production-ready experience.  The result is a significant reduction in the man-power involved in standing up a production-ready Kubernetes environment and an accelerated time-to-market for your application development needs. 
       ul(class="blurb__links")
         for folder in latestKonvoyDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
+    div(class='blurb__item')
+      a(class='blurb__link-group' href='/ksphere/kommander')
+        h3(class='blurb__header') Kommander
+          p(class='badge badge--beta') BETA
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
+      ul(class="blurb__links")
+        for folder in latestKommDocs.children.slice(0,4)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
     div(class='blurb__item')
@@ -48,6 +61,7 @@ mixin renderProductBlurbs()
         for folder in latestDispatchDocs.children.slice(0,4)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
+
 doctype html
 html(lang='en')
   head
@@ -79,17 +93,19 @@ html(lang='en')
       div(class='landing__main-hero')
         div(class='landing__hero-tile-container')
           a(href="/mesosphere/dcos", class='landing__hero-tile')
-            div(class='landing__tile-logo-container')
-              img(class='landing__tile-logo' src='/assets/mesosphere-icon--color.svg')
-            h3(class='landing__tile-title') Mesosphere DC/OS
+            img(class='landing__tile-image' src='/assets/DCOS_Docs@2x.png')
+            h3(class='landing__tile-title') DC/OS
           a(href="/ksphere/konvoy", class='landing__hero-tile')
-            div(class='landing__tile-logo-container')
-              img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
+            img(class='landing__tile-image' src='/assets/Konvoy_Docs@2x.png')
             h3(class='landing__tile-title') Konvoy
+          a(href="/ksphere/kommander", class='landing__hero-tile')
+            img(class='landing__tile-image' src='/assets/Kommander_Docs@2x.png')
+            h3(class='landing__tile-title') Kommander
           a(href="/ksphere/dispatch", class='landing__hero-tile')
-            div(class='landing__tile-logo-container')
-              img(class='landing__tile-logo' src='/assets/k8s-placeholder-logo.svg')
+            img(class='landing__tile-image' src='/assets/Dispatch_Docs@2x.png')
             h3(class='landing__tile-title') Dispatch
+
+
 
       div(class='landing__container')
         +renderProductBlurbs()
@@ -98,7 +114,7 @@ html(lang='en')
             i(data-feather='book', class='landing__external-icon')
             h3(class='landing__external-title')
               a(class='landing__external-link', href='https://d2iq.com/training/') Get Training
-            p(class='landing__external-description') Learn to use and administer Konvoy and other products in real-time training courses, in person or online, offered by D2iQ.
+            p(class='landing__external-description') Learn to use and administer D2iQ products in real-time training courses, in person or online, offered by D2iQ.
           div(class='landing__external-item')
             i(data-feather='users', class='landing__external-icon')
             h3(class='landing__external-title')

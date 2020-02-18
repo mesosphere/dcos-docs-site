@@ -33,6 +33,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   const indices = {
     'mesosphere-dcos': client.initIndex('mesosphere-dcos'),
     'ksphere-konvoy': client.initIndex('ksphere-konvoy'),
+    'ksphere-kommander': client.initIndex('ksphere-kommander'),
     'ksphere-dispatch': client.initIndex('ksphere-dispatch')
   }
 
@@ -83,6 +84,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     const products = {
       dcos: 'DC/OS',
       konvoy: 'Konvoy',
+      kommander: 'Kommander',
       dispatch: 'Dispatch'
     };
 
@@ -124,6 +126,8 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         } else if (paths[2] === 'latest') {
           indexFile.section = 'Konvoy Docs';
         }
+      } else if (paths[1] === 'kommander') {
+        indexFile.section = 'Kommander Docs';
       } else if (paths[1] === 'dispatch') {
         indexFile.section = 'Dispatch Docs';
       }

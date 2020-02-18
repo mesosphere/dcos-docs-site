@@ -7,4 +7,4 @@ menus: ['landing-header']
 menuWeight: 5
 ---
 
-Intro to Ksphere goes here. If any.
+Welcome to ksphere.

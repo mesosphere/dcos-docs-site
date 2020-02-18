@@ -3,7 +3,9 @@
 - var isChinese = paths[2] == 'cn'
 - var isDCOS = paths[1] == 'dcos'
 - var isKonvoy = paths[1] == 'konvoy'
+- var isKommander = paths[1] == 'kommander'
 - var isDispatch = paths[1] == 'dispatch'
+
 doctype html
 html(lang='en')
   head
@@ -16,6 +18,8 @@ html(lang='en')
         include partials/header/konvoy-header.pug
       else if isDispatch
         include partials/header/dispatch-header.pug
+      else if isKommander
+        include partials/header/kommander-header.pug
       else
         include partials/header/dcos-en-header.pug
       if isChinese

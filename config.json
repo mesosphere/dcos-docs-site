@@ -3,16 +3,14 @@
     "DO_NOT_BUILD": [
       "test/**",
       "mesosphere/dcos/1.14/**",
-      "mesosphere/dcos/2.1/**",
-      "ksphere/kommander/**"
+      "mesosphere/dcos/2.1/**"
     ],
     "DO_NOT_INDEX": []
   },
   "staging": {
     "DO_NOT_BUILD": [
       "test/**",
-      "mesosphere/dcos/2.1/**",
-      "ksphere/kommander/**"
+      "mesosphere/dcos/2.1/**"
     ],
     "DO_NOT_INDEX": [
       "^cn"

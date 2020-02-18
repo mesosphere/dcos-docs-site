@@ -19,7 +19,7 @@ header(class='header')
             a(href=val.path)!= val.title
         li(class='header__menu-item')
           a(href='https://support.d2iq.com') Support
-  if isKonvoy
+  if isKonvoy || isKommander
     include mesosphere-dropdown.pug
   if isDispatch
     include mesosphere-dropdown.pug
@@ -29,6 +29,11 @@ header(class='header')
   section(class='header__search', role='search')
       if isKonvoy 
         form(class='header__search-form', action='/ksphere/konvoy/search/', method='GET')
+          input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+          label(class='header__search-label', for='header-search-input')
+            i(class='header__icon', data-feather='search')
+      else if isKommander
+        form(class='header__search-form', action='/ksphere/kommander/search/', method='GET')
           input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
           label(class='header__search-label', for='header-search-input')
             i(class='header__icon', data-feather='search')

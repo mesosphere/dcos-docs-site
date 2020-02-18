@@ -47,6 +47,14 @@ if paths[1] === 'konvoy'
   - dropdown = type.children.filter(item => semver.test(item.id))
   - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
   - versionTitle = ""
+  
+// Kommander Docs
+if paths[1] === 'kommander'
+  - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
+  - type = ksphereDocs.children.filter(child => child.id == 'kommander')[0]
+  - dropdown = type.children.filter(item => semver.test(item.id))
+  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
+  - versionTitle = ""
 
 // Dispatch Docs
 if paths[1] === 'dispatch'
