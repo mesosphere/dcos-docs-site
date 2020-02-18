@@ -11,12 +11,12 @@ render: mustache
 #include /mesosphere/dcos/services/include/advanced.tmpl
 
 [enterprise]
-## Secure JMX
+# Secure JMX
 [/enterprise]
 
 {{ model.techName }} supports Secure JMX allowing you to remotely manage and monitor the Kafka JRE.
 
-### Configuration Options
+## Configuration Options
 
 | Option | Description |
 |----------------------|-------------|
@@ -33,94 +33,94 @@ render: mustache
 
 Read more about using JMX options <a href="https://docs.oracle.com/javadb/10.10.1.2/adminguide/radminjmxenablepwdssl.html">here</a>.
 
-### Configuring JMX with self-signed certificate
+## Configuring JMX with self-signed certificate
 
 1. Generate a self-signed key store and trust store.
 
-  ```bash
-  $ keytool -genkey -alias server-cert -keyalg rsa  -dname "CN=kafka.example.com,O=Example Company,C=US"  -keystore keystore.ks -storetype JKS -storepass changeit -keypass changeit
-  ```
+    ```bash
+    keytool -genkey -alias server-cert -keyalg rsa  -dname "CN=kafka.example.com,O=Example Company,C=US"  -keystore keystore.ks -storetype JKS -storepass changeit -keypass changeit
+    ```
 
-  ```bash
-  $ keytool -genkey -alias server-cert -keyalg rsa  -dname "CN=kafka.example.com,O=Example Company,C=US"  -keystore truststore.ks -storetype JKS -storepass changeit -keypass changeit
-  ```
+    ```bash
+    keytool -genkey -alias server-cert -keyalg rsa  -dname "CN=kafka.example.com,O=Example Company,C=US"  -keystore truststore.ks -storetype JKS -storepass changeit -keypass changeit
+    ```
 
-2. Generate files containing the trust store and key store passwords.
+1. Generate files containing the trust store and key store passwords.
 
-  ```bash
-  $ cat <<EOF >> trust_store_pass
-  changeit
-  EOF
-  ```
+    ```bash
+    cat <<EOF >> trust_store_pass
+    changeit
+    EOF
+    ```
 
-  ```bash
-  $ cat <<EOF >> key_store_pass
-  changeit
-  EOF
-  ```
+    ```bash
+    cat <<EOF >> key_store_pass
+    changeit
+    EOF
+    ```
 
-3. Create a JMX access file.
+1. Create a JMX access file.
 
-  ```bash
-  $ cat <<EOF >> access_file
-  admin readwrite
-  user  readonly
-  EOF
-  ```
+    ```bash
+   cat <<EOF >> access_file
+    admin readwrite
+    user  readonly
+    EOF
+    ```
 
-4. Create a JMX password file.
+1. Create a JMX password file.
 
-  ```bash
-  $ cat <<EOF >> password_file
-  admin  adminpassword
-  user   userpassword
-  EOF
-  ```
+    ```bash
+   cat <<EOF >> password_file
+    admin  adminpassword
+    user   userpassword
+    EOF
+    ```
 
-5. Create necessary secrets in DC/OS for JMX.
+1. Create necessary secrets in DC/OS for JMX.
 
-  ```bash
-  dcos package install dcos-enterprise-cli --yes
-  dcos security secrets create -f keystore.ks kafka/keystore
-  dcos security secrets create -f key_store_pass kafka/keystorepass
-  dcos security secrets create -f truststore.ks kafka/truststore
-  dcos security secrets create -f trust_store_pass kafka/truststorepass
-  dcos security secrets create -f password_file kafka/passwordfile
-  dcos security secrets create -f access_file kafka/access
-  ```
+    ```bash
+    dcos package install dcos-enterprise-cli --yes
+    dcos security secrets create -f keystore.ks kafka/keystore
+    dcos security secrets create -f key_store_pass kafka/keystorepass
+    dcos security secrets create -f truststore.ks kafka/truststore
+    dcos security secrets create -f trust_store_pass kafka/truststorepass
+    dcos security secrets create -f password_file kafka/passwordfile
+    dcos security secrets create -f access_file kafka/access
+    ```
 
-6. Create a custom service configuration `options.json` with JMX enabled.
+1. Create a custom service configuration `options.json` with JMX enabled.
 
-  ```json
-  {
-    "service": {
-      "jmx": {
-        "enabled": true,
-        "port": 31299,
-        "rmi_port": 31298,
-        "access_file": "kafka/access",
-        "password_file": "kafka/passwordfile",
-        "key_store": "kafka/keystore",
-        "key_store_password_file": "kafka/keystorepass",
-        "add_trust_store": true,
-        "trust_store": "kafka/truststore",
-        "trust_store_password_file": "kafka/truststorepass"
+    ```json
+    {
+      "service": {
+        "jmx": {
+          "enabled": true,
+          "port": 31299,
+          "rmi_port": 31298,
+          "access_file": "kafka/access",
+          "password_file": "kafka/passwordfile",
+          "key_store": "kafka/keystore",
+          "key_store_password_file": "kafka/keystorepass",
+          "add_trust_store": true,
+          "trust_store": "kafka/truststore",
+          "trust_store_password_file": "kafka/truststorepass"
+        }
       }
     }
-  }
-  ```
+    ```
 
-7. Install Apache Kafka with the options file you created.
+1. Install Apache Kafka with the options file you created.
 
-  ```bash
-  dcos package install kafka --options="options.json"
-  ```
+    ```bash
+    dcos package install kafka --options="options.json"
+    ```
 
 ## Service Health Check
 
 DC/OS {{ model.techName }} supports service oriented health checks allowing you to monitor your service health in details.
 
-### Configuration Options
+## Configuration Options
 
 | Option | Description |
 |----------------------|-------------|
