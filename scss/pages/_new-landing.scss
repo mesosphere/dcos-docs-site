@@ -11,7 +11,7 @@
         display: flex;
         justify-content: center;
         background: white;
-        border-bottom: 1px solid rgba(0, 0, 0, .23);
+        border-bottom: 1px solid $color-light-grey-l2;
     }
     &__hero-tile-container {
         display: flex;
@@ -44,7 +44,7 @@
     }
     &__tile-title {
         font-size: 16px;
-        font-weight: bold;
+        // font-weight: bold;
         color: $color-light;
         text-decoration: none;
         margin: 0;
@@ -80,7 +80,7 @@
       }
       &__tile-title {
         font-size: 26px;
-        bottom: 8px;
+        bottom: 12px;
       }
     }
 }
@@ -109,7 +109,7 @@
         display: flex;
         margin: 0;
         padding: 0;
-        margin-bottom: 1em;
+        margin-bottom: 2em;
     }
     &__link {
         color: $color-v2-purple;
