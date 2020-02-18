@@ -27,7 +27,7 @@ For more information on {{ model.techShortName }}'s security, read the following
 
 #include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
 
-<p class="message--note"><strong>NOTE: </strong> Enabling transport encryption is **required** to use [SSL authentication](#ssl-authentication) for [authentication](#authentication), but is optional for [Kerberos authentication](#kerberos-authentication).</p>
+<p class="message--note"><strong>NOTE: </strong> Enabling transport encryption is <strong>required</strong> to use [SSL authentication](#ssl-authentication) for [authentication](#authentication), but is optional for [Kerberos authentication](#kerberos-authentication).</p>
 
 #include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
 

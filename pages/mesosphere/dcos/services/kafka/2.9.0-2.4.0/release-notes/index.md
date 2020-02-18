@@ -17,7 +17,7 @@ render: mustache
 - Updated the scheduler JRE to `v11`.
 
 ### Important Notes
-- Apache Kafka 2.4.0 introduces `[KAFKA-7335] - Store clusterId locally to ensure broker joins the right cluster`, which means that kafka cluster will store the clusterId locally so that it does not join the wrong zookeeper cluster accidentally. Therefore, if your kafka service is connected to default DC/OS zookeeper, changing the zookeeper path is not permitted. Please check [here](https://issues.apache.org/jira/browse/KAFKA-7335) for more information.
+- Apache Kafka 2.4.0 introduces `[KAFKA-7335] - Store clusterId locally to ensure broker joins the right cluster`, which means that a Kafka cluster will store the clusterId locally so that it does not join the wrong Zookeeper cluster accidentally. Therefore, if your Kafkaservice is connected to default DC/OS Zookeeper, changing the Zookeeper path is not permitted. Please check [here](https://issues.apache.org/jira/browse/KAFKA-7335) for more information.
 
 ## Version 2.8.1-2.3.1
 
@@ -44,7 +44,7 @@ render: mustache
   - Node draining 
 
 
-## Version 2.7.0-2.3.0
+<!-- ## Version 2.7.0-2.3.0
 
 ### Updates
 - Upgrade the base dcos-commons SDK version to `0.56.2`.
@@ -194,4 +194,4 @@ render: mustache
 - Update to 0.11.0.0 version of Apache {{ model.techShortName }} (including log and protocol versions).
 
 ## Breaking Changes
-- This is a major release.  You cannot upgrade to version 2.0.0-0.11.0 from a 1.0.x version of the package. To upgrade, you must perform a fresh install and replicate data across clusters.
+- This is a major release.  You cannot upgrade to version 2.0.0-0.11.0 from a 1.0.x version of the package. To upgrade, you must perform a fresh install and replicate data across clusters. -->
