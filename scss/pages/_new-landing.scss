@@ -44,7 +44,7 @@
     }
     &__tile-title {
         font-size: 16px;
-        // font-weight: bold;
+        font-weight: bold;
         color: $color-light;
         text-decoration: none;
         margin: 0;
@@ -64,11 +64,10 @@
             width: 165px;
             margin: 2em 1em;
         }
-        &__tile-image {
-        }
         &__tile-title {
-          font-size: 22px;
+          font-size: 20px;
           bottom: 4px; //manual adjust
+          font-weight: 600;
         }
     }
     @include ml {
@@ -80,8 +79,8 @@
           width: 220px;
       }
       &__tile-title {
-        font-size: 26px;
-        bottom: 12px;
+        font-size: 24px;
+        bottom: 6px;
       }
     }
 }
