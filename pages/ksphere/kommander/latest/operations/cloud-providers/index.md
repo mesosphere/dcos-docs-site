@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle: Cloud Providers
 title: Cloud Providers
 excerpt: Managing cloud providers used by Kommander
+menuWeight: 9
 ---
 
 Cloud providers like AWS, Azure and Google provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys to your preferred cloud provider. You may have many accounts for a single cloud provider.
@@ -11,7 +12,7 @@ In order to provision new clusters and manage them, Kommander needs your cloud p
 
 ![Cloud Provider Form](/ksphere/kommander/img/Cloud-provider-unselected.png)
 
-Figure 6 - Cloud Provider Form
+Cloud Provider Form
 
 ## Configuring an AWS cloud provider
 
@@ -218,7 +219,7 @@ You can use an existing AWS user with [configured credentials][aws_credentials].
 
 ![Cloud Provider Form with values](/ksphere/kommander/img/Cloud-provider-with-values.png)
 
-Figure 7 - Cloud Provider Form with values
+Cloud Provider Form with values
 
 Once created, a Cloud Provider’s display name or credentials can be updated.
 
@@ -271,7 +272,7 @@ The command returns data needed to create the secret:
 
 ![Azure Cloud Provider Form with values](/ksphere/kommander/img/Azure-Cloud-provider-with-values.png)
 
-Figure 8 - Azure Cloud Provider Form with values
+Azure Cloud Provider Form with values
 
 Once created, a Cloud Provider’s display name or credentials can be updated.
 
@@ -288,7 +289,7 @@ When creating an On Premise provider, you need a private SSH key.
 
 ![On Premise Provider Form with values](/ksphere/kommander/img/On-prem-provider-with-values.png)
 
-Figure 9 - On Premise Provider Form with values
+On Premise Provider Form with values
 
 Once created, a Provider’s display name or credentials can be updated.
 
