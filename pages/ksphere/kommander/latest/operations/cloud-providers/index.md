@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Cloud Providers
 title: Cloud Providers
+menuWeight: 1
 excerpt: Managing cloud providers used by Kommander
-menuWeight: 9
 ---
 
 Cloud providers like AWS, Azure and Google provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys to your preferred cloud provider. You may have many accounts for a single cloud provider.
@@ -280,6 +280,8 @@ Once created, a Cloud Provider’s display name or credentials can be updated.
 
 <p class="message--important"><strong>IMPORTANT: </strong>On premise provider is currently Alpha. The only way to launch a cluster on premise, currently, is to submit the cluster yaml.
 </p>
+
+## Configuring an On Premise provider
 
 When creating an On Premise provider, you need a private SSH key.
 
