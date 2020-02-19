@@ -17,7 +17,7 @@ Figure 6 - Cloud Provider Form
 
 When creating an AWS cloud provider, you need an access id and secret key for a user with a set of minimum  capabilities.
 
-### Create a new User via CLI commands
+### Create a new user via CLI commands
 ```
 aws iam create-user --user-name Kommander
 ```
