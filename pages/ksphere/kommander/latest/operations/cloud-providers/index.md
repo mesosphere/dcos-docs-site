@@ -168,7 +168,7 @@ az login
 ```
 
 ```
-az role assignment cerate --assignee YOUR_USER_LOGIN --role "User Access Administrator"
+az role assignment create --assignee YOUR_USER_LOGIN --role "User Access Administrator"
 ```
 
 Find the `SUBSCRIPTION_ID` of your account, named `id` in the output of this command:
