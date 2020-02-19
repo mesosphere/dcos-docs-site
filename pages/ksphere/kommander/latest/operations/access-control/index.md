@@ -1,15 +1,14 @@
 ---
 layout: layout.pug
-navigationTitle: Access Control
 title: Access Control
+navigationTitle: Access Control
 menuWeight: 1
 excerpt: Centrally manage access across clusters
-menuWeight: 9
 ---
 
 Role-based authorization can be defined centrally within Kommander to control access to resources on all clusters. The resources are similar to Kubernetes RBAC but with some crucial differences.
 
-#### Types of Access Control Objects
+## Types of Access Control Objects
 
 **Groups** map to groups and user claims from your identity providers.
 
