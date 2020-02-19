@@ -32,4 +32,4 @@ Figure 15 - Licenses Error
 
 ### Obtaining a license
 
-To generate your Kommander license contact your sales representative or <sales@mesosphere.io>. You can download the license from the [support website](https://support.mesosphere.com/s/downloads) using a [login credential](https://support.mesosphere.com/s/login/).
+To generate your Kommander license, contact your sales representative at <sales@mesosphere.io>, or you can download the license from the [support website](https://support.mesosphere.com/s/downloads) using your [login credentials](https://support.mesosphere.com/s/login/).
