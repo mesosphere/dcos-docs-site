@@ -17,7 +17,7 @@ render: mustache
 - Updated the scheduler JRE to `v11`.
 
 ### Important Notes
-- Apache Kafka 2.4.0 introduces `[KAFKA-7335] - Store clusterId locally to ensure broker joins the right cluster`, which means that a Kafka cluster will store the clusterId locally so that it does not join the wrong Zookeeper cluster accidentally. Therefore, if your Kafkaservice is connected to default DC/OS Zookeeper, changing the Zookeeper path is not permitted. Please check [here](https://issues.apache.org/jira/browse/KAFKA-7335) for more information.
+- Apache Kafka 2.4.0 introduces `[KAFKA-7335] - Store clusterId locally to ensure broker joins the right cluster`, which means that a Kafka cluster will store the clusterId locally so that it does not join the wrong Zookeeper cluster accidentally. Therefore, if your Kafka service is connected to default DC/OS Zookeeper, changing the Zookeeper path is not permitted. Please check [here](https://issues.apache.org/jira/browse/KAFKA-7335) for more information.
 
 ## Version 2.8.1-2.3.1
 
