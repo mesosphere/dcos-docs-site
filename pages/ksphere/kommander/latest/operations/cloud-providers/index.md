@@ -5,9 +5,9 @@ title: Cloud Providers
 excerpt: Managing cloud providers used by Kommander
 ---
 
-Cloud providers like AWS, Azure and Google can provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys to your preferred cloud provider. It is possible to have many accounts for a single cloud provider.
+Cloud providers like AWS, Azure and Google provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys to your preferred cloud provider. You may have many accounts for a single cloud provider.
 
-In order to provision new clusters and manage them, Kommander needs cloud provider credentials. Currently AWS, Azure, and On Premise are supported. GKE is coming soon.
+In order to provision new clusters and manage them, Kommander needs your cloud provider credentials. Currently AWS, Azure, and On Premise are supported. GKE is coming soon.
 
 ![Cloud Provider Form](/ksphere/kommander/img/Cloud-provider-unselected.png)
 
@@ -15,11 +15,11 @@ Figure 6 - Cloud Provider Form
 
 ## Configuring an AWS cloud provider
 
-When creating an AWS cloud provider, you can choose between `Static` authentication method and [Role-based authentication method][iam_roles].
+When creating an AWS cloud provider, you can choose between the `Static` authentication method and the [Role-based authentication method][iam_roles].
 
-<p class="message--important"><strong>IMPORTANT: </strong>We highly recommend using the Role-based method as a more secure option.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>We highly recommend using the Role-based method as this is more secure.</p>
 
-In both cases you going to need a role with a set of minimum capabilities.
+In both cases you need a role with a minimum set of capabilities.
 
 The role should grant permissions to create the following resources in the AWS account:
 
@@ -129,7 +129,7 @@ Below is the minimal IAM policy required:
 
 <p class="message--note"><strong>NOTE: </strong>The Role authentication method can only be used if your management cluster is running in AWS.</p>
 
-To utilize this option you need to attach the following policy to the role which is attached to your Kommander cluster.
+To use this option attach the following policy to the role attached to your Kommander cluster.
 
 ```json
 {
@@ -145,7 +145,7 @@ To utilize this option you need to attach the following policy to the role which
 }
 ```
 
-Instead of doing this manually you can add the following file `iam-stsAssumeKommander.tf` into the `extras/provisioner/` directory next to your `cluster.yaml`
+Instead of doing this manually you can add this file, `iam-stsAssumeKommander.tf`, into the `extras/provisioner/` directory next to your `cluster.yaml` file.
 
 ```terraform
 # Attaching sts:AssumeRole to the default node role from konvoy
@@ -171,20 +171,20 @@ EOF
 
 #### External ID
 
-You want to add Extenral ID if you share the Role with a 3rd party. External ID will help you to secure your environment from accidentally used roles. [Here you can read more about the External IDs][external_id].
+You can add an External ID if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
 
 #### Fill out the form
 
-1. Fill out a display name for your cloud provider for later reference
-2. Fill out the Role ARN
-3. Optionally fill out the External ID
-4. Click Verify and Save to verify the credentials are valid and to save your provider.
+1. Enter a display name for your cloud provider for later reference.
+2. Enter the Role ARN.
+3. Optionally, enter the External ID.
+4. Select **Verify and Save** to validate your credentials and save your provider.
 
 ### Static Authentication method
 
 When creating an AWS cloud provider, you need an access id and secret key for a user with a set of minimum capabilities.
 
-#### Create a new User via CLI commands
+#### Create a New User with CLI commands
 
 ```
 aws iam create-user --user-name Kommander
@@ -208,13 +208,13 @@ aws iam create-access-key --user-name Kommander
 
 #### Using an existing user
 
-You can use an existing AWS user with [credentials configured][aws_credentials]. This user should be authorized to create the resources listed above in the AWS account.
+You can use an existing AWS user with [configured credentials][aws_credentials]. This user should be authorized to create the resources listed above in the AWS account.
 
 #### Fill out the form
 
-- Fill out the access and secret keys using the keys generated above.
-- Fill out a display name for your cloud provider for later reference.
-- Click Verify and Save to verify the credentials are valid and to save your provider.
+1. Enter the access and secret keys using the keys generated above.
+2. Enter a display name for your cloud provider for later reference.
+3. Select **Verify and Save** to validate your credentials and save your provider.
 
 ![Cloud Provider Form with values](/ksphere/kommander/img/Cloud-provider-with-values.png)
 
@@ -226,7 +226,7 @@ Once created, a Cloud Provider’s display name or credentials can be updated.
 
 When creating an Azure cloud provider, you need an [Ansible inventory file][inventory_file] and ssh keys.
 
-### Create a new set of credentials via CLI commands
+### Create a new set of credentials with CLI commands
 
 ```
 az login
@@ -262,12 +262,12 @@ The command returns data needed to create the secret:
 
 ### Fill out the rest of the form
 
-- Fill out a display name for your cloud provider that you can reference later.
-- Fill out Client ID with the `APP_ID`.
-- Fill out Client Secret with the `PASSWORD`.
-- Fill out Tenant ID with the `TENANT`.
-- Fill out Subscription ID with the `SUBSCRIPTION_ID`.
-- Click Verify and Save to verify that the credentials are valid and to save your provider.
+1. Enter a display name for your cloud provider for later reference.
+2. Enter the Client ID using `APP_ID`.
+3. Enter a Client Secret using `PASSWORD`.
+4. Enter Tenant ID using `TENANT`.
+5. Enter Subscription ID usng `SUBSCRIPTION_ID`.
+6. Select **Verify and Save** to validate the credentials and save your provider.
 
 ![Azure Cloud Provider Form with values](/ksphere/kommander/img/Azure-Cloud-provider-with-values.png)
 
@@ -277,14 +277,14 @@ Once created, a Cloud Provider’s display name or credentials can be updated.
 
 ## Configuring an On Premise provider (Alpha)
 
-<p class="message--important"><strong>IMPORTANT: </strong>On premise provider is currently Alpha. The only way to launch a custer on premise currently is to submit the cluster yaml.
+<p class="message--important"><strong>IMPORTANT: </strong>On premise provider is currently Alpha. The only way to launch a cluster on premise, currently, is to submit the cluster yaml.
 </p>
 
 When creating an On Premise provider, you need a private SSH key.
 
-- Fill out a display name for your cloud provider for later reference.
-- Fill out Private SSH Key with the key used to access your infrastructure.
-- Click Verify and Save to verify the credentials are valid and to save your provider.
+1. Enter a display name for your cloud provider for later reference.
+2. Enter your Private SSH Key to access your infrastructure.
+3. Select **Verify and Save** to validate your credentials and save your provider.
 
 ![On Premise Provider Form with values](/ksphere/kommander/img/On-prem-provider-with-values.png)
 
@@ -294,9 +294,10 @@ Once created, a Provider’s display name or credentials can be updated.
 
 ## Deleting a cloud provider
 
-When attempting to delete a cloud provider Kommander first verifies if any existing managed clusters were created using the provider. The cloud provider cannot be deleted until all clusters created with the cloud provider have been deleted. This is to ensure Kommander has access to your cloud provider to remove all resources created for a managed cluster.
+Before attempting to delete a cloud provider, Kommander first verifies if any existing managed clusters were created using this provider. The cloud provider cannot be deleted until all clusters, created with the cloud provider, have been deleted. This ensures Kommander has access to your cloud provider to remove all resources created for a managed cluster.
 
 [inventory_file]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 [iam_roles]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
 [external_id]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
+
