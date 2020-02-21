@@ -6,36 +6,30 @@ menuWeight: 1
 excerpt: Centrally manage access across clusters
 ---
 
-Role-based authorization can be defined centrally within Kommander to control access to resources on all clusters. The resources are similar to Kubernetes RBAC but with some crucial differences.
+Role-based authorization can be defined centrally within Kommander to control access to resources on all clusters or a subset of clusters. The resources are may seem familiar because they are similar to Kubernetes RBAC but with some crucial differences that make it possible to define the roles and policies once and have them federated to clusters within a given scope:
+
+- Global or Workspace-level roles and policies federate those resources to a cluster-scoped roles and policies. In the case of workspace-level resources, they only apply to workspace clusters.
+
+- Project-level roles and policies federate namespace-scoped role and policies to project clusters.
+
+This approach gives you maximum flexibility over who has access to what resources, conveniently mapped to your existing identity providers' claims.
 
 ## Types of Access Control Objects
 
-**Groups** map to groups and user claims from your identity providers.
+### Groups
 
-![Groups](/ksphere/kommander/img/Access-control-groups-table.png)
+You can map group and user claims made by your configured identity providers to Kommander groups by clicking the Groups tab under Global Administration / Identity providers.
 
-Groups
+![Identity Provider Groups](/ksphere/kommander/img/access-control-idp-groups.png)
 
-**Roles** are named collections of rules defining which verbs can be applied to which resources.
+### Roles
 
-![Roles](/ksphere/kommander/img/Access-control-roles-table.png)
+Cluster roles and project roles are named collections of rules defining which verbs can be applied to which resources.
 
-Roles
+![Cluster Roles](/ksphere/kommander/img/access-control-cluster-roles.png)
 
-**Policies** bind a group to a role
+### Policies
 
-![Policies](/ksphere/kommander/img/Access-control-policies-table.png)
+Cluster policies and project policies bind a Kommander group to any number of roles. All groups that have been defined in the groups tab will be present at the Global, workspace, or project level and ready for you to assign roles to them.
 
-Policies
-
-Roles and Policies can be defined in the cluster scope which makes them apply to all Konvoy clusters.
-
-Roles and Policies can be defined within a project and apply only to the clusters matching the project's selector labels.
-
-![Project Roles](/ksphere/kommander/img/Project-roles-table.png)
-
-Project Roles
-
-![Project Policies](/ksphere/kommander/img/Project-policies-table.png)
-
-Project Policies
+![Cluster Policies](/ksphere/kommander/img/access-control-cluster-policies.png)
