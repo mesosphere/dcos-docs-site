@@ -14,7 +14,7 @@ In order to provision new clusters and manage them, Kommander needs cloud provid
 
 Cloud Provider credentials are configured within each workspace, so you must first select a workspace. Then, navigate to the Cloud Providers option under Administration.
 
-![Cloud Provider Form](/ksphere/kommander/img/add-cloud-provider.png)
+![Cloud Provider Form](/ksphere/kommander/latest/img/add-cloud-provider.png)
 
 Figure 1 - Cloud Provider Form
 
