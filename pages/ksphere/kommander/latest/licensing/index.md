@@ -32,4 +32,4 @@ Figure 15 - Licenses Error
 
 ### Obtaining a license
 
-To generate your Kommander license, contact your sales representative at <sales@mesosphere.io>, or you can download the license from the [support website](https://support.d2iq.com/s/downloads) using your [login credentials](https://support.d2iq.com/s/login/).
+To generate your Kommander license, contact your sales representative at <sales@d2iq.com>, or you can download the license from the [support website](https://support.d2iq.com/s/downloads) using your [login credentials](https://support.d2iq.com/s/login/).
