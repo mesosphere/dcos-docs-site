@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Centrally manage access across clusters
 ---
 
-Role-based authorization can be defined centrally within Kommander to control access to resources on all clusters or a subset of clusters. The resources are may seem familiar because they are similar to Kubernetes RBAC but with some crucial differences that make it possible to define the roles and policies once and have them federated to clusters within a given scope:
+Role-based authorization can be defined centrally within Kommander to control access to resources on all clusters or a subset of clusters. The resources may seem familiar because they are similar to Kubernetes RBAC but with some crucial differences that make it possible to define the roles and policies once and have them federated to clusters within a given scope:
 
 - Global or Workspace-level roles and policies federate those resources to a cluster-scoped roles and policies. In the case of workspace-level resources, they only apply to workspace clusters.
 
