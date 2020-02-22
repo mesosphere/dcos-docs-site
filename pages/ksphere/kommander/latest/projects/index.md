@@ -30,13 +30,9 @@ Projects enable centralized managed access control by defining distributed roles
 
 Policies are distributed to all clusters, selected by a project, and grant access to a specified role for a specified group.
 
-<p class="message--warning"><strong>WARNING: </strong>
-Changing cluster / project labels can cause deselected clusters with missing roles.
-</p>
-
 ## Configuration
 
-In Kommander you can configure ConfigMaps and Secrets for your projects. 
+In Kommander you can configure ConfigMaps and Secrets for your projects.
 
 ### ConfigMaps & Secrets
 
@@ -46,4 +42,4 @@ Using project ConfigMaps and project Secrets you can define configuration resour
 
 ## Platform Services
 
-Platform Services provide a catalog of applications that can be deployed across all project clusters.
+Platform Services provide a catalog of applications that can be deployed across all project clusters. See [Addon Catalog](/ksphere/kommander/latest/projects/addon-catalog) for more information
