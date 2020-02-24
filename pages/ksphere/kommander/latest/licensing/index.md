@@ -28,4 +28,8 @@ If there is an error submitting the license, the error banner contains direction
 
 ![Licenses Error](/ksphere/kommander/img/Licenses-error.png)
 
-Licenses Error
+Figure 15 - Licenses Error
+
+### Obtaining a license
+
+To generate your Kommander license, contact your sales representative at <sales@d2iq.com>, or you can download the license from the [support website](https://support.d2iq.com/s/downloads) using your [login credentials](https://support.d2iq.com/s/login/).
