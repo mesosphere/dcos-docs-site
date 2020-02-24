@@ -49,4 +49,4 @@ data:
 EOF
 ```
 
-After the CA secret has been posted successfully, a custom kubeconfig can be retrieved shortly by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
+After the CA secret has been created successfully, a custom kubeconfig can be retrieved by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
