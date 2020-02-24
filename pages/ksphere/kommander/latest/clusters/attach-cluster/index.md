@@ -14,7 +14,7 @@ Selecting the **Connect Cluster** option displays the **Connection Information**
 
 ![Add Cluster Connect](../../../img/add-cluster-connect.png)
 
-To enable Single Sign-On (SSO) for accessing the Kubernetes API across connected clusters with the Kommander administrator credentials, a Certificate Authority must be posted as a secret to the API server first. The following script creates a Certificate Authority (CA) including the CA certificate and a private key. The `kubectl` command then posts this CA using the current context under the name `kubernetes-root-ca` into the namespace `cert-manager` which is created if it does not already exist.
+To enable Single Sign-On (SSO) for accessing the Kubernetes API across connected clusters with the Kommander administrator credentials, a Certificate Authority must be created as a secret first. The following script creates a Certificate Authority (CA) including the CA certificate and a private key. The `kubectl` command then creates this CA using the current context under the name `kubernetes-root-ca` into the namespace `cert-manager` which is created if it does not already exist.
 
 ```bash
 #!/usr/bin/env bash
