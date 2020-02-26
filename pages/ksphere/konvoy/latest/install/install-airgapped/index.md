@@ -84,8 +84,8 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
-   The additional `--addons-repositories` flag will result in the generated `cluster.yaml` to set the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
-   The path `/opt/konvoy/artifacts/...` is the directory path where the `konvoy` binary is mounted from the host into the container. **Note:** This should not be changed unless you are referencing a different repo than the one provided in the tar.
+   The additional `--addons-repositories` flag results in the generated `cluster.yaml` setting the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
+   The path `/opt/konvoy/artifacts/...` is the directory path where the `konvoy` binary is mounted from the host into the container. <p class "message--note"><strong>NOTE: </strong> This should not be changed unless you are referencing a different repo than the one provided in the tar.</p>
 
    ```yaml
    kind: ClusterConfiguration

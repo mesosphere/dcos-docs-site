@@ -129,16 +129,16 @@ Another option to import custom Kibana dashboards can be to use the Kibana web c
 
 # Configuring elasticsearch curator addon for log maintenance
 
-Logs, if let to run without log maintenance, would fill up the disk space. For this purpose, Konvoy (version > 1.3.0) has elasticsearch curator as an addon. Curator is a cronjob that periodically garbage collects the indices which are older than the configured time.
+If you do not perform log maintenance, logs will fill up the disk space. For this purpose, Konvoy (version > 1.3.0) has elasticsearch curator as an addon. Curator is a cronjob that periodically garbage collects indices older than the configured time.
 
-Customer can enable curator addon with default configuration by modifying the `cluster.yaml` file:
+Customers can enable the curator addon, with default configuration, by modifying the `cluster.yaml` file:
 
 ```yaml
 - name: elasticsearch-curator
   enabled: true
 ```
 
-The default configuration would run curator job every day at mid-night and would garbage collect all the indices which are older than 30 days. Customer can configure both the cronjob schedule and the number of days by modifying the `cluster.yaml` file:
+The default configuration runs the curator job every day at mid-night and garbage collects all indices older than 30 days. Customers can configure both the cronjob schedule and the number of days by modifying the `cluster.yaml` file:
 
 ```yaml
 - name: elasticsearch-curator

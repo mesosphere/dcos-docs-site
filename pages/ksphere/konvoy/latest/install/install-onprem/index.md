@@ -155,7 +155,7 @@ all:
 
 ## Specifying local addons repositories
 
-When using Konvoy with its default addons options, the tool will try to fetch the list of available addons from a public GitHub [kuberntes-base-addons repo][kubernetes_base_addons_repo], [kubeaddons-kommander repo][kubeaddons_kommander_repo] and [kubeaddons-dispatch repo][kubeaddons_dispatch_repo] when initializing and validating the `cluster.yaml` file.
+When using Konvoy with its default addons options, the tool tries to fetch the list of available addons from a public GitHub [kuberntes-base-addons repo][kubernetes_base_addons_repo], [kubeaddons-kommander repo][kubeaddons_kommander_repo] and [kubeaddons-dispatch repo][kubeaddons_dispatch_repo] when initializing and validating the `cluster.yaml` file.
 If in your environment access to that repo is blocked, you may also use a local clone of the above repo.
 
 Assuming that the repo was cloned in the local directory to `./kuberntes-base-addons` and `kubeaddons-kommander`, use the `--addons-repositories` flag with the `konvoy init`, `konvoy up`, `konvoy provision` commands.
@@ -183,7 +183,7 @@ spec:
       enabled: true
 ```
 
-You can also specify a remote git repos hosted in your organization using the same `--addons-repositories` flag.
+You can also specify remote git repos hosted in your organization using the same `--addons-repositories` flag.
 
 # Configure the Kubernetes cluster
 
