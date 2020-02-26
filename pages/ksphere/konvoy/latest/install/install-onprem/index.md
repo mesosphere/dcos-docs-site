@@ -4,7 +4,7 @@ navigationTitle: Install on-premise
 title: Install on-premise
 menuWeight: 30
 excerpt: Install Konvoy in an on-premise environment
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
@@ -153,12 +153,12 @@ all:
     ansible_port: 22
 ```
 
-## Specifying a local kubernetes-base-addons repo
+## Specifying local addons repositories
 
-When using Konvoy with its default addons options, the tool will try to fetch the list of available addons from a public GitHub [kubeaddons-configs repo][kubeaddons_repo] when initializing and validating the `cluster.yaml` file.
+When using Konvoy with its default addons options, the tool will try to fetch the list of available addons from a public GitHub [kuberntes-base-addons repo][kubernetes_base_addons_repo], [kubeaddons-kommander repo][kubeaddons_kommander_repo] and [kubeaddons-dispatch repo][kubeaddons_dispatch_repo] when initializing and validating the `cluster.yaml` file.
 If in your environment access to that repo is blocked, you may also use a local clone of the above repo.
 
-Assuming that the repo was cloned in the local directory to `./kubeaddons-configs`, use the `--addons-config-repository` flag with the `konvoy init`, `konvoy up`, `konvoy provision` commands.
+Assuming that the repo was cloned in the local directory to `./kuberntes-base-addons` and `kubeaddons-kommander`, use the `--addons-repositories` flag with the `konvoy init`, `konvoy up`, `konvoy provision` commands.
 
 This will result in your `cluster.yaml` containing the details below:
 
@@ -167,11 +167,23 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
-    configRepository: ./kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+  - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
+    configVersion: stable-1.16-1.2.0
+    addonsList:
+    ...
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: false
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: kommander
+      enabled: true
 ```
 
-You can also specify a remote git repo hosted in your organization using the same `--addons-config-repository` flag.
+You can also specify a remote git repos hosted in your organization using the same `--addons-repositories` flag.
 
 # Configure the Kubernetes cluster
 
@@ -597,5 +609,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
 [traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[kubeaddons_repo]: https://github.com/mesosphere/kubernetes-base-addons
+[kubernetes_base_addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
+[kubeaddons_kommander_repo]: https://github.com/mesosphere/kubeaddons-kommander
+[kubeaddons_dispatch_repo]: https://github.com/mesosphere/kubeaddons-dispatch
 [selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm

@@ -4,7 +4,7 @@ navigationTitle: konvoy check
 title: konvoy check
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
- 
+enterprise: false
 excerpt: Run checks on the health of the cluster
 ---
 

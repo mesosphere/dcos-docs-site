@@ -29,10 +29,10 @@ In AWS, the `external-dns` can be configured as:
         accessKey:  <aws access key>
       region: <aws region>
       preferCNAME: true
-      policy: sync
-      txtPrefix: local-
-      domainFilters:
-      - <custom domain>
+    policy: sync
+    txtPrefix: local-
+    domainFilters:
+    - <custom domain>
 ```
 
 <p class="message--note"><strong>NOTE: </strong>The AWS account must have permissions to update `route 53`. More details can be found [here][external-dns].</p>

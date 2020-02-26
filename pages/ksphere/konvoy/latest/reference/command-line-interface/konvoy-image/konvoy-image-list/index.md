@@ -4,7 +4,7 @@ navigationTitle: konvoy image list
 title: konvoy image list
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
- 
+enterprise: false
 excerpt: List the available Konvoy CLI images ready for installation
 ---
 

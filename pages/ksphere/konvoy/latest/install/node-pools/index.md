@@ -4,11 +4,13 @@ navigationTitle: Node Pools
 title: Node Pools
 menuWeight: 50
 excerpt: Configure node pools for the Konvoy cluster
- 
+enterprise: false
 ---
 
 In this section, you will learn how to configure multiple node pools for a Konvoy cluster.
 Node pools allow the cluster administrator to use different configurations for different sets of worker nodes in a heterogeneous environment.
+
+<p class="message--important"><strong>IMPORTANT: </strong> Do not change the configuration of a deployed node pool. Changing the configuration of a deployed node pool, and running  `konvoy provision` or `konvoy up`, destroys and re-creates the machines, disrupting your workloads on these machines. To change the configuration of a node pool, see [Changing Nodes in an AWS / Azure Cluster](../../operations/managing-nodes/index.md#changing-nodes-in-an-aws--azure-cluster).</p>
 
 ## Configure multiple node pools for an on-premise cluster
 

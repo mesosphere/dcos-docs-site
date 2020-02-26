@@ -2,27 +2,27 @@
 layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
-excerpt: List of third party open source software provided by D2iQ&reg
+excerpt: List of third party open source software provided by D2iQ&reg;
 render: mustache
 ---
 
-The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Konvoy&trade; version 1.3.
+The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Konvoy&trade;.
 
 |Dependency                 |Version                             |License                                                                                                           |
 |---------------------------|------------------------------------|------------------------------------------------------------------------------------------------------------------|
-|azure-sdk-for-go           |v34.0.0+incompatible                |[Apache License 2.0](https://https://github.com/Azure/azure-sdk-for-go/blob/master/master/LICENSE)                |
-|autorest                   |v0.9.2                              |[Apache License 2.0](https://https://github.com/Azure/go-autorest/autorest/blob/master/LICENSE)                   |
-|adal                       |v0.8.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/autorest/adal/blob/master/LICENSE)                      |
-|auth                       |v0.4.1                              |[Apache License 2.0](https://github.com/Azure/go-autorest/autorest/azure/auth/blob/master/LICENSE)                |
-|cli                        |v0.3.1                              |[Apache License 2.0](https://github.com/Azure/go-autorest/autorest/azure/cli/blob/master/LICENSE)                 |
-|date                       |v0.2.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/autorest/date/blob/master/LICENSE)                      |
-|to                         |v0.3.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/autorest/to/blob/master/LICENSE)                        |
-|validation                 |v0.2.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/autorest/validation/blob/master/LICENSE)                |
-|logger                     |v0.1.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/logger/blob/master/LICENSE)                             |
-|tracing                    |v0.5.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/tracing/blob/master/LICENSE)                            |
-|toml                       |v0.3.1                              |[MIT License](https://github.com/BurntSushi/toml/blob/master/LICENSE)                                             |
-|semver                     |v1.5.0                              |[MIT License](https://github.com/Masterminds/semver/blob/master/LICENSE)                                          |
-|aws-sdk-go                 |v1.25.50                            |[Apache License 2.0](https://github.com/aws/aws-sdk-go/blob/master/LICENSE)                                       |
+|azure-sdk-for-go           |v34.0.0+incompatible                |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                |
+|autorest                   |v0.9.2                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                   |
+|adal                       |v0.8.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                      |
+|auth                       |v0.4.1                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                |
+|cli                        |v0.3.1                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                 |
+|date                       |v0.2.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                      |
+|to                         |v0.3.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                        |
+|validation                 |v0.2.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                |
+|logger                     |v0.1.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                             |
+|tracing                    |v0.5.0                              |[Apache License 2.0](https://github.com/Azure/go-autorest/blob/master/LICENSE)                            |
+|toml                       |v0.3.1                              |[MIT License](https://github.com/BurntSushi/toml/blob/master/COPYING)                                             |
+|semver                     |v1.5.0                              |[MIT License](https://github.com/Masterminds/semver/blob/master/LICENSE.txt)                                          |
+|aws-sdk-go                 |v1.25.50                            |[Apache License 2.0](https://github.com/aws/aws-sdk-go/blob/master/LICENSE.txt)                                       |
 |perks                      |v1.0.1                              |[MIT License](https://github.com/beorn7/perks/blob/master/LICENSE)                                                |
 |semver                     |v3.5.1+incompatible                 |[MIT License](https://github.com/blang/semver/blob/master/LICENSE)                                                |
 |containerd                 |v1.2.9                              |[Apache License 2.0](https://github.com/containerd/containerd/blob/master/LICENSE)                                |
@@ -36,13 +36,13 @@ The table below lists the third party open source software which is provided by 
 |utfbom                     |v1.1.0                              |[Apache License 2.0](https://github.com/dimchansky/utfbom/blob/master/LICENSE)                                    |
 |distribution               |v2.7.1+incompatible                 |[Apache License 2.0](https://github.com/docker/distribution/blob/master/LICENSE)                                  |
 |docker                     |v1.4.2-0.20191121165722-d1d5f6476656|[Apache License 2.0](https://github.com/docker/docker/blob/master/LICENSE)                                        |
-|docker-ce                  |v0.0.0-20191113071909-633a0ea838f1  |[Apache License 2.0](https://github.com/docker/docker-ce/blob/master/LICENSE)                                     |
+|docker-ce                  |v0.0.0-20191113071909-633a0ea838f1  |[Apache License 2.0](https://github.com/docker/docker-ce/blob/master/components/engine/LICENSE)                                     |
 |go-connections             |v0.4.0                              |[Apache License 2.0](https://github.com/docker/go-connections/blob/master/LICENSE)                                |
 |go-metrics                 |v0.0.1                              |[Apache License 2.0](https://github.com/docker/go-metrics/blob/master/LICENSE)                                    |
 |go-units                   |v0.4.0                              |[Apache License 2.0](https://github.com/docker/go-units/blob/master/LICENSE)                                      |
 |gods                       |v1.12.0                             |["BSD 2-Clause ""Simplified"" License"](https://github.com/emirpasic/gods/blob/master/LICENSE)                    |
 |json-patch                 |v4.5.0+incompatible                 |["BSD 3-Clause ""New"" or ""Revised"" License"](https://github.com/evanphx/json-patch/blob/master/LICENSE)        |
-|color                      |v1.7.0                              |[MIT License](https://github.com/fatih/color/blob/master/LICENSE)                                                 |
+|color                      |v1.7.0                              |[MIT License](https://github.com/fatih/color/blob/master/LICENSE.md)                                                 |
 |yaml                       |v1.0.1-0.20180820084758-c7ce16629ff4|[MIT License](https://github.com/ghodss/yaml/blob/master/LICENSE)                                                 |
 |logr                       |v0.1.0                              |[Apache License 2.0](https://github.com/go-logr/logr/blob/master/LICENSE)                                         |
 |glob                       |v0.2.3                              |[MIT License](https://github.com/gobwas/glob/blob/master/LICENSE)                                                 |
@@ -65,12 +65,10 @@ The table below lists the third party open source software which is provided by 
 |go-runewidth               |v0.0.6                              |[MIT License](https://github.com/mattn/go-runewidth/blob/master/LICENSE)                                          |
 |go-shellwords              |v1.0.6                              |[MIT License](https://github.com/mattn/go-shellwords/blob/master/LICENSE)                                         |
 |golang_protobuf_extensions |v1.0.1                              |[Apache License 2.0](https://github.com/matttproud/golang_protobuf_extensions/blob/master/LICENSE)                |
-|kubeaddons                 |v0.6.3                              |[D2iQ](https://github.com/mesosphere/kubeaddons/blob/master/LICENSE)                                              |
-|kubernetes-resource-manager|v0.1.4                              |[D2iQ](https://github.com/mesosphere/kubernetes-resource-manager/blob/master/LICENSE)                             |
 |go-homedir                 |v1.1.0                              |[MIT License](https://github.com/mitchellh/go-homedir/blob/master/LICENSE)                                        |
 |concurrent                 |v0.0.0-20180306012644-bacd9c7ef1dd  |[Apache License 2.0](https://github.com/modern-go/concurrent/blob/master/LICENSE)                                 |
 |reflect2                   |v1.0.1                              |[Apache License 2.0](https://github.com/modern-go/reflect2/blob/master/LICENSE)                                   |
-|tablewriter                |v0.0.3                              |[MIT License](https://github.com/olekukonko/tablewriter/blob/master/LICENSE)                                      |
+|tablewriter                |v0.0.3                              |[MIT License](https://github.com/olekukonko/tablewriter/blob/master/LICENSE.md)                                      |
 |go-digest                  |v1.0.0-rc1                          |[Apache License 2.0](https://github.com/opencontainers/go-digest/blob/master/LICENSE)                             |
 |image-spec                 |v1.0.1                              |[Apache License 2.0](https://github.com/opencontainers/image-spec/blob/master/LICENSE)                            |
 |runc                       |v1.0.0-rc8                          |[Apache License 2.0](https://github.com/opencontainers/runc/blob/master/LICENSE)                                  |
@@ -83,7 +81,7 @@ The table below lists the third party open source software which is provided by 
 |procfs                     |v0.0.5                              |[Apache License 2.0](https://github.com/prometheus/procfs/blob/master/LICENSE)                                    |
 |go-diff                    |v1.0.0                              |[MIT License](https://github.com/sergi/go-diff/blob/master/LICENSE)                                               |
 |logrus                     |v1.4.2                              |[MIT License](https://github.com/sirupsen/logrus/blob/master/LICENSE)                                             |
-|cobra                      |v0.0.5                              |[Apache License 2.0](https://github.com/spf13/cobra/blob/master/LICENSE)                                          |
+|cobra                      |v0.0.5                              |[Apache License 2.0](https://github.com/spf13/cobra/blob/master/LICENSE.txt)                                          |
 |pflag                      |v1.0.5                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://github.com/spf13/pflag/blob/master/LICENSE)               |
 |gcfg                       |v1.4.0                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://github.com/src-d/gcfg/blob/master/LICENSE)                |
 |tar-split                  |v0.11.1                             |["BSD 3-Clause ""New"" or ""Revised"" License"](https://github.com/vbatts/tar-split/blob/master/LICENSE)          |

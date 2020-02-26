@@ -4,7 +4,7 @@ navigationTitle: konvoy apply kubeconfig
 title: konvoy apply kubeconfig
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
- 
+enterprise: false
 excerpt: Updates kubeconfig and activate the current context with the installed cluster
 ---
 

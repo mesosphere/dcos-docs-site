@@ -4,7 +4,7 @@ navigationTitle: Back up and restore
 title: Back up and restore
 menuWeight: 12
 excerpt: Back up and restore the Konvoy cluster
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

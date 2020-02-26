@@ -4,7 +4,7 @@ navigationTitle: Configure HTTP Proxy
 title: Configure HTTP Proxy
 menuWeight: 70
 excerpt: Configure HTTP proxy for the Konvoy cluster
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
