@@ -20,7 +20,7 @@ enterprise: false
 #### Disclaimer
 
 - The generated release artifacts will now untar in `./konvoy_v1.4.0/konvoy` instead of `./linux/konvoy_v1.4.0/konvoy`.
-- The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy will print a warning message if your nodePool names do not comply with the requirement.
+- The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy prints a warning message if your nodePool names do not comply with the requirement.
 - The Kommander and Dispatch addons are now in their own repos.
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must modify your `cluster.yaml` with these changes when upgrading from a previous version. You can also no longer use the `konvoy.mesosphere.io/v1alpha1` apiVersion in your `cluster.yaml` if you are also deploying Kommander or Dispatch. That API version did not support multiple addon repositories.</p>
@@ -63,9 +63,9 @@ spec:
 -   Enable strict yaml parsing for `cluster.yaml`.
 -   New flag `--without-draining` to skip draining nodes during upgrades.
 -   Moved the Kommander and Dispatch addons to their own repos. Remove flags `--addons-config-repository` and `--addons-config-version` and instead added `--addons-repositories`.
--   New commands `konvoy drain`, `konvoy cordon` and `konvoy uncordon` that will run the corresponding `kubectl` commands.
+-   New commands `konvoy drain`, `konvoy cordon` and `konvoy uncordon` that run the corresponding `kubectl` commands.
     - This functionality relies on the Kubernetes nodes having a label `konvoy.mesosphere.com/node_pool=_node_pool_` where `_node_pool_` corresponds to the `nodePool.name` defined in the `cluster.yaml` file.
-    - Starting with this release, Konvoy will automatically label the nodes with the nodePool, you may run `konvoy deploy -y` to apply the labels prior to running these new commands.
+    - Starting with this release, Konvoy automatically labels the nodes with the nodePool. You can run `konvoy deploy -y` to apply the labels prior to running these new commands.
 -   New commands `konvoy get nodepools`, `konvoy create nodepool`, `konvoy scale nodepool` to manage the `nodePool` entries in the `cluster.yaml` file. These commands will not mutate the infrastructure, you will still need to run `konvoy up` to apply the changes.
 
 #### Bug fixes
