@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Repository CRD
 title: Repository CRD
-menuWeight: 70
-beta: true
+menuWeight: 90
+beta: false
 excerpt: Reference Guide for Configuring a Repository
 ---
 
@@ -144,11 +144,7 @@ FileRef
 </td>
 <td>
 <em>(Optional)</em>
-<p>Override the default location to fetch the Dispatchfile from. The
-file extension should be either <code>.cue</code>, <code>.star</code>, <code>.yaml</code> or <code>.json</code>.
-If unset, the first available file among <code>Dispatchfile.cue</code>,
-<code>Dispatchfile.star</code>, <code>Dispatchfile.yaml</code> and <code>Dispatchfile.json</code>
-will be used.</p>
+<p>Override the default location to fetch the Dispatchfile from.</p>
 </td>
 </tr>
 <tr>
@@ -310,11 +306,7 @@ FileRef
 </td>
 <td>
 <em>(Optional)</em>
-<p>Override the default location to fetch the Dispatchfile from. The
-file extension should be either <code>.cue</code>, <code>.star</code>, <code>.yaml</code> or <code>.json</code>.
-If unset, the first available file among <code>Dispatchfile.cue</code>,
-<code>Dispatchfile.star</code>, <code>Dispatchfile.yaml</code> and <code>Dispatchfile.json</code>
-will be used.</p>
+<p>Override the default location from which to fetch the Dispatchfile.</p>
 </td>
 </tr>
 <tr>

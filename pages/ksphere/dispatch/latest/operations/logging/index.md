@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Logging
 title: Logging in Kibana
-menuWeight: 2
-beta: true
+menuWeight: 10
+beta: false
 excerpt: Learn how to explore Dispatch logs in Kibana
 ---
 
@@ -73,7 +73,28 @@ Components' logs can be filtered by the following labels:
 | stream | stderr |
 
 
-## Dispatch task logs
+## Dispatch pipeline & task logs
+
+### Using the CLI to view the logs
+
+In order to list the pipeline runs (active & completed):
+
+```bash
+dispatch list pipelineruns
+```
+
+To list the tasks in a pipeline run:
+
+```bash
+dispatch list tasks --pipelinerun  <pipelineRunId>
+```
+
+To view the logs of a task in a pipeline (or the pipeline logs if the pipeline is still active):
+```bash
+dispatch logs view --task <taskName> --pipelinerun <pipelineRunId>
+```
+
+### Using the Kibana dashboard to view the logs
 
 You can also view the task logs for individual tasks and pipelines in Kibana. For example:
 
