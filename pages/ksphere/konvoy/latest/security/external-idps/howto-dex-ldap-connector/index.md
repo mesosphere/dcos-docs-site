@@ -4,7 +4,7 @@ navigationTitle: External LDAP directory
 title: External LDAP directory
 menuWeight: 10
 excerpt: Connect your Konvoy cluster to an external LDAP directory
- 
+enterprise: false
 ---
 
 ## How to connect Konvoy to an external LDAP directory

@@ -4,7 +4,7 @@ navigationTitle: Troubleshooting Technique
 title: Troubleshooting Technique
 menuWeight: 12
 excerpt: Techniques and tools for debugging Kubernetes problems
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

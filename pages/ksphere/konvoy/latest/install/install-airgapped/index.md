@@ -77,15 +77,15 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-config-repository /opt/konvoy/artifacts/kubernetes-base-addons --addons-config-version stable-1.16.4-2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.16-1.2.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.16-1.0.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.0.0 [--cluster-name <your-specified-name>]
    ```
 
    **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
-   The additional `--addons-config-repository` and `--addons-config-version` flag will result in the generated `cluster.yaml` to set the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
-   The path `/opt/konvoy/artifacts/kubernetes-base-addons/` is the directory path where the `konvoy` binary is mounted from the host into the container. **Note:** This should not be changed unless you are referencing a different `kubernetes-base-addons/` than the one provided in the tar.
+   The additional `--addons-repositories` flag will result in the generated `cluster.yaml` to set the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
+   The path `/opt/konvoy/artifacts/...` is the directory path where the `konvoy` binary is mounted from the host into the container. **Note:** This should not be changed unless you are referencing a different repo than the one provided in the tar.
 
    ```yaml
    kind: ClusterConfiguration
@@ -94,7 +94,19 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: stable-1.16.4-2
+       configVersion: stable-1.16-1.2.0
+       addonsList:
+       ...
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+      configVersion: stable-1.16-1.0.0
+      addonsList:
+      - name: dispatch # Dispatch is currently in Beta
+        enabled: false
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+      configVersion: stable-1.16-1.0.0
+      addonsList:
+      - name: kommander
+        enabled: true
    ```
 
 1. Open inventory file `inventory.yaml` in a text editor to specify the hosts.
@@ -312,9 +324,25 @@ spec:
 ...
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16-1.2.0
     helmRepository:
-      image: mesosphere/base-addons-chart-repo:stable-1.16.4-2
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.0
+    addonsList:
+    ...
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    helmRepository:
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.0
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: false
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    helmRepository:
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.0
+    addonsList:
+    - name: kommander
+      enabled: false
 ```
 
 ## Configure MetalLB load balancing

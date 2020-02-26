@@ -4,7 +4,7 @@ navigationTitle: Security
 title: Security
 menuWeight: 10
 excerpt: Manage cluster security, authentication, and authorization for the Konvoy cluster
- 
+enterprise: false
 ---
 
 As Konvoy is based on Kubernetes, it uses [Kubernetes security mechanisms].
@@ -57,4 +57,5 @@ While Helm V2 remains a supported driver (Helm V3 should take over these respons
 
 [Dex Connector documentation]: https://github.com/dexidp/dex/tree/master/Documentation/connectors
 [External Providers]: ./external-idps
+[RBAC Examples]: ./external-idps/rbac
 [Kubernetes security mechanisms]: https://kubernetes.io/docs/reference/access-authn-authz/controlling-access/

@@ -4,7 +4,7 @@ navigationTitle: Logging
 title: Logging
 menuWeight: 11
 excerpt: Collect and visualize the logs from Kubernetes, platform services, and applications deployed on the Konvoy cluster
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
@@ -126,3 +126,48 @@ Another option to import custom Kibana dashboards can be to use the Kibana web c
     * Yes, overwrite all
 
 <p class="message--note"><strong>NOTE: </strong> If any visualization or dashboard did not import, the issue is most likely a field that is referenced in the visualization but not indexed. Make sure that you are shipping the correct logs and that the Kibana mapping is refreshed.</p>
+
+# Configuring elasticsearch curator addon for log maintenance
+
+Logs, if let to run without log maintenance, would fill up the disk space. For this purpose, Konvoy (version > 1.3.0) has elasticsearch curator as an addon. Curator is a cronjob that periodically garbage collects the indices which are older than the configured time.
+
+Customer can enable curator addon with default configuration by modifying the `cluster.yaml` file:
+
+```yaml
+- name: elasticsearch-curator
+  enabled: true
+```
+
+The default configuration would run curator job every day at mid-night and would garbage collect all the indices which are older than 30 days. Customer can configure both the cronjob schedule and the number of days by modifying the `cluster.yaml` file:
+
+```yaml
+- name: elasticsearch-curator
+  enabled: true
+  values: |
+    cronjob:
+        # At 12:00 am every day
+        schedule: "0 0 * * *"
+
+    configMaps:
+      action_file_yml: |-
+          ---
+          actions:
+            1:
+              action: delete_indices
+              description: "Clean up ES by deleting indices older than 30 days"
+              options:
+                timeout_override:
+                continue_if_exception: False
+                disable_action: False
+                ignore_empty_list: True
+              filters:
+              - filtertype: pattern
+                kind: prefix
+                value: kubernetes_cluster-
+              - filtertype: age
+                source: name
+                direction: older
+                timestring: '%Y.%m.%d'
+                unit: days
+                unit_count: 30
+```

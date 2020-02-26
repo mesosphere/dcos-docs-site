@@ -4,7 +4,7 @@ navigationTitle: Install on a developer machine
 title: Install on a developer machine
 menuWeight: 40
 excerpt: Install Konvoy on a developer machine
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

@@ -4,7 +4,7 @@ navigationTitle: Quick Start
 title: Quick Start
 menuWeight: 3
 excerpt: Get started by installing a cluster with default configuration settings
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD025 -->

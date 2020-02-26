@@ -4,7 +4,7 @@ navigationTitle: Use Portworx for persistent volumes
 title: Use Portworx for persistent volumes
 menuWeight: 23
 excerpt: Learn how to use Portworx for persistent volume storage
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
