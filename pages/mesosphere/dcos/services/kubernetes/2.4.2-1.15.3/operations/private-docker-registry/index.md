@@ -8,9 +8,13 @@ excerpt: Use private Docker registry
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
+# Deploying a Local Universe
+
+See [Deploying a Local Universe](/mesosphere/dcos/1.12/administering-clusters/deploying-a-local-dcos-universe/) for more details on how to configure DC/OS to use a private Docker registry.
+
 # Configure Kubernetes to use private Docker registry
 
-After [configuring DC/OS to use a private Docker registry](/mesosphere/dcos/2.0/deploying-services/private-docker-registry/), create an `options.json` file, or edit an existing one and enable the `use_agent_docker_certs` setting.
+After [configuring DC/OS to use a private Docker registry](/mesosphere/dcos/1.12/administering-clusters/deploying-a-local-dcos-universe/), create an `options.json` file, or edit an existing one and enable the `use_agent_docker_certs` setting.
 
   ```json
   {
