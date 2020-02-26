@@ -3,10 +3,11 @@ layout: layout.pug
 navigationTitle: Launching a cluster On Premise
 title: Launching a cluster On Premise
 beta: true
+menuWeight: 1
 excerpt: Use a previously deployed Konvoy cluster to deploy a new Konvoy cluster with Kommander On Premise Provider
 ---
 
-## Prerequisites 
+## Prerequisites
 
 You need to have a `cluster.yaml` file and an `inventory.yaml` file for the cluster you are going to launch.
 
@@ -120,4 +121,3 @@ ansible_ssh_private_key_file: "id_rsa"
 5. Select **Continue**.
 
 At this point Provisioning of your cluster should start. You can track the deployment progress with Kibana or `kubectl`as you normaly would in Kommander.
-
