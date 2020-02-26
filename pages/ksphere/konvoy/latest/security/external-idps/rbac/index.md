@@ -92,7 +92,7 @@ The Operations Portal, and other HTTP applications protected by Konvoy forward a
 
 Roles have been created for granting access to the operations portal and select addons which expose an HTTP server through the ingress controller. The `cluster-admin` role is actually a system role that defines grants permission to all actions (verbs) on any resource; including non-resource URLs. The default operations portal user is bound to this role.
 
-**Note: Granting user `admin` privileges on `/ops/portal/*` will grant `admin` privileges to all sub-resources, even if bindings exist for sub-resources with less privileges**
+<p class="message--note"><strong>NOTE: </strong>Granting user `admin` privileges on `/ops/portal/*` grants `admin` privileges to all sub-resources, even if bindings exist for sub-resources with less privileges</p>
 
 | App               |  Role                        | Path                       | access              |
 | ----------------- | ---------------------------- | -------------------------- | ------------------- |
@@ -116,7 +116,7 @@ Roles have been created for granting access to the operations portal and select 
 | traefik           | opsportal-traefik-edit       | /ops/portal/traefik/*      | read, edit          |
 | traefik           | opsportal-traefik-admin      | /ops/portal/traefik/*      | read, edit, delete  |
 
- This section will provide a few examples of binding subjects to the default roles defined for the operations portal endpoints.
+ This section provides a few examples of binding subjects to the default roles defined for the operations portal endpoints.
 
 ### Examples
 To grant the user `marry@example.com` administrative access to all operations portal resources, bind the user to the `opsportal-admin` role:

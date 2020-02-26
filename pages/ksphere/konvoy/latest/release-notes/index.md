@@ -66,20 +66,20 @@ spec:
 -   New commands `konvoy drain`, `konvoy cordon` and `konvoy uncordon` that run the corresponding `kubectl` commands.
     - This functionality relies on the Kubernetes nodes having a label `konvoy.mesosphere.com/node_pool=_node_pool_` where `_node_pool_` corresponds to the `nodePool.name` defined in the `cluster.yaml` file.
     - Starting with this release, Konvoy automatically labels the nodes with the nodePool. You can run `konvoy deploy -y` to apply the labels prior to running these new commands.
--   New commands `konvoy get nodepools`, `konvoy create nodepool`, `konvoy scale nodepool` to manage the `nodePool` entries in the `cluster.yaml` file. These commands will not mutate the infrastructure, you will still need to run `konvoy up` to apply the changes.
+-   New commands `konvoy get nodepools`, `konvoy create nodepool`, `konvoy scale nodepool` manage the `nodePool` entries in the `cluster.yaml` file. These commands do not change the infrastructure, you still need to run `konvoy up` to apply the changes.
 
 #### Bug fixes
 
 - Fix a bug where a failure with `konvoy down` and `konvoy reset` would prematurely delete files required on a retry.
 - Fix a bug in `konvoy reset` that prevented Kubernetes system packages from being removed on Ubuntu 16.04.
-- Fix a bug that causes `konvoy reset` to fail when running it after the kubectl package is installed but before `kubeadm` succeeds.
-- Fix the URL that is printed for the ops-portal after an install when using a custom domain.
-- Fix a bug where the cluster.yaml was improperly parsed where there are `---` in addon values.
+- Fix a bug that causes `konvoy reset` to fail when running the command after the kubectl package is installed, but before `kubeadm` succeeds.
+- Fix the URL that is printed for the ops-portal, after an install, when using a custom domain.
+- Fix a bug where the cluster.yaml file was improperly parsed when there are `---` in addon values.
 - Add Tekton utility images to the air-gapped release tar.
 
 #### Addons improvements
 
--   Disable audit log collection, in fluentd. It's been observed in production clusters that the audit log bloats the number of fields in an index. This causes resource limits to be filled and throttling to occur. Disabling this collection pending further investigation. To maitain previous behavior, set the values of the `fluentbit` addon as follows:
+-   Disable audit log collection in fluentd. It's been observed in production clusters that the audit log bloats the number of fields in an index. This causes resource limits to be filled and throttling to occur. We are disabling this collection pending further investigation. To maintain the previous behavior, set the values of the `fluentbit` addon as follows:
 
     ```yaml
           - name: fluentbit
@@ -91,7 +91,7 @@ spec:
 
 -   The Kommander and Dispatch addons are now in their own repos and were removed from the default kubernetes-base-addons repo.
 -   Automatically deploy Kudo `v0.8.x` when the Kubeaddons controller is deployed.
--   New default addon `elasticsearch-curator` to manage Elasticsearch indices and prevent it from filling up the disk.
+-   New default addon `elasticsearch-curator` manages Elasticsearch indices and prevents them from filling up the disk.
 -   RBAC authorization is now available for the Operations Portal addons. To maintain the previous behavior of all authenticated users having access to the Operations Portal addons, set the values of the `opsportal` addon as follows:
 
     ```yaml
@@ -107,10 +107,10 @@ spec:
 -   In `dex-k8s-authenticator` allow scopes to be configured, and drop the `offline_access` scope as it is not used.
 -   In `kube-oidc-proxy` enable token passthrough.
 -   In `dex`:
-    - improve the LDAP connector validation in Dex controller.
-    - fix an issue in dex addon which disallowed adding local users.
-    - use Dex controller v0.4.1, which includes the support for OIDC group claims.
-    - upgrade Dex to v2.22.0, which supports groups claims for OIDC connectors.
+    - Improve the LDAP connector validation in the Dex controller.
+    - Fix an issue in the dex addon which disallowed adding local users.
+    - Use the Dex controller v0.4.1, which includes support for OIDC group claims.
+    - Upgrade Dex to v2.22.0, which supports groups claims for OIDC connectors.
 -   Add logging to addon cleanup process so that addons are no longer silently deleted when disabled.
 
 #### Component version changes
@@ -690,7 +690,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 #### Improvements
 
-- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](../install/install-onprem#specifying-local-addons-repositories).
+- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able to specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](../install/install-onprem#specifying-local-addons-repositories).
 
 #### Addons improvements
 
