@@ -42,4 +42,4 @@ Using project ConfigMaps and project Secrets you can define configuration resour
 
 ## Platform Services
 
-Platform Services provide a catalog of applications that can be deployed across all project clusters. See [Addon Catalog](/ksphere/kommander/latest/projects/addon-catalog) for more information
+Platform Services provide a catalog of applications you can deploy across all project clusters. See [Addon Catalog](/ksphere/kommander/latest/projects/addon-catalog) for more information

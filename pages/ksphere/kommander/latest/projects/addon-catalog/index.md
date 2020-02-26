@@ -6,11 +6,11 @@ menuWeight: 8
 excerpt: Deploy applications to your Kommander Projects
 ---
 
-Kommander includes the ability to deploy services from a catalog of current cloud native services with the push of a button. This helps organizations quickly deploy services to multiple clusters. Governance-based access to data services ensures roles and responsibilities are maintained.
+Kommander can also deploy services from a catalog of current cloud native services with the push of a button. This helps organizations quickly deploy services to multiple clusters. Governance-based access to data services ensures roles and responsibilities are maintained.
 
-Kommander can be extended with new AddonRepository that point to git repositories containing application addons. For example, the kubeaddons-enterprise repo contains addons such as Jenkins and Kafka with specific settings for each cloud provider. Addons can be composed using either Helm V2 charts or KUDO operators.
+Kommander can be extended with the `AddonRepository` resource that point to git repositories containing application addons. For example, the `kubeaddons-enterprise` repo contains addons such as Jenkins and Kafka with specific settings for each cloud provider. Addons can be composed using either Helm V2 charts or KUDO operators.
 
-Example `AddonRepository` resource to add a new repository to your catalog
+Example `AddonRepository` resource to add a new repository to your catalog:
 
 ```yaml
 apiVersion: kubeaddons.mesosphere.io/v1beta1
@@ -24,10 +24,10 @@ spec:
   url: https://github.com/mesosphere/kubeaddons-enterprise
 ```
 
-To deploy an addon, select a Project from your Workspace and click the View Catalog button to browse the available addons from your configured repositories.
+To deploy an addon, select a Project from your Workspace and select the **View Catalog** button to browse the available addons from your configured repositories.
 
-To customize an addon before deploying it, you may customize the helm chart values or KUDO parameters of a service before deploying it.
+To customize an addon before deploying it, you can customize the helm chart values or KUDO parameters of a service before deploying it.
 
 ![Deploy Platform Service](/ksphere/kommander/img/project-catalog-deploy.png)
 
-Once an addon is deployed in a project, the service is installed to all clusters in that project.
+After an addon is deployed in a project, the service is installed to all clusters in that project.
