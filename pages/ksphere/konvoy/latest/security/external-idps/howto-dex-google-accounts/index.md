@@ -4,7 +4,7 @@ navigationTitle: Connect to Google Accounts
 title: Connect to Google Accounts
 menuWeight: 10
 excerpt: Connect your Konvoy cluster to Google Accounts
- 
+enterprise: false
 ---
 
 ## How to connect Konvoy to Google Accounts

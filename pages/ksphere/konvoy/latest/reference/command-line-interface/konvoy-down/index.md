@@ -4,7 +4,7 @@ navigationTitle: konvoy down
 title: konvoy down
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
- 
+enterprise: false
 excerpt: Destroy the Kubernetes cluster
 ---
 

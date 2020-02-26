@@ -4,7 +4,7 @@ navigationTitle: Supported Operating Systems
 title: Supported Operating Systems
 menuWeight: 10
 excerpt: Supported operating systems for Konvoy
- 
+enterprise: false
 ---
 
 Konvoy supports the following base Operating Systems.

@@ -4,7 +4,7 @@ navigationTitle: Storage
 title: Storage
 menuWeight: 9
 excerpt: Manage storage options including local and mounted persistent volumes
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

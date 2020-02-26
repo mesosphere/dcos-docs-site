@@ -4,7 +4,7 @@ navigationTitle: Configure bastion hosts
 title: Configure bastion hosts
 menuWeight: 60
 excerpt: Configure bastion hosts for access to the Konvoy cluster
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

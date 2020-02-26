@@ -4,7 +4,7 @@ navigationTitle: Deploy a sample application
 title: Deploy a sample application
 menuWeight: 5
 excerpt: Learn how to deploy a sample application on the Konvoy cluster
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

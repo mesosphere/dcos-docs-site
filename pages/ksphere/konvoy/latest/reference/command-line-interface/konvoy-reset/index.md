@@ -4,7 +4,7 @@ navigationTitle: konvoy reset
 title: konvoy reset
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
- 
+enterprise: false
 excerpt: Remove any modifications to the nodes made by the installer, and cleanup file artifacts
 ---
 
