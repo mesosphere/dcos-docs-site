@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Configure an On Premise provider
+navigationTitle: Configure an On Premises provider
 title: On Premises provider
 beta: true
 excerpt: Configuring an On Premises provider
