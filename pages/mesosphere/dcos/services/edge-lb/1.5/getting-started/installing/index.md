@@ -117,10 +117,13 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
 
 <a name="create-local-repo"></a>
 
-# Deploy using a local catalog
-If you have an isolated network that cannot connect directly to the Internet, you need to deploy a local catalog containing your own set of packages. To create the local catalog, you must build a customized Docker&reg; image repository before you can add the Edge-LB packages.
+# Deploy using the package registry
+If you have an isolated (air-gapped) network that cannot connect directly to the Internet, deploy using the package registry found at: https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/package-registry/ .
 
-For detailed instructions about creating a local catalog, see [DC/OS universe deployment](/mesosphere/dcos/2.0/administering-clusters/deploying-a-local-dcos-universe/#certified).
+The support portal includes .dcos package files for Edge-LB. (In the portal, they are called 'Edge-LB Bundle' files).
+
+
+***%%% NOT SURE ON WHETHER THESE NEXT 2 SUB-HEADINGS SHOULD REMAIN...***
 
 ## Before you begin
 You must have access to [Git](https://git-scm.com/) to create the local catalog. If you are using `git` on UNIX&reg; or Linux&reg;, see the [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).

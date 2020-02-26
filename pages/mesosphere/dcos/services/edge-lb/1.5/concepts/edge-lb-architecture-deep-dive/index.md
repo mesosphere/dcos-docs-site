@@ -16,14 +16,14 @@ The following diagram provides a more detailed representation of the Edge-LB arc
 # A closer look at the Edge-LB API server
 The Edge-LB API receives incoming client requests and, based on the action requested, creates, deletes, or updates Edge-LB pool instances. The API server also serves API endpoint requests for Edge-LB pool(s) instances.
 
-The Edge-LB API server uses the DC/OS ZooKeeper persistent storage to store the configuration file for the load balancer and communicates to the Edge-LB pool instances through ZooKeeper&reg; transactions. The interaction between ZooKeeper and the Edge-LB API server enables Edge-LB to be fault tolerant. In the event of an API server failure, the Edge-LB pool instances continue to load-balance traffic to the proper backend. When the Edge-LB API server comes back online, it re-establishes the communication between itself and the pool instances.
+The Edge-LB API server uses the DC/OS ZooKeeper persistent storage to store the configuration file for the load balancer and communicates to the Edge-LB pool instances through ZooKeeper&trade; transactions. The interaction between ZooKeeper and the Edge-LB API server enables Edge-LB to be fault tolerant. In the event of an API server failure, the Edge-LB pool instances continue to load-balance traffic to the proper backend. When the Edge-LB API server comes back online, it re-establishes the communication between itself and the pool instances.
 
 The Edge-LB API server has two sub-components:
 - Apache&reg; Mesos&reg; listener
 - DC/OS template
 
 ## Mesos listener
-The `mesos-listener` sub-component is always up by default. It subscribes to the Mesos event stream, translates the event stream data into an internal data structure, and serves metadata from the data structure through the API server. It also runs a gRPC server to serve the Mesos task information to other Edge-LB components like the `dcos-template`.
+The `mesos-listener` sub-component is always up by default. It subscribes to the Mesos event stream, translates the event stream data into an internal data structure, and serves metadata from the data structure through the API server. It also runs a gRPC server to serve the Mesos task information to other Edge-LB components like `dcos-template` and `cloud controller`.
 
 ## DC/OS template
 The `dcos-template` sub-component dynamically renders the load balancer configuration information for HAProxy&reg; by combining the `mesos-listener` output and the Edge-LB pool configuration provided by the Edge-LB CLI client. The template then signals the `lbmgr` sub-component to take appropriate action on the HAProxy load balancer instance.
@@ -42,9 +42,9 @@ Edge-LB pool has two sub-components:
 
 ## Load balancing manager (lbmgr)
 
-The load balancing manager (`lbmgr`) in Edge-LB pool instances is a non-distributed process that runs along with the HAProxy load balancer. `lbmgr` takes the appropriate action for the pool when it receives requests from the API server.
+The load balancing manager (`lbmgr`) in Edge-LB pool instances is a non-distributed process that runs along with the HAProxy load balancer on an agent. `lbmgr` takes the appropriate action for the pool when it receives requests from the API server.
 
-The `lbmgr` component monitors the HAProxy instances for the Edge-LB pool and restarts HAProxy in the same container, when needed. For example, if an HAProxy instance goes down because an agent is disconnected, the `lbmgr` process creates a new HAProxy instance to replace it on another available agent.
+The `lbmgr` component monitors the HAProxy instances for the Edge-LB pool and restarts HAProxy in a single container, when needed. If an HAProxy instance goes down because an agent is disconnected, the SDK scheduler restarts the HAProxy instance on another available agent.
 
 The `lbmgr` component also validates new load balancer configuration settings and reloads HAProxy load balancer instances, when necessary. For example, the `lbmgr` component manages the timeout interval for reloading the HAProxy instance.
 
