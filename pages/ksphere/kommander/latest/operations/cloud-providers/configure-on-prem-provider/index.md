@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Configure an On Premise provider
 title: On Premise provider
 beta: true
-excerpt: Configuring an On Premise provider
+excerpt: Configuring an On Premises provider
 ---
 
 ### Configure an On Premise provider
@@ -25,4 +25,3 @@ When creating an On Premise provider, you need a private SSH key.
 Figure 1 - On Premise Provider Form with values
 
 After the provider is created, the Provider’s display name or credentials can be updated.
-
