@@ -13,6 +13,8 @@ Before you begin using Dispatch, you should set up your local environment with t
 
 - **git** commands. Many CI/CD and GitOps use cases require Git. If you do not already have it installed, see the directions [here](https://help.github.com/en/github/getting-started-with-github/set-up-git#setting-up-git).
 
+You will also need to make sure that your software packages, operating system, and hardware configuration is supported. See the [Installation Prerequisites](../install/prerequisites/).
+
 Get started using Dispatch in five steps:
 
 1. Install [the Dispatch CLI](../cli/).
