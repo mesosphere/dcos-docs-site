@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Kubernetes
 title: Kubernetes
 menuWeight: 0
-excerpt:
+category: Container Orchestration
 featureMaturity:
 enterprise: false
 ---
