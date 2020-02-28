@@ -6,10 +6,9 @@ menuWeight: 11
 excerpt: Recommended settings for monitoring and collecting metrics for Kubernetes, platform services, and applications deployed on the Konvoy cluster
 ---
 
+At D2iQ, we conduct routine performance testing of Konvoy. The following table provides recommended settings, based on cluster size and increasing workloads, that maintain a healthy Prometheus monitoring deployment.
 
-This table provides recommended settings for certain addons, based on cluster size and expected capacity, in terms of pods, that satisfy the needs and workloads of our mixed workload testing (MWT)tests.
-
-<p class="message--note"><strong>NOTE: </strong>The resource settings reflect some settings but do not represent the exact structure to be used in the Konvoy `cluster.yaml`.</p>
+<p class="message--note"><strong>NOTE: </strong>The resource settings reflect some settings but do not represent the exact structure to be used in the Konvoy <code>cluster.yaml</code>.</p>
 
 ## Prometheus
 
