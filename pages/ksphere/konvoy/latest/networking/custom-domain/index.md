@@ -1,3 +1,11 @@
+---
+layout: layout.pug
+navigationTitle: Custom Domain
+title: Custom Domain
+menuWeight: 8
+excerpt: Configure a custom domain for Konvoy
+---
+
 # Configure Konvoy to use a custom domain
 
 To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml`:
