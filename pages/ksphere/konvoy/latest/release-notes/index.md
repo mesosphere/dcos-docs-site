@@ -23,7 +23,7 @@ enterprise: false
 - The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy prints a warning message if your nodePool names do not comply with the requirement.
 - The Kommander and Dispatch addons are now in their own repos.
 
-<p class="message--important"><strong>IMPORTANT: </strong>You must modify your `cluster.yaml` with these changes when upgrading from a previous version. You can also no longer use the `konvoy.mesosphere.io/v1alpha1` apiVersion in your `cluster.yaml` if you are also deploying Kommander or Dispatch. That API version did not support multiple addon repositories.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>You must modify your <code>cluster.yaml</code> with these changes when upgrading from a previous version. You can also no longer use the <code>konvoy.mesosphere.io/v1alpha1</code> apiVersion in your <code>cluster.yaml</code> if you are also deploying Kommander or Dispatch. That API version did not support multiple addon repositories.</p>
 
 Below is a partial `cluster.yaml` that contains the required changes.
 
