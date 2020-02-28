@@ -14,25 +14,17 @@ From the dashboard page or the clusters page, click Add Cluster and Create Konvo
 
 ![Add Cluster Options](../../img/add-cluster.png)
 
+### Creating a Konvoy Cluster
+
+- [Creating Konvoy Clusters on AWS](/ksphere/kommander/latest/clusters/creating-konvoy-cluster-aws/)
+- [Creating Konvoy Clusters on Azure](/ksphere/kommander/latest/clusters/creating-konvoy-cluster-azure/)
+- [Creating Konvoy Clusters on your own infrastructure](/ksphere/kommander/latest/clusters/creating-konvoy-cluster-on-prem/)
+
 ### Connecting an Existing Cluster
 
-Clicking the Connect Cluster option will reveal a UI that accepts a kubeconfig file that you may either paste or upload into the form. You can select the intended context from the Context select list or change the display name provided with the config. Add labels to classify your cluster. Cluster labels are matched to the selectors created for projects. Changing a cluster’s labels may add or remove the cluster from projects.
+Using the Add Cluster option, you can attach an already existing cluster, even an existing Konvoy cluster, directly to Kommander. Enjoy all the multi-cluster management and monitoring benefits that Kommander provides while keeping your existing cluster on its current provider & infrastructure.
 
-![Add Cluster Connect](../../img/add-cluster-connect.png)
-
-### Creating a Konvoy Cluster via Form
-
-Konvoy can create managed clusters using any configured cloud providers. See the [Operations Cloud Providers](../operations/cloud-providers) section in order to start creating Konvoy clusters.
-
-You'll notice in the Create Konvoy Cluster form a variety of options for creating a cluster in your chosen cloud provider:
-
-- **Kubernetes Version**: Indicates the version of Kubernetes to install on the cluster.
-- **Select Provider**: Choose the cloud provider credentials to use to provision the cluster.
-- **Region/Availability Zones**: Indicates the datacenter regions and availability zones to use for cluster provisioning
-- **Name**: A display name for referencing the cluster
-- **Node Pool Config**: Allows you to specify pools of nodes, their size, and quantity. By default, a control plane pool containing 3 large nodes and a worker pool containing 4 xlarge nodes are suggested by default. Additionally, you can specify labels and node taints as part of each pool.
-- **Add Labels**: By default, your cluster will have some suggested labels applied to it that reflect the cloud provider provisioning. For example, in AWS your cluster may be labelled with the datacenter region as well as `provider: aws`. Cluster labels are matched to the selectors created for projects. Changing a cluster’s labels may add or remove the cluster from projects.
-- **Add Cloud Provider Tags**: Allows you specify tags to be set on all resources created in your cloud provider for this cluster. You can add up to 10 tags in this form. Different cloud providers have varying restrictions on their tags. See the [AWS Tags User Guide][aws_tags] for more information about using tags in AWS.
+See [Attach Cluster](/ksphere/kommander/latest/clusters/attach-cluster/)
 
 ### Creating a Konvoy Cluster via YAML
 
@@ -102,7 +94,7 @@ When you attach a cluster to Kommander that was not created with Kommander, you 
 For managed clusters created with Kommander, disconnecting the cluster is not an option, but it can be deleted. This completely removes the cluster and all of its cloud assets.
 
 <p class="message--warning"><strong>WARNING: </strong>
-If you delete the management (Konvoy) cluster, you won't be able to use Kommander to delete the managed clusters that were created by Kommander. Be sure and delete any managed clusters before finally deleting the Konvoy cluster if your intention is to delete all clusters. 
+If you delete the management (Konvoy) cluster, you won't be able to use Kommander to delete the managed clusters that were created by Kommander. Be sure and delete any managed clusters before finally deleting the Konvoy cluster if your intention is to delete all clusters.
 </p>
 
 ## Statuses

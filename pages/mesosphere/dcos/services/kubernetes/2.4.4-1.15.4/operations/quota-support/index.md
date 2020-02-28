@@ -11,7 +11,7 @@ excerpt: This feature requires support for enforceRole on Marathon groups found 
 This feature requires support for `enforceRole` on Marathon groups found in Marathon v1.9.73 and Mesos v1.9.0, available starting DC/OS 2.0.
 By default, Marathon does not set `enforceRole=true` on group creation, and existing semantics are maintained.
 
-See [Upgrade](/mesosphere/dcos/services/kubernetes/2.4.4-1.15.4/operations/upgrade/) section to upgrade your Kubernetes cluster to the most recent version before continuing.
+See [Upgrade](/mesosphere/dcos/services/kubernetes/2.4.4-1.15.4/operations/upgrade/) section to upgrade your Kubernetes cluster to most recent version before continuing.
 
 ## Strict Mode DC/OS Clusters
 
@@ -79,7 +79,7 @@ Ensure Kubernetes SDK scheduler and pods have been launched under the `dev` role
 
 To upgrade an existing cluster to a new version with quota support, use the following procedure.
 
-1. See the [Upgrade](/mesosphere/dcos/services/kubernetes/2.4.4-1.15.4/operations/upgrade/) section to upgrade your Kubernetes cluster to the most recent version before continuing.
+1. See [Upgrade](/mesosphere/dcos/services/kubernetes/2.4.4-1.15.4/operations/upgrade/) section to upgrade your Kubernetes cluster to most recent version before continuing.
 
 1. Create a file with the current Kubernetes cluster name and the following additional options:
 
@@ -95,7 +95,7 @@ cat > kubernetes-cluster-dev-options.json <<EOF
 EOF
 ```
 
-* `role` specifies the quota enforced role we are migrating to, which is `dev` in this example.
+* `role` specifies the quota enforced role we're migrating towards, which is `dev` in this example.
 * `enable_role_migration` notifies the scheduler that its pods will be migrated between legacy and quota enforced roles. The scheduler
 subscribes with both roles when this flag is set.
 
@@ -137,4 +137,4 @@ Update the scheduler to stop subscribing to the legacy role.
 dcos kubernetes cluster update --yes --options=kubernetes-cluster-dev-disable-migration.json.json
 ```
 
-The scheduler and all the previous running pods have been migrated to the quota enforced role. Ensure SDK scheduler and pods have been launched under the `dev` role via Mesos UI.
+At this point, the scheduler and all the previous running pods have been migrated to the quota enforced role. Ensure SDK scheduler and pods have been launched under the `dev` role via Mesos UI.

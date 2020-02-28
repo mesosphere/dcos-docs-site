@@ -19,11 +19,15 @@ $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
 
 ## Centralized Metrics
 
-Metrics are aggregated from all managed Konvoy clusters, up to the Kommander cluster, using Thanos.
+The Kommander cluster collects and presents metrics from all managed Konvoy clusters remotely using Thanos.
 You can visualize these metrics in Grafana using a set of provided dashboards.
-The [Thanos Query][thanos_query] component is installed on the Kommander cluster. The component queries the Prometheus instances, running on the managed clusters, using a Thanos sidecar running alongside each Prometheus container.
+The [Thanos Query][thanos_query] component is installed on the Kommander cluster.
+Thanos Query queries the Prometheus instances, running on the managed clusters, using a Thanos sidecar running alongside each Prometheus container.
 Grafana is configured with Thanos Query as its datasource, and comes with a pre-installed dashboard for a global view of all managed clusters, named `Kubernetes / Compute Resources / Clusters `.
 The `Thanos Query` dashboard is also installed, by default, to monitor the Thanos Query component.
+
+<p class="message--note"><strong>NOTE: </strong>Metrics from Konvoy clusters are read remotely from Kommander; they are not backed up.
+If a managed cluster goes down, Kommander no longer collects or presents its metrics, including past data.</p>
 
 You can access the centralized Grafana UI at:
 
