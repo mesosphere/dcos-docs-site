@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Starlark Reference
 title: Starlark Reference
 menuWeight: 80
-beta: true
+beta: false
 excerpt: Reference Guide for Configuring Dispatch pipelines with Starlark.
 ---
 
@@ -12,7 +12,7 @@ excerpt: Reference Guide for Configuring Dispatch pipelines with Starlark.
 
 [Starlark](https://github.com/bazelbuild/starlark) is a configuration language originally developed for use in the Bazel build tool which is based on Python. Using Starlark, you can take advantage of language features you're used to in regular development (loops, user defined functions, conditionals, modules, testing, editor integrations, etc). Additionally, the Dispatch project provides a basic standard library that can make it simpler to define pipelines.
 
-See [the repository setup guide](../repo_setup/) and [the pipeline reference](../pipeline-configuration/) for complete documentation on configuring your pipeline.
+See the [repository setup guide](../repo_setup/) and the [pipeline reference](../pipeline-configuration/) for complete documentation on configuring your pipeline.
 
 ## Unit testing
 
@@ -91,6 +91,22 @@ task("test", inputs=["git"], steps=[k8s.corev1.Container(
     workingDir="/workspace/git"
 )])
 ```
+
+#### dindTask
+
+`dindTask(name, pipeline=None, **kwargs)`
+
+Defines a new docker-in-docker task in a pipeline. The steps are run in the default `mesosphere/dispatch-dind` image unless an alternative image is specified.
+
+Example usage:
+
+```sh
+dindTask("test", inputs=["git"], steps=[k8s.corev1.Container(
+    name="test",
+    command=["docker", "run", "-v", "/workspace/git:/workspace/git", "-w", "/workspace/git", "golang:1.13.0-buster", "go", "test", "./..."],
+)])
+```
+
 
 ### Resource helpers
 
