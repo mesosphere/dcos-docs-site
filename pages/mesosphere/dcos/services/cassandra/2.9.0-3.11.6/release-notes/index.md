@@ -7,6 +7,22 @@ menuWeight: 10
 model: /mesosphere/dcos/services/cassandra/data.yml
 render: mustache
 ---
+# Release Notes for {{ model.techShortName }} Service version 2.9.0-3.11.6
+
+## Updates
+
+- Upgraded {{ model.techShortName }} to version `3.11.6`
+- Upgraded SDK library to version `0.57.3`. For more information see [SDK Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3)
+
+## Upgrading your cluster from 2.5.0-3.11.3 to 2.9.0-3.11.6
+
+- It is possible to upgrade directly to `2.9.0-3.11.6` from version `2.5.0-3.11.3`. However, you'll need to run the following command to successfully upgrade your {{ model.techName }} package: 
+
+  ```
+  dcos {{ model.serviceName }} update start --package-version=2.9.0-3.11.6 --replace
+  ```
+
+
 # Release Notes for {{ model.techShortName }} Service version 2.8.0-3.11.5
 
 ## Updates
