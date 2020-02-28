@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Logging
 title: Logging in Kibana
-menuWeight: 2
-beta: true
+menuWeight: 10
+beta: false
 excerpt: Learn how to explore Dispatch logs in Kibana
 ---
 
@@ -17,13 +17,13 @@ Dispatch CLI supports viewing the logs of [pipelines controller](/charts/dispatc
 
 To view the logs for `pipelines-controller`:
 ```
-dispatch logs pipelines-controller
+dispatch debug pipelines-controller
 ```
 Log levels can be adjusted by setting them in Deployment object for controller. Controller output is structured by default and contains information about the pipeline launches.
 
 To view the logs for `event-sink` (which is responsible for listening and processing git repo events):
 ```
-dispatch logs event-sink
+dispatch debug event-sink
 ```
 
 In order to view the dispatch component logs from Kibana UI, the query syntax can be used. For example:
@@ -73,7 +73,28 @@ Components' logs can be filtered by the following labels:
 | stream | stderr |
 
 
-## Dispatch task logs
+## Dispatch pipeline & task logs
+
+### Using the CLI to view the logs
+
+In order to list the pipeline runs (active & completed):
+
+```bash
+dispatch ci list pipelineruns
+```
+
+To list the tasks in a pipeline run:
+
+```bash
+dispatch ci list tasks --pipelinerun  <pipelineRunId>
+```
+
+To view the logs of a task in a pipeline (or the pipeline logs if the pipeline is still active):
+```bash
+dispatch ci logs --task <taskName> --pipelinerun <pipelineRunId>
+```
+
+### Using the Kibana dashboard to view the logs
 
 You can also view the task logs for individual tasks and pipelines in Kibana. For example:
 
