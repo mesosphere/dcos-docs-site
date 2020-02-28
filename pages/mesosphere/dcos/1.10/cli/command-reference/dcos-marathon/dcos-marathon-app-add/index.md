@@ -44,20 +44,18 @@ In this example, a simple app is deployed to DC/OS Marathon.
 
 1.  Create an app definition file named `my-app.json` with these contents.
 
-    ```bash
+    ```json
     {
         "id": "/my-app",
         "networks": [
-              { "mode": "container/bridge" }
+            { "mode": "container/bridge" }
         ],
         "container": {
-        "type": "DOCKER",
-        "docker": {
-              "image": "group/image",
-            }
+            "type": "DOCKER",
+            "docker": { "image": "group/image" }
         },
         "portMappings": [
-          { "hostPort": 80, "containerPort": 80, "protocol": "tcp"}
+            { "hostPort": 80, "containerPort": 80, "protocol": "tcp"}
         ],
         "instances": 1,
         "cpus": 0.1,
