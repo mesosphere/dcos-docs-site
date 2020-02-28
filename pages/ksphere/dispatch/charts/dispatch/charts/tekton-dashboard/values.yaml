@@ -1,0 +1,22 @@
+image:
+  dashboard: gcr.io/tekton-releases/github.com/tektoncd/dashboard/cmd/dashboard:v0.4.1
+
+ingress:
+  enabled: true
+  annotations:
+    certmanager.k8s.io/issuer: letsencrypt-issuer
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/auth-response-headers: "X-Forwarded-User"
+    traefik.ingress.kubernetes.io/auth-type: "forward"
+    traefik.ingress.kubernetes.io/auth-url: "http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/"
+  host:
+    - paths:
+      - /tekton
+
+resources:
+  limits:
+    cpu: 1000m
+    memory: 1Gi
+  requests:
+    cpu: 250m
+    memory: 256Mi

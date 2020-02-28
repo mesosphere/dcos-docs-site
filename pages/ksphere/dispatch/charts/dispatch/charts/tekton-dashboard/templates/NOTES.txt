@@ -1,0 +1,3 @@
+Tekton Dashboard
+
+The tekton dashboard will be accessible at `<host>/tekton/`

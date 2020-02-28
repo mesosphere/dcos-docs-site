@@ -1,0 +1,62 @@
+# Default values for tekton.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: nginx
+  tag: stable
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+service:
+  type: ClusterIP
+  port: 80
+
+ingress:
+  enabled: false
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # kubernetes.io/tls-acme: "true"
+  hosts:
+    - host: chart-example.local
+      paths: []
+
+  tls: []
+  #  - secretName: chart-example-tls
+  #    hosts:
+  #      - chart-example.local
+
+controller:
+  resources:
+    limits:
+      cpu: 2000m
+      memory: 2Gi
+    requests:
+      cpu: 500m
+      memory: 512Mi
+  image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/controller:v0.10.0
+  images:
+    kubeconfigWriter: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/kubeconfigwriter:v0.10.0
+    creds: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/creds-init:v0.10.0
+    git: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/git-init:v0.10.0
+    nop: tianon/true:latest
+    shell: busybox:latest
+    gsutil: google/cloud-sdk:255.0.0-alpine
+    entrypoint: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/entrypoint:v0.10.0
+    imageDigestExporter: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/imagedigestexporter:v0.10.0
+    pr: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/pullrequest-init:v0.10.0
+    buildGCSFetcher: gcr.io/tekton-releases/github.com/tektoncd/pipeline/vendor/github.com/googlecloudplatform/cloud-builders/gcs-fetcher/cmd/gcs-fetcher:v0.10.0
+webhook:
+  resources:
+    limits:
+      cpu: 500m
+      memory: 512Mi
+    requests:
+      cpu: 100m
+      memory: 128Mi
+  image: gcr.io/tekton-releases/github.com/tektoncd/pipeline/cmd/webhook:v0.10.0

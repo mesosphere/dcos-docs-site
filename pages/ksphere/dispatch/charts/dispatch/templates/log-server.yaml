@@ -1,0 +1,159 @@
+{{- $fullName := include "dispatch.fullname" . -}}
+{{- $releaseNamespace := .Release.Namespace }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fullName }}-log-server
+  labels:
+    component: {{ $fullName }}-log-server
+spec:
+  selector:
+    matchLabels:
+      component: {{ $fullName }}-log-server
+  template:
+    metadata:
+      labels:
+        component: {{ $fullName }}-log-server
+    spec:
+      serviceAccountName: {{ $releaseNamespace }}-log-server
+      containers:
+      - name: log-server
+        image: {{ .Values.dispatch.image }}
+        imagePullPolicy: {{ .Values.dispatch.pullPolicy }}
+        args:
+        - component
+        - serve-logs
+        - --bucket-name=s3://{{ .Values.minio.defaultBucket.name }}?endpoint=$(ENDPOINT)&disableSSL=true&region=us-east-1&s3ForcePathStyle=true
+        - --bucket-path={{ $releaseNamespace }}/
+        - --namespace={{ $releaseNamespace }}
+        - --use-cache=true
+        - --watch-namespace={{ $releaseNamespace }}
+        {{- with .Values.dispatch.watchNamespaces }}
+        {{- range $namespace := . }}
+        - --watch-namespace={{ $namespace }}
+        {{- end }}
+        {{- end }}
+        env:
+        - name: AWS_SHARED_CREDENTIALS_FILE
+          value: /var/secret/s3-config/credentials
+        - name: ENDPOINT
+          valueFrom:
+            secretKeyRef:
+              name: s3-config
+              key: ENDPOINT
+        volumeMounts:
+        - name: volume-bucket-s3-config
+          mountPath: /var/secret/s3-config
+      volumes:
+      - name: volume-bucket-s3-config
+        secret:
+          defaultMode: 420
+          secretName: s3-config
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ $releaseNamespace }}-log-server
+---
+{{ if .Values.dispatch.watchNamespaces }}
+{{ range $namespace := .Values.dispatch.watchNamespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ $releaseNamespace }}-log-server
+  namespace: {{ $namespace }}
+rules:
+- apiGroups:
+  - tekton.dev
+  resources:
+  - pipelineruns
+  - pipelines
+  - tasks
+  - taskruns
+  verbs:
+  - get
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ $releaseNamespace }}-log-server
+  namespace: {{ $namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ $releaseNamespace }}-log-server
+subjects:
+- kind: ServiceAccount
+  name: {{ $releaseNamespace }}-log-server
+  namespace: {{ $releaseNamespace }}
+---
+{{ end }}
+{{ else }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ $releaseNamespace }}-log-server
+rules:
+- apiGroups:
+  - tekton.dev
+  resources:
+  - pipelineruns
+  - pipelines
+  - tasks
+  - taskruns
+  verbs:
+  - get
+  - list
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ $releaseNamespace }}-log-server
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ $releaseNamespace }}-log-server
+subjects:
+- kind: ServiceAccount
+  name: {{ $releaseNamespace }}-log-server
+  namespace: {{ $releaseNamespace }}
+---
+{{ end }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: dispatch-log-server
+  labels:
+    component: {{ $fullName }}-log-server
+spec:
+  selector:
+    component: {{ $fullName }}-log-server
+  ports:
+    - protocol: TCP
+      port: 9301
+      targetPort: 9301
+---
+{{- if .Values.ingress.enabled -}}
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: dispatch-log-server
+  labels:
+{{ include "dispatch.labels" . | indent 4 }}
+  {{- with .Values.ingress.annotations }}
+  annotations:
+    {{- toYaml . | nindent 4 }}
+  {{- end }}
+spec:
+  rules:
+  {{- range .Values.ingress.hosts }}
+    - host: {{ .host | quote }}
+      http:
+        paths:
+        - path: /{{ $releaseNamespace }}/logs
+          backend:
+            serviceName: dispatch-log-server
+            servicePort: 9301
+  {{- end }}
+{{- end }}
