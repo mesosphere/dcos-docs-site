@@ -5,6 +5,7 @@ title: Deployment
 menuWeight: 60
 beta: false
 excerpt: Implementing continuous deployments
+---
 
 # Deploying Applications with GitOps
 
@@ -18,3 +19,4 @@ primary). The canary deployment is subjected to tests that check various metrics
 to determine application health. As the tests pass, more and more traffic is
 routed to the canary, until finally the canary is promoted to be the new
 primary, and the old primary is scaled down and terminated.
+

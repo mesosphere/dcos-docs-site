@@ -264,8 +264,6 @@ In this section, we have added three things to our Dispatchfile:
 * A `build` task that builds and pushes the Docker image. The `docker-image` is its output resource, it has `src-git` as an input resource, and it depends on the `test` task completing successfully.
 * A new `on push tags` action that will run our build whenever a new Git tag is pushed.
 
-See the [complete pipeline configuration reference](/pipeline-configuration/) for further assistance configuring your pipeline.
-
 After you've made these modifications to the Dispatchfile, you can `add`, `commit` and `push` your changes:
 
 ```bash
@@ -370,12 +368,11 @@ The `dispatch ci repository create` command creates a `Repository` object in Kub
 repository which tells Dispatch which service account and associated credentials to use when
 executing its Dispatchfile, and how to handle events received from your source control management
 service (e.g., GitHub or GitLab, which is inferred from the credentials of the service account). See
-[the Repository CRD documentation](../repository-crd/) for details on the Repository object.
+[the Repository CRD documentation](../references/repository-crd/) for details on the Repository object.
 
 Run `kubectl describe repositories -n dispatch` to see the newly created `Repository` object.
 
-You can see the newly created webhook by opening your browser to
-https://github.com/your-user/cicd-hello-world/settings/hooks (remember to
+You can see the newly created webhook by opening your browser to [https://github.com/your-user/cicd-hello-world/settings/hooks](https://github.com/your-user/cicd-hello-world/settings/hooks) (remember to
 replace "your-user" with your real GitHub username). The green checkmark
 indicates that GitHub is able to successfully deliver webhook events to your
 Dispatch installation.
@@ -444,7 +441,7 @@ created.)
 You have successfully created a release.
 
 Now that you have configured CI for your project, proceed to the next tutorial:
-[Deployment with Gitops and Argo CD](../deployment/)
+[Deployment](../deployment/).
 
 ## Slack Notifications
 

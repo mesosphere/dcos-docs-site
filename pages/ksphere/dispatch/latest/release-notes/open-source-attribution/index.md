@@ -91,7 +91,7 @@ The table below lists the third party open source software which is provided by 
 |skycfg |v0.0.0-20191003232334-40659e52cf16   |[Apache License 2.0](https://github.com/stripe/skycfg/blob/master/LICENSE) |
 |pipeline | v0.6.0 | [Apache License 2.0](https://github.com/tektoncd/pipeline/blob/master/LICENSE) |
 |ssh-agent  |v0.2.1   |[Apache License 2.0](https://github.com/xanzy/ssh-agent/blob/master/LICENSE) |
-|go.opencensus.io | v0.22.0 | [Apache License 2.0}(https://godoc.org/go.opencensus.io)]
+|go.opencensus.io | v0.22.0 | [Apache License 2.0](https://godoc.org/go.opencensus.io)
 |go.starlark.net | v0.0.0-20191227232015-caa3e9aa5008 | [BSD 3-Clause "New" or "Revised" License](https://github.com/google/starlark-go/blob/master/LICENSE) |
 |atomic  |v1.4.0  |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)   |
 |multierr |v1.1.0   |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)  |

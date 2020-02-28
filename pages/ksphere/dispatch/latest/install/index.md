@@ -87,7 +87,7 @@ To install Dispatch into a Kubernetes cluster:
     dispatch init
     ```
 
-<p class=message--note"><strong>NOTE: </strong>Dispatch uses Helm v2. Helm v3 has not been tested with Dispatch.</p>
+    <p class="message--note"><strong>NOTE: </strong>Dispatch uses Helm v2. Helm v3 has not been tested with Dispatch.</p>
 
 1. Set `--namespace` to install Dispatch into a namespace other than `dispatch`.
 1. If you want to restrict the namespaces that Dispatch has access to, set the `--watch-namespace` flag for each namespace Dispatch should have access to.

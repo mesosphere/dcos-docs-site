@@ -128,14 +128,14 @@ account and attach credentials to it.
 # Setting up Docker credentials
 Dispatch loads Docker registry credentials from Docker's default config file (typically `$HOME/.docker/config.json`), so you should first ensure you have already logged in on all used registries through Docker CLI. 
 
-1. To load Docker
+To load Docker
 registry credentials, run the `login docker` subcommand and specify the service account to attach the credentials to:
 
     ```bash
     dispatch login docker --service-account team-1
     ```
 
-    Alternatively, you can supply the path to a non-default Docker config file:
+Alternatively, you can supply the path to a non-default Docker config file:
 
     ```bash
     dispatch login docker --service-account team-1 --docker-config-path /path/to/config.json
