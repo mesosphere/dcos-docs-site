@@ -186,4 +186,8 @@ The table below lists the third party open source software which is provided by 
 			<td>dvdcli</td>
 			<td><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></td>
 		</tr>
+		<tr>
+			<td>@theia/core v0.3.7</td>
+			<td><a href="https://www.apache.org/licenses/LICENSE-2.0">Apache License, Version 2.0</a></td>
+		</tr>
 </table>
