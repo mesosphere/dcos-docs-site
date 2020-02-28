@@ -1,0 +1,93 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: dispatch-report-status
+  labels:
+    dispatch.d2iq.io/catalog: "true"
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: dispatch-report-status
+  labels:
+    dispatch.d2iq.io/catalog: "true"
+rules:
+- apiGroups:
+  - tekton.dev
+  resources:
+  - pipelineruns
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: dispatch-report-status
+  labels:
+    dispatch.d2iq.io/catalog: "true"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: dispatch-report-status
+subjects:
+- kind: ServiceAccount
+  name: dispatch-report-status
+---
+# Monitor the pipeline run status and update the pull request
+apiVersion: tekton.dev/v1alpha1
+kind: Task
+metadata:
+  name: report-status
+  labels:
+    dispatch.d2iq.io/catalog: "true"
+spec:
+  inputs:
+    params:
+    - name: scmSecret
+      type: string
+      default: scmtoken
+  steps:
+  - name: status
+    image: "{{ .Values.dispatch.image }}"
+    imagePullPolicy: {{ .Values.dispatch.pullPolicy }}
+    env:
+    - name: SCM_TOKEN
+      valueFrom:
+        secretKeyRef:
+          key: password
+          name: $(inputs.params.scmSecret)
+    - name: SCM_URL
+      valueFrom:
+        secretKeyRef:
+          key: scm.provider.url
+          name: $(inputs.params.scmSecret)
+    - name: SCM_PROVIDER
+      valueFrom:
+        secretKeyRef:
+          key: scm.provider.name
+          name: $(inputs.params.scmSecret)
+    - name: NAMESPACE
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.namespace
+    - name: PIPELINE_RUN
+      valueFrom:
+        fieldRef:
+          fieldPath: metadata.labels['tekton.dev/pipelineRun']
+    command:
+    - /ko-app/dispatch
+    args:
+    - component
+    - report-status
+    - $(PIPELINE_RUN)
+    - --namespace=$(NAMESPACE)
+    - --report
+    - --watch
+    - --scm-url=$(SCM_URL)
+    - --scm-provider=$(SCM_PROVIDER)
+    resources:
+      limits:
+        cpu: 100m
+        memory: 256Mi

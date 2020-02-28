@@ -1,0 +1,64 @@
+{{- $fullName := include "dispatch.fullname" . -}}
+{{- $releaseNamespace := .Release.Namespace }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: {{ $fullName }}-set-argocd-auth-token
+spec:
+  template:
+    spec:
+      serviceAccountName: {{ $releaseNamespace }}-set-argocd-auth-token
+      containers:
+      - name: set-argocd-auth-token
+        image: {{ .Values.dispatch.image }}
+        imagePullPolicy: {{ .Values.dispatch.pullPolicy }}
+        args:
+        - component
+        - set-argocd-auth-token
+        - --namespace={{ $releaseNamespace }}
+        - --argocd-hostname={{ .Release.Name }}-argocd-server
+      restartPolicy: OnFailure
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ $releaseNamespace }}-set-argocd-auth-token
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ $releaseNamespace }}-set-argocd-auth-token
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - create
+  - get
+  - list
+  - update
+  - patch
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - services
+  verbs:
+  - get
+  - list
+  - watch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ $releaseNamespace }}-set-argocd-auth-token
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ $releaseNamespace }}-set-argocd-auth-token
+subjects:
+- kind: ServiceAccount
+  name: {{ $releaseNamespace }}-set-argocd-auth-token
+  namespace: {{ $releaseNamespace }}
