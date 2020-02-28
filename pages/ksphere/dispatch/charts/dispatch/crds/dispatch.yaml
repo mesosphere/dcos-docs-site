@@ -1,0 +1,132 @@
+apiVersion: apiextensions.k8s.io/v1beta1
+kind: CustomResourceDefinition
+metadata:
+  creationTimestamp: null
+  name: repositories.dispatch.d2iq.io
+  annotations:
+    "helm.sh/hook": crd-install
+spec:
+  group: dispatch.d2iq.io
+  names:
+    kind: Repository
+    listKind: RepositoryList
+    plural: repositories
+    singular: repository
+  scope: Namespaced
+  validation:
+    openAPIV3Schema:
+      description: Repository represents an SCM repository webhook and indicates where
+        to fetch a Dispatchfile from on events.
+      properties:
+        apiVersion:
+          description: 'APIVersion defines the versioned schema of this representation
+            of an object. Servers should convert recognized schemas to the latest
+            internal value, and may reject unrecognized values. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#resources'
+          type: string
+        kind:
+          description: 'Kind is a string value representing the REST resource this
+            object represents. Servers may infer this from the endpoint the client
+            submits requests to. Cannot be updated. In CamelCase. More info: https://git.k8s.io/community/contributors/devel/api-conventions.md#types-kinds'
+          type: string
+        metadata:
+          type: object
+        spec:
+          description: RepositorySpec defines the desired state of Repository
+          properties:
+            baseUrl:
+              description: The base URL to use when creating endpoint addresses.
+              type: string
+            dispatchfile:
+              description: Override the default location to fetch the Dispatchfile
+                from.
+              properties:
+                path:
+                  description: The path to the file to fetch.
+                  type: string
+                repository:
+                  description: Override the repository if it is different than the
+                    Repository’s RepositoryRef.
+                  properties:
+                    repository:
+                      description: Repository name, e.g., mesosphere/dispatch.
+                      type: string
+                    secret:
+                      description: 'Reference to the secret to use when interacting
+                        with the Git provider API. The secret should contain the following
+                        fields:   username: the username (if password is not a token).   password:
+                        the password or token (required).   scm.provider.name: the
+                        name of the SCM provider (github, bitbucket, gitlab, gitea,
+                        gogs, stash, default: github)   scm.provider.url: the URL
+                        of the SCM provider (defaults to the default for the SCM provider)
+                        The secret can be created with the `dispatch login git command`.'
+                      type: string
+                  required:
+                  - repository
+                  type: object
+                revision:
+                  description: Override the revision instead of using the revision
+                    from the event.
+                  type: string
+              required:
+              - path
+              type: object
+            endpoint:
+              description: Set a fixed endpoint URL instead of letting the controller
+                generate one.
+              type: string
+            repository:
+              description: Repository name, e.g., mesosphere/dispatch.
+              type: string
+            secret:
+              description: 'Reference to the secret to use when interacting with the
+                Git provider API. The secret should contain the following fields:   username:
+                the username (if password is not a token).   password: the password
+                or token (required).   scm.provider.name: the name of the SCM provider
+                (github, bitbucket, gitlab, gitea, gogs, stash, default: github)   scm.provider.url:
+                the URL of the SCM provider (defaults to the default for the SCM provider)
+                The secret can be created with the `dispatch login git command`.'
+              type: string
+            serviceAccount:
+              description: The service account to use when creating pipelines.
+              type: string
+            webhookSecret:
+              description: Set a fixed webhook secret token to use when creating webhooks.
+                If the secret or key do not exist, then the controller will initialize
+                the secret.
+              properties:
+                key:
+                  description: The key of the secret to select from.  Must be a valid
+                    secret key.
+                  type: string
+                name:
+                  description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
+                    TODO: Add other useful fields. apiVersion, kind, uid?'
+                  type: string
+                optional:
+                  description: Specify whether the Secret or it's key must be defined
+                  type: boolean
+              required:
+              - key
+              type: object
+          required:
+          - repository
+          - serviceAccount
+          type: object
+        status:
+          description: RepositoryStatus defines the observed state of Repository
+          properties:
+            webhookEndpointPath:
+              description: The endpoint that was generated for the webhook (just the
+                path portion of the URL).
+              type: string
+            webhookId:
+              description: The webhook’s id as returned by the provider API (to detect
+                if the webhook has changed since the secret was last set).
+              type: string
+          type: object
+      type: object
+  version: v1alpha1
+  versions:
+  - name: v1alpha1
+    served: true
+    storage: true

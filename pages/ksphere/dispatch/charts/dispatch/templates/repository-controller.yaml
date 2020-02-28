@@ -1,0 +1,195 @@
+{{- $fullName := include "dispatch.fullname" . -}}
+{{- $releaseNamespace := .Release.Namespace }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $fullName }}-repository-controller
+  labels:
+    component: repository-controller
+spec:
+  selector:
+    matchLabels:
+      component: repository-controller
+  template:
+    metadata:
+      labels:
+        component: repository-controller
+    spec:
+      serviceAccountName: {{ $releaseNamespace }}-repository-controller
+      containers:
+      - name: repository-controller
+        image: {{ .Values.dispatch.image }}
+        imagePullPolicy: {{ .Values.dispatch.pullPolicy }}
+        args:
+        - component
+        - repository-controller
+        - --output=
+        - --sync-period={{ .Values.dispatch.syncPeriod }}
+        - --namespace={{ $releaseNamespace }}
+        - --use-cache=true
+        {{- with .Values.dispatch.watchNamespaces }}
+        {{- range $namespace := . }}
+        - --watch-namespace={{ $namespace }}
+        {{- end }}
+        {{- end }}
+        {{- with .Values.controller.resources }}
+        resources:
+          {{ toYaml . | nindent 10 | trim }}
+        {{- end }}
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ $releaseNamespace }}-repository-controller
+---
+{{ if .Values.dispatch.watchNamespaces }}
+{{ range $namespace := .Values.dispatch.watchNamespaces }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: {{ $releaseNamespace }}-repository-controller
+  namespace: {{ $namespace }}
+rules:
+- apiGroups:
+  - dispatch.d2iq.io
+  resources:
+  - repositories
+  verbs:
+  - get
+  - update
+  - patch
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - create
+  - get
+  - delete
+  - update
+  - patch
+  - list
+  - watch
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ $releaseNamespace }}-repository-controller
+  namespace: {{ $namespace }}
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: {{ $releaseNamespace }}-repository-controller
+subjects:
+- kind: ServiceAccount
+  name: {{ $releaseNamespace }}-repository-controller
+  namespace: {{ $releaseNamespace }}
+---
+{{ end }}
+{{ else }}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: {{ $releaseNamespace }}-repository-controller
+rules:
+- apiGroups:
+  - dispatch.d2iq.io
+  resources:
+  - repositories
+  verbs:
+  - get
+  - update
+  - patch
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - secrets
+  verbs:
+  - create
+  - get
+  - list
+  - delete
+  - update
+  - patch
+  - watch
+- apiGroups:
+  - extensions
+  resources:
+  - ingresses
+  verbs:
+  - get
+  - list
+  - watch
+- apiGroups:
+  - ""
+  resources:
+  - events
+  verbs:
+  - create
+  - patch
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: {{ $releaseNamespace }}-repository-controller
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: {{ $releaseNamespace }}-repository-controller
+subjects:
+- kind: ServiceAccount
+  name: {{ $releaseNamespace }}-repository-controller
+  namespace: {{ $releaseNamespace }}
+---
+{{ end }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ $fullName }}-repository-controller
+  labels:
+    component: repository-controller
+spec:
+  selector:
+    component: repository-controller
+  ports:
+    - protocol: TCP
+      port: 8080
+      name: metrics
+      targetPort: 8080
+---
+{{- if .Values.global.prometheus.enabled }}
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: {{ $releaseNamespace }}-repository-controller
+  labels:
+    release: {{ .Values.global.prometheus.release }}
+spec:
+  endpoints:
+    - path: /metrics
+  namespaceSelector:
+    matchNames:
+      - {{ $releaseNamespace }}
+  selector:
+    matchLabels:
+      component: repository-controller
+{{- end }}
