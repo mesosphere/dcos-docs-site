@@ -50,3 +50,77 @@ EOF
 ```
 
 After the CA secret has been created successfully, a custom kubeconfig can be retrieved by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
+
+## Attaching Kubernetes Cluster Using a New Service Account
+
+When connecting an existing cluster to Kommander a separate special service account should be created to keep that access specific and isolated to Kommander.
+
+To get started, ensure you have [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) set up and configured with [ClusterAdmin](https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/) for the cluster you intend to connect to Konvoy.
+
+First create the necessary service account:
+
+```shell
+kubectl -n kube-system create serviceaccount kommander-cluster-admin
+```
+
+Next we'll configure the new service account for cluster admin permissions:
+
+```shell
+cat << EOF | kubectl apply -f -
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: kommander-cluster-admin
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
+subjects:
+- kind: ServiceAccount
+  name: kommander-cluster-admin
+  namespace: kube-system
+EOF
+```
+
+Next we'll need to grab some variables to populate the new kubeconfig file for this service account.
+
+```shell
+export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
+export USER_TOKEN_VALUE=$(kubectl -n kube-system get secret/${USER_TOKEN_NAME} -o=go-template='{{.data.token}}' | base64 --decode)
+export CURRENT_CONTEXT=$(kubectl config current-context)
+export CLUSTER_CA=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CONTEXT}'''"}}{{ index .cluster "certificate-authority-data" }}{{end}}{{ end }}')
+export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CONTEXT}'''"}}{{ .cluster.server }}{{end}}{{ end }}')
+```
+
+Now we can generate the kubeconfig file with those values:
+
+```shell
+cat << EOF > kommander-cluster-admin-config
+apiVersion: v1
+kind: Config
+current-context: ${CURRENT_CONTEXT}
+contexts:
+- name: ${CURRENT_CONTEXT}
+  context:
+    cluster: ${CURRENT_CONTEXT}
+    user: kommander-cluster-admin
+    namespace: kube-system
+clusters:
+- name: ${CURRENT_CONTEXT}
+  cluster:
+    certificate-authority-data: ${CLUSTER_CA}
+    server: ${CLUSTER_SERVER}
+users:
+- name: kommander-cluster-admin
+  user:
+    token: ${USER_TOKEN_VALUE}
+EOF
+```
+
+This will produce a file in your current working directory called `kommander-cluster-admin-config`, the contents of this file can then be uploaded to Kommander to import the cluster using the dedicated service account.
+
+Before importing this configuration verify that the configuration is functional by running the following:
+
+```shell
+kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
+```
