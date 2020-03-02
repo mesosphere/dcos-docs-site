@@ -7,16 +7,16 @@ excerpt: Basic Kommander Cluster Lifecycle API (KCL) operations with kubectl
 
 This tutorial covers the following topics:
 
-- create a Workspaces
-- provision a cluster in the Workspace
-- create a Project in the Workspace having the cluster in it.
-- create a custom role in the project
+- Creating workspaces.
+- Provisioning a cluster in the workspace.
+- Creating a project in a workspace having a cluster.
+- Creating create a custom role in a project.
 
 ## Prerequisites
 
 You need to have `kubectl` connected to your Kommander Management cluster using the Token flow.
 
-Make sure KCL pods are running.
+Ensure KCL pods are running.
 
 ```
 $ kubectl -n kommander get pods
@@ -81,10 +81,11 @@ workspacetest                                     workspacetest-r69q2           
 
 ### Creating an AWS Cloud Provider
 
-In this tutorial we are going to be using AWS Provider. Althouhg you can use any other supported [infrastructure provider][infrastructure_provider].
+In this tutorial we are using AWS Provider, but you can use any other supported [infrastructure provider][infrastructure_provider].
 
 <p class="message--note"><strong>NOTE: </strong>Assuming you logged in with aws-cli
 </p>
+To create a cluster you need to setup the secret with the AWS credentials and a CloudProviderAccount.
 
 ```
 BASE64_ARGS="-w 0"
@@ -123,7 +124,7 @@ EOF
 
 ### Creating a cluster
 
-To create a cluster via KCL means we ecreate a KonvoyCluster CRD in the Workspace namespace.
+To create a cluster using KCL means you create a KonvoyCluster CRD in the Workspace namespace. You need to reference the CloudProviderAccount with the AWS credentials you created in the previous step.
 
 ```
 cat - << EOF | kubectl apply -f -
@@ -143,19 +144,19 @@ spec:
 EOF
 ```
 
-You can check the KCL controller manager logs to verify cluster creation
+You can check the KCL controller manager logs to verify cluster provisioning started.
 
 ```
 kubectl -n kommander logs -l control-plane=kcl-cm -c controller-manager
 ```
 
-To provision a cluster KCL uses Kubernetes Jobs
+To provision a cluster KCL uses Kubernetes Jobs.
 
 ```
 kubectl get jobs -n workspacetest-r69q2
 ```
 
-To access logs of the job we need to check its pod
+To access logs of the job we need to check its pod.
 
 ```
 $ kubectl get pods -n workspacetest-r69q2
@@ -164,13 +165,13 @@ NAME                               READY   STATUS    RESTARTS   AGE
 sample-kubernetes-tutorial-z9hqw   1/1     Running   0          47s
 ```
 
-Now when we know the pod name we can check the logs
+When we know the pod name we can check the logs.
 
 ```
 kubectl -n workspacetest-r69q2 logs sample-kubernetes-tutorial-z9hqw -f
 ```
 
-Waiting for the cluster to be provisioned
+Waiting for the cluster to be provisioned.
 
 ```
 $ kubectl -n workspacetest-r69q2 get konvoycluster -w
@@ -179,7 +180,7 @@ NAME                         DISPLAY NAME   STATUS         PROVIDER   AGE
 sample-kubernetes-tutorial                  Provisioning   aws        5m48s
 ```
 
-The kubeconfig to access the new cluster is stored in a secret. Let's save it for later use
+The kubeconfig to access the new cluster is stored in a secret. Save that for later use.
 
 ```
 kubectl -n workspacetest-r69q2 get secret --field-selector type=kommander.mesosphere.io/kubeconfig -o=jsonpath="{.items[0].data.kubeconfig}" | base64 -d > sample-kubernetes-tutorial.kubeconfig
@@ -207,7 +208,7 @@ spec:
 EOF
 ```
 
-Get tthe Project data
+Get the Project data.
 
 ```
 $ kubectl get projects -A
@@ -216,7 +217,7 @@ NAMESPACE                   NAME              DISPLAY NAME      PROJECT NAMESPAC
 workspacetest-r69q2         projecttest                         projecttest-5r55h       56s
 ```
 
-Check the Project's namespace is federated to the target cluster
+Ensure the Project's namespace is federated to the target cluster.
 
 ```
 $ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
@@ -227,7 +228,7 @@ projecttest-5r55h       Active   12m
 ***                     ***      ***
 ```
 
-Check default Project roles in the target cluster
+Check default Project roles in the target cluster.
 
 ```
 $ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles
@@ -255,7 +256,7 @@ spec:
 EOF
 ```
 
-Check the role is properly federated to the target cluster
+Ensure the role is properly federated to the target cluster.
 
 ```
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles -w
@@ -265,32 +266,21 @@ NAME                           AGE
 projectrole-podreader-wbwzv    15s
 ```
 
-Check the role's yaml
+Check the project role's yaml.
 
 ```
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles projectrole-podreader-wbwzv -o yaml
 ```
 
-#### Delete the role
+#### Delete the custom Project Role
 
 ```
-cat - << EOF | kubectl delete -f -
-apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
-kind: ProjectRole
-metadata:
-  name: projectrole-podreader
-  namespace: projecttest-5r55h
-spec:
-  rules:
-    - apiGroups: [""] # "" indicates the core API group
-      resources: ["pods"]
-      verbs: ["get", "watch", "list"]
-EOF
+kubectl -n projecttest-5r55h delete projectrole projectrole-podreader
 ```
 
 #### Delete the Project
 
-This can take a few minutes to delete all the resources in the target cluster.
+It may take a few minutes to delete all the resources in the target cluster.
 
 ```
 cat - << EOF | kubectl delete -f -
@@ -308,7 +298,7 @@ spec:
 EOF
 ```
 
-Check the Projetc's namespace is deleted in the target cluster.
+Ensure the Project's namespace is deleted in the target cluster.
 
 ```
 kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
@@ -317,21 +307,7 @@ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
 ## Delete the cluster
 
 ```
-cat - << EOF | kubectl delete -f -
-apiVersion: kommander.mesosphere.io/v1beta1
-kind: KonvoyCluster
-metadata:
-  name: sample-kubernetes-tutorial
-  namespace: workspacetest-r69q2
-spec:
-  cluster:
-    kubernetes:
-      version: 1.16.4
-    provisioner:
-      provider: aws
-    cloudProviderAccountRef:
-      name: aws-credentials
-EOF
+kubectl -n workspacetest-r69q2 delete  konvoycluster sample-kubernetes-tutorial
 ```
 
 [infrastructure_provider]: /ksphere/kommander/latest/operations/cloud-providers
