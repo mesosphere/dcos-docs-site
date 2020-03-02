@@ -5,7 +5,7 @@ title: Using Kommander Cluster Lifecycle API via kubectl
 excerpt: Basic Kommander Cluster Lifecycle API (KCL) operations with kubectl
 ---
 
-In this tutorial we're going to:
+This tutorial covers the following topics:
 
 - create a Workspaces
 - provision a cluster in the Workspace
