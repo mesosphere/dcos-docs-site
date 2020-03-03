@@ -101,7 +101,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} pod list
 
 To view the status of all pods or optionally just one pod run the CLI command:
 ```bash
-dcos {{ model.packageName }} --name={{ model.serviceName }} pod <pod-name (optional)>
+dcos {{ model.packageName }} --name={{ model.serviceName }} pod status <pod-name (optional)>
 ```
 
 This will show any status overrides for pods and their tasks.
