@@ -88,4 +88,3 @@ storage: 100Gi
         </td>
   </tr>
 </table>
-

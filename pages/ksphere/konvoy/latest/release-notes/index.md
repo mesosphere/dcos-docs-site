@@ -15,6 +15,18 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.4.1 - Released 04 March 2020
+
+#### Improvements
+
+- Update certain Ansible tasks to correctly reflect the changed status.
+
+#### Bug fixes
+
+- Fix a bug where the kubeaddons controller could not start when air-gapped.
+- Fix a bug where certain addons were being installed even if set to `enabled: false`.
+- Fixed a bug that would fail to install on Ubuntu if containerd.io was not already installed.
+
 ### Version v1.4.0 - Released 28 February 2020
 
 #### Disclaimer
