@@ -511,7 +511,7 @@ Specifically, the `konvoy up` command does the following:
   * [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
   * [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
   * [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
-  * [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
+  * [Traefik forward authorization proxy][traefik_forward_auth] to provide basic authorization for Traefik ingress.
   * Kommander for multi-cluster management.
 
 This set of configuration options is the recommended environment for small clusters.
@@ -607,7 +607,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [velero]: https://velero.io/
 [dex]: https://github.com/dexidp/dex
 [dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
-[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
+[traefik_forward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [kubernetes_base_addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
 [kubeaddons_kommander_repo]: https://github.com/mesosphere/kubeaddons-kommander
