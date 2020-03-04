@@ -63,7 +63,7 @@ First create the necessary service account:
 kubectl -n kube-system create serviceaccount kommander-cluster-admin
 ```
 
-Next we'll configure the new service account for cluster admin permissions:
+Next configure the new service account for cluster admin permissions:
 
 ```shell
 cat << EOF | kubectl apply -f -
@@ -82,7 +82,7 @@ subjects:
 EOF
 ```
 
-Next we'll need to grab some variables to populate the new kubeconfig file for this service account.
+Next use some variables to populate the new kubeconfig file for this service account.
 
 ```shell
 export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
@@ -92,7 +92,7 @@ export CLUSTER_CA=$(kubectl config view --raw -o=go-template='{{range .clusters}
 export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CONTEXT}'''"}}{{ .cluster.server }}{{end}}{{ end }}')
 ```
 
-Now we can generate the kubeconfig file with those values:
+Now you can generate the kubeconfig file with these values:
 
 ```shell
 cat << EOF > kommander-cluster-admin-config
@@ -117,9 +117,9 @@ users:
 EOF
 ```
 
-This will produce a file in your current working directory called `kommander-cluster-admin-config`, the contents of this file can then be uploaded to Kommander to import the cluster using the dedicated service account.
+This produces a file in your current working directory called `kommander-cluster-admin-config`. The contents of this file can uploaded to Kommander to import the cluster using the dedicated service account.
 
-Before importing this configuration verify that the configuration is functional by running the following:
+Before importing this configuration, verify the configuration is functional by running the following command:
 
 ```shell
 kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
