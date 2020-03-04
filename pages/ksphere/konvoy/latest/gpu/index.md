@@ -78,7 +78,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: v1.3.0
+    configVersion: stable-1.16-1.2.0
     addonsList:
 ......
     - name: nvidia
@@ -155,7 +155,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: v1.3.0
+    configVersion: stable-1.16-1.2.0
     addonsList:
 ......
     - name: nvidia

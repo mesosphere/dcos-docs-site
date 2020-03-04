@@ -6,7 +6,7 @@ menuWeight: 8
 excerpt: Configure a custom domain for Konvoy
 ---
 
-# Configure Konvoy to use a custom domain
+## Configure Konvoy to use a custom domain
 
 To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml`:
 
@@ -18,12 +18,12 @@ To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml`:
         clusterHostname: < custom domain >
 ```
 
-## Use external-dns to create a CNAME
+### Use external-dns to create a CNAME
 
 In a cloud environment, you can automate the process of creating a CNAME record
  for your ELB by configuring the `external-dns` addon.
 
-### AWS
+#### AWS
 
 In AWS, the `external-dns` can be configured as:
 
@@ -43,7 +43,7 @@ In AWS, the `external-dns` can be configured as:
     - <custom domain>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>The AWS account must have permissions to update `route 53`. More details can be found [here][external-dns].</p>
+<p class="message--note"><strong>NOTE: </strong>The AWS account must have permissions to update `route 53`. More details can be found <a href="https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md">here</a>.</p>
 
 You also have to annotate the `traefik` addon with the custom domain name.
 
@@ -56,14 +56,14 @@ You also have to annotate the `traefik` addon with the custom domain name.
         external-dns.alpha.kubernetes.io/hostname: <custom domain>
 ```
 
-## Configure Konvoy to use custom certificates
+### Configure Konvoy to use custom certificates
 
 You can also configure Konvoy to use custom certificates as an
 additional measure of security.
 
 To configure custom certificates for your domain:
 
-## Pre-requisites
+### Pre-requisites
 
 -   Requires minimum Konvoy version `v1.3` or greater.
 -   A custom domain with the following:
@@ -71,7 +71,7 @@ To configure custom certificates for your domain:
     - Key (unencrypted RSA private key)
     - CA bundle (intermediate-ca and root-ca certificates in PEM-format concatenated in the same file) for the custom domain
 
-## Instructions
+### Instructions
 
 1.  Create the directory `extras/kubernetes` inside the root Konvoy directory.
 
@@ -131,5 +131,3 @@ To configure custom certificates for your domain:
     ```
 
 1.  Navigate to `https://<custom-domain>/ops/landing`. Verify the custom certificate is served by the browser.
-
-[external-dns]: https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md
