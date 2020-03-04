@@ -10,6 +10,8 @@ excerpt: Grant access to users in your organization
 
 By default, you login to konvoy with a credential given by `konvoy up`. You can retrieve it later by using `konvoy get ops-portal`.
 
+These static credentials should be used only to access **operations portal** for configuring an external identity provider. Since these are static credentials and there is currently no way of updating them they should be treated only as backup credentials and not used for normal access. Always login with own identity from external identity provider that usually provide additional security features like Multi Factor Authentication.
+
 ## Identity Providers
 
 To provide simple access for the users of your organization, Identity Providers can be set up.

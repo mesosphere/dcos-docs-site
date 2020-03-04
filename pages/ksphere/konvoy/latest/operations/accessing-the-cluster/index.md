@@ -40,6 +40,8 @@ This UI is hosted on a web application within the cluster, which runs on the clu
 
 You will then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to addon services such as Grafana.
 
+These static credentials should be used only to access **operations portal** for configuring an [external identity provider](../../security/external-idps/). Since these are static credentials and there is currently no way of updating them they should be treated only as backup credentials and not used for normal access. Always login with own identity from external identity provider that usually provide additional security features like Multi Factor Authentication.
+
 ## Using kubectl
 
 One of the most common ways to perform administrative tasks and interact with a Kubernetes cluster is through the `kubectl` command line interface.
