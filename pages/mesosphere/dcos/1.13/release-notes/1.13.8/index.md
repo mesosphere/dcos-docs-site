@@ -13,36 +13,36 @@ DC/OS 1.13.8 was released on ?? March 2020.
 
 Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the [support website](https://support.mesosphere.com/s/downloads). For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
-# Release summary
+# Release Summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
+# DC/OS 
 
-#DC/OS 
-
-##Components 
+## Components 
 
 DC/OS 1.13.8 includes the following component versions:
 
 - Apache Mesos 1.8.2-dev
 
-### Fixed and Improved Issues
+### DC/OS Fixed and Improved Issues
 
-- Fixed preflight check verifying the ftype value of /var/lib/mesos. (DCOS-59406)
-- Allow Admin Router to accept files up to 32GB, such as for uploading large packages to Package Registry. (DCOS-61233)
-- DC/OS no longer increases the rate limit for journald logging. Scale testing demonstrated that raising the limit overloads journald, causing problems for other components that see delayed or lost logs or, worse, hang until log buffers are read. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (DCOS-53763)
-- Fix Telegraf migration when no containers present. (D2IQ-64507)
-- /v2/tasks plaintext output in Marathon 1.5 returned container network endpoints in an unusable way (MARATHON-8721)
-- Unreachable instances would interfere with replacements when using GROUP_BY / UNIQUE placement constraints, even if expungeAfter is configured the same as inactiveAfter (MARATHON-8719)
+- Modified pre-flight check to use filesystem mount name instead of filesystem device name. (D2iQ-59406)
 
-#Marathon
+- DC/OS Admin Router now allows large packages of files, up to 32GB, to be uploaded to the Package Registry. (D2iQ-61233, COPS-5615)
 
-##Components
+- DC/OS no longer increases the rate limit for journald logging. Scale testing demonstrated that raising the limit can overload journald, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763)
+
+- Fixed an issue where after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13, users were no longer able to launch UCR when no containers were present. 
+
+# Marathon
+
+## Components
 
 DC/OS 1.13.8 includes the following Marathon component version:
 
 - Marathon 1.8.239
 
-### Fixed and Improved Issues
+### Marathon Fixed and Improved Issues
 
-- Fixed preflight check verifying the ftype value of /var/lib/mesos. (DCOS-59406)
-
+- Removed non-host reachable container endpoints from the output of the plaintext /v2/tasks endpoint. (MARATHON-8721, COPS-5791)
+- Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (MARATHON-8719, COPS-5617)
