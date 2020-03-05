@@ -9,11 +9,11 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-If your cluster workload changes, you can use a different instance type for your worker machines. To ensure your worker machines' operating system is up to date, you can use a different machine image that includes a more recent patch version of the operating system.
+If your cluster workload changes, use a different instance type for your worker machines. To ensure your worker machines' operating system is up to date, use a different machine image that includes a more recent patch version of the operating system.
 
-By default, Konvoy groups your worker machines in the `worker` node pool. If you change some properties of the machines and apply the change, the machines may be destroyed and re-created, disrupting their running workloads.
+By default, Konvoy groups your worker machines in the `worker` node pool. If you change properties of the machines and apply the change, the machines may be destroyed and re-created, disrupting their running workloads.
 
-This tutorial describes how to update the properties of worker machines without disrupting your cluster workload. You will create a new node pool with up-to-date properties, move your workload, to it, from the `worker` nodepool, and finally scale down the `worker` node pool.
+This tutorial describes how to update the properties of worker machines without disrupting your cluster workload. You create a new node pool, with up-to-date properties. You then move your workload, to the new node pool, from the `worker` nodepool, and then scale down the `worker` node pool.
 
 Follow these steps:
 
@@ -23,7 +23,7 @@ Follow these steps:
     konvoy get nodepools
     ```
 
-    **NOTE**: If your workers are grouped in the `worker` node pool, the default for a Konvoy cluster, skip this step. If your cluster uses a different worker node pool, use that node pool name instead of `worker` in the following steps.
+    <p class="message--note"><strong>NOTE: </strong>  If your workers are grouped in the <code>worker</code> node pool, the default for a Konvoy cluster, skip this step. If your cluster uses a different worker node pool, use that node pool name instead of <code>worker</code> in the following steps.</p>
 
 1. Create a new node pool, called `worker2`, copying the properties of the `worker` node pool.
 
@@ -82,7 +82,7 @@ Follow these steps:
     kubectl get pods --all-namespaces=true --field-selector=status.phase!=Running
     ```
 
-    **NOTE**: No single method applies for all workloads. A pod that is not Running can be, but is not always, a sign of an unhealthy workload. We recommend that you implement application health checks and exercise them when migrating your workload from one node pool to another. For information on implementing health checks in Kubernetes, see [Configure Liveness, Readiness and Startup Probes][configure-probes]
+    <p class="message--note"><strong>NOTE: </strong> No single method applies for all workloads. A pod that is not Running can be, but is not always, a sign of an unhealthy workload. We recommend you implement application health checks and exercise them when migrating your workload from one node pool to another. For information on implementing health checks in Kubernetes, see [Configure Liveness, Readiness and Startup Probes][configure-probes]</p>
 
 1. Scale down the `worker` node pool to zero.
 
@@ -91,7 +91,7 @@ Follow these steps:
     konvoy up
    ```
 
-    **NOTE**: Due to a known issue, Konvoy does not currently support deleting a node pool from its configuration.
+    <p class="message--note"><strong>NOTE: </strong>Due to a known issue, Konvoy does not currently support deleting a node pool from its configuration.</p>
 
 [drain-node]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
 [configure-probes]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/

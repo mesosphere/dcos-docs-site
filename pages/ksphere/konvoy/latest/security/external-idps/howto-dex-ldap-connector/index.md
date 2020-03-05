@@ -13,9 +13,9 @@ This guide shows how to configure your Konvoy cluster so that users can log in w
 
 ### Step 1: add LDAP connector
 
-Each LDAP directory is set up in its own special way, therefore this step is non-trivial.
-The following example does not cover all the possible configurations.
-Please refer to the Dex LDAP connector reference documentation, available [here][dex-ldap-connector] for more details.
+Each LDAP directory is set up in a specific manner so these steps are non-trivial.
+The following example does not cover all possible configurations.
+Refer to the Dex LDAP connector reference documentation, available [here][dex-ldap-connector] for more details.
 
 In the following example, we are configuring the Konvoy cluster to connect to the [Online LDAP Test Server][ldap-test-server].
 
@@ -60,7 +60,7 @@ spec:
       nameAttr: ou
 ```
 
-<p class="message--note"><strong>NOTE: </strong> The value for the LDAP connector <tt>name</tt> parameter (here: <tt>LDAP Test</tt>) will appear on one of the login buttons in the Konvoy user interface. You should choose an expressive name.</p>
+<p class="message--note"><strong>NOTE: </strong> The value for the LDAP connector <tt>name</tt> parameter (here: <tt>LDAP Test</tt>) appears on one of the login buttons in the Konvoy user interface. You should choose an expressive name.</p>
 
 Also note that for demoing purposes the configuration shown above uses `insecureNoSSL: true`.
 In production, the LDAP communication should be protected with properly configured transport layer security (TLS).
@@ -86,7 +86,7 @@ The Dex log output contains helpful error messages as indicated by the following
 
 #### Errors upon Dex startup
 
-If the Dex configuration fragment provided results in an invalid Dex config then Dex will not properly start up.
+If the Dex configuration fragment provided results in an invalid Dex config then Dex does not properly start up.
 In that case the Dex logs will provide error details:
 
 ```bash
