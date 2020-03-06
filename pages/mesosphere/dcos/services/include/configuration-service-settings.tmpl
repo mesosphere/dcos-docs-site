@@ -28,6 +28,8 @@ Placement constraints can be applied to DC/OS zones by referring to the `@zone` 
 [["@zone", "GROUP_BY", "3"]]
 ```
 
+In order for the @zone constraint to be applied correctly, DC/OS must have [Fault Domain Awareness](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/) enabled and configured.
+
 <p class="message--warning"><strong>WARNING: </strong>A service installed without a zone constraint cannot be updated to have one, and a service installed with a zone constraint may not have it removed.</p>
 
 
