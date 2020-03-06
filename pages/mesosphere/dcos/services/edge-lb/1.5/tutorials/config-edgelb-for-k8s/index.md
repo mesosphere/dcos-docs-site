@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Connecting to Kubernetes using Edge-LB
 title: Connecting to Kubernetes using Edge-LB
-menuWeight: 17
+menuWeight: -1
 excerpt: How to connect to Kubernetes from a DC/OS Enterprise cluster using Edge-LB load balancer
 enterprise: true
 ---

@@ -52,13 +52,13 @@ You can perform the necessary steps using the `edgelb-pool` command-line interfa
 1. Install the `edgelb-pool` CLI subcommand:
 
     ```bash
-    $ dcos package install edgelb-pool --cli --yes
+    dcos package install edgelb-pool --cli --yes
     ```
 
 2. Get the name of the pool that owns the pod you need to relocate:
 
     ```bash
-    $ dcos edgelb list
+    dcos edgelb list
     ```
 
     This command lists all of the Edge-LB pool configurations you have deployed. The pool that has a missing pod in this list identifies the `<pool-name>` you specify in the next step.
@@ -66,7 +66,7 @@ You can perform the necessary steps using the `edgelb-pool` command-line interfa
 3. Get the name of the pod you need to replace (the pod that was running on the removed public agent):
 
     ```bash
-    $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod list
+    dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod list
     ```
 
     This command returns the pod name you will specify for the `<pod-id>` in the next step.
@@ -74,7 +74,7 @@ You can perform the necessary steps using the `edgelb-pool` command-line interfa
 4. Replace the `<pod-id>` that is no longer running using the `pod replace` command as follow:
 
     ```bash
-    $ dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
+    dcos edgelb-pool --name=/dcos-edgelb/pools/<pool-name> pod replace <pod-id>
     ```
 
     This command destroys the pool server and relaunchs a new Edge-LB pool on the new public agent.

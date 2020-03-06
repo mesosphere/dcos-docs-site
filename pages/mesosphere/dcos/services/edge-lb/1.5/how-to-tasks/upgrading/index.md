@@ -59,7 +59,7 @@ You must have:
 
 1. Install the new `apiserver`:
 
-    Use the service account you created when you installed the previous version. For more information about creating and configuring permissions for the service account, see [Installing Edge-LB](/mesospshere/dcos/services/edge-lb/1.5/getting-started/installing) and [Service account permissions](/mesosphere/dcos//services/edge-lb/1.5/reference/permissions/#service-account-permission).
+    Use the service account you created when you installed the previous version. For more information about creating and configuring permissions for the service account, see [Installing Edge-LB](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing) and [Service account permissions](/mesosphere/dcos/services/edge-lb/1.5/reference/permissions/#service-account-permission).
 
     The configuration file below matches the one created by following the installation instructions.
 

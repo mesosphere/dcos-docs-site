@@ -42,7 +42,7 @@ Edge-LB Service version 1.5.0 was released on 30 October 2019.
 - Adds `apiserver`, `cloud-controller`, `dcos-template`, `lbmgr`, and `mesos-listener` exporter for metrics.
 - Metric names renamed in line with Prometheus community guideline.
 - The `apiserver` now uses `container/bridge` network type.
-- [Pool constraints](../pool-configuration/v2-reference/#pool) now support region placement constraints.
+- [Pool constraints](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/v2-reference/#pool) now support region placement constraints.
 
 ## Known issues and limitations
 - Auto Pool updates become slower as the number of templates increases, or as large changes to the Mesos state occur, such as many apps starting or stopping.

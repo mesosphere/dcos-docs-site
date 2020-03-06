@@ -36,4 +36,4 @@ Enable dynamic allocation of the HAProxy&reg; STATS port | 1.3.0 | February 2019
 Enable dynamic allocation of the HAProxy Frontend port | 1.3.0 | February 2019 |
 Scale down Edge-LB pool instances | 1.3.0 | February 2019 |
 Edge-LB pool packages can be uniquely identified by a version naumber. | 1.2.0 | September 2018
-Logging improvements capture nore detailed information about Edge-LB operations and activity. | 1.2.0 | September 2018
+Logging improvements capture more detailed information about Edge-LB operations and activity. | 1.2.0 | September 2018

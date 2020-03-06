@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Expose and load balance a service
+navigationTitle: Expose and load balance a sample service
 title: Expose and load balance a sample service
 menuWeight: 15
 excerpt: Illustrates the basic steps for load balancing a single service running on DC/OS
@@ -11,7 +11,7 @@ These sample exercises demonstrate how to prepare load balancing for access to a
 
 # Before you begin
 You must have:
-* Edge-LB installed as described in the Edge-LB [installation instructions](/services/edge-lb/getting-started/installing).
+* Edge-LB installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The core DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster.
@@ -61,7 +61,7 @@ These procedures show you how to configure an Edge-LB instance to provide public
     }
     ```
 
-    In this sample app defintion, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields don't match, the pool will not deploy successfully.
+    In this sample app definition, notice that the `portDefinitions.name` field matches the `haproxy.backends.endpoint.portName` setting. If these fields don't match, the pool will not deploy successfully.
 
 1. Deploy the `ping` service by installing the `ping.json` app definition:
 
@@ -245,7 +245,7 @@ After you have configured and tested the `ping` service and `ping-lb` pool confi
 
     In most cases, this command returns node information that includes both the private and public IP addresses for each node. You should keep in mind, however, that the public and private IP addresses returned might not be accurate if the Edge-LB pool uses virtual networks.
 
-    For more information about finding the public IP address for a public agent node, see [Finding a public agent IP](1.13/administering-clusters/locate-public-agent/).
+    For more information about finding the public IP address for a public agent node, see [Finding a public agent IP](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/).
 
 1. Verify that you can access the deployed service using the public-facing IP address and the frontend port 15001:
 

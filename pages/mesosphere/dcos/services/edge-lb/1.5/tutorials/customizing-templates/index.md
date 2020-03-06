@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Customizing Edge-LB templates
 title: Customizing Edge-LB templates
-menuWeight: 10
+menuWeight: 11
 excerpt: How to customize Edge-LB load balancing by modifying templates.
 enterprise: true
 ---
@@ -25,7 +25,7 @@ To create a custom template for basic authentication:
 
 1. Create an Edge-LB pool as described in [Expose and load balance a service](/mesosphere/dcos/services/edge-lb/1.5/getting-started/single-lb).
 
-1. Fetch the template for the Edge-LB pool you created in the previous step and save it to a file named `haproxy.tmpl`:
+1. [Fetch the template](/mesosphere/dcos/services/edge-lb/1.5/getting-started/auto-pools/#cli-example-usage) for the Edge-LB pool you created in the previous step and save it to a file named `haproxy.tmpl`:
 
     ```bash
     dcos edgelb template show <pool-name> > haproxy.tmpl

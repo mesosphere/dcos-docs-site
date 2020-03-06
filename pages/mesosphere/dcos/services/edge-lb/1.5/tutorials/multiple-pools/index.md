@@ -22,7 +22,7 @@ You must have:
 
 # Create and deploy the ping sample app
 
-1. Copy and paste the following JSON settings to create the sample app definition for the `ping` service in, and save, the `ping.json` file:
+1. Copy and paste the following JSON settings to create the sample app definition for the `ping` service in, and save the `ping.json` file:
 
     ```json
     {
@@ -67,7 +67,7 @@ You must have:
 
 # Create the ping service-specific pool
 
-1. Copy and paste the following JSON settings to create the sample pool configuration file for the `ping` services in, and save, the `ping-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the `ping` services in, and save the `ping-lb-pool.json` file:
 
     ```json
     {
@@ -115,7 +115,7 @@ You must have:
 
 # Create and deploy the nginx sample app
 
-1. Copy and paste the following JSON settings to create the sample app definition for the NGINX&trade; service in, and save, the `nginx.json` file:
+1. Copy and paste the following JSON settings to create the sample app definition for the NGINX&trade; service in, and save the `nginx.json` file:
 
     ```json
     {
@@ -152,7 +152,7 @@ You must have:
 
 # Create the nginx service-specific pool
 
-1. Copy and paste the following JSON settings to create the sample pool configuration file for the `nginx` services in, and save, the `nginx-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the `nginx` services in, and save the `nginx-lb-pool.json` file:
 
     ```json
     {
@@ -200,7 +200,7 @@ You must have:
 
 # Create and deploy the echo sample app
 
-1. Copy and paste the following JSON settings to create the sample app definition for the `echo` service in, and save, the `echo.json` file:
+1. Copy and paste the following JSON settings to create the sample app definition for the `echo` service in, and save the `echo.json` file:
 
     ```json
     {
@@ -241,7 +241,7 @@ You must have:
 
 # Create the echo service-specific pool
 
-1. Copy and paste the following JSON settings to create the sample pool configuration file for the `echo` services in, and save, the `echo-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the `echo` services in, and save the `echo-lb-pool.json` file:
 
     ```json
     {
@@ -350,4 +350,4 @@ You must have:
 
     If you cannot access one of the pages, check that the Edge-LB frontend ports do not conflict with other ports you are currently using.
 
-    If you are deploying multiple Edge-LB pool instances, you should also be sure that the Edge-LB pool instance names are unique. For example, the pool instance names used in this tutorial are `ping-lb-pool`, `nginx-lb-ppool`, and `echo-lb-pool`, so that the instance names do not duplicate the pool names used in other examples or tutorials.
+    If you are deploying multiple Edge-LB pool instances, you should also be sure that the Edge-LB pool instance names are unique. For example, the pool instance names used in this tutorial are `ping-lb-pool`, `nginx-lb-pool`, and `echo-lb-pool`, so that the instance names do not duplicate the pool names used in other examples or tutorials.

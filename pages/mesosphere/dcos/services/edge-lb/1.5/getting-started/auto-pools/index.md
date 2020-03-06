@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Exposing apps with Auto Pools and labels
-title: Automatically exposing apps with Auto Pools
+navigationTitle: Automatically exposing apps with Auto Pools and labels
+title: Automatically exposing apps with Auto Pools and labels
 menuWeight: 12
 excerpt: Describes how you can automatically expose applications with task labels
 enterprise: true
@@ -69,13 +69,13 @@ We recommend using the `<group>` field to describe the frontend app, such as `we
 | `edgelb.<group>.frontend.certificates` | | A `list` of secret names (or the value `$AUTOCERT`) to be used as certificates. If set will enable `HTTPS`. |
 | `edgelb.<group>.frontend.port` | `80` if protocol is HTTP, `443` if HTTPS, required if protocol is `TCP` | The frontend bind port. |
 | `edgelb.<group>.frontend.protocol` | `HTTP` if not specified, `HTTPS` if `certificates` specified | The frontend protocol. |
-| `edgelb.<group>.frontend.redirectToHttps` | | If this labels exists then `redirectToHttps` is enabled for the frontend. The value can be empty or a `list` of `dicts` that will be used as the [`except`](/mesosphere/dcos/services/edge-lb/1.5/pool-configuration/v2-reference/#poolhaproxyfrontendredirecttohttps). |
+| `edgelb.<group>.frontend.redirectToHttps` | | If this labels exists then `redirectToHttps` is enabled for the frontend. The value can be empty or a `list` of `dicts` that will be used as the [`exception`](/mesosphere/dcos/services/edge-lb/1.5/pool-configuration/v2-reference/#poolhaproxyfrontendredirecttohttps). |
 | `edgelb.<group>.frontend.rules` | `pathBeg:/` | A `list` of `dict`s corresponding to the Edge-LB [`pool.haproxy.frontend.linkBackend.map`](https://docs.d2iq.com/mesosphere/dcos/services/edge-lb/1.5/pool-configuration/v2-reference/#poolhaproxyfrontendlinkbackend). |
 | `edgelb.<group>.backend.balance` | | The balancing [algorithm](https://cbonte.github.io/haproxy-dconv/2.0/configuration.html#4.2-balance). |
 | `edgelb.<group>.backend.portName` | The name of the first port exposed from the task | The name of the port to send traffic to. |
 | `edgelb.<group>.backend.protocol` | `HTTP` unless frontend protocol is not `HTTP/HTTPS`, then matches frontend | The backend protocol. |
 | `edgelb.<group>.backend.rewriteHttp.path` | | A `dict` of 1 item mapping the key path on the frontend to the value path on the backend. For example to map `/a` on the frontend to `/` on the backend, set the value to `/a:/` |
-| `edgelb.<group>.backend.rewriteHttp.sticky` | | If the label exists sticky is enabled with the default options. Any non whitespace value for the label will used as the [`customStr`](../../pool-configuration/v2-reference/#poolhaproxybackendrewritehttp) |
+| `edgelb.<group>.backend.rewriteHttp.sticky` | | If the label exists, sticky is enabled with the default options. Any non-whitespace value for the label will be used as the [`customStr`](../../pool-configuration/v2-reference/#poolhaproxybackendrewritehttp) |
 
 # Managing Pool Templates
 
@@ -186,7 +186,7 @@ type TmplMesosTask struct {
 
 Another function `parseTaskLabels` will parse the labels into a nested `dict` structure (discussed below).
 
-Templates must use the `renderPoolTemplate` function to render a `define`'d template. The `define`'d template should either render a pool configuration or call the `noTasks` function to signal that no tasks were selected for the pool and therefore should not be started. (See the default pool [template](https://github.com/mesosphere/dcos-edge-lb/blob/master/container/apiserver/templates/pool.json.ctmpl) for an example).
+Templates must use the `renderPoolTemplate` function to render a defined template. The defined template should either render a pool configuration, or call the `noTasks` function, to signal that no tasks were selected for the pool and therefore should not be started. (See the default pool [template](https://github.com/mesosphere/dcos-edge-lb/blob/master/container/apiserver/templates/pool.json.ctmpl) for an example).
 
 # Default Template Implementation
 

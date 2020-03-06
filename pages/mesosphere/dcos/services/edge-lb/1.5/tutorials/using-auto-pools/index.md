@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Using Auto Pools
 title: Using Auto Pools to Expose Applications
-menuWeight: 10
+menuWeight: 12
 excerpt: Exposing applications using Auto Pools.
 enterprise: true
 ---

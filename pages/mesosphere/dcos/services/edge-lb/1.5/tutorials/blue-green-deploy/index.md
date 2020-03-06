@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Blue/Green service deployment
+navigationTitle:  Phased "Blue/Green" service deployment
 title: Phased "Blue/Green" service deployment
 menuWeight: 10
 excerpt: How to deploy with two load-balanced versions of the same service

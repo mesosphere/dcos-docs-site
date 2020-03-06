@@ -32,4 +32,4 @@ You must have:
 
     This example output indicates that the current Edge-LB API server version is v1.5.0 and the CLI client that is interacting with the Edge-LB server is also version v1.5.0.
 
-For more specific information about the latest supported Edge-LB version and Edge-LB compatibility with the latest releases of DC/OS, see the Edge-LB [version policy](/mesosphere/dcos/services/edge-lb/1.5/related-documentation/version-support/) summary and the [version compatibility matrix](/mesosphere/dcos/2.0/release-notes/version-policy/#certified-packages-and-dcos-versions).
+For more specific information about the latest supported Edge-LB version and Edge-LB compatibility with the latest releases of DC/OS, see the Edge-LB [version policy](/mesosphere/dcos/services/edge-lb/1.5/related-documentation/version-support/) summary and the [version compatibility matrix](/mesosphere/dcos/version-policy/#dcos-platform-version-compatibility-matrix).

@@ -11,11 +11,11 @@ These sample exercises demonstrate exposing and accessing the NGINX&trade; servi
 
 # Before you begin
 You must have:
-* The Edge-LB API server installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/getting-started/installing).
+* The Edge-LB API server installed as described in the Edge-LB [installation instructions](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing).
 * The DC/OS command-line interface (CLI) installed and configured to communicate with the DC/OS&trade; cluster.
 * The `edgelb` command-line interface (CLI) installed.
 * An active and properly-configured DC/OS Enterprise cluster with at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
-* Marathon-LB installed as described in the Marathon-LB [installation instructions](/mesosphere/dcos/services/marathon-lb/1.12.x/mlb-install).
+* Marathon-LB installed as described in the Marathon-LB [installation instructions](/mesosphere/dcos/services/marathon-lb/1.14/mlb-install).
 
 # Preview of what you'll do
 This tutorial illustrates the differences between configuring load balancing using Marathon-LB and an Edge-LB pool to provide public access to a simple Marathon app. In this tutorial, you will:
@@ -179,7 +179,7 @@ These steps illustrate how you can configure and deploy the `nginx` service thro
 1. Verify the Apache&reg; Mesos&reg; task relevant to services and the pool instances:
 
     ```bash
-    dcos task
+    dcos task list
     ```
 
 1. Verify that the Edge-LB pool named `nginx-edgelb` deployed successfully:
