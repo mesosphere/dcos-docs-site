@@ -32,7 +32,7 @@ DC/OS 1.13.8 includes the following component versions:
 
 - DC/OS no longer increases the rate limit for journald logging. Scale testing demonstrated that raising the limit can overload journald, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763)
 
-- Fixed an issue where after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13, users were no longer able to launch UCR when no containers were present. 
+- Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
 
 # Marathon
 
