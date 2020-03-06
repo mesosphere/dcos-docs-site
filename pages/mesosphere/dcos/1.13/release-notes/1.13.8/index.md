@@ -34,6 +34,8 @@ DC/OS 1.13.8 includes the following component versions:
 
 - Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
 
+- ASML now has zero downtime while upgrading DC/OS services. (D2IQ-61077, COPS-5602)
+
 # Marathon
 
 ## Components
