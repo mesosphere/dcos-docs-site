@@ -7,6 +7,8 @@ excerpt: Provides pool configuration examples for Edge-LB pool (REST API V1)
 enterprise: true
 ---
 
+<p class="message--important"><strong>IMPORTANT:  </strong>Edge-LB 1.0 and later supports both the V1 and V2 API for backwards compatibility. Therefore clients that were written against Edge-LB versions prior to Edge-LB 1.0 should work without any modifications with Edge-LB 1.0 and later. New setups should use API V2 as at some point V1 is going to be deprecated and then removed.</p>
+
 If you are creating and managing Edge-LB pools using the Edge-LB RESTful API version 1 specification, set the top-level configuration field `apiVersion` to `v1` to indicate that you are using the older version of the API specification to create and modify Edge-LB pool configuration files.
 
 The code examples in this section illustrate configuration settings written in JSON to work with the [Edge-LB REST API V1](/services/edge-lb/reference/v1-reference/#api-v1) specification.

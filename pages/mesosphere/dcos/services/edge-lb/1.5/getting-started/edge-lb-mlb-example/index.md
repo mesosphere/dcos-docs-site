@@ -195,6 +195,9 @@ These steps illustrate how you can configure and deploy the `nginx` service thro
     ```
 
 # Verify service access
+
+<p class="message--note"><strong>NOTE: </strong>When you deploy a cluster with Terraform, the default firewall configuration allows you to access only ports 80 (http) and 443 (https). Everything else is blocked. You may want to add public agent ports to the main.tf file (the Terraform configuration file of the running cluster) in module "dcos." To add public agent ports, add a line like this one, <code>public_agents_additional_ports = [ 15001, 10020, 9090, 1025 ]</code>, and then re-deploy the cluster.</p>
+
 1. Access the `nginx-mlb` service using the public IP address and port specified in the `nginx-mlb.json` file.
 
     ```bash

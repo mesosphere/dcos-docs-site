@@ -9,8 +9,6 @@ enterprise: true
 
 These Edge-LB Release Notes summarize release-specific changes that fix issues or update Edge-LB features for DC/OS&trade; Enterprise clusters.
 
-If you have DC/OS deployed in a production environment, see [Known issues and limitations](/mesosphere/dcos/services/edge-lb/1.5/related-documentation/known-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
-
 # DC/OS for Edge-LB Service version 1.5.1 Release Notes
 
 Edge-LB Service version 1.5.1 was released on 17 December 2019.
@@ -38,7 +36,7 @@ Edge-LB Service version 1.5.0 was released on 30 October 2019.
 - The v1 API is now deprecated and D2iQ&reg; may remove it in a future release.
 
 ## New features and capabilities
-- Auto Pools automatically start a pool from a template with values from Apache&reg; Mesos&reg; task labels.
+- The Auto Pools feature allows self-service configuration, and can automatically start a pool from a template with values from Apache&reg; Mesos&reg; task labels.
 - The certificate generated for `$AUTOCERT` is now valid for 10 years and has a random serial number.
 - Updates the SDK version from 0.55.2 to 0.57.0.
 - Adds `apiserver`, `cloud-controller`, `dcos-template`, `lbmgr`, and `mesos-listener` exporter for metrics.
@@ -145,7 +143,7 @@ Released on November 15, 2018.
   * Includes basic debugging tools during installation.
   * Make `LBWORKDIR` the working directory of the container.
   * Removes unnecessary tooling regarding `iptables`, `syslogd`, and other programs.
-  * Copies only the necessary artifacts into the container during the build (for example, do not include the Dockerfile).
+  * Copies only the necessary artifacts into the container during the build (for example, does not include the Dockerfile).
   * Supports verbose output when copying files during the container startup operation.
 
 #### Issues fixed in this release
@@ -223,7 +221,7 @@ Released on June 6, 2018.
 ###Edge-LB version 1.0.2
 Released on March 20, 2018.
 
-* Fixes a bug that caused all V2 API `backend.service` selector fields ending in “Pattern” to not function properly.
+* Fixes a bug that caused all V2 API `backend.service` selector fields ending in “Pattern” not to function properly.
 
 ### Edge-LB version 1.0.1
 Released on March 12, 2018.

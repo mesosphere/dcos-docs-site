@@ -13,8 +13,6 @@ Edge-LB is released as an independent package on a regular schedule to provide u
 
 The following is a simplified version of the Edge-LB support and compatibility matrix for the most recent versions of DC/OS and Edge-LB:
 
-***%%% these release correlations need to be checked closely. Baker does NOT know what the correct relationships are!***
-
 | Edge-LB version | DC/OS Enterprise version |
 |------------------|-------------------------|
 | Edge-LB 1.5.1    | DC/OS 2.0.1             |
@@ -27,7 +25,7 @@ The following is a simplified version of the Edge-LB support and compatibility m
 
 # Features by version
 
-For more complete and detailed information about DC/OS versions and compatibility requirements, see the DC/OS [version support policy](/mesosphere/dcos/release-notes/version-policy/) and [Certified packages and DC/OS versions](/mesosphere/dcos/release-notes/version-policy/#certified-packages-and-dcos-versions).
+For more complete and detailed information about DC/OS versions and compatibility requirements, see the DC/OS [version support policy](/mesosphere/dcos/2.0/release-notes/version-policy/) and [Certified packages and DC/OS versions](/mesosphere/dcos/2.0/release-notes/version-policy/#certified-packages-and-dcos-versions).
 
 Edge-LB updates are listed by release date, with the most recent changes listed first. If a feature or enhancement is related to a reported issue or customer request, one or more issue tracking identifiers are included and enclosed in parentheses for reference.
 
@@ -39,4 +37,3 @@ Enable dynamic allocation of the HAProxy Frontend port | 1.3.0 | February 2019 |
 Scale down Edge-LB pool instances | 1.3.0 | February 2019 |
 Edge-LB pool packages can be uniquely identified by a version naumber. | 1.2.0 | September 2018
 Logging improvements capture nore detailed information about Edge-LB operations and activity. | 1.2.0 | September 2018
-

@@ -7,13 +7,13 @@ excerpt: Reference for all Edge-LB pool configurations options in the V1 API
 enterprise: true
 ---
 
-# V1 Pool Reference
+<p class="message--important"><strong>IMPORTANT: </strong>Edge-LB 1.0 and later supports both the V1 and V2 API for backwards compatibility. Therefore clients that were written against Edge-LB versions prior to Edge-LB 1.0 should work without any modifications with Edge-LB 1.0 and later. New setups should use API V2 as at some point V1 is going to be deprecated and then removed.</p>
 
 The tables below describe the possible configuration options. The majority of fields have sensible defaults - modify them with caution.
 
-<a name="pool"></a>
 # pool
 The pool contains information on resources that the pool needs. Changes made to this section will relaunch the tasks.
+
 | Key                         | Type     |  Nullable   |  Properties     | Description    |
 | --------------------------- | -------- | ----------- | --------------  | -------------- |
 | apiVersion                  | string   |             |                 | The api/schema version of this pool object. Should be V2 for new pools. |

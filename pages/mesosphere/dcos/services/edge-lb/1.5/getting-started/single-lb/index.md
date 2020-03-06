@@ -129,7 +129,7 @@ These procedures show you how to configure an Edge-LB instance to provide public
     - The `haproxy.stats.bindPort` setting indicates that the port for accessing load-balancing statistics. In this sample configuration file, the setting of `0` specifies that the port is dynamically allocated.
 
     - The `haproxy.backends.marathon.serviceID` must match the name of the app definition.
-      In this sample pool configuration file, the service name is `\ping`.
+      In this sample pool configuration file, the service name is `/ping`.
 
 # Deploy an Edge-LB pool to expose the service
 
@@ -233,6 +233,8 @@ These procedures show you how to configure an Edge-LB instance to provide public
 # Access the sample load balanced service
 After you have configured and tested the `ping` service and `ping-lb` pool configuration file, you can verify you have access to the service.
 
+<p class="message--note"><strong>NOTE: </strong>When you deploy a cluster with Terraform, the default firewall configuration allows you to access only ports 80 (http) and 443 (https). Everything else is blocked. You may want to add public agent ports to the main.tf file (the Terraform configuration file of the running cluster) in module "dcos." To add public agent ports, add a line like this one, <code>public_agents_additional_ports = [ 15001, 10020, 9090, 1025 ]</code>, and then re-deploy the cluster.</p>
+
 1. Open a web browser and navigate to the public-facing IP address.
 
     If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console, or by using the command:
@@ -252,3 +254,10 @@ After you have configured and tested the `ping` service and `ping-lb` pool confi
     ```
 
     For example, if the public IP address for the public agent node is 34.211.65.249, access the `pong` service by opening `http://34.211.65.249:15001`.
+
+    If you have not enabled additional ports by changing the main.tf file and re-deploying the cluster, you can access the "pong" service by executing these commands with your public IPs included:
+
+    ```
+    $ curl <public IP address>:15001
+    Output: pong
+    ```

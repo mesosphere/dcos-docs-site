@@ -32,10 +32,11 @@ With Edge-LB, you can dynamically assign the port used to access load balancing 
         "bindPort": 15001
         },
         "frontends": [{
-        "bindPort": 0,
-        "protocol": "HTTP",
-        "linkBackend": {
-            "defaultBackend": "nginx-backend"
+            "name": "nginx-frontend",
+            "bindPort": 0,
+            "protocol": "HTTP",
+            "linkBackend": {
+                "defaultBackend": "nginx-backend"
         }
         }],
         "backends": [{

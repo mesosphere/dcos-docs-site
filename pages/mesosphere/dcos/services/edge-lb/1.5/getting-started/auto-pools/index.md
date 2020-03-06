@@ -9,7 +9,7 @@ enterprise: true
 
 Using the Auto Pools feature streamlines deployment by enabling [pools](/mesosphere/dcos/services/edge-lb/1.5/concepts/how-edge-lb-works/#edge-lb-pool) to be automatically configured, started, and stopped using Marathon&trade; app labels or SDK task labels (annotations).
 
-Edge-LB automatically provisions pools using pool templates. A default pool template is created at the time of Edge-LB installation. The template is rendered into a pool configuration based on the values of the app / task [labels](#supported-labels) that follows.
+Edge-LB automatically provisions pools using pool templates. A default pool template is created at the time of Edge-LB installation. The template is rendered into a pool configuration based on the values of the app / task [labels](#supported-labels) that follows.  Use the command ```dcos edgelb pool-template show default``` to show the default Auto Pool template, which is always available unless the default Auto Pool is disabled on install of the Edge-LB service. If you have already created a pool, you can get the template through Edge-LB when you install it using ```dcos edgelb template show <pool_name>``` for the pool haproxy template.
 
 # Default Pool
 
@@ -45,7 +45,7 @@ This sample shows all of the supported [labels](#supported-labels) with a `<grou
 
 An example Marathon&trade; application can be found in the [example apps](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/v2-examples/#auto-pool-marathon-application). For an in-depth tutorial exposing applications, see the [tutorial](/mesosphere/dcos/services/edge-lb/1.5/tutorials/using-auto-pools).
 
-The default pool template selects tasks with the label `"edgelb.expose" : true`. It can then be further customized using labels.
+The default pool template selects tasks with the label `"edgelb.expose" : true`. You can then further customize the template using labels.
 
 Some labels use a `<group>` in their name. The `<group>` value can be any ASCII string value except `expose`, `template`, `delimiter`, `item_delimiter`, `key_delimiter`, and the string cannot contain a `.`.
 

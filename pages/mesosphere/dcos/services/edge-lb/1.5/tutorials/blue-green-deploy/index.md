@@ -139,8 +139,24 @@ By completing the steps in this tutorial, you can see how to switch to a newer o
 1. Deploy the Edge-LB pool configuration file for the sample service:
 
    ```
-   dcos edgelb create sample-deployment-config.json
+   dcos edgelb create sample-deployment-config
    ```
+
+1. Verify deployment of the sample service and obtain the external IP addresses:
+
+    ```
+    dcos edgelb endpoints sample-deployment-config
+    ```
+
+    The output will resemble this:
+
+    ```
+    NAME                   PORT   INTERNAL IPS   EXTERNAL IPS
+    frontend_0.0.0.0_80    80     172.12.0.189   54.158.195.24
+    stats                  9090   172.12.0.189   54.158.195.24
+    ```
+
+    You can use this output later to verify that the “svc-blue” app is exposed, and to navigate to the public-facing IP address for the public agent node, if your running cluster has more than one public agent node.
 
 1. Start deployment for the `svc-blue.json` app definition:
 
@@ -160,7 +176,7 @@ By completing the steps in this tutorial, you can see how to switch to a newer o
     ```bash
     http://<public_agent_public_IP>
     ```
-    
+
     You don't need to specify the port in this example because the access to the service is routed through the default port 80 for HTTP traffic. If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console or by running the following command:
 
     ```bash
@@ -184,7 +200,7 @@ By completing the steps in this tutorial, you can see how to switch to a newer o
 
 1. Modify the Edge-LB pool configuration file to point to `svc-green` by changing the `serviceID` setting.
 
-         ```json
+    ```json
         {
           "apiVersion": "V2",
           "name": "sample-deployment-config",
@@ -211,7 +227,7 @@ By completing the steps in this tutorial, you can see how to switch to a newer o
             }]
           }
         }
-        ```
+    ```
 
 1. Deploy the modified pool configuration file to Edge-LB:
 

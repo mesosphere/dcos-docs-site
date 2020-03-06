@@ -14,6 +14,7 @@ The tables below describe the possible configuration options. The majority of fi
 <a name="pool"></a>
 # pool
 The pool contains information on resources that the pool needs. Changes made to this section will relaunch the tasks.
+
 | Key                         | Type     |  Nullable   |  Properties     | Description    |
 | --------------------------- | -------- | ----------- | --------------  | -------------- |
 | apiVersion                  | string   |             |                 | The api/schema version of this pool object. Should be V2 for new pools. |

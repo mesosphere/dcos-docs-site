@@ -31,10 +31,9 @@ The `dcos-template` sub-component dynamically renders the load balancer configur
 In the event of Edge-LB pool update, the `dcos-template` re-generates the HAProxy load balancer configuration from the Edge-LB pool configuration file and signals `lbmgr` to reload the existing HAProxy configuration in real-time.
 
 # A closer look at Edge-LB pools
-The Edge-LB pool provides the core load balancing functionality for Edge-LB software.
-However, there are no Edge-LB pool instances created by default.
-To create a pool instance, you must define configuration settings in a pool configuration file.
-You can set up load balancing for one service or for multiple services using the same pool configuration file, depending on your application and network requirements.
+The Edge-LB pool provides the core load balancing functionality for Edge-LB software. Edge-LB automatically provisions pools using pool templates. A default pool template is created at the time of Edge-LB installation.
+
+To create a pool instance, you must define configuration settings in a pool configuration file. You can set up load balancing for one service or for multiple services using the same pool configuration file, depending on your application and network requirements.
 
 Edge-LB pool has two sub-components:
 - Load balancing manager (lbmgr)
@@ -46,7 +45,7 @@ The load balancing manager (`lbmgr`) in Edge-LB pool instances is a non-distribu
 
 The `lbmgr` component monitors the HAProxy instances for the Edge-LB pool and restarts HAProxy in a single container, when needed. If an HAProxy instance goes down because an agent is disconnected, the SDK scheduler restarts the HAProxy instance on another available agent.
 
-The `lbmgr` component also validates new load balancer configuration settings and reloads HAProxy load balancer instances, when necessary. For example, the `lbmgr` component manages the timeout interval for reloading the HAProxy instance.
+The `lbmgr` component also validates new HAProxy configuration settings and reloads HAProxy load balancer instances, when necessary. For example, the `lbmgr` component manages the timeout interval for reloading the HAProxy instance.
 
 ## HAProxy instances
 

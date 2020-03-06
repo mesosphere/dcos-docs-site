@@ -241,12 +241,12 @@ You must have:
 
 # Create the echo service-specific pool
 
-1. Copy and paste the following JSON settings to create the sample pool configuration file for the `echo` services in, and save. the `echo-lb-pool.json` file:
+1. Copy and paste the following JSON settings to create the sample pool configuration file for the `echo` services in, and save, the `echo-lb-pool.json` file:
 
     ```json
     {
       "apiVersion": "V2",
-      "name": "echo-lb",
+      "name": "echo-lb-pool",
       "count": 1,
       "haproxy": {
         "frontends": [
@@ -309,17 +309,17 @@ You must have:
 1. Verify the pool configuration endpoints for each Edge-LB pool:
 
     ```bash
-    dcos edgelb endpoints ping-lb
+    dcos edgelb endpoints ping-lb-pool
       NAME            PORT   INTERNAL IP
       frontend_port0  15001  10.0.5.202
       stats_port      1025   10.0.5.202
 
-    dcos edgelb endpoints nginx-lb
+    dcos edgelb endpoints nginx-lb-pool
       NAME            PORT   INTERNAL IP
       frontend_port0  15002  10.0.7.138
       stats_port      1025   10.0.7.138
 
-    dcos edgelb endpoints echo-lb
+    dcos edgelb endpoints echo-lb-pool
       NAME            PORT   INTERNAL IP
       frontend_port0  15003  10.0.7.138
       stats_port      1026   10.0.7.138

@@ -17,7 +17,7 @@ For most production deployments, however, you should create a unique service acc
 - You must have the [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) and [DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/) installed.
 - You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/mesosphere/dcos/services/edge-lb/1.5/reference/permissions/#installation-permissions).
 - You must have a registered customer account to log in to the [D2iQ&reg; support portal](https://support.d2iq.com/s/).
-- You must have network access to download the **%%% link needed...** [remote Edge-LB repositories](https://support.d2iq.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
+- You must have network access to download the [remote Edge-LB repositories](https://support.d2iq.com/s/downloads?t=1551917897670&Mesosphere_Product_Download__c-filterId=00B3Z000004cQUUUA2), or a local repository that has the Edge-LB packages [JSON](https://support.d2iq.com/s/downloads?t=1551917897670&Mesosphere_Product_Download__c-filterId=00Bf1000004N2b3EAC) or [bundle](https://support.d2iq.com/s/downloads?t=1551917897670&Mesosphere_Product_Download__c-filterId=00B3Z000004cQUUUA2).
 
   If your cluster is behind a firewall, is restricted to an internal network with no access to the internet, or unable to access the public catalog for any reason, then you must add Edge-LB packages using a **local catalog**. For more information about installing using a local catalog, see [Deploy using a local catalog](#create-local-repo).
 
@@ -113,75 +113,10 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
     <img src="/mesosphere/dcos/services/edge-lb/1.5/img/edgelb-deployment-status.png" alt="Configuring Edge-LB API settings">
     </p>
 
-<p class="message--important"><strong>IMPORTANT: </strong>Although you can add and modify settings directly in the web-based console from the Catalog, do not start the services until **after** you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start, but it will not be able to resolve to a healthy Running state.</p>
-
-<a name="create-local-repo"></a>
+<p class="message--important"><strong>IMPORTANT: </strong>Although you can add and modify settings directly in the web-based console from the Catalog, do not start the services until <strong>after</strong> you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start, but it will not be able to resolve to a healthy Running state.</p>
 
 # Deploy using the package registry
-If you have an isolated (air-gapped) network that cannot connect directly to the Internet, deploy using the package registry found at: https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/package-registry/ .
-
-The support portal includes .dcos package files for Edge-LB. (In the portal, they are called 'Edge-LB Bundle' files).
-
-
-***%%% NOT SURE ON WHETHER THESE NEXT 2 SUB-HEADINGS SHOULD REMAIN...***
-
-## Before you begin
-You must have access to [Git](https://git-scm.com/) to create the local catalog. If you are using `git` on UNIX&reg; or Linux&reg;, see the [Getting Started instructions](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git).
-
-## Create the local repository
-Before you can add Edge-LB packages to your local catalog, you must copy the Mesosphere Universe repository to create a local directory location.
-
-1. Open a shell terminal where you can run `git` commands.
-
-1. Clone the Universe repository:
-
-    ```bash
-    git clone https://github.com/mesosphere/universe.git --branch version-3.x
-    ```
-
-1. Build the `universe-base` image:
-
-    ```bash
-    cd universe/docker/local-universe/
-    sudo make base
-    ```
-
-1. Run the `add-stub-universe.sh` script to add the JSON definitions available for download from the [D2iQ support portal]((https://support.d2iq.com/s/downloads?t=1551917897670)) section.
-
-    Each time you run the `add-stub-universe.sh` script, the script processes the JSON file, generates the necessary JSON and Mustache files, and adds them to `stub-repo/packages/<X>/<packagename>`.
-
-    - Add the Edge-LB API server package using the command:
-
-      ```bash
-      bash add-stub-universe.sh -j stub-universe-edgelb.json
-      ```
-
-    - Add the Edge-LB pool package using the command:
-
-      ```bash
-      bash add-stub-universe.sh -j stub-universe-edgelb-pool.json
-      ```
-
-1. Merge the Edge-LB packages into the primary `universe/repo/packages` directory:
-
-    ```bash
-    cp -rpv stub-repo/packages/* ../../repo/packages
-    ```
-
-1. Build the `mesosphere/universe` Docker image by specifying a comma-separated list of package names and versions using the `DCOS_PACKAGE_INCLUDE` variable.
-
-    For example:
-
-    ```bash
-    sudo make DCOS_VERSION=2.0 DCOS_PACKAGE_INCLUDE=“edgelb:v1.5.1,edgelb-pool:v1.5.1,<other-package>:<version>” local-universe
-    ```
-    Specifying a list of individual package names and versions minimizes the container size and download time. If you do not use the `DCOS_PACKAGE_INCLUDE` variable, all Certified packages are included.
-
-1. Compress the Docker image into the `local-universe.tar.gz` file.
-
-1. Perform the additional steps as described in [Deploying a local Universe containing Certified Universe packages](/latest/administering-clusters/deploying-a-local-dcos-universe/#deploying-a-local-universe-containing-certified-universe-packages).
-
-After you add the Edge-LB packages to the local catalog, you are ready to create and configure permissions for the service account you want to use to manage Edge-LB server and load balancer operations. Continue to the instructions for [creating a service account](#create-service-account).
+If you have an isolated (air-gapped) network that cannot connect directly to the Internet, deploy using the [package registry](https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/package-registry/). The support portal includes .dcos package files for Edge-LB, called 'Edge-LB Bundle' files in the portal.
 
 <a name="create-service-account"></a>
 
@@ -358,7 +293,18 @@ After configuring service authentication, you must create a JSON options file wi
 
 1. Specify other configuration settings, as needed.
 
-    For example, you can specify the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/mesosphere/dcos/services/edge-lb/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`).
+    <p class="message--note"><strong>NOTE: </strong>Be particularly careful when setting the service name. The string value, /api, is always (implicitly) appended to the name. By default, the service <strong>name</strong> is edgelb and when installed, DC/OS creates the <strong>task</strong>, "edgelb/api". In the example below, the dcos edgelb commands assume the default name edgelb, and will look for the "edgelb/api" task to interface against. The service name from the Edge-LB service's perspective is not edgelb/api, but edgelb. However, when you are using the install --options= approach, and you modify the service name to be other than the default, edgelb, then you must be explicit on the service name when you run any "dcos edgelb xxxx" commands.</p>
+
+    As an example of this effect, suppose you deployed a service with the JSON configuration file:
+    ```json
+    {
+        "service": {
+            "name": "dcos-edgelb/api",
+    }
+    ```
+    You have created a service called `dcos-edgelb/api` from the Edge-LB service's point of view. But that service name causes creation of the <strong>task</strong> name, `dcos-edgelb/api/api` which could become confusing!
+
+    Examples of other configuration settings you can change include specifying the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`) as shown here.
 
     ```json
     {

@@ -26,7 +26,22 @@ You must have:
     dcos package uninstall edgelb --yes
     ```
 
-1. Remove the old package repositories:
+1. Expose the packages that are already installed on the running DC/OS cluster:
+
+    ```bash
+    dcos package repo list
+    ```
+
+    The output will be similar to:
+
+    ```
+    edgelb-pool-aws: https://downloads.mesosphere.com/edgelb-pool/v1.5.0/assets/stub-universe-edgelb-pool.json
+    edgelb-aws: https://downloads.mesosphere.com/edgelb/v1.5.0/assets/stub-universe-edgelb.json
+    Universe: https://universe.mesosphere.com/repo
+    Bootstrap Registry: https://registry.component.thisdcos.directory/repo
+    ```
+
+1. Remove the old package repositories using the names exactly as they are shown:
 
     ```bash
     dcos package repo remove edgelb-aws
