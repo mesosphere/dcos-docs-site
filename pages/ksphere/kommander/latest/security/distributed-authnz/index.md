@@ -20,7 +20,7 @@ A user identity is shared across a Kommander cluster and all other provisioned c
 
 ### Kommander provisioned clusters
 
-A newly provisioned is federated `kube-oidc-proxy`, `dex-k8s-authenticator` and `traefik-forward-auth` Addons that are configured to trust Kommander cluster Dex issued id tokens.
+A newly provisioned cluster gets federated `kube-oidc-proxy`, `dex-k8s-authenticator` and `traefik-forward-auth` Addons. These Addons are configured to accept Kommander cluster Dex issued id tokens.
 
 When the `traefik-forward-auth` is used as a [Traefik ingress authenticator](https://docs.traefik.io/v1.7/configuration/backends/kubernetes/#annotations) it checks if the user identity was issued by the Kommander cluster Dex service. An anonymous user is redirected to the Kommander cluster Dex service to authenticate and confirm their identity.
 
