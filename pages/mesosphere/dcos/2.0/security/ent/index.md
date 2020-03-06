@@ -166,7 +166,7 @@ Internode communications occur over TLS 1.2. To ensure browser support, external
 
 For more information, see [Securing communication with TLS](/mesosphere/dcos/2.0/security/ent/tls-ssl/).
 
-# <a name="spaces"></a>Spaces
+# Spaces
 
 Spaces allow you to:
 
