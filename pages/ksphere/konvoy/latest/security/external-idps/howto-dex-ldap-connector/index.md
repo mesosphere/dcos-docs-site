@@ -11,57 +11,72 @@ enterprise: false
 
 This guide shows how to configure your Konvoy cluster so that users can log in with the credentials stored in an external LDAP directory service.
 
-### Step 1: build Dex LDAP connector config
+### Step 1: add LDAP connector
 
-The first step is to build a Dex LDAP connector configuration document adjusted to the specific directory at hand.
-Because each LDAP directory is set up in its own special way this step is non-trivial.
-The most important resource is the Dex LDAP connector reference documentation, available [here][dex-ldap-connector].
+Each LDAP directory is set up in a specific manner so these steps are non-trivial.
+The following example does not cover all possible configurations.
+Refer to the Dex LDAP connector reference documentation, available [here][dex-ldap-connector] for more details.
 
-Note: For Konvoy's Dex it is important to build a proper `userSearch` configuration.
-`groupSearch`, however, does not need to be configured for the time being.
+In the following example, we are configuring the Konvoy cluster to connect to the [Online LDAP Test Server][ldap-test-server].
 
-### Step 2: modify Konvoy `cluster.yaml`
-
-Modify your Konvoy cluster's main configuration file `cluster.yaml` for adding the Dex LDAP connector configuration from step 1.
-See below for an example (in this example, we are configuring the Konvoy cluster to connect to the [FreeIPA demo directory](https://www.freeipa.org/page/Demo)):
+Create a YAML file (`ldap.yaml`) like the following:
 
 ```yaml
-    - name: dex
-      enabled: true
-      values: |
-        config:
-          connectors:
-          - type: ldap
-            id: ldap
-            name: FreeIPA Demo1 (LDAP directory)
-            config:
-              host: ipa.demo1.freeipa.org:636
-              insecureSkipVerify: true
-              bindDN: uid=manager,cn=users,cn=accounts,dc=demo1,dc=freeipa,dc=org
-              bindPW: Secret123
-              userSearch:
-                baseDN: cn=accounts,dc=demo1,dc=freeipa,dc=org
-                filter: "(objectClass=posixAccount)"
-                username: uid
-                idAttr: uid
-                emailAttr: mail
+apiVersion: v1
+kind: Secret
+metadata:
+  name: ldap-password
+  namespace: kubeaddons
+type: Opaque
+stringData:
+  password: password
+---
+apiVersion: dex.mesosphere.io/v1alpha1
+kind: Connector
+metadata:
+  name: ldap
+  namespace: kubeaddons
+spec:
+  enabled: true
+  type: ldap
+  displayName: LDAP Test
+  ldap:
+    host: ldap.forumsys.com:389
+    insecureNoSSL: true
+    bindDN: cn=read-only-admin,dc=example,dc=com
+    bindSecretRef:
+      name: ldap-password
+    userSearch:
+      baseDN: dc=example,dc=com
+      filter: "(objectClass=inetOrgPerson)"
+      username: uid
+      idAttr: uid
+      emailAttr: mail
+    groupSearch:
+      baseDN: dc=example,dc=com
+      filter: "(objectClass=groupOfUniqueNames)"
+      userAttr: DN
+      groupAttr: uniqueMember
+      nameAttr: ou
 ```
 
-<p class="message--note"><strong>NOTE: </strong> The value for the LDAP connector <tt>name</tt> parameter (here: <tt>FreeIPA Demo1 (LDAP directory)</tt>) will appear on one of the login buttons in the Konvoy user interface. You should choose an expressive name.</p>
+<p class="message--note"><strong>NOTE: </strong> The value for the LDAP connector <tt>name</tt> parameter (here: <tt>LDAP Test</tt>) appears on one of the login buttons in the Konvoy user interface. You should choose an expressive name.</p>
 
-Also note that for demoing purposes the configuration shown above uses `insecureSkipVerify: true`.
+Also note that for demoing purposes the configuration shown above uses `insecureNoSSL: true`.
 In production, the LDAP communication should be protected with properly configured transport layer security (TLS).
+When using TLS, the admin can add `insecureSkipVerify: true` to `spec.ldap` to skip server certificate verification if needed.
 
-### Step 3: reconfigure the Konvoy cluster
+Then, run the following command to deploy the LDAP connector.
 
-If you already have a Konvoy cluster running please re-configure Dex in that cluster.
-Running `konvoy up` again should achieve that goal.
-If that does not take effect then do a `konvoy reset` followed by another `konvoy up`.
+```bash
+kubectl apply -f ldap.yaml
+```
 
-### Step 4: log in
+### Step 2: log in
 
-Visit `https://<your-cluster-host>/token` and initiate a login flow.
-On the login page choose the `Log in with <ldap-name>` button. Enter the LDAP credentials, and log in.
+Visit `https://<YOUR-CLUSTER-HOST>/token` and initiate a login flow.
+On the login page choose the `Log in with <ldap-name>` button.
+Enter the LDAP credentials, and log in.
 
 ### Debugging help
 
@@ -71,7 +86,7 @@ The Dex log output contains helpful error messages as indicated by the following
 
 #### Errors upon Dex startup
 
-If the Dex configuration fragment provided in the Konvoy `cluster.yaml` results in an invalid Dex config then Dex will not properly start up.
+If the Dex configuration fragment provided results in an invalid Dex config then Dex does not properly start up.
 In that case the Dex logs will provide error details:
 
 ```bash
@@ -79,7 +94,7 @@ kubectl logs -f dex-kubeaddons-66675fcb7c-snxb8  -n kubeaddons --kubeconfig=admi
 error parse config file /etc/dex/cfg/config.yaml: error unmarshaling JSON: parse connector config: illegal base64 data at input byte 0
 ```
 
-One symptom of Dex not starting up is that `https://<cluster>/ops/landing` throws a 5xx HTTP error response after timing out.
+One symptom of Dex not starting up is that `https://<YOUR-CLUSTER-HOST>/token` throws a 5xx HTTP error response after timing out.
 
 #### Errors upon login
 
@@ -118,4 +133,5 @@ time="2019-07-29T15:35:52Z" level=info msg="username \"employee\" mapped to entr
 time="2019-07-29T15:35:52Z" level=info msg="login successful: connector \"ldap\", username=\"\", email=\"employee@demo1.freeipa.org\", groups=[]"
 ```
 
+[ldap-test-server]: https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/
 [dex-ldap-connector]: https://github.com/dexidp/dex/blob/master/Documentation/connectors/ldap.md

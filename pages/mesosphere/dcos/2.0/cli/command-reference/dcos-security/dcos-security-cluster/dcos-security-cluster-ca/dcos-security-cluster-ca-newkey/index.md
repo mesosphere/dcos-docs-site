@@ -15,7 +15,7 @@ The `dcos security cluster ca newkey` lets you create a new key and a new CSR.
 
 # Usage
 
-```
+```bash
 dcos security cluster ca newkey [OPTIONS]
 ```
 
@@ -40,7 +40,7 @@ dcos security cluster ca newkey [OPTIONS]
 
 # Example
 
-```
+```text
 dcos security cluster ca newkey --cn Newkey-1 --host SAN-1
 certificate: '-----BEGIN CERTIFICATE-----
 

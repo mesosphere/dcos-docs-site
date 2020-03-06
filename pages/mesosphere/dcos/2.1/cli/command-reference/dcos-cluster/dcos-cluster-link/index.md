@@ -36,7 +36,7 @@ If the cluster links successfully there is no output to the console.
 |  `--no-check`  |  Do not check CA certficate downloaded from cluster (insecure). Applies to Enterprise DC/OS only. [enterprise type="inline" size="small" /]|
 |  `--password string`   |     Specify the password on the command line (insecure).|
 | `--password-file string`  | Specify the path to a file that contains the password. |
-| `--private-key string`   |  Specify the path to a file that contains the service acc`ount private key. |
+| `--private-key string`   |  Specify the path to a file that contains the service account private key. |
 |  `--provider string`    |    Specify the login provider to use. |
 |  `--username string`    |    Specify the username for login. |
 

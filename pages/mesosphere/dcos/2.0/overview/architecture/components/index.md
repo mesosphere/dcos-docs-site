@@ -566,7 +566,7 @@ To see a list of the `systemd` components running on any particular node, list t
 
 ## Master node
 
-```
+```bash
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter.service
 dcos-backup-master.service
@@ -621,7 +621,7 @@ dcos-vault.service
 
 ## Private agent node
 
-```
+```bash
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
 dcos-checks-api.service
@@ -650,7 +650,7 @@ dcos-telegraf.socket
 
 ## Public agent node
 
-```
+```bash
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
 dcos-checks-api.service

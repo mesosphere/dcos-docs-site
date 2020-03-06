@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-DC/OS allows UCR and Docker containers to be launched on a wide variety of Software Defined Networks (SDNs). It supports [Container Networking Interface (CNI)](https://github.com/containernetworking/cni) standard for UCR and the [Container Network Model (CNM)](https://github.com/docker/libnetwork/blob/master/docs/design.md) standard for Docker.
+Mesosphere&reg; DC/OS&trade; allows UCR and Docker containers to be launched on a wide variety of Software Defined Networks (SDNs). It supports [Container Networking Interface (CNI&reg;)](https://github.com/containernetworking/cni) standard for UCR and the [Container Network Model (CNM)](https://github.com/docker/libnetwork/blob/master/docs/design.md) standard for Docker&reg;.
 
 DC/OS comes with its own native virtual networking solution, called DC/OS Overlay, which supports both the CNI and CNM standards.
 

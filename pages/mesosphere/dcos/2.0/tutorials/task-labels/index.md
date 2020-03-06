@@ -24,21 +24,22 @@ You can attach labels to tasks from the DC/OS CLI. You can specify more than one
 
 You can also specify label values in the `labels` parameter of your application definition.
 
-    vi myapp.json
-
-    {
-        "id": "myapp",
-        "cpus": 0.1,
-        "mem": 16.0,
-        "ports": [
-            0
-        ],
-        "cmd": "/opt/mesosphere/bin/python3 -m http.server $PORT0",
-        "instances": 2,
-        "labels": {
-            "COST_CENTER": "0001"
-        }
+  vi myapp.json
+```json
+{
+    "id": "myapp",
+    "cpus": 0.1,
+    "mem": 16.0,
+    "ports": [
+        0
+    ],
+    "cmd": "/opt/mesosphere/bin/python3 -m http.server $PORT0",
+    "instances": 2,
+    "labels": {
+        "COST_CENTER": "0001"
     }
+}
+```
 
 Then, deploy from the DC/OS CLI:
 
@@ -62,23 +63,23 @@ Figure 1. Assign a job label
 
 You can also specify label values in the `labels` parameter of your job definition.
 
-    vi myjob.json
+vi myjob.json
 
-     ```json
-        {
-          "id": "my-job",
-          "description": "A job that sleeps",
-          "labels": {
-            "department": "marketing"
-          },
-          "run": {
-            "cmd": "sleep 1000",
-            "cpus": 0.01,
-            "mem": 32,
-            "disk": 0
-          }
-        }
-     ```
+  ```json
+    {
+      "id": "my-job",
+      "description": "A job that sleeps",
+      "labels": {
+        "department": "marketing"
+      },
+      "run": {
+        "cmd": "sleep 1000",
+        "cpus": 0.01,
+        "mem": 32,
+        "disk": 0
+      }
+    }
+  ```
 
 Then, deploy from the DC/OS CLI:
 

@@ -7,7 +7,6 @@ excerpt: Understanding DC/OS versioning and releases
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-
 The format of a Mesosphere&reg; DC/OS&trade; version number is: <code>&lt;Release&gt;.&lt;Version&gt;.&lt;Minor&gt;</code>.
 
 # Release numbering
@@ -38,7 +37,7 @@ Here is a hypothetical example to help you understand which version is the suppo
 
 # DC/OS Versions and Mesos Interoperability Matrix
 
-All versions of DC/OS come bundled with a compatible Mesos version, and its release number will be noted in the appropriate DC/OS Release Version release notes.
+All versions of DC/OS come bundled with a compatible Apache&reg; Mesos&reg; version, and its release number will be noted in the appropriate DC/OS Release Version release notes.
 
 # DC/OS Versions and Service Scheduler Interoperability Matrix
 

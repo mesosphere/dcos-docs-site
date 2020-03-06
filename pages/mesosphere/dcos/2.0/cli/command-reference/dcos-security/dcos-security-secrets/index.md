@@ -15,7 +15,7 @@ The `dcos security secrets` commands allow you to manage your secrets.
 
 # Usage
 
-```
+```bash
 dcos security secrets [OPTIONS] COMMAND [ARGS]...
 ```
  # Options

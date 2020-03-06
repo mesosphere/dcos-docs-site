@@ -21,7 +21,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] v1.15.5 or later
+* [kubectl][install_kubectl] v1.16.4 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -32,7 +32,7 @@ Before installing, verify that your environment meets the following basic requir
 * You should have at least three control plane nodes.
 
 * Each control plane node should have at least:
-  * 8 cores
+  * 4 cores
   * 16 GiB memory
   * 80 GiB of free space in the root partition, and the root partition must be less than 85% full.
 
@@ -44,7 +44,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * Each worker node should have at least:
   * 8 cores
-  * 16 GiB memory
+  * 32 GiB memory
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
@@ -77,21 +77,36 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-config-repository /opt/konvoy/artifacts/kubeaddons-configs --addons-config-version stable-1.15.5-2-air-gapped [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.16-1.2.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.16-1.0.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.0.0 [--cluster-name <your-specified-name>]
    ```
+
+   **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
-   The additional `--addons-config-repository` and `--addons-config-version` flag will result in the generated `cluster.yaml` to set the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
-   The path `/opt/konvoy/artifacts/kubeaddons-configs` is the directory path where the `konvoy` binary is mounted from the host into the container. **Note:** This should not be changed unless you are referencing a different `kubeaddons-configs/` than the one provided in the tar.
+   The additional `--addons-repositories` flag results in the generated `cluster.yaml` setting the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
+   The path `/opt/konvoy/artifacts/...` is the directory path where the `konvoy` binary is mounted from the host into the container. <p class "message--note"><strong>NOTE: </strong> This should not be changed unless you are referencing a different repo than the one provided in the tar.</p>
 
    ```yaml
    kind: ClusterConfiguration
-   apiVersion: konvoy.mesosphere.io/v1alpha1
+   apiVersion: konvoy.mesosphere.io/v1beta1
    spec:
+   ...
      addons:
-       configRepository: /__KONVOY_DIRECTORY__/kubeaddons-configs
-       configVersion: stable-1.15.5-2-air-gapped
+     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
+       configVersion: stable-1.16-1.2.0
+       addonsList:
+       ...
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+      configVersion: stable-1.16-1.0.0
+      addonsList:
+      - name: dispatch # Dispatch is currently in Beta
+        enabled: false
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+      configVersion: stable-1.16-1.0.0
+      addonsList:
+      - name: kommander
+        enabled: true
    ```
 
 1. Open inventory file `inventory.yaml` in a text editor to specify the hosts.
@@ -168,46 +183,45 @@ In an air-gapped environment these repos will not be available, but instead the 
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
- packageRepository:
-   defaultRepositoryInstallationDisabled: true
+  osPackages:
+    enableAdditionalRepositories: false
 ```
 
 The RPM packages installed by Konvoy:
 
-* yum-plugin-versionlock
-* libseccomp
-* container-selinux
-  * on RHEL can install the [Centos RPM][selinux-rpm] directly
-* containerd.io
-* nfs-utils
-* kubectl
-* kubernetes-cni
-* kubelet
-* cri-tools
-* kubeadm
-* nvme-cli (only on AWS)
-* nvidia-container-runtime (for GPU enabled machines)
-* net-tools (required for diagnose)
+- yum-plugin-versionlock
+- chrony
+- libseccomp
+- container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
+- containerd.io
+- nfs-utils
+- kubectl
+- kubernetes-cni
+- kubelet
+- cri-tools
+- kubeadm
+- nvme-cli (only on AWS)
+- nvidia-container-runtime (for GPU enabled machines)
 
 There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories
 
 The DEB packages installed by Konvoy:
 
-* apt-transport-https
-* libseccomp2
-* containerd.io
-* nfs-common
-* kubectl
-* kubernetes-cni
-* kubelet
-* cri-tools
-* kubeadm
-* nvme-cli (only on AWS)
-* xfsprogs (only on AWS)
-* nvidia-container-runtime (for GPU enabled machines)
-* net-tools (required for diagnose)
+- apt-transport-https
+- chrony
+- libseccomp2
+- containerd.io
+- nfs-common
+- kubectl
+- kubernetes-cni
+- kubelet
+- cri-tools
+- kubeadm
+- nvme-cli (only on AWS)
+- xfsprogs (only on AWS)
+- nvidia-container-runtime (for GPU enabled machines)
 
 ## Configure the image registry
 
@@ -217,7 +231,7 @@ Set the options in your `cluster.yaml` as follows:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   imageRegistries:
     - server: https://myregistry:443
@@ -296,6 +310,40 @@ spec:
 ```
 
 When configuring these settings, you should make sure that the values you set for `podSubnet` and `serviceSubnet` do not overlap with your node subnet and your `keepalived` virtual IP address.
+
+## Configure Addon repository
+
+During regular deployment your cluster would have access to publicly hosted Helm chart repos for all of the addons.
+This is not the case for air-gapped installations, therefore Konvoy can be configured to host the required Helm charts in the cluster.
+Modify the `addons` section and specify the image containing the Helm charts:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
+spec:
+...
+  addons:
+  - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
+    configVersion: stable-1.16-1.2.0
+    helmRepository:
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.1
+    addonsList:
+    ...
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    helmRepository:
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.1
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: false
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    helmRepository:
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.1
+    addonsList:
+    - name: kommander
+      enabled: false
+```
 
 ## Configure MetalLB load balancing
 
@@ -439,7 +487,7 @@ Specifically, the `konvoy up` command does the following:
   * [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
   * [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
   * [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
-  * [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
+  * [Traefik forward authorization proxy][traefik_forward_auth] to provide basic authorization for Traefik ingress.
   * Kommander for multi-cluster management.
 
 This set of configuration options is the recommended environment for small clusters.
@@ -477,7 +525,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 * `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 * `runs` folder - which contains logging information.
 
-[kubectl]: ../../operations/accessing-the-cluster/index.md#using-kubectl
+[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -489,7 +537,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
 [kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [metallb]: https://metallb.universe.tf
-[ops_portal]: ../../operations/accessing-the-cluster/index.md#using-the-operations-portal
+[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
 [local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
 [static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md
@@ -510,8 +558,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [velero]: https://velero.io/
 [dex]: https://github.com/dexidp/dex
 [dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
-[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
+[traefik_forward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[kubeaddons_repo]: https://github.com/mesosphere/kubeaddons-configs
 [selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
 [containerd_mirrors]: https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint

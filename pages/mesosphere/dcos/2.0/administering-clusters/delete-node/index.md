@@ -31,13 +31,13 @@ You should decommission nodes in the following situations.
 
 Enter the following command from the DC/OS CLI to identify the node that is to be decommissioned.
 
-```
+```bash
 dcos node 
 ```
 
 Enter the following command from the DC/OS CLI to tell Mesos to mark a node as `GONE`.
 
-```
+```bash
 dcos node decommission <mesos-agent-id>
 ```
 

@@ -67,15 +67,15 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>CentOS 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>CentOS 7.6</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
@@ -95,15 +95,15 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>RHEL 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>RHEL 7.6</td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.4<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
@@ -117,15 +117,15 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>Ubuntu 18.04.3 LTS</td>
-        <td><p style="text-align: center;">Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>Ubuntu 16.04.6 LTS</td>
-        <td><p style="text-align: center;">Qualification in Progress</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.2<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
+        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
@@ -302,7 +302,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Cassandra 2.8.x-3.11.5 (Recommended)</td>
+        <td>Cassandra 2.9.x-3.11.6 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -338,7 +338,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>²DataStax-DSE 3.1.x-6.7.6 (Recommended)</td>
+        <td>²DataStax-DSE 3.2.x-6.7.7 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -349,7 +349,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>²DataStax-Ops 3.0.x-6.7.2 (Recommended)</td>
+        <td>²DataStax-Ops 3.2.x-6.7.7 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -366,13 +366,13 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Elastic 2.6.x-6.6.1</td>
+        <td>Elastic 2.7.x-6.8.1</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Elastic 2.7.x-6.8.1 (Recommended)</td>
+        <td>Elastic 3.1.1-7.6.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -408,7 +408,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Kafka 2.8.x-2.3.1 (Recommended)</td>
+        <td>Kafka 2.9.x-2.4.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>

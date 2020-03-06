@@ -17,7 +17,7 @@ If multiple providers are specified, only the first ID is evaluated.
 
 # Usage
 
-```
+```bash
 dcos security cluster saml show [OPTIONS] [SAML_ID]...
 ```
 

@@ -34,7 +34,7 @@ dcos cluster attach <cluster> [flags]
 
 # Examples
 
-```
+```bash
 dcos cluster list
         NAME                          ID                     STATUS     VERSION                                         URL
     user_81-rd373u5  bb07074e-2c3d-4dc5-8523-75cab9d517cb  UNAVAILABLE  UNKNOWN  http://user_81-elasticl-7qbh2zcfyz6h-407934734.us-east-1.elb.amazonaws.com

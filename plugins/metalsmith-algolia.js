@@ -32,7 +32,9 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   const client = algoliasearch(options.projectId, options.privateKey);
   const indices = {
     'mesosphere-dcos': client.initIndex('mesosphere-dcos'),
-    'ksphere-konvoy': client.initIndex('ksphere-konvoy')
+    'ksphere-konvoy': client.initIndex('ksphere-konvoy'),
+    'ksphere-kommander': client.initIndex('ksphere-kommander'),
+    'ksphere-dispatch': client.initIndex('ksphere-dispatch')
   }
 
   // /**
@@ -81,7 +83,9 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     // index the objects
     const products = {
       dcos: 'DC/OS',
-      konvoy: 'Konvoy'
+      konvoy: 'Konvoy',
+      kommander: 'Kommander',
+      dispatch: 'Dispatch'
     };
 
     const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
@@ -122,6 +126,10 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         } else if (paths[2] === 'latest') {
           indexFile.section = 'Konvoy Docs';
         }
+      } else if (paths[1] === 'kommander') {
+        indexFile.section = 'Kommander Docs';
+      } else if (paths[1] === 'dispatch') {
+        indexFile.section = 'Dispatch Docs';
       }
       indexFile.version = indexFile.product;
 

@@ -31,7 +31,7 @@ Some components avoid path versioning altogether and use content negotiation at 
 
 For example, the [DC/OS Package Manager (Cosmos) component](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-package-manager) serves the [Package API](/mesosphere/dcos/2.0/deploying-services/package-api/) under the route `/package` and one of its resource paths is `/list`, so the full path to that resource is `/package/list`. The version of the request and desired version of the response are specified respectively by the `Content-Type` and `Accept` HTTP headers:
 
-```
+```text
 Content-Type: application/vnd.dcos.package.list-request+json;charset=utf-8;version=v1
 Accept:       application/vnd.dcos.package.list-response+json;charset=utf-8;version=v1
 ```

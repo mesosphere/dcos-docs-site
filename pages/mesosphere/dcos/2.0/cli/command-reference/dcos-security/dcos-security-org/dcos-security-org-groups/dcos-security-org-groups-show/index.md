@@ -15,7 +15,7 @@ The `dcos security org groups show` command will display basic information about
 
 # Usage
 
-```
+```bash
 dcos security org groups show [OPTIONS] [GIDS]...
 ```
 

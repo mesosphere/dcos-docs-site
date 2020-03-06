@@ -1,16 +1,16 @@
 ~^/mesosphere/dcos/latest/(.*)$ /mesosphere/dcos/2.0/$1;
-~^/mesosphere/dcos/services/cassandra/latest/(.*) /mesosphere/dcos/services/cassandra/2.8.0-3.11.5/$1;
+~^/mesosphere/dcos/services/cassandra/latest/(.*) /mesosphere/dcos/services/cassandra/2.9.0-3.11.6/$1;
 ~^/mesosphere/dcos/services/confluent-kafka/latest/(.*) /mesosphere/dcos/services/confluent-kafka/2.8.0-5.3.1/$1;
 ~^/mesosphere/dcos/services/confluent-zookeeper/latest/(.*) /mesosphere/dcos/services/confluent-zookeeper/2.6.0-5.1.2e/$1;
 ~^/mesosphere/dcos/services/couchbase/latest/(.*) /mesosphere/dcos/services/couchbase/0.3.0-5.5.3/$1;
 ~^/mesosphere/dcos/services/data-science-engine/latest/(.*) /mesosphere/dcos/services/data-science-engine/1.0.0/$1;
-~^/mesosphere/dcos/services/dse/latest/(.*) /mesosphere/dcos/services/dse/3.1.0-6.7.6/$1;
+~^/mesosphere/dcos/services/dse/latest/(.*) /mesosphere/dcos/services/dse/3.2.0-6.7.7/$1;
 ~^/mesosphere/dcos/services/edge-lb/latest/(.*) /mesosphere/dcos/services/edge-lb/1.5/$1;
-~^/mesosphere/dcos/services/elastic/latest/(.*) /mesosphere/dcos/services/elastic/2.7.0-6.8.1/$1;
+~^/mesosphere/dcos/services/elastic/latest/(.*) /mesosphere/dcos/services/elastic/3.1.1-7.6.0/$1;
 ~^/mesosphere/dcos/services/hdfs/latest/(.*) /mesosphere/dcos/services/hdfs/2.7.0-3.2.1/$1;
 ~^/mesosphere/dcos/services/jenkins/latest/(.*) /mesosphere/dcos/services/jenkins/3.6.0-2.190.1/$1;
 ~^/mesosphere/dcos/services/kafka/latest/(.*) /mesosphere/dcos/services/kafka/2.8.0-2.3.0/$1;
-~^/mesosphere/dcos/services/kubernetes/latest/(.*) /mesosphere/dcos/services/kubernetes/2.4.4-1.15.4/$1;
+~^/mesosphere/dcos/services/kubernetes/latest/(.*) /mesosphere/dcos/services/kubernetes/2.4.6-1.15.6/$1;
 ~^/mesosphere/dcos/services/kafka-zookeeper/latest/(.*) /mesosphere/dcos/services/kafka-zookeeper/2.6.0-3.4.14/$1;
 ~^/mesosphere/dcos/services/marathon-lb/latest/(.*) /mesosphere/dcos/services/marathon-lb/1.14/$1;
 ~^/mesosphere/dcos/services/minio/latest/(.*) /mesosphere/dcos/services/minio/0.1.1/$1;
@@ -25,4 +25,4 @@
 ~^/mesosphere/dcos/services/dcos-monitoring/latest/(.*) /mesosphere/dcos/services/dcos-monitoring/1.1.0/$1;
 ~^/mesosphere/dcos/services/beta-jupyter/latest/(.*) /mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/$1;
 ~^/mesosphere/dcos/cn/services/kubernetes/latest/(.*) /mesosphere/dcos/cn/services/kubernetes/1.2.1-1.10.6/$1;
-~^/mesosphere/dcos/services/hive-metastore/latest/(.*) /mesosphere/dcos/services/hive-metastore/1.0.0-3.0.0/$1;
+~^/mesosphere/dcos/services/hive-metastore/latest/(.*) /mesosphere/dcos/services/hive-metastore/1.1.0-3.0.0/$1;

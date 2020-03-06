@@ -7,7 +7,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and version policy.
 ---
-DC/OS &reg; 2.0.0 was released on 25 October 2019.
+Mesosphere&reg; DC/OS&trade; 2.0.0 was released on 25 October 2019.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -17,9 +17,9 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 
 
 # Release Summary
-D2iQ&reg; DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
+Mesosphere&reg; DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
-This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages, such as Marathon and Metronome, used in DC/OS.
+This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages, such as Marathon&trade; and Metronome, used in DC/OS.
 
 If you have DC/OS deployed in a production environment, see [Known Issues and Limitations](#known-issues-and-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
@@ -106,7 +106,7 @@ This section covers any known issues or limitations. These do not necessarily af
 - `/v2/pods` and `/v2/tasks` do not include any information about existing instances. (DCOS_OSS-5616)
 - Mesos modules in DC/OS Enterprise version can cause deadlock during process. (DCOS-57401)
 - Mesos Resources Summary dashboard should show quota limits instead of guarantees. (DCOS-57261)
-- Grafana fails to load because of file permission error. (DCOS-59209)
+- Grafana&trade; fails to load because of file permission error. (DCOS-59209)
 - DC/OS overlay networks are not compared by value, but should be.  Only VTEP IP address and subnets are used. Until this issue is fixed, use VTEP IP and Subnets only, instead of NAMED overlay networks. (DCOS_OSS-5620)
 - MKE is not rescheduled when a drained node is re-activated. (DCOS-59788)
 

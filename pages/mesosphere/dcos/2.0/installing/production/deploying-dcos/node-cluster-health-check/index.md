@@ -144,7 +144,7 @@ You can run the following commands from your cluster node to invoke custom or pr
 
 List all cluster checks.
 
-```
+```bash
 /opt/mesosphere/bin/dcos-shell dcos-check-runner check cluster --list
 ```
 

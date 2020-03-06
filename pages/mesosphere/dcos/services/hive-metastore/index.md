@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Hive Metastore 1.0.0-3.0.0
+navigationTitle: Hive Metastore
 title: Hive Metastore
 menuWeight: 40
-excerpt:
+excerpt: DC/OS Hive Metastore is an automated service that makes it easy to deploy and manage Hive Metastore on Mesosphere DC/OS.
 featureMaturity:
 enterprise: false
 category: Data Services

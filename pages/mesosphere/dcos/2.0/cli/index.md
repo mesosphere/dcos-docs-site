@@ -16,7 +16,7 @@ DC/OS 2.0 requires the DC/OS CLI >= 0.8. To install it, [follow these instructio
 To list available commands, run `dcos` with no parameters:
 
 ```bash
-$ dcos
+dcos
 
 Usage:
     dcos [command]
@@ -83,7 +83,7 @@ dcos --version
 The DC/OS CLI can work with multiple clusters. The following command displays the latest configured cluster:
 
 ```bash
-$ dcos cluster list
+dcos cluster list
         NAME               ID                        STATUS     VERSION      URL
   *   cluster 26f72c2f-8d03-47d7-b95f-972b1fd3dea2  AVAILABLE    1.13  <cluster-url>
 ```

@@ -759,7 +759,7 @@ DC/OS ZooKeeper credentials `zk_super_credentials`, `zk_master_credentials`, and
 
 To harden clusters, Mesosphere recommends that you change the defaults of all credentials to long, complex values. Once set, you can verify the settings using `/opt/mesosphere/active/exhibitor/usr/zookeeper/bin/zkCli.sh` available on DC/OS master nodes. By default, `zkCli` does not authenticate, so the nodes in the `/dcos` tree will not be accessible. After invoking `addauth digest <zk_super_credentials>` in `zkCli`, all the nodes in ZooKeeper will be accessible, with `zk_master_credentials` and `zk_agent_credentials` providing access to a subset of them. For example:
 
-```
+```bash
 [zk: localhost:2181(CONNECTED) 0] addauth digest super:secret
 [zk: localhost:2181(CONNECTED) 1] ls /dcos
 [backup, agent, RootCA, secrets, vault, CAChainInclRoot, CAChain, CACertKeyType, ca, master]

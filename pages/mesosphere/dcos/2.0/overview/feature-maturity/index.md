@@ -13,9 +13,9 @@ enterprise: false
 
 # <a name="lifecycle"></a>Mesosphere DC/OS Feature Maturity Lifecycle
 
-A Mesosphere DC/OS feature will progress through a multi-stage lifecycle.  This lifecycle can be used to determine if and when a given feature is used for various stages of deployment.  These stages of deployment can include, but are not limited to, development, testing, evaluation or production.  In order to determine if a feature should be used, you should carefully examine the ramifications of using the feature based on its Maturity State as described below.
+A Mesosphere&reg; DC/OS&trade; feature progresses through a multi-stage lifecycle. This lifecycle can be used to determine if and when a given feature is used for various stages of deployment.  These stages of deployment can include, but are not limited to, development, testing, evaluation or production.  In order to determine if a feature should be used, you should carefully examine the ramifications of using the feature based on its Maturity State as described below.
 
-A feature can encompass Apps, Services, Frameworks, Components or Packages that are part of Mesosphere DC/OS or its catalog. The five Maturity States of a Mesosphere DC/OS feature are illustrated below and progress from left to right starting with Beta and ending with Decommissioned.
+A feature can encompass Apps, Services, Frameworks, Components or Packages that are part of Mesosphere DC/OS or its catalog. The five maturity states of a Mesosphere DC/OS feature are illustrated below, and progress from left-to-right starting with Beta and ending with Decommissioned.
 
 ![Five Maturity States](/mesosphere/dcos/2.0/img/five_maturity_states.png)
 
@@ -25,7 +25,7 @@ Figure 1. Feature maturity lifecycle
 
 ## Beta
 
-Features that are labeled Beta are aimed at consumers who want to have early exposure to a given feature.  Typically, these features are primarily used for evaluation and non-production testing purposes or to provide feedback to Mesosphere.
+Features that are labeled "Beta" are offered to consumers who want to have early exposure to a given feature.  Typically, these features are primarily used for evaluation and non-production testing purposes or to provide feedback to D2iQ&reg;.
 
 1. Beta features are ready for customer or end-user testing and early validation of features and functionality.
 1. Beta features may be changed, discontinued, or deprecated for any reason and at any time.
@@ -33,7 +33,7 @@ Features that are labeled Beta are aimed at consumers who want to have early exp
 1. Beta features may be subject to reduced or different security, compliance and privacy commitments.
 1. Beta features may be subject to reduced performance, scalability or capacity commitments.
 1. Beta features are not guaranteed to be promoted from Beta to GA.
-1. Feedback on beta features may be provided via non-standard channels like email, slack channels or community forums, based on testing, usage and experiences.
+1. Feedback on beta features may be provided through non-standard channels like email, slack channels or community forums, based on testing, usage and experiences.
 
 <p class="message--important"><strong>IMPORTANT: </strong>Any use of a Beta version or feature of Mesosphere DC/OS Enterprise is subject to the <a href="https://mesosphere.com/mesosphere-support-terms/">Evaluation Terms</a>, to the exclusion of all other terms.</p>
 
@@ -52,7 +52,7 @@ A feature that is labeled Generally Available (GA) is recommended to be used by 
 <a name="deprecated"></a>
 ## Deprecated
 
-A Deprecated feature is a feature for which Mesosphere no longer provides enhancements.  The change in state may be due to, but not limited to, being superseded by a newer/different feature, a shift in the industry, or lack of customer interest. This may include Apps, Frameworks, Services or Components of Mesosphere DC/OS or versions of parts or access methods (such as APIs, CLI commands) of the Apps, Frameworks, Services or Components.  You should consider migrating your applications or DC/OS cluster to use the newer feature.
+A Deprecated feature is a feature for which Mesosphere no longer provides enhancements.  The change in state may be due to, but not limited to, being superseded by a newer/different feature, a shift in the industry, or lack of customer interest. This may include Apps, Frameworks, Services or Components of Mesosphere DC/OS, or versions of parts or access methods (such as APIs, CLI commands) of the Apps, Frameworks, Services or Components.  You should consider migrating your applications or DC/OS cluster to use the newer feature.
 
 1. Enhancements to the feature should not be expected.
 1. Bugs may continue to be resolved based on factors including, but not limited to, severity, priority or if they have been addressed by the superseding feature.
@@ -60,7 +60,7 @@ A Deprecated feature is a feature for which Mesosphere no longer provides enhanc
 <a name="retired"></a>
 ## Retired
 
-A Retired feature is one that has reached the end of its maturity lifecycle within Mesosphere DC/OS but is still part of the product. Customers using a retired feature are strongly urged to migrate away from the retired feature and instead employ a GA feature, as Retired is the last state in the Mesosphere DC/OS lifecycle in which the feature is still present.
+A Retired feature is one that has reached the end of its maturity lifecycle within Mesosphere DC/OS, but is still part of the product. Customers using a retired feature are strongly urged to migrate away from that feature, and instead employ a GA feature. Retired is the last state in the Mesosphere DC/OS lifecycle in which the feature is still present.
 
 1. Enhancements to the feature should not be expected.
 2. Bugs or defects should not be expected to be fixed.

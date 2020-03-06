@@ -15,7 +15,7 @@ The `dcos node metrics summary` command prints CPU, memory and disk metrics for 
 
 # Usage
 
-```
+```bash
 dcos node metrics summary <mesos-id> [--json]
 ```
 

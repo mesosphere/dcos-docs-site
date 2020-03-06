@@ -53,7 +53,7 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
    <tr>
     <th></th>
-    <th Colspan = "6" Align = "center"><strong>Patch To</strong></th>
+    <th Colspan = "20" Align = "center"><strong>Patch To</strong></th>
    </tr>
     <th></th>
     <th>1.13.1</th>
@@ -61,6 +61,8 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th>1.13.3</th>
     <th>1.13.4</th>
     <th>1.13.5</th>
+    <th>1.13.6</th>
+    <th>1.13.7</th>
    </tr>
    <tr>
     <th>1.13.0</th>
@@ -69,10 +71,14 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.13.1</th>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -85,6 +91,8 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.13.3</th>
@@ -93,9 +101,33 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.13.4</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.6</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>

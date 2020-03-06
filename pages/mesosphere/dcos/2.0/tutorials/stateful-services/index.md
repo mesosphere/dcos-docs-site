@@ -101,13 +101,13 @@ Notice the `volumes` field, which declares the persistent volume for `postgres` 
 
 Next, add this [service][4] to your cluster:
 
-```
+```bash
 dcos marathon app add //tutorials/stateful-services/postgres.marathon.json
 ```
 
 Once the service has been scheduled and the Docker container has downloaded, postgres will become healthy and be ready to use. You can verify this from the DC/OS CLI:
 
-```
+```bash
 dcos marathon task list
 APP        HEALTHY          STARTED              HOST     ID
 /postgres    True   2016-04-13T17:25:08.301Z  10.0.1.223  postgres.f2419e31-018a-11e6-b721-0261677b407a
@@ -117,13 +117,13 @@ APP        HEALTHY          STARTED              HOST     ID
 
 To stop the service:
 
-```
+```bash
 dcos marathon app stop postgres
 ```
 
 This command scales the `instances` count down to 0 and kills all running tasks. If you inspect the tasks list again, you will notice that the task is still there. The list provides information about which agent it was placed on and which persistent volume it had attached, but without a `startedAt` value. This allows you to restart the service with the same metadata.
 
-```
+```bash
 dcos marathon task list
 APP        HEALTHY  STARTED     HOST     ID
 /postgres    True     N/A    10.0.1.223  postgres.f2419e31-018a-11e6-b721-0261677b407a
@@ -133,7 +133,7 @@ APP        HEALTHY  STARTED     HOST     ID
 
 Start the stateful service again:
 
-```
+```bash
 dcos marathon app start postgres
 ```
 
@@ -143,7 +143,7 @@ The metadata of the previous `postgres` task is used to launch a new task that t
 
 To restore the state of your cluster as it was before installing the stateful service, delete the service:
 
-```
+```bash
 dcos marathon app remove postgres
 ```
 

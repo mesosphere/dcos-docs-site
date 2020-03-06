@@ -9,18 +9,18 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-DC/OS is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with; however, they might be used in a different way in DC/OS.
+Mesosphere&reg; DC/OS&trade; is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with, however, they may be used in a different way in DC/OS.
 <a name="dcos"></a>
 
 # DC/OS
 
 DC/OS is a [distributed operating system](https://en.wikipedia.org/wiki/Distributed_operating_system) for the datacenter.
 
-Unlike traditional distributed operating systems, DC/OS is also a container platform that manages containerized tasks based on native executables or container images, like [Docker images](https://docs.docker.com/engine/tutorials/dockerimages/). Also unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
+Unlike traditional distributed operating systems, DC/OS is also a container platform that manages containerized tasks based on native executables or container images, like [Docker&reg; images](https://docs.docker.com/engine/tutorials/dockerimages/). Also unlike traditional [operating systems](https://en.wikipedia.org/wiki/Operating_system), DC/OS runs on a [cluster of nodes](#cluster), instead of a single machine. Each DC/OS node also has a [host operating system](#host-operating-system) that manages the underlying machine.
 
-DC/OS is made up of many components, most notably a distributed systems kernel ([Mesos](#apache-mesos)) and a container orchestration engine ([Marathon](#marathon)).
+DC/OS is made up of many components, most notably a distributed systems kernel ([Apache&reg; Mesos&reg;](#apache-mesos)) and a container orchestration engine ([Marathon&trade;](#marathon)).
 
-While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multitenancy, fine-grained permissions, secrets management, and end-to-end encryption.
+While DC/OS itself is open source, premium distributions like [Mesosphere DC/OS Enterprise](https://mesosphere.com/product/) may include additional closed-source components and features such as multi-tenancy, fine-grained permissions, secrets management, and end-to-end encryption.
 
 <a name="dcos-gui"></a>
 
@@ -121,9 +121,9 @@ A host operating system is the [operating system](https://en.wikipedia.org/wiki/
 
 - DC/OS currently supports the following host operating systems:
 
-- [CentOS](https://www.centos.org/)
-- [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
-- [CoreOS](https://coreos.com/)
+- [CentOS&reg;](https://www.centos.org/)
+- [RHEL&reg;](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
+- [CoreOS&reg;](https://coreos.com/)
 
 While the host OS manages local tasks and machine resources, DC/OS manages cluster tasks and resources so that you do not need to interact with the host operating systems on the nodes.
 
@@ -135,7 +135,7 @@ A bootstrap machine is the machine on which the DC/OS installer artifacts are co
 
 - The bootstrap machine is not technically considered part of the cluster since it does not have DC/OS installed on it. For most installation methods, the bootstrap node must be accessible to and from the machines in the cluster via infrastructure networking.
 - The bootstrap machine is sometimes used as a jumpbox to control SSH access into other nodes in the cluster for added security and logging.
-- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using S3, DNS, or static IPs, with various tradeoffs. For more information, see the [exhibitor storage backend](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter description.
+- One method of allowing master nodes to change IPs involves running ZooKeeper with Exhibitor on the bootstrap machine. Other alternatives include using Amazon S3&reg;, DNS, or static IPs, with various tradeoffs. For more information, see the [exhibitor storage backend](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter description.
 - If a bootstrap machine is not required for managing master node IP changes or as an SSH jumpbox, it can be shut down after bootstrapping and spun up on demand to [add new nodes](/mesosphere/dcos/2.0/administering-clusters/add-a-node/) to the cluster.
 
 For more information, see the [system requirements](/mesosphere/dcos/2.0/installing/production/system-requirements/).
@@ -144,7 +144,7 @@ For more information, see the [system requirements](/mesosphere/dcos/2.0/install
 
 # Services
 
-A DC/OS service is a set of one or more service instances that can be started and stopped as a group and restarted automatically if they exit before being stopped.
+A Mesosphere DC/OS Service is a set of one or more service instances that can be started and stopped as a group, and restarted automatically if they exit before being stopped.
 
 - Service is currently a DC/OS GUI abstraction that translates to Marathon apps and pods in the CLI and API. This distinction will change over time as the name "service" is pushed upstream into component APIs.
 - Sometimes "service" may also refer to a `systemd` service on the host operating system. These are generally considered components and do not actually run on Marathon or Mesos.
@@ -154,7 +154,7 @@ A DC/OS service is a set of one or more service instances that can be started an
 
 ## Marathon service
 
-A Marathon service consists of zero or more containerized service instances. Each service instance consists of one or more containerized Mesos tasks.
+A Marathon service consists of zero or more containerized service instances. Each service instance consists of one or more containerized Apache Mesos tasks.
 
 - Marathon apps and pods are both considered services.
     - Marathon app instances map one-to-one with tasks.
@@ -165,7 +165,7 @@ A Marathon service consists of zero or more containerized service instances. Eac
 - A Marathon service may be a [DC/OS scheduler](#dcos-scheduler), but not all services are schedulers.
 - A Marathon service is an abstraction around Marathon service instances which are an abstraction around Mesos tasks. Other schedulers such as DC/OS Jobs (Metronome) or Jenkins have their own names for abstractions around Mesos tasks.
 
-**Examples:** Cassandra (scheduler), Marathon-on-Marathon, Kafka (scheduler), Nginx, Tweeter.
+**Examples:** Cassandra&reg; (scheduler), Marathon-on-Marathon, Kafka&reg; (scheduler), Nginx&trade;, Tweeter.
 
 <a name="systemd-service"></a>
 
@@ -196,7 +196,7 @@ A user service is a Marathon service that is not a system service, owned by a us
 
 - This distinction is new and still evolving as namespacing is transformed into a system-wide first class pattern and mapped to fine-grained user and user group permissions.
 
-**Examples:** Jenkins, Cassandra, Kafka, Tweeter.
+**Examples:** Jenkins&reg;, Cassandra, Kafka, Tweeter.
 
 <a name="dcos-service-group"></a>
 
@@ -220,9 +220,9 @@ A DC/OS job is a set of similar short-lived job instances, running as Mesos task
 A DC/OS scheduler is a Mesos scheduler that runs as a `systemd` service on master nodes or Mesos task on agent nodes.
 
 The key differences between a DC/OS scheduler and Mesos scheduler are where it runs and how it is installed.
-- Some schedulers come pre-installed as DC/OS components (e.g. Marathon, DC/OS Jobs (Metronome)).
-- Some schedulers can be installed by users as user services (e.g Kafka, Cassandra).
-- Some schedulers run as multiple service instances to provide high availability (e.g. Marathon).
+- Some schedulers come pre-installed as DC/OS components (for exmaple, Marathon, DC/OS Jobs (Metronome)).
+- Some schedulers can be installed by users as user services (for example Kafka and Cassandra).
+- Some schedulers run as multiple service instances to provide high availability (such as Marathon).
 
 In certain security modes within DC/OS Enterprise, a DC/OS scheduler must authenticate and be authorized using a service account to register with Mesos as a framework.
 
@@ -292,7 +292,7 @@ For more information about deploying using a cloud template, see [Mesosphere ins
 
 # Mesos concepts
 
-The following terms are contextually correct when talking about Apache Mesos, but may be hidden by other abstraction within DC/OS.
+The following terms are contextually correct when discussing Apache Mesos, but may be hidden by other abstraction within DC/OS.
 
 - [Apache Mesos](#apache-mesos)
 - [Master](#mesos-master)

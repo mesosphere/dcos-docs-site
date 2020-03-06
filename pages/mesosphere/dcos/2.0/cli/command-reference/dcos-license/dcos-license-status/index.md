@@ -42,7 +42,7 @@ dcos license status
 }
 
 ```
-```
+```bash
 dcos license status --breaches
 0
 ```

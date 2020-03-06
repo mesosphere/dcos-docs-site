@@ -10,9 +10,9 @@ menuWeight: 1
 
 # Overview
 
-For some stateful services, such as Jenkins, it can be convenient to mount a shared network drive to every node. A shared network drive makes it possible to launch the task on a new node if the node in use becomes unavailable.
+For some stateful services, such as Jenkins&reg;, it can be convenient to mount a shared network drive to every node. A shared network drive makes it possible to launch the task on a new node if the node in use becomes unavailable.
 
-<p class="message--note"><strong>NOTE: </strong> This example uses CoreOS and <code>systemd</code>, and has not been tested in other environments.</p>
+<p class="message--note"><strong>NOTE: </strong> This example uses CoreOS&reg; and <code>systemd</code>, and has not been tested in other environments.</p>
 
 ## Notes
 
@@ -22,7 +22,7 @@ For some stateful services, such as Jenkins, it can be convenient to mount a sha
 ](#agents).
 ### Configure the master with the file-share
 
-1. Log in to the master node using the DC/OS command line interface:
+1. Log in to the master node using the DC/OS&trade; command line interface:
 
     ```bash
     dcos node ssh --master-proxy --leader

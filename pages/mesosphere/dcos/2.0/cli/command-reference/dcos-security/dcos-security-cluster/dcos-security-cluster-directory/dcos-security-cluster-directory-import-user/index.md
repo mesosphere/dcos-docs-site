@@ -15,7 +15,7 @@ The `dcos security cluster directory import_user` command imports a user from th
 
 # Usage
 
-```
+```bash
 dcos security cluster directory import_user [OPTIONS] UID
 ```
 

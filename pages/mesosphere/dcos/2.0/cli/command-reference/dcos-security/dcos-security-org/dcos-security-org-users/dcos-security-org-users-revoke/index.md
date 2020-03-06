@@ -13,18 +13,10 @@ enterprise: true
 
 The `security org users revoke` command will revoke a designated user's permission to perform a given action on a designated resource.
 
-# Options
- 
-| Name |  Description |
-|---------|-------------|
-|  `-h`, `--help` |  Show this message and exit.|
-| `UID` | User ID. (Required)|
-| `RID` | Resource ID. (Required) |
-| `ACTION` | Designated action.|
 
 # Usage
 
-```
+```bash
 Usage: security org users revoke [OPTIONS] UID RID ACTION
 
   Revoke permission for the user with the given UID to enact a given ACTION on
@@ -33,3 +25,12 @@ Usage: security org users revoke [OPTIONS] UID RID ACTION
 Options:
   -h, --help  Show this message and exit.
 ```
+
+# Options
+ 
+| Name |  Description |
+|---------|-------------|
+|  `-h`, `--help` |  Show this message and exit.|
+| `UID` | User ID. (Required)|
+| `RID` | Resource ID. (Required) |
+| `ACTION` | Designated action.|

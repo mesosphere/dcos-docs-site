@@ -52,14 +52,14 @@ You can grant users access to the [**Jobs**](/mesosphere/dcos/2.0/gui/jobs/) tab
 
 ### DC/OS Jobs tab
 
-```
+```bash
 dcos:adminrouter:service:metronome full
 dcos:service:metronome:metronome:jobs full
 ```
 
 ### DC/OS jobs task and details
 
-```
+```bash
 dcos:adminrouter:ops:mesos full
 dcos:adminrouter:ops:slave full
 ```
@@ -68,14 +68,14 @@ dcos:adminrouter:ops:slave full
 
 ### DC/OS Jobs tab
 
-```
+```bash
 dcos:adminrouter:service:metronome full
 dcos:service:metronome:metronome:jobs full
 ```
 
 ### DC/OS jobs task and details
 
-```
+```bash
 dcos:adminrouter:ops:mesos full
 dcos:adminrouter:ops:slave full
 dcos:mesos:master:framework:role:* read

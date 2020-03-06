@@ -34,6 +34,7 @@ One simple way you can monitor the read and write performance of a disk device i
 <p>
 <code>dd if=/dev/zero of=/tmp/test1.img bs=1024 count=1</code><br>
 <code>dd if=/dev/zero of=/tmp/test2.img bs=1024 count=1000</code>
+</p>
 
 ## Isolate master nodes from agent nodes
 

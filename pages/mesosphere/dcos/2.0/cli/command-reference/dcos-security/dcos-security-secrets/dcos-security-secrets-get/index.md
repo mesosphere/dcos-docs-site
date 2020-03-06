@@ -15,7 +15,7 @@ The `dcos security secrets get` command allows you to retrieve a secret from the
 
 # Usage
 
-```
+```bash
 dcos security secrets get [OPTIONS] PATH
 ```
 

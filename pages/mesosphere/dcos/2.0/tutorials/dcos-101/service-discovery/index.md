@@ -48,7 +48,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
 
   The answer should be similar to this response:
 
-  ```
+  ```text
   ;; ANSWER SECTION:
   redis.marathon.mesos. 60  IN  A 10.0.0.43
   ```
@@ -78,7 +78,7 @@ SSH into the Mesos master node in your cluster to see how these different servic
   * [Named VIPs](/mesosphere/dcos/2.0/networking/load-balancing-vips/) allow you to assign name/port pairs to your apps, which means you can give your apps meaningful names with a predictable port. They also provide built-in load balancing when using multiple instances of an application.
   For example, you can assign a named VIP to your Redis service by adding the following to the package definition:
 
-  ```
+  ```text
   "VIP_0": "/redis:6379"
   ```
 

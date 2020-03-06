@@ -10,7 +10,7 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS Enterprise offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster.
+Mesosphere&reg; DC/OS&trade; Enterprise offers a range of features that allow you to secure your cluster and prevent breaches and other attacks. This section provides an overview of the security features and recommendations for hardening your cluster.
 
 The goals of DC/OS security are:
 
@@ -18,18 +18,18 @@ The goals of DC/OS security are:
 -  Secure and protect the internal cluster communication, containers, and sandboxes.
 -  Enhance cluster security with support for 3rd party security integrations.
 
-DC/OS is based on a Linux kernel and userspace. The same best practices for securing any Linux system apply to securing DC/OS, including setting correct file permissions, restricting root and normal user accounts, protecting network interfaces with `iptables` or other firewalls, and regularly applying updates from the Linux distribution used with DC/OS to ensure that system libraries, utilities, and core services like `systemd` and OpenSSH are secure.
+DC/OS is based on a Linux&reg; kernel and userspace. The same best practices for securing any Linux system apply to securing DC/OS, including setting correct file permissions, restricting root and normal user accounts, protecting network interfaces with `iptables` or other firewalls, and regularly applying updates from the Linux distribution used with DC/OS to ensure that system libraries, utilities, and core services like `systemd` and OpenSSH are secure.
 
 # Security Zones
 At the highest level we can distinguish three security zones in a DC/OS deployment, namely the admin, private, and public security zones.
 
 ## Admin zone
-The **admin** zone is accessible via HTTP/HTTPS and SSH connections, and provides access to the master nodes. It also provides reverse proxy access to the other nodes in the cluster via URL routing. For security, the DC/OS cloud template allows configuring a whitelist so that only specific IP address ranges are permitted to access the admin zone.
+The **admin** zone is accessible through HTTP/HTTPS and SSH connections, and provides access to the master nodes. It also provides reverse proxy access to the other nodes in the cluster via URL routing. For security, the DC/OS cloud template allows configuring a whitelist so that only specific IP address ranges are permitted to access the admin zone.
 
 ### Admin Router
 Access to the admin zone is controlled by the [Admin Router](/mesosphere/dcos/2.0/overview/architecture/components/#admin-router).
 
-HTTP requests incoming to your DC/OS cluster are proxied through the Admin Router (using [Nginx](http://nginx.org) with [OpenResty](https://openresty.org) at its core). The Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it needs to present a valid authentication token in its `Authorization` header. A token can be obtained by going through the authentication flow.
+HTTP requests incoming to your DC/OS cluster are proxied through the Admin Router (using [Nginx&trade;](http://nginx.org) with [OpenResty&reg;](https://openresty.org) at its core). The Admin Router denies access to most HTTP endpoints for unauthenticated requests. In order for a request to be authenticated, it needs to present a valid authentication token in its `Authorization` header. A token can be obtained by going through the authentication flow.
 
 ## Private zone
 The **private** zone is a non-routable network that is only accessible from the admin zone or through the edge router from the public zone. Deployed services are run in the private zone. This zone is where the majority of agent nodes are run.
@@ -51,8 +51,8 @@ You can control DC/OS Enterprise access by resource and operation (create, read,
 | Permission Category                                 | Permissive | Strict |
 |-----------------------------------------------------|:----------:|:------:|
 | Admin Router permissions (`dcos:adminrouter`)       |      x     |    x   |
-| Mesos permissions (`dcos:mesos`)                    |            |    x   |
-| Marathon and Metronome permissions (`dcos:service`) |      x     |    x   |
+| Apache&reg; Mesos&reg; permissions (`dcos:mesos`)                    |            |    x   |
+| Marathon&trade; and Metronome permissions (`dcos:service`) |      x     |    x   |
 | Secret store permissions (`dcos:secrets`)           |      x     |    x   |
 
 See the [permissions reference](/mesosphere/dcos/2.0/security/ent/perms-reference/) for a complete description.
@@ -109,7 +109,7 @@ Note that clearing the cookie does not invalidate the authentication token. If s
 
 ## <a name="passwords"></a>Passwords
 
-Credentials for cluster-local user accounts (those not using LDAP, SAML, or OpenID Connect) consist of a user name and password that can be used to validate, but not reproduce, user passwords. Passwords are individually salted and cryptographically hashed using [crypt(3)](http://man7.org/linux/man-pages/man3/crypt.3.html) SHA-512. This results in one-way hashes that can be used to validate but not reproduce user passwords. To further impede brute force attacks and meet or exceed NIST FIPS security requirements, the hash function performs many iterations using a 128 bit salt length.
+Credentials for cluster-local user accounts (those not using LDAP, SAML, or OpenID Connect&reg;) consist of a user name and password that can be used to validate, but not reproduce, user passwords. Passwords are individually salted and cryptographically hashed using [crypt(3)](http://man7.org/linux/man-pages/man3/crypt.3.html) SHA-512. This results in one-way hashes that can be used to validate but not reproduce user passwords. To further impede brute force attacks and meet or exceed NIST FIPS security requirements, the hash function performs many iterations using a 128 bit salt length.
 
 Once DC/OS IAM has validated your credentials, an authentication token is returned to you. The authentication token is then used for further request authentication during your session. This way the password does not need to be stored in the client and is only sent over the wire immediately after you enter it. Over the wire, the authentication request is encrypted using TLS. TLS is required and enforced in strict mode, but optional in permissive mode. For more information, see [Security Modes](/mesosphere/dcos/2.0/security/ent/#security-modes).
 
@@ -211,7 +211,7 @@ To secure sensitive values like private keys, API tokens, and database passwords
 
 ## <a name="storage-transport"></a>Secure Storage and Transport of Secrets
 
-DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using the Advanced Encryption Standard (AES) algorithm in Galois Counter Mode (GCM). The Secret Store uses the unseal key to encrypt secrets before sending them to ZooKeeper and to decrypt secrets after receiving them from ZooKeeper. This ensures that secrets are encrypted both at rest and in transit. TLS provides an additional layer of encryption on the secrets in transit from ZooKeeper to the Secret Store.
+DC/OS stores Secret Store data in ZooKeeper encrypted under an unseal key using the Advanced Encryption Standard (AES) algorithm in Galois Counter Mode (GCM). The Secret Store uses the unseal key to encrypt secrets before sending them to ZooKeeper&trade; and to decrypt secrets after receiving them from ZooKeeper. This ensures that secrets are encrypted both at rest and in transit. TLS provides an additional layer of encryption on the secrets in transit from ZooKeeper to the Secret Store.
 
 The unseal key is encrypted under a public GPG key. Requests to the [Secrets API](/mesosphere/dcos/2.0/security/ent/secrets/secrets-api/) return only the encrypted unseal key. When the Secret Store becomes sealed, either manually or due to a failure, the private GPG key must be used to decrypt the unseal key and unseal the Secret Store. As a convenience, DC/OS automatically generates a new 4096-bit GPG keypair during the bootstrap sequence. It uses this keypair to initialize the Secret Store and stores the keypair in ZooKeeper.
 
@@ -231,7 +231,7 @@ DC/OS allows you to restrict:
 
 The default Linux user for tasks and sandbox files varies according to your [security mode](/mesosphere/dcos/2.0/security/ent/#security-modes) and the [type of container](/mesosphere/dcos/2.0/deploying-services/containerizers/) the task runs inside of.
 
-By default, all tasks will run inside of Docker containers. Please see [Deploying a Docker-based Service to Marathon](/mesosphere/dcos/2.0/deploying-services/creating-services/deploy-docker-app/) for an example.
+By default, all tasks will run inside of Docker&reg; containers. Please see [Deploying a Docker-based Service to Marathon](/mesosphere/dcos/2.0/deploying-services/creating-services/deploy-docker-app/) for an example.
 
 The following table identifies the default Linux user in each situation.
 

@@ -16,7 +16,7 @@ The `dcos security cluster ca profile` command displays information about a sign
 
 # Usage
 
-```
+```bash
 dcos security cluster ca profile [OPTIONS]
 ```
 

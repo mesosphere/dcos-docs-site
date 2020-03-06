@@ -122,7 +122,7 @@ You can associate a schedule with more than one job.
 
 In this example, a partitioned jobs environment is created with the DC/OS UI. This allows you to restrict user access per job, or per job group. The jobs are created in a jobs group named `batch`, which is a child of a jobs group named `dev`.
 
-```
+```text
 ├── dev
     ├── batch
         ├── job1
@@ -139,7 +139,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
    ![Login](/mesosphere/dcos/2.0/img/LOGIN-EE-Modal_View-1_12.png)
 
-   Figure 1. DC/OS Enterprise login
+   DC/OS Enterprise login
 
 1.  Create the partitioned jobs.
 
@@ -149,7 +149,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         ![Create job](/mesosphere/dcos/2.0/img/GUI-Jobs-New_Job_Modal_w_devbatchjob-1_12.png)
 
-        Figure 2. New job screen
+        New job screen
 
         This creates a job in this directory structure in DC/OS: **Jobs > dev > batch > job1**.
 
@@ -157,14 +157,14 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         ![Create another job](/mesosphere/dcos/2.0/img/GUI-Jobs-Jobs_Table-1_12.png)
 
-        Figure 3. Create another job
+        Create another job
 
     1.  In the **ID** field, type `dev.batch.job2`.
     1.  In the **Command** field, type `sleep 1000` (or another valid shell command) and click **CREATE A JOB**. You should have two jobs:
 
         ![create job](/mesosphere/dcos/2.0/img/GUI-Jobs-Partitioned_Job_Env_Detail-1_12.png)
 
-        Figure 4. Jobs > dev > batch screen
+        **Jobs > dev > batch** screen
 
 1.  Run the jobs.
 
@@ -172,7 +172,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         ![Run job](/mesosphere/dcos/2.0/img/GUI-Jobs-Job_View-Run_Now_Menu-1_12.png)
 
-        Figure 5. **Run now** menu
+        **Run now** menu
 
     1.  Click **Jobs > dev > batch > job2** and click **Run Now**.
 
@@ -182,14 +182,14 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
         ![Create user Cory](/mesosphere/dcos/2.0/img/GUI-Organization-Users-Create_User_Cory-1_12.png)
 
-         Figure 6. Create a new user
+        Create a new user
 
     1.  Select the user **Cory** and grant access to `job1`.
     1.  From the **Permissions** tab, click **ADD PERMISSION** and toggle the **INSERT PERMISSION STRING** button to manually enter the permissions.
 
         ![Add permissions cory](/mesosphere/dcos/2.0/img/GUI-Organization-Users-Successful_Perms_Add_Cory_DeplJobs-1_12.png)
 
-        Figure 7. Add permissions for user 'Cory'
+        Add permissions for user 'Cory'
 
     1.  Copy and paste the permissions in the **Permissions Strings** field. Specify your job group (`dev/batch`), job name (`job1`), and action (`read`). Actions can be either `create`, `read`, `update`, `delete`, or `full`. To permit more than one operation, use a comma to separate them, for example: `dcos:service:metronome:metronome:jobs:/dev.batch.job1 read,update`.
 
@@ -213,4 +213,4 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
     ![Alice job view](/mesosphere/dcos/2.0/img/GUI-Restricted_User-Jobs_View_Alice-1_12.png)
 
-    Figure 8. Restricted view for 'Alice'
+    Restricted view for 'Alice'

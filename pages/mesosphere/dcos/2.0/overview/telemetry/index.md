@@ -10,15 +10,15 @@ enterprise: false
 ---
 
 
-To continuously improve the DC/OS experience, a telemetry component is included that reports anonymous usage data to Mesosphere. This data is used to monitor the reliability of core DC/OS components, installations, user interface, and to find out which features are most popular.
+To improve the Mesosphere&reg; DC/OS&reg; experience continuously, a telemetry component is included that reports anonymous usage data to D2iQ&reg;. This data is used to monitor the reliability of core DC/OS components, installations, user interface, and to find out which features are most popular.
 
 - [Core telemetry](#core)
 - [User interface telemetry](#user-interface)
 
 # <a name="core"></a>Core telemetry
-The [DC/OS Signal](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
+The [DC/OS Signal](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-signal) component queries the diagnostics service `/system/health/v1/report` endpoint on the leading master and sends this data to [Segment&reg;](https://segment.com/docs/) which Mesosphere then uses to track usage metrics and customer support.
 
-The information reported by DC/OS Signal comes from several components: DC/OS Diagnostics, Apache Mesos, and DC/OS Package Manager (Cosmos).
+The information reported by DC/OS Signal comes from several components: DC/OS Diagnostics, Apache&reg; Mesos&reg;, and DC/OS Package Manager (Cosmos).
 
 For each category this data is collected:
 
@@ -39,13 +39,13 @@ For each category this data is collected:
 </pre>
 </td></tr>
 <tr><td>customerKey (DC/OS Enterprise)</td>
-<td>This is the DC/OS Enterprise customer key. Customer keys are delivered via email to the Authorized Support Contact. For example:
+<td>This is the DC/OS Enterprise customer key. Customer keys are delivered by email to the Authorized Support Contact. For example:
 <pre>
 "customerKey": "ab1c23de-45f6-7g8h-9012-i345j6k7lm8n",
 </pre>
 </td></tr>
 <tr><td>licenseId (DC/OS Enterprise)</td>
-<td>This is the DC/OS Enterprise license ID. License IDs are delivered via email to the Authorized Support Contact. For example:
+<td>This is the DC/OS Enterprise license ID. License IDs are delivered by email to the Authorized Support Contact. For example:
 <pre>
 "licenseId": "acme-dev-cluster",
 </pre>
@@ -58,12 +58,12 @@ For each category this data is collected:
 </td>
 </tr>
 <tr><td>environmentVersion</td>
-<td>This is the version of DC/OS. For example, if you are using DC/OS 1.12:
+<td>This is the version of DC/OS. For example, if you are using DC/OS 2.0:
 <pre>
-"environmentVersion": "1.12",
+"environmentVersion": "2.0",
 </pre></td></tr>
 <tr><td>provider</td>
-<td>This is the platform that DC/OS is running on. Possible values are <code>aws</code>, <code>on-prem</code>, and <code>azure</code>. For example, if you are running on AWS:
+<td>This is the platform on which DC/OS is running. Possible values are <code>aws</code>, <code>on-prem</code>, and <code>azure</code>. For example, if you are running on AWS&reg;:
 <pre>
 "provider": "aws",
 </pre></td></tr>
@@ -85,7 +85,7 @@ For each category this data is collected:
 
 This information is collected from the [DC/OS Diagnostics](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-diagnostics) component. For every `systemd` unit, the following information is collected, where `<UNIT_NAME>` is component name:
 
-```
+```bash
 "health-unit-dcos-<UNIT_NAME>-total": 3, "health-unit-dcos-<UNIT_NAME>-unhealthy": 0,
 ```
 
@@ -295,4 +295,4 @@ The DC/OS UI sends two types of notifications to [Segment](https://segment.com/d
 
 ## Opting Out
 
-You can also choose to opt out of the telemetry features. For more information, see  [Opt-Out](/mesosphere/dcos/2.0/installing/production/deploying-dcos/opt-out/).
+You can also choose to opt out of the telemetry features. For more information, see [Opt-Out](/mesosphere/dcos/2.0/installing/production/deploying-dcos/opt-out/).

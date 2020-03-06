@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-When you specify a local volume or volumes, tasks and their associated data are "pinned" to the node they are first launched on and will be relaunched on that node if they terminate. The resources the application requires are also reserved. Marathon will implicitly reserve an appropriate amount of disk space (as declared in the volume via `persistent.size`) in addition to the sandbox `disk` size you specify as part of your application definition.
+When you specify a local volume or volumes, tasks and their associated data are "pinned" to the node they are first launched on and will be relaunched on that node if they terminate. The resources the application requires are also reserved. Marathon&trade; will implicitly reserve an appropriate amount of disk space (as declared in the volume via `persistent.size`) in addition to the sandbox `disk` size you specify as part of your application definition.
 
 # Benefits of using local persistent volumes
 
@@ -38,7 +38,7 @@ Configure a persistent volume with the following options:
 
 - `containerPath`: The path where your application will read and write data. This must be a single-level path relative to the container; it cannot contain a forward slash (`/`). (`"data"`, but not `"/data"`, `"/var/data"` or `"var/data"`).
 - `mode`: The access mode of the volume. Currently, `"RW"` is the only possible value and will let your application read from and write to the volume.
-- `persistent.type`: The type of Mesos disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
+- `persistent.type`: The type of Apache&reg; Mesos&reg; disk resource to use; the valid options are `root`, `path`, and `mount`, corresponding to the [valid Mesos multi-disk resource types](http://mesos.apache.org/documentation/latest/multiple-disk/).
 - `persistent.size`: The size of the persistent volume in MiBs.
 - `persistent.profileName`: (not seen above) The storage [volume profile](/mesosphere/dcos/services/storage/latest/terminology-and-concepts/#volume-profile). Only volumes with the specified profile are used to launch an application. It this option is not given, any volume (with or without a profile) will be used for launching.
 - `persistent.maxSize`: (not seen above) For `root` Mesos disk resources, the optional maximum size of an exclusive mount volume to be considered.
@@ -56,7 +56,7 @@ To set up a stateful application, set `unreachableStrategy` to "disabled".
 
 ## Specify an unsupported container path
 
-To allow you to dynamically add a local persistent volume to a running container and to ensure consistency across operating systems, the value of `containerPath` must be relative. However, your application may require an absolute container path or a relative one with slashes. If your application does require an unsupported `containerPath`, you can work around this restriction by configuring two volumes. The first volume has the absolute container path you need and does not have the `persistent` parameter. The `hostPath` parameter of the first volume must match the relative `containerPath` of the second volume.
+To allow you to add a local persistent volume dynamically to a running container and to ensure consistency across operating systems, the value of `containerPath` must be relative. However, your application may require an absolute container path or a relative one with slashes. If your application does require an unsupported `containerPath`, you can work around this restriction by configuring two volumes. The first volume has the absolute container path you need and does not have the `persistent` parameter. The `hostPath` parameter of the first volume must match the relative `containerPath` of the second volume.
 
 ```json
 {
@@ -78,19 +78,19 @@ The second volume is a persistent volume with a `containerPath` that matches the
 }
 ```
 
-For a complete example, see [Running stateful MySQL on Marathon](#stateful-sql).
+For a complete example, see [Running stateful MySQL&reg; on Marathon](#stateful-sql).
 
-# Create a stateful application via the DC/OS web interface
+# Create a stateful application using the DC/OS web interface
 
 1. Click the **Services** tab, then **RUN A SERVICE**.
 1. Click the **Volumes** tab.
 1. Choose the size of the volume or volumes you will use. Be sure that you choose a volume size that will fit the needs of your application; you will not be able to modify this size after you launch your application.
-1. Specify the container path from which your application will read and write data. The container path must be non-nested and cannot contain slashes e.g. `data`, but not  `../../../etc/opt` or `/user/data/`. If your application requires such a container path, [use this configuration](#abs-paths).
+1. Specify the container path from which your application will read and write data. The container path must be non-nested and cannot contain slashes, for example, `data`, but not  `../../../etc/opt` or `/user/data/`. If your application requires such a container path, [use this configuration](#abs-paths).
 1. Click **Create**.
 
 # Scale stateful applications
 
-When you scale your app down, the volumes associated with the terminated instances are detached but all resources are still reserved. At this point, you may delete the tasks via the Marathon API, which will free reserved resources and destroy the persistent volumes.
+When you scale your app down, the volumes associated with the terminated instances are detached but all resources are still reserved. At this point, you may delete the tasks through the Marathon API, which will free reserved resources and destroy the persistent volumes.
 
 Since all the resources your application needs are still reserved when a volume is detached, you may wish to destroy detached volumes to allow other applications and frameworks to use the resources. You may wish to leave them in the detached state, however, if you think you will be scaling your app up again; the data on the volume will still be there. If your app is destroyed, any associated volumes and reserved resources will also be deleted. Mesos will currently not remove the data but might do so in the future.
 
@@ -180,7 +180,7 @@ Be aware of the following issues and limitations when using stateful application
 
 ## Resource requirements
 
-Currently, the resource requirements--volume size, cpu usage, memory requirements, and so forth--of a stateful application **cannot** be changed once you have deployed the app definition.
+Currently, the resource requirements - volume size, CPU usage, memory requirements, and so forth - of a stateful application **cannot** be changed once you have deployed the app definition.
 
 ## Replication and backups
 
@@ -209,7 +209,7 @@ The temporary Mesos sandbox is still the target for the `stdout` and `stderr` lo
 
 ## Stateful MySQL on Marathon
 
-The default MySQL Docker image does not allow you to change the data folder. Since we cannot define a persistent volume with an absolute nested `containerPath` like `/var/lib/mysql`, we configure a workaround to set up a Docker mount from hostPath `mysqldata` (relative to the Mesos sandbox) to `/var/lib/mysql` (the path that MySQL attempts to read/write):
+The default MySQL Docker&reg; image does not allow you to change the data folder. Since we cannot define a persistent volume with an absolute nested `containerPath` like `/var/lib/mysql`, we configure a workaround to set up a Docker mount from hostPath `mysqldata` (relative to the Mesos sandbox) to `/var/lib/mysql` (the path that MySQL attempts to read/write):
 
 ```json
 {
@@ -293,7 +293,7 @@ The complete JSON application definition reads as follows:
 
 ## Stateful PostgreSQL on Marathon
 
-Creating an app definition for PostgreSQL on Marathon is similar to creating a defintion for MySQL. To prevent Postgres from storing data in a `/pgdata` folder that is not persisted or in a location that must be owned by `root`, you should avoid using the `$PGDATA` environment variable. Instead, you can use the app definition to configure two persistent volumes with settings similar to the following:
+Creating an app definition for PostgreSQL&reg; on Marathon is similar to creating a definition for MySQL. To prevent Postgres from storing data in a `/pgdata` folder that is not persisted or in a location that must be owned by `root`, you should avoid using the `$PGDATA` environment variable. Instead, you can use the app definition to configure two persistent volumes with settings similar to the following:
 
 ```json
 {
@@ -446,14 +446,14 @@ The following example will create a pod with two containers and one shared persi
 
 ## Inspect/delete suspended stateful tasks
 
-To destroy and clean up persistent volumes and free the reserved resources associated with a task, perform two steps:
+To destroy and clean up persistent volumes and free the reserved resources associated with a task, perform these steps:
 
 1. Locate the agent containing the persistent volume and remove the data inside it.
 1. Send an HTTP DELETE request to Marathon that includes the `wipe=true` flag.
 
 To locate the agent, inspect the Marathon UI and check out the detached volumes on the **Volumes** tab. Or, query the `/v2/apps` endpoint, which provides information about the `host` and Mesos `slaveId`.
 
-```
+```http
 http GET http://dcos/service/marathon/v2/apps/postgres/tasks
 ```
 
@@ -481,7 +481,7 @@ You can then
 1. Remove the data on disk by `ssh'ing` into the agent and running the `rm -rf <volume-path>/*` command.
 1. Delete the task with `wipe=true`, which will expunge the task information from the Marathon internal repository and eventually destroy the volume and unreserve the resources previously associated with the task:
 
-    ```
+    ```http
     http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab8733-fd96-11e5-8e70-76a1c19f8c3d?wipe=true
     ```
 
@@ -489,6 +489,6 @@ You can then
 
 You can view the status of your application with persistent local volumes. After you have created your application, click the **Volumes** tab of the application detail view to get detailed information about your app instances and associated volumes.
 
-The Status column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently the only Operation Type available is read/write (RW).
+The Status column tells you if your app instance is attached to the volume or not. The app instance will read as "detached" if you have scaled down your application. Currently, the only Operation Type available is read/write (RW).
 
 Click a volume to view the Volume Detail Page, where you can see information about the individual volume.

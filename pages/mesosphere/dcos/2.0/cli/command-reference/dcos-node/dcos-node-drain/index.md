@@ -15,7 +15,7 @@ The `dcos node drain` command allows you to drain a Mesos agent so that its task
 
 # Usage
 
-```
+```bash
 dcos node drain <mesos-id>
 ```
 

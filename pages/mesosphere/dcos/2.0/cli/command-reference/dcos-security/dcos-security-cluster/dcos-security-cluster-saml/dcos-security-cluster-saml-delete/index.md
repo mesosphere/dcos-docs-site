@@ -15,7 +15,7 @@ The `dcos security cluster saml delete` command allows you to delete a SAML prov
 
 # Usage
 
-```
+```bash
 dcos security cluster saml delete [OPTIONS] SAML_ID
 ```
 

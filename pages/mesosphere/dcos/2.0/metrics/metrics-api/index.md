@@ -8,18 +8,18 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 beta: false
 ---
-You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications. The Metrics API is one way to get metrics from DC/OS. It is designed for occasional targeted access to specific tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. It is recommended to use the [DC/OS Monitoring service](/mesosphere/dcos/services/dcos-monitoring/1.0.0/) to monitor all the metrics on your cluster.
+You can use the Metrics API to poll periodically for data about your cluster, hosts, containers, and applications. The Metrics API is one way to get metrics from DC/OS&trade;. It is designed for occasional targeted access to specific tasks and hosts. It is not the best way to get a comprehensive picture of all metrics on DC/OS. It is recommended to use the [DC/OS Monitoring service](/mesosphere/dcos/services/dcos-monitoring/1.0.0/) to monitor all the metrics on your cluster.
 
-The Metrics API is backed by [Telegraf](/mesosphere/dcos/2.0/overview/architecture/components/#telegraf), which runs on all nodes in the cluster.
+The Metrics API is backed by [Telegraf&trade;](/mesosphere/dcos/2.0/overview/architecture/components/#telegraf), which runs on all nodes in the cluster.
 
 To get started with the DC/OS metrics component and how to use the Metrics API, see the [Metrics Quick Start Guide](/mesosphere/dcos/2.0/metrics/quickstart/).
 
 
 # Routes
 
-Access to the Metrics API is proxied via Admin Router to each node. Statistics for the current leader are prefixed with:
+Access to the Metrics API is proxied through Admin Router to each node. Statistics for the current leader are prefixed with:
 
-```
+```sh
 /system/v1/metrics/v0/
 ```
 
@@ -27,11 +27,11 @@ Access to the Metrics API is proxied via Admin Router to each node. Statistics f
 
 Statistics for an agent are prefixed with:
 
-```
+```sh
 /system/v1/agent/{agent_id}/metrics/v0/
 ```
 
-To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/2.0/api/access/). The agent ID of a node is its Mesos ID.
+To determine the URL of your cluster, see [Cluster Access](/mesosphere/dcos/2.0/api/access/). The agent ID of a node is its Apache&reg; Mesos&reg; ID.
 
 
 # Format
@@ -40,13 +40,13 @@ The Metrics API request and response bodies are formatted in JSON.
 
 Requests must include the accept header:
 
-```
+```sh
 Accept: application/json
 ```
 
 Responses will include the content type header:
 
-```
+```sh
 Content-Type: application/json
 ```
 

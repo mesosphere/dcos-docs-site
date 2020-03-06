@@ -154,7 +154,7 @@ If a user wants to use a different storage vendor, he/she will need to either di
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
@@ -287,7 +287,7 @@ The user will need to either turn off the local volume provisioner addon, or set
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:

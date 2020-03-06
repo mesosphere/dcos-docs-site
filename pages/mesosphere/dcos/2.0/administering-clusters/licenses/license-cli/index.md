@@ -19,7 +19,7 @@ The `dcos license` commands are also documented in the [CLI Command Reference](/
 
 # List licenses
 
-```
+```bash
 dcos license list
 ```
 
@@ -27,7 +27,7 @@ dcos license list
 
 At every update of license terms, you pass a new license to the DC/OS Licensing component.
 
-```
+```bash
 dcos license renew <file-path>
 ```
 
@@ -35,7 +35,7 @@ dcos license renew <file-path>
 
 To retrieve licenses, run
 
-```
+```bash
 dcos license get [--decryption-key] [<id>|active]
 ```
 
@@ -46,7 +46,7 @@ You can specify an optional path where to store the license. Returns the active 
 You can specify an optional path where to store the audit data with the command `dcos license audit get`. This command takes an optional identifier to retrieve the data generated for a specific license. If you want to decrypt the audit data, you can use the `dcos license get --decryption-key` command to retrieve the decryption key.
 
 
-```
+```bash
 dcos license audit get [<id>|active]
 ```
 
@@ -56,7 +56,7 @@ dcos license audit get [<id>|active]
 The command `dcos license status` displays license terms and breaches. Optional flags can be used to filter the information.
 
 
-```
+```bash
 dcos license status [--terms] [--breaches]
 ```
 

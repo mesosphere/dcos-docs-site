@@ -32,13 +32,13 @@ The Mesos DNS API request and response bodies are formatted in JSON.
 
 Requests must include the accept header:
 
-```
+```bash
 Accept: application/json
 ```
 
 Responses will include the content type header:
 
-```
+```bash
 Content-Type: application/json
 ```
 

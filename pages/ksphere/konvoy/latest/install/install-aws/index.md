@@ -14,8 +14,8 @@ This section guides you through the basic steps to prepare your environment and 
 ## Prerequisites
 
 * The [aws][install_aws] command line utility
-* [Docker Desktop][install_docker] version 18.09.2 or later
-* [kubectl][install_kubectl] v1.15.5 or later (for interacting with the running cluster)
+* [Docker Desktop][install_docker] _version 18.09.2 or newer_
+* [kubectl][install_kubectl] _v1.16.4 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured][aws_credentials].
   You must be authorized to create the following resources in the AWS account:
   * EC2 Instances
@@ -71,6 +71,7 @@ Below is the minimal IAM policy required:
                 "ec2:DescribeKeyPairs",
                 "ec2:DescribeNetworkAcls",
                 "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribePrefixLists",
                 "ec2:DescribeRouteTables",
                 "ec2:DescribeSecurityGroups",
                 "ec2:DescribeSubnets",
@@ -131,9 +132,8 @@ This command creates your [Amazon EC2][ec2] instances, installs Kubernetes, and 
 
 Specifically, the `konvoy up` command does the following:
 
-* Provisions three `t3.large` EC2 instances as Kubernetes master nodes
-* Provisions four `t3.xlarge` EC2 instances as Kubernetes worker nodes
-<a name="aws_add-ons"></a>
+* Provisions three `m5.xlarge` EC2 instances as Kubernetes master nodes
+* Provisions four `m5.2xlarge` EC2 instances as Kubernetes worker nodes
 * Deploys all of the following default addons:
   * Calico
   * CoreDNS
@@ -163,6 +163,22 @@ To customize the cluster name, run the following command:
 ```bash
 konvoy up --cluster-name <YOUR_SPECIFIED_NAME>
 ```
+
+**NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
+
+## Show planned infrastructure changes
+
+Before running `konvoy up` or `konvoy provision` it is also possible to show the calculated changes that would be performed on the infrastructure by [Terraform][terraform].
+
+Running the following command should result in a similar output:
+
+```text
+$ konvoy provision --plan-only
+...
+Plan: 41 to add, 0 to change, 0 to destroy.
+```  
+
+**NOTE:** This command can be run before the initial provisionioning or at any point after modifications are made to the `cluster.yaml` file.
 
 ## Control plane and worker nodes
 
@@ -221,9 +237,9 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [prerequisites]: #prerequisites
-[cluster_configuration]: ../../reference/cluster-configuration/
-[kubectl]: ../../operations/accessing-the-cluster/index.md#using-kubectl
-[ops_portal]: ../../operations/accessing-the-cluster/index.md#using-the-operations-portal
+[cluster_configuration]: ../../reference/cluster-configuration
+[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
+[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
 [ec2]: https://aws.amazon.com/ec2/
 [control_plane]: https://kubernetes.io/docs/concepts/overview/components/
 [pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
@@ -232,4 +248,4 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 [state]: https://www.terraform.io/docs/state/
-[concepts]: ../../concepts/
+[concepts]: ../../concepts

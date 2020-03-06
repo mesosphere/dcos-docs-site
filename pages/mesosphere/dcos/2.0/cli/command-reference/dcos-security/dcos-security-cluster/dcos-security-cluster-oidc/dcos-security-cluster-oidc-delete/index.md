@@ -15,7 +15,7 @@ The `dcos security cluster oidc delete` command allows you to delete an OpenID C
 
 # Usage
 
-```
+```bash
 dcos security cluster oidc delete [OPTIONS] OIDC_ID
 ```
 

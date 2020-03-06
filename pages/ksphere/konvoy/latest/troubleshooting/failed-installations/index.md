@@ -37,7 +37,7 @@ Please refresh your AWS credentials; the AWS API could not be reached with your 
 This error message indicates that the credentials in `~/.aws/credentials` and any provided `AWS_PROFILE` therein are expired and need to be renewed.
 
 This issue is specific to security credentials for Amazon Web Services (AWS).
-For more information about AWS security credentials or how to renew or replace invalid credentials, see the [AWS Temporary Credentials Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) and the [requirements documentation](../../install/install-aws/index.md#prerequisites).
+For more information about AWS security credentials or how to renew or replace invalid credentials, see the [AWS Temporary Credentials Documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html) and the [requirements documentation](../../install/install-aws#prerequisites).
 
 ### Hosts are unreachable after provisioning
 

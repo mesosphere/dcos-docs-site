@@ -99,6 +99,7 @@ Figure 1 - Azure Container Service architecture using DC/OS
 
 The following list shows the components used by DC/OS itself. You will note that the core components center around Mesos, Marathon, Python, and so on.
 
+<!-- Note to translators: do not translate this list. -->
 
 - adminrouter
 - boost-system

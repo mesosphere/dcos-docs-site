@@ -15,7 +15,7 @@ The `dcos node metrics details` command prints a table of all metrics for the ag
 
 # Usage
 
-```
+```bash
 dcos node metrics details <mesos-id>  [--json]
 ```
 

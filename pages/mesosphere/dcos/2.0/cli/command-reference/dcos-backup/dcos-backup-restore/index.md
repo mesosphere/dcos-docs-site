@@ -35,7 +35,7 @@ dcos backup restore <backup id> [flags]
 
 1. To restore from an existing backup, you will need the backup ID. Run the command `dcos backup list` to get a list of your backups.
 
-    ```
+    ```bash
     $ dcos backup list
     BACKUP ID                                        VERSION     STATUS           TIMESTAMP
     ---------                                        -------     ------           ---------

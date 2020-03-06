@@ -46,7 +46,7 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.0/gui/comp
 
     ### Components Tab
 
-    ```
+    ```bash
     dcos:adminrouter:ops:historyservice full
     dcos:adminrouter:ops:system-health full
     ```
@@ -55,7 +55,7 @@ You can grant users access to the [**Components**](/mesosphere/dcos/2.0/gui/comp
 
     ### Components Tab
 
-    ```
+    ```bash
     dcos:adminrouter:ops:historyservice full
     dcos:adminrouter:ops:system-health full
     ```

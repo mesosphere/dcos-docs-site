@@ -15,7 +15,7 @@ The `dcos security org service-accounts keypair` command lets you create a publi
 
 # Usage
 
-```
+```bash
 dcos security org service-accounts keypair [OPTIONS] PRIVATE_KEY PUBLIC_KEY
 ```
 

@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 Access to the License API is proxied through the Admin Router on each master node using the following route:
 
-```
+```bash
 /licensing/v1
 ```
 
@@ -24,19 +24,19 @@ The License API request and response bodies are formatted in JSON.
 
 Requests must include the accept header:
 
-```
+```bash
 Accept: application/json
 ```
 
 Responses include the content type header:
 
-```
+```bash
 Content-Type: application/json
 ```
 
 or
 
-```
+```bash
 Content-Type: application/x-tar
 ```
 

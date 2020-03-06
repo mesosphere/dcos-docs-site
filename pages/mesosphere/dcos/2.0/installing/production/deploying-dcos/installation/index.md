@@ -197,7 +197,7 @@ In the following instructions, we assume that you are using ZooKeeper for shared
 
     Here is an example of a hashed password output.
 
-    ```
+    ```text
     Extracting an image from this script and loading it into a docker daemon, can take a few minutes.
     dcos-genconf.9eda4ae45de5488c0c-c40556fa73a00235f1.tar
     Running mesosphere/dcos-genconf docker with BUILD_DIR set to /home/centos/genconf
@@ -428,7 +428,7 @@ At this point your directory structure should resemble:
             sudo bash dcos_install.sh slave_public
             ```
 
-    __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/2.0/installing/production/system-requirements/ports/) documentation.
+    <p class="message--note"><strong>NOTE: </strong> If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the <a href="mesosphere/dcos/2.0/installing/production/system-requirements/ports/">system requirements</a> documentation.</p>
 
 5.  Monitor the DC/OS web interface and wait for it to display at: `http://<master-node-public-ip>/`. 
 

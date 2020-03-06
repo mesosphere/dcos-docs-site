@@ -129,7 +129,7 @@ For example, you can configure bastion host settings using a special [node pool]
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   nodePools:
   - name: bastion
@@ -138,7 +138,7 @@ spec:
     machine:
       rootVolumeSize: 10
       rootVolumeType: gp2
-      type: t3.small
+      type: m5.large
   sshCredentials:
     user: centos
     publicKeyFile: konvoy-ssh.pub

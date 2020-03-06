@@ -289,7 +289,7 @@ You must set the `LC_ALL` and `LANG` environment variables to `en_US.utf-8`.
 - For information on how to set these variables in Red Hat, see [How to change system locale on RHEL](https://access.redhat.com/solutions/974273)
 
 - On Linux:
-````
+```bash
 localectl set-locale LANG=en_US.utf8
 ````
 

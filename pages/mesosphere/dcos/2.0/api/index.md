@@ -70,7 +70,7 @@ Most authenticated routes also require authorization using permissions. Permissi
 
 - **Proxy routes** To determine the full URL of a API resource through a **proxy route**, join the cluster URL, route, and backend component resource path.
 
-    ```
+    ```text
     <cluster-url>/<route>/<resource-path>
     ```
 
@@ -78,7 +78,7 @@ Most authenticated routes also require authorization using permissions. Permissi
 
 - **File routes** have no backend component, but may serve a directory of files or a single file. So for file routes, specify the file path instead of the backend component resource path.
 
-    ```
+    ```text
     <cluster-url>/<route>/<file-path>
     ```
 
@@ -86,7 +86,7 @@ Most authenticated routes also require authorization using permissions. Permissi
 
 - **Lua routes** immediately execute code in Admin Router without proxying to an external backend component. For Lua routes, no path is required after the route.
 
-    ```
+    ```text
     <cluster-url>/<route>
     ```
 

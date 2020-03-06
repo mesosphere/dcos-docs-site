@@ -15,7 +15,7 @@ The `dcos security secrets update` command lets you update an existing secret st
 
 # Usage
 
- ```
+ ```bash
 dcos security secrets update [OPTIONS] PATH
  ```
 

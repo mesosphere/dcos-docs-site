@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-The DC/OS network stack provides
+The Mesosphere&reg; DC/OS&trade; network stack provides
 - [IP connectivity to containers](#IP-connectivity)
 - built-in [DNS-based service discovery](#DNS-discovery)
 - layer 4 and layer 7 [load balancing](#load-balancing)
@@ -21,16 +21,16 @@ A container running on DC/OS can obtain an IP address using one of the three net
 * [Bridge mode networking](#bridge-mode)
 * [Container mode networking](#container-mode)
 
-These three networking modes are available for all the containers regardless of the container runtime (UCR or Docker) used to launch them.
+These three networking modes are available for all the containers regardless of the container runtime (UCR or Docker&reg;) used to launch them.
 
 ## <a name="host-mode"></a>Host mode networking
-In host mode, the containers run on the same network as the other DC/OS system services such as Mesos and Marathon. They share the same Linux network namespace and see the same IP address and ports seen by DC/OS system services. Host mode networking is the most restrictive; it does not allow the containers to use the entire TCP/UDP port range, and the applications have to be able to use whatever ports are available on an agent.
+In host mode, the containers run on the same network as the other DC/OS system services such as Apache&reg; Mesos&reg; and Marathon&trade;. They share the same Linux network namespace and see the same IP address and ports seen by DC/OS system services. Host mode networking is the most restrictive. It does not allow the containers to use the entire TCP/UDP port range, and the applications have to be able to use whatever ports are available on an agent.
 
 ## <a name="bridge-mode"></a>Bridge mode networking
-In bridge mode, the containers are launched on a Linux bridge, created within the DC/OS agent. Containers running in this mode get their own Linux network namespace and IP address; they are able to use the entire TCP/UDP port range. This mode is very useful when the application port is fixed. The main issue with using this mode is that the containers are accessible only through port-mapping rules to the containers running on another agent. Both UCR and Docker install port-mapping rules for any container that is launched on bridge mode networking.
+In bridge mode, the containers are launched on a Linux bridge, created within the DC/OS agent. Containers running in this mode get their own Linux&reg; network namespace and IP address - they are able to use the entire TCP/UDP port range. This mode is very useful when the application port is fixed. The main issue with using this mode is that the containers are accessible only through port-mapping rules to the containers running on another agent. Both UCR and Docker install port-mapping rules for any container that is launched on bridge mode networking.
 
 ## <a name="container-mode"></a>Container mode networking
-In this mode, the containers are allowed to run on a wide variety of software-defined networks (SDNs). DC/OS supports the [CNI (Container network interface)](https://github.com/containernetworking/cni) standard for UCR containers, and [CNM (Container network model)](https://github.com/docker/libnetwork) standard for Docker containers. Using CNI and CNM, DC/OS is able to plumb containers onto any virtual network defined by an SDN provider that supports the CNI or CNM standard. Of the three modes, this is the most flexible and feature-rich since the containers get their own Linux network namespace and connectivity between containers is guaranteed by the underlying SDN network without the need to rely on port-mapping rules on the agent. Further, since SDNs can provide network isolation through firewalls, and are very flexible, it makes it easy for the operator to run multi-tenant clusters. This networking mode also allows the container's network to be completely isolated from the host network, thus giving an extra level of security to the host-network by protecting it from DDOS attacks from malicious containers running on top of DC/OS.
+In this mode, the containers are allowed to run on a wide variety of software-defined networks (SDNs). DC/OS supports the [CNI&trade; (Container network interface)](https://github.com/containernetworking/cni) standard for UCR containers, and [CNM (Container network model)](https://github.com/docker/libnetwork) standard for Docker containers. Using CNI and CNM, DC/OS is able to plumb containers onto any virtual network defined by an SDN provider that supports the CNI or CNM standard. Of the three modes, this is the most flexible and feature-rich since the containers get their own Linux network namespace and connectivity between containers is guaranteed by the underlying SDN network without the need to rely on port-mapping rules on the agent. Further, since SDNs can provide network isolation through firewalls, and are very flexible, it makes it easy for the operator to run multi-tenant clusters. This networking mode also allows the container's network to be completely isolated from the host network, thus giving an extra level of security to the host-network by protecting it from DDOS attacks from malicious containers running on top of DC/OS.
 
 
 # <a name="DNS-discovery"></a>DNS-Based Service Discovery
@@ -40,7 +40,7 @@ DC/OS includes a highly available and distributed DNS-based service discovery. T
 - A distributed component called `dcos-dns`, that runs as an application within an Erlang VM called `dcos-net`. The Erlang VM `dcos-net` runs on every node (agents and masters) in the cluster.
 
 ## Mesos DNS
-Mesos DNS is a centralized and replicated, DNS server that runs on every master. Each instance of Mesos DNS polls the leading Mesos master and generates a fully qualified domain name (FQDN) for every application launched by DC/OS. All these FQDNs have the top level domain (TLD) of `.mesos`.  For more information, see the [Mesos DNS documentation](/mesosphere/dcos/2.0/networking/DNS/mesos-dns/).
+Mesos DNS is a centralized and replicated DNS server that runs on every master. Each instance of Mesos DNS polls the leading Mesos master and generates a fully-qualified domain name (FQDN) for every application launched by DC/OS. All these FQDNs have the top level domain (TLD) of `.mesos`.  For more information, see the [Mesos DNS documentation](/mesosphere/dcos/2.0/networking/DNS/mesos-dns/).
 
 ## DCOS DNS
 `dcos-dns` is a distributed DNS server that runs on each agent as well as master, as part of an Erlang VM called `dcos-net`. This makes it highly available. The instance that is running on the leading master periodically polls the leading master state and generates FQDNs for every application launched by DC/OS. It then sends this information to its peers in the cluster. All these FQDNs have a TLD of `.directory`.

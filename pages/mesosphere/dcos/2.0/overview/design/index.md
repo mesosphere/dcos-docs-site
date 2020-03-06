@@ -8,4 +8,4 @@ model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 10
 ---
 
-This section explains the technical details of specific DC/OS engineering implementations.
+This section explains the technical details of specific DC/OS&trade; engineering implementations.

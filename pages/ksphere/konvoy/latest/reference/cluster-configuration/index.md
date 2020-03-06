@@ -29,7 +29,7 @@ In this example, the `cluster.yaml` file specifies `AWS` as the public cloud pro
 
 ---
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy-cluster
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
@@ -37,6 +37,9 @@ spec:
   provider: aws
   aws:
     region: us-west-2
+    vpc:
+      enableInternetGateway: true
+      enableVPCEndpoints: true
     availabilityZones:
     - us-west-2c
     tags:
@@ -51,86 +54,79 @@ spec:
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
       imagefsVolumeDevice: xvdb
-      type: t3.xlarge
+      type: m5.2xlarge
   - name: control-plane
     controlPlane: true
     count: 3
     machine:
       rootVolumeSize: 80
-      rootVolumeType: gp2
+      rootVolumeType: io1
+      rootVolumeIOPS: 1000
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: gp2
       imagefsVolumeDevice: xvdb
-      type: t3.large
+      type: m5.xlarge
   - name: bastion
     bastion: true
     count: 0
     machine:
       rootVolumeSize: 10
       rootVolumeType: gp2
-      type: t3.small
+      imagefsVolumeEnabled: false
+      type: m5.large
   sshCredentials:
     user: centos
     publicKeyFile: konvoy-owner-ssh.pub
     privateKeyFile: konvoy-owner-ssh.pem
-  version: v1.2.0
+  version: v1.3.0
 
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
+apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
-  name: dkkonvoydocs
-  creationTimestamp: "2019-09-27T22:12:55.6996713Z"
+  name: konvoy-cluster
+  creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.15.5
-    controlPlane:
-      controlPlaneEndpointOverride: ""
-      certificate: {}
-      keepalived:
-        enabled: false
+    version: 1.16.4
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
-      httpProxy: ""
-      httpsProxy: ""
     cloudProvider:
       provider: aws
     admissionPlugins:
       enabled:
-      - NodeRestriction
       - AlwaysPullImages
-      disabled: []
-    preflightChecks:
-      errorsToIgnore: []
+      - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.8.2
+      version: v3.10.1
+      encapsulation: ipip
+      mtu: 1480
   containerRuntime:
     containerd:
       version: 1.2.6
-      configData:
-        data: ""
-        replace: false
-  packageRepository:
-    defaultRepositoryInstallationDisabled: false
+  osPackages:
+    enableAdditionalRepositories: true
   nodePools:
   - name: worker
-    gpu:
-      nvidia:
-        enabled: false
   addons:
-    configRepository: https://github.com/mesosphere/kubeaddons-configs
-    configVersion: stable-1.15.5-2
+    configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: stable-1.16-1.2.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
     - name: awsebsprovisioner
       enabled: false
+      values: |
+        storageclass:
+          isDefault: false
     - name: cert-manager
       enabled: true
     - name: dashboard
+      enabled: true
+    - name: defaultstorageclass-protection
       enabled: true
     - name: dex
       enabled: true
@@ -140,15 +136,41 @@ spec:
       enabled: true
     - name: elasticsearchexporter
       enabled: true
+    - name: external-dns
+      enabled: true
+      values: |
+        aws:
+          region:
+        domainFilters: []
+    - name: flagger
+      enabled: false
     - name: fluentbit
       enabled: true
-    - name: helm
+    - name: gatekeeper
       enabled: true
+    - name: istio # Istio is currently in Preview
+      enabled: false
     - name: kibana
       enabled: true
-    - name: kommander
+    - name: konvoyconfig
+      enabled: true
+    - name: kube-oidc-proxy
       enabled: true
     - name: localvolumeprovisioner
+      enabled: false
+      values: |
+        # Multiple storage classes can be defined here. This allows to, e.g.,
+        # distinguish between different disk types.
+        # For each entry a storage class '$name' and
+        # a host folder '/mnt/$dirName' will be created. Volumes mounted to this
+        # folder are made available in the storage class.
+        storageclasses:
+          - name: localvolumeprovisioner
+            dirName: disks
+            isDefault: false
+            reclaimPolicy: Delete
+            volumeBindingMode: WaitForFirstConsumer
+    - name: nvidia
       enabled: false
     - name: opsportal
       enabled: true
@@ -156,13 +178,26 @@ spec:
       enabled: true
     - name: prometheusadapter
       enabled: true
+    - name: reloader
+      enabled: true
     - name: traefik
       enabled: true
     - name: traefik-forward-auth
       enabled: true
     - name: velero
       enabled: true
-  version: v1.2.0
+  - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: false
+  - configRepository: https://github.com/mesosphere/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: kommander
+      enabled: true
+  version: v1.3.0
+
 ```
 
 ## ClusterProvisioner settings
@@ -206,14 +241,45 @@ spec:
 | `vpc.ID`                | [AWS VPC][aws_vpc_and_subnets] ID where the cluster should be launched      | `""`    |
 | `vpc.routeTableID`      | [AWS RouteTable][aws_route_table] ID that is used by the subnets in the VPC | `""`    |
 | `vpc.internetGatewayID` | [AWS Internet Gateway][aws_internet_gateway] ID assigned to the VPC         | `""`    |
-| `vpc.internetGatewayDisabled` | Disable creating an [AWS Internet Gateway][aws_internet_gateway] when creating the VPC | `false` |
-| `vpc.vpcEndpointsDisabled`    | Disable creating [AWS VPC Endpoints][aws_vpc_endpoints] when creating the VPC | `false` |
+| `vpc.enableInternetGateway` | Enable creating an [AWS Internet Gateway][aws_internet_gateway] when creating the VPC | `true` |
+| `vpc.enableVPCEndpoints`    | Enable creating [AWS VPC Endpoints][aws_vpc_endpoints] when creating the VPC | `true` |
 
 ### spec.elb
 | Parameter               | Description                                                                 | Default |
 | ----------------------- | ----------------------------------------------------------------------------| ------- |
 | `elb.internal`          | Set to true to make the ELB internal                                        | false   |
 | `elb.subnetIDs`         | [AWS Subnet][aws_vpc_and_subnets] IDs where ELBs will be launched on        | `[]`    |
+
+### spec.azure
+
+| Parameter               | Description                                                                      | Default               |
+| ----------------------- | -------------------------------------------------------------------------------- | --------------------- |
+| `azure.location`            | [Azure location][azure_location] where your cluster is hosted                            |  `westus`          |
+| `azure.availabilitySet` | [Azure availability sets][availability_set] Availability set define grouping capability for isolating VMs from each other     | `N/A`        |
+| `azure.tags`              | Additional [Azure tags][azure_tags] for the resources provisioned through the Konvoy CLI | `[owner: <username>]` |
+| `aws.vnet`               | [Azure VNET][azure_vnet] to use when deploying a cluster                   | N/A                   |  
+| `azure.loadbalancer`               | [Azure LoadBalancer][azure_loadbalancer] The LoadBalancer used by the kube-apiservers                           | N/A                   |
+
+#### spec.azure.vnet
+
+| Parameter               | Description                                                                      | Default               |
+| ----------------------- | -------------------------------------------------------------------------------- | --------------------- |
+| `vnet.name`            | Name of the virtual network                            |  `""`          |
+| `vnet.resourceGroup` | Resource group for the virtual network     | `""`        |
+| `vnet.routeTable`              | RouteTable for the virtual network | `""` |
+
+#### spec.azure.availabilitySet
+
+| Parameter               | Description                                                                      | Default               |
+| ----------------------- | -------------------------------------------------------------------------------- | --------------------- |
+| `availabilitySet.faultDomainCount`            | Fault domain defines the amount of VMs with common storage as well as a common power source and network switch                            |  `3`          |
+| `availabilitySet.updateDomainCount` | Update domain defines the amount of VMs and underlying physical hardware that can be rebooted at the same time     | `3`        |
+
+#### spec.azure.loadbalancer
+
+| Parameter               | Description                                                                      | Default               |
+| ----------------------- | -------------------------------------------------------------------------------- | --------------------- |
+| `loadbalancer.internal` | Load Balancer to balance internal traffic among VMs               |  `""`          |
 
 ### spec.docker
 
@@ -231,12 +297,12 @@ The default value of this entire object is `omitted`.
 
 #### nodePool
 
-| Parameter               | Description                                                                                    | Default\[0]       | Default\[1]       |
+| Parameter               | Description                                                                                    | Default Worker    | Default Control-Plane     |
 | ----------------------- | ---------------------------------------------------------------------------------------------- | ----------------- | ----------------- |
 | `nodePool.name`         | Specifies a unique name that defines a node-pool.                                                           | `"worker"`        | `"control-plane"` |
 | `nodePool.controlPlane` | Determines if a node-pool defines a Kubernetes Master node. Only one such `nodePool` can exist. | `omitted (false)` | `true`            |
 | `nodePool.count`        | Defines the number of nodes in a node-pool. You should set the `count` to an odd number for `controlPlane` nodes to help keep `etcd` store consistent. A node pool count of 3 is considered “highly available” to protect against failures. | `4`               | `3`               |
-| `nodePool.machine`      | Specifies cloud-provider details about the machine types to use.                                          | See [spec.nodePool.machine](#specnodepoolmachine) | See \[0] |
+| `nodePool.machine`      | Specifies cloud-provider details about the machine types to use.                                          | See [spec.nodePool.machine](#specnodepoolmachine) | See [spec.nodePool.machine](#specnodepoolmachine) |
 
 ##### spec.nodePool.machine
 
@@ -244,19 +310,34 @@ The default value of this entire object is `omitted`.
 
 ###### AWS (machine)
 
-| Parameter                     | Description                                                                                                 | Default\[0]    | Default\[1] |
+| Parameter                     | Description                                                                                                 | Default Worker | Default Control-Plane  |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
-| `machine.imageID`             | [AWS AMI][aws_ami] Specifies the image ID that will be used for the instances instead of the default image. | `omitted ("")` | See \[0]    |
-| `machine.imageName`           | Specifies the Docker image that is used instead of the default image.                                       | `omitted ("")` | See \[0]    |
-| `machine.rootVolumeSize`      | Specifies the size of root volume to use that is mounted on each machine in a node-pool in GiBs.            | `80`           | See \[0]    |
-| `machine.rootVolumeType`      | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                      | `gp2`          | See \[0]    |
-| `machine.imagefsVolumeEnabled`| Specifies whether to enable dedicated disk for image filesystem (for example, `/var/lib/containerd`).       |  `true`        | See \[0]    |
-| `machine.imagefsVolumeSize`   | Specifies the size of imagefs volume to use that is mounted on each machine in a node-pool in GiBs.         | `160`          | See \[0]    |
-| `machine.imagefsVolumeType`   | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                      | `gp2`          | See \[0]    |
-| `machine.imagefsVolumeDevice` | Specifies the [volume's device name][ebs_volume_types] that will be mounted on each machine.                | `xvdb`         | See \[0]    |
-| `machine.type`                | Specifies the [EC2 instance type][ec2_instance_types] to use.                                               | `t3.xlarge`    | `t3.large`  |
+| `machine.imageID`             | [AWS AMI][aws_ami] Specifies the image ID that will be used for the instances instead of the default image. | `omitted ("")` | `omitted ("")` |
+| `machine.imageName`           | Specifies the Docker image that is used instead of the default image.                                       | `omitted ("")` | `omitted ("")`|
+| `machine.rootVolumeSize`      | Specifies the size of root volume to use that is mounted on each machine in a node-pool in GiBs.            | `80`           | `80`    |
+| `machine.rootVolumeType`      | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                      | `gp2`          | `gp2`    |
+| `machine.imagefsVolumeEnabled`| Specifies whether to enable dedicated disk for image filesystem (for example, `/var/lib/containerd`).       |  `true`        | `true`     |
+| `machine.imagefsVolumeSize`   | Specifies the size of imagefs volume to use that is mounted on each machine in a node-pool in GiBs.         | `160`          | `160`   |
+| `machine.imagefsVolumeType`   | Specifies the [volume type][ebs_volume_types] to mount on each machine in a node-pool.                      | `gp2`          | `gp2`     |
+| `machine.imagefsVolumeDevice` | Specifies the [volume's device name][ebs_volume_types] that will be mounted on each machine.                | `xvdb`         | `xvdb`    |
+| `machine.type`                | Specifies the [EC2 instance type][ec2_instance_types] to use.                                               | `m5.2xlarge`   | `m5.xlarge`  |
 | `machine.aws.subnetIDs`       | Specifies the [AWS Subnet][aws_vpc_and_subnets] to launch instances unto.                                   | `[]`           | `[]`        |
 | `machine.aws.iam`             | [AWS IAM][aws_iam] represents access control details                                                        | N/A            |             |
+
+###### Azure (machine)
+
+| Parameter                     | Description                                                                                                 | Default Worker | Default Control-Plane |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- | -------------- | ----------- |
+| `machine.imageID`             | [Azure ImageID][azure_imageid] Specifies the image ID that will be used for the instances instead of the default image. | `omitted ("")` | `omitted ("")`    |
+| `machine.imageName`           | Specifies the Docker image that is used instead of the default image.                                       | `omitted ("")` | `omitted ("")`    |
+| `machine.rootVolumeSize`      | Specifies the size of root volume to use that is mounted on each machine in a node-pool in GiBs.            | `80`           | `80`    |
+| `machine.rootVolumeType`      | Specifies the [volume type][azure_volume_types] to mount on each machine in a node-pool.                      | `Standard_LRS`          | `Standard_LRS`    |
+| `machine.imagefsVolumeEnabled`| Specifies whether to enable dedicated disk for image filesystem (for example, `/var/lib/containerd`).       |  `true`        | `true`    |
+| `machine.imagefsVolumeSize`   | Specifies the size of imagefs volume to use that is mounted on each machine in a node-pool in GiBs.         | `160`          | `160`    |
+| `machine.imagefsVolumeType`   | Specifies the [volume type][azure_volume_types] to mount on each machine in a node-pool.                      | `Standard_LRS`          | `Standard_LRS`    |
+| `machine.imagefsVolumeDevice` | Specifies the [volume's device name][azure_volume_types] that will be mounted on each machine.                | `xvdb`         | `xvdb`    |
+| `machine.type`                | Specifies the [Azure instance type][azure_instance_types] to use.                                               | `Standard_DS3_v2`    | `Standard_DS2_v2`  |
+| `machine.azure.subnetIDs`       | Specifies the [Azure Subnet][azure_subnet_ids] to launch instances unto.                                   | `[]`           | `[]`        |
 
 ### spec.sshCredentials
 
@@ -274,7 +355,7 @@ The default value of this entire object is `omitted`.
 | `spec.containerRuntime` | Specifies the container runtime to use.         | See [spec.containerRuntime](#speccontainerruntime) |
 | `spec.containerNetworking` | Specifies the container networking to use.          | See [spec.containerNetworking](#speccontainernetworking) |
 | `spec.imageRegistries`  | Specifies the container image registries authentication details. | See [spec.imageRegistries](#specimageregistries) |
-| `spec.packageRepository`  | Configure packages repositories | See [spec.packageRepository](#specpackageRepository) |
+| `spec.osPackages`       | Configure OS packages repositories. | See [spec.osPackages](#specosPackages) |
 | `spec.nodePools`        | Specifies the nodePool configuration.         | See [spec.nodePools](#specnodepools) |
 | `spec.addons`           | Specifies the list of addons that can be deployed.  | See [spec.addons](#specaddons) |
 | `spec.version`          | version of a konvoy cluster            | `v1.2.0`                                |
@@ -283,7 +364,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.15.5`                |
+| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.4`                |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#speckubernetescontrolplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#speckubernetesnetworking) |
 | `kubernetes.cloudProvider`     | Specifies the object that defines which cloud-provider to enable.    | See [spec.kubernetes.clouldProvider](#speckubernetescloudprovider)  |
@@ -340,18 +421,24 @@ The default value of this entire object is `omitted`.
 | --------------------------- | ------------------------- | ------- |
 | `preflightChecks.errorsToIgnore` | Specifies a comma separated list of errors to ignore for ansible preflight checks, default depends on provider.  | `""` |
 
+#### spec.kubernetes.kubelet
+
+| Parameter            | Description               | Default |
+| -------------------- | ------------------------- | ------- |
+| `kubelet.cgroupRoot` | Specifies the`--cgroup-root` flag for the Kubelet. | `""` |
+
 ### spec.nodePools
 
 `spec.nodePools` is comprised of an array of `spec.nodePools`.
 
 #### nodePool
 
-| Parameter       | Description                                                                | Default\[0] |  Default\[1] |
+| Parameter       | Description                                                                | Default Worker | Default Control-Plane |
 | --------------- | -------------------------------------------------------------------------- | ----------- | ------------ |
 | `name`          | Specifies the nodePool name corresponding to one in ClusterProvisioner.spec.nodePool. | `"worker"`  | "control-plane" |
-| `labels`        | Specifies the user-defined `spec.nodePool.labels` to set on all nodes in the nodePool.   | See [spec.nodePool.labels](#specnodepoolslabels) | See \[0]   |
-| `taints`        | Specifies the user-defined `spec.nodePool.taints` to set on all nodes in the nodePool.  | See [spec.nodePool.taints](#specnodepoolstaints) | See \[0]   |
-| `gpu`           | Specifies configuration for any GPU enabled nodes in the nodePool.  | See [spec.nodePools.gpu](#specnodepoolsgpu) | See \[0]   |
+| `labels`        | Specifies the user-defined `spec.nodePool.labels` to set on all nodes in the nodePool.   | See [spec.nodePool.labels](#specnodepoolslabels) | See [spec.nodePool.labels](#specnodepoolslabels)   |
+| `taints`        | Specifies the user-defined `spec.nodePool.taints` to set on all nodes in the nodePool.  | See [spec.nodePool.taints](#specnodepoolstaints) | See [spec.nodePool.taints](#specnodepoolstaints)   |
+| `gpu`           | Specifies configuration for any GPU enabled nodes in the nodePool.  | See [spec.nodePools.gpu](#specnodepoolsgpu) | See [spec.nodePools.gpu](#specnodepoolsgpu)   |
 
 ##### spec.nodePools.labels
 
@@ -417,14 +504,16 @@ The default value of this entire object is `omitted`.
 #### spec.containerNetworking.calico
 
 | Parameter               | Description                                                    | Default  |
-| ----------------------- | -------------------------------------------------------------- | -------- |
-| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.8.2` |
+| ----------------------- | -------------------------------------------------------------- | --------- |
+| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.10.1` |
+| `calico.encapsulation`  | Specifies the encapsulation mode. The supported modes are [ipip](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip) and [vxlan](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan) | `ipip` |
+| `calico.mtu`            | Specifies the MTU to use for the veth interfaces.              | Depends on `calico.encapsulation` and provisioner |
 
-### spec.packageRepository
+### spec.osPackages
 
 | Parameter                   | Description               | Default |
 | --------------------------- | ------------------------- | ------- |
-| `packageRepository.defaultRepositoryInstallationDisabled` | disable the installation of Konvoy custom repositories  | `false` |
+| `osPackages.enableAdditionalRepositories` | enable the installation of Mesosphere, Kubernetes and Docker OS repositories  | `true` |
 
 ### spec.imageRegistries
 
@@ -439,19 +528,25 @@ The default value of this entire object is `omitted`.
 | `password`      | Specifies the registry password. This setting requires you to provide a value for the `username` setting.             | N/A        |
 | `auth`          | Contains the base64 encoded `username:password`.                                    | N/A        |
 | `identityToken` | Used to authenticate the user and get an access token.          | N/A        |
-| `default`       | When `true` the registry will be used to pull all images during the installation |  `false` |
 
 ### spec.addons
 
 | Parameter                 | Description                                            | Default       |
 | ------------------------- | ------------------------------------------------------ | ------------- |
-| `addons.configRepository` | Specifies the git repo of the addon configuration files to use.        | `https://github.com/mesosphere/kubeaddons-configs` |
-| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `stable-1.15.5-2`  |
+| `addons.configRepository` | Specifies the git repo of the addon configuration files to use.        | `https://github.com/mesosphere/kubernetes-base-addons` |
+| `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `master`  |
+| `addons.helmRepository`   | Specifies in-cluster helm configuration used during air-gapped installations. | See [spec.addons.helmRepository](#specaddonshelmrepository) |
 | `addons.addonsList`       | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#specaddonsaddonslist) |
+
+#### spec.addons.helmRepository
+
+| Parameter                 | Description                                            | Default       |
+| ------------------------- | ------------------------------------------------------ | ------------- |
+| `addons.helmRepository.image` | Specifies the image of the Helm chart to deploy in the cluster used during air-gapped installations. | N/A |
 
 #### spec.addons.addonsList
 
-`spec.addonsList` is comprised of an array of `addon`s. The default values vary depending on the `provider` given on generation.
+`spec.addons.addonsList` is comprised of an array of `addon`s. The default values vary depending on the `provider` given on generation.
 
 #### addon
 
@@ -481,3 +576,10 @@ Properties of an `addon` object.
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 [aws_elb]: https://aws.amazon.com/elasticloadbalancing/
 [nvidia]: https://docs.nvidia.com/datacenter/kubernetes/kubernetes-upstream/index.html
+[azure_imageiD]: https://azure.microsoft.com/en-in/blog/vm-image-blog-post/
+[azure_location]: https://azure.microsoft.com/en-us/global-infrastructure/locations/
+[azure_vnet]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+[azure_loadbalancer]: https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
+[availability_set]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability
+[azure_tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
+[azure_volume_types]: https://docs.okd.io/latest/install_config/persistent_storage/persistent_storage_azure.html

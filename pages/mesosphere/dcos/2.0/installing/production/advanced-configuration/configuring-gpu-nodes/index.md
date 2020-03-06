@@ -36,7 +36,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
 
 1. Run the `zen.sh` script to create the Zen template dependencies. These dependencies will be used as input to create your stack in CloudFormation.
 
-```
+```bash
 bash ./zen.sh <stack-name>
 ```
 

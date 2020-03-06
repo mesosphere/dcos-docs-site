@@ -17,7 +17,7 @@ menuWeight: 11
 Deploy the file [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-oom.json):
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 ```
 
 Once deployed, when we take a look at the DC/OS web interface, we see some strange results under CPU Allocation:
@@ -26,7 +26,7 @@ Once deployed, when we take a look at the DC/OS web interface, we see some stran
 
 Figure 1. CPU allocation display
 
-**How is it that CPU Allocation is continually oscillating between 0 and 8 percent?** Let’s take a look at the application details in the web interface:
+**Why is the CPU Allocation continually oscillating between 0 and 8 percent?** Let’s take a look at the application details in the web interface:
 
 ![Pic of Task tab](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-24.png)
 

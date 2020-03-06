@@ -32,13 +32,13 @@ dcos cluster list [flags]
 
 # Examples
 
-```
+```bash
 dcos cluster list
       NAME                    CLUSTER ID                  STATUS    VERSION           URL
 MyCluster  00548eb6-9626-47d8-9076-d57b56752225  AVAILABLE    1.13    https://100.220.241.100
 ```
 
-```
+```bash
 dcos cluster list --attached
           NAME                        ID                    STATUS    VERSION                                         URL
   *  user_45-wosq2gi  7edd47b7-7f22-4bd5-b8a9-b53a204aafd3  AVAILABLE  1.13.0   https://user_45-wo-elasticl-1uwhasco5acg9-2062765490.eu-central-1.elb.amazonaws.com

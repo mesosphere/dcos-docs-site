@@ -57,9 +57,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <th Align = "center">1.13.3</th>
     <th Align = "center">1.13.4</th>
     <th Align = "center">1.13.5</th>
+    <th Align = "center">1.13.6</th>
+    <th Align = "center">1.13.7</th>
    </tr>
    <tr>
     <th>1.11.0</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -75,9 +79,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.2</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -93,9 +101,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.4</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -111,9 +123,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.6</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -129,11 +145,15 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.8</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -147,6 +167,8 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.10</th>
@@ -156,6 +178,8 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.11.11</th>
@@ -165,12 +189,27 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.11.12</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.11.13</th>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -183,7 +222,7 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
    <tr>
     <th></th>
-    <th Colspan = "6" Align = "center"><strong>Upgrade To</strong></th>
+    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
    </tr>
     <th></th>
     <th Align = "center">1.13.0</th>
@@ -192,9 +231,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <th Align = "center">1.13.3</th>
     <th Align = "center">1.13.4</th>
     <th Align = "center">1.13.5</th>
+    <th Align = "center">1.13.6</th>
+    <th Align = "center">1.13.7</th>
    </tr>
    <tr>
     <th>1.12.0</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
@@ -210,9 +253,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.12.2</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -228,11 +275,25 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <th>1.12.4</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <th>1.12.5</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -353,7 +414,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
         [enterprise type="inline" size="small" /]
 
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/1.13/release-notes/), for example `1.5.1`.
-	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros. [enterprise type="inline" size="small" /]
+	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. Run the following command and confirm that the `ranges_underreplicated` column shows only zeros.
 	    ```bash
         sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/cockroach --host=$(/opt/mesosphere/bin/detect_ip)
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
@@ -364,7 +425,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
         |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
         +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
 		```
-		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated. [enterprise type="inline" size="small" /]
+		If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero after all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 

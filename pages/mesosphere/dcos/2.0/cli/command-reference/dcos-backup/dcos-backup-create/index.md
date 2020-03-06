@@ -15,7 +15,7 @@ The `dcos backup create` command creates a new [backup of your cluster](/mesosph
 
 # Usage
 
-```
+```bash
 dcos backup create --label [label] [flags]
 ```
 

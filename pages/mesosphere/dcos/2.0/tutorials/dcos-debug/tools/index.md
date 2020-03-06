@@ -32,7 +32,7 @@ DC/OS comes with several tools relevant for application debugging:
 
 ## DC/OS web interfaces
 
-DC/OS provides many web interfaces for various components, these are particularly when debugging application deployment issues:
+DC/OS provides many web interfaces for various components, particularly for debugging application deployment issues:
 
 - [DC/OS web interface](#dcos-ui)
 
@@ -211,7 +211,7 @@ $ dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S
 Then we can use `journatlctl`, to look at the Docker logs:
 
 ```bash
-$ journalctl -u docker
+journalctl -u docker
 ```
 
 which outputs something like this:

@@ -14,7 +14,7 @@ The `dcos security cluster directory test` command tests a connection to the LDA
 
 # Usage
 
-```
+```bash
 dcos security cluster directory test [OPTIONS] UID PASSWORD
 ```
 
