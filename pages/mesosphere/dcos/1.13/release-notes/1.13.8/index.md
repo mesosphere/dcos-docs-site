@@ -5,7 +5,7 @@ title: Release notes for 1.13.8
 menuWeight: 0
 excerpt: Release notes for DC/OS 1.13.8, including Open Source attribution, and version policy.
 ---
-DC/OS 1.13.8 was released on ?? March 2020.
+DC/OS&trade; 1.13.8 was released on ?? March 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -18,11 +18,11 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 # DC/OS 
 
-## Components 
+## Components
 
 DC/OS 1.13.8 includes the following component versions:
 
-- Apache Mesos 1.8.2-dev
+- Apache&reg; Mesos&reg; 1.8.2-dev
 
 ### DC/OS Fixed and Improved Issues
 
@@ -30,7 +30,7 @@ DC/OS 1.13.8 includes the following component versions:
 
 - DC/OS Admin Router now allows large packages of files, up to 32GB, to be uploaded to the Package Registry. (D2iQ-61233, COPS-5615)
 
-- DC/OS no longer increases the rate limit for journald logging. Scale testing demonstrated that raising the limit can overload journald, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763)
+- DC/OS no longer increases the rate limit for `journald` logging. Scale testing demonstrated that raising the limit can overload `journald`, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763)
 
 - Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
 
@@ -38,7 +38,7 @@ DC/OS 1.13.8 includes the following component versions:
 
 ## Components
 
-DC/OS 1.13.8 includes the following Marathon component version:
+DC/OS 1.13.8 includes the following Marathon&trade; component version:
 
 - Marathon 1.8.239
 
