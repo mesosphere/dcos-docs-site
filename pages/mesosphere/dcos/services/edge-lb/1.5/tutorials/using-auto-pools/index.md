@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: Using Auto Pools
+navigationTitle: Using Auto Pools to Expose Applications
 title: Using Auto Pools to Expose Applications
 menuWeight: 12
 excerpt: Exposing applications using Auto Pools.
 enterprise: true
 ---
 
-This tutorial demonstrates how to set labels on Marathon&trade; applications to expose those applications using Auto Pools. In addition, it demonstrates the proceedure for creating new Auto Pools and editing the template used by an Auto Pool. Auto Pools enable the operator to delegate application exposure to the developers responsible for that application.
+This tutorial demonstrates how to set labels on Marathon&trade; applications to expose those applications using Auto Pools. In addition, it demonstrates the procedure for creating new Auto Pools and editing the template used by an Auto Pool. Auto Pools enable the operator to delegate application exposure to the developers responsible for that application.
 
 # Before you begin
 You must have:
@@ -60,7 +60,7 @@ dcos edgelb list
   auto-default  V2          1      slave_public
 ```
 
-The endpoints (external ips) can be found as well:
+The endpoints (external IPs) can be found as well:
 
 ```bash
 dcos edgelb endpoints auto-default
@@ -97,7 +97,7 @@ We recommend using the `<group>` field to describe the frontend app, such as `we
 
 ## Frontend Customization
 
-Without further labels to customize the frontend, the `default` pool template will forward all urls from `/` on to the application.
+Without further labels to customize the frontend, the `default` pool template will forward all URLs from `/` on to the application.
 
 ## SSL
 
