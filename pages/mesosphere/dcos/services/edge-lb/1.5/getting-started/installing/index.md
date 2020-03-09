@@ -182,7 +182,7 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
 1. Create a secret (`dcos-edgelb/edge-lb-secret`) for the service account principal (`edge-lb-principal`) and private key (`edge-lb-private-key.pem`):
 
     ```bash
-    dcos security secrets create-sa-secret --strict edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
+    dcos security secrets create-sa-secret edge-lb-private-key.pem edge-lb-principal dcos-edgelb/edge-lb-secret
     ```
 
     For more information about creating and storing secrets for services, see [Configuring services and pods](/mesosphere/dcos/2.0/security/ent/secrets/use-secrets/) and [Spaces](/mesosphere/dcos/2.0/security/ent/#spaces).
@@ -263,15 +263,9 @@ After configuring service authentication, you must create a JSON options file wi
     }
     ```
 
-1. Set the `service.mesosProtocol` configuration setting based on the security mode of the cluster:
-    - Use `"https"` for permissive or strict security
-    - Use `"http"` for disabled security
+1. Set the `service.mesosProtocol` configuration setting `"https"` for either permissive or strict security.
 
-    In this sample configuration file, the `service.mesosProtocol` setting is `"https"`.
-
-1. Set the `service.mesosAuthNZ` configuration setting based on the security mode of the cluster:
-    - Use `true` (default) for permissive or strict security
-    - Use `false` for disabled security
+1. Set the `service.mesosAuthNZ` configuration setting to `true` (default) for either permissive or strict security.
 
     For example:
 
@@ -289,7 +283,7 @@ After configuring service authentication, you must create a JSON options file wi
 
 1. Specify other configuration settings, as needed.
 
-    <p class="message--note"><strong>NOTE: </strong>Be particularly careful when setting the service name. The string value, /api, is always (implicitly) appended to the name. By default, the service <strong>name</strong> is edgelb and when installed, DC/OS creates the <strong>task</strong>, "edgelb/api". In the example below, the dcos edgelb commands assume the default name edgelb, and will look for the "edgelb/api" task to interface against. The service name from the Edge-LB service's perspective is not edgelb/api, but edgelb. However, when you are using the install --options= approach, and you modify the service name to be other than the default, edgelb, then you must be explicit on the service name when you run any "dcos edgelb xxxx" commands.</p>
+    <p class="message--note"><strong>NOTE: </strong>If you are using the install --options= approach and you modify the service name to be other than the default, edgelb, tthen you must be explicit when specifying the service name when you use any "dcos edgelb xxxx" commands.</p>
 
     As an example of this effect, suppose you deployed a service with the JSON configuration file:
     ```json
@@ -298,7 +292,14 @@ After configuring service authentication, you must create a JSON options file wi
             "name": "dcos-edgelb/api",
     }
     ```
-    You have created a service called `dcos-edgelb/api` from the Edge-LB service's point of view. But that service name causes creation of the <strong>task</strong> name, `dcos-edgelb/api/api` which could become confusing!
+    This command creates a service called `dcos-edgelb/api` from the Edge-LB service's point of view. But that service name causes creation of the <strong>task</strong> name, `dcos-edgelb/api/api`, which could become confusing!
+
+    As an alternative, after creating the edge-lb-options.json file and installing the edgelb/api service, execute the following command to rename the service so that you don't have to track the name:
+    
+    ``` bash
+    dcos config set edgelb.service_name "dcos-edgelb"
+    ```
+
 
     Examples of other configuration settings you can change include specifying the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`) as shown here.
 
