@@ -10,7 +10,7 @@
 ~^/mesosphere/dcos/services/hdfs/latest/(.*) /mesosphere/dcos/services/hdfs/2.7.0-3.2.1/$1;
 ~^/mesosphere/dcos/services/jenkins/latest/(.*) /mesosphere/dcos/services/jenkins/3.6.0-2.190.1/$1;
 ~^/mesosphere/dcos/services/kafka/latest/(.*) /mesosphere/dcos/services/kafka/2.8.0-2.3.0/$1;
-~^/mesosphere/dcos/services/kubernetes/latest/(.*) /mesosphere/dcos/services/kubernetes/2.4.6-1.15.6/$1;
+~^/mesosphere/dcos/services/kubernetes/latest/(.*) /mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/$1;
 ~^/mesosphere/dcos/services/kafka-zookeeper/latest/(.*) /mesosphere/dcos/services/kafka-zookeeper/2.6.0-3.4.14/$1;
 ~^/mesosphere/dcos/services/marathon-lb/latest/(.*) /mesosphere/dcos/services/marathon-lb/1.14/$1;
 ~^/mesosphere/dcos/services/minio/latest/(.*) /mesosphere/dcos/services/minio/0.1.1/$1;
