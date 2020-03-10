@@ -16,6 +16,8 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 # Release Summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
+<!--- Baker took the decision on 3/10/2020 to order the entries under each subject heading in descending COPS ticket order, for ease of checking against Margaret Atamar's release deashboard. --->
+
 # DC/OS 
 
 ## Components
@@ -26,13 +28,19 @@ DC/OS 1.13.8 includes the following component versions:
 
 ### DC/OS Fixed and Improved Issues
 
-- Modified pre-flight check to use filesystem mount name instead of filesystem device name. (D2iQ-59406)
-
-- DC/OS Admin Router now allows large packages of files, up to 32GB, to be uploaded to the Package Registry. (D2iQ-61233, COPS-5615)
-
-- DC/OS no longer increases the rate limit for `journald` logging. Scale testing demonstrated that raising the limit can overload `journald`, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763)
-
 - Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
+
+- DC/OS no longer increases the rate limit for `journald` logging. Scale testing demonstrated that raising the limit can overload `journald`, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763, COPS-5830)
+
+- Fixed an issue where image pull in UCR was not working for nvcr.io (missing 'service'/'scope' parameters). (D2IQ-63303, COPS-5804)
+
+- Fixed situation where application on MoM always waiting because the master does not allocate valid offers to framework. (D2IQ-62519, COPS-5725)
+
+- DC/OS Admin Router now allows large packages of files, up to 32GB, to be uploaded to the Package Registry. (D2IQ-61233, COPS-5615)
+
+- Modified pre-flight check to use filesystem mount name instead of filesystem device name. (D2IQ-59406)
+
+- Fixed an issue where an agent marked a Task as FAILED immediately after marking it as FINISHED (D2IQ-62454, COPS-4995)
 
 # Marathon
 
@@ -45,4 +53,5 @@ DC/OS 1.13.8 includes the following Marathon&trade; component version:
 ### Marathon Fixed and Improved Issues
 
 - Removed non-host reachable container endpoints from the output of the plaintext /v2/tasks endpoint. (MARATHON-8721, COPS-5791)
+
 - Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (MARATHON-8719, COPS-5617)
