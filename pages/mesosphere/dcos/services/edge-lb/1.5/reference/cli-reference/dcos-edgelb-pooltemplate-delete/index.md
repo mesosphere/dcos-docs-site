@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb pool-template delete Command
-title: dcos edge-lb pool-template delete Command
+navigationTitle: dcos edge-lb pool-template delete
+title: dcos edge-lb pool-template delete
 menuWeight: 36
 excerpt: Reference for the dcos edge-lb pool-template delete command
 enterprise: true

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb pool-template show Command
-title: dcos edge-lb pool-template show Command
+navigationTitle: dcos edge-lb pool-template show
+title: dcos edge-lb pool-template show
 menuWeight: 45
 excerpt: Reference for the dcos edge-lb pool-template show command
 enterprise: true

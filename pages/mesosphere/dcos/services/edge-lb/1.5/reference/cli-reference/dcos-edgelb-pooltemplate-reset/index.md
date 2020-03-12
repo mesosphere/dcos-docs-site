@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb pool-template reset Command
-title: dcos edge-lb pool-template reset Command
+navigationTitle: dcos edge-lb pool-template reset
+title: dcos edge-lb pool-template reset
 menuWeight: 42
 excerpt: Reference for the dcos edge-lb pool-template reset command
 enterprise: true

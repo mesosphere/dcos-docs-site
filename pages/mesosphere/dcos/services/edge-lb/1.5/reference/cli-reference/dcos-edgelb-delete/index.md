@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb delete Command
-title: dcos edge-lb delete Command
+navigationTitle: dcos edge-lb delete
+title: dcos edge-lb delete
 menuWeight: 12
 excerpt: Reference for the dcos edge-lb delete command
 enterprise: true

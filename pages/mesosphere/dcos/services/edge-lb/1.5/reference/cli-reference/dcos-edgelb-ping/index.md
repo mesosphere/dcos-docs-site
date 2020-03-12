@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb ping Command
-title: dcos edge-lb ping Command
+navigationTitle: dcos edge-lb ping
+title: dcos edge-lb ping
 menuWeight: 30
 excerpt: Reference for the dcos edge-lb ping command
 enterprise: true
