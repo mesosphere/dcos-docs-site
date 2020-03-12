@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb pool-template create Command
-title: dcos edge-lb pool-template create Command
+navigationTitle: dcos edge-lb pool-template create
+title: dcos edge-lb pool-template create
 menuWeight: 33
 excerpt: Reference for the dcos edge-lb pool-template create command
 enterprise: true

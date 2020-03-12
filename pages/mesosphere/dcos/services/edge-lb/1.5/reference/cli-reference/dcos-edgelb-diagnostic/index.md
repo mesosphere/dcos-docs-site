@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb diagnostic Command
-title: dcos edge-lb diagnostic Command
+navigationTitle: dcos edge-lb diagnostic
+title: dcos edge-lb diagnostic
 menuWeight: 15
 excerpt: Reference for the dcos edge-lb diagnostic command
 enterprise: true

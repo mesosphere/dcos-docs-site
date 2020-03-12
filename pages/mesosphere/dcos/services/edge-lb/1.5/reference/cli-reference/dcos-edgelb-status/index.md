@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb status Command
-title: dcos edge-lb status Command
+navigationTitle: dcos edge-lb status
+title: dcos edge-lb status
 menuWeight: 57
 excerpt: Reference for the dcos edge-lb status command
 enterprise: true

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb update Command
-title: dcos edge-lb update Command
+navigationTitle: dcos edge-lb update
+title: dcos edge-lb update
 menuWeight: 72
 excerpt: Reference for the dcos edge-lb update command
 enterprise: true

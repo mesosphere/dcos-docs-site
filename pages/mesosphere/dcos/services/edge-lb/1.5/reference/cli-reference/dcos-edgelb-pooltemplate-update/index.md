@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb pool-template update Command
-title: dcos edge-lb pool-template update Command
+navigationTitle: dcos edge-lb pool-template update
+title: dcos edge-lb pool-template update
 menuWeight: 51
 excerpt: Reference for the dcos edge-lb pool-template update command
 enterprise: true

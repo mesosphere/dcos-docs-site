@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb cleanup Command
-title: dcos edge-lb cleanup Command
+navigationTitle: dcos edge-lb cleanup
+title: dcos edge-lb cleanup
 menuWeight: 6
 excerpt: Reference for the dcos edge-lb cleanup command
 enterprise: true

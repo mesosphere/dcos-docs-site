@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb template create Command
-title: dcos edge-lb template create Command
+navigationTitle: dcos edge-lb template create
+title: dcos edge-lb template create
 menuWeight: 60
 excerpt: Reference for the dcos edge-lb template create command
 enterprise: true
