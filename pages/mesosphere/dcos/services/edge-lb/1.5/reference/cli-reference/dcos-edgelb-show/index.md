@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb show Command
-title: dcos edge-lb show Command
+navigationTitle: dcos edge-lb show
+title: dcos edge-lb show
 menuWeight: 54
 excerpt: Reference for the dcos edge-lb show command
 enterprise: true

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb lb-config Command
-title: dcos edge-lb lb-config Command
+navigationTitle: dcos edge-lb lb-config
+title: dcos edge-lb lb-config
 menuWeight: 24
 excerpt: Reference for the dcos edge-lb lb-config command
 enterprise: true

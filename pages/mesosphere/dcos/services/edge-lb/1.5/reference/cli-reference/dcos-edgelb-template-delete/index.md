@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb template delete Command
-title: dcos edge-lb template delete Command
+navigationTitle: dcos edge-lb template delete
+title: dcos edge-lb template delete
 menuWeight: 63
 excerpt: Reference for the dcos edge-lb template delete command
 enterprise: true

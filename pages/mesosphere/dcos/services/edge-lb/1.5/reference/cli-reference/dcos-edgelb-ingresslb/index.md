@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb ingress-lb Command
-title: dcos edge-lb ingress-lb Command
+navigationTitle: dcos edge-lb ingress-lb
+title: dcos edge-lb ingress-lb
 menuWeight: 21
 excerpt: Reference for the dcos edge-lb ingress-lb command
 enterprise: true

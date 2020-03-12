@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: dcos edge-lb endpoints Command
-title: dcos edge-lb endpoints Command
+navigationTitle: dcos edge-lb endpoints
+title: dcos edge-lb endpoints
 menuWeight: 18
 excerpt: Reference for the dcos edge-lb endpoints command
 enterprise: true
