@@ -165,7 +165,9 @@ This procedure upgrades a DC/OS 1.12 cluster to DC/OS 1.13.
 
 ### <a name="masters"></a>DC/OS Masters
 
-Proceed with upgrading every master node one at a time in any order using the following procedure. When you complete each upgrade, monitor the Mesos master metrics to ensure the node has rejoined the cluster and completed reconciliation.
+Proceed with upgrading every master. We want to ensure that only one version is running at a time. Thus we shut down all masters except for one. The Mesos and Marathon leader should change to the master node one that kept running.
+
+Upgrade all master nodes that are *not* running:
 
 1.  Download and run the node upgrade script:
     ```bash
@@ -178,6 +180,10 @@ Proceed with upgrading every master node one at a time in any order using the fo
     echo $?
     0
     ```
+
+Start the upgraded nodes and wait for them to join the master.
+
+The leader should be still on the old node that was not upgrade. Let's upgrade that one as well. Shut it down and upgrade it as described above. If all went fine the leader should have switched to one of the new nodes.
 
 1.  Validate the upgrade:
 
