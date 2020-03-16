@@ -101,5 +101,5 @@ Percona-MySQL is an enterprise-grade HA drop-in replacement for MySQL. To enable
       ```
    
 - #### Limitations
-  Currently, {{ model.techName }} is only compatible with Percona's `PERMISSIVE` and `DISABLED` modes. See the [limitations](/mesosphere/dcos/services/hive-metastore/1.1.0-3.0.0/limitations/) page for more details.
+  Currently, {{ model.techName }} is only compatible with Percona's `PERMISSIVE` and `DISABLED` modes. See the [limitations](/mesosphere/dcos/services/hive-metastore/1.2.0-3.0.0/limitations/) page for more details.
   
