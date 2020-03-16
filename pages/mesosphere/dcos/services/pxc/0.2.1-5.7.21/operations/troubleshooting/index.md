@@ -21,16 +21,15 @@ render: mustache
 
 [Prometheus](/mesosphere/dcos/services/prometheus/) can be installed via either the DC/OS Catalog GUI or by using the CLI. The following command will launch the install via the DC/OS CLI:
 
-```bash
-dcos package install prometheus
-```
+  ```bash
+  dcos package install prometheus
+  ```
 
 Install [Grafana](/mesosphere/dcos/services/grafana/) from the service catalog as well. It can be used as a graphing tool.
 
-```bash
-dcos package install --yes grafana
-```
-
+  ```bash
+  dcos package install --yes grafana
+  ```
 
 The framework provides options to enter the Prometheus, AlertManager and Rules config. The default Prometheus configuration scrapes a DC/OS master and agents in the clusters. Append any new config to the end.
 
@@ -126,7 +125,6 @@ Once the framework is up and running:
 }
 ```
 
-
 3. In your browser enter the Prometheus URL:
 
 ```
@@ -170,11 +168,9 @@ Credentials: admin / admin
 
 which takes you to the Grafana console.
 
-
 You can add Prometheus as a data source:
 
 [<img src="/mesosphere/dcos/services/pxc/img/grafana_datasource.png" alt="Grafana Data Source"/>](/mesosphere/dcos/services/pxc/img/grafana_datasource.png)
-
 
 Save and Test. Now you are ready to use Prometheus as a data source in Grafana.
 
