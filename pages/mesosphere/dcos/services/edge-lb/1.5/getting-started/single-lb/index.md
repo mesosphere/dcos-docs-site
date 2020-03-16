@@ -17,7 +17,7 @@ You must have:
 * An active and properly-configured DC/OS Enterprise cluster.
 * A DC/OS Enterprise cluster that has at least one DC/OS **private agent** node to run the load-balanced service and at least one DC/OS **public agent** node for exposing the load-balanced service.
 
-# Preview of what you'll do
+# Preview of what you will do
 These procedures show you how to configure an Edge-LB instance to provide public access to a simple Marathon&trade; app. In this tutorial, you will:
 * Create and deploy a sample Marathon app called `ping`.
 * Expose the `ping` app through the Edge-LB pool instance called `ping-lb`.
@@ -131,6 +131,8 @@ These procedures show you how to configure an Edge-LB instance to provide public
     - The `haproxy.backends.marathon.serviceID` must match the name of the app definition.
       In this sample pool configuration file, the service name is `/ping`.
 
+    <p class="message--note"><strong>NOTE: </strong>When you deploy a cluster with Terraform, the default firewall configuration allows you to access only ports 80 (http) and 443 (https). Everything else is blocked. You may want to add public agent ports to the main.tf file (the Terraform configuration file of the running cluster) in module "dcos." To add public agent ports, add a line like this one, <code>public_agents_additional_ports = [ 15001, 10020, 9090, 1025 ]</code>, and then re-deploy the cluster.</p>
+
 # Deploy an Edge-LB pool to expose the service
 
 1. Deploy the `ping-lb.json` pool configuration file to create the `ping-lb` pool instance for load balancing access to the `ping` service:
@@ -233,8 +235,6 @@ These procedures show you how to configure an Edge-LB instance to provide public
 # Access the sample load balanced service
 After you have configured and tested the `ping` service and `ping-lb` pool configuration file, you can verify you have access to the service.
 
-<p class="message--note"><strong>NOTE: </strong>When you deploy a cluster with Terraform, the default firewall configuration allows you to access only ports 80 (http) and 443 (https). Everything else is blocked. You may want to add public agent ports to the main.tf file (the Terraform configuration file of the running cluster) in module "dcos." To add public agent ports, add a line like this one, <code>public_agents_additional_ports = [ 15001, 10020, 9090, 1025 ]</code>, and then re-deploy the cluster.</p>
-
 1. Open a web browser and navigate to the public-facing IP address.
 
     If your DC/OS Enterprise cluster is 1.13, or newer, you can view the public-facing IP address by clicking **Nodes** in the DC/OS web-based console, or by using the command:
@@ -255,9 +255,9 @@ After you have configured and tested the `ping` service and `ping-lb` pool confi
 
     For example, if the public IP address for the public agent node is 34.211.65.249, access the `pong` service by opening `http://34.211.65.249:15001`.
 
-    If you have not enabled additional ports by changing the main.tf file and re-deploying the cluster, you can access the "pong" service by executing these commands with your public IPs included:
+    If you have not enabled additional ports by changing the main.tf file and re-deploying the cluster, you can access the "pong" service by executing the following command with one of the default [ports](/mesosphere/dcos/2.0/installing/production/system-requirements/ports) which are 80 and 443, with your public IPs included:
 
     ```
-    $ curl <public IP address>:15001
+    $ curl <public IP address>:443
     Output: pong
     ```

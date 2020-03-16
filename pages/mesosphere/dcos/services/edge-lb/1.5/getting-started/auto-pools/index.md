@@ -69,13 +69,13 @@ We recommend using the `<group>` field to describe the frontend app, such as `we
 | `edgelb.<group>.frontend.certificates` | | A `list` of secret names (or the value `$AUTOCERT`) to be used as certificates. If set will enable `HTTPS`. |
 | `edgelb.<group>.frontend.port` | `80` if protocol is HTTP, `443` if HTTPS, required if protocol is `TCP` | The frontend bind port. |
 | `edgelb.<group>.frontend.protocol` | `HTTP` if not specified, `HTTPS` if `certificates` specified | The frontend protocol. |
-| `edgelb.<group>.frontend.redirectToHttps` | | If this labels exists then `redirectToHttps` is enabled for the frontend. The value can be empty or a `list` of `dicts` that will be used as the [`except` variable](/mesosphere/dcos/services/edge-lb/1.5/pool-configuration-reference/v2-reference/#poolhaproxyfrontendredirecttohttps). |
-| `edgelb.<group>.frontend.rules` | `pathBeg:/` | A `list` of `dict`s corresponding to the Edge-LB [`pool.haproxy.frontend.linkBackend.map`](https://docs.d2iq.com/mesosphere/dcos/services/edge-lb/1.5/pool-configuration/v2-reference/#poolhaproxyfrontendlinkbackend). |
+| `edgelb.<group>.frontend.redirectToHttps` | | If this labels exists then `redirectToHttps` is enabled for the frontend. The value can be empty or a `list` of `dicts` that will be used as the [`except` variable](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/v2-reference/#poolhaproxyfrontendredirecttohttps). |
+| `edgelb.<group>.frontend.rules` | `pathBeg:/` | A `list` of `dict`s corresponding to the Edge-LB [`pool.haproxy.frontend.linkBackend.map`](https://docs.d2iq.com/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/v2-reference/#poolhaproxyfrontendlinkbackend). |
 | `edgelb.<group>.backend.balance` | | The balancing [algorithm](https://cbonte.github.io/haproxy-dconv/2.0/configuration.html#4.2-balance). |
 | `edgelb.<group>.backend.portName` | The name of the first port exposed from the task | The name of the port to send traffic to. |
 | `edgelb.<group>.backend.protocol` | `HTTP` unless frontend protocol is not `HTTP/HTTPS`, then matches frontend | The backend protocol. |
 | `edgelb.<group>.backend.rewriteHttp.path` | | A `dict` of 1 item mapping the key path on the frontend to the value path on the backend. For example to map `/a` on the frontend to `/` on the backend, set the value to `/a:/` |
-| `edgelb.<group>.backend.rewriteHttp.sticky` | | If the label exists, sticky is enabled with the default options. Any non-whitespace value for the label will be used as the [`customStr`](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/v2-reference/#poolhaproxybackendrewritehttp) |
+| `edgelb.<group>.backend.rewriteHttp.sticky` | | If the label exists, sticky is enabled with the default options. Any non-whitespace value for the label will be used as the [`customStr`](/mesosphere/dcos/services/edge-lb/1.5/reference/reference/pool-configuration-reference/v2-reference/#poolhaproxybackendrewritehttp) |
 
 # Managing Pool Templates
 

@@ -142,14 +142,14 @@ The following steps show how to create an Edge-LB pool configuration file to sca
     dcos edgelb endpoints scaleup-nginx-lb
     ```
 
-    In the command output, the `count` column displays the number of load balancer instances you have specified in the Edge-LB pool configuration file.
+    If it appears in the command output, the `count` column displays the number of load balancer instances you have specified in the Edge-LB pool configuration file.
 
     ```
-    NAME                    PORT   INTERNAL IPS   EXTERNAL IPS    
-    frontend_0.0.0.0_15002  15002  172.12.12.167  54.173.77.146   
+    NAME                    PORT   INTERNAL IPS   EXTERNAL IPS
+    frontend_0.0.0.0_15002  15002  172.12.12.167  54.173.77.146
                                    172.12.23.239  100.24.113.243  
                                    172.12.42.163  18.212.166.130  
-    stats                   1027   172.12.12.167  54.173.77.146   
+    stats                   1027   172.12.12.167  54.173.77.146
                             1029   172.12.23.239  100.24.113.243  
                                    172.12.42.163  18.212.166.130  
     Public/private IPs metadata is inaccurate in case of pools that use virtual networks.

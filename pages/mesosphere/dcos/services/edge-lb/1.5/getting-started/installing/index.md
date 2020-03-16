@@ -263,9 +263,9 @@ After configuring service authentication, you must create a JSON options file wi
     }
     ```
 
-1. Set the `service.mesosProtocol` configuration setting `"https"` for either permissive or strict security.
+1. Set the `service.mesosProtocol` configuration setting `"https"` for either permissive security.
 
-1. Set the `service.mesosAuthNZ` configuration setting to `true` (default) for either permissive or strict security.
+1. Set the `service.mesosAuthNZ` configuration setting to `true` (default) for either permissive security.
 
     For example:
 
@@ -292,14 +292,13 @@ After configuring service authentication, you must create a JSON options file wi
             "name": "dcos-edgelb/api",
     }
     ```
-    This command creates a service called `dcos-edgelb/api` from the Edge-LB service's point of view. But that service name causes creation of the <strong>task</strong> name, `dcos-edgelb/api/api`, which could become confusing!
+    This command creates a service called `dcos-edgelb/api` from the Edge-LB service's point of view. But that service name causes creation of the <strong>task</strong> name, `dcos-edgelb/api/api`, which could become confusing! The string value, /api, is always (implicitly) appended to the name.
 
     As an alternative, after creating the edge-lb-options.json file and installing the edgelb/api service, execute the following command to rename the service so that you don't have to track the name:
     
     ``` bash
     dcos config set edgelb.service_name "dcos-edgelb"
     ```
-
 
     Examples of other configuration settings you can change include specifying the service path for the `apiserver` where `dcos-edgelb` corresponds to the `pool.namespace` when [configuring pools](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/). Other common configuration settings specify the CPU, memory, disk, and log level (`debug`, `info`, `warn`, or `error`) as shown here.
 
@@ -322,8 +321,6 @@ After configuring service authentication, you must create a JSON options file wi
 1. Save the configuration file.
 
 1. Add the configuration file to source control so that you can update configuration at a later time.
-
-<a name="install-edge-lb"></a>
 
 # Install Edge-LB
 After you have added the packages to the cluster catalog, created a secure service account, and configured settings for Edge-LB in a JSON file, you can install Edge-LB to begin creating and managing load balancing pools.
@@ -358,6 +355,6 @@ After you have added the packages to the cluster catalog, created a secure servi
 
     When Edge-LB is ready, the ping command should return the `pong` response in standard output (`stdout`).
 
-- For more information about configuring Edge-LB, see the Edge-LB  [pool configuration](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference) reference section.
+- For more information about configuring Edge-LB, see the Edge-LB [pool configuration](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference) reference section.
 
 - For more information about the available Edge-LB commands, see the Edge-LB [command-line](/mesosphere/dcos/services/edge-lb/1.5/reference/cli-reference) reference section.
