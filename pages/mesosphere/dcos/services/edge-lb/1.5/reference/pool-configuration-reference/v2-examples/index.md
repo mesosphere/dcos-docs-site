@@ -318,7 +318,7 @@ s
       },
     {
       "bindPort": 443,
-      "protocol": "TLS",
+      "protocol": "HTTPS",
       "certificates": [
         "$SECRETS/mysecretfile1",
         "$SECRETS/mysecretfile2"
