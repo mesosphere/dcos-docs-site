@@ -36,8 +36,6 @@ The [service account](/mesosphere/dcos/services/edge-lb/1.5/getting-started/inst
 
 If you are using the principle of least privilege, follow the steps for creating a public/private key pair and a service account principal described in [preparing a service account](/mesosphere/dcos/services/edge-lb/1.5/getting-started/installing/#preparing-a-service-account), then grant the following permissions to the service account principal:
 
-***%%% should these entries reflect the V2 API in this section and the next? Which API version do we want customers to use? ***
-
 - `dcos:adminrouter:ops:ca:rw`
 - `dcos:adminrouter:ops:ca:ro`
 - `dcos:adminrouter:service:marathon`
