@@ -97,7 +97,7 @@ Before starting the Konvoy installation, you should verify the following:
         - [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
         - [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
         - [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
-        - [Traefik forward authorization proxy][traefik_forward_auth] to provide basic authorization for Traefik ingress.
+        - [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
         - Kommander for multi-cluster management.
 
 # Verifying your installation
@@ -231,5 +231,5 @@ For more details, see the following topics:
 [velero]: https://velero.io/
 [dex]: https://github.com/dexidp/dex
 [dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
-[traefik_forward_auth]: https://github.com/thomseddon/traefik-forward-auth
+[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [brew]: https://brew.sh/

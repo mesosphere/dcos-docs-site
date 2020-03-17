@@ -582,4 +582,4 @@ Properties of an `addon` object.
 [azure_loadbalancer]: https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
 [availability_set]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability
 [azure_tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
-[azure_volume_types]: https://docs.okd.io/latest/install_config/persistent_storage/persistent_storage_azure.html
+[azure_volume_types]: https://docs.microsoft.com/en-us/rest/api/compute/disks/createorupdate#diskstorageaccounttypes

@@ -274,6 +274,8 @@ An existing VPC may already contain `subnets` for use. You may define them in th
 
 ```yaml
 ...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: aws
   aws:
@@ -366,6 +368,8 @@ An existing IAM instance profile can be used, provided that the right policies m
 
 ```yaml
 ...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: aws
   nodePools:
@@ -383,6 +387,8 @@ or you may instead use the ARN:
 
 ```yaml
 ...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: aws
   nodePools:

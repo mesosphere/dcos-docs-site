@@ -50,10 +50,8 @@ To enable Nvidia GPU support on Konvoy, add the Nvidia GPU `nodePools` in Cluste
 ```yaml
 kind: ClusterProvisioner
 apiVersion: konvoy.mesosphere.io/v1beta1
-......
 spec:
   provider: aws
-......
   nodePools:
   - name: gpu-worker
     count: 4
@@ -65,13 +63,10 @@ spec:
       imagefsVolumeType: gp2
       imagefsVolumeDevice: xvdb
       type: p2.xlarge
-......
 ---
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
-......
 spec:
-......
   nodePools:
   - name: gpu-worker
     gpu:
@@ -80,10 +75,8 @@ spec:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: stable-1.16-1.2.0
     addonsList:
-......
     - name: nvidia
       enabled: true
-......
 ```
 
 ### Konvoy GPU Support on Ubuntu
@@ -95,14 +88,11 @@ By default, Konvoy assumes the cluster OS is CentOS. If you want to run the GPU 
 ---
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
-......
 spec:
-......
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: stable-1.16-1.2.0
     addonsList:
-......
     - name: nvidia
       enabled: true
       values: |
@@ -110,7 +100,6 @@ spec:
         enabled: true
         image:
           tag: "418.87.01-ubuntu16.04"
-......
 ```
 
 See [Nvidia Public Hub Repository][nvidia_plublic_hub_repository] for available driver container images.

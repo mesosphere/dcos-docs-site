@@ -17,7 +17,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker Desktop][install_docker] version 18.09.2 or later. You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] v1.16.4 or later. You must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.16.4 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -334,12 +334,13 @@ To use `keepalived` control plane load balancing:
 The following example illustrates the configuration if the reserved virtual IP address is `10.0.50.20`:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     controlPlane:
       controlPlaneEndpointOverride: "10.0.50.20:6443"
       keepalived:
-        enabled: true
         interface: ens20f0 # optional
         vrid: 51           # optional
 ```
@@ -352,11 +353,15 @@ You could also set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the
 This field is optional.
 If not set, Konvoy will randomly pick a Virtual Router ID for you.
 
+If you are not setting any of the optional values, set `spec.kubernetes.controlPlane.keepalived: {}` to enable the default values.
+
 ## Configure pod and service networking
 
 The following example illustrates how you can configure the pod subnet and service subnet in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     networking:
@@ -388,6 +393,8 @@ MetalLB can be configured in two modes - `layer2` and `bgp`.
 The following example illustrates the layer2 configuration in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
@@ -405,6 +412,8 @@ spec:
 The following example illustrates the BGP configuration in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
@@ -511,7 +520,7 @@ Specifically, the `konvoy up` command does the following:
   * [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
   * [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
   * [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
-  * [Traefik forward authorization proxy][traefik_forward_auth] to provide basic authorization for Traefik ingress.
+  * [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
   * Kommander for multi-cluster management.
 
 This set of configuration options is the recommended environment for small clusters.
@@ -607,7 +616,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [velero]: https://velero.io/
 [dex]: https://github.com/dexidp/dex
 [dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
-[traefik_forward_auth]: https://github.com/thomseddon/traefik-forward-auth
+[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [kubernetes_base_addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
 [kubeaddons_kommander_repo]: https://github.com/mesosphere/kubeaddons-kommander
