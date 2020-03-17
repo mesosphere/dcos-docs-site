@@ -165,7 +165,7 @@ This procedure upgrades a DC/OS 1.12 cluster to DC/OS 1.13.
 
 ### <a name="masters"></a>DC/OS Masters
 
-Proceed with upgrading every master. We want to ensure that only one version is running at a time. Thus we shut down all masters except for one. The Mesos and Marathon leader should change to the master node one that kept running.
+Proceed with upgrading every master. We want to ensure that only one version of the master services is running at a time. Thus we shut down all masters except for one. This will ensure that the Mesos and Marathon leader are running one the same node with the current version.
 
 Upgrade all master nodes that are *not* running:
 
@@ -183,7 +183,7 @@ Upgrade all master nodes that are *not* running:
 
 Start the upgraded nodes and wait for them to join the master.
 
-The leader should be still on the old node that was not upgrade. Let's upgrade that one as well. Shut it down and upgrade it as described above. If all went fine the leader should have switched to one of the new nodes.
+The leader should be still on the old node that has not been upgraded. Let's upgrade that one as well. Shut it down and upgrade it as described above. If all went fine the leader should have switched to one of the new nodes.
 
 1.  Validate the upgrade:
 
