@@ -53,8 +53,8 @@ The pool contains information on resources that the pool needs. Changes made to 
 
 | Key           | Type        | Description |
 | ------------- | ----------- | ----------- |
-| secret        | string      | Secret name. |
-| file          | string      | File name.<br />The file `myfile` will be found at `$SECRETS/myfile`. |
+| secret        | string      | DC/OS Secret name. |
+| file          | string      | File name in a pool container's sandbox.<br />The file `myfile` will be found at `$SECRETS/myfile`. |
 
 <a name="env-var"></a>
 ## pool.environmentVariables

@@ -53,7 +53,7 @@ To download the Edge-LB packages:
 
 1. Click **Download** to download both the Edge-LB and the pool package to your working directory.
 
-    Each **Download** link identifies a package URL for a JSON file you use to add the packages to the repository. <!--For example, the **Download** link for the Edge-LB pool package is `https://downloads.mesosphere.com/edgelb-pool/v1.3.0/assets/stub-universe-edgelb-pool.json`. --> You can copy the contents of each file to a local directory or include the HTTPS URL path in the command line you use to add Edge-LB to the package repository.
+    Each **Download** link identifies a package URL for a JSON file you use to add the packages to the repository. <!--For example, the **Download** link for the Edge-LB pool package is `https://downloads.mesosphere.com/edgelb-pool/v1.5.0/assets/stub-universe-edgelb-pool.json`. --> You can copy the contents of each file to a local directory or include the HTTPS URL path in the command line you use to add Edge-LB to the package repository.
 
 ## Add Edge-LB to the package repository
 After you download or copy the content of each Edge-LB package JSON file, you need to make the artifacts accessible to the cluster from an HTTP or HTTPS server by adding them to the package repository.
@@ -65,13 +65,13 @@ To add the Edge-LB API server and pool packages to the package repository:
 1. Add the **Edge-LB API server** package to the repository:
 
     ```bash
-    dcos package repo add --index=0 edgelb https://downloads.d2iq.com/edgelb/v1.3.1/assets/stub-universe-edgelb.json
+    dcos package repo add --index=0 edgelb https://downloads.d2iq.com/edgelb/v1.5.1/assets/stub-universe-edgelb.json
     ```
 
 1. Add the **Edge-LB pool** package to the repository:
 
     ```bash
-    dcos package repo add --index=0 edgelb-pool https://downloads.d2iq.com/edgelb-pool/v1.3.1/assets/stub-universe-edgelb-pool.json
+    dcos package repo add --index=0 edgelb-pool https://downloads.d2iq.com/edgelb-pool/v1.5.1/assets/stub-universe-edgelb-pool.json
     ```
 
 1. Open the DC/OS web-based console, then click **Catalog** to verify the Edge-LB and Edge-LB pool services have been added.
@@ -341,8 +341,8 @@ After you have added the packages to the cluster catalog, created a secure servi
 1. Enter yes to continue and review the output.
 
     ```
-    Installing Marathon app for package [edgelb] version [v1.3.0]
-    Installing CLI subcommand for package [edgelb] version [v1.3.0]
+    Installing Marathon app for package [edgelb] version [v1.5.0]
+    Installing CLI subcommand for package [edgelb] version [v1.5.0]
     New command available: dcos edgelb
     DC/OS edgelb is being installed!
     ```
