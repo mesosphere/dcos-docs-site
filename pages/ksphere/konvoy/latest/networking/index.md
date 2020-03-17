@@ -53,7 +53,6 @@ spec:
     controlPlane:
       controlPlaneEndpointOverride: "10.0.50.20:6443"
       keepalived:
-        enabled: true
         interface: ens20f0 # optional
         vrid: 51           # optional
 ```
@@ -66,8 +65,10 @@ This field is optional; if not set, Konvoy automatically detects the network int
 Further, you could set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][keepalived_conf] used by Keepalived.
 This field is optional; if not set, Konvoy will randomly pick a Virtual Router ID for you.
 
-Keepalived is enabled by default for on-premise deployment. You can disable it by setting `spec.kubernetes.controlPlane.keepalived.enabled` to `false`.
+Keepalived is enabled by default for on-premise deployment. You can disable it by removing `spec.kubernetes.controlPlane.keepalived` from the `cluster.yaml`.
 This is usually done where there is an on-premise load balancer which could be used to maintain high availability of the control plane.
+
+If you are not setting any of the optional values, set `spec.kubernetes.controlPlane.keepalived: {}` to enable the default values.
 
 # Pod-to-Pod connectivity
 

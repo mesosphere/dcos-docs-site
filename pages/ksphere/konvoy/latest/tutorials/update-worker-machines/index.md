@@ -82,7 +82,7 @@ Follow these steps:
     kubectl get pods --all-namespaces=true --field-selector=status.phase!=Running
     ```
 
-    <p class="message--note"><strong>NOTE: </strong> No single method applies for all workloads. A pod that is not Running can be, but is not always, a sign of an unhealthy workload. We recommend you implement application health checks and exercise them when migrating your workload from one node pool to another. For information on implementing health checks in Kubernetes, see [Configure Liveness, Readiness and Startup Probes][configure-probes]</p>
+    <p class="message--note"><strong>NOTE: </strong> No single method applies for all workloads. A pod that is not Running can be, but is not always, a sign of an unhealthy workload. We recommend you implement application health checks and exercise them when migrating your workload from one node pool to another. For information on implementing health checks in Kubernetes, see <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/">Configure Liveness, Readiness and Startup Probes</a>.</p>
 
 1. Scale down the `worker` node pool to zero.
 
@@ -94,4 +94,3 @@ Follow these steps:
     <p class="message--note"><strong>NOTE: </strong>Due to a known issue, Konvoy does not currently support deleting a node pool from its configuration.</p>
 
 [drain-node]: https://kubernetes.io/docs/tasks/administer-cluster/safely-drain-node/
-[configure-probes]: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/
