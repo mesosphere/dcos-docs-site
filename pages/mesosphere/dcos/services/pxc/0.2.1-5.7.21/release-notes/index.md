@@ -12,7 +12,11 @@ render: mustache
 
 # Release Notes for Percona XtraDB Cluster Service version 0.2.1-5.7.21
 
-This release is a hotfix release which has migrated the artifacts to official download location.
+This is a hotfix release of the DC/OS {{ model.techName }} service.
+
+### Hot Fix
+
+- Migrated the artifacts from S3 bucket to official download location.
 
 # Release Notes for Percona XtraDB Cluster Service version 0.2.0-5.7.21
 
