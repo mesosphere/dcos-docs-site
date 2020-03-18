@@ -283,7 +283,7 @@ After configuring service authentication, you must create a JSON options file wi
 
 1. Specify other configuration settings, as needed.
 
-    <p class="message--note"><strong>NOTE: </strong>If you are using the install --options= approach and you modify the service name to be other than the default, edgelb, tthen you must be explicit when specifying the service name when you use any "dcos edgelb xxxx" commands.</p>
+    <p class="message--note"><strong>NOTE: </strong>If you are using the install --options= approach and you modify the service name to be other than the default, edgelb, then you must be explicit when specifying the service name when you use any "dcos edgelb xxxx" commands.</p>
 
     As an example of this effect, suppose you deployed a service with the JSON configuration file:
     ```json
