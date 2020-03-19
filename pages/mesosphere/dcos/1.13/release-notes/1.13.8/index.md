@@ -34,7 +34,7 @@ DC/OS 1.13.8 includes the following component versions:
 
 - Fixed an issue where image pull in UCR was not working for nvcr.io (missing 'service'/'scope' parameters). (D2IQ-63303, COPS-5804)
 
-- Fixed situation where application on MoM always waiting because the master does not allocate valid offers to framework. (D2IQ-62519, COPS-5725)
+- Fixed an issue where after a DC/OS upgrade, the executor resources used by tasks on the agent were being incorrectly counted against quota. (D2IQ-62519, COPS-5725)  
 
 - DC/OS Admin Router now allows large packages of files, up to 32GB, to be uploaded to the Package Registry. (D2IQ-61233, COPS-5615)
 
