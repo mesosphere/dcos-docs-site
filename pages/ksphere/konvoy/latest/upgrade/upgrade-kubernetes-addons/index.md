@@ -22,7 +22,7 @@ A Konvoy upgrade consists of a few distinct steps.
 
 - Download the Konvoy binary and extract it in your environment in the same manner as the initial install.  
 - Update the `cluster.yaml` file with the changes outlined below.
-- Run `konovy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
+- Run `konvoy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
 
 ## Before you begin
 
