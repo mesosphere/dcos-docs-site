@@ -5,7 +5,7 @@ title: Release notes for 1.13.8
 menuWeight: 0
 excerpt: Release notes for DC/OS 1.13.8, including Open Source attribution, and version policy.
 ---
-DC/OS&trade; 1.13.8 was released on ?? March 2020.
+DC/OS&trade; 1.13.8 was released on 19 March 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
