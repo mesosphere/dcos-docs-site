@@ -241,7 +241,7 @@ spec:
 | ----------------------------- | -------------------------------------------------------------------------------------- | ------- |
 | `vpc.ID`                | [AWS VPC][aws_vpc_and_subnets] ID where the cluster should be launched      | `""`    |
 | `vpc.routeTableID`      | [AWS RouteTable][aws_route_table] ID that is used by the subnets in the VPC | `""`    |
-| `vpc.overrideDefaultRouteTable`  | Modify the default route table                                              | `true`  |
+| `vpc.overrideDefaultRouteTable`  | Override the default route table routes                                             | `true`  |
 | `vpc.internetGatewayID` | [AWS Internet Gateway][aws_internet_gateway] ID assigned to the VPC         | `""`    |
 | `vpc.enableInternetGateway` | Enable creating an [AWS Internet Gateway][aws_internet_gateway] when creating the VPC | `true` |
 | `vpc.enableVPCEndpoints`    | Enable creating [AWS VPC Endpoints][aws_vpc_endpoints] when creating the VPC | `false` |
