@@ -8,7 +8,7 @@ render: mustache
 model: ../data.yml
 ---
 
-# Version v.1.4.0
+# DC/OS Monitoring v.1.4.0
 
 ## New features
 
@@ -18,23 +18,23 @@ model: ../data.yml
 
 ## Updates
 
-* Update SDK to v0.57.3.
+* Updated SDK to v0.57.3.
 
 ## Notes
 
-* A `pod replace` operation is required if there are existing deployments of older versions on DC/OS 2.0. Please check the SDK release notes for details at <https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3>.
+* A `pod replace` operation is required if there are existing deployments of older versions on DC/OS 2.0. See the SDK release notes for details at <https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3>.
 
 # Version v1.2.0
 
 ## New features
 
-* Add option to configure the token refresh interval for Prometheus agent discovery task.
+* Added option to configure the token refresh interval for Prometheus agent discovery task.
 
 ## Updates
 
-* Change default token refresh interval for Prometheus agent discovery task to 1 hour.
-* Upgrade version of Go to 1.13.
-* Fix typo in "dcos monitoring describe" CLI subcommand.
+* Changed default token refresh interval for Prometheus agent discovery task to 1 hour.
+* Upgraded version of Go to 1.13.
+* Fixed typo in "dcos monitoring describe" CLI subcommand.
 
 # Version v1.1.0
 
