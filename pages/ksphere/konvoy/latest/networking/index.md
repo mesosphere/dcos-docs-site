@@ -86,7 +86,7 @@ spec:
   kubernetes:
     containerNetworking:
       calico:
-        version: v3.10.1
+        version: v3.13.1
 ```
 
 Further, the Calico IPV4 pool CIDR can be set via `spec.kubernetes.networking.podSubnet` in `cluster.yaml`, as shown below:

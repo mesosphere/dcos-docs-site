@@ -103,7 +103,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
       creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
     spec:
       kubernetes:
-        version: 1.16.4
+        version: 1.16.8
         networking:
           podSubnet: 192.168.0.0/16
           serviceSubnet: 10.0.0.0/18

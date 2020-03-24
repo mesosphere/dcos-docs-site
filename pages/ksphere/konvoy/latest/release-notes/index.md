@@ -15,6 +15,48 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.4.2 - Released 24 March 2020
+
+#### Disclaimer
+
+-   The default value of `vpc.enableVPCEndpoints` was changed to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
+    This value should already be present in your `cluster.yaml` file, below is a partial `cluster.yaml` that contains the value you may add to retain the previous behavior of deploying VPC endpoints in your cluster.
+    This resource should only be required where the networking configuration of the cluster does not allow for direct access to the AWS API.
+
+    ```yaml
+    kind: ClusterProvisioner
+    apiVersion: konvoy.mesosphere.io/v1beta1
+    metadata:
+      name: konvoy
+    spec:
+      provider: aws
+      aws:
+        vpc:
+          enableVPCEndpoints: true
+    ```
+
+#### Improvements
+
+- Update default Kubernetes version to `v1.16.8` which fixes a CVE found in a previous version.
+- Update Calico to `v3.13.1` which fixes a CVE found in a previous version.
+- Update Ansible to `2.7.16.0` which fixes a CVE found in a previous version.
+- Improve error output when addons can not be retrieved.
+- Change the default value of `vpc.enableVPCEndpoints` to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
+- Provide a new option `vpc.overrideDefaultRouteTable` to disabling Konvoy modifying the route table.
+
+#### Bug fixes
+
+- Fix a bug where provisioning would fail looking up the default AWS AMI in certain regions, even if `imageID` is set.
+- In certain environments, the kubelet service can be in a started state after the package is installed, always stop that service to avoid `kubeadm` preflight errors.
+- Properly set the `konvoy` version when writing out the marker file to remote hosts.
+
+#### Component version changes
+
+- Kubernetes `v1.16.8`
+- Go `1.13.8`
+- Calico `v3.13.1`
+- Ansible `2.7.16`
+
 ### Version v1.4.1 - Released 04 March 2020
 
 #### Improvements
@@ -209,7 +251,7 @@ spec:
 | ------------------ | ------- |
 |**Minimum** | 1.15.4 |
 |**Maximum** | 1.16.x |
-|**Default** | 1.16.4 |
+|**Default** | 1.16.8 |
 
 #### Disclaimer
 
@@ -223,13 +265,13 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.16.4
+    version: 1.16.8
   containerNetworking:
     calico:
       version: v3.10.1
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16.8-2
     addonsList:
     ...
     - name: helm
@@ -400,7 +442,7 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
 
 #### Component version changes
 
-- Kubernetes `v1.16.4`
+- Kubernetes `v1.16.8`
 - Calico `v3.10.1`
 - Kubeaddons `v0.6.2`
 - Helm `v2.16.1`
