@@ -201,8 +201,8 @@ The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however y
 
 <p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing internet gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
 
-By default Konvoy modifies the default route table in the VPC, removing all the existing routes, and adding a route for the internet gateway with destination CIDR of `0.0.0.0/0`, even if you specified one with `vpc.routeTableID`.
-You may set `vpc.overrideDefaultRouteTable: false` to disable this behavior.
+By default, Konvoy modifies the default route table in the VPC. It removes all the existing routes, and adds a route for the internet gateway, with destination CIDR of `0.0.0.0/0`, even if one is specified with `vpc.routeTableID`.
+You can set `vpc.overrideDefaultRouteTable: false` to disable this behavior.
 
 It is also possible to disable creating the internet gateway by modifying a few options in the `cluster.yaml` configuration file.
 Doing so will also automatically set the kube-apiserver ELB to be `internal` and will not associate public IPs for all the EC2 instances.
@@ -259,7 +259,7 @@ spec:
 Konvoy can automatically provision [AWS VPC Endpoints][aws_vpc_endpoints] for `ebs` and `elasticloadbalancing` services.
 This allows for the Kubernetes AWS cloud-provider and AWS EBS CSI driver to function without requiring access to the Internet.
 
-The default configuration will not create these resources, if desired you can enable creating them by modifying the `cluster.yaml` file and changing the `ProvisionerConfig` in the following way:
+The default configuration does not create these resources. You can enable creating them by modifying the `cluster.yaml` file and changing the `ProvisionerConfig` in the following way:
 
 ```yaml
 kind: ClusterProvisioner
@@ -274,7 +274,7 @@ spec:
 ...
 ```
 
-<p class="message--note"><strong>NOTE: </strong>When using a custom VPC with these endpoints already present, you should leave the value set to <code>enableVPCEndpoints: false</code>, otherwise Konvoy will modify the existing resources which could prevent your other workloads from accessing the AWS api.</p>
+<p class="message--note"><strong>NOTE: </strong>When using a custom VPC with these endpoints already present, you should leave the <code>enableVPCEndpoints: false</code> value set. Otherwise, Konvoy modifies existing resources which could prevent other workloads from accessing the AWS api.</p>
 
 ### Subnets
 An existing VPC may already contain `subnets` for use. You may define them in the following way:
