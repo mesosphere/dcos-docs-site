@@ -37,8 +37,8 @@ enterprise: false
 
 #### Improvements
 
-- Update default Kubernetes version to `v1.16.8` which fixes a [CVE](https://github.com/kubernetes/kubernetes/issues/89378) found in a previous version.
-- Update Calico to `v3.13.1` which fixes a [CVE](https://www.projectcalico.org/security-bulletins/#TTA-2019-003) found in a previous version.
+- Update default Kubernetes version to `v1.16.8` which fixes [CVE-2020-8552](https://github.com/kubernetes/kubernetes/issues/89378) found in a previous version.
+- Update Calico to `v3.13.1` which fixes a [CVE-2019-11253](https://www.projectcalico.org/security-bulletins/#TTA-2019-003) found in a previous version.
 - Update Ansible to `2.7.16.0` which fixes a CVE found in a previous version.
 - Improve error output when addons can not be retrieved.
 - Change the default value of `vpc.enableVPCEndpoints` to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
