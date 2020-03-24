@@ -20,7 +20,7 @@ enterprise: false
 #### Disclaimer
 
 -   The default value of `vpc.enableVPCEndpoints` was changed to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
-    This value should already be present in your `cluster.yaml` file, below is a partial `cluster.yaml` that contains the value you may add to retain the previous behavior of deploying VPC endpoints in your cluster.
+    This value should already be present in your `cluster.yaml` file. Below is a partial `cluster.yaml` that contains the value you can add to retain the previous behavior of deploying VPC endpoints in your cluster.
     This resource should only be required where the networking configuration of the cluster does not allow for direct access to the AWS API.
 
     ```yaml
@@ -47,7 +47,7 @@ enterprise: false
 #### Bug fixes
 
 - Fix a bug where provisioning would fail looking up the default AWS AMI in certain regions, even if `imageID` is set.
-- In certain environments, the kubelet service can be in a started state after the package is installed, always stop that service to avoid `kubeadm` preflight errors.
+- In certain environments, the kubelet service can be in a started state, after the package is installed. Always stop that service to avoid `kubeadm` preflight errors.
 - Properly set the `konvoy` version when writing out the marker file to remote hosts.
 
 #### Component version changes
