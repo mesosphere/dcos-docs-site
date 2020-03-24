@@ -251,7 +251,7 @@ spec:
 | ------------------ | ------- |
 |**Minimum** | 1.15.4 |
 |**Maximum** | 1.16.x |
-|**Default** | 1.16.8 |
+|**Default** | 1.16.4 |
 
 #### Disclaimer
 
@@ -265,13 +265,13 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.16.8
+    version: 1.16.4
   containerNetworking:
     calico:
       version: v3.10.1
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.8-2
+    configVersion: stable-1.16.4-2
     addonsList:
     ...
     - name: helm
@@ -442,7 +442,7 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
 
 #### Component version changes
 
-- Kubernetes `v1.16.8`
+- Kubernetes `v1.16.4`
 - Calico `v3.10.1`
 - Kubeaddons `v0.6.2`
 - Helm `v2.16.1`
