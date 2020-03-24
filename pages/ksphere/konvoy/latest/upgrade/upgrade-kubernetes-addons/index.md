@@ -22,7 +22,7 @@ A Konvoy upgrade consists of a few distinct steps.
 
 - Download the Konvoy binary and extract it in your environment in the same manner as the initial install.  
 - Update the `cluster.yaml` file with the changes outlined below.
-- Run `konvoy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
+- Run `konovy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
 
 ## Before you begin
 
@@ -52,7 +52,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.16.4
+    version: 1.16.8
 ```
 
 <p class="message--note"><strong>NOTE: </strong>For certain Konvoy releases you might be required to change the versions for `containerNetworking` or `containerRuntime`. These changes are highlighted in the Release Notes and in the section further down this page.</p>
@@ -153,10 +153,10 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.16.4
+    version: 1.16.8
   containerNetworking:
     calico:
-      version: v3.10.1
+      version: v3.13.1
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: stable-1.16-1.2.0
