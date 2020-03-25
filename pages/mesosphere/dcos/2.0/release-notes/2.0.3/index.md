@@ -19,9 +19,6 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 Initial list:
 
 
-D2IQ-65774
-D2IQ-65604
-
 
 # DC/OS 
 
@@ -33,19 +30,17 @@ DC/OS 2.0.3 includes the following component versions:
 
 ### DC/OS Fixed and Improved Issues
 
-- Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
-
-- DC/OS no longer increases the rate limit for `journald` logging. Scale testing demonstrated that raising the limit can overload `journald`, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763, COPS-5830)
-
-- Fixed an issue where image pull in UCR was not working for nvcr.io (missing 'service'/'scope' parameters). (D2IQ-63303, COPS-5804)
-
-- Fixed situation where application on MoM always waiting because the master does not allocate valid offers to framework. (D2IQ-62519, COPS-5725)
-
-- DC/OS Admin Router now allows large packages of files, up to 32GB, to be uploaded to the Package Registry. (D2IQ-61233, COPS-5615)
-
-- Modified pre-flight check to use filesystem mount name instead of filesystem device name. (D2IQ-59406)
-
-- Fixed an issue where an agent marked a Task as FAILED immediately after marking it as FINISHED (D2IQ-62454, COPS-4995)
+- D2IQ-65774
+D2IQ-65604
+COPS-5804
+COPS-5725
+COPS-5617
+COPS-5615
+D2IQ-64620
+D2IQ-64507, COPS-5868
+D2IQ-62537
+D2IQ-61233, COPS-5615
+D2IQ-65604
 
 # Marathon
 
