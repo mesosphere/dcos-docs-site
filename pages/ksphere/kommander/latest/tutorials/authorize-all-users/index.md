@@ -35,7 +35,7 @@ For this group to have an effect we need to connect it to a role, so let's first
 
 ![Adding a read role](/ksphere/kommander/img/tutorial-auth-developer-role.png)
 
-Now that we have everything we can create our policy.
+Now that we have everything we can assign the "Read Everything" role to the developers group.
 
 ![Adding a policy](/ksphere/kommander/img/tutorial-auth-developer-policy.png)
 

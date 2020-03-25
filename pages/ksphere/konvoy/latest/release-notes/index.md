@@ -4,7 +4,7 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: View release-specific information for Konvoy
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
@@ -14,6 +14,236 @@ excerpt: View release-specific information for Konvoy
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
+
+### Version v1.4.2 - Released 24 March 2020
+
+#### Disclaimer
+
+-   The default value of `vpc.enableVPCEndpoints` was changed to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
+    This value should already be present in your `cluster.yaml` file. Below is a partial `cluster.yaml` that contains the value you can add to retain the previous behavior of deploying VPC endpoints in your cluster.
+    This resource should only be required where the networking configuration of the cluster does not allow for direct access to the AWS API.
+
+    ```yaml
+    kind: ClusterProvisioner
+    apiVersion: konvoy.mesosphere.io/v1beta1
+    metadata:
+      name: konvoy
+    spec:
+      provider: aws
+      aws:
+        vpc:
+          enableVPCEndpoints: true
+    ```
+
+#### Improvements
+
+- Update default Kubernetes version to `v1.16.8` which fixes [CVE-2020-8552](https://github.com/kubernetes/kubernetes/issues/89378) found in a previous version.
+- Update Calico to `v3.13.1` which fixes a [CVE-2019-11253](https://www.projectcalico.org/security-bulletins/#TTA-2019-003) found in a previous version.
+- Update Ansible to `2.7.16.0` which fixes a CVE found in a previous version.
+- Improve error output when addons can not be retrieved.
+- Change the default value of `vpc.enableVPCEndpoints` to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
+- Provide a new option `vpc.overrideDefaultRouteTable` to disabling Konvoy modifying the route table.
+
+#### Bug fixes
+
+- Fix a bug where provisioning would fail looking up the default AWS AMI in certain regions, even if `imageID` is set.
+- In certain environments, the kubelet service can be in a started state, after the package is installed. Always stop that service to avoid `kubeadm` preflight errors.
+- Properly set the `konvoy` version when writing out the marker file to remote hosts.
+
+#### Component version changes
+
+- Kubernetes `v1.16.8`
+- Go `1.13.8`
+- Calico `v3.13.1`
+- Ansible `2.7.16`
+
+### Version v1.4.1 - Released 04 March 2020
+
+#### Improvements
+
+- Update certain Ansible tasks to correctly reflect the changed status.
+
+#### Bug fixes
+
+- Fix a bug where the kubeaddons controller could not start when air-gapped.
+- Fix a bug where certain addons were being installed even if set to `enabled: false`.
+- Fixed a bug that would fail to install on Ubuntu if containerd.io was not already installed.
+
+### Version v1.4.0 - Released 28 February 2020
+
+#### Disclaimer
+
+- The generated release artifacts will now untar in `./konvoy_v1.4.0/konvoy` instead of `./linux/konvoy_v1.4.0/konvoy`.
+- The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy prints a warning message if your nodePool names do not comply with the requirement.
+- The Kommander and Dispatch addons are now in their own repos.
+
+<p class="message--important"><strong>IMPORTANT: </strong>You must modify your <code>cluster.yaml</code> with these changes when upgrading from a previous version. You can also no longer use the <code>konvoy.mesosphere.io/v1alpha1</code> apiVersion in your <code>cluster.yaml</code> if you are also deploying Kommander or Dispatch. That API version did not support multiple addon repositories.</p>
+
+Below is a partial `cluster.yaml` that contains the required changes.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
+spec:
+  addons:
+  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: stable-1.16-1.2.0
+    addonsList:
+    - name: kommander
+      enabled: false # remove the kommander addon or set "enabled: false"
+    - name: dispatch
+      enabled: false # remove the dispatch addon or set "enabled: false"
+      ...
+  - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: true
+  - configRepository: https://github.com/mesosphere/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: kommander
+      enabled: true
+```
+
+#### Improvements
+
+-   A preflight check fails if existing PVs (from a previous installation) are found.
+-   Automatically label nodes with `konvoy.mesosphere.com/inventory_hostname` with the `node_pool` value set in `inventory.yaml` file.
+-   Notarize the binaries produced for Darwin to be compatible with MacOS Catalina https://developer.apple.com/news/?id=12232019a.
+-   Add `runc` version to diagnostic bundles generated by the diagnose subcommand.
+-   Add `resolv.conf` to diagnostic bundles generated by the diagnose subcommand.
+-   Add `etcdctl` diagnostic outputs to bundles generated by the diagnose subcommand.
+-   Enable strict yaml parsing for `cluster.yaml`.
+-   New flag `--without-draining` to skip draining nodes during upgrades.
+-   Moved the Kommander and Dispatch addons to their own repos. Remove flags `--addons-config-repository` and `--addons-config-version` and instead added `--addons-repositories`.
+-   New commands `konvoy drain`, `konvoy cordon` and `konvoy uncordon` that run the corresponding `kubectl` commands.
+    - This functionality relies on the Kubernetes nodes having a label `konvoy.mesosphere.com/node_pool=_node_pool_` where `_node_pool_` corresponds to the `nodePool.name` defined in the `cluster.yaml` file.
+    - Starting with this release, Konvoy automatically labels the nodes with the nodePool. You can run `konvoy deploy -y` to apply the labels prior to running these new commands.
+-   New commands `konvoy get nodepools`, `konvoy create nodepool`, `konvoy scale nodepool` manage the `nodePool` entries in the `cluster.yaml` file. These commands do not change the infrastructure, you still need to run `konvoy up` to apply the changes.
+
+#### Bug fixes
+
+- Fix a bug where a failure with `konvoy down` and `konvoy reset` would prematurely delete files required on a retry.
+- Fix a bug in `konvoy reset` that prevented Kubernetes system packages from being removed on Ubuntu 16.04.
+- Fix a bug that causes `konvoy reset` to fail when running the command after the kubectl package is installed, but before `kubeadm` succeeds.
+- Fix the URL that is printed for the ops-portal, after an install, when using a custom domain.
+- Fix a bug where the cluster.yaml file was improperly parsed when there are `---` in addon values.
+- Add Tekton utility images to the air-gapped release tar.
+
+#### Addons improvements
+
+-   Disable audit log collection in fluentd. It's been observed in production clusters that the audit log bloats the number of fields in an index. This causes resource limits to be filled and throttling to occur. We are disabling this collection pending further investigation. To maintain the previous behavior, set the values of the `fluentbit` addon as follows:
+
+    ```yaml
+          - name: fluentbit
+            enabled: true
+            values: |
+              audit:
+                enable: true
+    ```
+
+-   The Kommander and Dispatch addons are now in their own repos and were removed from the default kubernetes-base-addons repo.
+-   Automatically deploy Kudo `v0.8.x` when the Kubeaddons controller is deployed.
+-   New default addon `elasticsearch-curator` manages Elasticsearch indices and prevents them from filling up the disk.
+-   RBAC authorization is now available for the Operations Portal addons. To maintain the previous behavior of all authenticated users having access to the Operations Portal addons, set the values of the `opsportal` addon as follows:
+
+    ```yaml
+          - name: opsportal
+            enabled: true
+            values: |
+              opsportalRBAC:
+                allowAllAuthenticated: true
+    ```
+
+    After this configuration is applied, external users must be granted access to Operations Portal resources explicitly. For information on creating policies see the [Portal Authorization](../security/external-idps/rbac#portal-authorization) documentation.
+-   Allow for using the default AWS AMI when installing GPU nodes.
+-   In `dex-k8s-authenticator` allow scopes to be configured, and drop the `offline_access` scope as it is not used.
+-   In `kube-oidc-proxy` enable token passthrough.
+-   In `dex`:
+    - Improve the LDAP connector validation in the Dex controller.
+    - Fix an issue in the dex addon which disallowed adding local users.
+    - Use the Dex controller v0.4.1, which includes support for OIDC group claims.
+    - Upgrade Dex to v2.22.0, which supports groups claims for OIDC connectors.
+-   Add logging to addon cleanup process so that addons are no longer silently deleted when disabled.
+
+#### Component version changes
+
+-   awsebscsiprovisioner: 0.4.0-1
+    - awsebscsiprovisioner: 0.4.0
+-   awsebsprovisioner: 1.0.0-1
+    - awsebsprovisioner: 1.0
+-   azuredisk-csi-driver: 0.5.1-1
+    - azuredisk-csi-driver: 0.5.1
+-   azurediskprovisioner: 1.0.0-1
+    - azurediskprovisioner: 1.0
+-   cert-manager: 0.10.1-2
+    - cert-manager: 0.10.1
+-   dashboard: 2.0.0-beta6
+    - dashboard: 2.0.0-beta6
+-   defaultstorageclass-protection: 0.0.1-1
+    - defaultstorageclass-protection: 0.0.1
+-   dex: 2.22.0-3
+    - dex: 2.22.0
+-   dex-k8s-authenticator: 1.1.1-3
+    - dex-k8s-authenticator: v1.1.1
+-   dispatch: 1.0.0-rc1
+    - dispatch: 1.0.0-rc1
+    - argo-cd: 1.4.2
+-   elasticsearch: 6.8.2-1
+    - elasticsearch: 6.8.2
+-   elasticsearch-curator: 5.7.6-1
+    - elasticsearch-curator: 5.7.6
+-   elasticsearchexporter: 1.1.0-1
+    - elasticsearchexporter: 1.1.0
+-   external-dns: 0.5.18-1
+    - external-dns: 0.5.18
+-   flagger: 0.19.0
+    - flagger: 0.19.0
+-   fluentbit: 1.3.2-2
+    - fluentbit: 1.3.2
+-   gatekeeper: 3.0.4-1
+    - gatekeeper: 3.0.4-beta.1
+-   istio: 1.4.3-1
+    - istio: 1.4.3
+    - jaeger: 1.4.3
+    - kiali: 1.4.3
+-   kibana: 6.8.2-1
+    - kibana: 6.8.2
+-   kommander: 1.0.0-15
+    - kommander: 1.0.0
+    - kommander-grafana: 6.6.0
+    - thanos: 0.3.9
+    - karma: 1.4.0
+-   konvoyconfig: 0.0.2-1
+    - konvoyconfig: 0.0.2
+-   kube-oidc-proxy: 0.1.1-2
+    - kube-oidc-proxy: v0.1.1
+-   localvolumeprovisioner: 1.0.0-1
+    - localvolumeprovisioner: 1.0
+-   metallb: 0.8.1-1
+    - metallb: 0.8.1
+-   nvidia: 0.2.0-3
+    - nvidia: 0.2.0
+-   opsportal: 1.0.0-10
+    - opsportal: 1.0.0
+-   prometheus: 0.34.0-4
+    - prometheus-operator: 0.34.0
+    - alertmanager: 0.19.0
+    - grafana: 6.4.2
+    - prometheus: 2.14.0
+-   prometheusadapter: 0.5.0-1
+    - prometheusadapter: 0.5.0
+-   reloader: 0.0.49-1
+    - dex: v0.0.49
+-   traefik: 1.7.2-6
+    - traefik: 1.7.12
+-   traefik-forward-auth: 1.0.4-4
+-   velero: 1.0.1-1
+
+### Other Notable Changes
+
+#### Component version changes
 
 ### Version v1.3.0 - Released 21 January 2020
 
@@ -208,7 +438,7 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
 -   Update CPU and Memory requests and limits of multiple addons to better handle larger clusters.
 -   Added impersonation and group claim support to traefik-forward-auth.
 -   Enable impersonation support for Dashboard 2.0.
-    - **IMPORTANT** When accessing the dashboard, with a user other than the operations user, the user must be granted permissions using the [RBAC API](../security/external-idps/ops-portal-access)
+    - **IMPORTANT** When accessing the dashboard, with a user other than the operations user, the user must be granted permissions using the [RBAC API](../security/external-idps/rbac)
 
 #### Component version changes
 
@@ -265,7 +495,7 @@ The issues are grouped by feature, functional area, and component.
 -   The authentication token has no permissions.
 
     After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
-    To enable the authenticated user to perform administrative actions, you must [manually add role bindings](../security/external-idps/ops-portal-access).
+    To enable the authenticated user to perform administrative actions, you must [manually add role bindings](../security/external-idps/rbac).
 
 -   Upgrades might fail when `workers` is set to one.
 
@@ -514,7 +744,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 #### Improvements
 
-- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](../install/install-onprem#specifying-a-local-kubernetes-base-addons-repo).
+- Added a new flag `--addons-config-repository` to commands `konvoy init`, `konvoy up` and `konvoy provision` to be able to specify a local clone for [kubernetes-base-addons](https://github.com/mesosphere/kubernetes-base-addons). Documentation can be found [here](../install/install-onprem#specifying-local-addons-repositories).
 
 #### Addons improvements
 

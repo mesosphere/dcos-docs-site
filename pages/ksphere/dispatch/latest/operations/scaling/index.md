@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle:  Scaling Dispatch
 title: Scaling Dispatch
-menuWeight: 5
-beta: true
+menuWeight: 50
+beta: false
 excerpt: Scaling Argo CD on Dispatch
 ---
 

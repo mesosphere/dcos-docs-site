@@ -4,7 +4,7 @@ navigationTitle: Replace a failed node
 title: Replace a failed node
 menuWeight: 9
 excerpt: Replace a failed worker node in a cluster
- 
+enterprise: false
 ---
 
 Whenever a node crashes due to system failure, Konvoy provides some guidelines to replace it with a new worker.

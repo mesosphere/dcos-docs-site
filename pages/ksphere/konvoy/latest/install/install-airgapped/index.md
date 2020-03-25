@@ -21,7 +21,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] v1.16.4 or later
+* [kubectl][install_kubectl] v1.16.8 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -77,15 +77,15 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-config-repository /opt/konvoy/artifacts/kubernetes-base-addons --addons-config-version stable-1.16.4-2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.16-1.2.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.16-1.0.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.0.0 [--cluster-name <your-specified-name>]
    ```
 
    **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
-   The additional `--addons-config-repository` and `--addons-config-version` flag will result in the generated `cluster.yaml` to set the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
-   The path `/opt/konvoy/artifacts/kubernetes-base-addons/` is the directory path where the `konvoy` binary is mounted from the host into the container. **Note:** This should not be changed unless you are referencing a different `kubernetes-base-addons/` than the one provided in the tar.
+   The additional `--addons-repositories` flag results in the generated `cluster.yaml` setting the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
+   The path `/opt/konvoy/artifacts/...` is the directory path where the `konvoy` binary is mounted from the host into the container. <p class "message--note"><strong>NOTE: </strong> This should not be changed unless you are referencing a different repo than the one provided in the tar.</p>
 
    ```yaml
    kind: ClusterConfiguration
@@ -94,7 +94,19 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: stable-1.16.4-2
+       configVersion: stable-1.16-1.2.0
+       addonsList:
+       ...
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+      configVersion: stable-1.16-1.0.0
+      addonsList:
+      - name: dispatch # Dispatch is currently in Beta
+        enabled: false
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+      configVersion: stable-1.16-1.0.0
+      addonsList:
+      - name: kommander
+        enabled: true
    ```
 
 1. Open inventory file `inventory.yaml` in a text editor to specify the hosts.
@@ -267,12 +279,13 @@ To use `keepalived` control plane load balancing:
 The following example illustrates the configuration if the reserved virtual IP address is `10.0.50.20`:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     controlPlane:
       controlPlaneEndpointOverride: "10.0.50.20:6443"
       keepalived:
-        enabled: true
         interface: ens20f0 # optional
         vrid: 51           # optional
 ```
@@ -285,11 +298,15 @@ You could also set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the
 This field is optional.
 If not set, Konvoy will randomly pick a Virtual Router ID for you.
 
+If you are not setting any of the optional values, use `spec.kubernetes.controlPlane.keepalived: {}` to enable it with the default values.
+
 ## Configure pod and service networking
 
 The following example illustrates how you can configure the pod subnet and service subnet in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     networking:
@@ -312,9 +329,25 @@ spec:
 ...
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16-1.2.0
     helmRepository:
-      image: mesosphere/base-addons-chart-repo:stable-1.16.4-2
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.2
+    addonsList:
+    ...
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    helmRepository:
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.2
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: false
+  - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    helmRepository:
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.2
+    addonsList:
+    - name: kommander
+      enabled: false
 ```
 
 ## Configure MetalLB load balancing
@@ -339,6 +372,8 @@ MetalLB can be configured in two modes - `layer2` and `bgp`.
 The following example illustrates the layer2 configuration in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
@@ -356,6 +391,8 @@ spec:
 The following example illustrates the BGP configuration in the `cluster.yaml` configuration file:
 
 ```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:

@@ -22,7 +22,7 @@ A Konvoy upgrade consists of a few distinct steps.
 
 - Download the Konvoy binary and extract it in your environment in the same manner as the initial install.  
 - Update the `cluster.yaml` file with the changes outlined below.
-- Run `konovy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
+- Run `konvoy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
 
 ## Before you begin
 
@@ -33,7 +33,7 @@ If you are using one of the public cloud provisioners you must also have access 
 
 ## Prepare for Kubernetes upgrade
 
-In the `cluster.yaml` file, modify the `spec.kubernetes.version` value in `ClusterConfiguration` to the Kubernetes versionyou want.
+In the `cluster.yaml` file, modify the `spec.kubernetes.version` value in `ClusterConfiguration` to the desired Kubernetes version.
 
 For example, assume the cluster was launched with the following `ClusterConfiguration` section:
 
@@ -45,27 +45,27 @@ spec:
     version: 1.15.6
 ```
 
-If you want to upgrade to a newer patch version of `1.16.x`, then change the version string like the following:
+If you want to upgrade to a newer patch version of `1.16.x`, change the version string like the following:
 
 ```yaml
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.16.4
+    version: 1.16.8
 ```
 
 <p class="message--note"><strong>NOTE: </strong>For certain Konvoy releases you might be required to change the versions for `containerNetworking` or `containerRuntime`. These changes are highlighted in the Release Notes and in the section further down this page.</p>
 
-During the Kubernetes upgrade process Konvoy does the following:
+During the Kubernetes upgrade process, Konvoy:
 
--   Konvoy determines which nodes do not have the required configuration and OS package versions.
--   The stage `STAGE [Determining Upgrade Safety]` checks for any user workloads that may be impacted by the upgrade and marks the nodes, where the workloads are running, to be "unsafe" to upgrade, skipping the upgrade process on them.
+-   Determines which nodes do not have the required configuration and OS package versions.
+-   During stage `STAGE [Determining Upgrade Safety ...]`, checks for any user workloads that may be impacted by the upgrade and marks the nodes, where the workloads are running, to be "unsafe" to upgrade, skipping the upgrade process on them.
     - You can force Konvoy to upgrade all of nodes by using the `--force-upgrade` flag.
     - Otherwise you can resolve the safety issues after the initial upgrade and rerun the upgrade process to let Konvoy perform the upgrade on the remaining nodes.
--   All of the control-plane nodes are upgraded first.
--   The remaining nodes are upgraded individually.
-    - The workloads are moved to a different node with `kubectl drain`. This process may take a few minutes before all the workloads are scheduled onto different nodes.
+-   Upgrades all of the control-plane nodes.
+-   Upgrades the remaining nodes sequentially, upgrading all of the nodes in a NodePool before continuing onto a different NodePool.
+    - The workloads are moved to a different node with `kubectl drain`. This process may take a few minutes before all the workloads are scheduled onto different nodes. It is also possible to disable this behavior by passing the flag `--without-draining` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`. When `--without-draining` is specified, because no workloads will be rescheduled, all nodes will be upgraded, even when there are workloads that are "unsafe" to upgrade.  
     - The Kubernetes and Containerd OS packages are upgraded.
     - The node is uncordoned allowing for workloads to be scheduled on it again.
 
@@ -99,7 +99,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16-1.2.0
     addonsList:
     ...
 ```
@@ -116,7 +116,18 @@ This process will take about 20 minutes to complete (additional time may be requ
 
 ...
 
-STAGE [Determining Upgrade Safety]
+STAGE [Determining Upgrade Safety For Control Plane Nodes]
+...
+
+STAGE [Upgrading Kubernetes]
+...
+
+STAGE [Determining Upgrade Safety For Nodes In Pool "worker"]
+...
+
+STAGE [Upgrading Kubernetes]
+...
+STAGE [Determining Upgrade Safety For Nodes]
 ...
 
 STAGE [Upgrading Kubernetes]
@@ -128,7 +139,7 @@ STAGE [Deploying Enabled Addons]
 
 You can also separate the above process by first running `konvoy deploy kubernetes --upgrade` and then running `konvoy deploy addons`.
 
-The steps above outline the general process for performing an upgrade of Kubernetes and addons. For some releases the process might differ slightly. The steps below outline the process when upgrading to specific versions of Konvoy.
+The steps above outline the general process for performing an upgrade of Kubernetes and addons. For some releases, the process might differ slightly. The steps below outline the process when upgrading to specific versions of Konvoy.
 
 ### Upgrading from v1.2.x to v1.3.0
 
@@ -142,13 +153,13 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.16.4
+    version: 1.16.8
   containerNetworking:
     calico:
-      version: v3.10.1
+      version: v3.13.1
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16-1.2.0
     addonsList:
     ...
     - name: helm

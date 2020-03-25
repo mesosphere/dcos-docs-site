@@ -4,7 +4,7 @@ navigationTitle: Use the LoadBalancer service type
 title: Use the LoadBalancer service type
 menuWeight: 20
 excerpt: Learn how to expose applications using the LoadBalancer (layer-4) service type
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Configure an AWS Cloud Provider with Static Credentials
-title: AWS Static Credentials
+navigationTitle: Configure an On Premises provider
+title: On Premises provider
 beta: true
-excerpt: Configuring an AWS Cloud Provider with static credentials
+excerpt: Configuring an On Premises provider
 ---
 
 ### Configure an On Premise provider
@@ -25,4 +25,3 @@ When creating an On Premise provider, you need a private SSH key.
 Figure 1 - On Premise Provider Form with values
 
 After the provider is created, the Provider’s display name or credentials can be updated.
-

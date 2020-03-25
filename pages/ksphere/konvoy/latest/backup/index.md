@@ -4,7 +4,7 @@ navigationTitle: Back up and restore
 title: Back up and restore
 menuWeight: 12
 excerpt: Back up and restore the Konvoy cluster
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
@@ -19,7 +19,7 @@ As a production-ready solution, Konvoy provides the Velero addon by default, to 
 For on-premise deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
 For production use-cases, it's advisable to provide an *external* storage volume for Minio to use.
 
-<p class="message--note"><strong>NOTE: </strong>If you intend to use the cluster without an external storage volume for Minio, you should [fetch the latest backup](#fetching-a-backup-archive) and store it in a known, secure location at a regular interval. For example, if you are not using an external storage volume, you should back up and archive the cluster on a weekly basis.</p>
+<p class="message--note"><strong>NOTE: </strong>If you use the cluster without an external storage volume for Minio, <a href="#fetching-a-backup-archive">fetch the latest backup</a> and store it in a known, secure location at regular intervals. For example, if you are not using an external storage volume, back up and archive the cluster on a weekly basis.</p>
 
 ## Install the Velero command-line interface
 

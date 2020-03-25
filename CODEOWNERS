@@ -9,6 +9,9 @@
 # change to not notify
 # /pages/services/ @SarahStegall @jpe442
 
+# Konvoy
+/pages/ksphere/konvoy/ @dkoshkin @samvantran @cmastr
+
 # Networking
 # change to notify networking team only 
 /pages/mesosphere/dcos/services/edge-lb/ @networking-team

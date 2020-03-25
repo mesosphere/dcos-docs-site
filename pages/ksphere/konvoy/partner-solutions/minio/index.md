@@ -36,7 +36,7 @@ MinIO is a distributed object storage service for high performance, high scale d
 
 1. Get the secret key for `access key minio` to login.
     ```bash
-    echo $(kubectl get secret minio-creds-secret -o=jsonpath='{.data.secretkey}' | base64 --decode)
+    echo $(kubectl get secret minio-creds-secret -o=jsonpath='{.data.secretkey}' -n velero | base64 --decode)
     ```
 
 ## Delete the Cluster and Operator

@@ -4,7 +4,7 @@ navigationTitle: Cluster configuration
 title: Cluster configuration
 menuWeight: 10
 excerpt: Review cluster configuration settings defined in the cluster.yaml file
- 
+enterprise: false
 ---
 
 As discussed in the [Quick start](../../quick-start/) and [Install](../../install) and [Upgrade](../../upgrade/) sections, the `cluster.yaml` file defines all of the key settings that are used to create and customize a Konvoy cluster.
@@ -38,8 +38,9 @@ spec:
   aws:
     region: us-west-2
     vpc:
+      overrideDefaultRouteTable: true  
       enableInternetGateway: true
-      enableVPCEndpoints: true
+      enableVPCEndpoints: false
     availabilityZones:
     - us-west-2c
     tags:
@@ -89,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.16.4
+    version: 1.16.8
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -101,7 +102,7 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.10.1
+      version: v3.13.1
       encapsulation: ipip
       mtu: 1480
   containerRuntime:
@@ -113,7 +114,7 @@ spec:
   - name: worker
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16-1.2.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -132,8 +133,6 @@ spec:
       enabled: true
     - name: dex-k8s-authenticator
       enabled: true
-    - name: dispatch
-      enabled: false
     - name: elasticsearch
       enabled: true
     - name: elasticsearchexporter
@@ -153,8 +152,6 @@ spec:
     - name: istio # Istio is currently in Preview
       enabled: false
     - name: kibana
-      enabled: true
-    - name: kommander
       enabled: true
     - name: konvoyconfig
       enabled: true
@@ -189,6 +186,16 @@ spec:
     - name: traefik-forward-auth
       enabled: true
     - name: velero
+      enabled: true
+  - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: dispatch # Dispatch is currently in Beta
+      enabled: false
+  - configRepository: https://github.com/mesosphere/kubeaddons-kommander
+    configVersion: stable-1.16-1.0.0
+    addonsList:
+    - name: kommander
       enabled: true
   version: v1.3.0
 
@@ -234,9 +241,10 @@ spec:
 | ----------------------------- | -------------------------------------------------------------------------------------- | ------- |
 | `vpc.ID`                | [AWS VPC][aws_vpc_and_subnets] ID where the cluster should be launched      | `""`    |
 | `vpc.routeTableID`      | [AWS RouteTable][aws_route_table] ID that is used by the subnets in the VPC | `""`    |
+| `vpc.overrideDefaultRouteTable`  | Override the default route table routes                                             | `true`  |
 | `vpc.internetGatewayID` | [AWS Internet Gateway][aws_internet_gateway] ID assigned to the VPC         | `""`    |
 | `vpc.enableInternetGateway` | Enable creating an [AWS Internet Gateway][aws_internet_gateway] when creating the VPC | `true` |
-| `vpc.enableVPCEndpoints`    | Enable creating [AWS VPC Endpoints][aws_vpc_endpoints] when creating the VPC | `true` |
+| `vpc.enableVPCEndpoints`    | Enable creating [AWS VPC Endpoints][aws_vpc_endpoints] when creating the VPC | `false` |
 
 ### spec.elb
 | Parameter               | Description                                                                 | Default |
@@ -358,7 +366,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.4`                |
+| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.8`                |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#speckubernetescontrolplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#speckubernetesnetworking) |
 | `kubernetes.cloudProvider`     | Specifies the object that defines which cloud-provider to enable.    | See [spec.kubernetes.clouldProvider](#speckubernetescloudprovider)  |
@@ -499,7 +507,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter               | Description                                                    | Default  |
 | ----------------------- | -------------------------------------------------------------- | --------- |
-| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.10.1` |
+| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.13.1` |
 | `calico.encapsulation`  | Specifies the encapsulation mode. The supported modes are [ipip](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip) and [vxlan](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan) | `ipip` |
 | `calico.mtu`            | Specifies the MTU to use for the veth interfaces.              | Depends on `calico.encapsulation` and provisioner |
 
@@ -576,4 +584,4 @@ Properties of an `addon` object.
 [azure_loadbalancer]: https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
 [availability_set]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability
 [azure_tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
-[azure_volume_types]: https://docs.okd.io/latest/install_config/persistent_storage/persistent_storage_azure.html
+[azure_volume_types]: https://docs.microsoft.com/en-us/rest/api/compute/disks/createorupdate#diskstorageaccounttypes

@@ -1,35 +1,28 @@
 ---
 layout: layout.pug
 navigationTitle: Licensing
-title: Licensing
+title: License
 excerpt:
 menuWeight: 6
 ---
 
-## Licensing
+## Purchase a License
 
-Kommander requires a valid license to continue use beyond adding a second cluster.
+You can evaluate Kommander running two clusters for free. Kommander cluster plus one additional cluster. If you want to add more clusters you need a valid license.
 
-The License table shows currently added licenses with name, status, start date, end date, cluster capacity, and secret name.
+To obtain a valid Kommander license, contact your sales representative at <sales@d2iq.com>. After purchase, download the license file from the [support website](https://support.d2iq.com/s/downloads) using your [login credentials](https://support.d2iq.com/s/login/) to a place accessible by Kommander.
 
-![Licenses](/ksphere/kommander/img/Licenses-table.png)
+## Enter a Valid License Key
+After you have downloaded the license, an administrator must add it to Kommander.
 
-Licenses
-
-Under the hood, a license consists of a License custom resource object that references a secret containing the actual license text.
-
-Clicking + Add License takes you to the license form where a license can be created by adding the license to the textarea.
+1. From Kommander, browse to the Licenses page.
+2. Select  + Add License.
+3. Paste your license content in and select Add.
 
 ![Licenses Form](/ksphere/kommander/img/Licenses-form.png)
-
 Licenses Form
 
-If there is an error submitting the license, the error banner contains directions on how to add the license directly through kubectl.
+If there is an error submitting the license, you can add the license directly through kubectl using the commands in the message within Kommander.
 
 ![Licenses Error](/ksphere/kommander/img/Licenses-error.png)
-
-Figure 15 - Licenses Error
-
-### Obtaining a license
-
-To generate your Kommander license, contact your sales representative at <sales@d2iq.com>, or you can download the license from the [support website](https://support.d2iq.com/s/downloads) using your [login credentials](https://support.d2iq.com/s/login/).
+Licenses Error

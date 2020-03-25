@@ -4,7 +4,7 @@ navigationTitle: Installation failures
 title: Installation failures
 menuWeight: 2
 excerpt: Troubleshoot and address installation and provisioning failures
- 
+enterprise: false
 ---
 
 The topics in this section cover troubleshooting installation and provisioning failures for Kubernetes clusters, with an emphasis on issues that are specific to clusters deployed with `konvoy`.

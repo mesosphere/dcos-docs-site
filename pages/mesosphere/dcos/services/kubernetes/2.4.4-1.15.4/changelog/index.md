@@ -18,7 +18,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 #### Bug Fixes
 
-* Disables Api server insecure port. It was only accessible via localhost on the kube-control-plane task, but to be CIS compliant, the `--insecure-port` flag is now set to 0.
+* Disable Api server insecure port. It was only accessible via localhost on the kube-control-plane task, but to be CIS compliant, we now set the `--insecure-port` flag to 0.
 
 ### Changelog since 2.4.2-1.15.3
 
@@ -37,7 +37,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 * Kubernetes 1.15.3
 * dcos-commons 0.56.3
-* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.4.4-1.15.4/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators, or other components of the system.
+* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.4.4-1.15.4/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators or other components of the system.
 
 ### Changelog since 2.4.0-1.15.1
 
@@ -52,7 +52,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 ## Bug Fixes
 
-* Fixed a bug where a custom OIDC certificate file is no available to the Kubernetes Apiserver when OIDC support is enabled.
+* Fix a bug where a custom OIDC certificate file isn't available to the Kubernetes Apiserver when OIDC support is enabled.
 
 ### Changelog since 2.3.3-1.14.3
 

@@ -4,7 +4,7 @@ navigationTitle: Advanced provisioning options (AWS)
 title: Advanced provisioning options (AWS)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on AWS
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
@@ -189,16 +189,20 @@ spec:
     vpc:
       ID: "vpc-0a0e1da174c837629"
       routeTableID: "rtb-012e0ee9392c58881"
+      overrideDefaultRouteTable: true
 ...
 ```
 
 It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
 
-<p class="message--note"><strong>NOTE: </strong> When creating the VPC you must have the DNS resolution option enabled, unless you are setting <tt>vpc.internetGatewayDisabled: true</tt>.</p>
+<p class="message--note"><strong>NOTE: </strong> When creating the VPC you must have the DNS resolution option enabled, unless you are setting <tt>vpc.enableInternetGateway: false</tt>.</p>
 
 The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
 
 <p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing internet gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
+
+By default, Konvoy modifies the default route table in the VPC. It removes all the existing routes, and adds a route for the internet gateway, with destination CIDR of `0.0.0.0/0`, even if one is specified with `vpc.routeTableID`.
+You can set `vpc.overrideDefaultRouteTable: false` to disable this behavior.
 
 It is also possible to disable creating the internet gateway by modifying a few options in the `cluster.yaml` configuration file.
 Doing so will also automatically set the kube-apiserver ELB to be `internal` and will not associate public IPs for all the EC2 instances.
@@ -217,6 +221,7 @@ spec:
     vpc:
       ID: "vpc-0a0e1da174c837629"
       routeTableID: "rtb-012e0ee9392c58881"
+      overrideDefaultRouteTable: true  
       enableInternetGateway: false
 ---
 kind: ClusterConfiguration
@@ -251,10 +256,10 @@ spec:
 ```
 
 ### VPC Endpoints
-Konvoy will automatically provision [AWS VPC Endpoints][aws_vpc_endpoints] for `ebs` and `elasticloadbalancing` services.
+Konvoy can automatically provision [AWS VPC Endpoints][aws_vpc_endpoints] for `ebs` and `elasticloadbalancing` services.
 This allows for the Kubernetes AWS cloud-provider and AWS EBS CSI driver to function without requiring access to the Internet.
 
-If desired you can disable creating these resources by modifying the `cluster.yaml` file and changing the `ProvisionerConfig` in the following way:
+The default configuration does not create these resources. You can enable creating them by modifying the `cluster.yaml` file and changing the `ProvisionerConfig` in the following way:
 
 ```yaml
 kind: ClusterProvisioner
@@ -265,15 +270,19 @@ spec:
   provider: aws
   aws:
     vpc:
-      enableVPCEndpoints: false
+      enableVPCEndpoints: true
 ...
 ```
+
+<p class="message--note"><strong>NOTE: </strong>When using a custom VPC with these endpoints already present, you should leave the <code>enableVPCEndpoints: false</code> value set. Otherwise, Konvoy modifies existing resources which could prevent other workloads from accessing the AWS api.</p>
 
 ### Subnets
 An existing VPC may already contain `subnets` for use. You may define them in the following way:
 
 ```yaml
 ...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: aws
   aws:
@@ -366,6 +375,8 @@ An existing IAM instance profile can be used, provided that the right policies m
 
 ```yaml
 ...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: aws
   nodePools:
@@ -383,6 +394,8 @@ or you may instead use the ARN:
 
 ```yaml
 ...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: aws
   nodePools:

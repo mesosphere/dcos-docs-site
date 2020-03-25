@@ -13,7 +13,7 @@ DC/OS {{ model.techName }} is available in the DC/OS Universe and can be install
 This section will take you through a minimal install of the {{ model.techName }} Service on a cluster.
 
 ## Prerequisites
-- You must have [DC/OS](/mesosphere/dcos/latest/in) installed on your cluster.
+- You must have [DC/OS](/mesosphere/dcos/latest/installing) installed on your cluster.
 - Your cluster must have {{ model.install.minNodeCount }}.
 - If you are using Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/1.12/security/ent/service-auth/custom-service-auth/) before installing DC/OS {{ model.techName }} Service. Only someone with `superuser` permission can create the service account.
   - `strict` [security mode](/mesosphere/dcos/1.12/security/ent/service-auth/custom-service-auth/) requires a service account.

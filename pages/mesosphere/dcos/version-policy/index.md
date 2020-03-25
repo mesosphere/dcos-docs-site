@@ -302,7 +302,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Cassandra 2.8.x-3.11.5 (Recommended)</td>
+        <td>Cassandra 2.9.x-3.11.6 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
@@ -372,7 +372,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
-        <td>Elastic 3.1.x-7.4.1 (Recommended)</td>
+        <td>Elastic 3.1.1-7.6.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>

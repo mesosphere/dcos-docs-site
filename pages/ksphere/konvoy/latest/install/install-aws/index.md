@@ -4,7 +4,7 @@ navigationTitle: Install on AWS
 title: Install on AWS
 menuWeight: 20
 excerpt: Prepare for and install Konvoy on AWS
- 
+enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
@@ -15,7 +15,7 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws][install_aws] command line utility
 * [Docker Desktop][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.16.4 or newer_ (for interacting with the running cluster)
+* [kubectl][install_kubectl] _v1.16.8 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured][aws_credentials].
   You must be authorized to create the following resources in the AWS account:
   * EC2 Instances

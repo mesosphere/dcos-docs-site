@@ -28,25 +28,18 @@ The following components provide Nvidia GPU support on Konvoy:
 
 ## Requirements
 
-1. Ubuntu 16.04, or Centos 7 with the IPMI driver enabled and the Nouveau driver disabled.
+1.  Ubuntu 16.04, or Centos 7 with the IPMI driver enabled and the Nouveau driver disabled.
+    <!-- If you are running Ubuntu 18.04 with an AWS kernal, you also need to enable the i2c_core kernel module. -->
 
-<!-- If you are running Ubuntu 18.04 with an AWS kernal, you also need to enable the i2c_core kernel module. -->
+1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1. NVIDIA GPU with Fermie architecture version 2.1 or greater.
+1.  Ensure the kernel-headers version is identical to the kernel version on each node. To verify this use the following script:
 
-1. Ensure the kernel-headers version is identical to the kernel version on each node. To verify this use the following script:
+    * Ubuntu
 
-* Centos
-
-```bash
-KERNEL_VERSION=$(uname -r) && yum -q list available --show-duplicates kernel-headers | awk -v arch=$(uname -m) 'NR>1 {print $2"."arch}' | tac | grep -E -m1 "^${KERNEL_VERSION/latest/.*}"
-```
-
-* Ubuntu
-
-```bash
-KERNEL_VERSION=$(uname -r) && apt-cache show "linux-headers-${KERNEL_VERSION}" 2> /dev/null | sed -nE 's/^Version:\s+(([0-9]+\.){2}[0-9]+)[-.]([0-9]+).*/\1-\3/p' | head -1
-```
+    ```bash
+    KERNEL_VERSION=$(uname -r) && apt-cache show "linux-headers-${KERNEL_VERSION}" 2> /dev/null | sed -nE 's/^Version:\s+(([0-9]+\.){2}[0-9]+)[-.]([0-9]+).*/\1-\3/p' | head -1
+    ```
 
 ## Configuration
 
@@ -57,10 +50,8 @@ To enable Nvidia GPU support on Konvoy, add the Nvidia GPU `nodePools` in Cluste
 ```yaml
 kind: ClusterProvisioner
 apiVersion: konvoy.mesosphere.io/v1beta1
-......
 spec:
   provider: aws
-......
   nodePools:
   - name: gpu-worker
     count: 4
@@ -72,26 +63,20 @@ spec:
       imagefsVolumeType: gp2
       imagefsVolumeDevice: xvdb
       type: p2.xlarge
-......
 ---
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
-......
 spec:
-......
   nodePools:
   - name: gpu-worker
     gpu:
-      nvidia:
-        enabled: true
+      nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: v1.3.0
+    configVersion: stable-1.16-1.2.0
     addonsList:
-......
     - name: nvidia
       enabled: true
-......
 ```
 
 ### Konvoy GPU Support on Ubuntu
@@ -103,14 +88,11 @@ By default, Konvoy assumes the cluster OS is CentOS. If you want to run the GPU 
 ---
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
-......
 spec:
-......
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
+    configVersion: stable-1.16-1.2.0
     addonsList:
-......
     - name: nvidia
       enabled: true
       values: |
@@ -118,7 +100,6 @@ spec:
         enabled: true
         image:
           tag: "418.87.01-ubuntu16.04"
-......
 ```
 
 See [Nvidia Public Hub Repository][nvidia_plublic_hub_repository] for available driver container images.
@@ -153,8 +134,7 @@ spec:
   nodePools:
   - name: gpu-worker
     gpu:
-      nvidia:
-        enabled: true
+      nvidia: {}
     labels:
       - key: dedicated
         value: gpu-worker
@@ -164,7 +144,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: v1.3.0
+    configVersion: stable-1.16-1.2.0
     addonsList:
 ......
     - name: nvidia
@@ -195,27 +175,74 @@ spec:
 
 Konvoy uses [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm] to display Nvidia GPU metrics. By default, Konvoy has a grafana dashboard called `GPU/Nvidia` to monitor GPU metrics. This GPU dashboard in Konvoy's Grafana UI.
 
+## Upgrade
+
+Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, due to a limitation in Helm, which is used internally by Konvoy, the GPU addon pods will repeatedly restart with the `CrashLoopBackOff` status for 5-10 minutes. This is because the Nvidia driver has a requirement that there must be at most one driver container running on any single node. This is to ensure the driver can successfully load the necessary kernel modules. However, this conflicts with the current `helm upgrade` strategy. When Helm tries to upgrade charts, it deploys new pods for the newer versioned chart while the old pods are still in the `Terminating` state. This causes a race condition in Nvidia's singleton policy.
+
+To overcome this limitation and upgrade the Nvidia GPU addon manually:
+
+1.  Delete all GPU workloads on the GPU nodes where the Nvidia addon needs to be upgraded.
+
+1.  Delete the existing Nvidia addon:
+
+    ```bash
+    kubectl delete clusteraddon nvidia
+    ```
+
+1. Wait for all Nvidia-related resources in the `Terminating` state to be cleaned up. You can check pod status with:
+
+    ```bash
+    kubectl get pod -A | grep nvidia
+    ```
+
+1.  Specify the desired `configVersion` in your `cluster.yaml`. Then, deploy addons to upgrade the Nvidia GPU addon:
+
+    ```bash
+    konvoy deploy addons
+    ```
+
 ## Debugging
 
-1. Determine if all Nvidia pods are in `Running` state, as expected:
+1.  Determine if all Nvidia pods are in `Running` state, as expected:
 
-```bash
-kubectl get pod -A | grep nvidia
-```
+    ```bash
+    kubectl get pod -A | grep nvidia
+    ```
 
-1. If there are any Nvidia pods crashing, returning errors, or flapping, collect the logs for the problematic pod. For example:
+1.  If there are any Nvidia pods crashing, returning errors, or flapping, collect the logs for the problematic pod. For example:
 
-```bash
-kubectl logs -n kube-system nvidia-kubeaddons-nvidia-driver-bbkwg
-```
+    ```bash
+    kubectl logs -n kube-system nvidia-kubeaddons-nvidia-driver-bbkwg
+    ```
 
-1. To recover from this problem, you must restart all Nvidia-addon pods that are running on the **SAME** host. This is because both `nvidia-dcgm-exporter` and `nvidia-device-plugin` are dependent on `nvidia-driver`.
+1.  To recover from this problem, you must restart all Nvidia-addon pods that are running on the **SAME** host. This is because both `nvidia-dcgm-exporter` and `nvidia-device-plugin` are dependent on `nvidia-driver`. In the example below, all Nvidia resources are restarted on the node `ip-10-0-129-201.us-west-2.compute.interna`:
 
-1. To collect more debug information on the Nvidia-addon, run:
+    ```bash
+    ➜  konvoy ✗ kubectl get pod -A -o wide | grep nvidia
+    kube-system    nvidia-kubeaddons-nvidia-device-plugin-dxtch                         1/1     Running     0          4m20s   192.168.57.153    ip-10-0-129-191.us-west-2.compute.internal   <none>           <none>
+    kube-system    nvidia-kubeaddons-nvidia-device-plugin-j4dm2                         1/1     Running     0          4m20s   192.168.39.88     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
+    kube-system    nvidia-kubeaddons-nvidia-device-plugin-qb29b                         1/1     Running     0          4m20s   192.168.119.35    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
+    kube-system    nvidia-kubeaddons-nvidia-device-plugin-tsbk2                         1/1     Running     0          4m20s   192.168.243.99    ip-10-0-129-201.us-west-2.compute.internal   <none>           <none>
+    kube-system    nvidia-kubeaddons-nvidia-driver-6m59m                                1/1     Running     3          4m20s   192.168.119.34    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
+    kube-system    nvidia-kubeaddons-nvidia-driver-79rmt                                1/1     Running     3          4m20s   192.168.57.152    ip-10-0-129-191.us-west-2.compute.internal   <none>           <none>
+    kube-system    nvidia-kubeaddons-nvidia-driver-fnhts                                1/1     Running     3          4m20s   192.168.39.87     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
+    kube-system    nvidia-kubeaddons-nvidia-driver-ks9hf                                1/1     Running     3          4m20s   192.168.243.98    ip-10-0-129-201.us-west-2.compute.internal   <none>           <none>
+    kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-8ngx9                         2/2     Running     0          4m20s   192.168.57.154    ip-10-0-129-191.us-west-2.compute.internal   <none>           <none>
+    kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6                         2/2     Running     0          4m20s   192.168.243.100   ip-10-0-129-201.us-west-2.compute.internal   <none>           <none>
+    kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-ttjqs                         2/2     Running     0          4m20s   192.168.39.89     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
+    kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-xqj6r                         2/2     Running     0          4m20s   192.168.119.36    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
+    ➜  konvoy ✗ kubectl delete pod -n kubeaddons nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6
+    pod "nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6" deleted
+    ➜  konvoy ✗ kubectl delete pod -n kube-system nvidia-kubeaddons-nvidia-device-plugin-tsbk2 nvidia-kubeaddons-nvidia-driver-ks9hf
+    pod "nvidia-kubeaddons-nvidia-device-plugin-tsbk2" deleted
+    pod "nvidia-kubeaddons-nvidia-driver-ks9hf" deleted
+    ```
 
-```bash
-helm get nvidia-kubeaddons
-```
+1.  To collect more debug information on the Nvidia addon, run:
+
+    ```bash
+    helm get nvidia-kubeaddons
+    ```
 
 [libnvidia_container]: https://github.com/NVIDIA/libnvidia-container
 [nvidia_container_runtime]: https://github.com/NVIDIA/nvidia-container-runtime

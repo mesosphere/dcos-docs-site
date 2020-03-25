@@ -39,13 +39,13 @@ kind: ClusterProvisioner
 apiVersion: konvoy.mesosphere.io/v1beta1
 metadata:
   name: konvoy
-  spec:
-    provider: azure
-    azure:
-      location: westus
-      availabilitySet:
-        faultDomainCount: 3
-        updateDomainCount: 3
+spec:
+  provider: azure
+  azure:
+    location: westus
+    availabilitySet:
+      faultDomainCount: 3
+      updateDomainCount: 3
   nodePools:
   - name: worker
     count: 8
@@ -229,6 +229,8 @@ An existing VNET may already contain `subnets` for use, you may define them in t
 
 ```yaml
 ...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: azure
   azure:
@@ -237,42 +239,42 @@ spec:
       name: existing-vnet
       resourceGroup: existing-resource-group
       routeTable: existing-route-table
-    nodePools:
-    - name: worker
-      count: 8
-      machine:
-        rootVolumeSize: 80
-        rootVolumeType: Standard_LRS
-        imagefsVolumeEnabled: true
-        imagefsVolumeSize: 160
-        imagefsVolumeType: Standard_LRS
-        type: Standard_DS3_v2
-        subnetIDs:
-        - existing-subnet-for-konvoy
-    - name: control-plane
-      controlPlane: true
-      count: 3
-      machine:
-        rootVolumeSize: 80
-        rootVolumeType: Standard_LRS
-        imagefsVolumeEnabled: true
-        imagefsVolumeSize: 160
-        imagefsVolumeType: Standard_LRS
-        type: Standard_DS3_v2
-        subnetIDs:
-        - existing-subnet-for-control-plane-konvoy
-    - name: bastion
-      bastion: true
-      count: 1
-      machine:
-        rootVolumeSize: 80
-        rootVolumeType: Standard_LRS
-        imagefsVolumeEnabled: true
-        imagefsVolumeSize: 160
-        imagefsVolumeType: Standard_LRS
-        type: Standard_DS2_v2
-        subnetIDs:
-        - other-subnet
+  nodePools:
+  - name: worker
+    count: 8
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: Standard_LRS
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: Standard_LRS
+      type: Standard_DS3_v2
+      subnetIDs:
+      - existing-subnet-for-konvoy
+  - name: control-plane
+    controlPlane: true
+    count: 3
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: Standard_LRS
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+       imagefsVolumeType: Standard_LRS
+      type: Standard_DS3_v2
+      subnetIDs:
+      - existing-subnet-for-control-plane-konvoy
+  - name: bastion
+    bastion: true
+    count: 1
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: Standard_LRS
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: Standard_LRS
+      type: Standard_DS2_v2
+      subnetIDs:
+      - other-subnet
 ...
 ```
 
