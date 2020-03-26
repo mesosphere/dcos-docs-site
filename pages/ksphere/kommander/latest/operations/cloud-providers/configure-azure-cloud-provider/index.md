@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle: Configure an Azure Cloud Provider
 title: Azure Static Credentials
-beta: true
 excerpt: Configuring an Azure Cloud Provider
 ---
 

@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle: Configure an AWS Cloud Provider with Static Credentials
 title: AWS Static Credentials
-beta: true
 excerpt: Configuring an AWS Cloud Provider with static credentials
 ---
 

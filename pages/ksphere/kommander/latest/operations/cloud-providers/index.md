@@ -20,7 +20,7 @@ Cloud Provider Form
 
 - [Configure AWS with Role Credentials](/ksphere/kommander/latest/operations/cloud-providers/configure-aws-cloud-provider-roles) (Recommended)
 - [Configure AWS with Static Credentials](/ksphere/kommander/latest/operations/cloud-providers/configure-aws-cloud-provider-static-credentials)
-- [Configure Azure Credentials](/ksphere/kommander/latest/operations/cloud-providers/configure-aws-cloud-provider)
+- [Configure Azure Credentials](/ksphere/kommander/latest/operations/cloud-providers/configure-azure-cloud-provider)
 - [Configure On-Premise Credentials](/ksphere/kommander/latest/operations/cloud-providers/configure-on-prem-provider)
 
 ### Deleting a cloud provider

@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle: Configure an AWS Cloud Provider with a User Role
 title: AWS Role Credentials
-beta: true
 excerpt: Configure an AWS Cloud Provider with a User Role
 ---
 
