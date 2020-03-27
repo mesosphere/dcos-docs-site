@@ -5,7 +5,7 @@ title: Release notes for 2.0.3
 menuWeight: 0
 excerpt: Release notes for DC/OS 2.0.3, including Open Source attribution, and version policy.
 ---
-DC/OS&trade; 2.0.3 was released on 19 March 2020.
+DC/OS&trade; 2.0.3 was released on ?? April 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
