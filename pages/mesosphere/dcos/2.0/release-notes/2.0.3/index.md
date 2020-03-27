@@ -40,6 +40,7 @@ DC/OS 2.0.3 includes the following Marathon&trade; component version:
 
 - Marathon 1.9.136
 
+- Metronome 0.6.41
 ### Marathon Fixed and Improved Issues
 
 - Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (COPS-5617)
