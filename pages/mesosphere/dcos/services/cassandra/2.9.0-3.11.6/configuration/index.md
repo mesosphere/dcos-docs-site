@@ -156,9 +156,11 @@ Use the following to configure the disk type:
 
 It is [recommended](http://docs.datastax.com/en/landing_page/doc/landing_page/recommendedSettings.html#recommendedSettings__optimizing-ssds) that you pre-configure your storage hosts to use the deadline IO scheduler in production environments.
 
-## Rack-Aware Placement
+## Zone/Rack-Aware Placement and Replication
 
 {{ model.techShortName }}'s "rack"-based fault domain support is automatically enabled when specifying a placement constraint that uses the `@zone` key. For example, you could spread {{ model.techShortName }} nodes across a minimum of three different zones/racks by specifying the constraint `[["@zone", "GROUP_BY", "3"]]`. When a placement constraint specifying `@zone` is used, {{ model.techShortName }} nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@zone` is configured, all nodes will be configured with a default rack of `rack1`.
+
+In addition to placing the tasks on different zones/racks, the zone/rack information will be included in Cassandra's cassandra-rackdc.properties file. This enables Cassandra to ensure data is replicated between zones/racks and not to two nodes in the same zone/rack.
 
 ## {{ model.techName }} Configuration
 
