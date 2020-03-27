@@ -44,6 +44,12 @@ You can also update an already-running {{ model.techShortName }} instance from t
 dcos {{ model.packageName }} --name={{ model.serviceName }} update start --options=options.json
 ```
 
+## Zone/Rack-Aware Placement and Replication
+
+{{ model.techShortName }}'s "rack"-based fault domain support is automatically enabled when specifying a placement constraint that uses the `@zone` key. For example, you could spread {{ model.techShortName }} nodes across a minimum of three different zones/racks by       specifying the constraint `[["@zone", "GROUP_BY", "3"]]`. When a placement constraint specifying `@zone` is used, {{ model.techShortName }} nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@    zone` is configured, all nodes will be configured with a default rack of `rack1`.
+
+In addition to placing the tasks on different zones/racks, the zone/rack information will be added to each Kafka broker's broker.rack setting. This enables Kafka to ensure data is replicated between zones/racks and not to two nodes in the same zone/rack.
+
 ## Extend the Kill Grace Period
 
 When performing a requested restart or replace of a running broker, the {{ model.techShortName }} service will wait a default of `30` seconds for a broker to exit, before killing the process. This grace period may be customized via the `brokers.kill_grace_period` setting. In this example, the DC/OS CLI is used to increase the grace period delay to 60 seconds. This example assumes that the {{ model.techShortName }} service instance is named `{{ model.serviceName }}`.

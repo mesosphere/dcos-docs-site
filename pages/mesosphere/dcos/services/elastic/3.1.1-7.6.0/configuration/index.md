@@ -81,8 +81,6 @@ Figure 1 - Private nodes displayed by agent
 
 Figure 2 - Private nodes displayed by VIP
 
-Each node's zone attribute (node.attr.zone) is set to the [zone](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/#zone-fault-domains) of the agent it is running on. Elastic's cluster.routing.allocation.awareness.attributes is also set to "zone". This gives Elastic [shard allocation awareness](https://www.elastic.co/guide/en/elasticsearch/reference/current/allocation-awareness.html) so it can, for example, ensure shards are replicated between fault domains.
-
 No matter how big or small the cluster is, there will always be exactly 3 master-only nodes with `minimum_master_nodes = 2`.
 
 ### Default Topology 
@@ -109,6 +107,12 @@ curl -XPUT -u elastic:changeme master.<service-dns>.l4lb.thisdcos.directory:9200
     }
 }'
 ```
+
+## Zone/Rack-Aware Placement and Replication
+
+{{ model.techShortName }}'s "rack"-based fault domain support is automatically enabled when specifying a placement constraint that uses the `@zone` key. For example, you could spread {{ model.techShortName }} nodes across a minimum of three different zones/racks by       specifying the constraint `[["@zone", "GROUP_BY", "3"]]`. When a placement constraint specifying `@zone` is used, {{ model.techShortName }} nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@    zone` is configured, all nodes will be configured with a default rack of `rack1`.
+
+In addition to placing the tasks on different zones/racks, the zone/rack information will be included in the Elastic's node.attr.zone attrribute and cluster.routing.allocation.awareness.attributes is set to "zone". This enables Elastic to ensure data is replicated between zones/racks and not to two nodes in the same zone/rack.
 
 ## Custom Elasticsearch YAML
 

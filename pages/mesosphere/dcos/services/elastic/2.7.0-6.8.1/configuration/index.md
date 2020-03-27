@@ -108,6 +108,12 @@ curl -XPUT -u elastic:changeme master.<service-dns>.l4lb.thisdcos.directory:9200
 }'
 ```
 
+## Zone/Rack-Aware Placement and Replication
+
+{{ model.techShortName }}'s "rack"-based fault domain support is automatically enabled when specifying a placement constraint that uses the `@zone` key. For example, you could spread {{ model.techShortName }} nodes across a minimum of three different zones/racks by       specifying the constraint `[["@zone", "GROUP_BY", "3"]]`. When a placement constraint specifying `@zone` is used, {{ model.techShortName }} nodes will be automatically configured with `rack`s that match the names of the zones. If no placement constraint referencing `@    zone` is configured, all nodes will be configured with a default rack of `rack1`.
+
+In addition to placing the tasks on different zones/racks, the zone/rack information will be included in the Elastic's node.attr.zone attrribute and cluster.routing.allocation.awareness.attributes is set to "zone". This enables Elastic to ensure data is replicated        between zones/racks and not to two nodes in the same zone/rack.
+
 ## Custom Elasticsearch YAML
 
 Many Elasticsearch options are exposed via the package configuration in `config.json`, but there may be times when you need to add something custom to the `elasticsearch.yml` file. For instance, if you have written a custom plugin that requires special configuration, you must specify this block of YAML for the {{ model.techName }} service to use.
