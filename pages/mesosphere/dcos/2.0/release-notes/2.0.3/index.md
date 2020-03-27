@@ -38,7 +38,7 @@ DC/OS 2.0.3 includes the following component versions:
 
 DC/OS 2.0.3 includes the following Marathon&trade; component version:
 
-- Marathon 1.8.239
+- Marathon 1.9.136
 
 ### Marathon Fixed and Improved Issues
 
