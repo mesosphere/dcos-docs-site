@@ -41,10 +41,15 @@ DC/OS 2.0.3 includes the following Marathon&trade; component version:
 - Marathon 1.9.136
 
 - Metronome 0.6.41
+
 ### Marathon Fixed and Improved Issues
 
 - Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (COPS-5617)
- - `/v2/tasks` plaintext output in Marathon 1.5 returned container network endpoints in an unusable way. (MARATHON-8721)
- - Marathon launched too many tasks when a missing docker image is resolved during a deployment. (DCOS_OSS-5679)
- - Marathon would omit pod status report with tasks in `TASK_UNKOWN` state. (MARATHON-8710)
- - Marathon was checking authorization for unrelated apps when performing a kill-and-scale operations; this has been resolved. (MARATHON-8731)
+- `/v2/tasks` plaintext output in Marathon 1.5 returned container network endpoints in an unusable way. (MARATHON-8721)
+- Marathon launched too many tasks when a missing docker image is resolved during a deployment. (DCOS_OSS-5679)
+- Marathon would omit pod status report with tasks in `TASK_UNKOWN` state. (MARATHON-8710)
+- Marathon was checking authorization for unrelated apps when performing a kill-and-scale operations; this has been resolved. (MARATHON-8731)
+
+### Metronome Fixed and Improved Issues
+
+ - There was a case where regex validation of project ids was ineffecient for certain inputs. The regex has been optimized. (MARATHON-8730)
