@@ -16,10 +16,6 @@ Registered DC/OS Enterprise customers can access the DC/OS Enterprise configurat
 # Release Summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
-Initial list:
-
-
-
 # DC/OS 
 
 ## Components
@@ -27,20 +23,14 @@ Initial list:
 DC/OS 2.0.3 includes the following component versions:
 
 - Apache&reg; Mesos&reg; 1.8.2-dev
+- OpenSSL 1.1.1d	
 
 ### DC/OS Fixed and Improved Issues
 
-- D2IQ-65774
-D2IQ-65604
-COPS-5804
-COPS-5725
-COPS-5617
-COPS-5615
-D2IQ-64620
-D2IQ-64507, COPS-5868
-D2IQ-62537
-D2IQ-61233, COPS-5615
-D2IQ-65604
+- Fixed an issue where image pull in UCR was not working for nvcr.io (missing ‘service’/‘scope’ parameters). (COPS-5804)
+- Fixed an issue where after a DC/OS upgrade, the executor resources used by tasks on the agent were being incorrectly counted against quota. (COPS-5725)
+- DC/OS Admin Router now allows large packages of files, up to 32GB, to the Package Registry. (D2IQ-61233, COPS-5615)
+- Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
 
 # Marathon
 
@@ -52,6 +42,4 @@ DC/OS 2.0.3 includes the following Marathon&trade; component version:
 
 ### Marathon Fixed and Improved Issues
 
-- Removed non-host reachable container endpoints from the output of the plaintext /v2/tasks endpoint. (MARATHON-8721, COPS-5791)
-
-- Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (MARATHON-8719, COPS-5617)
+- Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (COPS-5617)
