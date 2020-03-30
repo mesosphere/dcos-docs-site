@@ -30,7 +30,8 @@ DC/OS 2.0.3 includes the following component versions:
 - Fixed an issue where image pull in UCR was not working for nvcr.io (missing ‘service’/‘scope’ parameters). (COPS-5804)
 - Fixed an issue where after a DC/OS upgrade, the executor resources used by tasks on the agent were being incorrectly counted against quota. (COPS-5725)
 - DC/OS Admin Router now allows large packages of files, up to 32GB, to the Package Registry. (D2IQ-61233, COPS-5615)
-- Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
+- Fixed an issue where in some rare circumstances, after upgrading a cluster, users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
+- Fixed an issue where an agent marked a Task as FAILED immediately after marking it as FINISHED (D2IQ-62454, COPS-4995)
 
 # Marathon
 
@@ -39,7 +40,6 @@ DC/OS 2.0.3 includes the following component versions:
 DC/OS 2.0.3 includes the following Marathon&trade; component version:
 
 - Marathon 1.9.136
-
 - Metronome 0.6.41
 
 ### Marathon Fixed and Improved Issues
