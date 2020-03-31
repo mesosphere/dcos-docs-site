@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Welcome to Konvoy
-title: Welcome to Konvoy
+navigationTitle: Konvoy 1.4
+title: Welcome to Konvoy 1.4
 category: K-Sphere
 menuWeight: 0
 ---
