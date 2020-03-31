@@ -128,6 +128,24 @@ Apps that use external volumes can only be scaled to a single instance because a
 
 If you scale your app down to 0 instances, the volume is detached from the agent where it was mounted, but it is not deleted. If you scale your app up again, the data that was associated with it is still be available.
 
+# Using 3rd party Docker volume driver
+
+If you want to use a 3rd party Docker volume driver rather than REX-Ray (e.g., [NetApp Trident](https://github.com/NetApp/trident)), you will need to take the following steps on each agent node (Trident is used as an example in the steps below):
+
+1. Install the volume driver as a Docker plugin.
+    ```
+    $ docker plugin install netapp/trident-plugin:19.10 --alias netapp --grant-all-permissions
+    ```
+
+1. Register the volume driver to Docker plugin directory. Refer to [Docker Plugin API](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery) to learn how Docker discovers plugins.
+
+    ```
+    $ sudo mkdir -p /etc/docker/plugins/
+    $ sudo bash -c 'echo "unix:///run/docker/plugins/<plugin-id>/netapp.sock" > /etc/docker/plugins/netapp.spec'
+    ```
+
+Now the volume driver is ready for you to use it in DC/OS. When you create an application, you need to set the option `external.options["dvdi/driver"]` to the name of the volume driver (e.g., `netapp`).
+
 # Potential issues
 
 *   You can assign only one task per volume. Your storage provider might have other limitations.
