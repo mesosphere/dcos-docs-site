@@ -10,9 +10,9 @@ model: /mesosphere/dcos/2.0/data.yml
 
 An upgrade is the process of moving between major releases to add new features or to replace existing features with new features/functionality. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.
 
-<p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 1.12 --> 1.13</p>
+<p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 1.13 --> 2.0</p>
 
-- To update to a newer maintenance version (e.g. 1.12.1 to 1.12.2), refer to the instructions for [patching](/mesosphere/dcos/2.0/installing/production/patching/).
+- To update to a newer maintenance version (e.g. 2.0.1 to 2.0.2), refer to the instructions for [patching](/mesosphere/dcos/2.0/installing/production/patching/).
 - To modify the cluster configuration, refer to the instructions for [patching](/mesosphere/dcos/2.0/installing/production/patching/).
 - The `disabled` security mode has been removed from DC/OS Enterprise 1.13. To upgrade a `disabled` mode 1.12 cluster to 1.13, first [patch the 1.12 cluster from disabled to permissive mode](/mesosphere/dcos/installing/production/patching/#patching-dcos-111-in-permissive-mode) as a separate step before upgrading from 1.12 to 1.13. [enterprise type="inline" size="small" /]
 
@@ -106,7 +106,7 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.11 to 1.12 and add more public agents. You can add more public agents with a patch to 1.12 and then upgrade to 1.13, or you can upgrade to 1.13 and then add more public agents by [patching 1.13](/mesosphere/dcos/2.0/installing/production/patching/) after the upgrade.
+You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.13 to 2.0 and add more public agents. You can add more public agents with a patch to 1.13 and then upgrade to 2.0, or you can upgrade to 2.0 and then add more public agents by [patching 2.0](/mesosphere/dcos/2.0/installing/production/patching/) after the upgrade.
 
 # Instructions
 These steps must be performed for version upgrades.
@@ -144,7 +144,7 @@ These steps must be performed for version upgrades.
 ### Enterprise users
 [/enterprise]
 
-This procedure upgrades a DC/OS 1.12 cluster to DC/OS 1.13.
+This procedure upgrades a DC/OS 1.13 cluster to DC/OS 2.0.
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 2.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
@@ -170,14 +170,14 @@ This procedure upgrades a DC/OS 1.12 cluster to DC/OS 1.13.
 ### Open Source users
 [/oss]
 
-1.  Copy and update the DC/OS 1.12 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
+1.  Copy and update the DC/OS 1.13 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
 
     *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.12 `config.yaml` file differs from that of previous versions. For a detailed description of the current `config.yaml` syntax and parameters, see the [advanced configuration reference](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/).
+    *  The syntax of the DC/OS 1.13 `config.yaml` file differs from that of previous versions. For a detailed description of the current `config.yaml` syntax and parameters, see the [advanced configuration reference](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/).
 
 1.  After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
 
-1.  After you have converted your 1.12 `config.yaml` into the 1.13 `config.yaml` format, you can build your installer package:
+1.  After you have converted your 1.13 `config.yaml` into the 2.0 `config.yaml` format, you can build your installer package:
 
     1.  Download the file `dcos_generate_config.sh`.
     1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.9.2`.
