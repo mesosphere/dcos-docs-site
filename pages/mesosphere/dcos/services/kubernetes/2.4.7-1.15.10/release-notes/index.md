@@ -12,11 +12,12 @@ excerpt: Release notes for DC/OS Kubernetes version 2.4.7-1.15.10
 
 ## Breaking Changes from 1.x
 
-* DC/OS Kubernetes `2.4.7-1.15.10` requires DC/OS 1.12 or higher.
+
+* DC/OS Kubernetes `2.4.7-1.15.10` requires DC/OS 1.12.
 * DC/OS Kubernetes `2.4.7-1.15.10` introduces breaking changes to the way the package works and is deployed.
   Therefore, it is not possible to upgrade an existing installation of DC/OS Kubernetes 1.x to `2.4.7-1.15.10`.
 * Before installing `kubernetes-cluster` package `2.4.7-1.15.10`, the `kubernetes` package must be [installed and running](/mesosphere/dcos/services/kubernetes/2.4.7-1.15.10/getting-started/installing-mke/).
-* Now, when installing DC/OS Kubernetes on DC/OS Enterprise, you must specify a [service account](/mesosphere/dcos/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/).
+* It is no longer possible to install DC/OS Kubernetes on DC/OS Enterprise without specifying a [service account](/mesosphere/dcos/1.12/security/ent/service-auth/) and a service account secret with adequate [permissions](/mesosphere/dcos/1.12/security/ent/perms-reference/).
 * Package options have been renamed and re-organized.
   * `node_placement` renamed to `private_node_placement`
   * `reserved_resources` renamed to `private_reserved_resources`
