@@ -68,7 +68,8 @@
         position: relative;
         // font-family: Arial;
         margin-right: 36px;
-        font-size: 22px;
+        font-size: 18px;
+        text-transform: uppercase !important;
     }
     .custom-select select {
         display: none;
@@ -103,6 +104,7 @@
         cursor: pointer;
         user-select: none;
     }
+    
     /*style items (options):*/
     .select-items {
         position: absolute;
@@ -160,7 +162,7 @@
         color: $color-light-grey-d5;
     }
     h1 {
-        font-size: 16px;
+        font-size: 18px;
         font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica', 'Arial', sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
         text-transform: uppercase;
     }
