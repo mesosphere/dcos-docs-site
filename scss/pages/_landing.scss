@@ -23,7 +23,7 @@
     &__container {
         max-width: $bp-lg;
         margin: 0 auto;
-        padding: 1rem 2rem 0 2rem;
+        padding: 5rem 2rem 0 2rem;
     }
     &__search {
         position: relative;
@@ -234,7 +234,7 @@
                 color: $color-dark;
             }
             &__container {
-                padding: 2rem 2rem 0;
+                padding: 5rem 2rem 0;
             }
         }
         .grid-toc {
