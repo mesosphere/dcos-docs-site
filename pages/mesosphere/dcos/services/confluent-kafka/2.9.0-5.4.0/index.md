@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Confluent Kafka 2.9.0-5.4.0
 excerpt: DC/OS Confluent Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees.
-title: Confluent Kafka 2.8.0-5.3.1
+title: Confluent Kafka 2.9.0-5.4.0
 menuWeight: 1
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
