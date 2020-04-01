@@ -8,6 +8,15 @@ model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
 ---
 
+# Release notes for {{ model.techName }} Service version 3.1.2-7.6.0
+
+## Bug Fixes
+
+-   Fixed missing exporter task metrics with virtual network enabled. ([#76](https://github.com/mesosphere/dcos-elastic-service/pull/76))
+    
+To upgrade from your current version of {{ model.techName }}, see the [Updates](/mesosphere/dcos/services/elastic/3.1.2-7.6.0/updates/) page.
+
+
 # Release notes for {{ model.techName }} Service version 3.1.1-7.6.0
 
 ## Upgrades
@@ -15,9 +24,6 @@ render: mustache
 -   Upgraded Elasticsearch and Kibana to [7.6.0](https://www.elastic.co/guide/en/elasticsearch/reference/7.6/release-notes-7.6.0.html)
 -   Upgraded Elasticsearch OpenJDK version from `11.0.2` to `13.0.2`.
 -   Upgraded Support Diagnostics version from `7.1.1` to `7.1.5`.
-    
-To upgrade from your current version of {{ model.techName }}, see the [Updates](/mesosphere/dcos/services/elastic/3.1.1-7.6.0/updates/) page.
-
 
 # Release notes for {{ model.techName }} Service version 3.1.0-7.4.1
 
@@ -79,7 +85,7 @@ Although version 3.0.0-7.3.2 is no longer supported, the following changes were 
 
 -   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
 
-    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.1.1-7.6.0/configuration/#elasticsearch-metrics)
+    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.1.2-7.6.0/configuration/#elasticsearch-metrics)
 
 -   Exposed `xpack.security.transport.ssl.client_authentication` `xpack.security.http.ssl.client_authentication` `xpack.security.transport.ssl.verification_mode` ([#46](https://github.com/mesosphere/dcos-elastic-service/pull/46))
 
