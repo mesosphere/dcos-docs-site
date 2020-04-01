@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Elastic 3.1.1-7.6.0
+navigationTitle: Elastic 3.1.2-7.6.0
 excerpt: DC/OS Elastic lets you manage an Elasticsearch cluster
-title: Elastic 3.1.1-7.6.0
+title: Elastic 3.1.2-7.6.0
 menuWeight: 1
 model: /mesosphere/dcos/services/elastic/data.yml
 render: mustache
