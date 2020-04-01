@@ -2,15 +2,13 @@
   "master": {
     "DO_NOT_BUILD": [
       "test/**",
-      "mesosphere/dcos/1.14/**",
-      "mesosphere/dcos/2.1/**"
+      "mesosphere/dcos/1.14/**"
     ],
     "DO_NOT_INDEX": []
   },
   "staging": {
     "DO_NOT_BUILD": [
-      "test/**",
-      "mesosphere/dcos/2.1/**"
+      "test/**"
     ],
     "DO_NOT_INDEX": [
       "^cn"
@@ -46,7 +44,7 @@
       "mesosphere/dcos/1.11/**",
       "mesosphere/dcos/1.12/**",
       "mesosphere/dcos/1.13/**",
-      "mesosphere/dcos/2,1/**"
+      "mesosphere/dcos/2.1/**"
     ],
     "DO_NOT_INDEX": []
   },
@@ -59,9 +57,7 @@
       "mesosphere/dcos/1.11/**",
       "mesosphere/dcos/1.12/**",
       "mesosphere/dcos/1.13/**",
-      "mesosphere/dcos/2.1/**",
-      "mesosphere/dcos/services/**",
-      "mesosphere/dcos/cn/**"
+      "mesosphere/dcos/2.1/**"
     ],
     "DO_NOT_INDEX": []
   },
