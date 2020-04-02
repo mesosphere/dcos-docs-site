@@ -1,0 +1,8 @@
+# Common values:
+
+packageName: dcos-monitoring
+serviceName: dcos-monitoring
+techName:  DC/OS Monitoring
+techShortName: DC/OS Monitoring
+
+# Values specific to certain templates:
