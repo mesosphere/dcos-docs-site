@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 1.13.8
 title: Release notes for 1.13.8
-menuWeight: 0
+menuWeight: -1
 excerpt: Release notes for DC/OS 1.13.8, including Open Source attribution, and version policy.
 ---
 DC/OS&trade; 1.13.8 was released on 19 March 2020.
