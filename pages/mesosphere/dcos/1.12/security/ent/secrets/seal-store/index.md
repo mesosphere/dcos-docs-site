@@ -19,7 +19,7 @@ The intended status of the seal is persisted, so after sealing the store the res
 
 - [DC/OS CLI installed](/mesosphere/dcos/1.12/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
-- [GNU Privacy Guard (GPG) installed](http://brewformulas.org/Gnupg)
+- [GNU Privacy Guard (GPG) installed](https://gnupg.org/)
 - You must follow the steps in [Downloading the Root Cert](/mesosphere/dcos/1.12/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
 
 

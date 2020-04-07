@@ -11,7 +11,7 @@ A bug in Docker 17.x’s handling of cgroups kernel memory controller (kmem) cau
 
 Another kmem bug was introduced into version 1.2.10-3.2 of the package `containerd.io` which can affect any version of Docker. Mesosphere DC/OS customers and community members who utilize RedHat or CentOS as their base operating systems are strongly advised to avoid this version.
 
-<p class="message--note"><strong>NOTE: </strong>More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a> and <a href="https://support.d2iq.com/s/ article/KMEM-Reoccurrence">here</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>More specific details on the Docker bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a> and <a href="https://support.d2iq.com/s/article/KMEM-Reoccurrence">here</a>.</p>
 
 ## Requirements and Recommendations
 

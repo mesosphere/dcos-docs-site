@@ -103,7 +103,7 @@ Figure 2. User authentication sequence
 
 When the authentication token expires, you can re-authenticate to receive another.
 
-When you log in with the DC/OS GUI, the Identity and Access Manager plants a cookie that contains the authentication token. While it is protected with an [`HttpOnly`](https://www.owasp.org/index.php/HttpOnly) flag, you should **Sign Out** at the end of your browser session to clear this cookie.
+When you log in with the DC/OS GUI, the Identity and Access Manager plants a cookie that contains the authentication token. While it is protected with an [`HttpOnly`](https://owasp.org/www-community/HttpOnly) flag, you should **Sign Out** at the end of your browser session to clear this cookie.
 
 Note that clearing the cookie does not invalidate the authentication token. If sniffed over an unencrypted connection or extracted from the cookie, someone could use the authentication token to log into DC/OS. To mitigate this risk,  we recommend setting  the [secure flag](https://www.owasp.org/index.php/SecureFlag) on the cookie in `permissive` and `strict` modes, as discussed in [Hardening](/mesosphere/dcos/1.13/security/ent/hardening/#secure-flag).
 

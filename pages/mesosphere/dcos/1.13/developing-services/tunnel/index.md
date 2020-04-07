@@ -220,7 +220,7 @@ sudo dcos tunnel vpn
 curl myapp-mygroup.marathon.agentip.dcos.thisdcos.directory:555
 ```
 
-The VPN client attempts to auto-configure DNS, but this functionality does not work on macOS. To use the VPN client on macOS, [add the DNS servers](https://support.apple.com/kb/PH18499?locale=en_US) that DC/OS Tunnel instructs you to use.
+The VPN client attempts to auto-configure DNS, but this functionality does not work on macOS. To use the VPN client on macOS, [add the DNS servers](https://support.apple.com/guide/mac-help/enter-dns-and-search-domain-settings-on-mac-mh14127/mac) that DC/OS Tunnel instructs you to use.
 
 When you use the VPN, you are virtually within your cluster. You can access
 your master and agent nodes directly:
