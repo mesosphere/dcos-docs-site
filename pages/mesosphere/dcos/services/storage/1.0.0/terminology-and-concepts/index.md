@@ -12,7 +12,7 @@ We use the following terminology throughout the documentation.
 
 # Device
 
-A Linux block [device file](https://en.wikipedia.org/wiki/Device_file/) presenting storage capacity on an agent.
+A Linux block [device file](https://en.wikipedia.org/wiki/Device_file) presenting storage capacity on an agent.
 
 # CSI Spec
 

@@ -68,7 +68,7 @@ The table below lists the third party open source software which is provided by 
 		</tr>
 		<tr>
 			<td>flask</td>
-			<td><a href="http://flask.pocoo.org/docs/0.11/license/#flask-license">Flask License</a></td>
+			<td><a href="https://flask.palletsprojects.com/en/1.1.x/license/#source-license">Flask License</a></td>
 		</tr>
 		<tr>
 			<td>hadoop</td>
@@ -128,7 +128,7 @@ The table below lists the third party open source software which is provided by 
 		</tr>
 		<tr>
 			<td>python-jinja2</td>
-			<td><a href="https://github.com/pallets/jinja/blob/master/LICENSE">python-jinja2 License</a></td>
+			<td><a href="https://github.com/pallets/jinja/blob/master/LICENSE.rst">python-jinja2 License</a></td>
 		</tr>
 		<tr>
 			<td>python-kazoo</td>
