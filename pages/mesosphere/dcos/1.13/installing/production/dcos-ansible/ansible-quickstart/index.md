@@ -91,7 +91,7 @@ You may use DC/OS Ansible to install both DC/OS and DC/OS Enterprise. Please fol
     # ...
     ```
 
-4. Also in the variables file, set the following values under `config`. Enterprise users add your license key here. (Optional: specify a special script for your environment in `ip_detect_contents` or `ip_detect_public_contents` you can find the defaults here [ip-detect](https://github.com/dcos/dcos-ansible/blob/master/roles/DCOS.bootstrap/templates/onprem/ip-detect.j2) [ip-detect-public](https://github.com/dcos/dcos-ansible/blob/master/roles/DCOS.bootstrap/templates/onprem/ip-detect-public.j2)):
+4. Also in the variables file, set the following values under `config`. Enterprise users add your license key here. (Optional: specify a special script for your environment in `ip_detect_contents` or `ip_detect_public_contents` you can find the defaults here [ip-detect](https://github.com/dcos/dcos-ansible/blob/master/roles/dcos_bootstrap/templates/onprem/ip-detect.j2) [ip-detect-public](https://github.com/dcos/dcos-ansible/blob/master/roles/dcos_bootstrap/templates/onprem/ip-detect-public.j2)):
     ```yaml
     # ...
     cluster_name: <your-cluster-name>

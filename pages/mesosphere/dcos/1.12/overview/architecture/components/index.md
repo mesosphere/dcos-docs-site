@@ -363,7 +363,7 @@ Mesos DNS provides domain name based service discovery within the cluster.
 
 Read the following documentation resources to learn more about Mesos DNS:
 
-- [Documentation](http://mesosphere.github.io/mesos-dns/)
+- [Documentation](/mesosphere/dcos/1.12/networking/DNS/mesos-dns)
 - [Source](https://github.com/mesosphere/mesos-dns)
 - [API Reference](/mesosphere/dcos/1.12/networking/DNS/mesos-dns/mesos-dns-api/)
 
