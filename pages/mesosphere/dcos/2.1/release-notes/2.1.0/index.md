@@ -2,13 +2,14 @@
 layout: layout.pug
 navigationTitle: Release notes for 2.1.0
 title: Release notes for 2.1.0
-menuWeight: 5
+beta: true
+menuWeight: 0
 render: mustache
 beta: true
 model: /mesosphere/dcos/2.1/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
-DC/OS 2.1.0 was released on Day Month, 2020.
+DC/OS 2.1.0 was released on 10 April, 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.1.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
