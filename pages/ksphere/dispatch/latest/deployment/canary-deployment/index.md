@@ -26,7 +26,7 @@ deployment.
 ### hello-world application
 
 This tutorial assumes that you followed the [Setting up a Repository in
-Dispatch](../repo-setup/), and the [GitOps Based Deployments](../deployment/)
+Dispatch](../../repo-setup/), and the [GitOps Based Deployments](../rolling-deployment/)
 tutorials and now have an application configured for CI and CD using GitOps.
 
 ### Istio

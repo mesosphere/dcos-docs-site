@@ -26,4 +26,4 @@ dispatch debug event-sink
 
 # View Dispatch logs in Kibana
 
-For information on viewing logs in Kibana, see the [Logging](../logging/) section.
+For information on viewing logs in Kibana, see the [Logging](../operations/logging/) section.

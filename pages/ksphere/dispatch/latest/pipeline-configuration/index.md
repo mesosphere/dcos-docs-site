@@ -217,7 +217,7 @@ action(tasks = ["test"], on = pullRequest(chatops = ["test"]))
 
 Dispatch datatypes can be referenced with the `p` package, e.g., `p.Pipeline()`, `p.Task()`. Kubernetes datatypes can be referenced with the `k8s` package, e.g., `k8s.corev1.Container()`, `k8s.metav1.ObjectMeta()`.
 
-See [the starlark reference](../starlark-reference/) for an overview of the Dispatch standard library methods and data types as well as the [official language reference](https://docs.bazel.build/versions/master/skylark/language.html).
+See [the starlark reference](../references/starlark-reference/) for an overview of the Dispatch standard library methods and data types as well as the [official language reference](https://docs.bazel.build/versions/master/skylark/language.html).
 
 </p>
 </details>
@@ -228,4 +228,4 @@ To see the rendered output:
 dispatch ci run remote -o yaml --dry-run
 ```
 
-For more information on pipeline configuration, see the [Pipeline Configuration Reference](../reference/pipeline-config-ref/) page.
+For more information on pipeline configuration, see the [Pipeline Configuration Reference](../references/pipeline-config-ref/) page.
