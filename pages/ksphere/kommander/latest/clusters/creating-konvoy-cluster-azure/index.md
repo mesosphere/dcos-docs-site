@@ -22,7 +22,7 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 
 Now select the preconfigured [Azure Cloud Provider](/ksphere/kommander/latest/operations/cloud-providers/#configuring-an-azure-cloud-provider) to display the remaining options specific to Azure.
 
-- **Region**: Select the datacenter region to reveal selectable Availability Zones. [Azure maintains multiple datacenters per region](azure-regions) to provide redundancy and availability.
+- **Region**: Select the datacenter region to reveal selectable Availability Zones. [Azure maintains multiple datacenters per region][azure-regions] to provide redundancy and availability.
 - **VNET Name**: The virtual network name in which to create this cluster.
 - **VNET Resource Group**: The resource group where the Azure assets are assigned.
 - **VNET Route Table**: HELP NEEDED
