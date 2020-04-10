@@ -8,6 +8,15 @@ model: /mesosphere/dcos/services/hdfs/data.yml
 render: mustache
 ---
 
+# Release Notes for HDFS version 2.8.0-3.2.1
+
+## Updates
+- Updated SDK to version `0.57.3`. For more information see release-notes for previous SDK releases:
+  - [0.57.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3)
+  - [0.57.0](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0)
+  - [0.56.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.3)
+
+
 # Release Notes for HDFS version 2.7.0-3.2.1
 
 ## Updates
