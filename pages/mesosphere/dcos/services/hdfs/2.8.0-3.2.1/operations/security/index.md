@@ -12,7 +12,7 @@ render: mustache
 
 The DC/OS {{ model.techName }} service supports {{ model.techShortName }}'s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
 
-A good overview of these features can be found [here](https://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SecureMode.html).
+A good overview of these features can be found [here](https://hadoop.apache.org/docs/r3.2.1/hadoop-project-dist/hadoop-common/SecureMode.html).
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
