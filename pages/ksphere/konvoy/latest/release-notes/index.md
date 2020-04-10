@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
+beta: true
 excerpt: View release-specific information for Konvoy
 enterprise: false
 ---
@@ -15,7 +16,133 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.5.0-beta.0 - April 9 March 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.8 |
+
+#### Improvements
+
+- New provisioner `gcp` to create clusters in [Google Cloud Platform](https://cloud.google.com/).
+- New flag `--max-parallel-nodes` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes` to specify the number of nodes to upgrade in parallel. The value can be either an integer representing the number of nodes, or a percentage. Passing a value of `1` will upgrade the nodes serially.
+- Add validation for `control_plane_endpoint` to require a port number in the range of 1-65535 inclusive.
+- Only update yum cache when required to install RPM packages.
+- New option `spec.kubernetes.networking.iptables.addDefaultRules` that enables Konvoy to automatically setup iptables rules, required for the installation when the OS has strict iptables configuration.
+- Add a warning about the potentially destructive nature of the `--without-draining` flag.
+- Diagnostics bundle now contains the output of `helm ls` and `helm status <release deployment>`.
+- New Konvoy image tag with `ubi8` base image is now available and can be used with `export KONVOY_VERSION=<version>-ubi8`.
+- Set `imageID` in cluster.yaml for all provisioners instead of dynamically determining the image to use at runtime. This allows Konvoy to update the default imageID in the future without requiring users to modify the values in cluster.yam.
+
+#### Bug fixes
+
+- Import GPG keys before installing any RPM packages, which otherwise caused errors on any secured OS.
+- Fix a bug where certain addons were being installed even if set to `enabled: false`.
+- Fix a bug where provisioning would fail looking up the default AWS AMI in certain regions, even if `imageID` is set.
+- Fix a bug where the addon controller namespace is reapplied every time Konvoy runs, removing any metadata that might have been set.
+- Fix a bug with the airgapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
+- Fixed a bug that would fail to install on Ubuntu if containerd.io was not already installed.
+
+#### Addons Improvements
+
+- Addons that require a different namespace than `kubeaddons` will have those namespaces created.
+- Improved error output when addons cannot be retrieved.
+
+#### Component version changes
+
+- Kubernetes `v1.16.8`
+- Calico `v3.13.1`
+- Go `1.13.8`
+- Ansible `2.7.16`
+
+#### Addon versions
+
+-   awsebscsiprovisioner: 0.5.0-1
+    - awsebscsiprovisioner: 0.5.0
+-   awsebsprovisioner: 1.0.0-1
+    - awsebsprovisioner: 1.0
+-   azuredisk-csi-driver: 0.5.1-1
+    - azuredisk-csi-driver: 0.5.1
+-   azurediskprovisioner: 1.0.0-1
+    - azurediskprovisioner: 1.0
+-   cert-manager: 0.10.1-3
+    - cert-manager: 0.10.1
+-   dashboard: 2.0.0-beta6
+    - dashboard: 2.0.0-beta6
+-   defaultstorageclass-protection: 0.0.1-1
+    - defaultstorageclass-protection: 0.0.1
+-   dex: 2.22.0-4
+    - dex: 2.22.0
+-   dex-k8s-authenticator: 1.1.1-4
+    - dex-k8s-authenticator: v1.1.1
+-   dispatch: 1.0.1
+    - argo-cd: 1.4.2
+    - dispatch: 1.0.1
+    - tekton: 0.10.0
+-   elasticsearch: 6.8.2-4
+    - elasticsearch: 6.8.2
+-   elasticsearch-curator: 5.7.6-2
+    - elasticsearch-curator: 5.7.6
+-   elasticsearchexporter: 1.1.0-1
+    - elasticsearchexporter: 1.1.0
+-   external-dns: 0.5.18-1
+    - external-dns: 0.5.18
+-   flagger: 0.19.0
+    - flagger: 0.19.0
+-   fluentbit: 1.3.2-3
+    - fluentbit: 1.3.2
+-   gatekeeper: 3.0.4-1
+    - gatekeeper: 3.0.4-beta.1
+-   gcpdisk-csi-driver: 0.6.0-1
+    - gcpdisk-csi-driver: 0.6.0
+-   gcpdiskprovisioner: 1.0.0-1
+    - gcpdiskprovisioner: 1.0
+-   istio: 1.4.3-2
+    - istio: 1.4.3
+    - kiali: 1.4.3
+    - jaeger: 1.4.3
+-   kibana: 6.8.2-1
+    - kibana: 6.8.2
+-   kommander: 1.1.0-3
+    - karma: 1.4.0
+    - kommander-grafana: 6.6.0
+    - thanos: 0.3.9
+    - kommander: 1.1.0
+-   konvoyconfig: 0.0.2-1
+    - konvoyconfig: 0.0.2
+-   kube-oidc-proxy: 0.1.1-3
+    - kube-oidc-proxy: v0.1.1
+-   localvolumeprovisioner: 1.0.0-1
+    - localvolumeprovisioner: 1.0
+-   metallb: 0.8.1-1
+    - metallb: 0.8.1
+-   nvidia: 0.2.0-4
+    - nvidia: 0.2.0
+-   opsportal: 1.0.0-12
+    - opsportal: 1.0.0
+-   prometheus: 0.35.0-2
+    - prometheus-operator: 0.35.0
+    - alertmanager: 0.20.0
+    - grafana: 6.4.2
+    - prometheus: 2.15.2
+-   prometheusadapter: 0.5.0-1
+    - prometheusadapter: 0.5.0
+-   reloader: 0.0.49-1
+    - dex: v0.0.49
+-   traefik: 1.7.23-8
+    - traefik: 1.7.23
+-   traefik-forward-auth: 1.0.4-4
+-   velero: 1.0.1-4
+
 ### Version v1.4.2 - Released 24 March 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.8 |
 
 #### Disclaimer
 
@@ -59,6 +186,12 @@ enterprise: false
 
 ### Version v1.4.1 - Released 04 March 2020
 
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.4 |
+
 #### Improvements
 
 - Update certain Ansible tasks to correctly reflect the changed status.
@@ -70,6 +203,12 @@ enterprise: false
 - Fixed a bug that would fail to install on Ubuntu if containerd.io was not already installed.
 
 ### Version v1.4.0 - Released 28 February 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.4 |
 
 #### Disclaimer
 

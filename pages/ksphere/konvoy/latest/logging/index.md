@@ -138,7 +138,7 @@ Customers can enable the curator addon, with default configuration, by modifying
   enabled: true
 ```
 
-The default configuration runs the curator job every day at mid-night and garbage collects all indices older than 30 days. Customers can configure both the cronjob schedule and the number of days by modifying the `cluster.yaml` file:
+The default configuration runs the curator job every day at mid-night and garbage collects all indices older than 10 days. Customers can configure both the cronjob schedule and the number of days by modifying the `cluster.yaml` file:
 
 ```yaml
 - name: elasticsearch-curator
@@ -154,7 +154,7 @@ The default configuration runs the curator job every day at mid-night and garbag
           actions:
             1:
               action: delete_indices
-              description: "Clean up ES by deleting indices older than 30 days"
+              description: "Clean up ES by deleting indices older than 10 days"
               options:
                 timeout_override:
                 continue_if_exception: False
@@ -169,5 +169,5 @@ The default configuration runs the curator job every day at mid-night and garbag
                 direction: older
                 timestring: '%Y.%m.%d'
                 unit: days
-                unit_count: 30
+                unit_count: 10
 ```

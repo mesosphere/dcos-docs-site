@@ -65,9 +65,15 @@ During the Kubernetes upgrade process, Konvoy:
     - Otherwise you can resolve the safety issues after the initial upgrade and rerun the upgrade process to let Konvoy perform the upgrade on the remaining nodes.
 -   Upgrades all of the control-plane nodes.
 -   Upgrades the remaining nodes sequentially, upgrading all of the nodes in a NodePool before continuing onto a different NodePool.
-    - The workloads are moved to a different node with `kubectl drain`. This process may take a few minutes before all the workloads are scheduled onto different nodes. It is also possible to disable this behavior by passing the flag `--without-draining` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`. When `--without-draining` is specified, because no workloads will be rescheduled, all nodes will be upgraded, even when there are workloads that are "unsafe" to upgrade.  
-    - The Kubernetes and Containerd OS packages are upgraded.
-    - The node is uncordoned allowing for workloads to be scheduled on it again.
+    -   By default, `15%` of all nodes, in each NodePool, are upgraded in parallel, with the control-plane nodes always upgraded serially.
+        To change this behavior, pass the flag `--max-parallel-nodes` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`.
+        The value can be an integer, representing the number of nodes, or a percentage of nodes in the a NodePool.
+        Passing a value of `1` upgrades the nodes serially.
+        If some nodes in a batch fail to upgrade, Konvoy continues to upgrade the other nodes in the batch, but exits with an error. Fix the error manually and retry the process.
+    -   The workloads are moved to a different node with `kubectl drain`. This process takes a few minutes before all workloads are scheduled onto different nodes. You can disable this behavior by passing the flag `--without-draining` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`. When `--without-draining` is specified, because no workloads are rescheduled, all nodes are upgraded, even when there are workloads that are "unsafe" to upgrade.
+    -   **WARNING**: Using the `--without-draining` flag is volatile and can result in undefined behavior, downtime, and outages for your services during an upgrade. For production systems, notify your end users of cluster maintenance prior to upgrading with this flag.
+    -   The Kubernetes and Containerd OS packages are upgraded.
+    -   The node is uncordoned allowing for workloads to be scheduled on it again.
 
 ## Prepare for addons upgrade
 
@@ -156,7 +162,7 @@ spec:
     version: 1.16.8
   containerNetworking:
     calico:
-      version: v3.13.1
+      version: v3.13.2
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: stable-1.16-1.2.0

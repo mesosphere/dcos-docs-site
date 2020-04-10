@@ -166,6 +166,43 @@ bastion:
     ansible_port: 22
 ```
 
+<p class="message--note"><strong>NOTE: </strong>If you are using the Bastion host feature with an internal facing loadbalancer, for Kubernetes API, <a href="../../reference/cluster-configuration">aws.elb.internal: true</a> in the `ClusterConfiguration` section of `cluster.yaml` and deploying from a machine outside the network of the cluster, there is a known issue. Deployment of the Addons fails to connect to the Kubernetes API with the following example error:</p>
+
+```bash
+STAGE [Deploying Enabled Addons]
+Get https://internal-konvoy-75d3-lb-control-123456789.us-east-1.elb.amazonaws.com:6443/api?timeout=32s: dial tcp 10.0.67.165:6443: i/o timeout[ERROR]
+
+Error: failed to deploy the cluster: Get https://internal-konvoy-75d3-lb-control-123456789.us-east-1.elb.amazonaws.com:6443/api?timeout=32s: dial tcp 10.0.67.165:6443: i/o timeout
+exit status 1
+```
+
+Use the following workaround while the issue is being addressed:
+
+Start a tunnel locally on port 1080 to the Bastion Host.
+
+```bash
+ssh -N -D 0.0.0.0:1080 centos@bastion-host
+```
+
+On the install machine, configure a socks5 proxy on the local port.
+
+```bash
+export HTTPS_PROXY=socks5://localhost:1080
+```
+
+***If using Mac with Docker Desktop:***
+
+```bash
+export HTTPS_PROXY=socks5://host.docker.internal:1080
+```
+
+Deploy the addons once again.
+
+```bash
+konvoy deploy addons -y
+```
+
 [bastion_host]: https://en.wikipedia.org/wiki/Bastion_host
 [ssh_agent]: https://en.wikipedia.org/wiki/Ssh-agent
 [node_pool]: ../node-pools/
+[aws_elb]: ../../reference/cluster-configuration/

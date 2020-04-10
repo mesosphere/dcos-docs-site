@@ -11,6 +11,63 @@ enterprise: false
 
 This section describes different networking components that come together to form a Konvoy networking stack. It assumes familiarity with Kubernetes networking.
 
+# IPtables
+
+Konvoy can be configured to automatically add `iptables` the rules outlined below.
+
+Control Plane nodes:
+
+```text
+iptables -A INPUT -p tcp -m tcp --dport 6443 -m comment --comment "Konvoy: kube-apiserver --secure-port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10250 -m comment --comment "Konvoy: kubelet --port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10248 -m comment --comment "Konvoy: kubelet --healthz-port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10249 -m comment --comment "Konvoy: kube-proxy --metrics-bind-address" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10256 -m comment --comment "Konvoy: kube-proxy --healthz-port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10257 -m comment --comment "Konvoy: kube-controller-manager --secure-port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10252 -m comment --comment "Konvoy: kube-controller-manager --port (used for liveness)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10259 -m comment --comment "Konvoy: kube-scheduler --secure-port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10251 -m comment --comment "Konvoy: kube-scheduler --port (used for liveliness)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 2379 -m comment --comment "Konvoy: etcd client" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 2380 -m comment --comment "Konvoy: etcd peer" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 9091 -m comment --comment "Konvoy: calico-node felix (used for metrics)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 9092 -m comment --comment "Konvoy: calico-node bird (used for metrics)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 9099 -m comment --comment "Konvoy: calico-node felix (used for liveness)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 179 -m comment --comment "Konvoy: calico-node BGP" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 30000:32767 -m comment --comment "Konvoy: NodePorts" -j ACCEPT
+iptables -A INPUT -p icmp -m comment --comment "Konvoy: ICMP" -m icmp --icmp-type 8 -j ACCEPT
+```
+
+Worker nodes:
+
+```text
+iptables -A INPUT -p tcp -m tcp --dport 10250 -m comment --comment "Konvoy: kubelet --port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10248 -m comment --comment "Konvoy: kubelet --healthz-port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10249 -m comment --comment "Konvoy: kube-proxy --metrics-bind-address" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 10256 -m comment --comment "Konvoy: kube-proxy --healthz-port" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 9091 -m comment --comment "Konvoy: calico-node felix (used for metrics)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 9092 -m comment --comment "Konvoy: calico-node bird (used for metrics)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 9099 -m comment --comment "Konvoy: calico-node felix (used for liveness)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 5473 -m comment --comment "Konvoy: calico-typha (used for syncserver)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 9093 -m comment --comment "Konvoy: calico-typha (used for metrics)" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 179 -m comment --comment "Konvoy: calico-node BGP" -j ACCEPT
+iptables -A INPUT -p tcp -m tcp --dport 30000:32767 -m comment --comment "Konvoy: NodePorts" -j ACCEPT
+iptables -A INPUT -p icmp -m comment --comment "Konvoy: ICMP" -m icmp --icmp-type 8 -j ACCEPT
+```
+
+The default value is `false`, however, you can enable this behavior by setting the value of `spec.kubernetes.iptables.addDefaultRules` to `true`.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
+spec:
+  kubernetes:
+    networking:
+      podSubnet: 192.168.0.0/16
+      serviceSubnet: 10.0.0.0/18
+      iptables:
+        addDefaultRules: true
+```
+
 # Highly Available Control Plane
 
 Konvoy ships with a highly available control plane, in case of multi-master Kubernetes deployment.
@@ -86,7 +143,7 @@ spec:
   kubernetes:
     containerNetworking:
       calico:
-        version: v3.13.1
+        version: v3.13.2
 ```
 
 Further, the Calico IPV4 pool CIDR can be set via `spec.kubernetes.networking.podSubnet` in `cluster.yaml`, as shown below:
