@@ -77,7 +77,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.16-1.2.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.16-1.0.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.0.0 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.16-1.5.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.16-1.1.0-beta.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.0.1 [--cluster-name <your-specified-name>]
    ```
 
    **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
@@ -94,16 +94,16 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: stable-1.16-1.2.0
+       configVersion: stable-1.16-1.5.0
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-      configVersion: stable-1.16-1.0.0
+      configVersion: stable-1.16-1.0.1
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: stable-1.16-1.0.0
+      configVersion: stable-1.16-1.1.0-beta.0
       addonsList:
       - name: kommander
         enabled: true
@@ -161,6 +161,9 @@ node:
       node_pool: worker
     10.0.50.110:
       ansible_host: 10.0.50.110
+      node_pool: worker
+    10.0.50.111:
+      ansible_host: 10.0.50.111
       node_pool: worker
 
 all:
@@ -329,20 +332,20 @@ spec:
 ...
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.5.0
     helmRepository:
       image: mesosphere/konvoy-addons-chart-repo:v1.4.2
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.0.1
     helmRepository:
       image: mesosphere/konvoy-addons-chart-repo:v1.4.2
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.1.0-beta.0
     helmRepository:
       image: mesosphere/konvoy-addons-chart-repo:v1.4.2
     addonsList:
@@ -566,7 +569,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [velero]: https://velero.io/
 [dex]: https://github.com/dexidp/dex
-[dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
+[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
 [traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm

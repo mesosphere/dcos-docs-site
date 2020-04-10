@@ -230,6 +230,6 @@ For more details, see the following topics:
 [kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [velero]: https://velero.io/
 [dex]: https://github.com/dexidp/dex
-[dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
+[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
 [traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [brew]: https://brew.sh/

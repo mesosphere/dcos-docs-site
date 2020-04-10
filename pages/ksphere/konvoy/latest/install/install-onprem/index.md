@@ -144,6 +144,9 @@ node:
     10.0.50.110:
       ansible_host: 10.0.50.110
       node_pool: worker
+    10.0.50.111:
+      ansible_host: 10.0.50.111
+      node_pool: worker
 
 all:
   vars:
@@ -168,16 +171,16 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.5.0
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.0.1
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.1.0-beta.0
     addonsList:
     - name: kommander
       enabled: true
@@ -615,7 +618,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
 [velero]: https://velero.io/
 [dex]: https://github.com/dexidp/dex
-[dex_k8s_authenticator]: https://github.com/mintel/dex-k8s-authenticator
+[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
 [traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [kubernetes_base_addons_repo]: https://github.com/mesosphere/kubernetes-base-addons

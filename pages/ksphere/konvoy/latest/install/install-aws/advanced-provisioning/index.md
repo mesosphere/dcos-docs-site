@@ -167,6 +167,20 @@ To add custom resource files for provisioning:
 
     The output in this example indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an S3 bucket.
 
+# Using STS AssumeRole Credentials
+
+To use AWS STS AssumeRole Credentials, which [allow you to share credentials across AWS Accounts][sts_assumerole],
+you must add additional fields to the terraform aws provider by adding a file `extras/provisioner/main_override.tf` in the working directory:
+
+```hcl-terraform
+provider "aws" {
+  assume_role {
+    role_arn     = "arn:aws:iam::123123123123213213:role/the-role-name"
+    session_name = "konvoy"
+  }
+}
+```
+
 ## Using existing infrastructure
 
 <p class="message--note"><strong>NOTE: </strong> The following steps require the creation of a <tt>cluster.yaml</tt> configuration file. If you do not already have that file, create it by running <tt>konvoy init</tt>.</p>
@@ -441,3 +455,4 @@ To add custom resource files:
 [ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
 [cloud_provider]: https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
+[sts_assumerole]: https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
