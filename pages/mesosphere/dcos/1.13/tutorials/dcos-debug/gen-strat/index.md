@@ -36,7 +36,7 @@ If it could be relevant, check the [Mesos web interface](/mesosphere/dcos/1.13/t
 
 ### Step 2: Check the Task Logs
 
-If the web interfaces cannot provide sufficient information, next check the [task logs](/mesosphere/dcos/1.13/tutorials/dcos-debug/tools/#task-logs) using the DC/OS web interface or the CLI. This helps a better understanding of what might have happened to the application. If the issue is related to our app not deploying (for example, the task status continues to wait indefinitely), try looking at the ['Debug' page](/mesosphere/dcos/monitoring/debugging/gui-debugging/#debugging-page). It could be helpful in getting a better understanding of the resources being offered by Mesos.
+If the web interfaces cannot provide sufficient information, next check the [task logs](/mesosphere/dcos/1.13/tutorials/dcos-debug/tools/#task-logs) using the DC/OS web interface or the CLI. This helps a better understanding of what might have happened to the application. If the issue is related to our app not deploying (for example, the task status continues to wait indefinitely), try looking at the ['Debug' page](/mesosphere/dcos/1.13/monitoring/debugging/gui-debugging/#debugging-page). It could be helpful in getting a better understanding of the resources being offered by Mesos.
 
 <a name="schedule-strat"></a>
 

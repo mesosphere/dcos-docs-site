@@ -27,14 +27,14 @@ This tutorial uses a sample app definition file that you can download from the `
 1. Go to the [`mesosphere/dcos-website`](https://hub.docker.com/r/mesosphere/dcos-website/tags) Docker repository and copy the latest `image` tag.
 
   <p>
-  <img src="/1.12/img/dockerhub.png" alt="Mesosphere Docker Hub">
+  <img src="/mesosphere/dcos/2.0/img/dockerhub.png" alt="Mesosphere Docker Hub">
   </p>
 
   For example, after clicking **Tags**, you might see an identifier similar to this:
   <code>cff383e4f5a51bf04e2d0177c5023e7cebcab3cc</code>
 
   <p>
-  <img src="/services/img/docker-repo-tag.png" alt="Sample image tag">
+  <img src="/mesosphere/dcos/services/img/docker-repo-tag.png" alt="Sample image tag">
   </p>
 
 # Modify the app image tag and public IP address
@@ -62,7 +62,7 @@ This tutorial uses a sample app definition file that you can download from the `
 
 1. Identify the public-facing IP address for your public agent node.
 
-    For information about how to find your public agent IP address, see [Finding a public agent IP](/mesosphere/dcos/1.14/administering-clusters/locate-public-agent/).
+    For information about how to find your public agent IP address, see [Finding a public agent IP](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/).
 
 1. In the `labels` field, add an entry for `HAPROXY_0_VHOST` and assign it the value of your public agent IP.
 
@@ -129,7 +129,7 @@ This tutorial uses a sample app definition file that you can download from the `
 1. Open the DC/OS web-based console URL in a browser, then click **Services** to verify that your application is deployed and running.
 
     <p>
-    <img src="/1.14/img/healthy-dcos-website.png" alt="Healthy service">
+    <img src="/mesosphere/dcos/2.0/img/healthy-dcos-website.png" alt="Healthy service">
     </p>
 
 1. In the web browser, navigate to the IP address for your public agent node to verify the site you have deployed is running.
