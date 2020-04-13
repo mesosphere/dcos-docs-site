@@ -45,7 +45,7 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 1. Create a public-private key pair and save each value into a separate file within the current directory.
 
     ```bash
-    $ dcos security org service-accounts keypair jenkins-private-key.pem jenkins-public-key.pem
+    dcos security org service-accounts keypair jenkins-private-key.pem jenkins-public-key.pem
     ```
 
 1. Type `ls` to view the two new files created by the command. You may also want to open the files themselves and verify their contents.
@@ -63,13 +63,13 @@ Next, you must create a service account. This section uses the Enterprise DC/OS 
 - Use the following command to create a new service account called `jenkins-principal` with the public key you just generated.
 
     ```bash
-    $ dcos security org service-accounts create -p jenkins-public-key.pem -d "Jenkins service account" jenkins-principal
+    dcos security org service-accounts create -p jenkins-public-key.pem -d "Jenkins service account" jenkins-principal
     ```
 
 - Verify your new service account using the following command.
 
     ```bash
-    $ dcos security org service-accounts show jenkins-principal
+    dcos security org service-accounts show jenkins-principal
     ```
 
 ## About creating a service account secret
@@ -83,25 +83,25 @@ Next, you need to create a secret associated with the service account that conta
     **strict:**
 
     ```bash
-    $ dcos security secrets create-sa-secret --strict jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
+    dcos security secrets create-sa-secret --strict jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
     ```
 
     **permissive:**
 
     ```bash
-    $ dcos security secrets create-sa-secret jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
+    dcos security secrets create-sa-secret jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
     ```
 
 - Ensure the secret was created successfully:
 
     ```bash
-    $ dcos security secrets list /
+    dcos security secrets list /
     ```
 
 - If you have [jq 1.5 or later](https://stedolan.github.io/jq/download) installed, you can also use the following command to retrieve the secret and ensure that it contains the correct service account ID and private key.
 
     ```bash
-    $ dcos security secrets get /jenkins/jenkins-secret --json | jq -r .value | jq
+    dcos security secrets get /jenkins/jenkins-secret --json | jq -r .value | jq
     ```
 
    **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you are in `strict` mode and HTTP if you are in `permissive` mode. If the URL begins with `https` and you are in `permissive` mode, try [upgrading the Enterprise DC/OS CLI](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
@@ -109,7 +109,7 @@ Next, you need to create a secret associated with the service account that conta
 - Now that you have stored the private key in the Secret Store, we recommend deleting the private key file from your file system. This will prevent bad actors from using the private key to authenticate to DC/OS.
 
    ```bash
-   $ rm -rf jenkins-private-key.pem
+   rm -rf jenkins-private-key.pem
    ```
 
 # Provision the service account with permissions
@@ -197,7 +197,7 @@ To install the service, complete the following steps.
 1. Use the following command.
 
    ```bash
-   $ dcos package install --options=config.json jenkins
+   dcos package install --options=config.json jenkins
    ```
 
 1. Paste the following path into your browser, replacing `cluster-url` with your actual cluster URL: `https://<cluster-url>/service/dev/jenkins/configure`.
