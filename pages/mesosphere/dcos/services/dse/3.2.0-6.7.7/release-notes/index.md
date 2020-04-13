@@ -58,4 +58,4 @@ Although version 3.1.0-6.7.6 is no longer supported, the following changes were 
 - Fixed OpsCenter UI, which was showing a gray ring after a restart.
 
 ## Upgrading your cluster from {{ model.techShortName }} 5.1.10 to 6.7.6
-Due to the complexity of upgrading to {{ model.techShortName }} 6.7, we strongly advise that you attempt the upgrade on a test cluster before upgrading in your production environment. See the [update section](/mesosphere/dcos/services/dse/3.1.0-6.7.6/updates/) for specific instructions.
+Due to the complexity of upgrading to {{ model.techShortName }} 6.7, we strongly advise that you attempt the upgrade on a test cluster before upgrading in your production environment. See the [update section](../updates/) for specific instructions.

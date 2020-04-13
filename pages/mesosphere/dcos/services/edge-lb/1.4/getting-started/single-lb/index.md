@@ -244,7 +244,7 @@ After you have configured and tested the `ping` service and `ping-lb` pool confi
     
     In most cases, this command returns node information that includes both the private and public IP addresses for each node. You should keep in mind, however, that the public and private IP addresses returned might not be accurate if the Edge-LB pool uses virtual networks. 
 
-    For more information about finding the public IP address for a public agent node, see [Finding a public agent IP](1.13/administering-clusters/locate-public-agent/).
+    For more information about finding the public IP address for a public agent node, see [Finding a public agent IP](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/).
 
 1. Verify that you can access the deployed service using the public-facing IP address and the frontend port 15001:
 

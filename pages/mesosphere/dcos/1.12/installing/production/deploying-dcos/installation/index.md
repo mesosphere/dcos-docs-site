@@ -424,7 +424,7 @@ Figure 2. Exhibitor for ZooKeeper
 
    When the status icons are green, you can access the DC/OS web interface.
 
-6.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting][11] documentation.
+6.  Launch the DC/OS web interface at: `http://<master-node-public-ip>/`. If this doesn't work, take a look at the [troubleshooting](/mesosphere/dcos/1.12/installing/troubleshooting/) documentation.
 
     <p class="message--note"><strong>NOTE: </strong>After clicking <strong>Log In To DC/OS</strong>, your browser may show a warning that your connection is not secure. This is because DC/OS uses self-signed certificates. You can ignore this error and click to proceed.</p>
 

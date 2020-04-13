@@ -16,7 +16,7 @@ This tutorial illustrates a DC/OS cluster running on an AWS instance, with exter
 After completing this tutorial, you will have hands-on practice configuring Marathon-LB for a cluster running on an AWS instance with Marathon-LB providing internal and external load balancing using a sample application.
 
 # Before you begin
-* You must have a DC/OS cluster installed by using [AWS cloud templates](/mesosphere/dcos/1.14/installing/evaluation/community-supported-methods/aws/) and credentials.
+* You must have a DC/OS cluster installed by using [AWS cloud templates](/mesosphere/dcos/2.0/installing/evaluation/community-supported-methods/aws/) and credentials.
 * The DC/OS cluster must have at least one master node, at least three private agent nodes, and at least one public agent node.
 * You must have an account with access to the DC/OS web-based administrative console or DC/OS command-line interface.
 * You must have Marathon-LB installed.
@@ -26,14 +26,14 @@ Before you configure load balancing for external or internal applications, you s
 
 To verify you have Marathon-LB installed and running:
 
-1. Find the public IP address for your [public node](/mesosphere/dcos/1.14/administering-clusters/locate-public-agent/).
+1. Find the public IP address for your [public node](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/).
 
 1. Navigate to the `http://<public-agent-IP>:9090/haproxy?stats` endpoint.
 
 1. Review the statistics report page.
 
     <p>
-    <img src="/1.14/img/lb2.jpg" alt="Marathon-LB HAProxy statistics">
+    <img src="/mesosphere/dcos/2.0/img/lb2.jpg" alt="Marathon-LB HAProxy statistics">
     </p>
 
 # Deploy internal load balancing
@@ -230,7 +230,7 @@ You can test your load balancing configurations by opening a [secure shell (SSH)
 Each of these commands should return the NGINX ‘Welcome’ page similar to the following:
 
 <p>
-<img src="/1.14/img/lb3.jpg" alt="NGINX Welcome">
+<img src="/mesosphere/dcos/2.0/img/lb3.jpg" alt="NGINX Welcome">
 </p>
 
 # Using virtual hosts
@@ -292,7 +292,7 @@ If you are working with the external NGINX application and the `nginx-external.j
 
 1. Type `HAPROXY_0_VHOST` for the **Key** and the public agent DNS name for the **Value**.
     <p>
-    <img src="/1.14/img/nginx-external-gui.png" alt="Update app">
+    <img src="/mesosphere/dcos/2.0/img/nginx-external-gui.png" alt="Update app">
     </p>
 
     * The `HAPROXY_0_VHOST` label instructs Marathon-LB to expose NGINX on the external load balancer with a virtual host.
@@ -305,6 +305,3 @@ If you are working with the external NGINX application and the `nginx-external.j
 
 1. Navigate to the public agent in your browser to verify that you see the NGINX welcome page.
 
-    <p>
-    <img src="/1.14/img/nginx-external-gui.png" alt="Update app">
-    </p>
