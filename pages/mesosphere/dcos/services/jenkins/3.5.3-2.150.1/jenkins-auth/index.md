@@ -47,7 +47,7 @@ First, you'll need to generate a 2048-bit RSA public-private key pair. While you
 1. Create a public-private key pair and save each value into a separate file within the current directory.
 
     ```bash
-    $ dcos security org service-accounts keypair jenkins-private-key.pem jenkins-public-key.pem
+    dcos security org service-accounts keypair jenkins-private-key.pem jenkins-public-key.pem
     ```
 
 1. Type `ls` to view the two new files created by the command. You may also want to open the files themselves and verify their contents.
@@ -68,13 +68,13 @@ Next, you must create a service account. This section describes how to use eithe
 1. Use the following command to create a new service account called `jenkins-principal` with the public key you just generated.
 
     ```bash
-    $ dcos security org service-accounts create -p jenkins-public-key.pem -d "Jenkins service account" jenkins-principal
+    dcos security org service-accounts create -p jenkins-public-key.pem -d "Jenkins service account" jenkins-principal
     ```
 
 1. Verify your new service account using the following command.
 
     ```bash
-    $ dcos security org service-accounts show jenkins-principal
+    dcos security org service-accounts show jenkins-principal
     ```
 
 1. Continue to [Create a service account secret](#create-an-sa-secret).
@@ -106,25 +106,25 @@ Next, you need to create a secret associated with the service account that conta
     **strict:**
 
     ```bash
-    $ dcos security secrets create-sa-secret --strict jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
+    dcos security secrets create-sa-secret --strict jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
     ```
 
     **permissive:**
 
     ```bash
-    $ dcos security secrets create-sa-secret jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
+    dcos security secrets create-sa-secret jenkins-private-key.pem jenkins-principal jenkins/jenkins-secret
     ```
 
 1. Ensure the secret was created successfully:
 
     ```bash
-    $ dcos security secrets list /
+    dcos security secrets list /
     ```
 
 1. If you have [jq 1.5 or later](https://stedolan.github.io/jq/download) installed, you can also use the following command to retrieve the secret and ensure that it contains the correct service account ID and private key.
 
     ```bash
-    $ dcos security secrets get /jenkins/jenkins-secret --json | jq -r .value | jq
+    dcos security secrets get /jenkins/jenkins-secret --json | jq -r .value | jq
     ```
 
    **Important:** While reviewing the secret, ensure that the `login_endpoint` URL uses HTTPS if you are in `strict` mode and HTTP if you are in `permissive` mode. If the URL begins with `https` and you are in `permissive` mode, try [upgrading the Enterprise DC/OS CLI](/mesosphere/dcos/latest/cli/enterprise-cli/#ent-cli-upgrade), deleting the secret, and recreating it.
@@ -132,7 +132,7 @@ Next, you need to create a secret associated with the service account that conta
 1. Now that you have stored the private key in the Secret Store, we recommend deleting the private key file from your file system. This will prevent bad actors from using the private key to authenticate to DC/OS.
 
    ```bash
-   $ rm -rf jenkins-private-key.pem
+   rm -rf jenkins-private-key.pem
    ```
 
 1. Continue to [Provision the service account with permissions](#give-perms).
@@ -196,15 +196,15 @@ With the following curl commands you can rapidly provision the Jenkins service a
    **Note:** There is always a chance that the permission has already been added. If so, the API returns an informative message. Consider this a confirmation and continue to the next one.
 
    ```bash
-   $ curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody -d '{"description":"Allows Linux user nobody to execute tasks"}' -H 'Content-Type: application/json'
-   $ curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:* -d '{"description":"Controls the ability of jenkins-role to register as a framework with the Mesos master"}' -H 'Content-Type: application/json'
+   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody -d '{"description":"Allows Linux user nobody to execute tasks"}' -H 'Content-Type: application/json'
+   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:* -d '{"description":"Controls the ability of jenkins-role to register as a framework with the Mesos master"}' -H 'Content-Type: application/json'
    ```
 
 1. Grant the permissions and the allowed actions to the service account using the following commands.
 
    ```bash
-   $ curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:*/users/jenkins-principal/create
-   $ curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody/users/jenkins-principal/create
+   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:framework:role:*/users/jenkins-principal/create
+   curl -X PUT --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:mesos:master:task:user:nobody/users/jenkins-principal/create
    ```
 
 1. Continue to the [next section](#create-json).
@@ -255,7 +255,7 @@ To install the service, complete the following steps.
 1. Use the following command.
 
    ```bash
-   $ dcos package install --options=config.json jenkins
+   dcos package install --options=config.json jenkins
    ```
 
 1. Paste the following path into your browser, replacing `cluster-url` with your actual cluster URL: `https://<cluster-url>/service/jenkins/configure`.
