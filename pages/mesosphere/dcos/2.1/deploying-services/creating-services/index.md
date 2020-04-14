@@ -37,9 +37,9 @@ You can deploy a simple program in an inline shell script. Let's start with a si
 
 When you define and launch a service, Marathon hands over execution to Mesos. Mesos creates a sandbox directory for each task. The sandbox directory is a directory on each agent node that acts as an execution environment and contains relevant log files. The `stderr` and `stdout` streams are also written to the sandbox directory.
 
-## Declaring resources in applications
+## Declaring artifacts in applications
 
-To run any non-trivial application, you typically depend on a collection of resources: files or archives of files. To manage resource allocation, Marathon has the concept of URIs (uniform resource identifiers). URIs use the [Mesos fetcher](http://mesos.apache.org/documentation/latest/fetcher/) to do the legwork in terms of downloading (and potentially) extracting resources.
+To run any non-trivial application, you typically depend on a collection of artifacts: files or archives of files. To configure these artifacts, Marathon allows you to specify one or more URIs (uniform resource identifiers). URIs use the [Mesos fetcher](http://mesos.apache.org/documentation/latest/fetcher/) to do the legwork in terms of downloading (and potentially) extracting resources.
 
 Example:
 
@@ -54,7 +54,7 @@ Example:
 }
 ```
 
-The example above executes the contents of `cmd`, downloads the resource `https://example.com/app/cool-script.sh` (via Mesos), and makes it available in the service instance's Mesos sandbox. You can verify that it has been downloaded by visiting the DC/OS web interface and clicking on an instance of `basic-1`, then on the **Files** tab. You should find `cool-script.sh` there.
+The example above downloads the resource `https://example.com/app/cool-script.sh` (via Mesos), makes it available in the service instance's Mesos sandbox, and then executes the contents of `cmd`. You can verify that it has been downloaded by visiting the DC/OS web interface and clicking on an instance of `basic-1`, then on the **Files** tab. You should find `cool-script.sh` there.
 
 <p class="message--note"><strong>NOTE: </strong>The fetcher does not make dowloaded files executable by default. In the example above, <code>cmd</code> first makes the file executable.</p>
 
