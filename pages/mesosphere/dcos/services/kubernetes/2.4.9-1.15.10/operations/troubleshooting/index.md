@@ -15,11 +15,11 @@ excerpt: Troubleshooting DC/OS Kubernetes
 If the scheduler task is not starting at all for your Kubernetes cluster, confirm that your DC/OS cluster contains enough resources to launch the cluster.
 If it appears that there are enough resources available, verify that there are no existing quotas for that installation. If there are, verify that it contains correct values.
 
-See the [Resources section](/mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/getting-started/provision-install/#resources) of the [Installing](/mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/getting-started/provision-install/) page for more detail on setting up your cluster.
+See the [Setting up](/mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/getting-started/setting-up) for more detail on setting up your cluster.
 
 ## Scheduler is restarting
 
-If the scheduler task is starting for your Kubernetes cluster but is in a "Failed" restart loop, verify all of the installation [prerequisites](/mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/getting-started/provision-install/#prerequisites) have been met.
+If the scheduler task is starting for your Kubernetes cluster but is in a "Failed" restart loop, verify all of the installation [prerequisites](/mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/getting-started/setting-up/#prerequisite-dcos-enterprise-cluster-enterprise) have been met.
 This might include improperly configured Service Account and/or Service Account secret or other issues.
 
 The simplest way is to look at the Kubernetes cluster's scheduler logs for any error messages. Here are a few examples of what you might see.
