@@ -73,11 +73,14 @@ This pod, named `simple-pod` has a single container, `simpletask1`. The containe
 | `containers.exec.command`            | object  | Command executed by Mesos.                                                                                 |
 | `containers.exec.command.shell`          | string  | Command to execute. If using container entrypoint, use an empty string.                                    |
 | `containers.exec.overrideEntrypoint` | boolean | If `command` is supplied, this is implicitly set to `true`. To use the default entrypoint, set to `false`. |
-| `containers:resources` (required)   | object  | Container specifications for resources.                                                                    |
+| `containers:resources` (required)         | object  | Container specifications for resources.                                                                    |
 | `containers.resources.cpus`               | number  | CPU shares (default: 1.0).                                                                                 |
 | `containers.resources.mem`                | number  | Memory resources in MiB (default: 128).                                                                    |
 | `containers.resources.disk`               | double  | Disk resources in MiB (default: 128).                                                                      |
 | `containers.resources.gpus`               | integer | GPU resources (default: 0).                                                                                |
+| `containers:resourceLimits` (required)    | object  | Container specifications for CPU and memory limits.                                                        |
+| `containers.resourceLimits.cpus`          | number or string | CPU resource limit (default: value of `resources.cpus`), can specify as "unlimited".              |
+| `containers.resourceLimits.mem`           | number or string | Memory resources in MiB (default: value of `resources.mem`), can specify as "unlimited".          |
 | `containers.image`                  | object  | If `image` is omitted, the Mesos containerizer is used.                                                    |
 | `containers.image.kind`               | string  | Container image format (`DOCKER` or `APPC`).                                                               |
 | `containers.image.id`                 | string  | Container image tag.                                                                                       |
@@ -119,6 +122,10 @@ The example below shows a pod, `test-pod`, with three containers, `healthtask1`,
             "mem":32,
             "disk":32,
             "gpus":0
+         },
+         "resourceLimits":{
+            "cpus": "unlimited",
+            "mem": 1024
          },
          "endpoints":[
             {
@@ -717,6 +724,10 @@ The following pod definition can serve as a reference to create more complicated
         "mem": 128,
         "disk": 0,
         "gpus": 0
+      },
+      "resourceLimits": {
+        "cpus": "unlimited",
+        "mem": 1024
       },
       "endpoints": [
         {
