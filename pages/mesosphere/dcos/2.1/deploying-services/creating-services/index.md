@@ -37,7 +37,26 @@ You can deploy a simple program in an inline shell script. Let's start with a si
 
 When you define and launch a service, Marathon hands over execution to Mesos. Mesos creates a sandbox directory for each task. The sandbox directory is a directory on each agent node that acts as an execution environment and contains relevant log files. The `stderr` and `stdout` streams are also written to the sandbox directory.
 
-## Declaring artifacts in applications
+## CPU/Memory Requests and Limits
+
+Any application will require CPU and memory to execute. As you can see above, the `cpus` and `mem` fields can be used to specify the amount of these resources required by the application. These quantities are known as the CPU and memory "requests", and the app is guaranteed to have access to at least these amounts. In addition, DC/OS has the concept of CPU and memory "limits" which allow you to specify the maximum amount of the resource that the app may consume. The resource limit must be equal to or greater than the request; in addition, the limit may be given the value of "unlimited", meaning the app's use of that resource is not constrained at all. The app below has a CPU limit of 2.0 CPUs and an infinite memory limit:
+
+    ```json
+    {
+        "id": "basic-0",
+        "cmd": "while [ true ] ; do echo 'Hello Marathon' ; sleep 5 ; done",
+        "cpus": 1.0,
+        "mem": 256.0,
+        "resourceLimits": { "cpus": 2.0, "mem": "unlimited" },
+        "instances": 1
+    }
+    ```
+
+If no special configuration has been applied to the DC/OS cluster during installation, then tasks which do not set explicit CPU limits will have their limit implicitly set to the value of the CPU request. Changing the value of the [mesos_cgroups_enable_cfs](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#mesos_cgroups_enable_cfs) DC/OS installation parameter to `false` means that these implicit limits will not be set.
+
+A task with a CPU limit higher than its request will automatically be scheduled on the CPU when there are free cycles available, with its CPU usage being throttled back to its CPU request when other processes have work to schedule as well. Tasks will never be scheduled on the CPU more than allowed by the value of their CPU limit. A task with a memory limit higher than its request will be able to consume memory greater than the request, but this does come with some danger of premature task termination. If memory on the agent becomes exhausted and memory must be reclaimed so that all tasks can have access to their entire memory requests, task processes which are consuming more memory than their request will be first in line to be OOM-killed in order to free up memory. When a task attempts to allocate more memory than its memory limit and nothing can be paged out in order to prevent this violation, the task will be OOM-killed immediately.
+
+## Declaring Artifacts in Applications
 
 To run any non-trivial application, you typically depend on a collection of artifacts: files or archives of files. To configure these artifacts, Marathon allows you to specify one or more URIs (uniform resource identifiers). URIs use the [Mesos fetcher](http://mesos.apache.org/documentation/latest/fetcher/) to do the legwork in terms of downloading (and potentially) extracting resources.
 
