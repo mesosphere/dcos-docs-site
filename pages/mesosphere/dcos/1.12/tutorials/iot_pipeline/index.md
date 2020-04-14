@@ -53,7 +53,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 
 ## Install DC/OS services
 
-In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS GUI [**Catalog**](/mesosphere/dcos/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
+In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC/OS GUI [**Catalog**](/mesosphere/dcos/1.12/gui/catalog/) tab. You can also install DC/OS packages from the DC/OS CLI with the [`dcos package install`][11] command.
 
 1.  Find and click the **cassandra** package, click **REVIEW & RUN**, and accept the default installation, by clicking **REVIEW & RUN** again, then **RUN SERVICE**. Cassandra spins up to 3 nodes. When prompted by the modal alert, click **OPEN SERVICE**.
 
