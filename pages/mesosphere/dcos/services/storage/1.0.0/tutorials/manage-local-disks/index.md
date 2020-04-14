@@ -123,7 +123,7 @@ LVM2 is bundled with DC/OS Enterprise.
     lvm      volume-group-1       ca626e4a-e3cb-4613-b7dd-618cfc19bee1-S0  ONLINE
     ```
 
-    The logs for all `lvm` volume providers on a node may be viewed using the [DC/OS CLI](../../latest/cli/command-reference/dcos-node/dcos-node-log/):
+    The logs for all `lvm` volume providers on a node may be viewed using the [DC/OS CLI](/mesosphere/dcos/latest/cli/command-reference/dcos-node/dcos-node-log/):
 
     ```bash
     dcos node log --mesos-id=ca626e4a-e3cb-4613-b7dd-618cfc19bee1-S0 --filter=CSI_PLUGIN:csilvm --filter=STREAM:STDERR
