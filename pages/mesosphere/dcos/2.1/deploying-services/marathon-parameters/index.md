@@ -36,6 +36,7 @@ This topic lists all available properties for Marathon application definitions a
         - [portDefinitions](#portDefinitions)
         - [requirePorts](#requirePorts)
         - [residency](#residency)
+        - [resourceLimits](#resourceLimits)
         - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
         - [unreachableStrategy](#unreachableStrategy)
         - [upgradeStrategy](#upgradeStrategy)
@@ -219,6 +220,9 @@ Set up a stateful application. For more information, see [local persistent volum
   - **WAIT_FOREVER** Do not relaunch the task after receiving a `TASK_LOST` status update. This setting is required to create a persistent volume. This is the default value.
   - **RELAUNCH_AFTER_TIMEOUT** Relaunch the task after receiving a `TASK_LOST` status update.
 
+### resourceLimits
+Specify optional resource limits for a container, allowing the task to consume more cpu and memory resources than requested, if available. Each limit is specified as either a numerical value, or as the string `"unlimited"`.
+
 ### taskKillGracePeriodSeconds
 The amount of time (in seconds) between the executor sending SIGTERM to a task and then sending SIGKILL.
 
@@ -250,6 +254,7 @@ Here is an example JSON application definition that contains all fields.
     "cmd": "env && sleep 300",
     "cpus": 1.5,
     "mem": 256.0,
+    "resourceLimits": { "cpus": "unlimited", "mem": 2048.0 },
     "portDefinitions": [
         { "port": 8080, "protocol": "tcp", "name": "http", "labels": { "VIP_0": "10.0.0.1:80" } },
         { "port": 9000, "protocol": "tcp", "name": "admin" }
