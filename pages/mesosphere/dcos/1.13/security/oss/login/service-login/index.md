@@ -64,7 +64,7 @@ Service login tokens can be created manually via [jwt.io](https://jwt.io) or via
 ## Logging in using a service login token
 
 **Prerequisite:**
-- [Service login token](/mesosphere/dcos/1.13/security/oss/authentication/authentication-token/service-login/#generate-a-service-login-token)
+- [Service login token](#construct-a-service-login-token)
 
 During a service login a service login token is sent to the DC/OS [Identity and Access Management (IAM) API](/mesosphere/dcos/1.13/security/oss/iam-api/).
 
