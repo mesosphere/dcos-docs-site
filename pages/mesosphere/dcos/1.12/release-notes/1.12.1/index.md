@@ -150,7 +150,7 @@ DC/OS 1.12 includes many new features and capabilities. The key features and enh
 This section provides an overview of new features and capabilities introduced in DC/OS 1.12.
 
 ### Mesosphere Kubernetes Engine
-- High Density Multi-Kubernetes (HDMK) allows operators to take advantage of intelligent resource pooling when running multiple Kubernetes clusters on DC/OS. Compared with other Kubernetes distributions that run a single Kubernetes node per virtual machine, Mesosphere HDMK uses its intelligent resource pooling to pack multiple Kubernetes nodes onto the same server for bare metal, virtual machine, and public cloud instances, driving significant cost savings and resource efficiencies. [Learn more about Kubernetes on DC/OS](/mesosphere/dcos/services/kubernetes/2.0.0-1.12.1/).
+- High Density Multi-Kubernetes (HDMK) allows operators to take advantage of intelligent resource pooling when running multiple Kubernetes clusters on DC/OS. Compared with other Kubernetes distributions that run a single Kubernetes node per virtual machine, Mesosphere HDMK uses its intelligent resource pooling to pack multiple Kubernetes nodes onto the same server for bare metal, virtual machine, and public cloud instances, driving significant cost savings and resource efficiencies. [Learn more about Kubernetes on DC/OS](/mesosphere/dcos/services/kubernetes/latest/).
 
 ### Mesosphere Jupyter Service (MJS)
 - Delivered secure, [cloud-native Jupyter](/mesosphere/dcos/services/beta-jupyter/) Notebooks-as-a-Service to empower data scientists to perform analytics and distributed machine learning on elastic GPU-pools with access to big and fast data services.
