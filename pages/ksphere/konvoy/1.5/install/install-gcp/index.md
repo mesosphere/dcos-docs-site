@@ -4,7 +4,6 @@ navigationTitle: Install on Google Cloud Platform (GCP)
 title: Install on Google Cloud Platform (GCP)
 menuWeight: 20
 excerpt: Prepare for and install Konvoy on Google Cloud Platform (GCP)
-beta: true
 enterprise: false
 ---
 

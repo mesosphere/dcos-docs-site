@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Supported Operating Systems
 title: Supported Operating Systems
 menuWeight: 10
-beta: true
 excerpt: Supported operating systems for Konvoy
 enterprise: false
 ---

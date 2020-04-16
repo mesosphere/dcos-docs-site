@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: API documentation (v1beta2)
 title: API documentation (v1beta2)
 menuWeight: 10
-beta: true
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
 excerpt: API documentation (v1beta2)
