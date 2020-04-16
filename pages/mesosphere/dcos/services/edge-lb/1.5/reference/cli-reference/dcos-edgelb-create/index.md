@@ -59,4 +59,4 @@ Using provided envvar DCOS_URL for config value core.dcos_url=http://sidebet-ela
 Successfully created ping-lb. Check "dcos edgelb show ping-lb" or "dcos edgelb status ping-lb" for deployment status
 ```
 
-For more examples of pool configuration files, see [Getting started with Edge-LB](../../getting-started/) and [Tutorials](../../tutorials).
+For more examples of pool configuration files, see [Getting started with Edge-LB](../../../getting-started/) and [Tutorials](../../../tutorials).
