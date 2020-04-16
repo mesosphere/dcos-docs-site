@@ -7,7 +7,8 @@
 
 - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
 - var konvoyDocs = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
-- var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
+- var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == konvoyDocsLatest)[0]
+
 - var dispatchDocs = ksphereDocs.children.filter(child => child.id == 'dispatch')[0]
 - var latestDispatchDocs = dispatchDocs.children.filter(child => child.id == 'latest')[0]
 

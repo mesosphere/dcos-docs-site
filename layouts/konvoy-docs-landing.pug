@@ -3,7 +3,7 @@
 - var currentProduct = paths[1]
 - var ksphereDocs = hierarchy.children.filter(child => child.id === 'ksphere')[0]
 - var konvoyDocs = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
-- var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == 'latest')[0]
+- var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == konvoyDocsLatest)[0]
 
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'ksphere')
