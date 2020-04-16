@@ -70,7 +70,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 * Kubernetes 1.15.3
 * dcos-commons 0.56.3
-* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.4.6-1.15.6/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators or other components of the system.
+* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.4.6-1.15.6/operations/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators or other components of the system.
 
 ### Changelog since 2.4.0-1.15.1
 
