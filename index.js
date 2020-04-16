@@ -113,7 +113,7 @@ MS.metadata({
     gitBranch: GIT_BRANCH,
     dcosDocsLatest: '2.0',
     dcosCNDocsLatest: '2.0',
-    konvoyDocsLatest: 'latest',
+    konvoyDocsLatest: '1.5',
     kommanderDocsLatest: 'latest',
 });
 
