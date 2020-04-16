@@ -122,7 +122,7 @@ If you are in `strict` mode or want to be ready to upgrade to `strict` mode, con
 
 ## Role and Quota
 
-The DC/OS Jenkins service starting with DC/OS 2.0 supports multi-tenancy. Users should familiarize themselves with [Quota](../../../../2.0/multi-tenancy/quota-management/index.md) and [Resource Managment Primitives](../../../../2.0/multi-tenancy/resource-mgmt-primitives/index.md) in DC/OS.
+The DC/OS Jenkins service starting with DC/OS 2.0 supports multi-tenancy. Users should familiarize themselves with [Quota](../../../../2.0/multi-tenancy/quota-management) and [Resource Managment Primitives](../../../../2.0/multi-tenancy/resource-mgmt-primitives/) in DC/OS.
 
 **Note:** We will use `/dev/jenkins` as the name of the service.
 - DC/OS 2.0 and later clusters
