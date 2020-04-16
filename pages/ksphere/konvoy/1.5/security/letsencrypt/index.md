@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Setting up Let's Encrypt certificate
 title: Setting up Let's Encrypt certificate
 menuWeight: 10
-beta: true
 excerpt: Setting up Let's Encrypt certificate for the cluster ingress
 enterprise: false
 ---

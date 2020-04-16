@@ -4,7 +4,6 @@ navigationTitle: Advanced provisioning options Google Cloud Platform (GCP)
 title: Advanced provisioning options Google Cloud Platform (GCP)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on Google Cloud Platform (GCP)
-beta: true
 enterprise: false
 ---
 

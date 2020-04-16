@@ -4,6 +4,7 @@ navigationTitle: Konvoy 1.5-beta
 title: Welcome to Konvoy 1.5
 featureMaturity:
 enterprise: false
+beta: true
 category: K-Sphere
 menuWeight: 0
 ---

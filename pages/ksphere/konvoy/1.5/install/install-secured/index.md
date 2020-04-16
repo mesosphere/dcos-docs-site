@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Install on secured machines
 title: Install on secured machines
 menuWeight: 37
-beta: true
 excerpt: Install on secured machines
 enterprise: false
 ---
