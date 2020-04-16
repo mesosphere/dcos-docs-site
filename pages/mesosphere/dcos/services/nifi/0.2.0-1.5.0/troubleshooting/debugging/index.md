@@ -88,7 +88,7 @@ A common user mistake is to remove the Scheduler task from Marathon, which does 
 
 ## Uninstall the rest of the service
 
-If you really wanted to uninstall the service, you just need to complete the normal package uninstall steps described under [Uninstall.](../uninstall)
+If you really wanted to uninstall the service, you just need to complete the normal package uninstall steps described under [Uninstall.](../../uninstall)
 
 ## Recover the Scheduler
 
