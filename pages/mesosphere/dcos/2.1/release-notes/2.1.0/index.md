@@ -9,7 +9,7 @@ beta: true
 model: /mesosphere/dcos/2.1/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
-DC/OS 2.1.0 was released on 10 April, 2020.
+DC/OS 2.1.0 Beta was released on 27 April, 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.1.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -25,8 +25,8 @@ This release provides new features and enhancements to improve the user experien
 If you have DC/OS deployed in a production environment, see [Known Issues and Limitations](#known-issues-and-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
 - Updated DC/OS UI to master+v2.150.2.
-- Updated to Mesos ??
-- Updated Marathon to 
+- Updated to Mesos ???
+- Updated Marathon to ???
 
 
 # New Features and Capabilities 
