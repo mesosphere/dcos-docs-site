@@ -10,7 +10,7 @@ enterprise: false
 
 The monitoring plugin for the DC/OS command line interface (DC/OS CLI) utility allows you to manage the monitoring stack running on a DC/OS cluster.
 
-Instructions on how to install the DC/OS Monitoring CLI can be found [here](../getting-started/index.md).
+Instructions on how to install the DC/OS Monitoring CLI can be found [here](../getting-started/).
 
 To list available commands, run `dcos monitoring` with no parameters:
 
