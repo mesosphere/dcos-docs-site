@@ -117,7 +117,7 @@ There is a **Manual Judgment** stage in between the two just to halt the pipelin
 
 ## Creating a rolling blue-green pipeline
 
-In this section we will create a **rolling blue-green pipeline** that will roll in a new version of the server group that we created with the **deployment** pipeline earlier. For information about a load balancer setup, see the [Edge-LB](/mesosphere/dcos/services/spinnaker/0.3.2-1.9.2/quick-start-guide/edgelb/) documentation for that.
+In this section we will create a **rolling blue-green pipeline** that will roll in a new version of the server group that we created with the **deployment** pipeline earlier. For information about a load balancer setup, see the [Edge-LB](/mesosphere/dcos/services/spinnaker/0.3.2-1.9.2/overview/edgelb/) documentation for that.
 
 1. The first stage, **green1**, is a **Deploy** stage, with which we deploy the first two new instances of our new server group version. `V000` used `nginx:1.11` as its image, the new one uses `nginx:1:12`.
 
