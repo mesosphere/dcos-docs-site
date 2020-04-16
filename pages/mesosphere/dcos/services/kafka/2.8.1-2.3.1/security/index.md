@@ -35,7 +35,7 @@ For more information on {{ model.techShortName }}'s security, read the following
 
 #### Verify Transport Encryption Enabled
 
-After service deployment completes, check the list of [{{ model.techShortName }} endpoints](../api-reference/#connection-information) for the endpoint `broker-tls`. If `service.security.transport_encryption.allow_plaintext` is `true`, then the `broker` endpoint will also be available.
+After service deployment completes, check the list of [{{ model.techShortName }} endpoints](../reference/#connection-information) for the endpoint `broker-tls`. If `service.security.transport_encryption.allow_plaintext` is `true`, then the `broker` endpoint will also be available.
 
 #include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
 

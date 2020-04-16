@@ -147,7 +147,7 @@ Use the following steps to change configurations at runtime:
 
 ## Configuration Update REST API
 
-Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](api-reference.md) topic for information on how this request must be authenticated.
+Make the REST request below to view the current deployment plan. See the REST API Authentication part of the [REST API Reference](../reference) topic for information on how this request must be authenticated.
 
 ```bash
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/kafka/v1/plan"
