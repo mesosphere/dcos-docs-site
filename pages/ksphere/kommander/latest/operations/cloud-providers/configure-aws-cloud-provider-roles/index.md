@@ -47,12 +47,16 @@ The user you delegate from your role must have a minimum set of permissions. Bel
         "ec2:CreateTags",
         "ec2:CreateVolume",
         "ec2:CreateVpc",
+        "ec2:CreateVpcEndpoint",
         "ec2:DeleteInternetGateway",
         "ec2:DeleteKeyPair",
+        "ec2:DeleteRoute",
+        "ec2:DeleteTags",
         "ec2:DeleteSecurityGroup",
         "ec2:DeleteSubnet",
         "ec2:DeleteVolume",
         "ec2:DeleteVpc",
+        "ec2:DeleteVpcEndpoints",
         "ec2:DescribeAccountAttributes",
         "ec2:DescribeAvailabilityZones",
         "ec2:DescribeImages",
@@ -73,6 +77,14 @@ The user you delegate from your role must have a minimum set of permissions. Bel
         "ec2:DescribeVpcClassicLink",
         "ec2:DescribeVpcClassicLinkDnsSupport",
         "ec2:DescribeVpcs",
+        "ec2:DescribeVpcEndpoints",
+        "ec2:DescribeVpcEndpointConnectionNotifications",
+        "ec2:DescribeVpcEndpointConnections",
+        "ec2:DescribeVpcEndpointServiceConfigurations",
+        "ec2:DescribeVpcEndpointServicePermissions",
+        "ec2:DescribeVpcEndpointServices",
+        "ec2:DescribeVpcPeeringConnections",
+        "ec2:DescribePrefixLists",
         "ec2:DetachInternetGateway",
         "ec2:DetachNetworkInterface",
         "ec2:DetachVolume",
@@ -80,6 +92,7 @@ The user you delegate from your role must have a minimum set of permissions. Bel
         "ec2:ModifyInstanceAttribute",
         "ec2:ModifySubnetAttribute",
         "ec2:ModifyVpcAttribute",
+        "ec2:ModifyVpcEndpoint",
         "ec2:RevokeSecurityGroupEgress",
         "ec2:RevokeSecurityGroupIngress",
         "ec2:RunInstances",
@@ -109,7 +122,13 @@ The user you delegate from your role must have a minimum set of permissions. Bel
         "iam:PassRole",
         "iam:PutRolePolicy",
         "iam:RemoveRoleFromInstanceProfile",
-        "sts:GetCallerIdentity"
+        "sts:GetCallerIdentity",
+        "resource-groups:ListGroups",
+        "tag:GetResources",
+        "tag:GetTagKeys",
+        "tag:GetTagValues",
+        "tag:TagResources",
+        "tag:UntagResources"
       ],
       "Resource": "*"
     }
@@ -173,4 +192,3 @@ Navigate to **Administration > Cloud Providers** and click the **Add Cloud Provi
 
 [iam_roles]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
 [external_id]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
-
