@@ -26,7 +26,7 @@ enterprise: false
 
 [stable-1.16-1.4.0], [stable-1.15-1.4.0]
 
-<p class="message--warning"><strong>WARNING: DO NOT USE</strong>This release deletes the secret for the velero backups. The data remains but is not accessible without the secret.</p>
+<p class="message--warning"><strong>WARNING: DO NOT USE </strong>This release deletes the secret for the velero backups. The data remains but is not accessible without the secret.</p>
 
 -   Dex:
     - Add SAML connector support in the dex controller.  This allows users to add SAML IDP using the Kubernetes API.
