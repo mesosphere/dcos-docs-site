@@ -46,7 +46,7 @@ if (landingContainer) {
                     }
 
                     return `
-            <a href="${data.path}" class="landing__results-link">
+            <a href="/${data.path}" class="landing__results-link">
               <strong class="landing__results-title">${title}</strong>
               <div class="landing__results-snippet">&hellip; ${description} &hellip;</div>
             </a>
