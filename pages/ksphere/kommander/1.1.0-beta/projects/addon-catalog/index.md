@@ -2,6 +2,7 @@
 layout: layout.pug
 navigationTitle: Addon Catalog
 title: Addon Catalog
+beta: true
 menuWeight: 8
 excerpt: Deploy applications to your Kommander Projects
 ---
@@ -28,6 +29,12 @@ To deploy an addon, select a Project from your Workspace and select the **View C
 
 To customize an addon before deploying it, you can customize the helm chart values or KUDO parameters of a service before deploying it.
 
-![Deploy Platform Service](/ksphere/kommander/1.1-beta/img/project-catalog-deploy.png)
+For Helm-based addons, specify the chart values in a YAML editor:
+
+![Deploy Helm Platform Service](/ksphere/kommander/1.1.0-beta/img/project-catalog-deploy-helm.png)
+
+For KUDO-based addons, fill out the form fields supported by that addon's parameters schema:
+
+![Deploy KUDO Platform Service](/ksphere/kommander/1.1.0-beta/img/project-catalog-deploy-kudo.png)
 
 After an addon is deployed in a project, the service is installed to all clusters in that project.
