@@ -25,6 +25,13 @@ KEY_SIZE=4096
 PRIV_KEY_FILE=root-ca-private-key.pem
 CA_CERT_FILE=root-ca-certificate.pem
 
+case "$(uname -s)" in
+  Linux*)  base64Options="-w0";;
+  Darwin*) base64Options="-b 0";;
+esac
+echo ${base64Options}
+
+
 if [ ! -f $PRIV_KEY_FILE ]; then
     openssl genrsa -out $PRIV_KEY_FILE $KEY_SIZE
 fi
@@ -35,7 +42,7 @@ fi
 
 kubectl create namespace cert-manager || true
 
-cat <<EOF | kubectl apply -f -
+cat <<EOF
 ---
 apiVersion: v1
 kind: Secret
@@ -44,8 +51,8 @@ metadata:
   namespace: cert-manager
 type: kubernetes.io/tls
 data:
-  tls.crt: $(base64 -w0 < ${CA_CERT_FILE})
-  tls.key: $(base64 -w0 < ${PRIV_KEY_FILE})
+  tls.crt: $(base64 ${base64Options} < ${CA_CERT_FILE})
+  tls.key: $(base64 ${base64Options} < ${PRIV_KEY_FILE})
 EOF
 ```
 
