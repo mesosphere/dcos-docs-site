@@ -6,7 +6,7 @@
 
 if (!title)
   - throw `File ${path} does not contain a title`
-- var feedbackPath = 'https://jira.dcos.io/secure/CreateIssueDetails!init.jspa'
+- var feedbackPath = 'https://jira.d2iq.com/secure/CreateIssueDetails!init.jspa'
 - feedbackPath += '?pid=14105'
 - feedbackPath += '&issuetype=1'
 - feedbackPath += '&summary=Feedback+for+' + title.replace(' ', '+')
@@ -14,7 +14,7 @@ if (!title)
 - feedbackPath += '&labels=documentation'
 - feedbackPath += '&components=19804'
 - feedbackPath += '&priority=3'
-- feedbackPath += '&customfield_12300=44&' // Sets the team field to Documentation Team
+- feedbackPath += '&customfield_12300=44' // Sets the team field to Documentation Team
 
 div(class='actions')
   ul(class='actions__list')
