@@ -42,7 +42,7 @@ fi
 
 kubectl create namespace cert-manager || true
 
-cat <<EOF
+cat <<EOF | kubectl apply -f -
 ---
 apiVersion: v1
 kind: Secret
