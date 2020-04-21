@@ -61,9 +61,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>CentOS 8.0</td>
-        <td><p style="text-align: center;">Qualification in Progress<br>Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Qualification in Progress<br>Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Qualification in Progress<br>Docker CE 18.09.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
     </tr>
     <tr>
         <td>CentOS 7.7</td>
@@ -89,9 +89,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     </tr>
     <tr>
         <td>RHEL 8.0</td>
-        <td><p style="text-align: center;">Qualification in Progress<br>Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Qualification in Progress<br>Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Qualification in Progress<br>Docker CE 18.09.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
+        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
     </tr>
     <tr>
         <td>RHEL 7.7</td>
@@ -133,25 +133,21 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
-    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Oracle Linux 7.6 </td>
-        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.5 </td>
-        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.4 </td>
-        <td><p style="text-align: center;">Qualification in Progress</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
