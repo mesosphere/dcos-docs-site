@@ -11,23 +11,36 @@ Before you configure an Azure Cloud provider it's necessary to [install the Azur
 
 #### Create a new set of credentials using CLI commands
 
-To begin, you need a valid Azure account with credentials configured. You must be authorized as a Contributor in your Azure account and assign roles to a user. The following commands create an active directory service principal, to delegate to Kommander, for creating Konvoy clusters:
+To provision an Azure cluster, we need Azure credentials. Those can be obtained by:
+
+- Having the Azure CLI installed and set up
+- Having Contributor and User Access Administrator rights on Azure
+
+The following commands create an active directory service principal, to delegate to Kommander, for creating Konvoy clusters:
 
 ```
 az login
-```
-
-```
-az role assignment cerate --assignee YOUR_USER_LOGIN --role "User Access Administrator"
 ```
 
 Determine the `SUBSCRIPTION_ID` of your account, named `id` in the output of the following command:
 
 ```
 az account show
+{
+  "environmentName": "AzureCloud",
+  "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+  "isDefault": true,
+  "name": "ACME Enterprises Subscription",
+  "state": "Enabled",
+  "tenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX",
+  "user": {
+    "name": "user@azureacme.onmicrosoft.com",
+    "type": "user"
+  }
+}
 ```
 
-Create the service principal for the provider:
+Create the service principal for the provider and do not miss to replace `SUBSCRIPTION_ID` with the `id` from previous command output:
 
 ```
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
@@ -45,6 +58,12 @@ The command returns data needed to create the secret:
 }
 ```
 
+That service principal additionally needs to get the role `User Access Administrator` assigned. Replace `APP_ID` with the `appId` value from output of previous command:
+
+```
+az role assignment create --assignee "APP_ID" --role "User Access Administrator"
+```
+
 #### Fill out the Add Cloud Provider form
 
 In Kommander, select the Workspace associated with the credentials you are adding.
@@ -54,10 +73,10 @@ Navigate to **Administration > Cloud Providers** and select the **Add Cloud Prov
 ![Add Cloud Provider](/ksphere/kommander/img/add-cloud-provider.png)
 
 - Select a name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
-- Fill in Client ID with the `APP_ID` value.
-- Fill in Client Secret with the `PASSWORD` value.
-- Fill in Tenant ID with the `TENANT` value.
-- Fill in Subscription ID with the `SUBSCRIPTION_ID` value.
+- Fill in `App ID` with the `APP_ID` value.
+- Fill in `Password` with the `PASSWORD` value.
+- Fill in `Tenant` with the `TENANT` value.
+- Fill in `Subscription ID` with the `SUBSCRIPTION_ID` value.
 - Select **Verify** and **Save** to verify the credentials are valid and to save your provider.
 
 ![Azure Cloud Provider Form with values](/ksphere/kommander/img/Azure-Cloud-provider-with-values.png)
