@@ -59,7 +59,9 @@
       "mesosphere/dcos/1.11/**",
       "mesosphere/dcos/1.12/**",
       "mesosphere/dcos/1.13/**",
-      "mesosphere/dcos/2,1/**"
+      "mesosphere/dcos/2.1/**",
+      "mesosphere/dcos/services/**",
+      "mesosphere/dcos/cn/**"
     ],
     "DO_NOT_INDEX": []
   },
