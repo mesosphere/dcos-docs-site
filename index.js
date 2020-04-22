@@ -115,6 +115,7 @@ MS.metadata({
     dcosCNDocsLatest: '2.0',
     konvoyDocsLatest: '1.4',
     kommanderDocsLatest: 'latest',
+    dispatchDocsLatest: 'latest',
 });
 
 // Source
