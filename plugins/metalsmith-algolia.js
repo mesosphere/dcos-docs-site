@@ -1,9 +1,13 @@
 const algoliasearch = require('algoliasearch');
 const semverRegex = require('semver-regex');
-const semverSort = require('semver-sort');
+const semver = require('semver');
 const sanitizeHtml = require('sanitize-html');
 const extname = require('path').extname;
 const debug = require('debug')('metalsmith-algolia');
+
+// based on their api repsonses it looks like they use 2bytes for char,
+// our plan allows for 10kb, so roughly 50k characters
+const MAX_CONTENT_LENGTH = 49000;
 
 /**
  * Search indexing for algolia
@@ -96,10 +100,19 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
       indexFile.versionNumber = '';
 
+      const setVersion = (section, offset = 0) => {
+        indexFile.section = section;
+        const product = paths[1 + offset];
+        const version = paths[2 + offset];
+        if (isVersion(version)) {
+          indexFile.versionNumber = version;
+          indexFile.versionWeight = semverMap[product][version];
+        }
+      }
+
       // DC/OS
       if (paths[1] === 'dcos') {
         if (paths[2] === 'services') {
-          indexFile.section = 'Service Docs';
           if (paths[3]) {
             indexFile.product = paths[3]
               .split('-')
@@ -109,30 +122,24 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
               })
             .join(' ');
           }
-          if (paths[4]) {
-            indexFile.versionNumber = paths[4];
-            indexFile.versionWeight = semverMap[paths[3]][paths[4]];
-          }
+          setVersion('Service Docs', 2);
         } else {
-          indexFile.section = 'DC/OS Docs';
-          if (isVersion(paths[2])) {
-            indexFile.versionNumber = paths[2];
-            indexFile.versionWeight = semverMap.dcos[paths[2]];
-          }
+          setVersion('DC/OS Docs');
         }
       } else if (paths[1] === 'konvoy') {
         if (paths[2] === 'partner-solutions') {
           indexFile.section = 'Partner Solutions Docs';
-        } else if (paths[2] === 'latest') {
-          indexFile.section = 'Konvoy Docs';
+          indexFile.versionNumber = 'Konvoy Partners';
+        } else {
+          setVersion('Konvoy Docs');
         }
       } else if (paths[1] === 'kommander') {
-        indexFile.section = 'Kommander Docs';
+        setVersion('Kommander Docs');
       } else if (paths[1] === 'dispatch') {
-        indexFile.section = 'Dispatch Docs';
+        setVersion('Dispatch Docs');
       }
-      indexFile.version = indexFile.product;
 
+      indexFile.version = indexFile.product;
       if (indexFile.versionNumber !== '') {
         indexFile.version += ' ' + indexFile.versionNumber;
       }
@@ -189,6 +196,10 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         indexFile['content'] = transform(sanitize(file.contents, file.path));
         indexFile['excerpt'] = indexFile['content'].slice(0, 200);
 
+        if(indexFile['content'].length === MAX_CONTENT_LENGTH){
+          console.error(`Warning: file ${file['path']} content to large, trimmed to fit.`);
+        }
+
         productize(file, indexFile);
 
         return indexFile;
@@ -206,7 +217,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
               index.partialUpdateObject(object, (err, _content) => {
                 if (err) {
                   console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
-                  reject(err);
+                  resolve(); // log the error but ignore it, we still want to index everything
                 } else {
                   // debug(`Algolia: Updating "${object.objectID}"`);
                 }
@@ -276,7 +287,7 @@ const transform = (content) => {
     replacedContent = replacedContent.replace(htmlEntRegex, replacement);
   });
 
-  return replacedContent.slice(0, 500);
+  return replacedContent.slice(0, MAX_CONTENT_LENGTH);
 };
 
 /**
@@ -331,6 +342,9 @@ const isVersion = (version) => /^[0-9]\.[0-9](.*)/.test(version);
 const buildSemverMap = (files, skipSections, renderPathPattern) => {
   const services = {
     dcos: [],
+    konvoy: [],
+    kommander: [],
+    dispatch: []
   };
 
   // Filter
@@ -338,16 +352,20 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
   for (let i = 0; i < filePaths.length; i += 1) {
     const file = filePaths[i];
     const pathParts = file.split('/');
+    const product = pathParts[1];
+    let version = pathParts[2];
     if (inExcludedSection(file, skipSections, renderPathPattern)) {
       continue;
-    } else if (pathParts[2] === 'services' && pathParts[4] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[4])) {
-      services[pathParts[3]] = services[pathParts[3]] || [];
-      const serviceVersions = services[pathParts[3]];
-      if (serviceVersions.indexOf(pathParts[4]) === -1) {
-        serviceVersions.push(pathParts[4]);
+    } else if (version === 'services' && pathParts[4] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[4])) {
+      const service = pathParts[3];
+      version = pathParts[4];
+      services[service] = services[service] || [];
+      const serviceVersions = services[service];
+      if (serviceVersions.indexOf(version) === -1) {
+        serviceVersions.push(version);
       }
-    } else if (isVersion(pathParts[2]) && services.dcos.indexOf(pathParts[2]) === -1) {
-      services.dcos.push(pathParts[2]);
+    } else if (isVersion(version) && services[product].indexOf(version) === -1) {
+      services[product].push(version);
     }
   }
 
@@ -355,8 +373,7 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
   Object.keys(services).forEach((service) => {
     const serviceVersions = services[service];
     const versionsCleaned = serviceVersions.map(cleanVersion);
-    const versionsSorted = semverSort.desc(versionsCleaned);
-
+    const versionsSorted = sortVerisons(versionsCleaned);
     serviceVersions.forEach((version) => {
       const cv = cleanVersion(version);
       const weight = versionsSorted.indexOf(cv);
@@ -367,6 +384,19 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
   });
 
   return map;
+};
+
+const sortVerisons = (versions) => {
+  const prereleases = [];
+  const released = [];
+  versions.forEach((version) => {
+    if(semver.parse(version).prerelease.length > 0){
+      prereleases.push(version);
+    } else{
+      released.push(version)
+    }
+  });
+  return semver.rsort(released).concat(semver.rsort(prereleases));
 };
 
 const cleanVersion = (version) => {
