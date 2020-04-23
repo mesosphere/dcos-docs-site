@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Welcome to Dispatch
-title: Welcome to Dispatch
+navigationTitle: Dispatch 1.1
+title: Dispatch 1.1
 beta: false
 category: K-Sphere
 menuWeight: 0
