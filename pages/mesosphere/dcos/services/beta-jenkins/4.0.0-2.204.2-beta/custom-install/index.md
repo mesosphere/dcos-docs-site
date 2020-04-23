@@ -76,7 +76,7 @@ You can also specify an optional `pinned-hostname` constraint. This is useful if
 }
 ```
 
-# Modify known hosts
+## Modify known hosts
 
 With the `known-hosts` option you can specify a space-separated list of hostnames from which to retrieve the SSH public keys. This list will be populated on the Jenkins master when the bootstrap script runs (at container launch time). You must manually ensure that the SSH known hosts list is populated in any Jenkins agent containers.
 ```json
@@ -90,7 +90,7 @@ With the `known-hosts` option you can specify a space-separated list of hostname
 }
 ```
 
-# Installing additional plugins
+## Installing additional plugins
 
 With the `additional-plugins` option you can specify a space sperated list of addtional Jenkins plugins to be installed into the Jenkins master. This list will be populated on the Jenkins master when teh bootstrap script runs (at container launch time).
 ```json
