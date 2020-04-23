@@ -70,7 +70,7 @@ jenkins-agent.windows-agent.mem | 4096.0 | N/A | N/A | Added
 jenkins-agent.windows-agent.disk | 0.0 | N/A | N/A | Added
 jenkins-agent.windows-agent.max-executors | 1 | N/A | N/A | Added
 jenkins-agent.windows-agent.min-executors | 1 | N/A | N/A | Added
-jenkins-agent.windows-agent.offer-selection-attributes | "" | N/A | N/A | Added
+jenkins-agent.windows-agent.offer-selection-attributes | "os:windows" | N/A | N/A | Added
 jenkins-agent.windows-agent.jnlp-args | "-noReconnect" | N/A | N/A | Added
 jenkins-agent.windows-agent.idle-termination-minutes | 3 | N/A | N/A | Added
 jenkins-agent.windows-agent.image | "mesosphere/jenkins-windows-node:0.1.0" | N/A | N/A | Added
