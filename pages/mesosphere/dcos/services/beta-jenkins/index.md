@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Jenkins (Beta)
-title: Jenkins (Beta)
+navigationTitle:  Jenkins for DC/OS (Beta)
+title: Jenkins for DC/OS (Beta)
 menuWeight: 60
-excerpt:
+excerpt: Run your continuous integration, automated testing, and continuous delivery jobs at scale with Jenkins for DC/OS.
+beta: true 
 featureMaturity:
 enterprise: false
 category: Continuous Delivery
