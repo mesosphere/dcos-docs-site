@@ -33,6 +33,9 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 
 DC/OS has improved Multi-Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. For more details, see [Quota Management](/mesosphere/dcos/2.1/multi-tenancy/quota-management/#quotas). (DCOS-54186) 
 
+## Resource Limits for Containers
+
+It is now possible to set CPU and memory limits on services which are greater than the minimum guaranteed CPU/memory resources specified. This means that services can run with a guarantee of some amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available on the machine. For more information, see the documentation on [creating services](/mesosphere/dcos/2.1/deploying-services/creating-services/).
 
 # Previous Releases
 To review changes from the most recent previous releases, see the following links:
