@@ -31,7 +31,7 @@ In particular, service-accounts in a quota enforced group must be given the corr
 ### Hetergeneous Architecture with Windows Agents.
 
 The DC/OS Jenkins service starting with DC/OS 2.1 has support for Windows agents and as such the cluster has a heterogeneous architecture.
-Windows agents in DC/OS 2.1 are required to have a [Mesos Attribute](http://mesos.apache.org/documentation/attributes-resources/) identifying them as Windows agents, currently this is set to `os:windows`.  The Jenkins scheduler uses the configuration option `offer-selection-attribute` to determine which offer belongs to a windows or linux agent.
+Windows agents in DC/OS 2.1 are required to have a [Mesos Attribute](http://mesos.apache.org/documentation/attributes-resources/) identifying them as Windows agents, currently this is set to `os:windows`.  The Jenkins scheduler uses the configuration option `offer-selection-attribute` to determine which offer belongs to a Windows or Linux agent.
 
 There are few noteworthy constraints required to support Windows agents.
 
