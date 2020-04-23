@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Jenkins Service Architecture
 title: Jenkins Service Architecture
 menuWeight: 40
-excerpt:
+excerpt: The DC/OS Jenkins service bundles the Jenkins Automation Server with the Jenkins Mesos Plugin. 
 featureMaturity:
 enterprise: false
 ---
