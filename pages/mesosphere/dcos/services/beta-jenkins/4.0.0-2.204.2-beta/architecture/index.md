@@ -1,37 +1,37 @@
 ---
 layout: layout.pug
-navigationTitle:  Jenkins Service Architecture
-title: Jenkins Service Architecture
+navigationTitle:  Jenkins for DC/OS Service Architecture
+title: Jenkins for DC/OS Service Architecture
 menuWeight: 40
 beta: true
-excerpt: The DC/OS Jenkins service bundles the Jenkins Automation Server with the Jenkins Mesos Plugin. 
+excerpt: The Jenkins for DC/OS service bundles the Jenkins Automation Server with the Jenkins Mesos Plug-in. 
 featureMaturity:
 enterprise: false
 ---
 
 ## Overview
 
-The DC/OS Jenkins service bundles the [Jenkins Automation Server](https://github.com/jenkinsci/jenkins) with the [Jenkins Mesos Plugin](https://github.com/jenkinsci/mesos-plugin) which lets users dispatch Jenkins jobs on a DC/OS Cluster.
+The Jenkins for DC/OS service bundles the [Jenkins Automation Server](https://github.com/jenkinsci/jenkins) with the [Jenkins Mesos Plug-in](https://github.com/jenkinsci/mesos-plugin) which lets users dispatch Jenkins jobs on a DC/OS cluster.
 
 ### Container Runtimes
 
 #### Universal Container Runtime (UCR)
 
-By default the DC/OS Jenkins service uses the [Universal Container Runtime](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/ucr/) (UCR).
+By default the Jenkins for DC/OS service uses the [Universal Container Runtime](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/ucr/) (UCR).
 
 #### Docker
 
-Previous version of the DC/OS Jenkins service used the [Docker Engine](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/docker-containerizer/) as its default containerizer for both the Jenkins Master and the Agents. Users are recommended to use this runtime if they intend to ugprade from existing installations of the Jenkins service.
+Previous version of the Jenkins for DC/OS service used the [Docker Engine](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/docker-containerizer/) as its default containerizer for both the Jenkins Master and the Agents. Users are recommended to use this runtime if they intend to ugprade from existing installations of the Jenkins service.
 
 ### Multi-tenancy
 
-The DC/OS Jenkins service starting with DC/OS 2.0 supports multi-tenancy. Users should familiarize themselves with [Quota](https://docs.d2iq.com/mesosphere/dcos/latest/multi-tenancy/quota-management/) and [Resource Managment Primitives](https://docs.d2iq.com/mesosphere/dcos/latest/multi-tenancy/resource-mgmt-primitives/) in DC/OS.
+The Jenkins for DC/OS service starting with DC/OS 2.0 supports multi-tenancy. Users should familiarize themselves with [Quota](https://docs.d2iq.com/mesosphere/dcos/latest/multi-tenancy/quota-management/) and [Resource Managment Primitives](https://docs.d2iq.com/mesosphere/dcos/latest/multi-tenancy/resource-mgmt-primitives/) in DC/OS.
 In particular, service-accounts in a quota enforced group must be given the correct role permissions for the service to launch and perform its operations.
 
 
 ### Hetergeneous Architecture with Windows Agents.
 
-The DC/OS Jenkins service starting with DC/OS 2.1 has support for Windows agents and as such the cluster has a heterogeneous architecture.
+The Jenkins for DC/OS service starting with DC/OS 2.1 has support for Windows agents and as such the cluster has a heterogeneous architecture.
 Windows agents in DC/OS 2.1 are required to have a [Mesos Attribute](http://mesos.apache.org/documentation/attributes-resources/) identifying them as Windows agents, currently this is set to `os:windows`.  The Jenkins scheduler uses the configuration option `offer-selection-attribute` to determine which offer belongs to a Windows or Linux agent.
 
 There are few noteworthy constraints required to support Windows agents.
