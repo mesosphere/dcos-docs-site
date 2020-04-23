@@ -7,7 +7,7 @@ beta: false
 excerpt: Configure Build and Test pipelines to automate the development process using declarative languages.
 ---
 
-In Dispatch, CI pipelines are configured using a `Dispatchfile`. The `Dispatchfile` describes 
+In Dispatch, CI pipelines are configured using a `Dispatchfile`. The `Dispatchfile` describes:
 * all tasks that run as a part of a pipeline
 * rules for triggering tasks in a pipeline
 * resources produced and consumed as a part of the pipeline (images, git repositories, S3 artifacts, etc).
