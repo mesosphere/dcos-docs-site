@@ -1,12 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:  Provisioning Jenkins
-title: Provisioning Jenkins
+navigationTitle:  Provisioning Jenkins for DC/OS
+title: Provisioning Jenkins for DC/OS
 menuWeight: 15
-excerpt: >
-  This topic describes when and how to
-  provision Jenkins with a service
-  account.
+excerpt: This topic describes when and how to provision Jenkins with a service account.
+beta: true
 featureMaturity:
 enterprise: true
 ---
