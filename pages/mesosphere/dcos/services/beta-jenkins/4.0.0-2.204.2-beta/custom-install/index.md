@@ -91,9 +91,9 @@ With the `known-hosts` option you can specify a space-separated list of hostname
 }
 ```
 
-## Installing additional plugins
+## Installing additional plug-ins
 
-With the `additional-plugins` option you can specify a space sperated list of addtional Jenkins plugins to be installed into the Jenkins master. This list will be populated on the Jenkins master when teh bootstrap script runs (at container launch time).
+With the `additional-plugins` option you can specify a space sperated list of addtional Jenkins plug-ins to be installed into the Jenkins master. This list will be populated on the Jenkins master when teh bootstrap script runs (at container launch time).
 ```json
 {
     "service": {
