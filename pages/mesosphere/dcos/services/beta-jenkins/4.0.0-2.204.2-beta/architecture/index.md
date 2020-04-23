@@ -13,6 +13,10 @@ enterprise: false
 
 The Jenkins for DC/OS service bundles the [Jenkins Automation Server](https://github.com/jenkinsci/jenkins) with the [Jenkins Mesos Plug-in](https://github.com/jenkinsci/mesos-plugin) which lets users dispatch Jenkins jobs on a DC/OS cluster.
 
+Jenkins for DC/OS runs as a root Marathon application inside a Docker container. The default Docker image contains several Jenkins plugins to get you up and running quickly. You can customize the Docker image to match your specific use case.
+
+The Docker container also contains an NGINX reverse proxy that rewrites the URIs into the absolute paths Jenkins requires.
+
 ### Container Runtimes
 
 #### Universal Container Runtime (UCR)
