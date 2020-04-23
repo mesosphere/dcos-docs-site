@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Deployment
+navigationTitle: Deployment
 title: Deployment
 menuWeight: 60
 beta: false
