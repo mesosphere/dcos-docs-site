@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-title: Deploy an application to multiple clusters
-navigationTitle: Deploy an application to multiple clusters
+navigationTitle:  Deploy to multiple clusters
+title: Deploy to multiple clusters
+menuWeight: 10
 beta: false
-category: K-Sphere
-menuWeight: 105
-excerpt: This tutorial describes how to deploy different versions of an application to staging and production environments.
+excerpt: Deploy different versions of an application to staging and production environments.
 ---
 
 # Deploy an application to multiple environments
