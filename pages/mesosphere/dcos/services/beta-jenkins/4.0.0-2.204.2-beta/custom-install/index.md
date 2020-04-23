@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle:  Customizing your install
 title: Customizing your install
 menuWeight: 20
+beta: true
 excerpt: The Jenkins for DC/OS package accepts a range of custom configuration parameters at install.
 featureMaturity:
 enterprise: false
