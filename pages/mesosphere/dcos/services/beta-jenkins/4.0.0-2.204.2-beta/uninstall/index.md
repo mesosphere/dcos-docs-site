@@ -3,7 +3,8 @@ layout: layout.pug
 navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 70
-excerpt:
+excerpt: Jenkins for DC/OS can be uninstalled using either the web interface or the CLI. 
+beta: true
 featureMaturity:
 enterprise: false
 ---
@@ -15,10 +16,10 @@ Jenkins for DC/OS can be uninstalled using either the web interface or the CLI.
 
 ## Using the web interface
 
-1. Click the **Universe** tab.
-1. Click **Installed** to view your installed services.
+1. Select the **Universe** tab.
+1. Selet **Installed** to view your installed services.
 1. Hover over the Jenkins instance that you wish to uninstall. A red **Uninstall** link will appear on the far right.
-1. Click **Uninstall**.
+1. Select **Uninstall**.
 
 ## Using the CLI
 
