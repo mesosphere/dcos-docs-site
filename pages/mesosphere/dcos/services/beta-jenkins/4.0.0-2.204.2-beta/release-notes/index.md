@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Release Notes
-title: Release Notes
-menuWeight: 5
-excerpt: Discover the new features, updates, and known limitations in this release of the Jenkins Service
+navigationTitle: Jenkins for DC/OS Beta Release Notes
+title: Jenkins for DC/OS Beta Release Notes
+menuWeight: 0
+beta: true
+excerpt: Discover the new features, updates, and known limitations in this release of the Jenkins for DC/OS Service
 enterprise: false
 --- 
 
