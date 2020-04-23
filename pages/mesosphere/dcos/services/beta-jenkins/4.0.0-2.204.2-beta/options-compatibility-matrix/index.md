@@ -2,7 +2,8 @@
 layout: layout.pug
 navigationTitle: Configuration Options Matrix
 title: Configuration Options Matrix
-menuWeight: 5
+menuWeight: 6
+beta: true
 excerpt: Configuration changes in this release of the Jenkins Service
 enterprise: false
 --- 
