@@ -37,7 +37,7 @@ Windows agents in DC/OS 2.1 are required to have a [Mesos Attribute](http://meso
 There are few noteworthy constraints required to support Windows agents.
 
 - **Jenkins Master**: The Jenkins master only runs on Linux agents. To prevent the Jenkins master from being deployed on Windows agents, the new configuration option `service.os-anti-affinity` was introduced. The affinity is exclusive. The default value of `windows` prevents Marathon from launching the Jenkins Master on any nodes with this Mesos attribute.
-- **Linux Jenkins Agents**: The Jenkins Mesos scheduler applies the `linux` label via `jenkins-agent.linux-agent.label` to all Jenkins linux agents. Jenkins jobs intended to only be run on Linux agents should use this label such that they're only launched on the Linux Private Agent Pool.  
+- **Linux Jenkins Agents**: The Jenkins service comes with a predefined `linux` label via `jenkins-agent.linux-agent.label`. Jenkins jobs intended to only be run on Linux agents should use this label such that they're only launched on the Linux Private Agent Pool.  
 - **Windows Jenkins Agents**: The Jenkins Mesos scheduler applies the `windows` label via `jenkins-agent.windows-agent.label` to all Jenkins windows agents. Jenkins jobs intended to only be run on Windows agents should use this label such that they're only launched on the Windows Private Agent Pool.  
 
 ```
