@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  Customizing your install
 title: Customizing your install
 menuWeight: 20
-excerpt:
+excerpt: The Jenkins for DC/OS package accepts a range of custom configuration parameters at install.
 featureMaturity:
 enterprise: false
 ---
 # About customizing your installation parameters
 
-The Jenkins for DC/OS package accepts a range of configuration parameters at install.
+The Jenkins for DC/OS package accepts a range of custom configuration parameters at install.
 
 By default, Jenkins for DC/OS uses a `/tmp` directory on the local host to store its configuration and build data. At a minimum, you should change this before going into production. We recommend setting up a shared file system. Alternatively, you can pin to an agent.
 
