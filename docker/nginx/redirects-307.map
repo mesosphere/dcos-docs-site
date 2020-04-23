@@ -27,3 +27,4 @@
 ~^/mesosphere/dcos/services/beta-jupyter/latest/(.*) /mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/$1;
 ~^/mesosphere/dcos/cn/services/kubernetes/latest/(.*) /mesosphere/dcos/cn/services/kubernetes/1.2.1-1.10.6/$1;
 ~^/mesosphere/dcos/services/hive-metastore/latest/(.*) /mesosphere/dcos/services/hive-metastore/1.2.0-3.0.0/$1;
+~^/mesosphere/dcos/services/beta-kafka/latest/(.*) /mesosphere/dcos/services/beta-kafka/2.10.0-2.4.0-beta/$1;
