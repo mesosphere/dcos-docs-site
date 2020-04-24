@@ -20,10 +20,10 @@ After you have downloaded the license, an administrator must add it to Kommander
 2. Select + Add License.
 3. Paste your license content in and select Add.
 
-![Licenses Form](/ksphere/kommander/1.0/img/Licenses-form.png)
+![Licenses Form](/ksphere/kommander/1.1-beta/img/Licenses-form.png)
 Licenses Form
 
 If there is an error submitting the license, you can add the license directly through kubectl using the commands in the message within Kommander.
 
-![Licenses Error](/ksphere/kommander/1.0/img/Licenses-error.png)
+![Licenses Error](/ksphere/kommander/1.1-beta/img/Licenses-error.png)
 Licenses Error

@@ -20,7 +20,7 @@ Currently, Kommander supports **Github**, **LDAP**, and any standard **OIDC** pr
 
 You can configure as many Identity Providers as you like and users will be able to select any of those methods when logging in.
 
-![Identity](/ksphere/kommander/1.0/img/Identity-providers-table.png)
+![Identity](/ksphere/kommander/1.1-beta/img/Identity-providers-table.png)
 
 Figure 1 - Identity Providers
 
@@ -28,19 +28,19 @@ Figure 1 - Identity Providers
 
 - The Github provider allows to specify which orgs and teams are eligible for access.
 
-![Github Form](/ksphere/kommander/1.0/img/Identity-provider-Github.png)
+![Github Form](/ksphere/kommander/1.1-beta/img/Identity-provider-Github.png)
 
 Figure 2 - Github Form
 
 - The LDAP provider allows to configure search filters for either users or groups.
 
-![LDAP Form](/ksphere/kommander/1.0/img/Identity-provider-LDAP.png)
+![LDAP Form](/ksphere/kommander/1.1-beta/img/Identity-provider-LDAP.png)
 
 Figure 3 - LDAP Form
 
 - The OIDC provider cannot limit users based on identity.
 
-![OIDC Form](/ksphere/kommander/1.0/img/Identity-provider-OIDC.png)
+![OIDC Form](/ksphere/kommander/1.1-beta/img/Identity-provider-OIDC.png)
 
 Figure 4 - OIDC Form
 
@@ -50,6 +50,6 @@ Untick the checkbox labelled “enabled” on the Identity Providers table. The 
 
 - The OIDC provider cannot limit users based on identity.
 
-![Enabled Checkbox](/ksphere/kommander/1.0/img/Identity-provider-enabled-checkbox.png)
+![Enabled Checkbox](/ksphere/kommander/1.1-beta/img/Identity-provider-enabled-checkbox.png)
 
 Figure 5 - Enabled Checkbox

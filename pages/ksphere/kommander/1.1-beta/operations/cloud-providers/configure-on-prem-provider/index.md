@@ -11,7 +11,7 @@ Select the Workspace associated with the credentials you are adding.
 
 Navigate to **Administration > Cloud Providers** and select the **Add Cloud Provider** button.
 
-![Add Cloud Provider](/ksphere/kommander/1.0/img/add-cloud-provider.png)
+![Add Cloud Provider](/ksphere/kommander/1.1-beta/img/add-cloud-provider.png)
 
 When creating an On Premise provider, you need a private SSH key.
 
@@ -19,7 +19,7 @@ When creating an On Premise provider, you need a private SSH key.
 - Fill in Private SSH Key with the key used to access your infrastructure.
 - Click **Verify** and **Save** to verify the credentials are valid and to save your provider.
 
-![On Premise Provider Form with values](/ksphere/kommander/1.0/img/On-prem-provider-with-values.png)
+![On Premise Provider Form with values](/ksphere/kommander/1.1-beta/img/On-prem-provider-with-values.png)
 
 Figure 1 - On Premise Provider Form with values
 
