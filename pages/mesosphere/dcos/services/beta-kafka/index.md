@@ -7,6 +7,7 @@ excerpt: DC/OS Kafka is a distributed high-throughput publish-subscribe messagin
 featureMaturity:
 enterprise: false
 category: Messaging Queues
+beta: true
 ---
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kafka-service -->
 

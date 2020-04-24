@@ -90,13 +90,6 @@ dcos cluster setup {CLUSTER_URL}
 ```
 
 Create Service account and its secret to use the TLS feature
-```
-dcos security org service-accounts keypair kafka-private-key.pem kafka-public-key.pem
-
-dcos security org service-accounts create -p kafka-public-key.pem -d "desc" "kafka"
-
-dcos security secrets create-sa-secret --strict kafka-private-key.pem "kafka" "kafka-secret"
-```
 Please refer to [Service Accounts](/mesosphere/dcos/services/beta-kafka/kafka-auth) for more details.
 
 Now we are ready to install a Kafka cluster with custom transport encryption enabled.
