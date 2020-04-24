@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes  
 title: Release Notes
-menuWeight: 0
+menuWeight: 10
 beta: false
 excerpt: View release-specific information for Dispatch
 ---
@@ -16,7 +16,8 @@ excerpt: View release-specific information for Dispatch
 ## v1.1.0 - Released 24 April 2020
 Document Modified Date: 24 April 2020
 
-This document describes the new features, caveats, and limitations D2iQ Dispatch.
+
+This document describes the new features, caveats, and resolved issues of D2iQ Dispatch.
 
 ### Disclaimer
 
@@ -66,20 +67,14 @@ pipeline.
 
 * Dispatch now correctly prints line numbers for errors in CUE based Dispatchfiles.
 * dindTask Starlark library function now allows custom entrypoints.
-* Fixed "error fetching repositories" in Dispatch UI.
-* Fixed a bug where ArgoCD webhook validation would fail.
 * `dispatch gitops app create` no longer overwrites argocd-secret.
 * `update-gitops-repo` no longer fails when the specified branch already exists.
 * Secrets can now be used to checkout source code residing in a Gitlab repository.
 * update-gitops-repo now supports Gitops repositories hosted on GitLab.
-* Do not collect unused standard outputs from task steps to avoid Tekton controller crashes.
 * Users can now delete secrets created by CLI through Dispatch UI.
 * Fixed status reporting on pull requests where the repository owner or repository name contains non-alphanumeric characters.
 * Fixed UI failures when secrets or service accounts are missing.
-* Fixed Tekton dashboard crashes when certain k8s resources are deleted on a busy cluster.
-* Fixed UI authentication issue by sending impersonate group headers in k8s API requests.
 * Re-run pipelines now includes correct dashboard links in Dispatch UI.
 * Nolonger required to specify -n dispatch for `dispatch ci list` command.
-* Fixed Docker-in-Docker hangs during termination.
 * Re-run pipelines now includes correct dashboard links in commit status reports.
 * Listing pipelineruns using `dispatch ci list pipelineruns` now honors user RBAC.

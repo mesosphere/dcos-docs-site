@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Running pipelines from ChatOps Commands
 navigationTitle: Running pipelines from ChatOps Commands
 beta: false
