@@ -15,7 +15,7 @@ render: mustache
 
 # <a name="install-enterprise"></a>Prerequisites
 
-- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/services/kafka/kafka-auth/) before installing {{ model.techShortName }}. You will need a `superuser` permission to create the service account. The following is a list of [security modes](/mesosphere/dcos/latest/security/ent/#security-modes):
+- Depending on your security mode in Enterprise DC/OS, you may [need to provision a service account](/mesosphere/dcos/services/beta-kafka/kafka-auth/) before installing {{ model.techShortName }}. You will need a `superuser` permission to create the service account. The following is a list of [security modes](/mesosphere/dcos/latest/security/ent/#security-modes):
 
 	- `strict` security mode requires a service account.
 	- `permissive` security mode a service account is optional.
