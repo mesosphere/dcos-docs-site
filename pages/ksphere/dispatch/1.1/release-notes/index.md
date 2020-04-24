@@ -23,6 +23,30 @@ This document describes the new features, caveats, and resolved issues of D2iQ D
 
 * Release notes are sometimes updated with new information about restrictions and caveats. Please see [https://docs.d2iq.com/ksphere/dispatch/](https://docs.d2iq.com/ksphere/dispatch/) for the latest version of the D2iQ Dispatch release-notes.
 
+### Installation
+
+To install the `1.1` release in Konvoy, update the `configVersion` for `https://github.com/mesosphere/kubeaddons-dispatch` in your `cluster.yaml` after running `konvoy init`.
+
+Update the following snippet from `cluster.yaml`:
+
+```
+  - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
+    configVersion: stable-1.16-1.0.1
+    addonsList:
+    - name: dispatch
+      enabled: false
+```
+
+It should read:
+
+```
+  - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
+    configVersion: stable-1.16-1.1.0
+    addonsList:
+    - name: dispatch
+      enabled: true
+```
+
 ### Frontend Languages
 
 | Frontend Language | Version |
