@@ -12,12 +12,12 @@ model: /mesosphere/dcos/2.1/data.yml
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-External access to a DC/OS Enterprise cluster goes through Admin Router. By default, the certificate presented by Admin Router is signed by the DC/OS Certificate Authority. The default DC/OS CA certificate is not trusted by default, and requires clients to manually configure trust in the CA (e.g. by accepting a pop-up browser dialog). A trusted CA certificate can be provided using Custom CA Certificates. However, obtaining a suitable CA certificate can be difficult. Custom External Certificates allow the cluster administrator to provide an easily obtained certificate and key that Admin Router will present to external connections.
+External access to a DC/OS Enterprise cluster goes through Admin Router. By default, the certificate presented by Admin Router is signed by the DC/OS Certificate Authority. The default DC/OS CA certificate is not trusted by default, and requires clients to manually configure trust in the CA (e.g. by accepting a pop-up browser dialog). A trusted CA certificate can be provided using [custom CA certificates](/mesosphere/dcos/2.1/security/ent/tls-ssl/ca-custom/). However, obtaining a suitable CA certificate can be difficult. Custom external certificates allow the cluster administrator to provide an easily obtained non-CA certificate and key that Admin Router will present to external connections.
 
 The benefits of using a custom external certificate for your DC/OS Enterprise cluster include:
 
-- obtaining just a plain leaf certificate instead of an intermediate signing certificate and using custom CA certificate feature, in order to make connections to the cluster trusted by the clients by default (i.e. browser-trusted certificates)
-- using a certificate with different properties for clients connecting to the cluster using given server names
+- only needing to obtain a standard certificate instead of an intermediate CA signing certificate, in order to make connections to the cluster trusted by the clients by default (i.e. browser-trusted certificates);
+- using a certificate with different properties for clients connecting to the cluster using different server names.
 
 # Contents
 - [Supported certificates](#supported-ca-certificates)
@@ -27,28 +27,16 @@ The benefits of using a custom external certificate for your DC/OS Enterprise cl
 - [Installation walkthrough](#installing-dcos-enterprise-with-a-custom-ca-certificate). 
 - [Example use cases](#example-use-cases) then provide example file contents for the custom external certificate configuration files for three popular use cases.
 
-# Supported CA certificates
+# Supported certificates
 - Certificates with both RSA and ECC type keys are supported
 - Custom external certificates are only supported for a fresh installation of DC/OS Enterprise 2.1 or later. Older versions of DC/OS are not supported. It is possible to add a custom external certificate during upgrade to 2.1.
 
 # Glossary
-- **Custom External certificate:** Your custom external certificate in PEM format, which will be used to access the cluster through Admin Router for the given set of server names. If necessary, it should include all the intermediate CA certificates up to the root CA certificate trusted by the clients. It is advised to not to include the final root CA certificate in the PEM file, but is not strictly necessary.
+- **Custom external certificate:** A certificate in PEM format, that will be used to access the cluster through Admin Router for a provided set of server names. If necessary, it should include all the intermediate CA certificates up to the root CA certificate trusted by the clients. The root CA certificate does not need to be included in the PEM file.
 
-- **Server names:** A set of names which Admin Router will try matching to the Custom External certificate's Canonical Name and Subject Alternative Names. The server names can be one of:
-  - plain hostname, e.g. example.com
-  - ip address as a string, e.g. 1.2.3.4
-  - a \* wildcard, e.g. \*.example.com, which will match all the subdomains of
-    example.com (e.g. foo.example.com, bar.example.com), but not the domain
-    itself - `example.com` and the sub-sub domains: foo.bar.example.com (or any
-    deeper domains)
-  - a \. wildcard with will match the same as \* wildcard plus the domain
-    itself
-  and cannot be one of:
-  - master.mesos
-  - leader.mesos
-  - registry.component.thisdcos.directory
+- **Server names:** A set of names that Admin Router will match to the custom external certificate's Canonical Name and Subject Alternative Names.
 
-- **Private key associated with the custom external certificate:** The private key in the PKCS#8 format associated with the custom external certificate.
+- **Private key associated with the custom external certificate:** A private key in the PKCS#8 format associated with the custom external certificate.
 
 - **Installation directory:** The directory on the bootstrap node where the DC/OS installer resides. It is denoted with `$DCOS_INSTALL_DIR` in this document.
 
@@ -103,12 +91,12 @@ scp external-certificate-key.key centos@W.X.Y.Z:/var/lib/dcos/pki/tls/private/ad
 
 ## Specifying locations
 
-The filesystem paths to the custom external certificate, associated private key and certificate chain files in the `$DCOS_INSTALL_DIR/genconf/` directory on the bootstrap node must be specified in the DC/OS configuration file using, respectively, the `external_certificate_path` and `external_certificate_key_path` parameters. The paths must be relative to `$DCOS_INSTALL_DIR`.
+The filesystem paths to the custom external certificate and associated private key in the `$DCOS_INSTALL_DIR/genconf/` directory on the bootstrap node must be specified in the DC/OS configuration file using, respectively, the `external_certificate_path` and `external_certificate_key_path` parameters. The paths must be relative to `$DCOS_INSTALL_DIR`.
 
 The [Example use cases](#example-use-cases) section below shows how to set these configuration parameters.
 
 # <a name="config-ref"></a>Configuration parameter reference
-## external\_certificate\_path
+## external_certificate_path
 Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing a single X.509 leaf certificate in the OpenSSL PEM format. For example: `genconf/external-certificate.crt`. If necessary, it should include all the intermediate CA certificates up to the root CA certificate trusted by the clients. It is advised to not to include the final root CA certificate in the PEM file, but is not strictly necessary.
 
 If provided, this is the custom external certificate.  If not provided, the DC/OS cluster generates a unique leaf certificate during the initial bootstrap phase signed by DC/OS CA and presents it to the clients.
@@ -126,21 +114,21 @@ This path is required if `external_certificate_path` is specified.
 
 The list of server names that clients can use while accessing the cluster in
 order to make Admin Router present the custom external certificate to the
-client. The server names can be one of:
-  - plain hostname, e.g. example.com
-  - ip address as a string, e.g. 1.2.3.4
-  - a \* wildcard, e.g. \*.example.com, which will match all the subdomains of
-    example.com (e.g. foo.example.com, bar.example.com), but not the domain
-    itself - `example.com` and the sub-sub domains: foo.bar.example.com (or any
-    deeper domains)
-  - a \. wildcard with will match the same as \* wildcard plus the domain
-    itself
-  and cannot be one of:
-  - master.mesos
-  - leader.mesos
-  - registry.component.thisdcos.directory
+client. The server names can include:
+  - a plain hostname, e.g. `host.example.com`.
+  - an IP address, e.g. `192.0.2.5`.
+  - a `*` wildcard, e.g. `*.example.com`, will match all the subdomains of
+    `example.com` (e.g. `foo.example.com`, `bar.example.com`), but not the domain
+    itself - `example.com` or deeper subdomains: `foo.bar.example.com`.
+  - a `.` wildcard, e.g. `.example.com`, will match the same as `*` wildcard plus the domain
+    itself (e.g. `foo.example.com`, `bar.example.com`, `example.com`).
 
-Additionally, every server name must be present in the custom external
+  The server names cannot include:
+  - `master.mesos`
+  - `leader.mesos`
+  - `registry.component.thisdcos.directory`
+
+Every server name provided in this option must be present in the custom external
 certificate's Canonical Name or Subject Alternative Names.
 
 This option is required if `external_certificate_path` is specified.
