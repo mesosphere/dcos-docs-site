@@ -27,7 +27,7 @@ See the [Install on-premise](/ksphere/konvoy/latest/install/install-onprem/) gui
 
 ## Provision in UI
 
-![Add Cluster Options](/ksphere/kommander/1.0/img/add-cluster.png)
+![Add Cluster Options](/ksphere/kommander/1.1-beta/img/add-cluster.png)
 
 From the **Add Cluster** menu, select the **Upload YAML to Create a Cluster** option and select the **On Premise Cloud Provider** from the **Select Cloud Provider** field.
 

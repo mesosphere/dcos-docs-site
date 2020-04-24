@@ -19,4 +19,4 @@ Kommander provides management and insights for multiple Kubernetes clusters, and
 
 The diagram below shows the architectural design and components that make up Kommander.
 
-![Kommander Architecture](/ksphere/kommander/1.0/img/Kommander_architecture.png)
+![Kommander Architecture](/ksphere/kommander/1.1-beta/img/Kommander_architecture.png)

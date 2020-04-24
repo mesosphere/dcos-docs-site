@@ -16,7 +16,7 @@ For example, you can create separate workspaces for each department, product, or
 
 The UI is designed to be accessible for different roles:
 
-![Organization / Workspace Selection](/ksphere/kommander/1.0/img/org-nav.png)
+![Organization / Workspace Selection](/ksphere/kommander/1.1-beta/img/org-nav.png)
 <br />_Organization / Workspace Selection_
 
 At the top level, **Organization**, IT administrators manage all clusters across all workspaces.
@@ -33,7 +33,7 @@ To get started immediately you can use the default workspace deployed in Kommand
 
 From the top level navigation, select **Actions** and **Create Workspace**. Enter a name and description. The workspace is now accessible from the **Organization** drop-down at the top of the screen.
 
-![Create Cluster, Create Workspace](/ksphere/kommander/1.0/img/org-actions.png)
+![Create Cluster, Create Workspace](/ksphere/kommander/1.1-beta/img/org-actions.png)
 <br />_Create Actions_
 
 #### Editing and Deleting Workspaces

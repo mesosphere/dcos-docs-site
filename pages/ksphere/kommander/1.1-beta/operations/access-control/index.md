@@ -20,16 +20,16 @@ This approach gives you maximum flexibility over who has access to what resource
 
 You can map group and user claims made by your configured identity providers to Kommander groups by clicking the Groups tab under Administration / Identity providers on the global-level.
 
-![Identity Provider Groups](/ksphere/kommander/1.0/img/access-control-idp-groups.png)
+![Identity Provider Groups](/ksphere/kommander/1.1-beta/img/access-control-idp-groups.png)
 
 ### Roles
 
 Cluster roles and project roles are named collections of rules defining which verbs can be applied to which resources.
 
-![Cluster Roles](/ksphere/kommander/1.0/img/access-control-cluster-roles.png)
+![Cluster Roles](/ksphere/kommander/1.1-beta/img/access-control-cluster-roles.png)
 
 ### Policies
 
 Cluster policies and project policies bind a Kommander group to any number of roles. All groups that have been defined in the groups tab will be present at the global, workspace, or project level and ready for you to assign roles to them.
 
-![Cluster Policies](/ksphere/kommander/1.0/img/access-control-cluster-policies.png)
+![Cluster Policies](/ksphere/kommander/1.1-beta/img/access-control-cluster-policies.png)
