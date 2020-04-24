@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Uninstalling Kafka
 title: Uninstall
 menuWeight: 60
-model: /mesosphere/dcos/services/kafka/data.yml
+model: /mesosphere/dcos/services/beta-kafka/data.yml
 render: mustache
 ---
 
