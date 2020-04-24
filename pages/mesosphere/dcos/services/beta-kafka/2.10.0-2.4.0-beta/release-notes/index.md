@@ -11,7 +11,7 @@ render: mustache
 ## Version 2.10.0-2.4.0-beta
 
 ### Updates
-- Added custom TLS certificate support for Kafka. Refer to [Custom TLS certificates guide](/mesosphere/dcos/services/beta-kafka/2.10.0-2.4.0-beta/security/#transport-encryption) for a more detailed configuration process.
+- Added custom TLS certificate support for Kafka. Refer to [Custom TLS certificates guide](../security/index.md#transport-encryption) for a more detailed configuration process.
 - Upgrade the base tech version of Apache Kafka to `2.4.0`. See Kafka's Release Notes for [2.4.0](https://www.apache.org/dist/kafka/2.4.0/RELEASE_NOTES.html) for details.
 - Updated the SDK to version [0.57.3](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.3)
   - [#3215](https://github.com/mesosphere/dcos-commons/pull/3215) is a major bug-fix since `v0.57.0`. Frameworks are recommended to upgrade to `v0.57.3` and issue `pod replace` commands to exisiting deployments to mitigate the risks. Existing procedures for [migrating a existing service to the quotated role](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0#migrate-an-existing-deployed-service-to-use-quota-support) should be followed.
