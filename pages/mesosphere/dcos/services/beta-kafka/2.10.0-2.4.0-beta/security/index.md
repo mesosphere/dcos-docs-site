@@ -91,12 +91,13 @@ dcos cluster setup {CLUSTER_URL}
 
 Create Service account and its secret to use the TLS feature
 ```
-dcos security org service-accounts keypair ${SERVICE_NAME}-private-key.pem ${SERVICE_NAME}-public-key.pem
+dcos security org service-accounts keypair kafka-private-key.pem kafka-public-key.pem
 
-dcos security org service-accounts create -p ${SERVICE_NAME}-public-key.pem -d "desc" "${SERVICE_NAME}"
+dcos security org service-accounts create -p kafka-public-key.pem -d "desc" "kafka"
 
-dcos security secrets create-sa-secret --strict ${SERVICE_NAME}-private-key.pem "${SERVICE_NAME}" "${SERVICE_NAME}-secret"
+dcos security secrets create-sa-secret --strict kafka-private-key.pem "kafka" "kafka-secret"
 ```
+Please refer to [Service Accounts](/mesosphere/dcos/services/beta-kafka/kafka-auth) for more details.
 
 Now we are ready to install a Kafka cluster with custom transport encryption enabled.
 
@@ -106,18 +107,18 @@ Create a file named `dcos-kafka-options-customtls.json` with following configura
 cat <<EOF >>dcos-kafka-options-customtls.json
 {
   "service": {
-    "name": "${SERVICE_NAME}",
-    "service_account": "${SERVICE_NAME}",
-    "service_account_secret": "${SERVICE_NAME}-secret",
+    "name": "kafka",
+    "service_account": "kafka",
+    "service_account_secret": "kafka-secret",
     "security": {
       "transport_encryption": {
         "enabled": true,
         "allow_plaintext": false,
-        "tls_cert": "${SERVICE_NAME}/customtlscert",
-        "key_store": "${SERVICE_NAME}/keystore",
-        "key_store_password_file": "${SERVICE_NAME}/keystorepass",
-        "trust_store": "${SERVICE_NAME}/truststore",
-        "trust_store_password_file": "${SERVICE_NAME}/truststorepass"
+        "tls_cert": "kafka/customtlscert",
+        "key_store": "kafka/keystore",
+        "key_store_password_file": "kafka/keystorepass",
+        "trust_store": "kafka/truststore",
+        "trust_store_password_file": "kafka/truststorepass"
       }
     }
   }
@@ -125,9 +126,11 @@ cat <<EOF >>dcos-kafka-options-customtls.json
 EOF
 ```
 
-Install the kafka service
+**Tip:** If you store your secret in a path that matches the service name (e.g. service name and secret path are `kafka`), then only the service named `kafka` can access it.
+
+Install the beta kafka service
 ```
-dcos package install kafka --options=dcos-kafka-options-customtls.json --yes
+dcos package install beta-kafka --options=dcos-kafka-options-customtls.json --yes
 ```
 ### Verification
 The custom transport encryption settings can be verified from the `server.properties` file of brokers.

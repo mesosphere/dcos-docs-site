@@ -4,7 +4,7 @@ navigationTitle:
 excerpt: Known limitations for the DC/OS Apache Kafka service
 title: Limitations
 menuWeight: 100
-model: /mesosphere/dcos/services/kafka/data.yml
+model: /mesosphere/dcos/services/beta-kafka/data.yml
 render: mustache
 ---
 

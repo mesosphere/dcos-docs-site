@@ -34,7 +34,7 @@ There are four types of installation methods:
 To start a basic test cluster with three brokers, run the following command on the DC/OS CLI. Enterprise DC/OS users must follow additional instructions. [More information about installing {{ model.techShortName }} on Enterprise DC/OS](#install-enterprise).
 
 ```bash
-dcos package install kafka
+dcos package install beta-kafka
 ```
 
 This command creates a new {{ model.techShortName }} cluster with the default name `kafka`. Two clusters cannot share the same name, so installing additional clusters beyond the default cluster requires [customizing the `name` at install time][4] for each additional instance.
@@ -50,7 +50,7 @@ dcos kafka --name=<kafka-dev> <cmd>
 Enter the following command from the DC/OS CLI:
 
 ```bash
-dcos package install kafka --cli
+dcos package install beta-kafka --cli
 ```
 
 ## Minimal Installation
@@ -72,7 +72,7 @@ To start a minimal cluster with a single broker, create a JSON options file name
 The command below creates a cluster using `sample-kafka-minimal.json`:
 
 ```bash
-dcos package install --options=sample-kafka-minimal.json kafka
+dcos package install beta-kafka  --options=sample-kafka-minimal.json 
 ```
 
 
@@ -102,7 +102,7 @@ A sample JSON options file is named as sample-kafka-custom.json:
 The following command creates a cluster using `sample-kafka.json`:
 
 ```bash
-dcos package install --options=sample-kafka-custom.json kafka
+dcos package install --options=sample-kafka-custom.json beta-kafka
 ```
 
 <p class="message--important"><strong>IMPORTANT: </strong>It is highly recommended to store your custom configuration in source control.</p>
@@ -123,7 +123,7 @@ cat kafka1.json
     }
 }
 
-dcos package install kafka --options=kafka1.json
+dcos package install beta-kafka --options=kafka1.json
 ```
 
  [4]: #custom-installation
