@@ -110,7 +110,7 @@ cat > kafka-options.json <<EOF
 EOF
 ```
 ```
-dcos package install kafka --options=kafka-options.json
+dcos package install beta-kafka --options=kafka-options.json
 ```
 <p class="message--note"><strong>NOTE: </strong>Kafka will be configured to look for <tt>MOUNT</tt> volumes with the <tt>kafka</tt> profile.</p> 
 
