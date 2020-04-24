@@ -121,8 +121,11 @@ The DC/OS Enterprise CLI can be used to rapidly provision the Jenkins service ac
 **Note:** Replace `nobody` with the appropriate user for your deployment.
    ```bash
    
+    dcos security org users grant jenkins-principal dcos:mesos:master:framework:role:* read
     dcos security org users grant jenkins-principal dcos:mesos:master:framework:role:* create
+    dcos security org users grant jenkins-principal dcos:mesos:master:reservation:role:* read
     dcos security org users grant jenkins-principal dcos:mesos:master:reservation:role:* create
+    dcos security org users grant jenkins-principal dcos:mesos:master:volume:role:* read
     dcos security org users grant jenkins-principal dcos:mesos:master:volume:role:* create
     
     dcos security org users grant jenkins-principal dcos:mesos:master:task:user:nobody create
@@ -218,8 +221,11 @@ The DC/OS Enterprise CLI can be used to rapidly provision the Jenkins service ac
 **Note:** Replace `dev` & `nobody` with the appropriate role and user for your deployment.
    ```bash
    
+    dcos security org users grant jenkins-principal dcos:mesos:master:framework:role:dev read
     dcos security org users grant jenkins-principal dcos:mesos:master:framework:role:dev create
+    dcos security org users grant jenkins-principal dcos:mesos:master:reservation:role:dev read
     dcos security org users grant jenkins-principal dcos:mesos:master:reservation:role:dev create
+    dcos security org users grant jenkins-principal dcos:mesos:master:volume:role:dev read
     dcos security org users grant jenkins-principal dcos:mesos:master:volume:role:dev create
     
     dcos security org users grant jenkins-principal dcos:mesos:master:task:user:nobody create
@@ -233,6 +239,8 @@ The DC/OS Enterprise CLI can be used to rapidly provision the Jenkins service ac
 
 The contents of the `config.json` file will vary according to your security mode. We provide two examples below, one for each security mode. Locate the sample appropriate to your security mode, copy the JSON, paste it into a new file, and save it as `config.json`.
 
+- **Note**: `roles.jenkins-master-role` must  match the quota role which is `dev` in this example.
+
 `strict` **mode**
 
 ```json
@@ -240,6 +248,9 @@ The contents of the `config.json` file will vary according to your security mode
   "service": {
     "name": "dev/jenkins",
     "user": "nobody",
+    "roles": {
+      "jenkins-master-role": "dev"
+    },
     "security": {
       "service-account": "jenkins-principal",
       "secret-name": "dev/jenkins/private_key",
@@ -256,6 +267,9 @@ The contents of the `config.json` file will vary according to your security mode
   "service": {
     "name": "dev/jenkins",
     "user": "nobody",
+    "roles": {
+      "jenkins-master-role": "dev"
+    },
     "security": {
       "service-account": "jenkins-principal",
       "secret-name": "dev/jenkins/private_key",
