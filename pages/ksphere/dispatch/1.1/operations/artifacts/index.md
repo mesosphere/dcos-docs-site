@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Logging
+navigationTitle: Artifacts
 title: Pipelinerun Artifacts
 menuWeight: 15
 beta: false
