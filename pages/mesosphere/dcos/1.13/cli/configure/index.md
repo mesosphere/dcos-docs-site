@@ -45,7 +45,7 @@ export DCOS_DIR=<path/to/config_dir> # optional, default when not set is ~/.dcos
 dcos cluster setup <url>
 ```
 
-You can define `no_proxy` for domains that you do not want to use the proxy for. This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. It generates a newly setup cluster [as seen here](/mesosphere/dcos/1.13/cli/index#setupcluster).
+You can define `no_proxy` for domains that you do not want to use the proxy for. This setting generates and updates per cluster configuration under `$DCOS_DIR/clusters/<cluster_id>`. It generates a newly setup cluster [as seen here](/mesosphere/dcos/1.13/cli/#setting-up-a-cluster).
 
 <a name="dcos-ssl-verify"></a>
 

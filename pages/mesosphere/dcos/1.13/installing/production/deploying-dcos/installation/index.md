@@ -468,6 +468,6 @@ You can find information on the next steps listed below:
 [9]: /mesosphere/dcos/1.13/cli/install/
 [12]: /mesosphere/dcos/1.13/installing/production/deploying-dcos/node-cluster-health-check/
 [10]: /mesosphere/dcos/1.13/installing/oss/troubleshooting/
-[11]: /mesosphere/dcos/1.13/installing/oss/custom/uninstall/
+[11]: /mesosphere/dcos/1.13/installing/production/uninstalling/
 
 

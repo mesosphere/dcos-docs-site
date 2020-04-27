@@ -16,7 +16,7 @@ With DC/OS, login is the process of exchanging user credentials for a [DC/OS Aut
 
 Users must obtain a DC/OS Authentication to use a DC/OS cluster. In DC/OS the lifetime of an Authentication token is limited to five days. Once the Authentication token expires, the user must log in again.
 
-DC/OS handles multiple user types. User accounts can be managed via the [IAM API](/mesosphere/dcos/1.13/security/oss/iam-api/); see [User Management](/mesosphere/dcos/1.13/security/oss/user-management/).
+DC/OS handles multiple user types. User accounts can be managed via the [IAM API](/mesosphere/dcos/1.13/security/oss/iam-api/); see [User Management](/mesosphere/dcos/1.13/security/oss/user-account-management/).
 
 Different login methods exist for different user types, but each one yields a DC/OS authentication token:
 
