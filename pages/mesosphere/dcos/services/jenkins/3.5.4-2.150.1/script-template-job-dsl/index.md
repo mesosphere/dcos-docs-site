@@ -21,7 +21,7 @@ A "seed job" is an initial Jenkins job template that is used to build additional
 
 The first step is to manually create a seed job via the Jenkins UI. Click <strong>New Item</strong>, give your seed job a name (you’re using <strong>Job DSL Tutorial</strong>), select <strong>Freestyle project</strong>, and click <strong>OK</strong>.
 
-<img src="/services/jenkins/img/velocity-jobdsl-seed-job.png" alt="velocity-jobdsl-seed-job.png" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jobdsl-seed-job.png" alt="velocity-jobdsl-seed-job.png" />
 
 Next, define which project repository to monitor, how often, and the steps associated with testing the project.
 
@@ -50,25 +50,25 @@ job(jobName) {
 }
 </code></pre>
 
-<img src="/services/jenkins/img/velocity-jobdsl-add-build-step.png" alt="velocity-jobdsl-add-build-step.png" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jobdsl-add-build-step.png" alt="velocity-jobdsl-add-build-step.png" />
 
 <strong>Note:</strong> Rather than pasting inline, you can also version control your Job DSL scripts in a Git repository. To do so, have the seed job clone the Git repository and use the <strong>Look on Filesystem</strong> option to process one or more of the Job DSL scripts within the build’s workspace.
 
 Click <strong>Save</strong> and you’ll be presented with an overview of the seed job you’ve just created.
 
-<img src="/services/jenkins/img/velocity-jobdsl-seed-overview.png" alt="velocity-jobdsl-seed-overview.png" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jobdsl-seed-overview.png" alt="velocity-jobdsl-seed-overview.png" />
 
 Click <strong>Build Now</strong> on the seed job. A new <strong>Generated Jobs</strong> folder will appear in the overview containing the job you’ve justed templated, <code>mesosphere-jenkins-mesos</code>.
 
-<img src="/services/jenkins/img/velocity-jobdsl-seed-overview-generated.png" alt="velocity-jobdsl-seed-overview-generated.png" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jobdsl-seed-overview-generated.png" alt="velocity-jobdsl-seed-overview-generated.png" />
 
 You can follow the link to the new job and see its relation to the seed job in the overview.
 
-<img src="/services/jenkins/img/velocity-jobdsl-generated-overview.png" alt="velocity-jobdsl-generated-overview.png" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jobdsl-generated-overview.png" alt="velocity-jobdsl-generated-overview.png" />
 
 In the seed job, you configured the <code>mesosphere-jenkins-mesos</code> job to trigger every 15 minutes. Rather than wait for this trigger, let’s click <strong>Build Now</strong> to see the resulting console build log, which is a directory listing (<code>ls -l</code>) of the specified repository.
 
-<img src="/services/jenkins/img/velocity-jobdsl-generated-console.png" alt="velocity-jobdsl-generated-console.png" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jobdsl-generated-console.png" alt="velocity-jobdsl-generated-console.png" />
 
 <h1>Extending the seed job</h1>
 
@@ -105,7 +105,7 @@ branches.each {
 
 Click <strong>Save</strong> button, then <strong>Build Now</strong>. You should see three new <strong>Generated Items</strong>, one for each existing branch of the <code>mesosphere/jenkins-mesos</code> repository.
 
-<img src="/services/jenkins/img/velocity-jobdsl-generated-per-branch.png" alt="velocity-jobdsl-generated-per-branch.png" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jobdsl-generated-per-branch.png" alt="velocity-jobdsl-generated-per-branch.png" />
 
 <h1>Further reading</h1>
 

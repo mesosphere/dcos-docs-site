@@ -294,4 +294,4 @@ To install the service, complete the following steps.
 
 1. After some time, the job should turn green in the **Build history** box. Congratulations! You have succeeded in setting Jenkins up with a service account.
 
-You can also provide the `config.json` file to someone else to install Jenkins. Please see the [Jenkins documentation](/mesosphere/dcos/services/jenkins/quickstart/) for more information about how to use the JSON file to install the service.
+You can also provide the `config.json` file to someone else to install Jenkins. Please see the [Jenkins documentation](../quickstart/) for more information about how to use the JSON file to install the service.
