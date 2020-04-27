@@ -29,4 +29,4 @@ dcos monitoring prometheus values [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos monitoring prometheus](../monitoring-prometheus/) |  Query the Prometheus endpoint |
+| [dcos monitoring prometheus](../) |  Query the Prometheus endpoint |
