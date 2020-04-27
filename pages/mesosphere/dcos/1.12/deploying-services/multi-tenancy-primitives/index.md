@@ -56,7 +56,7 @@ In summary, Jenkins-as-a-service is a very dynamic workload, with hundreds of Je
 # Implementation
 You can use the following resources to learn how to implement both Marathon on Marathon and Spark quotas:
 - [Deploying non-native instances of Marathon](/mesosphere/dcos/1.12/deploying-services/marathon-on-marathon/)
-- [Spark Quota](/mesosphere/dcos/services/spark/2.3.1-2.2.1-2/job-scheduling/#setting-quotas-for-the-drivers)
+- [Spark Quota](/mesosphere/dcos/services/spark/latest/job-scheduling/#quota-for-drivers-and-executors)
 
 In the examples below, it is recommended to run the application from a host with [DC/OS CLI](/mesosphere/dcos/1.12/cli/) installed.
 
