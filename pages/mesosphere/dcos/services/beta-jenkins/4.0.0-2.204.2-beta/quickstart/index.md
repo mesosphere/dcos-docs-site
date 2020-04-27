@@ -16,7 +16,7 @@ As a package available in the Universe, Jenkins for DC/OS can be installed using
 
 # Prerequisites
 
-DC/OS 2.1 or later
+DC/OS 1.13 or later
 
 **Note:** If you are on an earlier version and would like to try out Jenkins for DC/OS, contact <a href="mailto:support@mesosphere.io">support@mesosphere.io</a>.
 
