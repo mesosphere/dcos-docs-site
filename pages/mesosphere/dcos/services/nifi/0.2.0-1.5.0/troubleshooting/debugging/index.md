@@ -96,7 +96,7 @@ If you want to bring the Scheduler back, you can do a `dcos package install` usi
 
 # ‘Framework has been removed’
 
-If you forgot to run janitor.py the last time you ran the service, see [Uninstall](../uninstall) for the procedure. For reference, here is what happened:
+If you forgot to run janitor.py the last time you ran the service, see [Uninstall](../../uninstall) for the procedure. For reference, here is what happened:
 
 1. You ran dcos package nifi --app-id nifi. This destroyed the Scheduler and its associated tasks, but didn’t clean up its reserved resources.
 2. Later on, you tried to reinstall the service. The Scheduler came up and found an entry in ZooKeeper with the previous framework ID, which would have been cleaned up by janitor.py. The Scheduler tried to re-register using that framework ID.

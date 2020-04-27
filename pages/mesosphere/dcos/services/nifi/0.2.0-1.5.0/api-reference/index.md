@@ -16,7 +16,7 @@ The DC/OS NiFi Service implements a REST API that may be accessed from outside t
 # REST API Authentication
 REST API requests must be authenticated. This authentication is only applicable for interacting with the DC/OS Apache NiFi REST API directly. You do not need the token to access the Apache NiFi nodes themselves.
 
-If you are using DC/OS Enterprise, follow these instructions to [create a service account](../security/serviceaccountdetail.md) and an [authentication token](/mesosphere/dcos/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires.
+If you are using DC/OS Enterprise, follow these instructions to [create a service account](../security/#set-up-the-service-account) and an [authentication token](/mesosphere/dcos/1.10/security/ent/service-auth/custom-service-auth/). You can then configure your service to automatically refresh the authentication token when it expires.
 
 Once you have the authentication token, you can store it in an environment variable and reference it in your REST API calls:
 

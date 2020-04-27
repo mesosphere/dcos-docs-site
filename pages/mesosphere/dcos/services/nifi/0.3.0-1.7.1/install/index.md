@@ -278,4 +278,4 @@ Likewise, this file can be referenced to update a `{{ model.packageName }}` serv
    ```
 
 ## Secured Installation
-  Please refer to the [Security Guide](../security/index.md) for secured installation of DC/OS {{model.techName }}.
+  Please refer to the [Security Guide](../security) for secured installation of DC/OS {{model.techName }}.
