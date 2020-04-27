@@ -4,6 +4,7 @@ navigationTitle: Release notes for 2.1.0
 title: Release notes for 2.1.0
 menuWeight: 5
 render: mustache
+beta: true
 model: /mesosphere/dcos/2.1/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
@@ -35,7 +36,7 @@ DC/OS has improved Multi-Tenancy support by adding quota management for service 
 
 ## Resource Limits for Containers
 
-It is now possible to set CPU and memory limits on services which are greater than the minimum guaranteed CPU/memory resources specified. This means that services can run with a guarantee of some amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available on the machine. For more information, see the documentation on [creating services](/mesosphere/dcos/2.1/deploying-services/creating-services/).
+It is now possible to set CPU and memory limits on services that are greater than the minimum guaranteed CPU/memory resources specified. This means that services can run with a guarantee of some amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available. For more information, see [Creating Services](/mesosphere/dcos/2.1/deploying-services/creating-services/).
 
 # Previous Releases
 To review changes from the most recent previous releases, see the following links:
