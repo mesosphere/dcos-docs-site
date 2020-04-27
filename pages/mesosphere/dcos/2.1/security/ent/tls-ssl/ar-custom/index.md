@@ -20,16 +20,17 @@ The benefits of using a custom external certificate for your DC/OS Enterprise cl
 - using a certificate with different properties for clients connecting to the cluster using different server names.
 
 # Contents
-- [Supported certificates](#supported-ca-certificates)
+- [Support](#support)
 - [Glossary](#glossary) for general definition of terms 
 - [Requirements](#requirements)
 - [Configuration parameter reference](#config-ref)
 - [Installation walkthrough](#installing-dcos-enterprise-with-a-custom-ca-certificate). 
 - [Example use cases](#example-use-cases) then provide example file contents for the custom external certificate configuration files for three popular use cases.
 
-# Supported certificates
-- Certificates with both RSA and ECC type keys are supported
-- Custom external certificates are only supported for a fresh installation of DC/OS Enterprise 2.1 or later. Older versions of DC/OS are not supported. It is possible to add a custom external certificate during upgrade to 2.1.
+# Support
+- Custom external certificates are supported in DC/OS Enterprise 2.1 and later.
+- Custom external certificates can be added during initial installation or during an upgrade.
+- Custom external certificates support both RSA and ECC keys.
 
 # Glossary
 - **Custom external certificate:** A certificate in PEM format, that will be used to access the cluster through Admin Router for a provided set of server names. If necessary, it should include all the intermediate CA certificates up to the root CA certificate trusted by the clients. The root CA certificate does not need to be included in the PEM file.
