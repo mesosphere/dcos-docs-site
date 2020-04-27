@@ -71,7 +71,7 @@ external-certificate-key.key
 
 
 For security reasons, the installer will not copy the private key from the bootstrap node to the master nodes.
-The private key associated with the custom external certificate must be distributed manually to every DC/OS master node **before starting the installation**.
+The private key associated with the custom external certificate must be securely distributed manually to every DC/OS master node **before starting the installation**.
 
 The filesystem path for the private key file must be `/var/lib/dcos/pki/tls/private/adminrouter-external.key`.
 The directory `/var/lib/dcos/pki/tls/private/` can be created manually with the following command before putting the file `adminrouter-external.key` in the directory on every DC/OS master node:
@@ -99,7 +99,7 @@ The [Example use cases](#example-use-cases) section below shows how to set these
 ## external_certificate_path
 Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing a single X.509 leaf certificate in the OpenSSL PEM format. For example: `genconf/external-certificate.crt`. If necessary, it should include all the intermediate CA certificates up to the root CA certificate trusted by the clients. It is advised to not to include the final root CA certificate in the PEM file, but is not strictly necessary.
 
-If provided, this is the custom external certificate.  If not provided, the DC/OS cluster generates a unique leaf certificate during the initial bootstrap phase signed by DC/OS CA and presents it to the clients.
+If provided, this is the custom external certificate.  If not provided, the DC/OS cluster uses a unique leaf certificate generated during the initial bootstrap phase signed by DC/OS CA and presents it to the clients.
 
 See the `external_certificate_validation_disable` parameter on the validation that the external certificate undergoes and how can it be overridden.
 
