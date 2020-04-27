@@ -11,7 +11,7 @@ Before you configure an Azure Cloud provider it's necessary to [install the Azur
 
 #### Create a new set of credentials using CLI commands
 
-To provision an Azure cluster, we need Azure credentials. Those can be obtained by:
+To provision an Azure cluster, you need Azure credentials. Those can be obtained by:
 
 - Having the Azure CLI installed and set up
 - Having Contributor and User Access Administrator rights on Azure
@@ -84,4 +84,3 @@ Navigate to **Administration > Cloud Providers** and select the **Add Cloud Prov
 Figure 8 - Azure Cloud Provider Form with values
 
 After the provider is created, a Cloud Provider’s display name or credentials can be updated.
-
