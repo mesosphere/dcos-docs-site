@@ -40,7 +40,7 @@ az account show
 }
 ```
 
-Create the service principal for the provider and do not miss to replace `SUBSCRIPTION_ID` with the `id` from previous command output:
+Create the service principal for the provide. Ensure you replace `SUBSCRIPTION_ID` with the `id` from the previous command output:
 
 ```
 az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/SUBSCRIPTION_ID"
