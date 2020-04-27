@@ -62,7 +62,7 @@ After the image is created and available on Docker Hub or your private Docker re
 <li>From the Jenkins web interface, navigate to the <strong>Manage Jenkins</strong> page, and then to the <strong>Configure Jenkins</strong> page.</p></li>
 <li><p>Scroll to the <strong>Cloud</strong> section at the bottom and click <strong>Advanced</strong>. You should see a grey button to <strong>Add Slave Info</strong>.
 
-<img src="/services/jenkins/img/velocity-add-slave-info.png" alt="Add slave info button" /></p></li>
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-add-slave-info.png" alt="Add slave info button" /></p></li>
 <li><p>On the <strong>Add Slave Info</strong> page, set values based on the needs of your particular job or application. Some options include:
 
 <ul>
@@ -81,10 +81,10 @@ After the image is created and available on Docker Hub or your private Docker re
 actualMem = slaveMem + maxExecutors * executorMem
 </code></pre>
 
-<img src="/services/jenkins/img/velocity-jenkins-slave-info.png" alt="velocity-jenkins-slave-info" /></p></li>
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-jenkins-slave-info.png" alt="velocity-jenkins-slave-info" /></p></li>
 <li><p>To configure this Jenkins agent with a custom Docker image, click <strong>Advanced</strong> again and select the <strong>Use Docker Containerizer</strong> checkbox. Here you can specify the <strong>Docker Image</strong> name.
 
-<img src="/services/jenkins/img/velocity-docker-containerizer-settings.png" alt="velocity-docker-containerizer-settings" />
+<img src="/mesosphere/dcos/services/jenkins/img/velocity-docker-containerizer-settings.png" alt="velocity-docker-containerizer-settings" />
 
 <strong>Note:</strong> If you're creating a new Docker-in-Docker image, be sure to select <strong>Docker Privileged Mode</strong> and specify a custom Docker command shell.</p></li>
 <li><p>Click <strong>Save</strong>.</p></li>
@@ -95,6 +95,6 @@ actualMem = slaveMem + maxExecutors * executorMem
 <ol>
 <li><p>To configure a build to use the newly specified image, click on <strong>Configure</strong> for the build, select <strong>Restrict where this project can be run</strong>, and specify the same <strong>Label String</strong>.
 
-<p><img src="/services/jenkins/img/velocity-job-build-label-string.png" alt="" /></p></li>
+<p><img src="/mesosphere/dcos/services/jenkins/img/velocity-job-build-label-string.png" alt="" /></p></li>
 <li><p>Click <strong>Save</strong>.</p></li>
 </ol>
