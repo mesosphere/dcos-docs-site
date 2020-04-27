@@ -101,5 +101,5 @@ Percona-MySQL is an enterprise-grade HA drop-in replacement for MySQL. To enable
       ```
    
 - #### Limitations
-  Currently, {{ model.techName }} is only compatible with Percona's `PERMISSIVE` and `DISABLED` modes. See the [limitations](../limitations/index.md) docs for more details.
+  Currently, {{ model.techName }} is only compatible with Percona's `PERMISSIVE` and `DISABLED` modes. See the [limitations](../limitations) docs for more details.
   
