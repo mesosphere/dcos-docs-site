@@ -37,7 +37,7 @@ Marathon-LB manages operations for the `HAProxy` program to provide high availab
 * Reloads the `HAProxy` program.
 
     <p>
-    <img src="/services/img/simple-mlb-haproxy.png" alt="Marathon-LB works with HAProxy configuration settings to provide load balancing">
+    <img src="/mesosphere/dcos/services/img/simple-mlb-haproxy.png" alt="Marathon-LB works with HAProxy configuration settings to provide load balancing">
     </p>
 
 By default, Marathon-LB binds to the service port of every application and sends incoming requests to the application instances. Services are exposed on their service port as defined in their Marathon app definition. Furthermore, apps are only exposed on the load balancers that have the same load balancer `group` setting. The `group` setting is defined globally or in the app definition file by specifying the `HAPROXY_GROUP` label for individual applications. 

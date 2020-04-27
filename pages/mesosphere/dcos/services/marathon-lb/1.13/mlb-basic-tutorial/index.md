@@ -27,14 +27,14 @@ This tutorial uses a sample app definition file that you can download from the `
 1. Go to the [`mesosphere/dcos-website`](https://hub.docker.com/r/mesosphere/dcos-website/tags) Docker repository and copy the latest `image` tag.
 
   <p>
-  <img src="/1.12/img/dockerhub.png" alt="Mesosphere Docker Hub">
+  <img src="/mesosphere/dcos/1.12/img/dockerhub.png" alt="Mesosphere Docker Hub">
   </p>
 
   For example, after clicking **Tags**, you might see an identifier similar to this:
   <code>cff383e4f5a51bf04e2d0177c5023e7cebcab3cc</code> 
 
   <p>
-  <img src="/services/img/docker-repo-tag.png" alt="Sample image tag">
+  <img src="/mesosphere/dcos/services/img/docker-repo-tag.png" alt="Sample image tag">
   </p>
 
 # Modify the app image tag and public IP address

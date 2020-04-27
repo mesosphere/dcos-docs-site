@@ -213,7 +213,7 @@ The following steps illustrate how to modify a sample configuration file to do l
     ```
 
 # Confirm apps are deployed and accessible
-You can test your load balancing configurations by opening a [secure shell (SSH)](/mesosphere/dcos/1.14/administering-clusters/sshcluster/) into one of the instances in the cluster (such as a master), and running `curl` for the endpoints. For example, run the following commands.
+You can test your load balancing configurations by opening a [secure shell (SSH)](/mesosphere/dcos/latest/administering-clusters/sshcluster/) into one of the instances in the cluster (such as a master), and running `curl` for the endpoints. For example, run the following commands.
 
 * To test access to the external load balancer, run:
   `curl http://marathon-lb.marathon.mesos:10000`

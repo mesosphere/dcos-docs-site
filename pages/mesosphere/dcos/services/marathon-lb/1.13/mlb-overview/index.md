@@ -11,7 +11,7 @@ Marathon and Marathon load balancer (Marathon-LB) work together to provide a met
 Without load balancing, Marathon runs on the DC/OS cluster to act as the orchestrator for scheduling other applications and services to run. When you use Marathon, it is the first framework launched and its scheduler processes are started directly at startup with other initialization processes. The following diagram illustrates Marathon managing two instances of the MyApp scheduler that were started from a Docker image and other application containers for JBoss, Jetty, Sinatra, and Rails service instances.
 
 <p>
-<img src="/services/img/marathon-basic-overview.png" alt="Simplified view of Marathon orchestration">
+<img src="/mesosphere/dcos/services/img/marathon-basic-overview.png" alt="Simplified view of Marathon orchestration">
 </p>
 
 If one of its scheduler instances fails, Marathon can restart it on another node that has available capacity to ensure that two MyApp scheduler instances are always running. In this example, the MyApp scheduler represents a supported framework that receives resource offers and can start its own tasks on the cluster. In the diagram, the MyApp scheduler runs two tasks. One task is a job that dumps a production MySQL database to S3. The other task sends an email newsletter job to an application that forwards the newsletter to all customers. 
@@ -24,13 +24,13 @@ To illustrate scaling, assume you have a cluster where Marathon running three ap
 If you decide to scale out the Search service and Rails-based application, you might use the Marathon REST API to add more instances. Marathon then takes care of placing the new containers on agent nodes with spare capacity, honoring any constraints you have previously set. After adding the new Search and Rails instances, your cluster of agent nodes might look like this: 
 
 <p>
-<img src="/services/img/marathon-add-instances.png" alt="Adding app instances using Marathon">
+<img src="/mesosphere/dcos/services/img/marathon-add-instances.png" alt="Adding app instances using Marathon">
 </p>
 
 If one of the servers where an application instance runs becomes unavailable, Marathon simply moves the affected containers to another node in the cluster that has spare capacity as illustrated in the following diagram.
 
 <p>
-<img src="/services/img/marathon-failover-instances.png" alt="Failover for app instances from a disconnected node">
+<img src="/mesosphere/dcos/services/img/marathon-failover-instances.png" alt="Failover for app instances from a disconnected node">
 </p>
 
 In this example, a datacenter worker unplugs an agent node where Search and Rails instances were previously running. In response, Marathon moves the Search and Rails instances from the agent that is no longer available to other agent nodes, maintaining  the application’s effective uptime even when there’s been a physical machine failure.
@@ -66,7 +66,7 @@ An **edge load balancer** is used to accept traffic from outside networks and pr
 The following diagram illustrates using Marathon-LB as the edge load balancer that accepts TCP and HTTP-based traffic from the internet that is then routed into applications inside the cluster. In this scenario, the load balancer doesn’t route internal requests.
 
 <p>
-<img src="/services/img/marathon-edge-external-facing.png" alt="Marathon-LB as an external-facing edge load balancer">
+<img src="/mesosphere/dcos/services/img/marathon-edge-external-facing.png" alt="Marathon-LB as an external-facing edge load balancer">
 </p>
 
 # Marathon-LB for internal and external requests
@@ -75,7 +75,7 @@ You can also use Marathon-LB to perform load balancing and routing for both inte
 The following diagram illustrates using Marathon-LB as both an external load balancer and internal load balancer routing TCP and HTTP-based traffic. In this scenario, a separate edge load balancer receives traffic from the internet outside of the cluster and routes the external traffic to the Marathon-LB external load balancer instance separate from the traffic routed to the Marathon-LB internal balancer instance.
 
 <p>
-<img src="/services/img/marathon-internal-external.png" alt="Marathon-LB distributing internal and external traffic">
+<img src="/mesosphere/dcos/services/img/marathon-internal-external.png" alt="Marathon-LB distributing internal and external traffic">
 </p>
 
 # Common load balancing scenarios

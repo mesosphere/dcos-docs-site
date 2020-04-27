@@ -24,7 +24,7 @@ For a given application, you can measure performance in terms of **requests-per-
 As part of this tutorial, the `marathon-lb-autoscale` script polls the HAProxy `stats` endpoint and automatically scales application instances based on the incoming number of requests.
 
 <p>
-<img src="/services/img/marathon-lb-autoscale.png" alt="Using Marathon-LB statistics for automatic scaling">
+<img src="/mesosphere/dcos/services/img/marathon-lb-autoscale.png" alt="Using Marathon-LB statistics for automatic scaling">
 </p>
 
 The autoscale script takes the current requests-per-second and divides that number by the target number of requests-per-second for the app instance. The result of this fraction is the number of app instances required (or rather, the ceiling of that fraction is the number of instances required).
