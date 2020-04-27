@@ -35,7 +35,7 @@ Figure 2 - Debugging page
 
 In the following figure, Marathon has failed to launch a service; the **Services > Debug** tab displays a warning message. A pop-up message states that the error has cleared and that the service is now launching.
 
-![Failure warning](/mesosphere/dcos/2.0/img/GUI-Services-Failure-To-Launch.png)
+![Failure warning](/mesosphere/dcos/2.0/img/GUI-Services-Failure-to-Launch.png)
 
 Figure 3 - Debug tab showing warning
 

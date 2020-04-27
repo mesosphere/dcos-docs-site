@@ -36,7 +36,7 @@ dcos config set <name> <value> [flags]
 
 | Name  | Value |
 |-----------------------|------------------------------------------------|
-| `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see [the IAM API](/mesosphere/dcos/2.0/security/oss/iam-api/). |
+| `core.dcos_acs_token`   | The DC/OS authentication token. When you log into the DC/OS CLI using `dcos auth login`, it stores the authentication token value locally. For more information, see [the IAM API](/mesosphere/dcos/2.0/security/ent/iam-api/). |
 | `core.dcos_url`         | The public master URL of your DC/OS cluster|
 | `core.mesos_master_url` | The Mesos master URL. Defaults to `core.dcos_url` |
 | `core.pagination`       | Indicates whether to paginate output. Defaults to true.|
