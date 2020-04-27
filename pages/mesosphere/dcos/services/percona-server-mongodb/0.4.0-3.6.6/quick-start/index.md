@@ -10,7 +10,7 @@ enterprise: false
 
 # Prerequisites
 
-- [DC/OS installed on your cluster](/mesosphere/dcos/latest/administration/installing/).
+- [DC/OS installed on your cluster](/mesosphere/dcos/latest/installing/).
 
 # Steps
 
