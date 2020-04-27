@@ -5,6 +5,7 @@ title: Technical Overview
 menuWeight: 10
 excerpt: Understanding pods
 render: mustache
+beta: true
 model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
