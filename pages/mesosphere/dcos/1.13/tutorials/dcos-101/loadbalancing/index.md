@@ -22,7 +22,7 @@ Before starting this tutorial, you should verify the following:
 - You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
 - You have access to a computer where the [DC/OS CLI](../cli/) is installed.
 - You have the [app2](../native-app/) sample application deployed and running in your cluster.
-- You have [Marathon-LB]((../native-app/)) deployed and running in your cluster.
+- You have [Marathon-LB](../native-app/) deployed and running in your cluster.
 
 # Learning objectives
 By completing this tutorial, you will learn:
