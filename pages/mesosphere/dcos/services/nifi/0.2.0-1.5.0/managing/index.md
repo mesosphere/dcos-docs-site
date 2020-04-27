@@ -16,7 +16,7 @@ After making a change, the Scheduler will be restarted, and it will automaticall
 
 Nodes are configured with a "Readiness check" to ensure that the underlying service appears to be in a healthy state before continuing with applying a given change to the next node in the sequence.
 
-Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations/index.md).
+Some changes, such as decreasing the number of nodes or changing volume requirements, are not supported after initial deployment. See [Limitations](../limitations).
 
 
 The instructions below describe how to update the configuration for a running DC/OS service.
