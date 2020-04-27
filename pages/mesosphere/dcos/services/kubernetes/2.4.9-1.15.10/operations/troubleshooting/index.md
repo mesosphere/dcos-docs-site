@@ -190,7 +190,7 @@ The first scenario deals with failures that may happen when first installing DC/
 It is the least risky one as there is no pre-existing data stored in `etcd`, and hence there will be no data loss.
 
 In this scenario, the easiest way towards recovery is to uninstall and re-install DC/OS Kubernetes.
-Before re-installing DC/OS Kubernetes, make sure that all DC/OS agents are healthy, and that the DC/OS cluster itself is healthy and that there are no networking problems, and meets all the [prerequisites](/mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/getting-started/provision-install/#prerequisites).
+Before re-installing DC/OS Kubernetes, make sure that all DC/OS agents are healthy, and that the DC/OS cluster itself is healthy and that there are no networking problems, and meets all the [prerequisites](/mesosphere/dcos/services/kubernetes/2.4.9-1.15.10/getting-started/setting-up/#prerequisite-dcos-enterprise-cluster-enterprise).
 
 ### Scenario 2
 
