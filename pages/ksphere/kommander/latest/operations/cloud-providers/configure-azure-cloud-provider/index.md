@@ -58,7 +58,7 @@ The command returns data needed to create the secret:
 }
 ```
 
-That service principal additionally needs to get the role `User Access Administrator` assigned. Replace `APP_ID` with the `appId` value from output of previous command:
+The service principal additionally needs to get the role `User Access Administrator` assigned. Replace `APP_ID` with the `appId` value from the output of the previous command:
 
 ```
 az role assignment create --assignee "APP_ID" --role "User Access Administrator"
