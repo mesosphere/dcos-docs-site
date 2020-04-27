@@ -62,7 +62,7 @@ Authenticated users are authorized to perform arbitrary actions in their cluster
 
 By default, Admin Router will permit unencrypted HTTP traffic. This is not considered secure, and you must provide a valid TLS certificate and redirect all HTTP traffic to HTTPS to properly secure access to your cluster. After you have a valid TLS certificate, install the certificate on each master. Copy the certificate and private key to a well known location, such as under `/etc/ssl/certs`.
 
-If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/mesosphere/dcos/1.12/security/oss/tls-ssl/haproxy-adminrouter/).
+If you run HAProxy in front of Admin Router, you should secure the communication between them. For information about securing your communication, see the [documentation](/mesosphere/dcos/1.12/security/ent/tls-ssl/haproxy-adminrouter/).
 
 ## Private zone
 
@@ -78,7 +78,7 @@ The optional **public** zone is where publicly accessible applications are run. 
 The agent nodes in the public zone are labeled with a special role so that only specific tasks can be scheduled here. These agent nodes have both public and private IP addresses and only specific ports should be open in their
 `iptables` firewall.
 
-By default, when using the cloud-based installers such as the AWS CloudFormation templates, a large number of ports are exposed to the Internet for the public zone. In production systems, it is unlikely that you would expose all of these ports. It is recommended that you close all ports except 80 and 443 (for HTTP/HTTPS traffic) and use [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.12/) with HTTPS to manage ingress traffic.
+By default, when using the cloud-based installers such as the AWS CloudFormation templates, a large number of ports are exposed to the Internet for the public zone. In production systems, it is unlikely that you would expose all of these ports. It is recommended that you close all ports except 80 and 443 (for HTTP/HTTPS traffic) and use [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) with HTTPS to manage ingress traffic.
 
 ### Typical AWS deployment
 

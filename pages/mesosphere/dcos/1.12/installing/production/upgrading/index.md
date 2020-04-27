@@ -12,7 +12,7 @@ An upgrade is the process of moving between major releases to add new features o
 
 - To update to a newer maintenance version (for example, 1.11.6 to 1.11.8), refer to the instructions for [patching](/mesosphere/dcos/1.12/installing/production/patching/).
 - To modify the cluster configuration, refer to the instructions for [patching](/mesosphere/dcos/1.12/installing/production/patching/).
-- The `disabled` security mode has been removed from DC/OS Enterprise 1.12. To upgrade a `disabled` mode 1.11 cluster to 1.12, first [patch the 1.11 cluster from disabled to permissive mode](/mesosphere/dcos/installing/production/patching/#patching-dcos-111-in-permissive-mode) as a separate step before upgrading from 1.11 to 1.12. [enterprise type="inline" size="small" /]
+- The `disabled` security mode has been removed from DC/OS Enterprise 1.12. To upgrade a `disabled` mode 1.11 cluster to 1.12, first [patch the 1.11 cluster from disabled to permissive mode](/mesosphere/dcos/1.11/installing/production/patching/#patching-dcos-111-in-strict-mode) as a separate step before upgrading from 1.11 to 1.12. [enterprise type="inline" size="small" /]
 
 If upgrading is performed on a supported OS with all prerequisites fulfilled, then the upgrade **should** preserve the state of running tasks on the cluster.
 

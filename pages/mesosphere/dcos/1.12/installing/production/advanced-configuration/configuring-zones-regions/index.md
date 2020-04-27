@@ -83,7 +83,7 @@ When failures do occur, failover [should be as fast as possible](https://en.wiki
 
 A fast failover can be achieved by:
 
- * Using an HA load balancer like [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.12/), or the internal [Layer 4 load balancer](/mesosphere/dcos/1.12/networking/load-balancing-vips/).
+ * Using an HA load balancer like [Marathon-LB](/mesosphere/dcos/services/marathon-lb/), or the internal [Layer 4 load balancer](/mesosphere/dcos/1.12/networking/load-balancing-vips/).
  * Building apps in accordance with the [12-factor app](http://12factor.net/) manifesto.
  * Following REST best practices when building services: in particular, avoiding storing client state on the server between requests.
 

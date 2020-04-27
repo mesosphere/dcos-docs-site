@@ -107,7 +107,7 @@ A private agent node is an agent node that is on a network that *does not allow*
 A public agent node is an agent node that is on a network that **allows** access from outside of the cluster via the cluster’s infrastructure networking.
 
 - The Mesos agent on each public agent node is configured with the `public_ip:true` agent attribute and all of its resources allocated to the `slave_public` role.
-- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.12/) or [Edge-LB](/mesosphere/dcos/services/edge-lb/1.2/).
+- Public agent nodes are used primarily for externally facing reverse proxy load balancers, like [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) or [Edge-LB](/mesosphere/dcos/services/edge-lb/).
 - Clusters generally have only a few public agent nodes, because a single load balancer can handle proxying multiple services.
 
 For more information, see [Converting Agent Node Types](/mesosphere/dcos/1.12/administering-clusters/convert-agent-type/).

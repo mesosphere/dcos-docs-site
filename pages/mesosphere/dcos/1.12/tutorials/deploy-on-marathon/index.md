@@ -22,7 +22,7 @@ The project used in this tutorial is taken from the [cd-demo][4] repository and 
 
 ## Accessing Jenkins for DC/OS
 
-Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menus within the [DC/OS GUI](/mesosphere/dcos/gui/).
+Jenkins for DC/OS can be accessed through the Dashboard or Services navigation menus within the [DC/OS GUI](/mesosphere/dcos/1.12/gui/).
 
 Click the “Jenkins” service and then "Open Service" to access the Jenkins GUI.
 

@@ -37,7 +37,7 @@ A comprehensive overview of a few common service discovery implementations is av
 
 ## Is it possible to span my cluster over different cloud providers?
 
-This is not currently supported. For more information, see [this document](/mesosphere/dcos/1.12/installing/oss/high-availability/).
+This is not currently supported. For more information, see [this document](/mesosphere/dcos/1.12/overview/high-availability/).
 
 ## How can I upload files to Spark driver/executor?
 
