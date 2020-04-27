@@ -47,7 +47,7 @@ The DC/OS {{ model.techName }} service allows you to deliver to the `DC/OS clust
 
 1. In the DC/OS catalog/universe, select {{ model.techName }}, which will show you the following package description.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/inst01.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst01.png)
+[<img src="/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst01.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst01.png)
 
 Figure 1. {{ model.techName }} package
 
@@ -55,25 +55,25 @@ Figure 1. {{ model.techName }} package
 
 3. In the service section fill in the proxy hostname with the hostname of the public agent noted down earlier.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/inst02.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst02.png)
+[<img src="/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst02.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst02.png)
 
 Figure 2. Service section
 
 4. If `minio` and `DC/OS` default credentials are available, then you are ready to select **Review & Run**. Otherwise the next two steps show how to configure your specific credentials.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/inst03.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst03.png)
+[<img src="/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst03.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst03.png)
 
 Figure 3. Default credentials available
 
 5. Configure the `minio` credentials as shown on the following screen.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/inst04.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst04.png)
+[<img src="/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst04.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst04.png)
 
 Figure 4. `Minio` credentials
 
 6. Configure the `DC/OS` credentials as shown on the following screen.
 
-[<img src="/services/spinnaker/0.3.1-1.9.2/img/inst05.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst05.png)
+[<img src="/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst05.png" alt="{{ model.techName }} Quick Start"/>](/mesosphere/dcos/services/spinnaker/0.3.1-1.9.2/img/inst05.png)
 
 Figure 5. DC/OS credentials
 
