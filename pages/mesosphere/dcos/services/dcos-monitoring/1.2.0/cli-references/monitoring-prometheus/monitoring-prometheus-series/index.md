@@ -41,4 +41,4 @@ dcos monitoring prometheus series up mesos_master_disk_total --start=1557230502 
 
 | Command | Description |
 |---------|-------------|
-| [dcos monitoring prometheus](../monitoring-prometheus/) |  Query the Prometheus endpoint |
+| [dcos monitoring prometheus](../) |  Query the Prometheus endpoint |

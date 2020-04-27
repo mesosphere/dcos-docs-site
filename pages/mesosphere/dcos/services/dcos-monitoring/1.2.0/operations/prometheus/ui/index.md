@@ -35,7 +35,7 @@ This step is not required if the users are not using the [`generatorURL`](https:
 
 ## Access through Marathon LB
 
-You can also choose to access the Prometheus UI through [Marathon LB](https://docs.mesosphere.com/services/marathon-lb/1.12.x/) by configuring the service.
+You can also choose to access the Prometheus UI through [Marathon LB](/mesosphere/dcos/services/marathon-lb/) by configuring the service.
 
 You must configure `prometheus.marathon_lb_proxy.vhost` field to be the Fully Qualified Domain Name (FQDN) for the service.
 This is typically your cloud load balancer FQDN (e.g., ELB).

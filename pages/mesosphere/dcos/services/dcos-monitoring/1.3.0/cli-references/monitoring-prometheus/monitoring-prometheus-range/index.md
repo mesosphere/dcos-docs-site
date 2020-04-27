@@ -36,4 +36,4 @@ dcos monitoring prometheus range <query> --start=<start> --end=<end> --step=<ste
 
 | Command | Description |
 |---------|-------------|
-| [dcos monitoring prometheus](../monitoring-prometheus/) |  Query the Prometheus endpoint |
+| [dcos monitoring prometheus](../) |  Query the Prometheus endpoint |

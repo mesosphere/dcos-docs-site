@@ -34,4 +34,4 @@ dcos monitoring prometheus query <query> [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos monitoring prometheus](../monitoring-prometheus/) |  Query the Prometheus endpoint |
+| [dcos monitoring prometheus](../) |  Query the Prometheus endpoint |
