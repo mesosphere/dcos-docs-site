@@ -193,5 +193,5 @@ deploy (IN_PROGRESS)
 
 ## Test your multi-datacenter configuration
 
-Follow the [quick start guide](/mesosphere/dcos/services/cassandra/2.0.3-3.0.14/quick-start/) to write data to one cluster. Then, use the client on the other cluster to ensure the data has propagated.
+Write data into the first cluster. Then, use the client on the second cluster to ensure the data has propagated.
 
