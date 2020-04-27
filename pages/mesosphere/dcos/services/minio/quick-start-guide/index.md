@@ -42,7 +42,7 @@ dcos package install {{ model.packageName }}
 
 You should see a response similar to this:
   
-  [<img src="../img/Package_installed.png" />](../img/Package_installed.png)
+  [<img src="../0.1.2/img/Package_installed.png" />](../0.1.2/img/Package_installed.png)
 
 
 ## Via the web interface
@@ -52,19 +52,19 @@ Shown below are the steps to install {{ model.techName }} using the DC/OS Catalo
 1. Navigate to the **Catalog** screen and choose **{{ model.packageName }}** from the list.
 
 1. The **{{ model.packageName }}** package appears on the screen as shown below: 
-    [<img src="../img/Catalog_Service_View.png" />](../img/Catalog_Service_View.png)
+    [<img src="../0.1.2/img/Catalog_Service_View.png" />](../0.1.2/img/Catalog_Service_View.png)
     Figure 1. - **{{ model.packageName }}** package  
 
 1. Click on the package and edit the configuration accordingly. Then click the **Review & Run** button to run the service.
-    [<img src="../img/Node_Count1.png" alt="Node Count"/>](../img/Node_Count1.png)
+    [<img src="../0.1.2/img/Node_Count1.png" alt="Node Count"/>](../0.1.2/img/Node_Count1.png)
     Figure 2. - Edit Configuration
 
 1. Once the service is started, verify that all the nodes are up and running by viewing the Tasks tab.
-    [<img src="../img/Running_Stage1.png" alt="Running Stage"/>](../img/Running_Stage1.png)
+    [<img src="../0.1.2/img/Running_Stage1.png" alt="Running Stage"/>](../0.1.2/img/Running_Stage1.png)
     Figure 3. - Verify service is up and running
 
 1.  Check the output log to verify that all the nodes of the DC/OS {{ model.techName }} server are up and running.
-    [<img src="../img/Successful_Execution1.png" alt="Successful Execution"/>](../img/Successful_Execution1.png)
+    [<img src="../0.1.2/img/Successful_Execution1.png" alt="Successful Execution"/>](../0.1.2/img/Successful_Execution1.png)
     Figure 4. - Service is installed successfully
 
 
