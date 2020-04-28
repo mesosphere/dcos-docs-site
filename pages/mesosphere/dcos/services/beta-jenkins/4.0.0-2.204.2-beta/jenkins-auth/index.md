@@ -184,7 +184,7 @@ dcos package install --options=config.json beta-jenkins
 ---
 # Quota enforced Multi-Tenant Jenkins
 
-The DC/OS Jenkins service starting with DC/OS 2.0 supports multi-tenancy. Users should familiarize themselves with [Quota](../../../../2.0/multi-tenancy/quota-management) and [Resource Managment Primitives](../../../../2.0/multi-tenancy/resource-mgmt-primitives/) in DC/OS.
+The DC/OS Jenkins service starting with DC/OS 2.0 supports multi-tenancy. Users should familiarize themselves with [Quota](/mesosphere/dcos/latest/multi-tenancy/quota-management) and [Resource Managment Primitives](/mesosphere/dcos/latest/multi-tenancy/resource-mgmt-primitives/) in DC/OS.
 
 **Note:** We will use `/dev/jenkins` as the name of the service for the quota enabled multi-tenant examples below.
 - DC/OS 2.0 and later clusters
@@ -287,4 +287,4 @@ To install the service, complete the following command.
 dcos package install --options=config.json beta-jenkins
 ```
 
-Please see the [Jenkins documentation](../custom-install/index.md) for more information about how to use the JSON file to install the service.
+Please see the [Jenkins documentation](/mesosphere/dcos/services/beta-jenkins/4.0.0-2.204.2-beta/custom-install) for more information about how to use the JSON file to install the service.
