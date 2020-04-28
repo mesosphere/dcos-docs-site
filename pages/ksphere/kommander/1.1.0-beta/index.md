@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Welcome to Kommander
-title: Welcome to Kommander
+navigationTitle: Kommander 1.1 Beta
+title: Kommander 1.1 Beta Documentation
+version: 1.1 Beta
 featureMaturity:
- 
+
 category: K-Sphere
 menuWeight: 0
 ---
