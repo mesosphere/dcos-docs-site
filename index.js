@@ -334,6 +334,7 @@ if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
             [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
             'layouts/**/*': '**/*.pug',
         },
+        livereload: true,
     }));
     CB.use(timer('CB: Watch'));
 }
