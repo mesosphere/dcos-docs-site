@@ -43,3 +43,11 @@ Using project ConfigMaps and project Secrets you can define configuration resour
 ## Platform Services
 
 Platform Services provide a catalog of applications you can deploy across all project clusters. See [Addon Catalog](/ksphere/kommander/latest/projects/addon-catalog) for more information
+
+## Quotas
+
+Quotas can be set to constrain resource usage. Quotas are applied to all project clusters.
+
+Kommander provides a set of default resources you can set Quotas for, or you can define Quotas for custom resources. It is recommended to set Quotas for CPU and Memory.
+
+![Adding a custom Quota](/ksphere/kommander/1.1.0-beta/img/project-quotas-add-custom.png)
