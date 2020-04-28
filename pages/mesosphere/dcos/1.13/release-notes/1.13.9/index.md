@@ -5,7 +5,7 @@ title: Release notes for 1.13.9
 menuWeight: 0
 excerpt: Release notes for DC/OS 1.13.9, including Open Source attribution, and version policy.
 ---
-DC/OS&trade; 1.13.9 was released on ?? April 2020.
+DC/OS&trade; 1.13.9 was released on 29 April, 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.9/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -20,16 +20,14 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 ## Components
 
-DC/OS 1.13.8 includes the following component versions:
+DC/OS 1.13.9 includes the following component versions:
 
 - Apache&reg; Mesos&reg; 1.8.2-dev
 
 ### DC/OS Fixed and Improved Issues
 
-- Fixed an issue introduced in 1.13.8 that caused a crashloop of dcos-net when reconciling L4LB. This issue was preventing users to successfully upgrade their DC/OS version. (COPS-6002)
+- Fixed an issue introduced in 1.13.8 that caused a crashloop of dcos-net when reconciling L4LB. This issue was preventing users from successfully upgrading their DC/OS instance. (COPS-6002)
 
-- D2IQ-66988
- 
 - Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
 
 - DC/OS no longer increases the rate limit for `journald` logging. Scale testing demonstrated that raising the limit can overload `journald`, causing stress for other components. The default of 10000 messages per 30 seconds appears to distinguish well between busy components and excessively verbose components. (D2IQ-53763, COPS-5830)
@@ -48,7 +46,7 @@ DC/OS 1.13.8 includes the following component versions:
 
 ## Components
 
-DC/OS 1.13.8 includes the following Marathon&trade; component version:
+DC/OS 1.13.9 includes the following Marathon&trade; component version:
 
 - Marathon 1.8.239
 
@@ -59,5 +57,3 @@ DC/OS 1.13.8 includes the following Marathon&trade; component version:
 - Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (MARATHON-8719, COPS-5617)
 
 - Fixed a regression access issue in Marathon 1.8 where users were unable to kill a single task without full access to all app definitions. (COPS-5951, Marathon-8731)
-
-
