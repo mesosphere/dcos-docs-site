@@ -1,5 +1,6 @@
 // Packages
 const fs = require('fs');
+const minimatch = require('minimatch');
 const Metalsmith = require('metalsmith');
 const markdown = require('metalsmith-markdownit');
 const layouts = require('metalsmith-layouts');
@@ -140,6 +141,36 @@ const CB = branch();
 // Start timer
 CB.use(timer('CB: Init'));
 
+
+const neededToBuildMainMenu = [
+  "index.md",
+  "mesosphere/index.md",
+  "mesosphere/dcos/index.md",
+  `mesosphere/dcos/${MS._metadata.dcosDocsLatest}/index.md`,
+  "ksphere/index.md",
+  "ksphere/dispatch/index.md",
+  `ksphere/dispatch/${MS._metadata.dispatchDocsLatest}/index.md`,
+  "ksphere/konvoy/index.md",
+  `ksphere/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
+  "ksphere/kommander/index.md",
+  `ksphere/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
+]
+if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
+  CB.use((files, _, done) => {
+    Object
+      .keys(files)
+      .filter(file =>
+        file.match(/\.md$/)
+          && !neededToBuildMainMenu.includes(file)
+          &&!minimatch(file, RENDER_PATH_PATTERN))
+      .forEach(file => {
+        // remove all md-files outside the rendering-path to save a lot of compilation later on
+        delete files[file];
+      });
+    done();
+  })
+}
+
 CB.use(ignore(METALSMITH_SKIP_SECTIONS));
 CB.use(timer('CB: Ignore'));
 
@@ -259,21 +290,7 @@ CB.use(permalinks());
 CB.use(timer('CB: Permalinks'));
 
 // Layouts
-if (!RENDER_PATH_PATTERN) {
-    // Default: Render all pages.
-    CB.use(layouts({
-        engine: 'pug',
-        cache: true,
-    }));
-} else {
-    // Dev optimization: Only render within a specific path (much faster turnaround)
-    // For example, 'services/beta-cassandra/latest/**'
-    CB.use(layouts({
-        engine: 'pug',
-        pattern: RENDER_PATH_PATTERN,
-        cache: true,
-    }));
-}
+CB.use(layouts({ engine: 'pug', cache: true }));
 CB.use(timer('CB: Layouts'));
 
 //
