@@ -186,9 +186,9 @@ chmod 600 /var/lib/dcos/pki/tls/private/adminrouter-external.key
 Proceed with the installation as described in the [documentation of the Installer](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
 
 ## Verify installation
-One method for verifying that the DC/OS Enterprise cluster was installed properly with the custom external certificate is to initiate a TLS connection to Admin Router which, after installation, will present the custom external certificate for the configured server names. In order to do this, specify a server name in the request that will match one of the entries in `external_certificate_servernames`.
+To verify that the DC/OS Enterprise cluster was installed correctly with the custom external certificate, initiate a TLS connection to Admin Router which will present the custom external certificate for the configured server names. In order to do this, specify a server name in the request that will match one of the entries in `external_certificate_servernames`.
 
-Provided that you have a CA certificate signed signed external certificate/external certificate intermediate chain, the following command can be executed:
+Provided that you have the CA root certificate for the signed external certificate, the following command can be executed:
 
 ```bash
 openssl s_client -connect <public_ip_master_node_X>:443 -showcerts -servername <one of configured server names> -verifyCAfile <path to the CA file that signed external certificate/external certificate intermediate chain>  | grep -e "s:" -e "i:" -e "return code:" | grep -e "s:" -e "i:" -e "return code:"
