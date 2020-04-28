@@ -105,10 +105,12 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.6.0
     addonsList:
     ...
 ```
+
+<p class="message--note"><strong>NOTE: </strong>The <code>configVersion</code> string value is of the form: <code>stable-a.b-x.y.z</code>.</p>
 
 During the addons upgrade process, Konvoy upgrades the platform service addons or installs any additional addons specified in the `cluster.yaml` file.
 
@@ -165,7 +167,7 @@ spec:
       version: v3.13.2
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.6.0
     addonsList:
     ...
     - name: helm

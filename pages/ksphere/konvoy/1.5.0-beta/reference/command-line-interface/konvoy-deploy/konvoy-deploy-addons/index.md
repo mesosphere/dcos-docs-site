@@ -23,9 +23,10 @@ konvoy deploy addons [flags]
 ### Options
 
 ```
-  -h, --help      help for addons
-      --verbose   enable debug level logging
-  -y, --yes       run command without prompting
+  -h, --help                help for addons
+      --skip-state-upload   skip the upload of the state to Kubernetes cluster
+      --verbose             enable debug level logging
+  -y, --yes                 run command without prompting
 ```
 
 ### SEE ALSO

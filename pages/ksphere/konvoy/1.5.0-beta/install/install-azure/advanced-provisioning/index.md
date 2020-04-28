@@ -62,7 +62,7 @@ spec:
     count: 3
     machine:
       rootVolumeSize: 80
-      rootVolumeType: Standard_LRS
+      rootVolumeType: StandardSSD_LRS
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
@@ -256,7 +256,7 @@ spec:
     count: 3
     machine:
       rootVolumeSize: 80
-      rootVolumeType: Standard_LRS
+      rootVolumeType: StandardSSD_LRS
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
        imagefsVolumeType: Standard_LRS

@@ -39,6 +39,8 @@ deploy and manage Kubernetes clusters
 * [konvoy image](./konvoy-image/)	 - Run Konvoy CLI images related actions
 * [konvoy init](./konvoy-init/)	 - Create the provision and deploy configuration with default values
 * [konvoy provision](./konvoy-provision/)	 - Provision the nodes according to the provided Terraform variables file
+* [konvoy pull](./konvoy-pull/)	 - Pull cluster state
+* [konvoy push](./konvoy-push/)	 - Push cluster state
 * [konvoy reset](./konvoy-reset/)	 - Remove any modifications to the nodes made by the installer, and cleanup file artifacts
 * [konvoy scale](./konvoy-scale/)	 - Changes the node pool's number of machines in the cluster configuration
 * [konvoy uncordon](./konvoy-uncordon/)	 - Marks nodes in the node pool as schedulable

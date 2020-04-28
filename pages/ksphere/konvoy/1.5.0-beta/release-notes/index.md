@@ -15,6 +15,74 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.5.0-beta.1 - April 26 March 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.8 |
+
+#### Improvements
+
+-   New cluster autoscaling feature for `aws` and `azure` provisioners. To enable, set the `autoscaling` field in your `cluster.yaml` similar to the below example:
+
+    ```yaml
+    kind: ClusterProvisioner
+    apiVersion: konvoy.mesosphere.io/v1beta1
+    spec:
+      provider: aws
+      nodePools:
+      - name: autoscaled-workers
+        count: 5
+        machine:
+          imageID: ami-01ed306a12b7d1c96
+          rootVolumeSize: 80
+          rootVolumeType: gp2
+          imagefsVolumeEnabled: true
+          imagefsVolumeSize: 160
+          imagefsVolumeType: gp2
+          imagefsVolumeDevice: xvdb
+          type: m5.2xlarge
+        autoscaling:
+          minSize: 2
+          maxSize: 10
+    ```
+
+    You will also use the new `konvoy pull` and `konvoy push` commands to upload the cluster state to the Kubernetes API, and sync your local `cluster.yaml` and terraform state from the Kubernetes API.
+-   Print more logs for debugging when using `konvoy up --verbose`. This shows the output of `kubeadm token create --print-join-command`.
+-   Add `AWS_SDK_LOAD_CONFIG` to the konvoy docker image, so `konvoy` can use the AWS ClI configuration.
+-   Configmaps are now encrypted at rest in etcd in all new clusters.
+-   Default Azure machine root volume, for the control plane, has been changed to `StandardSSD_LRS` to improve performance.
+-   Improve the `konvoy config images` commands to skip trying to `load` or `pull` images when they are already available in local docker agent.
+-   New preflight check to validate if the `/var/lib/etcd` directory is empty.
+-   Nodes with an empty `node_pool` property, in the `inventory.yaml` file, are now automatically labeled `konvoy.mesosphere.com/node_pool=konvoy.mesosphere.com_control-plane`, for the control-plane nodes, and `konvoy.mesosphere.com/node_pool=konvoy.mesosphere.com_no-node-pool` for the worker nodes. All other nodes will continue to be labeled `konvoy.mesosphere.com/node_pool=<node_pool>`.
+-   Support named worker pools in the `v1beta2` API. You can now delete a worker pool without affecting other node pools.
+-   When running `konvoy up`, and upgrades are required but no `--upgrade` flag is passed, the user is presented with a confirmation prompt instead of failing.
+-   Add `ps axfwwu` output to the diagnostics bundle.
+-   Remove the validation requiring the SSH key in the ssh-agent, when using bastion nodes. This is no longer required and the key may be used directly instead of specifying its location in the `cluster.yaml` flle.
+
+#### Bug fixes
+
+- Fix a bug where the `HTTP_PROXY` environment variable, set on the cluster hosts, could prevent successful installation.
+- Fix a bug where running `konvoy reset` fails on Ubuntu, when removing Deb packages.
+- Fix a bug where setting `spec.addons.helmRepository` and `spec.kubernetes.networking.httpProxy` prevents the addons from being installed.
+
+#### Addons Improvements
+
+- Add revision to print columns of `(Cluster)Addons`.
+- Support pull request refs.
+- Remove `AddonsDeployments` type.
+- Add annotation to default storage class check.
+- Addon status improvements for deploying and waiting on dependencies.
+- Add updates for KUDO instances.
+
+#### Component version changes
+
+- kubernetes-base-addons `stable-1.16-1.6.0`
+- kubeaddons-kommander `testing-1.16-1.1.0-beta.2`
+- kubeaddons-dispatch `stable-1.16-1.1.0`
+
 ### Version v1.5.0-beta.0 - April 9 March 2020
 
 | Kubernetes Support | Version |

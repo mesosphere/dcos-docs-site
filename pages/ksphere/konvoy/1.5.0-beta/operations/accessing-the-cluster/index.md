@@ -40,6 +40,26 @@ This UI is hosted on a web application within the cluster, which runs on the clu
 
 You will then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to addon services such as Grafana.
 
+<p class="message--important"><strong>IMPORTANT: </strong>When using an automated provisioner, you should not delete the load balancer created by the cloud provider for the traefik service. If the load balancer is deleted, you can follow the steps below to regain access to the ops-portal.</p>
+
+1.  Recreate the `Service` resource for `traefik-kubeaddons` in the `kubeaddons` namespace. If you do not have `jq`, save the output of `kubectl get service` to a file, remove the `status:` value, and `kubectl apply -f` the file.
+
+    ```bash
+    kubectl get service -n kubeaddons traefik-kubeaddons -o json | jq 'del(.status)' | kubectl apply -f -
+    ```
+
+1.  Delete the `traefik` pods and let Kubernetes recreate them, this will cause a few other pods to restart with the new configuration.
+
+    ```bash
+    kubectl delete pods -n kubeaddons -l release=traefik-kubeaddons
+    ```
+
+1.  Retrieve the new address.
+
+    ```bash
+    konvoy get ops-portal
+    ```  
+
 ## Using kubectl
 
 One of the most common ways to perform administrative tasks and interact with a Kubernetes cluster is through the `kubectl` command line interface.
