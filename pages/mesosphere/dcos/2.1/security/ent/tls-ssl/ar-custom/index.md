@@ -62,7 +62,7 @@ Path to a file (relative to `$DCOS_INSTALL_DIR`) containing a single X.509 leaf 
 
 If provided, this is the custom external certificate.  If not provided, the DC/OS cluster uses a unique leaf certificate generated during the initial bootstrap phase signed by DC/OS CA and presents it to the clients.
 
-See the `external_certificate_validation_disable` parameter on the validation that the external certificate undergoes and how can it be overridden.
+See the `external_certificate_validation_disable` parameter on the validation that the external certificate undergoes and how it can be overridden.
 
 ## external_certificate_key_path
 Path to a file (relative to `$DCOS_INSTALL_DIR`) containing the private key corresponding to the custom external certificate, encoded in the OpenSSL (PKCS#8) PEM format. For example: `genconf/external-certificate-key.key`.
@@ -122,7 +122,7 @@ certificate's PEM, the chain itself must:
   signing its predecessor and being signed by its successor
   - each intermediate CA cert must be a valid CA cert (expiration, etc...)
 
-In case when these restrictions are too strict, user can override them, by
+In case when these restrictions are too strict, the user can override them by
 setting the `external_certificate_validation_disable` to `false`.
 
 # Installing DC/OS Enterprise with a custom external certificate
