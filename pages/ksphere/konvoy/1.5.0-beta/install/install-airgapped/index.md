@@ -9,9 +9,6 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an air-gapped environment.
-**IMPORTANT** air-gapped installation is still in Beta and the process may change in the future.
-
 # Before you begin
 
 Before installing, verify that your environment meets the following basic requirements:
@@ -77,10 +74,10 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.16-1.5.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.16-1.1.0-beta.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.0.1 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.16-1.6.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.16-1.1.0-beta.2,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.1.0 [--cluster-name <your-specified-name>]
    ```
 
-   **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
+<p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _.</code></p>
 
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
@@ -94,16 +91,16 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: stable-1.16-1.5.0
+       configVersion: stable-1.16-1.6.0
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-      configVersion: stable-1.16-1.0.1
+      configVersion: stable-1.16-1.1.0
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: stable-1.16-1.1.0-beta.0
+      configVersion: testing-1.16-1.1.0-beta.2
       addonsList:
       - name: kommander
         enabled: true
@@ -332,20 +329,20 @@ spec:
 ...
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.16-1.5.0
+    configVersion: stable-1.16-1.6.0
     helmRepository:
       image: mesosphere/konvoy-addons-chart-repo:v1.4.2
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.16-1.0.1
+    configVersion: stable-1.16-1.1.0
     helmRepository:
       image: mesosphere/konvoy-addons-chart-repo:v1.4.2
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: stable-1.16-1.1.0-beta.0
+    configVersion: testing-1.16-1.1.0-beta.2
     helmRepository:
       image: mesosphere/konvoy-addons-chart-repo:v1.4.2
     addonsList:
@@ -450,7 +447,7 @@ For more information on how to mount local volumes, see the [Operations][static_
 
 Note that if your stateful workload is using a [local persistent volume][local_persistent_volume], it cannot be moved to a different node.
 If the node fails, the stateful workload might lose its data.
-If you cannot tolerate this limitation, you should consider other storage options.
+You should consider another storage option if this limitation is unacceptable.
 
 # Pre-flight checks
 

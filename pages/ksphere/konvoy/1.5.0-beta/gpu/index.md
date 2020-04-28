@@ -73,7 +73,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.6.0
     addonsList:
     - name: nvidia
       enabled: true
@@ -91,7 +91,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.6.0
     addonsList:
     - name: nvidia
       enabled: true
@@ -144,7 +144,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.6.0
     addonsList:
 ......
     - name: nvidia

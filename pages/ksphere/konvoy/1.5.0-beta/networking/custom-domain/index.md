@@ -124,6 +124,19 @@ To configure custom certificates for your domain:
             caSecretName: custom-cert
       ```
 
+1.  Update `ClusterConfiguration` spec of your cluster.yaml with the custom domain name. That will allow you to login to cluster using kubectl
+
+      ```yaml
+      kind: ClusterConfiguration
+      apiVersion: konvoy.mesosphere.io/v1beta1
+      spec:
+        kubernetes:
+          controlPlane:
+            certificate:
+              subjectAlternativeNames:
+              -  <custom domain>
+      ```
+
 1.  Install `konvoy`.
 
     ```shell

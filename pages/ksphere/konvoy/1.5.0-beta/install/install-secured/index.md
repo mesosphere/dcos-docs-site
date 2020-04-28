@@ -9,9 +9,6 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-This section describes how to prepare your environment and install Konvoy in an air-gapped environment.
-<p class="message--important"><strong>IMPORTANT: </strong>Air-gapped installation is still in Beta and the process may change in the future.</p>
-
 # Before you begin
 
 Before installing, ensure that your environment has the following basic requirements:

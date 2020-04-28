@@ -181,6 +181,16 @@ provider "aws" {
 }
 ```
 
+By default, running `konvoy down` cleans resources such as load balancers and volumes created by Kuberenetes, which is disabled by the `--skip-clean-kubernetes` flag.
+To clean these resources, you need set the environment variable `AWS_SDK_LOAD_CONFIG=true` and have the following file as `$HOME/.aws/config`:
+
+```text
+[default]
+role_arn = arn:aws:iam::123123123123213213:role/the-role-name
+credential_source = Ec2InstanceMetadata
+region = us-west-2
+```
+
 ## Using existing infrastructure
 
 <p class="message--note"><strong>NOTE: </strong> The following steps require the creation of a <tt>cluster.yaml</tt> configuration file. If you do not already have that file, create it by running <tt>konvoy init</tt>.</p>

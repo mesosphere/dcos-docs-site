@@ -116,7 +116,7 @@ spec:
   - name: worker
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: stable-1.16-1.6.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -190,12 +190,12 @@ spec:
     - name: velero
       enabled: true
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.1.0
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: stable-1.16-1.0.0
+    configVersion: testing-1.16-1.1.0-beta.2
     addonsList:
     - name: kommander
       enabled: true
