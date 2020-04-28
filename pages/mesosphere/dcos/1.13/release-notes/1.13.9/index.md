@@ -26,20 +26,9 @@ DC/OS 1.13.8 includes the following component versions:
 
 ### DC/OS Fixed and Improved Issues
 
-- COPS-6002
-
-- COPS-5951
-
-- D2IQ-66990
-
-- D2IQ-66991
+- Fixed an issue introduced in 1.13.8 that caused a crashloop of dcos-net when reconciling L4LB. This issue was preventing users to successfully upgrade their DC/OS version. (COPS-6002)
 
 - D2IQ-66988
-
-- D2IQ-66526
-
-- Marathon-8731
-
  
 - Fixed an issue where in some rare circumstances, after upgrading a cluster from DC/OS 1.11 to DC/OS 1.13 users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
 
@@ -68,4 +57,7 @@ DC/OS 1.13.8 includes the following Marathon&trade; component version:
 - Removed non-host reachable container endpoints from the output of the plaintext /v2/tasks endpoint. (MARATHON-8721, COPS-5791)
 
 - Improved the expunge logic so that it evaluates in the same timely manner that unreachable inactive evaluates. (MARATHON-8719, COPS-5617)
+
+- Fixed a regression access issue in Marathon 1.8 where users were unable to kill a single task without full access to all app definitions. (COPS-5951, Marathon-8731)
+
 
