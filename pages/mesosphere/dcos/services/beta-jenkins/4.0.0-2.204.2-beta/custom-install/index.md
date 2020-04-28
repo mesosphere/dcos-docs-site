@@ -53,7 +53,7 @@ You can perform a custom installation from either the web interface or the CLI.
 
 # Configuration reference
 The exact configuration can change between releases of the DC/OS Jenkins Service, the following links describe options available for each release.
-- [Beta Jenkins 4.0.0-2.204.2 Configuration options.](../options-compatibility-matrix/index.md)
+- [Beta Jenkins 4.0.0-2.204.2 Configuration options.](/mesosphere/dcos/services/beta-jenkins/4.0.0-2.204.2-beta/options-compatibility-matrix/)
 - [Jenkins 3.6.0-2.190.1 Configuration options.](https://github.com/mesosphere/universe/blob/version-3.x/repo/packages/J/jenkins/40/config.json)
 - [Jenkins 3.5.4-2.150.1 Configuration options.](https://github.com/mesosphere/universe/blob/version-3.x/repo/packages/J/jenkins/30/config.json)
 - [Jenkins 3.5.3-2.150.1 Configuration options.](https://github.com/mesosphere/universe/blob/version-3.x/repo/packages/J/jenkins/29/config.json)

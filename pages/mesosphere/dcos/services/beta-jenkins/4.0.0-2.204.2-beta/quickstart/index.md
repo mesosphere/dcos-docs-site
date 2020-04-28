@@ -12,7 +12,7 @@ enterprise: false
 
 As a package available in the Universe, Jenkins for DC/OS can be installed using either the web interface or the DC/OS CLI. With its sensible defaults, you can get up and running very quickly.
 
-**Important:** The default installation will use a `/tmp` directory on the local host to store configuration and build data. This configuration will not scale to accommodate multiple Jenkins masters. In addition, it will result in the loss of data when the agent goes down. Before going into production, you must perform a [custom install](../custom-install/index.md) and set up either a shared file system (recommended) or pin to a single agent.
+**Important:** The default installation will use a `/tmp` directory on the local host to store configuration and build data. This configuration will not scale to accommodate multiple Jenkins masters. In addition, it will result in the loss of data when the agent goes down. Before going into production, you must perform a [custom install](/mesosphere/dcos/services/beta-jenkins/4.0.0-2.204.2-beta/custom-install) and set up either a shared file system (recommended) or pin to a single agent.
 
 # Prerequisites
 
@@ -27,7 +27,7 @@ DC/OS 1.13 or later
 
 - Click **Universe**.
 - Click the **Install Package** button for the Jenkins package.
-- To accept the default settings, click **Install Package** on the pop-up. To customize the installation parameters, click **Advanced Installation** instead. Refer to [Customizing your install](../custom-install/index.md) for more information about each option.
+- To accept the default settings, click **Install Package** on the pop-up. To customize the installation parameters, click **Advanced Installation** instead. Refer to [Customizing your install](/mesosphere/dcos/services/beta-jenkins/4.0.0-2.204.2-beta/custom-install) for more information about each option.
 
 ## Using the CLI
 
@@ -39,7 +39,7 @@ From the CLI, type the following command to install Jenkins for DC/OS.
 dcos package install beta-jenkins
 ```
 
-**Note:** You can use the `--options` flag to pass custom configuration parameters. Refer to [Customizing your install](../custom-install/index.md) for more information.
+**Note:** You can use the `--options` flag to pass custom configuration parameters. Refer to [Customizing your install](/mesosphere/dcos/services/beta-jenkins/4.0.0-2.204.2-beta/custom-install) for more information.
 
 # Verifying your installation
 
