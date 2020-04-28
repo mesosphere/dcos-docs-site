@@ -49,15 +49,12 @@ The benefits of using a custom external certificate for your DC/OS Enterprise cl
 
 In order to install DC/OS Enterprise with a custom external certificate you will need:
 
-- to use the [advanced DC/OS installation method](/mesosphere/dcos/2.1/installing/ent/custom/advanced/). Other installation methods are not supported.
 - A file containing the custom external certificate.
 - A file containing the custom private key.
 
 ## Specifying locations
 
 The filesystem paths to the custom external certificate and custom private key in the `$DCOS_INSTALL_DIR/genconf/` directory on the bootstrap node must be specified in the DC/OS configuration file using, respectively, the `external_certificate_path` and `external_certificate_key_path` parameters. The paths must be relative to `$DCOS_INSTALL_DIR`.
-
-The [Example use cases](#example-use-cases) section below shows how to set these configuration parameters.
 
 # <a name="config-ref"></a>Configuration parameter reference
 ## external_certificate_path
@@ -132,7 +129,7 @@ setting the `external_certificate_validation_disable` to `false`.
 
 ## Prerequisites
 
-- The installation of DC/OS Enterprise via the Advanced Installer has been prepared according to the corresponding [documentation](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/), up to the section [**Install DC/OS**](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos) of that documentation.
+- The installation of DC/OS Enterprise via the Installer has been prepared according to the corresponding [documentation](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/), up to the section [**Install DC/OS**](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos) of that documentation.
 
 - The configuration parameters `external_certificate_path`, `external_certificate_key_path` and `external_certificate_servernames` are specified in the DC/OS configuration file `$DCOS_INSTALL_DIR/genconf/config.yaml` and point to the relevant locations in the file system. Example of commands issued on the bootstrap node:
 
@@ -186,7 +183,7 @@ chmod 600 /var/lib/dcos/pki/tls/private/adminrouter-external.key
 ```
 
 ## Installation
-Proceed with the installation as described in the [documentation of the Advanced Installer](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+Proceed with the installation as described in the [documentation of the Installer](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
 
 ## Verify installation
 One method for verifying that the DC/OS Enterprise cluster was installed properly with the custom external certificate is to initiate a TLS connection to Admin Router which, after installation, will present the custom external certificate for the configured server names. In order to do this, specify a server name in the request that will match one of the entries in `external_certificate_servernames`.
