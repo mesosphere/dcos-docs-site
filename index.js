@@ -19,14 +19,13 @@ const ignore = require('metalsmith-ignore');
 const copy = require('metalsmith-copy');
 
 // Local Plugins
-const reduce = require('./plugins/metalsmith-revision').reduce;
-const restore = require('./plugins/metalsmith-revision').restore;
 const hierarchy = require('./plugins/metalsmith-hierarchy');
 const hierarchyRss = require('./plugins/metalsmith-hierarchy-rss');
 const headings = require('./plugins/metalsmith-headings');
 const algolia = require('./plugins/metalsmith-algolia');
 const inPlace = require('./plugins/metalsmith-in-place-dcos');
 const includeContent = require('./plugins/metalsmith-include-content-dcos');
+const revision = require('./plugins/metalsmith-revision');
 const shortcodes = require('./plugins/metalsmith-shortcodes');
 const wkhtmltopdfLinkResolver = require('./plugins/metalsmith-wkhtmltopdf-link-resolver');
 
@@ -229,11 +228,6 @@ CB.use(hierarchyRss({
 }));
 CB.use(timer('CB: Hierarchy RSS'));
 
-// Filter unmodified files
-if (process.env.NODE_ENV === 'development') {
-    CB.use(reduce());
-    CB.use(timer('CB: Reduce'));
-}
 
 //
 // Slow Plugins
@@ -245,6 +239,12 @@ CB.use(shortcodes({
     shortcodes: shortcodesConfig,
 }));
 CB.use(timer('CB: Shortcodes'));
+
+// Don't rebuild files that have not been touched
+if (process.env.NODE_ENV === 'development') {
+  CB.use(revision);
+  CB.use(timer('CB: Revision'));
+}
 
 // Markdown
 CB.use(markdown({
@@ -296,12 +296,6 @@ CB.use(timer('CB: Layouts'));
 //
 // Slow Plugins End
 //
-
-// Restore unmodified files
-if (process.env.NODE_ENV === 'development') {
-    CB.use(restore());
-    CB.use(timer('CB: Reduce'));
-}
 
 // The expected pattern format doesn't work with regex
 let pathPatternRegex;

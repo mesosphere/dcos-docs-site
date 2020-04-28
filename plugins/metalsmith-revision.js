@@ -1,85 +1,62 @@
-const resolve = require('path').resolve;
-const relative = require('path').relative;
-const fs = require('fs');
-const crypto = require('crypto');
-const debug = require('debug')('metalsmith-revision');
+const { resolve } = require("path");
+const fs = require("fs");
+const crypto = require("crypto");
 
-const defaultOptions = { layout: false, layoutDir: './layouts' };
+const checksum = (str) =>
+  crypto.createHash("md5").update(str, "utf8").digest("hex");
 
-let initialized = false;
+// attributes that are not used to generate a cache-hash. those are the attributes metalsmith sets on a `File` - the frontmatter in particular.
+const attrsToIgnore = ["contents", "stats", "model", "filename"];
+const hashMeta = (meta) =>
+  checksum(
+    Object.keys(meta)
+      .filter((x) => !attrsToIgnore.includes(x))
+      .sort() // somehow the order of keys in metalsmiths' Files changes.
+      .map((key) => meta[key])
+      .reduce((string, value = "") => value + string, "")
+  );
 
-function plugin(opts) {
-  const options = Object.assign({}, defaultOptions, opts);
-  return (files, metalsmith, done) => {
+const loadRevision = (configPath) => {
+  const { contents = {}, meta = {} } = fs.existsSync(configPath)
+    ? JSON.parse(fs.readFileSync(configPath, "utf-8"))
+    : {};
+  return { contents, meta };
+};
 
-    const configPath = resolve(metalsmith._directory, '.revision');
-    const hashTable = { layouts: {}, src: {}, frontmatter: {} };
-    const layoutDirectory = resolve(metalsmith._directory, options.layoutDir);
+module.exports = function (files, metalsmith, done) {
+  const configPath = resolve(metalsmith._directory, ".revision");
 
-    if(!initialized && fs.existsSync(configPath)) {
-      initialized = true;
-      fs.unlinkSync(configPath)
-      debug('Refreshing revision file');
+  const newHashes = { meta: {}, contents: {} };
+  const oldHashes = loadRevision(configPath);
+
+  const unchangedFiles = [];
+  let rebuildAll = false;
+  Object.entries(files).forEach(([file, meta]) => {
+    // only care about markdown files as those are slow to process
+    if (!file.match(/.md$/)) return;
+
+    // a hash out of the contents of this file. this changes, if we e.g. change some markdown.
+    const currentContentsHash = checksum(meta.contents);
+    // a hash to invalidate the whole cache in case we change the frontmatter. imagine you change the `navigationTitle` of a page - now we want ot rebuild everything, as all menus need to be updated accordingly.
+    const currentMetaHash = hashMeta(meta);
+
+    newHashes.contents[file] = currentContentsHash;
+    newHashes.meta[file] = currentMetaHash;
+
+    if (oldHashes.meta[file] !== currentMetaHash) {
+      rebuildAll = true;
     }
 
-    const revision = fs.existsSync(configPath)
-      ? JSON.parse(fs.readFileSync(configPath, 'utf-8'))
-      : { layouts: {}, src: {}, frontmatter: {} };
-
-    if(!metalsmith.revision) {
-      metalsmith.revision = {};
+    if (oldHashes.contents[file] === currentContentsHash) {
+      unchangedFiles.push(file);
     }
-
-    metalsmith.revision.cachedFiles = Object.assign({}, files);
-
-    Object.keys(files).forEach(file => {
-
-      // Src hash
-      const hash = checksum(files[file].contents);
-      hashTable.src[file] = hash;
-
-      // Front-matter hash
-      let frontmatter = Object.assign({}, files[file]);
-      delete frontmatter.contents;
-      delete frontmatter.stats;
-      delete frontmatter.mode;
-      const frontmatterString = JSON.stringify(frontmatter);
-      const frontmatterHash = checksum(frontmatterString);
-      hashTable.frontmatter[file] = frontmatterHash;
-
-      // Do not process file if hash are the same
-      if(revision.src[file] === hash && revision.frontmatter[file] == frontmatterHash) {
-        delete files[file];
-      }
-
+  });
+  fs.writeFileSync(configPath, JSON.stringify(newHashes), "utf-8");
+  if (!rebuildAll) {
+    unchangedFiles.forEach((file) => {
+      delete files[file];
     });
-
-    debug('%s files updated', Object.keys(files).length);
-
-    fs.writeFileSync(configPath, JSON.stringify(hashTable), 'utf-8');
-    done();
   }
-}
 
-function restore(opts) {
-  const options = Object.assign({}, defaultOptions, opts);
-  return (files, metalsmith, done) => {
-    files = metalsmith.revision.cachedFiles;
-
-    debug('%s files restored', Object.keys(files).length);
-
-    done();
-  }
-}
-
-function checksum (str, algorithm, encoding) {
-  return crypto
-    .createHash(algorithm || 'md5')
-    .update(str, 'utf8')
-    .digest(encoding || 'hex');
-}
-
-module.exports = {
-  reduce: plugin,
-  restore: restore
+  done();
 };
