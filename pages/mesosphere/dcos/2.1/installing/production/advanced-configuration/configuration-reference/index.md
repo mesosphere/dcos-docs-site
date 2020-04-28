@@ -105,6 +105,10 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [ca_certificate_chain_path](#ca-certificate-chain-path-enterprise)       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | [exhibitor_tls_required](#exhibitor-tls-required-enterprise)             | When `true` DC/OS will fail to launch when Exhibitor TLS initialization fails [enterprise type="inline" size="small" /]  |
 | [exhibitor_bootstrap_ca_url](#exhibitor-bootstrap-ca-url-enterprise)     | Specify a custom CA service URL for exhibitor TLS bootstrapping. This is an advanced option and should only be used when performing non-standard installations [enterprise type="inline" size="small" /]  |
+| [external_certificate_path](#external-certificate-path-enterprise)                   | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [external_certificate_key_path](#external-certificate-key-path-enterprise)           | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [external_certificate_servernames](#external-certificate-servernames-enterprise)       | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [external_certificate_validation_disable](#external-certificate-validation-disable-enterprise)       | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
 | [license_key_contents](#license-key-contents-enterprise)    | Optional override parameter to provide the license key contents directly in the config.yaml. If this parameter is specified, any key saved to `genconf/license.txt` will be ignored. [enterprise type="inline" size="small" /]  |
 | [iam_ldap_sync_interval](#iam-ldap-sync-interval-enterprise) | Interval in seconds between LDAP synchronization operations. [enterprise type="inline" size="small" /] |
 | [permissions_cache_ttl_seconds](#permissions-cache-ttl-seconds-enterprise)   | The maximum number of seconds for permission changes to propagate through the entire system. [enterprise type="inline" size="small" /] |
@@ -254,11 +258,29 @@ Use this to set up a custom CA certificate. See [using a Custom CA Certificate](
 Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) documentation for a detailed configuration parameter reference. 
 
 ### exhibitor_tls_required [enterprise type="inline" size="small" /]
+
 When `true`, failures during Exhibitor TLS bootstrap will prevent DC/OS from starting. By default, failures are logged and Exhibitor will fallback to insecure mode.
 
 ### exhibitor_bootstrap_ca_url [enterprise type="inline" size="small" /]
 
 Optional parameter used for generating the TLS artifacts for the automated Exhibitor lock-down. This option should only be used when a bootstrap node is unavailable during DC/OS installation.
+
+### external_certificate_path [enterprise type="inline" size="small" /]
+
+Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+
+### external_certificate_key_path [enterprise type="inline" size="small" /]
+
+Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+
+### external_certificate_servernames [enterprise type="inline" size="small" /]
+
+Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+
+### external_certificate_validation_disable [enterprise type="inline" size="small" /]
+
+Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+
 
 ### cluster_docker_credentials
 
