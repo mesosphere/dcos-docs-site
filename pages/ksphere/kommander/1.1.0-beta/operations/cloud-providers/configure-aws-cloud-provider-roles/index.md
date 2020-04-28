@@ -136,7 +136,30 @@ The user you delegate from your role must have a minimum set of permissions. Bel
 }
 ```
 
-To use this option attach the following policy to the role attached to your Kommander cluster.
+Make sure to also add a correct [trust relationship][iam_roles] to the created role.
+The example allows everyone within the same account to `AssumeRole` the created role.
+`YOURACCOUNTRESTRICTION` must be replaced with the AWS Account ID you would like to `AssumeRole` from.
+
+<p class="message--important"><strong>IMPORTANT: </strong>Never add a `*` / wildcard, you would open your account for the whole world.</p>
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {
+        "Service": "ec2.amazonaws.com",
+        "AWS": "arn:aws:iam::YOURACCOUNTRESTRICTION:root"
+      },
+      "Action": "sts:AssumeRole"
+    }
+  ]
+}
+```
+
+To use the role created attach the following policy to the role which is already attached to your Kommander cluster.
+`YOURACCOUNTRESTRICTION` must be replaced with the AWS Account ID where the role you like to `AssumeRole` is saved. Also `THEROLEYOUCREATED` must be replaced with the AWS Role name.
 
 ```json
 {
@@ -176,8 +199,6 @@ EOF
 }
 ```
 
-Refer to the [AWS documentation](https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user.html) for creating a role for an IAM User
-
 In Kommander, select the Workspace associated with the credentials you are adding.
 
 Navigate to **Administration > Cloud Providers** and click the **Add Cloud Provider** button.
@@ -185,7 +206,7 @@ Navigate to **Administration > Cloud Providers** and click the **Add Cloud Provi
 ![Add Cloud Provider](/ksphere/kommander/1.1-beta/img/add-cloud-provider.png)
 
 - Select the Amazon Web Services (AWS) option from the Add Cloud Provider.
-- Ensure "Static" is selected as the Authentication Method.
+- Ensure "Role" is selected as the Authentication Method.
 - Select a name for your cloud provider. Consider choosing a name that matches the AWS user.
 - Enter the Role ARN.
 - You can add an External ID if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
