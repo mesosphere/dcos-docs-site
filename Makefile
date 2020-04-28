@@ -20,9 +20,6 @@ nginx-test: ## Test and run Nginx config
 redirects-replace-old:
 	./scripts/links/redirects_replace_old.sh
 
-build-redirects:
-	npm run crawler
-
 #
 # Build
 #
