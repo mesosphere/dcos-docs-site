@@ -15,6 +15,19 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.5.0-beta.2 - April 28 March 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.8 |
+
+#### Bug fixes
+
+- Fix a bug where `konvoy config images seed` could incorrectly try to load or pull certain images, even when they are already present in the docker agent.
+- Fix a bug that would cause `konvoy init` to fail with `already up-to-date` when using local directories as the addon git repos.
+
 ### Version v1.5.0-beta.1 - April 26 March 2020
 
 | Kubernetes Support | Version |
@@ -49,7 +62,7 @@ enterprise: false
           maxSize: 10
     ```
 
-    You will also use the new `konvoy pull` and `konvoy push` commands to upload the cluster state to the Kubernetes API, and sync your local `cluster.yaml` and terraform state from the Kubernetes API.
+    You will also use the new `konvoy pull` and `konvoy push` commands to upload the cluster state to the Kubernetes API, and sync your local `cluster.yaml` and terraform state from the Kubernetes API. To use the autoscaling feature you need to user `kommander` version `testing-1.16-1.1.0-beta.2`.
 -   Print more logs for debugging when using `konvoy up --verbose`. This shows the output of `kubeadm token create --print-join-command`.
 -   Add `AWS_SDK_LOAD_CONFIG` to the konvoy docker image, so `konvoy` can use the AWS ClI configuration.
 -   Configmaps are now encrypted at rest in etcd in all new clusters.
