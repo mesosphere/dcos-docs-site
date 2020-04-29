@@ -7,8 +7,10 @@ Before creating this pull request, please make sure you have a separate ticket f
 
 
 ## Checklist
-- [ ] Make sure you change all affected versions (e.g. 1.10, 1.11, 1.12, 1.13).
-- [ ] Test all commands and procedures where applicable.
+- [ ] Change all affected versions, if applicable (e.g. 1.13, 2.0, 2.1).
+- [ ] Test all commands and procedures, if applicable.
+- [ ] Create your PR agains Staging, not Master. 
+- [ ] Provide an estimated date for deploying the doc change. Note: Improvements or fixes can be merged ASAP. 
 - [ ] Add [redirects](https://github.com/mesosphere/dcos-docs-site/wiki/Redirects) if you are moving a page.
 
 See the [contribution guidelines](https://github.com/mesosphere/dcos-docs-site/wiki/Contributing) for more information.
