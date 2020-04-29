@@ -62,7 +62,7 @@ enterprise: false
           maxSize: 10
     ```
 
-    You will also use the new `konvoy pull` and `konvoy push` commands to upload the cluster state to the Kubernetes API, and sync your local `cluster.yaml` and terraform state from the Kubernetes API. To use the autoscaling feature you need to user `kommander` version `testing-1.16-1.1.0-beta.2`.
+    You will also use the new `konvoy pull` and `konvoy push` commands to upload the cluster state to the Kubernetes API, and sync your local `cluster.yaml` and terraform state from the Kubernetes API. To use the autoscaling feature, you must set the `kommander` repo to version `testing-1.16-1.1.0-beta.2`.
 -   Print more logs for debugging when using `konvoy up --verbose`. This shows the output of `kubeadm token create --print-join-command`.
 -   Add `AWS_SDK_LOAD_CONFIG` to the konvoy docker image, so `konvoy` can use the AWS ClI configuration.
 -   Configmaps are now encrypted at rest in etcd in all new clusters.
