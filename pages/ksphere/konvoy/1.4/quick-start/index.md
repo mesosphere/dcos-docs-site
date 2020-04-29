@@ -50,7 +50,7 @@ Before starting the Konvoy installation, you should verify the following:
 1.  Check the Kubernetes client version. Many important Kubernetes functions **do not work** if your client is outdated. You can verify that the version of `kubectl` you have installed is supported by running the following command:
 
     ```bash
-    kubectl version --short=true`
+    kubectl version --short=true
     ```
 
 1.  Download and extract the Konvoy package. You will need to download and extract the Konvoy package tarball. There are a couple of ways to get the tarball:
