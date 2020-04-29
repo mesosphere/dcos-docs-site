@@ -9,7 +9,7 @@ beta: true
 model: /mesosphere/dcos/2.1/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
-DC/OS 2.1.0 Beta was released on 27 April, 2020.
+DC/OS 2.1.0 Beta was released on 7 May, 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.1.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -24,24 +24,36 @@ This release provides new features and enhancements to improve the user experien
 
 If you have DC/OS deployed in a production environment, see [Known Issues and Limitations](#known-issues-and-limitations) to see if any potential operational changes for specific scenarios apply to your environment.
 
-- Updated DC/OS UI to master+v2.150.2.
-- Updated to Mesos ???
-- Updated Marathon to ???
+# DC/OS 
 
+## Components
+
+DC/OS 2.1.0 includes the following component versions:
+
+- Apache&reg; Mesos&reg; 1.8.2-dev
+- OpenSSL 1.1.1d	
+- DC/OS UI to master+v2.150.2.
+- Grafana 6.0 
 
 # New Features and Capabilities 
 
-## Multi-Tenancy Support
+### Vertical Container Bursting
 
-DC/OS has improved Multi-Tenancy support by adding quota management for service groups. Specifically, DC/OS enables managing quota limits through UI and CLI for Marathon based and SDK based services. For more details, see [Quota Management](/mesosphere/dcos/2.1/multi-tenancy/quota-management/#quotas). (DCOS-54186) 
+### Resource Limits for Containers
 
-## Resource Limits for Containers
+DC/OS now allows you to set CPU and memory limits on services that are greater than the minimum guaranteed CPU/memory resources specified. This means that services can run with a guarantee of some amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available. For more information, see [Creating Services](/mesosphere/dcos/2.1/deploying-services/creating-services/).
 
-It is now possible to set CPU and memory limits on services that are greater than the minimum guaranteed CPU/memory resources specified. This means that services can run with a guarantee of some amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available. For more information, see [Creating Services](/mesosphere/dcos/2.1/deploying-services/creating-services/).
+### Custom Certificate for Admin Router
 
-# Previous Releases
-To review changes from the most recent previous releases, see the following links:
-- [Release version 1.10.11](/mesosphere/dcos/1.10/release-notes/1.10.11/) - 12 February 2019.
-- [Release version 1.11.12](/mesosphere/dcos/1.11/release-notes/1.11.12/) - 10 October  2019.
-- [Release version 1.12.4](/mesosphere/dcos/1.12/release-notes/1.12.4/) - 2 July 2019.
-- [Release version 1.13.5](/mesosphere/dcos/1.13/release-notes/1.13.5/) - 2 October 2019
+This feature allows operators to provide a custom non-CA certificate that is used by Admin Router for external clients connecting to the cluster.
+
+### Calico for Network Policy
+Calico is now pre-installed in a DC/OS cluster and can be used by containers to join overlay networks and set network policies.
+
+### Jobs support of Container Network
+Metronome based jobs can now join container networks to be able to communicate with other services/jobs in that network.
+
+
+### Domain Sockets for Agent Executor Communication
+
+Agents and Executors now communicate over Unix Domain sockets making operators life easy in the presence of container overlay networks.
