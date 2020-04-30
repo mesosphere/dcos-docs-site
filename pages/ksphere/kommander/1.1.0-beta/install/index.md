@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Quick start
-title: Quick start
+navigationTitle: Install
+title: Install
 menuWeight: 3
 excerpt: Getting started with Kommander
 ---
