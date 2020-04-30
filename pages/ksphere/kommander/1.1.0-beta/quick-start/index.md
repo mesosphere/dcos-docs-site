@@ -55,7 +55,7 @@ konvoy up
 
 After you provision your first Konvoy cluster, your randomly-generated username, password, and a URL to Konvoy are printed to the command-line. Once in Konvoy, you should see a button labelled "Try Kommander". If not, ensure you've installed the Konvoy release that includes Kommander.
 
-![Try Kommander button](/ksphere/kommander/1.1-beta/img/try-kommander.png)
+![Try Kommander button](/ksphere/kommander/1.1.0-beta/img/try-kommander.png)
 
 To retrieve this information again, you can use the following command:
 
