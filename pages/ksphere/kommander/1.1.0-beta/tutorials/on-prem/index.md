@@ -66,7 +66,7 @@ Once you have both `cluster.yaml` file and `inventory.yaml` file, you need to ad
 3. Select **On Premise**.
 4. Enter a name for your provider and insert the full contents of your private ssh key, then hit **Verify** and **Save**.
 
-![On Premise Provider Form with values](/ksphere/kommander/1.1-beta/img/On-prem-provider-with-values.png)
+![On Premise Provider Form with values](/ksphere/kommander/1.1.0-beta/img/On-prem-provider-with-values.png)
 
 ### Launching the cluster
 
@@ -74,11 +74,11 @@ You can now launch your cluster.
 
 Go to the **Clusters** section and select **Add Cluster**.
 
-![Upload YAML](/ksphere/kommander/1.1-beta/img/clusters-header.png)
+![Upload YAML](/ksphere/kommander/1.1.0-beta/img/clusters-header.png)
 
 Select **Upload YAML** to create a cluster.
 
-![Upload YAML](/ksphere/kommander/1.1-beta/img/add-cluster.png)
+![Upload YAML](/ksphere/kommander/1.1.0-beta/img/add-cluster.png)
 
 #### Fill out the form
 

@@ -203,7 +203,7 @@ In Kommander, select the Workspace associated with the credentials you are addin
 
 Navigate to **Administration > Cloud Providers** and click the **Add Cloud Provider** button.
 
-![Add Cloud Provider](/ksphere/kommander/1.1-beta/img/add-cloud-provider.png)
+![Add Cloud Provider](/ksphere/kommander/1.1.0-beta/img/add-cloud-provider.png)
 
 - Select the Amazon Web Services (AWS) option from the Add Cloud Provider.
 - Ensure "Role" is selected as the Authentication Method.

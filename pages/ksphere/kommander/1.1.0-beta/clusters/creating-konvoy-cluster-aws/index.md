@@ -12,7 +12,7 @@ Configured [AWS Cloud Provider](/ksphere/kommander/latest/operations/cloud-provi
 
 ## Simplified Cluster Creation on AWS
 
-![Add Cluster Options](/ksphere/kommander/1.1-beta/img/add-cluster.png)
+![Add Cluster Options](/ksphere/kommander/1.1.0-beta/img/add-cluster.png)
 
 From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide some basic cluster details:
 
