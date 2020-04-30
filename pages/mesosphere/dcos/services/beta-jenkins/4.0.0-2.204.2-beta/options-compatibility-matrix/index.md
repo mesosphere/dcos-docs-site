@@ -26,7 +26,6 @@ service.containerizer | MESOS | advanced.containerizer | DOCKER | Changed & Relo
 service.docker-image | "" | advanced.docker-image | "" | Relocated
 service.docker-credentials-uri | "" | advanced.docker-credentials-uri | "" | Relocated
 service.prometheus-endpoint | "v1/metrics/prometheus" | advanced.prometheus-endpoint | "v1/metrics/prometheus" | Relocated
-service.os-anti-affinity | "windows" | N/A | N/A | Added
 service.storage.host-volume| "" | storage.host-volume | "" | Relocated
 service.storage.pinned-hostname| "" | storage.pinned-hostname | "" | Relocated
 service.marathon-lb.virtual-host | "" | networking.virtual-host | "" | Relocated
@@ -61,20 +60,6 @@ jenkins-agent.linux-agent.offer-selection-attributes | "" | N/A | N/A | Added
 jenkins-agent.linux-agent.jnlp-args | "-noReconnect" | N/A | N/A | Added
 jenkins-agent.linux-agent.idle-termination-minutes | 3 | N/A | N/A | Added
 jenkins-agent.linux-agent.image | "mesosphere/jenkins-dind:0.8.0" | N/A | N/A | Added
----
-### Jenkins Windows Agent Related Options
-4.0.0-2.204.3 |    Default   |    3.6.0-2.190.1    |    Default    |    Notes    
---------------|--------------|---------------------|---------------|-------------
-jenkins-agent.windows-agent.label | "windows" | N/A | N/A | Added
-jenkins-agent.windows-agent.cpus | 1.0 | N/A | N/A | Added
-jenkins-agent.windows-agent.mem | 4096.0 | N/A | N/A | Added
-jenkins-agent.windows-agent.disk | 0.0 | N/A | N/A | Added
-jenkins-agent.windows-agent.max-executors | 1 | N/A | N/A | Added
-jenkins-agent.windows-agent.min-executors | 1 | N/A | N/A | Added
-jenkins-agent.windows-agent.offer-selection-attributes | "os:windows" | N/A | N/A | Added
-jenkins-agent.windows-agent.jnlp-args | "-noReconnect" | N/A | N/A | Added
-jenkins-agent.windows-agent.idle-termination-minutes | 3 | N/A | N/A | Added
-jenkins-agent.windows-agent.image | "mesosphere/jenkins-windows-node:0.1.0" | N/A | N/A | Added
 ---
 ## Jenkins Health-Check Related Options
 4.0.0-2.204.3 |    Default   |    3.6.0-2.190.1    |    Default    |    Notes    
