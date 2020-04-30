@@ -18,7 +18,6 @@ Jenkins 4.0.0-2.204.2
         - Offer-suppression
         - [Universal Container Runtime](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/ucr)
         - [Multi-Tenancy Features](/mesosphere/dcos/latest/multi-tenancy)
-- Support for Windows Agents on DC/OS 2.1
 - Support for configurable Jenkins plugins
     - Removes previous hardcoded list of bundled plugins.
     - A list of user desired plugins can be specified at installation time which will be installed into the service before it is started.
