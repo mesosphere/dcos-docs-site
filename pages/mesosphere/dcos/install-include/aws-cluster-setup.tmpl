@@ -45,10 +45,10 @@
       dcos_variant = "open"
 
       dcos_instance_os             = "centos_7.5"
-      bootstrap_instance_type      = "t2.medium"
-      masters_instance_type        = "t2.medium"
-      private_agents_instance_type = "t2.medium"
-      public_agents_instance_type  = "t2.medium"
+      bootstrap_instance_type      = "m5.large"
+      masters_instance_type        = "m5.2xlarge"
+      private_agents_instance_type = "m5.xlarge"
+      public_agents_instance_type  = "m5.xlarge"
     }
 
     output "masters-ips" {
@@ -73,7 +73,9 @@
 
 4. `region` is a setting that sets the AWS region that this DC/OS cluster will spin up on.  While this setting is currently set to “us-east-1”, it can be changed to any other region (e.g “us-west-1”, “us-west-2”, “us-east-2”, etc). For a complete list, please refer to the [configuration reference](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/).
 
-5. Enterprise users, uncomment/comment the section for the `dcos_variant` to look like this, inserting the location to your license key, and adding superuser credentials if needed. [enterprise type="inline" size="small" /]
+5. The `bootstrap_instance_type`, `masters_instance_type`, `private_agents_instance_type`, and `public_agents_instance_type` variables control which AWS instance type will be used for each node type.  What instance types are available can vary by region and change over time.  Ensure the instance types you select meet [DC/OS' minimum system requirements](/mesosphere/dcos/{{ model.folder_version }}/installing/production/system-requirements/).
+
+6. Enterprise users, uncomment/comment the section for the `dcos_variant` to look like this, inserting the location to your license key, and adding superuser credentials if needed. [enterprise type="inline" size="small" /]
 
     ```hcl
     dcos_variant              = "ee"
@@ -81,7 +83,7 @@
     # dcos_variant = "open"
     ```
 
-6. This sample configuration file will get you started on the installation of an open source DC/OS 1.13.3 cluster with the following nodes:
+7. This sample configuration file will get you started on the installation of an open source DC/OS 1.13.3 cluster with the following nodes:
 
     - 3 Master
     - 2 Private Agents
@@ -95,4 +97,4 @@
     - `cluster-address` The URL you use to access DC/OS UI after the cluster is setup.
     - `public-agent-loadbalancer` The URL of your Public routable services.
 
-7. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.
+8. Check that you have inserted your cloud provider and public key paths to `main.tf`, changed or added any other additional variables as wanted, then save and close your file.
