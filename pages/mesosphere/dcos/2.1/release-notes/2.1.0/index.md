@@ -4,6 +4,7 @@ navigationTitle: Release notes for 2.1.0
 title: Release notes for 2.1.0
 menuWeight: 1
 render: mustache
+beta: true
 model:  /mesosphere/dcos/2.1/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
