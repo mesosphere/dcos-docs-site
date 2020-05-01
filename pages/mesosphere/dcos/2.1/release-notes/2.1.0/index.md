@@ -11,9 +11,9 @@ excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and v
 ---
 DC/OS 2.1.0 Beta was released on 24 April, 2020.
 
-[button color="light" href="https://downloads.dcos.io/dcos/stable/2.1.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://downloads.dcos.io/dcos/testing/2.1.0-beta4/commit/24132bebea79dc1f75dfa295be4542020e8bae11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.1.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="https://downloads.mesosphere.io/dcos-enterprise/testing/2.1.0-beta4/commit/1179b61542093274c2578a5e4a074a751bcbbb1a/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
@@ -28,7 +28,7 @@ If you have DC/OS deployed in a production environment, see [Known Issues and Li
 
 ## Components
 
-DC/OS 2.1.0 includes the following component versions:
+DC/OS 2.1.0 Beta includes the following component versions:
 
 - Apache&reg; Mesos&reg; 1.8.2-dev
 - OpenSSL 1.1.1d	
