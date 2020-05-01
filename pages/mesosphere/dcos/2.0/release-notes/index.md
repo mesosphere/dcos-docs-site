@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Release Notes
 title: Release Notes
-menuWeight: 0
+menuWeight: 2
 excerpt: Release notes, Open Source attribution, and version policy for DC/OS 2.0
 ---
 

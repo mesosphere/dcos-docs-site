@@ -4,7 +4,7 @@ navigationTitle:  Mesosphere DC/OS 2.0
 title: Documentation for Mesosphere DC/OS 2.0
 version: 2.0
 menuWeight: 1
-excerpt: Learning DC/OS
+excerpt: Learning DC/OS 
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
