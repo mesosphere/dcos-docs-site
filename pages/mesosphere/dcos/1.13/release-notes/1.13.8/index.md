@@ -7,7 +7,7 @@ excerpt: Release notes for DC/OS 1.13.8, including Open Source attribution, and 
 ---
 DC/OS&trade; 1.13.8 was released on 19 March 2020.
 
-<p class="message--warning"><strong>WARNING:</strong> The DC/OS 1.13.8 patch has a critical error in its networking stack and we recommend that you do NOT download or install it. Instead, download and install the 1.13.9 patch [here](/mesosphere/dcos/1.13/release-notes/1.13.9/).</p> 
+<p class="message--warning"><strong>WARNING:</strong> The DC/OS 1.13.8 release has a critical error in its networking stack and we recommend that you do NOT download or install it. Instead, download and install the 1.13.9 patch [here](/mesosphere/dcos/1.13/release-notes/1.13.9/).</p> 
   
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.8/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
