@@ -58,14 +58,23 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th></th>
     <th>2.0.1</th>
     <th>2.0.2</th>
+    <th>2.0.3</th>
    </tr>
    <tr>
     <th>2.0.0</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>2.0.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.2</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
    </tr>
