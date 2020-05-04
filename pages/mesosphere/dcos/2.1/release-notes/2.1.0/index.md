@@ -42,13 +42,13 @@ DC/OS now allows you to set CPU and memory limits on services that are greater t
 
 ## Custom Certificate for Admin Router
 
-This feature allows operators to provide a custom non-CA certificate that is used by Admin Router for external clients connecting to the cluster.
+The new Custom Certificates feature allows you to provide a custom non-CA certificate that is used by Admin Router for external clients connecting to a cluster. For more information, see [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/)
 
 ## Calico for Network Policy
 Calico is now pre-installed in a DC/OS cluster and can be used by containers to join overlay networks and set network policies.
 
-## Jobs support of Container Network
-Metronome based jobs can now join container networks to be able to communicate with other services/jobs in that network.
+## Jobs support for Container Network
+Metronome based jobs can now join container networks to communicate with other services/jobs in the same network.
 
 ## Domain Sockets for Agent Executor Communication
 
