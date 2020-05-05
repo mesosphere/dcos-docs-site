@@ -9,7 +9,7 @@ excerpt: Install and Configure Dispatch into an existing Kubernetes Cluster.
 
 # Prerequisites
 
-Before you install Dispatch, check the [Prerequisites](../install/prerequisites/) section to make sure your setup is supported by Dispatch. 
+Before you install Dispatch, check the [Prerequisites](../install/prerequisites/) section to make sure your setup is supported by Dispatch.
 
 * Configure kubectl to point to the correct Kubernetes cluster.
 * Install Tiller.
@@ -55,11 +55,11 @@ To install Dispatch, be sure that you have a cluster with Tiller installed. If y
 ## Install Tiller
 
 
-  ```bash
-  kubectl create serviceaccount -n kube-system tiller
-  kubectl create clusterrolebinding tiller --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-  helm init --wait --service-account tiller
-  ```
+```bash
+kubectl create serviceaccount -n kube-system tiller
+kubectl create clusterrolebinding tiller --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
+helm init --wait --service-account tiller
+```
 
 ## Installing Dispatch into a Cluster via Dispatch CLI
 
@@ -325,7 +325,7 @@ By default, the ArgoCD admin user password is set to the name of first `argocd-s
 
 You can see the name of the pod using:
 
-```
+```bash
 kubectl -n dispatch get pod -l app.kubernetes.io/name=argocd-server
 ```
 
@@ -390,16 +390,17 @@ at [Setting up a repository to use Dispatch](../repo-setup/).
 
 # Install Dispatch into Multiple Clusters
 
-You must configure access to the individual Kubernetes cluster you want to install Dispatch onto. 
+You must configure access to the individual Kubernetes cluster you want to install Dispatch onto.
 
-You must then configure access to multiple Kubernetes clusters. See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).  
+You must then configure access to multiple Kubernetes clusters. See the [Kubernetes documentation](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
-You must set up a <kubernetes context> before executing the `use-context` command; <kubernetes context> defines the Kubernetes SPI server to connect to the user to use to authenticate, and the namespace that the user can access by default. 
+You must set up a <kubernetes context> before executing the `use-context` command; <kubernetes context> defines the Kubernetes SPI server to connect to the user to use to authenticate, and the namespace that the user can access by default.
 
-You must run 
+You must run
 
 ```bash
 kubectl config use-context <kubernetes context>
 ```
+
 before you run `dispatch init`.
 
