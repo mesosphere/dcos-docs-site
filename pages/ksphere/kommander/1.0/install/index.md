@@ -41,7 +41,7 @@ Check version
 konvoy --version
 ```
 
-Once you have the newest version of Konvoy, move into the directory where you would like to test. Please note, you will have to confirm your access to your cloud or internal network provider, or you may encounter a message that says `failed to deploy the cluster: error provisioning cluster`.
+After you have the newest version of Konvoy, move into the directory where you would like to test. Note, you will have to confirm your access to your cloud or internal network provider, or you may encounter a message that says `failed to deploy the cluster: error provisioning cluster`.
 
 Once done, run this command:
 
@@ -53,7 +53,7 @@ konvoy up
 
 ### Logging in with Username and Password
 
-After you provision your first Konvoy cluster, your randomly-generated username, password, and a URL to Konvoy are printed to the command-line. Once in Konvoy, you should see a button labelled "Try Kommander" button at the bottom of the page, or an Apps dropdown menu in the top nav with a Kommander icon. If not, ensure you've installed the Konvoy release that includes Kommander.
+After you provision your first Konvoy cluster, your randomly-generated username, password, and a URL to Konvoy are printed to the command-line. Log in to Konvoy, and look for the "Try Kommander" button. If it's not there, ensure you've installed the Konvoy release that includes Kommander.
 
 To retrieve this information again, you can use the following command:
 
