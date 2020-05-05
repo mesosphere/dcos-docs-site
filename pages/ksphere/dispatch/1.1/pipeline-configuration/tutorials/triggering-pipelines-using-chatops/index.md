@@ -59,23 +59,23 @@ runs the task `test` when there is a pull request when commented with `/test`. H
 
 1. Configure the tests to run in verbose mode, to enable viewing logs as the tests execute. Start by creating a new branch on the hello-world repo:
 
-`git checkout -b verbose-tests`
+    ```bash
+    git checkout -b verbose-tests
+    ```
 
 2. Make the change to the `test` task by changing the `command` to the following:
 
-```
+    ```
     command = [ "go", "test", "-v", "./..." ],
-```
+    ```
 
 3. Add, commit, and push the changes to the git repository.
 
-
-```
-git add Dispatchfile
-git commit -m "Makes tests more verbose"
-git push origin verbose-tests
-```
+    ```
+    git add Dispatchfile
+    git commit -m "Makes tests more verbose"
+    git push origin verbose-tests
+    ```
 
 4. Open a Pull Request on GitHub. If you are unfamiliar, refer to the [following documentation on GitHub](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)
-
 5. Trigger a test by commenting `/test` on our Pull Request. To view the run, navigate to your Dispatch dashboard.

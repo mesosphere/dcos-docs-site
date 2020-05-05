@@ -7,7 +7,7 @@ beta: false
 excerpt: Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 
-This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository. 
+This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository.
 
 # Prerequisites
 
@@ -91,19 +91,25 @@ Rest of the tutorial assumes you are working with `default` namespace for pipeli
 For the purposes of this tutorial, you need at least Github & Docker credentials. At the bare minimum, you should have executed (with appropriate names):
 
 1. Create a service account named team-1
+
     ```bash
     dispatch serviceaccount create team-1
     ```
+
 1. Create a Docker credential
+
     ```bash
     dispatch login docker --service-account team-1
     ```
+
 1. Create a github credential
+
     ```bash
     dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
     ```
 
 1. Create a git SSH credential __only__ if you want to be able to build locally
+
     ```bash
     dispatch login git --service-account team-1 --private-key-path $SSH_KEY_PATH
     ```
@@ -113,6 +119,7 @@ For the purposes of this tutorial, you need at least Github & Docker credentials
 [Refer to this guide for repo setup](../../../repo-setup/).
 
 At the least, you should execute the following:
+
 ```bash
 dispatch ci repository create --service-account=team-1
 ```
@@ -124,35 +131,41 @@ In the next section, we are going to define the build specification in a file na
 In this tutorial, we are going to use [starlark](https://docs.bazel.build/versions/master/skylark/language.html) and create a file named `Dispatchfile` which holds our build specification. This is a step-by-step walk-through of creating our `Dispatchfile`:
 
 1. Declare the DSL (Domain Specific Language) syntax for our `Dispatchfile` using shebang:
+
     ```bash
     #!mesosphere/dispatch-starlark:v0.5-beta1
     ```
+
    This specifies to use version `0.5-beta1` of starlark DSL parser.
 
 1.  [Dispatch Catalog](https://github.com/mesosphere/dispatch-catalog) holds syntactic sugar for reusing various starlark functions that makes your `Dispatchfile` smaller and lets you focus on actual testing aspects. Let's import the following helpers:
     1. `gitResource`: to declare the git repository as a resource that can be sent as input to tasks
     1. `pullRequest`: to declare a condition to trigger the builds whenever a pull request is updated
     1. `kaniko`: to build and publish the Docker image
-    
+
     ```python
     # Import the gitResource, pullRequest, and kaniko helpers from dispatch catalog
-    load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.3", "gitResource", "pullRequest")
-    load("github.com/mesosphere/dispatch-catalog/starlark/stable/kaniko@0.0.3", "kaniko")
+    load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.4", "gitResource", "pullRequest")
+    load("github.com/mesosphere/dispatch-catalog/starlark/stable/kaniko@0.0.4", "kaniko")
     ```
 
 1.  Declare the git resource:
+
     ```python
     git = gitResource("helloworld-git")
     ```
+
     Any valid kubernetes resource name can be chosen here.
 
 1.  Declare a task to build and push the Docker image using [kaniko](https://github.com/GoogleContainerTools/kaniko):
+
     ```python
     # Build and push the docker image
     simple_docker = kaniko(git, "$YOURDOCKERUSERNAME/helloworld")
     ```
 
 1.  Declare a task using above Docker image to run tests:
+
     ```python
     # This is a simple unit test that uses the base golang image to validate the go source code
     task("unit-test-simple",
@@ -163,14 +176,17 @@ In this tutorial, we are going to use [starlark](https://docs.bazel.build/versio
             workingDir="/test",
             command=["go", "test", "./..."])])
     ```
-    We specified the `workingDir` as `/test` as that is the location of our source code. Access to repo source code can be gained by using `git` as one of the inputs and setting `workingDir` to `"/workspace/{}".format(git)`. 
+
+    We specified the `workingDir` as `/test` as that is the location of our source code. Access to repo source code can be gained by using `git` as one of the inputs and setting `workingDir` to `"/workspace/{}".format(git)`.
 
 1.  Define an _Action_ to run the task on every pull request:
+
     ```python
     simpleTasks = ["unit-test-simple"]
     action(tasks=simpleTasks, on=pullRequest())
     action(tasks=simpleTasks, on=pullRequest(chatops=["test"]))
     ```
+
     The first action triggers the `unit-test-simple` task upon creating/updating a pull request. The second action triggers `unit-test-simple` whenever a comment `/test` is made on the pull request.
 
 Hence, The entire `Dispatchfile` becomes:
@@ -180,15 +196,15 @@ cat <<EOF | > Dispatchfile
 #!mesosphere/dispatch-starlark:v0.5-beta1
 # vi:syntax=python
 
-load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.3", "gitResource", "pullRequest")
-load("github.com/mesosphere/dispatch-catalog/starlark/stable/kaniko@0.0.3", "kaniko")
+load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.4", "gitResource", "pullRequest")
+load("github.com/mesosphere/dispatch-catalog/starlark/stable/kaniko@0.0.4", "kaniko")
 
 git = gitResource("helloworld-git")
 
 # Build and push the docker image
 simple_docker = kaniko(git, "$YOURDOCKERUSERNAME/helloworld")
 
-# Use the pushed docker image to run CI 
+# Use the pushed docker image to run CI
 task("unit-test-simple",
     inputs=[simple_docker],
     steps=[k8s.corev1.Container(
@@ -280,11 +296,11 @@ You can look at [logs](../../../operations/logging) of various dispatch componen
 
 # Advanced reading
 
-There may be cases where you may need to have Docker runtime in your CI builds (e.g.: launch a [kind cluster](https://kind.sigs.k8s.io/docs/user/quick-start/) and run tests on it). The [`dindTask`](https://github.com/mesosphere/dispatch-catalog/blob/0.0.3/starlark/stable/docker.star#L14) provided in [dispatch-catalog](https://github.com/mesosphere/dispatch-catalog/) can be used exactly for this purpose. As an example, the `unit-test-simple` task from earlier can be rewritten as follows:
+There may be cases where you may need to have Docker runtime in your CI builds (e.g.: launch a [kind cluster](https://kind.sigs.k8s.io/docs/user/quick-start/) and run tests on it). The [`dindTask`](https://github.com/mesosphere/dispatch-catalog/blob/0.0.4/starlark/stable/docker.star#L19) provided in [dispatch-catalog](https://github.com/mesosphere/dispatch-catalog/) can be used exactly for this purpose. As an example, the `unit-test-simple` task from earlier can be rewritten as follows:
 
 ```python
 # Import the predefined Docker-in-Docker task from Dispatch Catalog.
-load("github.com/mesosphere/dispatch-catalog/starlark/stable/docker@0.0.3", "dindTask")
+load("github.com/mesosphere/dispatch-catalog/starlark/stable/docker@0.0.4", "dindTask")
 
 # This is the same test as above rewritten using Docker-in-Docker image
 dindTask("unit-test-dind",
@@ -297,6 +313,6 @@ dindTask("unit-test-dind",
         "--workdir", "/workspace/{}".format(git),
         "golang:1.14.0",
         "go", "test", "./..."])])
-``` 
+```
 
-This is similar to previous task definition except that this runs [mesosphere/dispatch-dind:1.0.0](https://github.com/mesosphere/dispatch-catalog/blob/0.0.3/starlark/stable/docker.star#L34) Docker-in-Docker image. You can override the image by using `image` field in `Container` definition above and run any arbitrary scripts that require Docker. Explore various other predefined constructs from [dispatch-catalog](https://github.com/mesosphere/dispatch-catalog/) and contribute your own!
+This is similar to previous task definition except that this runs [mesosphere/dispatch-dind:1.0.0](https://github.com/mesosphere/dispatch-catalog/blob/0.0.4/starlark/stable/docker.star#L39) Docker-in-Docker image. You can override the image by using `image` field in `Container` definition above and run any arbitrary scripts that require Docker. Explore various other predefined constructs from [dispatch-catalog](https://github.com/mesosphere/dispatch-catalog/) and contribute your own!

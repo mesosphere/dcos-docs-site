@@ -113,21 +113,28 @@ This section provides a set of instructions for deploying a simple `hello-world`
 
 1. Fork `https://github.com/mesosphere/cicd-hello-world-gitops` to your own account.
 1. Run the following:
+
     ```bash
     dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
     ```
+
 1. Run the following:
+
     ```bash
     dispatch gitops app create hello-world --repository=https://github.com/your-github-user/cicd-hello-world-gitops --scm-secret gitops-secret-1
     ```
+
 1. Add the GitOps repository as a resource to your hello-world application's Dispatchfile:
-      ```bash
-      resource "gitops-git": {
-        type: "git"
-        param url: "https://github.com/your-github-user/cicd-hello-world-gitops"
-      }
-      ```
+
+    ```bash
+    resource "gitops-git": {
+      type: "git"
+      param url: "https://github.com/your-github-user/cicd-hello-world-gitops"
+    }
+    ```
+
 1. Add a `deploy` task to your hello-world application's Dispatchfile:
+
     ```bash
     task "deploy": {
       inputs: ["docker-image", "gitops-git"]
@@ -156,39 +163,32 @@ This section provides a set of instructions for deploying a simple `hello-world`
       ...
     ]
     ```
+
 1. Commit this change to a feature branch, push the branch, create a pull request, and merge it into `master` of your hello-world application's git repository.
 1. After it is merged, a `master` build is triggered. Open your browser to
   `/dispatch/tekton/`, select the **PipelineRuns** tab, and notice that a new `master`
   build is running.
 
-    When the master build completes, it will create a new pull request against the GitOps
-  repository. Open the pull request from https://github.com/your-github-user/cicd-hello-world-gitops/pulls
+    When the master build completes, it will create a new pull request against the GitOps repository. Open the pull request from https://github.com/your-github-user/cicd-hello-world-gitops/pulls
+
 1. Merge the pull request to `master`.
 1. Open the Argo CD UI at `/dispatch/argo-cd`, and choose the `hello-world` application.
 
-    You can now select `Refresh` in the action bar at the top of the page or wait 180s for Argo CD to automatically pick up the change to the GitOps repository and
-  deploy those changes to the cluster.
+    You can now select `Refresh` in the action bar at the top of the page or wait 180s for Argo CD to automatically pick up the change to the GitOps repository and deploy those changes to the cluster.
 
 ### Workflow example
 
 Now that you've configured CI to build your application and CD to deploy it, here is an
 example of the day-to-day workflow.
 
-1. Modify the `main.go` file in your hello-world application's git repo. Edit the
-  message in the last `fmt.Fprintf` at the very bottom of the file.
+1. Modify the `main.go` file in your hello-world application's git repo. Edit the message in the last `fmt.Fprintf` at the very bottom of the file.
 1. Commit the change to a feature branch, push it, and create a pull request.
-1. After your pull request passes CI and has the necessary number of approvals,
-  merge it to `master`.
-1. This triggers another round of CI, which you can watch on the PipelineRuns
-  page of the Tekton dashboard hosted at `/dispatch/tekton/`.
-1. As the final step of that CI run, a new pull request is opened against the
-  GitOps repository at https://github.com/your-github-user/cicd-hello-world-gitops
+1. After your pull request passes CI and has the necessary number of approvals, merge it to `master`.
+1. This triggers another round of CI, which you can watch on the PipelineRuns page of the Tekton dashboard hosted at `/dispatch/tekton/`.
+1. As the final step of that CI run, a new pull request is opened against the GitOps repository at https://github.com/your-github-user/cicd-hello-world-gitops
 1. Review and merge that pull request.
-1. Wait 180 seconds, or navigate to the Argo CD UI at `/dispatch/argo-cd`, then select the
-  hello-world application and hit `Refresh`. This triggers deployment of the
-  latest Docker image.
- 1. Open the `/hello-world` URL relative to your cluster URL and notice that the
-  page now shows your updated message.
+1. Wait 180 seconds, or navigate to the Argo CD UI at `/dispatch/argo-cd`, then select the hello-world application and hit `Refresh`. This triggers deployment of the latest Docker image.
+1. Open the `/hello-world` URL relative to your cluster URL and notice that the page now shows your updated message.
 
 # How to Set Up a GitOps Repository
 
@@ -406,15 +406,15 @@ cluster using GitOps. You can test the pipeline by modifying the message
 displayed on the `/hello-world` page.
 
 1. Open the `main.go` file in the hello-world git repository and change the last
-`fmt.Fprintf` statement to print a message of your choice.
+   `fmt.Fprintf` statement to print a message of your choice.
 1. Commit your change to
-a new feature branch, create a pull request from your feature branch, and merge
-it to `master`.
+   a new feature branch, create a pull request from your feature branch, and merge
+   it to `master`.
 1. After the `master` CI build succeeds, you can see a new pull
-request was get created against the GitOps repository.
+   request was get created against the GitOps repository.
 1. Merge it, then trigger an
-Refresh in the Argo CD UI (or wait ~180s) to see Argo CD pick up the change and
-deploy it.
+   Refresh in the Argo CD UI (or wait ~180s) to see Argo CD pick up the change and
+   deploy it.
 
 After deployment, you can visit the `/hello-world` URL relative to your cluster URL
 to see the new message displayed.
@@ -438,7 +438,6 @@ following command:
     ```
 
 1. This will print a list of available Kubernetes contexts, with the current context marked with an asterisk (`*`). Take note of the cluster you would like to deploy to and copy the field under `NAME`.
-
 1. To add that cluster to Dispatch, run the following:
 
     ```bash
@@ -468,4 +467,4 @@ following command:
     ```
 
 1. Replace `your-user` with your GitHub user, and `https://your-target-cluster.com`
-with the value of the `SERVER` field taken from the previous command's output.
+   with the value of the `SERVER` field taken from the previous command's output.
