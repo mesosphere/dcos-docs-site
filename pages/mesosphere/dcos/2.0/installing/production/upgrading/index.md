@@ -120,7 +120,7 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
    </tr>
   </table>
   
-<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to 2.0.3, can cause critical issues with dcos-net.  Because of this, we do not recommend upgrading from 1.13.9 to the 2.0.3 release. Instead, please wait to upgrade until 2.0.4 is released, which is coming soon.</p>
+<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to 2.0.x, can cause critical issues with dcos-net.  Because of this, we do not recommend upgrading from 1.13.9 to any 2.0.x release at this time. Instead, please wait to upgrade until 2.0.4 is released, which is coming soon.</p>
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
