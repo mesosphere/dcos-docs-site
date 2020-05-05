@@ -7,7 +7,7 @@ excerpt: Release notes for DC/OS 2.0.3, including Open Source attribution, and v
 ---
 DC/OS&trade; 2.0.3 was released on 09 April 2020.
 
-<p class="message--warning"><strong>WARNING: </strong>The DC/OS 2.0.3 release has a critical error in Metronome where existing jobs are lost after upgrade. For more information, see the <a href="https://support.d2iq.com/s/article/Known-Issue-Critical-Metronome-Issue-in-DC-OS-2-0-3-D2IQ-2020-0004"> product advisory</a>. We recommend that you do NOT download, install or upgrade to it. Instead, download, then install or upgrade to the 2.0.2 release <a href="https://docs.d2iq.com/mesosphere/dcos/2.0/release-notes/2.0.2/">here</a>.</p>
+<p class="message--warning"><strong>WARNING: </strong>The DC/OS 2.0.3 release has a critical error in Metronome where existing jobs are lost after upgrade. For more information, see the <a href="https://support.d2iq.com/s/article/Known-Issue-Critical-Metronome-Issue-in-DC-OS-2-0-3-D2IQ-2020-0004"> product advisory</a>. We recommend that you do NOT download, install or upgrade to it. Instead, download, then install or upgrade to the 2.0.2 release <a href="https://docs.d2iq.com/mesosphere/dcos/2.0/release-notes/2.0.2/">here</a>.</p> 
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.3/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 

@@ -7,6 +7,8 @@ excerpt: Release notes for DC/OS 2.0.1
 ---
 DC/OS 2.0.1 was released on 22 November 2019.
 
+<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release has an error that will break dcos-net if you upgrade to 2.0.1. We recommend that you do NOT download and upgrade from 1.13.9 to the 2.0.1 version at this time. Instead, wait for the 2.0.4 patch coming soon.</p>
+
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.0.1/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
