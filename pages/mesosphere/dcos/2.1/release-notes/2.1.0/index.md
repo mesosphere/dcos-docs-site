@@ -8,7 +8,7 @@ beta: true
 model:  /mesosphere/dcos/2.1/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
-Mesosphere&reg; DC/OS&trade; 2.1.0 beta was released on 7 May 2020.
+Mesosphere&reg; DC/OS&trade; 2.1.0 beta 5 was released on 7 May 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/testing/2.1.0-beta4/commit/24132bebea79dc1f75dfa295be4542020e8bae11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -58,11 +58,6 @@ Metronome based jobs can now join container networks to communicate with other s
 
 ## Domain Sockets for Agent Executor Communication
 Agents and Executors now communicate over Unix Domain sockets making operators life easy in the presence of container overlay networks.
-### Deprecation of Marathon LB
-
-### Hive Metastore for Spark SQL
-
-### Add support for 3rd party CSI Driver in DSS
 
 ### Secure Kafka TLS with User Provided TLS Certs (HPE GIT)
 
@@ -70,32 +65,10 @@ Agents and Executors now communicate over Unix Domain sockets making operators l
 
 ### 3rd Party DVDI driver usage (HPE GIT)
 
-### Jenkins Support for DC/OS Windows
-
 ### Mesos Operator API scalability
-
-### Advanced Jobs w/ Dependencies
 
 ### Configurable Mesos Flags to enable easy install time config
 
-### Fault tolerance for Exhibitor to enable failover
-
-## Issues fixed in this release
-
-The issues that have been fixed in DC/OS 2.1.0 are listed below. Most change descriptions include one or more issue tracking identifiers enclosed in parenthesis for reference
-
-
-COPS-5951
-COPS-5915
-COPS-5868
-COPS-5827
-COPS-5814
-COPS-5804
-COPS-5738
-COPS-5629
-COPS-5617
-COPS-5615
-COPS-5428
 ### Marathon Fixed and Improved Issues
 
 https://github.com/mesosphere/marathon/blob/master/changelog.md
@@ -112,4 +85,3 @@ Remove the spartan package from DC/OS. Is was deprecated in 1.11 and replaced by
 Remove the toybox package from DC/OS. Is was used only by Spartan.
 
 Remove the dcos-history-service from DC/OS. (DCOS-58529)
-
