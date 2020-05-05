@@ -58,14 +58,23 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
     <th></th>
     <th>2.0.1</th>
     <th>2.0.2</th>
+    <th>2.0.3</th>
    </tr>
    <tr>
     <th>2.0.0</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>2.0.1</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.2</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
     <td Align = "center">⚫</td>
    </tr>
@@ -285,4 +294,3 @@ sudo journalctl -u dcos-mesos-slave
 ## Notes
 
 Packages available in the DC/OS 1.12 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
-

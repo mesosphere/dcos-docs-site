@@ -53,11 +53,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <th Align = "center">2.0.0</th>
     <th Align = "center">2.0.1</th>
     <th Align = "center">2.0.2</th>
+    <th Align = "center">2.0.3</th>
    </tr>
    <tr>
     <th>1.13.0</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
@@ -65,11 +67,13 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.2</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
@@ -77,15 +81,18 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.4</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.5</th>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
@@ -95,14 +102,25 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.13.7</th>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.9 *See Warning Below</th>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
   </table>
+  
+<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release has a feature that will break dcos-net if upgraded to 2.0.0-2.0.3. We recommend that you wait for 2.0.4 to upgrade from this version.</p>
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
