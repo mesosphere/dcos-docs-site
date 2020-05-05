@@ -231,6 +231,8 @@ The parameters for this tab and the values allowed are found in the [Jobs](/meso
 
 ### Network
 
+**Note:** The following procedure requires DC/OS release version 2.0.4 or higher.
+
 Networking information can be specified using the JSON tab. See the following example for how networks are defined for jobs:
 
 ```
