@@ -7,7 +7,7 @@ excerpt: Release notes for DC/OS 2.0.2
 ---
 DC/OS 2.0.2 was released on 30 January 2020.
 
-<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to 2.0.2, can cause critical issues with dcos-net.  Because of this, we do not recommend upgrading from 1.13.9 to the 2.0.2 release. Instead, please wait to upgrade until 2.0.4 is released, which is coming soon.</p>
+<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to 2.0.2, can cause critical issues with dcos-net. Because of this, we do not recommend upgrading from 1.13.9 to the 2.0.2 release. Instead, wait to upgrade until 2.0.4 is released, which is coming soon.</p>
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.2/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
