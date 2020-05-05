@@ -214,3 +214,26 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
     ![Alice job view](/mesosphere/dcos/2.1/img/GUI-Restricted_User-Jobs_View_Alice-1_12.png)
 
     Figure 8. Restricted view for 'Alice'
+
+# Creating a job with joins a container network
+
+In order to have a job join a network, specify the "networks" field. The following job joins the `dcos` network, outputs its IP information, then sleeps:
+
+    ```json
+    {
+      "id": "networking-job",
+      "description": "A job that outputs network info and sleeps",
+      "run": {
+        "cmd": "ip a; sleep 60",
+        "docker": {
+          "image": "alpine"
+        },
+        "networks": [{"mode": "container", "name": "dcos"}],
+        "cpus": 0.01,
+        "mem": 32,
+        "disk": 0
+      }
+    }
+    ```
+
+The field `networks` works identical to the `networks` field in Marathon.

@@ -229,6 +229,36 @@ Figure 14 - Secrets tab
 
 The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/2.1/gui/jobs/#secrets/) documentation of the UI.
 
+### Network
+
+Networking information can be specified using the JSON tab. See the following example for how networks are defined for jobs:
+
+```
+    ```json
+    {
+      "id": "networking-job",
+      "description": "A job that outputs network info and sleeps",
+      "run": {
+        "cmd": "ip a; sleep 60",
+        "docker": {
+          "image": "alpine"
+        },
+        "networks": [{"mode": "container", "name": "dcos"}],
+        "cpus": 0.01,
+        "mem": 32,
+        "disk": 0
+      }
+    }
+    ```
+
+The networks field functions identical to Marathon's, and supports the following parameters.
+
+* **mode** - The network mode. Valid values are `container`, `container/bridge` and `host`. The default value is `host`. There is little value in using `container/bridge` for jobs, but it is still supported.
+* **name** - The name of the container network to join. It is an error to specify this field with mode `host` or `container/bridge`.
+* **labels** - Key-value string arguments to pass to the networking plugin. It is an error to specify this with mode `host`.
+
+Jobs do not support port mapping.
+
 ## Submit
 
 1. Click **Submit** to create the job.
