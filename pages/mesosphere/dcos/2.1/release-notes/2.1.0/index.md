@@ -59,16 +59,6 @@ Metronome based jobs can now join container networks to communicate with other s
 ## Domain Sockets for Agent Executor Communication
 Agents and Executors now communicate over Unix Domain sockets making operators life easy in the presence of container overlay networks.
 
-### Secure Kafka TLS with User Provided TLS Certs (HPE GIT)
-
-### Certificate ( HPE GIT)
-
-### 3rd Party DVDI driver usage (HPE GIT)
-
-### Mesos Operator API scalability
-
-### Configurable Mesos Flags to enable easy install time config
-
 ### Marathon Fixed and Improved Issues
 
 https://github.com/mesosphere/marathon/blob/master/changelog.md
