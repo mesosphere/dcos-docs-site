@@ -9,7 +9,8 @@
   },
   "staging": {
     "DO_NOT_BUILD": [
-      "test/**"
+      "test/**", 
+      "ksphere/dispatch/1.2/**"
     ],
     "DO_NOT_INDEX": [
       "^cn"
