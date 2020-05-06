@@ -91,9 +91,9 @@ With the `known-hosts` option you can specify a space-separated list of hostname
 }
 ```
 
-## Installing additional plug-ins
+## Installing additional Jenkins plugins
 
-With the `additional-plugins` option you can specify a space sperated list of addtional Jenkins plug-ins to be installed into the Jenkins master. This list will be populated on the Jenkins master when teh bootstrap script runs (at container launch time).
+With the `additional-plugins` option you can specify a space sperated list of addtional Jenkins plugins to be installed into the Jenkins master. This list will be populated on the Jenkins master when the bootstrap script runs (at container launch time).
 ```json
 {
     "service": {
@@ -104,3 +104,88 @@ With the `additional-plugins` option you can specify a space sperated list of ad
     }
 }
 ```
+
+## Using custom images with pre-installed Jenkins plugins
+
+DC/OS Jenkins service ships with a minimial list of pre-bundled plugins that are officially supported. The [current list can be found at here](https://github.com/mesosphere/dcos-jenkins-service/blob/4.0.0-2.204.2-beta/plugins.conf).
+
+Customers have the option of specifying an image with a custom list of Jenkins plugins they would like to have pre-installed when the Jenkins service starts up.
+This process is diffrent from procedure in [installing additional plugins](#installing-additional-jenkins-plugins) as the plugins in this case are bundled into the container image and aren't downloaded everytime the container gets launched.
+
+### Creating a custom image with bundled Jenkins plugins
+The process below outlines how to create a custom image with bundled jenkins plugins:
+1. Clone the DC/OS Jenkins Github repository
+    ```
+    git clone https://github.com/mesosphere/dcos-jenkins-service.git
+    cd dcos-jenkins-service
+    ```
+1. Modify `plugins.conf` with the list of desired plugins.
+1. Build the docker image. Here we're using `mesosphere/jenkins:custom-image` as the example image tag.
+    ```
+    docker build -t mesosphere/jenkins:custom-image .
+    ```
+1. Push the built image to the respective image repository, we're using the default Dockerhub in this example.
+    ```
+    docker push mesosphere/jenkins:custom-image .
+    ```
+
+### Specifying a custom image at service installation time
+
+Once a image has been created with the desired plugins, the custom image can be specified via the options shown below:
+```json
+{
+    "service": {
+        "name": "jenkins-custom-image",
+        "docker-image": "mesosphere/jenkins:custom-image"
+    }
+}
+```
+
+## Configuring Airgapped clusters
+
+Customers running Jenkins on Airgapped DC/OS clusters should use [Package Registry](/mesosphere/dcos/latest/administering-clusters/package-registry/) to install packages in airgapped environments. Default versions of Jenkins for Package Registry are [available](https://downloads.mesosphere.com/universe/packages/packages.html).
+
+### Configuring Airgapped clusters with custom images.
+
+It is possible to also use a [custom image](#creating-a-custom-image-with-bundled-jenkins-plugins) with Package Registry, the following instructions outline how to create a Jenkins `.dcos` file with a custom image.
+
+1. Install [Package Registry](/mesosphere/dcos/latest/administering-clusters/package-registry/#default-installation)
+1. Clone the DC/OS Universe repository.
+    ```
+    https://github.com/mesosphere/universe.git
+    ```
+1. Create a working directory for Package Registry to build the `.dcos` files.
+    ```
+    mkdir output-directory
+    ```
+1. Copy the desired version of Jenkins, we're using `beta-jenkins` in this example:
+    ```
+    cp -r universe/tree/version-3.x/repo/packages/B/beta-jenkins/0 output-directory/
+    ```
+1. The folder `output-directory` should have the following files:
+    ```
+    config.json
+    marathon.json.mustache
+    package.json
+    resource.json
+    ```
+1. Modify `resource.json` to use the custom docker image.
+    Here we're replacing the default `"mesosphere/jenkins-dev:4.0.0-2.204.2-beta"` with `"mesosphere/jenkins:custom-image"`
+    Modify the `docker` image to point to the desired custom image, the resulting file looks like the following with the above example:
+    ```json
+    {
+        "images": {
+            "icon-small": "https://downloads.mesosphere.com/assets/universe/000/jenkins-icon-small.png",
+            "icon-medium": "https://downloads.mesosphere.com/assets/universe/000/jenkins-icon-medium.png",
+            "icon-large": "https://downloads.mesosphere.com/assets/universe/000/jenkins-icon-large.png"
+        },
+        "assets": {
+            "container": {
+                "docker": {
+                    "jenkins": "mesosphere/jenkins:custom-image"
+                }
+            }
+        }
+    }
+    ```
+1. Complete building the `.dcos` files and uploading them to Package Registry by following the procedure to [build the packages](/mesosphere/dcos/latest/administering-clusters/package-registry/#building-the-packages).
