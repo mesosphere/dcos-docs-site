@@ -13,7 +13,7 @@ The steps to follow depend on the deployment scenario you want to implement. For
 # Before you begin
 - You must have the [DC/OS CLI](/mesosphere/dcos/1.13/cli/install/) and [DC/OS Enterprise CLI](/mesosphere/dcos/1.13/cli/enterprise-cli/) installed.
 - You must be logged in with an account that has `superuser` permission or the permissions listed in [Installation permissions](/mesosphere/dcos/services/edge-lb/1.4/permissions/#install-permissions).
-- You must have a registered customer account to log in to the [Mesosphere support portal](https://support.mesosphere.com/s/login/?startURL=%2Fs%2Fdownloads%3Ft%3D1551917897670).
+- You must have a registered customer account to log in to the [Mesosphere support portal](https://support.d2iq.com/s/).
 - You must have network access to download the [remote Edge-LB repositories](https://support.mesosphere.com/s/downloads?t=1551917897670) or a local repository that has the Edge-LB packages.
 
   If your cluster is behind a firewall, is restricted to an internal network with no access to the internet, or unable to access the public catalog for any reason, then you must add Edge-LB packages using a **local catalog**. For more information about installing using a local catalog, see [Deploy using a local catalog](#create-local-repo).
