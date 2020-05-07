@@ -25,7 +25,7 @@ In this tutorial, a task test will be triggered by defining and using a ChatOps 
 
 ## Configure ChatOps Trigger in Dispatchfile
 
-To use the ChatOps feature, you must include a ChatOps action to trigger when a chat event occurs. As an example, we will examine a task written in Starlark from the [pipeline configuration docs](../../index.md)
+To use the ChatOps feature, you must include a ChatOps action to trigger when a chat event occurs. As an example, we will examine a task written in Starlark from the [pipeline configuration docs](../../)
 
 ```python
 #!mesosphere/dispatch-starlark:v0.5

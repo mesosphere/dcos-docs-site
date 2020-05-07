@@ -11,11 +11,11 @@ This topic provides a step-by-step tutorial for setting up dispatch and getting 
 
 # Prerequisites
 
-1 Some basic knowledge of git, bash, and Docker.
-1 A [GitHub](https://github.com/) account.
-1 Owner permissions for a project hosted on [GitHub](../../../credentials/index.md#setting-up-github-credentials) or access to create one.
-1 Deploy access to a namespace in Kubernetes cluster.
-1 Dispatch CLI installed in the environment. (TODO)
+1. Some basic knowledge of git, bash, and Docker.
+1. A [GitHub](https://github.com/) account.
+1. Owner permissions for a project hosted on [GitHub](../../../credentials/#setting-up-github-credentials) or access to create one.
+1. Deploy access to a namespace in Kubernetes cluster.
+1. Dispatch CLI installed in the environment. (TODO)
 
 # Setup a git repository
 

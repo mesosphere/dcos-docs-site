@@ -262,7 +262,7 @@ In this section, we have added three things to our Dispatchfile:
 * A `build` task that builds and pushes the Docker image. The `docker-image` is its output resource, it has `src-git` as an input resource, and it depends on the `test` task completing successfully.
 * A new `on push tags` action that will run our build whenever a new Git tag is pushed.
 
-See the [complete pipeline configuration reference](/pipeline-configuration/) for further assistance configuring your pipeline.
+See the [complete pipeline configuration reference](../pipeline-configuration/) for further assistance configuring your pipeline.
 
 After you've made these modifications to the Dispatchfile, you can `add`, `commit` and `push` your changes:
 
