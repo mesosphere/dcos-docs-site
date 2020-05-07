@@ -27,4 +27,4 @@ dcos monitoring prometheus status config [flags]
 
 | Command | Description |
 |---------|-------------|
-| [dcos monitoring prometheus status](../monitoring-prometheus-status/) |Expose current Prometheus configuration |
+| [dcos monitoring prometheus status](../) |Expose current Prometheus configuration |
