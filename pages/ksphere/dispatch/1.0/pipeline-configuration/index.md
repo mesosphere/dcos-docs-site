@@ -228,4 +228,4 @@ To see the rendered output:
 dispatch ci run remote -o yaml --dry-run
 ```
 
-For more information on pipeline configuration, see the [Pipeline Configuration Reference](../reference/pipeline-config-ref/) page.
+For more information on pipeline configuration, see the [Pipeline Configuration Reference](../references/pipeline-config-ref/) page.

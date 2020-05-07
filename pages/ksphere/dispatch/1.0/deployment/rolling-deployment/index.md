@@ -48,7 +48,7 @@ roleRef:
 
 Dispatch enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a Git repository.  This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
 
-This section assumes that you have followed the [Dispatch Installation](../install/) and [Setting up a repository to use Dispatch](../repo-setup/) procedures, and have set up Dispatch CI for a hello-world application.
+This section assumes that you have followed the [Dispatch Installation](../../install/) and [Setting up a repository to use Dispatch](../../repo-setup/) procedures, and have set up Dispatch CI for a hello-world application.
 
 ## What is GitOps?
 
@@ -212,11 +212,11 @@ application's CI, as defined in its Dispatchfile.
 
 The hello-world application sources can be found at
 [https://github.com/mesosphere/cicd-hello-world](https://github.com/mesosphere/cicd-hello-world) and were used in the [Dispatch
-Installation](../install/), [Setting up a repository to use
-Dispatch](../repo-setup/), and [Pipeline Configuration
-Reference](../pipeline-configuration/) examples elsewhere in the Dispatch
-documentation. If you have followed the [Dispatch Installation](../install/) and
-[Setting up a repository to use Dispatch](../repo-setup/) tutorials, your local
+Installation](../../install/), [Setting up a repository to use
+Dispatch](../../repo-setup/), and [Pipeline Configuration
+Reference](../../pipeline-configuration/) examples elsewhere in the Dispatch
+documentation. If you have followed the [Dispatch Installation](../../install/) and
+[Setting up a repository to use Dispatch](../../repo-setup/) tutorials, your local
 `cicd-hello-world` git repository will be up-to-date and ready to follow along.
 For this tutorial, we focus on the Continuous Deployment part of CI/CD.
 

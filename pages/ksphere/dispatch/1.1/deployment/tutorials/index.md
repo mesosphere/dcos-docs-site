@@ -19,8 +19,8 @@ In this tutorial you configure a "hello-world" application to deploy "staging" a
 
 Go to [Deploy an application to multiple environments](./deploy-application-to-multiple-environments/).
 
-### [Deploy an application to multiple production clusters](./deploy-application-to-multiple-clusters-per-environment/)
+### [Deploy an application to multiple production clusters](./deploy-to-multiple-production-clusters/)
 
 In this tutorial you configure a "hello-world" application to deploy a "production" version of the application to multiple production clusters.
 
-Go to [Deploy an application to multiple production clusters](./deploy-application-to-multiple-clusters-per-environment/).
+Go to [Deploy an application to multiple production clusters](./deploy-to-multiple-production-clusters/).
