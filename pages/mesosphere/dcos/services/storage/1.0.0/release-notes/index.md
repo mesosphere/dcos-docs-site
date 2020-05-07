@@ -59,7 +59,7 @@ enterprise: true
 * `dcos storage` CLI subcommands may fail with a gateway timeout error, but still complete successfully in the background.
 * [](https://jira.mesosphere.com/browse/ASF-1655) The Mesos SLRP implementation is not yet compatible with multiple profiles that consume capacity from the same provider in different ratios (for example, RAID1 and linear). To work around this, create multiple providers, each of which is wholly dedicated to linear or RAID1.
 * [](https://jira.mesosphere.com/browse/DCOS-44108) The storage service should only list providers that it currently manages; incompletely removed providers may be incorrectly listed in some cases.
-* Deleting a volume may fail with "Cannot allocate memory" on some versions of CoreOS. To avoid this issue, ensure you are using a [supported version](/mesosphere/dcos/latest/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
+* Deleting a volume may fail with "Cannot allocate memory" on some versions of CoreOS. To avoid this issue, ensure you are using a [supported version](/mesosphere/dcos/version-policy/#dcos-platform-version-compatibility-matrix) of CoreOS.
 * Kernels from (including) 3.10.0-862.6.3.el7 up to (including) 3.10.0-862.11.6.el7 may panic as a result of LVM operations (https://access.redhat.com/solutions/3520511).
 * The DC/OS installer may issue one or more *WARNING* messages regarding missing kernel modules:
     ```
