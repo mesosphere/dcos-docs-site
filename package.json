@@ -47,7 +47,6 @@
     "markdown-it-attrs": "^1.0.0",
     "metalsmith": "^2.3.0",
     "metalsmith-assets": "^0.1.0",
-    "metalsmith-branch": "0.0.5",
     "metalsmith-copy": "^0.4.0",
     "metalsmith-data-loader": "^1.1.2",
     "metalsmith-headings": "^0.2.0",
