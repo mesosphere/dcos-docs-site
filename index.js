@@ -8,7 +8,6 @@ const permalinks = require('metalsmith-permalinks');
 const assets = require('metalsmith-assets');
 const dataLoader = require('metalsmith-data-loader');
 const watch = require('metalsmith-watch');
-const branch = require('metalsmith-branch')
 const serve = require('metalsmith-serve');
 const redirect = require('metalsmith-redirect');
 const webpack = require('metalsmith-webpack2');
@@ -137,11 +136,8 @@ MS.clean(false);
 // Content Branch Pipeline
 //
 
-const CB = branch();
-
 // Start timer
-CB.use(timer('CB: Init'));
-
+MS.use(timer('Init'));
 
 const neededToBuildMainMenu = [
   "index.md",
@@ -157,7 +153,7 @@ const neededToBuildMainMenu = [
   `ksphere/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
 ]
 if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
-  CB.use((files, _, done) => {
+  MS.use((files, _, done) => {
     Object
       .keys(files)
       .filter(file =>
@@ -172,21 +168,21 @@ if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
   })
 }
 
-CB.use(ignore(METALSMITH_SKIP_SECTIONS));
-CB.use(timer('CB: Ignore'));
+MS.use(ignore(METALSMITH_SKIP_SECTIONS));
+MS.use(timer('Ignore'));
 
-CB.use(assets({
+MS.use(assets({
   source: 'assets',
   destination: 'assets',
 }));
-CB.use(timer('AB: Assets'));
+MS.use(timer('Assets'));
 
-CB.use(copy({
+MS.use(copy({
     pattern: '**/README.md',
     transform: file => file.replace(/README/, 'index'),
     move: true,
 }));
-CB.use(timer('CB: Copy'));
+MS.use(timer('Copy'));
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
@@ -195,46 +191,46 @@ CB.use(timer('CB: Copy'));
 //   model:
 //   data1: path/to/my.json (access content in my.json as model.data1.foo.bar)
 //   data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
-CB.use(dataLoader({
+MS.use(dataLoader({
     dataProperty: 'model',
     match: '**/*.md',
 }));
-CB.use(timer('CB: Dataloader'));
+MS.use(timer('Dataloader'));
 
 // Load raw content via '#include' directives before rendering any mustache or markdown.
 // For example (in your content):
 //   #include path/to/file.tmpl
-CB.use(includeContent({
+MS.use(includeContent({
     // Style as a C-like include statement. Must be on its own line.
     pattern: '^#include ([^ \n]+)$',
     match: '**/*.md*',
 }));
-CB.use(timer('CB: IncludeContent'));
+MS.use(timer('IncludeContent'));
 
 // Process any mustache templating in files.
 // For example (in your Front Matter):
 //   render: mustache
-CB.use(inPlace({
+MS.use(inPlace({
     renderProperty: 'render',
     match: '**/*.md',
 }));
-CB.use(timer('CB: Mustache'));
+MS.use(timer('Mustache'));
 
 // Folder Hierarchy
-CB.use(hierarchy({
+MS.use(hierarchy({
     files: ['.md'],
     excerpt: true,
 }));
-CB.use(timer('CB: Hierarchy'));
+MS.use(timer('Hierarchy'));
 
 // RSS Feed
-CB.use(hierarchyRss({
+MS.use(hierarchyRss({
     itemOptionsMap: {
         title: 'title',
         description: 'excerpt',
     },
 }));
-CB.use(timer('CB: Hierarchy RSS'));
+MS.use(timer('Hierarchy RSS'));
 
 
 //
@@ -242,20 +238,20 @@ CB.use(timer('CB: Hierarchy RSS'));
 //
 
 // Shortcodes
-CB.use(shortcodes({
+MS.use(shortcodes({
     files: ['.md'],
     shortcodes: shortcodesConfig,
 }));
-CB.use(timer('CB: Shortcodes'));
+MS.use(timer('Shortcodes'));
 
 // Don't rebuild files that have not been touched
 if (process.env.NODE_ENV === 'development') {
-  CB.use(revision);
-  CB.use(timer('CB: Revision'));
+  MS.use(revision);
+  MS.use(timer('Revision'));
 }
 
 // Markdown
-CB.use(markdown({
+MS.use(markdown({
         smartList: false,
         typographer: true,
         html: true,
@@ -282,23 +278,23 @@ CB.use(markdown({
     })
     .use(attrs),
 );
-CB.use(timer('CB: Markdown'));
+MS.use(timer('Markdown'));
 
 // Headings
-CB.use(headings());
-CB.use(timer('CB: Headings'));
+MS.use(headings());
+MS.use(timer('Headings'));
 
-CB.use(redirect({
+MS.use(redirect({
     '/support': 'https://support.d2iq.com',
 }));
-CB.use(timer('CB: Redirects'));
+MS.use(timer('Redirects'));
 
 // Permalinks
-CB.use(permalinks());
-CB.use(timer('CB: Permalinks'));
+MS.use(permalinks());
+MS.use(timer('Permalinks'));
 
 // Layouts
-CB.use((files, ms, done) => {
+MS.use((files, ms, done) => {
   // we want to use pugs cache for the duration of one (re-)build. we need to clear it inbetween to
   // have changes to layouts propagate directly. unfortunately there's no convenience for that and we
   // have to reach into pug and consolidate directly for now.
@@ -306,7 +302,7 @@ CB.use((files, ms, done) => {
   pug.cache = {};
   return layouts({ engine: 'pug', cache: true })(files, ms, done);
 });
-CB.use(timer('CB: Layouts'));
+MS.use(timer('Layouts'));
 
 //
 // Slow Plugins End
@@ -320,13 +316,13 @@ if (RENDER_PATH_PATTERN) {
 
 // Search Indexing
 if (ALGOLIA_UPDATE === 'true') {
-    CB.use(algolia({
+    MS.use(algolia({
         projectId: ALGOLIA_PROJECT_ID,
         privateKey: ALGOLIA_PRIVATE_KEY,
         skipSections: ALGOLIA_SKIP_SECTIONS,
         renderPathPattern: pathPatternRegex
     }));
-    CB.use(timer('CB: Algolia'));
+    MS.use(timer('Algolia'));
 }
 
 // Enable watching
@@ -337,7 +333,7 @@ if (ALGOLIA_UPDATE === 'true') {
 // Can only watch with a RENDER_PATH_PATTERN because there are too many
 // files without it.
 if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
-    CB.use(watch({
+    MS.use(watch({
         paths: {
             [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
             'layouts/**/*': '**/*',
@@ -346,29 +342,28 @@ if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
         },
         livereload: true,
     }));
-    CB.use(timer('CB: Watch'));
+    MS.use(timer('Watch'));
 }
 
 // WkhtmltopdfLinkResolver
 if (process.env.NODE_ENV === 'pdf') {
-    CB.use(wkhtmltopdfLinkResolver({
+    MS.use(wkhtmltopdfLinkResolver({
         prefix: '/tmp/pdf/build',
     }));
-    CB.use(timer('CB: WkhtmltopdfLinkResolver'));
+    MS.use(timer('WkhtmltopdfLinkResolver'));
 }
 
 // Serve
 if (process.env.NODE_ENV === 'development') {
-    CB.use(serve({
+    MS.use(serve({
         port: 3000,
     }));
-    CB.use(timer('CB: Webserver'));
+    MS.use(timer('Webserver'));
 }
 
-CB.use(webpack('./webpack.config.js'));
-CB.use(timer('AB: Webpack'));
+MS.use(webpack('./webpack.config.js'));
+MS.use(timer('AB: Webpack'));
 
-MS.use(CB);
 
 // Build
 MS.build((err, files) => {
