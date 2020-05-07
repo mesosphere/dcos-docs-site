@@ -157,7 +157,7 @@ This method will check if the broker port is open. Only the broker on which the 
 
 This method checks if the broker can send and receive messages from a client. Only the broker on which the health check is running will be checked, as each broker will have its own health check.
 The health check produces a random message to a user configurable topic and then tries to consume the last produced message.
-When [Kerberos](/mesosphere/dcos/services/confluent-kafka/latest/security/#authentication) and/or [Transport Encryption](mesosphere/dcos/services/kafka/latest/security/#transport-encryption) is enabled, the health check produces only a single random message to a topic and will attempt to consume that same first message of the topic at each health-check interval.
+When [Kerberos](/mesosphere/dcos/services/confluent-kafka/latest/security/#authentication) and/or [Transport Encryption](../security/#transport-encryption) is enabled, the health check produces only a single random message to a topic and will attempt to consume that same first message of the topic at each health-check interval.
 
 ```json
 {
