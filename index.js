@@ -175,6 +175,12 @@ if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
 CB.use(ignore(METALSMITH_SKIP_SECTIONS));
 CB.use(timer('CB: Ignore'));
 
+CB.use(assets({
+  source: 'assets',
+  destination: 'assets',
+}));
+CB.use(timer('AB: Assets'));
+
 CB.use(copy({
     pattern: '**/README.md',
     transform: file => file.replace(/README/, 'index'),
@@ -335,6 +341,8 @@ if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
         paths: {
             [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
             'layouts/**/*': '**/*',
+            'js/**/*': '**/*',
+            'scss/**/*': '**/*',
         },
         livereload: true,
     }));
@@ -357,45 +365,10 @@ if (process.env.NODE_ENV === 'development') {
     CB.use(timer('CB: Webserver'));
 }
 
-//
-// Assets Branch
-//
-
-const AB = branch();
-
-// Start timer
-AB.use(timer('AB: Init'));
-
-// Watch
-// Can only watch with a RENDER_PATH_PATTERN because there are too many
-// files without it.
-if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
-    AB.use(watch({
-        paths: {
-            'js/**/*': '**/*.js',
-            'scss/**/*': '**/*.scss',
-        },
-    }));
-    AB.use(timer('AB: Watch'));
-}
-
-// Assets
-AB.use(assets({
-    source: 'assets',
-    destination: 'assets',
-}));
-AB.use(timer('AB: Assets'));
-
-// Webpack
-AB.use(webpack('./webpack.config.js'));
-AB.use(timer('AB: Webpack'));
-
-//
-// Metalsmith
-//
+CB.use(webpack('./webpack.config.js'));
+CB.use(timer('AB: Webpack'));
 
 MS.use(CB);
-MS.use(AB);
 
 // Build
 MS.build((err, files) => {
