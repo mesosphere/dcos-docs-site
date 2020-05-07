@@ -128,7 +128,7 @@ Considerations:
 - Regions are case sensitive.
 - Once deployed, region changes are not supported and can leave the scheduler in a crash loop.
 
-**NOTE:** Multi-Region deployment is not supported, see [Limitations](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/limitations/index/).
+**NOTE:** Multi-Region deployment is not supported, see [Limitations](/mesosphere/dcos/services/kubernetes/2.4.2-1.15.3/limitations/).
 
 ## Mesos Roles
 
