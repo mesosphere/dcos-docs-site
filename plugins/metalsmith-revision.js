@@ -1,5 +1,6 @@
 const { resolve } = require("path");
 const fs = require("fs");
+const glob = require("glob");
 const crypto = require("crypto");
 
 const checksum = (str) =>
@@ -17,16 +18,16 @@ const hashMeta = (meta) =>
   );
 
 const loadRevision = (configPath) => {
-  const { contents = {}, meta = {} } = fs.existsSync(configPath)
+  const { contents = {}, meta = {}, layouts = {} } = fs.existsSync(configPath)
     ? JSON.parse(fs.readFileSync(configPath, "utf-8"))
     : {};
-  return { contents, meta };
+  return { contents, meta, layouts };
 };
 
 module.exports = function (files, metalsmith, done) {
   const configPath = resolve(metalsmith._directory, ".revision");
 
-  const newHashes = { meta: {}, contents: {} };
+  const newHashes = { meta: {}, contents: {}, layouts: {} };
   const oldHashes = loadRevision(configPath);
 
   const unchangedFiles = [];
@@ -51,7 +52,15 @@ module.exports = function (files, metalsmith, done) {
       unchangedFiles.push(file);
     }
   });
+  glob.sync("./layouts/**/*.pug").map((file) => {
+    const layoutHash = checksum(fs.readFileSync(file, "utf-8"));
+    if (oldHashes.layouts[file] !== layoutHash) {
+      rebuildAll = true;
+    }
+    newHashes.layouts[file] = layoutHash;
+  });
   fs.writeFileSync(configPath, JSON.stringify(newHashes), "utf-8");
+
   if (!rebuildAll) {
     unchangedFiles.forEach((file) => {
       delete files[file];

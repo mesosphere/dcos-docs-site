@@ -23,8 +23,3 @@ require('./js/msphere-menu.js');
 require('./js/ksphere-menu.js');
 require('./js/localization.js');
 require('./js/services-landing.js');
-if ( ENV === "development" ){
-  var script = document.createElement('script');
-  script.src = 'http://localhost:35729/livereload.js';
-  document.getElementsByTagName('head')[0].appendChild(script);
-}

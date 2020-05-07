@@ -17,6 +17,8 @@ const attrs = require('markdown-it-attrs');
 const timer = require('metalsmith-timer');
 const ignore = require('metalsmith-ignore');
 const copy = require('metalsmith-copy');
+const consolidate = require('consolidate');
+const pug = require('pug');
 
 // Local Plugins
 const hierarchy = require('./plugins/metalsmith-hierarchy');
@@ -290,7 +292,14 @@ CB.use(permalinks());
 CB.use(timer('CB: Permalinks'));
 
 // Layouts
-CB.use(layouts({ engine: 'pug', cache: true }));
+CB.use((files, ms, done) => {
+  // we want to use pugs cache for the duration of one (re-)build. we need to clear it inbetween to
+  // have changes to layouts propagate directly. unfortunately there's no convenience for that and we
+  // have to reach into pug and consolidate directly for now.
+  consolidate.clearCache();
+  pug.cache = {};
+  return layouts({ engine: 'pug', cache: true })(files, ms, done);
+});
 CB.use(timer('CB: Layouts'));
 
 //
@@ -319,14 +328,13 @@ if (ALGOLIA_UPDATE === 'true') {
 // be updated. ONLY the files that are being updated will be accessible to
 // during the rebuild. We must include everything at this point or the
 // templates will not be accessible. Need changes to fix this.
-
 // Can only watch with a RENDER_PATH_PATTERN because there are too many
 // files without it.
 if (process.env.NODE_ENV === 'development' && RENDER_PATH_PATTERN) {
     CB.use(watch({
         paths: {
             [`pages/${RENDER_PATH_PATTERN}/*`]: '**/*.{md,tmpl}',
-            'layouts/**/*': '**/*.pug',
+            'layouts/**/*': '**/*',
         },
         livereload: true,
     }));
