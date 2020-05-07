@@ -10,11 +10,11 @@ excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and v
 ---
 Mesosphere&reg; DC/OS&trade; 2.1.0 beta 5 was released on 7 May 2020.
 
-[button color="light" href="https://downloads.dcos.io/dcos/testing/2.1.0-beta4/commit/24132bebea79dc1f75dfa295be4542020e8bae11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://downloads.dcos.io/dcos/testing/2.1.0-beta5/commit/24132bebea79dc1f75dfa295be4542020e8bae11/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="https://downloads.mesosphere.io/dcos-enterprise/testing/2.1.0-beta4/commit/1179b61542093274c2578a5e4a074a751bcbbb1a/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="https://downloads.mesosphere.io/dcos-enterprise/testing/2.1.0-beta5/commit/1179b61542093274c2578a5e4a074a751bcbbb1a/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
-Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
+New customers must contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
 # Release Summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
