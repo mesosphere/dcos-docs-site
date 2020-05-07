@@ -30,14 +30,13 @@
         transition: all 250ms ease-out;
         margin: 1em 1em;
         width: 110px;
-        height: 90px;
         position: relative;
     }
     &__hero-tile:hover {
         box-shadow: 0 8px 20px 0 rgba(45, 45, 45, .23);
         transform: translateY(-5px);
     }
-    
+
     &__tile-image {
         border-radius: 2px;
         background-repeat: no-repeat;
@@ -60,7 +59,6 @@
             flex-wrap: nowrap;
         }
         &__hero-tile {
-            height: 135px;
             width: 165px;
             margin: 2em 1em;
         }
@@ -75,7 +73,6 @@
           flex-wrap: nowrap;
       }
       &__hero-tile {
-          height: 178px;
           width: 220px;
       }
       &__tile-title {
