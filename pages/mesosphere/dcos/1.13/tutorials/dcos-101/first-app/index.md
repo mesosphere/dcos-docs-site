@@ -15,7 +15,7 @@ This tutorial demonstrates how you can deploy a simple application that connects
 Before starting this tutorial, you should verify the following:
 - You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
 - You have access to a computer where the [DC/OS CLI](../cli/) is installed.
-- You have the [Redis](/mesosphere/dcos/1.13/tutorials/dcos-101/redis-package/) package installed and the Redis service running in your cluster.
+- You have the [Redis](/mesosphere/dcos/1.13/tutorials/dcos-101/first-package/) package installed and the Redis service running in your cluster.
 
 The sample application in this tutorial has some dependencies on external libraries. To ensure you can complete the tutorial, you should download the Docker image for the sample app. The Docker image provided includes all of the necessary files so that you don't need to download any additional libraries or resolve external dependencies.
 
