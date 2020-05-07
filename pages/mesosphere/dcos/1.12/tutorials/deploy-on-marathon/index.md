@@ -14,7 +14,7 @@ enterprise: false
 This tutorial shows how to deploy applications on [Marathon][1] using Jenkins for DC/OS. This tutorial will walk you through creating a new Jenkins job, publishing a Docker container on source code changes, and deploying those changes to Marathon based on the [application definition][3] contained in the project’s `marathon.json` file.
 
 **Prerequisite:**
-This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/mesosphere/dcos/services/jenkins/quickstart/) page.
+This tutorial assumes that you have a working Jenkins installation and permission to launch applications on Marathon. Jenkins for DC/OS must be installed as described on the [Jenkins Quickstart](/mesosphere/dcos/services/jenkins/latest/quickstart/) page.
 
 # The Example Project
 
