@@ -18,7 +18,7 @@ DC/OS handles user authentication decentralized by using authentication tokens. 
 
 Upon [login](/mesosphere/dcos/2.1/security/oss/login/) to DC/OS users receive a [DC/OS Authentication token](/mesosphere/dcos/2.1/security/oss/authentication/authentication-token). The DC/OS Authentication token can be used for authenticating subsequent requests to the API; see [Pass an authentication token to the API](/mesosphere/dcos/2.1/security/oss/authentication/authentication-token/#pass-an-authentication-token-to-the-api).
 
-A DC/OS Authentication token is also used internally by the [DC/OS CLI](/mesosphere/dcos/2.1/cli/) for authenticating subsequent CLI commands. Authentication is only supported for DC/OS CLI version 0.4.3 and later. See [here](/mesosphere/dcos/2.1/cli/update/) for upgrade instructions.
+A DC/OS Authentication token is also used internally by the [DC/OS CLI](/mesosphere/dcos/2.1/cli/) for authenticating subsequent CLI commands. Authentication is only supported for DC/OS CLI version 0.4.3 and later.
 
 In DC/OS the only authenticator in the system is [Admin Router](/mesosphere/dcos/2.1/overview/architecture/components/#admin-router). It enforces DC/OS Authentication token verification based on information from the [Identity and Access Manager (IAM)](/mesosphere/dcos/2.1/overview/architecture/components/#dcos-iam).
 
