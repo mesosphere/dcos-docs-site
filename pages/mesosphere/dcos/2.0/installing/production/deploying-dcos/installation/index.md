@@ -428,7 +428,7 @@ At this point your directory structure should resemble:
             sudo bash dcos_install.sh slave_public
             ```
 
-    <p class="message--note"><strong>NOTE: </strong> If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the <a href="mesosphere/dcos/2.0/installing/production/system-requirements/ports/">system requirements</a> documentation.</p>
+    <p class="message--note"><strong>NOTE: </strong> If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the <a href="/mesosphere/dcos/2.0/installing/production/system-requirements/ports/">system requirements</a> documentation.</p>
 
 5.  Monitor the DC/OS web interface and wait for it to display at: `http://<master-node-public-ip>/`. 
 

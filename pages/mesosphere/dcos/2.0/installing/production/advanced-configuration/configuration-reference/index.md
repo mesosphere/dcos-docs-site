@@ -422,7 +422,7 @@ The amount of time to wait before removing docker containers (i.e., `docker rm`)
 ### enable_docker_gc
 Indicates whether to run the [docker-gc](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection) script, a simple Docker container and image garbage collection script, once every hour to clean up stray Docker containers. You can configure the runtime behavior by using the `/etc/` config. For more information, see the [documentation](https://github.com/spotify/docker-gc#excluding-images-from-garbage-collection).
 
-*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/mesosphere/dcos/2.0/installing/evaluation/mesosphere-supported-methods) template installations.
+*  `enable_docker_gc: 'true'` Run the docker-gc scripts once every hour. This is the default value for [cloud](/mesosphere/dcos/2.0/installing/evaluation/) template installations.
 *  `enable_docker_gc: 'false'` Do not run the docker-gc scripts once every hour. This is the default value for [on-prem](/mesosphere/dcos/2.0/installing/production/) installations.
 
 

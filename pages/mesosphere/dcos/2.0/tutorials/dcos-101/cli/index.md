@@ -22,7 +22,7 @@ You have access to your cluster and have already taken a first look at the GUI. 
 
 # Steps
   * Install the DC/OS CLI
-    * Follow the steps [here](latest/cli/install/) or the `Install CLI` instruction in the lower left corner of the DC/OS GUI.
+    * Follow the steps [here](/mesosphere/dcos/latest/cli/install/) or the `Install CLI` instruction in the lower left corner of the DC/OS GUI.
     * Make sure you are authorized to connect to your cluster by running `dcos auth login`. This is necessary to prevent access from unauthorized people to your cluster.
     * You can also add/invite friends and co-workers to your cluster. See [user management documentation](/mesosphere/dcos/2.0/security/ent/users-groups/) for details
 
