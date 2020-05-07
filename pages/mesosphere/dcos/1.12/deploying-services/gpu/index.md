@@ -21,7 +21,7 @@ GPUs must be enabled during DC/OS installation. Follow the instructions below to
     -  **enable_gpu_isolation**: Indicates whether to enable GPU support in DC/OS. By default, this is set to `enable_gpu_isolation: 'true'`.
     -  **gpus_are_scarce**: Indicates whether to treat GPUs as a scarce resource in the cluster. By default, this is set to `gpus_are_scarce: 'true'`, which means DC/OS reserves GPU nodes exclusively for services that are configured to consume GPU resources. It's important to note that this setting will influence which agent nodes a GPU-aware framework will be deployed on DC/OS. This setting does not influence the individual tasks which the frameworks might launch while the framework is running. It is possible for a framework to schedule a non-GPU task on an agent node where GPU's are present.
 
-    For more information, see the [configuration parameter documentation](/mesosphere/dcos/1.12/installing/oss/custom/configuration/configuration-parameters/#enable-gpu-isolation) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
+    For more information, see the [configuration parameter documentation](/mesosphere/dcos/1.12/installing/production/advanced-configuration/configuration-reference/#enable-gpu-isolation) and Mesos [Nvidia GPU Support documentation](http://mesos.apache.org/documentation/latest/gpu-support/#external-dependencies).
 
 ## Cloud DC/OS Installation with GPUs using the DC/OS Universal Installer
 

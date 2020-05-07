@@ -45,7 +45,7 @@ Tweeter stores tweets in the DC/OS Cassandra service, streams tweets to the DC/O
 ## Prerequisites
 
 *  [DC/OS](/mesosphere/dcos/latest/installing/) or [DC/OS Enterprise](/mesosphere/dcos/latest/installing/) installed with at least 5 [private agents][6] and 1 [public agent][6].
-*  [DC/OS CLI](/mesosphere/dcos/cli/install/) installed.
+*  [DC/OS CLI](/mesosphere/dcos/1.12/cli/install/) installed.
 *  The public IP address of your public agent node. After you have installed DC/OS with a public agent node declared, you can [navigate to the public IP address][9] of your public agent node.
 *   Git:
     *   **macOS:** Get the installer from [Git downloads](http://git-scm.com/download/mac).
@@ -61,7 +61,7 @@ In this step you install Cassandra, Kafka, Marathon-LB, and Zeppelin from the DC
 
 3.  Click the **Catalog** tab. Find and click the **marathon-lb** package, click the **REVIEW & RUN** button, then again, then **RUN SERVICE**. When prompted by the modal alert, click **OPEN SERVICE**.
 
-If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/mesosphere/dcos/services/marathon-lb/latest/mlb-install/). Depending on your [security mode](/mesosphere/dcos/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
+If you are having trouble getting Marathon-LB up and running on an Enterprise cluster, try installing it following [these instructions](/mesosphere/dcos/services/marathon-lb/latest/mlb-install/). Depending on your [security mode](/mesosphere/dcos/1.12/security/ent/#security-modes), Marathon-LB may require service authentication for access to DC/OS.
 
 4.  Click the **Catalog** tab. Click the **zeppelin** package, then click the **REVIEW & RUN** button.
     1.  Click the **spark** tab on the left and set `cores_max` to `8`.

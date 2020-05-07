@@ -306,7 +306,7 @@ Read the following documentation resources to learn more about DC/OS Telegraf:
 
 ## DC/OS signal
 
-The DC/OS signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/mesosphere/dcos/1.12/installing/oss/opt-out/#telemetry) at installation time.
+The DC/OS signal service reports cluster telemetry and analytics to help improve DC/OS. Administrators can [opt out of telemetry](/mesosphere/dcos/1.12/installing/production/deploying-dcos/opt-out/#telemetry) at installation time.
 
 ### System services
 
