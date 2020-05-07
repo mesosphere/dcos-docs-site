@@ -89,7 +89,7 @@ To launch a service on a public node, you must
 1.  Configure an edge load balancer and service discovery mechanism.
 
     - AWS users: If you installed DC/OS by using the [AWS CloudFormation templates](/mesosphere/dcos/1.13/installing/evaluation/community-supported-methods/aws/), an ELB is included. However, you must reconfigure the health check on the public ELB to expose the app to the port specified in your app definition (e.g. port 80).
-    - All other users: You can use [Marathon-LB](/mesosphere/dcos/1.13/networking/marathon-lb/), a rapid proxy and load balancer that is based on HAProxy.
+    - All other users: You can use [Marathon-LB](/mesosphere/dcos/services/marathon-lb/), a rapid proxy and load balancer that is based on HAProxy.
 
 1.  Go to your public agent to see the site running. For information about how to find your public agent IP, see the [documentation](/mesosphere/dcos/1.13/administering-clusters/locate-public-agent/).
 

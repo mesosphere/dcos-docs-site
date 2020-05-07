@@ -52,7 +52,7 @@ By completing this tutorial, you will learn:
 - How to debug resource management issues.
 
 # Review the app definition
-If you take another look at the [app definition]((https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json)) for the [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) sample application, you can see the resources allocated for the app in the `cpus`, `mem`, `disk`, and `gpus` settings. For example:
+If you take another look at the [app definition](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json) for the [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) sample application, you can see the resources allocated for the app in the `cpus`, `mem`, `disk`, and `gpus` settings. For example:
 
 ```json
 {

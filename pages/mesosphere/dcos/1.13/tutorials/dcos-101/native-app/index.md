@@ -7,7 +7,7 @@ menuWeight: 8
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-In a [previous tutorial](/mesosphere/dcos/1.13/tutorials/dcos-101/app1/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. This is because DC/OS supports running applications on two different type of nodes: **private agent nodes** and **public agent nodes**. 
+In a [previous tutorial](/mesosphere/dcos/1.13/tutorials/dcos-101/first-app/), you deployed an application that runs inside the cluster and interacts with another application--the Redis service--that also runs inside the cluster. Neither application is exposed outside of the cluster or available to any external users. This is because DC/OS supports running applications on two different type of nodes: **private agent nodes** and **public agent nodes**. 
 
 So far, you have only worked with applications and services that run on private agent nodes, which cannot be accessed from outside of the cluster. To expose a service or application to the outside world, you typically use a load balancer running on a public node.
 
@@ -20,7 +20,7 @@ In this tutorial, you will deploy another sample application but with a few impo
 Before starting this tutorial, you should verify the following:
 - You have access to a running [DC/OS cluster](../start-here/) with at least at least one master node and three agent nodes.
 - You have access to a computer where the [DC/OS CLI](../cli/) is installed.
-- You have the sample [dcos-101/app1](/mesosphere/dcos/1.13/tutorials/dcos-101/app1/) application deployed and running in your cluster.
+- You have the sample [dcos-101/first-app](/mesosphere/dcos/1.13/tutorials/dcos-101/first-app/) application deployed and running in your cluster.
 
 # Learning objectives
 By completing this tutorial, you will learn:

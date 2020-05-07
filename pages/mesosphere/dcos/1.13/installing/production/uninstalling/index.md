@@ -33,7 +33,7 @@ Before running the script you should ensure that the cluster no longer requires 
 ## What this script does
 This script will uninstall all DC/OS binaries, libraries, and log files from the machine named $HOSTNAME.
 
-It will leave behind an [uninstallation log](/var/log/dcos.uninstall.log) which details all of the files that were removed from the machine. 
+It will leave behind an uninstallation log in /var/log which details all of the files that were removed from the machine. 
 
 - After running the uninstallation script, your machine is left in a state where DC/OS can be cleanly installed again.
 - This script is intended to remove DC/OS from Master and Agent nodes and should not be used to uninstall a bootstrap node.
