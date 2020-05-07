@@ -66,7 +66,7 @@ https://github.com/mesosphere/marathon/blob/master/changelog.md
 ## Breaking changes
 Remove the octarine package from DC/OS. It was originally used as a proxy for the CLI but is not used for this purpose, anymore.
 
-DC/OS Net: wait till agents become active before fanning out Mesos tasks. (DCOS_OSS-5463)
+DC/OS Net will now wait until agents become active before adding DNS entries for tasks on the agent to prevent resolving to unreachable addresses (DCOS_OSS-5463)
 
 Remove the avro-cpp package from DC/OS. It was originally used as part of the metrics-collection framework which now relies on a different infrastructure.
 
