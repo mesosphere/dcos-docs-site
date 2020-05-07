@@ -46,5 +46,5 @@ To enable TLS, a Java keystore (and, optionally, truststore) must be provided, a
 }
 ```
 
-[11]: https://docs.d2iq.com/latest/overview/architecture/components/
+[11]: /mesosphere/dcos/latest/overview/architecture/components/
 [12]: http://docs.oracle.com/javase/8/docs/technotes/tools/unix/keytool.html
