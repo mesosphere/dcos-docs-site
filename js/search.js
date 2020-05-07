@@ -1,3 +1,5 @@
+try {
+
 const landingContainer = document.querySelector('.landing');
 
 //
@@ -268,3 +270,7 @@ function handleFilterWidth() {
 }
 
 window.addEventListener('resize', handleFilterWidth);
+
+} catch(e) {
+  console.error("Error in search script" + e);
+}
