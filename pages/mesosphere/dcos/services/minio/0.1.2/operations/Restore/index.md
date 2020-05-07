@@ -40,7 +40,7 @@ The restore task is responsible for restoring the data in the DC/OS {{ model.tec
 
 1. The restore task will create a bucket with the same name which was in the DC/OS {{ model.techName }} storage system previously; it will drop the prefix service name from the bucket which was attached in S3-compatible storage in the backup plan.
 
-   [<img src="../../img/Restore.png" alt="Restore" width="800"/>](../img/Restore.png)
+   [<img src="../../img/Restore.png" alt="Restore" width="800"/>](../../img/Restore.png)
 
    Figure 2. - Restoring the data
    

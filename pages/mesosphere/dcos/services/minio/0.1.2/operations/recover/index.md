@@ -30,7 +30,7 @@ The DC/OS {{ model.techName }} service allows you to heal buckets and objects on
    [<img src="../../img/Recover1.png" alt="Recover1" width="800"/>](../../img/Recover1.png)
 
 
-<p class="message--important"><strong>NOTE: </strong>The <tt>mc heal</tt> command is only applicable for a DC/OS  {{ model.techName}} erasure coded setup (standalone and distributed). See <a href="/mesosphere/dcos/0.1.2/configuration/erasure-coding-schemes/">Erasure Coding Scheme in {{ model.techName}} </a> or the <a href="https://docs.minio.io/docs/minio-admin-complete-guide.html#heal">{{ model.techName}}  Command Reference</a> for more information.</p>
+<p class="message--important"><strong>NOTE: </strong>The <tt>mc heal</tt> command is only applicable for a DC/OS  {{ model.techName}} erasure coded setup (standalone and distributed). See <a href="../../configuration/Erasure-Coding-Schemes/">Erasure Coding Scheme in {{ model.techName}} </a> or the <a href="https://docs.minio.io/docs/minio-admin-complete-guide.html#heal">{{ model.techName}}  Command Reference</a> for more information.</p>
 
 ### Node replace
 
