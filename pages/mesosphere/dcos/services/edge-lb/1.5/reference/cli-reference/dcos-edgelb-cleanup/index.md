@@ -61,4 +61,4 @@ Deleted ELB dcos-lb-GxuaBjPhx-Q8ayl-LwW1-HJG
 1/1 ELBs are deleted
 ```
 
-For additional information about deleting Edge-LB pools and uninstalling Edge-LB packages, see [Uninstalling Edge-LB](../../how-to-tasks/uninstalling/).
+For additional information about deleting Edge-LB pools and uninstalling Edge-LB packages, see [Uninstalling Edge-LB](../../../how-to-tasks/uninstalling/).

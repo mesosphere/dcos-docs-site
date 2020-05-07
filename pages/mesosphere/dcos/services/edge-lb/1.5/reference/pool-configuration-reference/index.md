@@ -25,7 +25,7 @@ There are two versions of the Edge-LB API specification and DC/OS&trade; support
 
 <p class="message--note"><strong>NOTE: </strong> The <tt>apiVersion</tt> field in the pool definition defaults to <tt>V2</tt> if it was not explicitly provided. To use the <tt>V1</tt> config, you must explicitly set the <tt>pool.apiVersion</tt> to `"V1"`.</p>
 
-Because the specifications are nearly identical, the reference information in this section provides details for the both versions of the Edge-LB API specification. If you need pool configuration information for working with the older specification, see [Edge-LB pool configuration (REST API V1)](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuraiton-reference/v1-reference).
+Because the specifications are nearly identical, the reference information in this section provides details for the both versions of the Edge-LB API specification. If you need pool configuration information for working with the older specification, see [Edge-LB pool configuration (REST API V1)](/mesosphere/dcos/services/edge-lb/1.5/reference/pool-configuration-reference/v1-reference).
 
 # Configuration file input format
 Edge-LB accepts configuration files in either YAML or JSON format. In most cases, however, you should use JSON and migrate any previous configuration settings from YAML format to JSON.
