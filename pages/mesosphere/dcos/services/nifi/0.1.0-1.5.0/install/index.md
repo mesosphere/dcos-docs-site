@@ -21,7 +21,7 @@ The default DC/OS Apache NiFi Service installation provides reasonable defaults 
  - The `disabled` security mode does not require a service account.
  - Your cluster must have at least three private nodes.
 
-A complete guide to Configuring DC/OS Access for NiFi can be found [here](../security/serviceaccountdetail.md).
+A complete guide to Configuring DC/OS Access for NiFi can be found [here](../security/#set-up-the-service-account).
 
 # Installing from the DC/OS CLI
 

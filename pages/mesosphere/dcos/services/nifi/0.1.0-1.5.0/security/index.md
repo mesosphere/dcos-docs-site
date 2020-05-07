@@ -33,7 +33,7 @@ The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) t
 
 ## Configure Transport Encryption
 
-See the [Guide to Configuring DC/OS Access for NiFi](serviceaccountdetail.md).
+See the [Guide to Configuring DC/OS Access for NiFi](#set-up-the-service-account).
 
 ## Set up the service account
 
