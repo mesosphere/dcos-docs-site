@@ -7,7 +7,7 @@ excerpt: Release notes for DC/OS 1.13.9, including Open Source attribution, and 
 ---
 DC/OS&trade; 1.13.9 was released on 29 April, 2020.
 
-<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to anything other than 2.0.4, can cause critical issues with dcos-net. Because of this, we recommend upgrading release 2.0.4 or higher.</p>
+<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to anything other than 2.0.4, can cause critical issues with dcos-net. Because of this, we recommend upgrading to release 2.0.4 or higher.</p>
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.9/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
