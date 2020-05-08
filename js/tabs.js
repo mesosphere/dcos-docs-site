@@ -23,7 +23,7 @@ function createTabClickController(tabButtons, tabBodies) {
 
       try {
         const buttonElm = $(event.target);
-        window.history.pushState(null, null, buttonElm.attr('href'));
+        window.history.pushState(null, null, buttonElm.attr("href"));
       } catch (e) {
         // Some browsers might not support history
       }
@@ -32,9 +32,9 @@ function createTabClickController(tabButtons, tabBodies) {
     // Activate the selected tab
     tabButtons.forEach((button, idx) => {
       if (idx === index) {
-        button.addClass('tabs__button__selected');
+        button.addClass("tabs__button__selected");
       } else {
-        button.removeClass('tabs__button__selected');
+        button.removeClass("tabs__button__selected");
       }
     });
 
@@ -65,12 +65,11 @@ function convertHeadingToTab(heading) {
   const clickController = createTabClickController(tabButtons, tabBodies);
 
   // If the heading is empty, hide it
-  if (heading.text().trim() === '') heading.hide();
+  if (heading.text().trim() === "") heading.hide();
 
   // Walk down the heading siblings and construct the tab interface
   let elm = $(heading);
 
-  // eslint-disable-next-line
   while ((elm = elm.next()).length) {
     const tagName = elm[0].tagName;
 
@@ -94,11 +93,11 @@ function convertHeadingToTab(heading) {
         }
 
         // Create a tab button and link it on the click controller
-        const tabId = elm.attr('id');
+        const tabId = elm.attr("id");
         const tabTitle = elm.text();
         const tabIndex = tabButtons.length;
         const tabButton = $(
-          `<li class="tabs__button"><a href="#${tabId}">${tabTitle}</a></li>`,
+          `<li class="tabs__button"><a href="#${tabId}">${tabTitle}</a></li>`
         );
         tabButton.click(clickController.bind(tabButton, tabIndex));
         tabButton.appendTo(tabButtonContainer);
@@ -113,7 +112,6 @@ function convertHeadingToTab(heading) {
         // this header acts as an anchor)
         elm.hide();
 
-        // eslint-disable-next-line
         continue;
       }
 
@@ -135,13 +133,13 @@ function convertHeadingToTab(heading) {
     Math.max(
       0,
       tabButtons.findIndex(
-        tabElm => tabElm.attr('href') === window.location.hash,
-      ),
-    ),
+        (tabElm) => tabElm.attr("href") === window.location.hash
+      )
+    )
   );
 }
 
 // Convert all headings with tabs at load time
-$('h1.tabs, h2.tabs, h3.tabs, h4.tabs').each((idx, elm) => {
+$("h1.tabs, h2.tabs, h3.tabs, h4.tabs").each((idx, elm) => {
   convertHeadingToTab($(elm));
 });

@@ -13,9 +13,7 @@
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
     "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
-    "webpack": "webpack --progress --colors",
-    "eslint": "eslint js/**.js",
-    "eslint-init": "eslint --init"
+    "webpack": "webpack --progress --colors"
   },
   "author": "Ettrics",
   "devDependencies": {
@@ -30,12 +28,6 @@
     "cheerio": "^1.0.0-rc.2",
     "css-loader": "^0.28.4",
     "debug": "^3.1.0",
-    "eslint": "^4.3.0",
-    "eslint-config-airbnb-base": "^11.3.1",
-    "eslint-plugin-import": "^2.7.0",
-    "eslint-plugin-node": "^5.1.1",
-    "eslint-plugin-promise": "^3.5.0",
-    "eslint-plugin-standard": "^3.0.1",
     "extract-text-webpack-plugin": "^2.1.2",
     "html-minifier": "^3.5.3",
     "inputformat-to-jstransformer": "^1.2.1",

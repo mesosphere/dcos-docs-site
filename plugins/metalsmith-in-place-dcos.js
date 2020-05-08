@@ -1,7 +1,7 @@
-const debug = require('debug')('metalsmith-in-place-dcos');
-const jstransformer = require('jstransformer');
-const toTransformer = require('inputformat-to-jstransformer');
-const pluginKit = require('metalsmith-plugin-kit');
+const debug = require("debug")("metalsmith-in-place-dcos");
+const jstransformer = require("jstransformer");
+const toTransformer = require("inputformat-to-jstransformer");
+const pluginKit = require("metalsmith-plugin-kit");
 
 /**
  * This copy of metalsmith-in-place has the following modifications to make it functional:
@@ -33,12 +33,15 @@ function getTransformer(name) {
  */
 
 module.exports = function metalsmithInPlaceDcos(opts) {
-  const options = pluginKit.defaultOptions({
-    renderProperty: 'render',
-    renderOptionsProperty: 'renderOptions',
-    match: '**/*.md',
-    matchOptions: {},
-  }, opts);
+  const options = pluginKit.defaultOptions(
+    {
+      renderProperty: "render",
+      renderOptionsProperty: "renderOptions",
+      match: "**/*.md",
+      matchOptions: {},
+    },
+    opts
+  );
 
   return pluginKit.middleware({
     each: (filename, file, files, metalsmith) => {
@@ -51,16 +54,21 @@ module.exports = function metalsmithInPlaceDcos(opts) {
       debug('Rendering %s with transformer "%s"...', filename, transformerName);
       const transformer = getTransformer(transformerName);
       if (!transformer) {
-        throw new Error(`Unable to find transformer named ${transformerName} as requested in ${filename}`);
+        throw new Error(
+          `Unable to find transformer named ${transformerName} as requested in ${filename}`
+        );
       }
       const renderOptions = file[options.renderOptions] || {};
-      file.contents = Buffer.from(transformer.render(
-        file.contents.toString(),
-        renderOptions,
-        Object.assign({}, metalsmith.metadata(), file)).body);
+      file.contents = Buffer.from(
+        transformer.render(
+          file.contents.toString(),
+          renderOptions,
+          Object.assign({}, metalsmith.metadata(), file)
+        ).body
+      );
     },
     match: options.match,
     matchOptions: options.matchOptions,
-    name: 'metalsmith-in-place-dcos',
+    name: "metalsmith-in-place-dcos",
   });
 };
