@@ -38,7 +38,8 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     'mesosphere-dcos': client.initIndex('mesosphere-dcos'),
     'ksphere-konvoy': client.initIndex('ksphere-konvoy'),
     'ksphere-kommander': client.initIndex('ksphere-kommander'),
-    'ksphere-dispatch': client.initIndex('ksphere-dispatch')
+    'ksphere-dispatch': client.initIndex('ksphere-dispatch'),
+    'ksphere-kubeflow': client.initIndex('ksphere-kubeflow')
   }
 
   // /**
@@ -89,7 +90,8 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       dcos: 'DC/OS',
       konvoy: 'Konvoy',
       kommander: 'Kommander',
-      dispatch: 'Dispatch'
+      dispatch: 'Dispatch',
+      kubeflow: 'Kubeflow'
     };
 
     const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
@@ -137,6 +139,8 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         setVersion('Kommander Docs');
       } else if (paths[1] === 'dispatch') {
         setVersion('Dispatch Docs');
+      } else if (paths[1] === 'kubeflow') {
+        setVersion('Kubeflow Docs');
       }
 
       indexFile.version = indexFile.product;
@@ -344,7 +348,8 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
     dcos: [],
     konvoy: [],
     kommander: [],
-    dispatch: []
+    dispatch: [],
+    kubeflow: []
   };
 
   // Filter

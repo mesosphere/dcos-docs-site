@@ -1,25 +1,16 @@
 - var paths = path.split('/')
 - var semanticVersion = /^[0-9]\.[0-9].*$/
 
-- var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
-- var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
-- var latestDcosDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
-
-- var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
-- var konvoyDocs = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
-- var latestKonvoyDocs = konvoyDocs.children.filter(child => child.id == konvoyDocsLatest)[0]
-
-- var dispatchDocs = ksphereDocs.children.filter(child => child.id == 'dispatch')[0]
-- var latestDispatchDocs = dispatchDocs.children.filter(child => child.id == dispatchDocsLatest)[0]
-
-- var kommDocs = ksphereDocs.children.filter(child => child.id == 'kommander')[0]
-- var latestKommDocs = kommDocs.children.filter(child => child.id == kommanderDocsLatest)[0]
+- var latestDcosDocs = hierarchy.findByPath(`/mesosphere/dcos/${dcosDocsLatest }`)
+- var latestKonvoyDocs = hierarchy.findByPath(`/ksphere/konvoy/${konvoyDocsLatest}`)
+- var latestDispatchDocs = hierarchy.findByPath(`/ksphere/dispatch/${dispatchDocsLatest}`)
+- var latestKommDocs = hierarchy.findByPath(`/ksphere/kommander/${kommanderDocsLatest}`)
+- var latestKubeflowDocs = hierarchy.findByPath(`/ksphere/kubeflow/${kubeflowDocsLatest}`)
 
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
 - var pages = headerSphereItems
 - var sectionTitle = 'D2IQ Documentation'
-
 
 
 mixin renderProductBlurbs()
@@ -37,7 +28,7 @@ mixin renderProductBlurbs()
       a(class='blurb__link-group' href='/ksphere/konvoy')
         h3(class='blurb__header') Konvoy
         div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Developed to address the exploding demand for Kubernetes, D2iQ’s Konvoy is a unique Kubernetes distribution designed to enable companies to leverage Kubernetes for an easy, enterprise-grade experience. In addition to providing a simplified install of Kubernetes, D2iQ’s product and engineering teams did the difficult work for you by providing an opinionated set of supporting services from the vast cloud-native landscape and integrating them for an out-of-the-box, production-ready experience.  The result is a significant reduction in the man-power involved in standing up a production-ready Kubernetes environment and an accelerated time-to-market for your application development needs. 
+          p(class='blurb__desc') Developed to address the exploding demand for Kubernetes, D2iQ’s Konvoy is a unique Kubernetes distribution designed to enable companies to leverage Kubernetes for an easy, enterprise-grade experience. In addition to providing a simplified install of Kubernetes, D2iQ’s product and engineering teams did the difficult work for you by providing an opinionated set of supporting services from the vast cloud-native landscape and integrating them for an out-of-the-box, production-ready experience.  The result is a significant reduction in the man-power involved in standing up a production-ready Kubernetes environment and an accelerated time-to-market for your application development needs.
       ul(class="blurb__links")
         for folder in latestKonvoyDocs.children.slice(0,4)
           li(class="blurb__link")
@@ -58,6 +49,15 @@ mixin renderProductBlurbs()
           p(class='blurb__desc') Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications.
       ul(class="blurb__links")
         for folder in latestDispatchDocs.children.slice(0,4)
+          li(class="blurb__link")
+            a(href=folder.path)!= folder.title
+    div(class='blurb__item')
+      a(class='blurb__link-group' href='/ksphere/kubeflow')
+        h3(class='blurb__header') Kubeflow
+        div(class='blurb__desc__wrapper')
+          p(class='blurb__desc') Kubeflow is a ...
+      ul(class="blurb__links")
+        for folder in latestKubeflowDocs.children.slice(0,4)
           li(class="blurb__link")
             a(href=folder.path)!= folder.title
 
@@ -103,9 +103,9 @@ html(lang='en')
           a(href="/ksphere/dispatch", class='landing__hero-tile')
             img(class='landing__tile-image' src='/assets/Dispatch_Docs@2x.png')
             h3(class='landing__tile-title') Dispatch
-          a(href="/mesosphere/dcos", class='landing__hero-tile')
+          a(href="/ksphere/kubeflow", class='landing__hero-tile')
             img(class='landing__tile-image' src='/assets/DCOS_Docs@2x.png')
-            h3(class='landing__tile-title') DC/OS
+            h3(class='landing__tile-title') Kubeflow
 
       div(class='landing__container')
         +renderProductBlurbs()
