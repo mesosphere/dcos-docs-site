@@ -1,7 +1,7 @@
-const fs = require('fs');
-const mkdirp = require('mkdirp');
-const path = require('path');
-const RSS = require('rss');
+const fs = require("fs");
+const mkdirp = require("mkdirp");
+const path = require("path");
+const RSS = require("rss");
 
 function createFeed(opts, metalsmith, page) {
   const metadata = metalsmith.metadata();
@@ -19,7 +19,7 @@ function createFeed(opts, metalsmith, page) {
     feedOptions.description = metadata.description;
   }
   if (metadata.url && page.path) {
-    feedOptions.feed_url = path.join(metadata.url, page.path, 'rss.xml');
+    feedOptions.feed_url = path.join(metadata.url, page.path, "rss.xml");
     feedOptions.site_url = path.join(metadata.url, page.path);
   }
   if (metadata.copyright) {
@@ -59,7 +59,7 @@ function createFeed(opts, metalsmith, page) {
   //
 
   const destinationFolder = path.join(metalsmith.destination(), page.path);
-  const destination = path.join(destinationFolder, '/rss.xml');
+  const destination = path.join(destinationFolder, "/rss.xml");
   if (!fs.existsSync(destinationFolder)) {
     mkdirp.sync(destinationFolder);
   }
@@ -72,16 +72,16 @@ function rss(opts) {
 
     const metadata = metalsmith.metadata();
     if (!metadata) {
-      done(new Error('metadata must be configured'));
+      done(new Error("metadata must be configured"));
     }
 
     const hierarchy = metadata.hierarchy;
     if (!hierarchy) {
-      done(new Error('hierarchy must be configured'));
+      done(new Error("hierarchy must be configured"));
     }
 
-    const pages = hierarchy.find('rss', true);
-    pages.forEach(page => createFeed(opts, metalsmith, page));
+    const pages = hierarchy.find("rss", true);
+    pages.forEach((page) => createFeed(opts, metalsmith, page));
   };
 }
 

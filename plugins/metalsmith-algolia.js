@@ -1,9 +1,9 @@
-const algoliasearch = require('algoliasearch');
-const semverRegex = require('semver-regex');
-const semver = require('semver');
-const sanitizeHtml = require('sanitize-html');
-const extname = require('path').extname;
-const debug = require('debug')('metalsmith-algolia');
+const algoliasearch = require("algoliasearch");
+const semverRegex = require("semver-regex");
+const semver = require("semver");
+const sanitizeHtml = require("sanitize-html");
+const extname = require("path").extname;
+const debug = require("debug")("metalsmith-algolia");
 
 // based on their api repsonses it looks like they use 2bytes for char,
 // our plan allows for 10kb, so roughly 50k characters
@@ -23,23 +23,25 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
    * @param {string} options.renderPathPattern
    */
 
-  const parameters = ['projectId', 'privateKey'];
+  const parameters = ["projectId", "privateKey"];
 
   for (let i = 0; i < parameters.length; i += 1) {
     const parameter = parameters[i];
     if (!options[parameter]) {
-      console.error(`Algolia: "${parameter}" option must be set, skipping indexation`);
+      console.error(
+        `Algolia: "${parameter}" option must be set, skipping indexation`
+      );
       return null;
     }
   }
 
   const client = algoliasearch(options.projectId, options.privateKey);
   const indices = {
-    'mesosphere-dcos': client.initIndex('mesosphere-dcos'),
-    'ksphere-konvoy': client.initIndex('ksphere-konvoy'),
-    'ksphere-kommander': client.initIndex('ksphere-kommander'),
-    'ksphere-dispatch': client.initIndex('ksphere-dispatch')
-  }
+    "mesosphere-dcos": client.initIndex("mesosphere-dcos"),
+    "ksphere-konvoy": client.initIndex("ksphere-konvoy"),
+    "ksphere-kommander": client.initIndex("ksphere-kommander"),
+    "ksphere-dispatch": client.initIndex("ksphere-dispatch"),
+  };
 
   // /**
   //  * Algolia Indexing Settings
@@ -59,13 +61,13 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   return function metalsmithAlgoliaMiddleware(files, metalsmith, done) {
     const metadata = metalsmith.metadata();
     if (!metadata) {
-      console.error('Metadata must be configured');
+      console.error("Metadata must be configured");
       return;
     }
 
     const hierarchy = metadata.hierarchy;
     if (!hierarchy) {
-      console.error('Hierarchy must be configured');
+      console.error("Hierarchy must be configured");
       return;
     }
 
@@ -73,12 +75,19 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
     const filesToIndex = {};
 
-    filenames.forEach(filename => {
-      if(htmlFile(filename) && !inExcludedSection(filename, options.skipSections, options.renderPathPattern)) {
+    filenames.forEach((filename) => {
+      if (
+        htmlFile(filename) &&
+        !inExcludedSection(
+          filename,
+          options.skipSections,
+          options.renderPathPattern
+        )
+      ) {
         // Only index files that are two directories deep, aka mesosphere/dcos/...
-        const indexName = filename.split('/').slice(0, 2).join('-');
-        if (!indexName.includes('index.html')) {
-          filesToIndex[indexName] = filesToIndex[indexName]  || [];
+        const indexName = filename.split("/").slice(0, 2).join("-");
+        if (!indexName.includes("index.html")) {
+          filesToIndex[indexName] = filesToIndex[indexName] || [];
           filesToIndex[indexName].push(files[filename]);
         }
       }
@@ -86,19 +95,23 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
     // index the objects
     const products = {
-      dcos: 'DC/OS',
-      konvoy: 'Konvoy',
-      kommander: 'Kommander',
-      dispatch: 'Dispatch'
+      dcos: "DC/OS",
+      konvoy: "Konvoy",
+      kommander: "Kommander",
+      dispatch: "Dispatch",
     };
 
-    const semverMap = buildSemverMap(files, options.skipSections, options.renderPathPattern);
+    const semverMap = buildSemverMap(
+      files,
+      options.skipSections,
+      options.renderPathPattern
+    );
 
     const productize = (file, indexFile) => {
-      const paths = file.path.split('/');
+      const paths = file.path.split("/");
       indexFile.product = products[paths[1]];
 
-      indexFile.versionNumber = '';
+      indexFile.versionNumber = "";
 
       const setVersion = (section, offset = 0) => {
         indexFile.section = section;
@@ -108,44 +121,44 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
           indexFile.versionNumber = version;
           indexFile.versionWeight = semverMap[product][version];
         }
-      }
+      };
 
       // DC/OS
-      if (paths[1] === 'dcos') {
-        if (paths[2] === 'services') {
+      if (paths[1] === "dcos") {
+        if (paths[2] === "services") {
           if (paths[3]) {
             indexFile.product = paths[3]
-              .split('-')
-              .map(word => {
+              .split("-")
+              .map((word) => {
                 word[0] = word[0].toUpperCase();
                 return word;
               })
-            .join(' ');
+              .join(" ");
           }
-          setVersion('Service Docs', 2);
+          setVersion("Service Docs", 2);
         } else {
-          setVersion('DC/OS Docs');
+          setVersion("DC/OS Docs");
         }
-      } else if (paths[1] === 'konvoy') {
-        if (paths[2] === 'partner-solutions') {
-          indexFile.section = 'Partner Solutions Docs';
-          indexFile.versionNumber = 'Konvoy Partners';
+      } else if (paths[1] === "konvoy") {
+        if (paths[2] === "partner-solutions") {
+          indexFile.section = "Partner Solutions Docs";
+          indexFile.versionNumber = "Konvoy Partners";
         } else {
-          setVersion('Konvoy Docs');
+          setVersion("Konvoy Docs");
         }
-      } else if (paths[1] === 'kommander') {
-        setVersion('Kommander Docs');
-      } else if (paths[1] === 'dispatch') {
-        setVersion('Dispatch Docs');
+      } else if (paths[1] === "kommander") {
+        setVersion("Kommander Docs");
+      } else if (paths[1] === "dispatch") {
+        setVersion("Dispatch Docs");
       }
 
       indexFile.version = indexFile.product;
-      if (indexFile.versionNumber !== '') {
-        indexFile.version += ' ' + indexFile.versionNumber;
+      if (indexFile.versionNumber !== "") {
+        indexFile.version += " " + indexFile.versionNumber;
       }
     };
 
-    Object.keys(filesToIndex).forEach(indexName => {
+    Object.keys(filesToIndex).forEach((indexName) => {
       const index = indices[indexName];
 
       // Remove index objects that no longer exist
@@ -153,26 +166,33 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         const browser = index.browseAll();
         let hits = [];
 
-        browser.on('result', function onResult(content) {
+        browser.on("result", function onResult(content) {
           hits = hits.concat(content.hits);
         });
 
-        browser.on('error', function onError(err) {
+        browser.on("error", function onError(err) {
           throw err;
         });
 
-        browser.on('end', function onEnd() {
+        browser.on("end", function onEnd() {
           const existingFiles = {};
           Object.keys(files)
-            .filter(file => extname(file) === '.html')
-            .forEach(filename => existingFiles[files[filename].path] = true);
+            .filter((file) => extname(file) === ".html")
+            .forEach(
+              (filename) => (existingFiles[files[filename].path] = true)
+            );
 
-          debug('%d local files', Object.keys(existingFiles).length);
-          const indexObjectIDs = hits.map(hit => hit.objectID);
-          debug('%d existing objectIDs in index', indexObjectIDs.length);
+          debug("%d local files", Object.keys(existingFiles).length);
+          const indexObjectIDs = hits.map((hit) => hit.objectID);
+          debug("%d existing objectIDs in index", indexObjectIDs.length);
 
-          const objectIDsToDelete = indexObjectIDs.filter(id => !existingFiles[id])
-          debug('Deleting %d old objectIDs from index...', objectIDsToDelete.length);
+          const objectIDsToDelete = indexObjectIDs.filter(
+            (id) => !existingFiles[id]
+          );
+          debug(
+            "Deleting %d old objectIDs from index...",
+            objectIDsToDelete.length
+          );
 
           index.deleteObjects(objectIDsToDelete, () => {
             resolve();
@@ -184,20 +204,22 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
       const toAlgolia = (file) => {
         const indexFile = {};
-        indexFile['objectID'] = file['path'];
-        indexFile['title'] = file['title'];
-        indexFile['path'] = file['path'];
+        indexFile["objectID"] = file["path"];
+        indexFile["title"] = file["title"];
+        indexFile["path"] = file["path"];
         indexFile.createIfNotExists = true;
 
-        if (file.enterprise) indexFile.type = 'Enterprise';
-        if (file.oss) indexFile.type = 'Open Source';
-        if (file.community) indexFile.type = 'Community';
+        if (file.enterprise) indexFile.type = "Enterprise";
+        if (file.oss) indexFile.type = "Open Source";
+        if (file.community) indexFile.type = "Community";
 
-        indexFile['content'] = transform(sanitize(file.contents, file.path));
-        indexFile['excerpt'] = indexFile['content'].slice(0, 200);
+        indexFile["content"] = transform(sanitize(file.contents, file.path));
+        indexFile["excerpt"] = indexFile["content"].slice(0, 200);
 
-        if(indexFile['content'].length === MAX_CONTENT_LENGTH){
-          console.error(`Warning: file ${file['path']} content to large, trimmed to fit.`);
+        if (indexFile["content"].length === MAX_CONTENT_LENGTH) {
+          console.error(
+            `Warning: file ${file["path"]} content to large, trimmed to fit.`
+          );
         }
 
         productize(file, indexFile);
@@ -205,7 +227,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         return indexFile;
       };
 
-      const algoliaObjects = files.map(file => toAlgolia(file));
+      const algoliaObjects = files.map((file) => toAlgolia(file));
 
       start.then(() => {
         const promises = [];
@@ -216,22 +238,26 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
             new Promise((resolve, reject) => {
               index.partialUpdateObject(object, (err, _content) => {
                 if (err) {
-                  console.error(`Algolia: Skipped "${object.objectID}": ${err.message}`);
+                  console.error(
+                    `Algolia: Skipped "${object.objectID}": ${err.message}`
+                  );
                   resolve(); // log the error but ignore it, we still want to index everything
                 } else {
                   // debug(`Algolia: Updating "${object.objectID}"`);
                 }
                 resolve();
               });
-            }),
+            })
           );
         }
 
-        promises.reduce((promise, item) => {
-          return promise.then(() => item.then());
-        }, Promise.resolve()).then(() => {
-          done();
-        });
+        promises
+          .reduce((promise, item) => {
+            return promise.then(() => item.then());
+          }, Promise.resolve())
+          .then(() => {
+            done();
+          });
       });
     });
   };
@@ -241,7 +267,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 // Used methods
 //
 
-const htmlFile = (filename) => extname(filename) === '.html';
+const htmlFile = (filename) => extname(filename) === ".html";
 
 const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
   if (renderPathPattern) {
@@ -264,26 +290,26 @@ const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
 };
 
 const transformations = {
-  '&nbsp;': ' ',
-  '&lt;': '<',
-  '&gt;': '>',
-  '&amp;': '&',
-  '&quot;': '"',
-  '&apos;': '\'',
-  '&cent;': '¢',
-  '&pound;': '£',
-  '&yen;': '¥',
-  '&euro;': '€',
-  '&copy;': '©',
-  '&reg;': '®',
-  '\\n': ' ',
+  "&nbsp;": " ",
+  "&lt;": "<",
+  "&gt;": ">",
+  "&amp;": "&",
+  "&quot;": '"',
+  "&apos;": "'",
+  "&cent;": "¢",
+  "&pound;": "£",
+  "&yen;": "¥",
+  "&euro;": "€",
+  "&copy;": "©",
+  "&reg;": "®",
+  "\\n": " ",
 };
 
 const transform = (content) => {
   let replacedContent = content;
   Object.keys(transformations).forEach((htmlEntity) => {
     const replacement = transformations[htmlEntity];
-    const htmlEntRegex = new RegExp(htmlEntity, 'g');
+    const htmlEntRegex = new RegExp(htmlEntity, "g");
     replacedContent = replacedContent.replace(htmlEntRegex, replacement);
   });
 
@@ -303,16 +329,16 @@ const sanitize = (buffer, file) => {
     allowedAttributes: [],
     selfClosing: [],
     nonTextTags: [
-      'head',
-      'style',
-      'script',
-      'textarea',
-      'noscript',
-      'header',
-      'footer',
-      'nav',
-      'aside',
-      'section',
+      "head",
+      "style",
+      "script",
+      "textarea",
+      "noscript",
+      "header",
+      "footer",
+      "nav",
+      "aside",
+      "section",
     ],
   });
   parsedString = trim(parsedString);
@@ -331,11 +357,11 @@ const sanitize = (buffer, file) => {
 
   // There should be no blank pages
   console.error(`Warning: file ${file} has no content.`);
-  return '';
+  return "";
 };
 
 // Trim whitespace from of string.
-const trim = string => string.replace(/^\s+|\s+$/g, '');
+const trim = (string) => string.replace(/^\s+|\s+$/g, "");
 
 const isVersion = (version) => /^[0-9]\.[0-9](.*)/.test(version);
 
@@ -344,19 +370,23 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
     dcos: [],
     konvoy: [],
     kommander: [],
-    dispatch: []
+    dispatch: [],
   };
 
   // Filter
   const filePaths = Object.keys(files);
   for (let i = 0; i < filePaths.length; i += 1) {
     const file = filePaths[i];
-    const pathParts = file.split('/');
+    const pathParts = file.split("/");
     const product = pathParts[1];
     let version = pathParts[2];
     if (inExcludedSection(file, skipSections, renderPathPattern)) {
       continue;
-    } else if (version === 'services' && pathParts[4] && /^(v|)[0-9].[0-9](.*)/.test(pathParts[4])) {
+    } else if (
+      version === "services" &&
+      pathParts[4] &&
+      /^(v|)[0-9].[0-9](.*)/.test(pathParts[4])
+    ) {
       const service = pathParts[3];
       version = pathParts[4];
       services[service] = services[service] || [];
@@ -364,7 +394,10 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
       if (serviceVersions.indexOf(version) === -1) {
         serviceVersions.push(version);
       }
-    } else if (isVersion(version) && services[product].indexOf(version) === -1) {
+    } else if (
+      isVersion(version) &&
+      services[product].indexOf(version) === -1
+    ) {
       services[product].push(version);
     }
   }
@@ -390,10 +423,10 @@ const sortVerisons = (versions) => {
   const prereleases = [];
   const released = [];
   versions.forEach((version) => {
-    if(semver.parse(version).prerelease.length > 0){
+    if (semver.parse(version).prerelease.length > 0) {
       prereleases.push(version);
-    } else{
-      released.push(version)
+    } else {
+      released.push(version);
     }
   });
   return semver.rsort(released).concat(semver.rsort(prereleases));
@@ -403,9 +436,9 @@ const cleanVersion = (version) => {
   if (semverRegex().test(version)) {
     return version;
   }
-  const v = version.split('.');
+  const v = version.split(".");
   if (v.length < 3) {
-    v.push('0');
+    v.push("0");
   }
-  return v.slice(0, 3).join('.');
+  return v.slice(0, 3).join(".");
 };
