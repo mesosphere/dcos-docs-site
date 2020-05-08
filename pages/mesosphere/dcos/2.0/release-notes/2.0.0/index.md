@@ -9,13 +9,13 @@ excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and v
 ---
 Mesosphere&reg; DC/OS&trade; 2.0.0 was released on 25 October 2019.
 
-<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to 2.0.0, can cause critical issues with dcos-net. Because of this, we recommend upgrading to the 2.0.4 release.</p>
+<p class="message--warning"><strong>WARNING: </strong>The DC/OS 1.13.9 release includes a data format change for the persisted dcos-net state that, if you upgrade to the 2.2.0 release, can cause critical issues with dcos-net. Because of this, we recommend upgrading to release 2.0.4 or higher.</p>
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.0.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
-Registered DC/OS Enterprise customers can access the DC/OS Enterprise configuration file from the <a href="https://support.mesosphere.com/s/downloads">support website</a>. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download and install DC/OS Enterprise.
+New customers contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download and install DC/OS Enterprise.
 
 
 # Release Summary
