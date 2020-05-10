@@ -1,65 +1,41 @@
 - var paths = path.split('/')
 - var semanticVersion = /^[0-9]\.[0-9].*$/
-
-- var latestDcosDocs = hierarchy.findByPath(`/mesosphere/dcos/${dcosDocsLatest }`)
-- var latestKonvoyDocs = hierarchy.findByPath(`/ksphere/konvoy/${konvoyDocsLatest}`)
-- var latestDispatchDocs = hierarchy.findByPath(`/ksphere/dispatch/${dispatchDocsLatest}`)
-- var latestKommDocs = hierarchy.findByPath(`/ksphere/kommander/${kommanderDocsLatest}`)
-- var latestKubeflowDocs = hierarchy.findByPath(`/ksphere/kubeflow/${kubeflowDocsLatest}`)
-
 - var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
 - var headerSphereItems = headerItemsUnsorted.sort((a, b) => a.menuWeight - b.menuWeight)
 - var pages = headerSphereItems
 - var sectionTitle = 'D2IQ Documentation'
 
-
 mixin renderProductBlurbs()
-  div(class='blurb__container')
-    div(class='blurb__item')
-      a(class='blurb__link-group' href='/mesosphere/dcos')
-        h3(class='blurb__header') Mesosphere DC/OS
-        div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It lets you manage multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
-      ul(class="blurb__links")
-        for folder in latestDcosDocs.children.slice(0,4)
-          li(class="blurb__link")
-            a(href=folder.path)!= folder.title
-    div(class='blurb__item')
-      a(class='blurb__link-group' href='/ksphere/konvoy')
-        h3(class='blurb__header') Konvoy
-        div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Developed to address the exploding demand for Kubernetes, D2iQ’s Konvoy is a unique Kubernetes distribution designed to enable companies to leverage Kubernetes for an easy, enterprise-grade experience. In addition to providing a simplified install of Kubernetes, D2iQ’s product and engineering teams did the difficult work for you by providing an opinionated set of supporting services from the vast cloud-native landscape and integrating them for an out-of-the-box, production-ready experience.  The result is a significant reduction in the man-power involved in standing up a production-ready Kubernetes environment and an accelerated time-to-market for your application development needs.
-      ul(class="blurb__links")
-        for folder in latestKonvoyDocs.children.slice(0,4)
-          li(class="blurb__link")
-            a(href=folder.path)!= folder.title
-    div(class='blurb__item')
-      a(class='blurb__link-group' href='/ksphere/kommander')
-        h3(class='blurb__header') Kommander
-        div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
-      ul(class="blurb__links")
-        for folder in latestKommDocs.children.slice(0,4)
-          li(class="blurb__link")
-            a(href=folder.path)!= folder.title
-    div(class='blurb__item')
-      a(class='blurb__link-group' href='/ksphere/dispatch')
-        h3(class='blurb__header') Dispatch
-        div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications.
-      ul(class="blurb__links")
-        for folder in latestDispatchDocs.children.slice(0,4)
-          li(class="blurb__link")
-            a(href=folder.path)!= folder.title
-    div(class='blurb__item')
-      a(class='blurb__link-group' href='/ksphere/kubeflow')
-        h3(class='blurb__header') Kubeflow
-        div(class='blurb__desc__wrapper')
-          p(class='blurb__desc') Kubeflow is a ...
-      ul(class="blurb__links")
-        for folder in latestKubeflowDocs.children.slice(0,4)
-          li(class="blurb__link")
-            a(href=folder.path)!= folder.title
+  a(class='blurb__item' href='/mesosphere/dcos')
+    .blurb__image
+      img(class='landing__tile-image' src='/assets/DCOS_Docs@2x.png')
+    .blurb__body
+      h3 Mesosphere DC/OS
+      p(class='blurb__desc') DC/OS is a distributed operating system based on the Apache Mesos distributed systems kernel. It lets you manage multiple machines as if they were a single computer. It automates resource management, schedules process placement, facilitates inter-process communication, and simplifies the installation and management of distributed services. Its included web interface and available command-line interface (CLI) facilitate remote management and monitoring of the cluster and its services.
+  a(class='blurb__item' href='/ksphere/konvoy')
+    .blurb__image
+      img(class='landing__tile-image' src='/assets/Konvoy_Docs@2x.png')
+    .blurb__body
+      h3 Konvoy
+      p(class='blurb__desc') Developed to address the exploding demand for Kubernetes, D2iQ’s Konvoy is a unique Kubernetes distribution designed to enable companies to leverage Kubernetes for an easy, enterprise-grade experience. In addition to providing a simplified install of Kubernetes, D2iQ’s product and engineering teams did the difficult work for you by providing an opinionated set of supporting services from the vast cloud-native landscape and integrating them for an out-of-the-box, production-ready experience.  The result is a significant reduction in the man-power involved in standing up a production-ready Kubernetes environment and an accelerated time-to-market for your application development needs.
+  a(class='blurb__item' href='/ksphere/kommander')
+    .blurb__image
+      img(class='landing__tile-image' src='/assets/Kommander_Docs@2x.png')
+    .blurb__body
+      h3 Kommander
+      p(class='blurb__desc') Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
+  a(class='blurb__item' href='/ksphere/dispatch')
+    .blurb__image
+      img(class='landing__tile-image' src='/assets/Dispatch_Docs@2x.png')
+    .blurb__body
+      h3 Dispatch
+      p(class='blurb__desc') Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications.
+  a(class='blurb__item' href='/ksphere/kubeflow')
+    .blurb__image
+      img(class='landing__tile-image' src='/assets/DCOS_Docs@2x.png')
+    .blurb__body
+      h3 Kubeflow
+      p(class='blurb__desc') Kubeflow is a ...
 
 doctype html
 html(lang='en')
@@ -80,32 +56,7 @@ html(lang='en')
             i(data-feather='chevron-down')
         include partials/header/mesosphere-dropdown.pug
         include partials/header/ksphere-dropdown.pug
-          //- nav(class='header__menu')
-          //-   ul(class='header__menu-list')
-          //-     each val, index in headerItems
-          //-       - var itemClass = {}
-          //-       - itemClass['header__menu-item'] = true
-          //-       - itemClass['header__menu-item--active'] = val.path == '/'
-          //-       li(class=itemClass)
-          //-         a(href=val.path)!= val.title
       include partials/header/header-dropdown.pug
-      div(class='landing__main-hero')
-        div(class='landing__hero-tile-container')
-          a(href="/mesosphere/dcos", class='landing__hero-tile')
-            img(class='landing__tile-image' src='/assets/DCOS_Docs@2x.png')
-            h3(class='landing__tile-title') DC/OS
-          a(href="/ksphere/konvoy", class='landing__hero-tile')
-            img(class='landing__tile-image' src='/assets/Konvoy_Docs@2x.png')
-            h3(class='landing__tile-title') Konvoy
-          a(href="/ksphere/kommander", class='landing__hero-tile')
-            img(class='landing__tile-image' src='/assets/Kommander_Docs@2x.png')
-            h3(class='landing__tile-title') Kommander
-          a(href="/ksphere/dispatch", class='landing__hero-tile')
-            img(class='landing__tile-image' src='/assets/Dispatch_Docs@2x.png')
-            h3(class='landing__tile-title') Dispatch
-          a(href="/ksphere/kubeflow", class='landing__hero-tile')
-            img(class='landing__tile-image' src='/assets/DCOS_Docs@2x.png')
-            h3(class='landing__tile-title') Kubeflow
 
       div(class='landing__container')
         +renderProductBlurbs()
