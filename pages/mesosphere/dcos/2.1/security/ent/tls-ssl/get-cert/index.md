@@ -9,14 +9,13 @@ enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
+This section does not apply if your DC/OS cluster is using a [custom external certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/). In that case, your clients may already trust the Certificate Authority. Otherwise, your cluster administrator can tell you how to obtain and install the Certificate Authority certificate to enable your clients to trust the cluster.
 
 To ensure that you are communicating with your DC/OS cluster and not another potentially malicious party, you must obtain the appropriate trust anchor. This trust anchor is part of the DC/OS CA bundle which is a collection of root CA certificates. In the simplest case, it just contains one item: the root CA certificate corresponding to the DC/OS certificate authority. You can obtain the DC/OS CA bundle, using one of these methods:
 
 - [Out-of-band, recommended](#oob): the only secure way to retrieve the CA bundle is out-of-band.
 
 - [Via HTTP(S) from Admin Router, insecure](#curl): using `curl` to retrieve the certificate through insecure HTTP or insecure HTTPS.
-
-# Adding an OpenID Connect identity provider
 
 # <a name="oob"></a>Retrieving the DC/OS CA bundle out of band
 
