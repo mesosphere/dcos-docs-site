@@ -578,10 +578,12 @@ Properties of an `addon` object.
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 [aws_elb]: https://aws.amazon.com/elasticloadbalancing/
 [nvidia]: https://docs.nvidia.com/datacenter/kubernetes/kubernetes-upstream/index.html
-[azure_imageiD]: https://azure.microsoft.com/en-in/blog/vm-image-blog-post/
+[azure_imageid]: https://azure.microsoft.com/en-in/blog/vm-image-blog-post/
 [azure_location]: https://azure.microsoft.com/en-us/global-infrastructure/locations/
 [azure_vnet]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
 [azure_loadbalancer]: https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview
 [availability_set]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability
 [azure_tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
 [azure_volume_types]: https://docs.microsoft.com/en-us/rest/api/compute/disks/createorupdate#diskstorageaccounttypes
+[azure_subnet_ids]: https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview
+[azure_instance_types]: https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes

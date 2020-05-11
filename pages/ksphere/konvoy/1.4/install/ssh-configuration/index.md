@@ -96,3 +96,4 @@ spec:
 [ansible]: https://www.ansible.com
 [ansible_inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 [ansible_wait_for]: https://docs.ansible.com/ansible/latest/modules/wait_for_module.html
+[ansible_wait_for_connection]: https://docs.ansible.com/ansible/latest/modules/wait_for_connection_module.html

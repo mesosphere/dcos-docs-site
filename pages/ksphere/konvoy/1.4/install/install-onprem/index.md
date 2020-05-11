@@ -516,7 +516,7 @@ Specifically, the `konvoy up` command does the following:
   * [Elasticsearch][elasticsearch] (including [Elasticsearch exporter][elasticsearch_exporter]) to enable scalable, high-performance logging pipeline.
   * [Kibana][kibana] to support data visualization for content indexed by Elasticsearch.
   * [Fluent Bit][fluentbit] to collect and collate logs from different sources and send logged messages to multiple destinations.
-  * [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][promethsus_adapter]) to collect and evaluate metrics for monitoring and alerting.
+  * [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][prometheus_adapter]) to collect and evaluate metrics for monitoring and alerting.
   * [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
   * [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
   * Operations portal to centralize access to addon dashboards.
@@ -625,3 +625,4 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [kubeaddons_kommander_repo]: https://github.com/mesosphere/kubeaddons-kommander
 [kubeaddons_dispatch_repo]: https://github.com/mesosphere/kubeaddons-dispatch
 [selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+[cluster_configuration]: ../../reference/cluster-configuration/

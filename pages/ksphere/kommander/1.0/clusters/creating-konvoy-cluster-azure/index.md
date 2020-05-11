@@ -31,3 +31,4 @@ Now select the preconfigured [Azure Cloud Provider](/ksphere/kommander/latest/op
 - **Add Labels**: By default, your cluster has some suggested labels that reflect the cloud provider provisioning. For example, in Azure your cluster may be labelled with the datacenter region as well as `provider: azure`. Cluster labels are matched to the selectors created for projects. Changing a cluster label may add or remove the cluster from projects.
 
 [azure-regions]: https://azure.microsoft.com/en-us/global-infrastructure/regions/
+[azure_tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
