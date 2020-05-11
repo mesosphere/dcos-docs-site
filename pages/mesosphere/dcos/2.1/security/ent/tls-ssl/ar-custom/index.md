@@ -88,6 +88,7 @@ client. The server names can include:
   - `master.mesos`
   - `leader.mesos`
   - `registry.component.thisdcos.directory`
+  - any IP address returned by the `/opt/mesosphere/bin/detect_ip` script (created from the `ip_detect_contents` or `ip_detect_filename` configuration parameter).
 
 Every server name provided in this option must be present in the custom external
 certificate's Canonical Name or Subject Alternative Names.
@@ -122,8 +123,8 @@ certificate's PEM, the chain itself must:
   signing its predecessor and being signed by its successor
   - each intermediate CA cert must be a valid CA cert (expiration, etc...)
 
-In case when these restrictions are too strict, the user can override them by
-setting the `external_certificate_validation_disable` to `false`.
+If these restrictions are too strict, they can be overridden by
+setting the `external_certificate_validation_disable` parameter to `true`.
 
 # Installing DC/OS Enterprise with a custom external certificate
 
@@ -184,6 +185,8 @@ chmod 600 /var/lib/dcos/pki/tls/private/adminrouter-external.key
 
 ## Installation
 Proceed with the installation as described in the [documentation of the Installer](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+
+If you are changing from a DC/OS CA issued certificate to a custom external certificate or vice versa, note that your clients may need to trust both CA's during the upgrade.
 
 ## Verify installation
 To verify that the DC/OS Enterprise cluster was installed correctly with the custom external certificate, initiate a TLS connection to Admin Router which will present the custom external certificate for the configured server names. In order to do this, specify a server name in the request that will match one of the entries in `external_certificate_servernames`.
