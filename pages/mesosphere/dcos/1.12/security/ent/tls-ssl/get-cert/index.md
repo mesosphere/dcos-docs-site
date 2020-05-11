@@ -14,8 +14,6 @@ To ensure that you are communicating with your DC/OS cluster and not another pot
 
 - [Via HTTP(S) from Admin Router, insecure](#curl): using `curl` to retrieve the certificate through insecure HTTP or insecure HTTPS.
 
-# Adding an OpenID Connect identity provider
-
 # <a name="oob"></a>Retrieving the DC/OS CA bundle out of band
 
 The DC/OS CA bundle is located on any master node at the file system path `/run/dcos/pki/CA/ca-bundle.crt`. For maximum security, you should manually retrieve this file. Alternatively, a reasonably secure method is to SSH into one of the master nodes to obtain the file, if the master nodes cannot be accessed physically. For simplification and to more easily use the `curl` commands provided elsewhere in the documentation, you can rename the file from `ca-bundle.crt` to e.g., `dcos-ca.crt`.
