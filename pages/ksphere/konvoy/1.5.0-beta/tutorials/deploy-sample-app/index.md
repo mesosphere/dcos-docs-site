@@ -80,3 +80,5 @@ To deploy the sample application:
     ```
 
     This command destroys the Kubernetes cluster and the infrastructure it runs on.
+
+[guestbook]: https://kubernetes.io/docs/tutorials/stateless-application/guestbook/

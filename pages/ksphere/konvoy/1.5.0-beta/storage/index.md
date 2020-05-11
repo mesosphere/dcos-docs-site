@@ -308,3 +308,5 @@ spec:
 [local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
 [static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [reclaim_policy]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming
+[persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[#storage-class]: #storage-classes-and-dynamic-volume-provisioning

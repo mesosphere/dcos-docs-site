@@ -159,3 +159,5 @@ docker exec -ti konvoy-control-plane-0 /bin/bash
 [pv]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [terraform_docker]: https://www.terraform.io/docs/providers/docker/index.html
 [ops_portal]: ../../operations/accessing-the-cluster/
+[install_docker]: https://www.docker.com/products/docker-desktop
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
