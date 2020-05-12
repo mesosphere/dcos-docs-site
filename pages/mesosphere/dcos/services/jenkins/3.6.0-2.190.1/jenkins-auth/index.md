@@ -167,7 +167,7 @@ The contents of the `config.json` file will vary according to your security mode
     "strict-mode": true
   },
   "service": {
-    "name": "/dev/jenkins",
+    "name": "/jenkins/jenkins",
     "user": "nobody"
   }
 }
@@ -181,7 +181,7 @@ The contents of the `config.json` file will vary according to your security mode
     "secret-name": "jenkins/jenkins-secret"
   },
   "service": {
-    "name": "/dev/jenkins",
+    "name": "/jenkins/jenkins",
     "user": "nobody"
   }
 }
@@ -200,7 +200,7 @@ To install the service, complete the following steps.
    dcos package install --options=config.json jenkins
    ```
 
-1. Paste the following path into your browser, replacing `cluster-url` with your actual cluster URL: `https://<cluster-url>/service/dev/jenkins/configure`.
+1. Paste the following path into your browser, replacing `cluster-url` with your actual cluster URL: `https://<cluster-url>/service/jenkins/jenkins/configure`.
 
 1. Scroll to the **Mesos cloud** area.
 
