@@ -22,7 +22,7 @@ oauth_enabled: 'false'
 
 You can opt out of providing anonymous data by disabling telemetry for your cluster. To disable telemetry, you can either:
 
-- Add this parameter to your [`config.yaml`](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/) file during installation (this requires using the [installation][1] method):
+- Add this parameter to your [`config.yaml`](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/) file during installation:
 
     ```yaml
     telemetry_enabled: 'false'
