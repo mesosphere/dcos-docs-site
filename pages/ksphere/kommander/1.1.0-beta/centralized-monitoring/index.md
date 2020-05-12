@@ -11,9 +11,19 @@ Kommander provides centralized monitoring, in a multi-cluster environment, using
 
 <p class="message--note"><strong>NOTE: </strong>Centralized monitoring is available and supported for Konvoy and non-Konvoy clusters.</p>
 
-Managed clusters are distinguished by a cluster ID.
-The cluster ID corresponds to the kube-system namespace UID of the cluster.
-You can run this kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID to determine which cluster the metrics and alerts correspond to:
+Managed clusters are distinguished by a monitoring ID.
+The monitoring ID corresponds to the kube-system namespace UID of the cluster.
+To find a cluster's monitoring ID, you can go to the Clusters tab on the Kommander UI (in the relevant workspace):
+
+```
+https://<CLUSTER_URL>/ops/portal/kommander/ui/#/clusters
+```
+
+Click on the `View Details` link on the managed cluster card, and the monitoring ID can be found under `Monitoring ID (clusterId)`.
+
+You may also search or filter by monitoring IDs on the Clusters page, linked above.
+
+Alternatively, you can run this kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID to determine which cluster the metrics and alerts correspond to:
 
 ```bash
 $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
