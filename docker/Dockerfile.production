@@ -58,7 +58,7 @@ COPY --from=ms-builder /src/build ./
 ADD "$nginx_dir" /etc/nginx/conf.d
 
 # robots
-RUN if [ "${GIT_BRANCH}" != "master" ]; then echo "User-agent: * Disallow: /" > /src/build/robots.txt; fi
+RUN if [ "${GIT_BRANCH}" != "master" ]; then echo "User-agent: * \nDisallow: /" > /src/build/robots.txt; fi
 
 RUN service nginx restart
 
