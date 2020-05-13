@@ -15,6 +15,35 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.4.3 - Released 12 May 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.9 |
+
+#### Improvements
+
+- Adds a warning about the potentially destructive nature of the `--without-draining` flag.
+- New `cluster.yaml` validation `spec.containerRuntime.containerd`, that is, `1.2.6` or `1.2.13`.
+
+#### Bug fixes
+
+- Fix a bug where `HTTP_PROXY` environment variable set on the host may prevent from installing successfully.
+- Fix a bug with the airgapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
+- Fix a bug where the `kubelet` and `chrony` Systemd services may not automatically start after a machine reboot.
+
+#### Component version changes
+
+- Kommander `v1.0.1`
+- Kubernetes `v1.16.9`
+- Containerd `1.2.13`
+- Calico `v3.13.3`
+- Ansible `v2.7.17.0`
+- Go `v1.13.10`
+- Docker `v19.03.8`
+
 ### Version v1.4.2 - Released 24 March 2020
 
 | Kubernetes Support | Version |
