@@ -201,7 +201,7 @@ To replicate data across data centers, {{ model.techName }} requires that you co
 1. Get the list of seed node addresses for the first cluster.
 
     ```shell
-    dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints node
+    dcos {{ model.packageName }} --name={{ model.serviceName }} endpoints native-client
     ```
 
     Alternatively, you can get the list of seed node addresses from the scheduler HTTP API.
@@ -209,7 +209,7 @@ To replicate data across data centers, {{ model.techName }} requires that you co
     ```json
     DCOS_AUTH_TOKEN=$(dcos config show core.dcos_acs_token)
     DCOS_URL=$(dcos config show core.dcos_url)
-    curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.serviceName }}/v1/endpoints/node
+    curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.serviceName }}/v1/endpoints/native-client
     ```
 
     The output should look like this:
@@ -217,14 +217,15 @@ To replicate data across data centers, {{ model.techName }} requires that you co
     ```
     {
       "address": [
-        "10.0.1.236:9042",
-        "10.0.0.119:9042"
+        "10.0.3.88:9042",
+        "10.0.0.162:9042",
+        "10.0.0.189:9042"
       ],
       "dns": [
-        "node-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042",
-        "node-1-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042"
-      ],
-      "vip": "node.{{ model.serviceName }}.l4lb.thisdcos.directory:9042"
+        "node-0-server.cassandra.autoip.dcos.thisdcos.directory:9042",
+        "node-1-server.cassandra.autoip.dcos.thisdcos.directory:9042",
+        "node-2-server.cassandra.autoip.dcos.thisdcos.directory:9042"
+      ]
     }
     ```
 
@@ -233,7 +234,7 @@ To replicate data across data centers, {{ model.techName }} requires that you co
 1. Run the same command for your second {{ model.techShortName }} cluster and note the IPs in the `address` field:
 
     ```
-    dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints node
+    dcos {{ model.packageName }} --name={{ model.serviceName }}2 endpoints native-client
     ```
 
 ### Update configuration for both clusters
@@ -243,7 +244,7 @@ To replicate data across data centers, {{ model.techName }} requires that you co
     ```json
     {
       "service": {
-        "remote_seeds": "10.0.1.236:9042,10.0.0.119:9042"
+        "remote_seeds": "10.0.3.88:9042,10.0.0.162:9042,10.0.0.189:9042"
       }
     }
     ```

@@ -110,7 +110,7 @@ dcos package install {{ model.serviceName }} --options=<options>.json
 Get the list of seed node addresses for the first cluster using the following command:
 
 ```shell
-dcos {{ model.serviceName }} endpoints node
+dcos {{ model.serviceName }} endpoints native-client
 ```
 
 Alternatively, you can get this information from the scheduler HTTP API.
@@ -118,7 +118,7 @@ Alternatively, you can get this information from the scheduler HTTP API.
 ```json
 DCOS_AUTH_TOKEN=$(dcos config show core.dcos_acs_token)
 DCOS_URL=$(dcos config show core.dcos_url)
-curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.serviceName }}/v1/endpoints/node
+curl -H "authorization:token=$DCOS_AUTH_TOKEN" $DCOS_URL/service/{{ model.serviceName }}/v1/endpoints/native-client
 ```
 
 The output is as follows:
@@ -126,14 +126,15 @@ The output is as follows:
 ```
 {
   "address": [
-    "10.0.1.236:9042",
-    "10.0.0.119:9042"
+    "10.0.3.88:9042",
+    "10.0.0.162:9042",
+    "10.0.0.189:9042"
   ],
   "dns": [
-    "node-0-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042",
-    "node-1-server.{{ model.serviceName }}.autoip.dcos.thisdcos.directory:9042"
-  ],
-  "vip": "node.{{ model.serviceName }}.l4lb.thisdcos.directory:9042"
+    "node-0-server.cassandra.autoip.dcos.thisdcos.directory:9042",
+    "node-1-server.cassandra.autoip.dcos.thisdcos.directory:9042",
+    "node-2-server.cassandra.autoip.dcos.thisdcos.directory:9042"
+  ]
 }
 ```
 
@@ -142,7 +143,7 @@ Note the IP addresses in the `address` field.
 Run the same command for your second {{ model.techShortName }} cluster and note the IP addresses in the `address` field:
 
 ```
-dcos {{ model.serviceName }} endpoints node --name={{ model.serviceName }}2
+dcos {{ model.serviceName }} endpoints native-client --name={{ model.serviceName }}2
 ```
 
 ## Update configuration for both clusters
@@ -152,7 +153,7 @@ Create an `options.json` file with the IP addresses of the first cluster (`{{ mo
 ```json
 {
   "service": {
-    "remote_seeds": "10.0.1.236,10.0.0.119"
+    "remote_seeds": "10.0.3.88:9042,10.0.0.162:9042,10.0.0.189:9042"
   }
 }
 {
