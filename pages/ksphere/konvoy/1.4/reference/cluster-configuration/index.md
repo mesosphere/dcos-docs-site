@@ -90,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.16.8
+    version: 1.16.9
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -102,12 +102,12 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.13.1
+      version: v3.13.3
       encapsulation: ipip
       mtu: 1480
   containerRuntime:
     containerd:
-      version: 1.2.6
+      version: 1.2.13
   osPackages:
     enableAdditionalRepositories: true
   nodePools:
@@ -188,12 +188,12 @@ spec:
     - name: velero
       enabled: true
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.0.1
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.0.1
     addonsList:
     - name: kommander
       enabled: true
@@ -366,7 +366,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.8`                |
+| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.9`                |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#speckubernetescontrolplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#speckubernetesnetworking) |
 | `kubernetes.cloudProvider`     | Specifies the object that defines which cloud-provider to enable.    | See [spec.kubernetes.clouldProvider](#speckubernetescloudprovider)  |
@@ -507,8 +507,8 @@ The default value of this entire object is `omitted`.
 
 | Parameter               | Description                                                    | Default  |
 | ----------------------- | -------------------------------------------------------------- | --------- |
-| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.13.1` |
-| `calico.encapsulation`  | Specifies the encapsulation mode. The supported modes are [ipip](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip) and [vxlan](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan) | `ipip` |
+| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.13.3` |
+| `calico.encapsulation`  | Specifies the encapsulation mode. The supported modes are [ipip](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip) and [vxlan](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan) | `ipip` |
 | `calico.mtu`            | Specifies the MTU to use for the veth interfaces.              | Depends on `calico.encapsulation` and provisioner |
 
 ### spec.osPackages

@@ -17,7 +17,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker Desktop][install_docker] version 18.09.2 or later. You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] v1.16.8 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.16.9 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -180,7 +180,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: stable-1.16-1.0.0
+    configVersion: stable-1.16-1.0.1
     addonsList:
     - name: kommander
       enabled: true
