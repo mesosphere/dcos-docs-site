@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  停用节点
+navigationTitle: 停用节点
 title: 停用节点
 menuWeight: 15
 excerpt: 停用节点
@@ -9,25 +9,27 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-为通过添加节点来支持云爆发，还必须支持停用节点。删除节点包括两个步骤：命令 DC/OS 将节点标记为 `GONE`，并停止相应的 Mesos 从设备 `systemd` 器件。
+为通过添加节点来支持云爆发，还必须支持停用节点。删除节点涉及两个步骤：
+1. 告知 DC/OS&trade; 将节点标记为 `GONE`，以及
+2. 停止相应的 Apache&reg; Mesos&reg; 从设备 `systemd` 单元。
 
-如果您的节点意外地停工，您只需要 [停用节点](/mesosphere/dcos/cn/2.0/administering-clusters/delete-node/#decommission-the-node/) 即可。
+如果您的节点以意外方式停工，则可能需要 [停用节点](/mesosphere/dcos/2.0/administering-clusters/delete-node/#decommission-the-node/)。
 
-<p class="message--warning"><strong>警告：</strong>只有在节点永远不会返回时（例如，EC2 虚拟机被破坏时）才应停用节点。节点停用后，对应的代理 ID 被内部标记为 GONE 并且不允许返回和在管理节点重新注册。任何在节点上运行的任务已过渡到 <code>TASK_GONE_BY_OPERATOR</code> 状态。</p>
+<p class="message--warning"><strong>警告：</strong>仅在节点永远不会返回（例如，EC2&reg; VM 销毁）时才应该停用节点 。节点停用后，对应的代理 ID 被内部标记为 GONE 并且不允许返回和在管理节点上重新注册。节点上运行的任何任务已过渡到 <code>TASK_GONE_BY_OPERATOR</code> 状态。</p>
 
 
 # 关闭节点
 
-1. [SSH 至代理节点](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/)（您希望关闭的）。
+1. [SSH 至代理节点](/mesosphere/dcos/2.0/administering-clusters/sshcluster/)（您希望关闭的）。
 
 1. 输入以下命令，停止节点。
 
-  - **私有代理**
+ - **私有代理**
 
   ```bash
   sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave && systemctl stop dcos-mesos-slave'
   ```
-  - **公共代理**
+ - **公共代理**
 
   ```bash
   ⁠⁠⁠⁠sudo sh -c 'systemctl kill -s SIGUSR1 dcos-mesos-slave-public && systemctl stop dcos-mesos-slave-public'
@@ -47,17 +49,17 @@ enterprise: false
 
 从 DC/OS CLI 中输入以下命令，以标识要停用的节点。
 
-```
+```bash
 dcos node 
 ```
 
 从 DC/OS CLI 中输入以下命令，以告诉 Mesos 将节点标记为 `GONE`。
 
-```
+```bash
 dcos node decommission <mesos-agent-id>
 ```
 
-节点被停用后（这等同于使用 `MARK_AGENT_GONE` Mesos API)，节点将被告知执行以下任务：
+节点被停用后（这与使用 `MARK_AGENT_GONE` Mesos API 等同)，节点将被告知执行以下任务：
 - 关闭（kill）代理节点上运行的所有执行程序（任务）
 - 停止 Mesos 从进程（但它将被 `systemd` 自动重新启动）
 
@@ -66,16 +68,16 @@ dcos node decommission <mesos-agent-id>
 
 如果 DC/OS 节点仍在运行，Mesos从进程将继续尝试注册（并且由于代理被标记为已消失，注册会被拒绝）。您可以通过停止 Mesos 从进程（以 `systemd` 单元运行），停止这些尝试。
 
-1. [SSH 至代理节点](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/)（您希望关闭的）。
+1. [SSH 至代理节点](/mesosphere/dcos/2.0/administering-clusters/sshcluster/)（您希望关闭的）。
 
 1. 输入以下命令，停止节点。
 
-  - **私有代理**
+ - **私有代理**
 
   ```bash
   sudo sh -c 'systemctl stop dcos-mesos-slave'
   ```
-  - **公共代理**
+ - **公共代理**
 
   ```bash
   ⁠⁠⁠⁠sudo sh -c 'systemctl stop dcos-mesos-slave-public'

@@ -39,7 +39,7 @@ dcos marathon pod update [--force] <pod-id>
 ## 更新 Pod
 若要更新 pod，首先修改 pod 的 JSON 定义，然后运行以下命令:
 
-```
+```bash
 dcos marathon pod update <pod-id> < <new-pod-definition>
 ```
 
@@ -49,4 +49,4 @@ dcos marathon pod update <pod-id> < <new-pod-definition>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

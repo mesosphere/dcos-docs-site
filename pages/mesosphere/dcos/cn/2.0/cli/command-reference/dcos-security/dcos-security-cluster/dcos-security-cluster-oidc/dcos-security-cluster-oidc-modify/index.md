@@ -15,7 +15,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security cluster oidc modify [OPTIONS] OIDC_ID
 ```
 
@@ -24,11 +24,11 @@ dcos security cluster oidc modify [OPTIONS] OIDC_ID
 
 | 名称 | 说明 |
 |--------------|-----------------|
-| ` -d`, `--description <text>` | OIDC 提供程序的描述。（必填）|
-| `-i`, `--issuer <text>` | OIDC 提供程序的发行人。(必填) |
-| `-b`, `--base-url <text>` | OIDC 提供程序的基准 URL。（必填）|
-| `-c`, `--client-secret <text>` | OIDC 提供程序的客户端密钥。（必填）|
-| `--client-id <text>` | 新的 OIDC 提供程序的客户 ID。(必填) |
+| ` -d`, `--description <text>` | OIDC 提供程序的描述。（必填)|
+| `-i`, `--issuer <text>` | OIDC 提供程序的发行人。（必填)|
+| `-b`, `--base-url <text>` | OIDC 提供程序的基准 URL。（必填)|
+| `-c`, `--client-secret <text>` | OIDC 提供程序的客户端密钥。（必填)|
+| `--client-id <text>` | 新的 OIDC 提供程序的客户 ID。（必填)|
 |  `-h`, `--help` |                显示此消息并退出。|
 
 
@@ -42,4 +42,4 @@ dcos security cluster oidc modify [OPTIONS] OIDC_ID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster oidc](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | 管理 OIDC 设置。 |
+| [dcos security cluster oidc](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-oidc/) | 管理 OIDC 设置。 |

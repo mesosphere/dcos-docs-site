@@ -15,9 +15,9 @@ menuWeight: 20
 ## 使用 IAM API
 
 **前提条件：**
-- [DC/OS 认证令牌](/mesosphere/dcos/cn/2.0/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
+- [DC/OS 认证令牌](/mesosphere/dcos/2.0/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
 
-要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/2.0/security/oss/iam-api/) 来添加本地用户账户，请用相应的值替换 `<uid>` 和 `<password>` 并执行以下命令：
+要使用 DC/OS [身份和访问管理 (IAM) API](/mesosphere/dcos/2.0/security/oss/iam-api/) 来添加本地用户账户，请用相应的值替换 `<uid>` 和 `<password>` 并执行以下命令：
 
 ```bash
 curl -i -X PUT http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<password>"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
@@ -30,7 +30,7 @@ curl -i -X PUT http://<host-ip>/acs/api/v1/users/<uid> -d '{"password": "<passwo
 ## 使用 IAM API
 
 **前提条件：**
-- [DC/OS 认证令牌](/mesosphere/dcos/cn/2.0/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
+- [DC/OS 认证令牌](/mesosphere/dcos/2.0/security/oss/authentication/authentication-token/) 作为 `TOKEN` 导出到环境中。
 
 要使用 [身份和访问管理 (IAM) API](/mesosphere/dcos/2.0/security/oss/iam-api/) 列出所有已配置用户账户，请执行以下命令：
 

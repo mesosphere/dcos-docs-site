@@ -7,7 +7,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 <a name=c1></a>
 
@@ -18,7 +18,7 @@ menuWeight: 1
 对于第一个方案，请按如下方式部署[此应用定义](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json)：
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
 ```
 
 使用 DC/OS Web 界面检查应用程序状态，您应该看到如下内容：
@@ -32,7 +32,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 您也可以从 CLI 检查此状态：
 
 ```bash
-$ dcos marathon app list
+dcos marathon app list
 ```
 
 会在响应中产生以下输出：
@@ -46,7 +46,7 @@ ID              MEM   CPUS  TASKS   HEALTH  DEPLOYMENT  WAITING  CONTAINER  CMD
 或者，如果您想查看所有正在进行的部署，请输入：
 
 ```bash
-$ dcos marathon deployment list
+dcos marathon deployment list
 ```
 
 看到如下内容：
@@ -83,9 +83,9 @@ APP             POD  ACTION  PROGRESS  ID
 
 图 4. 资源分配详细信息
 
-有意思。据此，其余一些 CPU 资源分配给了不同的 [Mesos 资源角色] (http://mesos.apache.org/documentation/latest/roles/)，因此，我们的应用程序无法使用（它以角色“*”运行，默认角色）。
+有意思。据此，其余一些 CPU 资源分配给了不同的 [Mesos 资源角色](http://mesos.apache.org/documentation/latest/roles/)，因此，我们的应用程序无法使用（它以角色“*”运行，默认角色）。
 
-要检查不同资源的角色，让我们[看看 state-summary 端点](/mesosphere/dcos/cn/2.0/tutorials/dcos-debug/tools/#state-summary)，其访问地址为 `https://<master-ip>/mesos/state-summary`。
+要检查不同资源的角色，让我们[看看 state-summary 端点](/mesosphere/dcos/2.0/tutorials/dcos-debug/tools/#state-summary)，其访问地址为 `https://<master-ip>/mesos/state-summary`。
 
 该端点将为我们提供相当长的 json 输出，所以使用 jq 使输出可读非常有用：
 
@@ -119,7 +119,7 @@ jq '.'
 
 ##### 当您的应用程序框架（例如 Marathon）不接受资源提供时，请检查相应资源角色中是否有足够的可用资源。
 
-这是一个简单的方案，CPU 资源太少。通常，资源问题更可能是由更复杂的因素引起的 - 如未正确配置的[端口资源](/mesosphere/dcos/cn/2.0/deploying-services/service-ports/)或[布局约束](/mesosphere/dcos/cn/2.0/deploying-services/marathon-constraints/)。尽管如此，这种一般工作流模式仍然适用。
+这是一个简单的方案，CPU 资源太少。通常，资源问题更可能是由更复杂的因素引起的 - 如未正确配置的[端口资源](/mesosphere/dcos/2.0/deploying-services/service-ports/)或[布局约束](/mesosphere/dcos/2.0/deploying-services/marathon-constraints/)。尽管如此，这种一般工作流模式仍然适用。
 
 ### 清除
 

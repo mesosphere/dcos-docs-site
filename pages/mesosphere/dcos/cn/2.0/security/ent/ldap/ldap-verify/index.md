@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  验证 
+navigationTitle: 验证 
 title: 验证 
 menuWeight: 3
 excerpt: 验证与 LDAP 服务器的连接
@@ -17,7 +17,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 1. 在 **LDAP Username** 字段中输入外部 LDAP 目录中的用户 ID。`%(username)s` 字符串将被替换为您提供的用户 ID。
 
-    若要尽可能接近地模拟实际登录，我们建议使用查找用户以外的用户凭据。
+ 若要尽可能接近地模拟实际登录，我们建议使用查找用户以外的用户凭据。
 
 1. 在 **LDAP Password** 字段中键入用户的密码。
 

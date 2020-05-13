@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  创建和运行服务
+navigationTitle: 创建和运行服务
 title: 教程 - 创建和运行服务
 menuWeight: 1
 excerpt: 创建和部署服务及容器化服务
@@ -9,13 +9,12 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
-
-本教程介绍如何使用 DC/OS Web 界面和 CLI 创建和部署简单的单命令服务和容器化服务。
+本教程介绍如何使用 DC/OS&trade; Web 界面和 CLI 创建和部署简单的单命令服务和容器化服务。
 
 ## 先决条件
-- [DC/OS 群集](/mesosphere/dcos/cn/2.0/installing/)
+- [DC/OS 群集](/mesosphere/dcos/2.0/installing/)
 
 # 单命令服务
 
@@ -26,26 +25,26 @@ enterprise: false
 1. 单击 DC/OS Web 界面的 **Services** 选项卡，然后单击 **RUN A SERVICE**。
 1. 单击 **Single Container**。
 
-   1. 在 **SERVICE ID** 字段，输入服务名称。
-   1. 在 **COMMAND** 字段，输入 `sleep 10`。
-   1. 单击 **MORE SETTINGS**，然后选择容器运行时间。
+ 1. 在 **SERVICE ID** 字段，输入服务名称。
+ 1. 在 **COMMAND** 字段，输入 `sleep 10`。
+ 1. 单击 **MORE SETTINGS**，然后选择容器运行时间。
 
-      - **DOCKER ENGINE** 如果您需要 Docker 软件包的特定功能，请使用此选项。如果选择此选项，则必须在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
-      - **UNIVERSAL CONTAINER RUNTIME (UCR)** Universal Container Runtime (UCR) 使用本地 Mesos 引擎。支持 Docker 文件格式、多个容器 (pod) 以及 GPU 资源。如果选择此选项，则可选择在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
+ - **DOCKER ENGINE** 如果您需要 Docker&reg; 软件包的特定功能，请使用此选项。如果选择此选项，则必须在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
+ - **UNIVERSAL CONTAINER RUNTIME (UCR)** Universal Container Runtime (UCR) 使用本地 Mesos 引擎。支持 Docker 文件格式、多个容器 (pod) 以及 GPU 资源。如果选择此选项，则可选择在 **CONTAINER IMAGE** 字段中指定 Docker 容器镜像。
 
-      如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/)。
+ 如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/2.0/deploying-services/containerizers/)。
 
 1. 单击**查看和运行**和**运行服务**。
 
-    ![在 DC/OS UI 中创建服务](/mesosphere/dcos/2.0/img/deploy-svs-ui.png)
+ ![在 DC/OS UI 中创建服务](/mesosphere/dcos/2.0/img/deploy-svs-ui.png)
 
-    图 1. 在 Web 界面中创建服务
+ 图 1. 在 Web 界面中创建服务
 
 1. 单击 **Services** 视图中的服务名称，以查看其运行情况并监控运行状况。
 
-    ![在 DC/OS UI 中运行服务](/mesosphere/dcos/2.0/img/GUI-Services-Running_Services_View-1_12.png)
+ ![在 DC/OS UI 中运行服务](/mesosphere/dcos/2.0/img/GUI-Services-Running_Services_View-1_12.png)
 
-    图 2. 在 Web 界面中查看运行的服务
+ 图 2. 在 Web 界面中查看运行的服务
 
 ## DC/OS CLI
 
@@ -82,7 +81,7 @@ enterprise: false
     dcos marathon app list
     ```
 
-    您还可以单击 DC/OS Web 界面的 **Services** 视图中的服务名称，以查看其运行情况并监控运行状况。
+ 您还可以单击 DC/OS Web 界面的 **Services** 视图中的服务名称，以查看其运行情况并监控运行状况。
 
 # 容器化服务
 
@@ -95,16 +94,16 @@ enterprise: false
 1. 单击 **Single Container**，在 **SERVICE ID** 字段中输入您的服务名称。
 1. 单击 **Container Settings** 选项卡，在 **CONTAINER IMAGE** 字段中输入以下内容：`mesosphere/hello-dcos:<image-tag>`。使用您在步骤 1 中复制的标记替换 `<image-tag>`。
 
-    ![DC/OS UI 中的容器化服务](/mesosphere/dcos/2.0/img/deploy-container-ui.png)
+ ![DC/OS UI 中的容器化服务](/mesosphere/dcos/2.0/img/deploy-container-ui.png)
 
-    图 3. Web 界面中的容器化服务
+ 图 3. Web 界面中的容器化服务
 
 1. 单击**查看和运行**和**运行服务**。
 1. 在 **Services** 选项卡中，单击服务名称，然后选择任务实例之一。单击 **Logs**，然后切换到 **STDERR** 和 **STDOUT** 以查看服务的输出。
 
-    ![在 DC/OS UI 中运行容器化服务](/mesosphere/dcos/2.0/img/container-running-ui.png)
+ ![在 DC/OS UI 中运行容器化服务](/mesosphere/dcos/2.0/img/container-running-ui.png)
 
-    图 4. 在 Web 界面中查看容器化服务
+ 图 4. 在 Web 界面中查看容器化服务
 
 ## DC/OS CLI
 

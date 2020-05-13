@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-excerpt: 使用 Universal 安装工具在 AWS 上的可替换管理节点
-title: 使用 Universal 安装工具在 AWS 上的可替换管理节点
+excerpt: 在 AWS 上使用 Universal 安装工具的可替换管理节点
+title: 在 AWS 上使用 Universal 安装工具的可替换管理节点
 navigationTitle: AWS 可替换管理节点
 menuWeight: 2
 model: /mesosphere/dcos/2.0/data.yml

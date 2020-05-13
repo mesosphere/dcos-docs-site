@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  安全计算配置文件
+navigationTitle: 安全计算配置文件
 title: 安全计算配置文件
 menuWeight: 31
 excerpt: 介绍如何配置 DC/OS 以使用 Linux 系统安全计算 (SECCOMP) 配置文件

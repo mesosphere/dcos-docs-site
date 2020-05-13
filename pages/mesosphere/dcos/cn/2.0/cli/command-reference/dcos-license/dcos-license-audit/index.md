@@ -22,15 +22,15 @@ dcos license audit [OPTIONS] COMMAND [ARGS]...
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help` | 显示此消息后退出。 |
+| `--help` | 显示此消息并退出。|
 
 
 
 # 示例
-有关示例，请参阅[许可证](/mesosphere/dcos/cn/2.0/administering-clusters/licenses/)。
+有关示例，请参阅[许可证](/mesosphere/dcos/2.0/administering-clusters/licenses/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |

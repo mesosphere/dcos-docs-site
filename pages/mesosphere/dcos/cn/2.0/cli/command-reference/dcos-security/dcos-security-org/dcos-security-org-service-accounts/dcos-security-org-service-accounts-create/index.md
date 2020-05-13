@@ -15,7 +15,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security org service-accounts create [OPTIONS] SID
 ```
 
@@ -26,11 +26,11 @@ dcos security org service-accounts create [OPTIONS] SID
 | `-p`, `--public-key` <filename> | 待使用公钥的路径；`-` 从 STDIN 读取 |
 | `-s`, `--secret <text>` | 要使用的密码。 |
 | `-d`, `--description <text>` | 新建服务帐户的描述。默认使用账户的 ID。 |
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `SID` | 服务账户 ID。（必填）|
+| `SID` | 服务账户 ID。（必填)|
 

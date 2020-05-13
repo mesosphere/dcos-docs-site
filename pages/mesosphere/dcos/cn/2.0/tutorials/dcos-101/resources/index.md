@@ -9,14 +9,14 @@ menuWeight: 7
 ---
 
 
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 欢迎阅读 DC/OS 101 教程第 7 部分。
 
 
 # 先决条件
-* [正在运行的 DC/OS 群集](/mesosphere/dcos/cn/2.0/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/tutorials/dcos-101/cli/)。
-* [app2](/mesosphere/dcos/cn/2.0/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
+* [正在运行的 DC/OS 群集](/mesosphere/dcos/2.0/tutorials/dcos-101/cli/)，[已安装 DC/OS CLI](/mesosphere/dcos/2.0/tutorials/dcos-101/cli/)。
+* [app2](/mesosphere/dcos/2.0/tutorials/dcos-101/app2/) 已部署并在您的群集中运行。
 
 # 目的
 
@@ -26,9 +26,9 @@ menuWeight: 7
 
 ## 查看应用定义
 
-* 再次查看 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 的应用定义。
+* 再次查看 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 的应用程序定义。
 
-```
+```bash
   {
   "id": "/dcos-101/app2",
   "cmd": "chmod u+x app2 && ./app2",
@@ -180,7 +180,7 @@ menuWeight: 7
 
 此时，您可以看到以下内容：
 
-```
+```text
     Memory cgroup out of memory: Kill process 10106 (oomApp) score 925 or sacrifice child; Killed process 10390 (oomApp) total-vm:3744760kB, anon-rss:60816kB, file-rss:1240kB, shmem-rss:0kB`
 ```
 

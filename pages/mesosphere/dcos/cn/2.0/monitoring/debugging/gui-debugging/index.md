@@ -18,7 +18,7 @@ enterprise: false
 
 ![Mesosphere DC/OS Enterprise 服务](/mesosphere/dcos/2.0/img/GUI-Services-Enterprise.png)
 
-图 1 -“DC/OS 服务”页面
+图 1 - DC/OS 服务页面
 
 如果您已为服务或 Pod 添加了 Marathon 健康检查，DC/OS 仪表板上的 **状态** 方框将报告此服务或 Pod 的健康状况。如果您已设置 Marathon 健康检查，则还可以看到服务或 Pod 的健康状况：绿点表示健康，红点表示不健康，黄点则是警告信号，表示出现了问题。如果您没有设置健康检查，圆点将为灰色。
 
@@ -29,13 +29,13 @@ enterprise: false
 
 ![调试屏幕](/mesosphere/dcos/2.0/img/GUI-Services-Debug.png)
 
-图 2 -“调试”页面
+图 2 - 调试页面
 
 ### 示例
 
 在下图中，Marathon 无法启动服务；**服务 > 调试** 选项卡显示警告消息。弹出消息表示错误已清除，服务正在启动。
 
-![失败警告](/mesosphere/dcos/2.0/img/GUI-Services-Failure-to-Launch.png)
+![故障警告](/mesosphere/dcos/2.0/img/GUI-Services-Failure-To-Launch.png)
 
 图 3 - 显示警告的“调试”选项卡
 

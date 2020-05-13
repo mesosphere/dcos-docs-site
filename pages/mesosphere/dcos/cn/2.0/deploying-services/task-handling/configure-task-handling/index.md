@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  配置任务处理
+navigationTitle: 配置任务处理
 title: 配置任务处理
 menuWeight: 0
 excerpt: 为无法访问的任务配置 Marathon

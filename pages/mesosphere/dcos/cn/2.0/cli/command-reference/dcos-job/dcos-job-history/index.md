@@ -23,7 +23,7 @@ dcos job history <job-id> [--json|--quiet] [--failures --last]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--json` | 显示 JSON 格式化列表。 |
+| `--json` | 显示 JSON 格式化列表。 |
 | `-q`，`--quiet` | 表示仅导致运行 ID 阵列的静默模式。 |
 | `-f`，`failures` | 显示故障表和历史记录统计信息。 |
 | `-l`，`--last` | 显示历史作业的最后一个 ID。|
@@ -47,7 +47,7 @@ dcos job history <job-id> [--json|--quiet] [--failures --last]
     dcos job list
     ```
 
-    输出如下：
+ 输出如下：
 
     ```bash
     ID                DESCRIPTION                      STATUS       LAST SUCCESFUL RUN
@@ -61,7 +61,7 @@ dcos job history <job-id> [--json|--quiet] [--failures --last]
     dcos job history my-scheduled-job
     ```
 
-    输出如下：
+ 输出如下：
 
     ```bash
     'my-scheduled-job'  Successful runs: 1 Last Success: 2017-02-17T23:18:33.842+0000
@@ -69,11 +69,11 @@ dcos job history <job-id> [--json|--quiet] [--failures --last]
     20170217231831HkXNK  2017-02-17T23:18:31.651+0000  2017-02-17T23:18:33.843+0000
     ```
 
-    <p class="message--important"><strong>重要信息：</strong>请务必指定 <code>-json</code> 选项以查看 JSON 应用程序定义（例如，<code>dcos 作业历史记录 my-scheduled-job</code>）。</p>
+ <p class="message--important"><strong></strong>重要信息：请务必指定 <code>--json</code> 选项以查看 JSON 应用程序定义（例如，<code>dcos job history my-scheduled-job</code>）。</p>
 
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |

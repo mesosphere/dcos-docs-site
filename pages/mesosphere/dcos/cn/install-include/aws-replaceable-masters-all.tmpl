@@ -1,0 +1,70 @@
+本指南希望您已经拥有基于 Universal 安装工具 `0.2` 运行的 DC/OS 群集。如需了解有关使用 Universal 安装工具运行 DC/OS 的更多信息，请参阅 [DC/OS 在 AWS 上使用 Universal 安装工具指南](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/)。
+
+默认情况下，Universal 安装工具使用静态管理节点列表来形成 DC/OS 所需的 quorum。这会给动态云环境带来一些问题。管理节点 IP 地址不应更改，并且在大多数情况下，只要您不破坏或损坏管理节点实例，就不会发生这种情况。但是，在 DC/OS 群集的完整生命周期中，您可能会遇到您希望能够重新创建管理节点实例而无深度手动交互的情况。只要大多数初始管理节点仍在使用中，此特性将使您能够仅仅地对少数管理节点进行破坏和重新安装，而不会造成任何数据丢失。
+
+# 先决条件
+与 [DC/OS 在 AWS 上使用 Universal 安装工具指南](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/) 中相同。
+- 您使用的帐户能够创建 AWS bucket。
+
+# 完全受管理的可替换管理节点
+
+<p class="message--important"><strong></strong>重要信息：请勿在已经运行的群集上应用此更改。</p>
+
+通过 Universal 安装工具 `0.2`，我们提供基于 AWS S3 Bucket 的完全受管理的可替换管理节点的功能。若要启用此功能，请设置 `with_replaceable_masters=true`。设置后，此选项将导致在放置群集的位置创建 S3 bucket。Bucket 名称为 `cluster_name` + 16 字节随机十六进制字符串。由于 bucket 名称是全局名称，因此我们必须在您的群集名称上附加一个随机字符串，以免发生冲突。除了创建 bucket 之外，我们会注入这些 DC/OS 配置默认值。
+
+```hcl
+dcos_s3_prefix                 = "exhibitor"
+dcos_exhibitor_explicit_keys   = "false"
+dcos_aws_region                = <<the_current_region>>
+dcos_master_discovery          = "master_http_loadbalancer"
+dcos_exhibitor_address         = <<master_load_balancer_address>>
+dcos_num_masters               = <<the_number_of_masters_set>>
+dcos_exhibitor_storage_backend = "aws_s3"
+```
+
+## 示例
+以下是使用 `with_replaceable_masters` 的示例：
+
+```hcl
+provider "aws" {
+  # Change your default region here
+  region = "us-east-1"
+}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
+module "dcos" {
+  source  = "dcos-terraform/dcos/aws"
+  version = "~> 0.2.0"
+
+  providers = {
+    aws = "aws"
+  }
+
+  cluster_name        = "my-dcos-demo"
+  ssh_public_key_file = "<path-to-public-key-file>"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+  num_masters        = "3"
+  num_private_agents = "2"
+  num_public_agents  = "1"
+
+  dcos_version = "1.13.3"
+
+  dcos_variant              = "ee"
+  dcos_license_key_contents = "${file("./license.txt")}"
+
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+
+  with_replaceable_masters = true
+}
+
+output "cluster-address" {
+  value = "${module.dcos.masters-loadbalancer}"
+}
+```

@@ -8,15 +8,15 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-{{ model.packageRepo }} 页面显示所有可用的 DC/OS 服务。只需单击即可从 DC/OS {{ model.packageRepo }} 安装包。可以使用默认设置安装包，或直接在用户界面中自定义安装。
+{{ model.packageRepo }} 页面显示所有可用的 DC/OS&trade; 服务。只需单击即可在 DC/OS {{ model.packageRepo }} 中安装包。可以使用默认设置安装包，或直接在用户界面中自定义安装。
 
 # 包类型
 
-Mesosphere 提供两种服务包：认证和社区。
+D2iQ&reg; 提供两种服务包：认证和社区。
 
 ## 认证包
 
-已认证的包经过 Mesosphere 验证，可与 DC/OS 互操作。
+已认证的包经过 D2iQ 验证，可与 DC/OS 互操作。
 
 ![认证包](/mesosphere/dcos/2.0/img/GUI-Catalog-Certified-Services-1_14.png)
 
@@ -27,7 +27,7 @@ Mesosphere 提供两种服务包：认证和社区。
 
 ## 社区包
 
-社区包由 Mesosphere 合作伙伴和开源社区的成员贡献。它们没有被 Mesosphere 验证为可与 DC/OS 互操作。但是，它们可以提供在认证 {{ model.packageRepo }} 中不可获得的许多功能。新包为定期提供。其中有些包在 [DC/OS 服务文档页面](/mesosphere/dcos/services/) 提供 Mesosphere 特定的文档。
+社区包由 D2iQ 合作伙伴和开源社区的成员贡献。它们没有被 D2iQ 验证为可与 DC/OS 互操作。但是，它们可以提供在认证 {{ model.packageRepo }} 中不可获得的许多功能。新包为定期提供。其中有些包在 [DC/OS 服务文档页面](/mesosphere/dcos/services/) 提供 Mesosphere 特定的文档。
 
 ![包](/mesosphere/dcos/2.0/img/GUI-Catalog-Community-Packages-1_14.png)
 
@@ -43,15 +43,15 @@ Mesosphere 提供两种服务包：认证和社区。
 
 # 从 {{ model.packageRepo }} 安装
 
-您可以运行您创建的 DC/OS 服务，或从 {{ model.packageRepo }} 安装包。创建的服务和从 {{ model.packageRepo }} 安装的服务在运行时都会显示在 DC/OS UI 的 [服务](/mesosphere/dcos/cn/2.0/gui/services/) 选项卡上。
+您可以运行您创建的 DC/OS 服务，或从 {{ model.packageRepo }} 安装包。创建的服务和从 {{ model.packageRepo }} 安装的服务在运行时都会显示在 DC/OS UI 的 [服务](/mesosphere/dcos/2.0/gui/services/) 选项卡上。
 
 安装服务的快速简单方式是从 {{ model.packageRepo }} 页面安装。
 
-1. 导航到 DC/OS UI 中的 [**{{ model.packageRepo }}**](/mesosphere/dcos/cn/2.0/gui/catalog/) 选项卡。
+1. 导航到 DC/OS UI 中的 [**{{ model.packageRepo }}**](/mesosphere/dcos/2.0/gui/catalog/) 选项卡。
 
-    ![认证包](/mesosphere/dcos/2.0/img/GUI-Catalog-Certified-Services-1_14.png)
+ ![认证包](/mesosphere/dcos/2.0/img/GUI-Catalog-Certified-Services-1_14.png)
 
-    图 4 - {{ model.packageRepo }} 选项卡
+ 图 4 - {{ model.packageRepo }} 选项卡
 
 1. 单击一个包。
     
@@ -61,11 +61,11 @@ Mesosphere 提供两种服务包：认证和社区。
 
 1. 再次单击 **查看并运行**，检查您的配置。当您满意时，单击 **运行服务**。
 
-1. 从 [服务](/mesosphere/dcos/cn/2.0/gui/services/) 选项卡查看部署的服务。
+1. 从 [服务](/mesosphere/dcos/2.0/gui/services/) 选项卡查看部署的服务。
 
-    ![服务部署](/mesosphere/dcos/2.0/img/GUI-Services-Running_Services_View-1_12.png)
+ ![服务部署](/mesosphere/dcos/2.0/img/GUI-Services-Running_Services_View-1_12.png)
 
-    图 5 - 服务部署
+ 图 5 - 服务部署
 
-有关安装、配置和部署 {{ model.packageRepo }}服务的更多信息，请参阅 [部署服务文档](/mesosphere/dcos/cn/2.0/deploying-services/#dcos-services)。
+有关从 {{ model.packageRepo }} 安装、配置和部署服务的更多信息，请参阅 [部署服务文档](/mesosphere/dcos/2.0/deploying-services/#dcos-services)。
 

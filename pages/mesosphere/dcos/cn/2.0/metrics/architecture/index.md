@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-DC/OS 1.12 版及更新版本中的度量标准基于 [Telegraf](https://github.com/dcos/telegraf)。Telegraf 度量标准是在处理过程中用来模拟数据的内部表示。Telegraf 提供基于代理的服务，在 DC/OS 群集中的每个管理节点和代理节点上运行。默认情况下，Telegraf 从同一节点上运行的所有进程收集度量标准，收集的信息经过处理之后被发送到中央度量标准数据库。Telegraf 具有插件驱动型架构。插件架构让 Telegraf 能够从任何支持的输入插件收集信息，并将结果写入支持的输出插件。插件将编译成 Telegraf 二进制文件进行执行，您可以使用配置文件选项选择性启用和自定义插件。图 1 显示了 Telegraf 的一个实例。
+DC/OS 1.12&trade; 版及更新版本中的度量标准基于 [Telegraf&trade;](https://github.com/dcos/telegraf)。Telegraf 度量标准是在处理过程中用来模拟数据的内部表示。Telegraf 提供基于代理的服务，在 DC/OS 群集中的每个管理节点和代理节点上运行。默认情况下，Telegraf 从同一节点上运行的所有进程收集度量标准，收集的信息经过处理之后被发送到中央度量标准数据库。Telegraf 具有插件驱动型架构。插件架构让 Telegraf 能够从任何支持的输入插件收集信息，并将结果写入支持的输出插件。插件将编译成 Telegraf 二进制文件进行执行，您可以使用配置文件选项选择性启用和自定义插件。图 1 显示了 Telegraf 的一个实例。
 
 ![Telegraf 的一个实例](/mesosphere/dcos/2.0/img/telegraf-architecture.png)
 
@@ -34,4 +34,3 @@ Telegraf 在节点上启动时，它会加载配置文件和配置目录的内�
 Telegraf 通过为每个节点上的度量标准提供单一来源，缩减了从群集中运行的每个进程收集度量标准的复杂性。Telegraf 还将识别元数据（例如原始任务名称）添加到其收集的度量标准中，以使度量标准更易于读取。如果没有这种元数据，在 Mesos 上运行的任务的度量标准很难通过其原始容器 ID（一个较长的随机散列） 来识别。
 
 [Telegraf 的 DC/OS 分支](https://github.com/dcos/telegraf)包括每个插件的技术文档和示例配置。
-

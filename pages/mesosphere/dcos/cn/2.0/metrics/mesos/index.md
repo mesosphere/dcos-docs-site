@@ -9,9 +9,9 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-Telegraf 中的 Mesos 输入插件从每个 Mesos 代理节点和管理代理节点收集 [可观测性度量标准](http://mesos.apache.org/documentation/latest/monitoring/)。插件在 DC/OS 1.12 版或更高版本中是默认启用的。
+Telegraf&trade; 中的 Apache&reg; Mesos&reg; 输入插件从每个 Mesos 代理节点和管理节点收集 [可观测性度量标准](http://mesos.apache.org/documentation/latest/monitoring/)。插件在 DC/OS&trade; 1.12 版或更高版本中是默认启用的。
 
-Mesos 输入插件由名为 `enable_mesos_input_plugin` 的 `config.yaml` 文件中的选项控制。要禁用插件，`enable_mesos_input_plugin` 需要设置为 `false`。有关如何为本地安装创建配置文件的说明，请参见 [此处](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/#create-a-configuration-file)。要修改现有本地群集上的配置文件，必须 [修补现有 DC/OS 版本](/mesosphere/dcos/cn/2.0/installing/production/patching/#modifying-dcos-configuration)。对于云安装，可以在 [此处](/mesosphere/dcos/cn/2.0/installing/evaluation/)找到每个受支持的云提供商的配置和安装说明。
+Mesos 输入插件由名为 `enable_mesos_input_plugin` 的 `config.yaml` 文件中的选项控制。要禁用插件，`enable_mesos_input_plugin` 需要设置为 `false`。有关如何为本地安装创建配置文件的说明，请参见 [此处](/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#create-a-configuration-file)。要修改现有本地群集上的配置文件，必须 [修补现有 DC/OS 版本](/mesosphere/dcos/2.0/installing/production/patching/#modifying-dcos-configuration)。对于云安装，可以在 [此处](/mesosphere/dcos/2.0/installing/evaluation/)找到每个受支持的云提供商的配置和安装说明。
 
 ＃查看 Mesos 管理节点和代理节点的度量标准
  

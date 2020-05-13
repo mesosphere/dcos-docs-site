@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  节点和群集健康检查
+navigationTitle: 节点和群集健康检查
 title: 节点和群集健康检查
 menuWeight: 25
 excerpt: 使用您的 DC/OS 群集进行健康检查
@@ -37,11 +37,11 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 或者，您可以配置检查以输出可人工读取的消息到 `stderr` 或 `stdout`。
 
 ## 指定自定义运行状况检查
-在安装 DC/OS，之前，必须在 `custom_checks` 安装配置参数中指定自定义运行状况检查。如果您想在安装后修改配置文件，就必须遵循 [DC/OS 升级流程](/mesosphere/dcos/cn/2.0/installing/production/upgrading/)。
+在安装 DC/OS，之前，必须在 `custom_checks` 安装配置参数中指定自定义运行状况检查。如果您想在安装后修改配置文件，就必须遵循 [DC/OS 升级流程](/mesosphere/dcos/2.0/installing/production/upgrading/)。
 
 如果文件是绝对路径（例如，在 `/usr/bin/` 中有可执行文件），您可以直接在 `cmd` 中指定该文件。如果用名称引用没有绝对路径的可执行文件（例如， `echo` 而不是 `/usr/bin/echo`），系统将使用此搜索路径，并使用其发现的第一个可执行文件：`/opt/mesosphere/bin:/usr/bin:/bin:/sbin`。
 
-有关此参数的描述和示例，请参阅 [配置参数文档](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/#custom-checks)。
+有关此参数的描述和示例，请参阅 [配置参数文档](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#custom-checks)。
 
 ## 自定义运行状况检查可执行文件
 在安装 DC/OS，之前，您可以选择在 `genconf/check_bins/` 提供可执行文件的目录，列出要分发到所有群集节点，用于自定义检查的可执行文件。如果提供，这些可执行文件将被添加到检查可执行文件的搜索路径末尾。若要使用自定义检查可执行文件，参考 `custom_checks` 不带绝对路径的参数本身（例如，要在自定义检查中使用 `genconf/check_bins/custom_script.sh` ，请参阅 `custom_script.sh`）。
@@ -62,7 +62,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 - DC/OS 已安装，您已通过超级用户权限登录。
 
 
-1. [SSH 连接到群集节点](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/)。
+1. [SSH 连接到群集节点](/mesosphere/dcos/2.0/administering-clusters/sshcluster/)。
 
     ```bash
     dcos node --master-proxy --mesos-id=<agent-node-id>
@@ -74,7 +74,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
     /opt/mesosphere/bin/dcos-shell dcos-check-runner check <check-type> --list
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     {
@@ -113,29 +113,29 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
     /opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart <checkname>
     ```
 
-  例如：运行 `component_agent` 检查。
+ 例如：运行 `component_agent` 检查。
 
-  ```bash
-  /opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart component_agent
-  ```   
+    ```bash
+    /opt/mesosphere/bin/dcos-shell dcos-check-runner check node-poststart component_agent
+    ```   
 
-  输出应类似于：
+ 输出应类似于：
 
-  ```bash
-  {
-    “status”: 2,
-    “checks”: {
-      “component_agent”: {
-        “status”: 2,
-        “output”: “”
-      },
-      “exhibitor”: {
-        “status”: 0,
-        “output”: “”
+    ```bash
+    {
+      “status”: 2,
+      “checks”: {
+        “component_agent”: {
+          “status”: 2,
+          “output”: “”
+        },
+        “exhibitor”: {
+          “status”: 0,
+          “output”: “”
+        }
       }
     }
-  }
-  ```
+    ```
 
 
 # 示例
@@ -144,7 +144,7 @@ DC/OS 包括一组针对 DC/OS 核心组件的预定义内置运行状况检查�
 
 列出所有群集检查。
 
-```
+```bash
 /opt/mesosphere/bin/dcos-shell dcos-check-runner check cluster --list
 ```
 

@@ -24,13 +24,13 @@ dcos marathon app add <app-resource>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help` | 显示此消息后退出。 |
+| `--help` | 显示此消息并退出。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<app-resource>` | 包含应用程序的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/mesosphere/dcos/cn/2.0/deploying-services/marathon-api/)。|
+| `<app-resource>` | 包含应用程序的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 `stdin` 中读取定义。有关详细说明，请参阅[文档](/mesosphere/dcos/2.0/deploying-services/marathon-api/)。|
 
 
 # 示例
@@ -68,7 +68,7 @@ dcos marathon app add <app-resource>
     dcos marathon app add <my-app.json>
     ```
 
-    如果添加成功，则没有输出。
+ 如果添加成功，则没有输出。
 
 1. 使用此命令验证是否已添加应用程序：
 
@@ -76,7 +76,7 @@ dcos marathon app add <app-resource>
     dcos marathon app list
     ```
 
-    输出应如下所示：
+ 输出应如下所示：
 
     ```bash
      ID     MEM  CPUS  TASKS  HEALTH  DEPLOYMENT  CONTAINER  CMD
@@ -87,4 +87,4 @@ dcos marathon app add <app-resource>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

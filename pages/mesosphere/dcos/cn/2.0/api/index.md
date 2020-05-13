@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  API 参考
+navigationTitle: API 参考
 title: API 参考
 menuWeight: 150
 excerpt: DC/OS API 参考手册
@@ -9,15 +9,14 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-DC/OS API 是由 [DC/OS 组件](/mesosphere/dcos/cn/2.0/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router](/mesosphere/dcos/cn/2.0/overview/architecture/components/#admin-router)的 API 网关提供。
+DC/OS&trade; API 是由  [DC/OS 组件](/mesosphere/dcos/2.0/overview/architecture/components/) 支持的路由集合，这些路由通过名为 [Admin Router](/mesosphere/dcos/2.0/overview/architecture/components/#admin-router) 的 API 网关提供。
 
 <img src="/mesosphere/dcos/2.0/img/dcos-api-routing.png" alt="DC/OS API Routing" style="display:block;margin:0 auto"/>
 图 1. DC/OS API 路由示意图
 
-
 # API 网关
 
-Admin Router 是基于 NGINX 的 API 网关，具有以下功能：
+Admin Router 是基于 NGINX&reg; 的 API 网关，具有以下功能：
 
 - 为 DC/OS API 提供统一控制平面
 - 代理 API 对管理节点和代理节点的组件服务的请求
@@ -26,9 +25,9 @@ Admin Router 是基于 NGINX 的 API 网关，具有以下功能：
 
 Admin Router 在每个 DC/OS 节点上运行，其有如下两种配置：
 
-- **Admin Router 管理节点** 公开 [管理节点路由](/mesosphere/dcos/cn/2.0/api/master-routes/)。此配置在每个管理节点上运行，用作与 DC/OS 组件交互的主 API 网关。
+- **Admin Router 管理节点** 公开 [管理节点路由](/mesosphere/dcos/2.0/api/master-routes/)。此配置在每个管理节点上运行，用作与 DC/OS 组件交互的主 API 网关。
 
-- **Admin Router 代理节点** 公开 [代理路由](/mesosphere/dcos/cn/2.0/api/agent-routes/)。此配置在每个代理节点上运行，并提供用于监视、调试和管理的路由。
+- **Admin Router 代理节点** 公开 [代理路由](/mesosphere/dcos/2.0/api/agent-routes/)。此配置在每个代理节点上运行，并提供用于监视、调试和管理的路由。
 
 某些代理路由，如日志和度量标准，通过管理节点 Admin Router 代理以允许外部访问。
 其他路由，如组件管理，仅供内部使用。
@@ -47,12 +46,12 @@ Admin Router 公开若干路由类型：
 
 # 群集访问
 
-要确定群集的 URL，请参阅 [群集访问](/mesosphere/dcos/cn/2.0/api/access/)。
+要确定群集的 URL，请参阅 [群集访问](/mesosphere/dcos/2.0/api/access/)。
 
 
 # 版本控制
 
-DC/OS API 部分按组件、路由或资源进行版本控制。有关版本控制机制的详细信息，请参阅[版本控制](/mesosphere/dcos/cn/2.0/api/versioning/)。
+DC/OS API 部分按组件、路由或资源进行版本控制。有关版本控制机制的详细信息，请参阅[版本控制](/mesosphere/dcos/2.0/api/versioning/)。
 
 # 身份认证
 
@@ -60,38 +59,38 @@ DC/OS API 部分按组件、路由或资源进行版本控制。有关版本控�
 
 # 授权
 
-大多数认证路由也需要通过权限授权。DC/OS Enterprise 中的权限包含分层资源标识符和操作（创建、读取、更新、删除、全部）。权限执行可以在两个级别执行。
+大多数认证路由也需要使用权限授权。DC/OS Enterprise 中的权限包含分层资源标识符和操作（创建、读取、更新、删除、全部）。权限执行可以在两个级别执行：
 
-- **粗粒度权限** 是在路由级别 [由 Admin Router 执行](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#admin-router)。
+- **粗粒度权限** 是在路由级别 [由 Admin Router 执行](/mesosphere/dcos/2.0/security/ent/perms-reference/#admin-router)。
 - **细粒度权限** 由单个后端组件服务执行。
 
-[权限管理](/mesosphere/dcos/2.0/security/ent/perms-management/)可通过具有 [超级用户权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/#superuser) 的用户使用 [身份和访问管理 API](/mesosphere/dcos/cn/2.0/security/ent/iam-api/)执行。具有超级用户权限的用户也有隐式权限访问所有路由。
+[权限管理](/mesosphere/dcos/2.0/security/ent/perms-management/)可通过具有 [超级用户权限](/mesosphere/dcos/2.0/security/ent/perms-reference/#superuser) 的用户使用 [身份和访问管理 API](/mesosphere/dcos/2.0/security/ent/iam-api/)执行。具有超级用户权限的用户也有隐式权限访问所有路由。
 
 # 路由使用
 
 - **代理路由**  要通过 **代理路由**确定一个 API 资源的完整 URL，连接群集 URL、路由和后端组件资源路径。
 
-    ```
+    ```text
     <cluster-url>/<route>/<resource-path>
     ```
 
-    例如，从以下获取 Mesos 版本：`https://dcos.example.com/mesos/version`
+ 例如，从以下获取 Apache&reg; Mesos&reg; 版本：`https://dcos.example.com/mesos/version`
 
 - **文件路由** 没有后端组件，但可能提供多个文件或单个文件的目录。因此，对于文件路由，指定文件路径，而不是后端组件资源路径。
 
-    ```
+    ```text
     <cluster-url>/<route>/<file-path>
     ```
 
-    例如，从以下获取群集的 DC/OS 版本：`https://dcos.example.com/dcos-metadata/dcos-version.json`
+ 例如，从以下获取群集的 DC/OS 版本：`https://dcos.example.com/dcos-metadata/dcos-version.json`
 
 - **Lua 路由** 立即在 Admin Router 中执行代码，而不是以代理的方式路由到外部后端组件。对于 Lua 路由，路由后无需路径。
 
-    ```
+    ```text
     <cluster-url>/<route>
     ```
 
-     例如，从以下获取管理节点的公用 IP 和群集 ID：`https://dcos.example.com/metadata`
+ 例如，从以下获取管理节点的公用 IP 和群集 ID：`https://dcos.example.com/metadata`
 
 - **重写和重定向路由**可能会在返回资源之前穿过一个或多个其他 URL 或路由。因此，对于这些路由，请遵循 URL 和路由链以查找端点。资源路径将取决于最终端点。
 

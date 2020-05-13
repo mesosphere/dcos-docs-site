@@ -1,0 +1,85 @@
+Mesosphere Universal 安装工具支持各种输入/变量，以便添加到您的 `main.tf`，并使您能够根据需要自定义您的 DC/OS 群集。这些输入/变量包括从指定操作系统（CentOS、Ubuntu、RHEL、Oracle Linux）到设置 DC/OS 群集的垃圾收集时间等各个项目。
+
+基于 Terraform 的 Universal 安装工具旨在实现灵活的配置。下面是自定义 `main.tf` 的一个示例，在 Azure 上调配定制的 DC/OS 1.13.3 群集。
+
+```hcl
+provider "azure" {}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
+module "dcos" {
+  source  = "dcos-terraform/dcos/azurerm"
+  version = "~> 0.2.0"
+
+  providers = {
+    azure = "azure"
+  }
+
+  cluster_name                      = "my-dcos-demo"
+  ssh_public_key_file               = "<path-to-public-key-file>"
+  admin_ips                         = ["${data.http.whatismyip.body}/32"]
+  location                          = "West US"
+  avset_platform_fault_domain_count = 3
+
+  num_masters        = "3"
+  num_private_agents = "2"
+  num_public_agents  = "1"
+
+  dcos_version = "1.13.3"
+
+  # dcos_variant              = "ee"
+  # dcos_license_key_contents = "${file("./license.txt")}"
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+  dcos_variant = "open"
+
+  dcos_cluster_docker_credentials_enabled =  "true"
+  dcos_cluster_docker_credentials_write_to_etc = "true"
+  dcos_cluster_docker_credentials_dcos_owned = "false"
+  dcos_cluster_docker_registry_url = "https://index.docker.io"
+  dcos_use_proxy = "yes"
+  dcos_http_proxy = "example.com"
+  dcos_https_proxy = "example.com"
+  dcos_no_proxy = <<EOF
+  # YAML
+   - "internal.net"
+   - "169.254.169.253"
+  EOF
+  dcos_overlay_network = <<EOF
+  # YAML
+      vtep_subnet: 44.128.0.0/20
+      vtep_mac_oui: 70:B3:D5:00:00:00
+      overlays:
+        - name: dcos
+          subnet: 12.0.0.0/8
+          prefix: 26
+  EOF
+  dcos_rexray_config = <<EOF
+  # YAML
+    rexray:
+      loglevel: warn
+      modules:
+        default-admin:
+          host: tcp://127.0.0.1:61003
+      storageDrivers:
+      - ec2
+      volume:
+        unmount:
+          ignoreusedcount: true
+  EOF
+  dcos_cluster_docker_credentials = <<EOF
+  # YAML
+    auths:
+      'https://index.docker.io/v1/':
+        auth: Ze9ja2VyY3licmljSmVFOEJrcTY2eTV1WHhnSkVuVndjVEE=
+  EOF
+}
+
+output "cluster-address" {
+  value = "${module.dcos.masters-loadbalancer}"
+}
+```

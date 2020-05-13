@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  使用 Pod
+navigationTitle: 使用 Pod
 title: 使用 Pod
 menuWeight: 20
 excerpt: 通过 CLI 或 Marathon API 端点创建和管理 Pod
@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-您可通过 DC/OS CLI 或通过[Marathon API](/mesosphere/dcos/cn/2.0/deploying-services/marathon-api/) 的 `/v2/pods/` 端点创建和管理 Pod。
+您可通过 DC/OS CLI 或通过[Marathon API](/mesosphere/dcos/2.0/deploying-services/marathon-api/)的 `/v2/pods/` 端点创建和管理 Pod。
 
 # 使用 Pod CLI
 

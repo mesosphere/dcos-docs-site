@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  设置
+navigationTitle: 设置
 title: 设置
 menuWeight: 10
 excerpt: 使用“设置”菜单
@@ -9,8 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-从 **设置**选项卡，您可以管理 
-
+从 **设置**选项卡，您可以管理：
 - UI 设置
 - 包存储库
 - 密钥存储库
@@ -19,11 +18,11 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ![Package repositories](/mesosphere/dcos/2.0/img/GUI-Settings-Package-Repositories.png)
 
-图 1 - **设置 > 包存储库** 选项卡
+图 1 - **设置 > 包资源库** 选项卡
 
 # UI 设置
 
-**UI 设置** 选项卡允许您管理 DC/OS UI 版本以及显示 UI 的语言。
+**UI 设置** 选项卡允许您管理 DC/OS&trade; UI 版本以及显示 UI 的语言。
 
 ## DC/OS UI 详情
 
@@ -43,23 +42,23 @@ model: /mesosphere/dcos/2.0/data.yml
 **用户偏好** 部分显示 UI 显示的语言，并允许您切换到其他显示语言。
 1. 单击 **设置 > UI 设置**。
 
-    ![UI 设置选项卡](/mesosphere/dcos/2.0/img/GUI-Settings-Change-Language.png)
+ ![UI 设置选项卡](/mesosphere/dcos/2.0/img/GUI-Settings-Change-Language.png)
 
-    图 3 -“UI 设置”选项卡
+ 图 3 -“UI 设置”选项卡
 
 1. 单击 **编辑** 按钮。将显示 **语言偏好** 对话框。
 
 1. 从 **语言偏好** 窗口中，选择您的语言。
 
-    ![语言偏好](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-2.png)
+ ![语言偏好](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-2.png)
 
-    图 4 -“语言偏好”菜单
+ 图 4 -“语言偏好”菜单
 
 1. 点击**保存**。
 
 # 包存储库
 
-**包存储库** 选项卡列出了 DC/OS 群集上当前已配置的所有包存储库。有关包注册表选项的详细信息，请参阅 [包注册表文档](/mesosphere/dcos/cn/2.0/administering-clusters/package-registry/)。您还会发现 [部署本地目录文档](/mesosphere/dcos/cn/2.0/administering-clusters/deploying-a-local-dcos-universe/) 也有用。
+**包存储库** 选项卡列出了 DC/OS 群集上当前已配置的所有包存储库。有关包注册表选项的详细信息，请参阅 [包注册表文档](/mesosphere/dcos/2.0/administering-clusters/package-registry/)。您还会发现 [部署本地目录文档](/mesosphere/dcos/2.0/administering-clusters/deploying-a-local-dcos-universe/) 也有用。
 
 ## 添加资源库
 
@@ -69,21 +68,21 @@ model: /mesosphere/dcos/2.0/data.yml
 
 1. 将显示 **添加存储库** 对话框。填写所需的值。
 
-    ![添加存储库](/mesosphere/dcos/2.0/img/GUI-Settings-Add-Repository.png)
+ ![添加存储库](/mesosphere/dcos/2.0/img/GUI-Settings-Add-Repository.png)
 
-    图 5 - 添加存储库
+ 图 5 - 添加存储库
 
-   | 名称 | 说明 |
+ | 名称 | 说明 |
    |---------|-------------|
-   | 存储库名称 | 要添加的存储库的名称。  |
-   | URL |  要添加的存储库的路径。  |
-   | 优先级 | 0、1、或 2 |
+ | 存储库名称 | 要添加的存储库的名称。  |
+ | URL |  要添加的存储库的路径。  |
+ | 优先级 | 0、1、或 2 |
 
 1. 单击 **添加存储库**。
 
-您可以在 [配置服务](/mesosphere/dcos/cn/2.0/deploying-services/config-universe-service/) 文档中找到有关部署目录的更多信息。
+您可以在 [配置服务](/mesosphere/dcos/2.0/deploying-services/config-universe-service/) 文档群集链接 API部署目录的更多信息。
 
-您还可以部署包含您自己的包集合的本地目录。请参阅 [选定包](/mesosphere/dcos/cn/2.0/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) 文档。
+您还可以部署包含您自己的包集合的本地目录。请参阅 [选定包](/mesosphere/dcos/2.0/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) 文档。
 
 ## 删除存储库
 
@@ -98,7 +97,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 密钥存储库 
 
-“密钥存储库”选项卡显示您当前所有密钥存储库的列表，以及与每密钥存储库相关的类型。此页面上不可以执行操作，但可以从 [密钥](/mesosphere/dcos/cn/2.0/gui/secrets/) 选项卡管理密钥。
+“密钥存储库”选项卡显示您当前所有密钥存储库的列表，以及与每密钥存储库相关的类型。此页面上不可以执行操作，但可以从 [密钥](/mesosphere/dcos/2.0/gui/secrets/) 选项卡管理密钥。
 
 ![密钥存储库](/mesosphere/dcos/2.0/img/GUI-Settings-Secret-Stores.png)
 
@@ -112,11 +111,11 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 8 - 添加 LDAP 连接
 
-要添加一个目录，请单击 **添加目录** 按钮。关于设置连接、导入联系人和导入组的更多详细信息可在 [LDAP 认证](/mesosphere/dcos/cn/2.0/security/ent/ldap/)文档中找到。
+要添加一个目录，请单击 **添加目录** 按钮。关于设置连接、导入联系人和导入组的更多详细信息可在 [LDAP 认证](/mesosphere/dcos/2.0/security/ent/ldap/)文档中找到。
 
 # 身份提供者
 
-DC/OS 支持使用基于身份提供者的认证。有关如何设置基于身份提供者的认证的详细信息，请参阅 [文档](/mesosphere/dcos/cn/2.0/security/ent/sso/)。我们提供配置 [SAML 身份提供者](/mesosphere/dcos/cn/2.0/security/ent/sso/setup-saml/) 或 [OpenID Connect IdP](/mesosphere/dcos/cn/2.0/security/ent/sso/setup-openid/) 的信息。
+DC/OS 支持使用基于身份提供者的认证。有关如何设置基于身份提供者的认证的详细信息，请参阅 [文档](/mesosphere/dcos/2.0/security/ent/sso/)。我们提供配置 [SAML 身份提供程序](/mesosphere/dcos/2.0/security/ent/sso/setup-saml/) 或 [OpenID Connect&reg; IdP](/mesosphere/dcos/2.0/security/ent/sso/setup-openid/) 的信息。
 
 ![身份提供者](/mesosphere/dcos/2.0/img/GUI-Settings-LDAP-Add-Oidc.png)
 

@@ -28,11 +28,11 @@ dcos quota update <group> [flags]
 | `--disk`     | 配额限制的磁盘数（在 MiB 中）。 |
 | `--force` | 强制配额创建。 |
 | `--gpu`     | 配额限制的 GPU 数。 |
-| | `--help, h` | 打印使用。|
+| `--help, h` | 打印使用。|
 | `--mem`     | 配额限制的内存量（在 MiB 中）。 |
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos quota](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-quota/)   | 管理 DC/OS 配额。 |
+| [dcos quota](/mesosphere/dcos/2.0/cli/command-reference/dcos-quota/)   | 管理 DC/OS 配额。 |

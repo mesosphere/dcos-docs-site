@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  GUI
+navigationTitle: GUI
 title: GUI
 menuWeight: 40
 render: mustache
@@ -8,7 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 excerpt: 使用 UI 进行 DC/OS 管理
 ---
 
-DC/OS UI 提供了 DC/OS 群集的丰富图形视图。通过 UI，您可以查看整个群集和 DC/OS 服务的当前状态。UI 作为 DC/OS 安装的一部分安装。
+Mesosphere&reg; DC/OS&trade; UI 提供了 DC/OS 群集的丰富图形视图。通过 UI，可以查看整个群集和 DC/OS 服务的当前状态。UI 作为 DC/OS 安装的一部分安装。
 
 ![Dashboard](/mesosphere/dcos/2.0/img/dashboard-ee-1-12.png)
 
@@ -22,61 +22,61 @@ DC/OS UI 提供了 DC/OS 群集的丰富图形视图。通过 UI，您可以查�
 
 ![DC/OS UI User Menu](/mesosphere/dcos/2.0/img/GUI-change-UI-language-selector.png)
 
-图 2 -“标题栏用户”菜单
+图 2 - 标题栏用户菜单
 
-在群集菜单中有以下链接：[群集概述](/mesosphere/dcos/cn/2.0/gui/cluster/)、文档和 CLI 安装。
+在群集菜单中有以下链接：[群集概述](/mesosphere/dcos/2.0/gui/cluster/)、文档和 CLI 安装。
 
 ![DC/OS UI Cluster Menu](/mesosphere/dcos/2.0/img/header-bar-cluster-dropdown-1-12.png)
 
-图 3 -“标题栏群集”菜单
+图 3 - 标题栏群集菜单
 
-DC/OS Enterprise 中还有用于管理 [链接群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/)的链接。
+DC/OS Enterprise 中还有用于管理 [链接群集](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/)的链接。
 
 ![DC/OS UI Cluster Menu with Linked Cluster](/mesosphere/dcos/2.0/img/switch-cluster-1-12.png)
 
-图 4 - 带有“切换群集”选项的“群集”菜单
+图 4 - 带有“切换群集”选项的群集菜单
 
 # 更改 UI 语言
 
 您可以更改显示 UI 的语言。
 
-**从标题栏**
+**从标题栏中**
 
 1. 单击标题栏中的用户名。
 
-    ![用户名菜单](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-3.png)
+ ![用户名菜单](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-3.png)
 
-    图 5 -“用户名”菜单
+ 图 5 - 用户名菜单
 
 1. 从下拉菜单中，选择“英语（更改）”。
 
-    ![下拉菜单](/mesosphere/dcos/2.0/img/GUI-change-UI-language-selector.png)
+ ![下拉菜单](/mesosphere/dcos/2.0/img/GUI-change-UI-language-selector.png)
 
-    图 6 -“用户名”菜单
+ 图 6 - 用户名菜单
 
-1. 从“语言偏好”窗口，选择您的语言。
+1. 从“语言偏好”窗口中，选择您的语言。
 
-    ![语言偏好](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-2.png)
+ ![语言偏好](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-2.png)
 
-    图 7 -“语言偏好”菜单
+ 图 7 -“语言偏好”菜单
 
 1. 点击**保存**。
 
 <a name="settings-language"></a>
-**从设置菜单**
+**从设置菜单中**
 
 1. 单击 **设置 > UI 设置**。
 
-    ![UI 设置选项卡](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-1.png)
+ ![UI 设置选项卡](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-1.png)
 
-    图 8 -“UI 设置”选项卡
+ 图 8 -“UI 设置”选项卡
 
 1. 单击 **编辑** 按钮。
 
-1. 从“语言偏好”窗口，选择您的语言。
+1. 从“语言偏好”窗口中，选择您的语言。
 
-    ![语言偏好](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-2.png)
+ ![语言偏好](/mesosphere/dcos/2.0/img/GUI-change-UI-settings-menu-2.png)
 
-    图 9 -“语言偏好”菜单
+ 图 9 -“语言偏好”菜单
 1. 点击**保存**。
 

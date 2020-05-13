@@ -24,7 +24,7 @@ dcos marathon app restart [--force] <app-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help` | 显示此消息后退出。 |
+| `--help` | 显示此消息并退出。|
 | `--force` | 在更新期间禁用 Marathon 中的检查。|
 
 ## 位置自变量
@@ -37,6 +37,6 @@ dcos marathon app restart [--force] <app-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |
 
 

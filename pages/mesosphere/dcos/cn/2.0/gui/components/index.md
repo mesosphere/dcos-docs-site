@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  组件
+navigationTitle: 组件
 title: 组件
 menuWeight: 9
 excerpt: 使用组件菜单
@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-“组件”选项卡显示 DC/OS 组件的快照。它显示了组件的名称和运行状况。
+“组件”选项卡显示 DC/OS&trade; 组件的快照。它显示了组件的名称和运行状况。
 
 ![Components](/mesosphere/dcos/2.0/img/GUI-Components-Main_View.png)
 
@@ -16,7 +16,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ## 运行状况检查
 
-此屏幕显示每个组件的名称和运行状况。您可以按健康或不健康的组件对列表进行筛选。有关运行状况检查的更多信息，请参阅 [运行状况检查文档](/mesosphere/dcos/cn/2.0/deploying-services/creating-services/health-checks/)。
+此屏幕显示每个组件的名称和运行状况。您可以按健康或不健康的组件对列表进行筛选。有关运行状况检查的更多信息，请参阅 [运行状况检查文档](/mesosphere/dcos/2.0/deploying-services/creating-services/health-checks/)。
 
 ### 运行状况报告
 
@@ -36,4 +36,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 3 - 节点详情
 
-有关系统组件的更多信息，请参阅 [组件管理文档](/mesosphere/dcos/cn/2.0/administering-clusters/component-management/)。
+有关系统组件的更多信息，请参阅 [组件管理文档](/mesosphere/dcos/2.0/administering-clusters/component-management/)。

@@ -34,7 +34,7 @@ dcos job add <job-file>
 
 # 示例
 
-有关作业示例，请参阅[创建作业](/mesosphere/dcos/cn/2.0/deploying-jobs/examples/#create-job)。
+有关作业示例，请参阅[创建作业](/mesosphere/dcos/2.0/deploying-jobs/examples/#create-job)。
 
 有关如何使用此命令创建作业的信息，请参阅 [添加作业](/mesosphere/dcos/2.0/deploying-jobs/quickstart/#add-a-job-2)。
 
@@ -42,4 +42,4 @@ dcos job add <job-file>
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |

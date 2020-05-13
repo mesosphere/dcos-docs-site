@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  作业
+navigationTitle: 作业
 title: 作业
 menuWeight: 3
 excerpt: 创建和管理作业的本机支持。
@@ -24,7 +24,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 创建新作业
 
-在 DC/OS UI 中创建作业的方法有两种。
+在 DC/OS&trade; UI 中创建作业的方法有两种。
 
 - 如果未配置任何作业，“作业”屏幕将包含一个指出您没有活动作业的通知以及 **创建作业** 按钮。
 
@@ -48,6 +48,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 请注意，在所有 **作业** 配置屏幕中，您可以选择单独查看 UI，或在 UI 和 **JSON 编辑器** 窗口之间分割屏幕。在对 **作业** 配置选项的以下讨论中，我们将向您介绍分画面屏幕，以便您能看到它们如何共同工作的，但您也可以始终选择自己使用 UI。
 
+<!-- Where are JSON files created here stored? Can that location be configured? -->
 
 对任一界面作出的编辑都会立即反映在另一个界面中。例如，如果您在左侧 UI 的任何字段中输入一个值，它将被添加到右侧的 JSON 文件中。
 
@@ -65,14 +66,14 @@ model: /mesosphere/dcos/2.0/data.yml
 
 | 名称 | 说明 |
 |------|--------------|
-| [常规](#general) | 设置最基本的作业设置，如作业标识符、CPU、内存和磁盘要求。|
-| [容器运行时](#container-runtime) | 指定作业运行是否使用通用容器运行时或 Docker 引擎。 |
-| [计划](#schedule) | 为您的作业设置计划。您可以使用 `cron` 格式。 |
-| [环境](#environment) | 指定要附加到每个作业实例的环境变量。|
-| [卷](#volumes) | 通过设置持久卷来配置有状态的作业。|
-| [放置](#placement) | 指定分域和分区中代理节点的放置以获得高可用性，或者将能力扩展到新分域。|
-| [运行配置](#run-configuration) | 作业的高级设置。 |
-| [密钥](#secrets) | 设置一个密钥存储库，以保护私钥、API 令牌等重要值。 |
+| [General](#general) | 设置最基本的作业设置，如作业标识符、CPU、内存和磁盘要求。|
+| [Container Runtime](#container-runtime) | 指定作业运行是否使用通用容器运行时或 Docker&reg; 引擎。 |
+| [Schedule](#schedule) | 为您的作业设置计划。您可以使用 `cron` 格式。 |
+| [Environment](#environment) | 指定要附加到每个作业实例的环境变量。|
+| [Volumes](#volumes) | 通过设置持久卷来配置有状态的作业。|
+| [Placement](#placement) | 指定分域和分区中代理节点的放置以获得高可用性，或者将能力扩展到新分域。|
+| [Run Configuration](#run-configuration) | 作业的高级设置。 |
+| [Secrets](#secrets) | 设置一个密钥存储库，以保护私钥、API 令牌等重要值。 |
     
 ## 概述
 
@@ -89,7 +90,7 @@ model: /mesosphere/dcos/2.0/data.yml
 | CPU | 必填字段。指定作业所需的 CPU 内核数。该数字可以是整数或分数。 |
 | MEM (MiB) | 必填字段。指定作业所需的内存大小，以 MiB 为单位。 |
 | 磁盘 (MiB) | 必填字段。指定作业所需的磁盘空间大小，以 MiB 为单位。 |
-| GPU | 指定此作业每个实例所需的 GPU（图形处理单元）共享次数。此字段仅适用于在节点上运行的作业，该节点配置为使用 GPU（图形处理单元）内核和任务，而该 GPU 内核和任务使用 DC/OS [通用容器运行时](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/ucr/) 容器启动。对 GPU 资源的支持不适用于 Docker 容器或镜像。|
+| GPU | 指定此作业每个实例所需的 GPU（图形处理单元）共享次数。此字段仅适用于在节点上运行的作业，该节点配置为使用 GPU（图形处理单元）内核和任务，而该 GPU 内核和任务使用 DC/OS [通用容器运行时](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/) 容器启动。对 GPU 资源的支持不适用于 Docker 容器或镜像。|
 | 作业类型 | 选择 **容器镜像**，可选 **命令** 或 **仅命令**。|
 | 容器镜像 | 存储库名称。此字段允许您指定要运行的镜像，例如，Ubuntu:14.04。|
 | 命令* | 指定要在主机上或容器中运行的命令。该值由 Mesos 通过 `/bin/sh - job.cmd` 打包。必须提供一个 `cmd` 或 `args`。在同一作业中同时提供 `cmd` 和 `args` 则无效。|
@@ -145,7 +146,7 @@ model: /mesosphere/dcos/2.0/data.yml
 |------|--------------|
 | **启用计划** | 激活或停用计划程序。|
 | **计划 ID** | 定义作业计划的唯一标识符。这是必填字段。计划标识符必须为至少 2 个字符的字符串，并且只能包含数字 (0-9)、连字符 (-) 和小写字母 (a-z)。计划标识符开头或结尾不得用连字符。 |
-| **Cron 计划** | 指定 `cron` 格式的计划。这是必填字段。使用 [this crontab generator](http://crontab.guru)获取帮助。您还可以设置 **时区** 以应用于 cron 计划。例如，您可能在不同时区中有节点，并希望使用标准化 UTC 时间或特定本地时区（如 America/New_York）运行作业。
+| **Cron 计划** | 指定 `cron` 格式的计划。这是必填字段。使用 [this crontab generator](http://crontab.guru) 获取帮助。您还可以设置 **时区** 以应用于 cron 计划。例如，您可能在不同时区中有节点，并希望使用标准化 UTC 时间或特定本地时区（如 America/New_York）运行作业。
 | **启动截止日期** | 以秒为单位设置启动作业的时间（如果由于任何原因错过了计划的时间）。错过的作业执行被视为失败的作业。|
 | **并发策略** | 确定当已经有作业实例在运行时是否触发了新的作业运行实例。如果已有作业实例在运行，而您希望允许新的作业实例运行，则可进行此设置。 |
 
@@ -160,7 +161,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 | 名称 | 说明 |
 |-----|-----|
-| **环境变量** | 为每个服务启动设置环境变量。{{ model.productName }} 为主机端口和元数据揭示环境变量。|
+| **环境变量** | 为每个服务启动设置环境变量。{{ model.productName }}为主机端口和元数据揭示环境变量。 |
 | **键** | 环境值的唯一名称。
 | **值** | 分配给键的值。 |
 
@@ -185,7 +186,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 您可以配置分域和区中代理节点的放置以实现高可用性，或在必要时将能力扩展到新分域。
 
-![放置](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Placement.png)
+![放置](/mesosphere/dcos/2.0/img/GUI-Jobs-Placement.png)
 
 图 12 - **作业 > 放置** 选项卡
 
@@ -196,9 +197,9 @@ model: /mesosphere/dcos/2.0/data.yml
 
 约束分为三个部分：
 - *操作符**。操作符有以下三个选择：
-    - **Is** - 在有属性 ID 及特定值的节点上运行作业。
-    - **Like** - 在特定属性 ID 集合上运行作业。
-    - **Unlike** - 不在特定属性 ID 集合上运行作业。
+ - **Is** - 在有属性 ID 及特定值的节点上运行作业。
+ - **Like** - 在特定属性 ID 集合上运行作业。
+ - **Unlike** - 不在特定属性 ID 集合上运行作业。
 - **字段**。这可以是代理节点的主机名或代理节点的任何属性。
 - **值**。这可以是您选择的字符串或 Regex 值。|
 
@@ -226,12 +227,12 @@ model: /mesosphere/dcos/2.0/data.yml
 |  **重新启动策略** | 指定当作业失败时要采取的步骤。 |
 |  **从不** | 如果您不想尝试重新启动失败的作业，可以选择此项。 |
 | **失败时** | 使用 **坚持尝试时间** 字段设置尝试重新启动作业的时间限制。例如，如果希望在等待 30 秒后尝试重新启动作业，请将 **坚持尝试时间** 设置为 30。如果未为“坚持尝试时间”设置任何值，DC/OS 将继续尝试无限期地重新启动失败的作业。|
-| **添加标签** | 指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。对于希望包括的每个名称/值对，您可以通过单击 **添加标签** 添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/cn/2.0/tutorials/task-labels/)。 |
+| **添加标签** | 指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。对于希望包括的每个名称/值对，您可以通过单击 **添加标签** 添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/2.0/tutorials/task-labels/)。 |
 
 ## 密钥
 选择 {{ model.productName }} 密钥存储库，以保护私钥、API 令牌和数据库密码等重要值。
 
-要在应用程序中使用密钥，您必须确保用户具有适当的权限。如需更多信息，请参阅 [密钥文档](/mesosphere/dcos/cn/2.0/security/ent/secrets/)。
+要在应用程序中使用密钥，您必须确保用户具有适当的权限。如需更多信息，请参阅 [密钥文档](/mesosphere/dcos/2.0/security/ent/secrets/)。
 
 单击 **添加密钥** 以添加密钥。
 
@@ -248,4 +249,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 使用 UI 管理作业
 
-添加、查看、修改或移除作业的详细信息可在 [部署作业](/mesosphere/dcos/cn/2.0/deploying-jobs/quickstart/#managing-jobs-with-the-dcos-ui) 部分找到。
+添加、查看、修改或移除作业的详细信息可在 [部署作业](/mesosphere/dcos/1.13/deploying-jobs/quickstart/#managing-jobs-with-the-dcos-ui) 部分找到。

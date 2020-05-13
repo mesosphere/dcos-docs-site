@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  DC/OS 覆盖
+navigationTitle: DC/OS 覆盖
 title: DC/OS 覆盖
 menuWeight: 10
 render: mustache
@@ -22,7 +22,7 @@ DC/OS 覆盖提供的功能包括：
 * 可以运行需要群集内连通的应用程序，如 Cassandra、HDFS 和 Riak。
 * 可以创建多个虚拟网络来隔离您组织的不同部分，如开发、营销和生产。
 
-有关 DC/OS 覆盖的设计和实现的详细信息，请参阅 [覆盖简介](/mesosphere/dcos/cn/2.0/overview/design/overlay/)。DC/OS 覆盖的默认配置提供 IPv4 虚拟网络、`dcos`，以及 YAML 配置如下的 IPv6 虚拟网络 `dcos6`：
+有关 DC/OS 覆盖的设计和实现的详细信息，请参阅 [覆盖简介](/mesosphere/dcos/2.0/overview/design/overlay/)。DC/OS 覆盖的默认配置提供 IPv4 虚拟网络、`dcos`，以及 YAML 配置如下的 IPv6 虚拟网络 `dcos6`：
 
 ```yaml
  dcos_overlay_network :
@@ -44,7 +44,7 @@ DC/OS 覆盖提供的功能包括：
 
 图 1. 虚拟网络地址空间
 
-保留用于 **ContainerID**（此例中为 6）的位元然后被分为两个相同的组（此例中为 5 个位元），分别用于 Mesos 容器和 Docker 容器。使用默认配置时，每个代理将能够承载最多 2^5=32 个 Mesos 容器和 32 个 Docker 容器。使用此特定配置时，如果服务尝试在 Mesos 容器化工具或 Docker 容器化工具上启动超过 32 个任务，它将会收到 `TASK_FAILED`。请参阅虚拟网络主要页面的 [限制](#limitations) 部分，了解有关此限制的更多信息。
+保留用于 **ContainerID**（此例中为 6 ）的位元然后被分为两个相同的组（此例中为 5 个位元），分别用于 Mesos 容器和 Docker 容器。使用默认配置时，每个代理将能够承载最多 2^5=32 个 Mesos 容器和 32 个 Docker 容器。使用此特定配置时，如果服务尝试在 Mesos 容器化工具或 Docker 容器化工具上启动超过 32 个任务，它将会收到 `TASK_FAILED`。请参阅虚拟网络主要页面的 [限制](#limitations) 部分，了解有关此限制的更多信息。
 
 虽然上述示例是专门针对 IPv4 虚拟网络，但同样的逻辑也可用于 IPv6 虚拟网络 `dcos6`。唯一的区别在于，对于 Docker 容器，目前仅支持 IPv6。
 
@@ -64,7 +64,7 @@ DC/OS 虚拟网络只能在安装时进行添加和配置。要替换或添加�
     - 10.10.0.116
     # Use this bootstrap_url value unless the DC/OS installer assets have been moved.
     bootstrap_url: file:///opt/dcos_install_tmp
-    cluster_name: &lt;cluster-name&gt;
+    cluster_name: <cluster-name>
     master_discovery: static
     master_list:
     - 10.10.0.120
@@ -87,7 +87,7 @@ DC/OS 虚拟网络只能在安装时进行添加和配置。要替换或添加�
           prefix: 24
 ```
 
-上例中，定义了两个虚拟网络。虚拟网络 `dcos` 保留默认虚拟网络，并添加了另一个名为 `dcos-1` 的虚拟网络，其子网范围为 `192.168.0.0/16`。在 DC/OS 覆盖中，虚拟网络必须与一个名称和子网关联。该名称用于使用此特定虚拟网络来启动 Marathon 任务和其他 Mesos 框架任务（请参阅 [使用](/mesosphere/dcos/cn/2.0/networking/SDN/usage/)）。由于 Linux 设备名称的大小限制，虚拟网络名称必须少于 13 个字符。请参阅虚拟网络主要页面的 [限制](#limitations) 部分，了解更多信息。
+上例中，定义了两个虚拟网络。虚拟网络 `dcos` 保留默认虚拟网络，并添加了另一个名为 `dcos-1` 的虚拟网络，其子网范围为 `192.168.0.0/16`。在 DC/OS 覆盖中，虚拟网络必须与一个名称和子网关联。该名称用于使用此特定虚拟网络来启动 Marathon 任务和其他 Mesos 框架任务（请参阅 [使用](/mesosphere/dcos/2.0/networking/SDN/usage/)）。由于 Linux 设备名称的大小限制，虚拟网络名称必须少于 13 个字符。请参阅虚拟网络主要页面的 [限制](#limitations) 部分，了解更多信息。
 
 # 检索虚拟网络状态
 
@@ -292,7 +292,7 @@ DC/OS 安装完成后，可从 `https://leader.mesos:5050/overlay-master/state` 
 
 DC/OS 覆盖使用复制日志跨 Mesos 管理节点重启保留虚拟网络状态，并在选择新的 Mesos 管理节点时恢复覆盖状态。覆盖复制日志的存储位置为 `/var/lib/dcos/mesos/master/overlay_replicated_log`。当从群集卸载 DC/OS 时，**不会*移除覆盖复制日志，因此您需要在重新安装 DC/OS 之前手动删除此日志。否则，Mesos 管理节点会尝试在启动期间对现有覆盖日志进行核对，如果发现未配置的虚拟网络，管理节点将失败。
 
-<p class="message--note"><strong>注意：</strong>覆盖复制日志不同于<a href="http://mesos.apache.org/documentation/latest/replicated-log-internals/">管理节点的复制日志</a>，其存储位置为 <code> /var/lib/mesos/master/replicated_log</code>。移除覆盖复制日志对管理节点的恢复语义没有影响。</p>
+<p class="message--note"><strong>注意：</strong>覆盖复制日志不同于<a href="http://mesos.apache.org/documentation/latest/replicated-log-internals/">管理节点的复制日志</a>，其存储位置为 <code>/var/lib/mesos/master/replicated_log</code>。移除覆盖复制日志对管理节点的恢复语义没有影响。</p>
 
 ## iptables
 虚拟网络安装 IPMASQ 规则，让容器可以在虚拟网络之外进行通信。删除或替换虚拟网络时，必须移除与之前虚拟网络关联的规则。要移除与每个覆盖关联的 IPMASQ 规则，请从对应于虚拟网络子网的 NAT 表的 POSTROUTING 更改中移除 IPMASQ 规则。移除每个代理节点上的这些规则。
@@ -302,7 +302,7 @@ DC/OS 覆盖使用复制日志跨 Mesos 管理节点重启保留虚拟网络状�
 
 要替换虚拟网络，请先卸载 DC/OS，然后删除管理节点上的覆盖复制日志以及代理节点的 iptable 规则。然后，通过在 `config.yaml` 文件中指定的所需网络重新安装。
 
-# 故障排除 
+# 故障排除
 
 DC/OS Web 界面的**网络**选项卡提供了有助于排除故障的信息。它包含关于 DOS 覆盖中与容器关联的虚拟网络以及该虚拟网络上容器 IP 地址的信息。
 
@@ -314,24 +314,24 @@ DC/OS Web 界面的**网络**选项卡提供了有助于排除故障的信息。
 
 * DC/OS 覆盖不允许服务预留 IP 地址，这会造成为虚拟网络上多个化身之间的容器产生临时地址。此限制确保给定客户端连接到正确的服务。
 
-DC/OS 在不同的 [区域] 提供 FQDN(/mesosphere/dcos/cn/2.0/networking/DNS/)，提供通过可预测的 URL 访问服务的简洁方式。如果使用 DC/OS 覆盖，您应使用 DC/OS DNS 服务提供的 FQDN 之一，以便客户端能够轻松发现服务的位置。
+DC/OS 在不同的 [区域](/mesosphere/dcos/2.0/networking/DNS/)提供 FQDN，提供通过可预测的 URL 访问服务的简洁方式。如果使用 DC/OS 覆盖，您应使用 DC/OS DNS 服务提供的 FQDN 之一，以便客户端能够轻松发现服务的位置。
 
 * DC/OS 覆盖网络上的容器总数的限制与覆盖子网上可用 IP 地址的数量相同。但是，代理上的容器数量限制取决于分配给此代理的子网（将是覆盖子网的子集）。对于给定的代理子网，一半的地址空间分配给 `MesosContainerizer`，另一半分配给 `DockerContainerizer`。
 
 * 在 DC/OS 覆盖中，虚拟网络的子网将细分成更小的子网，这些更小的子网会分配给各个代理。当代理耗尽为其分配的地址范围且服务尝试在此代理启动虚拟网络容器上的容器时，容器启动将失败，服务将收到 `TASK_FAILED` 消息。
 
-  由于没有 API 报告代理上的地址耗尽，因此由服务得出结论，认为容器因代理上缺少 IP 地址而无法在虚拟网络上启动。此限制对 Marathon 等服务的行为有直接影响，其尝试使用指定数量的实例来启动服务。由于此限制，如果 Marathon 等服务尝试在耗尽为其分配的 IP 地址范围的代理上启动某个服务的实例，这些服务可能无法完成在虚拟网络上启动服务的义务。
+ 由于没有 API 报告代理上的地址耗尽，因此由服务得出结论，认为容器因代理上缺少 IP 地址而无法在虚拟网络上启动。此限制对 Marathon 等服务的行为有直接影响，其尝试使用指定数量的实例来启动服务。由于此限制，如果 Marathon 等服务尝试在耗尽为其分配的 IP 地址范围的代理上启动某个服务的实例，这些服务可能无法完成在虚拟网络上启动服务的义务。
 
-  在解决使用虚拟网络的框架相关问题时以及当您看到 `TASK_FAILED` 消息时，请牢记此限制。
+ 在解决使用虚拟网络的框架相关问题时以及当您看到 `TASK_FAILED` 消息时，请牢记此限制。
 
 * DC/OS 覆盖使用代理上的 Linux 网桥设备将 Mesos 和 Docker 容器连接到虚拟网络。这些网桥设备的名称来自虚拟网络名称。由于 Linux 系统对网络设备名称有 15 个字符的限制，因此虚拟网络名称的字符限制为 13 个字符（其中 2 个字符用于区分虚拟网络上的 CNI 网桥和 Docker 网桥）。
 
 * 某些名称是预留的，不能用作 DC/OS 覆盖名称。这是因为 DC/OS 覆盖使用底层 Docker 网络将 Docker 容器连接到覆盖网络，而这反过来预留某些网络名称。预留的名称为：`host`、`bridge` 和 `default`。
 
-* [Marathon 健康检查](/mesosphere/dcos/cn/2.0/deploying-services/creating-services/health-checks/) 不会使用某些 DC/OS 覆盖配置。如果您不使用默认的 DC/OS 覆盖配置且 Marathon 与虚拟网络隔离，健康检查将持续失败，即使服务的健康状况良好。
+* [Marathon 健康检查](/mesosphere/dcos/2.0/deploying-services/creating-services/health-checks/) 不会使用某些 DC/OS 覆盖配置。如果您不使用默认的 DC/OS 覆盖配置且 Marathon 与虚拟网络隔离，健康检查将持续失败，即使服务的健康状况良好。
 
-  以下任何情况时，Marathon 健康检查将运行：
+ 以下任何情况时，Marathon 健康检查将运行：
 
-  * 您在使用默认的 DC/OS 覆盖配置时。
-  * Marathon 可以访问虚拟网络时。
-  * 您使用 [`command` 健康检查](/mesosphere/dcos/cn/2.0/deploying-services/creating-services/health-checks/) 时。
+ * 您在使用默认的 DC/OS 覆盖配置时。
+ * Marathon 可以访问虚拟网络时。
+ * 您使用 [`command` 健康检查](/mesosphere/dcos/2.0/deploying-services/creating-services/health-checks/) 时。

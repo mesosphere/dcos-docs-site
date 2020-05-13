@@ -47,7 +47,7 @@ backup3-317c19df-34e4-41a0-93c9-d66c7f307208      1.13.0      STATUS_BACKING_UP 
 
 ## 仅列出以“backup-”开头的备份
 
-```
+```bash
 dcos backup list backup-
 BACKUP ID                                         VERSION     STATUS           TIMESTAMP
 ---------                                         -------     ------           ---------
@@ -58,5 +58,5 @@ backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27     1.13.0      STATUS_READY     2
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [dcos backup](/mesosphere/dcos/2.0/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  多个地区
+navigationTitle: 多个地区
 title: 多个地区
 menuWeight: 10
 excerpt: 实验多个区域配置

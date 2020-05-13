@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle:  系统要求
+navigationTitle: 系统要求
 title: 系统要求
 menuWeight: 5
 enterprise: false
 excerpt: DC/OS 部署的软硬件要求
-model: /mesosphere/dcos/2.0/data.yml
+
 render: mustache  
 ---
 DC/OS 群集由 **管理节点** 和 **代理节点** 这两种节点组成。代理节点可以是 **公共代理节点** 或 **专用代理节点**。公共代理节点通过负载均衡器为群集中的服务提供北南（外部向内部）的访问。专用代理主机托管集群上部署的容器和服务。除管理和代理群集节点以外，每个 DC/OS 安装还包括一个用于 DC/OS 安装和升级文件的独立 ** bootstrap 节点**。一些硬件和软件要求适用于所有节点。其他要求特定于要部署的节点类型。
@@ -25,7 +25,7 @@ DC/OS 群集由 **管理节点** 和 **代理节点** 这两种节点组成。�
 
 ## 群集中的所有管理节点和代理节点
 
-在安装期间，DC/OS 群集节点是指定的 Mesos 管理节点和代理节点。支持的操作系统和环境列于 [版本政策页面](/mesosphere/dcos/cn/2.0/version-policy/)。
+在安装期间，DC/OS 群集节点是指定的 Mesos 管理节点和代理节点。支持的操作系统和环境列于 [版本政策页面](/mesosphere/dcos/version-policy/)。
 
 在群集节点上安装 DC/OS 时，所需文件安装在 `/opt/mesosphere` 目录中。您可以安装 DC/OS 之前创建 `/opt/mesosphere` 目录，但它必须是空目录或指向空目录的链接。DC/OS 可以通过在挂载卷上创建空目录，在 `/opt/mesosphere` 处创建指向空目录的链接来安装在单独的卷挂载上。
 
@@ -68,32 +68,32 @@ sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
 
 管理节点上有许多混合工作负载。预计持续可用或被视为业务关键的工作负载只能在具有至少三个管理节点的 DC/OS 群集上运行。有关高可用性要求的更多信息，请参阅 [高可用性文档][0]。
 
-[0]: /mesosphere/dcos/cn/2.0/overview/high-availability/
+[0]: /mesosphere/dcos/2.0/overview/high-availability/
 
 管理节点上混合工作负载的示例是 Mesos 复制日志和 ZooKeeper。某些情况下，混合工作负载定期需要与 `fsync` 同步，这可以生成许多昂贵的随机 I/O。我们建议如下：
 
 - 使用固态硬盘 (SSD) 或非易失性快速存储器 (NVMe) 设备进行快速、本地连接的存储。为降低 I/O 延迟问题的可能性，固态硬盘应当尽可能本地连接到物理机。您还应确保将固态硬盘 (SSD) 或非易失性快速存储器 (NVMe) 设备用于托管管理节点重复日志的文件系统。
 
-  在规划存储要求时，请记住，应避免使用单个存储区域网络 (SAN) 设备和 NFS 来连接群集中的节点。这种类型的架构引入延迟的可能性比使用本地存储的可能性要高，还会在原本应该是分布式系统的系统中引入单一故障点。网络延迟和带宽问题可能导致客户端会话超时，并且不利地影响 [DC/OS] 群集性能和可靠性。
+ 在规划存储要求时，请记住，应避免使用单个存储区域网络 (SAN) 设备和 NFS 来连接群集中的节点。这种类型的架构引入延迟的可能性比使用本地存储的可能性要高，还会在原本应该是分布式系统的系统中引入单一故障点。网络延迟和带宽问题可能导致客户端会话超时，并且不利地影响 [DC/OS] 群集性能和可靠性。
 
 - 带备用电池备用单元 (BBU) 的 RAID 控制器。
 - 在回写模式下配置的 RAID 控制器缓存。
 - 如果可以分离存储挂载点，则建议在管理节点上使用以下存储挂载点。这些建议将通过隔离各种服务的 I/O 来优化繁忙 DC/OS 群集的性能。
-  | 目录路径 | 描述 |
+ | 目录路径 | 描述 |
   |:-------------- | :---------- |
-  | /var/lib/dcos | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的群集或打算以较高速度部署和删除工作负载，则建议将此目录隔离到单独设备上的专用固态硬盘存储。 |
+ | _/var/lib/dcos_ | 管理节点上的大部分 I/O 将出现在此目录结构中。如果计划一个拥有数百个节点的群集或打算以较高速度部署和删除工作负载，则建议将此目录隔离到单独设备上的专用固态硬盘存储。 |
 
 - 对于会发展到数千个节点的群集，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
-  | 目录路径 | 描述 |
+ | 目录路径 | 描述 |
   |:-------------- | :---------- |
-  | /var/lib/dcos/mesos/master | 日志记录目录 |
-  | /var/lib/dcos/cockroach | CockroachDB [enterprise type="inline" size="small" /] |
-  | /var/lib/dcos/navstar | 对于 Mnesia 数据库 |
-  | /var/lib/dcos/secrets | secrets vault [enterprise type="inline" size="small" /] | 
-  | /var/lib/dcos/exec | 各种 DC/OS 服务所需的临时文件。_/var/lib/dcos/exec_ 目录不得在装载有 `noexec` 选项的卷上。 |
-  | /var/lib/dcos/exhibitor | Zookeeper 数据库 |
-  | /var/lib/dcos/exhibitor/zookeeper/transactions | ZooKeeper 事务日志对磁盘写入延迟非常敏感。如果只能提供有限的固态硬盘空间，则这是要放置的目录。这些日志至少必须要有 2 GB 空间。 |
+ | _/var/lib/dcos/mesos/master_ | 日志记录目录 |
+ | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
+ | _/var/lib/dcos/navstar_ | 对于 Mnesia 数据库 |
+ | _/var/lib/dcos/secrets_ | 密钥保管库 [enterprise type="inline" size="small" /] | 
+ | _/var/lib/dcos/exec_ | 各种 DC/OS 服务所需的临时文件。_/var/lib/dcos/exec_ 目录不得在装载有 `noexec` 选项的卷上。 |
+ | _/var/lib/dcos/exhibitor_ | Zookeeper 数据库 |
+ | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | ZooKeeper 事务日志对磁盘写入延迟非常敏感。如果只能提供有限的固态硬盘空间，则这是要放置的目录。这些日志至少必须要有 2 GB 空间。 |
 
 ## 代理节点要求
 
@@ -104,39 +104,39 @@ sudo systemctl stop dnsmasq && sudo systemctl disable dnsmasq.service
 | 节点数       | 1         | 6 或更多   |
 | 处理器 | 2 核 | 2 核 |
 | 内存 | 16 GB RAM | 16 GB RAM |
-| 硬盘   | 60 GB     | 60 GB       |
+| 硬盘 | 60 GB | 60 GB |
 
 在规划代理节点的内存要求时，应确保代理已配置成可最式程序减少交换空间的使用。建议的最佳实践是优化群集性能并减少潜在资源消耗问题，以尽可能禁用群集中所有代理的内存交换。
 
 除 [群集中所有管理节点和代理节点] 中所述的要求以外(#CommonReqs)，代理节点必须：
-- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/)。
+- 带 20 GB 或更多可用空间的 `/var` 目录。此目录由沙盒用于 [Docker 和 DC/OS 通用容器运行时](/mesosphere/dcos/2.0/deploying-services/containerizers/)。
 
 -   请勿在您打算使用 DC/OS CLI 的系统上使用 `noexec` 来挂载 `/tmp` 目录，除非 TMPDIR 环境变量设置为 `/tmp/` 以外的其他值。使用 `noexec` 选项来挂载 `/tmp` 可能会破坏 CLI 功能。
 
 - 如果计划一个拥有数百个代理节点的群集或打算以较高速度部署和删除服务，则建议将此目录隔离到专用固态硬盘存储。
 
-    | 目录路径 | 描述 |
+ | 目录路径 | 描述 |
     |:-------------- | :---------- |
-    | /var/lib/mesos/ | 代理节点的大多数 I/O 将定向到此目录。此外，Apache Mesos 在广告中声明的其 UI 的磁盘空间是支持 _/var/lib/mesos_ |的文件系统广告中声明的空间之和
+ | _/var/lib/mesos/_ | 代理节点的大多数 I/O 将定向到此目录。此外，Apache Mesos 在广告中声明的其 UI 的磁盘空间是支持 _/var/lib/mesos_ |的文件系统广告中声明的空间之和
 
 - 对于会发展到数千个节点的群集，建议将此目录结构进一步分解为具体服务的单个挂载点。
 
-   | 目录路径 | 描述 |
+ | 目录路径 | 描述 |
    |:-------------- |:----------- |
-   | /var/lib/mesos/slave/slaves | 任务的沙盒目录 |
-   | /var/lib/mesos/slave/volumes | 由消耗 ROOT 持久卷的框架使用 |
-   | /var/lib/mesos/docker/store | 存储用来配置 URC 容器的 Docker 镜像层 |
-   | /var/lib/docker | 存储用来配置 Docker 容器的 Docker 镜像层 |
+ | _/var/lib/mesos/slave/slaves_ | 任务的沙盒目录 |
+ | _/var/lib/mesos/slave/volumes_ | 由消耗 ROOT 持久卷的框架使用 |
+ | _/var/lib/mesos/docker/store_ | 存储用来配置 URC 容器的 Docker 镜像层 |
+ | _/var/lib/docker_ | 存储用来配置 Docker 容器的 Docker 镜像层 |
 
 ## <a name="port-and-protocol"></a>端口和协议配置
 
 - 必须在所有节点上启用安全外壳 (SSH)。
 - 必须在所有节点上启用互联网控制消息协议 (ICMP)。
--   所有主机名（FQDN 和简短主机名）在 DNS 中必须可解析；正向和反向查找必须成功。 [enterprise type="inline" size="small" /]
-- 所有 DC/OS 节点主机名均应解析为**本地可绑定** IP 地址。大多数应用程序都必需通过绑定到本地 IP 地址来解析主机名才能正常运行。无法通过绑定到本地 IP 地址来解析节点主机名的应用程序可能无法以非常规方式运行或行事。 [enterprise type="inline" size="small" /]
+- 所有主机名（FQDN 和简短主机名）在 DNS 中必须可解析；正向和反向查找必须成功。[enterprise type="inline" size="small" /]
+- 所有 DC/OS 节点主机名均应解析为**本地可绑定** IP 地址。大多数应用程序都必需通过绑定到本地 IP 地址来解析主机名才能正常运行。无法通过绑定到本地 IP 地址来解析节点主机名的应用程序可能无法以非常规方式运行或行事。[enterprise type="inline" size="small" /]
 - 每个节点均可从 bootstrap 节点访问网络。
 - 每个节点均具有从本身到 DC/OS 群集中所有节点的不受限制 IP 至 IP 连接。
--   所有端口都应打开，以进行从管理节点到代理节点的通信，反之亦然。 [enterprise type="inline" size="small" /]
+- 所有端口都应打开，以进行从管理节点到代理节点的通信，反之亦然。[enterprise type="inline" size="small" /]
 - UDP 必须打开才能进入管理节点上的端口 53。为连接到群集，Mesos 代理节点服务 (`dcos-mesos-slave`) 使用此端口查找 `leader.mesos`。
 
 DC/OS 用户与管理节点之间的中介（例如，执行 SSL 终止的反向代理）要求：
@@ -202,16 +202,16 @@ timedatectl
 
 在安装 DC/OS 之前，您**必须**确保 bootstrap 节点具备以下前提条件。
 
-<p class="message--important"><strong>重要信息：</strong>如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅<a href="/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/">配置参数文档</a>。</p>
+<p class="message--important"><strong></strong>重要信息：如果您指定 `exhibitor_storage_backend: zookeeper`，bootstrap 节点将是群集的永久部分。有了 `exhibitor_storage_backend: zookeeper`，Mesos 管理节点的领导者状态和领导者选举将在 bootstrap 节点上的 Exhibitor ZooKeeper 中维持。如需更多信息，请参阅<a href="/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/">配置参数文档</a>。</p>
 
 
 - bootstrap 节点必须与群集节点分开。
 
 ### <a name="setup-file"></a>DC/OS 配置文件
 
-- 下载 [dcos_generate_config 文件](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) 并将其保存到 bootstrap 节点。此文件用于创建自定义的 DC/OS 构建文件。请联系销售代表或 <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> 以访问此文件。 [enterprise type="inline" size="small" /]
+- 下载 [dcos_generate_config 文件](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads) 并将其保存到 bootstrap 节点。此文件用于创建自定义的 DC/OS 构建文件。请联系销售代表或 <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> 以访问此文件。[enterprise type="inline" size="small" /]
 
-- 下载 [dcos_generate_config 文件](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) 并将其保存到 bootstrap 节点。此文件用于创建自定义的 DC/OS 构建文件。 [oss type="inline" size="small" /]
+- 下载 [dcos_generate_config 文件](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh) 并将其保存到 bootstrap 节点。此文件用于创建自定义的 DC/OS 构建文件。[oss type="inline" size="small" /]
 
 ### Docker NGINX（生产安装）
 
@@ -241,32 +241,32 @@ sudo yum install -y tar xz unzip curl ipset
 
 * 确保 SELinux 属于受支持的模式之一。
 
-    要检查当前 SELinux 状态和配置，请运行以下命令：
+ 要检查当前 SELinux 状态和配置，请运行以下命令：
 
     ```bash
     sudo sestatus
     ```
 
-    DC/OS 支持以下 SELinux 配置：
+ DC/OS 支持以下 SELinux 配置：
 
-    * 当前模式： `disabled`
-    * 当前模式： `permissive`
-    * 当前模式： `enforcing`，鉴于 `Loaded policy name` 是 `targeted`
-      此模式在 CoreOS 上不受支持。
+ * 当前模式： `disabled`
+ * 当前模式： `permissive`
+ * 当前模式： `enforcing`，假定 `Loaded policy name` 为 `targeted`
+ 此模式在 CoreOS 上不受支持。
 
-    要将模式从 `enforcing` 更改为 `permissive`，请运行以下命令：
+ 要将模式从 `enforcing` 更改为 `permissive`，请运行以下命令：
 
     ```bash
     sudo sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
     ```
 
-    或者，如果 `sestatus` 显示“当前模式”为 `enforcing`，但 `Loaded policy name` 不是 `targeted`，请运行以下命令，将 `Loaded policy name` 更改为 `targeted`：
+ 或者，如果 `sestatus` 显示“当前模式”为 `enforcing`，但 `Loaded policy name` 不是 `targeted`，请运行以下命令，将 `Loaded policy name` 更改为 `targeted`：
 
     ```bash
     sudo sed -i 's/SELINUXTYPE=.*/SELINUXTYPE=targeted/g' /etc/selinux/config
     ```
 
-    <p class="message--note"><strong>注意：</strong>确保每个节点上运行的所有服务都能在所选的 SELinux 配置中运行。</p>
+ <p class="message--note"><strong>注意：</strong>确保每个节点上运行的所有服务都能在所选的 SELinux 配置中运行。</p>
 
 * 添加 `nogroup` 和 `docker` 组：
 
@@ -281,7 +281,7 @@ sudo yum install -y tar xz unzip curl ipset
     sudo reboot
     ```
 
-    <p class="message--note"><strong>注意：</strong>重启后，节点可能需要几分钟时间才能恢复联机。</p>
+ <p class="message--note"><strong>注意：</strong>重启后，节点可能需要几分钟时间才能恢复联机。</p>
 
 ### 区域设置要求
 您必须将 `LC_ALL` 和 `LANG` 环境变量设置为 `en_US.utf-8`。
@@ -289,7 +289,7 @@ sudo yum install -y tar xz unzip curl ipset
 - 有关如何在 Red Hat 中设置这些变量的信息，请参阅 [如何在 RHEL 上更改系统区域设置](https://access.redhat.com/solutions/974273)
 
 - 在 Linux 系统上：
-````
+```bash
 localectl set-locale LANG=en_US.utf8
 ````
 
@@ -299,6 +299,6 @@ localectl set-locale LANG=en_US.utf8
 - [从 Docker 的 Yum 存储库安装 Docker][1]
 - [DC/OS 安装指南][2]
 
-[1]: /mesosphere/dcos/cn/2.0/installing/production/system-requirements/docker-centos/
+[1]: /mesosphere/dcos/2.0/installing/production/system-requirements/docker-centos/
 
-[2]: /mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/
+[2]: /mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/

@@ -24,7 +24,7 @@ dcos marathon app kill [--scale] [--host=<host>] <app-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help` | 显示此消息后退出。 |
+| `--help` | 显示此消息并退出。|
 | `--host=<host>` | 正在运行应用程序的主机名。|
 | `--scale` | 执行操作后缩小应用程序。|
 
@@ -47,4 +47,4 @@ Killed tasks: []
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

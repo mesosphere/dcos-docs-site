@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  本地持久卷
+navigationTitle: 本地持久卷
 title: 本地持久卷
 menuWeight: 10
 excerpt: 使用本地持久卷
@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-当您指定本地卷时，任务及其关联的数据将“固定”到首次启动的节点，如果它们终止，将在该节点上重新启动。还保留应用程序所需的资源。除了您指定为应用定义一部分的沙盒 `disk` 大小外，Marathon 将隐式保留适当的磁盘空间（通过 `persistent.size` 在卷中声明）。
+当您指定本地卷时，任务及其关联的数据将“固定”到首次启动的节点，如果它们终止，将在该节点上重新启动。还保留应用程序所需的资源。除了您指定为应用定义一部分的沙盒 `disk` 大小外，Marathon&trade; 将隐式保留适当的磁盘空间（通过 `persistent.size` 在卷中声明）。
 
 # 使用本地持久卷的好处
 
@@ -38,7 +38,7 @@ enterprise: false
 
 - `containerPath`：应用程序读写数据的路径。这必须是相对于容器的单层路径；不能包含正斜杠 (`/`)。（`"data"`，但不是 `"/data"`、`"/var/data"` 或 `"var/data"`）。
 - `mode`：卷的访问模式。目前， `"RW"` 是唯一可能的值，它将允许您的应用程序从卷中读取及写入卷。
-- `persistent.type`：要使用的 Mesos 磁盘资源类型；有效选项为 `root`、`path` 和 `mount`，对应于[有效的 Mesos 多磁盘资源类型](http://mesos.apache.org/documentation/latest/multiple-disk/)。
+- `persistent.type`：要使用的 Apache&reg; Mesos&reg; 磁盘资源类型；有效选项为 `root`、`path` 和 `mount`，对应于[有效的 Mesos 多磁盘资源类型](http://mesos.apache.org/documentation/latest/multiple-disk/)。
 - `persistent.size`：持久卷的大小 (MiB)。
 - `persistent.profileName`：（上文未见）存储[卷配置文件](/mesosphere/dcos/services/storage/latest/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
 - `persistent.maxSize`：（上文未见）对于 `root` Mesos 磁盘资源，要考虑的专属挂载卷的可选最大大小。
@@ -78,9 +78,9 @@ enterprise: false
 }
 ```
 
-如需完整示例，请参阅[在 Marathon 上运行有状态 MySQL](#statful-sql)。
+如需完整示例，请参阅 [在 Marathon 上运行有状态 MySQL&reg;](#stateful-sql)。
 
-# 通过 DC/OS Web 界面创建有状态应用程序
+# 使用 DC/OS Web 界面创建有状态应用程序
 
 1. 单击 **Services** 选项卡，然后 **RUN A SERVICE**。
 1. 单击 **Volumes** 选项卡。
@@ -159,7 +159,7 @@ enterprise: false
 
 # 在后台
 
-Marathon 利用三种 Mesos 功能来运行有状态应用程序：[动态预留](http://mesos.apache.org/documentation/latest/reservation/)、预留标签和[持久卷](http://mesos.apache.org/documentation/latest/persistent-volume/)。
+Marathon 利用三种 Mesos 功能来运行有状态应用程序：[动态保留](http://mesos.apache.org/documentation/latest/reservation/)、保留标签，以及 [持久卷](http://mesos.apache.org/documentation/latest/persistent-volume/)。
 
 与静态保留相反，动态预留在运行时为给定角色创建，并使用预留标签将资源与 `frameworkId` 和 `taskId` 的组合相关联。这允许 Marathon 在由于某种原因终止后重新启动有状态任务，因为相关资源将不会提供给未配置为使用此角色的框架。有关更多信息，请参阅[非唯一角色](#non-unique-roles)。
 
@@ -180,7 +180,7 @@ Mesos 创建持久卷以保存应用程序的状态数据。由于持久卷是�
 
 ## 资源要求
 
-目前，在部署了应用定义后，将 **无法** 更改有状态应用程序的资源要求卷大小、CPU 使用率、内存要求等。
+目前，在部署了应用定义后，将 **无法** 更改有状态应用程序的资源要求—卷大小、CPU 使用率、内存要求等。
 
 ## 复制和备份
 
@@ -209,7 +209,7 @@ Mesos 中的静态和动态预留均与角色绑定，而不是与框架或框�
 
 ## Marathon 上有状态的 MySQL
 
-默认 MySQL Docker 镜像不允许您更改数据文件夹。由于我们无法使用绝对嵌套的 `containerPath`（如 `/var/lib/mysql`）定义持久卷，因此我们配置了一个解决方法来设置从 hostPath `mysqldata`（相对于 Mesos 沙盒）到 `/var/lib/mysql`（MySQL 尝试读/写的路径）的 Docker 挂载：
+默认 MySQL Docker&reg; 镜像不允许您更改数据文件夹。由于我们无法使用绝对嵌套的 `containerPath`（如 `/var/lib/mysql`）定义持久卷，因此我们配置了一个解决方法来设置从 hostPath `mysqldata`（相对于 Mesos 沙盒）到 `/var/lib/mysql`（MySQL 尝试读/写的路径）的 Docker 挂载：
 
 ```json
 {
@@ -293,7 +293,7 @@ Mesos 中的静态和动态预留均与角色绑定，而不是与框架或框�
 
 ## Marathon 上有状态的 PostgreSQL
 
-在 Marathon 上为 PostgreSQL 创建应用定义类似于为 MySQL 创建定义。为防止 Postgres 将数据存储在非持久的 `/pgdata` 文件夹或必须归 `root` 所有的位置，应避免使用 `$PGDATA` 环境变量。相反，可以使用应用定义来配置两个持久卷，其设置类似于以下内容：
+在 Marathon 上为 PostgreSQL&reg; 创建应用定义类似于为 MySQL 创建定义。为防止 Postgres 将数据存储在非持久的 `/pgdata` 文件夹或必须归 `root` 所有的位置，应避免使用 `$PGDATA` 环境变量。相反，可以使用应用定义来配置两个持久卷，其设置类似于以下内容：
 
 ```json
 {
@@ -346,7 +346,7 @@ Mesos 中的静态和动态预留均与角色绑定，而不是与框架或框�
 
 ## 含有持久卷的 Pod
 
-以下示例将创建含有两个容器和一个共享持久卷的 Pod。另请参见 [Pod](/mesosphere/dcos/cn/2.0/deploying-services/pods/)。
+以下示例将创建含有两个容器和一个共享持久卷的 Pod。另请参见 [Pod](/mesosphere/dcos/2.0/deploying-services/pods/)。
 
 ```json
 {
@@ -446,14 +446,14 @@ Mesos 中的静态和动态预留均与角色绑定，而不是与框架或框�
 
 ## 检查/删除暂停的有状态任务
 
-要销毁和清理持久卷，并释放与任务相关联的保留资源，请执行以下两个步骤：
+要销毁和清理持久卷，并释放与任务相关联的保留资源，请执行以下这些步骤：
 
 1. 找到包含持久卷的代理程序并删除其中的数据。
 1. 向 Marathon 发送包含 `wipe=true` 标记的 HTTP DELETE 请求。
 
 若要查找代理程序，请检查 Marathon UI，并检查 **Volumes**选项卡上的分离卷。或者，查询 `/v2/apps` 端点，该端点提供有关 `host` 和 Mesos `slaveId` 的信息。
 
-```
+```http
 http GET http://dcos/service/marathon/v2/apps/postgres/tasks
 ```
 
@@ -481,7 +481,7 @@ http GET http://dcos/service/marathon/v2/apps/postgres/tasks
 1. 通过 `ssh'ing` 进入代理程序并运行 `rm -rf <volume-path>/*` 命令。
 1. 使用 `wipe=true` 删除任务，这将从 Marathon 内部存储库中删除任务信息，最终销毁卷并取消保留以前与任务关联的资源：
 
-    ```
+    ```http
     http DELETE http://dcos/service/marathon/v2/apps/postgres/tasks/postgres.53ab8733-fd96-11e5-8e70-76a1c19f8c3d?wipe=true
     ```
 
@@ -489,6 +489,6 @@ http GET http://dcos/service/marathon/v2/apps/postgres/tasks
 
 您可以使用持久本地卷查看应用程序的状态。在创建应用程序后，单击应用程序详细视图的 **Volumes** 选项卡以获取有关应用程序实例和关联卷的详细信息。
 
-状态列会告诉您应用程序实例是否连接到卷。如果您对应用程序进行了减容，则应用程序实例将显示为“已分离”。目前唯一可用的操作类型为读/写 (RW)。
+状态列会告诉您应用程序实例是否连接到卷。如果您对应用程序进行了减容，则应用程序实例将显示为“已分离”。目前，唯一可用的操作类型为读/写 (RW)。
 
 单击卷查看卷详细信息页面，您可以在其中查看有关各个卷的信息。

@@ -24,7 +24,7 @@ dcos license status [OPTIONS]
 |---------|-------------|
 | `--terms` | 筛选状态，确保仅打印有效许可证条款。 |
 | `--breaches` | 筛选状态，确保仅打印有效许可证违规行为。 |
-| `--help` | 显示此消息后退出。 |
+| `--help` | 显示此消息并退出。|
 
 
 # 示例
@@ -42,15 +42,15 @@ dcos license status
 }
 
 ```
-```
+```bash
 dcos license status --breaches
 0
 ```
-如需更多示例，请参阅 [许可证](/mesosphere/dcos/cn/2.0/administering-clusters/licenses/)。
+如需更多示例，请参阅 [许可证](/mesosphere/dcos/2.0/administering-clusters/licenses/)。
 
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |

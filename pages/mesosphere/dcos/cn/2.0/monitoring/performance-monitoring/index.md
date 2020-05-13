@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  性能监控
+navigationTitle: 性能监控
 title: 性能监控
 menuWeight: 1
 excerpt: 监控 DC/OS 群集
@@ -9,11 +9,11 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-以下是监控 DC/OS 群集的一些建议。您可以使用任何监控工具。下面列出的端点有助于您在发生问题时解决问题。
+以下是监控 Mesosphere&reg; DC/OS&trade; 群集的一些建议。您可以使用任何监控工具。下面列出的端点有助于您在发生问题时解决问题。
 
 您的监控工具应利用历史数据点，以便跟踪变更和偏差。已知处于健康状态和不健康状态时，您应对群集进行监控。这可以为 DC/OS 环境中的“正常”提供基准。使用此历史数据，您可以微调工具，设置适当的阈值和条件。超出这些阈值时，您可以向管理员发送警报。
 
-Mesos 和 Marathon 揭示以下类型的度量标准：
+Apache&reg; Mesos&reg; 和 Marathon&trade; 揭示以下类型的度量标准：
 
 * 仪表是指在查询时提供当前状态的度量标准。
 * 计数器具有添加性的度量标准，包括过去和现在的结果。这些度量标准不会在故障切换过程中持续存在。
@@ -56,7 +56,7 @@ Marathon 提供了许多用于监控的 [度量标准][1]。您可以在 `<Maste
 * `marathon.http.event-streams.responses.size.counter.bytes` — 自当前 Marathon 实例成为领导者以来，通过事件流发送给客户端的数据大小。
 * `marathon.http.requests.size.counter.bytes` — 自当前 Marathon 实例成为领导者以来所有请求的总大小。
 * `marathon.http.requests.size.gzipped.counter.bytes` — 自当前 Marathon 实例成为领导者以来所有 gzip 压缩请求的
-  总大小。
+ 总大小。
 * `marathon.http.responses.size.counter.bytes` — 自当前 Marathon 实例成为领导者以来所有响应的总大小。
 * `marathon.http.responses.size.gzipped.counter.bytes` — 自当前 Marathon 实例成为领导者以来所有 gzip 压缩的响应的总大小。
 * `marathon.http.requests.active.gauge` — 活跃请求的数量。
@@ -79,7 +79,7 @@ Mesos 提供了许多用于监控的 [度量标准][2]。以下是对 DC/OS 特�
 
 ### 管理节点
 
-** 这些度量标准不应随时间推移而增加** 如果这些度量标准增加，则可能哪里出错了。
+** 这些度量标准不应随时间推移而增加。** 如果这些度量标准增加，则可能哪里出错了。
 
 * `master/slave_reregistrations`（计数器）此度量标准提供代理节点重新注册和重新启动的次数。使用此度量标准以及历史数据来确定发生网络分区时的偏差和峰值。如果此数字大幅增加，则群集出现停机，但已重新连接。
 * `master/slave_removals`（计数器）此度量标准提供因各种原因（包括维护）而移除的代理节点的数量。在大量代理节点断开连接后，使用此度量标准确定网络分区。如果此数字严重偏离上一数字，应通知系统管理员（PagerDuty 等）。
@@ -113,16 +113,16 @@ Mesos 提供了许多用于监控的 [度量标准][2]。以下是对 DC/OS 特�
 
 * 检查关键应用程序 API 端点的 Marathon 应用程序健康 API [端点][3]。
 * 检查代理节点是否关闭：
-    * 跟踪 `/var/log/mesos` 警告日志并注意 `Shutting down`
-    * 指出已关闭多少代理节点的 Mesos 端点增加
+ * 跟踪 `/var/log/mesos` 警告日志并注意 `Shutting down`
+ * 指出已关闭多少代理节点的 Mesos 端点增加
 * 检查 Mesos 管理节点的正常运行时间是否较短，这显示在 Mesos 度量标准中。
 * 将 mom-marathon-service 日志记录级别从 `WARN` 变为 `INFO`。
 * 修改 `mesos-master` 日志轮换配置以存储完整日志至少一天。
 
-    * 确保管理节点有大量磁盘空间。
-    * 将 `logrotation` 选项从 `rotate 7` 变为 `maxage 14` 或更多。例如：
+ * 确保管理节点有大量磁盘空间。
+ * 将 `logrotation` 选项从 `rotate 7` 变为 `maxage 14` 或更多。例如：
 
-        ```
+        ```bash
         ...
         /var/log/mesos/* {
             olddir /var/log/mesos/archive
@@ -143,4 +143,4 @@ Mesos 提供了许多用于监控的 [度量标准][2]。以下是对 DC/OS 特�
 
  [1]: https://mesosphere.github.io/marathon/docs/metrics.html
  [2]: http://mesos.apache.org/documentation/latest/monitoring/
- [3]: /mesosphere/dcos/cn/2.0/deploying-services/marathon-api/#/apps/
+ [3]: /mesosphere/dcos/2.0/deploying-services/marathon-api/#/apps/

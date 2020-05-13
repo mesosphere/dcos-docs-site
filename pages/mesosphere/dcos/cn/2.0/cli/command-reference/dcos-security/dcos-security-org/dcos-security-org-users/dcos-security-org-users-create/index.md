@@ -13,19 +13,9 @@ enterprise: true
 
 `dcos security org users create` 命令允许您创建新用户并为其分配用户 ID (UID)。
 
-# 选项
- 
-| 名称 | 说明 |
-|---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
-| `-d`, `--description` <text> | 描述。 |
-| `-p`, `--password` <text> | 密码。 |
-| `UID` | 用户 ID。（必填）|
-
-
 # 使用
 
-```
+```bash
 Usage: dcos security org users create [OPTIONS] UID
 
   Create a new user.
@@ -35,3 +25,12 @@ Options:
   -p, --password TEXT     Password.
   -h, --help              Show this message and exit.
 ```
+
+# 选项
+ 
+| 名称 | 说明 |
+|---------|-------------|
+|  `-h`, `--help` |                显示此消息并退出。|
+| `-d`, `--description` <text> | 描述。 |
+| `-p`, `--password` <text> | 密码。 |
+| `UID` | 用户 ID。（必填)|

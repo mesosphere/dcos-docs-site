@@ -1,0 +1,14 @@
+## 验证您有企业版的许可证密钥
+DC/OS Enterprise 需要由 Mesosphere 提供的有效许可证密钥，该密钥将作为 `main.tf` 传递到 `dcos_license_key_contents` 配置文件中。如果未设置密码，默认超级用户和密码将可用于登录：
+
+用户名：`bootstrapuser`<br> 
+密码：`deleteme`
+
+<p class="message--important"><strong></strong>重要信息：您不应在生产环境中使用默认凭据。当您创建或确定用于生产环境的管理帐户时，还需要为该帐户生成密码哈希值。</p>
+
+要为第一次登录设置超级用户凭据，请将以下值以及许可证密钥添加到 `main.tf`。密码将需要散列到 SHA-512。
+
+```hcl
+dcos_superuser_username      = "superuser-name"
+dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash")}
+```

@@ -6,7 +6,7 @@ menuWeight: 11
 ---
 <!-- II. Tools Section -->
 
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 
 <a name="tools"></a>
@@ -32,7 +32,7 @@ DC/OS 附带多个与应用程序调试相关的工具：
 
 ## DC/OS Web 界面
 
-DC/OS 为各种组件提供许多 Web 界面，尤其是在调试应用程序部署问题时：
+DC/OS 为各种组件提供许多 Web 界面，尤其是用于调试应用程序部署问题：
 
 - [DC/OS Web 界面](#dcos-ui)
 
@@ -78,7 +78,7 @@ DC/OS Web 界面显示调试所需的大部分信息。但是，更进一步并�
 
 ## 日志
 
-日志是用于查看事件及其出现之前发生的条件的有用工具。通常，日志包含错误消息，可以提供有关错误原因的有用信息。由于日志记录本身就是一个重要的主题，因此我们建议使用 [DC/OS 日志文档](/mesosphere/dcos/cn/2.0/monitoring/logging/#system-logs)，以了解更多信息。
+日志是用于查看事件及其出现之前发生的条件的有用工具。通常，日志包含错误消息，可以提供有关错误原因的有用信息。由于日志记录本身就是一个重要的主题，因此我们建议使用 [DC/OS 日志文档](/mesosphere/dcos/2.0/monitoring/logging/#system-logs)，以了解更多信息。
 
 DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有用的日志：
 
@@ -90,9 +90,9 @@ DC/OS 有许多不同的日志源。通常，这些是应用程序调试最有�
 
 在 DC/OS 中，有多个选项用于访问这些日志：**DC/OS Web 界面** **DC/OS CLI** 或 HTTP 端点。此外，DC/OS 默认循环日志，以防止利用所有可用磁盘空间。
 
-<p class="message--note"><strong>注意：</strong>需要可扩展的方式来管理和搜索日志吗？ 为日志聚合和筛选构建 <a href="/mesosphere/dcos/cn/2.0/monitoring/logging/aggregating/filter-elk/">ELK 堆栈</a> 可能是值得的。</p>
+<p class="message--note"><strong>注意：</strong>需要可扩展的方式来管理和搜索日志吗？ 为日志聚合和筛选构建 <a href="/mesosphere/dcos/2.0/monitoring/logging/aggregating/filter-elk/">ELK 堆栈</a> 可能是值得的。</p>
 
-有时它可以帮助提高临时写入日志的详细程度，以为调试获得更详细的故障排除信息。对于大多数组件，可通过访问端点来完成。例如，如果要在服务器接收 API 调用后将 [Mesos 代理节点的日志级别] (http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) 提高 5 分钟，则可以执行以下简单的两步过程：
+有时它可以帮助提高临时写入日志的详细程度，以为调试获得更详细的故障排除信息。对于大多数组件，可通过访问端点来完成。例如，如果要在服务器接收 API 调用后将 [Mesos 代理节点的日志级别](http://mesos.apache.org/documentation/latest/endpoints/logging/toggle/) 提高 5 分钟，则可以执行以下简单的两步过程：
 
 ##### 连接到主节点
 
@@ -198,7 +198,7 @@ Mesos 管理节点负责将可用资源与调度程序匹配。它还将任务�
 
 ### 系统日志
 
-我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/mesosphere/dcos/cn/2.0/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/mesosphere/dcos/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`。在调试过程中，（除 Mesos 和 Marathon 之外）需要考虑的两个更常见的系统单元是 `docker.service` 和 `dcos-exhibitor.service`。
+我们现在已经介绍了 DC/OS 环境中最重要的日志源，但可用的日志还有很多。每个 DC/OS 组件都写入一个日志。如上所述，[每个 DC/OS 组件](/mesosphere/dcos/2.0/overview/architecture/components/) 作为一个 Systemd 单元运行。您可以在特定节点上通过 SSH 进入节点[直接检索日志](/mesosphere/dcos/latest/monitoring/logging/#system-logs)，然后键入 `journalctl -u <systemd-unit-name>`。在调试过程中，（除 Mesos 和 Marathon 之外）需要考虑的两个更常见的系统单元是 `docker.service` 和 `dcos-exhibitor.service`。
 
 例如，考虑 Mesos 代理节点`ffc913d8-4012-4953-b693-1acc33b400ce-S0`上 docker 守护程序的系统单元（重新调用 `dcos node` 命令检索 Mesos ID）。
 
@@ -211,7 +211,7 @@ $ dcos node ssh --master-proxy --mesos-id=ffc913d8-4012-4953-b693-1acc33b400ce-S
 然后我们可以使用 `journatlctl`，以查看 Docker 日志：
 
 ```bash
-$ journalctl -u docker
+journalctl -u docker
 ```
 
 输出类似这样的内容：
@@ -233,11 +233,11 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 在 DC/OS 中，度量标准有三个主要端点：
 
 - [DC/OS 度量标准](https://github.com/dcos/dcos-metrics)
-    - 端点暴露来自任务/容器、节点和应用程序的组合度量标准
+ - 端点暴露来自任务/容器、节点和应用程序的组合度量标准
 - [Mesos metrics](http://mesos.apache.org/documentation/latest/monitoring/)
-    - 端点暴露特定于 Mesos 的度量标准
+ - 端点暴露特定于 Mesos 的度量标准
 - [Marathon 度量标准](https://mesosphere.github.io/marathon/docs/metrics.html)
-    - 端点暴露特定于 Marathon 的度量标准
+ - 端点暴露特定于 Marathon 的度量标准
 
 利用度量标准来帮助调试的一种方法是设置仪表盘。此仪表盘将包括与您要监控的服务相关的最重要度量标准。例如，您可以[使用 prometheus 和 grafana](https://github.com/dcos/dcos-metrics/blob/master/docs/quickstart/prometheus.md#dcos-metrics-with-prometheus-and-grafana) 创建度量标准仪表盘。
 
@@ -249,7 +249,7 @@ Apr 09 23:51:51 ip-10-0-3-81.us-west-2.compute.internal dockerd[1262]: time="201
 
 有时，任务日志提供的帮助不足。在这些情况下，使用您最喜欢的 Linux 工具（例如 `curl`、`cat`、`ping` 等）来获得交互式视角可能是一个值得做的步骤。
 
-例如，如果您使用 [Universal Container Runtime (UCR)] (/latest/deploying-services/containerizers/ucr/)，则可以使用 `dcos task exec`，如下所示：
+例如，如果您使用 [Universal Container Runtime (UCR)](/latest/deploying-services/containerizers/ucr/)，则可以使用 `dcos task exec`，如下所示：
 
 ```bash
 dcos task exec -it <mycontainerid>
@@ -257,7 +257,7 @@ dcos task exec -it <mycontainerid>
 
 并且在该容器内有一个交互式 bash shell。
 
-<p class="message--important"><strong>重要信息：</strong>如果您在以上述方式使用 <code>dcos task exec</code> 时更改容器的状态，则必须更新存储的 <code>app-definition</code> 并从更新后的 <code>app-definition</code> 重新启动容器。如果您未能执行此操作，您的更改将在下次重新启动容器时丢失。</p>
+<p class="message--important"><strong></strong>重要信息：如果您在以上述方式使用 <code>dcos task exec</code> 时更改容器的状态，则必须更新存储的 <code>app-definition</code> 并从更新的 <code>app-definition</code> 重新启动容器。如果您未能执行此操作，您的更改将在下次重新启动容器时丢失。</p>
 
 或者，当使用 docker 容器化工具时，您可以通过 SSH 连接到相关节点并运行 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 来调查正在运行的容器。
 
@@ -285,10 +285,10 @@ Marathon [`queue` 端点](https://mesosphere.github.io/marathon/api-console/inde
 
 ## 社区
 
-[DC/OS 社区](https://dcos.io/community/?_ga=2.183442662.1394567794.1525106895-1279864600.1520288020)是通过 [Slack](http://chat.dcos.io/?_ga=2.183442662.1394567794.1525106895-1279864600.1520288020) 或 [邮寄列表] (https://groups.google.com/a/dcos.io/forum/#!forum/users)提出其他问题的好地方。同时记住，除了 DC/OS 社区之外，[Mesos](http://mesos.apache.org/community/) 和 [Marathon](https://mesosphere.github.io/marathon/support.html) 都有自己的社区。
+[DC/OS 社区](https://dcos.io/community/?_ga=2.183442662.1394567794.1525106895-1279864600.1520288020)是通过 [Slack](http://chat.dcos.io/?_ga=2.183442662.1394567794.1525106895-1279864600.1520288020) 或 [邮寄列表](https://groups.google.com/a/dcos.io/forum/#!forum/users)提出其他问题的好地方。同时记住，除了 DC/OS 社区之外，[Mesos](http://mesos.apache.org/community/) 和 [Marathon](https://mesosphere.github.io/marathon/support.html) 都有自己的社区。
 
 <a name="other-tools"></a>
 
 ## 其他工具
 
-还有其他调试工具 -- [DC/OS 内部](/mesosphere/dcos/cn/2.0/monitoring/debugging/) 以及 [Sysdig](https://sysdig.com/blog/monitoring-mesos/) 或 [Instana](https://www.instana.com/) 等外部工具。这些工具对确定非 DC/OS 特定问题（例如，Linux 内核或网络问题）尤为有用。
+还有其他调试工具 -- [DC/OS 内部](/mesosphere/dcos/2.0/monitoring/debugging/) 以及 [Sysdig](https://sysdig.com/blog/monitoring-mesos/) 或 [Instana](https://www.instana.com/) 等外部工具。这些工具对确定非 DC/OS 特定问题（例如，Linux 内核或网络问题）尤为有用。

@@ -49,4 +49,4 @@ dcos job remove my-job
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |

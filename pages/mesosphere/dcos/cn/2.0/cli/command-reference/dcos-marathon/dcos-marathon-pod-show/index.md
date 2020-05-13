@@ -37,7 +37,8 @@ dcos marathon pod show <pod-id>
 
 ## 显示 Pod JSON
 要查看 pod 定义，请运行以下命令：
-```
+
+```bash
 dcos marathon pod show <pod-id>
 ```
 您可使用 `show` 命令以编程方式读取有关 pod 的数据。
@@ -46,4 +47,4 @@ dcos marathon pod show <pod-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

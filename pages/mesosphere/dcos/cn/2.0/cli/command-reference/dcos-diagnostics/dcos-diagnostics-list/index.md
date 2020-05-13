@@ -24,12 +24,12 @@ dcos diagnostics list [flags]
 
 | 名称 | 默认 | 说明 |
 |---------|-------------|-------------|
-| `--help, h` | | 显示用法。 |
+| `--help, h`   |   |  显示用法。 |
 | `--json`   |  |  以 JSON 格式打印列表。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos diagnostics](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
+| [dcos diagnostics](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
 

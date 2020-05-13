@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  访问系统和组件日志
+navigationTitle: 访问系统和组件日志
 title: 访问系统和组件日志
 menuWeight: 1
 excerpt: 管理用户对系统和组件日志的访问
@@ -12,15 +12,15 @@ enterprise: true
 
 您可以限制用户对系统和组件日志的访问。
 
-以下是查看系统和组件日志所需的 [权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/)：
+以下是查看系统和组件日志所需的 [权限](/mesosphere/dcos/2.0/security/ent/perms-reference/)：
 
-| 权限字符串 | full | C | R | U | D |
+| 权限字符串 | Full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
-| `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API](/mesosphere/dcos/cn/2.0/api/master-routes/#system) 的访问]。                                                                                                                                                                      | x    |   |   |   |   |
+| `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API](/mesosphere/dcos/2.0/api/master-routes/#system) 的访问。| | x | | | |
 
 **前提条件：**
 
-- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/cn/2.0/installing/)，您以超级用户身份登录。
+- DC/OS 和 DC/OS CLI [已安装](/mesosphere/dcos/2.0/installing/)，您以超级用户身份登录。
 
 # 通过 DC/OS Web 界面
 
@@ -28,15 +28,15 @@ enterprise: true
 
 1. 选择**组织**并选择**用户**。选择现有用户或创建一个新用户。
 
-    ![新用户](/mesosphere/dcos/2.0/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
+ ![新用户](/mesosphere/dcos/2.0/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
 
-    图 1. 新用户屏幕
+ 图 1. 新用户屏幕
 
 1. 从**权限**选项卡，选择**添加权限**。
 
-    ![为用户添加权限](/mesosphere/dcos/2.0/img/GUI-Organization-Users-User_Main_View.png)
+ ![为用户添加权限](/mesosphere/dcos/2.0/img/GUI-Organization-Users-User_Main_View.png)
 
-    图 2. “添加权限”按钮
+ 图 2. “添加权限”按钮
 
 1. 单击**插入权限字符串**以切换对话框，并粘贴到以下权限中，单击**添加权限**。
 
@@ -44,15 +44,15 @@ enterprise: true
     dcos:adminrouter:ops:system-logs full
     ```
 
-    ![添加权限](/mesosphere/dcos/2.0/img/GUI-Organization-User-Add_Single_User_Perm_String-1_12.png)
+ ![添加权限](/mesosphere/dcos/2.0/img/GUI-Organization-User-Add_Single_User_Perm_String-1_12.png)
 
-    图 3. 权限字符串对话框
+ 图 3. 权限字符串对话框
 
-    **权限**选项卡现应当是这样的：
+ **权限**选项卡现应当是这样的：
 
-    ![prod-group permissions complete](/mesosphere/dcos/2.0/img/GUI-Organization-Users-User_View_w_Perm.png)
+ ![prod-group permissions complete](/mesosphere/dcos/2.0/img/GUI-Organization-Users-User_View_w_Perm.png)
 
-    图 4. 权限已添加
+ 图 4. 权限已添加
 
 ### <a name="verify-perms"></a>以用户身份登录到 CLI
 
@@ -68,9 +68,9 @@ enterprise: true
    dcos node log --leader --component=dcos-mesos-master
    ```
 
-   您应该能看到 Mesos 管理节点的日志。
+ 您应该能看到 Mesos 管理节点的日志。
 
-   如果您没有正确的权限，您将看到以下输出：
+ 如果您没有正确的权限，您将看到以下输出：
 
    ```bash
    You are not authorized to perform this operation
@@ -79,7 +79,7 @@ enterprise: true
 # 通过 IAM API
 
 **前提条件：**
-您必须 [获取根证书](/mesosphere/dcos/cn/2.0/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
+您必须 [获取根证书](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/) 才能发布此部分的 curl 命令。
 
 ### 提示
 
@@ -108,9 +108,9 @@ enterprise: true
    dcos node log --leader --component=dcos-mesos-master
    ```
 
-   您应该能看到 Mesos 管理节点的日志。
+ 您应该能看到 Mesos 管理节点的日志。
 
-   如果您没有正确的权限，您将看到以下输出：
+ 如果您没有正确的权限，您将看到以下输出：
 
    ```bash
    You are not authorized to perform this operation

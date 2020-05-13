@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  NFS 服务器
+navigationTitle: NFS 服务器
 excerpt: 挂载共享网络驱动器
 title: NFS 服务器
 render: mustache
@@ -10,9 +10,9 @@ menuWeight: 1
 
 # 概述
 
-对于某些有状态的服务，如 Jenkins，可以方便地将共享网络驱动器挂载到每个节点。如果使用中的节点不可用，则共享网络驱动器可以在新节点上启动任务。
+对于某些有状态的服务，如 Jenkins&reg;，可以方便地将共享网络驱动器挂载到每个节点。如果使用中的节点不可用，则共享网络驱动器可以在新节点上启动任务。
 
-<p class="message--note"><strong>注意：</strong>此示例使用 CoreOS 和 <code>systemd</code>，且尚未在其他环境中进行测试。</p>
+<p class="message--note"><strong>注意：</strong>此示例使用 CoreOS&reg; 和 <code>systemd</code>，且尚未在其他环境中进行测试。</p>
 
 ### 注意
 
@@ -22,7 +22,7 @@ menuWeight: 1
 ](#agent)。
 ### 使用文件共享配置主节点
 
-1. 使用 DC/OS 命令行界面登录主节点：
+1. 使用 DC/OS&trade; 命令行界面登录主节点：
 
     ```bash
     dcos node ssh --master-proxy --leader
@@ -102,4 +102,4 @@ menuWeight: 1
     touch /mnt/data/test.txt
     ```
 
-[1]:https://coreos.com/os/docs/latest/moun-storage.html
+[1]: https://coreos.com/os/docs/latest/mounting-storage.html

@@ -8,7 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 2
 ---
 
-[Azure 容器服务](https://azure.microsoft.com/documentation/articles/container-service-deployment/) 是对已优化 DC/OS 的参考实现，以充分利用 Microsoft Azure 基础架构的特性。如果您已拥有 Azure 帐户，则可以通过 [创建 Azure 容器服务群集](https://aka.ms/acscreate)，尝试参考实现在 Microsoft Azure 上构建的 DC/OS。（若没有账户，请首先获取 [免费 Azure 试用账户](https://azure.microsoft.com/pricing/free-trial/)。）
+[Azure 容器服务](https://azure.microsoft.com/documentation/articles/container-service-deployment/) 是对已优化 DC/OS 的参考实现，以充分利用 Microsoft Azure 基础架构的特性。如果您已拥有 Azure 帐户，则可以通过 [创建 Azure 容器服务群集]，尝试参考实现在 [Microsoft Azure 上构建的 DC/OS](https://aka.ms/acscreate)。（若没有账户，请首先获得 [免费 Azure 试用帐户](https://azure.microsoft.com/pricing/free-trial/)。）
 
 <p class="message--warning"><strong>警告：</strong>Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。</p>
 
@@ -24,9 +24,9 @@ DC/OS 由 Apache Mesos 提供支持，用作一组计算机的分布式内核，
 
 DC/OS 应用程序用作其分布式用户空间中的系统组件。系统 Marathon 组件对于 DC/OS 是分布式 `init`，但这还包括 Admin Router 服务、Mesos-DNS 服务、Exhibitor，以及用户进程使用的以及管理主节点和代理节点的其他系统范围组件。
 
-有关 DC/OS 更全面的架构描述，请参阅 [DC/OS 架构](/mesosphere/dcos/cn/2.0/overview/architecture/)。
+有关 DC/OS 更全面的架构描述，请参阅 [DC/OS 架构](/mesosphere/dcos/2.0/overview/architecture/)。
 
-关于更完整的组件讨论，请参阅 [DC/OS 组件](/mesosphere/dcos/cn/2.0/overview/architecture/components/)。
+关于更完整的组件讨论，请参阅 [DC/OS 组件](/mesosphere/dcos/2.0/overview/architecture/components/)。
 
 ### 为什么选择 DC/OS 而不是 Mesos？
 
@@ -34,13 +34,13 @@ DC/OS 应用程序用作其分布式用户空间中的系统组件。系统 Mara
 
 1. 部署和管理 Mesos 可能很复杂，原因正是它可以管理非常复杂的环境；DC/OS 使这种复杂性变得简单易用并为社区所支持。
 1. DC/OS 实现了不仅仅工业级别还有互联网级别的容错性。
-1. DC/OS {{ model.packageRepo }} 包使得安装简便，通过提供所有相应的开源软件包，支持开发人员、数据科学家和系统管理员。
+1. DC/OS {{ model.packageRepo }} 一系列包使得安装简便，通过提供所有相应的开源软件包，支持开发人员、数据科学家和系统管理员。
 1. 实时度量标准“firehouse”开放供您喜爱的诊断和分析包使用。
-1. DC/OS 有三种管理分布式操作系统的方式：CLI、图形 UI 和 API。
+1. DC/OS 有三种管理分布式操作系统的方式：CLI、图形界面和 API。
 
-### 包 {{ model.packageRepo }}
+### {{ model.packageRepo }} 包
 
-以下是 DC/OS 第 1 天{{ model.packageRepo }} 中内容的列表，按许可证类型分类。
+以下是 DC/OS 第 1 天 {{ model.packageRepo }} 中内容的列表，按许可证类型分类。
 
 #### Apache 许可证 V2
 
@@ -99,6 +99,7 @@ Azure 容器服务实现为您带来了其他好处：
 
 以下列表显示了 DC/OS 本身使用的组件。您会注意到围绕 Mesos、Marathon、Python 等的核心组件。
 
+<!-- Note to translators: do not translate this list. -->
 
 - adminrouter
 - boost-system

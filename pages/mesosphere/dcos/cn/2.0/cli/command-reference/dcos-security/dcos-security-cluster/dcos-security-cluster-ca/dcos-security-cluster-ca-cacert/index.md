@@ -16,7 +16,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security cluster ca cacert [OPTIONS]
 ```
 
@@ -25,11 +25,11 @@ dcos security cluster ca cacert [OPTIONS]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 # 示例
 
-```
+```text
 dcos security cluster ca cacert
 -----BEGIN CERTIFICATE-----
 MIIDszCCApugAwIBAgIQSgKc/+yCRSGVzvbfW0/WaDANBgkqhkiG9w0BAQsFADCB

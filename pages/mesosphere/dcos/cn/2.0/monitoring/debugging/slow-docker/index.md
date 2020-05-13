@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Docker 应用和部署缓慢
+navigationTitle: Docker 应用和部署缓慢
 title: Docker 应用和部署缓慢
 menuWeight: 40
 excerpt: 解决 Docker 应用和部署缓慢问题
@@ -21,7 +21,7 @@ DC/OS 的 Apache Mesos 内核允许您使用完全公平调度器严格的 CPU �
 
 ## 提高 CPU 分配
 
-如果由于 DC/OS  1.10 或更新版本而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/mesosphere/dcos/cn/2.0/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/mesosphere/dcos/cn/2.0/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
+如果由于 DC/OS  1.10 或更新版本而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/mesosphere/dcos/2.0/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/mesosphere/dcos/2.0/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
 
 ## 使用 DC/OS Pod 增强资源
 

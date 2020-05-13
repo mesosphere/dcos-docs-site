@@ -30,7 +30,7 @@ dcos marathon deployment stop <deployment-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<deployment-id>` | 部署 ID。您可以使用 `dcos marathon deployment list` 命令查看部署 ID 列表。 |
+| `<deployment-id>` | 部署 ID。您可以使用 `dcos marathon deployment list` 命令查看部署 ID 列表。|
 
 
 
@@ -52,4 +52,4 @@ There are no deployments
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

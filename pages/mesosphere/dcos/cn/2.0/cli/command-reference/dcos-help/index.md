@@ -24,7 +24,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 显示使用情况。|
+| `--help, h` | 显示使用情况。|
 
 
 
@@ -32,7 +32,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 ## 显示不含自变量的 `dcos help` 命令的输出信息
 
-```
+```bash
 dcos help
 Usage:
   dcos [command]
@@ -80,7 +80,7 @@ Use "dcos [command] --help" for more information about a command.
 
 ## 显示 `dcos config` 命令的帮助
 
-`dcos help config` 命令与 [`dcos config --help`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-config/)一样。
+`dcos help config` 命令与 [`dcos config --help`](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/)一样。
 
 ```bash
 dcos help config

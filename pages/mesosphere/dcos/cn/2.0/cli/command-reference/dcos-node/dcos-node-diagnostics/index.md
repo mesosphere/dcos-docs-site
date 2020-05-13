@@ -13,7 +13,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # 说明
 `dcos node diagnostics` 命令允许您查看诊断捆绑包的详细信息。
 
-**自 DC/OS 2.0 以来，此命令已弃用，请使用 `dcos diagnostics` 代替。**
+<p class="message--warning"><strong>警告：</strong>自 DC/OS 2.0 以来，此命令已弃用，请使用 <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/"><tt>dcos diagnostics</tt></a> 代替。</p>
 
 # 使用
 
@@ -66,5 +66,5 @@ dcos node diagnostics --status
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [`dcos node`](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 

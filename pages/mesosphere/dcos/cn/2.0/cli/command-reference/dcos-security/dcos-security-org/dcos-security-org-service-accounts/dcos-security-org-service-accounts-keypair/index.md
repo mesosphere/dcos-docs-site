@@ -15,7 +15,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security org service-accounts keypair [OPTIONS] PRIVATE_KEY PUBLIC_KEY
 ```
 
@@ -23,13 +23,13 @@ dcos security org service-accounts keypair [OPTIONS] PRIVATE_KEY PUBLIC_KEY
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 | `-l`, `--key-length [2048|4096]` | RSA 密钥长度。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `PRIVATE_KEY` | 私钥。（必填）|
-| `PUBLIC_KEY` | 公钥。（必填）|
+| `PRIVATE_KEY` | 私钥。（必填)|
+| `PUBLIC_KEY` | 公钥。（必填)|
 

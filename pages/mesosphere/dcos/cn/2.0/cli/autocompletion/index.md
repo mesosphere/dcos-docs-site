@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-支持 CLI 的自动完成以运行 `bash` 和 `zsh`。这允许您按 TAB 键获取子命令的访问权限，并自动完成正在写入的命令。
+支持 DC/OS&trade; CLI 的自动完成以运行 `bash` 和 `zsh`。这允许您按 TAB 键获取子命令的访问权限，并自动完成正在写入的命令。
 
 例如，启用自动完成后，键入 `dcos clus[TAB]` 将为您提供 `dcos cluster`。
 
@@ -24,11 +24,11 @@ CLI 的自动完成只完成可用的命令（例如，键入 `dcos` 及按下 `
 
 如果要在 `bash` 中为 CLI 启用自动完成，则必须安装 `bash-completion`。
 
-macOS: `brew install bash-completion` \
-Debian/Ubuntu: `apt-get install bash-completion`
+macOS&reg;: `brew install bash-completion` \
+Debian&reg;/Ubuntu&reg;: `apt-get install bash-completion`
 
 要激活完成，您必须为 `.profile` 添加两行：
-```
+```bash
 [ -f /usr/local/etc/bash_completion ] && . /usr/local/etc/bash_completion
 eval "$(dcos completion bash)"
 ```
@@ -39,7 +39,7 @@ eval "$(dcos completion bash)"
 
 如果要在 `zsh` 中为 CLI 启用自动完成，则必须为 `.zshrc` 添加以下两行：
 
-```
+```bash
 autoload -Uz bashcompinit && bashcompinit
 eval "$(dcos completion zsh)"
 ```

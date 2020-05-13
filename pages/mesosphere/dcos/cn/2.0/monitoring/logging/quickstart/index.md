@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  快速入门
+navigationTitle: 快速入门
 title: 日志记录快速入门
 menuWeight: 0
 excerpt: DC/OS 日志记录快速入门
@@ -10,13 +10,13 @@ beta: false
 enterprise: false
 ---
 
-使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-task/) 中有更全面的描述。
+使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/)中有更全面的描述。
 
 **前提条件：**
 
-- 您必须 [安装了](/mesosphere/dcos/cn/2.0/installing/) DC/OS 和 DC/OS CLI。
+- 您必须 [安装了](/mesosphere/dcos/2.0/installing/) DC/OS 和 DC/OS CLI。
 
-- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/mesosphere/dcos/cn/2.0/monitoring/logging/access-component-logs/) 和 [访问任务日志](/mesosphere/dcos/cn/2.0/monitoring/logging/access-task-logs/)。
+- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/mesosphere/dcos/2.0/monitoring/logging/access-component-logs/) 和 [访问任务日志](/mesosphere/dcos/2.0/monitoring/logging/access-task-logs/)。
 
 # 部署一个示例应用程序
 部署一个示例 Marathon 应用程序供在本快速入门指南中使用。
@@ -45,7 +45,7 @@ enterprise: false
     dcos task test-log
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     NAME      HOST        USER  STATE  ID
@@ -62,7 +62,7 @@ enterprise: false
     dcos task log <task_id>
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     Thu Dec 15 00:49:10 2016 ip-10-0-1-177.us-west-2.compute.internal Command Executor (Task: test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd) (Command: sh -c 'while true;d...') [7131] stdout
@@ -74,7 +74,7 @@ enterprise: false
     dcos task log --follow <task_id>
     ```
 
-    这将创建一个与此类似的日志流：
+ 这将创建一个与此类似的日志流：
 
     ```bash
     Wed Dec 14 16:50:12 2016 ip-10-0-1-177.us-west-2.compute.internal Command Executor (Task: test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd) (Command: sh -c 'while true;d...') [7131]: stdout
@@ -87,7 +87,7 @@ enterprise: false
     dcos task log <task_id> --lines=5
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     Thu Dec 15 00:51:27 2016 ip-10-0-1-177.us-west-2.compute.internal Command Executor (Task: test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd) (Command: sh -c 'while true;d...') [7131] stdout
@@ -99,7 +99,7 @@ enterprise: false
 
 # 查看 Mesos 任务和系统日志
 
-您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) 部分找到。
+您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) 部分找到。
 
 1. 运行此命令以查看领导 Mesos 管理节点日志：
 
@@ -107,7 +107,7 @@ enterprise: false
     dcos node log --leader --lines 3
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     Thu Dec 15 00:29:28 2016 ip-10-0-6-165.us-west-2.compute.internal [10530] ip-10-0-6-165.us-west-2.compute.internal nginx: 10.0.6.72 - - [15/Dec/2016:00:29:28 +0000] "GET /service/marathon/v2/groups?_timestamp=1481761768409&embed=group.groups&embed=group.apps&embed=group.pods&embed=group.apps.deployments&embed=group.apps.counts&embed=group.apps.tasks&embed=group.apps.taskStats&embed=group.apps.lastTaskFailure HTTP/1.1" 200 1941 "http://joel-logg-elasticl-m6yuis5u674t-297942863.us-west-2.elb.amazonaws.com/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.98 Safari/537.36"
@@ -121,9 +121,9 @@ enterprise: false
     dcos node log --mesos-id=<node_id> --lines 3
     ```
 
-    运行 `dcos task` 以确定哪个节点正在运行应用程序，然后运行 `dcos node` 以获取节点 ID。
+ 运行 `dcos task` 以确定哪个节点正在运行应用程序，然后运行 `dcos node` 以获取节点 ID。
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     Thu Dec 15 00:46:18 2016 ip-10-0-1-175.us-west-2.compute.internal mesos-agent [3284] I1215 00:46:18.794333  3315 http.cpp:288] HTTP GET for /slave(1)/state from 10.0.1.175:44661 with User-Agent='Mesos-State / Host: ip-10-0-1-175, Pid: 3023'
@@ -133,13 +133,13 @@ enterprise: false
 
 1. 运行这些命令以查看在领导者或代理节点上运行的组件的列表：
 
-    - 领导者节点：
+ - 领导者节点：
 
         ```bash
         dcos node list-components --leader
         ```
 
-        输出应类似于：
+ 输出应类似于：
 
         ```bash
         dcos-diagnostics.service
@@ -153,13 +153,13 @@ enterprise: false
         ...
         ```
 
-    - 代理节点，其中您的节点 ID  (`<mesos-id>`) 已指定：
+ - 代理节点，其中您的节点 ID  (`<mesos-id>`) 已指定：
 
        ```bash
        dcos node list-components --mesos-id=<mesos-id>
        ```
 
-       输出应类似于：
+ 输出应类似于：
 
        ```bash
        dcos-diagnostics.service
@@ -178,7 +178,7 @@ enterprise: false
     dcos node log --leader --component dcos-marathon.service
     ```
 
-    输出应类似于：
+ 输出应类似于：
 
     ```bash
     Thu Dec 15 00:34:08 2016 ip-10-0-6-165.us-west-2.compute.internal java [2541] [2016-12-15 00:34:08,121] INFO  Received status update for task test-log.2fc56009-c25d-11e6-81b2-9a5d88789ccd: TASK_RUNNING (Reconciliation: Latest task state) (mesosphere.marathon.MarathonScheduler$$EnhancerByGuice$$28056dde:Thread-296)

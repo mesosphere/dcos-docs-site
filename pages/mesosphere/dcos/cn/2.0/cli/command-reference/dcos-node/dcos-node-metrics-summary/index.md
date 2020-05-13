@@ -15,7 +15,7 @@ enterprise: false
 
 # 使用
 
-```
+```bash
 dcos node metrics summary <mesos-id> [--json]
 ```
 
@@ -32,5 +32,5 @@ dcos node metrics summary <mesos-id> [--json]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 

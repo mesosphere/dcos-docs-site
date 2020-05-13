@@ -9,11 +9,11 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-安装 DC/OS CLI 的建议方法是从 DC/OS UI 获取预先格式化的命令集，然后在终端运行这些命令。有关详细信息，请参阅操作系统的先决条件和说明：
+安装 DC/OS&trade; CLI 的建议方法是从 DC/OS UI 获取预先格式化的命令集，然后在终端运行这些命令。有关详细信息，请参阅操作系统的先决条件和说明：
 
-- [在 Linux 上安装](#linux)
-- [在 macOS 上安装](#macos)
-- [在 Windows 上安装](#windows)
+- [在 Linux&reg; 上安装](#linux)
+- [在 macOS&reg; 上安装](#macos)
+- [在 Windows&reg; 上安装](#windows)
 
 # 先决条件
 
@@ -29,9 +29,9 @@ model: /mesosphere/dcos/2.0/data.yml
 
 
 # macOS 的先决条件
-- 您必须运行 MacOS 10.10 Yosemite（已弃用）或更高版本。下一版本的 DC/OS CLI 将需要 MacOS 10.11 EL Capitan 或更高版本。
+- 您必须运行 macOS 10.10 Yosemite（已弃用）或更高版本。下一版本的 DC/OS CLI 将需要 MacOS 10.11 EL Capitan 或更高版本。
 - 运行 Haswell CPU（2014）或更高版本的机型。
-- 您必须能够在托管 CLI 的系统中运行 `cURL` 程序。如果您没有 `cURL`，请按照 [在 macOS 上安装 curl](http：//macappstore.org/curl/) 的说明执行安装。
+- 您必须能够在托管 CLI 的系统中运行 `cURL` 程序。如果您没有 `cURL`，请按照 [在 macOS 上安装 cURL](http://macappstore.org/curl/) 的说明执行安装。
 
 # Windows 的先决条件
 - Windows 10 系统 64 位或更高版本。
@@ -67,16 +67,10 @@ model: /mesosphere/dcos/2.0/data.yml
     [ -d usr/local/bin ] || sudo mkdir -p /usr/local/bin
     ```
 
-1. 通过运行以下命令并将 `<target-os-type>` 替换为操作系统类型（`darwin`、`linux`、`windows`）和具有您想用的版本的 `<dcos-version>`（例如 1.13），将 DC/OS CLI 二进制文件下载到本地目录 。
+1. 通过运行以下命令，将 DC/OS CLI 二进制文件下载到本地目录：
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
-    ```
-
-    例如，DC/OS 1.13 上的 Linux 用户的 CLI 下载是这样的：
-
-    ```bash
-    curl https://downloads.dcos.io/binaries/cli/linux/x86-64/dcos-1.13/dcos -o dcos
+    curl https://downloads.dcos.io/cli/releases/binaries/dcos/linux/x86-64/latest/dcos -o dcos
     ```
 
 1. 将 CLI 二进制文件移动到本地 bin 目录。
@@ -97,9 +91,9 @@ model: /mesosphere/dcos/2.0/data.yml
     dcos cluster setup http://example.com
     ```
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/mesosphere/dcos/cn/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/mesosphere/dcos/2.0/security/)。
 
-    您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
+    您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
 
 <a name="macos"></a>
 
@@ -107,16 +101,10 @@ model: /mesosphere/dcos/2.0/data.yml
 
 **如果已安装 [Homebrew](https://brew.sh)，则可以用简单的 `brew install dcos-cli` 替换本教程的前两个步骤。**
 
-1. 通过运行以下命令并将 `<target-os-type>` 替换为操作系统类型 （`darwin`、`linux`、`windows`）和具有您想用的版本的 `<dcos-version>`（例如 1.13），将 DC/OS CLI 二进制文件 `dcos` 下载到本地目录：
+1. 通过运行以下命令，将 DC/OS CLI 二进制文件下载到本地目录：
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
-    ```
-
-    例如，DC/OS 1.13 上的 Mac 用户的 CLI 下载是这样的：
-
-    ```bash
-    curl https://downloads.dcos.io/binaries/cli/darwin/x86-64/dcos-1.13/dcos -o dcos
+    curl https://downloads.dcos.io/cli/releases/binaries/dcos/darwin/x86-64/latest/dcos -o dcos
     ```
 
 1. 使 CLI 二进制文件可执行。
@@ -132,7 +120,7 @@ model: /mesosphere/dcos/2.0/data.yml
     ```
     如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/2.0/security/)。
 
     您的 CLI 现在应通过您的群集进行身份认证！
 
@@ -144,16 +132,10 @@ model: /mesosphere/dcos/2.0/data.yml
 
 1. 使用管理员凭据打开命令行环境。
 
-1. 通过运行以下命令并将 `<target-os-type>` 替换为操作系统类型 （`darwin`、`linux`、`windows`）和具有您想用的版本的 `<dcos-version>`（例如 1.13），将 DC/OS CLI 二进制文件 `dcos` 下载到本地目录：
+1. 通过运行以下命令，将 DC/OS CLI 二进制文件下载到本地目录：
 
     ```bash
-    curl https://downloads.dcos.io/binaries/cli/<target-os-type>/x86-64/dcos-<dcos-version>/dcos -o dcos
-    ```
-
-    例如，DC/OS 1.13 上的 Windows 用户的 CLI 下载是这样的：
-
-    ```bash
-    curl https://downloads.dcos.io/binaries/cli/windows/x86-64/dcos-1.13/dcos.exe -o dcos
+    curl https://downloads.dcos.io/cli/releases/binaries/dcos/windows/x86-64/latest/dcos.exe -o dcos
     ```
 
 1. 如果尚未打开下载文件的目录，请转到该目录。
@@ -170,7 +152,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
     <p class="message--note"><strong>注意：</strong>如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/2.0/security/)。
 
     您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 

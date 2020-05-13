@@ -22,7 +22,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security cluster directory get_config [OPTIONS]
 ```
 
@@ -30,5 +30,5 @@ dcos security cluster directory get_config [OPTIONS]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster directory](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
+| [dcos security cluster directory](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
 

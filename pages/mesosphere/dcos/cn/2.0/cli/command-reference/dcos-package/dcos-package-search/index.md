@@ -35,10 +35,10 @@ dcos package search [<query> --json]
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/cn/2.0/administering-clusters/package-registry/)。
+有关示例，请参阅[文档](/mesosphere/dcos/2.0/administering-clusters/package-registry/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |

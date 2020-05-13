@@ -26,9 +26,9 @@ DC/OS 的覆盖技术设计有以下假设：
 
 ## 使用中的 DC/OS 覆盖网络
 
-![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置](/mesosphere/dcos/2.0/img/overlay-in-action-redesigned.png)。
+![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/mesosphere/dcos/2.0/img/overlay-in-action-redesigned.png)
 
-图 1 - 代理配置  
+图 1 - 代理配置 
 
 我们可以用一个示例来阐释覆盖网络的运行。图 1 显示的是两代理 DC/OS 群集。为了让 DC/OS 覆盖网络工作，我们需要分配一个足够大的子网，为覆盖网络上运行的容器分配地址。选定的地址空间不能覆盖主机网络的地址空间，以防止在设置覆盖网络时出现任何错误配置。在图 1 中，主机网络的地址空间为 10.0.0.0/8，为覆盖网络选择的地址空间为 9.0.0.0/8。
 
@@ -61,14 +61,14 @@ DC/OS 的覆盖技术设计有以下假设：
 ### 挑战
 
 
-从 [不同主机上的容器到容器通信](/mesosphere/dcos/cn/2.0/overview/design/overlay/#container-to-container-different-hosts) 的数据包步骤中明显可知 ，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
+从 [不同主机上的容器到容器通信](/mesosphere/dcos/2.0/overview/design/overlay/#container-to-container-different-hosts)的数据包步骤中明显可知，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
 
-- 在 DC/OS 中，我们需要一个 SAM（子网分配模块），该模块将通知子网代理节点，表示已对其进行了分配。
+- 在 DC/OS 中，我们需要一个 SAM（子网分配模块），该模块将通知已分配给其的子网的代理。
 - 在代理中，我们需要一个实体，该实体为 Docker 守护程序配置了子网（图 1，9.0.1.128/25 网络）中已分配给 Docker 守护程序的那部分。
 - 在代理中，我们需要一个实体，该实体将 IP 地址分配给由 `MesosContainerizer` 启动的容器（图 1，9.0.1.0/25 网络）。
 - 在 DC/OS 中，我们需要一个实体，该实体将使用所有代理上存在的所有 VTEP 的 MAC 地址，以及正确封装数据包所需的解封信息（代理 IP、UDP 端口），为每个代理上的 VxLAN 转发数据库编程。该实体还需要用所有 VTEP 的 MAC 地址对每个代理上的 ARP 缓存编程，用于其对应的 IP 地址。
 
-只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战](/mesosphere/dcos/cn/2.0/overview/design/overlay/#challenges) 一节列出的元数据 进行配置和编程，以使其正常运行。
+只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战](/mesosphere/dcos/2.0/overview/design/overlay/#challenges)一节列出的元数据 进行配置和编程，以使其正常运行。
 
 ## 软件架构
 
@@ -86,7 +86,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 我们将通过拥有两个 Mesos 模块（一个主控 DC/OS 模块和一个代理 DC/OS 模块）来满足对 DC/OS 覆盖网络的上述所有要求。这两个模块的职责如下：
 
-#### 管理节点 Mesos 覆盖模块
+#### 主控 Mesos 覆盖模块
 
 主控模块将作为 Mesos 管理节点的一部分运行，具有以下职责：
 1. 它负责为每个代理分配子网。我们将更详细地描述主控模块将如何使用复制日志来定点检查此信息在故障切换至新的主控时是否恢复。
@@ -105,7 +105,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 为了让 `MesosContainerizer` 和 `DockerContainerizer` 启动给定子网上的容器，Mesos 代理节点需要学习分配给自己的子网。另外，该子网需要在 `MesosContainerizer` 或 `DockerContainerizer` 开始前得到学习。
 
-主覆盖模块将负责分配子网、VTEP IP 以及与 VTEP 关联的 MAC 地址。尽管分配新的子网和缓存此信息本身很简单，但在管理节点故障切换过程中始终维持这些信息则具有挑战性。为了使这些信息在管理节点故障切换期间保持不变，主覆盖模块将使用 [Mesos 复制日志“Mesos 文档”](http://mesos.apache.org/documentation/latest/replicated-log-internals/)。允许在主控故障切换完成后，主覆盖网络模块定点检查此信息并将其恢复的算法如下：
+主覆盖模块将负责分配子网、VTEP IP 以及与 VTEP 关联的 MAC 地址。尽管分配新的子网和缓存此信息本身很简单，但在管理节点故障切换过程中始终维持这些信息则具有挑战性。为了使这些信息在管理节点故障切换期间保持不变，主覆盖模块将使用 Mesos 复制日志 ["Mesos 文档"](http://mesos.apache.org/documentation/latest/replicated-log-internals/)。允许在主控故障切换完成后，主覆盖网络模块定点检查此信息并将其恢复的算法如下：
 1. 每当新的代理覆盖模块在主模块注册时，主模块将尝试向已注册的代理模块分配 VTEP 的新子网、新 VTEP IP 和新 MAC 地址。但是，它不会用分配的信息对注册请求作出响应，直到此信息被成功写入复制日志。
 1. 故障切换时，主模块会读取复制日志并重新创建子网、VTEP IP 和 VTEP MAC 地址信息，并在内存中构建此分配信息的缓存。
 1. 如果在主控故障切换期间中途收到注册请求，代理覆盖模块的注册请求将失败。在这种情况下，代理覆盖模块负责定位新的主控并尝试使用新主控上的覆盖模块进行注册。

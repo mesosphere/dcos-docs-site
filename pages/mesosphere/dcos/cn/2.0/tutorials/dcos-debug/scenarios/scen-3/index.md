@@ -7,7 +7,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 21
 ---
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 ## 方案 3：Docker 镜像
 
@@ -16,7 +16,7 @@ menuWeight: 21
 首先部署此 [`dockerimage.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json) 文件：
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/dockerimage.json
 ```
 
 我们看到应用程序几乎立即出现故障：
@@ -27,7 +27,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 
 ## 解析度
 
-正如我们[前期](/mesosphere/dcos/cn/2.0/tutorials/dcos-debug/gen-strat/)所学的，对于应用程序故障， [第一步](/mesosphere/dcos/cn/2.0/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/mesosphere/dcos/cn/2.0/tutorials/dcos-debug/tools/#task-logs)。
+正如我们[前期](/mesosphere/dcos/2.0/tutorials/dcos-debug/gen-strat/)所学的，对于应用程序故障， [第一步](/mesosphere/dcos/2.0/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/mesosphere/dcos/2.0/tutorials/dcos-debug/tools/#task-logs)。
 
 ![空日志输出图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
@@ -38,7 +38,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 因此第 2 步是检查调度程序日志，--- 在本例中是 Marathon：
 
 ```bash
-$ dcos service log marathon
+dcos service log marathon
 ```
 
 应该在响应中产生类似于以下输出的一些内容：
@@ -49,10 +49,10 @@ Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: [201
 Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (mesosphere.marathon.MarathonScheduler:Thread-1723)
 ```
 
-但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/mesosphere/dcos/cn/2.0/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/mesosphere/dcos/cn/2.0/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/mesosphere/dcos/cn/2.0/tutorials/dcos-debug/tools/#agent-logs)：
+但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/mesosphere/dcos/2.0/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/mesosphere/dcos/2.0/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/mesosphere/dcos/2.0/tutorials/dcos-debug/tools/#agent-logs)：
 
 ```bash
-$ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
+dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
 ```
 
 输出类似以下内容的内容：
@@ -74,13 +74,13 @@ s
 在这本例中，我们有一个 Docker 守护程序特定的问题。通过检查 Mesos 代理节点日志，可以发现许多此类问题。在某些情况下，我们需要深入挖掘，需要访问 Docker 守护程序日志。首先，通过ssh 进入主节点：
 
 ```bash
-$ dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
+dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image | head -n1 | awk '{print $6}')
 ```
 
 然后获取日志：
 
 ```bash
-$ journalct1 -u docker
+journalct1 -u docker
 ```
 
 请注意，与前面的示例相比，此处使用的更复杂的模式用于检索 `mesos-id`。此模式列出先前失败的任务以及正在运行的任务，而**较早的模式仅列出正在运行的任务**。

@@ -24,6 +24,6 @@ dcos security org groups [OPTIONS] COMMAND [ARGS]...
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 # 命令

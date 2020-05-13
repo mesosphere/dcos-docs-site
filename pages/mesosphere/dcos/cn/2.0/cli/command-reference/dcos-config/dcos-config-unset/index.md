@@ -22,7 +22,7 @@ dcos config unset <name> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 显示使用情况。|
+| `--help, h` | 显示使用情况。|
 
 
 
@@ -53,4 +53,4 @@ Removed [core.ssl_verify]
 
 | 命令 | 说明 |
 |---------|-------------|
-|[dcos config](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |
+| [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |

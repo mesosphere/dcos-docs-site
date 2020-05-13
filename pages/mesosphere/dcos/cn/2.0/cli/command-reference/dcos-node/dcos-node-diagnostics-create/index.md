@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # 说明
 `dcos node diagnostics create` 命令允许您创建诊断捆绑包。
 
-**自 DC/OS 2.0 以来，此命令已弃用，请使用 `dcos diagnostics create` 代替。**
+<p class="message--warning"><strong>警告：</strong>自 DC/OS 2.0 以来，此命令已弃用，请使用 <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/dcos-diagnostics-create/"><tt>dcos diagnostics create</tt></a> 代替。</p>
 
 # 使用
 
@@ -30,7 +30,7 @@ dcos node diagnostics create (<nodes>)
 
 | 名称 | 说明 |
 |---------|-------------|-------------|
-| `<nodes>` | 在其上运行命令的节点。节点可以是以下任一项：IP 地址、主机名、Mesos ID、或关键词 "`all`"、"`masters`"、"`agents`"。您必须对关键词使用引号。|
+| `<nodes>` | 在其上运行命令的节点。节点可以是以下任一项：IP 地址、主机名、Mesos ID、或关键词 `all`、`masters`、`agents`。 |
 
 # 示例
 
@@ -44,5 +44,5 @@ Job has been successfully started, available bundle: bundle-2019-03-18-155293277
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 

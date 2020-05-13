@@ -9,9 +9,9 @@ model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 
-<p class="message--warning"><strong>免责声明：</strong>这是<a href="https://github.com/dcos/terraform-dcos/tree/master/azure">社区推动的项目</a>，未正式获得 Mesosphere 支持。这种安装方法用于快速演示和验证概念。本页面说明如何使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。Terraform 仅供参考，不建议用于生产目的。下列安装方法不支持升级。</p>
+<p class="message--warning"><strong>免责声明：</strong>这是 [社区推动的项目]，未正式获得 Mesosphere 支持。这种安装方法用于快速演示和验证概念。本页面说明如何使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。该方法仅供参考，不推荐用于生产用途。下列安装方法不支持升级。</p>
 
-<p class="message--note"><strong>注意：</strong>请联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。要获得 Azure 市场相关问题的支持，请加入 Azure 市场 <a href="http://join.marketplace.azure.com">Slack 社区</a>。</p>
+<p class="message--note"><strong>注意：</strong>联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。要获得 Azure 市场相关问题的支持，请加入 Azure 市场 <a href="http://join.marketplace.azure.com">Slack 社区</a>。</p>
 
 # 系统要求
 
@@ -75,20 +75,20 @@ Etcd、 Zookeeper 和使用
 以保持性能，推荐采用以下磁盘安装
 配置：
 - 管理节点：
-    - / - P10
-    - /var/lib/etcd -（用于在 CorEos 上运行 etcd 的节点） - P10
-    - /var/log - P10
-    - /var/lib/dcos/exhibitor - P10
+ - / - P10
+ - /var/lib/etcd -（用于运行 etcd 的节点） - P10
+ - /var/log - P10
+ - /var/lib/dcos/exhibitor - P10
 - 公共代理：
-    - / - P10
-    - /var/log - P10
-    - /var/lib/docker - P10
-    - /var/lib/mesos/slave - P10
+ - / - P10
+ - /var/log - P10
+ - /var/lib/docker - P10
+ - /var/lib/mesos/slave - P10
 - 专用代理：
-    - / - P10
-    - /var/log - P10
-    - /var/lib/docker - P10
-    - /var/lib/mesos/slave - P20
+ - / - P10
+ - /var/log - P10
+ - /var/lib/docker - P10
+ - /var/lib/mesos/slave - P20
 
 运行具有较小和/或较少磁盘的群集是很可行的，
 但用于生产时，经验证明上述配置具有显著优势，
@@ -248,6 +248,6 @@ dcos package search
 - [安装 DC/OS 命令行界面 (CLI)][2]
 - [扩展注意事项][4]
 
-[1]: /mesosphere/dcos/cn/{{ model.folder_version }}/security/ent/users-groups/
-[2]: /mesosphere/dcos/cn/{{ model.folder_version }}/cli/install/
+[1]: /mesosphere/dcos/{{ model.folder_version }}/security/ent/users-groups/
+[2]: /mesosphere/dcos/{{ model.folder_version }}/cli/install/
 [4]: https://azure.microsoft.com/en-us/documentation/articles/best-practices-auto-scaling/

@@ -1,0 +1,98 @@
+# 创建 DC/OS 群集
+
+1. 首先，我们来创建一个本地文件夹并用 cd 命令进入该文件夹。此文件夹将用作下载所有必需的 Terraform 模块并保存您即将创建的群集的配置的预备区域。
+
+    ```bash
+    mkdir dcos-demo && cd dcos-demo
+    ```
+
+2. 在该文件夹中创建一个名为 `main.tf` 的文件，该文件是每次 terraform 运行时将调用的配置文件。该文件的名称应始终是 `main.tf`。在您选择的代码编辑器中打开该文件，然后粘贴以下内容。注意代码块右上角的复制图标，可将代码复制到剪贴板：
+
+    ```hcl
+    provider "aws" {
+      # Change your default region here
+      region = "us-east-1"
+    }
+
+    # Used to determine your public IP for forwarding rules
+    data "http" "whatismyip" {
+      url = "http://whatismyip.akamai.com/"
+    }
+
+    module "dcos" {
+      source  = "dcos-terraform/dcos/aws"
+      version = "~> 0.2.0"
+
+      providers = {
+        aws = "aws"
+      }
+
+      cluster_name        = "my-dcos-demo"
+      ssh_public_key_file = "<path-to-public-key-file>"
+      admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+      num_masters        = 3
+      num_private_agents = 2
+      num_public_agents  = 1
+
+      dcos_version = "1.13.3"
+
+      # dcos_variant              = "ee"
+      # dcos_license_key_contents = "${file("./license.txt")}"
+      # Make sure to set your credentials if you do not want the default EE
+      # dcos_superuser_username      = "superuser-name"
+      # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+      dcos_variant = "open"
+
+      dcos_instance_os             = "centos_7.5"
+      bootstrap_instance_type      = "t2.medium"
+      masters_instance_type        = "t2.medium"
+      private_agents_instance_type = "t2.medium"
+      public_agents_instance_type  = "t2.medium"
+    }
+
+    output "masters-ips" {
+      value = "${module.dcos.masters-ips}"
+    }
+
+    output "cluster-address" {
+      value = "${module.dcos.masters-loadbalancer}"
+    }
+
+    output "public-agents-loadbalancer" {
+      value = "${module.dcos.public-agents-loadbalancer}"
+    }
+    ```
+
+3. 有一个主要变量，必须设置该变量才能完成 `main.tf`：
+
+ - `ssh_public_key_file = "<path-to-public-key-file>"`：您群集的公钥的路径，按照我们的示例，该路径为：
+      ```bash
+      "~/.ssh/aws-key.pub"
+      ```
+
+4. `region` 是设定 AWS 区域的一项设置，此 DC/OS 群集将在该区域上启动。虽然此项设置目前设为 “us-east-1”，但也可以更改为任何其他区域（例如 “us-west-1”、“us-west-2”、“us-east-2” 等）。如需完整列表，请参阅 [配置参考](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/)。
+
+5. Enterprise 用户可以对 `dcos_variant` 部分取消注释/添加注释，实现类似于以下注释，将位置插入到许可证密钥，并在需要时添加超级用户凭据。[enterprise type="inline" size="small" /]
+
+    ```hcl
+    dcos_variant              = "ee"
+    dcos_license_key_contents = "${file("./license.txt")}"
+    # dcos_variant = "open"
+    ```
+
+6. 此示例配置文件将使您开始安装具有以下节点的开源 DC/OS 1.13.3 群集：
+
+ - 3 个管理节点
+ - 2 个专用代理
+ - 1 个公共代理
+
+ 如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'\_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/aws-advanced/)。
+
+ 模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
+
+ - `master-ips` 您的 DC/OS 管理节点列表
+ - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
+ - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
+
+7. 检查您是否已将云提供商和公钥路径插入到 `main.tf`，按需要更改或添加任何其他变量，然后保存并关闭您的文件。

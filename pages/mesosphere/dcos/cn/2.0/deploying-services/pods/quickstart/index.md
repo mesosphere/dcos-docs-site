@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  快速入门
+navigationTitle: 快速入门
 title: 快速入门
 menuWeight: 0
 excerpt: 从 CLI 或 UI 启动 pod
@@ -10,8 +10,8 @@ enterprise: false
 ---
 
 ## 先决条件
-- DC/OS [已安装](/mesosphere/dcos/cn/2.0/installing/)
-- DC/OS CLI [已安装](/mesosphere/dcos/cn/2.0/cli/install/)
+- DC/OS [已安装](/mesosphere/dcos/2.0/installing/)
+- DC/OS CLI [已安装](/mesosphere/dcos/2.0/cli/install/)
 
 # 在 DC/OS CLI 中启动 Pod
 
@@ -32,7 +32,7 @@ enterprise: false
     }
     ```
 
-    <p class="message--note"><strong>注意：</strong>pod ID（上文 pod 规范中的 <code>id</code> 参数）用于创建 pod 后与 pod 进行的所有交互。</p>
+ <p class="message--note"><strong>注意：</strong>pod ID（上文 pod 规范中的 <code>id</code> 参数）用于创建 pod 后与 pod 进行的所有交互。</p>
 
 1. 使用以下 DC/OS CLI 命令在 DC/OS 上启动 pod：
 
@@ -48,7 +48,7 @@ enterprise: false
 
 # 从 DC/OS UI 启动 pod
 
-您也可以在 DC/OS 的 [**服务**](/mesosphere/dcos/cn/2.0/gui/) 选项卡中启动 Pod。选择 **服务 -> 服务 -> 运行服务 -> 多容器 (Pod)**，然后切换到 JSON 模式并粘贴上述应用定义。
+您也可以在 DC/OS 的 [**服务**](/mesosphere/dcos/2.0/gui/) 选项卡中启动 Pod。选择 **服务 -> 服务 -> 运行服务 -> 多容器 (Pod)**，然后切换到 JSON 模式并粘贴上述应用定义。
 
 如果您已经运行了其他服务，请转到 **服务 -> 服务**，然后单击右上角的 **+**。
 

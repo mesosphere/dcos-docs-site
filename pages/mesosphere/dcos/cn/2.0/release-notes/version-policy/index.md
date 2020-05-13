@@ -7,17 +7,17 @@ excerpt: 了解 DC/OS 版本控制和发布
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
-Mesosphere DC/OS 版本号的格式为：<code>&lt;发布&gt;。&lt;版本&gt;。&lt;次要&gt;</code>。
+Mesosphere&reg; DC/OS&trade; 版本号的格式为：<code>&lt;发布&gt;。&lt;版本&gt;。&lt;次要&gt;</code>。
 
 # 发布编号
 
 ## 发布
 
-对同一软件产品的修改或增强，以 <code>R</code> 发布编号的变更来表示。<code>R</code> 发布可能包括新变更和重大变更。<code>R</code>发布版本不包括 Mesosphere 以不同名称销售的独立或不同产品，即使此类产品兼容相关软件产品。
+对同一软件产品的修改或增强，以 <code>R</code> 发布编号的变更来表示。<code>R</code> 版本可能包括新变更和重大变更。<code>R</code> 发布不包括 Mesosphere 以不同名称销售的独立或不同产品，即使此类产品兼容相关软件产品。
 
 ## 版本
 
-对同一软件产品的修改或增强，以 <code>V</code> 发布编号的变更来表示。<code>V</code>发布版本将继续提供对所有已发布 API 的向后兼容。
+对同一软件产品的修改或增强，以 <code>V</code> 发布编号的变更来表示。<code>V</code> 发布版本将继续提供对所有已发布 API 的向后兼容。
 
 ## 次要
 
@@ -37,7 +37,7 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 
 # DC/OS 版本和 Mesos 互操作性矩阵
 
-所有版本的 DC/OS 都捆绑有兼容的 Mesos 版本，其发布编号在适当的 DC/OS 发布版本发布说明中指出。
+所有版本的 DC/OS 都捆绑有兼容的 Apache&reg; Mesos&reg; 版本，其发布编号在适当的 DC/OS 发布版本发布说明中指出。
 
 # DC/OS 版本和服务调度程序互操作性矩阵
 
@@ -54,14 +54,14 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 <table>
 <thead>
 <tr>
-  <th><strong>DC/OS 发布版</strong></th>
-  <th><strong>当前 DC/OS 发布版 N</strong></th>
+ <th><strong>DC/OS 发布版</strong></th>
+ <th><strong>当前 DC/OS 发布版 N</strong></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-  <td>框架和基线技术（例如 Apache Kafka）</td>
-  <td>当前框架版本 (M+Apache Kafka K) 和 (M-1+Apache Kafka K-1)</td>
+ <td>框架和基线技术（例如 Apache Kafka）</td>
+ <td>当前框架版本 (M+Apache Kafka K) 和 (M-1+Apache Kafka K-1)</td>
 </tr>
 </tbody>
 </table>

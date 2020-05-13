@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: 检索 DC/OS 配置属性密钥列表
 enterprise: false
 render: mustache
-型号：/mesosphere/dcos/data.yml
+model: /mesosphere/dcos/data.yml
 ---
 
 # 说明
@@ -22,7 +22,7 @@ dcos config keys [options]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 显示使用情况。|
+| `--help, h` | 显示使用情况。|
 | `--quiet, q`   |   仅打印配置键。|
 
 <!--
@@ -40,4 +40,4 @@ dcos config keys
 
 | 命令 | 说明 |
 |---------|-------------|
-|[dcos config](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |
+| [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |

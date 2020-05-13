@@ -8,11 +8,12 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
-<p class="message--warning"><strong>警告：</strong>DC/OS 隧道<strong>仅</strong>适用于开发、调试和测试。请勿在生产中使用 DC/OS 隧道。</p>
 
-<p class="message--important"><strong></strong>重要信息：Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。<p>
+<p class="message--warning"><strong>警告：</strong>DC/OS&trade; 隧道<strong>仅</strong>适用于开发、调试和测试。请勿在生产中使用 DC/OS 隧道。</p>
 
-在 DC/OS 上开发服务时，您可能会发现通过 SOCKS 代理、HTTP 代理或 VPN，有助于在本地机器访问群集。例如，您可以在自己的开发环境中工作，并立即针对您的 DC/OS 群集进行测试。
+<p class="message--important"><strong></strong>重要信息：Mesosphere&reg; 不支持 Ubuntu&reg; 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure&reg; 时。<p>
+
+在 DC/OS 上开发服务时，您可能会发现使用 SOCKS 代理、HTTP 代理或 VPN，有助于在本地机器访问群集。例如，您可以在自己的开发环境中工作，并立即针对您的 DC/OS 群集进行测试。
 
 # SOCKS
 DC/OS 隧道可以通过 SSH 运行 SOCKS 代理到群集。SOCKS 代理适合任何协议，但客户端必须配置为使用默认在端口 1080 上运行的代理。
@@ -39,70 +40,70 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 <table class="table">
    <tr>
       <th>&nbsp;</th>
-      <th>利</th>
-      <th>弊</th>
+ <th>利</th>
+ <th>弊</th>
    </tr>
    <tr>
-      <th>SOCKS</th>
+ <th>SOCKS</th>
       <td>
          <ul>
-            <li>指定端口</li>
-            <li>所有协议</li>
+ <li>指定端口</li>
+ <li>所有协议</li>
          </ul>
       </td>
       <td>
          <ul>
-            <li>需要应用程序配置</li>
-         </ul>
-      </td>
-   </tr>
-   <tr>
-      <th>HTTP（透明）</th>
-      <td>
-         <ul>
-            <li>SRV 作为 URL</li>
-            <li>无应用程序配置</li>
-         </ul>
-      </td>
-      <td>
-         <ul>
-            <li>无法指定端口（除非通过 SRV 指定）</li>
-            <li>仅支持 HTTP</li>
-            <li>作为超级用户运行</li>
+ <li>需要应用程序配置</li>
          </ul>
       </td>
    </tr>
    <tr>
-      <th>HTTP（标准）</th>
+ <th>HTTP（透明）</th>
       <td>
          <ul>
-            <li>SRV 作为 URL</li>
-            <li>指定端口</li>
+ <li>SRV 作为 URL</li>
+ <li>无应用程序配置</li>
          </ul>
       </td>
       <td>
          <ul>
-            <li>需要应用程序配置</li>
-            <li>仅支持 HTTP/HTTPS</li>
+ <li>无法指定端口（除非通过 SRV 指定）</li>
+ <li>仅支持 HTTP</li>
+ <li>作为超级用户运行</li>
          </ul>
       </td>
    </tr>
    <tr>
-      <th>VPN</th>
+ <th>HTTP（标准）</th>
       <td>
          <ul>
-            <li>无应用程序配置</li>
-            <li>完整和直接访问群集</li>
-            <li>指定端口</li>
-            <li>所有协议</li>
+ <li>SRV 作为 URL</li>
+ <li>指定端口</li>
          </ul>
       </td>
       <td>
          <ul>
-            <li>更多先决条件</li>
-            <li>作为超级用户运行</li>
-            <li><i>可能</i>需要手动重新配置 DNS</li>
-            <li>相对权重</li>
+ <li>需要应用程序配置</li>
+ <li>仅支持 HTTP/HTTPS</li>
+         </ul>
+      </td>
+   </tr>
+   <tr>
+ <th>VPN</th>
+      <td>
+         <ul>
+ <li>无应用程序配置</li>
+ <li>完整和直接访问群集</li>
+ <li>指定端口</li>
+ <li>所有协议</li>
+         </ul>
+      </td>
+      <td>
+         <ul>
+ <li>更多先决条件</li>
+ <li>作为超级用户运行</li>
+ <li><i>可能</i>需要手动重新配置 DNS</li>
+ <li>相对权重</li>
          </ul>
       </td>
    </tr>
@@ -111,10 +112,10 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 # 使用 DC/OS 隧道
 
 ## 前提条件
-* 目前仅支持 Linux 和 macOS。
-* [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/)。
+* 目前仅支持 Linux&reg; 和 macOS&reg;。
+* [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/)。
 * DC/OS 隧道包。运行 `dcos package install tunnel-cli --cli`。
-* [SSH 访问](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/) （仅限密钥认证）。
+* [SSH 访问](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) （仅限密钥认证）。
 * [OpenVPN 客户端](https://openvpn.net/index.php/open-source/downloads.html) 用于 VPN 功能。
 
 ## 应用示例
@@ -132,7 +133,7 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 ## 使用 DC/OS 隧道运行 SOCKS 代理
 1. 在 DC/OS CLI 中运行以下命令：
 
-    ```
+    ```bash
     dcos tunnel socks
    
     ## Example
@@ -146,7 +147,7 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 
 1. 在 DC/OS CLI 中运行以下命令：
 
-    ```
+    ```bash
     sudo dcos tunnel http
 
     ## Example
@@ -164,7 +165,7 @@ DC/OS 隧道可让您完全访问群集内的 DNS、管理节点和代理。Open
 ### 标准模式
 1. 如需不使用根权限，以标准模式运行 HTTP 代理，则请使用 `--port` 标记将代理配置为使用其他端口：
 
-    ```
+    ```bash
     dcos tunnel http --port 8000
 
     ## Example
@@ -184,7 +185,7 @@ HTTP 代理以 `_<port-name>._<service-name>._tcp.marathon.mesos.mydcos.director
 如需在 DC/OS Web 界面指定端口，请转到 **服务 > 服务** 选项卡，单击服务名称，然后单击 **编辑**。在 **网络** 选项卡上输入端口的名称。
 
 #### 在 Marathon 应用定义中添加指定港口
-或者，可以添加 `name` 到Marathon 应用定义的 `portMappings` 或 `portDefinitions` 字段。使用 `portMappings` 还是 `portDefinitions` 取决于您使用的是 `BRIDGE` 还是 `HOST` 网络。[详细了解 Marathon 的网络和端口](/mesosphere/dcos/cn/2.0/deploying-services/service-ports/)。
+或者，可以添加 `name` 到Marathon 应用定义的 `portMappings` 或 `portDefinitions` 字段。使用 `portMappings` 还是 `portDefinitions` 取决于您使用的是 `BRIDGE` 还是 `HOST` 网络。[详细了解 Marathon 的网络和端口](/mesosphere/dcos/2.0/deploying-services/service-ports/)。
 
 ```json
 "portMappings": [
@@ -213,7 +214,7 @@ HTTP 代理以 `_<port-name>._<service-name>._tcp.marathon.mesos.mydcos.director
 ## 使用 DC/OS 隧道运行 VPN
 在 DC/OS CLI 中运行以下命令：
 
-```
+```bash
 sudo dcos tunnel vpn
 
 ## Example
@@ -225,29 +226,29 @@ VPN 客户端试图自动配置 DNS，但此功能不适用 macOS。如需在 ma
 使用 VPN 时，您通过虚拟的方式进入群集。可以直接访问
 管理节点和代理节点：
 
-```
+```bash
 ping master.mesos
 ping slave.mesos
 ```
 
 ### macOS OpenVPN 客户端安装
 * 如果使用 [homebrew](http://brew.sh/)，就要安装：
-    ```
+    ```bash
     brew install openvpn
     ```
-    然后在使用时：
+ 然后在使用时：
 
-    添加 `/usr/local/sbin` 到 `$PATH`，
+ 添加 `/usr/local/sbin` 到 `$PATH`，
 
-    或添加如下标记 `--client=/usr/local/sbin/openvpn`：
-    ```
+ 或添加如下标记 `--client=/usr/local/sbin/openvpn`：
+    ```bash
     sudo dcos tunnel vpn --client=/usr/local/sbin/openvpn
     ```
 
 * 另一个选项是安装 [TunnelBlick](https://tunnelblick.net/)
-    （**不要运行**，安装它只是用于 `openvpn` 可执行文件）
-    并添加如下标记 `--client=/Applications/Tunnelblick.app/Contents/Resources/openvpn/openvpn-*/openvpn`：
-    ```
+ （**不要运行**，安装它只是用于 `openvpn` 可执行文件）
+ 并添加如下标记 `--client=/Applications/Tunnelblick.app/Contents/Resources/openvpn/openvpn-*/openvpn`：
+    ```bash
     sudo dcos tunnel vpn --client=/Applications/Tunnelblick.app/Contents/Resources/openvpn/openvpn-*/openvpn
     ```
 
