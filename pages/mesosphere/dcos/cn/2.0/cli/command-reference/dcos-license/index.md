@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 使用
 
-```
+```bash
 dcos license [OPTIONS] COMMAND [ARGS]...
 ```
 

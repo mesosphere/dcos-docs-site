@@ -24,10 +24,10 @@ dcos quota delete <group> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 打印使用。|
+| `--help, h` | 打印使用。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos quota](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-quota/)   | 管理 DC/OS 配额。 |
+| [dcos quota](/mesosphere/dcos/2.0/cli/command-reference/dcos-quota/)   | 管理 DC/OS 配额。 |

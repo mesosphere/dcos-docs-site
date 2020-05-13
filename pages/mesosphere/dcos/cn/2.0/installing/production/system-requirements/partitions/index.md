@@ -13,13 +13,13 @@ excerpt: 计划 DC/OS 群集的磁盘分区
 ## 管理节点
 对于管理节点，建议的做法是在由 **快速**、**本地连接**存储 (SSD/NVMe) 支持的单独分区上托管 `/var/lib/dcos` 目录。在管理节点上使用这种单独的分区可以让以下复制状态存储库和永久配置覆盖文件存储在 `/var/lib/dcos` 目录之下：
 - Mesos Paxos 复制日志：/var/lib/dcos/mesos/master/replicated_log
-- Navstar Overlay 复制日志：/var/lib/dcos/mesos/master/overlay_replicated_log
+- NavStar Overlay 复制日志：/var/lib/dcos/mesos/master/overlay_replicated_log
 - CockroachDB 分布式数据库：/var/lib/dcos/cockroach
-- Navstar Mnesia 分布式数据库：/var/lib/dcos/navstar/mnesia
-- Navstar Lashup 分布式数据库：/var/lib/dcos/navstar/lashup
+- NavStar Mnesia 分布式数据库：/var/lib/dcos/navstar/mnesia
+- NavStar Lashup 分布式数据库：/var/lib/dcos/navstar/lashup
 - 密钥保管库：/var/lib/dcos/secrets/vault
-- ZooKeeper 分布式数据库：/var/lib/dcos/exhibitor/zookeeper
--  历史服务缓存：/var/lib/dcos/dcos-history
+- Zookeeper 分布式数据库：/var/lib/dcos/exhibitor/zookeeper
+- 历史服务缓存：/var/lib/dcos/dcos-history
 
 ## 代理节点
 在代理节点上，应当将单独的分区用于 `/var/lib/mesos` 下的下列目录：

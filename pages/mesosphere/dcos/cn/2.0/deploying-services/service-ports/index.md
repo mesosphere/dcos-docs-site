@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  服务端口
+navigationTitle: 服务端口
 title: 服务端口
 menuWeight: 3
 excerpt: 使用虚拟 IP 管理服务端口
@@ -9,20 +9,19 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-
-可以使用 [虚拟地址 (VIP)](/mesosphere/dcos/cn/2.0/networking/load-balancing-vips/virtual-ip-addresses/) 简化端口管理工作。VIP 简化了应用间通信，并实施可靠的服务导向型架构。VIP 将流量从单个虚拟地址映射到多个 IP 地址和端口。
+可以使用 [虚拟地址 (VIP)](/mesosphere/dcos/2.0/networking/load-balancing-vips/virtual-ip-addresses/) 简化端口管理工作。VIP 简化了应用间通信，并实施可靠的服务导向型架构。VIP 将流量从单个虚拟地址映射到多个 IP 地址和端口。
 
 # 定义
 
-**containerPort**：容器端口指定容器内的端口。只有在使用 `BRIDGE` 或 `USER` 模式构建具有 Docker 容器的网络时，才需要在端口映射中加入该定义。
+**containerPort**：容器端口指定容器内的端口。只有在使用 `BRIDGE` 或 `USER` 模式构建具有 Docker&reg; 容器的网络时，才需要在端口映射中加入该定义。
 
 **hostPort**：主机端口指定要绑定到的主机上的端口。在使用 `BRIDGE` 或 `USER` 模式构建网络时，您将端口映射从主机端口指定到容器端口。在 `HOST` 构建网络时，请求的端口默认为主机端口。请注意，只有主机端口可通过环境变量供任务使用。
 
 **BRIDGE networking**：用于指定 `BRIDGE` 模式网络的 Docker 应用程序。在这一模式下，容器端口会被映射到主机端口。在这一模式下，应用程序绑定到容器内的指定端口，Docker 网络则被绑定到主机上的指定端口。
 
-**USER networking**：用于指定 `USER` 模式网络的 Docker 应用程序。在这一模式下，容器端口会被映射到主机端口。在这一模式下，应用程序绑定到容器内的指定端口，Docker 网络则被绑定到主机上的指定端口。 `USER` 在与“用户定义”Docker 网络集成时，预计网络模式会很实用。在 Mesos 领域，通常可通过与 Mesos CNI 网络隔离器配合使用的 CNI 插件访问该网络。
+**USER networking**：用于指定 `USER` 模式网络的 Docker 应用程序。在这一模式下，容器端口会被映射到主机端口。在这一模式下，应用程序绑定到容器内的指定端口，Docker 网络则被绑定到主机上的指定端口。 `USER` 在与“用户定义”Docker 网络集成时，预计网络模式会很实用。在 Mesos 领域，通常可通过与 Apache&reg; Mesos&reg; CNI 网络隔离器配合使用的 CNI&reg; 插件访问该网络。
 
-**HOST networking**：用于非 Docker Marathon 应用程序和使用 `HOST` 模式网络的 Docker 应用程序。在这一模式下，应用程序直接绑定到主机上的一个或多个端口。
+**HOST networking**：用于非 Docker Marathon&trade; 应用程序和使用 `HOST` 模式网络的 Docker 应用程序。在这一模式下，应用程序直接绑定到主机上的一个或多个端口。
 
 **portMapping**：在 Docker `BRIDGE` 模式下，能够从容器外访问的所有端口都需要进行端口映射。端口映射是一个包含主机端口、容器端口、服务端口和协议的元组。可为 Marathon 应用指定多端口映射；未指定的 `hostPort` 默认为 `0` （表示 Marathon 会随机分配该值）。在 Docker `USER` 模式下，`hostPort` 的语义稍有变化：`USER` 模式不需要 `hostPort`，并且如果未指定，Marathon 也不会随机自动分配该值。这样可以将容器部署于 `USER` 包含 `containerPort` 和发现信息的网络，但请勿在主机网络上披露这些端口（并且暗示不会占用主机端口资源）。
 
@@ -89,7 +88,7 @@ enterprise: false
 
 在此示例中，我们指定了三个随机分配的主机端口，制定后即可通过环境变量 `$PORT0`、`$PORT1` 和 `$PORT2` 用于我们的命令。除了这三个主机端口外， Marathon 还会随机分配三个服务端口。
 
-还可以指定特定的服务端口：
+还可以使用特定的服务端口：
 
 ```json
     "ports": [
@@ -105,7 +104,7 @@ enterprise: false
     ],
 ```
 
-此时，主机端口 `$PORT0`、`$PORT1` 和 `$PORT3` 继续接受随机分配。然而，此应用程序的三个服务端口现在是 `2001`、`2002` 和 `3000`。与之前的示例一样，必须使用 HAProxy 等服务发现解决方案，从服务端口到主机端口的代理请求。如果您希望应用程序服务端口等同于其主机端口，可以将 `requirePorts` 设置为 `true` （`requirePorts` 默认为 `false`）。这会告诉 Marathon 仅在有这些端口可用的代理上安排此应用程序：
+此时，主机端口 `$PORT0`、`$PORT1` 和 `$PORT3` 继续接受随机分配。然而，此应用程序的三个服务端口现在是 `2001`、`2002` 和 `3000`。与之前的示例一样，必须使用 HAProxy&reg; 等服务发现解决方案，从服务端口到主机端口的代理请求。如果您希望应用程序服务端口等同于其主机端口，可以将 `requirePorts` 设置为 `true` （`requirePorts` 默认为 `false`）。这会告诉 Marathon 仅在有这些端口可用的代理上安排此应用程序：
 
 ```json
     "ports": [

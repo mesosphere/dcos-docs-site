@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  多个区域
+navigationTitle: 多个区域
 title: 多个区域
 menuWeight: 5
 excerpt: 设置多区域配置

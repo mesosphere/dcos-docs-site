@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Pod
+navigationTitle: Pod
 title: Pod
 menuWeight: 85
 excerpt: 使用 pod 共享组资源

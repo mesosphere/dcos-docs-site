@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Mesos DNS API
+navigationTitle: Mesos DNS API
 title: Mesos DNS API
 menuWeight: 201
 excerpt: 使用 Mesos DNA API 发现 IP 地址和端口
@@ -32,13 +32,13 @@ Mesos DNS API 的请求和响应主体被编排成 JSON 格式。
 
 请求必须包含接受标题：
 
-```
+```bash
 Accept: application/json
 ```
 
 响应将包括内容类型标题：
 
-```
+```bash
 Content-Type: application/json
 ```
 
@@ -46,7 +46,7 @@ Content-Type: application/json
 
 所有 Mesos DNS API 路由需要认证才能使用。
 
-要验证 API 请求，请参阅 [获取认证令牌](/mesosphere/dcos/cn/2.0/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/mesosphere/dcos/cn/2.0/security/ent/iam-api/#passing-an-authentication-token)。
+要验证 API 请求，请参阅 [获取认证令牌](/mesosphere/dcos/2.0/security/ent/iam-api/#obtaining-an-authentication-token) 和 [传递认证令牌](/mesosphere/dcos/2.0/security/ent/iam-api/#passing-an-authentication-token)。
 
 Mesos DNS API 还需要通过以下权限授权：
 
@@ -57,10 +57,10 @@ Mesos DNS API 还需要通过以下权限授权：
 
 用户也可以通过 `dcos:superuser` 权限获得所有路由。
 
-要为您的帐户分配权限，请参阅 [权限参考](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/)。
+要为您的帐户分配权限，请参阅 [权限参考](/mesosphere/dcos/2.0/security/ent/perms-reference/)。
 
 # 资源
-Mesos-DNS 实现了一个简单的 REST API，用于通过 HTTP 进行服务发现。这些示例假设您具有 [与节点的 SSH 连接](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/)。
+Mesos-DNS 实现了一个简单的 REST API，用于通过 HTTP 进行服务发现。这些示例假设您具有 [与节点的 SSH 连接](/mesosphere/dcos/2.0/administering-clusters/sshcluster/)。
 
 ## <a name="get-version"></a>GET /v1/version
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon 布局约束
+navigationTitle: Marathon 布局约束
 title: Marathon 布局约束
 menuWeight: 3
 excerpt: 了解 Marathon 布局约束
@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-Marathon 放置约束能够控制服务的运行位置，以便优化容错性（通过在多个节点上分散任务）或本地化（通过在同一节点上运行所有服务任务）。约束有三个部分：字段名称、算子和可选参数。该字段名称可以是代理节点的主机名或代理节点的任何属性。
+Marathon&trade; 放置约束能够控制服务的运行位置，以便优化容错性（通过在多个节点上分散任务）或本地化（通过在同一节点上运行所有服务任务）。约束有三个部分：字段名称、算子和可选参数。该字段名称可以是代理节点的主机名或代理节点的任何属性。
 
 # 字段名称
 
@@ -23,11 +23,11 @@ Marathon 放置约束能够控制服务的运行位置，以便优化容错性�
 
 ### 分域和分区作为字段名称
 
-使用 `@region` 和 `@zone` 字段名称配置 [故障域感知和容量扩展](/mesosphere/dcos/cn/2.0/deploying-services/fault-domain-awareness/)。
+使用 `@region` 和 `@zone` 字段名称配置 [故障域感知和容量扩展](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/)。
 
 ## 属性作为字段名称
 
-如果 `@hostname`、 `@region` 或 `@zone` 未被指定为字段名称，那么字段名称将被解释为 Mesos 代理节点属性。Mesos 代理节点属性允许您标记代理节点。参见 `mesos-slave --help`，了解如何设置属性。如果代理节点上未定义指定的属性，大多数算子将拒绝在其上运行任务。事实上，只有 `UNLIKE` 算子将始终接受此邀约，但其他算子将始终拒绝。
+如果 `@hostname`、 `@region` 或 `@zone` 未被指定为字段名称，那么字段名称将被解释为 Apache&reg; Mesos&reg; 代理节点属性。Mesos 代理节点属性允许您标记代理节点。参见 `mesos-slave --help`，了解如何设置属性。如果代理节点上未定义指定的属性，大多数算子将拒绝在其上运行任务。事实上，只有 `UNLIKE` 算子将始终接受此邀约，但其他算子将始终拒绝。
 
 Marathon 支持文本、标量、范围和数集属性值。为确定标量、范围和数集，Marathon 将对格式值执行字符串比较。格式与 Mesos 属性格式匹配。范围和数集的格式分别为 `[begin-end,...]` 和 `{item,...}` 。例如，您可能有一个格式为 `[100-200]` 的范围和格式为 `{a,b,c}` 的数集。Regex 适用于 LIKE 和 UNLIKE 算子；如需匹配 ANY 值，请使用字符串 `.*`。
 

@@ -1,0 +1,423 @@
+本指南希望您已经拥有基于 Universal 安装工具 `0.2` 运行的 DC/OS 群集。如需了解有关使用 Universal 安装工具运行 DC/OS 的更多信息，请参阅 [DC/OS 在 AWS 上使用 Universal 安装工具指南](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/)。
+
+您将学习如何将其他基础架构放入 AWS 远程分域。通过使用 [AWS VPC 对等特性](https://docs.aws.amazon.com/vpc/latest/userguide/vpc-peering.html)，远程分域将互相连接。
+
+# 先决条件
+- 使用 Universal 安装工具 0.2 模块设置的正在运行的 DC/OS Enterprise 群集
+- 您的远程分域的子网范围
+
+# 远程分域入门
+我们期望您已经运行的 DC/OS 群集 `main.tf` 与此示例类似。要部署远程分域，我们必须对您的 `main.tf` 进行一些更改
+
+```hcl
+provider "aws" {
+  # Change your default region here
+  region = "us-east-1"
+}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
+module "dcos" {
+  source  = "dcos-terraform/dcos/aws"
+  version = "~> 0.2.0"
+
+  providers = {
+    aws = "aws"
+  }
+
+  cluster_name        = "my-dcos-demo"
+  ssh_public_key_file = "<path-to-public-key-file>"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+  num_masters        = "3"
+  num_private_agents = "2"
+  num_public_agents  = "1"
+
+  dcos_version = "1.13.3"
+
+  dcos_variant              = "ee"
+  dcos_license_key_contents = "${file("./license.txt")}"
+
+  # Make sure to set your credentials if you do not want the default EE
+  # dcos_superuser_username      = "superuser-name"
+  # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
+
+  dcos_instance_os             = "centos_7.5"
+  bootstrap_instance_type      = "t2.medium"
+  masters_instance_type        = "t2.medium"
+  private_agents_instance_type = "t2.medium"
+  public_agents_instance_type  = "t2.medium"
+}
+
+output "masters-ips" {
+  value = "${module.dcos.masters-ips}"
+}
+
+output "cluster-address" {
+  value = "${module.dcos.masters-loadbalancer}"
+}
+
+output "public-agents-loadbalancer" {
+  value = "${module.dcos.public-agents-loadbalancer}"
+}
+```
+
+## 远程分域提供程序
+我们必须对您的 `main.tf` 进行的第一个更改是为远程分域添加特定提供程序语句。在本示例中，我们将使用别名为 `usw2` 的 `us-west-2` 作为我们的远程分域。我们还将别名语句添加到提供程序，该提供程序用于部署包含管理节点实例的分域。
+
+这需要这样做，以便我们的模块知道要使用哪个帐户凭据。
+
+<p class="message--note"><strong>注意：</strong>有些资源名称长度有限制，这就是我们缩短分域名称的原因。</p>
+
+```hcl
+provider "aws" {
+  # Change your default region here
+  region = "us-east-1"
+  alias  = "master"
+}
+
+provider "aws" {
+  # Change your default region here
+  region = "us-west-2"
+  alias  = "usw2"
+}
+
+# ...
+```
+
+## 共享配置选项
+要创建远程分域及其基础架构，我们将使用与管理节点分域相同的底层模块。这也意味着，将存在像 `cluster_name`、`admin_ips` 和 `ssh_public_key_file`等两种基础架构均需要的一些信息。为了让操作更容易，您应该在每个模块中将使用的 `main.tf` 定义本地变量。
+
+```hcl
+#...
+
+// lets define variables which are shared between all regions
+locals {
+  ssh_public_key_file = "~/.ssh/id_rsa.pub"
+  cluster_name        = "my-dcos-demo"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+}
+
+#...
+```
+
+### 内部子网络
+共享信息的一部分是在您的基础架构中使用了哪些内部子网。DC/OS 的所有部分都需要知道此信息，以便可以对流量进行路由并由安全组允许。如果您未指定 `subnet_range`，则 terraform 使用默认值 `172.16.0.0/16`。我们要指定的远程分域需要自己的子网。
+
+<p class="message--important"><strong></strong>重要信息：您不应该采用 <code>172.16/12</code> 的下一个自由网络，因为 <code>172.17.0.0/16</code> 是 dockers 内部网络默认设置，这会导致问题。</p>
+
+若要在我们的管理节点和远程分域之间进行清晰分离，我们将采用 `10.128.0.0/16` 作为我们的远程分域子网。此外，我们将使用 [map 变量](https://www.terraform.io/docs/configuration-0-11/variables.html#maps) 将网络分配至分域。这将使将来在添加其他区域时更加容易。
+
+现在，本地部分将如下所示
+
+```hcl
+#...
+
+// lets define variables which are shared between all regions
+locals {
+  ssh_public_key_file = "~/.ssh/id_rsa.pub"
+  cluster_name        = "my-dcos-demo"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+  region_networks = {
+    // dont use 172.17/26 as its used by docker.
+    "master" = "172.16.0.0/16" // this is the default
+    "usw2"   = "10.128.0.0/16"
+  }
+}
+
+#...
+```
+
+### 允许的内部网络
+为了使我们的主要分域允许来自远程分域的流量，反之亦然，我们必须在两者中都指定 `accepted_internal_networks` 变量。此变量将通知安全组，该安全组允许代理节点和管理节点相互通信。 `accepted_internal_networks` 可包含分域网络，这使得 terraform 可以轻松地计算该变量的值。我们将使用 [值方法](https://www.terraform.io/docs/configuration-0-11/interpolation.html#values-map-) 从先前定义的 `locals.region_networks` 中检索子网。
+
+现在，本地部分将如下所示：
+
+```hcl
+#...
+
+// lets define variables which are shared between all regions
+locals {
+  ssh_public_key_file = "<path-to-public-key-file>"
+  cluster_name        = "my-dcos-demo"
+
+  region_networks = {
+    // dont use 172.17/26 as its used by docker.
+    "master" = "172.16.0.0/16" // this is the default
+    "usw2"   = "10.128.0.0/16"
+  }
+
+  accepted_internal_networks = "${values(local.region_networks)}"
+}
+
+#...
+```
+
+## 远程分域
+在我们开始更改 `dcos` 模块内的值之前，我们将把远程分域的基础架构定义附加到您的 `main.tf`。在我们的示例中，我们只希望在远程分域钟拥有专用代理节点，而专用和公共代理节点均可放置在远程分域中。
+
+<p class="message--important"><strong></strong>重要信息：不支持在远程分域中运行管理节点实例。</p>
+
+若要仅启动专用代理节点，我们将设置 `num_masters = 0` 和 `num_public_agents = 0`。由于某些内部限制，我们还必须告诉基础架构模块不为具有 `lb_disable_public_agents` 和 `lb_disable_masters` 的管理节点和公共代理节点准备负载均衡器
+
+另一个要提及的重要主题是命名。为了区分主要分域和远程分域的实例，我们引入 `name_prefix` 变量，这允许您为每个资源名称添加前缀。在本示例中，我们将 `name_prefix` 设置为远程分域的简称。
+
+在以下示例中，您还将找到在模块调用中使用的 [共享配置选项](#shared-config-options)（被示例 `local.admin_ips` 所引用），以及我们为该分域指定的 [提供程序](#remote-region-provider)
+
+```hcl
+#...
+
+module "dcos-usw2" {
+  source  = "dcos-terraform/infrastructure/aws"
+  version = "~> 0.2.0"
+
+  admin_ips   = ["${local.admin_ips}"]
+  name_prefix = "usw2"
+
+  cluster_name               = "${local.cluster_name}"
+  accepted_internal_networks = "${values(local.region_networks)}"
+
+  num_masters        = 0
+  num_private_agents = 1
+  num_public_agents  = 0
+
+  lb_disable_public_agents = true
+  lb_disable_masters       = true
+
+  ssh_public_key_file = "${local.ssh_public_key_file}"
+  subnet_range        = "${local.region_networks["usw2"]}"
+
+  providers = {
+    aws = "aws.usw2"
+  }
+}
+
+```
+
+## 对等主要 DC/OS 分域
+我们现在需要在两个基础架构之间建立联系。Universal 安装工具为此任务提供模块。在该模块中，我们将介绍来自两个基础架构的数据：包含 DC/OS 管理节点的主要分域和包含远程专用代理节点的远程分域。
+
+该模块需要接收的唯一信息是 `dcos` 和 `dcos-usw2` 模块输出。我们将把该模块附加到 `main.tf` 的末尾
+
+这是示例 vpc-peering-section
+
+```hcl
+#...
+
+module "vpc-connection-master-usw2" {
+  source  = "dcos-terraform/vpc-peering/aws" // module init the peering
+  version = "~> 2.0.0"
+
+  providers = {
+    "aws.local"  = "aws.master"
+    "aws.remote" = "aws.usw2"
+  }
+
+  local_vpc_id        = "${module.dcos.infrastructure.vpc.id}"
+  local_subnet_range  = "${local.region_networks["master"]}"
+  remote_vpc_id       = "${module.dcos-usw2.vpc.id}"
+  remote_subnet_range = "${local.region_networks["usw2"]}"
+}
+```
+
+## 对 dcos 模块的更改
+此时，需要更改 `dcos` 模块，以便它了解远程分域并能够安装远程代理节点。
+
+1. 选择子网范围。通常，不需要进行此更改，但是我们希望使您的示例非常具体。
+
+
+`subnet_range = "${local.region_networks["master"]}"`
+
+
+2. 添加已接受的内部网络。与远程分域相同，我们需要指定内部网络以允许内部流量通过。
+
+`accepted_internal_networks = "${values(local.region_networks)}"`
+
+
+3. 更改 cluster_name。由于这是共享资源，我们将使用本地变量。
+
+`cluster_name = "${local.cluster_name}"`
+
+
+4. 列出 SSH 密钥。这也是共享资源，我们可使用本地变量
+
+  `ssh_public_key_file = "${local.ssh_public_key_file}"`
+
+
+5. 按照相同的模式添加管理 IP。
+
+`admin_ips = ["${local.admin_ips}"`]
+
+
+6. 添加专用代理节点。这几乎是最重要的新变量。这告诉 DC/OS 安装模块需要安装哪些其他代理节点。
+
+`additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]`
+
+
+7. 更新提供程序部分。当我们更改为显式别名提供程序时，我们必须将 dcos 模块指向该特定提供程序。
+
+```hcl
+providers = {
+  aws = "aws.master"
+}
+```
+
+### 示例 dcos 模块
+在应用上述更改后，您的 `dcos` 模块应如下所示
+
+```hcl
+module "dcos" {
+  source  = "dcos-terraform/dcos/aws"
+  version = "~> 0.2.0"
+
+  cluster_name        = "${local.cluster_name}"
+  ssh_public_key_file = "${local.ssh_public_key_file}"
+  admin_ips           = ["${local.admin_ips}"]
+  subnet_range        = "${local.region_networks["master"]}"
+
+  num_masters        = "1"
+  num_private_agents = "2"
+  num_public_agents  = "1"
+
+  dcos_version = "1.13.3"
+
+  dcos_instance_os             = "centos_7.5"
+  bootstrap_instance_type      = "t2.medium"
+  masters_instance_type        = "t2.medium"
+  private_agents_instance_type = "t2.medium"
+  public_agents_instance_type  = "t2.medium"
+
+  accepted_internal_networks   = "${values(local.region_networks)}"
+  additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
+
+  providers = {
+    aws = "aws.master"
+  }
+
+  dcos_variant              = "ee"
+  dcos_license_key_contents = "${file("./license.txt")}"
+}
+```
+
+# 完整的 main.tf 示例
+这是完成本指南后应该看到的完整 `main.tf`。
+
+```hcl
+provider "aws" {
+  # Change your default region here
+  region = "us-east-1"
+  alias  = "master"
+}
+
+provider "aws" {
+  # Change your default region here
+  region = "us-west-2"
+  alias  = "usw2"
+}
+
+// lets define variables which are shared between all regions
+locals {
+  ssh_public_key_file = "~/.ssh/id_rsa.pub"
+  cluster_name        = "my-dcos-demo"
+  admin_ips           = ["${data.http.whatismyip.body}/32"]
+
+  region_networks = {
+    // dont use 172.17/26 as its used by docker.
+    "master" = "172.16.0.0/16" // this is the default
+    "usw2"   = "10.128.0.0/16"
+  }
+}
+
+module "dcos" {
+  source  = "dcos-terraform/dcos/aws"
+  version = "~> 0.2.0"
+
+  cluster_name        = "${local.cluster_name}"
+  ssh_public_key_file = "${local.ssh_public_key_file}"
+  admin_ips           = ["${local.admin_ips}"]
+  subnet_range        = "${local.region_networks["master"]}"
+
+  num_masters        = "1"
+  num_private_agents = "2"
+  num_public_agents  = "1"
+
+  dcos_version = "1.13.0"
+
+  dcos_instance_os             = "centos_7.5"
+  bootstrap_instance_type      = "t2.medium"
+  masters_instance_type        = "t2.medium"
+  private_agents_instance_type = "t2.medium"
+  public_agents_instance_type  = "t2.medium"
+
+  accepted_internal_networks   = "${values(local.region_networks)}"
+  additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
+
+  providers = {
+    aws = "aws.master"
+  }
+
+  dcos_variant              = "ee"
+  dcos_license_key_contents = "${file("./license.txt")}"
+}
+
+# Used to determine your public IP for forwarding rules
+data "http" "whatismyip" {
+  url = "http://whatismyip.akamai.com/"
+}
+
+output "masters-ips" {
+  value = "${module.dcos.masters-ips}"
+}
+
+output "cluster-address" {
+  value = "${module.dcos.masters-loadbalancer}"
+}
+
+output "public-agents-loadbalancer" {
+  value = "${module.dcos.public-agents-loadbalancer}"
+}
+
+module "dcos-usw2" {
+  source  = "dcos-terraform/infrastructure/aws"
+  version = "~> 0.2.0"
+
+  admin_ips   = ["${local.admin_ips}"]
+  name_prefix = "usw2"
+
+  cluster_name               = "${local.cluster_name}"
+  accepted_internal_networks = "${values(local.region_networks)}"
+
+  num_masters        = 0
+  num_private_agents = 1
+  num_public_agents  = 0
+
+  lb_disable_public_agents = true
+  lb_disable_masters       = true
+
+  ssh_public_key_file = "${local.ssh_public_key_file}"
+  subnet_range        = "${local.region_networks["usw2"]}"
+
+  providers = {
+    aws = "aws.usw2"
+  }
+}
+
+module "vpc-connection-master-usw2" {
+  source  = "dcos-terraform/vpc-peering/aws" // module init the peering
+  version = "~> 2.0.0"
+
+  providers = {
+    "aws.local"  = "aws.master"
+    "aws.remote" = "aws.usw2"
+  }
+
+  local_vpc_id        = "${module.dcos.infrastructure.vpc.id}"
+  local_subnet_range  = "${local.region_networks["master"]}"
+  remote_vpc_id       = "${module.dcos-usw2.vpc.id}"
+  remote_subnet_range = "${local.region_networks["usw2"]}"
+}
+```

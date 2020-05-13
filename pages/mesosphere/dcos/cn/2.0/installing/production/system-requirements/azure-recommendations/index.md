@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Azure 建议
-navigationTitle:  Azure 
+navigationTitle: Azure 
 menuWeight: 25
 excerpt: 针对 Azure 的建议
 ---
@@ -28,20 +28,20 @@ Azure 上的原始网络性能大致由 VM 大小决定。具有 8 个或更多�
 
 鉴于需要与异步 I/O 负载分离同步以维持性能，我们推荐以下磁盘安装配置：
 - 管理节点：
-    - / - P10
-    - /var/lib/etcd -（用于在 CorEos 上运行 etcd 的节点） - P10
-    - /var/log - P10
-    - /var/lib/dcos/exhibitor - P10
+ - / - P10
+ - /var/lib/etcd -（用于在 CorEos 上运行 etcd 的节点） - P10
+ - /var/log - P10
+ - /var/lib/dcos/exhibitor - P10
 - 公共代理：
-    - / - P10
-    - /var/log - P10
-    - /var/lib/docker - P10
-    - /var/lib/mesos/slave - P10
+ - / - P10
+ - /var/log - P10
+ - /var/lib/docker - P10
+ - /var/lib/mesos/slave - P10
 - 专用代理：
-    - / - P10
-    - /var/log - P10
-    - /var/lib/docker - P10
-    - /var/lib/mesos/slave - P20
+ - / - P10
+ - /var/log - P10
+ - /var/lib/docker - P10
+ - /var/lib/mesos/slave - P20
 
 运行磁盘较小和/或更少的群集是当然可能的，但在生产中的使用证明，上述配置已经对任何非极小型大小的群集都具有重大优势。此外，我们建议使用 Mesos MOUNT 磁盘资源，将适当的高级固态硬盘安装到 `/dcos/volume0 ... /dcos/volumeN` ，可在之后专门用于数据密集型服务，而不会导致 I/O 争用。对于 postgres 或 mysql 等数据密集型服务，应考虑将 LVM RAID 条带连接到这些 MOUNT 资源，以增加每秒数据库的可能处理量。
 

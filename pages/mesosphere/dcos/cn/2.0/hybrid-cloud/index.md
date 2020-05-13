@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  混合云
+navigationTitle: 混合云
 title: 混合云
 menuWeight: 115
 render: mustache

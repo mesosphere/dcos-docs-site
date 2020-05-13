@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  使用容器化工具
+navigationTitle: 使用容器化工具
 title: 使用容器化工具
 menuWeight: 40
 excerpt: 使用具有 Docker Engine 和 Universal Container Runtime 的容器化工具
@@ -9,17 +9,17 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-容器化工具提供围绕特定容器运行时的容器化和资源隔离抽象。DC/OS 容器化工具支持以下容器运行时间：
+容器化工具提供围绕特定容器运行时的容器化和资源隔离抽象。DC/OS&trade; 容器化工具支持以下容器运行时：
 
-- [Universal Container Runtime](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/ucr/)。
-- [Docker Engine](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/docker-containerizer/)。
+- [Universal Container Runtime](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/)。
+- [Docker Engine](/mesosphere/dcos/2.0/deploying-services/containerizers/docker-containerizer/)。
 
 Universal Container Runtime (UCR) 的优势如下：
 
-* 删除您对 Docker Engine 的依赖性。如果 Docker Engine 没有响应，则重新启动引擎会导致主机上的所有容器停止。此外，Docker 必须安装在每个代理节点上，并且每次发布新版本的 Docker 时都必须在代理节点上升级 Docker。
+* 删除您对 Docker&reg; Engine 的依赖性。如果 Docker Engine 没有响应，则重新启动引擎会导致主机上的所有容器停止。此外，Docker 必须安装在每个代理节点上，并且每次发布新版本的 Docker 时都必须在代理节点上升级 Docker。
 * 更稳定，允许大规模部署
 * 提供 Docker 引擎中未提供的功能，例如，GPU 和 CNI 支持
-* 允许您利用 Mesos 和 DC/OS 中的持续创新，包括每个容器的 IP、严格的容器隔离等功能。有关更多信息，请参阅[功能矩阵](#container-runtime-features)。
+* 允许您利用 Apache&reg; Mesos&reg; 和 DC/OS 中的持续创新，包括每个容器的 IP、严格的容器隔离等功能。有关更多信息，请参阅[功能矩阵](#container-runtime-features)。
 * 自动或手动支持容器镜像垃圾收集
 
 总之，使用 UCR 代替 Docker Engine：
@@ -34,9 +34,9 @@ Universal Container Runtime (UCR) 的优势如下：
 
 ## DC/OS 功能
 
-| 功能                                 | UCR         | Docker    | 备注 |
+|  功能                                | UCR         | Docker    | 备注  |
 | --------------------------------------- | ----------- | --------- | -------- |
-| **命令**                             | 是         | 是       |          |
+| **命令**                             | 是         | 是       |           |
 | **容器镜像**                    | 是         | 是       |          |
 | **镜像垃圾收集**            | 是         | 是       |          |
 | **Pod**                                | 是         | 否        |          |
@@ -93,7 +93,7 @@ Universal Container Runtime (UCR) 的优势如下：
 
 ## 运行状况检查
 
-|  功能                                | UCR         | Docker    |备注   |
+|  功能                                | UCR         | Docker    | 备注  |
 | --------------------------------------- | ----------- | --------- | --------- |
 | **TCP**                                 | 是         | 是       | 仅限 CLI  |
 | **HTTP/HTTPS**                          | 是         | 是       | 仅限 CLI  |

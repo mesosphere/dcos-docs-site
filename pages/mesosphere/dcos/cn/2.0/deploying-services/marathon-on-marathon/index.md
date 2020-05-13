@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  使用自定义 Marathon
+navigationTitle: 使用自定义 Marathon
 title: 使用自定义 Marathon
 menuWeight: 39
 excerpt: 部署非本地 Marathon 实例
@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 
-本专题描述了如何为 DC/OS 群集部署具有独立 Mesos 角色、保留和配额的非本地 Marathon 实例。
+本专题描述了如何为 DC/OS&trade; 群集部署具有独立 Apache&reg; Mesos&reg; 角色、保留和配额的非本地 Marathon&trade; 实例。
 
 ## 术语
 
@@ -17,7 +17,7 @@ enterprise: true
 - **非本地 Marathon** 可以作为 DC/OS 服务安装的 Marathon 实例。非本地 Marathon 实例在专用代理节点上运行。可能需要额外的专用代理节点，以满足增加的资源需求。
 
 # 隔离资源
-DC/OS Enterprise [安全功能](/mesosphere/dcos/cn/2.0/security/ent/) 提供强大的细粒度访问控制。但是，有时您可能需要分区环境，例如：
+DC/OS Enterprise [安全功能](/mesosphere/dcos/2.0/security/ent/) 提供强大的细粒度访问控制。但是，有时您可能需要分区环境，例如：
 
 - 测试 DC/OS 升级或 API 变更。
 - 安全地隔离开发人员组，使一个组中的开发人员无法对其他组中运行的工作负载产生负面影响。每个 DC/OS 服务都默认使用本地 Marathon 针对配额和保留注册的相同 [Mesos 角色](http://mesos.apache.org/documentation/latest/roles/)。这意味着 Marathon 用户可以在 Marathon 能够用以运行任务的任何 Linux 用户名义下运行任务。

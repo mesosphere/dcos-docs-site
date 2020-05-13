@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  群集
+navigationTitle: 群集
 title: 群集
 menuWeight: 8
 excerpt: 使用群集菜单
@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-从 UI，您可以查看单个群集或 [链接群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/) 统计信息的摘要。
+从 UI，您可以查看单个群集或 [链接群集](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/) 统计信息的摘要。
 
 # 概述
 
@@ -18,7 +18,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 1 - 群集概述
 
-此视图显示一般详情、Mesos 详情、Marathon 详情，以及有关 Bootstrap 配置的信息。
+此视图显示一般详情、Apache&reg; Mesos&reg; 详情、Marathon&trade; 详情，以及有关 Bootstrap 配置的信息。
 
 您可以从右上角的下拉菜单中看到群集的 IP 地址。
 
@@ -37,6 +37,6 @@ model: /mesosphere/dcos/2.0/data.yml
 
 图 3 - 链接群集
 
-有关链接群集的详细信息，请参阅 [多个群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/) 文档。
+有关链接群集的详细信息，请参阅 [多个群集](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/) 文档。
 
 

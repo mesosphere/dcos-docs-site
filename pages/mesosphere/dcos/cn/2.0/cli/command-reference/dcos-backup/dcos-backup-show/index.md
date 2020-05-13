@@ -33,7 +33,7 @@ dcos backup show <backup id> [flags]
 
 # 示例
 
-1. 要查找所有备份的备份 ID，请运行 `dcos backup list`。
+1. 要查找所有备份的备份 ID，请运行 [`dcos backup list`](../dcos-backup-list)。
 
     ```bash
     $ dcos backup list
@@ -64,5 +64,5 @@ dcos backup show <backup id> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [dcos backup](/mesosphere/dcos/2.0/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
 

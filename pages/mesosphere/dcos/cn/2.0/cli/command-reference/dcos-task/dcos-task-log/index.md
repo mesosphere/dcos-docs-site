@@ -48,13 +48,13 @@ dcos task log [mesosID] exporter.log
 
 # 示例
 
-有关示例，请参阅 [登录文档](/mesosphere/dcos/cn/2.0/monitoring/logging/)。
+有关示例，请参阅 [登录文档](/mesosphere/dcos/2.0/monitoring/logging/)。
 
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos task](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-task/) | 管理 DC/OS 任务。|
+| [dcos task](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/)   | 管理 DC/OS 任务。 |
 
 

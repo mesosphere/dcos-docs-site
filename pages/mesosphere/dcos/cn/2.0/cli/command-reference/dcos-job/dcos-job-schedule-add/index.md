@@ -29,16 +29,16 @@ dcos job schedule add <job-id> <schedule-file>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<job-id>` | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。 |
+| `<job-id>` | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
 | `<schedule-file>` | JSON 格式的作业时间表文件。|
 
 
 # 示例
 
-有关使用 `job add` 的示例请参阅 [文档](/mesosphere/dcos/cn/2.0/deploying-jobs/examples/#create-job-schedule)。
+有关使用 `job add` 的示例请参阅 [文档](/mesosphere/dcos/2.0/deploying-jobs/examples/#create-job-schedule)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |

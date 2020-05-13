@@ -1,0 +1,145 @@
+以下是 Universal 安装工具上支持的所有变量的列表，可供您自定义群集。
+## 输入
+
+| 名称 | 描述 | 类型 | 默认值 | 是否必需 |
+|------|-------------|:----:|:-----:|:-----:|
+| admin\_ips | CIDR 管理 IP 的列表 | 列表 | 不适用 | 是 |
+| ssh\_public\_key\_file | SSH 公钥的路径。这是必填项，但是，如果您想使用 ssh_public_key 连同密钥作为字符串，则可将其设为空字符串。| 字符串 | 不适用 | 是 |
+| accepted\_internal\_networks | 所有内部网络的子网范围 | 列表 | `[]` | 否 |
+| additional\_private\_agent\_ips | 其他专用代理节点 IP。| 列表 | `[]` | 否 |
+| additional\_public\_agent\_ips | 其他公共代理节点 IP。| 列表 | `[]` | 否 |
+| ansible\_additional\_config | 将其他配置选项添加到 ansible。这将与生成的默认值合并。请勿指定 `dcos:` | 字符串 | `""` | 否 |
+| ansible\_bundle\_container | 带捆绑 dcos-ansible 和 ansible 可执行文件的 Docker 容器 | 字符串 | `"mesosphere/dcos-ansible-bundle:latest"` | 否 |
+| availability\_zones | 可用性分区列表将用作平台/云提供程序所需的相同格式。即 `['RegionZone']` | 列表 | `[]` | 否 |
+| bootstrap\_gcp\_image | [BOOTSTRAP] 要使用的镜像 | 字符串 | `""` | 否 |
+| bootstrap\_machine\_type | [BOOTSTRAP] 机器类型 | 字符串 | `"n1-standard-2"` | 否 |
+| bootstrap\_os | [BOOTSTRAP] 要使用的操作系统。您可以使用所提供的操作系统，而不一定使用您自己的 AMI。| 字符串 | `""` | 否 |
+| bootstrap\_private\_ip | 专用 IP bootstrap nginx 正在侦听。用于构建 bootstrap URL。| 字符串 | `""` | 否 |
+| bootstrap\_root\_volume\_size | [BOOTSTRAP] 根卷大小单位为 GB | 字符串 | `"80"` | 否 |
+| bootstrap\_root\_volume\_type | [BOOTSTRAP] 根卷类型 | 字符串 | `"pd-standard"` | 否 |
+| cluster\_name | DC/OS 群集名称 | 字符串 | `"dcos-example"` | 否 |
+| cluster\_name\_random\_string | 将随机字符串添加到群集名称 | 字符串 | `"false"` | 否 |
+| custom\_dcos\_download\_path | 插入 dcos 安装工具脚本的位置（可选） | 字符串 | `""` | 否 |
+| dcos\_adminrouter\_tls\_1\_0\_enabled | 指示是否在 Admin Router 中启用 TLSv1 支持。（可选） | 字符串 | `""` | 否 |
+| dcos\_adminrouter\_tls\_1\_1\_enabled | 指示是否在 Admin Router 中启用 TLSv1.1 支持。（可选） | 字符串 | `""` | 否 |
+| dcos\_adminrouter\_tls\_1\_2\_enabled | 指示是否在 Admin Router 中启用 TLSv1.2 支持。（可选） | 字符串 | `""` | 否 |
+| dcos\_adminrouter\_tls\_cipher\_suite | [Enterprise DC/OS] 指示是否允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 cookie。（可选） | 字符串 | `""` | 否 |
+| dcos\_agent\_list | 用于列出 config.yaml 中的代理节点（可选） | 列表 | `[]` | 否 |
+| dcos\_audit\_logging | [Enterprise DC/OS] 能够为 Mesos、Marathon 和作业记录安全决策。（可选） | 字符串 | `""` | 否 |
+| dcos\_auth\_cookie\_secure\_flag | [Enterprise DC/OS] 允许 Web 浏览器通过非 HTTPS 连接发送 DC/OS 身份认证 cookie。（可选） | 字符串 | `""` | 否 |
+| dcos\_aws\_access\_key\_id | exhibitor 存储的 AWS 密钥 ID（可选，但对于 dcos_exhibitor_address 则为必填项） | 字符串 | `""` | 否 |
+| dcos\_aws\_region | exhibitor 存储的 AWS 分域（可选，但对于 dcos_exhibitor_address 则为必填项） | 字符串 | `""` | 否 |
+| dcos\_aws\_secret\_access\_key | exhibitor 存储的 AWS 密匙（可选，但对于 dcos_exhibitor_address 则为必填项） | 字符串 | `""` | 否 |
+| dcos\_aws\_template\_storage\_access\_key\_id | CloudFormation 模板存储的 AWS 密钥 ID（可选） | 字符串 | `""` | 否 |
+| dcos\_aws\_template\_storage\_bucket | AWS CloudFormation bucket 名称（可选） | 字符串 | `""` | 否 |
+| dcos\_aws\_template\_storage\_bucket\_path | AWS CloudFormation bucket 路径（可选） | 字符串 | `""` | 否 |
+| dcos\_aws\_template\_storage\_region\_name | AWS CloudFormation 分域名称（可选） | 字符串 | `""` | 否 |
+| dcos\_aws\_template\_storage\_secret\_access\_key | CloudFormation 模板的 AWS 密钥（可选） | 字符串 | `""` | 否 |
+| dcos\_aws\_template\_upload | 将自定义高级模板自动上传到您的 S3 bucket。（可选） | 字符串 | `""` | 否 |
+| dcos\_bootstrap\_port | bootstrap URL 的端口 | 字符串 | `"8080"` | 否 |
+| dcos\_bouncer\_expiration\_auth\_token\_days | [Enterprise DC/OS] 设置身份和访问管理的授权令牌生存时间值 (TTL)。（可选） | 字符串 | `""` | 否 |
+| dcos\_ca\_certificate\_chain\_path | [Enterprise DC/OS] 到包含完整 CA 证书链文件的路径（相对于 $DCOS_INSTALL_DIR），该证书链是终端实体证书验证所需的，采用 OpenSSL PEM 格式。（可选） | 字符串 | `""` | 否 |
+| dcos\_ca\_certificate\_key\_path | [Enterprise DC/OS] 到包含单个 X.509 证书文件私匙的路径（相对于 $DCOS_INSTALL_DIR），该证书采用 OpenSSL PEM 格式。（可选） | 字符串 | `""` | 否 |
+| dcos\_ca\_certificate\_path | [Enterprise DC/OS] 到包含单个 X.509 CA 证书文件的路径（相对于 $DCOS_INSTALL_DIR），该证书采用 OpenSSL PEM 格式。（可选） | 字符串 | `""` | 否 |
+| dcos\_check\_time | 检查在 DC/OS 启动过程中是否启用网络时间协议 (NTP)。（可选） | 字符串 | `""` | 否 |
+| dcos\_cluster\_docker\_credentials | 要传递的 Docker 凭据的词典。（可选） | 字符串 | `""` | 否 |
+| dcos\_cluster\_docker\_credentials\_dcos\_owned | 表示是否在 /opt/mesosphere 或 /etc/mesosphere/docker_credentials 中存储凭据文件。sysadmin 无法直接编辑 /opt/mesosphere（可选） | 字符串 | `""` | 否 |
+| dcos\_cluster\_docker\_credentials\_enabled | 表示是否向 Mesos 传递 Mesos --docker_config 选项。（可选） | 字符串 | `""` | 否 |
+| dcos\_cluster\_docker\_credentials\_write\_to\_etc | 表示是否写入群集凭据文件。（可选） | 字符串 | `""` | 否 |
+| dcos\_cluster\_docker\_registry\_enabled | 已启用 DC/OS 群集 docker 注册表 | 字符串 | `""` | 否 |
+| dcos\_cluster\_docker\_registry\_url | Mesos 用来从中拉取 Docker 镜像的自定义 URL。设置后将把 Mesos --docker_registry 标记配置到指定 URL。（可选） | 字符串 | `""` | 否 |
+| dcos\_cluster\_name | 设置 DC/OS 群集名称 | 字符串 | `""` | 否 |
+| dcos\_config | 用于在 config.yaml 中添加未在此指定的任何额外参数。（可选） | 字符串 | `""` | 否 |
+| dcos\_custom\_checks | 添加到默认检查配置流程的自定义安装检查。（可选） | 字符串 | `""` | 否 |
+| dcos\_customer\_key | [Enterprise DC/OS] 设置客户密钥（可选） | 字符串 | `""` | 否 |
+| dcos\_dns\_bind\_ip\_blacklist | DC/OS DNS 解析器无法绑定的 IP 地址列表。（可选） | 字符串 | `""` | 否 |
+| dcos\_dns\_forward\_zones | 允许将 DNS 到某些域的请求转发到特定服务器。以下语法必须与 Terraform string heredoc 结合使用。（可选） (:warning: DC/OS 1.10+) | 字符串 | `""` | 否 |
+| dcos\_dns\_search | 输入不合格域时尝试的域列表（以空格隔开）。（可选） | 字符串 | `""` | 否 |
+| dcos\_docker\_remove\_delay | 删除存储在代理节点上的陈旧 Docker 镜像和由安装工具生成的 Docker 镜像之前等待的时间。（可选） | 字符串 | `""` | 否 |
+| dcos\_enable\_docker\_gc | 指示是否运行 docker-gc 脚本，一个简单的 Docker 容器和镜像垃圾回收脚本，每小时清理一次失散的 Docker 容器。（可选） | 字符串 | `""` | 否 |
+| dcos\_enable\_gpu\_isolation | 指示是否在 DC/OS 中启用 GPU 支持。（可选） | 字符串 | `""` | 否 |
+| dcos\_enable\_mesos\_input\_plugin | 指示是否启用 Telegraf 的 Mesos 输入插件来收集来自 Mesos 管理节点和代理节点的 Mesos 度量标准。选项： `true` 或 `false` （可选） | 字符串 | `""` | 否 |
+| dcos\_exhibitor\_address | 管理节点前面负载均衡器的地址（推荐） | 字符串 | `""` | 否 |
+| dcos\_exhibitor\_azure\_account\_key | exhibitor 存储的 azure 账户密钥（可选，但对于 dcos_exhibitor_address 则为必填项） | 字符串 | `""` | 否 |
+| dcos\_exhibitor\_azure\_account\_name | exhibitor 存储的 azure 账户名称（可选，但对于 dcos_exhibitor_address 则为必填项） | 字符串 | `""` | 否 |
+| dcos\_exhibitor\_azure\_prefix | exhibitor 存储的 azure 账户名称（可选，但对于 dcos_exhibitor_address 则为必填项） | 字符串 | `""` | 否 |
+| dcos\_exhibitor\_explicit\_keys | 设置您是否使用 AWS API 密钥授予 Exhibitor 访问 S3 的权限。（可选） | 字符串 | `""` | 否 |
+| dcos\_exhibitor\_storage\_backend | 选项为静态、aws_s3、azure 或 zookeeper（推荐） | 字符串 | `"static"` | 否 |
+| dcos\_exhibitor\_zk\_hosts | 一个或多个 Zookeeper 节点 IP 和端口地址的逗号分隔列表，用于配置内部 Exhibitor 实例。（不推荐，但对于 exhibitor_storage_backend 设置为 ZooKeeper 时则为必填项。改用 aws_s3 或 azure。假设外部 ZooKeeper 已经在线。） | 字符串 | `""` | 否 |
+| dcos\_exhibitor\_zk\_path | Exhibitor 用来存储数据的文件路径（不推荐，但对于 exhibitor_storage_backend 设置为 zookeeper 时为必填项。改用 aws_s3 或 azure。假设外部 ZooKeeper 已经在线。） | 字符串 | `""` | 否 |
+| dcos\_fault\_domain\_detect\_contents | [Enterprise DC/OS] 故障域脚本内容。可选，但如果不存在 fault-domain-detect 脚本，则为必填项。| 字符串 | `""` | 否 |
+| dcos\_fault\_domain\_enabled | [Enterprise DC/OS] 用于控制是否启用故障域 | 字符串 | `""` | 否 |
+| dcos\_gc\_delay | 清理执行器目录之前等待的最长时间（可选） | 字符串 | `""` | 否 |
+| dcos\_gpus\_are\_scarce | 指示是否将 GPU 视为群集中的稀缺资源。（可选） | 字符串 | `""` | 否 |
+| dcos\_http\_proxy | http 代理（可选） | 字符串 | `""` | 否 |
+| dcos\_https\_proxy | https 代理（可选） | 字符串 | `""` | 否 |
+| dcos\_instance\_os | 要使用的操作系统。您可以使用所提供的操作系统，而不一定使用您自己的 AMI。| 字符串 | `"centos_7.5"` | 否 |
+| dcos\_ip\_detect\_contents | 允许 DC/OS 检测您的专用地址。使用此项，作为输入传递给模块，而不是您的 bootstrap 节点内的文件。（建议） | 字符串 | `""` | 否 |
+| dcos\_ip\_detect\_public\_contents | 允许 DC/OS 知道您的公共可路由地址，以便于使用（推荐） | 字符串 | `""` | 否 |
+| dcos\_ip\_detect\_public\_filename | 静态设置您的 detect-ip-public 路径 | 字符串 | `"genconf/ip-detect-public"` | 否 |
+| dcos\_l4lb\_enable\_ipv6 | 布尔值，表示第 4 层负载均衡是否可用于 IPv6 网络。（可选） | 字符串 | `""` | 否 |
+| dcos\_license\_key\_contents | [Enterprise DC/OS] 用于提供企业版 DC/OS 的许可证密钥。如果 bootstrap 节点上存在 [1] ，则为可选。| 字符串 | `""` | 否 |
+| dcos\_log\_directory | 从 SSH 进程到安装工具主机日志的路径。（可选） | 字符串 | `""` | 否 |
+| dcos\_master\_discovery | Mesos 管理节点发现方法。可用选项为静态或 master_http_loadbalancer。（推荐使用 master_http_loadbalancer） | 字符串 | `"static"` | 否 |
+| dcos\_master\_dns\_bindall | 指示管理节点 DNS 端口是否打开。（可选） | 字符串 | `""` | 否 |
+| dcos\_master\_external\_loadbalancer | 允许 DC/OS 围绕外部负载均衡器名称配置证书。如果未使用，则会出现 SSL 验证问题。仅限 EE。（建议） | 字符串 | `""` | 否 |
+| dcos\_master\_list | 静态设置管理节点（不推荐，但对于 exhibitor_storage_backend 设置为 static 时为必填项。改用 aws_s3 或 azure，这样您可以在云中替换管理节点。） | 字符串 | `""` | 否 |
+| dcos\_mesos\_container\_log\_sink | 容器（任务）的日志管理器。选项是将日志发送到：' journald'、'logrotate'、'journald+logrotate'。（可选） | 字符串 | `""` | 否 |
+| dcos\_mesos\_dns\_set\_truncate\_bit | 指示在响应过大而无法放入单个数据包时，是否设置截断数位。（可选） | 字符串 | `""` | 否 |
+| dcos\_mesos\_max\_completed\_tasks\_per\_framework | Mesos 管理节点在内存中保留的每个框架的完成任务数。（可选） | 字符串 | `""` | 否 |
+| dcos\_no\_proxy | 从代理中排除的地址的 YAML 嵌套列表 (-)。（可选） | 字符串 | `""` | 否 |
+| dcos\_num\_masters | 设置管理节点的数量（对于 exhibitor_storage_backend 设置为 aws_s3、azure、Zookeeper 时为必填项） | 字符串 | `""` | 否 |
+| dcos\_oauth\_enabled | [仅开源 DC/OS] 指示是否为群集启用身份认证。（可选） | 字符串 | `""` | 否 |
+| dcos\_overlay\_config\_attempts | 指定配置尝试失败多少次之后，覆盖配置模块才会停止尝试配置虚拟网络。（可选） | 字符串 | `""` | 否 |
+| dcos\_overlay\_enable | 启用以禁用覆盖（可选） | 字符串 | `""` | 否 |
+| dcos\_overlay\_mtu | 在覆盖层上启动的容器中，虚拟以太网 (vEth) 的最大传输单元 (MTU)。（可选） | 字符串 | `""` | 否 |
+| dcos\_overlay\_network | 这组参数定义 DC/OS 的虚拟网络。（可选） | 字符串 | `""` | 否 |
+| dcos\_package\_storage\_uri | 永久存储 DC/OS 包的位置。值必须是一个文件 URL。（可选） | 字符串 | `""` | 否 |
+| dcos\_previous\_version | DC/OS 1.9+ 要求用户设置此值，以确保用户知道该版本。Terraform 可帮助填充此值，但用户可以在此处覆盖。（建议） | 字符串 | `""` | 否 |
+| dcos\_previous\_version\_master\_index | 用于跟踪主站的索引，以便在升级过程中查询以前的 DC/OS 版本。（可选）适用：1.9+ | 字符串 | `"0"` | 否 |
+| dcos\_process\_timeout | 在进程分叉之后等待开始操作的时间（以秒为单位）。（可选） | 字符串 | `""` | 否 |
+| dcos\_public\_agent\_list | 静态设置公共代理节点（不推荐） | 列表 | `[]` | 否 |
+| dcos\_resolvers | DC/OS 群集节点 DNS 解析器的 YAML 嵌套列表 (-)。（推荐） | 列表 | `[ "169.254.169.254" ]` | 否 |
+| dcos\_rexray\_config | 用于在 Marathon 中启用外部持久卷的 REX-Ray 配置方法。（可选） | 字符串 | `""` | 否 |
+| dcos\_rexray\_config\_filename | 用于在 Marathon 中启用外部持久卷的 REX-Ray 配置文件名。（可选） | 字符串 | `""` | 否 |
+| dcos\_rexray\_config\_method | 用于在 Marathon 中启用外部持久卷的 REX-Ray 配置方法。（可选） | 字符串 | `""` | 否 |
+| dcos\_s3\_bucket | exhibitor 后端的 s3 bucket 名称（推荐，但对于 dcos_exhibitor_address 为必填项） | 字符串 | `""` | 否 |
+| dcos\_s3\_prefix | exhibitor 后端的 s3 前缀名称（推荐，但对于 dcos_exhibitor_address 为必填项） | 字符串 | `""` | 否 |
+| dcos\_security | [Enterprise DC/OS] 设置 DC/OS 的安全级别，为“严格”或“宽容”。默认为“宽容”。（建议） | 字符串 | `""` | 否 |
+| dcos\_skip\_checks | 升级选项：用于跳过所有 dcos 检查，如果任何 DC/OS 组件运行不正常，这些检查可能阻止升级。（可选）适用：1.10+ | 字符串 | `"false"` | 否 |
+| dcos\_staged\_package\_storage\_uri | 添加 DC/OS 包时的临时存储位置。（可选） | 字符串 | `""` | 否 |
+| dcos\_superuser\_password\_hash | [Enterprise DC/OS] 设置超级用户密码哈希值（推荐） | 字符串 | `""` | 否 |
+| dcos\_superuser\_username | [Enterprise DC/OS] 设置超级用户的用户名（推荐） | 字符串 | `""` | 否 |
+| dcos\_telemetry\_enabled | 更改遥测选项（可选） | 字符串 | `""` | 否 |
+| dcos\_ucr\_default\_bridge\_subnet | 分配给 mesos 桥接 CNI 网络，供 UCR 构建桥接模式网络的 IPv4 子网。（可选） | 字符串 | `""` | 否 |
+| dcos\_use\_proxy | 启用对内部路由代理的使用（可选） | 字符串 | `""` | 否 |
+| dcos\_variant | 指定应为哪个 DC/OS 变量： `open`（开源）或 `ee`（企业版） | 字符串 | `"open"` | 否 |
+| dcos\_version | 指定要使用哪个 DC/OS 版本说明。选项：1.13.3、1.12.4、1.11.10 等 有关完整列表，请参见 dcos_download_path 或 dcos_version 树。| 字符串 | `"1.13.3"` | 否 |
+| dcos\_zk\_agent\_credentials | [Enterprise DC/OS] 设置 ZooKeeper 代理节点凭据（推荐） | 字符串 | `""` | 否 |
+| dcos\_zk\_master\_credentials | [Enterprise DC/OS] 设置 ZooKeeper 管理节点凭据（推荐） | 字符串 | `""` | 否 |
+| dcos\_zk\_super\_credentials | [Enterprise DC/OS] 设置 zk 超级凭据（推荐） | 字符串 | `""` | 否 |
+| labels | 向所有资源添加自定义标签 | 映射 | `{}` | 否 |
+| masters\_gcp\_image | [管理节点] 要使用的镜像 | 字符串 | `""` | 否 |
+| masters\_machine\_type | [管理节点] 机器类型 | 字符串 | `"n1-standard-4"` | 否 |
+| masters\_os | [管理节点] 要使用的操作系统。您可以使用所提供的操作系统，而不一定使用您自己的 AMI。| 字符串 | `""` | 否 |
+| masters\_root\_volume\_size | [管理节点] 根卷大小，单位为 GB | 字符串 | `"120"` | 否 |
+| num\_masters | 指定管理节点的数量。为实现重复数据备份，您至少应有 3 个 | 字符串 | `"3"` | 否 |
+| num\_of\_private\_agents | 指定专用代理节点的数量。这些代理节点将提供您的主要资源 | 字符串 | `""` | 否 |
+| num\_of\_public\_agents | 指定公共代理节点的数量。这些代理节点将承载 marathon-lb 和 edgelb | 字符串 | `""` | 否 |
+| num\_private\_agents | 指定专用代理节点数量。这些代理节点将提供您的主要资源 | 字符串 | `"2"` | 否 |
+| num\_public\_agents | 指定公共代理节点的数量。这些代理节点将承载 marathon-lb 和 edgelb | 字符串 | `"1"` | 否 |
+| private\_agents\_gcp\_image | [专用代理节点] 要使用的镜像 | 字符串 | `""` | 否 |
+| private\_agents\_machine\_type | [专用代理节点] 机器类型 | 字符串 | `"n1-standard-4"` | 否 |
+| private\_agents\_os | [专用代理节点] 要使用的操作系统。您可以使用所提供的操作系统，而不一定使用您自己的 AMI。| 字符串 | `""` | 否 |
+| private\_agents\_root\_volume\_size | [专用代理节点] 根卷大小，单位为 GB | 字符串 | `"120"` | 否 |
+| private\_agents\_root\_volume\_type | [专用代理节点] 根卷类型 | 字符串 | `"pd-ssd"` | 否 |
+| public\_agents\_access\_ips | 允许访问公共代理节点的 IP 列表。 admin_ips 加入此列表 | 列表 | `[ "0.0.0.0/0" ]` | 否 |
+| public\_agents\_additional\_ports | 允许在公共代理节点上公开访问的其他端口列表（默认情况下为 80 和 443 打开） | 列表 | `[]` | 否 |
+| public\_agents\_gcp\_image | [公共代理节点] 要使用的镜像 | 字符串 | `""` | 否 |
+| public\_agents\_machine\_type | [公共代理节点] 机器类型 | 字符串 | `"n1-standard-4"` | 否 |
+| public\_agents\_os | [公共代理节点] 要使用的操作系统。您可以使用所提供的操作系统，而不一定使用您自己的 AMI。| 字符串 | `""` | 否 |
+| public\_agents\_root\_volume\_size | [公共代理节点] 根卷大小 | 字符串 | `"120"` | 否 |
+| public\_agents\_root\_volume\_type | [公共代理节点] 指定根卷类型。| 字符串 | `"pd-ssd"` | 否 |
+| ssh\_public\_key | 要与实例一起使用的 SSH 公钥，采用授权密钥格式（例如 'ssh-rsa ..'）。）。确保您将此密钥添加到您的 SSH 代理。| 字符串 | `""` | 否 |
+| subnet\_range | 以 CIDR 格式使用的专用 IP 空间 | 字符串 | `"172.16.0.0/16"` | 否 |
+

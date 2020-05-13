@@ -24,8 +24,8 @@ dcos security org users [OPTIONS] COMMAND [ARGS]...
  
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
-| `UID` | 用户 ID。（必填）|
+|  `-h`, `--help` |                显示此消息并退出。|
+| `UID` | 用户 ID。（必填)|
 
 
 # 命令

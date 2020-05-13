@@ -10,7 +10,7 @@ model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明
-`dcos cluster attach` 命令将把 CLI 附加到已连接或 [链接](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的群集。当您运行 [`dcos cluster setup`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，群集自动被附加。
+`dcos cluster attach` 命令将把 CLI 附加到已连接或 [链接](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-link/) 的群集。当您运行 [`dcos cluster setup`](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-setup/) 命令时，群集自动被附加。
 
 # 使用
 
@@ -22,19 +22,19 @@ dcos cluster attach <cluster> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 显示使用情况。|
+| `--help, h` | 显示使用情况。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<cluster>` | 群集的 ID（必填）|
+| `<cluster>` | 群集的 ID（必填)|
 
 
 
 # 示例
 
-```
+```bash
 dcos cluster list
         NAME                          ID                     STATUS     VERSION                                         URL
     user_81-rd373u5  bb07074e-2c3d-4dc5-8523-75cab9d517cb  UNAVAILABLE  UNKNOWN  http://user_81-elasticl-7qbh2zcfyz6h-407934734.us-east-1.elb.amazonaws.com
@@ -42,10 +42,10 @@ dcos cluster list
 ```
 
 
-如需更多示例，请参阅 [群集连接](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-connections/) 和 [群集链接](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/)。
+如需更多示例，请参阅 [群集连接](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-connections/) 和 [群集链接](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接 |
+| [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) | 管理与 DC/OS 群集的连接 |

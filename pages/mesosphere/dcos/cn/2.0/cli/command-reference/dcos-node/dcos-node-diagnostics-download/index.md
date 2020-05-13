@@ -14,7 +14,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # 说明
 `dcos node diagnostics download` 命令允许您将诊断捆绑包下载到特定位置。
 
-**自 DC/OS 2.0 以来，此命令已弃用，请使用 `dcos diagnostics download` 代替。**
+<p class="message--warning"><strong>警告：</strong>自 DC/OS 2.0 以来，此命令已弃用，请使用 <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/dcos-diagnostics-download/"><tt>dcos diagnostics download</tt></a> 代替。</p>
 
 # 使用
 
@@ -39,6 +39,6 @@ dcos node diagnostics download <bundle> [--location=<location>]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 
 

@@ -38,7 +38,8 @@ dcos marathon pod remove [--force] <pod-id>
 
 ## 删除 Pod
 使用以下命令删除 pod：
-```
+
+```bash
 dcos marathon pod remove <pod-id>
 ```
 
@@ -48,4 +49,4 @@ dcos marathon pod remove <pod-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

@@ -28,7 +28,7 @@ dcos node ssh (--leader | --mesos-id=<mesos-id> | --private-ip=<private-ip>) [--
 | `--private-ip=<private-ip>` | | 具有提供的专用 IP 的代理节点。 |
 | `--config-file=<path>` | | SSH 配置文件的路径。|
 | `--user=<user>` | `core` | SSH 用户。 |
-| | `--master-proxy` | | 通过主节点代理 SSH 连接。从单独的网络访问 DC/OS 时，这非常有用。例如，在默认 AWS 配置中，私有代理无法从公共互联网访问。您可以使用该选项访问它们，这将通过可公开访问的主节点代理 SSH 连接。|
+| `--master-proxy` | | 通过主节点代理 SSH 连接。从单独的网络访问 DC/OS 时，这非常有用。例如，在默认 AWS 配置中，私有代理无法从公共互联网访问。您可以使用该选项访问它们，这将通过可公开访问的主节点代理 SSH 连接。|
 | `--option SSHOPT=VAL`   |             | SSH 选项。有关更多信息，请在终端中输入 `man ssh_config`。|
 | `--proxy-ip=<proxy-ip>` | | 通过不同 IP 地址代理 SSH 连接。 |
 
@@ -42,10 +42,10 @@ dcos node ssh (--leader | --mesos-id=<mesos-id> | --private-ip=<private-ip>) [--
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/)。
+有关示例，请参阅[文档](/mesosphere/dcos/2.0/administering-clusters/sshcluster/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |

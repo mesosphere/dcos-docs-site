@@ -21,7 +21,7 @@ dcos task download <task> [<path>] [OPTION]
 
 | 名称，简写 | 说明 |
 |---------|-------------|
-| | `--target-dir`   | 指定下载的目标目录。默认为当前工作目录 (`$PWD`)。 |
+| `--target-dir`   | 指定下载的目标目录。默认为当前工作目录 (`$PWD`)。 |
 
 
 # 位置自变量
@@ -35,4 +35,4 @@ dcos task download <task> [<path>] [OPTION]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos task](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-task/) | 管理 DC/OS 任务。|
+| [dcos task](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/)   | 管理 DC/OS 任务。 |

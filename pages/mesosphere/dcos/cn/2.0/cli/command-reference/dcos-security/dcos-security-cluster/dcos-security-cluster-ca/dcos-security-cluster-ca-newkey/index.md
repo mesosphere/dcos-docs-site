@@ -15,7 +15,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security cluster ca newkey [OPTIONS]
 ```
 
@@ -24,8 +24,8 @@ dcos security cluster ca newkey [OPTIONS]
 
 | 名称 | 说明 |
 |--------|---------------|
-|`--cn <text>` |规范名。（必填）|
-| `--host <text>`| 可以多次指定 SAN 主机。（必填）|
+|`--cn <text>` |规范名。（必填)|
+| `--host <text>`| 可以多次指定 SAN 主机。（必填)|
 | `--name-c <text>` |       国家。|
 |  `--name-st <text>` |      州。|
 | `--name-o <text>` | 组织。|
@@ -34,13 +34,13 @@ dcos security cluster ca newkey [OPTIONS]
 | `--key-algo <text>` | 密钥算法。|
 | `--key-size <integer>`| 密钥大小。|
 | `-j`, `--json` | JSON 格式的输出数据。|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 
 
 # 示例
 
-```
+```text
 dcos security cluster ca newkey --cn Newkey-1 --host SAN-1
 certificate: '-----BEGIN CERTIFICATE-----
 
@@ -69,4 +69,4 @@ private_key: '-----BEGIN RSA PRIVATE KEY-----
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster ca](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |
+| [dcos security cluster ca](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |

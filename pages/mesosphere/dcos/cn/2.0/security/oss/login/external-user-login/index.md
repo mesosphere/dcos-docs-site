@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  外部用户登录
+navigationTitle: 外部用户登录
 title: 外部用户登录
 excerpt: 以外部用户的身份登录到 DC/OS
 render: mustache
@@ -13,9 +13,9 @@ menuWeight: 10
 # 使用 DC/OS CLI 登录
 
 **前提条件：**
-- [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)
+- [DC/OS CLI](/mesosphere/dcos/2.0/cli/)
 
-1. 要登录到 DC/OS CLI，请输入以下 [auth login](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令。
+1. 要登录到 DC/OS CLI，请输入以下 [auth login](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令。
 
     ```bash
     dcos auth login --provider dcos-oidc-auth0
@@ -33,7 +33,7 @@ menuWeight: 10
 
 1. 将 `OpenID Connect ID token` 粘贴到 DC/OS CLI，以完成登录。
 
-    <p class="message--note"><strong>注意：</strong><code>-提供商</code> 参数默认设置为 <code>dcos-oidc-auth0</code>。</p>
+ <p class="message--note"><strong>注意：</strong><code>--provider</code> 参数默认设置为 <code>dcos-oidc-auth0</code>。</p>
 
 1. 通过执行以下命令来显示 DC/OS 认证令牌。
 

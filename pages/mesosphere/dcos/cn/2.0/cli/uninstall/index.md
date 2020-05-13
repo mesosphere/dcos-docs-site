@@ -9,10 +9,10 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-您可以使用这些命令为操作系统卸载 CLI。
+您可以使用这些命令为操作系统卸载 DC/OS&trade; CLI。
 
-- [Unix、Linux 和 macOS](#unixlinuxosx)
-- [Windows](#windows)
+- [UNIX&reg;、Linux&reg; 和 macOS&reg;](#unixlinuxosx)
+- [Windows&reg;](#windows)
 
 ## <a name="unixlinuxosx"></a>Unix、Linux 和 macOS
 

@@ -22,7 +22,7 @@ dcos config set <name> <value> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| | `--help, h` | 显示使用情况。|
+| `--help, h` | 显示使用情况。|
 
 ## 位置自变量
 
@@ -36,18 +36,18 @@ dcos config set <name> <value> [flags]
 
 | 名称 | 值 |
 |-----------------------|------------------------------------------------|
-| | `core.dcos_acs_token` | DC/OS 认证令牌。当您使用 `dcos auth login` 登录 DC/OS CLI  时，它将认证令牌值存储在本地。有关详细信息，请参阅 [IAM API](/mesosphere/dcos/cn/2.0/security/oss/iam-api/)。|
+| `core.dcos_acs_token` | DC/OS 认证令牌。当您使用 `dcos auth login` 登录 DC/OS CLI  时，它将认证令牌值存储在本地。有关详细信息，请参阅 [IAM API](/mesosphere/dcos/2.0/security/oss/iam-api/)。|
 | `core.dcos_url` | DC/OS 群集的公共管理节点 URL|
-| | `core.mesos_master_url` | Mesos 管理节点 URL。默认为 `core.dcos_url`|
-| | `core.pagination` | 指示是否标页号输出。默认为 true。|
+| `core.mesos_master_url` | Mesos 管理节点 URL。默认为 `core.dcos_url`|
+| `core.pagination` | 指示是否标页号输出。默认为 true。|
 | `core.ssl_verify` | 指示是否验证 SSL 证书或设置 SSL 证书的路径|
-| | `core.timeout` | 请求超时（秒），最小值为 1 秒。默认为 3 分钟。|
+| `core.timeout` | 请求超时（秒），最小值为 1 秒。默认为 3 分钟。|
 | `core.ssh_user` | 使用 `ssh` 连接到 DC/OS 群集的节点时使用的用户。默认为“core”。 |
 | `core.ssh_proxy_ip`  | 是否使用固定 SSH 代理主机 (Bastion) 来进行节点 SSH 访问。 |
 | `core.reporting` | 是否将使用事件报告给 Mesosphere。 |
 | `core.prompt_login` | 是否提示用户在令牌过期时登录；否则自动启动登录。 |
 | `cluster.name`   | 群集的人类可读名称。 |
-| `job.url`   | 与 Metronome 调度程序对话的 Api URL。 |
+| `job.url`   | 与 Metronome 调度程序对话的 ApI URL。 |
 | `job.service_name`   | Metronome 群集的名称。 |
 | `marathon.url`   | 与 Marathon 对话的基础 URL。它会覆盖 `core.dcos_url` 中指定的值。 |
 | `package.cosmos_url` | 与 Cosmos 对话的基础 URL。它会覆盖 `core.dcos_url` 中指定的值。 |
@@ -93,4 +93,4 @@ dcos config set core.ssl_verify true
 
 | 命令 | 说明 |
 |---------|-------------|
-|[dcos config](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |
+| [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) | 管理 DC/OS 配置 |

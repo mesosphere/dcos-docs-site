@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  揭示外面的 Mesos 区域
+navigationTitle: 揭示外面的 Mesos 区域
 title: 揭示外面的 Mesos 区域
 menuWeight: 300
 excerpt: 揭示 DC/OS 之外的 Mesos 区域
@@ -13,7 +13,7 @@ enterprise: false
 
 有时您希望在 DC/OS 之外拥有可使用 DC/OS 群集之内 DNS 记录的服务。但是，DC/OS 用来揭示记录的 `.mesos` 域名不支持此操作。要启用此功能，您可以在群集之前放置一个 BIND 服务器。
 
-每个 DC/OS 群集都有唯一的加密标识符。标识符的 `zbase32` 编码版本可在 UI 中于 **群集 > 概述** 下找到。
+每个 DC/OS 群集都有唯一的加密标识符。标识符的 `zbase32` 编码版本可在 UI 中于**群集 > 概述**下找到。
 
 下例中，使用了加密群集 ID `yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo`。
 
@@ -71,7 +71,7 @@ enterprise: false
     @       IN      DNAME   mesos.yor6tqhiag39y6cjkdd4w9uzo45qhku6ra8hl7hpr6d9ukjaz3jo.dcos.directory.
     ```
 
-    `@` 给区域的最高级取别名，例如 `contoso.com`。
+ `@` 给区域的最高级取别名，例如 `contoso.com`。
 
 - 要给高级域取别名，请在 DNAME 记录中指定该值。此例中，`foo` 的别名为 `foo.contoso.com`：
 

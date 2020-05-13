@@ -1,0 +1,42 @@
+# 扩展群集
+在创建初始群集后，TerraForm 很容易扩展您的群集以添加更多代理（公共或专用）。只需按以下说明操作。
+
+1. 增加您的 `num_private_agents` 文件中的 `num_public_agents` 和/或 `main.tf` 的值。在本示例中，我们要将群集从 2 个专用代理扩展到 3 个，只更改该行，并保存文件。
+
+    ```bash
+    num_masters        = "1"
+    num_private_agents = "3"
+    num_public_agents  = "1"
+    ```
+
+2. 既然我们已经更改 `main.tf`，我们需要重新运行新的执行计划。
+
+    ```bash
+    terraform plan -out=plan.out
+    ```
+
+ 这样做有助于我们确保状态稳定，并确认我们只会创建必要的资源，将我们的专用代理扩展到所需的数量。
+
+    <p align=center>
+    <img src="./images/scale/terraform-plan.png" />
+    </p>
+
+ 您应该看到类似以上内容的消息。扩展集群的专用代理的结果是，将会添加 3 个资源（1 个实例资源和 2 个空资源，在幕后处理 DC/OS 安装和先决条件）。
+
+3. 现在，我们的计划已设置，就像前面一样，我们来让 Terraform 构建/部署该计划。
+
+    ```bash
+    terraform apply plan.out
+    ```
+
+    <p align=center>
+    <img src="./images/scale/terraform-apply.png" />
+    </p>
+
+ 当您看到类似于以上消息的输出后，检查您的 DC/OS 群集，确保已添加其他代理。
+
+ 您现在应该看到总共 4 个通过 DC/OS UI 连接的节点，如下所示。
+
+    <p align=center>
+    <img src="./images/scale/node-count-4.png" />
+    </p>

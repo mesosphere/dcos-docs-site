@@ -15,7 +15,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security org service-accounts show [OPTIONS] [SIDS]...
 ```
 
@@ -23,11 +23,11 @@ dcos security org service-accounts show [OPTIONS] [SIDS]...
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 | `-j`, `--j` | JSON 格式的输出数据。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `SID` | 服务账户 ID。（必填）|
+| `SID` | 服务账户 ID。（必填)|

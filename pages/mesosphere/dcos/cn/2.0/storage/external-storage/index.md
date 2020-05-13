@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  外部持久卷
+navigationTitle: 外部持久卷
 title: 外部持久卷
 menuWeight: 20
 excerpt: 通过 Marathon 使用外部持久卷
@@ -10,11 +10,11 @@ beta: true
 enterprise: false
 ---
 
-当容错对您的应用程序至关重要时，请使用外部卷。如果主机发生故障，本地 Marathon 实例会在其他主机上重新安排您的应用程序及其相关数据，而无需用户干预。外部卷通常提供较大的存储量。
+当容错对您的应用程序至关重要时，请使用外部卷。如果主机发生故障，本地 Marathon&trade; 实例会在其他主机上重新安排您的应用程序及其相关数据，而无需用户干预。外部卷通常提供较大的存储量。
 
-Marathon 应用程序通常在终止和重新启动时失去状态。在某些情况下，例如，如果您的应用程序使用 MySQL，您将希望应用程序保存其状态。您可以使用外部存储服务，例如 Amazon 的 Elastic Block Store (EBS)，创建跟随应用程序实例的持久卷。
+Marathon 应用程序通常在终止和重新启动时失去状态。在某些情况下，例如，如果您的应用程序使用 MySQL&reg;，您将希望应用程序保存其状态。您可以使用外部存储服务，例如 Amazon&reg; 的 Elastic Block Store (EBS)，创建跟随应用程序实例的持久卷。
 
-请注意，卷的大小以吉字节 (GiB) 为单位指定。
+请注意，卷的大小以吉字节 (GiB) 为单位（2<sup>30</sup> 或 1,073,741,824 字节）指定。
  
 # 创建具有外部持久卷的应用程序
 
@@ -57,7 +57,7 @@ Marathon 应用程序通常在终止和重新启动时失去状态。在某些�
 
 #### 卷配置选项
 
-- `containerPath`：卷装载在容器内的路径。对于 Mesos 外部卷，这必须是相对于容器的单层路径；不能包含正斜杠 (`/`)。有关更多信息，请参阅[数据目录上的 REX-Ray 文档][7]。
+- `containerPath`：卷装载在容器内的路径。对于 Mesos 外部卷，这必须是相对于容器的单层路径；不能包含正斜杠 (`/`)。有关更多信息，请参阅[数据目录上的 REX-Ray&reg; 文档][7]。
 - `mode`：卷的访问模式。目前， `"RW"` 是唯一可能的值，它将允许您的应用程序从卷中读取及写入卷。
 - `external.size`：以 **GiB** 为单位的卷大小。
 - `external.name`: **name** 卷驱动程序用于查找外部卷的名称。当您的任务在代理程序上暂存时，卷驱动程序将在存储服务中查询具有此名称的卷。如果不存在，则是[隐式创建的][8]。否则，将重用现有卷。
@@ -67,7 +67,7 @@ Marathon 应用程序通常在终止和重新启动时失去状态。在某些�
 - 创建应用程序后，无法更改卷参数。
 - 如 `upgradeStrategy.minimumHealthCapacity` 大于 0.5 或 `upgradeStrategy.maximumOverCapacity` 不等于 0，Marathon 将不会启动具有外部卷的应用程序。
 
-### 使用 Docker 引擎
+### 使用 Docker&reg; 引擎
 
 下面是一个示例应用定义，它使用 Docker Engine 并指定外部卷。此应用定义中 `cmd` 将 `date` 命令的输出附加到 `test.txt`。如果您看到应用程序连续运行的日志显示越来越多的 `date` 输出行，则可以验证是否正确使用了外部卷。
 
@@ -149,19 +149,19 @@ EBS 卷也由其可用区 (AZ) 命名，并且 EBS 卷 [只能连接到同一 AZ
 1. 安装 NVMe CLI 命令。
     
     ```bash
-    $ yum install -y nvme-cli
+    yum install -y nvme-cli
     ```
 
 1. 安装必要的 udev 规则和 helper 脚本。这些都取自 [RexRay 用户指南](https://github.com/rexray/rexray/blob/362035816046e87f7bc5a6ca745760d09a69a40c/.docs/user-guide/storage-providers/aws.md#nvme-support)。
 
     ```bash
-    $ cat <<EOF > /etc/udev/rules.d/999-aws-ebs-nvme.rules
+    cat <<EOF > /etc/udev/rules.d/999-aws-ebs-nvme.rules
     KERNEL=="nvme[0-9]*n[0-9]*", ENV{DEVTYPE}=="disk", ATTRS{model}=="Amazon Elastic Block Store", PROGRAM="/usr/local/bin/ebs-nvme-mapping /dev/%k", SYMLINK+="%c"
     EOF
     ```
 1. 创建 helper 脚本。
     ```bash
-    $ cat <<EOF > /usr/local/bin/ebs-nvme-mapping
+    cat <<EOF > /usr/local/bin/ebs-nvme-mapping
     #!/bin/bash
     #/usr/local/bin/ebs-nvme-mapping
     vol=$(/usr/sbin/nvme id-ctrl --raw-binary "${1}" | \
@@ -169,24 +169,26 @@ EBS 卷也由其可用区 (AZ) 命名，并且 EBS 卷 [只能连接到同一 AZ
     vol=${vol#/dev/}
     [ -n "${vol}" ] && echo "${vol/xvd/sd} ${vol/sd/xvd}"
     EOF
-1. Set the file permissions on the scripts and reload the udev rules.      
-    ```bash
-    $ chown root:root /usr/local/bin/ebs-nvme-mapping
-    $ chmod 700 /usr/local/bin/ebs-nvme-mapping
-    $ udevadm control --reload
     ```
 
-## 外部卷   
+1. 在脚本上设置文件权限，然后重新加载 udev 规则。
+    ```bash
+    chown root:root /usr/local/bin/ebs-nvme-mapping
+    chmod 700 /usr/local/bin/ebs-nvme-mapping
+    udevadm control --reload
+    ```
+
+## 外部卷 
 
 有关外部卷的故障排除，请参阅代理程序或系统日志。如果您在 DC/OS 上使用 REX-Ray，还可以查阅 `systemd` 日志中的 `dcos-rexray.service` 单元记录。
 
-[4]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
-[5]:http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/
-[6]: /mesosphere/dcos/cn/2.0/deploying-services/creating-services/
-[7]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directories
+[4]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
+[5]: http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/
+[6]: /mesosphere/dcos/2.0/deploying-services/creating-services/
+[7]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directories
 [8]: #implicit-vol
-[9]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/
-[10]:https://github.com/emccode/dvdcli#extra-options
-[11]:https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/#docker-containerizer-with-marathon
-[12]:https://docs.aws.amazon.com/AWSEC2/latest/Userguide/ebs-attach-volume.html
-[13]:https://rexray.readthedocs.io/en/v0.11.0/user-guide/storage-providers/aws/#configuration-notes
+[9]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/
+[10]: https://github.com/emccode/dvdcli#extra-options
+[11]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/#docker-containerizer-with-marathon
+[12]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html
+[13]: https://rexray.readthedocs.io/en/v0.11.0/user-guide/storage-providers/aws/#configuration-notes

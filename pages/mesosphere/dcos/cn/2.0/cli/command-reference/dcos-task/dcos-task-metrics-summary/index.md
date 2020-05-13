@@ -15,7 +15,7 @@ enterprise: false
 
 # 使用
 
-```
+```bash
 dcos task metrics summary <task-id> [--json]
 ```
 
@@ -30,4 +30,4 @@ dcos task metrics summary <task-id> [--json]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos task](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-task/) | 管理 DC/OS 任务。|
+| [dcos task](/mesosphere/dcos/2.0/cli/command-reference/dcos-task/)   | 管理 DC/OS 任务。 |

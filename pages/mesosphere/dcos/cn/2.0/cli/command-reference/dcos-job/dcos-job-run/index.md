@@ -25,7 +25,7 @@ dcos job run <job-id> [--json]
 | 名称 | 说明 |
 |---------|-------------|
 |`-h`，`--help` | 打印用法。 |
-| `--json` | 打印 JSON 格式列表而不是表格。 |
+| `--json` | 打印 JSON 格式列表而不是表格。|
 
 
 ## 位置自变量
@@ -49,4 +49,4 @@ dcos job run my-job
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |

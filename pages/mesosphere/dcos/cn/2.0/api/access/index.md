@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  群集访问
+navigationTitle: 群集访问
 title: 群集访问
 menuWeight: 1
 excerpt: 获取群集 URL 的访问权限
@@ -11,7 +11,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 获取群集 URL 的访问权限
 
-- 登录 DC/OS Web 界面，从浏览器地址栏复制模式和域名。
+- 登录 DC/OS&trade; Web 界面，从浏览器地址栏复制模式和域名。
 - 登录 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。
 
 
@@ -29,12 +29,12 @@ model: /mesosphere/dcos/2.0/data.yml
 - 登录 DC/OS GUI，导航到“节点”页面并复制所需节点的主机名。
 - 登录 DC/OS CLI，列出带有 `dcos node` 的节点，并复制所需节点的主机名。
 
-要确定哪些代理是公共代理，参见[查找公共代理 IP](/mesosphere/dcos/cn/2.0/administering-clusters/locate-public-agent/)。
+要确定哪些代理是公共代理，参见[查找公共代理 IP](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/)。
 
 
 # Ingress
 
-在大多数生产部署中，群集的管理性访问应通过外部代理路由到 DC/OS 管理节点，在管理节点之间分配流量负载。例如，默认 AWS 模板配置 AWS 弹性负载均衡器。
+在大多数生产部署中，群集的管理性访问应通过外部代理路由到 DC/OS 管理节点，在管理节点之间分配流量负载。例如，默认 AWS&reg; 模板配置 AWS Elastic Load Balancer&reg; (ELB&reg;)。
 
 管理节点和私有代理节点通常不可公开访问。出于安全原因，进入这些节点的 ingress 应由路由器或防火墙控制。要管理群集，管理员和操作员应在与 DC/OS 节点相同的网络中使用防火墙内的 VPN 服务器。使用 VPN 可确保您可以直接从工作站安全访问节点。
 
@@ -42,4 +42,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
 在开发或本地部署中，您通常可以通过 IP 直接访问节点。
 
-有关详细信息，请参阅[保护您的群集](/mesosphere/dcos/cn/2.0/administering-clusters/)。
+有关详细信息，请参阅[保护您的群集](/mesosphere/dcos/2.0/administering-clusters/)。

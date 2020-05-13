@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  配置分区和分域
+navigationTitle: 配置分区和分域
 title: 配置分区和分域
 menuWeight: 15
 excerpt: 使用 DC/OS 中的高可用性功能
@@ -16,7 +16,7 @@ model: /mesosphere/dcos/2.0/data.yml
 区域是具有隔离电源、网络和连接的故障域。通常，分区是云提供商管理的单个数据中心或本地独立的故障域。例如，AWS 可用性分区或 GCP 分区。分区内的服务器通过高带宽（例如，1-10+ Gbps）、低延迟（高达 1 ms）和低成本链接建立连接。
 
 ## 分域
-分域是由一个或多个分区组成的地理分域，例如一片地铁区域。分域内的分区通过高带宽（例如，[1-4 Gbps](https://blog.serverdensity.com/network-performance-aws-google-rackspace-softlayer/)）、低延迟（高达 10 ms）、低成本建立链接。分域通常通过可变带宽通过公共互联网连接（例如，[10-100 Mbps](https://cloudharmony.com/speedtest-for-aws)） 和延迟 ([100-500 ms](https://www.concurrencylabs.com/blog/choose-your-aws-region-wisely/)) 链接。
+分域是由一个或多个分区组成的地理分域，例如一片地铁区域。分域内的分区通过高带宽（例如，[1-4 Gbps](https://blog.serverdensity.com/network-performance-aws-google-rackspace-softlayer/)）、低延迟（高达 10 ms）、低成本建立链接。分域通常通过可变带宽通过公共互联网连接（例如，[10-100 Mbps](https://cloudharmony.com/speedtest-for-aws)） 和延迟 [100-500 ms](https://www.concurrencylabs.com/blog/choose-your-aws-region-wisely/) 链接。
 
 ## 机架
 机架通常由一组服务器（节点）组成。机架有自己的电源和开关，它们全都安装在同一框架上。在 AWS 等公共云平台上，机架没有等效概念。

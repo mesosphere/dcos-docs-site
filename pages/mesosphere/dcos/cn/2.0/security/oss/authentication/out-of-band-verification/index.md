@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  带外令牌验证
+navigationTitle: 带外令牌验证
 title: 带外令牌验证
 excerpt: 带外验证 DC/OS 认证令牌
 render: mustache
@@ -9,7 +9,7 @@ menuWeight: 20
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-其他服务可使用公钥加密技术代表 DC/OS [身份和访问管理器 (IAM)](/mesosphere/dcos/cn/2.0/overview/architecture/components/#dcos-iam) 组件对传入请求进行认证。如果客户端显示的认证令牌已由 IAM 使用其私钥签名，则此方法有效。
+其他服务可使用公钥加密技术代表 DC/OS [身份和访问管理器 (IAM)](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-iam) 组件对传入请求进行认证。如果客户端显示的认证令牌已由 IAM 使用其私钥签名，则此方法有效。
 
 ## Bouncer JSON Web Key Set (JWKS) 端点
 Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公匙详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517)。在该数据结构内，公钥根据 [RFC 7518](https://tools.ietf.org/html/rfc7518) 进行参数化。
@@ -33,7 +33,7 @@ curl -k https://<host-ip/acs/api/v1/auth/jwks
 ```
 
 ## 从 JWKS 数据构建公钥
-完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`)。两个均为使用 Base64 编码的整数，如 [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3) 中所述
+完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`)。两个均为使用 Base64 编码的整数，如 [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3)中所述
 
 使用您选择的工具生成验证认证令牌所需的公钥表示。
 

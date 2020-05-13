@@ -27,11 +27,11 @@ menuWeight: 10
 
 您可以使用 `dcos_add_user.py` 脚本从终端将外部用户添加到 DC/OS 群集中。
 
-**前提条件:**
+**前提条件：**
 
-- DC/OS [已安装](/mesosphere/dcos/cn/2.0/installing/)
+- DC/OS [已安装](/mesosphere/dcos/2.0/installing/)
 
-1. [SSH](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
+1. [SSH](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
@@ -46,7 +46,6 @@ menuWeight: 10
 1. 在 **Users** 屏幕中，选择用户名，然后单击 **Delete**。
 2. 单击 **Delete** 以确认操作。
 
-
-![新 DC/OS 用户](/mesosphere/dcos/2.0/img/1-11-delete-user.png)
+<img src="/mesosphere/dcos/2.0/img/1-11-delete-user.png" alt="delete-user" width="350" height="300" border="2">
 
  图 2. 删除用户

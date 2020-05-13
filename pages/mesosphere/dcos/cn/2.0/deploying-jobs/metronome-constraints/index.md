@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Metronome 放置约束
+navigationTitle: Metronome 放置约束
 title: Metronome 放置约束
 menuWeight: 3
 excerpt: 了解 Metronome 放置约束
@@ -11,7 +11,7 @@ enterprise: false
 
 Metronome 放置约束控制作业运行的位置。约束有三个部分：字段名称、算子和值。该字段可以是代理的主机名或代理的任何属性。
 
-Metronome 支持 Marathon 算子的子集，并且支持 Marathon 的所有特殊字段名称。
+Metronome 支持 Marathon&trade; 算子的子集，并且支持 Marathon 的所有特殊字段名称。
 
 # 字段名称
 
@@ -25,7 +25,7 @@ Metronome 支持 Marathon 算子的子集，并且支持 Marathon 的所有特�
 
 ### 分域和分区作为字段名称
 
-使用 `@region` 和 `@zone` 字段名称配置 [故障域感知和容量扩展](/mesosphere/dcos/cn/2.0/deploying-services/fault-domain-awareness/)。参见 `IS` 算子，查看使用示例。
+使用 `@region` 和 `@zone` 字段名称配置 [故障域感知和容量扩展](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/)。参见 `IS` 算子，查看使用示例。
 
 ## 属性作为字段名称
 
@@ -37,11 +37,11 @@ Metronome 支持文本、标量和范围属性值。对于标量和范围，Metr
 
 ## IS 算子
 
-支持 DC/OS 1.12.1 及更高版本。
+支持 DC/OS&trade; 1.12.1 及更高版本。
 
 **值**（必填）：Mesos 标量或文本值，由 [Mesos 属性和资源类型规范](http://mesos.apache.org/documentation/latest/attributes-resources/#types)指定：
 
-```
+```bash
 scalar : floatValue
 
 floatValue : ( intValue ( "." intValue )? ) | ...
@@ -55,7 +55,7 @@ text : [a-zA-Z0-9_/.-]
 
 指定 `IS` 限制后，任务仅在具有指定值的节点上启动。
 
-``` json
+```json
 {
   "id": "sleep-cluster",
   "cmd": "sleep 60",
@@ -126,7 +126,7 @@ text : [a-zA-Z0-9_/.-]
 
 `UNLIKE` 类似于 `LIKE` 算子，但指示 Metronome 仅在字段值 **不与**正则表达式匹配的代理上运行任务。
 
-``` json
+```json
 {
   "description": "Important Job",
   "id": "sleeper",

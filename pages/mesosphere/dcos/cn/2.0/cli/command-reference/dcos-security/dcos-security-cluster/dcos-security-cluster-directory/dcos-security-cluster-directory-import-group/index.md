@@ -15,7 +15,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security cluster directory import_user [OPTIONS] GID
 ```
 
@@ -23,7 +23,7 @@ dcos security cluster directory import_user [OPTIONS] GID
 
 | 名称 | 说明 |
 |--------|-------------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 ## 位置自变量
 
@@ -35,4 +35,4 @@ dcos security cluster directory import_user [OPTIONS] GID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster directory](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
+| [dcos security cluster directory](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |

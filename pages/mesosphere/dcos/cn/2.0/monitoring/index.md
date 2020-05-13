@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  监控、日志记录和调试
+navigationTitle: 监控、日志记录和调试
 title: 监控、日志记录和调试
 menuWeight: 110
 excerpt: 了解如何通过 DC/OS 监控数据中心运行的健康状况
@@ -9,13 +9,13 @@ model: /mesosphere/dcos/2.0/data.yml
 ---
 
 
-监控构成 DC/OS 的所有部件的健康状况对数据中心操作员和排除难以诊断的漏洞都至关重要。您可以从 DC/OS UI 的组件健康状况页面，监控群集组件的健康状况。组件健康状况页面显示来自系统健康 API 的信息，后者监控核心 DC/OS 组件。
+监控构成 DC/OS&reg; 的所有部件的健康状况对数据中心操作员和排除难以诊断的漏洞都至关重要。您可以从 DC/OS UI 界面组件健康状况页面，监控群集组件的健康状况。组件健康状况页面显示来自系统健康 API 的信息，后者监控核心 DC/OS 组件。
 
-DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop.org/wiki/Software/systemd/)。这些组件由我们的内部诊断实用工具 (`dcos-diagnostics.service`) 进行监控。此实用程序扫描所有 DC/OS 单元，然后揭示每个主机上的 HTTP API。有关 DC/OS 组件的完整说明，请参阅 [文档](/mesosphere/dcos/cn/2.0/overview/architecture/components/)。组件健康状况页面提供 systemd 中运行的所有 DC/OS 系统组件的健康状况。您可以按健康状况、主机 IP 地址或特定 systemd 进行深入查看。
+DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop.org/wiki/Software/systemd/)。这些组件由我们的内部诊断实用工具 (`dcos-diagnostics.service`) 进行监控。此实用程序扫描所有 DC/OS 单元，然后揭示每个主机上的 HTTP API。有关 DC/OS 组件的完整说明，请参阅 [文档](/mesosphere/dcos/2.0/overview/architecture/components/)。组件健康状况页面提供 systemd 中运行的所有 DC/OS 系统组件的健康状况。您可以按健康状况、主机 IP 地址或特定 systemd 进行深入查看。
 
 ## 入门
 
-启动 [DC/OS UI](/mesosphere/dcos/cn/2.0/gui/) 并导航到 **系统 -> 组件** 页面。您可以按健康状况对组件进行排序。
+启动 [DC/OS UI](/mesosphere/dcos/2.0/gui/) 并导航到**系统 -> 组件**页面。您可以按健康状况对组件进行排序。
 
 ![系统健康](/mesosphere/dcos/2.0/img/GUI-Components-List_View-1_12.png)
 
@@ -66,17 +66,17 @@ curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/healt
     ```
 1. 运行以下命令以获得群集健康状况：
 
-    - 系统健康状况（按单元）：
+ - 系统健康状况（按单元）：
 
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/units
        ```
-    - 系统健康状况（按节点）：
+ - 系统健康状况（按节点）：
 
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/nodes
        ```
-    - 系统健康状况报告：
+ - 系统健康状况报告：
 
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/report
@@ -92,7 +92,7 @@ DC/OS 用户界面使用这些聚合端点生成您在系统健康状况控制�
 
 ### 缺少群集主机
 
-系统健康 API 依靠 Mesos-DNS 来了解所有群集主机。它通过结合来自 `mesos.master` A 记录的查询以及 `leader.mesos:5050/slaves` 来找到这些主机，以获取群集中主机的完整列表。此系统有一个已知的漏洞，如果 Mesos 代理节点的服务不健康，代理节点将不会出现在从 `leader.mesos:5050/slaves` 返回的列表中。这意味着系统健康 API 不会显示此主机。如果您遇到这种运行状态，最有可能是缺失的主机上的 Mesos 代理节点服务不健康。
+系统健康 API 依靠 Apache&reg; Mesos&reg;-DNS 来了解所有群集主机。它通过结合来自 `mesos.master` A 记录的查询以及 `leader.mesos:5050/slaves` 来找到这些主机，以获取群集中主机的完整列表。此系统有一个已知的漏洞，如果 Mesos 代理节点的服务不健康，代理节点将不会出现在从 `leader.mesos:5050/slaves` 返回的列表中。这意味着系统健康 API 不会显示此主机。如果您遇到这种运行状态，最有可能是缺失的主机上的 Mesos 代理节点服务不健康。
 
 ### 诊断捆绑包内容
 
@@ -105,8 +105,8 @@ DC/OS 用户界面使用这些聚合端点生成您在系统健康状况控制�
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/
  [5]: http://erlang.org/doc/man/epmd.html
- [6]: /mesosphere/dcos/cn/2.0/security/
- [7]: /mesosphere/dcos/cn/2.0/networking/load-balancing-vips/
- [8]: /mesosphere/dcos/cn/2.0/overview/concepts/#private-agent-node
- [9]: /mesosphere/dcos/cn/2.0/overview/concepts/#public-agent-node
+ [6]: /mesosphere/dcos/2.0/security/
+ [7]: /mesosphere/dcos/2.0/networking/load-balancing-vips/
+ [8]: /mesosphere/dcos/2.0/overview/concepts/#private-agent-node
+ [9]: /mesosphere/dcos/2.0/overview/concepts/#public-agent-node
  [10]: http://mesos.apache.org/documentation/latest/persistent-volume/

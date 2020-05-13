@@ -17,14 +17,14 @@ enterprise: true
  
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 | `-j`, `--json` | JSON 格式的输出数据。|
 | `UID` | 用户 ID。 |
 
 
 # 使用
 
-```
+```bash
 Usage: dcos security org users show [OPTIONS] [UIDS]...
 
   Print information about a user or users.

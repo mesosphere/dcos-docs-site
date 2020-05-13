@@ -1,0 +1,37 @@
+## 适用于 AWS 的 Universal 安装工具 0.2 更新
+Universal 安装工具配置模块后端已经进行了更改，现在正在运行版本 `0.2` 适用于 Amazon Web Services 用户。如果您的版本仍是 `0.1`，则没有直接升级路径，因为底层群集管理已更改，因此您将无法自动升级。您将需要启动新群集并转移服务。
+
+更新：
+- 目前，只有 CentOS 或 RHEL 是唯一受支持的节点 OS。
+- `dcos_install_mode` 已被弃用，现在已自动计算。
+
+#### 检查您的版本
+您可以通过查看 `main.tf` 来检查您运行的 Universal 安装工具模块的版本。
+
+```hcl
+module "dcos" {
+    source  = "dcos-terraform/dcos/aws"
+    version = "~> 0.2.0"
+    # ...
+}
+```
+
+#### 为 `~> 0.1.0` 版本用户使用安装和升级模式
+若要使用这些页面上的示例，请对 `main.tf` 进行以下更改。将变量设置为 `upgrade` 的唯一时间是在升级 DC/OS 版本时。切记之后将其设置回“install”以确保正常操作。
+
+```hcl
+variable "dcos_install_mode" {
+  description = "specifies which type of command to execute. Options: install or upgrade"
+  default = "install"
+}
+
+module "dcos" {
+  source  = "dcos-terraform/dcos/aws"
+  version = "~> 0.1.0"
+
+  # ...
+
+  # Reads the install mode set above
+  dcos_install_mode = "${var.dcos_install_mode}"
+}
+```

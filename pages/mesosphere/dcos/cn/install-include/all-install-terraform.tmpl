@@ -1,0 +1,19 @@
+# 安装 Terraform
+
+<p class="message--important"><strong></strong>重要信息：Terraform 更新到 0.12.x。DC/OS Universal 安装工具目前仅支持 <b>Terraform 0.11.x</b></p>
+
+1. 访问 [Terraform 版本页面](https://releases.hashicorp.com/terraform/)，获得适用于 Linux、macOS 和 Windows 的捆绑安装和支持。选择最新的 0.11 版本。
+
+ 如果您在安装了 [Homebrew](https://brew.sh/) 的 Mac 环境中，只需运行以下命令：
+
+    ```bash
+    brew unlink terraform || true
+    brew install tfenv
+    tfenv install 0.11.14
+    ```
+
+ 已安装 [Chocolatey](https://chocolatey.org/docs/installation) 的 Windows 用户，请运行：
+
+    ```bash
+    choco install terraform --version 0.11.14 -y
+    ```

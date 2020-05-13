@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Mesos-DNS
+navigationTitle: Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
 excerpt: 了解 Mesos DNS
@@ -30,6 +30,6 @@ Mesos-DNS 专为可靠性和简单性而设计。它需要的配置很少，启�
 
 如图所示，Mesos-DNS 可选地与现有 DNS 基础架构集成。Mesos-DNS 直接回复代理节点在 DC/OS 群集中寻找应用程序和服务的查找请求。如果代理节点作出要求 DC/OS 群集之外主机名的 DNS 请求，Mesos-DNS 会查询外部域名服务器。只有在 DC/OS 群集节点必须为网络中其他地方或互联网上的系统解析主机名时，才需要外部域名服务器。
 
- [1]:https://github.com/mesosphere/mesos-dns
+ [1]: https://github.com/mesosphere/mesos-dns
  [2]: http://en.wikipedia.org/wiki/Domain_Name_System
- [3]:https://github.com/mesosphere/marathon
+ [3]: https://github.com/mesosphere/marathon

@@ -7,7 +7,6 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 11
 ---
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
 
 <a name=c2></a>
 
@@ -18,7 +17,7 @@ menuWeight: 11
 部署文件 [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-oom.json)：
 
 ```bash
-$ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
+dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 ```
 
 部署完成后，当我们查看 DC/OS Web 界面时，我们在 CPU 分配下看到一些奇怪的结果：
@@ -27,7 +26,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
 
 图 1. CPU 分配显示
 
-**CPU 分配如何在 0% 到 8% 之间不断变动？** 让我们看看 Web 界面中的应用程序详细信息：
+**CPU 分配为何在 0% 到 8% 之间不断变动？** 让我们看看 Web 界面中的应用程序详细信息：
 
 ![任务选项卡图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-24.png)
 
@@ -59,7 +58,7 @@ Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [201
 
 **现在，我们已经确认，我们已经超出了 [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6) 中先前设置的容器内存限制 **
 
-如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/mesosphere/dcos/cn/2.0/overview/architecture/task-types/#executors)保留一些高开销内存，在本例中为 32 MB。
+如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/mesosphere/dcos/2.0/overview/architecture/task-types/#executors)保留一些高开销内存，在本例中为 32 MB。
 
 请注意，OOM `kill` 是由 Linux 内核本身执行的，因此我们也可以直接检查内核日志：
 

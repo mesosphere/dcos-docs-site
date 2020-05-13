@@ -28,8 +28,5 @@ dcos task list [OPTIONS]
 | `--info` | 打印该子命令的简短描述。|
 | `--version` | 打印版本信息。|
 
-# 父命令
+# 命令
 
-| 命令 | 说明 |
-|---------|-------------|
-| [dcos task](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-task/) | 管理 DC/OS 任务。|

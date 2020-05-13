@@ -31,7 +31,7 @@ dcos job remove <job-id> [--stop-current-job-runs]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<job-id>` | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。 |
+| `<job-id>` | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
 
 
 
@@ -49,4 +49,4 @@ dcos job remove my-job
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  指定身份认证和参数
+navigationTitle: 指定身份认证和参数
 title: 指定身份认证和参数
 menuWeight: 2
 render: mustache
@@ -8,6 +8,7 @@ model: /mesosphere/dcos/2.0/data.yml
 excerpt: 为 LDAP 目录指定身份认证方法和参数
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 在此部分中，您将为 LDAP 目录设置身份认证方法和参数。您可以使用两种绑定类型和两种身份认证方法。
@@ -46,13 +47,13 @@ enterprise: true
 
 1. 完成输入后，对话框应如下所示。
 
-    ![简单绑定参数](/mesosphere/dcos/2.0/img/GUI-LDAP-anonymous-simple-bind.png)
+ ![简单绑定参数](/mesosphere/dcos/2.0/img/GUI-LDAP-anonymous-simple-bind.png)
 
-    图 1. “使用简单绑定的匿名绑定”参数 
+ 图 1. “使用简单绑定的匿名绑定”参数 
 
 1. 单击 **Add Directory**。
 
-1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
 
 ## 使用搜索绑定的匿名绑定
 
@@ -75,12 +76,12 @@ enterprise: true
     ```
 1. 完成输入后，对话框应如下所示：
 
-    ![使用搜索绑定的匿名绑定](/mesosphere/dcos/2.0/img/GUI-LDAP-anonymous-search-bind.png)
+ ![使用搜索绑定的匿名绑定](/mesosphere/dcos/2.0/img/GUI-LDAP-anonymous-search-bind.png)
 
-    图 2. “使用搜索绑定的匿名绑定”参数
+ 图 2. “使用搜索绑定的匿名绑定”参数
 
 1. 单击 **Add Directory**。
-1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
 
 ## 使用简单绑定的 LDAP 凭据
 
@@ -97,7 +98,7 @@ enterprise: true
         uid=read-only-user,ou=users,dc=example,dc=com
     ```
 
-    <p class="message--note"><strong>注意：</strong>我们建议使用只读用户账户。</p>
+ <p class="message--note"><strong>注意：</strong>我们建议使用只读用户账户。</p>
 
 1. 在 **Lookup Password** 字段中提供帐户的密码。
 
@@ -111,13 +112,13 @@ enterprise: true
 
 1. 完成输入后，对话框应如下所示。
 
-    ![简单绑定参数](/mesosphere/dcos/2.0/img/GUI-LDAP-credentials-simple.png)
+ ![简单绑定参数](/mesosphere/dcos/2.0/img/GUI-LDAP-credentials-simple.png)
 
-    图 3. “使用简单绑定的 LDAP 凭据”参数 
+ 图 3. “使用简单绑定的 LDAP 凭据”参数 
 
 1. 单击 **Add Directory**。
 
-1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
 
 ## 使用搜索绑定的 LDAP 凭据
 
@@ -133,7 +134,7 @@ enterprise: true
         uid=read-only-user,ou=users,dc=example,dc=com
     ```
 
-    <p class="message--note"><strong>注意：</strong>我们建议使用只读用户账户。</p>
+ <p class="message--note"><strong>注意：</strong>我们建议使用只读用户账户。</p>
 
 1. 在 **Lookup Password** 字段中提供帐户的密码。
 1. 在 **身份认证方法**下，单击 **搜索绑定**。
@@ -151,10 +152,10 @@ enterprise: true
     ```
 1. 完成输入后，对话框应如下所示：
 
-    ![使用搜索绑定的 LDAP 凭据](/mesosphere/dcos/2.0/img/GUI-LDAP-credentials-search.png)
+ ![使用搜索绑定的 LDAP 凭据](/mesosphere/dcos/2.0/img/GUI-LDAP-credentials-search.png)
 
-    图 4. “使用搜索绑定的 LDAP 凭据”参数
+ 图 4. “使用搜索绑定的 LDAP 凭据”参数
 
 1. 单击 **Add Directory**。
-1. [验证您的连接](/mesosphere/dcos/cn/2.0/security/ent/ldap/ldap-verify/)。
+1. [验证您的连接](/mesosphere/dcos/2.0/security/ent/ldap/ldap-verify/)。
 

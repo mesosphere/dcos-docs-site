@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  CNI 插件支持
+navigationTitle: CNI 插件支持
 title: CNI 插件支持
 menuWeight: 30
 excerpt: 了解 CNI 插件支持
@@ -20,7 +20,7 @@ DC/OS 可配合任何类型的容器网络接口 (CNI) 网络使用。使用 CNI
 1. 将插件文件添加到 `/opt/mesosphere/active/cni/` 目录。
 
 1. 将配置文件添加到 `/opt/mesosphere/etc/dcos/network/cni/` 目录。
-   典型的配置文件看起来像这样。
+ 典型的配置文件看起来像这样。
 
    ```bash
    {
@@ -41,11 +41,11 @@ DC/OS 可配合任何类型的容器网络接口 (CNI) 网络使用。使用 CNI
      }
    }
    ```
-   `type` 参数指定插件的名称。此处，插件名称为 `bridge`。`name` 参数是网络的名称，您也可以稍后在服务定义中使用。
+ `type` 参数指定插件的名称。此处，插件名称为 `bridge`。`name` 参数是网络的名称，您也可以稍后在服务定义中使用。
 
 # 配置服务以使用 CNI 插件
 
-您的服务必须使用 [通用容器运行时 (UCR)](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/ucr/)。
+您的服务必须使用 [通用容器运行时 (UCR)](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/)。
 
 
 添加 `ipAddress.networkName` 参数到服务定义。`networkName` 必须匹配在上一步中配置文件的 `name` 参数。此例中，它是 `dcos`。

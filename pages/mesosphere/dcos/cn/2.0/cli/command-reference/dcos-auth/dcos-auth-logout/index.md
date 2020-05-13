@@ -22,11 +22,11 @@ dcos auth logout [flags]
 
 | 名称 | 说明 |
 |---------|-------------|-------------|
-| | `--help, h` | 显示使用情况。|
+| `--help, h` | 显示使用情况。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos auth](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |
+| [dcos auth](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/) | 管理 DC/OS 身份和访问。 |
 

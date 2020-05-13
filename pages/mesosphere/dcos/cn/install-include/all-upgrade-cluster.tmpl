@@ -1,0 +1,38 @@
+# 升级群集
+
+Terraform 还可以轻松地将我们的群集升级到更新版本的 DC/OS。如果您有兴趣了解有关 Terraform 执行的升级程序的更多信息，请参阅官方 [DC/OS 升级文档](/mesosphere/dcos/{{ model.folder_version }}/installing/production/upgrading/)。
+
+1. 为了执行升级，我们需要返回到我们的 `main.tf` 并将当前 DC/OS 版本 (`dcos_version`) 修改为较新版本，如本示例的 `1.13.3`。
+
+    ```bash
+    dcos_version = "1.13.3"
+    ```
+2. 我们还应确保拥有最新版本的 Terraform 模块。因此，我们会告诉 Terraform 从注册表中请求这些。
+
+    ```bash
+    terraform get -update
+    ```
+
+3. 重新运行执行计划，Terraform 会注意到版本的变化并相应运行。
+
+    ```bash
+    terraform plan -out=plan.out
+    ```
+
+ 您应该看到如下的输出，`main.tf` 现在设置为在新版本的 DC/OS 上正常操作。
+
+    <p align=center>
+    <img src="./images/upgrade/terraform-plan.png" />
+    </p>
+
+4. 应用该计划。
+
+    ```bash
+    terraform apply plan.out
+    ```
+
+ 应用完成后，您可以验证群集是否已通过 DC/OS UI 升级。
+
+    <p align=center>
+    <img src="./images/upgrade/cluster-details-open.png" />
+    </p>

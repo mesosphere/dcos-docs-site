@@ -40,8 +40,8 @@ dcos marathon deployment watch [--max-count=<max-count>] [--interval=<interval>]
 
 `dcos marathon deployment watch` 命令不返回确认消息，因此请运行 `dcos marathon deployment list` 以查看部署状态。
 
-```
-$ dcos marathon deployment watch confluent-zookeeper
+```bash
+dcos marathon deployment watch confluent-zookeeper
 ~$ dcos marathon deployment list
 APP                   POD  ACTION   PROGRESS  ID
 /confluent-zookeeper  -    restart    0/1     ec0f4f22-ed8c-4bc1-ad55-5854603e257a
@@ -51,4 +51,4 @@ APP                   POD  ACTION   PROGRESS  ID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

@@ -27,7 +27,7 @@ dcos diagnostics create (<nodes>)
 # 示例
 
 ```bash
-dcos diagnostics create
+$ dcos diagnostics create
 a697769a-2d5d-4b2a-a2ec-055b9fe9eecf
 ```
 
@@ -35,5 +35,5 @@ a697769a-2d5d-4b2a-a2ec-055b9fe9eecf
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos diagnostics](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
+| [dcos diagnostics](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
 

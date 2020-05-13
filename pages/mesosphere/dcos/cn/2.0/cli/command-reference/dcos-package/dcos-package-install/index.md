@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  dcos package install 
-title: dcos package install 
+navigationTitle:  dcos package install
+title: dcos package install
 menuWeight: 1
 excerpt: 安装软件包
 render: mustache
@@ -30,7 +30,7 @@ dcos package install <package-name> [(--cli [--global]) | --app] [--package-vers
 | `--global` | 安装所有已配置群集的子命令。 |
 | `--options=<file>` | 包含自定义软件包安装选项的 JSON 文件路径。|
 | `--package-version=<package-version>` | 包版本。|
-| | `--yes` | 禁用交互模式并假设“是”是所有提示的答案。|
+| `--yes` | 禁用交互模式并假设“是”是所有提示的答案。|
 
 ## 位置自变量
 
@@ -42,10 +42,10 @@ dcos package install <package-name> [(--cli [--global]) | --app] [--package-vers
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/cn/2.0/deploying-services/config-universe-service/)。
+有关示例，请参阅[文档](/mesosphere/dcos/2.0/deploying-services/config-universe-service/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |

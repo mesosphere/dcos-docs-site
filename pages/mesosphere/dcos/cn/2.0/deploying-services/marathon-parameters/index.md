@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Marathon 配置参考
+navigationTitle: Marathon 配置参考
 title: Marathon 配置参考
 menuWeight: 0
 excerpt: 了解 Marathon 应用定义
@@ -9,47 +9,47 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-本专题列出了 Marathon 应用定义的所有可用属性，并举例说明显示了所有属性的 JSON 应用定义文件。
+本专题列出了 Marathon&trade; 应用定义的所有可用属性，并举例说明显示了所有属性的 JSON 应用定义文件。
 
 - [Marathon 属性](#Marathon-Properties)
-        - [acceptedResourceRoles](#acceptedResourceRoles)
-        - [args](#args)
-        - [backoffFactor](#backoffFactor)
-        - [backoffSeconds](#backoffSeconds)
-        - [cmd](#cmd)
-        - [约束](#constraints)
-        - [容器](#container)
-        - [cpus](#cpus)
-        - [依赖关系](#dependencies)
-        - [磁盘](#disk)
-        - [env](#env)
-        - [执行器](#executor)
-        - [获取](#fetch)
-        - [gpus](#gpus)
-        - [healthChecks](#healthChecks)
-        - [id](#id)
-        - [实例](#instances)
-        - [标签](#labels)
-        - [maxLaunchDelaySeconds](#maxLaunchDelaySeconds)
-        - [mem](#mem)
-        - [网络](#networks)
-        - [portDefinitions](#portDefinitions)
-        - [requirePorts](#requirePorts)
-        - [驻留](#residency)
-        - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
-        - [unreachableStrategy](#unreachableStrategy)
-        - [upgradeStrategy](#upgradeStrategy)
+ - [acceptedResourceRoles](#acceptedResourceRoles)
+ - [args](#args)
+ - [backoffFactor](#backoffFactor)
+ - [backoffSeconds](#backoffSeconds)
+ - [cmd](#cmd)
+ - [约束](#constraints)
+ - [容器](#container)
+ - [cpus](#cpus)
+ - [依赖关系](#dependencies)
+ - [磁盘](#disk)
+ - [env](#env)
+ - [执行器](#executor)
+ - [获取](#fetch)
+ - [gpus](#gpus)
+ - [healthChecks](#healthChecks)
+ - [id](#id)
+ - [实例](#instances)
+ - [标签](#labels)
+ - [maxLaunchDelaySeconds](#maxLaunchDelaySeconds)
+ - [mem](#mem)
+ - [网络](#networks)
+ - [portDefinitions](#portDefinitions)
+ - [requirePorts](#requirePorts)
+ - [驻留](#residency)
+ - [taskKillGracePeriodSeconds](#taskKillGracePeriodSeconds)
+ - [unreachableStrategy](#unreachableStrategy)
+ - [upgradeStrategy](#upgradeStrategy)
 - [示例](#example)
 
 # Marathon 属性
 
 ### acceptedResourceRoles
-一系列资源角色。Marathon 仅考虑在此列表中为启动此应用程序的任务提供的资源邀约。有关详细信息，请参阅 [mesos 文档](http://mesos.apache.org/documentation/latest/roles/)。
+一系列资源角色。Marathon 仅考虑在此列表中为启动此应用程序的任务提供的资源邀约。有关详细信息，请参阅 [Apache&reg; Mesos&reg; 文档](http://mesos.apache.org/documentation/latest/roles/)。
 
 ### args
 指定要运行命令的一组字符串。即便使用默认命令执行器，这里的 `args` 字段也可用于替代 `cmd`。
 
-<p class="message--important"><strong>重要信息：</strong>必须在所有应用程序定义中指定 <code>cmd</code> 或 <code>args</code>。在同一应用程序中提供 <code>cmd</code> 和 <code>args</code> 则无效。</p>
+<p class="message--important"><strong></strong>重要信息：必须在所有应用定义中指定 <code> cmd </code> 或 <code> args </code>。在同一应用程序中提供 <code>cmd</code> 和 <code>args</code> 则无效。</p>
 
 ### backoffFactor
 用于 `backoffSeconds` 值的被乘数。默认值为 `1.15`。`backoffSeconds` 和 `backoffFactor` 值相乘，直到达到 [`maxLaunchDelaySeconds`](#maxlaunchdelayseconds) 值。达到该值后，Marathon 等待 `maxLaunchDelaySeconds`，然后再重复此循环，按指数递增。例如，如果是 `backoffSeconds: 3`、`backoffFactor: 2` 和 `maxLaunchDelaySeconds: 300`，则会尝试十次启动失败的任务，每次间隔三秒。尝试十次之后，Marathon 将等待 300 秒，然后再重复此循环。
@@ -62,9 +62,9 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
 这样可以防止与连续失败的任务关联的砂箱填满 Mesos 从代理上的硬盘。这也适用于因不通过运行状况检查的次数过多而遭到关闭的任务。
 
 ### cmd
-执行的命令。该值由 Mesos 通过 `/bin/sh -c ${app.cmd}` 打包。
+执行的命令。该值由 Mesos 使用命令 `/bin/sh -c ${app.cmd}` 封装。
 
-<p class="message--important"><strong>重要信息：</strong>必须在所有应用程序定义中指定 <code>cmd</code> 或 <code>args</code>。在同一应用程序中提供 <code>cmd</code> 和 <code>args</code> 则无效。</p>
+<p class="message--important"><strong></strong>重要信息：必须在所有应用定义中指定 <code> cmd </code> 或 <code> args </code>。在同一应用程序中提供 <code>cmd</code> 和 <code>args</code> 则无效。</p>
 
 ### constraints
 控制应用程序运行位置的约束算子，帮助您针对容错或位置进行优化。如需更多信息，请参阅 [约束文档](https://mesosphere.github.io/marathon/docs/constraints.html)。
@@ -74,40 +74,40 @@ Marathon 尝试再次启动失败任务之前的缓冲时间（秒）。默认�
 
 - **type** 容器运行时间类型，为 `MESOS` 或 `DOCKER`。如需更多信息，请参阅[使用容器化工具](/mesosphere/dcos/2.0/deploying-services/containerizers/)。
 
-- **portMappings** 主机和容器之间的端口映射阵列。端口映射类似于将 `-p` 传递到 Docker 命令行，以指定主机上与容器内的端口之间的关系。如果在创建时未指定 (null)，则默认为 { "portMappings": [ { "containerPort": 0, "name": "default" } ], ... }。指定空阵列 ([]) 即表示应用程序未使用端口；在此情况下未注入默认值。
+- **portMappings** 主机和容器之间的端口映射阵列。端口映射类似于将 `-p` 传递到 Docker 命令行，以指定主机上与容器内的端口之间的关系。如果在创建时未指定（空），则默认为 { "portMappings": [ { "containerPort": 0, "name": "default" } ], ... }。指定空阵列 ([]) 即表示应用程序未使用端口；在此情况下未注入默认值。
 
-  端口映射包括：
+ 端口映射包括：
 
-  - **containerPort** 容器端口（例如， `8080`）。
-  - **hostPort** 主机端口（如 `0`）。默认值为 `0`。[网络模式] (#networks) `container`不需要`hostPort`，但如果未指定，Marathon 不会随机分配端口。使用 `container/bridge` 模式时，未指定（空）的值 `hostPort` 设置 `hostPort: 0`。
-  - **servicePort** 服务端口（如 `9000`）。
-  - **protocol** HTTP 协议，为 `tcp` 或 `udp`。
+ - **containerPort** 容器端口（例如，`8080`）。
+ - **hostport** 主机端口（例如，`0`）。默认值为 `0`。[网络模式](#networks) `container`不需要`hostPort`，但如果未指定，Marathon 不会随机分配端口。使用 `container/bridge` 模式时，未指定（空）的值 `hostPort` 设置 `hostPort: 0`。
+ - **servicePort** 服务端口（例如，`9000`）。
+ - **protocol** HTTP 协议，为 `tcp` 或 `udp`。
   
-  端口映射与 `container` 和 `container/bridge` [网络模式](#networks) 一同使用，而如果在 `host` 网络模式下一同使用则被忽略。与多个 `container` 网络结合使用时，每个指定 `hostPort` 的映射条目还必须声明 `name`，以确定映射应用的网络（单个 `hostPort` 只能映射到一个容器网络，而 `name` 默认值则会映射到 pod 或应用程序的所有容器网络）。
-  - [`requirePorts`](#requirePorts) 不适用于 `portMappings`。
-  - 未来版本的 Marathon 可能无法验证声明网络模式不是 `container` 或 `container/bridge` 的 `container.portMappings`。
+ 端口映射与 `container` 和 `container/bridge` [网络模式](#networks) 一同使用，而如果在 `host` 网络模式下一同使用则被忽略。与多个 `container` 网络结合使用时，每个指定 `hostPort` 的映射条目还必须声明 `name`，以确定映射应用的网络（单个 `hostPort` 只能映射到一个容器网络，而 `name` 默认值则会映射到 pod 或应用程序的所有容器网络）。
+ - [`requirePorts`](#requirePorts) 不适用于 `portMappings`。
+ - 未来版本的 Marathon 可能无法验证声明网络模式不是 `container` 或 `container/bridge` 的 `container.portMappings`。
 
-- **docker** Docker 容器信息。
+- **docker** Docker&reg; 容器信息。
 
-    - **forcePullImage** 是否拉取镜像，不考虑镜像是否已在本地系统上可用。
-    - **image** Docker 镜像的路径。
-    - **privileged** 是否为此容器提供扩展权限。如需更多信息，请参阅 [Docker 运行命令](https://docs.docker.com/engine/reference/commandline/run/)。
-      - `"privileged": false` 不提供扩展权限。这是默认值。
-      - `"privileged": true` 提供扩展权限。
-    - **parameters** 用于 Mesos 容器执行的 `docker run` 命令的命令行选项。以此方式传递的参数不保证将来获得支持，因为 Mesos 可能不总是通过 CLI 与 Docker 进行交互。
-    - **pullConfig** 一个密钥，它的值是密钥存储库中的一个字符串化 JSON 对象。参见 [使用专用 Docker 注册表](/mesosphere/dcos/2.0/deploying-services/private-docker-registry/#secret-store-instructions)。
+ - **forcePullImage** 是否拉取镜像，不考虑镜像是否已在本地系统上可用。
+ - **image** Docker 镜像的路径。
+ - **privileged** 是否为此容器提供扩展权限。如需更多信息，请参阅 [Docker 运行命令](https://docs.docker.com/engine/reference/commandline/run/)。
+ - `"privileged": false` 不提供扩展权限。这是默认值。
+ - `"privileged": true` 提供扩展权限。
+ - **parameters** 用于 Mesos 容器执行的 `docker run` 命令的命令行选项。以此方式传递的参数不保证将来获得支持，因为 Mesos 可能不总是通过 CLI 与 Docker 进行交互。
+ - **pullConfig** 一个密钥，它的值是密钥存储库中的一个字符串化 JSON 对象。参见 [使用专用 Docker 注册表](/mesosphere/dcos/2.0/deploying-services/private-docker-registry/#secret-store-instructions)。
 
 - **volume** 容器中可访问的卷。
-    - **containerPath** 容器读写数据的路径。
-    - **external** 外部持久卷。参见 [外部持久卷](/mesosphere/dcos/2.0/storage/external-storage/)。
-        - **name** 卷驱动程序用来查找外部卷的名称。
-        - **provider** 存储提供商。
-        - **options** 用于存储的 Docker 卷驱动程序。DC/OS 支持的 Docker 卷驱动程序只有 [REX-Ray](/mesosphere/dcos/2.0/storage/external-storage/)。
-        - **size** 外部持久卷的大小（GiB）。
-    - **hostPath** 主机路径。
-    - **mode** 卷的访问模式，为读写（`RW`） 或只读 (`RO`）模式。
-    - **persistent** 本地持久卷。参见 [本地持久卷](/mesosphere/dcos/2.0/storage/persistent-volume/)。
-        - **size** 本地持久卷的大小 (MiB)。
+ - **containerPath** 容器读写数据的路径。
+ - **external** 外部持久卷。参见 [外部持久卷](/mesosphere/dcos/2.0/storage/external-storage/)。
+ - **name** 卷驱动程序用来查找外部卷的名称。
+ - **provider** 存储提供商。
+ - **options** 用于存储的 Docker 卷驱动程序。DC/OS 支持的 Docker 卷驱动程序只有 [REX-Ray](/mesosphere/dcos/2.0/storage/external-storage/)。
+ - **size** 外部持久卷的大小（GiB）。
+ - **hostPath** 主机路径。
+ - **mode** 卷的访问模式，为读写（`RW`） 或只读 (`RO`）模式。
+ - **persistent** 本地持久卷。参见 [本地持久卷](/mesosphere/dcos/2.0/storage/persistent-volume/)。
+ - **size** 本地持久卷的大小 (MiB)。
 
 ### cpus
 每个实例的 CPU 共享数。十进制小数或整数。
@@ -149,7 +149,7 @@ URI 包括：
 - **maxLogitiveFailures** 指定发生多少次连续运行状况检查故障之后才能关闭任务。
 - **path** 如果是 `"protocol": "HTTP"`，此选项则指定任务运行状况端点的路径。例如， `"/path/to/health"`。
 - **portIndex** 指定用于运行状况请求的端口阵列中的端口号。应用程序可借助端口号使用任何端口（例如 `"[0, 0, 0]"`），而且任务可以借助端口环境变量启动，例如 `$PORT1`。
-- **协议** 指定请求的协议：`HTTP`、`HTTPS`、`TCP` 或 `Command`。
+- **protocol** 指定请求的协议：`HTTP`、`HTTPS`、`TCP` 或 `Command`。
 - **timeoutSeconds** 指定运行状况检查失败之前等待的时间（秒），不考虑响应结果。
 
 ### id
@@ -216,8 +216,8 @@ URI 包括：
 
 - **taskLostBehavior** 指示 Marathon 是否会在收到 `TASK_LOST` 状态更新之后，在另一个节点启动任务。
 
-  - **WAIT_FOREVER** 接收 `TASK_LOST` 状态更新后，请勿重新启动任务。需要此设置才能创建持久卷。这是默认值。
-  - **RELAUNCH_AFTER_TIMEOUT** 收到 `TASK_LOST` 状态更新后，请重新启动任务。
+ - **WAIT_FOREVER** 接收 `TASK_LOST` 状态更新后，请勿重新启动任务。需要此设置才能创建持久卷。这是默认值。
+ - **RELAUNCH_AFTER_TIMEOUT** 收到 `TASK_LOST` 状态更新后，请重新启动任务。
 
 ### taskKillGracePeriodSeconds
 执行器将 SIGTERM 发送至任务，再发送 SIGKILL，两者的间隔时间（秒）。

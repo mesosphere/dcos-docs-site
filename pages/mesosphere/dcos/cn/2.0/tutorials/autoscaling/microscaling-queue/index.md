@@ -7,15 +7,12 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 2
 ---
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 本教程指导您在 DC/OS 群集上设置 [Microscaling Systems][2] 的 Microscaling 演示。
 
-
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
-
 [Microscaling][1] 调整计算群集内运行的任务的平衡。
-这允许您的基础架构
-从较低到较高优先级任务自动重新分配资源，并在几秒钟内响应需求变化。
+这使基础架构能够自动将资源从较低的优先级任务重新分配到更高的优先级任务，从而在几秒钟内对需求的变化做出反应。
 Microscaling 可监控较高优先级任务是否符合性能目标。在本教程中，性能目标是维护配置队列值的长度。当超出目标时，优先级较高的任务在不满足目标时被增容，
 并在超出目标时被减容。优先级较低的任务可以使用备用资源。
 
@@ -129,7 +126,7 @@ export MSS_MARATHON_API=http://localhost/marathon
 * 登录 [Azure 门户][9]。
 * 从左侧菜单中选择资源组。
 * 找到并删除您为 Azure 队列创建的资源组。
-* 如果您为此演示创建了 ACS 群集，则还需要删除该群集的资源组。
+* 如果您为此演示创建了 ACS 群集，则请删除该群集的资源组。
 
 # 后续步骤
 
@@ -138,14 +135,14 @@ export MSS_MARATHON_API=http://localhost/marathon
 - 这是 [microscaling engine 代码][11]。
 - 在 [Microscaling Systems 网站][2] 上查找有关 microscaling 的更多信息。
 
-[1]:http://microscaling.com
-[2]:http://microscaling.com
-[3]:http://azure.microsoft.com
-[4]:https://azure.microsoft.com/en-us/pricing/free-trial/
-[5]: /mesosphere/cn/dcos/2.0/installing/
-[6]:https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
+[1]: http://microscaling.com
+[2]: http://microscaling.com
+[3]: http://azure.microsoft.com
+[4]: https://azure.microsoft.com/en-us/pricing/free-trial/
+[5]: /mesosphere/dcos/2.0/installing/
+[6]: https://azure.microsoft.com/en-us/documentation/articles/container-service-deployment/
 
-[8]:https://www.ruby-lang.org/en/documentation/installation/
-[9]:http://portal.azure.com
-[10]:http://app.microscaling.com
-[11]:http://github.com/microscaling/microscaling
+[8]: https://www.ruby-lang.org/en/documentation/installation/
+[9]: http://portal.azure.com
+[10]: http://app.microscaling.com
+[11]: http://github.com/microscaling/microscaling

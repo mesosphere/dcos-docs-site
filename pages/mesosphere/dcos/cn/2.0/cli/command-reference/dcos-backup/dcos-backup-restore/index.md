@@ -35,7 +35,7 @@ dcos backup restore <backup id> [flags]
 
 1. 恢复现有备份需要使用备份 ID。运行命令 `dcos backup list` 获取备份列表。
 
-    ```
+    ```bash
     $ dcos backup list
     BACKUP ID                                        VERSION     STATUS           TIMESTAMP
     ---------                                        -------     ------           ---------
@@ -49,7 +49,7 @@ dcos backup restore <backup id> [flags]
     $ dcos backup restore backup2-c55c20e9-ba3f-46a6-b944-20a790b5491a
     ```
 
-    系统不会显示确认消息。
+ 系统不会显示确认消息。
 
 1. 但是，如果您再次运行 `dcos backup list`，就会看到列出的备份，这表示备份已恢复。
 
@@ -65,5 +65,5 @@ dcos backup restore <backup id> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [dcos backup](/mesosphere/dcos/2.0/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
 

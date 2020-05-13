@@ -8,12 +8,10 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
-
+<p class="message--warning"><strong>警告：</strong>从 DC/OS 1.13 开始，使用 <tt>dcos node</tt> 命令列出节点已被弃用。要列出 dcos 节点，请使用 <tt><a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-node/dcos-node-list/">dcos node list</a></tt> 命令。</p>
 
 # 说明
 `dcos node` 命令允许您查看 DC/OS 节点信息。
-
-**自 DC/OS 1.13 以来，此命令已弃用，请使用 `dcos node list` 代替。**
 
 # 使用
 

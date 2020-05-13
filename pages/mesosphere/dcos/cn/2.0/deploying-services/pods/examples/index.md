@@ -9,7 +9,7 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
-本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/mesosphere/dcos/cn/2.0/deploying-services/marathon-parameters/)。
+本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/mesosphere/dcos/2.0/deploying-services/marathon-parameters/)。
 
 # 带注释的简单 Pod 定义
 
@@ -46,18 +46,18 @@ enterprise: false
 
 ## 基本 Pod 字段
 
-| 字段                 | 类型    | 值                                                                                                                                                                                                             |
+| 字段                        | 类型    | 值                                                                                                                   |
 |-----------------------|---------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id` （必填）         | 字符串  | pod 的唯一 ID。                                                                                                                                                                                            |
 | `containers` （必填） | 阵列   | 参见 [基本 pod 容器字段](#basic-pod-container-fields).                                                                                                                                                                                     |
 | `volumes`               | 阵列   | 与 pod 关联的所有卷。                                                                                                                                                                              |
 | `volumes.name`                |字符串 | 共享卷的名称。                                                                                                                                                                                            |
 |  `volumes.host` | 字符串 | 代理上文件或目录的绝对路径，或者执行器沙箱中目录的相对路径。有助于映射代理上或执行器沙箱内存在的目录。 |
-| `networks`              | 阵列        |  接受以下参数：`mode`、`name` 和 `labels`.                                                                                                                                                                                                                  |
+| `networks`| 阵列 | 接受以下参数：`mode`、`name` 和 `labels`。|
 | `networks.mode`                | 字符串 | 网络模式： `host` 或 `container`。 `host` 使用主机的网络命名空间。 `container` 使用虚拟网络，并且必须指定虚拟网络名称。                                            |
 | `networks:name`                | 字符串  | 为`container`网络模式所必需。                                                                                                                                                                            |
 | `networks.labels`              | 对象 | 键/值对（即，将元数据传递到 Mesos 模块）。                                                                                                                                                    |
-| `scaling`               | 阵列        |  接受以下参数：`kind`、`instances` 和 `maxInstances`。                                                                                                                                                                                                                 |
+| `scaling`| 阵列 | 接受以下参数：`kind`、`instances` 和 `maxInstances`。|
 | `scaling.kind`                | 字符串 | 扩展类型。当前仅支持 `fixed`。                                                                                                                                                             |
 | `scaling.instances`           | 整数 | pod 实例的初始数量（默认值：1）。                                                                                                                                                                     |
 | `scaling.maxInstances`        | 整数 | 此 pod 的最大实例数。                                                                                                                                                                          |
@@ -65,7 +65,7 @@ enterprise: false
 <a name="basic-pod-container-fields"></a>
 ## 基本 Pod 容器字段
 
-| 字段                    | 类型    | 值                                                                                                      |
+| 字段                        | 类型    | 值                                                                                                                   |
 |--------------------------|---------|------------------------------------------------------------------------------------------------------------|
 | `containers` （必填）    | 阵列   | 所有属于 pod 的容器的容器定义。                                             |
 | `containers.name`                   | 字符串 | 容器的唯一名称。                                                                             |
@@ -90,7 +90,7 @@ enterprise: false
 |  `containers.endpoints.containerPort` | 数字 | 容器任务正在侦听的容器点。如果网络模式为 `container`，则必填。 |
 |  `containers.endpoints.hostPort` | 数字 | 主机上的映射端口。如果设置为 `0`，Marathon 就会灵活分配端口。                                 |
 | `containers.endpoints.protocol`           | 阵列   | 端口协议（`http` 或 `tcp`）。                                                                        |
-| `containers.endpoints.labels` | 对象  | 元数据作为键/值对。|
+|  `containers.endpoints.labels` | 对象 | 元数据作为密钥/值对。 |
 
 <a name="multi-pod"></a>
 # 带注释的多个 Pod 及所有参数
@@ -321,10 +321,10 @@ enterprise: false
 
 ## 其他 Pod 字段
 
-| 字段                       | 类型    | 值                                                                                                                          |
+| 字段                        | 类型    | 值                                                                                                                   |
 |-----------------------------|----------|--------------------------------------------------------------------------------------------------------------------------------|
 | `labels`                      | 对象   | Pod 元数据作为键/值对。                                                                                               |
-|  `environment` | 对象 | pod 级别的环境变量。所有 pod 容器都将继承这些环境变量。必须大写。 |
+|  `environment` | 对象 | pod 级别的环境变量。所有 pod 容器都将继承这些环境变量。必须为大写形式。                           |
 | `secrets`                     | 对象   | 存储库中的密钥的完全限定路径。                                                                           |
 | `scheduling`                  | 对象    | 定义故障应用程序的指数退避行为以防止沙盒填满。                            |
 | `scheduling.backoff`               | 数字  | 启动实例失败时应用的初始退避（秒）（默认值：1）。                                                 |
@@ -344,8 +344,8 @@ enterprise: false
 | `killSelection.inactiveAfterSeconds`  | 整数  | 替换任务前等待的时间（秒）（默认值：900）。|                                                                  |
 | `killSelection.expungeAfterSeconds`   | 整数  | 在排除前等待任务恢复的时间（秒）（默认值：603800）。                                             |
 | `executorResources`           | 对象   | 为 pod 执行器保留的资源。                                                                                       |
-| `executorResources.cpus`                  | 数字   | CPU 份额（默认值：0.1）。                                                                                                     |
-| `executorResources.mem`                   | 数字   | MiB 中的内存资源（默认值：32）。                                                                                         |
+| `executorResources.cpus`               | 数字  | CPU 份额（默认值：0.1）。                                                                                 |
+| `executorResources.mem`               | 数字  | MiB 中的内存资源（默认值：32）。                                                                    |
 | `executorResources.disk`                  | 数字 | MiB 中的磁盘资源（默认值：10.0）,                                                                                         |
 
 ## 其他 Pod 容器字段
@@ -354,7 +354,7 @@ enterprise: false
 |------------------------------|---------|-------------------------------------------------------------------------------------------------------------------------|
 | `labels`                       | 对象  | 作为键/值对的容器元数据。                                                                                  |
 |  `environment` | 对象 | 容器环境变量。可覆盖 pod 环境变量。必须为大写形式。                           |
-| `healthCheck`                  |  对象       |  接受以下参数：`http`、`tcp` 和 `exec`。                                                                                                                       |
+| `healthCheck`| 对象 | 接受以下参数：`http`、`tcp` 和 `exec`。|
 | `healthCheck.http`                   |         | 协议类型。选项：`http`、`tcp`、`exec`。                                                                          |
 | `healthCheck.http.endpoint`           | 字符串  | 要使用的端点名称。                                                                                                   |
 | `healthCheck.http.path`               | 字符串  | 由提供运行状况的任务公开的端点路径。                                                   |
@@ -548,11 +548,11 @@ enterprise: false
 
 # 使用持久卷的 Pod
 
-如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/mesosphere/dcos/cn/2.0/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
+如需查看使用持久卷的 pod 的示例，请参见 [创建具有本地持久卷的 pod](/mesosphere/dcos/2.0/storage/persistent-volume/#create-a-pod-with-a-local-persistent-volume)。
 
 ## 各 Pod 的 IP 网络
 
-以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/mesosphere/dcos/cn/2.0/installing/evaluation/community-supported-methods/aws/) 安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
+以下 pod 定义指定名为 `dcos` 的虚拟（用户）网络。`networks:mode:container` 字段创建虚拟网络。`name` 字段为可选。如果您已使用 [我们的 AWS 模板](/mesosphere/dcos/2.0/installing/evaluation/community-supported-methods/aws/) 安装 DC/OS，则默认虚拟网络名称为 `dcos`。<!-- Validated by suzanne 6-23-17 -->
 
 ```json
 {

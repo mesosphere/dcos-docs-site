@@ -56,13 +56,13 @@ dcos:adminrouter:ops:mesos-dns full</code>
 <code>dcos:adminrouter:ops:networking full</code>
 </p>
 
-如果您在没有此权限的情况下运行 `dcos node list` 命令，命令会返回节点信息，但在输出中不包括公共 IP 地址列。有关设置和管理权限的更多信息，请参阅 [权限管理](/mesosphere/dcos/cn/2.0/security/ent/perms-management/) 和 [权限参考](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/)。
+如果您在没有此权限的情况下运行 `dcos node list` 命令，命令会返回节点信息，但在输出中不包括公共 IP 地址列。有关设置和管理权限的更多信息，请参阅 [权限管理](/mesosphere/dcos/2.0/security/ent/perms-management/) 和 [权限参考](/mesosphere/dcos/2.0/security/ent/perms-reference/)。
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 
 # 示例
 以下示例说明了如何使用此命令查找小群集中节点面向公众的 IP 地址：

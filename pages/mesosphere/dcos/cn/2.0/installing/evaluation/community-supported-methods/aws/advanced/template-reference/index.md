@@ -14,7 +14,7 @@ render: mustache
 [Zen](#zen) 模板编排各个组件模板，用于创建 DC/OS 群集。
 
 #### 代理模板
-[代理](#private-agent) 模板创建 [公共](/mesosphere/dcos/cn/{{ model.folder_version }}/overview/concepts/#public-agent-node) 或 [专用](/mesosphere/dcos/cn/{{ model.folder_version }}/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。
+[代理](#private-agent) 模板创建 [公共](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#public-agent-node) 或 [专用](/mesosphere/dcos/{{ model.folder_version }}/overview/concepts/#private-agent-node) 代理节点，然后作为 AutoScalingGroup 的一部分附加到 DC/OS 群集。
 
 #### 管理节点模板
 [管理节点](#master) 模板在已创建基础架构堆栈的基础上创建管理节点。
@@ -29,56 +29,56 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 <table class="table">
   <tr>
-    <th>参数名称</th>
-    <th>密钥值</th>
+ <th>参数名称</th>
+ <th>密钥值</th>
   </tr>
   <tr>
-    <td>AdminLocation</td>
-    <td>可选：指定用于访问管理分区 IP 范围白名单。必须是有效的 CIDR。若要允许从任何 IP 地址访问，请使用 <code>0.0.0.0/0</code>。</td>
+ <td>AdminLocation</td>
+ <td>可选：指定用于访问管理分区 IP 范围白名单。必须是有效的 CIDR。若要允许在任何 IP 地址访问，请使用 <code>0.0.0.0/0</code>。</td>
   </tr>
   <tr>
-    <td>CustomAMI</td>
-    <td>可选：指定 AMI ID。必须位于同一分域，并安装所有 DC/OS 先决条件。</td>
+ <td>CustomAMI</td>
+ <td>可选：指定 AMI ID。必须位于同一分域，并安装所有 DC/OS 先决条件。</td>
   </tr>
   <tr>
-    <td>InternetGateway</td>
-    <td>互联网网关 ID，必须附加到 <code>Vpc</code>。供所有节点在向外互联网访问时使用。</td>
+ <td>InternetGateway</td>
+ <td>互联网网关 ID，必须附加到 <code>VPC</code>。供所有节点在向外互联网访问时使用。</td>
   </tr>
   <tr>
-    <td>KeyName</td>
-    <td>AWS EC2 密钥对，用于 SSH 到实例</td>
+ <td>KeyName</td>
+ <td>AWS EC2 密钥对，用于 SSH 到实例</td>
   </tr>
   <tr>
-    <td>MasterInstanceType</td>
-    <td>分域专属实例类型。示例：m3.xlarge</td>
+ <td>MasterInstanceType</td>
+ <td>分域专属实例类型。示例：m3.xlarge</td>
   </tr>
   <tr>
-    <td>PrivateAgentInstanceCount</td>
-    <td>指定专用代理节点的数量或接受默认值。</td>
+ <td>PrivateAgentInstanceCount</td>
+ <td>指定专用代理节点的数量或接受默认值。</td>
   </tr>
   <tr>
-    <td>PrivateAgentInstanceType</td>
-    <td>分域专属实例类型。示例：m3.xlarge</td>
+ <td>PrivateAgentInstanceType</td>
+ <td>分域专属实例类型。示例：m3.xlarge</td>
   </tr>
   <tr>
-    <td>PrivateSubnet</td>
-    <td>供所有专用代理节点使用的子网 ID</td>
+ <td>PrivateSubnet</td>
+ <td>供所有专用代理节点使用的子网 ID</td>
   </tr>
   <tr>
-    <td>PublicAgentInstanceCount</td>
-    <td>指定公共代理节点的数量或接受默认值。</td>
+ <td>PublicAgentInstanceCount</td>
+ <td>指定公共代理节点的数量或接受默认值。</td>
   </tr>
   <tr>
-    <td>PublicAgentInstanceType</td>
-    <td>分域专属实例类型。示例：m3.xlarge</td>
+ <td>PublicAgentInstanceType</td>
+ <td>分域专属实例类型。示例：m3.xlarge</td>
   </tr>
   <tr>
-    <td>PublicSubnet</td>
-    <td>供所有公共代理节点使用的子网 ID</td>
+ <td>PublicSubnet</td>
+ <td>供所有公共代理节点使用的子网 ID</td>
   </tr>
   <tr>
-    <td>Vpc</td>
-    <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
+ <td>VPC</td>
+ <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
   </tr>
 </table>
 
@@ -89,32 +89,32 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 <table class="table">
   <tr>
-    <th>参数名称</th>
-    <th>描述</th>
+ <th>参数名称</th>
+ <th>描述</th>
   </tr>
   <tr>
-    <td>InternalMasterLoadBalancerDnsName</td>
-    <td>内部负载均衡器的 DNS 名称。必须有效代理才能加入正在运行的群集</td>
+ <td>InternalMasterLoadBalancerDnsName</td>
+ <td>内部负载均衡器的 DNS 名称。必须有效代理才能加入正在运行的群集</td>
   </tr>
   <tr>
-    <td>KeyName</td>
-    <td>AWS EC2 密钥对，用于 SSH 到实例</td>
+ <td>KeyName</td>
+ <td>AWS EC2 密钥对，用于 SSH 到实例</td>
   </tr>
   <tr>
-    <td>PrivateAgentInstanceCount</td>
-    <td>指定专用代理节点的数量或接受默认值。</td>
+ <td>PrivateAgentInstanceCount</td>
+ <td>指定专用代理节点的数量或接受默认值。</td>
   </tr>
   <tr>
-    <td>PrivateAgentInstanceType</td>
-    <td>分域专属实例类型。示例：m3.xlarge</td>
+ <td>PrivateAgentInstanceType</td>
+ <td>分域专属实例类型。示例：m3.xlarge</td>
   </tr>
   <tr>
-    <td>PrivateAgentSecurityGroup</td>
-    <td>专用代理使用的宽容权限安全组</td>
+ <td>PrivateAgentSecurityGroup</td>
+ <td>专用代理使用的宽容权限安全组</td>
   </tr>
   <tr>
-    <td>PrivateSubnet</td>
-    <td>供所有专用代理节点使用的子网 ID</td>
+ <td>PrivateSubnet</td>
+ <td>供所有专用代理节点使用的子网 ID</td>
   </tr>
 </table>
 
@@ -126,32 +126,32 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 <table class="table">
   <tr>
-    <th>参数名称</th>
-    <th>描述</th>
+ <th>参数名称</th>
+ <th>描述</th>
   </tr>
   <tr>
-    <td>InternalMasterLoadBalancerDnsName</td>
-    <td>内部负载均衡器的 DNS 名称。必须有效代理才能加入正在运行的群集</td>
+ <td>InternalMasterLoadBalancerDnsName</td>
+ <td>内部负载均衡器的 DNS 名称。必须有效代理才能加入正在运行的群集</td>
   </tr>
   <tr>
-    <td>KeyName</td>
-    <td>AWS EC2 密钥对，用于 SSH 到实例</td>
+ <td>KeyName</td>
+ <td>AWS EC2 密钥对，用于 SSH 到实例</td>
   </tr>
   <tr>
-    <td>PublicAgentInstanceCount</td>
-    <td>指定公共代理节点的数量或接受默认值。</td>
+ <td>PublicAgentInstanceCount</td>
+ <td>指定公共代理节点的数量或接受默认值。</td>
   </tr>
   <tr>
-    <td>PublicAgentInstanceType</td>
-    <td>分域专属实例类型。例如，m3.xlarge</td>
+ <td>PublicAgentInstanceType</td>
+ <td>分域专属实例类型。例如，m3.xlarge</td>
   </tr>
   <tr>
-    <td>PublicAgentSecurityGroup</td>
-    <td>公共代理使用的宽容权限安全组</td>
+ <td>PublicAgentSecurityGroup</td>
+ <td>公共代理使用的宽容权限安全组</td>
   </tr>
   <tr>
-    <td>PublicSubnet</td>
-    <td>供所有公共代理节点使用的子网 ID</td>
+ <td>PublicSubnet</td>
+ <td>供所有公共代理节点使用的子网 ID</td>
   </tr>
 </table>
 
@@ -161,48 +161,48 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 <table class="table">
   <tr>
-    <th>参数名称</th>
-    <th>描述</th>
+ <th>参数名称</th>
+ <th>描述</th>
   </tr>
   <tr>
-    <td>AdminSecurityGroup</td>
-    <td>管理 URL 安全组。控制对管理页面的访问</td>
+ <td>AdminSecurityGroup</td>
+ <td>管理 URL 安全组。控制对管理页面的访问</td>
   </tr>
   <tr>
-    <td>ExhibitorS3Bucket</td>
-    <td>S3 Bucket 资源名称。由 Exhibitor 用于 Zookeeper 发现和协调。如需有关“共享配置”的 Exhibitor 文档，请参阅 https://github.com/Netflix/exhibitor/wiki/Shared-Configuration，了解更多信息</td>
+ <td>ExhibitorS3Bucket</td>
+ <td>S3 Bucket 资源名称。由 Exhibitor 用于 Zookeeper 发现和协调。如需有关“共享配置”的 Exhibitor 文档，请参阅 https://github.com/Netflix/exhibitor/wiki/Shared-Configuration，了解更多信息</td>
   </tr>
   <tr>
-    <td>KeyName</td>
-    <td>AWS EC2 密钥对，用于 SSH 到实例</td>
+ <td>KeyName</td>
+ <td>AWS EC2 密钥对，用于 SSH 到实例</td>
   </tr>
   <tr>
-    <td>LbSecurityGroup</td>
-    <td>Loadbalancer 安全组。支持管理节点和专用代理节点进行通信的规则。</td>
+ <td>LbSecurityGroup</td>
+ <td>Loadbalancer 安全组。支持管理节点和专用代理节点进行通信的规则。</td>
   </tr>
   <tr>
-    <td>MasterInstanceType</td>
-    <td>分域专属实例类型。示例：m3.xlarge</td>
+ <td>MasterInstanceType</td>
+ <td>分域专属实例类型。示例：m3.xlarge</td>
   </tr>
   <tr>
-    <td>MasterSecurityGroup</td>
-    <td>管理节点使用的安全组</td>
+ <td>MasterSecurityGroup</td>
+ <td>管理节点使用的安全组</td>
   </tr>
   <tr>
-    <td>PrivateAgentSecurityGroup</td>
-    <td>专用代理使用的安全组，通常具备有限的向外访问权限</td>
+ <td>PrivateAgentSecurityGroup</td>
+ <td>专用代理使用的安全组，通常具备有限的向外访问权限</td>
   </tr>
   <tr>
-    <td>PrivateSubnet</td>
-    <td>供所有专用代理节点使用的子网 ID</td>
+ <td>PrivateSubnet</td>
+ <td>供所有专用代理节点使用的子网 ID</td>
   </tr>
   <tr>
-    <td>PublicAgentSecurityGroup</td>
-    <td>公共代理使用的宽容权限安全组</td>
+ <td>PublicAgentSecurityGroup</td>
+ <td>公共代理使用的宽容权限安全组</td>
   </tr>
   <tr>
-    <td>PublicSubnet</td>
-    <td>供所有公共代理节点使用的子网 ID</td>
+ <td>PublicSubnet</td>
+ <td>供所有公共代理节点使用的子网 ID</td>
   </tr>
 </table>
 
@@ -212,31 +212,31 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
 
 <table class="table">
   <tr>
-    <th>参数名称</th>
-    <th>描述</th>
+ <th>参数名称</th>
+ <th>描述</th>
   </tr>
   <tr>
-    <td>AdminLocation</td>
-    <td>可选：指定用于访问管理分区 IP 范围白名单。必须是有效的 CIDR。</td>
+ <td>AdminLocation</td>
+ <td>可选：指定用于访问管理分区 IP 范围白名单。必须是有效的 CIDR。</td>
   </tr>
   <tr>
-    <td>InternetGateway</td>
-    <td>互联网网关 ID，必须附加到“Vpc”。供所有节点在向外互联网访问时使用。</td>
+ <td>InternetGateway</td>
+ <td>互联网网关 ID，必须附加到“VPC”。供所有节点在向外互联网访问时使用。</td>
   </tr>
   <tr>
-    <td>KeyName</td>
-    <td>AWS EC2 密钥对，用于 SSH 到实例</td>
+ <td>KeyName</td>
+ <td>AWS EC2 密钥对，用于 SSH 到实例</td>
   </tr>
   <tr>
-    <td>PrivateSubnet</td>
-    <td>供所有专用代理节点使用的子网 ID</td>
+ <td>PrivateSubnet</td>
+ <td>供所有专用代理节点使用的子网 ID</td>
   </tr>
   <tr>
-    <td>PublicSubnet</td>
-    <td>供所有公共代理节点使用的子网 ID</td>
+ <td>PublicSubnet</td>
+ <td>供所有公共代理节点使用的子网 ID</td>
   </tr>
   <tr>
-    <td>Vpc</td>
-    <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
+ <td>VPC</td>
+ <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
   </tr>
 </table>

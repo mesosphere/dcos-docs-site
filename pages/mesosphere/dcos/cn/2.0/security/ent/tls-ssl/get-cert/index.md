@@ -7,6 +7,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
 要确保您与 DC/OS 群集通信而不是与其他潜在恶意方通信，您必须获得适当的信任锚。此信任锚是 DC/OS CA 捆绑包的一部分，它是根 CA 证书的集合。在最简单的案例中，它只包含一个项目：对应于 DC/OS 证书颁发机构的根 CA 证书。您可以使用以下方法之一获取 DC/OS CA 捆绑包：
@@ -23,9 +24,9 @@ DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的�
 
 # <a name="curl"></a>使用 curl 检索 DC/OS CA 捆绑包
 
-<p class="message--important"><strong>重要信息：</strong>如果您要使用 `curl` 来检索 DC/OS CA 捆绑包，则必须使用 `-k`/`--insecure` 标记。如果通过 HTTPS 执行通信，则此标记会禁用服务器证书验证。这会产生<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>，此时，网络路径中的恶意方可能发送错误的 CA 捆绑包，导致您信任 DC/OS 群集外部的实体。</p>
+<p class="message--important"><strong></strong>重要信息：如果您正在使用 `curl` 检索 DC/OS CA 捆绑包，则必须使用 `-k`/`--insecure` 标记。如果通过 HTTPS 执行通信，则此标记会禁用服务器证书验证。这会产生<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>，此时，网络路径中的恶意方可能发送错误的 CA 捆绑包，导致您信任 DC/OS 群集外部的实体。</p>
 
-**先决条件：**您必须已[安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/)，以在以下命令中检索群集 URL。
+**先决条件：**您必须已[安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/)，以在以下命令中检索群集 URL。
 
 使用以下命令检索 DC/OS CA 捆绑包，并将其保存在当前目录中：
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  示例
+navigationTitle: 示例
 title: 示例
 menuWeight: 5
 excerpt: DC/OS Enterprise 的常见示例配置
@@ -8,8 +8,8 @@ excerpt: DC/OS Enterprise 的常见示例配置
 
 此页面提供多种常见示例配置。除非另有明确指示，配置参数同时适用于 [DC/OS 开源](https://dcos.io/) 和 [DC/OS Enterprise](https://mesosphere.com/product/)。这些评论在本示例 `config.yaml` 用于指示 DC/OS 产品类型。
 
-- `# DC/OS Open Source only` - 仅适用于 DC/OS。 [oss type="inline" size="small" /]
-- `# DC/OS Enterprise only` - 仅适用于 DC/OS Enterprise。 [enterprise type="inline" size="small" /]
+- `# DC/OS Open Source only` - 仅适用于 DC/OS。[oss type="inline" size="small" /]
+- `# DC/OS Enterprise only` - 仅适用于 DC/OS Enterprise。[enterprise type="inline" size="small" /]
 
 # 所有参数
 此样本 `config.yaml` 文件包括 DC/OS 的所有可用配置参数。

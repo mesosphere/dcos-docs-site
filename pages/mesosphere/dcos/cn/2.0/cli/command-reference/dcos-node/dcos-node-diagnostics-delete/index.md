@@ -13,7 +13,7 @@ model: /mesosphere/dcos/2.0/data.yml
 # 说明
 dcos 节点诊断删除命令允许您查看诊断捆绑包的详细信息。
 
-**自 DC/OS 2.0 以来，此命令已弃用，请使用 `dcos diagnostics delete` 代替。**
+<p class="message--warning"><strong>警告：</strong>自 DC/OS 2.0 以来，此命令已弃用，请使用 <a href="/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/dcos-diagnostics-delete/"><tt>dcos diagnostics delete</tt></a> 代替。</p>
 
 # 使用
 
@@ -37,5 +37,5 @@ dcos node diagnostics delete <bundle>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 

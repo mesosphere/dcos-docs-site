@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  度量标准参考
+navigationTitle: 度量标准参考
 title: 度量标准参考
 menuWeight: 7
 excerpt: 了解 DC/OS 收集的度量标准
@@ -11,9 +11,9 @@ enterprise: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例如 CPU 和内存）。Mesosphere DC/OS 还收集关于不同类别度量标准的元数据。有关元数据度量的更多信息，请参阅 [维度](#Dimensions)。
+Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量标准（例如 CPU 和内存）。Mesosphere DC/OS 还收集关于不同类别度量标准的元数据。有关元数据度量的更多信息，请参阅 [维度](#Dimensions）。
 
-请注意，自动收集的度量标准仅适用于提供端点统计信息的容器。例如，Docker 容器不提供用于 DC/OS 的网络连接数据，因此可用于 UCR 容器的网络连接度量标准不适用于 Docker 容器。
+请注意，自动收集的度量标准仅适用于提供端点统计信息的容器。例如，Docker&reg; 容器不提供用于 DC/OS 的网络连接数据，因此可用于 UCR 容器的网络连接度量标准不适用于 Docker 容器。
 
 <a name="Node"></a>
 
@@ -127,7 +127,7 @@ Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例
 | procstat.signals_pending | 待进程处理的信号数。 |
 | procstat.voluntary_context_switches | 进程自觉上下文切换的次数。 |
 
-来源：[AWS DOCS - 使用 procstat 插件收集进程度量标准](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-procstat-process-metrics.html)
+来源：[AWS&reg; DOCS - 使用 procstat 插件收集进程度量标准](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch-Agent-procstat-process-metrics.html)
 
 <a name="Container"></a>
 
@@ -162,7 +162,7 @@ Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
 | `mem.limit_bytes`    | 容器的硬内存限制。 |
-| `mem.total_bytes`    | RAM 中进程的总内存（与交换时相反）。 |   
+| `mem.total_bytes`    | RAM 中进程的总内存（与交换时相反）。 | 
 
 <a name="ConNetwork"></a>
 
@@ -173,7 +173,7 @@ Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例
 | `net.rx.bytes`    | 接收的字节数。 |
 | `net.rx.dropped`    | 接收时丢失的数据包数。 |
 | `net.rx.errors`    | 接收时报告的错误数。 |
-| `net.rx.packets`    | 收到的数据包数。 |
+| `net.rx.packets`    | 接收的数据包数。 |
 | `net.tx.bytes`    | 发送的字节数。 |
 | `net.tx.dropped`    | 发送时丢失的数据包数。 |
 | `net.tx.errors`    | 发送时报告的错误数。 |
@@ -187,16 +187,15 @@ Mesosphere DC/OS 可自动为节点和容器收集基本系统度量标准（例
 
 | 维度 | 描述 | 实体 |
 |-----------|-------------|--------|
-| `mesos_id`   | 节点的 Mesos ID。 | 节点，容器 |
-| `cluster_id`   | Mesos 群集的 ID。 | 节点，容器 |
-| `container_id`  | 容器的 ID。  | 度量标准，容器 |
-| `executor_name`   | 任务执行器的名称。 | 度量标准 |
-| `framework_name`   | 框架名称。 | 容器 |
-| `hostname`   | 节点的 IP 地址。 | 容器，节点 |
-| `labels`   |  描述度量标准的键值对。  | 容器 |
-| `task_name`   | 任务名称。 | 容器 |
+| `mesos_id` | Apache&reg; Mesos&reg; 节点的 ID。| 节点，容器 |
+| `cluster_id` | Mesos 群集的 ID。| 节点，容器 |
+| `container_id` | 容器的 ID。| 公制，容器 |
+| `executor_name` | 任务执行器的名称。| 度量标准 |
+| `framework_name` | 框架名称。| 容器 |
+| `hostname` | 节点的 IP 地址。| 容器，节点 |
+| `labels` | 描述度量标准的键值对。| 容器 |
+| `task_name` | 任务名称。| 容器 |
 
 
-阅读以下资源，了解有关度量标准的更多信息：
-[其他 Mesos 卷和网络度量标准](http://mesos.apache.org/documentation/latest/monitoring/) 文档。
-
+请查看以下资源，获取有关度量标准的更多信息：
+1. [其他 Mesos 卷和网络度量标准](http://mesos.apache.org/documentation/latest/monitoring/) 文档。

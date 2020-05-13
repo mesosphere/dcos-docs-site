@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  在 DC/OS CA 中建立信任
+navigationTitle: 在 DC/OS CA 中建立信任
 title: 在 DC/OS CA 中建立信任
 menuWeight: 200
 excerpt: 配置 Chrome 和 Firefox 以信任您的 DC/OS CA。
@@ -9,9 +9,10 @@ model: /mesosphere/dcos/2.0/data.yml
 beta: true
 enterprise: true
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-**先决条件：**[DC/OS CA 根证书](/mesosphere/dcos/cn/2.0/security/ent/tls-ssl/get-cert/)的本地副本。
+**先决条件：**[DC/OS CA 根证书](/mesosphere/dcos/2.0/security/ent/tls-ssl/get-cert/)的本地副本。
 
 添加 DC/OS CA 作为受信任根证书颁发机构的程序因操作系统和浏览器而异。请参阅与您的浏览器/操作系统对相对应的部分。
 
@@ -32,8 +33,8 @@ enterprise: true
 1. 在 **Keychain Access** 对话框中，选择 **System**。
 
 1. 使用以下方法之一将 `dcos-ca.crt` 文件添加到 **System** 密钥链：
-     - 拖放文件
-     - **文件** -> **导入项目**    
+ - 拖放文件
+ - **文件** -> **导入项目** 
 
 1. 双击密匙链中的证书，展开 **信任** 部分，并选择**使用此证书时** **始终信任**。
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  配置任务日志输出和保留
+navigationTitle: 配置任务日志输出和保留
 title: 配置任务日志输出和保留
 menuWeight: 2
 excerpt: 影响日志记录的任务环境变量
@@ -47,7 +47,7 @@ enterprise: false
 在任务沙盒内并创建附加文件，用于轮换这些
 日志 (`*.logrotate.conf` 和 `*.logrotate.state`)。
 
-请参阅 [记录参考](/mesosphere/dcos/cn/2.0/monitoring/logging/logging-reference/)
+请参阅 [记录参考](/mesosphere/dcos/2.0/monitoring/logging/logging-reference/)
 了解如何读取这些日志的信息。
 
 ## 最大大小
@@ -67,7 +67,7 @@ enterprise: false
 * `1234B`
 * `1TB`
 
-<p class="message--important"><strong>重要信息：</strong>大小的规定上限为 2^64 字节。尝试指定更高的
+<p class="message--important"><strong></strong>重要信息：大小的规定上限为 2^64 字节。尝试指定更高的
 值（例如 2^64 TB）将导致未确定的结果。</p>
 
 ## 禁用的日志轮换选项

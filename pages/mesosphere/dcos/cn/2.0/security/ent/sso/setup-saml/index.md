@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  配置 SAML IdP
+navigationTitle: 配置 SAML IdP
 title: 配置 SAML 身份提供程序
 menuWeight: 1
 excerpt: 配置 SAML 身份提供程序和 OneLogin IdP
@@ -51,7 +51,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 11. 将 XML 复制到剪贴板或文本编辑器中。
 12. 单击 **Access** 选项卡。激活您希望能够登录到群集的所有角色。例如：**员工**和**工程师**。
 
-  <p class="message--warning"><strong>警告：</strong>请勿在此阶段单击 <strong>保存</strong>*，否则会失败。</p>
+ <p class="message--warning"><strong>警告：</strong>请勿在此阶段单击 <strong>保存</strong>*，否则会失败。</p>
 
 ## 配置 DC/OS 
 
@@ -69,7 +69,7 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 
 ## 获取 DC/OS 回调 URL
 
-此程序使用身份和访问管理 API (IAM API)。有关 IAM API 的更多详细信息，请访问 [IAM API 文档](/mesosphere/dcos/cn/2.0/security/ent/iam-api/)。
+此程序使用身份和访问管理 API (IAM API)。有关 IAM API 的更多详细信息，请访问 [IAM API 文档](/mesosphere/dcos/2.0/security/ent/iam-api/)。
 
 
 1. 使用浏览器或 curl 向 `<your-cluster-URL>/acs/api/v1/auth/saml/providers` 发出 `GET` 请求。
@@ -108,20 +108,20 @@ DC/OS Enterprise 要求 SAML 身份提供程序 (IdP)：
 3. 单击刚刚配置的 SAML 提供程序的按钮。
 4. 您应该收到来自 DC/OS 的**访问被拒绝**消息。
 
-   <p class="message--note"><strong>注意：</strong>这表明 DC/OS 已经与第三方提供程序一起验证您的账户，并将其导入 DC/OS。由于默认情况下您的帐户没有权限，因此会返回“访问被拒绝”</p>。
+ <p class="message--note"><strong>注意：</strong>这表明 DC/OS 已经与第三方提供程序一起验证您的账户，并将其导入 DC/OS。由于默认情况下您的帐户没有权限，因此会返回“访问被拒绝”</p>。
 
 ## 分配权限
 
 1. 以具有 `dcos:superuser` 权限的用户身份登录 DC/OS GUI。
 2. 在 **Organization** -> **Users** 选项卡中，找到您刚尝试作为用户登录的电子邮件地址，然后双击它。
-3. 为帐户分配所需权限。有关分配权限的详细信息，请访问[权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference/)文档。
+3. 为帐户分配所需权限。有关分配权限的详细信息，请访问[权限](/mesosphere/dcos/2.0/security/ent/perms-reference/)文档。
 
 
-# 故障排除 
+# 故障排除
 
 用户登录可能会失败，并显示以下消息。
 
-```
+```text
 SAML SSO authentication not successful. Could not extract the subject identity from the SAML response.
 ```
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  部署负载均衡数据管道
+navigationTitle: 部署负载均衡数据管道
 title: 部署负载均衡数据管道
 menuWeight: 3
 excerpt: 教程 - 在 DC/OS 上构建完整的负载均衡数据管道
@@ -8,13 +8,13 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
-本教程演示如何在大约 15 分钟内在 DC/OS 上构建完整的负载均衡数据管道！
+本教程演示如何在大约 15 分钟内在 DC/OS&trade; 上构建完整的负载均衡数据管道！
 
 # 概述
 
-在本教程中，您将安装和部署名为 Tweeter 的容器化 Ruby on Rails 应用程序。Tweeter 是类似于 Twitter 的应用程序，您可以使用该应用程序将 140 个字符的消息发布到互联网。然后，使用 Zeppelin 对由 Tweeter 创建的数据执行实时分析。
+在本教程中，您将安装和部署名为 Tweeter 的容器化 Ruby on Rails&reg; 应用程序。Tweeter 是类似于 Twitter 的应用程序，您可以使用该应用程序将 140 个字符的消息发布到互联网。然后，使用 Zeppelin&trade; 对由 Tweeter 创建的数据执行实时分析。
 
 您将学习：
 
@@ -27,13 +27,13 @@ model: /mesosphere/dcos/2.0/data.yml
 本教程使用 DC/OS 为群集启动和部署这些微服务：
 
 ### Cassandra
-[Cassandra][1] 数据库用于后端以存储 Tweeter 应用程序数据。
+[Cassandra&reg;][1] 数据库用于后端以存储 Tweeter 应用程序数据。
 
 ### Kafka
-[Kafka][2] 发布订阅消息服务接收来自 Cassandra 的推文，并将它们发送到 Zeppelin 进行实时分析。
+[Kafka&reg;][2] 发布订阅消息服务接收来自 Cassandra 的推文，并将它们发送到 Zeppelin 进行实时分析。
 
 ### Marathon-LB
-[Marathon-LB][12] 是一种基于 HAProxy 的负载均衡器，仅适用于 Marathon。当您需要外部路由或第 7 层负载均衡功能时，它非常有用。
+[Marathon-LB][12] 是一种基于 HAProxy&reg; 的负载均衡器，仅适用于 Marathon&trade;。当您需要外部路由或第 7 层负载均衡功能时，它非常有用。
 
 ### Zeppelin
 [Zeppelin][4] 是一款交互式分析笔记本，可在后端与 DC/OS Spark 配合使用，以实现交互式分析和可视化。因为 Spark 和 Zeppelin 可能会占用所有群集资源，所以必须为 Zeppelin 服务指定最大内核数。
@@ -46,33 +46,33 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 ## 前提条件
 
 * [DC/OS](/mesosphere/dcos/latest/installing/) 或 [DC/OS Enterprise](/mesosphere/dcos/latest/installing/) 已安装，至少具有 5 个[专用代理节点][6] 和 1 个[公共代理节点][6]。
-* [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 已安装。
+* [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 已安装。
 * 公共代理节点的公共 IP 地址。在声明了公共代理节点的 DC/OS 已安装后，可以[导航到公共代理节点的公共 IP 地址][9]。
 * Git：
-    * ** macOS：**从 [Git 下载]（http://git-scm.com/download/mac）获取安装程序。
-    * **Unix/Linux：**请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+ * ** macOS&reg;：**从 [Git 下载](http://git-scm.com/download/mac）获取安装程序。
+ * **UNIX&reg;/Linux&reg;：**请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
 ## 安装 DC/OS 服务
 
-在此步骤中，您可以从 DC/OS Web 界面 [**{{ model.packageRepo }}**](/mesosphere/dcos/cn/2.0/gui/catalog/) 选项卡安装 Cassandra、Kafka、Marathon-LB 和 Zeppelin。您还可以使用 `dcos package install`][11] 命令，从 DC/OS CLI 安装 DC/OS 软件包。
+在此步骤中，您可以从 DC/OS Web 界面 [**{{ model.packageRepo }}**](/mesosphere/dcos/2.0/gui/catalog/) 选项卡安装 Cassandra、Kafka、Marathon-LB 和 Zeppelin。您还可以使用 `dcos package install`][11] 命令，从 DC/OS CLI 安装 DC/OS 软件包。
 
 1. 查找并单击 **cassandra** 软件包，单击 **REVIEW & RUN**，并通过再次单击 **REVIEW & RUN**，然后单击 **RUN SERVICE**，接受默认安装。Cassandra 最多可旋转 3 个节点。当模态警报提示时，单击 **OPEN SERVICE**。
 
-2. 单击 **{{ model.packageRepo }}** 选项卡。查找并单击 **kafka** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。Kafka 最多旋转 3 个代理。当模态警报提示时，单击 **OPEN SERVICE**。
+2. 单击 ** {{ model.packageRepo }}** 选项卡。查找并单击 **kafka** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。Kafka 最多旋转 3 个代理。当模态警报提示时，单击 **OPEN SERVICE**。
 
-3. 单击 **{{ model.packageRepo }}** 选项卡。查找并单击 *marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
+3. 单击 ** {{ model.packageRepo }}** 选项卡。查找并单击 *marathon-lb** 软件包，单击 **REVIEW & RUN**按钮，然后再次单击该按钮，然后单击 **RUN SERVICE**。当模态警报提示时，单击 **OPEN SERVICE**。
 
-如果您在 Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照[这些说明](/mesosphere/dcos/services/marathon-lb/latest/mlb-install/)进行安装。根据您的 [安全模式](/mesosphere/dcos/cn/2.0/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
+如果您在 DC/OS Enterprise 群集上运行 Marathon-LB 时遇到问题，请尝试按照 [这些说明](/mesosphere/dcos/services/marathon-lb/latest/mlb-install/) 进行安装。根据您的 [安全模式](/mesosphere/dcos/2.0/security/ent/#security-modes)，Marathon-LB 可能需要服务身份认证才能访问 DC/OS。
 
-4. 单击 **{{ model.packageRepo }}** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
-    1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
-    2. 单击 **REVIEW AND RUN**，然后单击 **RUN**。单击 **OPEN SERVICE**。
+4. 单击 ** {{ model.packageRepo }}** 选项卡。单击 **zeppelin** 软件包，然后单击 **REVIEW & RUN** 按钮。
+ 1. 单击左侧的 **spark** 选项卡，并将 `cores_max` 设置为 `8`。
+ 2. 单击 **REVIEW AND RUN**，然后单击 **RUN**。单击 **OPEN SERVICE**。
 
 5. 在 DC/OS 上部署您的微服务时，单击 **Services**（服务**）选项卡。当节点上线时，您将看到“运行状况”状态从“空闲”转为“不健康”，最后变为健康状态。这可能需要几分钟。
 
-    ![显示所有服务的服务选项卡。](/mesosphere/dcos/2.0/img/tweeter-services6-ee.png)
+ ![显示所有服务的服务选项卡。](/mesosphere/dcos/2.0/img/tweeter-services6-ee.png)
 
-    图 1. 显示 Tweeter 服务的服务选项卡
+ 图 1. 显示 Tweeter 服务的服务选项卡
 
 ## 部署容器化应用程序
 
@@ -84,7 +84,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
     <table class=“table” bgcolor=#858585>
     <tr>
-    <td align=justify style=color:white><strong>重要信息：</strong>您必须删除前面的“http://”和后面的“/”。
+ <td align=justify style=color:white><strong>重要信息：</strong>您必须删除前面的“http://”和后面的“/”。
     </td>
     </tr>
     </table>
@@ -99,7 +99,7 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     ...
     ```
 
-    在本示例中，DC/OS 群集正在 AWS 上运行：
+ 在本示例中，DC/OS 群集正在 AWS 上运行：
 
     ```bash
     ...
@@ -117,25 +117,25 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
     dcos marathon app add tweeter.json
     ```
 
-    `tweeter.json` 中的 `instances` 参数指定应用程序实例的数量。使用以下命令为应用程序增容或减容：
+ `tweeter.json` 中的 `instances` 参数指定应用程序实例的数量。使用以下命令为应用程序增容或减容：
 
     ```bash
     dcos marathon app update tweeter instances=<number_of_desired_instances>
     ```
 
-    在本示例中，服务通过群集节点 `node-0.cassandra.mesos:9042` 与 Cassandra 进行通信，通过群集节点 `broker-0.kafka.mesos:9557` 与 Kafka 进行通信。由于 `tweeter.json` 应用定义文件中的 `HAPROXY_0_VHOST` 定义，流量通过 Marathon-LB 传输。
+ 在本示例中，服务通过群集节点 `node-0.cassandra.mesos:9042` 与 Cassandra 进行通信，通过群集节点 `broker-0.kafka.mesos:9557` 与 Kafka 进行通信。由于 `tweeter.json` 应用定义文件中的 `HAPROXY_0_VHOST` 定义，流量通过 Marathon-LB 传输。
 
 4. 转到 **Services** 选项卡，验证您的应用程序是否正常运行。
 
-    ![已部署的 Tweeter](/mesosphere/dcos/2.0/img/tweeter-services7.png)
+ ![已部署的 Tweeter](/mesosphere/dcos/2.0/img/tweeter-services7.png)
 
-    图 2. 已部署的 Tweeter
+ 图 2. 已部署的 Tweeter
 
 5. 导航到[公共代理][9] 节点端点以查看 Tweeter UI 并发布一篇推文。在本例中，您将浏览器指向 `52.34.136.22`。
 
-    ![Tweeter][14]
+ ![Tweeter][14]
 
-    图 3. “Hello world”推文
+ 图 3. “Hello world”推文
 
 ## 发布 10 万条推文
 
@@ -151,9 +151,9 @@ Tweeter 将推文存储在 DC/OS Cassandra 服务中，实时将推文流式传�
 
 3. 在 `post-tweets.json` 运行后，刷新您的浏览器，查看传入的 Shakespeare 推文。
 
-    ![Shakespeare 推文](/mesosphere/dcos/2.0/img/tweeter-shakespeare.png)
+ ![Shakespeare 推文](/mesosphere/dcos/2.0/img/tweeter-shakespeare.png)
 
-    图 4. Shakespeare 推文
+ 图 4. Shakespeare 推文
 
 `post-tweets` 应用程序通过流式传输 VIP`1.1.1.1:30000` 进行工作。此地址在 `post-tweets.json` 应用定义的 `cmd` 参数中声明。
 
@@ -213,12 +213,12 @@ Tweeter 应用程序使用安装在每个 DC/OS 节点上的服务发现和负�
  [1]: /mesosphere/dcos/services/cassandra/latest/
  [2]: /mesosphere/dcos/services/kafka/latest/
  [3]: /mesosphere/dcos/services/spark/latest/
- [4]:http://zeppelin.apache.org/
- [5]:https://github.com/mesosphere/marathon-lb
- [6]: /mesosphere/dcos/cn/2.0/overview/concepts/
- [9]: /mesosphere/dcos/cn/2.0/administering-clusters/locate-public-agent/
- [11]: /mesosphere/dcos/cn/2.0/cli/command-reference/
+ [4]: http://zeppelin.apache.org/
+ [5]: https://github.com/mesosphere/marathon-lb
+ [6]: /mesosphere/dcos/2.0/overview/concepts/
+ [9]: /mesosphere/dcos/2.0/administering-clusters/locate-public-agent/
+ [11]: /mesosphere/dcos/2.0/cli/command-reference/
  [12]: /mesosphere/dcos/services/marathon-lb/latest/
- [13]:https://github.com/mesosphere/tweeter
+ [13]: https://github.com/mesosphere/tweeter
  [14]: /mesosphere/dcos/2.0/img/tweeter.png
  [16]: /mesosphere/dcos/2.0/img/top-tweeters.png

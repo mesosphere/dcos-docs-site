@@ -25,7 +25,7 @@ dcos plugin add <resource> [flags]
 | 名称 | 说明 |
 |---------|-------------|
 | `--update`, `-u` | 插件版本。 |
-| | `--help, h` | 打印使用。|
+| `--help, h` | 打印使用。|
 
 ## 位置自变量
 
@@ -37,4 +37,4 @@ dcos plugin add <resource> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos plugin](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-plugin/) | 安装和管理 DC/OS 软件插件。 |
+| [dcos plugin](/mesosphere/dcos/2.0/cli/command-reference/dcos-plugin/)   | 安装和管理 DC/OS 软件插件。 |

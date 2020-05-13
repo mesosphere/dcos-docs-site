@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  使用 Jenkins 部署 Marathon 应用程序
+navigationTitle: 使用 Jenkins 部署 Marathon 应用程序
 title: 使用 Jenkins 部署 Marathon 应用程序
 menuWeight: 4
 excerpt: 教程 - 使用 Jenkins for DC/OS 在 Marathon 上部署应用程序
@@ -9,10 +9,9 @@ model: /mesosphere/dcos/2.0/data.yml
 enterprise: false
 ---
 
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
-
-本教程介绍如何使用 Jenkins for DC/OS 在 [Marathon][1] 上部署应用程序。本教程将指导您创建新的 Jenkins 作业，在源代码更改时发布 Docker 容器，并根据项目的 `marathon.json` 文件中包含的[应用定义][3] 将这些更改部署到 Marathon。
+本教程介绍如何使用 Jenkins&reg; for DC/OS 在 [Marathon&trade;][1] 上部署应用程序。本教程将指导您创建新的 Jenkins 作业，在源代码更改时发布 Docker&reg; 容器，并根据项目的 `marathon.json` 文件中包含的[应用定义][3] 将这些更改部署到 Marathon。
 
 **前提条件：**
 本教程假设您拥有有效的 Jenkins 安装和许可，可以在 Marathon 上启动应用程序。Jenkins for DC/OS 必须按照 [Jenkins 快速入门](/mesosphere/dcos/services/jenkins/quickstart/)页面上的说明进行安装。
@@ -25,7 +24,7 @@ enterprise: false
 
 ## 访问 Jenkins for DC/OS
 
-可通过 [DC/OS Web 界面](/mesosphere/dcos/cn/2.0/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
+可通过 [DC/OS Web 界面](/mesosphere/dcos/2.0/gui/)中的仪表盘或服务导航菜单访问 Jenkins for DC/OS。
 
 单击“Jenkins”服务，然后单击“Open Service”访问 Jenkins Web 界面。
 
@@ -74,13 +73,13 @@ Jenkins 作业执行以下操作：
 
 这些步骤可以使用 **Docker Build and Publish** 插件通过单个构建步骤执行，这已经包含并可供使用。在 **Add build step** 下拉列表中选择 **Docker Build and Publish** 选项。
 
-![dcos-velocity-jenkins-build-docker.png](/mesosphere/dcos/cn/2.0/img/dcos-velocity-jenkins-build-docker.png)
+![dcos-velocity-jenkins-build-docker.png](/mesosphere/dcos/2.0/img/dcos-velocity-jenkins-build-docker.png)
 
 图 5. Docker “Add build step” 选项
 
 填写以下字段：
 
-* **存储库名称**，带有您的 Docker Hub 用户名和 `/${JOB_NAME}` 作为后缀  ("myusername/${JOB_NAME}")
+* **存储库名称**，带有您的 Docker Hub 用户名和 `/${JOB_NAME}` 作为后缀 ("myusername/${JOB_NAME}")
 * **标签**，具有 `${GIT_COMMIT}`
 * **注册表凭据**，以上创建的 Docker Hub 的凭据
 
@@ -150,6 +149,6 @@ Marathon 部署构建后操作读取应用定义文件，默认情况下为 `mar
 
  [1]: https://mesosphere.github.io/marathon/
  [3]: https://mesosphere.github.io/marathon/docs/application-basics.html
- [4]:https://github.com/mesosphere/cd-demo
+ [4]: https://github.com/mesosphere/cd-demo
  [5]: https://mesosphere.github.io/marathon/docs/native-docker.html
- [6]:https://hub.docker.com/
+ [6]: https://hub.docker.com/

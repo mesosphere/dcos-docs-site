@@ -8,4 +8,4 @@ model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 10
 ---
 
-本节介绍特定 DC/OS 工程实现的技术细节。
+本节介绍特定 DC/OS&trade; 工程实现的技术细节。

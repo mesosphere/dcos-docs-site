@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  软件定义网络
+navigationTitle: 软件定义网络
 title: 软件定义网络
 menuWeight: 4
 excerpt: 了解 SDN 的 DC/OS 支持
@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-DC/OS 允许在各种软件定义网络 (SDN) 上启动 UCR 和 Docker 容器。它支持 UCR 的 [容器网络接口 (CNI)](https://github.com/containernetworking/cni) 标准和 Docker 的 [容器网络模型 (CNM)](https://github.com/docker/libnetwork/blob/master/docs/design.md) 标准。
+Mesosphere&reg; DC/OS&trade; 允许在各种软件定义网络 (SDN) 上启动 UCR 和 Docker 容器。它支持 UCR 的 [容器网络接口 (CNI&reg;)](https://github.com/containernetworking/cni) 标准和 Docker&reg; 的 [容器网络模型 (CNM)](https://github.com/docker/libnetwork/blob/master/docs/design.md) 标准。
 
 DC/OS 附带自己的本地虚拟网络解决方案，称为 DC/OS 覆盖，支持 CNI 和 CNM 标准。
 

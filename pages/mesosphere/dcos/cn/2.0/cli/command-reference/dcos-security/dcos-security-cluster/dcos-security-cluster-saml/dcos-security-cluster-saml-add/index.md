@@ -14,7 +14,7 @@ enterprise: true
 
 # 使用
 
-```
+```bash
 dcos security cluster saml add [OPTIONS] SAML_ID
 ```
 
@@ -22,10 +22,10 @@ dcos security cluster saml add [OPTIONS] SAML_ID
 
 | 名称 | 说明 |
 |-------------|-----------------|
-| `-d`, `--description <text>` | SAML 提供程序描述。(必填) |
-| `-i`, `--idp-metadata <filename>` | 包含 IDP 元数据的 XML 格式文件。(必填) |
-| `-b`, `--sp-base-url <text>` | 服务提供程序的基准 URL。(必填) |
-| `-h`, `--help`| 显示此消息并退出。|
+| `-d`, `--description <text>` | SAML 提供程序描述。（必填)|
+| `-i`, `--idp-metadata <filename>` | 包含 IDP 元数据的 XML 格式文件。（必填)|
+| `-b`, `--sp-base-url <text>` | 服务提供程序的基准 URL。（必填)|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 ## 位置自变量
 
@@ -37,4 +37,4 @@ dcos security cluster saml add [OPTIONS] SAML_ID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster saml ](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | 管理您的安全声明标记语言 (SAML) 设置。 |
+| [dcos security cluster saml](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | 管理您的安全声明标记语言 (SAML) 设置。 |

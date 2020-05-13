@@ -10,7 +10,7 @@ excerpt: 创建和管理您的基础架构以及使用 DC/OS 模块来安装。
 
 我们已将 DC/OS 的生命周期管理分为 4 个角色，以处理 DC/OS 的不同管理方面，例如群集前提条件、bootstrap 任务、管理节点任务、专用代理任务和公共代理任务。关于每个角色的更多信息可见下文：
 
-- 前提条件 - 此角色处理所有 [运行 DC/OS 的要求](/mesosphere/dcos/cn/2.0/installing/production/system-requirements/#software-prerequisites)。
+- 前提条件 - 此角色处理所有 [运行 DC/OS 的要求](/mesosphere/dcos/2.0/installing/production/system-requirements/#software-prerequisites)。
 - GPU - 此角色是对“前提条件”角色的专门添加。它检测 Nvidia GPU 并尝试在 CentOS 系统上安装驱动器。
 -  bootstrap  - bootstrap 角色处理与将 DC/OS 安装和升级脚本下载、生成和服务于群集中所有节点相关的所有任务。
 - 管理节点 - 这些任务包括从 bootstrap 节点下载安装和升级文件，以及处理某些检查以确保升级已相应地进行。如果存在让群集无法进入不期望状态的问题，将回退升级。
@@ -19,7 +19,7 @@ excerpt: 创建和管理您的基础架构以及使用 DC/OS 模块来安装。
 
 ## 关于 Mesosphere DC/OS Ansibles 的角色
 
-使用 [Mesosphere DC/OS Ansible 角色](https://github.com/dcos/dcos-ansible)安装、升级和配置一个或多个使用 [Ansible] (https://www.ansible.com/)的 DC/OS 群集。这些角色既可以在新的或现有的 Ansible 设置中使用，也可以从 [官方的 Ansible Galaxy](https://galaxy.ansible.com/dcos/dcos_ansible)下载。
+使用 [Mesosphere DC/OS Ansible 角色](https://github.com/dcos/dcos-ansible)安装、升级和配置一个或多个使用 [Ansible](https://www.ansible.com/)的 DC/OS 群集。这些角色既可以在新的或现有的 Ansible 设置中使用，也可以从 [官方的 Ansible Galaxy](https://galaxy.ansible.com/dcos/dcos_ansible)下载。
 
 <p class="message--note"><strong>注意：</strong>DC/OS Ansible 角色目前仅适用于 CentOS 和 RHEL 平台。</p>
 
@@ -56,11 +56,11 @@ public-agents-loadbalancer = ext-dcosansible-1616099901.us-east-1.elb.amazonaws.
 public_agents = 3.86.34.141
 ```
 
-如需了解如何将 Terraform 用作部署管理器的更多信息，请访问 [Universal 安装工具页面](/mesosphere/dcos/cn/2.0/installing/evaluation/)。
+如需了解如何将 Terraform 用作部署管理器的更多信息，请访问 [Universal 安装工具页面](/mesosphere/dcos/2.0/installing/evaluation/)。
 
 ## 将 Mesosphere DC/OS Ansible 角色与 Mesosphere 通用安装工具结合使用
 
-Mesosphere 支持使用一组 [通用安装工具](/mesosphere/dcos/cn/2.0/installing/evaluation/)构建基础架构，专门采用 [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge)和 Ansible 来管理 DC/OS 软件的生命周期。
+Mesosphere 支持使用一组 [通用安装工具](/mesosphere/dcos/2.0/installing/evaluation/)构建基础架构，专门采用 [Terraform-Ansible-Bridge-module](https://github.com/dcos-terraform/terraform-localfile-dcos-ansible-bridge)和 Ansible 来管理 DC/OS 软件的生命周期。
 
 ```hcl
 module "dcos-ansible-bridge" {
@@ -89,7 +89,7 @@ module "dcos-infrastructure" {
 
 ## 使用 Mesosphere DC/OS Ansible 角色进行本地设置
 
-Mesosphere 支持使用可用于自动化 DC/OS 安装、升级和配置本地设置的 Ansible。[Mesosphere 提供的 Ansible 角色](https://galaxy.ansible.com/dcos/dcos_ansible) 将使用遵循 [Mesosphere DC/OS 系统要求](/mesosphere/dcos/cn/2.0/installing/production/system-requirements/) 的任何设置 并与 CentOS/RHEL 一起运行。
+Mesosphere 支持使用可用于自动化 DC/OS 安装、升级和配置本地设置的 Ansible。[Mesosphere 提供的 Ansible 角色](https://galaxy.ansible.com/dcos/dcos_ansible) 将使用遵循 [Mesosphere DC/OS 系统要求](/mesosphere/dcos/2.0/installing/production/system-requirements/)的任何设置 并与 CentOS/RHEL 一起运行。
 
 ## GPU 支持
-使用 [提供的示例手册](https://github.com/dcos/dcos-ansible/blob/master/dcos.yml)时，它将自动检测 NVIDIA GPU 硬件并尝试安装适当的驱动程序。这种方法尝试在没有任何重启的情况下起作用 - GPU 角色识别当前使用的内核，并尝试从当前基础存储库或从 Centos Vault 保管存储库获取其标头文件。如果您有自定义内核在使用，则这可能会失败。在这种情况下，我们恳请您不要使用该模块，只需在您的 Playbook 中将其注释掉并自行处理驱动程序的安装即可。一旦安装驱动程序且 CUDA 库可用，DC/OS 代理将自动提供 GPU 资源。提示：请确保安装驱动程序后在进行 DC/OS 安装。
+使用 [提供的示例手册](https://github.com/dcos/dcos-ansible/blob/master/dcos.yml)时，它将自动检测 NVIDIA GPU 硬件并尝试安装适当的驱动程序。这种方法尝试在没有任何重启的情况下起作用 - GPU 角色识别当前使用的内核，并尝试从当前基础存储库或从 Centos Vault 保管存储库获取其标头文件。如果您有自定义内核在使用，则这可能会失败。在这种情况下，我们恳请您不要使用该模块，只需在您的 Playbook 中将其注释掉并自行处理驱动程序的安装即可。一旦安装驱动程序且 CUDA 库可用，DC/OS 代理将自动提供 GPU 资源。提示：请确保安装驱动程序后在进行 DC/OS 安装。_

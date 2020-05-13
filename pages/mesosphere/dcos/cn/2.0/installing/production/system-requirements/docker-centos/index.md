@@ -1,15 +1,17 @@
 ---
 layout: layout.pug
-navigationTitle:  CenTos/RHEL 的 Docker
+navigationTitle: CenTos/RHEL 的 Docker
 title: 在 CenTos/RHEL 上安装 Docker
 menuWeight: 5
 excerpt: 在 CenTos/RHEL 上安装 Docker CE 的要求、建议和程序
 ---
 
 ## 客户咨询
-最近在 Docker 17.x 的处理 cgroups 内核内存控制器 (kmem) 中发现的程序错误在 `kmem` 会计功能已激活时会导致整个系统不稳定。客户可能会注意到任务或命令无限期地卡住以及在系统日志中与内核相关的错误消息。强烈建议使用 RedHat 或 CentOS 的作为基本操作系统的 Mesosphere DC/OS 客户和社区成员安装和使用 RedHat 的 Docker 1.13 分叉。Docker 的这个分叉不需要 RHN 订阅。
+Docker 17.x 的处理 cgroups 内核内存控制器 (kmem) 中的漏洞在 `kmem` 会计功能已激活时会导致整个系统不稳定。客户可能会注意到任务或命令无限期地卡住以及在系统日志中与内核相关的错误消息。强烈建议使用 RedHat 或 CentOS 的作为基本操作系统的 Mesosphere DC/OS 客户和社区成员使用 RedHat 的 Docker 1.13 分叉或 Docker CE/EE 18.09.1 或更高版本，两者均不受此程序错误的影响。
 
-<p class="message--note"><strong>注意：</strong>有关 Docker 漏洞和缓解措施说明的更多具体详情见<a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">此处</a>。</p>
+包 `containerd.io` 的 1.2.10-3.2 版本中引入了另一个 kmem 漏洞，该漏洞可能会影响任何版本的 Docker。强烈建议使用 RedHat 或 CentOS 作为其基本操作系统的 Mesosphere DC/OS 客户和社区成员避免使用此版本。
+
+<p class="message--note"><strong>注意：</strong>有关 Docker 漏洞和缓解措施说明的更多具体详情见<a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">此处</a>和<a href="https://support.d2iq.com/s/ article/KMEM-Reoccurrence">此处</a>。</p>
 
 ## 要求和建议
 
@@ -23,7 +25,7 @@ excerpt: 在 CenTos/RHEL 上安装 Docker CE 的要求、建议和程序
 
 * 有关安装 Docker 的更详细分解，[请参阅 Docker CE for CentOS 安装页][4]。
 
-    <p class="message--note"><strong>注意：</strong>在新近的 Centos 和 RHEL 版本中，<code>ftype=1</code> 是默认值。可以使用 <code>xfs_info</code> 实用程序来验证 <code>ftype=1</code>。</p>
+ <p class="message--note"><strong>注意：</strong>在新近的 Centos 和 RHEL 版本中，<code>ftype=1</code> 是默认值。可以使用 <code>xfs_info</code> 实用程序来验证 <code>ftype=1</code>。</p>
 
     ```bash
     mkfs -t xfs -n ftype=1 /dev/sdc1
@@ -69,7 +71,7 @@ excerpt: 在 CenTos/RHEL 上安装 Docker CE 的要求、建议和程序
 
 如需更多通用 Docker 要求，请参阅 [系统要求：Docker][1]。
 
-[1]: /mesosphere/dcos/cn/2.0/installing/production/system-requirements/#docker
+[1]: /mesosphere/dcos/2.0/installing/production/system-requirements/#docker
 [2]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html
 [3]: https://docs.docker.com/install/linux/docker-ee/rhel
-[4]: /mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/
+[4]: /mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  排除 LDAP 错误
+navigationTitle: 排除 LDAP 错误
 title: 排除 LDAP 错误
 menuWeight: 5
 excerpt: 排除 LDAP 目录的常见身份认证和配置问题
@@ -26,13 +26,13 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 - 所需的端口拒绝所有流量或受防火墙规则保护。
 
-    具体端口要求取决于您使用的 Active Directory 版本和通信流量类型。例如，大多数 LDAP 流量需要 TCP 或 UDP 连接的端口 389，以处理目录和复制服务、用户和计算机身份认证以及组策略分发。
+ 具体端口要求取决于您使用的 Active Directory 版本和通信流量类型。例如，大多数 LDAP 流量需要 TCP 或 UDP 连接的端口 389，以处理目录和复制服务、用户和计算机身份认证以及组策略分发。
 
-    要通过安全通信通道处理相同类型的流量，LDAP 需要 TCP 连接的端口 636，才能通过安全套接字层 (SSL) 传递加密消息。
+ 要通过安全通信通道处理相同类型的流量，LDAP 需要 TCP 连接的端口 636，才能通过安全套接字层 (SSL) 传递加密消息。
 
 - DNS 无法解析 Active Directory 域控制器的名称或 IP 地址。
 
-如果遇到此错误，请检查错误所在的计算机是否具有用于网络接口和域控制器的正确 IP地址。您可以使用 DHCP 服务器角色或在网络适配器设置中手动检查域连接的当前 IP 地址和网络设置。例如，您可以使用 `ipconfig` 或类似的操作系统命令来检索当前的网络设置，以显示网络配置详细信息。
+ 如果遇到此错误，请检查错误所在的计算机是否具有用于网络接口和域控制器的正确 IP地址。您可以使用 DHCP 服务器角色或在网络适配器设置中手动检查域连接的当前 IP 地址和网络设置。例如，您可以使用 `ipconfig` 或类似的操作系统命令来检索当前的网络设置，以显示网络配置详细信息。
 
 如果端口号、主机名或主机 IP 地址存在问题，请编辑 LDAP 目录设置中的值，以指定正确的端口、主机名或主机 IP 地址。
 
@@ -72,11 +72,11 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 1. 在 **选择 SSL/TLS 设置**下，选择另一个选项。
 
-    ![SSL/TLS 设置选项](/mesosphere/dcos/2.0/img/ldap-ssl-options.png)
+ ![SSL/TLS 设置选项](/mesosphere/dcos/2.0/img/ldap-ssl-options.png)
 
-    图 3. SSL/TLS 设置选项
+ 图 3. SSL/TLS 设置选项
 
-    例如，如果已将“选择 SSL/TLS 设置”配置为 **对所有连接都使用 SSL/TLS**，则可能需要将设置更改为“尝试 StartTLS，如果失败，则不进行加密”。
+ 例如，如果已将“选择 SSL/TLS 设置”配置为 **对所有连接都使用 SSL/TLS**，则可能需要将设置更改为“尝试 StartTLS，如果失败，则不进行加密”。
 
 1. 单击 **保存配置**。
 
@@ -96,11 +96,11 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 1. 在 **选择 SSL/TLS 设置**下，选择另一个选项。
 
-    ![SSL/TLS 设置选项](/mesosphere/dcos/2.0/img/ldap-ssl-options.png)
+ ![SSL/TLS 设置选项](/mesosphere/dcos/2.0/img/ldap-ssl-options.png)
 
-    图 5. SSL/TLS 设置选项
+ 图 5. SSL/TLS 设置选项
 
-    例如，如果您想在安全通信不可用时继续连接到 LDAP 服务器，则可以将“选择 SSL/TLS 设置”设置为 **尝试 StartTLS，如果失败，则不进行加密**。
+ 例如，如果您想在安全通信不可用时继续连接到 LDAP 服务器，则可以将“选择 SSL/TLS 设置”设置为 **尝试 StartTLS，如果失败，则不进行加密**。
 
 1. 单击 **保存配置**。
 
@@ -122,9 +122,9 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 1. 更正 **查找 DN** 和 **查找密码**。
 
-    ![修改身份认证信息](/mesosphere/dcos/2.0/img/ldap-lookup-dn.png)
+ ![修改身份认证信息](/mesosphere/dcos/2.0/img/ldap-lookup-dn.png)
 
-    图 7. 修改身份认证信息
+ 图 7. 修改身份认证信息
 
 1. 单击 **保存配置**。
 
@@ -163,16 +163,16 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 1. 打开 **Active Directory 用户和计算机**。
 1. 选择用户账户。
 
-    ![在 Active Directory 用户和计算机中选择一个用户](/mesosphere/dcos/2.0/img/ldap-aduc.png)
+ ![在 Active Directory 用户和计算机中选择一个用户](/mesosphere/dcos/2.0/img/ldap-aduc.png)
 
-    图 9. Active Directory 选项
+ 图 9. Active Directory 选项
 
 1. 右键单击，然后选择 **属性**。
 1. 单击 **账户** 选项卡并勾选 **用户登录名称**。
 
-    ![用户登录账户属性](/mesosphere/dcos/2.0/img/ldap-aduc-account-properties.png)
+ ![用户登录账户属性](/mesosphere/dcos/2.0/img/ldap-aduc-account-properties.png)
 
-    图 10. 用户登录账户
+ 图 10. 用户登录账户
 
 ## 检查替代账户名称格式
 某些情况下，您可能希望使用 `sAMAccountName` 的替代项来查找账户信息。例如，您可能想通过 `userPrincipalName` 查找账户信息，它在 `user@domain.com` 格式的域中定义了唯一账户。
@@ -188,7 +188,7 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 此 cmdlet 将通过 `SAMAccountName` rmcdonald 为用户返回所有属性。
 
-```
+```bash
 AccountExpirationDate : 
 accountExpires : 9223372036854775807
 AccountLockoutTime : 

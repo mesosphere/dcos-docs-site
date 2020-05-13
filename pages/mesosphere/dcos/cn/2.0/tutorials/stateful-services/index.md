@@ -8,17 +8,17 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-#include /mesosphere/dcos/cn/include/tutorial-disclaimer.tmpl
+#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
-本教程向您展示如何在 DC/OS 上安装和运行有状态服务。有状态服务对持久数据起作用。每次启动时，简单**无**状态服务在空沙盒中运行。相反，**有**状态服务使用驻留在群集中代理节点上的持久卷，直到被明确销毁。
+本教程向您展示如何在 DC/OS&trade; 上安装和运行有状态服务。有状态服务对持久数据起作用。每次启动时，简单**无**状态服务在空沙盒中运行。相反，**有**状态服务使用驻留在群集中代理节点上的持久卷，直到被明确销毁。
 
-这些持久卷安装在任务的 Mesos 沙盒中，因此可以连续访问服务。DC/OS 为每个任务创建持久卷，并且动态保留运行任务所需的所有资源。这样，DC/OS 可确保重新启动服务，并在需要时重用其数据。这对数据库、缓存和其他数据感知服务非常有用。
+这些持久卷安装在任务的 Apache&reg; Mesos&reg; 沙盒中，因此可以连续访问服务。DC/OS 为每个任务创建持久卷，并且动态保留运行任务所需的所有资源。这样，DC/OS 可确保重新启动服务，并在需要时重用其数据。这对数据库、缓存和其他数据感知服务非常有用。
 
 如果您打算运行的服务不会自行复制数，则需要处理备份或采用合适的复制策略。
 
 有状态服务利用两个基础的 Mesos 功能：
 
-- [动态保留](http：//mesos.apache.org/documentation/latest/reservation/) ，含保留标签
+- [动态保留](http://mesos.apache.org/documentation/latest/reservation/) ，含保留标签
 - [持久卷](http://mesos.apache.org/documentation/latest/persistent-volume/)
 
 **时间估计**：
@@ -34,12 +34,12 @@ model: /mesosphere/dcos/2.0/data.yml
 ## 前提条件
 
 * [已安装 DC/OS][1]
-- [已安装 DC/OS CLI]
+- [已安装 DC/OS CLI][2]
 * 群集大小：至少一个代理节点，具有 1 个 CPU、1 GB RAM 和 1000 MB 可用磁盘空间。
 
 ## 安装有状态服务 (PostgreSQL)
 
-这是启动官方 PostgreSQL Docker 镜像的 DC/OS 服务定义 JSON 。
+这是启动官方 PostgreSQL&reg; Docker&reg; 镜像的 DC/OS 服务定义 JSON：
 
 ```json
 {
@@ -101,13 +101,13 @@ model: /mesosphere/dcos/2.0/data.yml
 
 接下来，将此[服务][4] 添加到您的群集：
 
-```
+```bash
 dcos marathon app add //tutorials/stateful-services/postgres.marathon.json
 ```
 
 服务已安排且 Docker 容器已下载后，postgres 将变得健康并且可以使用。您可以从 DC/OS CLI 验证这一点：
 
-```
+```bash
 dcos marathon task list
 APP        HEALTHY          STARTED              HOST     ID
 /postgres    True   2016-04-13T17:25:08.301Z  10.0.1.223  postgres.f2419e31-018a-11e6-b721-0261677b407a
@@ -117,13 +117,13 @@ APP        HEALTHY          STARTED              HOST     ID
 
 要停止服务：
 
-```
+```bash
 dcos marathon app stop postgres
 ```
 
 此命令将 `instances` 计数缩减到 0 并终止所有正在运行的任务。如果再次检查任务列表，您会注意到任务仍在那里。该列表提供了有关其被放置的代理节点及其已连接的持久卷的信息，但没有 `startedAt` 值的信息。这允许您使用相同的元数据重新启动服务。
 
-```
+```bash
 dcos marathon task list
 APP        HEALTHY  STARTED     HOST     ID
 /postgres    True     N/A    10.0.1.223  postgres.f2419e31-018a-11e6-b721-0261677b407a
@@ -133,7 +133,7 @@ APP        HEALTHY  STARTED     HOST     ID
 
 再次启动有状态服务：
 
-```
+```bash
 dcos marathon app start postgres
 ```
 
@@ -143,15 +143,15 @@ dcos marathon app start postgres
 
 若要在安装有状态服务之前恢复群集状态，请删除该服务：
 
-```
+```bash
 dcos marathon app remove postgres
 ```
 
 ## 附录
 
-有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/cn/2.0/storage/)。
+有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/2.0/storage/)。
 
 
-[1]: /mesosphere/dcos/cn/2.0/installing/
-[2]: /mesosphere/dcos/cn/2.0/cli/install/
+[1]: /mesosphere/dcos/2.0/installing/
+[2]: /mesosphere/dcos/2.0/cli/install/
 [4]: postgres.marathon.json
