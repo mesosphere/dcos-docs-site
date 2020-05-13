@@ -215,7 +215,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
     Restricted view for 'Alice'
 
-# Creating a job with joins a container network
+# Creating a job which joins a container network
 
 **Note:** The following procedure requires DC/OS release version 2.0.4 or higher.
 

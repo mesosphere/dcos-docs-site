@@ -215,7 +215,7 @@ The jobs groups are then assigned permissions to users `Cory` and `Alice` to res
 
     Figure 8. Restricted view for 'Alice'
 
-# Creating a job with joins a container network
+# Creating a job which joins a container network
 
 In order to have a job join a network, specify the "networks" field. The following job joins the `dcos` network, outputs its IP information, then sleeps:
 
