@@ -54,7 +54,7 @@ $ dcos security secrets create -f kubernetes-encryption-config.yaml kubernetes-c
 ```json
 {
     "kubernetes": {
-        "encryption_config": "kubernetes-cluster/encryption-config"
+        "encryption_config": "kubernetes-cluster1/encryption-config"
     }
 }
 ```
