@@ -11,7 +11,7 @@ enterprise: false
 
 Mesosphere&reg; DC/OS&trade; provides a distributed and fault tolerant DNS-based service discovery mechanism.
 
-DNS is provided by two different components within DC/OS, `mesos-dns` and `dcos-dns`. These components support two top-level domain (TLD) names, `.mesos` and `.directory`. Read the [Recommendation](#Recommendation) section and [Mesos-DNS](/mesosphere/dcos/2.0/networking/DNS/mesos-dns/) to better understand the usage of these two TLDs.
+DNS is provided by two different components within DC/OS, `mesos-dns` and `dcos-dns`. These components support two top-level domain (TLD) names, `.mesos` and `.directory`. Read the [Recommendation](#Recommendation) section and [Mesos-DNS](/mesosphere/dcos/2.0/networking/DNS/mesos-dns/) to better understand the usage of these two TLDs. `dcos-net` and `mesos-dns` do not perform any caching.
 
 Each of the TLDs consists of multiple zones. Every DC/OS service gets multiple, fully-qualified domain name (FQDN) entries from these different zones. Each service that is launched on DC/OS through Marathon&trade; gets an FQDN in the form of  `<service-name>.mesos`. Moreover, **every** running service launched on DC/OS gets an FQDN, based upon the service that launched it, in the form `<service-name>.<group-name>.<framework-name>.mesos`.
 
