@@ -15,6 +15,22 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.5.0-beta.4 - Released 15 May 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.9 |
+
+#### Bug fixes
+
+- Pin the Terraform AWS version to what it was in a `v1.5.0-beta.2` to avoid an issue with assume role permissions.
+
+#### Improvements
+
+- New `--with-checks` flag for `konvoy up` and `konvoy deploy` commands to execute checks and confirm that the cluster is in a ready state before progressing to the next stages.
+
 ### Version v1.5.0-beta.3 - Released 14 May 2020
 
 | Kubernetes Support | Version |
@@ -35,7 +51,7 @@ enterprise: false
 - Invalid `nodePool` names now result in a validation error, instead of just printing a warning.
 - Add new error when running `konvoy` results in removal of a control-plane node.
 - Validate that `spec.kubernetes.networking.podSubnet` and `spec.kubernetes.networking.serviceSubnet` are larger than `/24` to avoid Calico and kube-controller-manager failing during the installation.
-- New `--target-node-pools` parameter for `konvoy up` and `konvoy deploy` commands to upgrade a subset of worker node pools.
+- New `--target-node-pools` flag for `konvoy up` and `konvoy deploy` commands to upgrade a subset of worker node pools.
 - New `--without-addons` flag for `konvoy up`, `konvoy deploy` and `konvoy check` commands.
 - New `--v` flag to set the verbosity level when running `konvoy` commands. The `--verbose` flag is deprecated but still usable.
 - Improve `spec.aws.vpc` validations for `aws` provisioner.
