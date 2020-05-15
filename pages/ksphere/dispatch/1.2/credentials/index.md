@@ -127,17 +127,18 @@ account and attach credentials to it.
         ```
 
 # Setting up Docker credentials
-Dispatch loads Docker registry credentials from Docker's default config file (typically `$HOME/.docker/config.json`), so you should first ensure you have already logged in on all used registries through Docker CLI.
+Set up credentials for the `team-1` service account to access the docker registry service on behalf of your account.
 
-1. To load Docker registry credentials, run the `login docker` subcommand and specify the service account to attach the credentials to:
-
-    ```bash
-    dispatch login docker --service-account team-1
-    ```
-
-    Alternatively, you can supply the path to a non-default Docker config file:
+1. To store Docker registry credentials, run the `login docker` subcommand and specify the service account to attach the credentials to by mentioning `username` and `password`:
 
     ```bash
-    dispatch login docker --service-account team-1 --docker-config-path /path/to/config.json
+    dispatch login docker --service-account team-1 --username $YOURDOCKERUSERNAME --password $YOURDOCKERPASSWORD
     ```
 
+    Alternatively, specify a non default registry endpoint as well:
+
+    ```bash
+    dispatch login docker --service-account team-1 --username $YOURDOCKERUSERNAME --password $YOURDOCKERPASSWORD --registry https://us.gcr.io
+    ```
+    
+    **Note** The `--password` can be a token instead of docker password (useful for accounts protected by 2FA)

@@ -1,4 +1,4 @@
-a---
+---
 layout: layout.pug
 navigationTitle:  Logging
 title: Logging in Kibana
