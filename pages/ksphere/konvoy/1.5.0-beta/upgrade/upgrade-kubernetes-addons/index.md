@@ -20,7 +20,7 @@ kubectl version --short=true
 
 A Konvoy upgrade consists of a few distinct steps.
 
-- Download the Konvoy binary and extract it in your environment in the same manner as the initial install.  
+- Download the Konvoy binary and extract it in your environment in the same manner as the initial install.
 - Update the `cluster.yaml` file with the changes outlined below.
 - Run `konvoy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
 
@@ -52,7 +52,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.16.8
+    version: 1.16.9
 ```
 
 <p class="message--note"><strong>NOTE: </strong>For certain Konvoy releases you might be required to change the versions for `containerNetworking` or `containerRuntime`. These changes are highlighted in the Release Notes and in the section further down this page.</p>
@@ -61,13 +61,14 @@ During the Kubernetes upgrade process, Konvoy:
 
 -   Determines which nodes do not have the required configuration and OS package versions.
 -   During stage `STAGE [Determining Upgrade Safety ...]`, checks for any user workloads that may be impacted by the upgrade and marks the nodes, where the workloads are running, to be "unsafe" to upgrade, skipping the upgrade process on them.
-    - You can force Konvoy to upgrade all of nodes by using the `--force-upgrade` flag.
+    - To ignore the safety check _for worker nodes only_, use the `--force-upgrade` flag.
     - Otherwise you can resolve the safety issues after the initial upgrade and rerun the upgrade process to let Konvoy perform the upgrade on the remaining nodes.
 -   Upgrades all of the control-plane nodes.
--   Upgrades the remaining nodes sequentially, upgrading all of the nodes in a NodePool before continuing onto a different NodePool.
-    -   By default, `15%` of all nodes, in each NodePool, are upgraded in parallel, with the control-plane nodes always upgraded serially.
+-   Upgrades the remaining nodes sequentially, upgrading all of the nodes in a node pool before continuing onto a different node pool.
+    -   By default, konvoy upgrades every node pool. To upgrade a subset of node pools, specify a comma-separated list of node pool names, with the `--target-node-pools` flag.
+    -   By default, `15%` of all nodes, in each node pool, are upgraded in parallel, with the control-plane nodes always upgraded serially.
         To change this behavior, pass the flag `--max-parallel-nodes` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`.
-        The value can be an integer, representing the number of nodes, or a percentage of nodes in the a NodePool.
+        The value can be an integer, representing the number of nodes, or a percentage of nodes in the a node pool.
         Passing a value of `1` upgrades the nodes serially.
         If some nodes in a batch fail to upgrade, Konvoy continues to upgrade the other nodes in the batch, but exits with an error. Fix the error manually and retry the process.
     -   The workloads are moved to a different node with `kubectl drain`. This process takes a few minutes before all workloads are scheduled onto different nodes. You can disable this behavior by passing the flag `--without-draining` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`. When `--without-draining` is specified, because no workloads are rescheduled, all nodes are upgraded, even when there are workloads that are "unsafe" to upgrade.
@@ -105,7 +106,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.6.0
+    configVersion: testing-1.8.0
     addonsList:
     ...
 ```
@@ -161,13 +162,13 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.16.8
+    version: 1.16.9
   containerNetworking:
     calico:
-      version: v3.13.2
+      version: v3.13.3
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.6.0
+    configVersion: testing-1.8.0
     addonsList:
     ...
     - name: helm

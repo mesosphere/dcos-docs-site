@@ -7,6 +7,8 @@ excerpt: Configure node pools for the Konvoy cluster
 enterprise: false
 ---
 
+<p class="message--warning"><strong>WARNING: </strong> You can not change the configuration of your control plane nodes. Any attempts to add or remove nodes, which could break the cluster, are prevented and an error message is displayed.</p>
+
 In this section, you will learn how to configure multiple node pools for a Konvoy cluster.
 Node pools allow the cluster administrator to use different configurations for different sets of worker nodes in a heterogeneous environment.
 

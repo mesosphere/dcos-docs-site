@@ -11,9 +11,28 @@ enterprise: false
 
 ## Kubernetes Base Addons
 
+May 13, 2020
+
+[stable-1.16-1.7.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-1.7.0)
+[stable-1.15-1.7.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-1.7.0)
+
+-   dex:
+    - Supports specifying the root CA for LDAP connectors in the Dex controller.
+
+-   dex-k8s-authenticator:
+    - Adds support for the Konvoy credentials plugin.
+
+-   prometheus:
+    - Restricts api extension RBAC rules.
+    - Fixes the statefulset crash loop on Kubernetes.
+
+-   velero:
+    - Increments velero to chart version 3.0.3, which includes velero-minio RELEASE.2020-04-10T03-34-42Z.
+    - Switches minio backend logging from plaintext to json format.
+
 ### April 24, 2020
 
-[stable-1.16-1.6.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-1.6.0),[stable-1.15-1.6.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-1.6.0),
+[stable-1.16-1.6.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-1.6.0),[stable-1.15-1.6.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-1.6.0)
 
 -   cert-manager:
     - `usages` is no longer definable as part of `issuerRef`. It is now a key on its own.

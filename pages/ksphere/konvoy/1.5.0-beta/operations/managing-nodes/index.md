@@ -9,13 +9,15 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
+<p class="message--warning"><strong>WARNING: </strong> You can not change the configuration of your control plane nodes. Any attempts to add or remove nodes, which could break the cluster, are prevented and an error message is displayed.</p>
+
 # Adding Nodes to an AWS / Azure Cluster
 
 <p class="message--note"><strong>NOTE: </strong> This process only applies to clusters created by Konvoy, using Terraform.
 If your cluster was provisioned manually, please follow the steps in <a href="#adding-nodes-to-an-on-premise-cluster">Adding Nodes to an On-Premise Cluster</a>.</p>
 
 <p class="message--note"><strong>NOTE: </strong> This process should only be applied to healthy clusters.
-If you are attempting to recover from a node failure, please see <a href="../troubleshooting/replace-a-failed-node">Recovering from Node Failure</a> instead.</p>
+If you are attempting to recover from a node failure, please see <a href="../../troubleshooting/replace-a-failed-node">Recovering from Node Failure</a> instead.</p>
 
 After the initial provisioning of a cluster, the same `konvoy` tools can be used to add nodes.
 

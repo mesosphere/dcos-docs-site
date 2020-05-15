@@ -90,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.16.8
+    version: 1.16.9
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -104,7 +104,7 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.13.2
+      version: v3.13.3
       encapsulation: ipip
       mtu: 1480
   containerRuntime:
@@ -116,7 +116,7 @@ spec:
   - name: worker
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.6.0
+    configVersion: testing-1.8.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -190,12 +190,12 @@ spec:
     - name: velero
       enabled: true
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.16-1.1.0
+    configVersion: stable-1.16-1.1.1
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: testing-1.16-1.1.0-beta.2
+    configVersion: testing-1.16-1.1.0-beta.3
     addonsList:
     - name: kommander
       enabled: true
