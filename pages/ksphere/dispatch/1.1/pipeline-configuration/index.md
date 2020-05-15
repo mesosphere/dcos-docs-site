@@ -202,7 +202,7 @@ actions: [
 ```python
 #!mesosphere/dispatch-starlark:v0.5
 
-load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.3", "gitResource")
+load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.4", "gitResource", "pullRequest", "push")
 
 gitResource("src-git")
 

@@ -22,7 +22,7 @@ By default, the `cue` configuration format is used. However, at the top of your 
 | Frontend |            Current Version               |
 | -------- | ---------------------------------------- |
 | starlark | `#!mesosphere/dispatch-starlark:v0.5`    |
-| cue      | `#!mesosphere/dispatch-cue:v0.2`  |
+| cue      | `#!mesosphere/dispatch-cue:v0.3`  |
 | json     | `#!mesosphere/dispatch-json:v0.2` |
 | yaml     | `#!mesosphere/dispatch-yaml:v0.2` |
 
@@ -153,7 +153,7 @@ actions:
 The following example is a simple restructuring of the JSON example taking advantage of CUE's JSON sugar syntax to improve readability:
 
 ```json
-#!mesosphere/dispatch-cue:v0.2
+#!mesosphere/dispatch-cue:v0.3
 
 resource "src-git": {
   type: "git"
@@ -202,7 +202,7 @@ actions: [
 ```python
 #!mesosphere/dispatch-starlark:v0.5
 
-load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.3", "gitResource")
+load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.4", "gitResource", "pullRequest", "push")
 
 gitResource("src-git")
 

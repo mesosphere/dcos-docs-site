@@ -65,6 +65,91 @@ helm init --wait --service-account tiller
 
 ## Installing Dispatch into a Cluster via Dispatch CLI
 
+To install Dispatch with the default configuration, run:
+
+```
+dispatch init
+```
+
+It is possible to customize the install location with the `--namespace` flag. By default, the Dispatch instance will watch all namespaces for Dispatch repository configurations, however, if you specify the `--watch-namespace` flag it is possible to customize which namespaces Dispatch can see:
+
+```
+dispatch init --watch-namespace dispatch-tasks --watch-namespace dispatch-work
+```
+
+### Ingress configuration
+
+By default, Dispatch creates ingress records under the `/dispatch/` path. However, you may want to configure this if there are multiple Dispatch instances, you want to specify a hostname, use a different ingress controller or otherwise customize the Dispatch ingress.
+
+The default Helm values for ingress are:
+
+```
+argo-cd:
+  server:
+    ingress:
+      enabled: true
+      annotations:
+        kubernetes.io/ingress.class: traefik
+        # Set `traefik.ingress.kubernetes.io/auth-type: ""` to disable traefik-forward-auth.
+        traefik.ingress.kubernetes.io/auth-type: "forward"
+        traefik.ingress.kubernetes.io/auth-response-headers: "X-Forwarded-User"
+        traefik.ingress.kubernetes.io/auth-url: "http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/"
+        traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+        traefik.ingress.kubernetes.io/priority: "1"
+      hosts: [""]
+      paths:
+        - "/dispatch/argo-cd"
+argocdWebhookIngress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/request-modifier: "ReplacePathRegex: ^(.*) /api/webhook"
+  hosts:
+    - paths: [/dispatch/hook/argo-cd]
+      host: ""
+ingress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+  hosts:
+    - paths: [/dispatch/hook]
+      host: ""
+gitopsIngress:
+  enabled: true
+  annotations:
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+  hosts:
+    - paths: [/dispatch/gitops-hook]
+      host: ""
+tekton-dashboard:
+  ingress:
+    enabled: true
+    annotations:
+      kubernetes.io/ingress.class: traefik
+      traefik.ingress.kubernetes.io/auth-response-headers: "X-Forwarded-User"
+      traefik.ingress.kubernetes.io/auth-type: "forward"
+      traefik.ingress.kubernetes.io/auth-url: "http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/"
+      traefik.ingress.kubernetes.io/rule-type: PathPrefixStrip
+      traefik.ingress.kubernetes.io/priority: "1"
+    hosts:
+      - paths: [/dispatch/tekton]
+        host: ""
+kommander-ui:
+  ingress:
+    enabled: true
+    traefikFrontendRuleType: PathPrefixStrip
+    path: /dispatch/dashboard
+    extraAnnotations:
+      traefik.ingress.kubernetes.io/priority: "1"
+      traefik.ingress.kubernetes.io/auth-type: "forward"
+      traefik.ingress.kubernetes.io/auth-url: "http://traefik-forward-auth-kubeaddons.kubeaddons.svc.cluster.local:4181/"
+      traefik.ingress.kubernetes.io/auth-response-headers: "X-Forwarded-User"
+```
+
+Each ingress setting has the option to edit the hosts, paths, and annotations used so that they can be customized.
+
 ### Namespaces
 
 Unless otherwise specified, the Dispatch CLI commands create repositories, secrets, pipelines and tasks in the `default` namespace. For production installations, we suggest you create a new namespace dedicated to your CI workloads, for example, `dispatch-work` or `dispatch-ci`. You will then specify that namespace when using the CLI.

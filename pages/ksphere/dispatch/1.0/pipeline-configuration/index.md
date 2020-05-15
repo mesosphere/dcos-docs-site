@@ -210,7 +210,7 @@ task("test", inputs = ["src-git"], steps = [k8s.corev1.Container(
         }
     )
 )])
-For 
+
 action(tasks = ["test"], on = push(branches = ["master"]))
 action(tasks = ["test"], on = pullRequest(chatops = ["test"]))
 ```
