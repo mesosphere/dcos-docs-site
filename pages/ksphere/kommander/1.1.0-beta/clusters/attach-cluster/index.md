@@ -91,7 +91,7 @@ Using the **Add Cluster** option you can attach an existing Kubernetes or Konvoy
 
 Selecting the **Attach Cluster** option displays the **Connection Information** dialog box. This dialog box accepts a kubeconfig file, that you can paste, or upload into the field. In the **Context** select list, you can select the intended context or change the display name provided with the config. You can add labels to classify your cluster.
 
-![Add Cluster Connect](/ksphere/kommander/1.1.0-beta/img/add-cluster.png)
+![Add Cluster Connect](/ksphere/kommander/1.1.0-beta/img/add-cluster-connect.png)
 
 ## Accessing your managed clusters using your Kommander administrator credentials
 
