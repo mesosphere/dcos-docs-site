@@ -26,3 +26,14 @@ enterprise: false
 #### Changes
 
 - Add 1.16.8 to selectable Kubernetes versions.
+
+
+#### Component Versions:
+
+- Chart: 0.4.26 -> 0.4.30
+- KCL: 0.4.11 -> 0.4.12
+- UI: 2.39.6
+- kubeaddons-catalog: 0.1.6
+- kommander-thanos: 0.1.13
+- kommander-karma: 0.3.8
+- grafana: 4.5.1
