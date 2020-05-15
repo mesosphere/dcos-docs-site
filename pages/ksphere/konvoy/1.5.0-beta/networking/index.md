@@ -143,7 +143,7 @@ spec:
   kubernetes:
     containerNetworking:
       calico:
-        version: v3.13.2
+        version: v3.13.3
 ```
 
 Further, the Calico IPV4 pool CIDR can be set via `spec.kubernetes.networking.podSubnet` in `cluster.yaml`, as shown below:
@@ -367,12 +367,12 @@ Details of these functionalities can be viewed [here][traefik_fn].
 [keepalived]: https://www.keepalived.org/doc/introduction.html
 [vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
 [keepalived_conf]: https://www.keepalived.org/doc/configuration_synopsis.html
-[calico]: https://docs.projectcalico.org/v3.8/introduction
-[calico_yaml]: https://docs.projectcalico.org/v3.8/manifests/calico.yaml
-[calico_policy]: https://docs.projectcalico.org/v3.8/security/kubernetes-network-policy
-[calico_security]: https://docs.projectcalico.org/v3.8/security
-[calico_bgp]: https://docs.projectcalico.org/v3.8/networking/bgp
-[calicoctl]: https://docs.projectcalico.org/v3.8/getting-started/calicoctl/install
+[calico]: https://docs.projectcalico.org/introduction/
+[calico_yaml]: https://docs.projectcalico.org/v3.13/manifests/calico.yaml
+[calico_policy]: https://docs.projectcalico.org/security/kubernetes-network-policy
+[calico_security]: https://docs.projectcalico.org/security/
+[calico_bgp]: https://docs.projectcalico.org/networking/bgp
+[calicoctl]: https://docs.projectcalico.org/getting-started/clis/calicoctl/install
 [coredns]: https://coredns.io/
 [coredns_plugins]: https://coredns.io/plugins
 [metallb]: https://metallb.universe.tf/concepts/

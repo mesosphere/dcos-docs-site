@@ -18,7 +18,7 @@ Before installing, ensure that your environment has the following basic requirem
   You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker Desktop.
 
-* [kubectl][install_kubectl] v1.16.8 or later
+* [kubectl][install_kubectl] v1.16.9 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -65,10 +65,10 @@ See the sample file below for possible changes that may be applied in your clust
 
 By default the Konvoy image has a Debian base image. However, if you organization only permits running images based on [Red Hat Universal Base Image(UBI)][ubi_image] you can use a different Docker image tag of Konvoy.
 
-Run Konvoy with base image of `registry.access.redhat.com/ubi8/ubi:8.1`, replacing `<version>` with the version of Konvoy:
+Run Konvoy with base image of `registry.access.redhat.com/ubi8/ubi:8.2`, replacing `<version>` with the version of Konvoy:
 
 ```text
-export KONVOY_VERSION=<version>-ubi8
+export KONVOY_VERSION=<version>_ubi8
 ```
 
 ### IPTables

@@ -23,7 +23,8 @@ konvoy check [flags]
 ### Options
 
 ```
-  -h, --help   help for check
+  -h, --help             help for check
+      --without-addons   skip checking that addons were deployed
 ```
 
 ### SEE ALSO

@@ -23,8 +23,9 @@ konvoy provision [cluster name] [flags]
 ### Options
 
 ```
-      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@testing-1.16-1.1.0-beta.2,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.16-1.1.0,https://github.com/mesosphere/kubernetes-base-addons@stable-1.16-1.6.0])
+      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@master,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.16-1.1.1,https://github.com/mesosphere/kubernetes-base-addons@master])
       --cluster-name string           Name used to prefix the cluster and all the created resources (default "konvoy")
+      --force-reduce-control-plane    allow a reduction for the number of control plane nodes in a cluster
   -h, --help                          help for provision
       --plan-only                     show planned changes but don't provision
       --provisioner string            select a provisoner [aws|azure|gcp|docker|none] (default "aws")
@@ -36,3 +37,4 @@ konvoy provision [cluster name] [flags]
 ### SEE ALSO
 
 * [konvoy](../)	 - deploy and manage Kubernetes clusters
+

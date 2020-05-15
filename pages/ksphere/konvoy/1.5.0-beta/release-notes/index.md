@@ -15,7 +15,51 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
-### Version v1.5.0-beta.2 - April 28 March 2020
+### Version v1.5.0-beta.3 - Released 14 May 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.9 |
+
+#### Bug fixes
+
+- Fix a bug that caused `konvoy init` to fail with `already up-to-date`, when using local directories, as the addon git repos.
+- Fix a bug where an empty `creationTimestamp` resulted in failure when trying to upgrade.
+- Fix a bug where the `konvoy diagnose` command would fail if it was run before the first control-plane node was setup.
+- Fix a bug where the `kubelet` and `chrony` Systemd services may not automatically start, after a machine reboot.
+
+#### Improvements
+
+- Invalid `nodePool` names now result in a validation error, instead of just printing a warning.
+- Add new error when running `konvoy` results in removal of a control-plane node.
+- Validate that `spec.kubernetes.networking.podSubnet` and `spec.kubernetes.networking.serviceSubnet` are larger than `/24` to avoid Calico and kube-controller-manager failing during the installation.
+- New `--target-node-pools` parameter for `konvoy up` and `konvoy deploy` commands to upgrade a subset of worker node pools.
+- New `--without-addons` flag for `konvoy up`, `konvoy deploy` and `konvoy check` commands.
+- New `--v` flag to set the verbosity level when running `konvoy` commands. The `--verbose` flag is deprecated but still usable.
+- Improve `spec.aws.vpc` validations for `aws` provisioner.
+- GCP: new option `spec.machine.gcp.associatePublicIPAddress` to decouple bastion host creation from associating public IP for nodes.
+- GCP: support arbitrary number of control plane nodes. Previously, only 3 and 5 were supported.
+- GCP: rename `gcp.network.create_internet_gateway_route` to `gcp.network.createInternetGatewayRoute`.
+
+#### Addon Improvements
+
+- Add a new column to the `kubectl get` output of `Addons` and `ClusterAddons` that shows the respective addon's revision.
+- Addon values can now be remapped using ConfigMaps.
+
+#### Component version changes
+
+- kubernetes-base-addons `testing-1.8.0`
+- Kommander `testing-1.16-1.1.0-beta.3`
+- Dispatch `stable-1.16-1.1.1`
+- Kubernetes `v1.16.9`
+- Calico `v3.13.3`
+- Ansible `v2.7.17.0`
+- Go `v1.13.10`
+- Docker `v19.03.8`
+
+### Version v1.5.0-beta.2 - Released 28 April 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -28,7 +72,7 @@ enterprise: false
 - Fix a bug where `konvoy config images seed` could incorrectly try to load or pull certain images, even when they are already present in the docker agent.
 - Fix a bug that would cause `konvoy init` to fail with `already up-to-date` when using local directories as the addon git repos.
 
-### Version v1.5.0-beta.1 - April 26 March 2020
+### Version v1.5.0-beta.1 - Released 26 April 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -96,7 +140,7 @@ enterprise: false
 - kubeaddons-kommander `testing-1.16-1.1.0-beta.2`
 - kubeaddons-dispatch `stable-1.16-1.1.0`
 
-### Version v1.5.0-beta.0 - April 9 March 2020
+### Version v1.5.0-beta.0 - Released 9 April 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -215,6 +259,35 @@ enterprise: false
     - traefik: 1.7.23
 -   traefik-forward-auth: 1.0.4-4
 -   velero: 1.0.1-4
+
+### Version v1.4.3 - Released 12 May 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.9 |
+
+#### Improvements
+
+- Adds a warning about the potentially destructive nature of the `--without-draining` flag.
+- New `cluster.yaml` validation `spec.containerRuntime.containerd`, that is, `1.2.6` or `1.2.13`.
+
+#### Bug fixes
+
+- Fix a bug where `HTTP_PROXY` environment variable set on the host may prevent from installing successfully.
+- Fix a bug with the airgapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
+- Fix a bug where the `kubelet` and `chrony` Systemd services may not automatically start after a machine reboot.
+
+#### Component version changes
+
+- Kommander `v1.0.1`
+- Kubernetes `v1.16.9`
+- Containerd `1.2.13`
+- Calico `v3.13.3`
+- Ansible `v2.7.17.0`
+- Go `v1.13.10`
+- Docker `v19.03.8`
 
 ### Version v1.4.2 - Released 24 March 2020
 
@@ -722,7 +795,7 @@ The issues are grouped by feature, functional area, and component.
 
 N/A
 
-### Version 1.2.6 - Release 2 December 2019
+### Version 1.2.6 - Released 2 December 2019
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |

@@ -149,6 +149,7 @@ MachinePool describes a node pool that will be provisioned by the provisioner.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | name | The unique name that defines a node pool. | string | true |
+| indexType | Determines how to index a node pool. It can be one of the following. `named`:\n   The node pool is referenced using its name.\n   This means one can update or delete the node pool without affecting other node pools.\n`positional` (DEPRECATED):\n   The node pool is referenced using its position in the node pool list.\n   This means deleting the node pool would affect subsequent positional node pools in the node pool list.\n   This type has been DEPRECATED in favor of `named` node pools.\n(default: `positional`) | string | false |
 | controlPlane | Determines if a node pool contains Kubernetes Master nodes (control plane). Only one such node pool can exist. (default: `false`) | bool | false |
 | bastion | Determines if a node pool contains bastion hosts. Only one such node pool can exist. (default: `false`) | bool | false |
 | count | The number of nodes in a node pool. You should set the `count` to an odd number `controlPlane` is set to `true` to help keep `etcd` store consistent. A node pool count of 3 is considered \"highly available\" (HA) to protect against failures. (default: `4` for worker pool, `3` for control plane pool) | int32 | true |
@@ -187,6 +188,7 @@ GCPMachineOpts is gcp specific options for machine.
 | ----- | ----------- | ------ | -------- |
 | iam | IAM represents access control details. | [IAMSA](#iamsa) | false |
 | subnetIDs | [GCP Subnets](https://cloud.google.com/vpc/docs/vpc) to launch the instances into. | []string | false |
+| associatePublicIPAddress | Whether to associate an [external IP](https://cloud.google.com/compute/docs/ip-addresses#externaladdresses) with each instance in the node pool. GCP will effectively create a `ONE_TO_ONE_NAT` NAT IP for each instance. (default: `true`) | bool | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -224,7 +226,7 @@ Network contains the network information required if using an existing network.
 | selfLink | The self link reference to the VPC network where the cluster should be launched. If not set, Konvoy will provision a new VPC network. | string | false |
 | routerSelfLink | The self link reference to the router to be used by Konvoy. If not set, Konvoy will provision a new router in the VPC network. | string | false |
 | natSelfLink | The self link reference to the NAT router to be used by Konvoy. If not set, Konvoy will provision a new NAT router in the VPC network. | string | false |
-| create_internet_gateway_route | Whether to create a default route to the Internet Gateway in the VPC network. This option is ignored if using a pre-existing VPC network. (default: `true`) | bool | false |
+| createInternetGatewayRoute | Whether to create a default route to the Internet Gateway in the VPC network. This option is ignored if using a pre-existing VPC network. (default: `true`) | bool | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -360,9 +362,9 @@ VPC contains the VPC specific options for the cluster.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | ID | The ID of the [AWS VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) where the cluster should be launched. If not set, Konvoy will provision a new VPC. | string | false |
-| routeTableID | The ID of the [AWS RouteTable](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) to be used by Konvoy. Konvoy will add routes to this route table if `EnableInternetGateway` is set. This field will be ignored if `OverrideDefaultRouteTable` is not set. | string | false |
-| overrideDefaultRouteTable | Whether to override default route table in the VPC. If set, Konvoy will take over the default route table, and delete all existing routes in the default route table. It will add routes to the default route table if `EnableInternetGateway` is set. (default: `true`) | bool | false |
-| internetGatewayID | The ID of the [AWS Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) to use for the cluster. This field is only meaningful if `OverrideDefaultRouteTable` is set and `EnableInternetGateway` is not set. Konvoy will add a route to the IGW specified. | string | false |
+| routeTableID | The ID of the [AWS RouteTable](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) to be used by Konvoy. Konvoy will add routes to this route table if `EnableInternetGateway` is set. If a custom VPC is used and `OverrideDefaultRouteTable` is set, this field needs to be set to the ID of the default route table of the VPC. This field should not be set when a new VPC will be created. | string | false |
+| overrideDefaultRouteTable | Whether to override default route table in the VPC. If set, Konvoy will take over the default route table, and delete all existing routes in the default route table. (default: `true`) | bool | false |
+| internetGatewayID | The ID of the [AWS Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) to use for the cluster. This field must not be set if `EnableInternetGateway` is set. Konvoy will add a route to the IGW specified if specified. | string | false |
 | enableInternetGateway | Whether to create an [AWS Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) in a VPC. (default: `true`) | bool | false |
 | enableVPCEndpoints | Whether to create [AWS VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html) in a VPC. Creating this allows Kubernetes cloud provider and AWS CSI drivers to talk to the AWS services without IGW. (default: `false`) | bool | false |
 
@@ -447,7 +449,7 @@ CalicoContainerNetworking describes Calico CNI
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | version | The version of the [Calico](https://www.projectcalico.org/) CNI plugin. | string | false |
-| encapsulation | The encapsulation mode. The supported modes are: [ipip](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip). [vxlan](https://docs.projectcalico.org/v3.8/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan). (default: `ipip`) | string | false |
+| encapsulation | The encapsulation mode. The supported modes are: [ipip](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip). [vxlan](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan). (default: `ipip`) | string | false |
 | mtu | The MTU to use for the veth interfaces. (default: depends on `encapsulation` and provisioner) | int32 | false |
 
 [Back to TOC](#table-of-contents)
@@ -626,7 +628,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.16.8`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.16.9`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |
 | cloudProvider | Cloud provider specific configurations. | [CloudProvider](#cloudprovider) | false |
