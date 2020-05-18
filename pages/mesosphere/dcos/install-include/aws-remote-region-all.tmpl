@@ -46,10 +46,10 @@ module "dcos" {
   # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
 
   dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
+  bootstrap_instance_type      = "m5.large"
+  masters_instance_type        = "m5.2xlarge"
+  private_agents_instance_type = "m5.xlarge"
+  public_agents_instance_type  = "m5.xlarge"
 }
 
 output "masters-ips" {
@@ -286,10 +286,10 @@ module "dcos" {
   dcos_version = "1.13.3"
 
   dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
+  bootstrap_instance_type      = "m5.large"
+  masters_instance_type        = "m5.2xlarge"
+  private_agents_instance_type = "m5.xlarge"
+  public_agents_instance_type  = "m5.xlarge"
 
   accepted_internal_networks   = "${values(local.region_networks)}"
   additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
@@ -348,10 +348,10 @@ module "dcos" {
   dcos_version = "1.13.0"
 
   dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
+  bootstrap_instance_type      = "m5.large"
+  masters_instance_type        = "m5.2xlarge"
+  private_agents_instance_type = "m5.xlarge"
+  public_agents_instance_type  = "m5.xlarge"
 
   accepted_internal_networks   = "${values(local.region_networks)}"
   additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
