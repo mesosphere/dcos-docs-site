@@ -58,19 +58,13 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>CentOS 8.0</td>
+        <td>CentOS 8.x</td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
     </tr>
     <tr>
-        <td>CentOS 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-    </tr>
-    <tr>
-        <td>CentOS 7.6</td>
+        <td>CentOS 7.x</td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
@@ -86,19 +80,13 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>RHEL 8.0</td>
+        <td>RHEL 8.x</td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
     </tr>
     <tr>
-        <td>RHEL 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-    </tr>
-    <tr>
-        <td>RHEL 7.6</td>
+        <td>RHEL 7.x</td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
