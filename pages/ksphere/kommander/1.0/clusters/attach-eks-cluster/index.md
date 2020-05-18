@@ -8,17 +8,17 @@ beta: true
 enterprise: false
 ---
 
-You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to examine and manage this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander. 
+You can attach any existing Kubernetes clusters to Kommander, then use it to examine and manage those clusters later. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander. 
 
 ## Before you begin 
 
 This procedure requires the following items and configurations:
 
-- A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster
+- A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster.
 - Konvoy v1.5.0-beta.0 or above, [installed and configured](https://docs.d2iq.com/ksphere/konvoy/1.5.0-beta/install/) for your Amazon EKS cluster, on your machine.
 - Kommander v1.0.1-beta.1 or above, [installed and configured](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/install/) on your machine.
 
-<p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s). Refer to the Amazon EKS [website](https://aws.amazon.com/eks/) for setup and configuration information. </p>
+<p class="message--note"><strong>NOTE: </strong>This procedure assumes you have at least one existing and spun up Amazon EKS cluster. Refer to the Amazon EKS [website](https://aws.amazon.com/eks/) for setup and configuration information.</p>
 
 ## Attach Amazon EKS Clusters to Kommander
 
