@@ -24,4 +24,5 @@ Kommander was developed to address the broad issues caused by Kubernetes “clus
 | **Integration with KUDO Operators**              | Eases the deployment of stateful data services for use in Kubernetes with push-button deployment of services and professional support offerings leveraging the KUDO framework. |
 | **Governance and Policy Administration**         | Assert centralized, delegated, role based, access control and cluster policy to govern clusters, associated services, geographic limitations and to create lines-of-separation across various project initiatives. |
 | **Centralized Authentication**                   | Leverage existing authentication and directory services for secure access and single sign-on to broad cluster based resources. |
+| [**Centralized Cost Monitoring**]((/ksphere/kommander/latest/centralized-cost-monitoring)) | Provides central cost monitoring on all clusters, giving visibility and insight into Kubernetes spend across key resources in all managed clusters. |
 
