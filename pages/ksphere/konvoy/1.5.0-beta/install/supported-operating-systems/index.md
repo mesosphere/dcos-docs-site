@@ -36,6 +36,12 @@ Konvoy supports the following base Operating Systems.
 | [Debian 9 (stretch)][debian_9] | 4.9.0-9 |
 | [Debian 10 (buster)][debian_10] | 4.19.67-2 |
 
+## SUSE Linux Enterprise Server (Private Preview)
+
+| OS Release |
+|------------|
+| [15][suse_15] |
+
 [centos_7_6]: https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1810
 [rhel_7_6]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.6_release_notes/index
 [rhel_7_7]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.7_release_notes/index
@@ -43,3 +49,4 @@ Konvoy supports the following base Operating Systems.
 [ubuntu_18]: https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes
 [debian_9]: https://www.debian.org/releases/stretch/releasenotes
 [debian_10]: https://www.debian.org/releases/buster/releasenotes
+[suse_15]: https://documentation.suse.com/sles/15-SP1/#redirectmsg
