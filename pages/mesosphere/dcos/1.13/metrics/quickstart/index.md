@@ -55,7 +55,6 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
          HOSTNAME       IP                         ID                    
         10.0.0.193  10.0.0.193  7749eada-4974-44f3-aad9-42e2fc6aedaf-S1  
         ```
-
 3.  View metrics.
 
     -   **<a name="container-metrics"></a>Container metrics for a specific task**
@@ -82,7 +81,6 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
         ```
         The output is a combination of container resource utilization and metrics transmitted by the workload. 
         For example:
-
 
         ```bash
         NAME                      VALUE
