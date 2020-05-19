@@ -83,7 +83,6 @@ This page explains how to get started with metrics in Mesosphere&reg; DC/OS&trad
         The output is a combination of container resource utilization and metrics transmitted by the workload. 
         For example:
 
-
         ```bash
         NAME                      VALUE
         cpus.limit                0.20            
