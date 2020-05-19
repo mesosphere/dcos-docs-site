@@ -8,21 +8,21 @@ beta: true
 enterprise: false
 ---
 
-You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to examine and manage this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander. 
+You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](https://docs.d2iq.com/ksphere/kommander/1.0/clusters/) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander. 
 
 ## Before you begin 
 
 This procedure requires the following items and configurations:
 
-- A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster
+- A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster with administrative privileges.
 - Konvoy v1.5.0-beta.0 or above, [installed and configured](https://docs.d2iq.com/ksphere/konvoy/1.5.0-beta/install/) for your Amazon EKS cluster, on your machine.
 - Kommander v1.0.1-beta.1 or above, [installed and configured](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/install/) on your machine.
 
-<p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s). Refer to the Amazon EKS [website](https://aws.amazon.com/eks/) for setup and configuration information. </p>
+<p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s) with administrative privileges. Refer to the Amazon EKS [website](https://aws.amazon.com/eks/) for setup and configuration information. </p>
 
 ## Attach Amazon EKS Clusters to Kommander
 
-1. Ensure you are connected to your first EKS cluster. Enter the following commands:
+1. Ensure you are connected to your EKS clusters. Enter the following commands for each of your clusters:
 
     ```bash
     kubectl config get-contexts
@@ -60,7 +60,7 @@ This procedure requires the following items and configurations:
     EOF
     ```
 
-1. Create a kubeconfig file compatible with the Kommander UI. Enter these commands to set the following environment variables:
+1. You need to create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
 
     ```bash
     export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')
@@ -77,7 +77,7 @@ This procedure requires the following items and configurations:
     env | grep CLUSTER
     ```
 
-1. Create a new kubeconfig file to use in the Kommander UI. Enter the following commands:
+1. Create your kubeconfig file to use in the Kommander UI. Enter the following commands:
 
     ```bash
     cat << EOF > kommander-cluster-admin-config
@@ -108,21 +108,30 @@ This procedure requires the following items and configurations:
     kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
     ```
 
-1. Copy `kommander-cluster-admin-config` to your clipboard.
+1. Copy `kommander-cluster-admin-config` file contents to your clipboard.
 
     ```bash
     cat kommander-cluster-admin-config | pbcopy
     ```
- 
+
+    <p class="message--note"><strong>NOTE: </strong>If you are not using the Mac OS X operating system, this command will not work. If you are using the Linux operating system, enter the following command: <br/><code>cat kommander-cluster-admin-config | xclip -selection clipboard</code></p>
+
+1. Select the **Add Cluster** button in your Kommander window. 
+
+1. Select the **Attach Cluster** button. The **Connection Information** window displays.
+
+1. Select **upload**. The upload kubeconfig file dialog box appears. Paste the contents of your clipboard and select **Ok**.
+
 1. Assign a name and label for each cluster in your Kommander project. 
  
 1. Edit your project to associate all of your clusters with the project.
+
+1. Select the **Submit** button.
 
 ## Related information
 
 For information on related topics or procedures, refer to the following:
 
 
-(Input Needed: What would be relevant?)
 
 
