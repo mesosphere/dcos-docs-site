@@ -96,13 +96,7 @@ In this tutorial, you will create a custom Docker image and deploy it to DC/OS.
       "container": {
         "type": "[MESOS | DOCKER]",
         "docker": {
-          "image": "<username>/simple-docker",
-          "parameters": [
-            {
-              "key": "log-driver",
-              "value": "none"
-            }
-          ]
+          "image": "<username>/simple-docker"
         },
         "portMappings": [
           { "hostPort": 80, "containerPort": 80, "protocol": "tcp" }
