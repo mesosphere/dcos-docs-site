@@ -340,6 +340,23 @@ Read the following documentation resource to learn more about DC/OS Admin Router
 
 - [Source](https://github.com/dcos/adminrouter)
 
+<a name="calico"></a>
+
+## Calico
+
+Calico is an open source networking and network security solution for containers, virtual machines, and native host-based workloads.
+
+### System services
+
+- `dcos-calico-bird.service`
+- `dcos-calico-confd.service`
+- `dcos-calico-felix.service`
+- `dcos-calico-libnetwork-plugin.service`
+
+Read the following documentation resource to learn more about DC/OS Calico integration:
+
+- [Documentation](/mesosphere/dcos/2.1/networking/SDN/calico)
+
 <a name="mesos-dns"></a>
 
 ## Mesos DNS
