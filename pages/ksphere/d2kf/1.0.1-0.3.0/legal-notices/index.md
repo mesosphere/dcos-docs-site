@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
 title: Legal Notices
-beta: true
+beta: false
 menuWeight: 1
-excerpt: List of Third-party trademarks mentioned in the D2iQ Kubeflow documentation
+excerpt: List of Third-party trademarks mentioned in the D2KF documentation
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
@@ -12,7 +12,7 @@ D2iQ&reg; and its licensors are the owners of all right, title and interest in a
 
 # Trademarks and Registered Trademarks
 
-D2iQ, Mesosphere, Konvoy, Kommander, and D2iQ Kubeflow are registered trademarks of D2iQ, Inc.
+D2iQ, Mesosphere, Konvoy, Kommander, and D2KF are registered trademarks of D2iQ, Inc.
 
 Amazon Web Services, AWS, AWS CloudFront, CloudFront, Elastic Compute Cloud, Amazon EC2, EC2, Elastic Load Balancer, ELB, and related graphics, logos, page headers, button icons, scripts, and service names are trademarks, registered trademarks, or trade dress of Amazon Web Services in the U.S. and/or other countries.
 
