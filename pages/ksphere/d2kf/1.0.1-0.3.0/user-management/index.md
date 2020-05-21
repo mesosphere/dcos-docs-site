@@ -4,7 +4,7 @@ navigationTitle: manage users
 title: Manage Users and Permissions
 menuWeight: 10
 excerpt: Manage Kubeflow users and permissions
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -13,7 +13,7 @@ enterprise: false
 Prerequisites: 
 - Administrative access to a properly configured Konvoy cluster via `kubectl`
 
-D2iQ Kubeflow comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of Kubeflow administrators who want to onboard new team members.
+D2KF comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of Kubeflow administrators who want to onboard new team members.
 
 Because a single Kubeflow user needs to interact with Kubernetes resources across both the Kubeflow namespace and their own Kubeflow `Profile` namespace, D2iQ recommends appropriately permissioned `ClusterRole` objects. As with all matters regarding security, we encourage you to thoroughly review permissions set by our predefined `ClusterRoles` in conjunction with your security team.
 
