@@ -1,0 +1,20 @@
+## Kubernetes Base Addons
+
+Kubernetes Base Addons (KBA) provide preconfigured day two functionality and services, on top of Kubernetes, like monitoring, logging, and external DNS. KBA are patched on a bi-monthly basis. The versions are tested against a pure upstream Kubernetes build having no specific D2IQ requirements.  
+
+New Minor or Major versions of KBA releases are based on user requirements. These can occur in any release but are less frequent. KBA has its own release numbers that follow a semantic version numbering scheme and includes the version of Kubernetes the addons were tested on. For example, `release-&lt;kubernetes version>-&lt;major>.&lt;minor>`.
+
+The version is defined in Konvoy’s `cluster.yaml` definition when [creating](https://docs.d2iq.com/ksphere/konvoy/1.5.0-beta/quick-start/) or [upgrading](https://docs.d2iq.com/ksphere/konvoy/1.5.0-beta/upgrade/) a Konvoy cluster. Each KBA is tested against more than one Kubernetes version. 
+
+NOTE: When adding the Kubernetes Base Addons (KBA) to your `cluster.yaml `file`,` to install or upgrade your addons, ensure you use the argument that corresponds to your Kubernetes version, For example,  [stable-1.16-1.7.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-1.7.0)  would be Kubernetes 1.16.x.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta1
+spec:
+  addons:
+  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: stable-1.15.6-1
+    addonsList:
+    ...
+```
