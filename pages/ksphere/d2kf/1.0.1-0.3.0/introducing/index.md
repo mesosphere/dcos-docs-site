@@ -5,9 +5,9 @@ title: Introducing D2KF
 excerpt: Deploy and manage machine learning models with ease
 menuWeight: 1
 ---
-D2KF is a cloud-native suite of best-of-breed open-source technologies that allow data scientists to extract value from data immediately by providing a familiar environment for development and all the technologies needed to deploy and scale models in production, while keeping your valuable data safe. D2KF solves a key problem that enterprises face: How to get a return on your expensive AI investments? Going from a prototype to a deployment is often hard, but it does not have to be thanks to D2KF.
+D2KF is a cloud-native suite of best-of-breed open-source technologies that allow data scientists to extract value from data immediately by providing a familiar environment for development and all the technologies needed to deploy and scale models in production. D2KF solves a key problem that enterprises face: How to get a return from your expensive AI investments? Promoting from prototype to production is often hard, but it does not have to this case, with D2KF.
 
-D2iQ's D2KF leverages our expertise in Kubernetes, so companies can run their machine learning workloads anywhere: in the cloud, on premise, locally, or in hybrid environments.
+D2iQ's D2KF leverages our Expertise Kubernetes, Konvoy, so companies can run their machine learning workloads anywhere: in the cloud, on-premise, or in hybrid environments.
 D2KF is an opinionated distribution based on Kubeflow: everything you need to train, deploy, and scale models is packaged and tested, so you can rest assured that it works out of the box. With its fast and easy setup from [Kommander](https://docs.d2iq.com/ksphere/kommander/), your data scientists can be up and running in no time!
 
 ## D2KF's Features and Benefits
