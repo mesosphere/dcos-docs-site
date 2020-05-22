@@ -12,7 +12,7 @@ D2KF is a general cloud native, enterprise-grade, and end-to-end ML/AI platform.
 source products, including Kubeflow, with optimized configurations that supports end-to-end machine learning workflows.
 
 D2KF empowers Data Scientists and ML Engineers to run and scale their entire ML stack with much higher velocity on Kubernetes
-infrastructure.
+and Cloud-Native Eco-system.
 
 D2KF natively integrates Horovod - an open source distributed training framework -
 to support distributed deep learning across multi-GPU and multi-node clusters. Horovod is compatible with the existing
