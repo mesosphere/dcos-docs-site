@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: D2KF Technical Preview
 title: Welcome to D2KF Technical Preview
 beta: false
-menuWeight: 0
+menuWeight: 1
 ---
 
 ![D2KF](img/d2kf-overview.png)

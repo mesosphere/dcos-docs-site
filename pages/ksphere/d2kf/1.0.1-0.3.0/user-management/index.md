@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: manage users
+navigationTitle: Manage Users
 title: Manage Users and Permissions
 menuWeight: 10
 excerpt: Manage Kubeflow users and permissions
@@ -59,7 +59,7 @@ EOF
 
 Edit the `metadata.name` to the name of the user you want to add. 
 
-**Note** This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.
+**Note:** This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.
 
 Edit the `subjects.apiGroup.name` to match the email address associated with the user's OIDC account.
 
@@ -106,7 +106,7 @@ EOF
 
 Edit the `metadata.name` to the name of the user you want to add. 
 
-**Note** This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.
+**Note:** This name should be globally unique across your Konvoy cluster, otherwise you may overwrite another user's permissions.
 
 Edit `subjects.apiGroup.name` to match the email address associated with the user's OIDC account.
 
