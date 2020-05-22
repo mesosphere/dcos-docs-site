@@ -213,6 +213,8 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     **Granting specific permissions to the service account**:  If you follow the principle of least-privilege, you should not add the service account principal to the `superusers` group. Instead, you should limit the permissions granted to allow only management of DC/OS packages, Marathon tasks, and Edge-LB pool-related activity. You can grant specific permissions to the service account principal using commands similar to the following:
 
     ```bash
+    dcos security org users grant edge-lb-principal dcos:adminrouter:ops:ca:rw full
+    dcos security org users grant edge-lb-principal dcos:adminrouter:ops:ca:ro full
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:marathon full
     dcos security org users grant edge-lb-principal dcos:adminrouter:package full
     dcos security org users grant edge-lb-principal dcos:adminrouter:service:edgelb full
@@ -227,6 +229,8 @@ The secret store is used by Edge-LB to retrieve and install SSL certificates on 
     dcos security org users grant edge-lb-principal dcos:mesos:master:volume:role full
     dcos security org users grant edge-lb-principal dcos:mesos:master:task:user:root full
     dcos security org users grant edge-lb-principal dcos:mesos:master:task:app_id full
+    dcos security org users grant edge-lb-principal 'dcos:secrets:default:/dcos-edgelb/*' full
+    dcos security org users grant edge-lb-principal 'dcos:secrets:list:default:/dcos-edgelb/*' full
     ```
 
     These sample permissions also enable Edge-LB pool framework schedulers to register with Mesos master nodes and to launch load-balancer tasks. You must also grant the following permission for **each Edge-LB pool** created:
