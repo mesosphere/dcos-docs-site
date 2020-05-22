@@ -89,7 +89,7 @@ poddefault.kubeflow.org/test-secret created
 
 After successfully deploying the `PodDefault`, select the test-secret for injection into the new Jupyter notebook.
 
-![notebook-configs](/kudo-kubeflow/docs/site/resources/images/notebook-configurations-select.png)
+![notebook-configs](../img/notebook-configurations-select.png)
 
 ### Step 5 - Confirm secret successfully injected into Jupyter notebook pod
 
