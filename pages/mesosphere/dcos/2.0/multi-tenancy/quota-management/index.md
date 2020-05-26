@@ -18,6 +18,8 @@ Quota in DC/OS is built on top of the [Quota Limits](https://mesos.apache.org/do
 Specifically, the quota set on a top-level DC/OS group (for example, "/dev") is translated to setting the quota limit on the corresponding resource role in Mesos (for example, "dev").
 Additionally, services launched inside a given group are configured to use the resources allocated to the **group role** (for example, "dev"), so that their resource consumption can be limited by the quota defined.
 
+Quota in DC/OS 2.0 affects how public services are deployed. Please see the section below, "Deploying Services to Public Nodes".
+
 # Prerequisites
 
 * [DC/OS CLI installed and configured](/mesosphere/dcos/2.0/cli/).
@@ -100,6 +102,26 @@ After you complete the previous steps, run the following command for each pod:
 ```bash
 dcos kafka --name=/<group>/kafka pod replace <pod-name>
 ```
+
+# Deploying Services to Public Nodes
+
+Deploying services to public nodes requires two things:
+
+* The service is run as role slave_public
+* The service has `{"acceptedResourceRoles": ["slave_public"]}`.
+
+Services deployed in the root of Marathon will deploy as `slave_public`, by default. However:
+
+* Services deployed in groups with `enforceRole` enabled **WILL NOT** use the role `slave_public` and therefore will not be able to be deployed to public nodes
+* Newly created groups (either explicitly or implicitly by posting a service to a group that does not yet exist) will have `enforceRole` enabled automatically.
+
+It is recommended to create a top-level group named `/public`, and disable enforceRole for it, and to place all of your public facing services in that folder.
+Avoid mixing public and non-public services in the same top-level group.
+
+    ```
+    dcos marathon group add --id /public
+    dcos marathon group update /public enforceRole=false
+    ```
 
 # Limitations
 
