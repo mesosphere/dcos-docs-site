@@ -99,7 +99,7 @@ authorization of the HTTP request and checks that the `alice` DC/OS user has
 If so, it uses **its own** DC/OS user, a DC/OS service account with a `uid` of `dcos_marathon`, to authenticate an HTTP request to Mesos with instruction to launch the new Mesos tasks.
 At that point, Mesos will perform the DC/OS authorization procedure and check that the `dcos_marathon` DC/OS user has been granted the `create` action on the `dcos:mesos:master:task:app_id` resource.
 
-Applications launched with Root Marathon can only receive offers for resources reserved for the `slave_public` or `*` [Mesos roles](/mesosphere/dcos/2.0/overview/concepts/#mesos-role).
+Services launched with Marathon can only receive offers for resources reserved for the role as which the service is launched. See [Quota Management](/mesosphere/dcos/2.0/multi-tenancy/quota-management) for information on Marathon service role conventions and [Mesos roles](/mesosphere/dcos/2.0/overview/concepts/#mesos-role) for information on roles.
 
 | Resource identifier                                                                                                                                                                                                                                                                 | full   | C   | R   | U   | D   |
 | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ | --- | --- | --- | --- |
