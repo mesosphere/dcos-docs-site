@@ -46,8 +46,7 @@ DC/OS will run on the tested platform components and operating environments. The
 
 ##### [CentOS support matrix](#CentOS-support-matrix)
 ##### [RHEL support matrix](#RHEL-support-matrix)
-##### [Oracle Linux support matrix](#Oracle-support-matrix)
-##### [Ubuntu support matrix](#Ubuntu-support-matrix)
+##### [Flatcar Linux support matrix](#flatcar-support-matrix)
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
@@ -55,24 +54,18 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>CentOS 8.0</td>
+        <td>CentOS 8.*</td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
     </tr>
     <tr>
-        <td>CentOS 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-    </tr>
-    <tr>
-        <td>CentOS 7.6</td>
+        <td>CentOS 7.*</td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
@@ -83,24 +76,18 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>RHEL 8.0</td>
+        <td>RHEL 8.*</td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
     </tr>
     <tr>
-        <td>RHEL 7.7</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-    </tr>
-    <tr>
-        <td>RHEL 7.6</td>
+        <td>RHEL 7.*</td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
@@ -113,7 +100,6 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <th><strong>Platform Component</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Ubuntu 18.04.3 LTS</td>
@@ -134,7 +120,6 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <tr>
     <th><strong>Platform Component</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Oracle Linux 7.6 </td>
@@ -154,7 +139,9 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 </table>
 
 ### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
-NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have ceased qualifying it as an Operating System. This chart shows the final qualified versions of DC/OS for the final qualified versions CoreOS.
+As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https://coreos.com/os/eol/) and will no longer receive updates.
+
+*NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have ceased qualifying it as an Operating System*. This chart shows the final qualified versions of DC/OS for the final qualified versions CoreOS.
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -175,6 +162,20 @@ NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have 
         <td>CoreOS 2023.4.0</td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
+    </tr>
+</table>
+
+### <a name="flatcar-support-matrix"></a>Flatcar Linux support matrix
+<table class="table">
+    <tr>
+    <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.1 Latest Stable</strong></th>
+    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
+    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
+    </tr>
+    <tr>
+        <td>Flatcar Linux 2345.3.1</td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
     </tr>
 </table>
 
