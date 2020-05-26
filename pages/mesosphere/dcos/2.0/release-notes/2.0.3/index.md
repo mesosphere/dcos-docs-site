@@ -24,7 +24,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 DC/OS 2.0.3 includes the following component versions:
 
-- Apache&reg; Mesos&reg; 1.8.2-dev
+- Apache&reg; Mesos&reg; 1.9.1-dev
 - OpenSSL 1.1.1d	
 
 ### DC/OS Fixed and Improved Issues
