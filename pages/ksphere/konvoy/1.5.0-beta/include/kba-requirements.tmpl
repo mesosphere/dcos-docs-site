@@ -1,0 +1,369 @@
+## Kubernetes Base Addons Requirements
+
+Kubernetes Base Addons(KBA) require more resources than solely deploying clusters. Some addons are prerequisites for others to deploy. Some KBA are loaded by default after running `konvoy init`. Your cluster needs to have sufficient resources when deploying the konvoy cluster, or you must adjust the addons deployed, before running `konvoy up`.
+
+The following table describes all the KBA supplied, by default, with Konvoy, minimum reqource suggestions, and their default status when starting Konvoy.
+
+<table>
+  <tr>
+   <td><strong>Name of Addon</strong>
+   </td>
+   <td><strong>Description</strong>
+   </td>
+   <td><strong>Default&nbsp;Minimum&nbsp;Suggested</strong>
+   </td>
+   <td><strong>Default&nbsp;On&nbsp;When konvoy&nbsp;init</strong>
+   </td>
+  </tr>
+  <tr>
+   <td>awsebscsiprovisioner
+   </td>
+   <td>Supports persistent volumes on AWS
+   </td>
+   <td>
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>awsebsprovisioner
+   </td>
+   <td>Legacy “in-tree” volume provisioner
+   </td>
+   <td>
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>azuredisk-csi-driver
+   </td>
+   <td>Supports persistent volumes on Azure
+   </td>
+   <td>cpu: 10m 
+<p>
+memory: 20Mi
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>azurediskprovisioner
+   </td>
+   <td>Legacy volume provisioner
+   </td>
+   <td>
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>cert-manager
+   </td>
+   <td>Automates the management and issuance of TLS certificates from various issuing sources. It will ensure certificates are valid and up to date periodically, and attempt to renew certificates at an appropriate time before expiry. It has ACME integration which would allow users to get a Let’s Encrypt certificate automatically
+<p>
+and then talk to Let’s Encrypt server to get a valid certificate.
+   </td>
+   <td>cpu: 10m  \
+memory: 32Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>dashboard
+   </td>
+   <td>Provides a general-purpose web-based user interface for the Kubernetes cluster
+   </td>
+   <td>cpu: 250m  \
+memory: 300Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>defaultstorageclass-protection
+   </td>
+   <td>Ensures that there is 1 default storage class (i.e. something that would provide a volume)
+   </td>
+   <td>
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>dex
+   </td>
+   <td>Provides identity service (authentication) to the Kubernetes clusters
+   </td>
+   <td>cpu: 100m  \
+memory: 50Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>dex-k8s-authenticator
+   </td>
+   <td>Enables authentication flow to obtain `kubectl` token for accessing the cluster.
+   </td>
+   <td>cpu: 100m 
+<p>
+memory: 128Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>elasticsearch
+   </td>
+   <td>Enables scalable, high-performance logging pipeline
+   </td>
+   <td>cpu: 100m  \
+memory: 1536Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>elasticsearch-curator
+   </td>
+   <td>Helps curate, or manage, your Elasticsearch indices and snapshots by obtaining the full list of indices (or snapshots) from the cluster, as the actionable list; iterate through a list of user-defined filters to progressively remove indices (or snapshots) from this actionable list as needed; and perform various actions on the items which remain in the actionable list.
+   </td>
+   <td>cpu: 100m
+<p>
+memory: 128Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>elasticsearchexporter
+   </td>
+   <td>The purpose of exporters is to take data collected from any Elastic Stack source and route it to the monitoring cluster
+   </td>
+   <td>cpu: 100m
+<p>
+memory: 128Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>external-dns
+   </td>
+   <td>Makes Kubernetes resources discoverable via public DNS servers; retrieves a list of resources (Services, Ingresses, etc.) from the Kubernetes API to determine a desired list of DNS records. It's not a DNS server itself, but merely configures other DNS providers accordingly.
+   </td>
+   <td>cpu: 10m \
+memory: 50Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>flagger
+   </td>
+   <td>Automates the release process for applications running on Kubernetes
+   </td>
+   <td>cpu: 10m
+<p>
+memory: 32Mi
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>fluentbit
+   </td>
+   <td>Collects and collates logs from different sources and send logged messages to multiple destinations
+   </td>
+   <td>cpu: 200m
+<p>
+memory: 200Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>gatekeeper
+   </td>
+   <td>Policy controller for Kubernetes, allowing organizations to enforce configurable policies using the Open Policy Agent, a policy engine for Cloud Native environments hosted by CNCF as an incubation-level project.
+   </td>
+   <td>cpu: 200m 
+<p>
+memory: 300Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>istio
+   </td>
+   <td>Helps you manage cloud-based deployments by providing an open-source service mesh to connect, secure, control, and observe microservices.
+   </td>
+   <td>cpu: 10m
+<p>
+ memory: 50Mi
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>kibana
+   </td>
+   <td>Supports data visualization for content indexed by Elasticsearch
+   </td>
+   <td>cpu: 100m
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>konvoyconfig
+   </td>
+   <td>Manages installation related configuration
+   </td>
+   <td>
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>kube-oidc-proxy
+   </td>
+   <td>Reverse proxy to authenticate to managed Kubernetes API servers via OIDC
+   </td>
+   <td>
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>localvolumeprovisioner
+   </td>
+   <td>Uses the local volume static provisioner to manage persistent volumes for pre-allocated disks. It does this by watching the /mnt/disks folder on each host and creating persistent volumes in the localvolumeprovisioner storage class for each disk that is discovered in this folder.
+   </td>
+   <td>
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>nvidia
+   </td>
+   <td>Enables deployment of NVIDIA GPU clusters
+   </td>
+   <td>cpu: 100m
+<p>
+memory: 128Mi
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>opsportal
+   </td>
+   <td>Centralizes access to addon dashboards
+   </td>
+   <td>cpu: 100m 
+<p>
+memory: 128Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>prometheus
+   </td>
+   <td>Collects and evaluates metrics for monitoring and alerting
+   </td>
+   <td>cpu: 300m
+<p>
+memory: 1500Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>prometheusadapter
+   </td>
+   <td>Gathers the names of available metrics from Prometheus at a regular interval, and then only exposes metrics that follow specific forms.
+   </td>
+   <td>cpu: 1000m 
+<p>
+memory: 1000Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>reloader
+   </td>
+   <td>Watches changes in `ConfigMap` and `Secret` and do rolling upgrades on Pods with their associated `DeploymentConfigs`, `Deployments`, `Daemonsets` and `Statefulsets`
+   </td>
+   <td>cpu: 100m               
+<p>
+memory: 128Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>traefik
+   </td>
+   <td>Routes layer 7 traffic as a reverse proxy and load balancer.
+   </td>
+   <td>cpu: 500m
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>traefik-forward-auth
+   </td>
+   <td>Provides basic authorization for Traefik ingress
+   </td>
+   <td>cpu: 100m 
+<p>
+memory: 128Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>velero
+   </td>
+   <td>Backs up and restores Kubernetes cluster resources and persistent volumes.
+   </td>
+   <td>cpu: 250m
+<p>
+memory: 256Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+  <tr>
+   <td>dispatch
+   </td>
+   <td>D2iQ’s cloud-native GitOps platform
+   </td>
+   <td>cpu: 250m
+<p>
+memory: 256Mi
+   </td>
+   <td>No
+   </td>
+  </tr>
+  <tr>
+   <td>kommander
+   </td>
+   <td>D2iQ's administrative cluster for multi-cluster management of Kubernetes lifecycle, governance, and workloads
+   </td>
+   <td>cpu: 100m
+<p>
+memory: 256Mi
+   </td>
+   <td>Yes
+   </td>
+  </tr>
+</table>
