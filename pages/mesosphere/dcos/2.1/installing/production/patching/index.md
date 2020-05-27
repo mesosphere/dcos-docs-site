@@ -32,7 +32,6 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been patched. For example, a patched DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been patched. When this occurs:
 
     - The DC/OS GUI may not provide an accurate list of services.
-    - For multi-master configurations, after one master has finished patching, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - A patched DC/OS Marathon leader cannot connect to a non-secure (not patched) leading Mesos master. The DC/OS UI cannot be trusted until all masters are patched. There are multiple Marathon scheduler instances and multiple Mesos masters, each being patched, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the patch.
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
@@ -162,12 +161,21 @@ Proceed with patching every master node one at a time in any order using the fol
     0
     ```
 
-1.  Validate the patch:
+1.  Validate the patch by running the following commands on the master node:
 
-    1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`. Confirm that the master rejoins the ZooKeeper quorum successfully (the status indicator will turn green).
+    1.  Monitor Exhibitor and wait for it to converge.
 
-        <p class="message--note"><strong>NOTE: </strong>If you are patching from permissive to strict mode, this URL will be "https://...".</p>
+        On DC/OS Enterprise clusters with a static master list use the command:
+        ```bash
+        sudo curl --cacert /var/lib/dcos/exhibitor-tls-artifacts/root-cert.pem --cert /var/lib/dcos/exhibitor-tls-artifacts/client-cert.pem --key /var/lib/dcos/exhibitor-tls-artifacts/client-key.pem https://localhost:8181/exhibitor/v1/cluster/status
+        ```
 
+        On other clusters use the command:
+        ```bash
+        curl http://localhost:8181/exhibitor/v1/cluster/status
+        ```
+
+        Wait until the response shows that all hosts have `"description":"serving"`.
     1.  Wait until the `dcos-mesos-master` unit is up and running.
     1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
 
@@ -175,19 +183,21 @@ Proceed with patching every master node one at a time in any order using the fol
         [enterprise type="inline" size="small" /]
 
     1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.5.1`.
-1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. This can be done by running the following command and confirming that the last column on the right shows only zeros.
+    1.  Verify that the number of under-replicated ranges in CockroachDB has dropped to zero as the IAM database is replicated to the new master. Run the following command and confirm that the `ranges_underreplicated` column shows only zeros.
     ```bash
-        sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-        |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
-        |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
-        |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
-        +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
+    ```
+    ```
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
+    |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
+    |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
+    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
     ```
 
-    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero once all data is safely replicated.
+    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero after all data is safely replicated.
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 

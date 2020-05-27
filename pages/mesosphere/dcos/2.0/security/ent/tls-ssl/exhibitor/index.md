@@ -9,7 +9,7 @@ enterprise: true
 
 # Verifying that Exhibitor is secured 
 
-Starting with DC/OS 2.0, Exhibitor is secured by default in most circumstances. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
+Starting with DC/OS 2.0, Exhibitor is secured by default in static master clusters. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
 ```bash
 
     curl -LI \
