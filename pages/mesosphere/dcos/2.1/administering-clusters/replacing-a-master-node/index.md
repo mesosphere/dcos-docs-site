@@ -12,7 +12,7 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
 
 
 # To replace a master node:
-1. [Back up ZooKeeper](mesosphere/dcos/2.1/administering-clusters/backup-and-restore/backup-restore-cli/#backing-up-a-zookeeper-cluster)
+1. [Back up ZooKeeper](/mesosphere/dcos/2.1/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper).
 
 1. Back up the DC/OS identity and access management CockroachDB&reg; database to a file by running a command similar to the following on the master node:
 

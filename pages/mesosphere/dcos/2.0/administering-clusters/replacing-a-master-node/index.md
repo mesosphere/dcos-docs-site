@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 You can replace a master node in an existing DC/OS&trade; cluster. You should keep in mind, however, that you should only ever replace one master at a time. The following steps summarize how to replace a master node for a DC/OS cluster.
 
 # To replace a master node:
-1. [Back up ZooKeeper](mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/#backing-up-a-zookeeper-cluster)
+1. [Back up ZooKeeper](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper).
 
 1. Back up the DC/OS identity and access management CockroachDB&reg; database to a file by running a command similar to the following on the master node:
 
