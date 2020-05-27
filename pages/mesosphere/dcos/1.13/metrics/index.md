@@ -29,10 +29,52 @@ You can perform the following operations on Metrics:
 
 1. **Adding Metrics:** You can add custom metrics to the DC/OS metrics service from your applications. DC/OS metrics listens for `StatsD` metrics from every application running with the Mesos containerizer. A `StatsD server` is exposed for each container, which allows you to tag all metrics by origin. Its address is available to the application by injecting the standard environment variables `STATSD_UDP_HOST` and `STATSD_UDP_PORT`.
 
-    Alternatively, you can serve metrics in Prometheus format by exposing an endpoint which serves metrics. Notify the metrics service that your task is serving Prometheus metrics by adding a label to the port which is serving metrics. Any port with the label `DCOS_METRICS_FORMAT=prometheus` will be scraped at the rate of one per minute for the lifetime of the task. 
-  A task may expose multiple ports which serve Prometheus metrics. Metrics collected in this manner will be tagged with the originating task's name and its framework name. 
+   Alternatively, you can serve metrics in Prometheus format by exposing an according endpoint. To notify the metrics service that your task is serving Prometheus metrics you need to add at least one port with the label `DCOS_METRICS_FORMAT=prometheus`. According ports will then be scraped once per minute for the task's lifetime.
+   Metrics collected in this manner will be tagged with the originating task's and its framework name.
 
-    For more information, read the documentation on [how to add custom metrics into the DC/OS metrics API using Python](https://mesosphere.com/blog/custommetrics/).
+   Here's an example app definition with a port definition that has the aforementioned label and a `cmd` to expose some `/metrics`.
+
+   ```json
+   {
+     "id": "/metrics-example-app",
+     "portDefinitions": [
+       {
+         "name": "prometheus",
+         "port": 0,
+         "labels": { "DCOS_METRICS_FORMAT": "prometheus" }
+       }
+     ],
+     "container": {
+       "type": "MESOS",
+       "docker": { "image": "python:3" }
+     },
+     "cpus": 0.1,
+     "mem": 128,
+     "cmd": "echo \"# TYPE test_metric untyped\ntest_metric 123456\n\" > metrics;\npython3 -m http.server $PORT0\n"
+   }
+   ```
+
+   When the above example is running, you can obtain the `test_metric` by either requesting the endpoint within the cluster directly - e.g. via `curl alertmanager.prometheus.l4lb.thisdcos.directory:9093/metrics` - or using `dcos task metrics details <TASK_ID>`. The output of the latter should look similar to the following. Note `test_metric` in the last line.
+
+   ```
+   NAME VALUE
+   mem.cache_bytes 1794048
+   mem.file_bytes 1794048
+   cpus.user_time_secs 0.49
+   cpus.throttled_time_secs 1.57
+   cpus.system_time_secs 0.13
+   mem.total_bytes 25055232
+   perf.timestamp 1561374937.08
+   mem.anon_bytes 20635648
+   cpus.nr_throttled 20
+   mem.limit_bytes 167772160
+   mem.rss_bytes 20635648
+   cpus.nr_periods 3230
+   cpus.limit 0.20
+   test_metric 123456
+   ```
+
+   For more information, read the documentation on [how to add custom metrics into the DC/OS metrics API using Python](https://mesosphere.com/blog/custommetrics/).
 
 2. **Tagging Metrics:** The tags are automatically added to the metrics in order to identify, support easy drill-down, filter, and group metrics data. The tags are not limited to the following list:
 
