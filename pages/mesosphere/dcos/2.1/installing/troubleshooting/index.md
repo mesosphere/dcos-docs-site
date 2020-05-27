@@ -32,6 +32,7 @@ You must have working DNS resolvers, specified in your [config.yaml](/mesosphere
 
 When troubleshooting problems with a DC/OS installation, you should explore the components in this sequence:
 
+ 1. Time synchronization
  1. Exhibitor
  1. Mesos master
  1. Mesos DNS
@@ -42,15 +43,17 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
 
  Be sure to verify that all services are up and healthy on the masters before verifying the agents.
 
- ### NTP
+*  Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can verify that NTP is enabled by running one of these commands, depending on your OS and configuration:
 
- Network Time Protocol (NTP) must be enabled on all nodes for clock synchronization. By default, during DC/OS startup you will receive an error if this is not enabled. You can verify that NTP is enabled by running one of these commands, depending on your OS and configuration:
-
-
+    ```bash
     ntptime
+    ```
+    ```bash
     adjtimex -p
+    ```
+    ```bash
     timedatectl
-
+    ```
 
 * Ensure that firewalls and any other connection-filtering mechanisms are not interfering with cluster component communications. TCP, UDP, and ICMP must be permitted.
 
@@ -62,52 +65,51 @@ When troubleshooting problems with a DC/OS installation, you should explore the 
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
    ```
 
-* Verify that Exhibitor is up and running at`http://<MASTER_IP>:8181/exhibitor`. If Exhibitor is not up and running:
+* Verify that Exhibitor is listening on port 8181.
 
-    - [SSH](/mesosphere/dcos/2.1/administering-clusters/sshcluster/) to your master node and enter this command to check the Exhibitor service logs:
+   On DC/OS Enterprise clusters with a static master list run the following command on a master:
+   ```bash
+   sudo curl --cacert /var/lib/dcos/exhibitor-tls-artifacts/root-cert.pem --cert /var/lib/dcos/exhibitor-tls-artifacts/client-cert.pem --key /var/lib/dcos/exhibitor-tls-artifacts/client-key.pem https://localhost:8181/exhibitor/v1/cluster/status
+   ```
 
-    ```bash
-    journalctl -flu dcos-exhibitor
-    ```
+   On other clusters run the following command on a master:
+   ```bash
+   curl http://localhost:8181/exhibitor/v1/cluster/status
+   ```
 
-* Verify that `/tmp` is mounted *without* `noexec`. If it is mounted with `noexec`, Exhibitor will fail to bring up ZooKeeper because Java JNI won't be able to `exec` a file it creates in `/tmp` and you will see multiple `permission denied` errors in the log.
+   If Exhibitor responds, verify that the output of the above command shows the correct number of masters and that all of them have `"description": "serving"` but only one of them has `"isLeader": true`
 
-* To repair `/tmp` mounted with `noexec` run the following command:
-
-
-        mount -o remount,exec /tmp
-
-
-* Check the output of `/exhibitor/v1/cluster/status` and verify that it shows the correct number of masters and that all of them are `"serving"` but only one of them is designated as `"isLeader": true`
-
-  For example, [SSH](/mesosphere/dcos/2.1/administering-clusters/sshcluster/) to your master node and enter this command:
-
-
-    curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
-        [
-                {
-                    "code": 3,
-                    "description": "serving",
-                    "hostname": "10.0.6.70",
-                    "isLeader": false
-                },
-                {
-                    "code": 3,
-                    "description": "serving",
-                    "hostname": "10.0.6.69",
-                    "isLeader": false
-                },
-                {
-                    "code": 3,
-                    "description": "serving",
-                    "hostname": "10.0.6.68",
-                    "isLeader": true
-                }
-            ]
+   ```
+   [
+      {
+         "code": 3,
+         "description": "serving",
+         "hostname": "10.0.6.70",
+         "isLeader": false
+      },
+      {
+         "code": 3,
+         "description": "serving",
+         "hostname": "10.0.6.69",
+         "isLeader": false
+      },
+      {
+         "code": 3,
+         "description": "serving",
+         "hostname": "10.0.6.68",
+         "isLeader": true
+      }
+   ]
+   ```
 
 
+   <p class="message--note"><strong>NOTE: </strong>Running this command in multi-master configurations can take up to 15 minutes to complete.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Running this command in multi-master configurations can take up to 10-15 minutes to complete. If it does not complete after 10-15 minutes, you should carefully review the <code>journalctl -flu dcos-exhibitor</code> logs.</p>
+   For any problems, check the Exhibitor logs:
+   ```bash
+   journalctl -flu dcos-exhibitor
+   ```
+
 
 * Verify whether you can ping the DNS Forwarder (`ready.spartan`). If not, review the DNS Dispatcher service logs: ﻿⁠⁠⁠⁠
 

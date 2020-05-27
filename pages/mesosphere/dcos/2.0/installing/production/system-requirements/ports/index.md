@@ -47,14 +47,14 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 80    | Admin Router Master (HTTP) | `dcos-adminrouter.service` |public IP| master |
 | 443   | Admin Router Master (HTTPS) | `dcos-adminrouter.service`|public IP| master |
 | 2181  | ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
-| 3888  | Exhibitor, or ZooKeeper and Exhibitor | `dcos-exhibitor.service` | master | master |
-| 2888  | Exhibitor, or ZooKeeper and Exhibitor | `dcos-exhibitor.service` | master | master |
+| 3888  | ZooKeeper | `dcos-exhibitor.service` | master | master |
+| 2888  | ZooKeeper | `dcos-exhibitor.service` | master | master |
 | 5050  | Mesos Master | `dcos-mesos-master.service` | agent/master | master |
 | 7070  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` | localhost| localhost(master) |
 | 8080  | Marathon | `dcos-marathon.service` | agent/master | master |
 | 8101  | DC/OS Identity and Access Manager | `dcos-bouncer.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
 | 8123  | Mesos DNS | `dcos-mesos-dns.service` | localhost | localhost |
-| 8181  | Exhibitor and ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
+| 8181  | Exhibitor | `dcos-exhibitor.service` | agent/master | master |
 | 8200  | Vault | `dcos-vault.service` | localhost| localhost(master) [enterprise type="inline" size="small" /] |
 | 8201  | Vault HA | `dcos-vault.service` | master| master [enterprise type="inline" size="small" /] |
 | 8443  | Marathon SSL | `dcos-marathon.service` | agent/master | master |

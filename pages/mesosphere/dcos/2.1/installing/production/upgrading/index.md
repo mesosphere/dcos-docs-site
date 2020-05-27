@@ -28,7 +28,6 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - The DC/OS GUI and other higher-level system APIs may be inconsistent or unavailable until all master nodes have been upgraded.
   When this occurs:
    * The DC/OS GUI may not provide an accurate list of services.
-   * For multi-master configurations, after one master has finished upgrading, you can monitor the health of the remaining masters from the Exhibitor UI on port 8181.
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
 
@@ -185,35 +184,46 @@ Start the upgraded nodes and wait for them to join the master.
 
 The leader should be still on the old node that has not been upgraded. Let's upgrade that one as well. Shut it down and upgrade it as described above. If all went fine the leader should have switched to one of the new nodes.
 
-1.  Validate the upgrade:
+Validate the upgrade by running the following commands on the master node:
 
-    1.  Monitor Exhibitor and wait for it to converge at `http://<master-ip>:8181/exhibitor/v1/ui/index.html`. Confirm that the master rejoins the ZooKeeper quorum successfully (the status indicator will turn green).
+1.  Monitor Exhibitor and wait for it to converge.
 
-        <p class="message--note"><strong>NOTE: </strong>If you are upgrading from permissive to strict mode, this URL will be "https://...".</p>
-
-    1.  Wait until the `dcos-mesos-master` unit is up and running.
-    1.  Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
-
-        <p class="message--note"><strong>NOTE: </strong>If you are upgrading from permissive to strict mode, this URL will be <code>curl https://...</code> and you will need a JWT for access. </p>
-        [enterprise type="inline" size="small" /]
-
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.5.1`.
-
-	1.  Verify that the number of under-replicated ranges has dropped to zero as the IAM database is replicated to the new master. Run the following command and confirm that the `ranges_underreplicated` column shows only zeros.
+    On DC/OS Enterprise clusters with a static master list use the command:
     ```bash
-    sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
-    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-    | id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
-    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
-    |  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
-    |  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
-    |  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
-    +----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+    sudo curl --cacert /var/lib/dcos/exhibitor-tls-artifacts/root-cert.pem --cert /var/lib/dcos/exhibitor-tls-artifacts/client-cert.pem --key /var/lib/dcos/exhibitor-tls-artifacts/client-key.pem https://localhost:8181/exhibitor/v1/cluster/status
     ```
-		
-    If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero after all data is safely replicated.
 
-1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
+    On other clusters use the command:
+    ```bash
+    curl http://localhost:8181/exhibitor/v1/cluster/status
+    ```
+
+    Wait until the response shows that all hosts have `"description":"serving"`.
+1.  Wait until the `dcos-mesos-master` unit is up and running.
+1.  Verify that `curl http://localhost:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1`.
+
+    <p class="message--note"><strong>NOTE: </strong>If you are upgrading from permissive to strict mode, this URL will be <code>curl https://...</code> and you will need a JWT for access. </p>
+    [enterprise type="inline" size="small" /]
+
+1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.5.1`.
+
+1.  Verify that the number of under-replicated ranges in CockroachDB has dropped to zero as the IAM database is replicated to the new master. Run the following command and confirm that the `ranges_underreplicated` column shows only zeros.
+```bash
+sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
+```
+```
++----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+| id |       address       | build  |     updated_at      |     started_at      | replicas_leaders | replicas_leaseholders | ranges | ranges_unavailable | ranges_underreplicated |
++----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+|  1 | 172.31.7.32:26257   | v1.1.4 | 2018-03-08 13:56:10 | 2018-02-28 20:11:00 |              195 |                   194 |    195 |                  0 |                      0 |
+|  2 | 172.31.10.48:26257  | v1.1.4 | 2018-03-08 13:56:05 | 2018-03-05 13:33:45 |              200 |                   199 |    200 |                  0 |                      0 |
+|  3 | 172.31.23.132:26257 | v1.1.4 | 2018-03-08 13:56:01 | 2018-02-28 20:18:41 |              187 |                   187 |    187 |                  0 |                      0 |
++----+---------------------+--------+---------------------+---------------------+------------------+-----------------------+--------+--------------------+------------------------+
+```
+
+If the `ranges_underreplicated` column lists any non-zero values, wait a minute and rerun the command. The values will converge to zero after all data is safely replicated.
+
+Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
 ### <a name="agents"></a>DC/OS Agents
 
