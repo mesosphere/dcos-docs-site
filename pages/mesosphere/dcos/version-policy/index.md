@@ -46,7 +46,6 @@ DC/OS will run on the tested platform components and operating environments. The
 
 ##### [CentOS support matrix](#CentOS-support-matrix)
 ##### [RHEL support matrix](#RHEL-support-matrix)
-##### [Flatcar Linux support matrix](#flatcar-support-matrix)
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
