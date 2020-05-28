@@ -13,7 +13,7 @@ enterprise: false
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
 
-You can use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/mesosphere/dcos/1.10/overview/architecture/components/#admin-router). For example, this can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not currently support adding your own certificates directly into Admin Router.
+You can use HAProxy to set up an HTTP proxy in front of the DC/OS [Admin Router](/mesosphere/dcos/1.10/overview/architecture/components/#admin-router). For example, this can be useful if you want to present a custom server certificate to user agents connecting to the cluster via HTTPS. DC/OS does not support adding a custom external certificate directly into Admin Router, although it is possible to provide a [custom CA certificate](/mesosphere/dcos/1.10/security/ent/tls-ssl/ca-custom/) as the DC/OS CA.
  
 The HTTP Proxy must perform on-the-fly HTTP request and response header modification because DC/OS is not aware of the custom hostname and port that is being used by user agents to address the HTTP proxy.
 
