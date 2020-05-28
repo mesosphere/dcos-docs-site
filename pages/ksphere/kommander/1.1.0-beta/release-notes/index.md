@@ -11,7 +11,7 @@ enterprise: false
 
 ## Release Notes
 
-### Version v1.1.0-beta.1 - April 22 March 2020
+### Version v1.1.0-beta.1 - April 22 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -41,7 +41,7 @@ _Used chart version: `0.5.7` -> `0.6.4`_
 - kommander-thanos: 0.1.13
 - grafana: 4.5.1
 
-### Version v1.1.0-beta.0 - April 8 March 2020
+### Version v1.1.0-beta.0 - April 8 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
