@@ -50,7 +50,7 @@ DC/OS will run on the tested platform components and operating environments. The
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
-D2iQ doesn't retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (major or patch) against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS (open) installed on an OS/Docker.
+D2iQ doesn't retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (major or patch) against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker.
 
 DC/OS feature development is entirely based on CentOS while running DC/OS on longlivity clusters and doing Mixed Workload Testing.
 
