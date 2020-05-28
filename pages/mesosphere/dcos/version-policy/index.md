@@ -50,8 +50,7 @@ DC/OS will run on the tested platform components and operating environments. The
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
-D2iQ doesn't retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (major or patch) against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker.
-
+D2iQ doesn't retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (major or patch) against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker combination. 
 DC/OS feature development is entirely based on CentOS while running DC/OS on longlivity clusters and doing Mixed Workload Testing.
 
 Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/installing/evaluation/) is only supporting CentOS and RHEL.
@@ -149,21 +148,17 @@ As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https:/
     <tr>
     <th><strong>Platform Component</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>CoreOS 2079.3.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
     </tr>
     <tr>
         <td>CoreOS 2023.5.0</td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
     <tr>
         <td>CoreOS 2023.4.0</td>
-        <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.1</p></td>
     </tr>
 </table>
