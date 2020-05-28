@@ -13,7 +13,7 @@ enterprise: false
 
 Before installing, ensure that your environment has the following basic requirements:
 
-* [Docker Desktop][install_docker] version 18.09.2 or later
+* [Docker][install_docker] version 18.09.2 or later
 
   You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker Desktop.
@@ -78,7 +78,7 @@ spec:
 
 [kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [ansible]: https://www.ansible.com
 [persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
