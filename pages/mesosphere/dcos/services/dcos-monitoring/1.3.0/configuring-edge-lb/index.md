@@ -25,7 +25,7 @@ Exposing Grafana over Edge-LB is a twofold process:
 
 # Disable AdminRouter proxy on {{ model.techName }}
 
-It is important to disable AdminRoute proxy on Grafana service of {{ model.techName }}. Failing to do so will cause invalid URL redirects when viewing the published service.
+It is important to disable AdminRouter proxy on Grafana service of {{ model.techName }}. Failing to do so will cause invalid URL redirects when viewing the published service.
 
 To disable the AdminRouter proxy on {{ model.techName }} you should (re-)deploy it with the `admin_router_proxy` option set to `false`.
 
@@ -42,7 +42,7 @@ For example, your `options.json` should include the following option:
 
 To expose the `grafana` service via Edge-LB we are going to create an Edge-LB pool that exposes the `dcos-monitoring/grafana` task under a designated port.
 
-For example, to expose `grafana` on the public agent's port `15002`, crate the following `grafana-lb-pool.json` file with the following contents:
+For example, to expose `grafana` on the public agent's port `15002`, create the following `grafana-lb-pool.json` file with the following contents:
 
 ```json
 {
@@ -80,7 +80,7 @@ For example, to expose `grafana` on the public agent's port `15002`, crate the f
 }
 ```
 
-Then crate the pool using:
+Then create the pool using:
 
 ```sh
 dcos edgelb create grafana-lb-pool.json
