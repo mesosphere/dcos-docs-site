@@ -50,6 +50,10 @@ DC/OS will run on the tested platform components and operating environments. The
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
 
+D2iQ doesn't retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (major or patch) against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS (open) installed on an OS/Docker.
+
+Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/installing/evaluation/) is only supporting CentOS and RHEL.
+
 ### <a name="CentOS-support-matrix"></a>CentOS support matrix
 <table class="table">
     <tr>
@@ -95,6 +99,7 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 </table>
 
 ### <a name="Ubuntu-support-matrix"></a>Ubuntu support matrix
+*NOTE: Starting with DC/OS 2.0, we have discontinued support for Ubuntu Linux and have ceased qualifying it as an Operating System*.
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -105,17 +110,16 @@ Customers running DC/OS on non-supported platform components should upgrade to a
         <td>Ubuntu 18.04.3 LTS</td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>Ubuntu 16.04.6 LTS</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
 ### <a name="Oracle-support-matrix"></a>Oracle support matrix
+*NOTE: Starting with DC/OS 2.0, we have discontinued support for Oracle Linux and have ceased qualifying it as an Operating System*.
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -124,16 +128,13 @@ Customers running DC/OS on non-supported platform components should upgrade to a
     <tr>
         <td>Oracle Linux 7.6 </td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.5 </td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
     <tr>
         <td>Oracle Linux 7.4 </td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
         <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
     </tr>
 </table>
@@ -170,8 +171,6 @@ As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https:/
     <tr>
     <th><strong>Platform Component</strong></th>
     <th><strong>DC/OS 2.1 Latest Stable</strong></th>
-    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Flatcar Linux 2345.3.1</td>
