@@ -483,7 +483,7 @@ The type of storage backend to use for Exhibitor. You can use internal DC/OS sto
         *  `exhibitor_explicit_keys: 'true'`
            If you are  using AWS API keys to manually grant Exhibitor access.
         *  `exhibitor_explicit_keys: 'false'`
-           If you are using AWS Identity and Access Management (IAM) to grant Exhibitor access to S3.
+                      If you’re using an AWS Identity and Access Management (IAM) instance policy to grant Exhibitor access to S3.
     *  `s3_bucket`
        The name of your S3 bucket.
     *  `s3_prefix`
