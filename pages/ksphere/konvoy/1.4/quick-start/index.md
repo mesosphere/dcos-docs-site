@@ -24,7 +24,7 @@ Before starting the Konvoy installation, you should verify the following:
 
 -   You have a Linux or MacOS computer with a supported version of the operating system.
 -   You have the [aws][install_aws] command-line utility if you are installing on an AWS cloud instance.
--   You have [Docker Desktop][install_docker] version 18.09.2 or later.
+-   You have [Docker][install_docker] version 18.09.2 or later.
 -   You have [kubectl][install_kubectl] v1.16.9 or later for interacting with the running cluster.
 -   You have a valid AWS account with [credentials configured][aws_credentials].
     You must be authorized to create the following resources in the AWS account:
@@ -50,7 +50,7 @@ Before starting the Konvoy installation, you should verify the following:
 1.  Check the Kubernetes client version. Many important Kubernetes functions **do not work** if your client is outdated. You can verify that the version of `kubectl` you have installed is supported by running the following command:
 
     ```bash
-    kubectl version --short=true`
+    kubectl version --short=true
     ```
 
 1.  Download and extract the Konvoy package. You will need to download and extract the Konvoy package tarball. There are a couple of ways to get the tarball:
@@ -210,7 +210,7 @@ For more details, see the following topics:
 - [Troubleshooting](../troubleshooting/)
 
 [cncf]: https://www.cncf.io
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [install_aws]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html

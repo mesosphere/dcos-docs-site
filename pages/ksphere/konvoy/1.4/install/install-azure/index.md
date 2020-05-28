@@ -14,7 +14,7 @@ This section guides you through the basic steps to prepare your environment and 
 ## Prerequisites
 
 * The [azure][install_az] command line utility
-* [Docker Desktop][install_docker] _version 18.09.2 or newer_
+* [Docker][install_docker] _version 18.09.2 or newer_
 * [kubectl][install_kubectl] _v1.16.9 or newer_ (for interacting with the running cluster)
 * A valid Azure account with [credentials configured][az_login].
   You need to be authorized as a `Contributor` in your Azure account and need the be able to assign roles to a user.
@@ -144,7 +144,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 
 [az_login]: https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest
 [install_az]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [prerequisites]: #prerequisites
 [cluster_configuration]: ../../reference/cluster-configuration/
