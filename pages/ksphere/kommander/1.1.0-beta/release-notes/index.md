@@ -15,9 +15,9 @@ enterprise: false
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-| **Minimum**        | 1.16.0  |
-| **Maximum**        | 1.16.x  |
-| **Default**        | 1.16.8  |
+| **Minimum**        | 1.15.0  |
+| **Maximum**        | 1.17.x  |
+| **Default**        | 1.17.6  |
 
 #### Addon Changelog
 
