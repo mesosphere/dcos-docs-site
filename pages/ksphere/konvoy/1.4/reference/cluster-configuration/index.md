@@ -256,7 +256,7 @@ spec:
 
 | Parameter               | Description                                                                      | Default               |
 | ----------------------- | -------------------------------------------------------------------------------- | --------------------- |
-| `azure.location`            | [Azure location][azure_location] where your cluster is hosted                            |  `westus`          |
+| `azure.location`            | [Azure location][azure_location] where your cluster is hosted                            |  `eastus2`          |
 | `azure.availabilitySet` | [Azure availability sets][availability_set] Availability set define grouping capability for isolating VMs from each other     | `N/A`        |
 | `azure.tags`              | Additional [Azure tags][azure_tags] for the resources provisioned through the Konvoy CLI | `[owner: <username>]` |
 | `aws.vnet`               | [Azure VNET][azure_vnet] to use when deploying a cluster                   | N/A                   |  
@@ -367,6 +367,7 @@ The default value of this entire object is `omitted`.
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
 | `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.9`                |
+| `imageRepository`              | The imageRepository to pull the control-plane images from. | `k8s.gcr.io`) |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#speckubernetescontrolplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#speckubernetesnetworking) |
 | `kubernetes.cloudProvider`     | Specifies the object that defines which cloud-provider to enable.    | See [spec.kubernetes.clouldProvider](#speckubernetescloudprovider)  |

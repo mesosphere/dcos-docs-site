@@ -14,7 +14,7 @@ The topics in this section describe advanced provisioning and configuration opti
 # Customize region and availability zones
 
 Konvoy supports provisioning hosts across fault and update domains in an Azure location.
-For instance, the following configuration will instruct Konvoy to provision hosts across the three fault and update domains in `westus` location.
+For instance, the following configuration will instruct Konvoy to provision hosts across the three fault and update domains in `eastus2` location.
 
 ```yaml
 kind: ClusterProvisioner
@@ -24,7 +24,7 @@ metadata:
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     availabilitySet:
       faultDomainCount: 3
       updateDomainCount: 3
@@ -42,7 +42,7 @@ metadata:
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     availabilitySet:
       faultDomainCount: 3
       updateDomainCount: 3
@@ -162,7 +162,7 @@ metadata:
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     vnet:
       name: existing-vnet
       resourceGroup: existing-resource-group
@@ -185,7 +185,7 @@ metadata:
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     vnet:
       name: existing-vnet
       resourceGroup: existing-resource-group
@@ -234,7 +234,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     vnet:
       name: existing-vnet
       resourceGroup: existing-resource-group

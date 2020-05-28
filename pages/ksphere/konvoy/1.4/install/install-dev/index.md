@@ -16,7 +16,7 @@ This is very useful for development and end-to-end testing with Konvoy.
 
 Before starting the development machine installation, you should verify the following:
 
-* [Docker Desktop][install_docker] version 18.09.2 or later
+* [Docker][install_docker] version 18.09.2 or later
 * [kubectl][install_kubectl] v1.16.9 or later (for interacting with the running cluster)
 * Docker is configured with the following minimum requirements for CPU, memory, and disk:
   * 4 CPUs
@@ -159,5 +159,5 @@ docker exec -ti konvoy-control-plane-0 /bin/bash
 [pv]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
 [terraform_docker]: https://www.terraform.io/docs/providers/docker/index.html
 [ops_portal]: ../../operations/accessing-the-cluster/
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/

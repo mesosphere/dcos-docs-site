@@ -16,10 +16,10 @@ The topics in this section guide you through the basic steps to prepare your env
 
 Before installing, verify that your environment meets the following basic requirements:
 
-* [Docker Desktop][install_docker] version 18.09.2 or later
+* [Docker][install_docker] version 18.09.2 or later
 
-  You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
-  For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker Desktop.
+  You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
+  For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
 * [kubectl][install_kubectl] v1.16.9 or later
 
@@ -334,20 +334,20 @@ spec:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
     configVersion: stable-1.16-1.2.0
     helmRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.4.3
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.4
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
     configVersion: stable-1.16-1.0.0
     helmRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.4.3
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.4
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
     configVersion: stable-1.16-1.0.1
     helmRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.4.3
+      image: mesosphere/konvoy-addons-chart-repo:v1.4.4
     addonsList:
     - name: kommander
       enabled: false
@@ -539,7 +539,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 
 [kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [ansible]: https://www.ansible.com
 [persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/

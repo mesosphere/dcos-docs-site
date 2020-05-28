@@ -15,6 +15,28 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.4.4 - Released 28 May 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.9 |
+
+#### Improvements
+
+-   Change the default Azure region for new clusters to `eastus2` to improve stability.
+-   New `cluster.yaml` option `spec.kubernetes.imageRepository` to allow for pulling control-plane images from an alternative repository instead of the default `k8s.gcr.io`.
+
+    ```text
+    kind: ClusterConfiguration
+    apiVersion: konvoy.mesosphere.io/v1beta1
+    spec:
+      kubernetes:
+        version: 1.16.9+d2iq.2
+        imageRepository: docker.io/mesosphere
+    ```
+
 ### Version v1.4.3 - Released 12 May 2020
 
 | Kubernetes Support | Version |
