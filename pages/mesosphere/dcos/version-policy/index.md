@@ -8,7 +8,7 @@ render: mustache
 model: /mesosphere/dcos/data.yml
 ---
 
-The Version Policy page was updated on October 21, 2019.
+The Version Policy page was updated on 29 May, 2020.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
@@ -27,7 +27,7 @@ Mesosphere tests DC/OS Enterprise with specific components and operating systems
 
 ### Version Lifecycle
 
-Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, Mesosphere shall provide support services for those versions of DC/OS that are either the current, N, or up to two Minor versions behind. <br>
+Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, D2iQ shall provide support services for those versions of DC/OS that are either the current, N, or up to two Minor versions behind.<br>
 
  Examples of Major and Minor versions are as follows:
 
