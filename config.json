@@ -5,7 +5,9 @@
       "mesosphere/dcos/1.14/**",
       "ksphere/dispatch/1.2/**"
     ],
-    "DO_NOT_INDEX": []
+    "DO_NOT_INDEX": [
+      "kubeflow"
+    ]
   },
   "staging": {
     "DO_NOT_BUILD": [
