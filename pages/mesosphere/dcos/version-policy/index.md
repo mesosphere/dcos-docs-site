@@ -141,7 +141,7 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
 </table>
 
 ### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
-As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https://coreos.com/os/eol/) and will no longer receive updates.
+As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https://coreos.com/os/eol/) and will no longer receive updates. The recommended alternative is to use [Flatcar Linux](#flatcar-support-matrix).
 
 *NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have ceased qualifying it as an Operating System*. This chart shows the final qualified versions of DC/OS for the final qualified versions CoreOS.
 <table class="table">
