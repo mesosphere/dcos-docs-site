@@ -6,11 +6,7 @@ menuWeight: 5
 excerpt: Understanding how to unseal the Secret Store
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/1.13/data.yml
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
-<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 # About unsealing the Secret Store
 
@@ -27,16 +23,12 @@ To unseal the Secret Store, complete the following steps. They will unseal just 
 The intended status of the seal is persisted, so if one of the prerequisites for sealing the store occurs, `dcos-secrets` will unseal it again automatically even after being restarted. Only the steps depicted in [sealing the store](/mesosphere/dcos/1.13/security/ent/secrets/seal-store/) will seal it back.
 
 **Prerequisites:**
-
-
 - [DC/OS CLI installed](/mesosphere/dcos/1.13/cli/install/)
 - Logged into the DC/OS CLI as a superuser via `dcos auth login`
 - You must follow the steps in [Downloading the Root Cert](/mesosphere/dcos/1.13/security/ent/tls-ssl/get-cert/) before issuing the `curl` commands in this section. 
-
-
 # <a name="unseal-def-keys"></a>Unsealing a Secret Store sealed with default keys
 
-1. From a terminal prompt, check the status of the Secret Store via the following command.
+1. From a terminal prompt, check the status of the Secret Store:
 
    ```bash
    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
@@ -48,7 +40,7 @@ The intended status of the seal is persisted, so if one of the prerequisites for
    {"sealed":true,"threshold":1,"shares":1,"progress":0}
    ```
 
-   If the value of `"sealed"` is `false`, do not complete the rest of this procedure. If the Secret Store is not sealed, you cannot unseal it.
+   If the value of `"sealed"` is `false`, stop now. If the Secret Store is not sealed, you cannot unseal it.
 
 1. Use the following `curl` command to unseal the store.
 
@@ -62,7 +54,7 @@ The intended status of the seal is persisted, so if one of the prerequisites for
    curl --cacert dcos-ca.crt -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/secrets/v1/seal-status/default
    ```
 
-    The Secret Store service should return the following JSON response, indicating success.
+    The Secret Store service returns the following JSON response, indicating success.
 
    ```json
    {"sealed":false,"threshold":1,"shares":1,"progress":0}
