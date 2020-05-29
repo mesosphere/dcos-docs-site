@@ -392,7 +392,7 @@ def train_and_serve(
 
     # Create an inference server from an external component
     kfserving_op = components.load_component_from_url(
-        "https://raw.githubusercontent.com/kubeflow/pipelines/master/components/kubeflow/kfserving/component.yaml"
+        "https://raw.githubusercontent.com/kubeflow/pipelines/f311900f6341a6c0cf4baf1354c4dbb575eace78/components/kubeflow/kfserving/component.yaml"
     )
     kfserving = kfserving_op(
         action="create",
