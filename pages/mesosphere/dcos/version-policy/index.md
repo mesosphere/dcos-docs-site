@@ -4,7 +4,6 @@ navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 5
 excerpt: DC/OS version lifecycle and compatibility matrix
-render: mustache
 model: /mesosphere/dcos/data.yml
 ---
 
@@ -12,22 +11,22 @@ The Version Policy page was updated on 29 May, 2020.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
-This page explains to Mesosphere customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined in this document applies to the version of DC/OS and its catalog packages.
+This page explains to D2iQ customers, partners, users, and operators of Mesosphere DC/OS the modifications or enhancements to the same software product as designated by a change in the version release. A version release provides backward compatibility to all released APIs. The guidelines outlined in this document applies to the version of DC/OS and its catalog packages.
 
 ## DC/OS Version Lifecycle
 
-Mesosphere tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#version-compatibility-matrix). This testing is provided in the [DC/OS Platform Interoperability Matrix](#dcos-platform-version-compatibility-matrix). Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>.
+D2iQ tests DC/OS Enterprise with specific components and operating systems as covered in the [DC/OS Version Compatibility Matrix](#version-compatibility-matrix). This testing is provided in the [DC/OS Platform Interoperability Matrix](#dcos-platform-version-compatibility-matrix). Support services for customers under a license and support agreement is defined within the <a href="https://mesosphere.com/mesosphere-support-terms/">D2iQ Support and Maintenance Terms</a>.
 
 ### Versioning Definitions
 
 - **Major Versions** (**X**.y.z) are releases for providing major and minor features and improvements or optimizations to existing features. They incorporate all applicable bug fixes made in earlier Major, Minor, and Maintenance versions.
 - **Minor Version** (x.**Y**.z) are versions for delivering minor features, improvements or optimizations to existing features, and bug fixes. They incorporate all applicable bug fixes made in earlier Minor versions, and Maintenance versions.
 - **Maintenance Version** (x.y.**Z**) are versions for providing bug fixes that are highly impactful to a number of customers and who cannot wait for the next Major or Minor version. They incorporate all applicable bug fixes made in prior Maintenance versions.
-- **"End of Life (EOL)"** versions are no longer supported by Mesosphere, upgrading to a later version is highly recommended.
+- **"End of Life (EOL)"** versions are no longer supported by D2iQ, upgrading to a later version is highly recommended.
 
 ### Version Lifecycle
 
-Mesosphere shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">Mesosphere Support Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version Compatibility Matrix they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor  Versions) and N-4 (for Maintenance Versions) specification. Thus, D2iQ shall provide support services for those versions of DC/OS that are either the current, N, or up to two Minor versions behind.<br>
+D2iQ shall provide support services for customers under a current agreement as outlined in the <a href="https://mesosphere.com/mesosphere-support-terms/">D2iQ Support and Maintenance Terms</a>, for specific versions of Mesosphere DC/OS. While these versions are outlined in the Mesosphere DC/OS Version Compatibility Matrix, they follow a specific model for determining which versions are supported. The model follows an N-2 (for Major and Minor Versions) and N-4 (for Maintenance Versions) specification. Thus, D2iQ shall provide support services for those versions of DC/OS that are either the current, N, or up to two Minor versions behind.<br>
 
  Examples of Major and Minor versions are as follows:
 
@@ -48,9 +47,9 @@ DC/OS will run on the tested platform components and operating environments. The
 ##### [RHEL support matrix](#RHEL-support-matrix)
 ##### [Flatcar Linux support matrix](#flatcar-support-matrix)
 
-Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, Mesosphere only provides support services to paying customers under a written agreement. The term “supported” in Mesosphere documentation refers to whether the indicated software component has been tested for compatibility.
+Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, D2iQ only provides support services to paying customers under a written agreement. The term “supported” in D2iQ documentation refers to whether the indicated software component has been tested for compatibility.
 
-D2iQ doesn't retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (minor or patch)  against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker combination. 
+D2iQ does not retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (minor or patch)  against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker combination. 
 CentOS is the only Operating System that is extensively tested (nightly tests, long lived cluster tests, scale tests etc) by D2iQ. All the other mentioned OSes in this page are tested only once per minor or patch release.
 
 Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/installing/evaluation/) only supports CentOS and RHEL. There are no plans to add support for other referenced OSes in this page. Customers are recommended to use the Advanced Installation method for installing DC/OS on these other OSes.
@@ -251,20 +250,20 @@ Use the following legend table to see the supported/not supported service for th
 ## Customer Advisory for CentOS/RHEL 7.X
 <p class="message--important"><strong>IMPORTANT: </strong>Docker recently enabled <code>kmem</code> accounting in version 17.06+. Customers may notice instability for the entire system when running under RHEL or CentOS 7.x. The symptoms include tasks getting stuck indefinitely and kernel-related error messages in the system logs. The <code>kmem</code> accounting feature in Redhat’s forked Linux Kernel is incomplete and can cause kernel deadlocks or kernel memory leaks. Details on the bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
 
-<p class="message--note"><strong>NOTE: </strong>Because of the kmem bug, <strong>Mesosphere only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or later and CentOS/RHEL 7.5</strong>.</a></p>
+<p class="message--note"><strong>NOTE: </strong>Because of the kmem bug, <strong>D2iQ only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or later and CentOS/RHEL 7.5</strong>.</a></p>
 
 ## Version Compatibility Matrix
 
-Mesosphere maintains and certifies several packages for DC/OS.
+D2iQ maintains and certifies several packages for DC/OS.
 
 ### Base Technology
 
-Mesosphere does not offer support services for the base technology (for example, Jenkins). The base technology version is denoted as the second version in the package number (for example, 1.2.3-**4.5.6**).
+D2iQ does not offer support services for the base technology (for example, Jenkins). The base technology version is denoted as the second version in the package number (for example, 1.2.3-**4.5.6**).
 
 
 ### Certified Package Designations
 
-Services that are labeled as “Certified” have been tested by Mesosphere for interoperability with DC/OS, but Mesosphere disclaims all warranties, and makes no promises, including with respect to the services’ operation or production readiness. Support for the integration may be available from Mesosphere or the creator of the service. The matrix below lists certified packages and the current state of which packages are tested on what version of DC/OS, and what is within the best effort scope of our technical support organization.
+Services that are labeled as “Certified” have been tested by D2iQ for interoperability with DC/OS, but D2iQ disclaims all warranties, and makes no promises, including with respect to the services’ operation or production readiness. Support for the integration may be available from D2iQ or the creator of the service. The matrix below lists certified packages and the current state of which packages are tested on what version of DC/OS, and what is within the best effort scope of our technical support organization.
 
 The designations are as follows:
 
