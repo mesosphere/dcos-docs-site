@@ -4,7 +4,7 @@ navigationTitle: 日志记录 API 示例
 title: 日志记录 API 示例
 menuWeight: 4
 excerpt: 日志记录 API 示例
-beta: true
+beta: false
 enterprise: false
 ---
 

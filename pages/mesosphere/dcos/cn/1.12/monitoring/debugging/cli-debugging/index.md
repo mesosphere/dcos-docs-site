@@ -3,7 +3,7 @@ layout: layout.pug
 title: 从 DC/OS CLI 调试
 menuWeight: 10
 excerpt: 从命令行界面调试 DC/OS
-beta: true
+beta: false
 enterprise: false
 ---
 

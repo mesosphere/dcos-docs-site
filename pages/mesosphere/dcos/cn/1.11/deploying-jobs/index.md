@@ -4,7 +4,7 @@ navigationTitle: 部署作业
 title: 部署作业
 menuWeight: 120
 excerpt: 在不安装单独服务的情况下创建作业
-beta: true
+beta: false
 enterprise: false
 ---
 

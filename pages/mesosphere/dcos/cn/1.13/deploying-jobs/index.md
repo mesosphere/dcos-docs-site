@@ -6,7 +6,7 @@ menuWeight: 120
 excerpt: 在不安装单独服务的情况下创建作业
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: true
+beta: false
 enterprise: false
 ---
 

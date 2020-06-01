@@ -4,7 +4,7 @@ navigationTitle:  Debugging
 title: Debugging
 menuWeight: 115
 excerpt: Debugging DC/OS using the CLI and UI
-beta: true
+beta: false
 enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml

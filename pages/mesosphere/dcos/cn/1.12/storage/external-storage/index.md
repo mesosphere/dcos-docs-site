@@ -4,7 +4,7 @@ navigationTitle: 外部持久卷
 title: 外部持久卷
 menuWeight: 20
 excerpt: 通过 Marathon 使用外部持久卷
-beta: true
+beta: false
 enterprise: false
 ---
 

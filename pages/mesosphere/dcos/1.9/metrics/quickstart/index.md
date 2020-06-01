@@ -4,7 +4,7 @@ navigationTitle:  Quick Start
 title: Quick Start
 menuWeight: 0
 excerpt:
-beta: true
+beta: false
 ---
 
 

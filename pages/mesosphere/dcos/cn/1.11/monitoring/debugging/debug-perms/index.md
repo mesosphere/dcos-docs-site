@@ -4,7 +4,7 @@ navigationTitle: 授予 dcos 任务执行的访问权限
 title: 授予 dcos 任务执行的访问权限
 menuWeight: 4
 excerpt: 授予调试的访问权限
-beta: true
+beta: false
 enterprise: true
 ---
 

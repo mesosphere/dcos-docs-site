@@ -4,7 +4,7 @@ title: Export DC/OS Metrics to Datadog
 navigationTitle: Export DC/OS Metrics to Datadog
 menuWeight: 4
 excerpt: Sending DC/OS metrics to Datadog
-beta: true
+beta: false
 ---
 
 

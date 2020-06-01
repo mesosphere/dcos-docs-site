@@ -4,7 +4,7 @@ navigationTitle:  Accessing system and component logs
 title: Accessing system and component logs
 menuWeight: 1
 excerpt: Managing user access to system and component logs
-beta: true
+beta: false
 enterprise: true
 ---
 

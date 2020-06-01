@@ -4,11 +4,9 @@ navigationTitle:  Creating Jobs
 title: Creating Jobs
 menuWeight: 10
 excerpt: Creating and administering jobs using the web interface, the CLI, or the API
-beta: true
+beta: false 
 enterprise: false
 ---
-
-
 You can create and administer jobs in the DC/OS web interface, from the DC/OS CLI, or via the API.
 
 # DC/OS Web interface

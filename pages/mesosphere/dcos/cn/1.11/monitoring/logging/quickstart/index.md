@@ -4,7 +4,7 @@ navigationTitle: 快速启动
 title: 日志记录快速入门
 menuWeight: 0
 excerpt: DC/OS 日志记录快速入门
-beta: true
+beta: false
 enterprise: false
 ---
 

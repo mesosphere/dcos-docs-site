@@ -8,7 +8,7 @@ excerpt: >
   periodically poll for data about your
   cluster, hosts, containers, and
   applications. 
-beta: true
+beta: false
 ---
 
 You can use the Metrics API to periodically poll for data about your cluster, hosts, containers, and applications.

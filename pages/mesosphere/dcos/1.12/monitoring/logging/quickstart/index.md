@@ -4,7 +4,7 @@ navigationTitle:  Quick Start
 title: Logging Quick Start
 menuWeight: 0
 excerpt: Getting started with DC/OS logging
-beta: true
+beta: false
 enterprise: false
 ---
 

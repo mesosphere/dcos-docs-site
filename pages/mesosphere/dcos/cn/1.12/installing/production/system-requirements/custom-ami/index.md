@@ -4,7 +4,7 @@ navigationTitle: 自定义 AMI
 title: 使用自定义 AMI 进行安装
 menuWeight: 20
 excerpt: 使用 AWS 机器镜像启动 DC/OS
-beta: true
+beta: false
 ---
 
 可以利用基于 CenTos 7、CorEos 和 RHEL 的自定义 [AWS 机器镜像 (AMI)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) ，使用高级模板启动 DC/OS。
