@@ -6,7 +6,7 @@ menuWeight: 120
 excerpt: Creating a job without installing a separate service
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-beta: true
+beta: false
 enterprise: false
 ---
 

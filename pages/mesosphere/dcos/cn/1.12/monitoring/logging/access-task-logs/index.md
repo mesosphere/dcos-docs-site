@@ -4,7 +4,7 @@ navigationTitle: 控制对任务日志的访问
 title: 控制对任务日志的访问
 menuWeight: 2
 excerpt: 使用 Marathon 群组管理用户对任务日志的访问
-beta: true
+beta: false
 enterprise: true
 ---
 

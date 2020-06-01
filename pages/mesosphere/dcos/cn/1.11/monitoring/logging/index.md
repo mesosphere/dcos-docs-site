@@ -4,7 +4,7 @@ navigationTitle: 日志记录
 title: 日志记录
 menuWeight: 3
 excerpt: 了解 DC/OS 核心组件和服务的诊断和状态日志
-beta: true
+beta: false
 enterprise: false
 ---
 

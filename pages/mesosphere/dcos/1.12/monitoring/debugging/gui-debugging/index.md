@@ -3,7 +3,7 @@ layout: layout.pug
 title: Debugging from the DC/OS Web Interface
 menuWeight: 0
 excerpt: Using the DC/OS web interface for debugging
-beta: true
+beta: false
 enterprise: false
 ---
 

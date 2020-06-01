@@ -4,7 +4,7 @@ navigationTitle: 创建作业
 title: 创建作业
 menuWeight: 10
 excerpt: 使用 Web 界面、CLI 或 API 创建和管理作业
-beta: true
+beta: false
 enterprise: false
 ---
 

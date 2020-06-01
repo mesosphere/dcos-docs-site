@@ -4,7 +4,7 @@ navigationTitle:  Deploying Jobs
 title: Deploying Jobs
 menuWeight: 120
 excerpt: Creating a job without installing a separate service
-beta: true
+beta: false 
 enterprise: false
 ---
 

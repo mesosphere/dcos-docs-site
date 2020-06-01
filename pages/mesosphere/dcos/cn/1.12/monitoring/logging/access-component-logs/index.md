@@ -4,7 +4,7 @@ navigationTitle: 访问系统和组件日志
 title: 访问系统和组件日志
 menuWeight: 1
 excerpt: 管理用户对系统和组件日志的访问
-beta: true
+beta: false
 enterprise: true
 ---
 

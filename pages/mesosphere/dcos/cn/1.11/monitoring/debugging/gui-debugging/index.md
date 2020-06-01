@@ -3,7 +3,7 @@ layout: layout.pug
 title: 从 DC/OS Web 界面进行调试
 menuWeight: 0
 excerpt: 从 DC/OS Web 界面进行调试
-beta: true
+beta: false
 enterprise: false
 ---
 

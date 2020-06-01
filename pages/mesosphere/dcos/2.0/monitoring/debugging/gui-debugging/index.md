@@ -5,7 +5,7 @@ menuWeight: 0
 excerpt: Using the DC/OS UI for debugging
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-beta: true
+beta: false
 enterprise: false
 ---
 

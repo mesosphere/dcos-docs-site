@@ -5,7 +5,7 @@ menuWeight: 10
 excerpt: Debugging DC/OS from the command line interface
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: true
+beta: false
 enterprise: false
 ---
 

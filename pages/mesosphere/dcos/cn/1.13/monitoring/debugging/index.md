@@ -4,7 +4,7 @@ navigationTitle:  调试
 title: 调试
 menuWeight: 115
 excerpt: 使用 CLI 和 UI 调试 DC/OS
-beta: true
+beta: false
 enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml

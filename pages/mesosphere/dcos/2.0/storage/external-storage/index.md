@@ -6,7 +6,7 @@ menuWeight: 20
 excerpt: Using external persistent volumes with Marathon
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-beta: true
+beta: false
 enterprise: false
 ---
 

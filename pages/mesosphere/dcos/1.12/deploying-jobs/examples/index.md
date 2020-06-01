@@ -4,7 +4,7 @@ navigationTitle:  Examples
 title: Job Examples
 menuWeight: 20
 excerpt: Examples of common usage scenarios for jobs.
-beta: true
+beta: false
 enterprise: true
 ---
 

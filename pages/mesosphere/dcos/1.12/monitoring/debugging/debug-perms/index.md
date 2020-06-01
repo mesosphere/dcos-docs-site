@@ -4,7 +4,7 @@ navigationTitle:  Granting Access to dcos task exec
 title: Granting Access to dcos task exec
 menuWeight: 4
 excerpt: Granting access for debugging
-beta: true
+beta: false
 enterprise: true
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

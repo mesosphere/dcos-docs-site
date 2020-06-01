@@ -6,7 +6,7 @@ menuWeight: 4
 excerpt: 向 Datadog 发送 DC/OS 度量标准
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: true
+beta: false
 ---
 
 
