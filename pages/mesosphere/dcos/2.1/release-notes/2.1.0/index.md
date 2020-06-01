@@ -62,20 +62,19 @@ For a detailed description on updates to Marathon, see the [changelog](https://g
 # Breaking changes
 - Removed the octarine package from DC/OS. It was originally used as a proxy for the CLI but is not used for this purpose anymore.
 - DC/OS Net now waits until agents become active before adding DNS entries for tasks on the agent to prevent resolving to unreachable addresses. (DCOS_OSS-5463)
-- Removed the avro-cpp package from DC/OS. It was originally used as part of the metrics-collection framework which now relies on a different infrastructure.
+- Removed the avro-cpp package from DC/OS. It was originally used as part of the metrics-collection framework, which now relies on a different infrastructure.
 - Removed the spartan package from DC/OS. Is was deprecated in 1.11 and replaced by dcos-net.
 - Removed the toybox package from DC/OS. Is was used only by Spartan.
 - Removed the dcos-history-service from DC/OS. (DCOS-58529)
 
 # Fixed and Improved Issues
-- COPS-6128
-- COPS-6121
-- COPS-6092
-COPS-5951
+- Zookeeper log messages are now being forwarded to syslog. (COPS-6128)
+- Fixed a critical error in Metronome where existing jobs appear to be lost after upgrade. (COPS-6092)
+- (COPS-5951, COPS-5827)
+
 COPS-5931
 COPS-5915
 COPS-5868
-COPS-5827
 COPS-5814
 COPS-5804
 COPS-5738
