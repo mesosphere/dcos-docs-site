@@ -6,7 +6,7 @@ menuWeight: 10
 excerpt: Granting access for debugging
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: true
+beta: false
 enterprise: true
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

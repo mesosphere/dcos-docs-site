@@ -5,7 +5,7 @@ title: Documentation for Mesosphere DC/OS 2.1.0
 version: 2.1.0
 menuWeight: 0
 excerpt: Learning DC/OS
-beta: true
+beta: false 
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

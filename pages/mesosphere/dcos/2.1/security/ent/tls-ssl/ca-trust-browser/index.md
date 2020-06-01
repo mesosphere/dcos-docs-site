@@ -6,7 +6,7 @@ menuWeight: 200
 excerpt: Configuring Chrome and Firefox to trust your DC/OS CA.
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: true
+beta: false
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
