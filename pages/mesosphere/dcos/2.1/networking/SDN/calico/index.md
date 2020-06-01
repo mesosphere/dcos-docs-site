@@ -348,7 +348,7 @@ spec:
       ports:
       - 80
 ```
-Temporarily, we can log into a DC/OS node, and apply the network policy by executing `dcos calicoctl apply -f ${network_policy_yaml_file}`.
+Temporarily, we can log into a DC/OS node, and apply the network policy by executing `dcos calico apply -f ${network_policy_yaml_file}`.
 
 Request from bookstore-frontend is successful as expected:
 ```sh
