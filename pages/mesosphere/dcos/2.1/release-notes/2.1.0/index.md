@@ -21,23 +21,6 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages, such as Marathon and Metronome, used in DC/OS.
 
-# DC/OS 
-
-## Components
-
-DC/OS 2.1.0 Beta includes the following component versions:
-
-- Apache&reg; Mesos&reg; 1.10.0-dev
-- OpenSSL 1.1.1d
-- DC/OS UI to v5.0.23
-- Grafana 6.0
-- OpenJDK 8
-- Marathon 1.10.6
-- logrotate 3.14.0
-- Metronome 0.6.41
-- CNI 0.7.6 
-- Boost 1.65.0 
-- OpenResty 1.15.8.3
 
 # New Features and Capabilities 
 
@@ -54,34 +37,53 @@ Metronome based jobs can now join container networks to communicate with other s
 DC/OS now allows you to provide a non-CA custom external certificate and key that the Admin Router will then use for clients connecting to a cluster. For more information, see [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/)
 
 ## Domain Sockets for Agent Executor Communication
-Agents and Executors now communicate over Unix Domain sockets making operators life easy in the presence of container overlay networks.
+Added a new configuration option `mesos_http_executors_domain_sockets`, which will cause the mesos-agent to use domain sockets when communicating with executors (default is enabled). This change allows administrators to write firewall rules blocking unauthorized access to the agent port 5051 since access to this will not be required anymore for executors to work.
 
-# Marathon Fixed and Improved Issues
-For a detailed description on updates to Marathon, see the [changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 
 # Breaking changes
-- Removed the octarine package from DC/OS. It was originally used as a proxy for the CLI but is not used for this purpose anymore.
+- The configuration option `MARATHON_ACCEPTED_RESOURCE_ROLES_DEFAULT_BEHAVIOR` replaces the config option `MARATHON_DEFAULT_ACCEPTED_RESOURCE_ROLES`. Please see the Marathon [command-line flag documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/command-line-flags.md) for a description of the flag.
+- Removal of`revive_offers_for_new_apps` Marathon option.
+- Marathon no longer sanitizes the field `acceptedResourceRoles`. The field is an array of one or two values: `*` and the service role. Previously, when an invalid value was provided, Marathon would silently drop it. Now, it returns an error. If this causes a disruption, you can re-enable this feature by adding `MARATHON_DEPRECATED_FEATURES=sanitize_accepted_resource_roles` to the file `/var/lib/dcos/marathon/environment` on all masters. You must remove this line before upgrading to DC/OS 2.2.
 - DC/OS Net now waits until agents become active before adding DNS entries for tasks on the agent to prevent resolving to unreachable addresses. (DCOS_OSS-5463)
+- dcos-net (l4lb) allows for graceful shutdown of connections by changing the VIP backend weight to 0 when tasks are unhealthy or enter the TASK_KILLING state instead of removing them. (D2IQ-61077)
+- Removed the octarine package from DC/OS. It was originally used as a proxy for the CLI but is not used for this purpose anymore.
 - Removed the avro-cpp package from DC/OS. It was originally used as part of the metrics-collection framework, which now relies on a different infrastructure.
 - Removed the spartan package from DC/OS. Is was deprecated in 1.11 and replaced by dcos-net.
 - Removed the toybox package from DC/OS. Is was used only by Spartan.
 - Removed the dcos-history-service from DC/OS. (DCOS-58529)
+- New format for Admin Router access logs. (D2IQ-43957, DCOS-59598, D2IQ-62839)
+
+
+# Component Versions
+
+DC/OS 2.1.0 includes the following component versions:
+
+- Apache&reg; Mesos&reg; 1.10.0-dev
+- Marathon 1.10.17
+- Metronome 0.6.44
+- DC/OS UI to v5.0.41
+
 
 # Fixed and Improved Issues
 - Zookeeper log messages are now being forwarded to syslog. (COPS-6128)
 - Fixed a critical error in Metronome where existing jobs appear to be lost after upgrade. (COPS-6092)
 - (COPS-5951, COPS-5827)
-
-
 - Fixed an issue where in some rare circumstances, after upgrading a cluster, users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
 - Fixed an issue where image pull in UCR was not working for nvcr.io (missing ‘service’/‘scope’ parameters). (COPS-5804)
 - Upgraded Java to version 8u232 to align with previous DC/OS releases. (DCOS-62548, COPS-5738)
 - Fixed an issue where after a DC/OS upgrade, the executor resources used by tasks on the agent were being incorrectly counted against quota. (COPS-5725)
 - DC/OS Admin Router now allows large packages of files, up to 32GB, to the Package Registry. (D2IQ-61233, COPS-5615)
+- COPS-5428
+- COPS-5931
+- COPS-5915
+- COPS-5814
+- COPS-5629
 
+## Mesos Fixed and Improved Issues
+For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
 
-COPS-5428
-COPS-5931
-COPS-5915
-COPS-5814
-COPS-5629
+## Marathon Fixed and Improved Issues
+For a detailed description on updates to Marathon, see the [changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+
+## Metronome Fixed and Improved Issues
+For a detailed description on updates to Marathon, see the [changelog](https://github.com/dcos/metronome/blob/master/changelog.md).
