@@ -16,7 +16,7 @@ The `dcos job schedule show` command allows you to view a job schedule.
 # Usage
 
 ```bash
-dcos job schedule show <job-id> [--json]
+dcos job show <job-id> [--json]
 ```
 
 # Options

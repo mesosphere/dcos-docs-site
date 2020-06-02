@@ -16,7 +16,7 @@ model: /mesosphere/dcos/1.13/data.yml
 # 使用
 
 ```bash
-dcos job schedule show <job-id> [--json]
+dcos job show <job-id> [--json]
 ```
 
 # 选项
