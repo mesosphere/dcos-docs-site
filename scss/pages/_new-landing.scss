@@ -37,7 +37,6 @@
         box-shadow: 0 8px 20px 0 rgba(45, 45, 45, .23);
         transform: translateY(-5px);
     }
-    
     &__tile-image {
         border-radius: 2px;
         background-repeat: no-repeat;
@@ -86,7 +85,6 @@
 }
 
 .blurb {
-    &__container {}
     &__item {
         border-bottom: 1px solid $color-light-grey-l2;
         min-height: 100px;
