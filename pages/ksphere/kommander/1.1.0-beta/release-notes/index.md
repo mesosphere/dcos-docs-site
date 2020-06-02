@@ -44,6 +44,38 @@ Template:
 
 -->
 
+### Version v1.1.0-beta.3 - May 14th 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+| **Minimum**        | 1.16.0  |
+| **Maximum**        | 1.16.x  |
+| **Default**        | 1.16.8  |
+
+#### Features/Improvements
+
+- Added possibility to set metadata for Workspaces
+- Added a way to deploy generic KUDO services
+- Added quota support for projects
+- Kommander now federates logging stack to managed non-konvoy clusters
+
+#### Bug Fixes
+
+- Fixed kubeconfig download for certain clusters/users
+- Fixed uninstallation from Kommander addon
+- Lots of smaller UX Bugs and Improvements
+
+#### Component Versions
+
+- Addon: `1.1.0-15`
+- Chart: `0.6.20`
+- KCL: `0.5.7`
+- UI: `3.58.0`
+- kommander-karma: `0.3.9`
+- kubeaddons-catalog: `0.1.6`
+- kommander-thanos: `0.1.14`
+- grafana: `4.5.1`
+
 ### Version v1.1.0-beta.2 - April 22nd 2020
 
 | Kubernetes Support | Version |
