@@ -72,7 +72,7 @@ Template:
 - kommander-thanos: `0.1.13`
 - grafana: `4.5.1`
 
-### Version v1.1.0-beta.1 - April 22 March 2020
+### Version v1.1.0-beta.1 - April 22nd 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -108,7 +108,7 @@ Template:
 - kommander-thanos: `0.1.13`
 - grafana: `4.5.1`
 
-### Version v1.1.0-beta.0 - April 8 March 2020
+### Version v1.1.0-beta.0 - April 8th 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
