@@ -19,27 +19,33 @@ enterprise: false
 | **Maximum**        | 1.16.x  |
 | **Default**        | 1.16.8  |
 
-#### Addon Changelog
+#### Features/Improvements
 
-- added podAnnotations to the kommander-ui chart
-- updated ingress values for kubeaddons-catalog
+- Improved attach Cluster Flow in UI
+- Improved K8s Version Selector and Support for managed clusters created via UI
+- Limit platform service versions to versions that are supported by all clusters in that project
+- Renamed "Cloud Provider" to "Infrastructure Provider" to better fit on premise
+- Improved Error messaging when trying to delete roles or groups that are used by policies
+- Kommanders generated labels are now hidden in cluster overview pages
+- Federate Kubekost to managed Konvoy clusters
+- Improved performance for querying available versions in cluster create form.
 
-#### Chart Changelog
+#### Bug Fixes
 
-_Used chart version: `0.5.7` -> `0.6.4`_
+- Fixed number value saving in cluster creation form
+- Fixed not federating Kommander internal addons to managed clusters anymore.
+- Lots of smaller UX Bugs and Improvements
 
-- create kubecost ns hook
-- dynamically get grafana service url, add readme file
-- hook should not call static service name
+#### Component Versions
 
-##### Chart Subcomponent Versions
-
-- KCL: [0.5.1 -> 0.5.2](https://github.com/mesosphere/kommander-cluster-lifecycle/compare/v0.5.1...v0.5.2)
-- UI: [3.16.5 -> 3.25.5](https://github.com/mesosphere/kommander/compare/v3.16.5...v3.25.5)
-- kommander-karma: 0.3.9
-- kubeaddons-catalog: 0.1.6
-- kommander-thanos: 0.1.13
-- grafana: 4.5.1
+- Addon: `1.1.0-5`
+- Chart: `0.6.4`
+- KCL: `0.5.3`
+- UI: `3.25.5`
+- kommander-karma: `0.3.9`
+- kubeaddons-catalog: `0.1.6`
+- kommander-thanos: `0.1.13`
+- grafana: `4.5.1`
 
 ### Version v1.1.0-beta.0 - April 8 March 2020
 
