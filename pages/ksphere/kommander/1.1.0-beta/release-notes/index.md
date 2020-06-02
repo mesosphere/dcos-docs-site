@@ -44,6 +44,34 @@ Template:
 
 -->
 
+### Version v1.1.0-beta.2 - April 22nd 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+| **Minimum**        | 1.16.0  |
+| **Maximum**        | 1.16.x  |
+| **Default**        | 1.16.8  |
+
+#### Features/Improvements
+
+- Improved display of resource allocations in the UI
+- Federate Kubekost to managed Non-Konvoy clusters
+
+#### Bug Fixes
+
+- Lots of smaller UX Bugs and Improvements
+
+#### Component Versions
+
+- Addon: `1.1.0-10`
+- Chart: `0.6.12`
+- KCL: `0.5.6`
+- UI: `3.31.2`
+- kommander-karma: `0.3.9`
+- kubeaddons-catalog: `0.1.6`
+- kommander-thanos: `0.1.13`
+- grafana: `4.5.1`
+
 ### Version v1.1.0-beta.1 - April 22 March 2020
 
 | Kubernetes Support | Version |
