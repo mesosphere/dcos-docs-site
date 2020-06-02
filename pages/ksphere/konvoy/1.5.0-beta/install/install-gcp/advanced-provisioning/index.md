@@ -18,7 +18,7 @@ For instance, the following configuration instructs Konvoy to provision hosts ac
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -37,7 +37,7 @@ In Konvoy users can customize instance types, volumes and OS images for their cl
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -144,7 +144,7 @@ To do so you must modify the `cluster.yaml` file and change the `ProvisionerConf
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:

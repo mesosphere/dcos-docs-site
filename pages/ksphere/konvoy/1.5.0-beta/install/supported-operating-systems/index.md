@@ -13,13 +13,13 @@ Konvoy supports the following base Operating Systems.
 
 | OS Release | Kernel Version |
 |------------|----------------|
-| [CentOS 7.6][centos_7_6] | 3.10.0-957 |
+| [CentOS 7.7][centos_7_7] | 3.10.0-1062.12.1.el7.x86_64 |
+| [CentOS 7.8][centos_gcp] (Only on GCP) | 3.10.0-1127.8.2.el7.x86_6 |
 
 ## RHEL
 
 | OS Release | Kernel Version |
 |------------|----------------|
-| [RHEL 7.6][rhel_7_6] | 3.10.0-957 |
 | [RHEL_7.7][rhel_7_7] | 3.10.0-1062.12.1.el7.x86_64 |
 
 ## Ubuntu
@@ -42,8 +42,8 @@ Konvoy supports the following base Operating Systems.
 |------------|
 | [15][suse_15] |
 
-[centos_7_6]: https://wiki.centos.org/Manuals/ReleaseNotes/CentOS7.1810
-[rhel_7_6]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.6_release_notes/index
+[centos_7_7]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003
+[centos_gcp]: https://console.cloud.google.com/marketplace/details/centos-cloud/centos-7
 [rhel_7_7]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.7_release_notes/index
 [ubuntu_16]: https://wiki.ubuntu.com/XenialXerus/ReleaseNotes
 [ubuntu_18]: https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes

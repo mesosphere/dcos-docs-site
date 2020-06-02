@@ -14,8 +14,8 @@ This section guides you through the basic steps to prepare your environment and 
 ## Prerequisites
 
 * The [aws][install_aws] command line utility
-* [Docker Desktop][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.16.9 or newer_ (for interacting with the running cluster)
+* [Docker][install_docker] _version 18.09.2 or newer_
+* [kubectl][install_kubectl] _v1.17.6 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured][aws_credentials].
   You must be authorized to create the following resources in the AWS account:
   * EC2 Instances
@@ -249,7 +249,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html
 [install_aws]: https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [prerequisites]: #prerequisites
 [cluster_configuration]: ../../reference/cluster-configuration

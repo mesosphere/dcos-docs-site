@@ -37,7 +37,7 @@ Follow these steps:
 
     ```yaml
     kind: ClusterProvisioner
-    apiVersion: konvoy.mesosphere.io/v1beta1
+    apiVersion: konvoy.mesosphere.io/v1beta2
     spec:
     nodePools:
     - name: worker

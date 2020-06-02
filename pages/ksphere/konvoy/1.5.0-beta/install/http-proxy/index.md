@@ -37,7 +37,7 @@ Edit the cluster configuration file `cluster.yaml` to specify HTTP/HTTPS proxies
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     networking:
@@ -52,15 +52,15 @@ This configuration only applies to the core Kubernetes components. In this case,
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
     addonsList:
     - name: kommander
       enabled: true
       values: |
-        kommander-cluster-lifecycle:
-          webhook:
+        yakcl-federation:
+          utilityApiserver:
             env:
               HTTP_PROXY: "http://proxy.company.com:3128"
               NO_PROXY: "http://proxy.company.com:3128"

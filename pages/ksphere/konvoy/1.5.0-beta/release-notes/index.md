@@ -15,6 +15,61 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.5.0-beta.5 - Released 1 June 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.17.x |
+|**Default** | 1.17.6 |
+
+#### Bug fixes
+
+- API: Don't print `indexType` in `cluster.yaml` file.
+- Terraform: allow users to specify terraform go template in the `extras/provisioner` directory.
+- CLI: Fix a bug where deploying `extras/kubernetes` resources required setting the `KUBECONFIG` environment variable.
+- CLI: Fix a bug where running `konvoy drain/cordon/uncordon` required setting the `KUBECONFIG` environment variable.
+
+#### Improvements
+
+-   Update default Kubernetes version to `v1.17.6`.
+-   Update default Containerd version to `v1.3.4`.
+-   API: New `cluster.yaml` option `spec.kubernetes.imageRepository` to allow for pulling control-plane images from an alternative repository instead of the default `k8s.gcr.io`.
+
+    ```text
+    kind: ClusterConfiguration
+    apiVersion: konvoy.mesosphere.io/v1beta1
+    spec:
+      kubernetes:
+        version: 1.16.9+d2iq.2
+        imageRepository: docker.io/mesosphere
+    ```
+
+-   API: Decouple AWS public IP address association from bastion host and IGW creation in `v1beta2`.
+-   API: New `cluster.yaml` option `apiServerPort` for `aws` and `azure` provisioners, to specify the port to be used for the Kubernetes API server.
+-   CLI: Properly validate CLI arguments for all of the commands, avoiding a scenario where a typo may lead to running an incorrect command.
+-   CLI: Now validates the calico version specified in `cluster.yaml` to be a valid version within the range: `>=3.13.0 <3.14.0`.
+-   CLI: Diagnostics bundle now collects `df -H` output to help determine if there is disk pressure in the cluster. The bundle will contain `df.txt` file with the information gathered.
+-   CLI: Konvoy will exit with an error if an unsupported Kubernetes version upgrade is attempted.
+-   CLI: Improve validation error for unknown `cluster.yaml` keys.
+-   AWS: Change the default AWS AMI to `CentOS Linux 7 x86_64 HVM EBS ENA 2002_01`(CentOS 7.7).
+-   Azure: Change the default Azure image to `OpenLogic:CentOS:7.7:7.7.2020042900`(CentOS 7.7).
+-   Azure: Change the default Azure region for new clusters to `eastus2` to improve stability.
+-   GCP: The default GCP image was already at CentOS 7.8.
+
+#### Component version changes
+
+- Kubernetes `v1.17.6`
+- Containerd `v1.3.4`
+- kubernetes-base-addons `testing-1.9.0`
+- Kommander `v1.1.0-rc.1`
+
+#### Known issues and limitations
+
+- The airgapped artifacts are not generated, therefore airgapped installations are not supported.
+- Using the autoscaling functionality when airgapped is not supported, as there is no way to specify the location of your local docker registry to the autoscaling module.
+- An upgrade on an AWS cluster, installed with a previous version of Konvoy, with the `awsebscsiprovisioner` addon, will not succeed.
+
 ### Version v1.5.0-beta.4 - Released 15 May 2020
 
 | Kubernetes Support | Version |
@@ -275,6 +330,28 @@ enterprise: false
     - traefik: 1.7.23
 -   traefik-forward-auth: 1.0.4-4
 -   velero: 1.0.1-4
+
+### Version v1.4.4 - Released 28 May 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.9 |
+
+#### Improvements
+
+-   Change the default Azure region for new clusters to `eastus2` to improve stability.
+-   New `cluster.yaml` option `spec.kubernetes.imageRepository` to allow for pulling control-plane images from an alternative repository instead of the default `k8s.gcr.io`.
+
+    ```text
+    kind: ClusterConfiguration
+    apiVersion: konvoy.mesosphere.io/v1beta1
+    spec:
+      kubernetes:
+        version: 1.16.9+d2iq.2
+        imageRepository: docker.io/mesosphere
+    ```
 
 ### Version v1.4.3 - Released 12 May 2020
 

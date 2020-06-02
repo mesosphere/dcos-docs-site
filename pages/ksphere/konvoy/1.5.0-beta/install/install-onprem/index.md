@@ -15,9 +15,9 @@ The topics in this section guide you through the basic steps to prepare your env
 
 Before installing, verify that your environment meets the following basic requirements:
 
-* [Docker Desktop][install_docker] version 18.09.2 or later. You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker Desktop.
+* [Docker][install_docker] version 18.09.2 or later. You must have Docker installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.16.9 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.17.6 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -43,7 +43,7 @@ Before installing, verify that your environment meets the following basic requir
 
 For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
-* CentOS 7.6 is installed.
+* CentOS 7.7 is installed.
 * Firewalld is disabled.
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
@@ -167,11 +167,11 @@ This will result in your `cluster.yaml` containing the details below:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -180,7 +180,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.16-1.1.0-beta.3
+    configVersion: v1.1.0-rc.1
     addonsList:
     - name: kommander
       enabled: true
@@ -200,7 +200,7 @@ If the required repositories are already configured in your environment, you may
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
  osPackages:
    enableAdditionalRepositories: false
@@ -212,10 +212,10 @@ The RPM repositories:
 
 ```text
 [docker]
-name = Docker Repository
-baseurl = https://packages.d2iq.com/download.docker.com/linux/centos/7/x86_64/stable/
+baseurl = https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/centos/7/x86_64
 gpgcheck = 1
-gpgkey = https://download.docker.com/linux/centos/gpg
+gpgkey = https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/centos/7/x86_64/gpg
+name = Docker Repository
 ```
 
 ```text
@@ -255,9 +255,10 @@ sslverify = 1
 The RPM packages installed by Konvoy:
 
 * yum-plugin-versionlock
+* chrony
+* openssl
 * libseccomp
-* container-selinux
-  * on RHEL can install the [Centos RPM][selinux-rpm] directly
+* container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
 * containerd.io
 * nfs-utils
 * kubectl
@@ -267,7 +268,6 @@ The RPM packages installed by Konvoy:
 * kubeadm
 * nvme-cli (only on AWS)
 * nvidia-container-runtime (for GPU enabled machines)
-* net-tools (required for diagnose)
 
 There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories
 
@@ -280,9 +280,21 @@ https://packages.cloud.google.com/apt/doc/apt-key.gpg
 ```
 
 ```text
-deb https://packages.d2iq.com/download.docker.com/linux/ubuntu/ xenial stable
+deb https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/ubuntu/xenial xenial main
 
-https://download.docker.com/linux/ubuntu/
+https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/ubuntu/xenial/gpg.asc
+```
+
+```text
+deb https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/stretch stretch main
+
+https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/stretch/gpg.asc
+```
+
+```text
+deb https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/buster buster main
+
+https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/buster/gpg.asc
 ```
 
 For any Nvidia GPU enabled machines there are additional repositories:
@@ -303,6 +315,7 @@ The DEB packages installed by Konvoy:
 
 * apt-transport-https
 * chrony
+* openssl
 * libseccomp2
 * containerd.io
 * nfs-common
@@ -338,7 +351,7 @@ The following example illustrates the configuration if the reserved virtual IP a
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     controlPlane:
@@ -364,7 +377,7 @@ The following example illustrates how you can configure the pod subnet and servi
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     networking:
@@ -397,7 +410,7 @@ The following example illustrates the layer2 configuration in the `cluster.yaml`
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
     addonsList:
@@ -416,7 +429,7 @@ The following example illustrates the BGP configuration in the `cluster.yaml` co
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
     addonsList:
@@ -588,7 +601,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 
 [kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [ansible]: https://www.ansible.com
 [persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/

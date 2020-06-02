@@ -13,12 +13,12 @@ enterprise: false
 
 Before installing, ensure that your environment has the following basic requirements:
 
-* [Docker Desktop][install_docker] version 18.09.2 or later
+* [Docker][install_docker] version 18.09.2 or later
 
-  You must have Docker Desktop installed on the host where the Konvoy command line interface (CLI) will run.
-  For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker Desktop.
+  You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
+  For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.16.9 or later
+* [kubectl][install_kubectl] v1.17.6 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -60,6 +60,21 @@ For all hosts that are part of the cluster -- except the **deploy host** -- you 
 
 On highly secured clusters you may need to modify the `cluster.yaml` file with additional options.
 See the sample file below for possible changes that may be applied in your cluster.
+
+## Kubernetes CVE Patches
+
+At times, CVEs may be discovered in the Kubernetes codebase. Based on the severity and the impact of a specific CVE, you may want to temporarily use alternative docker images for the core Kubernetes components instead of the default `k8s.gcr.io` repository.
+To do so, set the `version` and `imageRepository` as describe below.
+The repository `docker.io/mesosphere` will contain patched images with a suffix of `+d2iq.1`, `+d2iq.2`, etc.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  kubernetes:
+    version: 1.16.9+d2iq.2
+    imageRepository: docker.io/mesosphere
+```
 
 ## Konvoy with Universal Base Image
 
@@ -127,7 +142,7 @@ The default value is `false`, however, you can enable this behavior by setting t
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     networking:
@@ -139,7 +154,7 @@ spec:
 
 [kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [ansible]: https://www.ansible.com
 [persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/

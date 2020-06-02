@@ -29,7 +29,7 @@ In this example, the `cluster.yaml` file specifies `AWS` as the public cloud pro
 
 ---
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy-cluster
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
@@ -84,13 +84,13 @@ spec:
 
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy-cluster
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.16.9
+    version: 1.17.6
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -109,14 +109,14 @@ spec:
       mtu: 1480
   containerRuntime:
     containerd:
-      version: 1.2.6
+      version: 1.3.4
   osPackages:
     enableAdditionalRepositories: true
   nodePools:
   - name: worker
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -195,7 +195,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: testing-1.16-1.1.0-beta.3
+    configVersion: v1.1.0-rc.1
     addonsList:
     - name: kommander
       enabled: true

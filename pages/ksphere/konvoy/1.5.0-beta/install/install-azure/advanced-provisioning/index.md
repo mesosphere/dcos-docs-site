@@ -14,17 +14,17 @@ The topics in this section describe advanced provisioning and configuration opti
 # Customize region and availability zones
 
 Konvoy supports provisioning hosts across fault and update domains in an Azure location.
-For instance, the following configuration will instruct Konvoy to provision hosts across the three fault and update domains in `westus` location.
+For instance, the following configuration will instruct Konvoy to provision hosts across the three fault and update domains in `eastus2` location.
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     availabilitySet:
       faultDomainCount: 3
       updateDomainCount: 3
@@ -36,13 +36,13 @@ Konvoy allows users to customize instance types, volumes and OS images for their
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     availabilitySet:
       faultDomainCount: 3
       updateDomainCount: 3
@@ -99,8 +99,8 @@ Default Azure Image which is used for Konvoy cluster deployments is the followin
 os_image = {
   publisher = "OpenLogic"
   offer     = "CentOS"
-  sku       = "7.6"
-  version   = "7.6.20190808"
+  sku       = "7.7"
+  version   = "7.7.2020042900"
 }
 ```
 
@@ -156,13 +156,13 @@ To do so you must modify the `cluster.yaml` file and change the `ProvisionerConf
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     vnet:
       name: existing-vnet
       resourceGroup: existing-resource-group
@@ -179,13 +179,13 @@ Depending on how your addons are configured, you may also need to add an annotat
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     vnet:
       name: existing-vnet
       resourceGroup: existing-resource-group
@@ -194,7 +194,7 @@ spec:
       internal: true
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -230,11 +230,11 @@ An existing VNET may already contain `subnets` for use, you may define them in t
 ```yaml
 ...
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   provider: azure
   azure:
-    location: westus
+    location: eastus2
     vnet:
       name: existing-vnet
       resourceGroup: existing-resource-group

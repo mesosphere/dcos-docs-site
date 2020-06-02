@@ -44,7 +44,7 @@ This field is not currently used for kudo operators and has no equivalent.
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: "1.3"
   creationTimestamp: "2020-01-15T02:01:07Z"
@@ -52,7 +52,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     - name: cert-manager
       enabled: true
@@ -60,7 +60,7 @@ spec:
       enabled: false
 ```
 
-In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `testing-1.8.0` release.
+In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `testing-1.9.0` release.
 `external-dns` is not enabled, but can be enabled if needed.
 
 ### Advanced
@@ -90,7 +90,7 @@ If you add a list of addresses for metallb to use, it assigns those addresses to
 ```yaml
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     - name: cert-manager
       enabled: true

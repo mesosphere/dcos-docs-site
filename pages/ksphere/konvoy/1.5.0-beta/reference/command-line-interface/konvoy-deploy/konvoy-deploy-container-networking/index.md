@@ -23,9 +23,10 @@ konvoy deploy container-networking [flags]
 ### Options
 
 ```
-  -h, --help      help for container-networking
-      --verbose   enable debug level logging
-  -y, --yes       run command without prompting
+  -h, --help          help for container-networking
+      --verbose       enable debug level logging
+      --with-checks   execute checks after each deployment step
+  -y, --yes           run command without prompting
 ```
 
 ### SEE ALSO

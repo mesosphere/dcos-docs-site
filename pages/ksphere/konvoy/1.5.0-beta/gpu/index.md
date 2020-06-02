@@ -49,7 +49,7 @@ To enable Nvidia GPU support on Konvoy, add the Nvidia GPU `nodePools` in Cluste
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   provider: aws
   nodePools:
@@ -65,7 +65,7 @@ spec:
       type: p2.xlarge
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   nodePools:
   - name: gpu-worker
@@ -73,7 +73,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     - name: nvidia
       enabled: true
@@ -87,11 +87,11 @@ By default, Konvoy assumes the cluster OS is CentOS. If you want to run the GPU 
 ......
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     - name: nvidia
       enabled: true
@@ -110,7 +110,7 @@ Use Kubernetes taints to ensure only dedicated workloads are deployed on GPU mac
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 ......
 spec:
 ......
@@ -144,7 +144,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
 ......
     - name: nvidia

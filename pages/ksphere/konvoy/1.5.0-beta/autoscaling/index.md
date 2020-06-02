@@ -26,7 +26,7 @@ pool:
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: mycluster
 spec:

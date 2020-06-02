@@ -64,7 +64,7 @@ The following example shows how to configure an additional addon repository in t
 ```yaml
 ...
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: y-west
   ...
@@ -72,7 +72,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: false
