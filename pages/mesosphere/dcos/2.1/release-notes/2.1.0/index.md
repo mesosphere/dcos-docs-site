@@ -72,14 +72,16 @@ For a detailed description on updates to Marathon, see the [changelog](https://g
 - Fixed a critical error in Metronome where existing jobs appear to be lost after upgrade. (COPS-6092)
 - (COPS-5951, COPS-5827)
 
+
+- Fixed an issue where in some rare circumstances, after upgrading a cluster, users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
+- Fixed an issue where image pull in UCR was not working for nvcr.io (missing ‘service’/‘scope’ parameters). (COPS-5804)
+- Upgraded Java to version 8u232 to align with previous DC/OS releases. (DCOS-62548, COPS-5738)
+- Fixed an issue where after a DC/OS upgrade, the executor resources used by tasks on the agent were being incorrectly counted against quota. (COPS-5725)
+- DC/OS Admin Router now allows large packages of files, up to 32GB, to the Package Registry. (D2IQ-61233, COPS-5615)
+
+
+COPS-5428
 COPS-5931
 COPS-5915
-COPS-5868
 COPS-5814
-COPS-5804
-COPS-5738
-COPS-5725
 COPS-5629
-COPS-5617
-COPS-5615
-COPS-5428
