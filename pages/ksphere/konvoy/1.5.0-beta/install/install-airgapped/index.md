@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.6 or later
+* [kubectl][install_kubectl] v1.16.9 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -51,7 +51,7 @@ Before installing, verify that your environment meets the following basic requir
 
 For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
-* CentOS 7.7 is installed.
+* CentOS 7.6 is installed.
 * Firewalld is disabled.
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
@@ -74,7 +74,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.9.0,/opt/konvoy/artifacts/kubeaddons-kommander@v1.1.0-rc.1,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.1.1 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.8.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.16-1.1.0-beta.3,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.16-1.1.1 [--cluster-name <your-specified-name>]
    ```
 
 <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _.</code></p>
@@ -86,12 +86,12 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 
    ```yaml
    kind: ClusterConfiguration
-   apiVersion: konvoy.mesosphere.io/v1beta2
+   apiVersion: konvoy.mesosphere.io/v1beta1
    spec:
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: testing-1.9.0
+       configVersion: testing-1.8.0
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -100,7 +100,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: v1.1.0-rc.1
+      configVersion: testing-1.16-1.1.0-beta.3
       addonsList:
       - name: kommander
         enabled: true
@@ -183,7 +183,7 @@ In an air-gapped environment these repos will not be available, but instead the 
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   osPackages:
     enableAdditionalRepositories: false
@@ -191,39 +191,37 @@ spec:
 
 The RPM packages installed by Konvoy:
 
-* yum-plugin-versionlock
-* chrony
-* openssl
-* libseccomp
-* container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
-* containerd.io
-* nfs-utils
-* kubectl
-* kubernetes-cni
-* kubelet
-* cri-tools
-* kubeadm
-* nvme-cli (only on AWS)
-* nvidia-container-runtime (for GPU enabled machines)
+- yum-plugin-versionlock
+- chrony
+- libseccomp
+- container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
+- containerd.io
+- nfs-utils
+- kubectl
+- kubernetes-cni
+- kubelet
+- cri-tools
+- kubeadm
+- nvme-cli (only on AWS)
+- nvidia-container-runtime (for GPU enabled machines)
 
 There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories
 
 The DEB packages installed by Konvoy:
 
-* apt-transport-https
-* chrony
-* openssl
-* libseccomp2
-* containerd.io
-* nfs-common
-* kubectl
-* kubernetes-cni
-* kubelet
-* cri-tools
-* kubeadm
-* nvme-cli (only on AWS)
-* xfsprogs (only on AWS)
-* nvidia-container-runtime (for GPU enabled machines)
+- apt-transport-https
+- chrony
+- libseccomp2
+- containerd.io
+- nfs-common
+- kubectl
+- kubernetes-cni
+- kubelet
+- cri-tools
+- kubeadm
+- nvme-cli (only on AWS)
+- xfsprogs (only on AWS)
+- nvidia-container-runtime (for GPU enabled machines)
 
 ## Configure the image registry
 
@@ -233,7 +231,7 @@ Set the options in your `cluster.yaml` as follows:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   imageRegistries:
     - server: https://myregistry:443
@@ -245,21 +243,6 @@ spec:
 This will configure containerd with the provided credentials.
 The presence of `default: true` also instructs Konvoy to configure [containerd mirrors][containerd_mirrors] with all the repositories of the images that are used during installation.
 The file `images.json` contains the full list of images.
-
-The values for `imageRegistries` can also be specified as environment variables, for example when the file contains `password: ${REGISTRY_PASSWORD}`, the value of `password` will be set to what `REGISTRY_PASSWORD` is in your environment.
-You are also able to not substitute a value from your environment by escaping it with a `$` prefix, for example `$${SHOULD_NOT_SUBSTITUTE}`.
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
-spec:
-  imageRegistries:
-  - server: https://myregistry:443
-    username: "myuser"
-    password: |-
-      ${REGISTRY_PASSWORD}
-    default: true
-```
 
 Konvoy also provides convenient CLI commands to setup your registry with the required images.
 Running the command below pulls all of the images, retags them, and pushes them to the specified image registry. This makes them available during installation.
@@ -297,7 +280,7 @@ The following example illustrates the configuration if the reserved virtual IP a
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     controlPlane:
@@ -323,7 +306,7 @@ The following example illustrates how you can configure the pod subnet and servi
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
     networking:
@@ -341,27 +324,27 @@ Modify the `addons` section and specify the image containing the Helm charts:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
 ...
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.9.0
+    configVersion: testing-1.8.0
     helmRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.0-rc.1
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.0-beta.4
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
     configVersion: stable-1.16-1.1.1
     helmRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.0-rc.1
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.0-beta.4
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: v1.1.0-rc.1
+    configVersion: testing-1.16-1.1.0-beta.3
     helmRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.0-rc.1
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.0-beta.4
     addonsList:
     - name: kommander
       enabled: false
@@ -390,7 +373,7 @@ The following example illustrates the layer2 configuration in the `cluster.yaml`
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
@@ -409,7 +392,7 @@ The following example illustrates the BGP configuration in the `cluster.yaml` co
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
     addonsList:
