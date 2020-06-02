@@ -17,7 +17,7 @@ Run checks on the addons
 Run checks on the addons
 
 ```
-konvoy check addons [addon] [flags]
+konvoy check addons [flags]
 ```
 
 ### Options

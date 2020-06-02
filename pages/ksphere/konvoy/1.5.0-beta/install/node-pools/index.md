@@ -67,7 +67,7 @@ To configure the taints and labels, edit the cluster configuration file (such as
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   nodePools:
   - name: worker
@@ -117,7 +117,7 @@ You can add node pools to the `ClusterProvisioner` configuration like the follow
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   nodePools:
   - name: worker

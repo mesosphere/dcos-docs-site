@@ -14,7 +14,7 @@ This section describes how to prepare your environment and install Konvoy on Goo
 ## Prerequisites
 
 * The [gcloud][install_gcloud] command line utility
-* [Docker Desktop][install_docker] _version 18.09.2 or newer_
+* [Docker][install_docker] _version 18.09.2 or newer_
 * [kubectl][install_kubectl] _v1.15.4 or newer_ (for interacting with the running cluster)
 * A valid GCP account with [credentials configured][gcloud_sdk].
   Make sure to set your `project` and `region` you want to use, and export it
@@ -360,7 +360,7 @@ When the `konvoy up --provisioner gcp` completes its setup operations, the follo
 
 [gcloud_sdk]: https://cloud.google.com/sdk/docs/initializing
 [install_gcloud]: https://cloud.google.com/sdk/install
-[install_docker]: https://www.docker.com/products/docker-desktop
+[install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [prerequisites]: #prerequisites
 [cluster_configuration]: ../../reference/cluster-configuration/

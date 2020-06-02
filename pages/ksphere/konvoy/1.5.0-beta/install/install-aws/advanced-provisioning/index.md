@@ -18,7 +18,7 @@ For instance, the following configuration will instruct Konvoy to provision host
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -37,7 +37,7 @@ Konvoy allows users to customize instance types, volumes and AMI images for thei
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -61,7 +61,7 @@ spec:
       imagefsVolumeSize: 160
       imagefsVolumeDevice: xvdb
       type: m5.2xlarge
-      imageID: ami-01ed306a12b7d1c96
+      imageID: ami-12345
   - name: control-plane
     controlPlane: true
     count: 3
@@ -74,7 +74,7 @@ spec:
       imagefsVolumeSize: 160
       imagefsVolumeDevice: xvdb
       type: m5.xlarge
-      imageID: ami-01ed306a12b7d1c96
+      imageID: ami-12345
 ```
 
 ## Instance types
@@ -105,21 +105,22 @@ Depending on your region and operating system combination, you might need to spe
 The regions and corresponding Amazon Machine Image (AMI) identifiers that are predefined for Konvoy cluster deployments include the following:
 
 ```text
-ap-south-1     = "ami-02e60be79e78fef21"
-eu-west-3      = "ami-0e1ab783dc9489f34"
-eu-west-2      = "ami-0eab3a90fc693af19"
-eu-west-1      = "ami-0ff760d16d9497662"
-ap-northeast-2 = "ami-06cf2a72dadf92410"
-ap-northeast-1 = "ami-045f38c93733dd48d"
-sa-east-1      = "ami-0b8d86d4bf91850af"
-ca-central-1   = "ami-033e6106180a626d0"
-ap-southeast-1 = "ami-0b4dd9d65556cac22"
-ap-southeast-2 = "ami-08bd00d7713a39e7d"
-eu-central-1   = "ami-04cf43aca3e6f3de3"
-us-east-1      = "ami-02eac2c0129f6376b"
-us-east-2      = "ami-0f2b4fc905b0bd1f1"
-us-west-1      = "ami-074e2d6769f445be5"
-us-west-2      = "ami-01ed306a12b7d1c96"
+ap-northeast-1 = ami-06a46da680048c8ae
+ap-northeast-2 = ami-06e83aceba2cb0907
+ap-south-1"    = ami-026f33d38b6410e30
+ap-southeast-1 = ami-07f65177cb990d65b
+ap-southeast-2 = ami-0b2045146eb00b617
+ca-central-1   = ami-04a25c39dc7a8aebb
+eu-central-1   = ami-0e8286b71b81c3cc1
+eu-north-1     = ami-05788af9005ef9a93
+eu-west-1      = ami-0b850cf02cc00fdc8
+eu-west-2      = ami-09e5afc68eed60ef4
+eu-west-3      = ami-0cb72d2e599cffbf9
+sa-east-1      = ami-0b30f38d939dd4b54
+us-east-1      = ami-0affd4508a5d2481b
+us-east-2      = ami-01e36b7901e884a10
+us-west-1      = ami-098f55b4287a885ba
+us-west-2      = ami-0bc06212a56393ee1
 ```
 
 If you are deploying Konvoy in a region that is not included in the predefined identifiers listed, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file.
@@ -201,7 +202,7 @@ To do so you must modify the `cluster.yaml` file and change the `ProvisionerConf
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -234,7 +235,7 @@ Depending on how you addons are configured, you may also need to add an annotati
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -249,7 +250,7 @@ spec:
       enableInternetGateway: false
 ---
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -287,7 +288,7 @@ The default configuration does not create these resources. You can enable creati
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: konvoy
 spec:
@@ -306,7 +307,7 @@ An existing VPC may already contain `subnets` for use. You may define them in th
 ```yaml
 ...
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   provider: aws
   aws:
@@ -400,7 +401,7 @@ An existing IAM instance profile can be used, provided that the right policies m
 ```yaml
 ...
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   provider: aws
   nodePools:
@@ -419,7 +420,7 @@ or you may instead use the ARN:
 ```yaml
 ...
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   provider: aws
   nodePools:

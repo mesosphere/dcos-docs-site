@@ -34,7 +34,9 @@ konvoy up [flags]
       --target-node-pools strings     comma-separated list of target node pools
       --upgrade                       run an upgrade on all nodes requiring an upgrade
       --verbose                       enable debug level logging
+      --with-checks                   execute checks after each deployment step
       --without-addons                skip installing the addons
+      --without-auto-provisioning     skip installing the auto provisioning
       --without-draining              run an upgrade on all nodes requiring an upgrade, without draining the nodes first (requires --upgrade or --force-upgrade flag) (WARNING! usage can result in undefined behavior and service downtime)
   -y, --yes                           run command without prompting
 ```

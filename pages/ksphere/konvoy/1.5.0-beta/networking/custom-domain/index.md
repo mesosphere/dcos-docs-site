@@ -128,7 +128,7 @@ To configure custom certificates for your domain:
 
       ```yaml
       kind: ClusterConfiguration
-      apiVersion: konvoy.mesosphere.io/v1beta1
+      apiVersion: konvoy.mesosphere.io/v1beta2
       spec:
         kubernetes:
           controlPlane:

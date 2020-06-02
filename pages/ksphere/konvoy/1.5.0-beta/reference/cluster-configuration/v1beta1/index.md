@@ -84,7 +84,7 @@ ClusterProvisioner describes provisioner options.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ObjectMeta](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#objectmeta-v1-meta) | true |
+| metadata |  | [metav1.ObjectMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#objectmeta-v1-meta) | true |
 | spec |  | [ClusterProvisionerSpec](#clusterprovisionerspec) | false |
 
 [Back to TOC](#table-of-contents)
@@ -268,7 +268,7 @@ AzureProviderOptions describes azure provider specific options.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| location | [Azure location](https://azure.microsoft.com/en-us/global-infrastructure/locations/) where your cluster will be hosted. (default: `westus`) | string | false |
+| location | [Azure location](https://azure.microsoft.com/en-us/global-infrastructure/locations/) where your cluster will be hosted. (default: `eastus2`) | string | false |
 | vnet | [Azure VNET](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) specific options for the cluster. | [VNET](#vnet) | false |
 | availabilitySet | [Azure availability sets](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/manage-availability) defines grouping capability for isolating VMs from each other. | [AvailabilitySet](#availabilityset) | false |
 | loadbalancer | [Azure LoadBalancer](https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-overview) configurations for the kube-apiservers. | [LoadBalancer](#loadbalancer) | false |
@@ -283,6 +283,7 @@ LoadBalancer contains details for the kube-apiserver LoadBalancer.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | internal | Set to `true` to make the LoadBalancer internal. (default: `false`) | bool | false |
+| apiServerPort | Port on which Kubernetes apiserver is accessible. (default: `6443`) | int32 | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -320,6 +321,7 @@ AWSProviderOptions describes AWS provider specific options.
 | availabilityZones | Availability zones to deploy a cluster in a region. (default: `[\"us-west-2c\"]`) | []string | false |
 | elb | [AWS ELB](https://aws.amazon.com/elasticloadbalancing/) configurations for the kube-apiservers. | [ELB](#elb) | false |
 | tags | Additional [tags](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html) for the resources provisioned through the Konvoy CLI. (default: `{owner: <username>}`) | map[string]string | false |
+| skipMetadataAPICheck | Terraform -> Skip the AWS Metadata API check. Useful for AWS API implementations that do not have a metadata API endpoint. Setting to true prevents Terraform from authenticating via the Metadata API. (default: `false`) | bool | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -331,6 +333,7 @@ ELB contains details for the kube-apiserver ELB.
 | ----- | ----------- | ------ | -------- |
 | internal | Set to `true` to make the ELB internal. (default: `false`) | bool | false |
 | subnetIDs | [AWS Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) IDs where ELBs will be launched on. | []string | false |
+| apiServerPort | Port on which Kubernetes apiserver is accessible. (default: `6443`) | int32 | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -480,7 +483,7 @@ ClusterConfiguration describes Kubernetes cluster options.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| metadata |  | [metav1.ObjectMeta](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#objectmeta-v1-meta) | true |
+| metadata |  | [metav1.ObjectMeta](https://v1-17.docs.kubernetes.io/docs/reference/generated/kubernetes-api/v1.17/#objectmeta-v1-meta) | true |
 | spec |  | [ClusterConfigurationSpec](#clusterconfigurationspec) | false |
 
 [Back to TOC](#table-of-contents)
@@ -628,7 +631,8 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.16.9`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.17.6`) | string | false |
+| imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |
 | cloudProvider | Cloud provider specific configurations. | [CloudProvider](#cloudprovider) | false |

@@ -58,7 +58,7 @@ The default value is `false`, however, you can enable this behavior by setting t
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     networking:
@@ -104,7 +104,7 @@ The following example illustrates the configuration if the reserved virtual IP a
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     controlPlane:
@@ -138,7 +138,7 @@ However, you can configure it to a specific version as shown below:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     containerNetworking:
@@ -150,7 +150,7 @@ Further, the Calico IPV4 pool CIDR can be set via `spec.kubernetes.networking.po
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     networking:
@@ -166,7 +166,7 @@ Two ways of encapsulating networking traffic are supported: IP-to-IP and VXLAN. 
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     containerNetworking:
@@ -178,7 +178,7 @@ The following configuration switches it to VXLAN:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     containerNetworking:
@@ -210,7 +210,7 @@ To enable in-cluster BGP Route Reflectors, add at least two nodes (three nodes a
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   nodePools:
   - name: route-reflector
@@ -298,7 +298,7 @@ The following example illustrates the Layer2 configuration in the `cluster.yaml`
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
     addonsList:
@@ -321,7 +321,7 @@ The following example illustrates the BGP configuration in the `cluster.yaml` co
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
     addonsList:

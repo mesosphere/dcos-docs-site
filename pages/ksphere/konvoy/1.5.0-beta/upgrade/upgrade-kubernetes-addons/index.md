@@ -39,7 +39,7 @@ For example, assume the cluster was launched with the following `ClusterConfigur
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     version: 1.15.6
@@ -49,10 +49,10 @@ If you want to upgrade to a newer patch version of `1.16.x`, change the version 
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.16.9
+    version: 1.17.6
 ```
 
 <p class="message--note"><strong>NOTE: </strong>For certain Konvoy releases you might be required to change the versions for `containerNetworking` or `containerRuntime`. These changes are highlighted in the Release Notes and in the section further down this page.</p>
@@ -60,6 +60,8 @@ spec:
 During the Kubernetes upgrade process, Konvoy:
 
 -   Determines which nodes do not have the required configuration and OS package versions.
+-   Determines whether upgrading these nodes from their current state to the provided cluster configuration is supported.
+    - To force an unsupported upgrade, use the `--force-upgrade` flag.
 -   During stage `STAGE [Determining Upgrade Safety ...]`, checks for any user workloads that may be impacted by the upgrade and marks the nodes, where the workloads are running, to be "unsafe" to upgrade, skipping the upgrade process on them.
     - To ignore the safety check _for worker nodes only_, use the `--force-upgrade` flag.
     - Otherwise you can resolve the safety issues after the initial upgrade and rerun the upgrade process to let Konvoy perform the upgrade on the remaining nodes.
@@ -89,7 +91,7 @@ For example, assume the cluster was launched with the following `ClusterConfigur
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
@@ -102,11 +104,11 @@ If you want to upgrade to a newer version of addons, then you must change the ve
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     ...
 ```
@@ -162,13 +164,13 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.16.9
+    version: 1.17.6
   containerNetworking:
     calico:
       version: v3.13.3
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.8.0
+    configVersion: testing-1.9.0
     addonsList:
     ...
     - name: helm

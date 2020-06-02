@@ -34,7 +34,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
 
     ```yaml
     kind: ClusterProvisioner
-    apiVersion: konvoy.mesosphere.io/v1beta1
+    apiVersion: konvoy.mesosphere.io/v1beta2
     metadata:
       name: konvoy
       creationTimestamp: "2019-05-31T18:00:01.482791-04:00"
@@ -97,13 +97,13 @@ To provision a customized cluster on Amazon Web Services (AWS):
 
     ```yaml
     kind: ClusterConfiguration
-    apiVersion: konvoy.mesosphere.io/v1beta1
+    apiVersion: konvoy.mesosphere.io/v1beta2
     metadata:
       name: konvoy
       creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
     spec:
       kubernetes:
-        version: 1.16.9
+        version: 1.17.6
         networking:
           podSubnet: 192.168.0.0/16
           serviceSubnet: 10.0.0.0/18

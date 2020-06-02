@@ -51,7 +51,7 @@ You can create a Konvoy cluster with preexisting ssh keys using one of the follo
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   sshCredentials:
     user: centos
@@ -63,7 +63,7 @@ spec:
 
 ```yaml
 kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 metadata:
   name: myClusterName
 spec:
@@ -73,7 +73,7 @@ spec:
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   sshCredentials:
     user: centos
@@ -85,7 +85,7 @@ spec:
 
 ```yaml
 kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta1
+apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   sshCredentials:
     user: centos
