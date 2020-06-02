@@ -44,6 +44,40 @@ Template:
 
 -->
 
+### Version v1.1.0-rc.1 - May 29th 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+| **Minimum**        | 1.16.0  |
+| **Maximum**        | 1.17.x  |
+| **Default**        | 1.17.3  |
+
+#### Features/Improvements
+
+- Added Access Control functionalities to the UI
+- Added Kubekost integration to the UI
+- Removed namespace suffix from projects and platform service names
+- UI now trims input values to remove leading, trailing and duplicate spaces
+- Kommander now federates Prometheus operator, prometheus alert manager and karma to managed non-konvoy clusters.
+- improved aws tags to include cluster name
+- removed old, unsupported versions from version selector in create cluster form
+
+#### Bug Fixes
+
+- Fixed project links on projects overview page
+- Lots of smaller UX Bugs and Improvements
+
+#### Component Versions
+
+- Addon: `1.1.0-25`
+- Chart: `0.8.6`
+- YaKCL: `0.0.4` (replaced KCL)
+- UI: `3.90.0`
+- kommander-karma: `0.3.9`
+- kubeaddons-catalog: `0.1.6`
+- kommander-thanos: `0.1.14`
+- grafana: `4.5.1`
+
 ### Version v1.1.0-beta.3 - May 14th 2020
 
 | Kubernetes Support | Version |
