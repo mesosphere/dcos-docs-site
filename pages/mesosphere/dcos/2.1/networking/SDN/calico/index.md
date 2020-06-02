@@ -46,11 +46,11 @@ NAME
 |-----------|-------------|
 | calico_network_cidr | Subnet allocated for calico. The subnet specified by `calico_network_cidr` MUST not overlap with those for VXLAN backends or virtual networks defined for [DC/OS virtual networks](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#dcos-overlay-enable). [ Default: 172.29.0.0/16 ] |
 | calico_vxlan_enabled | Control, whether IP-in-IP or VXLAN mode is used for calico, by default VXLAN, is suggested to be used instead of VXLAN. `calico_vxlan_enabled` is supposed to set to 'true' for the environment that IP in IP is not supported, like Azure. [Default: 'true'] |
-| calico_ipinip_mtu | The MTU to set on the Calico IPIP tunnel device. This configuration works when calico_vxlan_enabled is set to be false. Please refer to [this](https://docs.projectcalico.org/v3.8/networking/mtu) for a suitable MTU configuration. [Default: 1480] |
+| calico_ipinip_mtu | The MTU to set on the Calico IPIP tunnel device. This configuration works when calico_vxlan_enabled is set to be false. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration. [Default: 1480] |
 | calico_vxlan_port | The UDP port used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true. [Default: 4789] |
 | calico_vxlan_vni | The virtual network ID used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true. [Default: 4096] |
-| calico_vxlan_mtu | The MTU to set on the Calico VXLAN tunnel device. This configuration works when calico_vxlan_enabled is set to be true. Please refer to [this](https://docs.projectcalico.org/v3.8/networking/mtu) for a suitable MTU configuration [Default: 1450] |
-| calico_veth_mtu | The MTU to set on the veth pair devices, e.g. both the container interface and host-end interface. Please refer to [this](https://docs.projectcalico.org/v3.8/networking/mtu) for a suitable MTU configuration [Default: 1500] |
+| calico_vxlan_mtu | The MTU to set on the Calico VXLAN tunnel device. This configuration works when calico_vxlan_enabled is set to be true. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration [Default: 1450] |
+| calico_veth_mtu | The MTU to set on the veth pair devices, e.g. both the container interface and host-end interface. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration [Default: 1500] |
 
 
 
@@ -122,7 +122,7 @@ Like with the previous example, the following marathon app definition will launc
 
 ### Network Policies
 
-Network policy provides the ability to control network traffic by an ordered set of rules applied to the endpoints specified by a label selector, please refer [here](https://docs.projectcalico.org/v3.8/reference/resources/networkpolicy) for a detailed explanation of policy rule definitions and label selector syntax.
+Network policy provides the ability to control network traffic by an ordered set of rules applied to the endpoints specified by a label selector, please refer to the [calico documentation](https://docs.projectcalico.org/reference/resources/networkpolicy) for a detailed explanation of policy rule definitions and label selector syntax.
 
 In DC/OS, Calico network policy is exposed directly to the operators, so that the operator can manage their traffic control according to different scenarios.
 
@@ -179,7 +179,7 @@ spec:
 ```
 
 To resolve this problem, calico profile `calico` is initialized by default by `dcos-calico-felix`, and allows all traffic into and out of Calico networking containers, and `calico` is the only profile supported for now and shared across all Calico networking containers.
-For a more detailed description of the Calico profile, please read [here](https://docs.projectcalico.org/v3.8/reference/resources/profile).
+For a more detailed description of the Calico profile, please read the [calico documentation](https://docs.projectcalico.org/reference/resources/profile).
 
 ### Network Policy Examples
 
@@ -372,15 +372,22 @@ That said, to add a network profile, you should:
 
 1. Create a new IP pool. For example:
   ```yaml
-  apiVersion: v1
-  kind: ipPool
+  apiVersion: projectcalico.org/v3
+  kind: IPPool
   metadata:
-    name: <pool-name>
-    cidr: 10.1.0.0/16
+    name: <network-name>
   spec:
-    nat-outgoing: true
+    cidr: 10.1.0.0/16
+    natOutgoing: true
     disabled: false
   ```
+
+  Save the above yaml to `ip.yml` then run:
+
+  ```sh
+  dcos calico create -f ip.yml
+  ```
+
 2. Create a new calico profile. For example:
   ```yaml
   apiVersion: projectcalico.org/v3
@@ -389,16 +396,23 @@ That said, to add a network profile, you should:
     name: <profile-name>
   spec:
     egress:
-    + action: Allow
+    - action: Allow
       destination: {}
       source: {}
     ingress:
-    + action: Allow
+    - action: Allow
       destination: {}
       source: {}
     labelsToApply:
       calico: ""
   ```
+
+  Save the above yaml to `profile.yml` then run:
+
+  ```sh
+  dcos calico create -f profile.yml
+  ```
+
 3. On **every agent**, create a new docker network that will use the new profile. You can use the following command, making sure the subnet matches the cidr from the pool:
   ```sh
   docker network create \
