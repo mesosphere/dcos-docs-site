@@ -11,6 +11,39 @@ enterprise: false
 
 ## Release Notes
 
+<!--
+Template:
+
+### Version <VERSION> - <DATE>
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+| **Minimum**        | 1.16.0  |
+| **Maximum**        | 1.16.x  |
+| **Default**        | 1.16.8  |
+
+#### Features/Improvements
+
+- <FEATURES/IMPROVEMENTS>
+
+#### Bug Fixes
+
+- <FIXES>
+- Lots of smaller UX Bugs and Improvements
+
+#### Component Versions
+
+- Addon: ``
+- Chart: ``
+- KCL: ``
+- UI: ``
+- kommander-karma: ``
+- kubeaddons-catalog: ``
+- kommander-thanos: ``
+- grafana: ``
+
+-->
+
 ### Version v1.1.0-beta.1 - April 22 March 2020
 
 | Kubernetes Support | Version |
