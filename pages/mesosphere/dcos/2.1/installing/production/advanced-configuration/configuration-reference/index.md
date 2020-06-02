@@ -67,6 +67,13 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
 |[network_cni_root_dir_persist](#network-cni-root-dir-persist) |A boolean that specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node. NOTE: It requires Host reboot for this flag to take effect.|
+| [calico_network_cidr](#calico-network-cidr) | Subnet allocated for calico. The subnet specified by `calico_network_cidr` MUST not overlap with those for VXLAN backends or virtual networks defined for [DC/OS virtual networks](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#dcos-overlay-enable). [ Default: 172.29.0.0/16 ] |
+| [calico_vxlan_enabled](#calico-vxlan-enabled) | Control, whether IP-in-IP or VXLAN mode is used for calico, by default VXLAN, is suggested to be used instead of VXLAN. `calico_vxlan_enabled` is supposed to set to 'true' for the environment that IP in IP is not supported, like Azure. [Default: 'true'] |
+| [calico_ipinip_mtu](#calico-ipinip-mtu) | The MTU to set on the Calico IPIP tunnel device. This configuration works when calico_vxlan_enabled is set to be false. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration. [Default: 1480] |
+| [calico_vxlan_port](#calico-vxlan-port) | The UDP port used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true. [Default: 4789] |
+| [calico_vxlan_vni](#calico-vxlan-vni) | The virtual network ID used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true. [Default: 4096] |
+| [calico_vxlan_mtu](#calico-vxlan-mtu) | The MTU to set on the Calico VXLAN tunnel device. This configuration works when calico_vxlan_enabled is set to be true. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration [Default: 1450] |
+| [calico_veth_mtu](#calico-veth-mtu) | The MTU to set on the veth pair devices, e.g. both the container interface and host-end interface. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration [Default: 1500] |
 
 [enterprise]
 # Storage
@@ -282,6 +289,33 @@ Use this to set up a custom external certificate. See [Configuring a Custom Exte
 
 Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
 
+### calico_network_cidr
+
+Subnet allocated for calico. The subnet specified by `calico_network_cidr` MUST not overlap with those for VXLAN backends or virtual networks defined for [DC/OS virtual networks](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#dcos-overlay-enable).
+
+### calico_vxlan_enabled
+
+Control, whether IP-in-IP or VXLAN mode is used for calico, by default VXLAN, is suggested to be used instead of VXLAN. `calico_vxlan_enabled` is supposed to set to 'true' for the environment that IP in IP is not supported, like Azure.
+
+### calico_ipinip_mtu
+
+The MTU to set on the Calico IPIP tunnel device. This configuration works when calico_vxlan_enabled is set to be false. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration.
+
+### calico_vxlan_port
+
+The UDP port used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true.
+
+### calico_vxlan_vni
+
+The virtual network ID used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true.
+
+### calico_vxlan_mtu
+
+The MTU to set on the Calico VXLAN tunnel device. This configuration works when calico_vxlan_enabled is set to be true. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration.
+
+### calico_veth_mtu
+
+The MTU to set on the veth pair devices, e.g. both the container interface and host-end interface. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration.
 
 ### cluster_docker_credentials
 
