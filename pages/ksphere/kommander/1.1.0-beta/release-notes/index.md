@@ -199,7 +199,7 @@ Template:
 
 #### Bug Fixes
 
-- Allow retrying deleting clusters after it failed for e.g. permission reasons
+- Allow deleting clusters retry after failing. For example when there are permission issues.
 - federate karma-proxy only to Konvoy clusters
 - Fixed UI not showing some error messages
 - Fixed UI not allowing user to change context when attaching cluster
