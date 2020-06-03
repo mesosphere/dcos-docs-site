@@ -60,7 +60,7 @@ Template:
 - UI now trims input values to remove leading, trailing, and duplicate spaces
 - Kommander now federates Prometheus operator, prometheus alert manager, and karma to managed non-konvoy clusters.
 - Improved AWS tags to include cluster name.
-- removed old, unsupported versions from version selector in create cluster form
+- Removed old, unsupported versions from version selector in create cluster form.
 
 #### Bug Fixes
 
