@@ -14,7 +14,7 @@ Secure computing mode (seccomp) is a Linux kernel feature used to restrict the a
 Seccomp support in DC/OS is based on Mesos 1.8 which [introduces the ability to configure seccomp](http://mesos.apache.org/documentation/latest/isolators/linux-seccomp/) through the UCR containerizer to provide a higher degree of isolation and security to services deployed on DC/OS. The default seccomp profile within DC/OS provides a reasonable default for running containers by disabling more than 300 system calls.
 
 # Enabling and disabling secure computing mode
-By default, DC/OS is installed with secure computing mode enabled. You can opt-out of using seccomp by installing DC/OS with `mesos_seccomp_enabled=false`. Before opting out, however, keep in mind that it is important for the installation of each agent to be consistent with every other agent in the cluster. Deviating from this strategy should only be done by advanced users.
+By default, DC/OS is installed with secure computing mode disabled. You can opt-in of using seccomp by installing DC/OS with `mesos_seccomp_enabled=true`. Before opting in, however, keep in mind that it is important for the installation of each agent to be consistent with every other agent in the cluster. Deviating from this strategy should only be done by advanced users.
 
 If you enable seccomp for a DC/OS cluster, all tasks start under seccomp control using the default seccomp profile unless you explicitly configure tasks to override the default behavior.
 
