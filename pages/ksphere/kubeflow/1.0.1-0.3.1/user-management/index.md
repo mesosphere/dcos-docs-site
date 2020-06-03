@@ -1,5 +1,5 @@
 ---
-layout: layout.pug
+layout: kudo-kubeflow-docs-landing.pug
 navigationTitle: Manage Users
 title: Manage Users and Permissions
 menuWeight: 10
