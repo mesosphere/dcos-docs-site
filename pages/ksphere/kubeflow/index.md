@@ -1,5 +1,5 @@
 ---
-layout: layout.pug
+layout: kudo-kubeflow-docs-landing.pug
 navigationTitle: KUDO Kubeflow
 title: KUDO Kubeflow
 beta: false

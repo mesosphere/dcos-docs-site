@@ -1,5 +1,5 @@
 ---
-layout: layout.pug
+layout: kudo-kubeflow-docs-landing.pug
 title: Legal Notices
 beta: false
 menuWeight: 1

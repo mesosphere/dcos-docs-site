@@ -1,5 +1,5 @@
 ---
-layout: layout.pug
+layout: kudo-kubeflow-docs-landing.pug
 navigationTitle: MNIST with PyTorch
 title: MNIST with PyTorch
 menuWeight: 5

@@ -1,5 +1,5 @@
 ---
-layout: layout.pug
+layout: kudo-kubeflow-docs-landing.pug
 navigationTitle: Metadata SDK
 title: Metadata SDK
 menuWeight: 5
