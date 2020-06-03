@@ -194,7 +194,7 @@ Template:
 - Added Cluster Overview Tab to Cluster Details Page in UI
 - Added a way to add clusters to projects based on labels
 - Added support for nonResourceUrls in Roles in the UI
-- Hide Kubeconfig download link for clusters where that config might not be available
+- Hid Kubeconfig download link for clusters where that config might not be available
 - Improved Cluster Status Visualisation in the UI
 
 #### Bug Fixes
