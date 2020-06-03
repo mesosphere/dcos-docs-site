@@ -57,7 +57,7 @@ Template:
 - Added Access Control functionalities to the UI
 - Added Kubekost integration to the UI
 - Removed namespace suffix from projects and platform service names
-- UI now trims input values to remove leading, trailing and duplicate spaces
+- UI now trims input values to remove leading, trailing, and duplicate spaces
 - Kommander now federates Prometheus operator, prometheus alert manager and karma to managed non-konvoy clusters.
 - Improved AWS tags to include cluster name
 - removed old, unsupported versions from version selector in create cluster form
