@@ -48,7 +48,7 @@ Template:
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-| **Minimum**        | 1.16.0  |
+| **Minimum**        | 1.15.0  |
 | **Maximum**        | 1.17.x  |
 | **Default**        | 1.17.3  |
 
