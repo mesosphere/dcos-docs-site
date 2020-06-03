@@ -203,7 +203,7 @@ Template:
 - Federate karma-proxy only to Konvoy clusters
 - Fixed UI not showing some error messages
 - Fixed UI not allowing user to change context when attaching cluster
-- Disabled "View Logs" Link in UI for managed cluster which dont run Kibana
+- Disabled "View Logs" Link in UI for managed clusters not running Kibana
 - Lots of smaller UX Bugs and Improvements
 
 #### Component Versions
