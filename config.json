@@ -6,7 +6,6 @@
       "ksphere/dispatch/1.2/**"
     ],
     "DO_NOT_INDEX": [
-      "kubeflow"
     ]
   },
   "staging": {
