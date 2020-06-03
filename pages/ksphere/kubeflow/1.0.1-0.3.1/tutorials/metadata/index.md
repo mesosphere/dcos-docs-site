@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 All tutorials are available in Jupyter Notebook format. To download the tutorials run
-`curl https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.3.1.tar.gz | tar xz` from a
+`curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.3.1.tar.gz | tar xz` from a
 Jupyter Notebook Terminal running in your KUDO Kubeflow installation.
 
 # Metadata SDK
