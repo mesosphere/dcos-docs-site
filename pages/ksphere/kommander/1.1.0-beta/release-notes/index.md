@@ -96,7 +96,7 @@ Template:
 #### Bug Fixes
 
 - Fixed kubeconfig download for certain clusters/users
-- Fixed uninstallation from Kommander addon
+- Fixed uninstall from Kommander addon
 - Lots of smaller UX Bugs and Improvements
 
 #### Component Versions
