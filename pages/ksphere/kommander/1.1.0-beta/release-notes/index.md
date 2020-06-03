@@ -187,7 +187,7 @@ Template:
 - Added Support for Kommander to attach the cluster it is running on as managed Cluster
 - Added ability to access the managed cluster's Kubernetes API with a valid management cluster token
 - Enabled License validation
-- simplify kommander's grafana dashboard job
+- Simplifed kommander's grafana dashboard job
 - Added loading indicators for cluster creation form
 - Added Cluster ID to UI for easier identification in other dashboard
 - Displaying users Username in the UI
