@@ -189,7 +189,7 @@ Template:
 - Enabled License validation
 - Simplifed kommander's grafana dashboard job
 - Added loading indicators for cluster creation form
-- Added Cluster ID to UI for easier identification in other dashboard
+- Added Cluster ID to UI for easier identification in other dashboards
 - Displaying users Username in the UI
 - Added Cluster Overview Tab to Cluster Details Page in UI
 - Added a way to add clusters to projects based on labels
