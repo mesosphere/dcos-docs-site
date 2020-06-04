@@ -5,6 +5,7 @@
 - var isKonvoy = paths[1] == 'konvoy'
 - var isKommander = paths[1] == 'kommander'
 - var isDispatch = paths[1] == 'dispatch'
+- var isKubeflow = paths[1] == 'kubeflow'
 
 doctype html
 html(lang='en')
@@ -20,6 +21,8 @@ html(lang='en')
         include partials/header/dispatch-header.pug
       else if isKommander
         include partials/header/kommander-header.pug
+      else if isKubeflow
+        include partials/header/kubeflow-header.pug
       else
         include partials/header/dcos-en-header.pug
       if isChinese
