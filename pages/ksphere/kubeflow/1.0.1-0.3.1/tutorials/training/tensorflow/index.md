@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: MNIST with TensorFlow
 title: MNIST with TensorFlow
 menuWeight: 5

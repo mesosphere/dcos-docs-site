@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: KUDO Kubeflow Technical Preview
 title: Welcome to KUDO Kubeflow Technical Preview
 beta: false

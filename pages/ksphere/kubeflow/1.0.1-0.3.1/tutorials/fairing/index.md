@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: Kubeflow Fairing
 title: Kubeflow Fairing
 menuWeight: 5

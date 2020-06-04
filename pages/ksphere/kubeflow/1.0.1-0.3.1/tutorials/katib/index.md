@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: Hyperparameter Tuning
 title: Hyperparameter Tuning
 menuWeight: 5
