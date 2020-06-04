@@ -3,13 +3,13 @@ layout: layout.pug
 navigationTitle:  Rolling Deployment
 title: Rolling Deployments
 menuWeight: 10
-beta: false
+beta: true
 excerpt: Implement GitOps processes to Continuously Deploy applications
 ---
 
 # Prerequisites
 
-In order to use the `dispatch gitops` CLI command, you must have the necessary RBAC permissions to port-forward to the `argocd-server` pod in the `dispatch` namespace. If your user already has the `cluster-admin` role, then you can simply proceed. If you want to allow users to manage GitOps applications using the `dispatch gitops` CLI command, then you must grant them the following permissions: `get`, `list`, `create` permission on `pods` and `pods/portforward`. You can do so by defining the following role:
+To use the `dispatch gitops` CLI command, you must have the necessary RBAC permissions to port-forward to the `argocd-server` pod in the `dispatch` namespace. If your user already has the `cluster-admin` role, then you can simply proceed. If you want to allow users to manage GitOps applications using the `dispatch gitops` CLI command, then you must grant them the following permissions: `get`, `list`, `create` permission on `pods` and `pods/portforward`. You can do so by defining the following role:
 
 ```yaml
 kind: Role
@@ -135,6 +135,9 @@ This section provides a set of instructions for deploying a simple `hello-world`
 
 1. Add a `deploy` task to your hello-world application's Dispatchfile:
 
+    <details>
+    <summary><b>GitHub</b></summary>
+
     ```cue
     task "deploy": {
       inputs: ["docker-image", "gitops-git"]
@@ -153,10 +156,10 @@ This section provides a set of instructions for deploying a simple `hello-world`
     }
     ```
 
+    </details>
+
     <details>
     <summary><b>GitLab</b></summary>
-
-    For GitLab, you need to set the `-scm-provider=` option to `gitlab`:
 
     ```cue
     task "deploy": {
@@ -170,6 +173,52 @@ This section provides a set of instructions for deploying a simple `hello-world`
             "-git-revision=$(context.git.commit)",
             "-substitute=imageName=your-dockerhub-user/hello-world@$(inputs.resources.docker-image.digest)",
             "-scm-provider=gitlab"
+          ]
+        }
+      ]
+    }
+    ```
+
+    </details>
+
+    <details>
+    <summary><b>Bitbucket Cloud</b></summary>
+
+    ```cue
+    task "deploy": {
+      inputs: ["docker-image", "gitops-git"]
+      steps: [
+        {
+          name: "update-gitops-repo"
+          image: "mesosphere/update-gitops-repo:v1.1"
+          workingDir: "/workspace/gitops-git"
+          args: [
+            "-git-revision=$(context.git.commit)",
+            "-substitute=imageName=your-dockerhub-user/hello-world@$(inputs.resources.docker-image.digest)",
+            "-scm-provider=bitbucket-cloud"
+          ]
+        }
+      ]
+    }
+    ```
+
+    </details>
+
+    <details>
+    <summary><b>Bitbucket Server</b></summary>
+
+    ```cue
+    task "deploy": {
+      inputs: ["docker-image", "gitops-git"]
+      steps: [
+        {
+          name: "update-gitops-repo"
+          image: "mesosphere/update-gitops-repo:v1.1"
+          workingDir: "/workspace/gitops-git"
+          args: [
+            "-git-revision=$(context.git.commit)",
+            "-substitute=imageName=your-dockerhub-user/hello-world@$(inputs.resources.docker-image.digest)",
+            "-scm-provider=bitbucket-server"
           ]
         }
       ]

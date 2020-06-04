@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Repository CRD
 title: Repository CRD
 menuWeight: 90
-beta: false
+beta: true
 excerpt: Reference Guide for Configuring a Repository
 ---
 
@@ -255,7 +255,7 @@ string
 The secret should contain the following fields:
 username: the username (if password is not a token).
 password: the password or token (required).
-scm.provider.name: the name of the SCM provider (github, bitbucket, gitlab, gitea, gogs, stash, default: github)
+scm.provider.name: the name of the SCM provider (github, gitlab, bitbucket-cloud or bitbucket-server; default: github)
 scm.provider.url: the URL of the SCM provider (defaults to the default for the SCM provider)
 The secret can be created with the <code>dispatch login git command</code>.</p>
 </td>

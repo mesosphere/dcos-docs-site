@@ -135,6 +135,9 @@ This section provides a set of instructions for deploying a simple `hello-world`
 
 1. Add a `deploy` task to your hello-world application's Dispatchfile:
 
+    <details>
+    <summary><b>GitHub</b></summary>
+
     ```cue
     task "deploy": {
       inputs: ["docker-image", "gitops-git"]
@@ -153,10 +156,10 @@ This section provides a set of instructions for deploying a simple `hello-world`
     }
     ```
 
+    </details>
+
     <details>
     <summary><b>GitLab</b></summary>
-
-    For GitLab, you need to set the `-scm-provider=` option to `gitlab`:
 
     ```cue
     task "deploy": {

@@ -31,6 +31,6 @@ If successful, this command will output the currently installed version of Dispa
 ```bash
 dispatch version
 {
-    "Version": "v0.5.3-rc1"
+    "Version": "v1.2.0"
 }
 ```

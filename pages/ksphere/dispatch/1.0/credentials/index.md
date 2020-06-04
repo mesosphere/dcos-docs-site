@@ -41,15 +41,15 @@ account and attach credentials to it.
     GitHub account. You must specify the following permissions:
 
     * FULL access to `admin:repo_hook`: used to register webhooks to report events
-      to the Dispatch build server.
+      to Dispatch.
     * FULL access to `repo`: used to pull and/or push source code whether public or private,
-      report build status to your commits, etc.
+      report build statuses to your commits, etc.
 
-    After creating the token, remember the secret value. Replace `$YOURGITHUBTOKEN`
-    with your token secret value in the following command:
+    After creating the token, remember the secret value. Replace `$GITHUB_TOKEN`
+    with the secret value in the following command:
 
     ```bash
-    dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
+    dispatch login github --service-account team-1 --user $GITHUB_USER --token $GITHUB_TOKEN
     ```
 
     </details>
@@ -57,27 +57,19 @@ account and attach credentials to it.
     <details>
     <summary><b>GitLab</b></summary>
 
-    1. If your GitLab account is not protected by [two-factor authentication](https://gitlab.com/profile/two_factor_auth),
-       you can instead run the following command to generate a token for the `team-1` service account
-       automatically:
+    Create a [Personal Access Token](https://gitlab.com/profile/personal_access_tokens)
+    for your GitLab account. The token should have the following scopes:
+
+    * `api`: used to register webhooks to report events to the Dispatch build server and report
+      build status to your commits, etc.
+    * `write_repository`: used to pull and/or push source code whether public or private.
+
+    After creating the token, remember the secret value. Replace `$GITLAB_TOKEN`
+    with the secret value in the following command:
 
     ```bash
-    dispatch login gitlab --service-account team-1 --user $YOURGITLABUSERNAME --password $YOURGITLABPASSWORD
+    dispatch login gitlab --service-account team-1 --user $GITLAB_USER --token $GITLAB_TOKEN
     ```
-
-    1. Otherwise, you must create a [Personal Access Token](https://gitlab.com/profile/personal_access_tokens)
-       for your GitLab account. The token should have the following scopes:
-
-        * `api`: used to register webhooks to report events to the Dispatch build server and report
-          build status to your commits, etc.
-        * `write_repository`: used to pull and/or push source code whether public or private.
-
-        After creating the token, remember the secret value. Replace `$YOURGITLABTOKEN`
-        with token secret value in the following command:
-
-        ```bash
-        dispatch login gitlab --service-account team-1 --user $YOURGITLABUSERNAME --token $YOURGITLABTOKEN
-        ```
 
     </details>
 
