@@ -30,7 +30,7 @@ Copy the Konvoy package files to a directory in your user's `PATH` to ensure you
 For example, copy the package to `/usr/local/bin/` by returning to the directory that Kommander was extracted to, and running the following command:
 
 ```
-sudo cp ~/Downloads/darwin/konvoy-kommander.tar.bz2/* /usr/local/bin/
+sudo cp ~/Downloads/darwin/konvoy-kommander/* /usr/local/bin/
 ```
 
 <p class="message--note"><strong>NOTE:</strong> The extracted folder may have a different name (such as `konvoy_dev`, or perhaps it was given a custom directory, or have the version affixed to the end of the directory name).</p>
