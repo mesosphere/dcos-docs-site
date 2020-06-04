@@ -68,3 +68,24 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 ```
 
 The command reads all secrets and then updates them to apply server side encryption. If an error occurs due to a conflicting write, retry the command. For larger clusters, you may wish to subdivide the secrets by namespace or script an update.
+
+## Verify that secrets are encrypted
+1. Exec into one of the etcd pods: 
+
+ ```dcos exec -it etcd-0-peer /bin/bash```
+
+2. Fetch a secret using etcdctl: 
+
+    **NOTE:** For example purposes `namespace=default secret=testing-secret`
+
+ ```bash
+    ETCDCTL_API=3 \
+      etcdctl \
+      --cert=etcd-crt.pem \
+      --key=etcd-key.pem \
+      --cacert=ca-crt.pem \
+      --endpoints=https://${TASK_NAME}.${FRAMEWORK_HOST}:${ETCD_LISTEN_CLIENT_PORT} \
+      get '/"/registry/cluster-0"/secrets/default/testing-secret' | od -cb
+  ```
+
+
