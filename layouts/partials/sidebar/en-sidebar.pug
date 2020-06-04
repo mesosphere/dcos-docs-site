@@ -39,7 +39,7 @@ if paths[1] === 'dcos' && semver.test(paths[2])
   - dropdown = type.children.filter(item => semver.test(item.id))
   - item = hierarchy.findByPath('/mesosphere/' + paths[1] + '/' + paths[2])
   - versionTitle = paths[2]
-  
+
 // Konvoy Docs
 if paths[1] === 'konvoy'
   - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
@@ -47,7 +47,7 @@ if paths[1] === 'konvoy'
   - dropdown = type.children.filter(item => semver.test(item.id))
   - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
   - versionTitle = paths[2]
-  
+
 // Kommander Docs
 if paths[1] === 'kommander'
   - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
@@ -63,6 +63,14 @@ if paths[1] === 'dispatch'
   - dropdown = type.children.filter(item => semver.test(item.id))
   - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
   - versionTitle = paths[2]
+
+// Kubeflow Docs
+if paths[1] === 'kubeflow'
+  - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
+  - type = ksphereDocs.children.filter(child => child.id == 'kubeflow')[0]
+  - dropdown = type.children.filter(item => semver.test(item.id))
+  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
+  - versionTitle = ""
 
 - dropdown = dropdown.filter(item => item.menuWeight != -1)
 
