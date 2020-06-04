@@ -18,3 +18,7 @@ In this tutorial you configure a "hello-world" repository on GitHub and add a Di
 ## Setting up ChatOps to trigger pipelines via GitHub comments
 
 In this tutorial you configure your `Dispatchfile` to enable triggers based on GitHub comments. [Follow the tutorial here](./triggering-pipelines-using-chatops/).
+
+## Setting up cron based triggers in Dispatchfile
+
+In this tutorial you configure your `Dispatchfile` to enable cron based triggers for your pipelines. [Follow the tutorial here](./configuring-cron-triggers/)

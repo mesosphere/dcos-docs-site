@@ -94,18 +94,20 @@ Actions define which tasks to run for which events.
 
 |  Field |    Type    | Description | Required? | Default |
 | ------ | ---------- | ----------- | --------- | ------- |
+| `name`   | String | The name of the action. Required only if the action has a cron condition | no | - |
 | `tasks`  | String array | The tasks to trigger when this action is activated | yes | - |
 | `on`     | [Condition](#Conditions) | The conditions under which the action is activated | yes | - |
 
 #### Conditions
 
-A condition specifies the requirements for an action to be considered active. Exactly one of `push`, `tag` or `pull_request` must be set.
+A condition specifies the requirements for an action to be considered active. Exactly one of `push`, `tag`, `pull_request` or `cron` must be set.
 
 |  Field |    Type    | Description | Required? | Default |
 | ------ | ---------- | ----------- | --------- | ------- |
 | `push`  | [PushCondition](#PushConditions) | Conditions for pushes to branches | no | - |
 | `tag`  | [TagCondition](#TagConditions) | Conditions for tags pushed to the repository | no | - |
 | `pull_request` | [PullRequestCondition](#PullRequestConditions) | Conditions for pull request events (comments, pushes) | no | - |
+| `cron` | [CronCondition](#CronConditions) | Conditions for periodical CI triggers | no | - |
 
 ##### PushConditions
 
@@ -154,6 +156,15 @@ The current behavior of pull request conditions is:
    specified, it will only trigger if any changed file matches the paths.
 3. If chatops are specified, then it will only trigger when a comment starting with a slash (`/`) is made to a pull request, and the word after
    the slash is in the list of chatops. Chatops can be specified in conjunction with branches and/or paths.
+
+##### CronConditions
+
+A cron condition is activated when the schedule embedded is activated. Unlike other conditions, CronConditions are only activated from the default revision (specified during repository creation) of Dispatchfile.
+
+|  Field |    Type    | Description | Required? | Default |
+| ------ | ---------- | ----------- | --------- | ------- |
+| `schedule` | String | Specify the cron schedule to activate the action. Follows standard [cron syntax](https://www.man7.org/linux/man-pages/man5/crontab.5.html) | yes | - |
+| `revision` | String | Revision of the repository to checkout to run the builds. Can point to a branch or tag. | no | `master` |
 
 ### Context variables
 

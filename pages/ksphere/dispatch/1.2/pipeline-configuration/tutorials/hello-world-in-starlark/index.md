@@ -108,6 +108,9 @@ For the purposes of this tutorial, you need at least Github & Docker credentials
     dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
     ```
 
+	<p class="message--note">NOTE: </strong>If your Kubernetes cluster endpoint presents a self-signed TLS certificates you must pass `--insecure-webhook-skip-tls-verify` to the `login github` command, otherwise GitHub will refuse to deliver webhook events to Dispatch.</p>
+
+
 1. Create a git SSH credential __only__ if you want to be able to build locally
 
     ```bash
