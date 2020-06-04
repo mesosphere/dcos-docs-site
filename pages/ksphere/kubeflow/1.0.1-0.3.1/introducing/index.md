@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: Introducing KUDO Kubeflow
 title: Introducing KUDO Kubeflow
 excerpt: Deploy and manage machine learning models with ease
