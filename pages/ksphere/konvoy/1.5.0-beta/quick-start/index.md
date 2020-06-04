@@ -53,10 +53,7 @@ Before starting the Konvoy installation, you should verify the following:
     kubectl version --short=true`
     ```
 
-1.  Download and extract the Konvoy package. You will need to download and extract the Konvoy package tarball. There are a couple of ways to get the tarball:
-
-    - You can request a free trial from D2iQ [here](https://d2iq.com/solutions/ksphere/konvoy#request-free-trial). We will send you a link for the tarball.
-    - If you are a D2iQ customer, you can ask your account representative for a trial license.
+1.  To download Konvoy, see the [Download Konvoy](https://docs.d2iq.com/ksphere/konvoy/latest/download/) topic for information. You will need to download and extract the Konvoy package tarball.
 
 1.  Install with default settings.
 
