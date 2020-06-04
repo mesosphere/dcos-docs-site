@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: Download
 title: Download KUDO Kubeflow
 menuWeight: 1

@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: Manage Secrets
 title: Manage Secrets
 menuWeight: 5
