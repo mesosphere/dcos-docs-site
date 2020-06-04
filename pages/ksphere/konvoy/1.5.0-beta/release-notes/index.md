@@ -26,7 +26,7 @@ enterprise: false
 #### Bug fixes
 
 - API: Don't print `indexType` in `cluster.yaml` file.
-- Terraform: allow users to specify terraform go template in the `extras/provisioner` directory.
+- Terraform: Enable users to specify terraform go template in the `extras/provisioner` directory.
 - CLI: Fix a bug where deploying `extras/kubernetes` resources required setting the `KUBECONFIG` environment variable.
 - CLI: Fix a bug where running `konvoy drain/cordon/uncordon` required setting the `KUBECONFIG` environment variable.
 
@@ -34,7 +34,7 @@ enterprise: false
 
 -   Update default Kubernetes version to `v1.17.6`.
 -   Update default Containerd version to `v1.3.4`.
--   API: New `cluster.yaml` option `spec.kubernetes.imageRepository` to allow for pulling control-plane images from an alternative repository instead of the default `k8s.gcr.io`.
+-   API: New `cluster.yaml` option `spec.kubernetes.imageRepository` allows pulling control-plane images from an alternative repository instead of the default `k8s.gcr.io`.
 
     ```text
     kind: ClusterConfiguration
@@ -47,10 +47,10 @@ enterprise: false
 
 -   API: Decouple AWS public IP address association from bastion host and IGW creation in `v1beta2`.
 -   API: New `cluster.yaml` option `apiServerPort` for `aws` and `azure` provisioners, to specify the port to be used for the Kubernetes API server.
--   CLI: Properly validate CLI arguments for all of the commands, avoiding a scenario where a typo may lead to running an incorrect command.
--   CLI: Now validates the calico version specified in `cluster.yaml` to be a valid version within the range: `>=3.13.0 <3.14.0`.
+-   CLI: Properly validate CLI arguments for all of the commands, avoiding a scenario where a typo can lead to running an incorrect command.
+-   CLI: Now validates the calico version specified in `cluster.yaml` to be a valid version in the range: `>=3.13.0 <3.14.0`.
 -   CLI: Diagnostics bundle now collects `df -H` output to help determine if there is disk pressure in the cluster. The bundle will contain `df.txt` file with the information gathered.
--   CLI: Konvoy will exit with an error if an unsupported Kubernetes version upgrade is attempted.
+-   CLI: Konvoy exits with an error if an unsupported Kubernetes version upgrade is attempted.
 -   CLI: Improve validation error for unknown `cluster.yaml` keys.
 -   AWS: Change the default AWS AMI to `CentOS Linux 7 x86_64 HVM EBS ENA 2002_01`(CentOS 7.7).
 -   Azure: Change the default Azure image to `OpenLogic:CentOS:7.7:7.7.2020042900`(CentOS 7.7).
@@ -342,7 +342,7 @@ enterprise: false
 #### Improvements
 
 -   Change the default Azure region for new clusters to `eastus2` to improve stability.
--   New `cluster.yaml` option `spec.kubernetes.imageRepository` to allow for pulling control-plane images from an alternative repository instead of the default `k8s.gcr.io`.
+-   New `cluster.yaml` option `spec.kubernetes.imageRepository` allows pulling control-plane images from an alternative repository instead of the default `k8s.gcr.io`.
 
     ```text
     kind: ClusterConfiguration
