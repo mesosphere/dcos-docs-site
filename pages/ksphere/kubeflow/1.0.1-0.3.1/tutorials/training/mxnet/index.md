@@ -1,5 +1,5 @@
 ---
-layout: kudo-kubeflow-docs-landing.pug
+layout: layout.pug
 navigationTitle: MNIST with MXNet
 title: MNIST with MXNet
 menuWeight: 5
