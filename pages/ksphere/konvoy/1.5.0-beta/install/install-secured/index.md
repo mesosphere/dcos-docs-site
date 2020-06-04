@@ -63,7 +63,7 @@ See the sample file below for possible changes that may be applied in your clust
 
 ## Kubernetes CVE Patches
 
-At times, CVEs may be discovered in the Kubernetes codebase. Based on the severity and the impact of a specific CVE, you may want to temporarily use alternative docker images for the core Kubernetes components instead of the default `k8s.gcr.io` repository.
+At times, CVEs can be discovered in the Kubernetes codebase. Based on the severity and impact of a specific CVE, you can temporarily use alternative docker images for the core Kubernetes components instead of the default `k8s.gcr.io` repository.
 To do so, set the `version` and `imageRepository` as describe below.
 The repository `docker.io/mesosphere` will contain patched images with a suffix of `+d2iq.1`, `+d2iq.2`, etc.
 

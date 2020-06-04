@@ -60,7 +60,7 @@ spec:
 During the Kubernetes upgrade process, Konvoy:
 
 -   Determines which nodes do not have the required configuration and OS package versions.
--   Determines whether upgrading these nodes from their current state to the provided cluster configuration is supported.
+-   Determines if upgrading these nodes from their current state to the provided cluster configuration is supported.
     - To force an unsupported upgrade, use the `--force-upgrade` flag.
 -   During stage `STAGE [Determining Upgrade Safety ...]`, checks for any user workloads that may be impacted by the upgrade and marks the nodes, where the workloads are running, to be "unsafe" to upgrade, skipping the upgrade process on them.
     - To ignore the safety check _for worker nodes only_, use the `--force-upgrade` flag.
