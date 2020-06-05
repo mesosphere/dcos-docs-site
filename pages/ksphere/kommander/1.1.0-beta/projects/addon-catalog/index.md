@@ -25,9 +25,11 @@ spec:
   url: https://github.com/mesosphere/kubeaddons-enterprise
 ```
 
-To deploy an addon, select a Project from your Workspace and select the **View Catalog** button to browse the available addons from your configured repositories.
+To deploy an addon, select a Project from your Workspace and select the **View Catalog** button to browse the available addons from your configured repositories. Select your desired addon, select the version you'd like to deploy in the version dropdown, and then click **Deploy**.
 
-To customize an addon before deploying it, you can customize the helm chart values or KUDO parameters of a service before deploying it.
+For all addons, you must provide a display name and an ID. The ID will be automatically generated based on what is entered for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
+
+Optionally, you can customize the helm chart values or KUDO parameters of a service before deploying it.
 
 For Helm-based addons, specify the chart values in a YAML editor:
 
