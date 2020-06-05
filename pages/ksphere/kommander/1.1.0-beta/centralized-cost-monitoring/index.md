@@ -12,7 +12,7 @@ This feature, installed by default in every Kommander cluster, provides a centra
 
 ## Centralized Costs
 
-The Kommander cluster collects cost metrics remotely from each managed cluster using Thanos. An overview of cost by workspace and project is shown in the Kommander UI on the respective pages. Further cost analysis and details can be found in the Kubecost UI running on Kommander, that can be accessed at:
+The Kommander cluster collects cost metrics remotely, using Thanos, from each managed cluster. An overview of cost, by workspace and project, is shown in the respective Kommander UI pages. Further cost analysis and details are found in the Kubecost UI running on Kommander, at:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/kubecost/detail.html#&agg=cluster
