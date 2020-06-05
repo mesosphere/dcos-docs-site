@@ -22,7 +22,7 @@ https://<CLUSTER_URL>/ops/portal/kommander/kubecost/detail.html#&agg=cluster
 
 To identify clusters in Kubecost, managed clusters are distinguished by a monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
-To find a cluster's monitoring ID, you can go to the Clusters tab on the Kommander UI (in the relevant workspace):
+To find a cluster's monitoring ID, go to the **Clusters** tab on the Kommander UI, in the relevant workspace:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/ui/#/clusters
