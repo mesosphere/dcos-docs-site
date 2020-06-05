@@ -30,7 +30,7 @@ https://<CLUSTER_URL>/ops/portal/kommander/ui/#/clusters
 
 Select `View Details` on the managed cluster card, and find the monitoring ID under `Monitoring ID (clusterId)`.
 
-You can also search or filter by monitoring IDs on the Clusters page.
+You can also search or filter by monitoring IDs on the **Clusters** page.
 
 Alternatively, you can run the following  kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID and determine the cluster with the corresponding costs.
 
