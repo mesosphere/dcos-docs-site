@@ -40,7 +40,7 @@ $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
 
 ### Grafana dashboards
 
-There is also a set of Grafana dashboards with cost metrics that are installed to the centralized Grafana UI:
+A set of Grafana dashboards with cost metrics are installed to the centralized Grafana UI:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/monitoring/grafana
