@@ -20,7 +20,7 @@ https://<CLUSTER_URL>/ops/portal/kommander/kubecost/detail.html#&agg=cluster
 
 <p class="message--note"><strong>NOTE: </strong>It takes at least 3 hours for each managed cluster to generate sufficient cost data to be aggregated and presented in the UI.</p>
 
-Managed clusters are distinguished by a monitoring ID, that is used to identify clusters in Kubecost.
+To identify clusters in Kubecost, managed clusters are distinguished by a monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
 To find a cluster's monitoring ID, you can go to the Clusters tab on the Kommander UI (in the relevant workspace):
 
