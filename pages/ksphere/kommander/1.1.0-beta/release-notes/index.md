@@ -44,6 +44,41 @@ Template:
 
 -->
 
+### Version v1.1.0-rc.2 - June 5th 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+| **Minimum**        | 1.15.0  |
+| **Maximum**        | 1.17.x  |
+| **Default**        | 1.17.3  |
+
+#### Features/Improvements
+
+- Removed suffixes from federated ConfigMaps and Secrets
+
+#### Bug Fixes
+
+- Fixed naming of roles in projects
+- Fixed an issue where projects were not created due to a bug in project name suffix handling
+- Fixed version selector when creating clusters via UI
+- Fixed UI leaking sensitive data in some error messages.
+- Fixed listing of workspaces and projects for limited users.
+- Fixed `skipMetadataApiCheck` being removed from `cluster.yaml`
+- Lots of smaller UX Bugs and Improvements
+
+#### Component Versions
+
+- Addon: `1.1.0-31`
+- Chart: `0.8.12`
+- YaKCL: `0.0.7`
+- UI: `3.100.0`
+- kommander-karma: `0.3.10`
+- kubeaddons-catalog: `0.1.9`
+- kommander-thanos: `0.1.21`
+- kubecost: `0.1.4`
+- grafana: `4.5.1`
+
+
 ### Version v1.1.0-rc.1 - May 29th 2020
 
 | Kubernetes Support | Version |
