@@ -61,7 +61,7 @@ Select an available desired version from the Version dropdown and confirm your a
 
 ## Editing Clusters
 
-![Edit a Cluster Action](/ksphere/kommander/1.1.0beta/img/edit-cluster-action.png)
+![Edit a Cluster Action](/ksphere/kommander/1.1.0-beta/img/edit-cluster-action.png)
 
 ### Editing an Attached cluster
 
