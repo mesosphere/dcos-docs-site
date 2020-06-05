@@ -10,7 +10,13 @@ excerpt: Grant access to users in your organization
 
 By default, you login to konvoy with a credential given by `konvoy up`. You can retrieve it later by using `konvoy get ops-portal`.
 
-Static credentials should only be used to access **operations portal** for configuring an external identity provider. Since there is no way of updating static credentials they should be treated as backup credentials and not used for normal access. Always login with your own identity from external identity providers that provide additional security features like Multi Factor Authentication.
+These static credentials should only be used to access **operations portal** for configuring an external identity provider. Since there is no way of updating static credentials they should be treated as backup credentials and not used for normal access. Always login with your own identity from external identity providers that provide additional security features like Multi-Factor Authentication.
+
+You can perform the following operations on Identity Providers:
+
+- [Create an Identity Provider](#identity-providers)
+- [Temporarily Disable an Identity Provider](#temporarily-disabling-a-provider)
+- [Groups](#groups)
 
 ## Identity Providers
 
@@ -22,7 +28,7 @@ You can configure as many Identity Providers as you like and users will be able 
 
 ![Identity](/ksphere/kommander/1.1.0-beta/img/Identity-providers-table.png)
 
-Figure 1 - Identity Providers
+Identity Providers
 
 #### Limiting who has access:
 
@@ -30,29 +36,27 @@ Figure 1 - Identity Providers
 
 ![Github Form](/ksphere/kommander/1.1.0-beta/img/Identity-provider-Github.png)
 
-Figure 2 - Github Form
+Github Form
 
 - The LDAP provider allows to configure search filters for either users or groups.
 
 ![LDAP Form](/ksphere/kommander/1.1.0-beta/img/Identity-provider-LDAP.png)
 
-Figure 3 - LDAP Form
+LDAP Form
 
 - The OIDC provider cannot limit users based on identity.
 
 ![OIDC Form](/ksphere/kommander/1.1.0-beta/img/Identity-provider-OIDC.png)
 
-Figure 4 - OIDC Form
+OIDC Form
 
-#### Temporarily disabling a provider
+### Temporarily disabling a provider
 
-Untick the checkbox labelled “enabled” on the Identity Providers table. The provider option will no longer appear on the login screen.
+Open the actions menu on the Identity Providers table and click Disable. The provider option will no longer appear on the login screen.
 
-- The OIDC provider cannot limit users based on identity.
+![Identity Provider Table Row Action Menu](/ksphere/kommander/1.1.0-beta/img/Identity-provider-table-action-menu.png)
 
-![Enabled Checkbox](/ksphere/kommander/1.1.0-beta/img/Identity-provider-enabled-checkbox.png)
-
-Figure 5 - Enabled Checkbox
+Identity Provider Table Row Action Menu
 
 ## Groups
 
@@ -60,7 +64,7 @@ Access control groups are configured in the Groups tab of the Identity Providers
 
 ![Identity Provider Groups](/ksphere/kommander/1.1.0-beta/img/access-control-idp-groups.png)
 
-Figure 6 - Identity Provider Groups
+Identity Provider Groups
 
 ## Related Information
 - [Authorize a group across clusters](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/tutorials/authorize-all-users/)
