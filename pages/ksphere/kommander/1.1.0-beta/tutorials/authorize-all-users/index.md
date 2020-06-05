@@ -22,20 +22,20 @@ Once we create this application we are going to see something like this:
 
 ![Created a GitHub OAuth App](/ksphere/kommander/1.1.0-beta/img/tutorial-idp-github-oauth-created.png)
 
-We need to copy the Client ID and Client Secret values into the form when adding an identity provider. You can find this field by accessing Administration > Identity Providers in the sidebar and clicking the Add Identity Provider button.
+In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Identity Providers** tab and click the **Add Identity Provider** button. Ensure Github is selected as the identity provider type, and copy the Client ID and Client Secret values into the form. Press **Save** to create your Identity Provider.
 
 ![Adding the GitHub OAuth App](/ksphere/kommander/1.1.0-beta/img/tutorial-idp-github-added.png)
 
-We configured the identity provider to load all groups, so now we need to map these groups to kubernetes groups. This is done by visiting Administration > Access Control and clicking the Create Group button.
-This will create a group that is federated to all connected clusters and it will describe the developers of our organization.
+We configured the identity provider to load all groups, so now we need to map these groups to kubernetes groups. In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Identity Providers** in the sidebar. Select the **Groups** tab and click the **Create Group** button. Give your group a descriptive name and add the groups from your GitHub provider under **Identity Provider Groups**.
+Click **Save** to create the group. It will be created on the management cluster and federated to all target clusters, and describes the developers of our organization.
 
 ![Adding a developer group](/ksphere/kommander/1.1.0-beta/img/tutorial-auth-developer-group.png)
 
-For this group to have an effect we need to connect it to a role, so let's first create a role that allows us to view every resource.
+For this group to have an effect we need to connect it to a role, so let's first create a role that allows us to view every resource. In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Roles** tab and click the **Create Role** button. For a read-only role, click **+ Add Rule**, select the **get**, **list**, and **watch** verbs, and select **All resource types** in the **Resources** input.
 
 ![Adding a read role](/ksphere/kommander/1.1.0-beta/img/tutorial-auth-developer-role.png)
 
-Now that we have everything we can assign the "Read Everything" role to the developers group.
+Now that we have everything we can assign the "Read Everything" role to the developers group. In Kommander UI, choose **Global** in the header drop-down and then select **Administration** > **Access Control** in the sidebar. Select the **Cluster Policies** tab and click the **Add or remove roles** button for your group.
 
 ![Adding a policy](/ksphere/kommander/1.1.0-beta/img/tutorial-auth-developer-policy.png)
 
