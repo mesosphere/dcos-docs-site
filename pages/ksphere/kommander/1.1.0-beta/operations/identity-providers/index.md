@@ -53,3 +53,15 @@ Untick the checkbox labelled “enabled” on the Identity Providers table. The 
 ![Enabled Checkbox](/ksphere/kommander/1.1.0-beta/img/Identity-provider-enabled-checkbox.png)
 
 Figure 5 - Enabled Checkbox
+
+## Groups
+
+Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/operations/access-control/) for an overview of groups in Kommander.
+
+![Identity Provider Groups](/ksphere/kommander/1.1.0-beta/img/access-control-idp-groups.png)
+
+Figure 6 - Identity Provider Groups
+
+## Related Information
+- [Authorize a group across clusters](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/tutorials/authorize-all-users/)
+- [Granting access to Kubernetes resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/tutorials/configure-rbac/)
