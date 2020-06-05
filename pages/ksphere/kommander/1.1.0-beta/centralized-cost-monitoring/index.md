@@ -32,7 +32,7 @@ Select `View Details` on the managed cluster card, and find the monitoring ID un
 
 You can also search or filter by monitoring IDs on the Clusters page.
 
-Alternatively, you can run a kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID to determine which cluster the costs correspond to:
+Alternatively, you can run the following  kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID and determine the cluster with the corresponding costs.
 
 ```bash
 $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
