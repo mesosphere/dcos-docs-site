@@ -1,12 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Kommander 1.0
-title: Kommander 1.0 Documentation
+navigationTitle: Welcome to Kommander 1.0
+title: Welcome to Kommander 1.0
 version: 1.0
 featureMaturity:
-
 category: K-Sphere
 menuWeight: 0
 ---
 
-Kommander is an administrative cluster for multi-cluster management of Kubernetes lifecycle, governance and workloads.
+Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated and cost management, across multiple clusters, whether they are a new Konvoy cluster or existing 3rd party/DIY distribution.
