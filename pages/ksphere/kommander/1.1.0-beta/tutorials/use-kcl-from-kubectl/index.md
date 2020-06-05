@@ -311,6 +311,6 @@ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
 kubectl -n workspacetest-r69q2 delete  konvoycluster sample-kubernetes-tutorial
 ```
 
-[infrastructure_provider]: /ksphere/kommander/latest/operations/cloud-providers
+[infrastructure_provider]: /ksphere/kommander/latest/operations/infrastructure-providers
 [kommander_projects]: /ksphere/kommander/latest/projects
 [kommander_workspaces]: /ksphere/kommander/latest/workspaces
