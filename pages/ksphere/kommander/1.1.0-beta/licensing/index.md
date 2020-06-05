@@ -16,9 +16,11 @@ To obtain a valid Kommander license, contact your sales representative at <sales
 
 After you have downloaded the license, an administrator must add it to Kommander.
 
-1. From Kommander, browse to the Licenses page.
-2. Select + Add License.
-3. Paste your license content in and select Add.
+In the Kommander UI, do the following:
+1. Select **Global** in the header drop-down. 
+2. Select **Administration** > **Licensing**.
+3. Select **+ Add License**.
+4. Paste your license content in and select Add.
 
 ![Licenses Form](/ksphere/kommander/1.1.0-beta/img/Licenses-form.png)
 Licenses Form
