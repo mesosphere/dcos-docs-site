@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle: Configure an AWS Cloud Provider with Static Credentials
+navigationTitle: Configure an AWS Provider with Static Credentials
 title: AWS Static Credentials
-excerpt: Configuring an AWS Cloud Provider with static credentials
+excerpt: Configuring an AWS Infrastructure Provider with static credentials
 ---
 
-### Configuring an AWS Cloud Provider with static credentials
+### Configuring an AWS Infrastructure Provider with static credentials
 
-When configuring a cloud provider with static credentials, you need an access id and secret key for a user with a set of minimum capabilities.
+When configuring a infrastructure provider with static credentials, you need an access id and secret key for a user with a set of minimum capabilities.
 
 #### Create a new User via CLI commands
 
@@ -156,24 +156,27 @@ Below is the minimal IAM policy required:
 }
 ```
 
-#### Fill out the Add Cloud Provider form
+#### Fill out the Add Infrastructure Provider form
 
 In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to **Administration > Cloud Providers** and select the **Add Cloud Provider** button.
+Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
 
-![Add Cloud Provider](/ksphere/kommander/1.1.0-beta/img/add-cloud-provider.png)
+![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+<br />_Adding an Infrastructure Provider_
 
-- Select the Amazon Web Services (AWS) option from the Add Cloud Provider form.
+![Add Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+<br />_Add Infrastructure Provider Form_
+
+- Select the Amazon Web Services (AWS) option from the Add Infrastructure Provider form.
 - Ensure **Static** is selected as the Authentication Method.
-- Select a name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
+- Enter a name for your infrastructure provider for later reference. Consider choosing a name that matches the AWS user.
 - Fill out the access and secret keys using the keys generated above.
-- Select **Verify** and **Save** to verify the credentials are valid and to save your provider.
+- Select **Verify and Save** to verify the credentials are valid and to save your provider.
 
-![Cloud Provider Form with values](/ksphere/kommander/1.1.0-beta/img/Cloud-provider-with-values.png)
+![Infrastructure Provider Form with values](/ksphere/kommander/1.1.0-beta/img/Infrastructure-provider-with-values.png)
+<br />_Infrastructure Provider Form with values_
 
-Cloud Provider Form with values
-
-Once created, a Cloud Provider’s display name or credentials can be updated.
+After the provider is created, its display name or credentials can be updated.
 
 [aws_credentials]: https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html

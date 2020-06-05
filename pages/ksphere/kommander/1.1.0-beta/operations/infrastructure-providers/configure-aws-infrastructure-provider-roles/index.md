@@ -1,11 +1,11 @@
 ---
 layout: layout.pug
-navigationTitle: Configure an AWS Cloud Provider with a User Role
+navigationTitle: Configure an AWS Provider with a User Role
 title: AWS Role Credentials
-excerpt: Configure an AWS Cloud Provider with a User Role
+excerpt: Configure an AWS Infrastructure Provider with a User Role
 ---
 
-### Configure an AWS Cloud Provider with a User Role
+### Configure an AWS Infrastructure Provider with a User Role
 
 <p class="message--important"><strong>IMPORTANT: </strong>We highly recommend using the Role-based method as this is more secure.</p>
 
@@ -137,7 +137,7 @@ The user you delegate from your role must have a minimum set of permissions. Bel
 ```
 
 Make sure to also add a correct [trust relationship][iam_roles] to the created role.
-The example allows everyone within the same account to `AssumeRole` the created role.
+The example allows everyone within the same account to `AssumeRole` with the created role.
 `YOURACCOUNTRESTRICTION` must be replaced with the AWS Account ID you would like to `AssumeRole` from.
 
 <p class="message--important"><strong>IMPORTANT: </strong>Never add a `*` / wildcard, you would open your account for the whole world.</p>
@@ -158,8 +158,8 @@ The example allows everyone within the same account to `AssumeRole` the created 
 }
 ```
 
-To use the role created attach the following policy to the role which is already attached to your Kommander cluster.
-`YOURACCOUNTRESTRICTION` must be replaced with the AWS Account ID where the role you like to `AssumeRole` is saved. Also `THEROLEYOUCREATED` must be replaced with the AWS Role name.
+To use the role created, attach the following policy to the role which is already attached to your Kommander cluster.
+Replace `YOURACCOUNTRESTRICTION` with the AWS Accoount ID where the role you like to `AssumeRole` is saved. Also, replace `THEROLEYOUCREATED` with the AWS Role name.
 
 ```json
 {
@@ -175,7 +175,9 @@ To use the role created attach the following policy to the role which is already
 }
 ```
 
-Instead of doing this manually you can add this file, `iam-stsAssumeKommander.tf`, into the `extras/provisioner/` directory next to your `cluster.yaml` file.
+#### Create role when creating the management cluster
+
+Instead of doing this manually you can create the following file, name it, `iam-stsAssumeKommander.tf`, into the `extras/provisioner/` directory next to your `cluster.yaml` file. This will create the role when you create or update your cluster with `konvoy up`. Ensure you replace `THEROLEYOUCREATED` with the AWS Role name.
 
 ```terraform
 # Attaching sts:AssumeRole to the default node role from konvoy
@@ -199,17 +201,28 @@ EOF
 }
 ```
 
+### Create Infrastructure Provider
+
 In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to **Administration > Cloud Providers** and click the **Add Cloud Provider** button.
+Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
 
-![Add Cloud Provider](/ksphere/kommander/1.1.0-beta/img/add-cloud-provider.png)
+![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+<br />_Adding an Infrastructure Provider_
 
-- Select the Amazon Web Services (AWS) option from the Add Cloud Provider.
+![Add Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+<br />_Add Infrastructure Provider Form_
+
+- Select the Amazon Web Services (AWS) option from the Add Infrastructure Provider.
 - Ensure "Role" is selected as the Authentication Method.
-- Select a name for your cloud provider. Consider choosing a name that matches the AWS user.
+- Enter a name for your infrastructure provider. Consider choosing a name that matches the AWS user.
 - Enter the Role ARN.
 - You can add an External ID if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
+
+![AWS Role Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/infrastructure-provider-form-aws-role.png)
+<br />_AWS Role Infrastructure Provider Form_
+
+After the provider is created, its display name or role can be updated.
 
 [iam_roles]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
 [external_id]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html

@@ -8,7 +8,7 @@ excerpt: A guide for creating Konvoy clusters on AWS
 
 ## Prerequisites
 
-Configured [AWS Cloud Provider](/ksphere/kommander/latest/operations/cloud-providers/#configuring-an-aws-cloud-provider)
+Configured [AWS Infrastructure Provider](/ksphere/kommander/latest/operations/infrastructure-providers/#configuring-an-aws-infrastructure-provider)
 
 ## Simplified Cluster Creation on AWS
 
@@ -20,7 +20,7 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 - **Kubernetes Version**: The initial version of Kubernetes to install on the cluster.
 - **Name**: A display name for referencing the cluster.
 
-Now select the preconfigured [AWS Cloud Provider](/ksphere/kommander/latest/operations/cloud-providers/#configuring-an-aws-cloud-provider) to display the remaining options specific to AWS.
+Now select the preconfigured [AWS Infrastructure Provider](/ksphere/kommander/latest/operations/infrastructure-providers/#configuring-an-aws-infrastructure-provider) to display the remaining options specific to AWS.
 
 - **Region**: Select the datacenter region to reveal selectable Availability Zones.
 - **Availability Zones**: Indicates the availability zones to use for cluster provisioning.
