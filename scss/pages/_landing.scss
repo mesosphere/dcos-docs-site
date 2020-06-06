@@ -21,7 +21,7 @@
         margin-bottom: 2rem;
     }
     &__container {
-        max-width: $bp-lg;
+        max-width: $bp-lg - 1px;
         margin: 0 auto;
         padding: 5rem 2rem 0 2rem;
     }

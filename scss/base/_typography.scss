@@ -1,10 +1,7 @@
 /* Basic Typography */
 
 html {
-  font-size: 14px;
-  @include lg {
-    font-size: 16px;
-  }
+  font-size: 16px;
 }
 
 body {
