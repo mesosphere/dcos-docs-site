@@ -10,11 +10,10 @@ model: /mesosphere/dcos/2.1/data.yml
 
 An upgrade is the process of moving between major releases to add new features or to replace existing features with new features/functionality. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.
 
-<p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 1.12 --> 1.13</p>
+<p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 2.0 --> 2.1</p>
 
-- To update to a newer maintenance version (e.g. 1.12.1 to 1.12.2), refer to the instructions for [patching](/mesosphere/dcos/2.1/installing/production/patching/).
+- To update to a newer maintenance version (e.g. 2.0.2 to 2.0.4), refer to the instructions for [patching](/mesosphere/dcos/2.1/installing/production/patching/).
 - To modify the cluster configuration, refer to the instructions for [patching](/mesosphere/dcos/2.1/installing/production/patching/).
-- The `disabled` security mode has been removed from DC/OS Enterprise 1.13. To upgrade a `disabled` mode 1.12 cluster to 1.13, first [patch the 1.12 cluster from disabled to permissive mode](/mesosphere/dcos/2.1/installing/production/patching/#patching-to-dcos-112-in-strict-mode) as a separate step before upgrading from 1.12 to 1.13. [enterprise type="inline" size="small" /]
 
 If upgrading is performed on a supported OS with all prerequisites fulfilled, then the upgrade **should** preserve the state of running tasks on the cluster.
 
@@ -32,7 +31,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths
-The following tables list the supported upgrade paths for DC/OS 1.13.
+The following tables list the supported upgrade paths for DC/OS 2.1.
 
 
 |**Display Icon** | **Service** |
@@ -79,7 +78,7 @@ The following tables list the supported upgrade paths for DC/OS 1.13.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 1.11 to 1.12 and add more public agents. You can add more public agents with a patch to 1.12 and then upgrade to 1.13, or you can upgrade to 1.13 and then add more public agents by [patching 1.13](/mesosphere/dcos/2.1/installing/production/patching/) after the upgrade.
+You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 2.0 to 2.1 and add more public agents. You can add more public agents with a patch to 2.0 and then upgrade to 2.1, or you can upgrade to 2.1 and then add more public agents by [patching 2.1](/mesosphere/dcos/2.1/installing/production/patching/) after the upgrade.
 
 # Instructions
 These steps must be performed for version upgrades.
@@ -113,56 +112,40 @@ These steps must be performed for version upgrades.
 
 ## Bootstrap Node
 
-[enterprise]
-### Enterprise users
-[/enterprise]
 
-This procedure upgrades a DC/OS 1.12 cluster to DC/OS 1.13.
+This procedure upgrades a DC/OS 2.0 cluster to DC/OS 2.1.
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
-2.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
+2.  The syntax of the `config.yaml` file can be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/).
+    *  You cannot change the `exhibitor_storage_backend` setting during an upgrade.
 
-    *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the `config.yaml` file can be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/).
-3. After updating the format of the config.yaml, compare the old config.yaml and new config.yaml. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
-4.  Modify the `ip-detect` file as desired.
+3. After updating the `config.yaml`, compare the old `config.yaml` and new `config.yaml`. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
+4.  Modify the `ip-detect` file if necessary.
 5.  Build your installer package.
 
-    1.  Download the `dcos_generate_config.ee.sh` file.
-    2.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.11.6`.
+    1.  Download the `dcos_generate_config.ee.sh` [enterprise type="inline" size="small" /] or `dcos_generate_config.sh` [oss type="inline" size="small" /] file.
+    2.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `2.0.4`.
+
+        [enterprise type="inline" size="small" /]
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
-    3.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    4.  Run the nginx container to serve the [installation files][install] using the Docker [run][cmd] command.
-
-6.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
-
-
-[oss]
-### Open Source users
-[/oss]
-
-1.  Copy and update the DC/OS 1.12 `config.yaml` and `ip-detect` files to a new, clean folder on your bootstrap node.
-
-    *  You cannot change the `exhibitor_zk_backend` setting during an upgrade.
-    *  The syntax of the DC/OS 1.12 `config.yaml` file differs from that of previous versions. For a detailed description of the current `config.yaml` syntax and parameters, see the [advanced configuration reference](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/).
-
-1.  After updating the format of the `config.yaml`, compare the old `config.yaml` and new `config.yaml`. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
-
-1.  After you have converted your 1.12 `config.yaml` into the 1.13 `config.yaml` format, you can build your installer package:
-
-    1.  Download the file `dcos_generate_config.sh`.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to upgrade, for example `1.9.2`.
+        [oss type="inline" size="small" /]
         ```bash
         dcos_generate_config.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
-    1.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
-    1.  Run the nginx container to serve the [installation files][install] using the Docker [run][cmd] command.
+    3.  The command in the previous step will produce a URL in the last line of its output, prefixed with `Node upgrade script URL:`. Record this URL for use in later steps. It will be referred to in this document as the "Node upgrade script URL".
 
-1.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
+6.  Run the nginx container to serve the [installation files][install] using the Docker [run][cmd] command. For `<your-port>`, specify the port value that is used in the Node upgrade script URL.
+```bash
+sudo docker run -d -p <your-port>:80 -v $PWD/genconf/serve:/usr/share/nginx/html:ro nginx
+```
 
-### <a name="masters"></a>DC/OS Masters
+7.  Go to the DC/OS Master [procedure](#masters) to complete your installation.
+
+
+
+## <a name="masters"></a>DC/OS Masters
 
 Proceed with upgrading every master node one at a time in any order using the following procedure. When you complete each upgrade, monitor the Mesos master metrics to ensure the node has rejoined the cluster and completed reconciliation.
 
@@ -199,7 +182,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
         <p class="message--note"><strong>NOTE: </strong>If you are upgrading from permissive to strict mode, this URL will be <code>curl https://...</code> and you will need a JWT for access. </p>
         [enterprise type="inline" size="small" /]
 
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.10.0`.
+1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.9.1`.
 
     1.  Verify that the number of under-replicated ranges in CockroachDB has dropped to zero as the IAM database is replicated to the new master. Run the following command and confirm that the `ranges_underreplicated` column shows only zeros.
     ```bash
@@ -219,7 +202,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
 
 1.  Go to the DC/OS Agents [procedure](#agents) to complete your installation.
 
-### <a name="agents"></a>DC/OS Agents
+## <a name="agents"></a>DC/OS Agents
 
 Be aware that when upgrading agent nodes, there is a five minute timeout for the agent to respond to health check pings from the mesos-masters before the agent nodes and task expire.
 
@@ -252,7 +235,7 @@ On all DC/OS agents:
 
 The following commands should provide insight into upgrade issues:
 
-#### On All Cluster Nodes
+### On All Cluster Nodes
 
 ```bash
 sudo journalctl -u dcos-download
@@ -266,7 +249,7 @@ dcos-check-runner check node-poststart
 dcos-check-runner check cluster
 ```
 
-#### On DC/OS Masters
+### On DC/OS Masters
 
 [enterprise type="inline" size="small" /]
 ```bash
@@ -284,15 +267,15 @@ sudo journalctl -u dcos-mesos-dns
 sudo journalctl -u dcos-mesos-master
 ```
 
-#### On DC/OS Agents
+### On DC/OS Agents
 
 ```bash
 sudo journalctl -u dcos-mesos-slave
 ```
 
-### Notes:
+## Notes:
 
-- Packages available in the DC/OS 2.0 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
+- Packages available in the DC/OS 2.1 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
 
 [install]: /mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#custom-build-file
 [cmd]: /mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#nginx-cmd
