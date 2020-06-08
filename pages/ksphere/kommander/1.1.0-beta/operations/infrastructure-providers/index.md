@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Managing infrastructure providers used by Kommander
 ---
 
-Cloud providers like AWS, Azure and Google provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys to your preferred cloud provider. You may have many accounts for a single cloud provider.
+Cloud providers like AWS, Azure, and Google provide the infrastructure for your Konvoy clusters. To automate their provisioning, Kommander needs authentication keys for your preferred cloud provider. You may have many accounts for a single cloud provider.
 
 In order to provision new clusters and manage them, Kommander needs cloud provider credentials. Currently AWS, Azure, and On Premise are supported.
 
