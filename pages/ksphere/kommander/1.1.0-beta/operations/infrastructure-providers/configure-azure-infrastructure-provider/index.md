@@ -68,7 +68,7 @@ Navigate to **Administration > Infrastructure Providers** and click the **Add In
 ![Add Azure Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-azure-infrastructure-provider.png)
 <br />_Add Azure Infrastructure Provider Form_
 
-- Enter a name for your infrastructure provider. Consider choosing a name that matches the Azure user.
+- Enter a name for your infrastructure provider. Select a name that matches the Azure user.
 - Use the values assigned when you created the service principal above:
   - Fill in Client ID with the `APP_ID` value.
   - Fill in Client Secret with the `PASSWORD` value.
