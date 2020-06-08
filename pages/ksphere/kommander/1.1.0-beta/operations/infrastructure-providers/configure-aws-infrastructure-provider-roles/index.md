@@ -177,7 +177,7 @@ Replace `YOURACCOUNTRESTRICTION` with the AWS Accoount ID where the role you lik
 
 #### Create role when creating the management cluster
 
-Instead of doing this manually you can create the following file, name it, `iam-stsAssumeKommander.tf`, into the `extras/provisioner/` directory next to your `cluster.yaml` file. This will create the role when you create or update your cluster with `konvoy up`. Ensure you replace `THEROLEYOUCREATED` with the AWS Role name.
+Instead of doing this manually create the following file, `iam-stsAssumeKommander.tf`, int the `extras/provisioner/` directory, next to your `cluster.yaml` file. This creates the role when you create or update your cluster with `konvoy up`. Ensure you replace `THEROLEYOUCREATED` with the AWS Role name.
 
 ```terraform
 # Attaching sts:AssumeRole to the default node role from konvoy
