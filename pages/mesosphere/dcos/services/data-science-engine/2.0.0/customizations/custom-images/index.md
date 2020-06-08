@@ -9,9 +9,9 @@ model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
-This guide will show you how to build a custom Docker images both for Spark Executor (or Worker) and Notebook (or Spark Driver). You can use these custom-built images with libraries in distributed Spark jobs and/or Jupyter Notebooks.
+This guide will show you how to build custom Docker images both for Spark Executor (or Worker) and Notebook (or Spark Driver). You can use these custom-built images with libraries in distributed Spark jobs and/or Jupyter Notebooks.
 
-There are 16 docker images published in total. You could pick any one of them to customize. The choice should be according to DL Framework (TensorFlow v1, TensorFlow v2, Pytorch or MxNet), Processor Type (CPU or GPU), and Execution Type (Spark Executor or Spark Driver/Jupyter Notebook).
+There are 16 docker images published in total. Customize one or more according to your DL Framework (TensorFlow v1, TensorFlow v2, Pytorch or MxNet), Processor Type (CPU or GPU), and Execution Type (Spark Executor or Spark Driver/Jupyter Notebook).
 
 Here is the list of published docker images:
 
@@ -43,8 +43,7 @@ Here is the list of published docker images:
 
 ## Customize Notebook Image
 
-1. **Choose an image to customize**:
-    Suppose you want to make a JupyterLab Extension available for your notebooks and you have planned it to run on CPU with MxNet, then you need to pick this image to customize.
+1. **Choose the image to customize**: Suppose you want to make a library available for notebooks as well as workers and you have planned it to run on CPU with Pytorch, then pick these two images to customize:
 
     ```text
     mesosphere/jupyter-service:cea0efa8e0578237d4247568be579904e0af1da4834ed17f166f06f7ef5be0f2-notebook-mxnet-1.6.0
@@ -140,8 +139,7 @@ Expected output would be:
     RUN conda install -yq spacy
     ```
 
-1. **Build and push the Dockerfile**:
-    From the directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image name is `spacy-example:worker`. Run the following commands:
+1. **Build and push the Dockerfile**: From each directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image names are `spacy-example:notebook` and `spacy-example:worker`, run the following commands:
 
     ```bash
     cd worker
@@ -149,8 +147,7 @@ Expected output would be:
     docker push docker123/spacy-example:worker
     ```
 
-1. **Run the service or spark job with custom image**:
-    You could specify this custom built image in the config of the service as follows:
+1. **Run the service with custom image**: Specify these custom built images in the config of the service as follows:
 
     ```json
     {
@@ -168,7 +165,7 @@ Expected output would be:
 
 ## Example Notebook for Custom Worker Image
 
-In the following example, you will use a user-defined function to import a library we installed in a custom image.
+In the following example, use a user-defined function to import a library we installed in a custom image.
 
 Open a `Python Notebook` and put the following in a code cell:
 
@@ -192,7 +189,7 @@ spark.sql("SELECT test_func(id) from test").collect()
 spark.stop()
 ```
 
-Expected output would be:
+The expected output would be:
 
 ```text
 [Row(test_func(id)='1'),
