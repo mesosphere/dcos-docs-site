@@ -11,7 +11,12 @@ Before you configure an Azure Infrastructure Provider you must [install the Azur
 
 #### Create a new set of credentials using CLI commands
 
-To begin, you need a valid Azure account with credentials configured. You must be authorized as a Contributor in your Azure account, with the ability to assign roles to a user. The following commands create an active directory service principal, which you will delegate to Kommander, for creating Konvoy clusters:
+Before you begin, you need the following:
+
+- A valid Azure account with configured credentials. 
+- You must be authorized as a Contributor on your Azure account, with the ability to assign roles to a user. 
+
+The following commands create an active directory service principal, which you delegate to Kommander, for creating Konvoy clusters:
 
 ```
 az login
