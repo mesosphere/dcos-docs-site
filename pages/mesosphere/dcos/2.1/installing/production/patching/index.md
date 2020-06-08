@@ -15,9 +15,9 @@ A patching process includes the following:
 - Does not impact workloads which is an essential piece of patching live clusters with no downtime
 - Helps users to understand the minor changes impacting the functionality of DC/OS
 
-<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 1.12.1 --> 1.12.2</p>
+<p class="message--note"><strong>NOTE: </strong>These instructions are only appropriate for a change to the cluster configuration or the maintenance version number. Example: DC/OS 2.0.2 --> 2.0.4</p>
 
-- To update to a newer major or minor version (e.g. 1.11 to 1.12), refer to the instructions for [upgrading](/mesosphere/dcos/2.1/installing/production/upgrading/).
+- To update to a newer major or minor version (e.g. 2.0 to 2.1), refer to the instructions for [upgrading](/mesosphere/dcos/2.1/installing/production/upgrading/).
 
 If patching is performed on a supported OS with all prerequisites fulfilled, then the patch **should** preserve the state of running tasks on the cluster.
 
@@ -37,13 +37,13 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patch paths
-- From any current release to the next. For example, a patch from 1.12.0 to 1.12.1 would be supported.
-- From any current release to an identical release. For example, a patch from 1.12.0 to 1.12.0 would be supported. This is useful for making configuration changes.
+- From any current release to the next. For example, a patch from 2.1.4 to 2.1.5 would be supported.
+- From any current release to an identical release. For example, a patch from 2.1.4 to 2.1.4 would be supported. This is useful for making configuration changes.
 
 
 ## Modifying DC/OS configuration
 
-You **cannot** change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 1.10.x to 1.10.y and add more public agents. You can add more public agents with an update to 1.10.x, and then patch to 1.10.y Or you can patch to 1.10.y and then add more public agents by updating 1.10.y after the patch.
+You **cannot** change your cluster configuration at the same time that you are patching to a new version. Cluster configuration changes must be done with an update to an already installed version. For example, you cannot simultaneously patch a cluster from 2.1.x to 2.1.y and add more public agents. You can add more public agents with an update to 2.1.x, and then patch to 2.1.y Or you can patch to 2.1.y and then add more public agents by updating 2.1.y after the patch.
 
 To modify your DC/OS configuration, you must run the installer with the modified `config.yaml` and update your cluster using the new installation files. Changes to the DC/OS configuration have the same risk as patching a host. Incorrect configurations could potentially crash your hosts, or an entire cluster.
 
@@ -93,11 +93,11 @@ These steps must be performed for version patches and cluster configuration chan
 
 Choose your desired security mode and then follow the applicable patch instructions.
 
-- [Patching DC/OS 1.12 without changing security mode](#current-security)
-- [Patching to DC/OS 1.12 in strict security mode](#strict)
+- [Patching DC/OS 2.1 without changing security mode](#current-security)
+- [Patching to DC/OS 2.1 in strict security mode](#strict)
 
-# <a name="current-security"></a>Patching DC/OS 1.12 without changing security mode
-This procedure patches a DC/OS 1.12 cluster without changing the cluster's [security mode](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="current-security"></a>Patching DC/OS 2.1 without changing security mode
+This procedure patches a DC/OS 2.1 cluster without changing the cluster's [security mode](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
@@ -117,8 +117,8 @@ This procedure patches a DC/OS 1.12 cluster without changing the cluster's [secu
 
 1.  Go to the DC/OS Master [procedure](/mesosphere/dcos/2.1/installing/production/patching/#masters) to complete your installation.
 
-# <a name="strict"></a>Patching to DC/OS 1.12 in strict mode
-This procedure patches to DC/OS 1.12 in strict [security mode](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="strict"></a>Patching to DC/OS 2.1 in strict mode
+This procedure patches to DC/OS 2.1 in strict [security mode](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `strict` security mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
 
@@ -126,8 +126,8 @@ As permissive mode allows some insecure behavior, a cluster may have been compro
 
 **Prerequisites:**
 
-- Your cluster must be a [recently patched version of DC/OS 1.12](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 1.12, you can skip this procedure.
-- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 1.12 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
+- Your cluster must be a [recently patched version of DC/OS 2.1](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 2.1, you can skip this procedure.
+- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 2.1 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
 
 To update a cluster from permissive security to strict security, complete the following procedure:
 
@@ -136,7 +136,7 @@ To update a cluster from permissive security to strict security, complete the fo
 1.  Build your installer package.
 
     1.  Download the `dcos_generate_config.ee.sh` file.
-    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `1.8.8`.
+    1.  Generate the installation files. Replace `<installed_cluster_version>` in the below command with the DC/OS version currently running on the cluster you intend to patch, for example `2.1.0`.
         ```bash
         dcos_generate_config.ee.sh --generate-node-upgrade-script <installed_cluster_version>
         ```
@@ -182,7 +182,7 @@ Proceed with patching every master node one at a time in any order using the fol
         <p class="message--note"><strong>NOTE: </strong>If you are patching from permissive to strict mode, this URL will be "curl https://..." and you will need a JWT for access. </p>
         [enterprise type="inline" size="small" /]
 
-    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.5.1`.
+    1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the patched master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.9.1`.
     1.  Verify that the number of under-replicated ranges in CockroachDB has dropped to zero as the IAM database is replicated to the new master. Run the following command and confirm that the `ranges_underreplicated` column shows only zeros.
     ```bash
     sudo /opt/mesosphere/bin/cockroach node status --ranges --certs-dir=/run/dcos/pki/bouncer --host=$(/opt/mesosphere/bin/detect_ip)
@@ -264,5 +264,5 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes
 
-Packages available in the DC/OS 1.12 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
+Packages available in the DC/OS 2.1 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
 
