@@ -159,7 +159,7 @@ The example allows everyone within the same account to `AssumeRole` with the cre
 ```
 
 To use the role created, attach the following policy to the role which is already attached to your Kommander cluster.
-Replace `YOURACCOUNTRESTRICTION` with the AWS Accoount ID where the role you like to `AssumeRole` is saved. Also, replace `THEROLEYOUCREATED` with the AWS Role name.
+Replace `YOURACCOUNTRESTRICTION` with the AWS Account ID where the role you like to `AssumeRole` is saved. Also, replace `THEROLEYOUCREATED` with the AWS Role name.
 
 ```json
 {
