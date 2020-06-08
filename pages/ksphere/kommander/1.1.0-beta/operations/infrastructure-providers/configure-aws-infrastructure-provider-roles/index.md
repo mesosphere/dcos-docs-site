@@ -215,7 +215,7 @@ Go to  **Administration > Infrastructure Providers** and select the **Add Infras
 
 - Select the Amazon Web Services (AWS) option from the Add Infrastructure Provider.
 - Ensure "Role" is selected as the Authentication Method.
-- Enter a name for your infrastructure provider. Consider choosing a name that matches the AWS user.
+- Enter a name for your infrastructure provider. Select a name that matches the AWS user.
 - Enter the Role ARN.
 - You can add an External ID if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
 
