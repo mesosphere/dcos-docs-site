@@ -7,7 +7,7 @@ excerpt: Configuring an AWS Infrastructure Provider with static credentials
 
 ### Configuring an AWS Infrastructure Provider with static credentials
 
-When configuring a infrastructure provider with static credentials, you need an access id and secret key for a user with a set of minimum capabilities.
+When configuring an infrastructure provider with static credentials, you need an access id and secret key for a user with a set of minimum capabilities.
 
 #### Create a new User via CLI commands
 
