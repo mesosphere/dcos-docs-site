@@ -46,4 +46,4 @@ A set of Grafana dashboards with cost metrics are installed to the centralized G
 https://<CLUSTER_URL>/ops/portal/kommander/monitoring/grafana
 ```
 
-These dashboards provide a global view of accumulated costs from all managed clusters.
+These dashboards provide a global view of accumulated costs from all managed clusters. From the nav in Grafana, you can find these dashboards by selecting those tagged with `cost`, `metrics`, and `utilization`.
