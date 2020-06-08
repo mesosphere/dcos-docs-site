@@ -222,7 +222,7 @@ Go to  **Administration > Infrastructure Providers** and select the **Add Infras
 ![AWS Role Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/infrastructure-provider-form-aws-role.png)
 <br />_AWS Role Infrastructure Provider Form_
 
-After the provider is created, its display name or role can be updated.
+After the provider is created, the display name or role can be updated.
 
 [iam_roles]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/iam-roles-for-amazon-ec2.html
 [external_id]: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_roles_create_for-user_externalid.html
