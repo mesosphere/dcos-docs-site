@@ -49,7 +49,7 @@ The command returns data needed to create your infrastructure provider:
 }
 ```
 
-Next, you will assign the service principal the role of `User Access Administrator`. Replace `APP_ID` with the `appId` value from the output of the previous command:
+Next, assign the service principal the role of `User Access Administrator`. Replace `APP_ID` with the `appId` value from the output of the previous command:
 
 ```
 az role assignment create --assignee "APP_ID" --role "User Access Administrator"
