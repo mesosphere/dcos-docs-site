@@ -18,7 +18,7 @@ render: mustache
 - User management and filesystem permissions by adding the ability to access host path volumes with custom UID/GID
 - Seamless upgrade process
 - EdgeLB integration (limited to notebooks only)
-- Pre-baked Notebook images with different flavors of ML libraries:
+- Pre-baked Notebook images with different flavors of ML libraries
 - TensorFlow,  PyTorch, MXNet as the main ML distributions
 - Added Horovod + Spark for distributed use-cases
 - Notebook image has two flavours: local and distributed
@@ -34,10 +34,8 @@ render: mustache
 
 ## {{ model.techName }} Bug Fixes
 
-- Fixed LD_LIBRARY_PATH to point to correct version of CUDA libraries
-- Fixed Spark Environment to have SPARK_DIST_CLASSPATH set
-- Fixed Service Account file path to allow notebooks to run from any directory
-- Fixed BeakerX configuration file path to allow BeakerX Spark Magic to work from any directory
+- Fixed Allowing spaces in the notebook name
+- Fixed Conda packages directory path for conda virtual environment creation
 
 ## {{ model.techName }} Limitations
 

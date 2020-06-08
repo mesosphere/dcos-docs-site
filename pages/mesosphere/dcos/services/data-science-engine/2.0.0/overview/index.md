@@ -39,6 +39,6 @@ There are several reasons for adopting {{ model.techName }} at the Enterprise le
     - Easy configurable resource quota to dynamically share cluster resources
     - Secure AuthN+Z to the Notebook UI with OpenID Connect 
     - Secured access to datasets on Kerberized HDFS and Authenticated S3 Buckets
-    - Pre-installed Python, R, Scala and many more kernels
-    - Pre-installed Apache Toree kernels (Spark, R, Scala) 
+    - Pre-installed Python and R kernels
+    - Pre-installed Apache Toree kernels (Spark, Scala) 
     - Pre-installed popular Python and R libraries
