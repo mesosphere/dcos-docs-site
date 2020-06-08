@@ -12,7 +12,7 @@ To provision new clusters and manage them, Kommander needs cloud provider creden
 
 ### Viewing and Modifying Infrastructure Providers
 
-Cloud Provider credentials are configured within each workspace, so you must first select a workspace. Then, navigate to the Cloud Providers option under Administration.
+Cloud Provider credentials are configured in each workspace, so you must first select a workspace. Then, navigate to the Cloud Providers option under Administration.
 
 ![Empty Infrastructure Providers Page](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
 <br />_Empty Infrastructure Providers Page_
