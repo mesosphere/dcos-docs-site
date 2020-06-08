@@ -79,4 +79,4 @@ Navigate to **Administration > Infrastructure Providers** and click the **Add In
 ![Azure Infrastructure Provider Form with values](/ksphere/kommander/1.1.0-beta/img/Azure-Infrastructure-provider-with-values.png)
 <br />_Azure Infrastructure Provider Form with values_
 
-After the provider is created, its display name or credentials can be updated.
+After the infrastructure provider is created, its display name or credentials can be updated.
