@@ -3,15 +3,15 @@ layout: layout.pug
 navigationTitle: Encrypt Data
 title: Encrypt Data
 menuWeight: 10
-excerpt: How to enable and configure encryption of Kubernetes secret data at rest.
+excerpt: Enable and configure Kubernetes secret data encryption at rest
 
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
-# Encrypt Secret data at Rest
+# Encrypt Secret data at rest
 
-For more details and examples, please refer to [upstream documentation](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/).
+For more details and examples, see the [Kubernetes upstream documentation](https://kubernetes.io/docs/tasks/administer-cluster/encrypt-data/).
 
 ## Configuring
 
@@ -70,13 +70,13 @@ kubectl get secrets --all-namespaces -o json | kubectl replace -f -
 The command reads all secrets and then updates them to apply server side encryption. If an error occurs due to a conflicting write, retry the command. For larger clusters, you may wish to subdivide the secrets by namespace or script an update.
 
 ## Verify that secrets are encrypted
-1. Exec into one of the etcd pods: 
+1. Execute into one of the etcd pods: 
 
  ```dcos exec -it etcd-0-peer /bin/bash```
 
-2. Fetch a secret using etcdctl: 
+1. Fetch a secret using etcdctl: 
 
-    **NOTE:** For example purposes `namespace=default secret=testing-secret`
+    **NOTE:** For example purposes, use `namespace=default secret=testing-secret`.
 
  ```bash
     ETCDCTL_API=3 \
@@ -87,5 +87,3 @@ The command reads all secrets and then updates them to apply server side encrypt
       --endpoints=https://${TASK_NAME}.${FRAMEWORK_HOST}:${ETCD_LISTEN_CLIENT_PORT} \
       get '/"/registry/cluster-0"/secrets/default/testing-secret' | od -cb
   ```
-
-
