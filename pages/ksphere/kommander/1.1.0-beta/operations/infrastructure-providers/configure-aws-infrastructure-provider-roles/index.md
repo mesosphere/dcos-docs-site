@@ -205,7 +205,7 @@ EOF
 
 In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
+Go to  **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
 
 ![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
 <br />_Adding an Infrastructure Provider_
