@@ -8,7 +8,7 @@ excerpt: A guide for creating Konvoy clusters on Azure
 
 ## Prerequisites
 
-Configured [Azure Cloud Provider](/ksphere/kommander/latest/operations/infrastructure-providers/#configuring-an-azure-infrastructure-provider)
+Configured [Azure Infrastructure Provider](/ksphere/kommander/latest/operations/infrastructure-providers/#configuring-an-azure-infrastructure-provider)
 
 ## Simplified Cluster Creation on Azure
 
@@ -27,8 +27,10 @@ Now select the preconfigured [Azure Infrastructure Provider](/ksphere/kommander/
 - **VNET Resource Group**: The resource group where the Azure assets are assigned.
 - **VNET Route Table**: HELP NEEDED
 - **Configure Node Pools**: Specify pools of nodes, their size, and quantity. The suggested default is a control plane pool containing 3 Standard_DS3_v2 nodes and a worker pool containing 6 Standard_DS3_v2 nodes. You can also specify labels, node taints, and subnet ID's as part of each pool.
-- **Add Cloud Provider Tags**: Specify tags on all resources created in your cloud provider for this cluster. You can add up to 10 tags in this form. Different cloud providers have varying restrictions on their tags. See the [Azure Tags User Guide][azure_tags] for more information about using tags in Azure.
-- **Add Labels**: By default, your cluster has some suggested labels that reflect the cloud provider provisioning. For example, in Azure your cluster may be labelled with the datacenter region as well as `provider: azure`. Cluster labels are matched to the selectors created for projects. Changing a cluster label may add or remove the cluster from projects.
+- **Add Infrastructure Provider Tags**: Specify tags on all resources created in your infrastructure provider for this cluster. You can add up to 10 tags in this form. Different infrastructure providers have varying restrictions on their tags. See the [Azure Tags User Guide][azure_tags] for more information about using tags in Azure.
+- **Add Labels**: By default, your cluster has some suggested labels that reflect the infrastructure provider provisioning. For example, in Azure your cluster may be labelled with the datacenter region as well as `provider: azure`. Cluster labels are matched to the selectors created for projects. Changing a cluster label may add or remove the cluster from projects.
+
+#Additional Information
 
 [azure-regions]: https://azure.microsoft.com/en-us/global-infrastructure/regions/
 [azure_tags]: https://docs.microsoft.com/en-us/azure/azure-resource-manager/management/tag-resources
