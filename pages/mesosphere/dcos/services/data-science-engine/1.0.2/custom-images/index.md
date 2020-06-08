@@ -9,7 +9,7 @@ model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
 ---
 
-This guide will show you how to build a custom Docker image both for Notebook and Worker. You can use these custom-built images with libraries used in distributed Spark jobs and/or Jupyter Notebook.
+This guide will show you how to build a custom Docker image for Spark Executor. You can use these custom-built images with libraries used in distributed Spark jobs.
 
 1. To identify the currently used image, open a **Terminal** from the Notebook UI and run the following command:
 
