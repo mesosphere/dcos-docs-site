@@ -5,7 +5,9 @@ title: On-Premises Infrastrucutre Provider
 excerpt: Configuring an On-Premises infrastructure provider
 ---
 
-When creating an On-Premise provider, you need a private SSH key.
+## Before you begin
+
+- A private SSH key.
 
 ### Configure an On Premise provider
 
