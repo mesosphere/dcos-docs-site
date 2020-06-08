@@ -35,4 +35,4 @@ Cloud Provider credentials are configured in each workspace, so you must first s
 
 ### Deleting an infrastructure provider
 
-Before attempting to delete an infrastructure provider, Kommander first verifies if any existing managed clusters were created using this provider. The infrastructure provider cannot be deleted until all clusters, created with the infrastructure provider, have been deleted. This ensures Kommander has access to your cloud provider to remove all resources created for a managed cluster.
+Before deleting an infrastructure provider, Kommander verifies if any existing managed clusters were created using this provider. The infrastructure provider cannot be deleted until all clusters, created with the infrastructure provider, have been deleted. This ensures Kommander has access to your cloud provider to remove all resources created for a managed cluster.
