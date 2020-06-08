@@ -7,7 +7,7 @@ excerpt: Configuring an Azure Infrastructure Provider
 
 ### Configuring an Azure infrastructure provider
 
-Before you configure an Azure Infrastructure Provider it's necessary to [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
+Before you configure an Azure Infrastructure Provider you must [install the Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest)
 
 #### Create a new set of credentials using CLI commands
 
