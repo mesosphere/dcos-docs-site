@@ -15,7 +15,7 @@ There are 16 docker images published in total. You could pick any one of them to
 
 Here is the list of published docker images:
 
-```
+```text
 # CPU based Notebook images for each DL Framework supported
 "mesosphere/jupyter-service:cea0efa8e0578237d4247568be579904e0af1da4834ed17f166f06f7ef5be0f2-notebook-mxnet-1.6.0"
 "mesosphere/jupyter-service:cd69c9346db5f94c2d819c81159c74c72f94c5bf0f1c87cd273f165c2a0b26bc-notebook-pytorch-1.4.0"
@@ -41,64 +41,132 @@ Here is the list of published docker images:
 "mesosphere/jupyter-service:ea9c3ed28ef2464bb4e6ff2e24fb227eabeca8939d0e58f7b5f228e224cf8dbf-worker-tensorflow-2.1.0-gpu"
 ```
 
-## Steps to Build
+## Customize Notebook Image
 
-1. **Choose the image to customize**: Suppose you want to make a library available for notebooks as well as workers and you have planned it to run on CPU with Pytorch, then you need to pick these two images to customize.
+1. **Choose an image to customize**:
+    Suppose you want to make a JupyterLab Extension available for your notebooks and you have planned it to run on CPU with MxNet, then you need to pick this image to customize.
 
+    ```text
+    mesosphere/jupyter-service:cea0efa8e0578237d4247568be579904e0af1da4834ed17f166f06f7ef5be0f2-notebook-mxnet-1.6.0
     ```
-    mesosphere/jupyter-service:cd69c9346db5f94c2d819c81159c74c72f94c5bf0f1c87cd273f165c2a0b26bc-notebook-pytorch-1.4.0
 
-    mesosphere/jupyter-service:0ef22682b45fde63038ebda6f4edce4620db45e72f44365f4c6cdcf4e3ead81b-worker-pytorch-1.4.0
-    ```
-
-1. **Create Dockerfile**: We will use `conda install -yq spacy` as an example, and will install `spacy` for demo purposes. On your personal laptop or server, run the following commands:
+1. **Create a Dockerfile**:
+    We will use `@jupyterlab/fasta-extension` as an example. On your personal laptop or server, run the following commands:
 
     ```bash
-    mkdir notebook          # Create a directory for notebook image
+    mkdir notebook          # Create a directory for notebook image, you could pick anyname
     vi notebook/Dockerfile  # Create a docker file with below mentioned content
     ```
 
     ```dockerfile
-    mesosphere/jupyter-service:cd69c9346db5f94c2d819c81159c74c72f94c5bf0f1c87cd273f165c2a0b26bc-notebook-pytorch-1.4.0
+    FROM mesosphere/jupyter-service:cea0efa8e0578237d4247568be579904e0af1da4834ed17f166f06f7ef5be0f2-notebook-mxnet-1.6.0
 
-    RUN conda install -yq spacy
+    RUN ${CONDA_DIR}/bin/jupyter labextension install --no-build \
+          @jupyter-widgets/jupyterlab-manager@2.0.0 \
+          @jupyterlab/fasta-extension@2.0.0 \
+        && ${CONDA_DIR}/bin/jupyter lab build --minimize=False --dev-build=False
     ```
 
+1. **Build and push the Dockerfile**:
+    From directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image name is `jupyter-with-extension:notebook`, the commands will be:
+
     ```bash
-    mkdir worker            # Create a directory for worker image
+    cd notebook
+    docker build -t docker123/jupyter-with-extension:notebook .
+    docker push docker123/jupyter-with-extension:notebook
+    ```
+
+1. **Run the service with custom image**:
+    You could specify this custom built image in the config of the service as follows:
+
+    ```json
+    {
+        "advanced": {
+            "jupyter_notebook_image": "docker123/jupyter-with-extension:notebook"
+        }
+    }
+    ```
+
+## Example Notebook for Custom Notebook Image
+
+In the following example, you will use an extension that we installed in a custom image.
+
+Open a `Python Notebook` and put the following in a code cell:
+
+```python
+from IPython.display import display
+ 
+def Fasta(data=''):
+    bundle = {}
+    bundle['application/vnd.fasta.fasta'] = data
+    bundle['text/plain'] = data
+    display(bundle, raw=True)
+ 
+Fasta(""">SEQUENCE_1
+MTEITAAMVKELRESTGAGMMDCKNALSETNGDFDKAVQLLREKGLGKAAKKADRLAAEG
+LVSVKVSDDFTIAAMRPSYLSYEDLDMTFVENEYKALVAELEKENEERRRLKDPNKPEHK
+IPQFASRKQLSDAILKEAEEKIKEELKAQGKPEKIWDNIIPGKMNSFIADNSQLDSKLTL
+MGQFYVMDDKKTVEQVIAEKEKEFGGKIKIVEFICFEVGEGLEKKTEDFAAEVAAQL
+>SEQUENCE_2
+SATVSEINSETDFVAKNDQFIALTKDTTAHIQSNSLQSVEELHSSTINGVKFEEYLKSQI
+ATIGENLVVRRFATLKAGANGVVNGYIHTNGRVGVVIAAACDSAEVASKSRDLLRQICMH""")
+```
+
+Expected output would be:
+
+![FASTA Extension Example](/mesosphere/dcos/services/data-science-engine/img/jupyterlab-fasta-extension-example.png)
+
+
+## Customize Worker Image
+
+1. **Choose an image to customize**:
+    Suppose you want to make a library available for workers or Spark executors and you have planned it to run on CPU with MxNet, then you need to pick this image to customize.
+
+    ```
+    mesosphere/jupyter-service:5f4660355a05c8e10675e4f5064e1d77c7eea1a9e94f4b2bd9522165f38a3fdf-worker-mxnet-1.6.0
+    ```
+
+1. **Create a Dockerfile**:
+    We will use `conda install -yq spacy` as an example, and will install `spacy` for demo purposes. On your personal laptop or server, run the following commands:
+
+    ```bash
+    mkdir worker            # Create a directory for worker image, you could pick anyname
     vi worker/Dockerfile    # Create a docker file with below mentioned content
     ```
 
     ```dockerfile
-    mesosphere/jupyter-service:0ef22682b45fde63038ebda6f4edce4620db45e72f44365f4c6cdcf4e3ead81b-worker-pytorch-1.4.0
+    FROM mesosphere/jupyter-service:5f4660355a05c8e10675e4f5064e1d77c7eea1a9e94f4b2bd9522165f38a3fdf-worker-mxnet-1.6.0
 
     RUN conda install -yq spacy
     ```
 
-1. **Build and push the Dockerfile**: From the each directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image names are `spacy-example:notebook` and `spacy-example:worker`, the commands will be:
+1. **Build and push the Dockerfile**:
+    From the directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image name is `spacy-example:worker`. Run the following commands:
 
     ```bash
-    cd notebook
-    docker build -t docker123/spacy-example:notebook .
-    docker push docker123/spacy-example:notebook
-
     cd worker
     docker build -t docker123/spacy-example:worker .
     docker push docker123/spacy-example:worker
     ```
 
-1. **Run the service with custom image**: You could specify these custom built images in the config of the service as follows:
+1. **Run the service or spark job with custom image**:
+    You could specify this custom built image in the config of the service as follows:
 
     ```json
     {
         "advanced": {
-            "jupyter_notebook_image": "docker123/spacy-example:notebook",
             "jupyter_worker_image": "docker123/spacy-example:worker"
         }
     }
     ```
 
-## Example Notebook
+    Or you could directly specify this image in the configuration of the Spark Job as follows:
+
+    ```python
+    spark = SparkSession.builder.config("spark.mesos.executor.docker.image", "docker123/spacy-example:worker").appName("SparkJobName").getOrCreate()
+    ```
+
+## Example Notebook for Custom Worker Image
 
 In the following example, you will use a user-defined function to import a library we installed in a custom image.
 
@@ -107,7 +175,7 @@ Open a `Python Notebook` and put the following in a code cell:
 ```python
 import pyspark
 from pyspark.sql import SparkSession
-spark = SparkSession.builder.appName("Test UDF").getOrCreate()
+spark = SparkSession.builder.config("spark.mesos.executor.docker.image", "docker123/spacy-example:worker").appName("Test UDF").getOrCreate()
 
 from pyspark.sql.types import StringType
 

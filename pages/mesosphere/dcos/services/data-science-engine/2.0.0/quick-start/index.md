@@ -14,7 +14,6 @@ This guide explains how to install the {{ model.techName }} Service.
 
 # Prerequisites
 
-
 - DC/OS and DC/OS CLI installed with a minimum of {{ model.nodeDescription }}.
 - Depending on your security mode, {{ model.techName }} requires service authentication for access to DC/OS. See [Provisioning a service account](/mesosphere/dcos/services/data-science-engine/2.0.0/security/#provisioning-a-service-account) for more information.
 
@@ -77,7 +76,7 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
 
     Figure 1 - Open new Jupyter window
 
-    This will open a new window or tab in the browser for JupyterLab.  Log in using the password specified during the installation of the {{ model.packageName }} package in **Service -> Jupyter Password** option or use `jupyter` by default.
+    This will open a new window or tab in the browser for JupyterLab.  Log in using the password if specified during the installation of the {{ model.packageName }} package in **Service -> Jupyter Password** option.
 
 1. In JupyterLab, create a new notebook by selecting **File > New > Notebook**:
 
