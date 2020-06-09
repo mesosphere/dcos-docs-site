@@ -23,7 +23,7 @@ konvoy init --provisioner=none [--cluster-name <your-specified-name>]
 
 After editing the inventory file, edit the generated cluster.yaml file. The cluster.yaml file provides the configuration details for creating your Konvoy cluster.
 
-See the [Install on-premise](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
+See the [Install on-premises](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
 
 ## Provision in UI
 
