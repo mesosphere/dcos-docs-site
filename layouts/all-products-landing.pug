@@ -1,5 +1,4 @@
 - var paths = path.split('/')
-- var semanticVersion = /^[0-9]\.[0-9].*$/
 
 - var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
 - var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
@@ -77,14 +76,6 @@ html(lang='en')
             i(data-feather='chevron-down')
         include partials/header/mesosphere-dropdown.pug
         include partials/header/ksphere-dropdown.pug
-          //- nav(class='header__menu')
-          //-   ul(class='header__menu-list')
-          //-     each val, index in headerItems
-          //-       - var itemClass = {}
-          //-       - itemClass['header__menu-item'] = true
-          //-       - itemClass['header__menu-item--active'] = val.path == '/'
-          //-       li(class=itemClass)
-          //-         a(href=val.path)!= val.title
       include partials/header/header-dropdown.pug
       div(class='landing__main-hero')
         div(class='landing__hero-tile-container')

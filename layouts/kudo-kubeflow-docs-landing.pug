@@ -1,18 +1,11 @@
 - var paths = path.split('/')
-- var semanticVersion = /^[0-9]\.[0-9].*$/
-- var currentProduct = paths[1]
-- var ksphereDocs = hierarchy.children.filter(child => child.id === 'ksphere')[0]
-- var kubeflowDocs = ksphereDocs.children.filter(child => child.id == 'kubeflow')[0]
-- var latestKubeflowDocs = kubeflowDocs.children.filter(child => child.id == kubeflowDocsLatest)[0]
-
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('kubeflow-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
-
 - var sectionTitle = 'KUDO Kubeflow Documentation'
 
 mixin renderGridToc()
   div(class='grid-toc')
-    each val, index in latestKubeflowDocs.children
+    each val, index in hierarchy.findByPath(`ksphere/kubeflow/${kubeflowDocsLatest}`).children
       if val.menuWeight != -1
         div(class='grid-toc__item')
           h2(class='grid-toc__title')

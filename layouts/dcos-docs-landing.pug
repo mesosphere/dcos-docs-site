@@ -1,17 +1,11 @@
-- var paths = path.split('/')
-- var semanticVersion = /^[0-9]\.[0-9].*$/
-- var mesoDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
-- var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
-- var latestDcosDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
-
+- var latestPath =`mesosphere/dcos/${dcosDocsLatest}`
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
-
 - var sectionTitle = 'DC/OS Documentation'
 
 mixin renderGridToc()
   div(class='grid-toc')
-    each val, index in latestDcosDocs.children
+    each val, index in hierarchy.findByPath(latestPath).children
       if val.menuWeight != -1
         div(class='grid-toc__item')
           h2(class='grid-toc__title')
@@ -33,7 +27,7 @@ mixin renderGridToc()
 
 mixin renderGrid()
   div(class='grid')
-    a(href=latestDcosDocs.path + '/installing', class='grid__item')
+    a(href=latestPath + '/installing', class='grid__item')
       h3(class='grid__header') Install DC/OS
       div(class='grid__desc__wrapper')
         p(class='grid__desc') Installation involves configuring your infrastructure and installing DC/OS bits on top, so the infrastructure provider you choose determines your installation method. Select from development, cloud, and on-premises.

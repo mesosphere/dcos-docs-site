@@ -1,19 +1,10 @@
-- var paths = path.split('/')
-- var currentPath = '/' + path
-- var mesosDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
-- var dcosDocs = mesosDocs.children.filter(child => child.id == 'dcos')[0]
-- var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
-- var items = cnDocs.children.filter(child => child.id == 'services')[0]
-//- - var items = svDocs.children
-
-//- - var items = hierarchy.children.find(el => el.path === `/dcos/cn`).children.find(el => el.path === `/cn/services`)
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-cn-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 - var semverService = /^(v|)[0-9](.*)/
 
 mixin renderGridToc()
   div(class='grid-toc')
-    each val, index in items.children
+    each val, index in hierarchy.findByPath(`mesosphere/dcos/cn/services`).children
       if val.menuWeight != -1
         if val.children
           each childVal, childIndex in val.children
