@@ -210,7 +210,7 @@ Here is the example vpc-peering-section
 
 module "vpc-connection-master-usw2" {
   source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 2.0.0"
+  version = "~> 0.2.0"
 
   providers = {
     "aws.local"  = "aws.master"
@@ -408,7 +408,7 @@ module "dcos-usw2" {
 
 module "vpc-connection-master-usw2" {
   source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 2.0.0"
+  version = "~> 0.2.0"
 
   providers = {
     "aws.local"  = "aws.master"
