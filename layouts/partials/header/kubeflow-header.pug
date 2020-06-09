@@ -1,14 +1,10 @@
 - var menuPages = hierarchy.find('menus')
-
 - var productPages = menuPages.filter(page => page.menus.indexOf('kubeflow-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
-
 - var sectionTitle = 'KUDO Kubeflow Documentation'
 
 //TODO:: refactor itemActive
 - function isItemActive(itemPath)
-    if itemPath == '/ksphere/kubeflow/latest'
-        if paths[2] == 'latest'
-            - return true
+  - return itemPath === path
 
 include header.pug
