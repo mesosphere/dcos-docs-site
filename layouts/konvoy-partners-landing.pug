@@ -63,7 +63,8 @@ html(lang='en')
   body(class='landing landing--services')
     div(class='layout')
       div(role='main', class='layout__content')
-        include partials/header/konvoy-header.pug
+        - var sectionTitle = 'Konvoy Documentation'
+        include partials/header/header.pug
         div(class='landing__hero')
           h1(class='landing__title') Konvoy Partner Solutions
         div(class='landing__container')

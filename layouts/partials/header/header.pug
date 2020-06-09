@@ -1,4 +1,6 @@
 - var [ sphere, product ] = paths
+- isItemActive = isItemActive || function(itemPath){ return itemPath === path || itemPath === "/" + path }
+- pages = pages || hierarchy.find('menus', (menus) => menus.includes(`${product}-header`))
 
 header(class='header')
   a(class='header__drawer')

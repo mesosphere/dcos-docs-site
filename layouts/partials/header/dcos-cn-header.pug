@@ -1,11 +1,9 @@
 - var semanticVersion = /^[0-9]+\.[0-9]+/
-- var menuPages = hierarchy.find('menus')
-- var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-cn-header') != -1)
-- var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
+- var pages = hierarchy.find('menus','dcos-cn-header')
 
 - function isItemActive(itemPath)
   if itemPath == '/mesosphere/dcos/cn'
-    if path == '/mesosphere/dcos/cn'
+    if path == itemPath
       - return true
     - return semanticVersion.test(paths[2])
   if itemPath == '/mesosphere/dcos/cn/services'
