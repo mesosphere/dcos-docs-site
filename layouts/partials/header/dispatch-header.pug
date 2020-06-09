@@ -3,10 +3,6 @@
 
 - var productPages = menuPages.filter(page => page.menus.indexOf('dispatch-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
-
-- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'ksphere')
-
 - var sectionTitle = 'Dispatch Documentation'
 
 //TODO:: refactor konvoy itemActive

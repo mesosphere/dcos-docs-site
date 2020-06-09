@@ -1,15 +1,15 @@
-- 
+-
   var menus = [{
     "title": "Ksphere",
     "children": [
       {
-        "title": "Konvoy", 
+        "title": "Konvoy",
         "path":"/ksphere/konvoy"
       }, {
-        "title": "Partner Solutions", 
+        "title": "Partner Solutions",
         "path":"/ksphere/konvoy/partner-solutions"
       }, {
-        "title": "Kommander", 
+        "title": "Kommander",
         "path":"/ksphere/kommander"
       }, {
         "title": "Dispatch",
@@ -23,10 +23,10 @@
     "title": "Mesosphere",
     "children": [
       {
-        "title": "DC/OS", 
+        "title": "DC/OS",
         "path":"/mesosphere/dcos"
       }, {
-        "title": "DC/OS Services", 
+        "title": "DC/OS Services",
         "path":"/mesosphere/dcos/services"
       }
     ]
@@ -44,10 +44,3 @@ div(class='header-dropdown')
           a(href=val.path)!= val.title
     li(class='header-dropdown__item')
         a(href='https://support.d2iq.com') Support
-    //- if headerSphereItems
-    //-   each sphere in headerSphereItems
-    //-     //- li(class='header-dropdown__item')
-    //-     //-   a(href=sphere.path)!= sphere.title
-    //-     each prod in sphere.children
-    //-       li(class='header-dropdown__item')
-    //-         a(href=prod.path)!= prod.title

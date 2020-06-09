@@ -4,10 +4,6 @@
 - var dcosDocs = mesosDocs.children.filter(child => child.id == 'dcos')[0]
 - var cnDocs = dcosDocs.children.filter(child => child.id == 'cn')[0]
 - var latestDocs = cnDocs.children.filter(child => child.id == dcosCNDocsLatest )[0]
-//- - var latestDocs = hierarchy.children.find(el => el.path === `/dcos`).children.find(el => el.path === `/cn/1.11`)
-- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'mesosphere')
-
 
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-cn-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
@@ -15,8 +11,6 @@
 - var isDCOS = paths[1] == 'dcos'
 
 - var sectionTitle = 'DC/OS 文档'
-//- if paths[3] === 'services'
-//-   - sectionTitle = '服务文档'
 
 mixin renderGridToc()
   div(class='grid-toc')
@@ -80,8 +74,7 @@ html(lang='en')
                 - itemClass['header__menu-item--active'] = val.path == '/mesosphere/dcos/cn'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
-        if headerSphereItems
-          include partials/header/ksphere-dropdown.pug
+        include partials/header/ksphere-dropdown.pug
         include partials/header/localization-dropdown.pug
         section(class='header__search', role='search')
           form(class='header__search-form', action='/search/', method='GET')
