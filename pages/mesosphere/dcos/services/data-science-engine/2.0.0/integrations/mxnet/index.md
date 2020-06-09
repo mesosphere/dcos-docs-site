@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: MXNet
-excerpt: Using MXNet with DC/OS Data Science Engine
-title: MXNet
+navigationTitle: MxNet
+excerpt: Using MxNet with DC/OS Data Science Engine
+title: MxNet
 menuWeight: 12
 model: /mesosphere/dcos/services/data-science-engine/data.yml
 render: mustache
@@ -10,33 +10,39 @@ enterprise: true
 
 ---
 
-# MXNet local machine learning
+To Install {{ model.techName }} with MxNet. Run the following command:
 
-1. Install Data Science Engine with MXNet support.
-    ```bash
-    dcos package install --options=options.json {{ model.serviceName }}
-   ```
+```bash
+dcos package install --options=options.json {{ model.serviceName }}
+```
 
-    With `options.json` having the following content:
+With `options.json` having the following content:
 
-    ```json
-    {
-      "service": {
+```json
+{
+    "service": {
         "jupyter_notebook_type": "MxNet-1.6.0"
-      }
     }
-    ```
-   
+}
+```
+
+# MxNet local machine learning
+
 Open a `Python 3` Notebook and put the following sections in different code cells.
+
 1. Training settings
+
     ```python
     batch_size = 100
     epochs = 1
     ```
-1. Describe layers of the model    
+
+1. Describe layers of the model
+
    ```python
     import mxnet as mx
     import logging
+
     logging.getLogger().setLevel(logging.DEBUG)  # logging to stdout
     
     mnist = mx.test_utils.get_mnist()
@@ -45,26 +51,32 @@ Open a `Python 3` Notebook and put the following sections in different code cell
     val_iter = mx.io.NDArrayIter(mnist['test_data'], mnist['test_label'], batch_size)
     
     data = mx.sym.var('data')
+
     # first conv layer
     conv1 = mx.sym.Convolution(data=data, kernel=(5,5), num_filter=20)
     tanh1 = mx.sym.Activation(data=conv1, act_type="tanh")
     pool1 = mx.sym.Pooling(data=tanh1, pool_type="max", kernel=(2,2), stride=(2,2))
+
     # second conv layer
     conv2 = mx.sym.Convolution(data=pool1, kernel=(5,5), num_filter=50)
     tanh2 = mx.sym.Activation(data=conv2, act_type="tanh")
     pool2 = mx.sym.Pooling(data=tanh2, pool_type="max", kernel=(2,2), stride=(2,2))
+
     # first fullc layer
     flatten = mx.sym.flatten(data=pool2)
     fc1 = mx.symbol.FullyConnected(data=flatten, num_hidden=500)
     tanh3 = mx.sym.Activation(data=fc1, act_type="tanh")
+
     # second fullc
     fc2 = mx.sym.FullyConnected(data=tanh3, num_hidden=10)
+
     # softmax loss
     lenet = mx.sym.SoftmaxOutput(data=fc2, name='softmax')
     ```
+
 1. Create a trainable module
+
     ```python
-    # create a trainable module
     context = mx.cpu()
     if mx.context.num_gpus() > 0:
         context = mx.gpu()
@@ -83,31 +95,21 @@ Open a `Python 3` Notebook and put the following sections in different code cell
     prob = lenet_model.predict(test_iter)
     test_iter = mx.io.NDArrayIter(mnist['test_data'], mnist['test_label'], batch_size)
     ```
-1. Predict accuracy 
-    ```python
-    
+
+1. Predict accuracy
+
+    ```python    
     acc = mx.metric.Accuracy()
     lenet_model.score(test_iter, acc)
     print(acc)
     ```
-# MXNet Distributed Learning with Horovod on Spark
-1. Install Data Science Engine with MXNet support.
-    ```bash
-    dcos package install --options=options.json {{ model.serviceName }}
-   ```
 
-    With `options.json` having the following content:
-
-    ```json
-    {
-      "service": {
-        "jupyter_notebook_type": "MxNet-1.6.0"
-      }
-    }
-    ```
+# MxNet Distributed Learning with Horovod on Spark
 
 Open a `Python 3 `Notebook and put the following sections in different code cells.
+
 1. Function to get mnist iterator given a rank
+
     ```python
     def get_mnist_iterator(rank, size, batch_size):
         import zipfile
@@ -148,7 +150,9 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
     
         return train_iter, val_iter
     ```
-1. Describe layers of the model    
+
+1. Describe layers of the model
+
     ```python
     def conv_net():
         import mxnet as mx
@@ -169,13 +173,17 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
         flatten = mx.sym.flatten(data=pool2)
         fc1 = mx.symbol.FullyConnected(data=flatten, num_hidden=50)
         relu3 = mx.sym.Activation(data=fc1, act_type='relu')
+
         # second fully connected layer
         fc2 = mx.sym.FullyConnected(data=relu3, num_hidden=10)
+
         # softmax loss
         loss = mx.sym.SoftmaxOutput(data=fc2, name='softmax')
         return loss
     ```
-1. Implement distributed training function using `Horovod`   
+
+1. Implement distributed training function using `Horovod`
+
     ```python
     def train_hvd():
         import horovod.mxnet as hvd
@@ -239,18 +247,24 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
         if hvd.rank() == 0:
             print(acc)
     ```
-1. Create Spark Session.   
+
+1. Create Spark Session
+
     ```python
     from pyspark.sql import SparkSession
     spark = SparkSession.builder.appName("MxNetHorovodOnSpark").getOrCreate()
     ```
+
 1. Run distributed training 
+
     ```python
     # Horovod: run training.
     import horovod.spark
     horovod.spark.run(train_hvd, verbose=2)
     ```
-1. Shutdown Spark workers   
+
+1. Shutdown Spark workers
+
     ```python
     spark.stop()
     ```

@@ -10,24 +10,28 @@ enterprise: true
 
 ---
 
-# PyTorch local machine learning 
+To Install {{ model.techName }} with PyTorch. Run the following command:
 
-1. Install Data Science Engine with PyTorch support.
-    ```bash
-    dcos package install --options=options.json {{ model.serviceName }}
-   ```
+```bash
+dcos package install --options=options.json {{ model.serviceName }}
+```
 
-    With `options.json` having the following content:
+With `options.json` having the following content:
 
-    ```json
-    {
-      "service": {
+```json
+{
+    "service": {
         "jupyter_notebook_type": "PyTorch-1.4.0"
-      }
     }
-    ```
- Open a `Python 3` Notebook and put the following sections in different code cells.
-1. Training settings.
+}
+```
+
+# PyTorch local machine learning
+
+Open a `Python 3` Notebook and put the following sections in different code cells.
+
+1. Training settings
+
    ```python
     batch_size = 1000        # input batch size for training
     test_batch_size = 1000   # input batch size for testing
@@ -37,10 +41,11 @@ enterprise: true
     seed = 1                 # random seed
     log_interval = 10        # how many batches to wait before logging training status
     ```
-1. Describe layers of the model.   
+
+1. Describe layers of the model
+
     ```python
     from __future__ import print_function
-    import argparse
     import torch
     import torch.nn as nn
     import torch.nn.functional as F
@@ -72,7 +77,9 @@ enterprise: true
             output = F.log_softmax(x, dim=1)
             return output
     ```
-1. Implement train function.
+
+1. Implement train function
+
     ```python
     def train(model, device, train_loader, optimizer, epoch, log_interval):
         model.train()
@@ -88,7 +95,9 @@ enterprise: true
                     epoch, batch_idx * len(data), len(train_loader.dataset),
                     100. * batch_idx / len(train_loader), loss.item()))
     ```
-1. Implement test function.
+
+1. Implement test function
+
     ```python
     def test(model, device, test_loader):
         model.eval()
@@ -108,7 +117,9 @@ enterprise: true
             test_loss, correct, len(test_loader.dataset),
             100. * correct / len(test_loader.dataset)))
     ```
-1. Training model   
+
+1. Training model
+
     ```python
     use_cuda = torch.cuda.is_available()
     
@@ -127,7 +138,6 @@ enterprise: true
     model = Net().to(device)
     optimizer = optim.Adadelta(model.parameters(), lr=lr)
     
-    
     scheduler = StepLR(optimizer, step_size=1, gamma=gamma)
     for epoch in range(1, epochs + 1):
         train(model, device, train_loader, optimizer, epoch, log_interval)
@@ -137,23 +147,10 @@ enterprise: true
 
 # PyTorch Distributed Learning with Horovod on Spark
 
-1. Install Data Science Engine with PyTorch.
-    ```bash
-    dcos package install --options=options.json {{ model.serviceName }}
-   ```
-
-    With `options.json` having the following content:
-
-    ```json
-    {
-      "service": {
-        "jupyter_notebook_type": "PyTorch-1.4.0"
-      }
-    }
-    ```
-
 Open a `Python 3 `Notebook and put the following sections in different code cells.
-1. Describe layers of the model.    
+
+1. Describe layers of the model
+
     ```python
     import torch
     import torch.nn as nn
@@ -182,7 +179,9 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
             x = self.fc2(x)
             return F.log_softmax(x)
     ```
-1. Implement training function.   
+
+1. Implement training function
+
     ```python
     def train(optimizer, epoch, is_cuda, model, train_sampler, train_loader):
         model.train()
@@ -204,14 +203,18 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
                     100. * batch_idx / len(train_loader), loss.item()))
     
     ```
-1. Averaging of the input tensor over all the Horovod processes.
+
+1. Averaging of the input tensor over all the Horovod processes
+
     ```python
     def metric_average(val, name):
         tensor = torch.tensor(val)
         avg_tensor = hvd.allreduce(tensor, name=name)
         return avg_tensor.item()
     ```
-1. Implement test function.      
+
+1. Implement test function
+
     ```python
     def test(is_cuda, model, test_sampler, test_loader):
         model.eval()
@@ -241,7 +244,9 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
             print('\nTest set: Average loss: {:.4f}, Accuracy: {:.2f}%\n'.format(
                 test_loss, 100. * test_accuracy))
     ```
-1. Implement distributed training function using `Horovod`.   
+
+1. Implement distributed training function using `Horovod`
+
     ```python
     def train_hvd():   
         batch = 1000
@@ -256,8 +261,7 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
             # Horovod: pin GPU to local rank.
             torch.cuda.set_device(hvd.local_rank())
             torch.cuda.manual_seed(42)
-    
-    
+        
         # Horovod: limit # of CPU threads to be used per worker.
         torch.set_num_threads(1)
     
@@ -274,6 +278,7 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
                                transforms.ToTensor(),
                                transforms.Normalize((0.1307,), (0.3081,))
                            ]))
+
         # Horovod: use DistributedSampler to partition the training data.
         train_sampler = torch.utils.data.distributed.DistributedSampler(
             train_dataset, num_replicas=hvd.size(), rank=hvd.rank())
@@ -313,17 +318,23 @@ Open a `Python 3 `Notebook and put the following sections in different code cell
             train(optimizer, epoch, is_cuda, model, train_sampler, train_loader)
             test(is_cuda, model, test_sampler, test_loader)
     ```
-1. Create Spark Session.   
+
+1. Create Spark Session
+
     ```python
     from pyspark.sql import SparkSession
     spark = SparkSession.builder.appName("PyTorchHorovodOnSpark").getOrCreate()
     ```
-1. Run distributed training. 
+
+1. Run distributed training
+
     ```python
     import horovod.spark
     horovod.spark.run(train_hvd, verbose=2)
     ```
-1. Shutdown Spark workers.  
+
+1. Shutdown Spark workers
+
     ```python
     spark.stop()
     ```

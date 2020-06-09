@@ -10,18 +10,34 @@ enterprise: true
 
 ---
 
-# TensorFlow local machine learning 
+To Install {{ model.techName }} with TensorFlow 2.1.0. {{ model.techName }} comes with TensorFlow 2.1.0 support by default. Run the following command:
+
+```bash
+dcos package install {{ model.serviceName }}
+```
+
+To Install {{ model.techName }} with TensorFlow 1.15. Run the following command:
+
+```bash
+dcos package install --options=options.json {{ model.serviceName }}
+```
+
+With `options.json` having the following content:
+
+```json
+{
+    "service": {
+        "jupyter_notebook_type": "TensorFlow-1.15"
+    }
+}
+```
+
+# TensorFlow local machine learning
 
 Open a `Python 3` Notebook and put the following sections in different code cells.
 
-1. Install {{ model.techName }} with TensorFlow.
-    {{ model.techName }} comes with Tensorflow 2.1.0 support by default.
-    
-    ```bash
-    dcos package install {{ model.serviceName }}
-    ```
-
 1. Prepare the test data:
+
     ```python
     import tensorflow as tf
     (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
@@ -36,7 +52,9 @@ Open a `Python 3` Notebook and put the following sections in different code cell
     x_train /= 255
     x_test /= 255
     ```
+
 1. Define a model:
+
     ```python
     from tensorflow.keras.models import Sequential
     from tensorflow.keras.layers import Dense, Conv2D, Dropout, Flatten, MaxPooling2D
@@ -49,7 +67,9 @@ Open a `Python 3` Notebook and put the following sections in different code cell
     model.add(Dropout(0.2))
     model.add(Dense(10,activation=tf.nn.softmax))
     ```
-1. Training and evaluating the model   
+
+1. Training and Evaluating the model
+
     ```python
     model.compile(optimizer='adam',
                   loss='sparse_categorical_crossentropy',
@@ -58,24 +78,24 @@ Open a `Python 3` Notebook and put the following sections in different code cell
 
     model.evaluate(x_test, y_test)
     ```
+
 1. Use the model to predict a hand-written number:
+
     ```python 
     image_index = 5555 # should be '3'
     pred = model.predict(x_test[image_index].reshape(1, 28, 28, 1))
-    print("predicted number: {}".format(pred.argmax()))
+    print("Predicted Number: {}".format(pred.argmax()))
     ```
 
 # TensorFlow 2.1.0 Distributed Learning with Horovod on Spark
 
 {{ model.techName }} includes `Horovod on Spark` integration, which allows you to run TensorFlow in a distributed mode, using Apache Spark as an engine.
 
-Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage backend. 
+Open a `Python 3` Notebook and put the following sections in different code cells.
 
-1. Launch **Python 3** from Notebook UI.
+1. Define Utility functions to prepare dataset and model
 
     ```python
-    # utility functions
-    # Prepare dataset
     def get_dataset(rank=0, size=1):
         import tensorflow as tf
         (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data('MNIST-data-%d' % rank)
@@ -87,7 +107,6 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
         x_train, x_test = x_train / 255.0, x_test / 255.0
         return (x_train, y_train), (x_test, y_test)
     
-    # Describe layers of the model
     def get_model(num_classes=10):
         import tensorflow as tf
         model = tf.keras.models.Sequential([
@@ -99,7 +118,6 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
         
         return model
     
-    # Deserialize a Keras model with a Horovod DistributedOptimizer.
     def deserialize(model_bytes):
         import horovod.tensorflow.keras as hvd
         import h5py
@@ -108,7 +126,9 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
         with h5py.File(bio,'a') as f:
             return hvd.load_model(f)
     ```
- 1. Implement distributed training function using `Horovod`
+
+1. Implement distributed training function using `Horovod`
+
     ```python
     def train_hvd(num_classes=10, learning_rate=0.001, batch_size=128, epochs=2):
         import os
@@ -162,46 +182,41 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
                 return history.history, f.read()
     ```
 
-1. Create Spark Session.
+1. Create Spark Session
+
     ```python
     from pyspark.sql import SparkSession
     spark = SparkSession.builder.appName("TF2HorovodOnSpark").getOrCreate()
     ```
 
-1. Run distributed training 
+1. Run distributed training
+
     ```python
     import horovod.spark
     model_bytes = horovod.spark.run(train_hvd, verbose=2)[0][1]
     ```
    
-1. Evaluate model   
+1. Evaluate model
+
     ```python
     (x_train, y_train), (x_test, y_test) = get_dataset()
     model = deserialize(model_bytes)
     evaluation = model.evaluate(x_test,  y_test, verbose=2)
     print('Model Evaluation:', evaluation)
     ```
-1. Shutdown Spark workers   
+
+1. Shutdown Spark workers
+
     ```python
     spark.stop()
     ```
-   
+
 # TensorFlow 1.15 Distributed Learning with Horovod on Spark
-1. Install {{ model.techName }} with TensorFlow.
-    ```bash
-    dcos package install --options=options.json {{ model.serviceName }}
-   ```
 
-    With `options.json` having the following content:
+Open a `Python 3` Notebook and put the following sections in different code cells.
 
-    ```json
-    {
-      "service": {
-        "jupyter_notebook_type": "TensorFlow-1.15"
-      }
-    }
-    ```
-1.  Describe layers of the model  
+1. Describe layers of the model
+
     ```python
     def conv_model(feature, target, mode):
         import tensorflow as tf
@@ -244,7 +259,9 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
     
         return tf.argmax(logits, 1), loss
     ```
-1. Implement train input generator.
+
+1. Implement train input generator
+
     ```python
     def train_input_generator(x_train, y_train, batch_size=64):
         import numpy as np
@@ -259,7 +276,9 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
                       y_train[index:index + batch_size],
                 index += batch_size
     ```
-1. Implement distributed training function using `Horovod`.
+
+1. Implement distributed training function using `Horovod`
+
     ```python
     def train_hvd():
         import os
@@ -340,17 +359,23 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
                 step += 1
         print('Total Step Taken: {}'.format(step))
     ```
-1. Create Spark Session.
+
+1. Create Spark Session
+
     ```python
     from pyspark.sql import SparkSession
     spark = SparkSession.builder.appName("TF1HorovodOnSpark").getOrCreate()
     ```
-1. Run distributed training.
+
+1. Run distributed training
+
     ```python
     import horovod.spark
     horovod.spark.run(train_hvd, verbose=2)
     ```
-1. Shutdown Spark workers.
+
+1. Shutdown Spark workers
+
     ```python
     spark.stop()
     ```
@@ -362,8 +387,7 @@ Here is an example notebook of `Horovod on Spark` using `HDFS` as a storage back
 
 ## Log directory
 
-TensorBoard reads log data from specific directory, with the default being `/mnt/mesos/sandbox`. It can be changed
-with `advanced.tensorboard_logdir` option. HDFS paths are supported as well.
+TensorBoard reads log data from specific directory, with the default being `/mnt/mesos/sandbox`. It can be changed with `advanced.tensorboard_logdir` option. HDFS paths are supported as well.
 
 Here is an example:
 
@@ -402,4 +426,3 @@ Here is an example:
   }
 }
 ```
-
