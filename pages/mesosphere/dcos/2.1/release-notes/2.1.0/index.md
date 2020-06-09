@@ -44,15 +44,12 @@ Added a new configuration option `mesos_http_executors_domain_sockets`, which wi
 - Marathon no longer sanitizes the field `acceptedResourceRoles`. The field is an array of one or two values: `*` and the service role. Previously, when an invalid value was provided, Marathon would silently drop it. Now, it returns an error. If this causes a disruption, you can re-enable this feature by adding `MARATHON_DEPRECATED_FEATURES=sanitize_accepted_resource_roles` to the file `/var/lib/dcos/marathon/environment` on all masters. You must remove this line before upgrading to the next version of DC/OS.
 - DC/OS Net now waits until agents become active before adding DNS entries for tasks on the agent to prevent resolving to unreachable addresses. (DCOS_OSS-5463)
 - dcos-net (l4lb) allows for graceful shutdown of connections by changing the VIP backend weight to 0 when tasks are unhealthy or enter the TASK_KILLING state instead of removing them. (D2IQ-61077)
-- Removed the octarine package from DC/OS. It was originally used as a proxy for the CLI but is not used for this purpose anymore.
-- Removed the avro-cpp package from DC/OS. It was originally used as part of the metrics-collection framework, which now relies on a different infrastructure.
 - Removed the spartan package from DC/OS. Is was deprecated in 1.11 and replaced by dcos-net.
 - Removed the toybox package from DC/OS. Is was used only by Spartan.
 - Removed the dcos-history-service from DC/OS. (DCOS-58529)
 - New format for Admin Router access logs. (D2IQ-43957, DCOS-59598, D2IQ-62839)
 
 # Component Versions
-
 DC/OS 2.1.0 includes the following component versions:
 
 - Apache&reg; Mesos&reg; 1.10.0-dev
@@ -74,6 +71,8 @@ DC/OS 2.1.0 includes the following component versions:
 - The dcos-diagnostics component now rate limits diagnostic checks to avoid performance slowdowns in large clusters. (COPS-5915)
 - A dcos-cosmos template engine can now accept unescaped raw JSON fields. (COPS-5814)
 - The dcos-telegraf component has been enhanced to allow configuration of the allowed_pending_messages parameter. (COPS-5629)
+- Removed the octarine package from DC/OS.
+- Removed the avro-cpp package from DC/OS.
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
