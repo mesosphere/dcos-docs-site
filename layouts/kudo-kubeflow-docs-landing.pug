@@ -5,9 +5,6 @@
 - var kubeflowDocs = ksphereDocs.children.filter(child => child.id == 'kubeflow')[0]
 - var latestKubeflowDocs = kubeflowDocs.children.filter(child => child.id == kubeflowDocsLatest)[0]
 
-- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'ksphere')
-
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('kubeflow-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
@@ -60,8 +57,7 @@ html(lang='en')
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.d2iq.com') Support
-        if headerSphereItems
-          include partials/header/mesosphere-dropdown.pug
+        include partials/header/mesosphere-dropdown.pug
         section(class='header__search', role='search')
           form(class='header__search-form', action='/ksphere/kubeflow/search/', method='GET')
             label(class='header__search-label', for='header-search-input')

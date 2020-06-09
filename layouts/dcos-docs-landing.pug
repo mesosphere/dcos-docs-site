@@ -4,9 +4,6 @@
 - var dcosDocs = mesoDocs.children.filter(child => child.id == 'dcos')[0]
 - var latestDcosDocs = dcosDocs.children.filter(child => child.id == dcosDocsLatest )[0]
 
-- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'mesosphere')
-
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
@@ -84,8 +81,7 @@ html(lang='en')
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.d2iq.com') Support
-        if headerSphereItems
-          include partials/header/ksphere-dropdown.pug
+        include partials/header/ksphere-dropdown.pug
         include partials/header/localization-dropdown.pug
         section(class='header__search', role='search')
           form(class='header__search-form', action='/mesosphere/dcos/search/', method='GET')

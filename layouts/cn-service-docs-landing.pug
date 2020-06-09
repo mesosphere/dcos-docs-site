@@ -9,8 +9,6 @@
 //- - var items = hierarchy.children.find(el => el.path === `/dcos/cn`).children.find(el => el.path === `/cn/services`)
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dcos-cn-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerSphereItems = headerItems.filter(page => page.id != 'mesosphere')
 - var semverService = /^(v|)[0-9](.*)/
 - var isChinese = paths[2] == 'cn'
 - var isDCOS = paths[1] == 'dcos'

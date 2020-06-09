@@ -5,9 +5,6 @@
 - var kommDocs = ksphereDocs.children.filter(child => child.id == 'kommander')[0]
 - var latestKommDocs = kommDocs.children.filter(child => child.id == kommanderDocsLatest)[0]
 
-- var headerItemsUnsorted = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var headerSphereItems = headerItemsUnsorted.filter(page => page.id != 'ksphere')
-
 - var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('kommander-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
@@ -78,8 +75,7 @@ html(lang='en')
                   a(href=val.path)!= val.title
               li(class='header__menu-item')
                 a(href='https://support.d2iq.com') Support
-        if headerSphereItems
-          include partials/header/ksphere-dropdown.pug
+        include partials/header/ksphere-dropdown.pug
         section(class='header__search', role='search')
           form(class='header__search-form', action='/ksphere/kommander/search/', method='GET')
             label(class='header__search-label', for='header-search-input')
@@ -118,4 +114,3 @@ html(lang='en')
     script(src='https://cdn.jsdelivr.net/algoliasearch/3/algoliasearch.min.js')
     script(src='https://cdn.jsdelivr.net/autocomplete.js/0/autocomplete.min.js')
     include partials/scripts.pug
-
