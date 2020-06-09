@@ -18,7 +18,7 @@ if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
     - canonicalHref = url + newUrl
 
 - var [sphere, product] = paths
-
+- var productName = { konvoy: "Konvoy", kommander: "Kommander", kubeflow: "Kubeflow", dcos: "DC/OS" }[product] || "documentation"
 
 meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
@@ -26,15 +26,7 @@ title!= pageTitle
 meta(name='description', content=pageDescription)
 link(rel='icon' href='/assets/favicon.ico')
 link(rel='stylesheet', type='text/css', href='/css/styles.css')
-
-if product === 'konvoy'
-  link(rel='search', type='application/opensearchdescription+xml', href='/assets/k-opensearch.xml', title='Search Konvoy Docs')
-else if product === 'kommander'
-  link(rel='search', type='application/opensearchdescription+xml', href='/assets/k-opensearch.xml', title='Search Kommander Docs')
-else if product === 'kubeflow'
-  link(rel='search', type='application/opensearchdescription+xml', href='/assets/k-opensearch.xml', title='Search Kubeflow Docs')
-else
-  link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title='Search documentation site')
+link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title=`Search ${productName} site`)
 
 if canonicalHref
   link(rel='canonical', href=canonicalHref)
