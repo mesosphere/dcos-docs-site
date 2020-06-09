@@ -9,12 +9,6 @@
 
 - var sectionTitle = 'DC/OS Documentation'
 
-- var isChinese = paths[2] == 'cn'
-- var isDCOS = paths[1] == 'dcos'
-
-//- if paths[1] === 'services'
-//-   - sectionTitle = 'Service Docs'
-
 mixin renderGridToc()
   div(class='grid-toc')
     each val, index in latestDcosDocs.children
