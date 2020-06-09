@@ -1,13 +1,4 @@
 - var paths = path.split('/')
-- var currentPath = '/' + path
-- var ksphereDocs = hierarchy.children.filter(child => child.id === 'ksphere')[0]
-- var konvoyDocs = ksphereDocs.children.filter(child => child.id === 'konvoy')[0]
-- var partnerPages = konvoyDocs.children.filter(child => child.id === 'partner-solutions')[0]
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[2] == 'cn'
-
-
 -
   var categories = [
     "View All",
@@ -46,7 +37,7 @@ mixin renderGridToc()
       div(class=categoryClasses)
         h1(class='grid-toc__category-header')!= category
         - var categoryServices = []
-        each service, _ in partnerPages.children
+        each service, _ in hierarchy.findByPath(`ksphere/konvoy/partner-solutions`).children
           if service.menuWeight != -1 && service.category == category
             - categoryServices.push(service)
         each service, _ in categoryServices

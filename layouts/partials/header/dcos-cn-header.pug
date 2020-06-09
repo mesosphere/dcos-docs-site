@@ -3,11 +3,6 @@
 - var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-cn-header') != -1)
 - var pages = headerPages.sort((a, b) => a.menuWeight - b.menuWeight)
 
-- var otherProductPages = menuPages.filter(page => page.menus.indexOf('konvoy-header') != -1)
-- var otherPages = otherProductPages.sort((a, b) => a.menuWeight - b.menuWeight)
-
-- var mobileMenuItems = pages.concat(otherPages)
-
 - function isItemActive(itemPath)
   if itemPath == '/mesosphere/dcos/cn'
     if path == '/mesosphere/dcos/cn'

@@ -1,6 +1,4 @@
-- var semanticVersion = /^[0-9]+\.[0-9]+/
 - var menuPages = hierarchy.find('menus')
-
 - var productPages = menuPages.filter(page => page.menus.indexOf('konvoy-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 - var sectionTitle = 'Konvoy Documentation'

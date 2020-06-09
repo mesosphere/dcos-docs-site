@@ -1,13 +1,5 @@
 - var paths = path.split('/')
 - var isChinese = paths[2] == 'cn'
-- var currentPath = '/' + path
-- var mesosDocs = hierarchy.children.filter(child => child.id === 'mesosphere')[0]
-- var dcosDocs = mesosDocs.children.filter(child => child.id === 'dcos')[0]
-- var servicePage = dcosDocs.children.filter(child => child.id === 'services')[0]
-- var headerItems = hierarchy.find('menus').filter(page => page.menus.indexOf('landing-header') != -1)
-- var semverService = /^(v|)[0-9](.*)/
-- var isChinese = paths[2] == 'cn'
-
 
 -
   var categories = [
@@ -54,7 +46,7 @@ mixin renderGridToc()
       div(class=categoryClasses)
         h1(class='grid-toc__category-header')!= category
         - var categoryServices = []
-        each service, _ in servicePage.children
+        each service, _ in hierarchy.findByPath(`mesosphere/dcos/services`).children
           if service.menuWeight != -1 && service.category == category
             - categoryServices.push(service)
         each service, _ in categoryServices

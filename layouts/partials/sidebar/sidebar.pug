@@ -1,3 +1,5 @@
+- var currentPath = '/' + path
+
 mixin renderSidebarHeader()
   - var showDropdown = true
   if !dropdown.length || (dropdown.length == 1 && semverService.test(dropdown[0].id))
