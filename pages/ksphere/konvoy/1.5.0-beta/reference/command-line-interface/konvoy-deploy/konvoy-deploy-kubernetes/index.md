@@ -23,7 +23,7 @@ konvoy deploy kubernetes [flags]
 ### Options
 
 ```
-      --force-upgrade               run an upgrade on all nodes requiring an upgrade ignoring upgrade safety checks
+      --force-upgrade               run an upgrade on all control-plane and worker nodes if needed, ignoring upgrade safety checks
   -h, --help                        help for kubernetes
       --max-parallel-nodes string   set the number of nodes to upgrade in parallel. This can be an integer or a percentage of a nodePool. Set to 1 to run serially (requires --upgrade or --force-upgrade flag) (default "15%")
       --skip-state-upload           skip the upload of the state to Kubernetes cluster

@@ -11,6 +11,14 @@ enterprise: false
 
 ## Kubernetes Base Addons
 
+May 28, 2020
+
+[stable-1.16-1.8.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-1.8.0)
+[stable-1.15-1.8.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-1.8.0)
+
+-   kibana:
+    - Fixes an issue deploying an outdated version of Kibana to GCP.
+
 May 13, 2020
 
 [stable-1.16-1.7.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-1.7.0)

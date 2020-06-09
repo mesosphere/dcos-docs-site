@@ -171,7 +171,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.9.0
+    configVersion: testing-2.0.2
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -180,7 +180,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: v1.1.0-rc.1
+    configVersion: v1.1.0-rc.2
     addonsList:
     - name: kommander
       enabled: true
