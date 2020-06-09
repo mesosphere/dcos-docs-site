@@ -1,8 +1,5 @@
 - var containerClass = headings.length > 0 ? 'content__container content__container--with-sections' : 'content__container'
 - var paths = path.split('/')
-- var isChinese = paths[2] == 'cn'
-- var isDCOS = paths[1] == 'dcos'
-- var isKonvoy = paths[1] == 'konvoy'
 
 - var menuPages = hierarchy.find('menus')
 - var headerPages = menuPages.filter(page => page.menus.indexOf('dcos-header') != -1)
@@ -32,14 +29,6 @@ html(lang='en')
             i(data-feather='chevron-down')
         include partials/header/mesosphere-dropdown.pug
         include partials/header/ksphere-dropdown.pug
-          //- nav(class='header__menu')
-          //-   ul(class='header__menu-list')
-          //-     each val, index in headerItems
-          //-       - var itemClass = {}
-          //-       - itemClass['header__menu-item'] = true
-          //-       - itemClass['header__menu-item--active'] = val.path == '/'
-          //-       li(class=itemClass)
-          //-         a(href=val.path)!= val.title
         include partials/header/header-dropdown.pug
       div(role='main', class='layout__content')
         main(class='content content__404')
