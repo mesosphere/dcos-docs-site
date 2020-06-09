@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 5
+render: mustache
 excerpt: DC/OS version lifecycle and compatibility matrix
 model: /mesosphere/dcos/data.yml
 ---
