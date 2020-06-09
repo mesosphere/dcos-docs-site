@@ -1,17 +1,10 @@
 - var menuPages = hierarchy.find('menus')
-
 - var productPages = menuPages.filter(page => page.menus.indexOf('kommander-header') != -1)
 - var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
-
 - var sectionTitle = 'Kommander Documentation'
 
 //TODO:: refactor itemActive
 - function isItemActive(itemPath)
-  if itemPath == '/ksphere/kommander/latest'
-    if paths[2] == 'latest'
-      - return true
-  if itemPath == '/ksphere/kommander/partner-solutions'
-    if paths[2] == 'partner-solutions'
-      - return true
+  - return itemPath === path
 
 include header.pug
