@@ -108,7 +108,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.9.0
+    configVersion: testing-2.0.2
     addonsList:
     ...
 ```
@@ -170,7 +170,7 @@ spec:
       version: v3.13.3
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.9.0
+    configVersion: testing-2.0.2
     addonsList:
     ...
     - name: helm

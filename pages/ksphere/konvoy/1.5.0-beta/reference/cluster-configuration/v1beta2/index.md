@@ -41,6 +41,7 @@ excerpt: API documentation (v1beta2)
 * [InventoryHost](#inventoryhost)
 * [InventoryNodePool](#inventorynodepool)
 * [AddonConfig](#addonconfig)
+* [AddonRepository](#addonrepository)
 * [Addons](#addons)
 * [AdmissionPlugins](#admissionplugins)
 * [CalicoContainerNetworking](#calicocontainernetworking)
@@ -54,7 +55,6 @@ excerpt: API documentation (v1beta2)
 * [ContainerdContainerRuntime](#containerdcontainerruntime)
 * [ControlPlane](#controlplane)
 * [GPU](#gpu)
-* [HelmRepository](#helmrepository)
 * [IPTables](#iptables)
 * [ImageRegistry](#imageregistry)
 * [Keepalived](#keepalived)
@@ -422,6 +422,16 @@ AddonConfig is a quick reference to an Addon.
 
 [Back to TOC](#table-of-contents)
 
+## AddonRepository
+
+AddonRepository describes in-cluster helm and kudo configuration used during air-gapped installation.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| image | The image of the addon chart and package repository to deploy in the cluster used during air-gapped installations. | string | false |
+
+[Back to TOC](#table-of-contents)
+
 ## Addons
 
 Addons describes an addon repository to use for the cluster.
@@ -430,7 +440,7 @@ Addons describes an addon repository to use for the cluster.
 | ----- | ----------- | ------ | -------- |
 | configRepository | The git repository of the addon repository to use. (default: `https://github.com/mesosphere/kubernetes-base-addons`) | string | true |
 | configVersion | The version of the addon configuration files to use. (default: `master`) | string | false |
-| helmRepository | In-cluster helm configuration used during air-gapped installations. | [HelmRepository](#helmrepository) | false |
+| addonRepository | In-cluster package configuration used during air-gapped installations. | [AddonRepository](#addonrepository) | false |
 | addonsList | List of addon objects that can be deployed, if enabled. | AddonConfigs | false |
 
 [Back to TOC](#table-of-contents)
@@ -567,16 +577,6 @@ GPU represents an object that contains details of user defined GPU info.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | nvidia | [NVIDIA](https://docs.nvidia.com/datacenter/kubernetes/kubernetes-upstream/index.htm) specific configuration. | [Nvidia](#nvidia) | false |
-
-[Back to TOC](#table-of-contents)
-
-## HelmRepository
-
-HelmRepository describes in-cluster helm configuration used during air-gapped installation.
-
-| Field | Description | Scheme | Required |
-| ----- | ----------- | ------ | -------- |
-| image | The image of the Helm chart to deploy in the cluster used during air-gapped installations. | string | false |
 
 [Back to TOC](#table-of-contents)
 

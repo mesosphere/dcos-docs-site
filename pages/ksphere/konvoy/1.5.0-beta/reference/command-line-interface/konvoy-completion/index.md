@@ -34,10 +34,12 @@ konvoy completion SHELL
   # Installing bash completion on Linux
   ## If bash-completion is not installed on Linux, please install the 'bash-completion' package
   ## via your distribution's package manager.
-  ## Load the konvoy completion code for bash into the current shell
-      source <(konvoy completion bash)
-  # Load the konvoy completion code for zsh[1] into the current shell
-      source <(konvoy completion zsh)
+  # Load the konvoy completion code for the current shell
+      COMPLETION=$(mktemp)
+      konvoy completion $(basename $SHELL) >> $COMPLETION
+      source $COMPLETION
+      rm $COMPLETION
+
 ```
 
 ### Options

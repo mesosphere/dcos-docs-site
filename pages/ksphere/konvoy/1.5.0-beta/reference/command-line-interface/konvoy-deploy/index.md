@@ -23,7 +23,7 @@ konvoy deploy [flags]
 ### Options
 
 ```
-      --force-upgrade               run an upgrade on all nodes requiring an upgrade ignoring upgrade safety checks
+      --force-upgrade               run an upgrade on all control-plane and worker nodes if needed, ignoring upgrade safety checks
   -h, --help                        help for deploy
       --max-parallel-nodes string   set the number of nodes to upgrade in parallel. This can be an integer or a percentage of a nodePool. Set to 1 to run serially (requires --upgrade or --force-upgrade flag) (default "15%")
       --skip-state-upload           skip the upload of the state to Kubernetes cluster
@@ -32,7 +32,7 @@ konvoy deploy [flags]
       --verbose                     enable debug level logging
       --with-checks                 execute checks after each deployment step
       --without-addons              skip installing the addons
-      --without-auto-provisioning   skip installing the auto provisioning
+      --without-auto-provisioning   skip installing the auto provisioner
       --without-draining            run an upgrade on all nodes requiring an upgrade, without draining the nodes first (requires --upgrade or --force-upgrade flag) (WARNING! usage can result in undefined behavior and service downtime)
   -y, --yes                         run command without prompting
 ```
