@@ -1,6 +1,4 @@
 - var paths = path.split('/')
-- var productPages = hierarchy.find('menus').filter(page => page.menus.indexOf('dispatch-header') != -1)
-- var pages = productPages.sort((a, b) => a.menuWeight - b.menuWeight)
 - var sectionTitle = 'Dispatch Documentation'
 
 mixin renderGridToc()
@@ -59,7 +57,7 @@ html(lang='en')
             i(data-feather='chevron-down')
           nav(class='header__menu')
             ul(class='header__menu-list')
-              each val, index in pages
+              each val, index in hierarchy.find('menus', menus => menus.includes('dispatch-header'))
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
                 - itemClass['header__menu-item--active'] = val.path == '/ksphere/dispatch'

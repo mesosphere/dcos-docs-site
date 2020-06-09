@@ -142,6 +142,8 @@ function plugin(opts) {
         const matches = node.children.filter((n) => {
           if (!value) {
             return n[key] !== undefined;
+          } else if (typeof value === "function") {
+            return n[key] && value(n[key]);
           }
           return n[key] === value;
         });
@@ -151,7 +153,7 @@ function plugin(opts) {
         });
       };
       w(this);
-      return found;
+      return found.sort((a, b) => a.menuWeight - b.menuWeight);
     };
 
     const findParent = function findParent(pathArg, key, value) {

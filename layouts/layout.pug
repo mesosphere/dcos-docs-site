@@ -11,13 +11,17 @@ html(lang='en')
       if isChinese
         include partials/header/dcos-cn-header.pug
       else if product === "konvoy"
-        include partials/header/konvoy-header.pug
+        - var sectionTitle = 'Konvoy Documentation'
+        include partials/header/header.pug
       else if product === "dispatch"
-        include partials/header/dispatch-header.pug
+        - var sectionTitle = 'Dispatch Documentation'
+        include partials/header/header.pug
       else if product === "kommander"
-        include partials/header/kommander-header.pug
+        - var sectionTitle = 'Kommander Documentation'
+        include partials/header/header.pug
       else if product === "kubeflow"
-        include partials/header/kubeflow-header.pug
+        - var sectionTitle = 'KUDO Kubeflow Documentation'
+        include partials/header/header.pug
       else
         include partials/header/dcos-en-header.pug
       if isChinese
