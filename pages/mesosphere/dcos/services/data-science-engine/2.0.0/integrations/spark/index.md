@@ -13,7 +13,9 @@ enterprise: true
 {{ model.techName }} comes with Apache Spark integration and allows you to run Spark jobs from notebooks and a terminal.
 
 # Launching a Spark job
+
 ## Using Terminal
+
 Open a `Terminal` from the Notebook UI and run this example `spark-submit` job:
 
 ```bash
@@ -21,29 +23,33 @@ spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphe
 ```
 
 ## Using a Python Notebook
+
 Open a `Python Notebook` and put the following code in a code cell.
+
 ```python
 from __future__ import print_function
-import sys
 from random import random
 from operator import add
 from pyspark.sql import SparkSession
-spark = SparkSession\
-        .builder\
-        .appName("PythonPi")\
-        .getOrCreate()
-partitions = 2
+
+spark = SparkSession.builder.appName("Spark Pi").getOrCreate()
+
+partitions = 100
 n = 100000 * partitions
+
 def f(_):
     x = random() * 2 - 1
     y = random() * 2 - 1
     return 1 if x ** 2 + y ** 2 <= 1 else 0
+
 count = spark.sparkContext.parallelize(range(1, n + 1), partitions).map(f).reduce(add)
 print("Pi is roughly %f" % (4.0 * count / n))
+
 spark.stop()
 ```
 
 # Spark UI
+
 The Spark UI starts automatically when a SparkContext is created, and is available at 
 
 ```bash
@@ -54,6 +60,7 @@ http://<dcos_url>/service/{{ model.serviceName }}/sparkui
 
 {{ model.techName }} includes the Spark History Server (SHS), which is up and running by default, using `org.apache.spark.deploy.history.FsHistoryProvider` as a default provider, with
 `spark.history.fs.logDirectory` set to `file:/mns/mesos/sandbox/`. It is highly recommended to use HDFS as the backend storage for SHS.
+
 You can configure SHS to use HDFS with the following steps:
 
 ## Installing HDFS
@@ -66,7 +73,7 @@ You can configure SHS to use HDFS with the following steps:
     dcos package install hdfs
     ```
 
-2. Create a history HDFS directory (default is `/history`). SSH into your cluster and run:
+1. Create a history HDFS directory (default is `/history`). SSH into your cluster and run:
 
     ```bash
     docker run -it mesosphere/hdfs-client:1.0.0-2.6.0 bash
@@ -80,7 +87,7 @@ You can configure SHS to use HDFS with the following steps:
     ```json
     {
         "service": {
-        "jupyter_conf_urls": "<DCOS HDFS endpoint>"
+            "jupyter_conf_urls": "<DCOS HDFS endpoint>"
         },
         "spark": {
             "start_spark_history_server": true,
@@ -89,7 +96,7 @@ You can configure SHS to use HDFS with the following steps:
     }
     ```
 
-    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/2.0.0/integrations/hdfs/) documentation.
+    To find more about configuring HDFS integration of {{model.nickName}}, see the [Using HDFS with DC/OS Data Science Engine](/mesosphere/dcos/services/data-science-engine/2.0.0/storage/hdfs/) documentation.
 
 1.  Enable the `Spark Event` log and set the HDFS directory:
 
@@ -107,4 +114,5 @@ You can configure SHS to use HDFS with the following steps:
 1. Restart the {{ model.serviceName }} service to apply the changes.
 
 ## Confirm Spark History Server installation
+
 The Spark History Server UI is available at `http://<dcos_url>/service/{{ model.serviceName }}/sparkhistory`, listing incomplete and completed applications and attempts.
