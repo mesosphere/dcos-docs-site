@@ -8,7 +8,7 @@ excerpt: A guide for creating Konvoy clusters on your own premises' infrastructu
 
 ## Prerequisites
 
-- Configured [On-Prem Infrastructure Provider](/ksphere/kommander/latest/operations/infrastructure-providers/#configuring-an-on-premise-infrastructure-provider)
+- A configured [On-Prem Infrastructure Provider](/ksphere/kommander/latest/operations/infrastructure-providers/#configuring-an-on-premise-infrastructure-provider)
 - [konvoy CLI](/ksphere/konvoy/latest/download/)
 
 ## Inventory Your Hosts
@@ -23,12 +23,18 @@ konvoy init --provisioner=none [--cluster-name <your-specified-name>]
 
 After editing the inventory file, edit the generated cluster.yaml file. The cluster.yaml file provides the configuration details for creating your Konvoy cluster.
 
-See the [Install on-premise](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
+See the [Install on-premises](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
 
 ## Provision in UI
 
 ![Add Cluster Options](/ksphere/kommander/1.1.0-beta/img/add-cluster.png)
 
-From the **Add Cluster** menu, select the **Upload YAML to Create a Cluster** option and select the **On Premise Cloud Provider** from the **Select Cloud Provider** field.
+In Kommander UI, choose the workspace where the on premises infrastructure provider was created in the header drop-down. From the workspace dashboard, select **Actions** > **Add Cluster**, and from the **Add Cluster** menu, select the **Upload YAML to Create a Cluster** option. Select your on premises infrastructure provider from the **Select Infrastructure Provider** select field.
 
 Paste the contents of the cluster.yaml and inventory.yaml files into the form and select **Continue** to begin provisioning Konvoy onto your hosts.
+
+## Related information
+
+- [Install the konvoy CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/download/)
+- [Create an on premises infrastructure provider](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/operations/cloud-providers/configure-on-prem-provider/)
+- [Install an on premises konvoy cluster](https://docs.d2iq.com/ksphere/konvoy/1.4/install/install-onprem/)
