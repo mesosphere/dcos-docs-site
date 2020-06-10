@@ -11,7 +11,7 @@ enterprise: false
 
 ## Release Notes
 
-To get started with Kommander, [download] (https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install] (https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
+To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install](https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
