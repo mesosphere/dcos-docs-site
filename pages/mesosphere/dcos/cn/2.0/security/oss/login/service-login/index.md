@@ -29,7 +29,7 @@ menuWeight: 30
 要使用 DC/OS CLI 来测试服务登录，请通过 [auth login](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令指定 `dcos-services` 登录提供商。在执行以下命令之前，先用相应的值替换 `<service-account-id>` 和 `<private-key-path>`：
 
 ```bash
-dcos auth login --provider=dcos-users --username=<service-account-id> --private-key=<private-key-path>
+dcos auth login --provider=dcos-services --username=<service-account-id> --private-key=<private-key-path>
 ```
 
 # 使用 IAM API 登录
