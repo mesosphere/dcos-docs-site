@@ -52,26 +52,71 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
    </tr>
    <tr>
     <th>1.13.0</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.1</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.2</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.3</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.4</th>
-    <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.5</th>
+    <td Align = "center">◯</td>
+   </tr>
+   <tr>
+    <th>1.13.6</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.7</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>1.13.9</th>
+    <td Align = "center">⚫</td>
+   </tr>
+</table>
+<br>
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <caption>DC/OS 2.0 to 2.1 Upgrade Paths</caption>
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
+   <tr>
+    <th></th>
+    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
+   </tr>
+    <th></th>
+    <th Align = "center">2.1.0</th>
+   </tr>
+   <tr>
+    <th>2.0.0</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.1</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.2</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.3</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.4</th>
     <td Align = "center">⚫</td>
    </tr>
   </table>
