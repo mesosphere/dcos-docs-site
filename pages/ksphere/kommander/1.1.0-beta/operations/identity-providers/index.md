@@ -16,7 +16,7 @@ You can perform the following operations on Identity Providers:
 
 - [Create an Identity Provider](#identity-providers)
 - [Temporarily Disable an Identity Provider](#temporarily-disabling-a-provider)
-- [Groups](#groups)
+- [Create Groups](#groups)
 
 ## Identity Providers
 
