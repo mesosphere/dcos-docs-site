@@ -30,7 +30,7 @@ Using the [DC/OS CLI](/mesosphere/dcos/2.1/cli/) one can log in as service by sp
 To test a service login using the DC/OS CLI specify the `dcos-services` login provider with the [auth login](/mesosphere/dcos/2.1/cli/command-reference/dcos-auth/dcos-auth-login/) command. Replace `<service-account-id>` and `<private-key-path>` with the corresponding values before executing the following command:
 
 ```bash
-dcos auth login --provider=dcos-users --username=<service-account-id> --private-key=<private-key-path>
+dcos auth login --provider=dcos-services --username=<service-account-id> --private-key=<private-key-path>
 ```
 
 # Logging in using the IAM API
