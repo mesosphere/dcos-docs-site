@@ -17,7 +17,7 @@ These two groups of resources can be used to manage access control within 3 leve
 |           | Kommander Roles                                                                                         | Global/Workspace/Project Roles                                                                           |
 |-----------|---------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------|
 | Global    | Global Kommander Roles create ClusterRoles on the management cluster.                                   | Global Cluster Roles federates ClusterRoles on all target clusters across all workspaces.                |
-| Workspace | Workspace Kommander Roles create namespaced Roles on the management cluster in the workspace namespace. | Workspace Cluster Roles federates ClusterRoles on all target clusters in the workspace.                  |
+| Workspace | Workspace Kommander Roles create namespaced Roles on the management cluster in the workspace namespace and workspace project namespaces. | Workspace Cluster Roles federates ClusterRoles on all target clusters in the workspace.                  |
 | Project   | Project Kommander Roles create namespaced Roles on the management cluster in the project namespace.     | Project Roles federates namespaced Roles on all target clusters in the project in the project namespace. |
 
 The policies for each level and type create RoleBindings or ClusterRoleBindings on the clusters that apply to each category.
