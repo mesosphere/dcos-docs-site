@@ -4,10 +4,12 @@ mixin links(path)
       li.blurb__link
         a(href=folder.path)!= folder.title
 
+
 doctype html
 html(lang='en')
   head
     include partials/head.pug
+
   body(class='landing landing--dcos')
     .layout
       header.header(style="position: fixed;")
@@ -24,9 +26,11 @@ html(lang='en')
         include partials/header/mesosphere-dropdown.pug
         include partials/header/ksphere-dropdown.pug
       include partials/header/header-dropdown.pug
-
+      include partials/bubbles.html
       .landing__container
-        .blurb__item
+        .sphere-grid
+          include partials/filters.html
+        .blurb__item(data-sphere="ksphere")
           a.blurb__left(href="/ksphere/kommander")
             img.landing__tile-image(src='/assets/Kommander_Docs.png')
           .blurb__right
@@ -35,7 +39,7 @@ html(lang='en')
             a.blurb__desc(href='/ksphere/kommander')
               p.color__grey Deliver federated management and governance across disparate clusters for any on-premise or cloud Kubernetes distribution.
             +links(`/ksphere/kommander/${kommanderDocsLatest}`)
-        .blurb__item
+        .blurb__item(data-sphere="ksphere")
           a.blurb__left(href="/ksphere/konvoy")
             img.landing__tile-image(src='/assets/Konvoy_Docs.png')
           .blurb__right
@@ -44,7 +48,7 @@ html(lang='en')
             a.blurb__desc(href='/ksphere/konvoy')
               p.color__grey A packaged set of integrated operational services for Kubernetes so you can get up and running quickly and easily.
             +links(`/ksphere/konvoy/${konvoyDocsLatest}`)
-        .blurb__item
+        .blurb__item(data-sphere="ksphere")
           a.blurb__left(href="/ksphere/dispatch")
             img.landing__tile-image(src='/assets/Dispatch_Docs.png')
           .blurb__right
@@ -53,7 +57,7 @@ html(lang='en')
             a.blurb__desc(href='/ksphere/dispatch')
               p.color__grey Rapidly build, test, and manage an application's lifecycle using industry best practices and modern GitOps processes.
             +links(`/ksphere/dispatch/${dispatchDocsLatest}`)
-        .blurb__item
+        .blurb__item(data-sphere="mesosphere")
           a.blurb__left(href="/mesosphere/dcos")
             img.landing__tile-image(src='/assets/DCOS_Docs.png')
           .blurb__right

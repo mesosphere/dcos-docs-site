@@ -1,0 +1,429 @@
+.bubbles {
+  width: 100%;
+  position: absolute;
+  top: 5rem;
+  right: 0;
+  left: 0;
+  display: none;
+  z-index: -1;
+  @include lg {
+    display: block;
+  }
+
+  &:before, &:after {
+    content: '';
+    height: 40px;
+    width: 100%;
+    position: absolute;
+    left: 0;
+  }
+
+  &:before {
+    top: 0;
+    background: linear-gradient(to top, rgba(255,255,255,0.001) 10%, #fff 100%);
+    z-index: 1;
+  }
+
+  &:after {
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(255,255,255,0.001) 10%, #fff 100%);
+    z-index: 1;
+  }
+
+  svg {
+    max-height: 400px;
+    width: 100%;
+  }
+}
+
+.sphere-grid {
+  padding: 6rem 0 4.5rem 0;
+  border-bottom: 1px solid $color-light-grey-l2;
+  position: relative;
+  display: none;
+  @include lg {
+    display: flex;
+  }
+}
+
+.sphere-button {
+  border-radius: .5rem;
+  overflow: hidden;
+  flex-grow: 1;
+  flex-basis: 0;
+  transition: opacity .5s;
+  a {
+    display: flex;
+    align-items: center;
+    padding: 2rem 1.5rem;
+  }
+  svg * {
+    fill: white;
+  }
+  & + .sphere-button {
+    margin-left: 1.5rem;
+  }
+  &.disabling {
+    opacity: 0.5;
+  }
+}
+.sphere-button-icon {
+  width: 4rem;
+}
+
+.sphere-grid__item {
+  // @apply transition elevation-0 cursor-pointer;
+  cursor: pointer;
+  &:hover {
+    // @apply elevation-12;
+  }
+}
+
+.sphere-button-content {
+  color: white;
+  transition: all 0.3s ease-out;
+}
+
+.sphere-grid-wrap__title {
+  // @apply leading-tight;
+  display: block;
+  margin: 0 0 0 1rem;
+  line-height: 1.4;
+  font-size: 2rem;
+}
+
+.sphere-grid-wrap__title-main {
+  font-weight: 700;
+}
+.sphere-grid-wrap__title-sub {
+  font-size: 1.25rem;
+}
+
+.sphere-grid-wrap {
+  // @apply py-16 px-24 rounded-lg overflow-hidden text-left;
+  position: relative;
+  .moprh--mesosphere {
+    bottom: -30%;
+    left: 10%;
+    position: absolute;
+    transition: transform 10s ease-out, opacity 350ms ease-in-out;
+    opacity: 0.2;
+  }
+
+  .moprh--ksphere {
+    top: -50%;
+    position: absolute;
+    transition: transform 10s ease-out, opacity 350ms ease-in-out;
+    opacity: 0.2;
+    width: 70%;
+  }
+
+  &:hover {
+    .morph {
+      pointer-events: none;
+      opacity: .05;
+    }
+
+    .morph--top {
+      transform: translate(-50px, -60px) scale(1.4) rotate(30deg);
+    }
+    .morph--bot {
+      transform: translate(50px, 60px) scale(1.4) rotate(30deg);
+    }
+  }
+}
+
+.sphere-grid-wrap--ksphere {
+  background-color: rgb(61, 82, 255);
+  &:hover {
+    .wheel {
+      animation: 5s ease-in animateWheel, 3000ms linear 5s infinite animateWheelxz;
+      animation-delay: 0;
+      transform-origin: 25px 25px;
+    }
+
+    .check-1 {
+      animation: 250ms ease-in 0s grow-check;
+      transform-origin: 25px 65px;
+    }
+
+    .check-2 {
+      animation: 500ms ease-in 0s grow-check-2;
+      transform-origin: 25px 65px;
+    }
+
+    .graph-1 {
+      animation: 750ms ease-in 0s graph-grow-1;
+      transform-origin: 35px 65px;
+    }
+
+    .graph-2 {
+      animation: 1000ms ease-in 0s graph-grow-1;
+      transform-origin: 35px 65px;
+    }
+
+    .dot-1 {
+      animation: 1000ms ease-in 0ms opacity-1;
+    }
+
+    .dot-2 {
+      animation: 1000ms ease-in 0ms opacity-2;
+    }
+
+    .dot-3 {
+      animation: 1000ms ease-in 0ms opacity-3;
+    }
+  }
+}
+
+.sphere-grid-wrap--mesosphere {
+  background-color: rgb(46,0,103);
+  &:hover {
+    .mesosphere-icon__arrow {
+      animation: 1200ms ease-in-out animateWheel;
+      animation-delay: 0;
+      transform-origin: 27px 19px;
+    }
+
+    .mesosphere-icon__text-line--1 {
+      animation: 500ms ease-in 0s graph-grow-1;
+      transform-origin: 13px 0px;
+    }
+    .mesosphere-icon__text-line--2 {
+      animation: 750ms ease-in 0s graph-grow-1;
+      transform-origin: 13px 0px;
+    }
+    .mesosphere-icon__text-line--3 {
+      animation: 1000ms ease-in 0s graph-grow-1;
+      transform-origin: 13px 0px;
+    }
+
+    .mesosphere-icon__square-grid--tl {
+      animation: 1200ms ease-in 0s opacity-1, 3s ease-in-out 5.6s infinite fadeIn; ;
+    }
+    .mesosphere-icon__square-grid--tr {
+      animation: 1200ms ease-in 0s opacity-2, 2.5s ease-in-out 2s infinite fadeIn;
+    }
+    .mesosphere-icon__square-grid--bl {
+      animation: 1200ms ease-in 0s opacity-2, 3.5s ease-in-out 5s infinite fadeIn;
+    }
+    .mesosphere-icon__square-grid--br {
+      animation: 1200ms ease-in 0s opacity-3, 1.5s ease-in-out 7s infinite fadeIn;
+    }
+    .mesosphere-icon__square-grid--bb {
+      animation: 1400ms ease-in 0s opacity-3;
+    }
+  }
+}
+
+.sphere-grid-wrap--datasphere {
+  background-color: rgb(250,176,42);
+  .globe {
+    transition: all 750ms ease;
+  }
+
+  &:hover {
+    .globe {
+      transform: translate(0px, -0.003px)
+    }
+
+    .globe1  {
+      transform: translate(14px, 14px);
+    }
+
+    .globe2  {
+      transform: translate(10px, 11px);
+    }
+
+    .globe3  {
+      transform: translate(6px, 7px);
+    }
+
+    .globe4  {
+      transform: translate(1.8px, 2px);
+    }
+
+    .mesosphere-icon__server--1 {
+      animation: 500ms ease-in 0s opacity-1;
+    }
+
+    .mesosphere-icon__server--2 {
+      animation: 700ms ease-in 0s opacity-2;
+    }
+
+    .mesosphere-icon__server--3 {
+      animation: 900ms ease-in 0s opacity-3;
+    }
+
+    .mesosphere-icon__circle--3 {
+      animation: 1300ms ease-in 0s opacity-1;
+    }
+
+    .mesosphere-icon__circle--2 {
+      animation: 1300ms ease-in 0s opacity-2;
+    }
+
+    .mesosphere-icon__circle--1 {
+      animation: 1400ms ease-in 0s opacity-3;
+    }
+
+    @for $i from 1 through 15 {
+      .flick#{$i} {
+        animation: 3s ease-in-out #{($i * 1.2)}s infinite fadeIn;
+      }
+    }
+  }
+}
+
+.rollover {
+	color: #fff;
+	opacity: 0;
+	transition: opacity 0.5s ease-out;
+}
+
+.sphere-grid-wrap:hover .rollover {
+	opacity: 1;
+}
+
+
+@keyframes animateBlob {
+  0% {
+    transform: translate(0) scale(1) rotate(0deg);
+  }
+  50% {
+    transform: translate(-50px, -60px) scale(1.4) rotate(30deg);
+  }
+  100% {
+    transform: translate(0) scale(1) rotate(0deg);
+  }
+}
+
+#morph1, #morph2, #morph3 {
+  animation: 15s ease-in-out 0s 1 animateBlob;
+  animation-direction: alternate;
+  animation-iteration-count: infinite;
+}
+// copied from https://github.com/mesosphere/d2iq-site/blob/bb8eac8ddaa17184888e065da95cd2f4ab1b8ca7/src/resources/sass/components/sphere-grid-keyframes.scss
+/*
+ * KPSHERE KEYFRAMES
+ */
+@keyframes opacity-1 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-2 {
+  0% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity-3 {
+  0% {
+    opacity: 0;
+  }
+  90% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes animateWheel {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animateWheelxz {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes grow-check {
+  0% {
+    opacity: 1;
+    transform: scale3d(0, 0, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes grow-check-2 {
+  0% {
+    opacity: 0;
+    transform: scale3d(0, 0, 1);
+  }
+  33% {
+    opacity: 0;
+    transform: scale3d(0, 0, 1);
+  }
+  50% {
+    opacity: 0;
+    transform: scale3d(0, 0, 1);
+  }
+  100% {
+    opacity: 1;
+    transform: scale3d(1, 1, 1);
+  }
+}
+
+@keyframes graph-grow-1 {
+  0% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  33% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  50% {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1);
+  }
+}
+
+@keyframes serverFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}

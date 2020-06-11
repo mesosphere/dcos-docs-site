@@ -20,7 +20,14 @@
             display: flex;
         }
         border-bottom: 1px solid $color-light-grey-l2;
-        padding: 2.8rem 0;
+        padding: 3rem 0;
+        transition: all .5s;
+        max-height: 300px;
+        &.disabling {
+          opacity: 0;
+          max-height: 0;
+          padding: 0;
+        }
     }
     &__header {
         color: $color-v2-purple;
@@ -48,7 +55,7 @@
         padding-right: 3.5em;
       }
       img {
-        border-radius: 10px;
+        border-radius: .5rem;
         box-shadow: 0 0 18px 0 rgba(45, 45, 45, .10);
         transition: all 250ms ease-out;
         margin-bottom: 1em;

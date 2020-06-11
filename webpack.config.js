@@ -2,10 +2,13 @@ var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: "./entry.js",
+  entry: {
+    bundle: "./entry.js",
+    spheregrid: "./js/spheregrid.js",
+  },
   output: {
-    path: __dirname + "/",
-    filename: "./build/js/bundle.js",
+    path: __dirname + "/build",
+    filename: "./js/[name].js",
   },
   module: {
     rules: [
@@ -33,7 +36,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new ExtractTextPlugin("./build/css/styles.css"),
+    new ExtractTextPlugin("./css/styles.css"),
     new webpack.DefinePlugin({
       ALGOLIA_PROJECT_ID: JSON.stringify(process.env.ALGOLIA_PROJECT_ID),
       ALGOLIA_PUBLIC_KEY: JSON.stringify(process.env.ALGOLIA_PUBLIC_KEY),
