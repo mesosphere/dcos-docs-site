@@ -1,6 +1,9 @@
 body {
   margin: 0;
   padding: 0;
+  // if we filter on the landingpage, the content might shrink so much that the scrollbar would disappear
+  // that would cause a "hop", as the site then is rendered a little wider. we don't want that hop and therefore enforce an "empty" scroll bar at all times.
+  overflow-y: scroll;
 }
 
 * {
