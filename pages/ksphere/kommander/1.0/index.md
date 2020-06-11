@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Welcome to Kommander 1.0
+navigationTitle: Kommander 1.0
 title: Welcome to Kommander 1.0
 version: 1.0
 featureMaturity:
