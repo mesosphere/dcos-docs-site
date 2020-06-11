@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Kommander 1.0
-title: Welcome to Kommander 1.0
+title: Kommander 1.0
 version: 1.0
 featureMaturity:
 category: K-Sphere
