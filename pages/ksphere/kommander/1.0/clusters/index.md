@@ -52,7 +52,7 @@ There are several types of cluster types to be aware of in the Clusters tab.
 
 ## Upgrading Kubernetes version
 
-You can upgrade Kubernetes version on a running cluster from the Clusted Detail page (Figure 2.)
+You can upgrade Kubernetes version on a running cluster from the Cluster Detail page (Figure 2.)
 Select an available desired version from the Version dropdown and confirm your action in the confirmation dialog.
 
 ![Update Kubernetes Version Action](/ksphere/kommander/1.0/img/upgrade-kubernetes-action.png)
@@ -65,7 +65,7 @@ Select an available desired version from the Version dropdown and confirm your a
 
 ### Editing an Attached cluster
 
-For an Attached cluster you can only edit lables that are assigned to it.
+For an Attached cluster you can only edit labels that are assigned to it.
 
 ![Edit an Attached Cluster](/ksphere/kommander/1.0/img/edit-cluster-attached.png)
 
@@ -77,13 +77,13 @@ For a Managed cluster you can edit its name, labels, cloud provider tags and its
 
 #### Editing a node pool
 
-When editing a node pool you can only increase the number of nodes in the pool. This is to prevent loosing any workloads that are currently running on the cluster.
+When editing a node pool, you can only increase the number of nodes in the pool. This is to prevent losing any workloads that are currently running on the cluster.
 
 You can also add labels and taints to a node pool.
 
 ![Edit a Cluster Node Pools](/ksphere/kommander/1.0/img/edit-cluster-node-pools.png)
 
-#### Editing a labels and cloud provider tags
+#### Editing labels and cloud provider tags
 
 ![Edit a Cluster Labels and Cloud Provider Tags](/ksphere/kommander/1.0/img/edit-cluster-labels-tags.png)
 
