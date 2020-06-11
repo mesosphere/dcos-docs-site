@@ -50,12 +50,7 @@ Here is the list of published docker images:
     ```
 
 1. **Create a Dockerfile**:
-    We will use `@jupyterlab/fasta-extension` as an example. On your personal laptop or server, run the following commands:
-
-    ```bash
-    mkdir notebook          # Create a directory for notebook image, you could pick anyname
-    vi notebook/Dockerfile  # Create a docker file with below mentioned content
-    ```
+    We will use `@jupyterlab/fasta-extension` as an example. On your personal laptop or server, create `Dockerfile` with the following content:
 
     ```dockerfile
     FROM mesosphere/jupyter-service:cea0efa8e0578237d4247568be579904e0af1da4834ed17f166f06f7ef5be0f2-notebook-mxnet-1.6.0
@@ -70,7 +65,6 @@ Here is the list of published docker images:
     From directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image name is `jupyter-with-extension:notebook`, the commands will be:
 
     ```bash
-    cd notebook
     docker build -t docker123/jupyter-with-extension:notebook .
     docker push docker123/jupyter-with-extension:notebook
     ```
@@ -126,12 +120,7 @@ Expected output would be:
     ```
 
 1. **Create a Dockerfile**:
-    We will use `conda install -yq spacy` as an example, and will install `spacy` for demo purposes. On your personal laptop or server, run the following commands:
-
-    ```bash
-    mkdir worker            # Create a directory for worker image, you could pick anyname
-    vi worker/Dockerfile    # Create a docker file with below mentioned content
-    ```
+    We will use `conda install -yq spacy` as an example, and will install `spacy` for demo purposes. On your personal laptop or server, create `Dockerfile` with the following content:
 
     ```dockerfile
     FROM mesosphere/jupyter-service:5f4660355a05c8e10675e4f5064e1d77c7eea1a9e94f4b2bd9522165f38a3fdf-worker-mxnet-1.6.0
@@ -142,7 +131,6 @@ Expected output would be:
 1. **Build and push the Dockerfile**: From each directory where Dockerfile has been created, run the commands `docker build` and `docker push` as shown below. Assuming that the docker repository name is `docker123` and image names are `spacy-example:notebook` and `spacy-example:worker`, run the following commands:
 
     ```bash
-    cd worker
     docker build -t docker123/spacy-example:worker .
     docker push docker123/spacy-example:worker
     ```
