@@ -50,6 +50,33 @@ Template:
 
 -->
 
+### Version v1.1.0-rc.3 - June 11th 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+| **Minimum**        | 1.15.0  |
+| **Maximum**        | 1.17.x  |
+| **Default**        | 1.17.3  |
+
+
+#### Bug Fixes
+
+- Smaller UX Bugs and Improvements
+
+#### Component Versions
+
+- Addon: `1.1.0-34`
+- Chart: `0.8.15`
+- auto-provisioning (yakcl): `0.1.0`
+- kommaner-deferation (yakcl): `0.1.0`
+- kommander-licensing (yakcl): `0.1.0`
+- UI: `3.106.2`
+- kommander-karma: `0.3.10`
+- kubeaddons-catalog: `0.1.9`
+- kommander-thanos: `0.1.21`
+- kubecost: `0.1.4`
+- grafana: `4.5.1`
+
 ### Version v1.1.0-rc.2 - June 5th 2020
 
 | Kubernetes Support | Version |
