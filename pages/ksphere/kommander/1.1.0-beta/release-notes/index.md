@@ -68,7 +68,7 @@ Template:
 - Addon: `1.1.0-34`
 - Chart: `0.8.15`
 - auto-provisioning (yakcl): `0.1.0`
-- kommaner-deferation (yakcl): `0.1.0`
+- kommaner-federation (yakcl): `0.1.0`
 - kommander-licensing (yakcl): `0.1.0`
 - UI: `3.106.2`
 - kommander-karma: `0.3.10`
