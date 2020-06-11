@@ -11,7 +11,7 @@ These Edge-LB Release Notes summarize release-specific changes that fix issues o
 
 # DC/OS for Edge-LB Service version 1.6.0 Release Notes
 
-Edge-LB Service version 1.6.0 was released on TBD June 2020.
+Edge-LB Service version 1.6.0 was released on 10 June 2020.
 
 ## New features and capabilities
 
