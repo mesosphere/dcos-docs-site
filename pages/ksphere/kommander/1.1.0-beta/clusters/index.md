@@ -44,7 +44,7 @@ A tag is similar to a label and helps manage and track this cluster at the infra
 
 #### Adding/Removing Cluster Labels
 
-Cluster labels are matched to the selectors created for [projects](/ksphere/kommander/1.1.0-beta/projects/). If a cluster is removed from a project any resources deployed to the cluster from that Project will be removed. If a cluster is added to a project any existing project resources will be deployed to the cluster.
+Cluster labels are matched to the selectors created for [projects](/ksphere/kommander/1.1.0-beta/projects/). If a cluster is removed from a project, any resources deployed to the cluster from that Project are removed. If a cluster is added to a project any existing project resources are deployed to the cluster.
 
 #### Valid labels
 
