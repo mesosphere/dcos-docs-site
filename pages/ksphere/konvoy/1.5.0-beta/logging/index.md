@@ -176,6 +176,6 @@ The default configuration runs the curator job every day at mid-night and garbag
 
 For information on related topics or procedures, refer to the following:
 
-- [resource Recommendations](./recommendations)
+- [Resource Recommendations](./recommendations)
 - [Disable Audit Logs in Fluentbit](../tutorials/disable-audit-logs/)
 - [Fluentbit Addon](../addons/fluentbit/)
