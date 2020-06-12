@@ -176,3 +176,11 @@ data:
         </td>
   </tr>
 </table>
+
+## Related information
+
+For information on related topics or procedures, refer to the following:
+
+- [Logging](../)
+- [Fluentbit Addon](../../addons/fluentbit)
+- [Disable Audit Log Collection](../../tutorials/disable-audit-logs)
