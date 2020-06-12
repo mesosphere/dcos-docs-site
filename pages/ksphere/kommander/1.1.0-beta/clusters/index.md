@@ -48,7 +48,7 @@ Cluster labels are matched to the selectors created for [projects](/ksphere/komm
 
 #### Valid labels
 
-- Valid labels must have a key and a value, separated by a colon and a space. For example, "env: dev" (if creating through the UI, the space is automatically created from entering in your values in the textboxes)
+- Valid labels must have a key and a value, separated by a colon and a space. For example, "env: dev". If you are creating the label through the UI, the space is automatically added when entering your values in the fields.
 - Valid label keys and values must be alphanumeric and can contain “-”, “\_”, or “.”
 - Valid label keys and values must not start or end with “-”, “\_”, or “.”
 
