@@ -6,48 +6,35 @@ menuWeight: 8
 excerpt: Multi-cluster Configuration Management
 ---
 
-Projects empower teams to deploy their configurations and services to clusters in a consistent way. Kommander creates a unique namespace for each managed cluster. Using cluster labels to identify target clusters, Kommander relays project configuration, such as applications, secrets, and role-based authorization to dedicated namespaces on managed clusters.
+Projects empower teams to deploy their configurations and services to clusters in a consistent way. Projects allow central IT or a business unit to share their Kubernetes clusters among several teams. 
+Using Projects, Kommander is leveraging Kubernetes Cluster Federation (aka KubeFed) to coordinate the configuration of multiple Kubernetes clusters.
+When a Project is created, Kommander creates a federated namespace that is propagated to the Kubernetes clusters associated with this Project.
+Kommander allows a user to manually or dynamically (using labels) select the Kubernetes clusters associated with a Project.
+Projects support the management of configmaps, secrets, services, quotas, and role-based access control by leveraging federated resources.
+
 
 ## Project Namespace
 
 Namespaces isolate configurations across clusters and are created on all clusters matching the project labels. When creating a new project, you can customize the Kubernetes namespace that is also created.
 
-![Creating a Project](/ksphere/kommander/1.1.0-beta/img/project-create.png)
+## Creating a Project
 
-## Clusters
+When you create a Project, you need to specify a Project Name, a Namespace Name (optional) and a way to allow Kommander to determine which Kubernetes clusters will be part of this project.
 
-A project contains label selectors that identify targets for configuration, allowing you to manage configurations for arbitrary cluster sets. For example, if your project includes the label selector `team: finance`, all project assets are relayed to clusters having that label. Only clusters having _all_ the label selectors are configured by the project.
+As mentioned above, a Project Namespace corresponds to a Kubernetes Federated Namespaces. By default, the name of the namespace will be auto-generated based on the project name (first 57 characters) plus 5 unique alphanumeric characters. You can also specify a namespace name, but in this case, you need to make sure it won’t conflict with any existing namespace on the target Kubernetes clusters.
 
-When creating a project, you see the matching clusters as you enter label selectors.
+To determine which Kubernetes clusters will be part of this project, you can either select manually existing clusters or define labels that Kommander will use to dynamically add clusters. The latter is recommended because it will allow you to deploy additional Kubernetes clusters later and to have them automatically associated with Projects based on their labels.
 
-![Creating a Project](/ksphere/kommander/1.1.0-beta/img/project-create-labels.png)
+To create a Project, you can either use the Kommander UI or create a Project object on the Kubernetes cluster where Kommander is running (using kubectl or the Kubernetes API). The latter allows you to configure Kommander resources in a declarative way. It’s available for all kinds of Kommander resources.
+Here is an example of what it looks like to create a project using the Kommander UI:
 
-## Roles
+![Create Project](/ksphere/kommander/1.1.0-beta/img/create-project-form.png)
 
-Projects enable centralized managed access control by defining distributed roles. These roles grant access to resources on all clusters. When creating a role, you specify lists of resources and actions that can be taken. After they are created, they can be used by a Policy, that binds the role to a group.
+The following procedures are supported for projects:
+- [Deploy Platform Services](/ksphere/kommander/1.1.0-beta/projects/platform-services)
+- [Manage Project Roles](/ksphere/kommander/1.1.0-beta/projects/project-roles)
+- [Manage Project Policies](/ksphere/kommander/1.1.0-beta/projects/project-policies)
+- [Manage Project ConfigMaps](/ksphere/kommander/1.1.0-beta/projects/project-configmaps)
+- [Manage Project Secrets](/ksphere/kommander/1.1.0-beta/projects/project-secrets)
+- [Manage Project Quotas](/ksphere/kommander/1.1.0-beta/projects/project-quotas)
 
-## Policies
-
-Policies are distributed to all clusters, selected by a project, and grant access to a specified role for a specified group.
-
-## Configuration
-
-In Kommander you can configure ConfigMaps and Secrets for your projects.
-
-### ConfigMaps & Secrets
-
-Using project ConfigMaps and project Secrets you can define configuration resources to distribute to all project clusters.
-
-![Creating a Secret](/ksphere/kommander/1.1.0-beta/img/project-secret-create.png)
-
-## Platform Services
-
-Platform Services provide a catalog of applications you can deploy across all project clusters. See [Addon Catalog](/ksphere/kommander/latest/projects/addon-catalog) for more information
-
-## Quotas
-
-Quotas can be set to constrain resource usage. Quotas are applied to all project clusters.
-
-Kommander provides a set of default resources you can set Quotas for, or you can define Quotas for custom resources. It is recommended to set Quotas for CPU and Memory.
-
-![Adding a custom Quota](/ksphere/kommander/1.1.0-beta/img/project-quotas-add-custom.png)

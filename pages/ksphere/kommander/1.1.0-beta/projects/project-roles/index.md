@@ -8,7 +8,8 @@ excerpt: Project Roles are used to define permissions at the namespace level.
 
 Project Roles are used to define permissions at the namespace level.
 
-TODO IMAGE
+![Project Role Form](/ksphere/kommander/1.1.0-beta/img/project-create-role.png)
+Project Role Form
 
 In the example above, a Project Role is created with a single Rule. This Project Role corresponds to a namespace admin role.
 
@@ -91,7 +92,11 @@ status:
     status: "True"
     type: Propagation
   observedGeneration: 1
-Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Role Object, in the corresponding namespace:
+```
+
+Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Role object in the corresponding namespace:
+
+```
 $ kubectl -n ${projectns} get role admin-dbfpj-l6s9g -o yaml
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
