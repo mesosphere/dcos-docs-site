@@ -14,7 +14,7 @@ Kommander allows you to monitor and manage very large numbers of clusters and so
 
 You need to have run `konvoy up` with the Kommander addon deployed. You should be looking at the Kommander UI.
 If you are creating a cluster with a cloud partner (Azure, AWS), you need to configure your [infrastructure provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/).
-If you are planning on attaching more than one cluster, make sure to enter in your valid [license](/ksphere/kommander/1.1.0-beta/licensing/).
+If you are planning on attaching more than one cluster, ensure you enter your valid [license](/ksphere/kommander/1.1.0-beta/licensing/).
 
 From the dashboard page or the clusters page, click Add Cluster and Create Konvoy Cluster.
 
