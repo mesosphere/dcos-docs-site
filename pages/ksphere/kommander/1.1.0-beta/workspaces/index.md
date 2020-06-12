@@ -12,14 +12,14 @@ Workspaces give you the flexibility to represent your organization in a way that
 
 For example, you can create separate workspaces for each department, product, or business function. Each workspace manages their own clusters and role-based permissions, while retaining an overall organization-level view of all clusters in operation.
 
-#### Organization / Workspace UI
+#### Global / Workspace UI
 
 The UI is designed to be accessible for different roles:
 
 ![Organization / Workspace Selection](/ksphere/kommander/1.1.0-beta/img/org-nav.png)
 <br />_Organization / Workspace Selection_
 
-At the top level, **Organization**, IT administrators manage all clusters across all workspaces.
+At the top level, **Global**, IT administrators manage all clusters across all workspaces.
 
 At the **Workspace** level, devops administrators manage multiple clusters within a workspace.
 
@@ -35,6 +35,18 @@ From the top level navigation, select **Actions** and **Create Workspace**. Ente
 
 ![Create Cluster, Create Workspace](/ksphere/kommander/1.1.0-beta/img/org-actions.png)
 <br />_Create Actions_
+
+![Create Workspace Form](/ksphere/kommander/1.1.0-beta/img/create-workspace.png)
+<br />_Create Workspace Form_
+
+##### Advanced Options
+
+![Workspace Form Advanced Annotations](/ksphere/kommander/1.1.0-beta/img/workspace-annotations.png)
+<br />_Create Workspace Advanced Options_
+
+When creating, or editing, a workspace you can use the Advanced options to add, edit or delete annotations and labels to your workspace. Both the annotations and labels will be applied to the Workspace namespace.
+
+Labels that are added to a Workspace, will also be applied to all of that Workspace’s clusters.
 
 #### Editing and Deleting Workspaces
 
