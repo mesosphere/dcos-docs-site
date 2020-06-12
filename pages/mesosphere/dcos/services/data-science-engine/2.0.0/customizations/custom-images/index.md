@@ -17,28 +17,29 @@ Here is the list of published docker images:
 
 ```text
 # CPU based Notebook images for each DL Framework supported
-"mesosphere/jupyter-service:cea0efa8e0578237d4247568be579904e0af1da4834ed17f166f06f7ef5be0f2-notebook-mxnet-1.6.0"
-"mesosphere/jupyter-service:cd69c9346db5f94c2d819c81159c74c72f94c5bf0f1c87cd273f165c2a0b26bc-notebook-pytorch-1.4.0"
-"mesosphere/jupyter-service:0f52d10b27bb92e5596ef08db66331628c5187c23393a098b89872d19b778fd7-notebook-tensorflow-1.15"
-"mesosphere/jupyter-service:86cd108e2f1b6b9b8c54bd74a864b37f1a9378b0f19fe92601b06adb3cb07646-notebook-tensorflow-2.1.0"
+"mesosphere/jupyter-service:727a04a69058c382134533cbdbeaf6e5e9f11918c83bce4eff90bd46de193339-notebook-tensorflow-2.1.0"
+"mesosphere/jupyter-service:a699c3aa92cf6ea85b6c02fe43274fa2547e1a6a8fa7a6913e3bf54d20c732bc-notebook-tensorflow-1.15"
+"mesosphere/jupyter-service:3cfe8de8c8b04549ebda811bf9461925d15473364dfe5e77dfca34852d9f9046-notebook-pytorch-1.4.0"
+"mesosphere/jupyter-service:7c0ff9159bc36ada373d0f811cb5dc90668b727de8f11e167b35c6c8d39678df-notebook-mxnet-1.6.0"
+
 
 # GPU based Notebook images for each DL Framework supported
-"mesosphere/jupyter-service:dc833812f6d2560a4613c2fea2e7076ff81c0d0c3732c8f8f6434b44b1ebfa0b-notebook-tensorflow-1.15-gpu"
-"mesosphere/jupyter-service:dbe826497d85a0d179c7217dfb3ef5e9c9b93c22f805516b3751522199aab19b-notebook-mxnet-1.6.0-gpu"
-"mesosphere/jupyter-service:859d5675f9b23702248373c58a489fb5fd2934da9e8ce59aa4fd225b77f80bf5-notebook-pytorch-1.4.0-gpu"
-"mesosphere/jupyter-service:fd12f3fda15690bf832093b4db9d069f295a39e93e5072619b007ca71833379a-notebook-tensorflow-2.1.0-gpu"
+"mesosphere/jupyter-service:545a45c5926f006faf98ff1f70e868bf7bf28b43efc553743e3ebee79820c1da-notebook-tensorflow-2.1.0-gpu"
+"mesosphere/jupyter-service:3098ffb9417f21c5c640508e671df04d4fa294fbe0f3e79e048782fe9f8e6132-notebook-tensorflow-1.15-gpu"
+"mesosphere/jupyter-service:59f5739641f58f79861d4a248e14a25b31e6e5570bd371f9bd052cfc15df0c81-notebook-pytorch-1.4.0-gpu"
+"mesosphere/jupyter-service:6c02651260bf094077bc2963e48bb5abc0d437924ab3b5305481e197ff6b6926-notebook-mxnet-1.6.0-gpu"
 
 # CPU based Worker images for each DL Framework supported
-"mesosphere/jupyter-service:5f4660355a05c8e10675e4f5064e1d77c7eea1a9e94f4b2bd9522165f38a3fdf-worker-mxnet-1.6.0"
-"mesosphere/jupyter-service:0ef22682b45fde63038ebda6f4edce4620db45e72f44365f4c6cdcf4e3ead81b-worker-pytorch-1.4.0"
-"mesosphere/jupyter-service:0a104439d74f74ece0ea82650df74b673d0e7c4c03e9aee725e85aa42a6d4b74-worker-tensorflow-1.15"
 "mesosphere/jupyter-service:b51ef1a82b207380ae268ae94dfb4e49156cc7ad21d42edf7ee70da26b1cb2c9-worker-tensorflow-2.1.0"
+"mesosphere/jupyter-service:0a104439d74f74ece0ea82650df74b673d0e7c4c03e9aee725e85aa42a6d4b74-worker-tensorflow-1.15"
+"mesosphere/jupyter-service:0ef22682b45fde63038ebda6f4edce4620db45e72f44365f4c6cdcf4e3ead81b-worker-pytorch-1.4.0"
+"mesosphere/jupyter-service:5f4660355a05c8e10675e4f5064e1d77c7eea1a9e94f4b2bd9522165f38a3fdf-worker-mxnet-1.6.0"
 
 # GPU based Worker images for each DL Framework supported
-"mesosphere/jupyter-service:d6b71dbc4fc689cf621ac27588e839b991fa65c39e16e2dddc5753f82836f271-worker-tensorflow-1.15-gpu"
-"mesosphere/jupyter-service:c9017c0afeb7f13000d9457c4a5a54e6864a983553604658acca5dde94100094-worker-mxnet-1.6.0-gpu"
-"mesosphere/jupyter-service:42ddb7d996734154b63e15d271f953e6e16fca2f8dc31492299e649b4578f769-worker-pytorch-1.4.0-gpu"
 "mesosphere/jupyter-service:ea9c3ed28ef2464bb4e6ff2e24fb227eabeca8939d0e58f7b5f228e224cf8dbf-worker-tensorflow-2.1.0-gpu"
+"mesosphere/jupyter-service:d6b71dbc4fc689cf621ac27588e839b991fa65c39e16e2dddc5753f82836f271-worker-tensorflow-1.15-gpu"
+"mesosphere/jupyter-service:42ddb7d996734154b63e15d271f953e6e16fca2f8dc31492299e649b4578f769-worker-pytorch-1.4.0-gpu"
+"mesosphere/jupyter-service:c9017c0afeb7f13000d9457c4a5a54e6864a983553604658acca5dde94100094-worker-mxnet-1.6.0-gpu"
 ```
 
 ## Customize Notebook Image
