@@ -12,7 +12,7 @@ enterprise: true
 ---
 1. Follow the documentation available [here](https://docs.d2iq.com/mesosphere/dcos/services/edge-lb/latest/getting-started/installing/) to deploy Edge-LB to your cluster.
 
-1. Create Data Science Engine config `dse.json` specifying hostname:
+1. Create {{ model.techName }} config `dse.json` specifying hostname:
     ```json
     {
       "service": {
@@ -26,7 +26,7 @@ enterprise: true
       }
     }
 
-1. Deploy Data Science Engine:
+1. Deploy {{ model.techName }}:
     ```bash
     dcos package install {{ model.packageName }} --options=dse.json 
     ```
@@ -43,7 +43,7 @@ enterprise: true
       ],
     ```
    
-1. For port discovery point backend to Data Science Engine notebook task:
+1. For port discovery point backend to {{ model.techName }} notebook task:
     ```json
      ...
      "mesos" : {
@@ -96,7 +96,7 @@ enterprise: true
               }
         ```
 
-1. Example Edge-LB pool configuration `dse-pool.json` for Data Science Engine named `dse` and external hostname `external.host.com`:
+1. Example Edge-LB pool configuration `dse-pool.json` for {{ model.techName }} named `dse` and external hostname `external.host.com`:
     ```json
     {
       "apiVersion": "V2",
