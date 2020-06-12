@@ -8,15 +8,16 @@ excerpt: Project Policies grant access to a specified Project Role for a specifi
 
 Project Policies grant access to a specified Project Role for a specified group of people.
 
-Before you can create a Project Policy, you need to make sure you have created a Group. A Kommander Group can contain one or several Identity Provider Users or/and groups.
+Before you can create a Project Policy, you need to make sure you have created a Group. A Kommander Group can contain one or several Identity Provider users and/or groups.
 
 Then, you can assign a role to this Kommander Group:
 
-TODO IMAGE
+![Project Policy Form](/ksphere/kommander/1.1.0-beta/img/project-edit-policy.png)
+Project Policy Form
 
 A Project Policy can also be created using kubectl:
 
-```
+```bash
 cat << EOF | kubectl create -f -
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: VirtualGroupProjectRoleBinding
@@ -35,7 +36,7 @@ You need to make sure the projectns, projectrole and the virtualgroup variables 
 
 You can set them using the following commands (for a Kommander Group called user1 and a Project Role called admin, and after setting the projectns as explained in the previous section):
 
-```
+```bash
 virtualgroup=$(kubectl -n kommander get virtualgroup.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="user1-")].metadata.name}')
 
 projectrole=$(kubectl -n ${projectns} get projectroles.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="admin-")].metadata.name}')
@@ -43,7 +44,7 @@ projectrole=$(kubectl -n ${projectns} get projectroles.workspaces.kommander.meso
 
 When a Project Policy is created, Kommander creates a Kubernetes FederatedRoleBinding on the Kubernetes cluster where Kommander is running:
 
-```
+```bash
 $ kubectl -n ${projectns} get federatedrolebindings.types.kubefed.io projectpolicy-gtct4-rdkwq -o yaml
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedRoleBinding

@@ -10,11 +10,12 @@ Project Secrets can be created to make sure a Kubernetes Secrets are automatical
 
 A Project Secret can be created using the Kommander UI:
 
-TODO IMAGE
+![Project Secret Form](/ksphere/kommander/1.1.0-beta/img/project-create-secret.png)
+Project Secret Form
 
 A Project Secret is simply a Kubernetes FederatedConfigSecret and can also be created using kubectl:
 
-```
+```bash
 cat << EOF | kubectl create -f -
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedSecret
@@ -34,11 +35,11 @@ EOF
 
 You need to make sure the projectns variable is set before executing the command.
 
-Note: The value of the key is base64 encoded.
+**Note**: The value of the key is base64 encoded.
 
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Secret Object, in the corresponding namespace:
 
-```
+```bash
 $ kubectl -n ${projectns} get secret secret1-r9vk2 -o yaml
 apiVersion: v1
 data:
