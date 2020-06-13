@@ -67,7 +67,5 @@
     "webpack": "^3.0.0",
     "webpack-dev-server": "^2.5.0"
   },
-  "dependencies": {
-    "gsap": "2.1.3"
-  }
+  "dependencies": {}
 }
