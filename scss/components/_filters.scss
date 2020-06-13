@@ -6,6 +6,7 @@
   left: 0;
   display: none;
   z-index: -1;
+  overflow: hidden;
   @include lg {
     display: flex;
   }
@@ -40,6 +41,19 @@
     width: 1920px;
     max-width: 1920px;
     margin: 0 auto;
+    $paths: 13;
+    @for $i from 1 through $paths {
+      $start: random(360);
+      $duration: random(20) + 10;
+      $dir: if(random(100) > 50, 1, -1);
+      @keyframes rotate-bubble#{$i} {
+        0%{ transform: rotate(#{$start}deg) translate(20px,0) rotate(#{-$start}deg); }
+        100% { transform: rotate(#{$start + 360 * $dir}deg) translate(20px,0) rotate(#{-$start - 360 * $dir}deg); }
+      }
+      path:nth-child(#{$i}){
+        animation: rotate-bubble#{$i} #{$duration}s linear infinite;
+      }
+    }
   }
 }
 
