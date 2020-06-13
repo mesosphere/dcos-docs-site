@@ -7,7 +7,7 @@
   display: none;
   z-index: -1;
   @include lg {
-    display: block;
+    display: flex;
   }
 
   &:before, &:after {
@@ -31,8 +31,15 @@
   }
 
   svg {
-    max-height: 400px;
-    width: 100%;
+    // yes, that's very magical and i'm sorry that you happen to be the one who reads this comment. time constraints :/
+    // if you want the bubbles to be higher you would need to edit the svg. (https://editor.method.ac/ worked well here)
+    // you need to edit the dimensions of the canvas and then place the bubbles accordingly by hand. afterwards update this
+    // height and width to match your new canvas size. to make those dynamical i guess we need a better solution than the one
+    // we have in place here. replaceing TweenMax with a css-animation might be nice anyways.
+    height: 314px;
+    width: 1920px;
+    max-width: 1920px;
+    margin: 0 auto;
   }
 }
 
@@ -46,12 +53,22 @@
   }
 }
 
+[data-spherefilter-reset] {
+  position: absolute;
+  bottom: 2rem;
+  right: 0;
+  display: none;
+  &.disabled {
+    display: block;
+  }
+}
 .sphere-button {
   border-radius: .5rem;
   overflow: hidden;
   flex-grow: 1;
   flex-basis: 0;
   transition: opacity .5s;
+  position: relative;
   a {
     display: flex;
     align-items: center;
@@ -63,8 +80,16 @@
   & + .sphere-button {
     margin-left: 1.5rem;
   }
-  &.disabling {
-    opacity: 0.5;
+  &.disabled {
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: rgba(0,0,0,0.3);
+    }
   }
 }
 .sphere-button-icon {

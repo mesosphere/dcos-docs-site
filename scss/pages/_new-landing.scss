@@ -23,7 +23,7 @@
         padding: 3rem 0;
         transition: all .5s;
         max-height: 300px;
-        &.disabling {
+        &.disabled {
           opacity: 0;
           max-height: 0;
           padding: 0;
