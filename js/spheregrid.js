@@ -28,12 +28,11 @@ document.addEventListener("DOMContentLoaded", (event) => {
   $("[data-spherefilter]").on("click", (e) => {
     const f = e.currentTarget.dataset.spherefilter;
     activeFilter = activeFilter === f ? null : f;
-    $("[data-spherefilter]").addClass("disabling");
-    $("[data-sphere]").addClass("disabling");
+    $("[data-sphere],[data-spherefilter]").addClass("disabled");
     $(
       activeFilter
         ? `[data-spherefilter=${activeFilter}],[data-sphere=${activeFilter}]`
         : "[data-spherefilter],[data-sphere]"
-    ).removeClass("disabling");
+    ).removeClass("disabled");
   });
 });
