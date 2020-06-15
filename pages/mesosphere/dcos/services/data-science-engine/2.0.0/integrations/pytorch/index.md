@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: PyTorch
-excerpt: Using PyTorch with DC/OS Data Science Engine
+excerpt: Use PyTorch with DC/OS Data Science Engine
 title: PyTorch
 menuWeight: 12
 model: /mesosphere/dcos/services/data-science-engine/data.yml
