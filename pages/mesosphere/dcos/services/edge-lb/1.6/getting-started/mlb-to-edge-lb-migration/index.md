@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Marathon-LB to Edge-LB Migration
-title: Marathon-LB to Edge-LB Migration
+navigationTitle: Migrate from Marathon-LB to Edge-LB
+title: Migrate from Marathon-LB to Edge-LB
 menuWeight: 18
-excerpt: Demonstrates a migration from Marathon-LB to Edge-LB Auto Pools
+excerpt: Demonstrates how to migrate from Marathon-LB to Edge-LB Auto Pools
 enterprise: false
 ---
 
@@ -20,42 +20,42 @@ You must have:
 * Marathon-LB installed as described in the Marathon-LB
   [installation instructions](/mesosphere/dcos/services/marathon-lb/1.14/mlb-install).
 
-# Migrating from MarathonLB to EdgeLB Auto Pools
+# Migrating from Marathon-LB to Edge-LB Auto Pools
 
-EdgeLB Auto Pools and MarathonLB both support exposing services based on task
-labels. While MarathonLB only supports Marathon Applications, EdgeLB Auto
+Edge-LB Auto Pools and Marathon-LB both support exposing services based on task
+labels. While Marathon-LB only supports Marathon Applications, Edge-LB Auto
 Pools supports all Mesos tasks.
 
 ## Label Support
-MarathonLB supports a mix of high level labels and low level labels where
+Marathon-LB supports a mix of high-level labels and low-level labels where
 haproxy configuration sections are inserted directly from the label. The
-ability to override any section of the haproxy configuration while powerful
-is fragile and error prone, as such EdgeLB does not support haproxy override
-directly from labels. Instead an EdgeLB [`pool`](https://link/to/pool) object
-is generated from the labels, and processed as any other EdgeLB pool.
+ability to override any section of the haproxy configuration, while powerful,
+is fragile and error prone. As such, Edge-LB does not support haproxy override
+directly from labels. Instead, an Edge-LB [`pool`](https://link/to/pool) object
+is generated from the labels, and processed as any other Edge-LB pool.
 
-Some advanced configurations that were possible with MLB soley with task
+Some advanced configurations that were possible with Marathon-LB soley with task
 labels containing portions of haproxy configurations are still possible with
-EdgeLB Auto Pools. However because the haproxy configuration is decoupled
-from the label processing, it requires an edgelb administrator to modify the
+Edge-LB Auto Pools. However, because the haproxy configuration is decoupled
+from the label processing, it requires an edge-lb administrator to modify the
 template for the pool that the Auto Pool creates.
 
-Since EdgeLB Auto Pools and MarathonLB labels do not overlap, it is possible
-to transition to EdgeLB Auto Pools by adding the new labels (preserving the
-existing MarathonLB labels) and testing the EdgeLB Auto Pools configuration
-while MarathonLB continues to serve traffic as usual.
+Since Edge-LB Auto Pools and Marathon-LB labels do not overlap, it is possible
+to transition to Edge-LB Auto Pools by adding the new labels (preserving the
+existing Marathon-LB labels) and testing the Edge-LB Auto Pools configuration
+while Marathon-LB continues to serve traffic as usual.
 
 ## Label Mapping
 
-The following table MarathonLB iterates the common MarathonLB labels and their
-conterpart label for EdgeLB Auto Pools.
+The following table Marathon-LB iterates the common Marathon-LB labels and their
+conterpart label for Edge-LB Auto Pools.
 
 [//]: # (The labels in each should link to the label docs for mlb and elb)
 
-| MarathonLB | EdgeLB Auto Pools | Notes |
+| Marathon-LB | Edge-LB Auto Pools | Notes |
 | --- | --- | --- |
 | `HAPROXY_0_BALANCE` | `edgelb.<group>.backend.balance` | |
-| `HAPROXY_0_ENABLED` | `edgelb.expose` | Must be set for EdgeLB Auto Pools |
+| `HAPROXY_0_ENABLED` | `edgelb.expose` | Must be set for Edge-LB Auto Pools |
 | `HAPROXY_GROUP` | `edgelb.template` | |
 | `HAPROXY_0_HTTP_BACKEND_PROXYPASS_PATH` | `edgelb.<group>.backend.rewriteHttp.path` | |
 | `HAPROXY_0_HTTP_BACKEND_REVPROXY_PATH` | `edgelb.<group>.backend.rewriteHttp.path` | |
@@ -68,12 +68,12 @@ conterpart label for EdgeLB Auto Pools.
 | `HAPROXY_0_VHOST` | `edgelb.<group>.frontend.rules` | `hostEq` key in rules |
 
 
-## Migrating a NGINX site from MarathonLB to EdgeLB
+## Migrating an NGINX site from Marathon-LB to Edge-LB
 
-Since the labels for EdgeLB Auto Pools and MarathonLB do not overlap, it is
+Since the labels for Edge-LB Auto Pools and Marathon-LB do not overlap, it is
 possible to migration from one to the other without any downtime.
 
-The following task defines a task that is exposed out via MarathonLB with
+The following task defines a task that is exposed out via Marathon-LB with
 the domain `example.com`:
 
 ```json
@@ -99,7 +99,7 @@ the domain `example.com`:
 }
 ```
 
-Assuming the IP of the MarathonLB instance is `192.0.2.2`, the `--resolve`
+Assuming the IP of the Marathon-LB instance is `192.0.2.2`, the `--resolve`
 parameter to `curl` can inject this IP and send the correct host header
 for vHosting:
 
@@ -132,7 +132,7 @@ Commercial support is available at
 </html>
 ```
 
-The EdgeLB Auto Pools labels can not be added to the task:
+The Edge-LB Auto Pools labels cannot be added to the task:
 
 ```json
 {
@@ -159,7 +159,7 @@ The EdgeLB Auto Pools labels can not be added to the task:
 }
 ```
 
-Shortly after the labels being added to the task, EdgeLB will automaticly
+Shortly after the labels being added to the task, Edge-LB will automatically
 start the `auto-default` pool:
 
 ```sh
@@ -168,7 +168,7 @@ dcos edgelb list
   auto-default  V2          1      slave_public
 ```
 
-The EdgeLB CLI can also show the endpoints for the pool:
+The Edge-LB CLI can also show the endpoints for the pool:
 
 ```sh
 dcos edgelb endpoints auto-default
@@ -179,7 +179,7 @@ Public/private IPs metadata is inaccurate in case of pools that use virtual netw
 ```
 
 Using the `--resolve` parameter to curl to inject the correct host header, the
-EdgeLB endpoint can be validated to be functional:
+Edge-LB endpoint can be validated to be functional:
 
 ```sh
 curl --resolve example.com:80:192.0.2.103 http://example.com
@@ -210,17 +210,17 @@ Commercial support is available at
 </html>
 ```
 
-At this point the task is being exposed through EdgeLB and MarathonLB at the
+At this point the task is being exposed through Edge-LB and Marathon-LB at the
 same time. Now a standard DNS migration can be performed:
 
 1. Lower the TTL for `A` record for `example.com` to 300 seconds.
-2. Wait 48 hours or the time specified in the `SOA` TTL, whichever is greater
-3. Change the `A` record for `example.com` to point to the EdgeLB endpoint, and
-   optionally reset the TTL back to its desired or original value.
-4. Within 5 mins traffic will start flowing through EdgeLB instead of
-   MarathonLB.
+2. Wait 48 hours, or the time specified in the `SOA` TTL, whichever is greater
+3. Change the `A` record for `example.com` to point to the Edge-LB endpoint, and
+   optionally, reset the TTL back to its desired or original value.
+4. Within 5 minutes, traffic will start flowing through Edge-LB instead of
+   Marathon-LB.
 
-Once traffic has been migrated over, the MarathonLB labels can be removed from
+Once traffic has been migrated over, the Marathon-LB labels can be removed from
 the task:
 
 ```json
