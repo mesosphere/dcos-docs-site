@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Supported Kernels  
-excerpt: Using DC/OS Data Science Engine with Kernels
+excerpt: Use DC/OS Data Science Engine with Kernels
 title: Supported Kernels
 menuWeight: 7
 enterprise: true
@@ -98,15 +98,15 @@ print(sum)
 
 # Advanced
 
-## Launching a Spark job
-### Using Terminal
+## Launch a Spark job
+### Use the Terminal
 Open a `Terminal` from the Notebook UI and run an example `spark-submit` job:
 
 ```bash
 spark-submit --class org.apache.spark.examples.SparkPi http://downloads.mesosphere.com/spark/assets/spark-examples_2.11-2.4.0.jar 100
 ```
 
-### Using Python Notebook
+### Use Python Notebook
 Open a `Python 3` Notebook and put the following in a code cell:
 
 ```python
@@ -137,7 +137,7 @@ print("Pi is roughly %f" % (4.0 * count / n))
 spark.stop()
 ```
 
-### Using Scala Notebook
+### Use Scala Notebook
 Open a `Apache Toree - Scala` Notebook and put the following in a code cell:
 ```scala
 import org.apache.spark.mllib.feature.{HashingTF, IDF}
