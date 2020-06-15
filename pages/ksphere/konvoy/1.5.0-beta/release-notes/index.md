@@ -34,7 +34,7 @@ enterprise: false
 
 #### Improvements
 
-- CLI: Update Calico version to address the [CVE](https://docs.projectcalico.org/archive/v3.13/release-notes/&#35;v3134).
+- CLI: Update Calico version to address the [CVE](https://docs.projectcalico.org/archive/v3.13/release-notes/#v3134).
 - CLI: New field `autoProvisioning` that exposes auto-provisioning and autoscaler properties.
 - CLI: New flag `--skip-credentials-display` to skip displaying the admin credentials after the installation.
 - CLI: When running `konvoy init` or `konvoy up`, the AWS AvailabilityZones are automatically determined from the region specified, either in the `AWS_REGION` environment variable, or the default `us-west-2`.
