@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Installing Edge-LB
-title: Installing Edge-LB
+navigationTitle:  Install Edge-LB
+title: Install Edge-LB
 menuWeight: 5
 excerpt: Describes how to install Edge-LB
 enterprise: false
@@ -57,7 +57,7 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
 <a name="create-service-account"></a>
 
 # Create a service account
-The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests. [Service accounts](/mesosphere/dcos/2.0/security/ent/service-auth/) are used in conjunction with public/private key pairs, secrets, permissions, and authentication tokens to provide secure access for services running on DC/OS Enterprise clusters. For DC/OS Open Source clusters Service Accounts provide the service with a login other than the user's login.
+The Edge-LB API server must be associated with a service account so that it can launch Edge-LB pools on public and private nodes, based on user requests. [Service accounts](/mesosphere/dcos/2.0/security/ent/service-auth/) are used in conjunction with public/private key pairs, secrets, permissions, and authentication tokens to provide secure access for services running on DC/OS Enterprise clusters. For DC/OS Open Source clusters Service Accounts, provide the service with a login other than the user's login.
 
 
 ## DC/OS Enterprise Service Accounts
@@ -238,7 +238,7 @@ After configuring service authentication, you must create a JSON options file wi
     }
     ```
 
-    For DC/OS Open Source specify the `dcosServiceAccountCreds` directly, newlines in the `private-key.pem` must be embeded. The simplist way to do this is using `bash` redirection:
+    For DC/OS Open Source, specify the `dcosServiceAccountCreds` directly, newlines in the `private-key.pem` must be embeded. The simplist way to do this is using `bash` redirection:
 
     ```sh
     tee edge-lb-options.json <<EOF
@@ -252,7 +252,7 @@ After configuring service authentication, you must create a JSON options file wi
 
 1. Specify other configuration settings, as needed.
 
-    <p class="message--note"><strong>NOTE: </strong>If you are using the install --options= approach and you modify the service name to be other than the default, edgelb, then you must be explicit when specifying the service name when you use any "dcos edgelb xxxx" commands.</p>
+    <p class="message--note"><strong>NOTE: </strong>If you are using the install --options= approach and you modify the service name to be something other than the default, edgelb, then you must be explicit when specifying the service name when you use any "dcos edgelb xxxx" commands.</p>
 
     As an example of this effect, suppose you deployed a service with the JSON configuration file:
     ```json
