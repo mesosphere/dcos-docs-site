@@ -18,7 +18,7 @@ If you are planning on attaching more than one cluster, ensure you enter your va
 
 From the dashboard page or the clusters page, click Add Cluster and Create Konvoy Cluster.
 
-![Add Cluster Options](/ksphere/kommander/1.1.0-beta/img/add-cluster-beta-1-1-0.png)
+![Add Cluster Options](/ksphere/kommander/1.1.0-beta/img/add-cluster.png)
 
 ### Creating a Konvoy Cluster
 
