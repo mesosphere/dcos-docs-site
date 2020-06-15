@@ -59,7 +59,7 @@ spec:
     - name: kommander
       enabled: true
       values: |
-        yakcl-federation:
+        kommander-federation:
           utilityApiserver:
             env:
               HTTP_PROXY: "http://proxy.company.com:3128"

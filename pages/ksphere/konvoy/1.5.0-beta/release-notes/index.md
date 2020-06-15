@@ -15,6 +15,40 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.5.0-beta.8 - Released 15 June 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.17.x |
+|**Default** | 1.17.6 |
+
+#### Bug fixes
+
+- CLI: Only create a new `cluster.yaml` file if `.bkp` state file does not already exist.
+- CLI: Fix an error during `konvoy down` if there are non string terraform output variables defined.
+- Ansible: Fix Containerd upgrade from a cluster installed with a previous version of Konvoy.
+- Ansible: Fix an error where using `v1beta1` API in the `cluster.yaml` may cause Ansible to run certain tasks.
+- Ansible: Fix an error in the preflight checks that prevented installing on Ubuntu 18 (bionic).
+
+#### Improvements
+
+- CLI: Update Calico version to address the [CVE](https://docs.projectcalico.org/archive/v3.13/release-notes/&#35;v3134).
+- CLI: New field `autoProvisioning` that exposes auto-provisioning and autoscaler properties.
+- CLI: New flag `--skip-credentials-display` to skip displaying the admin credentials after the installation.
+- CLI: When running `konvoy init` or `konvoy up`, the AWS AvailabilityZones are automatically determined from the region specified, either in the `AWS_REGION` environment variable, or the default `us-west-2`.
+- Ansible: When containerd version >= 1.3.x is used, konvoy now downloads the containerd rpm/deb packages from repositories maintained by D2IQ.
+
+#### Component version changes
+
+- Calico `v3.13.4`
+- Go `v1.13.12`
+- Docker `v19.03.11`
+
+#### Known issues and limitations
+
+- Using the autoscaling functionality when airgapped is not supported. You cannot specify the location of your local docker registry to the autoscaling module.
+
 ### Version v1.5.0-beta.7 - Released 8 June 2020
 
 | Kubernetes Support | Version |

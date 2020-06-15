@@ -218,7 +218,7 @@ spec:
 ...
 ```
 
-It is necessary to define the `vpc.ID` and the `vpd.routeTableID`.
+It is necessary to define the `vpc.ID` and the `vpc.routeTableID`.
 
 <p class="message--note"><strong>NOTE: </strong> When creating the VPC you must have the DNS resolution option enabled, unless you are setting <tt>vpc.enableInternetGateway: false</tt>.</p>
 

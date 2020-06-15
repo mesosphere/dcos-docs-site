@@ -44,6 +44,7 @@ excerpt: API documentation (v1beta2)
 * [AddonRepository](#addonrepository)
 * [Addons](#addons)
 * [AdmissionPlugins](#admissionplugins)
+* [AutoProvisioning](#autoprovisioning)
 * [CalicoContainerNetworking](#calicocontainernetworking)
 * [Certificate](#certificate)
 * [CloudProvider](#cloudprovider)
@@ -456,6 +457,16 @@ AdmissionPlugins configures Kubernetes admission plugins.
 
 [Back to TOC](#table-of-contents)
 
+## AutoProvisioning
+
+AutoProvisioning contains configurations for the auto provisioner.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| config | [Helm value overrides](https://helm.sh/docs/chart_template_guide/values_files/) for the auto-provisioning helm chart. You can specify arbitrary YAML/JSON object for this field. The specified value overrides will need to conform to the schema defined for the chart. | apiext.JSON | false |
+
+[Back to TOC](#table-of-contents)
+
 ## CalicoContainerNetworking
 
 CalicoContainerNetworking describes Calico CNI
@@ -506,6 +517,7 @@ ClusterConfigurationSpec is the spec that contains the Kubernetes cluster option
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | kubernetes | Kubernetes specific properties. | [Kubernetes](#kubernetes) | false |
+| autoProvisioning | Auto provisioning specific properties. | [AutoProvisioning](#autoprovisioning) | false |
 | containerNetworking | Container networking specific properties. | [ContainerNetworking](#containernetworking) | false |
 | containerRuntime | Container runtime specific properties. | [ContainerRuntime](#containerruntime) | false |
 | imageRegistries | Container image registries related settings. | [][ImageRegistry](#imageregistry) | false |

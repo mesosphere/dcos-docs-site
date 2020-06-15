@@ -19,7 +19,7 @@ Konvoy uses the [cluster-autoscaler][autoscaler] community tool for autoscaling.
 
 <p class="message--note"><strong>NOTE: </strong> This feature is only supported for AWS and Azure cloud providers.</p>
 
-<p class="message--note"><strong>IMPORTANT: </strong> When using this feature, you **MUST** use cloud provider credentials with a longer expiration than the cluster's life or static credentials. The autoscaler makes usage of these credentials
+<p class="message--note"><strong>IMPORTANT: </strong> When using this feature, you **HAVE** to use cloud provider credentials with a longer expiration than the cluster's life or static credentials. The autoscaler makes usage of this credentials
 to trigger scaling actions, so they need to be valid at any time.</p>
 
 ## Configure autoscaling capabilities to the worker pool

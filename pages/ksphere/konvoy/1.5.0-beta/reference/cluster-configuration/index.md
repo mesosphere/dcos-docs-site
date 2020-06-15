@@ -104,7 +104,7 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.13.3
+      version: v3.13.4
       encapsulation: ipip
       mtu: 1480
   containerRuntime:
