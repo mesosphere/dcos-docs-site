@@ -222,7 +222,7 @@ For more information about collecting metrics and configuring metrics plugins, s
 
 - Dynamic masters on the Universal Installer. <!--(DCOS-45725)-->
 
-    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also from the master nodes--if you deem it necessary to do so. For more information, see the documentation for [replaceable masters](/mesosphere/dcos/1.13/installing/evaluation/aws/aws-replaceable-masters/).
+    Dynamic masters enable you to create, destroy, and recover master nodes. With this feature, you can use the Universal Installer to downscale or upscale your DC/OS clusters from not just the agent nodes (which is currently supported), but also replace master nodes – if you deem it necessary to do so. For more information, see [replaceable masters](/mesosphere/dcos/1.13/installing/evaluation/aws/aws-replaceable-masters/).
 
 
 - Enable Universal Installer and on-premise DC/OS life cycle management with Ansible. <!--(DCOS-45724)-->
