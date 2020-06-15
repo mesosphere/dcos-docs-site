@@ -33,7 +33,7 @@ The following components provide Nvidia GPU support on Konvoy:
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1.  On Centos 7, we recommend using the latest kernel version in production, while the default AMI's kernel version `3.10.0-1062` should work as well. If you want to use a dedicated kernel version on centos, please see the following sections for detailed configuration. Please note that Ubuntu does not have the kernel version restriction.
+1.  On Centos 7, we recommend using the latest kernel version in production, while the default AMI's kernel version `3.10.0-1062` should work as well. If you want to use a dedicated kernel version on Centos, please see the following sections for detailed configuration. Please note that Ubuntu does not have the kernel version restriction.
 
 ## Configuration
 
