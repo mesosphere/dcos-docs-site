@@ -33,13 +33,7 @@ The following components provide Nvidia GPU support on Konvoy:
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1.  Ensure the kernel-headers version is identical to the kernel version on each node. To verify this use the following script:
-
-    * Ubuntu
-
-    ```bash
-    KERNEL_VERSION=$(uname -r) && apt-cache show "linux-headers-${KERNEL_VERSION}" 2> /dev/null | sed -nE 's/^Version:\s+(([0-9]+\.){2}[0-9]+)[-.]([0-9]+).*/\1-\3/p' | head -1
-    ```
+1.  On Centos 7, we recommend using the latest kernel version in production, while the default AMI's kernel version `3.10.0-1062` should work as well. If you want to use a dedicated kernel version on centos, please see the following sections for detailed configuration. Please note that Ubuntu does not have the kernel version restriction.
 
 ## Configuration
 
@@ -79,6 +73,64 @@ spec:
       enabled: true
 ```
 
+### Nvidia Driver Configuration Based on Kernel Version
+
+Additional configuration may be needed if your kernel version of the GPU nodes is not identical to the latest one from the yum repository. In this case, you need to pick the right image tag for your Nvidia Driver container. For example, the following list is the supported kernel versions from the Nvidia upstream `nvidia/driver` image:
+
+```bash
+440.64.00-1.0.0-3.10.0-1127.8.2.el7.x86_64-centos7
+440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7
+440.64.00-1.0.0-3.10.0-1062.18.1.el7.x86_64-centos7
+440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7
+440.33.01-3.10.0-1062.9.1.el7.x86_64-centos7
+440.33.01-3.10.0-1062.7.1.el7.x86_64-centos7
+440.33.01-3.10.0-1062.4.3.el7.x86_64-centos7
+418.87.01-3.10.0-1062.4.3.el7.x86_64-centos7
+418.87.01-3.10.0-1062.4.1.el7.x86_64-centos7
+418.87.01-3.10.0-1062.1.2.el7.x86_64-centos7
+418.40.04-3.10.0-957.21.3.el7.x86_64-centos7
+418.40.04-3.10.0-957.21.2.el7.x86_64-centos7
+418.40.04-3.10.0-957.12.2.el7.x86_64-centos7
+418.40.04-3.10.0-957.12.1.el7.x86_64-centos7
+418.40.04-3.10.0-957.10.1.el7.x86_64-centos7
+396.37-3.10.0-957.5.1.el7.x86_64-centos7
+396.37-3.10.0-957.1.3.el7.x86_64-centos7
+396.37-3.10.0-862.14.4.el7.x86_64-centos7
+396.37-3.10.0-862.14.4-centos7
+396.37-3.10.0-862.11.6-centos7
+396.37-3.10.0-862.9.1-centos7
+```
+
+This list is from [Nvidia Public Hub Repository][nvidia_public_hub_repository]. You would need to identify your kernel version first. For example,
+
+```bash
+[centos@ip-10-0-128-77 ~]$ uname -r
+3.10.0-1062.12.1.el7.x86_64
+```
+
+Then, find the corresponding pre-built `nvidia/driver` image from the list above. In this case, `440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7` is the right image tag to pick. Configure the `cluster.yaml` to adopt this image tag for your nvidia driver container:
+
+```yaml
+    - name: nvidia
+      enabled: true
+      values: |
+        nvidia-driver:
+          image:
+            tag: "440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7"
+```
+
+### GPU on Air-gapped On-prem Cluster
+
+Please follow the [Konvoy Air-gapped Installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag that is identified from the above section, and push it to your local registry. For example:
+
+```bash
+REGISTRY=yourlocalregistry.com:6443
+
+docker tag nvidia/driver:440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7 ${REGISTRY}/nvidia/driver:440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7
+
+docker push ${REGISTRY}/nvidia/driver:440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7
+```
+
 ### Konvoy GPU Support on Ubuntu
 
 By default, Konvoy assumes the cluster OS is CentOS. If you want to run the GPU workloads on Ubuntu, you must update the [Nvidia Driver Container][nvidia_driver_container] image in the `cluster.yaml`:
@@ -102,7 +154,7 @@ spec:
           tag: "418.87.01-ubuntu16.04"
 ```
 
-See [Nvidia Public Hub Repository][nvidia_plublic_hub_repository] for available driver container images.
+See [Nvidia Public Hub Repository][nvidia_public_hub_repository] for available driver container images.
 
 ### How to prevent other workloads from running on GPU nodes
 
@@ -248,7 +300,7 @@ To overcome this limitation and upgrade the Nvidia GPU addon manually:
 [nvidia_container_runtime]: https://github.com/NVIDIA/nvidia-container-runtime
 [nvidia_docker]: https://github.com/NVIDIA/nvidia-docker
 [nvidia_driver_container]: https://github.com/NVIDIA/nvidia-docker/wiki/Driver-containers-(Beta)
-[nvidia_plublic_hub_repository]: https://hub.docker.com/r/nvidia/driver
+[nvidia_public_hub_repository]: https://hub.docker.com/r/nvidia/driver
 [nvidia_k8s_device_plugin]: https://github.com/NVIDIA/k8s-device-plugin
 [nvidia_dcgm]: https://developer.nvidia.com/dcgm
 [nvidia_gpu_metrics_exporter]: https://github.com/NVIDIA/gpu-monitoring-tools

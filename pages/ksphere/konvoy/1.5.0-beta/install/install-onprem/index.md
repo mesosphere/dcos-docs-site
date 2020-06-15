@@ -37,7 +37,7 @@ Before installing, verify that your environment meets the following basic requir
   * 32 GiB memory
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
-* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.  
+* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
 
@@ -211,11 +211,11 @@ Below is the list of all package repositories that are added by Konvoy.
 The RPM repositories:
 
 ```text
-[docker]
-baseurl = https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/centos/7/x86_64
+[konvoy-packages]
+name = Konvoy Containerd package repository
+baseurl = https://packages.d2iq.com/konvoy/stable/linux/centos/7/x86_64
 gpgcheck = 1
-gpgkey = https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/centos/7/x86_64/gpg
-name = Docker Repository
+gpgkey = https://packages.d2iq.com/konvoy/stable/linux/centos/7/x86_64/gpg.asc
 ```
 
 ```text
@@ -280,21 +280,21 @@ https://packages.cloud.google.com/apt/doc/apt-key.gpg
 ```
 
 ```text
-deb https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/ubuntu/xenial xenial main
+deb https://packages.d2iq.com/konvoy/stable/linux/ubuntu/xenial xenial main
 
-https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/ubuntu/xenial/gpg.asc
+https://packages.d2iq.com/konvoy/stable/linux/ubuntu/xenial/gpg.asc
 ```
 
 ```text
-deb https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/stretch stretch main
+deb https://packages.d2iq.com/konvoy/stable/linux/debian/stretch stretch main
 
-https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/stretch/gpg.asc
+https://packages.d2iq.com/konvoy/stable/linux/debian/stretch/gpg.asc
 ```
 
 ```text
-deb https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/buster buster main
+deb https://packages.d2iq.com/konvoy/stable/linux/debian/buster buster main
 
-https://konvoy-containerd-staging.s3.amazonaws.com/stable/linux/debian/buster/gpg.asc
+https://packages.d2iq.com/konvoy/stable/linux/debian/buster/gpg.asc
 ```
 
 For any Nvidia GPU enabled machines there are additional repositories:

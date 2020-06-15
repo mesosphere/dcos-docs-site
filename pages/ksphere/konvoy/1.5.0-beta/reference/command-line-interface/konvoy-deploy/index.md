@@ -26,6 +26,7 @@ konvoy deploy [flags]
       --force-upgrade               run an upgrade on all control-plane and worker nodes if needed, ignoring upgrade safety checks
   -h, --help                        help for deploy
       --max-parallel-nodes string   set the number of nodes to upgrade in parallel. This can be an integer or a percentage of a nodePool. Set to 1 to run serially (requires --upgrade or --force-upgrade flag) (default "15%")
+      --skip-credentials-display    skip displaying the admin credentials after the install
       --skip-state-upload           skip the upload of the state to Kubernetes cluster
       --target-node-pools strings   comma-separated list of target node pools
       --upgrade                     run an upgrade on all nodes requiring an upgrade

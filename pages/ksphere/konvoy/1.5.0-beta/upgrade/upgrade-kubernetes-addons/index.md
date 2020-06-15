@@ -42,10 +42,10 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.15.6
+    version: 1.16.10
 ```
 
-If you want to upgrade to a newer patch version of `1.16.x`, change the version string like the following:
+If you want to upgrade to a newer patch version of `1.17.x`, change the version string like the following:
 
 ```yaml
 kind: ClusterConfiguration
@@ -117,9 +117,13 @@ spec:
 
 During the addons upgrade process, Konvoy upgrades the platform service addons or installs any additional addons specified in the `cluster.yaml` file.
 
-## Upgrading your cluster
+## Upgrade the cluster
 
-After you have modified the `cluster.yaml` file, you can start the upgrade process by running the following Konvoy command:
+After you have modified the `cluster.yaml` file, you can start the upgrade process. You can upgrade all nodes, or choose to upgrade specific node pools.
+
+### Upgrade all nodes
+
+Start the upgrade process by running the following Konvoy command:
 
 ```bash
 konvoy up --upgrade -y
@@ -138,6 +142,7 @@ STAGE [Determining Upgrade Safety For Nodes In Pool "worker"]
 
 STAGE [Upgrading Kubernetes]
 ...
+
 STAGE [Determining Upgrade Safety For Nodes]
 ...
 
@@ -150,9 +155,34 @@ STAGE [Deploying Enabled Addons]
 
 You can also separate the above process by first running `konvoy deploy kubernetes --upgrade` and then running `konvoy deploy addons`.
 
-The steps above outline the general process for performing an upgrade of Kubernetes and addons. For some releases, the process might differ slightly. The steps below outline the process when upgrading to specific versions of Konvoy.
+The steps above outline the general process for performing an upgrade of Kubernetes and addons. For some releases, the process might differ slightly. See below for [actions required to upgrade from specific Konvoy versions](#actions-required-to-upgrade-from-specific-konvoy-versions).
 
-### Upgrading from v1.2.x to v1.3.0
+## Upgrade specific node pools
+
+You can have more control over the upgrade process by upgrading specific node pools. For example, you can upgrade only your control plane node pool, or only the control plane node pool and a single worker node pool.
+
+<p class="message--note"><strong>NOTE: </strong>Node pools allow the cluster administrator to use different configurations for different sets of worker nodes in a heterogeneous environment. For more, see the [Node Pools](../../install/node-pools/) page.</p>
+
+For example, if your cluster has three worker node pools, `red`, `yellow`, and `green`, you can upgrade the `red` and `yellow` worker node pools first. To start the upgrade process, perform the following Konvoy command:
+
+```bash
+konvoy up --upgrade -y --target-node-pools red,yellow
+```
+
+<p class="message--note"><strong>NOTE: </strong>Kubernetes requires that the control plane version be  greater than or equal to the version of any worker node, so the control plane node pool must be upgraded before any worker node pools.
+
+If you choose to upgrade a worker node pool, and the control plane node pool has not yet been upgraded, Konvoy automatically upgrades the control plane node pool first.
+</p>
+
+You can upgrade all remaining nodes by running the following Konvoy command:
+
+```bash
+konvoy up --upgrade -y
+```
+
+## Actions required to upgrade from specific Konvoy versions
+
+### Upgrade from v1.2.x to v1.3.0
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous version.**
 
@@ -167,7 +197,7 @@ spec:
     version: 1.17.6
   containerNetworking:
     calico:
-      version: v3.13.3
+      version: v3.13.4
   addons:
     configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: testing-2.0.2
@@ -195,7 +225,7 @@ Depending on the version you are upgrading from you may need to include addition
 
 After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to upgrade the Kubernetes and all of the addons.
 
-#### Upgrading from v1.0.x/v1.1.x to v1.2.0
+### Upgrade from v1.0.x/v1.1.x to v1.2.0
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous version:**
 
