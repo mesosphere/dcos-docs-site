@@ -8,8 +8,8 @@ excerpt: A guide for creating Konvoy clusters on your own premises' infrastructu
 
 ## Prerequisites
 
-- A configured [On-Prem Infrastructure Provider](/ksphere/kommander/latest/operations/infrastructure-providers/#configuring-an-on-premise-infrastructure-provider)
-- [konvoy CLI](/ksphere/konvoy/latest/download/)
+- A configured [On-Prem Infrastructure Provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-on-prem-provider/)
+- [konvoy CLI](/ksphere/konvoy/1.5.0-beta/download/)
 
 ## Inventory Your Hosts
 
@@ -23,7 +23,7 @@ konvoy init --provisioner=none [--cluster-name <your-specified-name>]
 
 After editing the inventory file, edit the generated cluster.yaml file. The cluster.yaml file provides the configuration details for creating your Konvoy cluster.
 
-See the [Install on-premises](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
+See the [Install on-premises](/ksphere/konvoy/1.5.0-beta/install/install-onprem/) guide in the Konvoy documentation for more details.
 
 ## Provision in UI
 
@@ -35,6 +35,6 @@ Paste the contents of the cluster.yaml and inventory.yaml files into the form an
 
 ## Related information
 
-- [Install the konvoy CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/download/)
-- [Create an on premises infrastructure provider](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/operations/cloud-providers/configure-on-prem-provider/)
-- [Install an on premises konvoy cluster](https://docs.d2iq.com/ksphere/konvoy/1.4/install/install-onprem/)
+- [Install the konvoy CLI](/ksphere/konvoy/1.5.0-beta/download/)
+- [Create an on premises infrastructure provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-on-prem-provider/)
+- [Install an on premises konvoy cluster](/ksphere/konvoy/1.5.0-beta/install/install-onprem/)

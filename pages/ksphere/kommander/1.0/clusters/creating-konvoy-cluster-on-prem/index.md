@@ -8,7 +8,7 @@ excerpt: A guide for creating Konvoy clusters on your own premises' infrastructu
 
 ## Prerequisites
 
-- Configured [On-Prem Cloud Provider](/ksphere/kommander/latest/operations/cloud-providers/#configuring-an-on-premise-provider)
+- Configured [On-Prem Cloud Provider](/ksphere/kommander/1.0/operations/cloud-providers/configure-on-prem-provider/)
 - [konvoy CLI](/ksphere/konvoy/latest/download/)
 
 ## Inventory Your Hosts

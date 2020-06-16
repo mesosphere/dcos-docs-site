@@ -156,7 +156,7 @@ For more detailed information, see the <a href="https://kubernetes.io/docs/conce
 
 Services that have been installed on your management cluster. You can visit a cluster's detail page to see which platform services have been enabled under the "Addons" section.
 
-![Cluster Detail Page](/ksphere/kommander/1.1.0-beta/img/cluster-detail-page-1-1-0.png)
+![Cluster Detail Page](/ksphere/kommander/1.1.0-beta/img/cluster-detail-page.png)
 
 Figure 2. Cluster detail page
 
