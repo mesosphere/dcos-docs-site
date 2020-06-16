@@ -25,10 +25,10 @@ enterprise: false
 
 #### Bug fixes
 
-- CLI: Only create a new `cluster.yaml` file if `.bkp` state file does not already exist.
-- CLI: Fix an error during `konvoy down` if there are non string terraform output variables defined.
+- CLI: Only create a new `cluster.yaml` file if `.bkp` state file does not exist.
+- CLI: Fix an error during `konvoy down` if there are non-string, terraform output variables, defined.
 - Ansible: Fix Containerd upgrade from a cluster installed with a previous version of Konvoy.
-- Ansible: Fix an error where using `v1beta1` API in the `cluster.yaml` may cause Ansible to run certain tasks.
+- Ansible: Fix an error where using `v1beta1` API in the `cluster.yaml` can cause Ansible to run certain tasks.
 - Ansible: Fix an error in the preflight checks that prevented installing on Ubuntu 18 (bionic).
 - Ansible: Fix a bug where the GPU functionality did not work when using Containerd 1.3.4.
 
