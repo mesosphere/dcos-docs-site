@@ -20,7 +20,7 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 - **Kubernetes Version**: The initial version of Kubernetes to install on the cluster.
 - **Name**: A display name for referencing the cluster.
 
-Now select the preconfigured [AWS Cloud Provider with static credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-static-credentials/) or [AWS Cloud Provider using role credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-roles/) to display the remaining options specific to AWS.
+Select the preconfigured [AWS Cloud Provider with static credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-static-credentials/) or [AWS Cloud Provider using role credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-roles/) to display the remaining options specific to AWS.
 
 - **Region**: Select the datacenter region to reveal selectable Availability Zones.
 - **Availability Zones**: Indicates the availability zones to use for cluster provisioning.
