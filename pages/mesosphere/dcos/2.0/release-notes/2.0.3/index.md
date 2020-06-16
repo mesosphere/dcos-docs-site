@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 2.0.3
 title: Release notes for 2.0.3
-menuWeight: 0
+menuWeight: 10
 excerpt: Release notes for DC/OS 2.0.3, including Open Source attribution, and version policy.
 ---
 DC/OS&trade; 2.0.3 was released on 09 April 2020.
