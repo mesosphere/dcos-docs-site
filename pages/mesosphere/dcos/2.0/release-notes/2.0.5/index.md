@@ -28,8 +28,8 @@ DC/OS 2.0.5 includes the following component versions:
 ### DC/OS Fixed and Improved Issues
 
 - Fixed a critical error in Metronome where existing jobs appear to be lost after upgrade. (COPS-6174)
-- Fixed an issue with external persistent volumes in Marathon when a container stops/starts on another node than the original one, the task failed. (COPS-5920) 
 
 # Marathon Fixed and Improved Issues
 
-- You can see a list of fixed and improved issues for Marathon in the [Marathon Changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+- Fixed an issue with unmounting external persistent volumes in Marathon. (COPS-5920) 
+- You can see a full list of fixed and improved issues for Marathon in the [Marathon Changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
