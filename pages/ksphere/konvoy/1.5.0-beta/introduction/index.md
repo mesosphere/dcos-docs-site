@@ -11,8 +11,8 @@ menuWeight: 1
 Konvoy is a complete, standalone distribution of Kubernetes that includes a native Kubernetes cluster pre-packaged for deployment with a complement of best-in-class addon services, enabled by default and ready for immediate use.
 By combining the native Kubernetes cluster with all of the components required for operation and lifecycle management, Konvoy provides an out-of-the-box and production-ready Kubernetes ecosystem that you can install using a single command-line instruction.
 
-Because Konvoy packages all of its components as a fully integrated and tested solution with complete technical support, Konvoy enables organization to easily provision Kubernetes clusters into a production environment.
-Its suite of pre-selected [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community-contributed tools provide important additional functionality that is key to managing both cluster operations and the applications deployed on the cluster.
+Because Konvoy packages all of its components as a fully integrated and tested solution with complete technical support, Konvoy enables organizations to easily provision Kubernetes clusters into a production environment.
+Its suite of pre-selected <a href="https://www.cncf.io" target="_blank">Cloud Native Computing Foundation (CNCF)</a> and community-contributed tools provide important additional functionality that is key to managing both cluster operations and the applications deployed on the cluster.
 
 # Features and functionalities
 
@@ -20,7 +20,7 @@ Konvoy provides the following features and functionalities:
 
 - Simplified installation
 
-    Use a simple, single command to install CNCF-certified,high-availability Kubernetes on a public cloud (currently AWS with other cloud providers supported in future releases) or an internal on-prem network.
+    Use a simple, single command to install CNCF-certified, high-availability Kubernetes on a public cloud (currently AWS with other cloud providers supported in future releases) or an internal on-prem network.
 
 - Infrastructure provisioning
 
@@ -51,14 +51,14 @@ Konvoy provides the following features and functionalities:
 
 - Lifecycle management
 
-    Enable basic lifecycle management including scaling, patching, and upgrading for deployed applications and services.
+    Enable basic lifecycle management, including scaling, patching, and upgrading, for deployed applications and services.
 
 # Benefits
 
 Konvoy offers the following key benefits:
 
 - It provides a simple and flexible platform to build applications.
-- It eliminates the need to use of multiple commands to spin up a cluster.
+- It eliminates the need to use multiple commands to spin up a cluster.
 - It simplifies the deployment and cluster configuration process by using a single file and a single command to install, enable, and customize cluster components.
 - It delivers an end-to-end solution with CNCF technologies.
 - It reduces the time, expertise, cost, and resources required to build and deploy on multiple infrastructures.
