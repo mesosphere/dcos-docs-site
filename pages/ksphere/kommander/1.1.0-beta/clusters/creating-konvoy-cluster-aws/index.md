@@ -8,7 +8,7 @@ excerpt: A guide for creating Konvoy clusters on AWS
 
 ## Before you begin
 
-Configured [AWS Infrastructure Provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-aws-infrastructure-provider-static-credentials/) (or adding credentials via [AWS role credentials](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles/)).
+- Configured [AWS Infrastructure Provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-aws-infrastructure-provider-static-credentials/), or adding credentials using [AWS role credentials](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles/).
 
 
 ## Simplified Cluster Creation on AWS
