@@ -99,4 +99,4 @@ Selecting the **Attach Cluster** option displays the **Connection Information** 
 
 After the cluster has been attached successfully and you have access to the UI, a custom kubeconfig can be retrieved by clicking on the Kommander username in the top right nav and clicking on Generate Token. Select the attached cluster name, and follow the instructions to assemble a kubeconfig for accessing its Kubernetes API.
 
-Otherwise, a custom kubeconfig can be retrieved by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
+You can also retrieve a custom kubeconfig by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
