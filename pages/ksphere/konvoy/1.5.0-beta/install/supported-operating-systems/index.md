@@ -13,40 +13,31 @@ Konvoy supports the following base Operating Systems.
 
 | OS Release | Kernel Version |
 |------------|----------------|
-| [CentOS 7.7][centos_7_7] | 3.10.0-1062.12.1.el7.x86_64 |
-| [CentOS 7.8][centos_gcp] (Only on GCP) | 3.10.0-1127.8.2.el7.x86_6 |
+| <a href="https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003" target="_blank">CentOS 7.7</a> | 3.10.0-1062.12.1.el7.x86_64 |
+| <a href="https://console.cloud.google.com/marketplace/details/centos-cloud/centos-7" target="_blank">CentOS 7.8</a> (Only on GCP) | 3.10.0-1127.8.2.el7.x86_6 |
 
 ## RHEL
 
 | OS Release | Kernel Version |
 |------------|----------------|
-| [RHEL_7.7][rhel_7_7] | 3.10.0-1062.12.1.el7.x86_64 |
+| <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.7_release_notes/index" target="_blank>RHEL_7.7</a> | 3.10.0-1062.12.1.el7.x86_64 |
 
 ## Ubuntu
 
 | OS Release | Kernel Version |
 |------------|----------------|
-| [Ubuntu 16.04 (xenial)][ubuntu_16] | 4.4.0-1087 |
-| [Ubuntu 18.04 (bionicbeaver)][ubuntu_18] | 5.0 |
+| <a href="https://wiki.ubuntu.com/XenialXerus/ReleaseNotes" target="_blank">Ubuntu 16.04 (xenial)</a> | 4.4.0-1087 |
+| <a href="https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes" target="_blank">Ubuntu 18.04 (bionicbeaver)</a> | 5.0 |
 
 ## Debian
 
 | OS Release | Kernel Version |
 |------------|----------------|
-| [Debian 9 (stretch)][debian_9] | 4.9.0-9 |
-| [Debian 10 (buster)][debian_10] | 4.19.67-2 |
+| <a href="https://www.debian.org/releases/stretch/releasenotes" target="_blank">Debian 9 (stretch)</a> | 4.9.0-9 |
+| <a href="https://www.debian.org/releases/buster/releasenotes" target="_blank">Debian 10 (buster)</a> | 4.19.67-2 |
 
 ## SUSE Linux Enterprise Server (Private Preview)
 
 | OS Release |
 |------------|
-| [15][suse_15] |
-
-[centos_7_7]: https://wiki.centos.org/action/show/Manuals/ReleaseNotes/CentOS7.2003
-[centos_gcp]: https://console.cloud.google.com/marketplace/details/centos-cloud/centos-7
-[rhel_7_7]: https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.7_release_notes/index
-[ubuntu_16]: https://wiki.ubuntu.com/XenialXerus/ReleaseNotes
-[ubuntu_18]: https://wiki.ubuntu.com/BionicBeaver/ReleaseNotes
-[debian_9]: https://www.debian.org/releases/stretch/releasenotes
-[debian_10]: https://www.debian.org/releases/buster/releasenotes
-[suse_15]: https://documentation.suse.com/sles/15-SP1/#redirectmsg
+| <a href="https://documentation.suse.com/sles/15-SP1/#redirectmsg" target="_blank">15</a> |
