@@ -10,11 +10,13 @@ excerpt: A guide for attaching an existing Kubernetes cluster using kubeconfig
 
 You can attach an existing cluster directly to Kommander. If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below.
 
-### Creating a New Service Account (optional)
+### Before you begin (optional)
+
+This step is optional, if you already have a kubeconfig file, go to [Attaching a cluster](#attaching-a-cluster).
 
 A separate service account should be created when attaching existing Amazon EKS, Azure AKS, or Google GKE Kubernetes clusters. This is because the kubeconfig files generated from those clusters are not usable out of the box by Kommander. They call CLI commands, such as `aws` or `gcloud`, and use locally obtained authentication tokens. Having a separate service account also allows you to keep access to the cluster specific and isolated to Kommander.
 
-To get started, ensure you have [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) set up and configured with [ClusterAdmin](https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/) for the cluster you want to connect to Kommander.
+To get started, ensure you have <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank">kubectl</a> set up and configured with <a href="https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/" target="_blank">ClusterAdmin</a> for the cluster you want to connect to Kommander.
 
 First, create the necessary service account:
 
@@ -95,4 +97,6 @@ Selecting the **Attach Cluster** option displays the **Connection Information** 
 
 ## Accessing your managed clusters using your Kommander administrator credentials
 
-After the cluster has been attached successfully, a custom kubeconfig can be retrieved by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
+After the cluster has been attached successfully and you have access to the UI, a custom kubeconfig can be retrieved by clicking on the Kommander username in the top right nav and clicking on Generate Token. Select the attached cluster name, and follow the instructions to assemble a kubeconfig for accessing its Kubernetes API.
+
+Otherwise, a custom kubeconfig can be retrieved by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
