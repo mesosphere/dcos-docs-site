@@ -33,7 +33,7 @@ The following components provide Nvidia GPU support on Konvoy:
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1.  On Centos 7, we recommend using the latest kernel version in production, while the default AMI's kernel version `3.10.0-1062` should work as well. If you want to use a dedicated kernel version on Centos, please see the following sections for detailed configuration. Please note that Ubuntu does not have the kernel version restriction.
+1.  On Centos 7, we recommend using the latest kernel version in production. The default AMI's kernel version `3.10.0-1062` should work as well. If you want to use a dedicated kernel version on Centos, refer to the following sections for detailed configuration. Note that Ubuntu does not have the kernel version restriction.
 
 ## Configuration
 
@@ -75,7 +75,7 @@ spec:
 
 ### Nvidia Driver Configuration Based on Kernel Version
 
-Additional configuration may be needed if your kernel version of the GPU nodes is not identical to the latest one from the yum repository. In this case, you need to pick the right image tag for your Nvidia Driver container. For example, the following list is the supported kernel versions from the Nvidia upstream `nvidia/driver` image:
+Additional configuration may be needed if your kernel version of the GPU nodes is not identical to the latest one from the yum repository. You need to pick the right image tag for your Nvidia Driver container. For example, the following list is the supported kernel versions from the Nvidia upstream `nvidia/driver` image:
 
 ```bash
 440.64.00-1.0.0-3.10.0-1127.8.2.el7.x86_64-centos7
@@ -101,7 +101,7 @@ Additional configuration may be needed if your kernel version of the GPU nodes i
 396.37-3.10.0-862.9.1-centos7
 ```
 
-This list is from [Nvidia Public Hub Repository][nvidia_public_hub_repository]. You would need to identify your kernel version first. For example,
+This list is from [Nvidia Public Hub Repository][nvidia_public_hub_repository]. You need to identify your kernel version first. For example,
 
 ```bash
 [centos@ip-10-0-128-77 ~]$ uname -r
@@ -121,7 +121,7 @@ Then, find the corresponding pre-built `nvidia/driver` image from the list above
 
 ### GPU on Air-gapped On-prem Cluster
 
-Please follow the [Konvoy Air-gapped Installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag that is identified from the above section, and push it to your local registry. For example:
+Follow the [Konvoy Air-gapped Installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag, identified from the above section, and push it to your local registry. For example:
 
 ```bash
 REGISTRY=yourlocalregistry.com:6443
