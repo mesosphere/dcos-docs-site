@@ -40,4 +40,4 @@ Konvoy supports the following base Operating Systems.
 
 | OS Release |
 |------------|
-| <a href="https://documentation.suse.com/sles/15-SP1/#redirectmsg" target="_blank">15</a> |
+| <a href="https://documentation.suse.com/sles/15-SP1" target="_blank">15</a> |
