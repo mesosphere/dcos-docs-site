@@ -8,7 +8,7 @@ excerpt: A guide for creating Konvoy clusters on AWS
 
 ## Prerequisites
 
-Configured 
+Configured [AWS Cloud Provider with static credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-static-credentials/) or [AWS Cloud Provider using role credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-roles/)
 
 ## Simplified Cluster Creation on AWS
 
