@@ -22,7 +22,7 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 
 Select the preconfigured [Azure Infrastructure Provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-azure-infrastructure-provider/) to display the options specific to Azure.
 
-- **Region**: Select the datacenter region to reveal selectable Availability Zones. <a href="https://azure.microsoft.com/en-us/global-infrastructure/regions/" target="_blank">Azure maintains multiple datacenters per region</a>.
+- **Region**: Select the datacenter region to show selectable Availability Zones. <a href="https://azure.microsoft.com/en-us/global-infrastructure/regions/" target="_blank">Azure maintains multiple datacenters per region</a>.
 - **Resource Group**: The resource group where the Azure assets are assigned.
 - **VNET Name**: The virtual network name in which to create this cluster.
 - **VNET Route Table**: Azure automatically routes traffic between Azure subnets, virtual networks, and on-premises networks. To change any of Azure's default routing, create a <a href="https://docs.microsoft.com/en-us/azure/virtual-network/manage-route-table" target="_blank">route table</a>.
