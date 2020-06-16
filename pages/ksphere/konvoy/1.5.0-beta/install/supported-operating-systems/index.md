@@ -20,7 +20,7 @@ Konvoy supports the following base Operating Systems.
 
 | OS Release | Kernel Version |
 |------------|----------------|
-| <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.7_release_notes/index" target="_blank>RHEL_7.7</a> | 3.10.0-1062.12.1.el7.x86_64 |
+| <a href="https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/7.7_release_notes/index" target="_blank">RHEL_7.7</a> | 3.10.0-1062.12.1.el7.x86_64 |
 
 ## Ubuntu
 
