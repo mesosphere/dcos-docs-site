@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 2.0.1
 title: Release notes for 2.0.1
-menuWeight: 2
+menuWeight: 20
 excerpt: Release notes for DC/OS 2.0.1
 ---
 DC/OS 2.0.1 was released on 22 November 2019.

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 2.0.0
 title: Release notes for 2.0.0
-menuWeight: 5
+menuWeight: 25
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Release notes for DC/OS 2.0.0, including Open Source attribution, and version policy.
