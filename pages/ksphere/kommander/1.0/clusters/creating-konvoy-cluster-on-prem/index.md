@@ -9,7 +9,7 @@ excerpt: A guide for creating Konvoy clusters on your own premises' infrastructu
 ## Prerequisites
 
 - Configured [On-Prem Cloud Provider](/ksphere/kommander/1.0/operations/cloud-providers/configure-on-prem-provider/)
-- [konvoy CLI](/ksphere/konvoy/latest/download/)
+- [konvoy CLI](/ksphere/konvoy/1.4/download/)
 
 ## Inventory Your Hosts
 
@@ -23,7 +23,7 @@ konvoy init --provisioner=none [--cluster-name <your-specified-name>]
 
 After editing the inventory file, edit the generated cluster.yaml file. The cluster.yaml file provides the configuration details for creating your Konvoy cluster.
 
-See the [Install on-premise](/ksphere/konvoy/latest/install/install-onprem/) guide in the Konvoy documentation for more details.
+See the [Install on-premise](/ksphere/konvoy/1.4/install/install-onprem/) guide in the Konvoy documentation for more details.
 
 ## Provision in UI
 
