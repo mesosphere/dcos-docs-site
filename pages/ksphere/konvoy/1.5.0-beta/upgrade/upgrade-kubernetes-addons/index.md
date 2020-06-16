@@ -161,7 +161,8 @@ The steps above outline the general process for performing an upgrade of Kuberne
 
 You can have more control over the upgrade process by upgrading specific node pools. For example, you can upgrade only your control plane node pool, or only the control plane node pool and a single worker node pool.
 
-<p class="message--note"><strong>NOTE: </strong>Node pools allow the cluster administrator to use different configurations for different sets of worker nodes in a heterogeneous environment. For more, see the [Node Pools](../../install/node-pools/) page.</p>
+<p class="message--note"><strong>NOTE: </strong>Node pools allow the cluster administrator to use different configurations for different sets of worker nodes in a heterogeneous environment. For more, see the <a href="../../install/node-pools/">Node Pools</a> page.</p>
+
 
 For example, if your cluster has three worker node pools, `red`, `yellow`, and `green`, you can upgrade the `red` and `yellow` worker node pools first. To start the upgrade process, perform the following Konvoy command:
 
