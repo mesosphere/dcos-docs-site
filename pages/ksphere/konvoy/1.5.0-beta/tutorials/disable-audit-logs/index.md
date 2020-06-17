@@ -53,10 +53,10 @@ These procedures require that you have the FluentBit addon enabled. If this is n
        addonsList:
        …
        - name: kibana
-       enabled: true
-       values: |
+         enabled: true
+         values: |
            dashboardImport:
-           enabled: false
+             enabled: false
        …
    ...
    ```
