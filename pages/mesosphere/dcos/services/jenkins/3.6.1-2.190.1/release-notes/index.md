@@ -6,6 +6,7 @@ menuWeight: 5
 excerpt: Discover the new features, updates, and known limitations in this release of the Jenkins Service
 enterprise: false
 --- 
+Jenkins 3.6.1-2.190.1 was released on 17, June 2020.
 
 Jenkins 3.6.1-2.190.1
 
