@@ -33,7 +33,7 @@ Once the logging stack is deployed and running on the cluster, the components wo
 
 - Fluent Bit aggregates logs from all nodes, and pods into Elasticsearch.
   Additionally Fluent Bit also tags these logs with structured metadata like pod name, instance name, and so forth, so that it can be searched more efficiently.
-- Elasticsearch stores all the these logs.
+- Elasticsearch stores the logs.
 - Kibana provides centralized access to the logged data through a web-based interface that enables you to create dashboards and graphs for visualizing the aggregated data.
 
 In addition to the logging stack of platform services, Konvoy relies on the container runtime and `journald` system facilities to collect logs.
