@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 
-## Version Spark and Spark history 2.10.0-2.4.5
+## Spark and Spark history 2.10.0-2.4.5 was released on 17, June 2020
 
 ### New features
 - Suppress and Revive support
