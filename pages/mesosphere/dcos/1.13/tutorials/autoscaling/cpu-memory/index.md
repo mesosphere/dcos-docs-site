@@ -13,9 +13,9 @@ enterprise: false
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 
-You can use a Python service, `marathon-autoscale.py`, to autoscale your Marathon application based on the utilization metrics which Mesos reports. You can run this service from within your DC/OS cluster. `marathon-autoscale.py` is intended to demonstrate what is possible when you run your services on DC/OS.
+You can use a Python service, `marathon-autoscaler.py`, to autoscale your Marathon application based on the utilization metrics which Mesos reports. You can run this service from within your DC/OS cluster. `marathon-autoscaler.py` is intended to demonstrate what is possible when you run your services on DC/OS.
 
-Periodically, `marathon-autoscale.py` will monitor the aggregate CPU and memory utilization for all tasks that make up the specified Marathon service. When your threshold is hit, `marathon-autoscale.py` will increase the number of tasks for your Marathon service.
+Periodically, `marathon-autoscaler.py` will monitor the aggregate CPU and memory utilization for all tasks that make up the specified Marathon service. When your threshold is hit, `marathon-autoscaler.py` will increase the number of tasks for your Marathon service.
 
 **Prerequisites**
 
@@ -28,9 +28,9 @@ Periodically, `marathon-autoscale.py` will monitor the aggregate CPU and memory 
 
 # Install the Marathon Autoscale app on a node
 
-SSH to the system where you will run `marathon-autoscale.py` and install it.
+SSH to the system where you will run `marathon-autoscaler.py` and install it.
 
-1.  SSH to the node where you will run `marathon-autoscale.py`, where node ID (`<mesos-id>`) is the node where you want to run the app.
+1.  SSH to the node where you will run `marathon-autoscaler.py`, where node ID (`<mesos-id>`) is the node where you want to run the app.
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -55,7 +55,7 @@ SSH to the system where you will run `marathon-autoscale.py` and install it.
 1.  Enter this command to run the application:
 
     ```bash
-    python marathon-autoscale.py
+    python marathon-autoscaler.py
     ```
 
     You will be prompted for the following parameters:

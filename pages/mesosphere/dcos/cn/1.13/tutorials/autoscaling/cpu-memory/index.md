@@ -13,9 +13,9 @@ enterprise: false
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 
 
-您可以使用 Python 服务 `marathon-autoscale.py` 根据 Mesos 报告的利用率指标自动扩展您的 Marathon 应用程序。您可以从 DC/OS 群集中运行此服务。`marathon-autoscale.py` 旨在演示在 DC/OS 上运行服务时可能出现的情况。
+您可以使用 Python 服务 `marathon-autoscaler.py` 根据 Mesos 报告的利用率指标自动扩展您的 Marathon 应用程序。您可以从 DC/OS 群集中运行此服务。`marathon-autoscaler.py` 旨在演示在 DC/OS 上运行服务时可能出现的情况。
 
-`marathon-autoscale.py` 将定期监控组成指定 Marathon 服务的所有任务的总 CPU 和内存利用率。达到阈值时，`marathon-autoscale.py` 将增加您 Marathon 服务的任务数量。
+`marathon-autoscaler.py` 将定期监控组成指定 Marathon 服务的所有任务的总 CPU 和内存利用率。达到阈值时，`marathon-autoscaler.py` 将增加您 Marathon 服务的任务数量。
 
 **前提条件**
 
@@ -28,9 +28,9 @@ enterprise: false
 
 # 在节点上安装 Marathon Autoscale 应用程序
 
-通过 SSH 连接到您将运行 `marathon-autoscale.py` 并安装它的系统。
+通过 SSH 连接到您将运行 `marathon-autoscaler.py` 并安装它的系统。
 
-1. SSH 到您要运行的节点`marathon-autoscale.py`，其中节点 ID（`<mesos-id>`）是您要运行该应用程序的节点。
+1. SSH 到您要运行的节点`marathon-autoscaler.py`，其中节点 ID（`<mesos-id>`）是您要运行该应用程序的节点。
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
@@ -55,7 +55,7 @@ enterprise: false
 1. 输入此命令以运行应用程序：
 
     ```bash
-    python marathon-autoscale.py
+    python marathon-autoscaler.py
     ```
 
     系统将提示您查看以下参数：
