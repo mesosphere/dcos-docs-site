@@ -94,7 +94,7 @@ With the <code>known-hosts</code> option you can specify a space-separated list 
 }
 </code></pre>
 
-<h2>Setting Jenkins Agent Ports</h2>
+<h2 id="Setting-Jenkins-Agent-Ports">Setting Jenkins Agent Ports</h2>
 
 The <code>agent-port</code> option can be used to set the Jenkins agent port. Since all resources must be accounted for with Mesos, the Jenkins service does not allow modification of this port via the Jenkins UI. You can specify 0 for a randomized port, or any port between 1025-32000 which are offered by Mesos to the Jenkins framework.
 
