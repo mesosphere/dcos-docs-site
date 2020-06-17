@@ -36,10 +36,10 @@ These procedures require that you have the FluentBit addon enabled. If this is n
        addonsList:
        …
        - name: fluentbit
-       enabled: true
-       values: |
+         enabled: true
+         values: |
            audit:
-           enabled: false
+             enabled: false
        …
    ```
 
