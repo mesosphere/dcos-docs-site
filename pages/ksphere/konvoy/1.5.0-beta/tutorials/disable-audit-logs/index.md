@@ -43,7 +43,7 @@ These procedures require that you have the FluentBit addon enabled. If this is n
        …
    ```
 
-   (Optional) If in addition you wish to remove the Audit Log Dashboard from Kibana, you may update the `cluster.yaml` file with the following `values` entry of kibana
+   (Optional) Also, if you wish to remove the Audit Log Dashboard from Kibana, you may update the `cluster.yaml` file with the following `values` entry of kibana
 
    ```yaml
    …
