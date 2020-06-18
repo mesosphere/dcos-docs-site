@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle:  Pipeline Configuration
-title: Dispatch Pipeline Configuration 
+title: Dispatch Pipeline Configuration
 menuWeight: 70
 beta: false
 excerpt: Configure Build and Test pipelines to automate the development process using declarative languages.
@@ -233,7 +233,7 @@ See [the starlark reference](../references/starlark-reference/) for an overview 
 To see the rendered output:
 
 ```sh
-dispatch ci run remote -o yaml --dry-run
+dispatch ci run remote --service-account team-1 -o yaml --dry-run
 ```
 
 For more information on pipeline configuration, see the [Pipeline Configuration Reference](../references/pipeline-config-ref/) page.

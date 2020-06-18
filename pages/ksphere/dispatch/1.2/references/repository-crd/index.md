@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Repository CRD
 title: Repository CRD
 menuWeight: 90
-beta: true
+beta: false
 excerpt: Reference Guide for Configuring a Repository
 ---
 

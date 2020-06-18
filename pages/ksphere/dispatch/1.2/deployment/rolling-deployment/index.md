@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Rolling Deployment
 title: Rolling Deployments
 menuWeight: 10
-beta: true
+beta: false
 excerpt: Implement GitOps processes to Continuously Deploy applications
 ---
 
@@ -279,7 +279,7 @@ First, we need to create a git repository for GitOps. Going forward, we omit
 "git" and refer to this repository as the "GitOps repository".
 
 1. Log in to your account at [https://github.com](https://github.com).
-1. Visit [https://github.com/mesosphere/cicd-hello-world-gitops](https://github.com/your-github-user/cicd-hello-world-gitops) and fork the
+1. Visit [https://github.com/mesosphere/cicd-hello-world-gitops](https://github.com/mesosphere/cicd-hello-world-gitops) and fork the
    repository to your own GitHub account. For this tutorial, we assume that the
    GitOps repository is **public**. Dispatch will deploy the Kubernetes manifests
    defined in this GitOps repository to your cluster.

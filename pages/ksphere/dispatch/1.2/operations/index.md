@@ -4,7 +4,7 @@ navigationTitle:  Operations
 title: Operations
 menuWeight: 80
 beta: false
-excerpt: Operations
+excerpt: Operational Day Two processes for D2iQ Dispatch.
 ---
 This section covers garbage collection, logging, monitoring, and scaling your Dispatch deployment.
 
