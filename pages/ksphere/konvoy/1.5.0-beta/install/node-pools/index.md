@@ -58,9 +58,9 @@ all:
 Notice that in the `nodes` section, each host has a string attribute called `node_pool`.
 This field specifies the node pool to which a host belongs.
 
-In this case, node `10.0.131.62` belongs to node pool `monitoring`, and the rest of the nodes belongs to node pool `worker`.
+In this case, node `10.0.131.62` belongs to node pool `monitoring`, and the rest of the nodes belong to node pool `worker`.
 
-Since the `monitoring` node pool is dedicated for monitoring pipeline, you need to [taint][taint_toleration] the nodes in that node pool so that regular pods will not be scheduled on those hosts.
+Since the `monitoring` node pool is dedicated for the monitoring pipeline, you need to [taint][taint_toleration] the nodes in that node pool so that regular pods will not be scheduled on those hosts.
 You may also want to add some special labels to the nodes in the node pool so that users can use node selectors to schedule pods on those nodes.
 
 To configure the taints and labels, edit the cluster configuration file (such as `cluster.yaml`) like the following:
@@ -83,7 +83,7 @@ spec:
 
 The above configuration will add the label `dedicated: monitoring` and apply the `dedicated: monitoring` taint to all nodes in the `monitoring` node pool.
 
-Note that all node pools specified in inventory file (such as `inventory.yaml`) should have a corresponding entry in the `spec.nodePools` section of `ClusterConfiguration`.
+Note that all node pools specified in the inventory file (such as `inventory.yaml`) should have a corresponding entry in the `spec.nodePools` section of `ClusterConfiguration`.
 If not, the validation will fail.
 
 Then, configure the Prometheus addon like the following so that it will be scheduled on the dedicated node (such as `monitoring` node pool).
