@@ -8,7 +8,7 @@ model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 
-## Version 2.10.0-2.4.0 was released on 22, June 2020.
+## Version 2.10.0-2.4.0 was released on 19, June 2020.
 
 ### New Features
 - Added the suport for Custom TLS Certificates. ([PR  #465](https://github.com/mesosphere/dcos-kafka-service/pull/465))
