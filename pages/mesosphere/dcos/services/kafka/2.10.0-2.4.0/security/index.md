@@ -57,8 +57,8 @@ To use the custom TLS certs for kafka service, we need to add the following opti
         "key_store": "<service name>/keystore",
         "key_store_password_file": "<service name>/keystorepass",
         "trust_store": "<service name>/truststore",
-        "trust_store_password_file": "<service name>/truststorepass"
-        "allow_plaintext": false
+        "trust_store_password_file": "<service name>/truststorepass",
+        "allow_plaintext": false,
         "ciphers": <Add Default ciphers present in Kafka config>
 
     }
@@ -147,7 +147,7 @@ cat <<EOF >>dcos-kafka-options-customtls.json
         "key_store": "kafka/keystore",
         "key_store_password_file": "kafka/keystorepass",
         "trust_store": "kafka/truststore",
-        "trust_store_password_file": "kafka/truststorepass"
+        "trust_store_password_file": "kafka/truststorepass",
         "allow_plaintext": false,
         "ciphers": <Add default ciphers present in Kafka config>
       }
