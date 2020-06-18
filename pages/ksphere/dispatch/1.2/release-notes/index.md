@@ -86,6 +86,7 @@ helm test dispatch-kubeaddons
 * Updated Dispatchfile frontend language Starlark to 0.6.
 * Updated Dispatchfile frontend language CUE to 0.4.
 * GUI now verifies repository secrets prior to saving them.
+* EXPERIMENTAL Starlark standard libraries 0.0.6 released via the [Dispatch Catalog](https://github.com/mesosphere/dispatch-catalog).
 
 ### Caveats
 
