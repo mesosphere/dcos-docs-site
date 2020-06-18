@@ -33,11 +33,143 @@ For more information on {{ model.techShortName }}'s security, read the following
 
 <p class="message--note"><strong>NOTE: </strong>It is possible to update a running DC/OS {{ model.techName }} service to enable transport encryption after initial installation, but the service may be unavailable during the transition. Additionally, your {{ model.techShortName }} clients will need to be reconfigured unless `service.security.transport_encryption.allow_plaintext` is set to true.</p>
 
+### Using Custom TLS certificate
+
+
+#### Configuration Options
+
+| Option | Description |
+|----------------------|-------------|
+| **transport_encryption.enabled** | Enables Transport Encryption |
+| **transport_encryption.custom_transport_encryption** | Enables custom TLS certificates |
+| **transport_encryption.key_store** | The path to the secret in the Secret Store that has the contents of the keystore. |
+| **transport_encryption.key_store_password_file** | The path to the secret in the Secret Store that has the contents of the keystore password file. |
+|**transport_encryption.trust_store** | The path to the secret in the Secret Store that has the contents of the truststore. |
+|**transport_encryption.trust_store_password_file** | The path to the secret in the Secret Store that has the contents of the truststore password. |
+
+To use the custom TLS certs for kafka service, we need to add the following options in the configuration of the package:
+```json
+"service": {
+    "name" : "<service name>",
+    "transport_encryption": {
+        "enabled": true,
+        "custom_transport_encryption": true,
+        "key_store": "<service name>/keystore",
+        "key_store_password_file": "<service name>/keystorepass",
+        "trust_store": "<service name>/truststore",
+        "trust_store_password_file": "<service name>/truststorepass"
+        "allow_plaintext": false
+        "ciphers": <Add Default ciphers present in Kafka config>
+
+    }
+}
+```
+
+### Example with self-signed certificate
+
+Generate CA-cert and CA-private-key, called `ca-cert` and `ca-key` respectively
+
+```bash
+openssl req -new -newkey rsa:4096 -days 365 -x509 -subj "/C=US/ST=CA/L=SF/O=Mesosphere/OU=Mesosphere/CN=kafka" -keyout ca-key -out ca-cert -nodes
+```
+
+Generate a keystore, called `broker.keystore`
+```bash
+keytool -genkey -keyalg RSA -keystore broker.keystore -validity 365 -storepass changeit -keypass changeit -dname "CN=kafka" -storetype JKS
+```
+
+Generate Certificate Signing Request (CSR) called `cert-file`
+```bash
+keytool -keystore broker.keystore -certreq -file cert-file -storepass changeit -keypass changeit
+```
+
+Sign the Generated certificate
+```bash
+openssl x509 -req -CA ca-cert -CAkey ca-key -in cert-file -out cert-signed -days 365 -CAcreateserial -passin pass:changeit
+```
+
+Generate a truststore with ca-cert
+```bash
+keytool -keystore broker.truststore -alias CARoot -import -file ca-cert -storepass changeit -keypass changeit -noprompt
+```
+
+Generate a truststore called `broker.truststore` with ca-cert
+```bash
+keytool -keystore broker.truststore -alias CARoot -importcert -file ca-cert -storepass changeit -keypass changeit -noprompt
+```
+
+Generate a truststore with self-signed cert
+```bash
+keytool -keystore broker.truststore -alias CertSigned -importcert -file cert-signed -storepass changeit -keypass changeit -noprompt
+```
+
+Generate files containing truststore and keystore passwords
+```bash
+cat <<EOF >> trust_store_pass
+changeit
+EOF
+```
+
+```bash
+cat <<EOF >> key_store_pass
+changeit
+EOF
+```
+
+Create necessary secrets in DC/OS for custom tls certificate
+```bash
+#  Keystore secrets
+dcos security secrets create -f broker.keystore kafka/keystore
+dcos security secrets create -f key_store_pass kafka/keystorepass
+```
+
+```bash
+# Truststore secrets
+dcos security secrets create -f broker.truststore kafka/truststore
+dcos security secrets create -f trust_store_pass kafka/truststorepass
+```
+
+> Note: The truststore and keystore should be named as `broker.truststore` and `broker.keystore` respectively.
+
+Create a file named `dcos-kafka-options-customtls.json` with following configuration
+
+```json
+cat <<EOF >>dcos-kafka-options-customtls.json
+{
+  "service": {
+    "name": "kafka",
+    "service_account": "<your service account name>",
+    "service_account_secret": "<full path of service secret>",
+    "security": {
+      "transport_encryption": {
+        "enabled": true,
+        "custom_transport_encryption": true,
+        "key_store": "kafka/keystore",
+        "key_store_password_file": "kafka/keystorepass",
+        "trust_store": "kafka/truststore",
+        "trust_store_password_file": "kafka/truststorepass"
+        "allow_plaintext": false,
+        "ciphers": <Add default ciphers present in Kafka config>
+      }
+    }
+  }
+}
+EOF
+```
+
+**Tip:** If you store your secret in a path that matches the service name (e.g. service name and secret path are `kafka`), then only the service named `kafka` can access it.
+
+Install the kafka service
+```bash
+dcos package install kafka --options=dcos-kafka-options-customtls.json --yes
+```
+
 #### Verify Transport Encryption Enabled
 
 After service deployment completes, check the list of [{{ model.techShortName }} endpoints](../reference/#connection-information) for the endpoint `broker-tls`. If `service.security.transport_encryption.allow_plaintext` is `true`, then the `broker` endpoint will also be available.
 
 #include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
+
 
 ## Authentication
 
