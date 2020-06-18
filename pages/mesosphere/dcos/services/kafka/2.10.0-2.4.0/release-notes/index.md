@@ -1,14 +1,22 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Release notes for 2.9.0-2.4.0
+excerpt: Release notes for 2.10.0-2.4.0
 title: Release Notes
 menuWeight: 5
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---
 
-## Version 2.9.0-2.4.0
+## Version 2.10.0-2.4.0 was released on 22, June 2020.
+
+### New Features
+- Added the suport for Custom TLS Certificates. ([PR  #465](https://github.com/mesosphere/dcos-kafka-service/pull/465))
+- Option to configure [max.incremental.fetch.session.cache.slots](https://cwiki.apache.org/confluence/display/KAFKA/KIP-227%3A+Introduce+Incremental+FetchRequests+to+Increase+Partition+Scalability) to increase partition scalability. ([PR #461](https://github.com/mesosphere/dcos-kafka-service/pull/461))
+
+
+
+## Version 2.9.0-2.4.0 was released on 22, Feb 2020
 
 ### Updates
 - Upgrade the base tech version of Apache Kafka to `2.4.0`. See Kafka's Release Notes for [2.4.0](https://www.apache.org/dist/kafka/2.4.0/RELEASE_NOTES.html) for details.
@@ -19,7 +27,7 @@ render: mustache
 ### Important Notes
 - Apache Kafka 2.4.0 introduces `[KAFKA-7335] - Store clusterId locally to ensure broker joins the right cluster`, which means that a Kafka cluster will store the clusterId locally so that it does not join the wrong Zookeeper cluster accidentally. Therefore, if your Kafka service is connected to default DC/OS Zookeeper, changing the Zookeeper path is not permitted. Please check [here](https://issues.apache.org/jira/browse/KAFKA-7335) for more information.
 
-## Version 2.8.1-2.3.1
+<!--## Version 2.8.1-2.3.1
 
 ### Updates
 - Upgrade the base tech version of Apache Kafka to `2.3.1`. See Kafka's Release Notes for [2.3.1](https://www.apache.org/dist/kafka/2.3.1/RELEASE_NOTES.html) for details.
@@ -44,7 +52,7 @@ render: mustache
   - Node draining 
 
 
-<!-- ## Version 2.7.0-2.3.0
+## Version 2.7.0-2.3.0
 
 ### Updates
 - Upgrade the base dcos-commons SDK version to `0.56.2`.
