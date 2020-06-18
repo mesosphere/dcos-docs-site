@@ -31,7 +31,7 @@ all:
 
 ## `ssh_common_args`
 
-If specified, the extra arguments will be append to all SSH related operations.
+If specified, the extra arguments will be appended to all SSH related operations.
 This is useful when SSH proxy is used.
 
 ```yaml
