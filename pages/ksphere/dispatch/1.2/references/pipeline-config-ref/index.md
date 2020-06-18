@@ -26,7 +26,7 @@ Tasks define a set of steps (containers) to run sequentially within a pod; these
 | ------- | ---------- | ----------- | --------- | ------- |
 | `inputs`  | String array | Resources or Task results that should be included in the task | no | [] |
 | `outputs` | String array | Resources that the task outputs to | no | [] |
-| `deps`    | String array | Task names that must complete before this task is run (deprecated: use inputs instead) | no | [] |
+| `deps`    | String array | Task names that must complete before this task is run (DEPRECATED: use `inputs` instead) | no | [] |
 | `steps`   | [Container](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#container-v1-core) array | Containers to run as a part of the task, the containers are run sequentially in the order they are defined | yes | - |
 | `volumes` | [Volume](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#volume-v1-core) array | Volumes to make available to the steps | no | [] |
 
@@ -145,9 +145,11 @@ A pull request condition is activated when a comment or push is made on a pull r
 
 |  Field |    Type    | Description | Required? | Default |
 | ------ | ---------- | ----------- | --------- | ------- |
-| `branches` | String array | Matches pull requests whose merge target is a branch in the branches list | no | [] |
 | `paths` | String array | Changed paths to trigger on | no | [] |
 | `chatops`  | String array | Matches pull request comments that match certain patterns | no | [] |
+| `sources` | String array | Matches pull requests whose source branch is in the branches list | no | [] |
+| `targets` | String array | Matches pull requests whose merge target is in the branches list | no | [] |
+| `branches` | String array | Matches pull requests whose merge target is in the branches list (DEPRECATED: use `targets` instead) | no | [] |
 
 The current behavior of pull request conditions is:
 

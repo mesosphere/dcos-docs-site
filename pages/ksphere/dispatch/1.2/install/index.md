@@ -4,12 +4,12 @@ navigationTitle:  Installation
 title: Dispatch Installation
 menuWeight: 40
 beta: false
-excerpt: Install and Configure Dispatch into an existing Kubernetes Cluster.
+excerpt: Install and Configure Dispatch
 ---
 
 # Prerequisites
 
-Before you install Dispatch, check the [Prerequisites](../install/prerequisites/) section to make sure your setup is supported by Dispatch.
+Before you install Dispatch, be sure you have completed the [Prerequisites](../install/prerequisites/).
 
 * Configure kubectl to point to the correct Kubernetes cluster.
 * Install Tiller.
@@ -22,9 +22,9 @@ Before you install Dispatch, check the [Prerequisites](../install/prerequisites/
 
 # Installing Dispatch into a D2iQ Konvoy Cluster
 
-The easiest way to install Dispatch is on Konvoy.
+The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/solutions/ksphere/konvoy).
 
-1. In your `cluster.yaml`, set the Dispatch addon field `enabled` to `true`:
+1. In your existing `cluster.yaml`, set the Dispatch addon field `enabled` to `true`:
 
     ```yaml
     apiVersion: konvoy.mesosphere.io/v1beta1
@@ -52,7 +52,7 @@ The easiest way to install Dispatch is on Konvoy.
 
 # Installing Dispatch into a non-Konvoy Cluster
 
-To install Dispatch, be sure that you have a cluster with Tiller installed. If you are using a Konvoy cluster, you are already set.
+To install Dispatch, be sure that you have a cluster with Tiller installed.
 
 ## Install Tiller
 
@@ -63,7 +63,7 @@ kubectl create clusterrolebinding tiller --clusterrole=cluster-admin --serviceac
 helm init --wait --service-account tiller
 ```
 
-## Installing Dispatch into a Cluster via Dispatch CLI
+## Install Dispatch into a Cluster via Dispatch CLI
 
 To install Dispatch with the default configuration, run:
 
@@ -71,13 +71,13 @@ To install Dispatch with the default configuration, run:
 dispatch init
 ```
 
-It is possible to customize the install location with the `--namespace` flag. By default, the Dispatch instance will watch all namespaces for Dispatch repository configurations, however, if you specify the `--watch-namespace` flag it is possible to customize which namespaces Dispatch can see:
+It is possible to customize the install location with the `--namespace` flag. By default, the Dispatch instance will watch all namespaces for Dispatch repository configurations. However, if you specify the `--watch-namespace` flag it is possible to customize which namespaces Dispatch can see:
 
 ```
 dispatch init --watch-namespace dispatch-tasks --watch-namespace dispatch-work
 ```
 
-### Ingress configuration
+### Configure Ingress
 
 By default, Dispatch creates ingress records under the `/dispatch/` path. However, you may want to configure this if there are multiple Dispatch instances, you want to specify a hostname, use a different ingress controller or otherwise customize the Dispatch ingress.
 
@@ -152,7 +152,7 @@ Each ingress setting has the option to edit the hosts, paths, and annotations us
 
 ### Namespaces
 
-Unless otherwise specified, the Dispatch CLI commands create repositories, secrets, pipelines and tasks in the `default` namespace. For production installations, we suggest you create a new namespace dedicated to your CI workloads, for example, `dispatch-work` or `dispatch-ci`. You will then specify that namespace when using the CLI.
+Unless otherwise specified, the Dispatch CLI commands create repositories, secrets, pipelines and tasks in the `default` namespace. For production installations, we suggest you create a new namespace dedicated to your CI workloads. For example, `dispatch-work` or `dispatch-ci`. You will then specify that namespace when using the CLI.
 
 Examples:
 
@@ -182,8 +182,48 @@ To install Dispatch into a Kubernetes cluster:
 
 This will take several minutes, but your Dispatch cluster will be fully ready for use once it is completed.
 
+### Buildkit
 
-## Installing Dispatch into a Cluster via Helm
+[Buildkit](https://github.com/moby/buildkit) is not enabled by default as it requires `cert-manager` to be installed into your cluster. However, it can be enabled by setting `buildkit.enabled`.
+
+It is also possible to override the buildkit image used, the number of replicas, and the resources allocated to each replica. The default configuration is:
+
+```
+buildkit:
+  enabled: false
+  image: "moby/buildkit:v0.7.1"
+  resources:
+    requests:
+      memory: 4Gi
+      cpu: 4000m
+    limits:
+      memory: 4Gi
+      cpu: 4000m
+```
+
+In Konvoy, set the following:
+
+```yaml
+apiVersion: konvoy.mesosphere.io/v1beta1
+kind: ClusterConfiguration
+spec:
+  addons:
+  - addonsList:
+    - enabled: true
+      name: dispatch
+      values: |
+        ---
+        buildkit:
+          enabled: true
+```
+
+Otherwise, run:
+
+```
+dispatch init --set buildkit.enabled=true
+```
+
+## Install Dispatch into a Cluster via Helm
 
 Dispatch can be installed using Helm directly. Dispatch uses Helm v2.
 
@@ -267,7 +307,6 @@ spec:
             minReplicas: 3
             maxReplicas: 5
 ```
-
 If you want to specify the number of replicas for these services manually, you
 can do so by disabling autoscaling and setting the number of replicas explicitly:
 
@@ -304,11 +343,9 @@ spec:
 
 ## Single Sign-On (SSO)
 
-ArgoCD only has a single built-in user: the `admin` user.
+ArgoCD only has a single built-in user: the `admin` user. It has no internal users database and relies on an external OpenID Connect (OIDC) Identity Provider to authenticate regular users.
 
-It has no internal users database and relies on an external OpenID Connect (OIDC) Identity Provider to authenticate regular users.
-
-On Konvoy, the Dex kubeaddon can act as an Identity Provider. See the [Setting up an external identity provider](https://docs.d2iq.com/ksphere/konvoy/latest/security/external-idps/) documentation for more information on how to connect Dex to your external Identity Provider.
+On Konvoy, the Dex kubeaddon can act as an Identity Provider. See [Setting up an external identity provider](https://docs.d2iq.com/ksphere/konvoy/latest/security/external-idps/) for more information on how to connect Dex to your external Identity Provider.
 
 Once you have configured Dex, you can configure ArgoCD to use it as an OIDC Identity Provider by setting the following configuration when installing Dispatch:
 
@@ -338,7 +375,7 @@ This configures both ArgoCD and Dex to allow users to log in to ArgoCD using the
 
 ### Single Sign-On Double Login
 
-As Konvoy (specifically `traefik-forward-auth`) and ArgoCD manage user sessions independently, you will notice that users are forced to log in twice in order to reach the ArgoCD UI: once to authenticate with the ingress controller (via the `traefik-forward-auth` Konvoy component) and once for ArgoCD itself.
+As Konvoy (specifically `traefik-forward-auth`) and ArgoCD manage user sessions independently, you will notice that users are forced to log in twice to reach the ArgoCD UI: the first time to authenticate with the ingress controller (via the `traefik-forward-auth` Konvoy component) and a second time for ArgoCD itself.
 
 As ArgoCD performs its own authentication, you can disable Konvoy's ingress controller authentication for the `/dispatch/argo-cd` route by setting the following configuration when installing Dispatch:
 
@@ -372,7 +409,7 @@ spec:
 
 On Konvoy, ArgoCD UI is guarded by the cluster's authentication mechanism (i.e., `traefik-forward-auth`). As such, ArgoCD's own security is disabled and any user that can authenticate with the cluster effectively has admin privileges.
 
-If you want to enable ArgoCD security you can do so by disabling anonymous access and specifying a default role for users that are logged in. There are three built-in roles to choose from:
+If you want to enable ArgoCD security, you can do so by disabling anonymous access and specifying a default role for users that are logged in. There are three built-in roles to choose from:
 
 * `"role:readonly"`: Logged in users can see applications, and other resources.
 * `"role:admin"`: Logged in users can manage any aspect of ArgoCD.
@@ -406,9 +443,7 @@ spec:
             policy.default: "role:readonly"
 ```
 
-In order to view the ArgoCD UI you will need to log in with username `admin` and the admin user password.
-
-By default, the ArgoCD admin user password is set to the name of first `argocd-server` pod.
+To view the ArgoCD UI, log in with username `admin` and the admin user password. By default, the ArgoCD admin user password is set to the name of first `argocd-server` pod.
 
 You can see the name of the pod using:
 

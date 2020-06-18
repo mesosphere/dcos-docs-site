@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Welcome to Dispatch 1.2
 title: Welcome to Dispatch 1.2
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 0
 ---

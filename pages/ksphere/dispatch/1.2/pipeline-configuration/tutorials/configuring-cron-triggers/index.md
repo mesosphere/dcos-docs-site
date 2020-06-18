@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Configuring Cron Triggers
 navigationTitle: Configuring Cron Triggers
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 120
 excerpt: This tutorial describes how to trigger pipelines using cron expressions

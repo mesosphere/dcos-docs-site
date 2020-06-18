@@ -27,7 +27,7 @@ dispatch -n dispatch-ci login docker --serviceaccount=team1
 or
 
 ```bash
-dispatch -n dispatch-work create repository
+dispatch -n dispatch-work ci create repository
 ```
 
 # How to set up a repository
@@ -127,13 +127,13 @@ If you want to preview your build, you can set up a local 'kind' Kubernetes clus
 To run your Dispatchfile, run:
 
 ```bash
-dispatch ci run local --task test team-1
+dispatch ci run local --task test
 ```
 
 Alternatively, you can run the `dispatch ci run remote` command in a running Dispatch cluster:
 
 ```bash
-dispatch ci run remote --task test  team-1 --follow
+dispatch ci run remote --task test --service-account team-1 --follow
 ```
 
 This will:
@@ -275,19 +275,19 @@ git push
 If you like, you can run the Dispatch pipeline once more by executing the following command:
 
 ```bash
-dispatch ci run local --task build team-1
+dispatch ci run local --task build
 ```
 
 Alternatively, run it in a running Dispatch cluster with:
 
 ```bash
-dispatch ci run remote --task build team-1 --follow
+dispatch ci run remote --task build --service-account team-1 --follow
 ```
 
 The result should look like this:
 
 ```bash
-$ dispatch ci run remote --task test  team-1 --follow
+$ dispatch ci run remote --task test --service-account team-1 --follow
 
 ...
 

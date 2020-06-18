@@ -299,6 +299,8 @@ You can look at [logs](../../../operations/logging) of various dispatch componen
 There may be cases where you may need to have Docker runtime in your CI builds (e.g.: launch a [kind cluster](https://kind.sigs.k8s.io/docs/user/quick-start/) and run tests on it). The [`dindTask`](https://github.com/mesosphere/dispatch-catalog/blob/0.0.4/starlark/stable/docker.star#L19) provided in [dispatch-catalog](https://github.com/mesosphere/dispatch-catalog/) can be used exactly for this purpose. As an example, the `unit-test-simple` task from earlier can be rewritten as follows:
 
 ```python
+#!mesosphere/dispatch-starlark:v0.5
+
 # Import the predefined Docker-in-Docker task from Dispatch Catalog.
 load("github.com/mesosphere/dispatch-catalog/starlark/stable/docker@0.0.4", "dindTask")
 
@@ -306,7 +308,7 @@ load("github.com/mesosphere/dispatch-catalog/starlark/stable/docker@0.0.4", "din
 dindTask("unit-test-dind",
     inputs=[git], steps=[k8s.corev1.Container(
     name="go-test",
-    command=[
+    args=[
         "docker",
         "run",
         "--volume", "/workspace/{}:/workspace/{}".format(git, git),

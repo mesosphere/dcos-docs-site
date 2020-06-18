@@ -4,7 +4,7 @@ navigationTitle:  Getting Started
 title: Getting Started
 menuWeight: 30
 beta: false
-excerpt: Getting started
+excerpt: Immedately get started with a quick tutorial for installation and configuration of Dispatch.
 ---
 
 # Prerequisites

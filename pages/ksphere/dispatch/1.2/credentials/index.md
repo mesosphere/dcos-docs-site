@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle:  Credentials
 title: Credentials
 menuWeight: 35
-beta: true
-excerpt: Credentials
+beta: false
+excerpt: Configuration of Credentials and Service Accounts with D2iQ Dispatch
 ---
 Credentials are used when a Dispatchfile is executed, to push images and
 clone source repositories. These credentials are attached to an individual service account that is specified when a Dispatch repository is created. The Dispatchfile's tasks then

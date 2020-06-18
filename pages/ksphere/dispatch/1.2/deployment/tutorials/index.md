@@ -24,3 +24,9 @@ Go to [Deploy an application to multiple environments](./deploy-application-to-m
 In this tutorial you configure a "hello-world" application to deploy a "production" version of the application to multiple production clusters.
 
 Go to [Deploy an application to multiple production clusters](./deploy-application-to-multiple-clusters-per-environment/).
+
+### [Using the ArgoCD CLI with Dispatch](./using-argocd-cli/)
+
+This tutorial describes how to use the ArgoCD CLI to administer the ArgoCD instance that is deployed with Dispatch. The tutorial describes how to point the ArgoCD CLI to the cluster, log in using username/password or Single Sign-On, and how to execute a simple command.
+
+Go to [Using the ArgoCD CLI with Dispatch](./using-argocd-cli/).
