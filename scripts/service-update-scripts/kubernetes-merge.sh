@@ -24,7 +24,7 @@ cd $root
 # pull dcos-kubernetes-cluster
 git remote rm dcos-kubernetes-cluster
 git remote add dcos-kubernetes-cluster git@github.com:mesosphere/dcos-kubernetes-cluster.git
-git fetch dcos-kubernetes-cluster > /dev/null 2>&1
+git fetch --tags dcos-kubernetes-cluster > /dev/null 2>&1
 
 # checkout
 git checkout tags/$version docs/package
@@ -51,14 +51,14 @@ for d in docs/package/*/; do
       awk '{gsub(/https:\/\/docs.mesosphere.com\//,"/mesosphere/dcos/services/");}{print}' $p > tmp && mv tmp $p
 
       awk '{gsub(/\]\(\/services\/kubernetes/,"](/mesosphere/dcos/services/kubernetes");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/services\/edge-lb/,"mesosphere/dcos/services/edge-lb");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/services\/marathon-lb/,"mesosphere/dcos/services/marathon-lb");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/1.12\/cli/,"mesosphere/dcos/1.12/cli");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/1.12\/security/,"mesosphere/dcos/1.12/security");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/1.12\/administering-clusters/,"mesosphere/dcos/1.12/administering-clusters");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/1.12\/networking/,"mesosphere/dcos/1.12/networking");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/1.12\/overview/,"mesosphere/dcos/1.12/overview");}{print}' $p > tmp && mv tmp $p
-      awk '{gsub(/\/tutorial-kubernetes-storage-basic/,"/mesosphere/dcos/tutorial-kubernetes-storage-basic");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/services\/edge-lb/,"](mesosphere/dcos/services/edge-lb");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/services\/marathon-lb/,"](mesosphere/dcos/services/marathon-lb");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/1.12\/cli/,"](mesosphere/dcos/1.12/cli");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/1.12\/security/,"](mesosphere/dcos/1.12/security");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/1.12\/administering-clusters/,"](mesosphere/dcos/1.12/administering-clusters");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/1.12\/networking/,"](mesosphere/dcos/1.12/networking");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/1.12\/overview/,"](mesosphere/dcos/1.12/overview");}{print}' $p > tmp && mv tmp $p
+      awk '{gsub(/\]\(\/\/tutorial-kubernetes-storage-basic/,"](/mesosphere/dcos/tutorial-kubernetes-storage-basic");}{print}' $p > tmp && mv tmp $p
 
       # remove https://docs.mesosphere.com from links
       awk '{gsub(/https:\/\/docs.mesosphere.com\/1.9\//,"/1.9/");}{print}' $p > tmp && mv tmp $p
