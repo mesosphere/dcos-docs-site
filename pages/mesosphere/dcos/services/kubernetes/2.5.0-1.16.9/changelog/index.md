@@ -106,7 +106,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 * Kubernetes 1.15.3
 * dcos-commons 0.56.3
-* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.5.0-1.16.9/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators or other components of the system.
+* Adds [configuration options to enable Kubernetes auditing](/mesosphere/dcos/services/kubernetes/2.5.0-1.16.9/operations/kubernetes-audit/). Kubernetes auditing provides a security-relevant chronological set of records. These document the sequence of activities that have affected the system by users, administrators or other components of the system.
 
 ### Changelog since 2.4.0-1.15.1
 
@@ -316,7 +316,7 @@ excerpt: Changelog for DC/OS Kubernetes
 * The Kubernetes Dashboard is now secured using HTTPS and will now show the [login view](https://github.com/kubernetes/dashboard/wiki/Access-control#login-view) when accessed.
 * Use a dedicated RBAC role for the `kubelet-resource-watchdog`.
 * Add options to enable [Calico's Typha](https://github.com/projectcalico/typha).
-* Public Kubernetes nodes now reserve ports `80` and `443` of the underlying public DC/OS agent to help prevent issues with port binding, and to making them available for [Ingress](../ingress).
+* Public Kubernetes nodes now reserve ports `80` and `443` of the underlying public DC/OS agent to help prevent issues with port binding, and to making them available for [Ingress](../operations/ingress).
 * Installation and package options upgrades are now faster.
 * Scaling up a cluster is now performed in parallel and therefore faster. Scaling down a cluster is still performed serially to ensure workload stability while decommissioning Kubernetes nodes.
 
