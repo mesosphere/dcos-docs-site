@@ -56,6 +56,15 @@ html(lang='en')
             a.blurb__desc(href='/ksphere/dispatch')
               p.color__grey Rapidly build, test, and manage an application's lifecycle using industry best practices and modern GitOps processes.
             +links(`/ksphere/dispatch/${dispatchDocsLatest}`)
+        .blurb__item(data-sphere="ksphere")
+          a.blurb__left(href="/ksphere/kubeflow")
+            img.landing__tile-image(src='/assets/Kubeflow_Docs.png')
+          .blurb__right
+            a(href='/mesosphere/dcos')
+              h3.blurb__header Kubeflow
+            a.blurb__desc(href='/ksphere/kubeflow')
+              p.color__grey Accelerate and scale your end-to-end machine learning pipeline.
+            +links(`/ksphere/kubeflow/${kubeflowDocsLatest}`)
         .blurb__item(data-sphere="mesosphere")
           a.blurb__left(href="/mesosphere/dcos")
             img.landing__tile-image(src='/assets/DCOS_Docs.png')
@@ -65,6 +74,30 @@ html(lang='en')
             a.blurb__desc(href='/mesosphere/dcos')
               p.color__grey A wide range of enterprise-grade capabilities for strong Day 2 operations of cloud native services.
             +links(`/mesosphere/dcos/${dcosDocsLatest}`)
+        .blurb__item(data-sphere="ksphere")
+          a.blurb__left(href="/ksphere/conductor")
+            img.landing__tile-image(src='/assets/Conductor_Docs.png')
+          .blurb__right
+            a(href='/ksphere/conductor')
+              h3.blurb__header Conductor
+            a.blurb__desc(href='/ksphere/conductor')
+              p.color__grey
+            -// +links(`/ksphere/conductor/${conductorDocsLatest}`)
+        .blurb__item(data-sphere="datasphere")
+          a.blurb__left(href='https://kudo.dev/' target="_blank")
+            img.landing__tile-image(src='/assets/DCOS_Docs.png')
+          .blurb__right
+            a(href='https://kudo.dev/' target="_blank")
+              h3.blurb__header KUDO
+            a.blurb__desc(href='https://kudo.dev/' target="_blank")
+              p.color__grey KUDO is a Universal Operator that orchestrates workload-specific procedures using a declarative spec, saving you time from writing thousands of lines of code so you can get to market faster.
+            ul.blurb__links
+              li.blurb__link
+                a(href='https://kudo.dev/docs/runbooks/kafka/release-notes.html' target='_blank') Release Notes
+              li.blurb__link
+                a(href='https://kudo.dev/docs/what-is-kudo.html' target='_blank') What is KUDO
+              li.blurb__link
+                a(href='https://kudo.dev/docs/developing-operators/getting-started.html' target='_blank') Getting Started
 
         .landing__external
           .landing__external-item

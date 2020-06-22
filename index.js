@@ -149,6 +149,8 @@ const neededToBuildMainMenu = [
   `ksphere/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
   "ksphere/kommander/index.md",
   `ksphere/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
+  "ksphere/kubeflow/index.md",
+  `ksphere/kubeflow/${MS._metadata.kubeflowDocsLatest}/index.md`,
 ];
 if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
   MS.use((files, _, done) => {
