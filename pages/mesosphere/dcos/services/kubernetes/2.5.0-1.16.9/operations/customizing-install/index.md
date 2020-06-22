@@ -9,7 +9,7 @@ excerpt: Customizing your installation of Kubernetes on DC/OS
 The default DC/OS Kubernetes package installation provides reasonable defaults.
 However, there are many available options for advanced users to further modify the installation. This section describes those options.
 
-This section continues on from the instructions given in the [Basic Installation](/mesosphere/dcos/services/kubernetes/2.5.0-1.16.9/getting-started/provision-install/) section.
+This section continues on from the instructions given in the [Basic Installation](/mesosphere/dcos/services/kubernetes/2.5.0-1.16.9/getting-started/creating-clusters/) section.
 
 # Advanced Installation
 
@@ -128,7 +128,7 @@ Considerations:
 - Regions are case sensitive.
 - Once deployed, region changes are not supported and can leave the scheduler in a crash loop.
 
-**NOTE:** Multi-Region deployment is not supported, see [Limitations](/mesosphere/dcos/services/kubernetes/2.5.0-1.16.9/limitations/index/).
+**NOTE:** Multi-Region deployment is not supported, see [Limitations](/mesosphere/dcos/services/kubernetes/2.5.0-1.16.9/limitations/).
 
 ## Mesos Roles
 
