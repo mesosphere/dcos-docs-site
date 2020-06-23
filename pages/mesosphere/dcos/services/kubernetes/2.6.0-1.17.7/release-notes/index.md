@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 10
-excerpt: DC/OS Service for Kubernetes version 2.6.0-1.17.7 Release Notes
+excerpt: Release notes for DC/OS Kubernetes version 2.6.0-1.17.7
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
