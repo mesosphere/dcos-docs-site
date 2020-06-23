@@ -329,6 +329,39 @@ This saves your work for you should anything happen to your laptop. This also ma
 ### Create a PR
 Docs PRs need a link to the eng side ticket to know what feature or fix this is documenting, as well as tickets to track our editing work. If it is a docs edit only, then we still need a ticket to track an editing pass and merging it in. Also helpful is a small summary of changes, and what versions of the product it affects. Make sure that you hook in with our team. PRs just dropped off will be not be given any priority. Assigning someone for Review does not count as fulfilling your handoff duties!
 
+## Spell checking
+
+Once the PR is up, it will be checked by our Continuous Integration sytem. You will see according checks near the "Rebase and merge" button on github. If that button is red you can click on a check to see why our CI does not like it.
+
+One reason the CI marks your PR "red" might be that you have committed typos. If so, you should see according instructions after clicking on the red check on github. In case you want to run the spell checker manually you can also issue the following commands:
+
+```
+# this generates a report of all the mistakes that have been found. this is what our CI uses.
+npm run spellcheck
+
+# an interactive mode to go through all of the above errors and fix them.
+npm run fixtypos
+```
+
+As we did not start with a spell checker right away, we currently do have some mistakes in our docs. If you want to do good and correct some mistakes:
+
+1. Open the `.spelling` file
+2. Search for a word that looks odd and remove it from that file
+3. Run `npm run spellcheck` or `npm run fixtypos` (if you prefer an interactive mode) and correct all offences that are listed.
+4. Commit your changes and repeat! Thank you!
+
+In case you want to edit a lot of tricky occurences quickly, you might want to try `fastmod`.
+Here are some examples of how you might want to use it:
+
+```
+# replace one word with another in konvoy
+npx fastmod --extensions md "konvoy" "Konvoy" "./pages/ksphere/konvoy"
+
+# add backticks around JIRA refs with regular expressions:
+npx fastmod --extensions md "COPS-(\d+)" '`COPS-${1}`' "./pages/"
+#         matches one or more digits^             ^take what has been matched and put it in
+```
+
 ## When a PR is ready for publishing
 
 ### Give final approvals and merge

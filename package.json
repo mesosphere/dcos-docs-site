@@ -12,6 +12,8 @@
     "dev:services": "RENDER_PATH_PATTERN=services/cassandra/2.2.0-3.0.16/** NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
     "dev": "NODE_ENV=development DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
     "build": "NODE_ENV=production DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts,metalsmith-assets node index.js",
+    "spellcheck": "mdspell -r -n -a 'pages/**/*.md'",
+    "fixtypos": "mdspell -x -n -a 'pages/**/*.md'",
     "build-pdf": "NODE_ENV=pdf DEBUG=metalsmith-timer,metalsmith-algolia,metalsmith-layouts node index.js",
     "webpack": "webpack --progress --colors"
   },
@@ -37,6 +39,7 @@
     "markdown-it": "^8.4.0",
     "markdown-it-anchor": "^4.0.0",
     "markdown-it-attrs": "^1.0.0",
+    "markdown-spellcheck": "1.3.1",
     "metalsmith": "^2.3.0",
     "metalsmith-assets": "^0.1.0",
     "metalsmith-copy": "^0.4.0",
