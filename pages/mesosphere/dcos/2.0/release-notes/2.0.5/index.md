@@ -29,6 +29,8 @@ DC/OS 2.0.5 includes the following component versions:
 
 - Fixed a critical error in Metronome where existing jobs appear to be lost after upgrade. (COPS-6174)
 - Fixed an issue with unmounting external persistent volumes in Mesos. (COPS-5920) 
+- Zookeeper log messages are now being forwarded to syslog. (COPS-6128)
+- Additional logging has been added to the installation scripts to aid in debugging installation issues. (COPS-5428) 
 
 # Marathon Fixed and Improved Issues
 
