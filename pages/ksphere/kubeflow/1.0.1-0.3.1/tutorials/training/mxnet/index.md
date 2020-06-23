@@ -555,7 +555,7 @@ prob[24], prob_relu[24]
 
 
 
-The highest probabily is observed for the fourth index (i.e. the digit '4'):
+The highest probability is observed for the fourth index (i.e. the digit '4'):
 
 
 ```python
