@@ -32,6 +32,11 @@ DC/OS 2.0.5 includes the following component versions:
 - Zookeeper log messages are now being forwarded to syslog. (COPS-6128)
 - Additional logging has been added to the installation scripts to aid in debugging installation issues. (COPS-5428) 
 
-# Marathon Fixed and Improved Issues
+## Mesos Fixed and Improved Issues
+For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
 
-- You can see a full list of fixed and improved issues for Marathon in the [Marathon Changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+## Marathon Fixed and Improved Issues
+For a detailed description on updates to Marathon, see the [changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
+
+## Metronome Fixed and Improved Issues
+For a detailed description on updates to Metronome, see the [changelog](https://github.com/dcos/metronome/blob/master/changelog.md).
