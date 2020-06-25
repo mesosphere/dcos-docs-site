@@ -16,7 +16,7 @@ This step is optional, if you already have a kubeconfig file, go to [Attaching a
 
 A separate service account should be created when attaching existing Amazon EKS, Azure AKS, or Google GKE Kubernetes clusters. This is because the kubeconfig files generated from those clusters are not usable out of the box by Kommander. They call CLI commands, such as `aws` or `gcloud`, and use locally obtained authentication tokens. Having a separate service account also allows you to keep access to the cluster specific and isolated to Kommander.
 
-To get started, ensure you have <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/" target="_blank">kubectl</a> set up and configured with <a href="https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/" target="_blank">ClusterAdmin</a> for the cluster you want to connect to Kommander.
+To get started, ensure you have [kubectl](kubectl) set up and configured with [ClusterAdmin](clusteradmin) for the cluster you want to connect to Kommander.
 
 First, create the necessary service account:
 
@@ -100,3 +100,6 @@ Selecting the **Attach Cluster** option displays the **Connection Information** 
 After the cluster has attached successfully, and you can access the UI, a custom kubeconfig can be retrieved. Select the Kommander username in the top right and select **Generate Token**. Select the attached cluster name, and follow the instructions to assemble a kubeconfig for accessing its Kubernetes API.
 
 You can also retrieve a custom kubeconfig by visiting the `/token` endpoint on the Kommander cluster domain. Selecting the attached cluster name displays the instructions to assemble a kubeconfig for accessing its Kubernetes API.
+
+[clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/
+[kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
