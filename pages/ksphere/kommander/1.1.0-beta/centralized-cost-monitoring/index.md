@@ -15,7 +15,7 @@ This feature, installed by default in every Kommander cluster, provides a centra
 The Kommander cluster collects cost metrics remotely, using Thanos, from each managed cluster. An overview of cost, by workspace and project, is shown in the respective Kommander UI pages. Further cost analysis and details are found in the Kubecost UI running on Kommander, at:
 
 ```
-https://<CLUSTER_URL>/ops/portal/kommander/kubecost/detail.html#&agg=cluster
+https://<CLUSTER_URL>/ops/portal/kommander/kubecost/frontend/detail.html#&agg=cluster
 ```
 
 <p class="message--note"><strong>NOTE: </strong>It takes at least 3 hours for each managed cluster to generate sufficient cost data to be aggregated and presented in the UI.</p>
