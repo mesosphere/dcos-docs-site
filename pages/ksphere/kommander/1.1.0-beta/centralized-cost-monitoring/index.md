@@ -7,7 +7,7 @@ beta: true
 excerpt: Monitoring costs of all managed clusters with Kubecost
 ---
 
-[Kubecost](kubecost), running on Kommander, provides centralized cost monitoring for all managed clusters.
+[Kubecost](https://docs.kubecost.com/), running on Kommander, provides centralized cost monitoring for all managed clusters.
 This feature, installed by default in every Kommander cluster, provides a centralized view of Kubernetes resources used on all managed clusters. By default, up to 15 days of cost metrics are retained, with no backup to an external store.
 
 ## Centralized Costs
@@ -47,5 +47,3 @@ https://<CLUSTER_URL>/ops/portal/kommander/monitoring/grafana
 ```
 
 These dashboards provide a global view of accumulated costs from all managed clusters. From the navigation in Grafana, you can find these dashboards by selecting those tagged with `cost`, `metrics`, and `utilization`.
-
-[kubecost]: https://docs.kubecost.com/
