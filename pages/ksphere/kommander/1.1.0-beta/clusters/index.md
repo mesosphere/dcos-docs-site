@@ -150,7 +150,7 @@ Figure 1. A cluster card with resources
 | Disk Requests   | The portion of the allocatable ephemeral storage resource that the cluster is requesting to be allocated. Measured in bytes (e.g.: 64 GiB)                    |
 | Disk Limits     | The portion of the allocatable ephemeral storage resource that the cluster is limited to allocating. Measured in bytes (e.g.: 64 GiB)                         |
 
-For more detailed information, see the [Kubernetes documentation](k8s_docs) about resources.
+For more detailed information, see the [Kubernetes documentation](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) about resources.
 
 ## Platform Services
 

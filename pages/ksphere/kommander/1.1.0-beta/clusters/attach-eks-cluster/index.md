@@ -14,7 +14,7 @@ You can attach existing Kubernetes clusters to Kommander. After attaching the cl
 
 This procedure requires the following items and configurations:
 
-- A fully configured and running Amazon [EKS](eks) cluster with administrative privileges.
+- A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster with administrative privileges.
 - Konvoy v1.5.0-beta.0 or above, [installed and configured](/ksphere/konvoy/1.5.0-beta/install/) for your Amazon EKS cluster, on your machine.
 - Kommander v1.0.1-beta.1 or above, [installed and configured](/ksphere/kommander/1.1.0-beta/install/) on your machine.
 
@@ -132,7 +132,7 @@ This procedure requires the following items and configurations:
 
 For information on related topics or procedures, refer to the following:
 
-- [Configuring and Running Amazon EKS Clusters](eks) 
+- [Configuring and Running Amazon EKS Clusters](https://aws.amazon.com/eks/) 
 
 - [Installing and Configuring Konvoy v1.5.0-beta.0 or above](/ksphere/konvoy/1.5.0-beta/install/)
 
