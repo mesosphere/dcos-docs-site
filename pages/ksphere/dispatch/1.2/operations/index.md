@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Operations
 title: Operations
-menuWeight: 80
+menuWeight: 50
 beta: false
 excerpt: Operational Day Two processes for D2iQ Dispatch.
 ---
@@ -10,7 +10,7 @@ This section covers garbage collection, logging, monitoring, and scaling your Di
 
 # Logging
 
-Dispatch uses Kibana to review logs using standard query syntax.
+Dispatch uses Kibana to [review logs](logging/) using standard query syntax.
 
 # Pipelinerun Artifacts
 
@@ -18,16 +18,16 @@ You can configure pipelines to store the artifacts and view them via CLI/GUI.
 
 # Airgapped Deployments
 
-Details for airgapped deployments of Dispatch.
+How to deploy and operate Dispatch in an [airgapped](airgap-support/) or non-internet connected environment.
 
 # Garbage Collection
 
-You can configure the age at which resources are garbage collected.
+Configure the age at which resources are [garbage collected](garbage-collection/).
 
 # Monitoring
 
-Dispatch integrates with Prometheus for metrics.
+[Monitor Dispatch](monitoring/) using Prometheus for metrics.
 
-# Scaling
+# Scaling ArgoCD
 
-We offer detailed recommendations on scaling Argo CD for Dispatch.
+Recommendations on [scaling ArgoCD](scaling/) for Dispatch.
