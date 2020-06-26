@@ -338,7 +338,7 @@ Once the PR is up, it will be checked by our Continuous Integration sytem. You w
 One reason CI fails is because you may have committed typos. If so, you should follow instructions from the CI details page. To run the spell checker manually you can issue the following commands:
 
 ```
-# this generates a report of all the mistakes that have been found. this is what our CI uses.
+# This generates a report of all mistakes found. Our CI runs the same command.
 npm run spellcheck
 
 # An interactive mode to go through all of the above errors and fix them.
