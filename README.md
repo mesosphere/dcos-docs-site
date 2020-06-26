@@ -345,7 +345,7 @@ npm run spellcheck
 npm run fixtypos
 ```
 
-As we did not start with a spell checker right away, we currently do have some mistakes in our docs. If you want to do good and correct some mistakes:
+Since we did not start with a spell checker from the beginning, we currently have mistakes in our docs. If you would like to be a good samaritan and correct some mistakes:
 
 1. Open the `.spelling` file
 2. Search for a word that looks odd and remove it from that file
