@@ -352,7 +352,7 @@ Since we did not start with a spell checker from the beginning, we currently hav
 3. Run `npm run spellcheck` or `npm run fixtypos` (if you prefer an interactive mode) and correct all offences that are listed.
 4. Commit your changes and repeat! Thank you!
 
-In case you want to edit a lot of tricky occurences quickly, you might want to try `fastmod`.
+In case you want to edit a lot of tricky occurrences quickly, you might want to try `fastmod`.
 Here are some examples of how you might want to use it:
 
 ```
