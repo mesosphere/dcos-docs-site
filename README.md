@@ -341,7 +341,7 @@ One reason CI fails is because you may have committed typos. If so, you should f
 # this generates a report of all the mistakes that have been found. this is what our CI uses.
 npm run spellcheck
 
-# an interactive mode to go through all of the above errors and fix them.
+# An interactive mode to go through all of the above errors and fix them.
 npm run fixtypos
 ```
 
