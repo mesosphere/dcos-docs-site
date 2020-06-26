@@ -333,7 +333,7 @@ Docs PRs need a link to the eng side ticket to know what feature or fix this is 
 
 Once the PR is up, it will be checked by our Continuous Integration sytem. You will see according checks near the "Rebase and merge" button on github. If that button is red you can click on a check to see why our CI does not like it.
 
-One reason the CI marks your PR "red" might be that you have committed typos. If so, you should see according instructions after clicking on the red check on github. In case you want to run the spell checker manually you can also issue the following commands:
+One reason CI fails is because you may have committed typos. If so, you should follow instructions from the CI details page. To run the spell checker manually you can issue the following commands:
 
 ```
 # this generates a report of all the mistakes that have been found. this is what our CI uses.
