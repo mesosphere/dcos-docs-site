@@ -100,27 +100,24 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
 </table>
 
 ### <a name="Ubuntu-support-matrix"></a>Ubuntu support matrix
-*NOTE: Starting with DC/OS 2.0, we have discontinued support for Ubuntu Linux and have ceased qualifying it as an Operating System*.
+**NOTE: Starting with DC/OS 2.0, we have discontinued support for Ubuntu Linux.**
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
-    <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Ubuntu 18.04.3 LTS</td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
     <tr>
         <td>Ubuntu 16.04.6 LTS</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
     </tr>
 </table>
 
 ### <a name="Oracle-support-matrix"></a>Oracle support matrix
-*NOTE: Starting with DC/OS 2.0, we have discontinued support for Oracle Linux and have ceased qualifying it as an Operating System*.
+**NOTE: Starting with DC/OS 2.0, we have discontinued support for Oracle Linux.**
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -143,7 +140,7 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
 ### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
 As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https://coreos.com/os/eol/) and will no longer receive updates. The recommended alternative is to use [Flatcar Linux](#flatcar-support-matrix).
 
-*NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS and have ceased qualifying it as an Operating System*. This chart shows the final qualified versions of DC/OS for the final qualified versions CoreOS.
+**NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS.** 
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -175,33 +172,30 @@ As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https:/
     </tr>
 </table>
 
-## Web Browser and CLI Matrix
+## Internet Browser and CLI Matrix
 Use the following legend table to see the supported/not supported service for the operating environments on which DC/OS has been tested.
 
-### Legend for Web Browser and CLI support matrix
+### Legend for Internet Browser and CLI support matrix
 |Display Icon | Service       |
 |------------ |-------------- |
 | ⚫          | Supported     |
 |             | Not Supported |
 
 
-### Web Browser support matrix
+### Internet Browser support matrix
 <table class="table">
     <tr>
     <th><strong>Web Browser</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Chrome</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Firefox</td>
-        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
@@ -213,45 +207,31 @@ Use the following legend table to see the supported/not supported service for th
     <th><strong>CLI</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.12 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.11 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>DC/OS CLI 0.6.x</td>
         <td></td>
         <td></td>
-        <td></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>DC/OS CLI 0.7.x</td>
         <td></td>
         <td></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td></td>
-    </tr>
+            </tr>
     <tr>
         <td>DC/OS CLI 0.8.x</td>
         <td></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td></td>
-        <td></td>
-    </tr>
+            </tr>
     <tr>
         <td>DC/OS CLI 1.x</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td></td>
-    </tr>
+            </tr>
 </table>
-
-<p class="message--note"><strong>NOTE: </strong>CoreOS 1800.7.0 requires DC/OS version 1.11.6 or later.</p>
 
 ## Customer Advisory for CentOS/RHEL 7.X
 <p class="message--important"><strong>IMPORTANT: </strong>Docker recently enabled <code>kmem</code> accounting in version 17.06+. Customers may notice instability for the entire system when running under RHEL or CentOS 7.x. The symptoms include tasks getting stuck indefinitely and kernel-related error messages in the system logs. The <code>kmem</code> accounting feature in Redhat’s forked Linux Kernel is incomplete and can cause kernel deadlocks or kernel memory leaks. Details on the bug and mitigation instructions are located <a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">here</a>.</p>
-
-<p class="message--note"><strong>NOTE: </strong>Because of the kmem bug, <strong>D2iQ only supports Kubernetes on DC/OS with CentOS/RHEL 7.X when using DC/OS 1.12 or later and CentOS/RHEL 7.5</strong>.</a></p>
 
 ## Version Compatibility Matrix
 
@@ -260,7 +240,6 @@ D2iQ maintains and certifies several packages for DC/OS.
 ### Base Technology
 
 D2iQ does not offer support services for the base technology (for example, Jenkins). The base technology version is denoted as the second version in the package number (for example, 1.2.3-**4.5.6**).
-
 
 ### Certified Package Designations
 
@@ -285,230 +264,154 @@ The designations are as follows:
     <tr>
         <th><strong>DC/OS Package for</strong></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
-    </tr>
+            </tr>
     <tr>
         <td>Cassandra 2.4.x-3.0.16</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Cassandra 2.9.x-3.11.6 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Confluent-Kafka 2.5.x-4.1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+           </tr>
     <tr>
         <td>Confluent-Kafka 2.9.x-5.4.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Confluent-ZooKeeper 2.5.x-4.1.3e</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Confluent-ZooKeeper 2.7.x-5.1.2e (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
         <tr>
         <td>²DataStax-DSE 2.4.x-5.1.10</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>²DataStax-DSE 3.2.x-6.7.7 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
         <td>²DataStax-Ops 2.4.x-6.1.9</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>²DataStax-Ops 3.2.x-6.7.7 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-     <tr>
+             <tr>
         <td>Edge-LB 1.2</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Edge-LB 1.3 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Elastic 2.7.x-6.8.1</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Elastic 3.1.2-7.6.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>HDFS 2.5.x-2.6.0-cdh5.11.0 </td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>HDFS 2.8.x-3.2.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+           </tr>
     <tr>
         <td>Jenkins 3.5.x-2.107.2</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+           </tr>
     <tr>
         <td>Jenkins 3.5.x-2.150.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kafka 2.4.x-1.1.1</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kafka 2.9.x-2.4.0 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kafka-Zookeeper 2.6.x-3.4.14</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <!-- Where is Kafka-ZooKeeper 2.4.x? -->
     <tr>
         <td>Kafka-Zookeeper 2.7.x-3.4.14 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kibana 2.7.x-6.8.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kubernetes 2.1.x-1.12.y</td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kubernetes 2.2.x-1.13.y </td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kubernetes 2.2.x-1.14.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+           </tr>
     <tr>
         <td>Kubernetes Cluster 2.2.x-1.13.y </td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Kubernetes Cluster 2.3.x-1.14.y (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Marathon-LB 1.12.x</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Marathon-LB 1.13.x (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.6.x</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.7.x</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>MoM (Marathon on Marathon) 1.8.x (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Spark 2.6.x-2.3.2</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Spark 2.9.x-2.4.3 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Spark History 2.6.x-2.3.2</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+           </tr>
     <tr>
         <td>Spark History 2.9.x-2.4.3 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-        <td><p style="text-align: center;">⚫</p></td>
-    </tr>
+            </tr>
 </table>
 
 ### Beta Package Designations
@@ -529,36 +432,21 @@ B - This package combination is *beta*.
     <tr>
         <th><strong>DC/OS Package for</strong></th>
         <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.12</strong></p></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.11</strong></p></th>
-    </tr>
+            </tr>
     <tr>
         <td>Beta DC/OS Storage Services 0.4.0</td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>¹Beta DC/OS Storage Services 0.5.3 </td>
         <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Beta DC/OS Storage Services 0.6.0 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-        <td><p style="text-align: center;">◯</p></td>
-    </tr>
+            </tr>
     <tr>
         <td>Beta Mesosphere Jupyter Service 1.3.x - 0.35.4 (Recommended)</td>
         <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">B</p></td>
-        <td><p style="text-align: center;">B</p></td>
-    </tr>
+            </tr>
 </table>
-
-### Footnotes
-
-- ¹ Beta DC/OS Storage Services 0.5.1 requires DC/OS 1.12.1 or later.
-- ² Package maintained and supported solely by DataStax Corporation.
