@@ -109,11 +109,12 @@ MS.metadata({
   copyright: `&copy; ${currentYear} D2iQ, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
   gitBranch: GIT_BRANCH,
-  dcosDocsLatest: "2.1",
+  conductorDocsLatest: "0.8-beta",
   dcosCNDocsLatest: "2.0",
-  konvoyDocsLatest: "1.4",
-  kommanderDocsLatest: "1.0",
+  dcosDocsLatest: "2.1",
   dispatchDocsLatest: "1.2",
+  kommanderDocsLatest: "1.0",
+  konvoyDocsLatest: "1.4",
   kubeflowDocsLatest: "1.0.1-0.3.1",
 });
 
@@ -151,6 +152,8 @@ const neededToBuildMainMenu = [
   `ksphere/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
   "ksphere/kubeflow/index.md",
   `ksphere/kubeflow/${MS._metadata.kubeflowDocsLatest}/index.md`,
+  "ksphere/conductor/index.md",
+  `ksphere/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
 ];
 if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
   MS.use((files, _, done) => {
