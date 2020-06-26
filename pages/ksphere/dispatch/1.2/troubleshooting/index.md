@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Troubleshooting
 title: Troubleshooting
-menuWeight: 90
+menuWeight: 80
 beta: false
 excerpt: Diagnosing issues with your Dispatch deployment
 ---
@@ -14,7 +14,7 @@ For information on viewing logs in **Kibana**, refer to the [Dispatch Logging](.
 
 # Viewing component logs
 
-There are a couple of ways you can check the logs for your components.
+There are a multiple ways you can check the logs for your components.
 
 ## Tekton pipelines controller
 

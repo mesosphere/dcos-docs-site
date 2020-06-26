@@ -1,11 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Welcome to Dispatch 1.2
-title: Welcome to Dispatch 1.2
+navigationTitle:  Overview & Concepts
+title: Overview & Concepts
+menuWeight: 20
 beta: false
-category: K-Sphere
-menuWeight: 0
-excerpt: Dispatch provides a declarative CI/CD platform for rapidly deploying Cloud Native applications and enabling enterprises to rapidly build, test and manage applications' lifecycle using GitOps processes.
+excerpt: Introductory topics about D2iQ Dispatch.
 ---
 Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications. Dispatch  enables you to:
 
@@ -15,7 +14,7 @@ Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes clu
 
 # Key Features
 
-**Flexible Pipeline Configuration.**  Dispatch lets  you leverage languages such as CUE and Starlark to declaratively define a build and test [pipeline](overview_concepts/dispatch-ci/). You can reduce pipeline complexity by defining functions, schema validation and other well-known programming constructs.
+**Flexible Pipeline Configuration.**  Dispatch lets  you leverage languages such as CUE and Starlark to declaratively define a build and test [pipeline](dispatch-ci/). You can reduce pipeline complexity by defining functions, schema validation and other well-known programming constructs.
 
 **Choice of Build Locations.** You can execute your pipeline on your laptop, on-prem cluster or in the public cloud. Dispatch lets you run the same pipeline in any environment.
 
@@ -23,4 +22,6 @@ Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes clu
 
 **Software Lifecycle as Code.**  Dispatch lets you implement GitOps processes to store build pipelines and application deployment methodologies in Git for repeatable and efficient lifecycle management.
 
-**Get Started** Now with a [Quickstart Tutorial](quickstart/)
+**Progressive Deployment.**  Dispatch enables you to easily implement [progressive deployment strategies](../install/configure-argocd/) to ensure greatly reduced risk deployments of your applications.
+
+**Get Started** now with a [Quickstart Tutorial](../quickstart/)
