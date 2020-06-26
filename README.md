@@ -331,7 +331,9 @@ Docs PRs need a link to the eng side ticket to know what feature or fix this is 
 
 ## Spell checking
 
-Once the PR is up, it will be checked by our Continuous Integration sytem. You will see according checks near the "Rebase and merge" button on github. If that button is red you can click on a check to see why our CI does not like it.
+Once the PR is up, it will be checked by our Continuous Integration sytem. You will see CI checks near the "Rebase and merge" button in Github. If that button is red you can click on `Details` for more information.
+
+**Note:** if you are not a D2iQ employee, you will have to ask an admin to share that build info with you.
 
 One reason CI fails is because you may have committed typos. If so, you should follow instructions from the CI details page. To run the spell checker manually you can issue the following commands:
 
