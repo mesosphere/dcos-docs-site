@@ -6,7 +6,6 @@
 - var semverService = /^(v|)[0-9](.*)/
 - var dropdown = []
 
-
 // Service Docs
 if paths[2] === 'services' && paths[3]
   - item = hierarchy.findByPath('/mesosphere/dcos' + '/' + paths[2] + '/' + paths[3])
@@ -22,54 +21,20 @@ if paths[2] === 'services' && paths[3]
     if tmpItem
       - item = tmpItem
 
-//- // Version Policy
-//- if paths[2] === 'version-policy'
-//-   - var versionTitle = "Version Policy Page"
-//-   - var menu = hierarchy.findByPath('/mesosphere/dcos')
-//-   - item = menu
-//-   - item.children = menu.children.filter(child => child.id != 'cn')
-//-   - var type = item
-
 
 // DC/OS Docs
 if paths[1] === 'dcos' && semver.test(paths[2])
-  - var mesosDocs = hierarchy.children.filter(child => child.id == 'mesosphere')[0]
-  - type = mesosDocs.children.filter(child => child.id == 'dcos')[0]
-  - dropdown = type.children.filter(item => semver.test(item.id))
-  - item = hierarchy.findByPath('/mesosphere/' + paths[1] + '/' + paths[2])
-  - versionTitle = paths[2]
+  - var type = hierarchy.findByPath(`mesosphere/dcos`)
+  - var dropdown = type.children.filter(item => semver.test(item.id))
+  - var item = hierarchy.findByPath('mesosphere/' + paths[1] + '/' + paths[2])
+  - var versionTitle = paths[2]
 
-// Konvoy Docs
-if paths[1] === 'konvoy'
-  - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
-  - type = ksphereDocs.children.filter(child => child.id == 'konvoy')[0]
-  - dropdown = type.children.filter(item => semver.test(item.id))
-  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
-  - versionTitle = paths[2]
-
-// Kommander Docs
-if paths[1] === 'kommander'
-  - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
-  - type = ksphereDocs.children.filter(child => child.id == 'kommander')[0]
-  - dropdown = type.children.filter(item => semver.test(item.id))
-  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
-  - versionTitle = paths[2]
-
-// Dispatch Docs
-if paths[1] === 'dispatch'
-  - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
-  - type = ksphereDocs.children.filter(child => child.id == 'dispatch')[0]
-  - dropdown = type.children.filter(item => semver.test(item.id))
-  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
-  - versionTitle = paths[2]
-
-// Kubeflow Docs
-if paths[1] === 'kubeflow'
-  - var ksphereDocs = hierarchy.children.filter(child => child.id == 'ksphere')[0]
-  - type = ksphereDocs.children.filter(child => child.id == 'kubeflow')[0]
-  - dropdown = type.children.filter(item => semver.test(item.id))
-  - item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
-  - versionTitle = ""
+// all ksphere stuff
+if paths[0] === "ksphere"
+  - var type = hierarchy.findByPath(`/ksphere/${paths[1]}`)
+  - var dropdown = type.children.filter(item => semver.test(item.id))
+  - var item = hierarchy.findByPath('/ksphere/' + paths[1] + '/' + paths[2])
+  - var versionTitle = paths[2]
 
 - dropdown = dropdown.filter(item => item.menuWeight != -1)
 

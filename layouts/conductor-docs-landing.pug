@@ -21,6 +21,23 @@ mixin renderGridToc()
                   a(href=val.path, class='grid-toc__link grid-toc__link--all') View All
                     img(class='grid-toc__link--all__arrow', src='/assets/right-arrow.svg')
 
+mixin renderGrid()
+  div(class='grid')
+    a(href=latestDocs.path + '/installing', class='grid__item')
+      h3(class='grid__header') Install DC/OS
+      div(class='grid__desc__wrapper')
+        p(class='grid__desc') Installation involves configuring your infrastructure and installing DC/OS bits on top, so the infrastructure provider you choose determines your installation method. Select from development, cloud, and on-premises.
+          span(class='grid__desc__ellipsis') &#8230;Read More
+      div(class="grid__link")
+        i(data-feather='arrow-right')
+    a(href='https://support.d2iq.com', class='grid__item')
+      h3(class='grid__header') Need Support?
+      div(class='grid__desc__wrapper')
+        p(class='grid__desc') Subscription pricing for DC/OS is based on the number of nodes (physical or virtual) in your environment. DC/OS subscriptions may include either Premium (24x7) or Standard (9-5) support.
+          span(class='grid__desc__ellipsis') &#8230;Read More
+      div(class="grid__link")
+        i(data-feather='arrow-right')
+
 doctype html
 html(lang='en')
   head
