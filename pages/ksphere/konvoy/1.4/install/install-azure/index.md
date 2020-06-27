@@ -36,8 +36,8 @@ This command creates your [Azure Virtual Machines][compute_virtual_machine] inst
 
 Specifically, the `konvoy up` command does the following:
 
-* Provisions three `Standard_DS3_v2` virtual machines as Kubernetes master nodes
-* Provisions six `Standard_DS3_v2` virtual machines as Kubernetes worker nodes
+* Provisions three `Standard_D4S_v3` virtual machines as Kubernetes master nodes
+* Provisions six `Standard_D4S_v3` virtual machines as Kubernetes worker nodes
 * Deploys all of the following default add-ons:
   * Calico
   * Cert-Manager
@@ -71,7 +71,7 @@ The cluster name will be used to tag the provisioned infrastructure and the cont
 To customize the cluster name, run the following command:
 
 ```bash
-konvoy up --cluster-name --provisioner azure <YOUR_SPECIFIED_NAME>
+konvoy up --provisioner azure --cluster-name <YOUR_SPECIFIED_NAME>
 ```
 
 **NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
