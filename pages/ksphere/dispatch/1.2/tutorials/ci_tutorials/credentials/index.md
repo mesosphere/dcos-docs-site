@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Configuring Credentials
+navigationTitle:  Configure Credentials
 title: Configuring Credentials
 menuWeight: 10
 beta: false

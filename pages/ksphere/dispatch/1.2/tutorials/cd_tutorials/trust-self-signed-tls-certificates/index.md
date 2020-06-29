@@ -14,7 +14,7 @@ excerpt: This tutorial configures ArgoCD to trust TLS certificates issued by a c
 
 This tutorial assumes that you have followed the steps on the following pages:
 
-- [Dispatch Installation](../../../../install/)
+- [Dispatch Installation](../../../install/)
 
 ## ArgoCD and TLS certificate verification
 

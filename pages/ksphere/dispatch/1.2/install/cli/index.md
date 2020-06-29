@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle:  Installing CLI
+navigationTitle:  Install CLI
 title: Dispatch CLI Installation
 menuWeight: 30
 beta: false
