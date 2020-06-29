@@ -4,10 +4,10 @@ navigationTitle:  Helloworld in CUE
 title: Setting up Helloworld on GitHub in CUE
 menuWeight: 50
 beta: false
-excerpt: Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
+excerpt: Using Cue, configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 
-This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository.
+This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository. It will leverage the CUE front end language.
 
 # Prerequisites
 

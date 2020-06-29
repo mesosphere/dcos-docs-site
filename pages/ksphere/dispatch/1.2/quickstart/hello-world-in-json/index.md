@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  Helloworld in CUE
-title: Setting up Helloworld on GitHub in CUE
+navigationTitle:  Helloworld in JSON
+title: Setting up Helloworld on GitHub in JSON
 menuWeight: 50
 beta: false
-excerpt: Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
+excerpt: Using Json, configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 
-This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository.
+This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository. It will leverage the JSON front end language.
 
 # Prerequisites
 
