@@ -4,10 +4,10 @@ navigationTitle:  Helloworld in Starlark
 title: Setting up Helloworld on GitHub in Starlark
 menuWeight: 50
 beta: false
-excerpt: Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
+excerpt: Using Starlark, configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 
-This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository.
+This topic provides a step-by-step tutorial for setting up dispatch and getting your first successful cloud native CI build on your GitHub repository. It will leverage the Starlark front end language.
 
 # Prerequisites
 
