@@ -3,17 +3,17 @@ layout: layout.pug
 navigationTitle: Disable Audit Log Collection
 title: Disable Audit Log Collection
 menuWeight: 11
-excerpt: Audit Logs are collected via the FluentBit Addon and enabled for collection by default. In some cases this may not be necessary and turning off audit-log-collection would be ideal. Here we show the procedure to disable Audit Log Collection.
+excerpt: Audit Logs are enabled and collected by default. If needed, you can disable Audit Log Collection.
 enterprise: false
 ---
 
 ### Disable Audit Log Collection
 
-Audit Logs are collected via the FluentBit Addon and enabled for collection by default. In some cases this may not be necessary and turning off audit-log-collection would be ideal. Here we show the procedure to disable Audit Log Collection.
+Audit Logs are collected using the FluentBit Addon and enabled for collection by default. In some cases this may not be necessary and turning off audit-log-collection would be ideal. This procedure shows how to disable Audit Log Collection.
 
 #### Before you begin
 
-These procedures require that you have the FluentBit addon enabled. If this is not the case then no further action is required.
+Thos procedure requires that you have the FluentBit addon enabled. If this is not the case then no further action is required.
 
 #### Disable Audit Log Collection
 
@@ -43,7 +43,7 @@ These procedures require that you have the FluentBit addon enabled. If this is n
         …
     ```
 
-    (Optional) Also, if you wish to remove the Audit Log Dashboard from Kibana, you may update the `cluster.yaml` file with the following `values` entry of kibana
+    (Optional) Also, if you wish to remove the Audit Log Dashboard from Kibana, you can update the `cluster.yaml` file with the following `values` entry of kibana
 
     ```yaml
     …

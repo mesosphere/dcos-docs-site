@@ -11,7 +11,7 @@ enterprise: false
 
 ## Konvoy CLI available versions
 
-You can verify to which version your CLI can be upgraded by running the following command:
+You can verify which version your CLI can be upgraded to by running the following command:
 
 ```bash
 konvoy image list
@@ -31,7 +31,7 @@ This command uses the Docker Hub to fetch all the available Konvoy versions.
 
 If you are using a <a href="https://docs.docker.com/registry/deploying/" target="_blank">private Docker registry</a> for your clusters, you can list all the available versions, passing some additional arguments to the previous command.
 
-For instance, if your private Docker registry provides a basic authentication mechanism (username/password), you need to pass the following arguments, where `docker-registry-skip-verify` is optional based on your TLS settings:
+For example, if your private Docker registry provides a basic authentication mechanism (username/password), you must pass the following arguments, where `docker-registry-skip-verify` is optional based on your TLS settings:
 
 ```bash
 konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry-username=testuser --docker-registry-password=testpassword --docker-registry-skip-verify
@@ -39,7 +39,7 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 
 If you are using a Docker registry with <a href="https://docs.docker.com/registry/spec/auth/token/" target="_blank">v2 token authentication mechanism</a> enabled, then you should set the following arguments to be able to list the CLI versions from the Docker registry API.
 
-For instance, if you are running <a href="https://github.com/goharbor/harbor" target="blank">Harbor</a> Docker Registry, `konvoy image` talks to the <a href="https://github.com/docker/distribution/blob/master/docs/spec/auth/token.md" target="_blank">API to authenticate</a> to get some data about the available versions.
+For example, if you are running <a href="https://github.com/goharbor/harbor" target="blank">Harbor</a> Docker Registry, `konvoy image` talks to the <a href="https://github.com/docker/distribution/blob/master/docs/spec/auth/token.md" target="_blank">API to authenticate</a> to get some data about the available versions.
 
 ```bash
 konvoy image list --docker-registry-url=https://myregistry.com --docker-registry-username=admin --docker-registry-password=Harbor12345  --docker-registry-skip-verify
@@ -55,14 +55,14 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 
 ## Konvoy CLI version upgrade
 
-Once you listed the available Konvoy versions, you can upgrade your CLI by running the following command:
+After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
 konvoy image upgrade --version=v1.1.4
 Wrote Konvoy CLI version 'v1.1.4' to '.konvoy/cli_version'
 ```
 
-Once the upgrade command completed, you can start using the new Konvoy version.
+After the upgrade command completes, you can start using the new Konvoy version.
 
 ## Before you begin: Prepare for Konvoy CLI upgrade
 
@@ -72,7 +72,7 @@ These changes are highlighted in the Release Notes and in the following sections
 A Konvoy upgrade consists of a few distinct steps.
 
 - Download the Konvoy binary and extract it in your environment in the same manner as the initial install. (Download the specific version of Konvoy by following the steps outlined in the [download](../../download) page.)
-- You must also have access to the `cluster.yaml` file and the SSH keys that were generated during the initial install.. Update the `cluster.yaml` file with the changes outlined below.
+- You must also have access to the `cluster.yaml` file and the SSH keys that were generated during the initial install. Update the `cluster.yaml` file with the changes described below.
 - Run `konvoy up --upgrade` which first upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
 
 ### Upgrading Konvoy from v1.4.x to v1.5.0
