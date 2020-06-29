@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Canary Deployment
-title: Canary deployment
+navigationTitle:  Configure Canary Deployments
+title: Canary deployments
 menuWeight: 40
 beta: false
 excerpt: How to configure canary deployment for your application
@@ -19,7 +19,7 @@ This tutorial leverages [Flagger](https://docs.flagger.app/) to manage canary de
 
 ### hello-world application
 
-This tutorial assumes that you followed the [Setting up a Repository in Dispatch](../../../ci_tutorials/repo-setup/), and the [GitOps Based Deployments](../rolling-deployment/) tutorials and now have an application configured for CI and CD using GitOps.
+This tutorial assumes that you followed the [Setting up a Repository in Dispatch](../../ci_tutorials/repo-setup/), and the [GitOps Based Deployments](../rolling-deployment/) tutorials and now have an application configured for CI and CD using GitOps.
 
 ### Istio
 

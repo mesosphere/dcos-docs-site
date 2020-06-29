@@ -14,8 +14,8 @@ excerpt: This tutorial describes how to deploy different versions of an applicat
 
 This tutorial assumes that you have followed the steps on the following pages:
 
-- [Dispatch Installation](../../../../install/)
-- [Setting up a Repository in Dispatch](../../../ci_tutorials/repo-setup/)
+- [Dispatch Installation](../../../install/)
+- [Setting up a Repository in Dispatch](../../ci_tutorials/repo-setup/)
 - [GitOps Based Deployments](../rolling-deployment/)
 
 You must have:

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-title: Using the ArgoCD CLI with Dispatch
-navigationTitle: Using the ArgoCD CLI with Dispatch
+title: Configure the ArgoCD CLI with Dispatch
+navigationTitle: Configure the ArgoCD CLI with Dispatch
 beta: false
 category: K-Sphere
 menuWeight: 105
@@ -33,7 +33,7 @@ argocd --port-forward-namespace=dispatch --plaintext app list
 
 ### ArgoCD Single Sign-On
 
-As part of the Dispatch installation the administrator can [enable Single Sign-On for ArgoCD](../../../../install/configure-argocd/index.md#single-sign-on-sso) and rely on ArgoCD to perform its own user authentication and authorization. In that case, the Ingress controller does not authenticate requests to ArgoCD. Instead, ArgoCD performs its own authentication and authorization using Single Sign-On.
+As part of the Dispatch installation the administrator can [enable Single Sign-On for ArgoCD](../../../install/configure-argocd/index.md#single-sign-on-sso) and rely on ArgoCD to perform its own user authentication and authorization. In that case, the Ingress controller does not authenticate requests to ArgoCD. Instead, ArgoCD performs its own authentication and authorization using Single Sign-On.
 
 In this case, there is no need to port-forward as the ArgoCD server is directly accessible. Instead, the `--server=<cluster-hostname>` option must be set to the fully qualified domain name where Dispatch is installed. In addition, the `--grpc-web-root-path=/dispatch/argo-cd` option must be specified, where `/dispatch/argo-cd` is the absolute URL path to the ArgoCD server.
 
