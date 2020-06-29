@@ -75,7 +75,7 @@ Template:
 * Fix possible data collision bug related to clusters
 * Fix a possible crash-loop situation for kubeaddons when cert-manager isnt ready yet
 * Fix and Improve LDAP Identity provider handling
-* Fix display of "nothing to report" situations vs acutal errors
+* Fix display of "nothing to report" situations vs actual errors
 * Fix some smaller bugs related to access control
 * Smaller UX Bugs and Improvements
 
