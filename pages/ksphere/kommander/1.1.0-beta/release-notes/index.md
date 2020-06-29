@@ -59,7 +59,7 @@ Template:
 | **Default**        | 1.17.3  |
 
 #### Features/Improvements
-* Add guideance what to do when cluster deletion failed
+* Add guidance on what to do when cluster deletion fails
 * Allow default federated addon values to be overriden
 * Attach clusters to Kommander is now considered GA
 * Update kubecost web urls
