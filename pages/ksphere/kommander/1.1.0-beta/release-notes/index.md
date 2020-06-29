@@ -73,7 +73,7 @@ Template:
 - UI: `3.106.2`
 - kommander-karma: `0.3.10`
 - kubeaddons-catalog: `0.1.9`
-- kommander-thanos: `0.1.21`
+- kommander-thanos: `0.1.15`
 - kubecost: `0.1.4`
 - grafana: `4.5.1`
 
@@ -107,7 +107,7 @@ Template:
 - UI: `3.100.0`
 - kommander-karma: `0.3.10`
 - kubeaddons-catalog: `0.1.9`
-- kommander-thanos: `0.1.21`
+- kommander-thanos: `0.1.15`
 - kubecost: `0.1.4`
 - grafana: `4.5.1`
 
