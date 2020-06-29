@@ -474,6 +474,57 @@ curl http://34.211.12.88/
 tutorial
 ```
 
+## Backend Endpoint
+
+The endpoint used for the `backend` can be overridden. This is useful to expose a service out via a particular address such as an L4LB VIP:
+
+```json
+{
+  "id": "/auto-pool-tutorial",
+  "labels": {
+      "edgelb.expose": "true",
+      "edgelb.secure.backend.endpoint": "type:ADDRESS|address:myvip.marathon.l4lb.thisdcos.directory|port:8080"
+  },
+  "instances": 1,
+  "portDefinitions": [
+    {
+      "name": "id",
+      "protocol": "tcp",
+      "port": 0
+    }
+  ],
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "mesosphere/id-server:2.1.0"
+    },
+    "portMappings": [
+      "containerPort": 80,
+      "hostPort": 0,
+      "protocol": "tcp",
+      "name": "id",
+      "labels": {
+        "VIP_0": "/myvip:8080"
+      }
+    ]
+  },
+  "cpus": 0.1,
+  "requirePorts": false,
+  "mem": 32,
+  "cmd": "/start $PORT0 tutorial"
+}
+```
+
+```bash
+dcos marathon app update /auto-pool-tutorial < auto-pool-tutorial.json
+Created deployment 497cbee3-ebdc-4310-8ef3-03175aa52a66
+
+curl http://34.211.12.88/
+tutorial
+```
+
+*NOTE* the `check` key is currently not supported since it is a nested `dict` object.
+
 # Template Management
 
 ## Status
