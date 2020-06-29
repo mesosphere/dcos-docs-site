@@ -61,7 +61,7 @@ Template:
 #### Features/Improvements
 * Add guidance on what to do when cluster deletion fails
 * Allow default federated addon values to be overriden
-* Attach clusters to Kommander is now considered GA
+* Attaching clusters to Kommander is now considered GA
 * Update kubecost web urls
 * Add flag (`--skip-credentials-display`) to Kommander to Konvoy it displaying login information in Logs
 * Add ability to disable federation of monitoring stack
