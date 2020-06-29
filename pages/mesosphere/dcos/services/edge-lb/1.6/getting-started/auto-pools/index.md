@@ -76,6 +76,7 @@ We recommend using the `<group>` field to describe the frontend app, such as `we
 | `edgelb.<group>.backend.protocol` | `HTTP` unless frontend protocol is not `HTTP/HTTPS`, then matches frontend | The backend protocol. |
 | `edgelb.<group>.backend.rewriteHttp.path` | | A `dict` of 1 item mapping the key path on the frontend to the value path on the backend. For example to map `/a` on the frontend to `/` on the backend, set the value to `/a:/` |
 | `edgelb.<group>.backend.rewriteHttp.sticky` | | If the label exists, sticky is enabled with the default options. Any non-whitespace value for the label will be used as the [`customStr`](/mesosphere/dcos/services/edge-lb/1.6/reference/pool-configuration-reference/v2-reference/#poolhaproxybackendrewritehttp) |
+| `edgelb.<group>.backend.endpoint` | | If the label exists, the specified `dict` will be used in place as the endpoint. Useful for specifying an L4LB address and port as the endpoint instead of the container port. All keys from the [api](/mesosphere/dcos/services/edge-lb/1.6/reference/pool-configuration-reference/v2-reference/#poolhaproxybackendserviceendpoint) are support **except** the `check` key as it is impossible to specify a nested `dict` object. |
 
 # Managing Pool Templates
 

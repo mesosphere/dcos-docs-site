@@ -9,6 +9,18 @@ enterprise: false
 
 These Edge-LB Release Notes summarize release-specific changes that fix issues or update Edge-LB features for DC/OS&trade; Enterprise clusters.
 
+# DC/OS for Edge-LB Service version 1.6.1 Release Notes
+
+Edge-LB Service version 1.6.0 was released on 26 June 2020.
+
+## New features and capabilities
+
+- Added option to disable AWS meta-data fetching as well as the meta-data endpoint
+- Auto Pool templates now support applications overriding the backend.endpoin dictionary
+- HAProxy is updated to 2.0.15
+- EdgeLB is now built with GO 1.14.4
+
+
 # DC/OS for Edge-LB Service version 1.6.0 Release Notes
 
 Edge-LB Service version 1.6.0 was released on 10 June 2020.
