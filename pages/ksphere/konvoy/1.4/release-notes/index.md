@@ -15,6 +15,30 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.4.5 - Released 26 June 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.12 |
+
+#### Improvements
+
+- CLI: Update Calico version to address the [CVE](https://docs.projectcalico.org/archive/v3.13/release-notes/#v3134).
+
+#### Bug fixes
+
+- CLI: Fix `konvoy completion` command containing extra carriage-return in line termination.
+
+#### Component version changes
+
+- Kubernetes `v1.16.12`
+- Keepalived `v2.0.20`
+- Calico `v3.13.4`
+- Go `v1.13.12`
+- Docker `v19.03.11`
+
 ### Version v1.4.4 - Released 28 May 2020
 
 | Kubernetes Support | Version |
