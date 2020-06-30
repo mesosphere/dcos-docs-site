@@ -109,7 +109,7 @@ MS.metadata({
   copyright: `&copy; ${currentYear} D2iQ, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
   gitBranch: GIT_BRANCH,
-  conductorDocsLatest: "0.8-beta",
+  conductorDocsLatest: "1.0",
   dcosCNDocsLatest: "2.0",
   dcosDocsLatest: "2.1",
   dispatchDocsLatest: "1.2",
