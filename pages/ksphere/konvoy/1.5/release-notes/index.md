@@ -792,7 +792,7 @@ spec:
     calico:
       version: v3.10.1
   addons:
-    configRepository: https://github.com/mesosphere/kubernetes-base-addons
+  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: stable-1.16.4-2
     addonsList:
     ...
