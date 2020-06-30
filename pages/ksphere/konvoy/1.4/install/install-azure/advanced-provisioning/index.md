@@ -55,7 +55,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_DS3_v2
+      type: Standard_D4S_v3
       imageID: OpenLogic:CentOS-CI:7-CI:7.7.20190920
   - name: control-plane
     controlPlane: true
@@ -66,7 +66,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_DS2_v2
+      type: Standard_D4S_v3
       imageID: OpenLogic:CentOS-CI:7-CI:7.7.20190920
 ```
 
@@ -248,7 +248,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_DS3_v2
+      type: Standard_D4S_v3
       subnetIDs:
       - existing-subnet-for-konvoy
   - name: control-plane
@@ -260,7 +260,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
        imagefsVolumeType: Standard_LRS
-      type: Standard_DS3_v2
+      type: Standard_D4S_v3
       subnetIDs:
       - existing-subnet-for-control-plane-konvoy
   - name: bastion
@@ -272,7 +272,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_DS2_v2
+      type: Standard_D4S_v3
       subnetIDs:
       - other-subnet
 ...
