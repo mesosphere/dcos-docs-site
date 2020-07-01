@@ -376,6 +376,7 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
     kommander: [],
     dispatch: [],
     kubeflow: [],
+    conductor: [],
   };
 
   // Filter
