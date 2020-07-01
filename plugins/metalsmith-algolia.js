@@ -157,7 +157,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       } else if (paths[1] === "kubeflow") {
         setVersion("KUDO Kubeflow Docs");
       } else if (paths[1] === "conductor") {
-        setVersion("Conductor");
+        setVersion("Conductor Docs");
       }
 
       indexFile.version = indexFile.product;
