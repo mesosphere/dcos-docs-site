@@ -814,7 +814,7 @@ spec:
       enabled: true
 ```
 
-Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [refernce document](../reference/cluster-configuration/).
+Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [reference document](../reference/cluster-configuration/).
 
 After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to upgrade the Kubernetes and all of the addons.
 
