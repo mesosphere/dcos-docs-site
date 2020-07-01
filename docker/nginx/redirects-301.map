@@ -843,3 +843,4 @@
 ~^/(cn/.*)$ /mesosphere/dcos/$1;
 ~^/(version-policy/.*)$ /mesosphere/dcos/$1;
 ~^/(search/.*)$ /mesosphere/dcos/$1;
+/ksphere/konvoy/1.5/tutorials/replacing-failed-control-plane-node/(.*) /ksphere/konvoy/1.5/troubleshooting/replace-failed-control-plane-node/(.*);
