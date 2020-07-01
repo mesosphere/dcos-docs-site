@@ -885,3 +885,18 @@ The table below lists the third party open source software which is provided by 
 |  sigs.k8s.io | structured-merge-diff | v1.0.1-0.20191108220359-b1b620dd3f06 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/structured-merge-diff?tab=licenses) |
 |  sigs.k8s.io | testing_frameworks | v0.1.2 | [Apache-2.0](https://pkg.go.dev/sigs.k8s.io/testing_frameworks?tab=licenses) |
 |  sigs.k8s.io | yaml | v1.1.0 | [BSD-3-Clause](https://pkg.go.dev/sigs.k8s.io/yaml?tab=licenses), [MIT](https://pkg.go.dev/sigs.k8s.io/yaml?tab=licenses) |
+
+
+
+## Software Sources
+
+The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
+Software that are utilized by D2IQ Dispatch.
+
+
+| Software       | Software Source                                              | License                                                                                      |
+| -------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| golang-lru     | https://packages.d2iq.com/ksphere/golang-lru-0.5.4.tar.gz    | [Mozilla Public License 2.0](https://github.com/hashicorp/golang-lru/blob/v0.5.4/LICENSE)    |
+| errwrap        | https://packages.d2iq.com/ksphere/errwrap-1.0.0.tar.gz       | [Mozilla Public License 2.0](https://github.com/hashicorp/errwrap/blob/v1.0.0/LICENSE)       |
+| go-multierror  | https://packages.d2iq.com/ksphere/go-multierror-1.1.0.tar.gz | [Mozilla Public License 2.0](https://github.com/hashicorp/go-multierror/blob/v1.1.0/LICENSE) |
+
