@@ -27,9 +27,9 @@ excerpt: Release notes for DC/OS Kubernetes version 2.6.1-1.17.8
 * Kubernetes v1.17.8
 * Docker v19.03.11
 
-## Bug Fixes
+## Fixed Issues
 
-* Fix intermittent bug that prevented etcd forming a cluster by removing unnecesary SANs from etcd certificates to reduce amount of DNS queries.
+* Fix intermittent issue that prevented etcd from forming a cluster by removing unnecesary SANs from etcd certificates to reduce amount of DNS queries.
 
 ## Documentation
 
