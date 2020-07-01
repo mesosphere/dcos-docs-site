@@ -20,9 +20,12 @@
             display: flex;
         }
         border-bottom: 1px solid $color-light-grey-l2;
-        padding: 3rem 0;
         transition: all .5s;
-        max-height: 300px;
+        padding: 5rem 0;
+        @include sm {
+          max-height: 300px;
+          padding: 3rem 0;
+        }
         &.disabled {
           opacity: 0;
           max-height: 0;
