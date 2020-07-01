@@ -123,7 +123,7 @@ To grant the user `marry@example.com` administrative access to all operations po
 
 ```shell
 cat << EOF | kubectl apply -f -
- ---
+---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
