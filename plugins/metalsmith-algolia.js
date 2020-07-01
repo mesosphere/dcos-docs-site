@@ -42,6 +42,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     "ksphere-kommander": client.initIndex("ksphere-kommander"),
     "ksphere-dispatch": client.initIndex("ksphere-dispatch"),
     "ksphere-kubeflow": client.initIndex("ksphere-kubeflow"),
+    "ksphere-conductor": client.initIndex("ksphere-conductor"),
   };
 
   // /**
@@ -101,6 +102,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       kommander: "Kommander",
       dispatch: "Dispatch",
       kubeflow: "KUDO Kubeflow",
+      conductor: "Conductor",
     };
 
     const semverMap = buildSemverMap(
@@ -154,6 +156,8 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         setVersion("Dispatch Docs");
       } else if (paths[1] === "kubeflow") {
         setVersion("KUDO Kubeflow Docs");
+      } else if (paths[1] === "conductor") {
+        setVersion("Conductor");
       }
 
       indexFile.version = indexFile.product;
