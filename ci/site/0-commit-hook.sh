@@ -28,7 +28,8 @@ export IMAGE_NAME # export separately so errexit works :(
 IMAGE_TAG="$(echo "${DOCKER_IMAGE}" | sed 's/^\(.*\):\([^:]*\)/\2/')"
 export IMAGE_TAG # export separately so errexit works :(
 
-ci/site/3-test-site-image.sh
+# this currently seems to do more harm than good. we're testing every change on a staging-env anyway.
+# ci/site/3-test-site-image.sh
 
 ci/site/4-publish-site-image.sh
 
