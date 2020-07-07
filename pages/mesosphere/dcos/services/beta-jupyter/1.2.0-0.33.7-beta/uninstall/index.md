@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Uninstall
-title: Uninstall
+navigationTitle: Uninstall Mesosphere Jupyter Service (Beta)
+title: Uninstall Mesosphere Jupyter Service (Beta)
 menuWeight: 90
-excerpt: Uninstalling JupyterLab
+excerpt: Uninstall JupyterLab
 featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/beta-jupyter/data.yml

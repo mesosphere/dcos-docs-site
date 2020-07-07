@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Configuring DC/OS access for Mesosphere Jupyter Service (Beta)
-title: Configuring DC/OS access for Mesosphere Jupyter Service (Beta)
+navigationTitle: Quick Start Mesosphere Jupyter Service (Beta)
+title: Quick Start Mesosphere Jupyter Service (Beta)
 menuWeight: 5
-excerpt: How to use JupyterLab with DC/OS
+excerpt: Quick Start JupyterLab with DC/OS
 featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/beta-jupyter/data.yml

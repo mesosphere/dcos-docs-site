@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Examples
-title: Examples
+navigationTitle: Examples Mesosphere Jupyter Service (Beta)
+title: Examples Mesosphere Jupyter Service (Beta)
 menuWeight: 13
 excerpt: Examples of different installation options
 featureMaturity:
