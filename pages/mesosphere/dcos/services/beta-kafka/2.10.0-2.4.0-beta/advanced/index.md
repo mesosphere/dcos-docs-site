@@ -4,6 +4,7 @@ navigationTitle:
 excerpt: Advanced features of Kafka
 title: Advanced
 menuWeight: 80
+beta: true
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 ---

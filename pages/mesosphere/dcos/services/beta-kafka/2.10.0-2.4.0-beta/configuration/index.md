@@ -4,6 +4,7 @@ navigationTitle:
 excerpt: Configuring Kafka and ZooKeeper
 title: Configuration
 menuWeight: 20
+beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 render: mustache
 ---

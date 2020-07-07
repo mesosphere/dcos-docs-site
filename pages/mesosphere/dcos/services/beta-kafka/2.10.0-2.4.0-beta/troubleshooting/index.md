@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt: Diagnosing Kafka
-title: Troubleshooting
+navigationTitle: Diagnose Kafka
+excerpt: Diagnose Kafka
+title: Diagnose Kafka
 menuWeight: 70
+beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 render: mustache
 ---
