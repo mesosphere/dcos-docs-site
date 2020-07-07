@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Limitations Mesosphere Jupyter Service (Beta)
-title: Limitations Mesosphere Jupyter Service (Beta)
+navigationTitle:  Limitations
+title: Limitations
 menuWeight: 90
 excerpt: Limitations of JupyterLab on the DC/OS platform
 featureMaturity:
 enterprise: false
+beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---

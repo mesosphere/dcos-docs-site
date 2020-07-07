@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle: Quick Start Mesosphere Jupyter Service (Beta)
-title: Quick Start Mesosphere Jupyter Service (Beta)
+navigationTitle: Quick Start
+title: Quick Start
 menuWeight: 5
 excerpt: Quick Start JupyterLab with DC/OS
 featureMaturity:
 enterprise: false
+beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---

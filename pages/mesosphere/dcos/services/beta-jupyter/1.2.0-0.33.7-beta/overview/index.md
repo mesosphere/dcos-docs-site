@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle: Overview Mesosphere Jupyter Service (Beta)
-title: Overview Mesosphere Jupyter Service (Beta)
+navigationTitle: Overview
+title: Overview
 menuWeight: 12
-excerpt: Learning about JupyterLab
+excerpt: Overview of JupyterLab
 featureMaturity:
 enterprise: false
+beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---
