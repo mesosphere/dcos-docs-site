@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle: Examples Mesosphere Jupyter Service (Beta)
-title: Examples Mesosphere Jupyter Service (Beta)
+navigationTitle: Examples
+title: Examples
 menuWeight: 13
-excerpt: Examples of different installation options
+excerpt: Examples of different installation options of Mesosphere Jupyter Service (Beta)
 featureMaturity:
 enterprise: false
+beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---

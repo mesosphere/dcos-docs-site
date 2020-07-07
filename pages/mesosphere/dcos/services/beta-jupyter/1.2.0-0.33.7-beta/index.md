@@ -1,11 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle:  Mesosphere Jupyter Service (Beta) 1.2.0-0.33.7
-title: Mesosphere Jupyter Service (Beta) 1.2.0-0.33.7
+navigationTitle:  Mesosphere Jupyter Service
+title: Mesosphere Jupyter Service
 menuWeight: 1
 excerpt:
 featureMaturity:
 enterprise: false
+beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---
