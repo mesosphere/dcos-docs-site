@@ -25,7 +25,7 @@ The policies for each level and type create RoleBindings or ClusterRoleBindings 
 
 This approach gives you maximum flexibility over who has access to what resources, conveniently mapped to your existing identity providers' claims.
 
-<p class="message--note"><strong>NOTE: </strong>In addition to granting a Kommander Role, you must also grant the appropriate opsportal role to allow external users and groups into the UI. See <a href="/ksphere/konvoy/1.5.0-beta/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for details about the built-in opsportal roles. This role may be automatically added to Kommander role binding subjects in future versions of Kommander.</p>
+<p class="message--note"><strong>NOTE: </strong>In addition to granting a Kommander Role, you must also grant the appropriate opsportal role to allow external users and groups into the UI. See <a href="/ksphere/konvoy/1.5/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for details about the built-in opsportal roles. This role may be automatically added to Kommander role binding subjects in future versions of Kommander.</p>
 
 ## Types of Access Control Objects
 

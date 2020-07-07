@@ -4,18 +4,18 @@ navigationTitle: Attach Amazon EKS Cluster to Kommander
 title: Attach Amazon EKS Cluster to Kommander
 menuWeight: 7
 excerpt: Attach an existing EKS cluster to Kommander
-beta: true 
+beta: true
 enterprise: false
 ---
 
-You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](/ksphere/kommander/1.1.0-beta/clusters/) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander. 
+You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](/ksphere/kommander/1.1.0-beta/clusters/) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander.
 
-## Before you begin 
+## Before you begin
 
 This procedure requires the following items and configurations:
 
 - A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster with administrative privileges.
-- Konvoy v1.5.0-beta.0 or above, [installed and configured](/ksphere/konvoy/1.5.0-beta/install/) for your Amazon EKS cluster, on your machine.
+- Konvoy v1.5.0 or above, [installed and configured](/ksphere/konvoy/1.5/install/) for your Amazon EKS cluster, on your machine.
 - Kommander v1.0.1-beta.1 or above, [installed and configured](/ksphere/kommander/1.1.0-beta/install/) on your machine.
 
 <p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s) with administrative privileges. Refer to the Amazon <a href="https://aws.amazon.com/eks/" target="_blank">EKS</a> for setup and configuration information. </p>
@@ -29,18 +29,18 @@ This procedure requires the following items and configurations:
     kubectl config use-context <context for first eks cluster>
     ```
 
-1. Confirm `kubectl` can access the EKS cluster.  
+1. Confirm `kubectl` can access the EKS cluster.
 
     ```bash
     kubectl get no
     ```
-    
+
 1. Create a service account for Kommander on your EKS cluster.
 
     ```bash
     kubectl -n kube-system create serviceaccount kommander-cluster-admin
     ```
-    
+
 1. Configure your `kommander-cluster-admin` service account to have `cluster-admin` permissions. Enter the following commands:
 
     ```yaml
@@ -116,14 +116,14 @@ This procedure requires the following items and configurations:
 
     <p class="message--note"><strong>NOTE: </strong>If you are not using the Mac OS X operating system, this command will not work. If you are using the Linux operating system, enter the following command: <br/><code>cat kommander-cluster-admin-config | xclip -selection clipboard</code></p>
 
-1. Select the **Add Cluster** button in your Kommander window. 
+1. Select the **Add Cluster** button in your Kommander window.
 
 1. Select the **Attach Cluster** button. The **Connection Information** window displays.
 
 1. Select **upload**. The upload kubeconfig file dialog box appears. Paste the contents of your clipboard and select **Ok**.
 
-1. Assign a name and label for each cluster in your Kommander project. 
- 
+1. Assign a name and label for each cluster in your Kommander project.
+
 1. Edit your project to associate all of your clusters with the project.
 
 1. Select the **Submit** button.
@@ -132,12 +132,12 @@ This procedure requires the following items and configurations:
 
 For information on related topics or procedures, refer to the following:
 
-- [Configuring and Running Amazon EKS Clusters](https://aws.amazon.com/eks/) 
+- [Configuring and Running Amazon EKS Clusters](https://aws.amazon.com/eks/)
 
-- [Installing and Configuring Konvoy v1.5.0-beta.0 or above](/ksphere/konvoy/1.5.0-beta/install/)
+- [Installing and Configuring Konvoy v1.5.0 or above](/ksphere/konvoy/1.5/install/)
 
 - [Installing and Configuring Kommander v1.0.1-beta.1 or above](/ksphere/kommander/1.1.0-beta/install/)
 
-- [Working with Kommander Clusters](/ksphere/kommander/1.1.0-beta/clusters/) 
+- [Working with Kommander Clusters](/ksphere/kommander/1.1.0-beta/clusters/)
 
 [eks]: https://aws.amazon.com/eks/
