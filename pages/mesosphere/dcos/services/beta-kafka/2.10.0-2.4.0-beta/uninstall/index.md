@@ -1,8 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt: Uninstalling Kafka
-title: Uninstall
+navigationTitle: Uninstall Kafka
+excerpt: Uninstall Kafka
+title: Uninstall Kafka
+beta: true
 menuWeight: 60
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 render: mustache

@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Kafka 2.10.0-2.4.0-beta
+navigationTitle: DC/OS Kafka
 excerpt: DC/OS Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees.
-title: Kafka 2.10.0-2.4.0-beta
+title: DC/OS Kafka
 menuWeight: 1
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache

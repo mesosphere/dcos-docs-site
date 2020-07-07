@@ -1,8 +1,9 @@
 ---
 layout: layout.pug
 navigationTitle:
-excerpt: Getting started with Kafka
-title: Getting Started
+excerpt: Get started with Kafka
+title: Get Started
+beta: true
 menuWeight: 10
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache

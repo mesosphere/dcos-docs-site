@@ -1,9 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle:
-excerpt: Updating your Kafka service
-title: Updates
+navigationTitle: Update
+excerpt: Update your Kafka service
+title: Update 
 menuWeight: 40
+beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 render: mustache
 ---

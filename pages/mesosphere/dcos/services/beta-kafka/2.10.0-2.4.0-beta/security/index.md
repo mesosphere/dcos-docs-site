@@ -4,6 +4,7 @@ navigationTitle:
 excerpt: Securing your service
 title: Security
 menuWeight: 50
+beta: true
 model: /mesosphere/dcos/services/kafka/data.yml
 render: mustache
 enterprise: true

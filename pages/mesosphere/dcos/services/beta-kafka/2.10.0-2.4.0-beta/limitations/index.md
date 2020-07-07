@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle:
 excerpt: Known limitations for the DC/OS Apache Kafka service
 title: Limitations
+beta: true
 menuWeight: 100
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 render: mustache
