@@ -9,7 +9,7 @@ enterprise: false
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---
-If you install {{ model.techName }} as described in the [Quick Start](/mesosphere/dcos/services/beta-jupyter/quick-start/) section, the service runs using all of the default installation settings. Although the default settings are suitable for some environments, there are many reasons you might want to customize your installation and make specific configuration changes. For example, you might want to customize the installation settings to enable accelerated processing for agents where graphical processing unit (GPU) resources are available or to add support for HDFS file systems.
+If you install {{ model.techName }} as described in the [Quick Start](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/quick-start/) section, the service runs using all of the default installation settings. Although the default settings are suitable for some environments, there are many reasons you might want to customize your installation and make specific configuration changes. For example, you might want to customize the installation settings to enable accelerated processing for agents where graphical processing unit (GPU) resources are available or to add support for HDFS file systems.
 
 The installation instructions is this section illustrate your installation options and how to change the settings that allow you to customize the {{ model.techName }} deployment. 
 
@@ -36,7 +36,7 @@ To deploy the {{ model.techName }} package on a DC/OS cluster using the DC/OS we
 
 1. Click **Review & Run**.
 
-1. Review the installation notes, then click **Run Service** to deploy the {{ model.techName }} package.
+1. Review the installation notes, then select **Run Service** to deploy the {{ model.techName }} package.
 
 <a name="jupyter-cmd"></a>
 
@@ -312,7 +312,7 @@ To begin working with {{ model.techShortName }}:
 
 1. Log on and authenticate using the default password for the {{ model.techName }} service account. 
 
-   The default password for the service account is `jupyter-<Marathon-App-Prefix>`as described in the [Quick Start](/mesosphere/dcos/services/beta-jupyter/quick-start/) section. 
+   The default password for the service account is `jupyter-<Marathon-App-Prefix>`as described in the [Quick Start](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/quick-start/) section.
 
 1. Create a new notebook using Python 3. 
 

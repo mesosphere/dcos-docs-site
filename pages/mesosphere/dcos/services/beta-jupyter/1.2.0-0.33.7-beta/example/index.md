@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Examples
 title: Examples
 menuWeight: 13
-excerpt: Demos of different installation options
+excerpt: Examples of different installation options
 featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
@@ -20,12 +20,11 @@ The technologies used in this section are as follows:
 - [TensorFlow](https://www.tensorflow.org/) using the [Yahoo TensorFlowOnSpark distribution](https://github.com/yahoo/TensorFlowOnSpark)
 - [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) to expose {{ model.techShortName }} externally
 
-
 - Estimated time for completion (manual installation): 20 minutes
 - Target audience: Anyone interested in Data Analytics.
 
 # Prerequisites
-- A cluster running [DC/OS 1.11](https://dcos.io/releases/) or later,  with at least {{ model.example.nodeDescription }}. Each agent should have {{ model.example.nodeAgent }} available. 
+- A cluster running [DC/OS 1.11](https://dcos.io/releases/) or higher,  with at least {{ model.example.nodeDescription }}. Each agent should have {{ model.example.nodeAgent }} available. 
 - [DC/OS CLI](/mesosphere/dcos/latest/cli/install/) installed
 
 ## Optional: Terraform
@@ -69,7 +68,7 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 
   [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-VHOST_UI.png" alt="VHOST configuration" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-VHOST_UI.png)
    
-  Figure 1. VHOST configuration
+  Figure: VHOST Configuration
 
   If you are modifying the {{ model.packageName }}configuration file, modify the following setting;
 
@@ -88,7 +87,7 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
    
   [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-hdfs_ui.png" alt="HDFS configuration" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-hdfs_ui.png)
    
-  Figure 2. HDFS configuration
+  Figure: HDFS Configuration
 
   Alternatively, you can modify the {{ model.packageName }}configuration file with the following setting:
 
@@ -111,7 +110,7 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 
   [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-install_ui.png" alt="Run service" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-install_ui.png)
     
-  Figure 3. Run Service
+  Figure: Run Service
 
     Alternatively, install using the CLI and a customized configuration file by running the following command:
 
@@ -119,7 +118,7 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
     dcos package install {{ model.packageName }} --options={{ model.packageName }}_options.json
     ```
 
-  For more information about the options for installing {{ model.techShortName }}, see [installation](/mesosphere/dcos/services/beta-jupyter/installing/).
+  For more information about the options for installing {{ model.techShortName }}, see [installation](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/installing/).
 
 # Demo
 
@@ -128,23 +127,21 @@ You can install {{ model.techShortName }} from the DC/OS web-based interface or 
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-login.png" alt="{{ model.techShortName }} login" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-login.png)
 
-Figure 4. {{ model.techShortName }} login
+Figure: {{ model.techShortName }} login
 
 The default password with the above settings is `jupyter`.
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-jupyterlab_ui.png" alt="Default password {{ model.techPassword }}" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-jupyterlab_ui.png)
 
-Figure 5. Default password {{ model.techPassword }}
+Figure: Default password {{ model.techPassword }}
 
-2. Once logged in you should be able to see the {{ model.techShortName }} Launcher:
+2. After logging in, you should be able to see the {{ model.techShortName }} Launcher:
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-jupyterlab_ui.png" alt="Default password {{ model.techPassword }}" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-jupyterlab_ui.png)
 
-Figure 6. {{ model.techShortName }} launcher
-
+Figure: {{ model.techShortName }} launcher
 
 ## SparkPi Job
-
 As a first test let us run the [SparkPi example job](https://github.com/apache/spark/blob/master/examples/src/main/java/org/apache/spark/examples/JavaSparkPi.java).
 
 1. Launch a Terminal from inside the notebook and then use the following command:
@@ -160,14 +157,13 @@ eval \
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-sparkPi.png" alt="SparkPi on {{ model.techShortName }}" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-sparkPi.png)
 
-Figure 7. SparkPi on {{ model.techShortName }}
-
+Figure: SparkPi on {{ model.techShortName }}
 
 2. You should then see Spark spinning up tasks and computing Pi. If you want, you can check the Mesos web interface via `<cluster>/mesos` and see the Spark tasks being spawned there.
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-SparkPi_Mesos.png" alt="SparkPi Mesos on {{ model.techShortName }}" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-SparkPi_Mesos.png)
 
-Figure 8. SparkPi Mesos on {{ model.techShortName }}
+Figure: SparkPi Mesos on {{ model.techShortName }}
 
 Once the Spark job has finished, you should be able to see output similar to `Pi is roughly 3.1416119141611913` (followed by the Spark teardown log messages).
 
@@ -193,7 +189,7 @@ println("Pi is roughly " + 4.0 * count2 / NUM_SAMPLES)
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-SparkPi_Toree.png" alt="SparkPiToree on {{ model.techShortName }}" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-SparkPi_Toree.png)
 
-Figure 9. SparkPiToree on {{ model.techShortName }}
+Figure: SparkPiToree on {{ model.techShortName }}
 
 
 ## Optional: Check available GPUs
@@ -215,7 +211,7 @@ print(get_available_devices())
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-gpu.png" alt="GPU on {{ model.techShortName }}" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-gpu.png)
 
-Figure 10. GPU on {{ model.techShortName }}
+Figure: GPU on {{ model.techShortName }}
 
 ### MNIST TensorFlowOnSpark
 
@@ -311,7 +307,7 @@ Let us briefly confirm that HDFS is working as expected and the `mnist` director
 
 [<img src="/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-TensorBoard.png" alt="TensorBoard on {{ model.techShortName }}" width="400"/>](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/img/jupyterlab-TensorBoard.png)    
 
-Figure 11. TensorBoard on {{ model.techShortName }}
+Figure: TensorBoard on {{ model.techShortName }}
 
 7. Verify that the trained model exists on HDFS using the notebook's Terminal:
 

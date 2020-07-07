@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Configuring DC/OS access for Beta Mesosphere Jupyter Service
-title: Configuring DC/OS access for Beta Mesosphere Jupyter Service 
+navigationTitle: Configuring DC/OS access for Mesosphere Jupyter Service (Beta)
+title: Configuring DC/OS access for Mesosphere Jupyter Service (Beta)
 menuWeight: 5
 excerpt: How to use JupyterLab with DC/OS
 featureMaturity:
@@ -14,19 +14,19 @@ render: mustache
 
 Required:
 
-- A running DC/OS 1.11 (or later) cluster with {{ model.install.minNodeCount }} ({{ model.install.nodeDescription }})
+- A running DC/OS 1.11 (or higher) cluster with {{ model.install.minNodeCount }} ({{ model.install.nodeDescription }})
 - [DC/OS CLI](/mesosphere/dcos/latest/cli/install/) installed
 - [Marathon-LB](/mesosphere/dcos/services/marathon-lb/)
 
 # Installing {{ model.techName }}
 
-To install {{ model.techShortName }} for  DC/OS, simply run 
+To install {{ model.techShortName }} for  DC/OS, run 
 
 ```bash
 dcos package install {{ model.packageName }} --options=options.json
 ```
 
-or install it [via the Universe page](/mesosphere/dcos/latest/gui/catalog/) in our DC/OS UI.
+or install it [via the Universe page](/mesosphere/dcos/latest/gui/catalog/) in the DC/OS UI.
 
 {{ model.techShortName }} requires Marathon-LB and one public agent under which it can be reached. Make sure you specify the public agents `vhost` during installation time.
 
@@ -50,4 +50,4 @@ You can authenticate with AD FS 4.0 (Windows Server 2016). The OpenID Connect fl
 
 You can choose to enable OpenID Connect authentication. For (optional) authorization you can specify either an email adress: `OIDC_EMAIL` or User Principal Name (UPN) on Windows: `OIDC_UPN`
 
-See the [installation](/mesosphere/dcos/services/beta-jupyter/installing/) documentation for more in-depth instructions and configuration options.
+See the [installation](/mesosphere/dcos/services/beta-jupyter/1.2.0-0.33.7-beta/installing/) documentation for more in-depth instructions and configuration options.
