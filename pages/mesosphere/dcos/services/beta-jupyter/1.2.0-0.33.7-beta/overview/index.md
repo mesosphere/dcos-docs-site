@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Overview
-title: Overview
+navigationTitle: Overview Mesosphere Jupyter Service (Beta)
+title: Overview Mesosphere Jupyter Service (Beta)
 menuWeight: 12
 excerpt: Learning about JupyterLab
 featureMaturity:

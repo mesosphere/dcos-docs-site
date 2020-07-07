@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Installation
-title: Install JupyterLab
+navigationTitle: Install Mesosphere Jupyter Service (Beta)
+title: Install Mesosphere Jupyter Service (Beta)
 menuWeight: 10
-excerpt: Installing and customizing JupyterLab
+excerpt: Install and customize Mesosphere Jupyter Service (Beta)
 featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/beta-jupyter/data.yml

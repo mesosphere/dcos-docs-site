@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  Limitations
-title: Limitations
+navigationTitle:  Limitations Mesosphere Jupyter Service (Beta)
+title: Limitations Mesosphere Jupyter Service (Beta)
 menuWeight: 90
 excerpt: Limitations of JupyterLab on the DC/OS platform
 featureMaturity:
