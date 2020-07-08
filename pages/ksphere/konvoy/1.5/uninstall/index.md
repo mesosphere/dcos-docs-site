@@ -32,9 +32,9 @@ Before removing a cluster that relies on a public cloud infrastructure, you shou
 By default, when you run `konvoy up`, the command creates AWS resources through [Terraform][terraform] operations.
 After the Konvoy deployment of the Kubernetes cluster is initialized and running, Kubernetes itself can create additional resources such as load balancers, security groups, and storage volumes.
 
-When you run `konvoy down`, the command removes all of the AWS infrastructure resources create for the cluster, including any volumes that are backing PersistentVolumesClaims with a `Delete` [ReclaimPolicy][reclaim-policy].
+When you run `konvoy down`, the command removes all of the AWS infrastructure resources created for the cluster, including any volumes that are backing PersistentVolumesClaims with a `Delete` [ReclaimPolicy][reclaim-policy].
 
-To completely remove Konvoy cluster resources:
+## To completely remove Konvoy cluster resources:
 
 Change to the directory that contains your cluster's state files, then run the following command:
 
