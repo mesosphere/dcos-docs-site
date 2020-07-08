@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Addon Repositiories
+navigationTitle: Addon Repositories
 title: Addon Repositories
 menuWeight: 5
 excerpt: Learn more about addon repositories
@@ -12,7 +12,7 @@ Konvoy uses a `cluster.yaml` file to configure the `ClusterProvisioner` (infrast
 
 The `ClusterConfiguration` consists of several parts, including the configuration of the kubernetes version and the `addons` configuration.
 
-Addons are configured by referencing an addon repository. Konvoy comes configured with the <a href="https://github.com/mesosphere/kubernetes-base-addons" target="_blank">kubernetes-base-addons repository</a>. This repository provides all the addons that make Konvoy an enterprise grade distribution, ready for day two operations.
+Addons are configured by referencing an addon repository. Konvoy comes configured with the [kubernetes-base-addons repository][addons_repo]. This repository provides all the addons that make Konvoy an enterprise grade distribution, ready for day two operations.
 
 Konvoy partners and users can create their own addon repositories. For example, a storage partner can create an addon repository to provide their CSI storage provisioner. A user can create an addon repository to meet the requirement that all clusters created, in their organization, run specific services.
 
@@ -29,7 +29,7 @@ This topic describes the following:
 The following shows the layout and structure of an addon repository. This example contains one addon for `cockroachdb`.
 
 ```text
-my-addon-repo
+docs-addon-repo
    |- addons
    |     |- cockroachdb
    |           |- 19.2.x                     <- appVersion <major>.<minior>.x
@@ -55,11 +55,11 @@ The folders in the addon repository have the following roles:
 - `metadata/` - Contains the static metadata for each addon in `addons/`.
 - `deployments/` - Contains the default addons specific to the version of Kubernetes in use.
 
-Here is a link to a <a href="https://github.com/realmbgl/my-addon-repo" target="_blank">sample repository</a> you can experiment with and use as a template for your own addon repository. It contains two addons `awsebscsiprovisioner2` and `cockroachdb`.
+Here is a link to a [sample repository][sample_repo] you can experiment with and use as a template for your own addon repository. It contains two addons `awsebscsiprovisioner2` and `cockroachdb`.
 
 ### Configure an Addon Repository in cluster.yaml
 
-The following example shows how to configure an additional addon repository in the Konvoy `cluster.yaml` file. In the below configuration, the awsebscsiprovisioner2 addon is of kind `ClusterAddon` described in the [Storage Provider Addons](#storage-provider-addons) section. The cockroachdb addon is of kind `Addon` described in the [Workload Addons](#workload-addons) section.
+The following example shows how to configure an additional addon repository in the Konvoy `cluster.yaml` file. In the below configuration, the awsebscsiprovisioner2 addon is of kind `ClusterAddon` described in the [Storage Provider Addons][storage_provider_addons_section] section. The cockroachdb addon is of kind `Addon` described in the [Workload Addons][workload_addons_section] section. The `configVersion` (in this case, `configVersion: stable-0.1`) points to the tagged release in your additional addon repository.
 
 ```yaml
 ...
@@ -77,17 +77,17 @@ spec:
     - name: awsebscsiprovisioner
       enabled: false
     ...
-  - configRepository: https://github.com/realmbgl/my-addon-repo
-    configVersion: stable-0.4
+  - configRepository: https://github.com/mesosphere/docs-addon-repo
+    configVersion: stable-0.1
     addonsList:
     - name: awsebscsiprovisioner2
-      enabled: true  
+      enabled: true
     - name: cockroachdb
       enabled: true
 ...
 ```
 
-The second repository configured, in the example above, is our <a href="https://github.com/realmbgl/my-addon-repo" target="_blank">sample my-addon-repo</a>. It contains the two addons `awsebscsiprovisioner2` and `cockroachdb`. `awsebscsiprovisioner2` is a copy of the `awsebscsiprovisioner` from  the `kubernetes-base-addons` repository. This example shows you can turn the storage provisioner in the `kubernetes-base-addons` repository off and provide a storage provisioner with another addon repository.
+The second repository configured, in the example above, is our [sample docs-addon-repo][sample_repo]. It contains the two addons `awsebscsiprovisioner2` and `cockroachdb`. `awsebscsiprovisioner2` is a copy of the `awsebscsiprovisioner` from the `kubernetes-base-addons` repository. This example shows you can turn the storage provisioner in the `kubernetes-base-addons` repository off and provide a storage provisioner with another addon repository.
 
 When you run `konvoy up` with the above `cluster.yaml` configuration you see the following output. All addons requiring persistent storage get installed after `awsebscsiprovisioner2` providing a default `StorageClass`. For example, cockroachdb, elasticsearch, and velero.
 
@@ -127,7 +127,7 @@ In this section we look at different addon configurations.
 
 #### Storage Provider Addons
 
-This is a link to a sample <a href="https://github.com/realmbgl/my-addon-repo/blob/master/addons/awsebscsiprovisioner/0.4.x/awsebscsiprovisioner-1.yaml" target="_blank">storage provider addon</a> that would get created in a partner's external repository. This is of kind `ClusterAddon`. This means there can only be one per Kubernetes cluster. The addons `chartReference` points to the `helm chart` of the storage provider.
+This is a link to a sample [storage provider addon][storage_provider_addon] that would get created in a partner's external repository. This is of kind `ClusterAddon`. This means there can only be one per Kubernetes cluster. The addons `chartReference` points to the `helm chart` of the storage provider.
 
 ```yaml
 ---
@@ -185,7 +185,7 @@ spec:
 
 #### Workload Addons
 
-This is a sample for a <a href="https://github.com/realmbgl/my-addon-repo/blob/master/addons/cockroachdb/19.2.x/cockroachdb-1.yaml" target="_blank">workload addon</a> that would get created in a partner's external repository. This is of kind `Addon`. The addons `chartReference` points to the `helm chart` of the workload.
+This is a sample for a [workload addon][workload_addon] that would get created in a partner's external repository. This is of kind `Addon`. The addons `chartReference` points to the `helm chart` of the workload.
 
 ```yaml
 ---
@@ -196,8 +196,8 @@ metadata:
   namespace: default
   labels:
     kubeaddons.mesosphere.io/name: cockroachdb
-    ## TODO: we're temporarily supporting dependency on an existing default storage class
-    ## on the cluster, this hack will trigger re-queue on Addons until one exists
+    # TODO: we're temporarily supporting dependencies on an existing default storage class
+    # on the cluster, this hack will trigger re-queue on Addons until one exists
     kubeaddons.mesosphere.io/hack-requires-defaultstorageclass: "true"
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "19.2.2-1"
@@ -230,3 +230,10 @@ spec:
 - `catalog.kubeaddons.mesosphere.io/addon-revision`- `appVersion-<revison>`
 - `appversion.kubeaddons.mesosphere.io/awsebscsiprovisioner` - Helm chart `appVersion`
 - `values.chart.helm.kubeaddons.mesosphere.io/awsebscsiprovisioner` - URI to helm chart `values.yaml` file
+
+[addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
+[sample_repo]: https://github.com/mesosphere/docs-addon-repo
+[storage_provider_addon]: https://github.com/mesosphere/docs-addon-repo/blob/master/addons/awsebscsiprovisioner/0.4.x/awsebscsiprovisioner-1.yaml
+[storage_provider_addons_section]: #storage-provider-addons
+[workload_addon]: https://github.com/mesosphere/docs-addon-repo/blob/master/addons/cockroachdb/19.2.x/cockroachdb-1.yaml
+[workload_addons_section]: #workload-addons
