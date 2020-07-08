@@ -81,7 +81,7 @@ For a complete list of `kubectl` operations, see [overview of kubectl][kubectl_o
 
 ### Install kubectl
 
-The specific steps required in installing kubectl depend on your operating system platform.
+The steps required to install kubectl depends on your operating system platform.
 For platform-specific instructions to help you install kubectl, see the appropriate Kubernetes [installation and setup information][install_kubectl] for the platform you use.
 
 ### Configure kubectl (for cluster administrators)
