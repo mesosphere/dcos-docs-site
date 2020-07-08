@@ -26,9 +26,10 @@ header.header
   include ksphere-dropdown.pug
   if sphere === 'mesosphere' || sphere === 'services'
     include localization-dropdown.pug
-  section.header__search(role='search')
-    form.header__search-form(action=`/${sphere}/${product}/search/`)
-      input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
-      label.header__search-label(for='header-search-input')
-        i.header__icon(data-feather='search')
+  section(class='header__search', role='search')
+    form(class='header__search-form', action=`/${sphere}/${product}/search/`, method='GET')
+      input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+      label(class='header__search-label', for='header-search-input')
+        i(class='header__icon', data-feather='search')
+
 include header-dropdown.pug

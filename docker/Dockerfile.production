@@ -2,7 +2,7 @@
 # Build MS
 #
 
-FROM node:8-stretch-slim as ms-builder
+FROM node:8-stretch-slim
 
 ARG git_branch
 ARG algolia_update
@@ -19,7 +19,6 @@ ADD . /src/
 RUN npm install
 
 RUN \
-GIT_BRANCH=$git_branch \
 ALGOLIA_UPDATE=$algolia_update \
 ALGOLIA_PRIVATE_KEY=$algolia_private_key \
 METALSMITH_SKIP_SECTIONS=$metalsmith_skip_sections \
@@ -30,27 +29,3 @@ npm run build
 # it. This is temporary until a more permanent solution is made.
 
 RUN echo "google-site-verification: google48ddb4a5390a503f.html" > /src/build/google48ddb4a5390a503f.html
-
-
-#
-# Nginx
-#
-
-FROM nginx:latest
-
-ARG nginx_dir
-
-RUN mkdir -p /src/build
-
-WORKDIR /src/build
-COPY --from=ms-builder /src/build ./
-
-ADD "$nginx_dir" /etc/nginx/conf.d
-
-# robots
-# RUN if [ "${GIT_BRANCH}" != "master" ]; then echo "User-agent: * \nDisallow: /" > /src/build/robots.txt; fi
-
-RUN service nginx restart
-
-EXPOSE 80
-EXPOSE 443
