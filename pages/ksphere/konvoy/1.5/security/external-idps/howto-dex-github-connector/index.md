@@ -9,7 +9,7 @@ enterprise: false
 
 ## How to connect Konvoy to a GitHub OAuth App
 
-This guide shows how to configure your Konvoy cluster so that users can log in with GitHub credentials.
+This guide shows how to configure your Konvoy cluster so that users can log in with GitHub credentials. Learn more about granting access to Kubernetes resources with this guide about [using RBAC][rbac].
 
 ### Login using a GitHub Organization account
 
@@ -17,7 +17,7 @@ Login using a GitHub Organization account allows you to provide access to all me
 
 Step 1: Create a Konvoy cluster.
 
-Step 2: In a GitHub organization account, [add a new OAuth app]. For the Authorization callback URL, use `https://<your-cluster-host>/dex/callback`.
+Step 2: In a GitHub organization account, [add a new OAuth app][github_oauth_app]. For the Authorization callback URL, use `https://<your-cluster-host>/dex/callback`.
 
 Step 3: Create a YAML file (`github.yaml`) like the following:
 
@@ -49,11 +49,11 @@ spec:
     - name: <GITHUB-ORG-NAME> # e.g., "myorg" for https://github.com/myorg
 ```
 
-Step 4: Run `kubectl apply -f github.yaml` to deploy the Github connector.
+Step 4: Run `kubectl apply -f github.yaml` to deploy the GitHub connector.
 
 Step 5: As a member of the GitHub organization, visit `https://<YOUR-CLUSTER-HOST>/token` to obtain a token to authenticate `kubectl`.
 
-To only allow users from specific teams in the GitHub organization, see the [Dex GitHub Connector documentation].
+To only allow users from specific teams in the GitHub organization, see the [Dex GitHub Connector documentation][dex_connector].
 
 ### Login using a GitHub Individual account
 
@@ -61,7 +61,7 @@ Login using a GitHub Individual account allows you to provide access to the sing
 
 Step 1: Create a Konvoy cluster.
 
-Step 2: In your GitHub account, [Add a new OAuth app]. For the Authorization callback URL, use `https://<your-cluster-host>/dex/callback`.
+Step 2: In your GitHub account, [Add a new OAuth app][github_oauth_app]. For the Authorization callback URL, use `https://<your-cluster-host>/dex/callback`.
 
 Step 3: Create a YAML file (`github.yaml`) like the following:
 
@@ -91,9 +91,10 @@ spec:
     redirectURI: "https://<YOUR-CLUSTER-HOST>/dex/callback"
 ```
 
-Step 4: Run `kubectl apply -f github.yaml` to deploy the Github connector.
+Step 4: Run `kubectl apply -f github.yaml` to deploy the GitHub connector.
 
 Step 5: Visit `https://<YOUR-CLUSTER-HOST>/token` to obtain a token to authenticate `kubectl`.
 
-[Add a new OAuth app]: https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
-[Dex GitHub Connector documentation]: https://github.com/dexidp/dex/blob/master/Documentation/connectors/github.md
+[github_oauth_app]: https://docs.github.com/en/developers/apps/creating-an-oauth-app
+[dex_connector]: https://github.com/dexidp/dex/blob/master/Documentation/connectors/github.md
+[rbac]: ../rbac
