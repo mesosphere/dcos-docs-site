@@ -59,7 +59,7 @@ Here is a link to a [sample repository][sample_repo] you can experiment with and
 
 ### Configure an Addon Repository in cluster.yaml
 
-The following example shows how to configure an additional addon repository in the Konvoy `cluster.yaml` file. In the below configuration, the awsebscsiprovisioner2 addon is of kind `ClusterAddon` described in the [Storage Provider Addons][storage_provider_addons_section] section. The cockroachdb addon is of kind `Addon` described in the [Workload Addons][workload_addons_section] section. The `configVersion` (in this case, `configVersion: stable-0.1`) points to the tagged release in your additional addon repository.
+The following example shows how to configure an additional addon repository in the Konvoy `cluster.yaml` file. In the configuration below, the awsebscsiprovisioner2 addon is of kind `ClusterAddon` described in the [Storage Provider Addons][storage_provider_addons_section] section. The cockroachdb addon is of kind `Addon` described in the [Workload Addons][workload_addons_section] section. The `configVersion` (in this case, `configVersion: stable-0.1`) points to the tagged release in your additional addon repository.
 
 ```yaml
 ...
