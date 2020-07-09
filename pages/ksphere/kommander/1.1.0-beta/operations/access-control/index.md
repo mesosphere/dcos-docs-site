@@ -6,20 +6,22 @@ menuWeight: 1
 excerpt: Centrally manage access across clusters
 ---
 
-Role-based authorization can be defined centrally within Kommander to control resource access on the management cluster, all target clusters, or a subset of target clusters. These resources are similar to Kubernetes RBAC but with crucial differences. These resources make it possible to define the roles and policies once and have them federated to clusters within a given scope.
+Role-based authorization can be defined centrally within Kommander to control resource access on the management cluster and a set or all of the target clusters. 
+These resources are similar to Kubernetes RBAC but with crucial differences. 
+These resources make it possible to define the roles and policies once and have them federated to clusters within a given scope.
 
 Kommander has two conceptual groups of resources that are used to manage access control:
 
-- Kommander roles: control access to resources on the management cluster.
-- Cluster Roles, Workspace Roles, and Project Roles: control access to resources on all target clusters in scope.
+- Kommander Roles: control access to resources on the management cluster.
+- Cluster Roles: control access to resources on all target clusters in scope.
 
 These two groups of resources can be used to manage access control within 3 levels of scope:
 
-|           | Kommander Roles                                                                                         | Global/Workspace/Project Roles                                                                           |
-| --------- | ------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
-| Global    | Global Kommander Roles create ClusterRoles on the management cluster.                                   | Global Cluster Roles federates ClusterRoles on all target clusters across all workspaces.                |
-| Workspace | Workspace Kommander Roles create namespaced Roles on the management cluster in the workspace namespace. | Workspace Cluster Roles federates ClusterRoles on all target clusters in the workspace.                  |
-| Project   | Project Kommander Roles create namespaced Roles on the management cluster in the project namespace.     | Project Roles federates namespaced Roles on all target clusters in the project in the project namespace. |
+| Context   | Kommander Roles                                                               | Cluster Roles                                                                              |
+| --------- | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| Global    | Create ClusterRoles on the management cluster.                                | Federates ClusterRoles on all target clusters across all workspaces.                       |
+| Workspace | Create namespaced Roles on the management cluster in the workspace namespace. | Federates ClusterRoles on all target clusters in the workspace.                            |
+| Project   | Create namespaced Roles on the management cluster in the project namespace.   | Federates namespaced Roles on all target clusters in the project in the project namespace. |
 
 The policies for each level and type create RoleBindings or ClusterRoleBindings on the clusters that apply to each category.
 
@@ -27,7 +29,10 @@ This approach gives you maximum flexibility over who has access to what resource
 
 ### Special Limitation for Opsportal and Kommander Roles
 
-In addition to granting a Kommander Role, you must also grant the appropriate opsportal role to allow external users and groups into the UI. See <a href="/ksphere/konvoy/1.5.0-beta/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for details about the built-in opsportal roles. This role may be automatically added to Kommander role binding subjects in future versions of Kommander. Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Opsportal and Kommmander routes:
+In addition to granting a Kommander Role, you must also grant the appropriate opsportal role to allow external users and groups into the UI. 
+See <a href="/ksphere/konvoy/1.5.0-beta/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for details about the built-in opsportal roles. 
+This role may be automatically added to Kommander role binding subjects in future versions of Kommander. 
+Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Opsportal and Kommmander routes:
 
 ```yaml
 ---
@@ -64,7 +69,8 @@ subjects:
 
 ## Types of Access Control Objects
 
-Kubernetes role-based access control can be controlled with three different object categories: Groups, Roles and Policies. These are explained in more detail below.
+Kubernetes role-based access control can be controlled with three different object categories: Groups, Roles and Policies. 
+These are explained in more detail below.
 
 ### Groups
 
@@ -74,13 +80,18 @@ You can map group and user claims made by your configured identity providers to 
 
 ### Roles
 
-Cluster roles and project roles are named collections of rules defining which verbs can be applied to which resources. The Kommander types of these resources specifically apply to resources on the management cluster. The non-Kommander types apply to target clusters within their scope: at the global level, this is all target clusters in all workspaces, at the workspace level this is all target clusters in the workspace, at the project level this is all target clusters that have been added to the project.
+ClusterRoles are named collections of rules defining which verbs can be applied to which resources. 
+- Kommander Roles apply specifically to resources on the management cluster. 
+- Cluster Roles apply to target clusters within their scope: at the global level, this is all target clusters in all workspaces, at the workspace level this is all target clusters in the workspace, at the project level this is all target clusters that have been added to the project.
 
 ![Cluster Roles](/ksphere/kommander/1.1.0-beta/img/access-control-cluster-roles.png)
 
 ### Special Limitation for Workspace > Project Role Inheritance
 
-When granting users access to a workspace it is currently necessary to manually grant access to the projects within it. Each project is created with a set of admin/edit/view roles so it may be most convenient to add an additional RoleBinding to each group or user of the workspace for one of these project roles. Usually these are prefixed `kommander-project-(admin/edit/view)`. Here is an example RoleBinding that grants the Kommander Project Admin role for the project namespace to the engineering group:
+When granting users access to a workspace it is currently necessary to manually grant access to the projects within it. 
+Each project is created with a set of admin/edit/view roles so it may be most convenient to add an additional RoleBinding to each group or user of the workspace for one of these project roles. 
+Usually these are prefixed `kommander-project-(admin/edit/view)`. 
+Here is an example RoleBinding that grants the Kommander Project Admin role for the project namespace to the engineering group:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -102,7 +113,8 @@ subjects:
 
 ### Policies
 
-Kommander policies, cluster policies and project policies bind a Kommander group to any number of roles. All groups that have been defined in the groups tab will be present at the global, workspace, or project level and are ready for you to assign roles to them.
+Kommander policies, cluster policies and project policies bind a Kommander group to any number of roles. 
+All groups that have been defined in the groups tab will be present at the global, workspace, or project level and are ready for you to assign roles to them.
 
 ![Cluster Policies](/ksphere/kommander/1.1.0-beta/img/access-control-cluster-policies.png)
 
