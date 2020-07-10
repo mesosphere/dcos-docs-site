@@ -33,9 +33,10 @@ $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
 
 The Kommander cluster collects and presents metrics from all managed clusters remotely using Thanos.
 You can visualize these metrics in Grafana using a set of provided dashboards.
+
 The [Thanos Query][thanos_query] component is installed on the Kommander cluster.
 Thanos Query queries the Prometheus instances, running on the managed clusters, using a Thanos sidecar running alongside each Prometheus container.
-Grafana is configured with Thanos Query as its datasource, and comes with a pre-installed dashboard for a global view of all managed clusters, named `Kubernetes / Compute Resources / Clusters`.
+Grafana is configured with Thanos Query as its datasource, and comes with a pre-installed dashboard for a global view of all managed clusters, named `Kubernetes / Compute Resources / Cluster [Global]`.
 The `Thanos Query` dashboard is also installed, by default, to monitor the Thanos Query component.
 
 <p class="message--note"><strong>NOTE: </strong>Metrics from clusters are read remotely from Kommander; they are not backed up.
@@ -73,6 +74,8 @@ For simplicity, assume the desired dashboard definition is in `json` format:
 {
     "annotations":
     ...
+    # Complete json file here
+    ...
     "title": "Some Dashboard",
     "uid": "abcd1234",
     "version": 1
@@ -104,7 +107,7 @@ After creating your custom dashboard, configure Kommander to deploy it by modify
 ## Centralized Alerts
 
 A centralized view of alerts, from managed clusters, is provided using an alert dashboard called [Karma][karma_docs].
-Karma aggregates all alerts from the Alertmanagers, running in the managed clusters, allowing you to visualize these alerts on one page.
+Karma aggregates all alerts from the Alertmanagers running in the managed clusters, allowing you to visualize these alerts on one page.
 Using the Karma dashboard, you can get an overview of each alert and filter by alert type, cluster, and more.
 
 <p class="message--note"><strong>NOTE: </strong>Silencing alerts using the Karma UI is currently not supported.</p>
@@ -116,7 +119,7 @@ https://<CLUSTER_URL>/ops/portal/kommander/monitoring/karma
 ```
 
 <p class="message--note"><strong>NOTE: </strong>When there are no managed clusters, the Karma UI displays an error message `Get https://placeholder.invalid/api/v2/status: dial tcp: lookup placeholder.invalid on 10.0.0.10:53: no such host`.
-This is expected, and the error disappears when the clusters are connected.</p>
+This is expected, and the error disappears when clusters are connected.</p>
 
 ### Federating Prometheus Alerting Rules
 
