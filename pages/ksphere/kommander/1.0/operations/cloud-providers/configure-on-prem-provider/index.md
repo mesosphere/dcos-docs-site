@@ -1,26 +1,37 @@
 ---
 layout: layout.pug
-navigationTitle: Configure an On Premises provider
-title: On Premises provider
-excerpt: Configuring an On Premises provider
+navigationTitle: Configure an On-Premises provider
+title: On-Premises Infrastructure Provider
+excerpt: Configuring an On-Premises infrastructure provider
 ---
 
-### Configure an On Premise provider
+## Before you begin
 
-Select the Workspace associated with the credentials you are adding.
+This procedure requires that you have the following:
 
-Navigate to **Administration > Cloud Providers** and select the **Add Cloud Provider** button.
+- A private SSH key.
 
-![Add Cloud Provider](/ksphere/kommander/1.0/img/add-cloud-provider.png)
+## Configure the infrastructure provider
 
-When creating an On Premise provider, you need a private SSH key.
+The following procedure describes how to configure an On-Premises infrastructure provider in Kommander.
 
-- Select a name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
-- Fill in Private SSH Key with the key used to access your infrastructure.
-- Click **Verify** and **Save** to verify the credentials are valid and to save your provider.
+1. Select the Workspace associated with the credentials you are adding.
 
-![On Premise Provider Form with values](/ksphere/kommander/1.0/img/On-prem-provider-with-values.png)
+1. Go to **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
 
-Figure 1 - On Premise Provider Form with values
+    ![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
 
-After the provider is created, the Provider’s display name or credentials can be updated.
+    ![Add Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+
+1. Select **On-Premises**
+
+    - Enter a name for your infrastructure provider for later reference.
+  
+    - Fill in **Private SSH Key** with the key used to access your infrastructure.
+
+    - Click **Verify and Save** to verify the credentials are valid and to save your provider.
+
+    ![On Premise Provider Form with values](/ksphere/kommander/1.1.0-beta/img/On-prem-provider-with-values.png)
+
+    After the provider is created, its display name or private SSH key can be updated.
+
