@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Setting up LDAP Directory
 title: Connect and configure your LDAP directory to Konvoy and Kommander
-menuWeight: 7
+menuWeight: 20
 excerpt: Use Konvoy and Kommander to access your Identity Provider
 beta: false
 enterprise: false
@@ -24,7 +24,9 @@ An identity provider determines and verifies an end user trying to gain access i
 
 You need certain software configurations and settings before you start this procedure. This procedure requires the following items and configurations:
 
-- Konvoy version 1.4.2 and above [installed](about:blank) and running.
+- Konvoy version 1.4.2 and above [installed](../../../../konvoy/1.5/install) and running.
+
+- Kommander version 1.0 and above [installed](../../install) and running.
 
 - An Understanding of your LDAP directory structure, groups and users:
     - Host Field
@@ -275,4 +277,11 @@ After you connect your LDAP directory and configure your users and groups, you m
 1. Select the **Roles** field and select **Cluster Admin Role**.
 
 1. Select the **Save** button.
+
+## Related Information
+
+- [Connect your LDAP directory to Konvoy using the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/howto-dex-ldap-connector/)  
+
+- [Configure your LDAP directory using the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
+- [Troubleshoot your LDAP access by creating a kubectl token](./gen-kubectl-token)
 
