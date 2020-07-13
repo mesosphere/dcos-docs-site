@@ -20,28 +20,40 @@ You need to have `kubectl` connected to your Kommander Management cluster using 
 Ensure KCL pods are running.
 
 ```
-$ kubectl -n kommander get pods
+kubectl -n kommander get pods
 
-NAME                                                       READY   STATUS      RESTARTS   AGE
-kcl-cm-7c6c9cbcc6-vszfs                                    2/2     Running     0          75m
-kcl-tfcb-9c88c7bc9-mxfjp                                   1/1     Running     0          75m
-kcl-utility-apiserver-7ffcc5b4bf-jzd69                     1/1     Running     0          75m
-kcl-webhook-87f7b8d45-vqcm5                                1/1     Running     0          75m
-kubefed-admission-webhook-7575b6b474-hvctv                 1/1     Running     0          75m
-kubefed-controller-manager-76bcdf6dc4-lp9xr                1/1     Running     0          75m
-kubefed-controller-manager-76bcdf6dc4-zhm54                1/1     Running     0          75m
+NAME                                                              READY   STATUS    RESTARTS   AGE
+kommander-federation-authorizedlister-5556c8b658-djxn4            1/1     Running   0          5m35s
+kommander-federation-cm-798d697c54-2wh95                          2/2     Running   0          5m36s
+kommander-federation-utility-apiserver-657d58485d-m2zdm           1/1     Running   0          5m37s
+kommander-federation-webhook-b7698b4f5-7wgkb                      1/1     Running   0          5m36s
+kommander-kubeaddons-grafana-9c688768-6tmsh                       2/2     Running   0          5m36s
+kommander-kubeaddons-karma-8df6cfdb6-qvgfq                        1/1     Running   0          5m34s
+kommander-kubeaddons-kommander-ui-5b7949cf46-5mcjr                1/1     Running   0          5m35s
+kommander-kubeaddons-kubeaddons-catalog-6654f856df-6kqcw          1/1     Running   0          5m35s
+kommander-kubeaddons-thanos-query-7bfbfdbb55-zzphn                1/1     Running   0          5m37s
+kommander-kubecost-cost-analyzer-699d885674-sfh7q                 3/3     Running   0          5m36s
+kommander-kubecost-prometheus-alertmanager-84bd78c66d-hc9xg       2/2     Running   0          5m36s
+kommander-kubecost-prometheus-kube-state-metrics-84dcd64c7psm96   1/1     Running   0          5m35s
+kommander-kubecost-prometheus-server-b9f8b889d-smkl5              3/3     Running   0          5m36s
+kommander-kubecost-thanos-query-7bc4c7c65c-wz5z9                  1/1     Running   0          5m36s
+kommander-licensing-cm-6c554cf8b9-wjnjc                           2/2     Running   0          5m36s
+kommander-licensing-webhook-754d985dfd-d56f4                      1/1     Running   0          5m36s
+kubefed-admission-webhook-58b7648f77-rld5z                        1/1     Running   0          5m31s
+kubefed-controller-manager-6bc8cbd6d7-79tww                       1/1     Running   0          5m31s
+kubefed-controller-manager-6bc8cbd6d7-wt9bk                       1/1     Running   0          4m44s
 ```
 
 ## Viewing KCL Logs
 
 ```
-kubectl -n kommander logs -l control-plane=kcl-cm -c controller-manager
+kubectl -n kommander logs -l control-plane=kommander-federation-cm -c controller-manager
 ```
 
 ### Viewing KCL Webhook Logs
 
 ```
-kubectl -n kommander logs -l control-plane=kcl-webhook
+kubectl -n kommander logs -l control-plane=kommander-federation-webhook
 ```
 
 ## Working with the Workspaces
@@ -51,7 +63,7 @@ Learn more about [Workspaces][kommander_workspaces] in Kommander.
 ### Show the list of the Workspaces
 
 ```
-$ kubectl get workspaces
+kubectl get workspaces
 
 NAME                     DISPLAY NAME             WORKSPACE NAMESPACE            AGE
 default-workspace        Default Workspace        default-workspace-4clss        77m
@@ -71,7 +83,7 @@ EOF
 List workspaces again to get the Workspace namespace. We are going to need it further.
 
 ```
-$ kubectl get workspaces
+kubectl get workspaces
 
 NAME                     DISPLAY NAME             WORKSPACE NAMESPACE            AGE
 default-workspace        Default Workspace        default-workspace-4clss        95m
@@ -148,7 +160,7 @@ EOF
 You can check the KCL controller manager logs to verify cluster provisioning started.
 
 ```
-kubectl -n kommander logs -l control-plane=kcl-cm -c controller-manager
+kubectl -n kommander logs -l control-plane=kommander-federation-cm -c controller-manager
 ```
 
 To provision a cluster KCL uses Kubernetes Jobs.
@@ -160,7 +172,7 @@ kubectl get jobs -n workspacetest-r69q2
 To access logs of the job we need to check its pod.
 
 ```
-$ kubectl get pods -n workspacetest-r69q2
+kubectl get pods -n workspacetest-r69q2
 
 NAME                               READY   STATUS    RESTARTS   AGE
 sample-kubernetes-tutorial-z9hqw   1/1     Running   0          47s
@@ -175,7 +187,7 @@ kubectl -n workspacetest-r69q2 logs sample-kubernetes-tutorial-z9hqw -f
 Waiting for the cluster to be provisioned.
 
 ```
-$ kubectl -n workspacetest-r69q2 get konvoycluster -w
+kubectl -n workspacetest-r69q2 get konvoycluster -w
 
 NAME                         DISPLAY NAME   STATUS         PROVIDER   AGE
 sample-kubernetes-tutorial                  Provisioning   aws        5m48s
@@ -212,7 +224,7 @@ EOF
 Get the Project data.
 
 ```
-$ kubectl get projects -A
+kubectl get projects -A
 
 NAMESPACE                   NAME              DISPLAY NAME      PROJECT NAMESPACE       AGE
 workspacetest-r69q2         projecttest                         projecttest-5r55h       56s
@@ -221,7 +233,7 @@ workspacetest-r69q2         projecttest                         projecttest-5r55
 Ensure the Project's namespace is federated to the target cluster.
 
 ```
-$ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
+kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
 
 NAME                    STATUS   AGE
 ***                     ***      ***
@@ -232,7 +244,7 @@ projecttest-5r55h       Active   12m
 Check default Project roles in the target cluster.
 
 ```
-$ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles
+kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles
 
 NAME                           AGE
 project-app-deployer-gl4d4     14m
