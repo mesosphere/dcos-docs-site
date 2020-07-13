@@ -16,7 +16,7 @@ This section guides you through the basic steps to prepare your environment and 
 * The [azure][install_az] command line utility
 * [Docker][install_docker] _version 18.09.2 or newer_
 * [kubectl][install_kubectl] _v1.16.12 or newer_ (for interacting with the running cluster)
-* A valid Azure account with [credentials configured][az_login].
+* A valid Azure account [used to sign in with the Azure CLI][az_login].
   You need to be authorized as a `Contributor` in your Azure account and need the be able to assign roles to a user.
 
   ```bash
@@ -86,7 +86,7 @@ Running the following command should result in a similar output:
 $ konvoy provision --plan-only
 ...
 Plan: 41 to add, 0 to change, 0 to destroy.
-```  
+```
 
 **NOTE:** This command can be run before the initial provisionioning or at any point after modifications are made to the `cluster.yaml` file.
 

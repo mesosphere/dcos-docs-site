@@ -48,26 +48,26 @@ spec:
       updateDomainCount: 3
   nodePools:
   - name: worker
-    count: 8
+    count: 6
     machine:
+      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
       rootVolumeSize: 80
       rootVolumeType: Standard_LRS
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_DS3_v2
-      imageID: OpenLogic:CentOS-CI:7-CI:7.7.20190920
+      type: Standard_D4s_v3
   - name: control-plane
     controlPlane: true
     count: 3
     machine:
+      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
       rootVolumeSize: 80
       rootVolumeType: StandardSSD_LRS
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_DS2_v2
-      imageID: OpenLogic:CentOS-CI:7-CI:7.7.20190920
+      type: Standard_D4s_v3
 ```
 
 ## Instance types
@@ -91,9 +91,9 @@ Users can customize the sizes (in GB) and [types][disk_sku] of those volumes.
 
 ## Azure VM Images
 
-In Azure, you can define already available `urn` like at `imageID` or your own images from an available VM Disk Image.
+In Azure, you can define existing `URN` for the `imageID` field or use your own images from an available VM Disk Image.
 
-Default Azure Image which is used for Konvoy cluster deployments is the following:
+The Default Azure Image used for Konvoy cluster deployments is the following:
 
 ```text
 os_image = {
@@ -152,7 +152,7 @@ To add custom resource files for provisioning:
 
 ## VNET
 It is possible to use an existing VNET if so desired.
-To do so you must modify the `cluster.yaml` file and change the `ProvisionerConfig` in the following way:
+To do so, you must modify the `cluster.yaml` file and change the `ProvisionerConfig` in the following way:
 
 ```yaml
 kind: ClusterProvisioner
@@ -174,7 +174,7 @@ It is necessary to define the `vnet.name`, `vnet.resourceGroup` and the `vnet.ro
 
 The default VNET CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
 
-It is also possible to set the kube-apiserver LB to be `internal`.
+It is also possible to set the kube-apiserver load balancer (LB) to be `internal`.
 Depending on how your addons are configured, you may also need to add an annotation to use an `internal` LB.
 
 ```yaml
@@ -286,7 +286,7 @@ Bastion hosts allow for secure access to your cluster, but since they do need to
 
 The default Subnet CIDR that is created by Konvoy is `10.0.64.0/18`
 
-Similarly to the VNET, you may choose to use these block or define any other appropriate block.
+Similarly to the VNET, you may choose to use these blocks or define any other appropriate blocks.
 
 <p class="message--note"><strong>NOTE: </strong>Keep in mind that the default value of <tt>spec.kubernetes.networking.serviceSubnet</tt> is set to <tt>10.0.0.0/18</tt> and the default value of <tt>spec.kubernetes.networking.podSubnet</tt> is set to <tt>10.0.128.0/18</tt>.The blocks you choose must not overlap with the <tt>serviceSubnet</tt> and <tt>podSubnet</tt>.</p>
 
@@ -306,7 +306,7 @@ To add custom resource files:
 
 1. Run the `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes` command.
 
-    After `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/:
+    After the `[Deploying Kubernetes]` and `[Adding Node Labels and Taints]` phases, a phase will run that will deploy all the resource files provided in `extras/kubernetes/:
 
     ```bash
     STAGE [Deploying Additional Kubernetes Resources]
