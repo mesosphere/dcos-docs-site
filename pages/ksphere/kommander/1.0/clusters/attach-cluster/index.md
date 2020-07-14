@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle: Attach Kubernetes Cluster
 title: Attach Cluster
-beta: true
 menuWeight: 7
 excerpt: A guide for attaching an existing Kubernetes cluster using kubeconfig
 ---
