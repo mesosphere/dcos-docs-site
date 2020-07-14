@@ -2,13 +2,11 @@
 layout: layout.pug
 navigationTitle: Set up LDAP Directory
 title: Connect and configure your LDAP directory to Konvoy and Kommander
-menuweight: 10
+menuWeight: 0
 excerpt: Use Konvoy and Kommander to access your Identity Provider
-beta: false
 enterprise: false
 ---
-
-## Connect and configure your LDAP directory to Konvoy using Kommander
+# Connect and configure your LDAP directory to Konvoy using Kommander
 
 An identity provider determines and verifies an end user trying to gain access into Konvoy. This procedure shows how to:
 
