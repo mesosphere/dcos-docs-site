@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
-beta: false
+beta: true
 excerpt: List of third party open source software provided by Dispatch
 render: mustache
 ---
