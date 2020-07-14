@@ -138,3 +138,14 @@ The table below lists the third party open source software which is provided by 
 |  yaml.v2 | v2.2.7 | [Apache License 2.0](https://github.com/go-yaml/yaml/blob/v2/LICENSE) |
 |  zap | v1.13.0 | [MIT License](https://pkg.go.dev/mod/go.uber.org/zap?tab=licenses#LICENSE.txt) |
 |  zapr | v0.1.1 | [Apache License 2.0](https://github.com/go-logr/zapr/blob/master/LICENSE) |
+
+## Software Sources
+
+The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
+Software that are utilized by D2IQ Dispatch.
+
+| Software       | Software Source                                              | License                                                                                      |
+| -------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------- |
+| golang-lru     | https://packages.d2iq.com/ksphere/golang-lru-0.5.4.tar.gz    | [Mozilla Public License 2.0](https://github.com/hashicorp/golang-lru/blob/v0.5.4/LICENSE)    |
+| errwrap        | https://packages.d2iq.com/ksphere/errwrap-1.0.0.tar.gz       | [Mozilla Public License 2.0](https://github.com/hashicorp/errwrap/blob/v1.0.0/LICENSE)       |
+| go-multierror  | https://packages.d2iq.com/ksphere/go-multierror-1.1.0.tar.gz | [Mozilla Public License 2.0](https://github.com/hashicorp/go-multierror/blob/v1.1.0/LICENSE) |
