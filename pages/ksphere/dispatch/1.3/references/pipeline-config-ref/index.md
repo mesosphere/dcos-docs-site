@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Pipeline Configuration Reference
 title: Dispatch Pipeline Configuration Reference
 menuWeight: 90
-beta: false
+beta: true
 excerpt: Pipeline configuration reference
 ---
 

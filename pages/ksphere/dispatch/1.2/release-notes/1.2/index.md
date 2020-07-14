@@ -14,7 +14,7 @@ excerpt: View release-specific information for Dispatch 1.2.0
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and signed on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Dispatch.</p>
 
 ## v1.2.0 - Released June 22, 2020
-Document Modified Date: June 22, 2020
+Document Modified Date: June 30, 2020
 
 This document describes the new features, caveats, and resolved issues of D2iQ Dispatch.
 
@@ -87,6 +87,8 @@ helm test dispatch-kubeaddons
 * Updated Dispatchfile frontend language CUE to 0.4.
 * GUI now verifies repository secrets prior to saving them.
 * EXPERIMENTAL Starlark standard libraries 0.0.6 released via the [Dispatch Catalog](https://github.com/mesosphere/dispatch-catalog).
+* [COPS-6242] Add support for GitLab's nested project groups.
+* [COPS-6242] The `update-gitops-repo` command got a new `-api-endpoint=` flag. It must be set to the SCM provider API endpoint URL if the gitops repository is in a nested GitLab project group.
 
 ### Caveats
 
