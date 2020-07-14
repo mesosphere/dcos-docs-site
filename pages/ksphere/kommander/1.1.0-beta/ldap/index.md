@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: External LDAP Directory
+navigationTitle: LDAP Directory
 title: External LDAP Identity Provider
-menuWeight: 10
+menuweight: 10
 excerpt: Use your LDAP Identity Provider with Konvoy and Kommander
 beta: false
 enterprise: false

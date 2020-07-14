@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Setting up LDAP Directory
+navigationTitle: Set up LDAP Directory
 title: Connect and configure your LDAP directory to Konvoy and Kommander
-menuWeight: 20
+menuweight: 10
 excerpt: Use Konvoy and Kommander to access your Identity Provider
 beta: false
 enterprise: false
