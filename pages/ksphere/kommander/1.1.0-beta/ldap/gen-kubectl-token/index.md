@@ -2,12 +2,11 @@
 layout: layout.pug
 navigationTitle: Kubectl Token
 title: Generate a Kubectl Token
-menuweight: 30
+menuweight: 20
 excerpt: Troubleshoot your LDAP access
 beta: false
 enterprise: false
 ---
-
 Generating a kubectl token is typically the way end users access Konvoy and Kubernetes. Most end users interact with Kubernetes from a command line perspective. Generating a kubectl token is also a great way to confirm and help troubleshoot your LDAP access. You can determine if specific values are returned by the external identity provider. The following procedure shows how to  generate a kubectl token. 
 
 ## Before you begin 
