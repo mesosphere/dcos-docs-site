@@ -4,7 +4,7 @@ navigationTitle: Attach Amazon EKS Cluster to Kommander
 title: Attach Amazon EKS Cluster to Kommander
 menuWeight: 7
 excerpt: Attach an existing EKS cluster to Kommander
-beta: true
+beta: false
 enterprise: false
 ---
 
