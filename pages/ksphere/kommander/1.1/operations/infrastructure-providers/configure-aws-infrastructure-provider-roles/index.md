@@ -207,23 +207,23 @@ EOF
 
 1. In Kommander, select the Workspace associated with the credentials you are adding.
 
-1. Go to  **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
+1. Go to **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
 
-    ![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+   ![Adding an Infrastructure Provider](/ksphere/kommander/1.1/img/empty-infrastructure-providers.png)
 
-    ![Add Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+   ![Add Infrastructure Provider Form](/ksphere/kommander/1.1/img/add-infrastructure-provider.png)
 
-    - Select the **Amazon Web Services (AWS)** option from the **Add Infrastructure Provider** dialog box.
+   - Select the **Amazon Web Services (AWS)** option from the **Add Infrastructure Provider** dialog box.
 
-    ![AWS Role Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/infrastructure-provider-form-aws-role.png)
+   ![AWS Role Infrastructure Provider Form](/ksphere/kommander/1.1/img/infrastructure-provider-form-aws-role.png)
 
-    - Ensure **Role** is selected as the **Authentication Method**.
+   - Ensure **Role** is selected as the **Authentication Method**.
 
-    - Enter a name for your infrastructure provider. Select a name that matches the AWS user.
+   - Enter a name for your infrastructure provider. Select a name that matches the AWS user.
 
-    - Enter the **Role ARN**.
+   - Enter the **Role ARN**.
 
-    - You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
+   - You can add an **External ID** if you share the Role with a 3rd party. External IDs secure your environment from accidentally used roles. [Here you can read more about External IDs][external_id].
 
 After the provider is created, the display name or role can be updated.
 

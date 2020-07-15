@@ -19,18 +19,18 @@ The following procedure describes how to configure an On-Premises infrastructure
 
 1. Go to **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
 
-    ![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+   ![Adding an Infrastructure Provider](/ksphere/kommander/1.1/img/empty-infrastructure-providers.png)
 
-    ![Add Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+   ![Add Infrastructure Provider Form](/ksphere/kommander/1.1/img/add-infrastructure-provider.png)
 
 1. Select **On-Premises**
 
-    - Enter a name for your infrastructure provider for later reference.
-  
-    - Fill in **Private SSH Key** with the key used to access your infrastructure.
+   - Enter a name for your infrastructure provider for later reference.
 
-    - Click **Verify and Save** to verify the credentials are valid and to save your provider.
+   - Fill in **Private SSH Key** with the key used to access your infrastructure.
 
-    ![On Premise Provider Form with values](/ksphere/kommander/1.1.0-beta/img/On-prem-provider-with-values.png)
+   - Click **Verify and Save** to verify the credentials are valid and to save your provider.
 
-    After the provider is created, its display name or private SSH key can be updated.
+   ![On Premise Provider Form with values](/ksphere/kommander/1.1/img/On-prem-provider-with-values.png)
+
+   After the provider is created, its display name or private SSH key can be updated.

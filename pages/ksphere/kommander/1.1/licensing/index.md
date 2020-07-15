@@ -17,17 +17,18 @@ To obtain a valid Kommander license, contact your sales representative at <sales
 After you have downloaded the license, an administrator must add it to Kommander.
 
 In the Kommander UI, do the following:
+
 1. Select **Global** in the header drop-down.
 2. Select **Administration** > **Licensing**.
 3. Select **+ Add License**.
 4. Paste your license content in and select Add.
 
-![Licenses Form](/ksphere/kommander/1.1.0-beta/img/Licenses-form.png)
+![Licenses Form](/ksphere/kommander/1.1/img/Licenses-form.png)
 Licenses Form
 
 If there is an error submitting the license, you can add the license directly through kubectl using the commands in the message within Kommander.
 
-![Licenses Error](/ksphere/kommander/1.1.0-beta/img/Licenses-error.png)
+![Licenses Error](/ksphere/kommander/1.1/img/Licenses-error.png)
 Licenses Error
 
 ## Delete a license
@@ -37,6 +38,7 @@ To delete a license from Kommander, you have to delete the `Secret` and `License
 First, validate that the secret exists in the `kommander` namespace: `kubectl describe secret -n kommander the-secret`
 
 Expected output:
+
 ```
 Name:         the-secret
 Namespace:    kommander
@@ -51,6 +53,7 @@ jwt:  455 bytes
 Then, delete the secret from the `kommander` namespace: `kubectl delete secret -n kommander the-secret`
 
 Expected output:
+
 ```
 secret "the-secret" deleted
 ```
@@ -58,6 +61,7 @@ secret "the-secret" deleted
 Once this is done, we do the same with the `License` object. First, validate that it exists in the `kommander` namespace: `kubectl describe license -n kommander license-sample`
 
 Expected output:
+
 ```
 Name:         license-sample
 Namespace:    kommander
@@ -87,11 +91,12 @@ Events:
   Type    Reason                Age                  From              Message
   ----    ------                ----                 ----              -------
   Normal  LicenseUpdateSuccess  7m7s (x2 over 7m7s)  LicenseSignature  License updated successfully
-  ```
+```
 
 Finally, delete the license from the `kommander` namespace: `kubectl delete license -n kommander license-sample`
 
 Expected output:
+
 ```
 license.kommander.mesosphere.io "license-sample" deleted
 ```

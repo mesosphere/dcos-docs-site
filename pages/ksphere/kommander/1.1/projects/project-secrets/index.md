@@ -10,7 +10,7 @@ Project Secrets can be created to make sure a Kubernetes Secrets are automatical
 
 A Project Secret can be created using the Kommander UI:
 
-![Project Secret Form](/ksphere/kommander/1.1.0-beta/img/project-create-secret.png)
+![Project Secret Form](/ksphere/kommander/1.1/img/project-create-secret.png)
 Project Secret Form
 
 A Project Secret is simply a Kubernetes FederatedConfigSecret and can also be created using kubectl:

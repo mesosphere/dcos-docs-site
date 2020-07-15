@@ -8,7 +8,7 @@ excerpt: A guide for creating Konvoy clusters on your own premises' infrastructu
 
 ## Prerequisites
 
-- A configured [On-Prem Infrastructure Provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-on-prem-provider/)
+- A configured [On-Prem Infrastructure Provider](/ksphere/kommander/1.1/operations/infrastructure-providers/configure-on-prem-provider/)
 - [konvoy CLI](/ksphere/konvoy/1.5/download/)
 
 ## Inventory Your Hosts
@@ -27,7 +27,7 @@ See the [Install on-premises](/ksphere/konvoy/1.5/install/install-onprem/) guide
 
 ## Provision in UI
 
-![Add Cluster Options](/ksphere/kommander/1.1.0-beta/img/add-cluster.png)
+![Add Cluster Options](/ksphere/kommander/1.1/img/add-cluster.png)
 
 In Kommander UI, choose the workspace where the on premises infrastructure provider was created in the header drop-down. From the workspace dashboard, select **Actions** > **Add Cluster**, and from the **Add Cluster** menu, select the **Upload YAML to Create a Cluster** option. Select your on premises infrastructure provider from the **Select Infrastructure Provider** select field.
 
@@ -36,5 +36,5 @@ Paste the contents of the cluster.yaml and inventory.yaml files into the form an
 ## Related information
 
 - [Install the konvoy CLI](/ksphere/konvoy/1.5/download/)
-- [Create an on premises infrastructure provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-on-prem-provider/)
+- [Create an on premises infrastructure provider](/ksphere/kommander/1.1/operations/infrastructure-providers/configure-on-prem-provider/)
 - [Install an on premises konvoy cluster](/ksphere/konvoy/1.5/install/install-onprem/)
