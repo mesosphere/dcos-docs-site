@@ -16,15 +16,15 @@ From the dashboard page or the clusters page, click Add Cluster and Create Konvo
 
 ### Creating a Konvoy Cluster
 
-- [Creating Konvoy Clusters on AWS](/ksphere/kommander/latest/clusters/creating-konvoy-cluster-aws/)
-- [Creating Konvoy Clusters on Azure](/ksphere/kommander/latest/clusters/creating-konvoy-cluster-azure/)
-- [Creating Konvoy Clusters on your own infrastructure](/ksphere/kommander/latest/clusters/creating-konvoy-cluster-on-prem/)
+- [Creating Konvoy Clusters on AWS](/ksphere/kommander/1.0/clusters/creating-konvoy-cluster-aws/)
+- [Creating Konvoy Clusters on Azure](/ksphere/kommander/1.0/clusters/creating-konvoy-cluster-azure/)
+- [Creating Konvoy Clusters on your own infrastructure](/ksphere/kommander/1.0/clusters/creating-konvoy-cluster-on-prem/)
 
 ### Connecting an Existing Cluster
 
 Using the Add Cluster option, you can attach an already existing cluster, even an existing Konvoy cluster, directly to Kommander. Enjoy all the multi-cluster management and monitoring benefits that Kommander provides while keeping your existing cluster on its current provider & infrastructure.
 
-See [Attach Cluster](/ksphere/kommander/latest/clusters/attach-cluster/)
+See [Attach Cluster](/ksphere/kommander/1.0/clusters/attach-cluster/)
 
 ### Creating a Konvoy Cluster via YAML
 
