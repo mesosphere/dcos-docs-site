@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Using Kommander Cluster Lifecycle API via kubectl
 title: Using Kommander Cluster Lifecycle API via kubectl
-menuWeight: 15 
+menuWeight: 15
 excerpt: Basic Kommander Cluster Lifecycle API (KCL) operations with kubectl
 ---
 
@@ -311,6 +311,6 @@ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
 kubectl -n workspacetest-r69q2 delete  konvoycluster sample-kubernetes-tutorial
 ```
 
-[infrastructure_provider]: /ksphere/kommander/latest/operations/cloud-providers
-[kommander_projects]: /ksphere/kommander/latest/projects
-[kommander_workspaces]: /ksphere/kommander/latest/workspaces
+[infrastructure_provider]: /ksphere/kommander/1.0/operations/cloud-providers
+[kommander_projects]: /ksphere/kommander/1.0/projects
+[kommander_workspaces]: /ksphere/kommander/1.0/workspaces
