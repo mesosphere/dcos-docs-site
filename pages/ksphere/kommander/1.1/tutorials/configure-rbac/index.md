@@ -13,7 +13,7 @@ This procedure requires the following configurations and background:
 - A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.1/install/).
 - An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/) has been created.
 - Some familiarity with [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) principles.
-- 4 configured [groups](https://docs.d2iq.com/ksphere/kommander/1.0/operations/identity-providers/) in Kommander
+- 4 configured [groups](https://docs.d2iq.com/ksphere/kommander/1.1/operations/identity-providers/) in Kommander
 
 ## Create Role-Based Access Control Personas
 
@@ -29,7 +29,7 @@ In this procedure, using these default roles, you will create four different per
 - _Workspace admin_: these users can administer the workspaces they have specifically been given access to.
 - _Workspace viewer_: these users can access the workspaces they have specifically been given access to in a readonly capacity.
 
-If you haven't done so already, create a group to represent each of the personas. For more details on groups, see the [Identity Providers page](https://docs.d2iq.com/ksphere/kommander/1.0/operations/identity-providers/) and the [Identity Provider tutorial](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/).
+If you haven't done so already, create a group to represent each of the personas. For more details on groups, see the [Identity Providers page](https://docs.d2iq.com/ksphere/kommander/1.1/operations/identity-providers/) and the [Identity Provider tutorial](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/).
 
 ## Grant access to personas
 
