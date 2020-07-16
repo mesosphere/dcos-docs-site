@@ -149,7 +149,7 @@ Template:
 
 #### Features/Improvements
 
-- Add guidance on what to do when cluster deletion fails
+- Added information  on actions to take when cluster deletion fails
 - Allow default federated addon values to be overriden
 - Attaching clusters to Kommander is now considered GA
 - Updated Kubecost web urls
