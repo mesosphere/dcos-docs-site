@@ -58,7 +58,7 @@ Template:
 | **Maximum**        | 1.17.x  |
 | **Default**        | 1.17.3  |
 
-#### Improvements
+#### Features/Improvements
 
 - Improved Grafana Dashboard Names for addons
 - Improved auth token transport for managed clusters
