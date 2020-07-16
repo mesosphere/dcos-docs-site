@@ -161,7 +161,7 @@ Template:
 #### Bug Fixes
 
 - Kommander Grafana was unavailable after self-attaching host cluster as managed cluster
-- Fixed a bug where Kommander addon wasnt successfully deploying on Azure
+- Fixed a bug where Kommander addon did not successfully deploying on Azure
 - Fix Kommander to not show unofficially supported versions of Kubernetes by default
 - Fix possible data collision bug related to clusters
 - Fix a possible crash-loop situation for kubeaddons when cert-manager isnt ready yet
