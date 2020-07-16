@@ -83,7 +83,7 @@ Template:
 - kubecost: `0.1.10`
 - grafana: `4.6.3`
 
-### Kommander 1.1.0 RC 5 - July 9th 2020
+### Kommander 1.1.0 RC 6 - July 9th 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
