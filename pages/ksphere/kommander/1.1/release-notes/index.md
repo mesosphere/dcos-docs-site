@@ -50,7 +50,7 @@ Template:
 
 -->
 
-### Kommander 1.1.0 RC 6 - July 16th 2020
+### Kommander 1.1.0 RC 7 - July 16th 2020
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
