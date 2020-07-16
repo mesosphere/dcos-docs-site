@@ -16,7 +16,7 @@ This procedure requires the following items and configurations:
 
 - A fully configured and running Amazon [EKS](https://aws.amazon.com/eks/) cluster with administrative privileges.
 - Konvoy v1.5.0 or above, [installed and configured](/ksphere/konvoy/1.5/install/) for your Amazon EKS cluster, on your machine.
-- Kommander v1.0.1-beta.1 or above, [installed and configured](/ksphere/kommander/1.1/install/) on your machine.
+- Kommander v1.1.0 or above, [installed and configured](/ksphere/kommander/1.1/install/) on your machine.
 
 <p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s) with administrative privileges. Refer to the Amazon <a href="https://aws.amazon.com/eks/" target="_blank">EKS</a> for setup and configuration information. </p>
 
@@ -136,7 +136,7 @@ For information on related topics or procedures, refer to the following:
 
 - [Installing and Configuring Konvoy v1.5.0 or above](/ksphere/konvoy/1.5/install/)
 
-- [Installing and Configuring Kommander v1.0.1-beta.1 or above](/ksphere/kommander/1.1/install/)
+- [Installing and Configuring Kommander v1.1.0 or above](/ksphere/kommander/1.1/install/)
 
 - [Working with Kommander Clusters](/ksphere/kommander/1.1/clusters/)
 
