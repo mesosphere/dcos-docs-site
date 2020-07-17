@@ -125,6 +125,76 @@ Running a build on first install is to ensure that all tools have been installed
 This necessary once you are done previewing, not great to leave it running.
 `ctrl-c`
 
+## Deploy Live Site in a Container
+
+If you edit docs on occasion, you may not want to install all the build dependencies on your host. If you have docker installed, you can deploy the site in a container. You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser.
+
+### Create the container image
+
+The container image has all the site dependencies, and a set of rendered docs, against which live edits are applied. To create the image, run:
+
+```shell
+make docker-liveedit-image
+```
+
+**NOTE**: _The container image is not automatically kept up-to-date as the `dcos-docs-site` repo changes. Re-create the image periodically by running the make goal._
+
+The default image name is `dcos-docs-liveedit`. To use a different container name, override the `LIVEEDIT_IMAGE` make variable:
+
+```shell
+make docker-liveedit-image LIVEEDIT_IMAGE=my-name
+```
+
+### Run a "live" site in a container
+
+Due to limitations of the `metalsmith` software used to render the docs, live editing the entire docs site is not possible.
+
+To live edit just the DCOS 2.1 docs, with the site available on `https://localhost:3000` on your host, run:
+
+```shell
+make docker-liveedit
+```
+
+To live edit on a different port, e.g. `9999`, run:
+
+```shell
+make docker-liveedit LIVEEDIT_HOST_PORT=9999
+```
+
+To live edit the Konvoy 1.5 docs already merged into the `dcos-docs-site` repo, run:
+
+```shell
+make docker-liveedit  LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/1.5
+```
+
+To live edit the Konvoy docs in the `konvoy` repo, run:
+
+```shell
+make docker-livedit \
+  LIVEEDIT_PAGES_SRC_ABS_PATH=/absolute/path/to/repo/konvoy/docs/site \
+  LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/latest
+```
+
+### Live Edit Performance
+
+The time to re-render and refresh the browser depends largely on the set of pages that are automatically re-rendered.
+
+To change the set of docs that are automatically re-rendered and refreshed in the browser, set the `LIVEEDIT_RENDER_PATH_PATTERN` make variable.
+
+Some examples:
+
+Set of docs for multiple konvoy versions takes about **70s** to re-render the page:
+
+```shell
+LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/ksphere/konvoy LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy make docker-liveedit
+```
+
+Set of docs for konvoy 1.5 only takes about **45s** to re-render the page:
+
+```shell
+LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/ksphere/konvoy/1.5 LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/1.5 make docker-liveedit
+```
+
 # Content Editing Workflow
 ## Ensure jira ticket
 New content should never be created without a ticket that ties back to a feature or fix.
