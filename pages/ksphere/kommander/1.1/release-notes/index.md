@@ -9,13 +9,15 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-## Release Notes
+# Release Notes for Kommander 1.1
 
-To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install](https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
+Kommander 1.1 was released on 16, July 2020. 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
+To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install](https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
+
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
 <!--
 Template:
@@ -49,7 +51,12 @@ Template:
 - grafana: ``
 
 -->
-### Kommander 1.1.0 - July 16th 2020
+
+# Release Summary
+
+Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated and cost management, across multiple clusters, whether they are a new Konvoy cluster or existing 3rd party/DIY distribution.
+
+# Supported Versions 
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -57,27 +64,27 @@ Template:
 | **Maximum**        | 1.17.x  |
 | **Default**        | 1.17.3  |
 
-#### New Features
+# New Features and Capabilities 
 
-##### Centralized Cost Monitoring
+## Centralized Cost Monitoring
 
 Kubecost, running on Kommander, provides centralized cost monitoring for all managed clusters. This feature, installed by default in every Kommander cluster, provides a centralized view of Kubernetes resources used on all managed clusters. For more information go to [Centralized Cost Monitoring](https://docs.d2iq.com/ksphere/kommander/1.1.0/centralized-cost-monitoring/)
 
-##### D2-ify Managed Clusters
+## D2-ify Managed Clusters
 
 When attaching non-Konvoy clusters, such as Amazon EKS, Azure AKS, Google GKE, and On-Premises Kubernetes clusters, Kommander will federate a subset of standard Konvoy Addons to enable SSO, AuthN/Z, observability, and cost monitoring. This includes addons: Prometheus Operator, Alert Manager, Karma, Elasticsearch, Kibana, and Fluentbit.
 
-##### Improved RBAC
+## Improved RBAC
 
 Kommander has revamped Access Controls for users at the global, workspace, and project levels allowing for greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0/tutorials/configure-rbac/)
 
-##### LDAP Support
+## LDAP Support
 
 Kommander now supports configuring an external LDAP directory for authenticating users. See [Connect and configure your LDAP directory to Konvoy and Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0/ldap/setup-ldap/)
 
-#### Improvements
+# Improvements
 
-Beyond new features, here are the improvements you can expect when upgrading from Kommander 1.0:
+Beyond new features, here are the improvements you can expect when upgrading to Kommander 1.1:
 
 * Added guidance on what to do when cluster deletion fails
 * Added flag (`--skip-credentials-display`) to Kommander so Konvoy does not display login information in logs
@@ -117,8 +124,7 @@ Beyond new features, here are the improvements you can expect when upgrading fro
 * UI now trims input values to remove leading, trailing, and duplicate spaces
 * Updated catalog API for v1beta2 addons
 
-
-#### Bug Fixes
+# Fixed Issues 
 
 * Allow deleting clusters retry after failing. For example when there are permission issues.
 * Disabled "View Logs" Link in UI for managed clusters not running Kibana
@@ -149,7 +155,7 @@ Beyond new features, here are the improvements you can expect when upgrading fro
 * Kommander Grafana was unavailable after self-attaching host cluster as managed cluster
 * UX Bugs and Improvements
 
-#### Component Versions
+# Component Versions
 
 * Addon: `1.1.0-56`
 * Chart: `0.8.41`
