@@ -76,7 +76,7 @@ When attaching non-Konvoy clusters, such as Amazon EKS, Azure AKS, Google GKE, a
 
 ## Improved RBAC
 
-Kommander has revamped Access Controls for users at the global, workspace, and project levels allowing for greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0/tutorials/configure-rbac/)
+Kommander has enhanced Access Controls for users at the global, workspace, and project levels allowing for greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0/tutorials/configure-rbac/)
 
 ## LDAP Support
 
@@ -111,14 +111,14 @@ Beyond new features, here are the improvements you can expect when upgrading to 
 * Improved context handling for multiple contexts when attaching cluster
 * Improved display of resource allocations in the UI
 * Improved attach Cluster Flow in UI
-* Improved K8s Version Selector and Support for managed clusters created via UI
+* Improved K8s Version Selector and Support for managed clusters created through the UI
 * Improved AWS tags to include cluster name.
 * Improved Error messaging when trying to delete roles or groups that are used by policies
-* Improved performance for querying available versions in cluster create form.
+* Improved performance for querying available versions in cluster create form
 * Improved Cluster Status Visualisation in the UI
 * Removed suffixes from federated ConfigMaps and Secrets
 * Removed namespace suffix from projects and platform service names
-* Removed old, unsupported versions from version selector in create cluster form.
+* Removed old, unsupported versions from version selector in create cluster form
 * Renamed "Cloud Provider" to "Infrastructure Provider" to better fit on premise
 * Simplifed kommander's grafana dashboard job
 * UI now trims input values to remove leading, trailing, and duplicate spaces
@@ -131,16 +131,16 @@ Beyond new features, here are the improvements you can expect when upgrading to 
 * Federate karma-proxy only to Konvoy clusters
 * Fixed missing Grafana home dashboard
 * Fixed cluster deletion on detail page not working
-* Fixed a bug where Kommander addon wasnt successfully deploying on Azure
+* Fixed a bug where Kommander addon was not successfully deploying on Azure
 * Fixed Kommander to not show unofficially supported versions of Kubernetes by default
 * Fixed possible data collision bug related to clusters
-* Fixed a possible crash-loop situation for kubeaddons when cert-manager isnt ready yet
+* Fixed a possible crash-loop situation for kubeaddons when cert-manager is not ready yet
 * Fixed and improved LDAP Identity provider handling
 * Fixed display of "nothing to report" situations vs actual errors
 * Fixed bugs related to access control
 * Fixed naming of roles in projects
 * Fixed an issue where projects were not created due to a bug in project name suffix handling
-* Fixed version selector when creating clusters via UI
+* Fixed version selector when creating clusters through the UI
 * Fixed listing of workspaces and projects for limited users
 * Fixed `skipMetadataApiCheck` being removed from `cluster.yaml`
 * Fixed project links on projects overview page
@@ -168,4 +168,3 @@ Beyond new features, here are the improvements you can expect when upgrading to 
 * kommander-thanos: `0.1.15`
 * kubecost: `0.1.10`
 * grafana: `4.6.3`
-
