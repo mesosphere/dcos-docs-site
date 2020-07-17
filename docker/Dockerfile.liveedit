@@ -1,0 +1,13 @@
+FROM node:lts-buster
+
+RUN mkdir /dcos-docs-site
+COPY . /dcos-docs-site/
+WORKDIR /dcos-docs-site
+
+RUN npm install
+RUN make build-api
+
+ENTRYPOINT [ "npm", "run", "dev" ]
+
+EXPOSE 3000/tcp
+EXPOSE 35729/tcp
