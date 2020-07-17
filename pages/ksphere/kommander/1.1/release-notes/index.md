@@ -70,17 +70,13 @@ Kommander provides a command center for all your cloud native management needs i
 
 Kubecost, running on Kommander, provides centralized cost monitoring for all managed clusters. This feature, installed by default in every Kommander cluster, provides a centralized view of Kubernetes resources used on all managed clusters. For more information go to [Centralized Cost Monitoring](https://docs.d2iq.com/ksphere/kommander/1.1.0/centralized-cost-monitoring/)
 
-## D2-ify Managed Clusters
+## Automatic Federation of AuthN/Z and Monitoring Stack
 
-When attaching non-Konvoy clusters, such as Amazon EKS, Azure AKS, Google GKE, and On-Premises Kubernetes clusters, Kommander will federate a subset of standard Konvoy Addons to enable SSO, AuthN/Z, observability, and cost monitoring. This includes addons: Prometheus Operator, Alert Manager, Karma, Elasticsearch, Kibana, and Fluentbit.
+When attaching non-Konvoy clusters, such as Amazon EKS, Azure AKS, Google GKE, and On-Premises Kubernetes clusters, Kommander will federate a subset of standard Konvoy Addons and charts to enable SSO, AuthN/Z, observability, and cost monitoring. 
 
 ## Improved RBAC
 
 Kommander has enhanced Access Controls for users at the global, workspace, and project levels allowing for greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0/tutorials/configure-rbac/)
-
-## LDAP Support
-
-Kommander now supports configuring an external LDAP directory for authenticating users. See [Connect and configure your LDAP directory to Konvoy and Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0/ldap/setup-ldap/)
 
 # Improvements
 
