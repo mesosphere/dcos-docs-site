@@ -23,7 +23,8 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 |---|---|---|---|---|
 | 53    | DC/OS Net | `dcos-net.service` | agent/master | agent/master | 
 | 61003 | REX-Ray | `dcos-rexray.service` | agent/master (may change due to specific REX-Ray configuration)| agent/master (may change due to specific REX-Ray configuration) |
-| 61091 | dcos-metrics | `dcos-metrics-agent.service/dcos-metrics-master.service` | agent/master | agent/extra |
+| 61091 | telegraf | `dcos-telegraf.service` | agent/master | agent/extra |
+| 61092 | fluent-bit | `dcos-fluent-bit.service` | agent/master | agent/extra |
 | 61420 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 62080 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 62501 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
