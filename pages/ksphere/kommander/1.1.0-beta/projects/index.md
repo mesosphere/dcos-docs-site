@@ -28,13 +28,13 @@ To determine which Kubernetes clusters will be part of this project, you can eit
 To create a Project, you can either use the Kommander UI or create a Project object on the Kubernetes cluster where Kommander is running (using kubectl or the Kubernetes API). The latter allows you to configure Kommander resources in a declarative way. It’s available for all kinds of Kommander resources.
 Here is an example of what it looks like to create a project using the Kommander UI:
 
-![Create Project](/ksphere/kommander/1.1.0-beta/img/create-project-form.png)
+![Create Project](/ksphere/kommander/1.1/img/create-project-form.png)
 
 The following procedures are supported for projects:
-- [Deploy Platform Services](/ksphere/kommander/1.1.0-beta/projects/platform-services)
-- [Manage Project Roles](/ksphere/kommander/1.1.0-beta/projects/project-roles)
-- [Manage Project Policies](/ksphere/kommander/1.1.0-beta/projects/project-policies)
-- [Manage Project ConfigMaps](/ksphere/kommander/1.1.0-beta/projects/project-configmaps)
-- [Manage Project Secrets](/ksphere/kommander/1.1.0-beta/projects/project-secrets)
-- [Manage Project Quotas](/ksphere/kommander/1.1.0-beta/projects/project-quotas)
+- [Deploy Platform Services](/ksphere/kommander/1.1/projects/platform-services)
+- [Manage Project Roles](/ksphere/kommander/1.1/projects/project-roles)
+- [Manage Project Policies](/ksphere/kommander/1.1/projects/project-policies)
+- [Manage Project ConfigMaps](/ksphere/kommander/1.1/projects/project-configmaps)
+- [Manage Project Secrets](/ksphere/kommander/1.1/projects/project-secrets)
+- [Manage Project Quotas](/ksphere/kommander/1.1/projects/project-quotas)
 

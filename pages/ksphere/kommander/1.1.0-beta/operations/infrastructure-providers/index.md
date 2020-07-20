@@ -14,10 +14,10 @@ In order, to provision new clusters and manage them, Kommander needs infrastruct
 
 Infrastructure Provider credentials are configured in each workspace, so you must first select a workspace. Then, navigate to the infrastructure Providers option under Administration.
 
-![Empty Infrastructure Providers Page](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+![Empty Infrastructure Providers Page](/ksphere/kommander/1.1/img/empty-infrastructure-providers.png)
 <br />Adding an Infrastructure Provider
 
-![Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+![Infrastructure Provider Form](/ksphere/kommander/1.1/img/add-infrastructure-provider.png)
 <br />_Infrastructure Provider Form_
 
 #### AWS

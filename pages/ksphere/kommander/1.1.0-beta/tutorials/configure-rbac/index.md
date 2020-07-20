@@ -9,8 +9,8 @@ excerpt: Configure role-based access control for Kubernetes resources in Kommand
 ## Before you begin
 
 This procedure requires the following configurations and background: 
-- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/install/).
-- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/tutorials/authorize-all-users/) has been created. 
+- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.1/install/).
+- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/) has been created. 
 - Some familiarity with [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) principles.
 - 4 configured [groups](https://docs.d2iq.com/ksphere/kommander/1.0/operations/identity-providers/) in Kommander
 
@@ -19,7 +19,7 @@ This procedure requires the following configurations and background:
 Manage access to resources on Kubernetes clusters through the [RBAC API](https://kubernetes.io/docs/reference/access-authn-authz/rbac/). The base premise revolves around assigning users to groups, which are then associated with roles that control their level of access through role bindings.
 This procedure describes how a cluster administrator can assign different levels of access to Kubernetes and Kommander resources in the Kommander UI.
 
-Kommander has [three levels of access control](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/operations/access-control/) to support global, workspace, and project use cases. Kommander creates default roles at all three levels to simplify the process of assigning users to different levels of access to resources.
+Kommander has [three levels of access control](https://docs.d2iq.com/ksphere/kommander/1.1/operations/access-control/) to support global, workspace, and project use cases. Kommander creates default roles at all three levels to simplify the process of assigning users to different levels of access to resources.
 
 In this procedure, using these default roles, you will create four different personas with users assigned to them:
 - *Global admin*: these users can administer all Kubernetes and Kommander resources on the management cluster and all target clusters.
@@ -27,7 +27,7 @@ In this procedure, using these default roles, you will create four different per
 - *Workspace admin*: these users can administer the workspaces they have specifically been given access to.
 - *Workspace viewer*: these users can access the workspaces they have specifically been given access to in a readonly capacity.
 
-If you haven't done so already, create a group to represent each of the personas. For more details on groups, see the [Identity Providers page](https://docs.d2iq.com/ksphere/kommander/1.0/operations/identity-providers/) and the [Identity Provider tutorial](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/tutorials/authorize-all-users/).
+If you haven't done so already, create a group to represent each of the personas. For more details on groups, see the [Identity Providers page](https://docs.d2iq.com/ksphere/kommander/1.0/operations/identity-providers/) and the [Identity Provider tutorial](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/).
 
 ## Grant access to personas
 
@@ -95,9 +95,9 @@ You were able to satisfy the access level of the four examples using the default
 
 ## Related information
 
-- [Installing and configuring Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/install/)
-- [Identity Providers in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/operations/identity-providers/)
-- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/tutorials/authorize-all-users/)
+- [Installing and configuring Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/install/)
+- [Identity Providers in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/operations/identity-providers/)
+- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/)
 - [Granting access to Kubernetes resources in the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
-- [Access control in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0-beta/operations/access-control/)
+- [Access control in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/operations/access-control/)
 - [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

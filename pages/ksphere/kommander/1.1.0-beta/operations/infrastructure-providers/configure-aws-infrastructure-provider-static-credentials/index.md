@@ -162,10 +162,10 @@ In Kommander, select the Workspace associated with the credentials you are addin
 
 Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
 
-![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+![Adding an Infrastructure Provider](/ksphere/kommander/1.1/img/empty-infrastructure-providers.png)
 <br />_Adding an Infrastructure Provider_
 
-![Add Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+![Add Infrastructure Provider Form](/ksphere/kommander/1.1/img/add-infrastructure-provider.png)
 <br />_Add Infrastructure Provider Form_
 
 - Select the Amazon Web Services (AWS) option from the Add Infrastructure Provider form.
@@ -174,7 +174,7 @@ Navigate to **Administration > Infrastructure Providers** and click the **Add In
 - Fill out the access and secret keys using the keys generated above.
 - Select **Verify and Save** to verify the credentials are valid and to save your provider.
 
-![Infrastructure Provider Form with values](/ksphere/kommander/1.1.0-beta/img/Infrastructure-provider-with-values.png)
+![Infrastructure Provider Form with values](/ksphere/kommander/1.1/img/Infrastructure-provider-with-values.png)
 <br />_Infrastructure Provider Form with values_
 
 After the provider is created, its display name or credentials can be updated.

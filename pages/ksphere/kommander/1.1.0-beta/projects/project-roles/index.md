@@ -8,7 +8,7 @@ excerpt: Project Roles are used to define permissions at the namespace level.
 
 Project Roles are used to define permissions at the namespace level.
 
-![Project Role Form](/ksphere/kommander/1.1.0-beta/img/project-create-role.png)
+![Project Role Form](/ksphere/kommander/1.1/img/project-create-role.png)
 Project Role Form
 
 In the example above, a Project Role is created with a single Rule. This Project Role corresponds to a namespace admin role.

@@ -8,11 +8,11 @@ excerpt: A guide for creating Konvoy clusters on Azure
 
 ## Before you begin
 
-Configured [Azure Infrastructure Provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-azure-infrastructure-provider/)
+Configured [Azure Infrastructure Provider](/ksphere/kommander/1.1/operations/infrastructure-providers/configure-azure-infrastructure-provider/)
 
 ## Simplified Cluster Creation on Azure
 
-![Add Cluster Options](/ksphere/kommander/1.1.0-beta/img/add-cluster.png)
+![Add Cluster Options](/ksphere/kommander/1.1/img/add-cluster.png)
 
 From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide some basic cluster details:
 
@@ -20,7 +20,7 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 - **Kubernetes Version**: The initial version of Kubernetes to install on the cluster.
 - **Name**: A display name for referencing the cluster.
 
-Select the preconfigured [Azure Infrastructure Provider](/ksphere/kommander/1.1.0-beta/operations/infrastructure-providers/configure-azure-infrastructure-provider/) to display the options specific to Azure.
+Select the preconfigured [Azure Infrastructure Provider](/ksphere/kommander/1.1/operations/infrastructure-providers/configure-azure-infrastructure-provider/) to display the options specific to Azure.
 
 - **Region**: Select the datacenter region to show selectable Availability Zones. [Azure maintains multiple datacenters per region](https://azure.microsoft.com/en-us/global-infrastructure/regions/).
 - **Resource Group**: The resource group where the Azure assets are assigned.

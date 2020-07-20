@@ -209,13 +209,13 @@ EOF
 
 1. Go to  **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
 
-    ![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+    ![Adding an Infrastructure Provider](/ksphere/kommander/1.1/img/empty-infrastructure-providers.png)
 
-    ![Add Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-infrastructure-provider.png)
+    ![Add Infrastructure Provider Form](/ksphere/kommander/1.1/img/add-infrastructure-provider.png)
 
     - Select the **Amazon Web Services (AWS)** option from the **Add Infrastructure Provider** dialog box.
 
-    ![AWS Role Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/infrastructure-provider-form-aws-role.png)
+    ![AWS Role Infrastructure Provider Form](/ksphere/kommander/1.1/img/infrastructure-provider-form-aws-role.png)
 
     - Ensure **Role** is selected as the **Authentication Method**.
 

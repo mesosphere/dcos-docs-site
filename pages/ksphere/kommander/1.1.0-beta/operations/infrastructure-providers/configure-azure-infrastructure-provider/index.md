@@ -62,10 +62,10 @@ In Kommander, select the Workspace associated with the credentials you are addin
 
 Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
 
-![Adding an Infrastructure Provider](/ksphere/kommander/1.1.0-beta/img/empty-infrastructure-providers.png)
+![Adding an Infrastructure Provider](/ksphere/kommander/1.1/img/empty-infrastructure-providers.png)
 <br />_Adding an Infrastructure Provider_
 
-![Add Azure Infrastructure Provider Form](/ksphere/kommander/1.1.0-beta/img/add-azure-infrastructure-provider.png)
+![Add Azure Infrastructure Provider Form](/ksphere/kommander/1.1/img/add-azure-infrastructure-provider.png)
 <br />_Add Azure Infrastructure Provider Form_
 
 - Enter a name for your infrastructure provider. Select a name that matches the Azure user.
@@ -76,7 +76,7 @@ Navigate to **Administration > Infrastructure Providers** and click the **Add In
   - Fill in Subscription ID with the `SUBSCRIPTION_ID` value.
 - Select **Verify and Save** to verify the credentials are valid and to save your provider.
 
-![Azure Infrastructure Provider Form with values](/ksphere/kommander/1.1.0-beta/img/Azure-Infrastructure-provider-with-values.png)
+![Azure Infrastructure Provider Form with values](/ksphere/kommander/1.1/img/Azure-Infrastructure-provider-with-values.png)
 <br />_Azure Infrastructure Provider Form with values_
 
 After the infrastructure provider is created, its display name or credentials can be updated.
