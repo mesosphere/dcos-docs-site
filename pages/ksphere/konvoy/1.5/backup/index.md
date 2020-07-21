@@ -28,7 +28,7 @@ For example, you can use the Velero command-line interface to back up or restore
 
 By default, Konvoy sets up Velero to use Minio over TLS using a self-signed certificate.
 Currently, the Velero command-line interface does not handle self-signed certificates.
-Until an upstream fix is released, please use [our patched 1.0.0 version of Velero][velero-patch-git], which adds an `--insecureskipverify` flag.
+Until an upstream fix is released, use [our patched 1.0.0 version of Velero][velero-patch-git], which adds an `--insecureskipverify` flag.
 
 ## Enable or disable the backup addon
 
