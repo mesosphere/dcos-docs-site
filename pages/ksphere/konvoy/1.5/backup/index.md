@@ -32,7 +32,7 @@ Until an upstream fix is released, please use [our patched 1.0.0 version of Vele
 
 ## Enable or disable the backup addon
 
-<p class="message--note"><strong>NOTE: </strong>Before disabling the Velero platform service addon, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
+<p class="message--note"><strong>NOTE: </strong>Before disabling the Velero addon, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
 
 You can enable the `Velero` addon using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
 
