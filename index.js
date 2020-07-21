@@ -114,7 +114,7 @@ MS.metadata({
   dcosDocsLatest: "2.1",
   dispatchDocsLatest: "1.2",
   kommanderDocsLatest: "1.0",
-  konvoyDocsLatest: "1.4",
+  konvoyDocsLatest: "1.5",
   kubeflowDocsLatest: "1.0.1-0.3.1",
 });
 
