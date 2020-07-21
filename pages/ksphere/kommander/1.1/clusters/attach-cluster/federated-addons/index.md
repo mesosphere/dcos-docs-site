@@ -8,7 +8,7 @@ excerpt: A description of how federated addons work
 
 ## Addons federation
 
-When attaching a cluster, Kommander federates certain addons on the newly attached cluster. To customize the federation of the logging and monitoring stacks, operators can use federation labels on addons.
+When attaching a cluster, Kommander federates certain addons on the newly attached cluster. To customize the federation of the logging and monitoring stacks, operators may apply labels to the associated `KommanderCluster` resource.
 
 On attachment, two factors impact if an addon is deployed or not on the attached cluster:
 1. Is the attached cluster a Konvoy cluster or not (e.g. a cluster deployed using AWS EKS)?
