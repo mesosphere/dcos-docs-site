@@ -24,7 +24,7 @@ Get cluster related information
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy get nodepools](./konvoy-get-nodepools/)	 - Print nodepools
 * [konvoy get ops-portal](./konvoy-get-ops-portal/)	 - Print ops-portal details
 

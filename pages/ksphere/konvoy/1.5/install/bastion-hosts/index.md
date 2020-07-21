@@ -18,14 +18,14 @@ To enable installation of cluster resources from an external network, you can co
 
 With a bastion host, you can use a secure shell (SSH) session to connect to cluster nodes from outside of the private network.
 
-The steps for configuring a bastion host depend on whether your cluster is installed as an on-premise cluster or deployed on AWS.
+The steps for configuring a bastion host depend on whether your cluster is installed as an on-premises cluster or deployed on cloud providers.
 
-## Configure a bastion host for an on-premise cluster
+## Configure a bastion host for an on-premises cluster
 
-To use a bastion host for an on-premise deployment, you **must** use [SSH agent forwarding][ssh_agent].
+To use a bastion host for an on-premises deployment, you **must** use [SSH agent forwarding][ssh_agent].
 The requirement to use SSH agent forwarding enables the bastion host to authenticate with the cluster nodes using keys on the deployment machine without copying or storing any keys on the bastion host itself.
 
-If you already have a private and public key pair for connecting to the cluster from the deployment machine, you can configure a bastion host for an on-premise cluster by doing the following:
+If you already have a private and public key pair for connecting to the cluster from the deployment machine, you can configure a bastion host for an on-premises cluster by doing the following:
 
 * [Configure SSH agent forwarding](#configure-ssh-agent-forwarding)
 * [Configure the inventory file](#configure-the-inventory-file)
@@ -121,7 +121,9 @@ These settings define the user name and port number that the bastion host uses t
 In editing the `inventory.yaml` file, you should also keep in mind that SSH agent forwarding is required and, therefore, you **must not** specify any value for the `ansible_ssh_private_key_file` setting.
 When you run `konvoy up`, Konvoy validates that a valid private key has been loaded in the SSH agent for the provided public key.
 
-## Configure a bastion host for cluster deployed on AWS
+## Configure a bastion host for cluster deployed using public cloud providers
+
+### On Amazon Web Services
 
 If you want to configure a bastion host for a Konvoy cluster deployed on an Amazon Web Services cloud instance, you can specify the bastion host information using the `ClusterProvisioner` section in the `cluster.yaml` file.
 
@@ -151,7 +153,8 @@ Using the `nodePool` settings, the AWS provisioner automatically creates two new
 
 Notice that `spec.sshCredentials.privateKeyFile` **must not** be specified.
 This would inform Konvoy to look for private keys in the SSH agent, instead of generating a new key pair.
-Remember that SSH agent forwarding is **required** for using bastion hosts.
+Remember that SSH agent forwarding is **required** for using bastion hosts and that the private key identity paired with the public key used in the `cluster.yaml` has to have been added to the authentication agent.
+A limited number of keys is used when authenticating via SSH. If you are unable to connect to an instance due to too many authentication failures, make sure that there are as few identities currently represented by the agent (`ssh-add -L`) as possible and that the private key is in the list.
 
 When a Konvoy cluster is deployed on an Amazon Web Services cloud instance, the Ansible inventory file, `inventory.yaml`, is automatically generated.
 The generated `inventory.yaml` file will be similar to the following:
@@ -166,7 +169,7 @@ bastion:
     ansible_port: 22
 ```
 
-<p class="message--note"><strong>NOTE: </strong>If you are using the Bastion host feature with an internal facing loadbalancer, for Kubernetes API, <a href="../../reference/cluster-configuration">aws.elb.internal: true</a> in the `ClusterConfiguration` section of `cluster.yaml` and deploying from a machine outside the network of the cluster, there is a known issue. Deployment of the Addons fails to connect to the Kubernetes API with the following example error:</p>
+<p class="message--note"><strong>NOTE: </strong>There is a known issue if you are using the Bastion host feature, setting <a href="../../reference/cluster-configuration">aws.elb.internal: true</a> in the `ClusterConfiguration` section of `cluster.yaml`, and deploying from a machine outside the network of the cluster. If you face a message similar to the example error below, please follow the workaround described in this page.</p>
 
 ```bash
 STAGE [Deploying Enabled Addons]
@@ -200,6 +203,52 @@ Deploy the addons once again.
 
 ```bash
 konvoy deploy addons -y
+```
+
+### On Google Cloud Platform
+
+Follow the same process as the one described for Amazon Web Services but with GCP machines:
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  nodePools:
+  - name: bastion
+    bastion: true
+    count: 2
+    machine:
+      imageID: centos-7
+      rootVolumeSize: 20
+      rootVolumeType: pd-standard
+      imagefsVolumeEnabled: false
+      type: n1-standard-2
+  sshCredentials:
+    user: centos
+    publicKeyFile: konvoy-ssh.pub
+```
+
+### On Microsoft Azure
+
+Follow the same process as the one described for Amazon Web Services but with Azure machines:
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  nodePools:
+  - name: bastion
+    bastion: true
+    count: 2
+    machine:
+      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      rootVolumeSize: 40
+      rootVolumeType: Standard_LRS
+      imagefsVolumeEnabled: false
+      type: Standard_D2_v3
+  sshCredentials:
+    user: centos
+    publicKeyFile: konvoy-ssh.pub
 ```
 
 [bastion_host]: https://en.wikipedia.org/wiki/Bastion_host

@@ -47,21 +47,24 @@ The `service-monitors` collect internal Kubernetes components but they can also 
 ## Grafana Dashboards
 
 With Grafana, you can query and view collected metrics in easy-to-read graphs.
-Konvoy ships with the following set of default dashboards:
+Konvoy ships with the following set of dashboards:
 
-* Kubernetes Components: Nodes, Pods, Kubelet, Scheduler, StatefulSets and Persistent Volumes
+* Kubernetes Components: API Server, Nodes, Pods, Kubelet, Scheduler, StatefulSets and Persistent Volumes
 * Kubernetes USE method: Cluster and Nodes
-* Traefik
-* CoreDNS
-* Grafana
-* Kube-Apiserver
-* Local Volume Provisioner
 * Etcd
-* Prometheus
-* FluentBit
+* CoreDNS
+* Calico
+* Autoscaler
+* Local Volume Provisioner
 * Volume Space Usage
+* Prometheus
+* Grafana
+* Fluent Bit
 * Elasticsearch
+* Kibana
 * Velero
+* Traefik
+* Ops Portal
 
 Initially, all of the dashboards are enabled by default.
 However, you can disable any of them when defining the cluster requirements for Prometheus in the `cluster.yaml` file.
@@ -73,20 +76,9 @@ For example, if you want to disable the `elasticsearch` and `traefik` dashboards
   enabled: true
   values: |
     mesosphereResources:
-     create: true
      dashboards:
-       apiserver: true
-       calico: true
-       controlmanager: true
        elasticsearch: false
-       grafana: true
-       kubelet: true
-       localvolumeprovisioner: true
-       localvolumeusage: true
-       prometheusoverview: true
-       scheduler: true
        traefik: false
-       velero: true
 ```
 
 Similarly, you can disable all of the default dashboards by setting the `defaultDashboardsEnabled` property to `false` under Prometheus in the `cluster.yaml` file.
@@ -173,8 +165,8 @@ Some examples of the alerts currently available are:
 
 A complete list with all the pre-defined alerts can be found [here][prometheus_rules].
 
-You can disable the default alert rules in the `cluster.yaml` file by providing the desired configuration.
-For example, if you want to disable the default `etcd` and `node` alert rules, you can modify the Prometheus section in the `cluster.yaml` file as follows:
+You can enable or disable the default alert rules in the `cluster.yaml` file by providing the desired configuration.
+For example, if you want to disable the default `node` alert rules, you can modify the Prometheus section in the `cluster.yaml` file as follows:
 
 ```yaml
 - name: prometheus
@@ -182,8 +174,18 @@ For example, if you want to disable the default `etcd` and `node` alert rules, y
   values: |
     defaultRules:
       rules:
-        etcd: false
         node: false
+```
+
+If you want to enable the default `etcd` alert rules, configure Prometheus as follows:
+
+```yaml
+- name: prometheus
+  enabled: true
+  values: |
+    defaultRules:
+      rules:
+        etcd: true
 ```
 
 Alert rules for the Velero platform service addon are turned off by default.
@@ -196,7 +198,6 @@ If the addon is disabled, the alert rules should also be disabled to avoid alert
   enabled: true
   values: |
     mesosphereResources:
-     create: true
      rules:
        velero: true
 ```
@@ -300,7 +301,7 @@ kubectl create secret generic -n kubeaddons \
   alertmanager-prometheus-kubeaddons-prom-alertmanager \
   --from-file=alertmanager.yaml \
   --from-file=notification.tmpl \
-  --dry-run -o yaml | kubectl apply -f -
+  --dry-run=client --save-config -o yaml | kubectl apply -f -
 ```
 
 ## Monitoring applications

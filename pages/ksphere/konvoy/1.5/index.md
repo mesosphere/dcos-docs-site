@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 1.5.0-beta
+navigationTitle: Konvoy 1.5
 title: Welcome to Konvoy 1.5
 featureMaturity:
 enterprise: false
-beta: true
 category: K-Sphere
 menuWeight: 0
 ---

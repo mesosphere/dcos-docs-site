@@ -22,32 +22,35 @@ The Kubernetes community documentation provides tremendous value for analyzing a
 - [Debugging Nodes with `crictl`][ts-crictl]
 - [Getting a Shell into a Running Container][ts-live-shell]
 
-Reviewing the community documentation is strongly recommended, as it provides significant useful context.
+Reviewing the community documentation is strongly recommended as it provides significant useful context.
 
 # Exploring Errors in Kubernetes
 
-While distributed systems experience many categories of errors, and there is no singular process for diagnosing all errors in Kubernetes, there are a few steps that can help you find your way around.
+While distributed systems experience many categories of errors, there is no singular process for diagnosing all errors in Kubernetes, there are a few steps that can help you find your way around.
 
 ## Identify the type of failure
 
-**Networking errors** will often be manifest in:
+**Networking errors** will often manifest in:
 
-- Pods starting, but being unable to reach other pods. Check pod logs for indications via `kubectl logs`.
-- Pods failing to start, stuck in Pending state, or are unscheduleable. Check Kubernetes state via `kubectl describe pod`, and notice the Events section.
-- Services unreachable, either within the cluster or externally. Check Kubernetes state via `kubectl describe service`.
-  - A misconfiguration of the service's `selector` will result in the service successfully registering, but no pods being selected as endpoints behind it. As such, `kubectl describe service` will show it having no associated endpoints.
+| Symptom | Diagnosis |
+|---|---|
+| Pods starting but unable to reach other pods. | Check pod logs for issues via `kubectl logs`.|
+|Pods failing to start, stuck in Pending state, or are unscheduleable. |Check Kubernetes state via `kubectl describe pod` and review the Events section. |
+|Services are unreachable, either within the cluster or externally. | Check Kubernetes state via `kubectl describe service`. A misconfiguration of the service's `selector` will result in the service successfully registering, but no pods selected as endpoints behind it. As such, `kubectl describe service <service_name>` will show the service having no associated endpoints.|
 
-**Storage failures** will often be manifest in:
+**Storage failures** will often manifest in:
 
-- Pods failing to start, stuck in Pending state, or are unscheduleable. Check Kubernetes state via `kubectl describe pod`, and notice the Events section.
-- PersistentVolumeClaims being unresolved. Check Kubernetes state for related objects, `kubectl get sc,pv,pvc`; this should also be indicated in the Pod's Events section.
-- Applications exceeding storage allocation; Check pod logs for indications via `kubectl logs`.
+| Symptom | Diagnosis |
+|---|---|
+|Pods failing to start, stuck in Pending state, or are unscheduleable. | Check Kubernetes state via `kubectl describe pod` and review the Events section.
+|PersistentVolumeClaims being unresolved. | Check Kubernetes state for related objects, `kubectl get sc,pv,pvc`; this should also be indicated in the Pod's Events section.
+|Applications exceeding storage allocation| Check pod logs for issues via `kubectl logs`.
 
 **Deployment Configuration failures** will often manifest in:
 
-- Pods failing to start, stuck in Pending state, or are unscheduleable.
-  Check Kubernetes state via `kubectl describe pod`, and notice the Events section.
-  - Often this results from misconfigured storage volumes, [configuration maps][task-configmap], or [secrets][task-secret].
+| Symptom | Diagnosis | Notes |
+|---|---|---|
+|Pods failing to start, stuck in Pending state, or are unscheduleable. | Check Kubernetes state via `kubectl describe pod` and review the Events section.| Often this results from misconfigured storage volumes, [configuration maps][task-configmap], or [secrets][task-secret].
 
 # Diagnostics with Konvoy
 
@@ -57,15 +60,16 @@ Konvoy offers automation to identify many infrastructure and configuration probl
 
 ## Verify system prerequisites
 
-Running Kubernetes with Konvoy requires some specific system configurations on each machine. This command validates those requirements:
+Running Kubernetes with Konvoy requires some specific system configurations on each machine. The following command validates those requirements:
 
 ```bash
 konvoy check preflight
 ```
 
-Preflight checks target the underlying infrastructure, and its viablilty for hosting a Kubernetes cluster.
-These checks can help isolate and identify underlying problems that would effect Kubernetes, but may not be directly apparent in Kubernetes API.
-Some of the requirements it validates:
+Preflight checks target the underlying infrastructure, and its viability for hosting a Kubernetes cluster.
+These checks can help isolate and identify underlying problems that would affect Kubernetes but may not be directly apparent in Kubernetes API.
+
+A few of the requirements preflight checks validates:
 
 - The machine is reachable by SSH, and has a suitable SSH configuration
 - A suitable version of Python is installed
@@ -79,14 +83,13 @@ Some of the requirements it validates:
 
 Running the preflight checks is recommended when:
 
-- A node seems to be unreachable or unresponsive, in Kubernetes.
+- A node seems to be unreachable or unresponsive in Kubernetes.
 - Applications are failing to communicate across the cluster.
 - Operating system upgrades, system configuration, or network maintenance may have interrupted service.
 
 ## Verify health of nodes
 
-Once a Kubernetes cluster is operational, additional node health checks are available by querying the API.
-This command performs those checks:
+Once a Kubernetes cluster is operational, additional node health checks are available by querying the API:
 
 ```bash
 konvoy check nodes
@@ -103,10 +106,10 @@ In addition to all the preflight checks, this also validates:
 Running node health checks is recommended when:
 
 - Kubernetes reports that a node is unhealthy
-- Pods are scheduled to a node, but not starting
-- Pods are running, but not reachable within the cluster's network
+- Pods are scheduled to a node but not starting
+- Pods are running but not reachable within the cluster's network
 
-**NOTE** Some pod execution errors may be explored via [local node debugging with crictl][ts-crictl].
+**NOTE** Some pod execution errors can be explored via [local node debugging with crictl][ts-crictl].
 
 ## Verify Kubernetes cluster health
 
@@ -136,8 +139,8 @@ Running Kubernetes health checks is recommended when:
 
 ## Verify installed addons
 
-Konvoy provides a suite of opertional tools, to fulfill a production-ready Kubernetes environment.
-This command ensures that they're all installed and running correctly:
+Konvoy provides a suite of operational tools, to fulfill a production-ready Kubernetes environment.
+The following command ensures that all enabled addons are installed and running correctly:
 
 ```bash
 konvoy check addons
@@ -145,14 +148,14 @@ konvoy check addons
 
 In particular, this checks:
 
-- All enabled addons are installed and running
-- The deployed addons match the configuration of `cluster.yaml`
+- That all enabled addons are both installed and running
+- The deployed addons match the configurations defined in the `cluster.yaml` file
 
 **NOTE** If you manually customize components of a deployed addon, without tuning the associated `values` field for that addon in `cluster.yaml`, this command may report an error in your addon deployment.
 
 Running addon health checks is recommended when:
 
-- Any Konvoy addon is unreachable or unresponsive, e.g. Prometheus is down
+- Any Konvoy addon is unreachable or unresponsive, e.g., Prometheus is down
 - Logging and metrics data are not updating in Kibana and Grafana
 - An application deployed with an Ingress is unreachable
 

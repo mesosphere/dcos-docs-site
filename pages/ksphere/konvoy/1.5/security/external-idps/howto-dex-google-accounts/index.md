@@ -15,20 +15,21 @@ This requires your Konvoy cluster to be reachable via a public DNS name. In this
 
 ### Step 1: set up Google project and Google OAuth app
 
+This step creates an OpenID Connect identity provider served by Google Accounts.
+
 1. Go to [Google's developer console] and create a project.
 2. Select that project.
-3. In the `Credentials` tab of that project start with setting up the `OAuth consent screen`.
-4. Here it is important to configure `Authorized domains`: add the DNS name via which your Konvoy cluster is publicly reachable, i.e. `<YOUR-CLUSTER-HOST>` in this example.
+3. Select `OAuth consent screen` in the sidebar.
+4. Configure the OAuth consent screen. Make sure to configure `Authorized domains` with the publicly reachable DNS name for your cluster, i.e. `<YOUR-CLUSTER-HOST>` in this example.
 5. Save the `OAuth consent screen` configuration.
-6. Press `Create credentials`, select `OAuth client ID`, and then `Web application`.
-7. Under `Authorized redirect URIs` insert `https://<YOUR-CLUSTER-HOST>/dex/callback`.
-8. Save the configuration and note down the client ID and the client secret.
+6. Select `Credentials` in the sidebar.
+7. Select `Create credentials` and create an `OAuth client ID`. Set its `Application type` to `Web application`.
+8. Under `Authorized redirect URIs` add `https://<YOUR-CLUSTER-HOST>/dex/callback`.
+9. Select `Create`. Write down the client ID and the client secret. These are used in the next step.
 
 ### Step 2: add OpenID Connect (OIDC) connector
 
-In step 1 you have created an OpenID Connect identity provider served by Google Accounts.
-
-Now create a YAML file (`oidc.yaml`) like the following:
+Create a YAML file (`oidc.yaml`) with the following contents:
 
 ```yaml
 apiVersion: v1
@@ -59,7 +60,9 @@ spec:
     userNameKey: email
 ```
 
-And then run the following command:
+Replace `<CLIENT-ID>` and `<CLIENT-SECRET>` with the values from step 1, and replace `<YOUR-CLUSTER-HOST>` with your cluster's DNS name.
+
+Create the resources defined in the file:
 
 ```bash
 kubectl apply -f oidc.yaml
@@ -67,7 +70,6 @@ kubectl apply -f oidc.yaml
 
 ### Step 4: log in
 
-Visit `https://<YOUR-CLUSTER-HOST>/token` and initiate a login flow.
-On the login page choose the `Log in with Google Accounts` button, and follow the login flow.
+Browse to `https://<YOUR-CLUSTER-HOST>/token` and select `Log in with Google Accounts`, then follow the login flow.
 
 [Google's developer console]: https://console.developers.google.com

@@ -10,7 +10,7 @@ excerpt: API documentation (v1beta1)
 
 # API Documentation (v1beta1)
 
-> Note this document is generated from code comments. When contributing a change to this document please do so by changing the code comments.
+> This document is automatically generated from the API definition in the code.
 
 ## Table of Contents
 * [AutoscalingOptions](#autoscalingoptions)
@@ -127,7 +127,7 @@ Machine specifies details about a machine in a node pool.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| imageID | The image ID that will be used for the instances instead of the default image. Depending on the provisioner, the meaning is different. `aws`: [AMI ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html). `azure`: [VM Image URN](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage). `gcp`: [Image URI](https://cloud.google.com/sdk/gcloud/reference/compute/images/list). `docker`: N/A. | string | false |
+| imageID | The image ID that will be used for the instances instead of the default image. Depending on the provisioner, the meaning is different. `aws`: [AMI ID](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html). `azure`: [VM Image URN](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/cli-ps-findimage). `gcp`: [VM Image URI](https://cloud.google.com/sdk/gcloud/reference/compute/images/list). `docker`: N/A. | string | false |
 | imageName | The image name (e.g., Docker image name) that is used instead of the default image. Depending on the provisioner, the meaning is different. `aws`: N/A. `azure`: N/A. `gcp`: N/A. `docker`: Docker image name. | string | false |
 | rootVolumeSize | The root volume size in GiBs. (default: 80) | int64 | false |
 | rootVolumeType | The root volume type. Depending on the provisioner, the meaning is different. `aws`: [EBS volume type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) (default: `gp2`). `azure`: [Disk storage account type](https://docs.microsoft.com/en-us/rest/api/compute/disks/createorupdate#diskstorageaccounttypes) (default: `StandardSSD_LRS`). `gcp`: [Disk type](https://cloud.google.com/sdk/gcloud/reference/compute/disk-types) (default: `pd-ssd`). `docker`: N/A. | string | false |
@@ -428,7 +428,7 @@ Addons describes an addon repository to use for the cluster.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| configRepository | The git repository of the addon repository to use. (default: `https://github.com/mesosphere/kubernetes-base-addons`) | string | true |
+| configRepository | The git repository of the addon repository to use. (default: `https://github.com/mesosphere/kubernetes-base-addons`) | string | false |
 | configVersion | The version of the addon configuration files to use. (default: `master`) | string | false |
 | helmRepository | In-cluster helm configuration used during air-gapped installations. | [HelmRepository](#helmrepository) | false |
 | addonsList | List of addon objects that can be deployed, if enabled. | AddonConfigs | false |
@@ -643,7 +643,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.17.7`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.17.8`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |

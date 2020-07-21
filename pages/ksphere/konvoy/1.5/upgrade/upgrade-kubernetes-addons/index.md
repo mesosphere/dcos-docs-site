@@ -66,14 +66,14 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.17.7
+    version: 1.17.8
 ```
 
 ## Prepare for addons upgrade
 
-Konvoy platform service addons are managed by a library that pulls default configuration details from the <a href="https://github.com/mesosphere/kubernetes-base-addons" target="_blank">kubernetes-base-addons</a> repository.
+Konvoy platform service addons are managed by a library that pulls default configuration details from the [kubernetes-base-addons][addons_repo] repository.
 
-Versioning for the platform service addons is managed by <a href="https://git-scm.com/book/en/v2/Git-Basics-Tagging" target="_blank">git tags</a> and <a href="https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository" target="_blank">github releases</a> within the <a href="https://github.com/mesosphere/kubernetes-base-addons" target="_blanK">kubernetes-base-addons</a> repository.
+Versioning for the platform service addons is managed by [git tags][git_tags] and [github releases][git_releases] within the [kubernetes-base-addons][addons_repo] repository.
 
 Addons are deployed to the cluster as part of the `konvoy up`, `konvoy deploy` or `konvoy deploy addons` commands.
 These commands use the version of `kubernetes-base-addons` declared in the `cluster.yaml` configuration file using the `spec.addons.version` setting.
@@ -120,12 +120,12 @@ During the Kubernetes upgrade process, Konvoy:
 -   During stage `STAGE [Determining Upgrade Safety ...]`, checks for any user workloads that can be impacted by the upgrade and marks the nodes, where the workloads are running, as "unsafe" to upgrade, skipping the upgrade process on them.
     - To ignore the safety check _for worker nodes only_, use the `--force-upgrade` flag.
     - Otherwise you can resolve the safety issues after the initial upgrade and rerun the upgrade process to let Konvoy perform the upgrade on the remaining nodes.
--   Upgrades all of the control-plane nodes.
+-   Upgrades all the control-plane nodes serially.
 -   Upgrades the remaining nodes sequentially, upgrading all of the nodes in a node pool before continuing onto a different node pool.
     -   By default, konvoy upgrades every node pool. To upgrade a subset of node pools, specify a comma-separated list of node pool names, with the `--target-node-pools` flag.
-    -   By default, `15%` of all nodes in each node pool, are upgraded in parallel, with the control-plane nodes always upgraded serially.
+    -   By default, `15%` of all nodes in each node pool (except those in the control-plane) are upgraded in parallel.
         To change this behavior, pass the flag `--max-parallel-nodes` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`.
-        The value can be an integer, representing the number of nodes, or a percentage of nodes in the a node pool.
+        The value can be an integer, representing the number of nodes, or a percentage of nodes in the node pool (e.g. `--max-parallel-nodes 20%`).
         Passing a value of `1` upgrades the nodes serially.
         If some nodes in a batch fail to upgrade, Konvoy continues to upgrade the other nodes in the batch, but exits with an error. Fix the error manually and retry the process.
     -   The workloads are moved to a different node with `kubectl drain`. This process takes a few minutes before all workloads are scheduled onto different nodes. You can disable this behavior by passing the flag `--without-draining` when running `konvoy up`, `konvoy deploy` or `konvoy deploy kubernetes`. When `--without-draining` is specified, because no workloads are rescheduled, all nodes are upgraded, even when there are workloads that are "unsafe" to upgrade.
@@ -191,3 +191,7 @@ You can upgrade all remaining nodes by running the following Konvoy command:
 ```bash
 konvoy up --upgrade -y
 ```
+
+[addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
+[git_releases]: https://help.github.com/en/github/administering-a-repository/managing-releases-in-a-repository
+[git_tags]: https://git-scm.com/book/en/v2/Git-Basics-Tagging

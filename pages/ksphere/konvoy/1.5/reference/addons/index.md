@@ -52,7 +52,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.0.0-5
+    configVersion: stable-1.17-2.0.2
     addonsList:
     - name: cert-manager
       enabled: true
@@ -60,7 +60,7 @@ spec:
       enabled: false
 ```
 
-In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `testing-2.0.0-5` release.
+In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `stable-1.17-2.0.2` release.
 `external-dns` is not enabled, but can be enabled if needed.
 
 ### Advanced
@@ -90,7 +90,7 @@ If you add a list of addresses for metallb to use, it assigns those addresses to
 ```yaml
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.0.0-5
+    configVersion: stable-1.17-2.0.2
     addonsList:
     - name: cert-manager
       enabled: true
@@ -108,11 +108,11 @@ The Kubeaddons operator can be used to pattern and install your sets of software
 
 ### Create an addon repository for your applications
 
-Create a git repository that can be reached from a pod inside your cluster.
+Create a git repository that can be reached from a pod inside your cluster. You can read more about that in our [Addon Repositories tutorial][addon_tutorial].
 
 #### Repository Structure
 
-See the [D2iQ base addons repository](https://github.com/mesosphere/kubernetes-base-addons) for an example and documentation of the repository structure.
+See the [D2iQ base addons repository][base_addons_repo] for an example and documentation of the repository structure.
 
 #### Addon Record
 
@@ -176,15 +176,15 @@ spec:
 
 The above example is for a helm chart.
 This is expressed using the `chartReference` map.
-The `chart` and `version` keys reference the helm chart name, and version.
+The `chart` and `version` keys reference the helm chart name and version.
 Use the optional `repo` key to point to a custom repository.
-If `repo` is not specified, the [default helm chart](https://github.com/helm/charts/) repo is used.
+If `repo` is not specified, the [default helm chart][helm_charts] repo is used.
 Override the default chart values using the `values` key.
 Changes made here are merged with the chart's `values.yaml` file when applied using helm.
 
 ##### Kudo (preview)
 
-*NOTE:* Kudo support is in a preview state.
+<p class="message--note"><strong>NOTE: </strong>Kudo support is in a preview state.</p>
 
 To define a kudo addon, replace the `chartReference` definition with a `kudoReference`.
 
@@ -200,3 +200,7 @@ Select the repository with the `repo` key.
 Specify the version with the `version` key.
 
 There is no way to override the kudo operator's `params` at this time.
+
+[addon_tutorial]: ../../tutorials/addon-repositories/
+[base_addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
+[helm_charts]: https://github.com/helm/charts/

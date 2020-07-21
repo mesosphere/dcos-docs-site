@@ -67,7 +67,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.0.0-5
+    configVersion: stable-1.17-2.0.2
     addonsList:
     - name: nvidia
       enabled: true
@@ -143,7 +143,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.0.0-5
+    configVersion: stable-1.17-2.0.2
     addonsList:
     - name: nvidia
       enabled: true
@@ -196,7 +196,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.0.0-5
+    configVersion: stable-1.17-2.0.2
     addonsList:
 ......
     - name: nvidia
@@ -225,7 +225,7 @@ spec:
 
 ## Nvidia GPU Monitoring
 
-Konvoy uses [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm] to display Nvidia GPU metrics. By default, Konvoy has a grafana dashboard called `GPU/Nvidia` to monitor GPU metrics. This GPU dashboard in Konvoy's Grafana UI.
+Konvoy uses [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm] to display Nvidia GPU metrics. By default, Konvoy has a grafana dashboard called `GPUs/Nvidia` to monitor GPU metrics. This GPU dashboard is shown in Konvoy's Grafana UI.
 
 ## Upgrade
 
@@ -270,7 +270,7 @@ To overcome this limitation and upgrade the Nvidia GPU addon manually:
 1.  To recover from this problem, you must restart all Nvidia-addon pods that are running on the **SAME** host. This is because both `nvidia-dcgm-exporter` and `nvidia-device-plugin` are dependent on `nvidia-driver`. In the example below, all Nvidia resources are restarted on the node `ip-10-0-129-201.us-west-2.compute.interna`:
 
     ```bash
-    ➜  konvoy ✗ kubectl get pod -A -o wide | grep nvidia
+    $ kubectl get pod -A -o wide | grep nvidia
     kube-system    nvidia-kubeaddons-nvidia-device-plugin-dxtch                         1/1     Running     0          4m20s   192.168.57.153    ip-10-0-129-191.us-west-2.compute.internal   <none>           <none>
     kube-system    nvidia-kubeaddons-nvidia-device-plugin-j4dm2                         1/1     Running     0          4m20s   192.168.39.88     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
     kube-system    nvidia-kubeaddons-nvidia-device-plugin-qb29b                         1/1     Running     0          4m20s   192.168.119.35    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
@@ -283,9 +283,9 @@ To overcome this limitation and upgrade the Nvidia GPU addon manually:
     kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6                         2/2     Running     0          4m20s   192.168.243.100   ip-10-0-129-201.us-west-2.compute.internal   <none>           <none>
     kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-ttjqs                         2/2     Running     0          4m20s   192.168.39.89     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
     kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-xqj6r                         2/2     Running     0          4m20s   192.168.119.36    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
-    ➜  konvoy ✗ kubectl delete pod -n kubeaddons nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6
+    $ kubectl delete pod -n kubeaddons nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6
     pod "nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6" deleted
-    ➜  konvoy ✗ kubectl delete pod -n kube-system nvidia-kubeaddons-nvidia-device-plugin-tsbk2 nvidia-kubeaddons-nvidia-driver-ks9hf
+    $ kubectl delete pod -n kube-system nvidia-kubeaddons-nvidia-device-plugin-tsbk2 nvidia-kubeaddons-nvidia-driver-ks9hf
     pod "nvidia-kubeaddons-nvidia-device-plugin-tsbk2" deleted
     pod "nvidia-kubeaddons-nvidia-driver-ks9hf" deleted
     ```

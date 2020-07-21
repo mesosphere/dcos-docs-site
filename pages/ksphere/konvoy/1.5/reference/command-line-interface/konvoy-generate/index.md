@@ -25,6 +25,6 @@ Generates artifacts
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy generate cluster-admin-serviceaccount](./konvoy-generate-cluster-admin-serviceaccount/)	 - Generates the resources used to create a cluster-admin service account
 

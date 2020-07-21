@@ -9,131 +9,221 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-This section guides you through the basic steps to prepare your environment and install Konvoy on Azure.
+This section describes how to prepare your environment and install Konvoy on Azure. It relates to deploying the entire Kubernetes cluster onto Azure Infrastructure as a Service (IaaS). You can also manage Azure Kubernetes Service (AKS) through [D2iQ Kommander][kommander_clusters].
 
-## Prerequisites
+## Before you Begin
 
 * The [azure][install_az] command line utility
 * [Docker][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.17.7 or newer_ (for interacting with the running cluster)
-* A valid Azure account with [credentials configured][az_login].
-  You need to be authorized as a `Contributor` in your Azure account and need the be able to assign roles to a user.
+* [kubectl][install_kubectl] _v1.17.8 or newer_ (for interacting with the running cluster)
+* Latest Konvoy [Download][konvoy_download]
+* A valid Azure account [used to sign in with the Azure CLI][az_login].
+
+First, log in to your Azure account with the following command:
+
+  ```bash
+  az login
+  ```
+
+This should open a browser window asking for your credentials. Once you supply your credentials to the Azure login webpage, the command line will return, outputting some of your account information (including the subscriptions you have access to).
+
+  ```bash
+  You have logged in. Now let us find all the subscriptions to which you have access...
+  {
+    "cloudName": "AzureCloud",
+    "homeTenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX1",
+    "id": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX2",
+    "isDefault": true,
+    "managedByTenants": [],
+    "name": "Konvoy Developer Subscription",
+    "state": "Enabled",
+    "tenantId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX1",
+    "user": {
+      "name": "user@company.onmicrosoft.com",
+      "type": "user"
+    }
+  }
+  ```
+
+If your account has access to multiple subscriptions, you should choose which subscription to use. You can do this by running the command below. It will require your subscription name which can be found in the output of the az login command.
+
+  ```bash
+  az account set --subscription "Your Subscription Name"
+  ```
+
+You need to be authorized as a `Contributor` in your Azure account and need to be able to assign roles to a user. To do this, you or your Azure Administrator must run the following command:
 
   ```bash
   az role assignment create --assignee YOUR_USER_LOGIN --role "User Access Administrator"
   ```
 
-* Make sure to set your subscription you want to use
+You will see this:
 
   ```bash
-  az account set --subscription "Your Subscription Label"
+  {
+    "canDelegate": null,
+    "id": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX2/providers/Microsoft.Authorization/roleAssignments/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX3",
+    "name": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX3",
+    "principalId": "XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX4",
+    "principalName": "user@company.onmicrosoft.com",
+    "principalType": "User",
+    "roleDefinitionId": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX2/providers/Microsoft.Authorization/roleDefinitions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX5",
+    "roleDefinitionName": "User Access Administrator",
+    "scope": "/subscriptions/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXX2",
+    "type": "Microsoft.Authorization/roleAssignments"
+  }
   ```
 
-## Installation
+## Preparing the Cluster Configurations
 
-After verifying your prerequisites, you can create an Azure Kubernetes cluster by running `konvoy up`.
-This command creates your [Azure Virtual Machines][compute_virtual_machine] instances, installs Kubernetes and default add-ons to support your Kubernetes cluster.
+After verifying your prerequisites, you can create all of the default configuration files needed to launch an Azure Kubernetes cluster by running the following command. Please note that the directory from which you create your configuration files and cluster will be the directory you will need to run any subsequent Konvoy commands for future administration.
 
-Specifically, the `konvoy up` command does the following:
+  ```bash
+  konvoy init --provisioner=azure
+  ```
 
-* Provisions three `Standard_DS3_v2` virtual machines as Kubernetes master nodes
-* Provisions six `Standard_DS3_v2` virtual machines as Kubernetes worker nodes
-* Deploys all of the following default add-ons:
-  * Calico
-  * Cert-Manager
-  * CoreDNS
-  * Helm
-  * Azure Disk CSI driver
-  * Elasticsearch (including Elasticsearch Exporter)
-  * Fluent Bit
-  * Kibana
-  * Prometheus operator (including Grafana, AlertManager and Prometheus Adapter)
-  * Traefik
-  * Kubernetes dashboard
-  * Operations portal
-  * Velero
-  * Dex identity service
-  * Dex Kubernetes client authenticator
-  * Traefik forward authorization proxy
-  * Kommander
-  * Reloader
-  * Default Storage Class Protection
-  * Gatekeeper
-  * Kudo
-  * Konvoy Config
+The output should look like this:
 
-The default configuration options are recommended for a small cluster (about 10 worker nodes).
+  ```bash
+  Created configuration file successfully!
+  ```
 
-## Modifying the cluster name
+If you don't want to have the cluster name generated based on the working directory, you can instead run the following command to customize the cluster name:
 
-By default, the cluster name is the name of the folder where your run the `konvoy` command.
-The cluster name will be used to tag the provisioned infrastructure and the context when applying the kubeconfig file.
-To customize the cluster name, run the following command:
+  ```bash
+  konvoy up --provisioner azure --cluster-name <YOUR_SPECIFIED_NAME>
+  ```
 
-```bash
-konvoy up --cluster-name <YOUR_SPECIFIED_NAME> --provisioner azure
-```
+<p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _</code>.</p>
 
-**NOTE:** The cluster name may only contain the following characters: `a-z, 0-9, . - and _`.
+The directory where you ran this command will now contain two certificate files (`.pub` and `.pem`) to be used in the provisioning of the cluster. It will also contain a file named `cluster.yaml` which will have all of the default configurations for building a Konvoy cluster on Azure.
 
-## Show planned infrastructure changes
+A summary of the default cluster deployment is below.
 
-Before running `konvoy up` or `konvoy provision` it is also possible to show the calculated changes that would be performed on the infrastructure by [Terraform][terraform].
+<p class="message--note"><strong>NOTE: </strong>Please refer to the <a href="../../reference/cluster-configuration/">cluster.yaml reference documentation</a> if you would like to customize your installation.</p>
 
-Running the following command should result in a similar output:
+* Provisions three `Standard_D4S_v3` virtual machines as Kubernetes master nodes
+* Provisions six `Standard_D4S_v3` virtual machines as Kubernetes worker nodes
+* Deploys a Kubernetes cluster with an auto-generated name
+* Deploys all of the following default Addons:
+  * dashboard
+  * konvoyconfig
+  * reloader
+  * azurediskprovisioner
+  * azuredisk-csi-driver
+  * cert-manager
+  * opsportal
+  * gatekeeper
+  * defaultstorageclass-protection
+  * traefik
+  * prometheus
+  * prometheusadapter
+  * dex
+  * elasticsearch
+  * elasticsearch-curator
+  * elasticsearchexporter
+  * fluentbit
+  * velero
+  * dex-k8s-authenticator
+  * traefik-forward-auth
+  * kube-oidc-proxy
+  * kommander
+  * kibana
 
-```text
-$ konvoy provision --plan-only
-...
-Plan: 41 to add, 0 to change, 0 to destroy.
-```  
+The complete list of Azure infrastructure (VMs, networking, etc.) to be provisioned can be listed by running the following command:
 
-**NOTE:** This command can be run before the initial provisionioning or at any point after modifications are made to the `cluster.yaml` file.
+  ```bash
+  konvoy provision --plan-only
+  ```
 
-## Control plane and worker nodes
+<p class="message--note"><strong>NOTE: </strong>This command can be run before the initial provisioning or at any point after modifications are made to the <code>cluster.yaml</code> file.</p>
 
-Control plane nodes are the nodes where the Kubernetes Control Plane components will be installed.
-The Control Plane contains [various components][control_plane], including `etcd`, `kube-apiserver` (that [you will interact with through `kubectl`][kubectl]), `kube-scheduler` and `kube-controller-manager`. Please also refer to the [Concepts section][concepts].
-Having three control plane nodes makes the cluster "highly available" to protect against failures.
-Worker nodes run your containers in [Kubernetes pods][pods].
+## Preparing the Cluster Configurations
 
-## Default addons
+To install the cluster with the configurations specified in the `cluster.yaml`, make sure you are in the directory with the certificates and `cluster.yaml` file and run the following command:
 
-The default addons help you manage your Kubernetes cluster by providing monitoring (Prometheus), logging (Elasticsearch), dashboards (Kubernetes Dashboard), storage (Azure Disk CSI Driver), ingress (Traefik) and other services.
+  ```bash
+  konvoy up -y
+  ```
 
-## Viewing installation operations
+This will kick off the creation of the Azure VM instances and environment and will install Kubernetes and all of the Addons specified in the `cluster.yaml`.  With the default configurations, it should take about 30 minutes for the Konvoy cluster to be provisioned.
 
-As noted above, you start the cluster installation by running the `konvoy up` command.
-As the `konvoy up` command runs, you will see output about the operations performed.
-The first set of messages you see is the output generated by [Terraform][terraform] as it provisions your nodes.
+When the deployment has completed, you should see output similar to the following:
 
-After the nodes are provisioned, [Ansible][ansible] connects to the EC2 instances and installs Kubernetes in steps called tasks and playbooks.
-Near the end of the output, addons are installed.
+  ```bash
+  Kubernetes cluster and addons deployed successfully!
 
-## Viewing cluster operations
+  Run `konvoy apply kubeconfig` to update kubectl credentials.
 
-You can access user interfaces to monitor your cluster through the [Operations Portal][ops_portal].
-After you run the `konvoy up` command, if the installation is successful, the command output displays the information you need to access the Operations Portal.
+  Run `konvoy check` to verify that the cluster has reached a steady state and all deployments have finished.
 
-For example, you should see information similar to this:
+  Navigate to the URL below to access various services running in the cluster.
+    https://52.137.106.92/ops/landing
+  And login using the credentials below.
+    Username: AUTO_GENERATED_USERNAME
+    Password: SOME_AUTO_GENERATED_PASSWORD_12345
 
-```text
-Kubernetes cluster and addons deployed successfully!
+  If the cluster was recently created, the dashboard and services may take a few minutes to be accessible.
+  ```
 
-Run `konvoy apply kubeconfig` to update kubectl credentials.
+**Install Errors:** If there is an error, a race condition may have occurred, and you can simply run the `up` process again to pick up where you left off:
 
-Navigate to the URL below to access various services running in the cluster.
-  https://169.50.16.186/ops/landing
-And login using the credentials below.
-  Username: AUTO_GENERATED_USERNAME
-  Password: SOME_AUTO_GENERATED_PASSWORD_12345
+  ```bash
+  konvoy up -y
+  ```
 
-The dashboard and services may take a few minutes to be accessible.
-```
+To verify that all of the Konvoy components are installed and running correctly, run this command:
 
-## Checking the files installed
+  ```bash
+  konvoy check
+  ```
 
-When the `konvoy up` completes its setup operations, the following files are generated:
+## Connecting to your Konvoy Operations Portal
+
+You can access the user interface to monitor and operate your cluster through the [Operations Portal][ops_portal]. The URL, username, and password to connect are in the output from the `konvoy up` command. If you need to get this information again, you can run the following command:
+
+  ```bash
+  konvoy get ops-portal
+  ```
+
+The output should contain this information.
+
+  ```bash
+    https://52.137.106.92/ops/landing
+  And login using the credentials below.
+    Username: AUTO_GENERATED_USERNAME
+    Password: SOME_AUTO_GENERATED_PASSWORD_12345
+  ```
+
+Use your browser to connect to the portal using the username and password.
+
+## Connecting directly to your Kubernetes cluster from the command line using kubectl
+
+In order to connect directly to the newly provisioned Kubernetes cluster with the native Kubernetes CLI (kubectl), you will first need to run a command to add the cluster connection information to kubctl's configuration file (`~./kube/config`). To do so, run this command:
+
+  ```bash
+  konvoy apply kubeconfig
+  ```
+
+After this command completes, you should be able to run any kubectl command connecting directly to the Kubernetes cluster. To test, you can run:
+
+  ```bash
+  kubectl get nodes
+  ```
+
+This should return the list of nodes that make up your new Kubernetes cluster.
+
+## Deprovisioning the Cluster
+
+To uninstall Konvoy and destroy all of the artifacts created in Azure by the deployment, you can run the following command:
+
+  ```bash
+  konvoy down -y
+  ```
+
+## Cluster Administration Directory
+
+As mentioned in the [Preparing the Cluster Configurations][preparing_cluster_configs] section above, the directory from which you ran `konvoy up` will remain the directory you need to run any subsequent `konvoy` CLI commands.  The `konvoy` CLI is used to administer the cluster (upgrade, deprovision, scale, change configs, install Addons, etc.).  This directory is important since it will now contain the following generated files:
 
 * `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster configuration][cluster_configuration].
 * `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
@@ -143,19 +233,15 @@ When the `konvoy up` completes its setup operations, the following files are gen
 * `runs` folder - which contains logging information.
 
 [az_login]: https://docs.microsoft.com/en-us/cli/azure/authenticate-azure-cli?view=azure-cli-latest
+[cluster_configuration]: ../../reference/cluster-configuration/
 [install_az]: https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[prerequisites]: #prerequisites
-[cluster_configuration]: ../../reference/cluster-configuration/
+[inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+[kommander_clusters]: https://docs.d2iq.com/ksphere/kommander/1.1/clusters/attach-cluster/
+[konvoy_download]: ../../download
+[kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
-[compute_virtual_machine]: https://azure.microsoft.com/en-ca/services/virtual-machines/
-[control_plane]: https://kubernetes.io/docs/concepts/overview/components/
-[pods]: https://kubernetes.io/docs/concepts/workloads/pods/pod/
-[terraform]: https://www.terraform.io
-[ansible]: https://www.ansible.com
-[kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-[inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+[preparing_cluster_configs]: #preparing-the-cluster-configurations
 [state]: https://www.terraform.io/docs/state/
-[concepts]: ../../concepts

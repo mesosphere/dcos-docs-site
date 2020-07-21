@@ -29,7 +29,7 @@ konvoy check [flags]
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy check addons](./konvoy-check-addons/)	 - Run checks on the addons
 * [konvoy check kubernetes](./konvoy-check-kubernetes/)	 - Run checks on the cluster components
 * [konvoy check nodes](./konvoy-check-nodes/)	 - Run checks on the nodes

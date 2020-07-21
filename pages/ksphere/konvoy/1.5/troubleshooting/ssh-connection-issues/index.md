@@ -9,7 +9,7 @@ enterprise: false
 
 ## Too many authentication failures
 
-If SSH agent forwarding is used, sometimes you might see the following error.
+If SSH agent forwarding is used, you might see the following error:
 
 ```text
 STAGE [Running Preflights]
@@ -28,20 +28,18 @@ MSG:
 timed out waiting for ping module test success: EOF on stream; last 300 bytes received: 'Received disconnect from 54.218.158.21 port 22:2: Too many authentication failures\r\n'
 ```
 
-To troubleshoot this issue, please first make sure the private key is in your SSH agent.
-You can verify that by using the following command.
+To troubleshoot this issue, make sure that the private key is in your SSH agent using the following command:
 
 ```bash
 ssh-add -L
 ```
 
-The above command will show you the public keys of the corresponding private keys in the SSH agent.
-If you do not find the corresponding public keys from the output of the above command, please add the private key to the SSH agent.
+The above command will display the public keys of the corresponding private keys represented by the SSH agent.
+If you do not find the corresponding public keys from the output of the above command, add the private key to the SSH agent using `ssh-add <PRIVATE_KEY>`.
 
-It is possible that the valid key is in the SSH agent, but you still get `Too many authentication failures` error.
-SSH server has a retry limit on the number of authentication attempt [MaxAuthTries][sshd_config].
-If you have more keys in the SSH agent than the retry limit, then you might see this issue.
-You can resolve the issue by resetting SSH agent using the following command, and add the private key after that.
+Even with the valid key in the SSH agent, it is possible to still get the `Too many authentication failures` due to the SSH server authentication retry limit [MaxAuthTries][sshd_config].
+
+If you have more keys in the SSH agent than the retry limit `MaxAuthTries`, you can resolve the issue by resetting the SSH agent and add the private key after that using the following commands:
 
 ```bash
 ssh-add -D

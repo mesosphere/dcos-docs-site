@@ -9,7 +9,102 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-## Kubernetes Base Addons
+## Kubernetes Base Addons Updates
+
+For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
+
+July 15, 2020
+
+[stable-1.17-2.0.2](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.0.2)
+[stable-1.16-2.0.2](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.0.2)
+[stable-1.15-2.0.2](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.0.2)
+
+-   traefik:
+    - Fix metric access and reporting.
+
+July 14, 2020
+
+[stable-1.17-2.0.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.0.1)
+[stable-1.16-2.0.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.0.1)
+[stable-1.15-2.0.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.0.1)
+
+-   traefik:
+    - Fix metric access and reporting.
+
+-   prometheus:
+    - Improve Grafana dashboard names and tags for dashboards tied to addons.
+
+July 9, 2020
+
+[stable-1.17-2.0.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.0.0)
+[stable-1.16-2.0.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.0.0)
+[stable-1.15-2.0.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.0.0)
+
+-   awsebscsiprovisioner:
+    - The manual steps to upgrade the snapshot APIs from v1alpha1 to v1beta1 are no longer required. This has been automated in the chart CRD install hook by default. If you do not want that default behavior, of cleaning up v1alpha1 snapshot CRDs, set `cleanupVolumeSnapshotCRDV1alpha1` to `false` and follow the instructions for upgrading to Kubernetes `1.17`.
+
+-   azuredisk-csi-driver:
+    - The manual steps to upgrade the snapshot APIs from v1alpha1 to v1beta1 is no longer required. It has been automated in the chart CRD install hook by default. If you do not want that default behavior of cleaning up v1alpha1 snapshot CRDs, you can set `snapshot.cleanupVolumeSnapshotCRDV1alpha1` to `false` and follow the instructions for upgrading to Kubernetes `1.17`.
+
+-   dashboard:
+    - Upgraded the Kubernetes dashboard to 2.0.3.
+    - Added metrics visualizations to the Kubernetes dashboard UI.
+
+-   dex-k8s-authenticator:
+    - Fixed a bug in init container that removed custom CA certificate from main cluster login instructions.
+    - You can render configure kubectl instructions with the cluster hostname.
+    - Added clippy js for clipboard support.
+
+-   gcpdisk-csi-driver:
+    - The manual steps to upgrade the snapshot APIs from v1alpha1 to v1beta1 are no longer required. This is automated in the chart CRD install hook by default. If you do not want this default behavior, of cleaning up v1alpha1 snapshot CRDs, set `cleanupVolumeSnapshotCRDV1alpha1` to `false` and follow the instructions for upgrading to Kubernetes `1.17`.
+
+-   opsportal:
+    - Fixed a typo in 'lables' that caused issues during upgrades.
+    - Allow landing page deployment replica count to be configured.
+
+-   prometheus:
+    - Updated prometheus-operator chart. This adds a grafana dashboard for monitoring autoscaler.
+    - Increased the default Prometheus server resources.
+
+-   prometheus-alert-manager:
+    - Increased memory and cpu limits caused by OOM errors.
+
+-   prometheus-operator:
+    -   Upgraded to version [0.38.1](https://github.com/coreos/prometheus-operator/releases/tag/v0.38.1).
+        -   prometheus:
+            - Upgraded to version [2.17.2](https://github.com/prometheus/prometheus/releases/tag/v2.17.2).
+        -   grafana:
+            - Upgraded to version [6.7.3](https://github.com/grafana/grafana/releases/tag/v6.7.3).
+
+-   traefik:
+    - Fixed an issue so `clusterhostname` can also be an ipaddress.
+    - Distribute pods across nodes and zones when possible.
+    - You can set a `PodDisruptionBudget` to ensure at least 1 pod is running at all times.
+    - Traefik is upgradeable again when the `initCertJobImage` field is modified.
+    - Upgraded to 1.7.24.
+    - mTLS is available.
+    - `accessLogs.filters` are setable.
+    - `caServer` is setable for acme challenge.
+    - Access log is enabled by default.
+    - Reverted changes to the service ports that broke Velero functionality.
+
+-   traefik-foward-auth:
+    - Fixed a bug that might cause `oauth` callback to be redirected to other services.
+
+-   ValuesRemap has been added for rewriting the forward authentication url in multiple addons.
+
+-   Konvoyconfig has a new field `caCertificate` that supports custom certificates in managed clusters.
+
+-   Istio addon is upgraded to 1.6.3.
+
+-   Added the Conductor service card to the cluster detail page of the UI.
+
+June 2, 2020
+
+[stable-1.17-1.8.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-1.8.0)
+
+-   kibana:
+    - Fixes an issue deploying an outdated version of Kibana to GCP.
 
 May 28, 2020
 
@@ -28,7 +123,10 @@ May 13, 2020
     - Supports specifying the root CA for LDAP connectors in the Dex controller.
 
 -   dex-k8s-authenticator:
-    - Adds support for the Konvoy credentials plugin.
+    - Adds support for the Konvoy credentials plug-in.
+
+-   elasticsearch:
+    - Default number of data replicas changed from 2 to 4.
 
 -   prometheus:
     - Restricts api extension RBAC rules.
@@ -101,8 +199,8 @@ May 13, 2020
 
 [stable-1.16-1.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-1.3.0), [stable-1.15-1.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-1.3.0)
 
--   ElasticSearch, Fluentbit:
-    - Create ElasticSearch Index Template. Requires Fluentbit to deploy only after ElasticSearch deploys.
+-   Elasticsearch, Fluentbit:
+    - Create Elasticsearch Index Template. Requires Fluentbit to deploy only after Elasticsearch deploys.
 
 ### February 28, 2020
 
@@ -118,7 +216,7 @@ May 13, 2020
     - Allow configuring scopes. Drop `offline_access` scope as it is not used.
 
 -   Elasticsearch-curator:
-    - Add and enable curator to remove old indexes from ElasticSearch, freeing up storage.
+    - Add and enable curator to remove old indexes from Elasticsearch, freeing up storage.
 
 -   Fluent-bit:
     - Disable audit log collection. In production clusters the audit log can bloat the number of fields in an index. This causes filling of resource limits and throttling. This collection is pending further investigation.

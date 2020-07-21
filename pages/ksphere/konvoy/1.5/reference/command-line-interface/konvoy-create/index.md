@@ -24,6 +24,6 @@ Creates a new node pool in the cluster configuration
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy create nodepool](./konvoy-create-nodepool/)	 - Creates a new node pool
 

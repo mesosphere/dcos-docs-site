@@ -14,9 +14,9 @@ When Konvoy completes the provisioning of the cluster, it provides the access de
 ```text
 Kubernetes cluster and addons deployed successfully!
 
-Run `./konvoy apply kubeconfig` to update kubectl credentials.
+Run `konvoy apply kubeconfig` to update kubectl credentials.
 
-Run `./konvoy check` to verify that the cluster has reached a steady state and all deployments have finished.
+Run `konvoy check` to verify that the cluster has reached a steady state and all deployments have finished.
 
 Navigate to the URL below to access various services running in the cluster.
   https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing
@@ -42,9 +42,10 @@ To access the UI:
 2. Click the "Launch Console" button
 3. Enter your username and password as noted above, and click "Login".
 
-You will then see Konvoy's operations portal, which offers an overview of cluster status, and shortcuts to several dashboards to addon services, such as Grafana.
+You should then see Konvoy's operations portal. The portal provides an overview of cluster status, and shortcuts to several dashboards to addon services, such as Grafana.
 
-<p class="message--important"><strong>IMPORTANT: </strong>When using an automated provisioner, you should not delete the load balancer created by the cloud provider for the traefik service. If the load balancer is deleted, you can follow the steps below to regain access to the ops-portal. In order to complete the below instructions, you need to update your kubectl credentials with the `admin.conf` file created for your Konvoy cluster by running the `./konvoy apply kubeconfig` command. More on that <a href="#configure-kubectl-for-cluster-administrators">here.</a></p>
+<p class="message--important"><strong>IMPORTANT: </strong>When using an automated provisioner, do not delete the load balancer created by the cloud provider for the traefik service. <br>
+If the load balancer is deleted, follow the steps below to regain access to the ops-portal. In order to complete the instructions below, you must update your kubectl credentials with the `<code>admin.conf</code> file, created for your Konvoy cluster, by running the <code>./konvoy apply kubeconfig</code> command. More on that <a href="#configure-kubectl-for-cluster-administrators">here.</a></p>
 
 1.  Recreate the `Service` resource for `traefik-kubeaddons` in the `kubeaddons` namespace.
 
@@ -52,15 +53,15 @@ You will then see Konvoy's operations portal, which offers an overview of cluste
     kubectl get service -n kubeaddons traefik-kubeaddons -o json | jq 'del(.status)' | kubectl apply -f -
     ```
 
-If you do not have `jq`, save the output of `kubectl get service` to a file, remove the `status:` value, and `kubectl apply -f` the file.
+    If you do not have `jq`, save the output of `kubectl get service` to a file, remove the `status:` value, and `kubectl apply -f` the file.If you do not have `jq`, save the output of `kubectl get service` to a file, remove the `status:` value, and `kubectl apply -f` the file.
 
-2.  Delete the `traefik` pods and let Kubernetes recreate them, this will cause a few other pods to restart with the new configuration.
+1.  Delete the `traefik` pods and let Kubernetes recreate them, this will cause a few other pods to restart with the new configuration.
 
     ```bash
     kubectl delete pods -n kubeaddons -l release=traefik-kubeaddons
     ```
 
-3.  Retrieve the new address.
+1.  Retrieve the new address.
 
     ```bash
     konvoy get ops-portal
@@ -81,7 +82,7 @@ For a complete list of `kubectl` operations, see [overview of kubectl][kubectl_o
 
 ### Install kubectl
 
-The steps required to install kubectl depend on your operating system platform.
+The specific steps required for installing kubectl depend on your operating system platform.
 For platform-specific instructions to help you install kubectl, see the appropriate Kubernetes [installation and setup information][install_kubectl] for the platform you use.
 
 ### Configure kubectl (for cluster administrators)
@@ -100,7 +101,7 @@ The `konvoy apply kubeconfig` command applies the contents of the local Konvoy `
 
 ### Configure kubectl (for authorized users)
 
-This section illustrates how non-administrative users could access the cluster's API, using `kubectl` and credentials derived from their third-party single sign-on environment.
+This section illustrates how non-administrative users could access the cluster's API, using `kubectl` with credentials derived from their third-party single sign-on environment.
 
 1. Enter the URL of the operations portal in your browser, as noted in [Using the operations portal][ops_portal].
 2. Click the "Generate kubectl token" button.

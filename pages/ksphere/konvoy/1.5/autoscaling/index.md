@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-For production clusters, you might want to autoscale, on demand, your clusters.
+For production clusters, you might want to automatically scale your clusters on demand.
 Konvoy provides an autoscaling feature that works at the node pool level.
 Node pools can be configured to define autoscaling properties such as the maximum size
 and minimum size of the chosen pools. The Konvoy autoscaler can not scale up or down a pool beyond the
@@ -22,10 +22,17 @@ Konvoy uses the [cluster-autoscaler][autoscaler] community tool for autoscaling.
 <p class="message--note"><strong>IMPORTANT: </strong> When using this feature, you <strong>must</strong> use cloud provider credentials with a longer expiration than the cluster's life or static credentials. The autoscaler makes usage of these credentials
 to trigger scaling actions, so they need to be valid at any time.</p>
 
-## Configure autoscaling capabilities to the worker pool
+## Add autoscaling capabilities to the "worker" pool
 
-In the following example, our cluster specification enables autoscaling for the worker
-pool:
+Enabling autoscaling on a cluster consists of the following steps:
+
+### Install Konvoy
+
+First, you need to have a running Konvoy cluster without autoscaling enabled. Follow the instructions in [the Install section][konvoy-installation] for your specific cloud provider. Remember that autoscaling is only available on AWS and Azure!
+
+### Configure minimum and maximum node pool size
+
+Next, add autoscaling properties to your `cluster.yaml`. In the following example, the cluster specification enables autoscaling for the "worker" node pool:
 
 ```yaml
 kind: ClusterProvisioner
@@ -59,14 +66,17 @@ to a minimum of 2 machines.
 The scaling decisions are based on the usage of the resources
 and requested resources, as detailed below.
 
+When deploying the cluster for the first time using `konvoy up`, **you must ensure the initial cluster size satisfies the resource requirements of your addons**. The autoscaler will not scale up the cluster if `konvoy up` did not succeed. For instance, this can happen when you create an underprovisioned cluster where the addons won't fit in the cluster, and thereby the installation will fail. A possible workaround could be to firstly run `konvoy deploy kubernetes` to deploy the autoscaler, and then run `konvoy deploy addons`. Following this approach would allow the cluster to autoscale in order to satisfy the requirements of the selected addons.
+
 <p class="message--note"><strong>NOTE: </strong> Autoscaling is not enabled for control-plane and bastion node pools.</p>
 
-After the cluster specification is configured, `konvoy up -y` applies the required
-changes to our cluster to start autoscaling the worker pool on
-demand. When the command completes successfully, certain configuration files of our cluster
+### Deploy the updated configuration
+
+After the cluster specification is configured, run `konvoy up -y` to apply the required
+changes to the cluster and to start autoscaling the worker pool on
+demand. When the command completes successfully, certain configuration files of the cluster
 are stored in Kubernetes.
-This keeps the cluster state up-to-date for any change triggered by the autoscaler.
-This prevents the system from having multiple or out-dated cluster specifications.
+This keeps the cluster state up-to-date for any change triggered by the autoscaler and prevents the system from having multiple or out-dated cluster specifications.
 
 The following files are stored in Kubernetes when using the autoscaling feature:
 
@@ -159,7 +169,7 @@ Kubernetes cluster state pulled successfully!
 operating the cluster from the working directory.
 We recommend using `pull` right before making any changes to the Konvoy cluster.
 In the future, Konvoy will warn users when there are differences between the Konvoy cluster state in the
-working directory, versus the cluster state in Kubernetes.
+working directory and the cluster state in Kubernetes.
 
 In addition to `konvoy pull`, Konvoy provides a new command to store the cluster
 state in Kubernetes, `konvoy push`:
@@ -179,8 +189,8 @@ Flags:
 ```
 
 This `push` command stores the cluster state, on demand, in Kubernetes.
-It allows users to specify a certain cloud provider credentials that might differ
-from those used during the cluster bootstrap operation.
+It allows users to specify certain cloud provider credentials that might differ
+from those used during the cluster bootstrap operation. This is especially important when using temporary credentials when bootstrapping the cluster.
 
 ```shell
 konvoy push --cloud-provider-account-name=my-specific-aws-cloudaccount
@@ -216,6 +226,95 @@ data:
   config: ...optional aws config file content...
 type: kommander.mesosphere.io/aws-credentials
 ```
+
+### Changing an existing autoscaling configuration
+
+In case you would like to change any autoscaling configuration of your cluster, edit `cluster.yaml` and adapt the `autoscaling` property, then run `konvoy up` again to apply the changes.
+
+### Autoscaling an air-gapped cluster
+
+In an air-gapped cluster, you will need to specify some additional configurations for the autoscaling functionality to work without access to the Internet.
+
+Lets assume you you have a private registry `https://myregistry:443` that requires authentication, you would specify it as follows:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+metadata:
+  name: clustername
+spec:
+  autoProvisioning:
+    config:
+      konvoy:
+        imageRepository: myregistry:443/mesosphere/konvoy
+      webhook:
+        extraArgs:
+          konvoy.docker-registry-url: https://myregistry:443
+          #konvoy.docker-registry-insecure-skip-tls-verify: false
+          konvoy.docker-registry-username: "myuser"
+          konvoy.docker-registry-password: "mypassowrd"
+```
+
+The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
+
+You will also need to configure the autoscaler to use a local Helm charts repository running as a pod in the cluster
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+metadata:
+  name: clustername
+spec:
+  autoProvisioning:
+    config:
+      clusterAutoscaler:
+        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
+```
+
+Finally, you must also configure the autoscaler with a static mapping of Kubernetes versions to the [Kubernetes Base Addons][kubernetes-base-addons] versions, to prevent it from trying to list tags from the remote Github URL.
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+metadata:
+  name: clustername
+spec:
+  autoProvisioning:
+    config:
+      kubeaddonsRepository:
+        versionStrategy: mapped-kubernetes-version
+        versionMap:
+          1.17.8: stable-1.17-2.0.2
+```
+
+Putting it all together, the configuration would be as follows:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+metadata:
+  name: clustername
+spec:
+  autoProvisioning:
+    config:
+      konvoy:
+        imageRepository: 10.0.127.6:5000/mesosphere/konvoy
+      webhook:
+        extraArgs:
+          konvoy.docker-registry-url: https://myregistry:443
+          #konvoy.docker-registry-insecure-skip-tls-verify: false
+          konvoy.docker-registry-username: "myuser"
+          konvoy.docker-registry-password: "mypassowrd"
+      clusterAutoscaler:
+        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
+      kubeaddonsRepository:
+        versionStrategy: mapped-kubernetes-version
+        versionMap:
+          1.17.8: testing-2.0.0-5
+...
+```
+
+<p class="message--note"><strong>NOTE: </strong> There is a limitation when using the autoscaler in an air-gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the the process will timeout trying to access https://iam.amazonaws.com.</p>
 
 ## Autoscaler scaling decision making
 
@@ -271,5 +370,7 @@ Events:
 
 [autoscaler]: https://github.com/kubernetes/autoscaler/tree/master/cluster-autoscaler
 [aws-prerequisites]: ../install/install-aws#before-you-begin
-[azure-prerequisites]: ../install/install-azure#prerequisites
+[azure-prerequisites]: ../install/install-azure#before-you-begin
 [pod-disruption-budget]: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#how-disruption-budgets-work
+[konvoy-installation]: ../install/
+[kubernetes-base-addons]: https://github.com/mesosphere/kubernetes-base-addons

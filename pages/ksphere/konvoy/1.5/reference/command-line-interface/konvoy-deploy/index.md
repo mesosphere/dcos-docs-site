@@ -40,7 +40,7 @@ konvoy deploy [flags]
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy deploy addons](./konvoy-deploy-addons/)	 - Deploy Kubernetes addons
 * [konvoy deploy auto-provisioning](./konvoy-deploy-auto-provisioning/)	 - Deploy auto provisioning
 * [konvoy deploy container-networking](./konvoy-deploy-container-networking/)	 - Deploy container networking

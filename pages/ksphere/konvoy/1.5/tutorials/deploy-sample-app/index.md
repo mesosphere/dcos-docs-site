@@ -17,7 +17,11 @@ However, deploying applications on a production cluster typically involves more 
 This tutorial demonstrates how you can deploy a simple application that connects to the Redis service.
 The sample application used in this tutorial is a condensed form of the Kubernetes sample [guestbook][guestbook] application.
 
-To deploy the sample application:
+# Before you begin
+
+You must have a [Konvoy cluster running](../../quick-start).
+
+# To deploy the sample application
 
 1. Deploy the Redis master pods and service by running the following commands:
 
@@ -33,7 +37,7 @@ To deploy the sample application:
     kubectl apply -f https://k8s.io/examples/application/guestbook/redis-slave-service.yaml
     ```
 
-1. Deploy the webapp frontend by running the following command:
+1. Deploy the web app frontend by running the following command:
 
     ```bash
     kubectl apply -f https://k8s.io/examples/application/guestbook/frontend-deployment.yaml
@@ -56,7 +60,7 @@ To deploy the sample application:
 
     The service properties provide the name of the load balancer. You can connect to the application by accessing that load balancer address in your web browser.
 
-    Because this sample deployment creates a **cloud load balancer**,  you should keep in mind that creating the load balancer can up to a few minutes.
+    Because this sample deployment creates a **cloud load balancer**,  you should keep in mind that creating the load balancer can take up to a few minutes.
     You also might experience a slight delay before it is running properly due to DNS propagation and synchronization.
 
 1. Remove the sample application by running the following commands:
@@ -73,7 +77,7 @@ To deploy the sample application:
     You should note that this step is **required** because the sample deployment attaches a **cloud provider load balancer** to the Konvoy cluster.
     Therefore, you **must delete** the sample application before tearing down the cluster.
 
-1. Tear down the cluster by running the following command:
+1. **Optional:** Tear down the cluster by running the following command:
 
     ```bash
     konvoy down

@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
-navigationTitle: Install on-premise
-title: Install on-premise
+navigationTitle: Install on-premises
+title: Install on-premises
 menuWeight: 30
-excerpt: Install Konvoy in an on-premise environment
+excerpt: Install Konvoy in an on-premises environment
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an on-premise environment.
+The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an on-premises environment.
 
 # Prerequisites
 
@@ -17,7 +17,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker][install_docker] version 18.09.2 or later. You must have Docker installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.7 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.17.8 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -37,7 +37,7 @@ Before installing, verify that your environment meets the following basic requir
   * 32 GiB memory
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
-* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to the `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
+* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least four volumes to the `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
 
@@ -158,10 +158,10 @@ all:
 
 ## Specifying local addons repositories
 
-When using Konvoy with its default addons options, the tool tries to fetch the list of available addons from a public GitHub [kuberntes-base-addons repo][kubernetes_base_addons_repo], [kubeaddons-kommander repo][kubeaddons_kommander_repo] and [kubeaddons-dispatch repo][kubeaddons_dispatch_repo] when initializing and validating the `cluster.yaml` file.
+When using Konvoy with its default addons options, the tool tries to fetch the list of available addons from a public GitHub [kubernetes-base-addons repo][kubernetes_base_addons_repo], [kubeaddons-kommander repo][kubeaddons_kommander_repo] and [kubeaddons-dispatch repo][kubeaddons_dispatch_repo] when initializing and validating the `cluster.yaml` file.
 If in your environment access to that repo is blocked, you may also use a local clone of the above repo.
 
-Assuming that the repo was cloned in the local directory to `./kuberntes-base-addons` and `kubeaddons-kommander`, use the `--addons-repositories` flag with the `konvoy init`, `konvoy up`, `konvoy provision` commands.
+Assuming that the repo was cloned in the local directory to `./kubernetes-base-addons` and `kubeaddons-kommander`, use the `--addons-repositories` flag with the `konvoy init`, `konvoy up`, `konvoy provision` commands.
 
 This will result in your `cluster.yaml` containing the details below:
 
@@ -171,16 +171,16 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-2.0.0-5
+    configVersion: stable-1.17-2.0.2
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.17-1.2.1
+    configVersion: stable-1.17-1.2.2
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: v1.1.0-rc.4
+    configVersion: stable-1.17-1.1.0
     addonsList:
     - name: kommander
       enabled: true
@@ -338,7 +338,7 @@ There may be additional dependencies that need to be installed that can be found
 
 ## Configure the control plane
 
-Konvoy supports Kubernetes control plane high availability (HA) out-of-the-box for on-premise deployments if you do not have a third-party load balancer.
+Konvoy supports Kubernetes control plane high availability (HA) out-of-the-box for on-premises deployments if you do not have a third-party load balancer.
 
 The default control plane load balancer for Konvoy is based on [Keepalived][keepalived].
 
@@ -395,7 +395,7 @@ When configuring these settings, you should make sure that the values you set fo
 
 ## Configure MetalLB load balancing
 
-Konvoy supports [Service][kubernetes_service] type `LoadBalancer` out-of-the-box for on-premise deployments if you do not have a third-party load balancer.
+Konvoy supports [Service][kubernetes_service] type `LoadBalancer` out-of-the-box for on-premises deployments if you do not have a third-party load balancer.
 
 The default load balancer service for addons is based on [MetalLB][metallb].
 
@@ -498,7 +498,7 @@ If you cannot tolerate this limitation, you should consider other storage option
 # Pre-flight checks
 
 After you have completed the basic configuration in the `cluster.yaml` file, you should run the Konvoy pre-flight checks before you run the installation command.
-The pre-flight checks help to ensure that your on-premise environment has everything ready for installing Konvoy.
+The pre-flight checks help to ensure that your on-premises environment has everything ready for installing Konvoy.
 
 To perform the pre-flight checks:
 

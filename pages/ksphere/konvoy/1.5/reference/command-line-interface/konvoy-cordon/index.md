@@ -24,6 +24,6 @@ Marks nodes as unschedulable
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy cordon nodepool](./konvoy-cordon-nodepool/)	 - Marks all nodes in the node pool as unschedulable
 

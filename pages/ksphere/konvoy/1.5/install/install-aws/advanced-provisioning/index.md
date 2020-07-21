@@ -125,7 +125,7 @@ us-west-2      = ami-0bc06212a56393ee1
 
 If you are deploying Konvoy in a region that is not included in the predefined identifiers listed, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file.
 
-Konvoy is tested with the [CentOS Linux 7][ami_centos7] image.
+Konvoy is tested with the operating systems listed on the [Operating Systems](../../supported-operating-systems) page.
 
 # Adding custom Terraform resources for provisioning
 
@@ -182,7 +182,7 @@ provider "aws" {
 }
 ```
 
-By default, running `konvoy down` cleans resources such as load balancers and volumes created by Kuberenetes, which is disabled by the `--skip-clean-kubernetes` flag.
+By default, running `konvoy down` cleans resources such as load balancers and volumes created by Kubernetes, which is disabled by the `--skip-clean-kubernetes` flag.
 To clean these resources, you need set the environment variable `AWS_SDK_LOAD_CONFIG=true` and have the following file as `$HOME/.aws/config`:
 
 ```text

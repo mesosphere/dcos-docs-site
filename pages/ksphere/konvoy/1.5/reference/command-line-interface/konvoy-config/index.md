@@ -24,6 +24,6 @@ Manage installation related configuration
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy config images](./konvoy-config-images/)	 - Manage docker images for installation
 

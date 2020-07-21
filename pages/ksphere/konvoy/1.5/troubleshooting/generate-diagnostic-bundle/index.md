@@ -46,6 +46,7 @@ To generate the diagnostic bundle
     bundles/master_172.17.0.3.tar.gz
     bundles/worker_172.17.0.2.tar.gz
     bundles/cluster-data.tar.gz
+    bundles/helm.tar.gz
     ...
     ```
 

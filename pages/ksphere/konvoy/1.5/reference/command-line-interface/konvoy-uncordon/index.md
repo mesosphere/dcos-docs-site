@@ -24,6 +24,6 @@ Marks nodes in the node pool as schedulable
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy uncordon nodepool](./konvoy-uncordon-nodepool/)	 - Uncordons Pods from machines in a node pool
 
