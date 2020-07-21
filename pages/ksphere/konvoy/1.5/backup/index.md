@@ -134,7 +134,7 @@ velero backup download BACKUP_NAME --insecureskipverify
 In some cases, you might find it necessary create a backup outside of the regularly-scheduled interval.
 For example, if you are preparing to upgrade any components or modify your cluster configuration, you should perform a backup immediately before taking that action.
 
-You can create a backup by running a command similar to the following:
+Create a backup by running the following command:
 
 ```shell
 velero backup create BACKUP_NAME
