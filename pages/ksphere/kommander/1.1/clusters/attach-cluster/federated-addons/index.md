@@ -2,8 +2,8 @@
 layout: layout.pug
 navigationTitle: Federated Addons
 title: Federated Addons
-menuWeight: 7
-excerpt: A description of how federated addons work
+menuWeight: 5
+excerpt: How federated addons work
 ---
 
 ## Addons federation
