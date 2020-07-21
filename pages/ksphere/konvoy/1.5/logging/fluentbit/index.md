@@ -17,6 +17,6 @@ enterprise: false
 
 For information on related topics or procedures, refer to the following:
 
-- [Logging](../../logging)
-- [Resource Recommendations](../../logging/recommendations)
+- [Logging](../logging)
+- [Resource Recommendations](../recommendations)
 - [Disable Audit Log Collection](../../tutorials/disable-audit-logs)
