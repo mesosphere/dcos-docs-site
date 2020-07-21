@@ -68,7 +68,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## Centralized Cost Monitoring
 
-Kubecost, running on Kommander, provides centralized cost monitoring for all managed clusters. This feature, installed by default in every Kommander cluster, provides a centralized view of Kubernetes resources used on all managed clusters. For more information go to [Centralized Cost Monitoring](https://docs.d2iq.com/ksphere/kommander/1.1.0/centralized-cost-monitoring/)
+Kubecost, running on Kommander, provides centralized cost monitoring for all managed clusters. This feature, installed by default in every Kommander cluster, provides a centralized view of Kubernetes resources used on all managed clusters. For more information go to [Centralized Cost Monitoring](https://docs.d2iq.com/ksphere/kommander/1.1/centralized-cost-monitoring/)
 
 ## Automatic Federation of AuthN/Z and Monitoring Stack
 
