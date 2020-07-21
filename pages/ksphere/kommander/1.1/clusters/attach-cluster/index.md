@@ -8,7 +8,7 @@ excerpt: A guide for attaching an existing Kubernetes cluster using kubeconfig
 
 ## Attach Kubernetes Cluster
 
-You can attach an existing cluster directly to Kommander. If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below.
+You can attach an existing cluster directly to Kommander. If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below. If you are attaching an Amazon EKS cluster to Kommander, [detailed instructions are available](/ksphere/kommander/latest/clusters/attach-cluster/attach-eks-cluster/).
 
 ### Before you begin (optional)
 
