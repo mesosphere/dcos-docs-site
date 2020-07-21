@@ -5,16 +5,16 @@ title: konvoy
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-excerpt: deploy and manage Kubernetes clusters
+excerpt: Deploy and manage Kubernetes clusters
 ---
 
 ## konvoy
 
-deploy and manage Kubernetes clusters
+Deploy and manage Kubernetes clusters
 
 ### Synopsis
 
-deploy and manage Kubernetes clusters
+Deploy and manage Kubernetes clusters
 
 ### Options
 

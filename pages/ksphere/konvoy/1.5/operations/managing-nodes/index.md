@@ -1,35 +1,34 @@
 ---
 layout: layout.pug
-navigationTitle: Managing Nodes
-title: Managing Nodes
+navigationTitle: Add, Change, and Remove Nodes
+title: Add, Change, and Remove Nodes
 menuWeight: 5
-excerpt: Adding compute capacity to your Konvoy cluster
+excerpt: Add, change, and remove nodes your Konvoy cluster
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-<p class="message--warning"><strong>WARNING: </strong> You can not change the configuration of your control plane nodes. Any attempts to add or remove nodes, which could break the cluster, are prevented and an error message is displayed.</p>
+<p class="message--note"><strong>NOTE: </strong>The operations described in this document apply only to healthy clusters. If you are attempting to recover from a node failure, please see <a href="../../troubleshooting/replace-a-failed-node">Replace a Failed Node</a>, or <a href="../../troubleshooting/replace-failed-control-plane-node">Replace a Failed Control Plane Node</a>, instead.</p>
 
-# Adding Nodes to an AWS / Azure Cluster
+# Add Nodes to an AWS, Azure, or GCP Cluster
 
-<p class="message--note"><strong>NOTE: </strong> This process only applies to clusters created by Konvoy, using Terraform.
-If your cluster was provisioned manually, please follow the steps in <a href="#adding-nodes-to-an-on-premise-cluster">Adding Nodes to an On-Premise Cluster</a>.</p>
+<p class="message--note"><strong>NOTE: </strong> This process only applies to clusters whose infrastructure Konvoy provisions, using Terraform. If your cluster is provisioned manually, please follow the steps in <a href="#add-nodes-to-an-on-premises-cluster">Add Nodes to an On-Premises Cluster</a>.</p>
 
-<p class="message--note"><strong>NOTE: </strong> This process should only be applied to healthy clusters.
-If you are attempting to recover from a node failure, please see <a href="../../troubleshooting/replace-a-failed-node">Recovering from Node Failure</a> instead.</p>
+After you use `konvoy` to provision an AWS, Azure, or GCP cluster, you can use it to add more nodes. To safely add nodes, make sure your current working directory contains the following:
 
-After the initial provisioning of a cluster, the same `konvoy` tools can be used to add nodes.
+```shell
+.
+├── admin.conf                  | Kubeconfig for the cluster administrator
+├── cluster.yaml                | Cluster configuration
+├── cluster-ssh-key.pem         | SSH private key
+├── cluster-ssh-key.pub         | SSH public key, copied to nodes
+├── inventory.yaml              | Ansible inventory
+└── state                       | Directory for terraform state
+    └── terraform.tfstate       | Terraform state
+```
 
-To safely add nodes to a running AWS cluster, you will need access to the files from the cluster's maintenance repository:
-
-- The Terraform state file `terraform.tfstate` in the `state` directory.
-- The inventory file: `inventory.yaml`.
-- The cluster configuration file: `cluster.yaml`.
-- The administrative certificates for reaching the Kubernetes API, `admin.conf`.
-- The SSH keys used to configure nodes, as referenced in `cluster.yaml`.
-
-<p class="message--note"><strong>NOTE: </strong>Customized Terraform configurations may rely on an S3 bucket for shared state, which would not reqiure this file locally.</p>
+<p class="message--note"><strong>NOTE: </strong>A custom Terraform configuration that uses remote state, e.g. using AWS S3, may not require the `state` directory.</p>
 
 With these files in the current working directory, proceed with the following steps:
 
@@ -38,45 +37,85 @@ With these files in the current working directory, proceed with the following st
 1. Run `konvoy scale nodepool <NAME> --count <NUMBER>` to change the number of nodes.
 1. Run `konvoy up` to apply the change.
 
-Once complete, the cluster should report additional ndoes.
-You can see them by running the command `kubectl get nodes`.
-In the output, you will see your additional nodes joined to the cluster, with an `AGE` value probably reported in minutes, indicating that they are much newer in the cluster.
+To see the new nodes, run `kubectl get nodes --sort-by=.metadata.creationTimestamp`. The newest nodes are at the bottom of the list.
 
-# Adding Nodes to an On-Premise Cluster
+# Add Nodes to an On-Premises Cluster
 
-<p class="message--note"><strong>NOTE: </strong>This process applies to clusters whose infrastructure was manually provisioned. This will include most on-prem environments, as well as some AWS clusters that were configured without the use of Konvoy's Terraform integration.</p>
+<p class="message--note"><strong>NOTE: </strong>This process only applies to clusters whose infrastructure is provisioned manually. This includes on-premises clusters, and AWS, Azure, or GCP clusters whose infrastructure is not provisioned by Konvoy.</p>
 
-To safely add nodes to a running on-prem cluster, you will need the following files from the cluster's maintenance repository:
+To safely add nodes, make sure your current working directory contains the following:
 
-- The inventory file: `inventory.yaml`
-- The cluster configuration file: `cluster.yaml`
-- The administrative certificates for reaching the Kubernetes API, `admin.conf`
-- The SSH keys used to configure nodes, as referenced in `cluster.yaml`
+```shell
+    .
+    ├── admin.conf                  | Kubeconfig for the cluster administrator
+    ├── cluster.yaml                | Cluster configuration
+    ├── cluster-ssh-key.pem         | SSH private key
+    ├── cluster-ssh-key.pub         | SSH public key, copied to nodes
+    └── inventory.yaml              | Ansible inventory
+```
 
-In an on-prem or manually provisioned environments, each node must have:
+In manually provisioned environments, or on-premises, each node must have:
 
-- An IP address reachable from your workstation or bootstrap environment.
-- A running SSH daemon, with your key authorized.
+1. An IP address reachable from the environment where `konvoy` runs.
+1. A user whose SSH authorized keys include the cluster SSH public key.
+1. A running SSH daemon.
 
 With this information and the files above, proceed with the following steps:
 
-1. Open `cluster.yaml` and find the `nodePools` section.
-1. Increase the `count` of the relevant named node pool(s) to reflect the nodes you're adding - probably `worker`.
-1. Open `inventory.yaml` and find the named node pool you're adding nodes to - probably `node`.
-1. Add an entry to the `hosts` field, consistent with the format of the other nodes.
-    - The key of the entry is the node's IP address, within the cluster's host network environment.
-    - The `node_pool` property must match the node pool name of `cluster.yaml` - i.e. probably `worker`.
-    - The `ansible_host` field (optionally) provides an alternate hostname or IP, reachable from your workstation.
-1. Save both files (`inventory.yaml` and `cluster.yaml`).
+1. To add nodes to a new node pool, add the node pool to `cluster.yaml`. Otherwise, skip to the next step.
+    1.  Open `cluster.yaml`. Find the `nodePools` field.
+    1.  Add an entry, consistent with the following format:
+
+        ```yaml
+        kind: ClusterConfiguration
+        apiVersion: konvoy.mesosphere.io/v1beta2
+        spec:
+          nodePools:
+          - name: newname
+        ```
+
+    1. Save `cluster.yaml`.
+1. Open `inventory.yaml`. If you are adding a node, find the `node` field. If you are adding a control plane node, find the `control-plane` field.
+1. Add an entry to the `hosts` field, consistent with the following format:
+
+    ```yaml
+    node:                               # The field for nodes. The `control-plane` field is for control plane nodes only.
+      hosts:                            # The field for the list of hosts
+        10.50.62.20:                    # The IP address of the host
+          ansible_host: 172.100.23.10   # The IP address for SSH, only if different from the above IP address
+          ansible_port: 2022            # The SSH port, only if different from 22
+          node_pool: newname            # The node pool name
+          controlplane: false           # Is the node a control-plane node
+          bastion: false                # Is the node a bastion node
+    ```
+
+1. Save `inventory.yaml`.
 1. Run `konvoy up` to apply the change.
 
-# Changing Nodes in an AWS / Azure Cluster
+# Change Nodes in an AWS, Azure, or GCP Cluster
+
+<p class="message--note"><strong>NOTE: </strong> This process only applies to clusters whose infrastructure Konvoy provisions, using Terraform. If your cluster is provisioned manually, please follow the steps in <a href="#adding-nodes-to-an-on-premises-cluster">Adding Nodes to an On-Premises Cluster</a>.</p>
 
 Sometimes you need to change the nodes you have already deployed. For example, to use a newer machine image, you must change a `imageID` property of the node pool to the ID of the newer machine image.
 
-<p class="message--important"><strong>IMPORTANT: </strong> Changing some properties of a deployed node pool, and running `konvoy provision` or `konvoy up`, may destroy and re-create the machines in the node pool, disrupting your workloads on these machines.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you change some properties of a deployed node pool, and run `konvoy provision` or `konvoy up`, konvoy may destroy and re-create the machines in the node pool, disrupting your workloads on these machines. Konvoy prevents disruptive changes to the control plane node pool.</p>
 
-To avoid disrupting workloads on a node pool, migrate them to a new node pool by following these steps:
+To avoid disrupting workloads on a node pool, migrate them to a new node pool. To safely migrate workloads, make sure your current working directory contains the following:
+
+```shell
+    .
+    ├── admin.conf                  | Kubeconfig for the cluster administrator
+    ├── cluster.yaml                | Cluster configuration
+    ├── cluster-ssh-key.pem         | SSH private key
+    ├── cluster-ssh-key.pub         | SSH public key, copied to nodes
+    ├── inventory.yaml              | Ansible inventory
+    └── state                       | Directory for terraform state
+        └── terraform.tfstate       | Terraform state
+```
+
+<p class="message--note"><strong>NOTE: </strong>A custom Terraform configuration that uses remote state, e.g. using AWS S3, may not require the `state` directory.</p>
+
+With these files in the current working directory, proceed with the following steps:
 
 1. Run `konvoy create nodepool <NAME_OF_NEW_NODE_POOL>` to create a new node pool to provide resources for your workloads. Use the `--from <NAME_OF_EXISTING_NODE_POOL>` flag to copy configuration from an existing node pool.
 1. Run `konvoy up` to apply the change.

@@ -17,7 +17,7 @@ This is very useful for development and end-to-end testing with Konvoy.
 Before starting the development machine installation, you should verify the following:
 
 * [Docker][install_docker] version 18.09.2 or later
-* [kubectl][install_kubectl] v1.17.7 or later (for interacting with the running cluster)
+* [kubectl][install_kubectl] v1.17.8 or later (for interacting with the running cluster)
 * Docker is configured with the following minimum requirements for CPU, memory, and disk:
   * 4 CPUs
   * 8 GB memory
@@ -119,7 +119,7 @@ curl -sL https://raw.githubusercontent.com/mesosphere/docker-mac-network/master/
 ## Differences from deploying on AWS
 
 By deploying Konvoy using Docker, you should note the following differences from deploying on a public cloud infrastructure.
-The Docker based install essentially simulates an on-premise environment.
+The Docker based install essentially simulates an on-premises environment.
 
 * [MetalLB][metallb] is used for creating [Service][kubernetes_service] (type `LoadBalancer`).
 * [Keepalived][keepalived] is used to provide high availablility for Kubernetes API servers.

@@ -7,7 +7,7 @@ excerpt: Review cluster configuration settings defined in the cluster.yaml file
 enterprise: false
 ---
 
-As discussed in the [Quick start](../../quick-start/) and [Install](../../install) and [Upgrade](../../upgrade/) sections, the `cluster.yaml` file defines all of the key settings that are used to create and customize a Konvoy cluster.
+As discussed in the [Quick start][quick_start], [Install][install], and [Upgrade][upgrade] sections, the `cluster.yaml` file defines all of the key settings that are used to create and customize a Konvoy cluster.
 Therefore, you should be familiar with this file and its configuration options before attempting to modify a deployed cluster or provision a customized cluster.
 
 The `cluster.yaml` file is composed of two different configuration `kinds`.
@@ -18,7 +18,7 @@ For Konvoy, the `cluster.yaml` file defines the following configuration resource
 - `ClusterProvisioner` - This section is **optional** because it is contains provider-specific details that are dependent on your deployment infrastructure. For example, this section is not required if you are installing on an internal (on-prem) network.
 
 In addition to the `cluster.yaml` file, Konvoy clusters require you to have an `inventory.yaml` file.
-For information about the format and settings in an `inventory.yaml` file, see [Working with inventory files](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html).
+For information about the format and settings in an `inventory.yaml` file, see [Working with inventory files][inventory_files].
 
 ## Sample cluster configuration file
 
@@ -90,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.17.7
+    version: 1.17.8
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -116,7 +116,7 @@ spec:
   - name: worker
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.0.0-5
+    configVersion: stable-1.17-2.0.2
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -190,15 +190,20 @@ spec:
     - name: velero
       enabled: true
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.17-1.2.1
+    configVersion: stable-1.17-1.2.2
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: v1.1.0-rc.4
+    configVersion: stable-1.17-1.1.0
     addonsList:
     - name: kommander
       enabled: true
   version: v1.3.0
 
 ```
+
+[install]: ../../install
+[inventory_files]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
+[quick_start]: ../../quick-start/
+[upgrade]: ../../upgrade/

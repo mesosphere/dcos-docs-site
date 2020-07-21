@@ -9,10 +9,10 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-Kubernetes enables you to define a logical set of **pods** and an access policy as a **Service**.
+Kubernetes enables you to define a logical set of **Pods** and an access policy as a **Service**.
 You can then use services and **service types** to control how your applications receive traffic.
 The **LoadBalancer** service type creates an external load balancer in the public cloud infrastructure and assigns a fixed, external IP to the service.
-Authorized users can then access the service through the exposed IP address.
+Users can then access the service through the exposed IP address. The application is responsible for authentication and authorization. Many public clouds allow you to restrict access to the load balancer by the source IP address. For more information, see the Kubernetes [Services, Load Balancer, and Networking][k8s-docs-loadbalancer] documentation.
 
 This tutorial demonstrates how to expose an application running on the Konvoy cluster using the LoadBalancer (layer-4) service type.
 
@@ -22,7 +22,7 @@ Before starting this tutorial, you should verify the following:
 
 - You must have access to a Linux, macOS, or Windows computer with a supported operating system version.
 
-- You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings, see the [Quick start][quickstart].
+- You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings, see the [Quick Start][quickstart].
 
 ## Expose a pod using the LoadBalancer (L4) service
 
@@ -86,6 +86,8 @@ Before starting this tutorial, you should verify the following:
     redis   LoadBalancer   10.0.51.32   a92b6c9216ccc11e982140acb7ee21b7-1453813785.us-west-2.elb.amazonaws.com   6379:31423/TCP   43s
     ```
 
+    <p class="message--note"><strong>NOTE: </strong>The external load balancer can take a few minutes to create. If the <tt>EXTERNAL-IP</tt> column is empty, then the external load balancer has not yet been created.</p>
+
 1. Validate that you can access the Redis pod by connecting to the external IP address using the `telnet` command:
 
     ```bash
@@ -98,4 +100,7 @@ Before starting this tutorial, you should verify the following:
     Connection closed by foreign host.
     ```
 
-    [quickstart]:../../quick-start/
+    <p class="message--note"><strong>NOTE: </strong>If the external load balancer has a hostname, the DNS record can take a few minutes to propagate. If the <tt>telnet</tt> command fails because the hostname cannot be resolved, the DNS record has not yet propagated.</p>
+
+[quickstart]:../../quick-start/
+[k8s-docs-loadbalancer]: https://kubernetes.io/docs/concepts/services-networking/service/#loadbalancer

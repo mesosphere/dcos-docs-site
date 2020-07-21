@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-For [on-premise install][install_onprem], there are a few SSH related options that users can customize in the [Ansible][ansible] [inventory file][ansible_inventory].
+For [on-premises install][install_onprem], there are a few SSH related options that users can customize in the [Ansible][ansible] [inventory file][ansible_inventory].
 
 ## `wait_for_connection`
 

@@ -9,7 +9,7 @@ enterprise: false
 
 ## How to connect Konvoy to a GitHub OAuth App
 
-This guide shows how to configure your Konvoy cluster so that users can log in with GitHub credentials. Learn more about granting access to Kubernetes resources with this guide about [using RBAC][rbac].
+This guide shows how to configure your Konvoy cluster so that users can log in with GitHub credentials. Learn more about granting access to Kubernetes resources with this guide on [RBAC][rbac].
 
 ### Login using a GitHub Organization account
 
@@ -95,6 +95,6 @@ Step 4: Run `kubectl apply -f github.yaml` to deploy the GitHub connector.
 
 Step 5: Visit `https://<YOUR-CLUSTER-HOST>/token` to obtain a token to authenticate `kubectl`.
 
-[github_oauth_app]: https://docs.github.com/en/developers/apps/creating-an-oauth-app
 [dex_connector]: https://github.com/dexidp/dex/blob/master/Documentation/connectors/github.md
+[github_oauth_app]: https://docs.github.com/en/developers/apps/creating-an-oauth-app
 [rbac]: ../rbac

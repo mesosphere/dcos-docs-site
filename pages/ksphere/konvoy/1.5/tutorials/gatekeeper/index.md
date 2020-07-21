@@ -31,7 +31,17 @@ Deploying [Cert Manager][certmanager] simplifies certificate generation in a Kub
 
 Follow the [installation documentation][certmanager-install] to deploy Cert Manager using Helm.
 
-### Deploy Gateekeeper using Helm
+### (Optional) Deploy Gatekeeper using Helm
+
+You might have already installed Gatekeeper as a Konvoy addon on your cluster. If that is the case, you can directly start using it.
+
+1. Ensure that Gatekeeper is not already installed by checking the Helm releases running on your cluster:
+
+    ```bash
+    helm list
+    ```
+
+    Look for a release named `gatekeeper` or `gatekeeper-kubeaddons`. If there is one, you do not need to redeploy Gatekeeper.
 
 1. Ensure you have added the Mesosphere Staging Helm chart repo with the following command:
 

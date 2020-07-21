@@ -24,6 +24,6 @@ Changes the node pool's number of machines in the cluster configuration
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy scale nodepool](./konvoy-scale-nodepool/)	 - Changes the node pool's number of machines
 

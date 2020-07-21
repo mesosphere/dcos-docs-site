@@ -24,7 +24,7 @@ Run Konvoy CLI images related actions
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy image list](./konvoy-image-list/)	 - List the available Konvoy CLI images ready for installation
 * [konvoy image upgrade](./konvoy-image-upgrade/)	 - Upgrade the Konvoy CLI image version
 

@@ -7,7 +7,7 @@ excerpt: Run Konvoy commands to check the status and operation for cluster compo
 enterprise: false
 ---
 
-Each **Konvoy** cluster includes several key components that are required to ensure proper cluster operations.
+Each **Konvoy** cluster includes several required key components to ensure proper cluster operations.
 The `konvoy` command-line interface (CLI) provides a subcommand that you can use to verify the integrity of these components.
 
 The topics in this section describe how you can use the `konvoy check` subcommands to determine the status of key cluster components and verify that the cluster is operating correctly.
@@ -26,23 +26,39 @@ konvoy check preflight
 The command then displays output similar to the following:
 
 ```text
-This process will take about 1 minutes to complete (additional time may be required for larger clusters), do you want to continue [y/n]: y
-
 STAGE [Running Preflights]
 
-PLAY [Check Machine Readiness] ***********************************************************************************************************************************************
+PLAY [Bootstrap Bastion Nodes] *********************************************************************************************************************************************
+skipping: no hosts matched
 
-TASK [Gathering Facts] *******************************************************************************************************************************************************
-ok: [10.0.195.156]
-ok: [10.0.128.10]
+PLAY [Bootstrap Nodes] *****************************************************************************************************************************************************
 
-TASK [preflights : check memory swap is disabled] ****************************************************************************************************************************
-ok: [10.0.195.156]
-ok: [10.0.128.10]
+TASK [wait-ssh : wait 180 seconds for SSH target connection to become reachable (socket)] **********************************************************************************
+ok: [10.0.128.252 -> localhost]
+ok: [10.0.194.33 -> localhost]
+ok: [10.0.128.170 -> localhost]
+ok: [10.0.193.146 -> localhost]
+ok: [10.0.192.97 -> localhost]
+ok: [10.0.131.119 -> localhost]
+ok: [10.0.131.17 -> localhost]
+
+TASK [wait-ssh : wait 180 seconds for SSH target connection to become reachable (SSH)] *************************************************************************************
+skipping: [10.0.128.170]
+skipping: [10.0.131.17]
+skipping: [10.0.128.252]
+skipping: [10.0.131.119]
+skipping: [10.0.194.33]
+skipping: [10.0.193.146]
+skipping: [10.0.192.97]
 <... other checks>
-PLAY RECAP *******************************************************************************************************************************************************************
-10.0.128.10                : ok=10   changed=0    unreachable=0    failed=0
-10.0.195.156               : ok=9    changed=0    unreachable=0    failed=0
+PLAY RECAP *****************************************************************************************************************************************************************
+10.0.128.170               : ok=22   changed=0    unreachable=0    failed=0
+10.0.128.252               : ok=18   changed=0    unreachable=0    failed=0
+10.0.131.119               : ok=18   changed=0    unreachable=0    failed=0
+10.0.131.17                : ok=18   changed=0    unreachable=0    failed=0
+10.0.192.97                : ok=17   changed=0    unreachable=0    failed=0
+10.0.193.146               : ok=17   changed=0    unreachable=0    failed=0
+10.0.194.33                : ok=17   changed=0    unreachable=0    failed=0
 ```
 
 The pre-flight command is particularly useful if you are providing your own infrastructure for the Kubernetes deployment.
@@ -60,21 +76,20 @@ konvoy check addons
 The command then displays output similar to the following:
 
 ```text
-This process will take about 1 minutes to complete (additional time may be required for larger clusters), do you want to continue [y/n]: y
-
 STAGE [Checking Addons]
-helm                                                                   [OK]
 awsebscsiprovisioner                                                   [OK]
-traefik                                                                [OK]
-velero                                                                 [OK]
+cert-manager                                                           [OK]
+dashboard                                                              [OK]
+defaultstorageclass-protection                                         [OK]
+<... other addons>
 ```
 
-The `konvoy check addons` command is particularly useful as the first step to take if you need to to diagnose issues with addon components in the cluster.
-For example, this command highlights whether any addons have problems by providing information about any errors or failures detected.
+The `konvoy check addons` command is particularly useful as the first step in diagnosing issues with addons in the cluster.
+This command highlights whether any addon has problems by providing information about errors or failures detected.
 
 ## Check Kubernetes
 
-You can check the underlying Kubernetes control plane by running the following command:
+You can verify the state of the Kubernetes cluster by running the following command:
 
 ```bash
 konvoy check kubernetes
@@ -83,8 +98,6 @@ konvoy check kubernetes
 The command then displays output similar to the following:
 
 ```text
-This process will take about 1 minutes to complete (additional time may be required for larger clusters), do you want to continue [y/n]: y
-
 STAGE [Checking Kubernetes]
 
 PLAY [Check Control Plane Health] ********************************************************************************************************************************************
@@ -122,19 +135,50 @@ konvoy check nodes
 The command then displays output similar to the following:
 
 ```text
-This process will take about 1 minutes to complete (additional time may be required for larger clusters), do you want to continue [y/n]: y
+STAGE [Running Preflights]
+
+PLAY [Bootstrap Bastion Nodes] *********************************************************************************************************************************************
+skipping: no hosts matched
+
+PLAY [Bootstrap Nodes] *****************************************************************************************************************************************************
+
+TASK [wait-ssh : wait 180 seconds for SSH target connection to become reachable (socket)] **********************************************************************************
+ok: [10.0.131.119 -> localhost]
+ok: [10.0.128.170 -> localhost]
+ok: [10.0.193.146 -> localhost]
+ok: [10.0.192.97 -> localhost]
+ok: [10.0.128.252 -> localhost]
+ok: [10.0.131.17 -> localhost]
+ok: [10.0.194.33 -> localhost]
+<... various preflight check output>
 
 STAGE [Checking Nodes]
 
-PLAY [Check Nodes] ***********************************************************************************************************************************************************
+PLAY [Check Machine Readiness] *********************************************************************************************************************************************
 
-<... various check output>
+TASK [Gathering Facts] *****************************************************************************************************************************************************
+ok: [10.0.194.33]
+ok: [10.0.131.17]
+ok: [10.0.128.170]
+ok: [10.0.128.252]
+ok: [10.0.193.146]
+ok: [10.0.192.97]
+ok: [10.0.131.119]
+<... various node check output>
 
-TASK [check-nodes : kube-scheduler health] ***********************************************************************************************************************************
-skipping: [10.0.128.10]
-ok: [10.0.195.156]
+TASK [check-nodes : kube-scheduler health] *********************************************************************************************************************************
+skipping: [10.0.128.170]
+skipping: [10.0.131.17]
+skipping: [10.0.128.252]
+skipping: [10.0.131.119]
+ok: [10.0.194.33]
+ok: [10.0.193.146]
+ok: [10.0.192.97]
 
 PLAY RECAP *******************************************************************************************************************************************************************
 10.0.128.10                : ok=12   changed=0    unreachable=0    failed=0
 10.0.195.156               : ok=15   changed=0    unreachable=0    failed=0
 ```
+
+The first stage consists of `Preflights` which check to ensure that node settings have not been changed.
+The second stage verifies all nodes are operational.

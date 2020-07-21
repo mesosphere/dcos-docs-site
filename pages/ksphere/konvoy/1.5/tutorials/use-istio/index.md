@@ -22,26 +22,60 @@ Before starting this tutorial, you should verify the following:
 
 - You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings, see the [Quick start][quickstart].
 
-## Deploy Istio using Helm
+- You must have `cert-manager` enabled and deployed through your `cluster.yaml` addon configuration.
 
-1. Download the latest release of Istio by running the following command:
+## Deploy Istio using Konvoy
 
-    ```bash
-    curl -L https://git.io/getLatestIstio | ISTIO_VERSION=1.1.8 sh -
+Istio can be deployed through `konvoy` by adding it to the list of configured addons for your cluster.
+
+1. Look for a line like the following in your `cluster.yaml`:
+
+    ```markdown
+      addons:
+      - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+        addonsList:
+        - name: istio # Istio is currently in Preview
+          enabled: false
     ```
 
-1. Change to the Istio directory and set your PATH environment variable by running the following commands:
+2. Create an entry if it  _does not_ exist.
+
+3. Set `enabled: true` for the Istio addon.
+
+4. Run the following command to deploy Istio to your cluster:
+
+    ```bash
+    konvoy deploy addons
+    ```
+
+## Download the Istio command line utility
+
+1. Store a local environment variable containing the current Istio version running in your cluster:
+
+    ```bash
+    export KONVOY_ISTIO_VERSION="$(kubectl get clusteraddons istio -o go-template='{{ .spec.chartReference.version }}')"
+    ```
+
+2. Pull a copy of the corresponding Istio command line to your system:
+
+    ```bash
+    curl -L https://istio.io/downloadIstio | ISTIO_VERSION=${KONVOY_ISTIO_VERSION} sh -
+    ```
+
+3. Change to the Istio directory and set your PATH environment variable by running the following commands:
 
     ```bash
     cd istio*
     export PATH=$PWD/bin:$PATH
     ```
 
-1. Install Istio using Helm by running the following commands:
+4. You should now be able to run the following commands and see output like this:
 
     ```bash
-    helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
-    helm install install/kubernetes/helm/istio --name istio --namespace istio-system
+    $ istioctl version
+    client version: <your istio version here>
+    control plane version: <your istio version here>
+    data plane version: <your istio version here> (1 proxies)
     ```
 
 ## Deploy a sample application on Istio
@@ -68,7 +102,7 @@ The Istio BookInfo sample application is composed of four separate microservices
     istio-ingressgateway   LoadBalancer   10.0.29.241   a682d13086ccf11e982140acb7ee21b7-2083182676.us-west-2.elb.amazonaws.com   15020:30380/TCP,80:31380/TCP,443:31390/TCP,31400:31400/TCP,15029:30756/TCP,15030:31420/TCP,15031:31948/TCP,15032:32061/TCP,15443:31232/TCP   110s
     ```
 
-1. Open a web browser and naviage to the external IP address for the load balancer to access the application.
+1. Open a web browser and navigate to the external IP address for the load balancer to access the application.
 
     For example, the external IP address in the sample output is `a682d13086ccf11e982140acb7ee21b7-2083182676.us-west-2.elb.amazonaws.com`, enabling you to access the application using the following URL: `http://a682d13086ccf11e982140acb7ee21b7-2083182676.us-west-2.elb.amazonaws.com/productpage`
 

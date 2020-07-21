@@ -68,7 +68,7 @@ Before starting this tutorial, you should verify the following:
 1. Claim the persistent volume using PersistentVolumeClaim settings by running the following command:
 
     ```bash
-    $ cat <<EOF | kubectl create -f -
+    cat <<EOF | kubectl create -f -
     kind: PersistentVolumeClaim
     apiVersion: v1
     metadata:
@@ -86,7 +86,7 @@ Before starting this tutorial, you should verify the following:
 1. Reference the persistent volume claim in pods by running the following command:
 
   ```bash
-  $ cat <<EOF | kubectl create -f -
+  cat <<EOF | kubectl create -f -
   apiVersion: v1
   kind: Pod
   metadata:
@@ -121,7 +121,7 @@ Before starting this tutorial, you should verify the following:
     local-pv-4c7fc8ba   3986Mi     RWO            Delete           Bound       default/example-claim   localvolumeprovisioner            15m
     ```
 
-When the resource provider claim is released, the volume is deleted.
+As soon as the persistent volume claim is deleted, the corresponding persistent volume resource is deleted (mandated by the "Delete" reclaim policy), causing all data on the volume to be removed.
 
 [localstorage]:https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [quickstart]:../../quick-start/

@@ -24,6 +24,6 @@ Drains Pods from machines managed by konvoy
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy drain nodepool](./konvoy-drain-nodepool/)	 - Drains Pods from machines in a node pool
 

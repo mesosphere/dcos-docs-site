@@ -34,7 +34,7 @@ After the Konvoy deployment of the Kubernetes cluster is initialized and running
 
 When you run `konvoy down`, the command removes all of the AWS infrastructure resources created for the cluster, including any volumes that are backing PersistentVolumesClaims with a `Delete` [ReclaimPolicy][reclaim-policy].
 
-## To completely remove Konvoy cluster resources:
+## Remove Konvoy cluster resources
 
 Change to the directory that contains your cluster's state files, then run the following command:
 

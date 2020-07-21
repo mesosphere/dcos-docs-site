@@ -11,29 +11,63 @@ enterprise: false
 
 The topics in this section describe advanced provisioning and configuration options for deploying Konvoy on the Google Cloud Platform (GCP).
 
+This section covers the following topics:
+
+* Generating a generic deployment file
+* Customize region and availability zones
+* Customize instance types, volumes, and OS Image
+* Define VM Images
+
+# Generating a generic deployment file for advanced provisioning
+
+This section shows how to generate a deployment file. It is the basis for the entire Advanced provisioning options sections. It is also good practice to version this `cluster.yaml` file for repeatable and traceable provisioning.
+
+  ```bash
+  konvoy init --provisioner gcp --cluster-name <YOUR_SPECIFIED_NAME>
+  ```
+
+This command will automatically download the Konvoy docker image and generate 3 files:
+
+* `cluster.yaml` file
+* Konvoy private / public keys (pem / pub) for reaching out to Kubernetes nodes.
+
+Once `cluster.yaml` file is customized with advanced options, you could start a cluster by using this command:
+
+  ```bash
+  konvoy up
+  ```
+
+Or tear down the resources by using this command:
+
+  ```bash
+  konvoy down
+  ```
+
 # Customize region and availability zones
 
-Konvoy supports provisioning hosts across multiple zones in a GCP region.
-For instance, the following configuration instructs Konvoy to provision hosts across the three zones in `us-west1` region.
+Konvoy supports provisioning hosts across multiple zones in a [GCP region][gcp_regions].
+By default, Konvoy will generate a deployment in region `us-west1` across the three zones (`a,b,c`). Indeed, one Kubernetes master will be deployed in each zone, for resilience.
 
-```yaml
-kind: ClusterProvisioner
-apiVersion: konvoy.mesosphere.io/v1beta2
-metadata:
-  name: konvoy
-spec:
-  provider: gcp
-  gcp:
-    region: us-west1
-    zones:
-    - us-west1-a
-    - us-west1-b
-    - us-west1-c
-```
+  ```yaml
+  kind: ClusterProvisioner
+  apiVersion: konvoy.mesosphere.io/v1beta1
+  metadata:
+    name: konvoy
+  spec:
+    provider: gcp
+    gcp:
+      region: us-west1
+      zones:
+      - us-west1-a
+      - us-west1-b
+      - us-west1-c
+  ```
 
-# Customize instance types, volumes and OS Image
+<p class="message--note"><strong>NOTE: </strong>You should have as many zones as Kubernetes Masters. Indeed, instance groups will be created per zone.</p>
 
-In Konvoy users can customize instance types, volumes and OS images for their clusters like the following:
+# Customize instance types, volumes, and OS Image
+
+In Konvoy, users can customize instance types, volumes, and OS images for their clusters like the following:
 
 ```yaml
 kind: ClusterProvisioner
@@ -80,14 +114,12 @@ All available virtual machine types can be found [here][virtual_machine_types].
 
 ## Instance volumes
 
-For each [node pool][node_pools], users can customize the instance volumes attached to the instances in that node pool.
-There are two types of instance volumes:
+For each [node pool][node_pools], users can customize the instance volumes attached to the instances in that node pool. There are two types of instance volumes:
 
 * Root volume: This is the root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if imagefs volume is enabled).
 * Imagefs volume: This is the dedicated disk for providing storage for container image layers.
 
-Imagefs volume is optional.
-If disabled, the root volume is used to store container image layers.
+Imagefs volume is optional. If disabled, the root volume is used to store container image layers.
 
 Users can customize the sizes (in GB) and [types][disks] of those volumes.
 
@@ -136,7 +168,7 @@ To add custom resource files for provisioning:
     use this backend unless the backend configuration changes.
     ```
 
-    The output, in this example, indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in Goocle Cloud Storage.
+    The output, in this example, indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in Google Cloud Storage.
 
 ## Network
 You can also use an existing network.
@@ -240,27 +272,50 @@ Like the network, you can choose to use these blocks or define other appropriate
 <p class="message--note"><strong>NOTE: </strong>Keep in mind that the default value of <tt>spec.kubernetes.networking.serviceSubnet</tt> is set to <tt>10.0.0.0/18</tt>. The blocks you choose must not overlap with the <tt>serviceSubnet</tt>.</p>
 
 ### IAM Service Account and project role
-An existing IAM Service Account and project role can be used, provided that the right policies are set:
 
-```yaml
-...
-spec:
-  provider: gcp
-  nodePools:
-  - name: worker
-    count: 1
-    machine:
-      gcp:
-        iam:
-          serviceAccount:
-            name: "service-account-name@GCPPROJECTNAME.iam.gserviceaccount.com"
-            role: "project-role-name-to-be-used"
-...
-```
+The aim of this section is to avoid using logged in credentials. Instead, we will be delegating to google iam keys, roles, and services policies to deploy clusters. At the prerequisite step, we have already created a Konvoy **role** and **granted permissions** (see [here][install_gcp]).
 
-[node_pools]: ../../node-pools/
-[virtual_machine_types]: https://cloud.google.com/compute/docs/machine-types
-[ephemeral_storage]: ../../../storage/
+Now, in further steps you will be creating a **service-account** (Konvoy), binding both **roles** to **service-account**, and generating an **application key**.
+
+  ```bash
+  gcloud iam service-accounts create konvoy --description "Management of Konvoy clusters" --display-name "Konvoy Management"
+  gcloud projects add-iam-policy-binding ${GOOGLE_PROJECT} --member serviceAccount:konvoy@${GOOGLE_PROJECT}.iam.gserviceaccount.com --role projects/${GOOGLE_PROJECT}/roles/konvoy
+  gcloud iam service-accounts keys create ${HOME}/.config/gcloud/konvoy-sa-${GOOGLE_PROJECT}.json --iam-account konvoy@${GOOGLE_PROJECT}.iam.gserviceaccount.com
+  export GOOGLE_APPLICATION_CREDENTIALS="${HOME}/.config/gcloud/konvoy-sa-${GOOGLE_PROJECT}.json"
+  ```
+
+You then need to add an IAM **Service Account** and project **Role** can be used in the `cluster.yaml file`, provided that the right policies are set:
+
+  ```yaml
+  ...
+  spec:
+    provider: gcp
+    nodePools:
+    - name: worker
+      count: 4
+      machine:
+        gcp:
+          iam:
+            serviceAccount:
+              name: "service-account-name@GCPPROJECTNAME.iam.gserviceaccount.com"
+              role: "project-role-name-to-be-used"
+  …
+    - name: master
+      count: 3
+      machine:
+        gcp:
+          iam:
+            serviceAccount:
+              name: "service-account-name@GCPPROJECTNAME.iam.gserviceaccount.com"
+              role: "project-role-name-to-be-used"
+  ...
+  ```
+
 [disks]: https://cloud.google.com/compute/docs/disks/
-[public_images]: https://cloud.google.com/compute/docs/images
+[ephemeral_storage]: ../../../storage/
 [forwading_rules_internal]: https://cloud.google.com/load-balancing/docs/internal/setting-up-internal#test-from-backend-vms
+[gcp_regions]: https://cloud.google.com/compute/docs/regions-zones
+[install_gcp]: ../../install-gcp#before-you-begin
+[node_pools]: ../../node-pools/
+[public_images]: https://cloud.google.com/compute/docs/images
+[virtual_machine_types]: https://cloud.google.com/compute/docs/machine-types

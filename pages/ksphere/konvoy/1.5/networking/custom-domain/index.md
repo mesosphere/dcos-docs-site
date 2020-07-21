@@ -8,22 +8,25 @@ excerpt: Configure a custom domain for Konvoy
 
 ## Configure Konvoy to use a custom domain
 
-To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml`:
+To configure a custom domain, update the `konvoyconfig` addon in `cluster.yaml` and apply the changes using `konvoy up`:
+
+The hostname, eg `mycluster.domain.dom` in these examples, must be resolvable from the client (your browser) and from the cluster.
 
 ```yaml
 - name: konvoyconfig
   enabled: true
   values: |
      config:
-        clusterHostname: < custom domain >
+        clusterHostname: mycluster.domain.dom
 ```
 
-### Use external-dns to create a CNAME
+### Use external-dns to create a CNAME  (Optional)
 
-In a cloud environment, you can automate the process of creating a CNAME record
- for your ELB by configuring the `external-dns` addon.
+You can automate the process of creating a CNAME record for your ELB by configuring the `external-dns` and `traefik` addons:
 
-#### AWS
+#### Configure external-dns controller
+
+##### AWS
 
 In AWS, the `external-dns` can be configured as:
 
@@ -40,12 +43,37 @@ In AWS, the `external-dns` can be configured as:
     policy: sync
     txtPrefix: local-
     domainFilters:
-    - <custom domain>
+    - domain.dom
 ```
 
 <p class="message--note"><strong>NOTE: </strong>The AWS account must have permissions to update `route 53`. More details can be found <a href="https://github.com/kubernetes-sigs/external-dns/blob/master/docs/tutorials/aws.md">here</a>.</p>
 
-You also have to annotate the `traefik` addon with the custom domain name.
+##### RFC2136 (eg BIND and Windows DNS)
+
+In many on-premises environments, dns entries may be updated using the `external-dns` RFC2136 provider.
+
+```yaml
+- name: external-dns
+  enabled: true
+  values: |
+    provider: rfc2136
+    rfc2136:
+      host: ns1.domain.dom
+      port: 53
+      zone: domain.dom
+      tsigSecret: "96Ah/a2g0/nLeFGK+d/0tzQcccf9hCEIy34PoXX2Qg8="
+      tsigSecretAlg: hmac-sha256
+      tsigKeyname: externaldns-key
+      tsigAxfr: true
+    policy: sync
+    txtPrefix: local-
+    domainFilters:
+    - domain.dom
+```
+
+#### Configure traefik for external-dns controller
+
+Annotate the `traefik` Addon with the custom domain name.
 
 ```yaml
 - name: traefik
@@ -53,30 +81,30 @@ You also have to annotate the `traefik` addon with the custom domain name.
   values: |
     service:
       annotations:
-        external-dns.alpha.kubernetes.io/hostname: <custom domain>
+        external-dns.alpha.kubernetes.io/hostname: mycluster.domain.dom
 ```
 
-### Configure Konvoy to use custom certificates
+### Configure Konvoy to use custom certificates (Optional)
 
 You can also configure Konvoy to use custom certificates as an
 additional measure of security.
 
 To configure custom certificates for your domain:
 
-### Pre-requisites
+#### Pre-requisites
 
--   Requires minimum Konvoy version `v1.3` or greater.
--   A custom domain with the following:
-    - Certificate (in PEM-format)
-    - Key (unencrypted RSA private key)
-    - CA bundle (intermediate-ca and root-ca certificates in PEM-format concatenated in the same file) for the custom domain
+Requires a custom domain with the following:
 
-### Instructions
+- Certificate (in PEM-format)
+- Key (unencrypted RSA private key)
+- CA bundle (intermediate-ca and root-ca certificates in PEM-format concatenated in the same file) for the custom domain
 
-1.  Create the directory `extras/kubernetes` inside the root Konvoy directory.
+#### Instructions
+
+1.  Create the directory `extras/kubernetes` from the same directory as your cluster.yaml
 
     ```shell
-    mkdir -p <path to konvoy dir>/extras/kubernetes
+    mkdir -p extras/kubernetes
     ```
 
 1.  Create a `secret.yaml` file with the certificate, key and CA bundle(s) and place it in `extras/kubernetes`.
@@ -100,7 +128,7 @@ To configure custom certificates for your domain:
       - name: konvoyconfig
         values: |
           config:
-            clusterHostname: <hostname>
+            clusterHostname: mycluster.domain.dom
 
       - name: dex-k8s-authenticator
         values: |
@@ -134,7 +162,7 @@ To configure custom certificates for your domain:
           controlPlane:
             certificate:
               subjectAlternativeNames:
-              -  <custom domain>
+              -  mycluster.domain.dom
       ```
 
 1.  Install `konvoy`.
@@ -143,4 +171,4 @@ To configure custom certificates for your domain:
     konvoy up
     ```
 
-1.  Navigate to `https://<custom-domain>/ops/landing`. Verify the custom certificate is served by the browser.
+1.  Navigate to `https://mycluster.domain.dom/ops/landing`. Verify the custom certificate is served by the browser.

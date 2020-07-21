@@ -13,7 +13,7 @@ Audit Logs are collected using the FluentBit Addon and enabled for collection by
 
 #### Before you begin
 
-Thos procedure requires that you have the FluentBit addon enabled. If this is not the case then no further action is required.
+This procedure requires that you have the FluentBit addon enabled. If this is not the case then no further action is required.
 
 #### Disable Audit Log Collection
 
@@ -74,5 +74,5 @@ The changes will be applied if your cluster already exists or audit-logs not col
 For information on related topics or procedures, refer to the following:
 
 - [Logging](../../logging)
-- [Resource Recommendartions](../../logging/recommendations)
+- [Resource Recommendations](../../logging/recommendations)
 - [Fluentbit Addon](../../addons/fluentbit)

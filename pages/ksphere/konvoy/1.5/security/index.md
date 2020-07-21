@@ -12,6 +12,16 @@ This includes role-based access control (RBAC) for determining which resources a
 
 Users are identified through an OpenID Connect interface, which supports login using multiple connectors, including GitHub, Google, and LDAP.
 
+## Operator credentials
+
+The cluster operator gets initial access using the username and password provided after running `konvoy up` or, for a running cluster, `konvoy get ops-portal`.
+To use these credentials, select `Launch Console`.
+
+This same username and password provides access to the Ops Portal, including multiple dashboards for management of the cluster.
+
+Only these credentials provide access to the Ops Portal.
+Adding additional Ops Portal users may be provided in a future release.
+
 ## Client tokens
 
 To configure `kubectl` to access the Kubernetes cluster, obtain a token from the web landing page, by selecting `Generate Kubectl Token`.
@@ -22,16 +32,6 @@ Once you have signed in, a page will show the commands required to configure `ku
 
 When the token expires, it is necessary to repeat the above process to obtain a fresh token.
 When refreshing a token, only the `kubectl config set-credentials` command needs to be executed with the new token.
-
-## Operator credentials
-
-The cluster operator gets initial access using the username and password provided after running `konvoy up` or, for a running cluster, `konvoy get ops-portal`.
-To use these credentials, select `Log in with Email`.
-
-This same username and password provides access to the Ops Portal, including multiple dashboards for management of the cluster.
-
-Only these credentials provide access to the Ops Portal.
-Adding additional Ops Portal users may be provided in a future release.
 
 ## Adding login connectors
 

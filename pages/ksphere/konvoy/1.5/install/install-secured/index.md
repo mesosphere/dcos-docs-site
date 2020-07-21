@@ -18,11 +18,9 @@ Before installing, ensure that your environment has the following basic requirem
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.7 or later
+* [kubectl][install_kubectl] v1.17.8 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
-
-* The `konvoy_air_gapped.tar.bz2` that contains the required artifacts to perform an air-gapped installation.
 
 ## Control plane nodes
 
@@ -55,6 +53,7 @@ For all hosts that are part of the cluster -- except the **deploy host** -- you 
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
 * Swap is disabled.
+* The `hostnames` for all the machines in the Kubernetes cluster are unique within a single cluster.
 
 ## Installation
 
@@ -72,7 +71,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.16.9+d2iq.2
+    version: 1.17.8+d2iq.1
     imageRepository: docker.io/mesosphere
 ```
 
@@ -86,7 +85,7 @@ Run Konvoy with base image of `registry.access.redhat.com/ubi8/ubi:8.2`, replaci
 export KONVOY_VERSION=<version>_ubi8
 ```
 
-### IPTables
+## IPTables
 
 Kubernetes requires the hosts in the cluster with certain `iptables` rules.
 Run the command below to check your `iptables` ruleset:
@@ -138,7 +137,7 @@ iptables -A INPUT -p tcp -m tcp --dport 30000:32767 -m comment --comment "Konvoy
 iptables -A INPUT -p icmp -m comment --comment "Konvoy: ICMP" -m icmp --icmp-type 8 -j ACCEPT
 ```
 
-The default value is `false`, however, you can enable this behavior by setting the value of `spec.kubernetes.iptables.addDefaultRules` to `true`.
+By default Konvoy will not modify the iptables on the Kubernetes machines, however, you can enable this behavior and have Konvoy automatically add the above `iptables` rules on the Kubernetes machines, by setting the value of `spec.kubernetes.iptables.addDefaultRules` to `true`.
 
 ```yaml
 kind: ClusterConfiguration
@@ -152,41 +151,7 @@ spec:
         addDefaultRules: true
 ```
 
-[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
-[kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[ansible]: https://www.ansible.com
 [persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[ansible_inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
-[ansible_group]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-hosts-and-groups
-[keepalived]: https://www.keepalived.org/
-[vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
-[kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
-[metallb]: https://metallb.universe.tf
-[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
-[local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
-[static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md
-[calico]: https://www.projectcalico.org/
-[coredns]: https://coredns.io/
-[aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
-[elasticsearch]: https://www.elastic.co/products/elastic-stack
-[elasticsearch_exporter]: https://www.elastic.co/guide/en/elasticsearch/reference/7.2/es-monitoring-exporters.html
-[helm]: https://helm.sh/
-[kibana]: https://www.elastic.co/products/kibana
-[fluentbit]: https://fluentbit.io/
-[prometheus_operator]: https://prometheus.io/
-[grafana]: https://grafana.com/
-[prometheus_adapter]: https://github.com/DirectXMan12/k8s-prometheus-adapter
-[traefik]: https://traefik.io/
-[osi]: https://en.wikipedia.org/wiki/OSI_model
-[kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-[velero]: https://velero.io/
-[dex]: https://github.com/dexidp/dex
-[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
-[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
-[static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
-[containerd_mirrors]: https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint
 [ubi_image]: https://www.redhat.com/en/blog/introducing-red-hat-universal-base-image

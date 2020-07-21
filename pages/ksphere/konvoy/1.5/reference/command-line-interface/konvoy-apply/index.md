@@ -24,6 +24,6 @@ Updates certain configuration in the existing kubeconfig file
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy apply kubeconfig](./konvoy-apply-kubeconfig/)	 - Updates kubeconfig and activate the current context with the installed cluster
 

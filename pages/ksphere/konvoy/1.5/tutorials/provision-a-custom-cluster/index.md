@@ -89,7 +89,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
       expiration: 24h
     ```
 
-    For more information about customizing provisioning settings, see [Cluster provisioning][provisioning].
+    For more information about customizing provisioning settings, see [Cluster configuration][clusterconfig].
 
 1.  Edit the `ClusterConfiguration` section of `cluster.yaml` configuration file to change which addons you want to enable or disable.
 
@@ -103,7 +103,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
       creationTimestamp: "2019-05-31T18:00:00.844964-04:00"
     spec:
       kubernetes:
-        version: 1.17.7
+        version: 1.17.8
         networking:
           podSubnet: 192.168.0.0/16
           serviceSubnet: 10.0.0.0/18
@@ -142,7 +142,7 @@ To provision a customized cluster on Amazon Web Services (AWS):
       version: v0.0.15-10-g57dff48
     ```
 
-    In this example, you can disable the `fluentbit` addon by changing the `enabled` from `true` to `false`.
+    In this example, you can disable the `fluentbit` addon by changing the `enabled` field from `true` to `false`.
 
     **NOTE:** The addons `helm` and `opsportal` are *required* and a cluster cannot be provisioned until they are enabled.
 
@@ -154,13 +154,11 @@ To provision a customized cluster on Amazon Web Services (AWS):
     konvoy up
     ```
 
-The `konvoy up` command provisions the cluster similar to how it is provisioned using the default settings as described in [Provision and deploy the cluster and addons][defaultsettings].
+The `konvoy up` command provisions the cluster similar to how it is provisioned using the default settings as described in the [Quick start][quickstart].
 
-However, customized provisioning creates a `cluster.tmp.yaml` file that contains the default values merged with any your user-provided overrides.
+However, customized provisioning creates a `cluster.tmp.yaml` file that contains the default values merged with your user-provided overrides.
 The `cluster.tmp.yaml` file is the file that Ansible uses during its execution.
 You can delete this file after the cluster is created because it is regenerated every time you execute the `konvoy up` command.
 
 [quickstart]:../../quick-start/
-[provisioning]:../../reference/cluster-configuration/
 [clusterconfig]:../../reference/cluster-configuration/
-[defaultsettings]:../../quick-start/

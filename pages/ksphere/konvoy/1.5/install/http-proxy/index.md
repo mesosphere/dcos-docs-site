@@ -9,31 +9,84 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-For some production environments, direct access to the Internet could be blocked.
-Those environments typically only allow Internet access through HTTP or HTTPS proxies.
+Konvoy supports environments where access to the Internet is restricted, and must be made through an HTTP/HTTPS proxy.
 
-Konvoy can be configured to use HTTP/HTTPS proxy for Internet access.
-This applies to all Kubernetes components, as well as workloads running on top of Kubernetes, assuming the workloads understand standard HTTP/HTTPS proxy environment variables:
+In these environments, configure Konvoy to use the HTTP/HTTPS proxy. In turn, Konvoy configures all core Kubernetes components to use the HTTP/HTTPS proxy.
 
-* `HTTP_PROXY`: the HTTP proxy server address.
-* `HTTPS_PROXY`: the HTTPS proxy server address. (Ansible only supports `http:`)
-* `NO_PROXY`: a list of IPs and domain names that are not subject to proxy settings.
+<p class="message--note"><strong>NOTE: </strong>Konvoy follows a common convention for using an HTTP proxy server. The convention is based on three environment variables, and is supported by many, though not all, applications.<ul>
+  <li><tt>HTTP_PROXY</tt>: the HTTP proxy server address</li>
+  <li><tt>HTTPS_PROXY</tt>: the HTTPS proxy server address</li>
+  <li><tt>NO_PROXY</tt>: a list of IPs and domain names that are not subject to proxy settings</li>
+</ul>
+</p>
+
+Konvoy downloads addon configurations to the bootstrap host, i.e., the host where the `konvoy` binary runs. If the addon configurations are not available on the bootstrap host, Konvoy accesses the Internet from the host.
+
+Konvoy downloads software packages to cluster nodes. Kubernetes downloads container images to cluster nodes. If the packages or container images are not available on a cluster node, Konvoy or Kubernetes, respectively, access the Internet from that node.
+
+<p class="message--important"><strong>IMPORTANT: </strong> Konvoy requires the <tt>http</tt> scheme to be used for both the HTTP and HTTPS proxy server. This is for two reasons: First, Konvoy uses Ansible to download software packages, and Ansible does not support the <tt>https</tt> scheme. Second, Konvoy does not support verification of the HTTP proxy server certificate. Note that, even when using the `http` scheme, the proxy server cannot read the body or headers of an HTTPS request.</p>
 
 # Before you start
 
-Make sure the proxy server is running and functional.
-You can verify this using the `curl` command from a node in the cluster.
-Assume `http://proxy.company.com:3128` is the HTTP proxy server address.
+In the examples below:
+
+1. The `curl` command-line tool is available on the host.
+1. The proxy server address is `http://proxy.company.com:3128`.
+1. The proxy server address uses the `http` scheme.
+1. The proxy server can reach `www.google.com` using HTTP or HTTPS.
+
+## Verify that the bootstrap host can access the Internet through the proxy server
+
+On the bootstrap host, run:
 
 ```bash
-http_proxy=http://proxy.company.com:3128 curl --head www.google.com
+curl --proxy http://proxy.company.com:3128 --head http://www.google.com
+curl --proxy http://proxy.company.com:3128 --head https://www.google.com
 ```
 
-If the proxy is working properly, you receive a `200 OK` HTTP response.
+If the proxy is working for HTTP and HTTPS, respectively, the `curl` command returns a `200 OK` HTTP response.
 
-# Install Konvoy with HTTP/HTTPS proxies
+## Verify that cluster nodes can access the Internet through the proxy server
 
-Edit the cluster configuration file `cluster.yaml` to specify HTTP/HTTPS proxies for the cluster.
+On each cluster node, run:
+
+```bash
+curl --proxy http://proxy.company.com:3128 --head http://www.google.com
+curl --proxy http://proxy.company.com:3128 --head https://www.google.com
+```
+
+If the proxy is working for HTTP and HTTPS, respectively, the `curl` command returns a `200 OK` HTTP response.
+
+# Configure Konvoy
+
+Set the `HTTP_PROXY` and `HTTPS_PROXY` environment variables to the address of the HTTP and HTTPS proxy server, respectively. Set the `NO_PROXY` environment variable to the addresses that should be accessed directly, not through the proxy.
+
+<p class="message--important"><strong>IMPORTANT: </strong>Both the HTTP and HTTPS proxy server address must use the <tt>http</tt> scheme.</p>
+
+This example shows how to configure the HTTP proxy server, then run `konvoy up`:
+
+```bash
+export HTTP_PROXY=http://proxy.company.com:3128
+export HTTPS_PROXY=http://proxy.company.com:3128
+konvoy up
+```
+
+# Configure Kubernetes core components and addons
+
+Edit the cluster configuration file, `cluster.yaml`. Set `httpProxy` and `httpsProxy` to the HTTP and HTTPS proxy server address, respectively. Set `noProxy` to the addresses that should be accessed directly, not through the proxy.
+
+<p class="message--important"><strong>IMPORTANT: </strong>Both the HTTP and HTTPS proxy server address must use the <tt>http</tt> scheme.</p>
+
+<p class="message--note"><strong>NOTE: </strong>In order to ensure core components work correctly, Konvoy always adds these addresses to <tt>noProxy</tt>:
+<ul>
+    <li>Loopback addresses (<tt>127.0.0.1</tt> and <tt>localhost</tt>)</li>
+    <li>Kubernetes API Server addresses</li>
+    <li>Kubernetes Pod IPs (e.g. <tt>192.168.0.0/16</tt>)</li>
+    <li>Kubernetes Service addresses (e.g., <tt>10.0.0.0/18</tt>, <tt>kubernetes</tt>, <tt>kubernetes.default</tt>, <tt>kubernetes.default.svc</tt>, <tt>kubernetes.default.svc.cluster</tt>, <tt>kubernetes.default.svc.cluster.local</tt>, <tt>.svc</tt>, <tt>.svc.cluster</tt>, <tt>.svc.cluster.local</tt>)</li>
+</ul>
+</p>
+
+In this example, the proxy server is `http://proxy.company.com:3128`, and additional addresses that should be accessed directly are IPs in the `172.0.0.0/16` CIDR, and hosts in the `.intra.net` domain.
 
 ```yaml
 kind: ClusterConfiguration
@@ -42,13 +95,11 @@ spec:
   kubernetes:
     networking:
       httpProxy: "http://proxy.company.com:3128"
-      httpsProxy: "http://proxy.company.com:3129"
-      noProxy: []
+      httpsProxy: "http://proxy.company.com:3128"
+      noProxy: [ "172.0.0.0/16", ".intra.net" ]
 ```
 
-This example configures the Kubernetes cluster installed by Konvoy to use proxy server `http://proxy.company.com:3128` for all HTTP traffic and proxy server `http://proxy.company.com:3129` for all HTTPS traffic, except for those HTTP/HTTPS requests to `localhost`, `127.0.0.1`, `company.com` and `mycluster.icp:8500`.
-
-This configuration only applies to the core Kubernetes components. In this case, you must next configure the HTTP_PROXY settings for all other workloads that require access to the Internet.
+In a cluster with the default configuration, the `kommander` addon is installed. This addon needs access to the Internet to list the available `docker.io/mesosphere/konvoy` Docker images. To configure the addon to use the proxy settings, modify its `values` field as follows:
 
 ```yaml
 kind: ClusterConfiguration
@@ -63,19 +114,34 @@ spec:
           utilityApiserver:
             env:
               HTTP_PROXY: "http://proxy.company.com:3128"
-              NO_PROXY: "http://proxy.company.com:3128"
-              HTTPS_PROXY: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
+              HTTPS_PROXY: "http://proxy.company.com:3128"
+              NO_PROXY: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
     ...
 ```
 
-All the proxy-related fields are optional.
+<p class="message--important"><strong>IMPORTANT: </strong>The <tt>NO_PROXY</tt> variable contains the Kubernetes Services CIDR. This example uses the default CIDR, <tt>10.0.0.0/18</tt>. If your cluster's CIDR is different, update the value in <tt>NO_PROXY</tt>.</p>
 
-Konvoy applies the proxy configuration automatically after you run the following command:
+After you change the cluster configuration, apply the changes by running `konvoy up`.
 
-```bash
-konvoy up
+# Configure your applications
+
+Many, but not all, applications follow the convention of `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables.
+
+In this example, the environment variables are set for a container in a Pod:
+
+```yaml
+apiVersion: v1
+kind: Pod
+spec:
+  containers:
+  - name: example-container
+    env:
+    - name: HTTP_PROXY
+      value: "http://proxy.company.com:3128"
+    - name: HTTPS_PROXY
+      value: "http://proxy.company.com:3128"
+    - name: NO_PROXY
+      value: "10.0.0.0/18,localhost,127.0.0.1,169.254.169.254,kubernetes.default,kubernetes.default.svc,kubernetes.default.svc.cluster,kubernetes.default.svc.cluster.local,.svc,.svc.cluster,.svc.cluster.local"
 ```
 
-<p class="message--important"><strong>IMPORTANT: </strong>if the machine from which the <tt>konvoy</tt> binary is being run requires the HTTP/HTTPS proxy for Internet access, you must set the same <tt>HTTP_PROXY</tt>, <tt>HTTPS_PROXY</tt>, and <tt>NO_PROXY</tt> as environment variables before running <tt>konvoy</tt>.</p>
-
-These proxy settings will be used by the binary itself (not Kubernetes cluster machines) to download addon configurations over the Internet.
+See [Define Environment Variables for a Container](https://kubernetes.io/docs/tasks/inject-data-application/define-environment-variable-container/#define-an-environment-variable-for-a-container) for more details.

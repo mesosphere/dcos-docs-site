@@ -12,7 +12,7 @@ Konvoy is a complete, standalone distribution of Kubernetes that includes a nati
 By combining the native Kubernetes cluster with all of the components required for operation and lifecycle management, Konvoy provides an out-of-the-box and production-ready Kubernetes ecosystem that you can install using a single command-line instruction.
 
 Because Konvoy packages all of its components as a fully integrated and tested solution with complete technical support, Konvoy enables organizations to easily provision Kubernetes clusters into a production environment.
-Its suite of pre-selected <a href="https://www.cncf.io" target="_blank">Cloud Native Computing Foundation (CNCF)</a> and community-contributed tools provide important additional functionality that is key to managing both cluster operations and the applications deployed on the cluster.
+Its suite of pre-selected [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io) and community-contributed tools provide important additional functionality that is key to managing both cluster operations and the applications deployed on the cluster.
 
 # Features and functionalities
 

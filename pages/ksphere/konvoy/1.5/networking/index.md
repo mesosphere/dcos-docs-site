@@ -13,7 +13,7 @@ This section describes different networking components that come together to for
 
 # IPtables
 
-Konvoy can be configured to automatically add `iptables` the rules outlined below.
+Konvoy can be configured to automatically add `iptables` with the rules outlined below.
 
 Control Plane nodes:
 
@@ -62,8 +62,6 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
     networking:
-      podSubnet: 192.168.0.0/16
-      serviceSubnet: 10.0.0.0/18
       iptables:
         addDefaultRules: true
 ```
@@ -76,9 +74,9 @@ Konvoy ships with a highly available control plane, in case of multi-master Kube
 
 High availability is provided through the cloud provider's load balancer.
 
-## On-premise
+## On-premises
 
-In on-premise deployments, Konvoy ships with [Keepalived][keepalived].
+In on-premises deployments, Konvoy ships with [Keepalived][keepalived].
 Keepalived provides two main functionalities - high availability and load balancing.
 It uses the [VRRP][vrrp] (Virtual Router Redundancy Protocol) to provide high availability.
 VRRP allows you assign a virtual IP (VIP) to participating machines, where it is active only on one of the machines.
@@ -122,8 +120,8 @@ This field is optional; if not set, Konvoy automatically detects the network int
 Further, you could set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][keepalived_conf] used by Keepalived.
 This field is optional; if not set, Konvoy will randomly pick a Virtual Router ID for you.
 
-Keepalived is enabled by default for on-premise deployment. You can disable it by removing `spec.kubernetes.controlPlane.keepalived` from the `cluster.yaml`.
-This is usually done where there is an on-premise load balancer which could be used to maintain high availability of the control plane.
+Keepalived is enabled by default for on-premises deployment. You can disable it by removing `spec.kubernetes.controlPlane.keepalived` from the `cluster.yaml`.
+This is usually done where there is an on-premises load balancer which could be used to maintain high availability of the control plane.
 
 If you are not setting any of the optional values, set `spec.kubernetes.controlPlane.keepalived: {}` to enable the default values.
 
@@ -188,6 +186,11 @@ spec:
 
 ## Network Policy
 
+A network policy specifies how groups of pods are allowed to communicate with
+each other and with other network endpoints.
+
+In Konvoy, network policies are implemented by Calico.
+
 Calico supports a wide range of [network policies][calico_policy].
 It is tightly integrated with Kubernetes network policy.
 You can use `kubectl` to configure Kubernetes network policy which would be enforced by Calico.
@@ -196,7 +199,7 @@ More details about Calico network policy can be found [here][calico_security].
 
 ## In-cluster BGP Route Reflectors
 
-Calico advertises routes using BGP Protocol with the full node-to-node mesh configured by default.
+Calico advertises routes using BGP Protocol with a full node-to-node mesh configured by default.
 That means all nodes connect to each other which becomes a problem on big clusters.
 Konvoy has support for in-cluster BGP Route Reflectors.
 Route Reflectors are essential on clusters with more than 200 nodes.
@@ -261,7 +264,7 @@ Load Balancing can be addressed in two ways:
 
 Load balancing within a Kubernetes cluster is exposed through a service of type `ClusterIP`.
 `ClusterIP` is similar to a virtual IP (VIP) which presents a single IP address to the client and load balances the traffic to the backend servers.
-The actual load balancing happens via `iptables` rules or ipvs configuration, which are programmed by a Kubernetes component called `kube-proxy`.
+The actual load balancing happens via `iptables` rules or IPVS configuration, which are programmed by a Kubernetes component called `kube-proxy`.
 By default, `kube-proxy` runs in `iptables` mode.
 It configures `iptables` to intercept any traffic destined towards `ClusterIP` and send traffic to the real servers based on the probabilistic `iptables` rules.
 `Kube-proxy` configuration can be altered by updating the `configmap` named `kube-proxy` in the `kube-system` namespace.
@@ -274,9 +277,9 @@ A Kubernetes service of type `LoadBalancer` requires a load balancer to connect 
 
 In cloud deployments, the load balancer is provided by the cloud provider.
 
-## On-premise
+## On-premises
 
-For an on-premise deployment, Konvoy ships with [MetalLB][metallb].
+For an on-premises deployment, Konvoy ships with [MetalLB][metallb].
 
 To use MetalLB for addon load balancing:
 
@@ -359,7 +362,7 @@ Konvoy ships with [Traefik][traefik] as the default ingress controller.
 The default Traefik helm chart can be viewed [here][traefik_chart].
 Traefik creates a service of type Load Balancer.
 In the cloud, the cloud provider creates the appropriate load balancer.
-In on-premise deployment, by default, it uses MetalLB. MetalLB can be configured as discussed earlier.
+In on-premises deployment, by default, it uses MetalLB. MetalLB can be configured as discussed earlier.
 
 Further, Traefik supports a lot of functionalities such as Name-based routing, Path-based routing, Traffic splitting etc.
 Details of these functionalities can be viewed [here][traefik_fn].

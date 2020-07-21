@@ -6,11 +6,11 @@ menuWeight: 11
 excerpt: Recommended settings for monitoring and collecting metrics for Kubernetes, platform services, and applications deployed on the Konvoy cluster
 ---
 
-At D2iQ, we conduct routine performance testing of Konvoy. The following table provides recommended settings, based on cluster size and increasing workloads, that maintain a healthy ElasticSearch deployment.
+At D2iQ, we conduct routine performance testing of Konvoy. The following table provides recommended settings, based on cluster size and increasing workloads, that maintain a healthy Elasticsearch deployment.
 
 <p class="message--note"><strong>NOTE: </strong>The resource settings reflect some settings but do not represent the exact structure to be used in the Konvoy <code>cluster.yaml</code>.</p>
 
-## ElasticSearch
+## Elasticsearch
 
 <table>
   <tr>
