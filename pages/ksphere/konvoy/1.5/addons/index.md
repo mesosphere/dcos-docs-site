@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
-menuWeight: 0
+menuWeight: 6
 excerpt: What are Kubernetes Base Addons
 enterprise: false
 ---
