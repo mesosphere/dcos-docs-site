@@ -28,11 +28,11 @@ For example, you can use the Velero command-line interface to back up or restore
 
 By default, Konvoy sets up Velero to use Minio over TLS using a self-signed certificate.
 Currently, the Velero command-line interface does not handle self-signed certificates.
-Until an upstream fix is released, please use [our patched 1.0.0 version of Velero](https://github.com/mesosphere/velero/releases/tag/v1.0.0-patch), which adds an `--insecureskipverify` flag.
+Until an upstream fix is released, please use [our patched 1.0.0 version of Velero][velero-patch-git], which adds an `--insecureskipverify` flag.
 
 ## Enable or disable the backup addon
 
-<p class="message--note"><strong>NOTE: </strong>Before disabling the Velero platform service add-on, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
+<p class="message--note"><strong>NOTE: </strong>Before disabling the Velero platform service addon, be sure you have a recent backup that you can use to restore the cluster in the event that there is a problem converting to the new backup service.</p>
 
 You can enable the `Velero` addon using the following settings in the `ClusterConfiguration` section of the `cluster.yaml` file:
 
@@ -60,10 +60,10 @@ After making changes to your `cluster.yaml`, you must run `konvoy up` to apply t
 
 For production clusters, you should be familiar with the following basic administrative functions Velero provides:
 
-- [Set a backup schedules](#set-a-backup-schedule)
-- [Fetch backup archives](#fetching-a-backup-archive)
-- [Run on-demand backups](#back-up-on-demand)
-- [Restore from a backup archive](#restore-a-cluster)
+- [Set a backup schedule][set-schedule]
+- [Fetch backup archives][fetch-backup]
+- [Run on-demand backups][backup-on-demand]
+- [Restore from a backup archive][restore-a-cluster]
 
 ### Set a backup schedule
 
@@ -134,7 +134,7 @@ velero backup download BACKUP_NAME --insecureskipverify
 In some cases, you might find it necessary create a backup outside of the regularly-scheduled interval.
 For example, if you are preparing to upgrade any components or modify your cluster configuration, you should perform a backup immediately before taking that action.
 
-You can then create a backup by running a command similar to the following:
+You can create a backup by running a command similar to the following:
 
 ```shell
 velero backup create BACKUP_NAME
@@ -204,11 +204,15 @@ velero get backup-locations
 velero get snapshot-locations
 ```
 
-[velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
+[backup-on-demand]: #back-up-on-demand
+[fetch-backup]: #fetching-a-backup-archive
+[kubeaddons]: https://github.com/mesosphere/kubernetes-base-addons
+[minio]: https://velero.io/docs/v1.0.0/get-started/
+[releases]: https://github.com/heptio/velero/releases
+[restore-a-cluster]: #restore-a-cluster
+[set-schedule]: #set-a-backup-schedule
 [velero-cm]: https://velero.io/docs/v0.11.0/migration-case
-[velero-troubleshooting]: https://velero.io/docs/v0.11.0/debugging-install
-[kubeaddons]:https://github.com/mesosphere/kubernetes-base-addons
-[releases]:https://github.com/heptio/velero/releases
-[minio]:https://velero.io/docs/v1.0.0/get-started/
+[velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
 [velero-get-started]: https://velero.io/docs/v0.11.0/get-started
-[homebrew]: https://brew.sh/
+[velero-patch-git]: https://github.com/mesosphere/velero/releases/tag/v1.0.0-patch
+[velero-troubleshooting]: https://velero.io/docs/v0.11.0/debugging-install
