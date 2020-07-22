@@ -178,3 +178,73 @@ The restore procedure is successful when all instances are in `serving` state an
 ## Limitations to ZooKeeper backups
 - Backing up the ZooKeeper state in the current form requires stopping one ZooKeeper node. In cases where you are using 3 master nodes, this significantly reduces the tolerance of master node outages for a DC/OS cluster while a backup is taken, and impacts the resilience to a lesser degree when using 5 master nodes.
 - Restoring from a ZooKeeper backup requires stopping all ZooKeeper instances within DC/OS. Hence this is only recommended as a last resort for restoring an otherwise non-recoverable cluster.
+
+
+# etcd backup and restore
+This section describes the process of backing up and restoring the state of etcd running inside a DC/OS cluster.
+
+Backing up etcd will allow you to return a cluster to a known good state. Therefore we highly recommend that you back up your etcd state regularly, to be prepared for the worst-case scenario. When performing maintenance operations, such as an upgrade or downgrade, you may wish to back up the etcd state before beginning the maintenance.
+
+<p class="message--important"><strong>IMPORTANT: </strong>
+Restoring etcd from a backup should be the last resort to recover a DC/OS cluster. It is only applicable after confirming that the cluster has suffered permanent data loss, including the etcd state.
+</p>
+
+## Backing up an etcd cluster
+The etcd cluster within DC/OS is a system that provides distributed consensus between member nodes. An instance of etcd is running on each master node and these instances service the entire cluster. The etcd state can only progress once all nodes in the cluster have seen and agreed on a certain value. This implies that state of any one etcd node will contain the entire state information up until a certain point in time. Therefore backing up only one etcd node is sufficient to get reasonably close to the latest state for a etcd cluster backup. Creating the backup takes time and therefore the live system at the end of the backup will most likely no longer reflect the current state. However, the data available at the beginning of the procedure will be captured.
+
+### Prerequisites
+* Make sure there is enough disk space available to temporarily store the etcd backup on a particular master node.
+* Any shell commands must be issued as a privileged Linux user.
+
+1. SSH to the master node which is the current Mesos leader. To discover which node is the correct leader, run this command on any cluster node. The IP that is shown is the IP of the current leader:
+
+    ```bash
+    ping leader.mesos
+    ```
+
+1. Run this command to create the backup:
+
+    ```bash
+    sudo /opt/mesosphere/bin/dcos-shell dcos-etcdctl backup <backup-tar-archive-path>
+    ```
+
+## Restoring from an etcd backup
+1. Copy the previously created single etcd backup tar archive to all master nodes.
+1. Stop the etcd instances on all master nodes:
+
+    ```bash
+    sudo systemctl stop dcos-etcd
+    ```
+
+1. Create a copy of the etcd data directory on all master nodes:
+
+    ```bash
+    sudo cp -R /var/lib/dcos/etcd/default.etcd <backup-directory-path>
+    ```
+
+1. Initiate the restore procedure using the provided DC/OS etcd restore script on all master nodes:
+
+    ```bash
+    sudo /opt/mesosphere/bin/dcos-shell dcos-etcdctl restore <backup-tar-archive-path>
+    ```
+
+1. Start the previously stopped etcd instance on all master nodes:
+
+    ```bash
+    sudo systemctl start dcos-etcd
+    ```
+
+1. Check the etcd cluster status on all master nodes:
+
+    ```bash
+    sudo /opt/mesosphere/bin/dcos-shell dcos-etcdctl diagnostic
+    ```
+
+The above command presents the results of etcdctl subcommands `endpoint health` and `member list -w json`. A healthy etcd cluster should meet the following requirements given the output of the commands:
+
+* `endpoint health` checks the healthiness of on the current etcd instance, which should report as "healthy".
+* `member list -w json` returns the cluster members, which should include all master nodes.
+
+## Limitations to etcd backups
+* Restoring from an etcd backup requires stopping all etcd instances within DC/OS. Hence this is only recommended as a last resort for restoring an otherwise non-recoverable cluster.
+
