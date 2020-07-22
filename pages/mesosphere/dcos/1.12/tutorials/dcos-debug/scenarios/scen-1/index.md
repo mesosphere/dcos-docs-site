@@ -19,13 +19,7 @@ For this first scenario, deploy [this app definition](https://raw.githubusercont
 $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-scaling1.json
 ```
 
-Check the application status using the DC/OS GUI, you should see something like the following:
-
-![Pic of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-14.png)
-
-Figure 1. DC/OS GUI showing app status
-
-with the status of the application most likely to be “Waiting” followed by some number of thousandths “x/1000”. "Waiting" refers to the overall application status and the number; "x" here represents how many instances have successfully deployed (6 in this example).
+Check the application status using the DC/OS web interface. The status of the application will most likely be “Waiting” followed by some number of thousandths “x/1000”. "Waiting" refers to the overall application status and the number; "x" here represents how many instances have successfully deployed (6 in this example).
 
 You can also check this status from the CLI:
 
@@ -61,27 +55,14 @@ So now we know that some (6/1000) instances of the application have successfully
 
 The “Waiting” state means that DC/OS (or more precisely Marathon) is waiting for a suitable resource offer. So it seems to be an deployment issue and we should start by checking the available resources.
 
-If we look at the DC/OS dashboard, we should see a pretty high CPU allocation similar to the following (of course, the exact percentage depends on your cluster):
-
-![Pic of CPU Allocation](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-20.png)
-
-Figure 2. DC/OS resource allocation display
+If we look at the DC/OS dashboard, we should see a pretty high CPU allocation. 
 
 Since we are not yet at 100% allocation, but we are still waiting to deploy, something interesting is going on. So let’s look at the recent resource offers in the debug view of the DC/OS GUI.
-
-![Pic of relevant instance of GUI](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-21.png)
-
-Figure 3. Recent resource offers
 
 We can see that there are no matching CPU resources. But again, the overall CPU allocation is only at 75%. Further puzzling, when we take a look at the 'Details' section further below, we see that the latest offers from a different host match the resource requirements of our application. So, for example, the first offer coming from host `10.0.0.96` matched the role, constraint (not present in this `app-definition`) memory, disk, port resource requirements --- but failed the CPU resource requirements. The offer before this also seemed like it should have met the resource requirements. **So despite it looking like we have enough CPU resources available, the application seems to be failing for just this reason**.
 
 Let's look at the details more closely.
-
-![Pic of details](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-22.png)
-
-Figure 4. Rsource allocation details
-
-According to this, some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
+Some of the remaining CPU resources are allocated to a different [Mesos resource role](http://mesos.apache.org/documentation/latest/roles/) and so cannot be used by our application (it runs in role '*', the default role).
 
 To check the roles of different resources let us have a [look at the state-summary endpoint](/mesosphere/dcos/1.12/tutorials/dcos-debug/tools/#state-summary), which you can access at `https://<master-ip>/mesos/state-summary`.
 
@@ -101,13 +82,7 @@ curl -skSL
 jq '.'
 ```
 
-When looking at the agent information we can see two different kinds of agent.
-
-![Pic of cluster information](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-19.png)
-
-Figure 5. Cluster information
-
-The first kind has no free CPU resources and also no reserved resources. Of course, this might be different if you had other workloads running on your cluster prior to these exercises. Note that these unreserved resources correspond to the default role '*' --- the role by which we are trying to deploy our tasks.
+When looking at the agent information we can see two different kinds of agent. The first kind has no free CPU resources and also no reserved resources. Of course, this might be different if you had other workloads running on your cluster prior to these exercises. Note that these unreserved resources correspond to the default role '*' --- the role by which we are trying to deploy our tasks.
 
 The second kind has unused CPU resources, but these resources are reserved in the role 'slave_public'.
 
