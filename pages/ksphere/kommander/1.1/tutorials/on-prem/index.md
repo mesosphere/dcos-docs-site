@@ -99,8 +99,7 @@ spec:
 ---
 ```
 
-<p class="message--important"><strong>IMPORTANT: </strong>You must paste the above into the **cluster.yaml** field before you insert your `cluster.yaml`. For user, it is the ssh user tied to the keys pushed to your vms. This is the same user tied to the key uploaded in the cloud provider step.
-</p>
+<p class="message--important"><strong>IMPORTANT: </strong>You must paste the above <i>ClusterProvisioner</i> into the <i>cluster.yaml</i> field and then add the contents of your <code>cluster.yaml</code> after the three dashes. Replace <i>&lt;username&gt;</i> with the SSH user tied to the keys pushed to your machines. This is the same user tied to the key uploaded in the cloud provider step.</p>
 
 4. Make sure the Kommander addon is disabled with `enabled: false`.
 
