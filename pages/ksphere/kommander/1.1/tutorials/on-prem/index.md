@@ -113,7 +113,7 @@ spec:
 
 3. Select your **On Premise Provider** created in the previous step.
 
-4. Paste the contents of your `inventory.yaml` file into the inventory field. Ensure that your inventory.yaml does **not** specify the following line:
+4. Paste the contents of your `inventory.yaml` file into the inventory field. Ensure that your `inventory.yaml` does **not** specify the following line:
 
 ```
 ansible_ssh_private_key_file: "id_rsa"
