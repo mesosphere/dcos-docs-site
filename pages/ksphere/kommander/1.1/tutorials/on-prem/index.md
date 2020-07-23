@@ -76,7 +76,7 @@ You can now launch your cluster.
 
 Go to the **Clusters** section and select **Add Cluster**.
 
-![Upload YAML](/ksphere/kommander/1.1/img/clusters-header.png)
+![Add Cluster](/ksphere/kommander/1.1/img/clusters-header.png)
 
 Select **Upload YAML** to create a cluster.
 
