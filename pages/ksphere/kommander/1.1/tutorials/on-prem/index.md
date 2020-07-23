@@ -63,10 +63,13 @@ Once you have both `cluster.yaml` file and `inventory.yaml` file, you need to ad
 
 Make sure you have selected a workspace - for example the "Default Workspace".
 
-1. Navigate to **Administration / Infrastructure Providers**.
-2. Select the **Add Infrastructure Provider** button.
-3. Select **On Premise**.
-4. Enter a name for your provider and insert the full contents of your private ssh key, then hit **Verify** and **Save**.
+- Navigate to **Administration / Infrastructure Providers**.
+
+- Select the **Add Infrastructure Provider** button.
+
+- Select **On Premise**.
+
+- Enter a name for your provider and insert the full contents of your private ssh key, then hit **Verify** and **Save**.
 
 ![On Premise Provider Form with values](/ksphere/kommander/1.1/img/On-prem-provider-with-values.png)
 
@@ -84,9 +87,9 @@ Select **Upload YAML** to create a cluster.
 
 #### Fill out the form
 
-1. Enter a unique name for your cluster.
-2. At the top of the `cluster.yaml` text field, fill the following information:
+- Enter a unique name for your cluster.
 
+- At the top of the `cluster.yaml` text field, fill the following information:
 ```
 kind: ClusterProvisioner
 apiVersion: Konvoy.mesosphere.io/v1beta1
@@ -101,7 +104,7 @@ spec:
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must paste the above <i>ClusterProvisioner</i> into the <i>cluster.yaml</i> field and then add the contents of your <code>cluster.yaml</code> after the three dashes. Replace <i>&lt;username&gt;</i> with the SSH user tied to the keys pushed to your machines. This is the same user tied to the key uploaded in the cloud provider step.</p>
 
-4. Make sure the Kommander addon is disabled with `enabled: false`.
+- Make sure the Kommander addon is disabled with `enabled: false`.
 
 ```
 spec:
@@ -111,14 +114,10 @@ spec:
       enabled: false
 ```
 
-3. Select your **On Premise Provider** created in the previous step.
+- Select your **On Premise Provider** created in the previous step.
 
-4. Paste the contents of your `inventory.yaml` file into the inventory field. Ensure that your `inventory.yaml` does **not** specify the following line:
+- Paste the contents of your `inventory.yaml` file into the inventory field.
 
-```
-ansible_ssh_private_key_file: "id_rsa"
-```
-
-5. Select **Continue**.
+- Select **Continue**.
 
 At this point Provisioning of your cluster should start. You can track the deployment progress with Kibana or `kubectl`as you normaly would in Kommander.
