@@ -71,7 +71,7 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
         0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
         ```
         
-        The metrics summary command displays a summary of raw and percentage utilization of CPU, Memory and Disk resources using the metrics documented in the metrics reference summary(/mesosphere/dcos/1.12/metrics/reference/)
+        The metrics summary command displays a summary of raw and percentage utilization of CPU, Memory and Disk resources using the metrics documented in the [metrics reference summary](/mesosphere/dcos/1.12/metrics/reference/).
 
         In particular, the following metrics and formula are used to compute the displayed values:
         
