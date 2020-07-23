@@ -73,6 +73,31 @@ This page explains how to get started with metrics in Mesosphere&reg; DC/OS&trad
         0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
         ```
 
+        The metrics summary command displays a summary of raw and percentage utilization of CPU, Memory and Disk resources using the metrics documented in the [metrics reference summary](/mesosphere/dcos/2.0/metrics/reference/).
+
+        In particular, the following metrics and formula are used to compute the displayed values:
+        
+        1) CPU usage:
+        
+        ```bash
+        cpus.system_time_secs + cpus.user_time_secs (raw)
+        (cpus.system_time_secs + cpus.user_time_secs) / cpus.throttled_time_secs (percentage)
+        ```
+        
+        2) Memory usage:
+        
+        ```bash
+        mem.total_bytes (raw)
+        mem.total_byes/mem.limit_bytes (percentage)
+        ```        
+
+        3) Disk usage:
+        
+        ```bash
+        disk.used_bytes (raw)
+        disk.used_bytes/disk.total_bytes (percentage) 
+        ```        
+
     -   **<a name="task-metrics"></a>All metrics for a specific task**
 
         To get a detailed list of all metrics related to a task, execute the following command:
