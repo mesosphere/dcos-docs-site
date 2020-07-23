@@ -61,8 +61,10 @@ all:
 
 Once you have both `cluster.yaml` file and `inventory.yaml` file, you need to add a provisioner for your provider. Follow these steps:
 
-1. Navigate to **Administration / Cloud Providers**.
-2. Select the **Add Provider** button.
+Make sure you have selected a workspace - for example the "Default Workspace".
+
+1. Navigate to **Administration / Infrastructure Providers**.
+2. Select the **Add Infrastructure Provider** button.
 3. Select **On Premise**.
 4. Enter a name for your provider and insert the full contents of your private ssh key, then hit **Verify** and **Save**.
 
