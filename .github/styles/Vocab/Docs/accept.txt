@@ -16,3 +16,8 @@ addon
 dcos
 namespace
 namespaced
+Prometheus
+Grafana
+Alertmanager
+Pushgateway
+nginx

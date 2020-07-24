@@ -1,0 +1,30 @@
+---
+layout: layout.pug
+navigationTitle:  dcos monitoring prometheus status flags
+title: dcos monitoring prometheus status flags
+menuWeight: 1
+excerpt: Return the flag values that Prometheus was configured with
+enterprise: false
+---
+
+# Description
+
+The `dcos monitoring prometheus status flags` returns the Prometheus configuration flag values.
+
+# Usage
+
+```bash
+dcos monitoring prometheus status flags [flags]
+```
+
+# Options
+
+| Name |  Description |
+|---------|-------------|
+| `--help, h`   |   Display usage. |
+
+# Parent command
+
+| Command | Description |
+|---------|-------------|
+| [`dcos monitoring prometheus status`](../../monitoring-prometheus-status/) | Expose current Prometheus configuration |
