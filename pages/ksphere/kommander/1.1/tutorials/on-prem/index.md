@@ -63,7 +63,7 @@ Once you have both `cluster.yaml` file and `inventory.yaml` file, you need to ad
 
 Make sure you have selected a workspace - for example the "Default Workspace".
 
-- Navigate to **Administration / Infrastructure Providers**.
+- Go to **Administration / Infrastructure Providers**.
 
 - Select the **Add Infrastructure Provider** button.
 
