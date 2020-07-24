@@ -69,7 +69,7 @@ Make sure you have selected a workspace - for example the "Default Workspace".
 
 - Select **On Premise**.
 
-- Enter a name for your provider and insert the full contents of your private ssh key, then hit **Verify** and **Save**.
+- Enter a name for your provider and insert the full contents of your private ssh key, then select **Verify** and **Save**.
 
 ![On Premise Provider Form with values](/ksphere/kommander/1.1/img/On-prem-provider-with-values.png)
 
