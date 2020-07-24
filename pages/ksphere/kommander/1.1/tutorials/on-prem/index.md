@@ -89,7 +89,7 @@ Select **Upload YAML** to create a cluster.
 
 - Enter a unique name for your cluster.
 
-- At the top of the `cluster.yaml` text field, fill the following information:
+- At the top of the `cluster.yaml` text field, enter the following information:
 ```
 kind: ClusterProvisioner
 apiVersion: Konvoy.mesosphere.io/v1beta1
