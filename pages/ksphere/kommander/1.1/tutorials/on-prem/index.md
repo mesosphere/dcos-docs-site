@@ -104,7 +104,7 @@ spec:
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must paste the above <i>ClusterProvisioner</i> into the <i>cluster.yaml</i> field and then add the contents of your <code>cluster.yaml</code> after the three dashes. Replace <i>&lt;username&gt;</i> with the SSH user tied to the keys pushed to your machines. This is the same user tied to the key uploaded in the cloud provider step.</p>
 
-- Make sure the Kommander addon is disabled with `enabled: false`.
+- Ensure the Kommander addon is disabled with `enabled: false`.
 
 ```
 spec:
