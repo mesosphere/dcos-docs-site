@@ -36,7 +36,7 @@ Install node/js 8.1.2
 NB: for devs, make sure you can switch down to an older node via `nvm` or other manager `nvm use 8.1.2`
 
 ### Ensure a code editor is installed
-we recommend [downloading VSCode](https://code.visualstudio.com/) 
+we recommend [downloading VSCode](https://code.visualstudio.com/)
 
 ### Install colored git branches
 Add this snippet to your .bash_profile
@@ -77,7 +77,7 @@ One extension that is often useful is `Gitlens`.
 
 ## Clone the Repo You Need
 ### Ensure working directory
-As the products grow, so do the places where documentation lives. Tech writers will end up with more than a few repos that you will work in and contribute to as part of your work. 
+As the products grow, so do the places where documentation lives. Tech writers will end up with more than a few repos that you will work in and contribute to as part of your work.
 1. From home level in the terminal, type `mkdir d2iq`
 
 
@@ -117,7 +117,7 @@ This is to ensure setup was successful
 Open a browser and navigate to `localhost:3000` to view the documentation site on your local system
 
 #### Problems?
-Running a build on first install is to ensure that all tools have been installed and are reading the code correctly. Please make sure to debug any errors at this point until you can get a full preview of the docs site at localhost:3000 in your browser. 
+Running a build on first install is to ensure that all tools have been installed and are reading the code correctly. Please make sure to debug any errors at this point until you can get a full preview of the docs site at localhost:3000 in your browser.
 
 :TODO: image localhost docs landing page
 
@@ -236,7 +236,7 @@ There are often times when you will need to pull and work on someone else's bran
 1. Every folder must have one and only one corresponding index.md file, naming is limited as the folder name becomes part of the link structure, choose wisely.
 2. Every index.md file must have the minimum front matter metadata of:
  layout, title, navigationTitle, menuWeight and excerpt.
- 
+
      ![docs metadata](https://i.imgur.com/8KPsvEY.png)
 
 4. Code blocks within numbered lists need to be indented by 4 spaces
@@ -256,7 +256,7 @@ Please give the full [Docs Style Guide](https://wiki.mesosphere.com/display/DOCS
 - Do not include file extensions in your link paths. For example, to link to the page `/mesosphere/dcos/1.13/administration/user-management/index.md` use the following path: `/mesosphere/dcos/1.13/administration/user-management/`.
 
 ### Adding code blocks
-Code blocks are formatted and presented to the user on the docs site with a copy icon in the upper right corner. Users can click on this icon and copy the entire code to their clipboard, rather than have to type all the code in. 
+Code blocks are formatted and presented to the user on the docs site with a copy icon in the upper right corner. Users can click on this icon and copy the entire code to their clipboard, rather than have to type all the code in.
 Code block formatting is 3 backtics on separate lines at start and end. Do not put in the leading shell prompt `$` for any commands to be run, as this will block the user from copy-pasting.
 
 Code ex.:
@@ -278,14 +278,14 @@ $ openssl x509 -hash -noout -in ca.crt
 For the same usability as removing the shell prompt, always separate input blocks from output blocks so that users can copy the commands.
 
 ### Adding mustache variables
-Version numbers, product names and other commonly used items can be added in as variables to increase text reusability. 
+Version numbers, product names and other commonly used items can be added in as variables to increase text reusability.
 
 If you are using mustache variables on your page, the render and model fields must exist within the front matter of that file and point to the proper location of the yaml file to query.
 
-**Mustache** is the renderer and is always specified as 
+**Mustache** is the renderer and is always specified as
 `render: mustache`
 
-**Model** is the location of the data file such as 
+**Model** is the location of the data file such as
 `model: /mesosphere/dcos/2.0/data.yml`
 
 Variables are called by using `{{ model.value }}` within the content, and the script will automatically use the file location on the page to query that value and insert it at build time.
@@ -311,7 +311,7 @@ Images are currently stored in an `img` folder at the version level. Running a p
 `![example note](/mesosphere/dcos/2.0/img/)`
 
 ### Adding a table of contents
-- The in-page table of contents is automatically generated based on the `h1` and `h2` headers within the document. 
+- The in-page table of contents is automatically generated based on the `h1` and `h2` headers within the document.
 - Directory tables of contents are automatically generated based on `title` (or `navigationTitle`) and `excerpt` headers.
 
 ### Using includes files for reusable content
@@ -323,13 +323,13 @@ To use an include file in a Markdown document, insert the word "#include" at the
 `#include /mesosphere/dcos/services/include/configuration-options.tmpl`
 
 
-When the file is processed, the indicated file (for example, configuration-install-with-options) will be written into the page that calls it. 
+When the file is processed, the indicated file (for example, configuration-install-with-options) will be written into the page that calls it.
 
 ### Adding Notes and Warnings
 
 Notes and warnings can be useful to call out important information that a user needs to see. Remember that once you are in html tags, everything inside must also be formatted with html tags and not markdown.
 
-#### Adding a Warning	
+#### Adding a Warning
 Highest alert level. System failure is certain. Also should warn users of potential loss of data. Text is black on light red background, with a red bar on the left.
 
 `<p class="message--warning"><strong>WARNING: </strong>your warning text</p>`
@@ -346,7 +346,7 @@ A serious issue that the user must pay attention to. May or may not threaten sys
 ![example important](https://i.imgur.com/Fq2cSCu.png)
 
 
-#### Adding a Note	
+#### Adding a Note
 
 Extra information that the user may wish to know, but not necessary to the basic completion of a task. There is no risk of system failure. Users may disregard if desired. Text is black on a light purple background, with a dark purple bar on the left.
 
@@ -369,7 +369,7 @@ You can choose to build only a subset of the content and check it on localhost.
 
 `RPP=path/to/subfolder/** npm run dev`
 
-This will build only that subdirectory. Please note, due to the large number of files, it is best to set RPP down at the version level of any product, such as 
+This will build only that subdirectory. Please note, due to the large number of files, it is best to set RPP down at the version level of any product, such as
 
 `RPP=mesosphere/dcos/2.0/**`
 
@@ -387,7 +387,7 @@ Use the GUI interface and click the plus sign `+` to add files in. There are tim
 Shortcut: If all the files are already in existence and you are only modifying them, you can double up the commands with: `git commit -a -m "<message"` and it will automatically add all known files to staging before committing.
 
 ### Rinse and repeat
-Continue this process of edits, saving your work, previewing, and committing until necessary edits are complete. 
+Continue this process of edits, saving your work, previewing, and committing until necessary edits are complete.
 
 ### Done working on it for now? Push your changeset up
 Now that you have accumulated changes that need to be shared back.
@@ -414,7 +414,7 @@ Staging builds go live as needed and sometimes multiple times in a day. For hotf
 Once you have a PR created and there are no conflicts listed on the auto-merge page, simply click the Green `Rebase and Merge` button available to you.
 
 ### QA staging build
-Staging is literally that, a last place to accumulate changes before they go live. This should be considered live once anything reaches staging, as reverting things takes extra time. 
+Staging is literally that, a last place to accumulate changes before they go live. This should be considered live once anything reaches staging, as reverting things takes extra time.
 Best practice is to do a quick visual scan of the pages changed once built to staging, but is often skipped unless a spot check is needed. It is assumed PRs are run and checked before requesting a merge.
 
 ### Promote to Master
@@ -426,7 +426,7 @@ TODO: Fill out this section more
 ## Rebase your work
 
 ### Understanding Rebase
-Rebasing is the preferred strategy for applying PRs. Rather than merging different people's work together, it takes the latest available commit on the base branch and then tries to replay all of the work done on top of that. This stacks all the commits together neatly for tracking changes. 
+Rebasing is the preferred strategy for applying PRs. Rather than merging different people's work together, it takes the latest available commit on the base branch and then tries to replay all of the work done on top of that. This stacks all the commits together neatly for tracking changes.
 
 The most common use case is when a PR has become out of date and a conflict has occured because a page has diverging edits from someone else on a different task. Rebasing allows an interactive session in which merge conflicts are presented so that those conflicts can be handled one by one.
 
@@ -446,7 +446,7 @@ If you encounter merge conflicts, the order of operations is slightly different 
     - Click the `+` sign in the GUI next to the file name
     - OR `git add .`
 1. Continue the rebase `git rebase --continue`
-1. This will continue working through all the commits until complete. 
+1. This will continue working through all the commits until complete.
 
 NB: Often you need to make choices and something might go wrong. `git rebase --abort` any time before it finishes will cancel and reset you to where you were.
 
