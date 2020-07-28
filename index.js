@@ -354,15 +354,15 @@ if (ALGOLIA_UPDATE === "true") {
 // Enable watching
 // The keys represent the files to watch, the values are the files that will
 // be updated. ONLY the files that are being updated will be accessible to
-// during the rebuild. We must include everything at this point or the
-// templates will not be accessible. Need changes to fix this.
+// during the rebuild. We must include the layouts when rerendering a page thus.
 // Can only watch with a RENDER_PATH_PATTERN because there are too many
 // files without it.
 if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
   MS.use(
     watch({
       paths: {
-        [`pages/${RENDER_PATH_PATTERN}/*`]: "**/*.{md,tmpl}",
+        [`pages/${RENDER_PATH_PATTERN}/*`]: true,
+        [`pages/**/*`]: "layouts/**/*",
         "layouts/**/*": "**/*",
         "js/**/*": "**/*",
         "scss/**/*": "**/*",
