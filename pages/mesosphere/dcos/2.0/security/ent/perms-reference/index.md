@@ -58,34 +58,34 @@ package API through Admin Router.
 
 #include /mesosphere/dcos/include/permissions-inheritance-disclaimer.tmpl
 
+Most HTTP requests made to a DC/OS cluster pass through Admin Router.
+Admin Router performs authorization for some services.
+For example, the DC/OS user identified by `uid` must have `full` access to the protected resource
+`dcos:adminrouter:package` in order to be able to access the DC/OS package API through Admin Router.
 
-Most HTTP requests made to a DC/OS cluster pass through Admin Router. For many
-HTTP endpoints the Admin Router performs authorization itself. For example, the DC/OS
-user identified by `uid` must have `full` access to the protected resource
-`dcos:adminrouter:package` in order to be able to access the DC/OS package API
-through Admin Router.
+Admin Router does not provide fine-grained actions.  All permissions must use the `full` action.
 
-| Resource identifier                                                                                                                                                                                                                                                                                     | full   | C   | R   | U   | D   |
-| -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                     | ------ | --- | --- | --- | --- |
-| `dcos:adminrouter:acs`<br>Controls access to the security and access management features.                                                                                                                                                                                                               | x      |     |     |     |     |
-| `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/).                                                 | x      |     |     |     |     |
-| `dcos:adminrouter:ops:ca:rw`<br>Controls user access to all endpoints of the [Certificate Authority API](/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/).                                                      | x      |     |     |     |     |
-| `dcos:adminrouter:ops:cockroachdb`<br> Controls access to the [CockroachDB UI](https://www.cockroachlabs.com/docs/v1.1/admin-ui-overview-dashboard.html).                                                                                                                                               | x      |     |     |     |     |
-| `dcos:adminrouter:ops:exhibitor`<br> Controls access to the Exhibitor UI and API. This permission allows users to [remove the ZooKeeper state](/mesosphere/dcos/2.0/deploying-services/uninstall/#framework-cleaner) after uninstalling a service.                                                                     | x      |     |     |     |     |
-| `dcos:adminrouter:ops:historyservice`<br>Controls access to the [History Service](/mesosphere/dcos/2.0/overview/architecture/components/#dcos-history). This includes access to potentially sensitive data from Mesos such as the names of all frameworks, its used resources, and the number of tasks in each status. This is deprecated and will be removed in a future version. | x      |     |     |     |     |
-| `dcos:adminrouter:ops:mesos-dns`<br> Controls access to the [Mesos DNS API](/mesosphere/dcos/2.0/networking/DNS/mesos-dns/mesos-dns-api/).                                                                                                                                                                                 | x      |     |     |     |     |
-| `dcos:adminrouter:ops:mesos`<br> Controls access to the Mesos master UI and API.                                                                                                                                                                                                                        | x      |     |     |     |     |
-| `dcos:adminrouter:ops:metadata` <br>Controls access to the [Metadata endpoint](/mesosphere/dcos/2.0/api/master-routes/#metadata).                                                                                                                                                                                      | x      |     |     |     |     |
-| `dcos:adminrouter:ops:networking`<br> Controls access to the [Networking](/mesosphere/dcos/2.0/api/master-routes/#networking) and [Network Metrics](/mesosphere/dcos/2.0/api/master-routes/#network-metrics) endpoints.                                                                                                                                                                          | x      |     |     |     |     |
-| `dcos:adminrouter:ops:slave`<br>Controls access to the Mesos agent UI and API.                                                                                                                                                                                                                          | x      |     |     |     |     |
-| `dcos:adminrouter:ops:system-health` <br>Controls access to the [System health API](/mesosphere/dcos/2.0/api/master-routes/#system).                                                                                                                                                                                   | x      |     |     |     |     |
-| `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/mesosphere/dcos/2.0/api/master-routes/#system).                                                                                                                                                                                           | x      |     |     |     |     |
-| `dcos:adminrouter:ops:system-metrics`<br> Controls access to [System metrics API](/mesosphere/dcos/2.0/api/master-routes/#system).                                                                                                                                                                                     | x      |     |     |     |     |
-| `dcos:adminrouter:licensing` <br> Controls access to the Licensing API.                                                                                                                                                                                                                                 | x      |     |     |     |     |
-| `dcos:adminrouter:package` <br> Controls access to the [Cosmos API](/mesosphere/dcos/2.0/api/master-routes/#cosmos), which provides access to the DC/OS {{ model.packageRepo }}.                                                                                                                                                      | x      |     |     |     |     |
-| `dcos:adminrouter:service:[<group-name>/]<service-name>`<br> Controls access the UI and API of an installed DC/OS service.                                                                                                                                                                              | x      |     |     |     |     |
-| `dcos:adminrouter:service:marathon` <br>Controls access to the native Marathon instance.                                                                                                                                                                                                                | x      |     |     |     |     |
-| `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/mesosphere/dcos/2.0/deploying-jobs/).                                                                                                                                                                                           | x      |     |     |     |     |
+| Resource identifier                                                                                                                                                                                                                                                                                     |
+| -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------                     |
+| `dcos:adminrouter:acs`<br>Controls access to the [Identity and Access Management API](/mesosphere/dcos/2.0/security/ent/iam-api/). |
+| `dcos:adminrouter:ops:ca:ro`<br>Controls access to the read-only endpoints of the [Certificate Authority API](/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/). |
+| `dcos:adminrouter:ops:ca:rw`<br>Controls access to signing endpoints of the [Certificate Authority API](/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-api/) and the `dcos security cluster ca` commands of the [Enterprise DC/OS CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/). |
+| `dcos:adminrouter:ops:cockroachdb`<br> Controls access to the CockroachDB UI at `https://<master>/cockroachdb/`. |
+| `dcos:adminrouter:ops:exhibitor`<br> Controls access to the Exhibitor UI at `https://<master>/exhibitor/` and API. This permission allows users to [remove the ZooKeeper state](/mesosphere/dcos/2.0/deploying-services/uninstall/#framework-cleaner) after uninstalling a service. |
+| `dcos:adminrouter:ops:mesos-dns`<br> Controls access to the [Mesos DNS API](/mesosphere/dcos/2.0/networking/DNS/mesos-dns/mesos-dns-api/). |
+| `dcos:adminrouter:ops:mesos`<br> Controls access to the Mesos master UI at `https://<master>/mesos/` and API. |
+| `dcos:adminrouter:ops:metadata` <br>Controls access to the [Metadata endpoint](/mesosphere/dcos/2.0/api/master-routes/#metadata). |
+| `dcos:adminrouter:ops:networking`<br> Controls access to the [Networking](/mesosphere/dcos/2.0/api/master-routes/#networking) and [Network Metrics](/mesosphere/dcos/2.0/api/master-routes/#network-metrics) endpoints. |
+| `dcos:adminrouter:ops:slave`<br>Controls access to the Mesos agent UI and API. |
+| `dcos:adminrouter:ops:system-health` <br>Controls access to the [System health API](/mesosphere/dcos/2.0/api/master-routes/#system). |
+| `dcos:adminrouter:ops:system-logs` <br>Controls access to [System logs API](/mesosphere/dcos/2.0/api/master-routes/#system). |
+| `dcos:adminrouter:ops:system-metrics`<br> Controls access to [System metrics API](/mesosphere/dcos/2.0/api/master-routes/#system). |
+| `dcos:adminrouter:licensing` <br> Controls access to the Licensing API. |
+| `dcos:adminrouter:package` <br> Controls access to the [Cosmos API](/mesosphere/dcos/2.0/api/master-routes/#cosmos), which provides access to the DC/OS {{ model.packageRepo }}. |
+| `dcos:adminrouter:service:<service-endpoint>`<br> Controls access to the UI and API of an installed DC/OS service. See the [Service Endpoint documentation](https://github.com/dcos/dcos/blob/2.0/packages/adminrouter/extra/src/README.md#service-endpoint) for possible values of `<service-endpoint>` . |
+| `dcos:adminrouter:service:marathon` <br>Controls access to the native Marathon instance. |
+| `dcos:adminrouter:service:metronome`<br>  Controls access to [DC/OS Jobs (Metronome)](/mesosphere/dcos/2.0/deploying-jobs/). |
+
 
 <a name="mesos"></a>
 ## Mesos permissions
