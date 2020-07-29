@@ -3,20 +3,27 @@ layout: layout.pug
 navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4
-excerpt: Creating an archive for a private Docker registry
+excerpt: Providing access to a private Docker registry
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
 
-To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In DC/OS Enterprise, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
+To supply authentication credentials which allows agents to pull from a private Docker registry, there are several methods to choose from:
 
-<a name="uri-instructions"></a>
-# Referencing private Docker registry credentials as a URI
+1. Use the DC/OS configuration parameter [cluster_docker_credentials](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#cluster-docker-credentials) to set Docker credentials on each agent. This will enable any task to pull from the registry without any other configuration needed to services.
 
-## Step 1: Compress Docker credentials
+1. Create an archive (.tar.gz file) of the Docker credentials. Then add it as a URI in each service or pod definition that will pull from the registry. DC/OS packages and other Mesos frameworks may not support the ability to add Docker credentials to their tasks using this method.
 
+1. Upload the Docker credentials into [DC/OS Secrets](/mesosphere/dcos/2.1/security/ent/secrets/). Then add that secret in each service or pod definition that will pull from the registry. DC/OS packages and other Mesos frameworks may not support the ability to add Docker credentials to their tasks using this method. [enterprise type="inline" size="small" /]
+
+DC/OS does not support external credential stores or credential helpers.
+
+In addition to supplying credentials, the CA certificate of the private Docker registry may also be needed to be provided to DC/OS.
+
+# Prerequisites
+### Create a Docker credentials configuration file
 1. Log in to the private registry manually. Login creates a `.docker` folder and a `.docker/config.json` file in your home directory.
 
     ```bash
@@ -26,7 +33,30 @@ To supply credentials to pull from a private Docker registry, create an archive 
     Email: foo@bar.com
     ```
 
-1. Compress the `.docker` folder and its contents.
+DC/OS will not use this file directly but it will be used in several of the procedures listed below.
+
+
+# Using cluster_docker_credentials to set cluster-wide registry credentials
+DC/OS has several parameters which control Docker credentials for all tasks on the cluster regardless of whether the task uses Docker or UCR as its containerizer. See the [DC/OS Configuration Reference](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference) for details on each of these parameters. With the following configuration, DC/OS will create a credentials file with a blank configuration:
+
+```
+cluster_docker_credentials = "{}"
+cluster_docker_credentials_enabled = "true"
+cluster_docker_credentials_write_to_etc = "true"
+```
+
+Rather than using a blank configuration, operators can choose to include their full Docker credentials configuration. However, this is not recommended as it leaves sensitive information exposed in DC/OS configuration. Instead, the file `/etc/mesosphere/docker_credentials` can be created prior to DC/OS installation or modified after installation to include the correct configuration and real credentials. The DC/OS agent service must be restarted after making a change to the file: `sudo systemctl restart dcos-mesos-slave` or `sudo systemctl restart dcos-mesos-slave-public`. An empty file or invalid configuration will prevent the agent service from starting.
+
+The Docker credentials file location can be changed by setting `cluster_docker_credentials_path`.
+
+
+<a name="uri-instructions"></a>
+# Referencing private Docker registry credentials as a URI
+Create an archive of your Docker credentials, then add it as a URI in your service or pod definition.
+
+## Step 1: Create an archive of the Docker credentials
+
+1. Compress your `.docker` folder and its contents.
 
     ```bash
     cd ~
@@ -47,11 +77,9 @@ To supply credentials to pull from a private Docker registry, create an archive 
     cp docker.tar.gz /etc/
     ```
 
-
 <p class="message--important"><strong>IMPORTANT: </strong> The URI must be accessible by all nodes that will start your application. You can distribute the file to the local filesystem of all nodes, for example via RSYNC/SCP, or store it on a shared network drive like <a href="http://aws.amazon.com/s3/">Amazon S3</a>. Consider the security implications of your chosen approach carefully.</p>
 
-
-## Step 2: Add URI path to service definition
+## Step 2: Add the path to each service definition
 
 1. Add the path to the archive file login credentials to your service definition.
 
@@ -89,22 +117,13 @@ To supply credentials to pull from a private Docker registry, create an archive 
 
 <a name="secret-store-instructions"></a>
 
-# Referencing private Docker registry credentials in the secrets store [enterprise type="inline" size="small" /]
+# Reference private Docker registry credentials in DC/OS Secrets [enterprise type="inline" size="small" /]
 
 Follow these steps to add your Docker registry credentials to the [DC/OS Enterprise secrets store](/mesosphere/dcos/2.1/security/ent/secrets/), and then reference that secret in your service definition.
 
 <p class="message--important"><strong>IMPORTANT: </strong>This functionality is available only with the <a href="/mesosphere/dcos/2.1/deploying-services/containerizers/ucr/">Universal Container Runtime</a>. If you need to use the Docker Engine, follow the URI instructions above.</p>
 
-## Step 1: Create a credentials file
-
-1.  Manually log in to your private registry. This creates a `~/.docker` directory and a `~/.docker/config.json` file.
-
-    ```bash
-    docker login some.docker.host.com
-    Username: foo
-    Password:
-    Email: foo@bar.com
-    ```
+## Step 1: Create the secret
 
 1.  Check that you have the `~/.docker/config.json` file.
 
@@ -133,8 +152,6 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
     ```
 
 1. Add the `config.json` file to the DC/OS secret store. [Learn more about creating secrets](/mesosphere/dcos/2.1/security/ent/secrets/create-secrets/).
-
-   <p class="message--note"><strong>NOTE: </strong>As of DC/OS version 1.10.0, you can add a file to the secret store only using the DC/OS CLI.</p>
 
    ```bash
    dcos security secrets create --file=config.json <path/to/secret>
@@ -240,49 +257,56 @@ Follow these steps to add your Docker registry credentials to the [DC/OS Enterpr
 <a name="docker-repo-certs"></a>
 
 # Configuring agents to use a custom certificate for the Docker registry
-Some organizations require both user credentials and valid secure socket layer (SSL) certificates to authorize access to the Docker registry. For example, some registry configurations require a certificate to encrypt the communications between the client and the registry, while user credentials determine who gets to access to the registry after the connection to the registry is successful.
+Some organizations require both user credentials and valid TLS certificates to authorize access to the Docker registry. For example, some registry configurations require a certificate to encrypt the communications between the client and the registry, while user credentials determine who gets to access to the registry after the connection to the registry is successful.
 
-If your private registry uses a certificate to secure communications, you can configure the agent nodes to trust the certificate you use to access the private Docker registry.
+If your private registry uses a certificate to secure communications, you must configure the agent nodes to trust the certificate you use to access the private Docker registry.
 
 To configure a custom certificate for accessing the private Docker registry and DC/OS UCR, complete the following steps:
 
-1. Create or identify a custom certificate that you want to use as a trusted certificate for accessing the Docker registry.
+## Step 1: Create the certificate and obtain its CA certificate.
+1. Create or identify a custom certificate that you want to use as a trusted certificate for accessing the Docker registry. You can use OpenSSL, DC/OS Enterprise CLI, or another program for generating public and private keys, certificate requests, and encrypted client and server certificates.
 
-    You can use OpenSSL, DC/OS Enterprise CLI, or another program for generating public and private keys, certificate requests, and encrypted client and server certificates.
+1. After you create or identify a certificate, you can configure the registry to use this certificate by following the instructions provided by the registry provider.
 
-    After you create or identify a certificate, you can configure the registry to use this certificate by following the instructions provided by the registry provider.
+1. Finally, obtain the certificate of the certificate authority (CA) which signed the registry certificate and use that in the instructions below.
 
-1. Download or copy the certificate to the following two locations on each agent.
+## Step 2: Add custom certificate to Docker
+1. Download or copy the certificate to the following location on each agent:
 
     ```bash
     /etc/docker/certs.d/<registry_name>:<registry_port>/ca.crt
-    /var/lib/dcos/pki/tls/certs/<something>.crt
     ```
 
-    For the path to the trusted CA certificate on each agent, replace the `<registry_name>` and `<registry_port>` with the specific registry name and port number appropriate for your installation.
-
-   For example, if you are configuring the DC/OS `ca.crt` certificate as a trusted certificate and the local Docker registry is referenced as `registry.mycompany.com:5000`, you can download a copy of the `ca.crt` file and set it as trusted using a command similar to the following:
+    For the path to the trusted CA certificate on each agent, replace the `<registry_name>` and `<registry_port>` with the specific registry name and port number appropriate for your installation. For example, if you are configuring the DC/OS `ca.crt` certificate as a trusted certificate and the local Docker registry is referenced as `registry.mycompany.com:5000`, you can download a copy of the `ca.crt` file and set it as trusted using a command similar to the following:
 
     ```bash
     sudo mkdir -p /etc/docker/certs.d/registry.mycompany.com:5000
     sudo cp /path/to/ca.crt etc/docker/certs.d/registry.mycompany.com:5000/ca.crt
-    sudo cp /etc/docker/certs.d/registry.mycompany.com:5000/ca.crt /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
     ```
 
-1. Generate a hash for the file by running a command similar to the following:
+2. Restart the Docker daemon:
 
     ```bash
-    cd /var/lib/dcos/pki/tls/certs/
-    openssl x509 -hash -noout -in docker-registry-ca.crt
+    sudo systemctl restart docker
+    ```
+    <p class="message--warning"><strong>WARNING: </strong>Restarting Docker will cause all Docker containers to stop. Drain the agent of any tasks which are using Docker prior to restarting it.</p>
+
+
+## Step 3: Add custom certificate to Mesos
+1. Download or copy the certificate to the following location on each agent:
+
+    ```bash
+    /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt
     ```
 
-1. Create a symbolic link from the trusted certificate to the `/var/lib/dcos/pki/tls/certs` directory on the public agent.
+1. Create a symbolic link from the trusted certificate to the `/var/lib/dcos/pki/tls/certs` directory on each agent:
 
     ```bash
-    sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
+    sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/$(openssl x509 -hash -noout -in /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt).0
     ```
 
 <a name="tarball-instructions"></a>
+
 
 # Pushing a custom image to a private registry from a tarball
 
