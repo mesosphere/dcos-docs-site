@@ -319,31 +319,38 @@ The MTU to set on the veth pair devices, e.g. both the container interface and h
 
 ### cluster_docker_credentials
 
-The dictionary of Docker credentials to pass.
+The dictionary of Docker credentials to pass. 
 
-- If unset, a default empty credentials file is created at `/etc/mesosphere/docker_credentials` during DC/OS install. A sysadmin can change credentials as needed. A `systemctl restart dcos-mesos-slave` or `systemctl restart dcos-mesos-slave-public` is required for changes to take effect.
-- You can also specify this value by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write it as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you. This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS internal configuration.
+- Creates a credentials file at `cluster_docker_credentials_path` during DC/OS install. A sysadmin can change credentials stored in that file as needed as long as `cluster_docker_credentials_dcos_owned` is set to `'false'`. A `systemctl restart dcos-mesos-slave` or `systemctl restart dcos-mesos-slave-public` is required for changes to the file to take effect.
+- You can also specify this value by using the `--docker_config` JSON [format](http://mesos.apache.org/documentation/latest/configuration/). You can write it as YAML in the `config.yaml` file and it will automatically be mapped to the JSON format for you.
 
 **Note:**
-- `cluster_docker_credentials` takes effect only when [`cluster_docker_credentials_enabled`](#cluster-docker-credentials-enabled) is set to `'true'`
-- `cluster_docker_credentials` takes effect during an upgrade only when `cluster_docker_credentials_dcos_owned` is set to `'true'`.
+- `cluster_docker_credentials` takes effect only when [`cluster_docker_credentials_enabled`](#cluster-docker-credentials-enabled) is set to `'true'`.
+- `cluster_docker_credentials` must not be left unset when `cluster_docker_credentials_enabled` is set to `'true'`. At a minimum it must be set to a blank configuration: `'{}'`
+- `cluster_docker_credentials` takes effect during an install only when either `cluster_docker_credentials_dcos_owned` or `cluster_docker_credentials_write_to_etc` are set to `'true'`.
+- `cluster_docker_credentials` takes effect during an upgrade only when `cluster_docker_credentials_dcos_owned` is set to 'true'.
 
 You can use the following options to further configure the Docker credentials:
 
-*  `cluster_docker_credentials_dcos_owned` Indicates whether to store the credentials file in `/opt/mesosphere` or `/etc/mesosphere/docker_credentials`. A sysadmin cannot edit `/opt/mesosphere` directly.
-    *  `cluster_docker_credentials_dcos_owned: 'true'` The credentials file is stored in `/opt/mesosphere`.
-        *  `cluster_docker_credentials_write_to_etc` Whether to write a cluster credentials file.
-            *  `cluster_docker_credentials_write_to_etc: 'true'` Write a credentials file. This can be useful if overwriting your credentials file will cause problems (for example, if it is part of a machine image or AMI). This is the default value.
-            *  `cluster_docker_credentials_write_to_etc: 'false'` Do not write a credentials file.
-    *  `cluster_docker_credentials_dcos_owned: 'false'` The credentials file is stored in `/etc/mesosphere/docker_credentials`.
+For more information, see the [examples](/mesosphere/dcos/2.1/installing/production/deploying-dcos/configuration/examples/#docker-credentials) and [further documentation](/mesosphere/dcos/2.1/deploying-services/private-docker-registry/).
 
-For more information, see the [examples](/mesosphere/dcos/2.1/installing/production/deploying-dcos/configuration/examples/#docker-credentials).
+### cluster_docker_credentials_dcos_owned
+Whether DC/OS controls the contents of `cluster_docker_credentials_path`.
+
+* `cluster_docker_credentials_dcos_owned: 'true'` This stores the Docker credentials in the same location as the DC/OS internal configuration (`/opt/mesosphere`). If you need to update or change the configuration, you will have to create a new DC/OS configuration and patch the cluster.
+* `cluster_docker_credentials_dcos_owned: 'false'` This stores the Docker credentials outside of the DC/OS internal configuration (`/opt/mesosphere`). Operators can change the contents of the file and it will not be overridden during DC/OS installation or upgrade. See also: [`cluster_docker_credentials_path`](#cluster_docker_credentials_path)
 
 ### cluster_docker_credentials_enabled
-Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_credentials`](#cluster-docker-credentials) to Mesos.
+Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_credentials`](#cluster-docker-credentials) to Mesos. The Docker configuration will be used with every task whether it uses Docker or UCR as its containerizer.
 
 *  `cluster_docker_credentials_enabled: 'true'` Pass the Mesos `--docker_config` option to Mesos. It will point to a file that contains the provided `cluster_docker_credentials` data.
 *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
+
+### cluster_docker_credentials_path
+The path and file to pass with --docker_config if `cluster_docker_credentials_enabled` is set to `'true'`.
+
+- If `cluster_docker_credentials_dcos_owned: 'true'` then this defaults to `/opt/mesosphere/etc/docker_credentials`.
+- If `cluster_docker_credentials_dcos_owned: 'false'` then this defaults to `/etc/mesosphere/docker_credentials`.
 
 ### cluster_docker_registry_url
 The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL that Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local {{ model.packageRepo }} into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local {{ model.packageRepo }}](/mesosphere/dcos/2.1/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/mesosphere/dcos/2.1/deploying-services/private-docker-registry/) for more information.
