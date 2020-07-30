@@ -401,7 +401,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Spark 2.9.x-2.4.3 (Recommended)</td>
+        <td>Spark 2.11.x-2.4.6 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
@@ -409,7 +409,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
            </tr>
     <tr>
-        <td>Spark History 2.9.x-2.4.3 (Recommended)</td>
+        <td>Spark History 2.11.x-2.4.6 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
 </table>
