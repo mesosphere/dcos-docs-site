@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Adding or setting DC/OS configuration properties
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description
@@ -93,4 +93,4 @@ To verify that the property has been set, use `dcos config show`:
 
 | Command | Description |
 |---------|-------------|
-| [dcos config](/mesosphere/dcos/2.1/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |
+| [dcos config](/mesosphere/dcos/2.2/cli/command-reference/dcos-config/) |  Manage DC/OS configuration |

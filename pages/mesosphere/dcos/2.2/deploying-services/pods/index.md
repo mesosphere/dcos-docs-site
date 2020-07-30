@@ -5,7 +5,7 @@ title: Pods
 menuWeight: 85
 excerpt: Using pods to share group resources
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 

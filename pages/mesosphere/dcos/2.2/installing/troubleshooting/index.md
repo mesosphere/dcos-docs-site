@@ -13,17 +13,17 @@ excerpt: Troubleshooting DC/OS installation issues
 
 ## IP detect script
 
-You must have a valid [ip-detect](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
+You must have a valid [ip-detect](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) script. You can manually run `ip-detect` on all the nodes in your cluster or check `/opt/mesosphere/bin/detect_ip` on an existing installation to ensure that it returns a valid IP address. A valid IP address does not have:
 
   - extra lines
   - white space
   - special or hidden characters
 
-We recommended that you use the `ip-detect` [examples](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/).
+We recommended that you use the `ip-detect` [examples](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/).
 
 ## DNS resolvers
 
-You must have working DNS resolvers, specified in your [config.yaml](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
+You must have working DNS resolvers, specified in your [config.yaml](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#resolvers) file. We recommended that you have forward and reverse lookups for FQDNs, short hostnames, and IP addresses. It is possible for DC/OS to function in environments without valid DNS support, but the following _must_ work to support DC/OS services, including Spark:
 
   - `hostname -f` returns the FQDN
   - `hostname -s` returns the short hostname
@@ -300,9 +300,9 @@ For example, here is a snippet of the Mesos-DNS log as it converges to a success
 
 ## <a name="zookeeper-and-exhibitor"></a>ZooKeeper and Exhibitor
 
-ZooKeeper and Exhibitor start on the master nodes. The Exhibitor storage location must be configured properly for this to work. For more information, see the [exhibitor_storage_backend](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter.
+ZooKeeper and Exhibitor start on the master nodes. The Exhibitor storage location must be configured properly for this to work. For more information, see the [exhibitor_storage_backend](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) parameter.
 
-DC/OS uses ZooKeeper, a high-performance coordination service to manage the installed DC/OS services. Exhibitor automatically configures ZooKeeper on the master nodes during your DC/OS installation. For more information, see [Configuration Parameters](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/).
+DC/OS uses ZooKeeper, a high-performance coordination service to manage the installed DC/OS services. Exhibitor automatically configures ZooKeeper on the master nodes during your DC/OS installation. For more information, see [Configuration Parameters](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/).
 
 * Go to the Exhibitor web interface and view status at `<master-hostname>/exhibitor`.
 
@@ -330,10 +330,10 @@ For example, here is a snippet of the Exhibitor log as it converges to a success
 
 
 
- [1]: /mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
+ [1]: /mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend
  [2]: https://open.mesosphere.com/reference/mesos-master/
- [3]: /mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/
- [4]: /mesosphere/dcos/2.1/overview/architecture/boot-sequence/
- [5]: /mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/
- [6]: /mesosphere/dcos/2.1/administering-clusters/sshcluster/
+ [3]: /mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/
+ [4]: /mesosphere/dcos/2.2/overview/architecture/boot-sequence/
+ [5]: /mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/
+ [6]: /mesosphere/dcos/2.2/administering-clusters/sshcluster/
 

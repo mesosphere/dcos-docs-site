@@ -5,7 +5,7 @@ title: Metrics Quick Start
 menuWeight: 1
 excerpt: Getting Started with metrics in DC/OS
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 beta: false
 ---
 
@@ -14,7 +14,7 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
 
 **Prerequisites:**
 
-- You must have the [DC/OS CLI installed](/mesosphere/dcos/2.1/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
+- You must have the [DC/OS CLI installed](/mesosphere/dcos/2.2/cli/install/) and be logged in as a superuser via the `dcos auth login` command.
 
 1.  Optional: Deploy a sample Marathon app for use in this quick start guide. If you already have tasks running on DC/OS, you can skip this setup step.
 
@@ -73,7 +73,7 @@ This page explains how to get started with metrics in DC/OS. A metrics pipeline 
         0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
         ```
         
-        The metrics summary command displays a summary of raw and percentage utilization of CPU, Memory and Disk resources using the metrics documented in the [metrics reference summary](/mesosphere/dcos/2.1/metrics/reference/).
+        The metrics summary command displays a summary of raw and percentage utilization of CPU, Memory and Disk resources using the metrics documented in the [metrics reference summary](/mesosphere/dcos/2.2/metrics/reference/).
 
         In particular, the following metrics and formula are used to compute the displayed values:
         

@@ -5,7 +5,7 @@ title: Release notes for 2.1.0
 menuWeight: 1
 render: mustache
 beta: false
-model:  /mesosphere/dcos/2.1/data.yml
+model:  /mesosphere/dcos/2.2/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
 Mesosphere&reg; DC/OS&trade; 2.1.0 was released on 9, June 2020.
@@ -24,16 +24,16 @@ This release provides new features and enhancements to improve the user experien
 # New Features and Capabilities 
 
 ## Vertical Container Bursting
-DC/OS now allows you to set a limit on the amount of CPUs and memory used by Marathon apps and pods. This means that services can run with a guaranteed amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available. For more information, see [Creating Services](/mesosphere/dcos/2.1/deploying-services/creating-services/).
+DC/OS now allows you to set a limit on the amount of CPUs and memory used by Marathon apps and pods. This means that services can run with a guaranteed amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available. For more information, see [Creating Services](/mesosphere/dcos/2.2/deploying-services/creating-services/).
 
 ## Network Policies with Calico
-Calico is now pre-installed in DC/OS 2.1 and can be used by containers to join overlay networks and set network policies. The DC/OS Calico component integrates Calico networking into DC/OS, providing the Calico CNI plug-in for Mesos Universal Container Runtime and the Calico libnetwork plug-in for Docker Engine. For more information, see [Calico](/mesosphere/dcos/2.1/networking/SDN/calico).
+Calico is now pre-installed in DC/OS 2.1 and can be used by containers to join overlay networks and set network policies. The DC/OS Calico component integrates Calico networking into DC/OS, providing the Calico CNI plug-in for Mesos Universal Container Runtime and the Calico libnetwork plug-in for Docker Engine. For more information, see [Calico](/mesosphere/dcos/2.2/networking/SDN/calico).
 
 ## Jobs Virtual Networking Support
-Metronome based jobs can now join container networks to communicate with other services/jobs in the same network. For more information, see [Creating Jobs](/mesosphere/dcos/2.1/deploying-jobs/quickstart/).
+Metronome based jobs can now join container networks to communicate with other services/jobs in the same network. For more information, see [Creating Jobs](/mesosphere/dcos/2.2/deploying-jobs/quickstart/).
 
 ## Custom Certificates for Admin Router
-DC/OS now allows you to provide a non-CA custom external certificate and key that the Admin Router will then use for clients connecting to a cluster. For more information, see [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/)
+DC/OS now allows you to provide a non-CA custom external certificate and key that the Admin Router will then use for clients connecting to a cluster. For more information, see [Configuring a Custom External Certificate](/mesosphere/dcos/2.2/security/ent/tls-ssl/ar-custom/)
 
 ## Domain Sockets for Agent Executor Communication
 Added a new configuration option `mesos_http_executors_domain_sockets`, which will cause the mesos-agent to use domain sockets when communicating with executors (default is enabled). This change allows administrators to write firewall rules blocking unauthorized access to the agent port 5051 since access to this will not be required anymore for executors to work.

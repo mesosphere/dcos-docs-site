@@ -5,7 +5,7 @@ title: dcos package install
 menuWeight: 1
 excerpt: Installing a package
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
@@ -42,10 +42,10 @@ dcos package install <package-name> [(--cli [--global]) | --app] [--package-vers
 
 # Examples
 
-For an example, see the [documentation](/mesosphere/dcos/2.1/deploying-services/config-universe-service/).
+For an example, see the [documentation](/mesosphere/dcos/2.2/deploying-services/config-universe-service/).
 
 # Parent command
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.1/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/2.2/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

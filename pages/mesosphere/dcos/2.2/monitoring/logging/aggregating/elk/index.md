@@ -5,7 +5,7 @@ title: Log Management with ELK
 menuWeight: 1
 excerpt: Managing system and application logs from cluster nodes
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
