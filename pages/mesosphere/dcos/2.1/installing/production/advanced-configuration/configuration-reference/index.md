@@ -347,7 +347,7 @@ Whether to pass the Mesos `--docker_config` option containing [`cluster_docker_c
 *  `cluster_docker_credentials_enabled: 'false'` Do not pass the Mesos `--docker_config` option to Mesos.
 
 ### cluster_docker_credentials_path
-The path and file to pass with --docker_config if `cluster_docker_credentials_enabled` is set to `'true'`.
+The path and file to pass with `--docker_config` if `cluster_docker_credentials_enabled` is set to `'true'`.
 
 - If `cluster_docker_credentials_dcos_owned: 'true'` then this defaults to `/opt/mesosphere/etc/docker_credentials`.
 - If `cluster_docker_credentials_dcos_owned: 'false'` then this defaults to `/etc/mesosphere/docker_credentials`.
