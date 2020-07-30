@@ -106,9 +106,9 @@ This must be only done on first time or if a rare site tooling change occurs. Ot
 
 ### Build the API page sets
 This is necessary anytime a set is changed, or when a new DC/OS version (and there for a new set) is created
-`make build-api`
+`make --jobs=$(expr $(nproc) - 1) build-api`
 
-This takes about 8 mins. It builds the folders `build-ngindox` and `biuld-swagger`.
+This takes some time. It builds the folders `build-ngindox` and `biuld-swagger`.
 
 ### Build a local preview
 This is to ensure setup was successful

@@ -22,8 +22,7 @@ ADD . /src/
 
 RUN npm install
 
-RUN make build-swagger
-RUN make build-ngindox
+RUN make --jobs=$(expr $(nproc) - 1) build-api
 RUN \
 GIT_BRANCH=$git_branch \
 ALGOLIA_UPDATE=$algolia_update \
