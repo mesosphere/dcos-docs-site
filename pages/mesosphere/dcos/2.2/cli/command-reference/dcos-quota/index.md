@@ -5,7 +5,7 @@ title: dcos quota
 menuWeight: 12
 excerpt: Managing DC/OS quotas
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 

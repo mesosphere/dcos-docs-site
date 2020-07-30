@@ -6,7 +6,7 @@ menuWeight: 1
 excerpt: Defining a DC/OS service using Marathon
 render: mustache
 beta: false
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
@@ -30,7 +30,7 @@ You can deploy a simple program in an inline shell script. Let's start with a si
 
     In the above example, `cmd` is the command that gets executed. Its value is wrapped by the underlying Mesos executor via `/bin/sh -c ${cmd}`.
 
-1. Use the [DC/OS CLI](/mesosphere/dcos/2.1/cli/) to add the service to DC/OS.
+1. Use the [DC/OS CLI](/mesosphere/dcos/2.2/cli/) to add the service to DC/OS.
 
     ```bash
     dcos marathon app add <your-service-name>.json
@@ -53,7 +53,7 @@ Any application will require CPU and memory to execute. As you can see above, th
     }
     ```
 
-If no special configuration has been applied to the DC/OS cluster during installation, then tasks which do not set explicit CPU limits will have their limit implicitly set to the value of the CPU request. Changing the value of the [mesos_cgroups_enable_cfs](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#mesos_cgroups_enable_cfs) DC/OS installation parameter to `false` means that these implicit limits will not be set.
+If no special configuration has been applied to the DC/OS cluster during installation, then tasks which do not set explicit CPU limits will have their limit implicitly set to the value of the CPU request. Changing the value of the [mesos_cgroups_enable_cfs](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#mesos_cgroups_enable_cfs) DC/OS installation parameter to `false` means that these implicit limits will not be set.
 
 A task with a CPU limit higher than its request will automatically be scheduled on the CPU when there are free cycles available, with its CPU usage being throttled back to its CPU request when other processes have work to schedule as well. Tasks will never be scheduled on the CPU more than allowed by the value of their CPU limit. A task with a memory limit higher than its request will be able to consume memory greater than the request, but this does come with some danger of premature task termination. If memory on the agent becomes exhausted and memory must be reclaimed so that all tasks can have access to their entire memory requests, task processes which are consuming more memory than their request will be first in line to be OOM-killed in order to free up memory. When a task attempts to allocate more memory than its memory limit and nothing can be paged out in order to prevent this violation, the task will be OOM-killed immediately.
 
@@ -132,7 +132,7 @@ You can deploy a simple Docker-based application with the REST API. With Maratho
 
 In the following example, you deploy a Docker app to DC/OS using the Marathon API. The Docker app is a Python-based web server that uses the [python:3](https://registry.hub.docker.com/_/python/) image. Inside the container, the web server runs on port `80` (the value of `containerPort`). `hostPort` is set to `0` so that Marathon assigns a random port on the Mesos agent, which is mapped to port 80 inside the container.
 
-1. Choose whether to use the Universal Container Runtime (UCR) or Docker Engine runtime. See [Using Containerizers](/mesosphere/dcos/2.1/deploying-services/containerizers/).
+1. Choose whether to use the Universal Container Runtime (UCR) or Docker Engine runtime. See [Using Containerizers](/mesosphere/dcos/2.2/deploying-services/containerizers/).
    -  To use the Universal Container Runtime (UCR), paste the following JSON into a file named `basic-3-mesos.json`:
 
       ```json
@@ -187,7 +187,7 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
       }
       ```
 
-1. Use the [Marathon API](/mesosphere/dcos/2.1/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/mesosphere/dcos/2.1/security/ent/iam-api/) to learn more about the API token required in the command below.
+1. Use the [Marathon API](/mesosphere/dcos/2.2/deploying-services/marathon-api/) to deploy the app `basic-3-docker`. Refer to [Authentication HTTP API Endpoint](/mesosphere/dcos/2.2/security/ent/iam-api/) to learn more about the API token required in the command below.
 
     ```sh
      curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POST <master-IP>/service/marathon/v2/apps -d @basic-3-docker.json -H "Content-type: application/json"
@@ -197,9 +197,9 @@ In the following example, you deploy a Docker app to DC/OS using the Marathon AP
 1. Click `basic-3-docker` and then the task ID.
 1. Scroll down to the **Marathon Task Configuration** section and note the PORTS property.
 
-   ![container port](/mesosphere/dcos/2.1/img/container-port.png)
+   ![container port](/mesosphere/dcos/2.2/img/container-port.png)
 
    Figure 1. Container port
    
-1. Determine the [IP address of the public node](/mesosphere/dcos/2.1/administering-clusters/locate-public-agent/).
+1. Determine the [IP address of the public node](/mesosphere/dcos/2.2/administering-clusters/locate-public-agent/).
 1. Navigate to `<public-node-IP>:<port>` to see the contents of the Docker container's root directory.

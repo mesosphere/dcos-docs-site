@@ -5,7 +5,7 @@ title: dcos package repo import
 menuWeight: 4
 excerpt: Adding a package repository to DC/OS
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
@@ -35,4 +35,4 @@ dcos package repo import <repos-file>
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.1/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/2.2/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |

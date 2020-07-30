@@ -4,7 +4,7 @@ navigationTitle:  Features
 title: Features
 menuWeight: 3
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 excerpt: Understanding the unique features of DC/OS
 ---
 

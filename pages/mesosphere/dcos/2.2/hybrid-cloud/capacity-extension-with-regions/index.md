@@ -5,7 +5,7 @@ title: Capacity Extensions with Regions
 menuWeight: 10
 excerpt: Using local and remote regions
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
@@ -49,9 +49,9 @@ enterprise: false
 
     <p class="message--important"><strong>IMPORTANT: </strong>This script will not work if you use proxies in your environment. If you use a proxy, modifications will be required.</p>
 
-1. Add this script to the `genconf` folder of your bootstrap node. [More information](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
+1. Add this script to the `genconf` folder of your bootstrap node. [More information](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
-1. [Install DC/OS](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
+1. [Install DC/OS](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
 1. Test your installation.
 
@@ -70,7 +70,7 @@ Alternatively, click the **Nodes** tab in the DC/OS GUI. The Nodes table will di
 
 ## Marathon services and pods
 
-In your Marathon service or pod definition, you can use [placement constraints](/mesosphere/dcos/2.1/deploying-services/marathon-constraints/) to:
+In your Marathon service or pod definition, you can use [placement constraints](/mesosphere/dcos/2.2/deploying-services/marathon-constraints/) to:
 
 - Specify a region and zone for your service or pod, so that all instances will be scheduled only in that region and zone.
 
@@ -121,6 +121,6 @@ A Mesos cluster that spans 3 regions: `aws-us-east1`, `aws-us-east2`, and `local
 
 ### Increase Cluster Capacity
 
-To increase capacity, [add new agents](/mesosphere/dcos/2.1/administering-clusters/add-a-node/) to a remote region or regions of your cluster, and then update your services to launch instances in that region or those regions appropriately.
+To increase capacity, [add new agents](/mesosphere/dcos/2.2/administering-clusters/add-a-node/) to a remote region or regions of your cluster, and then update your services to launch instances in that region or those regions appropriately.
 
 <p class="message--note"><strong>NOTE: </strong>You cannot configure your service to run in more than one region.</p>

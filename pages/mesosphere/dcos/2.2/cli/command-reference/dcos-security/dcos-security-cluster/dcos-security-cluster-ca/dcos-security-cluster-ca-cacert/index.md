@@ -5,7 +5,7 @@ title: dcos security cluster ca
 menuWeight: 12
 excerpt: Interacting with the DC/OS cluster CA
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: true
 ---
 
@@ -59,4 +59,4 @@ ndLcnv0dj2WTDCQihd6DNFnoCYNSAMUtSc6Kd6kqvbVVe+1ZzeOc
 
 | Command | Description |
 |---------|-------------|
-| [dcos security cluster ca](/mesosphere/dcos/2.1/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |
+| [dcos security cluster ca](/mesosphere/dcos/2.2/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | View DC/OS security cluster certificate authority information. |

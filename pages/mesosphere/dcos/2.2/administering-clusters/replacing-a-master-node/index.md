@@ -6,13 +6,13 @@ menuWeight: 800
 excerpt: Replacing a master node in an existing DC/OS cluster
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 ---
 You can replace a master node in an existing DC/OS cluster. You should keep in mind, however, that you should only ever replace one master at a time. The following steps summarize how to replace a master node for a DC/OS cluster.
 
 
 # To replace a master node:
-1. [Back up ZooKeeper](/mesosphere/dcos/2.1/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper).
+1. [Back up ZooKeeper](/mesosphere/dcos/2.2/administering-clusters/backup-and-restore/backup-restore-cli/#zookeeper).
 
 1. Back up the DC/OS identity and access management CockroachDB&reg; database to a file by running a command similar to the following on the master node:
 
@@ -20,7 +20,7 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
     dcos-shell iam-database-backup > ~/iam-backup.sql
     ```
 
-    For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/mesosphere/dcos/2.1/installing/installation-faq/#iam-backup)
+    For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/mesosphere/dcos/2.2/installing/installation-faq/#iam-backup)
 
 1. Back up /var/lib/dcos/exhibitor-tls-artifacts if it exists.
 
@@ -55,4 +55,4 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
 
     <p class="message--important"><strong>IMPORTANT: </strong>This step is required. Be sure to confirm that the new master has joined the cluster successfully before replacing any additional master nodes or performing any additional administrative tasks.</p>
     
-    To validate that the master node replacement completed successfully, follow the steps to Validate the upgrade as described in [Upgrading a master](/mesosphere/dcos/2.1/installing/production/upgrading/#dcos-masters).
+    To validate that the master node replacement completed successfully, follow the steps to Validate the upgrade as described in [Upgrading a master](/mesosphere/dcos/2.2/installing/production/upgrading/#dcos-masters).

@@ -5,7 +5,7 @@ title: dcos package list
 menuWeight: 2
 excerpt: Displaying a list of the installed DC/OS packages
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
@@ -38,8 +38,8 @@ dcos package list [<package-name> --json --app-id=<app-id> --cli]
 
 | Command | Description |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.1/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
+| [dcos package](/mesosphere/dcos/2.2/cli/command-reference/dcos-package/)   | Install and manage DC/OS software packages. |
 
 # Examples
 
-For an example, see the [documentation](/mesosphere/dcos/2.1/deploying-services/install/).
+For an example, see the [documentation](/mesosphere/dcos/2.2/deploying-services/install/).

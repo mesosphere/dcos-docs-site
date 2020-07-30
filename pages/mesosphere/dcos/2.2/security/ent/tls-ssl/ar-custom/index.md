@@ -7,12 +7,12 @@ excerpt: Configuring DC/OS Enterprise to use a custom external certificate
 beta: false
 enterprise: true
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-External access to a DC/OS Enterprise cluster goes through Admin Router. By default, the certificate presented by Admin Router is signed by the DC/OS Certificate Authority. The default DC/OS CA certificate is not trusted by default, and requires clients to manually configure trust in the CA (e.g. by accepting a pop-up browser dialog). A trusted CA certificate can be provided using [custom CA certificates](/mesosphere/dcos/2.1/security/ent/tls-ssl/ca-custom/). However, obtaining a suitable CA certificate can be difficult. Custom external certificates allow the cluster administrator to provide an easily obtained non-CA certificate and key that Admin Router will present to external connections.
+External access to a DC/OS Enterprise cluster goes through Admin Router. By default, the certificate presented by Admin Router is signed by the DC/OS Certificate Authority. The default DC/OS CA certificate is not trusted by default, and requires clients to manually configure trust in the CA (e.g. by accepting a pop-up browser dialog). A trusted CA certificate can be provided using [custom CA certificates](/mesosphere/dcos/2.2/security/ent/tls-ssl/ca-custom/). However, obtaining a suitable CA certificate can be difficult. Custom external certificates allow the cluster administrator to provide an easily obtained non-CA certificate and key that Admin Router will present to external connections.
 
 The benefits of using a custom external certificate for your DC/OS Enterprise cluster include:
 
@@ -130,7 +130,7 @@ setting the `external_certificate_validation_disable` parameter to `true`.
 
 ## Prerequisites
 
-- The installation of DC/OS Enterprise via the Installer has been prepared according to the corresponding [documentation](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/), up to the section [**Install DC/OS**](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos) of that documentation.
+- The installation of DC/OS Enterprise via the Installer has been prepared according to the corresponding [documentation](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/), up to the section [**Install DC/OS**](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#install-dcos) of that documentation.
 
 - The configuration parameters `external_certificate_path`, `external_certificate_key_path` and `external_certificate_servernames` are specified in the DC/OS configuration file `$DCOS_INSTALL_DIR/genconf/config.yaml` and point to the relevant locations in the file system. Example of commands issued on the bootstrap node:
 
@@ -184,7 +184,7 @@ chmod 600 /var/lib/dcos/pki/tls/private/adminrouter-external.key
 ```
 
 ## Installation
-Proceed with the installation as described in the [documentation of the Installer](/mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#install-dcos). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+Proceed with the installation as described in the [documentation of the Installer](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#install-dcos). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
 
 If you are changing from a DC/OS CA issued certificate to a custom external certificate or vice versa, note that your clients may need to trust both CA's during the upgrade.
 

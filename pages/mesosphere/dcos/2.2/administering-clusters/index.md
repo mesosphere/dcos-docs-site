@@ -6,7 +6,7 @@ menuWeight: 60
 excerpt: Administering your DC/OS clusters
 enterprise: false
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 ---
 
 

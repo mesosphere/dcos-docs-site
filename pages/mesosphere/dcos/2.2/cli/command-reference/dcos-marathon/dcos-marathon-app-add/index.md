@@ -5,7 +5,7 @@ title: dcos marathon app add
 menuWeight: 1
 excerpt: Adding an application
 render: mustache
-model: /mesosphere/dcos/2.1/data.yml
+model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
@@ -30,7 +30,7 @@ dcos marathon app add <app-resource>
 
 | Name |  Description |
 |---------|-------------|
-| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description, see the [documentation](/mesosphere/dcos/2.1/deploying-services/marathon-api/). |
+| `<app-resource>`   | Path to a file or HTTP(S) URL that contains the app's JSON definition. If omitted, the definition is read from `stdin`. For a detailed description, see the [documentation](/mesosphere/dcos/2.2/deploying-services/marathon-api/). |
 
 
 # Examples
@@ -84,4 +84,4 @@ In this example, a simple app is deployed to DC/OS Marathon.
 
 | Command | Description |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.1/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
+| [dcos marathon](/mesosphere/dcos/2.2/cli/command-reference/dcos-marathon/) | Deploy and manage applications to DC/OS. |
