@@ -31,7 +31,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths
-The following tables list the supported upgrade paths for DC/OS 2.1.
+The following tables list the supported upgrade paths for DC/OS 2.2.
 
 
 |**Display Icon** | **Service** |
@@ -158,7 +158,7 @@ These steps must be performed for version upgrades.
 ## Bootstrap Node
 
 
-This procedure upgrades a DC/OS 2.0 cluster to DC/OS 2.1.
+This procedure upgrades a DC/OS 2.0 cluster to DC/OS 2.2.
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 2.  The syntax of the `config.yaml` file can be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/).
@@ -320,7 +320,7 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes:
 
-- Packages available in the DC/OS 2.1 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
+- Packages available in the DC/OS 2.2 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
 
 [install]: /mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#custom-build-file
 [cmd]: /mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#nginx-cmd

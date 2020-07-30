@@ -6,7 +6,7 @@ menuWeight: 1
 render: mustache
 beta: false
 model:  /mesosphere/dcos/2.2/data.yml
-excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
+excerpt: Release notes for DC/OS 2.2.0, including Open Source attribution, and version policy.
 ---
 Mesosphere&reg; DC/OS&trade; 2.1.0 was released on 9, June 2020.
 
@@ -27,7 +27,7 @@ This release provides new features and enhancements to improve the user experien
 DC/OS now allows you to set a limit on the amount of CPUs and memory used by Marathon apps and pods. This means that services can run with a guaranteed amount of CPU and memory, while being allowed to consume up to a greater amount of these resources when free CPU cycles and/or memory is available. For more information, see [Creating Services](/mesosphere/dcos/2.2/deploying-services/creating-services/).
 
 ## Network Policies with Calico
-Calico is now pre-installed in DC/OS 2.1 and can be used by containers to join overlay networks and set network policies. The DC/OS Calico component integrates Calico networking into DC/OS, providing the Calico CNI plug-in for Mesos Universal Container Runtime and the Calico libnetwork plug-in for Docker Engine. For more information, see [Calico](/mesosphere/dcos/2.2/networking/SDN/calico).
+Calico is now pre-installed in DC/OS 2.2 and can be used by containers to join overlay networks and set network policies. The DC/OS Calico component integrates Calico networking into DC/OS, providing the Calico CNI plug-in for Mesos Universal Container Runtime and the Calico libnetwork plug-in for Docker Engine. For more information, see [Calico](/mesosphere/dcos/2.2/networking/SDN/calico).
 
 ## Jobs Virtual Networking Support
 Metronome based jobs can now join container networks to communicate with other services/jobs in the same network. For more information, see [Creating Jobs](/mesosphere/dcos/2.2/deploying-jobs/quickstart/).
@@ -50,7 +50,7 @@ Added a new configuration option `mesos_http_executors_domain_sockets`, which wi
 - New format for Admin Router access logs. (D2IQ-43957, DCOS-59598, D2IQ-62839)
 
 # Component Versions
-DC/OS 2.1.0 includes the following component versions:
+DC/OS 2.2.0 includes the following component versions:
 
 - Apache&reg; Mesos&reg; 1.10.0-dev
 - Marathon 1.10.17

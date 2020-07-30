@@ -93,11 +93,11 @@ These steps must be performed for version patches and cluster configuration chan
 
 Choose your desired security mode and then follow the applicable patch instructions.
 
-- [Patching DC/OS 2.1 without changing security mode](#current-security)
-- [Patching to DC/OS 2.1 in strict security mode](#strict)
+- [Patching DC/OS 2.2 without changing security mode](#current-security)
+- [Patching to DC/OS 2.2 in strict security mode](#strict)
 
-# <a name="current-security"></a>Patching DC/OS 2.1 without changing security mode
-This procedure patches a DC/OS 2.1 cluster without changing the cluster's [security mode](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="current-security"></a>Patching DC/OS 2.2 without changing security mode
+This procedure patches a DC/OS 2.2 cluster without changing the cluster's [security mode](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 1.  Merge the old `config.yaml` into the new `config.yaml` format. In most cases the differences will be minimal.
 
@@ -117,8 +117,8 @@ This procedure patches a DC/OS 2.1 cluster without changing the cluster's [secur
 
 1.  Go to the DC/OS Master [procedure](/mesosphere/dcos/2.2/installing/production/patching/#masters) to complete your installation.
 
-# <a name="strict"></a>Patching to DC/OS 2.1 in strict mode
-This procedure patches to DC/OS 2.1 in strict [security mode](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
+# <a name="strict"></a>Patching to DC/OS 2.2 in strict mode
+This procedure patches to DC/OS 2.2 in strict [security mode](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/#security-enterprise).
 
 If you are updating a running DC/OS cluster to run in `strict` security mode, be aware that security vulnerabilities may persist even after migration to strict mode. When moving to strict mode, your services will now require authentication and authorization to register with Mesos or access its HTTP API. You should test these configurations in permissive mode before patching to strict, to maintain scheduler and script uptimes across the patch.
 
@@ -126,8 +126,8 @@ As permissive mode allows some insecure behavior, a cluster may have been compro
 
 **Prerequisites:**
 
-- Your cluster must be a [recently patched version of DC/OS 2.1](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 2.1, you can skip this procedure.
-- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 2.1 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
+- Your cluster must be a [recently patched version of DC/OS 2.2](#current-security) and running in [permissive security mode](#permissive) before it can be updated to strict mode. If your cluster was running in strict mode before it was patched to DC/OS 2.2, you can skip this procedure.
+- If you have running pods or if the Mesos "HTTP command executors" feature has been enabled in a custom configuration, you must restart these tasks in DC/OS 2.2 permissive security mode before patching to strict mode. Otherwise, these tasks will be restarted when the masters are patched.
 
 To update a cluster from permissive security to strict security, complete the following procedure:
 
@@ -264,5 +264,5 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes
 
-Packages available in the DC/OS 2.1 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
+Packages available in the DC/OS 2.2 {{ model.packageRepo }} are newer than those in the older versions of the {{ model.packageRepo }}. Services are not automatically patched when DC/OS is installed because not all DC/OS services have patch paths that will preserve existing states.
 

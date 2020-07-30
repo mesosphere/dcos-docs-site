@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle:  Mesosphere DC/OS 2.1.0
-title: Documentation for Mesosphere DC/OS 2.1.0
-version: 2.1.0
+navigationTitle:  Mesosphere DC/OS 2.2.0
+title: Documentation for Mesosphere DC/OS 2.2.0
+version: 2.2.0
 menuWeight: 0
 excerpt: Learning DC/OS
 beta: false 
