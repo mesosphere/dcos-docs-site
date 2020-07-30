@@ -2,6 +2,7 @@
 # Util
 #
 
+.PHONY: build-swagger build-ngindox build-api build-development clean reduce-pages
 
 clean: ## Remove all build folders
 	./scripts/clean.sh
@@ -31,19 +32,22 @@ build-development: build-api
 #
 # Build API
 #
-
 build-api: build-swagger build-ngindox
 
-build-swagger:
-	./scripts/swagger.sh ./pages ./build-swagger
+SWAGGER_FILES := $(shell find ./pages -name '*.yaml' | xargs grep -l "swagger:")
+build-swagger: $(addprefix ./build-swagger,$(basename $(SWAGGER_FILES:./pages%=%)))
+build-swagger/%:
+	@node ./node_modules/bootprint/bin/bootprint.js openapi "pages/$*.yaml" "$@"
 
-build-ngindox:
-	./scripts/ngindox.sh ./pages ./build-ngindox
+NGINDOX_FILES := $(shell find ./pages -name '*.yaml' | xargs grep -l "ngindox:")
+build-ngindox: $(addprefix ./build-ngindox,$(basename $(NGINDOX_FILES:./pages%=%)))
+build-ngindox/%:
+	@mkdir -p $@
+	@node ./node_modules/ngindox/bin/cli.js ui -c "" -j "" -f "pages/$*.yaml" > "$@/index.html"
 
 #
 # Docker
 #
-
 docker-site-build: ## Build site docker image. Required env vars: ALGOLIA_PROJECT_ID, ALGOLIA_PUBLIC_KEY, ALGOLIA_PRIVATE_KEY, ALGOLIA_INDEX
 	./scripts/build-site.sh
 
