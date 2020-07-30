@@ -1,30 +1,13 @@
 {
   "master": {
     "DO_NOT_BUILD": [
-      "test/**",
       "mesosphere/dcos/2.2/**"
-    ],
-    "DO_NOT_INDEX": [
     ]
   },
   "staging": {
     "DO_NOT_BUILD": [
-      "test/**",
       "mesosphere/dcos/2.2/**"
-    ],
-    "DO_NOT_INDEX": [
-      "^cn"
     ]
-  },
-  "develop": {
-    "DO_NOT_BUILD": [],
-    "DO_NOT_INDEX": [
-      "^cn"
-    ]
-  },
-  "local": {
-    "DO_NOT_BUILD": [],
-    "DO_NOT_INDEX": []
   },
   "kommander": {
     "DO_NOT_BUILD": [
@@ -36,35 +19,6 @@
       "mesosphere/dcos/1.12/**",
       "mesosphere/dcos/1.13/**",
       "mesosphere/dcos/2.0/**"
-    ],
-    "DO_NOT_INDEX": []
-  },
-  "dispatch": {
-    "DO_NOT_BUILD": [
-      "mesosphere/dcos/1.7/**",
-      "mesosphere/dcos/1.8/**",
-      "mesosphere/dcos/1.9/**",
-      "mesosphere/dcos/1.10/**",
-      "mesosphere/dcos/1.11/**",
-      "mesosphere/dcos/1.12/**",
-      "mesosphere/dcos/1.13/**",
-      "mesosphere/dcos/2.0/**"
-    ],
-    "DO_NOT_INDEX": []
-  },
-  "alpha": {
-    "DO_NOT_BUILD": [
-      "mesosphere/dcos/1.7/**",
-      "mesosphere/dcos/1.8/**",
-      "mesosphere/dcos/1.9/**",
-      "mesosphere/dcos/1.10/**",
-      "mesosphere/dcos/1.11/**",
-      "mesosphere/dcos/1.12/**"
-    ],
-    "DO_NOT_INDEX": []
-  },
-  "always": {
-    "DO_NOT_BUILD": [],
-    "DO_NOT_INDEX": []
+    ]
   }
 }
