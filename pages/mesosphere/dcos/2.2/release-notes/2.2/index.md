@@ -1,18 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle: Release notes for 2.1.0
-title: Release notes for 2.1.0
+navigationTitle: Release notes for 2.2
+title: Release notes for 2.2
 menuWeight: 1
 render: mustache
-beta: false
+beta: true
 model:  /mesosphere/dcos/2.2/data.yml
-excerpt: Release notes for DC/OS 2.2.0, including Open Source attribution, and version policy.
+excerpt: Release notes for DC/OS 2.2, including Open Source attribution, and version policy.
 ---
-Mesosphere&reg; DC/OS&trade; 2.1.0 was released on 9, June 2020.
+Mesosphere&reg; DC/OS&trade; 2.2 was released on ?, ?? 2020.
 
-[button color="light" href="https://downloads.dcos.io/dcos/stable/2.1.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="https://downloads.dcos.io/dcos/stable/??/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.1.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/??/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 New customers must contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 

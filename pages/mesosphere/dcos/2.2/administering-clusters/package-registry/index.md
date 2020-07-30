@@ -18,7 +18,7 @@ For a full list of the configuration options available for the DC/OS Package Reg
 ```bash
 dcos package describe package-registry --config
 ```
-You can find more information about the `dcos package` commands in the [CLI documentation](/mesosphere/dcos/1.13/cli/command-reference/dcos-package/).
+You can find more information about the `dcos package` commands in the [CLI documentation](/mesosphere/dcos/2.2/cli/command-reference/dcos-package/).
 
 For a detailed description of how to configure and deploy DC/OS Services, see [Configuring {{ model.packageRepo }} Services](/mesosphere/dcos/2.2/deploying-services/config-universe-service/).
 
