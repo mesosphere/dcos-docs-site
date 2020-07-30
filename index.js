@@ -48,21 +48,8 @@ const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
 const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
 
-const branchDoNotIndex = config[GIT_BRANCH]
-  ? config[GIT_BRANCH].DO_NOT_INDEX
-  : [];
-
-const ALGOLIA_SKIP_SECTIONS = branchDoNotIndex
-  ? config.always.DO_NOT_INDEX.concat(branchDoNotIndex)
-  : config.always.DO_NOT_INDEX;
-
-const branchDoNotBuild = config[GIT_BRANCH]
-  ? config[GIT_BRANCH].DO_NOT_BUILD
-  : config.local.DO_NOT_BUILD;
-
-const METALSMITH_SKIP_SECTIONS = config.always.DO_NOT_BUILD.concat(
-  branchDoNotBuild
-);
+const branchCfg = config[GIT_BRANCH] || {};
+const METALSMITH_SKIP_SECTIONS = branchCfg.DO_NOT_BUILD || [];
 
 //
 // Errors
@@ -344,7 +331,6 @@ if (ALGOLIA_UPDATE === "true") {
     algolia({
       projectId: ALGOLIA_PROJECT_ID,
       privateKey: ALGOLIA_PRIVATE_KEY,
-      skipSections: ALGOLIA_SKIP_SECTIONS,
       renderPathPattern: pathPatternRegex,
     })
   );
