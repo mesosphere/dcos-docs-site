@@ -29,6 +29,12 @@ Tasks define a set of steps (containers) to run sequentially within a pod; these
 | `deps`    | String array | Task names that must complete before this task is run (DEPRECATED: use `inputs` instead) | no | [] |
 | `steps`   | [Container](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#container-v1-core) array | Containers to run as a part of the task, the containers are run sequentially in the order they are defined | yes | - |
 | `volumes` | [Volume](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.16/#volume-v1-core) array | Volumes to make available to the steps | no | [] |
+| `timeout` | String | The duration after which a task is considered timed out. See below. The format is that of the [Go `time` package's `ParseDuration` function](https://golang.org/pkg/time/#ParseDuration) | no | Parent PipelineRun timeout if that is set, otherwise the global timeout (typically 1h). |
+
+If the `timeout` field is set on a task, and then:
+
+- the PipelineRun fails or times out before the task is scheduled, then the task will not be started.
+- the PipelineRun times out after the task is started, but before it completes, then the task will continue executing until it succeeds, fails or exceeds its own `timeout` duration. In this scenario, the PipelineRun will still be marked as failed, due to timeout, even though all its tasks may have succeeded individually.
 
 #### Input variables
 
