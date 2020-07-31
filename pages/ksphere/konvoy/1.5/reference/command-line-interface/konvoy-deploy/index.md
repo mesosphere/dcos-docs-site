@@ -23,6 +23,7 @@ konvoy deploy [flags]
 ### Options
 
 ```
+      --cluster-name string         name used to prefix the cluster and all the created resources (default "konvoy")
       --force-upgrade               run an upgrade on all control-plane and worker nodes if needed, ignoring upgrade safety checks
   -h, --help                        help for deploy
       --max-parallel-nodes string   set the number of nodes to upgrade in parallel. This can be an integer or a percentage of a nodePool. Set to 1 to run serially (requires --upgrade or --force-upgrade flag) (default "15%")
@@ -45,4 +46,3 @@ konvoy deploy [flags]
 * [konvoy deploy auto-provisioning](./konvoy-deploy-auto-provisioning/)	 - Deploy auto provisioning
 * [konvoy deploy container-networking](./konvoy-deploy-container-networking/)	 - Deploy container networking
 * [konvoy deploy kubernetes](./konvoy-deploy-kubernetes/)	 - Deploy a Kubernetes cluster except CNI plugins (use 'deploy container-networking' to deploy those)
-

@@ -23,13 +23,13 @@ konvoy deploy auto-provisioning [flags]
 ### Options
 
 ```
-  -h, --help      help for auto-provisioning
-  -v, --v int     select verbosity level, should be between 0 and 6
-      --verbose   enable debug level logging
-  -y, --yes       run command without prompting
+      --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
+  -h, --help                  help for auto-provisioning
+  -v, --v int                 select verbosity level, should be between 0 and 6
+      --verbose               enable debug level logging
+  -y, --yes                   run command without prompting
 ```
 
 ### SEE ALSO
 
 * [konvoy deploy](../)	 - Deploy a fully functioning Kubernetes cluster and addons
-

@@ -140,6 +140,18 @@ The complete list of Azure infrastructure (VMs, networking, etc.) to be provisio
 
 ## Preparing the Cluster Configurations
 
+### Adding custom cloud.conf file
+
+Konvoy will generate a default `cloud.conf` file based on the provisioned infrastructure.
+If your cluster requires additional configuration, you may specify it by creating a `extras/cloud-provider/cloud.conf` file in your working directory.
+Konvoy will then copy this file to the remote machines and configure the necessarily Kubernetes components to use this configuration file.
+
+It is also possible to configure Konvoy to use the files already present on the Kubernetes machines. On the remote machines, create `/root/kubernetes/cloud.conf` files and Konvoy will configure the necessarily Kubernetes components to use this configuration file.
+
+In the case when both files are specified, the remote `/root/kubernetes/cloud.conf` file will be used.
+
+### Installing the cluster
+
 To install the cluster with the configurations specified in the `cluster.yaml`, make sure you are in the directory with the certificates and `cluster.yaml` file and run the following command:
 
   ```bash

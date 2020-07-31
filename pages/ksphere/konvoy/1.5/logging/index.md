@@ -178,4 +178,4 @@ For information on related topics or procedures, refer to the following:
 
 - [Resource Recommendations](./recommendations)
 - [Disable Audit Logs in Fluentbit](../tutorials/disable-audit-logs/)
-- [Fluentbit Addon](../addons/fluentbit/)
+- [Fluentbit Addon](./fluentbit/)

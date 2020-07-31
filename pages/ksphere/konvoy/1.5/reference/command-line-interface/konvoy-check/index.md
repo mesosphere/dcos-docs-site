@@ -23,8 +23,9 @@ konvoy check [flags]
 ### Options
 
 ```
-  -h, --help             help for check
-      --without-addons   skip checking that addons were deployed
+      --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
+  -h, --help                  help for check
+      --without-addons        skip checking that addons were deployed
 ```
 
 ### SEE ALSO
@@ -34,4 +35,3 @@ konvoy check [flags]
 * [konvoy check kubernetes](./konvoy-check-kubernetes/)	 - Run checks on the cluster components
 * [konvoy check nodes](./konvoy-check-nodes/)	 - Run checks on the nodes
 * [konvoy check preflight](./konvoy-check-preflight/)	 - Run checks to validate machines are ready for installation
-

@@ -23,14 +23,14 @@ konvoy deploy container-networking [flags]
 ### Options
 
 ```
-  -h, --help                help for container-networking
-      --skip-state-upload   skip the upload of the state to Kubernetes cluster
-      --verbose             enable debug level logging
-      --with-checks         execute checks after each deployment step
-  -y, --yes                 run command without prompting
+      --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
+  -h, --help                  help for container-networking
+      --skip-state-upload     skip the upload of the state to Kubernetes cluster
+      --verbose               enable debug level logging
+      --with-checks           execute checks after each deployment step
+  -y, --yes                   run command without prompting
 ```
 
 ### SEE ALSO
 
 * [konvoy deploy](../)	 - Deploy a fully functioning Kubernetes cluster and addons
-

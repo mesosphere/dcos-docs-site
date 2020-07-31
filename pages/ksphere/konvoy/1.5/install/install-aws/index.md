@@ -204,6 +204,16 @@ The Control Plane contains [various components][kube_components], including `etc
 Having three control plane nodes makes the cluster "highly available" to protect against failures.
 Worker nodes run your containers in [Kubernetes pods][kube_pods].
 
+## Adding custom cloud.conf file
+
+By default, AWS does not require a `cloud.conf` file for the cloud-provider functionality.
+If your cluster requires additional configuration, you may specify it by creating a `extras/cloud-provider/cloud.conf` file in your working directory.
+Konvoy will then copy this file to the remote machines and configure the necessarily Kubernetes components to use this configuration file.
+
+It is also possible to configure Konvoy to use the files already present on the Kubernetes machines. On the remote machines, create `/root/kubernetes/cloud.conf` files and Konvoy will configure the necessarily Kubernetes components to use this configuration file.
+
+In the case when both files are specified, the remote `/root/kubernetes/cloud.conf` file will be used.
+
 ## Default addons
 
 The default addons help you manage your Kubernetes cluster by providing monitoring (Prometheus), logging (Elasticsearch), dashboards (Kubernetes Dashboard), storage (AWS CSI Driver), ingress (Traefik) and other services.
