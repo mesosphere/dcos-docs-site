@@ -13,7 +13,7 @@ render: mustache
 
 ## New Features
 
-- Allows multiple Spark UI to be accessible
+- {{ model.techName }} now allows multiple Spark UI instances to be accessible
 
 
 # {{ model.techName }} 2.0.0 was released on 12, June 2020
@@ -28,7 +28,7 @@ render: mustache
 - Pre-baked Notebook images with different flavors of ML libraries
 - TensorFlow, PyTorch, MXNet as the main ML distributions
 - Added Horovod + Spark for distributed use-cases
-- Notebook image has two flavours: local and distributed
+- Notebook image has two flavors: local and distributed
 - Each image has CPU and GPU variant
 - Mounting host path support
 - Upgrading Jupyter and other frameworks to the latest versions:
@@ -41,13 +41,12 @@ render: mustache
 
 ## Bug Fixes
 
-- Fixed Allowing spaces in the notebook name
+- Fixed allowing spaces in the notebook name
 - Fixed Conda packages directory path for conda virtual environment creation
 
 ## Limitations
 
 - BeakerX kernels have been removed from the distribution. Now only IPython, Toree, and R kernels supported
-
 
 # Release Notes for {{ model.techName }} version 1.0.2
 
