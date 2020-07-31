@@ -50,9 +50,25 @@ spark.stop()
 # Spark UI
 
 The Spark UI starts automatically when a SparkContext is created, and is available at 
-
-```bash
+```
 http://<dcos_url>/service/{{ model.serviceName }}/sparkui
+```
+
+In case of having multiple Spark sessions respective SparkUI is available at 
+```
+http://<dcos_url>/service/{{ model.serviceName }}/sparkui/<index>
+```
+    
+Where ***index*** is a number `0,1,...N` defining order of launched Spark sessions:
+
+SparkUI for the first session is available at 
+```
+http://<dcos_url>/service/{{ model.serviceName }}/sparkui/0
+```
+    
+SparkUI for the second launched session is available at
+```
+http://<dcos_url>/service/{{ model.serviceName }}/sparkui/1
 ```
 
 # Spark History Server
