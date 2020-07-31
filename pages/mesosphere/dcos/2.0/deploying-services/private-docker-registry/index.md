@@ -43,6 +43,7 @@ DC/OS has several parameters which control Docker credentials for all tasks on t
 cluster_docker_credentials = "{}"
 cluster_docker_credentials_enabled = "true"
 cluster_docker_credentials_write_to_etc = "true"
+cluster_docker_credentials_dcos_owned = "false"
 ```
 
 Rather than using a blank configuration, operators can choose to include their full Docker credentials configuration. However, this is not recommended as it leaves sensitive information exposed in DC/OS configuration. Instead, the file `/etc/mesosphere/docker_credentials` can be created prior to DC/OS installation or modified after installation to include the correct configuration and real credentials. The DC/OS agent service must be restarted after making a change to the file: `sudo systemctl restart dcos-mesos-slave` or `sudo systemctl restart dcos-mesos-slave-public`. An empty file or invalid configuration will prevent the agent service from starting.
