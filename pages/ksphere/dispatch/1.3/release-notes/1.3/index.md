@@ -1,22 +1,23 @@
 ---
 layout: layout.pug
 navigationTitle: 1.3.0
-title: Release Notes 1.3.0
+title: Release Notes 1.3.0 Beta 1
 menuWeight: 10
 beta: true
-excerpt: View release-specific information for Dispatch 1.3.0
+excerpt: View release-specific information for Dispatch 1.3.0 Beta 1
 ---
 
-# Release Notes
+# Release Notes for Dispatch 1.3.0 Beta 1
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Dispatch [/button]
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and signed on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Dispatch.</p>
 
-## v1.3.0 - Released TBD
-Document Modified Date: July 13, 2020
+## v1.3.0 Beta 1 - Released June 30, 2020
+Document Modified Date: July 30, 2020
 
-This document describes the new features, caveats, and resolved issues of D2iQ Dispatch.
+This document describes the new features, caveats, and resolved issues of D2iQ Dispatch. 
+__**This is a Beta release & for Evaluation only and NOT for Production use.**__
 
 ### Disclaimer
 
@@ -29,7 +30,7 @@ To install Dispatch, follow one of the two options below:
 
 - **Upgrade**: Update the `configVersion` for `https://github.com/mesosphere/kubeaddons-dispatch` in your `cluster.yaml` .
 
-1. Update the following *example* snippet from `cluster.yaml` to upgrade Dispatch 1.2.x to 1.3.0.
+1. Update the following *example* snippet from `cluster.yaml` to upgrade Dispatch 1.2.x to 1.3.0-beta1.
 
 ```yaml
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
@@ -43,7 +44,7 @@ It should read:
 
 ```yaml
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.16-1.3.0
+    configVersion: stable-1.16-1.3.0-beta1
     addonsList:
     - name: dispatch
       enabled: true
@@ -62,25 +63,39 @@ helm test dispatch-kubeaddons
 
 | Frontend Language | Version |
 | ------------------ | ------- |
-|Starlark | TBD |
-|CUE | TBD |
-|YAML | TBD |
-|JSON | TBD |
+|Starlark | 0.7 |
+|CUE | 0.5 |
+|YAML | 0.4 |
+|JSON | 0.4 |
 
 ### Improvements since v1.2.0
 
-TBD
+- Upgraded Tekton to v0.14.2 and Tekton dashboard to v0.8.0.
+- Updated UI to support Build view including:
+  - Build view supports viewing logs, artifacts and Dispatchfile.
+  - Support for stopping and rerunning.
+  - Support for incremental build numbers of Pipelineruns.
+- Supported for label matching for pull request actions in Dispatchfile.
+- Added `timeout` field to Repository object. Allows for Override of the default PipelineRun timeout duration for a Repository.
+- Added a new `--timeout` flag to the dispatch CI repository create command that takes a [Go duration string](https://golang.org/pkg/time/#ParseDuration) (e.g., `2h30m45s`). This sets the PipelineRun timeout for the Repository being created.
+- Added a new `timeout` field to the task type in the Dispatchfile. This overrides the PipelineRun timeout for the task. If the PipelineRun times out before the task is completed, the task will continue executing until it reaches its own timeout, but the PipelineRun as a whole will be marked as failed due to timeout.
+- Added helm chart option `tekton.configs.defaultPodTemplate` to support node pool selections and other pod settings for all Dispatch tasks. See documentation of Tekton pod templates [Tekton pod templates](https://tekton.dev/docs/pipelines/podtemplates/) for more information. 
 
 ### Caveats
 
 *Breaking Changes*
 
-TBD
-
-*Deprecations*
-
-TBD
+- The helm chart option `eventSink.defaultStepResources` is renamed to `dispatch.defaultStepResources`.
 
 ### Resolved Issues
 
-TBD
+- [COPS-6292] Allow login to github after login to docker.
+- Fixed a bug where the garbage collector only reclaims resources in the last watch namespace.
+- Fixed garbage collector to only skip old objects with dispatch catalog labels if they are Pipeline or Task objects.
+- Fixed a bug where artifacts aren't collected when previous task fails, yet there are still artifacts to collect.
+ 
+ 
+### Download Links
+- Linux: https://d2iq-dispatch.s3.amazonaws.com/dispatch_linux_1.3.0-beta1
+- Mac OS X (Catalina): https://d2iq-dispatch.s3.amazonaws.com/dispatch_darwin_1.3.0-beta1.pkg
+- Mac OS X: https://d2iq-dispatch.s3.amazonaws.com/dispatch_darwin_1.3.0-beta1

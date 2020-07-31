@@ -333,7 +333,7 @@ If you want to push docker images to a private docker registry as part of your p
 
 ```sh
 docker login https://docker-registry.local
-dispatch login docker  team-1
+dispatch login docker  --service-account team-1
 ```
 
 After you have configured credentials for the service account to use when accessing the private docker registry, you can push your image to it by prefixing the image name with the hostname of the private docker registry in your Dispatchfile as follows:
@@ -359,9 +359,16 @@ dispatch ci repository create --service-account team-1
 
 The `dispatch ci repository create` command creates a `Repository` object in Kubernetes for your repository which tells Dispatch which service account and associated credentials to use when executing its Dispatchfile, and how to handle events received from your source control management service (e.g., GitHub or GitLab, which is inferred from the credentials of the service account). See [the Repository CRD documentation](../../../references/repository-crd/) for details on the Repository object.
 
+
 Run `kubectl describe repositories -n dispatch` to see the newly created `Repository` object.
 
 You can see the newly created webhook by opening your browser to https://github.com/your-user/cicd-hello-world/settings/hooks (remember to replace "your-user" with your real GitHub username). The green checkmark indicates that GitHub is able to successfully deliver webhook events to your Dispatch installation.
+
+By default, PipelineRuns will timeout after 1 hour. If your repository's CI requires more time to complete, you can override the default timeout by setting the `--timeout=<duration>` option. The following example sets the timeout for this repository to 2 hours and 30 minutes:
+
+```sh
+dispatch ci repository create --service-account=team-1 --timeout=2h30m
+```
 
 ## Creating a Pull Request
 
