@@ -966,7 +966,6 @@ The table below lists the third party open source software which is provided by 
 |  **kk-color-name** | 1.1.3 | [MIT License](https://opensource.org/licenses/MIT# "MIT License") |
 |  **klaw-sync** | 6.0.0 | [MIT License](https://opensource.org/licenses/MIT# "MIT License") |
 |  **kleur** | 3.0.3 | [MIT License](https://opensource.org/licenses/MIT# "MIT License") |
-|  kommander licenses 3.115 for docs |  |  |
 |  **kossnocorp/date-fns** | 1.30.1 | [MIT License](https://opensource.org/licenses/MIT# "MIT License") |
 |  **kriskowal's q** | 1.5.1 | [MIT License](https://opensource.org/licenses/MIT# "MIT License") |
 |  **latest-version** | 5.1.0 | [MIT License](https://opensource.org/licenses/MIT# "MIT License") |
