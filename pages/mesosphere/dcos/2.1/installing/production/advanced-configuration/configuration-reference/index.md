@@ -352,6 +352,12 @@ The path and file to pass with `--docker_config` if `cluster_docker_credentials_
 - If `cluster_docker_credentials_dcos_owned: 'true'` then this defaults to `/opt/mesosphere/etc/docker_credentials`.
 - If `cluster_docker_credentials_dcos_owned: 'false'` then this defaults to `/etc/mesosphere/docker_credentials`.
 
+### cluster_docker_credentials_write_to_etc
+Controls whether to create the file `/etc/mesosphere/docker_credentials` containing the data from `cluster_docker_credentials`. Setting this to `'false'` can be useful if overwriting your credentials file will cause problems (for example, if it is part of a machine image or AMI).
+
+- `cluster_docker_credentials_write_to_etc` takes effect only when `cluster_docker_credentials_dcos_owned` is set to `false`.
+- `cluster_docker_credentials_write_to_etc` does not use `cluster_docker_credentials_path`, it only creates the file at `/etc/mesosphere/docker_credentials`.
+
 ### cluster_docker_registry_url
 The custom URL that Mesos uses to pull Docker images from. If set, it will configure the Mesos' `--docker_registry` flag to the specified URL. This changes the default URL that Mesos uses for pulling Docker images. By default `https://registry-1.docker.io` is used. If changed from the default, you will need to import a local {{ model.packageRepo }} into your docker registry as you won’t access dockerhub to pull our images. See [deploying a local {{ model.packageRepo }}](/mesosphere/dcos/2.1/administering-clusters/deploying-a-local-dcos-universe/#selected-packages) and [using a private docker registry](/mesosphere/dcos/2.1/deploying-services/private-docker-registry/) for more information.
 
