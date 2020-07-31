@@ -100,7 +100,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: testing-1.9.0-2
     addonsList:
     ...
 ```
@@ -159,8 +159,8 @@ spec:
     calico:
       version: v3.13.4
   addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: testing-1.9.0-2
     addonsList:
     ...
     - name: helm
@@ -181,7 +181,7 @@ spec:
       enabled: true
 ```
 
-Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [reference document](../../reference/cluster-configuration).
+Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [refernce document](../../reference/cluster-configuration).
 
 After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to upgrade the Kubernetes and all of the addons.
 

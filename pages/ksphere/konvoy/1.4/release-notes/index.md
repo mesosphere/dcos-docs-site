@@ -39,6 +39,11 @@ enterprise: false
 - Go `v1.13.12`
 - Docker `v19.03.11`
 
+#### Disclaimer
+
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
+
 ### Version v1.4.4 - Released 28 May 2020
 
 | Kubernetes Support | Version |
@@ -60,6 +65,11 @@ enterprise: false
         version: 1.16.9+d2iq.2
         imageRepository: docker.io/mesosphere
     ```
+
+#### Disclaimer
+
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
 
 ### Version v1.4.3 - Released 12 May 2020
 
@@ -90,6 +100,11 @@ enterprise: false
 - Go `v1.13.10`
 - Docker `v19.03.8`
 
+#### Disclaimer
+
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
+
 ### Version v1.4.2 - Released 24 March 2020
 
 | Kubernetes Support | Version |
@@ -100,6 +115,8 @@ enterprise: false
 
 #### Disclaimer
 
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
 -   The default value of `vpc.enableVPCEndpoints` was changed to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
     This value should already be present in your `cluster.yaml` file. Below is a partial `cluster.yaml` that contains the value you can add to retain the previous behavior of deploying VPC endpoints in your cluster.
     This resource should only be required where the networking configuration of the cluster does not allow for direct access to the AWS API.
@@ -166,9 +183,11 @@ enterprise: false
 
 #### Disclaimer
 
-- The generated release artifacts will now untar in `./konvoy_v1.4.0/konvoy` instead of `./linux/konvoy_v1.4.0/konvoy`.
-- The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy prints a warning message if your nodePool names do not comply with the requirement.
-- The Kommander and Dispatch addons are now in their own repos.
+-   The generated release artifacts will now untar in `./konvoy_v1.4.0/konvoy` instead of `./linux/konvoy_v1.4.0/konvoy`.
+-   The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy prints a warning message if your nodePool names do not comply with the requirement.
+-   The Kommander and Dispatch addons are now in their own repos.
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must modify your <code>cluster.yaml</code> with these changes when upgrading from a previous version. You can also no longer use the <code>konvoy.mesosphere.io/v1alpha1</code> apiVersion in your <code>cluster.yaml</code> if you are also deploying Kommander or Dispatch. That API version did not support multiple addon repositories.</p>
 
@@ -180,7 +199,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: testing-1.9.0-2
     addonsList:
     - name: kommander
       enabled: false # remove the kommander addon or set "enabled: false"
@@ -363,7 +382,7 @@ spec:
     calico:
       version: v3.10.1
   addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: stable-1.16.4-2
     addonsList:
     ...
@@ -385,7 +404,7 @@ spec:
       enabled: true
 ```
 
-Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [reference document](../reference/cluster-configuration/).
+Depending on the version you are upgrading from you may need to include additional addons. For the full list of addons refer to the [refernce document](../reference/cluster-configuration/).
 
 After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to upgrade the Kubernetes and all of the addons.
 
