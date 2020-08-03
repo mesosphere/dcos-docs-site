@@ -22,8 +22,8 @@ built-in Dex integration. If you have not yet done so, review the documentation
 [here](https://docs.d2iq.com/ksphere/konvoy/latest/security/external-idps/) before proceeding._
 
 ## Kubeflow Predefined `ClusterRoles`
-KUDO Kubeflow comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of Kubeflow
-administrators who want to manage the permissions KUDO Kubeflow users and administrators.
+KUDO for Kubeflow comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of Kubeflow
+administrators who want to manage the permissions KUDO for Kubeflow users and administrators.
 
 Predefined `ClusterRoles` for Kubeflow tenants are as follows:
 
@@ -35,7 +35,7 @@ For a chart of the permissions granted to each `ClusterRole`, see the [Permissio
 
 ## Onboarding new users
 ### Overview
-KUDO Kubeflow provides an abstraction called `Profile` which is assigned to a user and bound to a namespace along with additional
+KUDO for Kubeflow provides an abstraction called `Profile` which is assigned to a user and bound to a namespace along with additional
 resources such as namespace-scoped service accounts, RBAC `RoleBinding`s, Istio `ServiceRole` and `ServiceRoleBinding`.
 Kubeflow grants users with namespace admin permissions for their namespaces.
 

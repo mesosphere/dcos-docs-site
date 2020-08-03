@@ -10,12 +10,13 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.3.1.tar.gz | tar xz</code>
-from a Jupyter Notebook Terminal running in your KUDO Kubeflow installation.
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
 tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators and custom Docker images, these notebook
 will likely not work.</p>
+
 
 
 # Hyperparameter Tuning with Katib
@@ -96,21 +97,21 @@ import re
 from IPython.utils.capture import CapturedIO
 
 
-def get_experiment(captured_io: CapturedIO) -> str:
+def get_resource(captured_io: CapturedIO) -> str:
     """
-    Gets a Katib experiment's resource name from `kubectl apply -f <configuration.yaml>`.
-    
+    Gets a resource name from `kubectl apply -f <configuration.yaml>`.
+
     :param str captured_io: Output captured by using `%%capture` cell magic
-    :return: Name of the hyperparameter tuning experiment
+    :return: Name of the Kubernetes resource
     :rtype: str
-    :raises Exception: if the experiment could not be created
+    :raises Exception: if the resource could not be created
     """
     out = captured_io.stdout
     matches = re.search(r"^(.+)\s+created", out)
     if matches is not None:
         return matches.group(1)
     else:
-        raise Exception(f"Cannot get experiment as its creation failed: {out}")
+        raise Exception(f"Cannot get resource as its creation failed: {out}. It may already exist.")
 ```
 
 ### TensorFlow: a TFJob Experiment
@@ -179,7 +180,7 @@ spec:
                   containers:
                     - name: tensorflow
                       # modify this property if you would like to use a custom image
-                      image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.3.1
+                      image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.0
                       imagePullPolicy: Always
                       args:
                         {{- with .HyperParameters}}
@@ -282,7 +283,7 @@ spec:
                   containers:
                     - name: pytorch
                       # modify this property if you would like to use a custom image
-                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.3.1
+                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.0
                       imagePullPolicy: Always
                       args:
                         {{- with .HyperParameters}}
@@ -306,7 +307,7 @@ spec:
                   containers:
                     - name: pytorch
                       # modify this property if you would like to use a custom image
-                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.3.1
+                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.0
                       imagePullPolicy: Always
                       args:
                         {{- with .HyperParameters}}
@@ -351,7 +352,7 @@ From there we can use the utility function we defined earlier:
 
 
 ```python
-EXPERIMENT = get_experiment(kubectl_output)
+EXPERIMENT = get_resource(kubectl_output)
 ```
 
 To see the status, we can then run:

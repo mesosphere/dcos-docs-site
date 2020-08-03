@@ -10,12 +10,13 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.3.1.tar.gz | tar xz</code>
-from a Jupyter Notebook Terminal running in your KUDO Kubeflow installation.
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
 tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators and custom Docker images, these notebook
 will likely not work.</p>
+
 
 
 # Kubeflow Pipelines: from Training to Serving
@@ -382,7 +383,7 @@ def train_and_serve(
     model_version: int,
 ):
     # For GPU support, please add the "-gpu" suffix to the base image
-    BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.3.1-tensorflow-2.2.0"
+    BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0"
 
     downloadOp = components.func_to_container_op(
         download_dataset, base_image=BASE_IMAGE
@@ -402,7 +403,7 @@ def train_and_serve(
 
     # Create an inference server from an external component
     kfserving_op = components.load_component_from_url(
-        "https://raw.githubusercontent.com/kubeflow/pipelines/f311900f6341a6c0cf4baf1354c4dbb575eace78/components/kubeflow/kfserving/component.yaml"
+        "https://raw.githubusercontent.com/kubeflow/pipelines/f21e0fe726f8aec86165beca061f64fa730e0ac7/components/kubeflow/kfserving/component.yaml"
     )
     kfserving = kfserving_op(
         action="create",
@@ -550,13 +551,7 @@ image_index = 1005
 display_image(x_test, image_index)
 ```
 
-    Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
-    11493376/11490434 [==============================] - 0s 0us/step
-
-
-
-![png](output_23_1.png)
-
+![Output](./img/9.png)
 
 The inference server expects a JSON payload:
 

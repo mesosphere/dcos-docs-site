@@ -10,13 +10,19 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.3.1.tar.gz | tar xz</code>
-from a Jupyter Notebook Terminal running in your KUDO Kubeflow installation.
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
 tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators and custom Docker images, these notebook
 will likely not work.</p>
 
+
+
+<div class="alert alert-block alert-danger">
+    This notebook is for TensorFlow 2 only.
+    TensorFlow 1 does not support data auto-sharding.
+</div>
 
 # Training MNIST with TensorFlow
 
@@ -85,21 +91,21 @@ import re
 from IPython.utils.capture import CapturedIO
 
 
-def get_experiment(captured_io: CapturedIO) -> str:
+def get_resource(captured_io: CapturedIO) -> str:
     """
-    Gets a Katib experiment's resource name from `kubectl apply -f <configuration.yaml>`.
+    Gets a resource name from `kubectl apply -f <configuration.yaml>`.
 
     :param str captured_io: Output captured by using `%%capture` cell magic
-    :return: Name of the hyperparameter tuning experiment
+    :return: Name of the Kubernetes resource
     :rtype: str
-    :raises Exception: if the experiment could not be created
+    :raises Exception: if the resource could not be created
     """
     out = captured_io.stdout
     matches = re.search(r"^(.+)\s+created", out)
     if matches is not None:
         return matches.group(1)
     else:
-        raise Exception(f"Cannot get experiment as its creation failed: {out}")
+        raise Exception(f"Cannot get resource as its creation failed: {out}. It may already exist.")
 ```
 
 ## How to Load and Inspect the Data
@@ -112,7 +118,7 @@ import tensorflow_datasets as tfds
 
 from matplotlib import pyplot as plt
 
-mnist, info = tfds.load(name="mnist", split="train", with_info=True)
+mnist, info = tfds.load(name="mnist", split="train", data_dir="tensorflow_datasets", download=False, with_info=True)
 tfds.show_examples(info, mnist)
 ```
 
@@ -409,7 +415,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:1.0.1-0.3.1-tensorflow-2.2.0-gpu
+FROM mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0-gpu
 ADD mnist.py /
 
 ENTRYPOINT ["python", "-u", "/mnist.py"]
@@ -425,7 +431,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.3.1` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.0` in case you want to skip it for now.
 
 ## How to Create a Distributed `TFJob`
 For large training jobs, we wish to run our trainer in a distributed mode.
@@ -453,7 +459,7 @@ spec:
           containers:
             - name: tensorflow
               # modify this property if you would like to use a custom image
-              image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.3.1
+              image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.0
               args:
                 - --epochs
                 - "15"
@@ -498,7 +504,7 @@ Let's deploy the distributed training job:
 
 
 ```python
-TF_JOB = get_experiment(tf_output)
+TF_JOB = get_resource(tf_output)
 ```
 
 To see the job status, use the following command:
