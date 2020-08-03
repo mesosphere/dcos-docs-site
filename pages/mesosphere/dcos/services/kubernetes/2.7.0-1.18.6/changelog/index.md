@@ -12,7 +12,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 ### Changelog since 2.6.1-1.17.8
 
-## Improvements
+#### Improvements
 
 * Kubernetes v1.18.6
 * Docker v19.03.12
