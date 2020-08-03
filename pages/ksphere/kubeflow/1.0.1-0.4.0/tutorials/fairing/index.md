@@ -10,12 +10,13 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.3.1.tar.gz | tar xz</code>
-from a Jupyter Notebook Terminal running in your KUDO Kubeflow installation.
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
 tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators and custom Docker images, these notebook
 will likely not work.</p>
+
 
 
 # Kubeflow Fairing: Build Docker Images from within Jupyter Notebooks
@@ -27,7 +28,7 @@ Although you can build Docker images by downloading files to your local machine 
 ### What You'll Learn
 In this notebook we'll go through the steps involved in building a Docker image from a base image (e.g. TensorFlow or PyTorch) and a custom trainer file that defines your machine learning model.
 This image can be used for distributed training or [hyperparameter tuning](../katib).
-You can the model you generated with `%%writefile` in [MNIST with TensorFlow](../training/tensorflow) or [MNIST with PyTorch](../training/pytorch) or a file of your own choosing.
+You can use the model code you generated with `%%writefile` in [MNIST with TensorFlow tutorial](../training/tensorflow) or [MNIST with PyTorch tutorial](../training/pytorch) or a file of your own choosing.
 
 The Docker image builder process stores (temporary) files in MinIO.
 [MinIO](https://min.io/), an open-source S3-compliant object storage tool, is already included with your Kubeflow installation.
@@ -187,15 +188,15 @@ fairing.config.set_preprocessor(
 ```
 
 #### TensorFlow
-If your `mnist.py` file contains a TensorFlow model, you must specify the appropriate base image for TensorFlow.
+If your `mnist.py` file is based on TensorFlow, you must specify the appropriate base image for TensorFlow.
 In case you want to run the model on CPUs only, you ought to drop the `-gpu` suffix from the base image name.
 The primary configuration options are the chief and worker counts, but feel free to peruse all available parameters [here](https://github.com/kubeflow/fairing/blob/master/kubeflow/fairing/deployers/tfjob/tfjob.py).
 
-If your model is based on PyTorch, please skip this section!
+If your model code is based on PyTorch, please skip this section!
 
 
 ```python
-BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.3.1-tensorflow-2.2.0-gpu"
+BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0-gpu"
 
 fairing.config.set_builder(
     name="cluster",
@@ -217,7 +218,7 @@ The main configuration options are the master and worker counts, but you can see
 
 
 ```python
-BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.3.1-pytorch-1.5.0-gpu"
+BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-pytorch-1.5.0-gpu"
 
 fairing.config.set_builder(
     name="cluster",
@@ -246,8 +247,8 @@ from kubeflow.fairing.builders import cluster
 from kubeflow.fairing.preprocessors import base as base_preprocessor
 
 # Choose which base image your executable mnist.py file requires
-BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.3.1-tensorflow-2.2.0-gpu"
-# BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.3.1-pytorch-1.5.0-gpu"
+BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0-gpu"
+# BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-pytorch-1.5.0-gpu"
 
 preprocessor = base_preprocessor.BasePreProcessor(
     input_files=["mnist.py"], executable="mnist.py"

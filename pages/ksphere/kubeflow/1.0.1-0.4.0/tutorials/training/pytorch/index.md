@@ -10,12 +10,13 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.3.1.tar.gz | tar xz</code>
-from a Jupyter Notebook Terminal running in your KUDO Kubeflow installation.
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
 tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators and custom Docker images, these notebook
 will likely not work.</p>
+
 
 
 # Training MNIST with PyTorch
@@ -55,8 +56,10 @@ Before we proceed, let's check that we're using the right image, that is, [PyTor
 ! pip list | grep torch
 ```
 
-    torch                    1.4.0
-    torchvision              0.5.0
+    kubeflow-pytorchjob      0.1.3              
+    torch                    1.5.0              
+    torchvision              0.6.0a0+82fd1c8    
+
 
 To package the trainer in a container image, we shall need a file (on our cluster) that contains the code as well as a file with the resource definitition of the job for the Kubernetes cluster:
 
@@ -76,21 +79,23 @@ import re
 from IPython.utils.capture import CapturedIO
 
 
-def get_experiment(captured_io: CapturedIO) -> str:
+def get_resource(captured_io: CapturedIO) -> str:
     """
-    Gets a Katib experiment's resource name from `kubectl apply -f <configuration.yaml>`.
+    Gets a resource name from `kubectl apply -f <configuration.yaml>`.
 
     :param str captured_io: Output captured by using `%%capture` cell magic
-    :return: Name of the hyperparameter tuning experiment
+    :return: Name of the Kubernetes resource
     :rtype: str
-    :raises Exception: if the experiment could not be created
+    :raises Exception: if the resource could not be created
     """
     out = captured_io.stdout
     matches = re.search(r"^(.+)\s+created", out)
     if matches is not None:
         return matches.group(1)
     else:
-        raise Exception(f"Cannot get experiment as its creation failed: {out}")
+        raise Exception(
+            f"Cannot get resource as its creation failed: {out}. It may already exist."
+        )
 ```
 
 ## How to Load and Inspect the Data
@@ -101,47 +106,9 @@ Before we train our model, it is sensible to inspect the data we are about to fe
 from torchvision import datasets, transforms
 
 # See: https://pytorch.org/docs/stable/torchvision/datasets.html#torchvision.datasets.MNIST
-mnist = datasets.MNIST("", download=True, train=True, transform=transforms.ToTensor())
+mnist = datasets.MNIST("", download=False, train=True, transform=transforms.ToTensor())
 mnist
 ```
-
-    Downloading http://yann.lecun.com/exdb/mnist/train-images-idx3-ubyte.gz to MNIST/raw/train-images-idx3-ubyte.gz
-
-
-
-    HBox(children=(FloatProgress(value=1.0, bar_style='info', max=1.0), HTML(value='')))
-
-
-    Extracting MNIST/raw/train-images-idx3-ubyte.gz to MNIST/raw
-    Downloading http://yann.lecun.com/exdb/mnist/train-labels-idx1-ubyte.gz to MNIST/raw/train-labels-idx1-ubyte.gz
-
-
-
-    HBox(children=(FloatProgress(value=1.0, bar_style='info', max=1.0), HTML(value='')))
-
-
-    Extracting MNIST/raw/train-labels-idx1-ubyte.gz to MNIST/raw
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-images-idx3-ubyte.gz to MNIST/raw/t10k-images-idx3-ubyte.gz
-
-
-
-    HBox(children=(FloatProgress(value=1.0, bar_style='info', max=1.0), HTML(value='')))
-
-
-    Extracting MNIST/raw/t10k-images-idx3-ubyte.gz to MNIST/raw
-    Downloading http://yann.lecun.com/exdb/mnist/t10k-labels-idx1-ubyte.gz to MNIST/raw/t10k-labels-idx1-ubyte.gz
-
-
-
-    HBox(children=(FloatProgress(value=1.0, bar_style='info', max=1.0), HTML(value='')))
-
-
-    Extracting MNIST/raw/t10k-labels-idx1-ubyte.gz to MNIST/raw
-    Processing...
-    Done!
-    
-    
-
 
 
 
@@ -464,9 +431,9 @@ def main():
 
     kwargs = {"num_workers": 1, "pin_memory": True} if use_cuda else {}
     train_data = datasets.MNIST(
-        "./data",
+        "",
+        download=False,
         train=True,
-        download=True,
         transform=transforms.Compose(
             [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
         ),
@@ -489,7 +456,8 @@ def main():
 
     test_loader = torch.utils.data.DataLoader(
         datasets.MNIST(
-            "./data",
+            "",
+            download=False,
             train=False,
             transform=transforms.Compose(
                 [transforms.ToTensor(), transforms.Normalize((0.1307,), (0.3081,))]
@@ -588,68 +556,61 @@ Let's see if our code is correct by running it from within our notebook:
 %run $TRAINER_FILE --epochs $epochs --log-interval 128
 ```
 
-    Extracting ./data/MNIST/raw/t10k-labels-idx1-ubyte.gz to ./data/MNIST/raw
-    Processing...
-    Done!
-    
-    
-    
-    
-    Epoch: 1 (  0.0%) - Loss: 2.293032646179199
-    Epoch: 1 ( 13.6%) - Loss: 0.5257666110992432
-    Epoch: 1 ( 27.3%) - Loss: 0.08510863780975342
-    Epoch: 1 ( 40.9%) - Loss: 0.32805368304252625
-    Epoch: 1 ( 54.6%) - Loss: 0.3279671370983124
-    Epoch: 1 ( 68.2%) - Loss: 0.06365685909986496
-    Epoch: 1 ( 81.9%) - Loss: 0.29687821865081787
-    Epoch: 1 ( 95.5%) - Loss: 0.03434577211737633
-    Test accuracy: 9834/10000 ( 98.3%)
-    loss=0.0500
-    accuracy=0.9834
-    Epoch: 2 (  0.0%) - Loss: 0.08447802066802979
-    Epoch: 2 ( 13.6%) - Loss: 0.2620002329349518
-    Epoch: 2 ( 27.3%) - Loss: 0.10486980527639389
-    Epoch: 2 ( 40.9%) - Loss: 0.07522107660770416
-    Epoch: 2 ( 54.6%) - Loss: 0.044803790748119354
-    Epoch: 2 ( 68.2%) - Loss: 0.06450511515140533
-    Epoch: 2 ( 81.9%) - Loss: 0.25487586855888367
-    Epoch: 2 ( 95.5%) - Loss: 0.01875779777765274
-    Test accuracy: 9859/10000 ( 98.6%)
-    loss=0.0399
-    accuracy=0.9859
-    Epoch: 3 (  0.0%) - Loss: 0.029139619320631027
-    Epoch: 3 ( 13.6%) - Loss: 0.09397225826978683
-    Epoch: 3 ( 27.3%) - Loss: 0.11303514242172241
-    Epoch: 3 ( 40.9%) - Loss: 0.14118748903274536
-    Epoch: 3 ( 54.6%) - Loss: 0.05904180556535721
-    Epoch: 3 ( 68.2%) - Loss: 0.04524335265159607
-    Epoch: 3 ( 81.9%) - Loss: 0.27801263332366943
-    Epoch: 3 ( 95.5%) - Loss: 0.03176506236195564
-    Test accuracy: 9886/10000 ( 98.9%)
-    loss=0.0359
-    accuracy=0.9886
-    Epoch: 4 (  0.0%) - Loss: 0.07127423584461212
-    Epoch: 4 ( 13.6%) - Loss: 0.20250867307186127
-    Epoch: 4 ( 27.3%) - Loss: 0.0050563933327794075
-    Epoch: 4 ( 40.9%) - Loss: 0.14717304706573486
-    Epoch: 4 ( 54.6%) - Loss: 0.10025180876255035
-    Epoch: 4 ( 68.2%) - Loss: 0.13863351941108704
-    Epoch: 4 ( 81.9%) - Loss: 0.10420405864715576
-    Epoch: 4 ( 95.5%) - Loss: 0.004818277433514595
-    Test accuracy: 9887/10000 ( 98.9%)
-    loss=0.0329
-    accuracy=0.9887
-    Epoch: 5 (  0.0%) - Loss: 0.008954059332609177
-    Epoch: 5 ( 13.6%) - Loss: 0.19676166772842407
-    Epoch: 5 ( 27.3%) - Loss: 0.0015074732946231961
-    Epoch: 5 ( 40.9%) - Loss: 0.09220609813928604
-    Epoch: 5 ( 54.6%) - Loss: 0.015971817076206207
-    Epoch: 5 ( 68.2%) - Loss: 0.05801410600543022
-    Epoch: 5 ( 81.9%) - Loss: 0.07174661010503769
-    Epoch: 5 ( 95.5%) - Loss: 0.0020152931101620197
-    Test accuracy: 9909/10000 ( 99.1%)
-    loss=0.0306
-    accuracy=0.9909
+    INFO:root:Epoch: 1 (  0.0%) - Loss: 2.293032646179199
+    INFO:root:Epoch: 1 ( 13.6%) - Loss: 0.5257666110992432
+    INFO:root:Epoch: 1 ( 27.3%) - Loss: 0.08510863780975342
+    INFO:root:Epoch: 1 ( 40.9%) - Loss: 0.32805368304252625
+    INFO:root:Epoch: 1 ( 54.6%) - Loss: 0.3279671370983124
+    INFO:root:Epoch: 1 ( 68.2%) - Loss: 0.06365685909986496
+    INFO:root:Epoch: 1 ( 81.9%) - Loss: 0.29687821865081787
+    INFO:root:Epoch: 1 ( 95.5%) - Loss: 0.03434577211737633
+    INFO:root:Test accuracy: 9834/10000 ( 98.3%)
+    INFO:root:loss=0.0500
+    INFO:root:accuracy=0.9834
+    INFO:root:Epoch: 2 (  0.0%) - Loss: 0.08447802066802979
+    INFO:root:Epoch: 2 ( 13.6%) - Loss: 0.2620002329349518
+    INFO:root:Epoch: 2 ( 27.3%) - Loss: 0.10486980527639389
+    INFO:root:Epoch: 2 ( 40.9%) - Loss: 0.07522107660770416
+    INFO:root:Epoch: 2 ( 54.6%) - Loss: 0.044803790748119354
+    INFO:root:Epoch: 2 ( 68.2%) - Loss: 0.06450511515140533
+    INFO:root:Epoch: 2 ( 81.9%) - Loss: 0.25487586855888367
+    INFO:root:Epoch: 2 ( 95.5%) - Loss: 0.01875779777765274
+    INFO:root:Test accuracy: 9859/10000 ( 98.6%)
+    INFO:root:loss=0.0399
+    INFO:root:accuracy=0.9859
+    INFO:root:Epoch: 3 (  0.0%) - Loss: 0.029139619320631027
+    INFO:root:Epoch: 3 ( 13.6%) - Loss: 0.09397225826978683
+    INFO:root:Epoch: 3 ( 27.3%) - Loss: 0.11303514242172241
+    INFO:root:Epoch: 3 ( 40.9%) - Loss: 0.14118748903274536
+    INFO:root:Epoch: 3 ( 54.6%) - Loss: 0.05904180556535721
+    INFO:root:Epoch: 3 ( 68.2%) - Loss: 0.04524335265159607
+    INFO:root:Epoch: 3 ( 81.9%) - Loss: 0.27801263332366943
+    INFO:root:Epoch: 3 ( 95.5%) - Loss: 0.03176506236195564
+    INFO:root:Test accuracy: 9886/10000 ( 98.9%)
+    INFO:root:loss=0.0359
+    INFO:root:accuracy=0.9886
+    INFO:root:Epoch: 4 (  0.0%) - Loss: 0.07127423584461212
+    INFO:root:Epoch: 4 ( 13.6%) - Loss: 0.20250867307186127
+    INFO:root:Epoch: 4 ( 27.3%) - Loss: 0.0050563933327794075
+    INFO:root:Epoch: 4 ( 40.9%) - Loss: 0.14717304706573486
+    INFO:root:Epoch: 4 ( 54.6%) - Loss: 0.10025180876255035
+    INFO:root:Epoch: 4 ( 68.2%) - Loss: 0.13863351941108704
+    INFO:root:Epoch: 4 ( 81.9%) - Loss: 0.10420405864715576
+    INFO:root:Epoch: 4 ( 95.5%) - Loss: 0.004818277433514595
+    INFO:root:Test accuracy: 9887/10000 ( 98.9%)
+    INFO:root:loss=0.0329
+    INFO:root:accuracy=0.9887
+    INFO:root:Epoch: 5 (  0.0%) - Loss: 0.008954059332609177
+    INFO:root:Epoch: 5 ( 13.6%) - Loss: 0.19676166772842407
+    INFO:root:Epoch: 5 ( 27.3%) - Loss: 0.0015074732946231961
+    INFO:root:Epoch: 5 ( 40.9%) - Loss: 0.09220609813928604
+    INFO:root:Epoch: 5 ( 54.6%) - Loss: 0.015971817076206207
+    INFO:root:Epoch: 5 ( 68.2%) - Loss: 0.05801410600543022
+    INFO:root:Epoch: 5 ( 81.9%) - Loss: 0.07174661010503769
+    INFO:root:Epoch: 5 ( 95.5%) - Loss: 0.0020152931101620197
+    INFO:root:Test accuracy: 9909/10000 ( 99.1%)
+    INFO:root:loss=0.0306
+    INFO:root:accuracy=0.9909
 
 
 
@@ -673,7 +634,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:1.0.1-0.3.1-pytorch-1.5.0-gpu
+FROM mesosphere/kubeflow:1.0.1-0.4.0-pytorch-1.5.0-gpu
 ADD mnist.py /
 
 ENTRYPOINT ["python", "/mnist.py"]
@@ -689,7 +650,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:mnist-pytorch-1.0.1-0.3.1` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.0` in case you want to skip it for now.
 
 ## How to Create a Distributed `PyTorchJob`
 For large training jobs, we wish to run our trainer in a distributed mode.
@@ -717,7 +678,7 @@ spec:
           containers:
             - name: pytorch
               # modify this property if you would like to use a custom image
-              image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.3.1
+              image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.0
               # TODO: Add arguments as required!
               args:
                 - --epochs
@@ -741,7 +702,7 @@ spec:
           containers:
             - name: pytorch
               # modify this property if you like to use a custom image
-              image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.3.1
+              image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.0
               args:
                 # TODO: Add arguments as required!
                 - --epochs
@@ -793,7 +754,7 @@ Let's deploy the distributed training job:
 
 
 ```python
-PYTORCH_JOB = get_experiment(pytorch_output)
+PYTORCH_JOB = get_resource(pytorch_output)
 ```
 
 We can check the status like so:
