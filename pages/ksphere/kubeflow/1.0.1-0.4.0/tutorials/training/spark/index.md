@@ -373,7 +373,7 @@ spec:
   type: Python
   mode: cluster
   pythonVersion: "3"
-  image: mesosphere/kubeflow-dev:447e03df753bab785bdc5785075d82fc8521f91d96396ba041c791e4d3cc441f-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0
+  image: mesosphere/kubeflow:1.0.1-0.4.0-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0
   imagePullPolicy: Always  
   mainApplicationFile: "local:///home/kubeflow/jobs/mnist.py"
   sparkVersion: "2.4.5"
