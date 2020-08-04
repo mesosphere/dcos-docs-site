@@ -13,8 +13,8 @@ excerpt: View release-specific information for Dispatch 1.3.0 Beta 1
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and signed on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Dispatch.</p>
 
-## v1.3.0 Beta 1 - Released June 30, 2020
-Document Modified Date: July 30, 2020
+## v1.3.0 Beta 1 - Released August 03, 2020
+Document Modified Date: August 03, 2020
 
 This document describes the new features, caveats, and resolved issues of D2iQ Dispatch. 
 __**This is a Beta release & for Evaluation only and NOT for Production use.**__
@@ -72,14 +72,14 @@ helm test dispatch-kubeaddons
 
 - Upgraded Tekton to v0.14.2 and Tekton dashboard to v0.8.0.
 - Updated UI to support Build view including:
-  - Build view supports viewing logs, artifacts and Dispatchfile.
-  - Support for stopping and rerunning.
+  - Viewing logs, artifacts and Dispatchfile.
+  - Support for stopping and rerunning Pipelines.
   - Support for incremental build numbers of Pipelineruns.
-- Supported for label matching for pull request actions in Dispatchfile.
-- Added `timeout` field to Repository object. Allows for Override of the default PipelineRun timeout duration for a Repository.
+- Support for label matching for pull request actions in Dispatchfile.
+- Added `timeout` field to Repository objects. Allows overriding of the default PipelineRun timeout duration for a Repository.
 - Added a new `--timeout` flag to the dispatch CI repository create command that takes a [Go duration string](https://golang.org/pkg/time/#ParseDuration) (e.g., `2h30m45s`). This sets the PipelineRun timeout for the Repository being created.
 - Added a new `timeout` field to the task type in the Dispatchfile. This overrides the PipelineRun timeout for the task. If the PipelineRun times out before the task is completed, the task will continue executing until it reaches its own timeout, but the PipelineRun as a whole will be marked as failed due to timeout.
-- Added helm chart option `tekton.configs.defaultPodTemplate` to support node pool selections and other pod settings for all Dispatch tasks. See documentation of Tekton pod templates [Tekton pod templates](https://tekton.dev/docs/pipelines/podtemplates/) for more information. 
+- Added helm chart option `tekton.configs.defaultPodTemplate` to support node pool selections and other pod settings for all Dispatch tasks. See documentation of Tekton pod templates [Tekton pod templates](https://tekton.dev/docs/pipelines/podtemplates/) for more information.
 
 ### Caveats
 
@@ -90,12 +90,6 @@ helm test dispatch-kubeaddons
 ### Resolved Issues
 
 - [COPS-6292] Allow login to github after login to docker.
-- Fixed a bug where the garbage collector only reclaims resources in the last watch namespace.
+- Fixed a bug where the garbage collector only reclaims resources in the last watched namespace.
 - Fixed garbage collector to only skip old objects with dispatch catalog labels if they are Pipeline or Task objects.
 - Fixed a bug where artifacts aren't collected when previous task fails, yet there are still artifacts to collect.
- 
- 
-### Download Links
-- Linux: https://d2iq-dispatch.s3.amazonaws.com/dispatch_linux_1.3.0-beta1
-- Mac OS X (Catalina): https://d2iq-dispatch.s3.amazonaws.com/dispatch_darwin_1.3.0-beta1.pkg
-- Mac OS X: https://d2iq-dispatch.s3.amazonaws.com/dispatch_darwin_1.3.0-beta1
