@@ -13,7 +13,7 @@ enterprise: false
 
 # 卸载 {{ model.packageRepo }} 服务
 
-##  CLI
+## CLI
 
 使用以下命令卸载数据中心服务：
 
@@ -34,7 +34,7 @@ dcos package uninstall chronos
 1. 导航至 DC/OS Web 界面中的 [**服务**](/mesosphere/dcos/cn/1.13/gui/services/) 选项卡。
 1. 选择服务，单击最右的垂直省略号，然后选择**删除**。
 
-    ![Destroy app](/mesosphere/dcos/1.13/img/service-delete.png)
+    ![Destroy app](/mesosphere/dcos/cn/1.13/img/service-delete.png)
     
     图 1. 删除服务
     
@@ -56,7 +56,7 @@ NAME          HOST     ACTIVE  TASKS  CPU  MEM  DISK  ID
 chronos    10.0.6.138  False     0    0.0  0.0  0.0   7c0a7bd4-3649-4ec1-866c-5db8f2292bf2-0001
 ```
 
-可以使用以下指定服务 ID 的 CLI 命令关闭服务，然后运行 [框架清理器](#framework-cleaner)，从而完成卸载：
+可以使用以下指定服务 ID 的 CLI 命令关闭服务，然后运行 [框架清理器](#framework-cleaner），从而完成卸载：
 
 ```bash
 dcos service shutdown 7c0a7bd4-3649-4ec1-866c-5db8f2292bf2-0001
@@ -64,7 +64,7 @@ dcos service shutdown 7c0a7bd4-3649-4ec1-866c-5db8f2292bf2-0001
 
 # 卸载用户创建的服务
 
-###  CLI
+### CLI
 
 使用以下命令卸载用户创建的服务：
 
@@ -72,7 +72,7 @@ dcos service shutdown 7c0a7bd4-3649-4ec1-866c-5db8f2292bf2-0001
 dcos marathon app remove [--force] <app-id>
 ```
 
-如需更多信息，请参阅 [命令名称](/mesosphere/dcos/cn/1.13/cli/command-reference/#dcos-marathon)。
+如需更多信息，请参阅 [命令名称](/mesosphere/dcos/cn/1.13/cli/command-reference/#dcos-marathon).
 
 ### Web 界面
 
@@ -158,8 +158,8 @@ docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service
     your-machine$ dcos node ssh --master-proxy --mesos-id=c62affd0-ce56-413b-85e7-32e510a7e131-S3
 
     agent-node$ docker ps -a
-    容器 ID 镜像命令 ...
-    828ee17b5fd3 mesosphere/janitor:latest /bin/sh -c /janito ...
+    容器 ID        镜像                       命令             ...
+    828ee17b5fd3        mesosphere/janitor:latest   /bin/sh -c /janito  ...
 
     agent-node$ docker logs 828ee17b5fd3
 
@@ -202,5 +202,5 @@ docker run mesosphere/janitor /janitor.py -r <service_name>-role -z dcos-service
 
 如果通过 Marathon 运行脚本，您还会看到以下输出：
 
-    正在自行删除 Marathon，避免运行环路：/janitor
-    成功自行删除 marathon（代码=200）：/janitor
+    从 Marathon 删除自己以免运行环路：/janitor
+    已成功从 Marathon 删除自己（代码=200）：/janitor

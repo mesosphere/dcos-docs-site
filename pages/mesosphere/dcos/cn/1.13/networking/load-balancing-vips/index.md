@@ -28,8 +28,6 @@ DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微�
 - 不要用防火墙保护节点之间的通信（允许所有 TCP/UDP）。
 - 请勿更改 `ip_local_port_range`。
 
-- 必须使用支持的 [操作系统](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/)。
-
 #### 持久连接
 保持长时间运行的持久连接，否则您可以快速填充 TCP 套接字表。Linux 系统上的默认本地端口范围允许从 32768 到 61000 的源连接。这使得可以在给定源 IP 和目标地址和端口对之间建立 28232 连接。TCP 连接必须在回收前经历时间等待状态。Linux 内核的默认 TCP 时间等待期为 120 秒。如果没有持久连接，您将只能通过每秒 235 个新连接来耗尽连接表。
 
@@ -42,7 +40,7 @@ DC/OS 提供东西向第 4 层负载均衡器 (Minuteman)，可实现多层微�
 
  这可确保返回的 HTTP 状态代码为 200。它还假定您的应用程序邦定到本地主机。`${PORT0}` 被 Marathon 设置为变量。您不应使用 TCP 健康检查，因为它们可能提供有关服务活跃度的误导性信息。
 
-<p class="message--note"><strong>注意：</strong>Docker 容器命令健康检查在 Docker 容器之内运行。例如，如果使用 cURL 检查 NGINX，则 NGINX 容器必须安装 cURL，或者容器必须 <tt>/opt/mesosphere</tt>在 RW 模式下</p>挂载。
+<p class="message--note"><strong>注意：</strong>Docker 容器命令健康检查在 Docker 容器之内运行。例如，如果使用 cURL 检查 NGINX，则 NGINX 容器必须安装 cURL，或者容器必须 `/opt/mesosphere`在 RW 模式下</p>挂载。
 
 ## 故障排除
 

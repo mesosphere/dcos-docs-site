@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 备份和恢复 CLI
+navigationTitle:  备份和恢复 CLI
 title: 备份和恢复 CLI
 menuWeight: 0
 excerpt: 使用 CLI 备份和恢复群集
@@ -13,19 +13,19 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 先决条件
 - DC/OS Enterprise 群集
-- [DC/OS CLI 已安装](/mesosphere/dcos/2.0/cli/install/)
-- 安装的 [DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/enterprise-cli/)
+- [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 已安装
+- 安装的 [DC/OS Enterprise CLI](/mesosphere/dcos/cn/2.0/cli/enterprise-cli/)
 
-<p class="message--important"><strong></strong>重要信息：查看备份和恢复的<a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
+<p class="message--important"><strong>重要信息：</strong>查看备份和恢复的<a href="/mesosphere/dcos/latest/administering-clusters/backup-and-restore/#limitations">限制</a>部分。</p>
 
 # 备份群集
 
 备份存储在管理节点的本地文件系统上。备份状态由在群集中运行的服务维护，并通过直接使用此服务来初始化备份/恢复操作。
 
 1. 创建备份并对其分配一个有意义的标签。标签有以下限制：
- - 长度必须介于 3 到 25 个字符之间。
- - 不能以 `..`开始。
- - 必须由以下字符组成：[A-Za-z0-9_.-]。
+   - 长度必须介于 3 到 25 个字符之间。
+   - 不能以 开始。`..`.
+   - 必须由以下字符组成：[A-Za-z0-9_.-]。
 
    ```bash
    dcos backup create --label=<backup-label>
@@ -37,15 +37,15 @@ model: /mesosphere/dcos/2.0/data.yml
    dcos backup list
    ```
 
- 或使用以下命令将搜索结果限制为您创建备份时使用的标签。
+   或使用以下命令将搜索结果限制为您创建备份时使用的标签。
 
    ```bash
    dcos backup list [label]
    ```
 
- 备份最初将过渡到 `STATUS_BACKING_UP` 状态，并且最终应进入 `STATUS_READY`状态。如果出现错误，它将显示一个 `STATUS_ERROR`状态。使用 `dcos backup show <backup-id>` 找出在备份过程中 Marathon 出错的原因。
+   备份最初将过渡到 `STATUS_BACKING_UP` 状态，并且最终应进入 `STATUS_READY`.状态。如果出现错误，它将显示一个 状态。`STATUS_ERROR`. 使用 `dcos backup show <backup-id>` 找出在备份过程中 Marathon 出错的原因。
 
-1. 在后续命令中使用由 `dcos backup list` 产生的 ID 引用您的备份。备份 ID 类似于 `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`。
+1. 在后续命令中使用由 `dcos backup list` 产生的 ID 引用您的备份。备份 ID 类似于 `<backup-label>-ea6b49f5-79a8-4767-ae78-3f874c90e3da`.
 
 ## 删除备份
 
@@ -75,7 +75,7 @@ model: /mesosphere/dcos/2.0/data.yml
    dcos backup show <backup-id>
    ```
 
- JSON 输出的`restores.component_status.marathon`参数将显示 `STATUS_RESTORING`，然后显示 `STATUS_READY`。
+   JSON 输出的`restores.component_status.marathon`参数将显示 `STATUS_RESTORING`，然后显示 `STATUS_READY`.
 
 <a name="zookeeper"></a>
 
@@ -85,7 +85,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 备份 Zookeeper 将允许您将群集返回到已知的良好状态。因此，我们强烈建议您定期备份 Zookeeper 状态，为最坏情况做准备。执行维护操作时，例如升级或降级，在开始维护之前，您可能希望备份 Zookeeper 状态。
 
-<p class="message--important"><strong></strong>重要信息：
+<p class="message--important"><strong>重要信息：</strong>
 从备份恢复 Zookeeper 应该是恢复 DC/OS 群集的最后方法。仅在确认群集遭受永久数据丢失（包括 Zookeeper 状态）后才适用。
 </p>
 

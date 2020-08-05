@@ -15,4 +15,4 @@ DC/OS Enterprise 密钥存储库可以保护敏感信息，如数据库密码、
 
 [授权 Marathon 服务](/mesosphere/dcos/cn/1.13//security/ent/#spaces) 可以在部署时检索密钥，并在环境变量下存储其值。此外，[密钥 API](/mesosphere/dcos/cn/1.13/security/ent/secrets/secrets-api/) 允许您[密封](/mesosphere/dcos/cn/1.13/security/ent/secrets/seal-store/)和[拆封](/mesosphere/dcos/cn/1.13/security/ent/secrets/unseal-store/)密钥存储库。
 
-在[权限参考](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#secrets)部分中查找有关密钥的更多信息。 
+在[权限参考](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#secrets)部分中查找有关密钥的更多信息。

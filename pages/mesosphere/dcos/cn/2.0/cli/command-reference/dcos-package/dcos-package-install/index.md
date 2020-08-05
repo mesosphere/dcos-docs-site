@@ -24,28 +24,28 @@ dcos package install <package-name> [(--cli [--global]) | --app] [--package-vers
 | 名称 | 说明 |
 |---------|-------------|
 | `-h`, `--help` | 显示用法。|
-| `--app` | 仅应用程序。|
-| `--app-id=<app-id>` | 应用程序 ID。|
-| `--cli` | 仅命令行。|
-| `--global` | 安装所有已配置群集的子命令。 |
-| `--options=<file>` | 包含自定义软件包安装选项的 JSON 文件路径。|
-| `--package-version=<package-version>` | 包版本。|
+| `--app`   | 仅应用程序。|
+| `--app-id=<app-id>`   | 应用程序 ID。|
+| `--cli`   | 仅命令行。|
+| `--global`  | 安装所有已配置群集的子命令。 |
+| `--options=<file>`   | 包含自定义软件包安装选项的 JSON 文件路径。|
+| `--package-version=<package-version>`   | 包版本。|
 | `--yes` | 禁用交互模式并假设“是”是所有提示的答案。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<package-name>` | DC/OS 包的名称。|
+| `<package-name>`   | DC/OS 包的名称。|
 
 
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/2.0/deploying-services/config-universe-service/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/2.0/deploying-services/config-universe-service/).
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |
+| [dcos package](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |

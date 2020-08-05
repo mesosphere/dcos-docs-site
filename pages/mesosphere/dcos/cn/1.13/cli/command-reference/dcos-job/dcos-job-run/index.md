@@ -24,22 +24,22 @@ dcos job run <job-id> [--json]
 
 | 名称 | 说明 |
 |---------|-------------|
-|`-h`，`--help` | 打印用法。 |
-| `--json` | 打印 JSON 格式列表而不是表格。 |
+|`-h`, `--help` | 打印用法。 |
+| `--json` | 打印 JSON 格式列表而不是表格。|
 
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<job-id>` | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
+| `<job-id>`   | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
 
 
 # 示例
 
 ## 运行作业
 
-在此示例中，您可以运行名为 `my-job`的作业。
+在此示例中，您可以运行名为 的作业。`my-job`.
 
 ```bash
 dcos job run my-job
@@ -49,4 +49,4 @@ dcos job run my-job
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/) |  在 DC/OS 中部署和管理作业。 |

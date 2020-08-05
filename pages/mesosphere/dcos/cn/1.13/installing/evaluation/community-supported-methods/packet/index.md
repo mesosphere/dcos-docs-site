@@ -13,7 +13,7 @@ render: mustache
 
 <p class="message--note"><strong>注意：</strong>联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。</p>
 
-可以使用 Terraform 在 Packet 裸机上创建 DC/OS 群集。随附的 Terraform 模板配置为在 Packet 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如需支持，您可以发送电子邮件至 help@packet.net，访问 Packet IRC 渠道 (#packethost on freenode) 或考虑 [DC/OS Enterprise](https://mesosphere.com/)。
+可以使用 Terraform 在 Packet 裸机上创建 DC/OS 群集。随附的 Terraform 模板配置为在 Packet 上运行 Mesosphere DC/OS。根据安装的 DC/OS 服务或工作负载所需的计算量，可能须要修改模板才能满足需求。可以修改 Terraform 模板，但 Mesosphere 不能协助完成故障排除。如需支持，您可以发送电子邮件至 help@packet.net，访问 Packet IRC 渠道 (#packethost on freenode) 或考虑 [DC/OS Enterprise](https://mesosphere.com/).
 
 ## 硬件
 
@@ -63,16 +63,16 @@ render: mustache
 
     以下字段具有默认值，可根据您的要求进行更改：
 
-    - `packet_facility` - Packet 设施：[`ewr1`|`sjc1`|`ams1`]
+    - `packet_facility` - Packet 设施：[ewr1|sjc1|ams1]
       `ewr1` is New Jersey, `ams1` is Amsterdam, `sjc1` is San Jose - default `sjc1`
 
-    - `packet_agent_type` - 用于 DC/OS 代理的 Packet 服务器类型：[`baremetal_0`|`baremetal_1`|`baremetal_3`]
+    - `packet_agent_type` - 用于 DC/OS 代理的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
       选择用于 DC/OS 专用代理的 Packet 服务器类型——默认为 `baremetal_0`
 
-    - `packet_master_type` - 用于 DC/OS 管理节点的 Packet 服务器类型：[`baremetal_0`|`baremetal_1`|`baremetal_3`]
+    - `packet_master_type` - 用于 DC/OS 管理节点的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
       选择用于 DC/OS 管理节点的 Packet 服务器类型——默认为 `baremetal_0`
 
-    - `packet_boot_type` - 用于 DC/OS Boot 节点的 Packet 服务器类型：[`baremetal_0`|`baremetal_1`|`baremetal_3`]
+    - `packet_boot_type` - 用于 DC/OS Boot 节点的 Packet 服务器类型：[`baremetal_0`|baremetal_1|baremetal_3]
       选择用于 DC/OS Boot 服务器的 Packet 服务器类型——默认为 `baremetal_0`
 
     - `dcos_cluster_name` - DC/OS 群集的名称——默认为 `packet-dcos`
@@ -87,11 +87,11 @@ render: mustache
 
 5. 还是在这一目录中运行 `terraform apply`，将服务器部署到您在 Packet 的项目中，并运行 DC/OS 安装程序。完成后，您将看到和以下内容相似，但带有分配给您服务器的 IP 地址的输出：
 
-    ![terraform apply output](/mesosphere/dcos/{{ model.folder_version }}/img/packet_terraform_output.png)
+    ![terraform apply output](/mesosphere/dcos/cn/{{ model.folder_version }}/img/packet_terraform_output.png)
 
     图 1. Terraform apply" 输出
 
-这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/mesosphere/dcos/{{ model.folder_version }}/installing/troubleshooting/) 文档。
+这时，可能需要等待几分钟时间才能使所有 DC/OS 服务变为活跃状态，并使控制面板在管理节点上可用。15 到 20 分钟后，请查看 [故障排除](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/troubleshooting/) 文档。
 
 # 启动 DC/OS
 输入 Mesos 管理节点 IP 地址启动 DC/OS Web 界面：
@@ -100,7 +100,7 @@ render: mustache
 
 2. 安装 DC/OS 命令行界面 (CLI)。可以安装 CLI，用于管理 DC/OS 群集。可以通过单击左上方的群集名称随时访问文档。
 
-    ![install CLI](/mesosphere/dcos/{{ model.folder_version }}/img/install-cli-terminal.png)
+    ![install CLI](/mesosphere/dcos/cn/{{ model.folder_version }}/img/install-cli-terminal.png)
 
     图 2. 安装 DC/OS CLI 画面
 

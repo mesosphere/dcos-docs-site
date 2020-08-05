@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 快速入门
+navigationTitle:  快速入门
 title: 度量标准快速入门
 menuWeight: 1
 excerpt: DC/OS 度量标准入门
@@ -14,11 +14,11 @@ beta: false
 
 **前提条件：**
 
-- 必须 [安装 DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
+- 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 并通过 `dcos auth login` 命令以超级用户身份登户。
 
 1. 可选：部署一个示例 Marathon&trade; 应用程序供在本快速入门指南中使用。如果您已有任务在 DC/OS 上运行，则可以跳过此设置步骤。
 
- 1. 创建以下 Marathon 应用定义并另存为 `test-metrics.json`。
+    1. 创建以下 Marathon 应用定义并另存为 `test-metrics.json`.
 
         ```json
         {
@@ -31,16 +31,16 @@ beta: false
         }
         ```
 
- 1. 使用以下 CLI 命令部署应用程序：
+    1. 使用以下 CLI 命令部署应用程序：
 
         ```bash
         dcos marathon app add test-metrics.json
         ```
 
 2. 要获得运行您应用程序的节点的 Apache&reg; Mesos&reg; ID，请在运行 `dcos node` 后执行 `dcos task`。
- 例如：
+    例如：
 
- 1. 运行 `dcos task` 表明该主机 `10.0.0.193` 在运行 Marathon 任务 `test-metrics.93fffc0c-fddf-11e6-9080-f60c51db292b`。
+    1. 运行 `dcos task` 表明该主机 `10.0.0.193` 在运行 Marathon 任务 `test-metrics.93fffc0c-fddf-11e6-9080-f60c51db292b`.
 
         ```bash
         dcos task
@@ -48,7 +48,7 @@ beta: false
         test-metrics  10.0.0.193  root    R    test-metrics.93fffc0c-fddf-11e6-9080-f60c51db292b  
         ```
 
- 2. 运行 `dcos node` 表明该主机 `10.0.0.193` 拥有 Mesos ID `7749eada-4974-44f3-aad9-42e2fc6aedaf-S1`。
+    2. 运行 `dcos node` 表明该主机 `10.0.0.193` 拥有 Mesos ID `7749eada-4974-44f3-aad9-42e2fc6aedaf-S1`.
 
         ```bash
         dcos node
@@ -58,31 +58,30 @@ beta: false
 
 3. 查看度量标准。
 
- - **<a name="container-metrics"></a>特定任务的容器度量标准**
+    -   **<a name="container-metrics"></a>特定任务的容器度量标准**
 
- 关于特定容器的资源消耗的概述，请执行以下命令：
+        关于特定容器的资源消耗的概述，请执行以下命令：
 
         ```bash
         dcos task metrics summary <task-id>
         ```
 
- 输出应类似于：
+        输出应类似于：
 
         ```bash
         CPU           MEM              DISK
         0.17 (1.35%)  0.01GiB (6.46%)  0.00GiB (0.00%)
         ```
 
- - **<a name="task-metrics"></a>特定任务的所有度量标准**
+    -   **<a name="task-metrics"></a>特定任务的所有度量标准**
 
- 要获取与任务相关的所有度量标准的详细列表，请执行以下命令：
+        要获取与任务相关的所有度量标准的详细列表，请执行以下命令：
 
         ```bash
         dcos task metrics details <task-id>
         ```
- 输出是容器资源利用率和工作负载传输的度量标准的组合。
- 例如：
-
+        输出是容器资源利用率和工作负载传输的度量标准的组合。
+        例如：
 
         ```bash
         NAME                      VALUE
@@ -101,20 +100,20 @@ beta: false
         perf.timestamp            1556720487.68
         ```
 
- CPU、磁盘和内存统计来自 Mesos 提供的容器数据。`statsd_tester.time.uptime`.
- 统计数据来自应用程序本身。
+        CPU、磁盘和内存统计来自 Mesos 提供的容器数据。.`statsd_tester.time.uptime`
+        统计数据来自应用程序本身。
 
- - **<a name="host-metrics"></a>主机级度量标准**
+    -   **<a name="host-metrics"></a>主机级度量标准**
 
- 对于任务数据，主机级度量标准以摘要或详细表格的形式提供。
- 要查看主机级度量标准，请执行以下命令：
+        对于任务数据，主机级度量标准以摘要或详细表格的形式提供。
+        要查看主机级度量标准，请执行以下命令：
 
         ```bash
         dcos node metrics details <mesos-id>
         ```
 
- 输出显示关于节点上可用资源及其利用率的统计数据。
- 例如：
+        输出显示关于节点上可用资源及其利用率的统计数据。
+        例如：
 
         ```bash
         NAME                       VALUE      TAGS
@@ -143,16 +142,16 @@ beta: false
         system.uptime              28627
         ```
 
- - **<a name="script-metrics"></a>度量标准的有计划使用**
+    -   **<a name="script-metrics"></a>度量标准的有计划使用**
 
- 所有 dcos-cli 度量标准命令都可以与 `--json` 一起执行，用于脚本。
- 例如：
+        所有 dcos-cli 度量标准命令都可以与 `--json` 一起执行，用于脚本。
+        例如：
 
         ```bash
         dcos node metrics summary <mesos-id> --json
         ```
 
- 输出显示所有相同的数据，但以 JSON 格式显示，以方便解析：
+        输出显示所有相同的数据，但以 JSON 格式显示，以方便解析：
 
         ```json
         [

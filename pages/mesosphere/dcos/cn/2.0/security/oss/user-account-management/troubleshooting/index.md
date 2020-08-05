@@ -51,7 +51,7 @@ DC/OS 将 CockroachDB 范围的副本数量设置为等于 DC/OS 管理节点的
 
 在大多数 DC/OS 主节点上，将大多数 CockroachDB 实例的状态再次恢复为 `is_live` 有望修复 quorum，从而将 `ranges_unavailable` 减少至零。
 
-通过重新启动报告 `is_live = false` 的 CockroachDB 实例，可轻松做到这一点。执行以下命令以重新启动相应管理节点上的 CockroachDB 节点。
+通过重新启动报告  的 CockroachDB 实例，可轻松做到这一点。`is_live = false`. 执行以下命令以重新启动相应管理节点上的 CockroachDB 节点。
 
 ```bash
 sudo systemctl restart dcos-cockroach.service

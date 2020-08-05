@@ -23,10 +23,10 @@ dcos plugin remove <plugin>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<plugin>` | DC/OS 插件的名称。 |
+| `<plugin>`   | DC/OS 插件的名称。 |
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 插件](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-plugin/) | 安装和管理 DC/OS CLI 插件 |
+| [dcos plugin](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-plugin/)   | 安装和管理 DC/OS CLI 插件。 |

@@ -24,19 +24,19 @@ dcos security secrets create-sa-secret [OPTIONS] SA_PRIVATE_KEY SA_UID SECRET_PA
 | 名称 | 说明 |
 |---------|-------------|
 | `-s`,` --store-id <text>` | 要使用的密钥后端。|
-| `--strict ` | 执行安全群集通信。|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `--strict ` |     执行安全群集通信。|
+|  `-h`, `--help`    |    显示此消息并退出。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `SA_PRIVATE_KEY` | 属于服务帐户的私钥。 |
-| `SA_UID` | 服务帐户用户 ID。 |
-| `SECRET_PATH` | 密钥路径允许您限制哪些服务可以检索值。 |
+|  `SA_PRIVATE_KEY` | 属于服务帐户的私钥。 |
+|  `SA_UID` | 服务帐户用户 ID。 |
+|  `SECRET_PATH` | 密钥路径允许您限制哪些服务可以检索值。 |
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security secrets](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理密钥。 |
+| [dcos security secrets](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  管理您的密匙。 |

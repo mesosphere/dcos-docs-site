@@ -10,7 +10,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos license renew` 命令将新的 DC/OS 许可证与群集关联，并使其处于有效状态。此命令在给定的 `PATH` 处使用许可证。
+`dcos license renew` 命令将新的 DC/OS 许可证与群集关联，并使其处于有效状态。此命令在给定的  处使用许可证。`PATH`.
 
 运行 `dcos license renew` 命令不需要重新启动任何运行的服务，也不会影响任何当前有效负载。
 
@@ -24,7 +24,7 @@ dcos license renew [OPTIONS] PATH
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help` | 显示此消息并退出。|
+| `--help`   | 显示此消息并退出。|
 
 
 ## 位置自变量
@@ -36,7 +36,7 @@ dcos license renew [OPTIONS] PATH
 
 
 # 示例
-有关示例，请参阅[许可证](/mesosphere/dcos/2.0/administering-clusters/licenses/)。
+有关示例，请参阅[许可证](/mesosphere/dcos/cn/2.0/administering-clusters/licenses/).
 
 # 父命令
 

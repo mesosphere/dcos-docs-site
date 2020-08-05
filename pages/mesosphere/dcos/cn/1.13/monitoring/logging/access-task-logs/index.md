@@ -42,19 +42,19 @@ enterprise: true
 
 1. 选择**组织**并选择**组**。
 
-    ![新组](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Add_Group_w_Plus_Button_Tooltip-1_12.png)
+    ![新组](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-Add_Group_w_Plus_Button_Tooltip-1_12.png)
 
     图 1. 新用户组
 
 1. 新建一个组。
 
-    ![生产组](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
+    ![生产组](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
 
     图 2. 创建新组屏幕
 
 1. 选择组名，并从**权限**选项卡上单击**添加权限**。
 
-    ![为生产组添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Group_Detail_Page-1_12.png)
+    ![为生产组添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-Group_Detail_Page-1_12.png)
 
     图 3. “添加权限”按钮
 
@@ -72,7 +72,7 @@ enterprise: true
     dcos:mesos:master:task:app_id:/prod-group/ read
     ```
 
-    ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Add_Perms_Modal_Logging-1_12.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-Add_Perms_Modal_Logging-1_12.png)
 
     图 4. 权限字符串已添加
 
@@ -80,13 +80,13 @@ enterprise: true
 
 1. 选择**组织**并选择**用户**。选择现有用户或创建一个新用户。
 
-    ![新用户](/mesosphere/dcos/1.13/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
+    ![新用户](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
 
     图 5. 用户屏幕
 
 1. 从**组成员**选项卡，在搜索框中输入并选择组名。这将向单个用户授予组权限。
 
-    ![添加 Alice 到安全组](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Alice_Add_prod_group-1_12.png)
+    ![添加 Alice 到安全组](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_Alice_Add_prod_group-1_12.png)
 
     图 6. 将用户添加到安全组
 
@@ -102,13 +102,13 @@ enterprise: true
     - **命令**指定 `sleep 1000000000`。
     - **容器运行时**选择**通用容器运行时 (UCR)**。
 
-    ![定义嵌套服务](/mesosphere/dcos/1.13/img/GUI-Services-Add_Service_Single_Container_Alice-1_12.png)
+    ![定义嵌套服务](/mesosphere/dcos/cn/1.13/img/GUI-Services-Add_Service_Single_Container_Alice-1_12.png)
 
     图 7. 定义一个嵌套服务
 
 1. 单击**查看并运行**和**运行服务**以完成安装。您现在应该能看到一个在组中运行的服务。
 
-    ![在组中运行的服务](/mesosphere/dcos/1.13/img/GUI-Services-Main_View_prod_group_Alice-1_12.png)
+    ![在组中运行的服务](/mesosphere/dcos/cn/1.13/img/GUI-Services-Main_View_prod_group_Alice-1_12.png)
 
     图 8. 在组中运行的服务
 
@@ -121,12 +121,12 @@ enterprise: true
 
 ### 提示
 
-- 服务资源通常包括 `/` 必须在 `curl` 请求中以 `%252F` 替换的字符，如下例所示。
+- 服务资源通常包括 `/` 必须在 `%252F` 请求中以 `curl` 替换的字符，如下例所示。
 - 使用 API 管理权限时，您必须在授予之前先创建权限。如果权限已存在，API 将返回提示信息，您可以继续分配权限。
 
 ### <a name="create-services"></a>创建用户组和启动应用程序
 
-1. 使用以下命令创建一个 Marathon 组 (`<gid>`)。
+1. 使用以下命令创建一个 Marathon 组 (`<gid>`).
 
    ```bash
    curl -X POST --cacert dcos-ca.crt \
@@ -136,7 +136,7 @@ enterprise: true
    -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
    ```
 
-1. 使用以下命令在`<gid>` 内部部署一个简单的应用程序 (`<service-name>`)。
+1. 使用以下命令在`<service-name>` 内部部署一个简单的应用程序 (`<gid>`.
 
    ```bash
    curl -X POST --cacert dcos-ca.crt \
@@ -148,7 +148,7 @@ enterprise: true
 
 ### <a name="grant-perms"></a>创建和授予权限
 
-1. 使用以下命令为您的组创建权限 (`<gid>`)。
+1. 使用以下命令为您的组创建权限 (`<gid>`).
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
@@ -189,7 +189,7 @@ enterprise: true
    -d '{"description":"Grants access to the sandboxes on the Mesos agent inside <gid>"}'
    ```
 
-1. 使用以下命令向用户授予权限 (`<username>`)。这些将允许她在 `<gid>` 中查看任务日志。
+1. 使用以下命令向用户授予权限 (`<username>`). 这些将允许她在  中查看任务日志。`<gid>`.
 
    ```bash
    curl -X PUT --cacert dcos-ca.crt \
@@ -228,7 +228,7 @@ enterprise: true
    dcos task log --follow <service-name>
    ```
 
-   例如，如果您的服务名是 `alice-service`：
+   例如，如果您的服务名是 `alice-service`:
 
    ```bash
    dcos task log --follow alice-service

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  授予 dcos task exec
-title: 授予 dcos task exec
+navigationTitle:  授予 dcos task exec的访问权限
+title: 授予 dcos task exec的访问权限
 menuWeight: 4
 excerpt: 授予调试的访问权限
 render: mustache
@@ -18,11 +18,11 @@ enterprise: true
 - 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
 - [用户帐户](/mesosphere/dcos/cn/1.13/security/ent/users-groups/) 将权限分配给
 
-所有 CLI 命令也可通过 [IAM API](/mesosphere/dcos/cn/1.13/security/ent/iam-api/) 执行。您可以在 [CLI 命令参考部分](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/)看到更多有关 `dcos security org users` 命令的详细信息。
+所有 CLI 命令也可通过 [IAM API]执行。(/mesosphere/dcos/cn/1.13/security/ent/iam-api/). 您可以在 [CLI 命令参考部分]`dcos security org users`看到更多有关 (/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/). 命令的详细信息。
 
 ## 宽容
 
-向用户授予以下特权 `uid`。
+向用户授予以下特权 `uid`.
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -34,7 +34,7 @@ dcos security org users grant <uid> dcos:adminrouter:ops:slave full
 
 ### <a name="debug-without-tty"></a>授予非伪终端调试访问权限
 
-向用户授予以下特权 `uid`。
+向用户授予以下特权 `uid`.
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -48,7 +48,7 @@ dcos security org users grant <uid> dcos:mesos:master:task:app_id:/test-group re
 
 ### <a name="debug-with-tty"></a>授予伪终端调试访问权限
 
-向用户授予以下特权 `uid`。
+向用户授予以下特权 `uid`.
 
 ```bash
 dcos security org users grant <uid> dcos:adminrouter:ops:mesos full

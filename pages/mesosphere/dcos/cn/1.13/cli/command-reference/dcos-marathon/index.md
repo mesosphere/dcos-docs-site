@@ -23,10 +23,10 @@ dcos marathon [OPTIONS] COMMAND
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--config-schema` | 显示 Marathon 子命令的配置架构。|
+| `--config-schema`   | 显示 Marathon 子命令的配置架构。|
 | `--help`, `h`  | 显示用法。 |
-| `--info` | 显示该子命令的简短描述。|
-| `--version`, `v`  | 显示版本信息。|
+| `--info`   | 显示该子命令的简短描述。|
+| `--version`, `v`   | 显示版本信息。|
 
 
 # 命令 

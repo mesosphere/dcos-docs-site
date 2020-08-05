@@ -29,16 +29,16 @@ dcos package repo remove <repo-names>...
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<repo-name>` | 软件包存储库的名称。例如， `{{ model.packageRepo }}`。|
+| `<repo-name>`   | 软件包存储库的名称。例如， `{{ model.packageRepo }}`. |
 
 
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/2.0/administering-clusters/package-registry/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/2.0/administering-clusters/package-registry/).
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |
+| [dcos package](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |

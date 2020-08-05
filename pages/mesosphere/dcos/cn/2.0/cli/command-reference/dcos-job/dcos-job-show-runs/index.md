@@ -23,16 +23,16 @@ dcos job show runs <job-id> [--run-id <run-id>][--json|--quiet]
 
 | 名称 | 说明 |
 |---------|-------------|
-|`-h`，`--help` | 打印用法。 |
-| `--json` | 显示 JSON 格式化列表。|
-| `-q`，`--quiet` | 表示仅导致运行 ID 阵列的静默模式。 |
+|`-h`, `--help` | 打印用法。 |
+| `--json`   | 显示 JSON 格式化列表。|
+| `-q`, `--quiet` | 表示仅导致运行 ID 阵列的静默模式。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<job-id>` | 指定作业 ID。|
-| `--run-id <run-id>` | 作业运行的 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
+| `<job-id>`   | 指定作业 ID。|
+| `--run-id <run-id>`   | 作业运行的 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
 
 
 
@@ -58,4 +58,4 @@ my-scheduled-job  20170217230705AfpRn  2017-02-17T23:07:05.218+0000
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |
+| [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/) |  在 DC/OS 中部署和管理作业。 |

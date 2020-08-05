@@ -23,15 +23,15 @@ dcos job schedule show <job-id> [--json]
 
 | 名称 | 说明 |
 |---------|-------------|
-|`-h`，`--help` | 打印用法。 |
-| `--json` | 打印 JSON 格式列表而不是表格。|
+|`-h`, `--help` | 打印用法。 |
+| `--json`   | 打印 JSON 格式列表而不是表格。|
 
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<job-id>` | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
+| `<job-id>`   | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
 
 
 
@@ -55,4 +55,4 @@ sleep-nightly  20 0 * * *    True   2017-02-19T00:20:00.000+0000        ALLOW
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |
+| [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/) |  在 DC/OS 中部署和管理作业。 |

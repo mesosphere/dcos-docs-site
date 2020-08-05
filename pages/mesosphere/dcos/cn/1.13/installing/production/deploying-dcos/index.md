@@ -18,7 +18,7 @@ DC/OS 安装进程需要 bootstrap 节点、管理节点、公共代理节点和
 * 在管理节点上安装 DC/OS
 * 在代理节点上安装 DC/OS
 
-![Production Installation Process](/mesosphere/dcos/1.13/img/advanced-installer.png)
+![Production Installation Process](/mesosphere/dcos/cn/1.13/img/advanced-installer.png)
 
 图 1. 生产安装流程
 

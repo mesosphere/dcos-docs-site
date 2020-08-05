@@ -9,8 +9,6 @@ model: /mesosphere/dcos/2.0/data.yml
 ---
 可以使用角色、预留、配额和权重的组合来保留 Mesosphere&reg; DC/OS&trade; 中的资源并确定其优先级。这些功能均由 Apache&reg; Mesos&reg; 提供，位于 DC/OS 的核心，称为 `Primitives`，因为它们中的绝大多数都只能通过 API 访问，尚未集成到 DC/OS UI 或 CLI 中。在使用配额，预留和权重时，用户需要良好的监控来代替可用/已用的资源。
 
-可以使用角色、预留、配额和权重的组合来保留 DC/OS&reg; 中的资源并确定其优先级。这些功能均由 Apache&reg; Mesos&reg; 提供，位于 DC/OS 的核心，称为 `Primitives`，因为它们中的绝大多数都只能通过 API 访问，尚未集成到 DC/OS UI 或 CLI 中。在使用配额，预留和权重时，用户需要良好的监控来代替可用/已用的资源。
-
 这一环境中的资源管理是指诸如代理上的资源预留、资源配额和框架的权重（优先级）等概念。这些对于许多场景都非常有用，例如配置多租户环境，其中有多个团队或项目在同一个 DC/OS 群集上共存，并且必须划分可用资源（CPU、RAM、磁盘和端口）并保证每个群集具有可靠的配额。其次，在单个群集上混合工作负载，其中一类框架可能具有比另一类更高的权重（优先级），具有高优先级的资源，且其部署速度应当高于较低权重框架。
 
 本页面涵盖多租户原始文档：多租户配额管理原始文档、实际场景的两个示例、实施指令和参考链接。
@@ -22,8 +20,8 @@ model: /mesosphere/dcos/2.0/data.yml
 角色指群集内的资源使用者。资源使用者可以代表组织内的用户，但也可以代表团队、组或服务。它通常是指正在运行的一级或一类活动。在 DC/OS 中，调度程序订阅一个或多个角色，以便代表他们正在服务的资源使用者接收资源并调度工作。调度程序包括 Marathon&trade;、Kubernetes&reg; 以及 DC/OS {{ model.packageRepo }} 中的许多经过认证的框架（例如 Kafka&reg; 和 Cassandra&reg;），它们都是为了纳入自己的调度程序而构建的。
 
 框架将订阅两个默认角色：
-- 专用代理上的 `*`
-- 公共代理上的 `slave_public`。
+- `*`- 专用代理上的 
+- `slave_public`- 公共代理上的 
 
 {{ model.packageRepo }} 中的框架采用自己的角色进行部署，并且可以按需创建唯一角色。
 
@@ -40,7 +38,7 @@ model: /mesosphere/dcos/2.0/data.yml
 基于现有客户用例的两个真实场景描述了这些概念。
 
 ## 具有加权 Spark 角色的分析平台
-此示例基于客户的分析管道用例。主要工作负载是 Spark&trade;，有标记了角色的三个层级 Spark 作业：“低级”- 1，“中级”- 2 和“高级”- 3，表示相应的优先级和权重。
+此示例基于客户的分析管道用例。主要工作负载是 Spark&trade;，有标记了角色的三个层级 Spark 作业：“低级”- 1，“中级”- 2 和“高级”- 3，相应地表示优先级和权重。
 
 在实践中，高级角色获得分配的 offer （资源）是中级角色公平份额的三倍，而中级角色所得份额则是低级角色的两倍。除权重外，高优先级 Spark 角色获得 `x` 的 CPU 份额和 `y` 的 RAM。
 
@@ -57,18 +55,18 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 实现
 您可以使用以下资源来学习如何实现 Marathon on Marathon 和 Spark 配额：
-- [部署非本地 Marathon 实例](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/)
-- [Spark 配额](/mesosphere/dcos/services/spark/2.8.0-2.4.0/job-scheduling/#quota-for-drivers-and-executors)
+- [部署非本地 Marathon 实例](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/)
+- [Spark 配额](/mesosphere/dcos/cn/services/spark/latest/job-scheduling/#quota-for-drivers-and-executors)
 
-在下面的示例中，建议从安装了 [DC / OS CLI](/mesosphere/dcos/2.0/cli/) 的主机运行应用程序。
+在下面的示例中，建议从安装了 [DC / OS CLI](/mesosphere/dcos/cn/2.0/cli/) 的主机运行应用程序。
 
 ## 角色
-[角色](https://mesos.apache.org/documentation/latest/roles/) 指的是分配给框架、任务或代理的标记或标签。默认角色名为 <sup> `*` </sup>，群集中的所有现有角色都可以通过 Mesos UI 查看：`https://<cluster-name-or-IP>/mesos/#/roles`。
+[角色](https://mesos.apache.org/documentation/latest/roles/) 指的是分配给框架、任务或代理的标记或标签。默认角色名为 <sup> `*` </sup>，群集中的所有现有角色都可以通过 Mesos UI 查看：`https://<cluster-name-or-IP>/mesos/#/roles`.
 
 
-在以下示例中，在运行时将名为 `high` 的角色分配给 Spark 任务。可以执行 Spark 任务的多个实例，确保它们都能从与 `high` 相关联的资源管理中受益。
+在以下示例中，在运行时将名为 `high` 的角色分配给 Spark 任务。可以执行 Spark 任务的多个实例，确保它们都能从与  相关联的资源管理中受益。`high`.
 
-- DC/OS {{ model.packageRepo }} 中的 `spark.mesos.role=high` 应用程序（如 Kafka 和 Cassandra）将使用通用角色名称自动部署，而用户不可配置该角色名称。
+- `spark.mesos.role=high`  DC/OS {{ model.packageRepo }} 中的应用程序（如 Kafka 和 Cassandra）将使用通用角色名称自动部署，而用户不可配置该角色名称。
 
 - `confluent_kafka_role`  角色不需要明确管理，比如配置新角色并将其分配给任务。它们在部署任务或配置权重或配额时按需创建。同样也不应删除角色，它们要在群集的持续时间内一直存在。
 
@@ -80,7 +78,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 <p class="message--note"><strong>注意：</strong><code>bootstrapuser</code> 的主体对每个用户都不相同。在此示例中，<code>bootstrapuser</code> 的主体是我的超级用户帐户。</p>
 
-必须更改群集上代理 ID 的 `agent_id`。使用 `dcos node` 查找代理 ID。
+必须更改群集上代理 ID 的 `agent_id` 使用 `dcos node` 查找代理 ID。
 
 <p class="message--note"><strong>注意：</strong>在复制和粘贴到编辑器或终端时，需要清除下面的 JSON 示例中的所有双引号。</p>
 
@@ -152,7 +150,7 @@ curl -i -k \
 如果资源不可用于预订，预计响应内容为 `HTTP 409`，并且无法在该代理上预留资源。可能已经有运行的任务消耗了这些资源。
 
 ### 检查
-最好通过 Mesos UI 针对您应用预留的特定代理或借助 `jq` 解析 `state.json` 来实现检查。
+最好通过 Mesos UI 针对您应用预留的特定代理或借助 `state.json` 解析 `jq`. 来实现检查。
 
 ```shell
 https://<cluster-URL>/mesos/#/agents/<agent-id>
@@ -229,7 +227,7 @@ curl -i -k \
 [配额](https://mesos.apache.org/documentation/latest/quota/) 指定角色保证接收的最小资源量（除非群集中的总资源少于配置的配额资源，而这种情况通常表示配置错误）。
 
 ### 添加
-配额在应用后无法更新。必须将其删除并再次添加。以下示例将 `two` CPU 份额和 `4GB` RAM 的配额应用于名为 `high` 的角色。
+配额在应用后无法更新。必须将其删除并再次添加。以下示例将 `two` CPU 份额和 `4GB` RAM 的配额应用于名为 `high`. 的角色。
 
 ```json
 tee set-quota.json << EOF
@@ -385,9 +383,9 @@ Connection: keep-alive
 
 
 ## Marathon on Marathon
-DC/OS {{ model.packageRepo }} 包括 Marathon，可用于部署 MoM。应该注意，这仅适用于 DC/OS OSS 安装，但不提供对严格模式、密钥或 ACL 的支持。请参阅 [Marathon on Marathon 文档](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/basic/)。
+DC/OS {{ model.packageRepo }} 包括 Marathon，可用于部署 MoM。应该注意，这仅适用于 DC/OS OSS 安装，但不提供对严格模式、密钥或 ACL 的支持。请参阅 [Marathon on Marathon 文档](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/basic/).
 
-要安装 DC/OS Enterprise MoM，您必须联系 Mesosphere 服务支持以获取 Enterprise MoM tarball，然后使用根 Marathon 进行部署。请参阅 [自定义非本地 Marathon 文档](/mesosphere/dcos/2.0/deploying-services/marathon-on-marathon/advanced/)。
+要安装 DC/OS Enterprise MoM，您必须联系 Mesosphere 服务支持以获取 Enterprise MoM tarball，然后使用根 Marathon 进行部署。请参阅 [自定义非本地 Marathon 文档](/mesosphere/dcos/cn/2.0/deploying-services/marathon-on-marathon/advanced/).
 
 # 其他资源
 您可以使用以下附加资源进一步了解：

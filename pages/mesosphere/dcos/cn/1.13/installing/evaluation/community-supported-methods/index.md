@@ -10,9 +10,8 @@ render: mustache
 
 以下任何方法均可用于安装 DC/OS：
 - [在 AWS 上手动调配 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) (AWS)：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
-- [在 Azure 上手动调配 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/azure/)：使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
-- [在 DigitalOcean 上提供 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/digitalocean/)：使用配置为在 DigitalOcean 上运行 Mesosphere DC/OS 的 Terraform 模板，在 DigitalOcean 上安装您的 DC/OS 群集。
-- [在 Packet 裸机上提供 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/packet/)：裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。
+- [在 Azure 上手动调配 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/azure/): 使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
+- [在 Packet 裸机上提供 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/packet/): 裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。
 
 您可以使用 [Mesosphere Universal 安装工具](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/) 方法安装功能齐全的群集。
 

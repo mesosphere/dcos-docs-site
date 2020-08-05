@@ -9,11 +9,11 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 
+<p class="message--warning"><strong>警告：</strong>从 DC/OS 1.13 开始，使用 <tt>dcos node</tt> 命令列出节点已被弃用。要列出 dcos 节点，请使用 <tt><a href="/mesosphere/dcos/1.13/cli/command-reference/dcos-node/dcos-node-list/">dcos node list</a></tt> 命令。</p>
 
 # 说明
 `dcos node` 命令允许您查看 DC/OS 节点信息。
 
-<p class="message--important"><strong>重要: </strong>自 DC/OS 1.13 以来，此命令已弃用，使用 <tt>dcos node list</tt> 代替。</p>
 
 # 使用
 
@@ -25,10 +25,10 @@ dcos node [OPTION]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示用法。 |
-| `--info` | 显示该子命令的简短描述。|
-| `--json` | 显示 JSON 格式的数据。|
-| `--version` | 显示版本信息。|
+| `--help, h` |  显示用法。 |
+| `--info`   | 显示该子命令的简短描述。|
+| `--json`   | 显示 JSON 格式的数据。|
+| `--version`   | 显示版本信息。|
 
 
 # 示例

@@ -21,15 +21,15 @@ model: /mesosphere/dcos/1.13/data.yml
 - SSL 证书。
 - 包含敏感数据的配置文件。
 
-任务沙盒 (`$MESOS_SANDBOX/<configured-path>`) 中提供基于文件的密钥。
+任务沙盒 () 中提供基于文件的密钥。`$MESOS_SANDBOX/<configured-path>`).
 
 ## 先决条件
 
-- 现有密钥。以下示例使用了存储在 `developer` 路径名为 `my-secret` 的密钥。如果您完成[创建密钥](/mesosphere/dcos/cn/1.13/security/ent/secrets/create-secrets/)中的步骤，则您将满足此先决条件。
+- 现有密钥。以下示例使用了存储在 `my-secret` 路径名为 `developer` 的密钥。如果您完成[创建密钥](/mesosphere/dcos/cn/1.13/security/ent/secrets/create-secrets/)中的步骤，则您将满足此先决条件。
 
-- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-install)。
+- [已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 以及 [已安装 DC/OS Enterprise CLI](/mesosphere/dcos/cn/1.13/cli/enterprise-cli/#ent-cli-install).
 - 您必须 [获取根证书](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)，才能发布此部分的 curl 命令。
-- 您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)的适当权限。
+- 您的[安全模式]的适当权限。(/mesosphere/dcos/cn/1.13/security/ent/#security-modes).
 
   <table class="table">
     <tr>
@@ -37,7 +37,7 @@ model: /mesosphere/dcos/1.13/data.yml
       <th>执行模式</th>
     </tr>
     <tr>
-      
+      <td><code>dcos:adminrouter:service:marathon full</code></td>
       <td>所有安全模式</td>
     </tr>
     <tr>
@@ -68,13 +68,13 @@ model: /mesosphere/dcos/1.13/data.yml
 
 ## <a name="deploying-the-service-via-the-web-interface"></a>配置服务以通过 Web 界面使用密钥
 
-1. 作为具有必要权限的用户登录 Web 界面，如 [权限管理](/mesosphere/dcos/cn/1.13/security/ent/perms-management/) 和 [授予访问密钥选项卡](/mesosphere/dcos/cn/1.13/security/ent/gui-permissions/secrets-tab/) 中所述。
+1. 作为具有必要权限的用户登录 Web 界面，如 [权限管理](/mesosphere/dcos/cn/1.13/security/ent/perms-management/) 和 [授予访问密钥选项卡](/mesosphere/dcos/cn/1.13/security/ent/gui-permissions/secrets-tab/). 中所述。
 
 1. 单击 **Services** 选项卡。
 
 1. 单击右上方的 **+** 图标。
 
-    ![添加服务](/mesosphere/dcos/1.13/img/add-service.png)
+    ![添加服务](/mesosphere/dcos/cn/1.13/img/add-service.png)
 
     图 1. 运行服务
 
@@ -103,7 +103,7 @@ model: /mesosphere/dcos/1.13/data.yml
    }
    ```
 
-   在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
+   在上述示例中，DC/OS 存储环境变量  下的密钥。`"MY_SECRET"`. 观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
 
    基于文件的密钥：
 
@@ -128,21 +128,21 @@ model: /mesosphere/dcos/1.13/data.yml
    }
    ```
 
-   在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`) 。
+   在上述示例中，密钥将具有文件名 `path`，并且将在任务的沙盒中可用 (`$MESOS_SANDBOX/path`).
 
-   由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/mesosphere/dcos/cn/1.13/security/ent/#spaces)。
+   由于服务和密钥路径匹配，服务将能够访问该密钥。有关路径的更多详细信息，请参阅[空间](/mesosphere/dcos/cn/1.13/security/ent/#spaces)
 
 1. 单击 **审查并运行**。
 
 1. 单击 **运行服务**。
 
-1. 单击服务组名称，例如，**开发人员**。
+1. 单击服务的组名，例如，**开发人员**。
 
 1. 单击服务名称。
 
 1. 单击其任务名称。
 
-1. 滚动浏览**详细信息**选项卡，找到基于环境变量的密钥 `DCOS_SECRETS_DIRECTIVE`。
+1. 滚动浏览**详细信息**选项卡，找到基于环境变量的密钥 `DCOS_SECRETS_DIRECTIVE`
 
     如果要测试基于文件的密钥是否成功，可以将 `cat path` 添加到应用程序 `cmd`，以将密钥打印到 `stdout` 日志。
 
@@ -170,7 +170,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # <a name="deploying-the-service-via-marathon-app-definition"></a>通过 Marathon 应用定义配置服务以使用基于环境变量的密钥
 
-1. 通过 `dcos auth login` 以具有必要权限的用户身份登录 CLI。请参阅 [关于配置服务和 pod 以使用密钥](#service) 来发现所需的权限。
+1. 通过  以具有必要权限的用户身份登录 CLI。`dcos auth login`. 请参阅 [关于配置服务和 pod 以使用密钥](#service) 来发现所需的权限。
 
 1. 在文本编辑器内，为 Marathon 服务创建应用定义。以下应用程序定义在开发人员组内创建新服务，并引用了存储在开发人员路径内的密钥。
 
@@ -193,7 +193,7 @@ model: /mesosphere/dcos/1.13/data.yml
    }
    ```
 
-   在上述示例中，DC/OS 存储环境变量 `"MY_SECRET"` 下的密钥。观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
+   在上述示例中，DC/OS 存储环境变量  下的密钥。`"MY_SECRET"`. 观察 `"env"` 和 `"secrets"` 对象如何用于定义基于环境变量的密钥。
 
    基于文件的密钥：
 
@@ -218,9 +218,9 @@ model: /mesosphere/dcos/1.13/data.yml
    }
    ```
 
-   由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/mesosphere/dcos/cn/1.13/security/ent/#spaces)。
+   由于服务组和密钥路径匹配，服务将能够访问密钥。有关路径的更多详细信息，请参阅[空间](/mesosphere/dcos/cn/1.13/security/ent/#spaces)
 
-1. 使用描述性名称保存文件，如 `myservice.json`。
+1. 使用描述性名称保存文件，如 `myservice.json`.
 
 1. 通过 DC/OS CLI 将服务添加到 DC/OS。
 
@@ -236,13 +236,13 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 打开 DC/OS Web 界面。
 
-1. 单击服务组名称，例如，**开发人员**。
+1. 单击服务的组名，例如，**开发人员**。
 
 1. 单击服务名称。
 
 1. 单击其任务名称。
 
-1. 滚动浏览**详细信息**标签，找到基于环境变量的密钥 `DCOS_SECRETS_DIRECTIVE`。
+1. 滚动浏览**详细信息**标签，找到基于环境变量的密钥 `DCOS_SECRETS_DIRECTIVE`
 
     如果要测试基于文件的密钥是否成功，可以将 `cat path` 添加到应用程序 `cmd`，以将密钥打印到 `stdout` 日志。
 
@@ -270,9 +270,9 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # <a name="pod"></a>配置 pod 以使用密钥
 
-1. 通过 `dcos auth login` 以具有必要权限的用户身份登录 CLI。有关权限的更多信息，请参阅 [关于配置服务和 pod 以使用密钥](#service)。
+1. 通过  以具有必要权限的用户身份登录 CLI。`dcos auth login`. 有关权限的更多信息，请参阅 [关于配置服务和 pod 以使用密钥](#service)。
 
-1. 在文本编辑器内，为 pod 创建应用定义。您可以使用 `"environment"` 和 `"secrets"` 对象添加密钥，如下所示。以下简单应用程序在开发人员组内定义新服务，并引用了存储在开发人员路径内的密钥。它将密钥存储在环境变量 `"MY_SECRET"` 下。
+1. 在文本编辑器内，为 pod 创建应用定义。您可以使用 `"environment"` 和 `"secrets"` 对象添加密钥，如下所示。以下简单应用程序在开发人员组内定义新服务，并引用了存储在开发人员路径内的密钥。它将密钥存储在环境变量  下。`"MY_SECRET"`.
 
     基于环境变量的密钥：
 
@@ -348,9 +348,9 @@ model: /mesosphere/dcos/1.13/data.yml
      }
    }
    ```
-    <p class="message--note"><strong>注意：</strong>由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅 <a href="/mesosphere/dcos/cn/1.13/security/ent/#spaces">命名空间</a>。</p>
+    <p class="message--note"><strong>注意：</strong>由于服务组和密钥路径匹配，pod 将能够访问密钥。有关路径的更多详细信息，请参阅<a href="/mesosphere/dcos/1.13/security/ent/#spaces">命名空间</a></p>
 
-1. 使用描述性名称保存文件，如 `mypod.json`。
+1. 使用描述性名称保存文件，如 `mypod.json`.
 
 1. 使用 DC/OS CLI 部署 Pod，如下所示。
 
@@ -360,13 +360,13 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 打开 DC/OS Web 界面。
 
-1. 单击服务组名称，例如，**开发人员**。
+1. 单击服务的组名，例如，**开发人员**。
 
 1. 单击 Pod 的名称。
 
 1. 单击以打开 **Configuration** 选项卡。
 
-1. 滚动到 **环境变量** 区域，找到您的密钥 `MY_SECRET`。
+1. 滚动到 **环境变量** 区域，找到您的密钥 `MY_SECRET`.
 
 ### 限制
 

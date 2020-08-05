@@ -149,7 +149,7 @@ dcos marathon app remove postgres
 
 ## 附录
 
-有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/2.0/storage/)。
+有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/cn/2.0/storage/).
 
 
 [1]: /mesosphere/dcos/2.0/installing/

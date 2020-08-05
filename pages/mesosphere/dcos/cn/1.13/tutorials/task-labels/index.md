@@ -52,7 +52,7 @@ dcos marathon app add <myapp>.json
 
 从 DC/OS Web 界面中单击 **Jobs** 选项卡，然后单击作业名称。这将带您进入单独的作业页面。单击右上角的 **Edit**。在“编辑作业”页面左侧，选择 **Labels**。
 
-![作业标签](/mesosphere/dcos/1.13/img/job-label.png)
+![作业标签](/mesosphere/dcos/cn/1.13/img/job-label.png)
 
 图 1. 分配工作标签
 
@@ -91,7 +91,7 @@ dcos job add <myjob>.json
 
 您还可以使用 DC/OS CLI 中的 Marathon HTTP API，根据标签值条件查询正在运行的应用程序。
 
-下面的代码片段显示了向 Marathon HTTP API 发出的 HTTP 请求。此示例中使用 curl 程序提交 HTTP GET 请求，但您可以使用任何能够发送 HTTP GET/PUT/DELETE 请求的程序。您可以看到 HTTP 端点是 `https://52.88.210.228/marathon/v2/apps`，以及随 HTTP 请求发送的参数包括标签条件 `?label=COST_CENTER==0001`：
+下面的代码片段显示了向 Marathon HTTP API 发出的 HTTP 请求。此示例中使用 curl 程序提交 HTTP GET 请求，但您可以使用任何能够发送 HTTP GET/PUT/DELETE 请求的程序。您可以看到 HTTP 端点是 `https://52.88.210.228/marathon/v2/apps`，以及随 HTTP 请求发送的参数包括标签条件 `?label=COST_CENTER==0001`:
 
     curl --insecure \
     > https://52.88.210.228/marathon/v2/apps?label=COST_CENTER==0001 \
@@ -99,4 +99,4 @@ dcos job add <myjob>.json
 
 您还可以指定多个标签条件，如下所示：`?label=COST_CENTER==0001,COST_CENTER==0002`
 
-在以上示例中，您收到的响应将仅包括具有定义值为 `0001` 的 `COST_CENTER` 的应用程序。还包括资源度量标准，例如 CPU 共享数和分配的内存量。在响应的底部，您可以看到部署此应用程序的日期/时间，可用于计算计费或退费目的的正常运行时间。
+在以上示例中，您收到的响应将仅包括具有定义值为 `COST_CENTER` 的 `0001`. 的应用程序。还包括资源度量标准，例如 CPU 共享数和分配的内存量。在响应的底部，您可以看到部署此应用程序的日期/时间，可用于计算计费或退费目的的正常运行时间。

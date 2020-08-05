@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 安全
+navigationTitle:  安全
 title: 安全
 menuWeight: 80
 excerpt: 为 Enterprise 和开源部署配置安全性

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  本地用户登录
 title: 本地用户登录
-excerpt: 以本地用户身份登录到 DC/OS
+excerpt: 以本地用户地身份登录到 DC/OS
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 20
@@ -10,14 +10,14 @@ menuWeight: 20
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-# 通过 DC/OS CLI 登录
+# 使用 DC/OS CLI 登录
 
 **前提条件：**
 - [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)
 
-使用 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)，可以通过指定 `dcos-users` 登录提供程序以本地 DC/OS 用户的身份登录。
+使用 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)，可以通过指定 `dcos-users` 登录提供商，以本地 DC/OS 用户的身份登录。
 
-1. 要通过 DC/OS CLI 进行登录，请在以下 [auth login](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-auth/dcos-auth-login/) 命令中替换 `uid` 和 `password`。
+1. 要通过 DC/OS CLI 登录，请替换以下 [auth login]`uid` 命令中的 `password` 和 (/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-auth/dcos-auth-login/)
 
     ```bash
     dcos auth login --provider=dcos-users --username=<uid> --password=<password>
@@ -29,17 +29,17 @@ menuWeight: 20
     dcos config show core.dcos_acs_token
     ```
 
-1. 将 DC/OS 认证令牌导出到环境中，以便在其他命令中使用它：
+1. 将 DC/OS 认证令牌导出到环境中，以便在其他命令中使用：
 
     ```bash
     export TOKEN=$(dcos config show core.dcos_acs_token)
     ```
 
-# 通过 IAM API 登录
+# 使用 IAM API 登录
 
-本地用户可以通过 [身份和访问管理 (IAM) API](/mesosphere/dcos/cn/1.13/security/oss/iam-api/) 登录。
+本地用户可以使用 [身份和访问管理 (IAM) API]登录。(/mesosphere/dcos/cn/1.13/security/oss/iam-api/).
 
-1. 要登录本地用户帐户，请在以下命令中替换 `<uid>` 和 `<password>`：
+1. 要登录本地用户账户，请替换以下命令中的 `<uid>` 和 `<password>`
 
     ```bash
     curl -X POST http://<host-ip>/acs/api/v1/auth/login -d '{"uid": "<uid>", "password": "<password>"}' -H 'Content-Type: application/json'

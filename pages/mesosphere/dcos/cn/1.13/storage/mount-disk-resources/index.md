@@ -30,16 +30,16 @@ enterprise: false
 
     MESOS_RESOURCES='[{"ranges": {"range": [{"end": 21, "begin": 1}, {"end": 5050, "begin": 23}, {"end": 32000, "begin": 5052}]}, "type":  "RANGES", "name": "ports"}, {"role": "*", "type": "SCALAR", "name": "disk", "scalar": {"value": 47540}}]'
     ```
-    请注意，`/dcos/volume0` 尚无引用。
+    请注意， 尚无引用。`/dcos/volume0`.
 
 1. 停止代理节点。
-    - 在[专用](/mesosphere/dcos/1.13/overview/concepts/#private-agent-node)代理节点上：
+    - 在[专用](/mesosphere/dcos/cn/1.13/overview/concepts/#private-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
-    - 在[公共](/mesosphere/dcos/1.13/overview/concepts/#public-agent-node)代理节点上：
+    - 在[公共](/mesosphere/dcos/cn/1.13/overview/concepts/#public-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
@@ -85,7 +85,7 @@ enterprise: false
     sudo reboot
     ```
 
-1. 通过 SSH 连接到到代理节点并查看 `journald` 日志以获取对新卷 `/dcos/volume0` 的引用。
+1. 通过 SSH 连接到到代理节点并查看 `journald` 日志以获取对新卷 `/dcos/volume0`. 的引用。
 
     ```bash
     journalctl -b | grep '/dcos/volume0'
@@ -176,7 +176,7 @@ enterprise: false
 
 在运行此服务后，导航到 Web 界面中的 **Services > Volumes** 选项卡：
 
-![挂载磁盘](/mesosphere/dcos/1.13/img/mount-disk.png)
+![挂载磁盘](/mesosphere/dcos/cn/1.13/img/mount-disk.png)
 
 图 1. Services > Volumes 选项卡
 
@@ -200,6 +200,6 @@ enterprise: false
 * 确保使用 `Mount` 磁盘资源的所有服务都旨在处理一个或多个 `Mount` 磁盘资源的永久丢失。服务仍然负责管理数据复制和保留，从故障代理节点进行正常恢复以及关键服务状态的备份。
 
 [1]: http://mesos.apache.org/documentation/latest/multiple-disk/
-[2]:http://docs.aws.amazon.com/AWSEC2/latest/Userguide/AmazOneBS.html
-[3]:https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-about-disk-vhds/
-[4]:https://azure.microsoft.com/en-us/documentation/articles/storage-introduction/#blob-storage
+[2]: http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AmazonEBS.html
+[3]: https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-about-disks-vhds/
+[4]: https://azure.microsoft.com/en-us/documentation/articles/storage-introduction/#blob-storage

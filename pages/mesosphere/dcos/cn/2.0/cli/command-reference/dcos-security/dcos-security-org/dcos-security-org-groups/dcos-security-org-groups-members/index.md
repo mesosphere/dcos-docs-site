@@ -23,7 +23,7 @@ dcos security org groups members [OPTIONS] GID
 | 名称 | 说明 |
 |---------|-------------|
 |  `-h`, `--help` |                显示此消息并退出。|
-| `-j`, `--json` | JSON 格式的输出数据。|
+|  `-j`, `--json` | JSON 格式的输出数据。|
 
 ## 位置自变量
 
@@ -35,4 +35,4 @@ dcos security org groups members [OPTIONS] GID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster org groups](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) | 管理用户组和组成员。 |
+| [dcos security cluster org groups](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  管理用户组和组成员。 |

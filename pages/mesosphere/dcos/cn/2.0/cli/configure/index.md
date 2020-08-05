@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-您可以使用 [dcos cluster](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) 和 [dcos config](/mesosphere/dcos/2.0/cli/command-reference/dcos-config/) 命令组访问 DC/OS&trade; CLI 配置。
+您可以使用 [dcos cluster](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/) 和 [dcos config](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-config/) 命令组访问 DC/OS&trade; CLI 配置。
 
 # 环境变量
 
@@ -19,7 +19,7 @@ DC/OS CLI 支持以下环境变量，可以动态设置。
 
 #### `DCOS_CLUSTER`
 
-要设置 [连接的群集](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/dcos-cluster-attach/)，请使用以下命令设置变量：
+要设置 [连接的群集](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/dcos-cluster-attach/)，请使用以下命令设置变量：
 
 ```bash
 export DCOS_CLUSTER=<cluster_name>

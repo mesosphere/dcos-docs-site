@@ -7,17 +7,17 @@ excerpt: 了解 DC/OS 版本控制和发布
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-Mesosphere DC/OS 版本号的格式为：<code>&lt;发布&gt;。&lt;版本&gt;。&lt;次要&gt;</code>。
+Mesosphere DC/OS 版本号的格式为：<code>&lt;发布&gt;。&lt;版本&gt;。&lt;次要&gt;</code>.
 
 # 发布编号
 
 ## 发布
 
-对同一软件产品的修改或增强，以 <code>R</code> 发布编号的变更来表示。<code>R</code> 发布可能包括新变更和重大变更。<code>R</code> 发布不包括 Mesosphere 以不同名称销售的独立或不同产品，即使此类产品兼容相关软件产品。
+对同一软件产品的修改或增强，以 <code>R</code> 发布编号的变更来表示。<code>R</code> 发布可能包括新变更和重大变更。<code>R</code>发布版本不包括 Mesosphere 以不同名称销售的独立或不同产品，即使此类产品兼容相关软件产品。
 
 ## 版本
 
-对同一软件产品的修改或增强，以 <code>V</code> 发布编号的变更来表示。<code>V</code> 发布版本将继续提供对所有已发布 API 的向后兼容。
+对同一软件产品的修改或增强，以 <code>V</code> 发布编号的变更来表示。<code>V</code>发布版本将继续提供对所有已发布 API 的向后兼容。
 
 ## 次要
 
@@ -32,7 +32,7 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 <ol>
 <li>2020 年 5 月 - 发布产品 X v1.0。</li>
 <li>2020 年 8 月 - 发布产品 X v1.1，宣布 v1.0 EOL 日期。</li>
-<li>2020 年 11 月 - 发布产品 X v1.2，v1.0 的寿命终止，宣布 v1.1 寿命终止日期。</li>
+<li>2020 年 11 月 - 发布产品 X v1.2，v1.0 寿命终止，宣布 v1.1 EOL 日期。</li>
 </ol>
 
 # DC/OS 版本和 Mesos 互操作性矩阵
@@ -45,7 +45,7 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 
 例如，如果我们有以下三项技术：DC/OS、Framework 和 Apache Kafka。
 
-![版本策略框架](/mesosphere/dcos/1.13/img/version-policy-1.png)
+![版本策略框架](/mesosphere/dcos/cn/1.13/img/version-policy-1.png)
 
 图 1. 版本策略框架
 
@@ -61,13 +61,13 @@ Mesosphere 将支持当前发布版本（发布版 N）和前两个特性（主�
 <tbody>
 <tr>
   <td>框架和基线技术（例如 Apache Kafka）</td>
-  <td>当前框架版本 (M +Apache Kafka K) 和 (M-1+Apache Kafka K-1)</td>
+  <td>当前框架版本 (M+Apache Kafka K) 和 (M-1+Apache Kafka K-1)</td>
 </tr>
 </tbody>
 </table>
 
 # Mesosphere 版本控制和升级策略
 
-![版本策略框架](/mesosphere/dcos/1.13/img/version-policy-2.png)
+![版本策略框架](/mesosphere/dcos/cn/1.13/img/version-policy-2.png)
 
-图 2. 版本策略框架
+图 1. 版本策略框架

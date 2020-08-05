@@ -28,7 +28,7 @@ model: /mesosphere/dcos/1.13/data.yml
 - [用例示例](#example-use-cases) 然后为三个常用用例的自定义 CA 证书配置文件提供示例文件内容。
 
 # 受支持的 CA 证书
-- 仅支持具有关联 RSA 类型密钥对的自定义 CA 证书。不支持其他类型的证书，例如使用 ECC 类型密钥对的证书。
+- 仅支持具有关联 RSA 类型密钥对的自定义 CA 证书。不支持其他类型的证书，如使用 ECC 类型密钥对的证书。
 - 只有全新安装的 DC/OS Enterprise 1.10 或更高版本才支持自定义 CA 证书。不支持较旧版本的 DC/OS，并且在升级期间无法添加自定义 CA 证书。
 
 术语表 
@@ -49,7 +49,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 要使用自定义 CA 证书安装 DC/OS Enterprise，您需要：
 
-- 使用 [高级 DC/OS 安装方法](/mesosphere/dcos/cn/1.13/installing/ent/custom/advanced/)。不支持其他安装方法。
+- 使用 [高级 DC/OS 安装方法](/mesosphere/dcos/cn/1.13/installing/ent/custom/advanced/). 不支持其他安装方法。
 - 包含自定义 CA 证书的文件。
 - 包含与自定义 CA 证书相关联的私钥的文件。
 - 包含与自定义 CA 证书相关联的证书链的文件，如果 CA **不是** 自签名根 CA。
@@ -75,7 +75,7 @@ dcos-ca-certificate-chain.crt
 出于安全原因，安装程序不会将私钥从 bootstrap 节点复制到主节点。
 在**开始安装**之前，必须手动将与自定义 CA 证书相关联的私钥分发到每个 DC/OS 主节点。
 
-私钥文件的文件系统路径必须是 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`。
+私钥文件的文件系统路径必须是 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`.
 目录 `/var/lib/dcos/pki/tls/CA/private/` 必须在将文件 `custom_ca.key` 放置在每个 DC/OS 主节点上的目录中之前使用以下命令手动创建。
 
 ```bash
@@ -93,31 +93,31 @@ scp dcos-ca-certificate-key.key centos@W.X.Y.Z:/var/lib/dcos/pki/tls/CA/private/
 
 ## 指定位置
 
-bootstrap 节点上 `$DCOS_INSTALL_DIR/genconf/` 目录中的自定义 CA 证书、关联私钥和证书链文件的文件系统路径必须在 DC/OS 配置文件中分别使用 `ca_certificate_path`、`ca_certificate_key_path` 和 `ca_certificate_chain_path` 参数进行指定。路径必须相对于 `$DCOS_INSTALL_DIR`。
+bootstrap 节点上 `$DCOS_INSTALL_DIR/genconf/` 目录中的自定义 CA 证书、关联私钥和证书链文件的文件系统路径必须在 DC/OS 配置文件中分别使用 `ca_certificate_path`、`ca_certificate_key_path` 和 `ca_certificate_chain_path` 参数进行指定。路径必须相对于 `$DCOS_INSTALL_DIR`.
 
 以下 [用例示例](#example-use-cases) 部分显示如何设置这些配置参数。
 
 # <a name="config-ref"></a>配置参数参考
 ## ca\_certificate\_path
-到包含 OpenSSL PEM 格式的单个 X.509 CA 证书的文件的路径（相对于 `$DCOS_INSTALL_DIR`）。例如：`genconf/dcos-ca-certificate.crt`它是**根 CA 证书**（“自签名”）或是由其他证书颁发机构签署的**中间 CA 证书**（“交叉认证”）。
+到包含 OpenSSL PEM 格式的单个 X.509 CA 证书的文件的路径（相对于 `$DCOS_INSTALL_DIR` 例如：`genconf/dcos-ca-certificate.crt`。 它是 **根 CA 证书**（“自签名”）或是由其他证书颁发机构签署的 **中间 CA 证书**（“交叉认证”）。
 
 如果提供，则这是自定义 CA 证书。它用作签名 CA 证书，即 DC/OS CA 将使用此证书签署终端实体证书；本证书的主体将是由 DC/OS CA 签署的证书的发行方。如果未提供，则 DC/OS 群集在初始 bootstrap 阶段中生成唯一根 CA 证书，并将其用作签名 CA 证书。
 
 与自定义 CA 证书相关联的公钥必须为 RSA 类型。
 
 ## ca\_certificate\_key\_path
-到包含私匙文件的路径（相对于 `$DCOS_INSTALL_DIR`），该私匙对应于自定义 CA 证书，以 OpenSSL (PKCS#8) PEM 格式编码。例如：`genconf/CA_cert.key`。
+到包含私匙文件的路径（相对于 `$DCOS_INSTALL_DIR`），该私匙对应于自定义 CA 证书，以 OpenSSL (PKCS#8) PEM 格式编码。例如：`genconf/CA_cert.key`.
 
 这是高度敏感的数据。配置处理器仅为配置验证目的访问此文件，并且不复制数据。成功配置验证后，需要将此文件从带外放置到路径 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` 上所有 DC/OS 主节点的文件系统中，然后再启动大多数 DC/OS `systemd` 单元。该文件必须是根用户可读取的，并且应该具有 0600 权限集。
 
 如果指定了 `ca_certificate_path`，则此路径是必需的。
 
 ## ca\_certificate\_chain\_path
-到包含完整 CA 证书链文件的路径（相对于 `$DCOS_INSTALL_DIR`），该证书链是终端实体证书验证所需的，采用 OpenSSL PEM 格式。例如：`genconf/CA_cert_chain.pem`。
+到包含完整 CA 证书链文件的路径（相对于 `$DCOS_INSTALL_DIR`），该证书链是终端实体证书验证所需的，采用 OpenSSL PEM 格式。例如：`genconf/CA_cert_chain.pem`.
 
 如果 `ca_certificate_path` 指向自签名根 CA 证书，则不能定义此参数。
 
-否则，`ca_certificate_chain_path` 指向一个文件，该文件包含 CA 证书到自签名根 CA 证书的完整链，但不包括 `ca_certificate_path` 中的签名证书。顺序很重要：第一个证书必须验证 `ca_certificate_path` 中的签名证书，而每个后续证书都必须验证先前的证书。
+否则，`ca_certificate_chain_path` 指向一个文件，该文件包含 CA 证书到自签名根 CA 证书的完整链，但不包括 `ca_certificate_path`. 中的签名证书。顺序很重要：第一个证书必须验证 `ca_certificate_path` 中的签名证书，而每个后续证书必须验证先前的证书。
 
 使用自定义 CA 证书安装 DC/OS Enterprise
 
@@ -157,10 +157,10 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 ca_certificate_chain_path: genconf/dcos-ca-certificate-chain.crt
 [...]
 ```
-请注意，在使用根证书作为自定义 CA 证书设置 DC/OS Enterprise 时，不得存在 `ca_certificate_chain_path`。
+请注意，在使用根证书作为自定义 CA 证书设置 DC/OS Enterprise 时，不得存在 `ca_certificate_chain_path`
 
-##  安装
-按照[高级安装程序文档](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#install-dcos)中的说明继续安装。请注意，当执行 `dcos_generate_config.ee.sh` 时，当前工作目录必须是 `$DCOS_INSTALL_DIR` 目录。
+## 安装
+按照[高级安装程序文档]中的说明继续安装。(/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#install-dcos). 请注意，当执行 `dcos_generate_config.ee.sh` 时，当前工作目录必须是 `$DCOS_INSTALL_DIR` 目录。
 
 ## 验证安装
 验证是否使用自定义 CA 证书正确安装 DC/OS Enterprise 群集的一种方法是启动到 Admin Router 的 TLS 连接，Admin Router 在安装后会显示自定义 CA 签署的证书。为此，您首先需要获取已部署群集的 DC/OS CA 捆绑包。[本页面](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)显示了您如何做到这一点。
@@ -192,19 +192,19 @@ verify return:1
 ```
 
 ## 用例示例
-本部分介绍了如何在 `$DCOS_INSTALL_DIR/genconf/config.yaml` DC/OS 配置文件中为自定义 CA 证书层次结构的最常见用例指定三个配置参数 `ca_certificate_path`、`ca_certificate_key_path` 和 `ca_certificate_chain_path`。
+本部分介绍了如何在 `ca_certificate_path` DC/OS 配置文件中为自定义 CA 证书层次结构的最常见用例指定三个配置参数 `ca_certificate_key_path`、`ca_certificate_chain_path` 和 `$DCOS_INSTALL_DIR/genconf/config.yaml`
 
 ### 用例 1：
 自定义 CA 证书是自签名根 CA 证书。CA 没有“父” CA，因此 CA 证书链为空。
 
 存在以下文件：
 
-- 在 botstrap 节点上：
-    - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件
-    - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件
+- 在 bootstrap 节点上：
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt`- 包含自定义 CA 证书的  文件
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key`- 包含与自定义 CA 证书相关联的私钥的  文件
 
 - 在主节点：
-    - 包含与自定义 CA 证书相关联的私钥的 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` 文件。
+    - `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`- 包含与自定义 CA 证书相关联的私钥的  文件。
 
 以下是自定义根 CA 证书的 `issuer` 和 `subject` 字段示例：
 
@@ -229,12 +229,12 @@ ca_certificate_key_path: genconf/dcos-ca-certificate-key.key
 在该用例中，自定义 CA 证书是由 root CA 直接颁发的中间 CA 证书。CA 证书链只包含该根 CA 证书。存在以下文件：
 
 - 在 bootstrap 节点上：
-    - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件， 格式为 PEM
-    - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件，格式为 PKCS#8
-    - 仅包含根 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` 文件， 格式为 PEM
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt`- 包含自定义 CA 证书的  文件， 格式为 PEM
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key`- 包含与自定义 CA 证书相关联的私钥的  文件，格式为 PKCS#8
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt`- 仅包含 PEM 格式的根 CA 证书的  文件
 
 - 在主节点
-    - 包含与自定义 CA 证书相关联的私钥的 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` 文件，格式为 PKCS#8
+    - `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`- 包含与自定义 CA 证书相关联的私钥的  文件，格式为 PKCS#8
 
 以下是适当的中间自定义 CA 证书示例：
 
@@ -279,12 +279,12 @@ CA 证书链包括
 存在以下文件：
 
 - 在 bootstrap 节点上：
-    - 包含自定义 CA 证书的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt` 文件， 格式为 PEM
-    - 包含与自定义 CA 证书相关联的私钥的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key` 文件，格式为 PKCS#8
-    - 包含证书链的 `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt` 文件， 格式为 PEM
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate.crt`- 包含自定义 CA 证书的  文件， 格式为 PEM
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-key.key`- 包含与自定义 CA 证书相关联的私钥的  文件，格式为 PKCS#8
+    - `$DCOS_INSTALL_DIR/genconf/dcos-ca-certificate-chain.crt`- 包含证书链的  文件， 格式为 PEM
 
 - 在主节点
-    - 包含与自定义 CA 证书相关联的私钥的 `/var/lib/dcos/pki/tls/CA/private/custom_ca.key` 文件，格式为 PKCS#8
+    - `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`- 包含与自定义 CA 证书相关联的私钥的  文件，格式为 PKCS#8
 
 以下是适当的自定义中间 CA 证书示例：
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 云安装
+navigationTitle:  云安装
 title: 云安装
 menuWeight: 10
 excerpt: 使用 Mesosphere Universal 安装工具在云环境中安装 DC/OS 的指南
@@ -19,17 +19,17 @@ Terraform 是一种开源基础架构自动化工具，使用模板来管理多�
 - 创建一个模块化、可重复使用的脚本，以便在各种操作系统和云提供程序上轻松分离 DC/OS，便于就地安装、升级和修改。
 - 消除在哪种给定场景中应使用哪种 DC/OS 安装方法的混淆。这个自动化工具有助于构建相应模块，可为群集生命周期中的每个阶段编制最佳实践，并将必要的模块挂接到现有基础架构中。
 
-#### [Amazon Web Services 上的 DC/OS](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/)
+#### [Amazon Web Services 上的 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/aws/)
 
-#### [DC/OS Azure 资源管理器](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/azure/)
+#### [DC/OS Azure 资源管理器](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/azure/)
 
-#### [Google Cloud Platform 上的 DC/OS](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/gcp/)
+#### [Google Cloud Platform 上的 DC/OS](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/gcp/)
 
 ## 前提条件
 为了使用 Terraform 模板在云提供程序上部署 DC/OS，下面是必备条件：
 
 - 安装 Terraform，并拥有运行和调配资源所需的基础架构凭据和权限。
-- 准备与您选择的云提供商对应的本地 SDK。示例：设置 `AWS-CLI` 并包括默认区域。
+- 准备与您选择的云提供商对应的本地 SDK。例如：设置 `AWS-CLI` 并包括默认区域。
 - 准备使用 SSH 代理或直接传递公钥，将您的 SSH 凭据输入到您通过 Terraform 启动的实例中。这有助于您轻松与群集互动。
 - 熟悉您要运行 DC/OS 所在的环境（例如，哪个云提供商）的特征，并了解该环境的特点和限制。
 - 对于每个支持的 Terraform 提供程序，了解您的帐户上存在的 API 限制。
@@ -42,16 +42,15 @@ Terraform 是一种开源基础架构自动化工具，使用模板来管理多�
 这些安装方法用于快速演示和概念证明以及生产群集。下列安装方法支持升级。
 
 以下任何方法均可用于安装 DC/OS：
-- [Amazon Web Services (AWS)](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/aws/)：通过使用 Mesosphere Universal 安装工具在 AWS 上安装 DC/OS。
-- [Azure](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/azure/)：通过使用 Mesosphere Universal 安装工具在 Microsoft Azure 上安装 DC/OS。
-- [Google Cloud Platform (GCP)](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/gcp/)：通过使用 Mesosphere Universal 安装工具在 Google Cloud Platform (GCP) 上安装 DC/OS。
+- [Amazon Web Services (AWS)](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/aws/): 通过使用 Mesosphere Universal 安装工具在 AWS 上安装 DC/OS。
+- [Azure](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/azure/): 通过使用 Mesosphere Universal 安装工具在 Microsoft Azure 上安装 DC/OS。
+- [Google Cloud Platform (GCP)](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/gcp/): 通过使用 Mesosphere Universal 安装工具在 Google Cloud Platform (GCP) 上安装 DC/OS。
 
 ## 其他安装方法
 这些安装方法由社区提供，未经 Mesosphere 测试。在使用以下安装时，升级 DC/OS 不是受支持的功能。
 
-- [AWS 上的 CloudFormation](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) (AWS)：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
-- [Azure 资源管理器模板](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/community-supported-methods/azure/)：使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
-- [用于 DigitalOcean 的 Mesosphere Universal 安装工具](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/community-supported-methods/digitalocean/)：使用配置为在 DigitalOcean 上运行 Mesosphere DC/OS 的 Terraform 模板，在 DigitalOcean 上安装您的 DC/OS 群集。
-- [用于 Packet（裸机）的 Mesosphere Universal 安装工具](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/community-supported-methods/packet/)：裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。
+- [AWS 上的 CloudFormation](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) (AWS)：使用 AWS CloudFormation 上的 DC/OS 模板为 Amazon Web Services (AWS) 创建 DC/OS 群集。
+- [Azure 资源管理器模板](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/azure/): 使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。
+- [用于 Packet（裸机）的 Mesosphere Universal 安装工具](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/packet/): 裸机环境是计算机系统或网络，其中的虚拟机直接安装在硬件上，而不是安装在主机操作系统 (OS) 内。使用配置为在 Packet 上运行 Mesosphere DC/OS 的 Terraform 模板在 Packet 裸机上安装 DC/OS 群集。
 
-<p class="message--note"><strong>注意：</strong>联系 <a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a> 或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。</p>
+<p class="message--note"><strong>注意：</strong>联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。</p>

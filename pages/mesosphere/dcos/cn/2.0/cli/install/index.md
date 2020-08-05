@@ -21,11 +21,11 @@ model: /mesosphere/dcos/2.0/data.yml
 - 您必须有一台 **单独的计算机**，它不在您可以安装 CLI 的 DC/OS 群集中。
 - 您必须具有从托管 CLI 的外部系统访问 DC/OS 群集的网络访问权限。
 - 您必须能够在托管 CLI 的外部系统打开命令行 shell 终端。
-- 您不得使用 `noexec` 安装 `/tmp` 目录，除非您已设置除了`/tmp` 目录以外的 `TMPDIR` 环境变量。使用安装 `noexec` 选项安装 `/tmp` 目录可能会阻止 CLI 操作。
+- 您不得使用 `noexec` 安装 `/tmp` 目录，除非您已设置除了`TMPDIR` 目录以外的 `/tmp` 环境变量。使用安装 `/tmp` 选项安装 `noexec` 目录可能会阻止 CLI 操作。
 
 # Linux 的先决条件
 - 您必须能够在托管 CLI 的系统中运行 `cURL` 程序。`curl` 命令在大多数 Linux 分发中都是默认安装的。
-- 如果您使用 Fedora 30 或更高版本，则必须安装 `libcrypt` 库。您可以通过运行 `sudo dnf install libxcrypt-compat` 来安装库。
+- 如果您使用 Fedora 30 或更高版本，则必须安装 `libcrypt` 库。您可以通过运行  来安装库。`sudo dnf install libxcrypt-compat`.
 
 
 # macOS 的先决条件
@@ -41,13 +41,13 @@ model: /mesosphere/dcos/2.0/data.yml
 
 1. 在 DC/OS UI 的右上角，单击群集名称右侧的向下箭头。
 
-    ![打开群集弹出窗口](/mesosphere/dcos/2.0/img/open-cluster-popup.png)
+    ![打开群集弹出窗口](/mesosphere/dcos/cn/2.0/img/open-cluster-popup.png)
 
     图 1. 打开群集弹出菜单
 
 1. 选择 **安装 CLI**。
 
-    ![CLI 安装 UI](/mesosphere/dcos/2.0/img/install-cli.png)
+    ![CLI 安装 UI](/mesosphere/dcos/cn/2.0/img/install-cli.png)
 
     图 2. 选择安装 CLI
 
@@ -91,15 +91,15 @@ model: /mesosphere/dcos/2.0/data.yml
     dcos cluster setup http://example.com
     ```
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/mesosphere/dcos/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[安全](/mesosphere/dcos/cn/2.0/security/).
 
-    您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处](/mesosphere/dcos/2.0/cli/command-reference/dcos-cluster/) 了解有关管理群集连接的更多信息。
+    您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。可在 [此处] 了解有关管理群集连接的更多信息。(/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-cluster/).
 
 <a name="macos"></a>
 
 # 在 macOS 上手动安装 DC/OS CLI
 
-**如果已安装 [Homebrew](https://brew.sh)，则可以用简单的 `brew install dcos-cli` 替换本教程的前两个步骤。**
+**如果已安装 [Homebrew]`brew install dcos-cli`，则可以用简单的 (https://brew.sh) 替换本教程的前两个步骤。**
 
 1. 通过运行以下命令，将 DC/OS CLI 二进制文件下载到本地目录：
 
@@ -120,7 +120,7 @@ model: /mesosphere/dcos/2.0/data.yml
     ```
     如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/2.0/security/).
 
     您的 CLI 现在应通过您的群集进行身份认证！
 
@@ -152,7 +152,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
     <p class="message--note"><strong>注意：</strong>如果系统无法找到可执行文件，您可能需要重新打开命令提示符或手动将安装目录添加到 PATH 环境变量中。</p>
 
-    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/2.0/security/)。
+    遵循 DC/OS CLI 中的说明。有关安全的更多信息，请参阅[文档](/mesosphere/dcos/cn/2.0/security/).
 
     您的 CLI 现在应通过您的群集进行身份认证！输入 `dcos` 即可开始。
 

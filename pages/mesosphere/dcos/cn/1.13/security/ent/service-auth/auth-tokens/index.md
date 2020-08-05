@@ -24,7 +24,7 @@ API 使用者应能够在当前认证令牌到期时处理。
 DC/OS 服务可使用公钥加密技术代表 [DC/OS Identity and Access Manager (Bouncer)](/mesosphere/dcos/cn/1.13/overview/architecture/components/#dcos-iam) 组件对传入请求进行身份认证。如果客户端显示的认证令牌已由 Bouncer 使用 Bouncer 的私钥和 RS256 算法签名，则此方法有效。
 
 ## Bouncer JSON Web Key Set (JWKS) 端点
-Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公匙详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517)。在该数据结构内，公钥根据 [RFC 7518](https://tools.ietf.org/html/rfc7518) 进行参数化。
+Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公匙详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517). 在该数据结构内，公钥根据 [RFC 7518] 进行参数化。(https://tools.ietf.org/html/rfc7518).
 
 以下为示例响应：
 
@@ -45,9 +45,9 @@ curl localhost:8101/acs/api/v1/auth/jwks
 ```
 
 ## 从 JWKS 数据构建公钥
-完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`)。两者均为整数。在上一个示例中，指数参数以 `e` 的值编码，模数以 `n` 的值编码。
+完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`). 两者均为整数。在上一个示例中，指数参数以 `e` 的值编码，模数以 `n`. 的值编码。
 
-整数是“Base64urLuInt”编码。此编码由 [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3) 指定：
+整数是“Base64urLuInt”编码。此编码由 [RFC 7518]指定：(https://tools.ietf.org/html/rfc7518#section-6.3):
 
 <blockquote>将正整数值或零整数值表示为值的无符号大端表示的 base64url 编码作为八位字节序列。八位字节序列 **必须**使用代表值所需的最小八位字节数。零表示为 BASE64URL（单个零值八位字节），即“AA”。</blockquote>
 
@@ -112,4 +112,4 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0Njc5ODU0NjYsInVpZCI6InBldGVyIn0
 {'uid': 'peter', 'exp': 1467985466}
 ```
 
-响应表示这是 `peter` 的有效认证令牌。
+响应表示这是  的有效认证令牌。`peter`.

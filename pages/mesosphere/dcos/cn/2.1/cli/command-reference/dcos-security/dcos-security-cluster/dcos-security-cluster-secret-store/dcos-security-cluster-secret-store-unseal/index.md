@@ -1,0 +1,38 @@
+---
+layout: layout.pug
+navigationTitle:  dcos security cluster secret-store unseal
+title: dcos security cluster secret-store unseal
+menuWeight: 115
+excerpt: 拆封密钥存储库
+render: mustache
+model: /mesosphere/dcos/2.1/data.yml
+enterprise: true
+---
+# 说明
+
+`dcos security cluster secret-store unseal` 命令允许您拆封给定存储库。
+
+# 使用
+
+```
+dcos security cluster secret-store unseal [OPTIONS] STORE_ID KEY
+```
+
+# 选项
+
+| 名称 | 说明 |
+|---------|-------------|
+|  `-j`, `--json` | JSON 格式的输出数据。|
+|  `-h`, `--help` |                显示此消息并退出。|
+
+## 位置自变量
+
+| 名称 | 说明 |
+|---------|-------------|
+| `STORE_ID`  | 密钥存储库的 ID。 |
+
+# 父命令
+
+| 命令 | 说明 |
+|---------|-------------|
+| [dcos security cluster secret-store](/mesosphere/dcos/cn/2.1/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 显示您的密钥存储库设置。 |

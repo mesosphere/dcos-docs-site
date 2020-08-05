@@ -23,18 +23,18 @@ dcos package describe <package-name> --package-versions
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help` | 显示用法。 |
-| `--package-versions` | 显示该软件包的所有版本。|
+| `-h`, `--help`   | 显示用法。 |
+| `--package-versions`   | 显示该软件包的所有版本。|
 
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<package-name>` | DC/OS 包的名称。|
+| `<package-name>`   | DC/OS 包的名称。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |

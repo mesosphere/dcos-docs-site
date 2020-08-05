@@ -23,7 +23,7 @@ dcos backup restore <backup id> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示此命令的帮助。 |
+| `--help, h`   | 显示此命令的帮助。 |
 
 ## 位置自变量
 
@@ -65,5 +65,5 @@ dcos backup restore <backup id> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [dcos backup](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-backup/) |  创建、删除、列出、恢复和显示备份命令。 |
 

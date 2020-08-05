@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 许可证 CLI
+navigationTitle:  许可证 CLI
 title: 许可证 CLI
 menuWeight: 0
 enterprise: true
@@ -9,12 +9,12 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-`dcos license` 命令也记录在 [CLI 命令参考](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) 文档中。
+`dcos license` 命令也记录在 [CLI 命令参考](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-license/) 文档中。
 
 # 先决条件
 - 一个 DC/OS Enterprise 群集。
-- [DC/OS CLI](/mesosphere/dcos/2.0/cli/install/) 已安装。
-- [DC/OS Enterprise CLI](/mesosphere/dcos/2.0/cli/plugins/#enterprise-cli-plugin) 已安装。
+- [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/install/) 已安装。
+- [DC/OS Enterprise CLI](/mesosphere/dcos/cn/2.0/cli/plugins/#enterprise-cli-plugin) 已安装。
 
 
 # 列示许可证
@@ -43,7 +43,7 @@ dcos license get [--decryption-key] [<id>|active]
 
 # 获取许可证审计数据
 
-您可以使用命令 `dcos license audit get` 指定存储审计数据的可选路径。该命令采用可选标识符来检索为特定许可生成的数据。如果您想解密审计数据，您可以使用 `dcos license get --decryption-key` 命令检索解密密钥。
+您可以使用命令  指定存储审计数据的可选路径。`dcos license audit get`. 该命令采用可选标识符来检索为特定许可生成的数据。如果您想解密审计数据，您可以使用 `dcos license get --decryption-key` 命令检索解密密钥。
 
 
 ```bash

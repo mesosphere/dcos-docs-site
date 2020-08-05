@@ -46,10 +46,10 @@ module "dcos" {
   # dcos_superuser_password_hash = "${file("./dcos_superuser_password_hash.sha512")}"
 
   dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
+  bootstrap_instance_type      = "m5.large"
+  masters_instance_type        = "m5.2xlarge"
+  private_agents_instance_type = "m5.xlarge"
+  public_agents_instance_type  = "m5.xlarge"
 }
 
 output "masters-ips" {
@@ -107,7 +107,7 @@ locals {
 ### 内部子网络
 共享信息的一部分是在您的基础架构中使用了哪些内部子网。DC/OS 的所有部分都需要知道此信息，以便可以对流量进行路由并由安全组允许。如果您未指定 `subnet_range`，则 terraform 使用默认值 `172.16.0.0/16`。我们要指定的远程分域需要自己的子网。
 
-<p class="message--important"><strong></strong>重要信息：您不应该采用 <code>172.16/12</code> 的下一个自由网络，因为 <code>172.17.0.0/16</code> 是 dockers 内部网络默认设置，这会导致问题。</p>
+<p class="message--important"><strong>重要信息：</strong>您不应该采用 <code>172.16/12</code> 的下一个自由网络，因为 <code>172.17.0.0/16</code> 是 dockers 内部网络默认设置，这会导致问题。</p>
 
 若要在我们的管理节点和远程分域之间进行清晰分离，我们将采用 `10.128.0.0/16` 作为我们的远程分域子网。此外，我们将使用 [map 变量](https://www.terraform.io/docs/configuration-0-11/variables.html#maps) 将网络分配至分域。这将使将来在添加其他区域时更加容易。
 
@@ -160,7 +160,7 @@ locals {
 ## 远程分域
 在我们开始更改 `dcos` 模块内的值之前，我们将把远程分域的基础架构定义附加到您的 `main.tf`。在我们的示例中，我们只希望在远程分域钟拥有专用代理节点，而专用和公共代理节点均可放置在远程分域中。
 
-<p class="message--important"><strong></strong>重要信息：不支持在远程分域中运行管理节点实例。</p>
+<p class="message--important"><strong>重要信息：</strong>不支持在远程分域中运行管理节点实例。</p>
 
 若要仅启动专用代理节点，我们将设置 `num_masters = 0` 和 `num_public_agents = 0`。由于某些内部限制，我们还必须告诉基础架构模块不为具有 `lb_disable_public_agents` 和 `lb_disable_masters` 的管理节点和公共代理节点准备负载均衡器
 
@@ -210,7 +210,7 @@ module "dcos-usw2" {
 
 module "vpc-connection-master-usw2" {
   source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 2.0.0"
+  version = "~> 0.2.0"
 
   providers = {
     "aws.local"  = "aws.master"
@@ -286,10 +286,10 @@ module "dcos" {
   dcos_version = "1.13.3"
 
   dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
+  bootstrap_instance_type      = "m5.large"
+  masters_instance_type        = "m5.2xlarge"
+  private_agents_instance_type = "m5.xlarge"
+  public_agents_instance_type  = "m5.xlarge"
 
   accepted_internal_networks   = "${values(local.region_networks)}"
   additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
@@ -348,10 +348,10 @@ module "dcos" {
   dcos_version = "1.13.0"
 
   dcos_instance_os             = "centos_7.5"
-  bootstrap_instance_type      = "t2.medium"
-  masters_instance_type        = "t2.medium"
-  private_agents_instance_type = "t2.medium"
-  public_agents_instance_type  = "t2.medium"
+  bootstrap_instance_type      = "m5.large"
+  masters_instance_type        = "m5.2xlarge"
+  private_agents_instance_type = "m5.xlarge"
+  public_agents_instance_type  = "m5.xlarge"
 
   accepted_internal_networks   = "${values(local.region_networks)}"
   additional_private_agent_ips = ["${module.dcos-usw2.private_agents.private_ips}"]
@@ -408,7 +408,7 @@ module "dcos-usw2" {
 
 module "vpc-connection-master-usw2" {
   source  = "dcos-terraform/vpc-peering/aws" // module init the peering
-  version = "~> 2.0.0"
+  version = "~> 0.2.0"
 
   providers = {
     "aws.local"  = "aws.master"

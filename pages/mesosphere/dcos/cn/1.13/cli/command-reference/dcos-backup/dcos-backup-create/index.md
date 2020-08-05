@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 说明
 
-`dcos backup create` 命令创建新的 [群集备份](/mesosphere/dcos/1.13/administering-clusters/backup-and-restore/)。
+`dcos backup create` 命令创建新的 [群集备份](/mesosphere/dcos/cn/1.13/administering-clusters/backup-and-restore/).
 
 # 使用
 
@@ -23,7 +23,7 @@ dcos backup create --label [label] [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示此命令的帮助。 |
+| `--help, h`   | 显示此命令的帮助。 |
 | `--label string` | 要附加到备份的标签。 |
 
 # 示例
@@ -42,6 +42,6 @@ backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27     1.13.0      STATUS_BACKING_UP 
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [dcos backup](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-backup/) |  创建、删除、列出、恢复和显示备份命令。 |
 
 

@@ -7,8 +7,6 @@ menuWeight: 9
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
-
 此时，您已经了解到如何创建群集以及如何部署和测试群集上运行的应用程序和服务。您已经使用在 Docker 和 DC/OS UCR 容器中运行的单个命令和应用程序。通过本教程，您将通过容器编排了解到一些核心利益提供商，并执行一些常见的资源扩展任务。
 
 # 编排和群集管理
@@ -54,7 +52,7 @@ model: /mesosphere/dcos/1.13/data.yml
 - 如何调试资源管理问题。
 
 # 查看应用定义
-如果您再次查看 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 示例应用程序的 [应用定义]((https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json)) ，则可以在 `cpus`、`mem`、`disk` 和 `gpus` 设置中看到为该应用程序分配的资源。例如：
+如果您再次查看 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 示例应用程序的 [应用定义](https://raw.githubusercontent.com/joerg84/dcos-101/master/app2/app2.json) ，则可以在 `cpus`、`mem`、`disk` 和 `gpus` 设置中看到为该应用程序分配的资源。例如：
 
 ```json
 {
@@ -73,10 +71,10 @@ model: /mesosphere/dcos/1.13/data.yml
 ```
 
 ### 扩展前的资源分配
-`cpus`、`mem`、`disk` 和 `gpus` 的值为任务可以使用的每个资源定义 **maximum**。任务很少使用分配的最大资源，但这些设置指定了允许任务使用的上限值。
+`cpus``mem``disk` 和 `gpus` 的值为任务可以使用的每个资源定义 **maximum**。任务很少使用分配的最大资源，但这些设置指定了允许任务使用的上限值。
 
 ### 将组用于公共资源要求
-您可能已经注意到 [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) 和 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 应用定义中的标识符以 `/dcos-101/` 为前缀。
+您可能已经注意到 [app1](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.json) 和 [app2](https://github.com/joerg84/dcos-101/blob/master/app2/app2.go) 应用定义中的标识符以 `/dcos-101/`. 为前缀。
 
 此常用标识符用于定义两个示例应用程序所属的特定 **应用程序组**。应用程序组允许您指定和配置详细信息和依赖关系，并将其同时应用于多个应用程序。
 
@@ -261,5 +259,5 @@ dcos marathon app remove /dcoc-101/oom-app
 # 相关主题
 现在您已经几乎是专家了，您可能希望开始探索更高级的主题和配置选项，例如：
 - 使用应用程序组和 [标签](../../task-labels/)
-- 定义 [布局约束](/mesosphere/dcos/cn/1.13//deploying-services/marathon-constraints/)
-- 在 [pods](/mesosphere/dcos/cn/1.13//deploying-services/pods/) 中部署应用程序
+- 定义 [布局约束](/mesosphere/dcos/cn/1.13/deploying-services/marathon-constraints/)
+- 在 [pods] 中部署应用程序(/mesosphere/dcos/cn/1.13/deploying-services/pods/)

@@ -20,10 +20,10 @@ DC/OS 中的配额建立在 Apache&reg; Mesos&reg; 中的 [配额限制](https:/
 
 # 先决条件
 
-* [已安装并配置 DC/OS CLI](/mesosphere/dcos/2.0/cli/)。
-* 有足够 [权限](/mesosphere/dcos/2.0/security/ent/perms-reference) 管理配额（仅限 Enterprise DC/OS）。
+* [已安装并配置 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)。
+* 有足够 [权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference) 管理配额（仅限 Enterprise DC/OS）。
 
- 配额管理操作通常由群集管理员执行。
+    配额管理操作通常由群集管理员执行。
 
 # 创建组
 

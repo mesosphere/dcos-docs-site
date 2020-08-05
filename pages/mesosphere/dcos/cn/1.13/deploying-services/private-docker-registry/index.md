@@ -10,7 +10,7 @@ enterprise: false
 ---
 
 
-若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 DC/OS [密钥存储库](#secret-store-instructions)，并在服务或 pod 定义中进行引用。
+若要从专用 Docker 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS Enterprise 中，您还可以将 Docker 注册表凭据上传到 DC/OS [密钥存储库](#secret-store-instructions），并在服务或 pod 定义中进行引用。
 
 <a name="uri-instructions"></a>
 # 将专用 Docker 注册表凭据引用为 URI
@@ -48,7 +48,7 @@ enterprise: false
     ```
 
 
-<p class="message--important"><strong></strong>重要信息：所有会启动您应用的节点都必须能够访问 URI。可以将文件分发到所有节点的本地文件系统，例如，通过 RSYNC/SCP 分发，或将其存储在共享网络驱动器上，例如 <a href="http://aws.amazon.com/s3/">Amazon S3</a>。仔细考虑所选方法的安全影响。</p>
+<p class="message--important"><strong>重要信息：</strong>所有会启动您应用的节点都必须能够访问 URI。可以将文件分发到所有节点的本地文件系统，例如，通过 RSYNC/SCP 分发，或将其存储在共享网络驱动器上，例如 <a href="http://aws.amazon.com/s3/">Amazon S3</a>. 仔细考虑所选方法的安全影响。</p>
 
 
 ## 步骤 2：将 URI 路径添加到服务定义
@@ -91,9 +91,9 @@ enterprise: false
 
 # 引用密钥存储库中的专用 Docker 注册表凭据 [enterprise type="inline" size="small" /]
 
-按照以下步骤向 [DC/OS Enterprise 密钥存储库](/mesosphere/dcos/cn/1.13/security/ent/secrets/) 添加 Docker 注册表凭据，然后在服务定义中引用该密钥。
+按照以下步骤向 [DC/OS Enterprise 密钥存储库](/mesosphere/dcos/cn/1.13/security/ent/secrets/)添加 Docker 注册表凭据，然后在服务定义中引用该密钥。
 
-<p class="message--important"><strong>重要信息：</strong>此功能仅适用于<a href="/mesosphere/dcos/cn/1.13/deploying-services/containerizers/ucr/">通用容器运行时</a>。如果需要使用 Docker Engine，请遵循上述 URI 说明。</p>
+<p class="message--important"><strong>重要信息：</strong>此功能仅适用于<a href="/mesosphere/dcos/1.13/deploying-services/containerizers/ucr/">通用容器运行时</a>. 如果需要使用 Docker Engine，请遵循上述 URI 说明。</p>
 
 ## 步骤 1：创建凭据文件
 
@@ -132,7 +132,7 @@ enterprise: false
     echo -n myuser@domain.com:hard-to-guess-password | base64
     ```
 
-1. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/mesosphere/dcos/cn/1.13/security/ent/secrets/create-secrets/)。
+1. 添加 `config.json` 文件到 DC/OS 密钥存储库。[了解创建密钥的详细信息](/mesosphere/dcos/cn/1.13/security/ent/secrets/create-secrets/).
 
    <p class="message--note"><strong>注意：</strong>自 DC/OS 版本 1.10.0 开始，您只能使用 DC/OS CLI 将文件添加到密钥存储库。</p>
 
@@ -152,7 +152,7 @@ enterprise: false
 
 1. 在 `secrets` 参数中添加密钥位置，并在 `docker.pullConfig` 参数中引用密钥。
 
-   <p class="message--important"><strong>重要信息：</strong>此功能<strong>仅</strong>获得通用容器运行时的支持：<code>container.type</code> 必须为 <code>MESOS</code>。</p>
+   <p class="message--important"><strong>重要信息：</strong>此功能 <strong>仅</strong> 获得通用容器运行时的支持：<code>container.type</code> 必须为 <code>MESOS</code>.</p>
 
    ```json
    {
@@ -178,7 +178,7 @@ enterprise: false
    }
    ```
 
-1. 将服务添加到 DC/OS。如果您使用上述示例，则 `<svc-name>` 为 `mesos-docker`。
+1. 将服务添加到 DC/OS。如果您使用上述示例，则 `<svc-name>` 为 `mesos-docker`.
 
    ```
    dcos marathon app add <svc-name>.json
@@ -190,7 +190,7 @@ enterprise: false
 
 1. 在 `secrets` 参数中添加密钥位置，并在 `containers.image.pullConfig` 参数中引用密钥。
 
-   <p class="message--important"><strong>重要信息：</strong>仅当 <code>image.kind</code> 设置为 <code>DOCKER 时</code>，才支持此功能。</p>
+   <p class="message--important"><strong>重要信息：</strong>仅当 <code>image.kind</code> 设置为 <code>DOCKER</code>. 时，才支持此功能。</p>
 
    ```json
    {
@@ -229,7 +229,7 @@ enterprise: false
    }
    ```
 
-1. 将 pod 添加到 DC/OS。如果您使用上述示例，则 `<pod-name>` 为 `simple-pod`。
+1. 将 pod 添加到 DC/OS。如果您使用上述示例，则 `<pod-name>` 为 `simple-pod`.
 
       ```
       dcos marathon pod add <pod-name>.json
@@ -276,7 +276,7 @@ enterprise: false
     openssl x509 -hash -noout -in docker-registry-ca.crt
     ```
 
-1. Create a symbolic link from the trusted certificate to the `/var/lib/dcos/pki/tls/certs` directory on the public agent.
+1. 创建从受信任证书到公共代理节点上 `/var/lib/dcos/pki/tls/certs` 目录的符号链接。
 
     ```bash
     sudo ln -s /var/lib/dcos/pki/tls/certs/docker-registry-ca.crt /var/lib/dcos/pki/tls/certs/<hash_number>.0
@@ -284,46 +284,45 @@ enterprise: false
 
 <a name="tarball-instructions"></a>
 
-# 将自定义镜像推送到 tarball 的专用注册表。
+# 将自定义镜像从 tarball 推送到专用注册表中
 
-如果您向您的销售代表索取了 enterprise 版的 Marathon, 可能会在 `.tar` 存档档案给您一个 Docker 镜像。跟着这些步骤将它部署到您的注册表：
+如果您向销售代表索要企业版的 Marathon，您可能已在 `.tar` 存档中获得 Docker 镜像。按照以下步骤将其部署到注册表中：
 
+## 步骤 1：在本地机器中导入
 
-## 第1步: 输入到本地机器
-
-将 tarball 载入到您的本地 Docker 客户端，将路径传递到您的自定义 tarball。例如, `marathon-dcos-ee.<version>.tar`:
+1. 将 tarball 加载到您本地 Docker 客户端，并将路径传递到自定义 tarball。例如， `marathon-dcos-ee.<version>.tar`:
    ```bash
    docker load -i marathon-dcos-ee.<version>.tar
    ```
 
-  您可以用这个指令显示 Marathon 镜像。
+    **提示：** 可以使用此命令查看 Marathon 镜像。
 
-  ```
-  docker images
-  ```
+    ```
+    docker images
+    ```
 
-  您应可以看到类似这样的输出:
+    您会看到与如下内容类似的输出：
 
-  ```bash
-  REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
-  mesosphere/marathon-dcos-ee   1.4.0-RC4_1.9.4     d1ffa68a50c0        3 months ago        926.4 MB
-  ```
-
-## 第2步: 将镜像推送到注册表
-
-1. 重新给文件做标签来匹配您正在私用 Docker 注册表中的知识库。:
     ```bash
-    docker tag \
+    REPOSITORY                    TAG                 IMAGE ID            CREATED             SIZE
+    mesosphere/marathon-dcos-ee   1.4.0-RC4_1.9.4     d1ffa68a50c0        3 months ago        926.4 MB
+    ```
+
+## 步骤 2：将镜像推送至存储库
+
+1. 重新标记文件以匹配您在专用 Docker 注册表中使用的存储库：
+   ```bash
+   docker tag \
     mesosphere/marathon-dcos-ee:<mesosphere-tag> \
     <your-repo>/marathon-dcos-ee:<your-tag>
-    ```
+   ```
 
-   其中:
+   其中：
 
-   - `<mesosphere-tag>` 是来自 Mesosphere 镜像的标签。一般这会在文件名与版本数匹配。
-   - `<your-repo>` 是您想在其中存储镜像的私用知识库。
-   - `<your-tag>` 是镜像的标签。建议您使用 Mesosphere 镜像相同的标签。
-1. 将新镜像推送到您的私用 Docker 注册表:
-    ```bash
-    docker push <your-repo>/Marathon-DCOS-EE：<your-tag>
-    ```
+   - `<mesosphere-tag>` 是 Mesosphere 镜像的标签。通常，该标签与文件名中的版本号匹配。
+   - `<your-repo>` 是您要在其中存储镜像的专用存储库的名称。
+   - `<your-tag>` 是镜像的标签。建议使用与 Mesosphere 镜像相同的标记。
+1. 将新镜像推送至您的专用 Docker 注册表：
+   ```bash
+   docker push <your-repo>/marathon-dcos-ee:<your-tag>
+   ```

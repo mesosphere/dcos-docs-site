@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 更新 GUI
+navigationTitle:  更新 GUI
 title: 更新 GUI
 menuWeight: 90
 excerpt: DCOS GUI 更新服务 
@@ -15,7 +15,7 @@ DC/OS GUI 更新服务是在所有 DC/OS 管理节点上运行的组件。
 
 # 使用
 
-您可以通过向更新端点 `/dcos-ui-update-service/api/v1/update/<version>/` 发布请求，更新当前版本的 DC/OS GUI。提供的版本位于群集可用的 {{ model.packageRepo }} 存储库之一中。您可以通过请求 `dcos-ui` 包的 Cosmos API `/package/list-versions/` 端点找到可用的包版本。
+您可以通过向更新端点 `/dcos-ui-update-service/api/v1/update/<version>/` 发布请求，更新当前版本的 DC/OS GUI。提供的版本位于群集可用的 {{ model.packageRepo }} 存储库之一中。您可以通过请求 `/package/list-versions/` 包的 Cosmos API `dcos-ui` 端点找到可用的包版本。
 
 # 延迟
 

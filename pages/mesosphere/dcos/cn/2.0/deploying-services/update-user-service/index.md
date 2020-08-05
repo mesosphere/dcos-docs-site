@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 更新用户创建的服务
+navigationTitle:  更新用户创建的服务
 title: 更新用户创建的服务
 menuWeight: 3
 excerpt: 更新已部署应用程序的配置
@@ -10,9 +10,9 @@ enterprise: false
 ---
 
 
-可以使用 [`dcos marathon`](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) CLI 命令轻松查看和更新已部署应用程序的配置。
+可以使用 [`dcos marathon`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) CLI 命令轻松查看和更新已部署应用程序的配置。
 
-在 UI 中更新包的流程不同。如需更多信息，请参阅 [文档](/mesosphere/dcos/2.0/deploying-services/config-universe-service/)。
+在 UI 中更新包的流程不同。如需更多信息，请参阅 [文档](/mesosphere/dcos/cn/2.0/deploying-services/config-universe-service/).
 
 # 更新所有环境变量
 

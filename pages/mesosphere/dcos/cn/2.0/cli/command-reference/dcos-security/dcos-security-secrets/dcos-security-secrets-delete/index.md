@@ -36,4 +36,4 @@ dcos security secrets delete [OPTIONS] PATH
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security secrets](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理您的密匙。 |
+| [dcos security secrets](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-secrets/) |  管理您的密匙。 |

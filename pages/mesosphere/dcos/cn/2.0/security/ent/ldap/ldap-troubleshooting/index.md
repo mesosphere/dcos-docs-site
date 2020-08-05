@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 排除 LDAP 错误
+navigationTitle:  排除 LDAP 错误
 title: 排除 LDAP 错误
 menuWeight: 5
 excerpt: 排除 LDAP 目录的常见身份认证和配置问题
@@ -18,7 +18,7 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 # 无法连接到目录后端
 如果尝试从 Active Directory 检索信息，但连接失败，您可能会看到以下错误消息：
 
-![无法连接到目录](/mesosphere/dcos/2.0/img/ldap-cannot-open-connection-error.png)
+![无法连接到目录](/mesosphere/dcos/cn/2.0/img/ldap-cannot-open-connection-error.png)
 
 图 1. 连接错误消息：超时
 
@@ -26,13 +26,13 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 - 所需的端口拒绝所有流量或受防火墙规则保护。
 
- 具体端口要求取决于您使用的 Active Directory 版本和通信流量类型。例如，大多数 LDAP 流量需要 TCP 或 UDP 连接的端口 389，以处理目录和复制服务、用户和计算机身份认证以及组策略分发。
+    具体端口要求取决于您使用的 Active Directory 版本和通信流量类型。例如，大多数 LDAP 流量需要 TCP 或 UDP 连接的端口 389，以处理目录和复制服务、用户和计算机身份认证以及组策略分发。
 
- 要通过安全通信通道处理相同类型的流量，LDAP 需要 TCP 连接的端口 636，才能通过安全套接字层 (SSL) 传递加密消息。
+    要通过安全通信通道处理相同类型的流量，LDAP 需要 TCP 连接的端口 636，才能通过安全套接字层 (SSL) 传递加密消息。
 
 - DNS 无法解析 Active Directory 域控制器的名称或 IP 地址。
 
- 如果遇到此错误，请检查错误所在的计算机是否具有用于网络接口和域控制器的正确 IP地址。您可以使用 DHCP 服务器角色或在网络适配器设置中手动检查域连接的当前 IP 地址和网络设置。例如，您可以使用 `ipconfig` 或类似的操作系统命令来检索当前的网络设置，以显示网络配置详细信息。
+    如果遇到此错误，请检查错误所在的计算机是否具有用于网络接口和域控制器的正确 IP地址。您可以使用 DHCP 服务器角色或在网络适配器设置中手动检查域连接的当前 IP 地址和网络设置。例如，您可以使用 `ipconfig` 或类似的操作系统命令来检索当前的网络设置，以显示网络配置详细信息。
 
 如果端口号、主机名或主机 IP 地址存在问题，请编辑 LDAP 目录设置中的值，以指定正确的端口、主机名或主机 IP 地址。
 
@@ -51,7 +51,7 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 # 传输层安全 (SSL/TLS) 连接错误
 如果您尝试连接到 Active Directory，并且使用传输层安全 (SSL/TLS) 与服务器通信时出现问题而导致连接失败，您可能会看到以下错误消息：
 
-![SSL 连接错误](/mesosphere/dcos/2.0/img/ldap-tsl-ssl-socket-error.png)
+![SSL 连接错误](/mesosphere/dcos/cn/2.0/img/ldap-tsl-ssl-socket-error.png)
 
 图 2. 连接错误：套接字 SSL 封装错误
 
@@ -72,18 +72,18 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 1. 在 **选择 SSL/TLS 设置**下，选择另一个选项。
 
- ![SSL/TLS 设置选项](/mesosphere/dcos/2.0/img/ldap-ssl-options.png)
+    ![SSL/TLS 设置选项](/mesosphere/dcos/cn/2.0/img/ldap-ssl-options.png)
 
- 图 3. SSL/TLS 设置选项
+    图 3. SSL/TLS 设置选项
 
- 例如，如果已将“选择 SSL/TLS 设置”配置为 **对所有连接都使用 SSL/TLS**，则可能需要将设置更改为“尝试 StartTLS，如果失败，则不进行加密”。
+    例如，如果已将“选择 SSL/TLS 设置”配置为 **对所有连接都使用 SSL/TLS**，则可能需要将设置更改为“尝试 StartTLS，如果失败，则不进行加密”。
 
 1. 单击 **保存配置**。
 
 # 强制执行 SSL/TLS，但连接失败
 如果已将与 LDAP 服务器的连接配置为“在无法使用传输层安全 (SSL/TLS) 时中止连接”，则可能会看到以下错误消息：
 
-![已中止 SSL/TLS 连接](/mesosphere/dcos/2.0/img/ldap-enforced-TLS-error.png)
+![已中止 SSL/TLS 连接](/mesosphere/dcos/cn/2.0/img/ldap-enforced-TLS-error.png)
 
 图 4. 连接错误消息：TLS 错误
 
@@ -96,18 +96,18 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 1. 在 **选择 SSL/TLS 设置**下，选择另一个选项。
 
- ![SSL/TLS 设置选项](/mesosphere/dcos/2.0/img/ldap-ssl-options.png)
+    ![SSL/TLS 设置选项](/mesosphere/dcos/cn/2.0/img/ldap-ssl-options.png)
 
- 图 5. SSL/TLS 设置选项
+    图 5. SSL/TLS 设置选项
 
- 例如，如果您想在安全通信不可用时继续连接到 LDAP 服务器，则可以将“选择 SSL/TLS 设置”设置为 **尝试 StartTLS，如果失败，则不进行加密**。
+    例如，如果您想在安全通信不可用时继续连接到 LDAP 服务器，则可以将“选择 SSL/TLS 设置”设置为 **尝试 StartTLS，如果失败，则不进行加密**。
 
 1. 单击 **保存配置**。
 
 # 服务账户凭据问题
 如果 LDAP 服务器连接成功，但服务账户的身份认证凭据不正确，则可能会看到以下错误消息：
 
-![LDAP 身份认证错误](/mesosphere/dcos/2.0/img/ldap-lookup-DN-error.png)
+![LDAP 身份认证错误](/mesosphere/dcos/cn/2.0/img/ldap-lookup-DN-error.png)
 
 图 6. LDAP 身份认证错误
 
@@ -122,16 +122,16 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 
 1. 更正 **查找 DN** 和 **查找密码**。
 
- ![修改身份认证信息](/mesosphere/dcos/2.0/img/ldap-lookup-dn.png)
+    ![修改身份认证信息](/mesosphere/dcos/cn/2.0/img/ldap-lookup-dn.png)
 
- 图 7. 修改身份认证信息
+    图 7. 修改身份认证信息
 
 1. 单击 **保存配置**。
 
 # 无法找到用户
 如果 LDAP 服务器连接成功且服务账户凭据正确，但无法找到用户，则可能会看到以下错误消息：
 
-![未找到 LDAP 用户](/mesosphere/dcos/2.0/img/ldap-user-error.png)
+![未找到 LDAP 用户](/mesosphere/dcos/cn/2.0/img/ldap-user-error.png)
 
 图 8. 未找到 LDAP 用户
 
@@ -150,9 +150,9 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 用户搜索库应足够宽泛，以包括要从中返回结果的相应容器、组织单位和域。
 
 定义搜索筛选模板时，应记住以下内容：
-- `%(username)s` 运行时变量是一个占位符，该占位符在查找请求中被替换为实际的账户名值。
-- 对于 OpenLDAP 部署，账户查找请求通常使用 UID 属性，因此通常使用 `(uid=%(username)s))` 来定义搜索模板占位符。
-- 对于 Active Directory 部署，账户查找请求通常使用 `sAMAccountName` 属性，因此通常使用 `(sAMAccountName=%(username)s))` 来定义搜索模板占位符。大多数情况下，sAMAccountName 属性是用户为登录 Windows 域中的计算机而输入的账户名。
+`%(username)s` 运行时变量是一个占位符，该占位符在查找请求中被替换为实际的账户名值。
+- 对于 OpenLDAP 部署，账户查找请求通常使用 UID 属性，因此通常使用  来定义搜索模板占位符。`(uid=%(username)s))`.
+- 对于 Active Directory 部署，账户查找请求通常使用 `sAMAccountName` 属性，因此通常使用 `(sAMAccountName=%(username)s))`. 来定义搜索模板占位符。大多数情况下，sAMAccountName 属性是用户为登录 Windows 域中的计算机而输入的账户名。
 
 ## 验证 Active Directory 用户账户名
 如果您要使用 LDAP 服务器来访问 Windows 用户的 Active Directory 账户，则可以使用 Active Directory 用户和计算机或 Windows PowerShell 来找到 SamAccountName 属性和其他账户信息。
@@ -163,21 +163,21 @@ Microsoft Windows Server Active Directory 是 Windows 森林和域的基于 LDAP
 1. 打开 **Active Directory 用户和计算机**。
 1. 选择用户账户。
 
- ![在 Active Directory 用户和计算机中选择一个用户](/mesosphere/dcos/2.0/img/ldap-aduc.png)
+    ![在 Active Directory 用户和计算机中选择一个用户](/mesosphere/dcos/cn/2.0/img/ldap-aduc.png)
 
- 图 9. Active Directory 选项
+    图 9. Active Directory 选项
 
 1. 右键单击，然后选择 **属性**。
 1. 单击 **账户** 选项卡并勾选 **用户登录名称**。
 
- ![用户登录账户属性](/mesosphere/dcos/2.0/img/ldap-aduc-account-properties.png)
+    ![用户登录账户属性](/mesosphere/dcos/cn/2.0/img/ldap-aduc-account-properties.png)
 
- 图 10. 用户登录账户
+    图 10. 用户登录账户
 
 ## 检查替代账户名称格式
-某些情况下，您可能希望使用 `sAMAccountName` 的替代项来查找账户信息。例如，您可能想通过 `userPrincipalName` 查找账户信息，它在 `user@domain.com` 格式的域中定义了唯一账户。
+某些情况下，您可能希望使用  的替代项来查找账户信息。`sAMAccountName`. 例如，您可能想通过 `userPrincipalName` 查找账户信息，它在 `user@domain.com` 格式的域中定义了唯一账户。
 
-如果您想使用任何其他有效的账户名称格式，例如 `user@domain.com`，则可以使用 Active Directory 用户和计算机或使用 Windows Powershell 运行命令来找到有效的替代项来替代 `sAMAccountName`。
+如果您想使用任何其他有效的账户名称格式，例如 `user@domain.com`，则可以使用 Active Directory 用户和计算机或使用 Windows Powershell 运行命令来找到有效的替代项来替代 `sAMAccountName`
 
 要使用 Window PowerShell 查找 Active Directory 用户信息，请执行以下操作：
 1. 打开 Windows Powershell 管理员控制台。
@@ -295,7 +295,7 @@ whenCreated : 12/17/2018 2:27:43 PM
 # 带错误凭据的用户
 如果与 LDAP 服务器的连接成功，且可以在用户搜索库范围内找到指定用户，但凭据是错误的，则可能会看到以下错误消息：
 
-![无效用户凭据](/mesosphere/dcos/2.0/img/ldap-wrong-user-credentials.png)
+![无效用户凭据](/mesosphere/dcos/cn/2.0/img/ldap-wrong-user-credentials.png)
 
 图 11. 无效用户凭据
 

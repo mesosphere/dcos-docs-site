@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 服务
+navigationTitle:  服务
 title: 服务
 menuWeight: 2
 excerpt: 使用“服务”菜单
@@ -10,7 +10,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 “服务”页面为本地 DC/OS&trade; Marathon 实例提供了完整的功能界面。其全面展示正在运行的所有服务。您可以按健康状况、状态或服务名称筛选服务。
 
-![Services](/mesosphere/dcos/2.0/img/GUI-Services-Enterprise.png)
+![Services](/mesosphere/dcos/cn/2.0/img/GUI-Services-Enterprise.png)
 
 图 1 - 服务页面 
 
@@ -32,7 +32,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 要为显示内容显示筛选器，请单击搜索框中的向下箭头。
 
-![排序菜单](/mesosphere/dcos/2.0/img/GUI-Services-Sort-List.png)
+![排序菜单](/mesosphere/dcos/cn/2.0/img/GUI-Services-Sort-List.png)
 
 图 2 -“排序”菜单
 
@@ -67,7 +67,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 单击服务名称，打开“服务实例”页面。“服务实例”页面将有关服务的信息组织在五个选项卡下方。每个选项卡都列出了关于服务配置和性能的信息。
 
-![Instances](/mesosphere/dcos/2.0/img/services-instances-panel.png)
+![Instances](/mesosphere/dcos/cn/2.0/img/services-instances-panel.png)
 
 图 3 - 服务实例 
 
@@ -81,7 +81,7 @@ model: /mesosphere/dcos/2.0/data.yml
 | 端点 | 服务配置变量，例如容器镜像、容器运行时和高级网络设置。 |
 | 计划 | 显示服务的所有部署计划，以便跟踪当前运行或已完成服务的状态。下拉菜单可让您在计划之间切换。此选项卡可能不会显示在所有服务实例中，具体取决于服务配置。|
 
-对于带有 UI 的服务，将鼠标悬停在服务名称上并单击 ![open service](/mesosphere/dcos/2.0/img/open-service.png) 查看服务。您可以在 `<hostname>/mesos` 访问 Mesos UI。
+对于带有 UI 的服务，将鼠标悬停在服务名称上并单击 ![open service](/mesosphere/dcos/cn/2.0/img/open-service.png) 查看服务。您可以在  访问 Mesos UI。`<hostname>/mesos`.
 
 # 使用 UI 进行调试
 
@@ -89,8 +89,8 @@ model: /mesosphere/dcos/2.0/data.yml
 
 在下图中，Marathon&trade; 无法启动服务；DC/OS 显示警告消息，然后一条消息表示错误已清除，服务现在正在启动。
 
-![故障警告](/mesosphere/dcos/2.0/img/GUI-Services-Failure-to-Launch.png)
+![故障警告](/mesosphere/dcos/cn/2.0/img/GUI-Services-Failure-to-Launch.png)
 
 图 4 - 显示警告的“调试”选项卡
 
-有关部署服务的更多信息，请参阅 [部署服务和 Pod](/mesosphere/dcos/2.0/deploying-services/) 文档。
+有关部署服务的更多信息，请参阅 [部署服务和 Pod](/mesosphere/dcos/cn/2.0/deploying-services/) 文档。

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 高可用性
+navigationTitle:  高可用性
 title: 高可用性
 menuWeight: 6
 render: mustache
@@ -16,7 +16,7 @@ enterprise: false
 
 #### Mesos
 
-Apache&reg; Mesos&reg; 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个主控被选为领导者，其他主控则是追随者。每个主控都有一个复制了的日志，其中包含有关群集的某种状态。ZooKeeper&trade; 执行选举以选择领导管理节点。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
+Apache&reg; Mesos&reg; 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个主控被选为领导者，其他主控则是追随者。每个主控都有一个复制了的日志，其中包含有关群集的某种状态。ZooKeeper&trade; 执行选举以选择领导管理节点。有关这方面的更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/).
 
 #### Marathon
 
@@ -24,7 +24,7 @@ Marathon&trade; 可以高可用性模式与一个选举的领导者一起运行�
 
 #### ZooKeeper
 
-DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用作分布式锁定服务、状态存储库和消息传递系统。ZooKeeper 使用 [Paxos-like](https://en.wikipedia.org/wiki/Paxos_(computer_science)) 日志复制和领导者/追随者架构，以保持多个 ZooKeeper 实例之间的一致性。有关 ZooKeeper 如何工作的详细说明，请参阅 [ZooKeeper 内部文档](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html)。
+DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用作分布式锁定服务、状态存储库和消息传递系统。ZooKeeper 使用 [Paxos-like](https://en.wikipedia.org/wiki/Paxos_(computer_science)) 日志复制和领导者/追随者架构，以保持多个 ZooKeeper 实例之间的一致性。有关 ZooKeeper 如何工作的详细说明，请参阅 [ZooKeeper 内部文档](https://zookeeper.apache.org/doc/r3.4.8/zookeeperInternals.html).
 
 # 故障域隔离
 故障域隔离是构建 HA 系统的重要组成部分。为正确处理故障情形，系统必须跨故障域分布，以便在故障后存活。故障域有不同的类型，其中几个例子包括：
@@ -32,7 +32,7 @@ DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用�
 - 物理域：包括机器、机架、数据中心、地区和可用性区域。
 - 网络域：同一网络内的机器可能会受网络分区的影响。例如，共享网络交换机可能发生故障或者配置无效。
 
-通过 DC/OS，您可以在机架之间将主控分配给 HA。代理可以跨地区分配，建议您用描述其位置的属性来标记代理。ZooKeeper 等同步服务也应留在同一区域内，以减少网络延迟。有关详细信息，请参阅实现高可用性的 [配置区域和地区](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuring-zones-regions/)。
+通过 DC/OS，您可以在机架之间将主控分配给 HA。代理可以跨地区分配，建议您用描述其位置的属性来标记代理。ZooKeeper 等同步服务也应留在同一区域内，以减少网络延迟。有关详细信息，请参阅实现高可用性的 [配置区域和地区](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuring-zones-regions/)
 
 需要 HA 的应用程序应跨故障域分配。Marathon 可以使用 [`UNIQUE` 和 `GROUP_BY` 约束算子](https://mesosphere.github.io/marathon/docs/constraints.html) 来实现。
 
@@ -56,9 +56,9 @@ DC/OS 中的多个服务使用 ZooKeeper 以取得一致性。ZooKeeper 可用�
 
 # 快速故障切换
 
-发生故障时，故障切换 [应尽可能快](https://en.wikipedia.org/wiki/Fail-fast)。快速故障切换可通过以下方式实现：
+发生故障时，故障切换 [应尽可能快](https://en.wikipedia.org/wiki/Fail-fast). 快速故障切换可通过以下方式实现：
 
- * 使用 HA 负载均衡器，如 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/latest/)，或内部 [第 4 层负载均衡器](/mesosphere/dcos/2.0/networking/load-balancing-vips/)。
+ * 使用 HA 负载均衡器，如 [Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/latest/)，或内部 [第 4 层负载均衡器](/mesosphere/dcos/cn/2.0/networking/load-balancing-vips/).
  * 根据 [12 因素应用](http://12factor.net/) 原则构建应用程序。
  * 在构建服务时遵循 REST 最佳做法：尤其是避免在请求之间在服务器上存储客户端状态。
 

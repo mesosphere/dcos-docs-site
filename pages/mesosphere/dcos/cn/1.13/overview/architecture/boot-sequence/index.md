@@ -27,7 +27,7 @@ enterprise: false
     1. 发现来自 ZooKeeper 的其他 Mesos 管理节点
     1. 选择领导管理节点
 1. Mesos-DNS 启动
-    1. 发现领导 Mesos 管理节点（从 ZooKeeper 或本地 `mesos-master`）
+    1. 发现领导 Mesos 管理节点（从 ZooKeeper 或本地 `mesos-master`)
     1. 轮询领导 Mesos 管理节点了解群集状态
 1. 网络组件启动
     1. 将 DNS 查找转发给 Mesos-DNS
@@ -95,4 +95,4 @@ enterprise: false
 
 ### 更多信息
 
-有关任务和服务的更多信息，请参阅 [分布式进程管理](/mesosphere/dcos/cn/1.13/overview/architecture/distributed-process-management/)。
+有关任务和服务的更多信息，请参阅 [分布式进程管理](/mesosphere/dcos/cn/1.13/overview/architecture/distributed-process-management/).

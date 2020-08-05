@@ -19,7 +19,7 @@ menuWeight: 10
 
 2. 单击左侧菜单中的 **Organization**。在 **Users** 屏幕中，单击右上角的加号 (**+**)，然后填写新用户电子邮件地址。
 
-![新 DC/OS 用户](/mesosphere/dcos/2.0/img/1-11-add-user-to-cluster.png)
+![新 DC/OS 用户](/mesosphere/dcos/cn/2.0/img/1-11-add-user-to-cluster.png)
 
 图 1. 添加新用户
 
@@ -29,15 +29,15 @@ menuWeight: 10
 
 **前提条件：**
 
-- DC/OS [已安装](/mesosphere/dcos/2.0/installing/)
+- DC/OS [已安装](/mesosphere/dcos/cn/2.0/installing/)
 
-1. [SSH](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
+1. [SSH](/mesosphere/dcos/cn/2.0/administering-clusters/sshcluster/) 到主节点并运行此命令，其中 `<email>` 是用户的电子邮件：
 
     ```bash
     sudo -i dcos-shell /opt/mesosphere/bin/dcos_add_user.py <email>
     ```
 
-2. 向新用户发送 DC/OS 群集的 URL（例如 `http://<public-master-ip>/`）。`<email>` 指定的用户现在可以登录并访问群集了。
+2. 向新用户发送 DC/OS 群集的 URL（例如 `http://<public-master-ip>/` `<email>` 指定的用户现在可以登录并访问群集了。
 
 # 移除外部用户账户
 

@@ -23,8 +23,8 @@ enterprise: false
 * 您希望自动扩展的在 Marathon 上运行的服务。
 * Python 3
 * Git：
-    * ** macOS：**从 [Git 下载]（http://git-scm.com/download/mac）获取安装程序。
-    * **Unix/Linux：**请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+    * ** macOS：** 从 [Git 下载](http://git-scm.com/download/mac）获取安装程序。
+    * **Unix/Linux：** 请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
 # 在节点上安装 Marathon Autoscale 应用程序
 
@@ -38,7 +38,7 @@ enterprise: false
 
     **提示：** 运行 `dcos node` 以获取可用的节点 ID。
 
-1. 将 [autoscale Github r存储库] (https://github.com/mesosphere/marathon-autoscale) 克隆到您的节点。
+1. 将 [autoscale Github r存储库](https://github.com/mesosphere/marathon-autoscale) 克隆到您的节点。
 
     ```bash
     git clone https://github.com/mesosphere/marathon-autoscale.git
@@ -79,4 +79,4 @@ enterprise: false
 
 欲了解更多信息，请参阅 [Marathon-Autoscale GitHub](https://github.com/mesosphere/marathon-autoscale) 存储库。
 
- [1]: /mesosphere/dcos/cn/1.13/installing/
+ [1]: /mesosphere/dcos/1.13/installing/

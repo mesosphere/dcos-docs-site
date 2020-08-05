@@ -8,7 +8,7 @@
 
 # 完全受管理的可替换管理节点
 
-<p class="message--important"><strong></strong>重要信息：请勿在已经运行的群集上应用此更改。</p>
+<p class="message--important"><strong>重要信息：</strong>请勿在已经运行的群集上应用此更改。</p>
 
 通过 Universal 安装工具 `0.2`，我们提供基于 AWS S3 Bucket 的完全受管理的可替换管理节点的功能。若要启用此功能，请设置 `with_replaceable_masters=true`。设置后，此选项将导致在放置群集的位置创建 S3 bucket。Bucket 名称为 `cluster_name` + 16 字节随机十六进制字符串。由于 bucket 名称是全局名称，因此我们必须在您的群集名称上附加一个随机字符串，以免发生冲突。除了创建 bucket 之外，我们会注入这些 DC/OS 配置默认值。
 

@@ -11,7 +11,7 @@ enterprise: false
 
 # 说明
 
-`dcos package repo import` 命令允许您导入包含带有 `<repo-file>` 标识的软件包存储库的文件。
+`dcos package repo import` 命令允许您导入包含带有 `<repo-file>`. 标识的软件包存储库的文件。
 
 # 使用
 
@@ -35,4 +35,4 @@ dcos package repo import <repos-file>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |
+| [dcos package](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |

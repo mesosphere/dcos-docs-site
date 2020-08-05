@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 组织
+navigationTitle:  组织
 title: 组织
 menuWeight: 11
 excerpt: 使用“组织”菜单
@@ -14,7 +14,7 @@ model: /mesosphere/dcos/2.0/data.yml
 - 组
 - 服务帐户
 
-![组织用户](/mesosphere/dcos/2.0/img/GUI-Organization-Users-List-View.png)
+![组织用户](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Users-List-View.png)
 
 图 1 - **组织 > 用户** 选项卡
 
@@ -34,7 +34,7 @@ model: /mesosphere/dcos/2.0/data.yml
 |-------|-------|
 | 全部 | 显示所有用户 |
 | 本地 | 本地用户账户仅存在于 DC/OS 中&trade;。 |
-| 外部 |  DC/OS 仅存储用户的 ID 或用户名以及其他 DC/OS 特定信息，如权限和组成员。DC/OS 从不接收或存储外部用户的密码。相反，它将用户凭据的验证委派给以下其中一项：LDAP 目录、SAML 或 OpenID Connect&reg;。请参见 [管理用户和组](/mesosphere/dcos/2.0/security/ent/users-groups/) 了解更多信息。 |
+| 外部 |  DC/OS 仅存储用户的 ID 或用户名以及其他 DC/OS 特定信息，如权限和组成员。DC/OS 从不接收或存储外部用户的密码。相反，它将用户凭据的验证委派给以下其中一项：LDAP 目录、SAML 或 OpenID Connect&reg;。请参见 [管理用户和组](/mesosphere/dcos/cn/2.0/security/ent/users-groups/) 了解更多信息。 |
 
 
 如果单击用户名称，将显示该个人的“用户”页面。此页面有三个选项卡：[权限](#permissions)、[组成员](#group-membership) 和 [详情](#details)。
@@ -42,17 +42,17 @@ model: /mesosphere/dcos/2.0/data.yml
 ## 权限
 **用户 > 权限** 选项卡显示分配给此用户的所有资源。您可以从此屏幕删除用户。您还可以管理授予此用户的权限。
 
-![用户权限](/mesosphere/dcos/2.0/img/GUI-Organization-Users-2.png)
+![用户权限](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Users-2.png)
 
 图 2 - **权限** 选项卡
 
-在此页面上，您可以编辑用户权限或完全删除用户。如需更多信息，请参阅 [权限管理](/mesosphere/dcos/2.0/security/ent/perms-management/) 文档。
+在此页面上，您可以编辑用户权限或完全删除用户。如需更多信息，请参阅 [权限管理](/mesosphere/dcos/cn/2.0/security/ent/perms-management/) 文档。
 
 ## 组成员
 
 **用户 > 组成员** 选项卡显示此个人用户所属的所有组。您可以按字母顺序排序 **组 ID** 列。您也可以使用右上角的 **编辑** 按钮来编辑组。
 
-![组成员](/mesosphere/dcos/2.0/img/GUI-Organization-Users-Group-Membership.png)
+![组成员](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Users-Group-Membership.png)
 
 图 3 - **组成员** 选项卡
 
@@ -67,7 +67,7 @@ model: /mesosphere/dcos/2.0/data.yml
 | ID    | 此用户的用户 ID |
 | 描述 | 这是用户的全名。 |
 
-![详情选项卡](/mesosphere/dcos/2.0/img/GUI-Organization-Users-Details.png)
+![详情选项卡](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Users-Details.png)
 
 图 4 - **详情** 选项卡
 
@@ -76,7 +76,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 DC/OS Enterprise 允许您创建用户组，并从 LDAP 导入用户组。组可以更容易地管理权限。您可以一次为整个用户组分配权限，而不是单独为每个用户帐户分配权限。
 
-![组选项卡](/mesosphere/dcos/2.0/img/GUI-Organization-Groups-Main.png)
+![组选项卡](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Groups-Main.png)
 
 图 5 - 组主页
 
@@ -88,7 +88,7 @@ DC/OS Enterprise 允许您创建用户组，并从 LDAP 导入用户组。组可
 
 **组织 > 组 > 权限** 选项卡显示分配给特定组的所有资源。在此页面，您可以使用垂直点下的 **编辑** 菜单添加权限，或者使用 **添加权限** 按钮。
 
-![组权限](/mesosphere/dcos/2.0/img/GUI-Organization-Groups-Permissions.png)
+![组权限](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Groups-Permissions.png)
 
 图 6 - **组 > 权限** 选项卡
 
@@ -98,7 +98,7 @@ DC/OS Enterprise 允许您创建用户组，并从 LDAP 导入用户组。组可
 
 在 **组 > 用户** 选项卡上，您可以将已建立的用户添加到现有组。
 
-![组用户](/mesosphere/dcos/2.0/img/GUI-Organization-Groups-Users.png)
+![组用户](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Groups-Users.png)
 
 图 7 - **组 > 用户** 选项卡
 
@@ -107,8 +107,8 @@ DC/OS Enterprise 允许您创建用户组，并从 LDAP 导入用户组。组可
 
 在 **组 > 服务账户** 选项卡，您可以将已建立的服务账户添加到组。
 
-![组用户](/mesosphere/dcos/2.0/img/GUI-Organization-Groups-Service-Accounts.png)
+![组用户](/mesosphere/dcos/cn/2.0/img/GUI-Organization-Groups-Service-Accounts.png)
 
 图 8 - **组 > 服务账户** 选项卡
 
-有关管理组的更多信息，请参阅 [管理用户和组](/mesosphere/dcos/2.0/security/ent/users-groups/) 文档。
+有关管理组的更多信息，请参阅 [管理用户和组](/mesosphere/dcos/cn/2.0/security/ent/users-groups/) 文档。

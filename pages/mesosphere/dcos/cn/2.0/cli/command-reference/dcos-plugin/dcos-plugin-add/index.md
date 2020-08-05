@@ -24,17 +24,17 @@ dcos plugin add <resource> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--update`, `-u` | 插件版本。 |
-| `--help, h` | 打印使用。|
+| `--update`, `-u`     | 插件版本。 |
+| `--help, h`     | 打印使用情况。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<resource>` | 插件资源路径。这可以是 `.zip` 文件或 URL |
+| `<resource>`   | 插件资源路径。这可以是 `.zip` 文件或 URL |
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos plugin](/mesosphere/dcos/2.0/cli/command-reference/dcos-plugin/)   | 安装和管理 DC/OS 软件插件。 |
+| [dcos plugin](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-plugin/)   | 安装和管理 DC/OS 软件插件。 |

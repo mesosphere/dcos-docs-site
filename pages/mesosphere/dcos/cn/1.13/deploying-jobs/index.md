@@ -12,7 +12,7 @@ enterprise: false
 
 您可以在 DC/OS 中创建计划作业，而不安装单独的服务。在 DC/OS UI、DC/OS CLI 中或通过 API 创建和管理作业。
 
-<p class="message--note"><strong>注意：</strong>DC/OS 的作业调度由 <a href="https://github.com/dcos/metronome">DC/OS 作业 (Metronome)</a> 组件提供，该组件是随 DC/OS 预安装的开源 Mesos 框架。您有时可能会在日志中看到被称为“Metronome”的作业功能，并且服务端点是<code>service/metronome</code>。</p>
+<p class="message--note"><strong>注意：</strong>DC/OS 的作业调度由 <a href="https://github.com/dcos/metronome">DC/OS 作业 (Metronome)</a> 组件提供，该组件是使用 DC/OS 预安装的开源 Mesos 框架。您有时可能会在日志中看到被称为“Metronome”的作业功能，并且服务端点是 <code>service/metronome</code>.</p>
 
 ## 功能
 

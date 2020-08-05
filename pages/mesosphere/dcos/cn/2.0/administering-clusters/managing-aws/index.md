@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 管理 AWS
+navigationTitle:  管理 AWS
 title: 管理 AWS
 menuWeight: 9
 excerpt: 扩展 AWS 群集

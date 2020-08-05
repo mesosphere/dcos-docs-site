@@ -20,24 +20,24 @@ excerpt: 使用 DC/OS Ansible 时经常问的问题和常见问题
 
 
 ## 官方文档和链接
-DC/OS Ansible 资源库在 [Github 在此处公布](https://github.com/dcos/dcos-ansible) 托管
+DC/OS Ansible 资源库在 [Github 在此处公布] 托管(https://github.com/dcos/dcos-ansible)
 
-官方的 Ansible Galaxy 页面和版本 [可在此处找到](https://galaxy.ansible.com/dcos/dcos_ansible)。
+官方的 Ansible Galaxy 页面和版本 [可在此处找到](https://galaxy.ansible.com/dcos/dcos_ansible).
 
 ## Ansible 新手
 如果您是 Ansible 新手，则强烈建议您先了解[入门](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information)指南。该指南更好地解释和介绍了我们如何使用 Ansible 来成功管理 DC/OS 生命周期。
 
 ## 设置 SSH
-SSH 是指 Ansible 用来通过清单文件连接和管理主机的协议。如果您需要在 Ansible 控制机及其管理节点之间设置 SSH 连接，请参阅以下 [Ansible 文档](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information)。
+SSH 是指 Ansible 用来通过清单文件连接和管理主机的协议。如果您需要在 Ansible 控制机及其管理节点之间设置 SSH 连接，请参阅以下 [Ansible 文档](https://docs.ansible.com/ansible/latest/user_guide/intro_getting_started.html#remote-connection-information).
 
 然后，您可以通过以下方式测试连接：
 ```bash
 ansible -m ping all
 ```
 
-如果仍出现 ssh 错误，请确保您正在以正确的 `remote_user` 尝试进行连接。此项目的默认值为 `centos`，可能与您的情况不同。
+如果仍出现 ssh 错误，请确保您正在以正确的  尝试进行连接。`remote_user`. 此项目的默认值为 `centos`，可能与您的情况不同。
 
-如果您有不同的 `ansible.cfg`，则这也可能是 `host_key_checking` 的问题。您可以将其设置为 `False` 然后重试，或确保将正确的密钥添加到 ssh 代理。您可以通过以下方式检查您的密钥是否已添加：
+如果您有不同的 `ansible.cfg`，则这也可能是 `host_key_checking`. 的问题。您可以将其设置为 `False` 然后重试，或确保将正确的密钥添加到 ssh 代理。您可以通过以下方式检查您的密钥是否已添加：
 
 ```bash
 ssh-add -l # for a list of keys
@@ -64,7 +64,7 @@ FAILED! => {"failed": true, "msg": "ERROR! Timeout (12s) waiting for privilege e
 
 [WARNING]: provided hosts list is empty, only localhost is available. Note that the implicit localhost does not match 'all'
 ```
-确保您位于含有清单文件的目录中。有关清单文件的更多信息，请参阅 [Ansible 文档](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory)。
+确保您位于含有清单文件的目录中。有关清单文件的更多信息，请参阅 [Ansible 文档](https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#intro-inventory).
 
 ## remote_user 配置错误
 如果您在连接到以下机器时遇到错误：
@@ -79,14 +79,14 @@ fatal: [172.16.2.65]: FAILED! => {"changed": true, "cmd": ["bash", "dcos_generat
 module.dcos.module.dcos-install.module.dcos-install.null_resource.run_ansible_from_bootstrap_node_to_install_dcos (remote-exec): 	to retry, use: --limit @/dcos_playbook.retry
 ```
 
-上述错误实际上不是 Ansible 错误，但是 dcos 发出的错误会生成配置脚本。请确保您的 DC/OS 配置有正确的键值。请参阅 DC/OS 文档了解 [配置参考](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/)。
+上述错误实际上不是 Ansible 错误，但是 dcos 发出的错误会生成配置脚本。请确保您的 DC/OS 配置有正确的键值。请参阅 DC/OS 文档了解 [配置参考](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/).
 
 ## 下载 URL 失败
 确保您已为正在尝试安装的 DC/OS 的版本指定了正确的 URL。您可以通过以下方式找到可用链接：
 
-- [DC/OS Enterprise](https://support.mesosphere.com/s/downloads) [enterprise type="inline" size="small" /]
+- [DC/OS Enterprise](https://support.mesosphere.com/s/downloads)  [enterprise type="inline" size="small" /]
 
-- [DC/OS](https://dcos.io/releases/) [oss type="inline" size="small" /]
+- [DC/OS](https://dcos.io/releases/)  [oss type="inline" size="small" /]
 
 ## Mazer 安装目录
 不同版本的 Mazer 或定制 Mazer 安装都通过 Mazer 配置文件维护。在此配置文件中保持的其中一个配置是 content_path，这是从 Galaxy 提取内容的安装位置。如果您在找到内容路径或 Mazer 配置文件时遇到问题，请发出以下命令以找到 Mazer 配置文件：
@@ -94,10 +94,10 @@ module.dcos.module.dcos-install.module.dcos-install.null_resource.run_ansible_fr
 mazer version | grep config
 ```
 
-在 Mazer 配置文件中，检查 `content_path`。您可以在此查看有关 Mazer 配置文件的更多信息以及更多选项。
+在 Mazer 配置文件中，检查 `content_path`. 您可以在此查看有关 Mazer 配置文件的更多信息以及更多选项。
 
 ## 更换 bootstrap 节点后 DC/OS 安装或升级失败
-如果您需要更换群集中的 bootstrap 节点实例，则需要更新要反映的新清单文件以及变量文件中的 `bootstrap_url`。如果您在更换 bootstrap 节点后收到以下错误，请确保您也更新了变量文件。
+如果您需要更换群集中的 bootstrap 节点实例，则需要更新要反映的新清单文件以及变量文件中的 `bootstrap_url` 如果您在更换 bootstrap 节点后收到以下错误，请确保您也更新了变量文件。
 
 ```text
 TASK [DCOS.master : Upgrade: Run DC/OS master upgrade] **********************************************************************
@@ -109,6 +109,6 @@ fatal: [172.12.8.139]: FAILED! => {"changed": true, "cmd": "set -o pipefail; ./d
 ## 配置更改和/或升级 DC/OS 版本
 升级 DC/OS 版本或 DC/OS 配置更改是我们支持的两种群集升级方案。我们使这变得非常简单，只需要很少的更改。我们的 dcos-ansible 工具能够确定您尝试执行的升级方案类型。
 
-- 如果您尝试将 DC/OS 版本升级为新版本，只需将 `dcos.yml`（可变文件）中的 `download` 和 `version` 变量改为您所需的版本。然后，只需重新 playbook 便可让更改生效。
+- 如果您尝试将 DC/OS 版本升级为新版本，只需将 `download`（可变文件）中的 `version` 和 `dcos.yml` 变量改为您所需的版本。然后，只需重新 playbook 便可让更改生效。
 
 - 如果您想更改 DC/OS 配置参数，例如更新解析器，只需对 `dcos.yml`（变量文件）中的所需 dcos 配置变量进行更改并重新运行 playbook。它将检测配置的变更并运行升级程序，以实行新配置。

@@ -20,7 +20,7 @@ enterprise: false
 
 # 创建自定义 Docker 镜像
 
-1. 创建名为 `index.html` 的文件。将以下标记粘贴到 `index.html` 并保存：
+1. 创建名为  的文件。`index.html`. 将以下标记粘贴到 `index.html` 并保存：
 
     ```html
     <html>
@@ -30,7 +30,7 @@ enterprise: false
     </html>
     ```
 
-1. 创建名为 `Dockerfile` 的文件。将以下 Docker 命令粘贴到其中，并保存：
+1. 创建名为  的文件。`Dockerfile`. 将以下 Docker 命令粘贴到其中，并保存：
 
     ```dockerfile
     FROM nginx:1.9
@@ -88,7 +88,7 @@ enterprise: false
 
 # 创建 Docker 应用程序并部署到 DC/OS
 
-1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`：在 `image` 字段中，将 `<username>` 替换为您的 Docker Hub 用户名。在 `type` 字段中，根据您偏好的[容器化工具运行时](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/) 指定 `MESOS` 或 `DOCKER`。此文件指定了一个名为 `hello-nginx` 的简单 Marathon 应用程序，该应用程序在公共节点上运行自身的一个实例。
+1. 使用以下内容创建 Marathon 应用定义，并另存为 `hello-nginx.json`. 在 `image` 字段中，将 `<username>` 替换为您的 Docker Hub 用户名。在 `type` 字段中，根据您偏好的[容器化工具运行时]`MESOS` 指定 `DOCKER` 或 (/mesosphere/dcos/cn/1.13/deploying-services/containerizers/) 此文件指定了一个名为 `hello-nginx` 的简单 Marathon 应用程序，该应用程序在公共节点上运行自身的一个实例。
 
     ```json
     {
@@ -96,13 +96,7 @@ enterprise: false
       "container": {
         "type": "[MESOS | DOCKER]",
         "docker": {
-          "image": "<username>/simple-docker",
-          "parameters": [
-            {
-              "key": "log-driver",
-              "value": "none"
-            }
-          ]
+          "image": "<username>/simple-docker"
         },
         "portMappings": [
           { "hostPort": 80, "containerPort": 80, "protocol": "tcp" }
@@ -138,27 +132,27 @@ enterprise: false
     /hello-nginx   64  0.1    1/1    N/A       ---      False      MESOS    N/A
     ```
 
-1. 如果您使用 [AWS CloudFormation 模板](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/) 将应用程序公开到应用定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新配置运行状况检查。
+1. 如果您使用 [AWS CloudFormation 模板](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/) 将应用程序公开到应用程序定义中指定的端口（例如，端口 80），则必须在公共 ELB 上重新配置运行状况检查。
     1. 在 CloudFormation 中，勾选堆栈旁边的复选框。
     2. 单击 **Resources** 选项卡。
     3. 搜索 **PublicSlavEloadBalancer**。
     4. 单击 Physical ID（物理 ID）列中的链接。
     5. 按照 [更新运行状况检查配置](http://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-healthchecks.html#update-health-check-config)中的说明进行操作。
 
-1. 转到公共代理节点，查看网站是否正在运行。若要查找公共代理 IP 地址，请参阅[查找公共代理 IP](/mesosphere/dcos/cn/1.13/administering-clusters/locate-public-agent/)。
+1. 转到公共代理节点，查看网站是否正在运行。若要查找公共代理 IP 地址，请参阅[查找公共代理 IP](/mesosphere/dcos/cn/1.13/administering-clusters/locate-public-agent/).
 
     您应在浏览器中看到以下消息：
 
-    ![Hello Brave World](/mesosphere/dcos/1.13/img/helloworld.png)
+    ![Hello Brave World](/mesosphere/dcos/cn/1.13/img/helloworld.png)
 
     图 1. Hello World 消息 
 
 # 了解更多
 
-了解如何使用 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/latest/mlb-basic-tutorial/) 在公共节点上对应用程序进行负载均衡。
+了解如何使用 [Marathon-LB] 在公共节点上对应用程序进行负载均衡。(/mesosphere/dcos/cn/services/marathon-lb/latest/mlb-basic-tutorial/).
 
 
- [1]:https://www.docker.com
- [2]:https://hub.docker.com
- [3]: /mesosphere/dcos/cn/1.13/installing/
- [4]: /mesosphere/dcos/cn/1.13/cli/install/
+ [1]: https://www.docker.com
+ [2]: https://hub.docker.com
+ [3]: /mesosphere/dcos/1.13/installing/
+ [4]: /mesosphere/dcos/1.13/cli/install/

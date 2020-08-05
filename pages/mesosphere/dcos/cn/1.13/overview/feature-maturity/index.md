@@ -17,7 +17,7 @@ Mesosphere DC/OS 特性将通过多阶段生命周期发展。此生命周期可
 
 特性可以包括应用程序、服务、框架、属于 Mesosphere DC/OS 或其目录一部分的组件或软件包。Mesosphere DC/OS 特性的五个成熟度状态在下文阐述，从左到右进行，从 Beta 开始并以“已停用”结束。
 
-![五个成熟度状态](/mesosphere/dcos/1.13/img/five_maturity_states.png)
+![五个成熟度状态](/mesosphere/dcos/cn/1.13/img/five_maturity_states.png)
 
 图 1. 特性成熟度生命周期
 
@@ -47,7 +47,7 @@ Mesosphere DC/OS 特性将通过多阶段生命周期发展。此生命周期可
 3. API 修改将接受版本控制（V1、V2 等）。
 4. 对于 DC/OS Enterprise 的客户，反馈和支持应通过 Mesosphere 服务支持条款中概述的方法进行。
 5. 对于 DC/OS Open Source 的客户，反馈应通过社区渠道进行。
-6. GA 特性修改或成熟度生命周期变更可见 [版本注释](/mesosphere/dcos/cn/1.13/release-notes/)。
+6. GA 特性修改或成熟度生命周期变更可见 [版本注释](/mesosphere/dcos/cn/1.13/release-notes/).
 
 <a name="deprecated"></a>
 ## 已弃用

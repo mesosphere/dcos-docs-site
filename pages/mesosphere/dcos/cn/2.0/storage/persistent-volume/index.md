@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 本地持久卷
+navigationTitle:  本地持久卷
 title: 本地持久卷
 menuWeight: 10
 excerpt: 使用本地持久卷
@@ -36,11 +36,11 @@ enterprise: false
 }
 ```
 
-- `containerPath`：应用程序读写数据的路径。这必须是相对于容器的单层路径；不能包含正斜杠 (`/`)。（`"data"`，但不是 `"/data"`、`"/var/data"` 或 `"var/data"`）。
-- `mode`：卷的访问模式。目前， `"RW"` 是唯一可能的值，它将允许您的应用程序从卷中读取及写入卷。
+- `containerPath`：应用程序读写数据的路径。这必须是相对于容器的单层路径；不能包含正斜杠 (`/`)。（`"data"`，但不是 `"/data"`、`"/var/data"` 或 `"var/data"`).
+-  `mode`：卷的访问模式。目前， `"RW"` 是唯一可能的值，它将允许您的应用程序从卷中读取及写入卷。
 - `persistent.type`：要使用的 Apache&reg; Mesos&reg; 磁盘资源类型；有效选项为 `root`、`path` 和 `mount`，对应于[有效的 Mesos 多磁盘资源类型](http://mesos.apache.org/documentation/latest/multiple-disk/)。
 - `persistent.size`：持久卷的大小 (MiB)。
-- `persistent.profileName`：（上文未见）存储[卷配置文件](/mesosphere/dcos/services/storage/latest/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
+- `persistent.profileName`：（上文未见）存储[卷配置文件](/mesosphere/dcos/cn/services/storage/latest/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
 - `persistent.maxSize`：（上文未见）对于 `root` Mesos 磁盘资源，要考虑的专属挂载卷的可选最大大小。
 - `persistent.constraints`：限制应该在何处创建新持久卷的约束。目前，只能通过正常表达式约束磁盘资源的路径。
 
@@ -66,7 +66,7 @@ enterprise: false
 }
 ```
 
-第二个卷是持久卷，具有与第一个卷 `hostPath` 相匹配的 `containerPath`。
+第二个卷是持久卷，具有与第一个卷 `containerPath` 相匹配的 `hostPath`
 
 ```json
 {
@@ -96,7 +96,7 @@ enterprise: false
 
 # 升级或重新启动有状态的应用程序
 
-有状态应用程序的默认 `UpgradeStrategy` 为 `0.5` 的 `minimumHealthCapacity` 以及 `0` 的 `maximumOverCapacity`。如果覆盖此默认值，则您的定义必须保持低于这些值才能通过验证。`UpgradeStrategy` 必须保持低于这些价值，因为 Marathon 需要能够在开始新的任务之前终止旧任务，以便新版本可以接管保留和卷，并且 Marathon 无法创建其他任务（因为 `maximumOverCapacity > 0` 会诱导）以防止其他卷创建。
+有状态应用程序的默认 `UpgradeStrategy` 为 `minimumHealthCapacity` 的 `0.5` 以及 `maximumOverCapacity` 的 `0`. 如果覆盖此默认值，则您的定义必须保持低于这些值才能通过验证。`UpgradeStrategy` 必须保持低于这些价值，因为 Marathon 需要能够在开始新的任务之前终止旧任务，以便新版本可以接管保留和卷，并且 Marathon 无法创建其他任务（因为 `maximumOverCapacity > 0` 会诱导）以防止其他卷创建。
 
 对于有状态的应用程序，Marathon 将永远不会启动比 `UpgradeStrategy` 中指定实例更多的实例，并且会在升级或重新启动期间终止旧实例而不是创建新实例。
 
@@ -127,7 +127,7 @@ enterprise: false
 - `persistent.type`：要使用的 Mesos 磁盘资源类型；有效选项为 `root`、`path` 和 `mount`，对应于[有效的 Mesos 多磁盘资源类型](http://mesos.apache.org/documentation/latest/multiple-disk/)。
 - `persistent.size`：持久卷的大小 (MiB)。
 - `persistent.maxSize`：（上文未见）对于 `root` Mesos 磁盘资源，要考虑的专属挂载卷的可选最大大小。
-- `persistent.profileName`：（上文未见）存储[卷配置文件](/mesosphere/dcos/services/storage/latest/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
+- `persistent.profileName`：（上文未见）存储[卷配置文件](/mesosphere/dcos/cn/services/storage/latest/terminology-and-concepts/#volume-profile)。仅使用具有指定配置文件的卷来启动应用程序。如果未给出此选项，任何卷（有或无配置文件）将用于启动。
 - `persistent.constraints`：限制应该在何处创建新持久卷的约束。目前，只能通过正常表达式约束磁盘资源的路径。
 
 ## 配置有状态的 pod
@@ -159,7 +159,7 @@ enterprise: false
 
 # 在后台
 
-Marathon 利用三种 Mesos 功能来运行有状态应用程序：[动态保留](http://mesos.apache.org/documentation/latest/reservation/)、保留标签，以及 [持久卷](http://mesos.apache.org/documentation/latest/persistent-volume/)。
+Marathon 利用三种 Mesos 功能来运行有状态应用程序：[动态预留](http://mesos.apache.org/documentation/latest/reservation/)、预留标签和[持久卷](http://mesos.apache.org/documentation/latest/persistent-volume/)。
 
 与静态保留相反，动态预留在运行时为给定角色创建，并使用预留标签将资源与 `frameworkId` 和 `taskId` 的组合相关联。这允许 Marathon 在由于某种原因终止后重新启动有状态任务，因为相关资源将不会提供给未配置为使用此角色的框架。有关更多信息，请参阅[非唯一角色](#non-unique-roles)。
 
@@ -346,7 +346,7 @@ Mesos 中的静态和动态预留均与角色绑定，而不是与框架或框�
 
 ## 含有持久卷的 Pod
 
-以下示例将创建含有两个容器和一个共享持久卷的 Pod。另请参见 [Pod](/mesosphere/dcos/2.0/deploying-services/pods/)。
+以下示例将创建含有两个容器和一个共享持久卷的 Pod。另请参见 [Pod](/mesosphere/dcos/cn/2.0/deploying-services/pods/).
 
 ```json
 {
@@ -451,7 +451,7 @@ Mesos 中的静态和动态预留均与角色绑定，而不是与框架或框�
 1. 找到包含持久卷的代理程序并删除其中的数据。
 1. 向 Marathon 发送包含 `wipe=true` 标记的 HTTP DELETE 请求。
 
-若要查找代理程序，请检查 Marathon UI，并检查 **Volumes**选项卡上的分离卷。或者，查询 `/v2/apps` 端点，该端点提供有关 `host` 和 Mesos `slaveId` 的信息。
+若要查找代理程序，请检查 Marathon UI，并检查 **Volumes**选项卡上的分离卷。或者，查询 `/v2/apps` 端点，该端点提供有关 `host` 和 Mesos `slaveId`. 的信息。
 
 ```http
 http GET http://dcos/service/marathon/v2/apps/postgres/tasks
@@ -474,7 +474,7 @@ http GET http://dcos/service/marathon/v2/apps/postgres/tasks
 }
 ```
 
-<p class="message--note"><strong>注意：</strong>除上述信息外，正在运行的任务还将显示 <code>stagedAt</code>、<code>startedAt</code> 和<code>版本</code>。</p>
+<p class="message--note"><strong>注意：</strong>除上述信息外，正在运行的任务还将显示 <code>stagedAt</code>、<code>startedAt</code> 和<code>版本</code></p>
 
 然后，您可以
 

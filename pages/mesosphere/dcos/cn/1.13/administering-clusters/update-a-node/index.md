@@ -46,7 +46,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
     如需更复杂的示例，请参阅 [maintain-agents.sh](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/maintain-agents.sh) 脚本。
 
-1. 指定机器 JSON 定义之后调用 `⁠⁠⁠⁠machine/down` 端点。例如，[此处](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) 是一个调用 `/machine/down/`的脚本。
+1. 指定机器 JSON 定义之后调用 `⁠⁠⁠⁠machine/down` 端点。例如，[此处](https://github.com/vishnu2kmohan/dcos-toolbox/blob/master/mesos/down-agents.sh) 是一个调用 `/machine/down/`.的脚本。
 
     <p class="message--important"><strong>重要信息：</strong>调用 <code>machine/down</code> 会针对代理上运行的任何任务发送 TASK_LOST 消息。某些 DC/OS 服务，例如 Marathon，将重新定位任务，但其他服务则不会，例如 Kafka 和 Cassandra。有关详细信息，请参阅 DC/OS 服务指南和 Mesos 维护原始文档。</p>
 
@@ -63,7 +63,7 @@ model: /mesosphere/dcos/1.13/data.yml
 # 手动终止代理
 使用终止信号 SIGUSR1 排空节点，这易于与可在节点上平行地执行任务的自动化工具集成，例如，Ansible、Chef 和 Puppet。
 
-1. 在代理节点上打开安全外壳 [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)。
+1. 在代理节点上打开安全外壳 [SSH](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)
 
 1. 运行相应命令终止代理。
     -  **专用代理** 运行：

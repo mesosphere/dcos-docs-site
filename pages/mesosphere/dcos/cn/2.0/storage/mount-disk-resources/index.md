@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 挂载磁盘资源
+navigationTitle:  挂载磁盘资源
 title: 挂载磁盘资源
 menuWeight: 0
 excerpt: 使用 Mesos 挂载存储资源
@@ -30,30 +30,30 @@ enterprise: false
 
     MESOS_RESOURCES='[{"ranges": {"range": [{"end": 21, "begin": 1}, {"end": 5050, "begin": 23}, {"end": 32000, "begin": 5052}]}, "type":  "RANGES", "name": "ports"}, {"role": "*", "type": "SCALAR", "name": "disk", "scalar": {"value": 47540}}]'
     ```
- 请注意，`/dcos/volume0` 尚无引用。
+    请注意， 尚无引用。`/dcos/volume0`.
 
 1. 停止代理节点。
- - 在[专用](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node)代理节点上：
+    - 在[专用](/mesosphere/dcos/cn/2.0/overview/concepts/#private-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave.service
       ```
 
- - 在[公共](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node)代理节点上：
+    - 在[公共](/mesosphere/dcos/cn/2.0/overview/concepts/#public-agent-node)代理节点上：
 
       ```bash
       sudo systemctl stop dcos-mesos-slave-public.service
       ```
 
 1. 清除代理节点状态。
- 1. 使用以下命令缓存卷挂载发现资源状态：
+    1. 使用以下命令缓存卷挂载发现资源状态：
 
         ```bash
         sudo mv -f /var/lib/dcos/mesos-resources /var/lib/dcos/mesos-resources.cache
         ```
- DC/OS 将稍后检查此文件，以便为代理生成新的资源状态。
+       DC/OS 将稍后检查此文件，以便为代理生成新的资源状态。
 
- 1. 使用以下命令删除代理节点检查点状态：
+    1. 使用以下命令删除代理节点检查点状态：
 
         ```bash
         sudo rm -f /var/lib/mesos/slave/meta/slaves/latest
@@ -68,11 +68,11 @@ enterprise: false
     sudo mkfs -t ext4 /dev/loop0
     sudo losetup -d /dev/loop0
     ```
- 这仅适用于测试目的。挂载卷必须至少有 200 MB 可用空间。每个卷 100 MB 由 DC/OS 保留，不可用于其他服务。
+    这仅适用于测试目的。挂载卷必须至少有 200 MB 可用空间。每个卷 100 MB 由 DC/OS 保留，不可用于其他服务。
 
 1. 创建 `fstab` 条目并挂载。
 
- 确保卷在启动时自动挂载。也可以通过 `systemd` 挂载单元完成类似操作。
+    确保卷在启动时自动挂载。也可以通过 `systemd` 挂载单元完成类似操作。
 
     ```bash
     echo "/root/volume0.img /dcos/volume0 auto loop 0 2" | sudo tee -a /etc/fstab
@@ -85,13 +85,13 @@ enterprise: false
     sudo reboot
     ```
 
-1. 通过 SSH 连接到到代理节点并查看 `journald` 日志以获取对新卷 `/dcos/volume0` 的引用。
+1. 通过 SSH 连接到到代理节点并查看 `journald` 日志以获取对新卷 `/dcos/volume0`. 的引用。
 
     ```bash
     journalctl -b | grep '/dcos/volume0'
     ```
 
- 特别是，应该有代理节点启动的条目和新的 volume0 `Mount` 磁盘资源：
+    特别是，应该有代理节点启动的条目和新的 volume0 `Mount` 磁盘资源：
 
     ```bash
     May 05 19:18:40 dcos-agent-public-01234567000001 systemd[1]: Mounting /dcos/volume0...
@@ -176,7 +176,7 @@ enterprise: false
 
 在运行此服务后，导航到 Web 界面中的 **Services > Volumes** 选项卡：
 
-![挂载磁盘](/mesosphere/dcos/2.0/img/mount-disk.png)
+![挂载磁盘](/mesosphere/dcos/cn/2.0/img/mount-disk.png)
 
 图 1. Services > Volumes 选项卡
 

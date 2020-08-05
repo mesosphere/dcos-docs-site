@@ -13,24 +13,24 @@ DC/OS 命令行界面 (DC/OS CLI) 实用程序允许您管理群集以及管理�
 
 # DC/OS CLI 版本和配置文件
 
-不同的 CLI 版本与不同版本的 DC/OS 兼容。要确定支持哪些组合，请参阅 [CLI 支持矩阵](/mesosphere/dcos/version-policy/#cli-support-matrix)。
+不同的 CLI 版本与不同版本的 DC/OS 兼容。要确定支持哪些组合，请参阅 [CLI 支持矩阵](/mesosphere/dcos/cn/version-policy/#cli-support-matrix).
 
 DC/OS CLI 0.4.x 和 0.5.x 针对配置文件的位置使用不同的结构。
 
-DC/OS CLI 0.4.x 具有单个配置文件，默认情况下存储在 `~/.dcos/dcos.toml`。在 DC/OS CLI 0.4.x 中，您可以选择使用 [`DCOS_CONFIG`](#dcos-config) 环境变量更改配置文件的位置。
+DC/OS CLI 0.4.x 具有单个配置文件，默认情况下存储在 `~/.dcos/dcos.toml`. 在 DC/OS CLI 0.4.x 中，您可以选择使用 [`DCOS_CONFIG`](#dcos-config) 环境变量更改配置文件的位置。
 
-DC/OS CLI 0.5.x 具有每个连接群集的配置文件，默认情况下存储在 `~/.dcos/clusters/<cluster_id>/dcos.toml` 中。在 DC/OS CLI 0.5.x 中，您可以选择使用 [`DCOS_DIR`](＃dcos-cdir）环境变量更改配置目录的基本部分（`~/.dcos`）。
+DC/OS CLI 0.5.x 具有每个连接群集的配置文件，默认情况下存储在  中。`~/.dcos/clusters/<cluster_id>/dcos.toml`. 在 DC/OS CLI 0.5.x 中，您可以选择使用 [`~/.dcos`](#dcos-cdir) 环境变量更改配置目录的基本部分（`DCOS_DIR`
 
 - 如果更新到 DC/OS CLI 0.5.x 并运行任何 CLI 命令，它将触发从旧配置结构到新配置结构的转换。
 - 在调用 `dcos cluster setup` 后（或已经发生转换），如果您尝试使用 `dcos config set` 命令更新群集配置，该命令将显示一条警告消息，指出该命令已弃用且群集配置状态现在可能已损坏。
 
 ## 最新版本安装
 
-DC/OS 1.13 需要 DC/OS CLI >= 0.8。安装时，[请遵循这些说明](/mesosphere/dcos/cn/1.13/cli/install/)。
+DC/OS 1.13 需要 DC/OS CLI >= 0.8。安装时，[请遵循这些说明](/mesosphere/dcos/cn/1.13/cli/install/).
 
 ## CLI 命令
 
-若要列出 DC/OS CLI 中的可用命令，请运行不带参数的 `dcos`：
+若要列出 DC/OS CLI 中的可用命令，请运行不带参数的 `dcos`
 
 ```bash
 $ dcos
@@ -78,7 +78,7 @@ Use "dcos [command] --help" for more information about a command.
 - [`dcos license`](/mesosphere/dcos/cn/{{ model.version }}/cli/command-reference/dcos-license/)
 - [`dcos security`](/mesosphere/dcos/cn/{{ model.version }}/cli/command-reference/dcos-security/)
 
-有关安装 CLI 的 DC/OS Enterprise 版本的说明，[请参阅文档](/mesosphere/dcos/cn/{{ model.version }}/cli/enterprise-cli/#installing-the-dcos-enterprise-cli)。
+有关安装 CLI 的 DC/OS Enterprise 版本的说明，[请参阅文档](/mesosphere/dcos/cn/{{ model.version }}/cli/enterprise-cli/#installing-the-dcos-enterprise-cli).
 
 <a name="setupcluster"></a>
 
@@ -123,8 +123,8 @@ export DCOS_CONFIG=/home/jdoe/config/dcos.toml
 
 如果您已经配置了 `DCOS_CONFIG` 环境变量：
 
-- 在转换为[新配置结构](#configuration-files) 后，不再接受 `DCOS_CONFIG`。
-- 在调用 `dcos cluster setup` 之前，您可使用 `dcos config set` 更改 `DCOS_CONFIG` 指向的配置。该命令会显示一条警告消息，指出该命令已弃用，建议使用 `dcos cluster setup`。
+- 在转换为[新配置结构](#configuration-files) 后，不再接受 `DCOS_CONFIG`
+- 在调用 `dcos cluster setup` 之前，您可使用 `DCOS_CONFIG` 更改 `dcos config set`. 指向的配置。该命令会显示一条警告消息，指出该命令已弃用，建议使用 `dcos cluster setup`.
 
 # 列出群集
 
@@ -147,7 +147,7 @@ export DCOS_DIR=/home/jdoe/config
     dcos cluster setup <url>
     ```
 
-   此设置根据 `$DCOS_DIR/clusters/<cluster_id>` 下的群集配置生成和更新。将新设置的群集设置为连接的群集。
+   此设置根据  下的群集配置生成和更新。`$DCOS_DIR/clusters/<cluster_id>`. 将新设置的群集设置为连接的群集。
 
 <a name="dcos-ssl-verify"></a>
 
@@ -168,11 +168,11 @@ $ dcos cluster list
 
 该命令向指示级别或更高级别的 `stderr` 显示日志消息。这相当于 `--log-level` 命令行选项。严重级别为：
 
-- **调试** 向 `stderr` 打印所有消息，包括信息、警告、错误以及关键消息。
-* **信息** 向 `stderr` 打印信息、警告、错误以及关键消息。
-- **警告** 向 `stderr` 打印警告、错误和关键消息。
-- **错误** 向 `stderr` 打印错误和关键消息。
-- **关键** 仅向 `stderr` 打印关键信息。
+- **调试** 将所有消息打印到 `stderr`，包括信息、警告、错误和关键消息。
+- **信息** 将提示信息、警告、错误和关键消息打印到 `stderr`.
+- **警告** 将警告、错误和关键消息打印到 `stderr`.
+- **错误** 将错误和关键消息打印到 `stderr`.
+- **关键** 仅将关键信息打印到 `stderr`.
 
 例如，将日志级别设置为警告：
 
@@ -184,7 +184,7 @@ export DCOS_LOG_LEVEL=warning
 
 #### `DCOS_DEBUG`
 
-该命令指示是否将其他调试消息打印到 `stdout`。该参数默认设置为 `false`。例如：
+该命令指示是否将其他调试消息打印到 `stdout`. 该参数默认设置为 `false`. 例如：
 
 ```bash
 export DCOS_DEBUG=true

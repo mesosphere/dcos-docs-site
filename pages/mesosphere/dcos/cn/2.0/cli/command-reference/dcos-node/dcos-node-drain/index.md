@@ -24,7 +24,7 @@ dcos node drain <mesos-id>
 | 名称 | 说明 |
 |---------|-------------|
 | `--decommission`   |   在决定排空之后停用代理。 |
-| `--help, h` | 显示用法。 |
+| `--help, h`   | 显示用法。 |
 | `--timeout`   |   执行请求超时。 |
 | `--wait`   |   等待排空完成。 |
 
@@ -38,5 +38,5 @@ dcos node drain <mesos-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
+| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 

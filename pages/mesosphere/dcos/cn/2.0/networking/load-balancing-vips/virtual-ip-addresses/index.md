@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 使用虚拟 IP 地址
+navigationTitle:  使用虚拟 IP 地址
 title: 使用虚拟 IP 地址
 menuWeight: 10
 excerpt: 使用虚拟 IP 地址
@@ -35,48 +35,48 @@ VIP 遵循以下命名约定：
 
 ## 创建 VIP
 
-1. 从 DC/OS [GUI](/mesosphere/dcos/2.0/gui/)，选择 **服务** 选项卡，然后选择 **运行服务**。
+1. 从 DC/OS [GUI](/mesosphere/dcos/cn/2.0/gui/)，选择 **服务** 选项卡，然后选择 **运行服务**。
 
 1. 从屏幕上选择一个容器配置。
 
- ![配置菜单](/mesosphere/dcos/2.0/img/GUI-Services-Networking-Container-Config-Menu.png) 
+    ![配置菜单](/mesosphere/dcos/cn/2.0/img/GUI-Services-Networking-Container-Config-Menu.png) 
 
- 图 1 - 容器配置菜单
+    图 1 - 容器配置菜单
 
- 将显示“配置”菜单。将显示“配置”菜单。下图显示了已激活 JSON 编辑器的屏幕；您可以使用切换开关关闭编辑器。
+    将显示“配置”菜单。将显示“配置”菜单。下图显示了已激活 JSON 编辑器的屏幕；您可以使用切换开关关闭编辑器。
 
- ![VIP 服务定义](/mesosphere/dcos/2.0/img/vip-service-definition.png)
+    ![VIP 服务定义](/mesosphere/dcos/cn/2.0/img/vip-service-definition.png)
 
- 图 2 - VIP 服务定义屏幕
+    图 2 - VIP 服务定义屏幕
 
 1. 在**网络**选项卡上，选择**网络类型** > **虚拟网络：dcos**。
- ![网络配置页面](/mesosphere/dcos/2.0/img/GUI-Services-Container-Config-Menu.png)
+    ![网络配置页面](/mesosphere/dcos/cn/2.0/img/GUI-Services-Container-Config-Menu.png)
 
- 图 3 - 网络配置屏幕 
+    图 3 - 网络配置屏幕 
 
 1. 在 **服务端点** 下，展开 **添加服务端点**，为以下内容提供回复：
 
- - **容器端口**
- - **服务端点名称**
- - **端口映射**
- - **启用负载均衡服务地址**
+    - **容器端口**
+    - **服务端点名称**
+    - **端口映射**
+    - **启用负载均衡服务地址**
 
- 在填写这些字段时，Marathon 设置的服务地址将出现在屏幕底部。您可以单击**添加服务端点**，将多个 VIP 分配到您的应用程序。
+    在填写这些字段时，Marathon 设置的服务地址将出现在屏幕底部。您可以单击**添加服务端点**，将多个 VIP 分配到您的应用程序。
 
 1. 选择 **查看和运行** 和 **运行服务**。
 
 您可以单击**网络**选项卡，查看服务的网络详情。
 
-![网络](/mesosphere/dcos/2.0/img/GUI-Networking-Networks_View-1_12.png)
+![网络](/mesosphere/dcos/cn/2.0/img/GUI-Networking-Networks_View-1_12.png)
  
 图 3 - 网络详情
 
 
-有关端口配置的更多信息，请参阅 [Marathon 端口文档](/mesosphere/dcos/2.0/deploying-services/service-ports/)。
+有关端口配置的更多信息，请参阅 [Marathon 端口文档](/mesosphere/dcos/cn/2.0/deploying-services/service-ports/).
 
 ## 通过 DC/OS 服务使用 VIP
 
-某些 DC/OS 服务（如 [Kafka](/mesosphere/dcos/services/kafka/latest/)）在您安装它们时会自动创建 VIP。命名约定是：`broker.<service.name>.l4lb.thisdcos.directory:9092`。
+某些 DC/OS 服务（如 [Kafka](/mesosphere/dcos/cn/services/kafka/latest/)）在您安装它们时会自动创建 VIP。命名约定是：`broker.<service.name>.l4lb.thisdcos.directory:9092`.
 
 按照以下步骤查看 Kafka 的 VIP。
 
@@ -85,13 +85,13 @@ VIP 遵循以下命名约定：
 1. 单击**网络** > **网络**，然后选择**dcos**。
 1. 选择任务以查看详情。
 
- ![Service details](/mesosphere/dcos/2.0/img/GUI-Networking-Service-Addresses-Detail.png)
+    ![Service details](/mesosphere/dcos/cn/2.0/img/GUI-Networking-Service-Addresses-Detail.png)
 
- 图 5 - VIP 服务详情
+    图 5 - VIP 服务详情
 
 ### 通过 CLI
 
-**前提条件：** Kafka 服务和 CLI 必须 [已安装](/mesosphere/dcos/services/kafka/latest/)。
+**前提条件：** Kafka 服务和 CLI 必须 [已安装](/mesosphere/dcos/cn/services/kafka/latest/).
 
 1. 运行此命令：
 
@@ -99,7 +99,7 @@ VIP 遵循以下命名约定：
     dcos kafka endpoints broker
     ```
 
- 输出应类似于：
+    输出应类似于：
 
     ```json
     {

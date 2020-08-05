@@ -14,7 +14,7 @@ menuWeight: 20
 oauth_enabled: 'false'
 ```
 
-<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>
+<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>
 
 
 
@@ -22,7 +22,7 @@ oauth_enabled: 'false'
 
 可以通过禁用群集遥测来选择不提供匿名数据。要禁用遥测，您可以：
 
-- 在安装期间将此参数添加到 [`config.yaml`](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/)文件（需要使用 [安装][1] 方法）：
+- 安装期间，将此参数添加到 [`config.yaml`](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/) 文件：
 
     ```yaml
     telemetry_enabled: 'false'
@@ -30,4 +30,4 @@ oauth_enabled: 'false'
 
 
 
-<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>
+<p class="message--note"><strong>注意：</strong>如果已经安装了群集，并且希望禁用此功能，则可以使用相同的<a href="/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/">配置参数</a>集进行升级。</p>

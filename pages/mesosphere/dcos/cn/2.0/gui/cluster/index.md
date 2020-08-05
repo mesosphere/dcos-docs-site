@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 群集
+navigationTitle:  群集
 title: 群集
 menuWeight: 8
 excerpt: 使用群集菜单
@@ -8,13 +8,13 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-从 UI，您可以查看单个群集或 [链接群集](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/) 统计信息的摘要。
+从 UI，您可以查看单个群集或 [链接群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/) 统计信息的摘要。
 
 # 概述
 
 要查看群集配置详细信息的显示，请单击 **群集 > 概述**。
 
-![群集概述](/mesosphere/dcos/2.0/img/GUI-Cluster-Overview.png)
+![群集概述](/mesosphere/dcos/cn/2.0/img/GUI-Cluster-Overview.png)
 
 图 1 - 群集概述
 
@@ -22,7 +22,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 您可以从右上角的下拉菜单中看到群集的 IP 地址。
 
-![群集菜单](/mesosphere/dcos/2.0/img/GUI-Cluster-Menu.png)
+![群集菜单](/mesosphere/dcos/cn/2.0/img/GUI-Cluster-Menu.png)
 
 图 2 - 群集菜单
 
@@ -33,10 +33,10 @@ model: /mesosphere/dcos/2.0/data.yml
 要查看链接群集详细信息的显示，请单击 **链接群集**。
 
 
-![链接群集](/mesosphere/dcos/2.0/img/GUI-Cluster-Linked-Clusters-Tab-Link.png)
+![链接群集](/mesosphere/dcos/cn/2.0/img/GUI-Cluster-Linked-Clusters-Tab-Link.png)
 
 图 3 - 链接群集
 
-有关链接群集的详细信息，请参阅 [多个群集](/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/cluster-links/) 文档。
+有关链接群集的详细信息，请参阅 [多个群集](/mesosphere/dcos/cn/2.0/administering-clusters/multiple-clusters/cluster-links/) 文档。
 
 

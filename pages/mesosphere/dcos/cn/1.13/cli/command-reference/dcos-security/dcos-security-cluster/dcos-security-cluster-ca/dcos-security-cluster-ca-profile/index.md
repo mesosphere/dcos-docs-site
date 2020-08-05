@@ -26,7 +26,7 @@ dcos security cluster ca profile [OPTIONS]
 |-------|------------|
 | `-p`, `--profile <text>`| 要获取相关信息的签名配置文件。|
 | `-j`, `--json` | JSON 格式的输出数据。|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 
 # 父命令

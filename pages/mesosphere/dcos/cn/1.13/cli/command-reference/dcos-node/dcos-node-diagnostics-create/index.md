@@ -22,13 +22,13 @@ dcos node diagnostics create (<nodes>)
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示用法。 |
+| `--help, h` |  显示用法。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|-------------|
-| `<nodes>` | 在其上运行命令的节点。节点可以是以下任一项：IP 地址、主机名、Mesos ID、或关键词 "`all`"、"`masters`"、"`agents`"。您必须对关键词使用引号。|
+| `<nodes>`   | 在其上运行命令的节点。节点可以是以下任一项：IP 地址、主机名、Mesos ID、或关键词 `all`、`masters`、`agents`。|
 
 # 示例
 
@@ -42,5 +42,5 @@ Job has been successfully started, available bundle: bundle-2019-03-18-155293277
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos 节点](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。|
+| [dcos node](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 

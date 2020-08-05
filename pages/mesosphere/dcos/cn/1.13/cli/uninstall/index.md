@@ -22,7 +22,7 @@ model: /mesosphere/dcos/1.13/data.yml
     rm -rf ~/.dcos
     ```
 
-1. 删除 `dcos` 可执行文件。默认情况下，该文件位于 `/usr/local/bin/dcos`。
+1. 删除 `dcos` 可执行文件。默认情况下，该文件位于 `/usr/local/bin/dcos`.
 
     ```bash
     rm -rf /usr/local/bin/dcos

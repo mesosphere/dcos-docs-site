@@ -17,12 +17,12 @@ enterprise: false
 
 | 环境变量 | 默认 | 简述 |
 |----------------------|---------|-------------------|
-| `CONTAINER_LOGGER_DESTINATION_TYPE` | `logrotate` | 任务日志的指向：任务的沙盒或日志。|
-| `CONTAINER_LOGGER_LOGROTATE_MAX_STDOUT_SIZE` | `2MB` | 沙盒中 stdout 文件在触发日志轮换之前的最大大小。|
-| `CONTAINER_LOGGER_LOGROTATE_STDOUT_OPTIONS` | `rotate 9` | 轮换 stdout 文件时传递给 `logrotate` 的选项。|
-| `CONTAINER_LOGGER_LOGROTATE_MAX_STDERR_SIZE` | `2MB` | 沙盒中 stderr 文件在触发日志轮换之前的最大大小。|
-| `CONTAINER_LOGGER_LOGROTATE_STDERR_OPTIONS` | `rotate 9` | 轮换 stderr 文件时传递给 `logrotate` 的选项。|
-| `CONTAINER_LOGGER_EXTRA_LABELS` | `"{}"` | 在输出到 journald 时标记每个日志行的额外密钥值对。|
+| `CONTAINER_LOGGER_DESTINATION_TYPE`          | `logrotate` | 任务日志的指向：任务的沙盒或日志。|
+| `CONTAINER_LOGGER_LOGROTATE_MAX_STDOUT_SIZE` | `2MB`       | 沙盒中 stdout 文件在触发日志轮换之前的最大大小。|
+| `CONTAINER_LOGGER_LOGROTATE_STDOUT_OPTIONS`  | `rotate 9` | 轮换 stdout 文件时传递给 `logrotate` 的选项。|
+| `CONTAINER_LOGGER_LOGROTATE_MAX_STDERR_SIZE` | `2MB`       | 沙盒中 stderr 文件在触发日志轮换之前的最大大小。|
+| `CONTAINER_LOGGER_LOGROTATE_STDERR_OPTIONS`  | `rotate 9` | 轮换 stderr 文件时传递给 `logrotate` 的选项。|
+| `CONTAINER_LOGGER_EXTRA_LABELS`              | `"{}"`      | 在输出到 journald 时标记每个日志行的额外密钥值对。|
 
 
 # 详细信息
@@ -39,15 +39,15 @@ enterprise: false
 * `journald+logrotate`
 
 **不推荐** 使用 `journald` 选项，这是因为
-[journald 性能问题](https://github.com/systemd/systemd/issues/5102)。
+[journald 性能问题](https://github.com/systemd/systemd/issues/5102).
 启用后，日志会直接通过管道传输到节点的日志中，同时还有
-`AGENT_ID`、`EXECUTOR_ID` 和 `CONTAINER_ID` 等一些标签
+`AGENT_ID``EXECUTOR_ID` 和 `CONTAINER_ID`. 等一些标签
 
 `logrotate` 选项将放置日志（名为 `stdout` 和 `stderr`)
 在任务沙盒内并创建附加文件，用于轮换这些
-日志 (`*.logrotate.conf` 和 `*.logrotate.state`)。
+日志 (`*.logrotate.conf` 和 `*.logrotate.state`).
 
-请参阅 [记录参考](/mesosphere/dcos/1.13/monitoring/logging/logging-reference/)
+请参阅 [记录参考](/mesosphere/dcos/cn/1.13/monitoring/logging/logging-reference/)
 了解如何读取这些日志的信息。
 
 ## 最大大小
@@ -58,7 +58,7 @@ enterprise: false
 就会被触发。
 
 大小必须为小于 2^64 的整数，且后缀必须带有
-`B`（字节）、`KB`、`MB`、`GB` 或 `TB` 的等单位。不应该在
+`B`（字节）、`KB`、`MB`、`GB` 或 `TB`. 的等单位。不应该在
 整数和单位之间留有空格。
 
 示例：
@@ -72,7 +72,7 @@ enterprise: false
 
 ## 日志轮换选项
 
-<p class="message--important"><strong></strong>重要信息：
+<p class="message--important"><strong>重要信息：</strong>
 截止 DC/OS 1.13.0，这些自定义选项已禁用以防止滥用
 <code>postrotate</code> 条款和其他注入攻击。
 请参阅 <a href="https://issues.apache.org/jira/browse/MESOS-9564">MESOS-9564</a>
@@ -93,11 +93,11 @@ enterprise: false
 
 * `size` 将会被值
   `CONTAINER_LOGGER_LOGROTATE_MAX_STDOUT_SIZE`
-  或 `CONTAINER_LOGGER_LOGROTATE_MAX_STDERR_SIZE` 覆盖。
+  或  覆盖。`CONTAINER_LOGGER_LOGROTATE_MAX_STDERR_SIZE`.
 * 无法如期运行基于时间的轮换。轮换的触发
   纯粹基于写入的量。所以如果
   在 2MB 时触发轮换，但写入量少于 2MB，则轮换永远
   都不会发生。
-* 不需要 `copy` 和 `copytruncate`，因为在轮换时
+* 不需要 * `copy` 和 `copytruncate`，因为在轮换时
   不会写入日志文件。这意味着没有日志行
   会丢失（尽管可以将太长的行切割成不同的文件）。

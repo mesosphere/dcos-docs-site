@@ -23,7 +23,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 <p class="message--warning"><strong>警告：</strong>Mesosphere 不支持 Ubuntu 作为 DC/OS 的操作系统，即便是使用 Microsoft Azure 时。</p>
 
-1. 使用 `chmod` 命令更改 `.pem` 文件权限为所有者读/写权限。
+1. 使用 `.pem` 命令更改 `chmod` 文件权限为所有者读/写权限。
 
     <p class="message--important"><strong>重要信息：</strong>您的 .pem 文件必须位于 <code>~/.ssh</code> 目录。</p>
 
@@ -48,7 +48,7 @@ model: /mesosphere/dcos/1.13/data.yml
     dcos node ssh --master-proxy --leader
     ```
 
-    CorEos 默认用户是 `core` 。如果您正在使用 CenTos，输入：
+    默认用户取决于您的 OS。如果您正在使用 CentOS，输入：
 
     ```bash
     dcos node ssh --master-proxy --leader --user=centos
@@ -62,9 +62,9 @@ model: /mesosphere/dcos/1.13/data.yml
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
-    要查找代理 ID，选择 DC/OS [UI](/mesosphere/dcos/cn/1.13/gui/) 中的 **节点** 选项卡并单击 **详细信息**。
+    要查找代理 ID，请选择 DC/OS [UI](/mesosphere/dcos/cn/1.13/gui/) 中的 **节点** 选项卡并单击 **详细信息**。
 
-    ![Web 界面节点 ID](/mesosphere/dcos/1.13/img/GUI-Nodes-Selected_Node_Detail_View-1_12.png)
+    ![Web 界面节点 ID](/mesosphere/dcos/cn/1.13/img/GUI-Nodes-Selected_Node_Detail_View-1_12.png)
 
     图 1. UI 节点 ID 屏幕
 
@@ -77,19 +77,19 @@ model: /mesosphere/dcos/1.13/data.yml
 * PuTTYgen RSA 和 DSA 密钥生成实用工具
 * Pageant SSH 身份认证代理
 
-要安装这些程序，从官方 PuTTY 下载页面下载 Windows 安装程序 <a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank">。</a>
+要安装这些程序，请从官方 PuTTY 下载页面下载 Windows 安装程序<a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" target="_blank"></a>
 
-1. 使用 PuTTYgen 转换 `.pem` 文件类型为 `.ppk` ：
+1. 使用 PuTTYgen 转换 `.pem` 文件类型为 `.ppk`
 
     1. 打开 PuTTYgen，选择 **文件 > 加载私钥**，并选择您的 `.pem` 文件。
 
     2. 选择 **SSH-2 RSA** 作为密钥类型，单击 **保存私钥**，然后选择名称和位置以保存新的 .ppk 密钥。
 
-        ![Windows](/mesosphere/dcos/1.13/img/windowsputtykey.png)
+        ![Windows](/mesosphere/dcos/cn/1.13/img/windowsputtykey.png)
 
         图 2. Windows PuTTY 密钥
 
-    3. 关闭 `PuTTYgen`。
+    3. 关闭 `PuTTYgen`.
 
 2. SSH 至群集。
 
@@ -99,25 +99,25 @@ model: /mesosphere/dcos/1.13/data.yml
 
         2. 打开 PuTTY 并在 **主机名（或 IP 地址）** 字段中输入管理节点 IP 地址。
 
-            ![Putty 配置](/mesosphere/dcos/1.13/img/windowsputtybasic.png)
+            ![Putty 配置](/mesosphere/dcos/cn/1.13/img/windowsputtybasic.png)
 
             图 3. PuTTY 配置
 
         3. 在 PuTTY 窗口左侧的 **类别** 窗格中，选择 **连接 > SSH > Auth**，单击 **浏览**，查找并选择您的 `.ppk` 文件，然后单击 **打开**。
 
-            ![Putty SSH 选项](/mesosphere/dcos/1.13/img/windowsputtysshopt.png)
+            ![Putty SSH 选项](/mesosphere/dcos/cn/1.13/img/windowsputtysshopt.png)
 
             图 4. PuTTY SSH 选项
 
-        4. 如果您正在运行 CoreOS，则以“core”用户登录。CenTos 上的默认用户是“centos”。
+        4. 如果您正在运行 CentOS，则以用户“centos”身份登录。默认用户根据您的 OS 会有所不同。
 
-            ![Windows 登录](/mesosphere/dcos/1.13/img/windowscore.png)
+            ![Windows 登录](/mesosphere/dcos/cn/1.13/img/windowscore.png)
 
             图 5. Windows 登录
 
     * **要 SSH 至代理节点**
 
-        <p class="message--warning"><strong>警告：</strong>SSH 代理转发具有安全影响。只能添加您信任并且您打算用于代理转发的服务器。有关代理转发的详细信息，请参阅<a href="https://developer.github.com/guides/using-ssh-agent-forwarding/" target="_blank">使用 SSH 代理转发。</a></p>
+        <p class="message--warning"><strong>警告：</strong>SSH 代理转发具有安全影响。只能添加您信任并且您打算用于代理转发的服务器。有关代理转发的详细信息，请参阅 <a href="https://developer.github.com/guides/using-ssh-agent-forwarding/" target="_blank">使用 SSH 代理转发。</a></p>
 
         **先决条件：** 您必须退出管理节点。
 
@@ -127,7 +127,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
             2. 单击 **浏览** 按钮并找到您之前使用 PuTTYgen 创建的 `.ppk` 文件。
 
-                ![Windows 转发](/mesosphere/dcos/1.13/img/windowsforwarding.png)
+                ![Windows 转发](/mesosphere/dcos/cn/1.13/img/windowsforwarding.png)
 
                 图 6. Windows 转发
 
@@ -139,7 +139,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
             3. 找到您使用 PuTTYgen 创建的 `.ppk` 文件，然后单击 **打开** ，将您的密钥添加到 Pageant 中。
 
-                ![Windows Pageant](/mesosphere/dcos/1.13/img/windowspageant.png)
+                ![Windows Pageant](/mesosphere/dcos/cn/1.13/img/windowspageant.png)
 
                 图 7. Windows Pageant
 
@@ -151,20 +151,20 @@ model: /mesosphere/dcos/1.13/data.yml
 
             2. 在 PuTTY 窗口左侧的 **类别** 窗格中，选择 **会话**，在 **主机名（或 IP 地址）** 字段中输入管理节点 IP 地址。
 
-            4. 如果您正在运行 CoreOS，则以“core”用户登录。CenTos 上的默认用户是“centos”。
+            4. 如果您正在运行 CentOS，则以用户“centos”身份登录。默认用户根据您的 OS 会有所不同。
 
-                ![Windows 登录](/mesosphere/dcos/1.13/img/windowscore.png)
+                ![Windows 登录](/mesosphere/dcos/cn/1.13/img/windowscore.png)
 
                 图 8. Windows 登录
 
         4. 从管理节点，SSH 至代理节点。
 
-            1. 从 Mesos Web 界面，复制代理节点主机名。您可以在 **框架** (`<master-node-IPaddress>/mesos/#/frameworks`) 或 **从节点** 页面 (`<master-node-IPaddress>/mesos/#/slaves`) 找到主机名。
+            1. 从 Mesos Web 界面，复制代理节点主机名。您可以在 **框架** (`<master-node-IPaddress>/mesos/#/frameworks`) 或 **从节点** 页面 (`<master-node-IPaddress>/mesos/#/slaves`).) 找到主机名。
 
             2. 使用指定的代理节点主机名以用户`core`的身份 SSH 至代理节点：
 
                     ssh core@<agent-node-hostname>
 
- [1]: /mesosphere/dcos/cn/1.13/cli/command-reference/
+ [1]: /mesosphere/dcos/1.13/cli/command-reference/
  [2]: #unix
  [3]: #windows

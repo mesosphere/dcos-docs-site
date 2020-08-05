@@ -12,6 +12,6 @@ model: /mesosphere/dcos/1.13/data.yml
 
 
 
-![Package repositories](/mesosphere/dcos/1.13/img/GUI-Settings-EE-Package_Repositories-1_12.png)
+![Package repositories](/mesosphere/dcos/cn/1.13/img/GUI-Settings-EE-Package_Repositories-1_12.png)
 
 图 1 - **设置 > 包资源库** 选项卡

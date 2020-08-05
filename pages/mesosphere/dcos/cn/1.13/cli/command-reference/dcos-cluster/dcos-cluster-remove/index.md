@@ -22,16 +22,16 @@ model: /mesosphere/dcos/1.13/data.yml
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--all` | 删除所有群集。 |
-| `-h`，`--help` | `remove` 命令帮助。 |
-| ` --unavailable` | 删除不可用群集。 |
+| `--all`    | 删除所有群集。 |
+|  `-h`, `--help`   | `remove` 命令帮助。 |
+| ` --unavailable`  | 删除不可用群集。 |
 
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<name>` | 群集名称 |
+| `<name>`   | 群集名称 |
 
 
 # 示例
@@ -52,7 +52,7 @@ model: /mesosphere/dcos/1.13/data.yml
     ```
     如果命令成功完成，将无确认消息。
 
-1. 要确认已删除群集，请再次运行 `dcos cluster list`：
+1. 要确认已删除群集，请再次运行 `dcos cluster list`
 
     ```
     dcos cluster list
@@ -61,10 +61,10 @@ model: /mesosphere/dcos/1.13/data.yml
     ```
 
 
-如需更多示例，请参阅 [群集连接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
+如需更多示例，请参阅 [群集连接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/).
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理您的 DC/OS 群集
+| [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集

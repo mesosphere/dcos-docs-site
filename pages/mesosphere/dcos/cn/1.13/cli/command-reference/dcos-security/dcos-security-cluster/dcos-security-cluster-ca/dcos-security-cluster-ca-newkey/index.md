@@ -24,17 +24,17 @@ dcos security cluster ca newkey [OPTIONS]
 
 | 名称 | 说明 |
 |--------|---------------|
-|`--cn <text>` |规范名。（必填）|
-| `--host <text>`| 可以多次指定 SAN 主机。（必填）|
+|`--cn <text>` |规范名。（必填)|
+|  `--host <text>`| 可以多次指定 SAN 主机。（必填)|
 | `--name-c <text>` |       国家。|
 |  `--name-st <text>` |      州。|
-| `--name-o <text>` | 组织。|
-|  `--name-l <text>` |       地区。|
-| `--name-ou <text>` | 组织单位。|
-| `--key-algo <text>` | 密钥算法。|
-| `--key-size <integer>`| 密钥大小。|
-| `-j`, `--json` | JSON 格式的输出数据。|
-| `-h`, `--help`| 显示此消息并退出。|
+| `--name-o <text>` |      组织。|
+|  `--name-l <text>` |     地区。|
+| `--name-ou <text>` |     组织单位。|
+|  `--key-algo <text>` |    密钥算法。|
+|  `--key-size <integer>`|     密钥大小。|
+|  `-j`, `--json`|                JSON 格式的输出数据。|
+|  `-h`, `--help`|                显示此消息并退出。|
 
 
 

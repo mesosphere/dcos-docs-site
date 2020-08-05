@@ -9,7 +9,7 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 
-本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/mesosphere/dcos/cn/1.13/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用[自定义非本地 Marathon 程序](/mesosphere/dcos/cn/1.13/deploying-services/marathon-on-marathon/advanced/)。
+本专题描述了如何部署具有独立角色、保留和配额的非本地 Marathon 实例。本程序不支持 [密钥](/mesosphere/dcos/cn/1.13/security/ent/secrets/) 或细粒度 ACL。如果需要这些功能，您必须使用[自定义非本地 Marathon 程序](/mesosphere/dcos/cn/1.13/deploying-services/marathon-on-marathon/advanced/).
 
 **前提条件：**
 
@@ -122,10 +122,10 @@ curl -i -k \
       -X POST "`dcos config show core.dcos_url`/mesos/api/v1"
 ```
 
-# 第 2 步 - 安装具有分配角色的非本地 Marathon 实例
+# # 第 2 步 - 安装具有分配角色的非本地 Marathon 实例
 在此步骤中，非本地 Marathon 实例安装在 DC/OS上，并分配了 Mesos 角色。
 
-1. 创建自定义 JSON 配置文件并另存为 `marathon-config.json`。此文件用于安装自定义非本地 Marathon 实例。
+1. 创建自定义 JSON 配置文件并另存为 `marathon-config.json`. 此文件用于安装自定义非本地 Marathon 实例。
     ```json
     {"marathon": {
      "mesos-role": "<myrole>",
@@ -134,12 +134,12 @@ curl -i -k \
      }
     }
      ```        
-1. 通过指定的自定义 JSON 配置 (`marathon-config.json`) 安装来自 {{ model.packageRepo }} 的 Marathon 包。
+1. 通过指定的自定义 JSON 配置（{{ model.packageRepo }}）安装来自 `marathon-config.json`). 的 Marathon 包。
     ```bash
     dcos package install --options=marathon-config.json marathon
     ```
 # 第 3 步 - 创建 Marathon 服务帐户
-步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)。
+步骤创建了 Marathon 服务帐户。Marathon 服务账户可能是可选或必填项，具体取决于您的 [安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)
 
 | 安全模式 |  Marathon 服务帐户 |
 |---------------|----------------------|
@@ -152,7 +152,7 @@ curl -i -k \
     dcos security org service-accounts keypair <private-key>.pem <public-key>.pem
     ```
 
-1. 创建一个名为 `<service-account-id>` 的新服务帐户，并指定公钥（`<public-key>.pem`）。
+1. 创建一个名为 `<service-account-id>` 的新服务帐户，并指定公钥（`<public-key>.pem`).
 
     ```bash
     dcos security org service-accounts create -p <public-key>.pem -d "Non-native Marathon service account" <service-account-id>
@@ -161,7 +161,7 @@ curl -i -k \
 # 第 4 步 - 分配权限（仅限严格模式）
 在此步骤中，权限被分配至 Marathon-on-Marathon 实例。在严格模式下需要权限，而在宽容安全模式将其忽略即可。
 
-所有 CLI 命令也可通过 [IAM API](/mesosphere/dcos/cn/1.13/security/ent/iam-api/) 执行。
+所有 CLI 命令也可通过 [IAM API]执行。(/mesosphere/dcos/cn/1.13/security/ent/iam-api/).
 
 | 安全模式 | 权限 |
 |---------------|----------------------|
@@ -169,8 +169,8 @@ curl -i -k \
 | 严格 | 必填 |
 
 
-授予用户 `<uid>` 权限，启动作为 Linux 用户 `nobody` 执行的 Mesos 任务。
-要允许作为不同 Linux 用户执行任务，请替换 `nobody` 为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请替换 `nobody` 为以下的 `bob`。
+授予用户 `<uid>` 权限，启动作为 Linux 用户 `nobody`. 执行的 Mesos 任务。
+要允许作为不同 Linux 用户执行任务，请替换 `nobody` 为该用户的 Linux 用户 ID。例如，如需以 Linux 用户 `bob` 身份启动任务，请替换 `nobody` 为以下的 `bob`
 请注意， `nobody` 和 `root` 是默认出现在所有代理上的，但如果指定自定义 `bob` 用户，必须在可以执行这些任务的每个代理上手动创建（使用 `adduser` 或类似实用程序）。
 
 ```bash
@@ -188,7 +188,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS Web 界面。
 
-   ![登录](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+   ![登录](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
    图 1. DC/OS Web 界面登录画面。
 
@@ -196,7 +196,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加 cory 权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-List_View-1_12.png)
+    ![添加 cory 权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     图 2. 选择用户或组权限
 
@@ -204,11 +204,11 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
 1. 单击**插入权限字符串**以切换对话框。
 
-    ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     图 3. 添加权限。
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)选择权限字符串。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串。(/mesosphere/dcos/cn/1.13/security/ent/#security-modes).
 
     ### 宽容
 
@@ -223,7 +223,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
     - **访问单个服务或组**
 
-       指定服务或组 (`<service-or-group>`) 和操作 (`<action>`)。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+       指定服务或组 (`<service-or-group>`) 和操作 (`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`.
 
        ```bash
        dcos:adminrouter:service:<service-name> full
@@ -252,7 +252,7 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 
     - **访问单个服务或组**
 
-       指定服务或组（`<service-or-group>`）、服务名称（`<service-name>`）、角色（`<myrole>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`。
+       指定服务或组（`<service-or-group>`）、服务名称（`<service-name>`）、角色（`<myrole>`）和操作（`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:<service-name>:services:/<service-or-group> read,update`.
 
        ```bash
        dcos:adminrouter:service:<service-name> full
@@ -273,16 +273,16 @@ dcos security org users grant <uid> dcos:mesos:master:volume:principal:<uid> del
 # 第 6 步 - 访问非本地 Marathon 实例
 在此步骤中，您以授权用户身份登录非本地 Marathon DC/OS 服务。
 
-1. 启动非本地 Marathon 接口，位于：`http://<master-public-ip>/service/<service-name>/`。
+1. 启动非本地 Marathon 接口，位于：`http://<master-public-ip>/service/<service-name>/`.
 
 1. 输入您的用户名和密码，然后单击 **登录**。
 
-    ![Log in DC/OS](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+    ![Log in DC/OS](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
     图 4. DC/OS 登录屏幕
 
     成功了！
 
-    ![Marathon on Marathon](/mesosphere/dcos/1.13/img/mom-marathon-gui.png)
+    ![Marathon on Marathon](/mesosphere/dcos/cn/1.13/img/mom-marathon-gui.png)
 
     图 5. 操作成功的画面。

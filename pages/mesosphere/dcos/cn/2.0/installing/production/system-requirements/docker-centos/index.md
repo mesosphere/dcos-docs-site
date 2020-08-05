@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: CenTos/RHEL 的 Docker
+navigationTitle:  CenTos/RHEL 的 Docker
 title: 在 CenTos/RHEL 上安装 Docker
 menuWeight: 5
 excerpt: 在 CenTos/RHEL 上安装 Docker CE 的要求、建议和程序
@@ -11,11 +11,11 @@ Docker 17.x 的处理 cgroups 内核内存控制器 (kmem) 中的漏洞在 `kmem
 
 包 `containerd.io` 的 1.2.10-3.2 版本中引入了另一个 kmem 漏洞，该漏洞可能会影响任何版本的 Docker。强烈建议使用 RedHat 或 CentOS 作为其基本操作系统的 Mesosphere DC/OS 客户和社区成员避免使用此版本。
 
-<p class="message--note"><strong>注意：</strong>有关 Docker 漏洞和缓解措施说明的更多具体详情见<a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">此处</a>和<a href="https://support.d2iq.com/s/ article/KMEM-Reoccurrence">此处</a>。</p>
+<p class="message--note"><strong>注意：</strong>有关 Docker 漏洞和缓解措施说明的更多具体详情见<a href="https://mesosphere-community.force.com/s/article/Critical-Issue-KMEM-MSPH-2018-0006">此处</a>和<a href="https://support.d2iq.com/s/article/KMEM-Reoccurrence">此处</a>。</p>
 
 ## 要求和建议
 
-确保 Docker 的 [`live-restore` 设置已禁用](https://docs.docker.com/config/containers/live-restore/)。在 Docker 配置文件中，应缺少此项或设置为 false。
+确保 Docker 的 [`live-restore` 设置已禁用](https://docs.docker.com/config/containers/live-restore/). 在 Docker 配置文件中，应缺少此项或设置为 false。
 
 在 CentOS/RHEL 上安装 Docker 之前，请先查看通用的 [在 DC/OS 上运行 Docker 的要求和建议][1] 以及下面特定于 CentOS/RHEL 的建议：
 
@@ -25,7 +25,7 @@ Docker 17.x 的处理 cgroups 内核内存控制器 (kmem) 中的漏洞在 `kmem
 
 * 有关安装 Docker 的更详细分解，[请参阅 Docker CE for CentOS 安装页][4]。
 
- <p class="message--note"><strong>注意：</strong>在新近的 Centos 和 RHEL 版本中，<code>ftype=1</code> 是默认值。可以使用 <code>xfs_info</code> 实用程序来验证 <code>ftype=1</code>。</p>
+    <p class="message--note"><strong>注意：</strong>在新近的 Centos 和 RHEL 版本中，<code>ftype=1</code> 是默认值。可以使用 <code>xfs_info</code> 实用程序来验证 <code>ftype=1</code>.</p>
 
     ```bash
     mkfs -t xfs -n ftype=1 /dev/sdc1

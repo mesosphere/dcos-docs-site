@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 度量标准参考
+navigationTitle:  度量标准参考
 title: 度量标准参考
 menuWeight: 7
 excerpt: 了解 DC/OS 收集的度量标准
@@ -24,23 +24,23 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
-| `cpu.idle `        |     CPU 空闲百分比。         |
-| `cpu.system`         |    使用的系统百分比。   |
-| `cpu.total`         |   使用 CPU 的百分比。  |
-| `cpu.user`         |   用户使用的 CPU 百分比。   |
-| `cpu.wait`         |   等待操作完成时的空闲百分比。    |
-| `load.1min`         |     过去一分钟的负载平均值。       |
-| `load.5min`         |   过去 5 分钟的负载平均值。        |
+| `cpu.idle `      |     CPU 空闲百分比。         |
+| `cpu.system`       |    使用的系统百分比。   |
+| `cpu.total`       |   使用 CPU 的百分比。  |
+| `cpu.user`       |   用户使用的 CPU 百分比。   |
+| `cpu.wait`       |   等待操作完成时的空闲百分比。    |
+| `load.1min`       |     过去一分钟的负载平均值。       |
+| `load.5min`       |   过去 5 分钟的负载平均值。        |
 | `load.15min`         |   过去 15 分钟的负载平均值。        |
-| `memory.buffers`         |   存储器缓冲区数量。     |
-| `memory.cached`         |   缓存内存的数量。   |
-| `memory.free`         |    按字节计的可用内存量。   |
-| `memory.total`         |   按字节计的总内存。   |
-| `process.count`         |   正在运行的进程数。          |
-| `swap.free`         |  自由交换空间的大小。   |
-| `swap.total`         |  总交换空间。    |
-| `swap.used`         |    已用交换空间的大小。    |
-| `system.uptime`          |   系统正常运行时间。    |
+| `memory.buffers`       |   存储器缓冲区数量。     |
+| `memory.cached`       |   缓存内存的数量。   |
+| `memory.free`       |    按字节计的可用内存量。   |
+| `memory.total`       |   按字节计的总内存。   |
+| `process.count`       |   正在运行的进程数。          |
+| `swap.free`       |  自由交换空间的大小。   |
+| `swap.total`       |  总交换空间。    |
+| `swap.used`       |    已用交换空间的大小。    |
+| `system.uptime`        |   系统正常运行时间。    |
 
 <a name="NodeFiles"></a>
 
@@ -48,14 +48,14 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
-| `filesystem.capacity.free`    | 按字节计的可用容量大小。 |
-| `filesystem.capacity.total`    | 按字节计的总容量。 |
-| `filesystem.capacity.used`    |  按字节计的已用容量。 |
-| `filesystem.inode.free`    | 按字节计的可用索引节点数。 |
-| `filesystem.inode.total`    | 按字节计的总索引节点数。 |
-| `filesystem.inode.used`    | 按字节计的已用索引节点数。  |
+| `filesystem.capacity.free`  | 按字节计的可用容量大小。 |
+| `filesystem.capacity.total`  | 按字节计的总容量。 |
+| `filesystem.capacity.used`  |  按字节计的已用容量。 |
+| `filesystem.inode.free`  | 按字节计的可用索引节点数。 |
+| `filesystem.inode.total`  | 按字节计的总索引节点数。 |
+| `filesystem.inode.used`  | 按字节计的已用索引节点数。  |
 
-<p class="message--note"><strong>注意：</strong>标签<code>路径</code>根据本地文件系统的挂载路径自动填充（例如，<code>/</code>、<code>/boot</code>等）。</p>
+<p class="message--note"><strong>注意：</strong>标签<code>路径</code>根据本地文件系统的挂载路径自动填充（例如，<code>/</code>、<code>/boot</code> 等）。</p>
 
 <a name="NodeNetwork"></a>
 
@@ -63,14 +63,14 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
-| `network.in`    | 下载的字节数。 |
-| `network.in.dropped`    | 丢失的已下载字节数。 |
-| `network.in.errors`    | 错误下载的字节数。 |
-| `network.in.packets`    | 下载的数据包数。 |
-| `network.out`    | 上传的字节数。 |
-| `network.out.dropped`    | 丢失的已上传字节数。 |
-| `network.out.errors`    | 错误上传的字节数。 |
-| `network.out.packets`    | 上传的数据包数。 |
+| `network.in`  | 下载的字节数。 |
+| `network.in.dropped`  | 丢失的已下载字节数。 |
+| `network.in.errors`  | 错误下载的字节数。 |
+| `network.in.packets`  | 下载的数据包数。 |
+| `network.out`  | 上传的字节数。 |
+| `network.out.dropped`  | 丢失的已上传字节数。 |
+| `network.out.errors`  | 错误上传的字节数。 |
+| `network.out.packets`  | 上传的数据包数。 |
 
 <p class="message--note"><strong>注意：</strong>标签<code>接口</code>根据网络接口的类型自动填充（例如，<code>spartan</code>、<code>d-dcos</code>、<code>minuteman</code> 等）。</p>
 
@@ -141,9 +141,9 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
-| `cpus.limit`    | 分配的 CPU 份额数量。 |
-| `cpus.system_time_secs`    | 按秒计的内核模式下花费的总 CPU 时间。 |
-| `cpus.throttled_time_secs`    | 按秒计的 CPU 被限制总时间。 |
+| `cpus.limit`  | 分配的 CPU 份额数量。 |
+| `cpus.system_time_secs`  | 按秒计的内核模式下花费的总 CPU 时间。 |
+| `cpus.throttled_time_secs`  | 按秒计的 CPU 被限制总时间。 |
 | `cpus.user_time_sec`s    | 用户模式下花费的 CPU 总时间。 |
 
 <a name="ConDisk"></a>
@@ -152,8 +152,8 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
-| `disk.limit_bytes`    | 按字节计的磁盘硬容量限制。 |
-| `disk.used_bytes`    | 按字节计的已用硬容量。 |
+| `disk.limit_bytes`  | 按字节计的磁盘硬容量限制。 |
+| `disk.used_bytes`  | 按字节计的已用硬容量。 |
 
 <a name="ConMem"></a>
 
@@ -161,8 +161,8 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
-| `mem.limit_bytes`    | 容器的硬内存限制。 |
-| `mem.total_bytes`    | RAM 中进程的总内存（与交换时相反）。 | 
+| `mem.limit_bytes`  | 容器的硬内存限制。 |
+| `mem.total_bytes`  | RAM 中进程的总内存（与交换时相反）。 |   
 
 <a name="ConNetwork"></a>
 
@@ -170,14 +170,14 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 度量标准            | 描述                  |
 |-------------------|------------------------------|
-| `net.rx.bytes`    | 接收的字节数。 |
-| `net.rx.dropped`    | 接收时丢失的数据包数。 |
-| `net.rx.errors`    | 接收时报告的错误数。 |
+| `net.rx.bytes`  | 接收的字节数。 |
+| `net.rx.dropped`  | 接收时丢失的数据包数。 |
+| `net.rx.errors`  | 接收时报告的错误数。 |
 | `net.rx.packets`    | 接收的数据包数。 |
 | `net.tx.bytes`    | 发送的字节数。 |
-| `net.tx.dropped`    | 发送时丢失的数据包数。 |
-| `net.tx.errors`    | 发送时报告的错误数。 |
-| `net.tx.packets`    | 发送的数据包数。 |
+| `net.tx.dropped`  | 发送时丢失的数据包数。 |
+| `net.tx.errors`  | 发送时报告的错误数。 |
+| `net.tx.packets`  | 发送的数据包数。 |
 
 <a name="Dimensions"></a>
 
@@ -187,14 +187,14 @@ Mesosphere&reg; DC/OS&trade; 可自动为节点和容器收集基本系统度量
 
 | 维度 | 描述 | 实体 |
 |-----------|-------------|--------|
-| `mesos_id` | Apache&reg; Mesos&reg; 节点的 ID。| 节点，容器 |
-| `cluster_id` | Mesos 群集的 ID。| 节点，容器 |
-| `container_id` | 容器的 ID。| 公制，容器 |
-| `executor_name` | 任务执行器的名称。| 度量标准 |
-| `framework_name` | 框架名称。| 容器 |
-| `hostname` | 节点的 IP 地址。| 容器，节点 |
-| `labels` | 描述度量标准的键值对。| 容器 |
-| `task_name` | 任务名称。| 容器 |
+| `mesos_id`    | 节点的 Apache&reg; Mesos&reg; ID。 | 节点，容器 |
+| `cluster_id`    | Mesos 群集的 ID。 | 节点，容器 |
+| `container_id`  | 容器的 ID。  | 度量标准，容器 |
+| `executor_name`  |  任务执行器的名称。 | 度量标准 |
+| `framework_name`  | 框架名称。  | 容器 |
+| `hostname`  | 节点的 IP  地址。  | 容器，节点 |
+| `labels`  |  描述度量标准的键值对。  | 容器 |
+| `task_name`  | 任务名称。  | 容器 |
 
 
 请查看以下资源，获取有关度量标准的更多信息：

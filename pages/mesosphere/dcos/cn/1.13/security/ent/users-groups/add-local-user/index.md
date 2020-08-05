@@ -16,13 +16,13 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 以具有 `superuser` 权限的用户身份登录。
 
-   ![登录](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+   ![登录](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
    图 1. 以超级用户身份登录
 
 1. 选择 **Organization > Users** 并创建新用户。键入用户的全名、用户名和密码。
 
-   ![创建用户 Cory](/mesosphere/dcos/1.13/img/service-group3.png)
+   ![创建用户 Cory](/mesosphere/dcos/cn/1.13/img/service-group3.png)
 
    图 2. 创建新用户
 

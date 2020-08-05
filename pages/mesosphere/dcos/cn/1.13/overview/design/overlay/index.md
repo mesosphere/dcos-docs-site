@@ -18,7 +18,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 - 由于集中式 IPAM 缺乏对可用性和可靠性的保证，我们无法使用集中式 IPAM。
 - 我们需要避免第 2 层的泛滥，使网络可扩展。这意味着我们不能依赖广播 ARP 来获取容器的 MAC 地址。
-- 解决方案需要支持统一容器化工具 (`MesosContainerizer`) 和 `DockerContainerizer`。在同一个覆盖网络上，我们应当能够同时运行 Docker 和 Mesos 容器，并允许它们相互通信。
+- 解决方案需要支持统一容器化工具 (`MesosContainerizer`) 和 `DockerContainerizer`. 在同一个覆盖网络上，我们应当能够同时运行 Docker 和 Mesos 容器，并允许它们相互通信。
 
 在本文档中，基于上述假设/约束，我们介绍了 DC/OS 中控制平面的软件架构，其可实现基于 VxLAN 的第 3 层覆盖。
 
@@ -26,7 +26,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 ## 使用中的 DC/OS 覆盖网络
 
-![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/mesosphere/dcos/1.13/img/overlay-in-action-redesigned.png)
+![VxLAN 配置完成后，在 `MesosContainerizer` 和 Docker 上运行的容器的代理配置。](/mesosphere/dcos/cn/1.13/img/overlay-in-action-redesigned.png)
 
 图 1 - 代理配置  
 
@@ -61,18 +61,18 @@ DC/OS 的覆盖技术设计有以下假设：
 ### 挑战
 
 
-从 [不同主机上的容器到容器通信](/mesosphere/dcos/cn/1.13/overview/design/overlay/#container-to-container-different-hosts) 的数据包步骤中明显可知 ，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
+从 [不同主机上的容器到容器通信](/mesosphere/dcos/cn/1.13/overview/design/overlay/#container-to-container-different-hosts)的数据包步骤中明显可知，为了让 DC/OS 覆盖网络运行，有几个元数据需要预先配置到代理中，以便进行路由和切换以正常工作。在这里，我们将列出 DC/OS 覆盖网络所需的信息。
 
 - 在 DC/OS 中，我们需要一个 SAM（子网分配模块），该模块将通知已分配给其的子网的代理。
 - 在代理中，我们需要一个实体，该实体为 Docker 守护程序配置了子网（图 1，9.0.1.128/25 网络）中已分配给 Docker 守护程序的那部分。
 - 在代理中，我们需要一个实体，该实体将 IP 地址分配给由 `MesosContainerizer` 启动的容器（图 1，9.0.1.0/25 网络）。
 - 在 DC/OS 中，我们需要一个实体，该实体将使用所有代理上存在的所有 VTEP 的 MAC 地址，以及正确封装数据包所需的解封信息（代理 IP、UDP 端口），为每个代理上的 VxLAN 转发数据库编程。该实体还需要用所有 VTEP 的 MAC 地址对每个代理上的 ARP 缓存编程，用于其对应的 IP 地址。
 
-只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战](/mesosphere/dcos/cn/1.13/overview/design/overlay/#challenges) 一节列出的元数据 进行配置和编程，以使其正常运行。
+只有解决这些挑战，才能让 DC/OS 覆盖网络运行。我们将在下一节介绍 DC/OS 覆盖网络控制平面的软件架构。控制平面将对 [挑战](/mesosphere/dcos/cn/1.13/overview/design/overlay/#challenges)一节列出的元数据 进行配置和编程，以使其正常运行。
 
 ## 软件架构
 
-![DC/OS 覆盖网络控制平面的软件架构。](/mesosphere/dcos/1.13/img/overlay-control-plane-redesigned.png)
+![DC/OS 覆盖网络控制平面的软件架构。](/mesosphere/dcos/cn/1.13/img/overlay-control-plane-redesigned.png)
 
 图 2 - DC/OS 覆盖网络控制平面的软件架构
 
@@ -80,7 +80,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 ### Mesos 的 DC/OS 模块
 
-此流程的代码可参见 [DC/OS 覆盖网络的 Mesos 模块](https://github.com/dcos/dcos-mesos-modules/tree/master/overlay)。
+此流程的代码可参见 [DC/OS 覆盖网络的 Mesos 模块](https://github.com/dcos/dcos-mesos-modules/tree/master/overlay).
 
 要配置底层 DC/OS 覆盖网络，需要一个可以为每个代理分配子网的实体。该实体还需要配置 Linux 系统网桥，以便在自己的子网中启动 Mesos 和 Docker 容器。另外，每个代理上的 VTEP 需要分配有 IP 地址和 MAC 地址，并且代理上的路由表需要配置正确的路由，以便容器通过 DC/OS 覆盖网络进行通信。
 
@@ -97,8 +97,8 @@ DC/OS 的覆盖技术设计有以下假设：
 
 代理覆盖模块作为 Mesos 代理节点的一部分运行，具有以下职责：
 1. 负责向主覆盖模块注册。注册后，它将检索分配的代理子网、分配给其 Mesos 和 Docker 网桥的子网，以及 VTEP信息（VTEP 的 IP 和 MAC 地址）。
-1. 基于分配的代理子网，负责生成 `network/cni` 隔离器用于 `MesosContainerizer` 的 CNI（容器网络接口）网络配置。
-1. 负责创建 Docker 网络，以供 `DockerContainerizer` 使用。
+1. 基于分配的代理子网，负责生成 `network/cni` 隔离器用于 `MesosContainerizer`. 的 CNI（容器网络接口）网络配置。
+1. 负责创建 Docker 网络，以供  使用。`DockerContainerizer`.
 1. 揭示 HTTP 端点 `overlay-agent/overlays`，虚拟网络服务使用该端点检索有关该特定代理上覆盖网络的信息。
 
 ### 使用复制日志协调管理节点上的子网分配
@@ -116,7 +116,7 @@ DC/OS 的覆盖技术设计有以下假设：
 
 对于 `MesosContainerizer`，DC/OS 模块可在指定位置生成 CNI 配置。CNI 配置将具有网络/cni 隔离器的网桥信息和 IPAM 信息，以便在 `m-<virtual network name>` 网桥上配置容器。
 
-对于 `DockerContainerizer`，DC/OS 模块将检索子网，然后创建 `docker network`，其规范名为 `d-<virtual network name>`。它将使用以下 Docker 命令来操作：
+对于 `DockerContainerizer`，DC/OS 模块将检索子网，然后创建 `docker network`，其规范名为 `d-<virtual network name>`. 它将使用以下 Docker 命令来操作：
 
 ```shell
 docker network create \

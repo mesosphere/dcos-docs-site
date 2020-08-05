@@ -39,7 +39,7 @@ HA 系统中的常见模式是首要/从属概念。这有时也被称为主控/
 
 #### Mesos
 
-Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个主控被选为领导者，其他主控则是追随者。每个主控都有一个复制了的日志，其中包含有关群集的某种状态。使用 ZooKeeper 进行首要节点选举即可选出首要管理节点。如需更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)。
+Mesos 可以高可用性模式运行，需要运行三个或五个管理节点。在 HA 模式下运行时，一个主控被选为领导者，其他主控则是追随者。每个主控都有一个复制了的日志，其中包含有关群集的某种状态。使用 ZooKeeper 进行首要节点选举即可选出首要管理节点。如需更多信息，请参阅 [Mesos HA 文档](https://mesos.apache.org/documentation/latest/high-availability/)
 
 #### Marathon
 
@@ -55,7 +55,7 @@ DC/OS 中的许多服务都使用 ZooKeeper 以取得一致性。ZooKeeper 可�
  * 物理域：包括机器、机架、数据中心、地区和可用性区域。
  * 网络域：同一网络内的机器可能会受网络分区的影响。例如，共享网络交换机可能发生故障或者配置无效。
 
-如需更多信息，请参阅 [多分区](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuring-zones-regions/multi-zone/) 和 [多分域](/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuring-zones-regions/multi-region/) 文档。
+如需更多信息，请参阅 [多分区](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuring-zones-regions/multi-zone/) 和 [多分域](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuring-zones-regions/multi-region/) 文档。
 
 需要 HA 的应用程序也应跨故障域分配。Marathon 可以使用 [`UNIQUE` 和 `GROUP_BY` 约束算子](https://mesosphere.github.io/marathon/docs/constraints.html) 来实现。
 
@@ -81,11 +81,11 @@ HA 服务应当分离，责任在服务之间分派。例如，Web 服务应从�
 
 ## 快速故障切换
 
-发生故障时，故障切换 [应尽可能快](https://en.wikipedia.org/wiki/Fail-fast)。
+发生故障时，故障切换 [应尽可能快](https://en.wikipedia.org/wiki/Fail-fast).
 
 快速故障切换可通过以下方式实现：
 
- * 使用 HA 负载均衡器，如 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.13/)，或内部 [第 4 层负载均衡器](/mesosphere/dcos/cn/1.13/networking/load-balancing-vips/)。
+ * 使用 HA 负载均衡器，如 [Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/1.13/)，或内部 [第 4 层负载均衡器](/mesosphere/dcos/cn/1.13/networking/load-balancing-vips/).
  * 根据 [12 因素应用](http://12factor.net/) 原则构建应用程序。
  * 在构建服务时遵循 REST 最佳做法：尤其是避免在请求之间在服务器上存储客户端状态。
 

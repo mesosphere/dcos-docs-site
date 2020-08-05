@@ -23,13 +23,13 @@ dcos job show <job-id> [--json]
 
 | 名称 | 说明 |
 |---------|-------------|
-|`-h`，`--help` | 打印用法。 |
+|`-h`, `--help` | 打印用法。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<job-id>` | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
+| `<job-id>`   | 指定作业 ID。您可以使用 `dcos job list` 命令查看作业 ID。|
 
 
 # 示例
@@ -71,4 +71,4 @@ dcos job show my-scheduled-job
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos job](/mesosphere/dcos/2.0/cli/command-reference/dcos-job/) | 在 DC/OS 中部署和管理作业。 |
+| [dcos job](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-job/) |  在 DC/OS 中部署和管理作业。 |

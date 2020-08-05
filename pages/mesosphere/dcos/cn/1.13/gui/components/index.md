@@ -10,6 +10,6 @@ model: /mesosphere/dcos/1.13/data.yml
 
 您可以从组件菜单查看您的 DC/OS 组件的系统运行状况。
 
-![Components](/mesosphere/dcos/1.13/img/GUI-Components-Main_View-1_12.png)
+![Components](/mesosphere/dcos/cn/1.13/img/GUI-Components-Main_View-1_12.png)
 
 图 1 - 组件选项卡

@@ -10,7 +10,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 DC/OS 由许多开源微服务组件组成，经过精心调整和配置以协同工作。Mesosphere DC/OS Enterprise 包括大部分开源 DC/OS 组件，但还包括多个额外组件、模块和插件。
 
-![Mesosphere DC/OS Enterprise 组件](/mesosphere/dcos/1.13/img/dcos-components-1-13.png)
+![Mesosphere DC/OS Enterprise 组件](/mesosphere/dcos/cn/1.13/img/dcos-components-1-13.png)
 
 图 1 - DC/OS 组件
 
@@ -26,7 +26,7 @@ DC/OS 提供了一种作为单个群集级别系统查看和操作大量单个�
 
 ## Apache Mesos
 
-Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点](/mesosphere/dcos/cn/1.13/overview/concepts/#dcos-agent-node) 上的单个执行器、任务和资源。Mesos Agent Public 是配置用于在 [DC/OS 公共代理节点](/mesosphere/dcos/cn/1.13/overview/concepts/#public-agent-node) 上运行的 Mesos 代理节点)。
+Mesos 作为分布式系统内核来管理资源和任务。Mesos 管理节点揭示调度器、执行器和操作界面，以便进行群集管理。Mesos 代理节点管理每个 [DC/OS 代理节点]上的单个执行器、任务和资源。(/mesosphere/dcos/cn/1.13/overview/concepts/#dcos-agent-node). Mesos Agent Public 是配置用于在 [DC/OS 公共代理节点] 上运行的 Mesos 代理节点(/mesosphere/dcos/cn/1.13/overview/concepts/#public-agent-node).
 
 ### 系统服务
 
@@ -310,7 +310,7 @@ Telegraf 是一个可配置的度量标准管道。它默认收集系统、容�
 
 ## DC/OS 信号
 
-DC/OS 信号服务报告群集遥测和分析，以帮助改进 DC/OS。管理员可以在安装时间 [选择退出遥测](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/opt-out/#telemetry)。
+DC/OS 信号服务报告群集遥测和分析，以帮助改进 DC/OS。管理员可以在安装时间 [选择退出遥测](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/opt-out/#telemetry)
 
 ### 系统服务
 
@@ -348,7 +348,7 @@ DC/OS 历史记录服务缓存并揭示历史系统状态，以促进 GUI 中的
 
 ## Admin Router
 
-Admin Router 使用 [NGINX] 揭示组件和服务的统一控制平面代理(https://www.nginx.com/)。Admin Router 代理为节点特定的健康、日志、度量标准和包管理内部端点提供代理。
+Admin Router 使用 [NGINX] 揭示组件和服务的统一控制平面代理。(https://www.nginx.com/). Admin Router 代理为节点特定的健康、日志、度量标准和包管理内部端点提供代理。
 
 ### 系统服务
 
@@ -371,7 +371,7 @@ Mesos DNS 提供群集内基于域名的服务发现。
 
 阅读以下文档资源，了解有关 Mesos DNS 的更多信息：
 
-- [文档](http://mesosphere.github.io/mesos-dns/)
+- [文档](/mesosphere/dcos/cn/1.13/networking/DNS/mesos-dns)
 - [来源](https://github.com/mesosphere/mesos-dns)
 - [API 参考](/mesosphere/dcos/cn/1.13/networking/DNS/mesos-dns/mesos-dns-api/)
 
@@ -404,7 +404,7 @@ Mesos DNS 提供群集内基于域名的服务发现。
 - `dcos-gen-resolvconf.service`
 - `dcos-gen-resolvconf.timer`
 
-阅读以下文档资源，了解更多有关 `Generate resolv.conf` 的信息:
+阅读以下文档资源，了解更多有关  的信息:`Generate resolv.conf`:
 
 - [来源](https://github.com/dcos/dcos/blob/master/packages/dcos-net/extra/gen_resolvconf.py)
 
@@ -417,7 +417,7 @@ Mesos DNS 提供群集内基于域名的服务发现。
 
 ## DC/OS 包管理器 (Cosmos)
 
-DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库](/mesosphere/dcos/cn/1.13/administering-clusters/package-registry/) 中的 DC/OS 软件包，如 [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe)。
+DC/OS 包管理器 (Cosmos) 安装和管理 [DC/OS 软件包存储库](/mesosphere/dcos/cn/1.13/administering-clusters/package-registry/) 中的 DC/OS 软件包，如 [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe).
 
 ### 系统服务
 
@@ -472,7 +472,7 @@ DC/OS 身份和访问管理器 (IAM) 通过管理用户、用户组、服务帐�
 
 CockroachDB 是一个分布式 SQL 数据库，基于事务性、高度一致的键值对存储。
 
-<p class="message--note"><strong>注意：</strong>CockroachDB 目前仅由 <a href="#dcos-iam">DC/OS 身份和访问管理器使用</a>。</p>
+<p class="message--note"><strong>注意：</strong>CockroachDB 目前仅由 <a href="#dcos-iam">DC/OS 身份和访问管理器使用</a>.</p>
 
 ### 系统服务
 
@@ -487,7 +487,7 @@ CockroachDB 是一个分布式 SQL 数据库，基于事务性、高度一致的
 
 ## DC/OS 证书颁发机构
 
-DC/OS 证书颁发机构 (CA) 发布已签署的数字证书，确保通信安全。DC/OS CA 是基于 Cloudflare 的 <a href="https://github.com/cloudflare/cfssl">Cfssl</a>。
+DC/OS 证书颁发机构 (CA) 发布已签署的数字证书，确保通信安全。DC/OS CA 是基于 Cloudflare 的 <a href="https://github.com/cloudflare/cfssl">Cfssl</a>.
 
 ### 系统服务
 
@@ -556,7 +556,7 @@ REX-Ray 编排调配、附加和安装外部持久卷。
 
 DC/OS 组件由 [DC/OS 组件包管理器 (Pkgpanda)](https://github.com/dcos/dcos/tree/master/pkgpanda)（用于 `systemd` 单元的包管理器）安装、升级和管理。
 
-要查看 DC/OS 安装工具管理的软件包的完整列表，请参阅 [DC/OS 源存储库的软件包目录](https://github.com/dcos/dcos/tree/master/packages)。
+要查看 DC/OS 安装工具管理的软件包的完整列表，请参阅 [DC/OS 源存储库的软件包目录](https://github.com/dcos/dcos/tree/master/packages).
 
 # `Systemd` 服务
 
@@ -571,18 +571,31 @@ ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter.service
 dcos-backup-master.service
 dcos-backup-master.socket
-dcos-bouncer-legacy.service
 dcos-bouncer.service
 dcos-ca.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
+dcos-cluster-linker.service
+dcos-cluster-linker.socket
+dcos-cockroachdb-config-change.service
+dcos-cockroachdb-config-change.timer
 dcos-cockroach.service
 dcos-cosmos.service
+dcos-diagnostics-mesos-state.service
+dcos-diagnostics-mesos-state.timer
 dcos-diagnostics.service
 dcos-diagnostics.socket
-dcos-epmd.service
 dcos-exhibitor.service
+dcos-fluent-bit.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-history.service
+dcos-iam-ldap-sync.service
+dcos-iam-ldap-sync.timer
+dcos-licensing.service
+dcos-licensing.socket
 dcos-log-master.service
 dcos-log-master.socket
 dcos-logrotate-master.service
@@ -590,19 +603,19 @@ dcos-logrotate-master.timer
 dcos-marathon.service
 dcos-mesos-dns.service
 dcos-mesos-master.service
-dcos-metrics-master.service
-dcos-metrics-master.socket
 dcos-metronome.service
-dcos-navstar.service
-dcos-networking_api.service
+dcos-net.service
+dcos-net-watchdog.service
 dcos-pkgpanda-api.service
+dcos-registry.service
 dcos-secrets.service
 dcos-secrets.socket
 dcos-signal.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
+dcos-telegraf.service
+dcos-telegraf.socket
+dcos-ui-update-service.service
+dcos-ui-update-service.socket
 dcos-vault.service
 ```
 
@@ -611,11 +624,15 @@ dcos-vault.service
 ```
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
 dcos-diagnostics.service
 dcos-diagnostics.socket
 dcos-docker-gc.service
 dcos-docker-gc.timer
-dcos-epmd.service
+dcos-fluent-bit.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-log-agent.service
@@ -623,15 +640,13 @@ dcos-log-agent.socket
 dcos-logrotate-agent.service
 dcos-logrotate-agent.timer
 dcos-mesos-slave.service
-dcos-metrics-agent.service
-dcos-metrics-agent.socket
-dcos-navstar.service
+dcos-net.service
+dcos-net-watchdog.service
 dcos-pkgpanda-api.service
 dcos-rexray.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
+dcos-telegraf.service
+dcos-telegraf.socket
 ```
 
 ## 公共代理节点
@@ -639,11 +654,15 @@ dcos-spartan-watchdog.timer
 ```
 ls /etc/systemd/system/dcos.target.wants/ -1
 dcos-adminrouter-agent.service
+dcos-checks-api.service
+dcos-checks-api.socket
+dcos-checks-poststart.service
+dcos-checks-poststart.timer
 dcos-diagnostics.service
 dcos-diagnostics.socket
 dcos-docker-gc.service
 dcos-docker-gc.timer
-dcos-epmd.service
+dcos-fluent-bit.service
 dcos-gen-resolvconf.service
 dcos-gen-resolvconf.timer
 dcos-log-agent.service
@@ -651,13 +670,11 @@ dcos-log-agent.socket
 dcos-logrotate-agent.service
 dcos-logrotate-agent.timer
 dcos-mesos-slave-public.service
-dcos-metrics-agent.service
-dcos-metrics-agent.socket
-dcos-navstar.service
+dcos-net.service
+dcos-net-watchdog.service
 dcos-pkgpanda-api.service
 dcos-rexray.service
 dcos-signal.timer
-dcos-spartan.service
-dcos-spartan-watchdog.service
-dcos-spartan-watchdog.timer
+dcos-telegraf.service
+dcos-telegraf.socket
 ```

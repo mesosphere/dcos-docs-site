@@ -16,11 +16,11 @@ enterprise: false
 -**远程区域** 仅包含 Mesos 代理节点。远程分域和本地分域通常都存在高延迟。
 
 
-##  安装
+## 安装
 
 ### 注意事项
 
-- 考虑群集中服务的未来需求。尽管安装后可以在分域和分区中添加或删除节点，但是必须在安装时就定义分域和分区。如果需要更新故障域检测脚本，就必须重新安装 DC/OS 。
+- 考虑群集中服务的未来需求。尽管安装后可以在分域和分区中添加或删除节点，但是必须在安装时就定义分域和分区。如果需要更新故障域检测脚本，就必须重新安装 DC/OS。
 
 - Mesos 管理节点必须位于同一分域，以免它们之间的延迟过高。为了容错，它们分散到不同分区。
 
@@ -45,17 +45,17 @@ enterprise: false
     }
     ```
 
-    我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect)。对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
+    我们提供 [AWS 和 Azure 节点的故障域检测脚本](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). 对于具有 aws 节点和 azure 节点的群集，可将两者组合为一个脚本。可以使用这些模型为本地群集创建故障域检测脚本。
 
     <p class="message--important"><strong>重要信息：</strong>如果在环境中使用代理，此脚本将不起作用。如果使用代理，则必须进行修改。</p>
 
-1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
+1. 将此脚本添加到 bootstrap 节点的 `genconf` 文件夹。[更多信息](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
-1. [安装 DC/OS ](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script)。
+1. [安装 DC/OS ](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/installation/#create-a-fault-domain-detection-script).
 
 1. 测试安装。
 
-   在 DC/OS  CLI 中输入 `dcos node`。您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
+   在 DC/OS  CLI 中输入 `dcos node`. 您将看到类似以下内容的输出，其中列出了各个节点的分域和分区：
 
    ```bash
    HOSTNAME        IP                         ID                    TYPE               REGION      ZONE     
@@ -69,9 +69,6 @@ enterprise: false
 或者，单击 DC/OS  GUI 中的 **节点** 选项卡。节点表将显示每个代理的分域和分区栏。
 
 # 使用
-
-用户创建的 Marathon 服务和 Pod 支持树立分区和分域感知。以下 DC/OS 数据服务的 beta 版本支持树立分区感知：Cassandra、Elastic、HDFS、Kafka 和 Spark。请参阅各个服务文档，了解配置 DC/OS 数据服务分区感知的更多信息。
-
 
 ## Marathon 服务和 Pod
 
@@ -93,7 +90,7 @@ enterprise: false
 
 ## 示例
 
-跨 3 个分域的 Mesos 群集：`aws-us-east1`、`aws-us-east2` 和 `local`。每个分域都有分区 `a`、`b`、`c`、`d`。
+跨 3 个分域的 Mesos 群集：`aws-us-east1`、`aws-us-east2` 和 `local`. 每个分域都有分区 `a`,`b`,`c`,`d`。
 
 ### 仅指定远程分域
 
@@ -122,7 +119,7 @@ enterprise: false
 }
 ```
 
-- 实例全都在 `aws-us-east1` 分域启动并均匀划分到 `aws-us-east1` 的分区 `a`、`b`、`c`、`d`。
+- 实例全都在 `aws-us-east1` 分域启动并均匀划分到 `aws-us-east1` 的分区 `a`,`b`,`c`,`d`.
 
 ### 增加群集容量
 

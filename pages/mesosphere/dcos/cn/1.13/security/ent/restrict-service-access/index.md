@@ -8,41 +8,42 @@ enterprise: true
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-在本部分中，您将看到如何使用 DC/OS UI 在宽容模式下实现多租户。
+在本部分，您将看到如何使用 DC/OS UI 在宽容模式下实现多租户。
 
-本教程演示如何在宽容[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)下实现 DC/OS 服务的用户权限。完成后，您将通过使用 DC/OS 权限获得多租户。
+本教程演示如何在宽容[安全模式]下实现 DC/OS 服务的用户权限。(/mesosphere/dcos/cn/1.13/security/ent/#security-modes). 完成后，您将通过使用 DC/OS 权限获得多租户。
 
 **前提条件：**
 
-- DC/OS Enterprise [已安装](/mesosphere/dcos/cn/1.13/installing/)在宽容[模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)下。
+- DC/OS Enterprise [已安装](/mesosphere/dcos/cn/1.13/installing/)在宽容[模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes).下。
 
 
 ## 创建用户和组
 
 1. 从 **Services > Services > Create Group** 创建服务组。
 
-    ![服务创建组](/mesosphere/dcos/1.13/img/GUI-Services-No_Services_Running-1_12.png)
+    ![服务创建组](/mesosphere/dcos/cn/1.13/img/GUI-Services-No_Services_Running-1_12.png)
 
     图 1. 创建组页面
 
-    在此示例中，创建了一个名为 `prod-a` 和一个名为 `prod-b`。创建组之后，您应该看到两个文件夹。您可以在此处为用户组部署服务并为每个单元设置权限。
+    在此示例中，创建了一个名为 `prod-a` 和一个名为 `prod-b` 创建组之后，您应该看到两个文件夹。您可以在此处为用户组部署服务并为每个单元设置权限。
 
-    ![组文件夹](/mesosphere/dcos/1.13/img/GUI-Services-List_View_Groups_Empty-1_12.png)
+    ![组文件夹](/mesosphere/dcos/cn/1.13/img/GUI-Services-List_View_Groups_Empty-1_12.png)
 
     图 2. 新建组文件夹
 
 1. 创建用户和组并定义每个组所需的权限。
 
-    1. 选择 **Organization > Users** 并创建新用户。在此示例中，创建了两个用户（`Cory` 和 `Nick`）。
+    1. 选择 **Organization > Users** 并创建新用户。在此示例中，创建了两个用户（`Cory` 和 `Nick`).
 
-        ![创建用户 Cory](/mesosphere/dcos/1.13/img/GUI-Organization-Users-Create_User_Modal-1_12.png)
+        ![创建用户 Cory](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Create_User_Modal-1_12.png)
 
         图 3. 创建新用户
 
         完成后，您应该看到两个用户。
 
-        ![所有用户](/mesosphere/dcos/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+        ![所有用户](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
         图 4. 用户页面中的新用户
 
@@ -55,7 +56,7 @@ model: /mesosphere/dcos/1.13/data.yml
         - `prod-a-group`，用于管理用户 Cory 的 DC/OS 服务。
         - `prod-b-group`，用于管理用户 Nick 的 DC/OS 服务。
 
-        ![prod-a group](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
+        ![prod-a group](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-Create_New_Group_Modal-1_12.png)
 
         图 5. 创建新组
 
@@ -80,13 +81,13 @@ model: /mesosphere/dcos/1.13/data.yml
     dcos:adminrouter:package full
     ```
 
-    ![prod-a-group](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Add_Permission_String_w_Perms-1_12.png)
+    ![prod-a-group](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-Add_Permission_String_w_Perms-1_12.png)
 
-    图 6. 添加 `prod-a-group` 的权限
+    图 6. 为  添加权限`prod-a-group`
 
     以下是添加后的权限视图：
 
-    ![prod-a-group](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-Group_Detail_w_Permissions-1_12.png)
+    ![prod-a-group](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-Group_Detail_w_Permissions-1_12.png)
 
     图 7. 添加的组权限
 
@@ -107,7 +108,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 选择 **Group Membership**，然后在搜索框中键入 `prod-a-group`，然后单击选择。
 
-    ![prod-a-group](/mesosphere/dcos/1.13/img/GUI-Organization-Groups-User_Add_Group_Membership-1_12.png)
+    ![prod-a-group](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Groups-User_Add_Group_Membership-1_12.png)
 
     图 8. 将用户添加到组
 
@@ -121,14 +122,14 @@ model: /mesosphere/dcos/1.13/data.yml
 1. 以 Cory 身份登录到 DC/OS UI。您可以看到，用户 Cory 只能访问 **Services** 和 **{{ model.packageRepo }}** 选项卡。同时，Cory 只能看到 **prod-a** 服务。
 
 
-  ![prod-a-group](/mesosphere/dcos/1.13/img/GUI-Services-Limited_User_Access_List-1_12.png)
+  ![prod-a-group](/mesosphere/dcos/cn/1.13/img/GUI-Services-Limited_User_Access_List-1_12.png)
 
 
   图 9. 限制视图
 
-  <p class="message--note"><strong>注意：</strong>要退出当前用户，单击右上角的用户名，然后选择 <strong>注销</strong>。</p>
+  <p class="message--note"><strong>注意：</strong>要退出当前用户，可单击右上角的用户名，然后选择<strong>注销</strong>.</p>
 
-  我们将把 NGINX 服务部署到 `prod-a-group`。
+  我们将把 NGINX 服务部署到 `prod-a-group`.
 
 1. 选择 **Services > Services**，然后单击加号 (**+**) 来部署服务。
 
@@ -217,7 +218,7 @@ model: /mesosphere/dcos/1.13/data.yml
       }
       ```
 
-    ![JSON 视图](/mesosphere/dcos/1.13/img/GUI-Services-Add_Service_With_JSON-1_12.png)
+    ![JSON 视图](/mesosphere/dcos/cn/1.13/img/GUI-Services-Add_Service_With_JSON-1_12.png)
 
     图 10. JSON 文件视图
 
@@ -242,16 +243,16 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 在 Cory 或 Nick 登录时，单击 NGINX 启动图标，查看确认消息。
 
-    ![NGINX](/mesosphere/dcos/1.13/img/GUI-Services-Add_Service_Review_Install-1_12.png)
+    ![NGINX](/mesosphere/dcos/cn/1.13/img/GUI-Services-Add_Service_Review_Install-1_12.png)
 
     图 11. 确认屏幕
 
-接下来，我们将从超级用户视图查看 **Services** 选项卡。
+接下来，我们将从超级用户视图查看 **服务** 选项卡。
 
 ## DC/OS UI：监控用户帐户 
 
-1. 注销当前用户，然后以具有[超级用户](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#superuser)权限的用户身份返回。您将看到，两个服务都在 `prod-a` 和 `prod-b-groups` 中运行。
+1. 注销当前用户，然后以具有[超级用户](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#superuser)权限的用户身份返回。您将看到，两个服务都在 `prod-a` 和 `prod-b-groups`. 中运行。
 
-    ![prod-a-group](/mesosphere/dcos/1.13/img/GUI-Services-Services_List_w_Groups-1_12.png)
+    ![prod-a-group](/mesosphere/dcos/cn/1.13/img/GUI-Services-Services_List_w_Groups-1_12.png)
 
     图 12. 超级用户视图

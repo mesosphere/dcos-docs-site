@@ -24,11 +24,11 @@ dcos plugin list [flags]
 
 | 名称 | 说明 |
 |---------|------------|
-|  `--help, h` | 打印使用。|
-| `--json` | JSON 格式的列表。|
+| `--help, h`     | 打印使用情况。|
+| `--json`   | JSON 格式的列表。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 插件](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-plugin/) | 安装和管理 DC/OS 软件插件。 |
+| [dcos plugin](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-plugin/)   | 安装和管理 DC/OS 软件插件。 |

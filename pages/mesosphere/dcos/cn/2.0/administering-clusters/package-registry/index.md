@@ -18,9 +18,9 @@ Mesosphere&reg; DC/OS&trade; 预配置了 [Mesosphere {{ model.packageRepo }}](h
 ```bash
 dcos package describe package-registry --config
 ```
-您可以在 [CLI 文档](/mesosphere/dcos/1.13/cli/command-reference/dcos-package/)中找到有关 `dcos package` 命令的更多信息。
+您可以在 [CLI 文档]`dcos package`中找到有关 (/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/). 命令的更多信息。
 
-有关如何配置和部署 DC/OS 服务的详细说明，请参阅 [配置 {{ model.packageRepo }} 服务](/mesosphere/dcos/2.0/deploying-services/config-universe-service/)。
+有关如何配置和部署 DC/OS 服务的详细说明，请参阅 [配置 {{ model.packageRepo }} 服务](/mesosphere/dcos/cn/2.0/deploying-services/config-universe-service/).
 
 # 默认安装
 
@@ -63,7 +63,7 @@ dcos registry activate --options=<custom-options-file>
 
 ### 挂载卷选项
 
-在 DC/OS 上创建挂载卷，请参阅[挂载卷](/mesosphere/dcos/2.0/storage/mount-disk-resources/)文档，其中包括创建回送设备的示例。本指南的其余部分假设在 `/dcos/package-registry` 处创建了挂载卷。您必须指定 `container-path` 和 `pinned-hostname`，它是指挂载卷的代理的主机名。可以使用以下选项配置 `package-registry` 以使用挂载卷：
+在 DC/OS 上创建挂载卷，请参阅[挂载卷](/mesosphere/dcos/cn/2.0/storage/mount-disk-resources/)文档，其中包括创建回送设备的示例。本指南的其余部分假设在  处创建了挂载卷。`/dcos/package-registry`. 您必须指定 `container-path` 和 `pinned-hostname`，它是指挂载卷的代理的主机名。可以使用以下选项配置 `package-registry` 以使用挂载卷：
 
 ```json
 {
@@ -81,9 +81,9 @@ dcos registry activate --options=<custom-options-file>
 如果是 DC/OS 包注册表的默认配置，则 DC/OS 包存储在主机文件系统的本地持久卷中。使用此默认存储配置时，您仅限使用注册表的一个实例。包注册表还可通过在 S3 兼容存储上存储 DC/OS 包来支持高可用性配置，这支持部署多个注册表实例。
 
 要配置 DC/OS 包注册表以使用 S3 存储来存储 DC/OS 包，您必须提供以下详细信息：
- 1. 特定的 S3 端点。
- 2. S3 bucket 名称和路径。
- 3. S3 访问密钥和秘密密钥。
+  1. 特定的 S3 端点。
+  2. S3 bucket 名称和路径。
+  3. S3 访问密钥和秘密密钥。
 
 #### S3 端点详细信息
 
@@ -174,9 +174,9 @@ DC/OS 包注册表需要通过一个服务帐户在 DC/OS Enterprise 中运行�
     dcos security org users grant registry-account dcos:adminrouter:ops:ca:rw full
     ```
 
-<p class="message--important"><strong></strong>重要信息：与服务帐户相关联的密钥信息存储在 DC/OS 密钥存储库中名为<tt> registry-private-key </tt>的路径中。如要使用不同的文件名，请用它替换 <tt>registry-private-key</tt>。</p>
+<p class="message--important"><strong>重要信息：</strong>与服务帐户相关联的密钥信息存储在 DC/OS 密钥存储库中名为 <tt>registry-private-key</tt> 的路径中。如要使用不同的文件名，请用它替换 <tt>registry-private-key</tt>. </p> 
 
-<p class="message--warning"><strong>警告：</strong>这些指令在本地文件系统上创建两个敏感文件：<tt> private-key.pem </tt>和<tt> public-key.pem </tt>。务必将这些文件保存在安全的地方或将其删除。在 DC/OS 密钥存储库中存储之后就不需要再保留它们了。</p>
+<p class="message--warning"><strong>警告：</strong>这些指令在本地文件系统上创建两个敏感文件：<tt>private-key.pem</tt> 和 <tt>public-key.pem</tt>. 务必将这些文件保存在安全的地方或将其删除。在 DC/OS 密钥存储库中存储之后就不需要再保留它们了。</p>
 
 服务 `instances`、`cpus`、`mem` 和 `disk` 也可根据需要进行配置。执行以下命令以查看所有配置选项的详尽列表：
 
@@ -229,7 +229,7 @@ dcos package repo add --index=0 "Registry" https://dcos-registry.marathon.l4lb.t
 在安装 `package-registry` 后，您可以开始向其添加包。使用包注册表的两步过程如下：
 
 1. 构建包文件（`.dcos` 文件）
-2. 将包上传至 `package-registry`。
+2. 将包上传至 `package-registry`.
 
 
 ## 构建包
@@ -238,10 +238,10 @@ Mesosphere DC/OS 将其所有已认证包在 [downloads.mesosphere.com/universe/
 
 ### 要求
 
-1. 确保您拥有有效的 {{ model.packageRepo }} 包定义文件 ([Schema](https://github.com/mesosphere/universe/tree/version-3.x/repo/meta/schema))。请注意，`package-registry` 仅支持使用 {{ model.packageRepo }} 打包系统 v4 或更高模式打包的包。请参阅 [创建包](https://github.com/mesosphere/universe#creating-a-package)，了解更多详细信息。
-1.您的系统安装了 `docker`（**如果** 您的包使用 Docker 镜像）。
+1. 确保您拥有有效的 {{ model.packageRepo }} 包定义文件 ([Schema](https://github.com/mesosphere/universe/tree/version-3.x/repo/meta/schema)). 请注意，`package-registry` 仅支持使用 {{ model.packageRepo }} 打包系统 v4 或更高模式打包的包。请参阅 [创建包](https://github.com/mesosphere/universe#creating-a-package)，了解更多详细信息。
+1. `docker`1.您的系统安装了 （**如果** 您的包使用 Docker 镜像）。
 1. 还需要安装包注册表 CLI。实现这一点有两种方法。
- 1. 从 DC/OS 群集安装 `package-registry` CLI。
+   1. 从 DC/OS 群集安装 `package-registry` CLI。
       ```bash
       # Install CLI subcommand "registry"
       dcos package install --cli package-registry
@@ -249,7 +249,7 @@ Mesosphere DC/OS 将其所有已认证包在 [downloads.mesosphere.com/universe/
       dcos registry --help
       ```
 
- 1. 如果您无权访问 DC/OS 群集（例如在 CI/CD 中），请下载 [Linux](https://downloads.mesosphere.io/package-registry/binaries/cli/linux/x86-64/latest/dcos-registry-linux)、[macOS](https://downloads.mesosphere.io/package-registry/binaries/cli/darwin/x86-64/latest/dcos-registry-darwin) 或 [Windows](https://downloads.mesosphere.io/package-registry/binaries/cli/windows/x86-64/latest/dcos-registry-windows.exe) 系统用的 `package-registry`CLI
+   1. 如果您无权访问 DC/OS 群集（例如在 CI/CD 中），请下载 [Linux]`package-registry`、[macOS](https://downloads.mesosphere.io/package-registry/binaries/cli/linux/x86-64/latest/dcos-registry-linux) 或 [Windows](https://downloads.mesosphere.io/package-registry/binaries/cli/darwin/x86-64/latest/dcos-registry-darwin) 系统用的 (https://downloads.mesosphere.io/package-registry/binaries/cli/windows/x86-64/latest/dcos-registry-windows.exe)CLI
 
       ```bash
       # Change the URL based on macOS, linux or windows accordingly.
@@ -262,13 +262,13 @@ Mesosphere DC/OS 将其所有已认证包在 [downloads.mesosphere.com/universe/
       ./dcos-registry registry --version
       ./dcos-registry registry <your-subcommand>
       ```
- 在本页的其余指令中，我们假设您已从附加的 DC/OS 群集下载了子命令。如果不是这样，请在指令中将 `dcos` 替换为 `./dcos-registry`，同时保留 `registry` 后缀。
+      在本页的其余指令中，我们假设您已从附加的 DC/OS 群集下载了子命令。如果不是这样，请在指令中将 `dcos` 替换为 `./dcos-registry`，同时保留 `registry` 后缀。
 
- <p class="message--note"><strong>注意：</strong>您必须使用上述具有 `./dcos-registry registry <your-subcommand>` 语法风格的二进制文件。消除 <tt>registry</tt> 后缀不起作用。</p>
+      <p class="message--note"><strong>注意：</strong>您必须使用上述具有 `./dcos-registry registry <your-subcommand>` 语法风格的二进制文件。消除 <tt>registry</tt> 后缀不起作用。</p>
 
 ### 生成 `.dcos` 捆绑包的说明
 
-`package-registry` CLI 可用于将包捆绑到 `.dcos` 文件，该文件可以被 `package-registry` 使用。假设 {{ model.packageRepo }} 包文件在名为 `/path/to/package/` 的目录中。它应包含以下包定义文件：
+`package-registry` CLI 可用于将包捆绑到 `.dcos` 文件，该文件可以被 `package-registry` 使用。假设 {{ model.packageRepo }} 包文件在名为 `/path/to/package/`. 的目录中。它应包含以下包定义文件：
 
 ```text
 ➜ tree
@@ -300,6 +300,7 @@ dcos registry build --build-definition-file=/path/to/output/<json-build-definiti
 ├── <package-name>-<package-version>.dcos
 └── <package-name>-<package-version>.json
 ```
+<p class="message--note"><strong>注意：</strong>已为许多 Universe 包手动添加 <a href="https://github.com/mesosphere/universe/pull/2414">(＃2414)</a> <tt>lastUpdated</tt> 属性，这可能会导致迁移期间发生架构错误。在这种情况下，请删除此属性并重试。</p>
 
 您可以清除构建定义 .json 文件，因为不再需要它。`build` 和 `migrate` 子命令均接受可选的 `--json` 标记，以支持自动化。
 
@@ -325,4 +326,4 @@ dcos registry describe --package-name=<package-name> --package-version=<package-
 
 <p class="message--warning"><strong>警告：</strong>在仍在部署服务时移除一个包可能会导致服务停止工作。</p>
 
-执行上述指令后，其余流程与从 {{ model.packageRepo }} 获取的包相同。唯一的区别就是您不需要互联网接入（对于具有气隙环境的客户）就可从 `package-registry` 安装包。
+执行上述指令后，其余流程与从  获取的包相同。{{ model.packageRepo }}. 唯一的区别就是您不需要互联网接入（对于具有气隙环境的客户）就可从  安装包。`package-registry`.

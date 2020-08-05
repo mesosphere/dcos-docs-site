@@ -23,7 +23,7 @@ dcos security cluster secret-store seal-status [OPTIONS] STORE_ID
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-j`, `--json` | JSON 格式的输出数据。|
+|  `-j`, `--json` | JSON 格式的输出数据。|
 |  `-h`, `--help` |                显示此消息并退出。|
 
 
@@ -31,10 +31,10 @@ dcos security cluster secret-store seal-status [OPTIONS] STORE_ID
 
 | 名称 | 说明 |
 |---------|-------------|
-| `STORE_ID` | 密钥存储库 ID。（必填)|
+| `STORE_ID`  | 密钥存储库的 ID。（必填)|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster secret-store](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 显示您的密钥存储库设置。 |
+| [dcos security cluster secret-store](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 显示您的密钥存储库设置。 |

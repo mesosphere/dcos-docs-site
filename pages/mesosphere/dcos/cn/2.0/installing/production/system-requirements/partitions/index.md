@@ -8,23 +8,23 @@ excerpt: 计划 DC/OS 群集的磁盘分区
 在为 DC/OS 计划系统资源时，应特别注意如何对磁盘进行分区。为防止 DC/OS 在磁盘空间上运行慢或磁盘空间不利地影响群集操作，应创建独立分区，以隔离 I/O 密集型服务，例如，`journald`从 ZooKeeper 和 CockroachDB 等关键基础设施服务记录设施进程和 Mesos 沙盒。使用单独的分区可帮助确保容错群集操作，并将磁盘空间错误的范围（ENOSPC - 设备上没有剩余空间错误）限制在可恢复的问题，例如，未能部署的任务。
 
 # 建议的分区布局
-您可以使用以下指南来计划复制状态存储库的磁盘分区和在 `/var/lib/dcos` 下的永久配置覆盖位置。
+您可以使用以下指南来计划复制状态存储库的磁盘分区和在  下的永久配置覆盖位置。`/var/lib/dcos`.
 
 ## 管理节点
 对于管理节点，建议的做法是在由 **快速**、**本地连接**存储 (SSD/NVMe) 支持的单独分区上托管 `/var/lib/dcos` 目录。在管理节点上使用这种单独的分区可以让以下复制状态存储库和永久配置覆盖文件存储在 `/var/lib/dcos` 目录之下：
 - Mesos Paxos 复制日志：/var/lib/dcos/mesos/master/replicated_log
-- NavStar Overlay 复制日志：/var/lib/dcos/mesos/master/overlay_replicated_log
+- Navstar Overlay 复制日志：/var/lib/dcos/mesos/master/overlay_replicated_log
 - CockroachDB 分布式数据库：/var/lib/dcos/cockroach
-- NavStar Mnesia 分布式数据库：/var/lib/dcos/navstar/mnesia
-- NavStar Lashup 分布式数据库：/var/lib/dcos/navstar/lashup
+- Navstar Mnesia 分布式数据库：/var/lib/dcos/navstar/mnesia
+- Navstar Lashup 分布式数据库：/var/lib/dcos/navstar/lashup
 - 密钥保管库：/var/lib/dcos/secrets/vault
-- Zookeeper 分布式数据库：/var/lib/dcos/exhibitor/zookeeper
-- 历史服务缓存：/var/lib/dcos/dcos-history
+- ZooKeeper 分布式数据库：/var/lib/dcos/exhibitor/zookeeper
+-  历史服务缓存：/var/lib/dcos/dcos-history
 
 ## 代理节点
-在代理节点上，应当将单独的分区用于 `/var/lib/mesos` 下的下列目录：
+在代理节点上，应当将单独的分区用于  下的下列目录：`/var/lib/mesos`:
 
-- `/var/lib/mesos` - 应始终在独立分区上托管 `/var/lib/mesos` 目录。请记住，Apache Mesos 在其 UI 中广告的磁盘空间是支撑 `/var/lib/mesos` 目录的文件系统提供的空间之和，包括任何挂载卷 (`/dcos/volume<n>`)。
+- `/var/lib/mesos` - 应始终在独立分区上托管 `/var/lib/mesos` 目录。请记住，Apache Mesos 在其 UI 中广告的磁盘空间是支撑 `/var/lib/mesos` 目录的文件系统提供的空间之和，包括任何挂载卷 (`/dcos/volume<n>`).
 
 - `/var/lib/mesos/slave/slaves` - 该目录托管任务的沙盒目录。如有可能，应为此目录使用单独的分区。
 

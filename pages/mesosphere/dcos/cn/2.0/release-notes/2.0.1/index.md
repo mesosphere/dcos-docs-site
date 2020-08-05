@@ -1,17 +1,19 @@
 ---
 layout: layout.pug
-navigationTitle: 2.0.1 的发行说明
-title: 2.0.1 的发行说明
+navigationTitle: 2.0.1 版本注释
+title: 2.0.1 版本注释
 menuWeight: 2
 excerpt: DC/OS 2.0.1 版本注释
 ---
 DC/OS 2.0.1 于 2019 年 11 月 22 日发布。
 
+<p class="message--warning"><strong>警告：</strong>DC/OS 1.13.9 版本包含持久 dcos-net 状态的数据格式更改，如果您升级到 2.0.1 版本，则可能会导致 dcos-net 出现严重问题。因此，我们建议您升级到 2.0.4 或更高的版本。</p>
+
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.1/dcos_generate_config.sh"]下载 DC/OS 开源[/button]
 
 [button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.0.1/dcos_generate_config.ee.sh"]下载 DC/OS Enterprise* [/button]
 
-注册 DC/OS Enterprise 客户可以从 [支持网站](https://support.mesosphere.com/s/downloads)访问 DC/OS Enterprise 配置文件。对于新客户，请在尝试下载和安装 DC/OS Enterprise 版本之前，先联系销售代表或发送邮件至 <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a>。
+新客户请在尝试下载和安装 DC/OS Enterprise 版本之前，先联系销售代表或发送邮件至 <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a>。
 
 
 # 发布版摘要

@@ -9,9 +9,9 @@ model: /mesosphere/dcos/2.0/data.yml
 render: mustache
 ---
 
-<p class="message--warning"><strong>免责声明：</strong>这是 [社区推动的项目]，未正式获得 Mesosphere 支持。这种安装方法用于快速演示和验证概念。本页面说明如何使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。该方法仅供参考，不推荐用于生产用途。下列安装方法不支持升级。</p>
+<p class="message--warning"><strong>免责声明：</strong>这是社区推动的项目，未正式获得 Mesosphere 支持。这种安装方法用于快速演示和验证概念。本页面说明如何使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。该方法仅供参考，不推荐用于生产用途。下列安装方法不支持升级。</p>
 
-<p class="message--note"><strong>注意：</strong>联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。要获得 Azure 市场相关问题的支持，请加入 Azure 市场 <a href="http://join.marketplace.azure.com">Slack 社区</a>。</p>
+<p class="message--note"><strong>注意：</strong>联系<a href="https://groups.google.com/a/dcos.io/forum/#!forum/users">邮寄列表</a>或 <a href="http://chat.dcos.io/?_ga=2.226911897.58407594.1533244861-1110201164.1520633201">Slack 渠道</a>，获取社区支持。要获得有关 Azure Marketplace 相关问题的支持，请查看 <a href="https://docs.microsoft.com/en-us/azure/marketplace/support-azure-marketplace">Azure Marketplace 的支持选项</a>。</p>
 
 # 系统要求
 
@@ -33,7 +33,7 @@ render: mustache
 #### 网络 ####
 Azure 上的原始网络性能大致由 VM 大小决定。
 `Standard_D8_v3` 等具有 8 个或更多芯核的 VM，可以用于
-[Azure 加速网络 (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli)。
+[Azure 加速网络 (SR-IOV)](https://docs.microsoft.com/en-us/azure/virtual-network/create-vm-accelerated-networking-cli).
 我们发现，相对于依靠 Azure hypervisor vswitches，使用 SR-IOV 能够显著降低延迟
 且使带宽更加充裕稳定。
 例如，在我们的测试中，不带 SR-IOV 的`Standard_D16s_v3`
@@ -57,7 +57,7 @@ Azure 上的原始网络性能大致由 VM 大小决定。
 Azure fabric 将适当地放置托管磁盘，以满足
 SLA 保证条件。
 UMD 的存储帐户限制已记录在
-[此处](https://docs.microsoft.com/en-us/azure/storage/common/storage-performance-checklist)。
+[此处](https://docs.microsoft.com/en-us/azure/storage/common/storage-performance-checklist).
 
 Azure 中的优质固态硬盘具有的潜在同步 IOP 数量有限，
 受到底层磁盘结构延迟的限制。
@@ -67,7 +67,7 @@ Etcd、 Zookeeper 和使用
 尽量减少和/或消除 Azure 磁盘上的 I/O 争用。
 
 另外，超过机器上的 I/O 分配将导致
-限流。建议用户详细学习 [本文章](https://blogs.technet.microsoft.com/xiangwu/2017/05/14/azure-vm-storage-performance-and-throttling-demystify/)，
+限流。建议用户详细学习 [本文章](https://blogs.technet.microsoft.com/xiangwu/2017/05/14/azure-vm-storage-performance-and-throttling-demystify/)
 理解
 本文所提供建议的理论背景。
 
@@ -75,20 +75,20 @@ Etcd、 Zookeeper 和使用
 以保持性能，推荐采用以下磁盘安装
 配置：
 - 管理节点：
- - / - P10
- - /var/lib/etcd -（用于运行 etcd 的节点） - P10
- - /var/log - P10
- - /var/lib/dcos/exhibitor - P10
+    - / - P10
+    - /var/lib/etcd -（用于运行 etcd 的节点） - P10
+    - /var/log - P10
+    - /var/lib/dcos/exhibitor - P10
 - 公共代理：
- - / - P10
- - /var/log - P10
- - /var/lib/docker - P10
- - /var/lib/mesos/slave - P10
+    - / - P10
+    - /var/log - P10
+    - /var/lib/docker - P10
+    - /var/lib/mesos/slave - P10
 - 专用代理：
- - / - P10
- - /var/log - P10
- - /var/lib/docker - P10
- - /var/lib/mesos/slave - P20
+    - / - P10
+    - /var/log - P10
+    - /var/lib/docker - P10
+    - /var/lib/mesos/slave - P20
 
 运行具有较小和/或较少磁盘的群集是很可行的，
 但用于生产时，经验证明上述配置具有显著优势，
@@ -102,16 +102,16 @@ Etcd、 Zookeeper 和使用
 每秒数据库可处理的处理记录。
 
 关于配置磁盘缓存，请遵守以下一般规则：
-- 操作系统磁盘应设置为 `ReadWrite`。
+- 操作系统磁盘应设置为 `ReadWrite`.
 - 具有混合或读取重负载（数据库大宗存储等）的数据磁盘应该
-设置为 `ReadOnly`。
-- 具有高顺序写入负载的数据磁盘（WAL 磁盘）应设置为 `None`。
+设置为 `ReadOnly`.
+- 具有高顺序写入负载的数据磁盘（WAL 磁盘）应设置为 `None`.
 
 ## 软件
 
 需要一个活跃的 [Azure 订阅](https://azure.microsoft.com/en-us/pricing/purchase-options/) 以通过 Azure 市场安装 DC/OS。
 
-另外，如需在 DC/OS 群集中访问节点，则要安装和配置 `ssh`。
+另外，如需在 DC/OS 群集中访问节点，则要安装和配置 `ssh`
 
 # 安装 DC/OS
 
@@ -123,20 +123,20 @@ Etcd、 Zookeeper 和使用
 
 - 选择 `East US` 作为位置，因为模板的某些资源可能无法在其他位置提供。
 - 若要通过 OAuth 登录 DC/OS 仪表板，则将 `Oauth Enabled` 设为真。
-- 填写 `Agent Endpoint DNS Name Prefix` 和 `Master Endpoint DNS Name Prefix`。
-- 输入您的 `SSH RSA Public Key`。
+- 填写 `Agent Endpoint DNS Name Prefix` 和 `Master Endpoint DNS Name Prefix`.
+- 输入您的 `SSH RSA Public Key`.
 
 ## 访问 DC/OS
 
-1. 在部署的输出中查找 `MASTERFQDN`。要查找该值，单击 `Last deployment` 下面的链接（就是这里的 `4/15/2016 (Succeeded)`），您将看到：
+1. 在部署的输出中查找 `MASTERFQDN` 要查找该值，单击 `Last deployment` 下面的链接（就是这里的 `4/15/2016 (Succeeded)`），您将看到：
 
-![Deployment history](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-marketplace-step2a.png)
+![Deployment history](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-marketplace-step2a.png)
 
 图 1. 部署历史记录
 
 2. 单击最新部署并复制 `MASTERFQDN` 到 `Outputs` 部分。
 
-![Deployment output](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-marketplace-step2b.png)
+![Deployment output](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-marketplace-step2b.png)
 
 图 2. 输出部分
 
@@ -150,37 +150,37 @@ Etcd、 Zookeeper 和使用
 
 1. 查找管理节点的网络安全组资源，
 
-![Resource - Master Node Network Security Group](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1a.png)
+![Resource - Master Node Network Security Group](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-step2case1a.png)
 
 图 3. 管理节点网络安全组
 
 2. 单击左侧的 **入站安全规则** 选项卡。
 
-![Inbound Security Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1b.png)
+![Inbound Security Rules](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-step2case1b.png)
 
 图 4. 入站安全规则
 
 3. 添加入站安全规则。
 
-![Add Inbound Security Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1c.png)
+![Add Inbound Security Rules](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-step2case1c.png)
 
 图 5. 添加入站安全规则
 
 4. 查找管理节点的负载均衡器资源。
 
-![Resource - Master Node Load balancer](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1d.png)
+![Resource - Master Node Load balancer](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-step2case1d.png)
 
 图 6. 管理节点负载均衡器
 
 5. 单击左侧的 **入站 NAT 规则** 选项卡，
 
-![Inbound NAT Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1e.png)
+![Inbound NAT Rules](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-step2case1e.png)
 
 图 7. 入站 NAT 规则
 
 6. 添加入站 NAT 规则。
 
-![Add Inbound NAT Rules](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-azure-step2case1f.png)
+![Add Inbound NAT Rules](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-azure-step2case1f.png)
 
 图 8. 添加入站 NAT 规则
 
@@ -204,7 +204,7 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 现在您可以在本地机器上访问 `http://localhost:8000` 并查看 DC/OS 仪表板。
 
-![DC/OS dashboard](/mesosphere/dcos/{{ model.folder_version }}/img/dcos-gui.png)
+![DC/OS dashboard](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-gui.png)
 
 图 9. DC/OS 仪表板
 
@@ -214,8 +214,8 @@ ssh azureuser@dcosmaster.westus.cloudapp.azure.com -L 8000:localhost:80
 
 - 要连接至 `http://localhost:8000` 进行操作，SSH 命令必须在本地机器上运行，而不是在虚拟机内运行。
 - 在上述示例中，假设端口 `8000` 在本地机器上可用。
-- 所显示的 SSH 命令仅可在 Mac 或 Linux 上运行。对于 Windows，请使用具有类似端口转发配置的 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)，另请参阅 [如何在 Azure 上使用带有 Windows 的 SSH](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/)。
-- 如需了解有关 SSH 密钥生成的更多信息，请参阅 [GitHub 教程](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/)。
+- 所显示的 SSH 命令仅可在 Mac 或 Linux 上运行。对于 Windows，请使用具有类似端口转发配置的 [PuTTY](http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html)，另请参阅 [如何在 Azure 上使用带有 Windows 的 SSH](https://azure.microsoft.com/en-us/documentation/articles/virtual-machines-linux-ssh-from-windows/).
+- 如需了解有关 SSH 密钥生成的更多信息，请参阅 [GitHub 教程](https://help.github.com/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent/).
 
 通过 SSH 隧道连接时，DC/OS UI 不会显示正确的 IP 地址或 CLI 安装命令。
 

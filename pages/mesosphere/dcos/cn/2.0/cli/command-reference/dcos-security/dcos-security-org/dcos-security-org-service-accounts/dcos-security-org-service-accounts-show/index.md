@@ -24,7 +24,7 @@ dcos security org service-accounts show [OPTIONS] [SIDS]...
 | 名称 | 说明 |
 |---------|-------------|
 |  `-h`, `--help` |                显示此消息并退出。|
-| `-j`, `--j` | JSON 格式的输出数据。|
+|  `-j`, `--j` | JSON 格式的输出数据。|
 
 ## 位置自变量
 

@@ -23,14 +23,14 @@ dcos marathon app show [--app-version=<app-version>] <app-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`，`--help` | 显示有关此命令用法的信息。 |
-| `--app-version=<app-version>` | 要使用的应用程序版本。可以指定为绝对值或相对值。绝对值必须为 ISO8601 日期格式。相对值必须指定为负整数，表示当前部署的应用定义中的版本。|
+| `-h`, `--help` | 显示有关此命令用法的信息。 |
+| `--app-version=<app-version>`   | 使用的应用程序版本。可以指定为绝对值或相对值。绝对值必须为 ISO8601 日期格式。相对值必须指定为负整数，表示当前部署的应用定义中的版本。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<app-id>` | 应用程序 ID。您可以使用 `dcos marathon app list` 命令查看应用程序 ID 列表。|
+| `<app-id>`   | 应用程序 ID。您可以使用 `dcos marathon app list` 命令查看应用程序 ID 列表。|
 
 
 
@@ -195,4 +195,4 @@ dcos marathon app show spark
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

@@ -23,8 +23,8 @@ dcos node dns <dns-name> [--json]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示用法。 |
-| `--json` | 显示 JSON 格式的数据。|
+| `--help, h`   | 显示用法。 |
+| `--json`   | 显示 JSON 格式的数据。|
 
 ## 位置自变量
 
@@ -37,5 +37,5 @@ dcos node dns <dns-name> [--json]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
+| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
 

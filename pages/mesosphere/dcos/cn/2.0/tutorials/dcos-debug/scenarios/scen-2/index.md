@@ -14,7 +14,7 @@ menuWeight: 11
 
 ### 设置
 
-部署文件 [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-oom.json)：
+部署文件 [`app-oom.json`](https://raw.githubusercontent.com/dcos-labs/dcos-debugging/master/1.10/app-oom.json):
 
 ```bash
 dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-deb
@@ -54,11 +54,11 @@ $ dcos service log marathon
 ```bash
 Mar 27 00:46:37 ip-10-0-6-109.us-west-2.compute.internal marathon.sh[5866]: [2018-03-27 00:46:36,960] INFO  Acknowledge status update for task app-oom.4af344fa-3158-11e8-b60b-a2f459e14528: TASK_FAILED (Memory limit exceeded: Requested: 64MB Maximum Used: 64MB
 ```
-<p class="message--note"><strong>注意：</strong>一个有用的省时提示是 </code>TASK_FAILED</code> 的 <code>grep</code>。</p>
+<p class="message--note"><strong>注意：</strong>一个有用的省时提示是 <code>TASK_FAILED</code> 的 </code>grep</code>.</p>
 
-**现在，我们已经确认，我们已经超出了 [`app-oom.json`](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6) 中先前设置的容器内存限制 **
+**现在，我们已经确认，我们已经超出了 [`app-oom.json`]](https://github.com/dcos-labs/dcos-debugging/blob/master/1.10/app-oom.json#L6)** 中先前设置的容器内存限制 **
 
-如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/mesosphere/dcos/2.0/overview/architecture/task-types/#executors)保留一些高开销内存，在本例中为 32 MB。
+如果您一直密切注意，您可能会大喊“等一下”，因为您注意到应用定义中设置的内存限制为 32 MB，但错误消息提到 64MB。DC/OS 自动为[执行程序](/mesosphere/dcos/cn/2.0/overview/architecture/task-types/#executors)保留一些高开销内存，在本例中为 32 MB。
 
 请注意，OOM `kill` 是由 Linux 内核本身执行的，因此我们也可以直接检查内核日志：
 
@@ -88,7 +88,7 @@ Mar 27 01:15:36 ip-10-0-1-103.us-west-2.compute.internal kernel: oom_reaper: rea
 
 ### 一般模式
 
-在我们处理失败任务时，最好检查应用程序和调度程序日志（在本例中，我们的调度程序是 Marathon）。如果这样做不够，可以帮助查看 Mesos 代理节点日志和/或在使用 UCR（或在 Docker 容器化工具中，通过 ssh 进入节点并使用 `docker exec`）时使用 `dcos task exec`。
+在我们处理失败任务时，最好检查应用程序和调度程序日志（在本例中，我们的调度程序是 Marathon）。如果这样做不够，可以帮助查看 Mesos 代理节点日志和/或在使用 UCR（或在 Docker 容器化工具中，通过 ssh 进入节点并使用 `dcos task exec`）时使用 `docker exec`).
 
 ### 清除
 

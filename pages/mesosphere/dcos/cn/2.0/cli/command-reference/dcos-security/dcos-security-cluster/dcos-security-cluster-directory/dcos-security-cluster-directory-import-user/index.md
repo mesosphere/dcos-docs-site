@@ -30,10 +30,10 @@ dcos security cluster directory import_user [OPTIONS] UID
 
 | 名称 | 说明 |
 |--------|-------------------|
-| `UID` | 用户 ID。 |
+| `UID` | 用户 ID。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster directory](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
+| [dcos security cluster directory](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
