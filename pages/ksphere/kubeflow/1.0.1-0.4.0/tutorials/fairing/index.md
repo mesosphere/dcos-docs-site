@@ -75,14 +75,14 @@ Please type in the container registry username by running the next cell:
 docker_user = input()
 ```
 
-Please enter the password for the container registry's by executing the following cell:
+Please enter the password for the container registry by executing the following cell:
 
 
 ```python
 docker_password = getpass.getpass()
 ```
 
-With these details, we can base-64-encode the username and password and create a Kubernetes secret.
+With these details, we can base-64-encode the username and password and create a Kubernetes configmap with a name expected by the builder's context source.
 
 
 ```python
@@ -132,13 +132,13 @@ minio_context_source = MinioContextSource(
 ```
 
 ## How to Build a Docker Image
-If you have your own container registry, please set it in `REGISTRY`.
+If you have your own container registry, please prepend it in `REGISTRY`.
 The `IMAGE_NAME` contains the name of the image that will be built and pushed to the `REGISTRY`.
 
 
 ```python
-REGISTRY = "docker.io"
-IMAGE_NAME = "mesosphere/kubeflow"
+REGISTRY = "mesosphere"
+IMAGE_NAME = "kubeflow"
 ```
 
 If your goal is to run a distributed training job _immediately_ from a notebook, we recommend the Option 1.
