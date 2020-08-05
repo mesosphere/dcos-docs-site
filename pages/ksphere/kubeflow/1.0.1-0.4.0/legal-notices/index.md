@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Legal Notices
 beta: false
-menuWeight: 1
+menuWeight: 99
 excerpt: List of Third-party trademarks mentioned in the KUDO for Kubeflow documentation
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml

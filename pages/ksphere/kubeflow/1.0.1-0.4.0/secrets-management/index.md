@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Manage Secrets
 title: Manage Secrets
-menuWeight: 5
+menuWeight: 30
 excerpt: Distribute a sensible configuration securely
 beta: false
 enterprise: false
