@@ -14,9 +14,9 @@ DC/OS 由许多开源组件构成，其中多个在 DC/OS 之前就存在。本�
 
 # DC/OS
 
-DC/OS 是数据中心的 [分布式操作系统](https://en.wikipedia.org/wiki/Distributed_operating_system)。
+DC/OS 是数据中心的 [分布式操作系统](https://en.wikipedia.org/wiki/Distributed_operating_system)
 
-与传统的分布式操作系统不同，DC/OS 还是管理基于本地可执行文件或容器镜像（如 [Docker 镜像](https://docs.docker.com/engine/tutorials/dockerimages/)的容器化任务的容器平台。同样与传统 [操作系统](https://en.wikipedia.org/wiki/Operating_system) 不同，DC/OS 是在 [节点群集](#cluster) 上而不是在单台机器上运行。每个 DC/OS 节点还具有管理底层机器的 [主机操作系统](#host-operating-system)。
+与传统的分布式操作系统不同，DC/OS 还是管理基于本地可执行文件或容器镜像（如 [Docker 镜像])的容器化任务的容器平台。(https://docs.docker.com/engine/tutorials/dockerimages/). 同样与传统 [操作系统] 不同(https://en.wikipedia.org/wiki/Operating_system)，DC/OS 是在 [节点群集](#cluster) 上而不是在单台机器上运行。每个 DC/OS 节点还具有管理底层机器的 [主机操作系统](#host-operating-system)。
 
 DC/OS 由许多组件构成，尤其是分布式系统内核 ([Mesos](#apache-mesos)) 和容器编排引擎 ([Marathon](#marathon))。
 
@@ -77,7 +77,7 @@ DC/OS 节点是 Mesos 代理节点和/或 Mesos 管理节点进程运行所在�
 DC/OS 管理节点是一个虚拟机或物理机，运行一系列协同工作的 DC/OS 组件来管理群集的其他部分。
 
 - 每个管理节点都包含多个 DC/OS 组件，尤其包括 [Mesos 管理节点](#mesos-master) 进程。
-- 管理节点在 [Quorum](https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29) 中工作，以实现群集协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 群集分区，群集的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
+- 管理节点在 [Quorum](https://en.wikipedia.org/wiki/Quorum_%28distributed_computing%29)中工作，以实现群集协调的一致性。要避免 [脑裂](https://en.wikipedia.org/wiki/Split-brain_%28computing%29) 群集分区，群集的管理节点数应始终为奇数。例如，具有三个管理节点允许一个管理节点出故障；具有五个管理节点允许两个管理节点出故障，允许在滚动更新过程中出故障。可添加额外的管理节点，以提高风险承受力。
 - 只有一个管理节点的群集可用于开发，但可用性不高，可能无法从故障中恢复。
 
 <a name="dcos-agent-node"></a>
@@ -89,7 +89,7 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 - 每个代理节点都包含多个 DC/OS 组件，尤其包括 [Mesos 代理节点](#mesos-agent) 进程。
 - 代理节点可以是 [专用的](#private-agent-node) 或 [公共的](#public-agent-node)，具体取决于代理和网络配置。
 
-如需更多信息，请参阅 [网络安全](/mesosphere/dcos/cn/1.13/administering-clusters/) 和 [添加代理节点](/mesosphere/dcos/cn/1.13/administering-clusters/add-a-node/)。
+如需更多信息，请参阅 [网络安全](/mesosphere/dcos/cn/1.13/administering-clusters/) 和 [添加代理节点](/mesosphere/dcos/cn/1.13/administering-clusters/add-a-node/).
 
 <a name="private-agent-node"></a>
 
@@ -97,7 +97,7 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 
 专用代理节点是位于网络上的代理节点，*不允许**通过群集的基础架构网络从群集外部访问。
 
-- 每个专用代理节点上的 Mesos 代理节点默认配置为不带有为任何特定 Mesos 角色分配的资源 (`*`)。
+- 每个专用代理节点上的 Mesos 代理节点默认配置为不带有为任何特定 Mesos 角色分配的资源 (`*`).
 - 大多数服务包默认安装在专用代理节点上。
 - 群集一般由大部分专用代理节点组成。
 
@@ -108,10 +108,10 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 公共代理节点是位于网络上的代理节点，**允许**通过群集的基础架构网络从群集外部访问。
 
 - 每个公共代理节点上的 Mesos 代理节点配置有 `public_ip:true` 代理属性及其分配给 `slave_public` 角色的所有资源。
-- 公共代理节点主要用于面向外部的反向代理负载均衡器，如 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/1.13/) 或 [Edge-LB](/mesosphere/dcos/services/edge-lb/1.3/)。
+- 公共代理节点主要用于面向外部的反向代理负载均衡器，如 [Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/1.13/) 或 [Edge-LB](/mesosphere/dcos/cn/services/edge-lb/1.3/).
 - 群集通常只有几个公共代理节点，因为单个负载均衡器通常可以处理多个代理服务。
 
-如需更多信息，请参阅 [转换代理节点类型](/mesosphere/dcos/cn/1.13/administering-clusters/convert-agent-type/)。
+如需更多信息，请参阅 [转换代理节点类型](/mesosphere/dcos/cn/1.13/administering-clusters/convert-agent-type/).
 
 <a name="host-operating-system"></a>
 
@@ -123,7 +123,8 @@ DC/OS 代理节点是 Mesos 任务运行所在的虚拟机或物理机。
 
 - [CentOS](https://www.centos.org/)
 - [RHEL](https://www.redhat.com/en/technologies/linux-platforms/enterprise-linux)
-- [CoreOS](https://coreos.com/)
+- [Ubuntu](https://ubuntu.com/)
+- [Oracle Linux](https://www.oracle.com/linux/)
 
 主机操作系统管理本地任务和机器资源，DC/OS 则管理群集任务和资源，使得您不需要与节点上的主机操作系统进行交互。
 
@@ -138,7 +139,7 @@ bootstrap 机是配置、构建和分发 DC/OS 安装程序工件的机器。
 - 允许管理节点更改 IP 的一种方法涉及在 bootstrap 机上用 Exhibitor 运行 ZooKeeper。其他替代方案包括使用 S3、DNS 或静态 IP，具有各种权衡。如需更多信息，请参阅 [Exhibitor 存储后端](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数描述。
 - 如果管理主节点 IP 更改不需要使用 bootstrap 机或将其作为 SSH 跳转盒，可在引导后将其关闭并按需转换 [添加新节点](/mesosphere/dcos/cn/1.13/administering-clusters/add-a-node/) 到群集。
 
-如需更多信息，请参阅 [系统要求](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/)。
+如需更多信息，请参阅 [系统要求](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/).
 
 <a name="dcos-service"></a>
 
@@ -230,7 +231,7 @@ DC/OS 调度器和 Mesos 调度器之间的主要区别在于它运行的位置�
 
 ## DC/OS 调度器服务
 
-DC/OS 调度器服务是作为 DC/OS 服务运行的长期 DC/OS 调度器（Marathon 或 `systemd`）。由于 DC/OS 调度器也可以作为短期任务运行，因此并非所有调度器都是服务。
+DC/OS 调度器服务是作为 DC/OS 服务运行的长期 DC/OS 调度器（Marathon 或 `systemd`). 由于 DC/OS 调度器也可以作为短期任务运行，因此并非所有调度器都是服务。
 
 <a name="dcos-component"></a>
 
@@ -272,7 +273,7 @@ DC/OS 包注册表是 DC/OS 包的存储库。[DC/OS 包管理器](#dcos-package
 
 Mesosphere {{ model.packageRepo }} 是由 Mesosphere 管理的一个公共包注册表。
 
-如需更多信息，请参阅 GitHub 上的 [{{ model.packageRepo }} 存储库](https://github.com/mesosphere/universe)。
+如需更多信息，请参阅 GitHub 上的 [{{ model.packageRepo }} 存储库](https://github.com/mesosphere/universe)
 
 <a name="container-registry"></a>
 
@@ -286,7 +287,7 @@ Mesosphere {{ model.packageRepo }} 是由 Mesosphere 管理的一个公共包注
 
 云模板是声明性描述 DC/OS 群集的一种基础架构特定方法。
 
-有关使用云模板部署的更多信息，请参阅 [Mesosphere 安装方法](/mesosphere/dcos/cn/1.13/installing/evaluation/)。
+有关使用云模板部署的更多信息，请参阅 [Mesosphere 安装方法](/mesosphere/dcos/cn/1.13/installing/evaluation/).
 
 <a name="mesos-concepts"></a>
 
@@ -388,7 +389,7 @@ Mesos 资源邀约从代理节点向调度器提供一组未分配的资源（�
 
 <a name="mesos-containerizer-universal-container-runtime"></a>
 
-## 通用容器运行时
+### 通用容器运行时
 
 通用容器运行时从二进制可执行文件和 Docker 镜像启动 Mesos 容器。通用容器运行时管理的 Mesos 容器并不使用 Docker 引擎，即使是从 Docker 镜像启动。
 
@@ -410,7 +411,7 @@ Mesos 取决于 ZooKeeper，后者是管理群集状态的高性能协调服务�
 
 Mesos-DNS 是一个 DC/OS 组件，可在群集内提供服务发现。Mesos-DNS 允许在 Mesos 上运行的应用程序和服务通过使用域名系统 (DNS) 找到彼此，与服务在整个互联网中发现彼此的方式相似。
 
-如需更多信息，请参阅 [Mesos-DNS 文档](/mesosphere/dcos/cn/1.13/networking/DNS/mesos-dns/)。
+如需更多信息，请参阅 [Mesos-DNS 文档](/mesosphere/dcos/cn/1.13/networking/DNS/mesos-dns/).
 
 <a name="marathon-concepts"></a>
 
@@ -429,7 +430,7 @@ Mesos-DNS 是一个 DC/OS 组件，可在群集内提供服务发现。Mesos-DNS
 
 Marathon 是 Mesos 和 DC/OS 的容器编排引擎。Marathon 是 DC/OS 的核心组件之一，先于 DC/OS 本身，为平台带来成熟性和稳定性。
 
-如需更多信息，请参阅 [Marathon 网站](https://mesosphere.github.io/marathon/)。
+如需更多信息，请参阅 [Marathon 网站](https://mesosphere.github.io/marathon/).
 
 <a name="marathon-application"></a>
 
@@ -438,7 +439,7 @@ Marathon 是 Mesos 和 DC/OS 的容器编排引擎。Marathon 是 DC/OS 的核�
 Marathon 应用程序是一个长期运行的服务，可能有一个或多个实例与 Mesos 任务一对一映射。用户通过为 Marathon 提供应用定义 (JSON) 来创建应用程序。然后，Marathon 将一个或多个应用程序作为 Mesos 实例来调度，具体取决于指定了多少定义。应用程序目前支持使用
 
 - [Mesos 通用容器运行时](#mesos-containerizer-universal-container-runtime)，或
-- [Docker 引擎](#mesos-containerizer-docker-engine)
+- [Docker 运行时](#mesos-containerizer-docker-engine)
 
 <a name="marathon-pod"></a>
 

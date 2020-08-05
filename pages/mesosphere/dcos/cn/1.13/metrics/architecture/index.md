@@ -9,9 +9,9 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 
-DC/OS 1.12 版及更新版本中的度量标准基于 [Telegraf](https://github.com/dcos/telegraf)。Telegraf 度量标准是在处理过程中用来对数据建模的内部表示形式。Telegraf 提供基于代理的服务，在 DC/OS 群集中的每个管理节点和代理节点上运行。默认情况下，Telegraf 从同一节点上运行的所有进程收集度量标准，收集的信息经过处理之后被发送到中央度量标准数据库。Telegraf 具有插件驱动型架构。插件架构让 Telegraf 能够从任何支持的输入插件收集信息，并将结果写入支持的输出插件。插件将编译成 Telegraf 二进制文件进行执行，您可以使用配置文件选项选择性启用和自定义插件。图 1 显示了 Telegraf 的一个实例。
+DC/OS 1.12 版及更新版本中的度量标准基于 [Telegraf](https://github.com/dcos/telegraf). Telegraf 度量标准是在处理过程中用来模拟数据的内部表示。Telegraf 提供基于代理的服务，在 DC/OS 群集中的每个管理节点和代理节点上运行。默认情况下，Telegraf 从同一节点上运行的所有进程收集度量标准，收集的信息经过处理之后被发送到中央度量标准数据库。Telegraf 具有插件驱动型架构。插件架构让 Telegraf 能够从任何支持的输入插件收集信息，并将结果写入支持的输出插件。插件将编译成 Telegraf 二进制文件进行执行，您可以使用配置文件选项选择性启用和自定义插件。图 1 显示了 Telegraf 的一个实例。
 
-![Telegraf 的一个实例](/mesosphere/dcos/1.13/img/telegraf-architecture.png)
+![Telegraf 的一个实例](/mesosphere/dcos/cn/1.13/img/telegraf-architecture.png)
 
 图 1. Telegraf 的一个实例
 
@@ -22,7 +22,7 @@ DC/OS 1.12 版及更新版本中的度量标准基于 [Telegraf](https://github.
  1. `statsd` 输入插件从 DC/OS 组件收集 `statsd` 度量标准。
  1. `prometheus` 输入插件从 DC/OS 组件和 `mesos` 任务收集度量标准。
  1. `mesos` 输入插件收集有关 `mesos` 进程本身的度量标准。
- 1. `dcos_statsd` 输入插件为每个 `mesos` 任务启动新的 `statsd` 服务器。
+ 1. `dcos_statsd` 输入插件为每个 `statsd` 任务启动新的 `mesos` 服务器。
  1. `dcos_containers` 从 `mesos` 进程收集有关容器的资源信息。
  1. `override` 插件用于添加 **节点层级** 元数据，例如，群集名称。
  1. `dcos_metadata` 插件用于添加 **任务层级** 元数据，例如，执行器名称和任务名称。

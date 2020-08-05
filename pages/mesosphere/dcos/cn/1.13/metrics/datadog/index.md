@@ -10,7 +10,7 @@ beta: false
 ---
 
 
-DC/OS 1.12 及更新版本通过 [Telegraf] 发送度量标准(/mesosphere/dcos/cn/1.13/overview/architecture/components/#telegraf)，可以配置为将度量标准导出到 Datadog。无需像在 DC/OS 1.9 、1.10 和 1.11 中一样安装度量标准插件。本页说明如何将适当的配置添加到 DC/OS 中。
+DC/OS 1.12 及更新版本通过 [Telegraf](/mesosphere/dcos/cn/1.13/overview/architecture/components/#telegraf) 发送度量标准，可以配置为将度量标准导出到 Datadog。无需像在 DC/OS 1.9 、1.10 和 1.11 中一样安装度量标准插件。本页说明如何将适当的配置添加到 DC/OS 中。
 
 
 **前提条件：**
@@ -34,6 +34,6 @@ DC/OS 1.12 及更新版本通过 [Telegraf] 发送度量标准(/mesosphere/dcos/
 
 1. 在群集中的每个节点上执行以下任务：
 
-   1. 上传 `datadog.conf` 文件到 `/var/lib/dcos/telegraf/telegraf.d/datadog.conf`。
+   1. 上传 `datadog.conf` 文件到 `/var/lib/dcos/telegraf/telegraf.d/datadog.conf`.
    1. 运行 `sudo systemctl restart dcos-telegraf` 命令，重新启动具有新配置的 Telegraf 进程。
    1. 检查 Datadog UI 以查看传入的 DC/OS 度量标准。

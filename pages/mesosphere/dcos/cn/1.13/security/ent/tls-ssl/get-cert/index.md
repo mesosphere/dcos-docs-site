@@ -16,15 +16,13 @@ enterprise: true
 
 - [从 Admin Router 通过 HTTP(S)，不安全](#curl) ：使用 `curl` 通过不安全 HTTP 或不安全 HTTPS 检索证书。
 
-# 添加 OpenID Connect 身份提供程序：
-
 # <a name="oob"></a>从带外检索 DC/OS CA 捆绑包
 
-DC/OS CA 捆绑包位于文件系统路径 `/run/dcos/pki/CA/ca-bundle.crt` 的任何主节点上。为获得最大安全性，您应手动检索此文件。或者，如果无法物理访问主节点，则合理安全的方法是通过 SSH 连接到其中一个主节点以获取文件。为了简化和更容易地使用文档中其他地方提供的 `curl` 命令，您可以从 `ca-bundle.crt` 到 `dcos-ca.crt` 重命名文件。
+DC/OS CA 捆绑包位于文件系统路径  的任何主节点上。`/run/dcos/pki/CA/ca-bundle.crt`. 为获得最大安全性，您应手动检索此文件。或者，如果无法物理访问主节点，则合理安全的方法是通过 SSH 连接到其中一个主节点以获取文件。为了简化和更容易地使用文档中其他地方提供的 `curl` 命令，您可以从 `ca-bundle.crt` 到 `dcos-ca.crt`. 重命名文件。
 
 # <a name="curl"></a>使用 curl 检索 DC/OS CA 捆绑包
 
-<p class="message--important"><strong>重要信息：</strong>如果您正在使用 `curl` 来检索 DC/OS CA 捆绑包，则必须使用 `-k`/`--insecure` 标记。如果通过 HTTPS 执行通信，则此标记会禁用服务器证书验证。这允许 <a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>，其中，网络路径中的恶意方可能发送错误的 CA 捆绑包，导致您信任 DC/OS 群集外部的实体。</p>
+<p class="message--important"><strong>重要信息：</strong>如果您要使用 `curl` 来检索 DC/OS CA 捆绑包，则必须使用 `-k`/`--insecure` 标记。如果通过 HTTPS 执行通信，则此标记会禁用服务器证书验证。这会产生<a href="https://en.wikipedia.org/wiki/Man-in-the-middle_attack">中间人攻击</a>，此时，网络路径中的恶意方可能发送错误的 CA 捆绑包，导致您信任 DC/OS 群集外部的实体。</p>
 
 **先决条件：**您必须已[安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/)，以在以下命令中检索群集 URL。
 

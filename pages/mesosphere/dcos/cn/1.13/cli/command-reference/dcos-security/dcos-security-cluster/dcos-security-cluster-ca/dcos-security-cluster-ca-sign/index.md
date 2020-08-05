@@ -23,9 +23,9 @@ dcos security cluster ca sign [OPTIONS]
 
 | 名称 | 说明 |
 |----------|---------------|
-| `--csr <filename>` | CSR 签名路径。(必填) |
-| `-p`, `--profile <text>` | 要使用的签名资料。|
-| `-h`, `--help`| 显示此消息并退出。|
+| `--csr <filename>` | CSR 签名路径。（必填)|
+|  `-p`, `--profile <text>` | 要使用的签名资料。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 
 # 父命令

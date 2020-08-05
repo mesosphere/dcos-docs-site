@@ -16,11 +16,15 @@ render: mustache
 高级 AWS CloudFormation 模板为创建和扩展 DC/OS 群集带来了优势和灵活性。通过这些模板，您可以从一整套 DC/OS 配置选项中进行选择。
 
  - 在现有的 VPC/子网组合上实例化完整的 DC/OS 群集。
- - 通过添加更多的 [代理](/mesosphere/dcos/cn/1.13/overview/concepts/#agent-nodes) 节点来扩展和更新现有的 DC/OS 群集。
+ - 通过添加更多的 [代理](/mesosphere/dcos/cn/{{ model.folder_version }}/overview/concepts/#agent-nodes) 节点来扩展和更新现有的 DC/OS 群集。
 
 模板一起用于创建 DC/OS 群集。驱动这些模板的是 AWS CloudFormation 用于创建每个堆栈的参数。
 
-<p class="message--warning"><strong>重要信息：</strong>此安装方法不支持升级。</p>
+<table class=“table” bgcolor=#858585>
+<tr>
+  <td align=justify style=color:white><strong>重要信息：</strong>此安装方法不支持升级。</td>
+</tr>
+</table>
 
 ## 前提条件
 
@@ -29,14 +33,14 @@ render: mustache
 您必须有 AWS EC2 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例。建议不要选择较小的 VM，而选择较少的 VM 可能会导致某些资源密集型服务（如分布式数据存储）无法正常工作。
 
 ### 软件
-- `dcos_generate_config` 文件：
-  * Enterprise 用户应使用 [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads)。请联系销售代表或 <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a> 以访问配置文件。[enterprise type="inline" size="small" /]
-  * 开源用户应使用 [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh)。[oss type="inline" size="small" /]
-- 带根 [IAM](https://aws.amazon.com/iam/) 权限的 Amazon Web Services 帐户。安装高级模板需要高级权限。如需更多信息，请联系 AWS 管理员。
-- 与群集相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 群集的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>。
-- AWS [命令行界面](https://aws.amazon.com/cli/)。
-- CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation)。
-- 符合 bootstrap 节点 [系统要求](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/) 的节点。
+`dcos_generate_config` 文件：
+  * Enterprise 用户应使用 [dcos_generate_config file](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). 请联系销售代表或 <a href="mailto:sales@mesosphere.com">sales@mesosphere.com</a>，访问配置文件。[enterprise type="inline" size="small" /]
+  * 开源用户应使用 [dcos_generate_config file](https://downloads.dcos.io/dcos/stable/dcos_generate_config.sh).[oss type="inline" size="small" /]
+- 带根 [IAM](https://aws.amazon.com/iam/)权限的 Amazon Web Services 帐户。安装高级模板需要高级权限。如需更多信息，请联系 AWS 管理员。
+- 与群集相同分域的 AWS EC2 密钥对。密钥对不能跨分域共享。AWS 密钥对使用公钥加密功能提供对 AWS 群集的安全登录。有关创建 AWS EC2 密钥对的详细信息，请参阅 <a href="http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html#having-ec2-create-your-key-pair" target="_blank">文档</a>.
+- AWS [命令行界面](https://aws.amazon.com/cli/).
+- CLI JSON 处理器 [jq](https://github.com/stedolan/jq/wiki/Installation).
+- 符合 bootstrap 节点 [系统要求] 的节点。(/mesosphere/dcos/cn/{{ model.folder_version }}/installing/production/system-requirements/).
 - 具有读写访问权限的 AWS s3 bucket。
     - S3 bucket 必须具备 bucket 策略，以便让启动的 AWS 实例从 s3 bucket下载文件。以下是任何人均可下载的示例政策：
 
@@ -64,7 +68,7 @@ render: mustache
     ```bash
     mkdir -p genconf
     ```
-2. 在 `genconf` 目录中创建配置文件并另存为 `config.yaml`。此配置文件指定您的 AWS 凭据以及用于存储生成的原图的 S3 位置。
+2. 在 `genconf` 目录中创建配置文件并另存为 `config.yaml`. 此配置文件指定您的 AWS 凭据以及用于存储生成的原图的 S3 位置。
 
 企业和开源用户所需的参数为：
 
@@ -93,7 +97,7 @@ render: mustache
     aws_template_storage_secret_access_key: <your-secret-access_key>
 
 
-有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/)。
+有关参数描述和配置示例，请参阅 [文档](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/).
 
 3. 使用指定的 AWS 参数运行 DC/OS 安装工具脚本。此命令创建 DC/OS 物件和模板的自定义构造并将其上传到指定的 s3 bucket。
 
@@ -115,7 +119,7 @@ sudo bash dcos_generate_config.sh --aws-cloudformation
 AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<path-to-directory>
 ```
 
-4. 转到 [S3](https://console.aws.amazon.com/s3/home) 并导航至上述 `<path-to-directory>` 中所示的 s3 bucket。
+4. 转到 [S3](https://console.aws.amazon.com/s3/home) 并导航至上述 `<path-to-directory>`. 中所示的 s3 bucket。
 
     1. 选择 **cloudformation**，然后选择管理节点所需数量的 zen 模板。例如，为单个管理配置选择 **el7-zen-1.json**。
     1. 右键单击并选择 **属性**，然后复制 AWS S3 模板 URL。
@@ -171,7 +175,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
     echo "Public SubnetId: $public_subnet"
     ```
 
-1. 运行 `zen.sh` 脚本，为指定 DC/OS 堆栈（`STACK_NAME`）设置可选标签值，或使用默认值 `dcos`。此值将用于在 AWS 中标记 DC/OS 群集。
+1. 运行 `zen.sh` 脚本，为指定 DC/OS 堆栈（`STACK_NAME`）设置可选标签值，或使用默认值 `dcos`. 此值将用于在 AWS 中标记 DC/OS 群集。
 
     ```bash
     bash ./zen.sh <STACK_NAME>
@@ -193,7 +197,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 1. 转到 [CloudFormation](https://console.aws.amazon.com/cloudformation/home) 并单击 **创建堆栈**。
 
-- 在 **选择模板** 页面，从您的工作站上传 [Zen](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/) 模板，然后单击 **下一步**。
+- 在 **选择模板** 页面，从您的工作站上传 [Zen](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) 模板，然后单击 **下一步**。
 
 模板示例：
 
@@ -203,17 +207,17 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 2. 在 **指定详情**页面指定这些值，然后单击 **下一步**。
 
-    ![AWS UI](/mesosphere/dcos/1.13/img/aws-advanced-1.png)
+    ![AWS UI](/mesosphere/dcos/cn/{{ model.folder_version }}/img/aws-advanced-1.png)
 
      图 1. AWS Advanced Web 界面
 
     * **堆栈名称** 指定群集名称。
-    * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/custom-ami/)。
+    * **CustomAMI** 可选：指定 AMI ID。如需更多信息，请参阅 [使用自定义 AMI 进行安装](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/production/system-requirements/custom-ami/).
     * **InternetGateway** 指定 `InternetGatewayID` 脚本的 `zen.sh` 输出值。互联网网关 ID 必须附加于 VPC。该互联网网关用于所有节点向外互联网访问。
     * **KeyName** 指定 AWS EC2 密钥对。
-    * **MasterInstancEtype** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+    * **MasterInstanceType** 指定 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
     * **PrivateAgentInstanceCount** 指定专用代理的数量。
-    * **PrivateAgentInstancEtype** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+    * **PrivateAgentInstanceType** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
     * **PrivateSubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
     * **PublicAgentInstanceCount** 指定公共代理的数量。
     * **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
@@ -234,7 +238,7 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 * 群集堆栈启动需要 15 到 20 分钟时间。您将为它们逐个创建堆栈，其中 `<stack-name>` 是您为**堆栈名称**指定的值，`<stack-id>` 是自动生成的 ID。
 
-   ![AWS UI](/mesosphere/dcos/1.13/img/aws-advanced-2.png)
+   ![AWS UI](/mesosphere/dcos/cn/{{ model.folder_version }}/img/aws-advanced-2.png)
 
    图 2. AWS 堆栈详细信息
 
@@ -244,9 +248,13 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
    * 管理节点：`<stack-name>-MasterStack-<stack-id>`
    * 基础架构：`<stack-name>-Infrastructure-<stack-id>`
 
-* 状态从 `CREATE_IN_PROGRESS` 变为 1`CREATE_COMPLETE`。
+* 状态从 `CREATE_IN_PROGRESS` 变为 1`CREATE_COMPLETE`.
 
-<p class="message--important"><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅“事件”选项卡。</p>
+<table class=“table” bgcolor=#858585>
+<tr>
+  <td align=justify style=color:white><strong>重要信息：</strong>ROLLBACK_COMPLETE 状态表示部署失败。如需实用故障信息，请参阅“事件”选项卡。</td>
+</tr>
+</table>
 
 # 启动 DC/OS
 
@@ -258,29 +266,33 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
     **注意：** 可能需要调整窗口大小以查看此选项卡。可以随时在<a href="https://console.aws.amazon.com/cloudformation/home" target="_blank"> AWS CloudFormation 管理</a>页面找到 DC/OS 主机名。
 
-    ![Monitor stack creation](/mesosphere/dcos/1.13/img/dcos-aws-step3a.png)
+    ![Monitor stack creation](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dcos-aws-step3a.png)
 
     图 3. Mesos 管理节点主机名
 
 1. 单击 **登录到 DC/OS**。
 
-    <p class="message--important"><strong>重要信息：</strong>单击“登录到 DC/OS”，浏览器就会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击以继续。</p>
+    <table class=“table” bgcolor=#858585>
+    <tr>
+    <td align=justify style=color:white><strong>重要信息：</strong>单击“登录到 DC/OS”，浏览器就会显示您的连接不安全的警告。这是因为 DC/OS 使用自签名证书。可以忽略该错误，然后单击以继续。</td>
+    </tr>
+    </table>
 
-    ![UI installer success](/mesosphere/dcos/1.13/img/gui-installer-success-ee.gif)
+    ![UI installer success](/mesosphere/dcos/cn/{{ model.folder_version }}/img/gui-installer-success-ee.gif)
 
     图 4. 操作成功的画面
 
 1. 输入超级用户帐户的用户名和密码。
 
-    **注意：** 默认用户名为 `bootstrapuser`，默认密码为 `deleteme`。
+    **注意：** 默认用户名为 `bootstrapuser`，默认密码为 `deleteme`.
 
-    ![alt text](/mesosphere/dcos/1.13/img/ui-installer-auth2.png)
+    ![alt text](/mesosphere/dcos/cn/{{ model.folder_version }}/img/ui-installer-auth2.png)
 
     图 5. 登录画面
 
     成功了！
 
-    ![UI dashboard](/mesosphere/dcos/1.13/img/dashboard-ee.png)
+    ![UI dashboard](/mesosphere/dcos/cn/{{ model.folder_version }}/img/dashboard-ee.png)
 
     图 6. DC/OS 仪表板
 
@@ -290,29 +302,29 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 ### 添加更多代理节点
 
-可以通过创建新的堆栈来添加更多代理节点。使用 [advanced-priv-agent.json](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/) 或 [advanced-pub-agent.json](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/) 模板。这些模板创建代理，然后作为 AutoScalingGroup 的一部分附加到 `PrivateAgentStack` 或 `PublicAgentStack`。
+可以通过创建新的堆栈来添加更多代理节点。使用 [advanced-priv-agent.json](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) 或 [advanced-pub-agent.json](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/) 模板。这些模板创建代理，然后作为 AutoScalingGroup 的一部分附加到 `PrivateAgentStack` 或 `PublicAgentStack`
 
 使用 `zen.sh` 脚本以及管理节点和基础架构堆栈的输出值。这些新的代理节点将自动添加到您的 DC/OS 群集。
 
 专用代理：
 
-* **InternalMasterLoadBalancerDnsName** 指定主栈 (`<stack-name>-MasterStack-<stack-id>`)的 `InternalMasterLoadBalancerDnsName` 值。可以在 **输出** 选项卡中找到此值。
+* **InternalMasterLoadBalancerDnsName** 指定主栈 (`<stack-name>-MasterStack-<stack-id>`) 的 `InternalMasterLoadBalancerDnsName` 值。可以在 **输出** 选项卡中找到此值。
 * **KeyName** 指定 AWS EC2 密钥对。
 * **PrivateAgentInstanceCount** 指定专用代理的数量。
-* **PrivateAgentInstancEtype** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
-* **PrivateAgentSecurityGroup** 指定专用代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 (`<stack-name>-Infrastructure-<stack-id>`) 的 **输出** 选项卡中找到此值。
+* **PrivateAgentInstanceType** 指定专用代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
+* **PrivateAgentSecurityGroup** 指定专用代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 () 的 **输出** 选项卡中找到此值。`<stack-name>-Infrastructure-<stack-id>`).
 * **PrivateSubnet** 指定 `Private SubnetId` 脚本的 `zen.sh` 输出值。所有专用代理都将使用该子网 ID。
 
 公共代理：
 
-* **InternalMasterLoadBalancerDnsName** 指定主栈 (`<stack-name>-MasterStack-<stack-id>`)的 `InternalMasterLoadBalancerDnsName` 值。可以在 **输出** 选项卡中找到此值。
+* **InternalMasterLoadBalancerDnsName** 指定主栈 (`<stack-name>-MasterStack-<stack-id>`) 的 `InternalMasterLoadBalancerDnsName` 值。可以在 **输出** 选项卡中找到此值。
 * **KeyName** 指定 AWS EC2 密钥对。
 * **PublicAgentInstanceCount** 指定公共代理的数量。
 * **PublicAgentInstanceType** 指定公共代理节点的 AWS EC2 实例类型。推荐 <a href="https://aws.amazon.com/ec2/pricing/" target="_blank">m3.xlarge</a> 实例类型。
-* **PublicAgentSecurityGroup** 指定公共代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 (`<stack-name>-Infrastructure-<stack-id>`) 的 **输出** 选项卡中找到此值。
+* **PublicAgentSecurityGroup** 指定公共代理的安全组 ID。该组具备有限的外部访问权限。可以在基础架构堆栈 () 的 **输出** 选项卡中找到此值。`<stack-name>-Infrastructure-<stack-id>`).
 * **PublicSubnet** 指定 `Public SubnetId` 脚本的 `zen.sh` 输出值。所有公共代理都将使用该子网 ID。
 
-对于所有高级配置选项，请参阅模板参考 [文档](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/)。
+对于所有高级配置选项，请参阅模板参考 [文档](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/).
 
 
 # 限制
@@ -324,4 +336,4 @@ AWS CloudFormation templates now available at: https://<amazon-web-endpoint>/<pa
 
 
 # 模板参考
-如需完整的高级配置选项，请参阅模板参考 [文档](/mesosphere/dcos/cn/1.13/installing/evaluation/community-supported-methods/aws/)。
+如需完整的高级配置选项，请参阅模板参考 [文档](/mesosphere/dcos/cn/{{ model.folder_version }}/installing/evaluation/community-supported-methods/aws/).

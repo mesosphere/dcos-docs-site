@@ -10,7 +10,7 @@ model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明
-`dcos license get` 命令检索与此群集关联的特定许可证。如果未传递 License_ID，则返回当前许可证。此命令默认输出为 `stdout`。
+`dcos license get` 命令检索与此群集关联的特定许可证。如果未传递 License_ID，则返回当前许可证。此命令默认输出为 `stdout`
 
 
 # 使用
@@ -23,8 +23,8 @@ model: /mesosphere/dcos/2.0/data.yml
 
 | 名称 | 说明 |
 |-------------------|-------------------|
-| `--help` | 显示此消息并退出。|
-| `--decryption-key` | 获取解密许可证审计记录的密钥。 |
+| `--help`   | 显示此消息并退出。|
+| `--decryption-key`   | 获取解密许可证审计记录的密钥。 |
 
 ## 位置自变量
 
@@ -58,10 +58,10 @@ OZEQ9UPaI1eF45yOtQIDAQAB
 -----END PUBLIC KEY-----
 ```
 
-如需更多示例，请参阅 [许可证](/mesosphere/dcos/2.0/administering-clusters/licenses/)。
+如需更多示例，请参阅 [许可证](/mesosphere/dcos/cn/2.0/administering-clusters/licenses/).
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos license](/mesosphere/dcos/2.0/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |
+| [dcos license](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-license/) | 管理 DC/OS 群集许可证。 |

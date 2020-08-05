@@ -23,19 +23,19 @@ dcos marathon deployment rollback <deployment-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`，`--help` | 显示有关此命令用法的信息。 |
+| `-h`, `--help` | 显示有关此命令用法的信息。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<deployment-id>` | 部署 ID。您可以使用 `dcos marathon deployment list` 命令查看应用程序 ID 列表。|
+| `<deployment-id>`   | 部署 ID。您可以使用 `dcos marathon deployment list` 命令查看应用程序 ID 列表。|
 
 
 
 # 示例
 
-在以下示例中，我们首先运行 `dcos marathon deployment list` 以获取应用程序 ID，然后用它来运行带有 `app-id` 的  `dcos marathon deployment rollback`。输出将列出 `deployment-id` 并将回滚应用程序。要验证应用程序是否已回滚，请再次使用 `dcos marathon deployment list`。
+在以下示例中，我们首先运行 `dcos marathon deployment list` 以获取应用程序 ID，然后用它来运行带有 `dcos marathon deployment rollback` 的  `app-id`. 输出将列出 `deployment-id` 并将回滚应用程序。要验证应用程序是否已回滚，请再次使用 `dcos marathon deployment list`
 
 ```json
 ~$ dcos marathon deployment list
@@ -54,4 +54,4 @@ There are no deployments
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |
+| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

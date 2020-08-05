@@ -55,36 +55,36 @@
     }
     ```
 
- 3. 有一个主要变量，必须设置该变量才能完成 `main.tf`：
+  3. 有一个主要变量，必须设置该变量才能完成 `main.tf`：
 
- - `ssh_public_key_file = "<path-to-public-key-file>"`：您群集的公钥的路径，按照我们的示例，该路径为：
+      - `ssh_public_key_file = "<path-to-public-key-file>"`：您群集的公钥的路径，按照我们的示例，该路径为：
           ```bash
           "~/.ssh/gcp-key.pub"
           ```
 
- 4. `region` 是设定 GCP 分域的一项设置，此 DC/OS 群集将在该分域上启动。虽然此项设置目前设为 “us-west1”，但也可以更改为任何其他分域（例如 “us-east1”、“us-central1”等）。
+  4. `region` 是设定 GCP 分域的一项设置，此 DC/OS 群集将在该分域上启动。虽然此项设置目前设为 “us-west1”，但也可以更改为任何其他分域（例如 “us-east1”、“us-central1”等）。
 
- 5. Enterprise 用户可以对 `dcos_variant` 部分取消注释/添加注释，实现类似于以下注释，将位置插入到许可证密钥，并在需要时添加超级用户凭据。[enterprise type="inline" size="small" /]
+  5. Enterprise 用户可以对 `dcos_variant` 部分取消注释/添加注释，实现类似于以下注释，将位置插入到许可证密钥，并在需要时添加超级用户凭据。[enterprise type="inline" size="small" /]
 
       ```hcl
       dcos_variant              = "ee"
       dcos_license_key_contents = "${file("./license.txt")}"
       # dcos_variant = "open"
       ```
- 您可以 [在此](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/gcp/advanced-gcp/) 查找其他输入变量及其描述。
+  您可以 [在此](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/gcp/advanced-gcp/) 查找其他输入变量及其描述。
 
- 6. 此示例配置文件将使您开始安装具有以下节点的开源 DC/OS 1.13.3 群集：
+  6. 此示例配置文件将使您开始安装具有以下节点的开源 DC/OS 1.13.3 群集：
 
- - 3 个管理节点
- - 2 个专用代理
- - 1 个公共代理
+      - 3 个管理节点
+      - 2 个专用代理
+      - 1 个公共代理
 
- 如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'\_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/gcp/gcp-advanced/)。
+      如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'\_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/gcp/advanced-gcp/)。
 
- 模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
+      模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
 
- - `master-ips` 您的 DC/OS 管理节点列表
- - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
- - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
+      - `master-ips` 您的 DC/OS 管理节点列表
+      - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
+      - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
 
- 7. 检查您是否已将云提供商和公钥路径插入到 `main.tf`，按需要更改或添加任何其他变量，然后保存并关闭您的文件。
+  7. 检查您是否已将云提供商和公钥路径插入到 `main.tf`，按需要更改或添加任何其他变量，然后保存并关闭您的文件。

@@ -10,7 +10,7 @@ enterprise: true
 ---
 
 # 说明
-`dcos license list` 命令将列出与群集关联的所有许可证。此命令默认输出为 `stdout`。
+`dcos license list` 命令将列出与群集关联的所有许可证。此命令默认输出为 `stdout`.
 
 # 使用
 
@@ -22,7 +22,7 @@ dcos license list [OPTIONS]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help` | 显示此消息并退出。|
+| `--help`   |  显示此消息并退出。|
 
 # 示例
 
@@ -42,7 +42,7 @@ dcos license list
 ]
 ```
 
-如需更多示例，请参阅 [许可证](/mesosphere/dcos/cn/1.13/administering-clusters/licenses/)。
+如需更多示例，请参阅 [许可证](/mesosphere/dcos/cn/1.13/administering-clusters/licenses/).
 
 
 # 父命令

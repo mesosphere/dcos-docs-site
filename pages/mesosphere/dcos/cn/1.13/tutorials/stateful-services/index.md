@@ -37,7 +37,7 @@ excerpt: 在 DC/OS 上运行有状态服务
 
 ## 安装有状态服务 (PostgreSQL)
 
-这是启动官方 PostgreSQL Docker 镜像的 DC/OS 服务定义 JSON 。
+这是启动官方 PostgreSQL Docker 镜像的 DC/OS 服务定义 JSON：
 
 ```json
 {
@@ -147,9 +147,9 @@ dcos marathon app remove postgres
 
 ## 附录
 
-有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/cn/1.13/storage/)。
+有关 DC/OS 中有状态服务的更多信息，请访问[文档的存储部分](/mesosphere/dcos/cn/1.13/storage/).
 
 
-[1]: /mesosphere/dcos/cn/1.13/installing/
-[2]: /mesosphere/dcos/cn/1.13/cli/install/
+[1]: /mesosphere/dcos/1.13/installing/
+[2]: /mesosphere/dcos/1.13/cli/install/
 [4]: postgres.marathon.json

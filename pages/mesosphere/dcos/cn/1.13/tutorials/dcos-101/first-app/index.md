@@ -7,9 +7,6 @@ menuWeight: 4
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
-
-
 现在您已了解如何从 DC/OS 包资源库搜索和安装服务，那么您可以开始部署使用该服务的应用程序了。
 
 本教程演示了如何部署一个简单的应用程序，该应用程序连接到您上一个教程中部署的 [Redis](https://redislabs.com/) 服务。
@@ -18,7 +15,7 @@ model: /mesosphere/dcos/1.13/data.yml
 在开始本教程前，您应验证以下内容：
 - 您可以通过至少一个管理节点和三个代理节点来访问运行中的 [DC/OS 群集](../start-here/)。
 - 您可以访问安装了 [DC/OS CLI](../cli/) 的计算机。
-- 您已安装 [redis](/mesosphere/dcos/cn/1.13/tutorials/dcos-101/redis-package/) 包并且 Redis 服务已在群集中运行。
+- 您已安装 [redis](/mesosphere/dcos/cn/1.13/tutorials/dcos-101/first-package/) 包并且 Redis 服务已在群集中运行。
 
 本教程中的示例应用程序和外部库有一些依赖关系。要确保完成该教程，您应该下载示例应用程序的 Docker 镜像。所提供的 Docker 镜像应包含所有必要的文件，这样，您就无需下载任何其他库或解析外部依赖关系。
 
@@ -47,13 +44,13 @@ model: /mesosphere/dcos/1.13/data.yml
 
     从 DC/OS 基于 Web 的控制台：
     - 单击 **服务**。
-    ![查看服务列表中的示例应用程序](/mesosphere/dcos/1.13/img/tutorial-dcos101-app1-service.png)
+    ![查看服务列表中的示例应用程序](/mesosphere/dcos/cn/1.13/img/tutorial-dcos101-app1-service.png)
 
     - 单击 **dcos-101**。
-    ![查看 app1 信息](/mesosphere/dcos/1.13/img/tutorial-app1-view.png)
+    ![查看 app1 信息](/mesosphere/dcos/cn/1.13/img/tutorial-app1-view.png)
     
     - 单击 **app1**。
-    ![查看任务信息](/mesosphere/dcos/1.13/img/tutorial-app1-tasks.png)
+    ![查看任务信息](/mesosphere/dcos/cn/1.13/img/tutorial-app1-tasks.png)
 
     从 DC/OS  CLI：
     - 通过运行以下命令来查看所有 DC/OS 任务的状态：`dcos task`
@@ -83,11 +80,11 @@ model: /mesosphere/dcos/1.13/data.yml
 - [安排任务作为作业运行](../schedule-jobs/)
 
 # 相关主题
-您已经使用 [Marathon](https://mesosphere.github.io/marathon/) 部署了 Redis 服务和预定义的示例应用程序。
+您已经使用 [Marathon] 部署了 Redis 服务和预定义的示例应用程序。(https://mesosphere.github.io/marathon/).
 
 Marathon 是 DC/OS 平台的核心组件。Marathon 使 DC/OS 群集能够更好地支持长期运行的服务，并用于执行多项关键操作，包括按比例增加或减少应用程序实例的数量、修改资源需求或配置详细信息以及从群集中部署或删除应用程序。
 
 有关使用 Marathon 的更多信息，请参阅以下主题：
 - [部署服务和 pod](/mesosphere/dcos/cn/1.13/deploying-services/) ，获取有关使用 Marathon 管理您的进程、服务和多个服务 pod 的信息。
-- [DC/OS CLI Marathon 插件](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/)，获取有关针对 Marathon 使用 DC/OS CLI 命令的信息。您还可以在终端 shell 中键入 `dcos marathon app --help`，以获取有关 `dcos marathon` 命令的更多信息。
+- [DC/OS CLI Marathon 插件](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/)，获取有关针对 Marathon 使用 DC/OS CLI 命令的信息。您还可以在终端 shell 中键入 `dcos marathon`，以获取有关 `dcos marathon app --help` 命令的更多信息。
 - [重置 API](http://mesosphere.github.io/marathon/api-console/index.html)，获取有关使用 HTTP 端点的信息。

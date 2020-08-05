@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-本部分讨论 OpenID Idp 的一般要求，并提供设置 OneLogin IdP 的分步程序。
+该部分讨论了 OpenID IdP 的一般要求，并提供了设置 OneLogin IdP 的分步程序。
 
 DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Idp) 集成。以下程序将采用 Google IdP 作为示例，并引导您完成设置流程的每个步骤。
 
@@ -21,7 +21,7 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 ## 在 Google 中配置 IdP
 
-1. 访问 [Google Developer Console 的凭据页面](https://console.developers.google.com/apis/credentials?project=_)。
+1. 访问 [Google Developer Console 的凭据页面](https://console.developers.google.com/apis/credentials?project=_).
 
 1. 如果您已经有项目，请单击 **Select a Project**，选择项目，然后单击 **Open**。
 
@@ -39,13 +39,13 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 1. 在 **Name** 框中键入 IdP 的名称。
 
-1. 将群集的 URL 粘贴到 **Authorized Javascript origins**框中。示例：`https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com`
+1. 将群集的 URL 粘贴到 **Authorized Javascript origins**框中。例如：`https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com`
 
     如果您的群集前端有负载均衡器（推荐），则群集 URL 将成为负载均衡器的路径。群集 URL 与 DC/OS UI 的路径相同，可从浏览器栏复制。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。
 
 1. 也将您的群集 URL 粘贴到 **Authorized redirect URIs** 字段。
 
-1. 将 `/acs/api/v1/auth/oidc/callback` 粘贴到  **Authorized redirect URIs** 字段中您群集 URL 的末尾处。示例：`https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com/acs/api/v1/auth/oidc/callback`
+1. 将 `/acs/api/v1/auth/oidc/callback` 粘贴到  **Authorized redirect URIs** 字段中您群集 URL 的末尾处。例如：`https://jp-ybwutd-elasticl-1r2iui8i0z9b7-1590150926.us-west-2.elb.amazonaws.com/acs/api/v1/auth/oidc/callback`
 
 1. 单击 **Create**。
 
@@ -61,11 +61,11 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 1. 单击 **OpenID Connect**。
 
-1. 在 **Provider ID** 字段中键入您的 IdP 名称。此名称将在 URL 中传递，因此请确保它仅包含小写字母数字和 `-` 字符。例如：`google-idp`。
+1. 在 **Provider ID** 字段中键入您的 IdP 名称。此名称将在 URL 中传递，因此请确保它仅包含小写字母数字和 `-` 字符。例如：`google-idp`.
 
-1. 在 **Description** 字段中键入 IdP 的可读名称。例如，`Google`。
+1. 在 **Description** 字段中键入 IdP 的可读名称。例如，`Google`.
 
-1. 将以下内容粘贴到 **Issuer** 字段：`https://accounts.google.com`。
+1. 将以下内容粘贴到 **Issuer** 字段：`https://accounts.google.com`.
 
 1. 将您的群集 URL 粘贴到 **Base URI** 字段。有关获取此值的更多信息，请参阅前一部分。
 
@@ -73,13 +73,13 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 1. 将客户端密钥从 Google 粘贴到 **Client Secret** 字段。
 
-    ![Google IdP 配置](/mesosphere/dcos/1.13/img/GUI-LDAP-Add-Oidc.png)
+    ![Google IdP 配置](/mesosphere/dcos/cn/1.13/img/GUI-LDAP-Add-Oidc.png)
 
     图 1. Google IdP 配置
 
 11. 单击 **Submit**。
 
-12. 您现在应该在 DC/OS UI 中看到新的 IdP。
+12. 您现在应该能在 DC/OS UI 中看到新的 IdP。
 
 
 ## 验证 IdP
@@ -103,7 +103,7 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 1. 单击以允许 DC/OS 访问您的 Google 帐户信息。
 
-1. 您应该看到来自 DC/OS 的**访问被拒绝**消息。这表示登录成功，用户帐户已添加到 DC/OS，但新用户没有权限，因此无法查看 DC/OS UI 的任何内容。
+1. 您应该看到来自 DC/OS 的**访问被拒绝**消息。这表示登录成功，用户账户已添加到 DC/OS，但新用户没有权限，因此无法查看 DC/OS Web UI 中的任何内容。
 
 1. 单击 **LOG OUT**。
 
@@ -113,11 +113,11 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 1. 您应该看到所列的新用户。
 
-1. 为此用户分配适当的[权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/)。
+1. 为此用户分配适当的[权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/).
 
 ### <a name="using-cli"></a>使用 DC/OS CLI
 
-**先决条件：**[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/)。
+**先决条件：**[已安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/).
 
 1. 使用以下命令以新用户身份登录。
 
@@ -137,7 +137,7 @@ DC/OS Enterprise 可与使用 OpenID Connect 1.0 的任何身份提供程序 (Id
 
 1. 您应该看到类似以下内容的消息。
 
-    ![CLI IdP 认证令牌](/mesosphere/dcos/1.13/img/cli-auth-token.png)
+    ![CLI IdP 认证令牌](/mesosphere/dcos/cn/1.13/img/cli-auth-token.png)
 
     图 2. CLI IdP 认证令牌
 

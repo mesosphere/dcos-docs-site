@@ -36,4 +36,4 @@ dcos security org groups add_user [OPTIONS] GID UID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster org groups](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) | 管理用户组和组成员。 |
+| [dcos security cluster org groups](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-org/dcos-security-org-groups/) |  管理用户组和组成员。 |

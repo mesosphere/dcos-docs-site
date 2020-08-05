@@ -60,12 +60,12 @@
 
 3. 有两个主要变量，必须设置这些变量才能完成 `main.tf`，您也可以在此时更改任何其他变量。
 
- 1. `ssh_public_key_file = "<path-to-public-key-file>"` ：您群集的公钥的路径，按照我们的示例，该路径为：
+    1. `ssh_public_key_file = "<path-to-public-key-file>"`：您群集的公钥的路径，按照我们的示例，该路径为：
         ```bash
         "~/.ssh/arm-key.pub"
         ```
 
- 2. `location = "West US"` ：AzureRM 提供程序的实现方式强迫我们在模块中指定 `location`。如果您想使用不同的区域，请将 `location` 替换为您所需的区域。
+    2. `location = "West US"`：AzureRM 提供程序的实现方式强迫我们在模块中指定 `location`。如果您想使用不同的区域，请将 `location` 替换为您所需的区域。
 
 4. Enterprise 用户可以对 `dcos_variant` 部分取消注释/添加注释，实现类似于以下注释，将位置插入到许可证密钥，并在需要时添加超级用户凭据。[enterprise type="inline" size="small" /]
 
@@ -77,10 +77,10 @@
 
 5. 如果您想更改群集名称或改变管理/代理节点数量，也可以调整这些值。群集名称必须唯一，包含字母数字字符、'-'、'_' 或 '.'，开头和结尾均为字母数字字符，且不超过 24 个字符。您可以在此查阅其他 [输入变量及其描述](/mesosphere/dcos/{{ model.folder_version }}/installing/evaluation/azure/advanced-azure/)。
 
- 模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
+    模块下方还列出一些简单的助手工具，可找到您的公共 IP，并指定在群集创建完成后应打印以下输出：
 
- - `master-ips` 您的 DC/OS 管理节点列表
- - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
- - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
+    - `master-ips` 您的 DC/OS 管理节点列表
+    - `cluster-address` 在设置群集后用来访问 DC/OS UI 的 URL。
+    - `public-agent-loadbalancer` 您的公共可路由服务的 URL。
 
 6. 检查您是否已将云提供商和公钥路径插入到 `main.tf`，按需要更改或添加任何其他变量，然后保存并关闭您的文件。

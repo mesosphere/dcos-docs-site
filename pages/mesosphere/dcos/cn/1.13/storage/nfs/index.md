@@ -12,7 +12,7 @@ menuWeight: 1
 
 对于某些有状态的服务，如 Jenkins，可以方便地将共享网络驱动器挂载到每个节点。如果使用中的节点不可用，则共享网络驱动器可以在新节点上启动任务。
 
-<p class="message--note"><strong>注意：</strong>此示例使用 CorEos 和 <code>systemd</code>，且尚未在其他环境中进行测试。</p>
+<p class="message--note"><strong>注意：</strong>此示例使用 CoreOS 和 <code>systemd</code>，且尚未在其他环境中进行测试。</p>
 
 ### 注意
 
@@ -41,7 +41,7 @@ menuWeight: 1
     /data 10.0.1.0/24(rw,async,no_subtree_check,no_root_squash,fsid=0)
     ```
 
-1. 启动 `rpc-mountd` 和 `nfsd`：
+1. 启动 `rpc-mountd` 和 `nfsd`:
 
     ```bash
     sudo systemctl start rpc-mountd
@@ -86,7 +86,7 @@ menuWeight: 1
     sudo mkdir /var/lib/nfs
     ```
 
-1. 创建新的 `systemd` 挂载单元以描述挂载。`.mount` 文件的名称与挂载点的路径相同，删除了前面的斜杠，其他斜杠转换为破折号。使用 `/mnt/data` 作为示例，文件命名为 `mnt-data.mount`。另外，将 `10.0.7.181` 替换为 NFS 主机的 IP。[更多信息可在 CoreOS 文档中找到][1]：
+1. 创建新的 `systemd` 挂载单元以描述挂载。`.mount` 文件的名称与挂载点的路径相同，删除了前面的斜杠，其他斜杠转换为破折号。使用 `/mnt/data` 作为示例，文件命名为 `mnt-data.mount`. 另外，将 `10.0.7.181` 替换为 NFS 主机的 IP。[更多信息可在 CoreOS 文档中找到][1]：
 
     ```bash
     cat /etc/systemd/system/mnt-data.mount
@@ -102,4 +102,4 @@ menuWeight: 1
     touch /mnt/data/test.txt
     ```
 
-[1]:https://coreos.com/os/docs/latest/mount-storage.html
+[1]: https://coreos.com/os/docs/latest/mounting-storage.html

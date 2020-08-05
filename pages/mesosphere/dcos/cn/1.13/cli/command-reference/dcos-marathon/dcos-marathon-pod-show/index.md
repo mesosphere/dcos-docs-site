@@ -23,13 +23,13 @@ dcos marathon pod show <pod-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`，`--help` | 显示有关此命令用法的信息。 |
+| `-h`, `--help` | 显示有关此命令用法的信息。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<pod-id>` | POD ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
+| `<pod-id>`   |  POD ID。您可以使用 `dcos marathon pod list` 命令查看 pod ID 列表。|
 
 
 
@@ -46,4 +46,4 @@ dcos marathon pod show <pod-id>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。|
+| [dcos marathon](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

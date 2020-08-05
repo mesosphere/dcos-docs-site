@@ -23,26 +23,26 @@ dcos package uninstall <package-name> [--cli | [--app [--app-id=<app-id> | --all
 | 名称 | 说明 |
 |---------|-------------|
 | `-h`, `--help` | 显示用法。|
-| `--all` | 所有应用程序。 |
-| `--app` | 仅应用程序。|
-| `--app-id=<app-id>` | 应用程序 ID。|
-| `--cli` | 仅命令行。|
+| `--all`   | 所有应用程序。 |
+| `--app`   | 仅应用程序。|
+| `--app-id=<app-id>`   | 应用程序 ID。|
+| `--cli`   | 仅命令行。|
 | `--yes` | 禁用交互模式并假设“是”是所有提示的答案。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<package-name>` | DC/OS 包的名称。|
+| `<package-name>`   | DC/OS 包的名称。|
 
 
 # 示例
 
-有关示例，请参阅[文档](/mesosphere/dcos/1.13/deploying-services/uninstall/)。
+有关示例，请参阅[文档](/mesosphere/dcos/cn/1.13/deploying-services/uninstall/).
 
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos package](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/) | 安装和管理 DC/OS 软件包。|
+| [dcos package](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/)   | 安装和管理 DC/OS 软件包。 |

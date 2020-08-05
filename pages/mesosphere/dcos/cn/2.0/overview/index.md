@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 概述
+navigationTitle:  概述
 title: 概述
 menuWeight: 20
 excerpt: DC/OS 基础知识入门

@@ -17,7 +17,7 @@
     commands will detect it and remind you to do so if necessary.
     ```
 
- <p class="message--note"><strong>注意：</strong>如果 terraform 无法连接到您的提供程序，请确保您已登录并为您的云提供程序导出凭据和必要的区域信息。</p>
+    <p class="message--note"><strong>注意：</strong>如果 terraform 无法连接到您的提供程序，请确保您已登录并为您的云提供程序导出凭据和必要的区域信息。</p>
 
 2. 在初始化 Terraform 之后，下一步是运行执行计划器并将计划保存到静态文件 - 在本例中，即 `plan.out`。
 
@@ -25,9 +25,9 @@
       terraform plan -out=plan.out
       ```
 
- 将执行计划写入文件可以让我们将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
+    将执行计划写入文件可以让我们将执行计划传递给以下 `apply` 命令，并帮助我们保证计划的准确性。请注意，此文件只能由 Terraform 读取。
 
- 此后，我们应该看到类似下面的消息，确认我们已成功保存到 `plan.out` 文件。此文件应显示在您的 `dcos-demo` 文件夹中的 `main.tf` 旁边。
+      此后，我们应该看到类似下面的消息，确认我们已成功保存到 `plan.out` 文件。此文件应显示在您的 `dcos-demo` 文件夹中的 `main.tf` 旁边。
 
       ```bash
       Plan: 74 to add, 3 to change, 0 to destroy.
@@ -40,7 +40,7 @@
         terraform apply "plan.out"
       ```
 
- 您每次运行 `terraform plan` 时，输出总是详细列出您的计划将要添加、更改或销毁的资源。由于我们是首次创建 DC/OS 群集，因此输出告诉我们，我们的计划将导致添加 38 件基础设施/资源。
+      您每次运行 `terraform plan` 时，输出总是详细列出您的计划将要添加、更改或销毁的资源。由于我们是首次创建 DC/OS 群集，因此输出告诉我们，我们的计划将导致添加 38 件基础设施/资源。
 
 3. 下一步是让 Terraform 构建/部署我们的计划。运行以下命令。
 
@@ -48,9 +48,9 @@
     terraform apply plan.out
     ```
 
- 坐下来放松一下，等一等吧！您的 DC/OS 群集的基础架构正在您的注视下创建。这可能需要几分钟。
+    坐下来放松一下，等一等吧！您的 DC/OS 群集的基础架构正在您的注视下创建。这可能需要几分钟。
 
- 在 Terraform 完成应用计划后，您应该看到类似于下面的输出：
+    在 Terraform 完成应用计划后，您应该看到类似于下面的输出：
 
     ```text
     Apply complete! Resources: 74 added, 0 changed, 0 destroyed.
@@ -64,4 +64,4 @@
     public-agents-loadbalancer = ext-testing-123-40f11d1227e88057.elb.us-east-1.amazonaws.com
     ```
 
- 祝贺您，成功启动并运行！
+    祝贺您，成功启动并运行！

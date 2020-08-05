@@ -1,12 +1,12 @@
 ---
 layout: layout.pug
-navigationTitle: 示例
+navigationTitle:  示例
 title: 示例
 menuWeight: 5
 excerpt: DC/OS Enterprise 的常见示例配置
 ---
 
-此页面提供多种常见示例配置。除非另有明确指示，配置参数同时适用于 [DC/OS 开源](https://dcos.io/) 和 [DC/OS Enterprise](https://mesosphere.com/product/)。这些评论在本示例 `config.yaml` 用于指示 DC/OS 产品类型。
+此页面提供多种常见示例配置。除非另有明确指示，配置参数同时适用于 [DC/OS 开源](https://dcos.io/) 和 [DC/OS Enterprise](https://mesosphere.com/product/). 这些评论在本示例 `config.yaml` 用于指示 DC/OS 产品类型。
 
 - `# DC/OS Open Source only` - 仅适用于 DC/OS。[oss type="inline" size="small" /]
 - `# DC/OS Enterprise only` - 仅适用于 DC/OS Enterprise。[enterprise type="inline" size="small" /]
@@ -367,9 +367,9 @@ cosmos_config:
 ## <a name="custom-checks"></a>自定义检查
 DC/OS 群集，带有一个管理节点、一个内部管理的 Exhibitor/ZooKeeper、三个专用代理、谷歌DNS和自定义运行状况检查，确定用于：
 
-- 用户 Marathon 实例（`user-marathon-on-marathon`）
-- 管理节点上的本地装载（`master-mounts`）
-- 代理节点上的本地装载（`agent-mounts`）
+- 用户 Marathon 实例（`user-marathon-on-marathon`)
+- 管理节点上的本地装载（`master-mounts`)
+- 代理节点上的本地装载（`agent-mounts`)
 
 ```yaml
 agent_list:

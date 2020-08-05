@@ -36,7 +36,7 @@ Docker 提供良好的开发体验，但试图在生产中运行 Docker 容器�
 
 DC/OS 使得可以配置多个资源隔离区。
 
-并非所有任务都有相同的要求。有些需要最大程度隔离才能保证性或性能。有些则是临时的、公共的或容易重新启动。最简单的隔离方法是将其分派给 Docker。在 DC/OS 上运行 Docker 容器很容易，但在隔离时 Docker 不好用。[Mesos 容器化工具](http://mesos.apache.org/documentation/latest/mesos-containerizer/) 更灵活，配有多个独立可配置隔离器以及可插拔的自定义隔离器。Mesos 容器化工具甚至可以运行 Docker 容器，而不会出现 `dockerd` 的脆弱性。
+并非所有任务都有相同的要求。有些需要最大程度隔离才能保证性或性能。有些则是临时的、公共的或容易重新启动。最简单的隔离方法是将其分派给 Docker。在 DC/OS 上运行 Docker 容器很容易，但在隔离时 Docker 不好用。[Mesos 容器化工具](http://mesos.apache.org/documentation/latest/mesos-containerizer/) 更灵活，配有多个独立可配置隔离器以及可插拔的自定义隔离器。Mesos 容器化工具甚至可以运行 Docker 容器，而不会出现  的脆弱性。`dockerd`.
 
 ## <a name="stateful-storage-support"></a>有状态存储支持
 
@@ -147,7 +147,7 @@ DC/OS Enterprise 集成了支持 LDAP v3 接口（包括 Microsoft Active Direct
 ## <a name="cluster-encryption"></a>具有加密通信的群集安全
 [/enterprise]
 
-DC/OS Enterprise 设计用于在本地和云中安全地运行。为确保群集安全，DC/OS Enterprise 支持 DC/OS 群集内部组件之间的加密通信。实现的方法是确保 DC/OS 与为 DC/OS 管理节点发放证书的证书颁发机构一起运行，并确保所有代理节点在 bootstrap 时具有已安装的证书 `CA.crt`。此机制确保 DC/OS 群集内部各种服务之间的所有通信均通过安全的 SSL 通道进行。
+DC/OS Enterprise 设计用于在本地和云中安全地运行。为确保群集安全，DC/OS Enterprise 支持 DC/OS 群集内部组件之间的加密通信。实现的方法是确保 DC/OS 与为 DC/OS 管理节点发放证书的证书颁发机构一起运行，并确保所有代理节点在 bootstrap 时具有已安装的证书 `CA.crt` 此机制确保 DC/OS 群集内部各种服务之间的所有通信均通过安全的 SSL 通道进行。
 
 [enterprise]
 ## <a name="workload-isolation"></a>带容器级授权的工作负载隔离

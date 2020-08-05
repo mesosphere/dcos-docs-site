@@ -24,7 +24,7 @@ dcos security secrets get [OPTIONS] PATH
 | 名称 | 说明 |
 |------------------|----------------------|
 |`-s`, `--store-id <text>` | 要使用的密钥后端。|
-|`-j`, `--json` | JSON 格式的输出数据。|
+|`-j`, `--json`       | JSON 格式的输出数据。|
 |  `-h`, `--help` |                显示此消息并退出。|
 
 ## 位置自变量
@@ -37,4 +37,4 @@ dcos security secrets get [OPTIONS] PATH
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security secrets](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理您的密匙。 |
+| [dcos security secrets](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-secrets/) |  管理您的密匙。 |

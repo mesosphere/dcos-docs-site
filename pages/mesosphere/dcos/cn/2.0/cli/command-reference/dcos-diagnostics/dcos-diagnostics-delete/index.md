@@ -23,17 +23,17 @@ dcos diagnostics delete <bundle-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示用法。 |
+| `--help, h`   | 显示用法。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<bundle-id>`   |   捆绑包 ID。例如， `a697769a-2d5d-4b2a-a2ec-055b9fe9eecf`。|
+| `<bundle-id>`   |   捆绑包 ID。例如， `a697769a-2d5d-4b2a-a2ec-055b9fe9eecf`. |
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos diagnostics](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
+| [dcos diagnostics](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-diagnostics/) | 处理 DC/OS 诊断捆绑包 |
 

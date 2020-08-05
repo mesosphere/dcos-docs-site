@@ -12,11 +12,11 @@ enterprise: true
 
 您可以限制用户对系统和组件日志的访问。
 
-以下是查看系统和组件日志所需的 [权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/)：
+以下是查看系统和组件日志所需的 [权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/)
 
-| 权限字符串 | full | C | R | U | D |
+| 权限字符串 | Full | C | R | U | D |
 |----------------------------|------|---|---|---|---|
-| `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API](/mesosphere/dcos/cn/1.13/api/master-routes/#system) 的访问。                                                                                                                                                                      | x    |   |   |   |   |
+| `dcos:adminrouter:ops:system-logs` <br> 控制对 [系统日志 API] 的访问(/mesosphere/dcos/cn/1.13/api/master-routes/#system)。                                                                                                                                                                      | x    |   |   |   |   |
 
 **前提条件：**
 
@@ -28,13 +28,13 @@ enterprise: true
 
 1. 选择**组织**并选择**用户**。选择现有用户或创建一个新用户。
 
-    ![新用户](/mesosphere/dcos/1.13/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
+    ![新用户](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-View_w_AddUser_Tooltip-1_12.png)
 
     图 1. 新用户屏幕
 
 1. 从**权限**选项卡，选择**添加权限**。
 
-    ![为用户添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Main_View.png)
+    ![为用户添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_Main_View.png)
 
     图 2. “添加权限”按钮
 
@@ -44,13 +44,13 @@ enterprise: true
     dcos:adminrouter:ops:system-logs full
     ```
 
-    ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-User-Add_Single_User_Perm_String-1_12.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-User-Add_Single_User_Perm_String-1_12.png)
 
     图 3. 权限字符串对话框
 
     **权限**选项卡现应当是这样的：
 
-    ![prod-group permissions complete](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_View_w_Perm.png)
+    ![prod-group permissions complete](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_View_w_Perm.png)
 
     图 4. 权限已添加
 
@@ -88,7 +88,7 @@ enterprise: true
 
 ### <a name="grant-perm"></a>创建和授予权限
 
-1. 向用户授予权限 (`<username>`)。
+1. 向用户授予权限 (`<username>`).
 
    ```bash
    dcos security org users grant <username> dcos:adminrouter:ops:system-logs full --description "Grants access to system and component logs."

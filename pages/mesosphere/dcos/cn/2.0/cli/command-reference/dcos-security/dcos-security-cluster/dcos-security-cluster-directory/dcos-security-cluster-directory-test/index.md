@@ -21,7 +21,7 @@ dcos security cluster directory test [OPTIONS] UID PASSWORD
 # 选项
 
 | 名称 | 说明 |
-| `-j`, `--json` | JSON 格式的输出数据。|
+|  `-j`, `--json` | JSON 格式的输出数据。|
 |  `-h`, `--help` |                显示此消息并退出。|
 
 
@@ -35,4 +35,4 @@ dcos security cluster directory test [OPTIONS] UID PASSWORD
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster directory](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |
+| [dcos security cluster directory](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-directory/) | 管理 LDAP 设置。 |

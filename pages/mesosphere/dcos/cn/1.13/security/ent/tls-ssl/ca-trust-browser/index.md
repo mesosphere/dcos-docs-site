@@ -12,7 +12,7 @@ enterprise: true
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-**先决条件：**[DC/OS CA 根证书](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)的本地副本。
+**先决条件：**[DC/OS CA 根证书]的本地副本。(/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/).
 
 添加 DC/OS CA 作为受信任根证书颁发机构的程序因操作系统和浏览器而异。请参阅与您的浏览器/操作系统对相对应的部分。
 
@@ -46,7 +46,7 @@ enterprise: true
 
 - 此程序最适用于 Chrome 56 或更高版本或 Windows 10。
 
-1. 打开 Chrome 浏览器并在地址栏中键入 `chrome://settings`。
+1. 打开 Chrome 浏览器并在地址栏中键入 `chrome://settings`
 
 1. 向下滚动并单击 **Show advanced settings**。
 
@@ -81,7 +81,7 @@ enterprise: true
 
 # <a name="osx-win-firefox"></a>在 OS X 或 Windows 上配置 Mozilla Firefox 以信任您的 DC/OS CA
 
-1. 打开 Mozilla Firefox 浏览器并在地址栏中键入 `about:preferences#advanced`。
+1. 打开 Mozilla Firefox 浏览器并在地址栏中键入 `about:preferences#advanced`
 
 1. 单击 **Certificates**。
 
@@ -97,4 +97,4 @@ enterprise: true
 
 1. 再次单击 **OK**，关闭 **Certificate** 对话框。
 
-1. 在地址栏中键入您的群集 URL 并按下 **Enter** 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个主节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。
+1. 在地址栏中键入群集 URL 并按下 **确定** 键。地址栏中的 DC/OS Web 界面的路径应标记为 **Secure**。您也可以尝试访问每个主节点的公共 IP 地址，以确认所有主节点均显示为 **Secure**。

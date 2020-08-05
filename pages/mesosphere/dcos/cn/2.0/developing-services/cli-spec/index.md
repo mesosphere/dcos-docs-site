@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: CLI 规范
+navigationTitle:  CLI 规范
 title: CLI 规范
 menuWeight: 3
 excerpt: 使用命令行界面
@@ -11,14 +11,14 @@ enterprise: false
 
 本文档适用于创建新 DC/OS&trade; CLI 子命令的开发人员。另请参阅 [{{ model.packageRepo }} 入门指南][1]。
 
-[DC/OS 命令行界面 (CLI)](/mesosphere/dcos/2.0/cli/) 是管理群集节点、安装和管理包、检查群集状态，以及管理服务和任务的实用程序。DC/OS CLI 开放且可扩展：任何人都可以创建新子命令，可供最终用户安装。例如，[Spark&trade; DC/OS 服务] [2] 提供了兼容 Spark 的 CLI 扩展。安装后，您可以键入以下命令以提交 Spark 作业并查询其状态：
+[DC/OS 命令行界面 (CLI)](/mesosphere/dcos/cn/2.0/cli/) 是管理群集节点、安装和管理包、检查群集状态，以及管理服务和任务的实用程序。DC/OS CLI 开放且可扩展：任何人都可以创建新子命令，可供最终用户安装。例如，[Spark&trade; DC/OS 服务] [2] 提供了兼容 Spark 的 CLI 扩展。安装后，您可以键入以下命令以提交 Spark 作业并查询其状态：
 ```bash
 dcos spark [<flags>] <command>
 ```
 
 # DC/OS CLI 发现子命令的方式
 
-运行 `dcos` 命令时，它会在当前 shell 的 PATH 中搜索 `~/.dcos/clusters/<cluster_id>/subcommands/<package_name>/env/bin` 目录中名称前缀为 `dcos-` 的可执行文件。
+运行 `dcos` 命令时，它会在当前 shell 的 PATH 中搜索 `dcos-` 目录中名称前缀为 `~/.dcos/clusters/<cluster_id>/subcommands/<package_name>/env/bin` 的可执行文件。
 
 ## 安装 CLI 子命令
 
@@ -35,7 +35,7 @@ dcos package install <package> --cli
 
 DC/OS 服务和 CLI 子命令同样采用 [打包格式和资料库][11] 。
 
-<p class="message--important"><strong></strong>重要信息：CLI 模块<a href="/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/">特定于群集</a>，并存储在 <code>〜/ .dcos / clusters /“cluster_id”/subcommands</code> 中。必须为每个群集安装 CLI 模块。例如，如果连接到群集 1 并安装 Spark 模块，则连接到也运行 Spark 的群集 2。在安装该群集的模块之前，Spark CLI 命令不可用。</p>
+<p class="message--important"><strong>重要信息：</strong>CLI 模块是<a href="/mesosphere/dcos/2.0/administering-clusters/multiple-clusters/">群集特定的</a>，存储在 <code>~/.dcos/clusters/"cluster_id"/subcommands</code>. 必须为每个群集安装 CLI 模块。例如，如果连接到群集 1 并安装 Spark 模块，则连接到也运行 Spark 的群集 2。在安装该群集的模块之前，Spark CLI 命令不可用。</p>
 
 ## 创建 DC/OS CLI 子命令
 
@@ -53,7 +53,7 @@ DC/OS 服务和 CLI 子命令同样采用 [打包格式和资料库][11] 。
 ```
 
 #### --info
-`--info` 标记显示一行简短描述，描述了子命令的功能。该内容在用户运行 `dcos help` 时显示。
+`--info` 标记显示一行简短描述，描述了子命令的功能。该内容在用户运行  时显示。`dcos help`.
 
 
 ##### Spark CLI 的示例：
@@ -85,11 +85,11 @@ Description:
 ### 子命令命名规范
 DC/OS CLI 子命令命名规范为：
 
- dcos <subcommand> <resource> <verb>
+    dcos <subcommand> <resource> <verb>
 
-`resource` 通常是名词 ，`verb` 是资源支持的操作。例如在以下命令中， `resource` 是 `app` ，而操作是 `add`：
+`resource` 通常是名词 ，`verb` 是资源支持的操作。例如在以下命令中， `resource` 是 `app` ，而操作是 `add`:
 
- dcos marathon app add
+    dcos marathon app add
 
 ### 子命令记录
 环境变量 `DCOS_LOG_LEVEL` 设置为用户在命令行中设置的日志级别。
@@ -102,9 +102,9 @@ DC/OS CLI 子命令命名规范为：
 
 1. 将包条目添加到 Mesosphere {{ model.packageRepo }} 存储库。请参阅 [{{ model.packageRepo }} README][9]，了解规范。
 
- 包条目必须包含名为 [resource.json][10] 的文件，其中包含可执行子命令的链接。
+    包条目必须包含名为 [resource.json][10] 的文件，其中包含可执行子命令的链接。
 
- 运行 `dcos package install <package> --cli` 时：
+    运行  时：`dcos package install <package> --cli`:
 
 1. 从存储库中检索 `<package>` 的包条目。
 2. `resource.json` 文件被解析为查找 CLI 资源。
@@ -117,10 +117,10 @@ DC/OS CLI 子命令命名规范为：
 
 ## 示例：Hello World 子命令
 
-[Hello World 示例][3] 执行称为 `helloworld`的新子命令：
+[Hello World 示例][3] 执行称为 的新子命令：`helloworld`:
 
- dcos package install helloworld --cli
- dcos helloworld
+    dcos package install helloworld --cli
+    dcos helloworld
 
 
 [1]: https://github.com/mesosphere/universe/blob/version-3.x/docs/tutorial/GetStarted.md

@@ -25,14 +25,14 @@ dcos security cluster secret-store show [OPTIONS] [STORE_ID]...
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-j`, `--json` | JSON 格式的输出数据。 |
-| `-h`, `--help`| 显示此消息并退出。|
+| `-j`, `--json` | JSON 格式的输出数据。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `STORE_ID` | 密钥存储库的 ID。 |
+| `STORE_ID`  | 密钥存储库的 ID。 |
 
 
 # 示例
@@ -52,4 +52,4 @@ default:
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集密钥存储库](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 您的密钥存储库的显示设置。 |
+| [dcos security cluster secret-store](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-secret-store/) | 显示您的密钥存储库设置。 |

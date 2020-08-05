@@ -11,7 +11,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 DC/OS&trade; 命令行界面 (DC/OS CLI) 实用程序允许您管理群集节点、安装和管理软件包、检查群集状态以及管理服务和任务。
 
-DC/OS 2.0 需要 DC/OS CLI >= 0.8。安装时，[请遵循这些说明](/mesosphere/dcos/2.0/cli/install/)。
+DC/OS 2.0 需要 DC/OS CLI >= 0.8。安装时，[请遵循这些说明](/mesosphere/dcos/cn/2.0/cli/install/).
 
 若要列出可用命令，请运行不带参数的 `dcos`：
 
@@ -70,7 +70,7 @@ Use "dcos [command] --help" for more information about a command.
 dcos cluster setup <cluster-url>
 ```
 
-在完成登录程序后，您的 CLI 已准备好与您的群集进行交互。您会注意到，现在它有其他命令，例如，`marathon`、`node`、`package` 等。这些命令来自 [插件](/mesosphere/dcos/2.0/cli/plugins/)、dcos-core-cli 和 dcos-enterprise-cli（如适用），它将作为设置命令的一部分自动安装。
+在完成登录程序后，您的 CLI 已准备好与您的群集进行交互。您会注意到，现在它有其他命令，例如，`marathon`、`node`、`package` 等。这些命令来自 [插件](/mesosphere/dcos/cn/2.0/cli/plugins/)、dcos-core-cli 和 dcos-enterprise-cli（如适用），它将作为设置命令的一部分自动安装。
 
 若要显示 DC/OS CLI 版本，请运行：
 

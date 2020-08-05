@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  关闭和停用节点
 title: 关闭和停用节点
-menuWeight: 8
+menuWeight: 810
 excerpt: 关闭和停用代理节点
 enterprise: false
 render: mustache
@@ -13,7 +13,7 @@ model: /mesosphere/dcos/1.13/data.yml
 * 告知 DC/OS 将节点标记为 `GONE`
 * 停止相应的 Mesos 从设备 `systemd` 单元
 
-如果您的节点以意外方式停工，您只需要 [停用节点](/mesosphere/dcos/cn/1.13/administering-clusters/delete-node/#decommission-the-node/)。
+如果您的节点以意外方式停工，您只需要 [停用节点](/mesosphere/dcos/cn/1.13/administering-clusters/delete-node/#decommission-the-node/).
 
 # 停用节点
 
@@ -25,7 +25,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 - 您在删除节点，尤其是删除多个节点时。DC/OS 配置为每 20 分钟仅允许标记一个节点为 `UNREACHABLE` ，所以，如果您不是明确地停用节点，可能需要较长时间 Mesos 才能将您的节点标记为 `UNREACHABLE` 并允许服务在另一节点上重新安排任务。
 
-- 如果您正使用有状态服务，如 [DC/OS 数据服务](/mesosphere/dcos/services/)。有状态服务重新安排任务代价昂贵，所以服务需要在重新安排前知道代理不会再次返回在线。
+- 如果您正使用有状态服务，如 [DC/OS 数据服务](/mesosphere/dcos/cn/services/). 有状态服务重新安排任务代价昂贵，所以服务需要在重新安排前知道代理不会再次返回在线。
 
 - 当节点以意外停工时。
 
@@ -35,7 +35,7 @@ model: /mesosphere/dcos/1.13/data.yml
 dcos node 
 ```
 
-从 DC/OS CLI 中输入以下命令，以告诉 Mesos 将节点标记为 `GONE`。
+从 DC/OS CLI 中输入以下命令，以告诉 Mesos 将节点标记为 `GONE`.
 
 ```
 dcos node decommission <mesos-agent-id>

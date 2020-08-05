@@ -24,7 +24,7 @@ dcos security cluster ca sign [OPTIONS]
 | 名称 | 说明 |
 |----------|---------------|
 | `--csr <filename>` | CSR 签名路径。（必填)|
-| `-p`, `--profile <text>` | 要使用的签名资料。|
+|  `-p`, `--profile <text>` | 要使用的签名资料。|
 |  `-h`, `--help` |                显示此消息并退出。|
 
 
@@ -32,4 +32,4 @@ dcos security cluster ca sign [OPTIONS]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster ca](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |
+| [dcos security cluster ca](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |

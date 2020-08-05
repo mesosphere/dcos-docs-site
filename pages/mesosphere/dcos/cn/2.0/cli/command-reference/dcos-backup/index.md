@@ -28,10 +28,10 @@ dcos backup [command]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示此命令的帮助。 |
+| `--help, h`   | 显示此命令的帮助。 |
 | `--info` | 显示有关此命令的信息。 |
 
 
-有关如何在 CLI 中创建备份的信息，请参阅 [备份和恢复 CLI](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/) 命令。此流程的限制可参见[备份和恢复限制部分](/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/#limitations)。
+有关如何在 CLI 中创建备份的信息，请参阅 [备份和恢复 CLI](/mesosphere/dcos/cn/2.0/administering-clusters/backup-and-restore/backup-restore-cli/) 命令。此流程的限制可参见[备份和恢复限制部分](/mesosphere/dcos/cn/2.0/administering-clusters/backup-and-restore/#limitations).
 
 # 命令

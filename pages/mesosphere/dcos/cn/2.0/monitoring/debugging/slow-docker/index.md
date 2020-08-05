@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Docker 应用和部署缓慢
+navigationTitle:  Docker 应用和部署缓慢
 title: Docker 应用和部署缓慢
 menuWeight: 40
 excerpt: 解决 Docker 应用和部署缓慢问题
@@ -21,11 +21,11 @@ DC/OS 的 Apache Mesos 内核允许您使用完全公平调度器严格的 CPU �
 
 ## 提高 CPU 分配
 
-如果由于 DC/OS  1.10 或更新版本而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/mesosphere/dcos/2.0/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/mesosphere/dcos/2.0/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
+如果由于 DC/OS  1.10 或更新版本而导致 Docker 服务或部署运行缓慢，可增加服务定义中所需的 CPU 数量。[从 CLI](/mesosphere/dcos/cn/2.0/deploying-services/update-user-service/) 或 DC/OS GUI 的 [服务](/mesosphere/dcos/cn/2.0/gui/services/)选项卡，将服务定义的 `cpus` 属性变为一个更大的值，并测试提高 CPU 分配后是否解决了问题。
 
 ## 使用 DC/OS Pod 增强资源
 
-容器化应用程序通常具有资源密集型启动阶段。传统上，具有高启动要求的任务仅在其生命周期的持续时间内被分配额外资源，一旦不再需要这些资源，则会付出降低群集利用率的代价。通过利用 DC/OS Pod 的资源会计策略，可以创建一个“空”启动容器/任务来请求额外资源并使它们可用于实际需要它们的任务，然后在合理时间段过后完成并放弃这些资源。有关更多信息和示例 pod 定义，请参阅此 [资源提升博客文章](https://mesosphere.com/blog/application-jvm-startup/)。
+容器化应用程序通常具有资源密集型启动阶段。传统上，具有高启动要求的任务仅在其生命周期的持续时间内被分配额外资源，一旦不再需要这些资源，则会付出降低群集利用率的代价。通过利用 DC/OS Pod 的资源会计策略，可以创建一个“空”启动容器/任务来请求额外资源并使它们可用于实际需要它们的任务，然后在合理时间段过后完成并放弃这些资源。有关更多信息和示例 pod 定义，请参阅此 [资源提升博客文章](https://mesosphere.com/blog/application-jvm-startup/)
 
 ## 更改 Mesos 代理节点配置
 
@@ -35,11 +35,11 @@ DC/OS 的 Apache Mesos 内核允许您使用完全公平调度器严格的 CPU �
 
 ### 配置代理以使用 CPU 份额
 
-1. 创建或修改每个代理节点上的文件 `/var/lib/dcos/mesos-slave-common`。
+1. 创建或修改每个代理节点上的文件 `/var/lib/dcos/mesos-slave-common`
 
-1. 添加或设置行 `MESOS_CGROUPS_ENABLE_CFS=false`。
+1. 添加或设置行 `MESOS_CGROUPS_ENABLE_CFS=false`.
 
-1. 使用 `sudo systemctl restart dcos-mesos-slave` 重新启动 Mesos 代理节点进程。如果此操作已在安装 Mesos 代理节点之前完成，它将自动拾取配置。
+1. 使用  重新启动 Mesos 代理节点进程。`sudo systemctl restart dcos-mesos-slave`. 如果此操作已在安装 Mesos 代理节点之前完成，它将自动拾取配置。
 
 1. 重新启动所有 Mesos 代理节点后，重新开始所有任务。重新启动代理节点不会导致任务重新开始，但也不会拾取新设置，因此必须重新启动。
 

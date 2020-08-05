@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 虚拟基础架构
+navigationTitle:  虚拟基础架构
 title: 虚拟基础架构
 menuWeight: 1
 excerpt: 在虚拟化基础架构上运行 DC/OS - 最佳实践
@@ -15,20 +15,20 @@ excerpt: 在虚拟化基础架构上运行 DC/OS - 最佳实践
 
 ## 建议：
 
- - 最大程度地减少主机上的 CPU 和其他资源超额订阅
- - 在计划 DC/OS 主节点的主机上保持 CPU 就绪时间* < 5%
+  - 最大程度地减少主机上的 CPU 和其他资源超额订阅
+  - 在计划 DC/OS 主节点的主机上保持 CPU 就绪时间* < 5%
 
 <p class="message--note"><strong>注意：</strong>CPU 就绪时间是记录虚拟机准备好使用 CPU 但因为所有 CPU 资源都忙碌而无法安排时间的度量。</p>
 
 # 时间保留指南
 
-DC/OS 群集需要节点之间的强大时间同步，以实现最佳功能。请检查您的 DC/OS 群集上 [NTP 已启用](/mesosphere/dcos/2.0/installing/production/system-requirements/#synchronize-time-for-all-nodes-in-the-cluster) ，帮助确保此类强大同步。
+DC/OS 群集需要节点之间的强大时间同步，以实现最佳功能。请检查您的 DC/OS 群集上 [NTP 已启用](/mesosphere/dcos/cn/2.0/installing/production/system-requirements/#synchronize-time-for-all-nodes-in-the-cluster) ，帮助确保此类强大同步。
 
 ## 建议：
 
- - 禁用 VMware 工具时间同步和 [配置 ESXi 主机和客户以使用可靠的 NTP 源](https://blogs.vmware.com/vsphere/2018/07/timekeeping-within-esxi.html)
+  - 禁用 VMware 工具时间同步和 [配置 ESXi 主机和客户以使用可靠的 NTP 源](https://blogs.vmware.com/vsphere/2018/07/timekeeping-within-esxi.html)
 
- - 将以下行添加到虚拟机配置文件中 (.vmx) [以禁用时间同步](https://kb.vmware.com/s/article/1189)：
+  - 将以下行添加到虚拟机配置文件 (.vmx) 中 [以禁用时间同步](https://kb.vmware.com/s/article/1189):
 
   ```bash
   tools.syncTime = "0"
@@ -43,8 +43,8 @@ DC/OS 群集需要节点之间的强大时间同步，以实现最佳功能。�
 
  ### 可选
 
- - 考虑使用 `ntpd -x`禁用 NTP 转换模式。
- - 在 NTP 配置中设置 `tinker panic` 为 `0` 。
+ - 考虑使用 禁用 NTP 转换模式。`ntpd -x`.
+ - 在 NTP 配置中设置 `tinker panic` 为 `0`
 
 # vSphere DRS 设置
 

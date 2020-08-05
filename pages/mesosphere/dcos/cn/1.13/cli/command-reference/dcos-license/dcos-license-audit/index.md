@@ -22,12 +22,12 @@ dcos license audit [OPTIONS] COMMAND [ARGS]...
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help` | 显示此消息后退出。 |
+| `--help`   | 显示此消息并退出。|
 
 
 
 # 示例
-有关示例，请参阅[许可证](/mesosphere/dcos/cn/1.13/administering-clusters/licenses/)。
+有关示例，请参阅[许可证](/mesosphere/dcos/cn/1.13/administering-clusters/licenses/).
 
 # 父命令
 

@@ -23,7 +23,7 @@ dcos backup delete <backup id> [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示此命令的帮助。 |
+| `--help, h`   | 显示此命令的帮助。 |
 
 ## 位置自变量
 
@@ -33,7 +33,7 @@ dcos backup delete <backup id> [flags]
 
 # 示例
 
-查看 [`dcos backup list`](/mesosphere/dcos/2.0/cli/command-reference//dcos-backup/dcos-backup-list/) 的文档，获取备份 ID。
+查看 [`dcos backup list`](/mesosphere/dcos/cn/2.0/cli/command-reference//dcos-backup/dcos-backup-list/) 的文档，获取备份 ID。
 
 1. 运行命令 `dcos backup list` 获取备份列表。
 
@@ -52,7 +52,7 @@ dcos backup delete <backup id> [flags]
     dcos backup delete backup-1-fd4bdc87-889c-48c3-a656-9f8e96474b27
     ```
 
- 备份将被删除，但没有确认输出信息。
+    备份将被删除，但没有确认输出信息。
 
 1. 但是，如果您再次运行 `dcos backup list` ，就看不到列出的备份，这表示备份已删除。
 
@@ -68,5 +68,5 @@ dcos backup delete <backup id> [flags]
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos backup](/mesosphere/dcos/2.0/cli/command-reference/dcos-backup/) | 创建、删除、列出、恢复和显示备份命令。 |
+| [dcos backup](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-backup/) |  创建、删除、列出、恢复和显示备份命令。 |
 

@@ -24,7 +24,7 @@ enterprise: false
 
 * 现有 Elasticsearch 装置可以消化数据用于索引
 *   所有 DC/OS 节点都必须能够连接到用于在 Elasticsearch 和 Fluent Bit 之间通信的端口上的 Elasticsearch 服务器（默认为 9200）
-*   您自定义 Fluent Bit 配置的每个 DC/OS 节点上的位置。本教程将使用 `/etc/fluent-bit/`。
+*   您自定义 Fluent Bit 配置的每个 DC/OS 节点上的位置。本教程将使用 `/etc/fluent-bit/`.
 
 ## 步骤 1：管理节点
 
@@ -62,13 +62,13 @@ enterprise: false
 FLUENT_BIT_CONFIG_FILE=/etc/fluent-bit/fluent-bit.conf
 ```
 
-2. 创建一个目录 `/etc/systemd/system/dcos-fluent-bit.service.d`：
+2. 创建一个目录 `/etc/systemd/system/dcos-fluent-bit.service.d`:
 
 ```
 $ sudo mkdir -p /etc/systemd/system/dcos-fluent-bit.service.d
 ```
 
-3. 创建一个将自定义配置应用到 Fluent Bit 的文件 `/etc/systemd/system/dcos-fluent-bit.service.d/override.conf`：
+3. 创建一个将自定义配置应用到 Fluent Bit 的文件 `/etc/systemd/system/dcos-fluent-bit.service.d/override.conf`
 
 ```
 [Service]

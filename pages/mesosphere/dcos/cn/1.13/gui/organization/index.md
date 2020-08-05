@@ -14,6 +14,6 @@ model: /mesosphere/dcos/1.13/data.yml
 - 组
 - 服务帐户
 
-![Organization Tab EE](/mesosphere/dcos/1.13/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
+![Organization Tab EE](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Users_List_Empty-1_12.png)
 
 图 1 - **组织 > 用户** 选项卡

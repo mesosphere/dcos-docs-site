@@ -12,7 +12,7 @@ model: /mesosphere/dcos/2.0/data.yml
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 # 背景
 
-DC/OS Enterprise 支持 [通过 LDAP 进行基于目录的身份认证](/mesosphere/dcos/2.0/security/ent/ldap/)。用户和用户组可以从外部目录导入 DC/OS IAM。查看[管理用户和组](/mesosphere/dcos/2.0/security/ent/users-groups/)。
+DC/OS Enterprise 支持 [通过 LDAP 进行基于目录的身份认证](/mesosphere/dcos/cn/2.0/security/ent/ldap/). 用户和用户组可以从外部目录导入 DC/OS IAM。查看[管理用户和组](/mesosphere/dcos/cn/2.0/security/ent/users-groups/).
 
 在较早版本的 DC/OS Enterprise 中，单击即可操作 LDAP 组导入和 LDAP 用户导入。如果用户已从外部目录中删除，则该用户将不会自动从 DC/OS IAM 中删除。同样，如果从目录导入“工程师”用户组，则必须将添加到该组的任何新用户明确添加到 DC/OS IAM。保持导入的用户和用户组在 DC/OS IAM 和目录之间同步对于大型组织的管理员来说是一项艰巨的任务。
 
@@ -34,13 +34,13 @@ LDAP 同步程序从 IAM 收集用户集合、用户组和组成员资格详细�
 <p class="message--note"><strong>注意：</strong>IAM 中的用户组通过什么策略与其在外部目录中的副本相关都取决于它们的名称。因此，重命名外部目录中的用户组相当于删除该用户组并创建具有相同成员集合的新用户组。重命名外部目录中的用户组时要小心！</p>
 
 # 操作详情
-LDAP 同步程序是由每个管理节点上的 DC/OS 组件执行的。它作为名为 `dcos-iam-ldap-sync.service` 的 `systemd` 服务运行，由 `dcos-iam-ldap-sync.timer` systemd 计时器装置定期触发。
+LDAP 同步程序是由每个管理节点上的 DC/OS 组件执行的。它作为名为 `systemd` 的 `dcos-iam-ldap-sync.service` 服务运行，由 `dcos-iam-ldap-sync.timer` systemd 计时器装置定期触发。
 
 该程序在与当前的 Mesos 领导人对应的 DC/OS 管理节点上运行。如果该管理节点发生故障并由此触发 Mesos 领导人重新选举，则将在与新选中的 Mesos 领导人相对应的管理节点上执行 LDAP 同步程序。
 
 LDAP 同步的每次运行都将详细记录到 `systemd` 日志中。可以通过勾选与 Mesos 领导人对应的 DC/OS 管理节点上的记录来检查这些记录。
 
-安装时可配置确切的时长。请参阅 [高级配置](/mesosphere/dcos/2.0/installing/production/advanced-configuration/)下的 [配置参考](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/)。
+安装时可配置确切的时长。请参阅 [高级配置](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/)下的 [配置参考](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/).
 
 # 导入有有效名称的组
 如果导入 LDAP 组名称用作 DC/OS 组，则请记住，要导入的 LDAP 组必须具有支持的组名称格式。

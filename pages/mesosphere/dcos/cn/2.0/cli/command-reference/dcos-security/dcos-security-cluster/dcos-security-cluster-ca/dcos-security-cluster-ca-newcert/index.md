@@ -24,11 +24,11 @@ dcos security cluster ca newcert [OPTIONS]
 | 名称 | 说明 |
 |----------|---------------|
 |`--cn <text>` | 规范名。（必填)|
-| `--host <text>`| 可以多次指定 SAN 主机（必填)|
+| `--host <text>`|可以多次指定 SAN 主机（必填)|
 |`--name-c <text>`| 国家|
 |`--name-st <text>`|州 |
 |`--name-o <text>`| 组织|
-|`--name-l <text>`| 地区|
+|`--name-l <text>`| 本地|
 |`--name-ou <text>`| 组织单位|
 |`--key-algo [rsa|ecdsa]`| 密钥算法|
 |`--key-size [256|384|521|2048|4096|8192]`| 密钥大小|
@@ -69,4 +69,4 @@ private_key: '-----BEGIN RSA PRIVATE KEY-----
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security cluster ca](/mesosphere/dcos/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |
+| [dcos security cluster ca](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-ca/) | 查看 DC/OS 安全群集证书颁发机构信息。 |

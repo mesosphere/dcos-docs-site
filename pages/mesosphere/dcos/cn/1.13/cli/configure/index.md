@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle:  配置 CLI
-title: 配置 CLI
+navigationTitle:  配置CLI
+title: 配置CLI
 menuWeight: 2
 excerpt: 配置命令行界面
 enterprise: false
@@ -25,7 +25,7 @@ export DCOS_CLUSTER=<cluster_name>
 ```
 
 * pip 版本 7.1.0 或更高版本。
-* `http_proxy` 和 `https_proxy` 环境变量定义为使用 `pip`。
+`http_proxy` 和 `https_proxy` 环境变量定义为使用 `pip`.
 
 <a name="dcos-dir"></a>
 
@@ -33,20 +33,19 @@ export DCOS_CLUSTER=<cluster_name>
 
 DC/OS 配置目录的路径。如果您希望 DC/OS 配置目录为 `/home/jdoe/config`，请使用以下命令设置变量：
 
+
 ```bash
 export DCOS_DIR=/home/jdoe/config
 ```
 
-1. 可选择地设置 `DCOS_DIR` 并运行 `dcos cluster setup` 命令。
+可选择地设置 `DCOS_DIR` 并运行 `dcos cluster setup` 命令。
 
 ```bash
 export DCOS_DIR=<path/to/config_dir> # optional, default when not set is ~/.dcos
 dcos cluster setup <url>
 ```
 
-* 为您不想使用代理的域定义 `no_proxy`：
-
-   此设置根据 `$DCOS_DIR/clusters/<cluster_id>` 下的群集配置生成和更新。生成新设置群集 [如此处所示](/mesosphere/dcos/cn/1.13/cli/index#setupcluster)。
+可以为您不想使用代理的域定义 `no_proxy`。此设置根据  下的群集配置生成和更新。`$DCOS_DIR/clusters/<cluster_id>`. 生成新设置群集 [如此处所示](/mesosphere/dcos/cn/1.13/cli/#setting-up-a-cluster)。
 
 <a name="dcos-ssl-verify"></a>
 

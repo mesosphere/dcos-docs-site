@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 使用 CPU 和内存自动扩展 Marathon 服务
+navigationTitle:  使用 CPU 和内存自动扩展 Marathon 服务
 title: 教程 - 使用 CPU 和内存的自动扩展 Marathon 服务
 menuWeight: 0
 excerpt: 使用 CPU 和内存自动扩展 Marathon 服务
@@ -24,8 +24,8 @@ enterprise: false
 * 您希望自动扩展的在 Marathon 上运行的服务。
 * Python 3
 * Git：
- * ** macOS：**从 [Git 下载](http://git-scm.com/download/mac）获取安装程序。
- * **Unix/Linux：**请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
+    * ** macOS：** 从 [Git 下载](http://git-scm.com/download/mac）获取安装程序。
+    * **Unix/Linux：** 请参阅这些 [安装说明](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)。
 
 # 在节点上安装 Marathon Autoscale 应用程序
 
@@ -37,7 +37,7 @@ enterprise: false
     dcos node ssh --master-proxy --mesos-id=<mesos-id>
     ```
 
- **提示：** 运行 `dcos node` 以获取可用的节点 ID。
+    **提示：** 运行 `dcos node` 以获取可用的节点 ID。
 
 1. 将 [autoscale Github r存储库](https://github.com/mesosphere/marathon-autoscale) 克隆到您的节点。
 
@@ -59,7 +59,7 @@ enterprise: false
     python marathon-autoscaler.py
     ```
 
- 系统将提示您查看以下参数：
+    系统将提示您查看以下参数：
 
     ```bash
     # Fully qualified domain name or IP of the Marathon host (without http://).

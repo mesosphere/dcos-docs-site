@@ -12,14 +12,14 @@ model: /mesosphere/dcos/2.0/data.yml
 您可以从活跃 DC/OS&trade; 群集中的代理节点排空任务，以便取下节点以进行维护或从群集中永久移除。节点可以排空，并且其进度可以通过 DC/OS CLI 或 UI 进行监控。
 
 <p class="message--warning"><strong>警告：</strong>启动排空时，代理节点上运行的所有任务都将被关闭。请谨慎使用此功能！</p>
-<p class="message--warning"><strong>警告：</strong>当指定 <code>--decommission</code> 选项时，节点上的所有本地持久数据将丢失！</p>
+<p class="message--warning"><strong>警告：</strong>当指定 <code>-停用</code> 选项时，节点上的所有本地持久数据将丢失！</p>
 
 启动排空导致目标代理节点上的所有任务立即收到关闭事件（假设代理节点目前可以访问）。如果代理节点无法访问，关闭事件的启动将被延迟，直到代理节点可再次被管理节点访问。当任务收到关闭事件时，将向任务发送一个 SIGTERM 信号以开始关闭进程。根据具体任务的行为，此信号可能足以将其终止。某些任务可能使用此信号来开始优雅终止的过程，这可能需要一些时间。延迟后，SIGKILL 信号将发送至任务，它会在任务仍运行时强行将其终止。SIGTERM 和 SIGKILL 信号之间的延迟取决于该任务的结束宽限期长短。如果没有为任务设置宽限期，将根据配置使用默认的数秒值。
 
 ### 先决条件：
 
-- [已安装并配置 DC/OS CLI](/mesosphere/dcos/2.0/cli/)。
-- 有足够 [权限](/mesosphere/dcos/2.0/security/ent/perms-reference) 排空节点（仅限 DC/OS Enterprise）。
+- [已安装并配置 DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)。
+- 有足够 [权限](/mesosphere/dcos/cn/2.0/security/ent/perms-reference) 排空节点（仅限 DC/OS Enterprise）。
 
 ### 最大宽限期
 
@@ -67,7 +67,7 @@ dcos node list --mesos-id=<mesos-agent-id>
 
 如果 `--decommission` 选项包含在初始排空命令中，则在排空完成时，节点的元数据将自动从群集中移除。
 
-<p class="message--important"><strong></strong>重要信息：停用节点还会导致该节点上的所有本地持久数据丢失。</p>
+<p class="message--important"><strong>重要信息：</strong>停用节点还会导致该节点上的所有本地持久数据丢失。</p>
 
 如果未指定停用选项，在任何计划内维护或其他更新程序完成后，群集将等待节点被手动重新激活。
 
@@ -115,7 +115,7 @@ dcos task list --agent-id=<mesos-agent-id>
 dcos node deactivate <mesos-agent-id>
 ```
 
-这将停止在该代理节点上启动任何新工作负载。此时，个别服务公开的 API 可用于关闭节点上运行的任何任务。例如，对于通过 DC/OS UI 启动的典型应用程序和 pod，[Marathon 容器编排器的 API](/mesosphere/dcos/2.0/deploying-services/marathon-api/) 可用于终止相关任务。关闭节点上的所有任务后，可以取下节点进行维护，然后在维护完成后再重新激活：
+这将停止在该代理节点上启动任何新工作负载。此时，个别服务公开的 API 可用于关闭节点上运行的任何任务。例如，对于通过 DC/OS UI 启动的典型应用程序和 pod，[Marathon 容器编排器的 API](/mesosphere/dcos/cn/2.0/deploying-services/marathon-api/) 可用于终止相关任务。关闭节点上的所有任务后，可以取下节点进行维护，然后在维护完成后再重新激活：
 
 ```bash
 dcos node reactivate <mesos-agent-id>
@@ -133,7 +133,7 @@ dcos node reactivate <mesos-agent-id>
 
 1. 单击“排空”，将显示一个对话框。
 
- 最大宽限期可在排空对话框中指定。这表示任务正常终止所允许的最长时间，并覆盖默认值数秒。
+    最大宽限期可在排空对话框中指定。这表示任务正常终止所允许的最长时间，并覆盖默认值数秒。
 
   <p>
     <img src="/mesosphere/dcos/2.0/img/draining-ui-actions.png" alt="Draining or deactivating a node">
@@ -143,9 +143,9 @@ dcos node reactivate <mesos-agent-id>
 
 ## 停用节点
 
-排空节点时，在排空完成后，您可以选择 [停用](/mesosphere/dcos/2.0/administering-clusters/delete-node/) 它。
+排空节点时，在排空完成后，您可以选择 [停用](/mesosphere/dcos/cn/2.0/administering-clusters/delete-node/) 它。
 
-<p class="message--important"><strong></strong>重要信息：如果在排空时启用了“停用”选项，节点将全部从节点概览表中删除，并且无法重新加入群集。</p>
+<p class="message--important"><strong>重要信息：</strong>如果在排空时启用了“停用”选项，节点将全部从节点概览表中删除，并且无法重新加入群集。</p>
 
 ## 停用/重新激活节点以进行手动排空
 

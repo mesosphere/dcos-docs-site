@@ -31,6 +31,6 @@ Options:
 | 名称 | 说明 |
 |---------|-------------|
 |  `-h`, `--help` |                显示此消息并退出。|
-| `-d`, `--description` <text> | 描述。 |
-| `-p`, `--password` <text> | 密码。 |
+|  `-d`, `--description` <text> | 描述。 |
+|  `-p`, `--password` <text> | 密码。 |
 | `UID` | 用户 ID。（必填)|

@@ -15,7 +15,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 `dcos task exec` 命令允许您在任务的容器内执行任意命令，并将其输出返回到本地终端，以了解有关某个特定任务如何表现的更多信息。它提供了非常类似于 [`docker exec`](https://docs.docker.com/engine/reference/commandline/exec/) 体验，不需要 SSH 密钥。
 
-要使用调试功能，必须使用 Mesos 容器运行时或通用容器运行时来启动服务或作业。调试不能用于用 Docker 运行时启动的容器。如需更多信息，请参阅 [使用 Mesos 容器化工具](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)。
+要使用调试功能，必须使用 Mesos 容器运行时或通用容器运行时来启动服务或作业。调试不能用于用 Docker 运行时启动的容器。如需更多信息，请参阅 [使用 Mesos 容器化工具](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)
 
 您可以在下列模式下执行此命令。
 
@@ -27,10 +27,10 @@ model: /mesosphere/dcos/1.13/data.yml
 
 - `dcos task exec --interactive --tty <task-id> <command>`：将 STDOUT 和 STDERR 从远程终端传输到本地终端，并将 STDIN 从本地终端传输到远程终端。此外，还将本地终端置于原始模式，分配远程伪终端 (PTY)，并通过远程 PTY 传输 STDOUT、STDERR 和 STDIN。此模式提供最大功能。
 
-有关 `dcos task exec` 命令的更多信息，请参阅 [CLI 参考部分](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-task/dcos-task-exec/)。
+有关 `dcos task exec` 命令的更多信息，请参阅 [CLI 参考部分](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-task/dcos-task-exec/).
 
 ### 提示
-- 为方便查看，我们已经包含了上述完整标记的文本，但每一个都可以缩短。不是输入 `--interactive`，您只需输入 `-i`。同样，不是输入 `--tty`，您只需输入 `-t`。
+- 为方便查看，我们已经包含了上述完整标记的文本，但每一个都可以缩短。不是输入 `--interactive`，您只需输入 `-i`. 同样，不是输入 `--tty`，您只需输入 `-t`.
 - 如果您的模式传输原始字节，您将无法启动 `vim` 等类似程序，因为这些程序需要使用控制字符。
 
 # 快速入门
@@ -45,7 +45,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 您可以使用 `dcos task exec` 命令在容器内运行命令。此例中，启动了一个长期运行的 Marathon 应用程序，然后使用 `dcos task exec` 命令获取运行此应用程序的节点的主机名。
 
-1. 创建 Marathon 应用定义，并使用以下内容为其命名 `my-app.json`：
+1. 创建 Marathon 应用定义，并使用以下内容为其命名 `my-app.json`
 
     ```bash
     {
@@ -87,12 +87,12 @@ model: /mesosphere/dcos/1.13/data.yml
     ip-10-0-1-105.us-west-2.compute.internal
     ```
 
-有关 `dcos task exec` 命令的更多信息，请参阅 [CLI 参考部分](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-task/dcos-task-exec/)。
+有关 `dcos task exec` 命令的更多信息，请参阅 [CLI 参考部分](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-task/dcos-task-exec/).
 
 # 在任务容器内运行交互命令
 您可以使用 `dcos task exec` 命令，在群集中的机器上运行交互命令。此例中，`dcos task exec` 命令用来将简单脚本从本地计算机复制到节点上的任务容器。然后使用 `dcos task exec` 命令对脚本进行管理。
 
-1. 创建 Marathon 应用定义，并使用以下内容为其命名 `my-interactive-app.json`：
+1. 创建 Marathon 应用定义，并使用以下内容为其命名 `my-interactive-app.json`
 
     ```bash
     {
@@ -157,7 +157,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 使用 DC/OS CLI 部署和运行作业：
 
-    1. 创建以下应用定义并另存为 `my-job.json`。这将指定运行 `10000000` 秒的休眠作业。
+    1. 创建以下应用定义并另存为 `my-job.json`. 这将指定运行 `10000000` 秒的休眠作业。
 
         ```bash
         {
@@ -243,4 +243,4 @@ model: /mesosphere/dcos/1.13/data.yml
 **提示** 
 
 
-您可以简写，例如 `--interactive` 的`-i` 或 `--tty` 的 `-t`。此外，只需要 `<task_id>` 的开头唯一字符。例如，如果您的任务 ID 是 `exec-test_20161214195` 并且没有以字母 `e` 开头的其他任务 ID，则有效的命令语法如下：`dcos task exec -i -t e bash`。如需更多信息，请参阅 CLI 命令 [参考](/mesosphere/dcos/cn/1.13/cli/command-reference/)。
+您可以简写，例如 `-i` 的`--interactive` 或 `-t` 的 `--tty`. 此外，只需要 `<task_id>` 的开头唯一字符。例如，如果您的任务 ID 是 `exec-test_20161214195` 并且没有以字母 `e` 开头的其他任务 ID，则有效的命令语法如下：`dcos task exec -i -t e bash`如需更多信息，请参阅 CLI 命令 [参考]。(/mesosphere/dcos/cn/1.13/cli/command-reference/).

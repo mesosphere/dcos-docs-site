@@ -24,9 +24,9 @@ dcos cluster list [flags]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--attached` | 仅返回已连接的集群。 |
-| `--json` | 显示 JSON 格式化列表。|
-| `-h`，`--help` | 显示此命令的帮助。 |
+| `--attached`   | 仅返回已连接的集群。 |
+| `--json`   | 显示 JSON 格式化列表。|
+|  `-h`, `--help` | 显示此命令的帮助。 |
 
 
 
@@ -66,10 +66,10 @@ dcos cluster list --json
 ]
 ```
 
-如需更多示例，请参阅 [群集连接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/)。
+如需更多示例，请参阅 [群集连接](/mesosphere/dcos/cn/1.13/administering-clusters/multiple-clusters/cluster-connections/).
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |
+| [dcos cluster](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-cluster/) | 管理 DC/OS 群集。 |

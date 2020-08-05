@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: 2.0.0 的发行说明
-title: 2.0.0 的发行说明
+navigationTitle: 2.0.0 版本注释
+title: 2.0.0 版本注释
 menuWeight: 5
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
@@ -9,11 +9,13 @@ excerpt: DC/OS 2.0.0 版本的注释，包括开源归属和版本策略。
 ---
 Mesosphere&reg; DC/OS&trade; 2.0.0 于 2019 年 10 月 25 日发布。
 
+<p class="message--warning"><strong>警告：</strong>DC/OS 1.13.9 版本包含持久 dcos-net 状态的数据格式更改，如果您升级到 2.2.0 版本，则可能会导致 dcos-net 出现严重问题。因此，我们建议您升级到 2.0.4 或更高的版本。</p>
+
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.0/dcos_generate_config.sh"]下载 DC/OS 开源[/button]
 
 [button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.0.0/dcos_generate_config.ee.sh"]下载 DC/OS Enterprise* [/button]
 
-注册 DC/OS Enterprise 客户可以从 <a href="https://support.mesosphere.com/s/downloads">[支持网站]</a> 访问 DC/OS Enterprise 配置文件。对于新客户，请在尝试下载和安装 DC/OS Enterprise 版本之前，先联系销售代表或发送邮件至 <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>。
+新客户请在尝试下载和安装 DC/OS Enterprise 版本之前，先联系销售代表或发送邮件至 <a href="mailto:sales@d2iq.com">sales@d2iq.com</a>。
 
 
 # 发布摘要
@@ -33,24 +35,24 @@ Mesosphere&reg; DC/OS 是一种分布式操作系统，使您可以在本地、�
 
 ## 多租户支持
 
-通过为服务组添加配额管理，DC/OS 改进了多租户支持。具体来说，DC/OS 可以通过 UI 和 CLI 管理基于 Marathon 和 SDK 的服务的配额限制。有关详细信息，请参阅 [配额管理](/mesosphere/dcos/2.0/multi-tenancy/quota-management/#quotas)。(DCOS-54186) 
+通过为服务组添加配额管理，DC/OS 改进了多租户支持。具体来说，DC/OS 可以通过 UI 和 CLI 管理基于 Marathon 和 SDK 的服务的配额限制。有关详细信息，请参阅 [配额管理](/mesosphere/dcos/cn/2.0/multi-tenancy/quota-management/#quotas)。(DCOS-54186) 
 
 ## 节点排空可实现从容维护
 
-DC/OS 增加了使用 DC/OS CLI 和 UI 排空代理节点的功能。有关更多详细信息，请参阅 [排空节点](/mesosphere/dcos/2.0/administering-clusters/draining-a-node/)。(DCOS-53654)
+DC/OS 增加了使用 DC/OS CLI 和 UI 排空代理节点的功能。有关更多详细信息，请参阅 [排空节点](/mesosphere/dcos/cn/2.0/administering-clusters/draining-a-node/)。(DCOS-53654)
 
 ## 对需要可配置共享内存的应用程序的 UCR 支持
 
-由于 pod 中的任务在同一个代理上运行，因此可以为任务定义共享内存段。DC/OS 支持 UCR 中可配置的 `/dev/shm` 大小和 IPC 命名空间。有关更多详细信息，请参阅 [共享内存](/mesosphere/dcos/2.0/deploying-services/pods/technical-overview/#shared-memory)。(DCOS-54618) 
+由于 pod 中的任务在同一个代理上运行，因此可以为任务定义共享内存段。DC/OS 支持 UCR 中可配置的 `/dev/shm` 大小和 IPC 命名空间。有关更多详细信息，请参阅 [共享内存](/mesosphere/dcos/cn/2.0/deploying-services/pods/technical-overview/#shared-memory)。(DCOS-54618) 
 
 DC/OS 为 UCR 支持引入以下参数：
 
-- `mesos_disallow_sharing_agent_ipc_namespace` 可用于控制顶级的 Mesos 容器是否允许共享 Mesos 代理节点主机的 IPC 命名空间和 `/dev/shm`。默认值为 `false`。(DCOS-56619)
+- `mesos_disallow_sharing_agent_ipc_namespace` 可用于控制顶级的 Mesos 容器是否允许共享 Mesos 代理节点主机的 IPC 命名空间和 `/dev/shm`。默认值为 `false`. (DCOS-56619)
 - `mesos_default_container_shm_size` 可用于为 Mesos 容器指定默认大小的 `/dev/shm`，该容器具有自己的 `/dev/shm`。格式为 [number][unit]，其中 `number` 必须为正整数，`unit` 可以是 B（字节）、KB（千字节）、MB（兆字节）、GB（千兆字节）或 TB（兆兆字节）。(DCOS-56619)
 
 ## 新诊断命令
 
-DC/OS 引入了新的诊断服务，增加了 CLI 命令 [`dcos diagnostics`](/mesosphere/dcos/2.0/cli/command-reference/dcos-diagnostics/) 套件。更多的 RESTful API 将生成诊断捆绑包，以解决 DC/OS 问题。这种分散型模型将在每个节点上生成本地捆绑包，然后合并所有本地捆绑包。这种变化大大减少生成诊断捆绑包所需的时间。(DCOS_OSS-5098)
+DC/OS 引入了新的诊断服务，增加了 CLI 命令 [`dcos diagnostics`](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-diagnostics/) 套件。更多的 RESTful API 将生成诊断捆绑包，以解决 DC/OS 问题。这种分散型模型将在每个节点上生成本地捆绑包，然后合并所有本地捆绑包。这种变化大大减少生成诊断捆绑包所需的时间。(DCOS_OSS-5098)
 - 创建新的诊断捆绑包 REST API，实现性能改进。
 - 弃用传统路由，并创建更多 RESTful API 来生成诊断捆绑包。
 
@@ -77,7 +79,7 @@ DC/OS 引入了新的诊断服务，增加了 CLI 命令 [`dcos diagnostics`](/m
 - 突出 Telegraf&trade;，以收集 Mesos 覆盖模块度量标准。(DCOS_OSS-5323)
 - 修复 `dcos_service_port_index` 中错误值，该错误值会破坏 Admin Router 缓存。(COPS-5147, DCOS_OSS-5491)
 - 将框架 ID 标签添加到 Mesos 框架度量标准。(DCOS-53302)
-- DC/OS 配置变量 `mesos_seccomp_enabled` 现在默认为 `true`，`mesos_seccomp_profile_name` 设置为 `default.json`。预计这不会破坏任务。但是，如果遇到问题，请注意，可以通过 DC/OS SDK 和 Marathon 为单个任务禁用 seccomp。有关更多详细信息，请参阅 [`mesos_seccomp_enabled`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) 和 [`mesos_seccomp_profile_name`](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name)。(DCOS-50038)
+- DC/OS 配置变量 `mesos_seccomp_enabled` 现在默认为 `true`，`mesos_seccomp_profile_name` 设置为 `default.json`。预计这不会破坏任务。但是，如果遇到问题，请注意，可以通过 DC/OS SDK 和 Marathon 为单个任务禁用 seccomp。有关更多详细信息，请参阅 [`mesos_seccomp_enabled`](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-enabled) 和 [`mesos_seccomp_profile_name`](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/#mesos-seccomp-profile-name)。(DCOS-50038)
 - 很大的配额值可能会使 Mesos 管理节点崩溃。(DCOS-59695)
 - 从任务的提取程序收到很长的错误消息后，Marathon 会陷入崩溃循环。(COPS-5365, MARATHON-8698)
 - ACL 提供对任务的不当访问。(COPS-4929)
@@ -116,7 +118,7 @@ DC/OS 引入了新的诊断服务，增加了 CLI 命令 [`dcos diagnostics`](/m
 
 # 先前版本
 要查看与最新先前版本的不同，请查看以下链接：
-- [发布版本 1.10.11](/mesosphere/dcos/1.10/release-notes/1.10.11/) - 2019 年 2 月 12 日。
-- [发布版本 1.11.12](/mesosphere/dcos/1.11/release-notes/1.11.12/) - 2019 年 10 月 10 日。
-- [发布版本 1.12.4](/mesosphere/dcos/1.12/release-notes/1.12.4/) - 2019 年 7 月 2 日。
-- [发布版本 1.13.5](/mesosphere/dcos/1.13/release-notes/1.13.5/) - 2019 年 10 月 2 日
+- [发布版本 1.10.11](/mesosphere/dcos/cn/1.10/release-notes/1.10.11/) - 2019 年 2 月 12 日。
+- [发布版本 1.11.12](/mesosphere/dcos/cn/1.11/release-notes/1.11.12/) - 2019 年 10 月 10 日。
+- [发布版本 1.12.4](/mesosphere/dcos/cn/1.12/release-notes/1.12.4/) - 2019 年 7 月 2 日。
+- [发布版本 1.13.5](/mesosphere/dcos/cn/1.13/release-notes/1.13.5/) - 2019 年 10 月 2 日

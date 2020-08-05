@@ -3,18 +3,18 @@ layout: layout.pug
 navigationTitle:  监控服务
 title: 监控服务
 menuWeight: 3
-excerpt: 在 CLI 和 UI 监控部署的 DC/OS 服务
+excerpt: 从 CLI 和 UI 监控部署的 DC/OS 服务
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 enterprise: false
 ---
 
 
-您可以在 CLI 和 UI 监控部署的 DC/OS 服务。
+您可以从 CLI 和 UI 监控部署的 DC/OS 服务。
 
 # 监控 {{ model.packageRepo }} 服务
 
-##  CLI
+## CLI
 
 在 DC/OS CLI 中输入 `dcos service` 命令。在本示例中，您可以看到安装的 DC/OS 服务 Chronos、HDFS 和 Kafka。
 
@@ -28,13 +28,13 @@ kafka     <privatenode3>   True     0    0.0    0.0     0.0   <service-id3>
 
 ## UI
 
-查看监控 [文档](/mesosphere/dcos/cn/1.13/monitoring/)。
+查看监控 [文档](/mesosphere/dcos/cn/1.13/monitoring/).
 
 # 监控用户创建的服务
 
-##  CLI
+## CLI
 
-在 DC/OS CLI 中输入 `dcos task` 命令。在本示例中，您可以看到安装的 DC/OS 服务 Chronos、HDFS、Kafka 和用户创建的服务 `suzanne-simple-service`。
+在 DC/OS CLI 中输入 `dcos task` 命令。在本示例中，您可以看到安装的 DC/OS 服务 Chronos、HDFS、Kafka 和用户创建的服务 `suzanne-simple-service`.
 
 ```bash
 dcos task
@@ -46,4 +46,4 @@ suzanne-simple-service  10.0.3.224  root    R    suzanne-simple-service.47359150
 
 ## UI
 
-查看监控 [文档](/mesosphere/dcos/cn/1.13/monitoring/)。
+查看监控 [文档](/mesosphere/dcos/cn/1.13/monitoring/).

@@ -25,7 +25,7 @@ dcos security cluster ca cacert [OPTIONS]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 # 示例
 

@@ -17,9 +17,9 @@ enterprise: false
 - [Bash](https://www.gnu.org/software/bash/)
 - [Curl](https://curl.haxx.se/)
 - [jq](https://stedolan.github.io/jq/)
-- [DC/OS](/mesosphere/dcos/1.13/installing/)
-- 必须安装、配置和登录 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)。
-- 从 DC/OS CLI 提取 `DCOS_URL` 和 `DCOS_AUTH_TOKEN`：
+- [DC/OS](/mesosphere/dcos/cn/1.13/installing/)
+- 必须安装、配置和登录 [DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/)
+- 从 DC/OS CLI 提取 `DCOS_URL` 和 `DCOS_AUTH_TOKEN`
 
     ```
     DCOS_URL="$(dcos config show core.dcos_url)"
@@ -61,7 +61,7 @@ curl -k -H "Authorization: token=${DCOS_AUTH_TOKEN}" "${DCOS_URL}/system/v1/agen
 
 # 容器日志
 
-<p class="message--important"><strong>重要信息：</strong>以下示例需要进行 journald 任务日志记录，它默认为 [禁用](/mesosphere/dcos/1.13/monitoring/logging/logging-reference/#compatibility)。</p>
+<p class="message--important"><strong>重要信息：</strong>以下示例需要进行 journald 任务日志记录，它默认为 [禁用](/mesosphere/dcos/cn/1.13/monitoring/logging/logging-reference/#compatibility)。</p>
 
 从单个组件容器获取最后 100 个日志条目：
 

@@ -24,10 +24,10 @@ dcos security secrets update [OPTIONS] PATH
 | 名称 | 说明 |
 |------------------|----------------------|
 |`-s`, `--store-id <text>` | 要使用的密钥后端。|
-|`-v`, `--value <text>` | 密钥的值。|
-| `-t`, `--text-file`, `--value-file <filename>` | 将文件内容视为密钥的值。假定内容是通过 UTF-8 编码的文本。|
-| `-f`, `--file <filename>` | 使用原始文件内容作为密钥的值：将未修改的字节序列传递给 DC/OS 密钥服务。 |
-| `-h`, `--help` | 显示此消息并退出。 |
+|`-v`, `--value <text>`     |  密钥的值。|
+| `-t`, `--text-file`, `--value-file <filename>` | 将文件内容视为密钥的值。假设内容是通过 UTF-8 编码的文本。|
+|  `-f`, `--file <filename>`     |  使用原始文件内容作为密钥的值：将未修改的字节序列传递给 DC/OS 密钥服务。 |
+|  `-h`, `--help`        | 显示此消息并退出。|
 
 ## 位置自变量
 
@@ -39,4 +39,4 @@ dcos security secrets update [OPTIONS] PATH
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos security secrets](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) | 管理密钥。 |
+| [dcos security secrets](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-secrets/) |  管理您的密匙。 |

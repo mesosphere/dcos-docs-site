@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Mesos-DNS
+navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
 excerpt: 了解 Mesos DNS
@@ -12,9 +12,9 @@ enterprise: false
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
 
-[Mesos-DNS][1] 在群集内提供服务发现。它完全集成到 DC/OS，让群集上的应用程序和服务可以通过 [域名系统 (DNS)][2] 找到彼此，类似于服务在整个互联网中发现彼此的方式。
+[Mesos-DNS][1] 在群集内提供服务发现。它完全集成到 DC/OS，让群集上的应用程序和服务可以通过 [域名系统 (DNS)][2] 找到彼此，类似于服务在整个互联网中发现彼此的方式。Mesos-DNS 不执行任何缓存。
 
-[Marathon][3] 启动的应用程序分配有名称，例如 `search.marathon.mesos` 或 `log-aggregator.marathon.mesos`。Mesos-DNS 将名称解析到节点的 IP 地址和应用程序所使用的端口。DC/OS 应用程序和服务通过创建 DNS 查询或通过 REST API 提出 HTTP 请求来发现其他应用程序的 IP 地址和端口。
+[Marathon][3] 启动的应用程序分配有名称，例如 `search.marathon.mesos` 或 `log-aggregator.marathon.mesos`. Mesos-DNS 将名称解析到节点的 IP 地址和应用程序所使用的端口。DC/OS 应用程序和服务通过创建 DNS 查询或通过 REST API 提出 HTTP 请求来发现其他应用程序的 IP 地址和端口。
 
 # 设计
 
@@ -24,7 +24,7 @@ Mesos-DNS 专为可靠性和简单性而设计。它需要的配置很少，启�
 
 您可以通过添加额外的管理节点，以大量代理节点使群集中的 DNS 请求负载均衡；不需要另外配置。
 
-![Mesos-DNS](/mesosphere/dcos/2.0/img/mesos-dns.png)
+![Mesos-DNS](/mesosphere/dcos/cn/2.0/img/mesos-dns.png)
 
 图 1. Mesos-DNS 集成
 

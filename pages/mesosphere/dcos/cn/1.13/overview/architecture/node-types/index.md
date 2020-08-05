@@ -13,13 +13,13 @@ DC/OS 节点是 DC/OS 组件运行所在的虚拟机或物理机。DC/OS 节点�
 
 我们建议您使用在不同网络（专用、公共、主控）中设置的不同类型节点，如图 1 所示。
 
-![DC/OS 节点类型](/mesosphere/dcos/1.13/img/node-types-redesigned.png)
+![DC/OS 节点类型](/mesosphere/dcos/cn/1.13/img/node-types-redesigned.png)
 
 图 1 - DC/OS 节点类型
 
 使用特定于节点类型的防火墙设置保护群集免受外部影响。
 
-<p class="message--note"><strong>注意：</strong>不同节点之间的内部通信必须尽可能开放：</p>
+<p class="message--note"><strong>注意：</strong>不同节点之间的内部通信必须尽可能开放。</p>
 
 - 每个节点均须具有从本身到 DC/OS 群集中所有节点的不受限制 IP 至 IP 连接。
 - 所有端口都应打开，以进行从管理节点到代理节点的通信，反之亦然。
@@ -53,17 +53,17 @@ DC/OS 代理节点是用户任务运行所在的节点。代理节点包含几�
 
 ### 公共代理节点
 
-公共代理节点是位于网络上的代理节点，允许通过群集的 [基础架构网络](/mesosphere/dcos/cn/1.13/overview/concepts/#infrastructure-network) 从群集外部进入。
+公共代理节点是位于网络上的代理节点，允许通过群集的 [基础架构网络]从群集外部进入。(/mesosphere/dcos/cn/1.13/overview/concepts/#infrastructure-network).
 
 公共代理节点上的资源默认配置为仅分配给指定 `slave_public` 角色的任务。公共代理节点上的 Mesos 代理节点还具有 `public_ip:true` 代理属性以协助其发现。
 
-公共代理节点主要用于面向外部的反向代理负载均衡器，如 Marathon-LB。这样便提供了 [DMZ](https://en.wikipedia.org/wiki/DMZ_%28computing%29)，可以减少恶意攻击者能够访问的表面积。
+公共代理节点主要用于面向外部的反向代理负载均衡器，如 [Marathon-LB]。这样便提供了 [DMZ](https://en.wikipedia.org/wiki/DMZ_%28computing%29)，可以减少恶意攻击者能够访问的表面积。
 
 群集通常只有几个公共代理节点，因为几个负载均衡器通常可以处理多个服务代理。
 
 ### 专用代理节点
 
-专用代理节点是位于网络上的代理节点，不允许通过群集的 [基础架构网络](/mesosphere/dcos/cn/1.13/overview/concepts/#infrastructure-network) 从群集外部访问。
+专用代理节点是位于网络上的代理节点，不允许通过群集的 [基础架构网络]从群集外部访问。(/mesosphere/dcos/cn/1.13/overview/concepts/#infrastructure-network).
 
 专用代理节点上的资源默认配置为允许无差别的分配。更准确地说，资源被提供给 `*` 角色，从而允许将其分配给未指定角色的任务。有关详细信息，请参阅 [Mesos 资源角色](http://mesos.apache.org/documentation/latest/roles/)。
 
@@ -71,11 +71,11 @@ DC/OS 代理节点是用户任务运行所在的节点。代理节点包含几�
 
 ## 更多信息
 
-有关管理节点组件和代理节点组件的更多信息，请参阅 [组件](/mesosphere/dcos/cn/1.13/overview/architecture/components/)。
+有关管理节点组件和代理节点组件的更多信息，请参阅 [组件](/mesosphere/dcos/cn/1.13/overview/architecture/components/).
 
-有关安全的更多信息，请参阅 [保护您的群集](/mesosphere/dcos/cn/1.13/administering-clusters/securing-your-cluster/)。
+有关安全的更多信息，请参阅 [保护您的群集](/mesosphere/dcos/cn/1.13/administering-clusters/securing-your-cluster/).
 
-有关扩展群集的更多信息，请参阅 [添加代理节点](/mesosphere/dcos/cn/1.13/administering-clusters/add-a-node/)。
+有关扩展群集的更多信息，请参阅 [添加代理节点](/mesosphere/dcos/cn/1.13/administering-clusters/add-a-node/).
 
-有关配置公共节点的更多信息，请参阅 [转换代理节点类型](/mesosphere/dcos/cn/1.13/administering-clusters/convert-agent-type/)。
+有关配置公共节点的更多信息，请参阅 [转换代理节点类型](/mesosphere/dcos/cn/1.13/administering-clusters/convert-agent-type/).
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 创建服务
+navigationTitle:  创建服务
 title: 创建服务
 menuWeight: 1
 excerpt: 使用 Marathon 定义 DC/OS 服务
@@ -26,9 +26,9 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
     }
     ```
 
- 在上述示例中， `cmd` 是执行的命令。它的值由底层的 Mesos 执行器通过 `/bin/sh -c ${cmd}` 包装。
+    在上述示例中， `cmd` 是执行的命令。它的值由底层的 Mesos 执行器通过  包装。`/bin/sh -c ${cmd}`.
 
-1. 使用 [DC/OS CLI](/mesosphere/dcos/2.0/cli/) 将服务添加到 DC/OS。
+1. 使用 [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/) 将服务添加到 DC/OS。
 
     ```bash
     dcos marathon app add <your-service-name>.json
@@ -40,7 +40,7 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
 
 若要运行任何有意义的应用程序，通常依赖于一组资源：文件或文件存档。为了管理资源分配，Marathon 具有 URI（统一资源标识符）的概念。URL 使用 [Mesos 抓取器](http://mesos.apache.org/documentation/latest/fetcher/) 在下载（并可能）提取资源方面做好工作。
 
-示例：
+例如：
 
 ```json
 {
@@ -53,7 +53,7 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
 }
 ```
 
-上述示例执行 `cmd` 内容，下载资源 `https://example.com/app/cool-script.sh` (通过 Mesos)，并使其在服务实例的 Mesos 沙盒中可用。您可以通过访问 DC/OS Web 界面并单击 `basic-1` 的实例，然后单击**Files**选项卡来验证是否已下载。您应该在那里找到 `cool-script.sh`。
+上述示例执行 `cmd` 内容，下载资源 `https://example.com/app/cool-script.sh` (通过 Mesos)，并使其在服务实例的 Mesos 沙盒中可用。您可以通过访问 DC/OS Web 界面并单击 `basic-1` 的实例，然后单击**Files**选项卡来验证是否已下载。您应该在那里找到 `cool-script.sh`
 
 <p class="message--note"><strong>注意：</strong>默认情况下，抓取器不会使下载的文件可执行。在上述示例中，<code>cmd</code> 首先使文件可执行。</p>
 
@@ -67,7 +67,7 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
 * `.tar.xz`
 * `.zip`
 
-以下示例展示了这在实践中是如何进行的。假设您的应用程序可执行文件位于 `https://example.com/app.zip` 中的 zip文件中。此 zip 文件包含要执行的脚本 `cool-script.sh`。方法如下：
+以下示例展示了这在实践中是如何进行的。假设您的应用程序可执行文件位于  中的 zip文件中。`https://example.com/app.zip`. 此 zip 文件包含要执行的脚本 `cool-script.sh` 方法如下：
 
 ```json
 {
@@ -80,7 +80,7 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
 }
 ```
 
-与实例 `basic-1` 相反，我们现在有一个 `cmd`，值为 `app/cool-script.sh`。下载并解压缩 zip 文件后，根据文件名 `app.zip` 创建目录 `app`，并将 zip 文件的内容提取到其中。
+与实例 `basic-1` 相反，我们现在有一个 `cmd`，值为 `app/cool-script.sh`. 下载并解压缩 zip 文件后，根据文件名 `app` 创建目录 `app.zip`，并将 zip 文件的内容提取到其中。
 
 您可以指定多个资源。例如，您可以提供 Git 存储库以及 CDN 中的一些资源，如下所示：
 
@@ -111,8 +111,8 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
 
 在以下示例中，使用 Marathon API 将 Docker 应用程序部署到 DC/OS。Docker 应用程序是基于 Python&reg; 的 Web 服务器，使用 [python:3](https://registry.hub.docker.com/_/python/) 镜像。在容器内，Web 服务器在端口 `80`（`containerPort`的值）上运行。 `hostPort` 设置为 `0` 以便 Marathon 在 Mesos 代理节点上分配一个随机端口，该端口映射到容器内的端口 80。
 
-1. 选择是否使用 Universal Container Runtime (UCR) 或 Docker Engine 运行时间。请参阅[使用容器化工具](/mesosphere/dcos/2.0/deploying-services/containerizers/)。
- - 若要使用 Universal Container Runtime (UCR)，请将以下 JSON 粘贴到名为 `basic-3-mesos.json` 的文件中：
+1. 选择是否使用 Universal Container Runtime (UCR) 或 Docker Engine 运行时间。请参阅[使用容器化工具](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/).
+   - 若要使用 Universal Container Runtime (UCR)，请将以下 JSON 粘贴到名为 `basic-3-mesos.json` 的文件中:
 
       ```json
       {
@@ -135,7 +135,7 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
       }
       ```
 
- - 若要使用 Docker Engine 运行时间，请将以下 JSON 粘贴到名为 `basic-3-docker.json` 的文件中：
+    - 若要使用 Docker Engine 运行时间，请将以下 JSON 粘贴到名为  的文件中：`basic-3-docker.json`:
 
       ```json
       {
@@ -166,7 +166,7 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
       }
       ```
 
-1. 使用 [Marathon API](/mesosphere/dcos/2.0/deploying-services/marathon-api/) 部署应用程序 `basic-3-docker`。请参阅 [验证 HTTP API 端点](/mesosphere/dcos/2.0/security/ent/iam-api/) 以了解有关如下命令中所需的 API 令牌的更多信息。
+1. 使用 [Marathon API](/mesosphere/dcos/cn/2.0/deploying-services/marathon-api/) 部署应用程序 `basic-3-docker`. 请参阅 [验证 HTTP API 端点](/mesosphere/dcos/cn/2.0/security/ent/iam-api/) 以了解有关如下命令中所需的 API 令牌的更多信息。
 
     ```sh
      curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)" -X POST <master-IP>/service/marathon/v2/apps -d @basic-3-docker.json -H "Content-type: application/json"
@@ -176,9 +176,9 @@ Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例�
 1. 单击 `basic-3-docker`，然后单击任务 ID。
 1. 向下滚动到 **Marathon Task Configuration** 部分，并记录 PORTS 属性。
 
- ![容器端口](/mesosphere/dcos/2.0/img/container-port.png)
+   ![容器端口](/mesosphere/dcos/cn/2.0/img/container-port.png)
 
- 图 1. 容器端口
+   图 1. 容器端口
    
-1. 确定[公共节点的 IP 地址](/mesosphere/dcos/2.0/administering-clusters/locate-public-agent/)。
+1. 确定[公共节点的 IP 地址](/mesosphere/dcos/cn/2.0/administering-clusters/locate-public-agent/).
 1. 导航至 `<public-node-IP>:<port>` 以查看 Docker 容器根目录的内容。

@@ -42,7 +42,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
   </tr>
   <tr>
     <td>InternetGateway</td>
-    <td>互联网网关 ID，必须附加到 <code>Vpc</code>。供所有节点在向外互联网访问时使用。</td>
+    <td>互联网网关 ID，必须附加到 <code>VPC</code>. 供所有节点在向外互联网访问时使用。</td>
   </tr>
   <tr>
     <td>KeyName</td>
@@ -78,7 +78,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
   </tr>
   <tr>
     <td>VPC</td>
-    <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
+    <td>要使用的现有 VPC。节点将使用该 VPC 项下的子网和互联网网关启动</td>
   </tr>
 </table>
 
@@ -221,7 +221,7 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
   </tr>
   <tr>
     <td>InternetGateway</td>
-    <td>互联网网关 ID，必须附加到“Vpc”。供所有节点在向外互联网访问时使用。</td>
+    <td>互联网网关 ID，必须附加到“VPC”。供所有节点在向外互联网访问时使用。</td>
   </tr>
   <tr>
     <td>KeyName</td>
@@ -237,6 +237,6 @@ Zen 模板（例如，`ee.elzen-1.json`) 编排各个组件模板。
   </tr>
   <tr>
     <td>VPC</td>
-    <td>要使用的现有 VPC。节点将使用该 VPC </td>项下的子网和互联网网关启动
+    <td>要使用的现有 VPC。节点将使用该 VPC 项下的子网和互联网网关启动</td>
   </tr>
 </table>

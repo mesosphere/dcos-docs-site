@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 任务处理
+navigationTitle:  任务处理
 title: 任务处理
 menuWeight: 1
 excerpt: 了解 Marathon 任务类别
@@ -11,9 +11,9 @@ enterprise: false
 
 Marathon&trade; 将任务分为三类：初始、非终端和终端。这些类别中的任务可能处于下图所示的一种状态。要了解任务的状态，可以查看 DC/OS&trade; 日志或查询 [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events) 的[事件流](http://mesosphere.github.io/marathon/docs/event-bus.html)。
 
-也可以 [在无法访问任务时配置 Marathon 的行为](/mesosphere/dcos/2.0/deploying-services/task-handling/configure-task-handling/)。
+也可以 [在无法访问任务时配置 Marathon 的行为](/mesosphere/dcos/cn/2.0/deploying-services/task-handling/configure-task-handling/).
 
-![Task Handling Flow](/mesosphere/dcos/2.0/img/task-handling-corrected.png)
+![Task Handling Flow](/mesosphere/dcos/cn/2.0/img/task-handling-corrected.png)
 
 图 1. 任务处理图
 
@@ -45,7 +45,7 @@ case TASK_GONE_BY_OPERATOR => Gone
 ```
 任务在管理节点联系不到的代理上运行；算子断定该代理已关闭，但尚未得到管理节点的直接确认。如果运算符正确，则任务未运行，这是终端状态。如果运算符错误，则任务可能仍在运行，并且将来可能返回到运行状态。Marathon 将任务标记为失败后，就会将其排除并启动新的任务。
 
-鉴于代理被视为已消失且无法提供这些卷，如果任务配置为使用 [本地持久卷](/mesosphere/dcos/2.0/storage/persistent-volume)，则这些将被放弃。将创建一个新任务作为替代，并使用新卷。
+鉴于代理被视为已消失且无法提供这些卷，如果任务配置为使用 [本地持久卷](/mesosphere/dcos/cn/2.0/storage/persistent-volume)，则这些将被放弃。将创建一个新任务作为替代，并使用新卷。
 
 ```
 case TASK_FINISHED => Finished

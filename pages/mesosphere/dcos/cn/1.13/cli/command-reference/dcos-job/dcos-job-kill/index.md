@@ -23,7 +23,7 @@ dcos job kill <job-id> (<run-id>|--all)
 
 | 名称 | 说明 |
 |---------|-------------|
-|`-h`，`--help` | 打印用法。 |
+|`-h`, `--help` | 打印用法。 |
 | `--all` | 不是指定要终止的一个 `run_id`，而是表示应该终止所有运行。|
 
 
@@ -31,12 +31,12 @@ dcos job kill <job-id> (<run-id>|--all)
 
 | 名称 | 说明 |
 |---------|-------------|
-| `run-id` | 作业运行的运行 ID。 |
-| `job-id` | 作业 ID。 |
+| `run-id`   | 作业运行的运行 ID。 |
+| `job-id`   | 作业 ID。 |
 
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-|  [dcos job](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/)  | 在 DC/OS 中部署和管理作业。|
+| [dcos job](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-job/) |  在 DC/OS 中部署和管理作业。 |

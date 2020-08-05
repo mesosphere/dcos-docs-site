@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 故障排除
+navigationTitle:  故障排除
 title: 故障排除
 menuWeight: 25
 excerpt: 排除 DC/OS 安装问题
@@ -13,25 +13,26 @@ excerpt: 排除 DC/OS 安装问题
 
 ## IP 检测脚本
 
-您必须具有有效的 [ip-detect](/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
+您必须具有有效的 [ip-detect](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/#create-an-ip-detection-script) 脚本。您可以手动运行群集中所有节点上的 `ip-detect`，或检查现有装置上的 `/opt/mesosphere/bin/detect_ip`，以确保其返回有效的 IP 地址。有效的 IP 地址没有：
 
- - 额外的行
- - 空白空间
- - 特殊或隐藏字符
+  - 额外的行
+  - 空白空间
+  - 特殊或隐藏字符
 
-我们建议您使用 `ip-detect` [示例](/mesosphere/dcos/2.0/installing/production/deploying-dcos/installation/)。
+我们建议您使用 `ip-detect` [示例](/mesosphere/dcos/cn/2.0/installing/production/deploying-dcos/installation/).
 
 ## DNS 解析器
 
-您必须有正常运行的 DNS 解析器，这在您的 [config.yaml](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下 _必须_ 工作才能支持 DC/OS 服务，包括 Spark：
+您必须有正常运行的 DNS 解析器，这在您的 [config.yaml](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/#resolvers) 文件中指定。我们建议您对 FQDN、短主机名和 IP 地址进行正向和反向查找。DC/OS 可以在没有有效 DNS 支持的环境中运行，但以下 _必须_ 工作才能支持 DC/OS 服务，包括 Spark：
 
- - `hostname -f` 返回 FQDN
- - `hostname -s` 返回短主机名
+  - `hostname -f` 返回 FQDN
+  - `hostname -s` 返回短主机名
 
- 您还应对所有节点上 `hostnamectl` 的输出执行运行状况检查。
+    您还应对所有节点上 `hostnamectl` 的输出执行运行状况检查。
 
 在排除 DC/OS 安装问题时，您应该按以下顺序检查组件：
 
+ 1. 时间同步
  1. Exhibitor
  1. Apache&reg; Mesos&reg; 管理节点
  1. Mesos DNS
@@ -42,15 +43,17 @@ excerpt: 排除 DC/OS 安装问题
 
  确保在验证代理节点之前先验证所有服务都在管理节点上是否都运行且状态良好。
 
- ### NTP
+* 网络时间协议 (NTP) 必须在所有节点上启用，以便时钟同步。默认情况下，在 DC/OS 启动期间，如果未启用，将会出现错误。您可以通过运行以下一个命令来验证 NTP 是否启用，具体取决于您的 OS 和配置：
 
- 网络时间协议 (NTP) 必须在所有节点上启用，以便时钟同步。默认情况下，在 DC/OS 启动期间，如果未启用，将会出现错误。您可以通过运行以下一个命令来验证 NTP 是否启用，具体取决于您的 OS 和配置：
-
-```bash
-ntptime
-adjtimex -p
-timedatectl
-```
+    ```bash
+    ntptime
+    ```
+    ```bash
+    adjtimex -p
+    ```
+    ```bash
+    timedatectl
+    ```
 
 * 确保防火墙和任何其他连接过滤机制不干扰群集组件通信。必须允许 TCP、UDP 和 ICMP。
 
@@ -61,74 +64,71 @@ timedatectl
    sudo systemctl disable dnsmasq && sudo systemctl stop dnsmasq
    ```
 
-* 验证 Exhibitor 是否已在 `http://<MASTER_IP>:8181/exhibitor` 上运行。如果 Exhibitor 未启动和运行：
+* 验证 Exhibitor 确实在端口 8181 上侦听。
 
- - 对管理节点执行 [SSH](/mesosphere/dcos/2.0/administering-clusters/sshcluster/)，并输入以下命令来检查 Exhibitor 服务日志：
+   在带有静态管理节点列表的 DC/OS Enterprise 群集中，在管理节点上运行以下命令：
+   ```bash
+   sudo curl --cacert /var/lib/dcos/exhibitor-tls-artifacts/root-cert.pem --cert /var/lib/dcos/exhibitor-tls-artifacts/client-cert.pem --key /var/lib/dcos/exhibitor-tls-artifacts/client-key.pem https://localhost:8181/exhibitor/v1/cluster/status
+   ```
 
-    ```bash
-    journalctl -flu dcos-exhibitor
-    ```
+   在其他群集中，在管理节点上运行以下命令：
+   ```bash
+   curl http://localhost:8181/exhibitor/v1/cluster/status
+   ```
 
-* 验证 `/tmp` 是否挂载 *无* `noexec`。如果挂载有 `noexec`，Exhibitor 将无法启用 ZooKeeper&trade;，因为 Java JNI 不能 `exec` 其在 `/tmp` 中创建的文件，而且您会在日志中看到多个 `permission denied` 错误。
+   如 Exhibitor 有响应，请验证上述命令的输出会显示正确数量的管理节点，并且所有这些管理节点都有 `"description": "serving"` ，而只有其中一个有 `"isLeader": true`。
 
-* 要修复挂载有 `/tmp` 的 `noexec`，请运行以下命令：
-
-    ```bash
-    mount -o remount,exec /tmp
-    ```
-
-
-* 检查 `/exhibitor/v1/cluster/status` 的输出，并验证其是否显示了正确数量的管理节点，所有管理节点是否为 `"serving"`，但只有其中一个被指定为 `"isLeader": true`。
-
- 例如，对管理节点执行 [SSH](/mesosphere/dcos/2.0/administering-clusters/sshcluster/) 并输入以下命令：
-
-    ```json
-    curl -fsSL http://localhost:8181/exhibitor/v1/cluster/status | python -m json.tool
-    [
-            {
-                "code": 3,
-                "description": "serving",
-                "hostname": "10.0.6.70",
-                "isLeader": false
-            },
-            {
-                "code": 3,
-                "description": "serving",
-                "hostname": "10.0.6.69",
-                "isLeader": false
-            },
-            {
-                "code": 3,
-                "description": "serving",
-                "hostname": "10.0.6.68",
-                "isLeader": true
-            }
-        ]
-    ```
+   ```
+   [
+      {
+         "code": 3,
+         "description": "serving",
+         "hostname": "10.0.6.70",
+         "isLeader": false
+      },
+      {
+         "code": 3,
+         "description": "serving",
+         "hostname": "10.0.6.69",
+         "isLeader": false
+      },
+      {
+         "code": 3,
+         "description": "serving",
+         "hostname": "10.0.6.68",
+         "isLeader": true
+      }
+   ]
+   ```
 
 
-<p class="message--note"><strong>注意：</strong>在多管理节点配置中运行此命令需要 10-15 分钟才能完成。如果 10-15 分钟后未完成，请认真查看 <code>journalctl -flu dcos-exhibitor</p> 日志。</code>
+   <p class="message--note"><strong>注意：</strong>在多管理节点配置中运行此命令需要 15 分钟才能完成。</p>
 
-* 验证您是否可以 ping DNS 转发器 (`ready.spartan`)。如果没有，请查看 DNS 调度器服务日志：
+   如有任何问题，请检查 Exhibitor 日志：
+   ```bash
+   journalctl -flu dcos-exhibitor
+   ```
+
+* 验证您是否可以 ping DNS 转发器 (`ready.spartan`). 如果没有，请查看 DNS 调度器服务日志：
 
     ```bash
     journalctl -flu dcos-net﻿⁠⁠⁠⁠
     ```
 
-* 验证您是否可以 ping `⁠⁠⁠⁠leader.mesos` 和 `master.mesos`。如果不可以：
- - 使用此命令查看 Mesos-DNS 服务日志：
+* 验证您是否可以 ping `⁠⁠⁠⁠leader.mesos` 和 `master.mesos`. 如果不可以：
+    - 使用此命令查看 Mesos-DNS 服务日志：
 
     ```bash
     journalctl -flu dcos-mesos-dns﻿⁠⁠⁠⁠
     ```
 
- - 如果能够 ping `ready.spartan`，但不是 `leader.mesos`，则使用以下命令查看 Mesos 管理节点服务日志：
+    - 如果能够 ping `ready.spartan`，但不是 `leader.mesos`，则使用以下命令查看 Mesos 管理节点服务日志：
 
        ```bash
        ⁠⁠⁠⁠journalctl -flu dcos-mesos-master
        ```
        ﻿
- Mesos 管理节点必须在 Mesos-DNS 从 `⁠⁠⁠⁠/state` 生成其 DNS 记录之前，与选举的领导节点一起启动并运行。
+       Mesos 管理节点必须在 Mesos-DNS 从  生成其 DNS 记录之前，与选举的领导节点一起启动并运行。`⁠⁠⁠⁠/state`.﻿⁠⁠⁠⁠
 
 # <a name="component-logs"></a>组件日志
 
@@ -259,7 +259,7 @@ Mesos 管理节点进程在管理节点上开始。`mesos-master` 进程在群�
 
 ### 故障排除
 
-* 直接转到 Mesos Web 界面，并在 `<master-hostname>/mesos` 中查看其状态。
+* 直接转到 Mesos Web 界面，并在  中查看其状态。`<master-hostname>/mesos`.
 * 对管理节点执行 SSH，并输入以下命令来查看从启动时间起的日志：
 
     ```bash
@@ -304,11 +304,11 @@ mesos-dns[1197]: I1118 13:59:34.766124 1197 detect.go:313] resting before next d
 
 ## <a name="zookeeper-and-exhibitor"></a>ZooKeeper 和 Exhibitor
 
-ZooKeeper 和 Exhibitor 在管理节点上启动。Exhibitor 存储位置必须正确配置才能让其工作。如需更多信息，请参阅 [exhibitor_storage_backend](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数。
+ZooKeeper 和 Exhibitor 在管理节点上启动。Exhibitor 存储位置必须正确配置才能让其工作。如需更多信息，请参阅 [exhibitor_storage_backend](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/#exhibitor-storage-backend) 参数。
 
-DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已安装的 DC/OS 服务。Exhibitor 在 DC/OS 安装期间自动配置管理节点上的 ZooKeeper。如需更多信息，请参阅 [配置参数](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/)。
+DC/OS 使用 ZooKeeper，后者是一个高性能协调服务，用来管理已安装的 DC/OS 服务。Exhibitor 在 DC/OS 安装期间自动配置管理节点上的 ZooKeeper。如需更多信息，请参阅 [配置参数](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/).
 
-* 转到 Exhibitor Web 界面，并在 `<master-hostname>/exhibitor` 中查看状态。
+* 转到 Exhibitor Web 界面，并在  中查看状态。`<master-hostname>/exhibitor`.
 
 * 对管理节点执行 SSH，并输入以下命令来查看从启动时间起的日志：
 

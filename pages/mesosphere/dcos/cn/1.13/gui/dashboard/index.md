@@ -9,7 +9,7 @@ model: /mesosphere/dcos/1.13/data.yml
 ---
 仪表板是 DC/OS UI 的主页。该界面提供有关 DC/OS 群集的高级概述。
 
-![Dashboard](/mesosphere/dcos/1.13/img/dashboard-ee-1-12.png)
+![Dashboard](/mesosphere/dcos/cn/1.13/img/dashboard-ee-1-12.png)
 
 图 1 - 仪表板
 

@@ -10,18 +10,18 @@ beta: false
 enterprise: false
 ---
 
-使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-task/) 中有更全面的描述。
+使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考]中有更全面的描述。(/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-task/).
 
 **前提条件：**
 
-- 您必须 [安装了](/mesosphere/dcos/cn/1.13/installing/) DC/OS 和 DC/OS CLI。
+- 您必须 [安装了] DC/OS 和 DC/OS CLI。(/mesosphere/dcos/cn/1.13/installing/).
 
-- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/mesosphere/dcos/cn/1.13/monitoring/logging/access-component-logs/) 和 [访问任务日志](/mesosphere/dcos/cn/1.13/monitoring/logging/access-task-logs/)。
+- 您必须以超级用户身份登录，或者已被授予对日志记录的用户访问权限。如需更多信息，请参阅 [访问系统和组件日志](/mesosphere/dcos/cn/1.13/monitoring/logging/access-component-logs/) 和 [访问任务日志](/mesosphere/dcos/cn/1.13/monitoring/logging/access-task-logs/).
 
 # 部署一个示例应用程序
 部署一个示例 Marathon 应用程序供在本快速入门指南中使用。
 
-1. 创建以下 Marathon 应用定义并另存为 `test-log.json`。
+1. 创建以下 Marathon 应用定义并另存为 `test-log.json`.
 
     ```json
     {
@@ -54,7 +54,7 @@ enterprise: false
 
 # 查看 Mesos 和 DC/OS 日志
 
-您可以通过 DC/OS CLI `dcos task log` 命令来本地访问 Mesos `stderr` 和 `stdout` 日志。此例中，启动了一个任务，并访问 `stderr` 和 Mesos `stdout` 日志。
+您可以通过 DC/OS CLI `stderr` 命令来本地访问 Mesos `stdout` 和 `dcos task log` 日志。此例中，启动了一个任务，并访问 `stderr` 和 Mesos `stdout` 日志。
 
 1. 运行此命令以查看 `stdout` 日志，其中 `<task_id>` 是任务 ID：
 
@@ -99,7 +99,7 @@ enterprise: false
 
 # 查看 Mesos 任务和系统日志
 
-您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考] (/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) 部分找到。
+您可以使用 `dcos node log` 命令，查看任务或主机系统的日志。关于这些命令的更多信息可在 [CLI 命令参考](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-node/) 部分找到。
 
 1. 运行此命令以查看领导 Mesos 管理节点日志：
 
@@ -153,7 +153,7 @@ enterprise: false
         ...
         ```
 
-    - 代理节点，其中您的节点 ID  (`<mesos-id>`) 已指定：
+    - 代理节点，其中您的节点 ID (`<mesos-id>`) 已指定：
 
        ```bash
        dcos node list-components --mesos-id=<mesos-id>

@@ -7,10 +7,7 @@ menuWeight: 8
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
-
-
-在[上一教程](/mesosphere/dcos/cn/1.13//tutorials/dcos-101/app1/)中，您部署了一个在群集内部运行并与另一个也在群集内运行的应用程序（Redis 服务）进行交互的应用程序。两个应用程序都不在群集外部公开，也不可供任何外部用户使用。这是因为 DC/OS 支持在两种不同类型的节点上运行应用程序： **专用代理节点** 和 **公共代理节点**。
+在[上一教程](/mesosphere/dcos/cn/1.13/tutorials/dcos-101/first-app/)中，您部署了一个在群集内部运行并与另一个也在群集内运行的应用程序（Redis 服务）进行交互的应用程序。两个应用程序都不在群集外部公开，也不可供任何外部用户使用。这是因为 DC/OS 支持在两种不同类型的节点上运行应用程序： **专用代理节点** 和 **公共代理节点**。
 
 到目前为止，您只能使用在专用代理节点上运行的应用程序和服务，而这些节点无法从群集外部访问。要向外部世界公开服务或应用程序，您通常使用在公共节点上运行的负载均衡器。
 
@@ -23,7 +20,7 @@ model: /mesosphere/dcos/1.13/data.yml
 在开始本教程前，您应验证以下内容：
 - 您可以通过至少一个管理节点和三个代理节点来访问运行中的 [DC/OS 群集](../start-here/)。
 - 您可以访问安装了 [DC/OS CLI](../cli/) 的计算机。
-- 您拥有在群集中部署和运行的示例 [dcos-101/app1](/mesosphere/dcos/cn/1.13/tutorials/dcos-101/app1/) 应用程序。
+- 您在群集中部署和运行了示例 [dcos-101/first-app](/mesosphere/dcos/cn/1.13/tutorials/dcos-101/first-app/) 应用程序。
 
 # 学习目的
 完成本教程，您将学习到：
@@ -84,7 +81,7 @@ model: /mesosphere/dcos/1.13/data.yml
 1. 关闭用于查看示例应用程序的原始 HTML 响应的管理节点上的会话。
 
 # 安装负载均衡器
-公共代理节点允许来自群集以外客户端的入站访问请求。公共代理通过负载均衡器暴露于外部世界。对于本教程，您将安装 [Marathon-LB](/mesosphere/dcos/services/marathon-lb/) 作为负载均衡器，为群集内部运行的应用程序提供外部访问。
+公共代理节点允许来自群集以外客户端的入站访问请求。公共代理通过负载均衡器暴露于外部世界。对于本教程，您将安装 [Marathon-LB](/mesosphere/dcos/cn/services/marathon-lb/) 作为负载均衡器，为群集内部运行的应用程序提供外部访问。
 
 1. 通过运行以下命令安装 Marathon-LB：
 
@@ -123,26 +120,26 @@ model: /mesosphere/dcos/1.13/data.yml
     从 `dcos node list` 命令的输出中，您可以看到与 `marathon-lb` 任务运行所在的专用 IP 地址相对应的公共 IP 地址。在本示例中，Marathon-LB 服务的公共 IP 地址为 34.214.200.181。
 
 # 使用公共 IP 地址连接
-1. 使用公共 IP 地址和端口 10000 从您的本地计算机连接到 Web 应用程序。例如：`34.214.200.181:10000`。
+1. 使用公共 IP 地址和端口 10000 从您的本地计算机连接到 Web 应用程序。例如：`34.214.200.181:10000`.
 
     您应该看到一个简单的 web 页面表单，类似于：
 
-    ![app2 网页示例](/mesosphere/dcos/1.13/img/tutorial-webpage.png)
+    ![app2 网页示例](/mesosphere/dcos/cn/1.13/img/tutorial-webpage.png)
 
 1. 添加新密钥并添加新值，然后使用示例应用程序基于 Web 的前端单击 **保存**。
 
-1. 通过运行 `dcos task log app1` 命令，使用 `app1` 示例应用程序验证密钥总数。
+1. 通过运行 `app1` 命令，使用 `dcos task log app1` 示例应用程序验证密钥总数。
 
 1. 通过运行 `dcos task`，复制 Redis 服务返回的 Mesos ID，然后打开运行 Redis 服务的节点上的安全外壳来直接检查 Redis。
 
-    例如，如果 `dcos task` 输出显示 Redis 任务 `Mesos ID` 列的 `dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0`，您可以使用以下方式连接到节点：
+    例如，如果 `dcos task` 输出显示 Redis 任务 `dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0` 列的 `Mesos ID`，您可以使用以下方式连接到节点：
 
     ```bash
     dcos node ssh --master-proxy --mesos-id=dedbb786-feb7-47f2-ae69-27bf86ba53fb-S0
     ```
     
     连接到代理节点之后，执行以下操作：
-    - 使用 `docker ps` 为代理列出 Docker 容器。
+    - 使用  为代理列出 Docker 容器。`docker ps`.
     
     - 从 `docker ps` 命令输出中复制 Redis 任务的 ContainerID 。
     
@@ -160,7 +157,7 @@ model: /mesosphere/dcos/1.13/data.yml
 祝贺您！您已部署使用本地 DC/OS UCR 容器的示例应用程序，使用 Marathon-LB 向公众公开该应用程序，并通过使用 Web 前端向 Redis 服务添加新密钥来测试您公开可用的应用程序。
 
 # 相关主题
-DC/OS 使用[容器化工具](/mesosphere/dcos/cn/1.13//deploying-services/containerizers/)在容器中运行任务。在容器中运行任务使您能够将任务彼此隔离并以编程方式控制任务资源。DC/OS 支持两种类型的容器化工具：
+DC/OS 使用[容器化工具](/mesosphere/dcos/cn/1.13/deploying-services/containerizers/)在容器中运行任务。在容器中运行任务使您能够将任务彼此隔离并以编程方式控制任务资源。DC/OS 支持两种类型的容器化工具：
 
 - DC/OS 通用容器化工具运行时（Universal Containerizer Runtime, UCR)
 - Docker 容器化工具
@@ -169,4 +166,4 @@ DC/OS 使用[容器化工具](/mesosphere/dcos/cn/1.13//deploying-services/conta
 
 对于您的第一个应用程序，您使用了 Docker 容器镜像来封装依赖关系，因此您不需要依赖代理上可用的特定程序。然后，您使用 Docker 容器化工具运行 Docker 镜像中打包的应用程序。由于 Docker 容器化工具在内部使用 [Docker 运行时间](https://docs.docker.com/engine/userguide/intro/)，因此您还使用了 Docker 运行时间。
 
-对于您的第二个示例应用程序，您没有任何依赖关系。因为没有外部依赖关系，您可以依赖默认 DC/OS 通用容器化工具运行时。在内部，两个容器化工具运行时都使用相同的操作系统功能进行资源隔离，即[cgroups](https://en.wikipedia.org/wiki/Cgroups) 和 [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces) 。
+对于您的第二个示例应用程序，您没有任何依赖关系。因为没有外部依赖关系，您可以依赖默认 DC/OS 通用容器化工具运行时。在内部，两个容器化工具运行时都使用相同的操作系统功能进行资源隔离，即[cgroups](https://en.wikipedia.org/wiki/Cgroups) 和 [namespaces](https://en.wikipedia.org/wiki/Linux_namespaces)

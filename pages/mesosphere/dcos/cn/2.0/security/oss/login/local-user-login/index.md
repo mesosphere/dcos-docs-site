@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 本地用户登录
+navigationTitle:  本地用户登录
 title: 本地用户登录
 excerpt: 以本地用户地身份登录到 DC/OS
 render: mustache
@@ -13,11 +13,11 @@ menuWeight: 20
 # 使用 DC/OS CLI 登录
 
 **前提条件：**
-- [DC/OS CLI](/mesosphere/dcos/2.0/cli/)
+- [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)
 
-使用 [DC/OS CLI](/mesosphere/dcos/2.0/cli/)，可以通过指定 `dcos-users` 登录提供商，以本地 DC/OS 用户的身份登录。
+使用 [DC/OS CLI](/mesosphere/dcos/cn/2.0/cli/)，可以通过指定 `dcos-users` 登录提供商，以本地 DC/OS 用户的身份登录。
 
-1. 要通过 DC/OS CLI 登录，请替换以下 [auth login](/mesosphere/dcos/2.0/cli/command-reference/dcos-auth/dcos-auth-login/) 命令中的 `uid` 和 `password`：
+1. 要通过 DC/OS CLI 登录，请替换以下 [auth login]`uid` 命令中的 `password` 和 (/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-auth/dcos-auth-login/)
 
     ```bash
     dcos auth login --provider=dcos-users --username=<uid> --password=<password>
@@ -37,9 +37,9 @@ menuWeight: 20
 
 # 使用 IAM API 登录
 
-本地用户可以使用 [身份和访问管理 (IAM) API](/mesosphere/dcos/2.0/security/oss/iam-api/)登录。
+本地用户可以使用 [身份和访问管理 (IAM) API]登录。(/mesosphere/dcos/cn/2.0/security/oss/iam-api/).
 
-1. 要登录本地用户账户，请替换以下命令中的 `<uid>` 和 `<password>`：
+1. 要登录本地用户账户，请替换以下命令中的 `<uid>` 和 `<password>`
 
     ```bash
     curl -X POST http://<host-ip>/acs/api/v1/auth/login -d '{"uid": "<uid>", "password": "<password>"}' -H 'Content-Type: application/json'

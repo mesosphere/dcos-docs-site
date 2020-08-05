@@ -15,13 +15,13 @@ enterprise: true
 **前提条件：**
 
 - [DC/OS CLI 已安装](/mesosphere/dcos/cn/1.13/cli/install/)
-- 通过 `dcos auth login` 作为超级用户登录到 DC/OS CLI
-- [安装的 GNU 隐私保护 (GPG)](http：//brewformulas.org/gnupg)
-- 必须遵守 [下载根证书] (/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)中的步骤才能发布此部分的 `curl` 命令。
+- 通过  作为超级用户登录到 DC/OS CLI`dcos auth login`
+- [安装的 GNU 隐私保护 (GPG)](http://brewformulas.org/gnupg)
+- 必须遵守 [下载根证书](/mesosphere/dcos/cn/1.13/security/ent/tls-ssl/get-cert/)中的步骤才能发布此部分的 `curl` 命令。
 
 ## <a name="1"></a>编辑 SECRETS_BOOTSTRAP 值
 
-1. [通过 SSH 进入主节点](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/)。
+1. [通过 SSH 进入主节点](/mesosphere/dcos/cn/1.13/administering-clusters/sshcluster/).
 
 2. 在您选择的编辑器中打开 `dcos-secrets.env` 文件。
 
@@ -69,9 +69,9 @@ enterprise: true
    /opt/mesosphere/packages/exhibitor--*/usr/zookeeper/bin/zkCli.sh
    ```
 
-1. 执行以下 ZooKeeper 命令以获得额外权限，必要时使用 ZooKeeper 超级用户的实际用户名和密码替换 `super:secret` 。
+1. 执行以下 ZooKeeper 命令以获得额外权限，必要时使用 ZooKeeper 超级用户的实际用户名和密码替换 `super:secret`
 
-  <p class="message--note"><strong>注意：</strong>默认情况下，DC/OS 将 Zookeeper 超级用户设置为 <code>super:secret</code>，但我们建议 <a href="/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/#zk-superuser">更改默认值</a>。</p>
+  <p class="message--note"><strong>注意：</strong>默认情况下，DC/OS 将 ZooKeeper 超级用户设置为 <code>super:secret</code>，但我们建议<a href="/mesosphere/dcos/1.13/installing/production/advanced-configuration/configuration-reference/#zk-superuser">更改默认值</a>.</p>
 
 
    ```bash
@@ -135,7 +135,7 @@ enterprise: true
 
 1. 使用以下命令导出公钥，对其进行 base64 编码并删除换行符。在执行命令之前，将下面的 `<key-ID>` 替换为公钥的字母数字 ID。
 
-  <p class="message--note"><strong>注意：</strong>在以下行中， <code>gpg: key CCE6A37D</code> 标记为 <code>最终信任</code>，而 <code>CCE6A37D</code> 表示公钥的 ID。</p>
+  <p class="message--note"><strong>注意：</strong>在以下行中，<code>gpg: key CCE6A37D</code> 标记为<code>最终信任</code>，而 <code>CCE6A37D</code> 表示公钥的 ID。</p>
 
    ```bash
    gpg --export <key-ID> | base64 -w 0 | tr '\n' ' '
@@ -158,4 +158,4 @@ enterprise: true
    {"keys":["c1c14c03483...c400"],"pgp_fingerprints":["1ff31b0af...d57b464df4"],"root_token":"da8e3b55-8719-4594-5378-4a9f3498387f"}
    ```
 
-祝贺您！您已成功重新初始化密钥存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的密钥存储库](/mesosphere/dcos/cn/1.13/security/ent/secrets/unseal-store/#unseal-cust-keys)。
+祝贺您！您已成功重新初始化密钥存储库。要拆封它，请参阅[使用自定义钥匙拆封密封的密钥存储库](/mesosphere/dcos/cn/1.13/security/ent/secrets/unseal-store/#unseal-cust-keys).

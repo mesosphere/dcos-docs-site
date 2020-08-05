@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 配置任务处理
+navigationTitle:  配置任务处理
 title: 配置任务处理
 menuWeight: 0
 excerpt: 为无法访问的任务配置 Marathon
@@ -29,7 +29,7 @@ enterprise: false
 可以将 `inactiveAfterSeconds` 和 `expungeAfterSeconds` 合在一起使用。例如，配置 `inactiveAfterSeconds = 60` 和 `expungeAfterSeconds = 120` 之后，实例超过 120 秒仍然不可访问即被排除，如果超过 60 秒仍然不可访问，就会启动第二个实例。
 
 ## 关闭选项
-还可以定义关闭选项，声明 Marathon 在重新扩展或另行关闭多项任务时，首先关闭的是最新还是最旧的任务。此参数的默认值为 `YoungestFirst`。也可以指定 `OldestFirst`。
+还可以定义关闭选项，声明 Marathon 在重新扩展或另行关闭多项任务时，首先关闭的是最新还是最旧的任务。此参数的默认值为 `YoungestFirst`. 也可以指定 `OldestFirst`.
 
 将 `killSelection` 参数添加到应用定义，或添加到 Pod 定义的 `PodSchedulingPolicy` 参数。
 

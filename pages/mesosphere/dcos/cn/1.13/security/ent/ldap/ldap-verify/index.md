@@ -9,6 +9,7 @@ render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 
+<!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
 在本部分中，您将验证您提供的参数是否允许 DC/OS 连接到 LDAP 服务器。
 
@@ -22,4 +23,4 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 单击 **Test Connection**。
 
-1. 您应该看以下消息：`Connection with LDAP server was successful!`如果测试失败，请阅读错误消息以确定并解决问题。
+1. 您应该看以下消息：`Connection with LDAP server was successful!`。如果测试失败，请阅读错误消息以确定并解决问题。

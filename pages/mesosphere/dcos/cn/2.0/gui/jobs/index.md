@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 作业
+navigationTitle:  作业
 title: 作业
 menuWeight: 3
 excerpt: 创建和管理作业的本机支持。
@@ -10,7 +10,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 “作业”选项卡为创建、计划和管理作业提供本地支持。从侧面菜单中，点击 **作业**。显示屏将单个显示您当前的所有作业，若分组，则在组文件夹中显示。
 
-![Jobs](/mesosphere/dcos/2.0/img/GUI-Jobs-Main.png)
+![Jobs](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Main.png)
 
 图 1 -“作业”主屏幕
 
@@ -18,7 +18,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 | 列 | 描述 | 值 |
 |-----------------|---------------|------------------|
-| 名称 | 作业的唯一标识符。对应配置部分的 **作业**。 | |
+| 名称 | 作业的唯一标识符。对应配置部分的 **作业**。 |  |
 | 状态 | 作业的当前状态。| 计划内或计划外 |
 | 上次运行 | 显示上次运行作业的最终状态。| 成功或失败 |
 
@@ -28,19 +28,19 @@ model: /mesosphere/dcos/2.0/data.yml
 
 - 如果未配置任何作业，“作业”屏幕将包含一个指出您没有活动作业的通知以及 **创建作业** 按钮。
 
-![无活动作业](/mesosphere/dcos/2.0/img/GUI-Jobs-No-Active-Jobs.png)
+![无活动作业](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-No-Active-Jobs.png)
 
 图 2 -“创建作业”按钮
 
 - 无论您是否有活动的作业，您始终都可以单击右上角的 **+** 标志来创建新的作业。
 
-![加号](/mesosphere/dcos/2.0/img/GUI-Jobs-Create-a-Job.png)
+![加号](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Create-a-Job.png)
 
 图 3 - 点击加号
 
 将显示新作业的配置屏幕。请注意，此屏幕与用于编辑作业的屏幕相同。
 
-![作业配置屏幕](/mesosphere/dcos/2.0/img/GUI-Jobs-New-Job.png)
+![作业配置屏幕](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-New-Job.png)
 
 图 4 -“作业配置”屏幕
 
@@ -54,7 +54,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 要消除 **JSON 编辑器** 屏幕，请再次单击切换按钮。
 
-![分画面屏幕](/mesosphere/dcos/2.0/img/GUI-Jobs-Split-Screen.png)
+![分画面屏幕](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Split-Screen.png)
 
 图 5 - 分画面屏幕
 
@@ -79,7 +79,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 **常规** 选项卡允许您设置作业的最基本配置。
 
-![Jobs](/mesosphere/dcos/2.0/img/GUI-Jobs-General.png)
+![Jobs](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-General.png)
 
 图 6 - 常规配置选项卡
 
@@ -90,11 +90,11 @@ model: /mesosphere/dcos/2.0/data.yml
 | CPU | 必填字段。指定作业所需的 CPU 内核数。该数字可以是整数或分数。 |
 | MEM (MiB) | 必填字段。指定作业所需的内存大小，以 MiB 为单位。 |
 | 磁盘 (MiB) | 必填字段。指定作业所需的磁盘空间大小，以 MiB 为单位。 |
-| GPU | 指定此作业每个实例所需的 GPU（图形处理单元）共享次数。此字段仅适用于在节点上运行的作业，该节点配置为使用 GPU（图形处理单元）内核和任务，而该 GPU 内核和任务使用 DC/OS [通用容器运行时](/mesosphere/dcos/2.0/deploying-services/containerizers/ucr/) 容器启动。对 GPU 资源的支持不适用于 Docker 容器或镜像。|
+| GPU | 指定此作业每个实例所需的 GPU（图形处理单元）共享次数。此字段仅适用于在节点上运行的作业，该节点配置为使用 GPU（图形处理单元）内核和任务，而该 GPU 内核和任务使用 DC/OS [通用容器运行时](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/ucr/) 容器启动。对 GPU 资源的支持不适用于 Docker 容器或镜像。|
 | 作业类型 | 选择 **容器镜像**，可选 **命令** 或 **仅命令**。|
 | 容器镜像 | 存储库名称。此字段允许您指定要运行的镜像，例如，Ubuntu:14.04。|
-| 命令* | 指定要在主机上或容器中运行的命令。该值由 Mesos 通过 `/bin/sh - job.cmd` 打包。必须提供一个 `cmd` 或 `args`。在同一作业中同时提供 `cmd` 和 `args` 则无效。|
-|仅命令 | 指定要在主机上或容器中运行的命令。该值由 Mesos 通过 `/bin/sh - job.cmd` 打包。必须提供一个 `cmd` 或 `args`。在同一作业中同时提供 `cmd` 和 `args` 则无效。|
+| 命令* | 指定要在主机上或容器中运行的命令。该值由 Mesos 通过  打包。`/bin/sh - job.cmd`. 必须提供一个 `cmd` 或 `args`。在同一作业中同时提供 `cmd` 和 `args` 则无效。|
+|仅命令 | 指定要在主机上或容器中运行的命令。该值由 Mesos 通过  打包。`/bin/sh - job.cmd`. 必须提供一个 `cmd` 或 `args`。在同一作业中同时提供 `cmd` 和 `args` 则无效。|
 
 ## 容器运行时
 
@@ -104,7 +104,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 **通用容器运行时** 使用本机 Mesos 引擎，并支持 GPU 资源。这是建议的选择。
 
-![Jobs](/mesosphere/dcos/2.0/img/GUI-Jobs-Container-Runtime.png)
+![Jobs](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Container-Runtime.png)
 
 图 7 - **作业 > 容器运行时** 选项卡
 
@@ -116,7 +116,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 **Docker 引擎**是 Docker 的容器运行时。它需要镜像，且不支持 GPU 资源。
 
-![Jobs](/mesosphere/dcos/2.0/img/GUI-Jobs-Container-Runtime-2.png)
+![Jobs](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Container-Runtime-2.png)
 
 图 8 - **作业 > 容器运行时 > Docker 引擎** 选项卡
 
@@ -138,7 +138,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 可以使用 `cron` 格式设置带有时间表的作业。选择 **计划**，以指定作业运行的时间表。
 
-![计划](/mesosphere/dcos/2.0/img/GUI-Jobs-Schedule.png)
+![计划](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Schedule.png)
 
 图 9 - **作业 > 计划** 选项卡
 
@@ -155,7 +155,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 选择 **环境** 以配置要连接到启动的作业的每个实例的任何环境值。
 
-![环境](/mesosphere/dcos/2.0/img/GUI-Jobs-Environment.png)
+![环境](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Environment.png)
 
 图 10 - **作业 > 环境** 选项卡
 
@@ -169,7 +169,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 选择 **卷** 选项卡，通过配置持久卷来创建有状态的作业。持久卷允许重启实例，而不会丢失数据。
 
-![卷](/mesosphere/dcos/2.0/img/GUI-Jobs-Volumes.png)
+![卷](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Volumes.png)
 
 图 11 - **作业 > 卷** 选项卡
 
@@ -177,16 +177,16 @@ model: /mesosphere/dcos/2.0/data.yml
 |-----|-----|
 |**添加卷** | 设置持久卷。|
 | **容器路径** | 应用程序读写数据的路径。这必须是相对于容器的单层路径；不能包含正斜杠 (/)。 |
-| **主机路径** | | 
+| **主机路径** |  | 
 | **模式** | 卷的访问模式。您可以从下拉菜单中选择 **读写** 或 **只读**。 |
 
-如需更多信息，请参阅 [存储](/mesosphere/dcos/2.0/storage/) 文档。
+如需更多信息，请参阅 [存储](/mesosphere/dcos/cn/2.0/storage/) 文档。
 
 ## 放置
 
 您可以配置分域和区中代理节点的放置以实现高可用性，或在必要时将能力扩展到新分域。
 
-![放置](/mesosphere/dcos/2.0/img/GUI-Jobs-Placement.png)
+![放置](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Placement.png)
 
 图 12 - **作业 > 放置** 选项卡
 
@@ -197,9 +197,9 @@ model: /mesosphere/dcos/2.0/data.yml
 
 约束分为三个部分：
 - *操作符**。操作符有以下三个选择：
- - **Is** - 在有属性 ID 及特定值的节点上运行作业。
- - **Like** - 在特定属性 ID 集合上运行作业。
- - **Unlike** - 不在特定属性 ID 集合上运行作业。
+    - **Is** - 在有属性 ID 及特定值的节点上运行作业。
+    - **Like** - 在特定属性 ID 集合上运行作业。
+    - **Unlike** - 不在特定属性 ID 集合上运行作业。
 - **字段**。这可以是代理节点的主机名或代理节点的任何属性。
 - **值**。这可以是您选择的字符串或 Regex 值。|
 
@@ -207,7 +207,7 @@ model: /mesosphere/dcos/2.0/data.yml
 
 选择 **运行配置**，为新作业指定高级设置。
 
-![运行配置](/mesosphere/dcos/2.0/img/GUI-Jobs-Run-Configuration.png)
+![运行配置](/mesosphere/dcos/cn/2.0/img/GUI-Jobs-Run-Configuration.png)
 
 图 13 - **作业 > 运行配置** 选项卡
 
@@ -218,7 +218,7 @@ model: /mesosphere/dcos/2.0/data.yml
 | **用户名** | 识别在代理节点上运行任务的用户账户。|
 | **工件 URI** | 提供一个或多个您希望传递给提取程序模块并在运行时解析的工件 URI，以及您希望为每个 URI 执行的操作：执行、提取或缓存。|
 
-![添加作业工件 URI 和操作](/mesosphere/dcos/2.0/img/job-artifacts-uri.png)
+![添加作业工件 URI 和操作](/mesosphere/dcos/cn/2.0/img/job-artifacts-uri.png)
 
 图 14 - 添加工件 URI 和操作
 
@@ -227,16 +227,16 @@ model: /mesosphere/dcos/2.0/data.yml
 |  **重新启动策略** | 指定当作业失败时要采取的步骤。 |
 |  **从不** | 如果您不想尝试重新启动失败的作业，可以选择此项。 |
 | **失败时** | 使用 **坚持尝试时间** 字段设置尝试重新启动作业的时间限制。例如，如果希望在等待 30 秒后尝试重新启动作业，请将 **坚持尝试时间** 设置为 30。如果未为“坚持尝试时间”设置任何值，DC/OS 将继续尝试无限期地重新启动失败的作业。|
-| **添加标签** | 指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。对于希望包括的每个名称/值对，您可以通过单击 **添加标签** 添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/2.0/tutorials/task-labels/)。 |
+| **添加标签** | 指定希望作为元数据附加到新作业的 **键** 和 **值**。然后，您可以使用作业标签来筛选或公开已标记作业的信息。对于希望包括的每个名称/值对，您可以通过单击 **添加标签** 添加多个标签键名称/值对。有关使用标签的更多信息，请参阅 [标记任务和作业](/mesosphere/dcos/cn/2.0/tutorials/task-labels/)。 |
 
 ## 密钥
 选择 {{ model.productName }} 密钥存储库，以保护私钥、API 令牌和数据库密码等重要值。
 
-要在应用程序中使用密钥，您必须确保用户具有适当的权限。如需更多信息，请参阅 [密钥文档](/mesosphere/dcos/2.0/security/ent/secrets/)。
+要在应用程序中使用密钥，您必须确保用户具有适当的权限。如需更多信息，请参阅 [密钥文档](/mesosphere/dcos/cn/2.0/security/ent/secrets/)。
 
 单击 **添加密钥** 以添加密钥。
 
-![Secrets](/mesosphere/dcos/2.0/img/job-artifacts-uri.png)
+![Secrets](/mesosphere/dcos/cn/2.0/img/job-artifacts-uri.png)
 
 图 15 - 密钥选项卡
 
@@ -249,4 +249,4 @@ model: /mesosphere/dcos/2.0/data.yml
 
 # 使用 UI 管理作业
 
-添加、查看、修改或移除作业的详细信息可在 [部署作业](/mesosphere/dcos/1.13/deploying-jobs/quickstart/#managing-jobs-with-the-dcos-ui) 部分找到。
+添加、查看、修改或移除作业的详细信息可在 [部署作业](/mesosphere/dcos/cn/1.13/deploying-jobs/quickstart/#managing-jobs-with-the-dcos-ui) 部分找到。

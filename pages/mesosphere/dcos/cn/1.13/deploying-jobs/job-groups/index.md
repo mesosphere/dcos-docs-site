@@ -9,12 +9,12 @@ model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 
-您可以使用 DC/OS UI、CLI 或 [API](/mesosphere/dcos/cn/1.13/security/ent/iam-api/) 来实现对作业的细粒度用户访问。[Metronome 权限](/mesosphere/dcos/1.13/security/ent/perms-reference/#marathon-metronome) 允许您在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
+您可以使用 DC/OS UI、CLI 或 [API] 来实现对作业的细粒度用户访问。(/mesosphere/dcos/cn/1.13/security/ent/iam-api/). [Metronome 权限](/mesosphere/dcos/cn/1.13/security/ent/perms-reference/#marathon-metronome) 允许您在每项作业或每个作业组上限制用户对作业的访问。该部分为您介绍实现这一切的步骤。
 
 **前提条件：**
 
 - 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
-- 用于分配权限的[用户帐户](/mesosphere/dcos/cn/1.13/security/ent/users-groups/)。
+- 用于分配权限的[用户帐户](/mesosphere/dcos/cn/1.13/security/ent/users-groups/)
 
 <a name="job-group-access-via-ui"></a>
 
@@ -22,7 +22,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS UI。
 
-   ![登录](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+   ![登录](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
    图 1. DC/OS UI 登录
 
@@ -30,7 +30,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加 cory 权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+    ![添加 cory 权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     图 2. 选择要添加权限的用户或组
 
@@ -38,17 +38,17 @@ enterprise: true
 
 1. 单击**插入权限字符串**以切换对话框。
 
-    ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     图 3. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串(/mesosphere/dcos/cn/1.13/security/ent/#security-modes)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串。(/mesosphere/dcos/cn/1.13/security/ent/#security-modes).
 
     ### 宽容
 
     - **DC/OS 作业访问权限：**
 
-       指定您的作业组 (`<job-group>`)、作业名称 (`<job-name>`) 和操作 (`<action>`)。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`。
+       指定您的作业组 (`<job-group>`)、作业名称 (`<job-name>`) 和操作 (`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:metronome full
@@ -66,7 +66,7 @@ enterprise: true
 
     - **DC/OS 作业访问权限：**
 
-       指定您的作业组 (`<job-group>`)、作业名称 (`<job-name>`) 和操作 (`<action>`)。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`。
+       指定您的作业组 (`<job-group>`)、作业名称 (`<job-name>`) 和操作 (`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:metronome:metronome:jobs:<job-group>/<job-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:metronome full
@@ -98,13 +98,13 @@ enterprise: true
 
 **提示：**
 
-- 向组而不是用户授予权限，将 `users grant <user-name>` 替换为 `groups grant <gid>`。
+- 向组而不是用户授予权限，将 `users grant <user-name>` 替换为 `groups grant <gid>`.
 
 ### 宽容
 
 - **DC/OS 作业访问权限：**
 
-    1. 授予作业组（`<job-group>`）和作业名称（`<job-name>`）的权限。
+    1. 授予作业组（`<job-group>`）和作业名称（`<job-name>`).）的权限。
 
         ```bash
         dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
@@ -113,7 +113,7 @@ enterprise: true
 
 - **DC/OS 服务任务和日志：**
 
-    1. 授予用户权限 (`<user-name>`)。
+    1. 授予用户权限 (`<user-name>`).
 
         ```bash
         dcos security org users grant <user-name> adminrouter:ops:mesos full --description "Grants access to the Mesos master API/UI and task details"
@@ -124,7 +124,7 @@ enterprise: true
 
 - **DC/OS 作业访问权限：**
 
-    1. 授予作业组（`<job-group>`）和作业名称（`<job-name>`）的权限。
+    1. 授予作业组（`<job-group>`）和作业名称（`<job-name>`).）的权限。
 
         ```bash
         dcos security org users grant <user-name> adminrouter:service:metronome full --description "Controls access to Metronome services"
@@ -133,7 +133,7 @@ enterprise: true
 
 - **DC/OS 服务任务和日志：**
 
-   1. 向用户 (`<user-name>`) 和 (`<job-group>`) 授予权限。
+   1. 向用户 (`<user-name>`) 和 (`<job-group>`).) 授予权限。
 
         ```bash
         dcos security org users grant <user-name> adminrouter:ops:mesos full --description "Grants access to the Mesos master API/UI and task details"

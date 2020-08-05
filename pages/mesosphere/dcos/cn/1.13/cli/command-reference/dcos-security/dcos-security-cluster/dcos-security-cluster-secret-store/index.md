@@ -24,7 +24,7 @@ dcos security cluster secret-store [OPTIONS] COMMAND [ARGS]...
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 # 命令
 

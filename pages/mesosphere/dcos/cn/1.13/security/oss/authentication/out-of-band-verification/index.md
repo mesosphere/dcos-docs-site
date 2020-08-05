@@ -9,10 +9,10 @@ menuWeight: 20
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 
-其他服务可使用公钥加密技术代表 [DC/OS 身份和访问管理器(IAM)](/mesosphere/dcos/cn/1.13/overview/architecture/components/#dcos-iam) 组件对传入请求进行身份验证。如果客户端显示的认证令牌已由 IAM 使用其私钥签名，则此方法有效。
+其他服务可使用公钥加密技术代表 DC/OS [身份和访问管理器 (IAM)](/mesosphere/dcos/cn/1.13/overview/architecture/components/#dcos-iam) 组件对传入请求进行认证。如果客户端显示的认证令牌已由 IAM 使用其私钥签名，则此方法有效。
 
 ## Bouncer JSON Web Key Set (JWKS) 端点
-Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公匙详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517)。在该数据结构内，公钥根据 [RFC 7518](https://tools.ietf.org/html/rfc7518) 进行参数化。
+Bouncer 的 JWKS 端点（`/auth/jwks`) 提供验证 Bouncer 发布的 RS256 JWTs 类型签名所需的公匙详细信息。该端点发出的 JSON 文档数据结构符合 [RFC 7517](https://tools.ietf.org/html/rfc7517). 在该数据结构内，公钥根据 [RFC 7518] 进行参数化。(https://tools.ietf.org/html/rfc7518).
 
 以下为示例响应：
 
@@ -33,7 +33,7 @@ curl -k https://<host-ip/acs/api/v1/auth/jwks
 ```
 
 ## 从 JWKS 数据构建公钥
-完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`)。两个均为使用 Base64 编码的整数，如 [RFC 7518](https://tools.ietf.org/html/rfc7518#section-6.3) 中所述
+完全定义 RSA 公钥的两个参数是模数 (`n`)和指数 (`e`). 两个均为使用 Base64 编码的整数，如 [RFC 7518]中所述(https://tools.ietf.org/html/rfc7518#section-6.3)
 
 使用您选择的工具生成验证认证令牌所需的公钥表示。
 
@@ -62,7 +62,7 @@ uid = payload['uid']
 解码方法验证令牌签名和到期时间，并在令牌无效时引发异常。
 
 ## 完成令牌验证示例
-此示例验证认证令牌。以下是示例令牌
+此示例使认证令牌生效。以下是示例令牌
 
 ```json
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0Njc5ODU0NjYsInVpZCI6InBldGVyIn0.lsLJx2WsX99HF96CizMOcZpMIgbjGDBHvFZCGeNDsM-xZQzHQJHo_UA8WodQ52o8uBJ2CY983DhJdIH2Gfc_fbZtYGvUx-IvQnHFbUBd8qBN0A_4BQHeNINFUKdVQuJsbsW-uVj-w0q3RAFwO5DPPc2ppwIjkeQbgGP1ZN-2-uV6Jow04cdkq4jcODsD1y0v4EmIBPLQil0HU2B95IHtlBNN7haTUkCksXE-43BHy4ErboySeq6VgkwLpw_Pi8n236kZ2-GobSmhA-BpjbkO3uGLHrYUfJjrJyiPM2_PZQMHY80-m5sMMMQ9m1Ciag2Cw74JKGfJ3qMW3j3z2Hm7GQ
@@ -96,4 +96,4 @@ eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJleHAiOjE0Njc5ODU0NjYsInVpZCI6InBldGVyIn0
 {'uid': 'peter', 'exp': 1467985466}
 ```
 
-响应表示这是 `peter` 的有效认证令牌。
+响应表示这是  的有效认证令牌。`peter`.

@@ -19,7 +19,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 ## 布局约束指南
 
-- 如果您的作业中未指定任何区域，则作业将安排为仅在本地区域中运行。除明确指明应在远程分域启动的实例之外，不会为本地分域以外的代理安排作业运行。
+- 如果您的作业中未指定任何区域，则作业将安排为仅在本地区域中运行。除明确指明应在远程分域启动之外，不会为本地分域以外的代理安排作业运行。
 
 - 如果指定没有特定分区的分域，则在给定分域中的任何代理上运行作业。
 
@@ -30,11 +30,11 @@ model: /mesosphere/dcos/1.13/data.yml
 
 有关如何配置故障域感知群集的说明，请参见[服务的故障域感知和容量扩展](/mesosphere/dcos/cn/1.13/deploying-services/fault-domain-awareness/) 中的“安装”。
 
-假设您有跨 3 个分域的 Mesos 群集：`aws-us-east1`、`aws-us-east2` 和 `local`。每个分域都有分区 `a`、`b`、`c`、`d`。
+假设您有跨 3 个分域的 Mesos 群集：`aws-us-east1`、`aws-us-east2` 和 `local`. 每个分域都有分区 `a`,`b`,`c`,`d`。
 
 ### 在远程区域和特定分区运行作业
 
-以下作业使用 [Metronome 约束](../ metronome-constraints /）指定作业应在区域 `aws-us-east1`、分区 `b` 中运行
+以下作业使用 [Metronome 约束](../ metronome-constraints /)指定作业应在区域 `aws-us-east1`、分区 `b` 中运行
 
 ```json
 {

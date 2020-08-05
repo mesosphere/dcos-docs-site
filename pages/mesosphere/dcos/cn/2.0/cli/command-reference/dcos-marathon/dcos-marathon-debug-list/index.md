@@ -24,12 +24,12 @@ dcos marathon debug list [--json]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`，`--help` | 显示有关此命令用法的信息。 |
-| `--json` | 显示 JSON 格式的数据。|
+| `-h`, `--help` | 显示有关此命令用法的信息。 |
+| `--json`   | 显示 JSON 格式的数据。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |
+| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |
 

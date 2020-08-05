@@ -13,17 +13,17 @@ enterprise: true
 
 您可以授予用户访问**密钥**选项卡的权限。新用户默认没有权限。
 
-<p class="message--note"><strong>注意：</strong>此过程可授予访问<strong>密钥</strong>选项卡的全部用户权限。如欲配置细分用户访问权限，请参阅 <a href="/mesosphere/dcos/cn/1.13/security/ent/secrets/use-secrets/">文档</a>。</p>
+<p class="message--note"><strong>注意：</strong>此过程可授予访问<strong>密钥</strong>选项卡的全部用户权限。如果您希望配置更加细分的用户访问权限，请参阅 <a href="/mesosphere/dcos/1.13/security/ent/secrets/use-secrets/">文档</a>.</p>
 
 ## <a name="network-access-via-ui"></a>使用 UI 授予访问权限
 
 **前提条件：**
 
-- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/cn/1.13/security/ent/users-groups/) 的 DC/OS 用户账户。
+- 不具有 `dcos:superuser` [权限](/mesosphere/dcos/cn/1.13/security/ent/users-groups/). 的 DC/OS 用户账户。
 
 1. 以具有 `superuser` 权限的用户身份登录 DC/OS UI。
 
-   ![登录](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+   ![登录](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
    图 1. DC/OS UI 登录
 
@@ -31,14 +31,14 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加授予权限的用户或组](/mesosphere/dcos/1.13/img/GUI-Organization-Users-List_VIew-1_12.png)
+    ![添加授予权限的用户或组](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-List_VIew-1_12.png)
     图 2. 选择要授予权限的用户或组
 
 1. 在**权限**选项卡上，单击**添加权限**。
 
 1. 单击**插入权限字符串**以切换对话框。
 
-    ![添加权限](/mesosphere/dcos/1.13/img/services-tab-user3.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/services-tab-user3.png)
 
     图 3. 插入权限字符串
 
@@ -49,7 +49,7 @@ enterprise: true
     dcos:secrets:list:default:/ read
     ```
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes) 选择权限字符串，单击**添加权限**，然后单击**关闭**。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的 [安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)选择权限字符串，单击**添加权限**，然后单击**关闭**。
 
     ## 宽容
 
@@ -90,7 +90,7 @@ enterprise: true
     -d '{"description":"Grants access to the contents of the Secrets tab"}'
     ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户授予以下特权 `uid`.
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
@@ -98,7 +98,7 @@ enterprise: true
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:secrets/users/<uid>/full
     ```
 
-<p class="message--note"><strong>注意：</strong>要向组而不是向用户授予权限，应将 <code>/users/"uid"</code> 替换为 <code>/groups/"gid"</code>。</p>
+<p class="message--note"><strong>注意：</strong>要向组而不是向用户授予权限，应将 <code>/users/"uid"</code> 替换为 <code>/groups/"gid"</code>.</p>
 
 ## 严格
 
@@ -112,7 +112,7 @@ enterprise: true
     -d '{"description":"Grants access to the contents of the Secrets tab"}'
     ```
 
-1. 向用户授予以下特权 `uid`。
+1. 向用户授予以下特权 `uid`.
 
     ```bash
     curl -X PUT --cacert dcos-ca.crt \
@@ -120,4 +120,4 @@ enterprise: true
     $(dcos config show core.dcos_url)/acs/api/v1/acls/dcos:adminrouter:secrets/users/<uid>/full
     ```
 
-<p class="message--note"><strong>注意：</strong>要向组而不是向用户授予权限，应将 <code>/users/"uid"</code> 替换为 <code>/groups/"gid"</code>。</p>
+<p class="message--note"><strong>注意：</strong>要向组而不是向用户授予权限，应将 <code>/users/"uid"</code> 替换为 <code>/groups/"gid"</code>.</p>

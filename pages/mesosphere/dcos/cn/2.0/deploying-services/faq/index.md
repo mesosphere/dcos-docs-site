@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 常见问题
+navigationTitle:  常见问题
 title: 常见问题
 menuWeight: 120
 excerpt: 关于部署 Marathon 服务的常见问题
@@ -29,7 +29,7 @@ enterprise: false
 
 ## 如何将更多代理自动添加到群集？
 
-DC/OS 无法自动启动新节点以响应硬件的负载，除非云提供商自动扩展组已配置为备用主机并 `dcos_install.sh` 放置在备用节点上。这是一个盘根错节的过程，需要和云提供商 (AWS、GCE、Azure) 一起设立自动扩展组并在每个节点上放置安装文件。[此处](/mesosphere/dcos/2.0/deploying-services/scale-service/) 提供概述。如需设立，请联系 Mesosphere 服务支持，获得更多指导。
+DC/OS 无法自动启动新节点以响应硬件的负载，除非云提供商自动扩展组已配置为备用主机并 `dcos_install.sh` 放置在备用节点上。这是一个盘根错节的过程，需要和云提供商 (AWS、GCE、Azure) 一起设立自动扩展组并在每个节点上放置安装文件。[此处] 提供概述。(/mesosphere/dcos/cn/2.0/deploying-services/scale-service/). 如需设立，请联系 Mesosphere 服务支持，获得更多指导。
 
 ## 服务发现的最佳实践是什么？
 
@@ -51,13 +51,13 @@ Marathon 中的 [服务发现][2] 可提供一些服务发现常见实施的综�
 
 - `--conf spark.mesos.uris=...` Mesos 启动驱动器或执行器时，URI 的逗号分隔列表就会下载到沙盒。这一情况同时适用于粗粒度和细粒度模式。
 
-- `/mnt/mesos/sandbox/pi.conf` 您的主类作为第 0 个参数接收到的下载文件路径（参见下面的代码片段）。/mnt/mesos/sandbox/ 是映射到相应 mesos 任务沙箱的容器内的标准路径。
+- `/mnt/mesos/sandbox/pi.conf` 您的主类作为第 0 个参数接收到的下载文件路径（参见下面的代码片段）。/mnt/mesos/sandbox/ 是映射到相应 mesos 任务沙盒的容器内的标准路径。
 
 ## 安装工具如何工作？
 
 DC/OS 使用动态生成的设置文件安装到您的环境。此文件是使用在配置过程中设置的特定参数生成的。此安装文件包含 Bash 安装脚本和 Docker 容器，其中载有部署自定义 DC/OS 构建所需的所有要素。
 
-如需更多信息，请参阅安装 [文档](/mesosphere/dcos/2.0/installing/)。
+如需更多信息，请参阅安装 [文档](/mesosphere/dcos/cn/2.0/installing/).
 
 ## 建议使用什么版本的内核、本地操作系统、Docker 引擎、联合加载？
 

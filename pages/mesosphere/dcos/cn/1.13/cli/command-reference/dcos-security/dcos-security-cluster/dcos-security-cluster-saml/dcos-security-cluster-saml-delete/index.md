@@ -24,7 +24,7 @@ dcos security cluster saml delete [OPTIONS] SAML_ID
 
 | 名称 | 说明 |
 |-------------------|------------------|
-| `-h`, `--help`| 显示此消息并退出。|
+|  `-h`, `--help` |                显示此消息并退出。|
 
 
 ## 位置自变量
@@ -38,4 +38,4 @@ dcos security cluster saml delete [OPTIONS] SAML_ID
 
 | 命令 | 说明 |
 |---------|-------------|
-| [DCOS 安全群集 SAML](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | 管理您的安全声明标记语言 (SAML) 设置。 |
+| [dcos security cluster saml](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-security/dcos-security-cluster/dcos-security-cluster-saml//) | 管理您的安全声明标记语言 (SAML) 设置。 |

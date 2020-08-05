@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 身份和访问管理 API
+navigationTitle:  身份和访问管理 API
 title: 身份和访问管理 API
 menuWeight: 110
 excerpt: 使用 IAM API 管理用户和权限
@@ -27,7 +27,7 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 * 如果您的程序在 DC/OS 群集之外运行，则应使用群集 URL。这可以通过启动 DC/OS UI 并从浏览器复制域名来获取。或者，您可以登录到 DC/OS CLI 并键入 `dcos config show core.dcos_url` 以获取群集 URL。在生产环境中，这应该是位于主服务器前面的负载均衡器的路径。
 
-* 如果您的程序在群集内部运行，则应使用 `master.mesos`。
+* 如果您的程序在群集内部运行，则应使用 `master.mesos`
 
 将 `/acs/api/v1` 附加到主机名，如下所示。
 ```text
@@ -42,11 +42,11 @@ API 仅支持 JSON。您必须在 HTTP 标头中包含 `application/json` 作为
 
 ### 使用 IAM API
 
-要获得认证令牌，请将 `POST` 请求主体中的本地用户或服务账户的凭据传递给 `/auth/login`。
+要获得认证令牌，请将 `POST` 请求主体中的本地用户或服务账户的凭据传递给 `/auth/login`.
 
-要登录本地用户账户，应在请求中提供 `uid` 和 `password`。
+要登录本地用户账户，应在请求中提供 `uid` 和 `password`
 
-<p class="message--note"><strong>注意：</strong>了解如何通过 DC/OS <a href="/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-trust-curl/">在 curl 命令中建立信任</a>。</p>
+<p class="message--note"><strong>注意：</strong>了解如何通过 DC/OS <a href="/mesosphere/dcos/2.0/security/ent/tls-ssl/ca-trust-curl/">在 curl 命令中建立信任</a></p>
 
 
 ```bash
@@ -89,7 +89,7 @@ DC/OS 认证令牌也是 RS256 类型的 RFC 7519 JWT。
 
 ### 使用 DC/OS CLI
 
-使用 `dcos auth login` 登录 [DC/OS CLI](/mesosphere/dcos/2.0/cli/) 时，它会在本地存储认证令牌值。您可以在 `curl` 命令中将此值引用为变量（在下一部分中讨论）。
+使用 (/mesosphere/dcos/cn/2.0/cli/) 登录 [DC/OS CLI]`dcos auth login` 时，它会在本地存储认证令牌值。您可以在 `curl` 命令中将此值引用为变量（在下一部分中讨论）。
 
 或者，您可以使用以下命令获取认证令牌值。
 
@@ -125,7 +125,7 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 ## 刷新认证令牌
 
-默认情况下，认证令牌在五天后过期。如果您的程序需要运行超过五天，则需要一个服务帐户。有关更多信息，请参阅[配置自定义服务](/mesosphere/dcos/2.0/security/ent/service-auth/custom-service-auth/)。
+默认情况下，认证令牌在五天后过期。如果您的程序需要运行超过五天，则需要一个服务帐户。有关更多信息，请参阅[配置自定义服务](/mesosphere/dcos/cn/2.0/security/ent/service-auth/custom-service-auth/)
 
 
 # API 参考
@@ -135,4 +135,4 @@ curl -H "Authorization: token=$(dcos config show core.dcos_acs_token)"
 
 # 日志记录
 
-虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/mesosphere/dcos/2.0/monitoring/logging/)。
+虽然 API 会返回信息性错误消息，但您也可能会发现检查服务日志很有用。有关说明，请参阅[服务和任务日志记录](/mesosphere/dcos/cn/2.0/monitoring/logging/)

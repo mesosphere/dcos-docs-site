@@ -23,13 +23,13 @@ dcos marathon pod add [<pod-resource>]
 
 | 名称 | 说明 |
 |---------|-------------|
-| `-h`，`--help` | 显示有关此命令用法的信息。 |
+| `-h`, `--help` | 显示有关此命令用法的信息。 |
 
 ## 位置自变量
 
 | 名称 | 说明 |
 |---------|-------------|
-| `<pod-resource>` | 包含 pod 的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 stdin 中读取定义。|
+| `<pod-resource>`   | 包含 pod 的 JSON 定义的文件或 HTTP(S) URL 路径。如果遗漏，则从 stdin 中读取定义。|
 
 
 # 示例
@@ -45,4 +45,4 @@ dcos marathon pod add <pod-json-file>
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos marathon](/mesosphere/dcos/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |
+| [dcos marathon](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-marathon/) | 将应用程序部署到 DC/OS 并对其进行管理。 |

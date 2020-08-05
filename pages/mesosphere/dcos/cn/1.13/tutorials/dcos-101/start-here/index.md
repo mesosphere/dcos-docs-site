@@ -7,8 +7,6 @@ excerpt: 让我们通过创建群集开始您的 DC/OS 之旅（第 1 部分）
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
-
 本教程演示使用最常见的默认配置选项创建小型 DC/OS 群集以及验证对群集的访问的基本步骤。您必须成功完成本教程中的步骤，然后才能执行任何其他管理任务或探索其他功能。
 
 完成本教程后，您将拥有包含以下内容的单个 DC/OS 群集：
@@ -38,7 +36,7 @@ model: /mesosphere/dcos/1.13/data.yml
     您还应该知道如何显示使用信息和特定于命令的 `man` 页面。
 
 ### 技能
-- 基本的文本编辑技能和使用配置文件、JSON 格式化文件和文本编辑器的经验，例如 `vim` 或 `nano`。
+- 基本的文本编辑技能和使用配置文件、JSON 格式化文件和文本编辑器的经验，例如 `vim` 或 `nano`.
 
 - 使用终端 shell 和安全外壳 (SSH) 连接访问远程服务器和工作站的经验。
 
@@ -56,10 +54,10 @@ model: /mesosphere/dcos/1.13/data.yml
 
 # 预览您将做的事情
 您需要执行以下关键任务以创建新的 DC/OS 群集：
-- 准备[bootstrap 节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#bootstrap)。
-- 配置 DC/OS [管理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#master-nodes)。
-- 配置 DC/OS [专用代理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#agent-nodes)。
-- 配置 DC/OS [公共代理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#agent-nodes)。
+- 准备[bootstrap 节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#bootstrap).
+- 配置 DC/OS [管理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#master-nodes).
+- 配置 DC/OS [专用代理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#agent-nodes).
+- 配置 DC/OS [公共代理节点](/mesosphere/dcos/cn/1.13/installing/production/system-requirements/#agent-nodes).
 
 # 准备 bootstrap 节点
 1. 确定一台充当新群集的 **bootstrap 节点** 的计算机。
@@ -113,7 +111,7 @@ model: /mesosphere/dcos/1.13/data.yml
     security: permissive
     ```
 
-    您可以使用 `config.yaml` 文件设置更多基本和高级的配置选项。有关可用设置和最常用设置示例的信息，请参阅 [高级配置参考](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/) 和 [示例](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/configuration/examples/)。
+    您可以使用 `config.yaml` 文件设置更多基本和高级的配置选项。有关可用设置和最常用设置示例的信息，请参阅 [高级配置参考](/mesosphere/dcos/cn/1.13/installing/production/advanced-configuration/configuration-reference/) 和 [示例](/mesosphere/dcos/cn/1.13/installing/production/deploying-dcos/configuration/examples/).
 
 1. 保存配置设置。
 
@@ -126,7 +124,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 ## 创建分发中心
 1. 运行 DC/OS 安装脚本
-以在 `./genconf/serve/` 目录中为您的群集
+以在  目录中为您的群集`./genconf/serve/`
 生成自定义构建文件。
 
     ```bash
@@ -152,7 +150,7 @@ model: /mesosphere/dcos/1.13/data.yml
     mkdir /tmp/dcos && cd /tmp/dcos
     ```
 
-1. 从 NGINX Docker 容器下载 DC/OS 安装脚本，将 `bootstrap-ip` 和 `port` 替换为您在 `config.yaml` 文件中为 `bootstrap_url` 指定的设置：
+1. 从 NGINX Docker 容器下载 DC/OS 安装脚本，将 `bootstrap-ip` 和 `port` 替换为您在 `bootstrap_url` 文件中为 `config.yaml` 指定的设置：
 
     ```bash
     curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
@@ -179,7 +177,7 @@ model: /mesosphere/dcos/1.13/data.yml
     mkdir /tmp/dcos && cd /tmp/dcos
     ```
 
-1. 从 NGINX Docker 容器下载 DC/OS 安装脚本，将 `bootstrap-ip` 和 `port` 替换为您在 `config.yaml` 文件中为 `bootstrap_url` 指定的设置：
+1. 从 NGINX Docker 容器下载 DC/OS 安装脚本，将 `bootstrap-ip` 和 `port` 替换为您在 `bootstrap_url` 文件中为 `config.yaml` 指定的设置：
 
     ```bash
     curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
@@ -208,7 +206,7 @@ model: /mesosphere/dcos/1.13/data.yml
     mkdir /tmp/dcos && cd /tmp/dcos
     ```
 
-1. 从 NGINX Docker 容器下载 DC/OS 安装脚本，将 `bootstrap-ip` 和 `port` 替换为您在 `config.yaml` 文件中为 `bootstrap_url` 指定的设置：
+1. 从 NGINX Docker 容器下载 DC/OS 安装脚本，将 `bootstrap-ip` 和 `port` 替换为您在 `bootstrap_url` 文件中为 `config.yaml` 指定的设置：
 
     ```bash
     curl -O http://<bootstrap-ip>:<your_port>/dcos_install.sh
@@ -227,11 +225,11 @@ model: /mesosphere/dcos/1.13/data.yml
 
 1. 键入您的管理用户名和密码，然后单击 **登录**。
 
-    ![登录到管理控制台](/mesosphere/dcos/1.13/img/tutorial-sample-login.png)
+    ![登录到管理控制台](/mesosphere/dcos/cn/1.13/img/tutorial-sample-login.png)
 
     如果连接成功，则显示 DC/OS 仪表板。
 
-    ![管理控制台中的 DC/OS 仪表板](/mesosphere/dcos/1.13/img/tutorial-sample-dashboard.png)
+    ![管理控制台中的 DC/OS 仪表板](/mesosphere/dcos/cn/1.13/img/tutorial-sample-dashboard.png)
 
 祝贺您！您已成功创建第一个 DC/OS 群集。现在，您可以开始在后续教程中使用此群集来探索可以做的事情。
 
@@ -239,7 +237,7 @@ model: /mesosphere/dcos/1.13/data.yml
 现在您已经运行了一个小群集，您可以安装 DC/OS 命令行界面 (CLI) 并开始探索管理和操作任务。
 - [安装命令行界面](../cli/)
 - [从包资源库安装第一个服务](../first-package/)
-- [部署您的第一个示例应用程序]](../first-app)
+- [部署您的第一个示例应用程序](../first-app)
 
 # 相关主题
 本教程主要介绍使用简单的配置文件和几个手动输入的命令交互式准备和安装 DC/OS 群集。

@@ -18,7 +18,7 @@ enterprise: true
 **前提条件：**
 
 - 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
-- 用于分配权限的[用户帐户](/mesosphere/dcos/cn/1.13/security/ent/users-groups/)。
+- 用于分配权限的[用户帐户](/mesosphere/dcos/cn/1.13/security/ent/users-groups/)
 
 # <a name="root-service"></a>授权访问服务
 
@@ -26,7 +26,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
 
-   ![登录](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+   ![登录](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
    图 1. DC/OS Web 界面登录画面。
 
@@ -34,7 +34,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加 cory 权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+    ![添加 cory 权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     图 2. 选择要授予权限的用户
 
@@ -42,9 +42,9 @@ enterprise: true
 
 1. 单击**插入权限字符串**以切换对话框。
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-mode选择权限字符串s)。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串。(/mesosphere/dcos/cn/1.13/security/ent/#security-modes).
 
-    ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     图 3. 复制和粘贴权限字符串。
 
@@ -52,7 +52,7 @@ enterprise: true
 
     - **DC/OS 服务访问：**
 
-       指定您的服务（`<service-name>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+       指定您的服务（`<service-name>`）和操作（`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -68,7 +68,7 @@ enterprise: true
 
     - **DC/OS 服务访问：**
 
-       指定您的服务（`<service-name>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+       指定您的服务（`<service-name>`）和操作（`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -95,13 +95,13 @@ enterprise: true
 
 - 必须 [安装 DC/OS CLI](/mesosphere/dcos/cn/1.13/cli/install/) 并以超级用户登户身份登录。
 
-- 向组而不是用户授予权限，将 `users grant <uid>` 替换为 `groups grant <gid>`。
+- 向组而不是用户授予权限，将 `users grant <uid>` 替换为 `groups grant <gid>`.
 
 ### 宽容
 
 - **DC/OS 服务访问：**
 
-   1. 针对特定服务 (`<service-name>`) 向用户授予以下权限 `uid`。
+   1. 针对特定服务 (`uid`) 向用户授予以下权限 `<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -110,7 +110,7 @@ enterprise: true
 
 - **DC/OS 服务任务和日志：**
 
-   1. 向用户授予以下特权 `uid`。
+   1. 向用户授予以下特权 `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -121,7 +121,7 @@ enterprise: true
 
 - **DC/OS 服务访问：**
 
-   1. 针对特定服务 (`<service-name>`) 向用户授予以下权限 `uid`。
+   1. 针对特定服务 (`uid`) 向用户授予以下权限 `<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -130,7 +130,7 @@ enterprise: true
 
 - **DC/OS 服务任务和日志：**
 
-   1. 针对特定服务 (`<service-name>`) 向用户授予以下权限 `uid`。
+   1. 针对特定服务 (`uid`) 向用户授予以下权限 `<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -150,7 +150,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
 
-   ![登录](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+   ![登录](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
    图 3. DC/OS Web 界面登录画面。
 
@@ -158,7 +158,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加 cory 权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+    ![添加 cory 权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     图 4. 选择要授予权限的用户
 
@@ -166,17 +166,17 @@ enterprise: true
 
 1. 单击**插入权限字符串**以切换对话框。
 
-    ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     图 5. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)选择权限字符串。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串。(/mesosphere/dcos/cn/1.13/security/ent/#security-modes).
 
     ### 宽容
 
     - **DC/OS 服务访问：**
 
-       指定您的服务（`<service-name>`）、组（`<gid>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+       指定您的服务（`<service-name>`）、组（`<gid>`）和操作（`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -194,7 +194,7 @@ enterprise: true
 
     - **DC/OS 服务访问：**
 
-       指定您的服务（`<service-name>`）、组（`<gid>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+       指定您的服务（`<service-name>`）、组（`<gid>`）和操作（`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -225,13 +225,13 @@ enterprise: true
 
 **提示：**
 
-- 向组而不是用户授予权限，将 `users grant <uid>` 替换为 `groups grant <gid>`。
+- 向组而不是用户授予权限，将 `users grant <uid>` 替换为 `groups grant <gid>`.
 
 ### 宽容
 
 - **DC/OS 服务访问：**
 
-   1. 针对特定服务 (`<service-name>`) 向用户授予以下权限 `uid`。
+   1. 针对特定服务 (`uid`) 向用户授予以下权限 `<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -240,7 +240,7 @@ enterprise: true
 
 - **DC/OS 服务任务和日志：**
 
-   1. 向用户授予以下特权 `uid`。
+   1. 向用户授予以下特权 `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -251,7 +251,7 @@ enterprise: true
 
 - **DC/OS 服务访问：**
 
-   1. 向用户授予以下特权 `uid`。
+   1. 向用户授予以下特权 `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -260,7 +260,7 @@ enterprise: true
 
 - **DC/OS 服务任务和日志：**
 
-   1. 针对特定服务 (`<service-name>`) 向用户授予以下权限 `uid`。
+   1. 针对特定服务 (`uid`) 向用户授予以下权限 `<service-name>`).
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -280,7 +280,7 @@ enterprise: true
 
 1. 以具有 `superuser` 权限的用户身份登录数据中心操作系统 Web 界面。
 
-   ![登录](/mesosphere/dcos/1.13/img/LOGIN-EE-Modal_View-1_12.png)
+   ![登录](/mesosphere/dcos/cn/1.13/img/LOGIN-EE-Modal_View-1_12.png)
 
    图 5. DC/OS Web 界面登录画面。
 
@@ -288,7 +288,7 @@ enterprise: true
 
 1. 选择要授予权限的用户名或组名。
 
-    ![添加 cory 权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
+    ![添加 cory 权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-Users_List_View_w_Users-1_12.png)
 
     图 6. 选择要授予权限的用户
 
@@ -296,17 +296,17 @@ enterprise: true
 
 1. 单击**插入权限字符串**以切换对话框。
 
-    ![添加权限](/mesosphere/dcos/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
+    ![添加权限](/mesosphere/dcos/cn/1.13/img/GUI-Organization-Users-User_Alice_Add_Gen_Perms-1_12.png)
 
     图 7. 添加权限
 
-1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式](/mesosphere/dcos/cn/1.13/security/ent/#security-modes)选择权限字符串。
+1. 在**权限字符串**字段中复制并粘贴权限。根据您的[安全模式]选择权限字符串。(/mesosphere/dcos/cn/1.13/security/ent/#security-modes).
 
     ### 宽容
 
     - **DC/OS 组访问：**
 
-       指定您的组（`<gid>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+       指定您的组（`<gid>`）和操作（`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -324,7 +324,7 @@ enterprise: true
 
     - **DC/OS 组访问：**
 
-       指定您的组（`<gid>`）和操作（`<action>`）。操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`。若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`。
+       指定您的组（`<gid>`）和操作（`<action>`). 操作可以是 `create`、 `read`、 `update`、`delete` 或 `full`. 若要允许多个操作，请使用逗号分隔它们，例如: `dcos:service:marathon:marathon:services:/<service-name> read,update`.
 
        ```bash
        dcos:adminrouter:service:marathon full
@@ -355,13 +355,13 @@ enterprise: true
 
 **提示：**
 
-- 向组而不是用户授予权限，将 `users grant <uid>` 替换为 `groups grant <gid>`。
+- 向组而不是用户授予权限，将 `users grant <uid>` 替换为 `groups grant <gid>`.
 
 ### 宽容
 
 - **DC/OS 组访问：**
 
-   1. 向用户授予以下特权 `uid`。
+   1. 向用户授予以下特权 `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -370,7 +370,7 @@ enterprise: true
 
 - **组任务和日志：**
 
-   1. 向用户授予以下特权 `uid`。
+   1. 向用户授予以下特权 `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full
@@ -381,7 +381,7 @@ enterprise: true
 
 - **DC/OS 组访问：**
 
-   1. 向用户授予以下特权 `uid`。
+   1. 向用户授予以下特权 `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:service:marathon full
@@ -390,7 +390,7 @@ enterprise: true
 
 - **组任务和日志：**
 
-   1. 向用户授予以下特权 `uid`。
+   1. 向用户授予以下特权 `uid`.
 
        ```bash
        dcos security org users grant <uid> dcos:adminrouter:ops:mesos full

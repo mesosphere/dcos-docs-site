@@ -18,11 +18,11 @@ enterprise: false
 
 * 现有 Splunk 装置可以消化数据用于索引
 *   所有 DC/OS 节点必须能够通过 HTTP 或 HTTPS 连接到 Splunk 索引器
-*   您自定义 Fluent Bit 配置的每个 DC/OS 节点上的位置。本教程将使用 `/etc/fluent-bit/`。
+*   您自定义 Fluent Bit 配置的每个 DC/OS 节点上的位置。本教程将使用 `/etc/fluent-bit/`.
 
 ## 步骤 1：管理节点
 
-对于 DC/OS 群集中的每个管理节点，创建一个文件 `/etc/fluent-bit/fluent-bit.conf`，其包含默认的管理节点 Fluent Bit 配置，并添加了 Splunk 输出插件的配置。如需更多关于配置 Fluent Bit 以发送日志到 Splunk 的信息，请参阅 [Fluent Bit 文档](https://docs.fluentbit.io/manual/output/splunk)。
+对于 DC/OS 群集中的每个管理节点，创建一个文件 `/etc/fluent-bit/fluent-bit.conf`，其包含默认的管理节点 Fluent Bit 配置，并添加了 Splunk 输出插件的配置。如需更多关于配置 Fluent Bit 以发送日志到 Splunk 的信息，请参阅 [Fluent Bit 文档](https://docs.fluentbit.io/manual/output/splunk).
 
 ```
 @INCLUDE /opt/mesosphere/etc/fluent-bit/master.conf
@@ -36,7 +36,7 @@ enterprise: false
 
 ## 步骤 2：代理节点
 
-对于 DC/OS 群集中的每个代理节点，创建一个文件 `/etc/fluent-bit/fluent-bit.conf`，其包含默认的管理节点 Fluent Bit 配置，并添加了 Splunk 输出插件的配置。如需更多关于配置 Fluent Bit 以发送日志到 Splunk 的信息，请参阅 [Fluent Bit 文档](https://docs.fluentbit.io/manual/output/splunk)。
+对于 DC/OS 群集中的每个代理节点，创建一个文件 `/etc/fluent-bit/fluent-bit.conf`，其包含默认的管理节点 Fluent Bit 配置，并添加了 Splunk 输出插件的配置。如需更多关于配置 Fluent Bit 以发送日志到 Splunk 的信息，请参阅 [Fluent Bit 文档](https://docs.fluentbit.io/manual/output/splunk).
 
 ```
 @INCLUDE /opt/mesosphere/etc/fluent-bit/agent.conf
@@ -58,13 +58,13 @@ enterprise: false
 FLUENT_BIT_CONFIG_FILE=/etc/fluent-bit/fluent-bit.conf
 ```
 
-2. 创建一个目录 `/etc/systemd/system/dcos-fluent-bit.service.d`：
+2. 创建一个目录 `/etc/systemd/system/dcos-fluent-bit.service.d`:
 
 ```
 $ sudo mkdir -p /etc/systemd/system/dcos-fluent-bit.service.d
 ```
 
-3. 创建一个将自定义配置应用到 Fluent Bit 的文件 `/etc/systemd/system/dcos-fluent-bit.service.d/override.conf`：
+3. 创建一个将自定义配置应用到 Fluent Bit 的文件 `/etc/systemd/system/dcos-fluent-bit.service.d/override.conf`
 
 ```
 [Service]

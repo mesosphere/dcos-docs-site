@@ -7,9 +7,7 @@ menuWeight: 7
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
-
-在上一教程中，您部署了连接到 Redis 服务的 [示例应用程序](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py)。如果您查看该应用程序的脚本，则可能已经注意到以下连接到 Redis 服务的行：
+在上一教程中，您部署了连接到 Redis 服务的 [示例应用程序](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 如果您查看该应用程序的脚本，则可能已经注意到以下连接到 Redis 服务的行：
 
 ```
 print("Running on node '"+  os.getenv("HOST") + "' and port '" + os.getenv("PORT0"))
@@ -33,7 +31,7 @@ else:
 - 您可以通过至少一个管理节点和三个代理节点来访问运行中的 [DC/OS 群集](../start-here/)。
 - 您可以访问安装了 [DC/OS CLI](../cli/) 的计算机。
 - 您在群集中部署和运行了示例 [dcos-101/app1](../first-app/) 应用程序。
-- 您在用于连接到群集的计算机上拥有可用的域信息命令行实用程序 `dig`。`dig` 实用程序是大多数 Linux 分发中默认安装的 DNS BIND 实用程序的一部分。
+- 您在用于连接到群集的计算机上拥有可用的域信息命令行实用程序 `dig` `dig` 实用程序是大多数 Linux 分发中默认安装的 DNS BIND 实用程序的一部分。
 
 # 学习目的
 完成本教程，您将学习到：
@@ -41,7 +39,7 @@ else:
 - DC/OS 如何解析服务地址以查找运行的实例。
 
 # 服务发现选项
-在 DC/OS 群集中，[服务发现](/mesosphere/dcos/1.13/networking/) 提供了一种查找应用程序的方法，无论它们在群集中运行何处。通过服务发现，您可以通过以下两种方式之一查找 DC/OS 群集中部署的服务正在运行的位置：
+在 DC/OS 群集中，[服务发现](/mesosphere/dcos/cn/1.13/networking/) 提供了一种查找应用程序的方法，无论它们在群集中运行何处。通过服务发现，您可以通过以下两种方式之一查找 DC/OS 群集中部署的服务正在运行的位置：
 
  - 通过 **Mesos 域命名服务 (Mesos-DNS)** 解析任务的专用或公共代理节点 IP 地址。
 
@@ -68,7 +66,7 @@ Mesos-DNS 条目的命名模式为：
       dcos node ssh --master-proxy --leader
       ```
 
-1. 如果提示您确认连接到主机，请键入 `yes`。
+1. 如果提示您确认连接到主机，请键入 `yes`.
 
 1. 通过运行以下命令，查找 Redis 服务的 DNS 地址 (A) 记录 (`redis-tutorial.marathon.mesos` 在此示例中）：
 
@@ -102,7 +100,7 @@ Mesos-DNS 条目的命名模式为：
 ### 查找主机服务端口 (SRV) 记录
 若要连接到该服务，您还需要知道端口。在检索此信息时，Mesos-DNS 为每个 Marathon 应用程序分配包含端口号的服务 (SRV) 记录。
 
-1. 通过运行以下命令，查找 Redis 服务的 DNS 服务 (SRV) 记录 (在此示例中是 `redis-tutorial.marathon.mesos` ）：
+1. 通过运行以下命令，查找 Redis 服务的 DNS 服务 (SRV) 记录 (在此示例中是 `redis-tutorial.marathon.mesos`
 
       ```bash
       dig srv _redis-tutorial._tcp.marathon.mesos
@@ -158,7 +156,7 @@ Mesos-DNS 条目的命名模式为：
  
  *vip-name.scheduler.l4lb.thisdcos.directory:vip-port*
 
-这是示例 [应用](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 中使用的发现方法，允许在 `redis.marathon.l4lb.thisdcos.directory:6379` 从群集中访问 Redis 服务。
+这是示例 [应用](https://raw.githubusercontent.com/joerg84/dcos-101/master/app1/app1.py) 中使用的发现方法，允许在 `redis.marathon.l4lb.thisdcos.directory:6379`. 从群集中访问 Redis 服务。
 
 命名虚拟 IP 地址提供以下优势：
 - IP 地址/端口对的负载均衡可以使用与原始请求者相关的优化流量路由的算法。

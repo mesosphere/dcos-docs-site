@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 通过双向 TLS 保护 Exhibitor
+navigationTitle:  通过双向 TLS 保护 Exhibitor
 title: 通过双向 TLS 保护 Exhibitor
 menuWeight: 500
 excerpt: 通过启用 TLS 的 Exhibitor 组合来保护 DC/OS
@@ -9,7 +9,7 @@ enterprise: true
 
 # 验证 Exhibitor 是否受到保护 
 
-从 DC/OS 2.0 开始，Exhibitor 在大多数情况下都受到默认保护。要验证 Exhibitor 是否在群集上受到保护，请在您的管理节点之一上运行以下命令：
+从 DC/OS 2.0 开始，Exhibitor 在静态管理节点群集中受默认保护。要验证 Exhibitor 是否在群集上受到保护，请在您的管理节点之一上运行以下命令：
 ```bash
 
     curl -LI \
@@ -32,7 +32,7 @@ enterprise: true
 以前，Exhibitor HTTP 服务对可以访问管理节点上端口 8181 的任何客户端开放。本页介绍保护一种 Exhibitor 服务免受未经授权访问的方法。启用后，HTTP 客户端必须通过 Admin Router 访问 Exhibitor，因而将 Admin Router 访问控制策略应用于 Exhibitor 服务。
 保护 Exhibitor 的策略是双向 TLS 认证。为了保护 Exhibitor，必须先创建唯一性根 CA 证书。该 CA 证书用于为 Admin Router 和 Exhibitor 服务签署各种端点实体证书。创建输出 PEM 和 Java KeyStore 格式化工件的公钥基础架构不是一件容易的事。为了简化此过程，我们创建了一个简单的工具来生成必要的文件。
 
-本指南仅适用于使用 **静态** 管理节点发现的群集，目前不支持 `master_http_loadbalancer`。请参阅 [管理节点发现](/mesosphere/dcos/2.0/installing/production/advanced-configuration/configuration-reference/#master-discovery-required) 的配置参考。
+本指南仅适用于使用 **静态** 管理节点发现的群集，目前不支持 `master_http_loadbalancer`。请参阅 [管理节点发现](/mesosphere/dcos/cn/2.0/installing/production/advanced-configuration/configuration-reference/#master-discovery-required) 的配置参考。
 
 <p class="message--note"><strong>注意：</strong>通过 Admin Router <code>https://master_host/exhibitor</code> 访问 Exhibitor 时 ，已认证用户必须有 <code>dcos:adminrouter:ops:exhibitor</code> 特权以及<i>全部</i>操作标识符</p>
 
@@ -72,7 +72,7 @@ chmod +x exhibitor-tls-artifacts
 ./exhibitor-tls-artifacts 10.192.0.2 10.192.0.3 10.192.0.4
 ```
 
-上述命令会在当前的目录中创建名为 `artifacts` 的目录（在运行命令之前该目录不得存在）。在 `artifacts` 下方，您会找到 root-cert.pem 和 truststore.jks。这些文件包含 PEM 和 Java Keystore 格式的根 CA 证书。`artifacts` 目录还包含 3 个子目录，即 `10.192.0.2`、`10.192.0.3` 和 `10.192.0.4`。每个子目录包含以下文件：
+上述命令会在当前的目录中创建名为 `artifacts` 的目录（在运行命令之前该目录不得存在）。在 `artifacts` 下方，您会找到 root-cert.pem 和 truststore.jks。这些文件包含 PEM 和 Java Keystore 格式的根 CA 证书。`artifacts` 目录还包含 3 个子目录，即 `10.192.0.2`、`10.192.0.3` 和 `10.192.0.4`. 每个子目录包含以下文件：
 ```text
     client-cert.pem
     client-key.pem
@@ -85,7 +85,7 @@ chmod +x exhibitor-tls-artifacts
 这些目录包含保护每个 Exhibitor 节点的所有必要文件。
 
 ## 安装工件
-将每个节点的工件目录内容复制到相应管理节点的 `/var/lib/dcos/exhibitor-tls-artifacts`。
+将每个节点的工件目录内容复制到相应管理节点的 `/var/lib/dcos/exhibitor-tls-artifacts` 
 
 例如：
 

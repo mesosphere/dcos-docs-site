@@ -25,7 +25,7 @@ $ dcos marathon app add https://raw.githubusercontent.com/dcos-labs/dcos-debuggi
 
 ## 解析度
 
-正如我们[前期](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/)所学的，对于应用程序故障， [第一步](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/tools/#task-logs)。
+正如我们[前期](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/)所学的，对于应用程序故障， [第一步](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/#task-strat)是检查[任务日志](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/tools/#task-logs).
 
 ![空日志输出图片](https://mesosphere.com/wp-content/uploads/2018/04/pasted-image-0-18.png)
 
@@ -47,7 +47,7 @@ Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: [201
 Mar 27 21:21:11 ip-10-0-5-226.us-west-2.compute.internal marathon.sh[5954]: ') (mesosphere.marathon.MarathonScheduler:Thread-1723)
 ```
 
-但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/)的 [第 3 步](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/#agent-strat)：使用以下命令检查 [Mesos 代理节点日志](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/tools/#agent-logs)：
+但是，这并没有说明任务失败的原因。那么接下来进入我们[策略](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/#agent-strat)的 [第 3 步](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/gen-strat/)：使用以下命令检查 [Mesos 代理节点日志](/mesosphere/dcos/cn/1.13/tutorials/dcos-debug/tools/#agent-logs)
 
 ```bash
 $ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slave_id') --lines=100
@@ -63,7 +63,7 @@ $ dcos node log --mesos-id=$(dcos task docker-image  --json | jq -r '.[] | .slav
 2018-03-27 21:27:15: I0327 21:27:15.325984  4765 slave.cpp:6227] Executor 'docker-image.9dc468b5-3205-11e8-8a20-82358f3033d1' of framework 6512d7cc-b7f8-4520-af33-53cade35e8f9-0001 has terminated with unknown status
 ```
 
-看起来像**无法找到特定的 Docker 镜像**，可能因为它不存在。图像是否存在于指定位置（在本例中为 Dockerhub 中的 `noimage:idonotexist`）？ 如果不是，则必须更正位置或将文件移至指定位置。此外，指定的位置或文件名是否存在错误？ 最后，检查容器镜像注册表是否可访问（尤其是在使用专用注册表时）。
+看起来像**无法找到特定的 Docker 镜像**，可能因为它不存在。图像是否存在于指定位置（在本例中为 Dockerhub 中的 `noimage:idonotexist` 如果不是，则必须更正位置或将文件移至指定位置。此外，指定的位置或文件名是否存在错误？ 最后，检查容器镜像注册表是否可访问（尤其是在使用专用注册表时）。
 s
 ### 一般模式
 
@@ -81,7 +81,7 @@ $ dcos node ssh --master-proxy --mesos-id=$(dcos task --all | grep docker-image 
 $ journalct1 -u docker
 ```
 
-请注意，与前面的示例相比，此处使用的更复杂的模式用于检索 `mesos-id`。此模式列出先前失败的任务以及正在运行的任务，而**较早的模式仅列出正在运行的任务**。
+请注意，与前面的示例相比，此处使用的更复杂的模式用于检索 `mesos-id` 此模式列出先前失败的任务以及正在运行的任务，而**较早的模式仅列出正在运行的任务**。
 
 ## 清除
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: 监控、日志记录和调试
+navigationTitle:  监控、日志记录和调试
 title: 监控、日志记录和调试
 menuWeight: 110
 excerpt: 了解如何通过 DC/OS 监控数据中心运行的健康状况
@@ -11,25 +11,25 @@ model: /mesosphere/dcos/2.0/data.yml
 
 监控构成 DC/OS&reg; 的所有部件的健康状况对数据中心操作员和排除难以诊断的漏洞都至关重要。您可以从 DC/OS UI 界面组件健康状况页面，监控群集组件的健康状况。组件健康状况页面显示来自系统健康 API 的信息，后者监控核心 DC/OS 组件。
 
-DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop.org/wiki/Software/systemd/)。这些组件由我们的内部诊断实用工具 (`dcos-diagnostics.service`) 进行监控。此实用程序扫描所有 DC/OS 单元，然后揭示每个主机上的 HTTP API。有关 DC/OS 组件的完整说明，请参阅 [文档](/mesosphere/dcos/2.0/overview/architecture/components/)。组件健康状况页面提供 systemd 中运行的所有 DC/OS 系统组件的健康状况。您可以按健康状况、主机 IP 地址或特定 systemd 进行深入查看。
+DC/OS 组件是构成 DC/OS 核心的 [`systemd` 单元](https://www.freedesktop.org/wiki/Software/systemd/) 这些组件由我们的内部诊断实用工具 () 进行监控。`dcos-diagnostics.service`). 此实用程序扫描所有 DC/OS 单元，然后揭示每个主机上的 HTTP API。有关 DC/OS 组件的完整说明，请参阅 [文档](/mesosphere/dcos/cn/2.0/overview/architecture/components/). 组件健康状况页面提供 systemd 中运行的所有 DC/OS 系统组件的健康状况。您可以按健康状况、主机 IP 地址或特定 systemd 进行深入查看。
 
 ## 入门
 
-启动 [DC/OS UI](/mesosphere/dcos/2.0/gui/) 并导航到**系统 -> 组件**页面。您可以按健康状况对组件进行排序。
+启动 [DC/OS UI](/mesosphere/dcos/cn/2.0/gui/) 并导航到**系统 -> 组件**页面。您可以按健康状况对组件进行排序。
 
-![系统健康](/mesosphere/dcos/2.0/img/GUI-Components-List_View-1_12.png)
+![系统健康](/mesosphere/dcos/cn/2.0/img/GUI-Components-List_View-1_12.png)
 
 图 1. 显示健康状况的组件页面
 
 您可以单击 DC/OS 组件以查看详细信息，包括角色、节点和健康状况。
 
-![节点详情](/mesosphere/dcos/2.0/img/GUI-Components-Compenent_Detail_View-1_12.png)
+![节点详情](/mesosphere/dcos/cn/2.0/img/GUI-Components-Compenent_Detail_View-1_12.png)
 
 图 2. 单个组件的详细信息
 
 通过点击节点查看组件 `journald`（日志）输出，您可以进一步调试。
 
-![日志](/mesosphere/dcos/2.0/img/GUI-Components-Individual_Node_Detail_View-1_12.png)
+![日志](/mesosphere/dcos/cn/2.0/img/GUI-Components-Individual_Node_Detail_View-1_12.png)
 
 图 3：`Journald` 日志输出
 
@@ -66,17 +66,17 @@ curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/healt
     ```
 1. 运行以下命令以获得群集健康状况：
 
- - 系统健康状况（按单元）：
+    - 系统健康状况（按单元）：
 
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/units
        ```
- - 系统健康状况（按节点）：
+    - 系统健康状况（按节点）：
 
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/nodes
        ```
- - 系统健康状况报告：
+    - 系统健康状况报告：
 
        ```bash
        curl --unix-socket /run/dcos/dcos-diagnostics.sock http://localhost/system/health/v1/report
@@ -100,7 +100,7 @@ DC/OS 用户界面使用这些聚合端点生成您在系统健康状况控制�
 
 ## 故障排除
 
-如果您有任何问题，您可以通过对 Mesos 领导管理节点执行 SSH 和查看诊断组件 (`dcos-diagnostics.service`) 的 `systemd` 状况，来检查诊断服务是否在运行。
+如果您有任何问题，您可以通过对 Mesos 领导管理节点执行 SSH 和查看诊断组件 (`systemd`) 的 `dcos-diagnostics.service`). 状况，来检查诊断服务是否在运行。
 
 
  [4]: https://www.freedesktop.org/wiki/Software/systemd/

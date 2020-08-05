@@ -10,7 +10,7 @@ model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明
-`dcos help` 命令为应用程序中的任何命令提供帮助。如果未使用命令运行，输出默认为 `dcos --help`。
+`dcos help` 命令为应用程序中的任何命令提供帮助。如果未使用命令运行，输出默认为 `dcos --help`.
 
 键入 `dcos help [path to command]` 了解详细信息。
 
@@ -24,7 +24,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 | 名称 | 说明 |
 |---------|-------------|
-|  `--help, h` | 显示使用情况。|
+| `--help, h`   | 显示使用情况。|
 
 
 
@@ -80,7 +80,7 @@ Use "dcos [command] --help" for more information about a command.
 
 ## 显示 `dcos config` 命令的帮助
 
-`dcos help config` 命令与 [`dcos config --help`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-config/)一样。
+`dcos help config` 命令与 [`dcos config --help`]](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-config/).一样。
 
 ```bash
 dcos help config

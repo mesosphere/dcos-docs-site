@@ -16,16 +16,16 @@ DC/OS Enterprise CLI 为 DC/OS Enterprise 功能提供命令：
 
 # <a name="ent-cli-install"></a>安装 DC/OS Enterprise CLI
 
-当设置从 CLI 到 DC/OS 群集的连接时，DC/OS Enterprise CLI **将自动安装**。
+当设置从 CLI 到 DC/OS 群集的连接时，DC/OS Enterprise CLI 将**自动安装**。
 
-要确认 dcos-enterprise-cli 已安装，请运行 `dcos plugin list`。您可以看到 enterprise CLI，因为它现在是标准插件。要进行管理，请阅读 [关于 CLI 插件的文档](/mesosphere/dcos/cn/1.13/cli/plugins/)。
+要确认 dcos-enterprise-cli 已安装，请运行 `dcos plugin list`. 您可以看到 Enterprise CLI，因为它现在是标准插件。要进行管理，请阅读 [关于 CLI 插件的文档](/mesosphere/dcos/cn/1.13/cli/plugins/).
 
-使用 `dcos package install dcos-enterprise-cli` 的先前安装过程自 DC/OS 1.13 和 DC/OS CLI 0.8 以来已弃用。
+使用 `dcos package install dcos-enterprise-cli` 的先前安装过程自 DC/OS 1.13 和 DC/OS CLI 0.8 以来就已弃用。
 
 ## 已弃用安装 (DC/OS <= 1.12)
 ### 前提条件
 
-DC/OS CLI 必须已经是 [已安装](/mesosphere/dcos/cn/1.13/cli/install/)。
+DC/OS CLI 必须已经是 [已安装](/mesosphere/dcos/cn/1.13/cli/install/).
 
 <p class="message--note"><strong>注意：</strong>必须从 DC/OS CLI 安装 DC/OS Enterprise CLI。无法在 Web 界面中从 {{ model.packageRepo }} 安装 DC/OS Enterprise CLI。</p>
 
@@ -35,7 +35,7 @@ DC/OS CLI 必须已经是 [已安装](/mesosphere/dcos/cn/1.13/cli/install/)。
 dcos package install dcos-enterprise-cli
 ```
 
-<p class="message--note"><strong>注意：</strong>请勿使用 <code>sudo</code>。</p>
+<p class="message--note"><strong>注意：</strong>请勿使用 <code>sudo</code>.</p>
 
 <a name="ent-cli-upgrade"></a>
 

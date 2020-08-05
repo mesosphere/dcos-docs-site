@@ -1,22 +1,22 @@
 ---
 layout: layout.pug
 title: 卸载 DC/OS
-navigationTitle: 卸载 DC/OS
+navigationTitle: 卸载
 menuWeight: 30
 excerpt: 移除 DC/OS
 ---
 
 DC/OS 提供用于从系统中移除 DC/OS 的卸载脚本。要从主管理节点、代理节点或公共节点删除 DC/OS，必须将卸载脚本推送到您希望刷新 DC/OS 的节点，使其可执行，然后使用 Sudo 权限运行。
 
-在运行脚本之前，应确保群集不再需要此代理代点。
+在运行脚本之前，应确保群集不再需要此代理节点。
 
-- 如果节点是管理节点，在卸载之前，应确保群集中至少有 3 个其他主管理节点正常运行。
+- 如果节点是管理节点，在卸载之前，应确保群集中至少有 3 个其他管理节点正常运行。
 
 - 如果节点是专用或公共代理节点，则确保所有任务都已在其他地方重新部署。确保没有包含群集中服务所需数据的持久卷。
 
 # 卸载 DC/OS
 
-1. 下载脚本。您可以从 [此处](http://downloads.mesosphere.com/dcos-uninstall/uninstall.sh) 下载脚本。
+1. 下载脚本。您可以 [在此处](http://downloads.mesosphere.com/dcos-uninstall/uninstall.sh) 下载脚本。
 1. 使其可执行：
 
     ```bash
@@ -33,7 +33,7 @@ DC/OS 提供用于从系统中移除 DC/OS 的卸载脚本。要从主管理节�
 ## 此脚本能做什么
 此脚本将从名为 $HOSTNAME 的计算机上卸载所有 DC/OS 二进制文件、库和日志文件。
 
-它将留下 [卸载日志](/var/log/dcos.uninstall.log)，其中详细说明从机器中移除的所有文件。
+它将在 /var/log 中留下卸载日志，其中详细说明了从机器中移除的所有文件。
 
 - 运行卸载脚本后，机器处于可以再次清洁安装 DC/OS 的状态。
 - 此脚本用于从管理节点和代理节点移除 DC/OS，不应用于卸载 bootstrap 节点。

@@ -10,9 +10,9 @@ enterprise: false
 ---
 
 
-本主题介绍如何使用 CLI 配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/cn/1.13/gui/services/) 选项卡自定义服务 。
+本主题介绍如何使用 CLI 来配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/cn/1.13/gui/services/) 选项卡自定义服务 。
 
-1. 使用 [`dcos package describe --config <package-name>`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/dcos-package-describe/) 命令查看服务的可用配置选项。
+1. 使用 [`dcos package describe --config <package-name>`](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-package/dcos-package-describe/) 命令来查看服务的可用配置选项。
 
     ```bash
     dcos package describe --config marathon
@@ -52,7 +52,7 @@ enterprise: false
     }
     ```
 
-1. 创建 JSON 配置文件。您可以选择任何名称，但您或许应该采用像 `<package-name>-config.json` 这样的模式。例如， `marathon-config.json`。
+1. 创建 JSON 配置文件。您可以选择任何名称，但您或许应该采用像  这样的模式。`<package-name>-config.json`. 例如， `marathon-config.json`.
 
     ```bash
     nano marathon-config.json

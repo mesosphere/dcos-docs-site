@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  许可证 CLI
 title: 许可证 CLI
-menuWeight: 2
+menuWeight: 0
 enterprise: true
 excerpt: 使用命令行界面管理您的 DC/OS 许可证
 render: mustache
@@ -43,7 +43,7 @@ dcos license get [--decryption-key] [<id>|active]
 
 # 获取许可证审计数据
 
-您可以使用命令 `dcos license audit get` 指定存储审计数据的可选路径。该命令采用可选标识符来检索为特定许可证生成的数据。如果您想解密审计数据，您可以使用 `dcos license get --decryption-key` 命令检索解密密钥。
+您可以使用命令  指定存储审计数据的可选路径。`dcos license audit get`. 该命令采用可选标识符来检索为特定许可生成的数据。如果您想解密审计数据，您可以使用 `dcos license get --decryption-key` 命令检索解密密钥。
 
 
 ```

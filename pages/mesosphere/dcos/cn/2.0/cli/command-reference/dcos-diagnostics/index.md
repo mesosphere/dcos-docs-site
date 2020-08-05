@@ -23,7 +23,7 @@ dcos diagnostics [OPTION] COMMAND
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示用法。 |
+| `--help, h`   | 显示用法。 |
 
 
 # 命令

@@ -22,11 +22,11 @@ dcos node decommission <mesos-id>
 
 | 名称 | 说明 |
 |---------|-------------|
-| `--help, h` | 显示用法。 |
+| `--help, h`   | 显示用法。 |
 | `--mesos-id=<mesos-id>` | 节点的代理 ID。|
 
 # 父命令
 
 | 命令 | 说明 |
 |---------|-------------|
-| [dcos node](/mesosphere/dcos/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |
+| [dcos node](/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-node/) | 查看 DC/OS 节点信息。 |

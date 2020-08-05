@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-navigationTitle: Universal Container Runtime (UCR)
+navigationTitle:  Universal Container Runtime (UCR)
 title: Universal Container Runtime (UCR)
 menuWeight: 10
 excerpt: 使用 Universal Container Runtime 启动 Mesos 容器 
@@ -11,7 +11,7 @@ enterprise: false
 
 # 使用 UCR 配置 Mesos 容器
 
-[通用容器运行时 (UCR)](http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker](https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/mesosphere/dcos/2.0/deploying-services/containerizers/)。如需要 Docker Engine 的[功能](/mesosphere/dcos/2.0/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。
+[通用容器运行时 (UCR)](http://mesos.apache.org/documentation/latest/container-image) 从二进制可执行文件启动 Mesos 容器，并扩展 Mesos 容器运行时间以支持配置 [Docker](https://docker.com/) 镜像。UCR 与 Docker Engine 相比，在运行 Docker 镜像方面具有许多[优势](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/) 如需要 Docker Engine 的[功能](/mesosphere/dcos/cn/2.0/deploying-services/containerizers/#container-runtime-features)，请使用 Docker Engine。
 
 ## Docker 注册表支持
 
@@ -36,7 +36,7 @@ UCR 使用 [Docker v2 注册表 API](https://docs.docker.com/registry/spec/api/)
 ## DC/OS CLI
 使用此程序从 DC/OS 命令行配置 UCR 的容器。
 
-1. 在 [Marathon 应用定义](/mesosphere/dcos/2.0/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`。在这里，我们使用 `docker` 对象指定 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/mesosphere/dcos/2.0/deploying-services/private-docker-registry/)。
+1. 在 [Marathon 应用定义](/mesosphere/dcos/cn/2.0/deploying-services/creating-services/#deploying-a-simple-docker-based-application-with-the-rest-api)中，将 `container.type` 参数设置为 `MESOS`. 在这里，我们使用 `docker` 对象指定 Docker 容器。UCR 提供可选的 `pullConfig` 参数以使您能够[对专用 Docker 注册表进行身份认证](/mesosphere/dcos/cn/2.0/deploying-services/private-docker-registry/).
 
 ```json
 {
@@ -86,7 +86,7 @@ UCR 使用 [Docker v2 注册表 API](https://docs.docker.com/registry/spec/api/)
 }
 ```
 
-<p class="message--important"><strong></strong>重要信息：如果您将“args”字段留空，默认入口点将为容器的启动命令。如果您的容器没有默认入口点，则须在“args”字段中指定命令。如果不这样做，您的服务将无法部署。</p>
+<p class="message--important"><strong>重要信息：</strong>如果您将“args”字段留空，默认入口点将为容器的启动命令。如果您的容器没有默认入口点，则须在“args”字段中指定命令。如果不这样做，您的服务将无法部署。</p>
 
 # 容器镜像垃圾收集
 
@@ -94,11 +94,11 @@ UCR 使用 [Docker v2 注册表 API](https://docs.docker.com/registry/spec/api/)
 
 ## [自动镜像 GC](http://mesos.apache.org/documentation/latest/container-image/#automatic-image-gc-through-agent-flag）
 
-容器镜像自动 GC 默认启用，由镜像 GC 配置文件配置。可通过 `/opt/mesosphere/etc/mesos-slave-common` 处的 `MESOS_IMAGE_GC_CONFIG` 环境变量更新此配置文件。默认配置文件位于 `/opt/mesosphere/etc/mesos-slave-image-gc-config.json`，以下是配置文件的参数：
+容器镜像自动 GC 默认启用，由镜像 GC 配置文件配置。可通过 `MESOS_IMAGE_GC_CONFIG` 处的 `/opt/mesosphere/etc/mesos-slave-common`. 环境变量更新此配置文件。默认配置文件位于 `/opt/mesosphere/etc/mesos-slave-image-gc-config.json`，以下是配置文件的参数：
 
-- `image_disk_headroom`：用于计算容器镜像存储大小阈值的镜像磁盘空间。如果镜像磁盘使用率达到该阈值，将自动触发镜像垃圾收集。请注意，空间价值必须介于 0.0 和 1.0 之间。（默认为 0.1，表示 90% 磁盘使用率作为阈值）
-- `image_disk_watch_interval`：检查镜像存储磁盘使用率的周期时间间隔。请注意，此时间间隔的单位为“纳秒”。（默认为 300000000000，表示每 5 分钟检查一次磁盘）
-- `excluded_images`：不应进行垃圾回收的已排除镜像列表。（默认为空列表）
+- `image_disk_headroom`：用于计算容器镜像存储大小阈值的镜像磁盘空间。如果镜像磁盘使用率达到该阈值，将自动触发镜像垃圾收集。请注意，净空值必须介于 0.0 和 1.0 之间。（默认值为 0.1，表示 90% 的磁盘使用率为阈值）
+- `image_disk_watch_interval`：检查镜像存储磁盘使用率的周期时间间隔。请注意，此时间间隔的单位为“纳秒”。（默认值为 300000000000，表示每 5 分钟检查一次磁盘）
+- `excluded_images`：不应进行垃圾收集的已排除镜像列表。（默认为空列表）
 
 ## [手动镜像 GC](http://mesos.apache.org/documentation/latest/container-image/#manual-image-gc-through-http-api)
 
