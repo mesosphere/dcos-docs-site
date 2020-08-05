@@ -35,47 +35,10 @@ const configData = fs.readFileSync("config.json");
 const config = JSON.parse(configData);
 const shortcodesConfig = require("./shortcodes");
 
-function splitCommasOrEmptyArray(val) {
-  return val && val.length > 0 ? val.split(",") : [];
-}
-
 // Environment Variables
-const GIT_BRANCH = process.env.GIT_BRANCH;
-const ALGOLIA_UPDATE = process.env.ALGOLIA_UPDATE;
-const ALGOLIA_PROJECT_ID = process.env.ALGOLIA_PROJECT_ID;
-const ALGOLIA_PUBLIC_KEY = process.env.ALGOLIA_PUBLIC_KEY;
-const ALGOLIA_PRIVATE_KEY = process.env.ALGOLIA_PRIVATE_KEY;
-const ALGOLIA_INDEX = process.env.ALGOLIA_INDEX;
+const GIT_BRANCH = process.env.GIT_BRANCH || "master";
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
-
-const branchCfg = config[GIT_BRANCH] || {};
-const METALSMITH_SKIP_SECTIONS = branchCfg.DO_NOT_BUILD || [];
-
-//
-// Errors
-//
-
-if (!GIT_BRANCH && process.env.NODE_ENV !== "development") {
-  throw new Error("Env var GIT_BRANCH has not been set.");
-}
-
-if (ALGOLIA_UPDATE === "true") {
-  if (process.env.NODE_ENV === "pdf") {
-    throw new Error("Algolia env vars set while build env is pdf");
-  }
-  if (!ALGOLIA_PROJECT_ID) {
-    throw new Error("Env var ALGOLIA_PROJECT_ID has not been set.");
-  }
-  if (!ALGOLIA_PUBLIC_KEY) {
-    throw new Error("Env var ALGOLIA_PUBLIC_KEY has not been set.");
-  }
-  if (!ALGOLIA_PRIVATE_KEY) {
-    throw new Error("Env var ALGOLIA_PRIVATE_KEY has not been set.");
-  }
-  if (!ALGOLIA_INDEX) {
-    throw new Error("Env var ALGOLIA_INDEX has not been set.");
-  }
-}
+const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
 
 //
 // Metalsmith
@@ -319,21 +282,9 @@ MS.use(timer("Layouts"));
 // Slow Plugins End
 //
 
-// The expected pattern format doesn't work with regex
-let pathPatternRegex;
-if (RENDER_PATH_PATTERN) {
-  pathPatternRegex = RENDER_PATH_PATTERN.split("/").slice(0, -1).join("/");
-}
-
 // Search Indexing
-if (ALGOLIA_UPDATE === "true") {
-  MS.use(
-    algolia({
-      projectId: ALGOLIA_PROJECT_ID,
-      privateKey: ALGOLIA_PRIVATE_KEY,
-      renderPathPattern: pathPatternRegex,
-    })
-  );
+if (process.env.ALGOLIA_UPDATE === "true") {
+  MS.use(algolia());
   MS.use(timer("Algolia"));
 }
 

@@ -34,11 +34,6 @@ module.exports = {
   },
   plugins: [
     new ExtractTextPlugin("./build/css/styles.css"),
-    new webpack.DefinePlugin({
-      ALGOLIA_PROJECT_ID: JSON.stringify(process.env.ALGOLIA_PROJECT_ID),
-      ALGOLIA_PUBLIC_KEY: JSON.stringify(process.env.ALGOLIA_PUBLIC_KEY),
-      ALGOLIA_INDEX: JSON.stringify(process.env.ALGOLIA_INDEX),
-      ENV: JSON.stringify(process.env.NODE_ENV),
-    }),
+    new webpack.DefinePlugin({ ENV: JSON.stringify(process.env.NODE_ENV) }),
   ],
 };

@@ -48,7 +48,7 @@ build-ngindox/%:
 #
 # Docker
 #
-docker-site-build: ## Build site docker image. Required env vars: ALGOLIA_PROJECT_ID, ALGOLIA_PUBLIC_KEY, ALGOLIA_PRIVATE_KEY, ALGOLIA_INDEX
+docker-site-build: ## Build site docker image. Required env vars: ALGOLIA_PRIVATE_KEY
 	./scripts/build-site.sh
 
 docker-site-run: ## Run site container.
