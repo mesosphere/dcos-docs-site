@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Download
 title: Download KUDO for Kubeflow
-menuWeight: 1
+menuWeight: 5
 excerpt: Learn how to download KUDO for Kubeflow
 enterprise: false
 ---

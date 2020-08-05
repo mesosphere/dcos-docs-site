@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Manage Users
 title: Manage Users and Permissions
-menuWeight: 10
+menuWeight: 20
 excerpt: Manage Kubeflow users and permissions
 beta: false
 enterprise: false
