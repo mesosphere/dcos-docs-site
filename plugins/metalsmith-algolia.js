@@ -14,28 +14,12 @@ const MAX_CONTENT_LENGTH = 49000;
  */
 
 module.exports = function algoliaMiddlewareCreator(options = {}) {
-  /**
-   * Algolia Configuration
-   * @param {Object} options
-   * @param {string} options.projectId
-   * @param {string} options.privateKey
-   * @param {array} options.skipSections
-   * @param {string} options.renderPathPattern
-   */
+  const { ALGOLIA_PRIVATE_KEY } = process.env;
+  if (!ALGOLIA_PRIVATE_KEY)
+    throw new Error("Env var ALGOLIA_PRIVATE_KEY has not been set.");
 
-  const parameters = ["projectId", "privateKey"];
-
-  for (let i = 0; i < parameters.length; i += 1) {
-    const parameter = parameters[i];
-    if (!options[parameter]) {
-      console.error(
-        `Algolia: "${parameter}" option must be set, skipping indexation`
-      );
-      return null;
-    }
-  }
-
-  const client = algoliasearch(options.projectId, options.privateKey);
+  const algoliaProjectId = "Z0ZSQ5T6T2";
+  const client = algoliasearch(algoliaProjectId, ALGOLIA_PRIVATE_KEY);
   const indices = {
     "mesosphere-dcos": client.initIndex("mesosphere-dcos"),
     "ksphere-konvoy": client.initIndex("ksphere-konvoy"),
@@ -61,31 +45,11 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   // });
 
   return function metalsmithAlgoliaMiddleware(files, metalsmith, done) {
-    const metadata = metalsmith.metadata();
-    if (!metadata) {
-      console.error("Metadata must be configured");
-      return;
-    }
-
-    const hierarchy = metadata.hierarchy;
-    if (!hierarchy) {
-      console.error("Hierarchy must be configured");
-      return;
-    }
-
     const filenames = Object.keys(files);
-
     const filesToIndex = {};
 
     filenames.forEach((filename) => {
-      if (
-        htmlFile(filename) &&
-        !inExcludedSection(
-          filename,
-          options.skipSections,
-          options.renderPathPattern
-        )
-      ) {
+      if (htmlFile(filename)) {
         // Only index files that are two directories deep, aka mesosphere/dcos/...
         const indexName = filename.split("/").slice(0, 2).join("-");
         if (!indexName.includes("index.html")) {
@@ -105,11 +69,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       conductor: "Conductor",
     };
 
-    const semverMap = buildSemverMap(
-      files,
-      options.skipSections,
-      options.renderPathPattern
-    );
+    const semverMap = buildSemverMap(files);
 
     const productize = (file, indexFile) => {
       const paths = file.path.split("/");
@@ -277,26 +237,6 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
 
 const htmlFile = (filename) => extname(filename) === ".html";
 
-const inExcludedSection = (filePath, skipSections, renderPathPattern) => {
-  if (renderPathPattern) {
-    const pathPatternRegex = RegExp(renderPathPattern);
-    if (!pathPatternRegex.test(filePath)) {
-      return true;
-    }
-  }
-
-  for (let i = 0; i < skipSections.length; i += 1) {
-    const skipSection = skipSections[i];
-    const regex = RegExp(skipSection);
-
-    if (regex.test(filePath)) {
-      return true;
-    }
-  }
-
-  return false;
-};
-
 const transformations = {
   "&nbsp;": " ",
   "&lt;": "<",
@@ -373,7 +313,7 @@ const trim = (string) => string.replace(/^\s+|\s+$/g, "");
 
 const isVersion = (version) => /^[0-9]\.[0-9](.*)/.test(version);
 
-const buildSemverMap = (files, skipSections, renderPathPattern) => {
+const buildSemverMap = (files) => {
   const services = {
     dcos: [],
     konvoy: [],
@@ -390,9 +330,7 @@ const buildSemverMap = (files, skipSections, renderPathPattern) => {
     const pathParts = file.split("/");
     const product = pathParts[1];
     let version = pathParts[2];
-    if (inExcludedSection(file, skipSections, renderPathPattern)) {
-      continue;
-    } else if (
+    if (
       version === "services" &&
       pathParts[4] &&
       /^(v|)[0-9].[0-9](.*)/.test(pathParts[4])
