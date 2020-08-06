@@ -361,8 +361,7 @@ if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
   MS.use(
     watch({
       paths: {
-        [`pages/${RENDER_PATH_PATTERN}/*`]: true,
-        [`pages/**/*`]: "layouts/**/*",
+        [`pages/${RENDER_PATH_PATTERN}/*`]: "**/*.{md,tmpl}",
         "layouts/**/*": "**/*",
         "js/**/*": "**/*",
         "scss/**/*": "**/*",
