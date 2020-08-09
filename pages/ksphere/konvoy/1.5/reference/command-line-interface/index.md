@@ -32,7 +32,6 @@ Deploy and manage Kubernetes clusters
 * [konvoy create](./konvoy-create/)	 - Creates a new node pool in the cluster configuration
 * [konvoy deploy](./konvoy-deploy/)	 - Deploy a fully functioning Kubernetes cluster and addons
 * [konvoy diagnose](./konvoy-diagnose/)	 - Creates a diagnostics bundle of the cluster
-* [konvoy diff](./konvoy-diff/)	 - Print the difference between two resources
 * [konvoy down](./konvoy-down/)	 - Destroy the Kubernetes cluster
 * [konvoy drain](./konvoy-drain/)	 - Drains Pods from machines managed by konvoy
 * [konvoy generate](./konvoy-generate/)	 - Generates artifacts

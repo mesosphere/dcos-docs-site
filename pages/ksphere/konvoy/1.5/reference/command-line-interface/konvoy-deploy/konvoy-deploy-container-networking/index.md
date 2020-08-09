@@ -24,7 +24,6 @@ konvoy deploy container-networking [flags]
 
 ```
       --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
-      --force-push            force push the cluster state
   -h, --help                  help for container-networking
       --skip-state-upload     skip the upload of the state to Kubernetes cluster
       --verbose               enable debug level logging

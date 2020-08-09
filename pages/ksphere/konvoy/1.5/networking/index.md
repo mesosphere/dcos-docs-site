@@ -24,9 +24,7 @@ iptables -A INPUT -p tcp -m tcp --dport 10248 -m comment --comment "Konvoy: kube
 iptables -A INPUT -p tcp -m tcp --dport 10249 -m comment --comment "Konvoy: kube-proxy --metrics-bind-address" -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 10256 -m comment --comment "Konvoy: kube-proxy --healthz-port" -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 10257 -m comment --comment "Konvoy: kube-controller-manager --secure-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10252 -m comment --comment "Konvoy: kube-controller-manager --port (used for liveness)" -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 10259 -m comment --comment "Konvoy: kube-scheduler --secure-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10251 -m comment --comment "Konvoy: kube-scheduler --port (used for liveliness)" -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 2379 -m comment --comment "Konvoy: etcd client" -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 2380 -m comment --comment "Konvoy: etcd peer" -j ACCEPT
 iptables -A INPUT -p tcp -m tcp --dport 9091 -m comment --comment "Konvoy: calico-node felix (used for metrics)" -j ACCEPT

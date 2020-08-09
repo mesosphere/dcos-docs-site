@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.8 or later
+* [kubectl][install_kubectl] v1.17.9 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -51,7 +51,7 @@ Before installing, verify that your environment meets the following basic requir
 
 For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
-* CentOS 7.8 is installed.
+* CentOS 7.7 is installed.
 * Firewalld is disabled.
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.

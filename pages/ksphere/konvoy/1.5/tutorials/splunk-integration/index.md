@@ -6,13 +6,15 @@ menuWeight: 5
 excerpt: Learn how to integrate Splunk into Konvoy
 ---
 
-Many organizations have standardized on Splunk for logging operations. This procedure describes how to integrate a Splunk Enterprise configuration with a Konvoy cluster.
+Many organizations have standardized on Splunk for logging operations. This procedure describes how to integrate a Splunk configuration with a Konvoy cluster.
 
 ## Splunk Prerequisites
 
 Before your begin, you need the following information specific to your Splunk configuration:
 
-- IP address of your Splunk Enterprise installation reachable from your Konvoy cluster
+```text
+- IP address and port of the Splunk Enterprise container.
+```
 
 ## Create an index for the Konvoy Cluster
 
@@ -29,18 +31,6 @@ Use the Splunk console to create an index into the kubernetes logs. Go to **Sett
 Go to **Settings -> Data Inputs**. Select **+Add New** for HTTP Event Collector. Enter information to create a new HTTP Event Collector. Select the **Next** button.
 
 ![CreateHEC](images/create_hec_1.jpg)
-
-Take note of the displayed **Token Value**, it will be used for the Fluentbit configuration.
-
-![GetTokenValue](images/get_token_value.jpg)
-
-Go to **Global Settings**.
-
-![GoGlobalSetting](images/global_settings.jpg)
-
-For the sake of simplifying this tutorial, disable SSL by unchecking **Enable SSL**. Take note of the **HTTP Port Number**, it will be used for the Fluentbit configuration.
-
-![EditGlobalSettings](images/edit_global_settings.jpg)
 
 In the **Input Settings** dialog box, select the name of the recently created index to associate that index with this HTTP Event Collector.
 
@@ -76,7 +66,7 @@ In your `cluster.yaml` file, for each Konvoy cluster, edit the Fluentbit section
       splunk:
         host: 192.168.10.6
         port: 8088
-        token: "fc13d8bd-a511-48f9-831a-3820bb1c34cc"
+        token: "4be74a2b-7a29-4f60-a72f-6a36685310c9"
         send_raw: "off"
         tls: "off"
         tls_verify: "off"
