@@ -26,6 +26,9 @@ You can verify which version your CLI can be upgraded to by running the followin
 
 ```bash
 konvoy image list
+  KONVOY VERSION | DEFAULT KUBERNETES VERSION
++----------------+----------------------------+
+  v1.4.5         | 1.16.12
 ```
 
 This command lists all the available versions to which your current CLI can be upgraded.

@@ -15,7 +15,7 @@ This section describes how to prepare your environment and install Konvoy on Azu
 
 * The [azure][install_az] command line utility
 * [Docker][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.17.8 or newer_ (for interacting with the running cluster)
+* [kubectl][install_kubectl] _v1.17.9 or newer_ (for interacting with the running cluster)
 * Latest Konvoy [Download][konvoy_download]
 * A valid Azure account [used to sign in with the Azure CLI][az_login].
 
