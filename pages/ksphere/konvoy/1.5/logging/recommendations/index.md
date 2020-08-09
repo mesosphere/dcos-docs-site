@@ -182,5 +182,5 @@ data:
 For information on related topics or procedures, refer to the following:
 
 - [Logging](../)
-- [Fluentbit Addon](../../addons/fluentbit)
+- [Fluentbit Addon](../fluentbit)
 - [Disable Audit Log Collection](../../tutorials/disable-audit-logs)

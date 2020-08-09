@@ -58,7 +58,7 @@ spec:
     count: 3
     machine:
       type: m5.xlarge
-  version: v1.5.0  
+  version: v1.5.0
 ```
 
 The worker pool scales up to a maximum of 4 machines and scales down
@@ -233,29 +233,9 @@ In case you would like to change any autoscaling configuration of your cluster, 
 
 ### Autoscaling an air-gapped cluster
 
-In an air-gapped cluster, you will need to specify some additional configurations for the autoscaling functionality to work without access to the Internet.
+In an air-gapped cluster, you need to specify some additional configurations for the autoscaling functionality to work without access to the Internet.
 
-Lets assume you you have a private registry `https://myregistry:443` that requires authentication, you would specify it as follows:
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
-metadata:
-  name: clustername
-spec:
-  autoProvisioning:
-    config:
-      konvoy:
-        imageRepository: myregistry:443/mesosphere/konvoy
-      webhook:
-        extraArgs:
-          konvoy.docker-registry-url: https://myregistry:443
-          #konvoy.docker-registry-insecure-skip-tls-verify: false
-          konvoy.docker-registry-username: "myuser"
-          konvoy.docker-registry-password: "mypassowrd"
-```
-
-The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
+Configuring auto-provisioning with a local Docker registry is mandatory and explained in the [air-gapped installation documentation][airgapped-autoscaling].
 
 You will also need to configure the autoscaler to use a local Helm charts repository running as a pod in the cluster
 
@@ -374,3 +354,4 @@ Events:
 [pod-disruption-budget]: https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#how-disruption-budgets-work
 [konvoy-installation]: ../install/
 [kubernetes-base-addons]: https://github.com/mesosphere/kubernetes-base-addons
+[airgapped-autoscaling]: ../install/install-airgapped#configure-autoscaling-and-the-docker-registry

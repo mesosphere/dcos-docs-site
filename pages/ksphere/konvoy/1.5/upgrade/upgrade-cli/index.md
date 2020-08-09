@@ -26,9 +26,6 @@ You can verify which version your CLI can be upgraded to by running the followin
 
 ```bash
 konvoy image list
-  KONVOY VERSION | DEFAULT KUBERNETES VERSION
-+----------------+----------------------------+
-  v1.4.5         | 1.16.12
 ```
 
 This command lists all the available versions to which your current CLI can be upgraded.
@@ -81,7 +78,7 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-Konvoy v1.5.x requires Calico version `3.13.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.13.4`,
+Konvoy v1.5.x requires Calico version `3.13.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.13.5`,
 
 It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.17.8`.
 
@@ -102,7 +99,7 @@ spec:
   ...
   containerNetworking:
     calico:
-      version: v3.13.4
+      version: v3.13.5
   ...
   containerRuntime:
     containerd:

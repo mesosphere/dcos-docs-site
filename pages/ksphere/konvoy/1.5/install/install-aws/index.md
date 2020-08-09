@@ -193,7 +193,7 @@ Running the following command should result in a similar output:
 $ konvoy provision --plan-only
 ...
 Plan: 41 to add, 0 to change, 0 to destroy.
-```  
+```
 
 <p class="message--note"><strong>NOTE: </strong>This command can be run before the initial provisioning or at any point after modifications are made to the `cluster.yaml` file.</p>
 
@@ -203,6 +203,16 @@ Control plane nodes are the nodes where the Kubernetes Control Plane components 
 The Control Plane contains [various components][kube_components], including `etcd`, `kube-apiserver` (that [you will interact with through `kubectl`][kubectl]), `kube-scheduler` and `kube-controller-manager`. Please also refer to the [Concepts section][concepts].
 Having three control plane nodes makes the cluster "highly available" to protect against failures.
 Worker nodes run your containers in [Kubernetes pods][kube_pods].
+
+## Adding custom cloud.conf file
+
+By default, AWS does not require a `cloud.conf` file for the cloud-provider functionality.
+If your cluster requires additional configuration, you may specify it by creating a `extras/cloud-provider/cloud.conf` file in your working directory.
+Konvoy will then copy this file to the remote machines and configure the necessarily Kubernetes components to use this configuration file.
+
+It is also possible to configure Konvoy to use the files already present on the Kubernetes machines. On the remote machines, create `/root/kubernetes/cloud.conf` files and Konvoy will configure the necessarily Kubernetes components to use this configuration file.
+
+In the case when both files are specified, the remote `/root/kubernetes/cloud.conf` file will be used.
 
 ## Default addons
 

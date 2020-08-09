@@ -38,7 +38,7 @@ spec:
   aws:
     region: us-west-2
     vpc:
-      overrideDefaultRouteTable: true  
+      overrideDefaultRouteTable: true
       enableInternetGateway: true
       enableVPCEndpoints: false
     availabilityZones:
@@ -104,7 +104,7 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.13.4
+      version: v3.13.5
       encapsulation: ipip
       mtu: 1480
   containerRuntime:

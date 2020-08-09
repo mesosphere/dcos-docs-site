@@ -43,7 +43,7 @@ Before installing, verify that your environment meets the following basic requir
 
 For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
-* CentOS 7.7 is installed.
+* CentOS 7.8 is installed.
 * Firewalld is disabled.
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
