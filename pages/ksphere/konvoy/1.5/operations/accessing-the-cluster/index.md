@@ -65,7 +65,7 @@ If the load balancer is deleted, follow the steps below to regain access to the 
 
     ```bash
     konvoy get ops-portal
-    ```  
+    ```
 
 ## Using kubectl
 

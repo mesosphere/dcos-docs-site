@@ -75,4 +75,4 @@ For information on related topics or procedures, refer to the following:
 
 - [Logging](../../logging)
 - [Resource Recommendations](../../logging/recommendations)
-- [Fluentbit Addon](../../addons/fluentbit)
+- [Fluentbit Addon](../../logging/fluentbit)

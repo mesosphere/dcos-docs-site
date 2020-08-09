@@ -23,6 +23,7 @@ konvoy diagnose [flags]
 ### Options
 
 ```
+      --cluster-name string       name used to prefix the cluster and all the created resources (default "konvoy")
   -h, --help                      help for diagnose
       --include-secrets           include the values of secrets, WARNING the secrets will be plaintext in the bundle
       --logs-all-namespaces       include logs from pods in all namespaces
@@ -35,4 +36,3 @@ konvoy diagnose [flags]
 ### SEE ALSO
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters
-

@@ -51,7 +51,7 @@ Before installing, verify that your environment meets the following basic requir
 
 For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
-* CentOS 7.7 is installed.
+* CentOS 7.8 is installed.
 * Firewalld is disabled.
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
@@ -325,6 +325,51 @@ spec:
 
 When configuring these settings, you should make sure that the values you set for `podSubnet` and `serviceSubnet` do not overlap with your node subnet and your `keepalived` virtual IP address.
 
+## Configure autoscaling and the Docker registry
+
+Konvoy provides an [autoscaling feature that works at the node pool level][autoscaling]. When installing Konvoy in an air-gapped environment, you have to configure auto-provisioning with a local Docker registry.
+
+Assuming you have a private registry `https://myregistry:443` that requires authentication, you must specify it as follows:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+metadata:
+  name: clustername
+spec:
+  autoProvisioning:
+    config:
+      konvoy:
+        imageRepository: myregistry:443/mesosphere/konvoy
+      webhook:
+        extraArgs:
+          konvoy.docker-registry-url: https://myregistry:443
+          #konvoy.docker-registry-insecure-skip-tls-verify: false
+          konvoy.docker-registry-username: "myuser"
+          konvoy.docker-registry-password: "mypassowrd"
+```
+
+The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
+
+If you are using a registry that has the notion of projects such as [Harbor][harbor], make sure that you prepend the project name to the value of `konvoy.docker-registry-repository` while not adding it to the `konvoy.docker-registry-url`. Here is an example of `autoProvisioning` spec using a Harbor registry with a project called `library`:
+
+```yaml
+spec:
+  autoProvisioning:
+    config:
+      konvoy:
+        imageRepository: myregistry:443/library/mesosphere/konvoy
+      webhook:
+        extraArgs:
+          konvoy.docker-registry-url: https://myregistry:443
+          konvoy.docker-registry-repository: "library/mesosphere/konvoy"
+          #konvoy.docker-registry-insecure-skip-tls-verify: false
+          konvoy.docker-registry-username: "myuser"
+          konvoy.docker-registry-password: "mypassowrd"
+```
+
+Other configuration options exist for the autoscaler to use a local Helm charts repository and to prevent the autoscaler from trying to list tags from the remote GitHub URL. Details are provided in [the autoscaling documentation][autoscaling-air-gapped].
+
 ## Configure Addon repository
 
 During regular deployment your cluster would have access to publicly hosted Helm chart repos for all of the addons.
@@ -581,3 +626,6 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
 [containerd_mirrors]: https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint
 [cluster_configuration]: ../../reference/cluster-configuration/
+[autoscaling]: ../../autoscaling/
+[autoscaling-air-gapped]: ../../autoscaling#autoscaling-an-air-gapped-cluster
+[harbor]: https://goharbor.io/

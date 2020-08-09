@@ -48,7 +48,7 @@ Ephemeral storage is automatically managed by Kubernetes, and typically does not
 
 ## Persistent Volume
 
-Persistent Volumes are storage resources that can be used by the cluster. Persistent Volumes are volume plug-ins that have lifecycle capabilities that are independent of any Kubernetes Pod or Deployment.  
+Persistent Volumes are storage resources that can be used by the cluster. Persistent Volumes are volume plug-ins that have lifecycle capabilities that are independent of any Kubernetes Pod or Deployment.
 
 You may have stateful workloads requiring persistent storage whose lifecycle is longer than that of Pods or containers. For instance, a database server needs to recover database files after it crashes. For those cases, the workloads need to use PersistentVolumes (PV).
 
@@ -58,9 +58,9 @@ The Persistent Volume API objects capture the details of the implementation of t
 
 ### Create a Persistent Volume
 
-Create a Persistent Volume using NFS as an example.  
+Create a Persistent Volume using NFS as an example.
 
-**Requirements: This procedure assumes you have access to an [NFS shared storage](https://en.wikipedia.org/wiki/NetworkFile_System) in your environment and accessible to your cluster.**
+**Requirements: This procedure assumes you have access to an [NFS shared storage](https://en.wikipedia.org/wiki/Network_File_System) in your environment and accessible to your cluster.**
 
 <p class="message--note"><strong>NOTE: </strong>Before you copy and paste this into your file, here are some parameters that you must change for your environment.</p>
 
@@ -88,8 +88,8 @@ Create a Persistent Volume using NFS as an example.
       persistentVolumeReclaimPolicy: Retain
       nfs:
         server: 192.168.86.252
-        path: /volume1/nfs-01/nfs-share  
-    ```  
+        path: /volume1/nfs-01/nfs-share
+    ```
 
 1.  Apply the file to create an NFS Persistent Volume (PV).
 
@@ -112,7 +112,7 @@ Create a Persistent Volume using NFS as an example.
     nfs-share   5Gi           RWX                  Retain                    Bound
     ```
 
-    Your Persistent Volume is now available for consumption.  Next, create a [Persistent Volume Claim](#heading=h.e2ns2uoyup1m) so your Pod can use the storage.
+    Your Persistent Volume is now available for consumption.  Next, create a [Persistent Volume Claim](#persistent-volume-claim) so your Pod can use the storage.
 
 ## Persistent Volume Claim
 
@@ -122,7 +122,7 @@ Any workload can specify a PersistentVolumeClaim. For example, a Pod may need a 
 
 ### Create a Persistent Volume Claim to be used with your Pod
 
-Create a Persistent Volume Claim (PVC) and leverage the existing Persistent Volume created, in the previous example, under Persistent Volumes. Remember that a Pod must use the PVC to invoke the use of a Persistent Volume.  
+Create a Persistent Volume Claim (PVC) and leverage the existing Persistent Volume created, in the previous example, under Persistent Volumes. Remember that a Pod must use the PVC to invoke the use of a Persistent Volume.
 
 **Requirements: This assumes you created a Persistent Volume as outlined in the Persistent Volume section.**
 
@@ -130,7 +130,7 @@ Create a Persistent Volume Claim (PVC) and leverage the existing Persistent Volu
 
 -   name: The name of the persistent volume claim you want.
 
--   storage: The size of your storage claim.  This must not exceed the persistent volume capacity. In the example above for Persistent Volume we used 5Gi.  
+-   storage: The size of your storage claim.  This must not exceed the persistent volume capacity. In the example above for Persistent Volume we used 5Gi.
 
 -   matchLabels: This must match the Persistent Volume `labels:` in the (PV)
 
@@ -168,7 +168,7 @@ Create a Persistent Volume Claim (PVC) and leverage the existing Persistent Volu
 
 ### Configure your Workload to use the Persistent Volume Claim
 
-Your Persistent Volume Claim is `Pending` because no workload has claimed it.  Next, create an example workload that will claim and use the Persistent Volume Claim (PVC).  We will also validate that the workload can access the volume.  
+Your Persistent Volume Claim is `Pending` because no workload has claimed it.  Next, create an example workload that will claim and use the Persistent Volume Claim (PVC).  We will also validate that the workload can access the volume.
 
 1.  Create a file called `nfs-app.yaml`.
 

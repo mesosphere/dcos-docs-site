@@ -19,9 +19,9 @@ This section describes pre-configured ports in your Konvoy deployment.
 
 -   You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [security](../../security).
 
--   By default, pods are non-isolated; they accept traffic from any source. Pods become isolated by having a NetworkPolicy that selects them. Once there is any NetworkPolicy in a namespace selecting a particular pod, that pod will reject any connections that are not allowed by any NetworkPolicy. Refer to the documentation for details on how Konvoy integrates Calico to support [Network Policies](../../networking/#network-policy).
+-   By default, pods are non-isolated; they accept traffic from any source. Pods become isolated by having a NetworkPolicy that selects them. Once there is any NetworkPolicy in a namespace selecting a particular pod, that pod will reject any connections that are not allowed by any NetworkPolicy. Refer to the documentation for details on how Konvoy integrates Calico to support [Network Policies](../../networking#network-policy).
 
--   During installation Konvoy can be configured to automatically add <code>[iptables](../../networking/#iptables)</code> the rules outlined below.
+-   During installation Konvoy can be configured to automatically add <code>[iptables](../../networking#iptables)</code> the rules outlined below.
 
 ## Control-plane nodes
 

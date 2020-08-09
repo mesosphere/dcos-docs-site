@@ -23,6 +23,7 @@ konvoy down [flags]
 ### Options
 
 ```
+      --cluster-name string     name used to prefix the cluster and all the created resources (default "konvoy")
   -h, --help                    help for down
       --provisioner string      select a provisoner [aws|azure|gcp|docker|none] (default "aws")
       --skip-clean-kubernetes   skip cleaning Kubernetes resources before deleting provisioner resources
@@ -33,4 +34,3 @@ konvoy down [flags]
 ### SEE ALSO
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters
-

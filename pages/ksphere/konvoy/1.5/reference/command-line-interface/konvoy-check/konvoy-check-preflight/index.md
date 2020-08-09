@@ -23,11 +23,11 @@ konvoy check preflight [flags]
 ### Options
 
 ```
-  -h, --help      help for preflight
-      --verbose   enable debug level logging
+      --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
+  -h, --help                  help for preflight
+      --verbose               enable debug level logging
 ```
 
 ### SEE ALSO
 
 * [konvoy check](../)	 - Run checks on the health of the cluster
-

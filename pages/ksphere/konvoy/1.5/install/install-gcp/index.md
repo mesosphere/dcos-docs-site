@@ -325,6 +325,16 @@ Running the following command should result in a similar output:
 
 <p class="message--note"><strong>NOTE: </strong>This command can be run before the initial provisioning or at any point after modifications are made to the <code>cluster.yaml</code> file.</p>
 
+### Adding custom cloud.conf file
+
+Konvoy will generate a default `cloud.conf` file based on the provisioned infrastructure.
+If your cluster requires additional configuration, you may specify it by creating a `extras/cloud-provider/cloud.conf` file in your working directory.
+Konvoy will then copy this file to the remote machines and configure the necessarily Kubernetes components to use this configuration file.
+
+It is also possible to configure Konvoy to use the files already present on the Kubernetes machines. On the remote machines, create `/root/kubernetes/cloud.conf` files and Konvoy will configure the necessarily Kubernetes components to use this configuration file.
+
+In the case when both files are specified, the remote `/root/kubernetes/cloud.conf` file will be used.
+
 ## Viewing installation operations
 
 As the `konvoy up --provisioner gcp` command runs to start the cluster installation, you will see output as the operations are performed. The first output messages you see are from [Terraform][terraform] as it provisions your nodes.
