@@ -18,8 +18,6 @@ The Kommander cluster collects cost metrics remotely, using Thanos, from each ma
 https://<CLUSTER_URL>/ops/portal/kommander/kubecost/frontend/detail.html#&agg=cluster
 ```
 
-<p class="message--note"><strong>NOTE: </strong>It takes at least 3 hours for each managed cluster to generate sufficient cost data to be aggregated and presented in the UI.</p>
-
 To identify clusters in Kubecost, managed clusters are distinguished by a monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
 To find a cluster's monitoring ID, go to the **Clusters** tab on the Kommander UI in the relevant workspace:
