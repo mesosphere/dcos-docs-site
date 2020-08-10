@@ -8,7 +8,7 @@ excerpt: Changelog for DC/OS Kubernetes
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-kubernetes-cluster -->
 
-## Version 2.7.0-1.18.6
+## Version 2.7.0-1.18.6 - 10th August, 2020
 
 ### Changelog since 2.6.1-1.17.8
 
