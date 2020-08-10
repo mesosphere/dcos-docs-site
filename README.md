@@ -277,6 +277,30 @@ $ openssl x509 -hash -noout -in ca.crt
 
 For the same usability as removing the shell prompt, always separate input blocks from output blocks so that users can copy the commands.
 
+### Adding line highlights
+
+You can highlight lines in a code block by adding a `data-line` attribute:
+
+    ```json {data-line=2-5}
+    {
+      "id": "my-job",
+      "description": "A job that sleeps",
+      "run": {
+        "cmd": "sleep 1000",
+        "cpus": 0.01,
+        "mem": 32,
+        "disk": 0
+      }
+    }
+    ```
+
+You can highlight any combination of single lines and ranges. Some examples:
+
+* `1` - highlight line 1.
+* `2-5` - highlight the range 2 to 5.
+* `1,3` - highlight the lines 1 and 3.
+* `1-3,42` - highlight lines 1 to 3 and 42.
+
 ### Adding mustache variables
 Version numbers, product names and other commonly used items can be added in as variables to increase text reusability.
 

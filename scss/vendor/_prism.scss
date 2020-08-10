@@ -179,3 +179,42 @@
 	 color: inherit;
 	 text-decoration: none;
  }
+
+//////////////////////////////////////////////////////////////////////////////
+//                          LINE HIGHLIGHTING PLUGIN                        //
+//////////////////////////////////////////////////////////////////////////////
+pre[data-line] {
+	position: relative;
+	padding: 1em 0 1em 3em;
+}
+
+.line-highlight {
+	position: absolute;
+	left: 0;
+	right: 0;
+	padding: inherit 0;
+	margin-top: 1em; /* Same as .prism’s padding-top */
+
+	background: rgba(125, 88, 255, 0.1);
+  background: linear-gradient(to right, rgba(125, 88, 255, 0.15) 70%, rgba(125, 88, 255, 0));
+
+	pointer-events: none;
+
+	line-height: inherit;
+	white-space: pre;
+}
+
+.line-numbers .line-highlight:before,
+.line-numbers .line-highlight:after {
+	content: none;
+}
+
+pre[id].linkable-line-numbers span.line-numbers-rows {
+	pointer-events: all;
+}
+pre[id].linkable-line-numbers span.line-numbers-rows > span:before {
+	cursor: pointer;
+}
+pre[id].linkable-line-numbers span.line-numbers-rows > span:hover:before {
+	background-color: rgba(128, 128, 128, .2);
+}
