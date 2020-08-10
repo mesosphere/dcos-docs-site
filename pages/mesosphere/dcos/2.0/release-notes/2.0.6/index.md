@@ -22,11 +22,13 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 DC/OS 2.0.6 includes the following component versions:
 
-- ??? 
-COPS-6360
-COPS-6335
-COPS-6324
-COPS-6295
+
+### DC/OS Fixed and Improved Issues
+
+- An issue where selecting **Install DC/OS CLI** presents a URL to a binary that is incorrect as been fixed. (COPS-6360)
+- An issue where the Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode has been resolved. (COPS-6335, D2IQ-70037)
+- An issue where selecting **Run** on a job or selecting **Delete** to remove a group had no effect and threw an exception has been resolved. (COPS-6324)
+- An issue where DC/OS OSS UI was not displaying a user name, but instead showed a **User added through OIDC ID Token login** message has been resolved. (COPS-6295, D2IQ-70199) 
 COPS-6166
 COPS-6139
 COPS-6111
@@ -35,8 +37,6 @@ COPS-5979
 COPS-5915
 COPS-5629
 
-D2IQ-70199
-D2IQ-70037
 D2IQ-69295
 D2IQ-68868
 D2IQ-68541
@@ -50,10 +50,6 @@ D2IQ-61304
 D2IQ-14964
 D2IQ-7844
 
-### DC/OS Fixed and Improved Issues
-
-- Fixed 
-- 
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
