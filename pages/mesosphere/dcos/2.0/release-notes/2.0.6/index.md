@@ -29,19 +29,16 @@ DC/OS 2.0.6 includes the following component versions:
 - An issue where the Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode has been resolved. (COPS-6335, D2IQ-70037)
 - An issue where selecting **Run** on a job or selecting **Delete** to remove a group had no effect and threw an exception has been resolved. (COPS-6324)
 - An issue where DC/OS OSS UI was not displaying a user name, but instead showed a **User added through OIDC ID Token login** message has been resolved. (COPS-6295, D2IQ-70199) 
-COPS-6166
-COPS-6139
-COPS-6111
-COPS-6085
+- An issue where renaming or deleting folders via the Jupyter UI resulted in a Rename Error and Delete Failed has been resolved. (COPS-6166)
+- An issue where users were unable to remove empty folders from Metronome has been resolved. (COPS-6139, D2IQ-68541)
+- An issue where Exhibitor was writing JNA files to /tmp has been resolved (COPS-6111, D2IQ-68109, D2IQ-68868) 
+- An issue where using file-based secrets caused mount failure and issues in the json editor have been resolved. (COPS-6085, D2IQ-68114) 
+
 COPS-5979
 COPS-5915
 COPS-5629
 
 D2IQ-69295
-D2IQ-68868
-D2IQ-68541
-D2IQ-68114
-D2IQ-68109
 D2IQ-67994
 D2IQ-67819
 D2IQ-66022
