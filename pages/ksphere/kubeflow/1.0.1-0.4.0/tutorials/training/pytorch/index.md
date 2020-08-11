@@ -106,7 +106,7 @@ Before we train our model, it is sensible to inspect the data we are about to fe
 from torchvision import datasets, transforms
 
 # See: https://pytorch.org/docs/stable/torchvision/datasets.html#torchvision.datasets.MNIST
-mnist = datasets.MNIST("", download=False, train=True, transform=transforms.ToTensor())
+mnist = datasets.MNIST("datasets", download=False, train=True, transform=transforms.ToTensor())
 mnist
 ```
 
@@ -115,7 +115,7 @@ mnist
 
     Dataset MNIST
         Number of datapoints: 60000
-        Root location: 
+        Root location: datasets
         Split: Train
         StandardTransform
     Transform: ToTensor()
@@ -431,7 +431,7 @@ def main():
 
     kwargs = {"num_workers": 1, "pin_memory": True} if use_cuda else {}
     train_data = datasets.MNIST(
-        "",
+        "datasets",
         download=False,
         train=True,
         transform=transforms.Compose(
@@ -456,7 +456,7 @@ def main():
 
     test_loader = torch.utils.data.DataLoader(
         datasets.MNIST(
-            "",
+            "datasets",
             download=False,
             train=False,
             transform=transforms.Compose(
@@ -636,6 +636,7 @@ The Dockerfile looks as follows:
 ```
 FROM mesosphere/kubeflow:1.0.1-0.4.0-pytorch-1.5.0-gpu
 ADD mnist.py /
+ADD datasets /datasets
 
 ENTRYPOINT ["python", "/mnist.py"]
 ```

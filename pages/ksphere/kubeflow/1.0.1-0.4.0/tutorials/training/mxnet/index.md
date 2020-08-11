@@ -45,20 +45,50 @@ Before we proceed, let's check that we're using the right image, that is, [MXNet
 
 Yes!
 
-Let's import the necessary Python modules to load the data:
+Let's import the necessary Python modules and load the data:
 
 
 ```python
 import mxnet as mx
+import numpy as np
+
+import gzip
 import logging
+import struct
 
 
 logging.getLogger().setLevel(logging.INFO)
 
-mnist = mx.test_utils.get_mnist()
+
+def get_mnist():
+    """
+    Utility method to load the MNIST dataset stored on disk.
+    This is a modification of the original test_utils.get_mnist() function available in MXNet.
+    
+    Link:
+    https://mxnet.apache.org/versions/1.6/api/python/docs/_modules/mxnet/test_utils.html#get_mnist
+    """
+    def read_data(label_url, image_url):
+        with gzip.open(label_url) as flbl:
+            struct.unpack(">II", flbl.read(8))
+            label = np.frombuffer(flbl.read(), dtype=np.int8)
+        with gzip.open(image_url, "rb") as fimg:
+            _, _, rows, cols = struct.unpack(">IIII", fimg.read(16))
+            image = np.frombuffer(fimg.read(), dtype=np.uint8).reshape(len(label), rows, cols)
+            image = image.reshape(image.shape[0], 1, 28, 28).astype(np.float32)/255
+        return label, image
+
+    path = "datasets/mnist/"
+    (train_lbl, train_img) = read_data(path+'train-labels-idx1-ubyte.gz', path+'train-images-idx3-ubyte.gz')
+    (test_lbl, test_img) = read_data(path+'t10k-labels-idx1-ubyte.gz', path+'t10k-images-idx3-ubyte.gz')
+    
+    return {'train_data':train_img, 'train_label':train_lbl, 'test_data':test_img, 'test_label':test_lbl}
+
+
+mnist = get_mnist()
 ```
 
-The [documentation](https://beta.mxnet.io/api/advanced/_autogen/mxnet.test_utils.get_mnist.html) tells us we receive a `dict`, so for future reference we can look at the available keys:
+We expect to receive a `dict`, so for future reference we can look at the available keys:
 
 
 ```python
