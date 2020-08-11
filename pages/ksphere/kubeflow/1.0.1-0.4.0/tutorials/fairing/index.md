@@ -48,6 +48,27 @@ Kubeflow Fairing must be installed, so let's check that it is:
 ! pip show kubeflow-fairing
 ```
 
+### Prepare the training code and datasets
+The examples in this tutorial require a trainer code file `mnist.py` and a dataset to be present in the current folder.
+The code and datasets are already available in [MNIST with TensorFlow](../training/tensorflow)
+or [MNIST with PyTorch](../training/pytorch) tutorials and can be reused here. Run one of the following shortcuts to copy the required files.
+
+##### TensorFlow
+
+
+```python
+! jq -j '.cells[] | select(.metadata.tags!= null) | select (.metadata.tags[] | contains("trainer_code")) | .source | .[]' ../training/tensorflow/MNIST\ with\ TensorFlow.ipynb | sed '1d' > mnist.py
+! cp -R ../training/tensorflow/datasets .
+```
+
+##### PyTorch
+
+
+```python
+! jq -j '.cells[] | select(.metadata.tags!= null) | select (.metadata.tags[] | contains("trainer_code")) | .source | .[]' ../training/pytorch/MNIST\ with\ PyTorch.ipynb | sed '1d' > mnist.py
+! cp -R ../training/pytorch/datasets .
+```
+
 We're ready to go!
 
 ## How to Create a Docker Credentials File and Kubernetes Secret
@@ -178,11 +199,13 @@ With the `command` we must include all the mandatory arguments (i.e. `epochs`):
 
 ```python
 from kubeflow import fairing
+import glob
 
 fairing.config.set_preprocessor(
     "python",
     command=["python", "-u", "mnist.py", "--epochs=3"],
-    input_files=["mnist.py"],
+    input_files=["mnist.py"] + glob.glob("datasets/**", recursive=True),
+    path_prefix="/",
     executable="mnist.py",
 )
 ```
@@ -196,6 +219,8 @@ If your model code is based on PyTorch, please skip this section!
 
 
 ```python
+from kubeflow.fairing.kubernetes import utils as k8s_utils
+
 BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0-gpu"
 
 fairing.config.set_builder(
@@ -206,7 +231,13 @@ fairing.config.set_builder(
     context_source=minio_context_source,
 )
 
-fairing.config.set_deployer(name="tfjob", worker_count=2, chief_count=1)
+fairing.config.set_deployer(
+    name="tfjob",
+    worker_count=2,
+    chief_count=1,
+    # remove this parameter if the cluster doesn't have GPUs
+    pod_spec_mutators=[k8s_utils.get_resource_mutator(gpu=1)],
+)
 
 fairing.config.run()
 ```
@@ -218,6 +249,8 @@ The main configuration options are the master and worker counts, but you can see
 
 
 ```python
+from kubeflow.fairing.kubernetes import utils as k8s_utils
+
 BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-pytorch-1.5.0-gpu"
 
 fairing.config.set_builder(
@@ -232,6 +265,8 @@ fairing.config.set_deployer(
             name="pytorchjob", 
             worker_count=2,
             master_count=1,
+            # remove this parameter if the cluster doesn't have GPUs
+            pod_spec_mutators=[k8s_utils.get_resource_mutator(gpu=1)],
 )
 
 fairing.config.run()
@@ -245,13 +280,14 @@ Please choose the appropriate `BASE_IMAGE` based on whether your `mnist.py` file
 ```python
 from kubeflow.fairing.builders import cluster
 from kubeflow.fairing.preprocessors import base as base_preprocessor
+import glob
 
 # Choose which base image your executable mnist.py file requires
 BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0-gpu"
 # BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-pytorch-1.5.0-gpu"
 
 preprocessor = base_preprocessor.BasePreProcessor(
-    input_files=["mnist.py"], executable="mnist.py"
+    input_files=["mnist.py"] + glob.glob("datasets/**", recursive=True), path_prefix="/", executable="mnist.py"
 )
 
 cluster_builder = cluster.cluster.ClusterBuilder(

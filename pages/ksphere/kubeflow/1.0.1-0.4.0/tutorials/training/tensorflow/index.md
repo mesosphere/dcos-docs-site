@@ -67,11 +67,11 @@ Before we proceed, let's check that we're using the right image, that is, [Tenso
 ! pip list | grep tensorflow
 ```
 
-    tensorflow               2.1.0
-    tensorflow-datasets      2.1.0
-    tensorflow-estimator     2.1.0
-    tensorflow-gpu           2.1.0
-    tensorflow-metadata      0.21.1
+    tensorflow-datasets      3.1.0              
+    tensorflow-estimator     2.2.0              
+    tensorflow-gpu           2.2.0              
+    tensorflow-metadata      0.22.1             
+
 
 To package the trainer in a container image, we shall need a file (on our cluster) that contains the code as well as a file with the resource definitition of the job for the Kubernetes cluster:
 
@@ -118,7 +118,7 @@ import tensorflow_datasets as tfds
 
 from matplotlib import pyplot as plt
 
-mnist, info = tfds.load(name="mnist", split="train", data_dir="tensorflow_datasets", download=False, with_info=True)
+mnist, info = tfds.load(name="mnist", split="train", data_dir="datasets", download=False, with_info=True)
 tfds.show_examples(info, mnist)
 ```
 
@@ -203,7 +203,7 @@ logging.getLogger().setLevel(logging.INFO)
 
 
 def get_datasets(buffer_size):
-    datasets, ds_info = tfds.load(name="mnist", with_info=True, as_supervised=True)
+    datasets, ds_info = tfds.load(name="mnist", data_dir="datasets", download=False, with_info=True, as_supervised=True)
     mnist_train, mnist_test = datasets["train"], datasets["test"]
 
     def scale(image, label):
@@ -417,6 +417,7 @@ The Dockerfile looks as follows:
 ```
 FROM mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0-gpu
 ADD mnist.py /
+ADD datasets /datasets
 
 ENTRYPOINT ["python", "-u", "/mnist.py"]
 ```
