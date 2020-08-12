@@ -69,19 +69,10 @@ function createFeed(opts, metalsmith, page) {
 function rss(opts) {
   return function rssMiddleware(files, metalsmith, done) {
     setImmediate(done);
-
-    const metadata = metalsmith.metadata();
-    if (!metadata) {
-      done(new Error("metadata must be configured"));
-    }
-
-    const hierarchy = metadata.hierarchy;
-    if (!hierarchy) {
-      done(new Error("hierarchy must be configured"));
-    }
-
-    const pages = hierarchy.find("rss", true);
-    pages.forEach((page) => createFeed(opts, metalsmith, page));
+    metalsmith
+      .metadata()
+      .hierarchy.find("rss", true)
+      .forEach((page) => createFeed(opts, metalsmith, page));
   };
 }
 
