@@ -5,7 +5,7 @@ title: Release notes for 2.0.6
 menuWeight: 0
 excerpt: Release notes for DC/OS 2.0.6, including Open Source attribution, and version policy.
 ---
-DC/OS&trade; 2.0.6 was released on ????, 2020.
+DC/OS&trade; 2.0.6 was released on 13 August, 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.6/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
@@ -40,6 +40,7 @@ DC/OS 2.0.6 includes the following component versions:
 - An issue where, after upgrading, the dcos-telegraf script was not migrating containers properly was resolved. (D2IQ-69295)
 - An issue where pressing **Enter** in the Secret ID textbox, reloads the DC/OS UI has been resolved. (D2IQ-14964) 
 - An issue where running two CLI installers from the same machine aborted with an error has been resolved. (D2IQ-7844) 
+- An issue where a master node was not able to rejoin a cluster after failure/restart when another master is offline or being upgraded is now resolved. (COPS-1754) 
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
