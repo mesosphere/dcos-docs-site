@@ -5,9 +5,10 @@
 - var semver = /^[0-9]+\.[0-9]+/
 - var semverService = /^(v|)[0-9](.*)/
 - var dropdown = []
+- var isService = paths[2] === 'services' && paths[3]
 
 // Service Docs
-if paths[2] === 'services' && paths[3]
+if isService
   - item = hierarchy.findByPath('/mesosphere/dcos' + '/' + paths[2] + '/' + paths[3])
   - var versioned = item.children.reduce((acc, x) => acc + semverService.test(x.id), false)
   - type = hierarchy.findByPath('/mesosphere/dcos' + '/' + paths[2] + '/' + paths[3])
@@ -21,12 +22,11 @@ if paths[2] === 'services' && paths[3]
     if tmpItem
       - item = tmpItem
 
-
 // DC/OS Docs
-if paths[1] === 'dcos' && semver.test(paths[2])
+if paths[1] === 'dcos' && !isService
   - var type = hierarchy.findByPath(`mesosphere/dcos`)
   - var dropdown = type.children.filter(item => semver.test(item.id))
-  - var item = hierarchy.findByPath('mesosphere/' + paths[1] + '/' + paths[2])
+  - var item = hierarchy.findByPath('mesosphere/dcos/' + paths[2])
   - var versionTitle = paths[2]
 
 // all ksphere stuff

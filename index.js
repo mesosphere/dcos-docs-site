@@ -181,12 +181,7 @@ MS.use(
 MS.use(timer("Mustache"));
 
 // Folder Hierarchy
-MS.use(
-  hierarchy({
-    files: [".md"],
-    excerpt: true,
-  })
-);
+MS.use(hierarchy);
 MS.use(timer("Hierarchy"));
 
 // RSS Feed
