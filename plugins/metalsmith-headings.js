@@ -1,27 +1,19 @@
-const cheerio = require("cheerio");
+const $ = require("cheerio");
 const extname = require("path").extname;
 
-function plugin() {
-  const selectors = ["h1", "h2"];
-  return function (files, metalsmith, done) {
-    setImmediate(done);
-    Object.keys(files).forEach(function (file) {
-      if (".html" != extname(file)) return;
-      var data = files[file];
-      var contents = data.contents.toString();
-      var $ = cheerio.load(contents);
-      data.headings = [];
-      $(selectors.join(",")).each(function () {
-        if ($(this).data("hide") != true) {
-          data.headings.push({
-            id: $(this).attr("id"),
-            tag: $(this)[0].name,
-            text: $(this).text(),
-          });
-        }
+module.exports = () => (files, metalsmith, done) => {
+  setImmediate(done);
+  Object.entries(files).forEach(([path, file]) => {
+    if (".html" != extname(path)) return;
+    file.headings = [];
+    $("h1, h2", file.contents.toString("utf-8")).each((_, el) => {
+      if ($(el).data("hide")) return;
+      const text = $(el).text().trim();
+      file.headings.push({
+        id: $(el).attr("id") || text.replace(/\s+/g, "-").toLowerCase(),
+        tag: el.name,
+        text,
       });
     });
-  };
-}
-
-module.exports = plugin;
+  });
+};
