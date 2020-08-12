@@ -1,27 +1,7 @@
-- var isHeadings = headings.length > 0
-
-if (isHeadings || relatedPages)
-  aside(class='content__sections')
-    div(class='content__sections-list-container')
-      if (headings)
-        ul(class='content__sections-list')
-          for heading in headings
-            - var headClass = 'content__sections-item--' + heading.tag
-            li(class=headClass + ' content__sections-item')
-              if heading.id
-                a(href='#' + heading.id)!= heading.text
-              else
-                - var h_text = heading.text.trim()
-                - h_text = h_text.replace(/\s+/g, '-').toLowerCase()
-                a(href='#' + h_text)!= heading.text
-
-      if (relatedPages)
-        ul(class='content__sections-list')
-          li(class='content__sections-item')
-            b Related Pages
-          for relatedPagePath in relatedPages
-            - var page = hierarchy.findByPath(relatedPagePath)
-            if page
-              li(class='content__sections-item')
-                a(href=page.path)!= page.navigationTitle
-
+if (headings.length > 0)
+  aside.content__sections
+    .content__sections-list-container
+      ul.content__sections-list
+        for heading in headings
+          li.content__sections-item(class=`content__sections-item--${heading.tag}`)
+            a(href="#" + heading.id)!= heading.text
