@@ -22,7 +22,10 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 DC/OS 2.0.6 includes the following component versions:
 
-- ????
+- Apache Mesos 1.9.1-dev
+- Marathon 1.9.136
+- DC/OS UI 5.1.7
+- Fluentbit 1.4.6
 
 ### DC/OS Fixed and Improved Issues
 
@@ -30,7 +33,7 @@ DC/OS 2.0.6 includes the following component versions:
 - An issue where the Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode has been resolved. (COPS-6335, D2IQ-70037)
 - An issue where selecting **Run** on a job or selecting **Delete** to remove a group had no effect and threw an exception has been resolved. (COPS-6324)
 - An issue where DC/OS OSS UI was not displaying a user name, but instead showed a **User added through OIDC ID Token login** message has been resolved. (COPS-6295, D2IQ-70199) 
-- An issue where renaming or deleting folders via the Jupyter UI resulted in a Rename Error and Delete Failed has been resolved. (COPS-6166)
+- An issue where renaming or deleting folders via the Jupyter UI resulted in a Rename Error and Delete Failed has been resolved. (COPS-6166, DCOS_OSS-5967)
 - An issue where users were unable to remove empty folders from Metronome has been resolved. (COPS-6139, D2IQ-68541)
 - An issue where Exhibitor was writing JNA files to /tmp has been resolved (COPS-6111, D2IQ-68109, D2IQ-68868) 
 - An issue where using file-based secrets caused mount failure and issues in the json editor have been resolved. (COPS-6085, D2IQ-68114, D2IQ-67819) 
@@ -43,7 +46,7 @@ DC/OS 2.0.6 includes the following component versions:
 - An issue where a master node was not able to rejoin a cluster after failure/restart when another master is offline or being upgraded is now resolved. (COPS-1754) 
 
 ## Mesos Fixed and Improved Issues
-For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
+For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/802a50f4902f1f5ca3829dca4a472d8a582f7b9b/CHANGELOG)
 
 ## Marathon Fixed and Improved Issues
 For a detailed description on updates to Marathon, see the [changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
