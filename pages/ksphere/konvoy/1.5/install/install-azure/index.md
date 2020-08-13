@@ -13,9 +13,7 @@ This section describes how to prepare your environment and install Konvoy on Azu
 
 For a demo of installing Konvoy on Azure, see this video:
 
-<figure class="video_container">
-  <iframe src="https://youtu.be/I6khWLL789k" frameborder="0" allowfullscreen="true"> </iframe>
-</figure>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/I6khWLL789k" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Before you Begin
 
