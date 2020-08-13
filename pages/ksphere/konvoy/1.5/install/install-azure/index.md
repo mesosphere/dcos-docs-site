@@ -103,7 +103,7 @@ A summary of the default cluster deployment is below.
 <p class="message--note"><strong>NOTE: </strong>Please refer to the <a href="../../reference/cluster-configuration/">cluster.yaml reference documentation</a> if you would like to customize your installation.</p>
 
 * Provisions three `Standard_D4S_v3` virtual machines as Kubernetes master nodes
-* Provisions six `Standard_D4S_v3` virtual machines as Kubernetes worker nodes
+* Provisions six `Standard_D8S_v3` virtual machines as Kubernetes worker nodes
 * Deploys a Kubernetes cluster with an auto-generated name
 * Deploys all of the following default Addons:
   * dashboard

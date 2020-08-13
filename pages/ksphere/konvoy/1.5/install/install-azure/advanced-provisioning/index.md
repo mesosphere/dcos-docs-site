@@ -56,7 +56,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_D4s_v3
+      type: Standard_D8s_v3
   - name: control-plane
     controlPlane: true
     count: 3
@@ -248,7 +248,7 @@ spec:
       imagefsVolumeEnabled: true
       imagefsVolumeSize: 160
       imagefsVolumeType: Standard_LRS
-      type: Standard_D4S_v3
+      type: Standard_D8S_v3
       subnetIDs:
       - existing-subnet-for-konvoy
   - name: control-plane
