@@ -13,7 +13,7 @@ When upgrading Kommander, it is recommended to use the equivalent [new version o
 
 ## Kommander cluster creation before Konvoy v1.4.3
 
-In versions before Konvoy v1.4.3 (where Kommander version is v1.0), new Kommander clusters cannot be created. It is recommended to upgrade to the latest version of Konvoy (v1.5.0), which includes Kommander 1.1.0 to be able to create new Kommander clusters.
+In versions before Konvoy v1.4.3, with Kommander version v1.0, new Kommander clusters cannot be created. It is recommended you  upgrade to the latest version of Konvoy (v1.5.0), which includes Kommander 1.1.0 to be able to create new Kommander clusters.
 
 ## Kommander cluster limitations
 
