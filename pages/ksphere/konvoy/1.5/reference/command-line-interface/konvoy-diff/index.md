@@ -24,6 +24,6 @@ Print the difference between two resources
 
 ### SEE ALSO
 
-* [konvoy](../)	 - deploy and manage Kubernetes clusters
+* [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy diff cluster-state](./konvoy-diff-cluster-state/)	 - Print the difference between the local and remote cluster state
 

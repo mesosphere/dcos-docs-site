@@ -11,11 +11,17 @@ enterprise: false
 
 This section describes how to prepare your environment and install Konvoy on Azure. It relates to deploying the entire Kubernetes cluster onto Azure Infrastructure as a Service (IaaS). You can also manage Azure Kubernetes Service (AKS) through [D2iQ Kommander][kommander_clusters].
 
+For a demo of installing Konvoy on Azure, see this video:
+
+<figure class="video_container">
+  <iframe src="https://youtu.be/I6khWLL789k" frameborder="0" allowfullscreen="true"> </iframe>
+</figure>
+
 ## Before you Begin
 
 * The [azure][install_az] command line utility
 * [Docker][install_docker] _version 18.09.2 or newer_
-* [kubectl][install_kubectl] _v1.17.9 or newer_ (for interacting with the running cluster)
+* [kubectl][install_kubectl] _v1.17.8 or newer_ (for interacting with the running cluster)
 * Latest Konvoy [Download][konvoy_download]
 * A valid Azure account [used to sign in with the Azure CLI][az_login].
 

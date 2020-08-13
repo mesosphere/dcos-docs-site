@@ -1,30 +1,30 @@
 ---
 layout: layout.pug
-navigationTitle: konvoy deploy auto-provisioning
-title: konvoy deploy auto-provisioning
+navigationTitle: konvoy destroy local-volumes
+title: konvoy destroy local-volumes
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-excerpt: Deploy auto provisioning
+excerpt: Remove the data in local volumes
 ---
 
-## konvoy deploy auto-provisioning
+## konvoy destroy local-volumes
 
-Deploy auto provisioning
+Remove the data in local volumes
 
 ### Synopsis
 
-Deploy auto provisioning
+Remove the data in local volumes
 
 ```
-konvoy deploy auto-provisioning [flags]
+konvoy destroy local-volumes [flags]
 ```
 
 ### Options
 
 ```
       --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
-  -h, --help                  help for auto-provisioning
+  -h, --help                  help for local-volumes
   -v, --v int                 select verbosity level, should be between 0 and 6
       --verbose               enable debug level logging
   -y, --yes                   run command without prompting
@@ -32,5 +32,5 @@ konvoy deploy auto-provisioning [flags]
 
 ### SEE ALSO
 
-* [konvoy deploy](../)	 - Deploy a fully functioning Kubernetes cluster and addons
+* [konvoy destroy](../)	 - Destroy cluster resources
 

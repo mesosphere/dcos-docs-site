@@ -50,7 +50,7 @@ spec:
   - name: worker
     count: 6
     machine:
-      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      imageID: OpenLogic:CentOS:7_8-gen2:7.8.2020062401
       rootVolumeSize: 80
       rootVolumeType: Standard_LRS
       imagefsVolumeEnabled: true
@@ -61,7 +61,7 @@ spec:
     controlPlane: true
     count: 3
     machine:
-      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      imageID: OpenLogic:CentOS:7_8-gen2:7.8.2020062401
       rootVolumeSize: 80
       rootVolumeType: StandardSSD_LRS
       imagefsVolumeEnabled: true
@@ -99,8 +99,8 @@ The following Azure Image is used by default for Konvoy cluster deployments:
 os_image = {
   publisher = "OpenLogic"
   offer     = "CentOS"
-  sku       = "7.7"
-  version   = "7.7.2020042900"
+  sku       = "7_8-gen2"
+  version   = "7.8.2020062401"
 }
 ```
 
