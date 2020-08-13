@@ -9,7 +9,7 @@ enterprise: false
 
 Kommander is an addon running on a Konvoy cluster, it will be updated in the same way every [Konvoy addon is upgraded][addons-upgrade].
 
-When upgrading Kommander, it is recommended to use the equivalent [new version of konvoy CLI and update][konvoy-upgrade] your `cluster.yaml` file according to the instructions.
+When upgrading Kommander, it is recommended you use the equivalent [new version of konvoy CLI and update][konvoy-upgrade] for your `cluster.yaml` file according to the instructions.
 
 ## Kommander cluster creation before Konvoy v1.4.3
 
