@@ -155,20 +155,25 @@ By default, DC/OS clusters have [fault domain awareness](/mesosphere/dcos/2.1/de
 
 1. Create a fault domain detect script named `fault-domain-detect` to run on each node to detect the node's fault domain. During installation, the output of this script is passed to Mesos.
 
-    We recommend the format for the script output be:
+    We recommend a script like this:
 
-    ```json
-    {
-        "fault_domain": {
-            "region": {
-                "name": "<region-name>"
-            },
-            "zone": {
-                "name": "<zone-name>"
-            }
-        }
-    }
-    ```
+    ```sh
+      #!/bin/sh
+
+      REGION="<enter region name>"
+      ZONE="<enter zone name>"
+
+      echo "{
+          \"fault_domain\": {
+              \"region\": {
+                  \"name\": \"${REGION}\"
+              },
+              \"zone\": {
+                  \"name\": \"${ZONE}\"
+              }
+          }
+      }"
+      ```
 
     We provide [fault domain detect scripts for AWS and Azure nodes](https://github.com/dcos/dcos/tree/master/gen/fault-domain-detect). For a cluster that has aws nodes and azure nodes you would combine the two into one script. You can use these as a model for creating a fault domain detect script for an on premises cluster.
 
@@ -430,7 +435,7 @@ At this point your directory structure should resemble:
 
     __Note:__ If you encounter errors such as `Time is marked as bad`, `adjtimex`, or `Time not in sync` in journald, verify that Network Time Protocol (NTP) is enabled on all nodes. For more information, see the [system requirements](/mesosphere/dcos/2.1/installing/production/system-requirements/ports/) documentation.
 
-5.  Monitor the DC/OS web interface and wait for it to display at: `http://<master-node-public-ip>/`. 
+5.  Monitor the DC/OS web interface and wait for it to display at: `http://<master-node-public-ip>/`.
 
     <p class="message--note"><strong>NOTE: </strong>This process can take about 10 minutes.</p>
 
@@ -477,5 +482,3 @@ You can find information on the next steps listed below:
 [12]: /mesosphere/dcos/2.1/installing/production/deploying-dcos/node-cluster-health-check/
 [10]: /mesosphere/dcos/2.1/installing/troubleshooting/
 [11]: /mesosphere/dcos/2.1/installing/production/uninstalling/
-
-
