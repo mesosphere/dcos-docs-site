@@ -102,7 +102,7 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.13.4
+      version: v3.13.5
       encapsulation: ipip
       mtu: 1480
   containerRuntime:
@@ -113,8 +113,8 @@ spec:
   nodePools:
   - name: worker
   addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: testing-1.9.0-2
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -508,7 +508,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter               | Description                                                    | Default  |
 | ----------------------- | -------------------------------------------------------------- | --------- |
-| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.13.4` |
+| `calico.version`        | Specifies the version of the [calico][calico] CNI plugin.      | `v3.13.5` |
 | `calico.encapsulation`  | Specifies the encapsulation mode. The supported modes are [ipip](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip) and [vxlan](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan) | `ipip` |
 | `calico.mtu`            | Specifies the MTU to use for the veth interfaces.              | Depends on `calico.encapsulation` and provisioner |
 
