@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.1.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
@@ -180,7 +180,7 @@ spec:
                   containers:
                     - name: tensorflow
                       # modify this property if you would like to use a custom image
-                      image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.0
+                      image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.1
                       imagePullPolicy: Always
                       args:
                         {{- with .HyperParameters}}
@@ -283,7 +283,7 @@ spec:
                   containers:
                     - name: pytorch
                       # modify this property if you would like to use a custom image
-                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.0
+                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.1
                       imagePullPolicy: Always
                       args:
                         {{- with .HyperParameters}}
@@ -307,7 +307,7 @@ spec:
                   containers:
                     - name: pytorch
                       # modify this property if you would like to use a custom image
-                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.0
+                      image: mesosphere/kubeflow:mnist-pytorch-1.0.1-0.4.1
                       imagePullPolicy: Always
                       args:
                         {{- with .HyperParameters}}

@@ -65,7 +65,7 @@ MS.metadata({
   dispatchDocsLatest: "1.2",
   kommanderDocsLatest: "1.1",
   konvoyDocsLatest: "1.5",
-  kubeflowDocsLatest: "1.0.1-0.4.0",
+  kubeflowDocsLatest: "1.0.1-0.4.1",
 });
 
 // Source

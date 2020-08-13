@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.1.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
@@ -383,7 +383,7 @@ def train_and_serve(
     model_version: int,
 ):
     # For GPU support, please add the "-gpu" suffix to the base image
-    BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0"
+    BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.1-tensorflow-2.2.0"
 
     downloadOp = components.func_to_container_op(
         download_dataset, base_image=BASE_IMAGE

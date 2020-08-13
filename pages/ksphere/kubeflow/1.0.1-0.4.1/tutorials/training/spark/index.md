@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.1.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
@@ -306,7 +306,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:1.0.1-0.4.0-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0-gpu
+FROM mesosphere/kubeflow:1.0.1-0.4.1-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0-gpu
 ADD mnist.py /
 
 ENTRYPOINT ["python", "-u", "/mnist.py"]
@@ -373,7 +373,7 @@ spec:
   type: Python
   mode: cluster
   pythonVersion: "3"
-  image: mesosphere/kubeflow:1.0.1-0.4.0-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0
+  image: mesosphere/kubeflow:1.0.1-0.4.1-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0
   imagePullPolicy: Always  
   mainApplicationFile: "local:///home/kubeflow/jobs/mnist.py"
   sparkVersion: "2.4.5"

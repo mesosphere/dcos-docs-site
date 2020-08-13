@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.1.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
@@ -415,7 +415,7 @@ It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0-gpu
+FROM mesosphere/kubeflow:1.0.1-0.4.1-tensorflow-2.2.0-gpu
 ADD mnist.py /
 ADD datasets /datasets
 
@@ -432,7 +432,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.0` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.1` in case you want to skip it for now.
 
 ## How to Create a Distributed `TFJob`
 For large training jobs, we wish to run our trainer in a distributed mode.
@@ -460,7 +460,7 @@ spec:
           containers:
             - name: tensorflow
               # modify this property if you would like to use a custom image
-              image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.0
+              image: mesosphere/kubeflow:mnist-tensorflow-2.2-1.0.1-0.4.1
               args:
                 - --epochs
                 - "15"
