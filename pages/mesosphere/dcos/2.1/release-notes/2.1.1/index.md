@@ -38,11 +38,39 @@ DC/OS 2.1.1 includes the following component versions:
 - An issue where Exhibitor was writing JNA files to /tmp has been resolved (COPS-6111, D2IQ-68109, D2IQ-68868) 
 - An issue where using file-based secrets caused mount failure and issues in the json editor have been resolved. (COPS-6085, D2IQ-68114, D2IQ-67819) 
 - An issue where an unknown response code was received when querying DC/OS health endpoints has been resolved. (COPS-5915, COPS-5979, D2IQ-65296) 
-- An issue where Telgraf was consuming too much CPU has been resolved. (COPS-5629)
 - An issue where after an upgrade, the dcos-telegraf directories had incorrect permissions leading to a problem launching tasks was resolved. (COPS-6232, D2IQ-69295)
 - An issue where pressing **Enter** in the Secret ID textbox, reloads the DC/OS UI has been resolved. (D2IQ-14964) 
 - An issue where running two CLI installers from the same machine aborted with an error has been resolved. (D2IQ-7844) 
 - An issue where a master node was not able to rejoin a cluster after failure/restart when another master is offline or being upgraded is now resolved. (COPS-1754, D2iQ-4248) 
+
+
+
+
+DCOS_OSS-5965
+D2IQ-71045
+D2IQ-70809
+D2IQ-70674
+D2IQ-70536
+D2IQ-70503
+D2IQ-70431
+D2IQ-70419
+D2IQ-70393
+D2IQ-70025
+D2IQ-69408
+D2IQ-69169
+D2IQ-68800
+D2IQ-68266
+D2IQ-67994
+D2IQ-66022
+D2IQ-65497
+D2IQ-62221
+D2IQ-61304
+COPS-6355
+COPS-6341
+COPS-6326
+COPS-6218
+COPS-5920
+
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/802a50f4902f1f5ca3829dca4a472d8a582f7b9b/CHANGELOG)
