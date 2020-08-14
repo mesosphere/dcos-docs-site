@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Release notes for 2.1.0
 title: Release notes for 2.1.0
-menuWeight: 1
+menuWeight: 10
 render: mustache
 beta: false
 model:  /mesosphere/dcos/2.1/data.yml
