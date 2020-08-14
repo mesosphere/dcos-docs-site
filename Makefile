@@ -1,18 +1,7 @@
-#
-# Util
-#
-
 .PHONY: build-swagger build-ngindox build-api build-development clean reduce-pages
 
 clean: ## Remove all build folders
 	./scripts/clean.sh
-
-reduce-pages:
-	./scripts/reduce-pages.sh
-
-
-nginx-test: ## Test and run Nginx config
-	./scripts/nginx-test.sh
 
 #
 # Link Management
@@ -57,9 +46,6 @@ docker-site-run: ## Run site container.
 docker-site-check-links: ## Run link checker test
 	docker-compose up test
 
-docker-purge:
-	./scripts/docker-purge.sh
-
 # Docker Live Edit
 
 LIVEEDIT_IMAGE := dcos-docs-liveedit
@@ -68,14 +54,13 @@ LIVEEDIT_PAGES_SRC_ABS_PATH ?= $(shell pwd)/pages/mesosphere/dcos/2.1
 LIVEEDIT_PAGES_DST_REL_PATH ?= mesosphere/dcos/2.1
 LIVEEDIT_RENDER_PATH_PATTERN ?= $(LIVEEDIT_PAGES_DST_REL_PATH)/**
 
-# Install dependencies and build the site. Takes approximately 15 minutes.
-docker-liveedit-image:
+docker-liveedit-image: ## Install dependencies and build the site. Takes approximately 15 minutes.
 	docker build \
 		-f docker/Dockerfile.liveedit \
 		-t $(LIVEEDIT_IMAGE) \
 		.
 
-docker-liveedit:
+docker-liveedit: ## Start a liveediting container
 	@test -n "$$(docker image ls --quiet $(LIVEEDIT_IMAGE))" || (echo "Image '$(LIVEEDIT_IMAGE)' not found. Did you already run 'make docker-liveedit-image'?"; exit 1)
 	# Note: --mount consistency=delegated for MacOS. See https://docs.docker.com/storage/bind-mounts/#configure-mount-consistency-for-macos.
 	docker run -it --rm \

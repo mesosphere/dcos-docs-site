@@ -8,5 +8,4 @@
 rm -rf "./build"
 rm -rf "./build-swagger"
 rm -rf "./build-ngindox"
-rm -rf "./build-pdf"
 rm -f ".revision"

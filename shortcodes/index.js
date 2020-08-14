@@ -252,35 +252,6 @@ const shortcodes = {
         </defs>
       </svg>
     `;
-
-        // PDF env will use pre rendered SwaggerUI from build-swagger
-        if (process.env.NODE_ENV === 'pdf') {
-            // Check if exists
-            const configFilePath = path.join('./pages', opts.api);
-            const configFileExists = fs.existsSync(configFilePath);
-
-            if (!configFileExists) {
-                throw new Error(`SwaggerUI config file does not exist ${configFilePath}`);
-            }
-
-            const buildFileDir = opts.api.replace('.yaml', '');
-            const buildFilePath = path.join('./build-swagger', buildFileDir, 'index.html');
-            const buildFileExists = fs.existsSync(buildFilePath);
-
-            if (!buildFileExists) {
-                throw new Error(`SwaggerUI build file does not exist ${buildFilePath}`);
-            }
-
-            // Read file
-            const contents = fs.readFileSync(buildFilePath, { encoding: 'utf-8' });
-
-            // Hide from headings
-            const $ = cheerio.load(contents);
-            $('h1, h2, h3').each(el => $(el).attr('data-hide', true));
-
-            // Output
-            return sanitize(`${swaggerSVGs}<div class="swagger-ui-pdf">${$.html()}</div>`);
-        }
         // Else, regular on-demand rendering of SwaggerUI
         // Output
         return sanitize(`${swaggerSVGs}<div class="swagger-ui" data-api="${opts.api}" ></div>`);
@@ -315,22 +286,6 @@ const shortcodes = {
         // Hide from headings
         const $ = cheerio.load(contents);
         $('h1, h2, h3').each(el => $(el).attr('data-hide', true));
-
-        // PDF
-        if (process.env.NODE_ENV === 'pdf') {
-            $('body').append(`
-        <style>
-          #ngindox .route-meta {
-            display: block !important;
-          }
-          #ngindox .legend,
-          #ngindox .options,
-          #ngindox .arrow {
-            display: none !important;
-          }
-        </style>
-      `);
-        }
 
         // Output
         return sanitize($.html());
