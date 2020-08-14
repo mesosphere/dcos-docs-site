@@ -6,28 +6,28 @@ html(lang='en')
   head
     include partials/head.pug
   body
-    div(class='layout')
-      header(class='header' style="position: fixed;")
-        a(class='header__drawer')
-          i(class='header__icon', data-feather='menu')
-        a(href='/', class='header__logo')
-          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--mobile
-          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--desktop
-        div(class='header__main')
-          div(class='header__dropdown')
-            img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+    .layout
+      header.header(style='position: fixed;')
+        a.header__drawer
+          i.header__icon(data-feather='menu')
+        a.header__logo(href='/')
+          img.header__logo--mobile(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ')
+          img.header__logo--desktop(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ')
+        .header__main
+          .header__dropdown
+            img.header__dropdown-icon(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
             strong!= sectionTitle
             i(data-feather='chevron-down')
         include partials/header/mesosphere-dropdown.pug
         include partials/header/ksphere-dropdown.pug
         include partials/header/header-dropdown.pug
-      div(role='main', class='layout__content')
-        main(class='content content__404')
-          div(class=containerClass)
-            div(class='content__header')
-              div(class='content__header__row')
-                h1(class='content__header-title')!= title
-            article(class='content__article ')
+      .layout__content(role='main')
+        main.content.content__404
+          div
+            .content__header
+              .content__header__row
+                h1.content__header-title
+            article.content__article
               != contents
         include partials/search-results.pug
     include partials/scripts.pug

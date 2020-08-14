@@ -1,14 +1,14 @@
-section(class='search')
-  div(id='search-form', class='search__form')
-    input(id='search-input', class='search__form-input', placeholder='Search', value='')
-    button(class='search__form-submit')
-      i(class='search__form-icon', data-feather='search')
-  select(id="template" style="display:none;")
-    option(id="templateOption")
-  div(class='search__filters')
-    div(id='search-section', class='search__filter')
-    div(id='search-version', class='search__filter')
-    div(id='search-type', class='search__filter')
-  div(class='search__results')
-    ul(id='search-results', class='search__results-list')
-  div(id='search-pagination')
+section.search
+  #search-form.search__form
+    input#search-input.search__form-input(placeholder='Search', value='')
+    button.search__form-submit
+      i.search__form-icon(data-feather='search')
+  select#template(style='display:none;')
+    option#templateOption
+  .search__filters
+    #search-section.search__filter
+    #search-version.search__filter
+    #search-type.search__filter
+  .search__results
+    ul#search-results.search__results-list
+  #search-pagination

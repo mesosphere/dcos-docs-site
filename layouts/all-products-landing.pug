@@ -9,18 +9,17 @@ doctype html
 html(lang='en')
   head
     include partials/head.pug
-
-  body(class='landing landing--dcos')
+  body.landing.landing--dcos
     .layout
-      header.header(style="position: fixed;")
-        a(class='header__drawer')
-          i(class='header__icon', data-feather='menu')
-        a(href='/', class='header__logo')
-          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--mobile
-          img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--desktop
+      header.header(style='position: fixed;')
+        a.header__drawer
+          i.header__icon(data-feather='menu')
+        a.header__logo(href='/')
+          img.header__logo--mobile(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ')
+          img.header__logo--desktop(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ')
         .header__main
           .header__dropdown
-            img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+            img.header__dropdown-icon(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
             strong D2IQ Documentation
             i(data-feather='chevron-down')
         include partials/header/mesosphere-dropdown.pug
@@ -101,25 +100,24 @@ html(lang='en')
 
         .landing__external
           .landing__external-item
-            i(data-feather='book', class='landing__external-icon')
-            h3(class='landing__external-title')
-              a(class='landing__external-link', href='https://d2iq.com/training/') Get Training
-            p(class='landing__external-description') Learn to use and administer D2iQ products in real-time training courses, in person or online, offered by D2iQ.
+            i.landing__external-icon(data-feather='book')
+            h3.landing__external-title
+              a.landing__external-link(href='https://d2iq.com/training/') Get Training
+            p.landing__external-description Learn to use and administer D2iQ products in real-time training courses, in person or online, offered by D2iQ.
           .landing__external-item
-            i(data-feather='users', class='landing__external-icon')
-            h3(class='landing__external-title')
-              a(class='landing__external-link', href='https://dcos.io/community/') Join the Community
-            p(class='landing__external-description') Join the community to get help via mailing list or Slack.
+            i.landing__external-icon(data-feather='users')
+            h3.landing__external-title
+              a.landing__external-link(href='https://dcos.io/community/') Join the Community
+            p.landing__external-description Join the community to get help via mailing list or Slack.
           .landing__external-item
-            i(data-feather='slack', class='landing__external-icon')
-            h3(class='landing__external-title')
-              a(class='landing__external-link', href='http://chat.dcos.io/') Find us on Slack
-            p(class='landing__external-description') Ask questions in the general channel and participate in day 2 ops, networking, packaging, and UX working groups.
-
+            i.landing__external-icon(data-feather='slack')
+            h3.landing__external-title
+              a.landing__external-link(href='http://chat.dcos.io/') Find us on Slack
+            p.landing__external-description Ask questions in the general channel and participate in day 2 ops, networking, packaging, and UX working groups.
       footer.landing__footer
         .landing__footer__container
-          a(class='landing__footer__logo__link', href='https://d2iq.com/')
-            img(class='landing__footer__logo', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+          a.landing__footer__logo__link(href='https://d2iq.com/')
+            img.landing__footer__logo(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
           .landing__footer__menu
             a(href='https://d2iq.com/terms/') Terms of Service
             a(href='https://d2iq.com/privacy/') Privacy Policy
