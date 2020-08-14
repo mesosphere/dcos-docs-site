@@ -2,35 +2,32 @@
 - isItemActive = isItemActive || function(itemPath){ return itemPath === path || itemPath === "/" + path }
 - pages = pages || hierarchy.find('menus', (menus) => menus.includes(`${product}-header`))
 
-header(class='header')
-  a(class='header__drawer')
-    i(class='header__icon', data-feather='menu')
-  a(href='/', class='header__logo')
+header.header
+  a.header__drawer
+    i.header__icon(data-feather='menu')
+  a.header__logo(href='/')
     img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--mobile
     img(src='/assets/D2iQ_Logotype_Color_Positive_Documentation.svg', alt='D2IQ').header__logo--desktop
-  div(class='header__main')
-    div(class='header__dropdown')
-      img(class='header__dropdown-icon', src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+  .header__main
+    .header__dropdown
+      img.header__dropdown-icon(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
       strong!= sectionTitle
       i(data-feather='chevron-down')
-    nav(class='header__menu')
-      ul(class='header__menu-list')
+    nav.header__menu
+      ul.header__menu-list
         each val, index in pages
-          - var itemClass = {}
-          - itemClass['header__menu-item'] = true
-          - itemClass['header__menu-item--active'] = isItemActive(val.path)
-          li(class=itemClass)
+          li.header__menu-item(class={'header__menu-item--active':isItemActive(val.path) })
             a(href=val.path)!= val.title
-        li(class='header__menu-item')
+        li.header__menu-item
           a(href='https://support.d2iq.com') Support
   if sphere === 'mesosphere'
     include ksphere-dropdown.pug
     include localization-dropdown.pug
   else
     include mesosphere-dropdown.pug
-  section(class='header__search', role='search')
-    form(class='header__search-form', action=`/${sphere}/${product}/search/`, method='GET')
-      input(class='header__search-input', id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
-      label(class='header__search-label', for='header-search-input')
-        i(class='header__icon', data-feather='search')
+  section.header__search(role='search')
+    form.header__search-form(action=`/${sphere}/${product}/search/`)
+      input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+      label.header__search-label(for='header-search-input')
+        i.header__icon(data-feather='search')
 include header-dropdown.pug

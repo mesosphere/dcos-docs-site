@@ -25,12 +25,12 @@
   }]
 
 each sphere in ksphereMenu
-  div(class='chooser' id='ks')
-    div(class='chooser-current')
-      a(class='chooser-title')!=sphere.title
+  #ks.chooser
+    .chooser-current
+      a.chooser-title!=sphere.title
       svg(class="chooser-svg" id='kspherer-svg')
         path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
-    ul(class='chooser-list' id='kspherer-list')
+    ul.chooser-list#kspherer-list
       each section in sphere.children
-        li(class='chooser-list-item')
+        li.chooser-list-item
           a(href=section.path)!= section.title

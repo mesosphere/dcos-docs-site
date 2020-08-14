@@ -1,29 +1,24 @@
-- var pathParts = path.split('/');
-- var gridDisabled = overviewGrid === false
-- var containerClass = headings.length > 0 ? 'content__container content__container--with-sections' : 'content__container'
-
-main(class='content')
-  div(class=containerClass)
-    div(class='content__header')
-      div(class='content__header__row')
-        h1(class='content__header-title')!= title
+main.content
+  .content__container(class={ 'content__container--with-sections': headings.length > 0 })
+    .content__header
+      .content__header__row
+        h1.content__header-title!= title
         if oss
-          p(class='badge badge--content-header badge--oss') OPEN SOURCE
+          p.badge.badge--content-header.badge--oss OPEN SOURCE
         if community
-          p(class='badge badge--content-header badge--community') COMMUNITY
+          p.badge.badge--content-header.badge--community COMMUNITY
         if enterprise
-          p(class='badge badge--content-header badge--enterprise') ENTERPRISE
+          p.badge.badge--content-header.badge--enterprise ENTERPRISE
         if beta
-          p(class='badge badge--content-header badge--beta') BETA
+          p.badge.badge--content-header.badge--beta BETA
         if preview
-          p(class='badge badge--content-header badge--preview') PREVIEW
+          p.badge.badge--content-header.badge--preview PREVIEW
         if experimental
-          p(class='badge badge--content-header badge--experimental') EXPERIMENTAL
+          p.badge.badge--content-header.badge--experimental EXPERIMENTAL
       if excerpt
-        h4(class='content__header-description')!= excerpt
+        h4.content__header-description!= excerpt
       include ../components/content-actions.pug
-    article(class='content__article')
+    article.content__article
       != contents
-      if !gridDisabled
-        include ../components/content-grid.pug
+      include ../components/content-grid.pug
   include ../components/content-sections.pug

@@ -1,7 +1,7 @@
 - var pageHierarchy = hierarchy.findByPath(path)
 
 if pageHierarchy.children.length > 0
-  div(class='grid')
+  .grid
     each val, index in pageHierarchy.children
       if typeof val.menuWeight !== 'number' || val.menuWeight == -1
         - continue
@@ -11,11 +11,11 @@ if pageHierarchy.children.length > 0
       - labels = (val.community) ? [...labels, 'COMMUNITY'] : labels
       - labels = (val.beta) ? [...labels, 'BETA'] : labels
       - labels = (val.experimental) ? [...labels, 'EXPERIMENTAL'] : labels
-      a(href=val.path, class='grid__item')
-        div(class='grid__header__wrapper')
-          h3(class='grid__header')!= val.title
+      a.grid__item(href=val.path)
+        .grid__header__wrapper
+          h3.grid__header!= val.title
           if labels.length > 0
-            div(class='grid__label__wrapper')
+            .grid__label__wrapper
               - for (let idx = 0; idx < labels.length; idx++) {
                 - var label = labels[idx]
                 - var labelClass =  {}
@@ -28,8 +28,8 @@ if pageHierarchy.children.length > 0
                 - labelClass['grid__label--experimental'] = label === 'EXPERIMENTAL'
                 h6(class=labelClass)!= label
               - }
-        div(class='grid__desc__wrapper')
-          p(class='grid__desc')!= val.excerpt
-            span(class='grid__desc__ellipsis') &#8230;Read More
+        .grid__desc__wrapper
+          p.grid__desc!= val.excerpt
+            span.grid__desc__ellipsis &#8230;Read More
         div(class="grid__link")
           i(data-feather='arrow-right')
