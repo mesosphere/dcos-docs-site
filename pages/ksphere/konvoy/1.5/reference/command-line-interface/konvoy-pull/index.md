@@ -23,8 +23,8 @@ konvoy pull state [flags]
 ### Options
 
 ```
-      --cluster-name string   Name used to prefix the cluster and all the created resources (default "konvoy")
-      --force                 Force pull the cluster state even when another provisioning action is still running
+      --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
+      --force                 force pull the cluster state even when another provisioning action is still running
   -h, --help                  help for pull
       --verbose               enable debug level logging
 ```

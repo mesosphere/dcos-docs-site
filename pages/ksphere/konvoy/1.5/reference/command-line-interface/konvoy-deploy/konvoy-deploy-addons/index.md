@@ -24,6 +24,7 @@ konvoy deploy addons [flags]
 
 ```
       --cluster-name string        name used to prefix the cluster and all the created resources (default "konvoy")
+      --force-push                 force push the cluster state
   -h, --help                       help for addons
       --skip-credentials-display   skip displaying the admin credentials after the install
       --skip-state-upload          skip the upload of the state to Kubernetes cluster
@@ -34,3 +35,4 @@ konvoy deploy addons [flags]
 ### SEE ALSO
 
 * [konvoy deploy](../)	 - Deploy a fully functioning Kubernetes cluster and addons
+

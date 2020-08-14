@@ -38,7 +38,7 @@ spec:
   aws:
     region: us-west-2
     vpc:
-      overrideDefaultRouteTable: true  
+      overrideDefaultRouteTable: true
       enableInternetGateway: true
       enableVPCEndpoints: false
     availabilityZones:
@@ -90,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.17.9
+    version: 1.17.8
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18

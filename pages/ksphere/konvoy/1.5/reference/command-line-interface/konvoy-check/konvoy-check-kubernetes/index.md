@@ -31,3 +31,4 @@ konvoy check kubernetes [flags]
 ### SEE ALSO
 
 * [konvoy check](../)	 - Run checks on the health of the cluster
+
