@@ -27,6 +27,9 @@ enterprise: false
 
 - Add 1.16.8 to selectable Kubernetes versions.
 
+#### Known issues
+
+- <strong>Kommander cluster creation before Konvoy v1.4.3: </strong>In versions before Konvoy v1.4.3, with Kommander version v1.0, new Kommander clusters cannot be created. It is recommended you upgrade to the latest version of Konvoy (v1.5.0), which includes Kommander 1.1.0 to be able to create new Kommander clusters.
 
 #### Component Versions:
 
