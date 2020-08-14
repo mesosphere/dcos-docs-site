@@ -28,7 +28,6 @@ const inPlace = require("./plugins/metalsmith-in-place-dcos");
 const includeContent = require("./plugins/metalsmith-include-content-dcos");
 const revision = require("./plugins/metalsmith-revision");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
-const wkhtmltopdfLinkResolver = require("./plugins/metalsmith-wkhtmltopdf-link-resolver");
 
 // Configs
 const configData = fs.readFileSync("config.json");
@@ -302,16 +301,6 @@ if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
     })
   );
   MS.use(timer("Watch"));
-}
-
-// WkhtmltopdfLinkResolver
-if (process.env.NODE_ENV === "pdf") {
-  MS.use(
-    wkhtmltopdfLinkResolver({
-      prefix: "/tmp/pdf/build",
-    })
-  );
-  MS.use(timer("WkhtmltopdfLinkResolver"));
 }
 
 // Serve
