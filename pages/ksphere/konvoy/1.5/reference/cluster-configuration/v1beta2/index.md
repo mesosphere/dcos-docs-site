@@ -136,7 +136,7 @@ Machine specifies details about a machine in a node pool.
 | imagefsVolumeSize | The size of imagefs volume in GiBs. (default: `160`) | int64 | false |
 | imagefsVolumeType | The volume type for the imagefs volume. Depending on the provisioner, the meaning is different. `aws`: [EBS volume type](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html) (default: `gp2`). `azure`: [Disk storage account type](https://docs.microsoft.com/en-us/rest/api/compute/disks/createorupdate#diskstorageaccounttypes) (default: `Standard_LRS`). `gcp`: [Disk type](https://cloud.google.com/sdk/gcloud/reference/compute/disk-types) (default: `pd-ssd`). `docker`: N/A. | string | false |
 | imagefsVolumeDevice | The device name of the imagefs volume. Depending on the provisioner, the meaning is different. `aws`: [Device name](https://docs.aws.amazon.com/cli/latest/reference/ec2/attach-volume.html) (default: `xvdb`). `azure`: N/A. `gcp`: N/A. `docker`: N/A. | string | false |
-| type | The machine type. Depending on the provisioner, the meaning is different. `aws`: [EC2 instance type](https://aws.amazon.com/ec2/instance-types/) (default: `m5.xlarge` for control plane, `m5.2xlarge` for workers). `azure`: [VM type](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes) (default: `Standard_D4s_v3`). `gcp`: [Machine type](https://cloud.google.com/compute/docs/machine-types) (default: `n1-standard-4` for control plane, `n1-standard-8` for workers). `docker`: N/A. | string | false |
+| type | The machine type. Depending on the provisioner, the meaning is different. `aws`: [EC2 instance type](https://aws.amazon.com/ec2/instance-types/) (default: `m5.xlarge` for control plane, `m5.2xlarge` for workers). `azure`: [VM type](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/sizes) (default: `Standard_D4s_v3` for control plane, `Standard_D8s_v3` for workers). `gcp`: [Machine type](https://cloud.google.com/compute/docs/machine-types) (default: `n1-standard-4` for control plane, `n1-standard-8` for workers). `docker`: N/A. | string | false |
 | aws | AWS provisioner specific configurations. | [AWSMachineOpts](#awsmachineopts) | false |
 | azure | Azure provisioner specific configurations. | [AzureMachineOpts](#azuremachineopts) | false |
 | gcp | GCP provisioner specific configurations. | [GCPMachineOpts](#gcpmachineopts) | false |
@@ -644,7 +644,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.17.9`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.17.8`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |

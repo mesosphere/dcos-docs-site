@@ -23,6 +23,7 @@ konvoy down [flags]
 ### Options
 
 ```
+      --clean-local-volumes     remove any data in local volumes
       --cluster-name string     name used to prefix the cluster and all the created resources (default "konvoy")
   -h, --help                    help for down
       --provisioner string      select a provisoner [aws|azure|gcp|docker|none] (default "aws")
@@ -34,3 +35,4 @@ konvoy down [flags]
 ### SEE ALSO
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters
+

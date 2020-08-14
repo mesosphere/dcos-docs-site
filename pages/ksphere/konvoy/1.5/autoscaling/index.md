@@ -264,7 +264,7 @@ spec:
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.9: stable-1.17-2.0.2
+          1.17.8: stable-1.17-2.0.2
 ```
 
 Putting it all together, the configuration would be as follows:
@@ -290,7 +290,7 @@ spec:
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.9: testing-2.0.0-5
+          1.17.8: testing-2.0.0-5
 ...
 ```
 

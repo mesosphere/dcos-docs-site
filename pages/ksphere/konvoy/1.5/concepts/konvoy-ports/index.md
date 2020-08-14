@@ -123,6 +123,22 @@ This section describes pre-configured ports in your Konvoy deployment.
    </td>
   </tr>
   <tr>
+   <td>10251
+   </td>
+   <td>kube-scheduler
+   </td>
+   <td>liveliness
+   </td>
+  </tr>
+  <tr>
+   <td>10252
+   </td>
+   <td>kube-controller-manager
+   </td>
+   <td>liveliness
+   </td>
+  </tr>
+  <tr>
    <td>10256
    </td>
    <td>kube-proxy

@@ -23,8 +23,8 @@ konvoy push state [flags]
 ### Options
 
 ```
-      --cloud-provider-account-name string   Name of the Cloud Provider Account used to create the resources
-      --force                                Force push the cluster state
+      --cloud-provider-account-name string   name of the Cloud Provider Account used to create the resources
+      --force-push                           force push the cluster state
   -h, --help                                 help for push
       --verbose                              enable debug level logging
 ```
