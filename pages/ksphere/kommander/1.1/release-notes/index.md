@@ -153,7 +153,7 @@ Beyond new features, here are the improvements you can expect when upgrading to 
 
 # Known Issues
 
-* <strong>Kommander cluster limitations: </strong>Currently, when you upgrade Konvoy with Kommander, you can create Kommander clusters from the pre-upgraded version, and those clusters are available and can be managed from the upgraded version of Konvoy and Kommander. However, users cannot delete the cluster from the Kommander UI, after the Konvoy version was upgraded. The version of Konvoy, on the Kommander-created cluster, will not upgrade after the user upgrades the Konvoy CLI. Users can not upgrade Kubernetes to a version greater than what was initially available when the cluster was created, in previous versions.
+* Currently, you can upgrade any managed Konvoy cluster via Kommander. However, after doing so, you will not be able to delete the managed cluster from the Kommander UI nor can you upgrade the Kubernetes version greater than the version the managed cluster was originally deployed with.
 
 # Component Versions
 
