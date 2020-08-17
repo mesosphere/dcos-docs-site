@@ -100,6 +100,8 @@ enterprise: false
 
 #### Disclaimer
 
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
 -   The default value of `vpc.enableVPCEndpoints` was changed to `false` to prevent Konvoy unexpectedly modifying the endpoints in user provided VPCs.
     This value should already be present in your `cluster.yaml` file. Below is a partial `cluster.yaml` that contains the value you can add to retain the previous behavior of deploying VPC endpoints in your cluster.
     This resource should only be required where the networking configuration of the cluster does not allow for direct access to the AWS API.
@@ -1697,6 +1699,6 @@ For information about installing and using Konvoy, see the [Konvoy documentation
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
-[prometheus-rules]: https://github.com/helm/charts/tree/master/stable/prometheus-operator/templates/prometheus/rules
 [konvoy-doc]:https://docs.d2iq.com/ksphere/konvoy
 [kubernetes-doc]:https://kubernetes.io/docs/home/
+[prometheus-rules]: https://github.com/helm/charts/tree/master/stable/prometheus-operator/templates/prometheus/rules
