@@ -119,6 +119,14 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
     <th>2.0.4</th>
     <td Align = "center">⚫</td>
    </tr>
+   <tr>
+    <th>2.0.5</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.6</th>
+    <td Align = "center">⚫</td>
+   </tr>
   </table>
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
