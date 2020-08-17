@@ -52,7 +52,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.16.12
+    version: 1.16.14
 ```
 
 <p class="message--note"><strong>NOTE: </strong>For certain Konvoy releases you might be required to change the versions for `containerNetworking` or `containerRuntime`. These changes are highlighted in the Release Notes and in the section further down this page.</p>
@@ -100,7 +100,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: testing-1.9.0-2
     addonsList:
     ...
 ```
@@ -154,13 +154,13 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1alpha1
 spec:
   kubernetes:
-    version: 1.16.12
+    version: 1.16.14
   containerNetworking:
     calico:
-      version: v3.13.4
+      version: v3.13.5
   addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configVersion: testing-1.9.0-2
     addonsList:
     ...
     - name: helm

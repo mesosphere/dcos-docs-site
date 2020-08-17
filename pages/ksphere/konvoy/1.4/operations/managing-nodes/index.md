@@ -17,7 +17,7 @@ enterprise: false
 If your cluster was provisioned manually, please follow the steps in <a href="#adding-nodes-to-an-on-premise-cluster">Adding Nodes to an On-Premise Cluster</a>.</p>
 
 <p class="message--note"><strong>NOTE: </strong> This process should only be applied to healthy clusters.
-If you are attempting to recover from a node failure, please see <a href="../troubleshooting/replace-a-failed-node">Recovering from Node Failure</a> instead.</p>
+If you are attempting to recover from a node failure, please see <a href="../../troubleshooting/replace-a-failed-node">Recovering from Node Failure</a> instead.</p>
 
 After the initial provisioning of a cluster, the same `konvoy` tools can be used to add nodes.
 
