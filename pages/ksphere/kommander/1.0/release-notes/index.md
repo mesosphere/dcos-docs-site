@@ -29,7 +29,7 @@ enterprise: false
 
 #### Known issues
 
-- <strong>Kommander cluster creation before Konvoy v1.4.3: </strong>In versions before Konvoy v1.4.3, with Kommander version v1.0, new Kommander clusters cannot be created. It is recommended you upgrade to the latest version of Konvoy (v1.5.0), which includes Kommander 1.1.0 to be able to create new Kommander clusters.
+- If you've installed Kommander v1.0 on a Konvoy v1.4.3 cluster (or older), you will not be able to create managed clusters. It is recommended you upgrade to Kommander v1.1.0, and deploy the addon on a newer version of Konvoy (v1.5.0), to be able to create clusters.
 
 #### Component Versions:
 
