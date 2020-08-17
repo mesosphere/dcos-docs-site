@@ -26,6 +26,9 @@ You can verify which version your CLI can be upgraded to by running the followin
 
 ```bash
 konvoy image list
+  KONVOY VERSION | DEFAULT KUBERNETES VERSION
++----------------+----------------------------+
+  v1.4.5         | 1.16.12
 ```
 
 This command lists all the available versions to which your current CLI can be upgraded.
@@ -84,9 +87,9 @@ It is recommended to upgrade to the newest supported version of Kubernetes, set 
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.4`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.17-2.0.2`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.17-2.1.1`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.17-1.1.0`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.17-1.1.1`.
 
 The version of Konvoy is now `v1.5.0`, set `spec.version: v1.5.0`.
 
@@ -107,10 +110,10 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.17-2.0.2
+      configVersion: stable-1.17-2.1.1
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: stable-1.17-1.1.0
+      configVersion: stable-1.17-1.1.1
       addonsList:
         - name: kommander
           enabled: true

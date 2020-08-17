@@ -24,7 +24,6 @@ konvoy deploy kubernetes [flags]
 
 ```
       --cluster-name string         name used to prefix the cluster and all the created resources (default "konvoy")
-      --force-push                  force push the cluster state
       --force-upgrade               run an upgrade on all control-plane and worker nodes if needed, ignoring upgrade safety checks
   -h, --help                        help for kubernetes
       --max-parallel-nodes string   set the number of nodes to upgrade in parallel. This can be an integer or a percentage of a nodePool. Set to 1 to run serially (requires --upgrade or --force-upgrade flag) (default "15%")
@@ -40,4 +39,3 @@ konvoy deploy kubernetes [flags]
 ### SEE ALSO
 
 * [konvoy deploy](../)	 - Deploy a fully functioning Kubernetes cluster and addons
-

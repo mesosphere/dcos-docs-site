@@ -15,7 +15,7 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) command line utility
 * [Docker](https://docs.docker.com/get-docker/) _version 18.09.2 or newer_
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.17.8 or newer_ (for interacting with the running cluster)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.17.11 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
   You must be authorized to create the following resources in the AWS account:
   * EC2 Instances
@@ -193,7 +193,7 @@ Running the following command should result in a similar output:
 $ konvoy provision --plan-only
 ...
 Plan: 41 to add, 0 to change, 0 to destroy.
-```
+```  
 
 <p class="message--note"><strong>NOTE: </strong>This command can be run before the initial provisioning or at any point after modifications are made to the `cluster.yaml` file.</p>
 

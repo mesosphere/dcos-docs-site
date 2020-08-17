@@ -35,4 +35,3 @@ konvoy check [flags]
 * [konvoy check kubernetes](./konvoy-check-kubernetes/)	 - Run checks on the cluster components
 * [konvoy check nodes](./konvoy-check-nodes/)	 - Run checks on the nodes
 * [konvoy check preflight](./konvoy-check-preflight/)	 - Run checks to validate machines are ready for installation
-

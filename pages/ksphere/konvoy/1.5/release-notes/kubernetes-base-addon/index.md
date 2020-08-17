@@ -13,6 +13,30 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+August 12, 2020
+
+[stable-1.17-2.1.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.1.1)
+[stable-1.16-2.1.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.1.1)
+[stable-1.15-2.1.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.1.1)
+
+-   dex-k8s-authenticator
+    - Windows download support for the credentials plugin.
+
+July 22, 2020
+
+[stable-1.17-2.1.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.1.0)
+[stable-1.16-2.1.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.1.0)
+[stable-1.15-2.1.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.1.0)
+
+-   traefik
+    - Fix the velero-minio entrypoint to inherit global ssl and proxy protocol configurations.
+
+-   elasticsearch
+    - Default data nodes has been increased to 4.
+
+-   external-dns
+    - Disable by default
+
 July 15, 2020
 
 [stable-1.17-2.0.2](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.0.2)

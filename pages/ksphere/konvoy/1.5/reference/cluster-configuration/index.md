@@ -38,7 +38,7 @@ spec:
   aws:
     region: us-west-2
     vpc:
-      overrideDefaultRouteTable: true
+      overrideDefaultRouteTable: true  
       enableInternetGateway: true
       enableVPCEndpoints: false
     availabilityZones:
@@ -90,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.17.8
+    version: 1.17.11
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -116,7 +116,7 @@ spec:
   - name: worker
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.17-2.0.2
+    configVersion: stable-1.17-2.1.1
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -195,7 +195,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: stable-1.17-1.1.0
+    configVersion: stable-1.17-1.1.1
     addonsList:
     - name: kommander
       enabled: true

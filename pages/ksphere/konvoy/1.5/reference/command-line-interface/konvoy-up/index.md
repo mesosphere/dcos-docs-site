@@ -23,16 +23,14 @@ konvoy up [flags]
 ### Options
 
 ```
-      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@stable-1.17-1.1.0,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.17-1.2.2,https://github.com/mesosphere/kubeaddons-conductor@stable-1.17-1.0.0,https://github.com/mesosphere/kubernetes-base-addons@stable-1.17-2.0.2])
-      --cluster-name string           name used to prefix the cluster and all the created resources (default "konvoy")
-      --force-push                    force push the cluster state
+      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@stable-1.17-1.1.1,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.17-1.2.2,https://github.com/mesosphere/kubeaddons-conductor@stable-1.17-1.0.0,https://github.com/mesosphere/kubernetes-base-addons@stable-1.17-2.1.1])
+      --cluster-name string           Name used to prefix the cluster and all the created resources (default "konvoy")
       --force-reduce-control-plane    allow a reduction for the number of control plane nodes in a cluster
       --force-upgrade                 run an upgrade on all control-plane and worker nodes if needed, ignoring upgrade safety checks
   -h, --help                          help for up
       --max-parallel-nodes string     set the number of nodes to upgrade in parallel. This can be an integer or a percentage of a nodePool. Set to 1 to run serially (requires --upgrade or --force-upgrade flag) (default "15%")
       --provisioner string            select a provisoner [aws|azure|gcp|docker|none] (default "aws")
       --skip-credentials-display      skip displaying the admin credentials after the install
-      --skip-provisioning-retry       do not retry the provisioning stage in case of errors
       --skip-state-upload             skip the upload of the state to Kubernetes cluster
       --target-node-pools strings     comma-separated list of target node pools
       --upgrade                       run an upgrade on all nodes requiring an upgrade

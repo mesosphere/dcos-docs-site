@@ -45,11 +45,11 @@ The following is an example of a `PersistentVolume` using a local volume and nod
            - node-hostname
  ```
 
-  - `volumeMode` can be set to `Block`, instead of the default value `Filesystem`, to expose the local volume as a raw block device. Volume in `Block` mode is mounted into a Pod as a block device, without any filesystem on it. A volume in `Filesystem` mode is mounted into Pods into a directory. If the block device that backs the volume is empty, Kubernetes creates a filesystem on the device before mounting it for the first time.
+- `volumeMode` can be set to `Block`, instead of the default value `Filesystem`, to expose the local volume as a raw block device. Volume in `Block` mode is mounted into a Pod as a block device, without any filesystem on it. A volume in `Filesystem` mode is mounted into Pods into a directory. If the block device that backs the volume is empty, Kubernetes creates a filesystem on the device before mounting it for the first time.
 
-  - Configure `path` with the directory this `PersistentVolume` refers to.
+- Configure `path` with the directory this `PersistentVolume` refers to.
 
-  - `nodeAffinity` is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
+- `nodeAffinity` is required when using local volumes. It enables the Kubernetes scheduler to correctly schedule Pods using local volumes to the correct node.
 
 For more details on the options available to create a `PersistentVolume` please check [Kubernetes PersistentVolume documentation](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#persistent-volumes).
 

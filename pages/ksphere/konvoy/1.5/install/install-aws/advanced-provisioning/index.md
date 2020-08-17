@@ -111,22 +111,22 @@ Depending on your region and operating system combination, you might need to spe
 The regions and corresponding Amazon Machine Image (AMI) identifiers that are predefined for Konvoy cluster deployments include the following:
 
 ```text
-ap-northeast-1 = ami-0d09d267328197c99
-ap-northeast-2 = ami-0cf8e67d10c823f2e
-ap-south-1     = ami-0dd861ee19fd50a16
-ap-southeast-1 = ami-056251cdd6fd1c8eb
-ap-southeast-2 = ami-05f50d9ec7e4c3b02
-ca-central-1   = ami-0252eebc56636a56b
-eu-central-1   = ami-095e1a4d3d632d215
-eu-north-1     = ami-026f0eb2e8006617d
-eu-west-1      = ami-0d4002a13019b7703
-eu-west-2      = ami-0aa3620fadad9198e
-eu-west-3      = ami-04552009264cbe9f4
-sa-east-1      = ami-0c52a0227804a4318
-us-east-1      = ami-06cf02a98a61f9f5e
-us-east-2      = ami-0a75b786d9a7f8144
-us-west-1      = ami-02676464a065c9c05
-us-west-2      = ami-0a248ce88bcc7bd23
+ap-northeast-1 = ami-06a46da680048c8ae
+ap-northeast-2 = ami-06e83aceba2cb0907
+ap-south-1"    = ami-026f33d38b6410e30
+ap-southeast-1 = ami-07f65177cb990d65b
+ap-southeast-2 = ami-0b2045146eb00b617
+ca-central-1   = ami-04a25c39dc7a8aebb
+eu-central-1   = ami-0e8286b71b81c3cc1
+eu-north-1     = ami-05788af9005ef9a93
+eu-west-1      = ami-0b850cf02cc00fdc8
+eu-west-2      = ami-09e5afc68eed60ef4
+eu-west-3      = ami-0cb72d2e599cffbf9
+sa-east-1      = ami-0b30f38d939dd4b54
+us-east-1      = ami-0affd4508a5d2481b
+us-east-2      = ami-01e36b7901e884a10
+us-west-1      = ami-098f55b4287a885ba
+us-west-2      = ami-0bc06212a56393ee1
 ```
 
 If you are deploying Konvoy in a region that is not included in the predefined identifiers listed, you must specify the appropriate region-specific CentOS 7 or Red Hat Enterprise Linux 7 `imageID` in the `cluster.yaml` file.
@@ -252,7 +252,7 @@ spec:
     vpc:
       ID: "vpc-0a0e1da174c837629"
       routeTableID: "rtb-012e0ee9392c58881"
-      overrideDefaultRouteTable: true
+      overrideDefaultRouteTable: true  
       enableInternetGateway: false
 ---
 kind: ClusterConfiguration
