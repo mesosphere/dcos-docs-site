@@ -39,6 +39,11 @@ enterprise: false
 - Go `v1.13.12`
 - Docker `v19.03.11`
 
+#### Disclaimer
+
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
+
 ### Version v1.4.4 - Released 28 May 2020
 
 | Kubernetes Support | Version |
@@ -60,6 +65,11 @@ enterprise: false
         version: 1.16.9+d2iq.2
         imageRepository: docker.io/mesosphere
     ```
+
+#### Disclaimer
+
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
 
 ### Version v1.4.3 - Released 12 May 2020
 
@@ -89,6 +99,11 @@ enterprise: false
 - Ansible `v2.7.17.0`
 - Go `v1.13.10`
 - Docker `v19.03.8`
+
+#### Disclaimer
+
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
 
 ### Version v1.4.2 - Released 24 March 2020
 
@@ -168,9 +183,11 @@ enterprise: false
 
 #### Disclaimer
 
-- The generated release artifacts will now untar in `./konvoy_v1.4.0/konvoy` instead of `./linux/konvoy_v1.4.0/konvoy`.
-- The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy prints a warning message if your nodePool names do not comply with the requirement.
-- The Kommander and Dispatch addons are now in their own repos.
+-   The generated release artifacts will now untar in `./konvoy_v1.4.0/konvoy` instead of `./linux/konvoy_v1.4.0/konvoy`.
+-   The `nodePool.name` must be a valid Kubernetes label value in future release. This version of Konvoy prints a warning message if your nodePool names do not comply with the requirement.
+-   The Kommander and Dispatch addons are now in their own repos.
+-   Versions of Konvoy `v1.4.x` are not compatible and are not supported with [Kubernetes Base Addons](https://github.com/mesosphere/kubernetes-base-addons) `v2.x+` or [Kommander](https://d2iq.com/solutions/ksphere/kommander) `v1.1+`.
+    If you need addons that fall outside of this support please upgrade to the latest release of Konvoy.
 
 <p class="message--important"><strong>IMPORTANT: </strong>You must modify your <code>cluster.yaml</code> with these changes when upgrading from a previous version. You can also no longer use the <code>konvoy.mesosphere.io/v1alpha1</code> apiVersion in your <code>cluster.yaml</code> if you are also deploying Kommander or Dispatch. That API version did not support multiple addon repositories.</p>
 
@@ -182,7 +199,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: testing-1.9.0-2
     addonsList:
     - name: kommander
       enabled: false # remove the kommander addon or set "enabled: false"
@@ -365,7 +382,7 @@ spec:
     calico:
       version: v3.10.1
   addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    configRepository: https://github.com/mesosphere/kubernetes-base-addons
     configVersion: stable-1.16.4-2
     addonsList:
     ...
