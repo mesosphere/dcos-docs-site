@@ -1,6 +1,6 @@
 - var currentPath = '/' + path
 - var showDropdown = dropdown.length && !(dropdown.length == 1 && semverService.test(dropdown[0].id))
-- var inMenu = function(c) { return c.menuWeight != - 1 && c.title || c.navigationTitle }
+- var inMenu = function(c) { return c.menuWeight != -1 && (c.title || c.navigationTitle) }
 
 mixin renderSidebarNavListItem(item, depth)
   -
