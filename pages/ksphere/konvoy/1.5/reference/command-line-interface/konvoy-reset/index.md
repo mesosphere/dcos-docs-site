@@ -23,7 +23,6 @@ konvoy reset [flags]
 ### Options
 
 ```
-      --clean-local-volumes   remove any data in local volumes
       --cluster-name string   name used to prefix the cluster and all the created resources (default "konvoy")
   -h, --help                  help for reset
       --verbose               enable debug level logging
@@ -33,4 +32,3 @@ konvoy reset [flags]
 ### SEE ALSO
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters
-

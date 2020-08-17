@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.8 or later
+* [kubectl][install_kubectl] v1.17.11 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -51,7 +51,7 @@ Before installing, verify that your environment meets the following basic requir
 
 For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
-* CentOS 7.8 is installed.
+* CentOS 7.7 is installed.
 * Firewalld is disabled.
 * Containerd is uninstalled.
 * Docker-ce is uninstalled.
@@ -74,7 +74,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.17-2.0.2,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.17-1.1.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.17-2.1.1,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.17-1.1.1,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
    ```
 
 <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _.</code></p>
@@ -91,7 +91,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: stable-1.17-2.0.2
+       configVersion: stable-1.17-2.1.1
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -100,7 +100,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: stable-1.17-1.1.0
+      configVersion: stable-1.17-1.1.1
       addonsList:
       - name: kommander
         enabled: true
@@ -383,22 +383,22 @@ spec:
 ...
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.17-2.0.2
+    configVersion: stable-1.17-2.1.1
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.0
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.1
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
     configVersion: stable-1.17-1.2.2
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.0
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.1
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: stable-1.17-1.1.0
+    configVersion: stable-1.17-1.1.1
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.0
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.1
     addonsList:
     - name: kommander
       enabled: false

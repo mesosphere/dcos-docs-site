@@ -67,7 +67,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.17-2.0.2
+    configVersion: stable-1.17-2.1.1
     addonsList:
     - name: nvidia
       enabled: true
@@ -108,7 +108,7 @@ This list is from [Nvidia Public Hub Repository][nvidia_public_hub_repository]. 
 3.10.0-1062.12.1.el7.x86_64
 ```
 
-Then, find the corresponding pre-built `nvidia/driver` image from the list above. In this case, `440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7` is the right image tag to pick. Configure the `cluster.yaml` to adopt this image tag for your nvidia driver container:
+Then, find the corresponding pre-built `nvidia/driver` image from the list above. In this case, `440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7` is the right image tag to pick. Configure the `cluster.yaml` to adopt this image tag for your nvidia driver container:
 
 ```yaml
     - name: nvidia
@@ -116,7 +116,7 @@ Then, find the corresponding pre-built `nvidia/driver` image from the list above
       values: |
         nvidia-driver:
           image:
-            tag: "440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7"
+            tag: "440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7"
 ```
 
 ### GPU on Air-gapped On-prem Cluster
@@ -126,9 +126,9 @@ Follow the [Konvoy Air-gapped Installations](../install/install-airgapped/) doc.
 ```bash
 REGISTRY=yourlocalregistry.com:6443
 
-docker tag nvidia/driver:440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7 ${REGISTRY}/nvidia/driver:440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7
+docker tag nvidia/driver:440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7 ${REGISTRY}/nvidia/driver:440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7
 
-docker push ${REGISTRY}/nvidia/driver:440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7
+docker push ${REGISTRY}/nvidia/driver:440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7
 ```
 
 ### Konvoy GPU Support on Ubuntu
@@ -143,7 +143,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.17-2.0.2
+    configVersion: stable-1.17-2.1.1
     addonsList:
     - name: nvidia
       enabled: true
@@ -196,7 +196,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.17-2.0.2
+    configVersion: stable-1.17-2.1.1
     addonsList:
 ......
     - name: nvidia

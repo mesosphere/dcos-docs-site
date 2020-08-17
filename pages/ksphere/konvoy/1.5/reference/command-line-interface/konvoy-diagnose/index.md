@@ -36,4 +36,3 @@ konvoy diagnose [flags]
 ### SEE ALSO
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters
-
