@@ -55,7 +55,7 @@ The folders in the addon repository have the following roles:
 - `metadata/` - Contains the static metadata for each addon in `addons/`.
 - `deployments/` - Contains the default addons specific to the version of Kubernetes in use.
 
-Here is a link to a [sample repository](https://github.com/realmbgl/my-addon-repo) you can experiment with and use as a template for your own addon repository. It contains two addons `awsebscsiprovisioner2` and `cockroachdb`.
+Here is a link to a [sample repository][sample_repo] you can experiment with and use as a template for your own addon repository. It contains two addons `awsebscsiprovisioner2` and `cockroachdb`.
 
 ### Configure an Addon Repository in cluster.yaml
 
