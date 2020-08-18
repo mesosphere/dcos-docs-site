@@ -7,18 +7,8 @@
       path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
   ul.chooser-list#localizer-list
     if lang == "cn"
-      - var enPath = `/${paths.slice(3).join('/')}`
       li.chooser-list-item
-        - var fullPath = "/mesosphere/dcos".concat(enPath)
-        a(href=fullPath) English
+        a(href=hierarchy.findLongestExisting("/mesosphere/dcos/" + paths.slice(3).join('/'))) English
     else
-      - function findLongestCnPath(inPath)
-        if inPath.length == 0
-          - return '/mesosphere/dcos/cn/'
-        - var currPath = `/mesosphere/dcos/cn/${inPath.join('/')}`
-        if hierarchy.checkIfPathExists(currPath)
-          - return currPath
-        - return findLongestCnPath(inPath.slice(0, inPath.length - 1))
       li.chooser-list-item
-        - var longest = findLongestCnPath(paths.slice(2))
-        a(href=longest) 中文 (简体)
+        a(href=hierarchy.findLongestExisting("/mesosphere/dcos/cn/" + paths.slice(2).join("/"))) 中文 (简体)
