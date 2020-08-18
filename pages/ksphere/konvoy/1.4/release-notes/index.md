@@ -199,7 +199,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.9.0-2
+    configVersion: stable-1.16-1.2.0
     addonsList:
     - name: kommander
       enabled: false # remove the kommander addon or set "enabled: false"
