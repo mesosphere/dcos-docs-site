@@ -94,6 +94,10 @@ module.exports = (files, metalsmith, done) => {
     }
     return possiblePaths[pathToFind];
   }
+  const findLongestExisting = (path) =>
+    findByPath(path, false)
+      ? path
+      : findLongestExisting(path.replace(/\/[^/]+\/?$/, ""));
 
   const root = {
     id: "",
@@ -101,6 +105,7 @@ module.exports = (files, metalsmith, done) => {
     path: "/",
     children: [],
     findByPath,
+    findLongestExisting,
     checkIfPathExists: (potentialPath) => findByPath(potentialPath, false),
     find: (k, v) => findMeta(root, k, v).sort(sortPages),
   };

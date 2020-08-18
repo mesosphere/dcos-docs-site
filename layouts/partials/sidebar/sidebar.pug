@@ -35,7 +35,7 @@ mixin renderSidebarNavListItem(item, depth)
             each val, index in productVersions
               if val.navigationTitle || val.title
                 li.sidebar__dropdown__item
-                  a.sidebar__dropdown__link(href=val.path)!= val.navigationTitle || val.title
+                  a.sidebar__dropdown__link(href=hierarchy.findLongestExisting(path.replace(`${productPath}${versionFragment}`, val.path)))!= val.navigationTitle || val.title
         .sidebar__dropdown__toggle
           p.sidebar__dropdown__text
             span.sidebar__dropdown__text__title!= productName
