@@ -28,6 +28,7 @@ const inPlace = require("./plugins/metalsmith-in-place-dcos");
 const includeContent = require("./plugins/metalsmith-include-content-dcos");
 const revision = require("./plugins/metalsmith-revision");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
+const Utils = require("./core/utils");
 
 // Configs
 const configData = fs.readFileSync("config.json");
@@ -65,6 +66,7 @@ MS.metadata({
   kommanderDocsLatest: "1.1",
   konvoyDocsLatest: "1.5",
   kubeflowDocsLatest: "1.0.1-0.4.0",
+  Utils,
 });
 
 // Source
