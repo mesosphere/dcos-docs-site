@@ -1,6 +1,8 @@
-- var [ sphere, product ] = paths
-- isItemActive = isItemActive || function(itemPath){ return itemPath === path || itemPath === "/" + path }
+- var { sphere, product, productName, lang } = Utils.getPathParts(path)
+- isItemActive = function(itemPath){ return itemPath === path || itemPath === "/" + path }
+- pages = lang == "cn" ? hierarchy.find('menus', 'dcos-cn-header') : null
 - pages = pages || hierarchy.find('menus', (menus) => menus.includes(`${product}-header`))
+- sectionSuffix = lang == "cn" ? "文档" : " Documentation"
 
 header.header
   a.header__drawer
@@ -11,7 +13,7 @@ header.header
   .header__main
     .header__dropdown
       img.header__dropdown-icon(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
-      strong!= sectionTitle
+      strong!= productName + sectionSuffix
       i(data-feather='chevron-down')
     nav.header__menu
       ul.header__menu-list
@@ -20,11 +22,10 @@ header.header
             a(href=val.path)!= val.title
         li.header__menu-item
           a(href='https://support.d2iq.com') Support
-  if sphere === 'mesosphere'
-    include ksphere-dropdown.pug
+  include mesosphere-dropdown.pug
+  include ksphere-dropdown.pug
+  if sphere === 'mesosphere' || sphere === 'services'
     include localization-dropdown.pug
-  else
-    include mesosphere-dropdown.pug
   section.header__search(role='search')
     form.header__search-form(action=`/${sphere}/${product}/search/`)
       input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
