@@ -18,6 +18,8 @@
     align-items: center;
     color: $color-grey;
     text-decoration: none;
+    background: transparent;
+    border: 0;
     &:hover {
       color: $color-purple-d3;
       & .actions__icon--rss {
