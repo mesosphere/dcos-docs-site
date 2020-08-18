@@ -1,19 +1,23 @@
-- var currentPath = '/' + path
-- var showDropdown = dropdown.length && !(dropdown.length == 1 && semverService.test(dropdown[0].id))
+- var { sphere, product, productName, lang, version = "" } = Utils.getPathParts(path)
+- var semver = /^(v|)[0-9]+\.[0-9]+/
+- var langFragment = lang == "en" ? "" : `/${lang}`
+- var versionFragment = version ? `/${version}` : ''
 - var inMenu = function(c) { return c.menuWeight != -1 && (c.title || c.navigationTitle) }
+- var productPath = sphere == "services" ? `mesosphere/dcos${langFragment}/${sphere}/${product}` : `${sphere}/${product}${langFragment}`
+- var productVersions = hierarchy.findByPath(productPath).children.filter(item => semver.test(item.id) && item.menuWeight != -1)
+- var currentPath = '/' + path
 
 mixin renderSidebarNavListItem(item, depth)
   -
     var hasChildren = !!item.children.length
-    var path = item.path
-    var onPath = currentPath.includes(path)
+    var onPath = currentPath.includes(item.path)
     var itemClassList = {
       'sidebar__nav__item--active': onPath,
-      'sidebar__nav__item--active-on': currentPath == path,
+      'sidebar__nav__item--active-on': currentPath == item.path,
       'sidebar__nav__item--parent': hasChildren
     }
   li.sidebar__nav__item(class=itemClassList)
-    a.sidebar__nav__item__container(href=path, class=`sidebar__nav__item__container--depth-${depth}`)
+    a.sidebar__nav__item__container(href=item.path, class=`sidebar__nav__item__container--depth-${depth}`)
       if hasChildren
         i.sidebar__nav__icon(data-feather='chevron-right')
       .sidebar__nav__text!= item.navigationTitle || item.title
@@ -26,22 +30,22 @@ mixin renderSidebarNavListItem(item, depth)
   section.sidebar
     header.sidebar__header
       .sidebar__dropdown
-        if showDropdown
+        if productVersions.length > 1
           ul.sidebar__dropdown__list
-            each val, index in dropdown
+            each val, index in productVersions
               if val.navigationTitle || val.title
                 li.sidebar__dropdown__item
                   a.sidebar__dropdown__link(href=val.path)!= val.navigationTitle || val.title
         .sidebar__dropdown__toggle
           p.sidebar__dropdown__text
-            span.sidebar__dropdown__text__title!= (type) ? type.title : ' '
-            span.sidebar__dropdown__text__version!= ' ' + versionTitle
-          if showDropdown
+            span.sidebar__dropdown__text__title!= productName
+            span.sidebar__dropdown__text__version!= ' ' + version
+          if productVersions.length > 1
             i.sidebar__dropdown__icon(data-feather='chevron-down')
 
     nav.sidebar__nav(role='navigation')
       ul.sidebar__nav__list.sidebar__nav__list--active
-        each val, index in item.children.filter(inMenu)
+        each val, index in hierarchy.findByPath(`${productPath}${versionFragment}`).children.filter(inMenu)
           +renderSidebarNavListItem(val, 0)
 
     footer.sidebar__footer

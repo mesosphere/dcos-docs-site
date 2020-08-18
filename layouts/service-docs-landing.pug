@@ -1,6 +1,3 @@
-- var paths = path.split('/')
-- var isChinese = paths[2] == 'cn'
-
 -
   var categories = [
     "View All",
@@ -85,10 +82,7 @@ html(lang='en')
   body.landing.landing--services
     .layout
       div.layout__content(role='main')
-        if isChinese
-          include partials/header/dcos-cn-header.pug
-        else
-          include partials/header/dcos-en-header.pug
+        include partials/header/header.pug
         .landing__hero
           h1.landing__title DC/OS Service Docs
         .landing__container

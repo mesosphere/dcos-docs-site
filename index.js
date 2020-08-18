@@ -94,6 +94,8 @@ const neededToBuildMainMenu = [
   "mesosphere/index.md",
   "mesosphere/dcos/index.md",
   `mesosphere/dcos/${MS._metadata.dcosDocsLatest}/index.md`,
+  "mesosphere/dcos/cn/index.md",
+  `mesosphere/dcos/cn/${MS._metadata.dcosCNDocsLatest}/index.md`,
   "ksphere/index.md",
   "ksphere/dispatch/index.md",
   `ksphere/dispatch/${MS._metadata.dispatchDocsLatest}/index.md`,
@@ -294,7 +296,7 @@ if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
   MS.use(
     watch({
       paths: {
-        [`pages/${RENDER_PATH_PATTERN}/*`]: "**/*.{md,tmpl}",
+        [`pages/${RENDER_PATH_PATTERN}/*.md`]: "**/*.{md,tmpl}",
         "layouts/**/*": "**/*",
         "js/**/*": "**/*",
         "scss/**/*": "**/*",
@@ -317,7 +319,7 @@ if (process.env.NODE_ENV === "development") {
 }
 
 MS.use(webpack("./webpack.config.js"));
-MS.use(timer("AB: Webpack"));
+MS.use(timer("Webpack"));
 
 // Build
 MS.build((err, files) => {

@@ -13,12 +13,14 @@ module.exports = {
   // take a path and normalize things for services.
   getPathParts(path) {
     const fragments = path.split("/");
-    const isService = fragments[2] === "services";
+
+    // if you think about changing this, make sure that /mesosphere/dcos/cn/services/hdfs/2.2.0 works. you're welcome!
     const lang = fragments[2] === "cn" ? "cn" : "en";
+    if (lang !== "en") fragments.splice(2, 1);
     // a service would now be services/kafka/2.1
     //                   sphere^  product^    ^version
+    const isService = fragments[2] === "services";
     if (isService) fragments.splice(0, 2);
-    if (lang !== "en") fragments.splice(2, 1);
 
     const [sphere, product, version] = fragments;
     const productName = customNames[product] || _.startCase(product);
