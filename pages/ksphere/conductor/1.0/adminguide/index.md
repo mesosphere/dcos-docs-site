@@ -9,7 +9,7 @@ excerpt: A short guide for Conductor Admin Portal
 
 # Overview
 
-Users with the role `Admin` will have access to the Admin Portal in their navbar from anywhere outside the [Integrated Learning Environment](../learnerguide/index.md#Integrated-Learning-Environment). The Admin Portal enables admins to do a number of tasks essential to the administration of Conductor users:
+Users with the role `Admin` will have access to the Admin Portal in their navbar from anywhere outside the Integrated Learning Environment (ILE). The Admin Portal enables admins to do a number of tasks essential to the administration of Conductor users:
 
 - **Users** stat - displays the total users tracked in the Roster
 

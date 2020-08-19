@@ -11,7 +11,7 @@ D2iQ’s Conductor is a distributed learning platform that enables you to train 
 # Conductor features and benefits
 This is the first release of Conductor's self-hosted offering, featuring the following capabilities:
 - **Easy on-prem/cloud installation**:
-    Operators can now install Conductor on their own Kubernetes cluster using only a helm chart and a few common addons [Setup](../setup/index.md) for more information.
+    Operators can now install Conductor on their own Kubernetes cluster using only a helm chart and a few common addons.
 
 - **File Editor**:
     Learners can view, edit, and save files in their training environment workspaces from the easy-to-use *File Editor* GUI tab.
