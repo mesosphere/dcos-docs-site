@@ -42,7 +42,7 @@ DC/OS 2.1.1 includes the following component versions:
 - An issue where pressing **Enter** in the Secret ID textbox, reloads the DC/OS UI has been resolved. (D2IQ-14964) 
 - An issue where running two CLI installers from the same machine aborted with an error has been resolved. (D2IQ-7844) 
 - An issue where a master node was not able to rejoin a cluster after failure/restart when another master is offline or being upgraded is now resolved. (COPS-1754, D2iQ-4248) 
-
+- Fixed an issue with unmounting external persistent volumes in Mesos" since the fix is in Mesos rather than Marathon. (COPS-5920)
 
 
 
@@ -69,7 +69,6 @@ COPS-6355
 COPS-6341
 COPS-6326
 COPS-6218
-COPS-5920
 
 
 ## Mesos Fixed and Improved Issues
