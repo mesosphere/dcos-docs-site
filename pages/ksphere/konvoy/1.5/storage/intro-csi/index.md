@@ -17,7 +17,7 @@ CSI replaces earlier Kubernetes attempts to manage storage such as in-tree volum
 
 The CSI standard defines a set of services to reduce coupling with storage drives and provide more flexibility. These services are deployed along side a storage driver as sidecar containers. The sidecar containers are responsible for interacting with the Kubernetes API.
 
-[Konvoy will automatically configure native storage drivers][automated-storage] for the supported cloud provisioners (AWS, Azure, or GCP) which deploy the following sidecar containers:
+[Konvoy automatically configures native storage drivers][automated-storage] for the supported cloud provisioners (AWS, Azure, or GCP) that deploy the following sidecar containers:
 
 <table>
   <tr>
