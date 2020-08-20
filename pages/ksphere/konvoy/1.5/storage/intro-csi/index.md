@@ -62,7 +62,7 @@ The CSI standard defines a set of services to reduce coupling with storage drive
 
 In Konvoy, you can use CSI volumes through the Kubernetes storage API objects like PersistentVolumeClaims (PVCs), PersistentVolumes (PVs), and StorageClasses.
 
-Here's an example of a StorageClass for the [AWS EBS CSI driver][aws-ebc-csi-driver]. Save it in file named `ebs-sc.yaml`:
+Here is an example of a `StorageClass` for the [AWS EBS CSI driver][aws-ebc-csi-driver]. Save it in a file named `ebs-sc.yaml`:
 
 ```yaml
 kind: StorageClass
