@@ -76,7 +76,7 @@ When attaching non-Konvoy clusters, such as Amazon EKS, Azure AKS, Google GKE, a
 
 ## Improved RBAC
 
-Kommander has enhanced Access Controls for users at the global, workspace, and project levels allowing for greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1.0/tutorials/configure-rbac/)
+Kommander has enhanced Access Controls for users at the global, workspace, and project levels allowing for greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/configure-rbac/)
 
 # Improvements
 
