@@ -1,15 +1,35 @@
 name: Linting
-on: [push, pull_request]
+on:
+  push:
+    branches-ignore:
+      - master
+      - staging
+  pull_request:
+    branches-ignore:
+      - master
+      - staging
 jobs:
   prose:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - name: Vale
-      uses: errata-ai/vale-action@v1.2.0
+    - uses: jwalton/gh-find-current-pr@v1
+      id: findPr
       with:
-        config: https://raw.githubusercontent.com/mesosphere/dcos-docs-site/master/.vale.ini
-        files: pages
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+    - name: File Changes
+      id: file_changes
+      uses: trilom/file-changes-action@master
+      with:
+        prNumber: ${{ steps.findPr.outputs.pr }}
+    - uses: errata-ai/vale-action@v1.3.0
+      with:
+        files: ${{ steps.file_changes.outputs.files_modified }}
+      env:
+        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+    - uses: errata-ai/vale-action@v1.3.0
+      with:
+        files: ${{ steps.file_changes.outputs.files_added }}
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}

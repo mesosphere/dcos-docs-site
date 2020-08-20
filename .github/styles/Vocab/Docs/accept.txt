@@ -1,3 +1,2 @@
 Mesos
-datacenter
 Chronos
