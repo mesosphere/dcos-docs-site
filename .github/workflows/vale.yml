@@ -5,12 +5,11 @@ on:
       - master
       - staging
   pull_request:
-    branches-ignore:
-      - master
-      - staging
+
 jobs:
   prose:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
     - name: Checkout
       uses: actions/checkout@master
@@ -20,16 +19,11 @@ jobs:
         github-token: ${{ secrets.GITHUB_TOKEN }}
     - name: File Changes
       id: file_changes
-      uses: trilom/file-changes-action@master
+      uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
       with:
         prNumber: ${{ steps.findPr.outputs.pr }}
-    - uses: errata-ai/vale-action@v1.3.0
+    - uses: errata-ai/vale-action@75a4db25a0833de205ab750af4b4ed36e24280ec
       with:
-        files: ${{ steps.file_changes.outputs.files_modified }}
-      env:
-        GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
-    - uses: errata-ai/vale-action@v1.3.0
-      with:
-        files: ${{ steps.file_changes.outputs.files_added }}
+        files: ${{ steps.file_changes.outputs.files }}
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
