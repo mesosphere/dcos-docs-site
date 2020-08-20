@@ -1,0 +1,25 @@
+# Set up SSH credentials for your cluster
+
+Terraform will need to send out SSH keys to connect securely to the nodes it creates. If you already have a key-pair available and added to your SSH-agent, you can skip this section.
+
+1. Not sure if you have a keypair you want to use? List the contents of your ssh directory.
+
+    ```bash
+    ls ~/.ssh
+    ```
+
+1. If you don't have one you like, start the ssh-keygen program to create a new key pair, following the prompts.
+
+    ```bash
+    ssh-keygen -t rsa
+    ```
+
+1. Add the key to your SSH agent by starting the agent if it isn't already running and then loading your key:
+
+    ```bash
+    eval "$(ssh-agent -s)"
+    ```
+
+    ```bash
+    ssh-add ~/.ssh/<your-key-name>
+    ```

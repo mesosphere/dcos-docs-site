@@ -1,0 +1,17 @@
+# Install Terraform
+
+1. Visit the [Terraform releases page](https://releases.hashicorp.com/terraform/) for bundled installations and support for Linux, macOS and Windows. Choose the latest 0.11 version.
+
+    If you're on a Mac environment with [Homebrew](https://brew.sh/) installed, simply run the following command:
+
+    ```bash
+    brew unlink terraform || true
+    brew install tfenv
+    tfenv install 0.12.25
+    ```
+
+    Windows users that have [Chocolatey](https://chocolatey.org/docs/installation) installed, run:
+
+    ```bash
+    choco install terraform --version 0.12.25 -y
+    ```
