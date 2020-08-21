@@ -39,6 +39,8 @@ NAME
 172.16.9.234
 
 ```
+The `DC/OS Calico CLI` requires gRPC port to be open and accesible form outside of the cluster on the current leader.
+
 
 ## DC/OS Configuration Reference (Networking)
 
