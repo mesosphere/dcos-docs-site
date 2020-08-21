@@ -41,6 +41,7 @@ If you want to federate a cluster by creating a new `KommanderCluster` object in
 | kube-oidc-proxy-kommander | True | | False |
 | opsportal-addons-kommander-overrides | True | | False |
 | prometheus | True | `kommander.mesosphere.io/federate-prometheus` | True |
+| prometheusadapter | True | `kommander.mesosphere.io/federate-prometheusadapter` | True |
 | reloader | True | | True |
 | traefik-forward-auth-kommander | True | | False |
 
