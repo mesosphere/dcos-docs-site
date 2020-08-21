@@ -11,24 +11,24 @@ enterprise: false
 
 ## Overview
 
-This package provides DC/OS Calico component to support Calico networking containers and network policy in DC/OS.
+This package provides the DC/OS Calico component to support Calico networking containers and network policies in DC/OS.
 
-## DC/OS Calico Components
+## DC/OS calico components
 
-DC/OS Calico component integrates the [Calico networking](https://www.projectcalico.org) into DC/OS, by providing the Calico CNI plugin for Mesos Universal Container Runtime and the Calico libnetwork plugin for Docker Engine. In addition, the calico control panel will provide the functionality of configuring the network policy for DC/OS workloads.
+The DC/OS Calico component integrates the [Calico networking](https://www.projectcalico.org) into DC/OS, by providing the Calico CNI plugin for Mesos Universal Container Runtime and the Calico libnetwork plugin for Docker Engine. The calico control panel also provides configuration for the network policy for DC/OS workloads.
 
-### DC/OS Calico Services
+### DC/OS calico services
 
-DC/OS Calico integrates Calico into DC/OS for managing container networking and network security, three services are introduced:
+DC/OS Calico integrates Calico into DC/OS for managing container networking and network security, using these services:
 
 * `dcos-calico-bird.service`: A BGP client that exchanges routing information between hosts for Calico. [(source)](https://github.com/projectcalico/bird)
 * `dcos-calico-confd.service`: The confd templating engine monitors etcd datastores and generating and reloading bird configuration dynamically. [(source)](https://github.com/projectcalico/node)
 * `dcos-calico-felix.service`: the control panel for Calico networking to program routes and ACL's for containers. [(source)](https://github.com/projectcalico/node)
 * `dcos-calico-libntwork-plugin.service`: the network plugin for Docker that provides Calico networking to the Docker Engine. [(source)](https://github.com/projectcalico/libnetwork-plugin)
 
-### DC/OS Calico CLI
+### DC/OS calico CLI
 
-The DC/OS command line includes a `calico` plugin that allows running `calicoctl` commands from outside the cluster. To run any `calicoctl` command intead run it as `dcos calico` for example `dcos calico get nodes`:
+The DC/OS command line includes a `calico` plugin that allows running `calicoctl` commands from outside the cluster. To run any `calicoctl` command instead, run it as `dcos calico` for example `dcos calico get nodes`:
 
 ```sh
 dcos calico get nodes
@@ -39,15 +39,15 @@ NAME
 172.16.9.234
 
 ```
-The `DC/OS Calico CLI` requires gRPC port to be open and accesible form outside of the cluster on the current leader.
+The `DC/OS Calico CLI` requires gRPC port to be open and accessible from outside of the cluster on the current leader.
 
 
-## DC/OS Configuration Reference (Networking)
+## DC/OS network configuration reference 
 
 | Parameter | Description |
 |-----------|-------------|
 | calico_network_cidr | Subnet allocated for calico. The subnet specified by `calico_network_cidr` MUST not overlap with those for VXLAN backends or virtual networks defined for [DC/OS virtual networks](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#dcos-overlay-enable). [ Default: 172.29.0.0/16 ] |
-| calico_vxlan_enabled | Control, whether IP-in-IP or VXLAN mode is used for calico, by default VXLAN, is suggested to be used instead of VXLAN. `calico_vxlan_enabled` is supposed to set to 'true' for the environment that IP in IP is not supported, like Azure. [Default: 'true'] |
+| calico_vxlan_enabled | Control, whether IP-in-IP or VXLAN mode is used for calico, by default VXLAN, is suggested to be used instead of VXLAN. `calico_vxlan_enabled` set to 'true' for the environment that IP in IP is not supported, like Azure. [Default: 'true'] |
 | calico_ipinip_mtu | The MTU to set on the Calico IPIP tunnel device. This configuration works when calico_vxlan_enabled is set to be false. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration. [Default: 1480] |
 | calico_vxlan_port | The UDP port used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true. [Default: 4789] |
 | calico_vxlan_vni | The virtual network ID used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true. [Default: 4096] |
@@ -56,9 +56,9 @@ The `DC/OS Calico CLI` requires gRPC port to be open and accesible form outside 
 
 
 
-### Calico Networking (Universal Container Runtime)
+### Calico universal container runtime networking
 
-To use Calico networking containers, you only have to specify the network name as `calico`.
+To use Calico networking containers, specify the network name as `calico`.
 
 The following marathon app definition example will launch a container using the _Mesos UCR engine_ and plug it to the `calico` network:
 
@@ -89,7 +89,7 @@ The following marathon app definition example will launch a container using the 
 }
 ```
 
-### Calico Networking (Docker Engine)
+### Calico Docker engine networking
 
 Like with the previous example, the following marathon app definition will launch a container using the _Docker Engine_ and plug it to the `calico` network:
 
@@ -120,9 +120,9 @@ Like with the previous example, the following marathon app definition will launc
 }
 ```
 
-## Administration Topics
+## Administer Calico
 
-### Network Policies
+### Network policies
 
 Network policy provides the ability to control network traffic by an ordered set of rules applied to the endpoints specified by a label selector, please refer to the [calico documentation](https://docs.projectcalico.org/reference/resources/networkpolicy) for a detailed explanation of policy rule definitions and label selector syntax.
 
@@ -132,7 +132,7 @@ limitations on network policy we have in DC/OS:
 
 * Calico network policy is a namespaced resource, but for now, we support only `default` namespace in DC/OS, and all the namespaced Calico resources should be defined under `default` namespace.
 * Calico network policy takes effect only on Calico networking containers, which means labels set on non-Calico networking containers like `hostnetwork`, `dcos` and `bridge` will not count in Calico network policy.
-* Labels work for network policy MUST be set in `NetworkInfo.Labels` in Mesos, and for Marathon, they should be in `networks.[].labels`, for example:
+* Labels work for network policy must be set in `NetworkInfo.Labels` in Mesos, and for Marathon, they should be in `networks.[].labels`, for example:
 
 ```json
 {
@@ -152,11 +152,11 @@ limitations on network policy we have in DC/OS:
 }
 ```
 
-### Default Profile
+### Default profile
 
-Calico Profile groups endpoints which inherit labels defined in the profile, for example, each namespace has one corresponding profile to granting labels to Pods in the namespace. Calico profile supports policy rules for traffic control but is deprecated in favor of much more flexible NetworkPolicy and GlobalNetworkPolicy resources.
+Calico profile groups endpoints inherit labels defined in the profile, for example, each namespace has one corresponding profile to granting labels to Pods in the namespace. Calico profile supports policy rules for traffic control but is deprecated in favor of the much more flexible NetworkPolicy and GlobalNetworkPolicy resources.
 
-In our case, all Calico networking containers will be assigned with a default profile with the same name as CNI network, `calico` by default, and this profile allows **only** requests from one Calico container network to another one,  which means L4LB and L7 proxy requests in which the source IP address is NATed to that of tunnel interfaces generated by Calico, and finally will be dropped. This profile can found in the following YAML definition.
+All Calico networking containers will be assigned with a default profile with the same name as CNI network, `calico` by default, and this profile allows **only** requests from one Calico container network to another one,  which means L4LB and L7 proxy requests in which the source IP address is NATed to that of tunnel interfaces generated by Calico, and finally will be dropped. This profile can found in the following YAML definition.
 
 ```yaml
 apiVersion: projectcalico.org/v3
@@ -183,7 +183,7 @@ spec:
 To resolve this problem, calico profile `calico` is initialized by default by `dcos-calico-felix`, and allows all traffic into and out of Calico networking containers, and `calico` is the only profile supported for now and shared across all Calico networking containers.
 For a more detailed description of the Calico profile, please read the [calico documentation](https://docs.projectcalico.org/reference/resources/profile).
 
-### Network Policy Examples
+### Network policy examples
 
 In the following business isolation example, we have three application definitions as shown below, and both bookstore-frontend and bookstore-server are labeled with `"biz_type": "bookstore"`, while fruitstore-frontend is labeled with `"biz_type": "fruitstore"`. Here we will create a network policy to deny the requests from fruitstore-frontend to bookstore-server while allow requests from bookstore-frontend to bookstore-server.
 
@@ -204,7 +204,7 @@ In the following business isolation example, we have three application definitio
              +------------------------+
 ```
 
-#### 5.3.1. Launch Marathon Applications
+#### 5.3.1. Launch Marathon applications
 
 The Marathon application definition of bookstore-frontend with policy label `"biz_type": "bookstore"`:
 
@@ -311,7 +311,7 @@ dcos task list
   bookstore-frontend   172.16.2.233  root  TASK_RUNNING  bookstore-frontend.instance-79853919-2a47-11ea-91b3-66db602e14f5._app.1   0a1399a2-fe1f-4613-a618-f45159e12f2a-S0  N/A     N/A
 ```
 
-#### Frontends and Server Connectivity Test
+#### Frontends and server connectivity test
 
 Before applying network policy, the requests from bookstore-frontend and fruitstore-frontend to bookstore-server are successful, here we expect the FQDN `bookstore-server.marathon.containerip.dcos.thisdcos.directory` to return the bookstore-server container IP address:
 ```sh
@@ -322,7 +322,7 @@ dcos task exec bookstore-frontend wget -qO- bookstore-server.marathon.containeri
 hubfeu2yculh%
 ```
 
-#### Apply Network Policy
+#### Apply network policy
 
 This network policy takes effect on bookstore-server and allows requests from applications with label `biz_type` set as `bookstore` while rejects those from applications with label `biz_type` set as `fruitstore`:
 ```yaml
@@ -364,7 +364,7 @@ dcos task exec fruitstore-frontend wget -qO- --timeout=5 bookstore-server.marath
 wget: can't connect to remote host (192.168.219.133): Connection timed out
 ```
 
-### Adding Network Profiles
+### Adding network profiles
 
 In most of the use cases a single calico profile is enough. However if for any reason more networks needs to be created, you should be aware of some corner cases.
 
@@ -425,11 +425,11 @@ That said, to add a network profile, you should:
       <network-name>
   ```
 
-## Migrate Applications from DC/OS Overlay to Calico
+## Migrate applications from DC/OS overlay to Calico
 
 Automatic Migration for all services existing within a DC/OS cluster is impossible. Services can be launched by a variety of Apache Mesos frameworks ranging from production-proven platform [Marathon](https://mesosphere.github.io/marathon/) to services built on top of [dcos-common](https://github.com/mesosphere/dcos-commons. This includes existing, stateful services such as [Cassandra](https://docs.d2iq.com/mesosphere/dcos/services/cassandra) and [Spark](https://docs.d2iq.com/mesosphere/dcos/services/spark), or services being hosted from your environment.
 
-### Marathon application(aka DC/OS services)
+### Marathon application (aka DC/OS services)
 
 There are at least two ways to effect a change for the Marathon application:
 
@@ -483,6 +483,6 @@ pods:
       ...
 ```
 
-## Troubleshooting
+## Troubleshoot
 
 Diagnostic info including Calico resources, components logs, and BGP peer status are collected in DC/OS node diagnostic bundle to debug Calico networking issues, please execute  `dcos node diagnostic create` to create a diagnostic bundle, and download the diagnostic bundle by executing `dcos node diagnostic download <diagnostic-bundle-name>`.
