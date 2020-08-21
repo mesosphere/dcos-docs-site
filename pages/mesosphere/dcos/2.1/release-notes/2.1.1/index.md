@@ -44,7 +44,7 @@ DC/OS 2.1.1 fixes the following issues:
 - Selecting **Enter** in the Secret ID textbox, reloaded the DC/OS UI. (D2IQ-14964) 
 - Running two CLI installers from the same machine aborted with an error. (D2IQ-7844) 
 - A master node was not able to rejoin a cluster after failure/restart when another master was offline or being upgraded. (COPS-1754, D2iQ-4248) 
-- After restarting a task, an unmounting external persistent volumes error was thrown. (COPS-5920, D2IQ-65497)
+- An error was thrown when nmounting external persistent volumes in Mesos. (COPS-5920, D2IQ-65497)
 - A critical error in Metronome where existing jobs appear to be lost after upgrade. (DCOS_OSS-5965, COPS-6174)
 - DC/OS installations on Flatcar Linux would not finish due to Java processing issues. (COPS-6422, D2IQ-70809, COPS-6190)
 - Exhibitor endpoint responses were inconsistent. (D2IQ-70393, COPS-6326) 
