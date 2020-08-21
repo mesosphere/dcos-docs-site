@@ -41,7 +41,7 @@ DC/OS 2.1.1 fixes the following issues:
 - Using file-based secrets caused mount failure and issues in the json editor. (COPS-6085, D2IQ-68114, D2IQ-67819) 
 - An unknown response code was received when querying DC/OS health endpoints. (COPS-5915, COPS-5979, D2IQ-65296, D2IQ-69169) 
 - After an upgrade, the dcos-telegraf directories had incorrect permissions leading to a problem launching tasks. (COPS-6232, D2IQ-69295)
-- Selecting **Enter** in the Secret ID textbox, reloaded the DC/OS UI. (D2IQ-14964) 
+- In the DC/OS UI, selecting **Enter** in the Secret ID textbox reloaded the page. (D2IQ-14964) 
 - Running two CLI installers from the same machine aborted with an error. (D2IQ-7844) 
 - A master node was not able to rejoin a cluster after failure/restart when another master was offline or being upgraded. (COPS-1754, D2iQ-4248) 
 - An error was thrown when nmounting external persistent volumes in Mesos. (COPS-5920, D2IQ-65497)
