@@ -1,4 +1,5 @@
 D2iQ
+COPS
 Mesos
 Chronos
 DC/OS
@@ -10,3 +11,4 @@ Conductor
 KUDO
 Kubeflow
 Kubernetes
+component
