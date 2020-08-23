@@ -1,4 +1,4 @@
-.PHONY: build-ngindox build-api build-development clean reduce-pages
+.PHONY: build-development clean reduce-pages
 
 clean: ## Remove all build folders
 	./scripts/clean.sh
@@ -14,20 +14,9 @@ redirects-replace-old:
 # Build
 #
 
-## Rebuild nginx, swagger, and static content
-build-development: build-api
+## Build static content
+build-development:
 	npm run dev
-
-#
-# Build API
-#
-build-api: build-ngindox
-
-NGINDOX_FILES := $(shell find ./pages -name '*.yaml' | xargs grep -l "ngindox:")
-build-ngindox: $(addprefix ./build-ngindox,$(basename $(NGINDOX_FILES:./pages%=%)))
-build-ngindox/%:
-	@mkdir -p $@
-	@node ./node_modules/ngindox/bin/cli.js ui -c "" -j "" -f "pages/$*.yaml" > "$@/index.html"
 
 #
 # Docker

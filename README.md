@@ -104,12 +104,6 @@ Content that is kept on other team repos would follow their init, if applicable.
 This must be only done on first time or if a rare site tooling change occurs. Other repos may have other needs, see their Contributing Guide or similar resource for assistance if you will need to build their code.
 `npm install`
 
-### Build the API page sets
-This is necessary anytime a set is changed, or when a new DC/OS version (and there for a new set) is created
-`make --jobs=$(expr $(nproc) - 1) build-api`
-
-This takes some time. It builds the folders `build-ngindox` and `biuld-swagger`.
-
 ### Build a local preview
 This is to ensure setup was successful
 `npm run dev`
