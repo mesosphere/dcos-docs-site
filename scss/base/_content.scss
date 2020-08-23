@@ -9,6 +9,8 @@ $sections-size: 20%;
     flex-direction: column;
     min-width: 0;
     padding: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
   }
   &__404 {
     margin-bottom: -160px;
