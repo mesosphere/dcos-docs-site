@@ -6,6 +6,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 5
     steps:
+    - uses: satackey/action-docker-layer-caching@v0.0.8
     - name: Checkout
       uses: actions/checkout@master
     - uses: jwalton/gh-find-current-pr@v1
