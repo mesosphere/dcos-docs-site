@@ -1,4 +1,4 @@
-.PHONY: build-swagger build-ngindox build-api build-development clean reduce-pages
+.PHONY: build-ngindox build-api build-development clean reduce-pages
 
 clean: ## Remove all build folders
 	./scripts/clean.sh
@@ -21,12 +21,7 @@ build-development: build-api
 #
 # Build API
 #
-build-api: build-swagger build-ngindox
-
-SWAGGER_FILES := $(shell find ./pages -name '*.yaml' | xargs grep -l "swagger:")
-build-swagger: $(addprefix ./build-swagger,$(basename $(SWAGGER_FILES:./pages%=%)))
-build-swagger/%:
-	@node ./node_modules/bootprint/bin/bootprint.js openapi "pages/$*.yaml" "$@"
+build-api: build-ngindox
 
 NGINDOX_FILES := $(shell find ./pages -name '*.yaml' | xargs grep -l "ngindox:")
 build-ngindox: $(addprefix ./build-ngindox,$(basename $(NGINDOX_FILES:./pages%=%)))
