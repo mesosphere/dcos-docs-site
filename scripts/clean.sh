@@ -6,5 +6,4 @@
 #
 
 rm -rf "./build"
-rm -rf "./build-ngindox"
 rm -f ".revision"

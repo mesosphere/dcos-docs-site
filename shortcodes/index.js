@@ -2,6 +2,8 @@ const fs = require("fs");
 const path = require("path");
 const cheerio = require("cheerio");
 const minify = require("html-minifier").minify;
+const NgindoxUi = require("ngindox/lib/ui");
+const Yaml = require("js-yaml");
 
 /**
  * Shortcodes for metalsmith-shortcode-parser
@@ -288,37 +290,13 @@ const shortcodes = {
    * @param {Object} opts
    * @param {string} opts.api
    */
-  ngindox: (buf, opts) => {
-    // Check if exists
-    const configFilePath = path.join("./pages", opts.api);
-    const configFileExists = fs.existsSync(configFilePath);
-
-    if (!configFileExists) {
-      throw new Error(`Ngindox config file does not exist ${configFilePath}`);
-    }
-
-    const buildFileDir = opts.api.replace(".yaml", "");
-    const buildFilePath = path.join(
-      "./build-ngindox",
-      buildFileDir,
-      "index.html"
-    );
-    const buildFileExists = fs.existsSync(buildFilePath);
-
-    if (!buildFileExists) {
-      throw new Error(`Ngindox build file does not exist ${buildFilePath}`);
-    }
-
-    // Read file
-    const contents = fs.readFileSync(buildFilePath, { encoding: "utf-8" });
-
-    // Hide from headings
-    const $ = cheerio.load(contents);
-    $("h1, h2, h3").each((el) => $(el).attr("data-hide", true));
-
-    // Output
-    return sanitize($.html());
-  },
+  ngindox: (buf, { api }) =>
+    sanitize(
+      NgindoxUi.toHtml(Yaml.safeLoad(fs.readFileSync(`./pages${api}`)), {
+        title: "Routes",
+        legend: true,
+      })
+    ),
 
   /**
    * Image

@@ -5,7 +5,6 @@ COPY . /dcos-docs-site/
 WORKDIR /dcos-docs-site
 
 RUN npm install
-RUN make build-api
 
 ENTRYPOINT [ "npm", "run", "dev" ]
 
