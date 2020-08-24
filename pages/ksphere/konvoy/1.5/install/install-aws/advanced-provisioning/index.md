@@ -440,9 +440,51 @@ spec:
 ...
 ```
 
+### EBS Volume Encryption
+
+You can configure the AWS CSI driver, installed by Konvoy, to create encrypted EBS volumes.
+Modify the `awsebscsiprovisioner` addon values in the following way:
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  addons:
+  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    addonsList:
+    - name: awsebscsiprovisioner
+      enabled: true
+      values: |
+        storageclass:
+          encrypted: true
+```
+
+This configures the AWS CSI driver to encrypt all of the EBS volumes it creates, using the default KMS key in each region.
+
+Yo can also use a customer managed KMS key, by specifying the key's full ARN:
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  addons:
+  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+    addonsList:
+    - name: awsebscsiprovisioner
+      enabled: true
+      values: |
+        storageclass:
+          encrypted: true
+          kmsKeyId: arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab
+```
+
+<p class="message--note"><strong>NOTE: </strong>If you specify a value for <tt>kmsKeyId</tt>, you must add the IAM role used by the Konvoy worker nodepools to the KMS key's <tt>Key users</tt> before the CSI driver is able to use the key.</p>
+
+You can read more about EBS encryption in the official [AWS documentation][ebs_encryption].
+
 # Deploying Additional Kubernetes Resources
 
-It is possible to provide additional Kubernetes resources that will be deployed after the base cluster is provisioned but before any of the addons are deployed.
+You can also provide additional Kubernetes resources that are deployed after the base cluster is provisioned, but before any of the addons are deployed.
 
 To add custom resource files:
 
@@ -473,3 +515,4 @@ To add custom resource files:
 [cloud_provider]: https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 [sts_assumerole]: https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
+[ebs_encryption]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_key_mgmt

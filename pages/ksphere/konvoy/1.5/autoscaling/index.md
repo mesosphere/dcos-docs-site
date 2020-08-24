@@ -227,6 +227,79 @@ data:
 type: kommander.mesosphere.io/aws-credentials
 ```
 
+If you choose to specify a different AWS account than the one **used during the cluster creation**, the Konvoy autoscaler only requires this minimal IAM policy:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "Konvoy",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:AttachVolume",
+                "ec2:CreateTags",
+                "ec2:CreateVolume",
+                "ec2:DeleteTags",
+                "ec2:DeleteVolume",
+                "ec2:DescribeAccountAttributes",
+                "ec2:DescribeAvailabilityZones",
+                "ec2:DescribeImages",
+                "ec2:DescribeInstanceAttribute",
+                "ec2:DescribeInstanceCreditSpecifications",
+                "ec2:DescribeInstances",
+                "ec2:DescribeInternetGateways",
+                "ec2:DescribeKeyPairs",
+                "ec2:DescribeNetworkAcls",
+                "ec2:DescribeNetworkInterfaces",
+                "ec2:DescribeRegions",
+                "ec2:DescribeRouteTables",
+                "ec2:DescribeSecurityGroups",
+                "ec2:DescribeSubnets",
+                "ec2:DescribeTags",
+                "ec2:DescribeVolumes",
+                "ec2:DescribeVpcAttribute",
+                "ec2:DescribeVpcClassicLink",
+                "ec2:DescribeVpcClassicLinkDnsSupport",
+                "ec2:DescribeVpcs",
+                "ec2:DescribeVpcEndpoints",
+                "ec2:DescribeVpcEndpointConnectionNotifications",
+                "ec2:DescribeVpcEndpointConnections",
+                "ec2:DescribeVpcEndpointServiceConfigurations",
+                "ec2:DescribeVpcEndpointServicePermissions",
+                "ec2:DescribeVpcEndpointServices",
+                "ec2:DescribeVpcPeeringConnections",
+                "ec2:DescribePrefixLists",
+                "ec2:DetachNetworkInterface",
+                "ec2:DetachVolume",
+                "ec2:ImportKeyPair",
+                "ec2:ModifyInstanceAttribute",
+                "ec2:ModifySubnetAttribute",
+                "ec2:RunInstances",
+                "ec2:TerminateInstances",
+                "elasticloadbalancing:DescribeLoadBalancerAttributes",
+                "elasticloadbalancing:DescribeLoadBalancers",
+                "elasticloadbalancing:DescribeTags",
+                "iam:GetInstanceProfile",
+                "iam:GetRole",
+                "iam:GetRolePolicy",
+                "iam:ListInstanceProfilesForRole",
+                "iam:PassRole",
+                "iam:PutRolePolicy",
+                "sts:GetCallerIdentity",
+                "resource-groups:ListGroups",
+                "tag:GetResources",
+                "tag:GetTagKeys",
+                "tag:GetTagValues",
+                "tag:TagResources",
+                "tag:UntagResources"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
+
 ### Changing an existing autoscaling configuration
 
 In case you would like to change any autoscaling configuration of your cluster, edit `cluster.yaml` and adapt the `autoscaling` property, then run `konvoy up` again to apply the changes.
