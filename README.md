@@ -375,7 +375,7 @@ Extra information that the user may wish to know, but not necessary to the basic
 
 ### Removing a border from an image
 
-![Architectural overview](../img/Konvoy-arch-diagram.png){ data-no-border }
+    ![Architectural overview](../img/Konvoy-arch-diagram.png){ data-no-border }
  
 ### Save your edited files!
 
