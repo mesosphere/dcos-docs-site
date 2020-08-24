@@ -5,6 +5,9 @@ $sections-size: 20%;
   margin-top: 70px;
   img {
     border: 1px solid #F0F1F3;
+    &[data-no-border]{
+      border: 0
+    }
   }
   &__container {
     position: relative;
