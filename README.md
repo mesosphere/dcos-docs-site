@@ -222,8 +222,6 @@ NB: Shortcut is `git pull` when you are on the `staging` branch
 Or, copy/paste the branch name from the PR if there is one open already. Git will track from the remote and set up a new branch locally for you to work on.
 There are often times when you will need to pull and work on someone else's branch even when it isn't a PR yet, you may need to specify `git checkout origin/<branchname>`
 
-
-
 ## Add/Edit content to existing pages
 ### TL;DR Common Gotchas
 1. The docs site uses metalsmith markdown rendering, which is similar to but not exactly github flavored markdown (gfm).
@@ -375,6 +373,10 @@ Extra information that the user may wish to know, but not necessary to the basic
 ### Special - Adding API tables
 :TODO: add info on the API tables and the script to run
 
+### Removing a border from an image
+
+![Architectural overview](../img/Konvoy-arch-diagram.png){ data-no-border }
+ 
 ### Save your edited files!
 
 ## Previewing your work and formatting
