@@ -21,7 +21,7 @@ enterprise: false
 | ------------------ | ------- |
 |**Minimum** | 1.15.4 |
 |**Maximum** | 1.17.x |
-|**Default** | 1.17.9 |
+|**Default** | 1.17.11 |
 
 #### Improvements
 
@@ -30,7 +30,8 @@ enterprise: false
 - CLI: If available, use host CA bundle when running `konvoy` on Linux. Set `KONVOY_DISABLE_HOST_CA=true` to go back to previous behavior of using the CA in the `konvoy` container.
 - CLI: Allow installing with Containerd version `v1.3.7` or greater, in addition to the existing versions. (COPS-6315)
 - CLI: If present, automatically copy `extras/cloud-provider/cloud.conf` file to the remote machines and use the user provided configuration where needed in the Kubernetes cluster.
-- CLI: Collect the logs of previous restarted pods when running `konvoy diagnose`.
+- CLI: Pull the cluster state from remote if available before running `konvoy` commands, removing the need to run `konvoy pull` in most cases.
+- Diagnose: Collect the logs of previous restarted pods when running `konvoy diagnose`.
 - Diagnose: Collect helm3 releases in addition to helm2 releases.
 
 #### Bug fixes
@@ -63,7 +64,7 @@ enterprise: false
 
 #### Disclaimer
 
--   You must read the [documentation](../upgrade/upgrade-cli#Upgrading Konvoy from v1.4.x to v1.5.0) before attempting an upgrade.
+-   You must read the [documentation](../upgrade/upgrade-cli#upgrading-konvoy-from-v14x-to-v150) before attempting an upgrade.
 -   See the changes for additional components:
     - Kubernetes Base Addons [Release Notes](kubernetes-base-addon)
     - Kommander [Release Notes](https://docs.d2iq.com/ksphere/kommander/1.1/release-notes/)

@@ -60,7 +60,7 @@ These examples specifically use the AWS driver and are AWS implementation specif
 
 ##### Volume Creation
 
-Using storage drivers with Konvoy allows us to abstract away Persistent Volumes some, as we wont need to operationally interact with them under normal circumstances (see our [troubleshooting](../troubleshooting.md) guide for the non-normal circumstances), but instead Persistent Volume Claims become the substrate by which we implement storage for our Kubernetes applications.
+Using storage drivers with Konvoy allows us to abstract away Persistent Volumes some, as we wont need to operationally interact with them under normal circumstances (see our [troubleshooting][troubleshooting] guide for the non-normal circumstances), but instead Persistent Volume Claims become the substrate by which we implement storage for our Kubernetes applications.
 
 In this example we will set up a basic webserver using [NGinx][nginx] with a custom landing page persisted via PVs which are provisioned automatically upon the creation of a PVC. We will follow along with the automated operations for provisioning and mounting created volumes by the driver.
 
@@ -239,11 +239,12 @@ Note the `accessModes` for your PVC: in this case the AWS driver is in use and i
 
 `ReadWriteOnce` PVCs can not be shared between multiple pods for high availability, and also can pose some fault tolerance concerns related to uptime: if the Kubernetes node where a PVC is bound to a pod gets disconnected from the rest of the cluster, the driver _may not_ be able to automatically reschedule the pod to another node and re-connect the storage quickly to avoid multiple pods writing to the same block device and rendering it corrupted (_some_ of this is driver specific as some drivers may react different to netsplits, but consider this a good rule of thumb to prepare for).
 
-[csi]:https://github.com/container-storage-interface/spec
-[csi-dev]:https://kubernetes-csi.github.io/docs/
 [aws-csi-driver]:https://github.com/kubernetes-sigs/aws-ebs-csi-driver
 [azure-csi-driver]:https://github.com/kubernetes-sigs/azuredisk-csi-driver
+[csi]:https://github.com/container-storage-interface/spec
+[csi-dev]:https://kubernetes-csi.github.io/docs/
 [gcp-csi-driver]:https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver
 [nginx]:https://www.nginx.com/
-[portworxpartners]:https://portworx.com/partners/
 [portworx]:https://portworx.com
+[portworxpartners]:https://portworx.com/partners/
+[troubleshooting]:../troubleshooting

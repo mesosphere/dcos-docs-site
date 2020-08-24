@@ -17,7 +17,7 @@ CSI replaces earlier Kubernetes attempts to manage storage such as in-tree volum
 
 The CSI standard defines a set of services to reduce coupling with storage drives and provide more flexibility. These services are deployed along side a storage driver as sidecar containers. The sidecar containers are responsible for interacting with the Kubernetes API.
 
-[Konvoy automatically configures native storage drivers][automated-storage] for the supported cloud provisioners (AWS, Azure, or GCP) that deploy the following sidecar containers:
+[Konvoy will automatically configure native storage drivers][automated-storage] for the supported cloud provisioners (AWS, Azure, or GCP) which deploy the following sidecar containers:
 
 <table>
   <tr>
@@ -62,7 +62,7 @@ The CSI standard defines a set of services to reduce coupling with storage drive
 
 In Konvoy, you can use CSI volumes through the Kubernetes storage API objects like PersistentVolumeClaims (PVCs), PersistentVolumes (PVs), and StorageClasses.
 
-Here is an example of a `StorageClass` for the [AWS EBS CSI driver][aws-ebc-csi-driver]. Save it in a file named `ebs-sc.yaml`:
+Here's an example of a StorageClass for the [AWS EBS CSI driver][aws-ebs-csi-driver]. Save it in file named `ebs-sc.yaml`:
 
 ```yaml
 kind: StorageClass
@@ -161,9 +161,9 @@ spec:
 
 ## Related Information
 
-- [Kubernetes CSI specification][k8s-csi-spec]
+- [Kubernetes CSI specification][k8s-csi]
 - [Konvoy automated storage options in cloud providers][automated-storage]
 
-[automated-storage]:../automated-storage/
-[aws-ebc-csi-driver]:https://github.com/kubernetes-sigs/aws-ebs-csi-driver
-[k8s-csi-spec]:https://kubernetes-csi.github.io/
+[automated-storage]:../automated-storage
+[aws-ebs-csi-driver]:https://github.com/kubernetes-sigs/aws-ebs-csi-driver
+[k8s-csi]:https://kubernetes-csi.github.io/

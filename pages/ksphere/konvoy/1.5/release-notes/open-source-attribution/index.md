@@ -6,6 +6,8 @@ excerpt: List of third party open source software provided by D2iQ&reg;
 render: mustache
 ---
 
+<!-- markdownlint-disable MD034 -->
+
 The table below lists the third party open source software which is provided by D2iQ&reg; in connection with Konvoy&trade;.
 
 |Dependency                 |Version                             |License                                                                                                           |
@@ -114,3 +116,11 @@ The table below lists the third party open source software which is provided by 
 |utils                      |v0.0.0-20191010214722-8d271d903fe4  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |controller-runtime         |v0.3.1-0.20191022174215-ad57a976ffa1|[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |yaml                       |v1.1.0                              |[MIT License](https://github.com/weapp/boto/blob/master/LICENSE.txt)                                              |
+## Software Sources
+
+The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
+Software that are used by D2IQ Konvoy.
+
+| Software   | Software Source                                        | License                                                                                    |
+| ---------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| golang-lru | https://packages.d2iq.com/dcos/golang-lru-0.5.4.tar.gz | [Mozilla Public License 2.0](https://github.com/hashicorp/golang-lru/blob/master/LICENSE)  |
