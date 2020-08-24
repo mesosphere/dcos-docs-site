@@ -1,12 +1,14 @@
 {
   "master": {
     "DO_NOT_BUILD": [
-      "mesosphere/dcos/2.2/**"
+      "mesosphere/dcos/2.2/**",
+      "ksphere/kommander/1.2/**"
     ]
   },
   "staging": {
     "DO_NOT_BUILD": [
-      "mesosphere/dcos/2.2/**"
+      "mesosphere/dcos/2.2/**",
+      "ksphere/kommander/1.2/**"
     ]
   },
   "kommander": {
