@@ -199,7 +199,7 @@ apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16-1.2.0
+    configVersion: testing-1.9.0-2
     addonsList:
     - name: kommander
       enabled: false # remove the kommander addon or set "enabled: false"
@@ -1716,6 +1716,6 @@ For information about installing and using Konvoy, see the [Konvoy documentation
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
+[prometheus-rules]: https://github.com/helm/charts/tree/master/stable/prometheus-operator/templates/prometheus/rules
 [konvoy-doc]:https://docs.d2iq.com/ksphere/konvoy
 [kubernetes-doc]:https://kubernetes.io/docs/home/
-[prometheus-rules]: https://github.com/helm/charts/tree/master/stable/prometheus-operator/templates/prometheus/rules

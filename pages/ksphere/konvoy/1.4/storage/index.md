@@ -1,312 +1,292 @@
 ---
 layout: layout.pug
 navigationTitle: Storage
-title: Storage
+title: Konvoy Kubernetes Storage
 menuWeight: 9
 excerpt: Manage storage options including local and mounted persistent volumes
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+A workload on Kubernetes typically requires two types of storage:
 
-# Kubernetes Storage Overview
+-   Ephemeral Storage
 
-A workload (i.e., Pod) on Kubernetes typically requires two types of storage: ephemeral storage and persistent storage.
+-   Persistent Volume Storage
 
 ## Ephemeral storage
 
-Ephemeral storage, by its name, is ephemeral in the sense that it will be cleaned up when the workload (i.e., Pod) is deleted or the container crashes.
-For example, the followings are ephemeral storage provided by Kubernetes:
+Ephemeral storage, by its name, is ephemeral in the sense that it is cleaned up when the workload is deleted or the container crashes. For example, the following are examples of ephemeral storage provided by Kubernetes:
 
-* [EmptyDir][emptydir] volume.
-  Managed by kubelet under `/var/lib/kubelet`.
-* Container logs.
-  Typically under `/var/logs/containers`.
-* Container image layers.
-  Managed by container runtime (e.g., under `/var/lib/containerd`).
-* Container writable layers.
-  Managed by container runtime (e.g., under `/var/lib/containerd`).
+<table>
+  <tr>
+   <td>EmptyDir volume.
+   </td>
+   <td>Managed by kubelet under /var/lib/kubelet.
+   </td>
+  </tr>
+  <tr>
+   <td>Container logs.
+   </td>
+   <td>Typically under /var/logs/containers.
+   </td>
+  </tr>
+  <tr>
+   <td>Container image layers.
+   </td>
+   <td>Managed by container runtime (e.g., under /var/lib/containerd).
+   </td>
+  </tr>
+  <tr>
+   <td>Container writable layers.
+   </td>
+   <td>Managed by container runtime (e.g., under /var/lib/containerd).
+   </td>
+  </tr>
+</table>
 
-Ephemeral storage is automatically managed by Kubernetes, and typically does not require explicit settings from users.
-Users may need to express the [capacity requests][ephemeral_storage_request] for ephemeral storage so that kubelet can use that information to make sure it does not run out of ephemeral storage space on each node.
+Ephemeral storage is automatically managed by Kubernetes, and typically does not require explicit settings. You may need to express the capacity requests for ephemeral storage so that `kubelet` can use that information to make sure it does not run out of ephemeral storage space on each node.
 
-## Persistent volumes
+## Persistent Volume
 
-Some stateful workloads require persistent storage whose lifecycle is longer than that of Pods or containers.
-For instance, a database server will need to recover database files after it crashes.
-For those case, the workloads need to use [PersistentVolumes][pv] (PV).
+Persistent Volumes are storage resources that can be used by the cluster. Persistent Volumes are volume plug-ins that have lifecycle capabilities that are independent of any Kubernetes Pod or Deployment.  
 
-Persistent Volumes are resources that represent storage in the cluster that has been provisioned by an administrator or dynamically provisioned using [Storage Classes][#storage-class].
-Unlike ephemeral storage, the lifecycle of a `PersistentVolume` is independent of that of the workload that uses it.
+You may have stateful workloads requiring persistent storage whose lifecycle is longer than that of Pods or containers. For instance, a database server needs to recover database files after it crashes. For those cases, the workloads need to use PersistentVolumes (PV).
 
-The Persistent Volume API objects capture the details of the implementation of the storage, be that NFS, iSCSI, or a cloud-provider-specific storage system.
-For instance:
+Persistent Volumes are resources that represent storage in the cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes. Unlike ephemeral storage, the lifecycle of a PersistentVolume is independent of that of the workload that uses it.
 
-```yaml
-apiVersion: v1
-kind: PersistentVolume
-metadata:
-  name: nfs
-spec:
-  capacity:
-    storage: 1Gi
-  accessModes:
-    - ReadWriteMany
-  nfs:
-    server: nfs-server.default.svc.cluster.local
-    path: "/"
-```
+The Persistent Volume API objects capture the details of the implementation of the storage, be that NFS, iSCSI, or a cloud-provider-specific storage system.  In order to use a Persistent Volume, your application needs to invoke a Persistent Volume Claim.
 
-<a name="storage-class"></a>
+### Create a Persistent Volume
 
-## Storage classes and dynamic volume provisioning
+Create a Persistent Volume using NFS as an example.  
 
-For a workload that requires persistent volumes, it should use [PersistentVolumeClaim][pvc] (PVC) to express its request on persistent storage.
-A `PersistentVolumeClaim` can request specific size and access modes (e.g., can be mounted once read/write or many times read-only) like the following.
+**Requirements: This procedure assumes you have access to an [NFS shared storage](https://en.wikipedia.org/wiki/NetworkFile_System) in your environment and accessible to your cluster.**
 
-```yaml
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: ebs-claim
-spec:
-  accessModes:
-    - ReadWriteOnce
-  storageClassName: ebs-sc
-  resources:
-    requests:
-      storage: 4Gi
-```
+<p class="message--note"><strong>NOTE: </strong>Before you copy and paste this into your file, here are some parameters that you must change for your environment.</p>
 
-And the workload (e.g., Pod) can specify the `PersistentVolumeClaim` like the following.
-In this example, the pod needs one `PersistentVolume` that is at least 4Gi large.
-And the persistent volume will be mounted under `/data` in the filesystem of the container.
-A `PersistentVolume` that satisfies the requirements specified in the`PersistentVolumeClaim` will be *bound* to the `PersistentVolumeClaim` before the pod starts.
+-   name: The name of the persistent volume you want.
 
-```yaml
-apiVersion: v1
-kind: Pod
-metadata:
-  name: app
-spec:
-  containers:
-  - name: app
-    image: centos
-    command: ["/bin/sh"]
-    args: ["-c", "while true; do echo $(date -u) >> /data/out.txt; sleep 5; done"]
-    volumeMounts:
-    - name: persistent-storage
-      mountPath: /data
-  volumes:
-  - name: persistent-storage
-    persistentVolumeClaim:
-      claimName: ebs-claim
-```
+-   server: Your FQDN server name or IP of NFS Server.
 
-It is common that users might need `PersistentVolumes` with varying properties, such as performance, for different problems.
-Cluster administrators need to be able to offer a variety of `PersistentVolumes` that differ in more ways than just size and access modes, without exposing users to the details of how those volumes are implemented.
-For these needs there is the `StorageClass` resource.
+-   path: Path to your NFS server volume.
 
-A typical `StorageClass` will be look like the following.
+1.  Create a file called `nfs-share.yaml`.
 
-```yaml
-kind: StorageClass
-apiVersion: storage.k8s.io/v1
-metadata:
-  name: ebs-sc
-provisioner: ebs.csi.aws.com
-volumeBindingMode: WaitForFirstConsumer
-parameters:
-  fsType: xfs
-  type: io1
-  iopsPerGB: "50"
-  encrypted: "true"
-```
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolume
+    metadata:
+      name: nfs-share
+      namespace: default
+      labels:
+            storage: nfs
+    spec:
+      capacity:
+            storage: 5Gi
+      accessModes:
+            - ReadWriteMany
+      persistentVolumeReclaimPolicy: Retain
+      nfs:
+            server: 192.168.86.252
+            path: /volume1/nfs-01/nfs-share  
+    ```  
 
-Cluster administrators are responsible for setting up `StorageClasses` for the cluster, and the users will specify their storage needs by referencing the storage class name in the `PersistentVolumeClaims`.
-In the above example, `PersistentVolumeClaim` `ebs-claim` reference `StorageClass` `ebs-sc`, meaning that only `PersistentVolumes` that satisfy the requirements specified in `StorageClass` `ebs-sc` can be bound to the `PersistentVolumeClaim`.
+1.  Apply the file to create an NFS Persistent Volume (PV).
 
-## Container Storage Interface (CSI)
-
-Kubernetes has a volume plugin system to support different kinds of storage vendors.
-Prior to Container Storage Interface, most of the volume plugins are *in-tree*, meaning that the driver code lives in Kubernetes main repository.
-This creates many issues, especially forcing all storage vendors to release at the same time.
-
-[Container Storage Interface][csi] (CSI) is the solution to solve the above issues.
-It reached GA status in Kubernetes 1.13.
-It uses an *out-of-tree* plugin model so that plugins from storage vendors can have a different release cycle than Kubernetes, as long as it conforms to the CSI spec.
-
-Konvoy only supports CSI volume plugins and DO NOT support *in-tree* volume plugins.
-
-Konvoy supports all CSI volume plugins as long as the volume plugin is conformant to the CSI spec 1.x.
-
-# Storage in Konvoy for AWS environment
-
-Konvoy ships with [AWS EBS CSI][aws_ebs_csi] plugin by default for AWS deployments.
-The integration will be turned on by default and does not require any configuration normally.
-
-Konvoy creates a [default storage class][default_storage_class] backed by AWS EBS CSI plugin by default.
-This means if the user does not specify a storage class in his/her `PersistentVolumeClaim`, it will default to the AWS EBS CSI plugin.
-
-All the addons installed by Konvoy will use the default storage class.
-
-If a user wants to use a different storage vendor, he/she will need to either disable the AWS EBS CSI plugin (i.e., by disable the `awsebscsiprovisioner` addon), or set the `storageclass.isDefault` field to `false` for the addon.
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
-spec:
-  addons:
-    addonsList:
-      - name: awsebscsiprovisioner
-        enabled: true
-        values: |
-          storageclass:
-            isDefault: false
-```
-
-Then, install the CSI plugin from the third party storage vendor, and set the default storage class to point to the storage class provided by the third party storage vendor.
-
-## Volume cleanup during Konvoy teardown
-
-`konvoy down` will automatically delete any EBS volumes provisioned from the AWS EBS CSI plugin if the [ReclaimPolicy][reclaim_policy] is set to `Delete`.
-
-# Storage in Konvoy for on-premise environment
-
-For on-premise environment, Konvoy provides the following options for storage.
-
-* Use third party storage solutions from storage vendors.
-* Use [local persistent volume][local_persistent_volume] support ships with Konvoy by default.
-
-Note that if your stateful workload is using a [local persistent volume][local_persistent_volume], it cannot be moved to a different node.
-If the node fails, the stateful workload might lose its data.
-If you cannot tolerate this limitation, you should consider third party storage solutions from storage vendors.
-
-## Local volume support
-
-Konvoy uses the [Static local volume provisioner][static_lvp] to support local persistent volumes.
-
-This default storage provisioning option allows operators to mount local volumes at a specific location on each host.
-For a Konvoy cluster, the local volume mount point is `/mnt/disks` by default.
-
-Mounted volumes in the `/mnt/disks` location are detected automatically.
-Once detected, corresponding [persistent volume][persistent_volume] objects are created in the API server for your stateful workloads.
-
-### Use LVM to create multiple local volumes from a single physical disk
-
-This section walks you through how to use LVM to create multiple local volumes from a single physical disk.
-
-1. Before you start, make sure LVM tooling is installed.
-
-    ```bash
-    yum install lvm2
+    ```shell
+    kubectl apply -f nfs-share.yaml
     ```
 
-1. Create a physical volume.
+     Once that is deployed, validate that the status is available. You should receive a return value of `persistentvolume/nfs-share created.`
 
-   Assume the physical disk is at device path `/dev/sdb`.
+1.  Validate that the Persistent Volume (PV) is available.
 
-    ```bash
-    pvcreate /dev/sdb
+    ```shell
+    kubectl get pv nfs-share
     ```
 
-1. Create a volume group from the physical volume.
+    This is the output that shows that the cluster has accepted your Persistent Volume and is in **status available**:
 
-    ```bash
-    vgcreate vg /dev/sdb
+    ```shell
+    NAME    CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS  CLAIM   STORAGECLASS   REASON   AGE
+    nfs-share   5Gi           RWX                  Retain                    Bound
     ```
 
-1. Create logical volumes from the volume group.
+    Your Persistent Volume is now available for consumption.  Next, create a [Persistent Volume Claim](#heading=h.e2ns2uoyup1m) so your Pod can use the storage.
 
-    ```bash
-    lvcreate -n lv1 -L 55G vg
+## Persistent Volume Claim
+
+A PersistentVolumeClaim is a request for storage. For a workload that requires persistent volumes, the workload should use PersistentVolumeClaim (PVC) to express its request on persistent storage. A PersistentVolumeClaim can request specific size and [Access Modes](https://v1-17.docs.kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) (for example, they can be mounted once read/write or many times read-only).
+
+Any workload can specify a PersistentVolumeClaim. For example, a Pod may need a volume that is at least 4Gi large or a volume mounted under `/data` in the container's filesystem. If there is a PersistentVolume (PV) that satisfies the specified requirements in the PersistentVolumeClaim (PVC), it will be bound to the PVC before the Pod starts.
+
+### Create a Persistent Volume Claim to be used with your Pod
+
+Create a PersistentVolumeClaim (PVC) and leverage the existing PersistentVolume (PV) that was created in the previous example under Persistent Volumes. Remember that a Pod must use the PVC to invoke the use of a PV.
+
+**Requirements: This assumes you created a Persistent Volume as outlined in the Persistent Volume section.**
+
+<p class="message--note"><strong>NOTE: </strong>Before copying and pasting this into your file, change these parameters for your environment.</p>
+
+-   name: The name of the persistent volume claim you want.
+
+-   storage: The size of your storage claim.  This must not exceed the persistent volume capacity. In the example above for Persistent Volume we used 5Gi.  
+
+-   matchLabels: This must match the Persistent Volume `labels:` in the (PV)
+
+1.  Create a file called `nfs-share.yaml`.
+
+    ```yaml
+    apiVersion: v1
+    kind: PersistentVolumeClaim
+    metadata:
+      name: nfs-share
+      namespace: default
+    spec:
+      accessModes:
+           - ReadWriteMany
+      resources:
+           requests:
+           storage: 5Gi
+      storageClassName: ""
+      selector:
+           matchLabels:
+           storage: "nfs"
     ```
 
-    The above command will create a 55G logical volume named `lv1` from the volume group `vg` created above.
-    Simply repeat this step and the following steps if you want create multiple logical volumes.
+1.  After configuration, invoke the NFS Volume as a Persistent Volume Claim (PVC).
 
-1. Install a filesystem on the logical volume.
-
-    ```bash
-    mkfs.ext4 /dev/vg/lv1
+    ```yaml
+    kubectl apply -f nfs-share.yaml
     ```
 
-1. Mount the logical volumes.
+1.  After applying the file, validate the status of the PVC:
 
-    You need to make sure the mount persists across host reboot.
-    As a result, use stable identifiers like device UUID.
-
-    ```bash
-    DISK_UUID=$(blkid -s UUID -o value /dev/vg/lv1)
-    mkdir -p /mnt/disks/$DISK_UUID
-    mount /dev/vg/lv1 /mnt/disks/$DISK_UUID
-    echo "UUID=$DISK_UUID /mnt/disks/$DISK_UUID ext4 defaults 0 0" >> /etc/fstab
+    ```yaml
+    kubectl get pv nfs-share
     ```
 
-1. Verify that logical volumes are discovered and available as persistent volumes.
+    You should receive a return value of `persistentvolumeclaim/nfs-share created`. After that is deployed, validate that the status is `Pending`.  You should receive a return value of `persistentvolume/nfs-share created`.
 
-    ```bash
-    kubectl get pv
+### Configure your Workload to use the Persistent Volume Claim
+
+Your Persistent Volume Claim is `Pending` because no workload has claimed it.  Next, create an example workload that will claim and use the Persistent Volume Claim (PVC).  We will also validate that the workload can access the volume.
+
+1.  Create a file called `nfs-app.yaml`.
+
+    <p class="message--note"><strong>NOTE: </strong>Before you copy and paste this into your file, you must change this parameter for your environment.</p>
+
+    - mountPath: This is the path in the container that will map to your NFS Share.  You can change this to any path you want in your container.
+
+    ```yaml
+    kind: Pod
+    apiVersion: v1
+    metadata:
+      name: pod-nfs
+    spec:
+      containers:
+           - name: nfs-app
+           image: alpine
+           volumeMounts:
+           - name: data
+           mountPath: /var/nfs          command: ["/bin/sh"]
+           args: ["-c", "sleep 500000"]
+      volumes:
+      - name: data
+           persistentVolumeClaim:
+           claimName: nfs-pvc
     ```
 
-    The above command will list new persistent volumes available in the 'localvolumeprovisioner' storage class.
+1.  Next apply the file.
 
-1. Verify that logical volumes stay mounted after the host is rebooted.
-
-### Decommission a local volume
-
-This section describes how to remove the LVM volume created in the last section.
-
-1. Make sure that all pods that are using the persistent volume associated with the local volume are stopped.
-
-1. Remove the logical volume.
-
-    ```bash
-    DISK_UUID=$(blkid -s UUID -o value /dev/vg/lv1)
-    umount /mnt/disks/$DISK_UUID
-    sed -i "/UUID=$DISK_UUID/d" /etc/fstab
+    ```yaml
+    kubectl apply -f nfs-app.yaml
     ```
 
-1. Delete persistent volume claims for the persistent volume.
+    After the file is deployed, you should receive a return value of `pod/pod-nfs created`.
 
-    Once the persistent volume claims has been removed, the provisioner will try to clean-up the volume.
-    This will fail, because the volume no longer exists.
+1.  Enter the following command to ensure that it is fully deployed.
 
-1. Delete the persistent volume.
-
-    Assume the persistent volume was named `local-pv-3fe70cc6`.
-
-    ```bash
-    kubectl delete pv local-pv-3fe70cc6
+    ```shell
+     kubectl get pod pod-nfs
     ```
 
-## Third party storage integration
+    When the container is fully running and the `READY STATUS` is `Running`, you should see output similar to the following:
 
-This is similar to that in AWS deployment.
-The user will need to either turn off the local volume provisioner addon, or set the `storageclass.isDefault` field to `false` for the addon.
+    ```shell
+    NAME        READY  STATUS RESTARTS AGE
+    pod-nfs 1/1 Running 0     2m27s
+    ```
 
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
-spec:
-  addons:
-    addonsList:
-      - name: localvolumeprovisioner
-        enabled: true
-        values: |
-          storageclass:
-            isDefault: false
-```
+1.  Use the following command to validate that the Persistent Volume Claim (PVC) has mounted the volume to your container `pod-nfs`:
 
-[emptydir]: https://kubernetes.io/docs/concepts/storage/volumes/#emptydir
-[ephemeral_storage_request]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/#local-ephemeral-storage
-[pv]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[pvc]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[csi]: https://github.com/container-storage-interface/spec
-[aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
-[default_storage_class]: https://kubernetes.io/docs/tasks/administer-cluster/change-default-storage-class/
-[local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
-[static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[reclaim_policy]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/#reclaiming
-[persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[#storage-class]: #storage-classes-and-dynamic-volume-provisioning
+    ```shell
+    kubectl describe pod pod-nfs
+    ```
+
+    Here you can see under the [describe](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe) conditions that the Persistent Volume Claim has been mounted to your container under the `ClaimName: nfs-pvc` which is the (PVC).
+
+    ```yaml
+    Volumes:
+      data:
+           Type: PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+           ClaimName:  nfs-pvc
+           ReadOnly:   false
+    ```
+
+1.  Enter the this command to validate that inside the container we can access the volume and write data:
+
+    ```yaml
+    kubectl exec -it pod-nfs sh
+    ```
+
+1.  This is where the `mountPath: /var/nfs` was labeled in the `pod-nfs.yaml`.  If you change the value `cd to your path`.
+
+    ```yaml
+    cd /var/nfs
+    ```
+
+    If you were able to access your `mountPath` you have successfully mounted the NFS volume to your container. Now try and write a file into the volume.
+
+1.  Enter this command to create a file in the directory and list all files in that same directory.
+
+    ```yaml
+    touch nfs.txt
+
+    ls
+    ```
+
+   You should see a file called `nfs.txt`. If you do, you have a fully functional NFS volume accessible to your container.
+
+<p class="message--note"><strong>NOTE: </strong>If you receive a permission denied error, check with your storage administrator to ensure you have write access to the NFS volume.</p>
+
+## Storage Classes
+
+Container Storage Interface (CSI)
+
+<table>
+  <tr>
+   <td>Storage Method
+   </td>
+   <td>Persistent Volume
+   </td>
+   <td>Persistent Volume Claim
+   </td>
+  </tr>
+  <tr>
+   <td>NFS
+   </td>
+   <td>Create NFS PV
+   </td>
+   <td>Create NFS PVC
+   </td>
+  </tr>
+  <tr>
+   <td>Open-ebs
+   </td>
+   <td>Create open-ebs PV
+   </td>
+   <td>Create open-ebs PVC
+   </td>
+  </tr>
+</table>
