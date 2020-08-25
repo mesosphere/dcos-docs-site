@@ -96,7 +96,7 @@ Your Jenkins instance will deploy.
       serviceMonitorAdditionalLabels:
       app: jenkins
       release: prometheus-kubeaddons
-    serviceType: "ClusterIP"
+    serviceType: "LoadBalancer"
     jenkinsUriPrefix: "/jenkins"
     ingress:
       enabled: true
