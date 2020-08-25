@@ -44,14 +44,14 @@ DC/OS 2.1.1 fixes the following issues:
 - In the DC/OS UI, selecting **Enter** in the Secret ID textbox reloaded the page. (D2IQ-14964) 
 - Running two CLI installers from the same machine aborted with an error. (D2IQ-7844) 
 - A master node was not able to rejoin a cluster after failure/restart when another master was offline or being upgraded. (COPS-1754, D2iQ-4248) 
-- An error was thrown when nmounting external persistent volumes in Mesos. (COPS-5920, D2IQ-65497)
+- An error was thrown when unmounting external persistent volumes in Mesos. (COPS-5920, D2IQ-65497)
 - A critical error in Metronome where existing jobs appear to be lost after upgrade. (DCOS_OSS-5965, COPS-6174)
 - DC/OS installations on Flatcar Linux would not finish due to Java processing issues. (COPS-6422, D2IQ-70809, COPS-6190)
 - Exhibitor endpoint responses were inconsistent. (D2IQ-70393, COPS-6326) 
 - The Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode. (COPS-6335, D2IQ-70025) 
 - The file bootstrap.py was updated to check for changes to the signing certificate authority. (D2IQ-69408) 
 - Frameworks could interfere with Marathon pods by launching tasks on resources reserved to Marathon. (D2IQ-68800)
-- etcd was provided an incorrect response in calicoctl. (COPS-6341) 
+- etcd was providing an incorrect response in calicoctl. (COPS-6341) 
 - dcos-fluent-bit.service was consuming too much memory. (COPS-6218)
 
 ## Mesos Fixed and Improved Issues
