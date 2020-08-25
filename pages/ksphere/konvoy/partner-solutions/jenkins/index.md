@@ -29,6 +29,12 @@ Your Jenkins instance will deploy.
 
 ## Installing Jenkins from upstream helm chart
 
+1. Create a namespace for Jenkins 
+
+    ```bash
+    kubectl create namespace jenkins
+    ```
+
 1. Create a service account, role and role binding, changing permissions as necessary.
 
     ```bash
@@ -78,28 +84,28 @@ Your Jenkins instance will deploy.
 
     ```yaml
     master:
-    useSecurity: false
-    installPlugins: ["prometheus:2.0.6","kubernetes:1.18.2"]
-    csrf:
+      useSecurity: false
+      installPlugins: ["prometheus:2.0.6","kubernetes:1.18.2","workflow-job:2.33","workflow-aggregator:2.6","credentials-binding:1.19","git:3.11.0"] 
+      csrf:
         defaultCrumbIssuer:
-        enabled: false
-        proxyCompatability: false
+          enabled: false
+          proxyCompatability: false
     prometheus:
-        enabled: true
-        serviceMonitorNamespace: "kubeaddons"
-        serviceMonitorAdditionalLabels:
-        app: jenkins
-        release: prometheus-kubeaddons
+      enabled: true
+      serviceMonitorNamespace: "kubeaddons"
+      serviceMonitorAdditionalLabels:
+      app: jenkins
+      release: prometheus-kubeaddons
     serviceType: "ClusterIP"
     jenkinsUriPrefix: "/jenkins"
     ingress:
-        enabled: true
-        path: /jenkins
-        annotations:
+      enabled: true
+      path: /jenkins
+      annotations:
         kubernetes.io/ingress.class: traefik
     ```
 
-1. Install helm chart with the service credentials and `values.yaml` created above.
+1. Install helm chart with the service credentials and `values.yaml` created above. (For using helm v2)
 
     ```bash
     helm install \
