@@ -36,7 +36,7 @@ const config = JSON.parse(configData);
 const shortcodesConfig = require("./shortcodes");
 
 // Environment Variables
-const GIT_BRANCH = process.env.GIT_BRANCH || "master";
+const GIT_BRANCH = process.env.GIT_BRANCH;
 const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
 const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
 
