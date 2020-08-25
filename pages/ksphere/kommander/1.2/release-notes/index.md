@@ -9,9 +9,9 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-# Release Notes for Kommander 1.1
+# Release Notes for Kommander 1.2 Beta 1 
 
-Kommander 1.1 was released on 16, July 2020. 
+Kommander 1.2 was released on ??? 2020. 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
