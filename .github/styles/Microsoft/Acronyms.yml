@@ -21,6 +21,7 @@ exceptions:
   - GCC
   - GDB
   - GET
+  - GNU
   - GPU
   - GTK
   - GUI
@@ -33,6 +34,7 @@ exceptions:
   - JSX
   - LESS
   - LLDB
+  - MIT
   - NET
   - NOTE
   - NVDA

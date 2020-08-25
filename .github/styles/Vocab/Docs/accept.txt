@@ -12,3 +12,5 @@ KUDO
 Kubeflow
 Kubernetes
 component
+addon
+dcos
