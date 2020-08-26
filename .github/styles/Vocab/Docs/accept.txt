@@ -14,3 +14,7 @@ Kubernetes
 component
 addon
 dcos
+Prometheus
+Grafana
+Alertmanager
+Pushgateway
