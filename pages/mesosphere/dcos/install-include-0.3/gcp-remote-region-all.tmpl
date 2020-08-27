@@ -101,7 +101,7 @@ locals {
 ```
 
 ### Internal subnetworks
-Part of the shared information is which internal subnets are used in your infrastructure. If you did not specify `subnet_range`, terraform uses the default which is `172.16.0.0/16`. The remote region we want to specify needs its own subnet.
+Part of the shared information is which internal subnets are used in your infrastructure. If you did not specify `subnet_range`, terraform uses the default which is `10.64.0.0/15`. The remote region we want to specify needs its own subnet.
 
 <p class="message--important"><strong>IMPORTANT:</strong> You should not take the next free network of <code>172.16/12</code> as <code>172.17.0.0/16</code> is dockers internal network default which will lead to problems.</p>
 
@@ -120,7 +120,7 @@ locals {
 
   region_networks = {
     // dont use 172.17/26 as its used by docker.
-    "master"   = "172.16.0.0/16" // this is the default
+    "master"   = "10.64.0.0/15" // this is the default
     "us-west1" = "10.65.0.0/16"  // default agent network, keep it for the firewall rules
     "us-east1" = "10.128.0.0/16"
   }
@@ -302,7 +302,7 @@ locals {
 
   region_networks = {
     // dont use 172.17/26 as its used by docker.
-    "master"   = "172.16.0.0/16" // this is the default
+    "master"   = "10.64.0.0/15" // this is the default
     "us-east1" = "10.128.0.0/16"
   }
 }
