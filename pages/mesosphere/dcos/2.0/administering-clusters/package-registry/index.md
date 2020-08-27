@@ -327,3 +327,46 @@ See `dcos registry --help` for an exhaustive list of operations that you can use
 <p class="message--warning"><strong>WARNING: </strong>Removing a package while a service is still deployed may cause the service to stop working.</p>
 
 After executing the above instructions, the rest of the flow is identical to packages fetched from {{ model.packageRepo }}. The only difference is that you do not need Internet access (for customers with air-gapped environments) to install packages from `package-registry`.
+# Upgrading Package Registry from DC/OS 1.12 to later DC/OS versions
+Customers upgrading from DC/OS 1.12 to 1.13 or later will encounter issues with Package Registry. This issue only affects customers who have services deployed via Package Registry starting at DC/OS 1.12. Customers who deploy applications via Package Registry starting from DC/OS 1.13 or later are not affected by this issue.
+
+The Package Registry was renamed from `registry` in DC/OS 1.12 to `dcos-registry` in DC/OS 1.13 to avoid a naming conflict with the Docker Registry Package also named `registry`.
+
+On DC/OS 1.12 many Marathon Apps may have assets stored in the Package Registry with URIs such as the following:
+
+```
+https://registry.component.thisdcos.directory/resource/pmrg4ylnmurduitqmfrwwylhmuwxezlhnfzxi4tzeiwce5tfojzws33oei5cembogixdcljqfyzc4mjnguydoljvmizgkyzwgarh2/sha256:4e6e11aad54ae3c716a5607ee88d81f3f1e8b5b23ee474b0272dba351ee9f28a/jre-8u144-linux-x64.tar.gz
+```
+
+Upon upgrading to DC/OS 1.13 or later, with the rename from `registry` to `dcos-registry`, the above URI will no longer resolve. As a result, many existing Marathon Apps deployed will not be able to retrieve their assets from Package Registry's configured storage on a DC/OS upgrade.
+
+To avoid this, it is recommended to maintain the same service-name for Package Registry between 1.12 and 1.13.
+This is done via the following minimal configuration options:
+```
+echo '{
+    "service": {
+        "name": "registry"
+    },
+    "registry": {
+        "service-account-secret-path": "dcos-registry-secret"
+    }
+}' > registry-options.json
+```
+**Note:**  Customers should replace the value of `service-account-secret-path` with the appropriate in-deployment equivalent. The value `dcos-registry-secret` used in this example is what the default installation of Package Registry creates.
+
+1. Install Package Registry:
+    ```
+    dcos package install package-registry --options=registry-options.json --yes
+    ```
+1. Ensure Package Registry is the the first repostory to source from:
+    ```
+    dcos package repo add --index=0 Registry https://registry.marathon.l4lb.thisdcos.directory/repo
+    ```
+1.  Add desired package to the repository, using Cassandra as an example:
+    ```
+    dcos registry add --name=registry --dcos-file cassandra-2.9.0-3.11.6.dcos
+    ```
+1. Install package from package repository:
+    ```
+    dcos package install cassandra
+    ```
