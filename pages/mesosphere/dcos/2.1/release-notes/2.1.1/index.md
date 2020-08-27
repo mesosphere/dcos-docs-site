@@ -22,8 +22,8 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 DC/OS 2.1.1 includes the following component versions:
 
-- Apache Mesos 1.9.1-dev
-- Marathon 1.9.136
+- Apache Mesos 1.10.1
+- Marathon 1.10.26
 - DC/OS UI 5.1.7
 - Fluentbit 1.4.6
 
