@@ -109,14 +109,14 @@ spec:
       mtu: 1480
   containerRuntime:
     containerd:
-      version: 1.3.4
+      version: 1.3.7
   osPackages:
     enableAdditionalRepositories: true
   nodePools:
   - name: worker
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.17-2.1.1
+    configVersion: stable-1.17-2.2.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -195,7 +195,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: stable-1.17-1.1.1
+    configVersion: stable-1.17-1.1.2
     addonsList:
     - name: kommander
       enabled: true

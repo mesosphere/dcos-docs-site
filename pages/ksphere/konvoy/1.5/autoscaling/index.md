@@ -337,7 +337,7 @@ spec:
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.11: stable-1.17-2.1.1
+          1.17.11: stable-1.17-2.2.0
 ```
 
 Putting it all together, the configuration would be as follows:
@@ -351,19 +351,19 @@ spec:
   autoProvisioning:
     config:
       konvoy:
-        imageRepository: 10.0.127.6:5000/mesosphere/konvoy
+        imageRepository: myregistry:443/mesosphere/konvoy
       webhook:
         extraArgs:
           konvoy.docker-registry-url: https://myregistry:443
           #konvoy.docker-registry-insecure-skip-tls-verify: false
           konvoy.docker-registry-username: "myuser"
-          konvoy.docker-registry-password: "mypassowrd"
+          konvoy.docker-registry-password: "mypassword"
       clusterAutoscaler:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.11: testing-2.0.0-5
+          1.17.11: stable-1.17-2.2.0
 ...
 ```
 

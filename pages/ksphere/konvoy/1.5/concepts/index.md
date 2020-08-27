@@ -13,7 +13,7 @@ The topics in this section provide a brief overview of the native Kubernetes arc
 
 The following diagram provides a simplified architectural overview to help you visualize the key components of the cluster:
 
-![Architectural overview](../img/Konvoy-arch-diagram.png){ data-no-border }
+![Architectural overview](../img/Konvoy-arch-diagram.png)
 
 Figure 1 - Architectural overview
 

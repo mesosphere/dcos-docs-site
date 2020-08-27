@@ -15,6 +15,33 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.5.2 - Released 26 August 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.17.x |
+|**Default** | 1.17.11 |
+
+#### Improvements
+
+- Ansible: When installing Containerd `v1.2.13` use the same `d2iq` RPM repo that is already being used for `v1.3.x`. This repo provides packages with `nokmem` accounting flag. (COPS-6465)
+- CLI: If available, pass `ClusterConfiguration` values when running `konvoy run playbook`.
+
+#### Bug fixes
+
+- Ansible: Rebuild Containerd RPM packages with `nokmem` accounting flag. (COPS-6465)
+- Autoscaling: Add support for basic authentication with `registry:2` Docker registry. (COPS-6370)
+- Airgapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
+
+#### Component version changes
+
+- Kubernetes `v1.17.11`
+- Kommander `stable-1.17-1.1.2`
+- Containerd `v1.3.7`
+- Autoprovisioning `v0.3.3`
+- kubernetes-base-addons `stable-1.17-2.2.0`
+
 ### Version v1.5.1 - Released 12 August 2020
 
 | Kubernetes Support | Version |
