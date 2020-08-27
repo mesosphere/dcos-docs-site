@@ -11,7 +11,7 @@ model: /mesosphere/dcos/2.2/data.yml
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for a flexible and seamless management of your packages.
+DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However this assumes Internet access, which isn't always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for a flexible and seamless management of your packages.
 
 For a full list of the configuration options available for the DC/OS Package Registry, run the following command:
 
@@ -262,7 +262,7 @@ Mesosphere hosts all its certified packages at [downloads.mesosphere.com/univers
       ./dcos-registry registry --version
       ./dcos-registry registry <your-subcommand>
       ```
-      In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that is not the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
+      In the rest of the instructions in this page, we assume you have downloaded the subcommand from an attached DC/OS Cluster. If that isn't the case, replace `dcos` with `./dcos-registry` in your instructions whilst retaining the `registry` suffix.
 
       <p class="message--note"><strong>NOTE: </strong> You must use the aforementioned binary with `./dcos-registry registry <your-subcommand>` style of syntax. Eliminating the <tt>registry</tt> suffix does not work.</p>
 
