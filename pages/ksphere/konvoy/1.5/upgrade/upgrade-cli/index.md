@@ -85,11 +85,11 @@ Konvoy v1.5.x requires Calico version `3.13.x`, if your `cluster.yaml` specifies
 
 It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.17.8`.
 
-It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.4`.
+It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.7`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.17-2.1.1`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.17-2.2.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.17-1.1.1`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.17-1.1.2`.
 
 The version of Konvoy is now `v1.5.0`, set `spec.version: v1.5.0`.
 
@@ -106,14 +106,14 @@ spec:
   ...
   containerRuntime:
     containerd:
-      version: 1.3.4
+      version: 1.3.7
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.17-2.1.1
+      configVersion: stable-1.17-2.2.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: stable-1.17-1.1.1
+      configVersion: stable-1.17-1.1.2
       addonsList:
         - name: kommander
           enabled: true

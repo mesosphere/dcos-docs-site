@@ -72,7 +72,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.17-2.1.1
+    configVersion: stable-1.17-2.2.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: false

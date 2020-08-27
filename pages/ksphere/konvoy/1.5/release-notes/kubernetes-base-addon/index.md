@@ -13,6 +13,20 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+August 26, 2020
+
+[stable-1.17-2.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.2.0)
+[stable-1.16-2.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.2.0)
+[stable-1.15-2.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.2.0)
+
+-   prometheus
+    - Fix an issue that may cause Grafana's home dashboard to be empty.
+    - Disable ServiceMonitors for kube-controller-manager and kube-scheduler. kubernetes has determined the ports that were used for these tests was insecure and has limited it to localhost only. This causes these specific tests to fail. The state of the controller-manager and scheduler pods are still tracked in general as pods.
+    - Improve Grafana dashboard names and tags for dashboards tied to addons.
+
+-   traefik
+    - Fix metrics access and reporting.
+
 August 12, 2020
 
 [stable-1.17-2.1.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.1.1)
