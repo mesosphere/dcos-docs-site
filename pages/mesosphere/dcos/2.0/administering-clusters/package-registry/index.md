@@ -328,7 +328,7 @@ See `dcos registry --help` for an exhaustive list of operations that you can use
 
 After executing the above instructions, the rest of the flow is identical to packages fetched from {{ model.packageRepo }}. The only difference is that you don't need Internet access (for customers with air-gapped environments) to install packages from `package-registry`.
 # Upgrading Package Registry from DC/OS 1.12 to later DC/OS versions
-Customers upgrading from DC/OS 1.12 to 1.13 or later will encounter issues with Package Registry. This issue only affects customers who have services deployed via Package Registry starting at DC/OS 1.12. Customers who deploy applications via Package Registry starting from DC/OS 1.13 or later are not affected by this issue.
+Customers upgrading from DC/OS 1.12 to 1.13 or later will encounter issues with Package Registry. This issue only affects customers who have services deployed via Package Registry starting at DC/OS 1.12. Customers who deploy applications via Package Registry starting from DC/OS 1.13 or later aren't affected by this issue.
 
 The Package Registry was renamed from `registry` in DC/OS 1.12 to `dcos-registry` in DC/OS 1.13 to avoid a naming conflict with the Docker Registry Package also named `registry`.
 
