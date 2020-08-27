@@ -176,7 +176,7 @@ DC/OS Package Registry needs a service account to be able to run in DC/OS Enterp
 
 <p class="message--important"><strong>IMPORTANT: </strong>The secret information associated with the service account is stored in a path called  <tt>registry-private-key</tt>  in the DC/OS Secret store. If using a different filename, substitute that for  <tt>registry-private-key</tt>. </p>
 
-<p class="message--warning"><strong>WARNING: </strong>These instructions create two sensitive files on the local file system: <tt>private-key.pem</tt> and <tt>public-key.pem</tt>. Make sure to save these files in a secure place or delete them. They are not needed after being stored in the DC/OS Secret Store. </p>
+<p class="message--warning"><strong>WARNING: </strong>These instructions create two sensitive files on the local file system: <tt>private-key.pem</tt> and <tt>public-key.pem</tt>. Make sure to save these files in a secure place or delete them. They're not needed after being stored in the DC/OS Secret Store. </p>
 
 The service `instances`, `cpus`, `mem`, and `disk` can also be configured as needed. Execute the following command to view an exhaustive list of all configuration options:
 
