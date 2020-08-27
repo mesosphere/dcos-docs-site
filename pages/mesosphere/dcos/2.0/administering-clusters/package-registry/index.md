@@ -300,7 +300,7 @@ If all these steps are completed successfully, your `/path/to/output` directory 
 ├── <package-name>-<package-version>.dcos
 └── <package-name>-<package-version>.json
 ```
-<p class="message--note"><strong>NOTE: </strong>The <tt>lastUpdated</tt> property has been added <a href="https://github.com/mesosphere/universe/pull/2414">(#2414)</a> manually for many universe packages and this might cause schema errors during migration. In that case, please remove this property and try again.</p>
+<p class="message--note"><strong>NOTE: </strong>The <tt>lastUpdated</tt> property has been added <a href="https://github.com/mesosphere/universe/pull/2414">(#2414)</a> manually for universe packages and this might cause schema errors during migration. In that case, please remove this property and try again.</p>
 
 You can clean up the build definition .json file, as it is no longer needed. Both the `build` and `migrate` subcommands accept an optional `--json` flag to support automation.
 
@@ -332,16 +332,16 @@ Customers upgrading from DC/OS 1.12 to 1.13 or later will encounter issues with 
 
 The Package Registry was renamed from `registry` in DC/OS 1.12 to `dcos-registry` in DC/OS 1.13 to avoid a naming conflict with the Docker Registry Package also named `registry`.
 
-On DC/OS 1.12 many Marathon Apps may have assets stored in the Package Registry with URIs such as the following:
+On DC/OS 1.12 Marathon Apps may have assets stored in the Package Registry with URIs such as the following:
 
 ```
 https://registry.component.thisdcos.directory/resource/pmrg4ylnmurduitqmfrwwylhmuwxezlhnfzxi4tzeiwce5tfojzws33oei5cembogixdcljqfyzc4mjnguydoljvmizgkyzwgarh2/sha256:4e6e11aad54ae3c716a5607ee88d81f3f1e8b5b23ee474b0272dba351ee9f28a/jre-8u144-linux-x64.tar.gz
 ```
 
-Upon upgrading to DC/OS 1.13 or later, with the rename from `registry` to `dcos-registry`, the above URI will no longer resolve. As a result, many existing Marathon Apps deployed will not be able to retrieve their assets from Package Registry's configured storage on a DC/OS upgrade.
+Upon upgrading to DC/OS 1.13 or later, with the rename from `registry` to `dcos-registry`, the above URI will no longer resolve. As a result, existing Marathon Apps deployed won't be able to retrieve their assets from Package Registry's configured storage on a DC/OS upgrade.
 
-To avoid this, it is recommended to maintain the same service-name for Package Registry between 1.12 and 1.13.
-This is done via the following minimal configuration options:
+To avoid this, it's recommended to keep the same service-name for Package Registry between 1.12 and 1.13.
+The following minimal configuration options can be used:
 ```
 echo '{
     "service": {
@@ -352,13 +352,13 @@ echo '{
     }
 }' > registry-options.json
 ```
-**Note:**  Customers should replace the value of `service-account-secret-path` with the appropriate in-deployment equivalent. The value `dcos-registry-secret` used in this example is what the default installation of Package Registry creates.
+**Note:**  Customers should replace the value of `service-account-secret-path` with the appropriate in-deployment equal. The value `dcos-registry-secret` used in this example is what the default installation of Package Registry creates.
 
 1. Install Package Registry:
     ```
     dcos package install package-registry --options=registry-options.json --yes
     ```
-1. Ensure Package Registry is the the first repostory to source from:
+1. Ensure Package Registry is the first repostory to source from:
     ```
     dcos package repo add --index=0 Registry https://registry.marathon.l4lb.thisdcos.directory/repo
     ```
