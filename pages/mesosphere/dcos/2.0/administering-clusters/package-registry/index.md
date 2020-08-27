@@ -358,7 +358,7 @@ echo '{
     ```
     dcos package install package-registry --options=registry-options.json --yes
     ```
-1. Ensure Package Registry is the first repostory to source from:
+1. Ensure Package Registry is the first repository to source from:
     ```
     dcos package repo add --index=0 Registry https://registry.marathon.l4lb.thisdcos.directory/repo
     ```
