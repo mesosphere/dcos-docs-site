@@ -62,3 +62,4 @@ For a detailed description on updates to Marathon, see the [changelog](https://g
 
 ## Metronome Fixed and Improved Issues
 For a detailed description on updates to Metronome, see the [changelog](https://github.com/dcos/metronome/blob/master/changelog.md).
+
