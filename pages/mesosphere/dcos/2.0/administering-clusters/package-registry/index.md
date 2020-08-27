@@ -249,7 +249,7 @@ Mesosphere DC/OS hosts all its certified packages at [downloads.mesosphere.com/u
       dcos registry --help
       ```
 
-   1. If you do not have access to a DC/OS Cluster (such as in CI/CD), download the `package-registry` CLI for [Linux](https://downloads.mesosphere.io/package-registry/binaries/cli/linux/x86-64/latest/dcos-registry-linux), [macOS](https://downloads.mesosphere.io/package-registry/binaries/cli/darwin/x86-64/latest/dcos-registry-darwin) or [Windows](https://downloads.mesosphere.io/package-registry/binaries/cli/windows/x86-64/latest/dcos-registry-windows.exe)
+   1. If you don't have access to a DC/OS Cluster (such as in CI/CD), download the `package-registry` CLI for [Linux](https://downloads.mesosphere.io/package-registry/binaries/cli/linux/x86-64/latest/dcos-registry-linux), [macOS](https://downloads.mesosphere.io/package-registry/binaries/cli/darwin/x86-64/latest/dcos-registry-darwin) or [Windows](https://downloads.mesosphere.io/package-registry/binaries/cli/windows/x86-64/latest/dcos-registry-windows.exe)
 
       ```bash
       # Change the URL based on macOS, linux or windows accordingly.
@@ -326,7 +326,7 @@ See `dcos registry --help` for an exhaustive list of operations that you can use
 
 <p class="message--warning"><strong>WARNING: </strong>Removing a package while a service is still deployed may cause the service to stop working.</p>
 
-After executing the above instructions, the rest of the flow is identical to packages fetched from {{ model.packageRepo }}. The only difference is that you do not need Internet access (for customers with air-gapped environments) to install packages from `package-registry`.
+After executing the above instructions, the rest of the flow is identical to packages fetched from {{ model.packageRepo }}. The only difference is that you don't need Internet access (for customers with air-gapped environments) to install packages from `package-registry`.
 # Upgrading Package Registry from DC/OS 1.12 to later DC/OS versions
 Customers upgrading from DC/OS 1.12 to 1.13 or later will encounter issues with Package Registry. This issue only affects customers who have services deployed via Package Registry starting at DC/OS 1.12. Customers who deploy applications via Package Registry starting from DC/OS 1.13 or later are not affected by this issue.
 
