@@ -108,7 +108,7 @@ const neededToBuildMainMenu = [
   "ksphere/conductor/index.md",
   `ksphere/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
 ];
-if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
+if (RENDER_PATH_PATTERN) {
   MS.use((files, _, done) => {
     Object.keys(files)
       .filter(
