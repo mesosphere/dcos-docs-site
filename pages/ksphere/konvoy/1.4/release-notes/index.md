@@ -15,6 +15,42 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.4.6 - Released 27 August 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.14 |
+
+#### Disclaimer
+
+- With the new version of Kubernetes, the unauthenticated ports for the `kube-controller-manager` and `kube-scheduler` pods are now disabled.
+
+#### Improvements
+
+- Diagnose: Collect logs of previous pods when restarted when running `konvoy diagnose`.
+
+#### Addons improvements
+
+-   traefik
+    - Fix metrics access and reporting.
+-   elasticsearch
+    - Default data nodes has been increased to 4 by default.
+-   prometheus
+    - Disable ServiceMonitors for kube-controller-manager and kube-scheduler. kubernetes has determined the ports that were used for these tests was insecure and has limited it to localhost only. This causes these specific tests to fail. The state of the controller-manager and scheduler pods are still tracked in general as pods.
+
+#### Component version changes
+
+- Kubernetes `v1.16.14`
+- Calico `v3.13.5`
+- Go `v1.13.14`
+- Docker `v19.03.12`
+- Ansible `v2.7.18.0`
+- Kubeaddons `0.18.0`
+- kubernetes-base-addons `stable-1.16-1.9.0`
+- Kommander `stable-1.16-1.0.2`
+
 ### Version v1.4.5 - Released 26 June 2020
 
 | Kubernetes Support | Version |
