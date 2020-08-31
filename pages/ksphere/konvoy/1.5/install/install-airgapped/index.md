@@ -346,7 +346,9 @@ spec:
           konvoy.docker-registry-url: https://myregistry:443
           #konvoy.docker-registry-insecure-skip-tls-verify: false
           konvoy.docker-registry-username: "myuser"
-          konvoy.docker-registry-password: "mypassowrd"
+          konvoy.docker-registry-password: "mypassword"
+      clusterAutoscaler:
+        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
 ```
 
 The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
@@ -365,10 +367,12 @@ spec:
           konvoy.docker-registry-repository: "library/mesosphere/konvoy"
           #konvoy.docker-registry-insecure-skip-tls-verify: false
           konvoy.docker-registry-username: "myuser"
-          konvoy.docker-registry-password: "mypassowrd"
+          konvoy.docker-registry-password: "mypassword"
+      clusterAutoscaler:
+        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
 ```
 
-Other configuration options exist for the autoscaler to use a local Helm charts repository and to prevent the autoscaler from trying to list tags from the remote GitHub URL. Details are provided in [the autoscaling documentation][autoscaling-air-gapped].
+Details regarding the autoscaler are provided in [the autoscaling documentation][autoscaling-air-gapped].
 
 ## Configure Addon repository
 
