@@ -11,7 +11,7 @@ excerpt: Configure role-based access control for namespaced Kubernetes resources
 This procedure requires the following configurations and background:
 
 - A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.2/install/).
-- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/) has been created.
+- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/).
 - Some familiarity with [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) principles.
 - A configured [group](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) in Kommander for project administrators.
 
