@@ -14,11 +14,9 @@ beta: true
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
+**NOTE:** You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
 ### Version v1.6.0-beta.0 - Released 27 August 2020
-
-**Note:** Upgrading is not supported during Konvoy v1.6.0-beta.0.
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
@@ -28,7 +26,7 @@ beta: true
 
 #### Disclaimer
 
-<p class="message--important"><strong>IMPORTANT: </strong>-Upgrading from any previous version of Konvoy is not supported</p>
+**IMPORTANT:** Upgrading from any previous version of Konvoy is not supported.
 
 #### Improvements
 

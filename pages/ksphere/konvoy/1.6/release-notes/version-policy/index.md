@@ -5,6 +5,7 @@ title: Version Support Policy
 menuWeight: 100
 excerpt: Konvoy's supported version policy
 enterprise: false
+beta: true
 ---
 
 D2iQ's supports N-2 of the latest `MAJOR.MINOR` version of Konvoy. For example, if you have Konvoy version 1.5, then D2iQ supports all patch versions of Konvoy 1.5, 1.4, and 1.3.
