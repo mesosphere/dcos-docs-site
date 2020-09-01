@@ -62,7 +62,7 @@ Copy the archived DC/OS installer file (`dcos-install.tar`) to the agent node. T
 
 ## Verify node type
 
-You can verify the node type by running these commands from the DC/OS CLI.
+You can verify the node type by running these commands from the DC/OS CLI. this is my stuff
 
 
 -   Run the following command to count the private agents.
