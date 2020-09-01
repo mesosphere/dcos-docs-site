@@ -12,15 +12,15 @@ An upgrade is the process of moving between major releases to add new features o
 
 <p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 2.0 --> 2.1</p>
 
-- To update to a newer maintenance version (e.g. 2.0.2 to 2.0.4), refer to the instructions for [patching](/mesosphere/dcos/2.2/installing/production/patching/).
-- To modify the cluster configuration, refer to the instructions for [patching](/mesosphere/dcos/2.2/installing/production/patching/).
+- To update to a newer maintenance version (e.g. 2.0.2 to 2.0.4), refer to the instructions for [patching](/mesosphere/dcos/2.1/installing/production/patching/).
+- To modify the cluster configuration, refer to the instructions for [patching](/mesosphere/dcos/2.1/installing/production/patching/).
 
 If upgrading is performed on a supported OS with all prerequisites fulfilled, then the upgrade **should** preserve the state of running tasks on the cluster.
 
 ## Important guidelines
 
-- The Production installation method is the **only** recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/mesosphere/dcos/2.2/installing/production/deploying-dcos/) before proceeding.
-- Review the [release notes](/mesosphere/dcos/2.2/release-notes/) before upgrading DC/OS.
+- The Production installation method is the **only** recommended upgrade path for DC/OS. It is recommended that you familiarize yourself with the [DC/OS Deployment Guide](/mesosphere/dcos/2.1/installing/production/deploying-dcos/) before proceeding.
+- Review the [release notes](/mesosphere/dcos/2.1/release-notes/) before upgrading DC/OS.
 - Due to a cluster configuration issue with overlay networks, it is recommended to set `enable_ipv6` to false in `config.yaml` when upgrading or configuring a new cluster.  You can find additional information and a more detailed remediation procedure in our latest critical [product advisory](https://support.mesosphere.com/s/article/Critical-Issue-with-Overlay-Networking). [enterprise type="inline" size="small" /]
 - If IPv6 is disabled in the kernel, then IPv6 must be disabled in the `config.yaml` file.
 - The DC/OS Enterprise license key must reside in a `genconf/license.txt` file. [enterprise type="inline" size="small" /]
@@ -31,7 +31,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - Task history in the Mesos UI will not persist through the upgrade.
 
 ## Supported upgrade paths
-The following tables list the supported upgrade paths for DC/OS 2.2.
+The following tables list the supported upgrade paths for DC/OS 2.1.
 
 
 |**Display Icon** | **Service** |
@@ -123,7 +123,7 @@ The following tables list the supported upgrade paths for DC/OS 2.2.
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 2.0 to 2.1 and add more public agents. You can add more public agents with a patch to 2.0 and then upgrade to 2.1, or you can upgrade to 2.1 and then add more public agents by [patching 2.1](/mesosphere/dcos/2.2/installing/production/patching/) after the upgrade.
+You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 2.0 to 2.1 and add more public agents. You can add more public agents with a patch to 2.0 and then upgrade to 2.1, or you can upgrade to 2.1 and then add more public agents by [patching 2.1](/mesosphere/dcos/2.1/installing/production/patching/) after the upgrade.
 
 # Instructions
 These steps must be performed for version upgrades.
@@ -135,12 +135,12 @@ These steps must be performed for version upgrades.
 - For Mesos compatibility reasons, we recommend upgrading any running Marathon-on-Marathon instances to Marathon version 1.3.5 before proceeding with this DC/OS upgrade.
 - You must have access to copies of the config files used with the previous DC/OS version: `config.yaml` and `ip-detect`.
 - You must be using systemd 218 or newer to maintain task state.
-- All hosts (masters and agents) must be able to communicate with all other hosts as described at [network security](/mesosphere/dcos/2.2/administering-clusters/securing-your-cluster/#network-security).
+- All hosts (masters and agents) must be able to communicate with all other hosts as described at [network security](/mesosphere/dcos/2.1/administering-clusters/securing-your-cluster/#network-security).
 - In CentOS or RedHat, install IP sets with this command (used in some IP detect scripts): `sudo yum install -y ipset`
 - You must be familiar with using `systemctl` and `journalctl` command line tools to review and monitor service status. Troubleshooting notes can be found at the end of this [document](#troubleshooting).
 - You must be familiar with the DC/OS [Production Installation][install] instructions.
-- Take a [snapshot of ZooKeeper](/mesosphere/dcos/2.2/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
-- Take a [snapshot of the IAM database](/mesosphere/dcos/2.2/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. **This is very easy to do and should be considered a necessity.**
+- Take a [snapshot of ZooKeeper](/mesosphere/dcos/2.1/installing/installation-faq/#q-how-do-i-backup-zookeeper-using-guano) prior to upgrading. Marathon supports rollbacks, but does not support downgrades.
+- Take a [snapshot of the IAM database](/mesosphere/dcos/2.1/installing/installation-faq/#q-how-do-i-backup-the-iam-database-enterprise) prior to upgrading. **This is very easy to do and should be considered a necessity.**
 - Ensure that Marathon event subscribers are disabled before beginning the upgrade. Leave them disabled after completing the upgrade, as this feature is now deprecated.
 
 <p class="message--note"><strong>NOTE: </strong>Marathon event subscribers are disabled by default. Check to see if the line <code>--event_subscriber "http_callback"</code> has been added to <code>sudo vi /opt/mesosphere/bin/marathon.sh</code> on your master node(s). In such a case, you must remove that line in order to disable event subscribers.</p>
@@ -148,8 +148,8 @@ These steps must be performed for version upgrades.
 [enterprise type="inline" size="small" /]
 
 - Verify that all Marathon application constraints are valid before beginning the upgrade. Use [this script](https://github.com/mesosphere/public-support-tools/blob/master/check-constraints.py) to check if your constraints are valid.
-- [Back up your cluster](/mesosphere/dcos/2.2/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
-- Optional: You can add custom [node and cluster health checks](/mesosphere/dcos/2.2/installing/production/deploying-dcos/node-cluster-health-check/) to your `config.yaml`.
+- [Back up your cluster](/mesosphere/dcos/2.1/administering-clusters/backup-and-restore/). [enterprise type="inline" size="small" /]
+- Optional: You can add custom [node and cluster health checks](/mesosphere/dcos/2.1/installing/production/deploying-dcos/node-cluster-health-check/) to your `config.yaml`.
 - Verify that all your masters are in a healthy state:
    - Check the Exhibitor UI to confirm that all masters have joined the quorum successfully (the status indicator will show green). The Exhibitor UI is available at `http://<dcos_master>:8181/`.
    - Verify that `curl http://<dcos_master_private_ip>:5050/metrics/snapshot` has the metric `registrar/log/recovered` with a value of `1` for each master.
@@ -158,10 +158,10 @@ These steps must be performed for version upgrades.
 ## Bootstrap Node
 
 
-This procedure upgrades a DC/OS 2.0 cluster to DC/OS 2.2.
+This procedure upgrades a DC/OS 2.0 cluster to DC/OS 2.1.
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
-2.  The syntax of the `config.yaml` file can be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/2.2/installing/production/advanced-configuration/configuration-reference/).
+2.  The syntax of the `config.yaml` file can be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/).
     *  You cannot change the `exhibitor_storage_backend` setting during an upgrade.
 
 3. After updating the `config.yaml`, compare the old `config.yaml` and new `config.yaml`. Verify that there are no differences in pathways or configurations. Changing these while upgrading can lead to catastrophic cluster failures.
@@ -227,7 +227,7 @@ Proceed with upgrading every master node one at a time in any order using the fo
         <p class="message--note"><strong>NOTE: </strong>If you are upgrading from permissive to strict mode, this URL will be <code>curl https://...</code> and you will need a JWT for access. </p>
         [enterprise type="inline" size="small" /]
 
-1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.2/release-notes/), for example `1.9.1`.
+1.  Verify that `/opt/mesosphere/bin/mesos-master --version` indicates that the upgraded master is running the version of Mesos specified in the [release notes](/mesosphere/dcos/2.1/release-notes/), for example `1.9.1`.
 
     1.  Verify that the number of under-replicated ranges in CockroachDB has dropped to zero as the IAM database is replicated to the new master. Run the following command and confirm that the `ranges_underreplicated` column shows only zeros.
     ```bash
@@ -288,7 +288,7 @@ sudo journalctl -u dcos-spartan
 sudo systemctl | grep dcos
 ```
 
-If your upgrade fails because of a [custom node or cluster check](/mesosphere/dcos/2.2/installing/production/deploying-dcos/node-cluster-health-check/), run these commands for more details:
+If your upgrade fails because of a [custom node or cluster check](/mesosphere/dcos/2.1/installing/production/deploying-dcos/node-cluster-health-check/), run these commands for more details:
 ```bash
 dcos-check-runner check node-poststart
 dcos-check-runner check cluster
@@ -320,7 +320,7 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes:
 
-- Packages available in the DC/OS 2.2 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
+- Packages available in the DC/OS 2.1 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
 
-[install]: /mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#custom-build-file
-[cmd]: /mesosphere/dcos/2.2/installing/production/deploying-dcos/installation/#nginx-cmd
+[install]: /mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#custom-build-file
+[cmd]: /mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/#nginx-cmd
