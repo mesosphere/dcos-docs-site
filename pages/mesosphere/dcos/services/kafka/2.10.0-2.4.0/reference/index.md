@@ -82,7 +82,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} topic describe topic
 ```
 
 ```bash
-curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1"
+curl -X GET -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1"
 {
   "partitions": [
   {
