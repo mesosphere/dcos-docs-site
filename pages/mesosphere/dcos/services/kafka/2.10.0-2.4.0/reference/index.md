@@ -139,7 +139,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} topic create topic1 
 ```
 
 ```bash
-curl -X POST -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1?partitions=3&replication=3"
+curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1?partitions=3&replication=3"
 {
   "message": "Output: Created topic \"topic1\"\n"
 }
@@ -204,7 +204,7 @@ dcos {{ model.packageName }} --name={{ model.serviceName }} topic producer_test 
 }
 ```
 ```bash
-curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1?operation=producer-test&messages=10"
+curl -X PUT -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/topics/topic1/operation/producer-test&messages=10"
 {
   "message": "10 records sent, 70.422535 records/sec (0.07 MB/sec), 24.20 ms avg latency, 133.00 ms max latency, 13 ms 50th, 133 ms 95th, 133 ms 99th, 133 ms 99.9th.n"
 }
