@@ -27,7 +27,7 @@ If you have not done so already, create a group to represent this persona. For m
 
 You have already assigned users to the group that represents the persona. You must now change the resource access level for this persona by associating roles with the groups using policies.
 
-The _Project Admin_ persona should have admin access to the project. This allows users to administrate all namespaced resources in the project namespace on the management cluster, as well as all namespaced resources in the project namespace on the target clusters.
+The _Project Admin_ persona should have admin access to the project. This allows users to administer all namespaced resources in the project namespace on the management cluster, as well as all namespaced resources in the project namespace on the target clusters.
 
 In the Kommander UI, do the following:
 
