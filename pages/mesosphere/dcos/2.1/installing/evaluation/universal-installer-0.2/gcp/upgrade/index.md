@@ -41,7 +41,7 @@ module "dcos" {
   num_public_agents  = 1
   dcos_instance_os = "centos_7.6"
   dcos_variant              = "ee"
-  dcos_version              = "2.1.0"
+  dcos_version              = "{{ model.version }}"
   dcos_license_key_contents = "${file("~/license.txt")}"
   # provide a SHA512 hashed password, here "deleteme"
   dcos_superuser_password_hash = "$6$rounds=656000$YSvuFmasQDXheddh$TpYlCxNHF6PbsGkjlK99Pwxg7D0mgWJ.y0hE2JKoa61wHx.1wtxTAHVRHfsJU9zzHWDoE08wpdtToHimNR9FJ/"

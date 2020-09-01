@@ -36,7 +36,7 @@ module "dcos" {
   num_private_agents = "2"
   num_public_agents  = "1"
 
-  dcos_version = "2.1.0"
+  dcos_version = "{{ model.version }}"
 
   dcos_variant              = "ee"
   dcos_license_key_contents = "${file("./license.txt")}"
@@ -283,7 +283,7 @@ module "dcos" {
   num_private_agents = "2"
   num_public_agents  = "1"
 
-  dcos_version = "2.1.0"
+  dcos_version = "{{ model.version }}"
 
   dcos_instance_os             = "centos_7.5"
   bootstrap_instance_type      = "m5.large"
@@ -345,7 +345,7 @@ module "dcos" {
   num_private_agents = "2"
   num_public_agents  = "1"
 
-  dcos_version = "2.1.0"
+  dcos_version = "{{ model.version }}"
 
   dcos_instance_os             = "centos_7.5"
   bootstrap_instance_type      = "m5.large"
