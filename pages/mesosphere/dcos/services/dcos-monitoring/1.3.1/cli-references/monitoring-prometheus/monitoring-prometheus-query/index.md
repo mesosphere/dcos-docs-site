@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos monitoring prometheus query` command evaluates an instant query at a given time.
+The `dcos monitoring prometheus query` command evaluates an instant query at a single point in time.
 
 # Usage
 

@@ -14,7 +14,7 @@ model: ../../../data.yml
 
 See the [Alertmanager configuration documentation](https://prometheus.io/docs/alerting/configuration/) and the [Slack configuration section](https://prometheus.io/docs/alerting/configuration/#slack_config) for a detailed overview of how to create a configuration file with a Slack receiver.
 
-See the following example of a basic configuration file that is set up with a Slack receiver.
+Below is an example of a simple configuration file with a Slack receiver.
 The configuration file *must* be named `config.yml`.
 In this example, the Slack channel is set to `#prometheus-alerts`.
 You can set this to another existing Slack channel, or create the Slack channel `#prometheus-alerts`.
@@ -115,7 +115,7 @@ dcos monitoring plan start reload-alertmanager-config
 
 ## Testing Slack alerts
 
-You can test that Alertmanager is configured correctly by SSH to the node on which Alertmanager is running and manually hitting the Alertmanager endpoint to trigger an alert.
+You can test that Alertmanager is configured correctly by using SSH to connect to the node on which Alertmanager is running and manually hitting the Alertmanager endpoint to trigger an alert.
 Alertmanager should route the alert to the Slack channel you configured it to notify.
 
 ```sh
