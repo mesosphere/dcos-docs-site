@@ -8,7 +8,7 @@ render: mustache
 model: ../data.yml
 ---
 
-# DC/OS Monitoring v.1.4.0 was released on 29, October 2020
+# DC/OS Monitoring v.1.4.0 was released on 1, September 2020
 
 ## New features
 
