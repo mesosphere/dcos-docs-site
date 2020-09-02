@@ -89,7 +89,7 @@ model: ../data.yml
 
 ## Known limitations
 
-* Upgrading from v0.5 isn't possible due to Pushgateway defaulting to off.
+* Upgrading from v0.5 is not possible due to Pushgateway defaulting to off.
 
 # Version v0.5.0
 
@@ -106,7 +106,7 @@ model: ../data.yml
 
 ## Known limitations
 
-* Service name can't contain characters that aren't allowed in a DNS name (for example `/`) if using Marathon LB integration.
+* Service name cannot contain characters that are not allowed in a DNS name (for example `/`) if using Marathon LB integration.
 
 # Version v0.4.3
 
@@ -140,15 +140,15 @@ model: ../data.yml
 ## Updates
 
 * Support for configuring Prometheus storage retention.
-* Support for configuring Alertmanager resource footprint (that's CPU and memory).
+* Support for configuring Alertmanager resource footprint (that is CPU and memory).
 * Installable from the Universe.
 * Update SDK to 0.55.2.
 * New logo.
 
 ## Known limitations
 
-* Upgrading from v0.3.0 isn't supported now.
-* Doesn't support loading Prometheus alert rules recursively from a directory.
+* Upgrading from v0.3.0 is not supported now.
+* Does not support loading Prometheus alert rules recursively from a directory.
 
 # Version v0.3.0
 

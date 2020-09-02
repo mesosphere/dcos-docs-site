@@ -10,7 +10,7 @@ model: ../../../data.yml
 
 # Grafana Custom Configuration
 
-<p class="message--warning"><strong>WARNING: </strong>It's recommended to not change default configuration.</p>
+<p class="message--warning"><strong>WARNING: </strong>It is recommended to not change default configuration.</p>
 
 ## Configuration
 
