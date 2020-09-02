@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Granting project admin access to Kubernetes resources in Kommander
-title: Granting project admin access access to Kubernetes resources in Kommander
+title: Granting project admin access to Kubernetes resources in Kommander
 menuWeight: 1
 excerpt: Configure role-based access control for namespaced Kubernetes resources in Kommander
 ---
@@ -31,7 +31,7 @@ The _Project Admin_ persona should have admin access to the project. This allows
 
 In the Kommander UI, do the following:
 
-1. Select _Default Workspace_ in the header drop-down.
+1. Select a _Workspace_ in the header drop-down.
 2. Select _Projects_ and select or create the project to grant access to.
 3. Select the _Policies_ tab.
 
@@ -40,7 +40,7 @@ Project Policies Table
 
    The default role for this persona:
 
-- _Kommander Project Admin Role_: because this is a Kommander Role type role, it applies to the management cluster. This role grants admin access to the project namespace on the management cluster. Creating a policy with this role creates another role and policy automatically, at the workspace level, allowing access to this project.
+- _Kommander Project Admin Role_: because this is a Kommander Role type role, it applies to the management cluster. This role grants admin access to the project namespace on the management cluster.
 
 4. Assign this role to the _Project Admin_ group.
 
