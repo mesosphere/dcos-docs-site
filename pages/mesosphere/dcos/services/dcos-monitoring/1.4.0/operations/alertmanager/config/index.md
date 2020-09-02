@@ -43,7 +43,7 @@ If the Git repository is private, you must configure the credentials to access t
 If the Git repository containing the Alertmanager configurations is private, you must configure the secrets first.
 Currently, the following Auth types are supported.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what's used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's <code>.gitmodules</code> file must use the <code>https</code> URL scheme.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's <code>.gitmodules</code> file must use the <code>https</code> URL scheme.</p>
 
 ### HTTP Auth
 
@@ -77,7 +77,7 @@ Create a custom option file (`options.json`) like the following.
 dcos security secrets create -f <PATH_TO_PRIVATE_KEY> gitsshkey-secret
 ```
 
-For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that's, the public key) to the repository.
+For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that is, the public key) to the repository.
 
 Create a custom option file (`options.json`) like the following.
 
@@ -151,7 +151,7 @@ The Alertmanager configurations defined in the repository will be automatically 
 
 ## Triggering a reload of Alertmanager configurations
 
-It's possible to trigger a reload of the Alertmanager configurations after the service is installed.
+It is possible to trigger a reload of the Alertmanager configurations after the service is installed.
 
 ```bash
 dcos monitoring plan start reload-alertmanager-config

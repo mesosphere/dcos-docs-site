@@ -20,7 +20,7 @@ This page describes how to configure DC/OS access for {{ model.techName }} Servi
 | Permissive    | Optional   |
 | Strict        | Required |
 
-If you install a service in `permissive` mode and don't specify a service account.
+If you install a service in `permissive` mode and do not specify a service account.
 Metronome and Marathon will act as if requests from this service is made by an account with the [superuser permission](/1.13/security/ent/perms-reference/#superuser).
 
 **Prerequisites:**
@@ -80,7 +80,7 @@ See the <a href="https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0"
 
 # Create a Configuration file
 
-Create a custom options file that's used to install {{ model.techName }} service and save the file as (`options.json`).
+Create a custom options file that is used to install {{ model.techName }} service and save the file as (`options.json`).
 
 ```json
 {

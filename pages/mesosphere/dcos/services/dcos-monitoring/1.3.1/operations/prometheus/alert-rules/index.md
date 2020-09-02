@@ -43,7 +43,7 @@ For instance, `https://github.com/company/alert-rules/production`.
 ```
 
 <p class="message--important"><strong>IMPORTANT: </strong>Make sure that each of the alert rule files has suffix <code>.yml</code>
-and is a direct child of the folder (that's not nested under another folder).</p>
+and is a direct child of the folder (that is not nested under another folder).</p>
 
 The Git repository can be either public or private.
 If the Git repository is private, you will need to configure the credentials to access the Git repository (see below).
@@ -52,7 +52,7 @@ If the Git repository is private, you will need to configure the credentials to 
 <strong>NOTE:</strong> Mesosphere maintains a Git repository with Prometheus alerting rule configurations at <code>https://github.com/dcos/prometheus-alert-rules</code>.
 If you would like to use these Prometheus alerting rules, you should set <code>prometheus.alert_rules_repository.config_repository.url</code>
 to <code>https://github.com/dcos/prometheus-alert-rules</code> and <code>prometheus.alert_rules_repository.config_repository.path</code> to <code>/rules</code>.
-As it's a public repository, there is no need to set up the <code>credentials</code>.
+As it is a public repository, there is no need to set up the <code>credentials</code>.
 </p>
 
 ```json
@@ -73,7 +73,7 @@ As it's a public repository, there is no need to set up the <code>credentials</c
 If the Git repository containing the alert rules is private, you will need to configure the secrets first.
 Currently, the following Auth types are supported.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what's used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's <code>.gitmodules</code> file must use the <code>https</code> URL scheme.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If the Git repository contains submodules, all the submodules must use the same Auth type as what is used for the repository. For example, if HTTP Auth is configured for the Git repository, all of the submodules in the repository's <code>.gitmodules</code> file must use the <code>https</code> URL scheme.</p>
 
 ### HTTP Auth
 
@@ -108,7 +108,7 @@ You may omit the `credentials` section if the Git repository is public.
 dcos security secrets create -f <PATH_TO_PRIVATE_KEY> gitsshkey-secret
 ```
 
-For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that's the public key) to the repository.
+For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that is the public key) to the repository.
 
 Create a custom option file (`options.json`) like the following.
 
@@ -130,7 +130,7 @@ Create a custom option file (`options.json`) like the following.
 
 ## Fetching from a branch in a Git repository
 
-By default, the service will fetch from the master branch (that's, `refs/heads/master`) of the Git repository.
+By default, the service will fetch from the master branch (that is, `refs/heads/master`) of the Git repository.
 
 If you want to fetch the alert rules from another branch in a Git repository, you can set the `reference_name` field:
 
@@ -160,7 +160,7 @@ You can go to the Prometheus UI to verify.
 
 ## Triggering a reload of Prometheus alert rules
 
-It's possible to trigger a reload of the Prometheus alert rules after the service is installed.
+It is possible to trigger a reload of the Prometheus alert rules after the service is installed.
 
 ```bash
 dcos monitoring plan start reload-prometheus-alert-rules

@@ -21,7 +21,7 @@ https://<CLUSTER_URL>/service/{{ model.serviceName }}/prometheus/
 ```
 
 The Admin Router URL can be configured to adapt to the FQDN of your DC/OS cluster.
-This step isn't required if the users aren't using the [`generatorURL`](https://prometheus.io/docs/alerting/clients/) field from an alert.
+This step is not required if the users are not using the [`generatorURL`](https://prometheus.io/docs/alerting/clients/) field from an alert.
 
 ```json
 {
@@ -55,4 +55,4 @@ You must turn off the Admin Router proxy support to enable the Marathon LB suppo
 }
 ```
 
-<p class="message--note"><strong>NOTE: </strong>Currently, there is a limitation where the service name can't contain any character that's not allowed in a DNS name (for example /), which means the service can't be installed in a Marathon folder.</p>
+<p class="message--note"><strong>NOTE: </strong>Currently, there is a limitation where the service name cannot contain any character that is not allowed in a DNS name (for example /), which means the service cannot be installed in a Marathon folder.</p>

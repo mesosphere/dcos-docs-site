@@ -13,7 +13,7 @@ model: ../../../data.yml
 ## Remote Storage
 
 You can configure Prometheus to use remote storage. Prometheus's local storage is limited by single nodes in its scalability and durability. Instead of trying to solve clustered storage in Prometheus itself, Prometheus has a set of interfaces that allow integrating with remote storage systems.
-The remote write and remote read features of Prometheus allow transparently sending and receiving samples. This is primarily intended for long term storage. It's recommended that you perform careful evaluation of any solution in this space to confirm it can handle your data volumes.
+The remote write and remote read features of Prometheus allow transparently sending and receiving samples. This is primarily intended for long term storage. It is recommended that you perform careful evaluation of any solution in this space to confirm it can handle your data volumes.
 
 
 The following is an example of the configuration that deploys Prometheus with a remote write feature. You can create a similar configuration for remote read:

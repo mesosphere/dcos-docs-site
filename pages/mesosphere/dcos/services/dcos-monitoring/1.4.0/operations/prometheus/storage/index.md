@@ -35,7 +35,7 @@ For more information on creating volumes, see the [DC/OS Storage Service](/servi
 When configuring Prometheus, select `MOUNT` for its volume `type`, choose the minimum `size` for the volume in MB, and enter the `profile` for the volume.
 For more information on volume profiles, see the [DC/OS Storage Service](/services/storage/latest/cli-references/dcos-storage-profile/) documentation.
 
-The following configuration will deploy Prometheus to a volume with a profile of `fast` that's 25 GB or larger.
+The following configuration will deploy Prometheus to a volume with a profile of `fast` that is 25 GB or larger.
 If there is no such volume available, Prometheus will fail to deploy.
 
 ```json

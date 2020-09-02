@@ -8,7 +8,7 @@ render: mustache
 model: ../data.yml
 ---
 
-If you are expecting high traffic on the Prometheus or Grafana interfaces it's recommended to expose {{ model.techName }} over edge-lb. Without it, AdminRouter can limit the capabilities of Grafana.
+If you are expecting high traffic on the Prometheus or Grafana interfaces it is recommended to expose {{ model.techName }} over edge-lb. Without it, AdminRouter can limit the capabilities of Grafana.
 
 Exposing Grafana over Edge-LB is a twofold process:
 
@@ -25,7 +25,7 @@ Exposing Grafana over Edge-LB is a twofold process:
 
 # Disable AdminRouter proxy on {{ model.techName }}
 
-It's important to disable AdminRouter proxy on Grafana service of {{ model.techName }}. Failing to do so will cause invalid URL redirects when viewing the published service.
+It is important to disable AdminRouter proxy on Grafana service of {{ model.techName }}. Failing to do so will cause invalid URL redirects when viewing the published service.
 
 To disable the AdminRouter proxy on {{ model.techName }} you should (re-)deploy it with the `admin_router_proxy` option set to `false`.
 
