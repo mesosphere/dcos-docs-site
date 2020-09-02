@@ -108,7 +108,7 @@ You may omit the `credentials` section if the Git repository is public.
 dcos security secrets create -f <PATH_TO_PRIVATE_KEY> gitsshkey-secret
 ```
 
-For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that is the public key) to the repository.
+For GitHub, you must add the [Deployment Key](https://developer.github.com/v3/guides/managing-deploy-keys/#deploy-keys) (that is, the public key) to the repository.
 
 Create a custom option file (`options.json`) like the following.
 

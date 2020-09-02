@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos monitoring prometheus status flags` returns the Prometheus configuration flag values.
+The `dcos monitoring prometheus status flags` returns the flag values with which Prometheus was configured.
 
 # Usage
 

@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: DC/OS Monitoring Service 1.3.1
-title: DC/OS Monitoring Service 1.3.1
+navigationTitle: DC/OS Monitoring Service 1.4.0
+title: DC/OS Monitoring Service 1.4.0
 menuWeight: 0
 excerpt:
 render: mustache
@@ -12,4 +12,3 @@ The {{ model.techName }} service makes it easy to monitor DC/OS components and y
 It can be configured to automatically load Grafana dashboard and alert configurations from Git repositories.
 It also ships with a set of default Grafana dashboards for monitoring DC/OS itself.
 The service can be configured to automatically load Alertmanager configuration from a Git repository.
-

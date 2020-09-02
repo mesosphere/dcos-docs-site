@@ -47,7 +47,7 @@ Use "dcos monitoring [command] --help" for more information about a command.
 
 # Specify the monitoring endpoint used by the monitoring CLI
 
-To interact with your monitoring, you may need to set used address.
+To interact with your monitoring, you may need to set the monitoring endpoint URL
 
 By default, the monitoring CLI assumes the monitoring stack is accessible using the address `<cluster-url>/service/dcos-monitoring`.
 

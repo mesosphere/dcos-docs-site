@@ -9,7 +9,7 @@ enterprise: false
 
 # Description
 
-The `dcos monitoring prometheus values` command returns a list of label values, for a provided label name.
+The `dcos monitoring prometheus values` command returns a list of label values, which can be for a provided label name.
 
 # Usage
 
