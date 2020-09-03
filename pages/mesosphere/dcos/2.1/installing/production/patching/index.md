@@ -37,9 +37,31 @@ If patching is performed on a supported OS with all prerequisites fulfilled, the
 - DC/OS Enterprise downloads can be found [here](https://support.mesosphere.com/hc/en-us/articles/213198586-Mesosphere-Enterprise-DC-OS-Downloads). [enterprise type="inline" size="small" /]
 
 ## Supported patch paths
-- From any current release to the next. For example, a patch from 2.1.4 to 2.1.5 would be supported.
-- From any current release to an identical release. For example, a patch from 2.1.4 to 2.1.4 would be supported. This is useful for making configuration changes.
+- From any current release to the next. For example, a patch from 2.0.4 to 2.0.5 would be supported.
+- From any current release to an identical release. For example, a patch from 2.0.4 to 2.0.4 would be supported. This is useful for making configuration changes.
 
+**DC/OS minor versions for 2.0**
+
+|**Display Icon** | **Service** |
+|---------- | ------- |
+| ⚫ | Supported |
+| ◯ | Not Supported |
+
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Patch<br> From</strong></div></th>
+   <tr>
+    <th></th>
+    <th Colspan = "20" Align = "center"><strong>Patch To</strong></th>
+   </tr>
+    <th></th>
+    <th>2.1.1</th>
+   </tr>
+   <tr>
+    <th>2.1.0</th>
+    <td Align = "center">⚫</td>
+   </tr>
+</table>
 
 ## Modifying DC/OS configuration
 
