@@ -49,6 +49,7 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
    </tr>
     <th></th>
     <th Align = "center">2.1.0</th>
+    <th Align = "center">2.1.1</th>
    </tr>
    <tr>
     <th>1.13.0</th>
@@ -107,6 +108,7 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
    </tr>
     <th></th>
     <th Align = "center">2.1.0</th>
+    <th Align = "center">2.1.1</th>
    </tr>
    <tr>
     <th>2.0.0</th>
