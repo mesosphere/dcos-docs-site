@@ -53,37 +53,46 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
    <tr>
     <th>1.13.0</th>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.1</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.2</th>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.3</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.4</th>
     <td Align = "center">◯</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.5</th>
+    <td Align = "center">◯</td>
     <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>1.13.6</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.13.7</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>1.13.9</th>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
 </table>
@@ -102,29 +111,36 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
    <tr>
     <th>2.0.0</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>2.0.1</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>2.0.2</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>2.0.3</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">◯</td>
    </tr>
    <tr>
     <th>2.0.4</th>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>2.0.5</th>
     <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
    </tr>
    <tr>
     <th>2.0.6</th>
+    <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
   </table>
