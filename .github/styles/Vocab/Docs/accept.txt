@@ -14,3 +14,5 @@ Kubernetes
 component
 addon
 dcos
+namespace
+namespaced
