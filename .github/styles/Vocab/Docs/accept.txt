@@ -21,3 +21,4 @@ Grafana
 Alertmanager
 Pushgateway
 nginx
+kubectl
