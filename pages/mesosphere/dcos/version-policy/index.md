@@ -64,12 +64,6 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     </tr>
     <tr>
-        <td>CentOS 8.*</td>
-        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
-    </tr>
-    <tr>
         <td>CentOS 7.*</td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
         <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
@@ -84,12 +78,6 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
     <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
     <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    </tr>
-    <tr>
-        <td>RHEL 8.*</td>
-        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
-        <td><p style="text-align: center;">Docker CE 18.09.1</p></td>
     </tr>
     <tr>
         <td>RHEL 7.*</td>
