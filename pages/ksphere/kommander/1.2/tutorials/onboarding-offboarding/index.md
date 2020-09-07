@@ -1,0 +1,43 @@
+---
+layout: layout.pug
+navigationTitle: Onboarding and offboarding a user in Kommander
+title: Onboarding and offboarding a user in Kommander
+menuWeight: 1
+excerpt: Authorize a group and add or remove users in it.
+---
+
+## Before you begin
+
+This procedure requires the following configurations and background:
+
+- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.2/install/).
+- A configured [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/).
+- Some familiarity with [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) principles.
+- A configured [group](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) in Kommander.
+
+## Giving access to a certain group
+
+You can give access for a group to certain objects by creating policies that bind that group to a role. You can use roles available by default such as _View Role_ or create custom fine-grained roles fitting your use-cases.
+
+You can use the Kommander UI or the `kubectl` CLI to create policies, as explained in the [role-based access control configuration tutorial](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/configure-rbac/). This tutorial will explain you how to offer a certain access to a given group.
+
+## Adding and removing a member to a group
+
+Everything related to members happens in the Identity Providers section of Kommander.
+
+You can add members in a group while creating a group and edit the members in the group later.
+
+![Create Group Add Members](/ksphere/kommander/1.2/img/access-control-create-group.png)
+
+To remove a member from a group, use the cross at the right of the member name. You can list the groups in the `Identity Providers` section and, from there, access to the list members to edit it.
+
+Once a member is part of a group, it is then possible to login to the clusters targeted by the group's roles using the user's credentials. This will require to use the right Identity Provider (GitHub, LDAP, or a configured OIDC provider).
+
+## Related information
+
+- [Installing and configuring Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/install/)
+- [Identity Providers in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/)
+- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/)
+- [Granting access to Kubernetes resources in the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
+- [Access control in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/operations/access-control/)
+- [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
