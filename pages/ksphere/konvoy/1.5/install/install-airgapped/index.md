@@ -191,20 +191,32 @@ spec:
 
 The RPM packages installed by Konvoy:
 
-* yum-plugin-versionlock
 * chrony
-* openssl
-* libseccomp
-* container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
+* conntrack
 * containerd.io
-* nfs-utils
-* kubectl
-* kubernetes-cni
-* kubelet
+* container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
 * cri-tools
+* ebtables
+* ethtool
+* iproute
+* iptables
 * kubeadm
-* nvme-cli (only on AWS)
+* kubectl
+* kubelet
+* kubernetes-cni
+* libblkid
+* libnetfilter_cthelper
+* libnetfilter_cttimeout
+* libnetfilter_queue
+* libseccomp
+* libuuid
+* nfs-utils
 * nvidia-container-runtime (for GPU enabled machines)
+* nvme-cli (only on AWS)
+* openssl
+* socat
+* util-linux
+* yum-plugin-versionlock
 
 There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories
 
