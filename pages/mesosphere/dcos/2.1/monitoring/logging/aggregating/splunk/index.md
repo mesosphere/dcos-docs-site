@@ -146,7 +146,7 @@ For each agent node in your DC/OS cluster:
 
 
 
-# What's next
+ ## Get more details
 
 For details on how to filter your logs with Splunk, see [Filtering logs with Splunk][3].
 
