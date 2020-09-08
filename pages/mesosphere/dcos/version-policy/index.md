@@ -8,7 +8,7 @@ excerpt: DC/OS version lifecycle and compatibility matrix
 model: /mesosphere/dcos/data.yml
 ---
 
-The Version Policy page was updated on 26 June, 2020.
+The Version Policy page was updated on 08 September, 2020.
 
 # Mesosphere DC/OS Version Lifecycle and Compatibility Matrix
 
