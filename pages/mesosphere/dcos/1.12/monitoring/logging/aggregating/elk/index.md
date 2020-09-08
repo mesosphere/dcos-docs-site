@@ -140,7 +140,7 @@ For example, your `logrotate` configuration should look like this:
 }
 ```
 
-# What's Next
+## Get more details
 
 For details on how to filter your logs with ELK, see [Filtering DC/OS logs with ELK][3].
 
