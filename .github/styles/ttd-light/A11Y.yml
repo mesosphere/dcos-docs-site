@@ -2,6 +2,6 @@
 extends: substitution
 message: Consider using '%s' instead of '%s'
 ignorecase: true
-level: error
+level: warning
 swap:
   (?:click|press): "'select'"
