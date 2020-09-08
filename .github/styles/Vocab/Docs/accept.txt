@@ -22,3 +22,8 @@ Alertmanager
 Pushgateway
 nginx
 kubectl
+Splunk
+Logstash
+config
+systemd
+Kibana
