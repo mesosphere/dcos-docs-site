@@ -82,7 +82,7 @@ $ sudo systemctl daemon-reload
 $ sudo systemctl restart dcos-fluent-bit.service
 ```
 
-## Get more details
+# What's Next
 
 For details on how to filter your logs with ELK, see [Filtering DC/OS logs with ELK][2].
 

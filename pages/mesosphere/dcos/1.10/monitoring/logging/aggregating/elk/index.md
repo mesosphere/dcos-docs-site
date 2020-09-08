@@ -140,7 +140,7 @@ For example your logrotate configuration should look like this:
 
 The agent node Filebeat configuration expects tasks to write logs to `stdout` and `stderr`. Some DC/OS services, including Cassandra and Kafka, do not write logs to `stdout` and `stderr`. If you want to log these services, you must customize your agent node Filebeat configuration.
 
-## Get more details
+# What's Next
 
 For details on how to filter your logs with ELK, see [Filtering DC/OS logs with ELK][3].
 
