@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
@@ -51,9 +51,11 @@ What this means is that you do not have to worry about which machines it runs on
 Instead, you can focus on what matters to you: the model and a REST API you can call for predictions.
 If you are familiar with Kubernetes, you can even do [out-of-the-box canary deployments](https://github.com/kubeflow/kfserving/tree/master/docs/samples/tensorflow), in which a percentage of traffic is directed to the 'canary (in the coal mine)' with the latest model to ensure it functions properly before completely rolling out any (potentially problematic) updates.
 
-If you prefer to use a more sophisticated model or a TensorFlow-based one, you can check out the relevant notebooks: [MNIST with TensorFlow](../training/tensorflow) or [MNIST with PyTorch](../training/pytorch).
+If you prefer to use a more sophisticated model or a PyTorch-based one, you can check out the relevant notebooks: [MNIST with TensorFlow](../training/tensorflow) or [MNIST with PyTorch](../training/pytorch).
 
 KFServing reads the model file from [MinIO](https://min.io/), an open-source S3-compliant object storage tool, which is already included with your Kubeflow installation.
+
+We also use MinIO to provide the input data set to the pipeline. This way it can run without a connection to the Internet.
 
 ### What You'll Need
 This notebook.
@@ -74,7 +76,7 @@ Let's make sure Kubeflow Pipelines is available:
     Author-email: None
     License: UNKNOWN
     Location: /opt/conda/lib/python3.7/site-packages
-    Requires: tabulate, google-auth, Deprecated, kfp-server-api, google-cloud-storage, click, requests-toolbelt, argo-models, strip-hints, jsonschema, PyYAML, kubernetes, cloudpickle
+    Requires: Deprecated, PyYAML, requests-toolbelt, cloudpickle, kubernetes, strip-hints, google-cloud-storage, google-auth, argo-models, click, tabulate, kfp-server-api, jsonschema
     Required-by: 
 
 
@@ -118,7 +120,43 @@ secrets:
 ```
 
     secret/minio-s3-secret created
+    serviceaccount/default configured
 
+
+### Copy input data set into MinIO using its CLI
+
+First, we configure credentials for `mc`, the MinIO command line client.
+We then use it to create a bucket, upload the dataset to it, and set access policy so that the pipeline can download it from MinIO.
+
+
+```python
+! mc alias set minio http://minio-service.kubeflow:9000 minio minio123
+```
+
+    [32;1mmc: [0m[32;1mConfiguration written to `/home/kubeflow/.mc/config.json`. Please update your access credentials.
+    [0m[32;1mmc: [0m[32;1mSuccessfully created `/home/kubeflow/.mc/share`.
+    [0m[32;1mmc: [0m[32;1mInitialized share uploads `/home/kubeflow/.mc/share/uploads.json` file.
+    [0m[32;1mmc: [0m[32;1mInitialized share downloads `/home/kubeflow/.mc/share/downloads.json` file.
+    [0m[m[32mAdded `minio` successfully.[0m
+    [0m
+
+
+```python
+! mc mb minio/tutorial
+```
+
+    [m[32;1mBucket created successfully `minio/tutorial`.[0m
+    [0m
+
+
+```python
+! tar --dereference -czf datasets.tar.gz ./datasets
+! mc cp datasets.tar.gz minio/tutorial/datasets.tar.gz
+! mc policy set download minio/tutorial
+```
+
+    ...ts.tar.gz:  16.14 MiB / 16.14 MiB ┃▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┃ 141.66 MiB/s 0s[0m[0m[m[32;1m[m[32;1mAccess permission for `minio/tutorial` is set to `download`[0m
+    [0m
 
 ## How to Implement Kubeflow Pipelines Components
 As we said before, components are self-contained pieces of code: Python functions.
@@ -140,6 +178,7 @@ For our pipeline, we shall define four components:
 - Train the TensorFlow model
 - Evaluate the trained model
 - Export the trained model
+- Serve the trained model
 
 We also need the current Kubernetes namespace, which we can dynamically grab using [Kubeflow Fairing](../fairing).
 
@@ -167,10 +206,17 @@ How we can define dependencies is explained in the [next section](#How-to-Combin
 ```python
 def download_dataset(data_dir: OutputPath(str)):
     """Download the MNIST data set to the KFP volume to share it among all steps"""
+    import urllib.request
+    import tarfile
+    import os
 
-    import tensorflow_datasets as tfds
+    if not os.path.exists(data_dir):
+        os.makedirs(data_dir)
 
-    tfds.load(name="mnist", data_dir=data_dir)
+    url = "http://minio-service.kubeflow:9000/tutorial/datasets.tar.gz"
+    stream = urllib.request.urlopen(url)
+    tar = tarfile.open(fileobj=stream, mode="r|gz")
+    tar.extractall(path=data_dir)
 ```
 
 ### Component 2: Train the Model
@@ -214,7 +260,7 @@ def train_model(data_dir: InputPath(str), model_dir: OutputPath(str)):
         as_supervised=True,
         with_info=True,
         download=False,
-        data_dir=data_dir,
+        data_dir=f"{data_dir}/datasets",
     )
 
     # See: https://www.tensorflow.org/datasets/keras_example#build_training_pipeline
@@ -227,7 +273,8 @@ def train_model(data_dir: InputPath(str), model_dir: OutputPath(str)):
     ds_train = ds_train.prefetch(tf.data.experimental.AUTOTUNE)
 
     model.fit(
-        ds_train, epochs=5,
+        ds_train,
+        epochs=5,
     )
 
     model.save(model_dir)
@@ -265,7 +312,7 @@ def evaluate_model(
         as_supervised=True,
         with_info=True,
         download=False,
-        data_dir=data_dir,
+        data_dir=f"{data_dir}/datasets",
     )
 
     # See: https://www.tensorflow.org/datasets/keras_example#build_training_pipeline
@@ -347,10 +394,21 @@ def export_model(
         print("{}/{}".format(export_bucket, file["Key"]))
 ```
 
+### Component 5: Serve the Model
+
+Kubeflow Pipelines comes with [a pre-defined KFServing component](https://raw.githubusercontent.com/kubeflow/pipelines/f21e0fe726f8aec86165beca061f64fa730e0ac7/components/kubeflow/kfserving/component.yaml) which can be imported from GitHub repo and reused across the pipelines without
+the need to define it every time. We include a copy with the tutorial to make it work in an air-gapped environment.
+Here's what the import looks like:
+
+
+```python
+kfserving = components.load_component_from_file("kfserving-component.yaml")
+```
+
 ## How to Combine the Components into a Pipeline
 Note that up to this point we have not yet used the Kubeflow Pipelines SDK!
 
-With our four components (i.e. self-contained funtions) defined, we can wire up the dependencies with Kubeflow Pipelines.
+With our four components (i.e. self-contained functions) defined, we can wire up the dependencies with Kubeflow Pipelines.
 
 The call [`components.func_to_container_op(f, base_image=img)(*args)`](https://www.kubeflow.org/docs/pipelines/sdk/sdk-overview/) has the following ingredients:
 - `f` is the Python function that defines a component
@@ -371,7 +429,7 @@ What the `*args` mean is best explained by going forward through the graph:
   Similarly, `metrics` is `evaluateOp.output`.
   The remaining three arguments are regular Python arguments that are static for the pipeline: they do not depend on any step's output being available.
   Hence, they are defined without using `InputPath`.
-  Since it is the last step of the pipeline, we also do not list any `OutputPath` for use in another step.
+- `kfservingOp` is loaded from the external component and its order of execution should be specified explicitly by using `kfservingOp.after(evaluateOp)` function which assigns `exportOp` as a parent.
 
 
 ```python
@@ -383,7 +441,7 @@ def train_and_serve(
     model_version: int,
 ):
     # For GPU support, please add the "-gpu" suffix to the base image
-    BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.4.0-tensorflow-2.2.0"
+    BASE_IMAGE = "mesosphere/kubeflow:1.0.1-0.5.0-tensorflow-2.2.0"
 
     downloadOp = components.func_to_container_op(
         download_dataset, base_image=BASE_IMAGE
@@ -401,19 +459,15 @@ def train_and_serve(
         trainOp.output, evaluateOp.output, export_bucket, model_name, model_version
     )
 
-    # Create an inference server from an external component
-    kfserving_op = components.load_component_from_url(
-        "https://raw.githubusercontent.com/kubeflow/pipelines/f21e0fe726f8aec86165beca061f64fa730e0ac7/components/kubeflow/kfserving/component.yaml"
-    )
-    kfserving = kfserving_op(
-        action="create",
+    kfservingOp = kfserving(
+        action="apply",
         default_model_uri=f"s3://{export_bucket}/{model_name}",
         model_name="mnist",
         namespace=NAMESPACE,
         framework="tensorflow",
     )
 
-    kfserving.after(exportOp)
+    kfservingOp.after(exportOp)
 ```
 
 Just in case it isn't obvious: this will build the Docker images for you.
@@ -541,10 +595,12 @@ def predict_number(model, x_test, image_index):
 
 
 ```python
-import tensorflow as tf
+import numpy as np
 
-(x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
-x_test = x_test / 255.0  # We must transform the data in the same way as before!
+with np.load("datasets/mnist.npz", allow_pickle=True) as f:
+    x_test = (
+        f["x_test"] / 255.0
+    )  # We must transform the data in the same way as before!
 
 image_index = 1005
 
@@ -568,13 +624,13 @@ with open("input.json", "w") as json_file:
 
 ```python
 model = "mnist"
-url = f"http://{model}-predictor-default.{NAMESPACE}.svc.cluster.local/v1/models/{model}:predict"
+url = f"http://{model}.{NAMESPACE}.svc.cluster.local/v1/models/{model}:predict"
 
 ! curl -L $url -d@input.json
 ```
 
     {
-        "predictions": [[8.5606473e-07, 3.70297289e-06, 6.13634074e-06, 0.00199914398, 0.000423449732, 1.81742507e-05, 2.92009634e-08, 0.000312483666, 0.000718666473, 0.996517301]
+        "predictions": [[1.11036842e-08, 4.35403172e-06, 1.09569112e-06, 0.000589079165, 0.000111500791, 6.01926843e-07, 2.57320867e-08, 0.000129002059, 7.77488458e-05, 0.999086499]
         ]
     }
 

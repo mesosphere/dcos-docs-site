@@ -10,7 +10,7 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
 the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.4.0.tar.gz | tar xz</code>
+<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
@@ -99,6 +99,7 @@ import argparse
 import os
 import tempfile
 
+import numpy as np
 import horovod.spark
 import horovod.tensorflow.keras as hvd
 import tensorflow as tf
@@ -106,13 +107,13 @@ from pyspark.sql import SparkSession
 
 
 def get_dataset(rank=0, size=1):
-    (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data('MNIST-data-%d' % rank)
-    x_train = x_train[rank::size]
-    y_train = y_train[rank::size]
-    x_test = x_test[rank::size]
-    y_test = y_test[rank::size]
-    x_train, x_test = x_train / 255.0, x_test / 255.0 # Normalize RGB values to [0, 1]
-    return (x_train, y_train), (x_test, y_test)
+    with np.load('datasets/mnist.npz', allow_pickle=True) as f:
+        x_train = f['x_train'][rank::size]
+        y_train = f['y_train'][rank::size]
+        x_test = f['x_test'][rank::size]
+        y_test = f['y_test'][rank::size]
+        x_train, x_test = x_train / 255.0, x_test / 255.0 # Normalize RGB values to [0, 1]
+        return (x_train, y_train), (x_test, y_test)
 
 
 def get_model():
@@ -289,8 +290,11 @@ To verify the training job, let's first run it on Spark in a local mode:
 
 
 This trains the model in the notebook, but does not distribute the procedure.
-To that end, we have to either mount the code in a volume or build-and-push a container image.
-In this notebook we shall discuss the former, but if you're more interested in the latter, please have a look at the TensorFlow or PyTorch notebooks, where that is described in more detail.
+To that end, we have to build-and-push a container image that contains the code and input dataset.
+
+We include the data set, so that the tutorial works on air-gapped (i.e. private/offline) clusters.
+MNIST data sets are typically downloaded on the fly, which would fail in such scenarios.
+In most realistic cases, the data sets would be available to the cluster as a volume.
 
 ## How to Create a Docker Image with Kubeflow Fairing
 Kubeflow Fairing is a Python SDK that allows you to build, push, and optionally run containerized ML models without leaving Jupyter!
@@ -299,17 +303,18 @@ All you need is the `TRAINER_FILE` and access to a container registry.
 
 ## How to Create a Docker Image Manually
 If you are comfortable with Docker (or prefer to use it as a part of your CI/CD setup), you can create a Dockerfile as follows.
-You do have to download the `TRAINER_FILE` contents to your local machine.
+You do have to download the `TRAINER_FILE` contents and the `datasets` directory to your local machine.
 The Kubernetes cluster does not have a Docker daemon available to build your image, so you must do it locally.
 It uses [containerd](https://containerd.io/) to run workloads (only) instead.
 
 The Dockerfile looks as follows:
 
 ```
-FROM mesosphere/kubeflow:1.0.1-0.4.0-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0-gpu
+FROM mesosphere/kubeflow:1.0.1-0.5.0-spark-3.0.0-horovod-0.19.5-tensorflow-2.2.0
 ADD mnist.py /
+ADD datasets /datasets
 
-ENTRYPOINT ["python", "-u", "/mnist.py"]
+WORKDIR /
 ```
 
 If GPU support is not needed, you can leave off the `-gpu` suffix from the image.
@@ -322,31 +327,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-## How to Mount Code in a Volume
-There is a third option available that is perhaps quicker: we create a [ConfigMap](https://kubernetes.io/docs/concepts/configuration/configmap/) with the code.
-ConfigMaps are ideal for non-sensitive key-value information that is available on all pods. 
-
-
-```python
-! kubectl create configmap horovod-mnist --from-file=$HOROVOD_JOB
-```
-
-    configmap/horovod-mnist created
-
-
-Note that we must use `HOROVOD_JOB` and not `TRAINER_FILE` because the former is available as an environment variable, whereas the latter is only known to the notebook.
-It's also possible to hard code the file name though.
-
-To verify the configuration has been created successfully, we run:
-
-
-```python
-! kubectl get configmap/horovod-mnist
-```
-
-    NAME            DATA   AGE
-    horovod-mnist   1      1s
-
+The image is available as `mesosphere/kubeflow:mnist-spark-1.0.1-0.5.0` in case you want to skip it for now.
 
 ## How to Create a Distributed `SparkApplication`
 The [KUDO Spark Operator](https://github.com/kudobuilder/operators/tree/master/repository/spark/docs) manages Spark applications in a similar way as the [PyTorch](../pytorch) or [TensorFlow](../tensorflow) operators manage `PyTorchJob`s and `TFJob`s, respectively. 
@@ -373,10 +354,10 @@ spec:
   type: Python
   mode: cluster
   pythonVersion: "3"
-  image: mesosphere/kubeflow:1.0.1-0.4.0-spark-2.4.5-horovod-0.19.1-tensorflow-2.2.0
+  image: mesosphere/kubeflow:mnist-spark-1.0.1-0.5.0
   imagePullPolicy: Always  
-  mainApplicationFile: "local:///home/kubeflow/jobs/mnist.py"
-  sparkVersion: "2.4.5"
+  mainApplicationFile: "local:///mnist.py"
+  sparkVersion: "3.0.0"
   restartPolicy:
     type: Never
   arguments:
@@ -389,48 +370,34 @@ spec:
     cores: 1
     memory: "1G"
     labels:
-      version: 2.4.5
+      version: 3.0.0
       metrics-exposed: "true"  
     annotations:
       sidecar.istio.io/inject: "false"
     serviceAccount: default-editor
-    volumeMounts:
-     - mountPath: /home/kubeflow/jobs
-       name: horovod-mnist-vol
   executor:
     cores: 1
     instances: 5
     memory: "512m"
     labels:
-      version: 2.4.5
+      version: 3.0.0
       metrics-exposed: "true"  
     annotations:
       sidecar.istio.io/inject: "false"
-    volumeMounts:
-      - mountPath: /home/kubeflow/jobs
-        name: horovod-mnist-vol
-  volumes:
-    - name: horovod-mnist-vol
-      configMap:
-        name: horovod-mnist
   monitoring:
     exposeDriverMetrics: true
     exposeExecutorMetrics: true
     prometheus:
-      jmxExporterJar: "/opt/spark/prometheus/jmx_prometheus_javaagent-0.11.0.jar"
+      jmxExporterJar: "/prometheus/jmx_prometheus_javaagent-0.11.0.jar"
       port: 8090
 ```
 
     Writing sparkapp-mnist.yaml
 
 
-As you can see in `spec.volumes` we mount the volume `horovod-mnist-vol` with the ConfigMap with our code.
-Each pod will therefore have access to it.
-With `volumeMounts` in both `spec.driver` and `spec.executor` we ensure the code is available to both the Spark [driver and executors](https://spark.apache.org/docs/latest/cluster-overview.html) (in each worker node).
 The operator's user guide explains [how to configure the application](https://github.com/mesosphere/spark-on-k8s-operator/blob/master/docs/user-guide.md).
 
-Please note that in `spec.mainApplicationFile` the file name `mnist.py` is hard coded and it must match the.
-The path (on each pod) is `/home/kubeflow/jobs` because that is the volume mount path as defined in `spec.volumes` where the ConfigMap is mounted.
+Please note that in `spec.mainApplicationFile` the file name `/mnist.py` is hard coded and it must match the file in the docker image.
 
 The annotation `sidecar.istio.io/inject: "false"` disables Istio on the `SparkApplication` level.
 This is not needed if Istio is disabled at the namespace level by your administrator.
@@ -463,12 +430,11 @@ Let's verify the pods are being created according to our specification:
 
 
 ```python
-! kubectl get pods
+! kubectl get pods -l sparkoperator.k8s.io/app-name=horovod-mnist
 ```
 
     NAME                   READY   STATUS      RESTARTS   AGE
     horovod-mnist-driver   0/1     Completed   0          64s
-    sparkles-0             2/2     Running     0          86m
 
 
 We can check the model prediction (as before) by looking at the logs of the driver:
