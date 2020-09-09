@@ -15,13 +15,13 @@ This procedure requires the following configurations and background:
 - Some familiarity with [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) principles.
 - A configured [group](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) in Kommander.
 
-## Giving access to a certain group
+## Give access to a certain group
 
 You can give access for a group to certain objects by creating policies that bind that group to a role. You can use roles available by default such as _View Role_ or create custom fine-grained roles fitting your use-cases.
 
-You can use the Kommander UI or the `kubectl` CLI to create policies, as explained in the [role-based access control configuration tutorial](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/configure-rbac/). This tutorial will explain you how to offer a certain access to a given group.
+You can use the Kommander UI or the `kubectl` CLI to create policies, as explained in the [role-based access control configuration tutorial](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/configure-rbac/). This tutorial explains you how to offer a certain access to a given group.
 
-## Adding and removing a member to a group
+## Add and remove a member to a group
 
 Everything related to members happens in the Identity Providers section of Kommander.
 
@@ -29,9 +29,9 @@ You can add members in a group while creating a group and edit the members in th
 
 ![Create Group Add Members](/ksphere/kommander/1.2/img/access-control-create-group.png)
 
-To remove a member from a group, use the cross at the right of the member name. You can list the groups in the `Identity Providers` section and, from there, access to the list members to edit it.
+Use the cross at the right of the member name to remove a member from a group. You can list the groups in the `Identity Providers` section to access and edit list members.
 
-Once a member is part of a group, it is then possible to login to the clusters targeted by the group's roles using the user's credentials. This will require to use the right Identity Provider (GitHub, LDAP, or a configured OIDC provider).
+Once a member is part of a group, you can login to the clusters targeted by the group's roles using the user's credentials. This requires using the right Identity Provider (GitHub, LDAP, or a configured OIDC provider).
 
 ## Related information
 
