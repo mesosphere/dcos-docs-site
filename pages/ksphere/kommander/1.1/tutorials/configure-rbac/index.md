@@ -44,6 +44,8 @@ The two roles for this persona are:
 - _Cluster Admin Role_: a `ClusterRole` that applies to all target clusters in all workspaces.
 - _Kommander Global Admin Role_: a `ClusterRole` applies to the management cluster.
 
+Users in groups bound to these roles will have admin rights across all clusters managed on Kommander, including the management cluster.
+
 #### Using the Kommander UI
 
 In the Kommander UI, do the following:
