@@ -18,9 +18,11 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 
 ### DC/OS Fixed and Improved Issues
 
-- Fixed 
+- COPS-6411 
 
-COPS-6411
+
+- An issue where selecting *Install DC/OS CLI* presents a URL to a binary that is incorrect as been fixed. (COPS-6360) 
+
 COPS-6360
 COPS-6355
 COPS-6329
