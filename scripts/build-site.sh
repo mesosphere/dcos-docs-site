@@ -19,4 +19,8 @@ fi
 GIT_BRANCH=$GIT_BRANCH \
 ALGOLIA_PRIVATE_KEY=$ALGOLIA_PRIVATE_KEY \
 METALSMITH_SKIP_SECTIONS=$METALSMITH_SKIP_SECTIONS \
+
+# pinning a docker-compose dependency
+pip install pip install pyrsistent==0.16.0 
+
 docker-compose build docs
