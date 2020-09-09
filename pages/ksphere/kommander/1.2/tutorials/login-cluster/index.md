@@ -17,40 +17,40 @@ This procedure requires the following configurations and background:
 
 ## Access a cluster
 
-If you are a user of a group that has access to a cluster managed by Kommander, you can use the landing page of the Kommander cluster to connect to it.
+If your group can access a cluster managed by Kommander, you can connect to that cluster from the Kommander landing page.
 
-In this example, the Kommander cluster has two managed clusters on Azure but, as a user, I can only access the management cluster.
+In this example, the Kommander cluster has two managed clusters on Azure but, as a user, you can only access the management cluster.
 
-First, access the landing page provided by an administrator and select "Generate kubectl Token":
+1. Go to the landing page, provided by an administrator, and select **Generate kubectl Token**.
 
 ![Konvoy Landing Page](/ksphere/kommander/1.2/img/konvoy-landing-page.png)
 
-You will then have to choose the cluster you wish to log in to:
+2. Select the cluster you want to log into.
 
 ![Generate Kubernetes Token](/ksphere/kommander/1.2/img/generate-kubernetes-token.png)
 
-As a user having access to the management cluster, select the `Main` cluster and then log in using the identity provider available (GitHub):
+3. As a user having access to the management cluster, select the `Main` cluster and log in using the identity provider available (GitHub).
 
 ![Login GitHub](/ksphere/kommander/1.2/img/login-identity-provider.png)
 
-The user interface provides instructions to attach `kubectl` to the cluster:
+4. Attach `kubectl` to the cluster using the interface instructions.
 
 ![Connection Instructions](/ksphere/kommander/1.2/img/kubectl-connection-instructions.png)
 
-Once you will have followed these instructions, your local `kubectl` will be able to communicate with the cluster.
-Depending on your rights, you will be able to view and edit different kind of api-resources.
+Your local `kubectl` can now communicate with the cluster.
+Depending on your rights, you can view and edit different api-resources.
 
-## Switch from a cluster to another
+## Switch from a cluster to another cluster
 
-If you wish to login to another cluster that is part of your Kommander infrastructure, you will have to follow the steps described above with another cluster.
+To log in to another cluster that is part of your Kommander infrastructure, use the [Access a cluster](*access-a-cluster) procedure again for the other cluster.
 
-Once `kubectl` is attached to this new cluster, you can switch between clusters using [contexts](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#context). Open-source tools such as [`kubectx`](https://github.com/ahmetb/kubectx) are available to make this operation faster.
+Once `kubectl` is on this new cluster, you can switch between clusters using [contexts](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/#context). Open-source tools such as [`kubectx`](https://github.com/ahmetb/kubectx) can make this operation faster.
 
-### Messages when attached to a cluster that you do not have access to
+### Messages when attached to a cluster that you do not have access
 
-The instructions described above actually work for any clusters (management and attached ones) even if you do not have access to it.
+The [Access a Cluster](#access_a_cluster) instructions work for any clusters (management and attached ones) even if you do not have access to them.
 
-The difference will be that, once you have attached the cluster, none of the `kubectl` commands will succeed as the user does not have access:
+The difference is that, once you have attached the cluster, none of the `kubectl` commands will succeed as the user does not have access:
 
 ```
 $ kubectl get pods -A
