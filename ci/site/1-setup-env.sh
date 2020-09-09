@@ -14,6 +14,9 @@ apk add --upgrade curl libcurl
 echo "Installing jq..."
 apk add --update jq
 
+echo "pin pyristent."
+pip install pyrsistent==0.16.0
+
 echo "Installing docker-compose..."
 pip install docker-compose
 
