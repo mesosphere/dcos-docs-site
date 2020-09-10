@@ -16,7 +16,12 @@ New customers contact your sales representative or <a href="mailto:sales@mesosph
 # Release Summary
 DC/OS is a distributed operating system that enables you to manage resources, application deployment, data services, networking, and security in an on-premise, cloud, or hybrid cluster environment.
 
-### DC/OS Fixed and Improved Issues
+## Components
+DC/OS 1.13.10 includes the following updated components:
+
+- CockroachDB Python 0.3.5 (D2IQ-62221)
+
+## DC/OS Fixed and Improved Issues
 
 DC/OS 1.13.10 fixes the following issues:
 
