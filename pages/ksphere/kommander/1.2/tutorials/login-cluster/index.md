@@ -11,7 +11,7 @@ excerpt: Access a specific cluster as a user
 This procedure requires the following configurations and background:
 
 - A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.2/install/).
-- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/) (this tutorial uses GitHub's identity provider).
+- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/). This tutorial uses GitHub's identity provider.
 - A configured [group](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) in Kommander.
 - At least one user in that group.
 
@@ -29,9 +29,9 @@ In this example, the Kommander cluster has two managed clusters on Azure but, as
 
 ![Generate Kubernetes Token](/ksphere/kommander/1.2/img/generate-kubernetes-token.png)
 
-3. As a user having access to the management cluster, select the `Main` cluster and log in using the identity provider available (GitHub).
+3. As a user having access to the management cluster, select the `Main` cluster and log in using an identity provider.
 
-![Login GitHub](/ksphere/kommander/1.2/img/login-identity-provider.png)
+![Login Identity Provider](/ksphere/kommander/1.2/img/login-identity-provider.png)
 
 4. Attach `kubectl` to the cluster using the interface instructions.
 
