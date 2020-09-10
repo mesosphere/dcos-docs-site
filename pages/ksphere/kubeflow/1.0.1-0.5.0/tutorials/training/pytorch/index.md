@@ -19,6 +19,7 @@ tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators a
 will likely not work.</p>
 
 
+
 # Training MNIST with PyTorch
 
 ## Introduction
@@ -61,7 +62,7 @@ Before we proceed, let's check that we're using the right image, that is, [PyTor
     torchvision              0.6.0a0+82fd1c8    
 
 
-To package the trainer in a container image, we shall need a file (on our cluster) that contains the code as well as a file with the resource definitition of the job for the Kubernetes cluster:
+To package the trainer in a container image, we shall need a file (on our cluster) that contains the code as well as a file with the resource definition of the job for the Kubernetes cluster:
 
 
 ```python
@@ -533,7 +534,7 @@ All you need to know for that is that Katib looks for `key=value` entries in the
     A max pooling layer simply picks the largest value of pixels in a small (rectangular) neighbourhood of a single channel (e.g. RGB).
     This has the effect of making features <em>locally</em> translation-invariant, which is often desired: whether a feature of interest is on the left or right edge of a pooling window, which is also referred to as a kernel, is largely irrelevant to the problem of image classification.
     Note that this may not always be a desired characteristic and depends on the size of the pooling kernel.
-    For instance, the precice location of tissue damage in living organisms or defects on manufactured products may be very significant indeed.
+    For instance, the precise location of tissue damage in living organisms or defects on manufactured products may be very significant indeed.
     Pooling kernels are generally chosen to be relatively small compared to the dimensions of the input, which means that local translation invariance is often desired. <br><br>
     Another common component of CNNs is a dropout layer.
     <a href="http://jmlr.org/papers/v15/srivastava14a.html">Dropout</a> provides a mechanism for regularization that has proven successful in many applications.
@@ -732,7 +733,7 @@ The container image specified (twice) is what is for the code shown above.
 Still, it's best to change the image name listed under the comments of the specification to use an equivalent image in your own container registry, to ensure everythng works as expected.
 
 The job can run in parallel on CPUs or GPUs, provided these are available in your cluster.
-To switch to CPUs or define resource limites, please adjust `spec.containers.resources` as required.
+To switch to CPUs or define resource limits, please adjust `spec.containers.resources` as required.
 
 You can either execute the following commands on your local machine with `kubectl` or directly from the notebook.
 If you do run these locally, you cannot rely on cell magic, so you have to manually copy-paste the variables' values wherever you see `$SOME_VARIABLE`.

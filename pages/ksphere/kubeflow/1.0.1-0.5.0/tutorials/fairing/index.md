@@ -19,6 +19,7 @@ tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators a
 will likely not work.</p>
 
 
+
 <div class="alert alert-block alert-danger">
     Kubeflow Fairing does not support docker registries using a self-signed TLS certificate, certificate chaining nor insecure (plaintext HTTP) registries.
 </div>

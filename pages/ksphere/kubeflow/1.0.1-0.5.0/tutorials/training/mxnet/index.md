@@ -19,6 +19,7 @@ tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators a
 will likely not work.</p>
 
 
+
 # Training MNIST with MXNet
 
 ## Introduction
@@ -223,7 +224,7 @@ def conv_layer(input_layer, kernel, num_filters, activation):
     A max pooling layer simply picks the largest value of pixels in a small (rectangular) neighbourhood of a single channel (e.g. RGB). 
     This has the effect of making features <em>locally</em> translation-invariant, which is often desired: whether a feature of interest is on the left or right edge of a pooling window, which is also referred to as a kernel, is largely irrelevant to the problem of image classification.
     Note that this may not always be a desired characteristic and depends on the size of the pooling kernel.
-    For instance, the precice location of tissue damage in living organisms or defects on manufactured products may be very significant indeed.
+    For instance, the precise location of tissue damage in living organisms or defects on manufactured products may be very significant indeed.
     Pooling kernels are generally chosen to be relatively small compared to the dimensions of the input, which means that local translation invariance is often desired. <br><br>
     Another common component of CNNs is a dropout layer.
     <a href="http://jmlr.org/papers/v15/srivastava14a.html">Dropout</a> provides a mechanism for regularization that has proven successful in many applications.
