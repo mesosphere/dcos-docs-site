@@ -31,6 +31,10 @@ In this procedure, using these default roles, you will create four different per
 
 If you have not done so already, create a group to represent each of the personas. For more details on groups, see the [Identity Providers page](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) and the [Identity Provider tutorial](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/).
 
+### Federation of personas
+
+Personas created in a workspace will get federated in all attached clusters. This means that policies created in a workspace will result in `federatedclusterrolebindings` objects in the Kommander cluster and the federation of `clusterrolebindings` objects in the attached clusters binding a group to specific roles.
+
 ## Grant access to personas
 
 You have already assigned users to groups that represent the four different personas. You must now change resource access levels for each persona, and associate roles with the groups using policies.
