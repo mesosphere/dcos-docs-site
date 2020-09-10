@@ -483,7 +483,7 @@ What is supported is visible in `main()` of `mnist.py`.
 
 The job can run in parallel on CPUs or GPUs, provided these are available in your cluster.
 To switch to CPUs or define resource limits, please adjust `spec.containers.resources` as required.
-It is best to change the image name listed under the comment of the specification to use an equivalent image in your own container registry, to ensure everythng works as expected.
+It is best to change the image name listed under the comment of the specification to use an equivalent image in your own container registry, to ensure everything works as expected.
 
 You can either execute the following commands on your local machine with `kubectl` or directly from the notebook.
 If you do run these locally, you cannot rely on cell magic, so you have to manually copy-paste the variables' values wherever you see `$SOME_VARIABLE`.
