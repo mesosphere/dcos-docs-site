@@ -730,7 +730,7 @@ Custom training arguments can be passed to the container by means of the `spec.c
 What is supported is visible in `main()` of `mnist.py`.
 
 The container image specified (twice) is what is for the code shown above.
-Still, it's best to change the image name listed under the comments of the specification to use an equivalent image in your own container registry, to ensure everythng works as expected.
+Still, it's best to change the image name listed under the comments of the specification to use an equivalent image in your own container registry, to ensure everything works as expected.
 
 The job can run in parallel on CPUs or GPUs, provided these are available in your cluster.
 To switch to CPUs or define resource limits, please adjust `spec.containers.resources` as required.
