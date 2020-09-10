@@ -37,7 +37,7 @@ DC/OS 1.13.10 fixes the following issues:
 - An unknown response code was received when querying DC/OS health endpoints. (COPS-5915, COPS-5979, D2IQ-65296, D2IQ-69169) 
 - Unmounting external persistent volumes in Mesos. (COPS-5920, D2IQ-65497)
 - The dcos-diagnostics component now rate limits diagnostic checks to avoid performance slowdowns in large clusters. (COPS-5915)
-- A master node was not able to rejoin a cluster after failure/restart when another master is offline or being upgraded. (COPS-1754)
+- A master node was not able to rejoin a cluster after failure/restart when another master was offline or being upgraded. (COPS-1754)
 - Selecting *Enter* in the Secret ID textbox, reloaded the DC/OS UI. (D2IQ-14964)
 - Tasks will not start until the Telegraf creates */run/dcos/telegraf/dcos_statsd.sock*. (COPS-6355)
 - Marathon applications were not always scheduling new instances as expected. (COPS-6329)
