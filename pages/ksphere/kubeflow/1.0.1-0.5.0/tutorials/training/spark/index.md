@@ -19,6 +19,7 @@ tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators a
 will likely not work.</p>
 
 
+
 # Training MNIST with Spark and Horovod
 
 ## Introduction
@@ -53,7 +54,7 @@ For Kubernetes commands to be run outside of the cluster, [`kubectl`](https://ku
 ## Prerequisites
 All pre-built images include Spark and Horovod, so we're ready to go.
 
-To package the trainer in a container image, we shall need a file (on our cluster) that contains the code as well as a file with the resource definitition of the job for the Kubernetes cluster:
+To package the trainer in a container image, we shall need a file (on our cluster) that contains the code as well as a file with the resource definition of the job for the Kubernetes cluster:
 
 
 ```python
