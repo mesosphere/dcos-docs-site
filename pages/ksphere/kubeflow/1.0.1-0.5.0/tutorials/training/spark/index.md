@@ -8,15 +8,15 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>All tutorials are available in Jupyter Notebook format. To download
-the tutorials run
-<code>curl -L https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz | tar xz</code>
+<p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
+[download](https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz). You can either
+download them to a local computer and upload to the running Jupyter Notebook or run
+<code>wget -O - https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
 </p>
 <p class="message--note"><strong>NOTE: </strong>Please note that these notebook tutorials have been built for and
 tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators and custom Docker images, these notebook
 will likely not work.</p>
-
 
 
 # Training MNIST with Spark and Horovod
