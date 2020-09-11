@@ -15,7 +15,7 @@ This section will guide you to the process of mounting host volume into {{ model
 
 Assuming that there is a volume on the host `/path/to/data` where your data resides and ownership of this volume is `1000:1000` that means User ID is 1000 and Group ID is also 1000.
 
-<p class="message--note"><strong>NOTE: </strong> The User/Group ID should be decided at the initial install of the service, specially User ID. We will not be able to change it for the running service.</p>
+<p class="message--important"><strong>NOTE: </strong> The User/Group ID should be decided at the initial install of the service, specially User ID. We will not be able to change it for the running service.</p>
 
 To mount this volume into the service, configuration would be as follows:
 
