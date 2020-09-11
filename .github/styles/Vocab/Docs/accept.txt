@@ -5,6 +5,7 @@ autoscal(s|ing)
 Cassandra
 checkpoint(s|ed|ing)
 Chronos
+CNTK
 component
 Conda
 Conductor
@@ -43,6 +44,7 @@ Nagios
 namespace
 namespaced
 nginx
+Nvidia
 onboarding
 overfit(s|ted|ting)
 Percona
@@ -52,6 +54,7 @@ Prometheus
 Pushgateway
 PyTorch
 repo
+scikit-learn
 serverless
 sigmoidal
 softmax
