@@ -38,6 +38,7 @@ exceptions:
   - NET
   - NOTE
   - NVDA
+  - OIDC
   - OSS
   - PATH
   - PDF
