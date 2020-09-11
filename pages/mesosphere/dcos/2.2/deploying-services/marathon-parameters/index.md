@@ -100,11 +100,12 @@ The container information.
 
 - **volumes** The volumes accessible to the container.
     - **containerPath** The path where your container will read and write data.
-    - **external** An external persistent volume. See [External Persistent Volumes](/mesosphere/dcos/2.2/storage/external-storage/).
-        - **name** Name that your volume driver uses to look up the external volume.
-        - **provider** The storage provider.
-        - **options** Which Docker volume driver to use for storage. The only Docker volume driver supported by DC/OS is [REX-Ray](/mesosphere/dcos/2.2/storage/external-storage/).
-        - **size** The size (in GiB) of the external persistent volume.
+    - **external** An external persistent volume. See [External Storage](/mesosphere/dcos/2.2/storage/external-storage/).
+        - **name** The unique name or ID that your storage provider uses to look up the external volume.
+        - **provider** The storage provider; this could be "dvdi" or "csi".
+        - **options** This specifies the provider-specific options. For a DVDI volume, it will include which Docker volume driver to use for storage. The only Docker volume driver supported by DC/OS is [REX-Ray](/mesosphere/dcos/2.2/storage/external-storage/dvdi/). For a CSI volume, a variety of [other options](mesosphere/dcos/2.2/storage/external-storage/csi/) are possible.
+        - **size** The size (in GiB) of the external persistent volume; only relevant for DVDI volumes.
+        - **pluginName** The name of the CSI plugin which will attach this volume; only relevant for CSI volumes.
     - **hostPath** The host path.
     - **mode** The access mode of the volume, either read-write (`RW`) or read-only (`RO`).
     - **persistent** A local persistent volume. See [Local Persistent Volumes](/mesosphere/dcos/2.2/storage/persistent-volume/).

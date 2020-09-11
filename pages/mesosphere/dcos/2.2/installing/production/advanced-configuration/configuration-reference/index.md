@@ -770,7 +770,7 @@ The <a href="https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/" target=
             tasks:
               logTimeout: 5m
 
-See the external persistent volumes [documentation](/mesosphere/dcos/{{ model.folder_version }}/storage/external-storage/) for information on how to create your configuration.
+See the DVDI volumes [documentation](/mesosphere/dcos/2.2/storage/external-storage/dvdi/) for information on how to create your configuration.
 
 If the `rexray_config` parameter is provided, its contents are used verbatim for REX-Ray's configuration. This lets you define completely custom REX-Ray configurations which integrate with various [external storage providers]( https://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/). However, if you upgrade your cluster to a version that includes an updated version of REX-Ray, you must ensure that your `rexray_config` parameter is compatible with the newer version of REX-Ray.
 

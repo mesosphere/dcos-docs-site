@@ -1,210 +1,27 @@
 ---
 layout: layout.pug
-navigationTitle:  External Persistent Volumes
-title: External Persistent Volumes
+navigationTitle:  External Storage
+title: External Storage
 menuWeight: 20
-excerpt: Using external persistent volumes with Marathon
+excerpt: Using external storage in DC/OS
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 beta: false
 enterprise: false
 ---
 
-Use external volumes when fault tolerance is crucial for your app. If a host fails, the native Marathon instance reschedules your app on another host, along with its associated data, without user intervention. External volumes also typically offer a larger amount of storage.
+"External storage" is any type of storage which may be mounted from multiple nodes in a cluster. DC/OS provides two methods for using external volumes with your workloads:
 
-Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon's Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
+# Container Storage Interface
 
-Note that volume sizes are specified in gibibyte (GiB) units.
- 
-# Creating an application with an external persistent volume
+The [Container Storage Interface](https://github.com/container-storage-interface/spec/blob/master/spec.md), or CSI, is a specification which is currently being widely adopted by storage vendors in the cloud-native community. Each vendor produces a "driver" which runs on each agent and interacts with the storage backend to attach volumes to the node. Because this specification has gained acceptance as the standard method for interacting with storage providers in a datacenter environment, the vendor-specific CSI driver implementations should be developed and well-supported long into the future.
 
-## Marathon app definition
+Currently, the drawback of using CSI volumes in DC/OS is that they must be pre-provisioned manually; we do not yet provide automatic, dynamic volume provisioning. While this will be possible in the future, if you require that volumes be automatically created for services at launch time right now, we recommend that you use DVDI volumes, detailed below.
 
-You can specify an external volume in your [Marathon app definition][6].
+For more information, see the instructions for [using CSI volumes with Marathon](/mesosphere/dcos/2.2/storage/csi/).
 
-### Using the Universal Container Runtime
+# Docker Volume Driver Isolator
 
-The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You will know that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
+The Docker Volume Driver Isolator (DVDI) is a component in DC/OS which allows you to use external volumes with your tasks which are mounted by Docker Volume Drivers. The Docker Volume Driver interface is not widely-adopted, and likely will not be supported too long into the future.
 
-```json
-{
-  "id": "hello",
-  "instances": 1,
-  "cpus": 0.1,
-  "mem": 32,
-  "cmd": "date >> test-rexray-volume/test.txt; cat test-rexray-volume/test.txt",
-  "container": {
-    "type": "MESOS",
-    "volumes": [
-      {
-        "containerPath": "test-rexray-volume",
-        "external": {
-          "size": 100,
-          "name": "my-test-vol",
-          "provider": "dvdi",
-          "options": { "dvdi/driver": "rexray" }
-          },
-        "mode": "RW"
-      }
-    ]
-  },
-  "upgradeStrategy": {
-    "minimumHealthCapacity": 0,
-    "maximumOverCapacity": 0
-  }
-}
-```
-
-#### Volume configuration options
-
--  `containerPath`: The path where the volume is mounted inside the container. For Mesos external volumes, this must be a single-level path relative to the container; it cannot contain a forward slash (`/`). For more information, see [the REX-Ray documentation on data directories][7].
--  `mode`: The access mode of the volume. Currently, `"RW"` is the only possible value and will let your application read from and write to the volume.
--  `external.size`: The size of the volume in **GiB**.
--  `external.name`: The name that your volume driver uses to look up your volume. When your task is staged on an agent, the volume driver queries the storage service for a volume with this name. If one does not exist, it is [created implicitly][8]. Otherwise, the existing volume is reused.
--  `external.options["dvdi/driver"]`: which Docker volume driver to use for storage. The only Docker volume driver provided with DC/OS is `rexray`. Learn more about [REX-Ray][9].
--  You can specify additional options with `container.volumes[x].external.options[optionName]`. The dvdi provider for Mesos containers uses `dvdcli`, which offers the following [options][10]. The availability of any option depends on your volume driver.
--  Create multiple volumes by adding additional items in the `container.volumes` array.
--  You cannot change volume parameters after you create the application.
--  Marathon will not launch apps with external volumes if `upgradeStrategy.minimumHealthCapacity` is greater than 0.5, or if `upgradeStrategy.maximumOverCapacity` does not equal 0.
-
-### Using a Docker Engine
-
-Below is a sample app definition that uses a Docker Engine and specifies an external volume. The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
-
-```json
-{
-  "id": "/test-docker",
-  "instances": 1,
-  "cpus": 0.1,
-  "mem": 32,
-  "cmd": "date >> /data/test-rexray-volume/test.txt; cat /data/test-rexray-volume/test.txt",
-  "container": {
-    "type": "DOCKER",
-    "docker": {
-      "image": "alpine:3.1",
-      "network": "HOST",
-      "forcePullImage": true
-    },
-    "volumes": [
-      {
-        "containerPath": "/data/test-rexray-volume",
-        "external": {
-          "name": "my-test-vol",
-          "provider": "dvdi",
-          "options": { "dvdi/driver": "rexray" }
-        },
-        "mode": "RW"
-      }
-    ]
-  },
-  "upgradeStrategy": {
-    "minimumHealthCapacity": 0,
-    "maximumOverCapacity": 0
-  }
-}
-```
-
-#### Volume configuration options
-
-* `containerPath` must be absolute.
-*  Only certain versions of Docker are compatible with the REX-Ray volume driver. Refer to the [REX-Ray documentation][11].
-
-## Create an application from the DC/OS UI
-
-1. Click the **Services** tab, then **RUN A SERVICE**.
-1. If you are using a Docker container, click **Container Settings** and configure your container runtime.
-1. Click **Volumes** and enter your Volume Name and Container Path.
-1. Click **Deploy**.
-
-<a name="implicit-vol"></a>
-
-# Implicit volumes
-
-The default implicit volume size is 16 GiB. If you are using the Universal Container Runtime, you can modify this default for a particular volume by setting `volumes[x].external.size`. You cannot modify this default for a particular volume if you are using the Docker Engine. For both runtimes, however, you can modify the default size for all implicit volumes by modifying the [REX-Ray configuration][4].
-
-# Scaling your app
-
-Apps that use external volumes can only be scaled to a single instance because a volume can only attach to a single task at a time.
-
-If you scale your app down to 0 instances, the volume is detached from the agent where it was mounted, but it is not deleted. If you scale your app up again, the data that was associated with it is still be available.
-
-# Using 3rd party Docker volume driver
-
-If you want to use a 3rd party Docker volume driver rather than REX-Ray (e.g., [NetApp Trident](https://github.com/NetApp/trident)), you will need to take the following steps on each agent node (Trident is used as an example in the steps below):
-
-1. Install the volume driver as a Docker plugin.
-    ```
-    $ docker plugin install netapp/trident-plugin:19.10 --alias netapp --grant-all-permissions
-    ```
-
-1. Register the volume driver to Docker plugin directory. Refer to [Docker Plugin API](https://docs.docker.com/engine/extend/plugin_api/#plugin-discovery) to learn how Docker discovers plugins.
-
-    ```
-    $ sudo mkdir -p /etc/docker/plugins/
-    $ sudo bash -c 'echo "unix:///run/docker/plugins/<plugin-id>/netapp.sock" > /etc/docker/plugins/netapp.spec'
-    ```
-
-Now the volume driver is ready for you to use it in DC/OS. When you create an application, you need to set the option `external.options["dvdi/driver"]` to the name of the volume driver (e.g., `netapp`).
-
-# Potential issues
-
-*   You can assign only one task per volume. Your storage provider might have other limitations.
-*   The volumes you create are not automatically cleaned up. If you delete your cluster, you must go to your storage provider and delete the volumes you no longer need. If you're using EBS, find them by searching by the `container.volumes.external.name` that you set in your Marathon app definition. This name corresponds to an EBS volume `Name` tag.
-*   Volumes are namespaced by their storage provider. Choose unique volume names to avoid conflicts.
-*   If you are using Docker, you must use a compatible Docker version. Refer to the [REX-Ray documentation][11] to learn which versions of Docker are compatible with the REX-Ray volume driver.
-*   Launch time might increase for applications that create volumes implicitly. The amount of the increase depends on several factors which include the size and type of the volume. Your storage provider's method of handling volumes can also influence launch time for implicitly created volumes.
-
-##   EBS specific
-Volumes created on the same AWS account share a namespace. Choose unique volume names to avoid conflicts when multiple clusters are launched under the same account.
-
-EBS volumes are also namespaced by their availability zone (AZ), and an EBS volume [can only be attached to an EC2 instance in the same AZ][12]. As a result, attempts to launch a task in an agent running in a different AZ will lead to the creation of a new volume of the same name. If you create a cluster in one AZ, destroy it, be sure to create your cluster in the same AZ if you wish to reuse any external volumes. If a cluster spans multiple AZs, use Marathon constraints to only launch an instance in the same AZ.
-
-REX-Ray by default will fail after 13 EBS volumes are attached. Use the [config option useLargeDeviceRange to extend this limit][13], which was introduced in RexRay v0.11.4.
-
-EBS volumes present as non-volatile memory express (NVMe) devices on certain newer EC2 instance types. Support for NVMe was only added to RexRay in v0.11.4. You will need to take the following prerequisite steps for RexRay to work with NVMe devices on CentOS (on newer CoreOS AMIs this is unnecessary):
-
-   
-1. Install the NVMe CLI command.
-    
-    ```bash
-    $ yum install -y nvme-cli
-    ```
-
-1. Install the necessary udev rule and helper script. These are taken from the [RexRay user guide](https://github.com/rexray/rexray/blob/362035816046e87f7bc5a6ca745760d09a69a40c/.docs/user-guide/storage-providers/aws.md#nvme-support).
-
-    ```bash
-    $ cat <<EOF > /etc/udev/rules.d/999-aws-ebs-nvme.rules
-    KERNEL=="nvme[0-9]*n[0-9]*", ENV{DEVTYPE}=="disk", ATTRS{model}=="Amazon Elastic Block Store", PROGRAM="/usr/local/bin/ebs-nvme-mapping /dev/%k", SYMLINK+="%c"
-    EOF
-    ```
-1. Create the helper script.
-    ```bash
-    $ cat <<EOF > /usr/local/bin/ebs-nvme-mapping
-    #!/bin/bash
-    #/usr/local/bin/ebs-nvme-mapping
-    vol=$(/usr/sbin/nvme id-ctrl --raw-binary "${1}" | \
-          cut -c3073-3104 | tr -s ' ' | sed 's/ $//g')
-    vol=${vol#/dev/}
-    [ -n "${vol}" ] && echo "${vol/xvd/sd} ${vol/sd/xvd}"
-    EOF
-1. Set the file permissions on the scripts and reload the udev rules.      
-    ```bash
-    $ chown root:root /usr/local/bin/ebs-nvme-mapping
-    $ chmod 700 /usr/local/bin/ebs-nvme-mapping
-    $ udevadm control --reload
-    ```
-
-## External volumes   
-
-To troubleshoot external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the `systemd` journal for the `dcos-rexray.service` unit logs.
-
-[4]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/
-[5]: http://rexray.readthedocs.io/en/v0.9.0/user-guide/storage-providers/
-[6]: /mesosphere/dcos/2.2/deploying-services/creating-services/
-[7]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/#data-directories
-[8]: #implicit-vol
-[9]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/
-[10]: https://github.com/emccode/dvdcli#extra-options
-[11]: https://rexray.readthedocs.io/en/v0.9.0/user-guide/schedulers/#docker-containerizer-with-marathon
-[12]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-attaching-volume.html
-[13]: https://rexray.readthedocs.io/en/v0.11.0/user-guide/storage-providers/aws/#configuration-notes
+For more information, see the instructions for [using DVDI volumes with Marathon](/mesosphere/dcos/2.2/storage/dvdi/).
