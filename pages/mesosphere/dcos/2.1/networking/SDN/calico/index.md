@@ -13,11 +13,11 @@ enterprise: false
 
 This package provides the DC/OS Calico component to support Calico networking containers and network policies in DC/OS.
 
-## DC/OS calico components
+## DC/OS Calico components
 
 The DC/OS Calico component integrates the [Calico networking](https://www.projectcalico.org) into DC/OS, by providing the Calico CNI plugin for Mesos Universal Container Runtime and the Calico libnetwork plugin for Docker Engine. The calico control panel also provides configuration for the network policy for DC/OS workloads.
 
-### DC/OS calico services
+### DC/OS Calico services
 
 DC/OS Calico integrates Calico into DC/OS for managing container networking and network security, using these services:
 
@@ -26,7 +26,7 @@ DC/OS Calico integrates Calico into DC/OS for managing container networking and 
 * `dcos-calico-felix.service`: the control panel for Calico networking to program routes and ACL's for containers. [(source)](https://github.com/projectcalico/node)
 * `dcos-calico-libntwork-plugin.service`: the network plugin for Docker that provides Calico networking to the Docker Engine. [(source)](https://github.com/projectcalico/libnetwork-plugin)
 
-### DC/OS calico CLI
+### DC/OS Calico CLI
 
 The DC/OS command line includes a `calico` plugin that allows running `calicoctl` commands from outside the cluster. To run any `calicoctl` command instead, run it as `dcos calico` for example `dcos calico get nodes`:
 
@@ -53,8 +53,6 @@ The `DC/OS Calico CLI` requires gRPC port to be open and accessible from outside
 | calico_vxlan_vni | The virtual network ID used for calico VXLAN. This configuration works when calico_vxlan_enabled is set to be true. [Default: 4096] |
 | calico_vxlan_mtu | The MTU to set on the Calico VXLAN tunnel device. This configuration works when calico_vxlan_enabled is set to be true. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration [Default: 1450] |
 | calico_veth_mtu | The MTU to set on the veth pair devices, e.g. both the container interface and host-end interface. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration [Default: 1500] |
-
-
 
 ### Calico universal container runtime networking
 
