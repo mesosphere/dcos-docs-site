@@ -75,6 +75,46 @@ Backup has been successfully created!
 
 <p class="message--important"><strong>IMPORTANT: </strong> This command does not manage S3 buckets, so its usage should be monitored by you.</p>
 
+## View backup log messages
+
+To diagnose a failed MKE cluster backup, you can view the log files for the Kubernetes pod that was launched to perform the backup. Use these steps:
+
+1. While the "dcos kubernetes cluster backup" command is running, get the pod id of the pod that is trying to do the ark backup.
+
+```shell
+$ kubectl get pods -n heptio-ark
+```
+
+2. Check the log file of the running `heptio-ark` pod that is attempting to do the backup. Use this command and replace `<pod-id>` with the pod id given by the previous command.
+
+```shell
+$ kubectl logs -f -n heptio-ark <pod-id>
+```
+
+The `-f` option will "follow" the log file thus you will see all the messages, including any error messages that help determine the cause of the backup failure.
+
+## Remove backup entries
+
+If you no longer need a backup entry, you can remove it of the Kubernetes cluster with the following steps.
+
+1. Get a list of heptio-ark kubernetes cluster backups:
+
+```shell
+$ kubectl get backup.ark.heptio.com -n heptio-ark
+```
+
+2. Delete the heptio-ark backup entry, replace `<backup-id>` with one of the backup names listed with the previous command:
+
+```shell
+$ kubectl delete -n heptio-ark backup.ark.heptio.com <backup-id>
+```
+
+3. Use the AWS S3 console to remove the s3 bucket that stored the backup content:
+
+```shell
+$ aws s3 rm --recursive s3://<bucket-for-backups>/<backup-id>
+```
+
 ## Restore the cluster
 
 The subcommand `restore` retrieves the backup artifacts from S3 and imports the saved state into a newly provisioned cluster. The flags `--aws-region`, `--aws-bucket`, `--aws-access-key-id` and `--aws-secret-access-key` are mandatory.
