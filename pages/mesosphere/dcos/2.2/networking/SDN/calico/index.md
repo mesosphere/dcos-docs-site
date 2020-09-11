@@ -13,11 +13,11 @@ enterprise: false
 
 This package provides DC/OS Calico component to support Calico networking containers and network policy in DC/OS.
 
-## DC/OS Calico Components
+## DC/OS Calico components
 
 DC/OS Calico component integrates the [Calico networking](https://www.projectcalico.org) into DC/OS, by providing the Calico CNI plugin for Mesos Universal Container Runtime and the Calico libnetwork plugin for Docker Engine. In addition, the calico control panel will provide the functionality of configuring the network policy for DC/OS workloads.
 
-### DC/OS Calico Services
+### DC/OS Calico services
 
 DC/OS Calico integrates Calico into DC/OS for managing container networking and network security, three services are introduced:
 
@@ -40,7 +40,7 @@ NAME
 
 ```
 
-## DC/OS Configuration Reference (Networking)
+## DC/OS configuration reference (networking)
 
 | Parameter | Description |
 |-----------|-------------|
@@ -54,7 +54,7 @@ NAME
 
 
 
-### Calico Networking (Universal Container Runtime)
+### Calico networking (universal container runtime)
 
 To use Calico networking containers, you only have to specify the network name as `calico`.
 
@@ -87,7 +87,7 @@ The following marathon app definition example will launch a container using the 
 }
 ```
 
-### Calico Networking (Docker Engine)
+### Calico networking (Docker engine)
 
 Like with the previous example, the following marathon app definition will launch a container using the _Docker Engine_ and plug it to the `calico` network:
 
@@ -118,9 +118,9 @@ Like with the previous example, the following marathon app definition will launc
 }
 ```
 
-## Administration Topics
+## Administration topics
 
-### Network Policies
+### Network policies
 
 Network policy provides the ability to control network traffic by an ordered set of rules applied to the endpoints specified by a label selector, please refer to the [calico documentation](https://docs.projectcalico.org/reference/resources/networkpolicy) for a detailed explanation of policy rule definitions and label selector syntax.
 
@@ -150,7 +150,7 @@ limitations on network policy we have in DC/OS:
 }
 ```
 
-### Default Profile
+### Default profile
 
 Calico Profile groups endpoints which inherit labels defined in the profile, for example, each namespace has one corresponding profile to granting labels to Pods in the namespace. Calico profile supports policy rules for traffic control but is deprecated in favor of much more flexible NetworkPolicy and GlobalNetworkPolicy resources.
 
@@ -176,7 +176,7 @@ spec:
 
 For a more detailed description of the Calico profile, please read the [calico documentation](https://docs.projectcalico.org/reference/resources/profile).
 
-### Network Policy Examples
+### Network policy examples
 
 In the following business isolation example, we have three application definitions as shown below, and both bookstore-frontend and bookstore-server are labeled with `"biz_type": "bookstore"`, while fruitstore-frontend is labeled with `"biz_type": "fruitstore"`. Here we will create a network policy to deny the requests from fruitstore-frontend to bookstore-server while allow requests from bookstore-frontend to bookstore-server.
 
@@ -197,7 +197,7 @@ In the following business isolation example, we have three application definitio
              +------------------------+
 ```
 
-#### 5.3.1. Launch Marathon Applications
+#### Launch Marathon 5.3.1. applications
 
 The Marathon application definition of bookstore-frontend with policy label `"biz_type": "bookstore"`:
 
@@ -304,7 +304,7 @@ dcos task list
   bookstore-frontend   172.16.2.233  root  TASK_RUNNING  bookstore-frontend.instance-79853919-2a47-11ea-91b3-66db602e14f5._app.1   0a1399a2-fe1f-4613-a618-f45159e12f2a-S0  N/A     N/A
 ```
 
-#### Frontends and Server Connectivity Test
+#### Frontends and server connectivity test
 
 Before applying network policy, the requests from bookstore-frontend and fruitstore-frontend to bookstore-server are successful, here we expect the FQDN `bookstore-server.marathon.containerip.dcos.thisdcos.directory` to return the bookstore-server container IP address:
 ```sh
@@ -315,7 +315,7 @@ dcos task exec bookstore-frontend wget -qO- bookstore-server.marathon.containeri
 hubfeu2yculh%
 ```
 
-#### Apply Network Policy
+#### Apply network policy
 
 This network policy takes effect on bookstore-server and allows requests from applications with label `biz_type` set as `bookstore` while rejects those from applications with label `biz_type` set as `fruitstore`:
 ```yaml
@@ -357,7 +357,7 @@ dcos task exec fruitstore-frontend wget -qO- --timeout=5 bookstore-server.marath
 wget: can't connect to remote host (192.168.219.133): Connection timed out
 ```
 
-### Adding Network Profiles
+### Adding network profiles
 
 In most of the use cases a single calico profile is enough. However if for any reason more networks needs to be created, you should be aware of some corner cases.
 
