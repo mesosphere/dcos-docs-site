@@ -22,6 +22,8 @@ Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes clu
 
 **Software Lifecycle as Code.**  Dispatch lets you implement GitOps processes to store build pipelines and application deployment methodologies in Git for repeatable and efficient lifecycle management.
 
+**Command Line & Browser-based interfaces.** Dispatch provides both Command Line and a browser accessible dashboard.
+
 **Progressive Deployment.**  Dispatch enables you to easily implement [progressive deployment strategies](../install/configure-argocd/) to ensure greatly reduced risk deployments of your applications.
 
 **Get Started** now with a [Quickstart Tutorial](../quickstart/)
