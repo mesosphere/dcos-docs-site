@@ -77,7 +77,7 @@ Backup has been successfully created!
 
 ## View backup log messages
 
-To diagnose a failed MKE cluster backup, you can view the log files for the Kubernetes pod that was launched to perform the backup. Use these steps:
+To diagnose a failed MKE cluster backup, you can view the log files for the Kubernetes pod launched to perform the backup. Use these steps:
 
 1. While the "dcos kubernetes cluster backup" command is running, get the pod id of the pod that is trying to do the ark backup.
 
@@ -91,11 +91,11 @@ $ kubectl get pods -n heptio-ark
 $ kubectl logs -f -n heptio-ark <pod-id>
 ```
 
-The `-f` option will "follow" the log file thus you will see all the messages, including any error messages that help determine the cause of the backup failure.
+The `-f` option will "follow" the log file thus you will see all the messages, including any error messages that assist determining the cause of the backup failure.
 
 ## Remove backup entries
 
-If you no longer need a backup entry, you can remove it of the Kubernetes cluster with the following steps.
+If you no longer need a backup entry, you can remove it from the Kubernetes cluster with the following steps.
 
 1. Get a list of heptio-ark kubernetes cluster backups:
 
