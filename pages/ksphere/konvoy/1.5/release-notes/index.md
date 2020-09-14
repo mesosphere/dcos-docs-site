@@ -315,7 +315,6 @@ enterprise: false
 -   traefik-forward-auth: 1.0.4-7
 -   velero: 1.0.1-5
 
-
 ### Additional resources
 
 <!-- Add links to external documentation as needed -->

@@ -42,7 +42,7 @@ Before installing, ensure that your environment has the following basic requirem
   * 32 GiB memory
   * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
 
-* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
+* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least four volumes to `/mnt/disks/` mount point on each node.
   Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
