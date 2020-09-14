@@ -1,7 +1,7 @@
 addon
 Alertmanager
 Ansible
-autoscal(s|ing)
+autoscal(s|ed|ing)
 Cassandra
 checkpoint(|s|ed|ing)
 Chronos
@@ -22,7 +22,7 @@ Flink
 Grafana
 Hashicorp
 Horovod
-hyperparameter(s)
+hyperparameter(|s)
 Istio
 Kafka
 Katib
@@ -46,10 +46,10 @@ namespaced
 nginx
 Nvidia
 onboarding
-overfit(s|ted|ting)
+overfit(|s|ted|ting)
 Percona
 PostgreSQL
-preprocessor(s)
+preprocessor(|s)
 Prometheus
 Pushgateway
 PyTorch
