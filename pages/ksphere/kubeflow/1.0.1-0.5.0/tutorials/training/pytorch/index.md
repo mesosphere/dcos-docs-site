@@ -24,7 +24,7 @@ will likely not work.</p>
 
 ## Introduction
 Recognizing handwritten digits based on the [MNIST (Modified National Institute of Standards and Technology) data set](http://yann.lecun.com/exdb/mnist/) is the "Hello, World" example of machine learning.
-Each (anti-aliased) black-and-white image represents a digit from 0 to 9 and has been fit into a 28x28 pixel bounding box.
+Each (anti-aliased) black-and-white image represents a digit from 0 to 9 and has been fit into a 28×28 pixel bounding box.
 The problem of recognizing digits from handwriting is, for instance, important to the postal service when automatically reading zip codes from envelopes.
 
 ### What You'll Learn
@@ -135,7 +135,7 @@ list(mnist.data.size())
 
 
 
-We are therefore dealing with 60,000 28x28 pixel greyscale images.
+We are therefore dealing with 60,000 28×28 pixel grayscale images.
 These have not yet been scaled into the [0, 1] range, as we can see:
 
 
@@ -212,7 +212,7 @@ Batch normalization would be an alternative that scales better with data sets of
 <div style="color: #31708f; background-color: #d9edf7; border-color: #bce8f1; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
 <b>A Note on Batch Normalization</b><br>
     <a href="https://arxiv.org/abs/1502.03167">Batch normalization</a> computes the mean and variance per batch of training data and per layer to rescale the batch's input values with the aid of two hyperparameters: β (shift) and γ (scale).
-    It is typically applied before the activation function (as in the original paper), although there is <a href="https://blog.paperspace.com/busting-the-myths-about-batch-normalization/">no concensus</a> on the matter and there may be valid reasons to apply it afterwards.
+    It is typically applied before the activation function (as in the original paper), although there is <a href="https://blog.paperspace.com/busting-the-myths-about-batch-normalization/">no consensus</a> on the matter and there may be valid reasons to apply it afterwards.
     Batch normalization allows weights in later layers to be more robust against changes in input values of the earlier ones; while the input of later layers can obviously vary from step to step, the mean and variance will remain fairly constant.
     This is because we shuffle the training data set and each batch is therefore on average roughly representative of the entire data set.
     Batch normalization limits the distribution of weight values in the later layers of a neural network, and therefore provides a regularizing effect that decreases as the batch size increases.<br><br>
@@ -538,11 +538,11 @@ All you need to know for that is that Katib looks for `key=value` entries in the
     Pooling kernels are generally chosen to be relatively small compared to the dimensions of the input, which means that local translation invariance is often desired. <br><br>
     Another common component of CNNs is a dropout layer.
     <a href="http://jmlr.org/papers/v15/srivastava14a.html">Dropout</a> provides a mechanism for regularization that has proven successful in many applications.
-    It is suprisingly simple: some nodes' weights (and biases) in a specific layer are set to zero <em>at random</em>, that is, arbitrary nodes are removed from the network during the training step.
+    It is surprisingly simple: some nodes' weights (and biases) in a specific layer are set to zero <em>at random</em>, that is, arbitrary nodes are removed from the network during the training step.
     This causes the network to not rely on any single node (a.k.a. neuron) for a feature, as each node can be dropped at random.
     The network therefore has to learn redundant representations of features.
     This is important because of what is referred to as <em>internal covariate shift</em> (often mentioned in connection with <a href="http://proceedings.mlr.press/v37/ioffe15.html">batch normalization</a>): the change of distributions of internal nodes' weights due to all other layers, which can cause nodes to stop learning (i.e. updating their weights).
-    Thanks to dropout, layers become more robust to changes, although it also means it limits what can be learnt (as always with regularization).
+    Thanks to dropout, layers become more robust to changes, although it also means it limits what can be learned (as always with regularization).
     Still, dropout is the neural network's equivalent of the saying you should never put all your eggs in one basket.
     Layers with a high risk of overfitting (e.g. layers with many units and lots of inputs) typically have a higher dropout rate.
     <br><br>
@@ -730,7 +730,7 @@ Custom training arguments can be passed to the container by means of the `spec.c
 What is supported is visible in `main()` of `mnist.py`.
 
 The container image specified (twice) is what is for the code shown above.
-Still, it's best to change the image name listed under the comments of the specification to use an equivalent image in your own container registry, to ensure everything works as expected.
+Still, it's best to change the image name listed under the comments of the specification to use an equivalent image in your own container registry, to ensure everythng works as expected.
 
 The job can run in parallel on CPUs or GPUs, provided these are available in your cluster.
 To switch to CPUs or define resource limits, please adjust `spec.containers.resources` as required.
