@@ -1,4 +1,5 @@
 addon
+Airflow
 Alertmanager
 Ansible
 autoscal(s|ed|ing)
@@ -37,6 +38,7 @@ Kubernetes
 KUDO
 linkerd
 Logstash
+Luigi
 Mesos
 Mesosphere
 MXNet
@@ -54,6 +56,7 @@ Prometheus
 Pushgateway
 PyTorch
 repo
+Scala
 scikit-learn
 serverless
 sigmoidal
