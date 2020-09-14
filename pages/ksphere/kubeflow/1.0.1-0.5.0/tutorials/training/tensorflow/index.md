@@ -29,7 +29,7 @@ will likely not work.</p>
 
 ## Introduction
 Recognizing handwritten digits based on the [MNIST (Modified National Institute of Standards and Technology) data set](http://yann.lecun.com/exdb/mnist/) is the "Hello, World" example of machine learning.
-Each (anti-aliased) black-and-white image represents a digit from 0 to 9 and has been fit into a 28x28 pixel bounding box.
+Each (anti-aliased) black-and-white image represents a digit from 0 to 9 and has been fit into a 28×28 pixel bounding box.
 The problem of recognizing digits from handwriting is, for instance, important to the postal service when automatically reading zip codes from envelopes.
 
 ### What You'll Learn
@@ -153,7 +153,7 @@ tfds.show_examples(info, mnist)
 
 
 
-We can easily read off the shape of the input tensors that shows the images are all 28x28 pixels, but we do not yet know whether their greyscale values have been scaled to the [0, 1] range or not:
+We can easily read off the shape of the input tensors that shows the images are all 28×28 pixels, but we do not yet know whether their grayscale values have been scaled to the [0, 1] range or not:
 
 
 ```python
@@ -363,11 +363,11 @@ All you need to know for that is that Katib looks for `key=value` entries in the
     Pooling kernels are generally chosen to be relatively small compared to the dimensions of the input, which means that local translation invariance is often desired. <br><br>
     Another common component of CNNs is a dropout layer.
     <a href="http://jmlr.org/papers/v15/srivastava14a.html">Dropout</a> provides a mechanism for regularization that has proven successful in many applications.
-    It is suprisingly simple: some nodes' weights (and biases) in a specific layer are set to zero <em>at random</em>, that is, arbitrary nodes are removed from the network during the training step.
+    It is surprisingly simple: some nodes' weights (and biases) in a specific layer are set to zero <em>at random</em>, that is, arbitrary nodes are removed from the network during the training step.
     This causes the network to not rely on any single node (a.k.a. neuron) for a feature, as each node can be dropped at random.
     The network therefore has to learn redundant representations of features.
     This is important because of what is referred to as <em>internal covariate shift</em> (often mentioned in connection with <a href="http://proceedings.mlr.press/v37/ioffe15.html">batch normalization</a>): the change of distributions of internal nodes' weights due to all other layers, which can cause nodes to stop learning (i.e. updating their weights).
-    Thanks to dropout, layers become more robust to changes, although it also means it limits what can be learnt (as always with regularization).
+    Thanks to dropout, layers become more robust to changes, although it also means it limits what can be learned (as always with regularization).
     Still, dropout is the neural network's equivalent of the saying you should never put all your eggs in one basket.
     Layers with a high risk of overfitting (e.g. layers with many units and lots of inputs) typically have a higher dropout rate.
     <br><br>
@@ -483,7 +483,7 @@ What is supported is visible in `main()` of `mnist.py`.
 
 The job can run in parallel on CPUs or GPUs, provided these are available in your cluster.
 To switch to CPUs or define resource limits, please adjust `spec.containers.resources` as required.
-It is best to change the image name listed under the comment of the specification to use an equivalent image in your own container registry, to ensure everything works as expected.
+It is best to change the image name listed under the comment of the specification to use an equivalent image in your own container registry, to ensure everythng works as expected.
 
 You can either execute the following commands on your local machine with `kubectl` or directly from the notebook.
 If you do run these locally, you cannot rely on cell magic, so you have to manually copy-paste the variables' values wherever you see `$SOME_VARIABLE`.

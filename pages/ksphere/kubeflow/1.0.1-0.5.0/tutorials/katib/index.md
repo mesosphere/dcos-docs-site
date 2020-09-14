@@ -35,11 +35,11 @@ An experiment therefore consists of an objective, a search space for the hyperpa
 At the end of the experiment, Katib outputs the optimized values, which are also known as **suggestions**.
 
 <div style="color: #31708f; background-color: #d9edf7; border-color: #bce8f1; padding: 15px; margin-top: 10px; margin-bottom: 10px; border: 1px solid transparent; border-radius: 4px;">
-    <b>Three Data Sets</b><br>Whereas it is common to have training and test data sets in traditional (supervised) machine learning, in deep learning (esp. when combined with hyperparameter tuning), it is recommended to have a three-way split: training, validation (a.k.a. as development), and test. 
-    The training data set is, as always, to learn parameters (weights and biases) from data. 
+    <b>Three Data Sets</b><br>Whereas it is common to have training and test data sets in traditional (supervised) machine learning, in deep learning (esp. when combined with hyperparameter tuning), it is recommended to have a three-way split: training, validation (a.k.a. as development), and test.
+    The training data set is, as always, to learn parameters (weights and biases) from data.
     The test data set is also known as the hold-out set and its sole purpose is to check the model's hypothesis of parameter values in terms of how well it generalizes to data it has never come across.
-    The point of the validation data set is to cross-validate the model and tweak the hyperparameters. 
-    Since information from this data set is used to adjust the model, it is not an objective test of the model's generalizability. 
+    The point of the validation data set is to cross-validate the model and tweak the hyperparameters.
+    Since information from this data set is used to adjust the model, it is not an objective test of the model's <a href=\"https://www.sciencedirect.com/topics/mathematics/generalizability\">generalizability</a>.
     It is not unlike a <a href=\"https://www.linkedin.com/posts/activity-6424581736302284800-Kdas\">teacher checking up on students</a>:
     <ul>
       <li style="color: #31708f;">The training data set is the text book to learn the theory from</li>
@@ -386,7 +386,7 @@ After the experiment is completed, use `describe` to get the best trial results:
 ```
 
 The relevant section of the output looks like this:
-    
+
 ```yaml
 Name:         katib-pytorchjob-experiment
 ...

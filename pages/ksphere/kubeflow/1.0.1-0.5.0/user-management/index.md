@@ -14,7 +14,7 @@ Prerequisites:
 - Administrative access to a properly configured Konvoy cluster via `kubectl`
 
 Because a single Kubeflow user needs to interact with Kubernetes resources across their own Kubeflow `Profile` namespace,
-D2iQ recommends appropriately permissioned `ClusterRole` objects. As with all matters regarding security,
+D2iQ recommends appropriately configured `ClusterRole` objects. As with all matters regarding security,
 we encourage you to thoroughly review permissions set by our predefined `ClusterRoles` in conjunction with your security team.
 
 _NB: The following tutorial assumes you have already connected an OIDC provider to your Konvoy cluster via Konvoy's

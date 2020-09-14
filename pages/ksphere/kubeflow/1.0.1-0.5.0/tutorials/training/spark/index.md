@@ -24,7 +24,7 @@ will likely not work.</p>
 
 ## Introduction
 Recognizing handwritten digits based on the [MNIST (Modified National Institute of Standards and Technology) data set](http://yann.lecun.com/exdb/mnist/) is the "Hello, World" example of machine learning.
-Each (anti-aliased) black-and-white image represents a digit from 0 to 9 and has been fit into a 28x28 pixel bounding box.
+Each (anti-aliased) black-and-white image represents a digit from 0 to 9 and has been fit into a 28×28 pixel bounding box.
 The problem of recognizing digits from handwriting is, for instance, important to the postal service when automatically reading zip codes from envelopes.
 
 ### What You'll Learn
