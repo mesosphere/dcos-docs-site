@@ -3,7 +3,7 @@ Alertmanager
 Ansible
 autoscal(s|ing)
 Cassandra
-checkpoint(s|ed|ing)
+checkpoint(|s|ed|ing)
 Chronos
 CNTK
 component
