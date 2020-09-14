@@ -81,13 +81,14 @@ This section provides a set of instructions for deploying a simple `hello-world`
 1. Run the following:
 
     ```bash
-    dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
+	dispatch serviceaccount create team-1
+    dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
     ```
 
 1. Run the following:
 
     ```bash
-    dispatch gitops app create hello-world --repository=https://github.com/your-github-user/cicd-hello-world-gitops --scm-secret gitops-secret-1
+    dispatch gitops app create hello-world --repository=https://github.com/your-github-user/cicd-hello-world-gitops --service-account team-1
     ```
 
 1. Add the GitOps repository as a resource to your hello-world application's Dispatchfile:
@@ -110,7 +111,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -133,7 +134,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -156,7 +157,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -179,7 +180,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -264,11 +265,12 @@ dispatch gitops app create hello-world --repositoy=https://github.com/your-githu
 ```
 
 If you want to register new credentials with Dispatch to manage webhooks on the
-GitOps repository, you can do so as follows:
+GitOps repository. Credentials are associated with a serviceaccount. You can create a serviceaccount and associate credentials with it as follows:
 
 ```sh
-dispatch login github --secret gitops-secret-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
-dispatch gitops app create hello-world --repository=https://github.com/your-github-user/cicd-hello-world-gitops --scm-secret gitops-secret-1
+dispatch serviceaccount create team-1
+dispatch login github --service-account team-1 --user $YOURGITHUBUSERNAME --token $YOURGITHUBTOKEN
+dispatch gitops app create hello-world --repository=https://github.com/your-github-user/cicd-hello-world-gitops --service-account team-1
 ```
 
 You can now open your browser and navigate to the Argo CD UI. The Argo CD UI is available at the `/dispatch/argo-cd` URL relative to your Kubernetes cluster's URL.
@@ -313,7 +315,7 @@ task "deploy": {
   steps: [
     {
       name: "update-gitops-repo"
-      image: "mesosphere/update-gitops-repo:v1.1"
+      image: "mesosphere/update-gitops-repo:1.2.0"
       workingDir: "/workspace/gitops-git"
       args: [
         "-git-revision=$(context.git.commit)",

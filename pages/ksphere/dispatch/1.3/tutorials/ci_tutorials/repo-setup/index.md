@@ -54,6 +54,20 @@ workstation. Looking at the source code, you will see the following files:
 
 The application was forked from the example [`hello-app` application](
   https://github.com/GoogleCloudPlatform/kubernetes-engine-samples/tree/bc8e412670e5f8dd94189e80a0908d08ade196cc/hello-app).
+  
+## Creating Secrets using the Dispatch dashboard
+
+Before you begin:
+
+- You must have [set up credentials](///tutorials/ci_tutorials/credentials/#setting-up-github-credentials) for the service account for Dispatch to access the source control management service on behalf of your account.
+
+- Ensure that the [namespace to be used exists](https:///tutorials/ci_tutorials/repo-setup/#namespaces). 
+
+1. From the Konvoy Dashboard, select **CI/CD > CI/CD >Continuous Integration (CI) > Secrets > Create Secret**.
+
+2. Select the source control management service of the Repository (GitHub, GitLab, Docker or BitBucket).  
+
+3. Fill out the form, select **Verify and Save**.
 
 ## Writing a Basic Dispatchfile
 
@@ -370,6 +384,25 @@ By default, PipelineRuns will timeout after 1 hour. If your repository's CI requ
 dispatch ci repository create --service-account=team-1 --timeout=2h30m
 ```
 
+## Adding a Repository to Dispatch using the Dispatch dashboard
+
+1. From **Continuous Integration (CI)  >  Repositories**
+To add a Repository select **+ Add Repository**. 
+
+1. Select an exisiting Namespace to select an existing Service Account or create a new Service Account. To create a new Service Account type its name and select **Create Service Account**.
+
+1. Once you have selected Namespace and Service Account you should select the Git Secret from one of those listed. If the Repository requires Docker secrets then select **+ Docker Secret** and choose from the list of Docker secrets displayed.
+
+1. Once the required information is entered select **SAVE**.
+
+### Pipeline auto-cancellation
+
+Dispatch includes a feature where it will automatically stop running builds from previous commits for a given branch or pull request. This helps to ensure that the cluster is not wasting resources on obsolete builds. This feature is enabled by default, but it can be disable by setting `--disable-auto-cancel` on the Dispatch CLI:
+
+```sh
+dispatch ci repository create --service-account=team-1 --disable-auto-cancel
+```
+
 ## Creating a Pull Request
 
 We are now ready to perform our first real CI build. We will:
@@ -412,15 +445,19 @@ passed CI, we will use the GitHub UI to tag a new release.
 1. Check the "This is a pre-release" checkbox.
 1. Click the "Publish release" button.
 
-You have now tagged and created a new release. Creating a tag starts another CI build. There is no link in the GitHub UI that can take you directly to the new
-build. Instead, you can view the build status of the last `master` build and navigate from there to the latest build (which will be for the tag we just created.)
+You have now tagged and created a new release.  Creating a tag starts another CI build. There is no link in the GitHub UI that takes you directly to the new build in the Dispatch dashboard.  Instead, you can view the build status of the last master build and navigate from there using the breadcrumb links.  For example, select Pipeline in **Continuous Integration (CI) > Pipeline > PipelineRun** at the top of the Dispatch dashboard page.
 
-1. Open your browser at [https://github.com/your-user/cicd-hello-world/commits/master](https://github.com/your-user/cicd-hello-world/commits/master).
-1. Click on the green checkmark next to the latest commit.
-1. Click on the "Details" link next to "build". This takes you to the now-familiar Tekton dashboard.
-1. In the sidebar click on "PipelineRuns".
-1. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
-1. After it completes, if will push a docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
+1. Open your browser at https://github.com/your-user/cicd-hello-world/commits/master.
+2. Click on the green checkmark next to the latest commit.
+3. Click on the “Details” link next to “build”. This takes you to the Dispatch dashboard PipelineRun page.
+4. Select the Pipeline link in the breadcrumbs (e.g. Open your browser at https://github.com/your-user/cicd-hello-world/commits/master.
+5. Click on the green checkmark next to the latest commit.
+6. Click on the “Details” link next to “build”. This takes you to the Dispatch dashboard’s PipelineRun page.
+7. Click on the Pipeline link in the breadcrumb links (e.g. **Continuous Integration (CI) > Pipeline > PipelineRun**) at the top of the Dispatch dashboard’s PipelineRun page. 
+8. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
+9. After it completes, it will push a docker image to DockerHub with the v0.1 tag: your-user/hello-world:v0.1.  at the top of the Dispatch dashboard page.
+10. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
+11. After it completes, it will push a docker image to DockerHub with the v0.1 tag: your-user/hello-world:v0.1.
 
 You have successfully created a release.
 

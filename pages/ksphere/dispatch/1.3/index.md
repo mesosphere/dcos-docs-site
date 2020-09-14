@@ -9,7 +9,7 @@ excerpt: Dispatch provides a declarative CI/CD platform for rapidly deploying Cl
 ---
 Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications. Dispatch  enables you to:
 
-* Define and execute build, test, and deployment workflows. 
+* Define and execute build, test, and deployment workflows.
 * Implement modern GitOps processes to increase test coverage and speed up your deployments.
 * Define your build pipeline using powerful languages using well-known development methodologies, so that you can spend more time writing code and less time maintaining your pipelines.
 

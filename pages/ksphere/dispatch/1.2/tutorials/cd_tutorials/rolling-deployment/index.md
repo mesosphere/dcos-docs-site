@@ -110,7 +110,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -133,7 +133,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -156,7 +156,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -179,7 +179,7 @@ This section provides a set of instructions for deploying a simple `hello-world`
       steps: [
         {
           name: "update-gitops-repo"
-          image: "mesosphere/update-gitops-repo:v1.1"
+          image: "mesosphere/update-gitops-repo:1.2.0"
           workingDir: "/workspace/gitops-git"
           args: [
             "-git-revision=$(context.git.commit)",
@@ -313,7 +313,7 @@ task "deploy": {
   steps: [
     {
       name: "update-gitops-repo"
-      image: "mesosphere/update-gitops-repo:v1.1"
+      image: "mesosphere/update-gitops-repo:1.2.0"
       workingDir: "/workspace/gitops-git"
       args: [
         "-git-revision=$(context.git.commit)",

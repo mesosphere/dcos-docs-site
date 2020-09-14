@@ -156,6 +156,7 @@ A pull request condition is activated when a comment or push is made on a pull r
 | `sources` | String array | Matches pull requests whose source branch is in the branches list | no | [] |
 | `targets` | String array | Matches pull requests whose merge target is in the branches list | no | [] |
 | `branches` | String array | Matches pull requests whose merge target is in the branches list (DEPRECATED: use `targets` instead) | no | [] |
+| `labels` | String array | Matches pull request labels | no | [] |
 
 The current behavior of pull request conditions is:
 
@@ -164,6 +165,7 @@ The current behavior of pull request conditions is:
    specified, it will only trigger if any changed file matches the paths.
 3. If chatops are specified, then it will only trigger when a comment starting with a slash (`/`) is made to a pull request, and the word after
    the slash is in the list of chatops. Chatops can be specified in conjunction with branches and/or paths.
+4. All the labels need to be matched. Label matching is not regex based and supports exact string matching only except for negative matching (by using `!` prefix).
 
 ##### CronConditions
 
@@ -173,6 +175,21 @@ A cron condition is activated when the schedule embedded is activated. Unlike ot
 | ------ | ---------- | ----------- | --------- | ------- |
 | `schedule` | String | Specify the cron schedule to activate the action. Follows standard [cron syntax](https://www.man7.org/linux/man-pages/man5/crontab.5.html) | yes | - |
 | `revision` | String | Revision of the repository to checkout to run the builds. Can point to a branch or tag. | no | `master` |
+
+##### ReleaseCondition
+
+A release condition is activated when a release is published in the repository. Currently this is only supported for GitHub repositories.
+
+|  Field |    Type    | Description | Required? | Default |
+| ------ | ---------- | ----------- | --------- | ------- |
+| `tags` | String array | Release tags to trigger on | no | [] |
+
+The current behavior of tag conditions is:
+
+1. If no tag is specified, then any release published in the repository will trigger the condition.
+2. If tags are specified, then it will only trigger on specified tags.
+3. You can specify positive glob patterns (e.g., "release/\*") or negative glob patterns (e.g., "!debug/\*")  to match a tag. A tag matches the globs
+   if it matches at least one positive glob if there is any, and does not match any negative glob.
 
 ### Context variables
 

@@ -115,11 +115,11 @@ def shellcheck(task_name, git_input, paths):
             name="shellcheck",
             image="koalaman/shellcheck:v0.7.1",
             workingDir=git_checkout_dir(git_input),
-            args=paths,
-    )]
+            args=paths)
+        ]
+    )
 
-	return task_name
-)
+    return task_name
 ```
 
 Modify the main Dispatchfile to use the `shellcheck` function defined in `lints.star`:
@@ -128,11 +128,11 @@ Modify the main Dispatchfile to use the `shellcheck` function defined in `lints.
 #!mesosphere/dispatch-starlark:v0.6
 
 load("github.com/mesosphere/dispatch-catalog/starlark/stable/pipeline@0.0.6", "git_resource", "git_checkout_dir", "pull_request")
-load("./lints", "shellcheck")
+load("/lints", "shellcheck")
 
 source_repo = git_resource("sources")
 
-do_shellcheck = shellcheck("shellcheck", input=source_repo, paths=["scripts/*.sh"])
+do_shellcheck = shellcheck("shellcheck", git_input=source_repo, paths=["scripts/*.sh"])
 
 action(tasks=[do_shellcheck], on=pull_request(paths=["**/*]))
 ```

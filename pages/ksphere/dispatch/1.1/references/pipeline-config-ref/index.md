@@ -14,9 +14,9 @@ The `Pipeline` object is the top level object in a `Dispatchfile`.
 
 |  Field |    Type    | Description | Required? | Default |
 | ------ | ---------- | ----------- | --------- | ------- |
-| `resource` | Object with string keys and [Resource](#Resources) values | Resources to make available for inclusion in tasks | no | {} |
-| `task`     | Object with string keys and [Task](#Tasks) values | Tasks to define as a part of the pipeline | yes |   |
-| `actions`  | [Action](#Actions) array | Actions define which tasks to run for which events | no |   |
+| `resource` | Object with string keys and [Resource](#resources) values | Resources to make available for inclusion in tasks | no | {} |
+| `task`     | Object with string keys and [Task](#tasks) values | Tasks to define as a part of the pipeline | yes |   |
+| `actions`  | [Action](#actions) array | Actions define which tasks to run for which events | no |   |
 
 ### Tasks
 
@@ -34,12 +34,12 @@ Tasks define a set of steps (containers) to run sequentially within a pod; these
 
 Input variables can be accessed when listed in the `inputs` of a task. Two types of inputs are supported:
 
-* If an input is a [resource](#Resources), then its parameters can be accessed at `$(inputs.resources.NAME.PARAM)`, where `NAME` is the resource name and `PARAM` is the parameter name.
-* If an input is a [task](#Tasks), then its results can be accessed at `$(inputs.tasks.TASKNAME.STEPNAME)`, where `TASKNAME` is the name of the task and `STEPNAME` is the name of the step in the task. The variable will be equal to the standard output of the referenced step.
+* If an input is a [resource](#resources), then its parameters can be accessed at `$(inputs.resources.NAME.PARAM)`, where `NAME` is the resource name and `PARAM` is the parameter name.
+* If an input is a [task](#tasks), then its results can be accessed at `$(inputs.tasks.TASKNAME.STEPNAME)`, where `TASKNAME` is the name of the task and `STEPNAME` is the name of the step in the task. The variable will be equal to the standard output of the referenced step.
 
 #### Output variables
 
-Output variables function like input variables, except they are for `outputs`, rather than `inputs`. Only [resources](#Resources) are supported as outputs. An output's parameters can be accessed at `$(outputs.resources.NAME.PARAM)`, where `NAME` is the resource name and `PARAM` is the parameter name.
+Output variables function like input variables, except they are for `outputs`, rather than `inputs`. Only [resources](#resources) are supported as outputs. An output's parameters can be accessed at `$(outputs.resources.NAME.PARAM)`, where `NAME` is the resource name and `PARAM` is the parameter name.
 
 ### Resources
 
@@ -95,7 +95,7 @@ Actions define which tasks to run for which events.
 |  Field |    Type    | Description | Required? | Default |
 | ------ | ---------- | ----------- | --------- | ------- |
 | `tasks`  | String array | The tasks to trigger when this action is activated | yes | - |
-| `on`     | [Condition](#Conditions) | The conditions under which the action is activated | yes | - |
+| `on`     | [Condition](#conditions) | The conditions under which the action is activated | yes | - |
 
 #### Conditions
 
@@ -103,9 +103,9 @@ A condition specifies the requirements for an action to be considered active. Ex
 
 |  Field |    Type    | Description | Required? | Default |
 | ------ | ---------- | ----------- | --------- | ------- |
-| `push`  | [PushCondition](#PushConditions) | Conditions for pushes to branches | no | - |
-| `tag`  | [TagCondition](#TagConditions) | Conditions for tags pushed to the repository | no | - |
-| `pull_request` | [PullRequestCondition](#PullRequestConditions) | Conditions for pull request events (comments, pushes) | no | - |
+| `push`  | [PushCondition](#pushconditions) | Conditions for pushes to branches | no | - |
+| `tag`  | [TagCondition](#tagconditions) | Conditions for tags pushed to the repository | no | - |
+| `pull_request` | [PullRequestCondition](#pullrequestconditions) | Conditions for pull request events (comments, pushes) | no | - |
 
 ##### PushConditions
 

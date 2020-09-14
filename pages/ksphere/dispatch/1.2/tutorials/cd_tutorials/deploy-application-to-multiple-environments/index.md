@@ -100,7 +100,7 @@ task "deploy": {
   steps: [
     {
       name: "update-gitops-repo"
-      image: "mesosphere/update-gitops-repo:v1.0"
+      image: "mesosphere/update-gitops-repo:1.2.0"
       workingDir: "/workspace/gitops-git"
       args: [
         "-git-revision=$(context.git.commit)",
