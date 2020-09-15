@@ -4,6 +4,7 @@ navigationTitle: Advanced provisioning options (Azure)
 title: Advanced provisioning options (Azure)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on Azure
+beta: true
 enterprise: false
 ---
 

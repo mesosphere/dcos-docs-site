@@ -5,6 +5,7 @@ title: konvoy check
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
+beta: true
 excerpt: Run checks on the health of the cluster
 ---
 

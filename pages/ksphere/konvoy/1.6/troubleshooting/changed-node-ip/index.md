@@ -4,6 +4,7 @@ navigationTitle: Changed Node IP
 title: Changed Node IP
 menuWeight: 12
 excerpt: Updating inventory.yaml to restore access to nodes
+beta: true
 enterprise: false
 ---
 

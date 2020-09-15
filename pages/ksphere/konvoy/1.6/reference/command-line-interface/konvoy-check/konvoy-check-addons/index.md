@@ -5,6 +5,7 @@ title: konvoy check addons
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
+beta: true
 excerpt: Run checks on the addons
 ---
 

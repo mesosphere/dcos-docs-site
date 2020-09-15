@@ -4,6 +4,7 @@ navigationTitle: Install on-premises
 title: Install on-premises
 menuWeight: 30
 excerpt: Install Konvoy in an on-premises environment
+beta: true
 enterprise: false
 ---
 
@@ -26,7 +27,7 @@ Before installing, verify that your environment meets the following basic requir
 * Each control plane node should have at least:
   * 4 cores
   * 16 GiB memory
-  * 80 GiB of free space in the root partition, and the root partition must be less than 85% full.
+  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 ## Worker nodes
 
@@ -35,7 +36,7 @@ Before installing, verify that your environment meets the following basic requir
 * Each worker node should have at least:
   * 8 cores
   * 32 GiB memory
-  * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
+  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least four volumes to the `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
@@ -171,7 +172,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.17-2.3.0
+    configVersion: testing-1.17-2.4.0
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -180,7 +181,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.17-1.2.0-beta.0
+    configVersion: testing-1.17-1.2.0-beta.1
     addonsList:
     - name: kommander
       enabled: true

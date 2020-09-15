@@ -4,6 +4,7 @@ navigationTitle: Back up and restore
 title: Back up and restore
 menuWeight: 12
 excerpt: Back up and restore the Konvoy cluster
+beta: true
 enterprise: false
 ---
 

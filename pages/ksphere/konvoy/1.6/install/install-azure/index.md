@@ -4,6 +4,7 @@ navigationTitle: Install on Azure
 title: Install on Azure
 menuWeight: 20
 excerpt: Prepare for and install Konvoy on Azure
+beta: true
 enterprise: false
 ---
 

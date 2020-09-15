@@ -4,18 +4,21 @@ navigationTitle: Default storage options
 title: Automated storage options in cloud providers
 menuWeight: 20
 excerpt: Default storage providers in Konvoy
+beta: true
 enterprise: false
 ---
 
-When deploying Konvoy using a supported cloud provisioner (AWS, Azure, or GCP), Konvoy automatically configures native storage drivers for the target platform. In addition, Konvoy deploys a default [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for [dynamic persistent volume (PV)](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) creation.
+<!-- markdownlint-disable MD018 -->
 
-| Cloud Provisioner |  Driver              | Default Storage Class |
+When deploying Konvoy using a supported cloud provisioner (AWS, Azure, or GCP), Konvoy automatically configures native storage drivers for the target platform. In addition, Konvoy deploys a default [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for [dynamic persistent volume (PV)](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) creation. The table below lists the driver and default StorageClass for each supported cloud provisioner.
+
+| Cloud Provisioner |  Driver              | Default Storage Class        |
 --------------------|----------------------|----------------------|
 | AWS               | aws-ebs-csi-driver   | awscsiprovisioner    |
 | Azure             | azuredisk-csi-driver | azurediskprovisioner |
 | GCP               | gcpdisk-csi-driver   | gcpdiskprovisioner   |
 
-When a default StorageClass is specified, persistent volume claims (PVCs) can be created without needing to specify the storage class. For instance, to allocate storage using the default provisioner, simply create a PVC with the following:
+When a default StorageClass is specified, persistent volume claims (PVCs) can be created without needing to specify the storage class. For instance, to allocate storage using the default provisioner, create a PVC with the following:
 
 ```yaml
 apiVersion: v1
@@ -55,7 +58,7 @@ In some instances you can change the default `StorageClass`. Refer to this proce
 
 ## Driver Information
 
-All default drivers implement the [Container Storage Interface](https://github.com/container-storage-interface/spec/blob/master/spec.md)(CSI). The CSI provides a common abstraction to container orchestrators for interacting with storage subsystems of various types. Each driver has specific configuration parameters which effect PV provisioning. This section details the default configuration used with Konvoy with links to driver documentation, if further customization is required.
+All default drivers implement the [Container Storage Interface](https://github.com/container-storage-interface/spec/blob/master/spec.md)(CSI). The CSI provides a common abstraction to container orchestrators for interacting with storage subsystems of various types. Each driver has specific configuration parameters which effect PV provisioning. This section details the default configuration for drivers used with Konvoy. This section also has links to driver documentation, if further customization is required.
 
 <p class="message--note"><strong>NOTE: </strong><code>StorageClass</code> parameters cannot be changed after creation. To use a different volume configuration, you must create a new <code>StorageClass</code></p>
 
@@ -133,3 +136,17 @@ parameters:
 
 - Driver documentation: [gcp-compute-persistent-disk-csi-driver](https://github.com/kubernetes-sigs/gcp-compute-persistent-disk-csi-driver)
 - Disk pricing: [gcp-disk-pricing](https://cloud.google.com/compute/disks-image-pricing#disk)
+
+## On Premises and other storage options
+
+In an on premises situation, accessible storage can be used for PV and PVCs. Using the Kubernetes CSI and third party drivers, you can use your local volumes and other storage devices in your data center. Possible storage and third party driver options are:
+
+#include /ksphere/konvoy/1.6/include/konvoy-csi-options-vendors.tmpl
+
+<p class="message--note"><strong>NOTE: </strong>Support licenses are available for the Portworx and Purestorage products. Refer to their company support sites for more information.</p>
+
+## Related Information
+
+- [Kubernetes Storage](https://kubernetes.io/docs/concepts/storage/)
+- [Kubernetes Local Persistent Volumes](https://kubernetes.io/blog/2019/04/04/kubernetes-1.14-local-persistent-volumes-ga/)
+- [Local storage](../../install/install-onprem#add-storage-to-worker-nodes)

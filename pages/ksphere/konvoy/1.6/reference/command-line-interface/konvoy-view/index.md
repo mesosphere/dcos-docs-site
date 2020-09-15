@@ -5,6 +5,7 @@ title: konvoy view
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
+beta: true
 excerpt: Views various artifacts
 ---
 

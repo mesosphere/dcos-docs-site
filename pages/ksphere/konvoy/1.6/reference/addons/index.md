@@ -4,6 +4,7 @@ navigationTitle: Addons
 title: Addons
 menuWeight: 8
 excerpt: What are Addons and how are they managed
+beta: true
 enterprise: false
 ---
 
@@ -52,7 +53,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.17-2.3.0
+    configVersion: testing-1.17-2.4.0
     addonsList:
     - name: cert-manager
       enabled: true
@@ -60,7 +61,7 @@ spec:
       enabled: false
 ```
 
-In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `testing-1.17-2.3.0` release.
+In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `testing-1.17-2.4.0` release.
 `external-dns` is not enabled, but can be enabled if needed.
 
 ### Advanced
@@ -90,7 +91,7 @@ If you add a list of addresses for metallb to use, it assigns those addresses to
 ```yaml
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.17-2.3.0
+    configVersion: testing-1.17-2.4.0
     addonsList:
     - name: cert-manager
       enabled: true
@@ -172,7 +173,7 @@ spec:
 
 ```
 
-##### Helm (V2)
+##### Helm (V3)
 
 The above example is for a helm chart.
 This is expressed using the `chartReference` map.

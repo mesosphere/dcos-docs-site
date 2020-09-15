@@ -4,6 +4,7 @@ navigationTitle: Setting up Let's Encrypt certificate
 title: Setting up Let's Encrypt certificate
 menuWeight: 10
 excerpt: Setting up Let's Encrypt certificate for the cluster ingress
+beta: true
 enterprise: false
 ---
 

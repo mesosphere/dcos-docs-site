@@ -5,6 +5,7 @@ title: konvoy diagnose
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
+beta: true
 excerpt: Creates a diagnostics bundle of the cluster
 ---
 

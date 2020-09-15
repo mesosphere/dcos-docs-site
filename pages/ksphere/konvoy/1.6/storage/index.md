@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: Storage
 title: Kubernetes Storage Introduction
 menuWeight: 9
-beta: false
 excerpt: An introduction to persistent storage in Kubernetes
+beta: true
 enterprise: false
 ---
 

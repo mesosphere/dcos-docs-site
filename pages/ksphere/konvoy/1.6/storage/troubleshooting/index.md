@@ -4,6 +4,7 @@ navigationTitle: Troubleshooting
 title: Troubleshooting Konvoy Cluster Storage
 menuWeight: 30
 excerpt: Understanding and troubleshooting storage in your Konvoy clusters
+beta: true
 enterprise: false
 ---
 

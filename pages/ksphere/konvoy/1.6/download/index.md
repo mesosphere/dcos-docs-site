@@ -4,6 +4,7 @@ navigationTitle: Download
 title: Download Konvoy
 menuWeight: 2
 excerpt: Learn how to download the Konvoy CLI
+beta: true
 enterprise: false
 ---
 

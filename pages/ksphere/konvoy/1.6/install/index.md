@@ -4,6 +4,7 @@ navigationTitle: Install
 title: Install
 menuWeight: 4
 excerpt: Install a Konvoy cluster
+beta: true
 enterprise: false
 ---
 

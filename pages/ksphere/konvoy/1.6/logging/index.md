@@ -4,6 +4,7 @@ navigationTitle: Logging
 title: Logging
 menuWeight: 11
 excerpt: Collect and visualize the logs from Kubernetes, platform services, and applications deployed on the Konvoy cluster
+beta: true
 enterprise: false
 ---
 

@@ -4,6 +4,7 @@ navigationTitle: Fluentbit
 title: Fluentbit
 menuWeight: 11
 excerpt: FluentBit is the Konvoy choice of open-source log collection and forwarded tool.
+beta: true
 enterprise: false
 ---
 

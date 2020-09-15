@@ -4,6 +4,7 @@ navigationTitle: Install on secured machines
 title: Install on secured machines
 menuWeight: 37
 excerpt: Install on secured machines
+beta: true
 enterprise: false
 ---
 
@@ -29,7 +30,7 @@ Before installing, ensure that your environment has the following basic requirem
 * Each control plane node should have at least:
   * 4 cores
   * 16 GiB memory
-  * 80 GiB of free space in the root partition, and the root partition must be less than 85% full.
+  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 ## Worker nodes
 
@@ -40,7 +41,7 @@ Before installing, ensure that your environment has the following basic requirem
 * Each worker node should have at least:
   * 8 cores
   * 32 GiB memory
-  * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
+  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
   Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.

@@ -4,6 +4,7 @@ navigationTitle: SAML
 title: SAML connector
 menuWeight: 10
 excerpt: Connect your Konvoy cluster to an Idp using SAML
+beta: true
 enterprise: false
 ---
 

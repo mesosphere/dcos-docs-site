@@ -4,6 +4,7 @@ navigationTitle: Advanced provisioning options (AWS)
 title: Advanced provisioning options (AWS)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on AWS
+beta: true
 enterprise: false
 ---
 
@@ -512,7 +513,7 @@ To add custom resource files:
 [aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
 [ephemeral_storage]: ../../../storage/
 [ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
-[cloud_provider]: https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
+[cloud_provider]: https://v1-17.docs.kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html
 [sts_assumerole]: https://docs.aws.amazon.com/IAM/latest/UserGuide/tutorial_cross-account-with-roles.html
 [ebs_encryption]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html#EBSEncryption_key_mgmt

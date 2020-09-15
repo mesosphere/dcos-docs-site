@@ -5,6 +5,7 @@ title: API documentation (v1beta1)
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
+beta: true
 excerpt: API documentation (v1beta1)
 ---
 

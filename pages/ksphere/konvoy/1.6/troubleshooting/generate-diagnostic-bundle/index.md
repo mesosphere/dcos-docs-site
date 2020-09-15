@@ -4,6 +4,7 @@ navigationTitle: Generate a diagnostic bundle
 title: Generate a diagnostic bundle
 menuWeight: 10
 excerpt: Generate a diagnostic bundle of log files for troubleshooting and analysis
+beta: true
 enterprise: false
 ---
 

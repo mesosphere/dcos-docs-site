@@ -4,6 +4,7 @@ navigationTitle: Enforce policies using Gatekeeper
 title: Enforce policies using Gatekeeper
 menuWeight: 24
 excerpt: Learn how to enforce policies using Gatekeeper
+beta: true
 enterprise: false
 ---
 
@@ -202,7 +203,7 @@ pod/nginx-host-filesystem created
 ```
 
 [gatekeeper]:https://github.com/open-policy-agent/gatekeeper
-[gatekeeper-psp]:https://github.com/open-policy-agent/gatekeeper/tree/master/library/pod-security-policy
+[gatekeeper-psp]:https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy
 [opa]:https://github.com/open-policy-agent/opa
 [opa-constraints]:https://github.com/open-policy-agent/frameworks/tree/master/constraint
 [opa-rego]:https://www.openpolicyagent.org/docs/latest/policy-language/

@@ -4,6 +4,7 @@ navigationTitle: Dex Controller API Reference
 title: Dex Controller API Reference
 menuWeight: 20
 excerpt: Dex Controller API Reference
+beta: true
 enterprise: false
 ---
 

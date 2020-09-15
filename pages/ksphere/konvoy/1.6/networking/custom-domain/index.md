@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle: Custom Domain
 title: Custom Domain
 menuWeight: 8
+beta: true
 excerpt: Configure a custom domain for Konvoy
 ---
 

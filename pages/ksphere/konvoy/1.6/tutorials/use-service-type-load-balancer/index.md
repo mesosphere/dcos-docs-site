@@ -4,6 +4,7 @@ navigationTitle: Use the LoadBalancer service type
 title: Use the LoadBalancer service type
 menuWeight: 20
 excerpt: Learn how to expose applications using the LoadBalancer (layer-4) service type
+beta: true
 enterprise: false
 ---
 

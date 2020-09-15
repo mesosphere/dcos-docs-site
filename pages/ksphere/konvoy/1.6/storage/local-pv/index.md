@@ -4,6 +4,7 @@ navigationTitle: Local Volume Storage
 title: Kubernetes Local Storage
 menuWeight: 9
 excerpt: An introduction to Kubernetes local volumes
+beta: true
 enterprise: false
 ---
 

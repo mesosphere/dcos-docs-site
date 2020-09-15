@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: Configure a Pod to access NFS Share
 title: Configure a Workload to use a Persistent Volume Claim
 menuWeight: 12
-beta: false
 excerpt: Configure a Workload to use a Persistent Volume Claim to access your NFS shared storage
+beta: true
 enterprise: false
 ---
 

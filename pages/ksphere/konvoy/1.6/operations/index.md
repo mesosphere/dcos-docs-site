@@ -4,6 +4,7 @@ navigationTitle: Operations
 title: Operations
 menuWeight: 7
 excerpt: Manage your Konvoy cluster and deployed applications using platform services
+beta: true
 enterprise: false
 ---
 

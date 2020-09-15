@@ -4,6 +4,7 @@ navigationTitle: Dependencies
 title: Addon Dependencies
 menuWeight: 7
 excerpt: Understand addon dependencies and interactions
+beta: true
 enterprise: false
 ---
 
