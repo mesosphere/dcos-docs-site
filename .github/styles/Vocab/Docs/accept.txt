@@ -2,7 +2,7 @@ addon
 Airflow
 Alertmanager
 Ansible
-autoscal(s|ed|ing)
+autoscal(e|es|ed|ing)
 Cassandra
 checkpoint(|s|ed|ing)
 Chronos
