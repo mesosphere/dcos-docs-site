@@ -164,10 +164,12 @@ make docker-liveedit  LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/1.5
 To live edit the Konvoy docs in the `konvoy` repo, run:
 
 ```shell
-make docker-livedit \
+make docker-liveedit \
   LIVEEDIT_PAGES_SRC_ABS_PATH=/absolute/path/to/repo/konvoy/docs/site \
-  LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/latest
+  LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/X.Y
 ```
+
+Where `X.Y.` is the major.minor version of konvoy.
 
 ### Live Edit Performance
 
