@@ -9,7 +9,7 @@ render: mustache
 ---
 
 # Deprecation Notice
-Universal Installer 0.2 is based on Terraform 0.11 which is EOL and does not get any further updates. Furthermore Terraform providers might get incompatible with this version of Terraform. We strongly suggest to update to Universal Installer 0.3 using the provided Upgrade guides
+Universal Installer 0.2 is based on Terraform v0.11, which is EOL and no longer updated. Because it is EOL, it is possible that some non-DC/OS Terraform providers might eventually become incompatible with v0.11 of Terraform. Therefore, we strongly suggest that you do not create any new clusters using the Universal Installer 0.2 modules, and that you upgrade any existing 0.2 based cluster to the 0.3 version of the modules using the upgrade guides listed below.
 
 ## Upgrade to Universal Installer 0.3
 
