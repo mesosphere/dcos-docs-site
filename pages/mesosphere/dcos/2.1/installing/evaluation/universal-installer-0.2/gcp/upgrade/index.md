@@ -10,8 +10,9 @@ render: mustache
 
 
 # Upgrade Universal Installer 0.2 to 0.3
-This guide helps you upgrading Universal Installer 0.2 to 0.3 to support terraform 0.12
-With this guide we assume you’re running a DC/OS cluster similar to our example in the docs. More complex setup might need more care. But the here mentioned changes should also apply. Before doing this on your production cluster you should setup a test cluster in a similar way to make sure changes won’t render your cluster unresponsive.
+This guide documents how to upgrade a Universal Installer installation from version 0.2 to 0.3 to support Terraform v0.12. The guide assumes that the DC/OS cluster to be upgraded is similar to the examples we provide. If you have customized your installation or have a more complex setup then the provided examples than you may need to perform additional steps beyond those listed below.
+
+You should test this procedure on a test cluster before applying it any production cluster to ensure you understand the procedure and it does not break anything.
 
 ## Preparation
 Ideally you should use tfenv to switch between terraform versions but you can also do it by yourself. so tfenv use 0.12.25 means you need to replace your 0.11 terraform version with 0.12.25
@@ -56,21 +57,21 @@ output "masters_dns_name" {
 Make sure you're using the latest modules and your state is properly updated:
 
 ```
-$ terraform init -upgrade
-$ terraform apply
+terraform init -upgrade
+terraform apply
 ```
 
 ## Translate terraform 0.11 `main.tf` into 0.12
 Now we switch to terraform 0.12.25 which offers us an option to translate terraform 0.11 code into terraform 0.12 code
 
 ```
-$ tfenv install 0.12.25
-$ tfenv use 0.12.25
+tfenv install 0.12.25
+tfenv use 0.12.25
 ```
 
 Translate into 0.12 code
 ```
-$ terraform 0.12upgrade
+terraform 0.12upgrade
 ```
 
 You must change the module version to 0.3.0:
@@ -88,13 +89,13 @@ version = "~> 0.3.0"
 First we upgrade our modules to Universal Installer 0.3 ( version change from above)
 
 ```
-$ terraform init -upgrade
+terraform init -upgrade
 ```
 
 not every option might be properly translated. Lets check if our main.tf is valid.
 
 ```
-$ terraform validate
+terraform validate
 ```
 
 A known issue is the providers part:
@@ -122,7 +123,7 @@ Now we apply the new modules to our previous terraform state.
 ### We need to let terraform run on everything except load balancers
 Due to a needed change in the way the load balancer module is being used we must exclude it from the first apply:
 ```
-$ terraform apply $(terraform state list | grep -v module.dcos-forwarding-rules | xargs printf -- '-target %s ')
+terraform apply $(terraform state list | grep -v module.dcos-forwarding-rules | xargs printf -- '-target %s ')
 ```
 
 We expect changes to `...` and `...``
@@ -133,7 +134,7 @@ After this was successful most of the infrastructure is updated
 The forwarding rules module had quite some changes about its addressing. Therefore we now need to create import statements from the current state, drop the old state for load balancer rules and reimport them into terraform.
 
 ```
-$ terraform state pull | jq -r '.resources[] | select(.module != null) |select(.module|startswith("module.dcos.module.dcos-infrastructure.module.dcos-forwarding-rules")) | select(.type=="google_compute_forwarding_rule")| . as $i | .instances[] | .attributes_flat as $ attr | .attributes_flat.port_range|split("-") | "terraform import \""+$i.module+"."+$i.type+"."+$i.name+"[\\\"" + if (.[0] == .[1]) then .[0] else .|join("-") end +"\\\"]" +"\" \"" + $attr.id + "\""' > import_rules.sh
+terraform state pull | jq -r '.resources[] | select(.module != null) |select(.module|startswith("module.dcos.module.dcos-infrastructure.module.dcos-forwarding-rules")) | select(.type=="google_compute_forwarding_rule")| . as $i | .instances[] | .attributes_flat as $ attr | .attributes_flat.port_range|split("-") | "terraform import \""+$i.module+"."+$i.type+"."+$i.name+"[\\\"" + if (.[0] == .[1]) then .[0] else .|join("-") end +"\\\"]" +"\" \"" + $attr.id + "\""' > import_rules.sh
 ```
 
 In the next step we will drop the complete state for these load balancers. We must make sure that the previous commands ran successfully and stored the forwarding rules.
@@ -147,7 +148,7 @@ terraform import "module.dcos.module.dcos-infrastructure.module.dcos-forwarding-
 
 Our file has this amount of command lines:
 ```
-$ wc -l import_rules.sh
+wc -l import_rules.sh
        4 import_rules.sh
 ```
 
@@ -165,7 +166,7 @@ bash -x ./import_rules.sh
 
 After this is finished we need to run a final apply as in the new format terraform needs to create some security rules:
 ```
-$ terraform apply
+terraform apply
 ```
 
 from now on `terraform plan` should not show any additional changes.

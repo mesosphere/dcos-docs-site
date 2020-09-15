@@ -9,8 +9,9 @@ render: mustache
 ---
 
 # Upgrade Universal Installer 0.2 to 0.3
-This guide helps you upgrading Universal Installer 0.2 to 0.3 to support terraform 0.12
-With this guide we assume you're running a DC/OS cluster similar to our example. More complex setup might need more care. But the here mentioned changes should also apply. Before doing this on your production cluster you should setup a test cluster in a similar way to make sure changes won't render your cluster unresponsive.
+This guide documents how to upgrade a Universal Installer installation from version 0.2 to 0.3 to support Terraform v0.12. The guide assumes that the DC/OS cluster to be upgraded is similar to the examples we provide. If you have customized your installation or have a more complex setup then the provided examples than you may need to perform additional steps beyond those listed below.
+
+You should test this procedure on a test cluster before applying it any production cluster to ensure you understand the procedure and it does not break anything.
 
 ## Preparation
 Ideally you should use tfenv to switch between terraform versions but you can also do it by yourself. so `tfenv use 0.12.25` means you need to replace your 0.11 terraform version with 0.12.25
@@ -55,21 +56,21 @@ output "masters_dns_name" {
 Make sure you're using the latest modules and your state is properly updated:
 
 ```
-$ terraform init -upgrade
-$ terraform apply
+terraform init -upgrade
+terraform apply
 ```
 
 ## Translate terraform 0.11 `main.tf` into 0.12
 Now we switch to terraform 0.12.25 which offers us an option to translate terraform 0.11 code into terraform 0.12 code
 
 ```
-$ tfenv install 0.12.25
-$ tfenv use 0.12.25
+tfenv install 0.12.25
+tfenv use 0.12.25
 ```
 
 Translate into 0.12 code
 ```
-$ terraform 0.12upgrade
+terraform 0.12upgrade
 ```
 
 You must change the module version to 0.3.0:
@@ -146,16 +147,16 @@ $ wc -l import_listener.sh import_targetgroups.sh
 The numbers might differ on your infrastructure if you use additional ports. But should be equal for both files.
 Before we import these resources again we will drop state for `aws_lb_target_group` `aws_lb_listener` and `aws_lb_target_group_attachment`
 ```
-$ for addr in $(terraform state pull | jq -r '.resources[] | select(.module != null) |select(.module|startswith("module.dcos.module.dcos-infrastructure.module.dcos-lb")) | select(.type=="aws_lb_target_group" or .type=="aws_lb_listener" or .type=="aws_lb_target_group_attachment")| . as $i | .instances[] | $i.module+"."+$i.type+"."+$i.name+(if .index_key == null then "" else "["+.index_key|tostring+"]" end)'); do terraform state rm "${addr}";done
+for addr in $(terraform state pull | jq -r '.resources[] | select(.module != null) |select(.module|startswith("module.dcos.module.dcos-infrastructure.module.dcos-lb")) | select(.type=="aws_lb_target_group" or .type=="aws_lb_listener" or .type=="aws_lb_target_group_attachment")| . as $i | .instances[] | $i.module+"."+$i.type+"."+$i.name+(if .index_key == null then "" else "["+.index_key|tostring+"]" end)'); do terraform state rm "${addr}";done
 ```
 Now lets import the target groups and listeners again
 ```
-$ bash -x import_targetgroups.sh
-$ bash -x import_listener.sh
+bash -x import_targetgroups.sh
+bash -x import_listener.sh
 ```
 After we sucessfully imported the target groups and listeners again we run a complete terraform apply
 ```
-$ terraform apply
+terraform apply
 ```
 The Plan will show create statements for `aws_lb_target_group_attachment` this is completely ok. Make sure there is __no__ destroy in this statement. With the create statements terraform will realise that the attachment already exists and places this information in its state.
 After this we're done.
