@@ -4,6 +4,7 @@ navigationTitle: Advanced SSH configurations
 title: Advanced SSH configurations
 menuWeight: 90
 excerpt: Advanced SSH configurations for the Konvoy installer
+beta: true
 enterprise: false
 ---
 

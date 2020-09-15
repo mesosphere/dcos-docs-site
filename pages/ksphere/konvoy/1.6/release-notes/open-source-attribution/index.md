@@ -3,6 +3,7 @@ layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
 excerpt: List of third party open source software provided by D2iQ&reg;
+beta: true
 render: mustache
 ---
 
@@ -110,7 +111,7 @@ The table below lists the third party open source software which is provided by 
 |apiserver                  |v0.0.0-20190718184206-a1aa83af71a7  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |client-go                  |v0.0.0-20190620085101-78d2af792bab  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |component-base             |v0.0.0-20191016111319-039242c015a9  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
-|helm                       |v2.16.1+incompatible                |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
+|helm                       |v3.3.0                              |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |klog                       |v1.0.0                              |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |utils                      |v0.0.0-20191010214722-8d271d903fe4  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |controller-runtime         |v0.3.1-0.20191022174215-ad57a976ffa1|[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |

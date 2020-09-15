@@ -4,6 +4,7 @@ navigationTitle: GitHub OAuth App
 title: GitHub OAuth App
 menuWeight: 10
 excerpt: Connect your Konvoy cluster to a GitHub OAuth App
+beta: true
 enterprise: false
 ---
 

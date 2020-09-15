@@ -3,6 +3,7 @@ layout: layout.pug
 navigationTitle: Splunk integration
 title: Splunk integration
 menuWeight: 5
+beta: true
 excerpt: Learn how to integrate Splunk into Konvoy
 ---
 

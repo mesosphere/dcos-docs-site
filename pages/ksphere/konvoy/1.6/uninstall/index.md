@@ -4,6 +4,7 @@ navigationTitle: Uninstall
 title: Uninstall
 menuWeight: 14
 excerpt: Remove a Konvoy cluster and related infrastructure
+beta: true
 enterprise: false
 ---
 

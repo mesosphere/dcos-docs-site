@@ -4,12 +4,13 @@ navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
 menuWeight: 6
 excerpt: What are Kubernetes Base Addons
+beta: true
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->
 
-#include /ksphere/konvoy/1.6/include/kba-addon-intro.tmpl
+#include /ksphere/konvoy/1.5/include/kba-addon-intro.tmpl
 
 ## Related information
 

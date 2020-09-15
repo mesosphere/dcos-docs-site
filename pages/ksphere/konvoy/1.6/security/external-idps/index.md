@@ -4,6 +4,7 @@ navigationTitle: Setting up an external identity provider
 title: Setting up an external identity provider
 menuWeight: 10
 excerpt: Connect your Konvoy cluster to an external identity provider
+beta: true
 enterprise: false
 ---
 

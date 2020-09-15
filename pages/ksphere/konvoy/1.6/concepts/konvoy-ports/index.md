@@ -4,6 +4,7 @@ navigationTitle: Konvoy Port Usage
 title: Konvoy Ports
 menuWeight: 10
 excerpt: Understanding configured ports for Konvoy deployment
+beta: true
 enterprise: false
 ---
 

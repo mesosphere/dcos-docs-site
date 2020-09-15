@@ -4,6 +4,7 @@ navigationTitle: Upgrade Kubernetes with Konvoy
 title: Upgrade Kubernetes and Addons
 menuWeight: 20
 excerpt: Upgrade the Kubernetes version and platform service addons
+beta: true
 enterprise: false
 ---
 

@@ -4,6 +4,7 @@ navigationTitle: Installation failures
 title: Installation failures
 menuWeight: 2
 excerpt: Troubleshoot and address installation and provisioning failures
+beta: true
 enterprise: false
 ---
 

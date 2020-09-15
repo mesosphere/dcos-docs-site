@@ -4,6 +4,7 @@ navigationTitle: Install air-gapped
 title: Install air-gapped
 menuWeight: 35
 excerpt: Install Konvoy in an air-gapped environment
+beta: true
 enterprise: false
 ---
 
@@ -31,7 +32,7 @@ Before installing, verify that your environment meets the following basic requir
 * Each control plane node should have at least:
   * 4 cores
   * 16 GiB memory
-  * 80 GiB of free space in the root partition, and the root partition must be less than 85% full.
+  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 ## Worker nodes
 
@@ -42,7 +43,7 @@ Before installing, verify that your environment meets the following basic requir
 * Each worker node should have at least:
   * 8 cores
   * 32 GiB memory
-  * 80 GiB of free space in the root partition and the root partition must be less than 85% full.
+  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
   Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
@@ -74,7 +75,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.17-2.3.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.17-1.2.0-beta.0,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.17-2.4.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.17-1.2.0-beta.1,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
    ```
 
 <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _.</code></p>
@@ -91,7 +92,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: testing-1.17-2.3.0
+       configVersion: testing-1.17-2.4.0
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -100,7 +101,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: testing-1.17-1.2.0-beta.0
+      configVersion: testing-1.17-1.2.0-beta.1
       addonsList:
       - name: kommander
         enabled: true
@@ -346,7 +347,9 @@ spec:
           konvoy.docker-registry-url: https://myregistry:443
           #konvoy.docker-registry-insecure-skip-tls-verify: false
           konvoy.docker-registry-username: "myuser"
-          konvoy.docker-registry-password: "mypassowrd"
+          konvoy.docker-registry-password: "mypassword"
+      clusterAutoscaler:
+        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
 ```
 
 The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
@@ -365,10 +368,12 @@ spec:
           konvoy.docker-registry-repository: "library/mesosphere/konvoy"
           #konvoy.docker-registry-insecure-skip-tls-verify: false
           konvoy.docker-registry-username: "myuser"
-          konvoy.docker-registry-password: "mypassowrd"
+          konvoy.docker-registry-password: "mypassword"
+      clusterAutoscaler:
+        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
 ```
 
-Other configuration options exist for the autoscaler to use a local Helm charts repository and to prevent the autoscaler from trying to list tags from the remote GitHub URL. Details are provided in [the autoscaling documentation][autoscaling-air-gapped].
+Details regarding the autoscaler are provided in [the autoscaling documentation][autoscaling-air-gapped].
 
 ## Configure Addon repository
 
@@ -383,22 +388,22 @@ spec:
 ...
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.17-2.3.0
+    configVersion: testing-1.17-2.4.0
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.0
+      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
     configVersion: stable-1.17-1.2.2
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.0
+      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.17-1.2.0-beta.0
+    configVersion: testing-1.17-1.2.0-beta.1
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.0
+      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
     addonsList:
     - name: kommander
       enabled: false

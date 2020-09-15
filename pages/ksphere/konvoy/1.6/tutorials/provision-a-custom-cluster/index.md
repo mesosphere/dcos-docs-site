@@ -4,6 +4,7 @@ navigationTitle: Provision a customized cluster
 title: Provision a customized cluster
 menuWeight: 10
 excerpt: Learn how to provision a customized Konvoy cluster
+beta: true
 enterprise: false
 ---
 

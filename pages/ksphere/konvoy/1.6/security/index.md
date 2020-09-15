@@ -4,6 +4,7 @@ navigationTitle: Security
 title: Security
 menuWeight: 10
 excerpt: Manage cluster security, authentication, and authorization for the Konvoy cluster
+beta: true
 enterprise: false
 ---
 
@@ -48,6 +49,8 @@ Examples of tested configurations are described in the [External Providers] sect
 When accessing the dashboard at `/ops/portal/kubernetes`, the authenticated user's username and groups are impersonated for all request. Impersonation applies existing RBAC policies which govern access to the API server (`kubectl`) to the dashboard. The operator user has the `cluster-admin` role and has full access to all resources exposed by the Kubernetes dashboard. Users which are authenticated by external identity providers have no privileges. External users must be bound to `Roles` and `ClusterRoles` by their username or by any groups which they are members of. More information about Kubernetes RBAC can be found in the [Kubernetes Documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
 ## Addon Application Security Notices
+
+This security notice only applies to Konvoy versions 1.5 and below, in Konvoy 1.6 HelmV2 was removed in favor of HelmV3 which fixed this issue.
 
 Konvoy clusters manage Addon applications through a tool called "Kubeaddons". Kubeaddons is implemented via [Kubernetes CRDs](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) and [Controllers](https://kubernetes.io/docs/concepts/architecture/controller/).
 

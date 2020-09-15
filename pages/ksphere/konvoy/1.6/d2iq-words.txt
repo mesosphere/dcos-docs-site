@@ -296,8 +296,6 @@ procfs
 prometheusadapter
 prometheusoverview
 protobuf
-provisionioning
-provisoner
 Ptables
 pvcreate
 quickstart

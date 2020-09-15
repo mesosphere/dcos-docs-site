@@ -4,6 +4,7 @@ navigationTitle: Configure HTTP Proxy
 title: Configure HTTP Proxy
 menuWeight: 70
 excerpt: Configure HTTP proxy for the Konvoy cluster
+beta: true
 enterprise: false
 ---
 

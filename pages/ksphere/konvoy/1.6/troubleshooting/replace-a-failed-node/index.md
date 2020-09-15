@@ -4,6 +4,7 @@ navigationTitle: Replace a failed node
 title: Replace a failed node
 menuWeight: 9
 excerpt: Replace a failed worker node in a cluster
+beta: true
 enterprise: false
 ---
 

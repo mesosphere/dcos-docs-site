@@ -4,6 +4,7 @@ navigationTitle: Networking
 title: Networking
 menuWeight: 8
 excerpt: Configure networking for Konvoy cluster
+beta: true
 enterprise: false
 ---
 

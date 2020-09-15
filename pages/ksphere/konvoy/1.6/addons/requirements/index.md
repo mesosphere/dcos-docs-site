@@ -4,12 +4,13 @@ navigationTitle: Configuration Requirements
 title: Configuration Requirements
 menuWeight: 7
 excerpt: KBA Descriptions and Resource Requirements
+beta: true
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->
 
-#include /ksphere/konvoy/1.6/include/kba-requirements.tmpl
+#include /ksphere/konvoy/1.5/include/kba-requirements.tmpl
 
 ## Related information
 

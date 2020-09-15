@@ -8,9 +8,7 @@ beta: true
 enterprise: false
 ---
 
-**Note:** Upgrading is not supported during Konvoy v1.6.0-beta.0.
-
-**Note:** A Konvoy CLI version can only be upgraded to a compatible Konvoy version.</p>
+<p class="message--note"><strong>NOTE: </strong>Before upgrading, keep in mind that your Konvoy CLI version can only be upgraded to a compatible Konvoy version.</p>
 
 ## Before you begin: Prepare for Konvoy CLI upgrade
 
@@ -87,9 +85,9 @@ It is recommended to upgrade to the newest supported version of Kubernetes, set 
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.4`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.17-2.3.0`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.17-2.4.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.17-1.2.0-beta.0`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.17-1.2.0-beta.1`.
 
 The version of Konvoy is now `v1.5.0`, set `spec.version: v1.5.0`.
 
@@ -110,16 +108,36 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: testing-1.17-2.3.0
+      configVersion: testing-1.17-2.4.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: testing-1.17-1.2.0-beta.0
+      configVersion: testing-1.17-1.2.0-beta.1
       addonsList:
         - name: kommander
           enabled: true
   ...
   version: v1.5.0
 ```
+
+<p class="message--note"><strong>NOTE: </strong>During the upgrade process, if the cluster has certain types of workloads running, the Konvoy CLI displays a warning. These warnings report skipped nodes in the upgrade process.</p>
+
+Konvoy preserves the availability of applications in the cluster, by detecting:
+
+- All replicas of a `ReplicaSet` run on a single node. Draining that node interrupts the application.
+- `ReplicaSets` having a replica count less than 2. Draining this node interrupts the application.
+- Pods using an `EmptyDir` volume, or other host-based storage that binds the pod to a specific node, preventing it from migrating to another node.
+
+To force the node to upgrade, you can run `konvoy up --upgrade --force-upgrade`, which upgrades all the nodes and ignores the safety checks. This can result in temporary interruptions to application availability.
+
+During the `node drain` stage, Konvoy may exhibit a time-out error, while waiting for workloads to reschedule. Users can bypass this process during upgrade by using `konvoy up --upgrade --force-upgrade --without-draining`. This usage can result in undefined behavior,  interruptions to application availability and service downtime.
+
+Konvoy avoids interrupting applications by default, and displays these warnings while deferring upgrade operations.
+
+To avoid these warnings, and reduce risks to application availability:
+
+- Configure the application's deployment to run multiple replicas for fault tolerance.
+- Using distributed or remote storage solutions instead of host-based storage.
+- Set Pod anti-affinity to ensure pods distribute across nodes for better fault tolerance.
 
 ### Upgrading Konvoy from v1.2.x to v1.3.0
 
@@ -181,7 +199,7 @@ spec:
     ...
 ```
 
+[docker_api_auth]: https://github.com/docker/distribution/blob/master/docs/spec/auth/token.md
 [docker_registry]: https://docs.docker.com/registry/deploying/
 [docker_v2_auth_token]: https://docs.docker.com/registry/spec/auth/token/
 [harbor]: https://github.com/goharbor/harbor
-[docker_api_auth]: https://github.com/docker/distribution/blob/master/docs/spec/auth/token.md
