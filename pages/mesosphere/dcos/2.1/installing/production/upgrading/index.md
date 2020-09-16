@@ -96,6 +96,11 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
     <td Align = "center">⚫</td>
     <td Align = "center">⚫</td>
    </tr>
+   <tr>
+    <th>1.13.10</th>
+    <td Align = "center">⚫</td>
+    <td Align = "center">⚫</td>
+   </tr>
 </table>
 <br>
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
