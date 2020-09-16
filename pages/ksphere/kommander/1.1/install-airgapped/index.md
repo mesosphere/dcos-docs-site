@@ -26,7 +26,7 @@ Before installing, ensure your environment has the following basic requirements:
   cluster:
   - both management and attached clusters must connect to the Docker registry
   - management cluster must connect to the attached cluster's API server
-  - management cluster must connect to load balancers created by some of the addons. An example of such setup is Thanos which is part of prometheus addon
+  - management cluster must connect to load balancers created by some of the addons. An example of such setup is Thanos which is part of the Prometheus addon
 
 - all the prerequisites in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#before-you-begin] in case of Konvoy clusters. For attached 3rd party clusters refer to the vendor's documentation.
 
@@ -42,7 +42,7 @@ Worker nodes must meet the minimal requirements outlined in [air-gapped Konvoy i
 
 All nodes must meet the same minimal requirements outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#operating-system-and-services-for-all-nodes].
 
-## Definine the inventory file
+## Define the inventory file
 
 Installing air-gapped Kommander does not require any changes in the `inventory.yaml` file.
 
@@ -65,7 +65,7 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
 ```
 
-1.  Ensure  Kommander can find and access the private Docker registry. The `registry_ip` variable is the ip address of the available private Docker registry. ${user} and ${password} are the username and password if access requires credentials.
+1.  Ensure  Kommander can find and access the private Docker registry. The `registry_ip` variable is the IP address of the available private Docker registry. ${user} and ${password} are the username and password if access requires credentials.
 
 ```yaml
 - name: kommander
