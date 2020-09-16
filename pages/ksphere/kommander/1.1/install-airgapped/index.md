@@ -32,7 +32,7 @@ Before installing, ensure your environment has the following basic requirements:
 
 ## Control plane nodes
 
-Control plane nodes of Konvoy clusters should meet the minimal requirements outlined in [airgapped konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#control-plane-nodes]. For 3rd-party clusters control plance requirements refer to the vendor specification.
+Control plane nodes of Konvoy clusters should meet the minimal requirements outlined in [airgapped konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#control-plane-nodes]. For 3rd-party clusters control plane requirements refer to the vendor specification.
 
 ## Worker nodes
 
