@@ -12,17 +12,17 @@ enterprise: false
 
 Use external volumes when fault tolerance is crucial for your app. If a host fails, the native Marathon instance reschedules your app on another host, along with its associated data, without user intervention. External volumes also typically offer a larger amount of storage.
 
-Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL, you’ll want your application to preserve its state. You can use an external storage service, such as Amazon's Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
+Marathon applications normally lose their state when they terminate and are relaunched. In some contexts, for instance, if your application uses MySQL, you will want your application to preserve its state. You can use an external storage service, such as Amazon's Elastic Block Store (EBS), to create a persistent volume that follows your application instance.
 
-Note that volume sizes are specified in gibibyte (GiB) units.
+**Note** Volume sizes are specified in gibibyte (GiB) units.
  
-# Creating an application with an external persistent volume
+# Create an application with an external persistent volume
 
 ## Marathon app definition
 
 You can specify an external volume in your [Marathon app definition](/mesosphere/dcos/2.2/deploying-services/creating-services/).
 
-### Using the Universal Container Runtime
+### Use the Universal Container Runtime
 
 The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You will know that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
@@ -67,7 +67,7 @@ The `cmd` in this app definition appends the output of the `date` command to `te
 -  You cannot change volume parameters after you create the application.
 -  Marathon will not launch apps with external volumes if `upgradeStrategy.minimumHealthCapacity` is greater than 0.5, or if `upgradeStrategy.maximumOverCapacity` does not equal 0.
 
-### Using a Docker Engine
+### Use a Docker engine to specify external volume
 
 Below is a sample app definition that uses a Docker Engine and specifies an external volume. The `cmd` in this app definition appends the output of the `date` command to `test.txt`. You can verify that the external volume is being used correctly if you see that the logs of successive runs of the application show more and more lines of `date` output.
 
@@ -111,10 +111,10 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 
 ## Create an application from the DC/OS UI
 
-1. Click the **Services** tab, then **RUN A SERVICE**.
-1. If you are using a Docker container, click **Container Settings** and configure your container runtime.
-1. Click **Volumes** and enter your Volume Name and Container Path.
-1. Click **Deploy**.
+1. Select the **Services** tab, then **RUN A SERVICE**.
+1. If you are using a Docker container, select **Container Settings** and configure your container runtime.
+1. Select **Volumes** and enter your Volume Name and Container Path.
+1. Select **Deploy**.
 
 <a name="implicit-vol"></a>
 
@@ -122,15 +122,15 @@ Below is a sample app definition that uses a Docker Engine and specifies an exte
 
 The default implicit volume size is 16 GiB. If you are using the Universal Container Runtime, you can modify this default for a particular volume by setting `volumes[x].external.size`. You cannot modify this default for a particular volume if you are using the Docker Engine. For both runtimes, however, you can modify the default size for all implicit volumes by modifying the [REX-Ray configuration](https://rexray.readthedocs.io/en/v0.9.0/user-guide/config/).
 
-# Scaling your app
+# Scale your app
 
 Apps that use external volumes can only be scaled to a single instance because a volume can only attach to a single task at a time.
 
 If you scale your app down to 0 instances, the volume is detached from the agent where it was mounted, but it is not deleted. If you scale your app up again, the data that was associated with it is still be available.
 
-# Using 3rd party Docker volume driver
+# Use a 3rd party Docker volume driver
 
-If you want to use a 3rd party Docker volume driver rather than REX-Ray (e.g., [NetApp Trident](https://github.com/NetApp/trident)), you will need to take the following steps on each agent node (Trident is used as an example in the steps below):
+If you want to use a 3rd party Docker volume driver rather than REX-Ray (e.g., [NetApp Trident](https://github.com/NetApp/trident)), take the following steps on each agent node (Trident is used as an example in the steps below):
 
 1. Install the volume driver as a Docker plugin.
     ```
@@ -144,7 +144,7 @@ If you want to use a 3rd party Docker volume driver rather than REX-Ray (e.g., [
     $ sudo bash -c 'echo "unix:///run/docker/plugins/<plugin-id>/netapp.sock" > /etc/docker/plugins/netapp.spec'
     ```
 
-Now the volume driver is ready for you to use it in DC/OS. When you create an application, you need to set the option `external.options["dvdi/driver"]` to the name of the volume driver (e.g., `netapp`).
+Now the volume driver is ready for you to use it in DC/OS. When you create an application, set the option `external.options["dvdi/driver"]` to the name of the volume driver (e.g., `netapp`).
 
 # Potential issues
 
@@ -196,4 +196,4 @@ EBS volumes present as non-volatile memory express (NVMe) devices on certain new
 
 ## External volumes   
 
-To troubleshoot external volumes, consult the agent or system logs. If you are using REX-Ray on DC/OS, you can also consult the `systemd` journal for the `dcos-rexray.service` unit logs.
+To troubleshoot external volumes, see the agent or system logs. If you are using REX-Ray on DC/OS, you can also see the `systemd` journal for the `dcos-rexray.service` unit logs.
