@@ -26,6 +26,7 @@ Horovod
 hyperparameter(|s)
 Istio
 Kafka
+Kaptain
 Katib
 Keras
 Kibana
