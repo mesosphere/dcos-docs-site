@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Uninstall
 title: Uninstall
 featureMaturity:

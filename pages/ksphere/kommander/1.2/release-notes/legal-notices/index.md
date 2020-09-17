@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 title: Legal Notices
 beta: false
 menuWeight: 105

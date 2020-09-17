@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Project Secrets
 title: Project Secrets
 menuWeight: 1

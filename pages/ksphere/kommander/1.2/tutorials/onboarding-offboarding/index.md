@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Onboarding and offboarding a user in Kommander
 title: Onboarding and offboarding a user in Kommander
 menuWeight: 1

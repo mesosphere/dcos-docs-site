@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Managing Clusters
 title: Managing Clusters
 menuWeight: 7

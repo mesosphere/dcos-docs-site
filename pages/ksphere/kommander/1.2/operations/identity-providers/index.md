@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Identity Providers
 title: Identity Providers
 menuweight: 1

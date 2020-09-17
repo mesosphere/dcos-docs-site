@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Centralized Cost Monitoring
 title: Centralized Cost Monitoring
 menuWeight: 7
