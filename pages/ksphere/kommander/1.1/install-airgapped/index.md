@@ -48,53 +48,13 @@ Installing air-gapped Kommander does not require any changes in the `inventory.y
 
 # Configure the Kubernetes cluster
 
-The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires additional configuration. The following steps describe these changes. Ensure all the `cluster.yaml` changes outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry] documentation are applied.
+The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires additional configuration. Ensure all the `cluster.yaml` changes outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry] documentation are applied. Once this is done:
 
 1.  Ensure Kommander can use the self-hosted charts repository running on top of the Konvoy cluster. It can not connect to the default one through the public Internet.
-
-```yaml
-- name: kommander
-  values: |2
-    global:
-      federate:
-        airgapped:
-          enabled: true
-          chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
-    kommander-federation:
-      clusterAutoscaler:
-        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
-```
-
 1.  Ensure  Kommander can find and access the private Docker registry. The `registry_ip` variable is the IP address of the available private Docker registry. ${user} and ${password} are the username and password if access requires credentials.
+1.  Reconfigure the Kommander controller to work in an air-gapped environment.
 
-```yaml
-- name: kommander
-  values: |2
-    kommander-federation:
-      konvoy:
-        imageRepository: "${registry_ip}:5000/mesosphere/konvoy"
-      utilityApiserver:
-        extraArgs:
-          docker-registry-url: "https://${registry_ip}:5000"
-          docker-registry-insecure-skip-tls-verify: true
-          docker-registry-username: 'admin'
-          docker-registry-password: 'password'
-```
-
-1.  Reconfigure the Kommander controller to work in an air-gapped environment:
-
-```yaml
-- name: kommander
-  values: |2
-    kommander-federation:
-      controller:
-        containers:
-          manager:
-            extraArgs:
-              feature-gates: "Airgapped=true"
-```
-
-    The Kommander addon configuration should look similar to the following:
+The Kommander addon configuration that implements the above is as follows:
 
 ```yaml
 - name: kommander
