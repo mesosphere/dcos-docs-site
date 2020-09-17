@@ -1,13 +1,13 @@
 {
   "master": {
     "DO_NOT_BUILD": [
-      "ksphere/kommander/1.2/**"
+      
     ]
   },
   "staging": {
     "DO_NOT_BUILD": [
-      "ksphere/kommander/1.2/**"
-    ]
+       
+     ]
   },
   "kommander": {
     "DO_NOT_BUILD": [
