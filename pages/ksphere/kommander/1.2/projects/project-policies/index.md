@@ -9,7 +9,7 @@ excerpt: Project Policies grant access to a specified Project Role for a specifi
 
 Project Policies grant access to a specified Project Role for a specified group of people.
 
-Before you can create a Project Policy, you need to make sure you have created a Group. A Kommander Group can contain one or several Identity Provider users and/or groups.
+Before you can create a Project Policy, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users and/or groups.
 
 Then, you can assign a role to this Kommander Group:
 
@@ -33,7 +33,7 @@ spec:
 EOF
 ```
 
-You need to make sure the projectns, projectrole and the virtualgroup variables are set before executing the command.
+Ensure the projectns, projectrole and the virtualgroup variables are set before executing the command.
 
 You can set them using the following commands (for a Kommander Group called user1 and a Project Role called admin, and after setting the projectns as explained in the previous section):
 

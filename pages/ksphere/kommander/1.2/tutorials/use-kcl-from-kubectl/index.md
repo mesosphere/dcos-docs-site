@@ -16,7 +16,7 @@ This tutorial covers the following topics:
 
 ## Prerequisites
 
-You need to have `kubectl` connected to your Kommander Management cluster using the Token flow.
+You must have `kubectl` connected to your Kommander Management cluster using the Token flow.
 
 Ensure KCL pods are running.
 
@@ -90,7 +90,6 @@ NAME                     DISPLAY NAME             WORKSPACE NAMESPACE           
 default-workspace        Default Workspace        default-workspace-4clss        95m
 workspacetest                                     workspacetest-r69q2            77s
 ```
-
 ## Creating a cluster in the Workspace
 
 ### Creating an AWS Cloud Provider
@@ -99,7 +98,7 @@ In this tutorial we are using AWS Provider, but you can use any other supported 
 
 <p class="message--note"><strong>NOTE: </strong>Assuming you logged in with aws-cli
 </p>
-To create a cluster you need to setup the secret with the AWS credentials and a CloudProviderAccount.
+To create a cluster you must setup the secret with the AWS credentials and a CloudProviderAccount.
 
 ```
 BASE64_ARGS="-w 0"
@@ -138,7 +137,7 @@ EOF
 
 ### Creating a cluster
 
-To create a cluster using KCL means you create a KonvoyCluster CRD in the Workspace namespace. You need to reference the CloudProviderAccount with the AWS credentials you created in the previous step.
+To create a cluster using KCL means you create a KonvoyCluster CRD in the Workspace namespace. You must reference the CloudProviderAccount with the AWS credentials you created in the previous step.
 
 ```
 cat - << EOF | kubectl apply -f -
@@ -170,7 +169,7 @@ To provision a cluster KCL uses Kubernetes Jobs.
 kubectl get jobs -n workspacetest-r69q2
 ```
 
-To access logs of the job we need to check its pod.
+To access logs of the job we must check its pod.
 
 ```
 kubectl get pods -n workspacetest-r69q2

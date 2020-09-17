@@ -4,7 +4,7 @@ beta: true
 navigationTitle: Centralized Monitoring
 title: Centralized Monitoring
 menuWeight: 7
-beta: false
+beta: true
 excerpt: Monitor clusters, created with Kommander, on any connected cluster
 ---
 

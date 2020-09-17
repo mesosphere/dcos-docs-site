@@ -34,7 +34,7 @@ spec:
 EOF
 ```
 
-You need to make sure the projectns variable is set before executing the command.
+You must make sure the projectns variable is set before executing the command.
 
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes ConfigMap Object, in the corresponding namespace:
 

@@ -16,7 +16,7 @@ enterprise: false
 
 To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install](https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
 
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
+**NOTE:** You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
 <!-- TBD when 1.2 goes GA:
 # Release Summary
@@ -41,7 +41,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## Bug Fixes
 
-- Fixed an Issue where logout wasnt deleting any cookies
+- Fixed an issue where logout wasn't deleting any cookies
 - Smaller UX Bugs and Improvements
 
 ## Component Versions
@@ -62,7 +62,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## Features/Improvements
 
-- Changed routing from hash based to history based to allow redirects after e.g. login.
+- Changed routing from hash-based to history-based to allow redirects after login.
 
 ## Bug Fixes
 
