@@ -85,7 +85,7 @@ Your Jenkins instance will deploy.
     ```yaml
     master:
       useSecurity: false
-      installPlugins: ["prometheus:2.0.6","kubernetes:1.18.2","workflow-job:2.33","workflow-aggregator:2.6","credentials-binding:1.19","git:3.11.0"] 
+      installPlugins: ["prometheus:2.0.6","kubernetes:1.18.2","workflow-job:2.39","workflow-aggregator:2.6","credentials-binding:1.23","git:4.4.2"]
       csrf:
         defaultCrumbIssuer:
           enabled: false
