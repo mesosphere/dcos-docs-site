@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Back up and restore
 title: Back up and restore
 featureMaturity:

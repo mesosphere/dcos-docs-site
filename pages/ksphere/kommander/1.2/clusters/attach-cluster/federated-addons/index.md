@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Federated Addons
 title: Federated Addons
 menuWeight: 5

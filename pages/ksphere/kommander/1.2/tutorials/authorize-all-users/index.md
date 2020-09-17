@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Authorize a group across clusters
 title: Authorize a group across clusters
 menuWeight: 1

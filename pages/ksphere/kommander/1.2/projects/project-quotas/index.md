@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Project Quotas
 title: Project Quotas
 menuWeight: 1

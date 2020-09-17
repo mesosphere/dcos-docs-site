@@ -1,5 +1,6 @@
 ---
 layout: layout.pug
+beta: true
 navigationTitle: Upgrade
 title: Upgrade
 menuWeight: 5
