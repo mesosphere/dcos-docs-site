@@ -39,7 +39,7 @@ In the Kommander UI, do the following:
 ![Project Policies Table](/ksphere/kommander/1.2/img/tutorial-project-policies.png)
 Project Policies Table
 
-   The default role for this persona:
+The default role for this persona:
 
 - _Kommander Project Admin Role_: because this is a Kommander Role type role, it applies to the management cluster. This role grants admin access to the project namespace on the management cluster.
 

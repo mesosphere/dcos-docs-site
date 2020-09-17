@@ -9,7 +9,7 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 
-D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein.  D2iQ software products may additionally include third-party open source software.
+D2iQ&reg; and its licensors are the owners of all right, title and interest in and to D2iQ software products, the documentation, all updates, upgrades, and derivative works thereto, and all intellectual property rights therein. D2iQ software products may additionally include third-party open source software.
 
 # Trademarks and Registered Trademarks
 
@@ -31,13 +31,13 @@ Couchbase is a registered trademark, and Couchbase Gateway, and Couchbase Server
 
 Crunchbase and ETCD are trademarks or registered trademarks of Crunchbase, Iinc.
 
-Datastax, Titan, and TitanDB are registered trademarks of Datastax, Inc. and its subsidiaries in the United States and other countries. 
+Datastax, Titan, and TitanDB are registered trademarks of Datastax, Inc. and its subsidiaries in the United States and other countries.
 
 Docker is a registered trademark of Docker, Inc.
 
 ElasticSearch, Logstash, and Kibana are registered trademarks of Elasticsearch B. V., registered in the U. S. and other countries.
 
-Google is a registered trademark, and Google Cloud Platform, GCP,  Google Cloud Platform service, GCP infrastructure platform, Google Cloud enterprise services, and TensorFlow open-source software library are trademarks of Google, Inc.
+Google is a registered trademark, and Google Cloud Platform, GCP, Google Cloud Platform service, GCP infrastructure platform, Google Cloud enterprise services, and TensorFlow open-source software library are trademarks of Google, Inc.
 
 Grafana is a trademark of Coding Instinct AB.
 
@@ -75,7 +75,7 @@ REX-ray is a registered trademark of DELL, Inc.
 
 Segment is a trademark or registered trademark of Segment.io, Inc.
 
-Splunk is a registered trademark of Splunk, Inc. in the United States and other countries. 
+Splunk is a registered trademark of Splunk, Inc. in the United States and other countries.
 
 Telegraf is a trademark of InfluxData, Inc.
 
@@ -90,5 +90,3 @@ UNIX is registered trademark of The Open Group in the United States and other co
 VMware ESXi and VMware are registered trademarks of VMware, Inc. in the UNited States and other countries.
 
 All other trademarks, trade names, service marks, and companies referenced herein belong to their respective companies, foundations, or development communities.
-
-
