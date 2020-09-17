@@ -13,6 +13,7 @@ excerpt: How federated addons work
 When attaching a cluster, Kommander federates certain addons on the newly attached cluster. To customize the federation of the logging and monitoring stacks, operators can apply labels to the associated `KommanderCluster` resource.
 
 On attachment, two factors impact successfully deploying an addon on the attached cluster:
+
 1. Is the attached cluster a Konvoy cluster or not? For example, a cluster deployed using AWS EKS.
 2. Does a label describing the federation of the addon exist and is it defined? If yes, what is its value?
 
@@ -32,25 +33,25 @@ If you want to federate a cluster by creating a new `KommanderCluster` object in
 
 ## Federated addons
 
-| Name | Federated by default | Federation label | Only federated on non-Konvoy clusters |
-|------------|----------------|----------------|----------------|
-| dashboard-kommander-override | True | | False |
-| elasticsearch | False | `kommander.mesosphere.io/federate-elasticsearch` | True |
-| elasticsearch-curator | False | `kommander.mesosphere.io/federate-elasticsearch-curator` | True |
-| elasticsearchexporter | False | `kommander.mesosphere.io/federate-elasticsearchexporter` | True |
-| fluentbit | False | `kommander.mesosphere.io/federate-fluentbit` | True |
-| kibana | False | `kommander.mesosphere.io/federate-kibana` | True |
-| kube-oidc-proxy-kommander | True | | False |
-| opsportal-addons-kommander-overrides | True | | False |
-| prometheus | True | `kommander.mesosphere.io/federate-prometheus` | True |
-| prometheusadapter | True | `kommander.mesosphere.io/federate-prometheusadapter` | True |
-| reloader | True | | True |
-| traefik-forward-auth-kommander | True | | False |
+| Name                                 | Federated by default | Federation label                                         | Only federated on non-Konvoy clusters |
+| ------------------------------------ | -------------------- | -------------------------------------------------------- | ------------------------------------- |
+| dashboard-kommander-override         | True                 |                                                          | False                                 |
+| elasticsearch                        | False                | `kommander.mesosphere.io/federate-elasticsearch`         | True                                  |
+| elasticsearch-curator                | False                | `kommander.mesosphere.io/federate-elasticsearch-curator` | True                                  |
+| elasticsearchexporter                | False                | `kommander.mesosphere.io/federate-elasticsearchexporter` | True                                  |
+| fluentbit                            | False                | `kommander.mesosphere.io/federate-fluentbit`             | True                                  |
+| kibana                               | False                | `kommander.mesosphere.io/federate-kibana`                | True                                  |
+| kube-oidc-proxy-kommander            | True                 |                                                          | False                                 |
+| opsportal-addons-kommander-overrides | True                 |                                                          | False                                 |
+| prometheus                           | True                 | `kommander.mesosphere.io/federate-prometheus`            | True                                  |
+| prometheusadapter                    | True                 | `kommander.mesosphere.io/federate-prometheusadapter`     | True                                  |
+| reloader                             | True                 |                                                          | True                                  |
+| traefik-forward-auth-kommander       | True                 |                                                          | False                                 |
 
 ## Federated cluster addons
 
-| Name | Federated by default | Federation label | Only federated on non-Konvoy clusters |
-|------------|----------------|----------------|----------------|
-- cert-manager | True | | True |
-- kubecost | True | | False |
-- traefik | True | | True |
+| Name           | Federated by default | Federation label | Only federated on non-Konvoy clusters |
+| -------------- | -------------------- | ---------------- | ------------------------------------- |
+| - cert-manager | True                 |                  | True                                  |
+| - kubecost     | True                 |                  | False                                 |
+| - traefik      | True                 |                  |  True                                 |

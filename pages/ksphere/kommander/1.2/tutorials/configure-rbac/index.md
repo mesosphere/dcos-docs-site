@@ -229,6 +229,7 @@ spec:
 ### Custom personas
 
 You have customized the access level of the four examples using default roles provided by Kommander. You can extend the same process to use any custom configured roles as well by:
+
 - Creating a group with users to represent a persona.
 - Selecting roles that represent that persona’s level of access.
 - Creating policies that bind roles to groups.
