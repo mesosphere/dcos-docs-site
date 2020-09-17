@@ -5,7 +5,7 @@ navigationTitle: Attach Amazon EKS Cluster to Kommander
 title: Attach Amazon EKS Cluster to Kommander
 menuWeight: 10
 excerpt: Attach an existing EKS cluster to Kommander
-beta: false
+beta: true
 enterprise: false
 ---
 
@@ -61,7 +61,7 @@ This procedure requires the following items and configurations:
    EOF
    ```
 
-1. You need to create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
+1. You must create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
 
    ```bash
    export USER_TOKEN_NAME=$(kubectl -n kube-system get serviceaccount kommander-cluster-admin -o=jsonpath='{.secrets[0].name}')

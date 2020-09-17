@@ -38,7 +38,7 @@ spec:
 EOF
 ```
 
-You need to make sure the project and projectns variables are set before executing the command.
+You ensure the project and projectns variables are set before executing the command.
 
 You can set them using the following commands (for a Kommander Project called project1, and after setting the workspacens as explained in the previous section):
 

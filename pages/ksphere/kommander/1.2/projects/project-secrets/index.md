@@ -34,7 +34,7 @@ spec:
 EOF
 ```
 
-You need to make sure the projectns variable is set before executing the command.
+Ensure the projectns variable is set before executing the command.
 
 **Note**: The value of the key is base64 encoded.
 

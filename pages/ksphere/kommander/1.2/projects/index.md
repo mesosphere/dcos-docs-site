@@ -19,9 +19,9 @@ Namespaces isolate configurations across clusters and are created on all cluster
 
 ## Creating a Project
 
-When you create a Project, you need to specify a Project Name, a Namespace Name (optional) and a way to allow Kommander to determine which Kubernetes clusters will be part of this project.
+When you create a Project, you must specify a Project Name, a Namespace Name (optional) and a way to allow Kommander to determine which Kubernetes clusters will be part of this project.
 
-As mentioned above, a Project Namespace corresponds to a Kubernetes Federated Namespaces. By default, the name of the namespace will be auto-generated based on the project name (first 57 characters) plus 5 unique alphanumeric characters. You can also specify a namespace name, but in this case, you need to make sure it won’t conflict with any existing namespace on the target Kubernetes clusters.
+As mentioned above, a Project Namespace corresponds to a Kubernetes Federated Namespaces. By default, the name of the namespace will be auto-generated based on the project name (first 57 characters) plus 5 unique alphanumeric characters. You can also specify a namespace name, but in this case, you must make sure it won’t conflict with any existing namespace on the target Kubernetes clusters.
 
 To determine which Kubernetes clusters will be part of this project, you can either select manually existing clusters or define labels that Kommander will use to dynamically add clusters. The latter is recommended because it will allow you to deploy additional Kubernetes clusters later and to have them automatically associated with Projects based on their labels.
 

@@ -3,14 +3,14 @@ layout: layout.pug
 beta: true
 navigationTitle: Launching a cluster On Premise
 title: Launching a cluster On Premises
-beta: false
+beta: true
 menuWeight: 1
-excerpt: Use a previously deployed Konvoy cluster to deploy a new Konvoy cluster with Kommander On Premise Provider
+excerpt: Use a previously deployed Konvoy cluster to deploy a new Konvoy cluster with Kommander On Premises Provider.
 ---
 
 ## Prerequisites
 
-You need to have a `cluster.yaml` file and an `inventory.yaml` file for the cluster you are going to launch.
+You must have a `cluster.yaml` file and an `inventory.yaml` file for the cluster you are going to launch.
 
 <p class="message--note"><strong>NOTE: </strong>If you don't have a `cluster.yaml` you can run `konvoy init` to generate one.
 </p>
@@ -60,7 +60,7 @@ all:
 
 ### On Premise Provider
 
-Once you have both `cluster.yaml` file and `inventory.yaml` file, you need to add a provisioner for your provider. Follow these steps:
+Once you have both `cluster.yaml` file and `inventory.yaml` file, you must add a provisioner for your provider. Follow these steps:
 
 Make sure you have selected a workspace - for example the "Default Workspace".
 

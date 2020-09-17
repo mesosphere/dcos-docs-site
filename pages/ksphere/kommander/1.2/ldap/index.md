@@ -5,7 +5,7 @@ navigationTitle: LDAP Directory
 title: External LDAP Identity Provider
 menuWeight: 10
 excerpt: Use your LDAP Identity Provider with Konvoy and Kommander
-beta: false
+beta: true
 enterprise: false
 ---
 
