@@ -90,19 +90,19 @@ Your Jenkins instance will deploy.
         defaultCrumbIssuer:
           enabled: false
           proxyCompatability: false
-    prometheus:
-      enabled: true
-      serviceMonitorNamespace: "kubeaddons"
-      serviceMonitorAdditionalLabels:
-      app: jenkins
-      release: prometheus-kubeaddons
-    serviceType: "LoadBalancer"
-    jenkinsUriPrefix: "/jenkins"
-    ingress:
-      enabled: true
-      path: /jenkins
-      annotations:
-        kubernetes.io/ingress.class: traefik
+      prometheus:
+        enabled: true
+        serviceMonitorNamespace: "kubeaddons"
+        serviceMonitorAdditionalLabels:
+        app: jenkins
+        release: prometheus-kubeaddons
+      serviceType: "LoadBalancer"
+      jenkinsUriPrefix: "/jenkins"
+      ingress:
+        enabled: true
+        path: /jenkins
+        annotations:
+          kubernetes.io/ingress.class: traefik
     ```
 
 1. Install helm chart with the service credentials and `values.yaml` created above. (For using helm v2)
@@ -117,7 +117,8 @@ Your Jenkins instance will deploy.
         --set serviceAccount.create=false \
         --set serviceAccount.name=jenkins \
         --set serviceAccountAgent.name=jenkins \
-        stable/jenkins
+        --repo https://charts.jenkins.io \
+        jenkinsci/jenkins
     ```
 
 # Migrating Jenkins
