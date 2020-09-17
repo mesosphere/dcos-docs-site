@@ -112,13 +112,26 @@ Your Jenkins instance will deploy.
         --namespace jenkins \
         --name jenkins \
         -f values.yaml \
-        --set master.jenkinsUriPrefix=/jenkins \
-        --set master.ingress.path=/jenkins \
         --set serviceAccount.create=false \
         --set serviceAccount.name=jenkins \
         --set serviceAccountAgent.name=jenkins \
         --repo https://charts.jenkins.io \
-        jenkinsci/jenkins
+        --version 2.6.4 \
+        jenkins
+    ```
+
+1. If you are using helm v3, then following should work (where `--name` flag is not supported and instead the release name is directly supplied):
+
+    ```bash
+    helm install jenkins \
+        --namespace jenkins \
+        -f values.yaml \
+        --set serviceAccount.create=false \
+        --set serviceAccount.name=jenkins \
+        --set serviceAccountAgent.name=jenkins \
+        --repo https://charts.jenkins.io \
+        --version 2.6.4 \
+        jenkins
     ```
 
 # Migrating Jenkins
