@@ -4,14 +4,15 @@ title: DC/OS Ports
 navigationTitle: Ports
 menuWeight: 15
 excerpt: Understanding configured ports for DC/OS deployment
+model: /mesosphere/dcos/2.2/data.yml
 ---
 This section describes each pre-configured port in your DC/OS deployment.
 
-[DC/OS components](/mesosphere/dcos/2.1/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
+[DC/OS components](/mesosphere/dcos/{{ model.folder_version }}/overview/architecture/components/) listen on multiple ports on each node. These ports must be available for installation to succeed.
 
 - For DC/OS to install and function as intended, these ports must be accessible upon initial installation.
 - The ports must be open between the indicated source and destination nodes, including over cluster zones.
-- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/mesosphere/dcos/2.1/administering-clusters/securing-your-cluster/#network-security).
+- You must use appropriate network mechanisms to prevent unauthorized access to cluster nodes. Refer to the documentation on [network security](/mesosphere/dcos/{{ model.folder_version }}/administering-clusters/securing-your-cluster/#network-security).
 
 DC/OS allocates additional ports to services running on top of DC/OS. These ports are required to be available when services are installed.
 

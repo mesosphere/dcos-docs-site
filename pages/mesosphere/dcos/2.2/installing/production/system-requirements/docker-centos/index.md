@@ -4,6 +4,7 @@ navigationTitle:  Docker on CentOS/RHEL
 title: Installing Docker on CentOS/RHEL
 menuWeight: 5
 excerpt: Requirements, recommendations and procedures for installing Docker CE on CentOS/RHEL
+model: /mesosphere/dcos/2.2/data.yml
 ---
 
 ## Customer Advisory
@@ -71,7 +72,7 @@ To continue setting up DC/OS, [please jump to the Advanced Installer][4]
 
 For more generic Docker requirements, see [System Requirements: Docker][1].
 
-[1]: /mesosphere/dcos/2.1/installing/production/system-requirements/#docker
+[1]: /mesosphere/dcos/{{ model.folder_version }}/installing/production/system-requirements/#docker
 [2]: https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/7/html/7.2_Release_Notes/technology-preview-file_systems.html
 [3]: https://docs.docker.com/install/linux/docker-ee/rhel
-[4]: /mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/
+[4]: /mesosphere/dcos/{{ model.folder_version }}/installing/production/deploying-dcos/installation/
