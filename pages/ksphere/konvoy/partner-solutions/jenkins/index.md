@@ -7,7 +7,7 @@ menuWeight: 70
 category: Workload
 ---
 
-# Installing Jenkins&reg; on Konvoy
+# Install Jenkins&reg; on Konvoy
 
 Install Jenkins in one of the following ways:
 
@@ -27,7 +27,7 @@ You must have a running Konvoy cluster attached to a Kommander instance. If you 
 
 Your Jenkins instance will deploy.
 
-## Installing Jenkins from upstream helm chart
+## Install Jenkins from upstream helm chart
 
 1. Create a namespace for Jenkins 
 
@@ -140,13 +140,13 @@ Your Jenkins instance will deploy.
         jenkins
     ```
 
-# Migrating Jenkins
+# Migrate Jenkins
 
 This section explains how to migrate your workloads from Jenkins on DC/OS to Jenkins on Konvoy.
 
 <p class="message--note"><strong>NOTE: </strong>This guide assumes you are moving to a Jenkins instance on Konvoy from a Jenkins instance on DC/OS. For any other migration reference, please refer to the <a href="#references">references</a> at the bottom of this page.</p>
 
-## Step 1: Download the directory
+## Download the directory
 To begin installing Jenkins on Konvoy, you must download the `$JENKINS_HOME/jobs` directory.
 
 1. Make sure the DC/OS Jenkins instance is healthy. Identify the Jenkins task ID by running:
@@ -162,7 +162,7 @@ To begin installing Jenkins on Konvoy, you must download the `$JENKINS_HOME/jobs
     jenkins.instance-5d5cfb57-365b-11ea-8f22-3ece2a18bc93._app.1
     ```
 
-    You may have multiple tasks with the string "jenkins" in their names. Make sure you have the correct task ID by looking at the JSON output as needed (append `--json` to above command).
+    You may have many tasks with the string "jenkins" in their names. Make sure you have the correct task ID by looking at the JSON output as needed (append `--json` to above command).
 
 1. Download the `$JENKINS_HOME/jobs` directory to your work station:
 
@@ -190,7 +190,7 @@ To begin installing Jenkins on Konvoy, you must download the `$JENKINS_HOME/jobs
 
     This command may take awhile. When it is finished, you should have the `jenkins_home/nodes` folder locally.  
 
-## Step 2: Write the directory to new instance of Jenkins
+## Write the directory to new instance of Jenkins
 
 In this step, you will copy the `$JENKINS_HOME/jobs` folder into the running Jenkins pod.
 
