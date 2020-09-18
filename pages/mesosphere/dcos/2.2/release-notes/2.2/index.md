@@ -24,7 +24,7 @@ This release provides new features and enhancements to improve the user experien
 # New Features and Capabilities 
 
 ## External Storage with CSI Volumes
-DC/OS's Universal Container Runtime (UCR) now supports external volumes provided via the Container Storage Interface (CSI). Storage providers which integrate with the CSI specification provide plugins which DC/OS users may install into their cluster. These plugins allow volumes backed by that provider to be attached to task containers. This initial release of CSI support in DC/OS 2.2 has some caveats; see the [CSI documentation](/mesosphere/dcos/2.2/storage/external-storage/csi/) for more information.
+DC/OS's Universal Container Runtime (UCR) now supports pre-provisioned external volumes provided via the Container Storage Interface (CSI). Storage providers which integrate with the CSI specification provide plugins which DC/OS users may install into their cluster, allowing volumes backed by that provider to be attached to task containers. This provides data mobility: the ability for an app instance to be rescheduled on a different agent node but still have access to the same persistent data. This initial release of CSI support in DC/OS 2.2 has some caveats; see the [CSI documentation](/mesosphere/dcos/2.2/storage/external-storage/csi/) for more information.
 
 # Breaking changes
 - The 
