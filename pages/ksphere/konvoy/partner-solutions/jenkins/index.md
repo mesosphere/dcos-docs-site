@@ -29,6 +29,8 @@ Your Jenkins instance will deploy.
 
 ## Install Jenkins from upstream helm chart
 
+The following instructions would work for both helm v2 and v3. If using helm v2, ensure tiller is setup correctly with right perms to be able to install charts into target namespace. Refer [https://v2.helm.sh/docs/rbac/](https://v2.helm.sh/docs/rbac/) for setting up Tiller with correct perms.
+
 1. Create a namespace for Jenkins 
 
     ```bash
