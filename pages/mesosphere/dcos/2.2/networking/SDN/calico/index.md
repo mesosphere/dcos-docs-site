@@ -130,12 +130,16 @@ limitations on network policy we have in DC/OS:
 
 * Calico network policy is a namespaced resource, but for now, we support only `default` namespace in DC/OS, and all the namespaced Calico resources should be defined under `default` namespace.
 * Calico network policy takes effect only on Calico networking containers, which means labels set on non-Calico networking containers like `hostnetwork`, `dcos` and `bridge` will not count in Calico network policy.
-* Labels work for network policy MUST be set in `NetworkInfo.Labels` in Mesos, and for Marathon, they should be in `networks.[].labels`, for example:
+* UCR containers: Labels for network policy MUST be set in `NetworkInfo.Labels` for Mesos, and for Marathon, they should be in `networks.[].labels`, for example:
 
 ```json
 {
   "id": "/client",
   "instances": 1,
+  "container": {
+    "type": "MESOS",
+    ...
+  },
    ...
   "networks": [
     {
@@ -146,6 +150,32 @@ limitations on network policy we have in DC/OS:
       }
     }
   ],
+  ...
+}
+```
+
+* Docker Containers: Labels for network policy MUST be set in `container.docker.paramaters` and prefixed with `org.projectcalico.label`, for example:
+
+```json
+{
+  "id": "/client",
+  "instances": 1,
+  "container": {
+    "type": "Docker",
+    "docker": {
+      "parameters": [
+        {
+          "key": "label",
+          "value": "org.projectcalico.label.role=client"
+        },
+        {
+          "key": "label",
+          "value": "org.projectcalico.label.public=yes"
+        }
+      ]
+    },
+    ...
+  },
   ...
 }
 ```
