@@ -85,7 +85,13 @@ Your Jenkins instance will deploy.
     ```yaml
     master:
       useSecurity: false
-      installPlugins: ["prometheus:2.0.6","kubernetes:1.18.2","workflow-job:2.39","workflow-aggregator:2.6","credentials-binding:1.23","git:4.4.2"]
+      installPlugins:
+        - prometheus:2.0.6
+        - kubernetes:1.18.2
+        - workflow-job:2.39
+        - workflow-aggregator:2.6
+        - credentials-binding:1.23
+        - git:4.4.2
       csrf:
         defaultCrumbIssuer:
           enabled: false
@@ -94,8 +100,8 @@ Your Jenkins instance will deploy.
         enabled: true
         serviceMonitorNamespace: "kubeaddons"
         serviceMonitorAdditionalLabels:
-        app: jenkins
-        release: prometheus-kubeaddons
+          app: jenkins
+          release: prometheus-kubeaddons
       serviceType: "LoadBalancer"
       jenkinsUriPrefix: "/jenkins"
       ingress:
@@ -120,7 +126,7 @@ Your Jenkins instance will deploy.
         jenkins
     ```
 
-1. If you are using helm v3, then following should work (where `--name` flag is not supported and instead the release name is directly supplied):
+1. If you are using helm v3, install the chart with the following command (note: the `--name` flag is no longer supported and instead the release name is directly supplied):
 
     ```bash
     helm install jenkins \
