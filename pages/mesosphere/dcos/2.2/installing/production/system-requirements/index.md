@@ -5,7 +5,7 @@ title: System Requirements
 menuWeight: 5
 enterprise: false
 excerpt: Hardware and software requirements for DC/OS  deployments
-
+model: /mesosphere/dcos/2.2/data.yml
 render: mustache  
 ---
 A DC/OS cluster consists of two types of nodes **master nodes** and **agent nodes**.  The agent nodes can be either **public agent nodes** or **private agent nodes**. Public agent nodes provide north-south (external to internal) access to services in the cluster through load balancers. Private agents host the containers and services that are deployed on the cluster. In addition to the master and agent cluster nodes, each DC/OS installation includes a separate **bootstrap node** for DC/OS installation and upgrade files. Some of the hardware and software requirements apply to all nodes. Other requirements are specific to the type of node being deployed.
@@ -16,7 +16,7 @@ The hardware prerequisites are a single bootstrap node, Mesos master nodes, and 
 
 ## Bootstrap node
 
-*  DC/OS installation is run on a single **Bootstrap node** with two cores, 16 GB RAM, and 60 GB HDD. 
+*  DC/OS installation is run on a single **Bootstrap node** with two cores, 16 GB RAM, and 60 GB HDD.
 *  The bootstrap node is only used during the installation and upgrade process, so there are no specific recommendations for high performance storage or separated mount points.
 
 <p class="message--note"><strong>NOTE: </strong>The bootstrap node must be separate from your cluster nodes.</p>
@@ -68,7 +68,7 @@ The following table lists the master node hardware requirements:
 
 There are many mixed workloads on the masters. Workloads that are expected to be continuously available or considered business-critical should only be run on a DC/OS cluster with at least three masters. For more information about high availability requirements see the [High Availability documentation][0].
 
-[0]: /mesosphere/dcos/2.1/overview/high-availability/
+[0]: /mesosphere/dcos/{{ model.folder_version }}/overview/high-availability/
 
 Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeeper. In some cases, mixed workloads require synchronizing with `fsync` periodically, which can generate a lot of expensive random I/O. We recommend the following:
 
@@ -90,7 +90,7 @@ Examples of mixed workloads on the masters are Mesos replicated logs and ZooKeep
   | _/var/lib/dcos/mesos/master_ | logging directories |
   | _/var/lib/dcos/cockroach_ | CockroachDB [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/navstar_ | for Mnesia database |
-  | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] | 
+  | _/var/lib/dcos/secrets_ | secrets vault [enterprise type="inline" size="small" /] |
   | _/var/lib/dcos/exec_ | Temporary files required by various DC/OS services. The _/var/lib/dcos/exec_ directory must not be on a volume which is mounted with the `noexec` option. |
   | _/var/lib/dcos/exhibitor_ | Zookeeper database |
   | _/var/lib/dcos/exhibitor/zookeeper/transactions_ | The ZooKeeper transaction logs are very sensitive to delays in disk writes. If you can only provide limited SSD space, this is the directory to place there. A minimum of 2 GB must be available for these logs. |
@@ -109,9 +109,9 @@ The table below shows the agent node hardware requirements.
 In planning memory requirements for agent nodes, you should ensure that agents are configured minimize the use of swap space. The recommended best practice is optimize cluster performance and reduce potential resource consumption issues to disable memory swapping for all agents in the cluster, if possible.
 
 In addition to the requirements described in [All master and agent nodes in the cluster](#CommonReqs), the agent nodes must have:
-- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/mesosphere/dcos/2.1/deploying-services/containerizers/).
+- A `/var` directory with 20 GB or more of free space. This directory is used by the sandbox for both [Docker and DC/OS Universal container runtime](/mesosphere/dcos/{{ model.folder_version }}/deploying-services/containerizers/).
 
--   Do not use `noexec` to mount the `/tmp` directory on any system where you intend to use the DC/OS CLI unless a TMPDIR environment variable is set to something other than `/tmp/`. Mounting the `/tmp` directory using the `noexec` option could break CLI functionality. 
+-   Do not use `noexec` to mount the `/tmp` directory on any system where you intend to use the DC/OS CLI unless a TMPDIR environment variable is set to something other than `/tmp/`. Mounting the `/tmp` directory using the `noexec` option could break CLI functionality.
 
 -   If you are planning a cluster with hundreds of agent nodes or intend to have a high rate of deploying and deleting services, isolating this directory to dedicated SSD storage is recommended.
 
@@ -137,7 +137,7 @@ In addition to the requirements described in [All master and agent nodes in the 
 -   Each node is network accessible from the bootstrap node.
 -   Each node has unfettered IP-to-IP connectivity from itself to all nodes in the DC/OS cluster.
 -   All ports should be open for communication from the master nodes to the agent nodes and vice versa. [enterprise type="inline" size="small" /]
--   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`. 
+-   UDP must be open for ingress to port 53 on the masters. To attach to a cluster, the Mesos agent node service (`dcos-mesos-slave`) uses this port to find `leader.mesos`.
 
 Requirements for intermediaries (e.g., reverse proxies performing SSL termination) between DC/OS users and the master nodes:
 
@@ -202,7 +202,7 @@ timedatectl
 
 Before installing DC/OS, you **must** ensure that your bootstrap node has the following prerequisites.
 
-<p class="message--important"><strong>IMPORTANT: </strong>If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the <a href="/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/">configuration parameter documentation</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>If you specify `exhibitor_storage_backend: zookeeper`, the bootstrap node is a permanent part of your cluster. With `exhibitor_storage_backend: zookeeper`, the leader state and leader election of your Mesos masters is maintained in Exhibitor ZooKeeper on the bootstrap node. For more information, see the <a href="/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/">configuration parameter documentation</a>.</p>
 
 
 - The bootstrap node must be separate from your cluster nodes.
@@ -299,6 +299,6 @@ localectl set-locale LANG=en_US.utf8
 - [Install Docker from Docker’s yum repository][1]
 - [DC/OS Installation Guide][2]
 
-[1]: /mesosphere/dcos/2.1/installing/production/system-requirements/docker-centos/
+[1]: /mesosphere/dcos/{{ model.folder_version }}/installing/production/system-requirements/docker-centos/
 
-[2]: /mesosphere/dcos/2.1/installing/production/deploying-dcos/installation/
+[2]: /mesosphere/dcos/{{ model.folder_version }}/installing/production/deploying-dcos/installation/

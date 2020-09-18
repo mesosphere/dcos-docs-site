@@ -3,6 +3,7 @@ layout: layout.pug
 title: DC/OS Ansible FAQs and Troubleshooting
 navigationTitle: DC/OS Ansible FAQ
 menuWeight: 2
+model: /mesosphere/dcos/2.2/data.yml
 excerpt: Frequently asked questions and common issues when working with Ansible for DC/OS
 ---
 
@@ -79,7 +80,7 @@ fatal: [172.16.2.65]: FAILED! => {"changed": true, "cmd": ["bash", "dcos_generat
 module.dcos.module.dcos-install.module.dcos-install.null_resource.run_ansible_from_bootstrap_node_to_install_dcos (remote-exec): 	to retry, use: --limit @/dcos_playbook.retry
 ```
 
-The above error is not actually an Ansible error but an error that is being issued from the dcos generate config script. Please ensure that you have correct key values for your DC/OS Configs. Please see the DC/OS documentation for [configuration reference](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/).
+The above error is not actually an Ansible error but an error that is being issued from the dcos generate config script. Please ensure that you have correct key values for your DC/OS Configs. Please see the DC/OS documentation for [configuration reference](/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/).
 
 ## Failure downloading URL
 Ensure that you have specified a correct URL for your version of DC/OS that you are trying to install. You can find the available links via the following:
