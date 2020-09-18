@@ -34,12 +34,17 @@ Find below an example task which mounts a pre-provisioned CSI volume; it can be 
     "volumes": [
       {
         "containerPath": "test-csi-volume",
+        "mode": "rw",
         "external": {
           "provider": "csi",
           "name": "pre-provisioned-volume-id-001",
-          "pluginName": "csi-plugin-name",
           "options": { 
-            "accessMode": "MULTI_NODE_MULTI_WRITER",
+            "pluginName": "csi-plugin-name",
+            "capability": {
+              "accessType": "mount",
+              "accessMode": "MULTI_NODE_MULTI_WRITER",
+              "fsType": "ext4"
+            }
             "nodeStageSecret": {
               "username": "username_secret_001",
               "password": "password_secret_001"
@@ -59,16 +64,16 @@ Find below an example task which mounts a pre-provisioned CSI volume; it can be 
 ### Volume configuration options
 
 -  `containerPath`: The path where the volume is mounted inside the container.
+-  `mode`: The mode, either read-only or read-write, with which the volume will be mounted. The value of this field should be either "ro" or "rw".
 -  `external.name`: The unique ID that the CSI volume plugin uses to look up your volume. When your task is staged on an agent, the volume plugin queries the storage service for a volume with this name. If one does not exist, the task will fail to launch.
--  `external.pluginName`: The name of the CSI plugin that will mount this volume. This is specified in the CSI plugin configuration on the agent; for the Portworx service, this should be `pxd.portworx.com`. For NFS volumes, this should be `nfs.csi.k8s.io`. For other plugins, see the instructions on plugin installation below.
--  `external.options.accessMode`: The [CSI access mode](https://github.com/container-storage-interface/spec/blob/master/spec.md) to use when mounting the volume. The `XXXX_WRITER` modes will be mounted in read-write, while the `READER_ONLY` modes will be mounted read-only.
+-  `external.options.pluginName`: The name of the CSI plugin which will mount this volume. This is specified in the CSI plugin configuration on the agent; for the Portworx service, this should be `pxd.portworx.com`. For NFS volumes, this should be `nfs.csi.k8s.io`. For other plugins, see the instructions on plugin installation below.
+-  `external.options.capability.accessType`: Whether this volume will be accessed as a block device or a mounted volume. The value of this field should be either "mount" or "block".
+-  `external.options.capability.accessMode`: The [CSI access mode](https://github.com/container-storage-interface/spec/blob/master/spec.md) that this volume is capable of. This is a property of the CSI volume, and it should not conflict with the value of the `mode` field (for example, a CSI access mode of `MULTI_NODE_READER_ONLY` is not compatible with a read-write mount.
 -  `external.options.nodeStageSecret` and `external.options.nodePublishSecret`: The names of secrets in the DC/OS secret store which contain the username/password to use with the storage backend when staging and publishing this volume. "Staging" and "publishing" refer to steps in the CSI volume mounting process.
 -  `external.options.accessType.fsType`: The type of filesystem to be used on this volume, i.e. "xfs", "ext4", etc.
--  `external.options.accessType.mountFlags`: Flags to be used when mounting the volume on the host.
--  `external.options.volumeContext`: In some cases, the provisioning of a volume results in the creation of volume context metadata which must be passed as key-value pairs in this field.
--  Create multiple volumes by adding additional items in the `container.volumes` array.
--  You cannot change volume parameters after you create the application.
--  Marathon will not launch apps with external volumes if `upgradeStrategy.minimumHealthCapacity` is greater than 0.5, or if `upgradeStrategy.maximumOverCapacity` does not equal 0.
+-  `external.options.accessType.mountFlags`: Flags to be used when mounting the volume on the host; these should be valid flags for the Linux `mount` command, such as "noexec" and "sync".
+-  `external.options.volumeContext`: In some cases, the provisioning of a volume results in the creation of volume context metadata which must be passed as key-value pairs in this field. For an NFS volume, this might be something like `{ "server": "192.168.10.10", "share": "/share_dir" }`.
+-  Attach multiple volumes by adding additional items in the `container.volumes` array.
 
 Some of the options above map directly into fields in the [`NodeStageVolume`](https://github.com/container-storage-interface/spec/blob/master/spec.md#nodestagevolume) and [`NodePublishVolume`](https://github.com/container-storage-interface/spec/blob/master/spec.md#nodepublishvolume) calls in the [CSI spec](https://github.com/container-storage-interface/spec/blob/master/spec.md); some useful information regarding those parameters can be found in the CSI docs.
 
@@ -117,3 +122,4 @@ Note that the current implementation of CSI support in DC/OS only makes calls ag
 
 * If a task with a CSI volume fails, look in the "Debug" tab of the service's detail view in the DC/OS UI. In the "Last Task Failure" section, look for any CSI errors which may be causing the task to fail to launch.
 * If a CSI plugin is installed on just a subset of the cluster rather than the entire cluster, then node labels must be used on the agents running the plugin. This allows a label constraint to be used on Marathon apps consuming those volumes, ensuring that such an app lands on a capable agent.
+* Note that CSI volumes are only supported when using the DC/OS Universal Container Runtime (UCR), not the Docker container runtime. This means that Marathon apps/pods which attach to CSI volumes should use `MESOS` type containers.

@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  External Persistent Volumes
-title: External Persistent Volumes
+navigationTitle:  DVDI Storage
+title: DVDI Storage
 menuWeight: 20
-excerpt: Using external persistent volumes with Marathon
+excerpt: Using DVDI volumes with Marathon
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 beta: false
@@ -16,11 +16,11 @@ Marathon applications normally lose their state when they terminate and are rela
 
 **Note** Volume sizes are specified in gibibyte (GiB) units.
  
-# Create an application with an external persistent volume
+# Create an application with a DVDI volume
 
 ## Marathon app definition
 
-You can specify an external volume in your [Marathon app definition](/mesosphere/dcos/2.2/deploying-services/creating-services/).
+You can specify a DVDI volume in your [Marathon app definition](/mesosphere/dcos/2.2/deploying-services/creating-services/).
 
 ### Use the Universal Container Runtime
 
