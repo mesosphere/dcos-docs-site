@@ -176,6 +176,19 @@ To begin installing Jenkins on Konvoy, you must download the `$JENKINS_HOME/jobs
     ```
 
     This command may take awhile. When it is finished, you should have the `jenkins_home/jobs` folder locally.
+  
+1. Download the `$JENKINS_HOME/nodes` directory to your work station:
+
+    ```bash
+    dcos task download <task-id> [<path>]
+    ```
+
+    Example:
+    ```bash
+     dcos task download jenkins.instance-5d5cfb57-365b-11ea-8f22-3ece2a18bc93._app.1 jenkins_home/nodes --target-dir=$(pwd)/jenkins_home
+    ```
+
+    This command may take awhile. When it is finished, you should have the `jenkins_home/nodes` folder locally.  
 
 ## Step 2: Write the directory to new instance of Jenkins
 
@@ -188,10 +201,11 @@ In this step, you will copy the `$JENKINS_HOME/jobs` folder into the running Jen
     ```
 1. Change the namespace, pod name and entry command as needed.
     ```bash
-     kubectl cp ./jenkins_home/jobs/ <POD_ID>:/var/jenkins_home --container jenkins --namespace jenkinsnamespace
+    kubectl cp ./jenkins_home/jobs/ <POD_ID>:/var/jenkins_home --container jenkins --namespace jenkinsnamespace
+    kubectl cp ./jenkins_home/nodes/ <POD_ID>:/var/jenkins_home --container jenkins --namespace jenkinsnamespace
     ```
 
-    These operations can be done even when Jenkins is running. 
+   These operations can be done even when Jenkins is running. 
 
 1. For these changes to take effect, you must go to the Jenkins GUI **Manage Jenkins** page and select **Reload Configuration from Disk** to force Jenkins to reload the configuration from the disk.
 
