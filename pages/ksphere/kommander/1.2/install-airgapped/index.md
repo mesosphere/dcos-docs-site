@@ -13,21 +13,21 @@ This document shows how to install Kommander in an air-gapped environment. Using
 # Naming
 
 This document uses the following terms:
-- Management cluster - Konvoy cluster that is running Kommander
-- Attached cluster - Konvoy or non-Konvoy cluster that is attached to the management cluster
+- Management cluster - Konvoy cluster running Kommander
+- Attached cluster - Konvoy or non-Konvoy cluster attached to the management cluster
 * Docker registry - a registry containing all Docker images that clusters access and download during installation
 
 # Before you begin
 
 Before installing, ensure your environment has the following basic requirements:
 
-- a Docker registry containing all the necessary Docker installation images. This also includes Kommander images. The `konvoy_air_gapped.tar.bz2` tarball contains the required artifacts.
+- a Docker registry containing all the necessary Docker installation images. This also includes Kommander images. The `konvoy_air_gapped.tar.bz2` tarball has the required artifacts.
 
 - connectivity with clusters attaching to the management
   cluster:
   - both management and attached clusters must connect to the Docker registry
   - management cluster must connect to the attached cluster's API server
-  - management cluster must connect to load balancers created by some of the addons. An example of such setup is Thanos which is part of the Prometheus addon
+  - management cluster must connect to load balancers created by some addons. For example, Thanos, part of the Prometheus addon, connects to those load balancers.
 
 - all the prerequisites in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#before-you-begin] in case of Konvoy clusters. For attached 3rd party clusters refer to the vendor's documentation.
 
@@ -49,13 +49,13 @@ Installing air-gapped Kommander does not require any changes in the `inventory.y
 
 # Configure the Kubernetes cluster
 
-The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires additional configuration. Ensure all the `cluster.yaml` changes outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry] documentation are applied. Once this is done:
+The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires additional configuration. Ensure the `cluster.yaml` contains all the changes outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry] documentation. Follow this procedure:
 
 1.  Ensure Kommander can use the self-hosted charts repository running on top of the Konvoy cluster. It can not connect to the default one through the public Internet.
 1.  Ensure  Kommander can find and access the private Docker registry. The `registry_ip` variable is the IP address of the available private Docker registry. ${user} and ${password} are the username and password if access requires credentials.
 1.  Reconfigure the Kommander controller to work in an air-gapped environment.
 
-The Kommander addon configuration that implements the above is as follows:
+Update the Kommander addon configuration like the following:
 
 ```yaml
 - name: kommander
