@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However, this assumes Internet access, which isn't always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for flexible and seamless management of your packages.
+DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However, this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for flexible and seamless management of your packages.
 
 For a full list of the configuration options available for the DC/OS Package Registry, use the following command:
 
