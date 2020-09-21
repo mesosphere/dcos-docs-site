@@ -326,6 +326,12 @@ See `dcos registry --help` for an exhaustive list of operations that you can use
 <p class="message--warning"><strong>WARNING: </strong>Removing a package while a service is still deployed may cause the service to stop working.</p>
 
 After executing the above instructions, the rest of the flow is identical to packages fetched from {{ model.packageRepo }}. The only difference is that you don't need Internet access (for customers with air-gapped environments) to install packages from `package-registry`.
+
+# Upgrading Package Registry between DC/OS versions.
+
+Package Registry *must* be upgraded when DC/OS versions are changed. Package Registry contents aren't preserved during upgrades and customers are **strongly** recommended to use persistent storage for production use.  It is also recommened to keep an inventory of any custom **.dcos** files uploaded which aren't provided by D2iQ.  
+
+
 # Upgrading Package Registry from DC/OS 1.12 to later DC/OS versions
 Customers upgrading from DC/OS 1.12 to 1.13 or later will encounter issues with Package Registry. This issue only affects customers who have services deployed via Package Registry starting at DC/OS 1.12. Customers who deploy applications via Package Registry starting from DC/OS 1.13 or later aren't affected by this issue.
 

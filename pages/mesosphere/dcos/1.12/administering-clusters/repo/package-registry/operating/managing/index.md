@@ -40,3 +40,7 @@ dcos task metrics details registry | sort
 ## Disaster Recovery
 
 DC/OS Package Registry does not have native support for disaster recovery. Instead it is recommended that you backup all DC/OS Packages before adding them to a DC/OS Package Registry.
+
+## Upgrading Package Registry between DC/OS versions.
+
+Package Registry *must* be upgraded when DC/OS versions are changed. Package Registry contents aren't preserved during upgrades and customers are **strongly** recommended to use persistent storage for production use.  It is also recommened to keep an inventory of any custom **.dcos** files uploaded which aren't provided by D2iQ.  
