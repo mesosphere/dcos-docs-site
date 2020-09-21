@@ -4,7 +4,6 @@ navigationTitle: CSI Options
 title: Container Storage Interface (CSI) Options
 menuWeight: 6
 excerpt: Information on CSI
-beta: true
 enterprise: false
 ---
 

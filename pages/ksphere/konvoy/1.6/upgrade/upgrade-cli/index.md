@@ -83,7 +83,7 @@ Konvoy v1.5.x requires Calico version `3.13.x`, if your `cluster.yaml` specifies
 
 It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.17.11`.
 
-It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.4`.
+It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.7`.
 
 The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.17-2.4.0`.
 
@@ -104,7 +104,7 @@ spec:
   ...
   containerRuntime:
     containerd:
-      version: 1.3.4
+      version: 1.3.7
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
