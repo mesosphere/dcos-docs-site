@@ -676,7 +676,7 @@ spec:
                 allowAllAuthenticated: true
     ```
 
-    After this configuration is applied, external users must be granted access to Operations Portal resources explicitly. For information on creating policies see the [Portal Authorization](../security/external-idps/rbac#portal-authorization) documentation.
+    After this configuration is applied, external users must be granted access to Operations Portal resources explicitly. For information on creating policies see the [Portal Authorization](../access-authentication/rbac#portal-authorization) documentation.
 -   Allow for using the default AWS AMI when installing GPU nodes.
 -   In `dex-k8s-authenticator` allow scopes to be configured, and drop the `offline_access` scope as it is not used.
 -   In `kube-oidc-proxy` enable token passthrough.
@@ -917,7 +917,7 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
             mtu: 1480
     ```
 
--   Allow deploying Calico Route Reflectors nodes. More details can be found in [networking](../networking#in-cluster-bgp-route-reflectors).
+-   Allow deploying Calico Route Reflectors nodes. More details can be found in [networking](../networking/calico/bgp-route-reflectors).
 -   Add support for SSH proxy. More details can be found in [ssh-configuration](../install/ssh-configuration).
 -   Minor improvements to Ansible scripts to make them more failure resilient.
 -   Configure `chrony` on nodes for proper time synchronization across the cluster.
@@ -958,7 +958,7 @@ After modifying the `cluster.yaml` file, you can run `konvoy up --upgrade` to up
 -   Update CPU and Memory requests and limits of multiple addons to better handle larger clusters.
 -   Added impersonation and group claim support to traefik-forward-auth.
 -   Enable impersonation support for Dashboard 2.0.
-    - **IMPORTANT** When accessing the dashboard, with a user other than the operations user, the user must be granted permissions using the [RBAC API](../security/external-idps/rbac)
+    - **IMPORTANT** When accessing the dashboard, with a user other than the operations user, the user must be granted permissions using the [RBAC API](../access-authentication/rbac)
 
 #### Component version changes
 
@@ -1015,7 +1015,7 @@ The issues are grouped by feature, functional area, and component.
 -   The authentication token has no permissions.
 
     After logging in through an identity provider, regardless of the source (password, or otherwise), the identified user has no permissions assigned.
-    To enable the authenticated user to perform administrative actions, you must [manually add role bindings](../security/external-idps/rbac).
+    To enable the authenticated user to perform administrative actions, you must [manually add role bindings](../access-authentication/rbac).
 
 -   Upgrades might fail when `workers` is set to one.
 

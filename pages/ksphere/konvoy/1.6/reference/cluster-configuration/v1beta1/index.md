@@ -635,6 +635,7 @@ Kubelet describes the settings for the Kubelet.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | cgroupRoot | Specifies the`--cgroup-root` flag for the Kubelet. | string | false |
+| kubeReserved | Specifies the `--kube-reserved=cpu=1,memory=1Gi` flag for the Kubelet . | string | false |
 
 [Back to TOC](#table-of-contents)
 
