@@ -5,7 +5,7 @@ title: NiFi 0.5.0-1.9.2
 menuWeight: 2
 excerpt: Overview of DC/OS Apache NiFi 0.5.0-1.9.2
 featureMaturity:
-community: true
+community: false
 model: ../data.yml
 render: mustache
 ---
