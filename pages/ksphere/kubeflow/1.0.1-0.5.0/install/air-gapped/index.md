@@ -22,7 +22,7 @@ The installation steps for KUDO for Kubeflow on an air-gapped cluster are as fol
 
 * Place the Konvoy add-ons Docker tar file in the images folder, re-tag it, and push it to a private registry. Regarding the private bootstrap Docker registry configuration, please see the corresponding [Konvoy docs](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-airgapped/#configure-the-image-registry) for more details.
 
-* Modify the Konvoy `config.yaml` to ensure a local Helm repository is used, ensuring all add-on repos' images are `mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3`. For instance,
+* Modify the Konvoy `cluster.yaml` to ensure a local Helm repository is used, ensuring all add-on repos' images are `mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3`. For instance,
 	```yaml
     - configRepository: https://github.com/mesosphere/kubeaddons-kubeflow
       configVersion: stable-1.17-0.4.3
