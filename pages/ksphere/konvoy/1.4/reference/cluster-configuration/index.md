@@ -90,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.16.14
+    version: 1.16.15
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -366,7 +366,7 @@ The default value of this entire object is `omitted`.
 
 | Parameter                      | Description                                                 | Default                 |
 | ------------------------------ | ----------------------------------------------------------- | ----------------------- |
-| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.14`                |
+| `kubernetes.version`           | Specifies the version of Kubernetes to deploy.  | `1.16.15`                |
 | `imageRepository`              | The imageRepository to pull the control-plane images from. | `k8s.gcr.io`) |
 | `kubernetes.controlPlane`      | Specifies the object that defines control plane configuration.       | See [spec.kubernetes.controlPlane](#speckubernetescontrolplane) |
 | `kubernetes.networking`        | Specifies the object that defines cluster networking.          | See [spec.kubernetes.networking](#speckubernetesnetworking) |
