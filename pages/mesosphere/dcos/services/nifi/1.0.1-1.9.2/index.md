@@ -5,7 +5,7 @@ title: NiFi 1.0.1-1.9.2
 menuWeight: 1
 excerpt: Overview of DC/OS Apache NiFi 1.0.1-1.9.2
 featureMaturity:
-community: true
+community: false
 model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 ---
@@ -13,8 +13,6 @@ render: mustache
 Apache {{ model.techShortName }} is a dataflow system based on the concepts of flow-based programming. It supports powerful and scalable directed graphs of data routing, transformation and system mediation logic. Apache {{ model.techShortName }} has a web-based user interface for design, control, feedback, and monitoring of dataflows. It is highly configurable along several dimensions of quality of service, such as loss-tolerant versus guaranteed delivery, low latency versus high throughput and priority-based queuing. Apache {{ model.techShortName }} provides fine-grained data provenance for all data received, forked, joined cloned, modified, sent and ultimately dropped upon reaching its configured end-state.
 
 DC/OS {{model.techName }} Service is an automated service that makes it easy to deploy and manage {{ model.techShortName }} on Mesosphere [DC/OS](https://mesosphere.com/product/), eliminating nearly all complexities, that are traditionally associated with managing a cluster of DC/OS {{model.techName }} nodes.
-
-<p class="message--warning"><strong>WARNING: </strong>This is a Community service. Community services are not tested for production environments. There may be bugs, incomplete features, incorrect documentation, or other discrepancies.</p>
 
 ## Benefits
 DC/OS {{model.techName }}  offers the following benefits of a semi-managed service:
