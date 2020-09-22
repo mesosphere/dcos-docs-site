@@ -54,7 +54,7 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
 **TODO**: How is the reader supposed to conduct these following 3 steps?
 
 1.  Ensure Kommander can use the self-hosted charts repository running on top of the Konvoy cluster. It can not connect to the default one through the public Internet.
-1.  Ensure  Kommander can find and access the private Docker registry. The `bastion_ip` variable in the code snippet below is the IP address of the available private Docker registry. Leave the lines specifying username and password out if your registry does not require authentication.
+1.  Ensure  Kommander can find and access the private Docker registry. The `bastion_ip` variable in the code snippet below is the IP address of the available private Docker registry. You can omit the username and password lines if your registry does not require authentication.
 1.  Reconfigure the Kommander controller to work in an air-gapped environment.
 
 Update the Kommander addon configuration like the following:
