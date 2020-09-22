@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Troubleshoot OIDC and Dex
 title: Troubleshoot OIDC and Dex
 menuWeight: 100
-beta: true
 excerpt: How to troubleshoot OpenID Connect (OIDC) and Dex
 enterprise: false
 ---

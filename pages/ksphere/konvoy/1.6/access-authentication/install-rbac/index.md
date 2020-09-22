@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Setup RBAC with Konvoy
 title: Setup RBAC with Konvoy based Kubernetes clusters
 menuWeight: 50
-beta: true
 excerpt: Use RBAC to configure your Konvoy clusters
 enterprise: false
 ---
