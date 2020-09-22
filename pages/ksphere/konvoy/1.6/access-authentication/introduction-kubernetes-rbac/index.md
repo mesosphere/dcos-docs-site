@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Introduction to RBAC
 title: Introduction to RBAC
 menuWeight: 5
-beta: true
 excerpt: Learn the basics of RBAC
 enterprise: false
 ---

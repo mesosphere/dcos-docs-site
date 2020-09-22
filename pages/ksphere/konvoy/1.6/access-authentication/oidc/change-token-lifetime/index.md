@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Change the Access Token Lifetime
 title: Change the Access Token Lifetime
 menuWeight: 40
-beta: true
 excerpt: Changing the Access Token Lifetime.
 enterprise: false
 ---

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: OpenID Connect (OIDC)
 title: OpenID Connect (OIDC) Introduction
 menuWeight: 10
-beta: true
 excerpt: An introduction to OpenID Connect (OIDC) Authentication in Kubernetes
 enterprise: false
 ---

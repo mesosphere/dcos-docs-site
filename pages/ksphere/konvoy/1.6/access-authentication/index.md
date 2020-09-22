@@ -4,7 +4,6 @@ navigationTitle: Access and Authentication
 title: Access and Authentication
 menuWeight: 10
 excerpt: Manage cluster security, authentication, and authorization for the Konvoy cluster
-beta: true
 enterprise: false
 ---
 
