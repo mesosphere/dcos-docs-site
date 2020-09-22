@@ -19,6 +19,10 @@ Click on the down arrow next to each column name to sort the list.
 | Column | Description | Values |
 |-----------------|---------------|------------------|
 | Name | Unique identifier for your job. Corresponds to **Job ID** in the configuration section. |  |
+| CPUs | The number of CPU shares your job needs per instance. | |
+| Mem | The amount of memory your job needs per instance in MiB. | |
+| Disk | The amount of disk your job needs per instance in MiB. | |
+| GPUs | The amount of GPU shares your job needs per instance. | |
 | Status | Current status of your job. | Scheduled or Unscheduled |
 | Last Run | Shows the final status of the last time your job was run. | Success or Fail |
 
