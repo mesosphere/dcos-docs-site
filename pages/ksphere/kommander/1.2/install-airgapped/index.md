@@ -49,7 +49,7 @@ Installing air-gapped Kommander does not require any changes in the `inventory.y
 
 # Configure the Kubernetes cluster
 
-The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires additional configuration. Ensure the `cluster.yaml` contains all the changes outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry] documentation. Follow this procedure:
+The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires extra configuration. Ensure the `cluster.yaml` has all the changes outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry] documentation. Follow this procedure:
 
 **TODO**: How is the reader supposed to conduct these following 3 steps?
 
