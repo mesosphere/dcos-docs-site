@@ -49,13 +49,13 @@ Installing air-gapped Kommander does not require any changes in the `inventory.y
 
 # Configure the Kubernetes cluster
 
-The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires extra configuration. Make sure the `cluster.yaml` has all the changes outlined in [air-gapped Konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry) documentation. On top of that, you need to edit your `cluster.yaml` as outlined below to satisfy the following requirements:
+The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires extra configuration. Make sure the `cluster.yaml` has all the changes outlined in [air-gapped Konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry) documentation. On top of that, you need to edit your `cluster.yaml` as outlined below to meet the following requirements:
 
 1.  Make sure Kommander can use the self-hosted charts repository running on top of the Konvoy cluster. It can not connect to the default one through the public Internet.
 1.  Make sure Kommander can find and access the private Docker registry. The `registry_ip` variable in the code snippet below references the IP address of the available private Docker registry. You can omit the username and password lines if your registry does not require authentication.
 1.  Reconfigure the Kommander controller to work in an air-gapped environment.
 
-This is what your `cluster.yaml` should eventually look like regarding the Kommander Addon configuration:
+Your `cluster.yaml` file should look similar to the following for Kommander Addon configuration:
 
 ```yaml
 - name: kommander
