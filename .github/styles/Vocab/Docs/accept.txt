@@ -64,5 +64,6 @@ sigmoidal
 softmax
 Splunk
 TensorFlow
+Thanos
 Toree
 XGBoost
