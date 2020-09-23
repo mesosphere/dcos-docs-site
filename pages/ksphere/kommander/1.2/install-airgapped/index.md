@@ -33,15 +33,15 @@ Before installing, ensure your environment has the following basic requirements:
 
 ## Control plane nodes
 
-Control plane nodes of Konvoy clusters should meet the minimal requirements outlined in [airgapped konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#control-plane-nodes].
+Control plane nodes of Konvoy clusters should meet the minimal requirements outlined in [airgapped konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#control-plane-nodes).
 
 ## Worker nodes
 
-Worker nodes must meet the minimal requirements outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#worker-nodes].
+Worker nodes must meet the minimal requirements outlined in [air-gapped Konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#worker-nodes).
 
 ## Operating system and services for all nodes
 
-All nodes must meet the same minimal requirements outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#operating-system-and-services-for-all-nodes].
+All nodes must meet the same minimal requirements outlined in [air-gapped Konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#operating-system-and-services-for-all-nodes).
 
 ## Define the inventory file
 
@@ -49,7 +49,7 @@ Installing air-gapped Kommander does not require any changes in the `inventory.y
 
 # Configure the Kubernetes cluster
 
-The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires extra configuration. Ensure the `cluster.yaml` has all the changes outlined in [air-gapped Konvoy installation][https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry] documentation. Follow this procedure:
+The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires extra configuration. Ensure the `cluster.yaml` has all the changes outlined in [air-gapped Konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#configure-the-image-registry) documentation. Follow this procedure:
 
 **TODO**: How is the reader supposed to conduct these following 3 steps?
 
