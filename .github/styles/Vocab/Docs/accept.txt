@@ -19,6 +19,7 @@ DC/OS
 dcos
 Dex
 Dispatch
+[Ee]tcd
 Flink
 Grafana
 Hashicorp
@@ -29,6 +30,7 @@ Kafka
 Kaptain
 Katib
 Keras
+keyspace
 Kibana
 Knative
 Kommander
