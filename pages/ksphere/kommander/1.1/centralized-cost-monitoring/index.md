@@ -15,7 +15,7 @@ By default, up to 15 days of cost metrics are retained, with no backup to an ext
 
 The Kommander cluster collects cost metrics remotely, using Thanos, from each managed cluster.
 Costs from the last 1 day and last 7 days are displayed for each cluster, workspace, and project breakdown in the respective Kommander UI pages.
-Further cost analysis and details are found in the Kubecost UI running on Kommander, at:
+Further cost analysis and details can be found in the Kubecost UI running on Kommander, at:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/kubecost/frontend/detail.html#&agg=cluster
@@ -23,7 +23,7 @@ https://<CLUSTER_URL>/ops/portal/kommander/kubecost/frontend/detail.html#&agg=cl
 
 For more information on cost allocation metrics and how to navigate this view in the Kubecost UI, please see the [Kubecost docs on Kubernetes Cost Allocation][kubecost_cost_allocation].
 
-To identify clusters in Kubecost, managed clusters are distinguished by a monitoring ID.
+To identify the clusters in Kubecost, use the cluster's monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
 To find a cluster's monitoring ID, go to the **Clusters** tab on the Kommander UI in the relevant workspace:
 
@@ -33,9 +33,9 @@ https://<CLUSTER_URL>/ops/portal/kommander/ui/#/clusters
 
 Select **View Details** on the managed cluster card, and find the monitoring ID under **Monitoring ID (clusterId)**.
 
-You can also search or filter by monitoring IDs on the **Clusters** page.
+You can also search or filter by monitoring ID on the **Clusters** page.
 
-Alternatively, you can run the following kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID and determine the cluster with the corresponding costs.
+To look up a cluster's kube-system namespace UID directly via the CLI, run the following kubectl command, **using the cluster's context or kubeconfig**.
 
 ```bash
 $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
@@ -45,14 +45,16 @@ $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
 
 Kubecost integrates directly with the Kubernetes API and cloud billing APIs to give you real-time visibility into Kubernetes spend and cost allocation.
 By monitoring your Kubernetes spend across clusters, you can avoid overspend that may be caused by uncaught bugs or oversights.
-Further, with a cost monitoring solution in place, you can realize the full potential and cost of these resources and avoid overprovisioning resources.
+Further, with a cost monitoring solution in place, you can realize the full potential and cost of these resources and avoid over-provisioning resources.
 
-In order to customize pricing and out of cluster costs for AWS and GCP, you must apply these settings using the Kubecost UI running on each cluster, NOT the centralized Kubecost UI running on Kommander.
+To customize pricing and out of cluster costs for AWS and GCP, you must apply these settings using the Kubecost UI running on each relevant cluster.
 You can access the attached cluster's Kubecost Settings page at:
 
 ```
 https://<MANAGED_CLUSTER_URL>/ops/portal/kubecost/frontend/settings.html
 ```
+
+<p class="message--important"><strong>IMPORTANT: </strong>Make sure to access the cluster's Kubecost UI linked above, not the centralized Kubecost UI running on Kommander.</p>
 
 #### AWS
 
@@ -66,13 +68,13 @@ To allocate out of cluster costs for GCP, visit [this guide][kubecost_gcp_out_of
 
 ### Grafana dashboards
 
-A set of Grafana dashboards with cost metrics are installed to the centralized Grafana UI:
+A set of Grafana dashboards providing visualization of cost metrics is provided in the centralized Grafana UI:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/monitoring/grafana
 ```
 
-These dashboards provide a global view of accumulated costs from all managed clusters.
+These dashboards give a global view of accumulated costs from all managed clusters.
 From the navigation in Grafana, you can find these dashboards by selecting those tagged with `cost`, `metrics`, and `utilization`.
 
 ## Related information
