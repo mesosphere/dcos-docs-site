@@ -4,6 +4,7 @@ navigationTitle: Change the Group Prefix
 title: Change the Group Prefix
 menuWeight: 30
 excerpt: Access and change the OIDC Group Prefix
+beta: true
 enterprise: false
 ---
 
