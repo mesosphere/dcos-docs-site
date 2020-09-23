@@ -4,6 +4,7 @@ navigationTitle: Access Konvoy Locally
 title: Access Konvoy Locally
 menuWeight: 10
 excerpt: Manage local users to access your Konvoy cluster
+beta: true
 enterprise: false
 ---
 

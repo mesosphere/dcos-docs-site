@@ -4,6 +4,7 @@ navigationTitle: Troubleshoot OIDC and Dex
 title: Troubleshoot OIDC and Dex
 menuWeight: 100
 excerpt: How to troubleshoot OpenID Connect (OIDC) and Dex
+beta: true
 enterprise: false
 ---
 
