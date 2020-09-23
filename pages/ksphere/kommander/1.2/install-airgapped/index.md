@@ -8,33 +8,32 @@ beta: true
 enterprise: false
 ---
 
-This document shows how to install Kommander in an air-gapped environment. Using the air-gapped Konvoy installation documentation as the basis, this shows how to get Kommander running on top of an air-gapped Konvoy cluster.
+This document shows how to install and get Kommander running on top of an air-gapped Konvoy cluster.
 
 # Naming
 
 This document uses the following terms:
 - Management cluster - Konvoy cluster running Kommander
 - Attached cluster - Konvoy or non-Konvoy cluster attached to the management cluster
-* Docker registry - a registry containing all Docker images that clusters access and download during installation
+- Docker registry - a registry containing all Docker images that clusters access and download during installation
 
 # Before you begin
 
 Before installing, ensure your environment has the following basic requirements:
 
-- a Docker registry containing all the necessary Docker installation images. This also includes Kommander images. The `konvoy_air_gapped.tar.bz2` tarball has the required artifacts.
+- A Docker registry containing all the necessary Docker installation images. This also includes Kommander images. The `konvoy_air_gapped.tar.bz2` tarball has the required artifacts.
 
-- connectivity with clusters attaching to the management
-  cluster:
+- Connectivity with clusters attaching to the management cluster:
   - both management and attached clusters must connect to the Docker registry
   - management cluster must connect to the attached cluster's API server
   - management cluster must connect to load balancers created by some addons. For example, Thanos, part of the Prometheus addon, connects to those load balancers.
 
-- all the prerequisites in [air-gapped Konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#before-you-begin) in case of Konvoy clusters. For attached 3rd party clusters refer to the vendor's documentation.
+- All the prerequisites in [air-gapped Konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#before-you-begin), in case of Konvoy clusters. For attached 3rd party clusters, refer to the vendor's documentation.
 
 ## Control plane nodes
 
-Control plane nodes of Konvoy clusters should meet the minimal requirements outlined in [airgapped konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#control-plane-nodes).
-For 3rd-party clusters control plane requirements refer to the vendor specification.
+Control plane nodes of Konvoy clusters must meet the minimal requirements outlined in [airgapped konvoy installation](https://docs.d2iq.com/ksphere/konvoy/1.6/install/install-airgapped/#control-plane-nodes).
+For 3rd-party clusters, control plane requirements refer to the vendor specification.
 
 ## Worker nodes
 
