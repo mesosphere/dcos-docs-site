@@ -15,7 +15,7 @@ By default, up to 15 days of cost metrics are retained, with no backup to an ext
 
 The Kommander cluster collects cost metrics remotely, using Thanos, from each managed cluster.
 Costs from the last 1 day and last 7 days are displayed for each cluster, workspace, and project breakdown in the respective Kommander UI pages.
-Further cost analysis and details can be found in the Kubecost UI running on Kommander, at:
+Further cost analysis and details can be found in the Kubecost UI running on Kommander at:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/kubecost/frontend/detail.html#&agg=cluster
