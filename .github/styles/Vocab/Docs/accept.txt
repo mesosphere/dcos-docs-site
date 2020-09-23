@@ -35,6 +35,8 @@ Kibana
 Knative
 Kommander
 Konvoy
+kubeconfig
+Kubecost
 kubectl
 Kubeflow
 Kubernetes
