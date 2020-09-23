@@ -9,7 +9,7 @@ excerpt: Project Platform Services are services that you want to be deployed on 
 
 Kommander can also deploy services from a catalog of current cloud native services with the push of a button. This helps organizations quickly deploy services to multiple clusters. Governance-based access to data services ensures roles and responsibilities are maintained. Some of these services are Certified services, which means that you can subscribe to support for them from Kommander.
 
-![Project Catalog](/ksphere/kommander/1.2/img/project-catalog.png)
+![Project Catalog](/dkp/kommander/1.2/img/project-catalog.png)
 
 Kommander can be extended with the AddonRepository resource that point to git repositories containing application addons. For example, the kubeaddons-enterprise repo contains addons such as Jenkins and Kafka with specific settings for each cloud provider. Addons can be composed using either Helm V2 charts or KUDO operators.
 
@@ -40,11 +40,11 @@ Optionally, you can customize the helm chart values or KUDO parameters of a serv
 
 For Helm-based addons, specify the chart values in a YAML editor:
 
-![Deploy Helm Platform Service](/ksphere/kommander/1.2/img/project-catalog-deploy-helm.png)
+![Deploy Helm Platform Service](/dkp/kommander/1.2/img/project-catalog-deploy-helm.png)
 
 For KUDO-based addons, fill out the form fields supported by that addon's parameters schema:
 
-![Deploy KUDO Platform Service](/ksphere/kommander/1.2/img/project-catalog-deploy-kudo.png)
+![Deploy KUDO Platform Service](/dkp/kommander/1.2/img/project-catalog-deploy-kudo.png)
 
 After an addon is deployed in a project, the service is installed to all clusters in that project.
 

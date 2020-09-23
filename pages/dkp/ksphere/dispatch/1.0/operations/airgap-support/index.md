@@ -7,7 +7,7 @@ beta: false
 excerpt: Using Dispatch in Airgapped clusters
 ---
 
-Dispatch is supported in airgapped deployments of Konvoy. See [Konvoy's install documentation](https://docs.d2iq.com/ksphere/konvoy/latest/install/install-airgapped/) for instructions on setting up an airgapped deployment.
+Dispatch is supported in airgapped deployments of Konvoy. See [Konvoy's install documentation](https://docs.d2iq.com/dkp/konvoy/latest/install/install-airgapped/) for instructions on setting up an airgapped deployment.
 
 # Limitations
 

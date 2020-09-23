@@ -10,7 +10,7 @@ Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automat
 
 A Project ConfigMap can be created using the Kommander UI:
 
-![Project ConfigMap Form](/ksphere/kommander/1.1/img/project-create-configmap.png)
+![Project ConfigMap Form](/dkp/kommander/1.1/img/project-create-configmap.png)
 Project ConfigMap Form
 
 A Project ConfigMap is simply a Kubernetes FederatedConfigMap and can also be created using kubectl:

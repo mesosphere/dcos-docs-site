@@ -27,7 +27,7 @@ Currently, Kommander supports **Github**, **LDAP**, and any standard **OIDC** pr
 
 You can configure as many Identity Providers as you like and users will be able to select any of those methods when logging in.
 
-![Identity](/ksphere/kommander/1.2/img/Identity-providers-table.png)
+![Identity](/dkp/kommander/1.2/img/Identity-providers-table.png)
 
 Identity Providers
 
@@ -35,19 +35,19 @@ Identity Providers
 
 - The Github provider allows to specify which orgs and teams are eligible for access.
 
-![Github Form](/ksphere/kommander/1.2/img/Identity-provider-Github.png)
+![Github Form](/dkp/kommander/1.2/img/Identity-provider-Github.png)
 
 Github Form
 
 - The LDAP provider allows to configure search filters for either users or groups.
 
-![LDAP Form](/ksphere/kommander/1.2/img/Identity-provider-LDAP.png)
+![LDAP Form](/dkp/kommander/1.2/img/Identity-provider-LDAP.png)
 
 LDAP Form
 
 - The OIDC provider cannot limit users based on identity.
 
-![OIDC Form](/ksphere/kommander/1.2/img/Identity-provider-OIDC.png)
+![OIDC Form](/dkp/kommander/1.2/img/Identity-provider-OIDC.png)
 
 OIDC Form
 
@@ -55,19 +55,19 @@ OIDC Form
 
 Open the actions menu on the Identity Providers table and click Disable. The provider option will no longer appear on the login screen.
 
-![Identity Provider Table Row Action Menu](/ksphere/kommander/1.2/img/Identity-provider-table-action-menu.png)
+![Identity Provider Table Row Action Menu](/dkp/kommander/1.2/img/Identity-provider-table-action-menu.png)
 
 Identity Provider Table Row Action Menu
 
 ## Groups
 
-Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](https://docs.d2iq.com/ksphere/kommander/1.2/operations/access-control/) for an overview of groups in Kommander.
+Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](https://docs.d2iq.com/dkp/kommander/1.2/operations/access-control/) for an overview of groups in Kommander.
 
-![Identity Provider Groups](/ksphere/kommander/1.2/img/access-control-idp-groups.png)
+![Identity Provider Groups](/dkp/kommander/1.2/img/access-control-idp-groups.png)
 
 Identity Provider Groups
 
 ## Related Information
 
-- [Authorize a group across clusters](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/configure-rbac/)
+- [Authorize a group across clusters](https://docs.d2iq.com/dkp/kommander/1.2/tutorials/authorize-all-users/)
+- [Granting access to Kubernetes resources in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/tutorials/configure-rbac/)

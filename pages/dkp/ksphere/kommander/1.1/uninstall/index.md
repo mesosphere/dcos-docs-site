@@ -10,13 +10,13 @@ menuWeight: 10
 
 ### How can I remove the Kommander Cluster?
 
-Uninstalling Kommander is roughly the same as [uninstalling Konvoy](/ksphere/konvoy/latest/uninstall) except for one critical difference: Managed clusters created by Kommander should be deleted before uninstalling the management Konvoy clusters, otherwise the state of those clusters will be lost and it would be necessary to manually delete those cluster assets on your cloud provider's console.
+Uninstalling Kommander is roughly the same as [uninstalling Konvoy](/dkp/konvoy/latest/uninstall) except for one critical difference: Managed clusters created by Kommander should be deleted before uninstalling the management Konvoy clusters, otherwise the state of those clusters will be lost and it would be necessary to manually delete those cluster assets on your cloud provider's console.
 
 <p class="message--warning"><strong>WARNING: </strong>
 For a complete deletion remove all managed clusters before uninstalling Kommander.
 </p>
 
-You can see more details about uinstalling Konvoy in the [Konvoy Documentation](/ksphere/konvoy/latest/uninstall)
+You can see more details about uinstalling Konvoy in the [Konvoy Documentation](/dkp/konvoy/latest/uninstall)
 
 ### What happens to my provisioned clusters if I remove the Kommander Cluster?
 

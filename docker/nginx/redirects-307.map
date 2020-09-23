@@ -1,9 +1,9 @@
 ~^/mesosphere/dcos/latest/(.*)$ /mesosphere/dcos/2.1/$1;
-~^/ksphere/konvoy/latest/(.*)$ /ksphere/konvoy/1.5/$1;
-~^/ksphere/dispatch/latest/(.*)$ /ksphere/dispatch/1.2/$1;
-~^/ksphere/kommander/latest/(.*)$ /ksphere/kommander/1.1/$1;
-~^/ksphere/conductor/latest/(.*)$ /ksphere/conductor/1.1/$1;
-~^/ksphere/kubeflow/latest/(.*)$ /ksphere/kubeflow/1.0.1-0.5.0/$1;
+~^/dkp/konvoy/latest/(.*)$ /dkp/konvoy/1.5/$1;
+~^/dkp/dispatch/latest/(.*)$ /dkp/dispatch/1.2/$1;
+~^/dkp/kommander/latest/(.*)$ /dkp/kommander/1.1/$1;
+~^/dkp/conductor/latest/(.*)$ /dkp/conductor/1.1/$1;
+~^/dkp/kubeflow/latest/(.*)$ /dkp/kubeflow/1.0.1-0.5.0/$1;
 ~^/mesosphere/dcos/services/cassandra/latest/(.*) /mesosphere/dcos/services/cassandra/2.9.0-3.11.6/$1;
 ~^/mesosphere/dcos/services/confluent-kafka/latest/(.*) /mesosphere/dcos/services/confluent-kafka/2.9.0-5.4.0/$1;
 ~^/mesosphere/dcos/services/confluent-zookeeper/latest/(.*) /mesosphere/dcos/services/confluent-zookeeper/2.7.0-5.1.2e/$1;

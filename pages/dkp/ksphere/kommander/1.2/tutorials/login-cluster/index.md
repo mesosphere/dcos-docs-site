@@ -11,9 +11,9 @@ excerpt: Access a specific cluster as a user
 
 This procedure requires the following configurations and background:
 
-- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.2/install/).
-- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/). This tutorial uses GitHub's identity provider.
-- A configured [group](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) in Kommander.
+- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/dkp/kommander/1.2/install/).
+- An [Identity Provider](https://docs.d2iq.com/dkp/kommander/1.2/tutorials/authorize-all-users/). This tutorial uses GitHub's identity provider.
+- A configured [group](https://docs.d2iq.com/dkp/kommander/1.2/operations/identity-providers/) in Kommander.
 - At least one user in that group.
 
 ## Access a cluster
@@ -24,19 +24,19 @@ In this example, the Kommander cluster has two managed clusters on Azure but, as
 
 1. Go to the landing page, provided by an administrator, and select **Generate kubectl Token**.
 
-![Konvoy Landing Page](/ksphere/kommander/1.2/img/konvoy-landing-page.png)
+![Konvoy Landing Page](/dkp/kommander/1.2/img/konvoy-landing-page.png)
 
 2. Select the cluster you want to log into.
 
-![Generate Kubernetes Token](/ksphere/kommander/1.2/img/generate-kubernetes-token.png)
+![Generate Kubernetes Token](/dkp/kommander/1.2/img/generate-kubernetes-token.png)
 
 3. As a user having access to the management cluster, select the `Main` cluster and log in using an identity provider.
 
-![Login Identity Provider](/ksphere/kommander/1.2/img/login-identity-provider.png)
+![Login Identity Provider](/dkp/kommander/1.2/img/login-identity-provider.png)
 
 4. Attach `kubectl` to the cluster using the interface instructions.
 
-![Connection Instructions](/ksphere/kommander/1.2/img/kubectl-connection-instructions.png)
+![Connection Instructions](/dkp/kommander/1.2/img/kubectl-connection-instructions.png)
 
 Your local `kubectl` can now communicate with the cluster.
 Depending on your rights, you can view and edit different api-resources.
@@ -60,9 +60,9 @@ Error from server (Forbidden): pods is forbidden: User "user@yourcompany.com" ca
 
 ## Related information
 
-- [Installing and configuring Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/install/)
-- [Identity Providers in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/)
-- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
-- [Access control in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/operations/access-control/)
+- [Installing and configuring Kommander](https://docs.d2iq.com/dkp/kommander/1.2/install/)
+- [Identity Providers in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/operations/identity-providers/)
+- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/tutorials/authorize-all-users/)
+- [Granting access to Kubernetes resources in the CLI](https://docs.d2iq.com/dkp/konvoy/1.4/security/external-idps/rbac/)
+- [Access control in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/operations/access-control/)
 - [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

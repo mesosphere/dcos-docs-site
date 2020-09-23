@@ -9,11 +9,11 @@ excerpt: A guide for creating Konvoy clusters on AWS
 
 ## Before you begin
 
-- Configured [AWS Infrastructure Provider](/ksphere/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-static-credentials/), or adding credentials using [AWS role credentials](/ksphere/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles/).
+- Configured [AWS Infrastructure Provider](/dkp/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-static-credentials/), or adding credentials using [AWS role credentials](/dkp/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles/).
 
 ## Simplified Cluster Creation on AWS
 
-![Add Cluster Options](/ksphere/kommander/1.2/img/add-cluster.png)
+![Add Cluster Options](/dkp/kommander/1.2/img/add-cluster.png)
 
 From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide some basic cluster details:
 
@@ -21,7 +21,7 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 - **Kubernetes Version**: The initial version of Kubernetes to install on the cluster.
 - **Name**: A display name for referencing the cluster.
 
-Select the preconfigured [AWS infrastructure provider](/ksphere/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-static-credentials/) (or [AWS role credentials](/ksphere/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles/)) to display the remaining options specific to AWS.
+Select the preconfigured [AWS infrastructure provider](/dkp/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-static-credentials/) (or [AWS role credentials](/dkp/kommander/1.2/operations/infrastructure-providers/configure-aws-infrastructure-provider-roles/)) to display the remaining options specific to AWS.
 
 - **Region**: Select the datacenter region to reveal selectable Availability Zones.
 - **Availability Zones**: Indicates the availability zones to use for cluster provisioning.

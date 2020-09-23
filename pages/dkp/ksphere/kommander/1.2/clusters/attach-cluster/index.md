@@ -9,7 +9,7 @@ excerpt: A guide for attaching an existing Kubernetes cluster using kubeconfig
 
 ## Attach Kubernetes Cluster
 
-You can attach an existing cluster directly to Kommander. If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below. If you are attaching an Amazon EKS cluster to Kommander, [detailed instructions are available](/ksphere/kommander/latest/clusters/attach-cluster/attach-eks-cluster/).
+You can attach an existing cluster directly to Kommander. If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Google GKE, create a service account as described below. If you are attaching an Amazon EKS cluster to Kommander, [detailed instructions are available](/dkp/kommander/latest/clusters/attach-cluster/attach-eks-cluster/).
 
 ### Before you begin (optional)
 
@@ -94,9 +94,9 @@ Using the **Add Cluster** option you can attach an existing Kubernetes or Konvoy
 
 Selecting the **Attach Cluster** option displays the **Connection Information** dialog box. This dialog box accepts a kubeconfig file, that you can paste, or upload into the field. In the **Context** select list, you can select the intended context or change the display name provided with the config. You can add labels to classify your cluster and select the addons to install.
 
-Addons extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating addons when attaching a cluster to Kommander. For more information, read our documentation about [federated addons](/ksphere/kommander/latest/clusters/attach-cluster/federated-addons/).
+Addons extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating addons when attaching a cluster to Kommander. For more information, read our documentation about [federated addons](/dkp/kommander/latest/clusters/attach-cluster/federated-addons/).
 
-![Add Cluster Connect](/ksphere/kommander/1.2/img/add-cluster-connect.png)
+![Add Cluster Connect](/dkp/kommander/1.2/img/add-cluster-connect.png)
 
 ## Accessing your managed clusters using your Kommander administrator credentials
 

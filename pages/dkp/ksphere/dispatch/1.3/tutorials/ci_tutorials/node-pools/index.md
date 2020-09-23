@@ -14,7 +14,7 @@ Dispatch.
 
 # Pre-requisites
 
-* A [working Konvoy cluster](https://docs.d2iq.com/ksphere/konvoy/latest/install/)
+* A [working Konvoy cluster](https://docs.d2iq.com/dkp/konvoy/latest/install/)
 
 # Setup Node Pools
 
@@ -51,7 +51,7 @@ on a node to ensure that only pods with a particular "toleration" are scheduled 
 
 The taint key and value can be anything you want, but it should be unique.
 
-For a more detailed guide on configuring node pools in Konvoy, see [the official Konvoy documentation](https://docs.d2iq.com/ksphere/konvoy/latest/install/node-pools/).
+For a more detailed guide on configuring node pools in Konvoy, see [the official Konvoy documentation](https://docs.d2iq.com/dkp/konvoy/latest/install/node-pools/).
 
 # Configure Dispatch
 

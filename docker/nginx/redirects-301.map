@@ -1,6 +1,7 @@
 ~^(.*/[^.^#^/]*[^/])$ $1/;
 ~^/1.7/.+ /1.7/;
 ~^/1.8/.+ /1.8/;
+~^/ksphere/(.*)$ /dkp/$1;
 ~^/service-docs/(.*)$ /services/$1;
 ~/[0-9]+\.[0-9]+/release-notes/version-policy/ /version-policy/;
 /administration/admin-tutorials/installdatacenter/ /latest/tutorials/dcos-101/redis-package/;
@@ -843,5 +844,5 @@
 ~^/(cn/.*)$ /mesosphere/dcos/$1;
 ~^/(version-policy/.*)$ /mesosphere/dcos/$1;
 ~^/(search/.*)$ /mesosphere/dcos/$1;
-/ksphere/konvoy/1.5/tutorials/replacing-failed-control-plane-node/(.*) /ksphere/konvoy/1.5/troubleshooting/replace-failed-control-plane-node/(.*);
-/ksphere/kommander/latest/operations/cloud-providers/ /ksphere/kommander/latest/operations/infrastructure-providers/;
+/dkp/konvoy/1.5/tutorials/replacing-failed-control-plane-node/(.*) /dkp/konvoy/1.5/troubleshooting/replace-failed-control-plane-node/(.*);
+/dkp/kommander/latest/operations/cloud-providers/ /dkp/kommander/latest/operations/infrastructure-providers/;

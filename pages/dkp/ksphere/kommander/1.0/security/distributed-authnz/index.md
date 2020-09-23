@@ -10,7 +10,7 @@ excerpt: Details on distributed authentication and authorization between cluster
 
 Kommander is part of a Konvoy cluster installation. Konvoy comes with a pre-configured authentication [Dex][dex_service] identity broker and provider.
 
-<p class="message--important"><strong>IMPORTANT: </strong> Kubernetes, Konvoy and Dex do not store any user identities. The Konvoy installation comes with default admin static credentials. These credentials should only be used to access the <strong>operations portal</strong> for configuring an external identity provider. There is currently no way to update these credentials so they should be treated as backup credentials and not used for normal access. Always login with your own identity from an <a href="../../operations/identity-providers/">external identity provider</a>. These provide additional security features like Multi Factor Authentication. For more information refer to the <a href="/ksphere/konvoy/latest/security/">Konvoy security documentation</a>.</p>
+<p class="message--important"><strong>IMPORTANT: </strong> Kubernetes, Konvoy and Dex do not store any user identities. The Konvoy installation comes with default admin static credentials. These credentials should only be used to access the <strong>operations portal</strong> for configuring an external identity provider. There is currently no way to update these credentials so they should be treated as backup credentials and not used for normal access. Always login with your own identity from an <a href="../../operations/identity-providers/">external identity provider</a>. These provide additional security features like Multi Factor Authentication. For more information refer to the <a href="/dkp/konvoy/latest/security/">Konvoy security documentation</a>.</p>
 
 The operational portal admin credentials are stored as a secret. They never leave the boundary of the Kommander cluster and are never shared to any other cluster.
 
@@ -34,7 +34,7 @@ Kommander provides an [interface to federate authorization RBAC rules](../../ope
 
 * The Kubernetes API server is using [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
-* `traefik-forward-auth` applies [RBAC rules to authorize](/ksphere/konvoy/latest/security/external-idps/rbac/#portal-authorization) access based on an HTTP request. The [default Kommander workspace](../../workspaces/) comes with preconfigured Roles for accessing different operational portal services with View, Edit or Admin permissions.
+* `traefik-forward-auth` applies [RBAC rules to authorize](/dkp/konvoy/latest/security/external-idps/rbac/#portal-authorization) access based on an HTTP request. The [default Kommander workspace](../../workspaces/) comes with preconfigured Roles for accessing different operational portal services with View, Edit or Admin permissions.
 
 [dex_service]: https://github.com/dexidp/dex
 [oidc_id_token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken

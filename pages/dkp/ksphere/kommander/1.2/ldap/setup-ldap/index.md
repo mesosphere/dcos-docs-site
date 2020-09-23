@@ -279,7 +279,7 @@ After you connect your LDAP directory and configure your users and groups, you m
 
 ## Related Information
 
-- [Connect your LDAP directory to Konvoy using the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/howto-dex-ldap-connector/)
+- [Connect your LDAP directory to Konvoy using the CLI](https://docs.d2iq.com/dkp/konvoy/1.4/security/external-idps/howto-dex-ldap-connector/)
 
-- [Configure your LDAP directory using the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
+- [Configure your LDAP directory using the CLI](https://docs.d2iq.com/dkp/konvoy/1.4/security/external-idps/rbac/)
 - [Troubleshoot your LDAP access by creating a kubectl token](./gen-kubectl-token)

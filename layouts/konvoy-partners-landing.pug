@@ -36,7 +36,7 @@ mixin renderGridToc()
       div(class=categoryClasses)
         h1.grid-toc__category-header!= category
         - var categoryServices = []
-        each service, _ in hierarchy.findByPath(`ksphere/konvoy/partner-solutions`).children
+        each service, _ in hierarchy.findByPath(`dkp/konvoy/partner-solutions`).children
           if service.menuWeight != -1 && service.category == category
             - categoryServices.push(service)
         each service, _ in categoryServices

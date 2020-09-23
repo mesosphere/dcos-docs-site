@@ -54,7 +54,7 @@ Before starting the Konvoy installation, you should verify the following:
     kubectl version --short=true
     ```
 
-1.  To download Konvoy, see the [Download Konvoy](https://docs.d2iq.com/ksphere/konvoy/latest/download/) topic for information. You will need to download and extract the Konvoy package tarball.
+1.  To download Konvoy, see the [Download Konvoy](https://docs.d2iq.com/dkp/konvoy/latest/download/) topic for information. You will need to download and extract the Konvoy package tarball.
 
 1.  Install with default settings.
 

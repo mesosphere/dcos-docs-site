@@ -71,7 +71,7 @@ Make sure you have selected a workspace - for example the "Default Workspace".
 
 - Enter a name for your provider and insert the full contents of your private ssh key, then select **Verify** and **Save**.
 
-![On Premise Provider Form with values](/ksphere/kommander/1.1/img/On-prem-provider-with-values.png)
+![On Premise Provider Form with values](/dkp/kommander/1.1/img/On-prem-provider-with-values.png)
 
 ### Launching the cluster
 
@@ -79,11 +79,11 @@ You can now launch your cluster.
 
 Go to the **Clusters** section and select **Add Cluster**.
 
-![Add Cluster](/ksphere/kommander/1.1/img/clusters-header.png)
+![Add Cluster](/dkp/kommander/1.1/img/clusters-header.png)
 
 Select **Upload YAML** to create a cluster.
 
-![Upload YAML](/ksphere/kommander/1.1/img/add-cluster.png)
+![Upload YAML](/dkp/kommander/1.1/img/add-cluster.png)
 
 #### Fill out the form
 

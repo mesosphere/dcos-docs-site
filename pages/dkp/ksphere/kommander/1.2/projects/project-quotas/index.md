@@ -9,12 +9,12 @@ excerpt: Project Quotas can be set up to limit the amount of resources that can 
 
 Project Quotas can be set up to limit the amount of resources that can be used by the Project team. Quotas are applied to all project clusters.
 
-![Project Quota](/ksphere/kommander/1.2/img/project-quota.png)
+![Project Quota](/dkp/kommander/1.2/img/project-quota.png)
 Project Quota
 
 Kommander provides a set of default resources you can set Quotas for, or you can define Quotas for custom resources. It is recommended to set Quotas for CPU and Memory.
 
-![Adding a custom Quota](/ksphere/kommander/1.2/img/project-quotas-add-custom.png)
+![Adding a custom Quota](/dkp/kommander/1.2/img/project-quotas-add-custom.png)
 
 All the Project Quotas are defined using a Kubernetes FederatedResourceQuota called kommander and can also be created/updated using kubectl:
 
