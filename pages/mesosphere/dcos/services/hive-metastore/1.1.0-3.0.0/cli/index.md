@@ -43,7 +43,7 @@ You can interact with the {{ model.techName }} via the Beeline CLI.
   ```
   use metastore_db;
   ```
-<p class="message--note"><strong>NOTE: </strong>See detailed documentation for using <a href="https://docs.d2iq.com/mesosphere/dcos/2.0/monitoring/debugging/task-exec/"><tt>dcos task exec</tt></a>.</p>
+<p class="message--note"><strong>NOTE: </strong>See detailed documentation for using <a href="/mesosphere/dcos/2.0/monitoring/debugging/task-exec/"><tt>dcos task exec</tt></a>.</p>
   
 # <a name="Reconnecting an inactive session"></a> Reconnecting an inactive session
   

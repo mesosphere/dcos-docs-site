@@ -57,7 +57,7 @@ render: mustache
     -   `ingest_nodes.volume_profile`
     -   `coordinator_nodes.volume_profile`
 
-    Check the [Storage Service documentation](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) for more details. ([#18](https://github.com/mesosphere/dcos-elastic-service/pull/18))
+    Check the [Storage Service documentation](/mesosphere/dcos/services/storage/1.0.0/) for more details. ([#18](https://github.com/mesosphere/dcos-elastic-service/pull/18))
 -   Added placement constraints capability to Kibana. New setting is `kibana.placement` (array of placement constraint arrays). Check the [Marathon placement constraints documentation](https://mesosphere.github.io/marathon/docs/constraints.html) for more details. ([#27](https://github.com/mesosphere/dcos-elastic-service/pull/27))
 -   Added virtual network (CNI) support to Kibana. New settings are:
 

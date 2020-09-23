@@ -33,7 +33,7 @@ render: mustache
 
 ## New Features
 
-- Added support for DC/OS Storage Service (DSS). See official [DSS docs](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0) for more details.
+- Added support for DC/OS Storage Service (DSS). See official [DSS docs](/mesosphere/dcos/services/storage/1.0.0) for more details.
 - User can enable advanced service health checks. Option to choose between a simple port-based check and an advanced producer-consumer check based on a custom heartbeat topic.
 - Support for Secure JMX
 - Added marathon service scheduler checks

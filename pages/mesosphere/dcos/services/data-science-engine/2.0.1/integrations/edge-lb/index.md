@@ -10,7 +10,7 @@ render: mustache
 enterprise: true
 ---
 
-1. Follow the documentation available [here](https://docs.d2iq.com/mesosphere/dcos/services/edge-lb/latest/getting-started/installing/) to deploy Edge-LB to your cluster.
+1. Follow the documentation available [here](/mesosphere/dcos/services/edge-lb/latest/getting-started/installing/) to deploy Edge-LB to your cluster.
 
 1. Create {{ model.techName }} config `dse.json` specifying hostname:
 

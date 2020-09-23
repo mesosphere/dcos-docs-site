@@ -70,7 +70,7 @@ We recommend using the `<group>` field to describe the frontend app, such as `we
 | `edgelb.<group>.frontend.port` | `80` if protocol is HTTP, `443` if HTTPS, required if protocol is `TCP` | The frontend bind port. |
 | `edgelb.<group>.frontend.protocol` | `HTTP` if not specified, `HTTPS` if `certificates` specified | The frontend protocol. |
 | `edgelb.<group>.frontend.redirectToHttps` | | If this labels exists then `redirectToHttps` is enabled for the frontend. The value can be empty or a `list` of `dicts` that will be used as the [`except` variable](/mesosphere/dcos/services/edge-lb/1.6/reference/pool-configuration-reference/v2-reference/#poolhaproxyfrontendredirecttohttps). |
-| `edgelb.<group>.frontend.rules` | `pathBeg:/` | A `list` of `dict`s corresponding to the Edge-LB [`pool.haproxy.frontend.linkBackend.map`](https://docs.d2iq.com/mesosphere/dcos/services/edge-lb/1.6/reference/pool-configuration-reference/v2-reference/#poolhaproxyfrontendlinkbackend). |
+| `edgelb.<group>.frontend.rules` | `pathBeg:/` | A `list` of `dict`s corresponding to the Edge-LB [`pool.haproxy.frontend.linkBackend.map`](/mesosphere/dcos/services/edge-lb/1.6/reference/pool-configuration-reference/v2-reference/#poolhaproxyfrontendlinkbackend). |
 | `edgelb.<group>.backend.balance` | | The balancing [algorithm](https://cbonte.github.io/haproxy-dconv/2.0/configuration.html#4.2-balance). |
 | `edgelb.<group>.backend.portName` | The name of the first port exposed from the task | The name of the port to send traffic to. |
 | `edgelb.<group>.backend.protocol` | `HTTP` unless frontend protocol is not `HTTP/HTTPS`, then matches frontend | The backend protocol. |

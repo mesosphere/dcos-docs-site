@@ -12,7 +12,7 @@ enterprise: true
 
 This guide will show you how to install JupyterLab Extension. You can use these extensions to customize the JupyterLab UI.
 
-<p class="message--note"><strong>NOTE: </strong> Installing extension in this way is not persistent during service restart. If you want persistent installation of the extension you should try <a href="https://docs.d2iq.com/mesosphere/dcos/services/data-science-engine/2.0.0/customizations/custom-images#customize-notebook-image">Custom Image</a> with the extension of your choice installed in it.</p>
+<p class="message--note"><strong>NOTE: </strong> Installing extension in this way is not persistent during service restart. If you want persistent installation of the extension you should try <a href="/mesosphere/dcos/services/data-science-engine/2.0.0/customizations/custom-images#customize-notebook-image">Custom Image</a> with the extension of your choice installed in it.</p>
 
 
 ## Steps to Install

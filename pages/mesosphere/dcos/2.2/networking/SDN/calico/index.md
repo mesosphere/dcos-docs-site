@@ -450,7 +450,7 @@ That said, to add a network profile, you should:
 
 ## Migrate Applications from DC/OS Overlay to Calico
 
-Automatic Migration for all services existing within a DC/OS cluster is impossible. Services can be launched by a variety of Apache Mesos frameworks ranging from production-proven platform [Marathon](https://mesosphere.github.io/marathon/) to services built on top of [dcos-common](https://github.com/mesosphere/dcos-commons. This includes existing, stateful services such as [Cassandra](https://docs.d2iq.com/mesosphere/dcos/services/cassandra) and [Spark](https://docs.d2iq.com/mesosphere/dcos/services/spark), or services being hosted from your environment.
+Automatic Migration for all services existing within a DC/OS cluster is impossible. Services can be launched by a variety of Apache Mesos frameworks ranging from production-proven platform [Marathon](https://mesosphere.github.io/marathon/) to services built on top of [dcos-common](https://github.com/mesosphere/dcos-commons. This includes existing, stateful services such as [Cassandra](/mesosphere/dcos/services/cassandra) and [Spark](/mesosphere/dcos/services/spark), or services being hosted from your environment.
 
 ### Marathon application(aka DC/OS services)
 

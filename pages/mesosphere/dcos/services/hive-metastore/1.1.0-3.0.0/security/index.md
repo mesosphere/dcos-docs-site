@@ -24,7 +24,7 @@ quota-aware: true
 
 # Using the Secret Store for Passwords
 
-Enterprise DC/OS provides a Secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content. Detailed information can be found [here](https://docs.d2iq.com/mesosphere/dcos/latest/security/ent/secrets).
+Enterprise DC/OS provides a Secrets store to enable access to sensitive data such as database passwords, private keys, and API tokens. DC/OS manages secure transportation of secret data, access control and authorization, and secure storage of secret content. Detailed information can be found [here](/mesosphere/dcos/latest/security/ent/secrets).
 
 All tasks defined in the pod will have access to secret data. If the content of the secret is changed, the relevant pod needs to be restarted so that it can get updated content from the secret store.
 

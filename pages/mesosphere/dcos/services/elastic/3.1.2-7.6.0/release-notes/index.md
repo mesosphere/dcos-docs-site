@@ -85,7 +85,7 @@ Although version 3.0.0-7.3.2 is no longer supported, the following changes were 
 
 -   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
 
-    Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.1.2-7.6.0/configuration/#elasticsearch-metrics)
+    Check [Elasticsearch Metrics Configuration Documentation](/mesosphere/dcos/services/elastic/3.1.2-7.6.0/configuration/#elasticsearch-metrics)
 
 -   Exposed `xpack.security.transport.ssl.client_authentication` `xpack.security.http.ssl.client_authentication` `xpack.security.transport.ssl.verification_mode` ([#46](https://github.com/mesosphere/dcos-elastic-service/pull/46))
 

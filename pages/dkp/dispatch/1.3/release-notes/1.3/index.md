@@ -21,7 +21,7 @@ __**This is a Beta release & for Evaluation only and NOT for Production use.**__
 
 ### Disclaimer
 
-* Release notes are sometimes updated with new information about restrictions and caveats. Please see [https://docs.d2iq.com/dkp/dispatch/](https://docs.d2iq.com/dkp/dispatch/) for the latest version of the D2iQ Dispatch release-notes.
+* Release notes are sometimes updated with new information about restrictions and caveats. Please see [https://docs.d2iq.com/dkp/dispatch/](/dkp/dispatch/) for the latest version of the D2iQ Dispatch release-notes.
 
 ### Installation and Upgrades
 

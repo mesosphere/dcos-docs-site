@@ -19,7 +19,7 @@ we encourage you to thoroughly review permissions set by our predefined `Cluster
 
 _NB: The following tutorial assumes you have already connected an OIDC provider to your Konvoy cluster via Konvoy's
 built-in Dex integration. If you have not yet done so, review the documentation
-[here](https://docs.d2iq.com/dkp/konvoy/latest/security/external-idps/) before proceeding._
+[here](/dkp/konvoy/latest/security/external-idps/) before proceeding._
 
 ## Kubeflow Predefined `ClusterRoles`
 KUDO for Kubeflow comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of Kubeflow

@@ -62,7 +62,7 @@ If you will be installing Dispatch on Konvoy, be aware that Konvoy supports only
 | [Traefik](https://docs.traefik.io/) |    |Open source edge router  |
 | [Helm](https://helm.sh/) |  2 | Package manager for Kubernetes |
 
-For more details, see the [Konvoy documentation](https://docs.d2iq.com/dkp/konvoy/).
+For more details, see the [Konvoy documentation](/dkp/konvoy/).
 
 # Supported hardware configurations
 

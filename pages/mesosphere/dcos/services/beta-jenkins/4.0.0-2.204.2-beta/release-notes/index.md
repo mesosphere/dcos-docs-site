@@ -16,7 +16,7 @@ Jenkins 4.0.0-2.204.2
     - The jenkins-mesos-plugin has been replatformed on the [Unified Scheduler Iterface (USI)](https://github.com/mesosphere/usi) Library which provides better long-term support and more rapid delivery of Mesos features. The following features are in use:
         - Mesos v1 API
         - Offer-suppression
-        - [Universal Container Runtime](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/ucr)
+        - [Universal Container Runtime](/mesosphere/dcos/latest/deploying-services/containerizers/ucr)
         - [Multi-Tenancy Features](/mesosphere/dcos/latest/multi-tenancy)
 - Support for configurable Jenkins plugins
     - Removes previous hardcoded list of bundled plugins.
@@ -25,7 +25,7 @@ Jenkins 4.0.0-2.204.2
 
 ## Changes from previous 3.x.y releases.
 - Configuration options have changed significantly from the previous releases. See the [options compatiblity matrix](/mesosphere/dcos/services/beta-jenkins/4.0.0-2.204.2-beta/options-compatibility-matrix/) for differences between current and previous releases.
-- [Universal Container Runtime](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/ucr) (UCR) is now the default containerizer for the Jenkins master.
+- [Universal Container Runtime](/mesosphere/dcos/latest/deploying-services/containerizers/ucr) (UCR) is now the default containerizer for the Jenkins master.
 - The default user has changed from `root` to `nobody` for both the Jenkins Master and Agents.
 - Agent labels of `linux` and `windows` types are applied by default.
 

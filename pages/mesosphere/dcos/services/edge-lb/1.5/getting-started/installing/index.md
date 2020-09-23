@@ -114,7 +114,7 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
 <p class="message--important"><strong>IMPORTANT: </strong>Although you can add and modify settings directly in the web-based console from the Catalog, do not start the services until you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start, but it will not be able to resolve to a healthy Running state.</p>
 
 # Deploy using the package registry
-If you have an isolated (air-gapped) network that cannot connect directly to the Internet, deploy using the [package registry](https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/package-registry/). The support portal includes .dcos package files for Edge-LB, called 'Edge-LB Bundle' files in the portal.
+If you have an isolated (air-gapped) network that cannot connect directly to the Internet, deploy using the [package registry](/mesosphere/dcos/2.0/administering-clusters/package-registry/). The support portal includes .dcos package files for Edge-LB, called 'Edge-LB Bundle' files in the portal.
 
 <a name="create-service-account"></a>
 

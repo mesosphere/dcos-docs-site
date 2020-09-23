@@ -25,7 +25,7 @@ DC/OS 是一种分布式操作系统，使您可以在本地、云或混合群�
 # DC/OS 1.13.5 中已修复和改进的问题
 <!-- The issues that have been fixed and improved in DC/OS 1.13.5 are grouped by feature, functional area, or component.  -->
 - Marathon：修复了若 Mesos 尝试创建预留时发生故障，服务可能会卡住的漏洞。(MARATHON-8693) 
-- [enterprise]更新了 `dcos-backup` ，以支持通过 Admin Router 访问 Exhibitor。当 [Exhibitor 双向 TLS 认证](https://docs.d2iq.com/mesosphere/dcos/1.13/security/ent/tls-ssl/exhibitor/) 被启用时就需要。(DCOS-57704)[/enterprise]
+- [enterprise]更新了 `dcos-backup` ，以支持通过 Admin Router 访问 Exhibitor。当 [Exhibitor 双向 TLS 认证](/mesosphere/dcos/1.13/security/ent/tls-ssl/exhibitor/) 被启用时就需要。(DCOS-57704)[/enterprise]
 - Metronome：安装后配置现在可添加到 `/var/lib/dcos/metronome/environment`。(DCOS_OSS-5509)
 - Mesos 覆盖网络：添加了用于从“状态”移除代理的 HTTP 端点。(DCOS_OSS-5536, COPS-5281)
 - Admin Router：通过忽略具有错误指定 `DCOS_SERVICE_PORT_INDEX` 值的 Marathon 应用程序，提高了服务路由的稳健性。(COPS-5147, DCOS_OSS-5491)

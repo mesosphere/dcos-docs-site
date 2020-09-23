@@ -24,7 +24,7 @@ This guide explains how to install the {{ model.techName }} Service.
 <br />
 3. By default, the DC/OS Universal Installer uses Classic ELBs (Elastic Load Balancers) for both external and internal load balancing until version 2.0.</p>
 
-<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="https://docs.d2iq.com/mesosphere/dcos/services/data-science-engine/2.0.1/storage/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
+<p class="message--note"><strong>NOTE: </strong> If you are planning to use <a href="/mesosphere/dcos/services/data-science-engine/2.0.1/storage/hdfs/">HDFS</a> on {{ model.techName }}, you will need a minimum of five nodes.</p>
 
 | Security Mode | Service Account |
 |----------------|------------------|

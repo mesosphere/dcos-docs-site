@@ -425,7 +425,7 @@ wget: can't connect to remote host (192.168.219.133): Connection timed out
 
 ## 将应用程序从 DC/OS 覆盖迁移到 Calico
 
-无法自动迁移 DC/OS 群集中现有的所有服务。可以通过各种 Apache Mesos 框架启动服务，包括经生产验证的平台 [Marathon](https://mesosphere.github.io/marathon/)、构建于 [dcos-common](https://github.com/mesosphere/dcos-commons. This includes existing, stateful services such as [Cassandra](https://docs.d2iq.com/mesosphere/dcos/services/cassandra) 和 [Spark](https://docs.d2iq.com/mesosphere/dcos/services/spark) 之上的服务以及从您的环境中托管的服务。
+无法自动迁移 DC/OS 群集中现有的所有服务。可以通过各种 Apache Mesos 框架启动服务，包括经生产验证的平台 [Marathon](https://mesosphere.github.io/marathon/)、构建于 [dcos-common](https://github.com/mesosphere/dcos-commons. This includes existing, stateful services such as [Cassandra](/mesosphere/dcos/services/cassandra) 和 [Spark](/mesosphere/dcos/services/spark) 之上的服务以及从您的环境中托管的服务。
 
 ### Marathon 应用程序（aka DC/OS 服务）
 

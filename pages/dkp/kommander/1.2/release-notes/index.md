@@ -14,7 +14,7 @@ enterprise: false
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
-To get started with Kommander, [download](https://docs.d2iq.com/dkp/konvoy/latest/download/) and [install](https://docs.d2iq.com/dkp/konvoy/latest/install/) the latest version of Konvoy.
+To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [install](/dkp/konvoy/latest/install/) the latest version of Konvoy.
 
 **NOTE:** You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 

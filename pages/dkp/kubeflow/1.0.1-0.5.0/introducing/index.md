@@ -8,7 +8,7 @@ menuWeight: 1
 KUDO for Kubeflow is a cloud-native suite of best-of-breed open-source technologies that allow data scientists to extract value from data immediately by providing a familiar environment for development and all the technologies needed to deploy and scale models in production. KUDO for Kubeflow solves a key problem that enterprises face: How to get a return from your expensive AI investments? Promoting from prototype to production is often hard, but it does not have to this case, with KUDO for Kubeflow.
 
 D2iQ's KUDO for Kubeflow leverages our Expertise Kubernetes, Konvoy, so companies can run their machine learning workloads anywhere: in the cloud, on-premise, or in hybrid environments.
-KUDO for Kubeflow is an opinionated distribution based on Kubeflow: everything you need to train, deploy, and scale models is packaged and tested, so you can rest assured that it works out of the box. With its fast and easy setup from [Kommander](https://docs.d2iq.com/dkp/kommander/), your data scientists can be up and running in no time!
+KUDO for Kubeflow is an opinionated distribution based on Kubeflow: everything you need to train, deploy, and scale models is packaged and tested, so you can rest assured that it works out of the box. With its fast and easy setup from [Kommander](/dkp/kommander/), your data scientists can be up and running in no time!
 
 If you want to learn more, please read our [blog post for KUDO for Kubeflow](https://d2iq.com/blog/kudo-for-kubeflow-the-enterprise-machine-learning-platform).
 

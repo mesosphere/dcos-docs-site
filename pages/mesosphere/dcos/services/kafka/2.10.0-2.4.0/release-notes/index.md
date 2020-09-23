@@ -60,7 +60,7 @@ render: mustache
 - Option to configure new listener config `max.connections` which limits the number of active connections on each listener.
 
 ### New Features
-- Added support for DC/OS Storage Service (DSS). See official [DSS docs](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0) for more details.
+- Added support for DC/OS Storage Service (DSS). See official [DSS docs](/mesosphere/dcos/services/storage/1.0.0) for more details.
 - Added better broker health checks. Users can now select between a simple port based check or an advanced producer-consumer check based on a custom heartbeat topic.
 
 ## Version 2.6.0-2.2.1

@@ -61,7 +61,7 @@ render: mustache
 
 ## Features
 - Added support for custom domains. See [custom domains](/mesosphere/dcos/services/{{ model.serviceName }}/latest/operations/security/#forwarding-dns-and-custom-domain)
-- Added support for DC/OS Storage Service (DSS). See [DSS documentation](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/)
+- Added support for DC/OS Storage Service (DSS). See [DSS documentation](/mesosphere/dcos/services/storage/1.0.0/)
 - Added marathon service scheduler checks
 
 ## Bug Fixes

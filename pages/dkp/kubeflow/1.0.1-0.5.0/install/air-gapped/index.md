@@ -12,15 +12,15 @@ enterprise: false
 
 **IMPORTANT** the air-gapped installation is still in beta, so the process may change in the future.
 
-KUDO for Kubeflow supports installation on an air-gapped (a.k.a. offline or private) Konvoy cluster. Before installing KUDO for Kubeflow, please follow the [Konvoy Air-Gapped Installation Guide](https://docs.d2iq.com/dkp/konvoy/1.5/install/install-airgapped/) to set up the air-gapped Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring container images have been pre-loaded to the private registry before spinning up the cluster.
+KUDO for Kubeflow supports installation on an air-gapped (a.k.a. offline or private) Konvoy cluster. Before installing KUDO for Kubeflow, please follow the [Konvoy Air-Gapped Installation Guide](/dkp/konvoy/1.5/install/install-airgapped/) to set up the air-gapped Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring container images have been pre-loaded to the private registry before spinning up the cluster.
 
 The installation steps for KUDO for Kubeflow on an air-gapped cluster are as follows:
 
-* Get [`konvoy_air_gapped.tar.bz2`](https://docs.d2iq.com/dkp/konvoy/1.5/install/install-airgapped/) that will contain the required artifacts to perform an air-gapped installation.
+* Get [`konvoy_air_gapped.tar.bz2`](/dkp/konvoy/1.5/install/install-airgapped/) that will contain the required artifacts to perform an air-gapped installation.
 
 * Get the [KUDO for Kubeflow release artifacts](../../download/), which include KUDO for Kubeflow and the images files (`images-install.json` and `images-runtime.json`).
 
-* Place the Konvoy add-ons Docker tar file in the images folder, re-tag it, and push it to a private registry. Regarding the private bootstrap Docker registry configuration, please see the corresponding [Konvoy docs](https://docs.d2iq.com/dkp/konvoy/1.5/install/install-airgapped/#configure-the-image-registry) for more details.
+* Place the Konvoy add-ons Docker tar file in the images folder, re-tag it, and push it to a private registry. Regarding the private bootstrap Docker registry configuration, please see the corresponding [Konvoy docs](/dkp/konvoy/1.5/install/install-airgapped/#configure-the-image-registry) for more details.
 
 * Modify the Konvoy `cluster.yaml` to ensure a local Helm repository is used, ensuring all add-on repos' images are `mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3`. For instance,
 	```yaml

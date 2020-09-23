@@ -11,10 +11,10 @@ excerpt: Configure role-based access control for namespaced Kubernetes resources
 
 This procedure requires the following configurations and background:
 
-- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/dkp/kommander/1.2/install/).
-- An [Identity Provider](https://docs.d2iq.com/dkp/kommander/1.2/tutorials/authorize-all-users/).
+- A Konvoy cluster with [Kommander installed](/dkp/kommander/1.2/install/).
+- An [Identity Provider](/dkp/kommander/1.2/tutorials/authorize-all-users/).
 - Familiarity with [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) principles.
-- A configured [group](https://docs.d2iq.com/dkp/kommander/1.2/operations/identity-providers/) in Kommander for project administrators.
+- A configured [group](/dkp/kommander/1.2/operations/identity-providers/) in Kommander for project administrators.
 
 ## Create role-based access control persona
 
@@ -22,7 +22,7 @@ This procedure describes how a cluster administrator can assign project administ
 
 - _Project admin_: these users can administer projects they have specific access to.
 
-If you have not done so already, create a group to represent this persona. For more details on groups, see the [Identity Providers page](https://docs.d2iq.com/dkp/kommander/1.2/operations/identity-providers/) and the [Identity Provider tutorial](https://docs.d2iq.com/dkp/kommander/1.2/tutorials/authorize-all-users/).
+If you have not done so already, create a group to represent this persona. For more details on groups, see the [Identity Providers page](/dkp/kommander/1.2/operations/identity-providers/) and the [Identity Provider tutorial](/dkp/kommander/1.2/tutorials/authorize-all-users/).
 
 ## Grant access to project admin persona
 
@@ -50,11 +50,11 @@ Project Policies Form
 
 ## Related information
 
-- [Project Policies](https://docs.d2iq.com/dkp/kommander/1.2/projects/project-policies/)
-- [Granting access to Kubernetes resources in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/projects/configure-rbac/)
-- [Installing and configuring Kommander](https://docs.d2iq.com/dkp/kommander/1.2/install/)
-- [Identity Providers in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/operations/identity-providers/)
-- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in the CLI](https://docs.d2iq.com/dkp/konvoy/1.4/security/external-idps/rbac/)
-- [Access control in Kommander](https://docs.d2iq.com/dkp/kommander/1.2/operations/access-control/)
+- [Project Policies](/dkp/kommander/1.2/projects/project-policies/)
+- [Granting access to Kubernetes resources in Kommander](/dkp/kommander/1.2/projects/configure-rbac/)
+- [Installing and configuring Kommander](/dkp/kommander/1.2/install/)
+- [Identity Providers in Kommander](/dkp/kommander/1.2/operations/identity-providers/)
+- [Configuring a GitHub Identity Provider in Kommander](/dkp/kommander/1.2/tutorials/authorize-all-users/)
+- [Granting access to Kubernetes resources in the CLI](/dkp/konvoy/1.4/security/external-idps/rbac/)
+- [Access control in Kommander](/dkp/kommander/1.2/operations/access-control/)
 - [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

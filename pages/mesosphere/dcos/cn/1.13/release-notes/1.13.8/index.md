@@ -7,7 +7,7 @@ excerpt: DC/OS 1.13.8 版本的注释，包括开源归属和版本策略。
 ---
 DC/OS&trade; 1.13.8 于 2020 年 3 月 19 日发布。
 
-<p class="message--warning"><strong>警告：</strong>DC/OS 1.13.8 版本在其网络堆栈中存在一个严重错误。我们建议您不要下载或升级至 1.13.8 版本。相反，请<a href="https://docs.d2iq.com/mesosphere/dcos/1.13/release-notes/1.13.9/">在此</a>下载并升级至 1.13.9 版本。</p>
+<p class="message--warning"><strong>警告：</strong>DC/OS 1.13.8 版本在其网络堆栈中存在一个严重错误。我们建议您不要下载或升级至 1.13.8 版本。相反，请<a href="/mesosphere/dcos/1.13/release-notes/1.13.9/">在此</a>下载并升级至 1.13.9 版本。</p>
   
 [button color="light" href="https://downloads.dcos.io/dcos/stable/1.13.8/dcos_generate_config.sh"]下载 DC/OS 开源[/button]
 

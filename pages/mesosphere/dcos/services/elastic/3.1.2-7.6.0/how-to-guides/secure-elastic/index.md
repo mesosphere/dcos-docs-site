@@ -54,7 +54,7 @@ render: mustache
     dcos security secrets create-sa-secret elastic.private.pem "${service_account_name}" "${secret_name}"
     ```
 
-1. Grant necessary permissions to the service account. Check the DC/OS [permissions reference documentation](https://docs.d2iq.com/mesosphere/dcos/1.13/security/ent/perms-reference/) if you'd like to set permissions more granularly.
+1. Grant necessary permissions to the service account. Check the DC/OS [permissions reference documentation](/mesosphere/dcos/1.13/security/ent/perms-reference/) if you'd like to set permissions more granularly.
 
     ```bash
     dcos security org groups add_user superusers "${service_account_name}"

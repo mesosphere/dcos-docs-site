@@ -53,7 +53,7 @@ Customers running DC/OS on non-supported platform components should upgrade to a
 D2iQ does not retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (minor or patch)  against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker combination. 
 CentOS is the only Operating System that is extensively tested (nightly tests, long lived cluster tests, scale tests etc) by D2iQ. All the other mentioned OSes in this page are tested only once per minor or patch release.
 
-Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/installing/evaluation/) only supports CentOS and RHEL. There are no plans to add support for other referenced OSes in this page. Customers are recommended to use the Advanced Installation method for installing DC/OS on these other OSes.
+Note: The [Universal Installer](/mesosphere/dcos/2.1/installing/evaluation/) only supports CentOS and RHEL. There are no plans to add support for other referenced OSes in this page. Customers are recommended to use the Advanced Installation method for installing DC/OS on these other OSes.
 
 ### <a name="CentOS-support-matrix"></a>CentOS support matrix
 <table class="table">

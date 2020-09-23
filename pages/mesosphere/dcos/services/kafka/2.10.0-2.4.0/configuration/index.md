@@ -91,7 +91,7 @@ Refer to [Secure JMX](/mesosphere/dcos/services/kafka/latest/advanced/#secure-jm
 
 ## Configuring Volume Profiles
 
-[DC/OS Storage Service (DSS)](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
+[DC/OS Storage Service (DSS)](/mesosphere/dcos/services/storage/1.0.0/) is a service that manages volumes, volume profiles, volume providers, and storage devices in a DC/OS cluster.
 
 Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. 
 

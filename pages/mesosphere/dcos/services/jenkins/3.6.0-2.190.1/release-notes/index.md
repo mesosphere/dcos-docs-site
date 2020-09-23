@@ -12,7 +12,7 @@ Jenkins 3.6.0-2.190.1
 ## Improvements
 - Updates to version 2.190.1 (LTS)
 - Updates [jenkins-mesos-plugin](https://github.com/jenkinsci/mesos-plugin) to 1.0.0 which includes offer-suppression to improve scalability in a mixed-framework cluster.
-- Users can optionally select the [Universal Container Runtime](https://docs.d2iq.com/mesosphere/dcos/latest/deploying-services/containerizers/ucr) (UCR) for the Jenkins Master which offers greater stability and emits metrics to the [DC/OS Monitoring Service](https://docs.d2iq.com/mesosphere/dcos/services/dcos-monitoring/latest/).
+- Users can optionally select the [Universal Container Runtime](/mesosphere/dcos/latest/deploying-services/containerizers/ucr) (UCR) for the Jenkins Master which offers greater stability and emits metrics to the [DC/OS Monitoring Service](/mesosphere/dcos/services/dcos-monitoring/latest/).
 - Support for multi-tenancy features on DC/OS 2.0
 - Bundled plugins have been updated to their latest versions.
 

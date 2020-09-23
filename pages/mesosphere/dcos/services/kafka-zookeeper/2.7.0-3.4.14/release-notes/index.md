@@ -14,7 +14,7 @@ render: mustache
 - Upgraded the SDK to version `0.57.0`. See [SDK's Release Notes](https://github.com/mesosphere/dcos-commons/releases/tag/0.57.0) for more details.
 
 ### New Features
-- Added support for DC/OS Storage Service (DSS). See official [DSS docs](https://docs.d2iq.com/mesosphere/dcos/services/storage/1.0.0) for more details.
+- Added support for DC/OS Storage Service (DSS). See official [DSS docs](/mesosphere/dcos/services/storage/1.0.0) for more details.
 - By upgrading the SDK, Kafka now comes with support for:
   - Quota enforcement
   - Node draining

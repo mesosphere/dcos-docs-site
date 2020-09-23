@@ -17,5 +17,5 @@ This is the first release of the {{ model.techName }}! Please read the documenta
 - Automatic generation of the `metastore-site.xml` file and exposure of it through the `endpoints` CLI command
 - Beeline CLI support
 - Uses SDK version 0.56.1
-- Support for the [DC/OS Storage Service](https://docs.d2iq.com/mesosphere/dcos/services/storage/)
+- Support for the [DC/OS Storage Service](/mesosphere/dcos/services/storage/)
 - For more information, see the release notes for version [0.56.1](https://github.com/mesosphere/dcos-commons/releases/tag/0.56.1)

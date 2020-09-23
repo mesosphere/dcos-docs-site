@@ -25,7 +25,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
 # Fixed and Improved Issues in DC/OS 1.13.5
 <!-- The issues that have been fixed and improved in DC/OS 1.13.5 are grouped by feature, functional area, or component.  -->
 - Marathon: Fixed a bug in which a service could get stuck if a failure occurred while Mesos tried to create a reservation. (MARATHON-8693) 
-- [enterprise]Updated `dcos-backup` to support accessing Exhibitor through Admin Router. This is needed when [Exhibitor mutual TLS authentication](https://docs.d2iq.com/mesosphere/dcos/1.13/security/ent/tls-ssl/exhibitor/) is enabled. (DCOS-57704)[/enterprise]
+- [enterprise]Updated `dcos-backup` to support accessing Exhibitor through Admin Router. This is needed when [Exhibitor mutual TLS authentication](/mesosphere/dcos/1.13/security/ent/tls-ssl/exhibitor/) is enabled. (DCOS-57704)[/enterprise]
 - Metronome: Post-install configuration can now be added to `/var/lib/dcos/metronome/environment`. (DCOS_OSS-5509)
 - Mesos overlay networking: Added an HTTP endpoint for dropping agents from the state.  (DCOS_OSS-5536, COPS-5281)
 - Admin Router: Improved service routing robustness by omitting Marathon apps with wrongly specified `DCOS_SERVICE_PORT_INDEX` values. (COPS-5147, DCOS_OSS-5491)

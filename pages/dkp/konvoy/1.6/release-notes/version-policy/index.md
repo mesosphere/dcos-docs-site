@@ -16,7 +16,7 @@ You can read more about our official support policy in [D2iQ Support and Mainten
 
 ## Supported Kubernetes versions
 
-Each Konvoy release supports a range of Kubernetes versions. The [Release Notes](https://docs.d2iq.com/dkp/konvoy/latest/release-notes/) describe these versions.
+Each Konvoy release supports a range of Kubernetes versions. The [Release Notes](/dkp/konvoy/latest/release-notes/) describe these versions.
 
 For example, Konvoy 1.5.0 supports:
 
@@ -28,7 +28,7 @@ For example, Konvoy 1.5.0 supports:
 
 ## Supported operating systems
 
-Details for supported operating systems on Konvoy can be found in [Supported Operating Systems](https://docs.d2iq.com/dkp/konvoy/latest/install/supported-operating-systems/).
+Details for supported operating systems on Konvoy can be found in [Supported Operating Systems](/dkp/konvoy/latest/install/supported-operating-systems/).
 
 ## Supported Kubernetes-Base-Addons (KBA) versions
 
@@ -40,7 +40,7 @@ For example, KBA version `stable-1.17-2.1.1` is made up of:
 <release_channel>-<kubernetes_version>-<kba_version>
 ```
 
-This means this set of addons can deploy on any 1.17 Kubernetes cluster, regardless of the distribution. The support policy for KBA on Konvoy follows the same support policy for [Kubernetes versions](#supported-kubernetes-versions). You can find more details for KBA under [Kubernetes Base Addons](https://docs.d2iq.com/dkp/konvoy/1.5/addons/).
+This means this set of addons can deploy on any 1.17 Kubernetes cluster, regardless of the distribution. The support policy for KBA on Konvoy follows the same support policy for [Kubernetes versions](#supported-kubernetes-versions). You can find more details for KBA under [Kubernetes Base Addons](/dkp/konvoy/1.5/addons/).
 
 ## Supported Kommander Versions
 
