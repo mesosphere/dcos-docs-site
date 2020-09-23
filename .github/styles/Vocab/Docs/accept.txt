@@ -19,7 +19,7 @@ DC/OS
 dcos
 Dex
 Dispatch
-[Ee]tcd
+etcd
 Flink
 Grafana
 Hashicorp
