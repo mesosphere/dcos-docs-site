@@ -40,23 +40,8 @@ const shortcodes = {
    * @param {string} opts.type
    * @param {boolean} opts.fill
    */
-  message: (buf, opts) => {
-    let colorClass;
-    let messageType = "";
-    if (opts.fill === false && opts.type) {
-      colorClass = `message--outline-${opts.type}`;
-      messageType = `${capitalize(opts.type)}: `;
-    } else if (opts.fill === false) {
-      colorClass = "message--outline";
-    } else if (opts.type) {
-      colorClass = `message--${opts.type}`;
-      messageType = `${capitalize(opts.type)}: `;
-    }
-    return sanitize(`
-      <div class="message ${colorClass}"><strong>${messageType}</strong>${buf}</div>
-    `);
-  },
-
+  message: (buf, { type, label = `<strong>${capitalize(type)}: </strong>` }) =>
+    sanitize(`<span class="message message--${type}">${label}${buf}</span>`),
   /**
    * Enterprise
    * @param {string} buf
