@@ -45,31 +45,6 @@
     color: $color-dark;
     background: #89DA71;
   }
-  &--outline {
-    border: 1px solid $color-dark;
-    color: $color-dark;
-    background: transparent;
-  }
-  &--outline-warning {
-    border: 1px solid #F2D98E;
-    color: #F2D98E;
-    background: transparent;
-  }
-  &--outline-error {
-    border: 1px solid #E77975;
-    color: #E77975;
-    background: transparent;
-  }
-  &--outline-info {
-    border: 1px solid;
-    color: #505868;
-    background: transparent;
-  }
-  &--outline-success {
-    border: 1px solid #89DA71;
-    color: #89DA71;
-    background: transparent;
-  }
 }
 .warning-label::before {
   content: "WARNING: ";
