@@ -15,6 +15,24 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.4.7 - Released 24 September 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.15 |
+
+#### Bug fixes
+
+- AWS: Fixes an issue preventing AWS ELBs from being tagged according to their corresponding Service annotations. (COPS-6482)
+- Airgapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
+- Airgapped: Fix a bug where an air-gapped upgrade would fail due to the missing `kubernetes-cni` package, when installing `kubeadm`. (COPS-6334)
+
+#### Component version changes
+
+- Kubernetes `v1.16.15`
+
 ### Version v1.4.6 - Released 27 August 2020
 
 | Kubernetes Support | Version |
