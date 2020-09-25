@@ -9,7 +9,7 @@ enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for
-[download](https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz). You can either
+<a href="https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz">download</a>. You can either
 download them to a local computer and upload to the running Jupyter Notebook or run
 <code>wget -O - https://downloads.mesosphere.io/kudo-kubeflow/d2iq-tutorials-1.0.1-0.5.0.tar.gz | tar xz</code>
 from a Jupyter Notebook Terminal running in your KUDO for Kubeflow installation.
@@ -19,10 +19,8 @@ tested on D2iQ's KUDO for Kubeflow. Without the requisite Kubernetes operators a
 will likely not work.</p>
 
 
-
-<div class="alert alert-block alert-danger">
-    Kubeflow Fairing does not support docker registries using a self-signed TLS certificate, certificate chaining nor insecure (plaintext HTTP) registries.
-</div>
+<p class="message--warning"><strong>WARNING: </strong>Kubeflow Fairing does not support docker registries using
+a self-signed TLS certificate, certificate chaining nor insecure (plaintext HTTP) registries.</p>
 
 # Kubeflow Fairing: Build Docker Images from within Jupyter Notebooks
 

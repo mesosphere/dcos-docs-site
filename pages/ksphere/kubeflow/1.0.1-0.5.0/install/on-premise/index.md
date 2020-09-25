@@ -19,7 +19,7 @@ The steps to install KUDO for Kubeflow on an on-premises cluster are as follows:
 * Follow the [Konvoy On-Premises Installation Guide](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-onprem/) to configure the `cluster.yaml`. An example is shown below.
 * Ensure the Knative and NFS addons that are needed by KUDO for Kubeflow are enabled:
     ```yaml
-    - configRepository: https://github.com/mesosphere/kubeaddons-kubeflow
+    - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
       configVersion: stable-1.17-0.4.3
       addonsList:
       - name: kubeflow-nfs
@@ -143,7 +143,7 @@ spec:
     addonsList:
     - name: kommander
       enabled: false
-  - configRepository: https://github.com/mesosphere/kubeaddons-kubeflow
+  - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
     configVersion: stable-1.17-0.4.3
     addonsList:
     - name: kubeflow-nfs

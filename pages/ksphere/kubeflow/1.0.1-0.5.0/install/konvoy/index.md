@@ -12,14 +12,14 @@ enterprise: false
   ```bash
   kubectl kudo init
   ```
-* [Download `kubeflow-1.0.1-0.5.0.tgz` tarball](../../download/).
+* [Download `kubeflow-1.0.1_0.5.0.tgz` tarball](../../download/).
 * Install Kubeflow:
   ```bash
-  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1-0.5.0.tgz
+  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.5.0.tgz
   ```
 * If you would like to inject additional annotations to KUDO for Kubeflow's default gateway `kubeflow-ingressgateway`, you can pass in the service annotations as parameters:
   ```bash
-  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1-0.5.0.tgz -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
+  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.5.0.tgz -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
   ```
 * Monitor the installation by running:
   ```bash
@@ -28,9 +28,14 @@ enterprise: false
 
 Once all components have been deployed, you can log in to KUDO for Kubeflow:
 
-* Discover the cluster endpoint and copy it to the clipboard:
+* Discover the cluster endpoint and copy it to the clipboard.
+  If you are running KUDO for Kubeflow _on-premises_:
   ```bash
   kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].ip}") && echo "https://${kf_uri}"
+  ```
+  Or if you are running KUDO for Kubeflow on _AWS_:
+  ```bash
+  kf_uri=$(kubectl get svc kubeflow-ingressgateway --namespace kubeflow -o jsonpath="{.status.loadBalancer.ingress[*].hostname}") && echo "https://${kf_uri}"
   ```
 * Get the login credentials from Konvoy to authenticate:
   ```bash

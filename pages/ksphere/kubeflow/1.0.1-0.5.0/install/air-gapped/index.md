@@ -22,9 +22,14 @@ The installation steps for KUDO for Kubeflow on an air-gapped cluster are as fol
 
 * Place the Konvoy add-ons Docker tar file in the images folder, re-tag it, and push it to a private registry. Regarding the private bootstrap Docker registry configuration, please see the corresponding [Konvoy docs](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-airgapped/#configure-the-image-registry) for more details.
 
+* (Only for Konvoy 1.5.x. This step will not be needed in Konvoy 1.6.x) In the working directory of Konvoy, git clone `kubeaddons-kaptain`.
+  ```bash
+  git clone https://github.com/mesosphere/kubeaddons-kaptain
+  ```
+
 * Modify the Konvoy `cluster.yaml` to ensure a local Helm repository is used, ensuring all add-on repos' images are `mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3`. For instance,
 	```yaml
-    - configRepository: https://github.com/mesosphere/kubeaddons-kubeflow
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-kaptain
       configVersion: stable-1.17-0.4.3
       addonRepository:
         image: mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3
@@ -45,7 +50,7 @@ The installation steps for KUDO for Kubeflow on an air-gapped cluster are as fol
 
 * Merge the KUDO for Kubeflow installation and images files (`images-install.json` and `images-runtime.json`) with the default images.json from Konvoy. Then, load, re-tag, and push all images to the private registry by using the konvoy CLI:
     ```bash
-    ./konvoy config images seed
+    konvoy config images seed
     ```
 
 * Spin up the Konvoy cluster:
@@ -123,17 +128,17 @@ metadata:
   creationTimestamp: "2020-09-01T23:16:04Z"
 spec:
   imageRegistries:
-    - server: https://ip-10-0-65-159.us-west-2.compute.internal:5000
+    - server: https://myregistry:443
       username: "admin"
       password: "password"
       default: true
   autoProvisioning:
     config:
       konvoy:
-        imageRepository: ip-10-0-65-159.us-west-2.compute.internal:5000/mesosphere/konvoy
+        imageRepository: myregistry:443/mesosphere/konvoy
       webhook:
         extraArgs:
-          konvoy.docker-registry-url: https://ip-10-0-65-159.us-west-2.compute.internal:5000
+          konvoy.docker-registry-url: https://myregistry:443
           konvoy.docker-registry-insecure-skip-tls-verify: true
           konvoy.docker-registry-username: "admin"
           konvoy.docker-registry-password: "password"
@@ -169,7 +174,7 @@ spec:
   nodePools:
     - name: worker
   addons:
-    - configRepository: https://github.com/mesosphere/kubeaddons-kubeflow
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-kaptain
       configVersion: stable-1.17-0.4.3
       addonRepository:
         image: mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3
