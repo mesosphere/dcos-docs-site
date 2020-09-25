@@ -17,7 +17,7 @@
 ~^/mesosphere/dcos/services/kafka/latest/(.*) /mesosphere/dcos/services/kafka/2.10.0-2.4.0/$1;
 ~^/mesosphere/dcos/services/kubernetes/latest/(.*) /mesosphere/dcos/services/kubernetes/2.8.0-1.19.2/$1;
 ~^/mesosphere/dcos/services/kafka-zookeeper/latest/(.*) /mesosphere/dcos/services/kafka-zookeeper/2.6.0-3.4.14/$1;
-~^/mesosphere/dcos/services/marathon-lb/latest/(.*) /mesosphere/dcos/services/marathon-lb/1.14/$1;
+~^/mesosphere/dcos/services/marathon-lb/latest/(.*) /mesosphere/dcos/services/marathon-lb/1.15/$1;
 ~^/mesosphere/dcos/services/minio/latest/(.*) /mesosphere/dcos/services/minio/0.1.2/$1;
 ~^/mesosphere/dcos/services/nifi/latest/(.*) /mesosphere/dcos/services/nifi/1.0.1-1.9.2/$1;
 ~^/mesosphere/dcos/services/percona-server-mongodb/latest/(.*) /mesosphere/dcos/services/percona-server-mongodb/0.4.2-3.6.10/$1;
