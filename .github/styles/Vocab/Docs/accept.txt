@@ -44,6 +44,7 @@ Konvoy
 kubectl
 kubelet
 kubeconfig
+Kubecost
 kubelet(|s)
 Kubeflow
 Kubernetes
@@ -80,6 +81,7 @@ softmax
 Splunk
 subcommand
 TensorFlow
+Thanos 
 Toree
 Traefik
 uncordon(|ed)
