@@ -95,6 +95,7 @@ Figure 6 - General configuration tab
 | Mem (MiB) | Required field. Specifies the amount of memory, in MiB, your job requires. |
 | Disk (MiB) | Required field. Specifies the amount of disk space, in MiB, your job requires. |
 | GPUs | Specifies the number of GPU (Graphics Processing Unit) shares this job needs per instance. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/mesosphere/dcos/2.2/deploying-services/containerizers/ucr/) containers. Support for GPU resources is not available for Docker containers or images.|
+| Dependencies | Specify or more dependencies for a job, indicating that the job should run each time all of the dependencies complete. A schedule may not be specified for jobs with dependencies. |
 | Job Type | Select **Container Image** with an optional **Command** or **Command Only**.|
 | Container Image | Repository name. This field allows you to specify an image you want to run, such as Ubuntu:14.04.|
 | Command* | Specifies a command to be run on the host or in the container. This value is wrapped by Mesos via `/bin/sh - job.cmd`. Either `cmd` or `args` must be supplied . It is invalid to supply both `cmd` and `args` in the same job.|
@@ -153,7 +154,6 @@ Figure 9 - **Jobs > Schedule** tab
 | **CRON Schedule** | Specifies the schedule in `cron` format. This is a required field. Use [this crontab generator](http://crontab.guru) for help. You can also set a **Time Zone** to apply to the cron schedule. For example, you might have nodes in different time zones and want to run the job using a standardized UTC time or a specific local time zone such as America/New_York.|
 | **Starting Deadline** | Sets the time, in seconds, to start the job if it misses its scheduled time for any reason. Missed job executions are counted as failed jobs.|
 | **Concurrency Policy** | A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running. Set if you want to allow new job instances to run if there's already a job instance running. |
-
 
 ## Environment
 
