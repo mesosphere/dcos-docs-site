@@ -6,6 +6,7 @@ menuWeight: 10
 excerpt: Creating and administering jobs using the UI, the CLI, or the API
 enterprise: false
 render: mustache
+beta: true
 model: /mesosphere/dcos/2.2/data.yml
 ---
 
@@ -14,7 +15,7 @@ You can create and administer jobs for the DC/OS cluster in any of the following
 - interactively or programmatically with the DC/OS [CLI](#cli)
 - directly through calls to the DC/OS application programming interface ([API](#jobs-api) for job-related operations
 
-The DC/OS UI only provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the CLI [`dcos job`](/mesosphere/dcos/2.2/cli/command-reference/dcos-job/) commands or the [Jobs API](/mesosphere/dcos/2.2/deploying-jobs/quickstart/#jobs-api).
+The DC/OS UI provides access to a subset of the job-related functionality provided through the `dcos job` CLI and Jobs API. For more advanced job configurations and activity, use the CLI [`dcos job`](/mesosphere/dcos/2.2/cli/command-reference/dcos-job/) commands or the [Jobs API](/mesosphere/dcos/2.2/deploying-jobs/quickstart/#jobs-api).
 
 The DC/OS application programming interface (API) provides underlying functionality that you can access through the DC/OS UI and CLI. In most cases, you would only use the API directly if you are integrating the functionality with a custom program or automation script.
 
@@ -29,13 +30,13 @@ Figure 1 - Jobs tab and jobs list
 
 ### Split screen
 
-Note that in all the **Jobs** UI configuration screens, you can choose to view the UI alone, or split the screen between the UI and a **JSON Editor** window. In the following discussion of the **Jobs** configuration options, we will show you the split screen so that you can see how they work together, but you may always choose to use the UI by itself. To invoke the **JSON Editor**, click on the **JSON Editor** toggle switch next to the **Submit** button. 
+**Note:** In all **Jobs** UI configuration screens, you can choose to view the UI alone, or split the screen between the UI and a **JSON Editor** window. In the following discussion of the **Jobs** configuration options, you see the split screen to see how they work together, but you may always choose to use the UI by itself. To invoke the **JSON Editor**, select **JSON Editor** toggle switch next to the **Submit** button. 
 
 <!-- Where are JSON files created here stored? Can that location be configured? -->
 
 Edits made to either interface will be immediately reflected in the other. For example, if you enter a value in any field in the left hand UI, it will be added to the JSON file on the right hand. 
 
-To dismiss the **JSON Editor** screen, click the toggle again.
+To dismiss the **JSON Editor** screen, select the toggle again.
 
 ![Split Screen](/mesosphere/dcos/2.2/img/GUI-Jobs-Split-Screen.png)
 
@@ -51,13 +52,13 @@ There are two ways to create a job in the DC/OS UI.
 
 Figure 3 - Create a Job button
 
--  Regardless of whether you have active jobs or not, you can always click on the **+** sign in the upper right corner to create a new job.
+-  Regardless of whether you have active jobs or not, you can always select the **+** sign in the upper right corner to create a new job.
 
 ![Plus sign](/mesosphere/dcos/2.2/img/GUI-Jobs-Create-a-Job.png)
 
-Figure 4 - Click on plus sign
+Figure 4 - Select plus sign
 
-A configuration screen for a new job will appear. Note that this screen is the same as that used for editing jobs. 
+A configuration screen for a new job appears. **Note:** this screen is the same as that used for editing jobs. 
 
 ![Job configuration screen](/mesosphere/dcos/2.2/img/GUI-Jobs-New-Job.png)
 
@@ -72,7 +73,7 @@ You will see eight tabs on the left hand side of the screen. These help you name
 | [General](#general) | Sets the most basic job settings, such as the job identifier, CPU, memory and disk requirements.|
 | [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker Engine. |
 | [Schedule](#schedule) | Sets up a schedule for your job. You can use the `cron` format. |
-| [Dependencies](#dependencies) | Specifies that a job should run after another job. |
+| [Dependencies](#dependencies) | Specifies that a job runs after another job. |
 | [Environment](#environment) | Specifies environment variables to be attached to each instance of your job.|
 | [Volumes](#volumes) | Configures a stateful job by setting up a persistent volume.|
 | [Placement](#placement) | Specifies the placement of agent nodes in regions and zones for high availability, or to expand capacity to new regions.|
@@ -96,14 +97,14 @@ The parameters for this tab and the values allowed are found in the [Jobs](/meso
 * **CPUs** - Specifies the number of CPU cores your job requires. This field is required for all jobs.
 * **Mem** - Specifies the amount of memory, in MB, your job requires. This field is required for all jobs.
 * **Disk** - Specifies the amount of disk space, in MB, your job requires. This field is required for all jobs.
-* **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/mesosphere/dcos/2.2/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
+* **GPUs** - Specifies the number of GPU (Graphics Processing Unit) cores to allocate for processing your job. This field is applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/mesosphere/dcos/2.2/deploying-services/containerizers/ucr/) containers. Support for GPU resources is are not available for Docker containers or images.
 
 Select the appropriate Job Type to run one or more specific commands or a Docker container image.
 * Select **Command Only** to specify one or more commands you want the new job to execute. 
 
     If you select **Command Only**, you must specify the command or command arguments to execute. When the command you specify is executed, it is automatically wrapped by the command `/bin/sh -c job.cmd`. You must include either `cmd` or `args` in the command to be executed. It is invalid to supply both `cmd` and `args` in the same job.
 
-    If you select the **Command Only** option, none of the **Container Runtime** settings are applicable for the job. You can continue creating the job by defining **Schedule** settings, adding advanced **Run Configuration** options, or clicking **Submit**.
+    If you select the **Command Only** option, none of the **Container Runtime** settings are applicable for the job. You can continue creating the job by defining **Schedule** settings, adding advanced **Run Configuration** options, or selecting **Submit**.
 
 * Select **Container Image** to specify a container image for the new job. If you select this option, type the name of the container image you want to run. For example, you can type a container image name such as `ubuntu:14.04`. You can then use the **Command** field to specify the command and any additional runtime parameters available in the container for running the new job. 
 
@@ -111,7 +112,7 @@ Select the appropriate Job Type to run one or more specific commands or a Docker
     - Configuring **Container Runtime** settings for the job.
     - Defining a job **Schedule**, if applicable.
     - Adding advanced **Run Configuration** options, if applicable.
-    - Clicking **Submit**. -->
+    - Selecting **Submit**. -->
 
 ### Container Runtime
 
@@ -138,8 +139,8 @@ Figure 8 - **Jobs > Container Runtime > Docker Engine** tab
 * If you select **Docker Engine**, you can select the following additional options:
     - Select **Force Pull Image On Launch** to automatically pull the latest image before launching each instance.
     - Select **Grant Runtime Privileges** to run the specified Docker image in privileged mode.
-    - Click **Add Parameter** to specify additional Docker runtime parameter names and values for the new job, if applicable. You can add multiple parameter names and corresponding values by clicking **Add Parameter** for each parameter name and value you want to include.
-    - Click **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include. -->
+    - Select **Add Parameter** to specify additional Docker runtime parameter names and values for the new job, if applicable. You can add multiple parameter names and corresponding values by selecting **Add Parameter** for each parameter name and value you want to include.
+    - Select **Add Arg** to specify additional command-line arguments for the new job, if applicable. You can add multiple arguments by selecting **Add Arg** for each argument you want to include. -->
 
 The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/2.2/gui/jobs/#container-runtime/) documentation of the UI.
 
@@ -221,12 +222,11 @@ Select **Run Configuration** to specify advanced settings for the new job.
 
 Figure 13 - **Jobs > Run Configuration** tab
 
-
-<!-- 1. Click **Run Configuration** to specify advanced settings for the new job.
+<!-- 1. Select **Run Configuration** to specify advanced settings for the new job.
 
     - Set **Max Launch Delay**  to specify the maximum number of seconds to wait for a job to start running after it is launched by a scheduled job run or manually by a user. If the job does not start running within the maximum number of seconds allowed, the job is aborted.
 
-    - Set **Kill Grace Period**  to configure the number of seconds between escalating from `SIGTERM` to `SIGKILL` when signalling tasks to terminate. During this grace period, tasks should perform an orderly shut down immediately upon receiving SIGTERM.
+    - Set **Kill Grace Period**  to configure the number of seconds between escalating from `SIGTERM` to `SIGKILL` when signalling tasks to terminate. During this grace period, tasks perform an orderly shut down immediately upon receiving SIGTERM.
 
     - Set **User name** to identify the user account that runs the tasks on the agent.
 
@@ -242,10 +242,9 @@ Figure 13 - **Jobs > Run Configuration** tab
         
         - If you choose **On Failure**, you can set a time limit for attempting to restart the job using the **Keep Trying Time** field. For example, set the **Keep Trying Time** to 30 if you want to try restarting the job after waiting for 30 seconds. If no value is set for Keep Trying Time, DC/OS will continue attempting to restart the failed job indefinitely.
 
-    - Click **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/mesosphere/dcos/2.2/tutorials/task-labels/). -->
+    - Select **Add Label** to specify a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by selecting **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/mesosphere/dcos/2.2/tutorials/task-labels/). -->
 
 The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/2.2/gui/jobs/#run-configuration/) documentation of the UI.
-
 
 ### Secrets
 
@@ -279,7 +278,7 @@ Networking information can be specified using the JSON tab. See the following ex
     }
     ```
 
-The networks field functions identical to Marathon's, and supports the following parameters.
+The networks field functions identically to Marathon's, and supports the following parameters:
 
 * **mode** - The network mode. Valid values are `container`, `container/bridge` and `host`. The default value is `host`. There is little value in using `container/bridge` for jobs, but it is still supported.
 * **name** - The name of the container network to join. It is an error to specify this field with mode `host` or `container/bridge`.
@@ -289,9 +288,9 @@ Jobs do not support port mapping.
 
 ## Submit
 
-1. Click **Submit** to create the job.
+1. Select **Submit** to create the job.
 
-1. Verify that you have added the new job by clicking **Jobs**.
+1. Verify that you have added the new job by selecting **Jobs**.
 
     ![Jobs List](/mesosphere/dcos/2.2/img/job-list-scheduled.png)
 
@@ -303,13 +302,13 @@ You can add a job to a an existing job group or create a new job group when you 
 For more information about controlling access to jobs through job groups, see [Granting access to jobs](/mesosphere/dcos/2.2/deploying-jobs/job-groups/).
 
 ## View, modify, or remove a specific job
-You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS UI. From the **Jobs** tab, click the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
+You can view and modify job-related information, including details about the run history and configuration settings interactively through the DC/OS UI. From the **Jobs** tab, select the name of your job. You can then use the menu on the upper right to edit, run, disable, or delete a selected job. 
 
 ![Viewing and modifying job details](/mesosphere/dcos/2.2/img/job-menu-options.png)
 
 Figure 16. Viewing and modifying job details
 
-While the job is running, you can click the job instance to drill down to **Details**, **Files**, and **Logs** data.
+While the job is running, you can select the job instance to drill down to **Details**, **Files**, and **Logs** data.
 
 You can see that the **Edit Job** screen contains the same configuration tabs as the **New Job** screen:
 
@@ -391,17 +390,17 @@ For example, assume you have a job scheduled to start every day at 3:00AM, and y
 If you want to allow scheduled jobs to be triggered while  other instances of the same job are running, you can set the `concurrencyPolicy` to ALLOW. 
 
 ## Create a schedule-only JSON file
-If you specify a schedule for a job in the JSON file for that job, you can assign only one schedule for the job to run under.
+If you specify a schedule for a job in the JSON file for that job, you can assign one schedule for the job to run under.
 
 If you want to use the same schedule for more than one job, however, you can create a separate JSON file specifically for the schedule. You can then use the `dcos job schedule add <job-id> <schedule-file>` command to associate a job with the schedule.
 
 1. Open a file in a text editor to [create a new job](#cli-add-job) file in JSON format, if necessary.
 
-    You must use the job `id` you define for the job to associate a schedule JSON file with the job. To prevent schedule conflicts or unexpected job runs, you should not define schedule parameters for a job if you want to use the schedule-only JSON file to control when a job runs.
+    You must use the job `id` you define for the job to associate a schedule JSON file with the job. To prevent schedule conflicts or unexpected job runs, do not define schedule parameters for a job if you want to use the schedule-only JSON file to control when a job runs.
 
 1. Open a new file in a text editor to create the schedule you want to use in JSON format.
 
-    For example, the JSON file for a new schedule might look similar to this:
+    For example, the JSON file for a new schedule looks similar to this:
 
     ```json
     {
@@ -415,7 +414,7 @@ If you want to use the same schedule for more than one job, however, you can cre
     }
     ```
 
-1. Save the JSON file for the new schedule using an easily-identifiable file name. For example, you might save the schedule information as `my-cron-def.json`.
+1. Save the JSON file for the new schedule using an easily-identifiable file name. For example, save the schedule information as `my-cron-def.json`.
 
 1. Associate the job with the schedule by running a command similar to the following:
 
@@ -454,7 +453,7 @@ You can trigger a job to run:
 - automatically based on a schedule you have defined 
 - programmatically through automation with or without a schedule
 
-You can use any of these approaches to start a job instance that is referred to as a job run. For example, you can use the DC/OS CLI to start jobs regardless of whether you have defined a schedule or not. Starting a job manually from the command-line is similar to starting a job by clicking **Run now** using the DC/OS UI.
+You can use any of these approaches to start a job instance that is referred to as a job run. For example, you can use the DC/OS CLI to start jobs regardless of whether you have defined a schedule or not. Starting a job manually from the command-line is similar to starting a job by selecting **Run now** using the DC/OS UI.
 
 To start a job run on-demand outside of any scheduled job activity, run a command similar to the following:
 
@@ -552,7 +551,7 @@ To view the log for your job:
 dcos task log --completed <job-id>
 ```
 
-To get the log for only a specific job run, use a job run ID from `dcos job history <job-id>`
+To get the log for a specific job run, use a job run ID from `dcos job history <job-id>`
 
 ```
 dcos task log --completed <job-run-id>
@@ -583,7 +582,7 @@ The following command removes a job regardless of whether the job is running:
 curl -X DELETE -H "Authorization: token=$(dcos config show core.dcos_acs_token)" $(dcos config show core.dcos_url)/service/metronome/v1/jobs/<myjob>?stopCurrentJobRuns=true
 ```
 
-To remove a job only if it is not running, set `stopCurrentJobRuns` to `False`.
+To remove a job if it is not running, set `stopCurrentJobRuns` to `False`.
 
 ## Modify or view a job using an API call
 The following command shows all jobs:
