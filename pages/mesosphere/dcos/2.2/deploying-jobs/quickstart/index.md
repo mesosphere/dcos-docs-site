@@ -167,38 +167,31 @@ The parameters for this tab and the values allowed are found in the [Jobs](/meso
 
 ### Dependencies
 
-Jobs can be configured to run after one or more jobs successfully run. Such a job is referred to as a dependent job. A dependent job cannot have a schedule.
+You can configure a job to run whenever one or more jobs succeeded. This "dependent job" cannot have a schedule. It runs whenever all its dependencies have a later successful run than itself. Metronome does not support cyclic dependencies.
 
-Dependent jobs are scheduled to run if all of their dependencies have successfully completed. To illustrate, lets imagine we have jobs A, B, and Z. A runs hour, and B runs every half hour. Z depends on both A and B. The JSON for Z would look as follows:
+#### Example
 
-    ```json
-    {
-      "id": "z",
-      "description": "Job Z",
-      "dependencies": [{"id": "a"}, {"id": "b"}],
-      "run": {
-        ...
-      }
-    }
-    ```
+* Dependency `A` runs at the hour and needs 15 minutes to complete
+* Dependency `B` runs every 30 minutes and needs 20 minutes to complete
+* Job `Z` takes about 8 minutes to complete and depends on `A` and `B`: 
+  ```json
+  {
+    "id": "Z",
+    "dependencies": [{"id": "A"}, {"id": "B"}],
+    ...
+  }
+  ```
+  
+The schedule would look like this:
 
-Z would be scheduled accordingly:
-
-12:00 - A and B are run
-12:15 - B finished
-12:20 - A finished
-12:20 - Z is run
-12:28 - Z is finished
-12:30 - B is run
-12:45 - B is finished
-13:00 - A and B are run
-13:15 - B finished
-13:20 - A finished
-13:20 - Z is run (for the second time)
-
-Cyclic dependencies are checked a job is modified, and are rejected by Metronome's validation logic.
-
-...
+`12:00` - Scheduling `A` and `B`  
+`12:15` - `A` finishes  
+`12:20` - `B` finishes  
+`12:20` - Scheduling `Z`  
+`12:28` - `Z` finishes  
+`12:30` - Scheduling `B`   
+`12:50` - `B` finishes - note that **`Z` is not scheduled** now as not all dependencies have a newer success than `Z`)  
+`13:00` - Scheduling `A` and `B`
 
 ### Volumes
 
