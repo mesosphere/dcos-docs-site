@@ -422,8 +422,3 @@ To access the experiment monitor, go to Menu &rarr; HP &rarr; Monitor in the ham
 To see detailed information, such as trial results, metrics, and a plot, click on the experiment itself.
 
 ![Katib plot](./img/katib-3.png)
-
-
-```python
-
-```
