@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-* After the Konvoy cluster has been deployed successfully (incl. Istio), install KUDO:
+* After the Konvoy cluster has been deployed successfully (including Istio and Knative), install KUDO:
   ```bash
   kubectl kudo init
   ```
