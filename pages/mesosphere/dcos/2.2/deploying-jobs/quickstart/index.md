@@ -72,6 +72,7 @@ You will see eight tabs on the left hand side of the screen. These help you name
 | [General](#general) | Sets the most basic job settings, such as the job identifier, CPU, memory and disk requirements.|
 | [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker Engine. |
 | [Schedule](#schedule) | Sets up a schedule for your job. You can use the `cron` format. |
+| [Dependencies](#dependencies) | Specifies that a job should run after another job. |
 | [Environment](#environment) | Specifies environment variables to be attached to each instance of your job.|
 | [Volumes](#volumes) | Configures a stateful job by setting up a persistent volume.|
 | [Placement](#placement) | Specifies the placement of agent nodes in regions and zones for high availability, or to expand capacity to new regions.|
@@ -164,6 +165,40 @@ Figure 10 - **Jobs > Environment** tab
 
 The parameters for this tab and the values allowed are found in the [Jobs](/mesosphere/dcos/2.2/gui/jobs/#environment/) documentation of the UI.
 
+### Dependencies
+
+Jobs can be configured to run after one or more jobs successfully run. Such a job is referred to as a dependent job. A dependent job cannot have a schedule.
+
+Dependent jobs are scheduled to run if all of their dependencies have successfully completed. To illustrate, lets imagine we have jobs A, B, and Z. A runs hour, and B runs every half hour. Z depends on both A and B. The JSON for Z would look as follows:
+
+    ```json
+    {
+      "id": "z",
+      "description": "Job Z",
+      "dependencies": [{"id": "a"}, {"id": "b"}],
+      "run": {
+        ...
+      }
+    }
+    ```
+
+Z would be scheduled accordingly:
+
+12:00 - A and B are run
+12:15 - B finished
+12:20 - A finished
+12:20 - Z is run
+12:28 - Z is finished
+12:30 - B is run
+12:45 - B is finished
+13:00 - A and B are run
+13:15 - B finished
+13:20 - A finished
+13:20 - Z is run (for the second time)
+
+Cyclic dependencies are checked a job is modified, and are rejected by Metronome's validation logic.
+
+...
 
 ### Volumes
 
