@@ -133,30 +133,15 @@ We then use it to create a bucket, upload the dataset to it, and set access poli
 ! mc alias set minio http://minio-service.kubeflow:9000 minio minio123
 ```
 
-    [32;1mmc: [0m[32;1mConfiguration written to `/home/kubeflow/.mc/config.json`. Please update your access credentials.
-    [0m[32;1mmc: [0m[32;1mSuccessfully created `/home/kubeflow/.mc/share`.
-    [0m[32;1mmc: [0m[32;1mInitialized share uploads `/home/kubeflow/.mc/share/uploads.json` file.
-    [0m[32;1mmc: [0m[32;1mInitialized share downloads `/home/kubeflow/.mc/share/downloads.json` file.
-    [0m[m[32mAdded `minio` successfully.[0m
-    [0m
-
-
 ```python
 ! mc mb minio/tutorial
 ```
-
-    [m[32;1mBucket created successfully `minio/tutorial`.[0m
-    [0m
-
 
 ```python
 ! tar --dereference -czf datasets.tar.gz ./datasets
 ! mc cp datasets.tar.gz minio/tutorial/datasets.tar.gz
 ! mc policy set download minio/tutorial
 ```
-
-    ...ts.tar.gz:  16.14 MiB / 16.14 MiB ┃▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓▓┃ 141.66 MiB/s 0s[0m[0m[m[32;1m[m[32;1mAccess permission for `minio/tutorial` is set to `download`[0m
-    [0m
 
 ## How to Implement Kubeflow Pipelines Components
 As we said before, components are self-contained pieces of code: Python functions.
