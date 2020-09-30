@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: MNIST with PyTorch
 title: MNIST with PyTorch
-menuWeight: 5
+menuWeight: 21
 excerpt: Tutorial for MNIST with PyTorch
 beta: false
 enterprise: false

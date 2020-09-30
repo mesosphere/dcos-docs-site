@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Metadata SDK
 title: Metadata SDK
-menuWeight: 5
+menuWeight: 13
 excerpt: Tutorial for Metadata SDK
 beta: false
 enterprise: false
