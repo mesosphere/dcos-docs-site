@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Hyperparameter Tuning
 title: Hyperparameter Tuning
-menuWeight: 5
+menuWeight: 11
 excerpt: Tutorial for Hyperparameter Tuning
 beta: false
 enterprise: false

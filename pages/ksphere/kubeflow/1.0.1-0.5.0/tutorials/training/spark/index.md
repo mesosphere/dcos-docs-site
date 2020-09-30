@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: MNIST with Spark
 title: MNIST with Spark
-menuWeight: 5
+menuWeight: 23
 excerpt: Tutorial for MNIST with Spark
 beta: false
 enterprise: false

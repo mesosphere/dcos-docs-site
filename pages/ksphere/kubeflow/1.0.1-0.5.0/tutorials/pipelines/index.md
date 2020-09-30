@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: End-to-end Pipeline with KFServing
 title: End-to-end Pipeline with KFServing
-menuWeight: 5
+menuWeight: 12
 excerpt: Tutorial for End-to-end Pipeline with KFServing
 beta: false
 enterprise: false

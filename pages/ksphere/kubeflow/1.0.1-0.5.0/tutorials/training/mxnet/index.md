@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: MNIST with MXNet
 title: MNIST with MXNet
-menuWeight: 5
+menuWeight: 22
 excerpt: Tutorial for MNIST with MXNet
 beta: false
 enterprise: false

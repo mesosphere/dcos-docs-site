@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubeflow Fairing
 title: Kubeflow Fairing
-menuWeight: 5
+menuWeight: 14
 excerpt: Tutorial for Kubeflow Fairing
 beta: false
 enterprise: false

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: MNIST with TensorFlow
 title: MNIST with TensorFlow
-menuWeight: 5
+menuWeight: 20
 excerpt: Tutorial for MNIST with TensorFlow
 beta: false
 enterprise: false
