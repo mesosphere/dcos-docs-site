@@ -5,16 +5,17 @@ title: Jobs
 menuWeight: 3
 excerpt: Native support for creating and managing jobs.
 render: mustache
+beta: true 
 model: /mesosphere/dcos/2.2/data.yml
 ---
 
-The Jobs tab provides native support for creating, scheduling and managing your jobs. From the side menu, click on **Jobs**. The display will show all of your current jobs either singly or, if grouped, in the group folder.
+The Jobs tab provides native support for creating, scheduling, and managing your jobs. From the side menu, select **Jobs**. The display shows all current jobs either individually or, if grouped, in the group folder.
 
 ![Jobs](/mesosphere/dcos/2.2/img/GUI-Jobs-Main.png)
 
 Figure 1 - Jobs main screen
 
-Click on the down arrow next to each column name to sort the list.
+Select the down arrow next to each column name to sort the list.
 
 | Column | Description | Values |
 |-----------------|---------------|------------------|
@@ -24,23 +25,23 @@ Click on the down arrow next to each column name to sort the list.
 | Disk | The amount of disk your job needs per instance in MiB. | |
 | GPUs | The amount of GPU shares your job needs per instance. | |
 | Status | Current status of your job. | Scheduled or Unscheduled |
-| Last Run | Shows the final status of the last time your job was run. | Success or Fail |
+| Last Run | Shows the final status of the last time the job ran. | Success or Fail |
 
 # Creating a new job
 
-There are two ways to create a job in the DC/OS UI.
+Create a job in the DC/OS UI in one of the following ways.
 
-- If you have no jobs configured, the Jobs screen will contain a notice that you have no active jobs, and a **Create a Job** button. 
+- If you have no jobs configured, the Jobs screen contains a notice that you have no active jobs, and a **Create a Job** button. 
 
 ![No active jobs](/mesosphere/dcos/2.2/img/GUI-Jobs-No-Active-Jobs.png)
 
 Figure 2 - Create a Job button
 
--  Regardless of whether you have active jobs or not, you can always click on the **+** sign in the upper right corner to create a new job.
+-  Regardless of whether you have active jobs or not, you can always select  the **+** sign in the upper right corner to create a new job.
 
 ![Plus sign](/mesosphere/dcos/2.2/img/GUI-Jobs-Create-a-Job.png)
 
-Figure 3 - Click on plus sign
+Figure 3 - Select plus sign
 
 A configuration screen for a new job will appear. Note that this screen is the same as that used for editing jobs. 
 
@@ -50,30 +51,30 @@ Figure 4 - Job configuration screen
 
 ### Split screen
 
-Note that in all the **Jobs** configuration screens, you can choose to view the UI alone, or split the screen between the UI and a **JSON Editor** window. In the following discussion of the **Jobs** configuration options, we will show you the split screen so that you can see how they work together, but you may always choose to use the UI by itself.
+Note that in all the **Jobs** configuration screens, you can choose to view the UI alone, or split the screen between the UI and a **JSON Editor** window. In the following discussion of the **Jobs** configuration options, you are shown the split screen so that you can see how they work together, but you can use the UI by itself.
 
 <!-- Where are JSON files created here stored? Can that location be configured? -->
 
-Edits made to either interface will be immediately reflected in the other. For example, if you enter a value in any field in the left hand UI, it will be added to the JSON file on the right hand. 
+Edits made to either interface are reflected in the other. For example, if you enter a value in any field in the UI, it will be added to the JSON file on the right. 
 
-To dismiss the **JSON Editor** screen, click the toggle again.
+To dismiss the **JSON Editor** screen, select the toggle again.
 
 ![Split Screen](/mesosphere/dcos/2.2/img/GUI-Jobs-Split-Screen.png)
 
 Figure 5 - Split screen
 
-To invoke the **JSON Editor**, click on the **JSON Editor** toggle switch next to the **Submit** button. 
+To invoke the **JSON Editor**, select the **JSON Editor** toggle switch next to the **Submit** button. 
 
 # Configuring a job
 
-You will see eight tabs on the left hand side of the screen. These help you name, configure and manage your job:
+You will see eight tabs on the left hand side of the screen. These help you name, configure, and manage your job:
 
 | Name | Description |
 |------|--------------|
 | [General](#general) | Sets the most basic job settings, such as the job identifier, CPU, memory and disk requirements.|
 | [Container Runtime](#container-runtime) | Specifies whether the job runs using the Universal Container Runtime or the Docker Engine. |
 | [Schedule](#schedule) | Sets up a schedule for your job. You can use the `cron` format. |
-| [Environment](#environment) | Specifies environment variables to be attached to each instance of your job.|
+| [Environment](#environment) | Specifies environment variables attached to each instance of your job.|
 | [Volumes](#volumes) | Configures a stateful job by setting up a persistent volume.|
 | [Placement](#placement) | Specifies the placement of agent nodes in regions and zones for high availability, or to expand capacity to new regions.|
 | [Run Configuration](#run-configuration) | Advanced settings for the job. |
@@ -89,13 +90,13 @@ Figure 6 - General configuration tab
 
 | Name | Description |
 |-------|------|
-| Job ID | Required field. Defines a unique identifier for the new job. You also use this setting to manage job operations. Each name must be at least 1 character long and may only contain digits (0-9), dashes (-), and lowercase letters (a - z). The name may not begin or end with a dash. |
+| Job ID | Required field. Defines a unique identifier for the new job. You also use this setting to manage job operations. Each name must be at least 1 character long and can contain numbers (0-9), dashes (-), and lowercase letters (a-z). The name cannot begin or end with a dash. |
 | Description | Provides an optional description of the new job. |
 | CPUs | Required field. Specifies the number of CPU cores your job requires. This number can be an integer or a fraction. |
 | Mem (MiB) | Required field. Specifies the amount of memory, in MiB, your job requires. |
 | Disk (MiB) | Required field. Specifies the amount of disk space, in MiB, your job requires. |
-| GPUs | Specifies the number of GPU (Graphics Processing Unit) shares this job needs per instance. This field is only applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks that are launched using DC/OS [Universal Container Runtime](/mesosphere/dcos/2.2/deploying-services/containerizers/ucr/) containers. Support for GPU resources is not available for Docker containers or images.|
-| Dependencies | Specify or more dependencies for a job, indicating that the job should run each time all of the dependencies complete. A schedule may not be specified for jobs with dependencies. |
+| GPUs | Specifies the number of GPU (Graphics Processing Unit) shares this job needs per instance. This field is applicable for jobs that run on nodes configured to use GPU (Graphics Processing Unit) cores and tasks launched using DC/OS [Universal Container Runtime](/mesosphere/dcos/2.2/deploying-services/containerizers/ucr/) containers. Support for GPU resources is not available for Docker containers or images.|
+| Dependencies | Specify 1 or more dependencies for a job, indicating that the job runs each time all dependencies complete. Do not specify a schedule for jobs with dependencies. |
 | Job Type | Select **Container Image** with an optional **Command** or **Command Only**.|
 | Container Image | Repository name. This field allows you to specify an image you want to run, such as Ubuntu:14.04.|
 | Command* | Specifies a command to be run on the host or in the container. This value is wrapped by Mesos via `/bin/sh - job.cmd`. Either `cmd` or `args` must be supplied . It is invalid to supply both `cmd` and `args` in the same job.|
@@ -136,8 +137,8 @@ Figure 8 - **Jobs > Container Runtime > Docker Engine** tab
 
 | Name | Description |
 |---------------|-----------------|
-| Add Parameter | Specifies additional Docker runtime **Parameter Names** and **Parameter Values** for the new job, if applicable. You can add multiple **Parameter Names** and corresponding values by clicking **Add Parameter** for each **Parameter Name** and **Parameter Value** you want to include.|
-| Add Arg | Specifies additional command-line arguments for the new job, if applicable. You can add multiple arguments by clicking **Add Arg** for each argument you want to include. |
+| Add Parameter | Specifies additional Docker runtime **Parameter Names** and **Parameter Values** for the new job, if applicable. You can add multiple **Parameter Names** and corresponding values by selecting **Add Parameter** for each **Parameter Name** and **Parameter Value** you want to include.|
+| Add Arg | Specifies additional command-line arguments for the new job, if applicable. You can add multiple arguments by selecting **Add Arg** for each argument you want to include. |
 
 ## Schedule 
 
@@ -150,7 +151,7 @@ Figure 9 - **Jobs > Schedule** tab
 | Name | Description |
 |------|--------------|
 | **Enable Schedule** | Activates or deactivates the scheduler.|
-| **Schedule ID** | Defines a unique identifier for the job schedule. This is a required field. The schedule identifier must be a string with at least 2 characters and it can only contain digits (0-9), dashes (-), and lowercase letters (a-z). The schedule identifier must not begin or end with a dash. |
+| **Schedule ID** | Defines a unique identifier for the job schedule. This is a required field. The schedule identifier must be a string with at least 2 characters and contain numbers (0-9), dashes (-), and lowercase letters (a-z). The schedule identifier must not begin or end with a dash. |
 | **CRON Schedule** | Specifies the schedule in `cron` format. This is a required field. Use [this crontab generator](http://crontab.guru) for help. You can also set a **Time Zone** to apply to the cron schedule. For example, you might have nodes in different time zones and want to run the job using a standardized UTC time or a specific local time zone such as America/New_York.|
 | **Starting Deadline** | Sets the time, in seconds, to start the job if it misses its scheduled time for any reason. Missed job executions are counted as failed jobs.|
 | **Concurrency Policy** | A concurrency policy determines whether a new job run instance is triggered if there's already a job instance running. Set if you want to allow new job instances to run if there's already a job instance running. |
@@ -218,7 +219,7 @@ Figure 13 - **Jobs > Run Configuration** tab
 | Name | Description |
 |-----|-----|
 | **Max Launch Delay** | Specifies the maximum number of seconds to wait for a job to start running after it is launched by a scheduled job run or manually by a user. If the job does not start running within the maximum number of seconds allowed, the job is aborted. |
-| **Kill Grace Period** | Specifies the number of seconds between escalating from `SIGTERM` to `SIGKILL` when signalling tasks to terminate. During this grace period, tasks should perform an orderly shut down immediately upon receiving SIGTERM.|
+| **Kill Grace Period** | Specifies the number of seconds between escalating from `SIGTERM` to `SIGKILL` when signalling tasks to terminate. During this grace period, tasks perform an orderly shut down upon receiving SIGTERM.|
 | **Username** | Identifies the user account that runs the tasks on the agent.|
 | **Artifact URI** | Provides one or more artifact URIs you want passed to fetcher module and resolved at runtime and the action--Execute, Extract, or Cache--you want to perform for each URI.|
 
@@ -231,14 +232,14 @@ Figure 14 - Add an artifact URI and action
 |  **Restart Policy** | Specifies the steps to take if a job fails. |
 |  **Never** | Choose this if you never want to attempt to restart a failed job. |
 | **On Failure** | Set a time limit for attempting to restart the job using the **Keep Trying Time** field. For example, set the **Keep Trying Time** to 30 if you want to try restarting the job after waiting for 30 seconds. If no value is set for Keep Trying Time, DC/OS will continue attempting to restart the failed job indefinitely.|
-| **Labels** | Specifies a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by clicking **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/mesosphere/dcos/2.2/tutorials/task-labels/).|
+| **Labels** | Specifies a **Key** and **Value** that you want to attach as metadata to the new job. You can then use the job label to filter or expose information for labeled jobs. You can add multiple label key name/value pairs by selecting **Add Label** for each name/value pair you want to include. For more information about using labels, see [Labeling tasks and jobs](/mesosphere/dcos/2.2/tutorials/task-labels/).|
 
 ## Secrets
 Select the {{ model.productName }} Secret Store to secure important values like private keys, API tokens, and database passwords. 
 
 To use a Secret in an application, you must make sure the user has the appropriate permissions. See the [Secrets documentation](/mesosphere/dcos/2.2/security/ent/secrets/) for more information. 
 
-Click on **Add Secret** to add a secret.
+Select **Add Secret** to add a secret.
 
 ![Secrets](/mesosphere/dcos/2.2/img/job-artifacts-uri.png)
 
