@@ -22,7 +22,7 @@ In the Kommander UI, do the following:
 1. Select **Global** in the workspace header drop-down.
 2. In the side menu, select **Administration** > **Licensing**.
 3. Select **+ Add License**.
-4. Paste your license content in the textbox and select Add.
+4. Paste your license content in the textbox and select **Add**.
 
 ![Licenses Form](/ksphere/kommander/1.2/img/Licenses-form.png)
 Licenses Form
