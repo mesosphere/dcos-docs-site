@@ -18,7 +18,7 @@ A common task is to specify a list of whitelisted systems to deploy to.
 To achieve this, use the following syntax for the placement constraint:
 
 ```json
-[["hostname", "LIKE", "10.0.0.159|10.0.1.202|10.0.3.3"]]
+"placement_constraints": "hostname:LIKE:192.168.2.193",
 ```
 
 <p class="message--important"><strong>IMPORTANT: </strong> Be sure to include excess capacity in such a scenario so that if one of the whitelisted systems goes down, there is still enough capacity to repair your service.</p>
