@@ -1,6 +1,6 @@
-## D2iQ Documentation and Website Repo
+## D2iQ Docs and Website Repo
 
-## Build Statuses
+## Build Status:
 
 | Branch | Site Build  | URL |
 | ------ | ----------  | --- |
