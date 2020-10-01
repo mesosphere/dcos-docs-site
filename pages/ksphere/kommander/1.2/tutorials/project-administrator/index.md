@@ -11,10 +11,10 @@ excerpt: Configure role-based access control for namespaced Kubernetes resources
 
 This procedure requires the following configurations and background:
 
-- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.2/install/).
-- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/).
-- Familiarity with [Kubernetes role-based access control](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) principles.
-- A configured [group](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) in Kommander for project administrators.
+- A Konvoy cluster with [Kommander installed][kommander-install].
+- An [Identity Provider][kommander-authorize].
+- Familiarity with [Kubernetes role-based access control][k8s-rbac] principles.
+- A configured [group][kommander-group] in Kommander for project administrators.
 
 ## Create role-based access control persona
 
@@ -22,7 +22,7 @@ This procedure describes how a cluster administrator can assign project administ
 
 - _Project admin_: these users can administer projects they have specific access to.
 
-If you have not done so already, create a group to represent this persona. For more details on groups, see the [Identity Providers page](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/) and the [Identity Provider tutorial](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/).
+If you have not done so already, create a group to represent this persona. For more details on groups, see the [Identity Providers page][kommander-id-providers] and the [Identity Provider tutorial][kommander-authorize].
 
 ## Grant access to project admin persona
 
@@ -33,8 +33,8 @@ The _Project Admin_ persona should have admin access to the project. This allows
 In the Kommander UI, do the following:
 
 1. Select a _Workspace_ in the header drop-down.
-2. Select _Projects_ and select or create the project to grant access to.
-3. Select the _Policies_ tab.
+1. Select _Projects_ and select or create the project to grant access to.
+1. Select the _Policies_ tab.
 
 ![Project Policies Table](/ksphere/kommander/1.2/img/tutorial-project-policies.png)
 Project Policies Table
@@ -50,11 +50,21 @@ Project Policies Form
 
 ## Related information
 
-- [Project Policies](https://docs.d2iq.com/ksphere/kommander/1.2/projects/project-policies/)
-- [Granting access to Kubernetes resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/projects/configure-rbac/)
-- [Installing and configuring Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/install/)
-- [Identity Providers in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/)
-- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
-- [Access control in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/operations/access-control/)
-- [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)
+- [Project Policies][kommander-policies]
+- [Granting access to Kubernetes resources in Kommander][kommander-rbac]
+- [Installing and configuring Kommander][kommander-install]
+- [Identity Providers in Kommander][kommander-id-providers]
+- [Configuring a GitHub Identity Provider in Kommander][kommander-authorize]
+- [Granting access to Kubernetes resources in the CLI][konvoy-rbac]
+- [Access control in Kommander][kommander-access-control]
+- [Kubernetes RBAC authorization][k8s-rbac]
+
+[kommander-access-control]: ../../operations/access-control/
+[kommander-authorize]: ../authorize-all-users/
+[kommander-group]: ../../operations/identity-providers/#groups
+[kommander-id-providers]: ../../operations/identity-providers/
+[kommander-install]: ../../install/
+[kommander-policies]: ../../projects/project-policies/
+[kommander-rbac]: ../../tutorials/configure-rbac/
+[konvoy-rbac]: /ksphere/konvoy/latest/security/external-idps/rbac/
+[k8s-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
