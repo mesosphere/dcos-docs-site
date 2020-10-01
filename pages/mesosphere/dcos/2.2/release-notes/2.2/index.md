@@ -24,10 +24,10 @@ This release provides new features and enhancements to improve the user experien
 # New features and capabilities 
 
 ## External storage with CSI volumes
-DC/OS's Universal Container Runtime (UCR) now supports external volumes provided via the Container Storage Interface (CSI). Storage providers which integrate with the CSI specification provide plugins which DC/OS users may install into their cluster. These plugins allow volumes backed by that provider to be attached to task containers. This initial release of CSI support in DC/OS 2.2 has some caveats; see the [CSI documentation](/mesosphere/dcos/2.2/storage/external-storage/csi/) for more information.
+DC/OS's Universal Container Runtime (UCR) now supports external volumes provided via the Container Storage Interface (CSI). Storage providers which integrate with the CSI specification provide plugins which DC/OS users may install into their cluster. These plugins allow volumes backed by that provider to be attached to task containers. This initial release of CSI support in DC/OS 2.2 has some caveats. For more information, see the [CSI](/mesosphere/dcos/2.2/storage/external-storage/csi/).
 
 # Jobs with dependencies
-Metronome based jobs can have one more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG based workflows in DC/OS. See the [documentation](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies) for more information.
+Metronome based jobs can have one more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG based workflows in DC/OS. For more information, see [dependencies](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies).
 
 # Custom CA certificate rotation
 DC/OS now allows an operator to rotate the custom CA certificates by simply updating configuration settings during an upgrade. This feature ensures all the services that are using the custom CA based certificates are automatically updated after an upgrade.
