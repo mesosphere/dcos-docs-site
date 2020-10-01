@@ -9,9 +9,9 @@ menuWeight: 6
 
 ## Purchase a License
 
-You can evaluate Kommander running two clusters for free. Kommander cluster plus one additional cluster. If you want to add more clusters you need a valid license.
+You can evaluate Kommander running two clusters for free. Kommander cluster plus one additional cluster. If you want to add more clusters, you need a valid license.
 
-To obtain a valid Kommander license, contact your sales representative at <sales@d2iq.com>. After purchase, download the license file from the [support website](https://support.d2iq.com/s/downloads) using your [login credentials](https://support.d2iq.com/s/login/) to a place accessible by Kommander.
+To obtain a valid Kommander license, contact your sales representative at <sales@d2iq.com>. After purchase, download the license file from the [support website][support-downloads] using your [login credentials][support-creds] to a place accessible by Kommander.
 
 ## Enter a Valid License Key
 
@@ -19,10 +19,10 @@ After you have downloaded the license, an administrator must add it to Kommander
 
 In the Kommander UI, do the following:
 
-1. Select **Global** in the header drop-down.
-2. Select **Administration** > **Licensing**.
+1. Select **Global** in the workspace header drop-down.
+2. Along the left rail, select **Administration** > **Licensing**.
 3. Select **+ Add License**.
-4. Paste your license content in and select Add.
+4. Paste your license content in the textbox and select Add.
 
 ![Licenses Form](/ksphere/kommander/1.2/img/Licenses-form.png)
 Licenses Form
@@ -103,3 +103,6 @@ license.kommander.mesosphere.io "license-sample" deleted
 ```
 
 You have now successfuly deleted a license.
+
+[support-downloads]: https://support.d2iq.com/s/downloads
+[support-creds]: https://support.d2iq.com/s/login/
