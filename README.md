@@ -1,4 +1,4 @@
-## D2iQ Documentation and Website Repo
+## D2iQ Documentation and Website Repositories
 
 ## Build Statuses
 
