@@ -1,6 +1,6 @@
 ## D2iQ Documentation and Website Repositories
 
-## Build Statuses
+## Build Statuse
 
 | Branch | Site Build  | URL |
 | ------ | ----------  | --- |
