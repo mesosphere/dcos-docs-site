@@ -7,6 +7,7 @@ action:
   name: replace
 swap:
   "approximate(?:ly)?": about
+  an abundance: plenty
   accelerate: speed up
   accentuate: stress
   accompany: go with
@@ -17,12 +18,14 @@ swap:
   accurate: right|exact
   acquiesce: agree
   acquire: get|buy
+  additional: more|extra
   addressees: you
   adjacent to: next to
   adjustment: change
   admissible: allowed
   advantageous: helpful
   advise: tell
+  in aggregate: in total
   aircraft: plane
   alleviate: ease
   allocate: assign|divide
@@ -85,6 +88,7 @@ swap:
   permit: let
   portion: part
   possess: own
+  previous: earlier
   previously: before
   prioritize: rank
   procure: buy
