@@ -237,7 +237,7 @@ To uninstall Konvoy and destroy all the artifacts created in Azure by the deploy
 
 ## Cluster administration directory
 
-As mentioned in the [Preparing the Cluster Configurations][preparing_cluster_configs] section, the directory where you ran `konvoy up` is the directory you use to run additional `konvoy` CLI commands. The `konvoy` CLI administers the cluster (upgrade, deprovision, scale, change configs, install Addons, etc.).  This directory is important because it now has the following generated files:
+As mentioned in the [Prepare the Cluster Configurations][prepare_cluster_configs] section, the directory where you ran `konvoy up` is the directory you use to run additional `konvoy` CLI commands. The `konvoy` CLI administers the cluster (upgrade, deprovision, scale, change configs, install Addons, etc.).  This directory is important because it now has the following generated files:
 
 * `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster configuration][cluster_configuration].
 * `admin.conf` - the [kubeconfig file][kubeconfig], that has credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
@@ -257,5 +257,5 @@ As mentioned in the [Preparing the Cluster Configurations][preparing_cluster_con
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [kubectl]: ../../operations/accessing-the-cluster#using-kubectl
 [ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
-[preparing_cluster_configs]: #preparing-the-cluster-configurations
+[prepare_cluster_configs]: #prepare-the-cluster-configurations
 [state]: https://www.terraform.io/docs/state/
