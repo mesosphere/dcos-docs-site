@@ -89,7 +89,7 @@ The following instructions would work for both helm v2 and v3. If using helm v2,
       useSecurity: false
       installPlugins:
         - prometheus:2.0.6
-        - kubernetes:1.18.2
+        - kubernetes:1.27.1.1
         - workflow-job:2.39
         - workflow-aggregator:2.6
         - credentials-binding:1.23
@@ -179,15 +179,34 @@ To begin installing Jenkins on Konvoy, you must download the `$JENKINS_HOME/jobs
 
     This command may take awhile. When it is finished, you should have the `jenkins_home/jobs` folder locally.
 
+## Migrate the MesosCloud configuration to KubernetesCloud Configuration
+
+Optionally, you can migrate the MesosCloud configuration (if any) in your DC/OS Jenkins installation to your Jenkins on Konvoy installation. Currently this supports `Mesos` plugin version `2.0` only.
+
+1. Fetch the `config.xml` file from the `$JENKINS_HOME` directory. Download the script from [TODO: https://github.com/mesosphere/jenkins-konvoy-mwt/blob/tga/add-migration-script/migration/migrator.py](https://github.com/mesosphere/jenkins-konvoy-mwt/blob/tga/add-migration-script/migration/migrator.py) and run the migration command:
+
+    ```bash
+    python migrator.py
+    ```
+    The script looks for a file named `config.xml` in the same directory as the script. Update the path as needed if the file is located in a different location.
+   
+1. Above command should have printed the `KubernetesCloud` configuration with sensible defaults that allows the jobs with labels from `MesosCloud` agents to be scheduled in `KubernetesCloud`. Copy this content in to your `config.xml` in place of the `MesosCloud` configuration.
+
+
 ## Write the directory to new instance of Jenkins
 
-In this step, you will copy the `$JENKINS_HOME/jobs` folder into the running Jenkins pod.
+In this step, you will copy the `$JENKINS_HOME/jobs` folder (as well as `$JENKINS_HOME/config.xml` if you want to migrate the `MesosCloud` config) into the running Jenkins pod.
 
 1. Get the pod ID of the running jenkins instance:
 
     ```bash
     kubectl get pods --namespace jenkinsnamespace
     ```
+1. Copy the updated `config.xml` to migrate `MesosCloud` to `KubernetesCloud` (if applicable). Change the namespace, pod name and entry command as needed.
+    ```bash
+    kubectl cp ./jenkins_home/config.xml <POD_ID>:/var/jenkins_home --container jenkins --namespace jenkinsnamespace
+    ```
+    It is *highly* recommended that you hit **Reload Configuration from Disk** from **Manage Jenkins** page to make sure the cloud configuration is as expected. Adjust values such as `namespaces`, resource limits, `name` of pods etc., as desired.
 1. Change the namespace, pod name and entry command as needed.
     ```bash
     kubectl cp ./jenkins_home/jobs/ <POD_ID>:/var/jenkins_home --container jenkins --namespace jenkinsnamespace
