@@ -67,6 +67,7 @@ excerpt: API documentation (v1beta1)
 * [NodePool](#nodepool)
 * [NodeTaint](#nodetaint)
 * [OSPackages](#ospackages)
+* [OperatingSystem](#operatingsystem)
 * [PreflightChecks](#preflightchecks)
 
 ## AutoscalingOptions
@@ -635,7 +636,7 @@ Kubelet describes the settings for the Kubelet.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | cgroupRoot | Specifies the`--cgroup-root` flag for the Kubelet. | string | false |
-| kubeReserved | Specifies the `--kube-reserved=cpu=1,memory=1Gi` flag for the Kubelet . | string | false |
+| kubeReserved | Specifies the `--kube-reserved` flag for the Kubelel, on all of the nodes in the cluster. | string | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -645,7 +646,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.17.11`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.18.9`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |
@@ -692,6 +693,7 @@ NodePool is an object that contains details of a node pool such as its name, tai
 | labels | User defined labels to set on all nodes in the node pool. | [][NodeLabel](#nodelabel) | false |
 | taints | User defined taints to set on all nodes in the node pool. | [][NodeTaint](#nodetaint) | false |
 | gpu | Configuration for any GPU enabled nodes in the node pool. | [GPU](#gpu) | false |
+| operatingSystem | Operating System specific configuration | [OperatingSystem](#operatingsystem) | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -719,6 +721,16 @@ OSPackages configures the installation of linux package and related properties.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | enableAdditionalRepositories | Enable the installation of D2iQ, Kubernetes and Docker OS repositories. (default: `true`) | bool | false |
+
+[Back to TOC](#table-of-contents)
+
+## OperatingSystem
+
+OperatingSystem defines user overrides for OS specific configuration
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| assumeDistribution | Override the automatically determined OS distribution. Valid values are `CentOS`, `RedHat`, `Ubuntu`, `Debian`. | string | false |
 
 [Back to TOC](#table-of-contents)
 

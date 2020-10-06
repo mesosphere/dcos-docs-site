@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD018 -->
 
-The Kubenetes Container Storage Interface (CSI) provides a consistent mechanism for accessing block and file storage devices in containerized workloads. CSI provides for the support of `StorageClasses`, `PersistentVolumeClaims`, and `PersistentVolumes` objects. Developers create new drivers accessing the storage devices using these objects. Using these objects to provision persistent storage, a Kubernetes service developer, does not need to know the inner workings of the devices. Refer to the [CSI Introduction](../intro-csi), for more information on creating `StorageClasses`, `PersistenvolumeClaims` and provisioning storage with `PersistenVolumes`.
+The Kubenetes Container Storage Interface (CSI) provides a consistent mechanism for accessing block and file storage devices in containerized workloads. CSI provides for the support of `StorageClasses`, `PersistentVolumeClaims`, and `PersistentVolumes` objects. Developers create new drivers accessing the storage devices using these objects. Using these objects to provision persistent storage, a Kubernetes service developer, does not need to know the inner workings of the devices. Refer to the [CSI Introduction](../intro-csi), for more information on creating `StorageClasses`, `PersistentVolumeClaims` and provisioning storage with `PersistentVolumes`.
 
 ## Additional CSI Third Party Storage Providers
 

@@ -76,6 +76,12 @@ menuWeight: 5
     Member 1d021ffdd096a804 removed from cluster a6ea9ad1b116d02f
     ```
 
+1.  Delete the failed Node from the Kubernetes API.
+
+    ```shell
+    kubectl delete node konvoy-example-cluster-control-plane-1
+    ```
+
 1.  Create a new control plane node to replace the failed node.
 
     ```shell
