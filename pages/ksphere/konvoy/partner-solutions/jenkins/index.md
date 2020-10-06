@@ -142,6 +142,24 @@ The following instructions would work for both helm v2 and v3. If using helm v2,
         jenkins
     ```
 
+# Setup KuberenetesCloud - Jenkins plugin to run dynamic agents in a Kubernetes
+
+You can follow the this [setup guide](https://plugins.jenkins.io/kubernetes/) for installing a KubernetesCloud in your Jenkins installation. This section walks you through setting up a hello world job that can be scheduled on KubernetesCloud.
+
+1. Setup the Kubernetes Cloud plugin. Following the earlier instructions in this guide, you should have already installed the `1.27.1.1` version of the kubernetes plugin. Upgrade this plugin if desired.
+
+1. Go to **Manage Jenkins** > **Manage Nodes and clouds** > **Configure Clouds** > **Add a new cloud** and add a kubernetes cloud
+
+1. At the very least, following options need to be provided to set up the cloud (Refer [the setup guide](https://github.com/jenkinsci/kubernetes-plugin#generic-setup) for advanced configuration):
+
+   * Jenkins URL : `http://<service-name>.<namespace>:<service-port>/<service-prefix>`. With the default options this is `http://jenkins.jenkins:8080/jenkins`. 
+   * Jenkins Tunnel : `<service-name>.<namespace>:<service-port>`. With the default options this is `jenkins-agent.jenkins:50000`
+
+1. Click on **Pod Templates** > **Add Pod Templates** > **Pod Template Details** and provide details such as name, namespace, label, including containers. By default, jenkins will inject jnlp container (See the setup guide to see how to override this). For the purposes of this guide assume that the Pod has been created with Labels as `default`.
+
+1. If you try to create a job (or edit an existing job), you should be able to see the label `default` pop up in the **Restrict where this project can be run** > **Label expression** field. Enrich the pod template with containers, network configuration and other resource limits as needed.
+
+
 # Migrate Jenkins
 
 This section explains how to migrate your workloads from Jenkins on DC/OS to Jenkins on Konvoy.
