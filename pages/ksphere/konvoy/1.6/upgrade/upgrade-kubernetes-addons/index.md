@@ -27,11 +27,12 @@ A Kubernetes version upgrade using Konvoy CLI consists of a few distinct steps.
 ## Supported Kubernetes version upgrades
 
 Upgrading Kubernetes is supported when upgrading to a newer release in the current or next minor version.
+Upgrading to a newer minor release of Kubernetes, requires a new Konvoy minor release.
 Upgrades that skip one or more minor versions are not supported.
 Downgrades are not supported.
 
-For example, Konvoy supports upgrading Kubernetes 1.16.0 directly to 1.16.1, 1.16.5, or 1.17.3.
-Upgrading a 1.16 release directly to a 1.18 release is unsupported, but 1.16 may be upgraded to 1.17 and again to 1.18.
+For example, Konvoy supports upgrading Kubernetes v1.17.x directly to a newer v1.17.x (Konvoy v1.5.x) or v1.18.x (Konovy v1.6.x).
+Upgrading a v1.16 release directly to a v1.18 release is unsupported, but v1.16 may be upgraded to v1.17 and again to v1.18.
 
 This support policy applies to every node in the cluster.
 When upgrading a cluster running a mix of Kubernetes versions, each node upgrade must be supported for the cluster upgrade to be supported.
@@ -57,17 +58,17 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.16.10
+    version: 1.17.12
 ```
 
-If you want to upgrade to a newer patch version of `1.17.x`, change the version string like the following:
+If you want to upgrade to a newer minor version of `1.18.x`, change the version string like the following:
 
 ```yaml
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.17.11
+    version: 1.18.9
 ```
 
 ## Prepare for addons upgrade

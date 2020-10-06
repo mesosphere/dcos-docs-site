@@ -40,4 +40,4 @@ Please refer to this [guide][opsportal] for how to use the operational portal.
 
 [troubleshooting_tools]: ../../troubleshooting/tools-and-techniques/
 [troubleshooting]: ../../troubleshooting/
-[opsportal]: ../../operations/accessing-the-cluster/
+[opsportal]: ../../access-authentication/access-konvoy/

@@ -12,273 +12,277 @@ enterprise: false
 
 This section describes different networking components that come together to form a Konvoy networking stack. It assumes familiarity with Kubernetes networking.
 
-# IPtables
+## Service
 
-Konvoy can be configured to automatically add `iptables` with the rules outlined below.
+A [Service][service] is an API resource which defines a logical set of pods and a policy by which to access them. Services are an abstracted manner to expose applications as network services.
 
-Control Plane nodes:
+Kubernetes gives pods their own IP addresses and a single DNS name for a set of pods. Services are used as entrypoints to load-balance the traffic across the pods.
+A selector determines the set of Pods targeted by a Service.
+
+For example, if you have a set of pods that each listen on TCP port `9191` and carry a label `app=MyKonvoyApp`, as configured in the following:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-konvoy-service
+  namespace: default
+spec:
+  selector:
+    app: MyKonvoyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9191
+```
+
+This specification creates a new `Service` object named `"my-konvoy-service"`, that targets TCP port `9191` on any pod with the `app=MyKonvoyApp` label.
+
+Kubernetes assigns this Service an IP address. In particular, the `kube-proxy` implements a form of virtual IP for Services of type other than `ExternalName`.
+
+<p class="message--note"><strong>NOTE: </strong>
+The name of a Service object must be a valid DNS label name.
+</p>
+
+## Service Topology
+
+[Service Topology][servicetopology] is a mechanism in Kubernetes to route traffic based upon the Node topology of the cluster.
+As an example, you can configure a Service can be configured to route the traffic to endpoints on specific nodes, or even based on the region or availability zone of the nodes location.
+
+To enable this new feature in your Kubernetes use the feature gates `--feature-gates="ServiceTopology=true,EndpointSlice=true"` flag.
+After the feature is enabled, you can control Service traffic routing by defining the `topologyKeys` field
+in the Service API object.
+
+In the following example, a Service defines `topologyKeys` to be routed to endpoints only in the same
+zone:
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-konvoy-service
+  namespace: default
+spec:
+  selector:
+    app: MyKonvoyApp
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9191
+  topologyKeys:
+    - "topology.kubernetes.io/zone"
+```
+
+<p class="message--note"><strong>NOTE: </strong>
+If the value of the `topologyKeys` field does not match any pattern, the traffic is rejected.
+</p>
+
+## EndpointSlices
+
+[EndpointSlices][endpointslices] are an API resource that appeared as a scalable and more manageable solution to network endpoints within a Kubernetes cluster.
+EndpointSlices allow for distributing network endpoints across multiple resources with a limit of 100 endpoints per EndpointSlice.
+
+An EndpointSlice contains references to a set of endpoints. The control plane takes care of creating EndpointSlices for any Service that has a selector specified. These EndpointSlices include references to all the pods that match the Service selector.
+
+Like Services, the name of a EndpointSlice object must be a valid DNS subdomain name.
+
+In the following, here's a sample EndpointSlice resource for the example Kubernetes Service:
+
+```yaml
+apiVersion: discovery.k8s.io/v1beta1
+kind: EndpointSlice
+metadata:
+  name: konvoy-endpoint-slice
+  namespace: default
+  labels:
+    kubernetes.io/service-name: my-konvoy-service
+addressType: IPv4
+ports:
+  - name: http
+    protocol: TCP
+    port: 80
+endpoints:
+  - addresses:
+      - "192.168.126.168"
+    conditions:
+      ready: true
+    hostname: ip-10-0-135-39.us-west-2.compute.internal
+    topology:
+      kubernetes.io/hostname: ip-10-0-135-39.us-west-2.compute.internal
+      topology.kubernetes.io/zone: us-west2-b
+```
+
+## DNS for Services and Pods
+
+Every new Service object in Kubernetes gets assigned a DNS name. The Kubernetes DNS component schedules a DNS name for the pods and services created on the cluster. Then the Kubelets are configured so containers can resolve these DNS names.
+
+From our previous examples, assume there is a Service named `my-konvoy-service` in the Kubernetes namespace `default`. A Pod running in namespace `default` can look up this service by simply doing a DNS query for `my-konvoy-service`. A Pod running in namespace `kommander` can look up this service by doing a DNS query for `my-konvoy-service.default`.
+
+In general, a pod has the following DNS resolution:
 
 ```text
-iptables -A INPUT -p tcp -m tcp --dport 6443 -m comment --comment "Konvoy: kube-apiserver --secure-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10250 -m comment --comment "Konvoy: kubelet --port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10248 -m comment --comment "Konvoy: kubelet --healthz-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10249 -m comment --comment "Konvoy: kube-proxy --metrics-bind-address" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10256 -m comment --comment "Konvoy: kube-proxy --healthz-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10257 -m comment --comment "Konvoy: kube-controller-manager --secure-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10259 -m comment --comment "Konvoy: kube-scheduler --secure-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 2379 -m comment --comment "Konvoy: etcd client" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 2380 -m comment --comment "Konvoy: etcd peer" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 9091 -m comment --comment "Konvoy: calico-node felix (used for metrics)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 9092 -m comment --comment "Konvoy: calico-node bird (used for metrics)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 9099 -m comment --comment "Konvoy: calico-node felix (used for liveness)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 179 -m comment --comment "Konvoy: calico-node BGP" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 30000:32767 -m comment --comment "Konvoy: NodePorts" -j ACCEPT
-iptables -A INPUT -p icmp -m comment --comment "Konvoy: ICMP" -m icmp --icmp-type 8 -j ACCEPT
+pod-ip-address.namespace-name.pod-name.cluster-domain.example.
 ```
 
-Worker nodes:
+Similarly, a service has the following DNS resolution:
 
 ```text
-iptables -A INPUT -p tcp -m tcp --dport 10250 -m comment --comment "Konvoy: kubelet --port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10248 -m comment --comment "Konvoy: kubelet --healthz-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10249 -m comment --comment "Konvoy: kube-proxy --metrics-bind-address" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 10256 -m comment --comment "Konvoy: kube-proxy --healthz-port" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 9091 -m comment --comment "Konvoy: calico-node felix (used for metrics)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 9092 -m comment --comment "Konvoy: calico-node bird (used for metrics)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 9099 -m comment --comment "Konvoy: calico-node felix (used for liveness)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 5473 -m comment --comment "Konvoy: calico-typha (used for syncserver)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 9093 -m comment --comment "Konvoy: calico-typha (used for metrics)" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 179 -m comment --comment "Konvoy: calico-node BGP" -j ACCEPT
-iptables -A INPUT -p tcp -m tcp --dport 30000:32767 -m comment --comment "Konvoy: NodePorts" -j ACCEPT
-iptables -A INPUT -p icmp -m comment --comment "Konvoy: ICMP" -m icmp --icmp-type 8 -j ACCEPT
+service-name.namespace-name.svc.cluster-domain.example.
 ```
 
-The default value is `false`, however, you can enable this behavior by setting the value of `spec.kubernetes.iptables.addDefaultRules` to `true`.
+You can find additional information about all the possible record types and layout [here][dnsforservice].
+
+## Ingress
+
+[Ingress][ingress] is an API resource that manages external access to the services in a cluster through HTTP or HTTPS. It offers name-based virtual hosting, SSL termination and load balancing when exposing
+HTTP/HTTPS routes from outside to services in the cluster.
+
+The traffic policies are controlled by rules as part of the Ingress definition. Each rule defines the following details:
+
+- An optional host to which apply the rules.
+
+- A list of paths or routes which has an associated backend defined with a Service `name`, a port `name` and `number`.
+
+- A backend is a combo of a Service and port names, or a custom resource backend defined as a CRD. Consequently HTTP/HTTPS requests to the Ingress that matches the host and path of the rule are sent to the listed backend.
+
+An example of an Ingress specification is:
 
 ```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: konvoy-ingress
+  namespace: default
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  kubernetes:
-    networking:
-      iptables:
-        addDefaultRules: true
+  rules:
+  - http:
+      paths:
+      - path: /path
+        pathType: Prefix
+        backend:
+          service:
+            name: my-konvoy-service
+            port:
+              number: 80
 ```
 
-# Highly Available Control Plane
+In Konvoy, we expose services to the outside world using Ingress objects.
 
-Konvoy ships with a highly available control plane, in case of multi-master Kubernetes deployment.
+## Ingress Controllers
 
-## AWS
+In contrast with other controllers in the Kubernetes control plane, the Ingress controllers
+are not started with a cluster. Users need to choose the desired Ingress controller.
 
-High availability is provided through the cloud provider's load balancer.
+An Ingress controller has to be deployed in a cluster for the Ingress definitions to work.
 
-## On-premises
+Kubernetes as a project currently supports and maintains GCE and nginx controllers.
 
-In on-premises deployments, Konvoy ships with [Keepalived][keepalived].
-Keepalived provides two main functionalities - high availability and load balancing.
-It uses the [VRRP][vrrp] (Virtual Router Redundancy Protocol) to provide high availability.
-VRRP allows you assign a virtual IP (VIP) to participating machines, where it is active only on one of the machines.
+These are four of the most known [ingress controller][listingresscontrollers]:
 
-VRRP provides high availability by ensuring that virtual IP is active as long as at least one of the participating machines is active.
-Konvoy uses Keepalived to maintain high availability of the control plane.
+- [HAProxy Ingress][haproxyingress] is a highly customizable community-driven ingress controller for HAProxy.
 
-To use `Keepalived`:
+- NGINX offers support and maintenance for the [NGINX Ingress Controller][nginxingress] for Kubernetes.
 
-1. Identify and reserve a virtual IP (VIP) address from the networking infrastructure.
+- [Traefik][traefik] is a fully featured ingress controller (Let's Encrypt, secrets, http2, websocket), and has commercial support.
 
-1. Configure the networking infrastructure so that the reserved virtual IP address is reachable:
+- [Ambassador API Gateway](https://www.getambassador.io/) is an Envoy based ingress controller with community and commercial support.
 
--   from all hosts specified in the inventory file.
--   from the computer that is used to deploy Kubernetes.
+In Konvoy, we deploy by default `Traefik` as a well-suited Ingress controller.
 
-If the reserved virtual IP address is in the same subnet as the rest of the cluster nodes then nothing more needs to be configured.
-However, if it is in a different subnet you may need to configure appropriate routes to ensure connectivity with the virtual IP address.
-Further, the virtual IP address may share an interface with the primary IP address of the interface.
-In such cases, you must be able to disable any IP or MAC spoofing from the infrastructure firewall.
+## Network Policies
 
-The following example illustrates the configuration if the reserved virtual IP address is `10.0.50.20`:
+NetworkPolicy is an API resource that controls the traffic flow at port level 3 or 4, or at the IP address level. It enables defining constraints on how a pod communicates with various network services such as `endpoints` and `services`.
+
+A Pod can be restricted to talk to other network services through a selection of
+the following identifiers:
+
+- Namespaces that have to access. There can be pods that are not allowed to talk to other namespaces.
+
+- Other allowed IP blocks regardless of the node or IP address assigned to the targeted Pod.
+
+- Other allowed Pods.
+
+An example of a NetworkPolicy specification is:
 
 ```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: network-konvoy-policy
+  namespace: default
 spec:
-  kubernetes:
-    controlPlane:
-      controlPlaneEndpointOverride: "10.0.50.20:6443"
-      keepalived:
-        interface: ens20f0 # optional
-        vrid: 51           # optional
+  podSelector:
+    matchLabels:
+      role: db
+  policyTypes:
+  - Ingress
+  - Egress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 172.17.0.0/16
+        except:
+        - 172.17.1.0/24
+    - namespaceSelector:
+        matchLabels:
+          app: MyKonvoyApp
+    - podSelector:
+        matchLabels:
+          app: MyKonvoyApp
+    ports:
+    - protocol: TCP
+      port: 6379
+  egress:
+  - to:
+    - ipBlock:
+        cidr: 10.0.0.0/24
+    ports:
+    - protocol: TCP
+      port: 5978
 ```
 
-The IP address specified in `spec.kubernetes.controlPlane.controlPlaneEndpointOverride` is used for the Keepalived VIP.
-This value is optional if it is already specified in `inventory.yaml` as part of `all.vars.control_plane_endpoint`.
-You can set `spec.kubernetes.controlPlane.keepalived.interface` to specify the network interface for the Keepalived VIP.
-This field is optional; if not set, Konvoy automatically detects the network interface to use based on the route to the VIP.
+As shown in the example, when defining a pod or namespace based NetworkPolicy, you use a selector to specify what traffic is allowed to and from the Pod(s).
 
-Further, you could set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][keepalived_conf] used by Keepalived.
-This field is optional; if not set, Konvoy will randomly pick a Virtual Router ID for you.
+## Adding entries to Pod /etc/hosts with HostAliases
 
-Keepalived is enabled by default for on-premises deployment. You can disable it by removing `spec.kubernetes.controlPlane.keepalived` from the `cluster.yaml`.
-This is usually done where there is an on-premises load balancer which could be used to maintain high availability of the control plane.
+The Pod API resource definition has a `HostAliases` field that allows adding entries to the Pod's container `/etc/hosts` file. This field overrides the hostname resolution when DNS and other options are not applicable.
 
-If you are not setting any of the optional values, set `spec.kubernetes.controlPlane.keepalived: {}` to enable the default values.
-
-# Service Discovery
-
-Konvoy ships with [CoreDNS][coredns] to provide a DNS based service discovery.
-The default CoreDNS configuration is as shown below:
+For example, to resolve `foo.node.local`, `bar.node.local` to `127.0.0.1` and `foo.node.remote`, `bar.node.remote` to `10.1.2.3`, configure the `HostAliases` values as follows:
 
 ```yaml
-.:53 {
-    errors
-    health
-    kubernetes cluster.local in-addr.arpa ip6.arpa {
-       pods insecure
-       upstream
-       fallthrough in-addr.arpa ip6.arpa
-    }
-    prometheus :9153
-    forward . /etc/resolv.conf
-    loop
-    reload
-    loadbalance
-}
-```
-
-As shown in the above configuration, by default, CoreDNS is shipped with `error`, `health`, `prometheus`, `forward`, `loop`, `reload`, `loadbalance` plugins enabled.
-A detailed explanations for these plugins can be found [here][coredns_plugins].
-
-You can modify the CoreDNS configuration by updating the `configmap` named `coredns` in `kube-system` namespace.
-
-# Load Balancing
-
-Load Balancing can be addressed in two ways:
-
-* Load balancing for the traffic within a Kubernetes cluster
-* Load balancing for the traffic coming from outside the cluster
-
-## Load balancing for internal traffic
-
-Load balancing within a Kubernetes cluster is exposed through a service of type `ClusterIP`.
-`ClusterIP` is similar to a virtual IP (VIP) which presents a single IP address to the client and load balances the traffic to the backend servers.
-The actual load balancing happens via `iptables` rules or IPVS configuration, which are programmed by a Kubernetes component called `kube-proxy`.
-By default, `kube-proxy` runs in `iptables` mode.
-It configures `iptables` to intercept any traffic destined towards `ClusterIP` and send traffic to the real servers based on the probabilistic `iptables` rules.
-`Kube-proxy` configuration can be altered by updating the `configmap` named `kube-proxy` in the `kube-system` namespace.
-
-## Load balancing for external traffic
-
-A Kubernetes service of type `LoadBalancer` requires a load balancer to connect an external client to your internal service.
-
-## AWS
-
-In cloud deployments, the load balancer is provided by the cloud provider.
-
-## On-premises
-
-For an on-premises deployment, Konvoy ships with [MetalLB][metallb].
-
-To use MetalLB for addon load balancing:
-
-1. Identify and reserve a virtual IP (VIP) address range from the networking infrastructure.
-
-1. Configure the networking infrastructure so that the reserved IP addresses is reachable:
-
-- from all hosts specified in the inventory file.
-- from the computer that is used to deploy Kubernetes.
-
-If the reserved virtual IP addresses are in the same subnet as the rest of the cluster nodes, then nothing more needs to be configured.
-However, if it is in a different subnet then you may need to configure appropriate routes to ensure connectivity with the virtual IP address.
-Further, the virtual IP addresses may share an interface with the primary IP address of the interface.
-In such cases, you must disable any IP or MAC spoofing from the infrastructure firewall.
-
-MetalLB can be configured in two modes - Layer2 and BGP.
-
-The following example illustrates the Layer2 configuration in the `cluster.yaml` configuration file:
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
+apiVersion: v1
+kind: Pod
+metadata:
+  name: hostaliases-konvoy-pod
 spec:
-  addons:
-    addonsList:
-    - name: metallb
-      enabled: true
-      values: |-
-        configInline:
-          address-pools:
-          - name: default
-            protocol: layer2
-            addresses:
-            - 10.0.50.25-10.0.50.50
+  restartPolicy: Never
+  hostAliases:
+  - ip: "127.0.0.1"
+    hostnames:
+    - "foo.node.local"
+    - "bar.node.local"
+  - ip: "10.1.2.3"
+    hostnames:
+    - "foo.node.remote"
+    - "bar.node.remote"
+  containers:
+  - name: cat-hosts
+    image: busybox
+    command:
+    - cat
+    args:
+    - "/etc/hosts"
 ```
 
-The number of virtual IP addresses in the reserved range determines the maximum number of services with a type of `LoadBalancer` that you can create in the cluster.
-
-MetalLB in `bgp` mode implements only a minimal functionality of BGP. It only advertises the virtual IP to peer BGP agent.
-
-The following example illustrates the BGP configuration in the `cluster.yaml` configuration file:
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
-spec:
-  addons:
-    addonsList:
-    - name: metallb
-      enabled: true
-      values: |-
-        configInline:
-          peers:
-          - my-asn: 64500
-            peer-asn: 64500
-            peer-address: 172.17.0.4
-          address-pools:
-          - name: my-ip-space
-            protocol: bgp
-            addresses:
-            - 172.40.100.0/24
-```
-
-In the above configuration, `peers` defines the configuration of the BGP peer such as peer ip address and `autonomous system number` (`asn`).
-The `address-pools` section is similar to `layer2`, except for the protocol.
-
-Further, MetalLB supports advanced BGP configuration which can be found [here][metallb_config].
-
-***NOTE:*** Making a configuration change in `cluster.yaml` for the `metallb` addon running `konvoy deploy addons` may not result in the config change applying. This is intentional behavior. MetalLB will refuse to adopt changes to the ConfigMap that will break existing Services[&#185;]. You may force MetalLB to load those changes by deleting the metallb controller pod:
-
-```bash
-kubectl -n kubeaddons delete pod -l app=metallb,component=controller
-```
-
-Make sure the MetalLB subnet does not overlap with `podSubnet` and `serviceSubnet`.
-
-# Ingress
-
-Konvoy ships with [Traefik][traefik] as the default ingress controller.
-The default Traefik helm chart can be viewed [here][traefik_chart].
-Traefik creates a service of type Load Balancer.
-In the cloud, the cloud provider creates the appropriate load balancer.
-In on-premises deployment, by default, it uses MetalLB. MetalLB can be configured as discussed earlier.
-
-Further, Traefik supports a lot of functionalities such as Name-based routing, Path-based routing, Traffic splitting etc.
-Details of these functionalities can be viewed [here][traefik_fn].
-
-[keepalived]: https://www.keepalived.org/doc/introduction.html
-[vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
-[keepalived_conf]: https://www.keepalived.org/doc/configuration_synopsis.html
-[calico]: https://docs.projectcalico.org/introduction/
-[calico_yaml]: https://docs.projectcalico.org/v3.13/manifests/calico.yaml
-[calico_policy]: https://docs.projectcalico.org/security/kubernetes-network-policy
-[calico_security]: https://docs.projectcalico.org/security/
-[calico_bgp]: https://docs.projectcalico.org/networking/bgp
-[calicoctl]: https://docs.projectcalico.org/getting-started/clis/calicoctl/install
-[coredns]: https://coredns.io/
-[coredns_plugins]: https://coredns.io/plugins
-[metallb]: https://metallb.universe.tf/concepts/
-[metallb_config]: https://metallb.universe.tf/configuration/
-[traefik]: https://docs.traefik.io/
-[traefik_chart]: https://github.com/helm/charts/tree/master/stable/traefik
-[traefik_fn]: https://docs.traefik.io/v1.7/user-guide/kubernetes/
-[&#185;]: https://github.com/danderson/metallb/issues/348#issuecomment-442218138
+[service]: https://kubernetes.io/docs/concepts/services-networking/service/#service-resource
+[endpointslices]: https://kubernetes.io/docs/concepts/services-networking/endpoint-slices/#endpointslice-resource
+[servicetopology]: https://kubernetes.io/docs/concepts/services-networking/service-topology/#using-service-topology
+[ingress]: https://kubernetes.io/docs/concepts/services-networking/ingress/#what-is-ingress
+[dnsforservice]: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
+[listingresscontrollers]: https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/#additional-controllers
+[haproxyingress]: https://haproxy-ingress.github.io/
+[nginxingress]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
+[ambassadoringress]: https://www.getambassador.io/
+[traefik]: https://github.com/containous/traefik

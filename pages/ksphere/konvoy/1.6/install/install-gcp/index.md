@@ -384,7 +384,7 @@ When the `konvoy up --provisioner gcp` completes its setup operations, the follo
 [kommander_clusters]: https://docs.d2iq.com/ksphere/kommander/1.1/clusters/attach-cluster/
 [konvoy_download]: ../../download
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
-[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
+[kubectl]: ../../access-authentication/access-konvoy#using-kubectl
+[ops_portal]: ../../access-authentication/access-konvoy#using-the-operations-portal
 [state]: https://www.terraform.io/docs/state/
 [terraform]: https://www.terraform.io

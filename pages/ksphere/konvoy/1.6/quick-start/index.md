@@ -26,7 +26,7 @@ Before starting the Konvoy installation, you should verify the following:
 -   You have a Linux or MacOS computer with a supported version of the operating system.
 -   You have the [aws][install_aws] command-line utility if you are installing on an AWS cloud instance.
 -   You have [Docker][install_docker] version 18.09.2 or later.
--   You have [kubectl][install_kubectl] v1.17.11 or later for interacting with the running cluster.
+-   You have [kubectl][install_kubectl] v1.18.9 or later for interacting with the running cluster.
 -   You have a valid AWS account with [credentials configured][aws_credentials].
     You must be authorized to create the following resources in the AWS account:
     - EC2 Instances
@@ -135,7 +135,7 @@ The default **operations portal** provides links to several dashboards of the in
 - Traefik dashboards for inbound HTTP traffic
 - Kubernetes dashboard for cluster activity
 
-After you log in to the operations portal, you can view the [dashboards](../operations/accessing-the-cluster#using-the-operations-portal) to see information about
+After you log in to the operations portal, you can view the [dashboards](../access-authentication/access-konvoy#using-the-operations-portal) to see information about
 cluster activity performance.
 
 Although these are the most common next steps, you do not need to log in to the operations portal or run basic diagnostics to verify a successful installation.
@@ -186,13 +186,13 @@ konvoy apply kubeconfig
 
     ```text
     NAME                                         STATUS   ROLES    AGE   VERSION
-    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.17.11
-    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.17.11
-    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.17.11
-    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.17.11
-    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.17.11
-    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.17.11
-    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.17.11
+    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.18.9
+    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.18.9
+    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.18.9
+    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.18.9
+    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.18.9
+    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.18.9
+    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.18.9
     ```
 
 # Next steps

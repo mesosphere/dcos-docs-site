@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker][install_docker] version 18.09.2 or later. You must have Docker installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.11 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.18.9 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -172,7 +172,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.17-2.4.0
+    configVersion: testing-1.18-2.5.0
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -181,7 +181,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.17-1.2.0-beta.1
+    configVersion: testing-1.18-1.2.0-rc.1
     addonsList:
     - name: kommander
       enabled: true
@@ -606,7 +606,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 * `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 * `runs` folder - which contains logging information.
 
-[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
+[kubectl]: ../../access-authentication/access-konvoy#using-kubectl
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [install_docker]: https://docs.docker.com/get-docker/
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
@@ -618,7 +618,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
 [kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
 [metallb]: https://metallb.universe.tf
-[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
+[ops_portal]: ../../access-authentication/access-konvoy#using-the-operations-portal
 [local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
 [static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
 [static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md

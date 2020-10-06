@@ -79,15 +79,15 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-Konvoy v1.5.x requires Calico version `3.13.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.13.5`,
+Konvoy v1.6.x requires Calico version `3.16.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.16.1`,
 
-It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.17.11`.
+It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.18.9`.
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.7`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.17-2.4.0`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.18-2.5.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.17-1.2.0-beta.1`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.18-1.2.0-rc.1`.
 
 The version of Konvoy is now `v1.5.0`, set `spec.version: v1.5.0`.
 
@@ -96,11 +96,11 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.17.11
+    version: 1.18.9
   ...
   containerNetworking:
     calico:
-      version: v3.13.5
+      version: v3.16.1
   ...
   containerRuntime:
     containerd:
@@ -108,10 +108,10 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: testing-1.17-2.4.0
+      configVersion: testing-1.18-2.5.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: testing-1.17-1.2.0-beta.1
+      configVersion: testing-1.18-1.2.0-rc.1
       addonsList:
         - name: kommander
           enabled: true

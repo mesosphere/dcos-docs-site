@@ -19,7 +19,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.11 or later
+* [kubectl][install_kubectl] v1.18.9 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -58,7 +58,7 @@ For all hosts that are part of the cluster -- except the **deploy host** -- you 
 * Docker-ce is uninstalled.
 * Swap is disabled.
 
-# Edit the inventory file
+# Initialize Konvoy configuration files
 
 To start the Konvoy installation, you first need an [Ansible][ansible] [inventory file][ansible_inventory] in your current working directory to describe the hosts where you want to install Konvoy.
 Konvoy will automatically generate the skeleton of the inventory file for you during initialization:
@@ -75,8 +75,10 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.17-2.4.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.17-1.2.0-beta.1,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=<provisioner type> --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.18-2.5.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.18-1.2.0-rc.1,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
    ```
+
+In case of on-premises, the `provisioner type` should be equal to `none`, for AWS it is `aws`.
 
 <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _.</code></p>
 
@@ -92,7 +94,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: testing-1.17-2.4.0
+       configVersion: testing-1.18-2.5.0
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -101,7 +103,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: testing-1.17-1.2.0-beta.1
+      configVersion: testing-1.18-1.2.0-rc.1
       addonsList:
       - name: kommander
         enabled: true
@@ -262,8 +264,8 @@ spec:
     default: true
 ```
 
-Konvoy also provides convenient CLI commands to setup your registry with the required images.
-Running the command below pulls all of the images, retags them, and pushes them to the specified image registry. This makes them available during installation.
+Konvoy provides a convenient CLI command to setup your registry with the required images which you must run in order to populate your registry with all necessary images prior to installing Konvoy.
+Running the command below pulls all of the images, retags them, and pushes them to the specified image registry:
 
 ```text
 konvoy config images seed
@@ -350,9 +352,13 @@ spec:
           konvoy.docker-registry-password: "mypassword"
       clusterAutoscaler:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
+      kubeaddonsRepository:
+        versionMap:
+          1.17.11: testing-1.18-1.2.0-rc.1
+        versionStrategy: mapped-kubernetes-version
 ```
 
-The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
+The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should be present in your registry after running `konvoy config images seed`. The autoscaler queries the registry and finds the latest `konvoy` image to use in the autoscaling process.
 
 If you are using a registry that has the notion of projects such as [Harbor][harbor], make sure that you prepend the project name to the value of `konvoy.docker-registry-repository` while not adding it to the `konvoy.docker-registry-url`. Here is an example of `autoProvisioning` spec using a Harbor registry with a project called `library`:
 
@@ -375,9 +381,24 @@ spec:
 
 Details regarding the autoscaler are provided in [the autoscaling documentation][autoscaling-air-gapped].
 
+### Autoscaling on AWS
+
+In an airgapped environment, accessing AWS services requires setting up VPC endpoints. These are gateways/interfaces which enable direct access to services like EC2, without going through the public Internet.
+
+To enable the VPC endpoints needed to make autoscaler work on AWS, apply the following changes in the `cluster.yaml`:
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  aws:
+    vpc:
+      enableVPCEndpoints: true
+```
+
 ## Configure Addon repository
 
-During regular deployment your cluster would have access to publicly hosted Helm chart repos for all of the addons.
+In a non-air-gapped deployment, your cluster has access to publicly hosted Helm chart repos for all of the addons.
 This is not the case for air-gapped installations, therefore Konvoy can be configured to host the required Helm charts in the cluster.
 Modify the `addons` section and specify the image containing the Helm charts:
 
@@ -387,31 +408,35 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
 ...
   addons:
-  - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.17-2.4.0
-    addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
-    addonsList:
-    ...
-  - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.17-1.2.2
-    addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
-    addonsList:
-    - name: dispatch # Dispatch is currently in Beta
-      enabled: false
-  - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.17-1.2.0-beta.1
-    addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
-    addonsList:
-    - name: kommander
-      enabled: false
+    - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
+      configVersion: testing-1.18-2.5.0
+      addonRepository:
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.1
+      addonsList:
+      ...
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
+      configVersion: stable-1.17-1.2.2
+      addonRepository:
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.1
+      addonsList:
+      - name: dispatch # Dispatch is currently in Beta
+        enabled: false
+    - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
+      configVersion: testing-1.18-1.2.0-rc.1
+      addonRepository:
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.1
+      addonsList:
+      - name: kommander
+        enabled: false
 ```
 
-## Configure MetalLB load balancing
+## Load balancing
 
-Konvoy supports [Service][kubernetes_service] type `LoadBalancer` out-of-the-box for on-premises deployments if you do not have a third-party load balancer.
+Some of the aspects of Konvoy load balancing configuration depend on the type of airgapped environment where Konvoy is being deployed.
+
+### Load balancing on-premises
+
+If you do not have a third-party load balancer Konvoy supports [Service][kubernetes_service] type `LoadBalancer` out-of-the-box for on-premises deployments.
 
 The default load balancer service for addons is based on [MetalLB][metallb].
 
@@ -472,7 +497,63 @@ spec:
 
 The number of virtual IP addresses in the reserved range determines the maximum number of services with a type of `LoadBalancer` that you can create in the cluster.
 
-# Add storage to worker nodes
+### Load balancing on AWS
+
+Airgapped AWS clusters cannot use externally-visible load balancers as they would be unavailable for the VPC. Instead, use internal load balancers by updating the `cluster.yaml`.
+
+- Enabling internal load balancing for apiserver's endpoint:
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  aws:
+    elb:
+      internal: true
+```
+
+- Enabling internal load balancing for addons requires modifying the `values` field for each of the addons mentioned below, if they were enabled.
+
+  - Velero addon:
+
+```yaml
+- name: velero
+  values: |-
+    minioBackendConfiguration:
+      service:
+        annotations:
+          "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
+```
+
+  - Istio addon:
+
+```yaml
+- name: istio
+  values: |-
+    gateways:
+      istio-ingressgateway:
+        serviceAnnotations:
+          "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
+```
+
+  - Traefik addon:
+
+```yaml
+- name: traefik
+  values: |-
+    service:
+      annotations:
+        "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
+```
+
+# Storage
+
+## Storage on AWS
+
+In case of AWS provider, volumes by default are provisioned automatically in an airgapped environement, provided that VPC endpoints are enabled.
+See the [Autoscalling on AWS](#autoscaling-on-aws) section.
+
+## Storage on-premises
 
 Konvoy supports [local persistent volume][local_persistent_volume] provisioning out-of-the-box if you do not have a third-party storage vendor.
 
@@ -529,46 +610,43 @@ To perform the pre-flight checks:
 
 # Install Konvoy
 
-After verifying your infrastructure, you can create a Konvoy Kubernetes cluster by running the following command:
+After verifying your infrastructure, you create a Konvoy Kubernetes cluster by running the following command:
 
 ```yaml
-konvoy up
+konvoy deploy
 ```
 
-This command installs Kubernetes, and installs default addons to support your Kubernetes cluster.
+This command installs Kubernetes and the enabled Addons from `cluster.yaml`. The set of Addons enabled by default (after running `konvoy init`) is the recommended setup for small clusters.
 
-Specifically, the `konvoy up` command does the following:
-
-* Deploys all of the following default addons:
-  * [Calico][calico] to provide pod network, and policy-driven perimeter network security.
-  * [CoreDNS][coredns] for DNS and service discovery.
-  * [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
-  * [MetalLB][metallb] to expose [Layer 4][osi] services.
-  * [Static local volume provisioner][static_lvp] to support local persistent volumes.
-  * [Elasticsearch][elasticsearch] (including [Elasticsearch exporter][elasticsearch_exporter]) to enable scalable, high-performance logging pipeline.
-  * [Kibana][kibana] to support data visualization for content indexed by Elasticsearch.
-  * [Fluent Bit][fluentbit] to collect and collate logs from different sources and send logged messages to multiple destinations.
-  * [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][prometheus_adapter]) to collect and evaluate metrics for monitoring and alerting.
-  * [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
-  * [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
-  * Operations portal to centralize access to addon dashboards.
-  * [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
-  * [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
-  * [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
-  * [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
-  * Kommander for multi-cluster management.
-
-This set of configuration options is the recommended environment for small clusters.
-
-As the `konvoy up` command runs, it displays information about the operations performed.
+As the `konvoy deploy` command runs, it displays information about the operations performed.
 For example, you can view the command output to see when [Ansible][ansible] connects to the hosts and installs Kubernetes.
-Once the Kubernetes cluster is up, the `konvoy up` command installs the addons specified for the cluster.
+Once the Kubernetes cluster is up, the `konvoy deploy` command installs the addons specified for the cluster.
+
+This is the set of Addons deployed by default:
+
+* [Calico][calico] to provide pod network, and policy-driven perimeter network security.
+* [CoreDNS][coredns] for DNS and service discovery.
+* [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
+* [MetalLB][metallb] to expose [Layer 4][osi] services.
+* [Static local volume provisioner][static_lvp] to support local persistent volumes.
+* [Elasticsearch][elasticsearch] (including [Elasticsearch exporter][elasticsearch_exporter]) to enable scalable, high-performance logging pipeline.
+* [Kibana][kibana] to support data visualization for content indexed by Elasticsearch.
+* [Fluent Bit][fluentbit] to collect and collate logs from different sources and send logged messages to multiple destinations.
+* [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][prometheus_adapter]) to collect and evaluate metrics for monitoring and alerting.
+* [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
+* [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
+* Operations portal to centralize access to addon dashboards.
+* [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
+* [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
+* [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
+* [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
+* Kommander for multi-cluster management.
 
 # Viewing cluster operations
 
 You can access user interfaces to monitor your cluster through the [operations portal][ops_portal].
 
-After you run the `konvoy up` command, if the installation is successful, the command output displays the information you need to access the operations portal.
+After you run the `konvoy deploy` command, if the installation is successful, the command output displays the information you need to access the operations portal.
 
 You should see information similar to this:
 
@@ -586,51 +664,51 @@ If the cluster was recently created, the dashboard and services may take a few m
 
 # Checking the files installed
 
-When the `konvoy up` completes its setup operations, the following files are generated:
+When the `konvoy deploy` completes its setup operations, the following files are generated:
 
 * `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster configuration][cluster_configuration].
 * `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
 * `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
 * `runs` folder - which contains logging information.
 
-[kubectl]: ../../operations/accessing-the-cluster#using-kubectl
-[kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
-[install_docker]: https://www.docker.com/products/docker-desktop
-[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [ansible]: https://www.ansible.com
-[persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
-[ansible_inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 [ansible_group]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-hosts-and-groups
-[keepalived]: https://www.keepalived.org/
-[vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
-[kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
-[metallb]: https://metallb.universe.tf
-[ops_portal]: ../../operations/accessing-the-cluster#using-the-operations-portal
-[local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
-[static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md
-[calico]: https://www.projectcalico.org/
-[coredns]: https://coredns.io/
-[aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
-[elasticsearch]: https://www.elastic.co/products/elastic-stack
-[elasticsearch_exporter]: https://www.elastic.co/guide/en/elasticsearch/reference/7.2/es-monitoring-exporters.html
-[helm]: https://helm.sh/
-[kibana]: https://www.elastic.co/products/kibana
-[fluentbit]: https://fluentbit.io/
-[prometheus_operator]: https://prometheus.io/
-[grafana]: https://grafana.com/
-[prometheus_adapter]: https://github.com/DirectXMan12/k8s-prometheus-adapter
-[traefik]: https://traefik.io/
-[osi]: https://en.wikipedia.org/wiki/OSI_model
-[kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
-[velero]: https://velero.io/
-[dex]: https://github.com/dexidp/dex
-[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
-[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
-[static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
-[selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
-[containerd_mirrors]: https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint
-[cluster_configuration]: ../../reference/cluster-configuration/
+[ansible_inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
 [autoscaling]: ../../autoscaling/
 [autoscaling-air-gapped]: ../../autoscaling#autoscaling-an-air-gapped-cluster
+[aws_ebs_csi]: https://github.com/kubernetes-sigs/aws-ebs-csi-driver
+[calico]: https://www.projectcalico.org/
+[cluster_configuration]: ../../reference/cluster-configuration/
+[containerd_mirrors]: https://github.com/containerd/cri/blob/master/docs/registry.md#configure-registry-endpoint
+[coredns]: https://coredns.io/
+[dex]: https://github.com/dexidp/dex
+[dex_k8s_authenticator]: https://github.com/mesosphere/dex-k8s-authenticator
+[elasticsearch]: https://www.elastic.co/products/elastic-stack
+[elasticsearch_exporter]: https://www.elastic.co/guide/en/elasticsearch/reference/7.2/es-monitoring-exporters.html
+[fluentbit]: https://fluentbit.io/
+[grafana]: https://grafana.com/
 [harbor]: https://goharbor.io/
+[helm]: https://helm.sh/
+[install_docker]: https://www.docker.com/products/docker-desktop
+[install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[keepalived]: https://www.keepalived.org/
+[kibana]: https://www.elastic.co/products/kibana
+[kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
+[kubectl]: ../../access-authentication/access-konvoy#using-kubectl
+[kubernetes_dashboard]: https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/
+[kubernetes_service]: https://kubernetes.io/docs/concepts/services-networking/service/
+[local_persistent_volume]: https://kubernetes.io/docs/concepts/storage/volumes/#local
+[metallb]: https://metallb.universe.tf
+[ops_portal]: ../../access-authentication/access-konvoy#using-the-operations-portal
+[osi]: https://en.wikipedia.org/wiki/OSI_model
+[persistent_volume]: https://kubernetes.io/docs/concepts/storage/persistent-volumes/
+[prometheus_adapter]: https://github.com/DirectXMan12/k8s-prometheus-adapter
+[prometheus_operator]: https://prometheus.io/
+[selinux-rpm]: http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.107-3.el7.noarch.rpm
+[static_lvp]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+[static_pv_provisioner]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner
+[static_pv_provisioner_operations]: https://github.com/kubernetes-sigs/sig-storage-local-static-provisioner/blob/master/docs/operations.md
+[traefik]: https://traefik.io/
+[traefik_foward_auth]: https://github.com/thomseddon/traefik-forward-auth
+[velero]: https://velero.io/
+[vrrp]: https://en.wikipedia.org/wiki/Virtual_Router_Redundancy_Protocol
