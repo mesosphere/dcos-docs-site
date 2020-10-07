@@ -9,25 +9,24 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-A **bastion host** is a server that provides a defensive barrier to protect access to a private network from an external network, such as the internet.
+# Bastion Hosts 
 
-Bastion hosts are important because, as a cluster administrator, you often want to deploy all of the nodes in a cluster on a private network for security reasons.
-Deploying the cluster nodes on a private network protects cluster resources from outside access because the nodes cannot be reached directly from any external network.
+A **bastion host** is a server that provides a defensive barrier to protect access to a private network from an external network, such as the Internet. Bastion hosts are important because, as a cluster administrator, you often want to deploy all nodes in a cluster on a private network for security reasons. Deploying the cluster nodes on a private network protects cluster resources from outside access because the nodes cannot be reached directly from any external network. To enable installation of cluster resources from an external network, you can configure a [bastion host][bastion_host].
 
-To enable installation of cluster resources from an external network, you can configure a [bastion host][bastion_host].
+By default, Konvoy does the following:
+
+- bastion hosts that are set to 0 are assigned a public IP address next to the default private ip address which is valid only in the network of each cloud platform.
+- bastion host that are set to 1 or above do **NOT** assign a public IP address next to the default private ip address, which is valid only in the network of each cloud platform.
 
 With a bastion host, you can use a secure shell (SSH) session to connect to cluster nodes from outside of the private network.
 
-By default, we assign public IPs ???
-
-bastion host = 0 --> Assign a public IP address next to the default private ip address which is valid only in the network of each cloud platform
-bastion host > 0 --> DON'T assign a public IP address next to the default private ip address which is valid only in the network of each cloud platform
-
 The public IP is per cloud platform functionality used especially for for SSH access to reach the machines also if not using a bastion host.
+
+## Configure bastion hosts 
 
 The steps for configuring a bastion host depend on whether your cluster is installed as an on-premises cluster or deployed on cloud providers.
 
-## Configure a bastion host for an on-premises cluster
+### Configure a bastion host for an on-premises cluster
 
 To use a bastion host for an on-premises deployment, you **must** use [SSH agent forwarding][ssh_agent].
 The requirement to use SSH agent forwarding enables the bastion host to authenticate with the cluster nodes using keys on the deployment machine without copying or storing any keys on the bastion host itself.
@@ -37,7 +36,7 @@ If you already have a private and public key pair for connecting to the cluster 
 * [Configure SSH agent forwarding](#configure-ssh-agent-forwarding)
 * [Configure the inventory file](#configure-the-inventory-file)
 
-### Configure SSH agent forwarding
+#### Configure SSH agent forwarding
 
 The following example illustrates how to configure SSH agent forwarding if you have a private and public key pair for connecting to the cluster from the deployment machine.
 For this example, the key pair consists of the private key `${HOME}/.ssh/id_rsa`  and the public key `${HOME}/.ssh/id_rsa.pub`.
@@ -71,7 +70,7 @@ For this example, the key pair consists of the private key `${HOME}/.ssh/id_rsa`
 
 If you are able to connect to the remote host without providing a password, you have successfully configured SSH agent forwarding.
 
-### Configure the inventory file
+#### Configure the inventory file
 
 After you have configured and tested SSH agent forwarding, you can configure the appropriate bastion host settings in the Ansible inventory file.
 
@@ -128,9 +127,9 @@ These settings define the user name and port number that the bastion host uses t
 In editing the `inventory.yaml` file, you should also keep in mind that SSH agent forwarding is required and, therefore, you **must not** specify any value for the `ansible_ssh_private_key_file` setting.
 When you run `konvoy up`, Konvoy validates that a valid private key has been loaded in the SSH agent for the provided public key.
 
-## Configure a bastion host for cluster deployed using public cloud providers
+### Configure a bastion host for cluster deployed using public cloud providers
 
-### On Amazon Web Services
+#### On Amazon Web Services
 
 If you want to configure a bastion host for a Konvoy cluster deployed on an Amazon Web Services cloud instance, you can specify the bastion host information using the `ClusterProvisioner` section in the `cluster.yaml` file.
 
@@ -212,7 +211,7 @@ Deploy the addons once again.
 konvoy deploy addons -y
 ```
 
-### On Google Cloud Platform
+#### On Google Cloud Platform
 
 Follow the same process as the one described for Amazon Web Services but with GCP machines:
 
@@ -235,7 +234,7 @@ spec:
     publicKeyFile: konvoy-ssh.pub
 ```
 
-### On Microsoft Azure
+#### On Microsoft Azure
 
 Follow the same process as the one described for Amazon Web Services but with Azure machines:
 
