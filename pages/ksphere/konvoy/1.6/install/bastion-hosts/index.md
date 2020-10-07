@@ -4,7 +4,6 @@ navigationTitle: Configure bastion hosts
 title: Configure bastion hosts
 menuWeight: 60
 excerpt: Configure bastion hosts for access to the Konvoy cluster
-beta: true
 enterprise: false
 ---
 
@@ -18,6 +17,13 @@ Deploying the cluster nodes on a private network protects cluster resources from
 To enable installation of cluster resources from an external network, you can configure a [bastion host][bastion_host].
 
 With a bastion host, you can use a secure shell (SSH) session to connect to cluster nodes from outside of the private network.
+
+By default, we assign public IPs ???
+
+bastion host = 0 --> Assign a public IP address next to the default private ip address which is valid only in the network of each cloud platform
+bastion host > 0 --> DON'T assign a public IP address next to the default private ip address which is valid only in the network of each cloud platform
+
+The public IP is per cloud platform functionality used especially for for SSH access to reach the machines also if not using a bastion host.
 
 The steps for configuring a bastion host depend on whether your cluster is installed as an on-premises cluster or deployed on cloud providers.
 
@@ -242,7 +248,7 @@ spec:
     bastion: true
     count: 2
     machine:
-      imageID: OpenLogic:CentOS:7_8-gen2:7.8.2020062401
+      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
       rootVolumeSize: 40
       rootVolumeType: Standard_LRS
       imagefsVolumeEnabled: false

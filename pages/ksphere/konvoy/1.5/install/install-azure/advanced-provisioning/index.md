@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-The topics in this section describe advanced provisioning and configuration options for Konvoy when deploying on Azure.
+This section describe advanced provisioning and configuration options for deploying Konvoy on Azure.
 
 # Customize region and availability zones
 
@@ -30,9 +30,9 @@ spec:
       updateDomainCount: 3
 ```
 
-# Customize instance types, volumes and OS Image
+# Customize instance types, volumes, and OS Image
 
-Konvoy allows users to customize instance types, volumes and OS images for their clusters like the following:
+Konvoy allows you to customize instance types, volumes, and OS images for your clusters like the following:
 
 ```yaml
 kind: ClusterProvisioner
@@ -72,22 +72,22 @@ spec:
 
 ## Instance types
 
-For each [node pool][node_pools], the user can customize the instance type for instances in that node pool (i.e., `type` field).
+For each [node pool][node_pools], you can customize the instance type for instances in that node pool (i.e., `type` field).
 
-All the available virtual machine sizes can be found [here][virtual_machine_sizes].
+See [virtual machine sizes][virtual_machine_sizes] for all available virtual machine sizes.
 
 ## Instance volumes
 
 For each [node pool][node_pools], the user can customize the instance volumes attached to the instances in that node pool.
 There are two types of instance volumes:
 
-* Root volume: this is the root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if imagefs volume is enabled).
-* Imagefs volume: this is the dedicated disk for providing storage for container image layers.
+* **Root volume**: the root disk for providing [ephemeral storage][ephemeral_storage] for the Kubernetes node (except container images if imagefs volume is enabled).
+* **Imagefs volume**: the dedicated disk for providing storage for container image layers.
 
 Imagefs volume is optional.
-If disabled, the root volume will be used to storage container image layers.
+If disabled, the root volume is used to store container image layers.
 
-Users can customize the sizes (in GB) and [types][disk_sku] of those volumes.
+You customize the sizes (in GB) and [types][disk_sku] of those volumes.
 
 ## Azure VM Images
 
@@ -106,10 +106,9 @@ os_image = {
 
 Konvoy is tested with the `CentOS Linux 7` image.
 
-# Adding custom Terraform resources for provisioning
+# Add custom Terraform resources for provisioning
 
-It is possible to provide custom `*.tf` resource files when provisioning.
-If you create additional resource files, they are used along with the default `*.tf` resource files during the provisioning process.
+It is possible to provide custom `*.tf` resource files when provisioning. If you create additional resource files, they are used along with the default `*.tf` resource files during the provisioning process.
 
 To add custom resource files for provisioning:
 
@@ -134,9 +133,9 @@ To add custom resource files for provisioning:
     EOF
     ```
 
-    Set the `resource_group_name` and `storage_account_name` to the one you already have in use or create a new one beforehand.
+    Set the `resource_group_name` and `storage_account_name` to the one you already have in use or create a new one before this step.
 
-    Keep in mind that Konvoy merges any files you add to the `extras/provisioner` directory with the default `*.tf` resource files during the provisioning process.
+    **Note**: Konvoy merges any files you add to the `extras/provisioner` directory with the default `*.tf` resource files during the provisioning process.
     If you add a file name to the `extras/provisioner` directory that already exists in the default `*.tf` resource files, the contents of the default `*.tf` resource file are replaced with the contents from the custom file you added to the `extras/provisioner` directory.
 
 1. Run the `konvoy up` command.
@@ -148,11 +147,10 @@ To add custom resource files for provisioning:
     use this backend unless the backend configuration changes.
     ```
 
-    This output in this example indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an Azure Storage Account.
+    This output indicates that Terraform has successfully merged content from the `backend.tf` resource file and will store the state file in an Azure Storage Account.
 
 ## VNET
-It is possible to use an existing VNET if so desired.
-To do so, you must modify the `cluster.yaml` file and change the `ProvisionerConfig` in the following way:
+You can use an existing VNET by modifying the `cluster.yaml` file and changing the `ProvisionerConfig` file:
 
 ```yaml
 kind: ClusterProvisioner
@@ -170,12 +168,11 @@ spec:
 ...
 ```
 
-It is necessary to define the `vnet.name`, `vnet.resourceGroup` and the `vnet.routeTable`.
+You must define the `vnet.name`, `vnet.resourceGroup` and the `vnet.routeTable`.
 
-The default VNET CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
+The default VNET CIDR block that is created by Konvoy is `10.0.0.0/16`, however you can set that to any appropriate block.
 
-It is also possible to set the kube-apiserver load balancer (LB) to be `internal`.
-Depending on how your addons are configured, you may also need to add an annotation to use an `internal` LB.
+You can also set the kube-apiserver load balancer (LB) to be `internal`. Depending on how your addons are configured, you may also need to add an annotation to use an `internal` LB.
 
 ```yaml
 kind: ClusterProvisioner
@@ -278,13 +275,13 @@ spec:
 ...
 ```
 
-Failure to define any subnets will mean that Konvoy will attempt to create subnets to cover missing nodepools.
+Failure to define any subnets means Konvoy attempts to create subnets to cover missing nodepools.
 That could lead to collisions in CIDR blocks and failure to deploy; in that case we recommend a full list of subnets be known along with the nodepools desired.
 
-For the most part the nodepools created should exist in a private network configuration, which is Konvoy's default approach.
-Bastion hosts allow for secure access to your cluster, but since they do need to be accessed externally they should be deployed with a subnet where public IPs are created.
+The nodepools created should exist in a private network configuration, which is Konvoy's default approach.
+[Bastion hosts][bastion_host] allow for secure access to your cluster, but since they do need to be accessed externally they should be deployed with a subnet where public IPs are created.
 
-The default Subnet CIDR that is created by Konvoy is `10.0.64.0/18`
+The default, Subnet CIDR that is created by Konvoy is `10.0.64.0/18`
 
 Similarly to the VNET, you may choose to use these blocks or define any other appropriate blocks.
 
@@ -315,6 +312,7 @@ To add custom resource files:
     ...
     ```
 
+[bastion_host]: ../../install/bastion-hosts/
 [node_pools]: ../../node-pools/
 [virtual_machine_sizes]: https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes
 [ephemeral_storage]: ../../../storage/
