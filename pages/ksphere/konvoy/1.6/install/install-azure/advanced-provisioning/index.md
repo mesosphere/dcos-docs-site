@@ -4,6 +4,7 @@ navigationTitle: Advanced provisioning options (Azure)
 title: Advanced provisioning options (Azure)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on Azure
+beta: true 
 enterprise: false
 ---
 
@@ -50,7 +51,7 @@ spec:
   - name: worker
     count: 6
     machine:
-      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      imageID: OpenLogic:CentOS:7_8-gen2:7.8.2020062401
       rootVolumeSize: 80
       rootVolumeType: Standard_LRS
       imagefsVolumeEnabled: true
@@ -61,7 +62,7 @@ spec:
     controlPlane: true
     count: 3
     machine:
-      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      imageID: OpenLogic:CentOS:7_8-gen2:7.8.2020062401
       rootVolumeSize: 80
       rootVolumeType: StandardSSD_LRS
       imagefsVolumeEnabled: true
@@ -99,8 +100,8 @@ The following Azure Image is used by default for Konvoy cluster deployments:
 os_image = {
   publisher = "OpenLogic"
   offer     = "CentOS"
-  sku       = "7.7"
-  version   = "7.7.2020042900"
+  sku       = "7_8-gen2"
+  version   = "7.8.2020062401"
 }
 ```
 
@@ -281,7 +282,7 @@ That could lead to collisions in CIDR blocks and failure to deploy; in that case
 The nodepools created should exist in a private network configuration, which is Konvoy's default approach.
 [Bastion hosts][bastion_host] allow for secure access to your cluster, but since they do need to be accessed externally they should be deployed with a subnet where public IPs are created.
 
-The default, Subnet CIDR that is created by Konvoy is `10.0.64.0/18`
+The default Subnet CIDR that is created by Konvoy is `10.0.64.0/18`
 
 Similarly to the VNET, you may choose to use these blocks or define any other appropriate blocks.
 
