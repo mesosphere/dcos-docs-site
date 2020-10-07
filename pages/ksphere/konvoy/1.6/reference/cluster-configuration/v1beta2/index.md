@@ -637,7 +637,7 @@ Kubelet describes the settings for the Kubelet.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | cgroupRoot | Specifies the`--cgroup-root` flag for the Kubelet. | string | false |
-| kubeReserved | Specifies the `--kube-reserved` flag for the Kubelel, on all of the nodes in the cluster. | string | false |
+| kubeReserved | Specifies the `--kube-reserved` flag for the Kubelet, on all of the nodes in the cluster. | string | false |
 
 [Back to TOC](#table-of-contents)
 
