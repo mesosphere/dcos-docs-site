@@ -19,6 +19,7 @@ COPS
 Couchbase
 covariant
 covariate
+CRD
 D2iQ
 Datastax
 DC/OS
