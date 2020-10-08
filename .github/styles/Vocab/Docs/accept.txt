@@ -70,6 +70,7 @@ Mesosphere
 MKE
 ML(|Ops)
 MNIST
+MPI
 multitenant
 MXNet
 Nagios
