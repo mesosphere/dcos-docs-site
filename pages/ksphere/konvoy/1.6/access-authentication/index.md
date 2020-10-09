@@ -39,7 +39,9 @@ When refreshing a token, only the `kubectl config set-credentials` command needs
 Konvoy uses Dex to provide OpenID Connect single sign-on to the cluster.
 
 Dex can be configured to use multiple connectors, including GitHub, LDAP, and SAML 2.0.
-The [Dex Connector documentation](https://github.com/dexidp/dex/tree/master/Documentation/connectors) describes how to configure different connectors.
+
+The [Dex Connector documentation](https://dexidp.io/docs/connectors/) describes how to configure different connectors.
+
 The configuration can be added as the `values` field in the `dex` addon.
 
 Examples of tested configurations are described in the [External Providers] section.
