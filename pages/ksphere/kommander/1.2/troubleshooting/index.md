@@ -3,7 +3,7 @@ layout: layout.pug
 beta: true
 title: Troubleshooting
 navigationTitle: Troubleshooting
-menuWeight: 9
+menuWeight: 11
 excerpt: Troubleshooting common issues in Kommander UI
 ---
 

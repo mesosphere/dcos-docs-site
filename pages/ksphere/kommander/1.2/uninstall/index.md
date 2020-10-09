@@ -6,7 +6,7 @@ title: Uninstall
 featureMaturity:
 excerpt: Remove Kommander and related infrastructure
 category: K-Sphere
-menuWeight: 10
+menuWeight: 13
 ---
 
 ### How can I remove the Kommander Cluster?
