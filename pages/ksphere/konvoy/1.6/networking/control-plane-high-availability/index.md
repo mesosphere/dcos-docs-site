@@ -81,12 +81,12 @@ If you are not setting any optional values, set `spec.kubernetes.controlPlane.ke
 
 ## External 3rd Party Load Balancers
 
-There may be instances where you already have a 3rd party load balancer you want to use, or are required to use due to policy. In order to utilize a third-party load balancer you will need to disable the load balancer configuration by D2iQ.
+There may be instances where you already have a 3rd party load balancer you want to use, or are required to use due to policy. To use a third-party load balancer you will need to disable the load balancer configured by Konvoy.
 
 Keepalived is enabled by default for on-premises deployments. You can disable it by removing `spec.kubernetes.controlPlane.keepalived` from the `cluster.yaml`.
-This is done where there is an on-premises load balancer which could be used to maintain high availability of the control plane.
+Disabling Keepalived is done where there is an on-premises load balancer which will be used to maintain high availability of the control plane kubernetes api service.
 
-The following example illustrates the Konvoy configuration to use if the 3rd party loadbalancer front-end IP address is `1.2.3.4`:
+The following example illustrates the Konvoy configuration to use if the 3rd party load balancer front-end IP address is `1.2.3.4`:
 
 ```yaml
 kind: ClusterConfiguration
@@ -99,18 +99,18 @@ spec:
 
 If you are deploying to alternative cloud provider not supported by D2iQ, you may wish to provision and use that cloud providers load balancer.
 
-When creating an external 3rd party load balancer we recommend the following best practice settings
+When creating an external 3rd party load balancer, D2iQ recommends the following best practice settings:
 
 * Create a front-end that is addressable via IPv4 and DNS.
 * Create a back-end pool that targets the control-plane hosts.
 * Create a TCP port 6443 front-end to target the TCP 6443 back-end.
-* Create a Health Probe with the following
+* Create a health probe with the following:
   * Checks via HTTPS 
   * Interval 5 mins
   * Reports unhealth after 2 tries
   * URL `/healthz`
   * Allows for TLS certificates installed on the control planes.
-* Stateful persistance between the ClientIP and Protocol  
+* Stateful persistence between the client ipaddress and protocol.
 * Idle timeout of about 30 minutes.
   
 
