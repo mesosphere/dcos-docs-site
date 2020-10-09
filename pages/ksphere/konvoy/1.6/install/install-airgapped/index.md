@@ -75,7 +75,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=<provisioner type> --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.18-2.5.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.18-1.2.0-rc.1,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=<provisioner type> --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-1.17-2.4.0,/opt/konvoy/artifacts/kubeaddons-kommander@testing-1.17-1.2.0-beta.1,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
    ```
 
 In case of on-premises, the `provisioner type` should be equal to `none`, for AWS it is `aws`.
@@ -94,7 +94,7 @@ In case of on-premises, the `provisioner type` should be equal to `none`, for AW
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: testing-1.18-2.5.0
+       configVersion: testing-1.17-2.4.0
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -103,7 +103,7 @@ In case of on-premises, the `provisioner type` should be equal to `none`, for AW
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: testing-1.18-1.2.0-rc.1
+      configVersion: testing-1.17-1.2.0-beta.1
       addonsList:
       - name: kommander
         enabled: true
@@ -354,7 +354,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.17.11: testing-1.18-1.2.0-rc.1
+          1.17.11: testing-1.17-1.2.0-beta.1
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -409,22 +409,22 @@ spec:
 ...
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-      configVersion: testing-1.18-2.5.0
+      configVersion: testing-1.17-2.4.0
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       configVersion: stable-1.17-1.2.2
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: testing-1.18-1.2.0-rc.1
+      configVersion: testing-1.17-1.2.0-beta.1
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
       addonsList:
       - name: kommander
         enabled: false

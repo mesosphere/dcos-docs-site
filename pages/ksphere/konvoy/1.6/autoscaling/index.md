@@ -59,7 +59,7 @@ spec:
     count: 3
     machine:
       type: m5.xlarge
-  version: v1.6.0-rc.1
+  version: v1.6.0-beta.1
 ```
 
 The worker pool scales up to a maximum of 4 machines and scales down
@@ -338,7 +338,7 @@ spec:
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.18.9: testing-1.18-2.5.0
+          1.18.9: testing-1.17-2.4.0
 ```
 
 Putting it all together, the configuration would be as follows:
@@ -364,7 +364,7 @@ spec:
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.18.9: testing-1.18-2.5.0
+          1.18.9: testing-1.17-2.4.0
 ...
 ```
 
