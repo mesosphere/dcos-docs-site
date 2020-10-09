@@ -77,10 +77,43 @@ This field is optional. If not set, Konvoy automatically detects the network int
 You can also set `spec.kubernetes.controlPlane.keepalived.vrid` to specify the [Virtual Router ID][keepalived_conf] used by Keepalived.
 This field is optional. If not set, Konvoy randomly picks a Virtual Router ID for you.
 
-Keepalived is enabled by default for on-premises deployment. You can disable it by removing `spec.kubernetes.controlPlane.keepalived` from the `cluster.yaml`.
+If you are not setting any optional values, set `spec.kubernetes.controlPlane.keepalived: {}` to enable the default values.
+
+## External 3rd Party Load Balancers
+
+There may be instances where you already have a 3rd party load balancer you want to use, or are required to use due to policy. In order to utilize a third-party load balancer you will need to disable the load balancer configuration by D2iQ.
+
+Keepalived is enabled by default for on-premises deployments. You can disable it by removing `spec.kubernetes.controlPlane.keepalived` from the `cluster.yaml`.
 This is done where there is an on-premises load balancer which could be used to maintain high availability of the control plane.
 
-If you are not setting any optional values, set `spec.kubernetes.controlPlane.keepalived: {}` to enable the default values.
+The following example illustrates the Konvoy configuration to use if the 3rd party loadbalancer front-end IP address is `1.2.3.4`:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  kubernetes:
+    controlPlane:
+      controlPlaneEndpointOverride: "1.2.3.4:6443"
+```
+
+If you are deploying to alternative cloud provider not supported by D2iQ, you may wish to provision and use that cloud providers load balancer.
+
+When creating an external 3rd party load balancer we recommend the following best practice settings
+
+* Create a front-end that is addressable via IPv4 and DNS.
+* Create a back-end pool that targets the control-plane hosts.
+* Create a TCP port 6443 front-end to target the TCP 6443 back-end.
+* Create a Health Probe with the following
+  * Checks via HTTPS 
+  * Interval 5 mins
+  * Reports unhealth after 2 tries
+  * URL `/healthz`
+  * Allows for TLS certificates installed on the control planes.
+* Stateful persistance between the ClientIP and Protocol  
+* Idle timeout of about 30 minutes.
+  
+
 
 [keepalived]: https://www.keepalived.org/doc/introduction.html
 [keepalived_conf]: https://www.keepalived.org/doc/configuration_synopsis.html
