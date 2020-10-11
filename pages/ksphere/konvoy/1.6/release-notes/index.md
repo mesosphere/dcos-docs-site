@@ -16,6 +16,72 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Version v1.6.0-rc.2 - Released 9 October 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.16.x |
+|**Maximum** | 1.18.x |
+|**Default** | 1.18.9 |
+
+#### Improvements
+
+- CLI: New check to validate system times on the nodes in the cluster are within 30 seconds.
+- GCP: The kube-apiserver load balancer timeouts were increased to improve stability: timeout 1s->3s, check interval 1s -> 2s, healthy threashold 2->3, unhealthy treshold 2->3.
+
+#### Addons improvements
+
+- Kommander: Fix a race condition that would prevent the addon from being installed due to unbound PVCs.
+
+#### Bug fixes
+
+- CLI: Don't include internal `controlplane` and `bastion` when generating a sample `inventory.yaml` file.
+
+#### Component version changes
+
+- Kommander `v1.2.0-rc.1`
+- kubernetes-base-addons `testing-2.5.0-3`
+
+### Version v1.6.0-rc.1 - Released 2 October 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.16.x |
+|**Maximum** | 1.18.x |
+|**Default** | 1.18.9 |
+
+#### Improvements
+
+- CLI: Add RHEL and CentOS 8.2 to supported platforms.
+- API: Add ability to override the OS distribution discovered by Ansible by setting `os.assumeOperatingSystemDistribution` in the `cluster.yaml`.
+- API: New field `spec.kubernetes.kube-reserved` to define the resources to reserve on all of the kubelets in the cluster.
+- Airgapped: The release now also includes the artifacts for darwin.
+- Ansible: When installing Containerd `v1.2.13` use the same `d2iq` RPM repo that is already being used for `v1.3.x`. This repo provides packages with `nokmem` accounting flag. (COPS-6465)
+- Diagnose: Collect loaded kernel modules.
+- Diagnose: Collect PCI devices data.
+- Diagnose: Collect Containerd configuration.
+- Diagnose: Collect Nvidia container runtime configuration.
+- Diagnose: Collect the kubeadm cert expiration data.
+
+#### Addons improvements
+
+- Kubeaddons: The kubeaddons-controller no longer installs Tiller.
+
+#### Bug fixes
+
+- CLI: Fix a bug `unable to create context store: $HOME is not defined` caused by a recent Docker change by passing the environment variables from the host when running the Konvoy container.
+- Ansible: Fix multiple `[WARNING]` messages that were being during execution.
+- AWS: The provisioner will now wait 5 minutes instead of 2 minutes for the Gateway Route to be created and avoid timeout issues.
+- Addons: Fix an issue where cert-manager and fluenbit prevented upgrades from previous versions of Konvoy.
+
+#### Component version changes
+
+- Kubernetes `v1.18.9`
+- Containerd `v1.3.7`
+- Calico `v3.16.1`
+- Kommander `testing-1.18-1.2.0-rc.1`
+- kubernetes-base-addons `testing-1.18-2.5.0`
+
 ### Version v1.6.0-beta.1 - Released 15 September 2020
 
 | Kubernetes Support | Version |
@@ -26,7 +92,7 @@ enterprise: false
 
 #### Disclaimer
 
-<p class="message--important"><strong>IMPORTANT: </strong>-Upgrading from any previous version of Konvoy is not supported.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Upgrading from any previous version of Konvoy is not supported.</p>
 
 <p class="message--important"><strong>IMPORTANT: </strong>Dispatch is not supported with this version.</p>
 
