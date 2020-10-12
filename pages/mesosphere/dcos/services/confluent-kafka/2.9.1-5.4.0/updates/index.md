@@ -30,7 +30,9 @@ To avoid any potential downtime caused by this, change the protocol version used
 
 	```
 	{
-		...
+		"service": {
+			"community": false
+		},
 		"kafka": {
 			...
 			"inter_broker_protocol_version": "1.0"
@@ -45,6 +47,6 @@ To avoid any potential downtime caused by this, change the protocol version used
 	```
 	~$ dcos package install --cli --yes {{ model.packageName }}
 	~$ dcos {{ model.packageName }} --name={{ model.serviceName }} update start \
-		--package-version=2.9.0-5.4.0 \
+		--package-version=2.9.1-5.4.0 \
 		--options=options_file.json
 	```

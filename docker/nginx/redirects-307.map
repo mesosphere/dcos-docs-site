@@ -5,7 +5,7 @@
 ~^/ksphere/conductor/latest/(.*)$ /ksphere/conductor/1.1/$1;
 ~^/ksphere/kubeflow/latest/(.*)$ /ksphere/kubeflow/1.0.1-0.5.0/$1;
 ~^/mesosphere/dcos/services/cassandra/latest/(.*) /mesosphere/dcos/services/cassandra/2.9.0-3.11.6/$1;
-~^/mesosphere/dcos/services/confluent-kafka/latest/(.*) /mesosphere/dcos/services/confluent-kafka/2.9.0-5.4.0/$1;
+~^/mesosphere/dcos/services/confluent-kafka/latest/(.*) /mesosphere/dcos/services/confluent-kafka/2.9.1-5.4.0/$1;
 ~^/mesosphere/dcos/services/confluent-zookeeper/latest/(.*) /mesosphere/dcos/services/confluent-zookeeper/2.7.0-5.1.2e/$1;
 ~^/mesosphere/dcos/services/couchbase/latest/(.*) /mesosphere/dcos/services/couchbase/1.0.1-6.0.0/$1;
 ~^/mesosphere/dcos/services/data-science-engine/latest/(.*) /mesosphere/dcos/services/data-science-engine/2.0.1/$1;
