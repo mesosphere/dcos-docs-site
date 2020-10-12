@@ -166,3 +166,7 @@ status:
 ```
 
 The Konvoy Addon Controller is then responsible for deploying the application.
+
+After the addon is deployed, the addon may be upgraded to a newer version. The only versions shown are compatible with the clusters in that project.
+
+![Project addon edit form](/ksphere/kommander/1.2/img/project-catalog-addon-edit.png)
