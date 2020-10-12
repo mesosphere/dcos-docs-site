@@ -8,7 +8,7 @@ model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
 
-## Version 2.9.1-5.4.0
+## Version 2.9.1-5.4.0 was released on 9, October 2020
 
 ### New Features
 - Confluent-Kafka is now available with Enterprise and Community versions.
