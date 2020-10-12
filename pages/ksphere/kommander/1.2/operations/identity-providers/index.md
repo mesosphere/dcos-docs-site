@@ -23,7 +23,7 @@ You can perform the following operations on Identity Providers:
 
 To provide simple access for the users of your organization, Identity Providers can be set up.
 
-Currently, Kommander supports **Github**, **LDAP**, and any standard **OIDC** provider such as **Google**.
+Currently, Kommander supports **GitHub**, **LDAP**, any standard **SAML** provider such as **OneLogin**, and any standard **OIDC** provider such as **Google**.
 
 You can configure as many Identity Providers as you like and users will be able to select any of those methods when logging in.
 
@@ -50,6 +50,12 @@ LDAP Form
 ![OIDC Form](/ksphere/kommander/1.2/img/Identity-provider-OIDC.png)
 
 OIDC Form
+
+- The SAML provider allows users to log in using a single sign-on (SSO) profile.
+
+![SAML Form](/ksphere/kommander/1.2/img/Identity-provider-SAML.png)
+
+SAML Form
 
 ### Temporarily disabling a provider
 
