@@ -120,41 +120,77 @@ You can use `ssh-agent` to pass identity keys and passphrases for authentication
 
 ## Sample inventory file
 
+The following `inventory.yaml` file will be generated after running `konvoy init`:
+
+```yaml
+control-plane:
+  hosts:
+    <ip-address>:
+      ansible_host: <ssh-address>
+      ansible_port: <optional>
+      node_pool: control-plane
+node:
+  hosts:
+    <ip-address>:
+      ansible_host: <ssh-address>
+      ansible_port: <optional>
+      node_pool: worker
+bastion: {}
+all:
+  vars:
+    ansible_port: 22
+    ansible_ssh_private_key_file: ""
+    ansible_user: ""
+    control_plane_endpoint: ""
+    order: sorted
+    version: v1beta1
+```
+
+* `<ip-address>` is the host's private IP address that will be used by Kubernetes for the Node's identity.
+* `ansible_host` is the IP used by Konvoy to SSH into the host, if removed the `<ip-address>` will be used instead.
+* `ansible_port` is an optional port used by Konvoy to SSH into the host, the default value is 22.
+* `node_pool` is used to group nodes into pools, Konvoy will apply a Kubernetes label based on this value and use it internally when selecting Nodes based on their pool.
+
+* `ansible_ssh_private_key_file` is the name of the private SSH key used by Konvoy to SSH into the hosts.
+* `ansible_user` is the user used by Konvoy to SSH into the hosts.
+* `control_plane_endpoint` is an address for a loadbalancer used by all of the Nodes to reach the Kubernetes API.
+* The values of `order: sorted` and `version: v1beta1` should not be modfied.
+
 The following example illustrates a simple `inventory.yaml` file with three control plane nodes and three worker nodes.
-In this example, the `ansible_user` is the `centos` user account that has administrative privileges:
 
 ```yaml
 control-plane:
   hosts:
     10.0.50.232:
-      ansible_host: 10.0.50.232
     10.0.50.233:
-      ansible_host: 10.0.50.233
     10.0.50.234:
-      ansible_host: 10.0.50.234
 
 node:
   hosts:
     10.0.50.108:
-      ansible_host: 10.0.50.108
       node_pool: worker
     10.0.50.109:
-      ansible_host: 10.0.50.109
       node_pool: worker
     10.0.50.110:
-      ansible_host: 10.0.50.110
       node_pool: worker
     10.0.50.111:
-      ansible_host: 10.0.50.111
       node_pool: worker
 
 all:
   vars:
-    version: v1beta1
-    order: sorted
-    ansible_user: "centos"
     ansible_port: 22
+    ansible_ssh_private_key_file: "mysshkey.pem"
+    ansible_user: "centos"
+    control_plane_endpoint: "10.0.50.100"
+    order: sorted
+    version: v1beta1
 ```
+
+In this example:
+
+* The keys `ansible_host` and `ansible_port` were removed, the IPs will be used instead to SSH into the hosts on the default port `22`.
+* The `ansible_ssh_private_key_file` is set to `mysshkey.pem` and is expected to be in working directory.
+* The `ansible_user` is the `centos` user account that has administrative privileges.
 
 ## Specifying local addons repositories
 
