@@ -21,8 +21,6 @@ cat << EOF | kubectl create -f -
 apiVersion: types.kubefed.io/v1beta1
 kind: FederatedSecret
 metadata:
-  annotations:
-    kommander.mesosphere.io/display-name: secret1
   generateName: secret1-
   namespace: ${projectns}
 spec:
