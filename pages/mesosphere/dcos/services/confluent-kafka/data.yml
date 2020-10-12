@@ -3,6 +3,7 @@
 packageName: confluent-kafka
 serviceName: confluent-kafka
 techName: Confluent Kafka
+techNameCommunity: Confluent Kafka Community
 techShortName: Kafka
 
 # Values specific to certain templates:

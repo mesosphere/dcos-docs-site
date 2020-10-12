@@ -1,12 +1,26 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes 
-excerpt: Release Notes for version 2.9.0-5.4.0
+excerpt: Release Notes for version 2.9.1-5.4.0
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 render: mustache
 ---
+
+## Version 2.9.1-5.4.0
+
+### New Features
+- Confluent-Kafka is now available with Enterprise and Community versions.
+  - Option to activate broker level license ([812f266](https://github.com/mesosphere/confluent/pull/201/commits/812f26681df15ae116278f5f03fca20fc7ffaa01))
+  - Ability to switch to Confluent Kafka Community edition ([812f266](https://github.com/mesosphere/confluent/pull/201/commits/812f26681df15ae116278f5f03fca20fc7ffaa01#diff-576a04a7bdcaca260406f07ae8269306R35))
+
+### Updates
+- Updated license changes for community and enterprise flavours of Confluent Kafka ([0b33a2c](https://github.com/mesosphere/confluent/pull/201/commits/0b33a2cc42a0c1d5dd004628593fb067e5c24cc6))
+
+## Important Notes
+- Use of Community version is encouraged for testing purposes only. It is highly recommended to use Confluent Enterprise for production Kafka clusters. The default service config installs the enterprise confluent kafka with no license and can be run for the trial period of 30 days. However, it is possible to update the license afterwards. Check [Add Enterprise License](../configuration/add-enterprise-license-confluent-kafka-enterprise) section for more details. To install the community version see [Switching to Confluent Community](./configuration/switching-to-confluent-kafka-community) section. 
+
 
 ## Version 2.9.0-5.4.0
 
@@ -33,7 +47,7 @@ render: mustache
   - Quota enforcement
   - Node draining
 
-
+<!--
 # Version 2.7.0-5.3.0
 
 ## Updates
@@ -52,7 +66,7 @@ render: mustache
 - Service will fetch all required resources over HTTPS
 - Autosuggestion available for Service Account and Secrets when launching the service from DC/OS UI
 
-<!--
+
 # Version 2.6.0-5.1.2
 
 ## Updates
