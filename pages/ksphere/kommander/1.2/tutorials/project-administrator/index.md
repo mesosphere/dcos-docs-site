@@ -65,6 +65,6 @@ Project Policies Form
 [kommander-id-providers]: ../../operations/identity-providers/
 [kommander-install]: ../../install/
 [kommander-policies]: ../../projects/project-policies/
-[kommander-rbac]: ../../tutorials/configure-rbac/
+[kommander-rbac]: ../configure-rbac/
 [konvoy-rbac]: /ksphere/konvoy/latest/security/external-idps/rbac/
 [k8s-rbac]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
