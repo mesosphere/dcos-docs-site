@@ -38,6 +38,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Improved catalog handling
 - Improved Access Control for editing/deleting actions
+- Added support for air-gapped environment
 
 ## Bug Fixes
 
