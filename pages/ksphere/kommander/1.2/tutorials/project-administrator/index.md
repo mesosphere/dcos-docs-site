@@ -24,9 +24,21 @@ This procedure describes how a cluster administrator can assign project administ
 
 If you have not done so already, create a group to represent this persona. For more details on groups, see the [Identity Providers page][kommander-id-providers] and the [Identity Provider tutorial][kommander-authorize].
 
-## Grant access to project admin persona
+At this point, you have already assigned users to the group that represents the persona. You must now change the resource access level for this persona by associating roles with the groups using policies.
 
-You have already assigned users to the group that represents the persona. You must now change the resource access level for this persona by associating roles with the groups using policies.
+## Grant workspace access to project admin persona
+
+The _Project Admin_ persona must have view or greater access to the workspace that contains the project.
+
+In the Kommander UI, do the following:
+
+1. Select a _Workspace_ in the header drop-down. This must be the workspace in which the project your group will administrate will live.
+1. Select _Access Control_ in the side menu.
+1. Select the _Cluster Policies_ tab.
+1. Click _Add or remove roles_ and select the _Workspace View Role_ and _Kommander Workspace View Role_ roles.
+1. Click _Save_.
+
+## Grant project access to project admin persona
 
 The _Project Admin_ persona should have admin access to the project. This allows users to administer all namespaced resources in the project namespace on the management cluster, as well as all namespaced resources in the project namespace on the target clusters.
 
