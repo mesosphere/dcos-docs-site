@@ -39,7 +39,7 @@ The backend also needs access to your AWS S3 Bucket and to GitHub, so create two
 ## Getting a second production cluster
 
 This project currently only has one cluster attached to it, now you should create a second cluster.
-To provision another cluster on AWS, first setup an infrastructure provider. To do this go to **Administration > Cloud Providers** and select **Add**. Then, add your AWS credentials into the form and save the cloud provider.
+To provision another cluster on AWS, first setup an infrastructure provider. To do this go to **Administration > Infrastructure Providers** and select **Add**. Then, add your AWS credentials into the form and save the infrastructure provider.
 
 In the Kommander UI, do the following:
 
