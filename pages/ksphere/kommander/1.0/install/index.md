@@ -27,13 +27,13 @@ tar -xf ~/Downloads/konvoy-kommander_darwin.tar.bz2
 
 Copy the Konvoy package files to a directory in your user's `PATH` to ensure you can invoke the konvoy command from any directory.
 
-For example, copy the package to `/usr/local/bin/` by returning to the directory that Kommander was extracted to, and running the following command:
+For example, copy the package to `/usr/local/bin/` by returning to the directory to which Kommander was extracted, and running the following command:
 
 ```
 sudo cp ~/Downloads/darwin/konvoy-kommander/* /usr/local/bin/
 ```
 
-<p class="message--note"><strong>NOTE:</strong> The extracted folder may have a different name (such as `konvoy_dev`, or perhaps it was given a custom directory, or have the version affixed to the end of the directory name).</p>
+<p class="message--note"><strong>NOTE:</strong> The extracted folder may have a different name (such as `konvoy_dev`, or perhaps it was given a custom directory, or may have the version affixed to the end of the directory name).</p>
 
 Check version
 
@@ -41,7 +41,7 @@ Check version
 konvoy --version
 ```
 
-After you have the newest version of Konvoy, move into the directory where you would like to test. Note, you will have to confirm your access to your cloud or internal network provider, or you may encounter a message that says `failed to deploy the cluster: error provisioning cluster`.
+After you have the newest version of Konvoy, move into the directory in which you would like to test. Note, before beginning, confirm your access to your cloud or internal network provider, or you may encounter a message that says `failed to deploy the cluster: error provisioning cluster`.
 
 Once done, run this command:
 
