@@ -11,7 +11,7 @@ Kommander can also deploy services from a catalog of current cloud native servic
 
 ![Project Catalog](/ksphere/kommander/1.2/img/project-catalog.png)
 
-Kommander can be extended with the AddonRepository resource that point to git repositories containing application addons. For example, the kubeaddons-enterprise repo contains addons such as Jenkins and Kafka with specific settings for each cloud provider. Addons can be composed using either Helm V2 charts or KUDO operators.
+Kommander can be extended with the AddonRepository resource that point to git repositories containing application addons. For example, the kubeaddons-enterprise repo contains addons such as Jenkins and Kafka with specific settings for each service. Addons can be composed using either Helm V2 charts or KUDO operators.
 
 Example AddonRepository resource to add a new repository to your catalog:
 
@@ -102,7 +102,7 @@ spec:
 EOF
 ```
 
-You must make sure the projectns variable is set before executing the command.
+Ensure the projectns variable is set before executing the command. This variable is the project namespace (i.e. Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
 
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Addon Object, in the corresponding namespace:
 
