@@ -9,12 +9,17 @@ excerpt: Project ConfigMaps can be created to make sure Kubernetes ConfigMaps ar
 
 Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automatically created on all Kubernetes clusters associated with the Project, in the corresponding namespace.
 
+As reference, a ConfigMap is a key-value pair to store some type of non-confidential data like "name=bob" or "state=CA". For a full reference to the concept, please consult the Kubernetes documentation on the topic of ConfigMaps here: https://kubernetes.io/docs/concepts/configuration/configmap/
+
 A Project ConfigMap can be created using the Kommander UI:
 
-![Project ConfigMap Form](/ksphere/kommander/1.2/img/project-create-configmap.png)
-Project ConfigMap Form
+The below Project ConfigMap form can be navigated to from within a Workspace by going to Projects->Selecting an Existing Project->Selecting ConfigMaps tab->Clicking Create ConfigMap button
 
-A Project ConfigMap is simply a Kubernetes FederatedConfigMap and can also be created using kubectl:
+![Project ConfigMap Form](/ksphere/kommander/1.2/img/project-create-configmap.png)
+
+To declaritively create a Project ConfigMap for automation purposes, the below FederatedConfigMap YAML object can be used as an example.
+
+A Project ConfigMap is simply a Kubernetes FederatedConfigMap and can be created using kubectl with YAML:
 
 ```bash
 cat << EOF | kubectl create -f -
@@ -32,7 +37,7 @@ spec:
 EOF
 ```
 
-You must make sure the projectns variable is set before executing the command.
+Ensure the projectns variable is set before executing the command. This variable is the project namespace (i.e. Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
 
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes ConfigMap Object, in the corresponding namespace:
 
