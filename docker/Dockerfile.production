@@ -1,31 +1,7 @@
-#
-# Build MS
-#
-
-FROM node:8-stretch-slim
-
-ARG git_branch
-ARG algolia_update
-ARG algolia_private_key
-ARG metalsmith_skip_sections
-
-RUN apt-get update -qq
-RUN apt-get install -y build-essential python
+FROM node:12-alpine
 
 RUN mkdir /src
 WORKDIR /src
 ADD . /src/
 
 RUN npm install
-
-RUN \
-ALGOLIA_UPDATE=$algolia_update \
-ALGOLIA_PRIVATE_KEY=$algolia_private_key \
-METALSMITH_SKIP_SECTIONS=$metalsmith_skip_sections \
-npm run build
-
-# Add google site verifications
-# Google expects a very specific file format and metalsmith defaultly alters
-# it. This is temporary until a more permanent solution is made.
-
-RUN echo "google-site-verification: google48ddb4a5390a503f.html" > /src/build/google48ddb4a5390a503f.html
