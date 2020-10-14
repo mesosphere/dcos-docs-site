@@ -365,13 +365,6 @@
       }
     },
     {
-      "Condition": { "KeyPrefixEquals": "services/marathon/" },
-      "Redirect": {
-        "ReplaceKeyPrefixWith": "/services/marathon-lb/",
-        "HttpRedirectCode": "301"
-      }
-    },
-    {
       "Condition": { "KeyPrefixEquals": "services/overview/" },
       "Redirect": {
         "ReplaceKeyPrefixWith": "/services/",
@@ -397,13 +390,6 @@
       "Condition": { "KeyPrefixEquals": "services/" },
       "Redirect": {
         "ReplaceKeyPrefixWith": "/mesosphere/dcos/services/",
-        "HttpRedirectCode": "301"
-      }
-    },
-    {
-      "Condition": { "KeyPrefixEquals": "cn/" },
-      "Redirect": {
-        "ReplaceKeyPrefixWith": "/mesosphere/dcos/cn/",
         "HttpRedirectCode": "301"
       }
     },
