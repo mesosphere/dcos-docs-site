@@ -13,7 +13,12 @@ As reference, a ConfigMap is a key-value pair to store some type of non-confiden
 
 A Project ConfigMap can be created using the Kommander UI:
 
-The below Project ConfigMap form can be navigated to from within a Workspace by going to Projects->Selecting an Existing Project->Selecting ConfigMaps tab->Clicking Create ConfigMap button
+The below Project ConfigMap form can be navigated to by:
+1. Select **Workspace** > **Project**
+2. Select an Existing Project or Create a New Project
+2. Select **ConfigMaps** to browse the deployed ConfigMaps
+3. Select **+Create ConfigMap** button
+
 
 ![Project ConfigMap Form](/ksphere/kommander/1.2/img/project-create-configmap.png)
 
