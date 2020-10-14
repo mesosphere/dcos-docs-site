@@ -18,12 +18,13 @@ Kommander allows a user to manually or dynamically (using labels) select the Kub
 Projects support the management of configmaps, secrets, services, quotas, and role-based access control by leveraging federated resources.
 
 ## Project Namespace
-Namespaces isolate configurations across clusters and are created on all clusters matching the project labels. When creating a new project, you can customize the Kubernetes namespace that is also created.
+
+Projects Namespace isolate configurations across clusters. Individual standard Kubernetes namespaces are automatically created on all clusters that belong to the project. When creating a new project, you can customize the Kubernetes namespace name that is created. It is the grouping of all of these individual standard Kubernetes namespaces that make up the concept of a Project Namespace. A Project Namespace is a Kommander specific concept.
 
 ## Create a Project
 When you create a Project, you must specify a Project Name, a Namespace Name (optional) and a way to allow Kommander to determine which Kubernetes clusters will be part of this project.
 
-As mentioned above, a Project Namespace corresponds to a Kubernetes Federated Namespaces. By default, the name of the namespace will be auto-generated based on the project name (first 57 characters) plus 5 unique alphanumeric characters. You can also specify a namespace name, but in this case, you must make sure it won’t conflict with any existing namespace on the target Kubernetes clusters.
+As mentioned above, a Project Namespace corresponds to a Kubernetes Federated Namespaces. By default, the name of the namespace will be auto-generated based on the project name (first 57 characters) plus 5 unique alphanumeric characters. You can also specify a namespace name, but in this case, you must make sure it will not conflict with any existing namespace on the target Kubernetes clusters that will be a part of the Project.
 
 To determine which Kubernetes clusters will be part of this project, you can either select manually existing clusters or define labels that Kommander will use to dynamically add clusters. The latter is recommended because it will allow you to deploy additional Kubernetes clusters later and to have them automatically associated with Projects based on their labels.
 
@@ -34,9 +35,9 @@ Here is an example of what it looks like to create a project using the Kommander
 
 The following procedures are supported for projects:
 
-- [Deploy Platform Services](/ksphere/kommander/1.2/projects/platform-services)
-- [Manage Project Roles](/ksphere/kommander/1.2/projects/project-roles)
-- [Manage Project Policies](/ksphere/kommander/1.2/projects/project-policies)
 - [Manage Project ConfigMaps](/ksphere/kommander/1.2/projects/project-configmaps)
-- [Manage Project Secrets](/ksphere/kommander/1.2/projects/project-secrets)
+- [Deploy Platform Services](/ksphere/kommander/1.2/projects/platform-services)
+- [Manage Project Policies](/ksphere/kommander/1.2/projects/project-policies)
 - [Manage Project Quotas](/ksphere/kommander/1.2/projects/project-quotas)
+- [Manage Project Roles](/ksphere/kommander/1.2/projects/project-roles)
+- [Manage Project Secrets](/ksphere/kommander/1.2/projects/project-secrets)
