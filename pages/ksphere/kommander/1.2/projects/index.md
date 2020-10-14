@@ -26,9 +26,32 @@ As mentioned above, a Project Namespace corresponds to a Kubernetes Federated Na
 To determine which Kubernetes clusters will be part of this project, you can either select manually existing clusters or define labels that Kommander will use to dynamically add clusters. The latter is recommended because it will allow you to deploy additional Kubernetes clusters later and to have them automatically associated with Projects based on their labels.
 
 To create a Project, you can either use the Kommander UI or create a Project object on the Kubernetes cluster where Kommander is running (using kubectl or the Kubernetes API). The latter allows you to configure Kommander resources in a declarative way. It’s available for all kinds of Kommander resources.
+
+
+## Creating a Project - UI Method
 Here is an example of what it looks like to create a project using the Kommander UI:
 
 ![Create Project](/ksphere/kommander/1.2/img/create-project-form.png)
+
+
+## Creating a Project - Declarative YAML Object Method
+
+The below is a sample YAML Kubernetes object for creating a Kommander Project. It is only an example and will not work verbatim since it depends on a workspace name that has been previously created (which will not exist by default in your cluster). Use this as an example format and fill in the workspace name and namespaceName appropriately along with the proper labels.
+
+apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
+kind: Project
+metadata:
+  name: My-Project-Name
+  namespace: my-project-k8s-namespace-name
+spec:
+  workspaceRef:
+    name: myworkspacename
+  namespaceName: myworkspacename-di3tx
+  placement:
+    clusterSelector:
+      matchLabels:
+        cluster: prod
+
 
 The following procedures are supported for projects:
 
