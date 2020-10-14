@@ -38,7 +38,8 @@ pipeline {
           apk add --update-cache gettext
           envsubst < s3bucketpolicy > .policy
 
-          aws s3api create-bucket      --bucket $BUCKET --region $AWS_DEFAULT_REGION || true
+          aws s3api create-bucket      --bucket $BUCKET --region $AWS_DEFAULT_REGION --create-bucket-configuration LocationConstraint=$AWS_DEFAULT_REGION || true
+
           aws s3api put-bucket-policy  --bucket $BUCKET --policy file:///app/.policy
           aws s3api put-bucket-website --bucket $BUCKET --website-configuration file:///app/s3config.json
 
