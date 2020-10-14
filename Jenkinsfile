@@ -22,10 +22,8 @@ pipeline {
       }
       steps {
         sh '''
-          # docker build -f docker/Dockerfile.production -t docs-builder .
-          # docker run -v "$PWD/pages":/src/pages:delegated -v "$PWD/build":/src/build:delegated -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
-
-          mkdir build
+          docker build -f docker/Dockerfile.production -t docs-builder .
+          docker run -v "$PWD/pages":/src/pages:delegated -v "$PWD/build":/src/build:delegated -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
           echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
         '''
 
