@@ -10,19 +10,19 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-# Release Notes for Kommander 1.2
+# Release notes for Kommander 1.2
+
+Kommander 1.2 beta 1 was released on 14, September, 2020 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
 To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install](https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
 
-**NOTE:** You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
+**NOTE:** You must be a registered user and logged on to the support portal to download this product. New customers must contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
-<!-- TBD when 1.2 goes GA:
-# Release Summary
+# Release Summary 
 
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated and cost management, across multiple clusters, whether they are a new Konvoy cluster or existing 3rd party/DIY distribution.
--->
 
 # Supported Versions
 
@@ -32,20 +32,18 @@ Kommander provides a command center for all your cloud native management needs i
 | **Maximum**        | 1.17.x  |
 | **Default**        | 1.17.3  |
 
-# Kommander 1.2.0 Beta 1 (September 14th, 2020)
+# New Features and Capabilities 
 
-## Features/Improvements
+## Support for air-gapped environment 
 
-- Improved catalog handling
-- Improved Access Control for editing/deleting actions
-- Added support for air-gapped environment
+## Improved catalog handling
 
-## Bug Fixes
+## Improved Access Control for editing/deleting actions 
 
-- Fixed an issue where logout wasn't deleting any cookies
-- Smaller UX Bugs and Improvements
+## Changed routing from hash-based to history-based to allow redirects after login
 
-## Component Versions
+
+## Component versions
 
 - Addon: `1.2.0-9`
 - Chart: `0.11.3`
@@ -59,26 +57,7 @@ Kommander provides a command center for all your cloud native management needs i
 - kubecost: `0.1.12`
 - grafana: `4.6.3`
 
-# Kommander 1.2.0 Beta 0 (August 27th, 2020)
+## Fixed and Improved Issues 
 
-## Features/Improvements
-
-- Changed routing from hash-based to history-based to allow redirects after login.
-
-## Bug Fixes
-
-- Smaller UX Bugs and Improvements
-
-## Component Versions
-
-- Addon: `1.2.0-5`
-- Chart: `0.10.3`
-- auto-provisioning (yakcl): `0.4.2`
-- kommaner-federation (yakcl): `0.4.2`
-- kommander-licensing (yakcl): `0.4.2`
-- UI: `6.22.0`
-- kommander-karma: `0.3.10`
-- kubeaddons-catalog: `0.1.12`
-- kommander-thanos: `0.1.15`
-- kubecost: `0.1.12`
-- grafana: `4.6.3`
+- Fixed an issue where logout was not deleting any cookies.
+- Smaller UX Bugs and Improvements.
