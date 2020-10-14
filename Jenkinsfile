@@ -4,17 +4,29 @@
 // staging     => docs-d2iq-com-staging/CONTENT
 // development => docs-d2iq-com-PR-XYZ/CONTENT
 
+/*
+  TODO: update algolia!
+  # ALGOLIA_UPDATE=true
+  # ALGOLIA_PRIVATE_KEY=$algolia_private_key
+*/
+
 pipeline {
   agent { label "mesos" }
   stages {
     stage("Deploy") {
       environment {
         AWS_DEFAULT_REGION = "us-west-2"
-        BUCKET = "docs-d2iq-com-PR-test1"
-        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
+        BUCKET = "docs-d2iq-com-production"
+        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Production"
       }
       steps {
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 's3-development']]) {
+        sh '''
+          docker build -f docker/Dockerfile.production -t docs-builder .
+          docker run -v "$PWD/pages":/src/pages:delegated -v "$PWD/build":/src/build:delegated -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
+          echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
+        '''
+
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 's3-production']]) {
           sh '''
           function aws() {
             docker run --rm -v "$PWD":/app -e AWS_DEFAULT_REGION -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN amazon/aws-cli "$@"
