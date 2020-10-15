@@ -1,7 +1,6 @@
-**/.git
-**/node_modules
-**/build
-**/build-pdf
-**/build-swagger
-**/build-ngindox
+.git
+.github
+pages
+node_modules
+build
 .revision

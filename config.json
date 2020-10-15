@@ -1,13 +1,9 @@
 {
   "master": {
-    "DO_NOT_BUILD": [
-      
-    ]
+    "DO_NOT_BUILD": []
   },
   "staging": {
-    "DO_NOT_BUILD": [
-       
-     ]
+    "DO_NOT_BUILD": []
   },
   "kommander": {
     "DO_NOT_BUILD": [
