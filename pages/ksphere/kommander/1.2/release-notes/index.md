@@ -34,6 +34,25 @@ Kommander provides a command center for all your cloud native management needs i
 
 # New Features and Capabilities 
 
+GUI wizard to add customer repos 
+Conductor integration (e.g. LHS menu) 
+Catalog support for Helm repos 
+Kommander demo env 
+Support network tunnels
+app template  
+DKP product licensing 
+Show Correct Addon Status 
+Kommander air gap 
+Network Policy 
+Limit ranger 
+Further integration of DKP 
+Kubefed scaling 
+Create EKS/etc clusters 
+Easy import process for 3rd party clusters
+
+
+
+
 ## Support for air-gapped environment 
 
 ## Improved catalog handling
