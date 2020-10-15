@@ -9,7 +9,7 @@
 def bucket(branch) {
   branch == "master"    ? "docs-d2iq-com-production"
   : branch == "staging" ? "docs-d2iq-com-staging"
-                        : "docs-d2iq-com-PR-1234"
+                        : "docs-d2iq-com-pr-1234"
 }
 
 def principal(branch) {
@@ -27,26 +27,7 @@ def creds(branch) {
 pipeline {
   agent { label "mesos" }
   stages {
-    stage("Build") {
-      steps {
-        sh '''
-          docker build -f docker/Dockerfile.production -t docs-builder .
-          docker run -v "$PWD/pages":/src/pages:delegated -v "$PWD/build":/src/build:delegated -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
-          echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
-        '''
-      }
-    }
-
-    stage("Update Search Index") {
-      when { branch "master" }
-      steps {
-        sh '''
-          echo "TODO: totally not updating algolia yet"
-        '''
-      }
-    }
-
-    stage("Deploy") {
+    stage("Build & Deploy") {
       environment {
         AWS_DEFAULT_REGION = "us-west-2"
         BUCKET = bucket(env.BRANCH_NAME)
@@ -57,6 +38,8 @@ pipeline {
           docker build -f docker/Dockerfile.production -t docs-builder .
           docker run -v "$PWD/pages":/src/pages:delegated -v "$PWD/build":/src/build:delegated -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
           echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
+
+          echo "TODO: totally not updating algolia yet"
         '''
 
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds(env.BRANCH_NAME)]]) {
