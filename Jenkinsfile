@@ -24,6 +24,12 @@ def creds(branch) {
                         : 's3-development'
 }
 
+def hostname(branch) {
+    branch == "master"  ? 'docs.d2iq.com'
+  : branch == "staging" ? 'docs-staging.d2iq.com'
+  : ''
+}
+
 pipeline {
   agent { label "mesos" }
   stages {
@@ -32,6 +38,7 @@ pipeline {
         AWS_DEFAULT_REGION = "us-west-2"
         BUCKET = bucket(env.BRANCH_NAME)
         PRINCIPAL = principal(env.BRANCH_NAME) // used in ./s3bucketpolicy
+        HOSTNAME = hostname(env.BRANCH_NAME)
       }
       steps {
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds(env.BRANCH_NAME)]]) {
