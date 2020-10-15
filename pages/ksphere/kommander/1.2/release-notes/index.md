@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: true
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
@@ -12,7 +11,7 @@ enterprise: false
 
 # Release notes for Kommander 1.2
 
-Kommander 1.2 beta 1 was released on 14, September, 2020 
+Kommander 1.2 was released on ??, October 2020 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -34,24 +33,6 @@ Kommander provides a command center for all your cloud native management needs i
 
 # New Features and Capabilities 
 
-GUI wizard to add customer repos 
-Conductor integration (e.g. LHS menu) 
-Catalog support for Helm repos 
-Kommander demo env 
-Support network tunnels
-app template  
-DKP product licensing 
-Show Correct Addon Status 
-Kommander air gap 
-Network Policy 
-Limit ranger 
-Further integration of DKP 
-Kubefed scaling 
-Create EKS/etc clusters 
-Easy import process for 3rd party clusters
-
-
-
 
 ## Support for air-gapped environment 
 
@@ -61,22 +42,44 @@ Easy import process for 3rd party clusters
 
 ## Changed routing from hash-based to history-based to allow redirects after login
 
+GUI wizard to add customer repos 
+Conductor integration (e.g. LHS menu) 
+Catalog support for Helm repos 
+Kommander demo env 
+Support network tunnels
+app template  
+DKP product licensing 
+Show Correct Addon Status 
+Network Policy 
+Limit ranger 
+Kubefed scaling 
+Create EKS/etc clusters 
+Easy import process for 3rd party clusters
+
+* Added SAML IDP
+* Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters
+* Added a setting to configure thresholds for resource warnings 
+* Attaches EKS clusters now can show metrics
+* Added Infrastructure provider management on global level
 
 ## Component versions
-
-- Addon: `1.2.0-9`
-- Chart: `0.11.3`
-- auto-provisioning (yakcl): `0.4.5`
-- kommaner-federation (yakcl): `0.4.5`
-- kommander-licensing (yakcl): `0.4.5`
-- UI: `6.22.0`
+- Addon: `1.2.0-19`
+- Chart: `0.11.15`
+- kommaner-federation (yakcl): `0.5.1`
+- kommander-licensing (yakcl): `0.5.1`
+- UI: `6.37.0`
 - kommander-karma: `0.3.10`
-- kubeaddons-catalog: `0.1.12`
+- kubeaddons-catalog: `0.1.14`
 - kommander-thanos: `0.1.15`
-- kubecost: `0.1.12`
+- kubecost: `0.1.15`
 - grafana: `4.6.3`
 
 ## Fixed and Improved Issues 
 
 - Fixed an issue where logout was not deleting any cookies.
-- Smaller UX Bugs and Improvements.
+* Fixed UI crashes when kubecost was down
+* Fixed catalog API occasionaly returned 500
+* Fixed deleting cluster labels was impossible
+* Fixed counting self-attached host cluster against license count
+* Smaller UX Bugs and Improvements
+* Smaller UX Bugs and Improvements
