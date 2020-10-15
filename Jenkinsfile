@@ -1,24 +1,56 @@
 #!/usr/bin/env groovy
 
-// production  => docs-d2iq-com-production/CONTENT
-// staging     => docs-d2iq-com-staging/CONTENT
-// development => docs-d2iq-com-PR-XYZ/CONTENT
-
 /*
   TODO: update algolia!
   # ALGOLIA_UPDATE=true
   # ALGOLIA_PRIVATE_KEY=$algolia_private_key
 */
 
+def bucket(branch) {
+  branch == "master"    ? "docs-d2iq-com-production"
+  : branch == "staging" ? "docs-d2iq-com-staging"
+                        : "docs-d2iq-com-PR-1234"
+}
+
+def principal(branch) {
+  branch == "master"    ? "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Production"
+  : branch == "staging" ? "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Staging"
+                        : "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
+}
+
+def creds(branch) {
+    branch == "master"  ? 's3-production'
+  : branch == "staging" ? 's3-staging'
+                        : 's3-development'
+}
+
 pipeline {
   agent { label "mesos" }
   stages {
+    stage("Build") {
+      steps {
+        sh '''
+          docker build -f docker/Dockerfile.production -t docs-builder .
+          docker run -v "$PWD/pages":/src/pages:delegated -v "$PWD/build":/src/build:delegated -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
+          echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
+        '''
+      }
+    }
+
+    stage("Update Search Index") {
+      when { branch "master" }
+      steps {
+        sh '''
+          echo "TODO: totally not updating algolia yet"
+        '''
+      }
+    }
+
     stage("Deploy") {
       environment {
         AWS_DEFAULT_REGION = "us-west-2"
-        BUCKET = "docs-d2iq-com-production"
-        // that's used in ./s3bucketpolicy
-        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Production"
+        BUCKET = bucket(env.BRANCH_NAME)
+        PRINCIPAL = principal(env.BRANCH_NAME) // used in ./s3bucketpolicy
       }
       steps {
         sh '''
@@ -27,7 +59,7 @@ pipeline {
           echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
         '''
 
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 's3-production']]) {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds(env.BRANCH_NAME)]]) {
           sh '''
           function aws() {
             docker run --rm -v "$PWD":/app -e AWS_DEFAULT_REGION -e AWS_ACCESS_KEY_ID -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN amazon/aws-cli "$@"
