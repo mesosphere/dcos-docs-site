@@ -1,10 +1,8 @@
 #!/bin/bash
 
+export GIT_BRANCH=master
+export NODE_ENV=production
 npm run build
-
-ls $PWD
-ls $PWD/build
-
 echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
 
 echo "TODO: totally not updating algolia yet"

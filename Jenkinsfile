@@ -44,7 +44,16 @@ pipeline {
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds(env.BRANCH_NAME)]]) {
         sh '''
           docker build -f docker/Dockerfile.production -t docs-builder .
-          docker run -v "$PWD/pages":/src/pages -e GIT_BRANCH=master -e NODE_ENV=production docs-builder /src/ci/deploy.sh
+          docker run \
+            -v "$PWD/pages":/src/pages \
+            -e AWS_ACCESS_KEY_ID \
+            -e AWS_DEFAULT_REGION \
+            -e AWS_SECRET_ACCESS_KEY \
+            -e AWS_SESSION_TOKEN \
+            -e BUCKET \
+            -e HOSTNAME \
+            -e PRINCIPAL \
+            amazon/aws-cli "$@" docs-builder /src/ci/deploy.sh
           '''
         }
       }
