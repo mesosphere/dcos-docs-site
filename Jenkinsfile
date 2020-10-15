@@ -38,7 +38,7 @@ pipeline {
         AWS_DEFAULT_REGION = "us-west-2"
         BUCKET = bucket(env.BRANCH_NAME)
         PRINCIPAL = principal(env.BRANCH_NAME) // used in ./s3bucketpolicy
-        HOSTNAME = hostname(env.BRANCH_NAME)
+        REDIR_HOSTNAME = hostname(env.BRANCH_NAME)
       }
       steps {
         withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds(env.BRANCH_NAME)]]) {
@@ -51,7 +51,7 @@ pipeline {
             -e AWS_SECRET_ACCESS_KEY \
             -e AWS_SESSION_TOKEN \
             -e BUCKET \
-            -e HOSTNAME \
+            -e REDIR_HOSTNAME \
             -e PRINCIPAL \
             docs-builder /src/ci/deploy.sh
           '''
