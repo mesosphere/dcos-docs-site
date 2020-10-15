@@ -36,7 +36,7 @@ pipeline {
       steps {
         sh '''
           docker build -f docker/Dockerfile.production -t docs-builder .
-          docker run -v "$PWD/pages":/src/pages:delegated -v "$PWD/build":/src/build:delegated -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
+          docker run -v "$PWD/pages":/src/pages -v "$PWD/build":/src/build -e GIT_BRANCH=master -e NODE_ENV=production docs-builder npm run build
           echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
 
           echo "TODO: totally not updating algolia yet"
@@ -57,7 +57,7 @@ pipeline {
           aws s3api put-bucket-policy       --bucket $BUCKET --policy file:///app/.policy
           aws s3api put-bucket-website      --bucket $BUCKET --website-configuration file:///app/s3config.json
 
-          aws s3 sync --acl bucket-owner-full-control /app/build s3://$BUCKET
+          aws s3 sync --delete --acl bucket-owner-full-control /app/build s3://$BUCKET
           '''
         }
       }
