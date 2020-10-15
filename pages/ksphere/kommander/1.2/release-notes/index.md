@@ -32,6 +32,54 @@ Kommander provides a command center for all your cloud native management needs i
 | **Maximum**        | 1.17.x  |
 | **Default**        | 1.17.3  |
 
+# Kommander 1.2.0 RC 2
+
+## Bug Fixes
+* Smaller UX Bugs and Improvements
+
+## Component Versions
+
+- Addon: `1.2.0-19`
+- Chart: `0.11.15`
+- kommaner-federation (yakcl): `0.5.1`
+- kommander-licensing (yakcl): `0.5.1`
+- UI: `6.37.0`
+- kommander-karma: `0.3.10`
+- kubeaddons-catalog: `0.1.14`
+- kommander-thanos: `0.1.15`
+- kubecost: `0.1.15`
+- grafana: `4.6.3`
+
+# Kommander 1.2.0 RC 1
+
+## Features/Improvements
+* Added SAML IDP
+* Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters
+* Added a setting to configure thresholds for resource warnings 
+* Attaches EKS clusters now can show metrics
+* Added Infrastructure provider management on global level
+
+## Bug Fixes
+* Fixed UI crashes when kubecost was down
+* Fixed catalog API occasionaly returned 500
+* Fixed deleting cluster labels was impossible
+* Fixed counting self-attached host cluster against license count
+* Smaller UX Bugs and Improvements
+
+## Component Versions
+
+- Addon: `1.2.0-14`
+- Chart: `0.11.12`
+- kommaner-federation (yakcl): `0.5.0`
+- kommander-licensing (yakcl): `0.5.0`
+- UI: `6.37.0`
+- kommander-karma: `0.3.10`
+- kubeaddons-catalog: `0.1.12`
+- kommander-thanos: `0.1.15`
+- kubecost: `0.1.15`
+- grafana: `4.6.3`
+
+
 # Kommander 1.2.0 Beta 1 (September 14th, 2020)
 
 ## Features/Improvements
