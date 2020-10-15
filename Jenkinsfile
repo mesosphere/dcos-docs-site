@@ -53,7 +53,7 @@ pipeline {
             -e BUCKET \
             -e HOSTNAME \
             -e PRINCIPAL \
-            amazon/aws-cli "$@" docs-builder /src/ci/deploy.sh
+            docs-builder /src/ci/deploy.sh
           '''
         }
       }
