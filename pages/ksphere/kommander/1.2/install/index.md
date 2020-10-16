@@ -9,18 +9,17 @@ excerpt: Getting started with Kommander
 
 Kommander is a tool that provides a command console for deploying, monitoring, and managing production-ready Kubernetes clusters on an enterprise scale. Kommander supports both Konvoy and non-Konvoy clusters.
 
-### Prerequisites
+# Before you begin
+Prerequisites for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/ksphere/konvoy/1.6/quick-start/#prequisites) for information.
 
-Currently, installing Kommander also installs Konvoy. Prerequisites and initial requirements for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/ksphere/konvoy/1.6/quick-start/#prequisites) topic for information.
-
-### Download and Install
-
-To download Konvoy with Kommander, see the [Download Konvoy](https://docs.d2iq.com/ksphere/konvoy/1.6/download/) topic for information.
+# Download and Install
+You must download Konvoy with Kommander, see the [Download Konvoy](https://docs.d2iq.com/ksphere/konvoy/1.6/download/) topic for information.
 
 Download the tarball to your local Downloads directory.
 
 For example, if you are installing on MacOS, download the compressed archive to the default `~/Downloads` directory.
-Afterward, extract the tarball to your local system by running the following command (ensure the name of the file that you downloaded, and change konvoy-kommander_darwin.tar.bz2 accordingly):
+Afterward, extract the tarball to your local system by running the following command. 
+**Note** Check the name of the file that you downloaded, and change konvoy-kommander_darwin.tar.bz2 accordingly):
 
 ```
 tar -xf ~/Downloads/konvoy-kommander_darwin.tar.bz2
@@ -50,13 +49,10 @@ Once done, run this command:
 konvoy up
 ```
 
-## Logging In
-
-### Logging in with Username and Password
-
+# Log in with Username and Password
 After you provision your first Konvoy cluster, your randomly-generated username, password, and a URL to Konvoy are printed to the command-line. Log in to Konvoy, and look for the "Try Kommander" button. If it's not there, ensure you've installed the Konvoy release that includes Kommander.
 
-To retrieve this information again, you can use the following command:
+To retrieve this information again, use the following command:
 
 ```
 konvoy get ops-portal
