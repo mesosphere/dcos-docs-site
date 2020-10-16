@@ -34,14 +34,12 @@ Kommander provides a command center for all your cloud native management needs i
 # New Features and Capabilities 
 
 
-## Support for air-gapped environments
+## Air gapped environments
 
-## Improved catalog handling
+Kommander now supports setting up in an air gapped environment, either on premises or in the cloud. Air gapping is ideal for instances where high-security is a must or where Internet connectivity is either undesirable or unavailable. For more details on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped]. 
 
-## Improved Access Control for editing/deleting actions 
 
-## Changed routing from hash-based to history-based to allow redirects after login
-
+Improved catalog handling
 GUI wizard to add customer repos 
 Conductor integration (e.g. LHS menu) 
 Catalog support for Helm repos 
@@ -55,12 +53,6 @@ Limit ranger
 Kubefed scaling 
 Create EKS/etc clusters 
 Easy import process for 3rd party clusters
-
-* Added SAML IDP
-* Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters
-* Added a setting to configure thresholds for resource warnings 
-* Attaches EKS clusters now can show metrics
-* Added Infrastructure provider management on global level
 
 ## Component versions
 - Addon: `1.2.0-19`
@@ -76,10 +68,18 @@ Easy import process for 3rd party clusters
 
 ## Fixed and Improved Issues 
 
-- Fixed an issue where logout was not deleting any cookies.
-* Fixed UI crashes when kubecost was down
-* Fixed catalog API occasionaly returned 500
-* Fixed deleting cluster labels was impossible
-* Fixed counting self-attached host cluster against license count
+* Improved Access Control for editing/deleting actions. 
+* Changed routing from hash-based to history-based to allow redirects after login.
+* Added SAML IDP.
+* Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters.
+* Added a setting to configure thresholds for resource warnings. 
+* Attaches EKS clusters now can show metrics.
+* Added Infrastructure provider management on global level.
+* Fixed an issue where logout was not deleting any cookies.
+* Fixed UI crashes when kubecost was down.
+* Fixed catalog API occasionaly returned 500.
+* Fixed deleting cluster labels was impossible.
+* Fixed counting self-attached host cluster against license count.
 * Smaller UX Bugs and Improvements
-* Smaller UX Bugs and Improvements
+
+[install_airgapped](https://docs.d2iq.com/ksphere/kommander/1.2/install-airgapped/) 
