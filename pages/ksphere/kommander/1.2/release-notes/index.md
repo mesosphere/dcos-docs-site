@@ -10,7 +10,6 @@ enterprise: false
 <!-- markdownlint-disable MD034 -->
 
 # Release notes for Kommander 1.2
-
 Kommander 1.2 was released on ??, October 2020 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
@@ -20,11 +19,9 @@ To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/l
 **NOTE:** You must be a registered user and logged on to the support portal to download this product. New customers must contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
 # Release Summary 
-
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated and cost management, across multiple clusters, whether they are a new Konvoy cluster or existing 3rd party/DIY distribution.
 
 # Supported Versions
-
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 | **Minimum**        | 1.15.0  |
@@ -32,27 +29,8 @@ Kommander provides a command center for all your cloud native management needs i
 | **Default**        | 1.17.3  |
 
 # New Features and Capabilities 
-
-
 ## Air gapped environments
-
-Kommander now supports setting up in an air gapped environment, either on premises or in the cloud. Air gapping is ideal for instances where high-security is a must or where Internet connectivity is either undesirable or unavailable. For more details on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped]. 
-
-
-Improved catalog handling
-GUI wizard to add customer repos 
-Conductor integration (e.g. LHS menu) 
-Catalog support for Helm repos 
-Kommander demo env 
-Support network tunnels
-app template  
-DKP product licensing 
-Show Correct Addon Status 
-Network Policy 
-Limit ranger 
-Kubefed scaling 
-Create EKS/etc clusters 
-Easy import process for 3rd party clusters
+Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapping is ideal for instances where high-security is a must or where Internet connectivity is either undesirable or unavailable. For more details on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped]. 
 
 ## Component versions
 - Addon: `1.2.0-19`
@@ -67,7 +45,6 @@ Easy import process for 3rd party clusters
 - grafana: `4.6.3`
 
 ## Fixed and Improved Issues 
-
 * Improved Access Control for editing/deleting actions. 
 * Changed routing from hash-based to history-based to allow redirects after login.
 * Added SAML IDP.
@@ -80,6 +57,6 @@ Easy import process for 3rd party clusters
 * Fixed catalog API occasionaly returned 500.
 * Fixed deleting cluster labels was impossible.
 * Fixed counting self-attached host cluster against license count.
-* Smaller UX Bugs and Improvements
+* Smaller UX Bugs and Improvements.
 
 [install_airgapped](https://docs.d2iq.com/ksphere/kommander/1.2/install-airgapped/) 
