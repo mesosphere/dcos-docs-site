@@ -35,6 +35,25 @@ This procedure requires the following items and configurations:
    kubectl get no
    ```
 
+1. The metrics that Kommander displays on its cluster view don't come from Prometheus. Rather they come from the Kubernetes metrics API. In order for this API to be available, it must be exposed by a [metrics server][k8s-metrics-server]. In order to do that, you must [deploy the metrics server][deploy-metrics-server], otherwise the EKS cluster may fail to stay attached. To deploy the server, run the following command:
+
+   ```bash
+   kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
+   ```
+
+1. Verify the `metrics-server` deployment is running the desired number of pods with the following command:
+
+   ```bash
+   kubectl get deployment metrics-server -n kube-system
+   ```
+
+1. The output will look something like:
+
+   ```bash
+   NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+   metrics-server   1/1     1            1           6m
+   ```
+
 1. Create a service account for Kommander on your EKS cluster.
 
    ```bash
@@ -140,4 +159,6 @@ For information on related topics or procedures, refer to the following:
 
 - [Working with Kommander Clusters](/ksphere/kommander/1.2/clusters/)
 
+[deploy-metrics-server]: https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
 [eks]: https://aws.amazon.com/eks/
+[k8s-metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#the-metrics-api
