@@ -35,7 +35,7 @@ This procedure requires the following items and configurations:
    kubectl get no
    ```
 
-1. The metrics that Kommander displays on its cluster view don't come from Prometheus. Rather they come from the Kubernetes metrics API. In order for this API to be available, it must be exposed by a [metrics server][k8s-metrics-server]. In order to do that, you must [deploy the metrics server][deploy-metrics-server], otherwise the EKS cluster may fail to stay attached. To deploy the server, run the following command:
+1. The metrics Kommander displays on its cluster view do not come from Prometheus. They come from the Kubernetes metrics API. You must expose this API using a [metrics server][k8s-metrics-server] to make it available. To do that, you must [deploy the metrics server][deploy-metrics-server], otherwise the EKS cluster may fail to stay attached. To deploy the server, run the following command:
 
    ```bash
    kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
