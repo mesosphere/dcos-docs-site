@@ -28,6 +28,7 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 61092 | fluent-bit | `dcos-fluent-bit.service` | agent/master | agent/extra |
 | 61420 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 | 62080 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
+| 62091 | Calico Felix | `docs-calico.service` | agent/master| agent/master |
 | 62501 | DC/OS Net | `dcos-net.service` | agent/master | agent/master |
 
 
@@ -51,6 +52,8 @@ DC/OS allocates additional ports to services running on top of DC/OS. These port
 | 2181  | ZooKeeper | `dcos-exhibitor.service` | agent/master | master |
 | 3888  | ZooKeeper | `dcos-exhibitor.service` | master | master |
 | 2888  | ZooKeeper | `dcos-exhibitor.service` | master | master |
+| 2379  | etcd | `dcos-etcd.service` | agent/master | master |
+| 2380  | etcd | `dcos-etcd.service` | master | master |
 | 5050  | Mesos Master | `dcos-mesos-master.service` | agent/master | master |
 | 7070  | DC/OS Package Manager (Cosmos) | `dcos-cosmos.service` | localhost| localhost(master) |
 | 8080  | Marathon | `dcos-marathon.service` | agent/master | master |
