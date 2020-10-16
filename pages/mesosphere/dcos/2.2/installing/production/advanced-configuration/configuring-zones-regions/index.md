@@ -6,6 +6,7 @@ menuWeight: 15
 excerpt: Using the high-availability features in DC/OS
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
+enterprise: true
 ---
 
 This topic discusses the high availability (HA) features in DC/OS and best practices for building HA applications on DC/OS.
