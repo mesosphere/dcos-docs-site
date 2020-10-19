@@ -385,7 +385,7 @@
       "Condition": { "KeyPrefixEquals": "service-docs/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/services/",
+        "ReplaceKeyPrefixWith": "services/",
         "HttpRedirectCode": "301"
       }
     },
@@ -393,7 +393,7 @@
       "Condition": { "KeyPrefixEquals": "docs/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/",
+        "ReplaceKeyPrefixWith": "",
         "HttpRedirectCode": "301"
       }
     },
@@ -401,7 +401,7 @@
       "Condition": { "KeyPrefixEquals": "pages/services/edge-lb/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/services/edge-lb/",
+        "ReplaceKeyPrefixWith": "services/edge-lb/",
         "HttpRedirectCode": "301"
       }
     },
@@ -409,7 +409,7 @@
       "Condition": { "KeyPrefixEquals": "pages/services/marathon-lb/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/services/marathon-lb/services/edge-lb/",
+        "ReplaceKeyPrefixWith": "services/marathon-lb/services/edge-lb/",
         "HttpRedirectCode": "301"
       }
     },
@@ -417,7 +417,7 @@
       "Condition": { "KeyPrefixEquals": "services/kafka/configure/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/services/kafka/kafka-auth/",
+        "ReplaceKeyPrefixWith": "services/kafka/kafka-auth/",
         "HttpRedirectCode": "301"
       }
     },
@@ -425,7 +425,7 @@
       "Condition": { "KeyPrefixEquals": "services/overview/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/services/",
+        "ReplaceKeyPrefixWith": "services/",
         "HttpRedirectCode": "301"
       }
     },
@@ -441,7 +441,7 @@
       "Condition": { "KeyPrefixEquals": "([0-9]+\\.[0-9]+/.*)$" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/mesosphere/dcos/",
+        "ReplaceKeyPrefixWith": "mesosphere/dcos/",
         "HttpRedirectCode": "301"
       }
     },
@@ -449,7 +449,7 @@
       "Condition": { "KeyPrefixEquals": "services/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/mesosphere/dcos/services/",
+        "ReplaceKeyPrefixWith": "mesosphere/dcos/services/",
         "HttpRedirectCode": "301"
       }
     },
@@ -457,7 +457,7 @@
       "Condition": { "KeyPrefixEquals": "version-policy/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/mesosphere/dcos/version-policy/",
+        "ReplaceKeyPrefixWith": "mesosphere/dcos/version-policy/",
         "HttpRedirectCode": "301"
       }
     },
@@ -465,7 +465,7 @@
       "Condition": { "KeyPrefixEquals": "search/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "/mesosphere/dcos/search/",
+        "ReplaceKeyPrefixWith": "mesosphere/dcos/search/",
         "HttpRedirectCode": "301"
       }
     }
