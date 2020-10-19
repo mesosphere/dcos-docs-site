@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  CI - Pipelines
 title: Continuous Integration Pipelines
 menuWeight: 10
-beta: true
+beta: false
 excerpt: Building, Testing and Delivering cloud native applications into kubernetes.
 ---
 In Dispatch, CI pipelines are configured using a [`Dispatchfile`](../dispatchfile/). The `Dispatchfile` describes:

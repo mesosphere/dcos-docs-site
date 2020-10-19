@@ -21,7 +21,7 @@ In the examples below, written in JSON, YAML, CUE and Starlark:
 * The `test` task runs a step that runs all defined Go unit tests.
 * There are two `actions` defined:
   * One that runs the `test` task on any push to the `master` branch.
-  * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/build`.
+  * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/test`.
 
 <details>
 <summary><b>JSON</b></summary>

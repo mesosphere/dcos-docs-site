@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Welcome to Dispatch 1.3
 title: Welcome to Dispatch 1.3
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 0
 excerpt: Dispatch provides a declarative CI/CD platform for rapidly deploying Cloud Native applications and enabling enterprises to rapidly build, test and manage applications' lifecycle using GitOps processes.

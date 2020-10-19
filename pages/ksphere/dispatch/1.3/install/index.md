@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Installation
 title: Dispatch Installation on Konvoy
 menuWeight: 40
-beta: true
+beta: false
 excerpt: Install and Configure Dispatch
 ---
 # Prerequisites
@@ -27,7 +27,7 @@ The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/solutions/ks
     spec:
       addons:
       - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-        configVersion: stable-1.16-1.3.0
+        configVersion: stable-1.17-1.3.0
         addonsList:
         - name: dispatch
           enabled: true
@@ -44,6 +44,14 @@ The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/solutions/ks
     ```bash
     helm test dispatch-kubeaddons
     ```
+
+## Configuring the Dispatch installation
+
+Dispatch installation can be customized by setting various options via `values.yaml` if using `dispatch init` command or via `values` field in Dispatch Addon configuration.
+
+| Field | Type | Default value | Description |
+| ----- | ---- | ------------- | ----------- |
+| `dispatch.defaultDashboard`   | String (one of `dispatch` or `tekton`) | `dispatch` | Specify the default dashboard to link the PipelineRun Details link(s) on SCM page |
 
 # Next steps
 

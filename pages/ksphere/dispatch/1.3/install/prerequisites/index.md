@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Prerequisites
 title: Prerequisites
 menuWeight: 10
-beta: true
+beta: false
 excerpt: Supported operating systems, packages, and hardware configurations
 ---
 The following sections describe the operating systems, software packages and hardware configurations required to run Dispatch.
@@ -58,9 +58,8 @@ If you will be installing Dispatch on Konvoy, be aware that Konvoy supports only
 |-----|-----|-----|
 | [Kubernetes](https://kubernetes.io/) |   | Container orchestration manager  |
 | [Prometheus](https://prometheus.io/) |   |  An open-source monitoring system  |
-| Tiller | 2.14.2 or later  |   |
 | [Traefik](https://docs.traefik.io/) |    |Open source edge router  |
-| [Helm](https://helm.sh/) |  2 | Package manager for Kubernetes |
+| [Helm](https://helm.sh/) |  3 | Package manager for Kubernetes |
 
 For more details, see the [Konvoy documentation](https://docs.d2iq.com/ksphere/konvoy/).
 

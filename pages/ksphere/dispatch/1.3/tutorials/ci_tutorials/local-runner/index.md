@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Run pipelines locally
 navigationTitle: Running pipelines locally
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 70
 excerpt: This tutorial describes how to trigger pipelines locally
@@ -133,7 +133,7 @@ dispatch ci run local --task unit-test-simple
 
 - This command assumes that the git repo (directory containing `.git` folder) exists in the current working directory. You can override it using the `--git-repo` flag.
 - To retain the cluster (for debugging, reuse etc.,) pass `--skip-cluster-delete` flag.
-- To install certain manifests into the cluster (such as installing tiller service or any other bootstrap manifests), `--with-file` flag can be specified.
+- To install certain manifests into the cluster, `--with-file` flag can be specified.
 - Both `--task` flag and `--with-file` flag can be specified multiple number of times.
 
 **Note** These commands take a while if you are running for the first time, but the subsequent runs are faster.

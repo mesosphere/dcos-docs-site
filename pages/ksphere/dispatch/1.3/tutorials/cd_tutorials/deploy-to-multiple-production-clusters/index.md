@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Deploy an application to multiple production clusters
 navigationTitle: Deploy an application to multiple production clusters
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 105
 excerpt: This tutorial describes how to deploy an application to multiple production clusters.

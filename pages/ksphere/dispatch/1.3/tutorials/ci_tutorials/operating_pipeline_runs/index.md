@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Operating Pipeline Runs
 title: Operating Pipeline Runs
 menuWeight: 90
-beta: true
+beta: false
 excerpt: This tutorial describes how to operate a pipeline run from the Dashboard. 
 ---
 

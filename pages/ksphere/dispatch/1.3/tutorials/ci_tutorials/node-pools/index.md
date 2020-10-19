@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Node Pools with Dispatch and Konvoy
 title:  Node Pools with Dispatch and Konvoy
 menuWeight: 20
-beta: true
+beta: false
 excerpt: Use node pools with Dispatch and Konvoy
 ---
 

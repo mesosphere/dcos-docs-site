@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Importing tasks into a Dispatchfile
 navigationTitle: Import tasks into a Dispatchfile
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 30
 excerpt: This tutorial describes how to import tasks from another Dispatchfile

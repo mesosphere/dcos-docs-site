@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Operations
 title: Operations
 menuWeight: 50
-beta: true
+beta: false
 excerpt: Operational Day Two processes for D2iQ Dispatch.
 ---
 This section covers garbage collection, logging, monitoring, and scaling your Dispatch deployment.

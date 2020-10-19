@@ -2,7 +2,7 @@
 layout: layout.pug
 title: Configuring Cron Triggers
 navigationTitle: Configure Cron Based Triggers
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 60
 excerpt: Schedule CI pipeline runs using cron expressions

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: 1.3.0
 title: Release Notes 1.3.0
 menuWeight: 10
-beta: true
+beta: false 
 excerpt: View release-specific information for Dispatch 1.3.0 
 ---
 
@@ -13,11 +13,10 @@ excerpt: View release-specific information for Dispatch 1.3.0
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and signed on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Dispatch.</p>
 
-## v1.3.0 Beta 2 - Released September 14, 2020
-Document Modified Date: Released September 14, 2020
+## v1.3.0 - Released October 27, 2020
+Document Modified Date: Released October 19, 2020
 
 This document describes the new features, caveats, and resolved issues of D2iQ Dispatch. 
-__**This is a Beta release & for Evaluation only and NOT for Production use.**__
 
 ### Disclaimer
 
@@ -30,7 +29,7 @@ To install Dispatch, follow one of the two options below:
 
 - **Upgrade**: Update the `configVersion` for `https://github.com/mesosphere/kubeaddons-dispatch` in your `cluster.yaml` .
 
-1. Update the following *example* snippet from `cluster.yaml` to upgrade Dispatch 1.2.x to 1.3.0-beta1.
+1. Update the following *example* snippet from `cluster.yaml` to upgrade Dispatch 1.2.x to 1.3.0.
 
 ```yaml
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
@@ -44,7 +43,7 @@ It should read:
 
 ```yaml
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.16-1.3.0-beta1
+    configVersion: stable-1.18-1.3.0
     addonsList:
     - name: dispatch
       enabled: true
@@ -63,19 +62,21 @@ helm test dispatch-kubeaddons
 
 | Frontend Language | Version |
 | ------------------ | ------- |
-|Starlark | 0.8-beta1 |
-|CUE | 0.6-beta1 |
-|YAML | 0.5-beta1 |
-|JSON | 0.5-beta1 |
+|Starlark | 0.8 |
+|CUE | 0.6 |
+|YAML | 0.5 |
+|JSON | 0.5 |
 
 ### Improvements since v1.2.0
 
 - Upgraded Tekton to v0.14.2 and Tekton dashboard to v0.8.0.
-- Upgraded ArgoCD to v1.6.2. 
-- Updated UI to support Build view including:
-  - Viewing logs, artifacts and Dispatchfile.
-  - Support for stopping and rerunning Pipelines.
+- Upgraded ArgoCD to v1.6.2.
+- Added support for Helm v3
+- Updated UI to support Build view, including:
+  - Viewing logs, artifacts, and Dispatchfile.
+  - Support for stopping, and rerunning Pipelines.
   - Support for incremental build numbers of Pipelineruns.
+  - Default to Dispatch Dashboard URL for PipelineRun Details link. This is configurable by setting `dispatch.defaultDispatch` in values.yaml
 - Support for label matching for pull request actions in Dispatchfile.
 - Added `timeout` field to Repository objects. Allows overriding of the default PipelineRun timeout duration for a Repository.
 - Added a new `--timeout` flag to the dispatch CI repository create command that takes a [Go duration string](https://golang.org/pkg/time/#ParseDuration) (e.g., `2h30m45s`). This sets the PipelineRun timeout for the Repository being created.
@@ -99,6 +100,7 @@ helm test dispatch-kubeaddons
 - The `--scm-secret` CLI option is now deprecated. Use `--service-account` instead, and the SCM secret will be automatically determined.
 - The `--dispatchfile-repository-scm-secret` CLI option is deprecated. The SCM secret for accessing the Dispatchfile is determined from the `--service-account` and the `--dispatchfile-repository`. 
 - The `--secret` option has been removed from the dispatch login commands, use `--service-account` instead. 
+- The dispatch init CLI command now uses Helm v3. 
 
 ### Resolved Issues
 
@@ -108,3 +110,26 @@ helm test dispatch-kubeaddons
 - Fixed a bug where created artifacts were not collected after task failure.
 - Fixed Dispatchfile YAML parser to handle quoted "on" keyword correctly.
 - Fixed the pipeline generation to handle large webhook event payloads.
+- Fixed log pruning job's permissions in multi-instance mode.
+- Added a "Failed" cron status when CrobJob names exceed 52 characters.
+- Fixed "Not Supported" error for GitHub release trigger.
+
+### Notes
+
+- The new pipeline auto-cancellation feature automatically cancels pipelines for old commits when new commits are added to your pull request. This can help relieve load on your Kubernetes cluster from unneeded builds. This feature is enabled by default for repositories but each repository can opt out, if needed.
+
+  To opt-out, set disableAutoCancel: true on your Repository object, for example:
+
+  ```apiVersion: dispatch.d2iq.io/v1alpha1
+  kind: Repository
+  metadata:
+   name: dispatch
+  spec:
+    repository: mesosphere/dispatch
+    secret: github
+    serviceAccount: builder
+    disableAutoCancel: true
+  ```
+
+- PipelineRun Details link(s) on SCM page now default to the Dispatch UI dashboard. This can be overridden to default to the old behavior of linking to the Tekton dashboard by setting `dispatch.defaultDashboard` to tekton instead of `dispatch` (Default value).
+

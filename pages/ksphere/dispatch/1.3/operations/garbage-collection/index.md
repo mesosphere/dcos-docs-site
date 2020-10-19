@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Garbage Collection
 title: Dispatch Garbage Collection
 menuWeight: 20
-beta: true
+beta: false
 excerpt: Configure garbage collection of Dispatch resources.
 ---
 
