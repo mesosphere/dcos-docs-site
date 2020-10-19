@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configure a Repository
 title: Setting up a Repository in Dispatch
 menuWeight: 20
-beta: true
+beta: false
 excerpt: Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 
@@ -122,7 +122,7 @@ In our example:
 * The `test` task runs a step that runs all defined Go unit tests.
 * There are two `actions` defined:
   * One that runs the `test` task on any push to the `master` branch.
-  * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/build`.
+  * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/test`.
 
 After you have saved the file as `Dispatchfile`, run `dispatch ci render` to output the pipeline rendered as YAML to check for any syntax errors.
 
@@ -397,7 +397,7 @@ To add a Repository select **+ Add Repository**.
 
 ### Pipeline auto-cancellation
 
-Dispatch includes a feature where it will automatically stop running builds from previous commits for a given branch or pull request. This helps to ensure that the cluster is not wasting resources on obsolete builds. This feature is enabled by default, but it can be disable by setting `--disable-auto-cancel` on the Dispatch CLI:
+Dispatch includes a feature where it will automatically stop running builds from previous commits for a given branch or pull request. This helps to ensure that the cluster is not wasting resources on obsolete builds if the pull request or branch is updated before the build completes. This feature is enabled by default, but it can be disable by setting `--disable-auto-cancel` on the Dispatch CLI:
 
 ```sh
 dispatch ci repository create --service-account=team-1 --disable-auto-cancel

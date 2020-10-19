@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Helloworld in JSON
 title: Setting up Helloworld on GitHub in JSON
 menuWeight: 50
-beta: true
+beta: false
 excerpt: Using Json, configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 

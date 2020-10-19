@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 80
-beta: true
+beta: false
 excerpt: Diagnosing issues with your Dispatch deployment
 ---
 This section will show you how to diagnose issues with your Dispatch deployment, generate diagnostic bundles, and resolve problems.

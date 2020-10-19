@@ -3,6 +3,6 @@ layout: layout.pug
 navigationTitle:  Grafana
 title: Grafana
 menuWeight: 20
-beta: true
+beta: false
 excerpt: Setting up Grafana dashboards
 ---

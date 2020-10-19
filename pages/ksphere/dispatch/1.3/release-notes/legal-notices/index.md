@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 title: Legal Notices
-beta: true
+beta: false
 menuWeight: 90
 excerpt: List of Third-party trademarks mentioned in the Dispatch documentation
 ---

@@ -107,7 +107,7 @@ In our example:
 * The `test` task runs a step that runs all defined Go unit tests.
 * There are two `actions` defined:
   * One that runs the `test` task on any push to the `master` branch.
-  * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/build`.
+  * One that runs the `test` task on pushes to pull requests or any comments in a pull request that start with `/test`.
 
 After you have saved the file as `Dispatchfile`, run `dispatch ci render` to output the pipeline rendered as YAML to check for any syntax errors.
 

@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Configure Rolling Deployments
 title: Rolling Deployments
 menuWeight: 10
-beta: true
+beta: false
 excerpt: Implement GitOps processes to Continuously Deploy applications
 ---
 

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Continuous Integration
 title: Continuous Integration
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 10
 ---
@@ -17,7 +17,7 @@ Configure various service account and ssh credentials for usage by Dispatch to a
 
 ## Configuring ChatOps to trigger pipelines via GitHub comments
 
-Configure your `Dispatchfile` to enable triggers based on GitHub comments. [Follow the tutorial here](./triggering-pipelines-using-chatops/).
+Configure your `Dispatchfile` to enable triggers based on GitHub comments. [Follow the tutorial here](./triggering-pipelines-using-chatops/)
 
 ## Configuring cron based triggers in Dispatchfile
 
@@ -25,7 +25,7 @@ Configure your `Dispatchfile` to enable cron based triggers for your pipelines. 
 
 ## Configure a git based code repository for access by Dispatch
 
-Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile. [Follow the tutorial here](repo-setup/)
+Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile. [Follow the tutorial here](./repo-setup/)
 
 ## Building images with Buildkit
 
@@ -37,8 +37,8 @@ Configure and run a Dispatchfile locally, powered by [KIND](https://kind.sigs.k8
 
 ## Import tasks and functions into a Dispatchfile
 
-Extract tasks and functions into a separate "utility" Dispatchfile then import them from a main Dispatchfile. [Follow the tutorial here](import-tasks-from-dispatchfile/).
+Extract tasks and functions into a separate "utility" Dispatchfile then import them from a main Dispatchfile. [Follow the tutorial here](./import-tasks-from-dispatchfile/)
 
 ## Logging walkthrough
 
-Understand how to triage configuration and runtime errors in pipelines using CLI and/or GUI. Learn commands to triage failures across multiple Dispatch components. [Follow the tutorial here](./logging/)  
+Understand how to triage configuration and runtime errors in pipelines using CLI and/or GUI. Learn commands to triage failures across multiple Dispatch components. [Follow the tutorial here](./logging/)

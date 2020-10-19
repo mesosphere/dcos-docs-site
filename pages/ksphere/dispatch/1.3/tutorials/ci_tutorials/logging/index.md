@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Logging walkthrough
 title: Logging walkthrough
 menuWeight: 80
-beta: true
+beta: false
 excerpt: This tutorial explores various Dispatch component logs and pipeline logs using CLI/GUI.
 ---
 This tutorial walks you through leveraging CLI commands like `dispatch` and `kubectl` to view logs of multiple components in Dispatch and to debug various stages of a pipeline lifecycle.

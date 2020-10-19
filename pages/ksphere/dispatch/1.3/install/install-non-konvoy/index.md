@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Install on non-Konvoy Kubernetes
 title: Install on non-Konvoy Kubernetes
 menuWeight: 30
-beta: true
+beta: false
 excerpt: Install and Configure Dispatch on non-Konvoy Kubernetes clusters.
 ---
 # Installing Dispatch into a non-Konvoy Cluster
@@ -13,21 +13,9 @@ excerpt: Install and Configure Dispatch on non-Konvoy Kubernetes clusters.
 Before you install Dispatch, be sure you have completed the [Prerequisites](../prerequisites/).
 
 * Configure kubectl to point to the correct Kubernetes cluster.
-* Install Tiller.
 * Install the [Dispatch CLI](../cli/).
 * Set up [credentials](../../tutorials/ci_tutorials/credentials/).
-* Install Helm v2. Dispatch uses Helm v2; Helm v3 has not been tested with Dispatch.
-
-To install Dispatch, be sure that you have a cluster with Tiller installed.
-
-## Install Tiller
-
-
-```bash
-kubectl create serviceaccount -n kube-system tiller
-kubectl create clusterrolebinding tiller --clusterrole=cluster-admin --serviceaccount=kube-system:tiller
-helm init --wait --service-account tiller
-```
+* Install Helm v3.
 
 ## Install Dispatch into a Cluster via Dispatch CLI
 
@@ -134,13 +122,11 @@ dispatch -n dispatch-work create repository
 
 To install Dispatch into a Kubernetes cluster:
 
-1.  Execute the command `dispatch init`, which will use Helm to perform the installation in a release called "dispatch":
+1.  Execute the command `dispatch init`, which will use Helm v3 to perform the installation in a release called "dispatch":
 
     ```bash
     dispatch init
     ```
-
-    <p class=message--note"><strong>NOTE: </strong>Dispatch uses Helm v2. Helm v3 has not been tested with Dispatch.</p>
 
 1. Set `--namespace` to install Dispatch into a namespace other than `dispatch`.
 1. If you want to restrict the namespaces that Dispatch has access to, set the `--watch-namespace` flag for each namespace Dispatch should have access to.
@@ -191,7 +177,7 @@ dispatch init --set buildkit.enabled=true
 
 ## Install Dispatch into a Cluster via Helm
 
-Dispatch can be installed using Helm directly. Dispatch uses Helm v2.
+Dispatch can be installed using Helm v3 directly.
 
 1. Add the Dispatch Helm repository:
 

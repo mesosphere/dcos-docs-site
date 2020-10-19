@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Continuous Deployment
 title: Continuous Deployment
-beta: true
+beta: false
 category: K-Sphere
 menuWeight: 20
 excerpt: Tutorials for implementing Continuous Deployment for your application.
