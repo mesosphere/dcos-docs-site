@@ -18,7 +18,7 @@ This procedure requires the following items and configurations:
 - Konvoy v1.5.0 or above, [installed and configured](/ksphere/konvoy/1.5/install/) for your Amazon EKS cluster, on your machine.
 - Kommander v1.2.0 or above, [installed and configured](/ksphere/kommander/1.2/install/) on your machine.
 
-<p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s) with administrative privileges. Refer to the Amazon <a href="https://aws.amazon.com/eks/" target="_blank">EKS</a> for setup and configuration information. </p>
+<p class="message--note"><strong>NOTE: </strong>This procedure assumes you have an existing and spun up Amazon EKS cluster(s) with administrative privileges. Refer to the Amazon <a href="https://aws.amazon.com/eks/" target="_blank">EKS</a> for setup and configuration information.</p>
 
 ## Attach Amazon EKS Clusters to Kommander
 
@@ -33,25 +33,6 @@ This procedure requires the following items and configurations:
 
    ```bash
    kubectl get no
-   ```
-
-1. The metrics Kommander displays on its cluster view do not come from Prometheus. They come from the Kubernetes metrics API. You must expose this API using a [metrics server][k8s-metrics-server] to make it available. To do that, you must [deploy the metrics server][deploy-metrics-server], otherwise the EKS cluster may fail to stay attached. To deploy the server, run the following command:
-
-   ```bash
-   kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/download/v0.3.6/components.yaml
-   ```
-
-1. Verify the `metrics-server` deployment is running the desired number of pods with the following command:
-
-   ```bash
-   kubectl get deployment metrics-server -n kube-system
-   ```
-
-1. The output will look something like:
-
-   ```bash
-   NAME             READY   UP-TO-DATE   AVAILABLE   AGE
-   metrics-server   1/1     1            1           6m
    ```
 
 1. Create a service account for Kommander on your EKS cluster.
@@ -147,6 +128,8 @@ This procedure requires the following items and configurations:
 
 1. Select the **Submit** button.
 
+<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated kubeaddons, it will fail to stay attached in the Kommander UI. If this happens, please check if there are any pods that are not getting the resources required.</p>
+
 ## Related information
 
 For information on related topics or procedures, refer to the following:
@@ -159,6 +142,4 @@ For information on related topics or procedures, refer to the following:
 
 - [Working with Kommander Clusters](/ksphere/kommander/1.2/clusters/)
 
-[deploy-metrics-server]: https://docs.aws.amazon.com/eks/latest/userguide/metrics-server.html
 [eks]: https://aws.amazon.com/eks/
-[k8s-metrics-server]: https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/#the-metrics-api
