@@ -19,7 +19,7 @@ Projects support the management of configmaps, secrets, services, quotas, and ro
 
 ## Project Namespace
 
-Projects Namespace isolate configurations across clusters. Individual standard Kubernetes namespaces are automatically created on all clusters that belong to the project. When creating a new project, you can customize the Kubernetes namespace name that is created. It is the grouping of all of these individual standard Kubernetes namespaces that make up the concept of a Project Namespace. A Project Namespace is a Kommander specific concept.
+Project Namespaces isolate configurations across clusters. Individual standard Kubernetes namespaces are automatically created on all clusters belonging to the project. When creating a new project, you can customize the Kubernetes namespace name that is created. It is the grouping of all of these individual standard Kubernetes namespaces that make up the concept of a Project Namespace. A Project Namespace is a Kommander specific concept.
 
 ## Create a Project
 When you create a Project, you must specify a Project Name, a Namespace Name (optional) and a way to allow Kommander to determine which Kubernetes clusters will be part of this project.
