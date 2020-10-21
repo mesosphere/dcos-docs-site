@@ -36,7 +36,7 @@ Here is an example of what it looks like to create a project using the Kommander
 
 ## Create a Project - Declarative YAML Object Method
 
-The below is a sample YAML Kubernetes object for creating a Kommander Project. It is only an example and will not work verbatim since it depends on a workspace name that has been previously created (which will not exist by default in your cluster). Use this as an example format and fill in the workspace name and namespaceName appropriately along with the proper labels.
+The following sample is a YAML Kubernetes object for creating a Kommander Project. This example does not work verbatim because it depends on a workspace name that has been previously created and does not exist by default in your cluster.  Use this as an example format and fill in the workspace name and namespace name appropriately along with the proper labels.
 
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: Project
