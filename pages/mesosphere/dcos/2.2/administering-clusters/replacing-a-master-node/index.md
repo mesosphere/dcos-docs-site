@@ -22,7 +22,7 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
 
     For more information about backing up the DC/OS identity and access management CockroachDB database, see [How do I backup the IAM database?](/mesosphere/dcos/2.2/installing/installation-faq/#iam-backup)
 
-1. Back up /var/lib/dcos/exhibitor-tls-artifacts if it exists.
+1. [enterprise type="inline" size="small" /] Back up the Exhibitor TLS artifacts in `/var/lib/dcos/exhibitor-tls-artifacts` if it exists.
 
     ```bash
     tar czf exhibitor-tls-artifacts.tar.gz /var/lib/dcos/exhibitor-tls-artifacts
@@ -36,13 +36,17 @@ You can replace a master node in an existing DC/OS cluster. You should keep in m
     If you have configured **static master discovery** in your `config.yaml` file (`master_discovery: static`):
     - Verify that the new server has the same internal IP address as the old master node.
     - Verify that the old server is completely unreachable from the cluster.
-    - Copy exhibitor-tls-artifacts.tar.gz to the new master node.
+    - [enterprise type="inline" size="small" /] If the Exhibitor TLS artifacts existed on the old master node, then copy `exhibitor-tls-artifacts.tar.gz` to the new master node.
         ```bash
         scp exhibitor-tls-artifacts.tar.gz root@<new-master-host>:/root
         ```
-    - Extract the archive on the master
+        Extract the archive on the master
         ```bash
         tar xzf /root/exhibitor-tls-artifacts.tar.gz -C /
+        ```
+    - [enterprise type="inline" size="small" /] If the Exhibitor TLS artifacts did not exist on the old master node, then ensure Exhibitor TLS is disabled in the `config.yaml` file:
+        ```yaml
+        exhibitor_tls_required: false
         ```
     - Install the new master as you would normally.
     
