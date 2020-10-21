@@ -29,6 +29,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
    * The DC/OS GUI may not provide an accurate list of services.
 - An upgraded DC/OS Marathon leader cannot connect to the leading Mesos master until it has also been upgraded. The DC/OS UI cannot be trusted until all masters are upgraded. There are multiple Marathon scheduler instances and multiple Mesos masters, each being upgraded, and the Marathon leader may not be the Mesos leader.
 - Task history in the Mesos UI will not persist through the upgrade.
+- DC/OS 2.0 added TLS for Exhibitor.  Exhibitor TLS is automatically enabled for static master clusters during installation of DC/OS 2.0 or later. It is not enabled during an upgrade from DC/OS 1.13 or earlier.  Once the cluster has been upgraded to DC/OS 2.0 or later, [Exhibitor can be manually configured to use TLS](/mesosphere/dcos/2.0/security/ent/tls-ssl/exhibitor).  [enterprise type="inline" size="small" /]
 
 ## Supported upgrade paths
 The following tables list the supported upgrade paths for DC/OS 2.1.

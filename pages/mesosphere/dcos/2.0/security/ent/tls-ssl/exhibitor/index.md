@@ -9,22 +9,27 @@ enterprise: true
 
 # Verifying that Exhibitor is secured 
 
-Starting with DC/OS 2.0, Exhibitor is secured by default in static master clusters. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
-```bash
+Starting with DC/OS 2.0, Exhibitor is secured by default during installation of static master clusters. It is not secured if DC/OS was upgraded from DC/OS 1.13 or earlier. To verify that Exhibitor is secured on your cluster, run the following command on one of your master nodes: 
+
 
     curl -LI \
         --cacert /var/lib/dcos/exhibitor-tls-artifacts/root-cert.pem \
         --cert /var/lib/dcos/exhibitor-tls-artifacts/client-cert.pem \
         --key /var/lib/dcos/exhibitor-tls-artifacts/client-key.pem \
         https://localhost:8181/exhibitor/v1/ui/index.html
-```
 
 If you see the following, Exhibitor has been secured on your cluster:
-```bash
+
     HTTP/1.1 200 OK
     Content-Type: text/html
     Content-Length: 0
     Server: Jetty(1.5.6-SNAPSHOT)
+
+If Exhibitor is not secured, you can follow the next section to manually secure Exhibitor.
+
+If you do not want to add TLS security to Exhibitor, we recommend that you add the following configuration to your cluster `config.yaml` file:
+```yaml
+exhibitor_tls_required: false
 ```
 
 # Securing Exhibitor
