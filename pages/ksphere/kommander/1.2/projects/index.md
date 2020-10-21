@@ -31,7 +31,7 @@ To determine which Kubernetes clusters will be part of this project, you can eit
 To create a Project, you can either use the Kommander UI or create a Project object on the Kubernetes cluster where Kommander is running (using kubectl or the Kubernetes API). The latter allows you to configure Kommander resources in a declarative way. It’s available for all kinds of Kommander resources.
 
 
-## Creating a Project - UI Method
+## Create a Project - UI Method
 Here is an example of what it looks like to create a project using the Kommander UI:
 
 ![Create Project](/ksphere/kommander/1.2/img/create-project-form.png)
