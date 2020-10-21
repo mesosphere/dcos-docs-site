@@ -14,7 +14,7 @@ excerpt: View release-specific information for Dispatch 1.3.0
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and signed on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Dispatch.</p>
 
 ## v1.3.0 - Released October 27, 2020
-Document Modified Date: Released October 19, 2020
+Document Modified Date: Released October 27, 2020
 
 This document describes the new features, caveats, and resolved issues of D2iQ Dispatch. 
 
@@ -132,4 +132,3 @@ helm test dispatch-kubeaddons
   ```
 
 - PipelineRun Details link(s) on SCM page now default to the Dispatch UI dashboard. This can be overridden to default to the old behavior of linking to the Tekton dashboard by setting `dispatch.defaultDashboard` to tekton instead of `dispatch` (Default value).
-
