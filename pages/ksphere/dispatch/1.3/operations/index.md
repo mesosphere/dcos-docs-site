@@ -34,4 +34,4 @@ Recommendations on [scaling ArgoCD](scaling/) for Dispatch.
 
 # Resource Management
 
-Configure toleration's, affinity, nodeSelector etc., on pods launched from pipelineruns by creating a tekton's [pod template](https://github.com/tektoncd/pipeline/blob/v0.14.2/docs/podtemplates.md) and configuring the repository to use it. [Follow the guide here](resource-management/)
+You can configure tolerations, affinity, nodeSelector, etc. on pods launched from pipelineruns by creating a Tekton [pod template](https://github.com/tektoncd/pipeline/blob/v0.14.2/docs/podtemplates.md) and configuring the repository to use it. [Follow the guide here.](resource-management/)
