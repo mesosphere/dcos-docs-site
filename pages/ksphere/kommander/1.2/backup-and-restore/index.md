@@ -9,7 +9,7 @@ category: K-Sphere
 menuWeight: 14
 ---
 
-Kommander stores all data as CRDs in the Kubernetes API and can be backed up and restored using the [standard Konvoy documentation](/ksphere/konvoy/1.5/backup/).
+Kommander stores all data as CRDs in the Kubernetes API and can be backed up and restored using the [standard Konvoy documentation][konvoy-backup].
 
 <div class="message--note" style="margin-top: 20px;">
 <p style="margin-top: 10px; margin-bottom: 0px;"><strong>NOTE: </strong><code>kubecost</code> installs with Kommander and has the following storage requirements:</p>
@@ -19,3 +19,5 @@ Kommander stores all data as CRDs in the Kubernetes API and can be backed up and
 <li><code>alertmanager</code>: 2Gi</li>
 </ul>
 </div>
+
+[konvoy-backup]: /ksphere/konvoy/latest/backup/
