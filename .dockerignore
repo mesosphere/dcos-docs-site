@@ -1,6 +1,5 @@
 .git
 .github
-pages
 node_modules
 build
 .revision
