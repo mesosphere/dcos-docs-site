@@ -45,18 +45,18 @@ Kommander now supports installing and running in an air gapped environment, eith
 - grafana: `4.6.3`
 
 ## Fixed and Improved Issues 
-* Improved Access Control for editing/deleting actions. 
-* Changed routing from hash-based to history-based to allow redirects after login.
-* Added SAML IDP.
-* Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters.
-* Added a setting to configure thresholds for resource warnings. 
-* Attaches EKS clusters now can show metrics.
-* Added Infrastructure provider management on global level.
-* Fixed an issue where logout was not deleting any cookies.
-* Fixed UI crashes when kubecost was down.
-* Fixed catalog API occasionaly returned 500.
-* Fixed deleting cluster labels was impossible.
-* Fixed counting self-attached host cluster against license count.
-* Smaller UX Bugs and Improvements.
+- Improved Access Control for editing/deleting actions. 
+- Changed routing from hash-based to history-based to allow redirects after login.
+- Added SAML IDP.
+- Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters.
+- Added a setting to configure thresholds for resource warnings. 
+- Attached EKS clusters now show metrics.
+- Added Infrastructure provider management on global level.
+- Fixed an issue where logout was not deleting any cookies.
+- Fixed UI crashes when kubecost was down.
+- Fixed catalog API occasionaly returned 500.
+- Fixed deleting cluster labels was impossible.
+- Fixed counting self-attached host cluster against license count.
+- Smaller UX Bugs and Improvements.
 
 [install_airgapped](https://docs.d2iq.com/ksphere/kommander/1.2/install-airgapped/) 
