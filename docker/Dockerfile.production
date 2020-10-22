@@ -11,6 +11,10 @@ RUN apk add --no-cache \
 
 RUN mkdir /src
 WORKDIR /src
-ADD . /src/
 
-RUN npm install
+RUN mkdir /npm
+ADD package.json /npm/
+RUN cd /npm && npm install
+
+ADD . /src/
+RUN ln -s /npm/node_modules /src/node_modules
