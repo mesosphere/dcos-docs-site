@@ -42,7 +42,7 @@ pipeline {
         sh '''
           docker pull mesosphere/docs:latest
           cp docker/Dockerfile.production.dockerignore .dockerignore
-          docker build -f docker/Dockerfile.production -t mesosphere/docs:latest .
+          docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
         '''
       }
     }
