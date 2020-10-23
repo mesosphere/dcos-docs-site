@@ -63,13 +63,13 @@ DC/OS 2.2 fixes the following issues:
 - Hostname Resolution was failing for VIPs. (COPS-6411)  
 - Using file-based secrets caused mount failure and issues in the json editor. (COPS-6085, D2IQ-68114)  
 - dse-0-node failed with ssl verification during Datastax-DSE upgrade from 2.1.2-5.1.2 to 2.2.0-5.1.2 on DC/OS 2.0.2. (COPS-6116)
-- COPS-5979
-- COPS-5915
-- COPS-6555
-- COPS-5629
-- COPS-6491
-- COPS-6111
-- COPS-6166
+- CRDB was running and bouncer can not connect to it, because the bouncer's SELECT query fails. (COPS-5979) 
+- An unknown response code was received when querying a DC/OS endpoint. (COPS-5915, D2IQ-65296)  
+- DC/OS UI showed unexpected information in **Services->Tasks table->CPU** column. (COPS-6555)
+- Telgraf was consuming too much CPU. (COPS-5629)
+- UI failed to show manually assigned port on endpoints tab. (COPS-6491)
+- Exhibitor was writing JNA files to /tmp. (COPS-6111, D2IQ-68109) 
+- Renaming or deleting folders via the Jupyter UI resulted in a rename error and delete failed. (COPS-6166)
 - COPS-6232
 - COPS-6326
 - COPS-6295
