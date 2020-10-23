@@ -163,7 +163,7 @@ spec:
         kubeaddons.mesosphere.io/name: elasticsearch
   chartReference:
     chart: stable/kibana
-    # repo: https://kubernetes-charts.storage.googleapis.com/
+    # repo: https://mesosphere.github.io/charts/
     version: 3.2.5
     values: |
       ---
