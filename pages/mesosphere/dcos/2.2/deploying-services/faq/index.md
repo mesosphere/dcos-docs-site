@@ -62,7 +62,7 @@ For more information, see the installation [documentation](/mesosphere/dcos/2.2/
 
 ## What versions of kernel, local OS, Docker Engine, Union Mount are recommended?
 
-We recommend using CoreOS, matched with its correct versions and sensible defaults of Docker, filesystem, and other settings.
+Please see [Version Policy](../../../version-policy) for details.
 
 [1]: /mesosphere/dcos/2.2/networking/load-balancing-vips/
 [2]: /mesosphere/dcos/2.2/networking/
