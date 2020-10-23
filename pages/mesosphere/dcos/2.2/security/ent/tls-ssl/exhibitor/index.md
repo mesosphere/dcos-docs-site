@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Securing Exhibitor with mutual TLS
 title: Securing Exhibitor with mutual TLS
-menuWeight: 500
+menuWeight: 450
 excerpt: Securing DC/OS with a TLS enabled Exhibitor ensemble
 enterprise: true
 ---

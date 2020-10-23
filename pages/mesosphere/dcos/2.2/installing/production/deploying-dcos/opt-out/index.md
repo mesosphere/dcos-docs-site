@@ -4,6 +4,7 @@ navigationTitle:  Opt-Out
 excerpt: Disabling authentication and telemetry for your cluster
 title: Opt-Out
 model: /mesosphere/dcos/2.2/data.yml
+render: mustache
 menuWeight: 20
 ---
 

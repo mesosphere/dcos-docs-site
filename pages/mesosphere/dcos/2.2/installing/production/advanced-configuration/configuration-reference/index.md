@@ -108,15 +108,16 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [adminrouter_x_frame_options](#adminrouter-x-frame-options)    | Set the `X-Frame-Options` header value for the DC/OS UI. Default is set to `DENY` |
 | [auth_cookie_secure_flag](#auth-cookie-secure-flag-enterprise)    | Indicates whether to allow web browsers to send the DC/OS authentication cookie through a non-HTTPS connection. [enterprise type="inline" size="small" /] |
 | [bouncer_expiration_auth_token_days](#bouncer-expiration-auth-token-days-enterprise) | Sets the auth token time-to-live (TTL) for Identity and Access Management. [enterprise type="inline" size="small" /]|
-| [ca_certificate_path](#ca-certificate-path-enterprise)                   | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
-| [ca_certificate_key_path](#ca-certificate-key-path-enterprise)           | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
-| [ca_certificate_chain_path](#ca-certificate-chain-path-enterprise)       | Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [ca_certificate_path](#ca-certificate-path-enterprise)                   | Use this to set a custom CA certificate. See [Configuring a Certificate Authority](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom) for details. [enterprise type="inline" size="small" /] |
+| [ca_certificate_key_path](#ca-certificate-key-path-enterprise)           | Use this to set a custom CA certificate. See [Configuring a Certificate Authority](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom) for details. [enterprise type="inline" size="small" /] |
+| [ca_certificate_chain_path](#ca-certificate-chain-path-enterprise)       | Use this to set a custom CA certificate. See [Configuring a Certificate Authority](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom) for details. [enterprise type="inline" size="small" /] |
+| [ca_truststore_path](#ca-truststore-path-enterprise)       | Use this to set additional CA certificates to be trusted within the cluster. See [Configuring a Certificate Authority](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom) for details. [enterprise type="inline" size="small" /] |
 | [exhibitor_tls_required](#exhibitor-tls-required-enterprise)             | When `true` DC/OS will fail to launch when Exhibitor TLS initialization fails [enterprise type="inline" size="small" /]  |
 | [exhibitor_bootstrap_ca_url](#exhibitor-bootstrap-ca-url-enterprise)     | Specify a custom CA service URL for exhibitor TLS bootstrapping. This is an advanced option and should only be used when performing non-standard installations [enterprise type="inline" size="small" /]  |
-| [external_certificate_path](#external-certificate-path-enterprise)                   | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
-| [external_certificate_key_path](#external-certificate-key-path-enterprise)           | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
-| [external_certificate_servernames](#external-certificate-servernames-enterprise)       | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
-| [external_certificate_validation_disable](#external-certificate-validation-disable-enterprise)       | Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference. [enterprise type="inline" size="small" /] |
+| [external_certificate_path](#external-certificate-path-enterprise)                   | Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details. [enterprise type="inline" size="small" /] |
+| [external_certificate_key_path](#external-certificate-key-path-enterprise)           | Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details. [enterprise type="inline" size="small" /] |
+| [external_certificate_servernames](#external-certificate-servernames-enterprise)       | Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details. [enterprise type="inline" size="small" /] |
+| [external_certificate_validation_disable](#external-certificate-validation-disable-enterprise)       | Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details. [enterprise type="inline" size="small" /] |
 | [license_key_contents](#license-key-contents-enterprise)    | Optional override parameter to provide the license key contents directly in the config.yaml. If this parameter is specified, any key saved to `genconf/license.txt` will be ignored. [enterprise type="inline" size="small" /]  |
 | [iam_ldap_sync_interval](#iam-ldap-sync-interval-enterprise) | Interval in seconds between LDAP synchronization operations. [enterprise type="inline" size="small" /] |
 | [permissions_cache_ttl_seconds](#permissions-cache-ttl-seconds-enterprise)   | The maximum number of seconds for permission changes to propagate through the entire system. [enterprise type="inline" size="small" /] |
@@ -255,15 +256,19 @@ For more information, see the [security](/mesosphere/dcos/{{ model.folder_versio
 
 ### ca_certificate_path   [enterprise type="inline" size="small" /]              
 
-Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) documentation for a detailed configuration parameter reference.
+Use this to set a custom CA certificate. See [Configuring a Certificate Authority](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom) documentation for details.
 
 ### ca_certificate_key_path  [enterprise type="inline" size="small" /]       
 
-Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) documentation for a detailed configuration parameter reference.
+Use this to set a custom CA certificate. See [Configuring a Certificate Authority](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom) documentation for details.
 
 ### ca_certificate_chain_path  [enterprise type="inline" size="small" /]
 
-Use this to set up a custom CA certificate. See [using a Custom CA Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom#configuration-parameter-reference) documentation for a detailed configuration parameter reference.
+Use this to set a custom CA certificate. See [Configuring a Certificate Authority](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ca-custom) documentation for details.
+
+### ca_truststore_path  [enterprise type="inline" size="small" /]
+
+Use this to set additional trusted CA certificates.
 
 ### exhibitor_tls_required [enterprise type="inline" size="small" /]
 
@@ -275,19 +280,19 @@ Optional parameter used for generating the TLS artifacts for the automated Exhib
 
 ### external_certificate_path [enterprise type="inline" size="small" /]
 
-Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details.
 
 ### external_certificate_key_path [enterprise type="inline" size="small" /]
 
-Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details.
 
 ### external_certificate_servernames [enterprise type="inline" size="small" /]
 
-Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details.
 
 ### external_certificate_validation_disable [enterprise type="inline" size="small" /]
 
-Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+Use this to set a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/{{ model.folder_version }}/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) for details.
 
 ### calico_network_cidr
 

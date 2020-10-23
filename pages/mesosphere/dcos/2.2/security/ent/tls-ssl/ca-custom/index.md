@@ -22,17 +22,21 @@ Using a custom CA certificate for your DC/OS Enterprise cluster provides several
 
 # Contents
 - [Custom CA certificate support](#custom-ca-certificate-support)
-- [Glossary](#glossary) for general definition of terms 
-- [Adding or replacing a custom CA certificate](#adding-or-replacing-a-custom-ca-certificate)
+- [Definitions](#definitions)
+- [Create signing CA files](#create-signing-ca-files)
+- [DC/OS Configuration](#dcos-configuration)
+- [Installing a cluster with a custom CA Certificate](#installing-a-cluster-with-a-custom-ca-certificate)
+- [Changing the CA Certificate in an existing cluster](#changing-the-ca-certificate-in-an-existing-cluster)
+- [Verify the new certificates](#verify-the-new-certificates)
 - [Example use cases](#example-use-cases)
 
 # Custom CA certificate support
 - Only RSA and Elliptic Curve (EC) certificates are supported.
 - DC/OS Enterprise 1.9 and earlier do **not** support custom signing certificates.
-- DC/OS Enterprise 2.1.1, 2.1.0, 2.0.0–2.0.6, and all versions of DC/OS 1 do **not** support modification (addition, removal, or replacement) of signing certificates in an existing cluster.
-- If Calico is enabled in DC/OS Enterprise 2.1 and later, modifying a CA certificate will restart Docker on agent nodes, stopping any workloads running on the agent.
+- DC/OS Enterprise 2.1 and earlier do **not** support modification (addition, removal, or replacement) of signing certificates in an existing cluster.
+- If Calico is enabled, modifying a CA certificate will restart Docker on agent nodes, stopping any workloads running on the agent.
 
-# Glossary 
+# Definitions 
 - **Signing certificate:** A CA certificate that will be used to issue certificates for DC/OS components such as Admin Router. The custom signing certificate is either an intermediate signing certificate (issued by another CA) or a root CA certificate (self-signed by the custom CA). Provide the signing certificate in PEM format (starting with `-----BEGIN CERTIFICATE-----`).
 
 - **Signing key:** The signing key associated with the signing certificate. Provide the signing key in unencrypted PKCS8 format (starting with `-----BEGIN PRIVATE KEY-----`).
@@ -44,13 +48,11 @@ Using a custom CA certificate for your DC/OS Enterprise cluster provides several
 - **DC/OS configuration file:** The file which contains the DC/OS configuration parameters. The DC/OS configuration file is typically called `config.yaml` and must be present in the `$DCOS_INSTALL_DIR/genconf/` directory on the bootstrap node during the installation.
 
 
-# Adding or replacing a custom CA certificate
-
-## Signing CA files
+# Create signing CA files
 
 Prepare files containing the signing certificate, the signing key, and, if required, the signing certificate chain.
 
-A simple way to generate the CA is to use the OpenSSL command line. First create a configuration file:
+One way to generate a signing certificate and key is to use the OpenSSL command line. First create a configuration file:
 ```bash
 cat > openssl-ca.cnf <<EOF
 HOME                = .
@@ -90,15 +92,7 @@ openssl req -config openssl-ca.cnf -newkey rsa:4096 -nodes -keyout dcos-ca.key -
 
 You should review the security requirements for your organization to determine a suitable way to create or obtain CA certificates.
 
-On the bootstrap node copy the files to the `$DCOS_INSTALL_DIR/genconf/` directory.
-
-For security reasons, the installer will not copy the signing key file from the bootstrap node to the master nodes.
-Manually distribute the signing key to every DC/OS master node **before starting the installation**.
-If you copy the signing key file over the network onto the master nodes, the network channel must be adequately protected.
-
-On each master node create the directory `/var/lib/dcos/pki/tls/CA/private/` owned by the `root` user and with permission mode 0700. Copy the signing key file to `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. Ensure that the signing key file is owned by the `root` user and is only accessible to the owner (permission mode 0600).
-
-## DC/OS Configuration
+# DC/OS Configuration
 
 Add the paths for the signing CA files to the DC/OS configuration file.
 The paths must be relative to `$DCOS_INSTALL_DIR` and hence will always start with `genconf/`.
@@ -124,11 +118,86 @@ If `ca_certificate_path` points to a self-signed root certificate then omit this
 
 Otherwise `ca_certificate_chain_path` points to a file containing the complete chain of certificates up to a self-signed root certificate, but excluding the signing certificate contained in `ca_certificate_path`. The order is significant: the first certificate must verify the signing certificate in `ca_certificate_path` and each subsequent certificate must verify the preceding certificate.
 
-## Install or patch DC/OS
+### ca\_truststore\_path
+Path (relative to the `$DCOS_INSTALL_DIR`) to a file containing additional trusted CA certificates. This should be a file containing one or more PEM certificates. For example: `genconf/dcos-truststore.pem`.
 
-Proceed with the installation or patch upgrade by running the appropriate `dcos_generate_config.ee.sh` command as described in the [documentation of the Advanced Installer](/mesosphere/dcos/2.2/installing/production). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+The signing certificate root CA is automatically trusted and does not need to be added here.
 
-## Verify installation
+
+# Installing a cluster with a custom CA Certificate
+
+Create the signing files [as described above](#create-signing-ca-files) and copy them to the `$DCOS_INSTALL_DIR/genconf/` directory on the bootstrap node.
+
+Modify the DC/OS Configuration file [as described above](#dcos-configuration) to point to the signing files.
+
+Proceed with the installation by running the appropriate `dcos_generate_config.ee.sh` command as described in the [documentation of the Advanced Installer](/mesosphere/dcos/2.2/installing/production/deploying-dcos/installation). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+
+For security reasons, the installer will not copy the signing key file from the bootstrap node to the master nodes.
+Manually distribute the signing key to every DC/OS master node before running the `dcos-install.sh` script.
+If you copy the signing key file over the network onto the master nodes, the network channel must be adequately protected.
+
+On each master node:
+1. Copy the `dcos-install.sh` script to the node.
+2. Create the directory `/var/lib/dcos/pki/tls/CA/private/` owned by the `root` user and with permission mode 0700.
+3. Copy the signing key file to `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. Ensure that the signing key file is owned by the `root` user and is only accessible to the owner (permission mode 0600).
+4. Run the `dcos-install.sh` script as described in the installation instructions.
+
+# Changing the CA Certificate in an existing cluster
+
+To replace the CA certificate (for example, if it is expiring or compromised), perform the following procedure consisting of three patch upgrades.  This procedure ensures that the cluster stays healthy during the certificate replacement.  If Calico is enabled (the default setting), then workloads may be stopped.
+
+## Add new CA certificate to truststore
+
+In the first patch upgrade, add the new CA certificate to the truststore.
+
+```yaml
+ca_truststore_path: genconf/new-ca.crt
+```
+
+Proceed with the patch upgrade by running the appropriate `dcos_generate_config.ee.sh` command as described in the [documentation of the Advanced Installer](/mesosphere/dcos/2.2/installing/production/patching). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+
+Run the `dcos_node_upgrade.sh` script on each cluster node as described in the patch instructions.
+
+## Replace the CA signing certificate
+
+In the second patch upgrade, replace the signing certificate. Modify the truststore to refer to the old CA certificate.
+
+```yaml
+ca_certificate_path: genconf/new-ca.crt
+ca_certificate_key_path: genconf/new-ca.key
+ca_certificate_chain_path: genconf/new-ca-chain.crt
+ca_truststore_path: genconf/old-ca.crt
+```
+
+Note that this example assumes the signing certificate is an intermediate certificate. If it is self-signed root certificate, remove the `ca_certificate_chain_path` attribute.
+
+Proceed with the patch upgrade by running the appropriate `dcos_generate_config.ee.sh` command as described in the [documentation of the Advanced Installer](/mesosphere/dcos/2.2/installing/production/patching). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+
+For security reasons, the installer will not copy the signing key file from the bootstrap node to the master nodes.
+Manually distribute the signing key to every DC/OS master node **before starting the upgrade**.
+If you copy the signing key file over the network onto the master nodes, the network channel must be adequately protected.
+
+On each master node in turn:
+1. Copy the `dcos_node_upgrade.sh` script to the node.
+2. Ensure the directory `/var/lib/dcos/pki/tls/CA/private/` exists and is owned by the `root` user with permission mode 0700.
+3. Copy the signing key file to `/var/lib/dcos/pki/tls/CA/private/custom_ca.key`. Ensure that the signing key file is owned by the `root` user and is only accessible to the owner (permission mode 0600).
+4. Run the `dcos_node_upgrade.sh` script as described in the patch instructions.
+5. Before proceeding, validate the patch as described in the patch instructions.
+
+Run the `dcos_node_upgrade.sh` script on each agent node as described in the patch instructions.
+
+## Remove old CA certificate from truststore
+
+This step is optional, but recommended. If this step is not done, then certificates signed by the old CA certificate will continue to be trusted. If the old CA certificate may have been compromised or may be compromised within its remaining lifetime, performing this step is required.
+
+In the third patch upgrade, remove the old CA from the truststore by removing the `ca_truststore_path` attribute from the DC/OS configuration file.
+
+Proceed with the patch upgrade by running the appropriate `dcos_generate_config.ee.sh` command as described in the [documentation of the Advanced Installer](/mesosphere/dcos/2.2/installing/production/patching). Note that the current working directory when executing `dcos_generate_config.ee.sh` must be the `$DCOS_INSTALL_DIR` directory.
+
+Run the `dcos_node_upgrade.sh` script on each cluster node as described in the patch instructions.
+
+# Verify the new certificates
+
 To verify that the DC/OS Enterprise cluster was installed with the custom signing certificate, use your browser to access the DC/OS web UI and inspect the certificate and check that the CA has the expected DN.
 
 Alternatively, you can follow these steps:

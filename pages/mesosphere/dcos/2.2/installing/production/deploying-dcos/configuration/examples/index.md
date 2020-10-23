@@ -79,6 +79,12 @@ exhibitor_storage_backend: zookeeper
 exhibitor_zk_hosts: `<list-of-ip-port>`
 exhibitor_zk_path: <filepath-to-data>
 exhibitor_storage_backend: aws_s3
+external_certificate_path: <path-to-certificate>
+external_certificate_key_path: <path-to-private-key>
+external_certificate_servernames:
+  - hostname
+  - hostname
+external_certificate_validation_disable: <true|false>
 aws_access_key_id: <key-id>
 aws_region: <bucket-region>
 aws_secret_access_key: <secret-access-key>
