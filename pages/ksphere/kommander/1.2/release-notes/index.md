@@ -10,7 +10,7 @@ enterprise: false
 <!-- markdownlint-disable MD034 -->
 
 # Release notes for Kommander 1.2
-Kommander 1.2 was released on ??, October 2020 
+Kommander 1.2 was released on 27, October 2020 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -29,6 +29,7 @@ Kommander provides a command center for all your cloud native management needs i
 | **Default**        | 1.17.3  |
 
 # New Features and Capabilities 
+
 ## Air gapped environments
 Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapping is ideal for instances where high-security is a must or where Internet connectivity is either undesirable or unavailable. For more details on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped]. 
 
