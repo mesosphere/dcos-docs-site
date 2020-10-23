@@ -37,11 +37,12 @@ DC/OS now allows an operator to rotate the custom CA certificates by simply upda
 # Component Versions
 DC/OS 2.2.0 includes the following component version updates:
 
+- Marathon 1.11.16
+
+
 # Fixed and Improved Issues
 
 DC/OS 2.2 fixes the following issues:
-
-
 
 - systemd errors were being thrown during patch upgrades. (COPS-6506)
 - dcos-fluent-bit.service was consuming too much memory. (COPS-6218) 
