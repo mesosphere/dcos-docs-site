@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle:  Configuring HAProxy in Front of Admin Router
 title: Configuring HAProxy in Front of Admin Router
-menuWeight: 6
+menuWeight: 450
 excerpt: Using the HAProxy to set up an HTTP proxy for the DC/OS Admin Router
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
