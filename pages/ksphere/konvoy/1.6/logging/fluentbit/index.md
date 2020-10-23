@@ -20,4 +20,4 @@ For information on related topics or procedures, refer to the following:
 
 - [Logging](..)
 - [Resource Recommendations](../recommendations)
-- [Disable Audit Log Collection](../../tutorials/disable-audit-logs)
+- [Disable Audit Log Collection](../disable-audit-logs)

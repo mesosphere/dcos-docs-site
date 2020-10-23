@@ -246,7 +246,7 @@ spec:
       rootVolumeSize: 40
       rootVolumeType: Standard_LRS
       imagefsVolumeEnabled: false
-      type: Standard_D2_v3
+      type: Standard_D2s_v3
   sshCredentials:
     user: centos
     publicKeyFile: konvoy-ssh.pub

@@ -19,7 +19,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.18.9 or later
+* [kubectl][install_kubectl] v1.18.10 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -75,7 +75,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=<provisioner type> --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@testing-2.5.0-3,/opt/konvoy/artifacts/kubeaddons-kommander@v1.2.0-rc.2,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=<provisioner type> --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons,/opt/konvoy/artifacts/kubeaddons-kommander,/opt/konvoy/artifacts/kubeaddons-dispatch [--cluster-name <your-specified-name>]
    ```
 
 In case of on-premises, the `provisioner type` should be equal to `none`, for AWS it is `aws`.
@@ -94,16 +94,13 @@ In case of on-premises, the `provisioner type` should be equal to `none`, for AW
    ...
      addons:
      - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-       configVersion: testing-2.5.0-3
        addonsList:
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-      configVersion: stable-1.17-1.2.2
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: v1.2.0-rc.2
       addonsList:
       - name: kommander
         enabled: true
@@ -283,7 +280,7 @@ spec:
 
 This will configure containerd with the provided credentials.
 The presence of `default: true` also instructs Konvoy to configure [containerd mirrors][containerd_mirrors] with all the repositories of the images that are used during installation.
-The file `images.json` contains the full list of images.
+The file `images.json` contains the full list of images, and the corresponding image tars will be located in the `images/` directory in the air-gapped distribution.
 
 The values for `imageRegistries` can also be specified as environment variables, for example when the file contains `password: ${REGISTRY_PASSWORD}`, the value of `password` will be set to what `REGISTRY_PASSWORD` is in your environment.
 You are also able to not substitute a value from your environment by escaping it with a `$` prefix, for example `$${SHOULD_NOT_SUBSTITUTE}`.
@@ -301,11 +298,14 @@ spec:
 ```
 
 Konvoy provides a convenient CLI command to setup your registry with the required images which you must run in order to populate your registry with all necessary images prior to installing Konvoy.
-Running the command below pulls all of the images, retags them, and pushes them to the specified image registry:
+Running the command below loads all of the images, retags them, and pushes them to the specified image registry:
 
 ```text
 konvoy config images seed
 ```
+
+In addition to the default `images.json` file and `images/` directory, it is also possible to use the same `konvoy config images seed` with additional images.
+In your working directory, create an `extras/images/<some-directory>/` and place an `images.json` and the corresponding image tars.
 
 ## Configure the control plane
 
@@ -390,7 +390,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.18.9: testing-2.5.0-3
+          1.17.11: testing-1.17-1.2.0-beta.1
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -445,22 +445,19 @@ spec:
 ...
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-      configVersion: testing-2.5.0-3
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-      configVersion: stable-1.17-1.2.2
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: v1.2.0-rc.2
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-rc.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
       addonsList:
       - name: kommander
         enabled: false

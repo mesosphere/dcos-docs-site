@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting Konvoy Cluster Storage
-menuWeight: 30
+menuWeight: 280
 excerpt: Understanding and troubleshooting storage in your Konvoy clusters
 beta: true
 enterprise: false

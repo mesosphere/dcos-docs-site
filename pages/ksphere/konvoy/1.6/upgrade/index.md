@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Upgrade
 title: Upgrade
-menuWeight: 5
+menuWeight: 100
 excerpt: Upgrade a Konvoy cluster
 beta: true
 enterprise: false

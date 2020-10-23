@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Networking
 title: Networking
-menuWeight: 8
+menuWeight: 110
 excerpt: Configure networking for Konvoy cluster
 beta: true
 enterprise: false

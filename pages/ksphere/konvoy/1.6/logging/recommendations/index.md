@@ -184,4 +184,4 @@ For information on related topics or procedures, refer to the following:
 
 - [Logging](../)
 - [Fluentbit Addon](../fluentbit)
-- [Disable Audit Log Collection](../../tutorials/disable-audit-logs)
+- [Disable Audit Log Collection](../disable-audit-logs)

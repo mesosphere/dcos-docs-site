@@ -116,7 +116,7 @@ Requires a custom domain with the following:
       --from-file ca.crt=<path to ca bundle> \
       --from-file tls.crt=<path to certificate file> \
       --from-file tls.key=<path to private key> \
-      --dry-run \
+      --dry-run=client \
       --save-config -o yaml > extras/kubernetes/secret.yaml
     ```
 
