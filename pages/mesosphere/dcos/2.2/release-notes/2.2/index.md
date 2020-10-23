@@ -39,27 +39,30 @@ DC/OS 2.2.0 includes the following component version updates:
 
 # Fixed and Improved Issues
 
-- COPS-6506
-COPS-6218
-- COPS-6360
-- COPS-6335
-- COPS-6355
-- COPS-6190
-- COPS-5920
-- COPS-6534
-- COPS-6381
-- COPS-6519
-- COPS-6512
-- COPS-5897
-- COPS-6529
-- COPS-6533
-- COPS-6324
-- COPS-6341
-- COPS-6139
-- COPS-6411
-- COPS-6422
-- COPS-6085
-- COPS-6116
+DC/OS 2.2 fixes the following issues:
+
+
+
+- systemd errors were being thrown during patch upgrades. (COPS-6506)
+- dcos-fluent-bit.service was consuming too much memory. (COPS-6218) 
+- Selecting *Install DC/OS CLI* presents a URL to a binary that is incorrect. (COPS-6360)
+- Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode. (COPS-6335, D2IQ-70037) 
+- Tasks would not start until Telegraf created /run/dcos/telegraf/dcos_statsd.sock. (COPS-6355)
+- DC/OS installations on Flatcar Linux would not finish due to Java processing issues. (COPS-6422, D2IQ-70809, COPS-6190) 
+- Unmounting issues in Mesos external persistent volumes. (COPS-5920)
+- RootCA bundle was not written soon enough for Docker to find it before it exhausts startup limits on a reboot. (COPS-6534)
+- UCR fetcher had issues pulling down images. (COPS-6381) 
+- dcos-net was not always able to set all Spartan IP addresses after node reboot. (COPS-6519)
+- dcos-telegraf.socket was down after a patch. (COPS-6512)
+- Marathon migration failed while upgrading from 1.13.7 to 2.0.2. (COPS-5897)
+- Nested Marathon groups were not inheriting enforceRole behavior from top-level groups. (COPS-6529)
+- enforceRole was automatically being set to false on all Marathon groups. (COPS-6533)
+- Selecting *Run* on a job or selecting *Delete* to remove a group had no effect and threw an exception. (COPS-6324) 
+- etcd provided an incorrect response in calicoctl. (COPS-6341)  
+- Users were unable to remove empty folders from Metronome. (COPS-6139) 
+- Hostname Resolution was failing for VIPs. (COPS-6411)  
+- Using file-based secrets caused mount failure and issues in the json editor. (COPS-6085, D2IQ-68114)  
+- dse-0-node failed with ssl verification during Datastax-DSE upgrade from 2.1.2-5.1.2 to 2.2.0-5.1.2 on DC/OS 2.0.2. (COPS-6116)
 - COPS-5979
 - COPS-5915
 - COPS-6555
@@ -83,7 +86,7 @@ COPS-6218
 - COPS-4944
 
 ## Mesos Fixed and Improved Issues
-For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
+For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
 
 ## Marathon Fixed and Improved Issues
 For a detailed description on updates to Marathon, see the [changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
