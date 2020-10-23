@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: GPU
-title: GPU
-menuWeight: 8
+navigationTitle: GPUs
+title: GPUs
+menuWeight: 150
 excerpt: Configure GPU for Konvoy cluster
 beta: true
 enterprise: false
@@ -68,7 +68,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.5.0-3
+    configVersion: testing-1.17-2.4.0
     addonsList:
     - name: nvidia
       enabled: true
@@ -144,7 +144,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.5.0-3
+    configVersion: testing-1.17-2.4.0
     addonsList:
     - name: nvidia
       enabled: true
@@ -197,7 +197,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.5.0-3
+    configVersion: testing-1.17-2.4.0
     addonsList:
 ......
     - name: nvidia

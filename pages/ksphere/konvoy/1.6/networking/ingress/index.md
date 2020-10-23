@@ -59,7 +59,7 @@ For information on related topics or procedures, refer to the following:
 
 - [List of Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
 - [Traefik v1.7 docs](https://doc.traefik.io/traefik/v1.7/)
-- [Tutorial: Configure Ingress for load balancing](../../tutorials/use-ingress-load-balancer)
+- [Tutorial: Configure Ingress for load balancing](../use-ingress-load-balancer)
 - [Load Balancing](../load-balancing)
 
 [traefik]: https://landscape.cncf.io/category=service-proxy&format=card-mode&grouping=category&selected=traefik

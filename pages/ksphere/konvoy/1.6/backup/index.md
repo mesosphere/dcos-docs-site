@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Back up and restore
+navigationTitle: Back up and Restore
 title: Back up and restore
-menuWeight: 12
+menuWeight: 210
 excerpt: Back up and restore the Konvoy cluster
 beta: true
 enterprise: false

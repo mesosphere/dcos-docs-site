@@ -22,7 +22,7 @@ spec:
   kubernetes:
     containerNetworking:
       calico:
-        version: v3.16.1
+        version: v3.16.3
 ```
 
 For more information, see:

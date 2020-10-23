@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Logging
-title: Logging
-menuWeight: 11
+navigationTitle: Logging and Audits
+title: Logging and Audits
+menuWeight: 190
 excerpt: Collect and visualize the logs from Kubernetes, platform services, and applications deployed on the Konvoy cluster
 beta: true
 enterprise: false
@@ -178,5 +178,5 @@ The default configuration runs the curator job every day at mid-night and garbag
 For information on related topics or procedures, refer to the following:
 
 - [Resource Recommendations](./recommendations)
-- [Disable Audit Logs in Fluentbit](../tutorials/disable-audit-logs/)
+- [Disable Audit Logs in Fluentbit](disable-audit-logs/)
 - [Fluentbit Addon](fluentbit/)

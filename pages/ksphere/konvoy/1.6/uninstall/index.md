@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Uninstall
 title: Uninstall
-menuWeight: 14
+menuWeight: 225
 excerpt: Remove a Konvoy cluster and related infrastructure
 beta: true
 enterprise: false

@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Install
 title: Install
-menuWeight: 4
+menuWeight: 80
 excerpt: Install a Konvoy cluster
 beta: true
 enterprise: false

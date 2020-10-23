@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Reference information
-title: Reference information
-menuWeight: 15
+navigationTitle: API
+title: API
+menuWeight: 260
 excerpt: Review detailed configuration and command-line reference information
 beta: true
 enterprise: false

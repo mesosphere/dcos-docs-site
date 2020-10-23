@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Access and Authentication
-title: Access and Authentication
-menuWeight: 10
+navigationTitle: Authentication and Access
+title: Authentication and Access
+menuWeight: 90
 excerpt: Manage cluster security, authentication, and authorization for the Konvoy cluster
 beta: true
 enterprise: false

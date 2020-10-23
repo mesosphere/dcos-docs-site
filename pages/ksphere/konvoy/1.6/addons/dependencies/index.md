@@ -72,4 +72,4 @@ For information on related topics or procedures, refer to the following:
 
 - [Introduction to KBA](../../addons)
 - [Current KBA Release Information](../../release-notes/kubernetes-base-addon)
-- [Create an Addon Repository](../../tutorials/addon-repositories)
+- [Create an Addon Repository](../addon-repositories)

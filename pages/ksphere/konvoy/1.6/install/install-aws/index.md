@@ -16,7 +16,7 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) command line utility
 * [Docker](https://docs.docker.com/get-docker/) _version 18.09.2 or newer_
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.18.9 or newer_ (for interacting with the running cluster)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.18.10 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
   You must be authorized to create the following resources in the AWS account:
   * EC2 Instances
@@ -272,7 +272,7 @@ When the `konvoy up` completes its setup operations, the following files are gen
 [terraform_state]: https://www.terraform.io/docs/state/
 [cluster_configuration]: ../../reference/cluster-configuration
 [concepts]: ../../concepts
-[konvoy_init]: ../../reference/command-line-interface/konvoy-init
+[konvoy_init]: ../../cli/command-line-interface/konvoy-init
 [kubectl]: ../../access-authentication/access-konvoy#using-kubectl
 [ops_portal]: ../../access-authentication/access-konvoy#using-the-operations-portal
 [prerequisites]: #before-you-begin

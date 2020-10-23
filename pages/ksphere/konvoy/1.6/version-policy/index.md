@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Version Support Policy
 title: Version Support Policy
-menuWeight: 100
+menuWeight: 280
 excerpt: Konvoy's supported version policy
 beta: true
 enterprise: false
@@ -23,8 +23,8 @@ For example, Konvoy 1.5.0 supports:
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.4 |
-|**Maximum** | 1.18.9 |
-|**Default** | 1.18.9 |
+|**Maximum** | 1.18.10 |
+|**Default** | 1.18.10 |
 
 ## Supported operating systems
 

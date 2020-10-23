@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
-navigationTitle: Concepts and architecture
+navigationTitle: Architecture
 title: Concepts and architecture
-menuWeight: 3
+menuWeight: 40
 excerpt: Learn the key concepts and architectural components of a Konvoy cluster
 beta: true
 enterprise: false
