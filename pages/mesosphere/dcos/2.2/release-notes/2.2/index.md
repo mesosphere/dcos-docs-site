@@ -1,18 +1,18 @@
 ---
 layout: layout.pug
-navigationTitle: Release notes for 2.2
-title: Release notes for 2.2
+navigationTitle: DC/OS 2.2 Release Notes
+title: DC/OS 2.2 Release Notes
 menuWeight: 1
 render: mustache
-beta: true
+beta: false
 model:  /mesosphere/dcos/2.2/data.yml
 excerpt: Release notes for DC/OS 2.2, including Open Source attribution, and version policy.
 ---
-Mesosphere&reg; DC/OS&trade; 2.2 Beta 1 was released on 17, September 2020.
+Mesosphere&reg; DC/OS&trade; 2.2 was released on 29, October 2020.
 
-[button color="light" href="https://downloads.dcos.io/dcos/testing/2.2.0-beta1/commit/bc8a362bd72269db6fc0b0ac287dc8251d4b4b35/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
+[button color="light" href="??"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="https://downloads.mesosphere.io/dcos-enterprise/testing/2.2.0-beta1/commit/9d3b80b3206de4732ec81d8406f4ce1ac14a8406/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="??"]Download DC/OS Enterprise* [/button]
 
 New customers must contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
@@ -30,7 +30,7 @@ DC/OS's Universal Container Runtime (UCR) now supports external volumes provided
 Metronome based jobs can have one more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG based workflows in DC/OS. For more information, see [dependencies](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies).
 
 # Custom CA certificate rotation
-DC/OS now allows an operator to rotate the custom CA certificates by simply updating configuration settings during an upgrade. This feature ensures all the services that are using the custom CA based certificates are automatically updated after an upgrade.
+DC/OS now allows an operator to rotate the custom CA certificates by simply updating configuration settings during an upgrade. This feature ensures all the services that are using the custom CA based certificates are automatically updated after an upgrade. For more information, see [??]
 
 # Breaking changes
 
@@ -38,6 +38,49 @@ DC/OS now allows an operator to rotate the custom CA certificates by simply upda
 DC/OS 2.2.0 includes the following component version updates:
 
 # Fixed and Improved Issues
+
+- COPS-6506
+COPS-6218
+- COPS-6360
+- COPS-6335
+- COPS-6355
+- COPS-6190
+- COPS-5920
+- COPS-6534
+- COPS-6381
+- COPS-6519
+- COPS-6512
+- COPS-5897
+- COPS-6529
+- COPS-6533
+- COPS-6324
+- COPS-6341
+- COPS-6139
+- COPS-6411
+- COPS-6422
+- COPS-6085
+- COPS-6116
+- COPS-5979
+- COPS-5915
+- COPS-6555
+- COPS-5629
+- COPS-6491
+- COPS-6111
+- COPS-6166
+- COPS-6232
+- COPS-6326
+- COPS-6295
+- COPS-6328
+- COPS-4665
+- COPS-4616
+- COPS-1754
+- COPS-5520
+- COPS-6451
+- COPS-6321
+- COPS-3866
+- COPS-296
+- COPS-5481
+- COPS-4944
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/1ff2fcd90eabd98786531748869b8596120f7dfe/CHANGELOG)
