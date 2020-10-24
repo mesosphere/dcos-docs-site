@@ -135,6 +135,8 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [zk_agent_credentials](#zk-agent-credentials-enterprise)           | The ZooKeeper agent credentials. [enterprise type="inline" size="small" /] |
 
 
+soem tpyo!
+
 [oss type="inline" size="small" /]
 | Parameter                          | Description                                                                                                                                                |
 |------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------|
