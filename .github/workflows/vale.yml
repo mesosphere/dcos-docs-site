@@ -8,21 +8,8 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@master
-    - uses: jwalton/gh-find-current-pr@v1
-      id: findPr
+    - uses: pierrebeitz/vale-action@ce94dd2b4ef576bf1237f45bf2bbd9ed4877e740
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-    - name: File Changes
-      id: file_changes
-      uses: trilom/file-changes-action@a6ca26c14274c33b15e6499323aac178af06ad4b
-      with:
-        prNumber: ${{ steps.findPr.outputs.pr }}
-    - id: changed_files
-      run: |
-        files=$(cat $HOME/files.json | jq -c '[ .[] | select(endswith(".md")), "pages/index.md" ]')
-        echo "::set-output name=files::$files"
-    - uses: errata-ai/vale-action@75a4db25a0833de205ab750af4b4ed36e24280ec
-      with:
-        files: ${{ steps.changed_files.outputs.files }}
+        onlyAnnotateModifiedLines: true
       env:
         GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
