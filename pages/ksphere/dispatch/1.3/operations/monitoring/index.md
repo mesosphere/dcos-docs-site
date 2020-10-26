@@ -11,7 +11,7 @@ excerpt: Configure Prometheus monitoring and dashboards for Dispatch
 
 Dispatch integrates with Prometheus for metrics. In the D2iQ Konvoy Kubernetes distribution, Dispatch metrics and logging are automatically integrated with the Konvoy monitoring stack:
 
-* Metrics for dispatch components, pipelines, and tasks, are stored in Prometheus and can be visualized using the Dispatch Grafana dashboards, which are packaged with the Dispatch installation.
+* Metrics for Dispatch components, pipelines, and tasks, are stored in Prometheus and can be visualized using the Dispatch Grafana dashboards, which are packaged with the Dispatch installation.
 * Component and task logs are forwarded to Elastic and can be explored using Kibana.
 
 ## Set Up Monitoring for non-Konvoy clusters
