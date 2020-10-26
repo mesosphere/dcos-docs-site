@@ -131,7 +131,7 @@ In the next section, we are going to define the build specification in a file na
 
 # Adding a Dispatchfile to git repository
 
-In this tutorial, we are going to use [starlark](https://docs.bazel.build/versions/master/skylark/language.html) and create a file named `Dispatchfile` which holds our build specification. This is a step-by-step walk-through of creating our `Dispatchfile`:
+In this tutorial, we are going to use [Starlark](https://docs.bazel.build/versions/master/skylark/language.html) and create a file named `Dispatchfile` which holds our build specification. This is a step-by-step walk-through of creating our `Dispatchfile`:
 
 1. Declare the DSL (Domain Specific Language) syntax for our `Dispatchfile` using shebang:
 
