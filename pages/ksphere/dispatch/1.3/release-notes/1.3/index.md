@@ -131,4 +131,4 @@ helm test dispatch-kubeaddons
     disableAutoCancel: true
   ```
 
-- PipelineRun Details link(s) on SCM page now default to the Dispatch UI dashboard. This can be overridden to default to the old behavior of linking to the Tekton dashboard by setting `dispatch.defaultDashboard` to tekton instead of `dispatch` (Default value).
+- PipelineRun Details link(s) on SCM page now default to the Dispatch UI dashboard. This can be overridden to default to the old behavior of linking to the Tekton dashboard by setting `dispatch.dashboardMode` to `tekton` instead of `dispatch` (default value).
