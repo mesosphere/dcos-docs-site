@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Install
 title: Install
 menuWeight: 3
@@ -18,7 +18,7 @@ You must download Konvoy with Kommander, see the [Download Konvoy](https://docs.
 Download the tarball to your local Downloads directory.
 
 For example, if you are installing on MacOS, download the compressed archive to the default `~/Downloads` directory.
-Afterward, extract the tarball to your local system by running the following command. 
+Afterward, extract the tarball to your local system by running the following command.
 **Note** Check the name of the file that you downloaded, and change konvoy-kommander_darwin.tar.bz2 accordingly):
 
 ```

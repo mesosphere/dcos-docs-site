@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Centralized Monitoring
 title: Centralized Monitoring
 menuWeight: 7
-beta: true
+beta: false
 excerpt: Monitor clusters, created with Kommander, on any connected cluster
 ---
 

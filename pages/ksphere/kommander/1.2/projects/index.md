@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Projects
 title: Projects
 menuWeight: 8
 excerpt: Multi-cluster Configuration Management
 ---
 
-# Projects overview 
+# Projects overview
 Projects empower teams to deploy their configurations and services to clusters in a consistent way. Projects allow central IT or a business unit to share their Kubernetes clusters among several teams.
 Using Projects, Kommander is leveraging Kubernetes Cluster Federation (KubeFed) to coordinate the configuration of multiple Kubernetes clusters.
 

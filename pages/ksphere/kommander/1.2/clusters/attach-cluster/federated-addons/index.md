@@ -1,10 +1,9 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Federated Addons
 title: Federated Addons
 menuWeight: 5
-beta: true
 excerpt: How federated addons work
 ---
 

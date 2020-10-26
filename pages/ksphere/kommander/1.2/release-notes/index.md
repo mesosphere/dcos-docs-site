@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
