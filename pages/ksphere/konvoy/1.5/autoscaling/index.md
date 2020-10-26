@@ -337,7 +337,7 @@ spec:
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.12: stable-1.17-2.2.0
+          1.17.13: stable-1.17-2.2.0
 ```
 
 Putting it all together, the configuration would be as follows:
@@ -363,7 +363,7 @@ spec:
       kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.12: stable-1.17-2.2.0
+          1.17.13: stable-1.17-2.2.0
 ...
 ```
 

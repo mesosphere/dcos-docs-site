@@ -90,7 +90,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.17.12
+    version: 1.17.13
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
