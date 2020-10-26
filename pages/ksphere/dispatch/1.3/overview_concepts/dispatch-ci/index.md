@@ -14,7 +14,7 @@ In Dispatch, CI pipelines are configured using a [`Dispatchfile`](../dispatchfil
 
 # Configuration Format
 
-Dispatch supports several different configuration formats for you to choose from. Choose the format that you are most comfortable with.
+Dispatch supports several different configuration formats for you to choose from. Choose the format with which you are most comfortable.
 
 By default, the `cue` configuration format is used. However, at the top of your `Dispatchfile`, you can declare the `Dispatchfile` format using a shebang syntax, for example:
 
