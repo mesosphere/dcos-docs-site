@@ -48,12 +48,12 @@ In the above example:
 - The first rules prunes pipelines that are 30 days older OR has more than 100 runs.
 - The second rule applies to task(s) beginning with "unit-" and are atleast 7 days old OR has more than 200 runs. 
 
-These rules can be configured during dispatch install time and can be overridden per repository when creating the repository object. For example:
+These rules can be configured during Dispatch install time and can be overridden per repository when creating the repository object. For example:
 
 ```bash
 dispatch ci repository create --log-storage-rules='[{"maxBuildAge":30, "maxBuildRuns":100, "tasks":"*"}]' -ndispatch --service-account team-1
 ```
 
-This is useful to install dispatch without any rules and then add rules per repository later on. Repository CRD can also be edited post creation to update any rules.
+This is useful to install Dispatch without any rules and then add rules per repository later on. Repository CRD can also be edited post creation to update any rules.
  
 Log pruning is done by a cron job that runs once a day. The cron expression can be changed if you need to run this more frequently in the `{namespace}-log-pruner` cronjob. Note that the minimum value of build age is one day before you change the cron expression.
