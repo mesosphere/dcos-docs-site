@@ -85,7 +85,7 @@ In order to list pipeline runs:
 dispatch ci list pipelineruns
 ```
 
-Above command accepts an optional `namespace` flag to print pipelines from a specific namespace.
+The above command accepts an optional `namespace` flag to print pipelines from a specific namespace.
 
 To list the tasks in a pipeline run (also prints the status of the task):
 
@@ -93,7 +93,7 @@ To list the tasks in a pipeline run (also prints the status of the task):
 dispatch ci list tasks --pipelinerun <pipelineRunId>
 ```
 
-Both the above commands accepts `--json` flag for emitting JSON output for automation purposes
+Both the above commands accept `--json` flag for emitting JSON output for automation purposes
 
 To view the logs of a task in a pipeline (or the pipeline logs if the pipeline is still active):
 
