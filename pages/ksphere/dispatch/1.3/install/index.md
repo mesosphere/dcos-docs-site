@@ -45,7 +45,7 @@ The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/solutions/ks
     helm test dispatch-kubeaddons
     ```
 
-## Configuring the Dispatch installation
+## Configuring the Dispatch Installation
 
 Dispatch installation can be customized by setting various options via `values.yaml` if using `dispatch init` command or via `values` field in Dispatch Addon configuration.
 
