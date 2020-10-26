@@ -11,9 +11,9 @@ Dispatch uses MinIO internally to store temporary files during the build process
 
 ## Scaling
 
-Dispatch is configured to use MinIO as the default S3 compatible storage. MinIO can run in standalone or distributed mode. Dispatch supports installing minio in distributed mode for production environments.
+Dispatch is configured to use MinIO as the default S3 compatible storage. MinIO can run in standalone or distributed mode. Dispatch supports installing MinIO in distributed mode for production environments.
 
-By default, dispatch runs MinIO in Standalone mode. To set the MinIO HA values during install time via command line :
+By default, Dispatch runs MinIO in Standalone mode. To set the MinIO HA values during install time via command line :
 
 ```bash
 dispatch init --set minio.mode=distributed --set minio.replicas=6
@@ -27,4 +27,4 @@ To run it in the standalone mode (default behavior):
 dispatch init --set minio.mode=standalone
 ```
 
-Note that `replicas` is only relevant when running MinIO storage in distributed mode. Above values can be passed either via `values.yaml` file to `dispatch init` command or in the `values` field of the dispatch addon if using a Konvoy cluster accordingly.
+Note that `replicas` is only relevant when running MinIO storage in distributed mode. Above values can be passed either via `values.yaml` file to `dispatch init` command or in the `values` field of the Dispatch addon if using a Konvoy cluster accordingly.
