@@ -4,7 +4,7 @@ navigationTitle:  CD - GitOps
 title: Dispatch Continuous Deployment
 menuWeight: 30
 beta: false
-excerpt: Deploying cloud native applications into kubernetes.
+excerpt: Deploying cloud native applications into Kubernetes.
 ---
 Dispatch enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a Git repository.  This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
 
