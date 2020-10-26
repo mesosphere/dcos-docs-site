@@ -11,7 +11,7 @@ excerpt: How to configure canary deployment for your application
 
 In this tutorial we will extend our hello-world application to use canary deployment.
 
-Canary deployment is a deployment strategy where a new version of an application (called the canary) is deployed alongside the existing version (called the primary). The canary deployment is subjected to tests that check various metrics to determine application health. As the tests pass, more and more traffic is routed to the canary, until finally the canary is promoted to be the new primary, and the old primary is scaled down and terminated.
+Canary deployment is a deployment strategy where a new version of an application (called the canary) is deployed alongside the existing version (called the primary). The Canary deployment is subjected to tests that check various metrics to determine application health. As the tests pass, more and more traffic is routed to the Canary, until finally the Canary is promoted to be the new primary, and the old primary is scaled down and terminated.
 
 This tutorial leverages [Flagger](https://docs.flagger.app/) to manage canary deployment.
 
@@ -28,7 +28,7 @@ Flagger integrates with various service meshes: Istio, Linkerd, App Mesh, etc. F
 If you are running on Konvoy you can enable the `istio` kubeaddon in your `cluster.yaml` file. If you are running on a different Kubernetes distribution and installed Istio yourself, or you are using Flagger with a different service mesh, you must modify the configuration and steps in this tutorial. In general the steps should be quite similar, but there will be many differences in
 the details.
 
-To enable the `istio` kubeaddon, modify the addon list in your `cluster.yaml` file as follows:
+To enable the `istio` kubeaddon, modify the Addon list in your `cluster.yaml` file as follows:
 
 ```yaml
 - name: istio
@@ -66,7 +66,7 @@ kubectl label ns default istio-injection=enabled
 kubectl label ns default ca.istio.io/override="true"
 ```
 
-## Configuring canary deployment
+## Configuring Canary deployment
 
 Currently, the hello-world application's GitOps repository contains the following manifests:
 
@@ -136,15 +136,15 @@ Add the new `gateway.yaml` file to your GitOps repository, commit it, then push 
 
 ### Create the Canary resource
 
-Flagger performs progressive delivery and traffic routing between the new canary deployment and the existing primary deployment as configured by the Flagger Canary resource. The Canary resource spec has a couple of important sections (See [the Flagger documentation](https://docs.flagger.app/how-it-works#canary-deployment)):
+Flagger performs progressive delivery and traffic routing between the new Canary deployment and the existing primary deployment as configured by the Flagger Canary resource. The Canary resource spec has a couple of important sections (See [the Flagger documentation](https://docs.flagger.app/how-it-works#canary-deployment)):
 
-* `autoscalerRef` declares an HPA to use for scaling the primary and canary deployments.
+* `autoscalerRef` declares an HPA to use for scaling the primary and Canary deployments.
 
-* `service` is used to create an Istio  VirtualService  that is used to control traffic routing between the primary and canary deployments.
+* `service` is used to create an Istio  VirtualService  that is used to control traffic routing between the primary and Canary deployments.
 
 * `targetRef` is used to describe  the Deployment that this Canary manages.
 
-* `canaryAnalysis` describes how the canary deployment should be performed: how the canary's health is checked, how much and how quickly traffic should be shifted from the primary to the canary, whether to await final approval from a human before promoting a canary, etc.
+* `canaryAnalysis` describes how the Canary deployment should be performed: how the Canary's health is checked, how much and how quickly traffic should be shifted from the primary to the Canary, whether to await final approval from a human before promoting a Canary, etc.
 
 Add the following Canary resource to your GitOps repository:
 
@@ -287,12 +287,12 @@ Finally, enable mutual TLS between components. Istio on Konvoy enables mutual TL
 
 The `canaryAnalysis` section is used to configure Flagger's canary deployment behaviour.
 
-* `interval: 1m` the interval at which the canary deployment should proceed to between steps.
+* `interval: 1m` the interval at which the Canary deployment should proceed to between steps.
 * `maxWeight: 50` the percentage of traffic whereafter the canary deployment, if it still passes its tests, is promoted to primary.
-* `metrics`: various metrics that must succeed at every step for the canary to progress to the next step.
-* `stepWeight`: the percentage of traffic that is routed from the primary to the canary at every step.
-* `threshold:` maximum number of failed metric checks before the canary is rolled back.
-* `webhooks`: describes tests that must be performed at every step. In this case, we send a request to the Flagger loadtester tool that instructs it to send artificial traffic to our canary deployment. This generates metrics which are then used in our `metrics` section to determine application health.
+* `metrics`: various metrics that must succeed at every step for the Canary to progress to the next step.
+* `stepWeight`: the percentage of traffic that is routed from the primary to the Canary at every step.
+* `threshold:` maximum number of failed metric checks before the Canary is rolled back.
+* `webhooks`: describes tests that must be performed at every step. In this case, we send a request to the Flagger loadtester tool that instructs it to send artificial traffic to our Canary deployment. This generates metrics which are then used in our `metrics` section to determine application health.
 
 This  Canary  is a simple example. Have a look at the [Flagger documentation](https://docs.flagger.app/usage/progressive-delivery) for more information on how to configure a Canary release.
 
@@ -323,11 +323,11 @@ kubectl -n istio-system get svc istio-ingressgateway
 
 Copy the `EXTERNAL-IP` field and open it in your browser; you should see your application's web page displayed.
 
-## Performing a canary deployment
+## Performing a Canary deployment
 
-Now that the  Canary  is configured, we are ready to trigger a canary deployment of our application.
+Now that the  Canary  is configured, we are ready to trigger a Canary deployment of our application.
 
-We trigger a new canary by modifying our `hello-world` Deployment. We do so by following the normal Dispatch CI/CD workflow for the repository.
+We trigger a new Canary by modifying our `hello-world` Deployment. We do so by following the normal Dispatch CI/CD workflow for the repository.
 
 Follow these steps:
 
@@ -339,7 +339,7 @@ Follow these steps:
 1. Review and merge that pull request.
 1. Navigate to the Argo CD UI at `/dispatch/argo-cd`, then click the hello-world application and hit `Refresh`. This triggers deployment of the latest Docker image.
 
-If you watch the `hello-world` Deployment you'll notice that the image has been updated. This will trigger Flagger to scale up a pods for the canary deployment. You can follow the progress from the Events tab of the `hello-world` Canary in
+If you watch the `hello-world` Deployment you'll notice that the image has been updated. This will trigger Flagger to scale up a pods for the Canary deployment. You can follow the progress from the Events tab of the `hello-world` Canary in
 the ArgoCD UI, as well as by watching the Flagger logs as follows:
 
 ```bash
@@ -348,10 +348,10 @@ kubectl -n kubeaddons-flagger logs -l app.kubernetes.io/name=flagger -c flagger
 
 You'll see that after a few seconds Flagger detects that the `hello-world` Deployment was modified, and begins to deploy a new version of the application.
 
-It will scale up the new version, point the Flagger loadtester at the canary pods, measure traffic to those pods for request success rate and duration, and increase the proportion of traffic routed to the canary by 10% every minute.
+It will scale up the new version, point the Flagger loadtester at the Canary pods, measure traffic to those pods for request success rate and duration, and increase the proportion of traffic routed to the Canary by 10% every minute.
 
-Finally, after 5 minutes traffic reaches 50% and the canary is promoted to primary. The old pods are then terminated.
+Finally, after 5 minutes traffic reaches 50% and the Canary is promoted to primary. The old pods are then terminated.
 
 The ArgoCD UI is a great place to observe these changes as they occur. If you watch the `hello-world` VirtualService, you will notice that every minute the traffic weights are updated as more traffic is routed from the primary to the canary.
 
-You can also watch the Istio Canary dashboard in Grafana. The dashboard shows all canary deployments throughout all namespaces.
+You can also watch the Istio Canary dashboard in Grafana. The dashboard shows all Canary deployments throughout all namespaces.
