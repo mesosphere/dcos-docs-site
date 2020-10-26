@@ -131,15 +131,15 @@ In the next section, we are going to define the build specification in a file na
 
 # Adding a Dispatchfile to git repository
 
-In this tutorial, we are going to use [Starlark](https://docs.bazel.build/versions/master/skylark/language.html) and create a file named `Dispatchfile` which holds our build specification. This is a step-by-step walk-through of creating our `Dispatchfile`:
+In this tutorial, we are going to create a file named `Dispatchfile` which holds our build specification written in [CUE](https://cuelang.org/docs/). This is a step-by-step walk-through of creating our `Dispatchfile`:
 
 1. Declare the DSL (Domain Specific Language) syntax for our `Dispatchfile` using shebang:
 
     ```bash
-    #!mesosphere/dispatch-cue:v0.3
+    #!mesosphere/dispatch-cue:v0.6
     ```
 
-   This specifies to use version `0.3` of CUE DSL parser.
+   This specifies to use version `0.6` of CUE DSL parser.
 
 1.  Declare the git resource:
 
@@ -227,7 +227,7 @@ Hence, The entire `Dispatchfile` becomes:
 
 ```bash
 cat <<EOF | > Dispatchfile
-#!mesosphere/dispatch-cue:v0.3
+#!mesosphere/dispatch-cue:v0.6
 
 resource "helloworld-git": {
   type: "git"
