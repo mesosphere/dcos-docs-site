@@ -137,7 +137,7 @@
       },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "mesosphere/dcos/services/edge-lb/1.6/",
+        "ReplaceKeyPrefixWith": "mesosphere/dcos/services/edge-lb/1.7/",
         "HttpRedirectCode": "307"
       }
     },
