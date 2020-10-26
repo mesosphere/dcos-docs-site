@@ -156,7 +156,7 @@ it is a good start. -->
 
 In the previous example, we only ran our tests. Now let's build a Docker image.
 
-First, we need to add a new "docker-image" resource to the Dispatchfile. Dispatch uses this resource definition to identify the docker image that we are going to build, and push the
+First, we need to add a new "docker-image" resource to the Dispatchfile. Dispatch uses this resource definition to identify the Docker image that we are going to build, and push the
 resulting image to DockerHub. We add the "docker-image" resource below the "src-git" resource. The order in which they are defined is not important.
 
 ```bash
@@ -175,11 +175,11 @@ resource "docker-image": {
 ```
 
 Make sure you use your real DockerHub username. Running the pipeline defined in our Dispatchfile
-will push a new docker image called "hello-world" to your DockerHub account.
+will push a new Docker image called "hello-world" to your DockerHub account.
 
 If you are unsure exactly what changes to make, you can have a look at the diff [here](https://github.com/mesosphere/cicd-hello-world/compare/step_1).
 
-Next, we'll add a new "build" task definition that will build our docker image.
+Next, we'll add a new "build" task definition that will build our Docker image.
 We add the "build" task definition below the "test" task definition. The order
 in which tasks are defined is not important.
 
@@ -331,10 +331,10 @@ In [the commit
 log](https://github.com/your-user/cicd-hello-world/commits/master) you can see
 that the latest commit now shows a green checkmark, too. -->
 
-#### Push to a private docker registry
+#### Push to a private Docker registry
 
 
-If you want to push docker images to a private docker registry as part of your
+If you want to push Docker images to a private docker registry as part of your
 pipeline, say to `https://docker-registry.local/`, with service account `team-1`, you can execute the following command:
 
 ```sh
@@ -342,7 +342,7 @@ docker login https://docker-registry.local
 dispatch login docker  team-1
 ```
 
-After you have configured credentials for the service account to use when accessing the private docker registry, you can push your image to it by prefixing the image name with the hostname of the private docker registry in your Dispatchfile as follows:
+After you have configured credentials for the service account to use when accessing the private Docker registry, you can push your image to it by prefixing the image name with the hostname of the private Docker registry in your Dispatchfile as follows:
 
 ```bash
 resource "docker-image": {
@@ -436,7 +436,7 @@ created.)
 1. Click on the "Details" link next to "build". This takes you to the now-familiar Tekton dashboard.
 1. In the sidebar click on "PipelineRuns".
 1. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
-1. After it completes, if will push a docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
+1. After it completes, if will push a Docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
 
 You have successfully created a release.
 
