@@ -84,7 +84,7 @@ By default, Dispatch installs to `dispatch` namespace and can be overridden duri
 
 Rest of the tutorial assumes you are working with `default` namespace for pipelines. Add a `--namespace` flag to commands as applicable if you are  working with a different namespace.
 
-# Setup credentials & Service accounts
+# Setup Credentials & Service Accounts
 
 [Refer to this guide on setting up credentials](../../tutorials/ci_tutorials/credentials/).
 
@@ -151,9 +151,9 @@ In this tutorial, we are going to use [starlark](https://docs.bazel.build/versio
     }
     ```
 
-    Any valid kubernetes resource name can be chosen here.
+    Any valid Kubernetes resource name can be chosen here.
 
-1. Declare a docker image resource to push the new image to:
+1. Declare a docker image resource to which to push the new image:
 
     ```cue
     resource "docker-image": {
@@ -248,7 +248,7 @@ task "build": {
   steps: [
     {
       name: "docker-image"
-      image: "chhsiao/kaniko-executor"
+      image: "gcr.io/kaniko-project/executor"
       args: [
         "--destination=$(outputs.resources.docker-image.url)",
         "--context=/workspace/helloworld-git",
@@ -353,11 +353,11 @@ task:
 
 See full reference of a [Dispatchfile](../../references/pipeline-config-ref/).
 
-After setting up dispatch, adding relevant credentials, and creating `helloworld` repository, we can move on to running our CI.
+After setting up Dispatch, adding relevant credentials, and creating `helloworld` repository, we can move on to running our CI.
 
 # Continuous Integration in Action
 
 After creating your `Dispatchfile`, you can push it to a branch of your choice and create a pull request against default branch (or any branch).
-When you executed the `dispatch ci create repository` command in earlier sections, `Dispatch` repository controller created a [webhook in your GitHub repository](https://developer.github.com/webhooks/). This webhook enables Dispatch to receive events (such as pull request events) from GitHub. When you create a Pull Request, a `PullRequest` event is posted to `Dispatch` and this in turn triggers a pipeline to run `unit-test-simple` task as declared in your `Dispatchfile`. If you make a comment on the pull request that starts with `/test` then this would have a similar effect (useful in cases where you want to rerun a flaky CI test). Make such a comment and the build status should be reflected shortly on your Pull Request as soon as the build is scheduled. See [the troubleshooting guide](../../troubleshooting/) if you are having problems.
+When you executed the `dispatch ci create repository` command in earlier sections, `Dispatch` repository controller created a [webhook in your GitHub repository](https://developer.github.com/webhooks/). This webhook enables Dispatch to receive events (such as pull request events) from GitHub. When you create a Pull Request, a `PullRequest` event is posted to `Dispatch` and this in turn triggers a pipeline to run `unit-test-simple` task as declared in your `Dispatchfile`. If you make a comment on the Pull Request that starts with `/test` then this would have a similar effect (useful in cases where you want to rerun a flaky CI test). Make such a comment and the build status should be reflected shortly on your Pull Request as soon as the build is scheduled. See [the troubleshooting guide](../../troubleshooting/) if you are having problems.
 
 You can look at [logs](../../operations/logging) of various dispatch components as well as pipelines.
