@@ -45,7 +45,7 @@ workstation. Looking at the source code, you will see the following files:
 
 - **main.go** contains the code for the Go web server.
 
-- **Dockerfile** describes how to build a docker image from the application source
+- **Dockerfile** describes how to build a Docker image from the application source
   code.
 
 - **README.md**
@@ -174,11 +174,11 @@ resource "docker-image": {
 ```
 
 Make sure you use your real DockerHub username. Running the pipeline defined in our Dispatchfile
-will push a new docker image called "hello-world" to your DockerHub account.
+will push a new Docker image called "hello-world" to your DockerHub account.
 
 If you are unsure exactly what changes to make, you can have a look at the diff [here](https://github.com/mesosphere/cicd-hello-world/compare/step_1).
 
-Next, we'll add a new "build" task definition that will build our docker image.
+Next, we'll add a new "build" task definition that will build our Docker image.
 We add the "build" task definition below the "test" task definition. The order
 in which tasks are defined is not important.
 
@@ -326,10 +326,10 @@ In [the commit
 log](https://github.com/your-user/cicd-hello-world/commits/master) you can see
 that the latest commit now shows a green checkmark, too. -->
 
-#### Push to a private docker registry
+#### Push to a private Docker registry
 
 
-If you want to push docker images to a private docker registry as part of your pipeline, say to `https://docker-registry.local/`, with service account `team-1`, you can execute the following command:
+If you want to push Docker images to a private docker registry as part of your pipeline, say to `https://docker-registry.local/`, with service account `team-1`, you can execute the following command:
 
 ```sh
 docker login https://docker-registry.local
