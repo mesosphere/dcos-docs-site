@@ -14,7 +14,7 @@ excerpt: Reference Guide for Configuring a Repository
 </ul>
 <h2 id="dispatch.d2iq.io/v1alpha1">dispatch.d2iq.io/v1alpha1</h2>
 <p>
-<p>Package v1alpha1 contains API Schema definitions for the dispatch v1alpha1 API group</p>
+<p>Package v1alpha1 contains API Schema definitions for the Dispatch v1alpha1 API group</p>
 </p>
 Resource Types:
 <ul></ul>
