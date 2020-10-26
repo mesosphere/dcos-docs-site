@@ -34,7 +34,7 @@ To set your `Dispatchfile` format as JSON, set the first line of your `Dispatchf
 #!mesosphere/dispatch-json:v0.2
 ```
 
-JSON is the simplest (but typically most verbose) supported format: when writing JSON syntax, you are writing the Dispatch data structures directly. Refer the [configuration reference](../../references/pipeline-config-ref/).
+JSON is the simplest (but typically most verbose) supported format: when writing JSON syntax, you are writing the Dispatch data structures directly. Refer to the [configuration reference](../../references/pipeline-config-ref/).
 
 As an example, we convert the example from [the repository set up guide](../../tutorials/ci_tutorials/repo-setup/) to JSON:
 
