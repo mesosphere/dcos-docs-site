@@ -33,7 +33,7 @@ dispatch init --watch-namespace dispatch-tasks --watch-namespace dispatch-work
 
 ### Configure Ingress
 
-By default, Dispatch creates ingress records under the `/dispatch/` path. However, you may want to configure this if there are multiple Dispatch instances, you want to specify a hostname, use a different ingress controller or otherwise customize the Dispatch ingress.
+By default, Dispatch creates ingress records under the `/dispatch/` path. However, you may want to configure this if: there are multiple Dispatch instances, you want to specify a hostname, use a different ingress controller or otherwise customize the Dispatch ingress.
 
 The default Helm values for ingress are:
 
@@ -129,7 +129,7 @@ To install Dispatch into a Kubernetes cluster:
     ```
 
 1. Set `--namespace` to install Dispatch into a namespace other than `dispatch`.
-1. If you want to restrict the namespaces that Dispatch has access to, set the `--watch-namespace` flag for each namespace Dispatch should have access to.
+1. If you want to restrict the namespaces to which Dispatch has access, set the `--watch-namespace` flag for each namespace to which Dispatch should have access.
 1. Run `helm test dispatch` to verify that the Dispatch components are set up correctly.
 
 This will take several minutes, but your Dispatch cluster will be fully ready for use once it is completed.
