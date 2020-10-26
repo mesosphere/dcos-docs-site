@@ -27,4 +27,4 @@ To run it in the standalone mode (default behavior):
 dispatch init --set minio.mode=standalone
 ```
 
-Note that `replicas` is only relevant when running MinIO storage in distributed mode. Above values can be passed either via `values.yaml` file to `dispatch init` command or in the `values` field of the Dispatch addon if using a Konvoy cluster accordingly.
+Note that `replicas` is only relevant when running MinIO storage in distributed mode. Above values can be passed either via `values.yaml` file to `dispatch init` command or in the `values` field of the Dispatch Addon if using a Konvoy cluster accordingly.
