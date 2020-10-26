@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Edge-LB 1.6
 title: Edge-LB 1.6
-menuWeight: 1
+menuWeight: 2
 excerpt: Edge-LB provides production-grade load balancing for access to all services that run on DC/OS clusters
 enterprise: false
 ---
