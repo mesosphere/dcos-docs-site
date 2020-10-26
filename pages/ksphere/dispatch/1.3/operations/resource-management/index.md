@@ -9,7 +9,7 @@ excerpt: Configure resources to be shared in a controlled fashion between multip
 
 # Manage resources
 
-Pods launched from builds can be augmented with tolerations and other scheduling parameters. Backed by tekton's pod template, [a wide range of parameters are supported](https://github.com/tektoncd/pipeline/blob/v0.14.2/docs/podtemplates.md) beyond tolerations, affinity, nodeSelector, etc.
+Pods launched from builds can be augmented with tolerations and other scheduling parameters. Backed by Tekton's pod template, [a wide range of parameters are supported](https://github.com/tektoncd/pipeline/blob/v0.14.2/docs/podtemplates.md) beyond tolerations, affinity, nodeSelector, etc.
 
 Configure Dispatch instances globally to use a pod template by initializing the `tekton.configs.defaultPodTemplate` field in `values.yaml`. 
 
@@ -27,7 +27,7 @@ tekton:
         tolerationSeconds: 600
 ```
 
-This file configuration creates an entry in the `config-defaults` ConfigMap that is consumed by tekton to launch pods with the following template:
+This file configuration creates an entry in the `config-defaults` ConfigMap that is consumed by Tekton to launch pods with the following template:
 
 ```yaml
 apiVersion: v1
