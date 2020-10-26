@@ -51,7 +51,7 @@ Dispatch installation can be customized by setting various options via `values.y
 
 | Field | Type | Default value | Description |
 | ----- | ---- | ------------- | ----------- |
-| `dispatch.defaultDashboard`   | String (one of `dispatch` or `tekton`) | `dispatch` | Specify the default dashboard to link the PipelineRun Details link(s) on SCM page |
+| `dispatch.dashboardMode`   | String (one of `dispatch` or `tekton`) | `dispatch` | Specify the default dashboard to link the PipelineRun Details link(s) on SCM page |
 
 # Next steps
 
