@@ -161,5 +161,50 @@ Services that have been installed on your management cluster. You can visit a cl
 
 Figure 2. Cluster detail page
 
+### Custom Service Cards
+
+Custom serivce cards can be added to the cluster detail page's addon section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `d2iq.io/addon` label and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap` the GUI will show a card corresponding to the data provided in the `ConfigMap`. Custom cards have a Kubernetes icon and can link to a service running in the cluster or use an absolute URL to link to any accessible URL.
+
+#### ConfigMap Example
+
+```yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "my-service"
+  namespace: "kommander"
+  labels:
+    "d2iq.io/addon": "my-service"
+data:
+  name: "My Service"
+  dashboardLink: "/path/to/service"
+```
+
+| Key | Description | Required |
+| :--- | :--- | :---: | 
+| metadata . labels . "d2iq.io/addon" | The addon name (id) | X |
+| data . name | The display name used to describe the service and shown on the Card in the GUI. | X |
+| data . dashboardLink | The link to the service. This can be an absolute link "https://www.d2iq.com" or a relative link "/ops/portal". If a relative link is used the link will be built using the cluster's path as the base of the URL to the service. | X |
+| data . docsLink | Link to documentation about the service, this is displayed on the service card, but omitted if not present. | |
+| data . category | Category to group the custom service with, if not provided the service is grouped under the category "None." | |
+| data . version | A version string for the service, if not provided "N/A" is displayed on the service card in the GUI. | |
+
+How to create a new custom service `ConfigMap`:
+
+```bash
+$ cat <<EOF | kubectl apply -f -
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: "my-service"
+  namespace: "kommander"
+  labels:
+    "d2iq.io/addon": "my-service"
+data:
+  name: "My Service"
+  dashboardLink: "/path/to/service"
+EOF
+```
+
 [k8s_resources]: https://kubernetes.io/docs/concepts/configuration/manage-compute-resources-container/
 [k8s_docs]: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/
