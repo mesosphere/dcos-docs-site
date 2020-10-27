@@ -62,7 +62,7 @@ MS.metadata({
   conductorDocsLatest: "1.1",
   dcosCNDocsLatest: "2.1",
   dcosDocsLatest: "2.1",
-  dispatchDocsLatest: "1.2",
+  dispatchDocsLatest: "1.3",
   kommanderDocsLatest: "1.1",
   konvoyDocsLatest: "1.5",
   kubeflowDocsLatest: "1.0.1-0.5.0",
