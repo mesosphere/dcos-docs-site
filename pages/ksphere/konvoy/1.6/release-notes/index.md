@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-menuWeight: 20
+menuWeight: 10
 title: Release Notes
 excerpt: View release-specific information for Konvoy
 beta: true
