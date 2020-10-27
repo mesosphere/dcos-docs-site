@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: KUDO CLI
 title: KUDO CLI
-menuWeight: 5
+menuWeight: 70
 excerpt: KUDO CLI Usage
 beta: true
 enterprise: false
