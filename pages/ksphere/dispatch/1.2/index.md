@@ -4,7 +4,7 @@ navigationTitle: Welcome to Dispatch 1.2
 title: Welcome to Dispatch 1.2
 beta: false
 category: K-Sphere
-menuWeight: 0
+menuWeight: 2
 excerpt: Dispatch provides a declarative CI/CD platform for rapidly deploying Cloud Native applications and enabling enterprises to rapidly build, test and manage applications' lifecycle using GitOps processes.
 ---
 Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications. Dispatch  enables you to:
