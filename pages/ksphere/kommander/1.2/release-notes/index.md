@@ -11,7 +11,7 @@ enterprise: false
 <!-- markdownlint-disable MD034 -->
 
 # Release notes for Kommander 1.2
-Kommander 1.2 was released on 27, October 2020 
+Kommander 1.2 was released on 28, October 2020 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -35,16 +35,16 @@ Kommander provides a command center for all your cloud native management needs i
 Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapping is ideal for instances where high-security is a must or where Internet connectivity is either undesirable or unavailable. For more details on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped]. 
 
 ## Component versions
-- Addon: `1.2.0-19`
-- Chart: `0.11.15`
-- kommaner-federation (yakcl): `0.5.1`
-- kommander-licensing (yakcl): `0.5.1`
-- UI: `6.37.0`
-- kommander-karma: `0.3.10`
-- kubeaddons-catalog: `0.1.14`
-- kommander-thanos: `0.1.15`
-- kubecost: `0.1.15`
-- grafana: `4.6.3`
+- Addon: 1.2.0-26
+- Chart: 0.12.3
+- kommander-federation (yakcl): 0.6.2
+- kommander-licensing (yakcl): 0.6.2
+- UI: 6.37.0
+- kommander-karma: 0.3.10
+- kubeaddons-catalog: 0.1.15
+- kommander-thanos: 0.1.15
+- kubecost: 0.1.15
+- grafana: 4.6.3
 
 ## Fixed and Improved Issues 
 - Improved Access Control for editing/deleting actions. 
