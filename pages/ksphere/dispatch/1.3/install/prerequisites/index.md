@@ -67,8 +67,8 @@ For more details, see the [Konvoy documentation](https://docs.d2iq.com/ksphere/k
 
 Dispatch requires the following resources to be available in the cluster:
 - CPU: 4 cores
-- Mem: 4GB RAM
-- Disk: 50iB of persistent disk
+- Mem: 4GiB RAM
+- Disk: 50GiB of persistent disk
 Dispatch is tested and known to work with Konvoy v1.4.0, with m5.2xlarge AWS EC2 instances.
 
 Additional resources may be required depending on the size, complexity and number of pipelines that are being processed by Dispatch.
