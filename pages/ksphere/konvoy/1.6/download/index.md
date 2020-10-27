@@ -5,7 +5,7 @@ title: Download Konvoy
 excerpt: Learn how to download the Konvoy CLI
 beta: true
 enterprise: false
-menuWeight: 30
+menuWeight: 20
 ---
 
 <!-- markdownlint-disable MD034 -->
