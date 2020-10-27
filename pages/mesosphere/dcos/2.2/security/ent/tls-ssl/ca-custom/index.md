@@ -144,7 +144,7 @@ On each master node:
 
 # Changing the CA Certificate in an existing cluster
 
-To replace the CA certificate (for example, if it is expiring or compromised), perform the following procedure consisting of three patch upgrades.  This procedure ensures that the cluster stays healthy during the certificate replacement.  If Calico is enabled (the default setting), then workloads may be stopped.
+To replace the CA certificate (for example, if it is expiring or compromised), perform the following procedure consisting of three patch upgrades.  Three patch upgrades are required to ensure that the cluster stays healthy during the certificate replacement.  If Calico is enabled (the default setting), then workloads may be stopped.
 
 ## Add new CA certificate to truststore
 
