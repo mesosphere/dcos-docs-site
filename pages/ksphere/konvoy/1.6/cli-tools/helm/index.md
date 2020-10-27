@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Helm CLI
 title: Helm CLI
-menuWeight: 5
+menuWeight: 60
 excerpt: Helm CLI Usage
 beta: true
 enterprise: false
