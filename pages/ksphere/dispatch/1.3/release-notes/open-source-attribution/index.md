@@ -125,8 +125,6 @@ The table below lists the third party open source software which is provided by 
 | github.com/Microsoft | hcsshim | v0.8.7 | [MIT](https://pkg.go.dev/github.com/Microsoft/hcsshim?tab=licenses) |
 | github.com/NYTimes | gziphandler | v0.0.0-20170623195520-56545f4a5d46 | [Apache-2.0](https://pkg.go.dev/github.com/NYTimes/gziphandler?tab=licenses) |
 | github.com/OneOfOne | xxhash | v1.2.2 | [Apache-2.0](https://pkg.go.dev/github.com/OneOfOne/xxhash?tab=licenses) |
-| github.com/OpenPeeDeeP | depguard | v1.0.0 | [GPL3](https://pkg.go.dev/github.com/OpenPeeDeeP/depguard?tab=licenses) |
-| github.com/OpenPeeDeeP | depguard | v1.0.1 | [GPL3](https://pkg.go.dev/github.com/OpenPeeDeeP/depguard?tab=licenses) |
 | github.com/PuerkitoBio | purell | v1.0.0 | [BSD-3-Clause](https://pkg.go.dev/github.com/PuerkitoBio/purell?tab=licenses) |
 | github.com/PuerkitoBio | purell | v1.1.0 | [BSD-3-Clause](https://pkg.go.dev/github.com/PuerkitoBio/purell?tab=licenses) |
 | github.com/PuerkitoBio | purell | v1.1.1 | [BSD-3-Clause](https://pkg.go.dev/github.com/PuerkitoBio/purell?tab=licenses) |
@@ -500,7 +498,6 @@ The table below lists the third party open source software which is provided by 
 | github.com/golang | protobuf | v1.3.3 | [BSD-3-Clause](https://pkg.go.dev/github.com/golang/protobuf?tab=licenses) |
 | github.com/golang | snappy | v0.0.0-20180518054509-2e65f85255db | [BSD-3-Clause](https://pkg.go.dev/github.com/golang/snappy?tab=licenses) |
 | github.com/golang | snappy | v0.0.1 | [BSD-3-Clause](https://pkg.go.dev/github.com/golang/snappy?tab=licenses) |
-| github.com/golangci | check | v0.0.0-20180506172741-cfe4005ccda2 | [GPL3](https://pkg.go.dev/github.com/golangci/check?tab=licenses) |
 | github.com/golangci | dupl | v0.0.0-20180902072040-3e9179ac440a | [MIT](https://pkg.go.dev/github.com/golangci/dupl?tab=licenses) |
 | github.com/golangci | errcheck | v0.0.0-20181223084120-ef45e06d44b6 | [MIT](https://pkg.go.dev/github.com/golangci/errcheck?tab=licenses) |
 | github.com/golangci | go-misc | v0.0.0-20180628070357-927a3d87b613 | [BSD-3-Clause](https://pkg.go.dev/github.com/golangci/go-misc?tab=licenses) |
@@ -508,7 +505,6 @@ The table below lists the third party open source software which is provided by 
 | github.com/golangci | goconst | v0.0.0-20180610141641-041c5f2b40f3 | [MIT](https://pkg.go.dev/github.com/golangci/goconst?tab=licenses) |
 | github.com/golangci | gocyclo | v0.0.0-20180528134321-2becd97e67ee | [BSD-3-Clause](https://pkg.go.dev/github.com/golangci/gocyclo?tab=licenses) |
 | github.com/golangci | gofmt | v0.0.0-20181222123516-0b8337e80d98 | [](https://pkg.go.dev/github.com/golangci/gofmt?tab=licenses) |
-| github.com/golangci | golangci-lint | v1.18.0 | [GPL3](https://pkg.go.dev/github.com/golangci/golangci-lint?tab=licenses) |
 | github.com/golangci | gosec | v0.0.0-20190211064107-66fb7fc33547 | [Apache-2.0](https://pkg.go.dev/github.com/golangci/gosec?tab=licenses) |
 | github.com/golangci | ineffassign | v0.0.0-20190609212857-42439a7714cc | [MIT](https://pkg.go.dev/github.com/golangci/ineffassign?tab=licenses) |
 | github.com/golangci | lint-1 | v0.0.0-20190420132249-ee948d087217 | [BSD-3-Clause](https://pkg.go.dev/github.com/golangci/lint-1?tab=licenses) |
@@ -1487,7 +1483,6 @@ The table below lists the third party open source software which is provided by 
 | gopkg.in | tomb.v1 | v1.0.0-20141024135613-dd632973f1e7 | [BSD-3-Clause](https://pkg.go.dev/gopkg.in/tomb.v1?tab=licenses) |
 | gopkg.in | warnings.v0 | v0.1.1 | [BSD-2-Clause](https://pkg.go.dev/gopkg.in/warnings.v0?tab=licenses) |
 | gopkg.in | warnings.v0 | v0.1.2 | [BSD-2-Clause](https://pkg.go.dev/gopkg.in/warnings.v0?tab=licenses) |
-| gopkg.in | yaml.v1 | v1.0.0-20140924161607-9f9df34309c0 | [LGPL-3.0](https://pkg.go.dev/gopkg.in/yaml.v1?tab=licenses) |
 | gopkg.in | yaml.v2 | v2.0.0-20170812160011-eb3733d160e7 | [Apache-2.0](https://pkg.go.dev/gopkg.in/yaml.v2?tab=licenses) |
 | gopkg.in | yaml.v2 | v2.2.1 | [Apache-2.0](https://pkg.go.dev/gopkg.in/yaml.v2?tab=licenses) |
 | gopkg.in | yaml.v2 | v2.2.2 | [Apache-2.0](https://pkg.go.dev/gopkg.in/yaml.v2?tab=licenses) |
