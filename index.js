@@ -61,7 +61,7 @@ MS.metadata({
   gitBranch: GIT_BRANCH,
   conductorDocsLatest: "1.1",
   dcosCNDocsLatest: "2.1",
-  dcosDocsLatest: "2.1",
+  dcosDocsLatest: "2.2",
   dispatchDocsLatest: "1.3",
   kommanderDocsLatest: "1.1",
   konvoyDocsLatest: "1.5",
