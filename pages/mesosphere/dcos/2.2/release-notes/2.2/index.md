@@ -27,10 +27,10 @@ This release provides new features and enhancements to improve the user experien
 DC/OS's Universal Container Runtime (UCR) now supports external volumes provided via the Container Storage Interface (CSI). Storage providers which integrate with the CSI specification provide plugins which DC/OS users may install into their cluster. These plugins allow volumes backed by that provider to be attached to task containers. This initial release of CSI support in DC/OS 2.2 has some caveats. For more information, see the [CSI](/mesosphere/dcos/2.2/storage/external-storage/csi/).
 
 # Jobs with dependencies
-Metronome based jobs can have one more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG based workflows in DC/OS. For more information, see [dependencies](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies).
+Metronome based jobs can have one more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG-based workflows in DC/OS. For more information, see [dependencies](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies).
 
 # Custom CA certificate rotation
-DC/OS now allows an operator to rotate the custom CA certificates by simply updating configuration settings during an upgrade. This feature ensures all the services that are using the custom CA based certificates are automatically updated after an upgrade. For more information, see [??]
+DC/OS now allows an operator to rotate the custom CA certificates by simply updating configuration settings during an upgrade. This feature ensures all the services that are using the custom CA based certificates are automatically updated after an upgrade. 
 
 # Breaking changes
 
@@ -39,9 +39,7 @@ DC/OS 2.2.0 includes the following component version updates:
 
 - Marathon 1.11.16
 
-
 # Fixed and Improved Issues
-
 DC/OS 2.2 fixes the following issues:
 
 - systemd errors were being thrown during patch upgrades. (COPS-6506)
@@ -71,20 +69,14 @@ DC/OS 2.2 fixes the following issues:
 - UI failed to show manually assigned port on endpoints tab. (COPS-6491)
 - Exhibitor was writing JNA files to /tmp. (COPS-6111, D2IQ-68109) 
 - Renaming or deleting folders via the Jupyter UI resulted in a rename error and delete failed. (COPS-6166)
-- COPS-6232
-- COPS-6326
-- COPS-6295
-- COPS-6328
-- COPS-4665
-- COPS-4616
-- COPS-1754
-- COPS-5520
-- COPS-6451
-- COPS-6321
-- COPS-3866
-- COPS-296
-- COPS-5481
-- COPS-4944
+- After an upgrade, the dcos-telegraf directories had incorrect permissions leading to a problem launching tasks. (COPS-6232, D2IQ-69295)
+- Exhibitor endpoint responses were inconsistent. (D2IQ-70393, COPS-6326)  
+- DC/OS OSS UI was not displaying a user name, but instead showed a *User added through OIDC ID Token login* message. (COPS-6295, D2IQ-70199) 
+- Added details of job to Metronome Overview page and Job Runs page. (COPS-4665)
+- Installer was setting Spartan IP's as the 'resolvers'. (COPS-4616)
+- A master node was not able to rejoin a cluster after failure/restart when another master was offline or being upgraded. (COPS-1754)
+- Turned on enable_docker_gc by default for all types of DC/OS installations. (COPS-5520)
+- Could not disable Calico in config.yaml. (COPS-6451)
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
