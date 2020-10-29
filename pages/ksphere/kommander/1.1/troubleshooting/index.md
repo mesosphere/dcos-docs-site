@@ -60,23 +60,23 @@ If you cannot access a specific page, button, or action, it is likely that your 
 
 Similarly, to diagnose other missing actions for each resource listed above, the corresponding `update`, `delete`, and `create` permissions can be substituted in the place of `list` in the provided commands.
 
-### I cannot detach an attached cluster that is "Pending"
+## I cannot detach an attached cluster that is "Pending"
 
-Sometimes, when attaching a Kubernetes cluster to Kommander, you may end up with the cluster stuck in "Pending" state. This can have several reasons, one of which being a wrong `kubeconfig` or the cluster is not reachable by Kommander. To be able to detach the cluster again so that it doesn't show in Kommander, anymore, there's several steps you may have to follow:
+Sometimes  attaching a Kubernetes cluster to Kommander causes that cluster to get stuck in the "Pending" state. This can happen because the wrong `kubeconfig` file is used or the cluster is just not reachable by Kommander. Detach the cluster so it does not show in Kommander. Enter these steps:
 
-First, find the `KommanderCluster` resource backing the cluster you tried to attach:
+1. Determine the `KommanderCluster` resource backing the cluster you tried to attach. Enter the following command:
 
-`kubectl -n WORKSPACE_NAMESPACE get kommandercluster`
+```bash
+kubectl -n WORKSPACE_NAMESPACE get kommandercluster
 
-Replace `WORKSPACE_NAMESPACE` with the actual namespace name of the workspace you're acting in (you will find this name by navigating to `https://YOUR_CLUSTER_DOMAIN_OR_IP_ADDRESS/ops/portal/kommander/ui/#/workspaces` in your browser.)
+    Replace `WORKSPACE_NAMESPACE` with the actual current workspace name. You can find this name by going to `https://YOUR_CLUSTER_DOMAIN_OR_IP_ADDRESS/ops/portal/kommander/ui/#/workspaces` in your browser.
 
-Delete it by issuing this command:
+1. Delete the cluster. Enter the following. command:
 
 `kubectl -n WORKSPACE_NAMESPACE delete kommandercluster CLUSTER_NAME`
 
-If the resource does not go away after some minutes, you may have to remove its finalizers:
+1. If the resource does not go after a short time, remove its finalizers. Enter the following command:
 
 `k -n WORKSPACE_NAMESPACE patch kommandercluster CLUSTER_NAME --type json -p '[{"op":"remove", "path":"/metadata/finalizers"}]'`
 
-After running that command, the cluster should vanish from the Kommander UI.
-
+This removes the cluster from the Kommander UI.
