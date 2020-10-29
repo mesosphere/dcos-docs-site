@@ -38,7 +38,7 @@ EOF
 
 Ensure the projectns variable is set before executing the command.
 
-Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Secret Object, in the corresponding namespace:
+Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Secret Object in the corresponding namespace:
 
 ```bash
 $ kubectl -n ${projectns} get resourcequota kommander -o yaml
