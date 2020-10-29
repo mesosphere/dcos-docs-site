@@ -10,9 +10,9 @@ excerpt: Release notes for DC/OS 2.2, including Open Source attribution, and ver
 ---
 Mesosphere&reg; DC/OS&trade; 2.2 was released on 29, October 2020.
 
-[button color="light" href="??"]Download DC/OS Open Source[/button]
+[button color="light" href="https://downloads.dcos.io/dcos/stable/2.2.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
-[button color="purple" href="??"]Download DC/OS Enterprise* [/button]
+[button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.2.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
 
 New customers must contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and install DC/OS Enterprise.
 
@@ -27,8 +27,8 @@ This release provides new features and enhancements to improve the user experien
 DC/OS's Universal Container Runtime (UCR) now supports external volumes provided via the Container Storage Interface (CSI). Storage providers which integrate with the CSI specification provide plugins which DC/OS users may install into their cluster. These plugins allow volumes backed by that provider to be attached to task containers. This initial release of CSI support in DC/OS 2.2 has some caveats. For more information, see the [CSI](/mesosphere/dcos/2.2/storage/external-storage/csi/).
 
 ## Marathon Support for Mesos Offer Constraints
-
 Marathon can now send offer constraints to Mesos to reduce the number of offers it needs to decline due to placement constraints. This behavior is intended to improve the launch speed for services with placement constraints. It is currently experimental and disabled by default. To enable, add the line `MARATHON_MESOS_OFFER_CONSTRAINTS=` to the file `/var/lib/dcos/marathon/environment` on all masters, and restart Marathon.
+
 # Jobs with dependencies
 Metronome based jobs can have one or more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG-based workflows in DC/OS. For more information, see [dependencies](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies).
 
@@ -40,7 +40,12 @@ DC/OS now allows an operator to rotate the custom CA certificates by simply upda
 # Component Versions
 DC/OS 2.2.0 includes the following component version updates:
 
-- Marathon 1.11.16
+- Apache® Mesos® 1.11.0-dev
+- Marathon 1.11.23
+- Metronome 0.6.68
+- DC/OS UI 6.1.16
+- CockroachDB 19.1.11
+- Etcd 3.4.9
 
 # Fixed and Improved Issues
 DC/OS 2.2 fixes the following issues:
