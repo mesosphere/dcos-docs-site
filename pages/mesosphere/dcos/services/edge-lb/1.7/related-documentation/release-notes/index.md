@@ -48,7 +48,7 @@ If the templates have been customized, it is advised to download the new templat
 - HAProxy is configured to log to stdout directly by default, removing the need for syslog in the loadbalancer container
 - Service Diagnostic CLI command now correctly captures apiserver logs for default installs
 - HAProxy is updated to 2.0.18
-- EdgeLB is now built with GO 1.15.3
+- EdgeLB is now built with Golang 1.15.3
 
 # DC/OS for Edge-LB Service version 1.6.1 Release Notes
 
