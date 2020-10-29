@@ -16,7 +16,7 @@ Kommander provides a set of default resources you can set Quotas for, or you can
 
 ![Adding a custom Quota](/ksphere/kommander/1.2/img/project-quotas-add-custom.png)
 
-All the Project Quotas are defined using a Kubernetes FederatedResourceQuota called kommander and can also be created/updated using kubectl:
+All the Project Quotas are defined using a Kubernetes FederatedResourceQuota called kommander which can also be created/updated using kubectl:
 
 ```bash
 cat << EOF | kubectl apply -f -
