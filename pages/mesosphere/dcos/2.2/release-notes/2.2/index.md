@@ -56,7 +56,7 @@ DC/OS 2.2 fixes the following issues:
 - Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode. (COPS-6335, D2IQ-70037) 
 - Tasks would not start until Telegraf created /run/dcos/telegraf/dcos_statsd.sock. (COPS-6355)
 - DC/OS installations on Flatcar Linux would not finish due to Java processing issues. (COPS-6422, D2IQ-70809, COPS-6190) 
-- Unmounting issues in Mesos external persistent volumes. (COPS-5920)
+- Fixed an issue with unmounting external persistent volumes in Mesos. (COPS-5920)
 - RootCA bundle was not written soon enough for Docker to find it before it exhausts startup limits on a reboot. (COPS-6534)
 - UCR fetcher had issues pulling down images. (COPS-6381) 
 - dcos-net was not always able to set all Spartan IP addresses after node reboot. (COPS-6519)
