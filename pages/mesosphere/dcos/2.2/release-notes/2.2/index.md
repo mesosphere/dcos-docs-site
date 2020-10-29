@@ -30,7 +30,7 @@ DC/OS's Universal Container Runtime (UCR) now supports external volumes provided
 
 Marathon can now send offer constraints to Mesos to reduce the number of offers it needs to decline due to placement constraints. This behavior is intended to improve the launch speed for services with placement constraints. It is currently experimental and disabled by default. To enable, add the line `MARATHON_MESOS_OFFER_CONSTRAINTS=` to the file `/var/lib/dcos/marathon/environment` on all masters, and restart Marathon.
 # Jobs with dependencies
-Metronome based jobs can have one more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG-based workflows in DC/OS. For more information, see [dependencies](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies).
+Metronome based jobs can have one or more dependencies specified; a job will only be run when all of its dependencies have successfully run. This capability allows users to natively setup DAG-based workflows in DC/OS. For more information, see [dependencies](mesosphere/dcos/2.2/deploying-jobs/quickstart#dependencies).
 
 # Custom CA certificate rotation
 DC/OS now allows an operator to rotate the custom CA certificates by simply updating configuration settings during an upgrade. This feature ensures all the services that are using the custom CA based certificates are automatically updated after an upgrade. 
