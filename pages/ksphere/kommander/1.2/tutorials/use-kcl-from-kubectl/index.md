@@ -90,6 +90,13 @@ NAME                     DISPLAY NAME             WORKSPACE NAMESPACE           
 default-workspace        Default Workspace        default-workspace-4clss        95m
 workspacetest                                     workspacetest-r69q2            77s
 ```
+
+Save the namespace of the workspace in a variable so we can reuse it later:
+
+```
+export WORKSPACE_NS=$(kubectl get workspaces workspacetest -ojsonpath='{.status.namespaceRef.name}')
+```
+
 ## Creating a cluster in the Workspace
 
 ### Creating an AWS Cloud Provider
@@ -115,7 +122,7 @@ apiVersion: v1
 kind: Secret
 metadata:
   name: aws-credentials
-  namespace: workspacetest-r69q2
+  namespace: $WORKSPACE_NS
 data:
   credentials: ${CREDENTIALS}
   profile: ${PROFILE}
@@ -125,7 +132,7 @@ apiVersion: kommander.mesosphere.io/v1beta1
 kind: CloudProviderAccount
 metadata:
   name: aws-credentials
-  namespace: workspacetest-r69q2
+  namespace: $WORKSPACE_NS
   annotations:
     kommander.mesosphere.io/display-name: My AWS Credentials
 spec:
@@ -145,7 +152,7 @@ apiVersion: kommander.mesosphere.io/v1beta1
 kind: KonvoyCluster
 metadata:
   name: sample-kubernetes-tutorial
-  namespace: workspacetest-r69q2
+  namespace: $WORKSPACE_NS
 spec:
   cluster:
     kubernetes:
@@ -166,13 +173,13 @@ kubectl -n kommander logs -l control-plane=kommander-federation-cm -c controller
 To provision a cluster KCL uses Kubernetes Jobs.
 
 ```
-kubectl get jobs -n workspacetest-r69q2
+kubectl get jobs -n $WORKSPACE_NS
 ```
 
 To access logs of the job we must check its pod.
 
 ```
-kubectl get pods -n workspacetest-r69q2
+kubectl get pods -n $WORKSPACE_NS
 
 NAME                               READY   STATUS    RESTARTS   AGE
 sample-kubernetes-tutorial-z9hqw   1/1     Running   0          47s
@@ -181,13 +188,13 @@ sample-kubernetes-tutorial-z9hqw   1/1     Running   0          47s
 When we know the pod name we can check the logs.
 
 ```
-kubectl -n workspacetest-r69q2 logs sample-kubernetes-tutorial-z9hqw -f
+kubectl -n $WORKSPACE_NS logs sample-kubernetes-tutorial-z9hqw -f
 ```
 
 Waiting for the cluster to be provisioned.
 
 ```
-kubectl -n workspacetest-r69q2 get konvoycluster -w
+kubectl -n $WORKSPACE_NS get konvoycluster -w
 
 NAME                         DISPLAY NAME   STATUS         PROVIDER   AGE
 sample-kubernetes-tutorial                  Provisioning   aws        5m48s
@@ -196,7 +203,7 @@ sample-kubernetes-tutorial                  Provisioning   aws        5m48s
 The kubeconfig to access the new cluster is stored in a secret. Save that for later use.
 
 ```
-kubectl -n workspacetest-r69q2 get secret --field-selector type=kommander.mesosphere.io/kubeconfig -o=jsonpath="{.items[0].data.kubeconfig}" | base64 -d > sample-kubernetes-tutorial.kubeconfig
+kubectl -n $WORKSPACE_NS get secret --field-selector type=kommander.mesosphere.io/kubeconfig -o=jsonpath="{.items[0].data.kubeconfig}" | base64 -d > sample-kubernetes-tutorial.kubeconfig
 ```
 
 ## Working with Projects
@@ -211,7 +218,7 @@ apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: Project
 metadata:
   name: projecttest
-  namespace: workspacetest-r69q2
+  namespace: $WORKSPACE_NS
 spec:
   workspaceRef:
     name: workspacetest
@@ -241,10 +248,16 @@ projecttest-5r55h       Active   12m
 ***                     ***      ***
 ```
 
+Save the project namespace in a variable for later use.
+
+```
+export PROJECT_NS=$(kubectl -n $WORKSPACE_NS get project projecttest -ojsonpath='{.status.namespaceRef.name}')
+```
+
 Check default Project roles in the target cluster.
 
 ```
-kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles
+kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n $PROJECT_NS get roles
 
 NAME                           AGE
 project-app-deployer-gl4d4     14m
@@ -260,7 +273,7 @@ apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: ProjectRole
 metadata:
   name: projectrole-podreader
-  namespace: projecttest-5r55h
+  namespace: $PROJECT_NS
 spec:
   rules:
     - apiGroups: [""] # "" indicates the core API group
@@ -272,7 +285,7 @@ EOF
 Ensure the role is properly federated to the target cluster.
 
 ```
-kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles -w
+kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n $PROJECT_NS get roles -w
 
 NAME                           AGE
 ***                            ***
@@ -282,13 +295,13 @@ projectrole-podreader-wbwzv    15s
 Check the project role's yaml.
 
 ```
-kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n projecttest-5r55h get roles projectrole-podreader-wbwzv -o yaml
+kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig -n $PROJECT_NS get roles projectrole-podreader-wbwzv -o yaml
 ```
 
 #### Delete the custom Project Role
 
 ```
-kubectl -n projecttest-5r55h delete projectrole projectrole-podreader
+kubectl -n $PROJECT_NS delete projectrole projectrole-podreader
 ```
 
 #### Delete the Project
@@ -301,7 +314,7 @@ apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: Project
 metadata:
   name: projecttest
-  namespace: workspacetest-r69q2
+  namespace: $WORKSPACE_NS
 spec:
   workspaceRef:
     name: workspacetest
@@ -320,7 +333,7 @@ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
 ## Delete the cluster
 
 ```
-kubectl -n workspacetest-r69q2 delete  konvoycluster sample-kubernetes-tutorial
+kubectl -n $WORKSPACE_NS delete konvoycluster sample-kubernetes-tutorial
 ```
 
 [infrastructure_provider]: /ksphere/kommander/1.2/operations/infrastructure-providers
