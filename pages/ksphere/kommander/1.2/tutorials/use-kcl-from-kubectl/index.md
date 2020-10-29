@@ -149,7 +149,7 @@ metadata:
 spec:
   cluster:
     kubernetes:
-      version: 1.26.4
+      version: 1.18.0
   provisioner:
     provider: aws
   cloudProviderAccountRef:
