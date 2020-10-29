@@ -61,7 +61,7 @@ DC/OS 2.2 fixes the following issues:
 - UCR fetcher had issues pulling down images. (COPS-6381) 
 - dcos-net was not always able to set all Spartan IP addresses after node reboot. (COPS-6519)
 - dcos-telegraf.socket was down after a patch. (COPS-6512)
-- Marathon migration failed while upgrading from 1.13.7 to 2.0.2. (COPS-5897)
+- Marathon migration failed while upgrading from 1.13.7 to 2.0.2 (and higher). (COPS-5897)
 - Nested Marathon groups were not inheriting enforceRole behavior from top-level groups. (COPS-6529)
 - enforceRole was automatically being set to false on all Marathon groups. (COPS-6533)
 - Selecting *Run* on a job or selecting *Delete* to remove a group had no effect and threw an exception. (COPS-6324) 
