@@ -69,7 +69,7 @@ DC/OS 2.2 fixes the following issues:
 - Users were unable to remove empty folders from Metronome. (COPS-6139) 
 - Hostname Resolution was failing for VIPs. (COPS-6411)  
 - Using file-based secrets caused mount failure and issues in the json editor. (COPS-6085, D2IQ-68114)  
-- dse-0-node failed with ssl verification during Datastax-DSE upgrade from 2.1.2-5.1.2 to 2.2.0-5.1.2 on DC/OS 2.0.2. (COPS-6116)
+- Added URI to failure messages in URI fetcher plugins. (COPS-6116) (MESOS-7485)
 - CRDB was running and bouncer can not connect to it, because the bouncer's SELECT query fails. (COPS-5979) 
 - An unknown response code was received when querying a DC/OS endpoint. (COPS-5915, D2IQ-65296)  
 - DC/OS UI showed unexpected information in **Services->Tasks table->CPU** column. (COPS-6555)
