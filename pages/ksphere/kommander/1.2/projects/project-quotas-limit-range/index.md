@@ -12,7 +12,7 @@ Project Quotas and Limit Ranges can be set up to limit the amount of resources t
 ![Project Quotas and Limit Ranges](/ksphere/kommander/1.2/img/project-quota.png)
 Project Quotas and Limit Ranges
 
-Kommander provides a set of default resources you can set Quotas for, or you can define Quotas for custom resources. It is recommended to set Quotas for CPU and Memory. Using Limit Ranges you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
+Kommander provides a set of default resources you can set Quotas for, or you can define Quotas for custom resources. It is recommended to set Quotas for CPU and Memory. Using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
 
 ![Adding a custom Quota](/ksphere/kommander/1.2/img/project-quotas-add-custom.png)
 
