@@ -67,19 +67,23 @@ Sometimes  attaching a Kubernetes cluster to Kommander causes that cluster to ge
 
 1. Determine the `KommanderCluster` resource backing the cluster you tried to attach. Enter the following command:
 
-```bash
-kubectl -n WORKSPACE_NAMESPACE get kommandercluster
-
-    Replace `WORKSPACE_NAMESPACE` with the actual current workspace name. You can find this name by going to `https://YOUR_CLUSTER_DOMAIN_OR_IP_ADDRESS/ops/portal/kommander/ui/#/workspaces` in your browser.
+  ```bash
+  kubectl -n WORKSPACE_NAMESPACE get kommandercluster
+  ```
+  
+  Replace `WORKSPACE_NAMESPACE` with the actual current workspace name. You can find this name by going to `https://YOUR_CLUSTER_DOMAIN_OR_IP_ADDRESS/ops/portal/kommander/ui/#/workspaces` in your browser.
 
 1. Delete the cluster. Enter the following. command:
 
-`kubectl -n WORKSPACE_NAMESPACE delete kommandercluster CLUSTER_NAME`
+  ```bash
+  kubectl -n WORKSPACE_NAMESPACE delete kommandercluster CLUSTER_NAME`
+  ```
 
 1. If the resource does not go after a short time, remove its finalizers. Enter the following command:
 
-`k -n WORKSPACE_NAMESPACE patch kommandercluster CLUSTER_NAME --type json -p '[{"op":"remove", "path":"/metadata/finalizers"}]'`
-
-This removes the cluster from the Kommander UI.
+  ```bash
+  kubectl -n WORKSPACE_NAMESPACE patch kommandercluster CLUSTER_NAME --type json -p '[{"op":"remove", "path":"/metadata/finalizers"}]'`
+  ```
+  This removes the cluster from the Kommander UI.
 
 [rbac-docs]: /ksphere/konvoy/latest/security/external-idps/rbac/#portal-authorization
