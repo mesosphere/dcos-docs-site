@@ -61,6 +61,6 @@ The following procedures are supported for projects:
 - [Manage Project ConfigMaps](/ksphere/kommander/1.2/projects/project-configmaps)
 - [Deploy Platform Services](/ksphere/kommander/1.2/projects/platform-services)
 - [Manage Project Policies](/ksphere/kommander/1.2/projects/project-policies)
-- [Manage Project Quotas](/ksphere/kommander/1.2/projects/project-quotas)
+- [Manage Project Quotas](/ksphere/kommander/1.2/projects/project-quotas-limit-range)
 - [Manage Project Roles](/ksphere/kommander/1.2/projects/project-roles)
 - [Manage Project Secrets](/ksphere/kommander/1.2/projects/project-secrets)
