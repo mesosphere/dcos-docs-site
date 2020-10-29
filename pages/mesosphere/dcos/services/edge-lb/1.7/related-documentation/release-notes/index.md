@@ -29,7 +29,7 @@ If the templates have been customized, it is advised to download the new templat
 ## New features and capabilities
 - Auto Pools generated pools configuration is sorted to prevent unnecessary pool reloads:
     - Backend servers are sorted by Mesos framework id and task id
-    - Certificate lists are sorted by alphabetically
+    - Certificate lists are sorted alphabetically
     - Secrets are sorted by secret name
     - Frontends are sorted by port number
     - Backends are sorted by `<group>` / backend name
