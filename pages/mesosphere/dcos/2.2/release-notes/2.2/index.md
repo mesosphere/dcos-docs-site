@@ -52,12 +52,12 @@ DC/OS 2.2 fixes the following issues:
 
 - systemd errors were being thrown during patch upgrades. (COPS-6506)
 - dcos-fluent-bit.service was consuming too much memory. (COPS-6218) 
-- Selecting *Install DC/OS CLI* presents a URL to a binary that is incorrect. (COPS-6360)
+- Selecting *Install DC/OS CLI* presented a URL to a binary that was incorrect. (COPS-6360)
 - Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode. (COPS-6335, D2IQ-70037) 
 - Tasks would not start until Telegraf created /run/dcos/telegraf/dcos_statsd.sock. (COPS-6355)
 - DC/OS installations on Flatcar Linux would not finish due to Java processing issues. (COPS-6422, D2IQ-70809, COPS-6190) 
 - Fixed an issue with unmounting external persistent volumes in Mesos. (COPS-5920)
-- RootCA bundle was not written soon enough for Docker to find it before it exhausts startup limits on a reboot. (COPS-6534)
+- After a reboot, the RootCA bundle was not being written soon enough for Docker to find it before the systemd startup limits were exhausted. (COPS-6534)
 - UCR fetcher had issues pulling down images. (COPS-6381) 
 - dcos-net was not always able to set all Spartan IP addresses after node reboot. (COPS-6519)
 - dcos-telegraf.socket was down after a patch. (COPS-6512)
@@ -80,10 +80,10 @@ DC/OS 2.2 fixes the following issues:
 - Exhibitor endpoint responses were inconsistent. (D2IQ-70393, COPS-6326)  
 - DC/OS OSS UI was not displaying a user name, but instead showed a *User added through OIDC ID Token login* message. (COPS-6295, D2IQ-70199) 
 - Added details of job to Metronome Overview page and Job Runs page. (COPS-4665)
-- Installer was setting Spartan IP's as the 'resolvers'. (COPS-4616)
+- The DC/OS Installer now checks to make sure that the Spartan IP's are not set as the 'resolvers'. (COPS-4616)
 - A master node was not able to rejoin a cluster after failure/restart when another master was offline or being upgraded. (COPS-1754)
 - Turned on enable_docker_gc by default for all types of DC/OS installations. (COPS-5520)
-- Could not disable Calico in config.yaml. (COPS-6451)
+- Added the ability to disable Calico in config.yaml. (COPS-6451)
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/master/CHANGELOG).
