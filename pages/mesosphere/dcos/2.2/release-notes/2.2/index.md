@@ -70,7 +70,7 @@ DC/OS 2.2 fixes the following issues:
 - Hostname Resolution was failing for VIPs. (COPS-6411)  
 - Using file-based secrets caused mount failure and issues in the json editor. (COPS-6085, D2IQ-68114)  
 - Added URI to failure messages in URI fetcher plugins. (COPS-6116) (MESOS-7485)
-- CRDB was running and bouncer can not connect to it, because the bouncer's SELECT query fails. (COPS-5979) 
+- Cache adminrouter permissions for 10s to reduce load on Bouncer in large clusters. (COPS-5979, COPS-5915, D2IQ-65296)
 - An unknown response code was received when querying a DC/OS endpoint. (COPS-5915, D2IQ-65296)  
 - DC/OS UI showed unexpected information in **Services->Tasks table->CPU** column. (COPS-6555)
 - Telgraf was consuming too much CPU. (COPS-5629)
