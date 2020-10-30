@@ -75,13 +75,13 @@ Sometimes  attaching a Kubernetes cluster to Kommander causes that cluster to ge
 1. Delete the cluster. Enter the following. command:
   
    ```bash
-   kubectl -n WORKSPACE_NAMESPACE delete kommandercluster CLUSTER_NAME`
+   kubectl -n WORKSPACE_NAMESPACE delete kommandercluster CLUSTER_NAME
    ```
 
 1. If the resource does not go after a short time, remove its finalizers. Enter the following command:
   
    ```bash
-   kubectl -n WORKSPACE_NAMESPACE patch kommandercluster CLUSTER_NAME --type json -p '[{"op":"remove", "path":"/metadata/finalizers"}]'`
+   kubectl -n WORKSPACE_NAMESPACE patch kommandercluster CLUSTER_NAME --type json -p '[{"op":"remove", "path":"/metadata/finalizers"}]'
    ```
 
    This removes the cluster from the Kommander UI.
