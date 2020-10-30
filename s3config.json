@@ -56,14 +56,6 @@
       }
     },
     {
-      "Condition": { "KeyPrefixEquals": "ksphere/conductor/latest/" },
-      "Redirect": {
-        "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "ksphere/conductor/1.1/",
-        "HttpRedirectCode": "307"
-      }
-    },
-    {
       "Condition": { "KeyPrefixEquals": "ksphere/kubeflow/latest/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
