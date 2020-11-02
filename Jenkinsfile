@@ -40,9 +40,9 @@ pipeline {
     stage("Build image") {
       steps {
         sh '''
-          docker build -t mesosphere/pre_113_docs:latest .
+          docker build -t mesosphere/archived_docs:latest .
           docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
-          docker push mesosphere/pre_113_docs:latest
+          docker push mesosphere/archived_docs:latest
         '''
       }
     }
