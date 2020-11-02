@@ -18,10 +18,3 @@ D2IQ provides training for all of the D2IQ products. Two types of training are a
   - Live instructor for Q&A
   - Content for intermediate and advanced learners
 
-- [Training using Conductor](https://d2iq.com/products/conductor)
-  - On demand
-  - Bite sized modules
-  - Re-train as needed
-  - Scales to meet larger training needs
-  - Broader course catalog
-  - Content ranging from beginner to advanced
