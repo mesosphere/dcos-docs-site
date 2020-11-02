@@ -2,42 +2,6 @@
 - var latestPath = `mesosphere/dcos/cn/${dcosCNDocsLatest}`
 - var sectionTitle = 'DC/OS 文档'
 
-mixin renderGridToc()
-  .grid-toc
-    each val, index in hierarchy.findByPath(latestPath).children
-      if val.menuWeight != -1
-        .grid-toc__item
-          h2.grid-toc__title
-            a(href=val.path)!= val.title
-          if val.excerpt
-            - var displayExcerpt = (val.excerpt.length > 100) ? val.excerpt.substring(0, 100) + '…' : val.excerpt
-            p.grid-toc__desc!= displayExcerpt
-          if val.children
-            ul.grid-toc__list
-              for item in val.children.slice(0, 5)
-                li.grid-toc__list-item
-                  a.grid-toc__link(href=item.path)!= item.title
-              if val.children.length > 5
-                li.grid-toc__list-item
-                  a.grid-toc__link.grid-toc__link--all(href=val.path) View All
-                    img.grid-toc__link--all__arrow(src='/assets/right-arrow.svg')
-
-mixin renderGrid()
-  .grid
-    a.grid__item(href=latestPath + '/installing')
-      h3.grid__header Install DC/OS
-      .grid__desc__wrapper
-        p.grid__desc Installation involves configuring your infrastructure and installing DC/OS bits on top, so the infrastructure provider you choose determines your installation method. Select from development, cloud, and on-premises.
-          span.grid__desc__ellipsis &#8230;Read More
-      .grid__link
-        i(data-feather='arrow-right')
-    a.grid__item(href='https://support.d2iq.com')
-      h3.grid__header Need Support?
-      .grid__desc__wrapper
-        p.grid__desc Subscription pricing for DC/OS is based on the number of nodes (physical or virtual) in your environment. DC/OS subscriptions may include either Premium (24x7) or Standard (9-5) support.
-          span.grid__desc__ellipsis &#8230;Read More
-      .grid__link
-        i(data-feather='arrow-right')
 
 doctype html
 html(lang='en')
@@ -79,8 +43,6 @@ html(lang='en')
             i(data-feather='search')
 
       .landing__container
-        +renderGridToc()
-        +renderGrid()
         .landing__external
           .landing__external-item
             i.landing__external-icon(data-feather='book')
