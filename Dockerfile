@@ -1,9 +1,10 @@
 FROM node:alpine
 
 WORKDIR /root
-ADD build /root
+ADD . /root
 
-RUN yarn add global serve
+RUN npm install && npm run build && rm -rf /root/pages && rm -rf /root/node_modules && rm -rf /root/.git
 
+RUN npm install serve
 EXPOSE 5000
-CMD yarn serve /root -l tcp://0.0.0.0:5000
+CMD npx serve /root/build -l tcp://0.0.0.0:5000
