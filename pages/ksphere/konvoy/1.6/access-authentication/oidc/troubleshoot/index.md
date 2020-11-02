@@ -8,12 +8,6 @@ beta: true
 enterprise: false
 ---
 
-## Get username and group information from a token
-
-<!--
-TODO (see the Conductor module)
--->
-
 ## View Dex config
 
 Konvoy stores Dex config in the `dex-kubeaddons` secret in the kubeaddons namespace. To view the current settings run the following kubectl command.
