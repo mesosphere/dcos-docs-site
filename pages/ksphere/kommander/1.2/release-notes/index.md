@@ -28,9 +28,9 @@ Kommander provides a command center for all your cloud native management needs i
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-| **Minimum**        | 1.15.0  |
-| **Maximum**        | 1.17.x  |
-| **Default**        | 1.17.3  |
+| **Minimum**        | 1.16.0  |
+| **Maximum**        | 1.19.x  |
+| **Default**        | 1.18.10  |
 
 # Kommander 1.2.0 Beta 1 (September 14th, 2020)
 
