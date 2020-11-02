@@ -27,7 +27,7 @@
       "Condition": { "KeyPrefixEquals": "mesosphere/dcos/latest/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "mesosphere/dcos/2.1/",
+        "ReplaceKeyPrefixWith": "mesosphere/dcos/2.2/",
         "HttpRedirectCode": "307"
       }
     },
@@ -137,7 +137,7 @@
       },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "mesosphere/dcos/services/edge-lb/1.6/",
+        "ReplaceKeyPrefixWith": "mesosphere/dcos/services/edge-lb/1.7/",
         "HttpRedirectCode": "307"
       }
     },

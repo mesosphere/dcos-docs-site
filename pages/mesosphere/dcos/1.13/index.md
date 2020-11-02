@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle:  Mesosphere DC/OS 1.13
 title: Documentation for Mesosphere DC/OS 1.13
 version: 1.13
-menuWeight: 2
+menuWeight: 15
 excerpt: Learning DC/OS
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
