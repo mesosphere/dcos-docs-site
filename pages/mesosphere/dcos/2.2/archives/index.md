@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle:  DC/OS Documentation Archives
-title: DC/OS Documentation Archives
+navigationTitle: Access Documentation Archives
+title: Access Documentation Archives
 menuWeight: 1000
-excerpt: finding older versions of DC/OS documentation
+excerpt: access older versions of DC/OS documentation
 enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
