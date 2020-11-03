@@ -10,6 +10,8 @@ excerpt: Release notes for DC/OS 2.2, including Open Source attribution, and ver
 ---
 Mesosphere&reg; DC/OS&trade; 2.2 was released on 29, October 2020.
 
+WARNING: The DC/OS 2.2 release includes an issue that changes the name of the 'libnetwork' certificate which causes its bootstrap to restart Docker and workloads, if you upgrade from 2.1.x. Because of this, we recommend you do not upgrade, and wait for a patch.
+
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.2.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
 [button color="purple" href="https://downloads.mesosphere.com/dcos-enterprise/stable/2.2.0/dcos_generate_config.ee.sh"]Download DC/OS Enterprise* [/button]
