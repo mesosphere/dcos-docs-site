@@ -28,7 +28,7 @@ DC/OS is a distributed operating system that enables you to manage resources, ap
     - Have constantly failing tasks
     - Are running a large number of CI jobs
     - Have metronome tasks with different containers
-    - Use the [docker.forcePullImage](https://mesosphere.github.io/marathon/docs/native-docker.html#forcing-a-docker-pull) command
+    - Use the [docker.forcePullImage](https://mesosphere.github.io/marathon/docs/native-docker.html#forcing-a-docker-pull) option
 
   In the worst case, your cluster might not be able to reschedule a failed task for up to 6 hours, which could lead to unresponsive services or even data corruption, for example, when using clustered databases.
 
@@ -85,4 +85,3 @@ For a detailed description on updates to Marathon, see the [changelog](https://g
 
 ## Metronome Fixed and Improved Issues
 For a detailed description on updates to Metronome, see the [changelog](https://github.com/dcos/metronome/blob/master/changelog.md).
-
