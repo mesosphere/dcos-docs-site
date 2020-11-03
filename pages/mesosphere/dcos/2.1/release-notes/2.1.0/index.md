@@ -39,6 +39,28 @@ DC/OS now allows you to provide a non-CA custom external certificate and key tha
 Added a new configuration option `mesos_http_executors_domain_sockets`, which will cause the mesos-agent to use domain sockets when communicating with executors (default is enabled). This change allows administrators to write firewall rules blocking unauthorized access to the agent port 5051 since access to this will not be required anymore for executors to work.
 
 # Breaking changes
+- Docker Hub announced an [update](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) to their image pull policies in August 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+  Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Mesosphere® DC/OS®, does not have any influence as to whether your current address is rate-limited or not. Mesosphere DC/OS does not have a strict dependency on Docker Hub accounts or plans.
+
+  Without any further configuration, your cluster is likely using the “Free plan - anonymous users” tier. This means that if each of your nodes has its own public IP address, you can do 100 image pulls per 6 hours on every node. While this should not be a problem with just a few, usually-healthy workloads, but you may encounter unforeseeable issues if you:
+
+    - Have constantly failing tasks
+    - Are running a large number of CI jobs
+    - Have metronome tasks with different containers
+    - Use the [docker.forcePullImage](https://mesosphere.github.io/marathon/docs/native-docker.html#forcing-a-docker-pull) command
+
+  In the worst case, your cluster might not be able to reschedule a failed task for up to 6 hours, which could lead to unresponsive services or even data corruption, for example, when using clustered databases.
+
+  The DC/OS software offers several ways to specify these credentials:
+
+    1. Cluster-wide credentials using dcos-config.yml: [Using Docker credentials to set cluster-wide registry credentials](https://docs.d2iq.com/mesosphere/dcos/2.1/deploying-services/private-docker-registry/#using-cluster-docker-credentials-to-set-cluster-wide-registry-credentials)
+
+    1. Task-specific credentials using secrets: [Reference private dockcer registry credentials in DC/OS secrets](https://docs.d2iq.com/mesosphere/dcos/2.1/deploying-services/private-docker-registry/#reference-private-docker-registry-credentials-in-dcos-secrets-enterprise)
+
+  A non-DC/OS-specific way to specify the Docker credentials is to use the .docker/config.json file on each agent, as described here: 
+[Create a Docker credentials configuration file](https://docs.d2iq.com/mesosphere/dcos/2.1/deploying-services/private-docker-registry/#create-a-docker-credentials-configuration-file)
+
 - The configuration option `MARATHON_ACCEPTED_RESOURCE_ROLES_DEFAULT_BEHAVIOR` replaces the config option `MARATHON_DEFAULT_ACCEPTED_RESOURCE_ROLES`. Please see the Marathon [command-line flag documentation](https://github.com/mesosphere/marathon/blob/master/docs/docs/command-line-flags.md) for a description of the flag.
 - Removal of`revive_offers_for_new_apps` Marathon option.
 - Marathon no longer sanitizes the field `acceptedResourceRoles`. The field is an array of one or two values: `*` and the service role. Previously, when an invalid value was provided, Marathon would silently drop it. Now, it returns an error. If this causes a disruption, you can re-enable this feature by adding `MARATHON_DEPRECATED_FEATURES=sanitize_accepted_resource_roles` to the file `/var/lib/dcos/marathon/environment` on all masters. You must remove this line before upgrading to the next version of DC/OS.

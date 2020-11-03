@@ -36,6 +36,27 @@ Metronome based jobs can have one or more dependencies specified; a job will onl
 DC/OS now allows an operator to rotate the custom CA certificates by simply updating configuration settings during an upgrade. This feature ensures all the services that are using the custom CA based certificates are automatically updated after an upgrade. 
 
 # Breaking changes
+- Docker Hub announced an [update](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) to their image pull policies in August 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+  Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Mesosphere® DC/OS®, does not have any influence as to whether your current address is rate-limited or not. Mesosphere DC/OS does not have a strict dependency on Docker Hub accounts or plans.
+
+  Without any further configuration, your cluster is likely using the “Free plan - anonymous users” tier. This means that if each of your nodes has its own public IP address, you can do 100 image pulls per 6 hours on every node. While this should not be a problem with just a few, usually-healthy workloads, but you may encounter unforeseeable issues if you:
+
+    - Have constantly failing tasks
+    - Are running a large number of CI jobs
+    - Have metronome tasks with different containers
+    - Use the [docker.forcePullImage](https://mesosphere.github.io/marathon/docs/native-docker.html#forcing-a-docker-pull) command
+
+  In the worst case, your cluster might not be able to reschedule a failed task for up to 6 hours, which could lead to unresponsive services or even data corruption, for example, when using clustered databases.
+
+  The DC/OS software offers several ways to specify these credentials:
+
+    1. Cluster-wide credentials using dcos-config.yml: [Using Docker credentials to set cluster-wide registry credentials](https://docs.d2iq.com/mesosphere/dcos/2.1/deploying-services/private-docker-registry/#using-cluster-docker-credentials-to-set-cluster-wide-registry-credentials)
+
+    1. Task-specific credentials using secrets: [Reference private dockcer registry credentials in DC/OS secrets](https://docs.d2iq.com/mesosphere/dcos/2.1/deploying-services/private-docker-registry/#reference-private-docker-registry-credentials-in-dcos-secrets-enterprise)
+
+  A non-DC/OS-specific way to specify the Docker credentials is to use the .docker/config.json file on each agent, as described here: 
+[Create a Docker credentials configuration file](https://docs.d2iq.com/mesosphere/dcos/2.1/deploying-services/private-docker-registry/#create-a-docker-credentials-configuration-file)
 
 # Component Versions
 DC/OS 2.2.0 includes the following component version updates:
