@@ -19,9 +19,10 @@ On your local machine, run:
 docker run -p 5000:5000 -it mesosphere/archived_docs  
 ```
 After running this command, you will see:
-
+```
    │   Serving!                                     │
    │                                                │
    │   - Local:            http://0.0.0.0:5000      │
+```
 
 where you can access the documentation for archived versions of DC/OS.
