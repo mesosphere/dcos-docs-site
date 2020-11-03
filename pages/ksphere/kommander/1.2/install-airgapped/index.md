@@ -55,7 +55,7 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
 1.  Make sure Kommander can find and access the private Docker registry. The `registry_ip` variable in the code snippet below references the IP address of the available private Docker registry. You can omit the username and password lines if your registry does not require authentication.
 1.  Reconfigure the Kommander controller to work in an air-gapped environment.
 
-Your `cluster.yaml` file should look similar to the following for Kommander Addon configuration:
+Your `cluster.yaml` file should look similar to the following for Kommander Addon configuration (ensure to replace `KONVOY_VERSION` with the specific version that you retrieve from your `cluster.yaml`'s `spec.version` field):
 
 ```yaml
 - name: kommander
@@ -66,6 +66,9 @@ Your `cluster.yaml` file should look similar to the following for Kommander Addo
         airgapped:
           enabled: true
           chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
+          addons:
+            image:
+              tag: KONVOY_VERSION
     kommander-federation:
       controller:
         containers:
