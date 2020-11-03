@@ -9,6 +9,7 @@ model: /mesosphere/dcos/2.1/data.yml
 enterprise: false
 ---
 
+Private Docker registries enable sharing of pre-configured images, which can enable better availability, lower latency, and higher speeds. Or you may decide to use a private registry to take advantage of a Docker Hub account that is not subject to image pull rate limiting.
 
 To supply authentication credentials which allows agents to pull from a private Docker registry, there are several methods to choose from:
 

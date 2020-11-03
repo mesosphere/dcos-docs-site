@@ -9,6 +9,7 @@ model: /mesosphere/dcos/2.2/data.yml
 enterprise: false
 ---
 
+Private Docker registries enable sharing of pre-configured images, which can enable better availability, lower latency, and higher speeds. Or you may decide to use a private registry to take advantage of a Docker Hub account that is not subject to image pull rate limiting.
 
 To supply credentials to pull from a private Docker registry, create an archive of your Docker credentials, then add it as a URI in your service or pod definition. In DC/OS Enterprise, you can also [upload your private Docker registry credentials to the DC/OS Secret store](#secret-store-instructions) and reference it in your service or pod definition.
 
