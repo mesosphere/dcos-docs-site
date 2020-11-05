@@ -64,10 +64,10 @@
       }
     },
     {
-      "Condition": { "KeyPrefixEquals": "ksphere/kubeflow/latest/" },
+      "Condition": { "KeyPrefixEquals": "ksphere/kaptain/latest/" },
       "Redirect": {
         "HostName": "$REDIR_HOSTNAME",
-        "ReplaceKeyPrefixWith": "ksphere/kubeflow/1.0.1-0.5.0/",
+        "ReplaceKeyPrefixWith": "ksphere/kaptain/1.0.1-0.5.0/",
         "HttpRedirectCode": "307"
       }
     },

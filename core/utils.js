@@ -6,7 +6,7 @@ const _ = require("lodash");
 // Here you can specify overrides for that behaviour. The names are deduced from the filesystem-paths. E.g: pages/mesosphere/>dcos</2.1
 const customNames = {
   dcos: "DC/OS",
-  kubeflow: "KUDO Kubeflow",
+  kaptain: "Kaptain",
 };
 
 module.exports = {

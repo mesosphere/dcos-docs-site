@@ -25,7 +25,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     "ksphere-konvoy": client.initIndex("ksphere-konvoy"),
     "ksphere-kommander": client.initIndex("ksphere-kommander"),
     "ksphere-dispatch": client.initIndex("ksphere-dispatch"),
-    "ksphere-kubeflow": client.initIndex("ksphere-kubeflow"),
+    "ksphere-kaptain": client.initIndex("ksphere-kaptain"),
     "ksphere-conductor": client.initIndex("ksphere-conductor"),
   };
 
@@ -65,7 +65,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
       konvoy: "Konvoy",
       kommander: "Kommander",
       dispatch: "Dispatch",
-      kubeflow: "KUDO Kubeflow",
+      kaptain: "Kaptain",
       conductor: "Conductor",
     };
 
@@ -114,8 +114,8 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
         setVersion("Kommander Docs");
       } else if (paths[1] === "dispatch") {
         setVersion("Dispatch Docs");
-      } else if (paths[1] === "kubeflow") {
-        setVersion("KUDO Kubeflow Docs");
+      } else if (paths[1] === "kaptain") {
+        setVersion("Kaptain Docs");
       } else if (paths[1] === "conductor") {
         setVersion("Conductor Docs");
       }
@@ -319,7 +319,7 @@ const buildSemverMap = (files) => {
     konvoy: [],
     kommander: [],
     dispatch: [],
-    kubeflow: [],
+    kaptain: [],
     conductor: [],
   };
 
