@@ -10,7 +10,7 @@ excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and v
 ---
 Mesosphere&reg; DC/OS&trade; 2.1.0 was released on 9, June 2020.
 
-WARNING: The DC/OS 2.2 release includes an issue that changes the name of the 'libnetwork' certificate which causes its bootstrap to restart Docker and workloads, if you upgrade from 2.1.x. Because of this, we recommend you do not upgrade, and wait for a patch.
+<p class="message--warning"><strong>WARNING:</strong> Upgrading from DC/OS 2.1.x to DC/OS 2.2.0 causes all Docker containers, launched by Docker Containerizer, in any cluster to be restarted due to an issue that changes the name of the 'libnetwork' certificate. Because of this, we recommend you upgrade directly to [DC/OS 2.2.1]().</p>
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.1.0/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
