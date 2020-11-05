@@ -12,7 +12,7 @@ enterprise: false
   ```bash
   kubectl kudo init
   ```
-* [Download `Kaptain-1.0.1-0.5.0.tgz` tarball](../../download/).
+* [Download `kubeflow-1.0.1-0.5.0.tgz` tarball](../../download/).
 * Install Kaptain:
   ```bash
   kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1-0.5.0.tgz
