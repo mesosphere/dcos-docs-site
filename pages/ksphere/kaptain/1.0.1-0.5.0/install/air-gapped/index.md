@@ -34,7 +34,7 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
       addonRepository:
         image: mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3
       addonsList:
-      - name: Kaptain-nfs
+      - name: kubeflow-nfs
         enabled: true
       - name: knative
         enabled: true
@@ -179,7 +179,7 @@ spec:
       addonRepository:
         image: mesosphere/konvoy-addons-chart-repo:kfa-1.5.2-stable-1.17-0.4.3
       addonsList:
-      - name: Kaptain-nfs
+      - name: kubeflow-nfs
         enabled: true
       - name: knative
         enabled: true
