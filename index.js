@@ -65,7 +65,7 @@ MS.metadata({
   dispatchDocsLatest: "1.3",
   kommanderDocsLatest: "1.1",
   konvoyDocsLatest: "1.5",
-  kubeflowDocsLatest: "1.0.1-0.5.0",
+  kaptainDocsLatest: "1.0.1-0.5.0",
   Utils,
 });
 
@@ -103,8 +103,8 @@ const neededToBuildMainMenu = [
   `ksphere/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
   "ksphere/kommander/index.md",
   `ksphere/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
-  "ksphere/kubeflow/index.md",
-  `ksphere/kubeflow/${MS._metadata.kubeflowDocsLatest}/index.md`,
+  "ksphere/kaptain/index.md",
+  `ksphere/kaptain/${MS._metadata.kaptainDocsLatest}/index.md`,
   "ksphere/conductor/index.md",
   `ksphere/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
 ];

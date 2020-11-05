@@ -46,7 +46,6 @@ kubelet
 kubeconfig
 Kubecost
 kubelet(|s)
-Kubeflow
 Kubernetes
 KUDO
 linkerd
