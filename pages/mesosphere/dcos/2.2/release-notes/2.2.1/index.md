@@ -5,7 +5,7 @@ title: Release notes for 2.2.1
 menuWeight: 5
 excerpt: Release notes for DC/OS 2.2.1, including Open Source attribution, and version policy.
 ---
-DC/OS&trade; 2.2.1 was released on 5 Novemeber, 2020.
+DC/OS&trade; 2.2.1 was released on 5 November, 2020.
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.2.1/dcos_generate_config.sh"]Download DC/OS Open Source[/button]
 
