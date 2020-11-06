@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Release notes for 2.2.1
-title: Release notes for 2.2.1
+navigationTitle: DC/OS 2.2.1 Release Notes
+title: DC/OS 2.2.1 Release Notes
 menuWeight: 0
 excerpt: Release notes for DC/OS 2.2.1, including Open Source attribution, and version policy.
 ---
