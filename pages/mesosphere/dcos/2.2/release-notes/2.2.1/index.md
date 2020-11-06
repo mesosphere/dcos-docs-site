@@ -33,8 +33,8 @@ DC/OS 2.2.1 includes the following component versions:
 
 DC/OS 2.2.1 fixes the following issues:
 
--- Fixed the upgrade issue that caused Docker containers to restart on upgrade from DC/OS 2.1.x to 2.2.0. (COPS-6635)
--- Fixed Calico build failure issue in CentOS 8 (D2IQ-72821)
+- Upgrade issue that caused Docker containers to restart on upgrade from DC/OS 2.1.x to 2.2.0. (COPS-6635)
+- Calico build failure in CentOS 8. (D2IQ-72821)
 
 ## Mesos Fixed and Improved Issues
 For a detailed description on updates to Mesos, see the [changelog](https://github.com/apache/mesos/blob/802a50f4902f1f5ca3829dca4a472d8a582f7b9b/CHANGELOG)
@@ -44,4 +44,3 @@ For a detailed description on updates to Marathon, see the [changelog](https://g
 
 ## Metronome Fixed and Improved Issues
 For a detailed description on updates to Metronome, see the [changelog](https://github.com/dcos/metronome/blob/master/changelog.md).
-
