@@ -17,5 +17,4 @@ Kaptain natively integrates Horovod - an open source distributed training framew
 to support distributed deep learning across multi-GPU and multi-node clusters. Horovod is compatible with the existing
 TensorFlow, PyTorch, MXNet deep learning frameworks and makes distributed Deep Learning super fast and easy.
 
-Kaptain is also pre-configured with Apache Spark, providing the ability to tap into large pools of CPUs and
-GPUs, on demand.
+Kaptain is also pre-configured with Apache Spark, providing the ability to tap into large pools of CPUs and GPUs, on demand.
