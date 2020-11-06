@@ -6,14 +6,13 @@
     "Suffix": "index.html"
   },
   "RoutingRules": [
-    { "Condition": { "KeyPrefixEquals": "1.7/" },                                                              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "1.7", "HttpRedirectCode": "301" } },
-    { "Condition": { "KeyPrefixEquals": "1.8/" },                                                              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "1.8", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "mesosphere/dcos/latest/" },                                           "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/2.2/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "ksphere/konvoy/latest/" },                                            "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "ksphere/konvoy/1.5/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "ksphere/dispatch/latest/" },                                          "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "ksphere/dispatch/1.2/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "ksphere/kommander/latest/" },                                         "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "ksphere/kommander/1.1/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "ksphere/conductor/latest/" },                                         "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "ksphere/conductor/1.1/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "ksphere/kaptain/latest/" },                                           "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "ksphere/kaptain/1.0.1-0.5.0/", "HttpRedirectCode": "307" } },
+    { "Condition": { "KeyPrefixEquals": "ksphere/kubeflow/" },                                                 "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "ksphere/kaptain/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "mesosphere/dcos/services/cassandra/latest/" },                        "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/services/cassandra/2.9.0-3.11.6/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "mesosphere/dcos/services/confluent-kafka/latest/" },                  "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/services/confluent-kafka/2.9.1-5.4.0/", "HttpRedirectCode": "307" } },
     { "Condition": { "KeyPrefixEquals": "mesosphere/dcos/services/confluent-zookeeper/latest/" },              "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/services/confluent-zookeeper/2.7.0-5.1.2e/", "HttpRedirectCode": "307" } },
