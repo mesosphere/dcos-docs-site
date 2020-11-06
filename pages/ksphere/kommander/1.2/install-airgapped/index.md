@@ -52,7 +52,7 @@ Installing air-gapped Kommander does not require any changes in the `inventory.y
 The `cluster.yaml` file provides the configuration details for creating your Konvoy cluster. Installing Kommander in an air-gapped environment requires extra configuration. Make sure the `cluster.yaml` has all the changes outlined in [air-gapped Konvoy installation][air-gap-config-image-reg] documentation. On top of that, you need to edit your `cluster.yaml` as outlined below to meet the following requirements:
 
 1.  Make sure Kommander can use the self-hosted charts repository running on top of the Konvoy cluster. It can not connect to the default one through the public Internet.
-1.  Make sure Kommander can find and access the private Docker registry. The `registry_ip` variable in the code snippet below references the IP address of the available private Docker registry. You can omit the username and password lines if your registry does not require authentication.
+1.  Make sure Kommander can find and access the private Docker registry. The `registry_ip` variable in the code snippet below references the IP address of the available private Docker registry. You can omit the username and password lines if your registry does not require authentication. This example assumes the registry uses a custom CA certificate which has to be injected into Kommander as an Addon value.
 1.  Reconfigure the Kommander controller to work in an air-gapped environment.
 
 Your `cluster.yaml` file should look similar to the following for Kommander Addon configuration (ensure to replace `KONVOY_VERSION` with the specific version that you retrieve from your management cluster's `cluster.yaml` `spec.version` field):
@@ -84,12 +84,17 @@ Your `cluster.yaml` file should look similar to the following for Kommander Addo
       clusterAutoscaler:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       utilityApiserver:
+        dockerRegistryCaBundle: |
+          -----BEGIN CERTIFICATE-----
+          [...]
+          ----END CERTIFICATE-----
         extraArgs:
           docker-registry-url: "https://${registry_ip}:5000"
-          docker-registry-insecure-skip-tls-verify: true
           docker-registry-username: 'admin'
           docker-registry-password: 'password'
 ```
+
+ If you wish to disable the Docker registry certificate verification, set `docker-registry-insecure-skip-tls-verify` to `true` in the `utilityApiserver`'s `extraArgs`. We encourage you to keep the certificate verification enabled to validate all TLS connections to the registry.
 
 [air-gap-before-you-begin]: /ksphere/konvoy/1.6/install/install-airgapped/#before-you-begin
 [air-gap-control-plane]: /ksphere/konvoy/1.6/install/install-airgapped/#control-plane-nodes
