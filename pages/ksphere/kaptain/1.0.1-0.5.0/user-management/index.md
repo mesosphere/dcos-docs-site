@@ -22,8 +22,7 @@ built-in Dex integration. If you have not yet done so, review the documentation
 [here](https://docs.d2iq.com/ksphere/konvoy/latest/security/external-idps/) before proceeding._
 
 ## Kubeflow Predefined `ClusterRoles`
-Kaptain comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of Kubeflow
-administrators who want to manage the permissions Kaptain users and administrators.
+Kaptain comes with a set of predefined Kubernetes `ClusterRoles` designed to simplify the workflow of administrators who manage permissions of users.
 
 Predefined `ClusterRoles` for Kubeflow tenants are as follows:
 
