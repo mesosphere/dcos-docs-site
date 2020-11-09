@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
@@ -10,75 +10,55 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-# Release Notes for Kommander 1.2
+# Release notes for Kommander 1.2
+Kommander 1.2 was released on 11, November 2020 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
 To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install](https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
 
-**NOTE:** You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
+**NOTE:** You must be a registered user and logged on to the support portal to download this product. New customers must contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
-<!-- TBD when 1.2 goes GA:
-# Release Summary
-
-Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated and cost management, across multiple clusters, whether they are a new Konvoy cluster or existing 3rd party/DIY distribution.
--->
+# Release Summary 
+Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
 # Supported Versions
-
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-| **Minimum**        | 1.16.0  |
-| **Maximum**        | 1.19.x  |
-| **Default**        | 1.18.10  |
+| **Minimum**        | 1.15.0  |
+| **Maximum**        | 1.17.x  |
+| **Default**        | 1.17.3  |
 
-# Kommander 1.2.0 Beta 1 (September 14th, 2020)
+# New Features and Capabilities 
 
-## Features/Improvements
+## Air gapped environments
+Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapping is ideal for instances where high-security is a must or where Internet connectivity is either undesirable or unavailable. For more details on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped].
 
-- Improved catalog handling
-- Improved Access Control for editing/deleting actions
-- Added a global Infrastructure Provider view
+## Component versions
+- Addon: 1.2.0-26
+- Chart: 0.12.3
+- kommander-federation (yakcl): 0.6.2
+- kommander-licensing (yakcl): 0.6.2
+- UI: 6.37.0
+- kommander-karma: 0.3.10
+- kubeaddons-catalog: 0.1.15
+- kommander-thanos: 0.1.15
+- kubecost: 0.1.15
+- grafana: 4.6.3
 
-## Bug Fixes
-
-- Fixed an issue where logout wasn't deleting any cookies
-- Smaller UX Bugs and Improvements
-
-## Component Versions
-
-- Addon: `1.2.0-9`
-- Chart: `0.11.3`
-- auto-provisioning (yakcl): `0.4.5`
-- kommaner-federation (yakcl): `0.4.5`
-- kommander-licensing (yakcl): `0.4.5`
-- UI: `6.22.0`
-- kommander-karma: `0.3.10`
-- kubeaddons-catalog: `0.1.12`
-- kommander-thanos: `0.1.15`
-- kubecost: `0.1.12`
-- grafana: `4.6.3`
-
-# Kommander 1.2.0 Beta 0 (August 27th, 2020)
-
-## Features/Improvements
-
+## Fixed and Improved Issues 
+- Improved Access Control for editing/deleting actions. 
 - Changed routing from hash-based to history-based to allow redirects after login.
+- Added SAML IDP.
+- Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters.
+- Added a setting to configure thresholds for resource warnings. 
+- Added the ability to show metrics in attached EKS clusters.
+- Added Infrastructure provider management on global level.
+- Fixed an issue where logout was not deleting any cookies.
+- Fixed UI crashes when kubecost was down.
+- Fixed catalog API occasionaly returned 500.
+- Fixed deleting cluster labels was impossible.
+- Fixed counting self-attached host cluster against license count.
+- Smaller UX Bugs and Improvements.
 
-## Bug Fixes
-
-- Smaller UX Bugs and Improvements
-
-## Component Versions
-
-- Addon: `1.2.0-5`
-- Chart: `0.10.3`
-- auto-provisioning (yakcl): `0.4.2`
-- kommaner-federation (yakcl): `0.4.2`
-- kommander-licensing (yakcl): `0.4.2`
-- UI: `6.22.0`
-- kommander-karma: `0.3.10`
-- kubeaddons-catalog: `0.1.12`
-- kommander-thanos: `0.1.15`
-- kubecost: `0.1.12`
-- grafana: `4.6.3`
+[install_airgapped](https://docs.d2iq.com/ksphere/kommander/1.2/install-airgapped/)
