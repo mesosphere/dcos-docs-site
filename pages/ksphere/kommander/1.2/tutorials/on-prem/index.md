@@ -1,9 +1,8 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Launching a cluster On Premise
 title: Launching a cluster On Premises
-beta: true
 menuWeight: 1
 excerpt: Use a previously deployed Konvoy cluster to deploy a new Konvoy cluster with Kommander On Premises Provider.
 ---
