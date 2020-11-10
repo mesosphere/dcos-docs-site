@@ -50,7 +50,7 @@ DC/OS will run on the tested platform components and operating environments. The
 
 Customers running DC/OS on non-supported platform components should upgrade to a supported component. For clarity, D2iQ only provides support services to paying customers under a written agreement. The term “supported” in D2iQ documentation refers to whether the indicated software component has been tested for compatibility.
 
-D2iQ does not retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (minor or patch)  against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker combination. 
+D2iQ does not retroactively test and support all versions of each of these operating systems against every single historical DC/OS release.  Not all of these operating systems are supported on every version of DC/OS or can be expected to be.  Rather, we test each new DC/OS version (minor or patch)  against the latest stable releases of these supported operating systems by installing DC/OS on the target OS and running the integration test suite against DC/OS installed on an OS/Docker combination.
 CentOS is the only Operating System that is extensively tested (nightly tests, long lived cluster tests, scale tests etc) by D2iQ. All the other mentioned OSes in this page are tested only once per minor or patch release.
 
 Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/installing/evaluation/) only supports CentOS and RHEL. There are no plans to add support for other referenced OSes in this page. Customers are recommended to use the Advanced Installation method for installing DC/OS on these other OSes.
@@ -59,9 +59,9 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.2 Latest Stable</strong></th>
     <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>CentOS 7.*</td>
@@ -75,9 +75,9 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.2 Latest Stable</strong></th>
     <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>RHEL 7.*</td>
@@ -89,46 +89,16 @@ Note: The [Universal Installer](https://docs.d2iq.com/mesosphere/dcos/2.1/instal
 
 ### <a name="Ubuntu-support-matrix"></a>Ubuntu support matrix
 **NOTE: Starting with DC/OS 2.0, we have discontinued support for Ubuntu Linux.**
-<table class="table">
-    <tr>
-    <th><strong>Platform Component</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    </tr>
-    <tr>
-        <td>Ubuntu 18.04.3 LTS</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-    </tr>
-    <tr>
-        <td>Ubuntu 16.04.6 LTS</td>
-        <td><p style="text-align: center;">Docker CE 19.03.5<br>Docker CE 18.09.9</p></td>
-    </tr>
-</table>
+
 
 ### <a name="Oracle-support-matrix"></a>Oracle support matrix
 **NOTE: Starting with DC/OS 2.0, we have discontinued support for Oracle Linux.**
-<table class="table">
-    <tr>
-    <th><strong>Platform Component</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
-    </tr>
-    <tr>
-        <td>Oracle Linux 7.6 </td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
-    </tr>
-    <tr>
-        <td>Oracle Linux 7.5 </td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
-    </tr>
-    <tr>
-        <td>Oracle Linux 7.4 </td>
-        <td><p style="text-align: center;">Docker CE 18.09.2<br>Docker EE 18.09.2</p></td>
-    </tr>
-</table>
+
 
 ### <a name="CoreOS-support-matrix"></a>CoreOS support matrix
 As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https://coreos.com/os/eol/) and will no longer receive updates. The recommended alternative is to use [Flatcar Linux](#flatcar-support-matrix).
 
-**NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS.** 
+**NOTE: Starting with DC/OS 2.0, we have discontinued support for CoreOS.**
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
@@ -152,10 +122,12 @@ As of May 26th 2020 CoreOS Container Linux has reached its [end of life](https:/
 <table class="table">
     <tr>
     <th><strong>Platform Component</strong></th>
+    <th><strong>DC/OS 2.2 Latest Stable</strong></th>
     <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Flatcar Linux 2345.3.1</td>
+        <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
         <td><p style="text-align: center;">Docker CE 18.06.3</p></td>
     </tr>
 </table>
@@ -174,16 +146,19 @@ Use the following legend table to see the supported/not supported service for th
 <table class="table">
     <tr>
     <th><strong>Web Browser</strong></th>
+    <th><strong>DC/OS 2.2 Latest Stable</strong></th>
+    <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     </tr>
     <tr>
         <td>Chrome</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
+        <td><p style="text-align: center;">⚫</p></td>
     </tr>
     <tr>
         <td>Firefox</td>
+        <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
     </tr>
@@ -193,29 +168,16 @@ Use the following legend table to see the supported/not supported service for th
 <table class="table">
     <tr>
     <th><strong>CLI</strong></th>
+    <th><strong>DC/OS 2.2 Latest Stable</strong></th>
+    <th><strong>DC/OS 2.1 Latest Stable</strong></th>
     <th><strong>DC/OS 2.0 Latest Stable</strong></th>
-    <th><strong>DC/OS 1.13 Latest Stable</strong></th>
     </tr>
-    <tr>
-        <td>DC/OS CLI 0.6.x</td>
-        <td></td>
-        <td></td>
-            </tr>
-    <tr>
-        <td>DC/OS CLI 0.7.x</td>
-        <td></td>
-        <td></td>
-            </tr>
-    <tr>
-        <td>DC/OS CLI 0.8.x</td>
-        <td></td>
-        <td><p style="text-align: center;">⚫</p></td>
-            </tr>
     <tr>
         <td>DC/OS CLI 1.x</td>
         <td><p style="text-align: center;">⚫</p></td>
         <td><p style="text-align: center;">⚫</p></td>
-            </tr>
+        <td><p style="text-align: center;">⚫</p></td>
+    </tr>
 </table>
 
 ## Customer Advisory for CentOS/RHEL 7.X
@@ -251,7 +213,7 @@ The designations are as follows:
 <table class="table">
     <tr>
         <th><strong>DC/OS Package for</strong></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
+        <th><p style="text-align: center;"><strong>DC/OS 2.2</strong></p></th>
             </tr>
     <tr>
         <td>Cassandra 2.4.x-3.0.16</td>
@@ -419,7 +381,7 @@ B - This package combination is *beta*.
 <table class="table">
     <tr>
         <th><strong>DC/OS Package for</strong></th>
-        <th><p style="text-align: center;"><strong>DC/OS 1.13</strong></p></th>
+        <th><p style="text-align: center;"><strong>DC/OS 2.2</strong></p></th>
             </tr>
     <tr>
         <td>Beta DC/OS Storage Services 0.4.0</td>
