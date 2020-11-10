@@ -10,7 +10,7 @@ model: /mesosphere/dcos/2.2/data.yml
 
 An upgrade is the process of moving between major releases to add new features or to replace existing features with new features/functionality. You can upgrade DC/OS only if you have used the advanced installation process to install DC/OS on your cluster.
 
-<p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 2.0 --> 2.1</p>
+<p class="message--important"><strong>IMPORTANT: </strong>An upgrade is required only when changing the major or minor version of your DC/OS installation. Example: 2.0 --> {{ model.folder_version }}</p>
 
 - To update to a newer maintenance version (e.g. 2.0.2 to 2.0.4), refer to the instructions for [patching](/mesosphere/dcos/{{ model.folder_version }}/installing/production/patching/).
 - To modify the cluster configuration, refer to the instructions for [patching](/mesosphere/dcos/{{ model.folder_version }}/installing/production/patching/).
@@ -32,7 +32,7 @@ If upgrading is performed on a supported OS with all prerequisites fulfilled, th
 - DC/OS 2.0 added TLS for Exhibitor.  Exhibitor TLS is automatically enabled for static master clusters during installation of DC/OS 2.0 or later. It is not enabled during an upgrade from DC/OS 1.13 or earlier.  Once the cluster has been upgraded to DC/OS 2.0 or later, [Exhibitor can be manually configured to use TLS](/mesosphere/dcos/2.0/security/ent/tls-ssl/exhibitor).  [enterprise type="inline" size="small" /]
 
 ## Supported upgrade paths
-The following tables list the supported upgrade paths for DC/OS 2.1.
+The following tables list the supported upgrade paths for DC/OS {{ model.folder_version }}.
 
 
 |**Display Icon** | **Service** |
@@ -41,7 +41,7 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
 | ◯ | Not Supported |
 
 <table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
-   <caption>DC/OS 1.13 to 2.1 Upgrade Paths</caption>
+   <caption>DC/OS 2.0 to {{ model.folder_version }} Upgrade Paths</caption>
    <tr>
     <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
    <tr>
@@ -49,56 +49,7 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
     <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
    </tr>
     <th></th>
-    <th Align = "center">2.1.0</th>
-   </tr>
-   <tr>
-    <th>1.13.0</th>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.13.1</th>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.13.2</th>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.13.3</th>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.13.4</th>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.13.5</th>
-    <td Align = "center">◯</td>
-   </tr>
-   <tr>
-    <th>1.13.6</th>
-    <td Align = "center">⚫</td>
-   </tr>
-   <tr>
-    <th>1.13.7</th>
-    <td Align = "center">⚫</td>
-   </tr>
-   <tr>
-    <th>1.13.9</th>
-    <td Align = "center">⚫</td>
-   </tr>
-</table>
-<br>
-<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
-   <caption>DC/OS 2.0 to 2.1 Upgrade Paths</caption>
-   <tr>
-    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
-   <tr>
-    <th></th>
-    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
-   </tr>
-    <th></th>
-    <th Align = "center">2.1.0</th>
+    <th Align = "center">2.2.1</th>
    </tr>
    <tr>
     <th>2.0.0</th>
@@ -120,11 +71,40 @@ The following tables list the supported upgrade paths for DC/OS 2.1.
     <th>2.0.4</th>
     <td Align = "center">⚫</td>
    </tr>
+   <tr>
+    <th>2.0.5</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.0.6</th>
+    <td Align = "center">⚫</td>
+   </tr>
+</table>
+<br>
+<table style="border-collapse: collapse;" Border = "1" Cellpadding = "5" Cellspacing = "5">
+   <caption>DC/OS 2.1 to {{ model.folder_version }} Upgrade Paths</caption>
+   <tr>
+    <th Rowspan = "20" Align = "center"><strong>Upgrade<br>From</strong></th>
+   <tr>
+    <th></th>
+    <th Colspan = "20" Align = "center"><strong>Upgrade To</strong></th>
+   </tr>
+    <th></th>
+    <th Align = "center">2.2.1</th>
+   </tr>
+   <tr>
+    <th>2.1.0</th>
+    <td Align = "center">⚫</td>
+   </tr>
+   <tr>
+    <th>2.1.1</th>
+    <td Align = "center">⚫</td>
+   </tr>
   </table>
 
 # Modifying DC/OS configuration [enterprise type="inline" size="small" /]
 
-You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 2.0 to 2.1 and add more public agents. You can add more public agents with a patch to 2.0 and then upgrade to 2.1, or you can upgrade to 2.1 and then add more public agents by [patching 2.1](/mesosphere/dcos/{{ model.folder_version }}/installing/production/patching/) after the upgrade.
+You **cannot** change your cluster configuration at the same time as upgrading to a new version. Cluster configuration changes must be done with a patch to an already installed version. For example, you cannot simultaneously upgrade a cluster from 2.0 to {{ model.folder_version }} and add more public agents. You can add more public agents with a patch to 2.0 and then upgrade to {{ model.folder_version }}, or you can upgrade to {{ model.folder_version }} and then add more public agents by [patching {{ model.folder_version }}](/mesosphere/dcos/{{ model.folder_version }}/installing/production/patching/) after the upgrade.
 
 # Instructions
 These steps must be performed for version upgrades.
@@ -159,7 +139,7 @@ These steps must be performed for version upgrades.
 ## Bootstrap Node
 
 
-This procedure upgrades a DC/OS 2.0 cluster to DC/OS 2.1.
+This procedure upgrades a DC/OS 2.0 cluster to DC/OS {{ model.folder_version }}.
 
 1.  Copy your existing `config.yaml` and `ip-detect` files to an empty `genconf` folder on your bootstrap node. The folder should be in the same directory as the installer.
 2.  The syntax of the `config.yaml` file can be different from the earlier version. For a detailed description of the current `config.yaml` syntax and parameters, see the [documentation](/mesosphere/dcos/{{ model.folder_version }}/installing/production/advanced-configuration/configuration-reference/).
@@ -321,7 +301,7 @@ sudo journalctl -u dcos-mesos-slave
 
 ## Notes:
 
-- Packages available in the DC/OS 2.1 {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
+- Packages available in the DC/OS {{ model.folder_version }} {{ model.packageRepo }} are newer than those in the older versions of {{ model.packageRepo }}. Services are not automatically upgraded when DC/OS is installed because not all DC/OS services have upgrade paths that will preserve existing states.
 
 [install]: /mesosphere/dcos/{{ model.folder_version }}/installing/production/deploying-dcos/installation/#custom-build-file
 [cmd]: /mesosphere/dcos/{{ model.folder_version }}/installing/production/deploying-dcos/installation/#nginx-cmd
