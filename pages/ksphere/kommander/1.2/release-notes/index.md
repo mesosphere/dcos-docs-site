@@ -33,7 +33,7 @@ Kommander provides a command center for all your cloud native management needs i
 # New Features and Capabilities 
 
 ## Air gapped environments
-Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapping is ideal for instances where high-security is a must or where Internet connectivity is either undesirable or unavailable. For more details on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped].
+Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapped environments are ideal when high-security is a must or when Internet connectivity is undesirable or unavailable. For information on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped].
 
 ## Component versions
 - Addon: 1.2.0-26
