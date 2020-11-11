@@ -57,7 +57,7 @@ Kommander now supports installing and running in an air gapped environment, eith
 - Fixed an issue where logout was not deleting any cookies.
 - Fixed UI crashes when kubecost was down.
 - Fixed catalog API occasionaly returned 500.
-- Fixed deleting cluster labels was impossible.
+- Fixed an issue that prevented deleting cluster labels.
 - Fixed counting self-attached host cluster against license count.
 - Smaller UX Bugs and Improvements.
 
