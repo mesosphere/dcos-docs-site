@@ -51,7 +51,7 @@ Kommander now supports installing and running in an air gapped environment, eith
 - Improved Access Control for editing/deleting actions. 
 - Changed routing from hash-based to history-based to allow redirects after login.
 - Added SAML IDP.
-- Moved provisioning code to Konvoy, Kommander now uses Konvoy to provision clusters.
+- Moved provisioning code to Konvoy. Kommander now uses Konvoy to provision clusters.
 - Added a setting to configure thresholds for resource warnings. 
 - Added the ability to show metrics in attached EKS clusters.
 - Added Infrastructure provider management on global level.
