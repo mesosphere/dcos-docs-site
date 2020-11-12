@@ -132,7 +132,7 @@ To use Kerberos with {{ model.techShortName }}:
 
 ## Job submission
 
-To authenticate to a Kerberos KDC, {{ model.techShortName }} on Mesos supports keytab files as well as ticket-granting tickets (TGTs). Keytabs are valid indefinitely, while tickets can expire. Keytabs are recommended, especially for long-running streaming jobs.
+To authenticate to a Kerberos KDC, {{ model.techShortName }} on Mesos supports keytab files and ticket-granting tickets (TGTs). Keytabs are valid indefinitely, while tickets can expire. Keytabs are recommended, especially for long-running streaming jobs.
 
 ### Controlling the `krb5.conf` with environment variables
 

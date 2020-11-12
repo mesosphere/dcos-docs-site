@@ -9,11 +9,11 @@ render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 
-This section is a simple overview of material described in greater detail in the Apache {{ model.techShortName }} documentation [here][1] and [here][2].
+This section is a simple overview of material described in greater detail in the [Apache {{ model.techShortName }} configuration page][1] and [Running Apache {{ model.techShortName }} on Mesos page][2].
 
 # Modes
 
-{{ model.techShortName }} on Mesos supports two modes of operation: coarse-grained mode and fine-grained mode. Coarse-grained mode provides lower latency, whereas fine-grained mode provides higher utilization. You can find nore information [here][2].
+{{ model.techShortName }} on Mesos supports two modes of operation: coarse-grained mode and fine-grained mode. Coarse-grained mode provides lower latency, whereas fine-grained mode provides higher utilization. You can find more information in the documentation of [Running Apache {{ model.techShortName }} on Mesos page][2].
 
 # Coarse-grained mode
 
@@ -42,7 +42,7 @@ The quota for the drivers allows the operator of the cluster to ensure that only
 Use the following guidelines to achieve best results:
 - Set the quota conservatively, but be aware that the setting affects the number of jobs that can run concurrently.
 - Decide how much of your cluster's resources to allocate to running drivers. Allocated resources are only be used for the {{ model.techShortName }} drivers, meaning that you can decide roughly how many concurrent jobs you would like to have running at a time. As additional jobs are submitted, they are queued and run with first-in-first-out semantics.
-- For the most predictable behavior, enforce uniform driver resource requirements and a particular quota size for the Dispatcher. For example, if each driver consumes 1.0 cpu and it is desirable to run up to 5 {{ model.techShortName }} jobs concurrently, you should create a quota that specifies 5 CPUs.
+- For the most predictable behavior, enforce uniform driver resource requirements and a particular quota size for the Dispatcher. For example, if each driver consumes 1.0 CPU and it is desirable to run up to 5 {{ model.techShortName }} jobs concurrently, you should create a quota that specifies 5 CPUs.
 
 ### Setting quota for the drivers
 
@@ -82,7 +82,7 @@ Use the following guidelines to achieve best results:
 
 ## Best practices for the executors
 
-It is recommended to allocate a quota for {{ model.techShortName }} job executors.  Allocating quota for the {{ model.techShortName }} executors provides:
+It is recommended to allocate a quota for {{ model.techShortName }} job executors. Allocating quota for the {{ model.techShortName }} executors provides:
 * A guarantee that {{ model.techShortName }} jobs  receive the requested amount of resources.
 * Additional assurance that even if misconfigured (for example, with a driver with `spark.cores.max` unset), {{ model.techShortName }} jobs do not consume resources that impact other tenants on the cluster.
 
@@ -90,7 +90,7 @@ The drawback to allocating quota to the executors is that quota resources cannot
 
 ### Setting quota for the executors
 
-Quota can be allocated for {{ model.techShortName }} executors in the same way it is allocated for {{ model.techShortName }} dispatchers.  If you want to run 100 executors concurrently, each with 1.0 CPU and 4096 MB of memory, you would do the following:
+Quota can be allocated for {{ model.techShortName }} executors in the same way it is allocated for {{ model.techShortName }} dispatchers. If you want to run 100 executors concurrently, each with 1.0 CPU and 4096 MB of memory, you would do the following:
 
 ```bash
 cat executor-quota.json
