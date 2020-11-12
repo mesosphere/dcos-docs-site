@@ -12,6 +12,43 @@ render: mustache
 #include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
 #include /mesosphere/dcos/services/include/configuration-regions.tmpl
 
+## Switching to Confluent Kafka Community
+
+<p class="message--warning"><strong>WARNING: </strong>It is not recommended to use Community service for production.</p>
+To enable Community flavour of Confluent Kafka, issue an update with following steps.
+
+1. Create file named `options.json` with the following contents. 
+    ```json
+    {
+      "service": {
+        "community": true
+      }
+    }
+    ```
+2. Install {{ model.techNameCommunity }} with the options file you created.
+    ```bash
+    $ dcos package install {{ model.packageName }} --options="options.json"
+    ```
+
+## Add Enterprise License Confluent Kafka Enterprise
+License can be added to Confluent Kafka brokers even after the service has been installed. To add the license to brokers, issue an update with the following steps.
+
+1. Create file named `options.json` with the following contents. 
+    ```json
+    {
+      "service": {
+        "license": "your license",
+        "community": false
+      }
+    }
+    ```
+<p class="message--important"><strong>IMPORTANT: </strong>License can only be added for Enterprise version. Make sure to turn the <tt>community</tt> flag to <tt>false</tt>.</p>
+
+2. Install {{ model.techNameCommunity }} with the options file you created.
+    ```bash
+    $ dcos package install {{ model.packageName }} --options="options.json"
+    ```
+
 ## Configuring the ZooKeeper Connection.
 
 {{ model.techName }} requires a running ZooKeeper ensemble to perform its own internal accounting. By default, the DC/OS {{ model.techName }} Service uses the ZooKeeper ensemble made available on the Mesos masters of a DC/OS cluster at `master.mesos:2181/dcos-service-<servicename>`. At install time, you can configure an alternate ZooKeeper for {{ model.techName }} to use. This enables you to increase {{ model.techName }}'s capacity and removes the DC/OS System ZooKeeper ensemble's involvement in running it.
