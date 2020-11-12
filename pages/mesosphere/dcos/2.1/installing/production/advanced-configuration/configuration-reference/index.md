@@ -67,6 +67,7 @@ This page contains the configuration parameters for both DC/OS Enterprise and DC
 | [dcos_l4lb_enable_ipv6](#dcos-l4lb-enable-ipv6)        | A boolean that indicates if layer 4 load-balancing is available for IPv6 networks. This takes affect only if `enable_ipv6` is set to `true`. Default value is `false`.|
 |[dcos_ucr_default_bridge_subnet](#dcos-ucr-default-bridge-subnet) |IPv4 subnet allocated to the `mesos-bridge` CNI network for UCR bridge-mode networking. |
 |[network_cni_root_dir_persist](#network-cni-root-dir-persist) |A boolean that specifies whether to make the CNI root directory persistent during a host reboot. The default value is `false`. If you set this configuration option to `true`, the CNI root directory is created under `work dir`. Setting this option to `true` enables the CNI isolator to do proper cleanup after rebooting a host node. NOTE: It requires Host reboot for this flag to take effect.|
+| [calico_enabled](#calico_enabled) | Indicates whether or not to enable the Calico Overlay Network.  Default value is `true`|
 | [calico_network_cidr](#calico-network-cidr) | Subnet allocated for calico. The subnet specified by `calico_network_cidr` MUST not overlap with those for VXLAN backends or virtual networks defined for [DC/OS virtual networks](/mesosphere/dcos/2.1/installing/production/advanced-configuration/configuration-reference/#dcos-overlay-enable). [ Default: 172.29.0.0/16 ] |
 | [calico_vxlan_enabled](#calico-vxlan-enabled) | Control, whether IP-in-IP or VXLAN mode is used for calico, by default VXLAN, is suggested to be used instead of VXLAN. `calico_vxlan_enabled` is supposed to set to 'true' for the environment that IP in IP is not supported, like Azure. [Default: 'true'] |
 | [calico_ipinip_mtu](#calico-ipinip-mtu) | The MTU to set on the Calico IPIP tunnel device. This configuration works when calico_vxlan_enabled is set to be false. Please refer to the [calico documentation](https://docs.projectcalico.org/networking/mtu) for a suitable MTU configuration. [Default: 1480] |
@@ -288,6 +289,10 @@ Use this to set up a custom external certificate. See [Configuring a Custom Exte
 ### external_certificate_validation_disable [enterprise type="inline" size="small" /]
 
 Use this to set up a custom external certificate. See [Configuring a Custom External Certificate](/mesosphere/dcos/2.1/security/ent/tls-ssl/ar-custom/#configuration-parameter-reference) page for a detailed configuration parameter reference.
+
+### calico_enabled
+Indicates whether to enable the Calico networking support.   See the [Calico](/mesosphere/dcos/2.1/networking/SDN/calico) documentation for more details.
+The default is `true`.
 
 ### calico_network_cidr
 
