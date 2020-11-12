@@ -69,7 +69,7 @@ spec:
         catalog.kubeaddons.mesosphere.io/addon-revision: 1.9.4-1
         catalog.kubeaddons.mesosphere.io/origin-repository: https://github.com/mesosphere/kubeaddons-enterprise
         catalog.kubeaddons.mesosphere.io/origin-repository-version: master
-        values.chart.helm.kubeaddons.mesosphere.io/jenkins: https://raw.githubusercontent.com/helm/charts/master/stable/jenkins/values.yaml
+        values.chart.helm.kubeaddons.mesosphere.io/jenkins: https://raw.githubusercontent.com/jenkinsci/helm-charts/main/charts/jenkins/values.yaml
       labels:
         kubeaddons.mesosphere.io/name: jenkins
       name: jenkins
