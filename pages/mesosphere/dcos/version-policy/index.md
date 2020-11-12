@@ -228,7 +228,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
            </tr>
     <tr>
-        <td>Confluent-Kafka 2.9.x-5.4.0 (Recommended)</td>
+        <td>Confluent-Kafka 2.10.x-5.5.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
