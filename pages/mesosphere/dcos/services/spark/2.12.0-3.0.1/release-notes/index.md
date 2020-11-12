@@ -87,6 +87,7 @@ model: /mesosphere/dcos/services/spark/data.yml
   <li>Currently, DC/OS AdminRouter doesn't support virtual networks so DC/OS {{ model.techShortName }} endpoints will not be accessible from CLI, and jobs need to be submitted from a routable network</li>
 </ul>
 </p>
+
 ### Updates
 - `SPARK_HOME` environment variable defaults to `/opt/spark` in Dockerfile and executable scripts
 - Switched to Spark's own StatsD Sink instead of 3rd-party dependency
