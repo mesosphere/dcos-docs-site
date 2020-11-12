@@ -147,7 +147,7 @@ You can define additional [Prometheus alerting rules][alerting_rules] on the Kom
     ```
 
 [thanos_query]: https://thanos.io/components/query.md/
-[grafana_import_dashboards]: https://github.com/helm/charts/tree/master/stable/grafana#import-dashboards
+[grafana_import_dashboards]: https://github.com/mesosphere/charts/tree/master/stable/grafana#import-dashboards
 [karma_docs]: https://github.com/prymitive/karma
 [alerting_rules]: https://prometheus.io/docs/prometheus/latest/configuration/alerting_rules/
 [kubefed_status_docs]: https://github.com/kubernetes-sigs/kubefed/blob/master/docs/userguide.md#propagation-status
