@@ -145,7 +145,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/kibana: "6.8.2"
     endpoint.kubeaddons.mesosphere.io/kibana: "/ops/portal/kibana"
     docs.kubeaddons.mesosphere.io/kibana: "https://www.elastic.co/guide/en/kibana/6.8/index.html"
-    values.chart.helm.kubeaddons.mesosphere.io/kibana: "https://raw.githubusercontent.com/helm/charts/09004fa332094693e2e5fcffe474622ba15491ae/stable/kibana/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/kibana: "https://raw.githubusercontent.com/mesosphere/charts/505a69c/stable/kibana/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.6
@@ -203,4 +203,4 @@ There is no way to override the kudo operator's `params` at this time.
 
 [addon_tutorial]: ../../tutorials/addon-repositories/
 [base_addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
-[helm_charts]: https://github.com/helm/charts/
+[helm_charts]: https://github.com/mesosphere/charts/

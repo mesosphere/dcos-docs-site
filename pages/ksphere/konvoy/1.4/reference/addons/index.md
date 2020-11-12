@@ -145,7 +145,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/kibana: "6.8.2"
     endpoint.kubeaddons.mesosphere.io/kibana: "/ops/portal/kibana"
     docs.kubeaddons.mesosphere.io/kibana: "https://www.elastic.co/guide/en/kibana/6.8/index.html"
-    values.chart.helm.kubeaddons.mesosphere.io/kibana: "https://raw.githubusercontent.com/helm/charts/09004fa332094693e2e5fcffe474622ba15491ae/stable/kibana/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/kibana: "https://raw.githubusercontent.com/mesosphere/charts/505a69c/stable/kibana/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.6
@@ -178,7 +178,7 @@ The above example is for a helm chart.
 This is expressed using the `chartReference` map.
 The `chart` and `version` keys reference the helm chart name, and version.
 Use the optional `repo` key to point to a custom repository.
-If `repo` is not specified, the [default helm chart](https://github.com/helm/charts/) repo is used.
+If `repo` is not specified, the [default helm chart](https://github.com/mesosphere/charts/) repo is used.
 Override the default chart values using the `values` key.
 Changes made here are merged with the chart's `values.yaml` file when applied using helm.
 
