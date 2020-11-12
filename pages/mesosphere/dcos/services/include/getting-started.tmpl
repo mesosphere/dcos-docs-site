@@ -47,12 +47,34 @@ Use the custom configuration file you just created to install {{ model.techName 
 dcos package install --options=config.json {{ model.packageName }}
 ```
 
+## Installing with external volumes enabled
+Create a custom configuration file that will be used to install {{ model.techName }}, and save it as `config.json`.
+```json
+{
+  "service": {
+    "user": "root"
+  },
+  "node": {
+    "external_volume": {
+      "enabled": true,
+      "driver_name": "pxd",
+
+    }
+  }
+}
+```
+Use the custom configuration file you just created to install {{ model.techName }} with this command:
+
+```bash
+dcos package install --options=config.json {{ model.packageName }}
+```
+
 # Service Deployment
 
 To monitor the deployment of your test instance, install the package cli (see command above) and run the command:
 
 ```bash
-dcos {{ model.packageName }} plan show deploy
+dcos {{ model.packageName }} plan status deploy
 ```
 
 Once the deploy plan has a status of `Complete`, the service is fully deployed.
