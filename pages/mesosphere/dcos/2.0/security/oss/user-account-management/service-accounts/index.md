@@ -57,19 +57,6 @@ To list all configured service accounts using the DC/OS [Identity and Access Man
 curl -i -X GET "http://<host-ip>/acs/api/v1/users?type=service" -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
 ```
 
-# Change a service account public key
-
-## Using the IAM API
-
-**Prerequisite:**
-- [DC/OS Authentication token](/mesosphere/dcos/2.0/security/oss/authentication/authentication-token/) exported into the environment as `TOKEN`.
-
-To change a service account's public key using the DC/OS [Identity and Access Management (IAM) API](/mesosphere/dcos/2.0/security/oss/iam-api/) provide a new public key in the `public-key.pem` file. Then replace `<uid>` in the following command and execute it:
-
-```bash
-curl -i -X PATCH http://<host-ip>/acs/api/v1/users/<uid> -d '{"public_key": "'"$(sed ':a;N;$!ba;s/\n/\\n/g' public-key.pem)"'"}' -H 'Content-Type: application/json' -H "Authorization: token=$TOKEN"
-```
-
 # Remove a service account
 
 ## Using the IAM API
