@@ -347,19 +347,19 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Spark 2.6.x-2.3.2</td>
+        <td>Spark 2.11.x-2.4.6</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Spark 2.11.x-2.4.6 (Recommended)</td>
+        <td>Spark 2.12.x-3.0.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Spark History 2.6.x-2.3.2</td>
+        <td>Spark History 2.11.x-2.4.6</td>
         <td><p style="text-align: center;">⚫</p></td>
            </tr>
     <tr>
-        <td>Spark History 2.11.x-2.4.6 (Recommended)</td>
+        <td>Spark History 2.12.x-3.0.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
 </table>
