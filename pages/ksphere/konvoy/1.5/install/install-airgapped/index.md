@@ -254,7 +254,7 @@ The RPM packages installed by Konvoy:
 * util-linux
 * yum-plugin-versionlock
 
-There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories
+<p class="message--note"><strong>NOTE: The above list of RPM packages is sufficient for the default Centos 7 AMI used in Konvoy. There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories.</strong></p>
 
 The DEB packages installed by Konvoy:
 
@@ -308,6 +308,21 @@ spec:
       ${REGISTRY_PASSWORD}
     default: true
 ```
+
+The above assumes that the certificate used by `myregistry` is signed by a trusted authority.
+If you are using a self-signed certificate, you must add that trusted root certificate to all the Kubernete hosts before running `konvoy up`.
+
+* On Centos/RHEL:
+
+1. Install the ca-certificates package: `yum install ca-certificates`
+2. Enable the dynamic CA configuration feature: `update-ca-trust force-enable`
+3. Add the CA as a new file to /etc/pki/ca-trust/source/anchors/: `cp myregistry.crt /etc/pki/ca-trust/source/anchors/myregistry.crt`
+4. Update the CA trust: `update-ca-trust extract`
+
+* On Ubuntu/Debian:
+
+1. Copy your CA to dir /usr/local/share/ca-certificates/: `cp myregistry.crt /usr/local/share/ca-certificates/myregistry.crt`
+2. Update the CA store: `sudo update-ca-certificates`
 
 Konvoy also provides convenient CLI commands to setup your registry with the required images.
 Running the command below pulls all of the images, retags them, and pushes them to the specified image registry. This makes them available during installation.
@@ -397,6 +412,10 @@ spec:
           konvoy.docker-registry-password: "mypassword"
       clusterAutoscaler:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
+     kubeaddonsRepository:
+        versionStrategy: mapped-kubernetes-version
+        versionMap:
+          1.17.13: stable-1.17-2.2.0
 ```
 
 The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
@@ -418,6 +437,10 @@ spec:
           konvoy.docker-registry-password: "mypassword"
       clusterAutoscaler:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
+     kubeaddonsRepository:
+        versionStrategy: mapped-kubernetes-version
+        versionMap:
+          1.17.13: stable-1.17-2.2.0
 ```
 
 Details regarding the autoscaler are provided in [the autoscaling documentation][autoscaling-air-gapped].

@@ -55,7 +55,7 @@ Kubeaddons uses "drivers" under the hood to deploy and manage Addons via the Con
 
 While Helm V2 remains a supported driver (Helm V3 should take over these responsibilities in later releases) Kubeaddons inherits the security issues present in any Tiller installation on the cluster. **Great care needs to be taken with [RBAC](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) permissions for users and service accounts on Konvoy clusters**. **Operators *should not provide RBAC permissions to create or manage Addon or ClusterAddon resources* as these permissions essentially provide that user with [cluster-admin](https://kubernetes.io/docs/reference/access-authn-authz/rbac/#user-facing-roles)**.
 
-[Dex Connector documentation]: https://github.com/dexidp/dex/tree/master/Documentation/connectors
+[Dex Connector documentation]: https://github.com/dexidp/dex/tree/v2.22.0/Documentation/connectors
 [External Providers]: ./external-idps
 [RBAC Examples]: ./external-idps/rbac
 [Kubernetes security mechanisms]: https://kubernetes.io/docs/reference/access-authn-authz/controlling-access/
