@@ -321,6 +321,6 @@ Details of these functionalities can be viewed [here][traefik_fn].
 [metallb]: https://metallb.universe.tf/concepts/
 [metallb_config]: https://metallb.universe.tf/configuration/
 [traefik]: https://docs.traefik.io/
-[traefik_chart]: https://github.com/mesosphere/charts/tree/master/staging/traefik
+[traefik_chart]: https://github.com/helm/charts/tree/master/stable/traefik
 [traefik_fn]: https://docs.traefik.io/v1.7/user-guide/kubernetes/
 [&#185;]: https://github.com/danderson/metallb/issues/348#issuecomment-442218138

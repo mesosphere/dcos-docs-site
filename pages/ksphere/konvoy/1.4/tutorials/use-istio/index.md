@@ -22,7 +22,7 @@ Before starting this tutorial, you should verify the following:
 
 - You must have a properly deployed and running cluster. For information about deploying Kubernetes with default settings, see the [Quick start][quickstart].
 
-## Deploy Istio
+## Deploy Istio using Helm
 
 1. Download the latest release of Istio by running the following command:
 
@@ -37,14 +37,12 @@ Before starting this tutorial, you should verify the following:
     export PATH=$PWD/bin:$PATH
     ```
 
-1. For this installation, we use the demo configuration profile. It's selected to have a good set of defaults for testing, but there are other profiles for production or performance testing. Install Istio using the following commands:
+1. Install Istio using Helm by running the following commands:
 
     ```bash
-    istioctl install --set profile=demo
-    kubectl label namespace default istio-injection=enabled
+    helm install install/kubernetes/helm/istio-init --name istio-init --namespace istio-system
+    helm install install/kubernetes/helm/istio --name istio --namespace istio-system
     ```
-
-<p class="message--note"><strong>NOTE: </strong><a href="https://istio.io/v1.5/docs/setup/install/helm/" target="_blank">Previous documented ways to install Istio with Helm</a> are no longer recommended. This is why we recommend installing Istio here with <code>istioctl</code> instead</p>
 
 ## Deploy a sample application on Istio
 
@@ -76,5 +74,5 @@ The Istio BookInfo sample application is composed of four separate microservices
 
 1. Follow the steps in the Istio [BookInfo Application][istiobook] documentation to understand the different Istio features.
 
-[istiobook]: https://istio.io/docs/examples/bookinfo/
-[quickstart]: ../../quick-start/
+[istiobook]:https://istio.io/docs/examples/bookinfo/
+[quickstart]:../../quick-start/
