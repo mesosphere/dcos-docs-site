@@ -18,6 +18,7 @@ The hostname, eg `mycluster.domain.dom` in these examples, must be resolvable fr
   values: |
      config:
         clusterHostname: mycluster.domain.dom
+        caSecretName: <secret name>
 ```
 
 ### Use external-dns to create a CNAME  (Optional)
@@ -129,6 +130,7 @@ Requires a custom domain with the following:
         values: |
           config:
             clusterHostname: mycluster.domain.dom
+            caSecretName: <secret name>
 
       - name: dex-k8s-authenticator
         values: |

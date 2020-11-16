@@ -134,4 +134,4 @@ time="2019-07-29T15:35:52Z" level=info msg="login successful: connector \"ldap\"
 ```
 
 [ldap-test-server]: https://www.forumsys.com/tutorials/integration-how-to/ldap/online-ldap-test-server/
-[dex-ldap-connector]: https://github.com/dexidp/dex/blob/master/Documentation/connectors/ldap.md
+[dex-ldap-connector]: https://github.com/dexidp/dex/blob/v2.22.0/Documentation/connectors/ldap.md
