@@ -133,7 +133,7 @@ DC/OS Enterprise allows users to add privileged information in the form of a fil
 ### Where to place secrets
 
 For a secret to be available to {{ model.techName }}, it must be placed in a path
-that can be accessed by the {{ model.nickName }} service. If only {{ model.nickName }} requires access to a secret, you can store the secret in a path that matches the name of the {{ model.nickName }} service (for example, `{{ model.packageName }}/secret`).  
+that can be accessed by the {{ model.nickName }} service. If only {{ model.nickName }} requires access to a secret, you can store the secret in a path that matches the name of the {{ model.nickName }} service (for example, `{{ model.packageName }}/secret`).
 
 ## Limitations
 
