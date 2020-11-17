@@ -76,7 +76,7 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
 
     Figure 1 - Open new Jupyter window
 
-    This will open a new window or tab in the browser for JupyterLab.  Log in using the password if specified during the installation of the {{ model.packageName }} package in **Service -> Jupyter Password** option.
+    This will open a new window or tab in the browser for JupyterLab. Log in using the password if specified during the installation of the {{ model.packageName }} package in **Service -> Jupyter Password** option.
 
 1. In JupyterLab, create a new notebook by selecting **File > New > Notebook**:
 
