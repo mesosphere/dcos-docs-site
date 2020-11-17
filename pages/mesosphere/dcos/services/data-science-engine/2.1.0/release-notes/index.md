@@ -92,7 +92,7 @@ render: mustache
 ## Breaking Changes
 
 - CUDA 9 images will no longer be provided with a bundle; CUDA 10 is the only version used for GPU images.
-- `jaas_secret` option removed from security configuration.  `extra_spark_secrets` should be used instead.
+- `jaas_secret` option removed from security configuration. `extra_spark_secrets` should be used instead.
 
 ## Limitations
 
