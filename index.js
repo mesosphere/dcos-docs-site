@@ -64,7 +64,7 @@ MS.metadata({
   dcosDocsLatest: "2.2",
   dispatchDocsLatest: "1.3",
   kommanderDocsLatest: "1.1",
-  konvoyDocsLatest: "1.5",
+  konvoyDocsLatest: "1.6",
   kaptainDocsLatest: "1.0.1-0.5.0",
   Utils,
 });
