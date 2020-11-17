@@ -59,7 +59,7 @@ Kommander now supports installing and running in an air gapped environment, eith
 - Fixed UI crashes when kubecost was down.
 - Fixed an issue where the catalog API occasionally returned 500.
 - Fixed an issue that prevented deleting cluster labels.
-- Fixed counting self-attached host cluster against license count.
+- Fixed an issue that erroneously counted the self-attached host cluster against the license count.
 - Numerous UX Bug fixes and Improvements.
 
 [install_airgapped](https://docs.d2iq.com/ksphere/kommander/1.2/install-airgapped/)
