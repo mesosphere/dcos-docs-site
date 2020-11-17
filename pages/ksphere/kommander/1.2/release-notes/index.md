@@ -36,10 +36,10 @@ Kommander provides a command center for all your cloud native management needs i
 Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapped environments are ideal when high-security is a must or when Internet connectivity is undesirable or unavailable. For information on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped].
 
 ## Component versions
-- Addon: 1.2.0-26
-- Chart: 0.12.3
-- kommander-federation (yakcl): 0.6.2
-- kommander-licensing (yakcl): 0.6.2
+- Addon: 1.2.0-36
+- Chart: 0.12.16
+- kommander-federation (yakcl): 0.6.9
+- kommander-licensing (yakcl): 0.6.9
 - UI: 6.37.0
 - kommander-karma: 0.3.10
 - kubeaddons-catalog: 0.1.15

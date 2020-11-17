@@ -4,7 +4,7 @@ navigationTitle: Install air-gapped
 title: Install Kommander air-gapped
 menuWeight: 35
 excerpt: Install Kommander in an air-gapped environment
-beta: false
+beta: true
 enterprise: false
 ---
 
