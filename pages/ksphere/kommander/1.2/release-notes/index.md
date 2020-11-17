@@ -11,7 +11,7 @@ enterprise: false
 <!-- markdownlint-disable MD034 -->
 
 # Release notes for Kommander 1.2
-Kommander 1.2 was released on 11, November 2020 
+Kommander 1.2 was released on 16, November 2020 
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -45,7 +45,10 @@ Kommander now supports installing and running in an air gapped environment, eith
 - kubeaddons-catalog: 0.1.15
 - kommander-thanos: 0.1.15
 - kubecost: 0.1.15
-- grafana: 4.6.3
+- grafana: 6.6.0
+- karma: 0.70
+- thanos: 0.10.1
+- cost-analyzer: 1.67.1
 
 ## Fixed and Improved Issues 
 - Improved Access Control for editing/deleting actions. 
@@ -60,6 +63,12 @@ Kommander now supports installing and running in an air gapped environment, eith
 - Fixed an issue where the catalog API occasionally returned 500.
 - Fixed an issue that prevented deleting cluster labels.
 - Fixed an issue that erroneously counted the self-attached host cluster against the license count.
-- Numerous UX Bug fixes and Improvements.
+- Updated cert-manager resources to v1.
+- Added automatic creation of **KommanderProjectRole** and **VirtualGroupKommanderProjectRoleBinding** objects based on Workspace objects.
+- Fixed access to kubecost UI for some cluster roles.
+- Created the serviceaccount needed for deletion jobs on delete.
+- Added --ignore-not-found to resource cleanup jobs to ignore errors if resource has already been deleted.
+- Fixed metric collection for kubefed, kommander-federation, and kommander-licensing.
+- Numerous UX bug fixes and improvements.
 
 [install_airgapped](https://docs.d2iq.com/ksphere/kommander/1.2/install-airgapped/)
