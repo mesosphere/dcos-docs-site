@@ -88,7 +88,7 @@ Install the {{ model.packageName }} package. This may take a few minutes. This s
 
 1. Rename the notebook to "Estimate Pi.ipynb" using the menu at **File -> Rename Notebook**.
 
-1. Paste the following Python code into the notebook.  If desired, you can type sections of code into separate cells as shown below.
+1. Paste the following Python code into the notebook. If desired, you can type sections of code into separate cells as shown below.
 
 
    ```python
