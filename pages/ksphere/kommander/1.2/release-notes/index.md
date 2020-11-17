@@ -19,22 +19,17 @@ To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/l
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
-
 # Release Summary 
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
-
 # Supported Versions
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 | **Minimum**        | 1.16.0  |
 | **Maximum**        | 1.18.x  |
 | **Default**        | 1.18.8  |
-
 # New Features and Capabilities 
-
 ## Air gapped environments
-Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapped environments are ideal when high-security is a must or when Internet connectivity is undesirable or unavailable. For information on setting up Kommander in an air gapped environment, see [Install Kommander air gapped][install_airgapped].
-
+Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapped environments are ideal when high-security is a must or when Internet connectivity is undesirable or unavailable. For information on setting up Kommander in an air gapped environment, see [Install Kommander air gapped](/ksphere/kommander/1.2/install-airgapped/).
 ## Component versions
 - Addon: 1.2.0-36
 - Chart: 0.12.16
@@ -71,4 +66,3 @@ Kommander now supports installing and running in an air gapped environment, eith
 - Fixed metric collection for kubefed, kommander-federation, and kommander-licensing.
 - Numerous UX bug fixes and improvements.
 
-[install_airgapped](https://docs.d2iq.com/ksphere/kommander/1.2/install-airgapped/)
