@@ -4,7 +4,7 @@ navigationTitle: Install air-gapped
 title: Install air-gapped
 menuWeight: 35
 excerpt: Install Konvoy in an air-gapped environment
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -227,22 +227,34 @@ spec:
 
 The RPM packages installed by Konvoy:
 
-* yum-plugin-versionlock
 * chrony
-* openssl
-* libseccomp
-* container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
+* conntrack
 * containerd.io
-* nfs-utils
-* kubectl
-* kubernetes-cni
-* kubelet
+* container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
 * cri-tools
+* ebtables
+* ethtool
+* iproute
+* iptables
 * kubeadm
-* nvme-cli (only on AWS)
+* kubectl
+* kubelet
+* kubernetes-cni
+* libblkid
+* libnetfilter_cthelper
+* libnetfilter_cttimeout
+* libnetfilter_queue
+* libseccomp
+* libuuid
+* nfs-utils
 * nvidia-container-runtime (for GPU enabled machines)
+* nvme-cli (only on AWS)
+* openssl
+* socat
+* util-linux
+* yum-plugin-versionlock
 
-There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories
+<p class="message--note"><strong>NOTE: The above list of RPM packages is sufficient for the default Centos 7 AMI used in Konvoy. There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories.</strong></p>
 
 The DEB packages installed by Konvoy:
 
@@ -296,6 +308,21 @@ spec:
       ${REGISTRY_PASSWORD}
     default: true
 ```
+
+The above assumes that the certificate used by `myregistry` is signed by a trusted authority.
+If you are using a self-signed certificate, you must add that trusted root certificate to all the Kubernete hosts before running `konvoy up`.
+
+* On Centos/RHEL:
+
+1. Install the ca-certificates package: `yum install ca-certificates`
+2. Enable the dynamic CA configuration feature: `update-ca-trust force-enable`
+3. Add the CA as a new file to /etc/pki/ca-trust/source/anchors/: `cp myregistry.crt /etc/pki/ca-trust/source/anchors/myregistry.crt`
+4. Update the CA trust: `update-ca-trust extract`
+
+* On Ubuntu/Debian:
+
+1. Copy your CA to dir /usr/local/share/ca-certificates/: `cp myregistry.crt /usr/local/share/ca-certificates/myregistry.crt`
+2. Update the CA store: `sudo update-ca-certificates`
 
 Konvoy provides a convenient CLI command to setup your registry with the required images which you must run in order to populate your registry with all necessary images prior to installing Konvoy.
 Running the command below loads all of the images, retags them, and pushes them to the specified image registry:
@@ -368,7 +395,7 @@ When configuring these settings, you should make sure that the values you set fo
 
 Konvoy provides an [autoscaling feature that works at the node pool level][autoscaling]. When installing Konvoy in an air-gapped environment, you have to configure auto-provisioning with a local Docker registry.
 
-Assuming you have a private registry `https://myregistry:443` that requires authentication, you must specify it as follows:
+Assuming you have a private registry `https://myregistry:443` that requires authentication and uses a custom certificate, you must specify it as follows:
 
 ```yaml
 kind: ClusterConfiguration
@@ -381,20 +408,25 @@ spec:
       konvoy:
         imageRepository: myregistry:443/mesosphere/konvoy
       webhook:
+        dockerRegistryCaBundle: |
+          -----BEGIN CERTIFICATE-----
+          [...]
+          ----END CERTIFICATE-----
         extraArgs:
           konvoy.docker-registry-url: https://myregistry:443
-          #konvoy.docker-registry-insecure-skip-tls-verify: false
           konvoy.docker-registry-username: "myuser"
           konvoy.docker-registry-password: "mypassword"
       clusterAutoscaler:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.17.11: testing-1.17-1.2.0-beta.1
+          1.18.10: stable-1.18-3.0.0
         versionStrategy: mapped-kubernetes-version
 ```
 
 The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should be present in your registry after running `konvoy config images seed`. The autoscaler queries the registry and finds the latest `konvoy` image to use in the autoscaling process.
+
+If you wish to disable the Docker registry certificate verification, set `konvoy.docker-registry-insecure-skip-tls-verify` to `true` in the auto-provisioning's `webhook.extraArgs`. We encourage you to keep the certificate verification enabled to validate all TLS connections to the registry.
 
 If you are using a registry that has the notion of projects such as [Harbor][harbor], make sure that you prepend the project name to the value of `konvoy.docker-registry-repository` while not adding it to the `konvoy.docker-registry-url`. Here is an example of `autoProvisioning` spec using a Harbor registry with a project called `library`:
 
@@ -446,18 +478,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.0-beta.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.0
       addonsList:
       - name: kommander
         enabled: false

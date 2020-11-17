@@ -4,7 +4,7 @@ navigationTitle: Ingress
 title: Ingress
 menuWeight: 8
 excerpt: Traefik Ingress Controller
-beta: true
+beta: false
 enterprise: false
 ---
 

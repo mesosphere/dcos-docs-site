@@ -4,7 +4,7 @@ navigationTitle: Monitoring and Alerts
 title: Monitoring and Alerts
 menuWeight: 180
 excerpt: Monitor and collect metrics for Kubernetes, platform services, and applications deployed on the Konvoy cluster
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -432,6 +432,6 @@ When defining the requirements of a Konvoy cluster, you can specify the capacity
 ```
 
 [kube_state_exposed_metrics]: https://github.com/kubernetes/kube-state-metrics/tree/master/docs#exposed-metrics
-[grafana_import_dashboards]: https://github.com/helm/charts/tree/master/stable/grafana#import-dashboards
-[prometheus_rules]: https://github.com/helm/charts/tree/master/stable/prometheus-operator/templates/prometheus/rules
+[grafana_import_dashboards]: https://github.com/mesosphere/charts/tree/master/stable/grafana#import-dashboards
+[prometheus_rules]: https://github.com/mesosphere/charts/tree/master/staging/prometheus-operator/templates/prometheus/rules
 [alertmanager_config]: https://prometheus.io/docs/alerting/configuration/

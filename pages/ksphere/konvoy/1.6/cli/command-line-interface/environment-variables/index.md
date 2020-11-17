@@ -4,7 +4,7 @@ navigationTitle: Environment variables
 title: Environment variables
 menuWeight: 11
 enterprise: false
-beta: true
+beta: false
 excerpt: Configure the Konvoy CLI with environment variables
 ---
 

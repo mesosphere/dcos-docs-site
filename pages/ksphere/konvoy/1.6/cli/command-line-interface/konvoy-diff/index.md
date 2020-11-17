@@ -5,7 +5,7 @@ title: konvoy diff
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
+beta: false
 excerpt: Print the difference between two resources
 ---
 

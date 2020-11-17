@@ -4,11 +4,11 @@ navigationTitle: Install on-premises
 title: Install on-premises
 menuWeight: 30
 excerpt: Install Konvoy in an on-premises environment
-beta: true
+beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018 -->
 
 The topics in this section guide you through the basic steps to prepare your environment and install Konvoy in an on-premises environment.
 
@@ -55,16 +55,7 @@ For all hosts that are part of the cluster -- except the **deploy host** -- you 
 
 Make sure the following domains are accessible from the control plane nodes and worker nodes.
 
-* k8s.gcr.io
-* registry.hub.docker.com
-* quay.io
-* packages.cloud.google.com
-* download.docker.com
-* github.com
-* grafana.com
-* raw.githubusercontent.com
-* mesosphere.github.io
-* storage.googleapis.com
+#include /ksphere/konvoy/1.6/include/required-domains.tmpl
 
 For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, and `github.com` are accessible.
 
@@ -208,16 +199,16 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.17-2.4.0
+    configVersion: stable-1.18-3.0.0
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.17-1.2.2
+    configVersion: stable-1.18-1.3.0
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.17-1.2.0-beta.1
+    configVersion: stable-1.18-1.2.0
     addonsList:
     - name: kommander
       enabled: true

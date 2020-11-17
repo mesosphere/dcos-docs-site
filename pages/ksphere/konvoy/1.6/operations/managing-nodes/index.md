@@ -4,7 +4,7 @@ navigationTitle: Add, Change, and Remove Nodes
 title: Add, Change, and Remove Nodes
 menuWeight: 5
 excerpt: Add, change, and remove nodes your Konvoy cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

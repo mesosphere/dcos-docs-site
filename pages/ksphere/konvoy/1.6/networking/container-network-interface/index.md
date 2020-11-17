@@ -4,7 +4,7 @@ navigationTitle: Container Network Interface
 title: Calico
 menuWeight: 8
 excerpt: Calico Container Networking Interface
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -5,7 +5,7 @@ title: konvoy drain
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
+beta: false
 excerpt: Drains Pods from machines managed by konvoy
 ---
 

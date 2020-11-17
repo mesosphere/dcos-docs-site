@@ -4,7 +4,7 @@ navigationTitle: Calico Version
 title: Calico Version
 menuWeight: 8
 excerpt: Use a specific Calico version
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -22,7 +22,7 @@ spec:
   kubernetes:
     containerNetworking:
       calico:
-        version: v3.16.3
+        version: v3.16.4
 ```
 
 For more information, see:

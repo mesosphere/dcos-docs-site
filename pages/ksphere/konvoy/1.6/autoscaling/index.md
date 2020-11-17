@@ -4,7 +4,7 @@ navigationTitle: Autoscaling
 title: Autoscaling clusters
 menuWeight: 140
 excerpt: Autoscaling a Konvoy cluster
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -59,7 +59,7 @@ spec:
     count: 3
     machine:
       type: m5.xlarge
-  version: v1.6.0-beta.1
+  version: v1.6.0
 ```
 
 The worker pool scales up to a maximum of 4 machines and scales down
@@ -310,63 +310,6 @@ In case you would like to change any autoscaling configuration of your cluster, 
 In an air-gapped cluster, you need to specify some additional configurations for the autoscaling functionality to work without access to the Internet.
 
 Configuring auto-provisioning with a local Docker registry is mandatory and explained in the [air-gapped installation documentation][airgapped-autoscaling].
-
-You will also need to configure the autoscaler to use a local Helm charts repository running as a pod in the cluster
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
-metadata:
-  name: clustername
-spec:
-  autoProvisioning:
-    config:
-      clusterAutoscaler:
-        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
-```
-
-Finally, you must also configure the autoscaler with a static mapping of Kubernetes versions to the [Kubernetes Base Addons][kubernetes-base-addons] versions, to prevent it from trying to list tags from the remote Github URL.
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
-metadata:
-  name: clustername
-spec:
-  autoProvisioning:
-    config:
-      kubeaddonsRepository:
-        versionStrategy: mapped-kubernetes-version
-        versionMap:
-          1.18.10: testing-1.17-2.4.0
-```
-
-Putting it all together, the configuration would be as follows:
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
-metadata:
-  name: clustername
-spec:
-  autoProvisioning:
-    config:
-      konvoy:
-        imageRepository: myregistry:443/mesosphere/konvoy
-      webhook:
-        extraArgs:
-          konvoy.docker-registry-url: https://myregistry:443
-          #konvoy.docker-registry-insecure-skip-tls-verify: false
-          konvoy.docker-registry-username: "myuser"
-          konvoy.docker-registry-password: "mypassword"
-      clusterAutoscaler:
-        chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
-      kubeaddonsRepository:
-        versionStrategy: mapped-kubernetes-version
-        versionMap:
-          1.18.10: testing-1.17-2.4.0
-...
-```
 
 <p class="message--note"><strong>NOTE: </strong> There is a limitation when using the autoscaler in an air-gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the the process will timeout trying to access https://iam.amazonaws.com.</p>
 

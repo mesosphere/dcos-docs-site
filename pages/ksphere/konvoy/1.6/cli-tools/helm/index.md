@@ -2,9 +2,9 @@
 layout: layout.pug
 navigationTitle: Helm CLI
 title: Helm CLI
-menuWeight: 60
+menuWeight: 5
 excerpt: Helm CLI Usage
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -60,7 +60,7 @@ The Helm community also contributes and maintains packages to several package ma
 After installing a Helm binary, add a Helm chart repository. To add and access the official Helm chart repository, enter the following command:
 
 ```bash
-helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo add stable https://mesosphere.github.io/charts/stable/
 ```
 
 ## Install a Helm Chart

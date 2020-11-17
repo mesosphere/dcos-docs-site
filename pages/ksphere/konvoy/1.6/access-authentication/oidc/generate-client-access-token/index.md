@@ -4,7 +4,7 @@ navigationTitle: Generate a Client Access Token
 title: Generate a Client Access Token
 menuWeight: 20
 excerpt: How to generate a Client Access Token
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -3,10 +3,9 @@ layout: layout.pug
 navigationTitle: Legal
 title: Legal
 menuWeight: 270
-excerpt: Konvoy Legal Informaton
 excerpt: List of Third-party trademarks mentioned in the Konvoy documentation
 render: mustache
-beta: true <!-- Set this to true if this is a beta topic, set to false or remove otherwise. -->
+beta: false <!-- Set this to true if this is a beta topic, set to false or remove otherwise. -->
 enterprise: false
 ---
 

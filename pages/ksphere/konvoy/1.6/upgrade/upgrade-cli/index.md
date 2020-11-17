@@ -4,7 +4,7 @@ navigationTitle: Upgrade Konvoy CLI
 title: Upgrade Konvoy CLI
 menuWeight: 30
 excerpt: Upgrade Konvoy image CLI version
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -67,29 +67,29 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.5.0
-Wrote Konvoy CLI version 'v1.5.0' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.6.0
+Wrote Konvoy CLI version 'v1.6.0' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.4.x to v1.5.0
+### Upgrading Konvoy from v1.5.x to v1.6.0
 
 <p class="message--note"><strong>NOTE: </strong>Do not modify the <code>apiVersion: konvoy.mesosphere.io/v1beta1</code>. If you update this to <code>apiVersion: konvoy.mesosphere.io/v1beta2</code> and are using the default <code>us-west-2</code> region, this upgrade recreates all the machines in the Kubernetes cluster. You may want to enforce the same machine IDs by adding the appropriate value for <code>spec.nodePools.machine.imageId</code>, setting it to <code>spec.nodePools.machine.imageID: ami-01ed306a12b7d1c96</code>.</p>
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-Konvoy v1.6.x requires Calico version `3.16.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.16.3`,
+Konvoy v1.6.x requires Calico version `3.16.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.16.4`,
 
 It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.18.10`.
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.7`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.17-2.4.0`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.18-3.0.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.17-1.2.0-beta.1`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.18-1.2.0`.
 
-The version of Konvoy is now `v1.5.0`, set `spec.version: v1.5.0`.
+The version of Konvoy is now `v1.6.0`, set `spec.version: v1.6.0`.
 
 ```yaml
 kind: ClusterConfiguration
@@ -100,7 +100,7 @@ spec:
   ...
   containerNetworking:
     calico:
-      version: v3.16.3
+      version: v3.16.4
   ...
   containerRuntime:
     containerd:
@@ -108,15 +108,15 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: testing-1.17-2.4.0
+      configVersion: stable-1.18-3.0.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: testing-1.17-1.2.0-beta.1
+      configVersion: stable-1.18-1.2.0
       addonsList:
         - name: kommander
           enabled: true
   ...
-  version: v1.5.0
+  version: v1.6.0
 ```
 
 <p class="message--note"><strong>NOTE: </strong>During the upgrade process, if the cluster has certain types of workloads running, the Konvoy CLI displays a warning. These warnings report skipped nodes in the upgrade process.</p>

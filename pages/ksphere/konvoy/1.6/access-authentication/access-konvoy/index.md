@@ -4,7 +4,7 @@ navigationTitle: Access a Konvoy cluster
 title: Access a Konvoy cluster
 menuWeight: 10
 excerpt: Access your Konvoy cluster using the operations portal, command line interface, or kubectl
-beta: true
+beta: false
 enterprise: false
 ---
 
