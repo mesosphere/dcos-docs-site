@@ -5,7 +5,7 @@ title: konvoy check kubernetes
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
+beta: false
 excerpt: Run checks on the cluster components
 ---
 

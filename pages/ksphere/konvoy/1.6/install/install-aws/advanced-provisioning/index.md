@@ -4,7 +4,7 @@ navigationTitle: Advanced provisioning options (AWS)
 title: Advanced provisioning options (AWS)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on AWS
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -17,6 +17,23 @@ The topics in this section describe advanced provisioning and configuration opti
 When using the Konvoy CLI, the AWS SDK and Terraform will use the default CA built into the Konvoy docker image.
 In certain AWS environments, you may want Konvoy to use a different CA when communicating to the AWS API.
 Set the `AWS_CA_BUNDLE` environment variable to a valid path of the certificate bundle.
+
+# Customize VPC CIDR Block
+
+The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, you may override to a different block using by setting `spec.aws.vpc.cidr`.
+
+```yaml
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+metadata:
+  name: konvoy
+spec:
+  provider: aws
+  aws:
+    region: us-west-2
+    vpc:
+      cidr: "10.1.0.0/16"
+```
 
 # Customize region and availability zones
 
@@ -50,10 +67,8 @@ metadata:
 spec:
   provider: aws
   aws:
-    provider: aws
-    aws:
-      region: us-west-2
-      availabilityZones:
+    region: us-west-2
+    availabilityZones:
       - us-west-2a
       - us-west-2b
       - us-west-2c
@@ -229,7 +244,7 @@ It is necessary to define the `vpc.ID` and the `vpc.routeTableID`.
 
 <p class="message--note"><strong>NOTE: </strong> When creating the VPC you must have the DNS resolution option enabled, unless you are setting <tt>vpc.enableInternetGateway: false</tt>.</p>
 
-The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block.
+The default VPC CIDR block that is created by Konvoy is `10.0.0.0/16`, however you may choose to set that to any appropriate block. If you change the default CIDR block, you must also set the same value in `vpc.cidr`.
 
 <p class="message--note"><strong>NOTE: </strong> Optionally you can use an existing internet gateway by defining the <tt>vpc.internetGatewayID</tt> field.</p>
 

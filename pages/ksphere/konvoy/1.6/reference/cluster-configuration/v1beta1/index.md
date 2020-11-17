@@ -5,7 +5,6 @@ title: API documentation (v1beta1)
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: API documentation (v1beta1)
 ---
 
@@ -297,6 +296,7 @@ VNET contains the virtual network information required if using an existing virt
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | name | Name of the virtual network where the cluster should be launched. If not set, Konvoy will provision a new virtual network. | string | false |
+| cidr | The CIDR block to use for the virtual network address space. If using an existing virtual network, set it to its CIDR block. (default: `10.0.0.0/16`) | string | false |
 | resourceGroup | The name of the Resource group to be used by Konvoy. | string | false |
 | routeTable | The name of the route table to be used by Konvoy. Konvoy will add routes to this route table. | string | false |
 
@@ -368,6 +368,7 @@ VPC contains the VPC specific options for the cluster.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | ID | The ID of the [AWS VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) where the cluster should be launched. If not set, Konvoy will provision a new VPC. | string | false |
+| cidr | The CIDR block to use for the [AWS VPC](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html). If using an existing VPC, set it to the CIDR block for that VPC. (default: `10.0.0.0/16`) | string | false |
 | routeTableID | The ID of the [AWS RouteTable](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html) to be used by Konvoy. Konvoy will add routes to this route table if `EnableInternetGateway` is set. If a custom VPC is used and `OverrideDefaultRouteTable` is set, this field needs to be set to the ID of the default route table of the VPC. This field should not be set when a new VPC will be created. | string | false |
 | overrideDefaultRouteTable | Whether to override default route table in the VPC. If set, Konvoy will take over the default route table, and delete all existing routes in the default route table. (default: `true`) | bool | false |
 | internetGatewayID | The ID of the [AWS Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) to use for the cluster. This field must not be set if `EnableInternetGateway` is set. Konvoy will add a route to the IGW specified if specified. | string | false |

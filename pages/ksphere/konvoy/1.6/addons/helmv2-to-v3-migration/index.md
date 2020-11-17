@@ -3,44 +3,32 @@ layout: layout.pug
 navigationTitle: Helm v2 to v3 Migration
 title: Helm v2 to v3 Migration
 menuWeight: 6
-excerpt: We discuss the migration from Helm v2 to v3 in Konvoy `v1.6.0`
-beta: true
+excerpt: Steps to migrate from Helm v2 to v3 for Konvoy `v1.6.0`
+beta: false
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->
 
-## Helm v2 to v3 Migration
+Starting with Konvoy `v1.6.0`, Helm v2 is no longer installed or used to deploy Konvoy Addons because Helm v2 is [deprecated due to security and operational issues](https://helm.sh/blog/helm-v2-deprecation-timeline/). Helm v3 is installed and is the primary mechanism for installation and maintenance of Konvoy Addons.
 
-Starting with Konvoy `v1.6.0`, Helm v2 will not be installed nor used to deploy Addons. Instead, Helm v3 is the primary mechanism for installation and maintenance of charts.
+Upgrading from earlier versions of Konvoy includes an automatic migration process that requires no user input to migrate your Konvoy Addons to Helm v3. During this process, the Tiller (server) for  Helm v2, and any charts deployed with Helm v2, are not removed, but remains on your cluster. We recommend you manually remove the Helm v2 Tiller due to security issues, using the process below.
 
-Upgrading from previous versions of Konvoy will include a migration process for each installed Addon.
+<p class="message--warning"><strong>WARNING: </strong>Do not remove the Helm v2 Tiller if you have deployed any charts not known by Konvoy. Deleting the Helm v2 Tiller can compromise the execution and integrity of these applications.</p>
 
-The migration process itself is automatic and does not require any user input. However, Helm v2's Tiller will not be removed, nor any charts deployed with Helm v2.
+## Before you begin
 
-To remove Tiller please refer below.
+Ensure that you have [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured for each Konvoy cluster.
 
-## Removing Helm v2 from Konvoy v1.6
+## Remove Helm v2 tiller
 
-### Before you begin
+Remove Helm v2 Tiller by enter the following command:
 
-Ensure that you have [Kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) installed and configured for the Konvoy cluster which needs Tiller cleanup.
-
-### Removing Tiller
-
-Starting with Konvoy `v1.6.0`, we removed [Helm Version 2](https://v2.helm.sh) in favor of [Version 3](https://v3.helm.sh). This was due to Helm v2 becoming [deprecated over several security and operational issues](https://helm.sh/blog/helm-v2-deprecation-timeline/).
-
-The page describes the procedure to remove Helm v2 when upgrading from Konvoy v1.5.
-
-If you created your cluster with Konvoy `v1.5.x` or lower, the [Tiller](https://v2.helm.sh/docs/install/#installing-tiller) subcomponent of Helm v2 will remain on your cluster until it is manually removed. We recommend you remove it for security reasons.
-
-Remove Tiller with the following command:
-
-```shell
+```bash
 kubectl -n kube-system delete deployment tiller-deploy
 ```
 
-The will shut down Tiller gracefully and remove all its resources.
+This command shuts down Tiller gracefully and removes all its resources.
 
 ## Related information
 
@@ -49,3 +37,4 @@ For information on related topics or procedures, refer to the following:
 - [Introduction to KBA](../)
 - [Current KBA Release Information](../../release-notes/kubernetes-base-addon)
 - [Create an Addon Repository](../addon-repositories)
+- [Helm Tiller](https://v2.helm.sh/docs/install/#installing-tiller)

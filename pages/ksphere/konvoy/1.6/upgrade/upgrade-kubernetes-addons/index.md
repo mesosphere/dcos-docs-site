@@ -1,10 +1,10 @@
 ---
 layout: layout.pug
-navigationTitle: Upgrade Kubernetes with Konvoy
-title: Upgrade Kubernetes and Addons
+navigationTitle: Upgrade Kubernetes and Addons with Konvoy
+title: Upgrade Kubernetes and Addons with Konvoy
 menuWeight: 20
 excerpt: Upgrade the Kubernetes version and platform service addons
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -31,7 +31,7 @@ Upgrading to a newer minor release of Kubernetes, requires a new Konvoy minor re
 Upgrades that skip one or more minor versions are not supported.
 Downgrades are not supported.
 
-For example, Konvoy supports upgrading Kubernetes v1.17.x directly to a newer v1.17.x (Konvoy v1.5.x) or v1.18.x (Konovy v1.6.x).
+For example, Konvoy supports upgrading Kubernetes v1.17.x directly to a newer v1.17.x (Konvoy v1.5.x) or v1.18.x (Konvoy v1.6.x).
 Upgrading a v1.16 release directly to a v1.18 release is unsupported, but v1.16 may be upgraded to v1.17 and again to v1.18.
 
 This support policy applies to every node in the cluster.

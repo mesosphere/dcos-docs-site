@@ -4,7 +4,7 @@ navigationTitle: Cluster configuration
 title: Cluster configuration
 menuWeight: 10
 excerpt: Review cluster configuration settings defined in the cluster.yaml file
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -105,7 +105,7 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.16.3
+      version: v3.16.4
       encapsulation: ipip
       mtu: 1480
   containerRuntime:
@@ -117,7 +117,7 @@ spec:
   - name: worker
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.17-2.4.0
+    configVersion: stable-1.18-3.0.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: true
@@ -191,12 +191,12 @@ spec:
     - name: velero
       enabled: true
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.17-1.2.2
+    configVersion: stable-1.18-1.3.0
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: testing-1.17-1.2.0-beta.1
+    configVersion: stable-1.18-1.2.0
     addonsList:
     - name: kommander
       enabled: true

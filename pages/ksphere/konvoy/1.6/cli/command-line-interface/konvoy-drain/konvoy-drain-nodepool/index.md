@@ -5,7 +5,7 @@ title: konvoy drain nodepool
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
+beta: false
 excerpt: Drains Pods from machines in a node pool
 ---
 

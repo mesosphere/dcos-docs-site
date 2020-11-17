@@ -4,7 +4,7 @@ navigationTitle: Check component integrity
 title: Check component integrity
 menuWeight: 1
 excerpt: Run Konvoy commands to check the status and operation for cluster components
-beta: true
+beta: false
 enterprise: false
 ---
 

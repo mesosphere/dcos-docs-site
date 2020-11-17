@@ -4,7 +4,7 @@ navigationTitle: Update the image and other properties of worker machines
 title: Update the image and other properties of worker machines
 menuWeight: 5
 excerpt: Learn how to update the image and other properties of worker machines
-beta: true
+beta: false
 enterprise: false
 ---
 

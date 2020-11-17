@@ -4,7 +4,7 @@ navigationTitle: Addons
 title: Addons
 menuWeight: 8
 excerpt: What are Addons and how are they managed
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -53,7 +53,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.17-2.4.0
+    configVersion: stable-1.18-3.0.0
     addonsList:
     - name: cert-manager
       enabled: true
@@ -61,7 +61,7 @@ spec:
       enabled: false
 ```
 
-In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `testing-1.17-2.4.0` release.
+In this example, `cert-manager` is installed with the D2iQ recommended configuration set in the `kubernetes-base-addons` repository on github as of the `stable-1.18-3.0.0` release.
 `external-dns` is not enabled, but can be enabled if needed.
 
 ### Advanced
@@ -91,7 +91,7 @@ If you add a list of addresses for metallb to use, it assigns those addresses to
 ```yaml
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-1.17-2.4.0
+    configVersion: stable-1.18-3.0.0
     addonsList:
     - name: cert-manager
       enabled: true
@@ -146,7 +146,7 @@ metadata:
     appversion.kubeaddons.mesosphere.io/kibana: "6.8.2"
     endpoint.kubeaddons.mesosphere.io/kibana: "/ops/portal/kibana"
     docs.kubeaddons.mesosphere.io/kibana: "https://www.elastic.co/guide/en/kibana/6.8/index.html"
-    values.chart.helm.kubeaddons.mesosphere.io/kibana: "https://raw.githubusercontent.com/helm/charts/09004fa332094693e2e5fcffe474622ba15491ae/stable/kibana/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/kibana: "https://raw.githubusercontent.com/mesosphere/charts/505a69c/stable/kibana/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.6
@@ -164,7 +164,7 @@ spec:
         kubeaddons.mesosphere.io/name: elasticsearch
   chartReference:
     chart: stable/kibana
-    # repo: https://kubernetes-charts.storage.googleapis.com/
+    # repo: https://mesosphere.github.io/charts/
     version: 3.2.5
     values: |
       ---
@@ -204,4 +204,4 @@ There is no way to override the kudo operator's `params` at this time.
 
 [addon_tutorial]: ../../addons/addon-repositories/
 [base_addons_repo]: https://github.com/mesosphere/kubernetes-base-addons
-[helm_charts]: https://github.com/helm/charts/
+[helm_charts]: https://github.com/mesosphere/charts/

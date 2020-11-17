@@ -4,7 +4,7 @@ navigationTitle: Configuration Requirements
 title: Configuration Requirements
 menuWeight: 7
 excerpt: KBA Descriptions and Resource Requirements
-beta: true
+beta: false
 enterprise: false
 ---
 

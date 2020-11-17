@@ -4,7 +4,7 @@ navigationTitle: Support and Services
 title: Support and Servies
 menuWeight: 70
 excerpt: Konvoy Support and Services
-beta: true <!-- Set this to true if this is a beta topic, set to false or remove otherwise. -->
+beta: false <!-- Set this to true if this is a beta topic, set to false or remove otherwise. -->
 enterprise: false
 ---
 

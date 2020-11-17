@@ -3,8 +3,8 @@ layout: layout.pug
 navigationTitle: Introduction
 title: Introducing Konvoy
 excerpt: Deploy production-ready Kubernetes with Konvoy
-beta: true
-menuWeight: 0
+beta: false
+menuWeight: 10
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

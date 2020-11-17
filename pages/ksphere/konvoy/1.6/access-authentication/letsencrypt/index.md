@@ -4,7 +4,7 @@ navigationTitle: Setting up Let's Encrypt certificate
 title: Setting up Let's Encrypt certificate
 menuWeight: 70
 excerpt: Setting up Let's Encrypt certificate for the cluster ingress
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -75,7 +75,7 @@ First, you need to create an ACME based `ClusterIssuer` by applying the followin
 
 ```bash
 cat <<EOF | kubectl apply -f -
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1
 kind: ClusterIssuer
 metadata:
   name: letsencrypt
@@ -97,7 +97,7 @@ Then, ask the ACME based `ClusterIssuer` to issue a certificate for your cluster
 
 ```bash
 cat <<EOF | kubectl apply -f -
-apiVersion: certmanager.k8s.io/v1alpha1
+apiVersion: cert-manager.io/v1
 kind: Certificate
 metadata:
   name: acme-certs
