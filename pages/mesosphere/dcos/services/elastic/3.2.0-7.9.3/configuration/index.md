@@ -160,7 +160,8 @@ EOF
 ```bash
 dcos package install elastic --options=elastic-options.json
 ```
-<p class="message--note"><strong>NOTE: </strong>Elasticsearch will be configured to look for <code>MOUNT</code> volumes with the <code>elastic</code> profile.</p> 
+
+<p class="message--note"><strong>NOTE: </strong>Elasticsearch will be configured to look for <code>MOUNT</code> volumes with the <code>elastic</code> profile.</p>
 
 Once the Elasticsearch service finishes deploying, its tasks will be running with the specified volume profiles.
 
