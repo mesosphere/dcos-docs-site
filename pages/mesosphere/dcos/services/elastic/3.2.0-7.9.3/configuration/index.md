@@ -75,7 +75,7 @@ The default placement strategy specifies that no two nodes of any type are distr
 
 ![agent](../img/private-nodes-by-agent.png)
 
-Figure 1 - Private nodes displayed by agent 
+Figure 1 - Private nodes displayed by agent
 
 ![vip](../img/private-node-by-vip.png)
 
