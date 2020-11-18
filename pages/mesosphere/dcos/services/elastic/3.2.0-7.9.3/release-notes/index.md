@@ -12,8 +12,8 @@ render: mustache
 ## Upgrades
 
 -   Upgraded Elasticsearch and Kibana to [7.9.3](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/release-notes-7.9.3.html)
--   Added external volume support 
-
+-   Added external volume support
+To upgrade from your current version of {{ model.techName }}, see the [Updates](/mesosphere/dcos/services/elastic/3.2.0-7.9.3/updates/) page.
 
 # Release notes for {{ model.techName }} Service version 3.1.2-7.6.0
 
@@ -22,7 +22,6 @@ render: mustache
 -   Fixed missing exporter task metrics with virtual network enabled. ([#76](https://github.com/mesosphere/dcos-elastic-service/pull/76))
     
 To upgrade from your current version of {{ model.techName }}, see the [Updates](/mesosphere/dcos/services/elastic/3.1.2-7.6.0/updates/) page.
-
 
 # Release notes for {{ model.techName }} Service version 3.1.1-7.6.0
 
@@ -51,7 +50,6 @@ To upgrade from your current version of {{ model.techName }}, see the [Updates](
 
 -   Fixed Kibana Dashboard issue. ([#72](https://github.com/mesosphere/dcos-elastic-service/pull/72))
 
-
 # Release notes for Elastic Service version 3.0.0-7.3.2
 
 Although version 3.0.0-7.3.2 is no longer supported, the following changes were implemented in it. You will need to be aware of these changes when you upgrade to the current version, 3.1.0-7.4.1.
@@ -73,7 +71,7 @@ Although version 3.0.0-7.3.2 is no longer supported, the following changes were 
 
 ## New Features
 
--   Added [Prometheus exporter](https://github.com/justwatchcom/elasticsearch_exporter) for metrics. ([#41](https://github.com/mesosphere/dcos-elastic-service/pull/41)) 
+-   Added [Prometheus exporter](https://github.com/justwatchcom/elasticsearch_exporter) for metrics. ([#41](https://github.com/mesosphere/dcos-elastic-service/pull/41))
 
     New settings are:
     
@@ -90,7 +88,7 @@ Although version 3.0.0-7.3.2 is no longer supported, the following changes were 
 
 -   Added [Alerts](https://grafana.com/grafana/dashboards/2322) based on Prometheus metrics. ([#50](https://github.com/mesosphere/dcos-elastic-service/pull/50), [#51](https://github.com/mesosphere/dcos-elastic-service/pull/51))
 
--   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49)) 
+-   Added [Elasticsearch Clusters Overview](https://grafana.com/grafana/dashboards/2322) dashboards based on Prometheus metrics. ([#49](https://github.com/mesosphere/dcos-elastic-service/pull/49))
 
     Check [Elasticsearch Metrics Configuration Documentation](https://docs.d2iq.com/mesosphere/dcos/services/elastic/3.1.2-7.6.0/configuration/#elasticsearch-metrics)
 
@@ -106,8 +104,7 @@ Although version 3.0.0-7.3.2 is no longer supported, the following changes were 
 
 ## Bug Fixes
 
--   Fixed Kibana foldered service URL (`<cluster-url>/service/folders/kibana`) for DC/OS EE only. ([#38](https://github.com/mesosphere/dcos-elastic-service/pull/38) [#39](https://github.com/mesosphere/dcos-elastic-service/pull/39)) 
-
+-   Fixed Kibana folders service URL (`<cluster-url>/service/folders/kibana`) for DC/OS EE only. ([#38](https://github.com/mesosphere/dcos-elastic-service/pull/38) [#39](https://github.com/mesosphere/dcos-elastic-service/pull/39))
 
 <a id="org630a806"></a>
 
