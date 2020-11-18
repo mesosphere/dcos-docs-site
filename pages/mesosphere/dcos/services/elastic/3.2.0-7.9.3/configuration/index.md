@@ -18,7 +18,7 @@ render: mustache
 - Service user: This should be a non-root user who already exists on each agent. The default user is `nobody`.
 - X-Pack is installed by default and comes with a 30-day trial license.
 - Health check credentials: If you have X-Pack Security enabled, the health check will use the credentials specified in the configuration for authorization. We recommend that you create a specific `{{ model.techName }}` user/password for this with minimal capabilities rather than using the default superuser `{{ model.serviceName }}`.
-- Plugins: You can specify other plugins via a comma-separated list of plugin names (such as, “analysis-icu”) or plugin URIs.
+- Plugins: You can specify other plugins via a comma-separated list of plugin names (such as, "analysis-icu") or plugin URIs.
 - CPU/RAM/Disk/Heap: These will be specific to your DC/OS cluster and your Elasticsearch use cases. Please refer to {{ model.techName }}'s guidelines for configuration.
 - Node counts: At least one data node is required for the cluster to operate at all. You do not need to use a coordinator node. Learn about Elasticsearch node types [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html). There is no maximum for node counts.
 - Master transport port: You can pick whichever port works for your DC/OS cluster. The default is 9300. If you want multiple master nodes from different clusters on the same host, specify different master HTTP and transport ports for each cluster. If you want to ensure a particular distribution of nodes of one task type (such as master nodes spread across multiple racks, data nodes on one class of machines), specify this via the Marathon placement constraint.
