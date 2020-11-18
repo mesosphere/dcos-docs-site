@@ -17,7 +17,7 @@ render: mustache
 - Service name: This should be unique for each instance of the service that is running. It is also used as your cluster name.
 - Service user: This should be a non-root user who already exists on each agent. The default user is `nobody`.
 - X-Pack is installed by default and comes with a 30-day trial license.
-- Health check credentials: If you have X-Pack Security enabled, the health check will use the credentials specified in the configuration for authorization. We recommend that you create a specific {{ model.techName }} user/password for this with minimal capabilities rather than using the default superuser `{{ model.serviceName }}`.
+- Health check credentials: If you have X-Pack Security enabled, the health check will use the credentials specified in the configuration for authorization. We recommend that you create a specific `{{ model.techName }}` user/password for this with minimal capabilities rather than using the default superuser `{{ model.serviceName }}`.
 - Plugins: You can specify other plugins via a comma-separated list of plugin names (such as, “analysis-icu”) or plugin URIs.
 - CPU/RAM/Disk/Heap: These will be specific to your DC/OS cluster and your Elasticsearch use cases. Please refer to {{ model.techName }}’s guidelines for configuration.
 - Node counts: At least one data node is required for the cluster to operate at all. You do not need to use a coordinator node. Learn about Elasticsearch node types [here](https://www.elastic.co/guide/en/elasticsearch/reference/current/modules-node.html). There is no maximum for node counts.
