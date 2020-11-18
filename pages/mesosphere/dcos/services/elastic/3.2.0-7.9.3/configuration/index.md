@@ -180,7 +180,6 @@ deploy (serial strategy) (COMPLETE)
    └─ coordinator-0:[node] (COMPLETE)
 ```
 
-
 ## Using external volumes
 You can specify external volume configuration in your Elastic definition.
 
