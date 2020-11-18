@@ -355,6 +355,7 @@ You can customize the Kibana installation in a variety of ways by specifying a J
 - Turns on X-Pack Security, so that Kibana works against an Elasticsearch similarly configured 
 
 `another_kibana.json`
+
 ```json
 {
     "service": {
