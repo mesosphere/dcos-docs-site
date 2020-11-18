@@ -291,6 +291,7 @@ Elasticsearch Prometheus Exporter collects Metrics for Prometheus. Preconfigured
   }
 }
 ```
+
 **alert_rules_repository.path** contains the files:
 
 - `elasticsearch.rules`
