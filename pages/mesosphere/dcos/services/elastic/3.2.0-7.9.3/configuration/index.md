@@ -200,6 +200,7 @@ You can specify custom volume name for certain node types. Volume name will be c
  `<pod-index>` - pod index
 
 Example Elastic deployment with external volume confiugration:
+
 ```bash
 cat > elastic-options.json <<EOF
 {
