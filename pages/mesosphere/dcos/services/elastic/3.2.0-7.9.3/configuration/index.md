@@ -188,7 +188,6 @@ By default name of external volume constructed as:
 - `<service-name>_<pod-type>-<pod-index>` - for Portworx volume provider
 - `<service-name>_<pod-type>_<pod-index>` - for other external volume providers
 
-
 You can specify custom volume name for certain node types. Volume name will be constructed as:
 
 - `<volume-name>-<pod-index>` - for Portworx volume provider
