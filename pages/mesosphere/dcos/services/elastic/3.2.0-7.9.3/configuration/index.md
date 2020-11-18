@@ -267,6 +267,7 @@ Elasticsearch Prometheus Exporter collects Metrics for Prometheus. Preconfigured
   }
 }
 ```
+
 **dashboard_config_repository.path** contains files:
 - `elasticsearch.json`
 
