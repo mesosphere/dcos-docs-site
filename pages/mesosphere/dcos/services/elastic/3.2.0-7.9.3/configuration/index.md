@@ -83,7 +83,7 @@ Figure 2 - Private nodes displayed by VIP
 
 No matter how big or small the cluster is, there will always be exactly 3 master-only nodes with `minimum_master_nodes = 2`.
 
-### Default Topology 
+### Default Topology
 
 These are the minimum resources to run on 3 agents:
 
