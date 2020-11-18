@@ -156,6 +156,7 @@ cat > elastic-options.json <<EOF
 }
 EOF
 ```
+
 ```bash
 dcos package install elastic --options=elastic-options.json
 ```
