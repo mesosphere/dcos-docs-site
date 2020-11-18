@@ -48,7 +48,6 @@ render: mustache
     For more information about installing and configuring Edge-LB, see the installation instructions in the [Edge-LB documentation](/mesosphere/dcos/services/edge-lb/latest/).
     <!-- [Edge-LB installation instructions](/mesosphere/dcos/services/edge-lb/getting-started/installing/). -->
 
-
 ## Create an Edge-LB pool for Kibana
 
 The following command will create an Edge-LB pool task running on one of your DC/OS cluster's public agents, which will allow Kibana to be accessed from outside the cluster network, given that the selected port on the agent machine is open.
@@ -123,6 +122,7 @@ The pool fields that actually map to the actual Kibana service are under `haprox
     Which will end up looking like:
 
     `kibana_pool.json`
+    
     ```json
     {
       "apiVersion": "V2",
@@ -196,6 +196,7 @@ Here we're using the `kibana` pool name in the `dcos edgelb status` command. If 
 agent_private_ip="$(dcos edgelb status kibana --json | jq -r '.[0].status.containerStatus.networkInfos[0].ipAddresses[0].ipAddress')"
 agent_public_ip="$(dcos node ssh --option StrictHostKeyChecking=no --option LogLevel=quiet --master-proxy --private-ip="${agent_private_ip}" "curl -s ifconfig.co")"
 ```
+
 ### Authenticate with Kibana
 
 Now that we have the public agent IP address where the Edge-LB Kibana pool task is running, we should be able to access Kibana.
