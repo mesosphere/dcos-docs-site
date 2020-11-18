@@ -324,6 +324,7 @@ dcos marathon app show kibana | jq -r '.tasksHealthy'
 If it outputs a `1` it means Kibana is up and running. A `0` means that it is still probably being installed.
 
 Another good indication that Kibana is ready is when the following line appears in the in the `stdout` log for the Kibana task.
+
 ```
 {"type":"log","@timestamp":"2016-12-08T22:37:46Z","tags":["listening","info"],"pid":12263,"message":"Server running at http://0.0.0.0:5601"}
 ```
