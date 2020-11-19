@@ -13,9 +13,141 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+September 25, 2020
+
+[stable-1.17-2.5.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.5.0)
+[stable-1.16-2.4.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.4.1)
+[stable-1.15-2.4.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.4.1)
+
+-   Istio:
+    -   The "kubernetes-service-monitor" service monitor has been removed.
+    -   Bumped Istio to v1.6.8:
+        -   Fixed security issues:
+            - CVE-2020-12603: By sending a specially crafted packet, an attacker could cause Envoy to consume excessive amounts of memory when proxying HTTP/2 requests or responses.
+            - CVE-2020-12605: An attacker could cause Envoy to consume excessive amounts of memory when processing specially crafted HTTP/1.1 packets.
+            - CVE-2020-8663: An attacker could cause Envoy to exhaust file descriptors when accepting too many connections.
+            - CVE-2020-12604: An attacker could cause increased memory usage when processing specially crafted packets.
+            - CVE-2020-15104: When validating TLS certificates, Envoy incorrectly allows a wildcard DNS Subject Alternative Name to apply to multiple subdomains. For example, with a SAN of   .example.com, Envoy incorrectly allows nested.subdomain.example.com, when it should only allow subdomain.example.com.
+            - CVE-2020-16844: Callers to TCP services that have a defined Authorization Policies with DENY actions using wildcard suffixes (e.g. *-some-suffix) for source principals or namespace fields will never be denied access.
+        -   Other changes:
+            - Fixed return the proper source name after Mixer does a lookup by IP if multiple pods have the same IP.
+            - Improved the sidecar injection control based on revision at a per-pod level (Issue 24801)
+            - Improved istioctl validate to disallow unknown fields not included in the Open API specification (Issue 24860)
+            - Changed stsPort to sts_port in Envoy’s bootstrap file.
+            - Preserved existing WASM state schema for state objects to reference it later as needed.
+            - Added targetUri to stackdriver_grpc_service.
+            - Updated WASM state to log for Access Log Service.
+            - Increased default protocol detection timeout from 100 ms to 5 s (Issue 24379)
+            - Removed UDP port 53 from Istiod.
+            - Allowed setting status.sidecar.istio.io/port to zero (Issue 24722)
+            - Fixed EDS endpoint selection for subsets with no or empty label selector. (Issue 24969)
+            - Allowed k8s.overlays on BaseComponentSpec. (Issue 24476)
+            - Fixed istio-agent to create elliptical curve CSRs when ECC_SIGNATURE_ALGORITHM is set.
+            - Improved mapping of gRPC status codes into HTTP domain for telemetry.
+            - Fixed scaleTargetRef naming in HorizontalPodAutoscaler for Istiod (Issue 24809)
+            - Optimized performance in scenarios with large numbers of gateways. (Issue 25116)
+            - Fixed an issue where out of order events may cause the Istiod update queue to get stuck. This resulted in proxies with stale configuration.
+            - Fixed istioctl upgrade so that it no longer checks remote component versions when using --dry-run. (Issue 24865)
+            - Fixed long log messages for clusters with many gateways.
+            - Fixed outlier detection to only fire on user configured errors and not depend on success rate. (Issue 25220)
+            - Fixed demo profile to use port 15021 as the status port. (Issue &#35;25626)
+            - Fixed Galley to properly handle errors from Kubernetes tombstones.
+            - Fixed an issue where manually enabling TLS/mTLS for communication between a sidecar and an egress gateway did not work. (Issue 23910)
+            - Fixed Bookinfo demo application to verify if a specified namespace exists and if not, use the default namespace.
+            - Added a label to the pilot_xds metric in order to give more information on data plane versions without scraping the data plane.
+            - Added CA_ADDR field to allow configuring the certificate authority address on the egress gateway configuration and fixed the istio-certs mount secret name.
+            - Updated Bookinfo demo application to latest versions of libraries.
+            - Updated Istio to disable auto mTLS when sending traffic to headless services without a sidecar.
+            - Fixed an issue which prevented endpoints not associated with pods from working.
+
+-   Traefik-forward-auth:
+    - Update traefik-foward-auth to 0.2.14
+    - Add an option to bypass tfa deployment
+
+-   Fixed an upgrade issue for several addons which would cause them to not be properly targeted for upgrade
+
+September 9, 2020
+
+[stable-1.17-2.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.3.0)
+[stable-1.16-2.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.3.0)
+[stable-1.15-2.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.3.0)
+
+-   Azuredisk-csi-driver:
+    - enable the Snapshot controller
+
+-   Cert-manager:
+    - `Issuer` namespace setable
+    - `Certificate` namespace setable
+
+-   Dex-k8s-authenticator:
+    - Windows download support for the credentials plugin
+    - Fixed bug causing `certificate-authority=` option to be added to token instructions on the windows tab when it should have been omitted.
+
+-   Elasticsearch-curator:
+    - version 5.8.1
+    - Added value `cronjob.startingDeadlineSeconds`: Amount of time to try reschedule job if we can't run on time
+
+-   Elasticsearch-exporter:
+    -   updated from 2.11 to 3.7.0
+        - Add a parameter for the elasticsearch-exporter: es.indices_settings as it is supported since version 1.0.4 (the elasticsearch-exporter chart is supporting the version 1.1.0)
+        - Update description for envFromSecret parameter in readme
+        - Feature flap the flag es.uri to allow fallback to env var ES_URI
+        - Allow setting environment variables with k8s secret information to support referencing already existing sensitive parameters.
+        - Add es.ssl.client.enabled value for better functionality readability
+        - Add option to disable client cert auth in Elasticsearch exporter
+        - Add the serviceMonitor targetLabels key as documented in the Prometheus Operator API
+        - Add log.level and log.format configs
+        - Add the ServiceMonitor metricRelabelings key as documented in the Prometheus Operator API
+        - Add sampleLimit configuration option
+
+-   Fluent-bit:
+    -   Three different elasticsearch indicies created
+        - kubernetes_cluster-- (for container logs)
+        - kubernetes_audit-- (for audit logs from kube-apiserver)
+        - kubernetes_host-- (for all systemd host logs)
+    -   version 1.5.2
+        - Kernel messages forwarded
+    -   apply meaningful aliases to plugins and their metrics.
+
+-   Istio:
+    - the "kubernetes-service-monitor" service monitor has been removed.
+
+-   Traefik-foward-auth:
+    -   update to 0.2.14
+        - Add an option to bypass tfa deployment
+
+-   Kibana:
+    - version 6.8.10
+
+-   Ops-portal:
+    - Fix: Unable to change ops-portal password
+
+-   Prometheus:
+    -   chore: bump chart to v9.3.1
+        - refactor!: (breaking change) version 9 of the helm chart removes the existing `additionalScrapeConfigsExternal` in favor of `additionalScrapeConfigsSecret`. This change lets users specify the secret name and secret key to use for the additional scrape configuration of prometheus.
+        - feat: add ingress configuration for Thanos sidecar, enabling external access from a centralized thanos querier running in another cluster
+        - feat: add scrape timeout config to service monitor to avoid timeouts on slow kubelets
+        - feat: add docker checksum option to improve security for deployed containers
+        - feat: add option to disable availability rules
+        - feat: enable scraping /metrics/resource for kubelet service
+        - feat: [prometheus] enable namespace overrides
+        - feat: [prometheus] allow additional volumes and volumeMounts
+        - feat: [alertmanager] add volume and volume mounts to spec
+        - feat: [alertmanager] add support for serviceAccount.annotations
+        - feat: [grafana] enable adding annotations to all default dashboard configmaps
+        - chore: bump prometheus to v2.18.2
+        - chore: bump alertmanager to v0.21.0
+        - chore: bump hyperkube to v1.16.12
+        - chore: bump grafana to v5.3.0
+        - fix: add missing grafana annotations to k8s-coredns dashboard
+        - fix: reduced CPU utilization and time lag for code_verb:apiserver_request_total:increase30d scrape
+        - fix: invalid image pull policy for the admission webhook patch
+        - fix: alert "KubeNodeUnreachable" no longer fires on an autoscaling scale-down event
+    -   disable ServiceMonitors for kube-controller-manager and kube-scheduler. kubernetes has determined the ports that were used for these tests was insecure and has limited it to localhost only. This causes these specific tests to fail. The state of the controller-manager and scheduler pods are still tracked in general as pods.
+
 August 26, 2020
 
-[stable-1.17-2.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.2.0)
+[stable-1.17-2.5.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.5.0)
 [stable-1.16-2.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.2.0)
 [stable-1.15-2.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.2.0)
 

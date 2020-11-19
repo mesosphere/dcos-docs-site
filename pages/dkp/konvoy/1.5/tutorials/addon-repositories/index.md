@@ -72,7 +72,7 @@ spec:
   ...
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.17-2.2.0
+    configVersion: stable-1.17-2.5.0
     addonsList:
     - name: awsebscsiprovisioner
       enabled: false
@@ -202,7 +202,7 @@ metadata:
   annotations:
     catalog.kubeaddons.mesosphere.io/addon-revision: "19.2.2-1"
     appversion.kubeaddons.mesosphere.io/cockroachdb: "19.2.2"
-    values.chart.helm.kubeaddons.mesosphere.io/cockroachdb: "https://raw.githubusercontent.com/helm/charts/dfea2ba119be53f0d3f7d70def66e54f9e259768/stable/cockroachdb/values.yaml"
+    values.chart.helm.kubeaddons.mesosphere.io/cockroachdb: "https://raw.githubusercontent.com/cockroachdb/helm-charts/5fa0123/cockroachdb/values.yaml"
 spec:
   kubernetes:
     minSupportedVersion: v1.15.0

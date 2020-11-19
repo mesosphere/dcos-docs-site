@@ -24,6 +24,16 @@ Konvoy supports the following base Operating Systems.
 
 ## Ubuntu
 
+When installing Konvoy on Ubuntu, you will need to adjust your `cluster.yaml` file to point to the proper containerd version (the trailing `-1` is mandatory):
+
+```yaml
+kind: ClusterConfiguration
+spec:
+  containerRuntime:
+    containerd:
+      version: 1.3.7-1
+```
+
 | OS Release | Kernel Version |
 |------------|----------------|
 | [Ubuntu 16.04 (xenial)][ubuntu_16] | 4.4.0-1087 |
