@@ -175,8 +175,8 @@ At this point, the troubleshooting moves to the narrower scope of debugging the 
 [d2iq]:https://d2iq.com
 [support]:https://support.d2iq.com
 [solutions]:https://d2iq.com/solutions/
-[ksphere]:https://d2iq.com/solutions/ksphere/
-[konvoy]:https://d2iq.com/solutions/ksphere/konvoy
+[ksphere]:https://d2iq.com/kubernetes-platform/
+[konvoy]:https://d2iq.com/products/konvoy
 [portworx]:https://portworx.com
 [portworxtroubleshooting]:https://docs.portworx.com/portworx-install-with-kubernetes/operate-and-maintain-on-kubernetes/troubleshooting/troubleshoot-and-get-support/
 [portworxdocs]:https://docs.portworx.com

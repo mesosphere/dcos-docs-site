@@ -24,7 +24,7 @@ After you contact your sales representative, an automated email from our license
 
 ## Download Konvoy via the Trial Page
 
-To request a free trial of Konvoy, go [here](https://d2iq.com/solutions/ksphere/konvoy#request-free-trial) and fill out all required fields. After selecting **Submit**, an email will be sent to you with instructions on how to download Konvoy. Select the link corresponding to the OS that you will be using within the email to start your download, then follow the instructions in the [Konvoy Quick Start](../quick-start/) for your next steps.
+To request a free trial of Konvoy, go [here](https://d2iq.com/products/konvoy#request-free-trial) and fill out all required fields. After selecting **Submit**, an email will be sent to you with instructions on how to download Konvoy. Select the link corresponding to the OS that you will be using within the email to start your download, then follow the instructions in the [Konvoy Quick Start](../quick-start/) for your next steps.
 
 ## Download Konvoy via the Support Page
 
