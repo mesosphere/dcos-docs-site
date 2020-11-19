@@ -60,7 +60,7 @@ The Persistent Volume API objects capture the details of the implementation of t
 
 Create a Persistent Volume using NFS as an example.  
 
-**Requirements: This procedure assumes you have access to an [NFS shared storage](https://en.wikipedia.org/wiki/NetworkFile_System) in your environment and accessible to your cluster.**
+**Requirements: This procedure assumes you have access to an [NFS shared storage](https://en.wikipedia.org/wiki/Network_File_System) in your environment and accessible to your cluster.**
 
 <p class="message--note"><strong>NOTE: </strong>Before you copy and paste this into your file, here are some parameters that you must change for your environment.</p>
 
@@ -112,7 +112,7 @@ Create a Persistent Volume using NFS as an example.
     nfs-share   5Gi           RWX                  Retain                    Bound
     ```
 
-    Your Persistent Volume is now available for consumption.  Next, create a [Persistent Volume Claim](#heading=h.e2ns2uoyup1m) so your Pod can use the storage.
+    Your Persistent Volume is now available for consumption.  Next, create a [Persistent Volume Claim](#persistent-volume-claim) so your Pod can use the storage.
 
 ## Persistent Volume Claim
 
