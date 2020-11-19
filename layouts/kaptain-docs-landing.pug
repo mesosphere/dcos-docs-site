@@ -43,21 +43,21 @@ html(lang='en')
               each val, index in hierarchy.find('menus', menus => menus.includes('kaptain-header'))
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/ksphere/kaptain'
+                - itemClass['header__menu-item--active'] = val.path == '/dkp/kaptain'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li.header__menu-item
                 a(href='https://support.d2iq.com') Support
         include partials/header/mesosphere-dropdown.pug
         section.header__search(role='search')
-          form.header__search-form(action='/ksphere/kaptain/search/')
+          form.header__search-form(action='/dkp/kaptain/search/')
             label.header__search-label(for='header-search-input')
               i.header__icon(data-feather='search')
             input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
       include partials/header/header-dropdown.pug
       .landing__hero
         h1.landing__title!= sectionTitle
-        form.landing__search(action='/ksphere/kaptain/search/')
+        form.landing__search(action='/dkp/kaptain/search/')
           input.landing__search-input(id='landing-search-input', placeholder='Search Kaptain Docs', tabindex='1', type='text', name='q')
           button.landing__search-button
             i(data-feather='search')
