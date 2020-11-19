@@ -15,6 +15,40 @@ enterprise: false
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Konvoy.</p>
 
+### Important changes
+
+Docker Hub announced an [update](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
+
+For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
+
+### Version v1.5.3 - Released 18 November 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.17.x |
+|**Default** | 1.17.12 |
+
+#### Bug fixes
+
+- AWS: Fixes an issue preventing AWS ELBs from being tagged according to their corresponding Service annotations. (COPS-6482)
+- CLI: Don't include internal `controlplane` and `bastion` fields when generating a sample `inventory.yaml` file.
+- Airgapped: Set `disable_gpg_check: yes` when installing Nvidia RPM packages, to avoid GPG failures. This is already the behavior when installing the packages from the Nvidia repo. (COPS-6474)
+- Diagnostics: Fix a bug where Helm v3 releases were not being included from all namespaces.
+
+#### Addons improvements
+
+- Update kubeaddons to pull charts from `mesosphere.github.io/charts/` instead of the deprecated `kubernetes-charts.storage.googleapis.com/` repository.
+- The tiller image is now `ghcr.io/helm/tiller:v2.7.0` instead of the deprecated gcr location.
+
+#### Component version changes
+
+- Kubernetes `v1.17.12`
+- kubernetes-base-addons `stable-1.17-2.5.0`
+- Kubeaddons `v0.19.7`
+
 ### Version v1.5.2 - Released 26 August 2020
 
 | Kubernetes Support | Version |
@@ -94,8 +128,8 @@ enterprise: false
 -   You must read the [documentation](../upgrade/upgrade-cli#upgrading-konvoy-from-v14x-to-v150) before attempting an upgrade.
 -   See the changes for additional components:
     - Kubernetes Base Addons [Release Notes](kubernetes-base-addon)
-    - Kommander [Release Notes](/dkp/kommander/1.1/release-notes/)
-    - Dispatch [Release Notes](/dkp/dispatch/1.2/release-notes/)
+    - Kommander [Release Notes](https://docs.d2iq.com/ksphere/kommander/1.1/release-notes/)
+    - Dispatch [Release Notes](https://docs.d2iq.com/ksphere/dispatch/1.2/release-notes/)
 
 #### Important Changes
 
@@ -323,6 +357,6 @@ For information about installing and using Konvoy, see the [Konvoy documentation
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
-[prometheus-rules]: https://github.com/helm/charts/tree/master/stable/prometheus-operator/templates/prometheus/rules
-[konvoy-doc]: /dkp/konvoy
-[kubernetes-doc]: https://kubernetes.io/docs/home/
+[prometheus-rules]: https://github.com/mesosphere/charts/tree/master/staging/prometheus-operator/templates/prometheus/rules
+[konvoy-doc]:https://docs.d2iq.com/ksphere/konvoy
+[kubernetes-doc]:https://kubernetes.io/docs/home/
