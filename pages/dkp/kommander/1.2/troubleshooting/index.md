@@ -87,4 +87,4 @@ Sometimes  attaching a Kubernetes cluster to Kommander causes that cluster to ge
 
    This removes the cluster from the Kommander UI.
 
-[rbac-docs]: /ksphere/konvoy/latest/security/external-idps/rbac/#portal-authorization
+[rbac-docs]: /dkp/konvoy/latest/security/external-idps/rbac/#portal-authorization
