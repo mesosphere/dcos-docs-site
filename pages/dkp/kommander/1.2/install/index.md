@@ -13,7 +13,7 @@ Kommander is a tool that provides a command console for deploying, monitoring, a
 Prerequisites for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/ksphere/konvoy/1.6/quick-start/#prequisites) for information.
 
 # Download and Install
-You must download Konvoy with Kommander, see the [Download Konvoy](https://docs.d2iq.com/ksphere/konvoy/1.6/download/) topic for information.
+You must download Konvoy with Kommander, see the [Download Konvoy](/dkp/konvoy/1.6/download/) topic for information.
 
 Download the tarball to your local Downloads directory.
 

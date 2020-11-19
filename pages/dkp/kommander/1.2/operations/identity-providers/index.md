@@ -67,7 +67,7 @@ Identity Provider Table Row Action Menu
 
 ## Groups
 
-Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](https://docs.d2iq.com/ksphere/kommander/1.2/operations/access-control/) for an overview of groups in Kommander.
+Access control groups are configured in the Groups tab of the Identity Providers page. Refer to [Access Control](/dkp/kommander/1.2/operations/access-control/) for an overview of groups in Kommander.
 
 ![Identity Provider Groups](/ksphere/kommander/1.2/img/access-control-idp-groups.png)
 
@@ -75,5 +75,5 @@ Identity Provider Groups
 
 ## Related Information
 
-- [Authorize a group across clusters](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.2/tutorials/configure-rbac/)
+- [Authorize a group across clusters](/dkp/kommander/1.2/tutorials/authorize-all-users/)
+- [Granting access to Kubernetes resources in Kommander](/dkp/kommander/1.2/tutorials/configure-rbac/)

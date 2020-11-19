@@ -40,6 +40,6 @@ Now that we have everything we can assign the "Read Everything" role to the deve
 
 ![Adding a policy](/ksphere/kommander/1.2/img/tutorial-auth-developer-policy.png)
 
-Lastly, follow the example in the [Access Control documentation](https://docs.d2iq.com/ksphere/kommander/1.2/operations/access-control/#special-limitation-for-opsportal-and-kommander-roles) to grant users access to the Opsportal and Kommander routes on your cluster.
+Lastly, follow the example in the [Access Control documentation](/dkp/kommander/1.2/operations/access-control/#special-limitation-for-opsportal-and-kommander-roles) to grant users access to the Opsportal and Kommander routes on your cluster.
 
 When we check our attached clusters and login as a user from our matched groups we can see every resource, but neither delete or edit them, just as we intended it to be.

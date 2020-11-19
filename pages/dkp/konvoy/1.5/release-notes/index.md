@@ -94,8 +94,8 @@ enterprise: false
 -   You must read the [documentation](../upgrade/upgrade-cli#upgrading-konvoy-from-v14x-to-v150) before attempting an upgrade.
 -   See the changes for additional components:
     - Kubernetes Base Addons [Release Notes](kubernetes-base-addon)
-    - Kommander [Release Notes](https://docs.d2iq.com/ksphere/kommander/1.1/release-notes/)
-    - Dispatch [Release Notes](https://docs.d2iq.com/ksphere/dispatch/1.2/release-notes/)
+    - Kommander [Release Notes](/dkp/kommander/1.1/release-notes/)
+    - Dispatch [Release Notes](/dkp/dispatch/1.2/release-notes/)
 
 #### Important Changes
 

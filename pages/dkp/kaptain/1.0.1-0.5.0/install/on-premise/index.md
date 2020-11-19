@@ -10,13 +10,13 @@ enterprise: false
 
 ## On-Premise Installation
 
-Kaptain natively supports the installation on an on-premise Konvoy cluster. Before installing Kaptain, please follow the [Konvoy On-Premises Installation Guide](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-onprem/) to set up the on-prem Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring the requisite addons are enabled.
+Kaptain natively supports the installation on an on-premise Konvoy cluster. Before installing Kaptain, please follow the [Konvoy On-Premises Installation Guide](/dkp/konvoy/1.5/install/install-onprem/) to set up the on-prem Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring the requisite addons are enabled.
 
-Please note that the IP address of the Kaptain UI will come from the IP address range that is configured in the [MetalLB load balancer](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-onprem/#configure-metallb-load-balancing).
+Please note that the IP address of the Kaptain UI will come from the IP address range that is configured in the [MetalLB load balancer](/dkp/konvoy/1.5/install/install-onprem/#configure-metallb-load-balancing).
 
 The steps to install Kaptain on an on-premises cluster are as follows:
 
-* Follow the [Konvoy On-Premises Installation Guide](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-onprem/) to configure the `cluster.yaml`. An example is shown below.
+* Follow the [Konvoy On-Premises Installation Guide](/dkp/konvoy/1.5/install/install-onprem/) to configure the `cluster.yaml`. An example is shown below.
 * Ensure the Knative and NFS addons that are needed by Kaptain are enabled:
     ```yaml
     - configRepository: https://github.com/mesosphere/kubeaddons-kaptain

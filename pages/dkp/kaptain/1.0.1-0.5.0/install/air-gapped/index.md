@@ -12,15 +12,15 @@ enterprise: false
 
 **IMPORTANT** the air-gapped installation is still in beta, so the process may change in the future.
 
-Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvoy cluster. Before installing Kaptain, please follow the [Konvoy Air-Gapped Installation Guide](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-airgapped/) to set up the air-gapped Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring container images have been pre-loaded to the private registry before spinning up the cluster.
+Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvoy cluster. Before installing Kaptain, please follow the [Konvoy Air-Gapped Installation Guide](/dkp/konvoy/1.5/install/install-airgapped/) to set up the air-gapped Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring container images have been pre-loaded to the private registry before spinning up the cluster.
 
 The installation steps for Kaptain on an air-gapped cluster are as follows:
 
-* Get [`konvoy_air_gapped.tar.bz2`](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-airgapped/) that will contain the required artifacts to perform an air-gapped installation.
+* Get [`konvoy_air_gapped.tar.bz2`](/dkp/konvoy/1.5/install/install-airgapped/) that will contain the required artifacts to perform an air-gapped installation.
 
 * Get the [Kaptain release artifacts](../../download/), which include Kaptain and the images files (`images-install.json` and `images-runtime.json`).
 
-* Place the Konvoy add-ons Docker tar file in the images folder, re-tag it, and push it to a private registry. Regarding the private bootstrap Docker registry configuration, please see the corresponding [Konvoy docs](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-airgapped/#configure-the-image-registry) for more details.
+* Place the Konvoy add-ons Docker tar file in the images folder, re-tag it, and push it to a private registry. Regarding the private bootstrap Docker registry configuration, please see the corresponding [Konvoy docs](/dkp/konvoy/1.5/install/install-airgapped/#configure-the-image-registry) for more details.
 
 * (Only for Konvoy 1.5.x. This step will not be needed in Konvoy 1.6.x) In the working directory of Konvoy, git clone `kubeaddons-kaptain`.
   ```bash
