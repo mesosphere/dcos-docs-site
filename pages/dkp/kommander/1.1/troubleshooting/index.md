@@ -10,7 +10,7 @@ This section describes how you can use the `kubectl` CLI to debug unexpected beh
 
 ## I can't access the UI
 
-If you log in to the UI via the `/ops/landing` page and you see a blank page with `Not authorized`, ensure that your user has been assigned appropriate `opsportal` and `kommander` ClusterRoles. See <a href="/ksphere/konvoy/1.5/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for a list of default roles. Users and groups configured by adding new Identity Providers must have these roles assigned manually.
+If you log in to the UI via the `/ops/landing` page and you see a blank page with `Not authorized`, ensure that your user has been assigned appropriate `opsportal` and `kommander` ClusterRoles. See <a href="/dkp/konvoy/1.5/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for a list of default roles. Users and groups configured by adding new Identity Providers must have these roles assigned manually.
 
 If you log in to the UI and see a different error screen, ensure the Kommander deployment and pod is healthy by executing the following command:
 
