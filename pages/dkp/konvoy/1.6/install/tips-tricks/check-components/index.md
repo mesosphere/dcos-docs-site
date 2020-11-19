@@ -10,4 +10,4 @@ enterprise: false
 
 <!-- markdownlint-disable MD018 -->
 
-#include /ksphere/konvoy/1.6/include/check-component.tmpl
+#include /dkp/konvoy/1.6/include/check-component.tmpl
