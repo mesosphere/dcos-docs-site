@@ -22,11 +22,11 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   const client = algoliasearch(algoliaProjectId, ALGOLIA_PRIVATE_KEY);
   const indices = {
     "mesosphere-dcos": client.initIndex("mesosphere-dcos"),
-    "ksphere-konvoy": client.initIndex("ksphere-konvoy"),
-    "ksphere-kommander": client.initIndex("ksphere-kommander"),
-    "ksphere-dispatch": client.initIndex("ksphere-dispatch"),
-    "ksphere-kaptain": client.initIndex("ksphere-kaptain"),
-    "ksphere-conductor": client.initIndex("ksphere-conductor"),
+    "dkp-konvoy": client.initIndex("dkp-konvoy"),
+    "dkp-kommander": client.initIndex("dkp-kommander"),
+    "dkp-dispatch": client.initIndex("dkp-dispatch"),
+    "dkp-kaptain": client.initIndex("dkp-kaptain"),
+    "dkp-conductor": client.initIndex("dkp-conductor"),
   };
 
   // /**
