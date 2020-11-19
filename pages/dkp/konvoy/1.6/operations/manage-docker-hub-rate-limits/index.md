@@ -43,4 +43,4 @@ $ cat /etc/containerd/config.toml
 ...
 ```
 
-For more information on configuring `imageRegistries` in the `cluster.yaml`, please refer to the following documentation: https://docs.d2iq.com/ksphere/konvoy/1.5/reference/cluster-configuration/v1beta2/
+For more information on configuring `imageRegistries` in the `cluster.yaml`, please refer to the following documentation: https://docs.d2iq.com/dkp/konvoy/1.5/reference/cluster-configuration/v1beta2/
