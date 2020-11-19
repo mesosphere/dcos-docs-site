@@ -8,11 +8,11 @@ excerpt: A guide for creating Konvoy clusters on Azure
 
 ## Prerequisites
 
-Configured [Azure Cloud Provider](/ksphere/kommander/1.0/operations/cloud-providers/configure-azure-cloud-provider/)
+Configured [Azure Cloud Provider](/dkp/kommander/1.0/operations/cloud-providers/configure-azure-cloud-provider/)
 
 ## Simplified Cluster Creation on Azure
 
-![Add Cluster Options](/ksphere/kommander/1.0/img/add-cluster.png)
+![Add Cluster Options](/dkp/kommander/1.0/img/add-cluster.png)
 
 From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide some basic cluster details:
 
@@ -20,7 +20,7 @@ From the **Add Cluster** menu, select the **Create Konvoy Cluster** and provide 
 - **Kubernetes Version**: The initial version of Kubernetes to install on the cluster.
 - **Name**: A display name for referencing the cluster.
 
-Now select the preconfigured [Azure Cloud Provider](/ksphere/kommander/1.0/operations/cloud-providers/configure-azure-cloud-provider/) to display the remaining options specific to Azure.
+Now select the preconfigured [Azure Cloud Provider](/dkp/kommander/1.0/operations/cloud-providers/configure-azure-cloud-provider/) to display the remaining options specific to Azure.
 
 - **Region**: Select the datacenter region to reveal selectable Availability Zones. [Azure maintains multiple datacenters per region](https://azure.microsoft.com/en-us/global-infrastructure/regions/) to provide redundancy and availability.
 - **VNET Name**: The virtual network name in which to create this cluster.

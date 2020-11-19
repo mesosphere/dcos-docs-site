@@ -31,7 +31,7 @@ This approach gives you maximum flexibility over who has access to what resource
 ### Special Limitation for Opsportal and Kommander Roles
 
 In addition to granting a Kommander Role, you must also grant the appropriate opsportal role to allow external users and groups into the UI.
-See [Konvoy RBAC - OpsPortal](/ksphere/konvoy/1.6/security/external-idps/rbac/#portal-authorization) for details about the built-in opsportal roles.
+See [Konvoy RBAC - OpsPortal](/dkp/konvoy/1.6/security/external-idps/rbac/#portal-authorization) for details about the built-in opsportal roles.
 This role may be automatically added to Kommander role binding subjects in future versions of Kommander.
 Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Opsportal and Kommmander routes:
 
@@ -77,7 +77,7 @@ These are explained in more detail below.
 
 You can map group and user claims made by your configured identity providers to Kommander groups by clicking the _Groups_ tab under Administration / Identity providers on the global level.
 
-![Identity Provider Groups](/ksphere/kommander/1.2/img/access-control-idp-groups.png)
+![Identity Provider Groups](/dkp/kommander/1.2/img/access-control-idp-groups.png)
 
 ### Roles
 
@@ -86,7 +86,7 @@ ClusterRoles are named collections of rules defining which verbs can be applied 
 - Kommander Roles apply specifically to resources on the management cluster.
 - Cluster Roles apply to target clusters within their scope: at the global level, this is all target clusters in all workspaces, at the workspace level this is all target clusters in the workspace, at the project level this is all target clusters that have been added to the project.
 
-![Cluster Roles](/ksphere/kommander/1.2/img/access-control-cluster-roles.png)
+![Cluster Roles](/dkp/kommander/1.2/img/access-control-cluster-roles.png)
 
 ### Special Limitation for Workspace > Project Role Inheritance
 
@@ -118,10 +118,10 @@ subjects:
 Kommander policies, cluster policies and project policies bind a Kommander group to any number of roles.
 All groups that have been defined in the groups tab will be present at the global, workspace, or project level and are ready for you to assign roles to them.
 
-![Cluster Policies](/ksphere/kommander/1.2/img/access-control-cluster-policies.png)
+![Cluster Policies](/dkp/kommander/1.2/img/access-control-cluster-policies.png)
 
 ## Related Information
 
-- [Konvoy RBAC - OpsPortal](/ksphere/konvoy/1.6/security/external-idps/rbac/#portal-authorization)
-- [Kommander RBAC Tutorial](/ksphere/kommander/1.2/tutorials/configure-rbac/)
+- [Konvoy RBAC - OpsPortal](/dkp/konvoy/1.6/security/external-idps/rbac/#portal-authorization)
+- [Kommander RBAC Tutorial](/dkp/kommander/1.2/tutorials/configure-rbac/)
 - [Kubernetes RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

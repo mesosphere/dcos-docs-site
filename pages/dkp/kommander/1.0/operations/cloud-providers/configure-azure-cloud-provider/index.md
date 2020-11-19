@@ -70,7 +70,7 @@ In Kommander, select the Workspace associated with the credentials you are addin
 
 Navigate to **Administration > Cloud Providers** and select the **Add Cloud Provider** button.
 
-![Add Cloud Provider](/ksphere/kommander/1.0/img/add-cloud-provider.png)
+![Add Cloud Provider](/dkp/kommander/1.0/img/add-cloud-provider.png)
 
 - Select a name for your cloud provider for later reference. Consider choosing a name that matches the AWS user.
 - Fill in `App ID` with the `APP_ID` value.
@@ -79,7 +79,7 @@ Navigate to **Administration > Cloud Providers** and select the **Add Cloud Prov
 - Fill in `Subscription ID` with the `SUBSCRIPTION_ID` value.
 - Select **Verify** and **Save** to verify the credentials are valid and to save your provider.
 
-![Azure Cloud Provider Form with values](/ksphere/kommander/1.0/img/Azure-Cloud-provider-with-values.png)
+![Azure Cloud Provider Form with values](/dkp/kommander/1.0/img/Azure-Cloud-provider-with-values.png)
 
 Figure 8 - Azure Cloud Provider Form with values
 

@@ -12,7 +12,7 @@ In this tutorial you are going to learn how to create a second production cluste
 
 You have already set up a project for this team's production clusters in a Development workspace, let's take a look at it.
 
-![Creating an E-Commerce project](/ksphere/kommander/1.1/img/tutorial-ecommerce-project.png)
+![Creating an E-Commerce project](/dkp/kommander/1.1/img/tutorial-ecommerce-project.png)
 
 This project configuration will ensure all of the E-Commerce team's clusters have matching configuration. Let's give the team admin access to the workspace.
 You have defined the developer access control group beforehand from the [Identity Providers page](/dkp/kommander/1.1/operations/identity-providers/#groups) at the global level. You will create a policy to bind the developers group to the default Workspace Admin Role, which will give all developers access.
@@ -25,15 +25,15 @@ In the Kommander UI, do the following:
 4. For the developers group, select **Add or remove roles**.
 5. Select the Workspace Admin Role role and select **Save**.
 
-![Creating a policy](/ksphere/kommander/1.1/img/tutorial-ecommerce-policy.png)
+![Creating a policy](/dkp/kommander/1.1/img/tutorial-ecommerce-policy.png)
 
 The E-Commerce backend your team will be using needs environment variables. Configure them through a config map in your project.
 
-![Created ConfigMaps](/ksphere/kommander/1.1/img/tutorial-ecommerce-configmaps.png)
+![Created ConfigMaps](/dkp/kommander/1.1/img/tutorial-ecommerce-configmaps.png)
 
 The backend also needs access to your AWS S3 Bucket and to GitHub, so create two secrets for this:
 
-![Created Secrets](/ksphere/kommander/1.1/img/tutorial-ecommerce-secrets.png)
+![Created Secrets](/dkp/kommander/1.1/img/tutorial-ecommerce-secrets.png)
 
 ## Getting a second production cluster
 
@@ -47,15 +47,15 @@ In the Kommander UI, do the following:
 3. Select **+ Add Infrastructure Provider** and select AWS as the type.
 4. Enter AWS credentials in the form and select **Verify and Save**.
 
-![Create Infrastructure Provider](/ksphere/kommander/1.1/img/tutorial-ecommerce-infraprovider.png)
+![Create Infrastructure Provider](/dkp/kommander/1.1/img/tutorial-ecommerce-infraprovider.png)
 
 Then go to the workspace clusters view, select **Add Cluster** > **Create Konvoy Cluster**.
 
-![Create Cluster](/ksphere/kommander/1.1/img/tutorial-ecommerce-cluster.png)
+![Create Cluster](/dkp/kommander/1.1/img/tutorial-ecommerce-cluster.png)
 
 It's important that to set the right labels for the cluster, but not to worry, you can still change them after the cluster is created. After the cluster is created, look at the **Clusters** tab in the project and see that it has been added since it has labels matching the ECommerce Production project.
 
-![Project Clusters](/ksphere/kommander/1.1/img/tutorial-ecommerce-projectclusters.png)
+![Project Clusters](/dkp/kommander/1.1/img/tutorial-ecommerce-projectclusters.png)
 
 You can also download the kubeconfig file for this cluster and take a look at what was created.
 To do this, install `kubectl` on your machine and set the `KUBECONFIG` environment variable to an absolute path to the downloaded kubeconfig file. Some examples to check could be:

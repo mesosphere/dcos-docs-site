@@ -31,15 +31,15 @@ To get started immediately you can use the default workspace deployed in Kommand
 
 From the workspace selection dropdown at the top of the screen, select **Create Workspace**. Enter a name and description. The workspace is now accessible from the workspace selection dropdown.
 
-![Organization / Workspace Selection](/ksphere/kommander/1.2/img/org-nav.png)
+![Organization / Workspace Selection](/dkp/kommander/1.2/img/org-nav.png)
 <br />_Organization / Workspace Selection_
 
-![Create Workspace Form](/ksphere/kommander/1.2/img/create-workspace.png)
+![Create Workspace Form](/dkp/kommander/1.2/img/create-workspace.png)
 <br />_Create Workspace Form_
 
 ##### Advanced Options
 
-![Workspace Form Advanced Annotations](/ksphere/kommander/1.2/img/workspace-annotations.png)
+![Workspace Form Advanced Annotations](/dkp/kommander/1.2/img/workspace-annotations.png)
 <br />_Create Workspace Advanced Options_
 
 When creating, or editing, a workspace you can use the Advanced options to add, edit or delete annotations and labels to your workspace. Both the annotations and labels will be applied to the Workspace namespace.

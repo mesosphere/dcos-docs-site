@@ -13,7 +13,7 @@ Before you can create a Project Policy, ensure you have created a Group. A Komma
 
 Then, you can assign a role to this Kommander Group:
 
-![Project Policy Form](/ksphere/kommander/1.2/img/project-edit-policy.png)
+![Project Policy Form](/dkp/kommander/1.2/img/project-edit-policy.png)
 Project Policy Form
 
 A Project Policy can also be created using kubectl:

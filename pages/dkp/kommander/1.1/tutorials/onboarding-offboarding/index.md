@@ -27,7 +27,7 @@ Everything related to members happens in the Identity Providers section of Komma
 
 You can add members in a group while creating a group and edit the members in the group later.
 
-![Create Group Add Members](/ksphere/kommander/1.1/img/access-control-create-group.png)
+![Create Group Add Members](/dkp/kommander/1.1/img/access-control-create-group.png)
 
 Use the cross at the right of the member name to remove a member from a group. You can list the groups in the `Identity Providers` section to access and edit list members.
 
