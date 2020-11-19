@@ -439,5 +439,5 @@ To add custom resource files:
 [aws_instance_types]: https://aws.amazon.com/ec2/instance-types/
 [ephemeral_storage]: ../../../storage/
 [ebs_volume_types]: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html
-[cloud_provider]: https://kubernetes.io/docs/concepts/cluster-administration/cloud-providers/
+[cloud_provider]: https://kubernetes.io/docs/tasks/administer-cluster/running-cloud-controller/
 [aws_vpc_endpoints]: https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html

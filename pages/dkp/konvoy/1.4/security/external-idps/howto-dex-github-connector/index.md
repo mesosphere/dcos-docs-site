@@ -96,4 +96,4 @@ Step 4: Run `kubectl apply -f github.yaml` to deploy the Github connector.
 Step 5: Visit `https://<YOUR-CLUSTER-HOST>/token` to obtain a token to authenticate `kubectl`.
 
 [Add a new OAuth app]: https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/
-[Dex GitHub Connector documentation]: https://github.com/dexidp/dex/blob/master/Documentation/connectors/github.md
+[Dex GitHub Connector documentation]: https://dexidp.io/docs/connectors/github/
