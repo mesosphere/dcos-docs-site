@@ -3,7 +3,7 @@
 
 mixin renderGridToc()
   .grid-toc
-    each val, index in hierarchy.findByPath(`ksphere/konvoy/${konvoyDocsLatest}`).children
+    each val, index in hierarchy.findByPath(`dkp/konvoy/${konvoyDocsLatest}`).children
       if val.menuWeight != -1
         .grid-toc__item
           h2.grid-toc__title

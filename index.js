@@ -98,15 +98,15 @@ const neededToBuildMainMenu = [
   `mesosphere/dcos/cn/${MS._metadata.dcosCNDocsLatest}/index.md`,
   "dkp/index.md",
   "dkp/dispatch/index.md",
-  `ksphere/dispatch/${MS._metadata.dispatchDocsLatest}/index.md`,
+  `dkp/dispatch/${MS._metadata.dispatchDocsLatest}/index.md`,
   "dkp/konvoy/index.md",
-  `ksphere/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
+  `dkp/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
   "dkp/kommander/index.md",
-  `ksphere/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
+  `dkp/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
   "dkp/kaptain/index.md",
-  `ksphere/kaptain/${MS._metadata.kaptainDocsLatest}/index.md`,
+  `dkp/kaptain/${MS._metadata.kaptainDocsLatest}/index.md`,
   "dkp/conductor/index.md",
-  `ksphere/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
+  `dkp/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
 ];
 if (RENDER_PATH_PATTERN) {
   MS.use((files, _, done) => {
