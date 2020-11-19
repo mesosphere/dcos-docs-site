@@ -380,7 +380,7 @@ When the `konvoy up --provisioner gcp` completes its setup operations, the follo
 [install_gcloud]: https://cloud.google.com/sdk/install
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [inventory]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html
-[kommander_clusters]: https://docs.d2iq.com/ksphere/kommander/1.1/clusters/attach-cluster/
+[kommander_clusters]: /dkp/kommander/1.1/clusters/attach-cluster/
 [konvoy_download]: ../../download
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/
 [kubectl]: ../../operations/accessing-the-cluster#using-kubectl
