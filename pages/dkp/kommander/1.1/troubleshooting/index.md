@@ -20,7 +20,7 @@ If you log in to the UI and see a different error screen, ensure the Kommander d
 
 If there is no link to Kommander in the sidebar of Konvoy UI and no Kommander item in the Apps header dropdown, ensure that Kommander has been installed on your cluster.
 
-![Links to Kommander from Konvoy UI](/ksphere/kommander/1.1/img/kommander-links.png)
+![Links to Kommander from Konvoy UI](/dkp/kommander/1.1/img/kommander-links.png)
 
 You can either check your `cluster.yaml` for an addon named `kommander` or you can check to see if your cluster has the Kommander ClusterAddon:
 
@@ -30,10 +30,10 @@ You can either check your `cluster.yaml` for an addon named `kommander` or you c
 
 If the UI you are looking at seems to be missing many of the Kommander navigation items from the sidebar and the workspace dropdown menu in the header, you may have navigated to Konvoy UI. The quickest way to check is to look at the name beside the logo in the left side of the header; it will say either **Konvoy** or **Kommander**.
 
-![Konvoy UI](/ksphere/kommander/1.1/img/konvoy-ui.png)
+![Konvoy UI](/dkp/kommander/1.1/img/konvoy-ui.png)
 Konvoy UI
 
-![Kommander UI](/ksphere/kommander/1.1/img/kommander-ui.png)
+![Kommander UI](/dkp/kommander/1.1/img/kommander-ui.png)
 Kommander UI
 
 ## I can't see the global dashboard in Kommander

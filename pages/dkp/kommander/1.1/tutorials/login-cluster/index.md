@@ -23,19 +23,19 @@ In this example, the Kommander cluster has two managed clusters on Azure but, as
 
 1. Go to the landing page, provided by an administrator, and select **Generate kubectl Token**.
 
-![Konvoy Landing Page](/ksphere/kommander/1.1/img/konvoy-landing-page.png)
+![Konvoy Landing Page](/dkp/kommander/1.1/img/konvoy-landing-page.png)
 
 2. Select the cluster you want to log into.
 
-![Generate Kubernetes Token](/ksphere/kommander/1.1/img/generate-kubernetes-token.png)
+![Generate Kubernetes Token](/dkp/kommander/1.1/img/generate-kubernetes-token.png)
 
 3. As a user having access to the management cluster, select the `Main` cluster and log in using an identity provider.
 
-![Login Identity Provider](/ksphere/kommander/1.1/img/login-identity-provider.png)
+![Login Identity Provider](/dkp/kommander/1.1/img/login-identity-provider.png)
 
 4. Attach `kubectl` to the cluster using the interface instructions.
 
-![Connection Instructions](/ksphere/kommander/1.1/img/kubectl-connection-instructions.png)
+![Connection Instructions](/dkp/kommander/1.1/img/kubectl-connection-instructions.png)
 
 Your local `kubectl` can now communicate with the cluster.
 Depending on your rights, you can view and edit different api-resources.

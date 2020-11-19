@@ -14,14 +14,14 @@ In order to provision new clusters and manage them, Kommander needs cloud provid
 
 Cloud Provider credentials are configured within each workspace, so you must first select a workspace. Then, navigate to the Cloud Providers option under Administration.
 
-![Cloud Provider Form](/ksphere/kommander/1.0/img/add-cloud-provider.png)
+![Cloud Provider Form](/dkp/kommander/1.0/img/add-cloud-provider.png)
 
 Cloud Provider Form
 
-- [Configure AWS with Role Credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-roles) (Recommended)
-- [Configure AWS with Static Credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-static-credentials)
-- [Configure Azure Credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-azure-cloud-provider)
-- [Configure On-Premise Credentials](/ksphere/kommander/1.0/operations/cloud-providers/configure-on-prem-provider)
+- [Configure AWS with Role Credentials](/dkp/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-roles) (Recommended)
+- [Configure AWS with Static Credentials](/dkp/kommander/1.0/operations/cloud-providers/configure-aws-cloud-provider-static-credentials)
+- [Configure Azure Credentials](/dkp/kommander/1.0/operations/cloud-providers/configure-azure-cloud-provider)
+- [Configure On-Premise Credentials](/dkp/kommander/1.0/operations/cloud-providers/configure-on-prem-provider)
 
 ### Deleting a cloud provider
 

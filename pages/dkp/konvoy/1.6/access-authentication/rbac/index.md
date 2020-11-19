@@ -171,7 +171,7 @@ PolicyRule:
 
 The user can now use the HTTP verbs HEAD, GET, DELETE, POST, and PUT when accessing any URL at or under `/ops/portal`. Provided the downstream application follows REST conventions, this effectively allows read, edit, and delete privileges.
 
-<p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate `opsportal-kommander-` role in addition to the Kommander roles granted in the Kommander UI. In future versions of Kommander, this capability may be added to all built in Kommander roles. For more information, see the [Access Control section of the Kommander documentation](/ksphere/kommander/1.1/operations/access-control/).</p>
+<p class="message--note"><strong>NOTE: </strong>In order to allow users to access the Kommander UI, ensure they are granted the appropriate `opsportal-kommander-` role in addition to the Kommander roles granted in the Kommander UI. In future versions of Kommander, this capability may be added to all built in Kommander roles. For more information, see the [Access Control section of the Kommander documentation](/dkp/kommander/1.1/operations/access-control/).</p>
 
 ## Groups
 

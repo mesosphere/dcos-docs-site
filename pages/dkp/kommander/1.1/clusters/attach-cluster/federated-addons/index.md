@@ -22,7 +22,7 @@ Currently, the monitoring stack will be federated by default and the logging sta
 
 #### Using the UI
 
-Follow the documentation regarding [attaching a cluster](/ksphere/kommander/latest/clusters/attach-cluster/). You can add labels at the bottom of the attachment form, use the federation labels described in the tables below as keys and the values `true` or `false` if you wish to customize the federation of the addons. The addons that do not have a related federation label cannot get their federation enabled or disabled this way.
+Follow the documentation regarding [attaching a cluster](/dkp/kommander/latest/clusters/attach-cluster/). You can add labels at the bottom of the attachment form, use the federation labels described in the tables below as keys and the values `true` or `false` if you wish to customize the federation of the addons. The addons that do not have a related federation label cannot get their federation enabled or disabled this way.
 
 #### Creating a new KommanderCluster
 

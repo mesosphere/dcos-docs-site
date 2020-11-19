@@ -16,7 +16,7 @@ For example, you can create separate workspaces for each department, product, or
 
 The UI is designed to be accessible for different roles:
 
-![Organization / Workspace Selection](/ksphere/kommander/1.1/img/org-nav.png)
+![Organization / Workspace Selection](/dkp/kommander/1.1/img/org-nav.png)
 <br />_Organization / Workspace Selection_
 
 At the top level, **Global**, IT administrators manage all clusters across all workspaces.
@@ -33,15 +33,15 @@ To get started immediately you can use the default workspace deployed in Kommand
 
 From the top level navigation, select **Actions** and **Create Workspace**. Enter a name and description. The workspace is now accessible from the **Organization** drop-down at the top of the screen.
 
-![Create Cluster, Create Workspace](/ksphere/kommander/1.1/img/org-actions.png)
+![Create Cluster, Create Workspace](/dkp/kommander/1.1/img/org-actions.png)
 <br />_Create Actions_
 
-![Create Workspace Form](/ksphere/kommander/1.1/img/create-workspace.png)
+![Create Workspace Form](/dkp/kommander/1.1/img/create-workspace.png)
 <br />_Create Workspace Form_
 
 ##### Advanced Options
 
-![Workspace Form Advanced Annotations](/ksphere/kommander/1.1/img/workspace-annotations.png)
+![Workspace Form Advanced Annotations](/dkp/kommander/1.1/img/workspace-annotations.png)
 <br />_Create Workspace Advanced Options_
 
 When creating, or editing, a workspace you can use the Advanced options to add, edit or delete annotations and labels to your workspace. Both the annotations and labels will be applied to the Workspace namespace.

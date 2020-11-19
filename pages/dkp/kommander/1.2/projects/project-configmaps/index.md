@@ -20,7 +20,7 @@ The below Project ConfigMap form can be navigated to by:
 3. Select **+Create ConfigMap** button
 
 
-![Project ConfigMap Form](/ksphere/kommander/1.2/img/project-create-configmap.png)
+![Project ConfigMap Form](/dkp/kommander/1.2/img/project-create-configmap.png)
 
 To declaritively create a Project ConfigMap for automation purposes, the below FederatedConfigMap YAML object can be used as an example.
 

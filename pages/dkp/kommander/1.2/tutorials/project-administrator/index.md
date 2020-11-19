@@ -44,7 +44,7 @@ In the Kommander UI, do the following:
 1. Select _Projects_ and select or create the project to grant access to.
 1. Select the _Policies_ tab.
 
-![Project Policies Table](/ksphere/kommander/1.2/img/tutorial-project-policies.png)
+![Project Policies Table](/dkp/kommander/1.2/img/tutorial-project-policies.png)
 Project Policies Table
 
 The default role for this persona:
@@ -53,7 +53,7 @@ The default role for this persona:
 
 4. Assign this role to the _Project Admin_ group.
 
-![Project Policies Edit](/ksphere/kommander/1.2/img/tutorial-project-policies-edit.png)
+![Project Policies Edit](/dkp/kommander/1.2/img/tutorial-project-policies-edit.png)
 Project Policies Form
 
 ## Related information

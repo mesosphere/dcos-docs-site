@@ -34,7 +34,7 @@ To create a Project, you can either use the Kommander UI or create a Project obj
 ## Create a Project - UI Method
 Here is an example of what it looks like to create a project using the Kommander UI:
 
-![Create Project](/ksphere/kommander/1.2/img/create-project-form.png)
+![Create Project](/dkp/kommander/1.2/img/create-project-form.png)
 
 
 ## Create a Project - Declarative YAML Object Method
@@ -58,9 +58,9 @@ spec:
 
 The following procedures are supported for projects:
 
-- [Manage Project ConfigMaps](/ksphere/kommander/1.2/projects/project-configmaps)
-- [Deploy Platform Services](/ksphere/kommander/1.2/projects/platform-services)
-- [Manage Project Policies](/ksphere/kommander/1.2/projects/project-policies)
-- [Manage Project Quotas](/ksphere/kommander/1.2/projects/project-quotas-limit-range)
-- [Manage Project Roles](/ksphere/kommander/1.2/projects/project-roles)
-- [Manage Project Secrets](/ksphere/kommander/1.2/projects/project-secrets)
+- [Manage Project ConfigMaps](/dkp/kommander/1.2/projects/project-configmaps)
+- [Deploy Platform Services](/dkp/kommander/1.2/projects/platform-services)
+- [Manage Project Policies](/dkp/kommander/1.2/projects/project-policies)
+- [Manage Project Quotas](/dkp/kommander/1.2/projects/project-quotas-limit-range)
+- [Manage Project Roles](/dkp/kommander/1.2/projects/project-roles)
+- [Manage Project Secrets](/dkp/kommander/1.2/projects/project-secrets)
