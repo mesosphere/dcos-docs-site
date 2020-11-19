@@ -16,7 +16,7 @@ The Kubenetes Container Storage Interface (CSI) provides a consistent mechanism 
 
 Using the Kubernetes CSI and third party drivers, you can access local volumes and other storage devices in your data center. Possible storage and third party driver options:
 
-#include /ksphere/konvoy/1.6/include/konvoy-csi-options-vendors.tmpl
+#include /dkp/konvoy/1.6/include/konvoy-csi-options-vendors.tmpl
 
 <p class="message--note"><strong>NOTE: </strong>Features and functionality implemented may vary among developers and their drivers. Refer to vendor documentation on specific drivers for more information.</p>
 
