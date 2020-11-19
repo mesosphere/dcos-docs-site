@@ -6,7 +6,6 @@ build-pdf
 linkchecker
 crawler
 npm-debug.log
-package-lock.json
 .DS_Store
 ./**/*.tmp
 .tmp
