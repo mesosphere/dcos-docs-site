@@ -4,6 +4,7 @@ const semver = require("semver");
 const sanitizeHtml = require("sanitize-html");
 const extname = require("path").extname;
 const debug = require("debug")("metalsmith-algolia");
+const { toProductName } = require("../core/utils");
 
 // based on their api repsonses it looks like they use 2bytes for char,
 // our plan allows for 10kb, so roughly 50k characters
@@ -44,7 +45,7 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
   //   customRanking: ['asc(section)', 'desc(product)', 'asc(versionWeight)'],
   // });
 
-  return function metalsmithAlgoliaMiddleware(files, metalsmith, done) {
+  return (files, metalsmith, done) => {
     const filenames = Object.keys(files);
     const filesToIndex = {};
 
@@ -60,20 +61,10 @@ module.exports = function algoliaMiddlewareCreator(options = {}) {
     });
 
     // index the objects
-    const products = {
-      dcos: "DC/OS",
-      konvoy: "Konvoy",
-      kommander: "Kommander",
-      dispatch: "Dispatch",
-      kaptain: "Kaptain",
-      conductor: "Conductor",
-    };
-
     const semverMap = buildSemverMap(files);
-
     const productize = (file, indexFile) => {
       const paths = file.path.split("/");
-      indexFile.product = products[paths[1]];
+      indexFile.product = toProductName(paths[1]);
 
       indexFile.versionNumber = "";
 

@@ -2,14 +2,19 @@
 // Use like this: Utils.getPathParts(path)
 const _ = require("lodash");
 
-// Names are usually infered via _.startCase: E.g: "kafka-zookeeper" => "Kafka Zookeeper"
-// Here you can specify overrides for that behaviour. The names are deduced from the filesystem-paths. E.g: pages/mesosphere/>dcos</2.1
-const customNames = {
-  dcos: "DC/OS",
-  kaptain: "Kaptain",
-};
+// Names are usually infered via _.startCase: E.g: "kafka-zookeeper" => "Kafka Zookeeper". We have some overrides here though:
+const toProductName = (slug) =>
+  ({
+    conductor: "Conductor",
+    dcos: "DC/OS",
+    dispatch: "Dispatch",
+    kaptain: "Kaptain",
+    kommander: "Kommander",
+    konvoy: "Konvoy",
+  }[slug] || _.startCase(slug));
 
 module.exports = {
+  toProductName,
   // take a path and normalize things for services.
   getPathParts(path) {
     const fragments = path.split("/");
@@ -23,7 +28,7 @@ module.exports = {
     if (isService) fragments.splice(0, 2);
 
     const [sphere, product, version] = fragments;
-    const productName = customNames[product] || _.startCase(product);
+    const productName = toProductName(product);
 
     return { lang, sphere, product, productName, version };
   },
