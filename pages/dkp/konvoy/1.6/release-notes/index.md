@@ -213,6 +213,6 @@ For information about installing and using Konvoy, see the [Konvoy documentation
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [prometheus-rules]: https://github.com/mesosphere/charts/tree/master/staging/prometheus-operator/templates/prometheus/rules
-[konvoy-doc]: https://docs.d2iq.com/ksphere/konvoy
+[konvoy-doc]: /dkp/konvoy
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [helm_3]: https://helm.sh/blog/helm-3-released/
