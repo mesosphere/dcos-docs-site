@@ -12,5 +12,5 @@ Kommander is also an addon running on a Konvoy cluster. It is updated in the sam
 
 When upgrading Kommander, it is recommended you use the equivalent [new version of konvoy CLI and update][konvoy-upgrade] for your `cluster.yaml` file according to the instructions.
 
-[addons-upgrade]: /ksphere/konvoy/latest/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
-[konvoy-upgrade]: /ksphere/konvoy/latest/upgrade/upgrade-cli/
+[addons-upgrade]: /dkp/konvoy/latest/upgrade/upgrade-kubernetes-addons/#prepare-for-addons-upgrade
+[konvoy-upgrade]: /dkp/konvoy/latest/upgrade/upgrade-cli/

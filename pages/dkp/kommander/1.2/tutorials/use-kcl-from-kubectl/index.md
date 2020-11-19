@@ -336,6 +336,6 @@ kubectl --kubeconfig sample-kubernetes-tutorial.kubeconfig get namespaces
 kubectl -n $WORKSPACE_NS delete konvoycluster sample-kubernetes-tutorial
 ```
 
-[infrastructure_provider]: /ksphere/kommander/1.2/operations/infrastructure-providers
-[kommander_projects]: /ksphere/kommander/1.2/projects
-[kommander_workspaces]: /ksphere/kommander/1.2/workspaces
+[infrastructure_provider]: /dkp/kommander/1.2/operations/infrastructure-providers
+[kommander_projects]: /dkp/kommander/1.2/projects
+[kommander_workspaces]: /dkp/kommander/1.2/workspaces

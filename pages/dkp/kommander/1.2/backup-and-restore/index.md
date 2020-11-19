@@ -20,4 +20,4 @@ Kommander stores all data as CRDs in the Kubernetes API and can be backed up and
 </ul>
 </div>
 
-[konvoy-backup]: /ksphere/konvoy/latest/backup/
+[konvoy-backup]: /dkp/konvoy/latest/backup/
