@@ -121,5 +121,5 @@ All groups that have been defined in the groups tab will be present at the globa
 
 ## Related Information
 
-- [Kommander RBAC Tutorial](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/configure-rbac/)
+- [Kommander RBAC Tutorial](/dkp/kommander/1.1/tutorials/configure-rbac/)
 - [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

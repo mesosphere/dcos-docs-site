@@ -10,9 +10,9 @@ excerpt: Access a specific cluster as a user
 
 This procedure requires the following configurations and background:
 
-- A Konvoy cluster with [Kommander installed](https://docs.d2iq.com/ksphere/kommander/1.1/install/).
-- An [Identity Provider](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/). This tutorial uses GitHub's identity provider.
-- A configured [group](https://docs.d2iq.com/ksphere/kommander/1.1/operations/identity-providers/) in Kommander.
+- A Konvoy cluster with [Kommander installed](/dkp/kommander/1.1/install/).
+- An [Identity Provider](/dkp/kommander/1.1/tutorials/authorize-all-users/). This tutorial uses GitHub's identity provider.
+- A configured [group](/dkp/kommander/1.1/operations/identity-providers/) in Kommander.
 - At least one user in that group.
 
 ## Access a cluster
@@ -59,9 +59,9 @@ Error from server (Forbidden): pods is forbidden: User "user@yourcompany.com" ca
 
 ## Related information
 
-- [Installing and configuring Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/install/)
-- [Identity Providers in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/operations/identity-providers/)
-- [Configuring a GitHub Identity Provider in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/authorize-all-users/)
-- [Granting access to Kubernetes resources in the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
-- [Access control in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/operations/access-control/)
+- [Installing and configuring Kommander](/dkp/kommander/1.1/install/)
+- [Identity Providers in Kommander](/dkp/kommander/1.1/operations/identity-providers/)
+- [Configuring a GitHub Identity Provider in Kommander](/dkp/kommander/1.1/tutorials/authorize-all-users/)
+- [Granting access to Kubernetes resources in the CLI](/dkp/konvoy/1.4/security/external-idps/rbac/)
+- [Access control in Kommander](/dkp/kommander/1.1/operations/access-control/)
 - [Kubernetes RBAC authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)

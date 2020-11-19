@@ -16,7 +16,7 @@ Ensure you have already set up a project for this team's production clusters in 
 ![Creating an E-Commerce project](/ksphere/kommander/1.2/img/tutorial-ecommerce-project.png)
 
 This project configuration ensures all E-Commerce team clusters have matching configurations. Next, give the team administrator access to the workspace.
-You have defined the developer access control group beforehand from the [Identity Providers page](https://docs.d2iq.com/ksphere/kommander/1.2/operations/identity-providers/#groups) at the global level. 
+You have defined the developer access control group beforehand from the [Identity Providers page](/dkp/kommander/1.2/operations/identity-providers/#groups) at the global level. 
 
 You will now create a policy to bind the developers group to the default Workspace Admin Role, which will give all developers access.
 

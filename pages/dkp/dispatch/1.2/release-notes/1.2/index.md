@@ -20,7 +20,7 @@ This document describes the new features, caveats, and resolved issues of D2iQ D
 
 ### Disclaimer
 
-* Release notes are sometimes updated with new information about restrictions and caveats. Please see [https://docs.d2iq.com/ksphere/dispatch/](https://docs.d2iq.com/ksphere/dispatch/) for the latest version of the D2iQ Dispatch release-notes.
+* Release notes are sometimes updated with new information about restrictions and caveats. Please see [https://docs.d2iq.com/ksphere/dispatch/](/dkp/dispatch/) for the latest version of the D2iQ Dispatch release-notes.
 
 ### Installation and Upgrades
 

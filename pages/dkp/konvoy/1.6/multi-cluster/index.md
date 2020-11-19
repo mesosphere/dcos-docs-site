@@ -28,4 +28,4 @@ For more information on Kommander, refer to the following sites:
 
 - [D2IQ Kommander Main Site](https://d2iq.com/products/kommander)
 
-- [Kommander Documentation Site](https://docs.d2iq.com/ksphere/kommander/)
+- [Kommander Documentation Site](/dkp/kommander/)

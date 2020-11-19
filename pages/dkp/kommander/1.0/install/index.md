@@ -14,7 +14,7 @@ Currently, installing Kommander also installs Konvoy. Prerequisites and initial 
 
 ### Download and Install
 
-To download Konvoy with Kommander, see the [Download Konvoy](https://docs.d2iq.com/ksphere/konvoy/1.4/download/) topic for information.
+To download Konvoy with Kommander, see the [Download Konvoy](/dkp/konvoy/1.4/download/) topic for information.
 
 Download the tarball to your local Downloads directory.
 

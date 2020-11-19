@@ -38,7 +38,7 @@ Follow this procedure to create your kubectl token.
 
 ## Related Information
 
-- [Connect your LDAP directory to Konvoy using the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/howto-dex-ldap-connector/)
+- [Connect your LDAP directory to Konvoy using the CLI](/dkp/konvoy/1.4/security/external-idps/howto-dex-ldap-connector/)
 
-- [Configure your LDAP directory using the CLI](https://docs.d2iq.com/ksphere/konvoy/1.4/security/external-idps/rbac/)
+- [Configure your LDAP directory using the CLI](/dkp/konvoy/1.4/security/external-idps/rbac/)
 - [Connect and configure your LDAP directory to Konvoy using Kommander](./setup-ldap)

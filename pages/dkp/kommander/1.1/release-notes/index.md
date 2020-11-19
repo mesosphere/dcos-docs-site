@@ -11,7 +11,7 @@ enterprise: false
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
-To get started with Kommander, [download](https://docs.d2iq.com/ksphere/konvoy/latest/download/) and [install](https://docs.d2iq.com/ksphere/konvoy/latest/install/) the latest version of Konvoy.
+To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [install](/dkp/konvoy/latest/install/) the latest version of Konvoy.
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
 
@@ -73,7 +73,7 @@ Kommander 1.1.0 was released on 16, July 2020.
 
 ### Centralized Cost Monitoring
 
-Kubecost, running on Kommander, provides centralized cost monitoring for all managed clusters. This feature, installed by default in every Kommander cluster, provides a centralized view of Kubernetes resources used on all managed clusters. For more information go to [Centralized Cost Monitoring](https://docs.d2iq.com/ksphere/kommander/1.1/centralized-cost-monitoring/)
+Kubecost, running on Kommander, provides centralized cost monitoring for all managed clusters. This feature, installed by default in every Kommander cluster, provides a centralized view of Kubernetes resources used on all managed clusters. For more information go to [Centralized Cost Monitoring](/dkp/kommander/1.1/centralized-cost-monitoring/)
 
 ### Automatic Federation of AuthN/Z and Monitoring Stack
 
@@ -81,7 +81,7 @@ When attaching non-Konvoy clusters, such as Amazon EKS, Azure AKS, Google GKE, a
 
 ### Improved RBAC
 
-Kommander has enhanced Access Controls for users at the global, workspace, and project levels allowing greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](https://docs.d2iq.com/ksphere/kommander/1.1/tutorials/configure-rbac/)
+Kommander has enhanced Access Controls for users at the global, workspace, and project levels allowing greater flexibility and security when assigning roles. See [Granting Access to Kubernetes Resources in Kommander](/dkp/kommander/1.1/tutorials/configure-rbac/)
 
 ### Other Improvements
 

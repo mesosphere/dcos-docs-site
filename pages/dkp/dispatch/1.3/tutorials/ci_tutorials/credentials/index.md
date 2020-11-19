@@ -100,7 +100,7 @@ account and attach credentials to it.
     <p class="message--note"><strong>NOTE: </strong>Bitbucket Server does not support skipping TLS
     certificate verification for webhooks. If you use a self-signed certificate in your cluster, you
     must [add the certificate to Bitbucket Server](https://confluence.atlassian.com/bitbucketserver/if-you-use-self-signed-certificates-938028692.html).
-    Or if you are using Konvoy, you could [set up a Let's Encrypt certificate](https://docs.d2iq.com/ksphere/konvoy/latest/security/letsencrypt/).</p>
+    Or if you are using Konvoy, you could [set up a Let's Encrypt certificate](/dkp/konvoy/latest/security/letsencrypt/).</p>
 
     Create a [Personal Access Token](https://confluence.atlassian.com/bitbucketserver/personal-access-tokens-939515499.html)
     for your Bitbucket Server account. The token should have the following permissions:
