@@ -158,7 +158,7 @@ make docker-liveedit LIVEEDIT_HOST_PORT=9999
 To live edit the Konvoy 1.5 docs already merged into the `dcos-docs-site` repo, run:
 
 ```shell
-make docker-liveedit  LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/1.5
+make docker-liveedit  LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/1.5
 ```
 
 To live edit the Konvoy docs in the `konvoy` repo, run:
@@ -166,7 +166,7 @@ To live edit the Konvoy docs in the `konvoy` repo, run:
 ```shell
 make docker-liveedit \
   LIVEEDIT_PAGES_SRC_ABS_PATH=/absolute/path/to/repo/konvoy/docs/site \
-  LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/X.Y
+  LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/X.Y
 ```
 
 Where `X.Y.` is the major.minor version of konvoy.
@@ -182,13 +182,13 @@ Some examples:
 Set of docs for multiple konvoy versions takes about **70s** to re-render the page:
 
 ```shell
-LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/ksphere/konvoy LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy make docker-liveedit
+LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/dkp/konvoy LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy make docker-liveedit
 ```
 
 Set of docs for konvoy 1.5 only takes about **45s** to re-render the page:
 
 ```shell
-LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/ksphere/konvoy/1.5 LIVEEDIT_PAGES_DST_REL_PATH=ksphere/konvoy/1.5 make docker-liveedit
+LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/dkp/konvoy/1.5 LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/1.5 make docker-liveedit
 ```
 
 # Content Editing Workflow
