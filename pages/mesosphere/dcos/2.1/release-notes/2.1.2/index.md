@@ -26,7 +26,7 @@ DC/OS 2.1.2 includes the following component versions:
 ### DC/OS Fixed and Improved Issues
 DC/OS 2.1.2 fixes the following issues:
 
-- When resolv.conf is updated the logs show a diff in addition to the new contents. (COPS-6411)
+- When resolv.conf is updated, the logs now display a diff in addition to the new contents to assist troubleshooting. (COPS-6411)
 - Allow disabling Calico overlay by setting `calico_enabled` to `false`. (COPS-6451)
 - During upgrade, all services are stopped in one systemctl command, to ensure correct order. (COPS-6512)
 - Reset Docker start limit if it fails during reboot. (D2IQ-72103)
