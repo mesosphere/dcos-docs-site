@@ -1,14 +1,7 @@
-.PHONY: build-development clean reduce-pages
+.PHONY: build-development clean
 
 clean: ## Remove all build folders
 	./scripts/clean.sh
-
-#
-# Link Management
-#
-
-redirects-replace-old:
-	./scripts/links/redirects_replace_old.sh
 
 #
 # Build
@@ -18,20 +11,7 @@ redirects-replace-old:
 build-development:
 	npm run dev
 
-#
-# Docker
-#
-docker-site-build: ## Build site docker image. Required env vars: ALGOLIA_PRIVATE_KEY
-	./scripts/build-site.sh
-
-docker-site-run: ## Run site container.
-	docker-compose up -d docs
-
-docker-site-check-links: ## Run link checker test
-	docker-compose up test
-
 # Docker Live Edit
-
 LIVEEDIT_IMAGE := dcos-docs-liveedit
 LIVEEDIT_HOST_PORT ?= 3000
 LIVEEDIT_PAGES_SRC_ABS_PATH ?= $(shell pwd)/pages/mesosphere/dcos/2.1
