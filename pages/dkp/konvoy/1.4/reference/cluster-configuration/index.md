@@ -538,14 +538,14 @@ The default value of this entire object is `omitted`.
 | ------------------------- | ------------------------------------------------------ | ------------- |
 | `addons.configRepository` | Specifies the git repo of the addon configuration files to use.        | `https://github.com/mesosphere/kubernetes-base-addons` |
 | `addons.configVersion`    | Specifies the version of the addon configuration files to use.         | `master`  |
-| `addons.helmRepository`   | Specifies in-cluster helm configuration used during air-gapped installations. | See [spec.addons.helmRepository](#specaddonshelmrepository) |
+| `addons.helmRepository`   | Specifies in-cluster helm configuration used during air gapped installations. | See [spec.addons.helmRepository](#specaddonshelmrepository) |
 | `addons.addonsList`       | Specifies the list of addon objects that can be deployed, if enabled.  | See [spec.addons.addonsList](#specaddonsaddonslist) |
 
 #### spec.addons.helmRepository
 
 | Parameter                 | Description                                            | Default       |
 | ------------------------- | ------------------------------------------------------ | ------------- |
-| `addons.helmRepository.image` | Specifies the image of the Helm chart to deploy in the cluster used during air-gapped installations. | N/A |
+| `addons.helmRepository.image` | Specifies the image of the Helm chart to deploy in the cluster used during air gapped installations. | N/A |
 
 #### spec.addons.addonsList
 

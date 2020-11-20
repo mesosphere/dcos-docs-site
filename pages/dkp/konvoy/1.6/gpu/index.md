@@ -120,9 +120,9 @@ Then, find the corresponding pre-built `nvidia/driver` image from the list above
             tag: "440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7"
 ```
 
-### GPU on Air-gapped On-prem Cluster
+### GPU on air gapped On-prem Cluster
 
-Follow the [Konvoy Air-gapped Installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag, identified from the above section, and push it to your local registry. For example:
+Follow the [Konvoy air gapped installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag, identified from the above section, and push it to your local registry. For example:
 
 ```bash
 REGISTRY=yourlocalregistry.com:6443

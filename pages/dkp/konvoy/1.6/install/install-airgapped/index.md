@@ -1,9 +1,9 @@
 ---
 layout: layout.pug
-navigationTitle: Install air-gapped
-title: Install air-gapped
+navigationTitle: Install air gapped
+title: Install air gapped
 menuWeight: 35
-excerpt: Install Konvoy in an air-gapped environment
+excerpt: Install Konvoy in an air gapped environment
 beta: false
 enterprise: false
 ---
@@ -23,7 +23,7 @@ Before installing, verify that your environment meets the following basic requir
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
-* The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air-gapped installation.
+* The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air gapped installation.
 
 ## Control plane nodes
 
@@ -215,7 +215,7 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
 ## Configure the RPM and DEB package repository
 
 By default Konvoy adds new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
-In an air-gapped environment these repos will not be available, but instead the packages will be copied from the konvoy directory
+In an air gapped environment these repos will not be available, but instead the packages will be copied from the konvoy directory
 
 ```yaml
 kind: ClusterConfiguration
@@ -275,7 +275,7 @@ The DEB packages installed by Konvoy:
 
 ## Configure the image registry
 
-In an air-gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
+In an air gapped environment your cluster nodes will not have access to any public Docker registries, therefore you are required to provide your own that is accessible on the local network.
 
 Set the options in your `cluster.yaml` as follows:
 
@@ -292,7 +292,7 @@ spec:
 
 This will configure containerd with the provided credentials.
 The presence of `default: true` also instructs Konvoy to configure [containerd mirrors][containerd_mirrors] with all the repositories of the images that are used during installation.
-The file `images.json` contains the full list of images, and the corresponding image tars will be located in the `images/` directory in the air-gapped distribution.
+The file `images.json` contains the full list of images, and the corresponding image tars will be located in the `images/` directory in the air gapped distribution.
 
 The values for `imageRegistries` can also be specified as environment variables, for example when the file contains `password: ${REGISTRY_PASSWORD}`, the value of `password` will be set to what `REGISTRY_PASSWORD` is in your environment.
 You are also able to not substitute a value from your environment by escaping it with a `$` prefix, for example `$${SHOULD_NOT_SUBSTITUTE}`.
@@ -393,7 +393,7 @@ When configuring these settings, you should make sure that the values you set fo
 
 ## Configure autoscaling and the Docker registry
 
-Konvoy provides an [autoscaling feature that works at the node pool level][autoscaling]. When installing Konvoy in an air-gapped environment, you have to configure auto-provisioning with a local Docker registry.
+Konvoy provides an [autoscaling feature that works at the node pool level][autoscaling]. When installing Konvoy in an air gapped environment, you have to configure auto-provisioning with a local Docker registry.
 
 Assuming you have a private registry `https://myregistry:443` that requires authentication and uses a custom certificate, you must specify it as follows:
 
@@ -451,7 +451,7 @@ Details regarding the autoscaler are provided in [the autoscaling documentation]
 
 ### Autoscaling on AWS
 
-In an airgapped environment, accessing AWS services requires setting up VPC endpoints. These are gateways/interfaces which enable direct access to services like EC2, without going through the public Internet.
+In an air gapped environment, accessing AWS services requires setting up VPC endpoints. These are gateways/interfaces which enable direct access to services like EC2, without going through the public Internet.
 
 To enable the VPC endpoints needed to make autoscaler work on AWS, apply the following changes in the `cluster.yaml`:
 
@@ -466,8 +466,8 @@ spec:
 
 ## Configure Addon repository
 
-In a non-air-gapped deployment, your cluster has access to publicly hosted Helm chart repos for all of the addons.
-This is not the case for air-gapped installations, therefore Konvoy can be configured to host the required Helm charts in the cluster.
+In a non-air gapped deployment, your cluster has access to publicly hosted Helm chart repos for all of the addons.
+This is not the case for air gapped installations, therefore Konvoy can be configured to host the required Helm charts in the cluster.
 Modify the `addons` section and specify the image containing the Helm charts:
 
 ```yaml
@@ -497,7 +497,7 @@ spec:
 
 ## Load balancing
 
-Some of the aspects of Konvoy load balancing configuration depend on the type of airgapped environment where Konvoy is being deployed.
+Some of the aspects of Konvoy load balancing configuration depend on the type of air gapped environment where Konvoy is being deployed.
 
 ### Load balancing on-premises
 
@@ -564,7 +564,7 @@ The number of virtual IP addresses in the reserved range determines the maximum 
 
 ### Load balancing on AWS
 
-Airgapped AWS clusters cannot use externally-visible load balancers as they would be unavailable for the VPC. Instead, use internal load balancers by updating the `cluster.yaml`.
+Air gapped AWS clusters cannot use externally-visible load balancers as they would be unavailable for the VPC. Instead, use internal load balancers by updating the `cluster.yaml`.
 
 - Enabling internal load balancing for apiserver's endpoint:
 
@@ -615,7 +615,7 @@ spec:
 
 ## Storage on AWS
 
-In case of AWS provider, volumes by default are provisioned automatically in an airgapped environement, provided that VPC endpoints are enabled.
+In case of AWS provider, volumes by default are provisioned automatically in an air gapped environement, provided that VPC endpoints are enabled.
 See the [Autoscalling on AWS](#autoscaling-on-aws) section.
 
 ## Storage on-premises

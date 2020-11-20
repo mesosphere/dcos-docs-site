@@ -1,22 +1,22 @@
 ---
 layout: layout.pug
-navigationTitle: Install air-gapped
-title: Install Kaptain on an air-gapped cluster
+navigationTitle: Install air gapped
+title: Install Kaptain on an air gapped cluster
 menuWeight: 10
-excerpt: Install Kaptain on an air-gapped cluster
+excerpt: Install Kaptain on an air gapped cluster
 beta: false
 enterprise: false
 ---
 
-## Air-Gapped Installation
+## Air gapped installation
 
-**IMPORTANT** the air-gapped installation is still in beta, so the process may change in the future.
+**IMPORTANT** the air gapped installation is still in beta, so the process may change in the future.
 
-Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvoy cluster. Before installing Kaptain, please follow the [Konvoy Air-Gapped Installation Guide](/dkp/konvoy/1.5/install/install-airgapped/) to set up the air-gapped Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring container images have been pre-loaded to the private registry before spinning up the cluster.
+Kaptain supports installation on an air gapped (a.k.a. offline or private) Konvoy cluster. Before installing Kaptain, please follow the [Konvoy Air Gapped Installation Guide](/dkp/konvoy/1.5/install/install-airgapped/) to set up the air gapped Konvoy cluster. The cluster admin is responsible for configuring the Konvoy `cluster.yaml` correctly and ensuring container images have been pre-loaded to the private registry before spinning up the cluster.
 
-The installation steps for Kaptain on an air-gapped cluster are as follows:
+The installation steps for Kaptain on an air gapped cluster are as follows:
 
-* Get [`konvoy_air_gapped.tar.bz2`](/dkp/konvoy/1.5/install/install-airgapped/) that will contain the required artifacts to perform an air-gapped installation.
+* Get [`konvoy_air_gapped.tar.bz2`](/dkp/konvoy/1.5/install/install-airgapped/) that will contain the required artifacts to perform an air gapped installation.
 
 * Get the [Kaptain release artifacts](../../download/), which include Kaptain and the images files (`images-install.json` and `images-runtime.json`).
 
@@ -60,7 +60,7 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
 
 * When the Konvoy cluster is ready, install Kaptain according to the [manual](../konvoy/).
 
-Below is an example of a `cluster.yaml` for an air-gapped installation:
+Below is an example of a `cluster.yaml` for an air gapped installation:
 ```yaml
 kind: ClusterProvisioner
 apiVersion: konvoy.mesosphere.io/v1beta2

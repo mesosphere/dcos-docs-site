@@ -292,7 +292,7 @@ To verify the training job, let's first run it on Spark in a local mode:
 This trains the model in the notebook, but does not distribute the procedure.
 To that end, we have to build-and-push a container image that contains the code and input dataset.
 
-We include the data set, so that the tutorial works on air-gapped (i.e. private/offline) clusters.
+We include the data set, so that the tutorial works on air gapped (i.e. private/offline) clusters.
 MNIST data sets are typically downloaded on the fly, which would fail in such scenarios.
 In most realistic cases, the data sets would be available to the cluster as a volume.
 
