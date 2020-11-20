@@ -1,2 +1,4 @@
 on-premise[^s]
 add-on
+D2IQ
+airgapped
