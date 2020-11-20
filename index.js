@@ -91,6 +91,7 @@ MS.use(timer("Init"));
 
 const neededToBuildMainMenu = [
   "index.md",
+  "search/index.md",
   "mesosphere/index.md",
   "mesosphere/dcos/index.md",
   `mesosphere/dcos/${MS._metadata.dcosDocsLatest}/index.md`,
