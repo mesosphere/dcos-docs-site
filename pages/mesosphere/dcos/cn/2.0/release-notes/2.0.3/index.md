@@ -7,7 +7,7 @@ excerpt: DC/OS 2.0.3 版本的注释，包括开源归属和版本策略。
 ---
 DC/OS&trade; 2.0.3 于 2020 年 4 月 9 日发布。
 
-<p class="message--warning"><strong>警告：</strong>DC/OS 2.0.3 版本在 Metronome 中存在升级后现有作业会丢失的严重错误。有关详细信息，请参阅 <a href="https://support.d2iq.com/s/article/Known-Issue-Critical-Metronome-Issue-in-DC-OS-2-0-3-D2IQ-2020-0004">产品咨询</a>。我们建议您不要下载、安装或升级至 2.0.3 版本。相反，请<a href="https://docs.d2iq.com/mesosphere/dcos/2.0/release-notes/2.0.2/">在此</a>下载并升级至 2.0.2 版本。</p>
+<p class="message--warning"><strong>警告：</strong>DC/OS 2.0.3 版本在 Metronome 中存在升级后现有作业会丢失的严重错误。有关详细信息，请参阅 <a href="https://support.d2iq.com/s/article/Known-Issue-Critical-Metronome-Issue-in-DC-OS-2-0-3-D2iQ-2020-0004">产品咨询</a>。我们建议您不要下载、安装或升级至 2.0.3 版本。相反，请<a href="https://docs.d2iq.com/mesosphere/dcos/2.0/release-notes/2.0.2/">在此</a>下载并升级至 2.0.2 版本。</p>
 
 [button color="light" href="https://downloads.dcos.io/dcos/stable/2.0.3/dcos_generate_config.sh"]下载 DC/OS 开源[/button]
 
@@ -31,9 +31,9 @@ DC/OS 2.0.3 包括以下组件版本：
 
 - 修复了拉入 UCR 的镜像对 nvcr.io 不起作用的问题（缺少 ‘service’/‘scope’ 参数）。(COPS-5804)
 - 修复了在 DC/OS 升级之后，代理上的任务所使用的执行器资源被错误地计入配额的问题。(COPS-5725)
-- DC/OS Admin Router 现在允许大型的文件包（最大为 32GB）被上传至包注册表。(D2IQ-61233, COPS-5615)
-- 修复了在极少数情况下，用户升级群集之后，无法再启动使用 UCR 容器化工具的任务的问题。(D2IQ-64507, COPS-5868)
-- 修复了代理将任务标记为“完成”后立即将其标记为“失败”的问题 (D2IQ-62454，COPS-4995)
+- DC/OS Admin Router 现在允许大型的文件包（最大为 32GB）被上传至包注册表。(D2iQ-61233, COPS-5615)
+- 修复了在极少数情况下，用户升级群集之后，无法再启动使用 UCR 容器化工具的任务的问题。(D2iQ-64507, COPS-5868)
+- 修复了代理将任务标记为“完成”后立即将其标记为“失败”的问题 (D2iQ-62454，COPS-4995)
 
 ## Marathon
 

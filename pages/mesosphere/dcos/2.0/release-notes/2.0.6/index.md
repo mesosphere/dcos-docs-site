@@ -30,18 +30,18 @@ DC/OS 2.0.6 includes the following component versions:
 ### DC/OS Fixed and Improved Issues
 
 - An issue where selecting **Install DC/OS CLI** presents a URL to a binary that is incorrect as been fixed. (COPS-6360)
-- An issue where the Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode has been resolved. (COPS-6335, D2IQ-70037)
+- An issue where the Mesos Authorizer module was trying to authorize the dcos_anonymous account on permissive security mode has been resolved. (COPS-6335, D2iQ-70037)
 - An issue where selecting **Run** on a job or selecting **Delete** to remove a group had no effect and threw an exception has been resolved. (COPS-6324)
-- An issue where DC/OS OSS UI was not displaying a user name, but instead showed a **User added through OIDC ID Token login** message has been resolved. (COPS-6295, D2IQ-70199) 
+- An issue where DC/OS OSS UI was not displaying a user name, but instead showed a **User added through OIDC ID Token login** message has been resolved. (COPS-6295, D2iQ-70199) 
 - An issue where renaming or deleting folders via the Jupyter UI resulted in a Rename Error and Delete Failed has been resolved. (COPS-6166, DCOS_OSS-5967)
-- An issue where users were unable to remove empty folders from Metronome has been resolved. (COPS-6139, D2IQ-68541)
-- An issue where Exhibitor was writing JNA files to /tmp has been resolved (COPS-6111, D2IQ-68109, D2IQ-68868) 
-- An issue where using file-based secrets caused mount failure and issues in the json editor have been resolved. (COPS-6085, D2IQ-68114, D2IQ-67819) 
-- An issue where an unknown response code was received when querying DC/OS health endpoints has been resolved. (COPS-5915, COPS-5979, D2IQ-65296) 
+- An issue where users were unable to remove empty folders from Metronome has been resolved. (COPS-6139, D2iQ-68541)
+- An issue where Exhibitor was writing JNA files to /tmp has been resolved (COPS-6111, D2iQ-68109, D2iQ-68868) 
+- An issue where using file-based secrets caused mount failure and issues in the json editor have been resolved. (COPS-6085, D2iQ-68114, D2iQ-67819) 
+- An issue where an unknown response code was received when querying DC/OS health endpoints has been resolved. (COPS-5915, COPS-5979, D2iQ-65296) 
 - An issue where Telgraf was consuming too much CPU has been resolved. (COPS-5629)
-- An issue where after an upgrade, the dcos-telegraf directories had incorrect permissions leading to a problem launching tasks was resolved. (COPS-6232, D2IQ-69295)
-- An issue where pressing **Enter** in the Secret ID textbox, reloads the DC/OS UI has been resolved. (D2IQ-14964) 
-- An issue where running two CLI installers from the same machine aborted with an error has been resolved. (D2IQ-7844) 
+- An issue where after an upgrade, the dcos-telegraf directories had incorrect permissions leading to a problem launching tasks was resolved. (COPS-6232, D2iQ-69295)
+- An issue where pressing **Enter** in the Secret ID textbox, reloads the DC/OS UI has been resolved. (D2iQ-14964) 
+- An issue where running two CLI installers from the same machine aborted with an error has been resolved. (D2iQ-7844) 
 - An issue where a master node was not able to rejoin a cluster after failure/restart when another master is offline or being upgraded is now resolved. (COPS-1754, D2iQ-4248) 
 
 ## Mesos Fixed and Improved Issues

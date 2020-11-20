@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-D2IQ provides training for all of the D2IQ products.
+D2iQ provides training for all of the D2iQ products.
 
 - [Classroom training](https://d2iq.com/services-and-support)
   - Certification Prep (CKA/CKAD specific)

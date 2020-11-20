@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 MD034 -->
 
-As various parts of the organization require new Kubernetes clusters and associated data services, D2IQ Kommander simplifies the provisioning of new services and creates greater policy-driven consistency across Kubernetes clusters within the environment. This capability allows for greater standardization of Kubernetes and associated add-ons to ensure an easier support path for application services. Further, this level of broad control can help organizations meet risk and compliance demands as they govern how and where new application services are used, as well as who is able to engage in policy and operational needs of those services.
+As various parts of the organization require new Kubernetes clusters and associated data services, D2iQ Kommander simplifies the provisioning of new services and creates greater policy-driven consistency across Kubernetes clusters within the environment. This capability allows for greater standardization of Kubernetes and associated add-ons to ensure an easier support path for application services. Further, this level of broad control can help organizations meet risk and compliance demands as they govern how and where new application services are used, as well as who is able to engage in policy and operational needs of those services.
 
 Kommander provides the following benefits:
 
@@ -26,6 +26,6 @@ Kommander provides the following benefits:
 
 For more information on Kommander, refer to the following sites:
 
-- [D2IQ Kommander Main Site](https://d2iq.com/products/kommander)
+- [D2iQ Kommander Main Site](https://d2iq.com/products/kommander)
 
 - [Kommander Documentation Site](/dkp/kommander/)
