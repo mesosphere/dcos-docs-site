@@ -1,4 +1,4 @@
-- var { sphere, product, productName, lang, version = "" } = Utils.getPathParts(path)
+- var { sphere, product, productName, lang, version = "" } = Utils.getPathInfo(path)
 - var semver = /^(v|)[0-9]+\.[0-9]+/
 - var langFragment = lang == "en" ? "" : `/${lang}`
 - var versionFragment = version ? `/${version}` : ''

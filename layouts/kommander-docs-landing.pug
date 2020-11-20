@@ -50,15 +50,16 @@ html(lang='en')
                 a(href='https://support.d2iq.com') Support
         include partials/header/ksphere-dropdown.pug
         section.header__search(role='search')
-          form.header__search-form(action='/dkp/kommander/search/')
+          form.header__search-form(action='/search/')
             label.header__search-label(for='header-search-input')
               i.header__icon(data-feather='search')
             input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
       include partials/header/header-dropdown.pug
       .landing__hero
         h1.landing__title!= sectionTitle
-        form.landing__search(action='/dkp/kommander/search/')
+        form.landing__search(action='/search/')
           input.landing__search-input(id='landing-search-input', placeholder='Search Kommander Docs', tabindex='1', type='text', name='q')
+          input(type='hidden', name='hFR[scope][0]', value=`Kommander ${kommanderDocsLatest}`)
           button.landing__search-button
             i(data-feather='search')
 

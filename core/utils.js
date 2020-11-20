@@ -1,22 +1,21 @@
 // These utils can be used in any JS and are injected into templates as well.
-// Use like this: Utils.getPathParts(path)
+// Use like this: Utils.getPathInfo(path)
 const _ = require("lodash");
 
-// Names are usually infered via _.startCase: E.g: "kafka-zookeeper" => "Kafka Zookeeper". We have some overrides here though:
-const toProductName = (slug) =>
-  ({
-    conductor: "Conductor",
-    dcos: "DC/OS",
-    dispatch: "Dispatch",
-    kaptain: "Kaptain",
-    kommander: "Kommander",
-    konvoy: "Konvoy",
-  }[slug] || _.startCase(slug));
+// Names are usually infered via _.startCase: E.g: "kafka-zookeeper" => "Kafka Zookeeper". We respect the mapping specified in `products` though.
+const toProductName = (slug) => products[slug] || _.startCase(slug);
+const products = {
+  conductor: "Conductor",
+  dcos: "DC/OS",
+  dispatch: "Dispatch",
+  kaptain: "Kaptain",
+  kommander: "Kommander",
+  konvoy: "Konvoy",
+};
 
 module.exports = {
-  toProductName,
   // take a path and normalize things for services.
-  getPathParts(path) {
+  getPathInfo(path) {
     const fragments = path.split("/");
 
     // if you think about changing this, make sure that /mesosphere/dcos/cn/services/hdfs/2.2.0 works. you're welcome!
@@ -30,6 +29,16 @@ module.exports = {
     const [sphere, product, version] = fragments;
     const productName = toProductName(product);
 
-    return { lang, sphere, product, productName, version };
+    // prettier-ignore
+    // We have a dropdown on search pages that allows to select products in a given version:
+    const searchFacet =
+      // Aggregate all DC/OS services in one facet
+      sphere === "services" ? "DC/OS Services"
+        // only add things that look like version. we could change our file layout to get rid of this. we'd currently see a `DC/OS - example snippets` if we didn't sieve.
+        : (version || "").match(/^\d.\d/) ? `${productName}${version ? " " + version : ""}`
+        : null;
+
+    return { lang, sphere, searchFacet, product, productName, version };
   },
+  products,
 };
