@@ -1,4 +1,4 @@
-- var { sphere, product, productName, lang } = Utils.getPathParts(path)
+- var { sphere, product, productName, lang, searchFacet } = Utils.getPathInfo(path)
 - isItemActive = function(itemPath){ return itemPath === path || itemPath === "/" + path }
 - pages = lang == "cn" ? hierarchy.find('menus', 'dcos-cn-header') : null
 - pages = pages || hierarchy.find('menus', (menus) => menus.includes(`${product}-header`))
@@ -27,8 +27,9 @@ header.header
   if sphere === 'mesosphere' || sphere === 'services'
     include localization-dropdown.pug
   section.header__search(role='search')
-    form.header__search-form(action=`/${sphere}/${product}/search/`)
+    form.header__search-form(action=`/search/`)
       input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
+      input(type='hidden', name='hFR[scope][0]', value=searchFacet)
       label.header__search-label(for='header-search-input')
         i.header__icon(data-feather='search')
 include header-dropdown.pug
