@@ -16,10 +16,8 @@ const extractPreviewData = (data) => ({
 try {
   const algoliaProjectId = "Z0ZSQ5T6T2";
   const algoliaPublicKey = "d0ef5c801751c1d2d5e716af0c098bc3";
-  const algoliaIndex = window.location.pathname
-    .split("/")
-    .slice(1, 3)
-    .join("-");
+  const algoliaIndex = "production";
+
   const onLandingPage = document.querySelector(".landing");
   const onSearchPage = document.querySelector("#search-form");
 
@@ -27,6 +25,8 @@ try {
     const client = algoliasearch(algoliaProjectId, algoliaPublicKey);
     const index = client.initIndex(algoliaIndex);
 
+    // this is a rather ugly measure: we borrow the search scope from the search-input that's hidden in the header.
+    const scope = $("input[name='hFR[scope][0]']").val();
     autocomplete(
       "#landing-search-input",
       {
@@ -35,7 +35,20 @@ try {
         cssClasses: { root: "landing__results", prefix: "landing__results" },
       },
       {
-        source: autocomplete.sources.hits(index, { hitsPerPage: 5 }),
+        source: (query, cb) => {
+          index
+            .search(query, {
+              attributesToRetrieve: ["excerpt", "path", "title"],
+              filters: `scope:"${scope}"`,
+              hitsPerPage: 5,
+              length: 5,
+            })
+            .then((res) => cb(res.hits, res))
+            .catch((err) => {
+              console.error(err);
+              cb([]);
+            });
+        },
         displayKey: "title",
         templates: {
           header: '<div class="landing__results-header">Pages</div>',
@@ -44,7 +57,7 @@ try {
             return `
             <a href="/${data.path}" class="landing__results-link">
               <strong class="landing__results-title">${title}</strong>
-              <div class="landing__results-snippet">&hellip; ${description} &hellip;</div>
+              <div class="landing__results-snippet">&hellip; ${excerpt} &hellip;</div>
             </a>
           `;
           },
@@ -98,15 +111,8 @@ try {
               <p class="search__description">${excerpt}</p>
               <p class="search__description">${content}</p>
               <div class="search__meta">
-                <span class="search__meta-product">
-                  ${data.product}
-                  ${data.versionNumber ? data.versionNumber : ""}
-                </span>
-                <a href="/${
-                  data.path
-                }" class="search__meta-source">http://docs.d2iq.com/${
-              data.path
-            }</a>
+                <span class="search__meta-product">${data.scope}</span>
+                <a href="/${data.path}" class="search__meta-source">http://docs.d2iq.com/${data.path}</a>
               </div>
             </li>
           `;
@@ -118,11 +124,9 @@ try {
     // Select widgets
     search.addWidget(
       instantsearch.widgets.menuSelect({
-        container: "#search-type",
-        attributeName: "type",
-        templates: {
-          seeAllOption: "Type",
-        },
+        container: "#scope",
+        attributeName: "scope",
+        templates: { seeAllOption: "Product" },
         autoHideContainer: false,
         cssClasses: { select: "search__filter__list" },
       })
