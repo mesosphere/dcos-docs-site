@@ -54,7 +54,6 @@
     { "Condition": { "KeyPrefixEquals": "([0-9]+\\.[0-9]+/.*)$" },                                             "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "services/" },                                                         "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/services/", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "version-policy/" },                                                   "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/version-policy/", "HttpRedirectCode": "301" } },
-    { "Condition": { "KeyPrefixEquals": "search/" },                                                           "Redirect": { "HostName": "$REDIR_HOSTNAME", "ReplaceKeyPrefixWith": "mesosphere/dcos/search/", "HttpRedirectCode": "301" } },
     { "Condition": { "KeyPrefixEquals": "support" },                                                           "Redirect": { "HostName": "support.d2iq.com", "Protocol": "https", "HttpRedirectCode": "301" } }
   ]
 }
