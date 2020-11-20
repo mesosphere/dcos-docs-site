@@ -1,3 +1,18 @@
+// Debounce search form
+function debounce(func, wait = 500) {
+  let timeout;
+  return function (...args) {
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(this, args), wait);
+  };
+}
+
+const extractPreviewData = (data) => ({
+  title: data._highlightResult.title.value,
+  excerpt: data._snippetResult.excerpt.value,
+  content: data._snippetResult.content.value,
+});
+
 try {
   const algoliaProjectId = "Z0ZSQ5T6T2";
   const algoliaPublicKey = "d0ef5c801751c1d2d5e716af0c098bc3";
@@ -5,8 +20,10 @@ try {
     .split("/")
     .slice(1, 3)
     .join("-");
+  const onLandingPage = document.querySelector(".landing");
+  const onSearchPage = document.querySelector("#search-form");
 
-  if (document.querySelector(".landing")) {
+  if (onLandingPage) {
     const client = algoliasearch(algoliaProjectId, algoliaPublicKey);
     const index = client.initIndex(algoliaIndex);
 
@@ -22,28 +39,8 @@ try {
         displayKey: "title",
         templates: {
           header: '<div class="landing__results-header">Pages</div>',
-          suggestion: function suggestion(data) {
-            let title = data.title;
-            let description = data.excerpt;
-
-            if (data._highlightResult.title) {
-              title = data._highlightResult.title.value;
-            }
-            if (data._highlightResult.excerpt) {
-              description = data._highlightResult.excerpt.value;
-            }
-            if (
-              data._snippetResult.excerpt &&
-              data._snippetResult.excerpt.matchLevel === "full"
-            ) {
-              description = data._snippetResult.excerpt.value;
-            } else if (
-              data._snippetResult.content &&
-              data._snippetResult.content.matchLevel === "full"
-            ) {
-              description = data._snippetResult.content.value;
-            }
-
+          suggestion: (data) => {
+            const { excerpt, title } = extractPreviewData(data);
             return `
             <a href="/${data.path}" class="landing__results-link">
               <strong class="landing__results-title">${title}</strong>
@@ -54,18 +51,8 @@ try {
         },
       }
     );
-
-    document.addEventListener("scroll", () => {
-      if (autocomplete.autocomplete.getWrapper().style.display === "block") {
-        autocomplete.autocomplete.close();
-        autocomplete.autocomplete.open();
-      }
-    });
-  }
-
-  const searchForm = document.querySelector("#search-form");
-
-  if (searchForm) {
+  } else if (onSearchPage) {
+    // this means we're on /search!
     /**
      * Algolia Search Page Config
      */
@@ -74,9 +61,7 @@ try {
       apiKey: algoliaPublicKey,
       indexName: algoliaIndex,
       urlSync: true,
-      searchParameters: {
-        hitsPerPage: 10,
-      },
+      searchParameters: { hitsPerPage: 10 },
     });
 
     /**
@@ -92,9 +77,7 @@ try {
         magnifier: false,
         reset: false,
         wrapInput: false,
-        queryHook: debounce((inputValue, searchFunc) => {
-          searchFunc(inputValue);
-        }, 500),
+        queryHook: debounce((query, search) => search(query)),
       })
     );
 
@@ -106,10 +89,7 @@ try {
           empty:
             '<div class="text-center">No results found matching <strong>{{query}}</strong>.</div>',
           item: (data) => {
-            const title = data._highlightResult.title.value;
-            const excerpt = data._snippetResult.excerpt.value;
-            const content = data._snippetResult.content.value;
-
+            const { title, excerpt, content } = extractPreviewData(data);
             return `
             <li class="search__results-item">
               <h4 class="search__title">
@@ -136,37 +116,6 @@ try {
     );
 
     // Select widgets
-    // TODO: Waiting on pull request for cssClasses fix.
-    search.addWidget(
-      instantsearch.widgets.menuSelect({
-        container: "#search-section",
-        attributeName: "section",
-        templates: {
-          seeAllOption: "Section",
-        },
-        autoHideContainer: false,
-        sort: ["name:asc"],
-        cssClasses: {
-          select: "search__filter__list",
-        },
-      })
-    );
-
-    search.addWidget(
-      instantsearch.widgets.menuSelect({
-        container: "#search-version",
-        attributeName: "version",
-        templates: {
-          seeAllOption: "Version",
-        },
-        autoHideContainer: false,
-        sortBy,
-        cssClasses: {
-          select: "search__filter__list",
-        },
-      })
-    );
-
     search.addWidget(
       instantsearch.widgets.menuSelect({
         container: "#search-type",
@@ -175,9 +124,7 @@ try {
           seeAllOption: "Type",
         },
         autoHideContainer: false,
-        cssClasses: {
-          select: "search__filter__list",
-        },
+        cssClasses: { select: "search__filter__list" },
       })
     );
 
@@ -194,84 +141,8 @@ try {
         showFirstLast: false,
       })
     );
-
-    search.on("render", handleFilterWidth);
-
     search.start();
   }
-
-  // Debounce search form
-  function debounce(func, wait, immediate) {
-    let timeout;
-    return function _debounce(...args) {
-      const context = this;
-      const later = function later() {
-        timeout = null;
-        if (!immediate) func.apply(context, args);
-      };
-      const callNow = immediate && !timeout;
-      clearTimeout(timeout);
-      timeout = setTimeout(later, wait);
-      if (callNow) func.apply(context, args);
-    };
-  }
-
-  // Sort alphabetically
-  function sortBy(a, b) {
-    a = a.name;
-    b = b.name;
-    const aParts = a.trim().split(" ");
-    const bParts = b.trim().split(" ");
-    const aProduct = aParts.slice(0, -1).join(" ");
-    const bProduct = bParts.slice(0, -1).join(" ");
-    const aVersion = aParts[aParts.length - 1];
-    const bVersion = bParts[bParts.length - 1];
-    if (aProduct < bProduct) return -1;
-    if (aProduct > bProduct) return 1;
-    return -1 * sortVersion(aVersion, bVersion);
-  }
-
-  // Sort semantic versioning
-  function sortVersion(a, b) {
-    const pa = a.split(".");
-    const pb = b.split(".");
-    for (let i = 0; i < 3; i += 1) {
-      const na = Number(pa[i]);
-      const nb = Number(pb[i]);
-      if (na > nb) return 1;
-      if (nb > na) return -1;
-      if (!isNaN(na) && isNaN(nb)) return 1;
-      if (isNaN(na) && !isNaN(nb)) return -1;
-    }
-    return 0;
-  }
-
-  // Resize filter widths based on selected menu item
-
-  function setFilterWidth(id) {
-    const filterDiv = $(`#${id}`);
-    const select = filterDiv.find(".ais-menu-select--footer");
-    $("#templateOption").text(select.find("option:selected").text());
-    select.width($("#template").width());
-  }
-
-  function handleFilterWidth() {
-    const selectList = document.querySelectorAll(".search__filter");
-
-    selectList.forEach((sel) => {
-      const mq = window.matchMedia("(min-width: 769px)");
-      if (mq.matches) {
-        // the width of browser is more than 769px
-        setFilterWidth(sel.getAttribute("id"));
-      } else {
-        // the width of browser is less than 769px
-        const filterDiv = $(`#${sel.getAttribute("id")}`);
-        filterDiv.find(".ais-menu-select--footer").width("100%");
-      }
-    });
-  }
-
-  window.addEventListener("resize", handleFilterWidth);
 } catch (e) {
   console.error("Error in search script" + e);
 }
