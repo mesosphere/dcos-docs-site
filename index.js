@@ -282,7 +282,7 @@ MS.use(timer("Layouts"));
 
 // Search Indexing
 if (process.env.ALGOLIA_UPDATE === "true") {
-  MS.use(algolia());
+  MS.use(algolia);
   MS.use(timer("Algolia"));
 }
 
