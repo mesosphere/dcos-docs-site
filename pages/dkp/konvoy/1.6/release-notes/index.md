@@ -121,12 +121,12 @@ Invested extensive effort related to updating, improving, and expanding the exis
 
 - Added support for basic authentication with `registry:2` Docker registry. (COPS-6370)
 
-#### Airgapped
+#### Air gapped
 
 - Will set `disable_gpg_check: yes` when installing Nvidia RPM packages, to avoid GPG failures. This is already the behavior when installing the packages from the Nvidia repo. (COPS-6474)
 - Now automatically imports required GPG keys when installing local RPM packages (COPS-6474).
 - The release includes the artifacts for Darwin (MacOS).
-- Fixed a bug where an air-gapped upgrade fails due to the missing `kubernetes-cni` package, when installing `kubeadm`.
+- Fixed a bug where an air gapped upgrade fails due to the missing `kubernetes-cni` package, when installing `kubeadm`.
 - Included additional RPMs required for the Kubelet to install. (COPS-6345)
 - Add support for different `addonRepository` images for different addons repositories.
 - Fix an issue where the wrong `Addon` and `ClusterAddon` resources were being deployed, causing missing chart errors.
@@ -160,7 +160,7 @@ Invested extensive effort related to updating, improving, and expanding the exis
 
 #### Kommander
 
-- Added support for attaching airgapped Kubernetes clusters.
+- Added support for attaching air gapped Kubernetes clusters.
 - Fixed a race condition that would prevent the addon from being installed due to unbound PVCs.
 
 #### Diagnose

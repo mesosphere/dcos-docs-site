@@ -141,11 +141,11 @@ Once a image has been created with the desired plugins, the custom image can be 
 }
 ```
 
-## Configuring Airgapped clusters
+## Configuring air gapped clusters
 
-Customers running Jenkins on Airgapped DC/OS clusters should use [Package Registry](/mesosphere/dcos/latest/administering-clusters/package-registry/) to install packages in airgapped environments. Default versions of Jenkins for Package Registry are [available](https://downloads.mesosphere.com/universe/packages/packages.html).
+Customers running Jenkins on Air gapped DC/OS clusters should use [Package Registry](/mesosphere/dcos/latest/administering-clusters/package-registry/) to install packages in air gapped environments. Default versions of Jenkins for Package Registry are [available](https://downloads.mesosphere.com/universe/packages/packages.html).
 
-### Configuring Airgapped clusters with custom images.
+### Configuring Air gapped clusters with custom images
 
 It is possible to also use a [custom image](#creating-a-custom-image-with-bundled-jenkins-plugins) with Package Registry, the following instructions outline how to create a Jenkins `.dcos` file with a custom image.
 

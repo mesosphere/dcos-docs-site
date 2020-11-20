@@ -304,13 +304,13 @@ If you choose to specify a different AWS account than the one **used during the 
 
 In case you would like to change any autoscaling configuration of your cluster, edit `cluster.yaml` and adapt the `autoscaling` property, then run `konvoy up` again to apply the changes.
 
-### Autoscaling an air-gapped cluster
+### Autoscaling an air gapped cluster
 
-In an air-gapped cluster, you need to specify some additional configurations for the autoscaling functionality to work without access to the Internet.
+In an air gapped cluster, you need to specify some additional configurations for the autoscaling functionality to work without access to the Internet.
 
-Configuring auto-provisioning with a local Docker registry is mandatory and explained in the [air-gapped installation documentation][airgapped-autoscaling].
+Configuring auto-provisioning with a local Docker registry is mandatory and explained in the [air gapped installation documentation][airgapped-autoscaling].
 
-<p class="message--note"><strong>NOTE: </strong> There is a limitation when using the autoscaler in an air-gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the the process will timeout trying to access https://iam.amazonaws.com.</p>
+<p class="message--note"><strong>NOTE: </strong> There is a limitation when using the autoscaler in an air gapped AWS environment. You must use existing <a href="../install/install-aws/advanced-provisioning#iam-instance-profiles">IAM Instance Profiles</a>, otherwise the the process will timeout trying to access https://iam.amazonaws.com.</p>
 
 ## Autoscaler scaling decision making
 

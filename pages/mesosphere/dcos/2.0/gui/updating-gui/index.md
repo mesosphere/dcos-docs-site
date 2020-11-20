@@ -18,7 +18,7 @@ Before you can update the GUI you must ensure the new GUI's DC/OS package is ava
 
 ![ui-package-repos](/mesosphere/dcos/2.0/img/ui-package-repos.png)
 
-Alternatively, air-gapped clusters without access to the DC/OS Catalog can use [Package Registry](/mesosphere/dcos/2.0/administering-clusters/package-registry/). Download the latest dcos-ui package matching your version of DC/OS from [the Catalog package list](https://downloads.mesosphere.com/universe/packages/packages.html) and upload it to the cluster's Package Registry before continuing.
+Alternatively, air gapped clusters without access to the DC/OS Catalog can use [Package Registry](/mesosphere/dcos/2.0/administering-clusters/package-registry/). Download the latest dcos-ui package matching your version of DC/OS from [the Catalog package list](https://downloads.mesosphere.com/universe/packages/packages.html) and upload it to the cluster's Package Registry before continuing.
 
 
 # Updating the GUI via the GUI

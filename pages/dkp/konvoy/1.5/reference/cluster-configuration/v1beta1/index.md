@@ -430,7 +430,7 @@ Addons describes an addon repository to use for the cluster.
 | ----- | ----------- | ------ | -------- |
 | configRepository | The git repository of the addon repository to use. (default: `https://github.com/mesosphere/kubernetes-base-addons`) | string | false |
 | configVersion | The version of the addon configuration files to use. (default: `master`) | string | false |
-| helmRepository | In-cluster helm configuration used during air-gapped installations. | [HelmRepository](#helmrepository) | false |
+| helmRepository | In-cluster helm configuration used during air gapped installations. | [HelmRepository](#helmrepository) | false |
 | addonsList | List of addon objects that can be deployed, if enabled. | AddonConfigs | false |
 
 [Back to TOC](#table-of-contents)
@@ -583,11 +583,11 @@ GPU represents an object that contains details of user defined GPU info.
 
 ## HelmRepository
 
-HelmRepository describes in-cluster helm configuration used during air-gapped installation.
+HelmRepository describes in-cluster helm configuration used during air gapped installation.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| image | The image of the Helm chart to deploy in the cluster used during air-gapped installations. | string | false |
+| image | The image of the Helm chart to deploy in the cluster used during air gapped installations. | string | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -612,7 +612,7 @@ ImageRegistry describes the docker image registries that are automatically confi
 | password | The registry password. This setting requires you to provide a value for the `username` setting. | string | false |
 | auth | Contains the base64 encoded `username:password`. | string | false |
 | identityToken | Used to authenticate the user and get an access token. | string | false |
-| default | When set `true`, containerd will be configured to try to pull images from this registry first, before pulling from any external registries. Konvoy will also use this registry to push images to when doing an air-gapped installation. | bool | false |
+| default | When set `true`, containerd will be configured to try to pull images from this registry first, before pulling from any external registries. Konvoy will also use this registry to push images to when doing an air gapped installation. | bool | false |
 
 [Back to TOC](#table-of-contents)
 

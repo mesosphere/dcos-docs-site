@@ -382,7 +382,7 @@ def export_model(
 ### Component 5: Serve the Model
 
 Kubeflow Pipelines comes with [a pre-defined KFServing component](https://raw.githubusercontent.com/kubeflow/pipelines/f21e0fe726f8aec86165beca061f64fa730e0ac7/components/kubeflow/kfserving/component.yaml) which can be imported from GitHub repo and reused across the pipelines without
-the need to define it every time. We include a copy with the tutorial to make it work in an air-gapped environment.
+the need to define it every time. We include a copy with the tutorial to make it work in an air gapped environment.
 Here's what the import looks like:
 
 

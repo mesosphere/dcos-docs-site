@@ -22,7 +22,7 @@ Before installing, ensure that your environment has the following basic requirem
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
-* The `konvoy_air_gapped.tar.bz2` that contains the required artifacts to perform an air-gapped installation.
+* The `konvoy_air_gapped.tar.bz2` that contains the required artifacts to perform an air gapped installation.
 
 ## Control plane nodes
 
