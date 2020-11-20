@@ -9,7 +9,7 @@ beta: false
 excerpt: Release notes for Conductor 1.1, including Open Source attribution, and version policy.
 ---
 
-D2IQ&reg; Conductor&trade; v1.1.0 was released on 10, September 2020.
+D2iQ&reg; Conductor&trade; v1.1.0 was released on 10, September 2020.
 
 New customers must contact your sales representative or <a href="mailto:sales@mesosphere.io">sales@mesosphere.io</a> before attempting to download and/or install Conductor.
 

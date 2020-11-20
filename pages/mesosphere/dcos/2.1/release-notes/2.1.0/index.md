@@ -67,11 +67,11 @@ Added a new configuration option `mesos_http_executors_domain_sockets`, which wi
 - Removal of`revive_offers_for_new_apps` Marathon option.
 - Marathon no longer sanitizes the field `acceptedResourceRoles`. The field is an array of one or two values: `*` and the service role. Previously, when an invalid value was provided, Marathon would silently drop it. Now, it returns an error. If this causes a disruption, you can re-enable this feature by adding `MARATHON_DEPRECATED_FEATURES=sanitize_accepted_resource_roles` to the file `/var/lib/dcos/marathon/environment` on all masters. You must remove this line before upgrading to the next version of DC/OS.
 - DC/OS Net now waits until agents become active before adding DNS entries for tasks on the agent to prevent resolving to unreachable addresses. (DCOS_OSS-5463)
-- dcos-net (l4lb) allows for graceful shutdown of connections by changing the VIP backend weight to 0 when tasks are unhealthy or enter the TASK_KILLING state instead of removing them. (D2IQ-61077)
+- dcos-net (l4lb) allows for graceful shutdown of connections by changing the VIP backend weight to 0 when tasks are unhealthy or enter the TASK_KILLING state instead of removing them. (D2iQ-61077)
 - Removed the spartan package from DC/OS. Is was deprecated in 1.11 and replaced by dcos-net.
 - Removed the toybox package from DC/OS. Is was used only by Spartan.
 - Removed the dcos-history-service from DC/OS. (DCOS-58529)
-- New format for Admin Router access logs. (D2IQ-43957, DCOS-59598, D2IQ-62839)
+- New format for Admin Router access logs. (D2iQ-43957, DCOS-59598, D2iQ-62839)
 
 # Component Versions
 DC/OS 2.1.0 includes the following component versions:
@@ -85,11 +85,11 @@ DC/OS 2.1.0 includes the following component versions:
 - Zookeeper log messages are now being forwarded to syslog. (COPS-6128)
 - Fixed a critical error in Metronome where existing jobs appear to be lost after upgrade. (COPS-6092)
 - (COPS-5951, COPS-5827)
-- Fixed an issue where in some rare circumstances, after upgrading a cluster, users were no longer able to launch tasks that use the UCR containerizer. (D2IQ-64507, COPS-5868)
+- Fixed an issue where in some rare circumstances, after upgrading a cluster, users were no longer able to launch tasks that use the UCR containerizer. (D2iQ-64507, COPS-5868)
 - Fixed an issue where image pull in UCR was not working for nvcr.io (missing ‘service’/‘scope’ parameters). (COPS-5804)
 - Upgraded Java to version 8u232 to align with previous DC/OS releases. (DCOS-62548, COPS-5738)
 - Fixed an issue where after a DC/OS upgrade, the executor resources used by tasks on the agent were being incorrectly counted against quota. (COPS-5725)
-- DC/OS Admin Router now allows large packages of files, up to 32GB, to the Package Registry. (D2IQ-61233, COPS-5615)
+- DC/OS Admin Router now allows large packages of files, up to 32GB, to the Package Registry. (D2iQ-61233, COPS-5615)
 - Additional logging has been added to the installation scripts to aid in debugging installation issues. (COPS-5428)
 - Fixed an issue where the Mesos master crashed in some situations if an agent was drained and then subsequently reactivated. (COPS-5931, MESOS-10116)
 - The dcos-diagnostics component now rate limits diagnostic checks to avoid performance slowdowns in large clusters. (COPS-5915)

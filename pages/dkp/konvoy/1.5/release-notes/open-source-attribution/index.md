@@ -119,7 +119,7 @@ The table below lists the third party open source software which is provided by 
 ## Software Sources
 
 The table below lists the Sources for the Free Software under GNU General Public License, and Mozilla Public License
-Software that are used by D2IQ Konvoy.
+Software that are used by D2iQ Konvoy.
 
 | Software   | Software Source                                        | License                                                                                    |
 | ---------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------ |

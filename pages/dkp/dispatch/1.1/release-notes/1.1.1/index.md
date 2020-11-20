@@ -27,11 +27,11 @@ This document describes the new features, caveats, and resolved issues of D2iQ D
 
 ### Improvements
 
-- Fixed incorrect population of dashboard-url for generate-pipeline manifests. (D2IQ-68190)
-- Fixed the report-status task to set --insecure-skip-tls-verify from environment.(D2IQ-68293) 
-- Protect artifacts from being overwritten by user defined tasks using internal (minio) storage. (D2IQ-68030)
-- Ignore branch deletion events from GitHub. (D2IQ-65672)
-- Fixed PipelineValidationFailed error when some task result variables are not present in Dispatchfile. (D2IQ-68189)
+- Fixed incorrect population of dashboard-url for generate-pipeline manifests. (D2iQ-68190)
+- Fixed the report-status task to set --insecure-skip-tls-verify from environment.(D2iQ-68293) 
+- Protect artifacts from being overwritten by user defined tasks using internal (minio) storage. (D2iQ-68030)
+- Ignore branch deletion events from GitHub. (D2iQ-65672)
+- Fixed PipelineValidationFailed error when some task result variables are not present in Dispatchfile. (D2iQ-68189)
 
 ### Installation & Upgrade
 
