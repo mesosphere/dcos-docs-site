@@ -9,7 +9,6 @@ const assets = require("metalsmith-assets");
 const dataLoader = require("metalsmith-data-loader");
 const watch = require("metalsmith-watch");
 const serve = require("metalsmith-serve");
-const redirect = require("metalsmith-redirect");
 const webpack = require("metalsmith-webpack2");
 const anchor = require("markdown-it-anchor");
 const attrs = require("markdown-it-attrs");
@@ -253,13 +252,6 @@ MS.use(timer("Markdown"));
 // Headings
 MS.use(headings());
 MS.use(timer("Headings"));
-
-MS.use(
-  redirect({
-    "/support": "https://support.d2iq.com",
-  })
-);
-MS.use(timer("Redirects"));
 
 // Permalinks
 MS.use(permalinks());
