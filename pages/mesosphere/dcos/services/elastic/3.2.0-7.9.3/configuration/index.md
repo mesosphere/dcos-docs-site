@@ -26,7 +26,7 @@ render: mustache
 - Serial vs Parallel update. By default, the DC/OS {{ model.techName }} Service tells DC/OS to update everything serially. You can change this to parallel in order to have each node updated at the same time. This is required, for instance, when you turn X-Pack Security on or off.
 - A custom YAML file can be appended to `elasticsearch.yml` on each node.
 
-### Immutable Settings 
+### Immutable Settings
 
 At cluster creation time via {{ model.techName }} package UI or JSON options file (via CLI), the following settings cannot be changed after installation:
 
