@@ -5,8 +5,6 @@ set -ex
 GIT_BRANCH=master npm run build
 echo "google-site-verification: google48ddb4a5390a503f.html" > ./build/google48ddb4a5390a503f.html
 
-echo "TODO: totally not updating algolia yet"
-
 apk add --update-cache gettext
 envsubst < s3bucketpolicy > .policy
 envsubst < s3config.json > .s3config.json

@@ -1,11 +1,5 @@
 #!/usr/bin/env groovy
 
-/*
-  TODO: update algolia!
-  # ALGOLIA_UPDATE=true
-  # ALGOLIA_PRIVATE_KEY=$algolia_private_key
-*/
-
 def bucket(branch) {
     branch == "master"  ? "docs-d2iq-com-production"
   : branch == "staging" ? "docs-d2iq-com-staging"
@@ -30,10 +24,15 @@ def hostname(branch) {
   : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
 }
 
+def updateAlgolia(branch) {
+  env.BRANCH_NAME == "master" ? "true" : ""
+}
+
 pipeline {
   agent { label "mesos" }
   environment {
     DOCKER = credentials('docker-hub-credentials')
+    ALGOLIA_PRIVATE_KEY = credentials('algolia_private_key')
     REDIR_HOSTNAME = hostname(env.BRANCH_NAME)
   }
   stages {
@@ -57,6 +56,7 @@ pipeline {
     }
     stage("Build & Deploy Docs") {
       environment {
+        ALGOLIA_UPDATE = updateAlgolia(env.BRANCH_NAME)
         AWS_DEFAULT_REGION = "us-west-2"
         BUCKET = bucket(env.BRANCH_NAME)
         PRINCIPAL = principal(env.BRANCH_NAME)
@@ -67,13 +67,15 @@ pipeline {
         sh '''
           docker run \
             -v "$PWD/pages":/src/pages \
+            -e ALGOLIA_PRIVATE_KEY \
+            -e ALGOLIA_UPDATE \
             -e AWS_ACCESS_KEY_ID \
             -e AWS_DEFAULT_REGION \
             -e AWS_SECRET_ACCESS_KEY \
             -e AWS_SESSION_TOKEN \
             -e BUCKET \
-            -e REDIR_HOSTNAME \
             -e PRINCIPAL \
+            -e REDIR_HOSTNAME \
             mesosphere/docs /src/ci/deploy.sh
           '''
         }
