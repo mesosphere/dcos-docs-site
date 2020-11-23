@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-navigationTitle:  air gap support
-title: Dispatch in air gapped clusters
+navigationTitle:  Airgap Support
+title: Dispatch In Airgapped Clusters
 menuWeight: 30
 beta: false
-excerpt: Using Dispatch in air gapped clusters
+excerpt: Using Dispatch in Airgapped clusters
 ---
 
-Dispatch is supported in air gapped deployments of Konvoy. See [Konvoy's install documentation](/dkp/konvoy/latest/install/install-airgapped/) for instructions on setting up an air gapped deployment.
+Dispatch is supported in airgapped deployments of Konvoy. See [Konvoy's install documentation](https://docs.d2iq.com/dkp/konvoy/latest/install/install-airgapped/) for instructions on setting up an airgapped deployment.
 
 # Limitations
 

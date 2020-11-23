@@ -16,9 +16,9 @@ Dispatch uses Kibana to [review logs](logging/) using standard query syntax.
 
 You can configure pipelines to store the artifacts and view them via CLI/GUI.
 
-# Air gapped deployments
+# Airgapped Deployments
 
-How to deploy and operate Dispatch in an [air gapped](airgap-support/) or non-internet connected environment.
+How to deploy and operate Dispatch in an [airgapped](airgap-support/) or non-internet connected environment.
 
 # Garbage Collection
 

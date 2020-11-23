@@ -14,7 +14,7 @@ Before you install Dispatch, be sure you have completed the [Prerequisites](../i
 
 # Installing Dispatch into a D2iQ Konvoy Cluster
 
-The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/products/konvoy).
+The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/solutions/dkp/konvoy).
 
 * Configure kubectl to point to the correct Kubernetes cluster.
 * Install the [Dispatch CLI](../install/cli/).

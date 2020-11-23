@@ -221,7 +221,7 @@ ArgoCD only has a single built-in user: the `admin` user.
 
 It has no internal users database and relies on an external OpenID Connect (OIDC) Identity Provider to authenticate regular users.
 
-On Konvoy, the Dex kubeaddon can act as an Identity Provider. See the [Setting up an external identity provider](/dkp/konvoy/latest/security/external-idps/) documentation for more information on how to connect Dex to your external Identity Provider.
+On Konvoy, the Dex kubeaddon can act as an Identity Provider. See the [Setting up an external identity provider](https://docs.d2iq.com/dkp/konvoy/latest/security/external-idps/) documentation for more information on how to connect Dex to your external Identity Provider.
 
 Once you have configured Dex, you can configure ArgoCD to use it as an OIDC Identity Provider by setting the following configuration when installing Dispatch:
 

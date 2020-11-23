@@ -8,7 +8,7 @@ excerpt: Diagnosing issues with your Dispatch deployment
 ---
 This section will show you how to diagnose issues with your Dispatch deployment, generate diagnostic bundles, and resolve problems.
 
-**Note:** If Dispatch is running on D2iQ Konvoy, prior to contacting support, a [Konvoy diagnostic bundle](/dkp/konvoy/latest/troubleshooting/generate-diagnostic-bundle/) may be required to be collected. Additional Konvoy troubleshooting information can be found on the [Konvoy Troubleshooting](/dkp/konvoy/latest/troubleshooting/) page.
+**Note:** If Dispatch is running on D2iQ Konvoy, prior to contacting support, a [Konvoy diagnostic bundle](https://docs.d2iq.com/dkp/konvoy/latest/troubleshooting/generate-diagnostic-bundle/) may be required to be collected. Additional Konvoy troubleshooting information can be found on the [Konvoy Troubleshooting](https://docs.d2iq.com/dkp/konvoy/latest/troubleshooting/) page.
 
 For information on viewing logs in **Kibana**, refer to the [Dispatch Logging](../operations/logging/) documentation.
 

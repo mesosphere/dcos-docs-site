@@ -24,6 +24,6 @@ Dispatch integrates with Prometheus for metrics.
 
 We offer detailed recommendations on scaling Argo CD for Dispatch.
 
-# Air gapped deployments
+# Airgapped Deployments
 
-Details for air gapped deployments of Dispatch.
+Details for airgapped deployments of Dispatch.

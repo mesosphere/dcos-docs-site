@@ -13,6 +13,6 @@ This release of Dispatch includes bug fixes.
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Dispatch [/button]
 
-- Secrets can now be used to checkout source code residing in a Gitlab repository. (D2iQ-65714)
-- Dispatchfiles no longer produces a parser error if it is greater than 4kB in size. (D2iQ-66701)
-- Dispatch now correctly prints line numbers for errors in CUE based Dispatchfiles. (D2iQ-62707) 
+- Secrets can now be used to checkout source code residing in a Gitlab repository. (D2IQ-65714)
+- Dispatchfiles no longer produces a parser error if it is greater than 4kB in size. (D2IQ-66701)
+- Dispatch now correctly prints line numbers for errors in CUE based Dispatchfiles. (D2IQ-62707) 
