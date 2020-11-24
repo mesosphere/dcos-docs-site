@@ -2,10 +2,13 @@ var webpack = require("webpack");
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
-  entry: "./entry.js",
+  entry: {
+    main: "./js/main.js",
+    swagger: "./js/swagger-ui.js",
+  },
   output: {
     path: __dirname + "/",
-    filename: "./build/js/bundle.js",
+    filename: "./build/js/[name].js",
   },
   module: {
     rules: [
