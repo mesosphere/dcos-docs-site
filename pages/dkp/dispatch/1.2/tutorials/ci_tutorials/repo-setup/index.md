@@ -397,20 +397,20 @@ Now that we have modified the master and confirmed that the current `master` bra
 passed CI, we will use the GitHub UI to tag a new release.
 
 1. Open your browser at [https://github.com/your-user/cicd-hello-world/releases](https://github.com/your-user/cicd-hello-world/releases).(Replace `your-user` with your actual GitHub username)
-1. Click the "Create a new release" button.
+1. Select the "Create a new release" button.
 1. In the "Tag version" text field, enter `v0.1`.
 1. Leave the "Target" as `Target: master`.
 1. For "Release title" enter "v0.1-alpha"
 1. Leave the description text box empty.
 1. Check the "This is a pre-release" checkbox.
-1. Click the "Publish release" button.
+1. Select the "Publish release" button.
 
 You have now tagged and created a new release. Creating a tag starts another CI build. There is no link in the GitHub UI that can take you directly to the new
 build. Instead, you can view the build status of the last `master` build and navigate from there to the latest build (which will be for the tag we just created.)
 
 1. Open your browser at [https://github.com/your-user/cicd-hello-world/commits/master](https://github.com/your-user/cicd-hello-world/commits/master).
-1. Click on the green checkmark next to the latest commit.
-1. Click on the "Details" link next to "build". This takes you to the now-familiar Tekton dashboard.
+1. Select the green checkmark next to the latest commit.
+1. Select the "Details" link next to "build". This takes you to the now-familiar Tekton dashboard.
 1. In the sidebar click on "PipelineRuns".
 1. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
 1. After it completes, if will push a docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
