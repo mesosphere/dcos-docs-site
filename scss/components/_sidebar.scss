@@ -11,7 +11,7 @@
   &__dropdown {
     position: relative;
     width: 100%;
-    &__toggle {
+    .toggle {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -19,31 +19,30 @@
       padding: 0 2rem;
       font-weight: 500;
       user-select: none;
+      cursor: pointer;
     }
-    &__text {
+    p {
       width: calc(100% - 20px);
       padding: 0;
       margin: 0;
       display: inline;
       overflow: hidden;
-      &__title {
-        color: $color-light;
+      color: $color-light;
+      font-size: 16px;
+      .title {
         opacity: 0.7;
-        font-size: 16px;
       }
-      &__version {
-        color: $color-light;
+      .version {
         white-space: nowrap;
-        font-size: 16px;
       }
     }
-    &__icon {
+    svg {
       width: 20px;
       height: 20px;
       color: $color-light;
       transition: all 0.3s ease-in-out;
     }
-    &__list {
+    ul {
       position: absolute;
       top: 70px;
       margin: 0;
@@ -56,17 +55,14 @@
       visibility: hidden;
       box-shadow: inset 0 40px 40px -40px rgba(0, 0, 0, 0.1), 0 20px 20px rgba(0, 0, 0, 0.1);
       overflow: hidden;
-      + .sidebar__dropdown__toggle {
-        cursor: pointer;
-      }
     }
-    &__item {
+    li {
       color: $color-light;
       &:not(:last-of-type) {
         border-bottom: 1px rgba($color-purple, 0.2) solid;
       }
     }
-    &__link {
+    a {
       display: block;
       padding: 1rem 2rem;
       font-size: 0.9rem;
@@ -80,98 +76,14 @@
     }
     &--active {
       background: $color-purple-d3;
-      & .sidebar__dropdown__list {
+      & ul {
           height: auto;
           visibility: visible;
           opacity: 1;
           z-index: 1;
       }
-      & .sidebar__dropdown__icon {
+      & svg {
         transform: rotate(180deg);
-      }
-    }
-  }
-  &__nav {
-    &::-webkit-scrollbar {
-      width: 0px;
-      background: transparent;
-    }
-    flex: 1;
-    padding-top: 1rem;
-    overflow-y: scroll;
-    font-size: 1rem;
-    color: rgba(255, 255, 255, 0.6);
-    a {
-      color: rgba(255, 255, 255, 0.6);
-    }
-    &__list {
-      display: none;
-      margin: 0;
-      padding: 0;
-      list-style-type: none;
-      &--active {
-        display: block;
-      }
-    }
-    &__icon {
-      width: 20px;
-      height: 20px;
-      margin: -1px 3px 0 -23px;
-      color: rgba(255, 255, 255, 0.6);
-      user-select: none;
-    }
-    &__text {
-      font-weight: 400;
-      color: rgba(255, 255, 255, 0.6);
-    }
-    &__item {
-      position: relative;
-      margin-bottom: 0.5rem;
-      line-height: 1;
-      &__container {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 0.25rem 2rem;
-        line-height: 1.25;
-        text-decoration: none;
-        &--depth-0 {
-          padding-left: calc(1rem * 2 + 23px);
-        }
-        &--depth-1 {
-          padding-left: calc(1rem * 3 + 23px);
-        }
-        &--depth-2 {
-          padding-left: calc(1rem * 4 + 23px);
-        }
-        &--depth-3 {
-          padding-left: calc(1rem * 5 + 23px);
-        }
-        &--depth-4 {
-          padding-left: calc(1rem * 6 + 23px);
-        }
-        &--depth-5 {
-          padding-left: calc(1rem * 7 + 23px);
-        }
-      }
-      &--active {
-        > .sidebar__nav__item__container .sidebar__nav__text {
-          color: $color-light;
-          font-weight: bolder;
-        }
-        > .sidebar__nav__item__container .sidebar__nav__icon {
-          color: $color-light;
-          transform: rotate(90deg);
-        }
-      }
-      &--active-on {
-        background: $color-purple-d3;
-        > .sidebar__nav__item__container .sidebar__nav__text {
-          color: $color-light;
-        }
-        > .sidebar__nav__item__container .sidebar__nav__icon {
-          color: $color-light;
-        }
       }
     }
   }
@@ -197,26 +109,73 @@
       text-decoration: none;
     }
   }
+}
+
+
+// we're not using BEM for the sidebar as it otherwise increases our build-size a lot.
+.sidebar_nav {
+  &::-webkit-scrollbar {
+    width: 0px;
+    background: transparent;
+  }
+  flex: 1;
+  padding-top: 1rem;
+  overflow-y: scroll;
+  font-size: 1rem;
+  color: rgba(255, 255, 255, 0.6);
+  a {
+    color: inherit;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+  svg {
+    width: 20px;
+    height: 20px;
+    margin: -1px 3px 0 -23px;
+    user-select: none;
+  }
+  // item
+  li {
+    position: relative;
+    margin-bottom: 0.5rem;
+    line-height: 1;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.6);
+    // container
+    a {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      padding: 0.25rem 2rem;
+      line-height: 1.25;
+      text-decoration: none;
+      &.d0 { padding-left: calc(1rem * 2 + 23px); }
+      &.d1 { padding-left: calc(1rem * 3 + 23px); }
+      &.d2 { padding-left: calc(1rem * 4 + 23px); }
+      &.d3 { padding-left: calc(1rem * 5 + 23px); }
+      &.d4 { padding-left: calc(1rem * 6 + 23px); }
+      &.d5 { padding-left: calc(1rem * 7 + 23px); }
+    }
+    &.active {
+      color: $color-light;
+      font-weight: bolder;
+      svg { transform: rotate(90deg); }
+    }
+    &.active-on {
+      background: $color-purple-d3;
+      color: $color-light;
+    }
+  }
   @include md {
-    &__nav {
-      // font-size: 14px;
-      &__icon {
-        &:hover {
-          opacity: 0.3;
-        }
-      }
-      &__item {
-        line-height: 1.25rem;
-        margin-bottom: 0;
-        &:hover {
-          background: $color-purple-d3;
-          > .sidebar__nav__item__container .sidebar__nav__text {
-            color: $color-light;
-          }
-          > .sidebar__nav__item__container .sidebar__nav__icon {
-            color: $color-light;
-          }
-        }
+    li {
+      line-height: 1.25rem;
+      margin-bottom: 0;
+      &:hover {
+        background: $color-purple-d3;
+        color: $color-light;
       }
     }
   }
