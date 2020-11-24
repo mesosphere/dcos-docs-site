@@ -44,7 +44,7 @@ const shortcodes = {
     }).replace(/^ +| +$/gm, ""),
 
   swagger: (buf, { api }) =>
-    `${swaggerSVGs}<div class="swagger-ui" data-api="${api}"></div>`,
+    `${swaggerSVGs}<div class="swagger-ui" data-api="${api}"></div><script src="/js/swagger.js"></script>`,
 };
 
 module.exports = shortcodes;
