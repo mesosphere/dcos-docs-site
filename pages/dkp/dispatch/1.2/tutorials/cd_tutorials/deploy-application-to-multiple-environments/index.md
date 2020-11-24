@@ -174,7 +174,7 @@ dispatch gitops app create hello-world-production --repository=https://github.co
 
 Open up the ArgoCD UI at https://your-dispatch-cluster-url/dispatch/argo-cd and view the hello-world-staging and hello-world-production applications to check that they are both healthy and synchronized.
 
-Next, open up your browser to https://staging.example.com/hello-world and https://production.example.com/hello-world (substituting the real cluster URLs). Confirm that both applications are displaying correctly. While viewing the hello-world-staging or hello-world-production application in the ArgoCD UI, you can click on the 'punch-out arrow' icon on the "hello-world" Ingress to be taken directly to the respective cluster's hello-world URL.
+Next, open up your browser to https://staging.example.com/hello-world and https://production.example.com/hello-world (substituting the real cluster URLs). Confirm that both applications are displaying correctly. While viewing the hello-world-staging or hello-world-production application in the ArgoCD UI, you can select the 'punch-out arrow' icon on the "hello-world" Ingress to be taken directly to the respective cluster's hello-world URL.
 
 ## Deploy new changes to master, then push them to staging
 
@@ -193,7 +193,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 
 Save the file, commit the change on a feature branch, push the feature branch to GitHub, open a pull request and confirm that CI passes. Once your CI checks all pass, merge the pull request into the master branch.
 
-Wait for the master branch to finish running its CI build. You can watch the master branch CI progress in the Tekton UI by visiting https://dispatch-ci.example.com/dispatch/tekton/ - note the trailing slash. Alternatively, click on the 'view' links for the CI checks shown at the bottom of the pull request page.
+Wait for the master branch to finish running its CI build. You can watch the master branch CI progress in the Tekton UI by visiting https://dispatch-ci.example.com/dispatch/tekton/ - note the trailing slash. Alternatively, select the 'view' links for the CI checks shown at the bottom of the pull request page.
 
 Once the master branch passes CI, push the new change to `staging` by merging the master branch into the `staging` branch and pushing the updated `staging` branch to GitHub.
 

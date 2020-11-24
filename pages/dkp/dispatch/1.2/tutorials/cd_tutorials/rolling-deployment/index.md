@@ -273,8 +273,8 @@ dispatch gitops app create hello-world --repository=https://github.com/your-gith
 
 You can now open your browser and navigate to the Argo CD UI. The Argo CD UI is available at the `/dispatch/argo-cd` URL relative to your Kubernetes cluster's URL.
 
-You can see that the hello-world application has been created. If you click on the hello-world application you can see a visualization of the various
-Kubernetes resources related to the hello-world application: Ingress, Service, Deployment, ReplicaSet, and Pod. You can further click on any of the resources to view more information. You can see the Kubernetes manifest for each resource and, in the case of the hello-world Pod, you can also view the logs in real-time.
+You can see that the hello-world application has been created. If you select the hello-world application you can see a visualization of the various
+Kubernetes resources related to the hello-world application: Ingress, Service, Deployment, ReplicaSet, and Pod. You can further select any of the resources to view more information. You can see the Kubernetes manifest for each resource and, in the case of the hello-world Pod, you can also view the logs in real-time.
 
 The hello-world application itself is reachable at the `/hello-world` URL relative to your cluster URL.
 
@@ -367,7 +367,7 @@ After you have reviewed the pull request against your GitOps repository, merge i
 
 At this point, the GitOps repository has been modified. We expect Argo CD to pick up that there were changes (specifically, the Docker image digest has been updated). After it does, it will compare the configuration as defined in the GitOps repository with the configuration running in the cluster and notice that the cluster is Out Of Sync with the GitOps repository.
 
-For Dispatch Alpha, the GitOps repository is automatically scanned for changes every 180 seconds. You can trigger a manual refresh using the Argo CD UI at `/dispatch/argo-cd` by clicking to the hello-world application and hitting Refresh in the action bar at the top of the page.
+For Dispatch Alpha, the GitOps repository is automatically scanned for changes every 180 seconds. You can trigger a manual refresh using the Argo CD UI at `/dispatch/argo-cd` by selecting the hello-world application and hitting Refresh in the action bar at the top of the page.
 
 For Dispatch Beta we will use webhooks to trigger a refresh whenever the GitOps repository is updated.
 

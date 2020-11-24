@@ -383,7 +383,7 @@ After you push your feature branch to your fork, you can visit
 `your-user` with your actual GitHub username) and create a pull request from
 your feature branch against the master branch **of your fork**.
 
-A few seconds after you've created your pull request, you will see Dispatch report that a new CI build has started. You can click on the Details link to
+A few seconds after you've created your pull request, you will see Dispatch report that a new CI build has started. You can select the Details link to
 follow the build as it proceeds. After it completes successfully, that status will be reported back to GitHub and your pull request will show that all its
 checks are passing. Merge the pull request.
 
@@ -391,7 +391,7 @@ Merging the pull request applies your feature branch's commits to the `master`
 branch of your fork. As we've modified the `master` branch, another CI build is
 triggered. You can view the new round of CI by opening your browser at
 [https://github.com/your-user/cicd-hello-world/commits/master](https://github.com/your-user/cicd-hello-world/commits/master) (replace
-`your-user` with your actual GitHub username) and clicking on the yellow dot next to the latest "Merge" commit.
+`your-user` with your actual GitHub username) and selecting the yellow dot next to the latest "Merge" commit.
 
 Now that we have modified the master and confirmed that the current `master` branch
 passed CI, we will use the GitHub UI to tag a new release.
@@ -411,7 +411,7 @@ build. Instead, you can view the build status of the last `master` build and nav
 1. Open your browser at [https://github.com/your-user/cicd-hello-world/commits/master](https://github.com/your-user/cicd-hello-world/commits/master).
 1. Select the green checkmark next to the latest commit.
 1. Select the "Details" link next to "build". This takes you to the now-familiar Tekton dashboard.
-1. In the sidebar click on "PipelineRuns".
+1. In the sidebar select "PipelineRuns".
 1. You will see the latest build (the one at the very top) is for the v0.1 alpha tag.
 1. After it completes, if will push a docker image to DockerHub with the `v0.1` tag: `your-user/hello-world:v0.1`.
 

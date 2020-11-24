@@ -166,7 +166,7 @@ func hello(w http.ResponseWriter, r *http.Request) {
 
 Save the file, commit the change on a feature branch, push the feature branch to GitHub, open a pull request and confirm that CI passes. Once your CI checks all pass, merge the pull request into the master branch.
 
-Wait for the master branch to finish running its CI build. You can watch the master branch CI progress in the Tekton UI by visiting https://dispatch-ci.example.com/dispatch/tekton/ - note the trailing slash. Alternatively, click on the 'view' links for the CI checks shown at the bottom of the pull request page.
+Wait for the master branch to finish running its CI build. You can watch the master branch CI progress in the Tekton UI by visiting https://dispatch-ci.example.com/dispatch/tekton/ - note the trailing slash. Alternatively, select the 'view' links for the CI checks shown at the bottom of the pull request page.
 
 Once the master branch passes CI, push the new change to `production`, and deploy the new version to all three production clusters, by merging the master branch into the `production` branch and pushing the updated `production` branch to GitHub.
 
