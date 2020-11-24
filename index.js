@@ -8,7 +8,6 @@ const assets = require("metalsmith-assets");
 const dataLoader = require("metalsmith-data-loader");
 const watch = require("metalsmith-watch");
 const serve = require("metalsmith-serve");
-const redirect = require("metalsmith-redirect");
 const webpack = require("metalsmith-webpack2");
 const anchor = require("markdown-it-anchor");
 const attrs = require("markdown-it-attrs");
@@ -19,7 +18,6 @@ const consolidate = require("consolidate");
 const pug = require("pug");
 
 // Local Plugins
-const permalinks = require("./plugins/metalsmith-permalinks");
 const hierarchy = require("./plugins/metalsmith-hierarchy");
 const hierarchyRss = require("./plugins/metalsmith-hierarchy-rss");
 const headings = require("./plugins/metalsmith-headings");
@@ -164,24 +162,14 @@ MS.use(timer("Dataloader"));
 // Load raw content via '#include' directives before rendering any mustache or markdown.
 // For example (in your content):
 //   #include path/to/file.tmpl
-MS.use(
-  includeContent({
-    // Style as a C-like include statement. Must be on its own line.
-    pattern: "^#include ([^ \n]+)$",
-    match: "**/*.md*",
-  })
-);
+// Style as a C-like include statement. Must be on its own line.
+MS.use(includeContent({ pattern: "^#include ([^ \n]+)$", match: "**/*.md*" }));
 MS.use(timer("IncludeContent"));
 
 // Process any mustache templating in files.
 // For example (in your Front Matter):
 //   render: mustache
-MS.use(
-  inPlace({
-    renderProperty: "render",
-    match: "**/*.md",
-  })
-);
+MS.use(inPlace({ renderProperty: "render", match: "**/*.md" }));
 MS.use(timer("Mustache"));
 
 // Folder Hierarchy
@@ -190,12 +178,7 @@ MS.use(timer("Hierarchy"));
 
 // RSS Feed
 MS.use(
-  hierarchyRss({
-    itemOptionsMap: {
-      title: "title",
-      description: "excerpt",
-    },
-  })
+  hierarchyRss({ itemOptionsMap: { title: "title", description: "excerpt" } })
 );
 MS.use(timer("Hierarchy RSS"));
 
@@ -204,12 +187,7 @@ MS.use(timer("Hierarchy RSS"));
 //
 
 // Shortcodes
-MS.use(
-  shortcodes({
-    files: [".md"],
-    shortcodes: shortcodesConfig,
-  })
-);
+MS.use(shortcodes({ files: [".md"], shortcodes: shortcodesConfig }));
 MS.use(timer("Shortcodes"));
 
 // Don't rebuild files that have not been touched
@@ -255,16 +233,18 @@ MS.use(timer("Markdown"));
 MS.use(headings());
 MS.use(timer("Headings"));
 
-MS.use(
-  redirect({
-    "/support": "https://support.d2iq.com",
-  })
-);
-MS.use(timer("Redirects"));
-
-// Permalinks
-MS.use(permalinks());
-MS.use(timer("Permalinks"));
+// TODO: a replacement for the former Permalinks plugin. this was the only thing
+// that actually mattered. we save about a third of pipeline-time with this
+// replacement. let's get our path-handling right, so that we can remove this
+// completely.
+MS.use((files, _metalsmith, done) => {
+  setImmediate(done);
+  Object.entries(files).forEach(([file, data]) => {
+    if (!file.endsWith(".html")) return;
+    data.path = data.path.replace(/^\//, "");
+  });
+});
+MS.use(timer("Strip leading slash from path"));
 
 // Layouts
 MS.use((files, ms, done) => {
@@ -310,12 +290,7 @@ if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
 
 // Serve
 if (process.env.NODE_ENV === "development") {
-  MS.use(
-    serve({
-      host: "0.0.0.0",
-      port: 3000,
-    })
-  );
+  MS.use(serve({ host: "0.0.0.0", port: 3000 }));
   MS.use(timer("Webserver"));
 }
 
