@@ -4,7 +4,6 @@ const minimatch = require("minimatch");
 const Metalsmith = require("metalsmith");
 const markdown = require("metalsmith-markdownit");
 const layouts = require("metalsmith-layouts");
-const permalinks = require("metalsmith-permalinks");
 const assets = require("metalsmith-assets");
 const dataLoader = require("metalsmith-data-loader");
 const watch = require("metalsmith-watch");
@@ -20,6 +19,7 @@ const consolidate = require("consolidate");
 const pug = require("pug");
 
 // Local Plugins
+const permalinks = require("./plugins/metalsmith-permalinks");
 const hierarchy = require("./plugins/metalsmith-hierarchy");
 const hierarchyRss = require("./plugins/metalsmith-hierarchy-rss");
 const headings = require("./plugins/metalsmith-headings");
