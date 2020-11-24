@@ -79,7 +79,7 @@ Committing this file to a repository monitored by Dispatch and creating a pull r
 
 ![Failed Generate Pipeline Status](images/failed-generate-pipeline-status.png)
 
-Clicking on the `Details` hyperlink would lead you to pipeline log page that gives an error which is identical to above render error. Fix the `tests` array to reflect the correct task name and push the changes.
+Selecting the `Details` hyperlink leads you to pipeline log page that gives an error which is identical to above render error. Fix the `tests` array to reflect the correct task name and push the changes.
 
 This should resolve the compile time error. Next, examine the runtime errors
 
@@ -129,7 +129,7 @@ After pushing the changes for docker image, the task should run to completion an
 
 #### Debugging using the GUI
 
-Clicking on the `Details` hyperlink in the GitHub should take you to the pipeline build page which should show the failed logs:
+Selecting the `Details` hyperlink in GitHub takes you to the pipeline build page which should show the failed logs:
 
 ```text
 can't load package: package ./..: non-canonical import path: "./.." should be ".."

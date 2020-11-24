@@ -147,10 +147,10 @@ account and attach credentials to it.
         <summary><b>GitHub</b></summary>
 
         1. Visit https://github.com/settings/keys
-        1. Click "New SSH key".
+        1. Select "New SSH key".
         1. Give the key an appropriate title like "Dispatch test 1".
         1. Run `cat ./dispatch.pem.pub` in your terminal, copy the output, and paste it in the "Key" text box on the page.
-        1. Click "Add SSH key".
+        1. Select "Add SSH key".
 
         </details>
 
@@ -160,7 +160,7 @@ account and attach credentials to it.
        1. Visit https://gitlab.com/profile/keys
        1. Run `cat ./dispatch.pem.pub` in your terminal, copy the output, and paste it in the "Key" text box on the page.
        1. Give the key an appropriate title like "Dispatch test 1".
-       1. Click "Add key".
+       1. Select "Add key".
 
        </details>
 
@@ -168,22 +168,22 @@ account and attach credentials to it.
        <summary><b>BitBucket Cloud</b></summary>
 
        1. Visit https://bitbucket.org/account/settings/ssh-keys/
-       1. Click "Add key".
+       1. Select "Add key".
        1. Give the key and appropriate label like "Dispatch test 1".
        1. Run `cat ./dispatch.pem.pub` in your terminal, copy the output, and paste it in the "Key" text box on the page.
-       1. Click "Add key".
+       1. Select "Add key".
 
        </details>
 
        <details>
        <summary><b>BitBucket Server</b></summary>
 
-       1. Click your profile picture at the upper-right corner of the web UI of your on-prem Bitbucket Server instance.
-       1. Click "Manage account" in the drop-down manu to go to the "Account" page.
-       1. Click "SSH keys" from the list manu.
-       1. Click "Add key".
+       1. Select your profile picture at the upper-right corner of the web UI of your on-prem Bitbucket Server instance.
+       1. Select "Manage account" in the drop-down manu to go to the "Account" page.
+       1. Select "SSH keys" from the list manu.
+       1. Select "Add key".
        1. Run `cat ./dispatch.pem.pub` in your terminal, copy the output, and paste it in the "Key" text box on the page.
-       1. Click "Add key".
+       1. Select "Add key".
 
        </details>
 
