@@ -161,7 +161,7 @@ Below is the minimal IAM policy required:
 
 In Kommander, select the Workspace associated with the credentials you are adding.
 
-Navigate to **Administration > Infrastructure Providers** and click the **Add Infrastructure Provider** button.
+Navigate to **Administration > Infrastructure Providers** and select the **Add Infrastructure Provider** button.
 
 ![Adding an Infrastructure Provider](/dkp/kommander/1.2/img/empty-infrastructure-providers.png)
 <br />_Adding an Infrastructure Provider_

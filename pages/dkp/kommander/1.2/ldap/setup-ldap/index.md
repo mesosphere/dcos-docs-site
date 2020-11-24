@@ -117,7 +117,7 @@ At this point you can configure the LDAP user search query fields. These fields 
 
   ![](./img/image19.png)
 
-  To find the distinguished name of the **Users** folder, right click the folder, go to **Properties**, go to **String Attribute Editor**, and scroll to the **distinguishedName** field, and click **View**.
+  To find the distinguished name of the **Users** folder, right select the folder, go to **Properties**, go to **String Attribute Editor**, and scroll to the **distinguishedName** field, and select **View**.
 
   ![](./img/image20.png)
 
@@ -196,7 +196,7 @@ At this point you can configure the LDAP group search query fields. These fields
 
   ![](./img/image16.png)
 
-  To find the distinguished name of the Groups folder, right click the folder, go to properties, go to attribute editor, and scroll to the **distinguishedName** field, and click **View**.
+  To find the distinguished name of the Groups folder, right select the folder, go to properties, go to attribute editor, and scroll to the **distinguishedName** field, and select **View**.
 
   ![](./img/image15.png)
 
