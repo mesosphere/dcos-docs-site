@@ -36,7 +36,6 @@
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-layouts": "^1.8.1",
     "metalsmith-markdownit": "^0.4.0",
-    "metalsmith-permalinks": "^0.5.0",
     "metalsmith-redirect": "^2.1.0",
     "metalsmith-serve": "0.0.7",
     "metalsmith-timer": "0.0.2",
