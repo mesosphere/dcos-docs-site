@@ -337,7 +337,7 @@ Follow these steps:
 1. This triggers another round of CI, which you can watch on the PipelineRuns page of the Tekton dashboard hosted at `/dispatch/tekton/`.
 1. As the final step of that CI run, a new pull request is opened against the GitOps repository at [https://github.com/your-user/cicd-hello-world-gitops](https://github.com/your-user/cicd-hello-world-gitops).
 1. Review and merge that pull request.
-1. Navigate to the Argo CD UI at `/dispatch/argo-cd`, then click the hello-world application and hit `Refresh`. This triggers deployment of the latest Docker image.
+1. Navigate to the Argo CD UI at `/dispatch/argo-cd`, then select the hello-world application and hit `Refresh`. This triggers deployment of the latest Docker image.
 
 If you watch the `hello-world` Deployment you'll notice that the image has been updated. This will trigger Flagger to scale up a pods for the canary deployment. You can follow the progress from the Events tab of the `hello-world` Canary in
 the ArgoCD UI, as well as by watching the Flagger logs as follows:
