@@ -30,7 +30,7 @@ The following procedure describes how to configure an On-Premises infrastructure
 
    - Fill in **Private SSH Key** with the key used to access your infrastructure.
 
-   - Click **Verify and Save** to verify the credentials are valid and to save your provider.
+   - Select **Verify and Save** to verify the credentials are valid and to save your provider.
 
    ![On Premise Provider Form with values](/dkp/kommander/1.2/img/On-prem-provider-with-values.png)
 

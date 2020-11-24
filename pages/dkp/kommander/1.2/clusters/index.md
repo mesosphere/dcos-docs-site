@@ -17,7 +17,7 @@ You must have run `konvoy up` with the Kommander addon deployed. You should be l
 If you are creating a cluster with a cloud partner (Azure, AWS), you must configure your [infrastructure provider](/dkp/kommander/1.2/operations/infrastructure-providers/).
 If you are planning on attaching more than one cluster, ensure you enter your valid [license](/dkp/kommander/1.2/licensing/).
 
-From the dashboard page or the clusters page, click Add Cluster and Create Konvoy Cluster.
+From the dashboard page or the clusters page, select Add Cluster and Create Konvoy Cluster.
 
 ![Add Cluster Options](/dkp/kommander/1.2/img/add-cluster.png)
 
@@ -118,17 +118,17 @@ If you delete the management (Konvoy) cluster, you won't be able to use Kommande
 | Pending        | This is the initial state when a cluster is created or connected.                                                                                                   |
 | Loading Data   | The cluster has been added to Kommander and we are fetching details about the cluster. This is the status before `Active`.                                          |
 | Active         | The cluster is connected to API server                                                                                                                              |
-| Provisioning\* | The cluster is being created on your cloud provider. This process can take a long time. To follow the progress of creation, click "View Logs" in the dropdown menu. |
+| Provisioning\* | The cluster is being created on your cloud provider. This process can take a long time. To follow the progress of creation, select "View Logs" in the dropdown menu. |
 | Joining        | Cluster is being joined to the management cluster for federation.                                                                                                   |
 | Joined         | The join process is done, we wait for the first bit of data from the cluster to arrive                                                                              |
 | Deleting       | Cluster is being deleted. This process may a long time.                                                                                                             |
 | Error          | There has been an error connecting to the cluster or retrieving data from the cluster.                                                                              |
-| Failed\*       | The cluster has failed to be provisioned. For more info on the failure, click "View Logs" in the dropdown menu.                                                     |
+| Failed\*       | The cluster has failed to be provisioned. For more info on the failure, select "View Logs" in the dropdown menu.                                                     |
 | Join Failed    | This can happen when kubefed does not have permission to create entities in the target cluster.                                                                     |
 | Unjoining      | Kubefed cleans up after itself, removing all installed resources on the target cluster.                                                                             |
 | Unjoined       | The cluster has been disconnected from the management cluster.                                                                                                      |
 | Unjoin Failed  | Unjoining from kubefed failed or some other error with deleting or disconnecting.                                                                                   |
-| Deleting       | The cluster and its resources are being removed from your cloud provider. Click "View Logs" in the dropdown menu to follow progress. This process may a long time.  |
+| Deleting       | The cluster and its resources are being removed from your cloud provider. Select "View Logs" in the dropdown menu to follow progress. This process may a long time.  |
 | Deleted        | The cluster and its resources have been removed from your cloud provider.                                                                                           |
 | Provisioned\*  | The cluster has been created on your cloud provider.                                                                                                                |
 

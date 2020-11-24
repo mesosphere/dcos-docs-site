@@ -19,7 +19,7 @@ To find a cluster's monitoring ID, you can go to the Clusters tab on the Kommand
 https://<CLUSTER_URL>/ops/portal/kommander/ui/#/clusters
 ```
 
-Click on the `View Details` link on the managed cluster card, and the monitoring ID can be found under `Monitoring ID (clusterId)`.
+Select the `View Details` link on the managed cluster card, and the monitoring ID can be found under `Monitoring ID (clusterId)`.
 
 You may also search or filter by monitoring IDs on the Clusters page, linked above.
 

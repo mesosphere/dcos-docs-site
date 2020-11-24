@@ -75,7 +75,7 @@ These are explained in more detail below.
 
 ### Groups
 
-You can map group and user claims made by your configured identity providers to Kommander groups by clicking the _Groups_ tab under Administration / Identity providers on the global level.
+You can map group and user claims made by your configured identity providers to Kommander groups by selecting the _Groups_ tab under Administration / Identity providers on the global level.
 
 ![Identity Provider Groups](/dkp/kommander/1.2/img/access-control-idp-groups.png)
 

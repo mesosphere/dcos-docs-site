@@ -59,7 +59,7 @@ SAML Form
 
 ### Temporarily disabling a provider
 
-Open the actions menu on the Identity Providers table and click Disable. The provider option will no longer appear on the login screen.
+Open the actions menu on the Identity Providers table and select Disable. The provider option will no longer appear on the login screen.
 
 ![Identity Provider Table Row Action Menu](/dkp/kommander/1.2/img/Identity-provider-table-action-menu.png)
 
