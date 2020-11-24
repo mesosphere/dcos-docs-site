@@ -10,7 +10,6 @@ require("./sidebar-drawer.js");
 require("./header.js");
 require("./header-dropdown.js");
 require("./search.js");
-require("./actions.js");
 require("./sections.js");
 require("./switch.js");
 require("./image.js");
