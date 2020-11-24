@@ -17,7 +17,7 @@ mixin renderSidebarNavListItem(item, depth)
       'sidebar__nav__item--parent': hasChildren
     }
   li.sidebar__nav__item(class=itemClassList)
-    a.sidebar__nav__item__container(href=item.path, class=`sidebar__nav__item__container--depth-${depth}`)
+    a.sidebar__nav__item__container(href=item.path + "/", class=`sidebar__nav__item__container--depth-${depth}`)
       if hasChildren
         i.sidebar__nav__icon(data-feather='chevron-right')
       .sidebar__nav__text!= item.navigationTitle || item.title
