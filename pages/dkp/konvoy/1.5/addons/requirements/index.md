@@ -9,7 +9,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD018 -->
 
-#include /ksphere/konvoy/1.5/include/kba-requirements.tmpl
+#include /dkp/konvoy/1.5/include/kba-requirements.tmpl
 
 ## Related information
 
