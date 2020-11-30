@@ -128,8 +128,8 @@ For more information on addressing this limit, refer to this [procedure](../oper
 -   You must read the [documentation](../upgrade/upgrade-cli#upgrading-konvoy-from-v14x-to-v150) before attempting an upgrade.
 -   See the changes for additional components:
     - Kubernetes Base Addons [Release Notes](kubernetes-base-addon)
-    - Kommander [Release Notes](https://docs.d2iq.com/ksphere/kommander/1.1/release-notes/)
-    - Dispatch [Release Notes](https://docs.d2iq.com/ksphere/dispatch/1.2/release-notes/)
+    - Kommander [Release Notes](https://docs.d2iq.com/dkp/kommander/1.1/release-notes/)
+    - Dispatch [Release Notes](https://docs.d2iq.com/dkp/dispatch/1.2/release-notes/)
 
 #### Important Changes
 
@@ -358,5 +358,5 @@ For information about installing and using Konvoy, see the [Konvoy documentation
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [prometheus-rules]: https://github.com/mesosphere/charts/tree/master/staging/prometheus-operator/templates/prometheus/rules
-[konvoy-doc]:https://docs.d2iq.com/ksphere/konvoy
+[konvoy-doc]:https://docs.d2iq.com/dkp/konvoy
 [kubernetes-doc]:https://kubernetes.io/docs/home/
