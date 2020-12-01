@@ -7,17 +7,17 @@ menuWeight: 7
 excerpt: View clusters created with Kommander or any connected Kubernetes cluster
 ---
 
-## Creating or Connecting Clusters
+## Create or Connect a Clusters
 
-Kommander allows you to monitor and manage very large numbers of clusters and so we make it easy to either connect existing clusters or create new clusters whose lifecycle is managed by Konvoy.
+Kommander allows you to monitor and manage very large numbers of clusters, so it's easy to either connect existing clusters or create new clusters whose lifecycle is managed by Konvoy.
 
 ## Before you begin:
 
-You must have run `konvoy up` with the Kommander addon deployed. You should be looking at the Kommander UI.
-If you are creating a cluster with a cloud partner (Azure, AWS), you must configure your [infrastructure provider](/dkp/kommander/1.3/operations/infrastructure-providers/).
-If you are planning on attaching more than one cluster, ensure you enter your valid [license](/dkp/kommander/1.3/licensing/).
+- You must have run `konvoy up` with the Kommander addon deployed. You should be looking at the Kommander UI.
+- If you are creating a cluster with a cloud partner (Azure, AWS), you must configure your [infrastructure provider](/dkp/kommander/1.3/operations/infrastructure-providers/).
+- If you are planning on attaching more than one cluster, ensure you enter your valid [license](/dkp/kommander/1.3/licensing/).
 
-From the dashboard page or the clusters page, click Add Cluster and Create Konvoy Cluster.
+From the dashboard page or the clusters page, select **Add Cluster > Create Konvoy Cluster**.
 
 ![Add Cluster Options](/dkp/kommander/1.3/img/add-cluster.png)
 
