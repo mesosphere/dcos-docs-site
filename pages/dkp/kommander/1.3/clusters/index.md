@@ -163,7 +163,7 @@ Figure 2. Cluster detail page
 
 ### Custom service cards
 
-Custom serivce cards can be added to the cluster detail page's addon section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `d2iq.io/addon` label and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap` the GUI will show a card corresponding to the data provided in the `ConfigMap`. Custom cards have a Kubernetes icon and can link to a service running in the cluster or use an absolute URL to link to any accessible URL.
+Custom service cards can be added to the cluster detail page's Addons section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `d2iq.io/addon` label and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap` the GUI will show a card corresponding to the data provided in the `ConfigMap`. Custom cards have a Kubernetes icon and can link to a service running in the cluster or use an absolute URL to link to any accessible URL.
 
 #### ConfigMap example
 
