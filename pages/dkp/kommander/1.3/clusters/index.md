@@ -29,7 +29,7 @@ From the dashboard page or the clusters page, select **Add Cluster > Create Konv
 
 ### Connect an existing cluster
 
-Using the Add Cluster option, you can attach an already existing cluster, even an existing Konvoy cluster, directly to Kommander. Enjoy all the multi-cluster management and monitoring benefits that Kommander provides while keeping your existing cluster on its current provider & infrastructure.
+Using the Attach Cluster option, you can attach an already existing cluster, even an existing Konvoy cluster, directly to Kommander. Enjoy all the multi-cluster management and monitoring benefits that Kommander provides while keeping your existing cluster on its current provider & infrastructure.
 
 See [Attach Cluster](/dkp/kommander/1.3/clusters/attach-cluster/)
 
