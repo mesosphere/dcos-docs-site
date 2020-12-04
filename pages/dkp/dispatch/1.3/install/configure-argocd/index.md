@@ -60,16 +60,16 @@ spec:
     - enabled: true
       name: dispatch
       values: |
-      ---
-      argo-cd:
-        server:
-          autoscaling:
-            minReplicas: 2
-            maxReplicas: 4
-        repoServer:
-          autoscaling:
-            minReplicas: 3
-            maxReplicas: 5
+        ---
+        argo-cd:
+          server:
+            autoscaling:
+              minReplicas: 2
+              maxReplicas: 4
+          repoServer:
+            autoscaling:
+              minReplicas: 3
+              maxReplicas: 5
 ```
 If you want to specify the number of replicas for these services manually, you
 can do so by disabling autoscaling and setting the number of replicas explicitly:
@@ -93,16 +93,16 @@ spec:
     - enabled: true
       name: dispatch
       values: |
-      ---
-      argo-cd:
-        server:
-          autoscaling:
-            enabled: false
-          replicas: 1
-        repoServer:
-          autoscaling:
-            enabled: false
-          replicas: 1
+        ---
+        argo-cd:
+          server:
+            autoscaling:
+              enabled: false
+            replicas: 1
+          repoServer:
+            autoscaling:
+              enabled: false
+            replicas: 1
 ```
 
 ## Single Sign-On (SSO)
@@ -129,10 +129,10 @@ spec:
     - enabled: true
       name: dispatch
       values: |
-      ---
-      argo-cd:
-        konvoyDex:
-          enabled: "true"
+        ---
+        argo-cd:
+          konvoyDex:
+            enabled: "true"
 ```
 
 This configures both ArgoCD and Dex to allow users to log in to ArgoCD using the pre-configured Konvoy SSO.
@@ -160,12 +160,12 @@ spec:
     - enabled: true
       name: dispatch
       values: |
-      ---
-      argo-cd:
-        server:
-          ingress:
-            annotations:
-              traefik.ingress.kubernetes.io/auth-type: ""
+        ---
+        argo-cd:
+          server:
+            ingress:
+              annotations:
+                traefik.ingress.kubernetes.io/auth-type: ""
 ```
 
 
@@ -198,13 +198,13 @@ spec:
     - enabled: true
       name: dispatch
       values: |
-      ---
-      argo-cd:
-        server:
-          config:
-            users.anonymous.enabled: "false"
-          rbacConfig:
-            policy.default: "role:readonly"
+        ---
+        argo-cd:
+          server:
+            config:
+              users.anonymous.enabled: "false"
+            rbacConfig:
+              policy.default: "role:readonly"
 ```
 
 To view the ArgoCD UI, log in with username `admin` and the admin user password. By default, the ArgoCD admin user password is set to the name of first `argocd-server` pod.
@@ -253,16 +253,16 @@ spec:
     - enabled: true
       name: dispatch
       values: |
-      ---
-      argo-cd:
-        server:
-          config:
-            users.anonymous.enabled: "false"
-          rbacConfig:
-            policy.default: ""
-            policy.csv: |
-              g, myorg:engineers, role:admin
-              g, myorg:interns, role:readonly
+        ---
+        argo-cd:
+          server:
+            config:
+              users.anonymous.enabled: "false"
+            rbacConfig:
+              policy.default: ""
+              policy.csv: |
+                g, myorg:engineers, role:admin
+                g, myorg:interns, role:readonly
 ```
 
 You can read more about [ArgoCD RBAC in their documentation](https://argoproj.github.io/argo-cd/operator-manual/rbac/).
