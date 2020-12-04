@@ -45,7 +45,7 @@ A tag is similar to a label and helps manage and track this cluster at the infra
 
 #### Cluster labels
 
-Cluster labels are matched to the selectors created for [projects](/dkp/kommander/1.3/projects/). If a cluster is removed from a project, any resources deployed to the cluster from that Project are removed. If a cluster is added to a project any existing project resources are deployed to the cluster.
+Cluster labels are matched to the selectors created for [projects](/dkp/kommander/1.3/projects/). If a cluster is removed from a project, any resources deployed to the cluster from that Project are removed. If a cluster is added to a project, any existing project resources are deployed to the cluster.
 
 ##### Valid labels
 
@@ -77,13 +77,13 @@ Figure 2:
 
 ### Edit an attached cluster
 
-For an Attached cluster you can only edit labels that are assigned to it.
+For an attached cluster, you can only edit labels that are assigned to it.
 
 ![Edit an Attached Cluster](/dkp/kommander/1.3/img/edit-cluster-attached-1-1-0.png)
 
 ### Edit a managed cluster
 
-For a Managed cluster you can edit its name, Kubernetes version, labels, cloud provider tags, and its node pools.
+For a managed cluster, you can edit its name, Kubernetes version, labels, cloud provider tags, and its node pools.
 
 ![Edit a Cluster Form](/dkp/kommander/1.3/img/edit-cluster-form-name-1-1-0.png)
 
@@ -101,7 +101,7 @@ When editing labels, you can not delete the region or provider labels.
 
 ![Edit a Cluster Labels and Cloud Provider Tags](/dkp/kommander/1.3/img/edit-cluster-labels-tags-1-1-0.png)
 
-## Disconnect vs delete
+## Disconnect vs. delete
 
 When you attach a cluster to Kommander that was not created with Kommander, you may later disconnect it. This does not alter the running state of the cluster, but simply removes it from the Kommander UI.
 
@@ -163,7 +163,7 @@ Figure 2. Cluster detail page
 
 ### Custom service cards
 
-Custom service cards can be added to the cluster detail page's Addons section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `d2iq.io/addon` label and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap` the GUI will show a card corresponding to the data provided in the `ConfigMap`. Custom cards have a Kubernetes icon and can link to a service running in the cluster or use an absolute URL to link to any accessible URL.
+Custom service cards can be added to the cluster detail page's Addons section by creating a `ConfigMap` on the cluster. The `ConfigMap` must have a `d2iq.io/addon` label and must contain both `name` and `dashboardLink` data keys to be displayed. Upon creation of the `ConfigMap`, the GUI will show a card corresponding to the data provided in the `ConfigMap`. Custom cards have a Kubernetes icon and can link to a service running in the cluster or use an absolute URL to link to any accessible URL.
 
 #### ConfigMap example
 
@@ -184,7 +184,7 @@ data:
 | :--- | :--- | :---: | 
 | metadata . labels . "d2iq.io/addon" | The addon name (id) | X |
 | data . name | The display name used to describe the service and shown on the Card in the GUI. | X |
-| data . dashboardLink | The link to the service. This can be an absolute link "https://www.d2iq.com" or a relative link "/ops/portal". If a relative link is used the link will be built using the cluster's path as the base of the URL to the service. | X |
+| data . dashboardLink | The link to the service. This can be an absolute link "https://www.d2iq.com" or a relative link "/ops/portal". If a relative link is used, the link will be built using the cluster's path as the base of the URL to the service. | X |
 | data . docsLink | Link to documentation about the service, this is displayed on the service card, but omitted if not present. | |
 | data . category | Category to group the custom service with, if not provided the service is grouped under the category "None." | |
 | data . version | A version string for the service, if not provided "N/A" is displayed on the service card in the GUI. | |
