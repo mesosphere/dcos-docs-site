@@ -7,7 +7,7 @@ menuWeight: 7
 excerpt: View clusters created with Kommander or any connected Kubernetes cluster
 ---
 
-## Create or connect a clusters
+## Create or connect a cluster
 
 Kommander allows you to monitor and manage very large numbers of clusters, so it's easy to either connect existing clusters or create new clusters whose lifecycle is managed by Konvoy.
 
