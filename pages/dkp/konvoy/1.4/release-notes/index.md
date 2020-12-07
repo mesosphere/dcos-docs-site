@@ -52,8 +52,8 @@ For more information on addressing this limit, refer to this [procedure](../oper
 #### Bug fixes
 
 - AWS: Fixes an issue preventing AWS ELBs from being tagged according to their corresponding Service annotations. (COPS-6482)
-- Air gapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
-- Air gapped: Fix a bug where an air gapped upgrade would fail due to the missing `kubernetes-cni` package, when installing `kubeadm`. (COPS-6334)
+- Airgapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
+- Airgapped: Fix a bug where an air-gapped upgrade would fail due to the missing `kubernetes-cni` package, when installing `kubeadm`. (COPS-6334)
 
 #### Component version changes
 
@@ -167,7 +167,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 #### Bug fixes
 
 - Fix a bug where `HTTP_PROXY` environment variable set on the host may prevent from installing successfully.
-- Fix a bug with the air gapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
+- Fix a bug with the airgapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
 - Fix a bug where the `kubelet` and `chrony` Systemd services may not automatically start after a machine reboot.
 
 #### Component version changes
@@ -249,7 +249,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 
 #### Bug fixes
 
-- Fix a bug where the kubeaddons controller could not start when air gapped.
+- Fix a bug where the kubeaddons controller could not start when air-gapped.
 - Fix a bug where certain addons were being installed even if set to `enabled: false`.
 - Fixed a bug that would fail to install on Ubuntu if containerd.io was not already installed.
 
@@ -321,7 +321,7 @@ spec:
 - Fix a bug that causes `konvoy reset` to fail when running the command after the kubectl package is installed, but before `kubeadm` succeeds.
 - Fix the URL that is printed for the ops-portal, after an install, when using a custom domain.
 - Fix a bug where the cluster.yaml file was improperly parsed when there are `---` in addon values.
-- Add Tekton utility images to the air gapped release tar.
+- Add Tekton utility images to the air-gapped release tar.
 
 #### Addons improvements
 
@@ -713,8 +713,8 @@ N/A
 #### Bug fixes
 
 - Fix a bug where using a custom VPC ID with VPC Endpoints caused Terraform to fail.
-- Fix a bug when installing an air gapped cluster would fail if `localhost` does not resolve to `127.0.0.1` on the install machine.
-- Fix a bug when installing an air gapped would fail if the install machine also does not have access access to the upstream helm repos.
+- Fix a bug when installing an air-gapped cluster would fail if `localhost` does not resolve to `127.0.0.1` on the install machine.
+- Fix a bug when installing an air-gapped would fail if the install machine also does not have access access to the upstream helm repos.
 
 #### Component version changes
 
@@ -761,7 +761,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 - The command `konvoy config images save` now saves the tars with the `konvoy` binary and the `images.json` file in the `images/` directory.
 - New command `konvoy config images load` loads docker image tars from a local `images/` directory.
 - The command `konvoy config images seed` first checks for local docker image tars in the `images/` directory before trying to pull it from a remote repo.
-- The air gapped release tar now contains an `images/` directory with all required images.
+- The air-gapped release tar now contains an `images/` directory with all required images.
 
 #### Addons improvements
 
@@ -769,7 +769,7 @@ N/A
 
 #### Bug fixes
 
-- Fix a bug where air gapped artifacts were not properly mounted in the Konvoy container, preventing the air gapped installation on certain environments.
+- Fix a bug where air-gapped artifacts were not properly mounted in the Konvoy container, preventing the air-gapped installation on certain environments.
 - Fix a bug where the Konvoy wrapper did not load the Konvoy image before trying to pull the image.
 - Fix a bug preventing traefik-forward-auth from working with domain-based authentication.
 
@@ -815,7 +815,7 @@ Where applicable, issue descriptions include one or more issue tracking identifi
 
 #### Improvements
 
--   \[BETA\] New CLI commands and `cluster.yaml` options to support [air gapped installations](../install/install-airgapped/).
+-   \[BETA\] New CLI commands and `cluster.yaml` options to support [air-gapped installations](../install/install-airgapped/).
 -   VPC Endpoints are now deployed by default to allow for the pods running in the cluster to connect to the AWS API without requiring the Internet.
 
     ```yaml
