@@ -128,6 +128,7 @@ try {
         attributeName: "scope",
         templates: { seeAllOption: "Product" },
         autoHideContainer: false,
+        limit: 99,
         cssClasses: { select: "search__filter__list" },
       })
     );
