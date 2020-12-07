@@ -40,6 +40,7 @@ excerpt: API documentation (v1beta1)
 * [Inventory](#inventory)
 * [InventoryHost](#inventoryhost)
 * [InventoryNodePool](#inventorynodepool)
+* [APIServer](#apiserver)
 * [AddonConfig](#addonconfig)
 * [Addons](#addons)
 * [AdmissionPlugins](#admissionplugins)
@@ -410,6 +411,16 @@ InventoryNodePool holds the inventory nodePool properties.
 
 [Back to TOC](#table-of-contents)
 
+## APIServer
+
+APIServer describes the settings for the api-server.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| targetRamMB | Specifies the `--target-ram-mb` flag for the apiserver. | string | false |
+
+[Back to TOC](#table-of-contents)
+
 ## AddonConfig
 
 AddonConfig is a quick reference to an Addon.
@@ -430,7 +441,7 @@ Addons describes an addon repository to use for the cluster.
 | ----- | ----------- | ------ | -------- |
 | configRepository | The git repository of the addon repository to use. (default: `https://github.com/mesosphere/kubernetes-base-addons`) | string | false |
 | configVersion | The version of the addon configuration files to use. (default: `master`) | string | false |
-| helmRepository | In-cluster helm configuration used during air gapped installations. | [HelmRepository](#helmrepository) | false |
+| helmRepository | In-cluster helm configuration used during air-gapped installations. | [HelmRepository](#helmrepository) | false |
 | addonsList | List of addon objects that can be deployed, if enabled. | AddonConfigs | false |
 
 [Back to TOC](#table-of-contents)
@@ -583,11 +594,11 @@ GPU represents an object that contains details of user defined GPU info.
 
 ## HelmRepository
 
-HelmRepository describes in-cluster helm configuration used during air gapped installation.
+HelmRepository describes in-cluster helm configuration used during air-gapped installation.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| image | The image of the Helm chart to deploy in the cluster used during air gapped installations. | string | false |
+| image | The image of the Helm chart to deploy in the cluster used during air-gapped installations. | string | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -612,7 +623,7 @@ ImageRegistry describes the docker image registries that are automatically confi
 | password | The registry password. This setting requires you to provide a value for the `username` setting. | string | false |
 | auth | Contains the base64 encoded `username:password`. | string | false |
 | identityToken | Used to authenticate the user and get an access token. | string | false |
-| default | When set `true`, containerd will be configured to try to pull images from this registry first, before pulling from any external registries. Konvoy will also use this registry to push images to when doing an air gapped installation. | bool | false |
+| default | When set `true`, containerd will be configured to try to pull images from this registry first, before pulling from any external registries. Konvoy will also use this registry to push images to when doing an air-gapped installation. | bool | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -643,13 +654,14 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.17.13`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.17.14`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |
 | cloudProvider | Cloud provider specific configurations. | [CloudProvider](#cloudprovider) | false |
 | admissionPlugins | Configurations for admission plugins. | [AdmissionPlugins](#admissionplugins) | false |
 | preflightChecks | Configurations for preflight checks. | [PreflightChecks](#preflightchecks) | false |
+| apiserver | Configurations for APIServer. | [APIServer](#apiserver) | false |
 | kubelet | Configurations for Kubelet. | [Kubelet](#kubelet) | false |
 
 [Back to TOC](#table-of-contents)
