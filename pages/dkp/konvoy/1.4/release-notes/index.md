@@ -52,8 +52,8 @@ For more information on addressing this limit, refer to this [procedure](../oper
 #### Bug fixes
 
 - AWS: Fixes an issue preventing AWS ELBs from being tagged according to their corresponding Service annotations. (COPS-6482)
-- Airgapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
-- Airgapped: Fix a bug where an air-gapped upgrade would fail due to the missing `kubernetes-cni` package, when installing `kubeadm`. (COPS-6334)
+- Air-gapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
+- Air-gapped: Fix a bug where an air-gapped upgrade would fail due to the missing `kubernetes-cni` package, when installing `kubeadm`. (COPS-6334)
 
 #### Component version changes
 
@@ -167,7 +167,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 #### Bug fixes
 
 - Fix a bug where `HTTP_PROXY` environment variable set on the host may prevent from installing successfully.
-- Fix a bug with the airgapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
+- Fix a bug with the air-gapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
 - Fix a bug where the `kubelet` and `chrony` Systemd services may not automatically start after a machine reboot.
 
 #### Component version changes
