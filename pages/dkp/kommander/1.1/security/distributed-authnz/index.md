@@ -40,7 +40,7 @@ Kommander provides an [interface to federate authorization RBAC rules][access_co
 [dex_service]: https://github.com/dexidp/dex
 [kube_oidc_proxy]: https://github.com/jetstack/kube-oidc-proxy
 [oidc_id_token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken
-[portal_auth]: ../../../../konvoy/latest/security/external-idps/rbac/#portal-authorization
+[portal_auth]: ../../../../konvoy/latest/access-authentication/rbac/#portal-authorization
 [rbac_authz]: https://kubernetes.io/docs/reference/access-authn-authz/rbac/
 [traefik_forward_auth]: https://github.com/mesosphere/traefik-forward-auth
 [traefik_ingress]: https://docs.traefik.io/v1.7/configuration/backends/kubernetes/#annotations
