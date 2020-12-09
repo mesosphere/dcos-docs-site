@@ -34,7 +34,7 @@ Kommander provides an [interface to federate authorization RBAC rules](../../ope
 
 * The Kubernetes API server is using [RBAC Authorization](https://kubernetes.io/docs/reference/access-authn-authz/rbac/).
 
-* `traefik-forward-auth` applies [RBAC rules to authorize](/dkp/konvoy/latest/security/external-idps/rbac/#portal-authorization) access based on an HTTP request. The [default Kommander workspace](../../workspaces/) comes with preconfigured Roles for accessing different operational portal services with View, Edit or Admin permissions.
+* `traefik-forward-auth` applies [RBAC rules to authorize](/dkp/konvoy/latest/access-authentication/rbac/#portal-authorization) access based on an HTTP request. The [default Kommander workspace](../../workspaces/) comes with preconfigured Roles for accessing different operational portal services with View, Edit or Admin permissions.
 
 [dex_service]: https://github.com/dexidp/dex
 [oidc_id_token]: https://openid.net/specs/openid-connect-core-1_0.html#IDToken

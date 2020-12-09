@@ -70,21 +70,22 @@ Sometimes  attaching a Kubernetes cluster to Kommander causes that cluster to ge
    ```bash
    kubectl -n WORKSPACE_NAMESPACE get kommandercluster
    ```
-   
+
    Replace `WORKSPACE_NAMESPACE` with the actual current workspace name. You can find this name by going to `https://YOUR_CLUSTER_DOMAIN_OR_IP_ADDRESS/ops/portal/kommander/ui/#/workspaces` in your browser.
 
 1. Delete the cluster. Enter the following. command:
-  
+
    ```bash
    kubectl -n WORKSPACE_NAMESPACE delete kommandercluster CLUSTER_NAME
    ```
 
 1. If the resource does not go after a short time, remove its finalizers. Enter the following command:
-  
+
    ```bash
    kubectl -n WORKSPACE_NAMESPACE patch kommandercluster CLUSTER_NAME --type json -p '[{"op":"remove", "path":"/metadata/finalizers"}]'
    ```
 
    This removes the cluster from the Kommander UI.
 
-[rbac-docs]: /dkp/konvoy/latest/security/external-idps/rbac/#portal-authorization
+[rbac-docs]: /dkp/konvoy/latest/access-authentication/rbac/#portal-authorization
+

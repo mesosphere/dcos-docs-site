@@ -30,7 +30,7 @@ This approach gives you maximum flexibility over who has access to what resource
 ### Special Limitation for Opsportal and Kommander Roles
 
 In addition to granting a Kommander Role, you must also grant the appropriate opsportal role to allow external users and groups into the UI.
-See <a href="/dkp/konvoy/1.5.0-beta/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for details about the built-in opsportal roles.
+See <a href="/dkp/konvoy/1.5/security/external-idps/rbac/#portal-authorization">Konvoy RBAC Documentation</a> for details about the built-in opsportal roles.
 This role may be automatically added to Kommander role binding subjects in future versions of Kommander.
 Here are examples of ClusterRoleBindings that grant an IDP group admin access to the Opsportal and Kommmander routes:
 
