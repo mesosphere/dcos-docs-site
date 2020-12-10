@@ -23,6 +23,22 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
 
+### Version v1.4.9 - Released 9 December 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.16.x |
+|**Default** | 1.16.15 |
+
+#### Addons improvements
+
+- Update kubeaddons to fix how kubeaddons finds helm releases linked to the addon, this fixes a bug where kubeaddons would continuously upgrade the helm release, which would create configmaps and increase the load on the kube-apiserver.
+
+#### Component version changes
+
+- Kubeaddons `v0.19.8`
+
 ### Version v1.4.8 - Released 18 November 2020
 
 | Kubernetes Support | Version |
@@ -52,8 +68,8 @@ For more information on addressing this limit, refer to this [procedure](../oper
 #### Bug fixes
 
 - AWS: Fixes an issue preventing AWS ELBs from being tagged according to their corresponding Service annotations. (COPS-6482)
-- Air-gapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
-- Air-gapped: Fix a bug where an air-gapped upgrade would fail due to the missing `kubernetes-cni` package, when installing `kubeadm`. (COPS-6334)
+- Airgapped: Include additional RPMs required for the Kubelet to install. (COPS-6345)
+- Airgapped: Fix a bug where an air-gapped upgrade would fail due to the missing `kubernetes-cni` package, when installing `kubeadm`. (COPS-6334)
 
 #### Component version changes
 
@@ -167,7 +183,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 #### Bug fixes
 
 - Fix a bug where `HTTP_PROXY` environment variable set on the host may prevent from installing successfully.
-- Fix a bug with the air-gapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
+- Fix a bug with the airgapped artifact where `konvoy init` would fail with `Error: unexpected client error: reference not found`, requiring users to run `cd kubernetes-base-addons && git checkout master`.
 - Fix a bug where the `kubelet` and `chrony` Systemd services may not automatically start after a machine reboot.
 
 #### Component version changes
