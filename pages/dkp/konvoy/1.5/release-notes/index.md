@@ -23,6 +23,29 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
 
+### Version v1.5.4 - Released 9 December 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.17.x |
+|**Default** | 1.17.14 |
+
+#### Improvements
+
+- API: New field `spec.kubernetes.apiserver.targetRamMB` to set the cache memory size for the kube-apiserver.
+- Ansible: Re-enable coredns caching to reduce unnecessary load on API server.
+
+#### Addons improvements
+
+- Update kubeaddons to fix how kubeaddons finds helm releases linked to the addon, this fixes a bug where kubeaddons would continuously upgrade the helm release, which would create configmaps and increase the load on the kube-apiserver.
+
+#### Component version changes
+
+- Kubernetes `v1.17.14`
+- Containerd `1.3.9`
+- Kubeaddons `v0.19.8`
+
 ### Version v1.5.3 - Released 18 November 2020
 
 | Kubernetes Support | Version |

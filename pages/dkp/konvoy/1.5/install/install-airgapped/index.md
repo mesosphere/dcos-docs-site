@@ -460,20 +460,20 @@ spec:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
     configVersion: stable-1.17-2.5.0
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.3
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.4
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
     configVersion: stable-1.17-1.2.2
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.3
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.4
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
     configVersion: stable-1.17-1.1.2
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.3
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.4
     addonsList:
     - name: kommander
       enabled: false

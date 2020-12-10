@@ -31,7 +31,7 @@ kind: ClusterConfiguration
 spec:
   containerRuntime:
     containerd:
-      version: 1.3.7-1
+      version: 1.3.9-1
 ```
 
 | OS Release | Kernel Version |
