@@ -109,7 +109,7 @@ spec:
       mtu: 1480
   containerRuntime:
     containerd:
-      version: 1.3.7
+      version: 1.3.9
   osPackages:
     enableAdditionalRepositories: true
   nodePools:
