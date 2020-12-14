@@ -31,9 +31,9 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
  image which includes both base addons and Kaptain specific addons:
 	```yaml
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kaptain
-      configVersion: testing-1.18-0.6.1
+      configVersion: stable-1.18-0.6.0
       addonRepository:
-        image: mesosphere/kubeflow-dev:kaptain-addons-testing-1.18-0.6.1
+        image: mesosphere/kubeflow:kaptain-addons-stable-1.18-0.6.0
       addonsList:
         - name: knative
           enabled: true
@@ -42,7 +42,7 @@ The installation steps for Kaptain on an air-gapped cluster are as follows:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       configVersion: stable-1.18-3.0.0
       addonRepository:
-        image: mesosphere/kubeflow-dev:kaptain-addons-testing-1.18-0.6.1
+        image: mesosphere/kubeflow:kaptain-addons-stable-1.18-0.6.0
      addonsList:
     ......
 	```
@@ -170,9 +170,9 @@ spec:
     - name: worker
   addons:
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kaptain
-      configVersion: testing-1.18-0.6.1
+      configVersion: stable-1.18-0.6.0
       addonRepository:
-        image: mesosphere/kubeflow-dev:kaptain-addons-testing-1.18-0.6.1
+        image: mesosphere/kubeflow:kaptain-addons-stable-1.18-0.6.0
       addonsList:
         - name: knative
           enabled: true
@@ -181,7 +181,7 @@ spec:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       configVersion: stable-1.18-3.0.0
       addonRepository:
-        image: mesosphere/kubeflow-dev:kaptain-addons-testing-1.18-0.6.1
+        image: mesosphere/kubeflow:kaptain-addons-stable-1.18-0.6.0
       addonsList:
         - name: awsebscsiprovisioner
           enabled: true
