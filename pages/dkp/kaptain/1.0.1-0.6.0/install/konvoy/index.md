@@ -36,7 +36,6 @@ then follow the Konvoy documentation to deploy the addons:
           - name: kubeflow-nfs
             enabled: true
   ```
-* Please note that KUDO parameters are not supported in this installation option due to Konvoy API limitation.
 
 * After the Konvoy cluster has been deployed (incl. Istio and Knative), install KUDO:
   ```bash
