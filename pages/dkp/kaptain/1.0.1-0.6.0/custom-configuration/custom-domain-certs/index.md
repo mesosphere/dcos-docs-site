@@ -44,7 +44,7 @@ base64CustomCertificateKey: LS0tLS1CRUdJTiBSU0EgUFJJVkFURSBLRVktLS0tLQpNSUlFcEFJ
 For what follows, the name of the configuration file is `parameters.yaml`.
 Install Kaptain using that configuration file:
 ```bash
-kubectl kudo install kaptain-1.0.1_0.6.0.tgz \
+kubectl kudo install kubeflow-1.0.1_0.6.0.tgz \
 		--instance kaptain \
 		-P parameters.yaml \
 		--namespace kubeflow \
