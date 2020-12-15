@@ -115,13 +115,13 @@ With these details, base64-encode the username and password and create a Docker 
 
 ```python
 # Create a folder to store the Docker configuration file
-docker_config_folder = ".docker"
-pathlib.Path(docker_config_folder).mkdir(exist_ok=True)
+docker_config_folder = pathlib.Path.joinpath(pathlib.Path.home(), ".docker")
+docker_config_folder.mkdir(exist_ok=True)
 
 # Write the base64-encoded credentials to the configuration file
 docker_credentials = b64encode(f"{docker_user}:{docker_password}".encode()).decode()
 config = {"auths": {"https://index.docker.io/v1/": {"auth": docker_credentials}}}
-with open(f"{docker_config_folder}/config.json", "w") as outfile: 
+with open(f"{docker_config_folder}/config.json", "w") as outfile:
     outfile.write(json.dumps(config))
 ```
 
