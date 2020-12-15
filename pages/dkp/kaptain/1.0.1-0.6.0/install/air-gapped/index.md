@@ -10,7 +10,7 @@ enterprise: false
 
 ## Air-Gapped Installation
 
-**IMPORTANT** the air-gapped installation is still in beta, so the process may change in the future.
+**IMPORTANT** the air-gapped installation procedure is still in beta, so the process may change in the future.
 
 Kaptain supports installation on an air-gapped (a.k.a. offline or private) Konvoy cluster.
 Before installing Kaptan, please follow the [Konvoy Air-Gapped Installation Guide](https://docs.d2iq.com/ksphere/konvoy/1.5/install/install-airgapped/)
