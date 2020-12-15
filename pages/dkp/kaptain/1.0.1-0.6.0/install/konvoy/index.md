@@ -10,11 +10,26 @@ enterprise: false
 
 ## Install
 
+* Ensure the following base addons that are needed by Kaptain are enabled:
+    ```yaml
+    - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+      configVersion: stable-1.18-3.0.0
+      addonsList:
+        - name: istio
+          enabled: true
+        - name: dex
+          enabled: true
+        - name: cert-manager
+          enabled: true
+        - name: prometheus
+          enabled: true
+    ```
+
 * Add Kaptain addon repository in your Konvoy `cluster.yaml` to install Kaptain dependencies,
 then follow the Konvoy documentation to deploy the addons:
   ```yaml
       - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-        configVersion: stable-1.17-0.5.0
+        configVersion: stable-1.18-0.6.0
         addonsList:
           - name: knative
             enabled: true
