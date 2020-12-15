@@ -42,14 +42,14 @@ then follow the Konvoy documentation to deploy the addons:
   ```bash
   kubectl kudo init
   ```
-* [Download `kubeflow-1.0.1_0.5.0.tgz` tarball](../../download/).
-* Install Kubeflow:
+* [Download `kubeflow-1.0.1_0.6.0.tgz` tarball](../../download/).
+* Install Kaptain:
   ```bash
-  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.5.0.tgz
+  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.6.0.tgz
   ```
 * If you would like to inject additional annotations to Kaptain's default gateway `kubeflow-ingressgateway`, you can pass in the service annotations as parameters:
   ```bash
-  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.5.0.tgz -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
+  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.6.0.tgz -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
   ```
 * Monitor the installation by running:
   ```bash
