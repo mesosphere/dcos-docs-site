@@ -84,17 +84,17 @@ spec:
       - type: "Pod"
         max:
           cpu: 500m
-          mem: 50Gi
+          memory: 50Gi
         min:
           cpu: 100m
-          mem: 10Gi
+          memory: 10Gi
       - type: "Container"
         max:
           cpu: 2
-          mem: 100Mi
+          memory: 100Mi
         min:
           cpu: 1
-          mem: 10Mi
+          memory: 10Mi
       - type: "PersistentVolumeClaim"
         max:
           storage: 3Gi
