@@ -16,139 +16,35 @@ Please note that the IP address of the Kaptain UI will come from the IP address 
 
 The steps to install Kaptain on an on-premises cluster are as follows:
 
-* Follow the [Konvoy On-Premises Installation Guide](https://docs.d2iq.com/dkp/konvoy/1.5/install/install-onprem/) to configure the `cluster.yaml`. An example is shown below.
+* Follow the [Konvoy On-Premises Installation Guide](https://docs.d2iq.com/dkp/konvoy/latest/install/install-onprem/) to configure the `cluster.yaml`. An example is shown below.
+
+* Ensure the following base addons that are needed by Kaptain are enabled:
+    ```yaml
+    - configRepository: https://github.com/mesosphere/kubernetes-base-addons
+      configVersion: stable-1.18-3.0.0
+      addonsList:
+        - name: istio
+          enabled: true
+        - name: dex
+          enabled: true
+        - name: cert-manager
+          enabled: true
+        - name: prometheus
+          enabled: true
+    ```
+
 * Ensure the Knative and NFS addons that are needed by Kaptain are enabled:
     ```yaml
     - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-      configVersion: stable-1.17-0.5.1
+      configVersion: stable-1.18-0.6.0
       addonsList:
-      - name: kubeflow-nfs
-        enabled: true
-      - name: knative
-        enabled: true
+        - name: kubeflow-nfs
+          enabled: true
+        - name: knative
+          enabled: true
     ```
 * Spin up the Konvoy cluster:
     ```bash
     konvoy up
     ```
 * When the Konvoy cluster is ready, [install Kaptain](../konvoy/).
-
-Here is an example of a `cluster.yaml` for an on-premise installation:
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta1
-metadata:
-  name: konvoy_v1.6.0-rc.4
-  creationTimestamp: "2020-05-19T21:14:16Z"
-spec:
-  kubernetes:
-    version: 1.18.9
-    controlPlane:
-      controlPlaneEndpointOverride: "172.16.75.89:6443"
-      certificate: {}
-      keepalived: {}
-    networking:
-      podSubnet: 192.168.0.0/16
-      serviceSubnet: 10.0.0.0/18
-    cloudProvider:
-      provider: none
-    admissionPlugins:
-      enabled:
-      - AlwaysPullImages
-      - NodeRestriction
-  containerNetworking:
-    calico:
-      version: v3.13.5
-      encapsulation: ipip
-      mtu: 1480
-  containerRuntime:
-    containerd:
-      version: 1.3.7
-  osPackages:
-    enableAdditionalRepositories: true
-  nodePools:
-  - name: worker
-  addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: testing-2.5.0-3
-    addonsList:
-    - name: cert-manager
-      enabled: true
-    - name: dashboard
-      enabled: true
-    - name: defaultstorageclass-protection
-      enabled: true
-    - name: dex
-      enabled: true
-    - name: dex-k8s-authenticator
-      enabled: true
-    - name: elasticsearch
-      enabled: false
-    - name: elasticsearch-curator
-      enabled: false
-    - name: elasticsearchexporter
-      enabled: false
-    - name: external-dns
-      enabled: false
-    - name: flagger
-      enabled: false
-    - name: fluentbit
-      enabled: false
-    - name: gatekeeper
-      enabled: true
-    - name: istio # Istio is currently in Preview
-      enabled: true
-    - name: kibana
-      enabled: false
-    - name: konvoyconfig
-      enabled: true
-    - name: kube-oidc-proxy
-      enabled: true
-    - name: localvolumeprovisioner
-      enabled: true
-    - name: metallb
-      enabled: true
-      values: |
-        configInline:
-          address-pools:
-          - name: default
-            protocol: layer2
-            # configure addresses for your network
-            addresses:
-            - 172.16.75.225-172.16.75.250
-    - name: nvidia
-      enabled: false
-    - name: opsportal
-      enabled: true
-    - name: prometheus
-      enabled: true
-    - name: prometheusadapter
-      enabled: true
-    - name: reloader
-      enabled: true
-    - name: traefik
-      enabled: true
-    - name: traefik-forward-auth
-      enabled: true
-    - name: velero
-      enabled: false
-  - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.17-1.2.2
-    addonsList:
-    - name: dispatch
-      enabled: false
-  - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: v1.2.0-rc.2
-    addonsList:
-    - name: kommander
-      enabled: false
-  - configRepository: https://github.com/mesosphere/kubeaddons-kaptain
-    configVersion: stable-1.17-0.5.0
-    addonsList:
-    - name: kubeflow-nfs
-      enabled: true
-    - name: knative
-      enabled: true
-  version: v1.6.0-rc.4
-```
