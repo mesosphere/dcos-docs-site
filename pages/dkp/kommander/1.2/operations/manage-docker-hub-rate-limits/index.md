@@ -10,14 +10,14 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018 MD034 -->
 
-Kommander customers can configure their cluster to authenticate with registries (such as Docker Hub), and add registries, by defining each in the `ClusterConfiguration` `.spec.imageRegistries` list in the `cluster.yaml` file.
+You can configure your cluster to authenticate with registries (such as Docker Hub), and add registries, by defining each in the `ClusterConfiguration` `.spec.imageRegistries` list in the `cluster.yaml` file.
 
 For Kommander, to add credentials for Docker Hub, set the options in your `cluster.yaml` as follows:
 
 ```yaml
 - name: kommander
   enabled: true
-  values: |2
+  values: |
     kommander-federation:
       utilityApiserver:
         extraArgs:
