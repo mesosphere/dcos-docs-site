@@ -10,13 +10,6 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-# Important changes
-Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
-
-Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
-
-For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
-
 # Release Summary 
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
@@ -28,6 +21,14 @@ Kommander provides a command center for all your cloud native management needs i
 | **Default**        | 1.18.8  |
 
 # New Features and Capabilities 
+
+## Breaking changes
+Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
+
+For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
+
 ## Air gapped environments
 Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapped environments are ideal when high-security is a must or when Internet connectivity is undesirable or unavailable. For information on setting up Kommander in an air gapped environment, see [Install Kommander air gapped](/ksphere/kommander/1.3/install-airgapped/).
 ## Component versions
