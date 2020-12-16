@@ -44,15 +44,15 @@ then follow the Konvoy documentation to deploy the addons:
 * [Download `kubeflow-1.0.1_0.6.0.tgz` tarball](../../download/).
 * Install Kaptain:
   ```bash
-  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.6.0.tgz
+  kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.6.0.tgz
   ```
 * If you would like to inject additional annotations to Kaptain's default gateway `kubeflow-ingressgateway`, you can pass in the service annotations as parameters:
   ```bash
-  kubectl kudo install --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.6.0.tgz -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
+  kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.0.1_0.6.0.tgz -p kubeflowIngressGatewayServiceAnnotations='{"foo": "abc","bar": "xyz"}'
   ```
 * Monitor the installation by running:
   ```bash
-  kubectl kudo plan status --instance kubeflow-instance -n kubeflow
+  kubectl kudo plan status --instance kaptain -n kubeflow
   ```
 
 Once all components have been deployed, you can log in to Kaptain:
@@ -75,7 +75,7 @@ Once all components have been deployed, you can log in to Kaptain:
   
 * Use the following commands to uninstall Kaptain.
   ```bash
-  kubectl kudo uninstall --instance kubeflow-instance --namespace kubeflow
+  kubectl kudo uninstall --instance kaptain --namespace kubeflow
   kubectl wait --for=delete pod --selector istio=kubeflow-ingressgateway -n kubeflow --timeout=1m
   kubectl delete operatorversions.kudo.dev kubeflow-0.5.0 --namespace kubeflow
   kubectl delete operators.kudo.dev kubeflow --namespace kubeflow
