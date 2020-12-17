@@ -1,12 +1,10 @@
 {
   "master": {
     "DO_NOT_BUILD": [
-      "dkp/kommander/1.3/**" 
     ]
   },
   "staging": {
     "DO_NOT_BUILD": [
-      "dkp/kommander/1.3/**" 
     ]
   },
   "kommander": {
