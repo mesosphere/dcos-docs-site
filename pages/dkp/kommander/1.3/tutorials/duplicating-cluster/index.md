@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Duplicate a Production Cluster
 title: Duplicate a Production Cluster
 menuWeight: 1
@@ -16,7 +16,7 @@ Ensure you have already set up a project for this team's production clusters in 
 ![Creating an E-Commerce project](/dkp/kommander/1.3/img/tutorial-ecommerce-project.png)
 
 This project configuration ensures all E-Commerce team clusters have matching configurations. Next, give the team administrator access to the workspace.
-You have defined the developer access control group beforehand from the [Identity Providers page](/dkp/kommander/1.3/operations/identity-providers/#groups) at the global level. 
+You have defined the developer access control group beforehand from the [Identity Providers page](/dkp/kommander/1.3/operations/identity-providers/#groups) at the global level.
 
 You will now create a policy to bind the developers group to the default Workspace Admin Role, which will give all developers access.
 
@@ -40,7 +40,7 @@ The backend also needs access to your AWS S3 Bucket and to GitHub, so create two
 
 ## Create a second production cluster
 
-This project has one cluster attached to it, now you should create a second cluster. To provision another cluster on AWS, first set up an infrastructure provider. 
+This project has one cluster attached to it, now you should create a second cluster. To provision another cluster on AWS, first set up an infrastructure provider.
 
 To do this go to **Administration > Infrastructure Providers** and select **Add**. Then, add your AWS credentials into the form and save the infrastructure provider.
 
@@ -61,7 +61,7 @@ It is important to set the correct labels for the cluster, but you can still cha
 
 ![Project Clusters](/dkp/kommander/1.3/img/tutorial-ecommerce-projectclusters.png)
 
-You can also download the kubeconfig file for this cluster see what was created. To do this, install `kubectl` on your machine and set the `KUBECONFIG` environment variable to an absolute path to the downloaded kubeconfig file. 
+You can also download the kubeconfig file for this cluster see what was created. To do this, install `kubectl` on your machine and set the `KUBECONFIG` environment variable to an absolute path to the downloaded kubeconfig file.
 
 For example, check:
 

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Kommander 1.3
 title: Kommander 1.3
 version: 1.3

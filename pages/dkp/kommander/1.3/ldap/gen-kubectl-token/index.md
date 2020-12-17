@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Kubectl Token
 title: Generate a Kubectl Token
 menuWeight: 10

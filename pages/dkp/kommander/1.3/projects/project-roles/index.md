@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Project Roles
 title: Project Roles
 menuWeight: 1

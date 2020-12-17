@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Launching a cluster On Premise
 title: Launching a cluster On Premises
 menuWeight: 1

@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Project Quotas & Limit Ranges
 title: Project Quotas & Limit Ranges
 menuWeight: 1
 excerpt: Project Quotas and Limit Ranges can be set up to limit the amount of resources that can be used by the Project team.
 ---
 
-Project Quotas and Limit Ranges can be set up to limit the amount of resources that can be used by the Project team. Quotas and Limit Ranges are applied to all project clusters. 
+Project Quotas and Limit Ranges can be set up to limit the amount of resources that can be used by the Project team. Quotas and Limit Ranges are applied to all project clusters.
 
 ![Project Quotas and Limit Ranges](/dkp/kommander/1.3/img/project-quota.png)
 Project Quotas and Limit Ranges

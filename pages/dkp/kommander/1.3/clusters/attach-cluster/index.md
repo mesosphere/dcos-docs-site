@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Attach Kubernetes Cluster
 title: Attach Cluster
 menuWeight: 7

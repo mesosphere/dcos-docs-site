@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Workspaces
 title: Workspaces
 menuWeight: 8
