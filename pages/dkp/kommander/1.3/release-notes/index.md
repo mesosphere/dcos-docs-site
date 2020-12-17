@@ -10,15 +10,6 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-# Release notes for Kommander 1.3
-Kommander 1.3 was released on ?? 
-
-[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
-
-To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [install](/dkp/konvoy/latest/install/) the latest version of Konvoy.
-
-<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
-
 # Important changes
 Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
 
@@ -28,12 +19,14 @@ For more information on addressing this limit, refer to this [procedure](../oper
 
 # Release Summary 
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
+
 # Supported Versions
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 | **Minimum**        | 1.16.0  |
 | **Maximum**        | 1.18.x  |
 | **Default**        | 1.18.8  |
+
 # New Features and Capabilities 
 ## Air gapped environments
 Kommander now supports installing and running in an air gapped environment, either on premises or in the cloud. Air gapped environments are ideal when high-security is a must or when Internet connectivity is undesirable or unavailable. For information on setting up Kommander in an air gapped environment, see [Install Kommander air gapped](/ksphere/kommander/1.3/install-airgapped/).
@@ -74,3 +67,13 @@ Kommander now supports installing and running in an air gapped environment, eith
 - Numerous UX bug fixes and improvements.
 
 [install_airgapped](/dkp/kommander/1.3/install-airgapped/)
+
+# Release notes for Kommander 1.3
+Kommander 1.3 was released on ?? 
+
+[button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
+
+To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [install](/dkp/konvoy/latest/install/) the latest version of Konvoy.
+
+<p class="message--note"><strong>NOTE: </strong>You must be a registered user and logged on to the support portal to download this product. New customers must contact their sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download or install Konvoy.</p>
+
