@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Project Platform Services
 title: Project Platform Services
 menuWeight: 1

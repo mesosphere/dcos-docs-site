@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: AWS Static Credentials
 title: AWS Static Credentials
 excerpt: Configuring an AWS Infrastructure Provider with static credentials

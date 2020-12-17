@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Creating Konvoy Clusters on Premises
 title: Creating Konvoy Clusters on Premises
 menuWeight: 7

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Introducing Kommander
 title: Introducing Kommander
 featureMaturity:

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 title: Operations
 navigationTitle: Operations
 menuWeight: 9
