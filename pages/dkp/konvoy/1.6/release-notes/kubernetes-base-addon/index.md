@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
-menuWeight: 0
+menuWeight: 100
 excerpt: View release-specific information for Kubernetes base addons
 beta: false
 enterprise: false
@@ -13,6 +13,13 @@ enterprise: false
 ## Kubernetes Base Addons Updates
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
+
+December 19, 2020
+
+[stable-1.18-3.0.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.18-3.0.1)
+
+-   Cert-manager:
+    - Fix a bug that prevented upgrading when Kommander is not installed
 
 November 12, 2020
 

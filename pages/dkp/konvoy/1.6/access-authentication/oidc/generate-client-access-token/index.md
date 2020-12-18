@@ -11,7 +11,7 @@ enterprise: false
 1.  Obtain a token from the web landing page.
 
     ![Ops Portal Landing Page](./ops-portal-landing-page.png)
-    Click the "Generate kubectl Token" button.
+    Select the "Generate kubectl Token" button.
 
 1.  Select an identity provider and cluster.
 

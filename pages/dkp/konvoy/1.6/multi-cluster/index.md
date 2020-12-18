@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 MD034 -->
 
-As various parts of the organization require new Kubernetes clusters and associated data services, D2iQ Kommander simplifies the provisioning of new services and creates greater policy-driven consistency across Kubernetes clusters within the environment. This capability allows for greater standardization of Kubernetes and associated add-ons to ensure an easier support path for application services. Further, this level of broad control can help organizations meet risk and compliance demands as they govern how and where new application services are used, as well as who is able to engage in policy and operational needs of those services.
+As various parts of the organization require new Kubernetes clusters and associated data services, D2iQ Kommander simplifies the provisioning of new services and creates greater policy-driven consistency across Kubernetes clusters within the environment. This capability allows for greater standardization of Kubernetes and associated addons to ensure an easier support path for application services. Further, this level of broad control can help organizations meet risk and compliance demands as they govern how and where new application services are used, as well as who is able to engage in policy and operational needs of those services.
 
 Kommander provides the following benefits:
 
@@ -22,10 +22,9 @@ Kommander provides the following benefits:
 
 - **Integrated Cost Control** - Lower TCO with out-of-the-box Kubecost integration, which allows attribution  of costs to departments, applications, projects, or other groups in real time.
 
-- **Universal Enterprise Grade** - Kubernetes Provide any Kubernetes distribution with D2iQ’s production ready add-on stack and make it ready for Day 2.
+- **Universal Enterprise Grade** - Kubernetes Provide any Kubernetes distribution with D2iQ’s production ready addon stack and make it ready for Day 2.
 
 For more information on Kommander, refer to the following sites:
 
 - [D2iQ Kommander Main Site](https://d2iq.com/products/kommander)
-
-- [Kommander Documentation Site](/dkp/kommander/)
+- [Kommander Documentation Site](https://docs.d2iq.com/dkp/kommander/)

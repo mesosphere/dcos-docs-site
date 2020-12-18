@@ -117,12 +117,12 @@ Initially, Konvoy does not ship any custom Kibana dashboard, but customers can c
 
 Another option to import custom Kibana dashboards can be to use the Kibana web console:
 
-1. Go to Kibana
-1. Click on Management
-1. Click on Saved Objects
-1. Click on the Import button
-1. Browse the exported file
-1. You will then be prompted: "If any of the objects already exist, do you want to automatically overwrite them?" and you will be given the following options:
+1. Go to Kibana.
+1. Select Management.
+1. Select Saved Objects.
+1. Select the Import button.
+1. Browse the exported file.
+1. You are prompted: "If any of the objects already exist, do you want to automatically overwrite them?" Select one of the following options:
    - No, prompt me for each one
    - Yes, overwrite all
 

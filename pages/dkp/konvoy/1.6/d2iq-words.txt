@@ -106,6 +106,7 @@ Delim
 devops
 dex's
 Dex's
+dkp
 dmesg
 dockerprovideroptions
 dport
@@ -212,7 +213,6 @@ konvoy
 konvoycluster
 konvoyconfig
 Konvoyconfig
-ksphere
 kubctl
 kube
 Kube
