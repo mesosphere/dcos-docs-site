@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker][install_docker] version 18.09.2 or later. You must have Docker installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.18.10 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.18.13 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -199,11 +199,11 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.0
+    configVersion: stable-1.18-3.0.1
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.18-1.3.0
+    configVersion: stable-1.18-1.3.1
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false

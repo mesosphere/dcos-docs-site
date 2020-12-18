@@ -68,7 +68,7 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.0
+    configVersion: stable-1.18-3.0.1
     addonsList:
     - name: nvidia
       enabled: true
@@ -120,9 +120,9 @@ Then, find the corresponding pre-built `nvidia/driver` image from the list above
             tag: "440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7"
 ```
 
-### GPU on air gapped On-prem Cluster
+### GPU on Air-gapped On-prem Cluster
 
-Follow the [Konvoy air gapped installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag, identified from the above section, and push it to your local registry. For example:
+Follow the [Konvoy Air-gapped Installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag, identified from the above section, and push it to your local registry. For example:
 
 ```bash
 REGISTRY=yourlocalregistry.com:6443
@@ -144,7 +144,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.0
+    configVersion: stable-1.18-3.0.1
     addonsList:
     - name: nvidia
       enabled: true
@@ -197,7 +197,7 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.0
+    configVersion: stable-1.18-3.0.1
     addonsList:
 ......
     - name: nvidia

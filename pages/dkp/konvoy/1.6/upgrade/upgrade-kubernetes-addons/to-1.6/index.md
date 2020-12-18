@@ -28,7 +28,7 @@ This command will add a `.copy` extension to all your files in `extras/provision
 ```bash
 # define the provider you use within Konvoy
 PROVIDER="aws"
-docker run --entrypoint="/bin/sh" -e PROVIDER=${PROVIDER} -v ${PWD}/extras/provisioner:/extras mesosphere/konvoy:v1.6.0 -c "for f in /extras/*.tf; do cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}) /extras/\$(basename \${f}).copy; cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}).gotmpl /extras/\$(basename \${f}).gotmpl.copy; done"
+docker run --entrypoint="/bin/sh" -e PROVIDER=${PROVIDER} -v ${PWD}/extras/provisioner:/extras mesosphere/konvoy:v1.6.1 -c "for f in /extras/*.tf; do cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}) /extras/\$(basename \${f}).copy; cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}).gotmpl /extras/\$(basename \${f}).gotmpl.copy; done"
 ```
 
 ### Description of needed changes
@@ -109,12 +109,16 @@ becomes
 ```hcl
 ...
   lifecycle {
-    ignore_changes = [tags, volume_tags, volume_tags.CSIVolumeName, volume_tags.Name]
+    ignore_changes = [
+      volume_tags,
+    ]
   }
 ...
 ```
 
 as the old syntax is not valid anymore and will produce an error message.
+`volume_tags` are now ignored overall to be changed, as of a bug in Terraform AWS /
+the AWS API presenting the data of volume tags.
 
 ---
 
