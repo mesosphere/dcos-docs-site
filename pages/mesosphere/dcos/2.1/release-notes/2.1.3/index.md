@@ -42,4 +42,7 @@ For a detailed description on updates to Mesos, see the [changelog](https://gith
 For a detailed description on updates to Marathon, see the [changelog](https://github.com/mesosphere/marathon/blob/master/changelog.md).
 
 ## Metronome Fixed and Improved Issues
+
+- Job ids allow double `-`'s again (MARATHON-8730)
+
 For a detailed description on updates to Metronome, see the [changelog](https://github.com/dcos/metronome/blob/master/changelog.md).
