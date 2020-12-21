@@ -187,7 +187,7 @@ These are four of the most known [ingress controller][listingresscontrollers]:
 
 - [Traefik][traefik] is a fully featured ingress controller (Let's Encrypt, secrets, http2, websocket), and has commercial support.
 
-- [Ambassador API Gateway](https://www.getambassador.io/) is an Envoy based ingress controller with community and commercial support.
+- [experimental][Ambassador API Gateway](https://www.getambassador.io/)[/experimental] is an Envoy based ingress controller with community and commercial support.
 
 In Konvoy, we deploy by default `Traefik` as a well-suited Ingress controller.
 

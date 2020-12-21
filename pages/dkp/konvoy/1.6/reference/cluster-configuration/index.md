@@ -91,7 +91,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.18.13
+    version: 1.18.14
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -152,7 +152,7 @@ spec:
       enabled: true
     - name: gatekeeper
       enabled: true
-    - name: istio # Istio is currently in Preview
+    - name: istio # Istio is currently in Experimental status
       enabled: false
     - name: kibana
       enabled: true
