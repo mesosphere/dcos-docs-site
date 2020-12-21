@@ -14,7 +14,7 @@ Creates a diagnostics bundle of the cluster
 
 ### Synopsis
 
-Creates a diagnostics bundle of the cluster in the form of a gzipped tar archive. Such a bundle contains a lot of information about the current state of the cluster, e.g. log files, networking parameters and pod status in order to be able to diagnose issues
+Creates a diagnostics bundle of the cluster in the form of a gzipped tar archive. The bundle contains information about the current state of the cluster, for example, log files, networking parameters, and pod status, to assist in diagnosing issues.
 
 ```
 konvoy diagnose [flags]
@@ -33,6 +33,8 @@ konvoy diagnose [flags]
   -s, --since d                   Log files will be queried up to <since> in the past. Supports d and `h` for days and hours respectively (default "2d")
   -y, --yes                       run command without prompting
 ```
+
+The Istio functionality is [experimental]in[/experimental] status.
 
 ### SEE ALSO
 

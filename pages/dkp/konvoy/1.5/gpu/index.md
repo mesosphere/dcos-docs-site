@@ -158,7 +158,11 @@ See [Nvidia Public Hub Repository][nvidia_public_hub_repository] for available d
 
 ### How to prevent other workloads from running on GPU nodes
 
-Use Kubernetes taints to ensure only dedicated workloads are deployed on GPU machines. You must add tolerations to your GPU workloads to deploy on the dedicated GPU nodes. See [Kubernetes Taints and Tolerations][k8s_taints_and_tolerations] for details. Here is an example of `cluster.yaml`:
+Use Kubernetes taints to ensure only dedicated workloads are deployed on GPU machines. You must add tolerations to your GPU workloads to deploy on the dedicated GPU nodes. See [Kubernetes Taints and Tolerations][k8s_taints_and_tolerations] for details.
+
+Setting custom tolerations for an addon replaces the tolerations set in the config repository used for that addon. To add tolerations to an addon, while maintaining those set in the config repository, add the tolerations set in the config repository to your `cluster.yaml`.
+
+Here is an example of `cluster.yaml` using custom taints and tolerations:
 
 ```yaml
 kind: ClusterProvisioner

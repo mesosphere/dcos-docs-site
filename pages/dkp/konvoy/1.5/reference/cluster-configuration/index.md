@@ -151,7 +151,7 @@ spec:
       enabled: true
     - name: gatekeeper
       enabled: true
-    - name: istio # Istio is currently in Preview
+    - name: istio # Istio is currently in Experimental status
       enabled: false
     - name: kibana
       enabled: true

@@ -10,7 +10,9 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018 MD034 -->
 
-Konvoy customers can configure their cluster to authenticate with registries (such as Docker Hub), and add registries, by defining each in the `ClusterConfiguration` `.spec.imageRegistries` list in the `cluster.yaml` file. For example, to add credentials for Docker Hub, set the options in your `cluster.yaml` as follows:
+Konvoy customers can configure their cluster to authenticate with registries (such as Docker Hub), and add registries, by defining each in the `ClusterConfiguration` `.spec.imageRegistries` list in the `cluster.yaml` file.
+
+For Konvoy, to add credentials for Docker Hub, set the options in your `cluster.yaml` as follows:
 
 ```yaml
 kind: ClusterConfiguration
@@ -20,9 +22,15 @@ spec:
     - server: https://registry-1.docker.io
       username: "<username>"
       password: "<password>"
+  autoProvisioning:
+      webhook:
+        extraArgs:
+          konvoy.docker-registry-url: https://registry-1.docker.io
+          konvoy.docker-registry-username: <username>
+          konvoy.docker-registry-password: <password>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify `imageRegistries` values. For example, if your yaml file has `password: ${REGISTRY_PASSWORD}`, `password` is set to the `REGISTRY_PASSWORD` value in your environment. </p>
+<p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify `imageRegistries` values. For example, if your yaml file has `password: ${REGISTRY_PASSWORD}`, `password` is set to the `REGISTRY_PASSWORD` value in your environment.</p>
 
 1. Apply the changes to your cluster. Enter the following command:
 

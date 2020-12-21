@@ -430,7 +430,7 @@ AddonConfig is a quick reference to an Addon.
 | ----- | ----------- | ------ | -------- |
 | name | The name of the addon. | string | true |
 | enabled | Enables the addon to be deployed. | bool | true |
-| values | Merge-overrides the values found in default addon configuration file. | string | false |
+| values | Overrides the values found in default addon configuration file. Maps are merged while values and arrays are replaced. | string | false |
 
 [Back to TOC](#table-of-contents)
 
