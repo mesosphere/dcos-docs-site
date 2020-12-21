@@ -136,7 +136,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 - Calico `v3.13.5`
 - Ansible `v2.7.18.0`
 - Go `1.13.15`
-- Docker `v19.03.12`
+- Docker `v19.03.14`
 
 ### Version v1.5.0 - Released 20 July 2020
 

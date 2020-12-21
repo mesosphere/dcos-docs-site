@@ -15,7 +15,7 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) command line utility
 * [Docker](https://docs.docker.com/get-docker/) _version 18.09.2 or newer_
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.17.14 or newer_ (for interacting with the running cluster)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.17.16 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
   You must be authorized to create the following resources in the AWS account:
   * EC2 Instances
