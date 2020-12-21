@@ -43,6 +43,6 @@ For a detailed description on updates to Marathon, see the [changelog](https://g
 
 ## Metronome Fixed and Improved Issues
 
-- Job ids allow double `-`'s again (MARATHON-8730)
+- Job ids allow double `-`s again. (MARATHON-8730)
 
 For a detailed description on updates to Metronome, see the [changelog](https://github.com/dcos/metronome/blob/master/changelog.md).
