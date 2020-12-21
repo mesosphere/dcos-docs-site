@@ -9,7 +9,9 @@ render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
+
 #include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
+
 #include /mesosphere/dcos/services/include/configuration-regions.tmpl
 
 ## Configuration Guidelines
@@ -126,7 +128,7 @@ You can do this base64 encoding as part of your automated workflow, or you can d
 
 ## Using Volume Profiles
 
-Volume profiles are used to classify volumes. For example, users can group SSDs into a “fast” profile and group HDDs into a “slow” profile. 
+Volume profiles are used to classify volumes. For example, users can group SSDs into a "fast" profile and group HDDs into a "slow" profile. 
 
 <p class="message--note"><strong>NOTE: </strong>Volume profiles are immutable and therefore cannot contain references to specific devices, nodes, or other ephemeral identifiers.</p>
 
