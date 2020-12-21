@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ Konvoy version 1.7.0 beta 0 was released on ??, December 2020.**
+**D2iQ Konvoy version 1.7.0 beta 0 was released on 21, December 2020.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
