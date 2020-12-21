@@ -126,7 +126,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
 - Ansible: Fix unique hostname preflight task failure. (COPS-6409, COPS-6428)
 - AWS: Automatically determine the required setting for `skip_metadata_api_check` even when not explicitly set.
 - GCP: Improve provisioning stability by using a deterministic imagefs block device name.
-- Diagnose: Properly collect logs from `dispatch` and `istio-system` namespaces. (COPS-6294)
+- Diagnose: Properly collect logs from `dispatch` and `istio-system` namespaces. Istio is [experimental]in[/experimental] status. (COPS-6294)
 
 #### Component version changes
 
@@ -335,7 +335,7 @@ For more information on addressing this limit, refer to this [procedure](../oper
     - gcpdisk-csi-driver: 0.7.1
 -   gcpdiskprovisioner: 1.0.0-2
     - gcpdiskprovisioner: 1.0
--   istio: 1.6.4-3
+-   istio: 1.6.4-3 [experimental]  [/experimental]
     - istio: 1.6.4
     - kiali: 1.18.0
     - jaeger: 1.16.0

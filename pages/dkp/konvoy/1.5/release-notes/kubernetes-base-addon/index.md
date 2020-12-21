@@ -19,7 +19,7 @@ September 25, 2020
 [stable-1.16-2.4.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.16-2.4.1)
 [stable-1.15-2.4.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.15-2.4.1)
 
--   Istio:
+-   [experimental]Istio[/experimental]:
     -   The "kubernetes-service-monitor" service monitor has been removed.
     -   Bumped Istio to v1.6.8:
         -   Fixed security issues:
@@ -109,7 +109,7 @@ September 9, 2020
         - Kernel messages forwarded
     -   apply meaningful aliases to plugins and their metrics.
 
--   Istio:
+-   [experimental]Istio[/experimental]:
     - the "kubernetes-service-monitor" service monitor has been removed.
 
 -   Traefik-foward-auth:
@@ -265,7 +265,7 @@ July 9, 2020
 
 -   Konvoyconfig has a new field `caCertificate` that supports custom certificates in managed clusters.
 
--   Istio addon is upgraded to 1.6.3.
+-   [experimental]Istio[/experimental] addon is upgraded to 1.6.3.
 
 -   Added the Conductor service card to the cluster detail page of the UI.
 
@@ -332,7 +332,7 @@ May 13, 2020
 -   Elasticsearch:
     - Revert the PVC size to default 30G for data nodes.
 
--   Istio:
+-   [experimental]Istio[/experimental]:
     - Disable Istio PodDisruptionBudget. The default settings, and replica count of 1, prevents pods on nodes from being drained.
 
 -   kube-oidc-proxy:

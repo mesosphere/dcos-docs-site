@@ -40,7 +40,7 @@ In the **Input Settings** dialog box, select the name of the recently created in
 
 ## Disable default Konvoy cluster monitoring
 
-In your `config.yaml`, for each Konvoy cluster, edit the add-ons section and disable the Elastic Search Components:
+In your `config.yaml`, for each Konvoy cluster, edit the addons section and disable the Elastic Search Components:
 
 ```yaml
 - name: elasticsearch
