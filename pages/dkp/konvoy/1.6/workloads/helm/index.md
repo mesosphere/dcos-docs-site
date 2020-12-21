@@ -27,7 +27,7 @@ Helm is a package manager for Kubernetes that defines:
 With helm installed, you will need to know the chart you are looking to install. This means knowing a repository to search or pull it from. There are 2 options to help you get started.
 
 1. [https://artifacthub.io/][artifact-hub] is a repository for helm charts and operators.
-1. [https://kubernetes-charts.storage.googleapis.com/][helm-stable-repo] is the official Helm stable repository.
+1. [https://charts.helm.sh/stable/][helm-stable-repo] is the official Helm stable repository.
 
 For a simple nginx workload, [search on artifacthub.io][artifact-nginx] shows a number of results with the top result being from ORG: Bitnami and REPO: Bitnami. Selecting that option shows a [detailed page][artifact-nginx-detail] which includes how to install and uninstall this chart. The details on the page include the following which can be used to install nginx.
 
@@ -96,7 +96,7 @@ For information on related topics or procedures, refer to the following:
 [charts]: https://helm.sh/docs/topics/charts/
 [helm-docs]: https://helm.sh/docs/
 [helm-install]: https://helm.sh/docs/intro/install/
-[helm-stable-repo]: https://kubernetes-charts.storage.googleapis.com/
+[helm-stable-repo]: https://charts.helm.sh/stable/
 [operators]: ../operators
 [repositories]: https://helm.sh/docs/topics/chart_repository/
 [values]: https://helm.sh/docs/chart_template_guide/values_files/
