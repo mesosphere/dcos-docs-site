@@ -9,6 +9,9 @@ render: mustache
 ---
 
 # Release notes for {{ model.techName }} Service version 3.2.0-7.9.3
+
+Elastic 3.2.0-7.9.3 was released on 16 November, 2020.
+
 ## Upgrades
 
 -   Upgraded Elasticsearch and Kibana to [7.9.3](https://www.elastic.co/guide/en/elasticsearch/reference/7.9/release-notes-7.9.3.html)
