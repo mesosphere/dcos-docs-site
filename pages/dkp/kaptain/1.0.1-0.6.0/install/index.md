@@ -18,7 +18,7 @@ You can install Kaptain:
 
 The infrastructure you select determines the specific requirements for a successful installation.
 
- <p class="message--important"><strong>IMPORTANT: </strong>This release of Kaptain does not include support for lifecycle management (i.e. upgrading). We expect to include this capability in a future releases of Kaptain.  Until this capability is available, you must uninstall and reinstall to move to new releases of Kaptain.</p>
+ <p class="message--important"><strong>IMPORTANT: </strong>This release of Kaptain does not include support for lifecycle management (upgrading). This capability will be included in a future releases of Kaptain. Until this capability is available, you must uninstall and reinstall to move to new releases of Kaptain.</p>
 
 ## Prerequisites
 
