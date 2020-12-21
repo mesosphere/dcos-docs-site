@@ -31,6 +31,7 @@ const sortPages = (a, b) =>
 const createChild = (file, fileObj, id) => {
   // strip /index.md
   const path = "/" + file.split("/").slice(0, -1).join("/");
+  fileObj.path = path;
   const newChild = { id, path, children: [] };
 
   // Add front-matter

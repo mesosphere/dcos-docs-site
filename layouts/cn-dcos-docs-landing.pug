@@ -73,8 +73,9 @@ html(lang='en')
             input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
       .landing__hero
         h1.landing__title!= sectionTitle
-        form.landing__search(action='/mesosphere/dcos/search/')
+        form.landing__search(action='/search/')
           input.landing__search-input(id='landing-search-input', placeholder='Search documentation', tabindex='1', type='text', name='q')
+          input(type='hidden', name='hFR[scope][0]', value=`DC/OS ${dcosCNDocsLatest}`)
           button.landing__search-button
             i(data-feather='search')
 

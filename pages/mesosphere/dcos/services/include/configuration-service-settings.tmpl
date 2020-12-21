@@ -47,3 +47,17 @@ DC/OS {{ model.techName }} supports deployment on [virtual networks](/mesosphere
 ```
 
 <p class="message--note"><strong>NOTE: </strong>Once the service is deployed on a virtual network, it cannot be updated to use the host network.</p>
+
+### User
+
+By default, all pods' containers will be started as system user "nobody". If your system configured for using over system user (for instance, you may have externally mounted persistent volumes with root's permissions), you can define the user by defining a custom value for the service's property "user", for example:
+
+```json
+{
+  "service": {
+    "properties": {
+      "user": "root"
+    }
+  }
+}
+```

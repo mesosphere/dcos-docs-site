@@ -19,7 +19,7 @@ For most production deployments, however, you should create a unique service acc
 - You must have a registered customer account to log in to the [D2iQ&reg; support portal](https://support.d2iq.com/s/).
 - You must have network access to download the [remote Edge-LB repositories](https://support.d2iq.com/s/downloads?t=1551917897670&Mesosphere_Product_Download__c-filterId=00B3Z000004cQUUUA2), or a local repository that has the Edge-LB packages [JSON](https://support.d2iq.com/s/downloads?t=1551917897670&Mesosphere_Product_Download__c-filterId=00Bf1000004N2b3EAC) or [bundle](https://support.d2iq.com/s/downloads?t=1551917897670&Mesosphere_Product_Download__c-filterId=00B3Z000004cQUUUA2).
 
-  If your cluster is air-gapped - behind a firewall, restricted to an internal network with no access to the Internet, or unable to access the public catalog for any reason - then you can deploy using the [package registry](#deploy-using-the-package-registry).
+  If your cluster is air gapped - behind a firewall, restricted to an internal network with no access to the Internet, or unable to access the public catalog for any reason - then you can deploy using the [package registry](#deploy-using-the-package-registry).
 
 # Identify the Edge-LB package location
 You must have access to the following Edge-LB packages:
@@ -114,7 +114,7 @@ If you are not configuring a dedicated service account for managing Edge-LB pool
 <p class="message--important"><strong>IMPORTANT: </strong>Although you can add and modify settings directly in the web-based console from the Catalog, do not start the services until you have created the service account principal, configured the appropriate permissions, and completed the remaining installation steps. If you attempt to start the Edge-LB pool service without completing the other installation steps, the deployment will start, but it will not be able to resolve to a healthy Running state.</p>
 
 # Deploy using the package registry
-If you have an isolated (air-gapped) network that cannot connect directly to the Internet, deploy using the [package registry](https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/package-registry/). The support portal includes .dcos package files for Edge-LB, called 'Edge-LB Bundle' files in the portal.
+If you have an isolated (air gapped) network that cannot connect directly to the Internet, deploy using the [package registry](https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/package-registry/). The support portal includes .dcos package files for Edge-LB, called 'Edge-LB Bundle' files in the portal.
 
 <a name="create-service-account"></a>
 

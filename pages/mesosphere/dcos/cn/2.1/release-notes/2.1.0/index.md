@@ -43,11 +43,11 @@ Calico 现在已预安装在 DC/OS 2.1 中，并且可用于容器，以加入�
 - 删除 `revive_offers_for_new_apps` Marathon 选项。
 - Marathon 不再过滤字段 `acceptedResourceRoles`。该字段是一个或两个值的数组：`*` 以及服务角色。之前，如果提供了无效的值，Marathon 会安静地将其丢弃。现在，它会返回错误。如果这会导致中断，您可以通过在所有管理节点上将 `MARATHON_DEPRECATED_FEATURES=sanitize_accepted_resource_roles` 添加到文件 `/var/lib/dcos/marathon/environment` 来重新启用该功能。在升级到下一版本的 DC/OS 之前，您必须删除此行。
 - DC/OS 网络现在要等到代理变为活跃状态之后，才能为代理上的任务添加 DNS 条目，以防止解析无法访问的地址。(DCOS_OSS-5463)
-- dcos-net（l4lb）通过在任务不正常时将 VIP 后端权重更改为 0 或进入 TASK_KILLING 状态来正常断开连接（而不是删除它们）。(D2IQ-61077)
+- dcos-net（l4lb）通过在任务不正常时将 VIP 后端权重更改为 0 或进入 TASK_KILLING 状态来正常断开连接（而不是删除它们）。(D2iQ-61077)
 - 从 DC/OS 中删除 spartan 包。已在 1.11 中弃用，并由 dcos-net 替代。
 - 从 DC/OS 中删除 toybox 包。仅由 Spartan 使用。
 - 从 DC/OS 中删除 dcos-history-service。(DCOS-58529)
-- Admin Router 访问日志的新格式。(D2IQ-43957, DCOS-59598, D2IQ-62839)
+- Admin Router 访问日志的新格式。(D2iQ-43957, DCOS-59598, D2iQ-62839)
 
 # 组件版本
 DC/OS 2.1.0 包括以下组件版本：
@@ -61,11 +61,11 @@ DC/OS 2.1.0 包括以下组件版本：
 - Zookeeper 日志消息现转发到 syslog。(COPS-6128)
 - 修复了 Metronome 中现有作业在升级后似乎会丢失的关键错误。(COPS-6092)
 - (COPS-5951, COPS-5827)
-- 修复了在极少数情况下，用户升级群集之后，无法再启动使用 UCR 容器化工具的任务的问题。(D2IQ-64507, COPS-5868)
+- 修复了在极少数情况下，用户升级群集之后，无法再启动使用 UCR 容器化工具的任务的问题。(D2iQ-64507, COPS-5868)
 - 修复了拉入 UCR 的镜像对 nvcr.io 不起作用的问题（缺少 ‘service’/‘scope’ 参数）。(COPS-5804)
 - 将 Java 升级到版本 8u232，以与先前 DC/OS 版本保持一致。(DCOS-62548, COPS-5738)
 - 修复了在 DC/OS 升级之后，代理上的任务所使用的执行器资源被错误地计入配额的问题。(COPS-5725)
-- DC/OS Admin Router 现在允许大型的文件包（最大为 32GB）被上传至包注册表。(D2IQ-61233, COPS-5615)
+- DC/OS Admin Router 现在允许大型的文件包（最大为 32GB）被上传至包注册表。(D2iQ-61233, COPS-5615)
 - 在安装脚本中添加了其他日志记录，以帮助调试安装问题。(COPS-5428)
 - 修复了如果代理被排空并随后重新激活，Mesos 管理节点在某些情况下会崩溃的问题。(COPS-5931, MESOS-10116)
 - dcos-diagnostics 组件现在对诊断检查进行速率限制，以避免大型群集的性能下降。(COPS-5915)

@@ -228,7 +228,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
            </tr>
     <tr>
-        <td>Confluent-Kafka 2.9.x-5.4.0 (Recommended)</td>
+        <td>Confluent-Kafka 2.10.x-5.5.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
@@ -236,7 +236,7 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Confluent-ZooKeeper 2.7.x-5.1.2e (Recommended)</td>
+        <td>Confluent-ZooKeeper 2.8.x-5.5.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
         <tr>
@@ -347,19 +347,19 @@ The designations are as follows:
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Spark 2.6.x-2.3.2</td>
+        <td>Spark 2.11.x-2.4.6</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Spark 2.11.x-2.4.6 (Recommended)</td>
+        <td>Spark 2.12.x-3.0.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
     <tr>
-        <td>Spark History 2.6.x-2.3.2</td>
+        <td>Spark History 2.11.x-2.4.6</td>
         <td><p style="text-align: center;">⚫</p></td>
            </tr>
     <tr>
-        <td>Spark History 2.11.x-2.4.6 (Recommended)</td>
+        <td>Spark History 2.12.x-3.0.1 (Recommended)</td>
         <td><p style="text-align: center;">⚫</p></td>
             </tr>
 </table>

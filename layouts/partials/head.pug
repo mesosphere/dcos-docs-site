@@ -24,9 +24,12 @@ meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
 title!= pageTitle
 meta(name='description', content=pageDescription)
-link(rel='icon' href='/assets/favicon.ico')
+link(rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png")
+link(rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png")
+link(rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png")
+
 link(rel='stylesheet', type='text/css', href='/css/styles.css')
-link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title=`Search ${productName} site`)
+link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title=`Search`)
 
 if canonicalHref
   link(rel='canonical', href=canonicalHref)
@@ -34,10 +37,6 @@ if canonicalHref
 link(href='https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i', rel='stylesheet')
 
 script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
-if env != 'development'
-  <!-- Ethnio Activation Code -->
-  <!-- script(type='text/javascript', language='javascript', src='//ethn.io/74286.js', async='true', charset='utf-8') -->
-
 if env != 'development'
   script.
     window.analytics||(window.analytics=[]),window.analytics.methods=["identify","track","trackLink","trackForm","trackClick","trackSubmit","page","pageview","ab","alias","ready","group","on","once","off"],window.analytics.factory=function(t){return function(){var a=Array.prototype.slice.call(arguments);return a.unshift(t),window.analytics.push(a),window.analytics}};for(var i=0;i<window.analytics.methods.length;i++){var method=window.analytics.methods[i];window.analytics[method]=window.analytics.factory(method)}window.analytics.load=function(t){var a=document.createElement("script");a.type="text/javascript",a.async=!0,a.src=("https:"===document.location.protocol?"https://":"http://")+"d2dq2ahtl5zl1z.cloudfront.net/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(a,n)},window.analytics.SNIPPET_VERSION="2.0.8",

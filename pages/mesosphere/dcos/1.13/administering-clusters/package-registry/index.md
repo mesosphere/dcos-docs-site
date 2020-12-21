@@ -11,7 +11,7 @@ model: /mesosphere/dcos/1.13/data.yml
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 
-DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However, this assumes Internet access, which is not always possible. For air-gapped environments, DC/OS Enterprise offers a package registry for flexible and seamless management of your packages.
+DC/OS comes pre-configured with the [Mesosphere {{ model.packageRepo }}](https://github.com/mesosphere/universe) package repository as the provider of DC/OS packages. However, this assumes Internet access, which is not always possible. For air gapped environments, DC/OS Enterprise offers a package registry for flexible and seamless management of your packages.
 
 For a full list of the configuration options available for the DC/OS Package Registry, use the following command:
 
@@ -326,7 +326,7 @@ See `dcos registry --help` for an exhaustive list of operations that you can use
 
 <p class="message--warning"><strong>WARNING: </strong>Removing a package while a service is still deployed may cause the service to stop working.</p>
 
-After executing the above instructions, the rest of the flow is identical to packages fetched from {{ model.packageRepo }}. The only difference is that you don't need Internet access (for customers with air-gapped environments) to install packages from `package-registry`.
+After executing the above instructions, the rest of the flow is identical to packages fetched from {{ model.packageRepo }}. The only difference is that you don't need Internet access (for customers with air gapped environments) to install packages from `package-registry`.
 
 # Upgrading Package Registry between DC/OS versions.
 

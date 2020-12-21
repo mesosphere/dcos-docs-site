@@ -3,7 +3,7 @@
 
 mixin renderGridToc()
   .grid-toc
-    each val, index in hierarchy.findByPath(`ksphere/conductor/${conductorDocsLatest}`).children
+    each val, index in hierarchy.findByPath(`dkp/conductor/${conductorDocsLatest}`).children
       if val.menuWeight != -1
         .grid-toc__item
           h2.grid-toc__title
@@ -60,22 +60,23 @@ html(lang='en')
               each val, index in hierarchy.find('menus', menus => menus.includes('conductor-header'))
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
-                - itemClass['header__menu-item--active'] = val.path == '/ksphere/conductor'
+                - itemClass['header__menu-item--active'] = val.path == '/dkp/conductor'
                 li(class=itemClass)
                   a(href=val.path)!= val.title
               li.header__menu-item
                 a(href='https://support.d2iq.com') Support
         include partials/header/mesosphere-dropdown.pug
         section.header__search(role='search')
-          form.header__search-form(action='/ksphere/conductor/search/')
+          form.header__search-form(action='/search/')
             label.header__search-label(for='header-search-input')
               i.header__icon(data-feather='search')
             input.header__search-input(id='header-search-input', tabindex='1', type='text', name='q', placeholder='Search')
       include partials/header/header-dropdown.pug
       .landing__hero
         h1.landing__title!= sectionTitle
-        form.landing__search(action='/ksphere/conductor/search/')
+        form.landing__search(action='/search/')
           input.landing__search-input(id='landing-search-input', placeholder='Search Conductor Docs', tabindex='1', type='text', name='q')
+          input(type='hidden', name='hFR[scope][0]', value=`Conductor ${conductorDocsLatest}`)
           button.landing__search-button
             i(data-feather='search')
 

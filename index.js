@@ -4,12 +4,10 @@ const minimatch = require("minimatch");
 const Metalsmith = require("metalsmith");
 const markdown = require("metalsmith-markdownit");
 const layouts = require("metalsmith-layouts");
-const permalinks = require("metalsmith-permalinks");
 const assets = require("metalsmith-assets");
 const dataLoader = require("metalsmith-data-loader");
 const watch = require("metalsmith-watch");
 const serve = require("metalsmith-serve");
-const redirect = require("metalsmith-redirect");
 const webpack = require("metalsmith-webpack2");
 const anchor = require("markdown-it-anchor");
 const attrs = require("markdown-it-attrs");
@@ -63,9 +61,9 @@ MS.metadata({
   dcosCNDocsLatest: "2.1",
   dcosDocsLatest: "2.2",
   dispatchDocsLatest: "1.3",
-  kommanderDocsLatest: "1.1",
-  konvoyDocsLatest: "1.5",
-  kaptainDocsLatest: "1.0.1-0.5.0",
+  kommanderDocsLatest: "1.2",
+  konvoyDocsLatest: "1.6",
+  kaptainDocsLatest: "1.0.1-0.6.0",
   Utils,
 });
 
@@ -91,22 +89,23 @@ MS.use(timer("Init"));
 
 const neededToBuildMainMenu = [
   "index.md",
+  "search/index.md",
   "mesosphere/index.md",
   "mesosphere/dcos/index.md",
   `mesosphere/dcos/${MS._metadata.dcosDocsLatest}/index.md`,
   "mesosphere/dcos/cn/index.md",
   `mesosphere/dcos/cn/${MS._metadata.dcosCNDocsLatest}/index.md`,
-  "ksphere/index.md",
-  "ksphere/dispatch/index.md",
-  `ksphere/dispatch/${MS._metadata.dispatchDocsLatest}/index.md`,
-  "ksphere/konvoy/index.md",
-  `ksphere/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
-  "ksphere/kommander/index.md",
-  `ksphere/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
-  "ksphere/kaptain/index.md",
-  `ksphere/kaptain/${MS._metadata.kaptainDocsLatest}/index.md`,
-  "ksphere/conductor/index.md",
-  `ksphere/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
+  "dkp/index.md",
+  "dkp/dispatch/index.md",
+  `dkp/dispatch/${MS._metadata.dispatchDocsLatest}/index.md`,
+  "dkp/konvoy/index.md",
+  `dkp/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
+  "dkp/kommander/index.md",
+  `dkp/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
+  "dkp/kaptain/index.md",
+  `dkp/kaptain/${MS._metadata.kaptainDocsLatest}/index.md`,
+  "dkp/conductor/index.md",
+  `dkp/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
 ];
 if (RENDER_PATH_PATTERN) {
   MS.use((files, _, done) => {
@@ -163,24 +162,14 @@ MS.use(timer("Dataloader"));
 // Load raw content via '#include' directives before rendering any mustache or markdown.
 // For example (in your content):
 //   #include path/to/file.tmpl
-MS.use(
-  includeContent({
-    // Style as a C-like include statement. Must be on its own line.
-    pattern: "^#include ([^ \n]+)$",
-    match: "**/*.md*",
-  })
-);
+// Style as a C-like include statement. Must be on its own line.
+MS.use(includeContent({ pattern: "^#include ([^ \n]+)$", match: "**/*.md*" }));
 MS.use(timer("IncludeContent"));
 
 // Process any mustache templating in files.
 // For example (in your Front Matter):
 //   render: mustache
-MS.use(
-  inPlace({
-    renderProperty: "render",
-    match: "**/*.md",
-  })
-);
+MS.use(inPlace({ renderProperty: "render", match: "**/*.md" }));
 MS.use(timer("Mustache"));
 
 // Folder Hierarchy
@@ -189,12 +178,7 @@ MS.use(timer("Hierarchy"));
 
 // RSS Feed
 MS.use(
-  hierarchyRss({
-    itemOptionsMap: {
-      title: "title",
-      description: "excerpt",
-    },
-  })
+  hierarchyRss({ itemOptionsMap: { title: "title", description: "excerpt" } })
 );
 MS.use(timer("Hierarchy RSS"));
 
@@ -203,12 +187,7 @@ MS.use(timer("Hierarchy RSS"));
 //
 
 // Shortcodes
-MS.use(
-  shortcodes({
-    files: [".md"],
-    shortcodes: shortcodesConfig,
-  })
-);
+MS.use(shortcodes({ files: [".md"], shortcodes: shortcodesConfig }));
 MS.use(timer("Shortcodes"));
 
 // Don't rebuild files that have not been touched
@@ -254,16 +233,18 @@ MS.use(timer("Markdown"));
 MS.use(headings());
 MS.use(timer("Headings"));
 
-MS.use(
-  redirect({
-    "/support": "https://support.d2iq.com",
-  })
-);
-MS.use(timer("Redirects"));
-
-// Permalinks
-MS.use(permalinks());
-MS.use(timer("Permalinks"));
+// TODO: a replacement for the former Permalinks plugin. this was the only thing
+// that actually mattered. we save about a third of pipeline-time with this
+// replacement. let's get our path-handling right, so that we can remove this
+// completely.
+MS.use((files, _metalsmith, done) => {
+  setImmediate(done);
+  Object.entries(files).forEach(([file, data]) => {
+    if (!file.endsWith(".html")) return;
+    data.path = data.path.replace(/^\//, "");
+  });
+});
+MS.use(timer("Strip leading slash from path"));
 
 // Layouts
 MS.use((files, ms, done) => {
@@ -282,7 +263,7 @@ MS.use(timer("Layouts"));
 
 // Search Indexing
 if (process.env.ALGOLIA_UPDATE === "true") {
-  MS.use(algolia());
+  MS.use(algolia);
   MS.use(timer("Algolia"));
 }
 
@@ -309,12 +290,7 @@ if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
 
 // Serve
 if (process.env.NODE_ENV === "development") {
-  MS.use(
-    serve({
-      host: "0.0.0.0",
-      port: 3000,
-    })
-  );
+  MS.use(serve({ host: "0.0.0.0", port: 3000 }));
   MS.use(timer("Webserver"));
 }
 

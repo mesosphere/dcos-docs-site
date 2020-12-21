@@ -85,4 +85,4 @@ Create a custom option file (`options.json`) like the following.
 }
 ```
 
-Read mo
+Read more about [Grafana LDAP configuration](https://grafana.com/docs/grafana/v7.0/auth/ldap/#ldap-authentication)

@@ -1,4 +1,4 @@
-- var { sphere, product, productName, lang, version = "" } = Utils.getPathParts(path)
+- var { sphere, product, productName, lang, version = "" } = Utils.getPathInfo(path)
 - var semver = /^(v|)[0-9]+\.[0-9]+/
 - var langFragment = lang == "en" ? "" : `/${lang}`
 - var versionFragment = version ? `/${version}` : ''
@@ -11,18 +11,13 @@ mixin renderSidebarNavListItem(item, depth)
   -
     var hasChildren = !!item.children.length
     var onPath = currentPath.includes(item.path)
-    var itemClassList = {
-      'sidebar__nav__item--active': onPath,
-      'sidebar__nav__item--active-on': currentPath == item.path,
-      'sidebar__nav__item--parent': hasChildren
-    }
-  li.sidebar__nav__item(class=itemClassList)
-    a.sidebar__nav__item__container(href=item.path, class=`sidebar__nav__item__container--depth-${depth}`)
+  li(class={'active': onPath, 'active-on': currentPath == item.path})
+    a(href=item.path + "/", class=`d${depth}`)
       if hasChildren
-        i.sidebar__nav__icon(data-feather='chevron-right')
-      .sidebar__nav__text!= item.navigationTitle || item.title
-  if(hasChildren)
-    ul.sidebar__nav__list(class={'sidebar__nav__list--active': onPath})
+        i(data-feather='chevron-right')
+      != item.navigationTitle || item.title
+  if(hasChildren && onPath)
+    ul
       each val, index in item.children.filter(inMenu)
         +renderSidebarNavListItem(val, depth + 1)
 
@@ -31,20 +26,20 @@ mixin renderSidebarNavListItem(item, depth)
     header.sidebar__header
       .sidebar__dropdown
         if productVersions.length > 1
-          ul.sidebar__dropdown__list
+          ul
             each val, index in productVersions
               if val.navigationTitle || val.title
-                li.sidebar__dropdown__item
-                  a.sidebar__dropdown__link(href=hierarchy.findLongestExisting(path.replace(`${productPath}${versionFragment}`, val.path)))!= val.navigationTitle || val.title
-        .sidebar__dropdown__toggle
-          p.sidebar__dropdown__text
-            span.sidebar__dropdown__text__title!= productName
-            span.sidebar__dropdown__text__version!= ' ' + version
+                li
+                  a(href=hierarchy.findLongestExisting(path.replace(`${productPath}${versionFragment}`, val.path)))!= val.navigationTitle || val.title
+        .toggle
+          p
+            span.title!= productName
+            span.version!= ' ' + version
           if productVersions.length > 1
-            i.sidebar__dropdown__icon(data-feather='chevron-down')
+            i(data-feather='chevron-down')
 
-    nav.sidebar__nav(role='navigation')
-      ul.sidebar__nav__list.sidebar__nav__list--active
+    nav.sidebar_nav(role='navigation')
+      ul
         each val, index in hierarchy.findByPath(`${productPath}${versionFragment}`).children.filter(inMenu)
           +renderSidebarNavListItem(val, 0)
 

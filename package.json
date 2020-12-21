@@ -10,7 +10,7 @@
   },
   "author": "D2iQ",
   "devDependencies": {
-    "algoliasearch": "^3.24.3",
+    "algoliasearch": "^4.0.0",
     "autoprefixer": "^7.1.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
@@ -36,8 +36,6 @@
     "metalsmith-ignore": "^0.1.2",
     "metalsmith-layouts": "^1.8.1",
     "metalsmith-markdownit": "^0.4.0",
-    "metalsmith-permalinks": "^0.5.0",
-    "metalsmith-redirect": "^2.1.0",
     "metalsmith-serve": "0.0.7",
     "metalsmith-timer": "0.0.2",
     "metalsmith-watch": "^1.0.3",
