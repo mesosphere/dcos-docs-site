@@ -11,7 +11,7 @@ Kommander can also deploy services from a catalog of current cloud native servic
 
 ![Project Catalog](/dkp/kommander/1.3/img/project-catalog.png)
 
-Kommander can be extended with the AddonRepository resource that point to git repositories containing application addons. For example, the kubeaddons-enterprise repo contains addons such as Jenkins and Kafka with specific settings for each service. Addons can be composed using either Helm V2 charts or KUDO operators.
+Kommander can be extended with the AddonRepository resource that point to git repositories containing application platform services. For example, the kubeaddons-enterprise repo contains platform services such as Jenkins and Kafka with specific settings for each service. Platform services can be composed using either Helm V2 charts or KUDO operators.
 
 Example AddonRepository resource to add a new repository to your catalog:
 
@@ -27,26 +27,26 @@ spec:
   url: https://github.com/mesosphere/kubeaddons-enterprise
 ```
 
-To deploy an addon:
+To deploy a platform service:
 
 1. Select **Workspace** > **Project**
-2. Select **View Catalog** to browse the available addons from your configured repositories.
-3. Select your desired addon.
+2. Select **View Catalog** to browse the available platform services from your configured repositories.
+3. Select your desired platform service.
 4. Select the version you'd like to deploy from the version drop-down, and then select Deploy.
 
-For all addons, you must provide a display name and an ID. The ID will be automatically generated based on what is entered for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
+For all platform services, you must provide a display name and an ID. The ID will be automatically generated based on what is entered for the display name, unless or until you edit the ID directly. The ID must be compliant with [Kubernetes DNS subdomain name validation rules](https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#dns-subdomain-names).
 
 Optionally, you can customize the helm chart values or KUDO parameters of a service before deploying it.
 
-For Helm-based addons, specify the chart values in a YAML editor:
+For Helm-based platform services, specify the chart values in a YAML editor:
 
 ![Deploy Helm Platform Service](/dkp/kommander/1.3/img/project-catalog-deploy-helm.png)
 
-For KUDO-based addons, fill out the form fields supported by that addon's parameters schema:
+For KUDO-based platform services, fill out the form fields supported by that platform service's parameters schema:
 
 ![Deploy KUDO Platform Service](/dkp/kommander/1.3/img/project-catalog-deploy-kudo.png)
 
-After an addon is deployed in a project, the service is installed to all clusters in that project.
+After a platform service is deployed in a project, the service is installed to all clusters in that project.
 
 Since a project Platform Service is simply a Kubernetes FederatedAddon, it can also be created using kubectl:
 
@@ -167,6 +167,6 @@ status:
 
 The Konvoy Addon Controller is then responsible for deploying the application.
 
-After the addon is deployed, the addon may be upgraded to a newer version. The only versions shown are compatible with the clusters in that project.
+After the platform service is deployed, the platform service may be upgraded to a newer version. The only versions shown are compatible with the clusters in that project.
 
-![Project addon edit form](/dkp/kommander/1.3/img/project-catalog-addon-edit.png)
+![Project platform service edit form](/dkp/kommander/1.3/img/project-catalog-addon-edit.png)

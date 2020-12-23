@@ -4,7 +4,7 @@ beta: true
 navigationTitle: Duplicate a Production Cluster
 title: Duplicate a Production Cluster
 menuWeight: 1
-excerpt: Create a second cluster in another region and duplicate all the addons and configuration
+excerpt: Create a second cluster in another region and duplicate all the platform services and configuration
 ---
 
 In this tutorial you will learn how to create a second production cluster for your E-Commerce team. For example: to have a fallback or to migrate to a different cloud provider.

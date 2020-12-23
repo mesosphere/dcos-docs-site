@@ -27,7 +27,7 @@ Before installing, make sure your environment has the following basic requiremen
   cluster:
   - both management and attached clusters must connect to the Docker registry
   - management cluster must connect to the attached cluster's API server
-  - management cluster must connect to load balancers created by some addons. For example, Thanos, part of the Prometheus addon, connects to those load balancers.
+  - management cluster must connect to load balancers created by some platform services. For example, Thanos, part of the Prometheus platform service, connects to those load balancers.
 
 - all the prerequisites in [air gapped Konvoy installation][air-gap-before-you-begin] in case of Konvoy clusters.
 
