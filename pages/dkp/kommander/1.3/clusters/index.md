@@ -181,8 +181,8 @@ data:
 ```
 
 | Key | Description | Required |
-| :--- | :--- | :---: | 
-| metadata . labels . "d2iq.io/addon" | The addon name (id) | X |
+| :--- | :--- | :---: |
+| metadata . labels . "d2iq.io/addon" | The platform service name (id) | X |
 | data . name | The display name used to describe the service and shown on the Card in the GUI. | X |
 | data . dashboardLink | The link to the service. This can be an absolute link "https://www.d2iq.com" or a relative link "/ops/portal". If a relative link is used, the link will be built using the cluster's path as the base of the URL to the service. | X |
 | data . docsLink | Link to documentation about the service, this is displayed on the service card, but omitted if not present. | |

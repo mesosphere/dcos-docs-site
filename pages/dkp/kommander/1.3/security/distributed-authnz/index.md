@@ -15,13 +15,13 @@ Kommander is part of a Konvoy cluster installation. Konvoy comes with a pre-conf
 
 The operational portal admin credentials are stored as a secret. They never leave the boundary of the Kommander cluster and are never shared to any other cluster.
 
-The Dex service issues an [OIDC ID token][oidc_id_token] on successful user authentication. Other Konvoy components use the id token as an authentication proof. User identity to the Kubernetes API server is provided by the [`kube-oidc-proxy`][kube_oidc_proxy] Addon that reads the identity from an id token. Web requests to operations portal access are authenticated by the [traefik forward auth][traefik_forward_auth] Addon.
+The Dex service issues an [OIDC ID token][oidc_id_token] on successful user authentication. Other Konvoy components use the id token as an authentication proof. User identity to the Kubernetes API server is provided by the [`kube-oidc-proxy`][kube_oidc_proxy] platform service that reads the identity from an id token. Web requests to operations portal access are authenticated by the [traefik forward auth][traefik_forward_auth] platform service.
 
 A user identity is shared across a Kommander cluster and all other provisioned clusters.
 
 ### Kommander provisioned clusters
 
-A newly provisioned cluster gets federated `kube-oidc-proxy`, `dex-k8s-authenticator`, and `traefik-forward-auth` Addons. These Addons are configured to accept Kommander cluster Dex issued id tokens.
+A newly provisioned cluster gets federated `kube-oidc-proxy`, `dex-k8s-authenticator`, and `traefik-forward-auth` platform services. These platform services are configured to accept Kommander cluster Dex issued id tokens.
 
 When the `traefik-forward-auth` is used as a [Traefik ingress authenticator][traefik_ingress] it checks if the user identity was issued by the Kommander cluster Dex service. An anonymous user is redirected to the Kommander cluster Dex service to authenticate and confirm their identity.
 
