@@ -20,11 +20,11 @@ Konvoy provides the following features and functionalities:
 
 - Simplified installation
 
-    Use a simple, single command to install CNCF-certified, high-availability Kubernetes on a public cloud (currently AWS with other cloud providers supported in future releases) or an internal on-prem network.
+    Use a simple, single command to install CNCF-certified, high-availability Kubernetes on a public cloud or an internal on-prem network.
 
 - Infrastructure provisioning
 
-    Provision the cluster infrastructure on cloud provider using Terraform (currently AWS) or pre-deploy a physical or virtual infrastructure, then deploy using Konvoy.
+    Provision the cluster infrastructure on cloud provider using Terraform or pre-deploy a physical or virtual infrastructure, then deploy using Konvoy.
 
 - Core addons for networking and storage production-readiness
 
