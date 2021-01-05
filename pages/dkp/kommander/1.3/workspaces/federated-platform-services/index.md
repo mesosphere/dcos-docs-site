@@ -9,48 +9,49 @@ excerpt: How federated platform services work
 
 ## Platform services federation
 
-When attaching a cluster, Kommander federates certain platform services on the newly attached cluster. To customize the federation of the logging and monitoring stacks, operators can apply labels to the associated `KommanderCluster` resource.
+When attaching a cluster, Kommander federates certain platform services on the newly attached cluster. Operators can use the Kommander UI to customize which platform services to federate to the attached clusters in a given workspace.
 
 On attachment, two factors impact successfully deploying an addon on the attached cluster:
 
 1. Is the attached cluster a Konvoy cluster or not? For example, a cluster deployed using AWS EKS.
-2. Does a label describing the federation of the addon exist and is it defined? If yes, what is its value?
+2. Is the addon enabled in the Workspace Platform Services settings?
+3. Does the addon support the version of Kubernetes running on the cluster?
 
-The following tables describe the list of platform services and cluster platform services that get federated on attachment with their related federation label (if available). Platform services that do not have a federation label are federated by default. If the platform service description indicates only federated on non-Konvoy clusters, the platform service will not get installed into Konvoy clusters, even if its federation label is set to `true`.
+The following tables describe the list of platform services and cluster platform services that get federated on attachment along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, then the platform service will not get federated to that cluster. If the addon description indicates only federated on non-Konvoy clusters, the addon will not get installed into Konvoy clusters, since it is by default installed with Konvoy via Kubernetes Base Addons.
 
-Currently, the monitoring stack is federated by default and the logging stack is not. This is why `prometheus` is the only platform service federated by default with a federation label to disable it if needed.
+Currently, the monitoring stack is federated by default and the logging stack is not.
 
-### Set federation labels
+### Customize a workspace's platform services
 
-#### Use the UI
+Provided you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. You can access this settings page by going to the desired workspace's Dashboard tab, clicking the `Actions` drop-down button and selecting `Edit Workspace Platform Services`.
 
-See [attaching a cluster](/dkp/kommander/latest/clusters/attach-cluster/) for information. You can add labels at the bottom of the attachment form, use the federation labels described in the following tables as keys and the values `true` or `false` if you wish to customize the federation of the platform services. The platform services that do not have a related federation label cannot get their federation enabled or disabled this way.
+<insert .png of this page with highlighted Actions tab>
 
-#### Create a new KommanderCluster
+This takes you to the settings page which provides lists of platform services that you can enable or disable along with some helpful descriptions.
 
-If you want to federate a cluster by creating a new `KommanderCluster` object in your Kommander cluster, the federation labels should be set in the field `metadata/labels`.
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed [here][]. Please carefully look them over prior to customizing to ensure that the platform services are deployed smoothly.</p>
+
+If desired, the Kubeaddons Controller can also be turned off, though it is discouraged. All platform services require the controller in order to be installed properly. You can find the setting to turn the controller off at the bottom of the page underneath the `Foundational Components` header.
 
 ## Federated platform services
 
-| Name                                 | Federated by default | Federation label                                         | Only federated on non-Konvoy clusters |
-| ------------------------------------ | -------------------- | -------------------------------------------------------- | ------------------------------------- |
-| dashboard-kommander-override         | True                 |                                                          | False                                 |
-| elasticsearch                        | False                | `kommander.mesosphere.io/federate-elasticsearch`         | True                                  |
-| elasticsearch-curator                | False                | `kommander.mesosphere.io/federate-elasticsearch-curator` | True                                  |
-| elasticsearchexporter                | False                | `kommander.mesosphere.io/federate-elasticsearchexporter` | True                                  |
-| fluentbit                            | False                | `kommander.mesosphere.io/federate-fluentbit`             | True                                  |
-| kibana                               | False                | `kommander.mesosphere.io/federate-kibana`                | True                                  |
-| kube-oidc-proxy-kommander            | True                 |                                                          | False                                 |
-| opsportal-addons-kommander-overrides | True                 |                                                          | False                                 |
-| prometheus                           | True                 | `kommander.mesosphere.io/federate-prometheus`            | True                                  |
-| prometheusadapter                    | True                 | `kommander.mesosphere.io/federate-prometheusadapter`     | True                                  |
-| reloader                             | True                 |                                                          | True                                  |
-| traefik-forward-auth-kommander       | True                 |                                                          | False                                 |
+| Name                                 | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
+| ------------------------------------ | -------------------- | ----------------------------- | ------------------------------------- |
+| elasticsearch                        | False                | 1.17 - 1.19                   | True                                  |
+| elasticsearch-curator                | False                | 1.17 - 1.19                   | True                                  |
+| elasticsearchexporter                | False                | 1.17 - 1.19                   | True                                  |
+| fluentbit                            | False                | 1.17 - 1.19                   | True                                  |
+| kibana                               | False                | 1.17 - 1.19                   | True                                  |
+| kube-oidc-proxy-kommander            | True                 | 1.17 - 1.19                   | False                                 |
+| prometheus                           | True                 | 1.17 - 1.19                   | True                                  |
+| prometheusadapter                    | True                 | 1.17 - 1.19                   | True                                  |
+| reloader                             | True                 | 1.17 - 1.19                   | True                                  |
+| traefik-forward-auth-kommander       | True                 | 1.17 - 1.19                   | False                                 |
 
 ## Federated cluster platform services
 
-| Name           | Federated by default | Federation label | Only federated on non-Konvoy clusters |
-| -------------- | -------------------- | ---------------- | ------------------------------------- |
-| - cert-manager | True                 |                  | True                                  |
-| - kubecost     | True                 |                  | False                                 |
-| - traefik      | True                 |                  | True                                  |
+| Name           | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
+| -------------- | -------------------- | ----------------------------- | ------------------------------------- |
+| - cert-manager | True                 | 1.17 - 1.19                   | True                                  |
+| - kubecost     | True                 | 1.17 - 1.19                   | False                                 |
+| - traefik      | True                 | 1.17 - 1.19                   | True                                  |
