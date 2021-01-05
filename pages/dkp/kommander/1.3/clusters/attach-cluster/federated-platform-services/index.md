@@ -16,7 +16,7 @@ On attachment, two factors impact successfully deploying an addon on the attache
 1. Is the attached cluster a Konvoy cluster or not? For example, a cluster deployed using AWS EKS.
 2. Does a label describing the federation of the addon exist and is it defined? If yes, what is its value?
 
-The following tables describe the list of platform services and cluster platform services that get federated on attachment with their related federation label (if available). Platform services that do not have a federation label are federated by default. If the addon description indicates only federated on non-Konvoy clusters, the addon will not get installed into Konvoy clusters, even if its federation label is set to `true`.
+The following tables describe the list of platform services and cluster platform services that get federated on attachment with their related federation label (if available). Platform services that do not have a federation label are federated by default. If the platform service description indicates only federated on non-Konvoy clusters, the platform service will not get installed into Konvoy clusters, even if its federation label is set to `true`.
 
 Currently, the monitoring stack is federated by default and the logging stack is not. This is why `prometheus` is the only addon federated by default with a federation label to disable it if needed.
 
