@@ -29,5 +29,5 @@ To get started immediately, you can use the default workspace deployed in Komman
 
 # Workspace Procedures
 
-- [Creating new workspaces](/dkp/kommander/1.3/workspaces/creating-workspaces/)
-- [Editing and deleting workspaces](/dkp/kommander/1.3/workspaces/editing-deleting-workspaces)
+- [Creating new workspaces](creating-workspaces/)
+- [Editing and deleting workspaces](editing-deleting-workspaces)

@@ -18,6 +18,6 @@ A new Kubernetes namespace, with your workspace name, is created in the manageme
 ![Workspace Form Advanced Annotations](/dkp/kommander/1.3/img/workspace-annotations.png)
 <br />_Edit Workspace Advanced Options_
 
-When creating or editing a workspace, you can use the Advanced Options to add, edit or delete annotations and labels to your workspace. Both the annotations and labels will be applied to the workspace namespace.
+When creating or editing a workspace, you can use the Advanced Options to add, edit, or delete annotations and labels to your workspace. Both the annotations and labels will be applied to the workspace namespace.
 
 Labels that are added to a Workspace, will also be applied to all of that workspace’s clusters.
