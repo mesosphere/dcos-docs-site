@@ -1,21 +1,21 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Federated Platform Services
-title: Federated Platform Services
+navigationTitle: Workspace Platform Services
+title: Workspace Platform Services
 menuWeight: 5
-excerpt: How federated platform services work
+excerpt: How workspace platform services work
 ---
 
-## Platform services federation
+## Workspace platorm service federation
 
 When attaching a cluster, Kommander federates certain platform services on the newly attached cluster. Operators can use the Kommander UI to customize which platform services to federate to the attached clusters in a given workspace.
 
-On attachment, two factors impact successfully deploying an addon on the attached cluster:
+On attachment, three factors impact successfully deploying an addon on the attached cluster:
 
 1. Is the attached cluster a Konvoy cluster or not? For example, a cluster deployed using AWS EKS.
-2. Is the addon enabled in the Workspace Platform Services settings?
-3. Does the addon support the version of Kubernetes running on the cluster?
+2. Is the platform service enabled in the Workspace Platform Services settings?
+3. Does the platform service support the version of Kubernetes running on the cluster?
 
 The following tables describe the list of platform services and cluster platform services that get federated on attachment along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, then the platform service will not get federated to that cluster. If the addon description indicates only federated on non-Konvoy clusters, the addon will not get installed into Konvoy clusters, since it is by default installed with Konvoy via Kubernetes Base Addons.
 
@@ -33,7 +33,7 @@ This takes you to the settings page which provides lists of platform services th
 
 If desired, the Kubeaddons Controller can also be turned off, though it is discouraged. All platform services require the controller in order to be installed properly. You can find the setting to turn the controller off at the bottom of the page underneath the `Foundational Components` header.
 
-## Federated platform services
+## Workspace platform services
 
 | Name                                 | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
 | ------------------------------------ | -------------------- | ----------------------------- | ------------------------------------- |
@@ -48,7 +48,7 @@ If desired, the Kubeaddons Controller can also be turned off, though it is disco
 | reloader                             | True                 | 1.17 - 1.19                   | True                                  |
 | traefik-forward-auth-kommander       | True                 | 1.17 - 1.19                   | False                                 |
 
-## Federated cluster platform services
+## Workspace cluster platform services
 
 | Name           | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
 | -------------- | -------------------- | ----------------------------- | ------------------------------------- |
