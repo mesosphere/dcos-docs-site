@@ -24,4 +24,4 @@ From the workspace selection dropdown at the top of the screen, select **Create 
 
 When creating or editing a workspace, you can use the Advanced Options to add, edit, or delete annotations and labels to your workspace. Both the annotations and labels are applied to the workspace namespace.
 
-Labels that are added to a workspace, are also applied to all of the clusters in the workspace. 
+Labels that are added to a workspace, are also applied to all of the clusters in the workspace.
