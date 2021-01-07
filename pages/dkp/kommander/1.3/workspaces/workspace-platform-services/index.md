@@ -25,7 +25,8 @@ Currently, the monitoring stack is federated by default and the logging stack is
 
 Provided you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. You can access this settings page by going to the desired workspace's Dashboard tab, clicking the `Actions` drop-down button and selecting `Edit Workspace Platform Services`.
 
-<insert .png of this page with highlighted Actions tab>
+![Workspace Actions Dropdown](/dkp/kommander/1.3/img/workspace-actions-dropdown.png)
+<br />_Edit Workspace Platform Services Action_
 
 This takes you to the settings page which provides lists of platform services that you can enable or disable along with some helpful descriptions.
 
