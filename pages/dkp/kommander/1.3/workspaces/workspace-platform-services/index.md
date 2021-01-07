@@ -23,14 +23,14 @@ Currently, the monitoring stack is federated by default and the logging stack is
 
 ### Customize a workspace's platform services
 
-Provided you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. You can access this settings page by going to the desired workspace's Dashboard tab, clicking the `Actions` drop-down button and selecting `Edit Workspace Platform Services`.
+Provided you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. You can access this settings page by going to the desired workspace's **Dashboard** tab, clicking the **Actions** drop-down button and selecting **Edit Workspace Platform Services**.
 
 ![Workspace Actions Dropdown](/dkp/kommander/1.3/img/workspace-actions-dropdown.png)
 <br />_Edit Workspace Platform Services Action_
 
 This takes you to the settings page which provides lists of platform services that you can enable or disable along with some helpful descriptions.
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed [here][]. Please carefully look them over prior to customizing to ensure that the platform services are deployed smoothly.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed [here](/dkp/kommander/1.3/workspaces/platform-service-dependencies/). Please carefully look them over prior to customizing to ensure that the platform services are deployed smoothly.</p>
 
 If desired, the Kubeaddons Controller can also be turned off, though it is highly discouraged. All platform services require the controller in order to be installed properly. You can find the setting to turn the controller off at the bottom of the page underneath the `Foundational Components` header.
 
