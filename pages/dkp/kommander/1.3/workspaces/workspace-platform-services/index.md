@@ -21,6 +21,8 @@ The following tables describe the list of platform services and cluster platform
 
 Currently, the monitoring stack is federated by default and the logging stack is not.
 
+You should also review the [workspace platform service resource requirements](/dkp/kommander/1.3/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
+
 ### Customize a workspace's platform services
 
 Provided you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. You can access the settings page by going to the desired workspace's **Dashboard** tab, clicking the **Actions** drop-down button and selecting **Edit Workspace Platform Services**.
@@ -32,7 +34,7 @@ This takes you to the settings page which provides lists of platform services th
 
 <p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed [here](/dkp/kommander/1.3/workspaces/platform-service-dependencies/). Please review them carefully prior to customizing to ensure that the platform services are deployed successfully.</p>
 
-If desired, the Kubeaddons Controller can also be turned off, though it is highly discouraged. All platform services require the controller in order to be installed properly. You can find the setting to turn the controller off at the bottom of the page underneath the `Foundational Components` header.
+If desired, the Kubeaddons Controller can also be disabled, though it is highly discouraged. All platform services require the controller in order to be installed properly. You can find the setting to turn the controller off at the bottom of the page underneath the `Foundational Components` header.
 
 ## Workspace platform services
 
@@ -51,8 +53,8 @@ If desired, the Kubeaddons Controller can also be turned off, though it is highl
 
 ## Workspace cluster platform services
 
-| Name           | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
-| -------------- | -------------------- | ----------------------------- | ------------------------------------- |
-| - cert-manager | True                 | 1.17 - 1.19                   | True                                  |
-| - kubecost     | True                 | 1.17 - 1.19                   | False                                 |
-| - traefik      | True                 | 1.17 - 1.19                   | True                                  |
+| Name         | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
+| -----------  | -------------------- | ----------------------------- | ------------------------------------- |
+| cert-manager | True                 | 1.17 - 1.19                   | True                                  |
+| kubecost     | True                 | 1.17 - 1.19                   | False                                 |
+| traefik      | True                 | 1.17 - 1.19                   | True                                  |

@@ -159,6 +159,8 @@ Services that have been installed on your management cluster. You can visit a cl
 
 ![Cluster Detail Page](/dkp/kommander/1.3/img/cluster-detail-page.png)
 
+You should also review the [workspace platform service resource requirements](/dkp/kommander/1.3/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources. For more information on platform services and how to customize them, see [workspace platform services](/dkp/kommander/1.3/workspaces/workspace-platform-services/).
+
 Figure 2. Cluster detail page
 
 ### Custom service cards
