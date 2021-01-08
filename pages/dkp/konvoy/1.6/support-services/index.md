@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Support and Services
-title: Support and Servies
+title: Support and Services
 menuWeight: 70
 excerpt: Konvoy Support and Services
 beta: false <!-- Set this to true if this is a beta topic, set to false or remove otherwise. -->
