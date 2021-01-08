@@ -94,7 +94,7 @@ Using the **Add Cluster** option you can attach an existing Kubernetes or Konvoy
 
 Selecting the **Attach Cluster** option displays the **Connection Information** dialog box. This dialog box accepts a kubeconfig file, that you can paste, or upload into the field. In the **Context** select list, you can select the intended context or change the display name provided with the config. You can add labels to classify your cluster and select the platform services to install.
 
-Platform services extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating platform services when attaching a cluster to Kommander. For more information, read our documentation about [federated platform services](/dkp/kommander/latest/clusters/attach-cluster/federated-platform-services/).
+Platform services extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating platform services when attaching a cluster to Kommander. For more information, read our documentation about [workspace platform services](/dkp/kommander/latest/workspaces/workspace-platform-services/).
 
 ![Add Cluster Connect](/dkp/kommander/1.3/img/add-cluster-connect.png)
 
