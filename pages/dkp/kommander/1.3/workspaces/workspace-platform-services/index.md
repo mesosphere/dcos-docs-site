@@ -21,7 +21,7 @@ The following tables describe the list of platform services and cluster platform
 
 Currently, the monitoring stack is federated by default and the logging stack is not.
 
-You should also review the [workspace platform service resource requirements](/dkp/kommander/1.3/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
+Review the [workspace platform service resource requirements](/dkp/kommander/1.3/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
 
 ### Customize a workspace's platform services
 
