@@ -156,7 +156,7 @@ kubectl -n kube-system logs -f ebs-csi-controller-0 ebs-plugin
 I0807 18:43:11.932954       1 controller.go:93] CreateVolume: called with args {Name:pvc-848a1291-238b-44c0-81c6-435ee2b7c05d CapacityRange:required_bytes:1073741824  VolumeCapabilities:[mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER > ] Parameters:map[type:gp2] Secrets:map[] VolumeContentSource:<nil> AccessibilityRequirements:requisite:<segments:<key:"topology.ebs.csi.aws.com/zone" value:"us-west-2c" > > preferred:<segments:<key:"topology.ebs.csi.aws.com/zone" value:"us-west-2c" > >  XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
 I0807 18:43:15.953064       1 controller.go:229] ControllerPublishVolume: called with args {VolumeId:vol-062a1d0e8d8657e29 NodeId:i-0630c41e683f2898f VolumeCapability:mount:<fs_type:"ext4" > access_mode:<mode:SINGLE_NODE_WRITER >  Readonly:false Secrets:map[] VolumeContext:map[storage.kubernetes.io/csiProvisionerIdentity:1596815338056-8081-ebs.csi.aws.com] XXX_NoUnkeyedLiteral:{} XXX_unrecognized:[] XXX_sizecache:0}
 I0807 18:43:16.628669       1 cloud.go:364] AttachVolume volume="vol-062a1d0e8d8657e29" instance="i-0630c41e683f2898f" request returned {
-  AttachTime: 2020-08-07 18:43:16.594 +0000 UTC,
+  AttachTime: 2020-08-07 18:43.16.694 +0000 UTC,
   Device: "/dev/xvdbe",
   InstanceId: "i-0630c41e683f2898f",
   State: "attaching",
