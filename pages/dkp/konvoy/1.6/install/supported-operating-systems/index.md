@@ -10,21 +10,23 @@ enterprise: false
 
 Konvoy supports the following base Operating Systems.
 
+Please note, some features may not be fully supported in certain versions of these operating systems.
+
 ## CentOS
 
-| OS Release | Kernel Version |
-|------------|----------------|
-| [CentOS 7.7][centos7] | 3.10.0-1062.12.1.el7.x86_64 |
-| [CentOS 7.8][centos7] | 3.10.0-1127.el7.x86_64 |
-| [CentOS 8.2][centos8] | 4.18.0-193.6.3.el8_2.x86_64 |
+| OS Release | Kernel Version | Notes |
+|------------|----------------| ----- |
+| [CentOS 7.7][centos7] | 3.10.0-1062.12.1.el7.x86_64 | |
+| [CentOS 7.8][centos7] | 3.10.0-1127.el7.x86_64 | |
+| [CentOS 8.2][centos8] | 4.18.0-193.6.3.el8_2.x86_64 | GPU workloads are not currently supported |
 
 ## RHEL
 
-| OS Release | Kernel Version |
-|------------|----------------|
-| [RHEL_7.7][rhel_7_7] | 3.10.0-1062.12.1.el7.x86_64 |
-| [RHEL_7.8][rhel_7_8] | 3.10.0-1127.8.2.el7.x86_64  |
-| [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 |
+| OS Release | Kernel Version | Notes |
+|------------|----------------| ----- |
+| [RHEL_7.7][rhel_7_7] | 3.10.0-1062.12.1.el7.x86_64 | |
+| [RHEL_7.8][rhel_7_8] | 3.10.0-1127.8.2.el7.x86_64  | |
+| [RHEL 8.2][rhel_8_2] | 4.18.0-193.6.3.el8_2.x86_64 | GPU workloads are not currently supported |
 
 ## Ubuntu
 
@@ -38,23 +40,23 @@ spec:
       version: 1.3.9-1
 ```
 
-| OS Release | Kernel Version |
-|------------|----------------|
-| [Ubuntu 16.04 (xenial)][ubuntu_16] | 4.4.0-1087 |
-| [Ubuntu 18.04 (bionicbeaver)][ubuntu_18] | 5.0 |
+| OS Release | Kernel Version | Notes |
+|------------|----------------| ----- |
+| [Ubuntu 16.04 (xenial)][ubuntu_16] | 4.4.0-1087 | |
+| [Ubuntu 18.04 (bionicbeaver)][ubuntu_18] | 5.0 | |
 
 ## Debian
 
-| OS Release | Kernel Version |
-|------------|----------------|
-| [Debian 9 (stretch)][debian_9] | 4.9.0-9 |
-| [Debian 10 (buster)][debian_10] | 4.19.67-2 |
+| OS Release | Kernel Version | Notes |
+|------------|----------------| ----- |
+| [Debian 9 (stretch)][debian_9] | 4.9.0-9 | |
+| [Debian 10 (buster)][debian_10] | 4.19.67-2 | |
 
 ## SUSE Linux Enterprise Server
 
-| OS Release |
-|------------|
-| [15][suse_15] |
+| OS Release | Notes |
+|------------| ----- |
+| [15][suse_15] | GPU workloads are not currently supported |
 
 ## Overriding Discovered OS Distribution
 

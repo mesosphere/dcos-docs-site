@@ -5,7 +5,7 @@ title: Legal
 menuWeight: 270
 excerpt: List of Third-party trademarks mentioned in the Konvoy documentation
 render: mustache
-beta: false <!-- Set this to true if this is a beta topic, set to false or remove otherwise. -->
+beta: false
 enterprise: false
 ---
 

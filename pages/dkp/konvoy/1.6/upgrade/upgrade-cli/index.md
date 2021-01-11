@@ -79,7 +79,7 @@ After the upgrade command completes, you can start using the new Konvoy version.
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-Konvoy v1.6.x requires Calico version `3.16.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.16.5`,
+Konvoy v1.6.x requires Calico version `3.16.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.16.6`,
 
 It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.18.14`.
 
@@ -100,7 +100,7 @@ spec:
   ...
   containerNetworking:
     calico:
-      version: v3.16.5
+      version: v3.16.6
   ...
   containerRuntime:
     containerd:
