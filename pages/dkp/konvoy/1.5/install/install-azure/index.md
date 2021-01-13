@@ -56,7 +56,7 @@ This opens a browser window requesting your credentials. After supplying your cr
 If your account has access to many subscriptions, select a subscription to use. Enter the following command. It requires your subscription name. This is found in the output of the `az login` command.
 
   ```bash
-  az account set --subscription "YOUR_USER_LOGIN"
+  az account set --subscription "Your Subscription Label"
   ```
 
 For your Azure account, you must have the roles of `Contributor` and `User Access Administrator` to create and assign roles to a user. To do this, you or your Azure Administrator must run the following command:
