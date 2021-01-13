@@ -241,7 +241,7 @@ spec:
     bastion: true
     count: 2
     machine:
-      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      imageID: OpenLogic:CentOS:7.7:7.7.2020111300
       rootVolumeSize: 40
       rootVolumeType: Standard_LRS
       imagefsVolumeEnabled: false

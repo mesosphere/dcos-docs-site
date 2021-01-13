@@ -23,6 +23,26 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
 
+### Version v1.5.5 - Released 12 January 2020
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.17.x |
+|**Default** | 1.17.16 |
+
+#### Bug Fixes
+
+- Azure: Fix a Terraform template error that prevented `inventory.yaml` files from being created when using `spec.azure.loadbalancer.internal: true`.
+- Azure: Change the default Azure image to `OpenLogic:CentOS:7.7:7.7.2020111300` (CentOS 7.7) because `OpenLogic:CentOS:7.7:7.7.2020042900` is no longer available. See [instructions](../tutorials/update-worker-machines/index.md) on how to replace a node pool.
+- CLI: Wait for an addon to be deleted before printing `[OK]` message. (COPS-6692)
+
+#### Component version changes
+
+- Docker `v19.03.14`
+- Go `1.14.13`
+- Kubernetes `v1.17.16`
+
 ### Version v1.5.4 - Released 9 December 2020
 
 | Kubernetes Support | Version |

@@ -50,7 +50,7 @@ spec:
   - name: worker
     count: 6
     machine:
-      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      imageID: OpenLogic:CentOS:7.7:7.7.2020111300
       rootVolumeSize: 80
       rootVolumeType: Standard_LRS
       imagefsVolumeEnabled: true
@@ -61,7 +61,7 @@ spec:
     controlPlane: true
     count: 3
     machine:
-      imageID: OpenLogic:CentOS:7.7:7.7.2020042900
+      imageID: OpenLogic:CentOS:7.7:7.7.2020111300
       rootVolumeSize: 80
       rootVolumeType: StandardSSD_LRS
       imagefsVolumeEnabled: true
