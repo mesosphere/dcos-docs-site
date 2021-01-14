@@ -23,7 +23,7 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
 
-### Version v1.5.5 - Released 12 January 2020
+### Version v1.5.5 - Released 12 January 2021
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
