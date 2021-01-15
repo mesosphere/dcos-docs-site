@@ -7,7 +7,7 @@ menuWeight: 8
 excerpt: Dependencies between workspace platform services
 ---
 
-There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services](/dkp/kommander/1.3/workspaces/workspace-platform-services/).
+There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services][platform-services].
 
 ## Platform Service Dependencies
 
@@ -42,11 +42,11 @@ The foundational components are essential and provide the foundation for all pla
 The foundational components are comprised of the Kubeaddons controller and the following platform services: cert-manager, kube-oidc-proxy, reloader, traefik, and traefik-forward-auth.
 
 - Kubeaddons controller: Manages the installation of platform services
-- [cert-manager](https://cert-manager.io/docs): Certificate management controller that automates TLS certificate management and issuance
-- [kube-oidc-proxy](https://github.com/jetstack/kube-oidc-proxy): A reverse proxy server that authenticates users using OIDC to Kubernetes API servers where OIDC authentication is not available
-- [reloader](https://github.com/stakater/Reloader): A controller that watches changes on ConfigMaps and Secrets, and automatically triggers updates on the dependent applications
-- [traefik](https://traefik.io/): An HTTP reverse proxy and load balancer
-- [traefik-forward-auth](https://github.com/thomseddon/traefik-forward-auth): A minimal forward authentication service that provides OAuth/SSO login and authentication for traefik
+- [cert-manager][cert-manager]: Certificate management controller that automates TLS certificate management and issuance
+- [kube-oidc-proxy][kube-oidc-proxy]: A reverse proxy server that authenticates users using OIDC to Kubernetes API servers where OIDC authentication is not available
+- [reloader][reloader]: A controller that watches changes on ConfigMaps and Secrets, and automatically triggers updates on the dependent applications
+- [traefik][traefik]: An HTTP reverse proxy and load balancer
+- [traefik-forward-auth][traefik-forward-auth]: A minimal forward authentication service that provides OAuth/SSO login and authentication for traefik
 
 | **Platform Service** | **Dependencies** |
 | --- | --- |
@@ -60,11 +60,11 @@ The foundational components are comprised of the Kubeaddons controller and the f
 
 These platform services provide the functionality to collect logs over time from Kubernetes, platform services, and applications deployed on managed clusters. They also provide the ability to visualize and query the aggregated logs.
 
-- [elasticsearch](https://www.elastic.co/elasticsearch): A distributed, RESTful search and analytics engine
-- [elasticsearch-curator](https://www.elastic.co/guide/en/elasticsearch/client/curator/current/about.html): Helps you curate, or manage, your Elasticsearch indices and snapshots
-- [elasticsearchexporter](https://github.com/justwatchcom/elasticsearch_exporter): A Prometheus exporter for various metrics about Elasticsearch
-- [fluentbit](https://fluentbit.io): A log processor and forwarder which allows you to collect any data like metrics and logs from different sources, enrich them with filters and send them to multiple destinations
-- [kibana](https://www.elastic.co/kibana): A user interface that provides search and data visualization capabilities for data indexed in Elasticsearch
+- [elasticsearch][elasticsearch]: A distributed, RESTful search and analytics engine
+- [elasticsearch-curator][elasticsearch-curator]: Helps you curate, or manage, your Elasticsearch indices and snapshots
+- [elasticsearchexporter][elasticsearchexporter]: A Prometheus exporter for various metrics about Elasticsearch
+- [fluentbit][fluentbit]: A log processor and forwarder which allows you to collect any data like metrics and logs from different sources, enrich them with filters and send them to multiple destinations
+- [kibana][kibana]: A user interface that provides search and data visualization capabilities for data indexed in Elasticsearch
 
 |  **Platform Service** | **Dependencies** |
 | --- | --- |
@@ -78,9 +78,9 @@ These platform services provide the functionality to collect logs over time from
 
 These platform services provide monitoring capabilities by collecting metrics, including cost metrics, for Kubernetes, platform services, and applications deployed on managed clusters. They also provide the ability to visualize these metrics and evaluate rule expressions to trigger alerts.
 
-- [prometheus](https://prometheus.io): A systems and service monitoring system that collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. Note: Prometheus Alertmanager and Grafana are included in the Prometheus bundled installation.
-- [prometheus-adapter](https://github.com/DirectXMan12/k8s-prometheus-adapter): Exposes custom application metrics from Prometheus
-- [kubecost](https://kubecost.com): A cost-monitoring tool that gives you visibility into your Kubernetes resources to reduce spend and prevent resource-based outages
+- [prometheus][prometheus]: A systems and service monitoring system that collects metrics from configured targets at given intervals, evaluates rule expressions, displays the results, and can trigger alerts when specified conditions are observed. **Note:** Prometheus Alertmanager and Grafana are included in the Prometheus bundled installation.
+- [prometheus-adapter][prometheus-adapter]: Exposes custom application metrics from Prometheus
+- [kubecost][kubecost]: A cost-monitoring tool that gives you visibility into your Kubernetes resources to reduce spend and prevent resource-based outages
 
 |  **Platform Service** | **Dependencies** |
 | --- | --- |
@@ -91,9 +91,30 @@ These platform services provide monitoring capabilities by collecting metrics, i
 
 ## Related information
 
-- [Kommander security architecture](/dkp/kommander/1.3/security/)
-- [Centralized cost monitoring](/dkp/kommander/1.3/centralized-cost-monitoring/)
-- [Centralized monitoring](/dkp/kommander/1.3/centralized-monitoring/)
-- [Traefik ingress controller](/dkp/konvoy/1.7/networking/ingress/)
-- [Monitoring and alerts](/dkp/konvoy/1.7/monitoring/)
-- [Logging and audits](/dkp/konvoy/1.7/logging/)
+- [Kommander security architecture][kommander-architecture]
+- [Centralized cost monitoring][cost-monitoring]
+- [Centralized monitoring][central-monitoring]
+- [Traefik ingress controller][traefik-ingress]
+- [Monitoring and alerts][konvoy-monitoring]
+- [Logging and audits][konvoy-logging]
+
+[central-monitoring]: /dkp/kommander/1.3/centralized-monitoring/
+[cert-manager]: https://cert-manager.io/docs
+[cost-monitoring]: /dkp/kommander/1.3/centralized-cost-monitoring/
+[elasticsearch]: https://www.elastic.co/elasticsearch
+[elasticsearch-curator]: https://www.elastic.co/guide/en/elasticsearch/client/curator/current/about.html
+[elasticsearchexporter]: https://github.com/justwatchcom/elasticsearch_exporter
+[fluentbit]: https://fluentbit.io
+[kibana]: https://www.elastic.co/kibana
+[kommander-architecture]: /dkp/kommander/1.3/security/
+[konvoy-logging]: /dkp/konvoy/1.7/logging/
+[konvoy-monitoring]: /dkp/konvoy/1.7/monitoring/
+[kubecost]: https://kubecost.com
+[kube-oidc-proxy]: https://github.com/jetstack/kube-oidc-proxy
+[platform-services]: /dkp/kommander/1.3/workspaces/workspace-platform-services/
+[prometheus]: https://prometheus.io
+[prometheus-adapter]: https://github.com/DirectXMan12/k8s-prometheus-adapter
+[reloader]: https://github.com/stakater/Reloader
+[traefik]: https://traefik.io/
+[traefik-forward-auth]: https://github.com/thomseddon/traefik-forward-auth
+[traefik-ingress]: /dkp/konvoy/1.7/networking/ingress/
