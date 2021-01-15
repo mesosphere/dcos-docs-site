@@ -13,15 +13,15 @@ When attaching a cluster, Kommander federates certain platform services on the n
 
 On attachment, three factors impact successfully deploying a platform service on the attached cluster:
 
-1. Is the attached cluster a Konvoy cluster or not? For example, a cluster deployed using AWS EKS.
-2. Is the platform service enabled in the Workspace Platform Services settings?
-3. Does the platform service support the version of Kubernetes running on the cluster?
+1. Is the attached cluster a Konvoy cluster or not? For example, a cluster deployed using AWS EKS is not a Konvoy cluster.
+1. Is the platform service enabled in the Workspace Platform Services settings?
+1. Does the platform service support the version of Kubernetes running on the cluster?
 
-The following tables describe the list of platform services and cluster platform services that are federated on attachment, along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, then the platform service will not be federated to that cluster. If the platform service description indicates `only federated on non-Konvoy clusters`, the platform service will not be installed into Konvoy clusters, since it is by default installed with Konvoy via [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/).
+The following tables describe the list of platform services and cluster platform services that are federated on attachment, along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, then the platform service will not be federated to that cluster. If the platform service description indicates `only federated on non-Konvoy clusters`, the platform service will not be installed into Konvoy clusters, since it is by default installed with Konvoy via [Kubernetes Base Addons][kubernetes-base-addons].
 
 Currently, the monitoring stack is federated by default and the logging stack is not.
 
-Review the [workspace platform service resource requirements](/dkp/kommander/1.3/workspaces/platform-service-requirements/) to ensure that the attached clusters have sufficient resources.
+Review the [workspace platform service resource requirements][workspace-requirements] to ensure that the attached clusters have sufficient resources.
 
 ### Customize a workspace's platform services
 
@@ -32,7 +32,7 @@ Provided you have access to edit a workspace, you can customize the platform ser
 
 This takes you to the settings page which provides lists of platform services that you can enable or disable along with descriptions of the services.
 
-<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed [here](/dkp/kommander/1.3/workspaces/platform-service-dependencies/). Please review them carefully prior to customizing to ensure that the platform services are deployed successfully.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed <a href="/dkp/kommander/1.3/workspaces/platform-service-dependencies/">here</a>. Please review them carefully prior to customizing to ensure that the platform services are deployed successfully.</p>
 
 If desired, the Kubeaddons Controller can also be disabled, though it is highly discouraged. All platform services require the controller in order to be installed properly. You can find the setting to turn the controller off at the bottom of the page underneath the `Foundational Components` header.
 
@@ -58,3 +58,6 @@ If desired, the Kubeaddons Controller can also be disabled, though it is highly 
 | cert-manager | True                 | 1.17 - 1.19                   | True                                  |
 | kubecost     | True                 | 1.17 - 1.19                   | False                                 |
 | traefik      | True                 | 1.17 - 1.19                   | True                                  |
+
+[kubernetes-base-addons]: /dkp/konvoy/1.7/addons/
+[workspace-requirements]: /dkp/kommander/1.3/workspaces/platform-service-requirements/
