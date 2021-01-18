@@ -283,6 +283,6 @@ spec:
 [dnsforservice]: https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/
 [listingresscontrollers]: https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/#additional-controllers
 [haproxyingress]: https://haproxy-ingress.github.io/
-[nginxingress]: https://www.nginx.com/products/nginx/kubernetes-ingress-controller
+[nginxingress]: https://www.nginx.com/products/nginx-ingress-controller
 [ambassadoringress]: https://www.getambassador.io/
 [traefik]: https://github.com/containous/traefik
