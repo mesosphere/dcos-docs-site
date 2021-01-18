@@ -20,7 +20,7 @@ Konvoy provides the following features and functionalities:
 
 - Simplified installation
 
-    Use a simple, single command to install CNCF-certified,high-availability Kubernetes on a public cloud or an internal on-prem network.
+    Use a simple, single command to install CNCF-certified, high-availability Kubernetes on a public cloud or an internal on-prem network.
 
 - Infrastructure provisioning
 
