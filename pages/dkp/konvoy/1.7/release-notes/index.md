@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ Konvoy version 1.7.0 beta 0 was released on 21, December 2020.**
+**D2iQ&reg; Konvoy&reg; version 1.7.0 beta 0 was released on 21, December 2020.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -27,12 +27,16 @@ This release provides new features and enhancements to improve the user experien
 |**Minimum** | 1.16.x |
 |**Maximum** | 1.18.x |
 |**Default** | 1.18.13 |
+|**Default** | 1.19.x |
 
 ### Breaking changes
 
 ### New features and capabilities
 
 - Added support for SUSE 15.
+- Added FIPS enablement for Kubernetes objects created in Konvoy.
+- Periodic container scanning and reporting.
+- Support for vSphere virtual machines (VMs) as a provider during cluster provisioning.
 
 #### CLI
 
