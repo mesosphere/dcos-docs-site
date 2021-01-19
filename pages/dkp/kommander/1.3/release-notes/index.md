@@ -45,6 +45,20 @@ Kommander provides a command center for all your cloud native management needs i
 - thanos: 0.10.1
 - cost-analyzer: 1.70.1
 
+## Control and configure addon federation
+
+Customers now have the ability to control and configure which addons get installed into an attached cluster. In Kommander specific addons can be federated to attached non-Konvoy clusters. In each workspace customers can specify which addons are federated to the attached non-Konvoy clusters. 
+
+## Managed cluster multi-tenancy
+
+Customers now have the ability to share clusters across multiple projects and teams to meet their various use cases and needs. 
+
+Refer to [network policies](https://docs.d2iq.com/ksphere/kommander/latest/projects/network-policies/) for more information.
+
+## Dispatch continuous delivery on Kommander
+
+Dispatch offer continuous delivery features to Kommander customers. Customers using Kommander can now create projects, and register application/gitops repositories to deploy to clusters associated with projects. 
+
 ## Breaking changes
 Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
 
