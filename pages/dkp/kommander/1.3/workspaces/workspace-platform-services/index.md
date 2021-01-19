@@ -34,27 +34,29 @@ This takes you to the settings page which provides lists of platform services th
 
 <p class="message--important"><strong>IMPORTANT: </strong>There may be dependencies between the platform services, which are listed [here](/dkp/kommander/1.3/workspaces/platform-service-dependencies/). Please review them carefully prior to customizing to ensure that the platform services are deployed successfully.</p>
 
+Platform services support a specific set of Kubernetes versions running on the attached cluster. See the column `Kubernetes Versions Supported` in the below chart for supported Kubernetes versions per platform service. Platform services will not be deployed to clusters running Kubernetes versions outside of those listed.
+
 If desired, the Kubeaddons Controller can also be disabled, though it is highly discouraged. All platform services require the controller in order to be installed properly. You can find the setting to turn the controller off at the bottom of the page underneath the `Foundational Components` header.
 
 ## Workspace platform services
 
-| Name                                 | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
+| Name                                 | Federated by default | Supported Kubernetes Versions | Only federated on non-Konvoy clusters |
 | ------------------------------------ | -------------------- | ----------------------------- | ------------------------------------- |
-| elasticsearch                        | False                | 1.17 - 1.19                   | True                                  |
-| elasticsearch-curator                | False                | 1.17 - 1.19                   | True                                  |
-| elasticsearchexporter                | False                | 1.17 - 1.19                   | True                                  |
-| fluentbit                            | False                | 1.17 - 1.19                   | True                                  |
-| kibana                               | False                | 1.17 - 1.19                   | True                                  |
-| kube-oidc-proxy-kommander            | True                 | 1.17 - 1.19                   | False                                 |
-| prometheus                           | True                 | 1.17 - 1.19                   | True                                  |
-| prometheusadapter                    | True                 | 1.17 - 1.19                   | True                                  |
-| reloader                             | True                 | 1.17 - 1.19                   | True                                  |
-| traefik-forward-auth-kommander       | True                 | 1.17 - 1.19                   | False                                 |
+| elasticsearch                        | False                | 1.16 - 1.19                   | True                                  |
+| elasticsearch-curator                | False                | 1.16 - 1.19                   | True                                  |
+| elasticsearchexporter                | False                | 1.16 - 1.19                   | True                                  |
+| fluentbit                            | False                | 1.16 - 1.19                   | True                                  |
+| kibana                               | False                | 1.16 - 1.19                   | True                                  |
+| kube-oidc-proxy-kommander            | True                 | 1.16 - 1.19                   | False                                 |
+| prometheus                           | True                 | 1.16 - 1.19                   | True                                  |
+| prometheusadapter                    | True                 | 1.16 - 1.19                   | True                                  |
+| reloader                             | True                 | 1.16 - 1.19                   | True                                  |
+| traefik-forward-auth-kommander       | True                 | 1.16 - 1.19                   | False                                 |
 
 ## Workspace cluster platform services
 
-| Name         | Federated by default | Kubernetes Versions Supported | Only federated on non-Konvoy clusters |
+| Name         | Federated by default | Supported Kubernetes Versions | Only federated on non-Konvoy clusters |
 | -----------  | -------------------- | ----------------------------- | ------------------------------------- |
-| cert-manager | True                 | 1.17 - 1.19                   | True                                  |
-| kubecost     | True                 | 1.17 - 1.19                   | False                                 |
-| traefik      | True                 | 1.17 - 1.19                   | True                                  |
+| cert-manager | True                 | 1.16 - 1.19                   | True                                  |
+| kubecost     | True                 | 1.16 - 1.19                   | False                                 |
+| traefik      | True                 | 1.16 - 1.19                   | True                                  |
