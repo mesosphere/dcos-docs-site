@@ -43,7 +43,7 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 # New Features and Capabilities
 
 ## Control and configure workspace platform services
-Customers now have the ability to control and configure which addons get installed into an attached cluster. In Kommander specific addons can be federated to attached non-Konvoy clusters. In each workspace customers can specify which addons are federated to the attached non-Konvoy clusters. 
+Customers now have the ability to control and configure which platform services get installed into an attached cluster by workspace. In Kommander specific platform services can be federated to attached non-Konvoy clusters. In each workspace customers can specify which platform services are federated to the attached non-Konvoy clusters. 
 
 ## Managed cluster multi-tenancy
 Kommander now supports managing network policies across project clusters. Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
