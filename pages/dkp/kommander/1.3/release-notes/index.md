@@ -43,21 +43,6 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 # New Features and Capabilities
 
-## Component versions
-- Addon: 1.3.0-6
-- Chart: 0.13.7
-- kommander-federation (yakcl): 0.7.0
-- kommander-licensing (yakcl): 0.7.0
-- UI: 6.70.0
-- kommander-karma: 0.3.12
-- kubeaddons-catalog: 0.1.15
-- kommander-thanos: 0.1.16
-- kubecost: 0.1.15
-- grafana: 6.6.0
-- karma: 0.70
-- thanos: 0.10.1
-- cost-analyzer: 1.70.1
-
 ## Kudo Spark compatibility 
 
 ## Control and configure addon federation
@@ -73,6 +58,21 @@ Refer to [network policies](https://docs.d2iq.com/ksphere/kommander/latest/proje
 ## Continuous deployment using Dispatch on Kommander
 
 Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. You can also configure source repositories to be deployed across all managed clusters using GitOps best practices. Kommander uses Dispatch and FluxCD to enable continuous deployments as a standard feature of projects.
+
+## Component versions
+- Addon: 1.3.0-6
+- Chart: 0.13.7
+- kommander-federation (yakcl): 0.7.0
+- kommander-licensing (yakcl): 0.7.0
+- UI: 6.70.0
+- kommander-karma: 0.3.12
+- kubeaddons-catalog: 0.1.15
+- kommander-thanos: 0.1.16
+- kubecost: 0.1.15
+- grafana: 6.6.0
+- karma: 0.70
+- thanos: 0.10.1
+- cost-analyzer: 1.70.1
 
 ## Fixed and Improved Issues
 - Added Kubecost Prometheus health dashboards to Grafana.
