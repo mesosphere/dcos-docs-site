@@ -10,8 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-# Release notes for Kommander 1.3
-Kommander 1.3 beta 0 was released on 17, December 2020.
+**D2iQ&reg; Kommander&reg; version 1.3.0 RC1 was released on 20, January 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -37,6 +36,8 @@ Docker Hub announced an update to their image pull policies in August, 2020. The
 Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
 
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
+
+# New Features
 
 ## Kudo Spark compatibility 
 
