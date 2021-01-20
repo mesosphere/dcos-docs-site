@@ -55,9 +55,9 @@ Customers now have the ability to share clusters across multiple projects and te
 
 Refer to [network policies](https://docs.d2iq.com/ksphere/kommander/latest/projects/network-policies/) for more information.
 
-## Dispatch continuous delivery on Kommander
+## Continuous deployment using Dispatch on Kommander
 
-Dispatch offer continuous delivery features to Kommander customers. Customers using Kommander can now create projects, and register application/gitops repositories to deploy to clusters associated with projects. 
+Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. You can also configure source repositories to be deployed across all managed clusters using GitOps best practices. Kommander uses Dispatch and FluxCD to enable continuous deployments as a standard feature of projects.
 
 ## Breaking changes
 Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
