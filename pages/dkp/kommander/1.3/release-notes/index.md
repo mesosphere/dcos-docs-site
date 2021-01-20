@@ -10,8 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-# Release notes for Kommander 1.3
-Kommander 1.3 beta 0 was released on 17, December 2020.
+**D2iQ&reg; Kommander&reg; version 1.3.0 RC1 was released on 20, January 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -28,7 +27,28 @@ Kommander provides a command center for all your cloud native management needs i
 | **Minimum**        | 1.16.0  |
 | **Maximum**        | 1.18.x  |
 | **Default**        | 1.18.8  |
+
+# Breaking changes
+
+## Docker hub rate limiting 
+Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
+
+For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
+
 # New Features and Capabilities
+
+## Control and configure addon federation
+Customers now have the ability to control and configure which addons get installed into an attached cluster. In Kommander specific addons can be federated to attached non-Konvoy clusters. In each workspace customers can specify which addons are federated to the attached non-Konvoy clusters. 
+
+## Managed cluster multi-tenancy
+Kommander now supports managing network policies across project clusters. Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
+
+For more information, see [network policies](https://docs.d2iq.com/ksphere/kommander/latest/projects/network-policies/).
+
+## Dispatch continuous delivery on Kommander
+Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. 
 
 ## Component versions
 - Addon: 1.3.0-6
@@ -44,27 +64,6 @@ Kommander provides a command center for all your cloud native management needs i
 - karma: 0.70
 - thanos: 0.10.1
 - cost-analyzer: 1.70.1
-
-## Control and configure addon federation
-
-Customers now have the ability to control and configure which addons get installed into an attached cluster. In Kommander specific addons can be federated to attached non-Konvoy clusters. In each workspace customers can specify which addons are federated to the attached non-Konvoy clusters. 
-
-## Managed cluster multi-tenancy
-
-Kommander now supports managing network policies across project clusters. Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
-
-Refer to [network policies](https://docs.d2iq.com/ksphere/kommander/latest/projects/network-policies/) for more information.
-
-## Dispatch continuous delivery on Kommander
-
-Dispatch offers continuous delivery features to Kommander customers. Customers using Kommander can now create projects, and register application/gitops repositories to deploy to clusters associated with projects.
-
-## Breaking changes
-Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
-
-Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
-
-For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
 
 ## Fixed and Improved Issues
 - Added Kubecost Prometheus health dashboards to Grafana.
