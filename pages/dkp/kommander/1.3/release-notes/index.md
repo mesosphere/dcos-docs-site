@@ -28,6 +28,19 @@ Kommander provides a command center for all your cloud native management needs i
 | **Minimum**        | 1.16.0  |
 | **Maximum**        | 1.18.x  |
 | **Default**        | 1.18.8  |
+
+# Breaking changes
+
+## Docker hub rate limiting 
+Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
+
+For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
+
+## Kudo Spark compatibility 
+
+
 # New Features and Capabilities
 
 ## Component versions
@@ -45,6 +58,8 @@ Kommander provides a command center for all your cloud native management needs i
 - thanos: 0.10.1
 - cost-analyzer: 1.70.1
 
+## Kudo Spark compatibility 
+
 ## Control and configure addon federation
 
 Customers now have the ability to control and configure which addons get installed into an attached cluster. In Kommander specific addons can be federated to attached non-Konvoy clusters. In each workspace customers can specify which addons are federated to the attached non-Konvoy clusters. 
@@ -58,13 +73,6 @@ Refer to [network policies](https://docs.d2iq.com/ksphere/kommander/latest/proje
 ## Continuous deployment using Dispatch on Kommander
 
 Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. You can also configure source repositories to be deployed across all managed clusters using GitOps best practices. Kommander uses Dispatch and FluxCD to enable continuous deployments as a standard feature of projects.
-
-## Breaking changes
-Docker Hub announced an update to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
-
-Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
-
-For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
 
 ## Fixed and Improved Issues
 - Added Kubecost Prometheus health dashboards to Grafana.
