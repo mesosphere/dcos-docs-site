@@ -51,7 +51,7 @@ Customers now have the ability to control and configure which addons get install
 
 ## Managed cluster multi-tenancy
 
-Customers now have the ability to share clusters across multiple projects and teams to meet their various use cases and needs. 
+Kommander now supports managing network policies across project clusters. Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
 
 Refer to [network policies](https://docs.d2iq.com/ksphere/kommander/latest/projects/network-policies/) for more information.
 
