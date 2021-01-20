@@ -50,7 +50,7 @@ Kommander now supports managing network policies across project clusters. Projec
 
 For more information, see [network policies](https://docs.d2iq.com/ksphere/kommander/latest/projects/network-policies/).
 
-## Dispatch continuous delivery on Kommander
+## Dispatch continuous deployment on Kommander
 Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. 
 
 ## Component versions
