@@ -40,13 +40,7 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 ## Kudo Spark compatibility 
 
-
-# New Features and Capabilities
-
-## Kudo Spark compatibility 
-
-## Control and configure addon federation
-
+## Control and configure workspace platform services
 Customers now have the ability to control and configure which addons get installed into an attached cluster. In Kommander specific addons can be federated to attached non-Konvoy clusters. In each workspace customers can specify which addons are federated to the attached non-Konvoy clusters. 
 
 ## Managed cluster multi-tenancy
