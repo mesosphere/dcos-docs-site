@@ -37,6 +37,9 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
+## Kudo Spark compatibility 
+
+
 # New Features and Capabilities
 
 ## Control and configure addon federation
