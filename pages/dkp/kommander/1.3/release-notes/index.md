@@ -38,12 +38,12 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
 # New Features
-
-## KUDO Spark compatibility 
+<!-- ## KUDO Spark compatibility 
 
 Kommander 1.3 requires KUDO Spark 3.0 because Spark 2.4 does not support Kubernetes 1.18.
 To continue using KUDO Spark Kommander 1.3 and above, upgrade to Spark 3.0.
 For details on how to migrate workloads to Spark 3.0, consult the official [migration guides](https://spark.apache.org/releases/spark-release-3-0-0.html) for each relevant module.
+-->
 
 ## Control and configure workspace platform services
 Customers now have the ability to control and configure which platform services get installed into an attached cluster by workspace. In Kommander specific platform services can be federated to attached non-Konvoy clusters. In each workspace customers can specify which platform services are federated to the attached non-Konvoy clusters. 
