@@ -3,7 +3,7 @@ layout: layout.pug
 beta: true
 navigationTitle: Project Secrets
 title: Project Secrets
-menuWeight: 1
+menuWeight: 6
 excerpt: Project Secrets can be created to make sure a Kubernetes Secrets are automatically created on all the Kubernetes clusters associated with the Project, in the corresponding namespace.
 ---
 

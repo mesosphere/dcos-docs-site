@@ -1,15 +1,15 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Project Policies
-title: Project Policies
-menuWeight: 1
-excerpt: Project Policies grant access to a specified Project Role for a specified group of people.
+navigationTitle: Project Role Bindings
+title: Project Role Bindings
+menuWeight: 4
+excerpt: Project Role Bindings grant access to a specified Project Role for a specified group of people.
 ---
 
-Project Policies grant access to a specified Project Role for a specified group of people.
+Project Role Bindings grant access to a specified Project Role for a specified group of people.
 
-Before you can create a Project Policy, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users and/or groups.
+Before you can create a Project Role Binding, ensure you have created a Group. A Kommander Group can contain one or several Identity Provider users and/or groups.
 
 Then, you can assign a role to this Kommander Group:
 
@@ -43,7 +43,7 @@ virtualgroup=$(kubectl -n kommander get virtualgroup.kommander.mesosphere.io -o 
 projectrole=$(kubectl -n ${projectns} get projectroles.workspaces.kommander.mesosphere.io -o jsonpath='{.items[?(@.metadata.generateName=="admin-")].metadata.name}')
 ```
 
-When a Project Policy is created, Kommander creates a Kubernetes FederatedRoleBinding on the Kubernetes cluster where Kommander is running:
+When a Project Role Binding is created, Kommander creates a Kubernetes FederatedRoleBinding on the Kubernetes cluster where Kommander is running:
 
 ```bash
 $ kubectl -n ${projectns} get federatedrolebindings.types.kubefed.io projectpolicy-gtct4-rdkwq -o yaml
