@@ -17,7 +17,7 @@ On attachment, three factors impact successfully deploying a platform service on
 2. Is the platform service enabled in the Workspace Platform Services settings?
 3. Does the platform service support the version of Kubernetes running on the cluster?
 
-The following tables describe the list of platform services and cluster platform services that are federated on attachment, along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, then the platform service will not be federated to that cluster. If the platform service description indicates `only federated on non-Konvoy clusters`, the platform service will not be installed into Konvoy clusters, since it is by default installed with Konvoy via [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/).
+The following tables describe the list of platform services that are federated on attachment, along with the versions of Kubernetes that they support. If the cluster is running a version of Kubernetes that is not in the supported list, then the platform service will not be federated to that cluster. If the platform service description indicates `only federated on non-Konvoy clusters`, the platform service will not be installed into Konvoy clusters, since it is by default installed with Konvoy via [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/).
 
 Currently, the monitoring stack is federated by default and the logging stack is not.
 
@@ -42,21 +42,16 @@ If desired, the Kubeaddons Controller can also be disabled, though it is highly 
 
 | Name                                 | Federated by default | Supported Kubernetes Versions | Only federated on non-Konvoy clusters |
 | ------------------------------------ | -------------------- | ----------------------------- | ------------------------------------- |
+| cert-manager                         | True                 | 1.16 - 1.19                   | True                                  |
 | elasticsearch                        | False                | 1.16 - 1.19                   | True                                  |
 | elasticsearch-curator                | False                | 1.16 - 1.19                   | True                                  |
 | elasticsearchexporter                | False                | 1.16 - 1.19                   | True                                  |
 | fluentbit                            | False                | 1.16 - 1.19                   | True                                  |
 | kibana                               | False                | 1.16 - 1.19                   | True                                  |
 | kube-oidc-proxy-kommander            | True                 | 1.16 - 1.19                   | False                                 |
+| kubecost                             | True                 | 1.16 - 1.19                   | False                                 |
 | prometheus                           | True                 | 1.16 - 1.19                   | True                                  |
 | prometheusadapter                    | True                 | 1.16 - 1.19                   | True                                  |
 | reloader                             | True                 | 1.16 - 1.19                   | True                                  |
+| traefik                              | True                 | 1.16 - 1.19                   | True                                  |
 | traefik-forward-auth-kommander       | True                 | 1.16 - 1.19                   | False                                 |
-
-## Workspace cluster platform services
-
-| Name         | Federated by default | Supported Kubernetes Versions | Only federated on non-Konvoy clusters |
-| -----------  | -------------------- | ----------------------------- | ------------------------------------- |
-| cert-manager | True                 | 1.16 - 1.19                   | True                                  |
-| kubecost     | True                 | 1.16 - 1.19                   | False                                 |
-| traefik      | True                 | 1.16 - 1.19                   | True                                  |
