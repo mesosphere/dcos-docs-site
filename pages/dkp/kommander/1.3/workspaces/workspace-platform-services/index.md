@@ -7,7 +7,7 @@ menuWeight: 5
 excerpt: How workspace platform services work
 ---
 
-## Workspace platorm service federation
+## Workspace platform services
 
 When attaching a cluster, Kommander federates certain platform services on the newly attached cluster. Operators can use the Kommander UI to customize which platform services to federate to the attached clusters in a given workspace.
 
