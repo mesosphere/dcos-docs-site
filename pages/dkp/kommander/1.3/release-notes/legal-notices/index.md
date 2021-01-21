@@ -48,7 +48,7 @@ JENKINS and Debian are registered trademarks of SOFTWARE IN THE PUBLIC INTEREST,
 
 The Jupyter name is a trademark of Project Jupyter and is registered with the US Patent & Trademark Office. Jupyter, Jupyter Notebook, JupyterHub, and JupyterLab are open source projects supported by Project Jupyter.
 
-Kubernetes is a graduated project of the Cloud Native Computing Foundation, or CNCF. Cloud Native Computing Foundation, CNCF, Kubernetes, K8s, Prometheus, and The Linux Foundation are registered trademarks of the The Linux Foundation. CNI and Spinnaker are trademarks of The Linux Foundation. Additional trademarks and registered trademarks can be found at <https://www.linuxfoundation.org/trademark-list/>.
+Kubernetes is a graduated project of the Cloud Native Computing Foundation, or CNCF. Cloud Native Computing Foundation, CNCF, Kubernetes, K8s, Prometheus, and The Linux Foundation are registered trademarks of the The Linux Foundation. CNI and Spinnaker are trademarks of The Linux Foundation. Additional trademarks and registered trademarks can be found at [https://www.linuxfoundation.org/trademarks][trademarks].
 
 Mac, MacBook, and macOS are registered trademarks of Apple, Inc in the United States and other countries.
 
@@ -89,3 +89,5 @@ UNIX is registered trademark of The Open Group in the United States and other co
 VMware ESXi and VMware are registered trademarks of VMware, Inc. in the UNited States and other countries.
 
 All other trademarks, trade names, service marks, and companies referenced herein belong to their respective companies, foundations, or development communities.
+
+[trademarks]: https://www.linuxfoundation.org/trademarks
