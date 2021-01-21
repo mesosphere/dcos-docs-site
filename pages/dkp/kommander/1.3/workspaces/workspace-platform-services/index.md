@@ -25,10 +25,7 @@ Review the [workspace platform service resource requirements](/dkp/kommander/1.3
 
 ### Customize a workspace's platform services
 
-Provided you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. You can access the settings page by going to the desired workspace's **Dashboard** tab, clicking the **Actions** drop-down button and selecting **Edit Workspace Platform Services**.
-
-![Workspace Actions Dropdown](/dkp/kommander/1.3/img/workspace-actions-dropdown.png)
-<br />_Workspace Actions Dropdown_
+Provided you have access to edit a workspace, you can customize the platform services that are federated to a workspace's clusters using the Kommander UI. You can access the settings page by going to the desired workspace's **Dashboard** page, locating the Workspace card, clicking the **Actions** drop-down button and selecting **Edit Workspace Platform Services**. You can also go to the Workspace Dashboard's **Actions** menu button to access the settings page.
 
 This takes you to the settings page which provides lists of platform services that you can enable or disable along with descriptions of the services.
 

@@ -17,12 +17,6 @@ A new Kubernetes namespace, with your workspace name, is created in the manageme
 
 From the workspace selection dropdown at the top of the screen, select the workspace you would like to edit. Click the **Actions** drop-down button and select **Edit Workspace**.
 
-![Workspace Actions Dropdown](/dkp/kommander/1.3/img/workspace-actions-dropdown.png)
-<br />_Workspace Actions Dropdown_
-
-![Edit Workspace Form](/dkp/kommander/1.3/img/edit-workspace.png)
-<br />Edit Workspace Form_
-
 ### Advanced Options
 
 ![Workspace Form Advanced Annotations](/dkp/kommander/1.3/img/workspace-annotations.png)
