@@ -3,7 +3,7 @@ layout: layout.pug
 beta: true
 navigationTitle: Project ConfigMaps
 title: Project ConfigMaps
-menuWeight: 1
+menuWeight: 5
 excerpt: Project ConfigMaps can be created to make sure Kubernetes ConfigMaps are automatically created on all Kubernetes clusters associated with the Project, in the corresponding namespace.
 ---
 
