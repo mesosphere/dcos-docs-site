@@ -7,10 +7,10 @@ excerpt: Kommander architecture diagram
 menuWeight: 3
 ---
 
-Kommander provides management and insights for multiple Kubernetes clusters, and supports both Konvoy or non-Konvoy clusters. Kommander includes essential enterprise-grade capabilities such as:
+Kommander provides management and insights for multiple Kubernetes clusters, and supports both Konvoy or non-Konvoy clusters. Kommander includes essential enterprise-grade capabilities, such as:
 
 - Operational dashboard
-- Centralized monitoring, logging and alerting
+- Centralized monitoring, logging, and alerting
 - Cluster configuration manager
 - Services catalog
 - Service mesh integration
