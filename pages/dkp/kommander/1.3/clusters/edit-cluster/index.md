@@ -13,19 +13,24 @@ excerpt: Edit a cluster
 
 ### Edit an attached cluster
 
-For an attached cluster, you can only edit labels that are assigned to it.
+For an attached cluster, you can only edit labels assigned to that cluster.
 
 ![Edit an Attached Cluster](/dkp/kommander/1.3/img/edit-cluster-attached-1-1-0.png)
 
 ### Edit a managed cluster
 
-For a managed cluster, you can edit its name, Kubernetes version, labels, cloud provider tags, and its node pools.
+For a managed cluster, you can edit the following:
+- Name
+- Kubernetes version
+- Labels
+- Cloud provider tags
+- Node pools.
 
 ![Edit a Cluster Form](/dkp/kommander/1.3/img/edit-cluster-form-name-1-1-0.png)
 
 #### Edit a node pool
 
-When editing a node pool, you can only increase the number of nodes in the pool. This is to prevent losing any workloads that are currently running on the cluster.
+When editing a node pool, you can only increase the number of nodes in the pool. This prevents losing any workloads currently running on the cluster.
 
 You can also add labels and taints to a node pool.
 
