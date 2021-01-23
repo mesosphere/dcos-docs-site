@@ -13,6 +13,12 @@ excerpt: API documentation (v1beta2)
 > This document is automatically generated from the API definition in the code.
 
 ## Table of Contents
+* [VSphereDatacenters](#vspheredatacenters)
+* [VSphereMachineOpts](#vspheremachineopts)
+* [VSphereMachineOptsNetwork](#vspheremachineoptsnetwork)
+* [VSphereMachineOptsNetworkGlobal](#vspheremachineoptsnetworkglobal)
+* [VSphereMachineOptsNetworkMachine](#vspheremachineoptsnetworkmachine)
+* [VSphereProviderOptions](#vsphereprovideroptions)
 * [AutoscalingOptions](#autoscalingoptions)
 * [ClusterProvisioner](#clusterprovisioner)
 * [ClusterProvisionerSpec](#clusterprovisionerspec)
@@ -57,6 +63,7 @@ excerpt: API documentation (v1beta2)
 * [ContainerRuntime](#containerruntime)
 * [ContainerdContainerRuntime](#containerdcontainerruntime)
 * [ControlPlane](#controlplane)
+* [Etcd](#etcd)
 * [GPU](#gpu)
 * [IPTables](#iptables)
 * [ImageRegistry](#imageregistry)
@@ -71,6 +78,79 @@ excerpt: API documentation (v1beta2)
 * [OSPackages](#ospackages)
 * [OperatingSystem](#operatingsystem)
 * [PreflightChecks](#preflightchecks)
+
+## VSphereDatacenters
+
+VSphereDatacenters is vSphere datacenters definition values.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| name | Define the Name of the datacenter to be used. | string | true |
+| datastore | Define the Datastore to be used. | string | true |
+| cluster | Define the Cluster to be used. | string | true |
+| network | Define the Network to be used. | string | true |
+| vmFolder | Define the VM Folder to be used. | string | false |
+
+[Back to TOC](#table-of-contents)
+
+## VSphereMachineOpts
+
+VSphereMachineOpts is vSphere specific options for machine.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| network | Networking describes static network configuration if needed | [VSphereMachineOptsNetwork](#vspheremachineoptsnetwork) | false |
+
+[Back to TOC](#table-of-contents)
+
+## VSphereMachineOptsNetwork
+
+VSphereMachineOptsNetwork is vSphere specific network options for machine.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| global | Global describes static network configuration of global settings like nameserver and gateway | [VSphereMachineOptsNetworkGlobal](#vspheremachineoptsnetworkglobal) | false |
+| machines | Machines describes static network configuration for the machines like ip address with subnet and MAC address | [][VSphereMachineOptsNetworkMachine](#vspheremachineoptsnetworkmachine) | false |
+
+[Back to TOC](#table-of-contents)
+
+## VSphereMachineOptsNetworkGlobal
+
+VSphereMachineOptsNetworkGlobal is vSphere specific options for machines global network settings
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| searchDomains | Define the search domains as list | []string | false |
+| nameservers | Define the machines nameservers as list | []string | false |
+| vlan | Define the machines VLAN to be used | int16 | false |
+| ipv4Gateway | Define the machines IPv4 gateway to be used for internet access | string | false |
+
+[Back to TOC](#table-of-contents)
+
+## VSphereMachineOptsNetworkMachine
+
+VSphereMachineOptsNetworkMachine is vSphere specific options for machines global network settings
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| ipv4Address | Define the machines IPv4 address to be used in CIDR notation like 192.168.0.1/24 (24 -> 255.255.255.0) | string | false |
+| macAddress | Define the machines MAC address to be set, instead of getting an automatically assinged one | string | false |
+
+[Back to TOC](#table-of-contents)
+
+## VSphereProviderOptions
+
+VSphereProviderOptions describes vSphere provider specific options.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| server | Define the vSphere Server endpoint | string | true |
+| port | Define the Datacenter where you cluster is hosted. (default: `443`) | int64 | false |
+| datacenters | Define the Datacenters where you cluster is hosted. | [][VSphereDatacenters](#vspheredatacenters) | true |
+| username | Define the vSphere Username for the cloud-provider to be used. | string | true |
+| password | Define the vSphere Password for the cloud-provider to be used. | string | true |
+
+[Back to TOC](#table-of-contents)
 
 ## AutoscalingOptions
 
@@ -100,10 +180,11 @@ ClusterProvisionerSpec is the spec that contains the provisioner options.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| provider | The provider used to provision the cluster. One can choose one of the following: `aws`, `azure`, `gcp`, `docker`. (default: `aws`) | string | true |
+| provider | The provider used to provision the cluster. One can choose one of the following: `aws`, `azure`, `gcp`, `vsphere`, `docker`. (default: `aws`) | string | true |
 | aws | AWS provisioner specific options. | [AWSProviderOptions](#awsprovideroptions) | false |
 | azure | Azure provisioner specific options. | [AzureProviderOptions](#azureprovideroptions) | false |
 | gcp | GCP provisioner specific options. | [GCPProviderOptions](#gcpprovideroptions) | false |
+| vsphere | vSphere provisioner specific options. | [VSphereProviderOptions](#vsphereprovideroptions) | false |
 | docker | Docker provisioner specific options. | [DockerProviderOptions](#dockerprovideroptions) | false |
 | nodePools | A list of node pools to create. There must exist at least one control plane node pool. | [][MachinePool](#machinepool) | false |
 | sshCredentials | Contains SSH credentials information for accessing machines in a cluster. | [SSHCredentials](#sshcredentials) | false |
@@ -144,6 +225,7 @@ Machine specifies details about a machine in a node pool.
 | aws | AWS provisioner specific configurations. | [AWSMachineOpts](#awsmachineopts) | false |
 | azure | Azure provisioner specific configurations. | [AzureMachineOpts](#azuremachineopts) | false |
 | gcp | GCP provisioner specific configurations. | [GCPMachineOpts](#gcpmachineopts) | false |
+| vsphere | vSphere provisioner specific configurations. | [VSphereMachineOpts](#vspheremachineopts) | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -494,6 +576,7 @@ AutoProvisioning contains configurations for the auto provisioner.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | config | [Helm value overrides](https://helm.sh/docs/chart_template_guide/values_files/) for the auto-provisioning helm chart. You can specify arbitrary YAML/JSON object for this field. The specified value overrides will need to conform to the schema defined for the chart. | apiext.JSON | false |
+| disabled | Disabled skips the installation of the auto-provisioning components, the default is false. | bool | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -613,6 +696,17 @@ ControlPlane contains all control plane related configurations.
 
 [Back to TOC](#table-of-contents)
 
+## Etcd
+
+Etcd describes the settings for Etcd.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| imageRepository | The imageRepository to pull the etcd image from. \"/etcd\" will be appended at the end before pulling. (default: `k8s.gcr.io`) | string | false |
+| imageTag | The imageTag of etcd image to use, defaulted internally to the kubernetes version default. | string | false |
+
+[Back to TOC](#table-of-contents)
+
 ## GPU
 
 GPU represents an object that contains details of user defined GPU info.
@@ -676,7 +770,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.18.13`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.19.7`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |
@@ -685,6 +779,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 | preflightChecks | Configurations for preflight checks. | [PreflightChecks](#preflightchecks) | false |
 | apiserver | Configurations for APIServer. | [APIServer](#apiserver) | false |
 | kubelet | Configurations for Kubelet. | [Kubelet](#kubelet) | false |
+| etcd | Configurations for Etcd. | [Etcd](#etcd) | false |
 
 [Back to TOC](#table-of-contents)
 

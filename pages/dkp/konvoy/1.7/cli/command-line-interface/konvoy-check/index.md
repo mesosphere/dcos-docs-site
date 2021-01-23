@@ -33,6 +33,7 @@ konvoy check [flags]
 
 * [konvoy](../)	 - Deploy and manage Kubernetes clusters
 * [konvoy check addons](./konvoy-check-addons/)	 - Run checks on the addons
+* [konvoy check fips](./konvoy-check-fips/)	 - Run fips-140-2 compliance checks
 * [konvoy check kubernetes](./konvoy-check-kubernetes/)	 - Run checks on the cluster components
 * [konvoy check nodes](./konvoy-check-nodes/)	 - Run checks on the nodes
 * [konvoy check preflight](./konvoy-check-preflight/)	 - Run checks to validate machines are ready for installation

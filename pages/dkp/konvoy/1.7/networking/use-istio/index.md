@@ -5,6 +5,7 @@ title: Integrate microservices using Istio
 menuWeight: 24
 excerpt: Learn how to integrate microservices managed by Istio into a Konvoy cluster
 beta: true
+experimental: true
 enterprise: false
 ---
 
@@ -35,7 +36,7 @@ Istio can be deployed through `konvoy` by adding it to the list of configured ad
       addons:
       - configRepository: https://github.com/mesosphere/kubernetes-base-addons
         addonsList:
-        - name: istio # Istio is currently in Preview
+        - name: istio # Istio is currently in Experimental status
           enabled: false
     ```
 

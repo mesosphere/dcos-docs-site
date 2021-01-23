@@ -14,27 +14,89 @@ This section describes the Nvidia GPU support on Konvoy. This document assumes f
 
 # Konvoy GPU Overview
 
-GPU support on Konvoy is achieved by using the [nvidia-container-runtime][nvidia_container_runtime] and [Nvidia Driver Container][nvidia_driver_container].
+GPU support on Konvoy is achieved by using the [nvidia-container-runtime][nvidia_container_runtime].
 With the Nvidia GPU turned on, Konvoy configures the container runtime, for running GPU containers, and installs all the necessary items to power up the Nvidia GPU devices.
 Konvoy runs every Nvidia GPU dependent component as daemonsets, making it easier to manage and upgrade.
 
-<p class="message--note"><strong>NOTE: </strong> Konvoy assumes there are no legacy GPU drivers or device plugins running on the host machine. Legacy GPU drivers and plugins can conflict with the Konvoy deployed drivers and plugins. </p>
+<p class="message--note"><strong>NOTE: </strong> Starting from Konvoy 1.7, Konvoy assumes that the Nvidia driver is running on the host machine, in order to guarantee zero downtime during machine kernel upgrade. Users should make sure the Nvidia driver is running and healthy on the host before installing Konvoy. </p>
 
 The following components provide Nvidia GPU support on Konvoy:
 
 * [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime]: Konvoy uses containerd as kubernetes container runtime by default. [libnvidia-container][libnvidia_container] and [nvidia-container-runtime][nvidia_container_runtime] shim between containerd and runc, which simplifies the container runtime integration with GPU support. Another benefit is this avoids using [nvidia-docker2][nvidia_docker].
-* [Nvidia Driver Container][nvidia_driver_container]: Allows running Nvidia driver inside of a container making it easier to deploy, faster to install, and reproducible.
-* [Nvidia Device Plugin][nvidia_device_plugin]: This plugin displays the number of GPUs on each node, tracks the health of the GPUs, and enables running GPU enabled containers on Kubernetes.
+* [Nvidia Device Plugin][nvidia_k8s_device_plugin]: This plugin displays the number of GPUs on each node, tracks the health of the GPUs, and enables running GPU enabled containers on Kubernetes.
 * [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVIDIA Data Center GPU Manager][nvidia_dcgm]: This is a Prometheus exporter that displays Nvidia GPU metrics.
 
 ## Requirements
 
-1.  Ubuntu 16.04, or Centos 7 with the IPMI driver enabled and the Nouveau driver disabled.
+1.  Centos 7 or Ubuntu 16.04/18.04 with the IPMI driver enabled and the Nouveau driver disabled.
     <!-- If you are running Ubuntu 18.04 with an AWS kernal, you also need to enable the i2c_core kernel module. -->
 
 1.  NVIDIA GPU with Fermie architecture version 2.1 or greater.
 
-1.  On Centos 7, we recommend using the latest kernel version in production. The default AMI's kernel version `3.10.0-1062` should work as well. If you want to use a dedicated kernel version on Centos, refer to the following sections for detailed configuration. Note that Ubuntu does not have the kernel version restriction.
+1.  Nvidia driver must be running on each GPU host node. The Nvidia driver version needs to be < 460.x, because the [Nvidia DCGM exporter][nvidia_dcgm] does not support the latest Nvidia driver yet. Nvidia driver version `450.51.06-1` is recommended. Please follow the offcial [Nvidia Driver Installation Guide][nvidia_driver_installation_guide] to setup the driver on the host. For example,
+
+* Centos 7
+
+```bash
+sudo yum update -y
+sudo yum -y group install "Development Tools"
+sudo yum -y install kernel-devel epel-release dkms
+sudo sed -i '/^GRUB_CMDLINE_LINUX=/s/"$/ module_name.blacklist=1 rd.driver.blacklist=nouveau modprobe.blacklist=nouveau"/' /etc/default/grub
+sudo dracut --omit-drivers nouveau -f
+sudo grub2-mkconfig -o /boot/grub2/grub.cfg
+sudo reboot
+
+lsmod | grep -i nouveau #ensure not loaded
+sudo yum install -y tar bzip2 make automake gcc gcc-c++ pciutils elfutils-libelf-devel libglvnd-devel iptables firewalld vim bind-utils wget
+distribution=rhel7
+ARCH=$( /bin/arch )
+sudo yum-config-manager --add-repo http://developer.download.nvidia.com/compute/cuda/repos/$distribution/${ARCH}/cuda-$distribution.repo
+sudo yum install -y kernel-devel-$(uname -r) kernel-headers-$(uname -r)
+sudo yum clean expire-cache
+sudo yum install -y nvidia-driver-latest-dkms-3:450.51.06-1.el7.x86_64
+```
+
+* Ubuntu 16.04/18.04 LTS
+
+```bash
+sudo apt-get install linux-headers-$(uname -r)
+distribution=$(. /etc/os-release;echo $ID$VERSION_ID | sed -e 's/\.//g')
+wget https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/cuda-$distribution.pin
+sudo mv cuda-$distribution.pin /etc/apt/preferences.d/cuda-repository-pin-600
+
+# Install the CUDA repository public GPG key. Note that on Ubuntu 16.04, replace https with http in the command below.
+sudo apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64/7fa2af80.pub
+
+echo "deb http://developer.download.nvidia.com/compute/cuda/repos/$distribution/x86_64 /" | sudo tee /etc/apt/sources.list.d/cuda.list
+sudo apt-get update
+sudo apt-get -y install cuda-drivers-450
+```
+
+* Verify the Nvidia driver is running on the host
+
+```bash
+[centos@ip-10-0-130-28 ~]$ nvidia-smi
+Fri Jan 15 01:36:34 2021
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 450.51.06    Driver Version: 450.51.06    CUDA Version: 11.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  Tesla K80           Off  | 00000000:00:1E.0 Off |                    0 |
+| N/A   35C    P0    73W / 149W |      0MiB / 11441MiB |     99%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+
++-----------------------------------------------------------------------------+
+| Processes:                                                                  |
+|  GPU   GI   CI        PID   Type   Process name                  GPU Memory |
+|        ID   ID                                                   Usage      |
+|=============================================================================|
+|  No running processes found                                                 |
++-----------------------------------------------------------------------------+
+```
 
 ## Configuration
 
@@ -68,94 +130,11 @@ spec:
       nvidia: {}
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.1
+    configVersion: testing-1.19-3.2.0
     addonsList:
     - name: nvidia
       enabled: true
 ```
-
-### Nvidia Driver Configuration Based on Kernel Version
-
-Additional configuration may be needed if your kernel version of the GPU nodes is not identical to the latest one from the yum repository. You need to pick the right image tag for your Nvidia Driver container. For example, the following list is the supported kernel versions from the Nvidia upstream `nvidia/driver` image:
-
-```bash
-440.64.00-1.0.0-3.10.0-1127.8.2.el7.x86_64-centos7
-440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7
-440.64.00-1.0.0-3.10.0-1062.18.1.el7.x86_64-centos7
-440.33.01-3.10.0-1062.12.1.el7.x86_64-centos7
-440.33.01-3.10.0-1062.9.1.el7.x86_64-centos7
-440.33.01-3.10.0-1062.7.1.el7.x86_64-centos7
-440.33.01-3.10.0-1062.4.3.el7.x86_64-centos7
-418.87.01-3.10.0-1062.4.3.el7.x86_64-centos7
-418.87.01-3.10.0-1062.4.1.el7.x86_64-centos7
-418.87.01-3.10.0-1062.1.2.el7.x86_64-centos7
-418.40.04-3.10.0-957.21.3.el7.x86_64-centos7
-418.40.04-3.10.0-957.21.2.el7.x86_64-centos7
-418.40.04-3.10.0-957.12.2.el7.x86_64-centos7
-418.40.04-3.10.0-957.12.1.el7.x86_64-centos7
-418.40.04-3.10.0-957.10.1.el7.x86_64-centos7
-396.37-3.10.0-957.5.1.el7.x86_64-centos7
-396.37-3.10.0-957.1.3.el7.x86_64-centos7
-396.37-3.10.0-862.14.4.el7.x86_64-centos7
-396.37-3.10.0-862.14.4-centos7
-396.37-3.10.0-862.11.6-centos7
-396.37-3.10.0-862.9.1-centos7
-```
-
-This list is from [Nvidia Public Hub Repository][nvidia_public_hub_repository]. You need to identify your kernel version first. For example,
-
-```bash
-[centos@ip-10-0-128-77 ~]$ uname -r
-3.10.0-1062.12.1.el7.x86_64
-```
-
-Then, find the corresponding pre-built `nvidia/driver` image from the list above. In this case, `440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7` is the right image tag to pick. Configure the `cluster.yaml` to adopt this image tag for your nvidia driver container:
-
-```yaml
-    - name: nvidia
-      enabled: true
-      values: |
-        nvidia-driver:
-          image:
-            tag: "440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7"
-```
-
-### GPU on Air-gapped On-prem Cluster
-
-Follow the [Konvoy Air-gapped Installations](../install/install-airgapped/) doc. Re-tag the `nvidia/driver` image with the corresponding tag, identified from the above section, and push it to your local registry. For example:
-
-```bash
-REGISTRY=yourlocalregistry.com:6443
-
-docker tag nvidia/driver:440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7 ${REGISTRY}/nvidia/driver:440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7
-
-docker push ${REGISTRY}/nvidia/driver:440.64.00-1.0.0-3.10.0-1127.el7.x86_64-centos7
-```
-
-### Konvoy GPU Support on Ubuntu
-
-By default, Konvoy assumes the cluster OS is CentOS. If you want to run the GPU workloads on Ubuntu, you must update the [Nvidia Driver Container][nvidia_driver_container] image in the `cluster.yaml`:
-
-```yaml
-......
----
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1beta2
-spec:
-  addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.1
-    addonsList:
-    - name: nvidia
-      enabled: true
-      values: |
-      nvidia-driver:
-        enabled: true
-        image:
-          tag: "418.87.01-ubuntu16.04"
-```
-
-See [Nvidia Public Hub Repository][nvidia_public_hub_repository] for available driver container images.
 
 ### How to prevent other workloads from running on GPU nodes
 
@@ -201,18 +180,12 @@ spec:
         effect: NoExecute
   addons:
   - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.1
+    configVersion: testing-1.19-3.2.0
     addonsList:
 ......
     - name: nvidia
       enabled: true
       values: |
-        nvidia-driver:
-          tolerations:
-            - key: "dedicated"
-              operator: "Equal"
-              value: "gpu-worker"
-              effect: "NoExecute"
         nvidia-device-plugin:
           tolerations:
             - key: "dedicated"
@@ -234,9 +207,7 @@ Konvoy uses [Nvidia GPU Metrics Exporter][nvidia_gpu_metrics_exporter] and [NVID
 
 ## Upgrade
 
-Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, due to a limitation in Helm, which is used internally by Konvoy, the GPU addon pods will repeatedly restart with the `CrashLoopBackOff` status for 5-10 minutes. This is because the Nvidia driver has a requirement that there must be at most one driver container running on any single node. This is to ensure the driver can successfully load the necessary kernel modules. However, this conflicts with the current `helm upgrade` strategy. When Helm tries to upgrade charts, it deploys new pods for the newer versioned chart while the old pods are still in the `Terminating` state. This causes a race condition in Nvidia's singleton policy.
-
-To overcome this limitation and upgrade the Nvidia GPU addon manually:
+Konvoy is capable of automatically upgrading the Nvidia GPU addon. However, GPU workload needs to be drained if the Nvidia addon is being upgraded.
 
 1.  Delete all GPU workloads on the GPU nodes where the Nvidia addon needs to be upgraded.
 
@@ -269,30 +240,24 @@ To overcome this limitation and upgrade the Nvidia GPU addon manually:
 1.  If there are any Nvidia pods crashing, returning errors, or flapping, collect the logs for the problematic pod. For example:
 
     ```bash
-    kubectl logs -n kube-system nvidia-kubeaddons-nvidia-driver-bbkwg
+    kubectl logs -n kube-system nvidia-kubeaddons-nvidia-device-plugin-dxtch
     ```
 
-1.  To recover from this problem, you must restart all Nvidia-addon pods that are running on the **SAME** host. This is because both `nvidia-dcgm-exporter` and `nvidia-device-plugin` are dependent on `nvidia-driver`. In the example below, all Nvidia resources are restarted on the node `ip-10-0-129-201.us-west-2.compute.interna`:
+1.  To recover from this problem, you must restart all Nvidia-addon pods that are running on the **SAME** host. In the example below, all Nvidia resources are restarted on the node `ip-10-0-129-201.us-west-2.compute.interna`:
 
     ```bash
     $ kubectl get pod -A -o wide | grep nvidia
     kube-system    nvidia-kubeaddons-nvidia-device-plugin-dxtch                         1/1     Running     0          4m20s   192.168.57.153    ip-10-0-129-191.us-west-2.compute.internal   <none>           <none>
     kube-system    nvidia-kubeaddons-nvidia-device-plugin-j4dm2                         1/1     Running     0          4m20s   192.168.39.88     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
     kube-system    nvidia-kubeaddons-nvidia-device-plugin-qb29b                         1/1     Running     0          4m20s   192.168.119.35    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
-    kube-system    nvidia-kubeaddons-nvidia-device-plugin-tsbk2                         1/1     Running     0          4m20s   192.168.243.99    ip-10-0-129-201.us-west-2.compute.internal   <none>           <none>
-    kube-system    nvidia-kubeaddons-nvidia-driver-6m59m                                1/1     Running     3          4m20s   192.168.119.34    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
-    kube-system    nvidia-kubeaddons-nvidia-driver-79rmt                                1/1     Running     3          4m20s   192.168.57.152    ip-10-0-129-191.us-west-2.compute.internal   <none>           <none>
-    kube-system    nvidia-kubeaddons-nvidia-driver-fnhts                                1/1     Running     3          4m20s   192.168.39.87     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
-    kube-system    nvidia-kubeaddons-nvidia-driver-ks9hf                                1/1     Running     3          4m20s   192.168.243.98    ip-10-0-129-201.us-west-2.compute.internal   <none>           <none>
     kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-8ngx9                         2/2     Running     0          4m20s   192.168.57.154    ip-10-0-129-191.us-west-2.compute.internal   <none>           <none>
     kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6                         2/2     Running     0          4m20s   192.168.243.100   ip-10-0-129-201.us-west-2.compute.internal   <none>           <none>
     kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-ttjqs                         2/2     Running     0          4m20s   192.168.39.89     ip-10-0-128-134.us-west-2.compute.internal   <none>           <none>
     kubeaddons     nvidia-kubeaddons-nvidia-dcgm-exporter-xqj6r                         2/2     Running     0          4m20s   192.168.119.36    ip-10-0-128-208.us-west-2.compute.internal   <none>           <none>
     $ kubectl delete pod -n kubeaddons nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6
     pod "nvidia-kubeaddons-nvidia-dcgm-exporter-mwwl6" deleted
-    $ kubectl delete pod -n kube-system nvidia-kubeaddons-nvidia-device-plugin-tsbk2 nvidia-kubeaddons-nvidia-driver-ks9hf
+    $ kubectl delete pod -n kube-system nvidia-kubeaddons-nvidia-device-plugin-tsbk2
     pod "nvidia-kubeaddons-nvidia-device-plugin-tsbk2" deleted
-    pod "nvidia-kubeaddons-nvidia-driver-ks9hf" deleted
     ```
 
 1.  To collect more debug information on the Nvidia addon, run:
@@ -304,7 +269,7 @@ To overcome this limitation and upgrade the Nvidia GPU addon manually:
 [libnvidia_container]: https://github.com/NVIDIA/libnvidia-container
 [nvidia_container_runtime]: https://github.com/NVIDIA/nvidia-container-runtime
 [nvidia_docker]: https://github.com/NVIDIA/nvidia-docker
-[nvidia_driver_container]: https://github.com/NVIDIA/nvidia-docker/wiki/Driver-containers-(Beta)
+[nvidia_driver_installation_guide]: https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/#package-manager
 [nvidia_public_hub_repository]: https://hub.docker.com/r/nvidia/driver
 [nvidia_k8s_device_plugin]: https://github.com/NVIDIA/k8s-device-plugin
 [nvidia_dcgm]: https://developer.nvidia.com/dcgm

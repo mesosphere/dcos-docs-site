@@ -19,7 +19,7 @@ Before installing, ensure that your environment has the following basic requirem
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.18.13 or later
+* [kubectl][install_kubectl] v1.19.7 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -30,6 +30,7 @@ Before installing, ensure that your environment has the following basic requirem
 * Each control plane node should have at least:
   * 4 cores
   * 16 GiB memory
+  * Disk usage must be below 85% on the root volume.
   * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 ## Worker nodes
@@ -41,6 +42,7 @@ Before installing, ensure that your environment has the following basic requirem
 * Each worker node should have at least:
   * 8 cores
   * 32 GiB memory
+  * Disk usage must be below 85% on the root volume.
   * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
@@ -72,7 +74,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.18.13+d2iq.1
+    version: 1.19.7+d2iq.1
     imageRepository: docker.io/mesosphere
 ```
 

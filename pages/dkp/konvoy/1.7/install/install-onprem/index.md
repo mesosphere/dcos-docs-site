@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker][install_docker] version 18.09.2 or later. You must have Docker installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.18.13 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.19.7 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
 ## Control plane nodes
 
@@ -28,6 +28,7 @@ Before installing, verify that your environment meets the following basic requir
   * 4 cores
   * 16 GiB memory
   * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
+  * Disk usage must be below 85% on the root volume.
 
 ## Worker nodes
 
@@ -37,6 +38,7 @@ Before installing, verify that your environment meets the following basic requir
   * 8 cores
   * 32 GiB memory
   * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
+  * Disk usage must be below 85% on the root volume.
 
 * If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least four volumes to the `/mnt/disks/` mount point on each node. Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
@@ -199,7 +201,7 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: stable-1.18-3.0.1
+    configVersion: testing-1.19-3.2.0
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
@@ -208,7 +210,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.18-1.3.0-beta.0
+    configVersion: testing-1.19-1.3.0-rc.1
     addonsList:
     - name: kommander
       enabled: true
@@ -224,7 +226,7 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
 ## Configure the RPM and DEB package repository
 
 By default Konvoy adds new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
-If the required repositories are already configured in your environment, you may disable this behavior by setting the value of `enableAdditionalRepositories` to `true`.
+If the required repositories are already configured in your environment, you can disable this behavior by setting the value of `enableAdditionalRepositories` to `false`.
 
 ```yaml
 kind: ClusterConfiguration

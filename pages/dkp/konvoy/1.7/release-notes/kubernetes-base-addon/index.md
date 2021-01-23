@@ -25,7 +25,7 @@ November 12, 2020
 
 [stable-1.18-3.0.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.18-3.0.0)
 
--   Ambassador
+-   [experimental]Ambassador[/experimental]
     - added Ambassador addon ([#524](https://github.com/mesosphere/kubernetes-base-addons/pull/524), [@shaneutt](https://github.com/shaneutt))
 
 -   Cert-manager:
@@ -69,7 +69,7 @@ November 12, 2020
     -   Adds chart value `podLabels`. ([#584](https://github.com/mesosphere/kubernetes-base-addons/pull/584))
     -   configuration to unblock output buffer. ([#589](https://github.com/mesosphere/kubernetes-base-addons/pull/589), [@alejandroEsc](https://github.com/alejandroEsc))
 
--   Istio
+-   [experimental]Istio[/experimental]
     -   Bug Fixes
         - Fixed HTTP match request without headers conflict
         - Fixed Istio operator to watch multiple namespaces (Istio &#35;26317)

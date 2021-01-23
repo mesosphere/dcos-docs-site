@@ -4,7 +4,7 @@ navigationTitle: CLI
 title: CLI
 menuWeight: 250
 excerpt: Konvoy CLI
-beta: true <!-- Set this to true if this is a beta topic, set to false or remove otherwise. -->
+beta: true
 enterprise: false
 ---
 Konvoy CLI

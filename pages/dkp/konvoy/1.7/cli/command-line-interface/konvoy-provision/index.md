@@ -24,13 +24,14 @@ konvoy provision [cluster name] [flags]
 ### Options
 
 ```
-      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@testing-1.18-1.3.0-beta.0,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.18-1.3.1,https://github.com/mesosphere/kubernetes-base-addons@stable-1.18-3.0.1])
+      --addons-repositories strings   A comma separated list of addons repositories with uri@version (default [https://github.com/mesosphere/kubeaddons-kommander@testing-1.19-1.3.0-rc.1,https://github.com/mesosphere/kubeaddons-dispatch@stable-1.18-1.3.1,https://github.com/mesosphere/kubernetes-base-addons@testing-1.19-3.2.0])
       --cluster-name string           name used to prefix the cluster and all the created resources (default "konvoy")
       --force-push                    force push the cluster state
       --force-reduce-control-plane    allow a reduction for the number of control plane nodes in a cluster
   -h, --help                          help for provision
+      --mode string                   apply operating mode to configuration, supported modes [default, fips] (default "default")
       --plan-only                     show planned changes but don't provision
-      --provisioner string            select a provisioner [aws|azure|gcp|docker|none] (default "aws")
+      --provisioner string            select a provisioner [aws|azure|gcp|vsphere|docker|none] (default "aws")
       --skip-provisioning-retry       do not retry the provisioning stage in case of errors
       --skip-state-upload             skip the upload of the state to Kubernetes cluster
       --verbose                       enable debug level logging

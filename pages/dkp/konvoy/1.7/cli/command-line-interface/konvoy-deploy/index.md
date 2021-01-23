@@ -36,7 +36,6 @@ konvoy deploy [flags]
       --verbose                     enable debug level logging
       --with-checks                 execute checks after each deployment step
       --without-addons              skip installing the addons
-      --without-auto-provisioning   skip installing the auto provisioner
       --without-draining            run an upgrade on all nodes requiring an upgrade, without draining the nodes first (requires --upgrade or --force-upgrade flag) (WARNING! usage can result in undefined behavior and service downtime)
   -y, --yes                         run command without prompting
 ```

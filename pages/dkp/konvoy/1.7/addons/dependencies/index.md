@@ -47,7 +47,7 @@ In addition to understanding why an addon does not deploy, these concepts help t
 |  gatekeeper | `kubeaddons.mesosphere.io/name: cert-manager` |
 |  gcpdisk-csi-driver | `kubeaddons.mesosphere.io/name: defaultstorageclass-protection` |
 |  gcpdiskprovisioner | `kubeaddons.mesosphere.io/name: defaultstorageclass-protection`<br/>`kubeaddons.mesosphere.io/name: gcpdisk-csi-driver` |
-|  istio | `kubeaddons.mesosphere.io/name: cert-manager` |
+|  [experimental]istio[/experimental] | `kubeaddons.mesosphere.io/name: cert-manager` |
 |  kibana | `kubeaddons.mesosphere.io/name: elasticsearch` |
 |  kube-oidc-proxy | `kubeaddons.mesosphere.io/provides: ingresscontroller`<br/>`kubeaddons.mesosphere.io/name: cert-manager<br/>kubeaddons.mesosphere.io/name: dex` |
 |  localvolumeprovisioner | `kubeaddons.mesosphere.io/name: defaultstorageclass-protection` |

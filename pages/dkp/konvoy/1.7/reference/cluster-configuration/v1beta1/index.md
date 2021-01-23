@@ -56,6 +56,7 @@ excerpt: API documentation (v1beta1)
 * [ContainerRuntime](#containerruntime)
 * [ContainerdContainerRuntime](#containerdcontainerruntime)
 * [ControlPlane](#controlplane)
+* [Etcd](#etcd)
 * [GPU](#gpu)
 * [HelmRepository](#helmrepository)
 * [IPTables](#iptables)
@@ -483,6 +484,7 @@ AutoProvisioning contains configurations for the auto provisioner.
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | config | [Helm value overrides](https://helm.sh/docs/chart_template_guide/values_files/) for the auto-provisioning helm chart. You can specify arbitrary YAML/JSON object for this field. The specified value overrides will need to conform to the schema defined for the chart. | apiext.JSON | false |
+| disabled | Disabled skips the installation of the auto-provisioning components, the default is false. | bool | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -602,6 +604,17 @@ ControlPlane contains all control plane related configurations.
 
 [Back to TOC](#table-of-contents)
 
+## Etcd
+
+Etcd describes the settings for Etcd.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| imageRepository | The imageRepository to pull the etcd image from. \"/etcd\" will be appended at the end before pulling. (default: `k8s.gcr.io`) | string | false |
+| imageTag | The imageTag of etcd image to use, defaulted internally to the kubernetes version default. | string | false |
+
+[Back to TOC](#table-of-contents)
+
 ## GPU
 
 GPU represents an object that contains details of user defined GPU info.
@@ -675,7 +688,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.18.13`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.19.7`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |
@@ -684,6 +697,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 | preflightChecks | Configurations for preflight checks. | [PreflightChecks](#preflightchecks) | false |
 | apiserver | Configurations for APIServer. | [APIServer](#apiserver) | false |
 | kubelet | Configurations for Kubelet. | [Kubelet](#kubelet) | false |
+| etcd | Configurations for Etcd. | [Etcd](#etcd) | false |
 
 [Back to TOC](#table-of-contents)
 
