@@ -33,6 +33,7 @@ This release provides new features and enhancements to improve the user experien
 ### New features and capabilities
 
 - Added support for SUSE 15.
+- Added support for `vsphere` as a provisioner to create clusters in your [VMware vSphere](https://www.vmware.com/products/vsphere.html) environemnt. For more information, see the [Konvoy vSphere topic][konvoy-vsphere].
 
 #### CLI
 
@@ -112,3 +113,4 @@ For information about working with native Kubernetes, see the [Kubernetes docume
 
 [konvoy-doc]: ../index.md
 [kubernetes-doc]: https://kubernetes.io/docs/home/
+[konvoy-vsphere]: https://docs.d2iq.com/dkp/konvoy

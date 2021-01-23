@@ -62,5 +62,5 @@ For information on related topics or procedures, refer to the following:
 - [Tutorial: Configure Ingress for load balancing](../use-ingress-load-balancer)
 - [Load Balancing](../load-balancing)
 
-[traefik]: https://landscape.cncf.io/category=service-proxy&format=card-mode&grouping=category&selected=traefik
+[traefik]: https://landscape.cncf.io/card-mode?category=service-proxy&grouping=category&selected=traefik
 [traefik_fn]: https://doc.traefik.io/traefik/v1.7/user-guide/kubernetes/

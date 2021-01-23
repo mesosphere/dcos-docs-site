@@ -1,8 +1,8 @@
 ## Kubernetes Base Addons Requirements
 
-Kubernetes Base Addons (KBA) require more resources than solely deploying clusters. Some addons are prerequisites for others to deploy. Your cluster needs to have sufficient resources when deploying the konvoy cluster, or you must adjust the addons deployed, before running `konvoy up`.
+Kubernetes Base Addons (KBA) require more resources than solely deploying clusters. Some addons are prerequisites for others to deploy. Your cluster must have sufficient resources when deploying a Konvoy cluster, or you must adjust the addons deployed before running `konvoy up`.
 
-The following table describes all the KBA supplied, by default, with Konvoy, minimum resource suggestions, and their default status when starting Konvoy.
+The following table describes all KBAs supplied, by default, with Konvoy, minimum resource suggestions and persistent storage requirements, and their default status when starting Konvoy.
 
 <table>
   <tr>
@@ -10,15 +10,19 @@ The following table describes all the KBA supplied, by default, with Konvoy, min
    </td>
    <td><strong>Description</strong>
    </td>
-   <td><strong>Default&nbsp;Minimum&nbsp;Suggested</strong>
+   <td><strong>Default Minimum Resources Suggested</strong>
    </td>
-   <td><strong>Default&nbsp;On&nbsp;When konvoy&nbsp;init</strong>
+   <td><strong>Default Minimum Persistent Storage Required</strong>
+   </td>
+   <td><strong>Default On When konvoy init</strong>
    </td>
   </tr>
   <tr>
    <td>awsebscsiprovisioner
    </td>
    <td>Supports persistent volumes on AWS
+   </td>
+   <td>
    </td>
    <td>
    </td>
@@ -29,6 +33,8 @@ The following table describes all the KBA supplied, by default, with Konvoy, min
    <td>awsebsprovisioner
    </td>
    <td>Legacy “in-tree” volume provisioner
+   </td>
+   <td>
    </td>
    <td>
    </td>
@@ -44,6 +50,8 @@ The following table describes all the KBA supplied, by default, with Konvoy, min
 <p>
 memory: 20Mi
    </td>
+   <td>
+   </td>
    <td>No
    </td>
   </tr>
@@ -51,6 +59,8 @@ memory: 20Mi
    <td>azurediskprovisioner
    </td>
    <td>Legacy volume provisioner
+   </td>
+   <td>
    </td>
    <td>
    </td>
@@ -68,6 +78,8 @@ and then talk to Let’s Encrypt server to get a valid certificate.
 <p>
 memory: 32Mi
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -80,6 +92,8 @@ memory: 32Mi
 <p>
 memory: 300Mi
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -87,6 +101,8 @@ memory: 300Mi
    <td>defaultstorageclass-protection
    </td>
    <td>Ensures that there is 1 default storage class (i.e. something that would provide a volume)
+   </td>
+   <td>
    </td>
    <td>
    </td>
@@ -102,6 +118,8 @@ memory: 300Mi
 <p>
 memory: 50Mi
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -113,6 +131,8 @@ memory: 50Mi
    <td>cpu: 100m
 <p>
 memory: 128Mi
+   </td>
+   <td>
    </td>
    <td>Yes
    </td>
@@ -126,6 +146,10 @@ memory: 128Mi
 <p>
 memory: 1536Mi
    </td>
+   <td># of PVs: 7
+<p>
+PV sizes: 4Gi x 3, 30Gi x 4 (total: 132Gi)
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -137,6 +161,8 @@ memory: 1536Mi
    <td>cpu: 100m
 <p>
 memory: 128Mi
+   </td>
+   <td>
    </td>
    <td>Yes
    </td>
@@ -150,6 +176,8 @@ memory: 128Mi
 <p>
 memory: 128Mi
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -161,6 +189,8 @@ memory: 128Mi
    <td>cpu: 10m
 <p>
 memory: 50Mi
+   </td>
+   <td>
    </td>
    <td>Yes
    </td>
@@ -174,6 +204,8 @@ memory: 50Mi
 <p>
 memory: 32Mi
    </td>
+   <td>
+   </td>
    <td>No
    </td>
   </tr>
@@ -185,6 +217,8 @@ memory: 32Mi
    <td>cpu: 200m
 <p>
 memory: 200Mi
+   </td>
+   <td>
    </td>
    <td>Yes
    </td>
@@ -198,17 +232,21 @@ memory: 200Mi
 <p>
 memory: 300Mi
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
   <tr>
-   <td>istio
+   <td>[experimental]istio[/experimental]
    </td>
    <td>Helps you manage cloud-based deployments by providing an open-source service mesh to connect, secure, control, and observe microservices.
    </td>
    <td>cpu: 10m
 <p>
- memory: 50Mi
+memory: 50Mi
+   </td>
+   <td>
    </td>
    <td>No
    </td>
@@ -220,6 +258,8 @@ memory: 300Mi
    </td>
    <td>cpu: 100m
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -227,6 +267,8 @@ memory: 300Mi
    <td>konvoyconfig
    </td>
    <td>Manages installation related configuration
+   </td>
+   <td>
    </td>
    <td>
    </td>
@@ -240,6 +282,8 @@ memory: 300Mi
    </td>
    <td>
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -247,6 +291,8 @@ memory: 300Mi
    <td>localvolumeprovisioner
    </td>
    <td>Uses the local volume static provisioner to manage persistent volumes for pre-allocated disks. It does this by watching the /mnt/disks folder on each host and creating persistent volumes in the localvolumeprovisioner storage class for each disk that is discovered in this folder.
+   </td>
+   <td>
    </td>
    <td>
    </td>
@@ -262,6 +308,8 @@ memory: 300Mi
 <p>
 memory: 128Mi
    </td>
+   <td>
+   </td>
    <td>No
    </td>
   </tr>
@@ -273,6 +321,8 @@ memory: 128Mi
    <td>cpu: 100m
 <p>
 memory: 128Mi
+   </td>
+   <td>
    </td>
    <td>Yes
    </td>
@@ -286,6 +336,10 @@ memory: 128Mi
 <p>
 memory: 1500Mi
    </td>
+   <td># of PVs: 1
+<p>
+PV sizes: 50Gi
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -297,6 +351,8 @@ memory: 1500Mi
    <td>cpu: 1000m
 <p>
 memory: 1000Mi
+   </td>
+   <td>
    </td>
    <td>Yes
    </td>
@@ -310,6 +366,8 @@ memory: 1000Mi
 <p>
 memory: 128Mi
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -319,6 +377,8 @@ memory: 128Mi
    <td>Routes layer 7 traffic as a reverse proxy and load balancer.
    </td>
    <td>cpu: 500m
+   </td>
+   <td>
    </td>
    <td>Yes
    </td>
@@ -332,6 +392,8 @@ memory: 128Mi
 <p>
 memory: 128Mi
    </td>
+   <td>
+   </td>
    <td>Yes
    </td>
   </tr>
@@ -343,6 +405,10 @@ memory: 128Mi
    <td>cpu: 250m
 <p>
 memory: 256Mi
+   </td>
+   <td># of PVs: 4
+<p>
+PV sizes: 4 x 10Gi (total: 40Gi)
    </td>
    <td>Yes
    </td>
@@ -356,6 +422,8 @@ memory: 256Mi
 <p>
 memory: 256Mi
    </td>
+   <td>
+   </td>
    <td>No
    </td>
   </tr>
@@ -367,6 +435,10 @@ memory: 256Mi
    <td>cpu: 100m
 <p>
 memory: 256Mi
+   </td>
+   <td># of PVs: 3
+<p>
+PV sizes: 0.2Gi, 32Gi, 2Gi (total: 35Gi)
    </td>
    <td>Yes
    </td>

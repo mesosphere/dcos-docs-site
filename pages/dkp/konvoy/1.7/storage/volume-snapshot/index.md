@@ -16,9 +16,9 @@ This procedure shows how to create Persistent Volume Snapshots. Read more about 
 
 The following items and configurations are required for this procedure:
 
-- Kubernetes version 1.17.x or higher
+- Kubernetes version 1.19.x or higher
 
-- Konvoy version 1.5.x or higher
+- Konvoy version 1.7.x or higher
 
 - [CSI driver](../intro-csi) that supports volume snapshots
 

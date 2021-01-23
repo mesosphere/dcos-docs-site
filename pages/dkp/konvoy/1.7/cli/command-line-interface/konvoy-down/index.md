@@ -27,7 +27,7 @@ konvoy down [flags]
       --clean-local-volumes     remove any data in local volumes
       --cluster-name string     name used to prefix the cluster and all the created resources (default "konvoy")
   -h, --help                    help for down
-      --provisioner string      select a provisioner [aws|azure|gcp|docker|none] (default "aws")
+      --provisioner string      select a provisioner [aws|azure|gcp|vsphere|docker|none] (default "aws")
       --skip-clean-kubernetes   skip cleaning Kubernetes resources before deleting provisioner resources
       --verbose                 enable debug level logging
   -y, --yes                     run command without prompting

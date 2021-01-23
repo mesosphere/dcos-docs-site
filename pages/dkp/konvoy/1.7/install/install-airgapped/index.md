@@ -14,49 +14,51 @@ enterprise: false
 
 Before installing, verify that your environment meets the following basic requirements:
 
-* [Docker][install_docker] version 18.09.2 or later
+- [Docker][install_docker] version 18.09.2 or later
 
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.18.13 or later
+- [kubectl][install_kubectl] v1.19.7 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
-* The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air-gapped installation.
+- The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air-gapped installation.
 
 ## Control plane nodes
 
-* You should have at least three control plane nodes.
+- You should have at least three control plane nodes.
 
-* Each control plane node should have at least:
-  * 4 cores
-  * 16 GiB memory
-  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
+- Each control plane node should have at least:
+  - 4 cores
+  - 16 GiB memory
+  - Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
+  - Disk usage must be below 85% on the root volume.
 
 ## Worker nodes
 
-* You should have at least four worker nodes.
+- You should have at least four worker nodes.
 
   The specific number of worker nodes required for your environment can vary depending on the cluster workload and size of the nodes.
 
-* Each worker node should have at least:
-  * 8 cores
-  * 32 GiB memory
-  * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
+- Each worker node should have at least:
+  - 8 cores
+  - 32 GiB memory
+  - Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
+  - Disk usage must be below 85% on the root volume.
 
-* If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
+- If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
   Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
 
 For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
 
-* CentOS 7.8 is installed.
-* Firewalld is disabled.
-* Containerd is uninstalled.
-* Docker-ce is uninstalled.
-* Swap is disabled.
+- CentOS 7.8 is installed.
+- Firewalld is disabled.
+- Containerd is uninstalled.
+- Docker-ce is uninstalled.
+- Swap is disabled.
 
 # Initialize Konvoy configuration files
 
@@ -85,7 +87,9 @@ In case of on-premises, the `provisioner type` should be equal to `none`, for AW
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
    The additional `--addons-repositories` flag results in the generated `cluster.yaml` setting the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
-   The path `/opt/konvoy/artifacts/...` is the directory path where the `konvoy` binary is mounted from the host into the container. <p class="message--note"><strong>NOTE: </strong> This should not be changed unless you are referencing a different repo than the one provided in the tar.</p>
+   The path `/opt/konvoy/artifacts/...` is the directory path where the `konvoy` binary is mounted from the host into the container.
+
+   <p class="message--note"><strong>NOTE: </strong> This should not be changed unless you are referencing a different repo than the one provided in the tar.</p>
 
    ```yaml
    kind: ClusterConfiguration
@@ -112,8 +116,8 @@ The inventory file `inventory.yaml` follows the standard [Ansible inventory file
 
 For Konvoy, specify two [groups][ansible_group]
 
-* `control-plane`
-* `node`
+- `control-plane`
+- `node`
 
 The `control-plane` group defines the host IP addresses for your control plane nodes.
 The `node` group defines the host IP addresses for your worker nodes.
@@ -161,15 +165,15 @@ all:
     version: v1beta1
 ```
 
-* `<ip-address>` is the host's private IP address that will be used by Kubernetes for the Node's identity.
-* `ansible_host` is the IP used by Konvoy to SSH into the host, if removed the `<ip-address>` will be used instead.
-* `ansible_port` is an optional port used by Konvoy to SSH into the host, the default value is 22.
-* `node_pool` is used to group nodes into pools, Konvoy will apply a Kubernetes label based on this value and use it internally when selecting Nodes based on their pool.
+- `<ip-address>` is the host's private IP address that will be used by Kubernetes for the Node's identity.
+- `ansible_host` is the IP used by Konvoy to SSH into the host, if removed the `<ip-address>` will be used instead.
+- `ansible_port` is an optional port used by Konvoy to SSH into the host, the default value is 22.
+- `node_pool` is used to group nodes into pools, Konvoy will apply a Kubernetes label based on this value and use it internally when selecting Nodes based on their pool.
 
-* `ansible_ssh_private_key_file` is the name of the private SSH key used by Konvoy to SSH into the hosts.
-* `ansible_user` is the user used by Konvoy to SSH into the hosts.
-* `control_plane_endpoint` is an address for a loadbalancer used by all of the Nodes to reach the Kubernetes API.
-* The values of `order: sorted` and `version: v1beta1` should not be modfied.
+- `ansible_ssh_private_key_file` is the name of the private SSH key used by Konvoy to SSH into the hosts.
+- `ansible_user` is the user used by Konvoy to SSH into the hosts.
+- `control_plane_endpoint` is an address for a loadbalancer used by all of the Nodes to reach the Kubernetes API.
+- The values of `order: sorted` and `version: v1beta1` should not be modfied.
 
 The following example illustrates a simple `inventory.yaml` file with three control plane nodes and three worker nodes.
 
@@ -203,9 +207,9 @@ all:
 
 In this example:
 
-* The keys `ansible_host` and `ansible_port` were removed, the IPs will be used instead to SSH into the hosts on the default port `22`.
-* The `ansible_ssh_private_key_file` is set to `mysshkey.pem` and is expected to be in working directory.
-* The `ansible_user` is the `centos` user account that has administrative privileges.
+- The keys `ansible_host` and `ansible_port` were removed, the IPs will be used instead to SSH into the hosts on the default port `22`.
+- The `ansible_ssh_private_key_file` is set to `mysshkey.pem` and is expected to be in working directory.
+- The `ansible_user` is the `centos` user account that has administrative privileges.
 
 # Configure the Kubernetes cluster
 
@@ -227,51 +231,51 @@ spec:
 
 The RPM packages installed by Konvoy:
 
-* chrony
-* conntrack
-* containerd.io
-* container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
-* cri-tools
-* ebtables
-* ethtool
-* iproute
-* iptables
-* kubeadm
-* kubectl
-* kubelet
-* kubernetes-cni
-* libblkid
-* libnetfilter_cthelper
-* libnetfilter_cttimeout
-* libnetfilter_queue
-* libseccomp
-* libuuid
-* nfs-utils
-* nvidia-container-runtime (for GPU enabled machines)
-* nvme-cli (only on AWS)
-* openssl
-* socat
-* util-linux
-* yum-plugin-versionlock
+- chrony
+- conntrack
+- containerd.io
+- container-selinux, on RHEL you can install the [Centos RPM][selinux-rpm] directly
+- cri-tools
+- ebtables
+- ethtool
+- iproute
+- iptables
+- kubeadm
+- kubectl
+- kubelet
+- kubernetes-cni
+- libblkid
+- libnetfilter_cthelper
+- libnetfilter_cttimeout
+- libnetfilter_queue
+- libseccomp
+- libuuid
+- nfs-utils
+- nvidia-container-runtime (for GPU enabled machines)
+- nvme-cli (only on AWS)
+- openssl
+- socat
+- util-linux
+- yum-plugin-versionlock
 
-<p class="message--note"><strong>NOTE: The above list of RPM packages is sufficient for the default Centos 7 AMI used in Konvoy. There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories.</strong></p>
+<p class="message--note"><strong>NOTE: </strong>The above list of RPM packages is sufficient for the default Centos 7 AMI used in Konvoy. There may be additional dependencies that need to be installed that can be found in the standard CentOS/RHEL repositories.</p>
 
 The DEB packages installed by Konvoy:
 
-* apt-transport-https
-* chrony
-* openssl
-* libseccomp2
-* containerd.io
-* nfs-common
-* kubectl
-* kubernetes-cni
-* kubelet
-* cri-tools
-* kubeadm
-* nvme-cli (only on AWS)
-* xfsprogs (only on AWS)
-* nvidia-container-runtime (for GPU enabled machines)
+- apt-transport-https
+- chrony
+- openssl
+- libseccomp2
+- containerd.io
+- nfs-common
+- kubectl
+- kubernetes-cni
+- kubelet
+- cri-tools
+- kubeadm
+- nvme-cli (only on AWS)
+- xfsprogs (only on AWS)
+- nvidia-container-runtime (for GPU enabled machines)
 
 ## Configure the image registry
 
@@ -312,14 +316,14 @@ spec:
 The above assumes that the certificate used by `myregistry` is signed by a trusted authority.
 If you are using a self-signed certificate, you must add that trusted root certificate to all the Kubernete hosts before running `konvoy up`.
 
-* On Centos/RHEL:
+- On Centos/RHEL:
 
 1. Install the ca-certificates package: `yum install ca-certificates`
 2. Enable the dynamic CA configuration feature: `update-ca-trust force-enable`
 3. Add the CA as a new file to /etc/pki/ca-trust/source/anchors/: `cp myregistry.crt /etc/pki/ca-trust/source/anchors/myregistry.crt`
 4. Update the CA trust: `update-ca-trust extract`
 
-* On Ubuntu/Debian:
+- On Ubuntu/Debian:
 
 1. Copy your CA to dir /usr/local/share/ca-certificates/: `cp myregistry.crt /usr/local/share/ca-certificates/myregistry.crt`
 2. Update the CA store: `sudo update-ca-certificates`
@@ -342,11 +346,11 @@ The default control plane load balancer for Konvoy is based on [Keepalived][keep
 
 To use `keepalived` control plane load balancing:
 
-* Identify and reserve a virtual IP (VIP) address from your networking infrastructure.
+- Identify and reserve a virtual IP (VIP) address from your networking infrastructure.
 
-* Configure your networking infrastructure so that the reserved virtual IP address is reachable:
-  * from all hosts specified in the inventory file.
-  * from the computer you are using as the deploy host.
+- Configure your networking infrastructure so that the reserved virtual IP address is reachable:
+  - from all hosts specified in the inventory file.
+  - from the computer you are using as the deploy host.
 
   If all cluster hosts and the reserved virtual IP address are in the same subnet, you typically do not need to perform any additional configuration to your networking infrastructure.
   If you are using more than one subnet for the cluster, however, you should work with your networking team to ensure connectivity between all hosts and the reserved virtual IP address.
@@ -420,7 +424,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.18.13: stable-1.18-3.0.1
+          1.19.7: testing-1.19-3.2.0
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -478,18 +482,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-beta.0
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.1
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-beta.0
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.1
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-beta.0
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.1
       addonsList:
       - name: kommander
         enabled: false
@@ -507,11 +511,11 @@ The default load balancer service for addons is based on [MetalLB][metallb].
 
 To use MetalLB for addon load balancing:
 
-* Identify and reserve a range of virtual IP addresses (VIPs) from your networking infrastructure.
+- Identify and reserve a range of virtual IP addresses (VIPs) from your networking infrastructure.
 
-* Configure your networking infrastructure so that the reserved virtual IP addresses are reachable:
-  * from all hosts specified in the inventory file.
-  * from the computer you are using as the deploy host.
+- Configure your networking infrastructure so that the reserved virtual IP addresses are reachable:
+  - from all hosts specified in the inventory file.
+  - from the computer you are using as the deploy host.
 
 If all cluster hosts and the reserved virtual IP addresses are in the same subnet, you typically do not need to perform any additional configuration to your networking infrastructure.
 If you are using more than one subnet for the cluster, however, you should work with your networking team to ensure connectivity between all hosts and the reserved range of virtual IP addresses.
@@ -590,7 +594,7 @@ spec:
           "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
 ```
 
-  - Istio addon:
+  - [experimental] Istio addon:[/experimental]
 
 ```yaml
 - name: istio
@@ -689,23 +693,23 @@ Once the Kubernetes cluster is up, the `konvoy deploy` command installs the addo
 
 This is the set of Addons deployed by default:
 
-* [Calico][calico] to provide pod network, and policy-driven perimeter network security.
-* [CoreDNS][coredns] for DNS and service discovery.
-* [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
-* [MetalLB][metallb] to expose [Layer 4][osi] services.
-* [Static local volume provisioner][static_lvp] to support local persistent volumes.
-* [Elasticsearch][elasticsearch] (including [Elasticsearch exporter][elasticsearch_exporter]) to enable scalable, high-performance logging pipeline.
-* [Kibana][kibana] to support data visualization for content indexed by Elasticsearch.
-* [Fluent Bit][fluentbit] to collect and collate logs from different sources and send logged messages to multiple destinations.
-* [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][prometheus_adapter]) to collect and evaluate metrics for monitoring and alerting.
-* [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
-* [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
-* Operations portal to centralize access to addon dashboards.
-* [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
-* [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
-* [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
-* [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
-* Kommander for multi-cluster management.
+- [Calico][calico] to provide pod network, and policy-driven perimeter network security.
+- [CoreDNS][coredns] for DNS and service discovery.
+- [Helm][helm] to help you manage Kubernetes applications and application lifecycles.
+- [MetalLB][metallb] to expose [Layer 4][osi] services.
+- [Static local volume provisioner][static_lvp] to support local persistent volumes.
+- [Elasticsearch][elasticsearch] (including [Elasticsearch exporter][elasticsearch_exporter]) to enable scalable, high-performance logging pipeline.
+- [Kibana][kibana] to support data visualization for content indexed by Elasticsearch.
+- [Fluent Bit][fluentbit] to collect and collate logs from different sources and send logged messages to multiple destinations.
+- [Prometheus operator][prometheus_operator] (including [Grafana][grafana] AlertManager and [Prometheus Adaptor][prometheus_adapter]) to collect and evaluate metrics for monitoring and alerting.
+- [Traefik][traefik] to route [layer 7][osi] traffic as a reverse proxy and load balancer.
+- [Kubernetes dashboard][kubernetes_dashboard] to provide a general-purpose web-based user interface for the Kubernetes cluster.
+- Operations portal to centralize access to addon dashboards.
+- [Velero][velero] to back up and restore Kubernetes cluster resources and persistent volumes.
+- [Dex identity service][dex] to provide identity service (authentication) to the Kubernetes clusters.
+- [Dex Kubernetes client authenticator][dex_k8s_authenticator] to enable authentication flow to obtain `kubectl` token for accessing the cluster.
+- [Traefik forward authorization proxy][traefik_foward_auth] to provide basic authorization for Traefik ingress.
+- Kommander for multi-cluster management.
 
 # Viewing cluster operations
 
@@ -731,10 +735,10 @@ If the cluster was recently created, the dashboard and services may take a few m
 
 When the `konvoy deploy` completes its setup operations, the following files are generated:
 
-* `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster configuration][cluster_configuration].
-* `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
-* `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
-* `runs` folder - which contains logging information.
+- `cluster.yaml` - defines the Konvoy configuration for the cluster, where you customize [your cluster configuration][cluster_configuration].
+- `admin.conf` - is a [kubeconfig file][kubeconfig], which contains credentials to [connect to the `kube-apiserver` of your cluster through `kubectl`][kubectl].
+- `inventory.yaml` - is an [Ansible Inventory file][ansible_inventory].
+- `runs` folder - which contains logging information.
 
 [ansible]: https://www.ansible.com
 [ansible_group]: https://docs.ansible.com/ansible/latest/user_guide/intro_inventory.html#inventory-basics-hosts-and-groups

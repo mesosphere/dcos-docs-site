@@ -97,7 +97,7 @@ The table below lists the third party open source software which is provided by 
 |sys                        |v0.0.0-20191120155948-bd437916bb0e  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
 |text                       |v0.3.2                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
 |time                       |v0.0.0-20190921001708-c4c64cad1fd0  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
-|xerrors                    |v0.0.0-2019071.18.132-a985d3407aa7  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
+|xerrors                    |v0.0.0-2019071.19.62-a985d3407aa7  |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |
 |genproto                   |v0.0.0-20190916214212-f660b8655731  |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |grpc                       |v1.23.1                             |[Apache License 2.0](https://www.apache.org/licenses/LICENSE-2.0)                                                 |
 |inf.v0                     |v0.9.1                              |["BSD 3-Clause ""New"" or ""Revised"" License"](https://opensource.org/licenses/BSD-3-Clause)                     |

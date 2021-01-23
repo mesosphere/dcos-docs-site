@@ -58,7 +58,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.17.12
+    version: 1.18.14
 ```
 
 If you want to upgrade to a newer minor version of `1.18.x`, change the version string like the following:
@@ -68,7 +68,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.18.13
+    version: 1.19.7
 ```
 
 ## Prepare for addons upgrade

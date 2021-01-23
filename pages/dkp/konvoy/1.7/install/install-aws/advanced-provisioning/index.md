@@ -293,7 +293,7 @@ spec:
             annotations:
               "service.beta.kubernetes.io/aws-load-balancer-internal": "true"
     - enabled: true
-      name: istio
+      name: istio # Istio is currently in Experimental status
       values: |
         gateways:
           istio-ingressgateway:
