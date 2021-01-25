@@ -15,7 +15,7 @@ A new Kubernetes namespace, with your workspace name, is created in the manageme
 
 ## Edit workspaces
 
-From the workspace selection dropdown at the top of the screen, select the workspace you would like to edit. Click the **Actions** drop-down button and select **Edit Workspace**.
+From the workspace selection dropdown at the top of the screen, select the workspace you want to edit. Select  the **Actions** drop-down button and select **Edit Workspace**.
 
 ### Advanced Options
 
