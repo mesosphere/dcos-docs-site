@@ -18,7 +18,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.16 or later
+* [kubectl][install_kubectl] v1.17.17 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -415,7 +415,7 @@ spec:
      kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.16: stable-1.17-2.2.0
+          1.17.17: stable-1.17-2.2.0
 ```
 
 The `imageRepository: myregistry:443/mesosphere/konvoy` refers to the image that should already be present in your registry if you ran `konvoy config images seed`. The autoscaler will query the registry and find the latest `konvoy` image to use in the autoscaling process.
@@ -440,7 +440,7 @@ spec:
      kubeaddonsRepository:
         versionStrategy: mapped-kubernetes-version
         versionMap:
-          1.17.16: stable-1.17-2.2.0
+          1.17.17: stable-1.17-2.2.0
 ```
 
 Details regarding the autoscaler are provided in [the autoscaling documentation][autoscaling-air-gapped].

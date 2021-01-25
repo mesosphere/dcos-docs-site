@@ -18,7 +18,7 @@ Before installing, ensure that your environment has the following basic requirem
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.17.16 or later
+* [kubectl][install_kubectl] v1.17.17 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -71,7 +71,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.17.16+d2iq.1
+    version: 1.17.17+d2iq.1
     imageRepository: docker.io/mesosphere
 ```
 
