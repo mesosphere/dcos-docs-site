@@ -9,7 +9,7 @@ excerpt: Disconnect or delete a cluster
 
 ## Disconnect vs. delete
 
-When you attach a cluster to Kommander that was not created with Kommander, you can later disconnect it. This does not alter the running state of the cluster, but simply removes it from the Kommander UI.
+When you attach a cluster to Kommander that was not created with Kommander, you can later disconnect it. This does not alter the running state of the cluster, but simply removes it from the Kommander UI. User workloads, platform services, and other Kubernetes resources are not cleaned up at detach.
 
 If you created the managed clusters with Kommander you cannot disconnect the cluster but you can delete the cluster. This completely removes the cluster and all of its cloud assets.
 
