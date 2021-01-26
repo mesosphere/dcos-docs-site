@@ -36,8 +36,8 @@ This section also contains the **Pod Selector** fields for selecting pods using 
 
 The **Policy Types** selections help to define the type of Network Policy you are creating:
 - **Default** - automatically includes ingress, and egress is set only if the network policy defines egress rules.
-- **Ingress** - this policy will only apply to ingress traffic for the selected pods and/or namespaces using the options you define below.
-- **Egress** - this policy will only apply to egress traffic for the selected pods and/or namespaces using the options you define below.
+- **Ingress** - this policy will apply to ingress traffic for the selected pods and/or namespaces using the options you define below.
+- **Egress** - this policy will apply to egress traffic for the selected pods and/or namespaces using the options you define below.
 
 If the Default policy type is too rigid or does not provide what you need, you can select the Ingress and/or Egress type and explicitly define the policy with the options that follow. For example, if you do not want this policy to apply to ingress traffic, you would select only Egress, and then define the policy.
 
@@ -48,39 +48,37 @@ To deny all egress traffic, select the **Egress** option here and then leave the
 ## Ingress Rules
 Ingress rules use a combination of **Port** / **Protocol** and **Source** to define the incoming traffic allowed to some or all of the pods in this namespace.
 
-The options under **Sources: From** allow you to define a source either by using the pod selector or by defining an IP block. When using the pod selector method, you can define the namespace, and/or the pods within that namespace. When you select a namespace in an ingress rule, you are allowing all of the pods in that namespace to receive incoming traffic that meets the other defined criteria.
+The options under **Sources: From** allow you to define a source either by using the pod selector or by defining an IP block. When using the pod selector method, you can define the namespace, and/or the pods within that namespace. 
 
-**Pods** - This option selects specific Pods, in the same namespace as the network policy, which should be allowed as ingress sources or egress destinations.
+**Namespaces** - When you select a namespace in an ingress rule source, you are allowing the pods selected by the pod selector in your selected namespaces to receive incoming traffic that meets the other defined criteria. If no pods have been selected, the rule will allow traffic from all pods in the selected namespaces.
 
-When you select both, you are selecting specific pods from a specific namespace.
+**Pods** - This option selects specific Pods which should be allowed as ingress sources or egress destinations. If no namespaces have been selected in the namespace selector, this will select all matching pods in the project namespace. Otherwise, it will select all matching pods in the selected namespaces.
 
 There also are options to select all namespaces and/or all pods.
-
-For example, if you wanted to create a default "deny all incoming traffic" policy for a namespace, you could select a namespace by name, and check the Select All Pods check box. By not defining any specific ingress rules, you explicitly create a "deny all traffic" network policy!
 
 When defining ingress rules using the IP Block method, you define a CIDR and exception conditions. CIDR stands for Classless Inter-Domain Routing and is an IP standard for creating unique network and device identifiers. When grouped together so that they share an initial sequence of bits in their binary representation, the range of addresses creates a CIDR block. The block is identified in an IPv4-like notation including a dotted-decimal address, followed by a slash, then a colon and a number from 0-32, for example, 127.0.26.33:31.
 
 ## Egress Rules
-Egress rules use a very similar combination of options to define the outgoing traffic from pods, ranges of pods, or namespaces in a Kommander Project. Port, Protocol and Destination options for egress rules define the outgoing traffic. You may need to define egress rules under **Destination: To** for pods, ranges of pods, or namespaces to coincide with the different ingress rules you create. For example, if there are namespaces or pods expecting incoming TCP traffic on port 8080, then some corresponding namespaces or pods will need to specify outgoing TCP traffic on port 8080.
+Egress rules use a very similar combination of options to define the outgoing traffic from pods, ranges of pods, or namespaces in a Kommander Project. Port, Protocol and Destination options for egress rules define the outgoing traffic. You can define your egress rules under  **Destination: To**. Ensure the egress policy on the source pods and the ingress policy on the destination pods allow traffic in order for the pods to be able to communicate over the network.
 # Network Policy Examples
 
 ## Ingress: Allow access to API service pods from all namespaces
 
-Suppose you need to create a network policy to allow incoming traffic to API service pods in a specific Kommander Project's namespace from any other pod in any namespace that has the label, service.corp/users-api-role: client. For this example, API service pods are those pods that were created with the Label, service.corp/users.role: api.
+Suppose you need to create a network policy to allow incoming traffic to API service pods in a specific Kommander Project's namespace from any other pod in any namespace that has the label, service.corp/users-api-role: client. For this example, API service pods are those pods that were created with the Label, service.corp/users-api-role: api.
 
 You can limit the policy to just incoming traffic from select namespaces by adding an ingress rule with these characteristics:
 
 - Use Port 8080 to receive incoming TCP traffic, and...
-- Refuse traffic from pods unless they are client pods that have a Label, such as `service.corp/users/role: client`, which follows a common microservice architecture pattern, "microservice-tier-role: accessmode".
+- Refuse traffic from pods unless they are client pods that have a Label, such as `service.corp/users-api-role: client`, which follows a common microservice architecture pattern, "microservice-tier-role: accessmode".
 
-![Microservice neetwork policy](pages/dkp/kommander/1.3/img/network-policies-microservice-procedure.png)
+![Microservice network policy](/dkp/kommander/1.3/img/network-policies-microservice-procedure.png)
 
 ### Provide the General Information
 1. Select **Projects** from the left-hand navigation bar, then select the **Network Policy** tab.
-2. Type "microsvc-users-API-allow" in the **ID Name** field.
+2. Type "microsvc-users-api-allow" in the **ID Name** field.
 3. Type “Allow Users microservice clients to reach the APIs provided in this namespace” in the **Description** field.
-4. Select **Add** under **Pod Selector** and then select **Match Labels**.
-5. Set the **Key** to service.users/role and the **Value** to API.
+4. Select **Add** under **Pod Selector** and then select **Match Label**.
+5. Set the **Key** to service.corp/users-api-role and the **Value** to API.
 
 ### Create an Ingress rule
 1. Leave **Policy Types** set to Default.
@@ -90,8 +88,8 @@ You can limit the policy to just incoming traffic from select namespaces by addi
 ### Add Sources
 1. Select **+ Add Sources** and mark the **Select All Namespaces** check box.
 2. Select **+ Add Pod Selector**.
-3. Select **Match Labels**.
-4. Set the **Key** value to users select all names bases service.corp/users/role and set the **Value** to client.
+3. Select **Match Label**.
+4. Set the **Key** value to service.corp/users-api-role and set the **Value** to client.
 5. Scroll up and select **Save**.
 
 ## Ingress: Limit pods that access a database to this namespace
@@ -102,12 +100,12 @@ You can limit the database pods to just incoming traffic from the current namesp
 - Use Port 3306 to receive incoming TCP traffic for pods that have the label, `tier: database`, and...
 - Refuse traffic from pods unless they have the label, `tier: api`.
 
-![Database network policy](pages/dkp/kommander/1.3/img/network-policies-database-procedure.png)
+![Database network policy](/dkp/kommander/1.3/img/network-policies-database-procedure.png)
 ### Provide the General Information
 1. Select **Project** from the left-hand navigation bar, then select the **Network Policy** tab.
 2. Type database-access-api-only in the **ID name** field.
 3. Type “Allow MySQL access only from API pods in this namespace" in the **Description** field.
-4. Select **Pod Selector** then select **Match Labels**.
+4. Select **Pod Selector** then select **Match Label**.
 5. Set the **Key** to tier and the **Value** to database.
 
 ### Create an Ingress rule
@@ -118,7 +116,8 @@ You can limit the database pods to just incoming traffic from the current namesp
 
 ### Add Sources
 1. Select **+ Add Source**.
-2. Select **+ Add Pod Selector** and set the **Key** to tier and the **Value** to API.
+2. Select **+ Add Pod Selector**.
+3. Select **Match Label** and set the **Key** to tier and the **Value** to API.
 3. Scroll up and select **Save**.
 
 ## Ingress: Disable but don’t delete ingress rules
@@ -126,7 +125,7 @@ Suppose that you want to disable ingress rules temporarily for testing or triagi
 
 First, you need to create a network policy with one or more ingress rules. You could follow one of the preceding procedures, for example. Then, you need to edit the policy to match the following example:
 
-![Disable ingress network policy](pages/dkp/kommander/1.3/img/network-policies-ignore-ingress-procedure.png)
+![Disable ingress network policy](/dkp/kommander/1.3/img/network-policies-ignore-ingress-procedure.png)
 
 ### Edit your Network Policy
 1. Select **Projects** from the left-hand navigation bar, then select the **Network Policy** tab.
@@ -139,12 +138,12 @@ First, you need to create a network policy with one or more ingress rules. You c
 ## Egress: Deny all egress traffic from restricted pods
 Suppose that you need to deny all egress traffic from a group of restricted pods. This is a simple egress rule and you can create it quickly following this example and steps:
 
-![Deny all egress network policy](pages/dkp/kommander/1.3/img/network-policies-restricted-egress-procedure.png)
+![Deny all egress network policy](/dkp/kommander/1.3/img/network-policies-restricted-egress-procedure.png)
 ### Provide the General Information
 1. Select **Projects** from the left-hand navigation bar, then select the **Network Policy** tab and click **+ Add Network Policy**.
 2. Type deny-restricted-egress in the **ID name** field.
 3. Type “Deny egress traffic from restricted pods" in the **Description** field.
-4. Select **Pod selector** then select **Match Labels.**
+4. Select **Pod selector** then select **Match Label.**
 5. Set the **Key** to access and the **Value** to restricted.
 
 ### Deny Egress traffic
