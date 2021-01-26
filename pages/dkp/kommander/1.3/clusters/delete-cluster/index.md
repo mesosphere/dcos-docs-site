@@ -20,3 +20,7 @@ If you delete the management (Konvoy) cluster, you can not use Kommander to dele
 ### Statuses
 
 See [Statuses](/dkp/kommander/1.3/clusters/#statuses) for a list of possible states a cluster can have when it is getting disconnected or deleted.
+
+## Related information
+
+- [Troubleshooting: I cannot detach an attached cluster that is "Pending"](/dkp/kommander/1.3/troubleshooting/#i-cannot-detach-an-attached-cluster-that-is-pending)
