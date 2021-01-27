@@ -3,6 +3,7 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: {
+    cve: "./js/cve.js",
     main: "./js/main.js",
     swagger: "./js/swagger-ui.js",
   },
@@ -31,6 +32,7 @@ module.exports = {
         loader: "babel-loader",
         options: {
           presets: ["env"],
+          plugins: ["transform-object-rest-spread", "transform-react-jsx"],
         },
       },
     ],

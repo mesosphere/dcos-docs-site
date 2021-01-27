@@ -15,7 +15,6 @@ require("./switch.js");
 require("./image.js");
 require("./toc-scroll.js");
 require("./analytics.js");
-require("./tooltip.js");
 require("./tabs.js");
 require("./ellipsis.js");
 require("./msphere-menu.js");
