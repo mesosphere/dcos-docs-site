@@ -15,7 +15,7 @@ Federation in this context means that a common configuration is pushed out from 
 
 When a Project is created, Kommander creates a federated namespace that is propagated to the Kubernetes clusters associated with this Project.
 Kommander allows a user to manually or dynamically (using labels) select the Kubernetes clusters associated with a Project.
-Projects support the management of configmaps, secrets, services, quotas, and role-based access control by leveraging federated resources.
+Projects support the management of configmaps, continuous deployments, secrets, services, quotas, and role-based access control by leveraging federated resources.
 
 ## Project Namespace
 
@@ -41,6 +41,7 @@ Here is an example of what it looks like to create a project using the Kommander
 
 The following sample is a YAML Kubernetes object for creating a Kommander Project. This example does not work verbatim because it depends on a workspace name that has been previously created and does not exist by default in your cluster.  Use this as an example format and fill in the workspace name and namespace name appropriately along with the proper labels.
 
+```yaml
 apiVersion: workspaces.kommander.mesosphere.io/v1alpha1
 kind: Project
 metadata:
@@ -54,11 +55,12 @@ spec:
     clusterSelector:
       matchLabels:
         cluster: prod
-
+```
 
 The following procedures are supported for projects:
 
 - [Manage Project ConfigMaps](/dkp/kommander/1.3/projects/project-configmaps)
+- [Manage Project Continuous Deployments](/dkp/kommander/1.3/projects/project-deployments)
 - [Deploy Platform Services](/dkp/kommander/1.3/projects/platform-services)
 - [Manage Project Policies](/dkp/kommander/1.3/projects/project-policies)
 - [Manage Project Quotas](/dkp/kommander/1.3/projects/project-quotas-limit-range)
