@@ -14,14 +14,16 @@ Network plugins ensure that Kubernetes networking requirements are met and surfa
 
 Since pods are short-lived, the cluster needs a way to configure the network dynamically as pods are created and destroyed. Plugins provision and manage IP addresses to interfaces and let administrators manage IPs and their assignments to containers, as well as connections to more than one host, when needed.
 
-# What are Network Policies
-By default, and to enable fluid communications within and between clusters, all traffic is authorized between nodes and pods. Most production environments require some kind of traffic flow control at the IP address or port level. An application-centric approach to this uses Network Policies. Starting out pods are not isolated. They become isolated by having a Network Policy that selects them, and the policy limits the kind of traffic they can receive or send, depending on how it is configured. Network policies do not conflict because they are additive. Pods selected by more than one policy are subject to the union of the policies' ingress and egress rules.
+# What are Network Policies?
+By default, and to enable fluid communications within and between clusters, all traffic is authorized between nodes and pods. Most production environments require some kind of traffic flow control at the IP address or port level. An application-centric approach to this uses Network Policies. Pods are isolated by having a Network Policy that selects them, and the configuration of the policy limits the kind of traffic they can receive or send. Network policies do not conflict because they are additive. Pods selected by more than one policy are subject to the union of the policies' ingress and egress rules.
 
 A Network Policy's rules define ingress and egress for network communications between pods and across namespaces. Successful traffic control using network policies is bi-directional. You have to configure both the egress policy on the source pod and the ingress policy on the destination pod to enable the traffic. If either end denies the traffic, it will not flow between the pods.
 
 Since the Kubernetes default is to allow all traffic, it's a common practice to create a default "deny all traffic" rule, and then specifically open up the pods, ports, and/or applications as needed.
 
 When you first create a Project, Kommander automatically creates a NetworkPolicy that allows traffic originating only within your Project namespace. Pods cannot talk to Pods outside of that namespace, by default. If you want to enable incoming traffic from other namespaces and pods, then you have to create a NetworkPolicy with ingress rules.
+
+Kommander will ensure that any network policies that are created in a project are applied to all target clusters in the project.
 
 # Creating Network Policies
 You create network policies in three main parts:
