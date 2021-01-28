@@ -11,7 +11,7 @@ Kommander Projects can be configured with GitOps based Continuous Deployments fo
 
 ## What is GitOps?
 
-GitOps is a modern software deployment strategy. The configuration describing how your application is deployed to a cluster are stored in a Git repository. The configuration is continuously synchronized from this Git repository to the cluster, ensuring that the specified state of the cluster always matches what is defined in the "GitOps" Git repository.
+GitOps is a modern software deployment strategy. The configuration describing how your application is deployed to a cluster are stored in a Git repository. The configuration is continuously synchronized from the Git repository to the cluster, ensuring that the specified state of the cluster always matches what is defined in the "GitOps" Git repository.
 
 The benefits of following a GitOps deployment strategy are:
 
@@ -19,7 +19,7 @@ The benefits of following a GitOps deployment strategy are:
 * Clear change log and audit trail. The Git commit log serves as an audit trail to answer the question: "who changed what, and when?" Having such information readily available allows you to reach out to the right people when fixing or triaging a production incident to determine the why and correctly resolve the issue as quickly as possible. Additionally, Dispatch's CD component (Flux CD) maintains a separate audit trail in the form of Kubernetes Events, as changes to a Git repository don't include exactly when those changes were deployed.
 * Avoid configuration drift. The scope of manual changes made by operators expands over time. It soon becomes difficult to know which cluster configuration is critical and which is left over from temporary workarounds or live debugging. Over time, changing a project configuration or replicating a deployment to a new environment becomes a daunting task. GitOps supports simple, reproducible deployment to multiple different clusters by having a single source of truth for cluster and application configuration.
 
-That said, there are some cases when live debugging is necessary in order to resolve an incident in the minimum amount of time. In such cases, a pull request-based workflow adds expensive overhead when you need it least. Dispatch's CD strategy supports this scenario by letting you disable the Auto Sync feature. After Auto Sync is disabled, Dispatch will stop synchronizing the cluster state from the GitOps git repository. This lets you use kubectl, helm or whichever tool you need to resolve the issue.
+That said, there are some cases when live debugging is necessary in order to resolve an incident in the minimum amount of time. In such cases, pull-request-based workflow adds precious time to resolution for critical production outages. Dispatch's CD strategy supports this scenario by letting you disable the Auto Sync feature. After Auto Sync is disabled, Dispatch will stop synchronizing the cluster state from the GitOps git repository. This lets you use `kubectl`, `helm` or whichever tool you need to resolve the issue.
 
 ## Prerequisites
 
@@ -51,15 +51,15 @@ Refer to this guide to learn more about [setting up credentials](/dkp/dispatch/1
 
 ### Creating GitOps Source
 
-Once the secret is created, you should be able to view it under the `Secrets` tab. Go ahead and configure the GitOps source backed by this secret:
+Once the secret is created, you can also view it under the `Secrets` tab. Go ahead and configure the GitOps source backed by this secret:
 
 ![Create GitOps Source](/dkp/kommander/1.3/img/project-cd-gitops-source-create.png)
 
-While the `username` and `password` are mandatory fields, SCM details default to `github` if unspecified. It takes a few seconds for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. Once this is completed, you should be able to see the relevant manifests in the attached clusters.
+While the `username` and `password` are mandatory fields, SCM details default to `github` if unspecified. It takes a few seconds for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. Once this is completed, you will see the relevant manifests in the attached clusters.
 
 Once the manifests are federated there are various commands that can be executed from the CLI to check the federation status.
 
-On the manager cluster, check for your `FederatedKustomization` and `FederatedGitRepository` resources and their status fields should look closely to:
+On the manager cluster, check for your `FederatedKustomization` and `FederatedGitRepository` resources and their status fields will look like:
 
 ```bash
 $ kubectl get federatedkustomization -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
@@ -78,7 +78,7 @@ status:
 ...
 ```
 
-If there are any errors in federation, those events should be listed in the status field of `FederatedKustomization` and/or `FederatedGitRepository` resources.
+If there are any errors in federation, those events will be listed in the status field of `FederatedKustomization` and/or `FederatedGitRepository` resources.
 
 ### Suspending GitOps Source
 
@@ -90,7 +90,7 @@ This lets you use kubectl, helm or whichever tool you need to resolve the issue.
 
 ![Resume GitOps Source Sync](/dkp/kommander/1.3/img/project-cd-gitops-source-sync-resume.png)
 
-Similar to Suspend/Resume, you can also use **Delete** action to remove the GitOps source. Note that removing the GitOps source would also result in removing all the manifests applied from the GitOps source.
+Similar to Suspend/Resume, you can also use **Delete** action to remove the GitOps source. Note that removing the GitOps source will result in removing all the manifests applied from the GitOps source.
 
 It is possible to have more than one GitOps Source in your Project to deploy manifests from various sources.
 
