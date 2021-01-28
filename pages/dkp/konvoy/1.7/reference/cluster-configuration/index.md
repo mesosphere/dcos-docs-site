@@ -191,7 +191,7 @@ spec:
     - name: velero
       enabled: true
   - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-    configVersion: stable-1.18-1.3.1
+    configVersion: stable-1.19-1.4.0-rc1
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false

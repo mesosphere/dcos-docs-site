@@ -60,10 +60,15 @@ The native Kubernetes cluster supports a set of **addons**.
 Addons use Kubernetes resources to implement specific cluster-level features; because they provide cluster-level features, addons are defined in the `kube-system` namespace.
 
 Konvoy supplements the native Kubernetes cluster by providing a predefined and pre-configured set of addons.
-Because this predefined set of addons provide critical features for managing a Kubernetes cluster in a production environment, the default set of addons are identified as Konvoy **platform services** and are a key part of delivering an **opinionated Kubernetes** solution.
+Because this predefined set of addons provides critical features for managing a Kubernetes cluster in a production environment, the default set of addons is identified as Konvoy **platform services** which are a key part of delivering an **opinionated Kubernetes** solution.
+See [Kubernetes Base Addons Requirements](../addons/requirements) for the full set of Konvoy platform services that are enabled by default.
 
 As a production-ready solution, Konvoy provides the Velero addon by default, to support [backup and restore operations](../backup#velero) for your Kubernetes cluster and persistent volumes.
 
-- When installing Konvoy on AWS, several default addons such as Kommander and Kibana are added by default.
+## Related information
+
+For information on related topics or procedures, refer to the following:
+
+- [Kubernetes Base Addons](../addons)
 
 [kubedoc]:https://kubernetes.io/docs/concepts/overview/components/
