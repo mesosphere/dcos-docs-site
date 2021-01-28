@@ -55,7 +55,7 @@ Once the secret is created, you should be able to view it under the `Secrets` ta
 
 ![Create GitOps Source](/dkp/kommander/1.3/img/project-cd-gitops-source-create.png)
 
-It takes a few seconds for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. Once this is completed, you should be able to see the relevant manifests in the attached clusters.
+While the `username` and `password` are mandatory fields, SCM details default to `github` if unspecified. It takes a few seconds for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. Once this is completed, you should be able to see the relevant manifests in the attached clusters.
 
 Once the manifests are federated there are various commands that can be executed from the CLI to check the federation status.
 
@@ -84,13 +84,15 @@ If there are any errors in federation, those events should be listed in the stat
 
 Often times in production, it is desirable to have the ability to suspend the auto sync between the GitOps repository and the associated clusters. This live debugging is necessary in order to resolve an incident in the minimum amount of time without the overarching burden of pull request based workflows. This can be accomplished by **Suspending** the GitOps reconciliation manually when desired:
 
-![Suspend GitOps Source Sync](/pages/dkp/kommander/1.3/img/project-cd-gitops-source-sync-suspend.png)
+![Suspend GitOps Source Sync](/dkp/kommander/1.3/img/project-cd-gitops-source-sync-suspend.png)
 
 This lets you use kubectl, helm or whichever tool you need to resolve the issue. Once the issue is resolved you can **Resume** the auto sync to sync the updated contents of GitOps source to associated clusters:
 
-![Resume GitOps Source Sync](/pages/dkp/kommander/1.3/img/project-cd-gitops-source-sync-resume.png)
+![Resume GitOps Source Sync](/dkp/kommander/1.3/img/project-cd-gitops-source-sync-resume.png)
 
-It is possible to have multiple GitOps Sources to sync with your Project to deploy manifests from various sources.
+Similar to Suspend/Resume, you can also use **Delete** action to remove the GitOps source. Note that removing the GitOps source would also result in removing all the manifests applied from the GitOps source.
+
+It is possible to have more than one GitOps Source in your Project to deploy manifests from various sources.
 
 ## Troubleshooting
 
