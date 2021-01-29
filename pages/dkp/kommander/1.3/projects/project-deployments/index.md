@@ -43,7 +43,7 @@ Before we setup our GitOps source, we need to create a secret that can be used t
 
 ### Setting up a secret for accessing GitOps source.
 
-Go ahead and create a secret to be used by Dispatch to read the contents of your GitOps repository by creating SCM webhooks:
+Create a secret to be used by Dispatch to read the contents of your GitOps repository by creating SCM webhooks:
 
 ![Secret for GitOps source](/dkp/kommander/1.3/img/project-cd-secret-create.png)
 
@@ -51,15 +51,15 @@ Refer to this guide to learn more about [setting up credentials](/dkp/dispatch/1
 
 ### Creating GitOps Source
 
-Once the secret is created, you can also view it under the `Secrets` tab. Go ahead and configure the GitOps source backed by this secret:
+After the secret is created, you can also view it under the `Secrets` tab. Configure the GitOps source backed by this secret:
 
 ![Create GitOps Source](/dkp/kommander/1.3/img/project-cd-gitops-source-create.png)
 
-While the `username` and `password` are mandatory fields, SCM details default to `github` if unspecified. It takes a few seconds for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. Once this is completed, you will see the relevant manifests in the attached clusters.
+While the `username` and `password` are mandatory fields, SCM details default to `github` if unspecified. It takes a few seconds for the GitOps Source to be reconciled and the manifests from the SCM repository at the given path to be federated to attached clusters. After the sync is complete, manifests from GitOps source are created in attached clusters.
 
-Once the manifests are federated there are various commands that can be executed from the CLI to check the federation status.
+After the manifests are federated, there are various commands that can be executed from the CLI to check the federation status.
 
-On the manager cluster, check for your `FederatedKustomization` and `FederatedGitRepository` resources and their status fields will look like:
+On the manager cluster, check for your `FederatedKustomization` and `FederatedGitRepository` resources and the `status` field reflects the propagation of manifests:
 
 ```bash
 $ kubectl get federatedkustomization -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
@@ -78,7 +78,7 @@ status:
 ...
 ```
 
-If there are any errors in federation, those events will be listed in the status field of `FederatedKustomization` and/or `FederatedGitRepository` resources.
+If there are any errors in federation, those events are populated in the status field of `FederatedKustomization` and/or `FederatedGitRepository` resources.
 
 ### Suspending GitOps Source
 
@@ -86,11 +86,11 @@ Often times in production, it is desirable to have the ability to suspend the au
 
 ![Suspend GitOps Source Sync](/dkp/kommander/1.3/img/project-cd-gitops-source-sync-suspend.png)
 
-This lets you use kubectl, helm or whichever tool you need to resolve the issue. Once the issue is resolved you can **Resume** the auto sync to sync the updated contents of GitOps source to associated clusters:
+This lets you use kubectl, helm or whichever tool you need to resolve the issue. After the issue is resolved you can **Resume** the auto sync to sync the updated contents of GitOps source to associated clusters:
 
 ![Resume GitOps Source Sync](/dkp/kommander/1.3/img/project-cd-gitops-source-sync-resume.png)
 
-Similar to Suspend/Resume, you can also use **Delete** action to remove the GitOps source. Note that removing the GitOps source will result in removing all the manifests applied from the GitOps source.
+Similar to Suspend/Resume, you can also use **Delete** action to remove the GitOps source. Note that removing the GitOps source results in removal of all the manifests applied from the GitOps source.
 
 It is possible to have more than one GitOps Source in your Project to deploy manifests from various sources.
 
