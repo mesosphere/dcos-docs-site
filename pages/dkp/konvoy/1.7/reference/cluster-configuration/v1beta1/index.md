@@ -312,6 +312,7 @@ AWSMachineOpts is aws specific options for a machine in a node pool.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
+| kmsKeyID | The ID of the KMS key used for encryption at rest. [EBS encryption](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html) (default: no volume encryption). | string | false |
 | iam | [AWS IAM](https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html) represents access control details. | [IAM](#iam) | false |
 | subnetIDs | [AWS Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) to launch the instances into. | []string | false |
 | spotBlockOpts | Options to make the machine pool backed by spot instances | [SpotBlockOptions](#spotblockoptions) | false |
