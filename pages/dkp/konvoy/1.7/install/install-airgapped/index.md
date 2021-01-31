@@ -102,7 +102,7 @@ In case of on-premises, the `provisioner type` should be equal to `none`, for AW
        ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonsList:
-      - name: dispatch # Dispatch is currently in Beta
+      - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonsList:
@@ -482,18 +482,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.2
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.2
       addonsList:
-      - name: dispatch # Dispatch is currently in Beta
+      - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.0-rc.2
       addonsList:
       - name: kommander
         enabled: false

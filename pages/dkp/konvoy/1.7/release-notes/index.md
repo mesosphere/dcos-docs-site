@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-title: Release Notes Konvoy 1.7 RC1
+title: Release Notes Konvoy 1.7 RC2
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 1.7
 beta: true
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.7.0 RC1 was released on 22, January 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.7.0 RC2 was released on 29, January 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -81,6 +81,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Re-enabled coredns caching to reduce unnecessary load on API server.
 - Retry ssh-connections that could cause `unreachable` failures when using a bastion node.
 - Better validation of when a machine is ready before trying to run Ansible.
+- Fix a regression with old versions of `ip route` that could result in an error when `keepalived` is enabled. (COPS-6791)
 
 #### CLI
 
@@ -103,6 +104,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Tag AWS key pairs created by Konvoy.
 - Fixed the `kube-apiserver` being spammed by a handshake TLS errors by using an HTTPs instead of a TCP health probe on the `kube-apiserver` ELB.
 - Fix an issue when setting `machine.aws.iam.instanceProfile` value to 0 bastion nodes would cause a Terraform failure.
+- Added `spec.nodePools.machine.aws.kmsKeyID` to specify a KMS encryption key for the AWS instance block volumes created by Konvoy.
 
 #### Azure
 
@@ -140,8 +142,8 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Docker v19.03.14
 - Go 1.15.6
 - Helm v3.3.4
-- kubeaddons-dispatch stable-1.19-1.4.0-rc1
-- kubeaddons-kommander testing-1.19-1.3.0-rc.1
+- kubeaddons-dispatch stable-1.19-1.4.0
+- kubeaddons-kommander testing-1.19-1.3.0-rc.4
 - kubernetes-base-addons testing-1.19-3.2.0
 - Kubernetes v1.19.7
 - Kubeaddons v0.23.7

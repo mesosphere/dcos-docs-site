@@ -53,6 +53,8 @@ Since Experimental components are not intended for Production Environment use, D
 
 Support for Experimental components is provided on a Standard level, Severity 4 basis only.
 
+This software is provided "as is" and without any express or implied warranties including, without limitation, the implied warranties of merchantability and fitness for a particular purpose.
+
 ## Supported Kommander Versions
 
 The following chart identifies which version of Konvoy supports which version of Kommander.
