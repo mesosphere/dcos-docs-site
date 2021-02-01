@@ -82,6 +82,8 @@ In case of on-premises, the `provisioner type` should be equal to `none`, for AW
 
 <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _.</code></p>
 
+<p class="message--note"><strong>NOTE: </strong>Konvoy 1.6 does not require repository versions in <code>--addons-repositories</code>. This is changed from prior Konvoy releases.</p>
+
    Running the `konvoy init` command generates an inventory file skeleton `inventory.yaml` and a default `cluster.yaml` configuration file in the current working directory.
 
    The additional `--addons-repositories` flag results in the generated `cluster.yaml` setting the corresponding values to use locally available addon configs instead of using the default ones that are usually reachable over the Internet.
