@@ -3,20 +3,20 @@ layout: layout.pug
 beta: true
 navigationTitle: Project Quotas & Limit Ranges
 title: Project Quotas & Limit Ranges
-menuWeight: 1
-excerpt: Project Quotas and Limit Ranges can be set up to limit the amount of resources that can be used by the Project team.
+menuWeight: 7
+excerpt: Project Quotas and Limit Ranges can be set up to limit the number of resources the Project team uses.
 ---
 
-Project Quotas and Limit Ranges can be set up to limit the amount of resources that can be used by the Project team. Quotas and Limit Ranges are applied to all project clusters.
+Project Quotas and Limit Ranges can be set up to limit the number of resources the Project team uses. Quotas and Limit Ranges are applied to all project clusters.
 
 ![Project Quotas and Limit Ranges](/dkp/kommander/1.3/img/project-quota.png)
 Project Quotas and Limit Ranges
 
-Kommander provides a set of default resources you can set Quotas for, or you can define Quotas for custom resources. It is recommended to set Quotas for CPU and Memory. Using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
+Kommander provides a set of default resources for which you can set Quotas, or you can define Quotas for custom resources. We recommended that you set Quotas for CPU and Memory. Using Limit Ranges, you can restrict the resource consumption of individual Pods, Containers, and Persistent Volume Claims in the project namespace. You can also constrain memory and CPU resources consumed by Pods and Containers, and you can constrain storage resources consumed by Persistent Volume Claims.
 
 ![Adding a custom Quota](/dkp/kommander/1.3/img/project-quotas-add-custom.png)
 
-All the Project Quotas are defined using a Kubernetes FederatedResourceQuota called kommander which can also be created/updated using kubectl:
+All the Project Quotas are defined using a Kubernetes FederatedResourceQuota called `kommander` which you can also create/update using kubectl:
 
 ```bash
 cat << EOF | kubectl apply -f -

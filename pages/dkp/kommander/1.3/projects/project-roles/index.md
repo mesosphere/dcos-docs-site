@@ -3,7 +3,7 @@ layout: layout.pug
 beta: true
 navigationTitle: Project Roles
 title: Project Roles
-menuWeight: 1
+menuWeight: 3
 excerpt: Project Roles are used to define permissions at the namespace level.
 ---
 

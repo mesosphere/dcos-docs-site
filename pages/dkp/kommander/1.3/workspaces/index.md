@@ -29,8 +29,13 @@ To get started immediately, you can use the default workspace deployed in Komman
 
 # Workspace Procedures
 
-- [Create new workspaces][create-workspaces]
-- [Edit and delete workspaces][edit-workspaces]
+- [Create new workspaces](create-workspaces/)
+- [Edit and delete workspaces](edit-delete-workspaces)
+
+## Related Information
+
+- [Troubleshooting: I can't see the workspace dropdown in the header or other global navigation links][nav-links]
 
 [create-workspaces]: create-workspaces/
 [edit-workspaces]: edit-delete-workspaces
+[nav-links]: /dkp/kommander/1.3/troubleshooting/#i-cant-see-the-workspace-dropdown-in-the-header-or-other-global-navigation-links
