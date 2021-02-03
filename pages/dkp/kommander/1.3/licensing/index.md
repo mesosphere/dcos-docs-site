@@ -9,7 +9,7 @@ menuWeight: 6
 
 ## Purchase a License
 
-You can evaluate Kommander running two clusters for free: the Kommander host cluster plus one additional cluster. If you want to add more clusters, you need a valid license.
+You can evaluate Kommander running two clusters, the Kommander host cluster and one additional cluster, for free. If you want to add more clusters, you need a valid license.
 
 To obtain a valid Kommander license, contact your sales representative at <sales@d2iq.com>. After purchase, download the license file from the [support website][support-downloads] using your [login credentials][support-creds] to a place accessible by Kommander.
 
