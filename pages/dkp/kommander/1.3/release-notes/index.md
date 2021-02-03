@@ -51,7 +51,7 @@ For more information, see [Workspace Platform Services](../workspaces/workspace-
 ## Managed cluster multi-tenancy
 Kommander now supports managing network policies across project clusters. Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
 
-For more information, see [Network Policies](../projects/network-policies/).
+For more information, see [Network Policies](../projects/project-network-policies/).
 
 ## Continuous deployment using Dispatch on Kommander
 Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. You can also configure source repositories to be deployed across all managed clusters using GitOps best practices. Kommander uses Dispatch and FluxCD to enable continuous deployments as a standard feature of projects.
