@@ -13,7 +13,7 @@ Kommander is a tool that provides a command console for deploying, monitoring, a
 Prerequisites for Kommander are the same as those for Konvoy. See the [Konvoy Prerequisites](/dkp/konvoy/1.7/quick-start/#prequisites) for information.
 
 # Download and Install
-Kommander is provided by Konvoy by default as part of [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/). See the [Download Konvoy](/dkp/konvoy/1.7/download/) topic for more information on how to download Konvoy. Once Konvoy is downloaded, see [Installing Konvoy](/dkp/konvoy/1.7/quick-start/#prequisites) for instructions on how to install it. Once Konvoy is installed with the default settings, Kommander is automatically provided on the cluster.
+Kommander is provided by Konvoy by default as part of [Kubernetes Base Addons](/dkp/konvoy/1.7/addons/). See the [Download Konvoy](/dkp/konvoy/1.7/download/) topic for more information on how to download Konvoy. Once Konvoy is downloaded, see [Installing Konvoy](/dkp/konvoy/1.7/quick-start/#installing-konvoy) for instructions on how to install it. Once Konvoy is installed with the default settings, Kommander is automatically provided on the cluster.
 
 # Log in with Username and Password
 After you provision your first Konvoy cluster, your randomly-generated username, password, and a URL to Konvoy are printed to the command-line. Log in to Konvoy, and look for the "Kommander" button in the left sidebar. If it's not there, ensure you've installed the Konvoy release that includes Kommander, and that the Kommander addon is enabled.
