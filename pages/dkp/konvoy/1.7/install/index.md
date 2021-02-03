@@ -8,7 +8,7 @@ beta: true
 enterprise: false
 ---
 
-When it comes to installing Konvoy for a project, line-of-business, or enterprise, your first step is to determine the infrastructure on which you want to deploy.
+When installing Konvoy for a project, line-of-business, or enterprise, the first step is to determine the infrastructure on which you want to deploy.
 
 For example, you can:
 

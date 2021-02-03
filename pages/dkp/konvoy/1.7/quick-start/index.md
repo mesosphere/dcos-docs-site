@@ -40,6 +40,8 @@ Before starting the Konvoy installation, you should verify the following:
     - Route Tables
     - IAM Roles
 
+In addition, FIPS mode enablement is a decision to make when installing and running Konvoy for the first time, or when you intend to create a new cluster. You can enable FIPS mode only at cluster inception. There is no way to apply FIPS mode to an existing cluster, you must provision a new one.
+
 # Installing Konvoy
 
 1.  Install required packages. In most cases, you can install the required software using your preferred package manager. For example, on a macOS computer, you can use [Homebrew][brew] to install `kubectl` and the `aws` command-line utility by running the following command:
