@@ -9,7 +9,7 @@ menuWeight: 6
 
 ## Purchase a License
 
-You can evaluate Kommander running two clusters for free. Kommander cluster plus one additional cluster. If you want to add more clusters, you need a valid license.
+You can evaluate Kommander running two clusters for free: the Kommander host cluster plus one additional cluster. If you want to add more clusters, you need a valid license.
 
 To obtain a valid Kommander license, contact your sales representative at <sales@d2iq.com>. After purchase, download the license file from the [support website][support-downloads] using your [login credentials][support-creds] to a place accessible by Kommander.
 
@@ -43,9 +43,11 @@ Expected output:
 ```
 Name:         the-secret
 Namespace:    kommander
-Labels:       <none>
-Annotations:
+Labels:       kommanderType=license
+Annotations:  <none>
+
 Type:         Opaque
+
 Data
 ====
 jwt:  455 bytes
@@ -73,6 +75,7 @@ API Version:  kommander.mesosphere.io/v1beta1
 Kind:         License
 Metadata:
   Creation Timestamp:  2020-03-25T14:57:31Z
+  Generate Name:       license-
   Generation:          1
   Resource Version:    17895
   Self Link:           /apis/kommander.mesosphere.io/v1beta1/namespaces/kommander/licenses/license-sample
