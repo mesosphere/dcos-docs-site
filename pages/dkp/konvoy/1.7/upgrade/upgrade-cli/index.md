@@ -67,19 +67,17 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.6.0
-Wrote Konvoy CLI version 'v1.6.0' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.7.0-rc.3
+Wrote Konvoy CLI version 'v1.7.0-rc.3' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.5.x to v1.6.0
-
-<p class="message--note"><strong>NOTE: </strong>Do not modify the <code>apiVersion: konvoy.mesosphere.io/v1beta1</code>. If you update this to <code>apiVersion: konvoy.mesosphere.io/v1beta2</code> and are using the default <code>us-west-2</code> region, this upgrade recreates all the machines in the Kubernetes cluster. You may want to enforce the same machine IDs by adding the appropriate value for <code>spec.nodePools.machine.imageId</code>, setting it to <code>spec.nodePools.machine.imageID: ami-01ed306a12b7d1c96</code>.</p>
+### Upgrading Konvoy from v1.6.x to v1.7.0-rc.3
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-Konvoy v1.6.x requires Calico version `3.16.x`, if your `cluster.yaml` specifies an older version of Calico you must update it, the latest supported version is `v3.17.1`,
+Konvoy v1.7.x requires Calico version `3.17.x`. If your `cluster.yaml` file specifies an older version of Calico you must update to that version. The latest supported version is `v3.17.1`,
 
 It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.19.7`.
 
@@ -87,9 +85,9 @@ It is recommended to upgrade to the newest supported version of Containerd, set 
 
 The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.19-3.2.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.19-1.3.0-rc.4`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.19-1.3.0-rc.5`.
 
-The version of Konvoy is now `v1.6.0`, set `spec.version: v1.6.0`.
+The version of Konvoy is now `v1.7.0-rc.3`, set `spec.version: v1.7.0-rc.3`.
 
 ```yaml
 kind: ClusterConfiguration
@@ -111,12 +109,12 @@ spec:
       configVersion: testing-1.19-3.2.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: testing-1.19-1.3.0-rc.4
+      configVersion: testing-1.19-1.3.0-rc.5
       addonsList:
         - name: kommander
           enabled: true
   ...
-  version: v1.6.0
+  version: v1.7.0-rc.3
 ```
 
 <p class="message--note"><strong>NOTE: </strong>During the upgrade process, if the cluster has certain types of workloads running, the Konvoy CLI displays a warning. These warnings report skipped nodes in the upgrade process.</p>
@@ -138,66 +136,6 @@ To avoid these warnings, and reduce risks to application availability:
 - Configure the application's deployment to run multiple replicas for fault tolerance.
 - Using distributed or remote storage solutions instead of host-based storage.
 - Set Pod anti-affinity to ensure pods distribute across nodes for better fault tolerance.
-
-### Upgrading Konvoy from v1.2.x to v1.3.0
-
-**You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
-
-Below is a partial `cluster.yaml` that contains the required changes.
-Note that `apiVersion: konvoy.mesosphere.io/v1alpha1` has not been modified.
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
-spec:
-  kubernetes:
-    version: 1.16.4
-  containerNetworking:
-    calico:
-      version: v3.10.1
-  addons:
-  - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-    configVersion: stable-1.16.4-2
-    addonsList:
-    ...
-    - name: helm
-      enabled: false # Must change to false or remove from the list
-    - name: defaultstorageclass-protection
-      enabled: true
-    - name: external-dns
-      enabled: true
-      values: |
-        aws:
-          region:
-        domainFilters: []
-    - name: gatekeeper
-      enabled: true
-    - name: kube-oidc-proxy
-      enabled: true
-    - name: reloader
-      enabled: true
-```
-
-<p class="message--note"><strong>NOTE: </strong>Depending on the addon version you are upgrading to, you may need to include additional addons, and additional resources (CPU) to accommodate the increased needs. For the full list of addons refer to the <a href="../../reference/cluster-configuration">reference document</a>).</p>
-
-### Upgrading Konvoy from v1.0.x/v1.1.x to v1.2.0
-
-**You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
-
-```yaml
-kind: ClusterConfiguration
-apiVersion: konvoy.mesosphere.io/v1alpha1
-spec:
-  kubernetes:
-    version: 1.15.4
-  addons:
-    configVersion: stable-1.15.4-1
-    addonsList:
-    ...
-    - name: cert-manager
-      enabled: true
-    ...
-```
 
 [docker_api_auth]: https://github.com/docker/distribution/blob/master/docs/spec/auth/token.md
 [docker_registry]: https://docs.docker.com/registry/deploying/

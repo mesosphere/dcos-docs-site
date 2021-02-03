@@ -11,11 +11,9 @@ enterprise: false
 In the [Quick start][quickstart], you provisioned a Konvoy cluster with default configuration settings.
 Customizing the cluster is an **optional** task, but one of the most common tasks you perform when deploying in a production environment.
 
-If you are configuring the Konvoy cluster for a production deployment, you can use this tutorial to learn the basic steps involved in provisioning a custom cluster.
-However, provisioning a production cluster typically involves more planning and custom configuration than covered in this example.
+If you are configuring the Konvoy cluster for a production deployment, you can use this tutorial to learn the basic steps involved in provisioning a custom cluster. However, provisioning a production cluster typically involves more planning and custom configuration than covered in this brief example.
 
-This tutorial demonstrates how you can customize a few simple configuration settings for your Konvoy cluster, then provision the cluster using a public cloud infrastructure.
-The steps are similar if you are provisioning the cluster using an internal network (on-prem) infrastructure.
+This tutorial demonstrates how you can customize a few simple configuration settings for your Konvoy cluster, then provision the cluster using a public cloud infrastructure. The steps are similar if you are provisioning the cluster using an internal network (on-prem) infrastructure.
 
 To provision a customized cluster on Amazon Web Services (AWS):
 
@@ -23,6 +21,12 @@ To provision a customized cluster on Amazon Web Services (AWS):
 
     ```bash
     konvoy init --provisioner=aws
+    ```
+
+    To provision the cluster with FIPS enabled, use the command:
+
+    ```bash
+    konvoy init --mode fips
     ```
 
 1.  Edit the provisioner configuration settings in the `cluster.yaml` cluster configuration file.

@@ -15,12 +15,54 @@ Back up operations should include the cluster state, application state, and the 
 
 # Velero
 
-As a production-ready solution, Konvoy provides the Velero addon by default, to support backup and restore operations for your Kubernetes cluster and persistent volumes.
+Konvoy provides the Velero addon by default, to support backup and restore operations for your Kubernetes cluster and persistent volumes.
 
 For on-premises deployments, Konvoy deploys Velero integrated with [Minio][minio], operating inside the same cluster.
-For production use-cases, it's advisable to provide an *external* storage volume for Minio to use.
 
-<p class="message--note"><strong>NOTE: </strong>If you use the cluster without an external storage volume for Minio, <a href="#fetching-a-backup-archive">fetch the latest backup</a> and store it in a known, secure location at regular intervals. For example, if you are not using an external storage volume, back up and archive the cluster on a weekly basis.</p>
+For production use-cases, it's advisable to provide an *external* storage class for Minio to use.
+With the external storage class, you can configure the Velero addon in `cluster.yaml`  as follows:
+
+```yaml
+- name: velero
+  enabled: true
+  values: |-
+     minio:
+      persistence:
+         storageClass: <external storage class name>
+```
+
+You may also store your backups in Amazon S3 by configuring the Velero addon in `cluster.yaml`  as follows:
+
+```yaml
+- name: velero
+  enabled: true
+  values: |-
+    minioBackend: false
+    configuration:
+      backupStorageLocation:
+        # `name:` must be empty
+        bucket: <BUCKET_NAME>
+        config:
+          region: <AWS_REGION> # such as us-west-2
+          s3ForcePathStyle: "false"
+          insecureSkipTLSVerify: "false"
+          s3Url: ""
+    credentials:
+      # With the proper IAM permissions with access to the S3 bucket,
+      # you can attach the EC2 instances the IAM Role, OR fill in `existingSecret` OR `secretContents` below.
+      #
+      # Name of a pre-existing secret (if any) in the Velero namespace
+      # that should be used to get IAM account credentials.
+      existingSecret:
+      # The key must be named `cloud`, and the value corresponds to the entire content of your IAM credentials file.
+      # Here is a list of documentation for plugins maintained by the Velero team:
+      # [AWS] https://github.com/vmware-tanzu/velero-plugin-for-aws/blob/main/README.md
+      secretContents: {}
+        # cloud: |
+        #   [default]
+        #   aws_access_key_id=<REDACTED>
+        #   aws_secret_access_key=<REDACTED>
+```
 
 ## Install the Velero command-line interface
 
@@ -28,8 +70,10 @@ Although installing the Velero command-line interface is optional and independen
 For example, you can use the Velero command-line interface to back up or restore a cluster on demand, or to modify certain settings without changing the Velero platform service configuration.
 
 By default, Konvoy sets up Velero to use Minio over TLS using a self-signed certificate.
-Currently, the Velero command-line interface does not handle self-signed certificates.
-Until an upstream fix is released, use [our patched 1.0.0 version of Velero][velero-patch-git], which adds an `--insecureskipverify` flag.
+Due to this, when using certain commands, you may be asked to use the `--insecure-skip-tls-verify` flag.
+Again, the default setup is not suitable for production use-cases.
+
+Instructions to install the Velero command-line interface can be found [here][velero-cli-install].
 
 ## Enable or disable the backup addon
 
@@ -62,7 +106,6 @@ After making changes to your `cluster.yaml`, you must run `konvoy up` to apply t
 For production clusters, you should be familiar with the following basic administrative functions Velero provides:
 
 - [Set a backup schedule][set-schedule]
-- [Fetch backup archives][fetch-backup]
 - [Run on-demand backups][backup-on-demand]
 - [Restore from a backup archive][restore-a-cluster]
 
@@ -115,20 +158,6 @@ velero create schedule system-critical --include-namespaces=kube-system,kube-pub
 ```
 
 The Velero command line interface provides many more options worth exploring. You can also find tutorials for [disaster recovery][velero-dr] and [cluster migration][velero-cm] on the Velero community site.
-
-### Fetching a backup archive
-
-To list the available backup archives in your cluster, run the following command:
-
-```shell
-velero backup get
-```
-
-To download a selected archive to your current working directory on your local workstation, run a command similar to the following:
-
-```shell
-velero backup download BACKUP_NAME --insecureskipverify
-```
 
 ### Back up on demand
 
@@ -206,14 +235,13 @@ velero get snapshot-locations
 ```
 
 [backup-on-demand]: #back-up-on-demand
-[fetch-backup]: #fetching-a-backup-archive
 [kubeaddons]: https://github.com/mesosphere/kubernetes-base-addons
 [minio]: https://velero.io/docs/v1.0.0/get-started/
 [releases]: https://github.com/heptio/velero/releases
 [restore-a-cluster]: #restore-a-cluster
 [set-schedule]: #set-a-backup-schedule
+[velero-cli-install]: https://velero.io/docs/v1.5/basic-install/#install-the-cli
 [velero-cm]: https://velero.io/docs/v0.11.0/migration-case
 [velero-dr]: https://velero.io/docs/v0.11.0/disaster-case
 [velero-get-started]: https://velero.io/docs/v0.11.0/get-started
-[velero-patch-git]: https://github.com/mesosphere/velero/releases/tag/v1.0.0-patch
 [velero-troubleshooting]: https://velero.io/docs/v0.11.0/debugging-install

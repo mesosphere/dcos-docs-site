@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.7.0 RC2 was released on 29, January 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.7.0 RC3 was released on 1, February 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -143,7 +143,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Go 1.15.6
 - Helm v3.3.4
 - kubeaddons-dispatch stable-1.19-1.4.0
-- kubeaddons-kommander testing-1.19-1.3.0-rc.4
+- kubeaddons-kommander testing-1.19-1.3.0-rc.5
 - kubernetes-base-addons testing-1.19-3.2.0
 - Kubernetes v1.19.7
 - Kubeaddons v0.23.7
