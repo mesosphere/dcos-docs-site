@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Kommander v1.3 beta 0 Release Notes
+navigationTitle: Kommander v1.3 Beta Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: View release-specific information for Kommander
@@ -44,20 +44,19 @@ Kommander 1.3 requires KUDO Spark 3.0 because Spark 2.4 does not support Kuberne
 To continue using KUDO Spark Kommander 1.3 and above, upgrade to Spark 3.0.
 For details on how to migrate workloads to Spark 3.0, consult the official [migration guides](https://spark.apache.org/releases/spark-release-3-0-0.html) for each relevant module.
 -->
-
 ## Control and configure workspace platform services
-Customers now have the ability to control and configure which platform services get installed into an attached cluster by workspace. In Kommander specific platform services can be federated to attached non-Konvoy clusters. In each workspace customers can specify which platform services are federated to the attached non-Konvoy clusters. 
+Customers now have the ability to control and configure which platform services get installed into an attached cluster by workspace. In Kommander specific platform services can be federated to attached non-Konvoy clusters. In each workspace customers can specify which platform services are federated to the attached non-Konvoy clusters.
 
+For more information, see [Workspace Platform Services](../workspaces/workspace-platform-services/).
 ## Managed cluster multi-tenancy
-
 Kommander now supports managing network policies across project clusters. Projects are created with a secure-by-default network policy and users needing more flexibility can edit or add more policies to tailor to their unique security needs.
 
-Refer to [network policies](https://docs.d2iq.com/ksphere/kommander/latest/projects/network-policies/) for more information.
+For more information, see [Network Policies](../projects/network-policies/).
 
 ## Continuous deployment using Dispatch on Kommander
-
 Kommander now supports continuous deployments as part of projects. Teams can leverage GitOps best practices to deploy configurations from source repositories to managed clusters using Dispatch and FluxCD. You can also configure source repositories to be deployed across all managed clusters using GitOps best practices. Kommander uses Dispatch and FluxCD to enable continuous deployments as a standard feature of projects.
 
+For more information, see [Continuous Deployments](../projects/project-deployments/).
 ## Component versions
 - Addon: 1.3.0-6
 - Chart: 0.13.7
@@ -72,7 +71,6 @@ Kommander now supports continuous deployments as part of projects. Teams can lev
 - karma: 0.70
 - thanos: 0.10.1
 - cost-analyzer: 1.70.1
-
 ## Fixed and Improved Issues
 - Added Kubecost Prometheus health dashboards to Grafana.
 - Added the ability to edit network policies.
