@@ -59,7 +59,7 @@ spec:
     count: 3
     machine:
       type: m5.xlarge
-  version: v1.7.0-rc.3
+  version: v1.7.0-rc.4
 ```
 
 The worker pool scales up to a maximum of 4 machines and scales down
