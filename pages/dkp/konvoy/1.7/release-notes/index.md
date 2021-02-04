@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-title: Release Notes Konvoy 1.7 RC2
+title: Release Notes Konvoy 1.7 RC4
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 1.7
 beta: true
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.7.0 RC3 was released on 1, February 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.7.0 RC4 was released on 3, February 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -114,6 +114,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 
 - Added a new flag, `--filter-files`, which is a comma separated list of regular expressions of files that should not be included in the diagnostics bundle.
 - Collect diagnostics from bastion machines.
+- Collect diagnostics from `knative-serving` and `kubeflow` namespaces.
 
 #### Kommander
 
@@ -143,7 +144,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Go 1.15.6
 - Helm v3.3.4
 - kubeaddons-dispatch stable-1.19-1.4.0
-- kubeaddons-kommander testing-1.19-1.3.0-rc.5
+- kubeaddons-kommander testing-1.19-1.3.0-rc.6
 - kubernetes-base-addons testing-1.19-3.2.0
 - Kubernetes v1.19.7
 - Kubeaddons v0.23.7
