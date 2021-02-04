@@ -10,7 +10,9 @@ enterprise: false
 
 <!-- markdownlint-disable MD018 -->
 
-#include /dkp/konvoy/1.6/include/kba-requirements.tmpl
+#include /dkp/konvoy/1.7/include/kba-requirements.tmpl
+
+#include /dkp/konvoy/1.7/include/kba-addons-versions.tmpl
 
 ## Related information
 
