@@ -14,18 +14,18 @@ The Kubernetes Universal Declarative Operator - [KUDO][kudo] - is a way of build
 
 <p class="message--note"><strong>NOTE: </strong>KUDO operators require a <a href="https://kudo.dev/docs/architecture.html#architecture-diagram">KUDO controller</a> running in the cluster.</p>
 
-## Before you Begin
-To run the KUDO controller or any KUDO workloads beyond the standard workload prerequisties, you will need:
+## Before you begin
+To run the KUDO controller or any KUDO workloads beyond the standard workload prerequisites, you must have the following installed:
 
-- Kubernetes [Certification Manager][cert-man] installed
-- KUDO [Custom Resource Definitions (CRDs)][crd] installed
+- Kubernetes [Certification Manager][cert-man]
+- KUDO [Custom Resource Definitions (CRDs)][crd]
 
-Fortunately, the KUDO CLI provides features to help with the installation of the CRDs and for development purposes only, the ability to install a development version of a certification manager.
+The KUDO CLI has features that assist with the installation of the CRDs and, for development purposes only, the ability to install a development version of a certification manager.
 
-## Run the KUDO Controller
+## Run the KUDO controller
 To start the KUDO controller workload in the cluster run: `kubectl kudo init`
 
-This will install the KUDO CRDs and run the KUDO controller in the `kudo-system` namespace.
+This installs the KUDO CRDs and runs the KUDO controller in the `kudo-system` namespace.
 
 ```bash
 kubectl get pod -n kudo-system
@@ -34,7 +34,7 @@ kudo-controller-manager-0   1/1     Running   0          6m47s
 ```
 
 ## Run a KUDO Operator
-With a KUDO controller running in the cluster, it is possible to install a KUDO operator. KUDO operators are packaged in a tgz file and can be located anywhere. They can be referenced from the filesystem, or from a URL directly, but generally they are served from a [KUDO repository][kudo-arch]. During a `kubectl kudo init`, the default client initialization is performed along with the installation of the KUDO controller. The default repository is called the "community" repository and can be identified via the following:
+With the KUDO controller running in the cluster, you can install a KUDO operator. KUDO operators are packaged in a tgz file and can be located anywhere. They can be referenced from the filesystem, or from a URL directly. Generally they are served from a [KUDO repository][kudo-arch]. During a `kubectl kudo init`, the default client initialization is performed along with the installation of the KUDO controller. The default repository is called the "community" repository and can be identified using the following:
 
 ```bash
 kubectl kudo repo list
