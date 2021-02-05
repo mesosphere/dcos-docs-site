@@ -40,9 +40,9 @@ memory: 32Mi
   <tr>
    <td>elasticsearch
    </td>
-   <td>cpu: 500m
+   <td>cpu: 4.6
 <p>
-memory: 1536Mi
+memory: 21Gi
    </td>
    <td># of PVs: 7
 <p>
@@ -112,7 +112,7 @@ memory: 350Mi
    </td>
    <td>cpu: 700m
 <p>
-Memory: 1700Mi
+memory: 1700Mi
    </td>
    <td># of PVs: 3
 <p>
