@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-title: Release Notes Konvoy 1.7 RC5
+title: Release Notes Konvoy 1.7 RC6
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 1.7
 beta: true
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.7.0 RC5 was released on 5, February 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.7.0 RC6 was released on 5, February 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -162,6 +162,8 @@ Add links to previous release notes
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
+
+For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
