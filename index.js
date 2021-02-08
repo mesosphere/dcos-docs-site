@@ -35,7 +35,6 @@ const shortcodesConfig = require("./shortcodes");
 
 // Environment Variables
 const GIT_BRANCH = process.env.GIT_BRANCH;
-const RENDER_PATH_PATTERN = process.env.RENDER_PATH_PATTERN || process.env.RPP;
 const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
 
 //
@@ -81,39 +80,19 @@ MS.destination("./build");
 // I imagine cleaning makes watching take a long time, but untested for now
 MS.clean(false);
 
-const neededToBuildMainMenu = [
-  "index.md",
-  "search/index.md",
-  "mesosphere/index.md",
-  "mesosphere/dcos/index.md",
-  `mesosphere/dcos/${MS._metadata.dcosDocsLatest}/index.md`,
-  "mesosphere/dcos/cn/index.md",
-  `mesosphere/dcos/cn/${MS._metadata.dcosCNDocsLatest}/index.md`,
-  "dkp/index.md",
-  "dkp/dispatch/index.md",
-  `dkp/dispatch/${MS._metadata.dispatchDocsLatest}/index.md`,
-  "dkp/konvoy/index.md",
-  `dkp/konvoy/${MS._metadata.konvoyDocsLatest}/index.md`,
-  "dkp/kommander/index.md",
-  `dkp/kommander/${MS._metadata.kommanderDocsLatest}/index.md`,
-  "dkp/kaptain/index.md",
-  `dkp/kaptain/${MS._metadata.kaptainDocsLatest}/index.md`,
-  "dkp/conductor/index.md",
-  `dkp/conductor/${MS._metadata.conductorDocsLatest}/index.md`,
-];
-if (RENDER_PATH_PATTERN) {
+if (process.env.NODE_ENV === "development") {
+  // remove all most mesosphere-files to speed up the dev end
   MS.use((files, _, done) => {
-    Object.keys(files)
-      .filter(
-        (file) =>
-          file.match(/\.md$/) &&
-          !neededToBuildMainMenu.includes(file) &&
-          !minimatch(file, RENDER_PATH_PATTERN)
-      )
-      .forEach((file) => {
-        // remove all md-files outside the rendering-path to save a lot of compilation later on
+    Object.keys(files).forEach((file) => {
+      if (
+        minimatch(file, "mesosphere/dcos/**/*.md") &&
+        // we need these to build the landingpage
+        file != "mesosphere/dcos/index.md" &&
+        file != `mesosphere/dcos/${MS._metadata.dcosDocsLatest}/index.md`
+      ) {
         delete files[file];
-      });
+      }
+    });
     done();
   });
 }
@@ -265,15 +244,13 @@ if (process.env.ALGOLIA_UPDATE === "true") {
 // The keys represent the files to watch, the values are the files that will
 // be updated. ONLY the files that are being updated will be accessible to
 // during the rebuild. We must include the layouts when rerendering a page thus.
-// Can only watch with a RENDER_PATH_PATTERN because there are too many
-// files without it.
-if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
+if (process.env.NODE_ENV === "development") {
   MS.use(
     watch({
       paths: {
         "layouts/**/*": "**/*",
         "pages/404/index.md": true,
-        [`pages/${RENDER_PATH_PATTERN}/*.md`]: true,
+        [`pages/dkp/**/*.md`]: true,
       },
       livereload: true,
     })
