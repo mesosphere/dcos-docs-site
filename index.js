@@ -99,14 +99,8 @@ if (process.env.NODE_ENV === "development") {
 MS.use(ignore(METALSMITH_SKIP_SECTIONS));
 MS.use(timer("Ignore"));
 
-MS.use(
-  assets({
-    source: "assets",
-    destination: "assets",
-  })
-);
+MS.use(assets({ source: "assets", destination: "assets" }));
 MS.use(timer("Assets"));
-
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
@@ -115,12 +109,7 @@ MS.use(timer("Assets"));
 //   model:
 //   data1: path/to/my.json (access content in my.json as model.data1.foo.bar)
 //   data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
-MS.use(
-  dataLoader({
-    dataProperty: "model",
-    match: "**/*.md",
-  })
-);
+MS.use(dataLoader({ dataProperty: "model", match: "**/*.md" }));
 MS.use(timer("Dataloader"));
 
 // Load raw content via '#include' directives before rendering any mustache or markdown.
@@ -162,11 +151,7 @@ if (process.env.NODE_ENV === "development") {
 
 // Markdown
 MS.use(
-  markdown({
-    smartList: false,
-    typographer: true,
-    html: true,
-  })
+  markdown({ smartList: false, typographer: true, html: true })
     .use(anchor, {
       permalink: true,
       renderPermalink: (slug, opts, state, idx) => {
@@ -220,10 +205,6 @@ MS.use((files, ms, done) => {
   return layouts({ engine: "pug", cache: true })(files, ms, done);
 });
 MS.use(timer("Layouts"));
-
-//
-// Slow Plugins End
-//
 
 // Search Indexing
 if (process.env.ALGOLIA_UPDATE === "true") {
