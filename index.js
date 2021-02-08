@@ -12,7 +12,6 @@ const anchor = require("markdown-it-anchor");
 const attrs = require("markdown-it-attrs");
 const timer = require("metalsmith-timer");
 const ignore = require("metalsmith-ignore");
-const copy = require("metalsmith-copy");
 const consolidate = require("consolidate");
 const pug = require("pug");
 
@@ -108,14 +107,6 @@ MS.use(
 );
 MS.use(timer("Assets"));
 
-MS.use(
-  copy({
-    pattern: "**/README.md",
-    transform: (file) => file.replace(/README/, "index"),
-    move: true,
-  })
-);
-MS.use(timer("Copy"));
 
 // Load model data from external .json/.yaml files
 // For example (in your Front Matter):
