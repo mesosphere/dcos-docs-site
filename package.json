@@ -44,7 +44,7 @@
     "ngindox": "^0.2.0",
     "node-sass": "^4.5.3",
     "postcss-loader": "^2.0.6",
-    "pug": "^2.0.0-rc.2",
+    "pug": "^3.0.0",
     "rss": "^1.2.2",
     "sanitize-html": "^1.14.1",
     "sass-loader": "^6.0.6",
