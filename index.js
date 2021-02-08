@@ -273,7 +273,7 @@ if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
       paths: {
         "layouts/**/*": "**/*",
         "pages/404/index.md": true,
-        [`pages/${RENDER_PATH_PATTERN}/*.md`]: "**/*.{md,tmpl}",
+        [`pages/${RENDER_PATH_PATTERN}/*.md`]: true,
       },
       livereload: true,
     })
