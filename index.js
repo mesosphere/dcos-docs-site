@@ -8,7 +8,6 @@ const assets = require("metalsmith-assets");
 const dataLoader = require("metalsmith-data-loader");
 const watch = require("metalsmith-watch");
 const serve = require("metalsmith-serve");
-const webpack = require("metalsmith-webpack2");
 const anchor = require("markdown-it-anchor");
 const attrs = require("markdown-it-attrs");
 const timer = require("metalsmith-timer");
@@ -26,6 +25,7 @@ const inPlace = require("./plugins/metalsmith-in-place-dcos");
 const includeContent = require("./plugins/metalsmith-include-content-dcos");
 const revision = require("./plugins/metalsmith-revision");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
+const webpack = require("./plugins/metalsmith-webpack");
 const Utils = require("./core/utils");
 
 // Configs
@@ -66,6 +66,7 @@ MS.metadata({
   kaptainDocsLatest: "1.2.0-1.0.0",
   Utils,
 });
+MS.use(timer("Init"));
 
 // Source
 // Where metalsmith looks for all files
@@ -79,13 +80,6 @@ MS.destination("./build");
 // Cleaning removes the destination directory before writing to it
 // I imagine cleaning makes watching take a long time, but untested for now
 MS.clean(false);
-
-//
-// Content Branch Pipeline
-//
-
-// Start timer
-MS.use(timer("Init"));
 
 const neededToBuildMainMenu = [
   "index.md",
@@ -277,11 +271,9 @@ if (process.env.NODE_ENV === "development" && RENDER_PATH_PATTERN) {
   MS.use(
     watch({
       paths: {
+        "layouts/**/*": "**/*",
         "pages/404/index.md": true,
         [`pages/${RENDER_PATH_PATTERN}/*.md`]: "**/*.{md,tmpl}",
-        "layouts/**/*": "**/*",
-        "js/**/*": "**/*",
-        "scss/**/*": "**/*",
       },
       livereload: true,
     })
@@ -295,7 +287,7 @@ if (process.env.NODE_ENV === "development") {
   MS.use(timer("Webserver"));
 }
 
-MS.use(webpack("./webpack.config.js"));
+MS.use(webpack);
 MS.use(timer("Webpack"));
 
 // Build

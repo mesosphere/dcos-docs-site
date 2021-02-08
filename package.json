@@ -41,7 +41,6 @@
     "metalsmith-serve": "0.0.7",
     "metalsmith-timer": "0.0.2",
     "metalsmith-watch": "^1.0.3",
-    "metalsmith-webpack2": "^1.0.1",
     "mkdirp": "^0.5.1",
     "ngindox": "^0.2.0",
     "node-sass": "^4.5.3",
