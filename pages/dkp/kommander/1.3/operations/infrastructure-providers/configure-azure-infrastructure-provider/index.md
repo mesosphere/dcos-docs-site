@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Configure an Azure Provider
 title: Azure Infrastructure Provider with Static Credentials
 excerpt: Configuring an Azure Infrastructure Provider

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Architecture
 title: Architecture
 excerpt: Kommander architecture diagram

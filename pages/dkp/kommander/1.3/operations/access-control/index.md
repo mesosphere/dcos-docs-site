@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 title: Access Control
 navigationTitle: Access Control
 menuWeight: 1

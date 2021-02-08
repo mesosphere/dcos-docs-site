@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Upgrade Kubernetes version
 title: Upgrade Kubernetes version
 menuWeight: 7

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Tutorials
 title: Tutorials
 menuWeight: 12
