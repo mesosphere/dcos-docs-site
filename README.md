@@ -175,8 +175,6 @@ Where `X.Y.` is the major.minor version of konvoy.
 
 The time to re-render and refresh the browser depends largely on the set of pages that are automatically re-rendered.
 
-To change the set of docs that are automatically re-rendered and refreshed in the browser, set the `LIVEEDIT_RENDER_PATH_PATTERN` make variable.
-
 Some examples:
 
 Set of docs for multiple konvoy versions takes about **70s** to re-render the page:
@@ -311,18 +309,6 @@ Variables are called by using `{{ model.value }}` within the content, and the sc
 ### Adding numbered lists
 Numbered lists are along standard markdown guidelines. Please be careful of indentations when trying to create complex lists or when adding codeblocks or notes.
 
-### Adding tables
-Best practices for tables are to run a webpack just on that page so you can get automatic rebuilds, and then just refresh the web browser to see the changes.
-Please note the double asterisk needed to grab all files below that folder level.
-
-`RPP=path/to/subfolder/** npm run dev`
-
-Example building the upgrades file:
-`RPP=mesosphere/dcos/2.0/installing/production/upgrading/** npm run dev`
-
-Note, when using RPP, only pages at that level and below will be built, so be sure to visit:
-`localhost:3000/mesosphere/dcos/2.0/installing/production/upgrading/`
-
 ### Adding images
 Images are currently stored in an `img` folder at the version level. Running a preview build to ensure all image paths are correct is important. Please make sure to add alternate text within the brackets
 
@@ -382,20 +368,10 @@ Extra information that the user may wish to know, but not necessary to the basic
 ### Save your edited files!
 
 ## Previewing your work and formatting
-Because metalsmith markdown is occasionally finicky, it is a good idea to preview your changes, especially if you have edited code blocks, lists or tables.
+
+Because markdown is occasionally finicky, it is a good idea to preview your changes, especially if you have edited code blocks, lists or tables.
 
 `npm run dev`
-
-:exclamation: Render Path Pattern for faster builds
-You can choose to build only a subset of the content and check it on localhost.
-
-`RPP=path/to/subfolder/** npm run dev`
-
-This will build only that subdirectory. Please note, due to the large number of files, it is best to set RPP down at the version level of any product, such as
-
-`RPP=mesosphere/dcos/2.0/**`
-
-To view, navigate to that subdirectory on the local host. Pages above that directory will exist but not with CSS compiled.
 
 ## Committing your set of saved changes
 
