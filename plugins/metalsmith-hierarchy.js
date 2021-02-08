@@ -51,26 +51,18 @@ const createChild = (file, fileObj, id) => {
 // all files are put through this. it will the walk upwards and then handle the
 // ancestors until an already compiled page is found (we pass in the entry for "/", so
 // there'll always be an ancestor)
-function walk(file, files, path, possiblePaths, children = []) {
-  const child = children.find((c, _i) => c.id === path[0]);
-  const isNew = !child;
-  // Build object
-  if (isNew) {
+function walk(file, files, path, paths, children = []) {
+  if (path.length <= 1) {
+    // Build object
     const newChild = createChild(file, files[file], path[0]);
-    possiblePaths[newChild.path] = newChild;
+    paths[newChild.path] = newChild;
+    children = children.filter((c) => c.path != newChild.path);
     children.push(newChild);
     children.sort(sortPages);
   } else {
     // walk deeper
-    if (child && path.length > 1) {
-      child.children = walk(
-        file,
-        files,
-        path.slice(1),
-        possiblePaths,
-        child.children
-      );
-    }
+    const deeper = children.find((c, _i) => c.id === path[0]);
+    deeper.children = walk(file, files, path.slice(1), paths, deeper.children);
   }
 
   return children;
@@ -85,22 +77,23 @@ const findMeta = ({ children }, key, value) =>
     )
     .concat(...children.map((c) => findMeta(c, key, value)));
 
+const paths = {};
+let root = null;
+function findByPath(pathArg, strict = true) {
+  const pathToFind = `/${pathArg}`.replace(/\/$/, "").replace(/^\/\//, "/");
+  if (!paths[pathToFind] && strict)
+    throw new Error(`Missing file in path: ${pathToFind}`);
+
+  return paths[pathToFind];
+}
+const findLongestExisting = (path) =>
+  findByPath(path, false)
+    ? path
+    : findLongestExisting(path.replace(/\/[^/]+\/?$/, ""));
+
 module.exports = (files, metalsmith, done) => {
   setImmediate(done);
-  const possiblePaths = {};
-  function findByPath(pathArg, strict = true) {
-    const pathToFind = `/${pathArg}`.replace(/\/$/, "").replace(/^\/\//, "/");
-    if (!possiblePaths[pathToFind] && strict) {
-      throw new Error(`Missing file in path: ${pathToFind}`);
-    }
-    return possiblePaths[pathToFind];
-  }
-  const findLongestExisting = (path) =>
-    findByPath(path, false)
-      ? path
-      : findLongestExisting(path.replace(/\/[^/]+\/?$/, ""));
-
-  const root = {
+  root = root || {
     id: "",
     title: "",
     path: "/",
@@ -114,7 +107,7 @@ module.exports = (files, metalsmith, done) => {
   Object.keys(files).forEach((file) => {
     if (extname(file) !== ".md") return;
     const path = file.split("/").slice(0, -1);
-    const children = walk(file, files, path, possiblePaths, root.children);
+    const children = walk(file, files, path, paths, root.children);
     root.children = children;
   });
   metalsmith.metadata().hierarchy = root;
