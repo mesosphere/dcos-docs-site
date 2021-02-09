@@ -5,7 +5,6 @@ title: konvoy diagnose
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Creates a diagnostics bundle of the cluster
 ---
 
@@ -30,8 +29,8 @@ konvoy diagnose [flags]
       --include-pod-log-dirs      include the directories with the pod logs allocated in the node
       --include-secrets           include the values of secrets, WARNING the secrets will be plaintext in the bundle
       --logs-all-namespaces       include logs from pods in all namespaces
-      --logs-namespaces strings   include logs from pods in the given namespaces (default [cert-manager,dispatch,istio-system,kommander,kommander-system,konvoy,kube-node-lease,kube-public,kube-system,kubeaddons,kubeaddons-flagger,kubecost,kudo-system,tekton-pipelines,velero])
-  -o, --output string             file name to use for storing the diagnostics bundle in (default "/src/github.com/mesosphere/konvoy/20200324T181518.tar.gz")
+      --logs-namespaces strings   include logs from pods in the given namespaces (default [cert-manager,dispatch,istio-system,knative-serving,kommander,kommander-system,konvoy,kube-node-lease,kube-public,kube-system,kubeaddons,kubeaddons-flagger,kubecost,kubeflow,kudo-system,tekton-pipelines,velero])
+  -o, --output string             file name to use for storing the diagnostics bundle in
   -s, --since d                   Log files will be queried up to <since> in the past. Supports d and `h` for days and hours respectively (default "2d")
   -y, --yes                       run command without prompting
 ```

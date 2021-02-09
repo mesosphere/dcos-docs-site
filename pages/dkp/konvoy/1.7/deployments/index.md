@@ -4,7 +4,7 @@ navigationTitle: Workload Deployment
 title: Workload Deployment
 menuWeight: 160
 excerpt: Konvoy Deployment
-beta: true
+beta: false
 enterprise: false
 ---
 Konvoy Workload Deployments

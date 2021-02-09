@@ -5,7 +5,6 @@ title: konvoy scale
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Changes the node pool's number of machines in the cluster configuration
 ---
 

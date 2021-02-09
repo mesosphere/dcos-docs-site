@@ -5,16 +5,16 @@ title: konvoy check fips
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-excerpt: Run fips-140-2 compliance checks
+excerpt: Run fips-140-2 module validation checks
 ---
 
 ## konvoy check fips
 
-Run fips-140-2 compliance checks
+Run fips-140-2 module validation checks
 
 ### Synopsis
 
-Run fips-140-2 compliance checks
+Run fips-140-2 module validation checks
 
 ```
 konvoy check fips [flags]

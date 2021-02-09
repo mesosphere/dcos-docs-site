@@ -4,7 +4,7 @@ navigationTitle: Custom Domain
 title: Custom Domain
 menuWeight: 8
 excerpt: Configure a custom domain for Konvoy
-beta: true
+beta: false
 ---
 
 ## Configure Konvoy to use a custom domain

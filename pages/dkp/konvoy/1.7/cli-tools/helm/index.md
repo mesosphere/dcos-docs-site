@@ -4,7 +4,7 @@ navigationTitle: Helm CLI
 title: Helm CLI
 menuWeight: 5
 excerpt: Helm CLI Usage
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Kubernetes Container Storage Interface (CSI)
 title: Kubernetes Container Storage Interface (CSI)
 menuWeight: 9
 excerpt: Introduction to Kubernetes Container Storage Interface (CSI)
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Calico Version
 title: Calico Version
 menuWeight: 8
 excerpt: Use a specific Calico version
-beta: true
+beta: false
 enterprise: false
 ---
 

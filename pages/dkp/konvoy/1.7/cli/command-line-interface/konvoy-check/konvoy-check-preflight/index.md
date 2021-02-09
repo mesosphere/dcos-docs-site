@@ -5,7 +5,6 @@ title: konvoy check preflight
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Run checks to validate machines are ready for installation
 ---
 

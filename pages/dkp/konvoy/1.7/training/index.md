@@ -4,7 +4,7 @@ navigationTitle: Training
 title: Training
 menuWeight: 50
 excerpt: Konvoy Training Informaton
-beta: true
+beta: false
 enterprise: false
 ---
 

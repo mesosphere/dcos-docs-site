@@ -4,7 +4,7 @@ navigationTitle: Install on-premises
 title: Install on-premises
 menuWeight: 30
 excerpt: Install Konvoy in an on-premises environment
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -210,7 +210,7 @@ spec:
     - name: dispatch
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.19-1.3.0-rc.8
+    configVersion: testing-1.19-1.3.0-rc.9
     addonsList:
     - name: kommander
       enabled: true

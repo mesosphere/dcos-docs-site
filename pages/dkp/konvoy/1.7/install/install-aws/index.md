@@ -4,7 +4,7 @@ navigationTitle: Install on AWS
 title: Install on AWS
 menuWeight: 20
 excerpt: Prepare for and install Konvoy on AWS
-beta: true
+beta: false
 enterprise: false
 ---
 

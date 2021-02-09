@@ -4,7 +4,7 @@ navigationTitle: Introduction to RBAC
 title: Introduction to RBAC
 menuWeight: 5
 excerpt: Learn the basics of RBAC
-beta: true
+beta: false
 enterprise: false
 ---
 

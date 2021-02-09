@@ -5,7 +5,6 @@ title: konvoy down
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Destroy the Kubernetes cluster
 ---
 

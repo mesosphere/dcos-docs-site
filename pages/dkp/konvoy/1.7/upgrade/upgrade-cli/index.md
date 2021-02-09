@@ -4,7 +4,7 @@ navigationTitle: Upgrade Konvoy CLI
 title: Upgrade Konvoy CLI
 menuWeight: 30
 excerpt: Upgrade Konvoy image CLI version
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -67,13 +67,13 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.7.0-rc.7
-Wrote Konvoy CLI version 'v1.7.0-rc.7' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.7.0-rc.8
+Wrote Konvoy CLI version 'v1.7.0-rc.8' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.6.x to v1.7.0-rc.7
+### Upgrading Konvoy from v1.6.x to v1.7.0-rc.8
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
@@ -85,9 +85,9 @@ It is recommended to upgrade to the newest supported version of Containerd, set 
 
 The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.19-3.2.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.19-1.3.0-rc.8`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.19-1.3.0-rc.9`.
 
-The version of Konvoy is now `v1.7.0-rc.7`, set `spec.version: v1.7.0-rc.7`.
+The version of Konvoy is now `v1.7.0-rc.8`, set `spec.version: v1.7.0-rc.8`.
 
 ```yaml
 kind: ClusterConfiguration
@@ -109,12 +109,12 @@ spec:
       configVersion: testing-1.19-3.2.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: testing-1.19-1.3.0-rc.8
+      configVersion: testing-1.19-1.3.0-rc.9
       addonsList:
         - name: kommander
           enabled: true
   ...
-  version: v1.7.0-rc.7
+  version: v1.7.0-rc.8
 ```
 
 <p class="message--note"><strong>NOTE: </strong>During the upgrade process, if the cluster has certain types of workloads running, the Konvoy CLI displays a warning. These warnings report skipped nodes in the upgrade process.</p>

@@ -5,7 +5,6 @@ title: konvoy deploy addons
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Deploy Kubernetes addons
 ---
 

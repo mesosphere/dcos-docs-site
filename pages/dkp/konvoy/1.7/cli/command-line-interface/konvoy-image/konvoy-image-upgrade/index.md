@@ -5,7 +5,6 @@ title: konvoy image upgrade
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Upgrade the Konvoy CLI image version
 ---
 

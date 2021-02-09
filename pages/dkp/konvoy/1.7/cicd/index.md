@@ -4,7 +4,7 @@ navigationTitle: CI/CD
 title: CI/CD
 menuWeight: 170
 excerpt: Konvoy CI/CD
-beta: true
+beta: false
 enterprise: false
 ---
 Konvoy CI/CD

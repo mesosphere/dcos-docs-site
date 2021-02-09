@@ -4,7 +4,7 @@ navigationTitle: Policy Controls
 title: Policy Controls
 menuWeight: 200
 excerpt: Konvoy Policy Controls
-beta: true
+beta: false
 enterprise: false
 ---
 Konvoy Policy Controls

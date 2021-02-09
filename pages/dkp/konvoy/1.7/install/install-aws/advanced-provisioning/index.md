@@ -4,7 +4,7 @@ navigationTitle: Advanced provisioning options (AWS)
 title: Advanced provisioning options (AWS)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on AWS
-beta: true
+beta: false
 enterprise: false
 ---
 

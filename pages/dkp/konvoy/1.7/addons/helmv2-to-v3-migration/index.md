@@ -4,7 +4,7 @@ navigationTitle: Helm v2 to v3 Migration
 title: Helm v2 to v3 Migration
 menuWeight: 6
 excerpt: Steps to migrate from Helm v2 to v3 for Konvoy `v1.6.0`
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -4,7 +4,7 @@ navigationTitle: Logging and Audits
 title: Logging and Audits
 menuWeight: 190
 excerpt: Collect and visualize the logs from Kubernetes, platform services, and applications deployed on the Konvoy cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

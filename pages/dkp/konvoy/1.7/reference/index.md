@@ -4,7 +4,7 @@ navigationTitle: API
 title: API
 menuWeight: 260
 excerpt: Review detailed configuration and command-line reference information
-beta: true
+beta: false
 enterprise: false
 ---
 

@@ -5,7 +5,6 @@ title: konvoy config images pull
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Pull all docker images used during the installation
 ---
 

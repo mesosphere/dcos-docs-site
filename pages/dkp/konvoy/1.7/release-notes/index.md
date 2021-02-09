@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
 navigationTitle: Release Notes
-title: Release Notes Konvoy 1.7 RC7
+title: Release Notes Konvoy 1.7
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 1.7
-beta: true
+beta: false
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.7.0 RC7 was released on 9, February 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.7.0 was released on 10 February, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -57,7 +57,7 @@ In this release:
 - Control plane Kubernetes components use FIPS-approved ciphers.
 - A verification tool shows whether select Kubernetes objects in a cluster are using approved ciphers, and which ciphers are in use.
 - Use `konvoy up --mode fips` command to create a new `cluster.yaml` with the required configuration to create a FIPS-approved cluster.
-- Use `konvoy check fips` command to validate the cluster is using FIPS-approved ciphers.
+- Use `konvoy check fips` command to verify the cluster is using FIPS-approved ciphers.
 
 #### Security Vulnerability Scanning and Reporting
 
@@ -80,7 +80,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Added retries when adding iptable rules to avoid errors when another program may have a lock on the table.
 - Re-enabled coredns caching to reduce unnecessary load on API server.
 - Retry ssh-connections that could cause `unreachable` failures when using a bastion node.
-- Better validation of when a machine is ready before trying to run Ansible.
+- Better verification of when a machine is ready before trying to run Ansible.
 - Fix a regression with old versions of `ip route` that could result in an error when `keepalived` is enabled. (COPS-6791)
 
 #### CLI
@@ -144,7 +144,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Go 1.15.6
 - Helm v3.3.4
 - kubeaddons-dispatch stable-1.19-1.4.0
-- kubeaddons-kommander testing-1.19-1.3.0-rc.8
+- kubeaddons-kommander testing-1.19-1.3.0-rc.9
 - kubernetes-base-addons testing-1.19-3.2.0
 - Kubernetes v1.19.7
 - Kubeaddons v0.23.7

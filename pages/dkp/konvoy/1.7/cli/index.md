@@ -4,7 +4,7 @@ navigationTitle: CLI
 title: CLI
 menuWeight: 250
 excerpt: Konvoy CLI
-beta: true
+beta: false
 enterprise: false
 ---
 Konvoy CLI
