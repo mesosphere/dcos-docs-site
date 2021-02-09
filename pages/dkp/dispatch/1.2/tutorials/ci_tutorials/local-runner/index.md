@@ -70,7 +70,7 @@ git = git_resource("helloworld-git")
 task("unit-test-simple",
     steps=[k8s.corev1.Container(
         name="unit-test-simple",
-        image="golang:1.13.0-buster",
+        image="golang:1.15.7-buster",
         workingDir=git_checkout_dir(git),
         command=["go", "test", "-v", "./..."])])
 EOF
@@ -115,7 +115,7 @@ task:
       - go
       - test
       - ./...
-      image: golang:1.13.0-buster
+      image: golang:1.15.7-buster
       name: unit-test-simple
       resources: {}
       workingDir: $(resources.inputs.helloworld-git.path)

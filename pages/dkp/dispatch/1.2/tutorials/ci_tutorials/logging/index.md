@@ -38,7 +38,7 @@ task("unit-test-simple",
     inputs=[git],
     steps=[k8s.corev1.Container(
         name="unit-test-docker",
-        image="golang:1.13.0-buster",
+        image="golang:1.15.7-buster",
         workingDir="$(resources.inputs.{}.path)".format(git),
         command=["go", "test", "./...", "--coverprofile=$(resources.outputs.{}.path)/cover.out".format(storage) ])])
 
@@ -54,7 +54,7 @@ Upon executing `dispatch ci render --file Dispatchfile`, a well rendered yaml co
 Modify the Dispatchfile created to introduce a few errors:
 
 1. Initialize `tests` array to `["unit-tests-simple"]` instead of `["unit-test-simple"]`. This should be recognized as compile time error.
-1. Modify the `image` field in task definition to `golang:1.13.0_buster` instead of `golang:1.13.0-buster`. This should be recognized as runtime configuration error.
+1. Modify the `image` field in task definition to `golang:1.13.0_buster` instead of `golang:1.15.7-buster`. This should be recognized as runtime configuration error.
 1. Change the `go test ./...` command to be `go test ./..` instead. This will successfully complete the pipelinerun but it would end up in a Failed state. This is also a runtime error that should be deduced from the logs. 
 
 These errors show up at various stages of a pipeline lifecycle and the rest of this sections walks through on how to debug the failures. 
@@ -121,7 +121,7 @@ Steps:
     Reason:   ImagePullBackOff
 ```
 
-This makes it obvious that the image is invalid. Let's fix the image by changing the image to `golang:1.13.0-buster` instead of `golang:1.13.0_buster`. Next, we look at the pipeline failures (because of the invalid `go test ./..` command we created).
+This makes it obvious that the image is invalid. Let's fix the image by changing the image to `golang:1.15.7-buster` instead of `golang:1.13.0_buster`. Next, we look at the pipeline failures (because of the invalid `go test ./..` command we created).
 
 ### Troubleshooting runtime failures in Dispatchfile pipelines
 
@@ -250,7 +250,7 @@ task("unit-test-simple",
     outputs=[storage],
     steps=[k8s.corev1.Container(
         name="unit-test-docker",
-        image="golang:1.13.0-buster",
+        image="golang:1.15.7-buster",
         workingDir="$(resources.inputs.{}.path)".format(git),
         command=["go", "test", "./...", "--coverprofile=$(resources.outputs.{}.path)/cover.out".format(storage) ])])
 
