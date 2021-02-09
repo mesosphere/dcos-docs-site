@@ -71,6 +71,10 @@ helm test dispatch-kubeaddons
 |YAML | 0.6 |
 |JSON | 0.6 |
 
+### Known Issues
+
+- Prometheus endpoint `/ops/portal/prometheus/targets` will report target `dispatch/dispatch-event-sink-images/0` as unhealthy, with an error message `server returned HTTP status 404 Not Found`. Please run `kubectl delete servicemonitor -n dispatch dispatch-event-sink-images` to resolve this error.
+
 ### Improvements since Dispatch 1.3
 
 - Added support to tasks for annotations and labels.
