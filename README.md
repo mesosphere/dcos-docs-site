@@ -4,6 +4,24 @@
 
 You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser.
 
+## Via Docker
+
+If you don't want to setup `node.js` your machine and have docker installed, you can start the site in a container.
+
+```
+# absolute path to the docs you want to edit. e.g. if you're in the konvoy repo, this would be "$PWD/docs/site/".
+MOUNT_SRC=$PWD/docs/site/
+
+# where in the url-structure to attach the folder you just selected. without the leading slash.
+# e.g. for konvoy this might be "dkp/konvoy/1.7".
+MOUNT_DST=dkp/konvoy/1.7
+
+# start preview server
+docker run -it --rm -v $MOUNT_SRC:/dcos-docs-site/pages/$MOUNT_DST -p3000:3000 -p35729:35729 mesosphere/docs-dev
+```
+
+If you need more control, have a look at the Makefile and the targets `docker-liveedit-image` and `docker-liveedit`.
+
 ## Without Docker
 
 Ensure `node.js >=8.x` is installed: https://nodejs.org/en/download/package-manager/
@@ -18,35 +36,6 @@ npm run dev
 
 You'll now be able to browse the docs at [http://localhost:3000/](http://localhost:3000/). Your browser will reflect any changes to pages in dkp almost immediately.
 
-## With Docker
-
-If you don't want to setup `node.js` your machine and have docker installed, you can start the site in a container:
-
-```shell
-# create the container image
-make docker-liveedit-image
-
-# start preview server
-make docker-liveedit
-```
-
-**NOTE**: _The container image is not automatically kept up-to-date as the `dcos-docs-site` repo changes. Re-create the image periodically by running the make command._
-
-The default image name is `dcos-docs-liveedit`. To use a different name, override the `LIVEEDIT_IMAGE` make variable:
-
-```shell
-make docker-liveedit-image LIVEEDIT_IMAGE=my-name
-```
-
-To live edit the Konvoy docs in the `konvoy` repo, run:
-
-```shell
-make docker-liveedit \
-  LIVEEDIT_PAGES_SRC_ABS_PATH=<ABSOLUTE/PATH/TO/KONVOY-REPO>/docs/site \
-  LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/X.Y
-```
-
-Where `X.Y.` is the major.minor version of konvoy.
 
 # Content Editing Workflow
 ## Ensure jira ticket
