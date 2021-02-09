@@ -71,7 +71,7 @@ helm test dispatch-kubeaddons
 |YAML | 0.6 |
 |JSON | 0.6 |
 
-### Improvements since
+### Improvements since Dispatch 1.3
 
 - Added support to tasks for annotations and labels.
 - Addes support in Dispatch CLI for Docker registry authentication when pulling images.
