@@ -37,10 +37,10 @@ pipeline {
   }
   stages {
     stage("Update dev-image") {
-      // when { branch "master" }
+      when { branch "master" }
       steps {
         sh '''
-          # docker pull mesosphere/docs-dev:latest
+          docker pull mesosphere/docs-dev:latest
           docker build --cache-from mesosphere/docs-dev:latest -f docker/Dockerfile -t mesosphere/docs-dev:latest .
           docker push mesosphere/docs-dev:latest
         '''
