@@ -4,7 +4,6 @@ navigationTitle: Release Notes - v1.1
 title: Release Notes - Conductor v1.1
 menuWeight: 01
 render: mustache
-model:  /mesosphere/dcos/2.1/data.yml
 beta: false
 excerpt: Release notes for Conductor 1.1, including Open Source attribution, and version policy.
 ---

@@ -7,7 +7,6 @@ menuWeight: 0
 excerpt: Learning DC/OS
 beta: false 
 render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 Welcome to the documentation for Mesosphere&reg; DC/OS&trade; 2.2. For information about new and changed features, see the [release notes](/mesosphere/dcos/2.2/release-notes/2.2/). 

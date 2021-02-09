@@ -1,5 +1,9 @@
 .git
 .github
 node_modules
+pages/mesosphere
+!pages/mesosphere/index.md
+!pages/mesosphere/dcos/index.md
+!pages/mesosphere/dcos/2.2/index.md
 build
 .revision
