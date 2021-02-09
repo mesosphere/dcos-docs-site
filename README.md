@@ -1,127 +1,24 @@
-## D2iQ Documentation and Website Repo
+# D2iQ Documentation
 
-## Build Statuses
+# Setting up a dev/preview environment
 
-| Branch | Site Build  | URL |
-| ------ | ----------  | --- |
-| review | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-review)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-review/) | <http://docs-review.mesosphere.com/> |
-| dcos-docs-site-alpha | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-alpha)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-alpha/) | <http://docs-alpha.d2iq.com/> |
-| beta-dispatch | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=beta-dispatch)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/beta-dispatch/) | <http://beta-dispatch.d2iq.com/> |
-| beta-kommander | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=beta-kommander)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/beta-kommander/) | <http://beta-kommander.d2iq.com/> |
-| staging | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-staging)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-staging/) | <https://docs-staging.mesosphere.com> |
-| master | [![Build Status](https://jenkins-docs.mesosphere.com/service/jenkins-docs/buildStatus/icon?job=dcos-docs-site-master)](https://jenkins-docs.mesosphere.com/service/jenkins-docs/job/dcos-docs-site-master/) | <https://docs.d2iq.com> |
+## Without Docker
 
+Ensure `node.js >=8.x` is installed: https://nodejs.org/en/download/package-manager/
 
+```
+# install dependencies
+npm i
 
-To get started with the docs, please see [this temporary guide](https://hackmd.io/@ck4adventure/BJgrt4L5B/%2FxJo7K0hyR-GpmQNz7jU0Fw) while we re-write the wiki.
-
-# Setting up the docs dev environment
-## Ensure Github Access
-
-### Ensure personal account access
-
-### Ensure SSH keypair on file
-1. First check to see if there are [existing SSH keys](https://help.github.com/en/enterprise/2.15/user/articles/checking-for-existing-ssh-keys). (the link will take you to GitHub's tutorial)
-1. If you do not have an SSH key, follow these instructions to [generate a new one](https://help.github.com/en/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent).
-1. If you do have a public and private pair, follow these instructions to [add your key to the ssh-agent](https://help.github.com/en/enterprise/2.15/user/articles/generating-a-new-ssh-key-and-adding-it-to-the-ssh-agent#adding-your-ssh-key-to-the-ssh-agent)
-1. Then you will [add your SSH key](https://help.github.com/en/enterprise/2.15/user/articles/adding-a-new-ssh-key-to-your-github-account) to your GitHub account
-
-## Setup Mac Dev Environment
-### Ensure Node is installed
-
-Install node/js 8.1.2
-
-`brew install node@8.1.2`
-
-NB: for devs, make sure you can switch down to an older node via `nvm` or other manager `nvm use 8.1.2`
-
-### Ensure a code editor is installed
-we recommend [downloading VSCode](https://code.visualstudio.com/)
-
-### Install colored git branches
-Add this snippet to your .bash_profile
-```bash
-parse_git_branch() {
-  git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
-}
-
-export PS1="\u@\h \W\[\033[32m\]\$(parse_git_branch)\[\033[00m\] $ "
+# local preview
+npm run dev
 ```
 
-Run `source ~/.bash_profile` to reload the changes into any open terminals. It will automatically load itself into new windows after that.
+You'll now be able to browse the docs at [http://localhost:3000/](http://localhost:3000/). Your browser will reflect any changes to pages in dkp almost immediately.
 
+## With Docker
 
-### (Optional) Install bash autocompletion
-Link to [Git Tips and Tricks](https://git-scm.com/book/en/v1/Git-Basics-Tips-and-Tricks) to understand using Autocomplete
-
-1. Download this file [git-completion.bash](https://github.com/git/git/blob/master/contrib/completion/git-completion.bash)
-2. Move or copy it to your home directory
-3. Add this line to your .bashrc file `source ~/git-completion.bash`, it will now read in every time you open your terminal
-
-### (Optional) Export shell path for code
-This allows you to open code directly from the command line
-
-From within VSCode editor, open to any file or none
-`cmd + t` to open the command shortcut bar
-type in `> shell ` to pull up the quick command to add the code command to the path
-
-![vscode shell command](https://i.imgur.com/WQFB4tk.png)
-
-### (Optional) Install VSCode extensions
-Extensions can make it easier to work within the editor. Open the extensions browser by clicking the Settings Icon in the very lower left of VSCode and choosing `Extensions`, or, as you can see, it has a shortcut.
-
- ![Settings, Extensions](https://i.imgur.com/0XkNShr.png)
-
-One extension that is often useful is `Gitlens`.
-
-
-## Clone the Repo You Need
-### Ensure working directory
-As the products grow, so do the places where documentation lives. Tech writers will end up with more than a few repos that you will work in and contribute to as part of your work.
-1. From home level in the terminal, type `mkdir d2iq`
-
-
-### CD into your working directory
-1. Change directory into the new one you just made, or the one you already had
-`cd d2iq`
-
-### Clone the repo you need
-We will be using the docs site repo for all examples, but this might also be another product repo within D2iQ.
-`git clone dcos-docs-site`
-
-NB: On first time setup, you may need to follow the instructions to install xcode tools to get git functionality
-
-### `cd` into the Repo you just cloned
-`cd dcos-docs-site`
-
-### Open the repo in your code editor
-If you installed the shell extension, you can now open the folder your terminal is in with the command:
-`code .`
-
-## Initialize the Repo (Docs Repo Only)
-Content that is kept on other team repos would follow their init, if applicable.
-### Install node modules
-This must be only done on first time or if a rare site tooling change occurs. Other repos may have other needs, see their Contributing Guide or similar resource for assistance if you will need to build their code.
-`npm install`
-
-### Build a local preview
-This is to ensure setup was successful
-`npm run dev`
-
-Open a browser and navigate to `localhost:3000` to view the documentation site on your local system
-
-#### Problems?
-Running a build on first install is to ensure that all tools have been installed and are reading the code correctly. Please make sure to debug any errors at this point until you can get a full preview of the docs site at localhost:3000 in your browser.
-
-:TODO: image localhost docs landing page
-
-### Stop the local preview server
-This necessary once you are done previewing, not great to leave it running.
-`ctrl-c`
-
-## Deploy Live Site in a Container
-
-If you edit docs on occasion, you may not want to install all the build dependencies on your host. If you have docker installed, you can deploy the site in a container. You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser.
+If you edit docs on occasion, you may not want to install all the build dependencies on your machine. If you have docker installed, you can deploy the site in a container. You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser.
 
 ### Create the container image
 
@@ -131,9 +28,9 @@ The container image has all the site dependencies, and a set of rendered docs, a
 make docker-liveedit-image
 ```
 
-**NOTE**: _The container image is not automatically kept up-to-date as the `dcos-docs-site` repo changes. Re-create the image periodically by running the make goal._
+**NOTE**: _The container image is not automatically kept up-to-date as the `dcos-docs-site` repo changes. Re-create the image periodically by running the make command._
 
-The default image name is `dcos-docs-liveedit`. To use a different container name, override the `LIVEEDIT_IMAGE` make variable:
+The default image name is `dcos-docs-liveedit`. To use a different name, override the `LIVEEDIT_IMAGE` make variable.
 
 ```shell
 make docker-liveedit-image LIVEEDIT_IMAGE=my-name
@@ -141,24 +38,14 @@ make docker-liveedit-image LIVEEDIT_IMAGE=my-name
 
 ### Run a "live" site in a container
 
-Due to limitations of the `metalsmith` software used to render the docs, live editing the entire docs site is not possible.
-
-To live edit just the DCOS 2.1 docs, with the site available on `https://localhost:3000` on your host, run:
-
 ```shell
 make docker-liveedit
-```
-
-To live edit on a different port, e.g. `9999`, run:
-
-```shell
-make docker-liveedit LIVEEDIT_HOST_PORT=9999
 ```
 
 To live edit the Konvoy 1.5 docs already merged into the `dcos-docs-site` repo, run:
 
 ```shell
-make docker-liveedit  LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/1.5
+make docker-liveedit LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/1.5
 ```
 
 To live edit the Konvoy docs in the `konvoy` repo, run:
@@ -170,24 +57,6 @@ make docker-liveedit \
 ```
 
 Where `X.Y.` is the major.minor version of konvoy.
-
-### Live Edit Performance
-
-The time to re-render and refresh the browser depends largely on the set of pages that are automatically re-rendered.
-
-Some examples:
-
-Set of docs for multiple konvoy versions takes about **70s** to re-render the page:
-
-```shell
-LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/dkp/konvoy LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy make docker-liveedit
-```
-
-Set of docs for konvoy 1.5 only takes about **45s** to re-render the page:
-
-```shell
-LIVEEDIT_PAGES_SRC_ABS_PATH=$PWD/pages/dkp/konvoy/1.5 LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/1.5 make docker-liveedit
-```
 
 # Content Editing Workflow
 ## Ensure jira ticket
@@ -252,9 +121,11 @@ Code blocks are formatted and presented to the user on the docs site with a copy
 Code block formatting is 3 backtics on separate lines at start and end. Do not put in the leading shell prompt `$` for any commands to be run, as this will block the user from copy-pasting.
 
 Code ex.:
-\```
+~~~
+```
 cd /var/lib/dcos/pki/tls/certs/
-\```
+```
+~~~
 
 Correctly formatted:
 ```bash
@@ -367,12 +238,6 @@ Extra information that the user may wish to know, but not necessary to the basic
  
 ### Save your edited files!
 
-## Previewing your work and formatting
-
-Because markdown is occasionally finicky, it is a good idea to preview your changes, especially if you have edited code blocks, lists or tables.
-
-`npm run dev`
-
 ## Committing your set of saved changes
 
 ### Add the files you want to be included in the commit
@@ -417,9 +282,6 @@ Best practice is to do a quick visual scan of the pages changed once built to st
 
 ### Promote to Master
 The script `./scripts/promote-staging-to-master.sh` will checkout staging, update itself, checkout master, update and merge in, and then push master up to trigger a webhook for the production build.
-
-## Troubleshooting PRs
-TODO: Fill out this section more
 
 ## Rebase your work
 
@@ -487,6 +349,3 @@ Figure 1 - Folder Structure Example
 * **beta: true** - use this to add an enterprise label to a page
 
 NB: Labels are only added directly to the particular page and not to any subpages
-
-### Add Content
-See [Add/Edit Content](#AddEdit-content-to-existing-pages)
