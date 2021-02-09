@@ -36,6 +36,17 @@ pipeline {
     REDIR_HOSTNAME = hostname(env.BRANCH_NAME)
   }
   stages {
+    stage("Update dev-image") {
+      // when { branch "master" }
+      steps {
+        sh '''
+          # docker pull mesosphere/docs-dev:latest
+          docker build --cache-from mesosphere/docs-dev:latest -f docker/Dockerfile -t mesosphere/docs-dev:latest .
+          docker push mesosphere/docs-dev:latest
+        '''
+      }
+    }
+
     stage("Build image") {
       steps {
         sh '''
@@ -45,6 +56,7 @@ pipeline {
         '''
       }
     }
+
     stage("Push image") {
       when { branch "master" }
       steps {
@@ -54,6 +66,7 @@ pipeline {
         '''
       }
     }
+
     stage("Build & Deploy Docs") {
       environment {
         ALGOLIA_UPDATE = updateAlgolia(env.BRANCH_NAME)
