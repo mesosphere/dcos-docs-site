@@ -23,7 +23,7 @@ Any method that starts with `test_` in your Dispatchfile is run immediately afte
 
 task("test", steps=[k8s.corev1.Container(
     name="test",
-    image="golang:1.13.0-buster",
+    image="golang:1.15.7-buster",
     command=["go", "test", "./..."],
     workingDir="/workspace",
     resources = k8s.corev1.ResourceRequirements(
@@ -166,7 +166,7 @@ Example usage:
 ```sh
 task("test", inputs=["git"], steps=[k8s.corev1.Container(
     name="test",
-    image="golang:1.13.0-buster",
+    image="golang:1.15.7-buster",
     command=["go", "test", "./..."],
     workingDir="/workspace/git",
     resources = k8s.corev1.ResourceRequirements(
@@ -191,7 +191,7 @@ Example usage:
 ```sh
 task("test", inputs=["git"], steps=[k8s.corev1.Container(
     name="test",
-    image="golang:1.13.0-buster",
+    image="golang:1.15.7-buster",
     command=["go", "test", "./..."],
     workingDir="/workspace/git"
 )])

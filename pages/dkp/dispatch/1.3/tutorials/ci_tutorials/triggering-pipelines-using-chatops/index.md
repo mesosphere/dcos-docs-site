@@ -36,7 +36,7 @@ gitResource("src-git")
 
 task("test", inputs = ["src-git"], steps = [k8s.corev1.Container(
     name = "test",
-    image = "golang:1.13.0-buster",
+    image = "golang:1.15.7-buster",
     command = [ "go", "test", "./..." ],
     workingDir = "/workspace/src-git",
     resources = k8s.corev1.ResourceRequirements(

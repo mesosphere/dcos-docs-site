@@ -56,7 +56,7 @@ task "test": {
   steps: [
     {
       name: "test"
-      image: "golang:1.13.0-buster"
+      image: "golang:1.15.7-buster"
       command: [ "go", "test", "./..." ]
       workingDir: "/workspace/src-git"
     }
