@@ -196,7 +196,7 @@ spec:
     - name: dispatch
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: testing-1.19-1.3.0-rc.7
+    configVersion: testing-1.19-1.3.0-rc.8
     addonsList:
     - name: kommander
       enabled: true
