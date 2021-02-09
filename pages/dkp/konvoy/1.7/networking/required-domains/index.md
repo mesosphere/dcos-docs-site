@@ -4,7 +4,7 @@ navigationTitle: Required domains
 title: Konvoy required domains
 menuWeight: 50
 excerpt: Konvoy needs certain domains to download required images.
-beta: true
+beta: false
 enterprise: false
 ---
 

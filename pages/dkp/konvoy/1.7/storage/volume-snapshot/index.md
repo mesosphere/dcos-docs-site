@@ -4,7 +4,7 @@ navigationTitle: Volume Snapshots
 title: Volume Snapshots
 menuWeight: 14
 excerpt: Create Persistent Volume Snapshots
-beta: true
+beta: false
 enterprise: false
 ---
 

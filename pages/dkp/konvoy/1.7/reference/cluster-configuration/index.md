@@ -4,7 +4,7 @@ navigationTitle: Cluster configuration
 title: Cluster configuration
 menuWeight: 10
 excerpt: Review cluster configuration settings defined in the cluster.yaml file
-beta: true
+beta: false
 enterprise: false
 ---
 
@@ -196,7 +196,7 @@ spec:
     - name: dispatch
       enabled: false
   - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-    configVersion: testing-1.19-1.3.0-rc.8
+    configVersion: testing-1.19-1.3.0-rc.9
     addonsList:
     - name: kommander
       enabled: true

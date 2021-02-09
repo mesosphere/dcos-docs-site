@@ -5,7 +5,7 @@ title: Welcome to Konvoy 1.7 beta
 featureMaturity:
 enterprise: false
 category: K-Sphere
-beta: true
+beta: false
 menuWeight: 0
 ---
 

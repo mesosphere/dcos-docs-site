@@ -4,7 +4,7 @@ navigationTitle: Storage
 title: Kubernetes Storage Introduction
 menuWeight: 120
 excerpt: An introduction to persistent storage in Kubernetes
-beta: true
+beta: false
 enterprise: false
 ---
 

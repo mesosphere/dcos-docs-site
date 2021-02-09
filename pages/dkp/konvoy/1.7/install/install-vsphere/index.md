@@ -4,7 +4,7 @@ navigationTitle: Install on VMWare vSphere (vSphere)
 title: Install on VMWare vSphere (vSphere)
 menuWeight: 20
 excerpt: Prepare for and install Konvoy on VMWare vSphere (vSphere)
-beta: true
+beta: false
 enterprise: false
 ---
 

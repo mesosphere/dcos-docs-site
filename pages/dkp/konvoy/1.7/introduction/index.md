@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Introduction
 title: Introducing Konvoy
 excerpt: Deploy production-ready Kubernetes with Konvoy
-beta: true
+beta: false
 menuWeight: 10
 ---
 

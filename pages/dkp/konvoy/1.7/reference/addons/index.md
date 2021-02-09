@@ -4,7 +4,7 @@ navigationTitle: Addons
 title: Addons
 menuWeight: 8
 excerpt: What are Addons and how are they managed
-beta: true
+beta: false
 enterprise: false
 ---
 

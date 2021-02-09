@@ -4,7 +4,7 @@ navigationTitle: Enforce policies using Gatekeeper
 title: Enforce policies using Gatekeeper
 menuWeight: 24
 excerpt: Learn how to enforce policies using Gatekeeper
-beta: true
+beta: false
 enterprise: false
 ---
 

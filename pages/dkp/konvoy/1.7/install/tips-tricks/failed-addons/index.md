@@ -4,7 +4,7 @@ navigationTitle: Addon errors and failures
 title: Addon errors and failures
 menuWeight: 3
 excerpt: Troubleshoot and address addon errors and failures
-beta: true
+beta: false
 enterprise: false
 ---
 

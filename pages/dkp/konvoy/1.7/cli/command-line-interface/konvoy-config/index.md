@@ -5,7 +5,6 @@ title: konvoy config
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Manage installation related configuration
 ---
 

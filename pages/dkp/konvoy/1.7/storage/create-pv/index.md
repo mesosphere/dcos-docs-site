@@ -4,7 +4,7 @@ navigationTitle: Create a Kubernetes PV to access NFS shared storage
 title: Create a Kubernetes Persistent Volume
 menuWeight: 10
 excerpt: How to create a Kubernetes Persistent Volume to access your NFS shared storage
-beta: true
+beta: false
 enterprise: false
 ---
 

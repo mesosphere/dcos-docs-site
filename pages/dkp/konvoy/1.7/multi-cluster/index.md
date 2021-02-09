@@ -4,7 +4,7 @@ navigationTitle: Multi Cluster Management
 title: Multi Cluster Management
 menuWeight: 220
 excerpt: Konvoy Multi Cluster Management
-beta: true
+beta: false
 enterprise: false
 ---
 

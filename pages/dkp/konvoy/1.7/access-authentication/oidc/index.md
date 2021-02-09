@@ -4,7 +4,7 @@ navigationTitle: OpenID Connect (OIDC)
 title: OpenID Connect (OIDC) Introduction
 menuWeight: 10
 excerpt: An introduction to OpenID Connect (OIDC) Authentication in Kubernetes
-beta: true
+beta: false
 enterprise: false
 ---
 

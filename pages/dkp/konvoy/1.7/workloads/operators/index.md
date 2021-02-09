@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Controllers and Operators
 title: Controllers and Operators
 menuWeight: 8
-beta: true
+beta: false
 enterprise: false
 ---
 

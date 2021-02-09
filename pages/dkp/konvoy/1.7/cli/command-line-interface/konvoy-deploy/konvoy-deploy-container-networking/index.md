@@ -5,7 +5,6 @@ title: konvoy deploy container-networking
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
 enterprise: false
-beta: true
 excerpt: Deploy container networking
 ---
 

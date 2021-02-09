@@ -4,7 +4,7 @@ navigationTitle: Configure bastion hosts
 title: Configure bastion hosts
 menuWeight: 60
 excerpt: Configure bastion hosts for access to the Konvoy cluster
-beta: true
+beta: false
 enterprise: false
 ---
 

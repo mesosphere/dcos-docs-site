@@ -4,7 +4,7 @@ navigationTitle: Control plane High Availability
 title: Control plane High Availability
 menuWeight: 8
 excerpt: Make Konvoy control plane nodes highly available
-beta: true
+beta: false
 enterprise: false
 ---
 

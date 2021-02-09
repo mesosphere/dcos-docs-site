@@ -4,7 +4,7 @@ navigationTitle: Storage Operations for Konvoy Clusters
 title: Konvoy Storage Operations
 menuWeight: 20
 excerpt: Manage storage options including local and mounted persistent volumes
-beta: true
+beta: false
 enterprise: false
 ---
 
