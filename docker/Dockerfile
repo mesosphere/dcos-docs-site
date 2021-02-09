@@ -1,4 +1,4 @@
-FROM node:lts-buster
+FROM node:lts-buster-slim
 
 RUN mkdir /dcos-docs-site
 COPY . /dcos-docs-site/

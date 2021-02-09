@@ -14,12 +14,12 @@ build-development:
 # Docker Live Edit
 LIVEEDIT_IMAGE := dcos-docs-liveedit
 LIVEEDIT_HOST_PORT ?= 3000
-LIVEEDIT_PAGES_SRC_ABS_PATH ?= $(shell pwd)/pages/mesosphere/dcos/2.1
-LIVEEDIT_PAGES_DST_REL_PATH ?= mesosphere/dcos/2.1
+LIVEEDIT_PAGES_SRC_ABS_PATH ?= $(shell pwd)/pages/dkp
+LIVEEDIT_PAGES_DST_REL_PATH ?= dkp
 
-docker-liveedit-image: ## Install dependencies and build the site. Takes approximately 15 minutes.
+docker-liveedit-image: ## Install dependencies and build the site.
 	docker build \
-		-f docker/Dockerfile.liveedit \
+		-f docker/Dockerfile \
 		-t $(LIVEEDIT_IMAGE) \
 		.
 

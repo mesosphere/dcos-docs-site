@@ -2,6 +2,8 @@
 
 # Setting up a dev/preview environment
 
+You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser.
+
 ## Without Docker
 
 Ensure `node.js >=8.x` is installed: https://nodejs.org/en/download/package-manager/
@@ -10,7 +12,7 @@ Ensure `node.js >=8.x` is installed: https://nodejs.org/en/download/package-mana
 # install dependencies
 npm i
 
-# local preview
+# start preview server
 npm run dev
 ```
 
@@ -18,41 +20,29 @@ You'll now be able to browse the docs at [http://localhost:3000/](http://localho
 
 ## With Docker
 
-If you edit docs on occasion, you may not want to install all the build dependencies on your machine. If you have docker installed, you can deploy the site in a container. You can "live edit" the docs: updated content is automatically re-rendered and refreshed in the browser.
-
-### Create the container image
-
-The container image has all the site dependencies, and a set of rendered docs, against which live edits are applied. To create the image, run:
+If you don't want to setup `node.js` your machine and have docker installed, you can start the site in a container:
 
 ```shell
+# create the container image
 make docker-liveedit-image
+
+# start preview server
+make docker-liveedit
 ```
 
 **NOTE**: _The container image is not automatically kept up-to-date as the `dcos-docs-site` repo changes. Re-create the image periodically by running the make command._
 
-The default image name is `dcos-docs-liveedit`. To use a different name, override the `LIVEEDIT_IMAGE` make variable.
+The default image name is `dcos-docs-liveedit`. To use a different name, override the `LIVEEDIT_IMAGE` make variable:
 
 ```shell
 make docker-liveedit-image LIVEEDIT_IMAGE=my-name
-```
-
-### Run a "live" site in a container
-
-```shell
-make docker-liveedit
-```
-
-To live edit the Konvoy 1.5 docs already merged into the `dcos-docs-site` repo, run:
-
-```shell
-make docker-liveedit LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/1.5
 ```
 
 To live edit the Konvoy docs in the `konvoy` repo, run:
 
 ```shell
 make docker-liveedit \
-  LIVEEDIT_PAGES_SRC_ABS_PATH=/absolute/path/to/repo/konvoy/docs/site \
+  LIVEEDIT_PAGES_SRC_ABS_PATH=<ABSOLUTE/PATH/TO/KONVOY-REPO>/docs/site \
   LIVEEDIT_PAGES_DST_REL_PATH=dkp/konvoy/X.Y
 ```
 
@@ -229,9 +219,6 @@ Extra information that the user may wish to know, but not necessary to the basic
 
 ![example note](https://i.imgur.com/s1RvDlT.png)
 
-### Special - Adding API tables
-:TODO: add info on the API tables and the script to run
-
 ### Removing a border from an image
 
     ![Architectural overview](../img/Konvoy-arch-diagram.png){ data-no-border }
@@ -316,9 +303,6 @@ Whenever a rebase occurs, or a few other operations that change the order of com
 Override the history protection with the `--force` flag
 
 `git push --force origin <branchname>`
-
-### Manually merging in work to Staging (Advanced)
-TODO: fill in this section
 
 # Guide: Creating new folder(s) and index file(s) when needed
 ### Create the folder
