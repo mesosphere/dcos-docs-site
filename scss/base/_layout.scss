@@ -1,9 +1,5 @@
 $sidebarWidth: 280px;
 .layout {
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
     &__sidebar {
         display: none;
     }
@@ -25,18 +21,14 @@ $sidebarWidth: 280px;
         }
     }
     &__content {
-        width: 100%;
-        transform: translateX(0);
+        padding-top: 70px;
         transition: all 0.2s $ease-in-out-cubic;
     }
     @include md {
-        flex-direction: row;
         &__sidebar {
             position: fixed;
             top: 80px;
             left: 0;
-            display: flex;
-            flex-direction: column;
             width: $sidebarWidth;
             height: 100%;
             transform: none;

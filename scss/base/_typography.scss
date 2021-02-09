@@ -48,3 +48,12 @@ p,
 li {
   color: $color-dark-grey-d2;
 }
+
+.jumbotron {
+  align-items: center;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 600;
+  justify-content: center;
+  margin: 3rem;
+}
