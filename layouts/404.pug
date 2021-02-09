@@ -1,6 +1,7 @@
 doctype html
 html(lang='en')
   head
+    script(src='https://cdn.jsdelivr.net/npm/instantsearch.js@2.2.0/dist/instantsearch.min.js')
     include partials/head.pug
   body
     .layout
@@ -13,18 +14,21 @@ html(lang='en')
         .header__main
           .header__dropdown
             img.header__dropdown-icon(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
-            strong!= sectionTitle
+            strong D2IQ Documentation
             i(data-feather='chevron-down')
         include partials/header/mesosphere-dropdown.pug
         include partials/header/ksphere-dropdown.pug
-        include partials/header/header-dropdown.pug
-      .layout__content(role='main')
-        main.content.content__404
-          div
-            .content__header
-              .content__header__row
-                h1.content__header-title
-            article.content__article
-              != contents
+      include partials/header/header-dropdown.pug
+      div.layout__content(role='main')
+        .jumbotron
+          | We couldn't find the page you were looking for.
         include partials/search-results.pug
+      footer.landing__footer
+        .landing__footer__container
+          a.landing__footer__logo__link(href='https://d2iq.com/')
+            img.landing__footer__logo(src='/assets/D2IQ_Logotype_Color_Positive.png', alt='D2iQ')
+          .landing__footer__menu
+            a(href='https://d2iq.com/terms/') Terms of Service
+            a(href='https://d2iq.com/privacy/') Privacy Policy
+          a.landing__footer__copyright(href='https://d2iq.com/')!= copyright
     include partials/scripts.pug
