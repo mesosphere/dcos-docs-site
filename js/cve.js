@@ -22,7 +22,7 @@ const init = {
   sevFilters: {
     negligible: false,
     low: false,
-    medium: true,
+    medium: false,
     high: true,
     critical: true,
   },
@@ -228,9 +228,9 @@ const App = () => {
       Object.values(groupBy(cves, (c) => c.vulnerability_name)).map((group) => {
         return { ...group[0], purls: group.map((c) => c.resource_purl) };
       });
-    fetch("/assets/konvoy_latest.json")
+    fetch("/assets/konvoy_cves.json")
       .then((r) => r.json())
-      .then((cves) => onUpdate({ cves: foldPurlsByVulnName(cves) }));
+      .then((cves) => onUpdate({ cves })); //: foldPurlsByVulnName(cves) }));
   }, []);
 
   const [model, setModel] = React.useState(init);
