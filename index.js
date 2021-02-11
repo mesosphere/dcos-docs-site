@@ -60,9 +60,9 @@ MS.metadata({
   conductorDocsLatest: "1.1",
   dcosCNDocsLatest: "2.1",
   dcosDocsLatest: "2.2",
-  dispatchDocsLatest: "1.3",
+  dispatchDocsLatest: "1.4",
   kommanderDocsLatest: "1.3",
-  konvoyDocsLatest: "1.6",
+  konvoyDocsLatest: "1.7",
   kaptainDocsLatest: "1.0.1-0.6.0",
   Utils,
 });

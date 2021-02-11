@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Configure an Image Repository
 title: Setting up an Image Repository in Dispatch
 menuWeight: 25
-beta: true
+beta: false
 excerpt: Configure and set up an image (docker registry) repository for access by Dispatch
 ---
 
