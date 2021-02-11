@@ -73,7 +73,7 @@ Constraints are then used to inform Gatekeeper that the admin wants a Constraint
 Create the privileged pod policy constraint `psp-privileged-container` by running the following command:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/pod-security-policy/privileged-containers/constraint.yaml
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/privileged-containers/samples/psp-privileged-container/constraint.yaml
 ```
 
 #### Test that the constraint is enforced
@@ -81,13 +81,13 @@ kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/
 Try to create a privileged pod by running the following command:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/pod-security-policy/privileged-containers/example.yaml
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/privileged-containers/samples/psp-privileged-container/example_disallowed.yaml
 ```
 
 You should see the following output:
 
 ```bash
-Error from server ([denied by psp-privileged-container] Privileged container is not allowed: nginx, securityContext: {"privileged": true}): error when creating "https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/pod-security-policy/privileged-containers/example.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by psp-privileged-container] Privileged container is not allowed: nginx, securityContext: {"privileged": true}
+Error from server ([denied by psp-privileged-container] Privileged container is not allowed: nginx, securityContext: {"privileged": true}): error when creating "https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/privileged-containers/samples/psp-privileged-container/example_disallowed.yaml": admission webhook "validation.gatekeeper.sh" denied the request: [denied by psp-privileged-container] Privileged container is not allowed: nginx, securityContext: {"privileged": true}
 ```
 
 ### Prevent host path volumes
@@ -97,7 +97,7 @@ Error from server ([denied by psp-privileged-container] Privileged container is 
 Create the host path volume policy constraint template `k8spsphostfilesystem` by running the following command:
 
 ```bash
-kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper/master/library/pod-security-policy/host-filesystem/template.yaml
+kubectl apply -f https://raw.githubusercontent.com/open-policy-agent/gatekeeper-library/master/library/pod-security-policy/host-filesystem/template.yaml
 ```
 
 #### Define the Constraint
@@ -191,7 +191,7 @@ pod/nginx-host-filesystem created
 ```
 
 [gatekeeper]:https://github.com/open-policy-agent/gatekeeper
-[gatekeeper-psp]:https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy
+[gatekeeper-library]:https://github.com/open-policy-agent/gatekeeper-library/tree/master/library/pod-security-policy
 [opa]:https://github.com/open-policy-agent/opa
 [opa-constraints]:https://github.com/open-policy-agent/frameworks/tree/master/constraint
 [opa-rego]:https://www.openpolicyagent.org/docs/latest/policy-language/

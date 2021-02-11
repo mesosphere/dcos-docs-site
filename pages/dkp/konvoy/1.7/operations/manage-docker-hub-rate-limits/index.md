@@ -31,6 +31,20 @@ spec:
           konvoy.docker-registry-password: <password>
 ```
 
+For Kommander, to add credentials for Docker Hub, set the options in your `cluster.yaml` as follows:
+
+```yaml
+- name: kommander
+  enabled: true
+  values: |2
+    kommander-federation:
+      utilityApiserver:
+        extraArgs:
+          docker-registry-url: "https://registry-1.docker.io"
+          docker-registry-username: <username>
+          docker-registry-password: <password>
+```
+
 <p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify `imageRegistries` values. For example, if your yaml file has `password: ${REGISTRY_PASSWORD}`, `password` is set to the `REGISTRY_PASSWORD` value in your environment.</p>
 
 1. Apply the changes to your cluster. Enter the following command:

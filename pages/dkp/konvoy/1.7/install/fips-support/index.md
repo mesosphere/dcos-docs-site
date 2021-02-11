@@ -14,7 +14,7 @@ NIST introduced FIPS 140-2 validation by accredited third party laboratories as 
 
 ## FIPS Support in Konvoy
 
-D2iQ Konvoy 1.7 introduces support for provisioning a FIPS-compliant Kubernetes control plane. To achieve compliance, core Kubernetes components have been compiled using a version of Go (goboring) which was modified to use a FIPS-certified [cryptographic module](https://csrc.nist.gov/CSRC/media/projects/cryptographic-module-validation-program/documents/security-policies/140sp3702.pdf) for all cryptographic functions. The components covered in this release are:
+D2iQ Konvoy 1.7 introduces support for provisioning a FIPS enabled Kubernetes control plane. To achieve this, core Kubernetes components have been compiled using a version of Go (goboring) which was modified to use a FIPS certified [cryptographic module](https://csrc.nist.gov/CSRC/media/projects/cryptographic-module-validation-program/documents/security-policies/140sp3702.pdf) for all cryptographic functions. The components covered in this release are:
 
 - kubeadm
 - kubelet
@@ -60,7 +60,7 @@ For an operator to perform manual verification, we have provided the `konvoy che
 
 ```text
 ...
-Host: 10.0.194.228 =================================================================
+Host: 172.17.0.7 ===================================================================
 
 /usr/bin/kubeadm [file] Signature Validated                            [OK]
 /usr/bin/kubelet [file] Signature Validated                            [OK]
@@ -78,9 +78,9 @@ Supported Ciphers:
 
                 TLS_RSA_WITH_AES_128_GCM_SHA256
 
-                TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-
                 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+
+                TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 
                 TLS_RSA_WITH_AES_256_GCM_SHA384
 
@@ -88,16 +88,25 @@ Service: etcd [localhost:2379]
 Preferred Cipher: TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 Supported Ciphers:
 
-                TLS_RSA_WITH_AES_256_GCM_SHA384
-
                 TLS_RSA_WITH_AES_128_GCM_SHA256
-
-                TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 
                 TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
 
+                TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 
-Cluster is FIPS-140-2 Compliant
+                TLS_RSA_WITH_AES_256_GCM_SHA384
+
+
+D2IQ cryptographic module integrity verification was successful
+
+The above components are confirmed to be using the D2iQ BoringCrypto
+Cryptographic Security Module. This module has been validated for FIPS 140-2
+Level 1 by an accredited third party laboratory as mandated by the NIST CMVP.
+The security policy and certificate for this module can be viewed at the
+following URL:
+
+https://csrc.nist.gov/projects/cryptographic-module-validation-program/certificate/3702
+
 ```
 
 The command returns `0` when the whole cluster passes verification. If the cluster fails, the command returns `1`. Running this command on a cluster not running in FIPS-140 mode always returns `1`.
