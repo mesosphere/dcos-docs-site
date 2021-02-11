@@ -14,6 +14,36 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+February 10, 2020
+
+[stable-1.19-3.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.2.0)
+
+-   Default StorageClass Protection
+    - Update client-go to 0.19.2 to support k8s 1.16-1.21
+    - Use the distroless image and run as nonroot user to address image CVEs
+    - Fix CVE-2019-14697.
+    - Use unique Service selectors to avoid selecting unwanted endpoints from other charts.
+
+-   Dex
+    - Bump kube-rbac-proxy to tackle vulnerabilities from CVE-14697
+    - Fix: ignore metrics auth https://github.com/mesosphere/dex-controller/compare/v0.6.5...v0.6.6#diff-5437c8653258a2e2a070c91d87e2f7581d12f6c7f103b0d8c324a37307287b65R30
+    - Chore: bump kube-rbac-proxy version https://github.com/mesosphere/dex-controller/compare/v0.6.5...v0.6.6#diff-4d1856f3f2123c349e94607208c95a821f2485405db0b97ce41e87336a0ea3a7R21
+
+-   Fluentbit
+    - Fixes an issue causing some audit logs to be dropped.
+
+-   Kiali
+    - Configure to use the same version for `kiali/kialii` that matches the operator.
+
+-   Kibana
+    - Downgrade kibana and elasticsearch to 6.8.10 to fix a regression
+
+-   Opsportal
+    - Bump kommander ui version fixing the service monitor issues
+
+-   Velero
+    - Upgrade Velero to 1.5.2 and minio 8.0.8. Users can now use the official velero client, where before users needed to use a patched velero client.
+
 December 19, 2020
 
 [stable-1.18-3.0.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.18-3.0.1)
