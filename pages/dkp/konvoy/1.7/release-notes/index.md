@@ -28,29 +28,6 @@ This release provides new features and enhancements to improve the user experien
 |**Maximum** | 1.18.x |
 |**Default** | 1.19.7 |
 
-### Upstream industry changes
-
-The following sections refer to recent changes in the Open Source software used by DKP that may require action on your part as part of an upgrade or installation of D2iQ software.
-
-#### Docker hub rate limiting
-
-Docker Hub announced an [update](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
-
-Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
-
-For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
-
-#### KUDO Spark Operator Upgrade Prior to Konvoy Upgrade or Install
-
-Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 
-do not specify default values for ‘x-kubernetes-list-map-keys’ properties and will fail validation on Kubernetes versions 1.18.x and later.
-
-Perform these steps prior to upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
-
-1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
-1. [Uninstall the KUDO Spark Operator](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#uninstalling-the-spark-operator).
-1. [Install the new KUDO Spark version](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#installing-the-operator).
-1. [Upgrade](../upgrade) or [install](../install) Konvoy.
 ### New features and capabilities
 
 #### FIPS 140-2 Support
@@ -139,6 +116,30 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 
 - Added support for SUSE 15.
 
+## Upstream industry changes
+
+The following sections refer to recent changes in the Open Source software used by DKP that may require action on your part as part of an upgrade or installation of D2iQ software.
+
+### Docker hub rate limiting
+
+Docker Hub announced an [update](https://www.docker.com/blog/scaling-docker-to-serve-millions-more-developers-network-egress/) to their image pull policies in August, 2020. The change results in the need to change cluster configurations to accommodate new account structures that enable image pull rate limiting.
+
+Rate limiting happens on a per-pull basis regardless of whether the pulled image is owned by a paid user. This means D2iQ, as owner of most images used in Konvoy, does not have any influence as to whether your current address is rate-limited or not. Konvoy does not have a strict dependency on Docker Hub accounts or plans.
+
+For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
+
+### KUDO Spark Operator Upgrade Prior to Konvoy Upgrade or Install
+
+Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 
+do not specify default values for ‘x-kubernetes-list-map-keys’ properties and will fail validation on Kubernetes versions 1.18.x and later.
+
+Perform these steps prior to upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
+
+1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
+1. [Uninstall the KUDO Spark Operator](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#uninstalling-the-spark-operator).
+1. [Install the new KUDO Spark version](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#installing-the-operator).
+1. [Upgrade](../upgrade) or [install](../install) Konvoy.
+
 ### Component versions
 
 - Ansible 2.9.16.0
@@ -167,8 +168,6 @@ Add links to previous release notes
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
-
-For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
