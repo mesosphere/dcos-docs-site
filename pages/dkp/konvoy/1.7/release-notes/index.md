@@ -40,14 +40,17 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
-<!--
-#### KUDO Spark compatibility
+#### KUDO Spark Operator Upgrade Prior to Konvoy Upgrade or Install
 
-Konvoy 1.7+ requires KUDO Spark 3.0 because Spark 2.4 does not support Kubernetes 1.19.
-To continue using KUDO Spark on Konvoy 1.7 and above, upgrade to KUDO Spark 3.0.
-For details on how to migrate workloads to Spark 3.0, consult the official [migration guides](https://spark.apache.org/releases/spark-release-3-0-0.html) for each relevant module.
--->
+Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 
+do not specify default values for ‘x-kubernetes-list-map-keys’ properties and will fail validation on Kubernetes versions 1.18.x and later.
 
+Perform these steps prior to upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
+
+1. Wait for the KUDO Spark Operator jobs to finish, or terminate the running jobs.
+1. [Uninstall the KUDO Spark Operator](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#uninstalling-the-spark-operator).
+1. [Install the new KUDO Spark version](https://github.com/kudobuilder/operators/blob/master/repository/spark/docs/3.0.0-1.1.0/installation.md#installing-the-operator).
+1. [Upgrade](../upgrade) or [install](../install) Konvoy.
 ### New features and capabilities
 
 #### FIPS 140-2 Support
@@ -63,7 +66,7 @@ In this release:
 
 #### Security Vulnerability Scanning and Reporting
 
-Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them publicly.
+Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them publicly. For more information on the most current Konvoy CVE scans, see [Security Updates](https://docs.d2iq.com/dkp/security-updates/).
 
 #### Support for VMWare vSphere
 
