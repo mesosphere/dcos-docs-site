@@ -13,8 +13,8 @@ excerpt: View release-specific information for Dispatch 1.4.0
 
 <p class="message--note"><strong>NOTE: </strong>You must be a registered user and signed on to the support portal to download this product. For new customers, contact your sales representative or <a href="mailto:sales@d2iq.com">sales@d2iq.com</a> before attempting to download Dispatch.</p>
 
-## v1.4.0 - Released Jan 27, 2020
-Document Modified Date: Released Jan 27, 2020
+## v1.4.0 - Released Feb 3, 2020
+Document Modified Date: Released Feb 3,, 2020
 
 This document describes the new features, caveats, and resolved issues in D2iQ Dispatch. 
 
