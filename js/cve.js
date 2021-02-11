@@ -183,7 +183,7 @@ const Table = ({ cves, sorting, onSortChange }) => {
         <div className="th">{sortable("Severity", "severity")}</div>
         <div className="th">Products</div>
         <div className="th">Images</div>
-        <div className="th">Mitigations</div>
+        <div className="th">Additional Explanation</div>
         <div className="spacing-dummy" />
         {cves.map(Row)}
       </div>
