@@ -26,7 +26,7 @@ This release provides new features and enhancements to improve the user experien
 | ------------------ | ------- |
 |**Minimum** | 1.16.x |
 |**Maximum** | 1.18.x |
-|**Default** | 1.19.3 |
+|**Default** | 1.19.7 |
 
 ### Upstream industry changes
 
