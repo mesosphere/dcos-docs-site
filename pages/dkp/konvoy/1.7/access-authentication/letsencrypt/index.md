@@ -13,8 +13,6 @@ This would allow most browsers to validate the certificate for the cluster when 
 
 ## Prerequisites
 
--   We assume you already have a Konvoy cluster provisioned using at least `v1.5.0`.
-    If the cluster is provisioned using an older version of Konvoy (i.e., `v1.4.x`), please update `kubernetes-base-addons` to version `stable-1.16-1.4.1` or newer.
 -   We assume you can setup a DNS [A record][dnsarecord] for the cluster ingress IP (or [CNAME][dnscname] for the cluster ingress load balancer hostname in the public cloud cases like AWS).
 
 ## Create DNS record for the cluster ingress
@@ -84,12 +82,16 @@ spec:
     # You must replace this email address with your own.
     # Let's Encrypt will use this to contact you about expiring
     # certificates, and issues related to your account.
-    email: you-email-address@company.com
+    email: your-email-address@company.com
     server: https://acme-v02.api.letsencrypt.org/directory
     privateKeySecretRef:
       # Secret resource that will be used to store the account's private key.
       name: letsencrypt-private-key
-    http01: {}
+    # Add a single challenge solver, HTTP01 using nginx
+    solvers:
+    - http01:
+        ingress:
+          class: traefik
 EOF
 ```
 
