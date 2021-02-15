@@ -23,7 +23,7 @@ spec:
       username: "<username>"
       password: "<password>"
   autoProvisioning:
-      config:
+    config:
       webhook:
         extraArgs:
           konvoy.docker-registry-url: https://registry-1.docker.io
