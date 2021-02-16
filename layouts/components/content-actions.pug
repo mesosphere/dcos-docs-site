@@ -1,7 +1,6 @@
 - var pdfPath = '/pdf/' + path + '/' + path.replace(/\//g, '-') + ((pdfConcat) ? '-complete' : '') + '.pdf'
 - var githubBranch = (gitBranch) ? gitBranch : 'develop';
 - var githubPath = 'https://github.com/mesosphere/dcos-docs-site/tree/' + githubBranch + '/pages/' + path + '/index.md'
-- var slackPath = 'https://dcos-community.slack.com/';
 - var rssPath = (rss) ? '/' + path + '/rss.xml' : ''
 
 if (!title)
@@ -27,10 +26,6 @@ if (!title)
       a.actions__link(href=githubPath, target="_blank")
         i.actions__icon(data-feather='github')
         span.actions__text Contribute
-    li.actions__item
-      a.actions__link(href=slackPath, target="_blank")
-        i.actions__icon(data-feather='slack')
-        span.actions__text Discuss
     li.actions__item
       a.actions__link(href=feedbackPath, target="_blank")
         i.actions__icon(data-feather='message-square')
