@@ -43,6 +43,7 @@ February 10, 2020
 
 -   Velero
     - Upgrade Velero to 1.5.2 and minio 8.0.8. Users can now use the official velero client, where before users needed to use a patched velero client.
+    - Upgrade kubeaddons-addon-initializer init container to v0.4.3. This fixes the issue that was making it impossible to use a custom S3Url in Velero.
 
 December 19, 2020
 
