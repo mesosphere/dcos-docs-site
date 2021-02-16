@@ -16,9 +16,13 @@ Kubeflow Pipelines steps can fail if the main container exits too quickly and th
 This can happen when the container image is not available on a node and needs to be pulled from the registry first. 
 Retry the pipeline run or to pre-download the container image to the relevant nodes.
 
-### Kubeflow Fairing and Self-Signed TLS Certificates
+### Using Kaptain SDK and Kubeflow Fairing with Private Docker Registries
 
-Kubeflow Fairing does not support Docker registries using a self-signed TLS certificates, certificate chaining, or insecure (plaintext HTTP) registries.
+Kaptain SDK and Kubeflow Fairing do not support Docker registries using a self-signed TLS certificates, certificate chaining, or insecure (plaintext HTTP) registries.
+
+### Spark and Horovod
+
+Running Spark and Horovod on Spark in client mode from a notebook with Istio enabled is not supported. It is recommended to use Spark Operator for running Spark applications.
 
 ### Pocket Chrome Extension
 
