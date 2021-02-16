@@ -258,7 +258,7 @@ The central abstraction of the Kaptain SDK is a model:
 
 ```python
 extra_files = ["datasets/mnist"]
-base_image = "mesosphere/kubeflow:1.2.0-1.0.0-tensorflow-2.2.0"
+base_image = "mesosphere/kubeflow:1.2.0-1.0.0-tensorflow-2.4.0"
 image_name = "mesosphere/kubeflow:mnist-sdk-example" # replace with your docker repository with a tag (optional), e.g. "repository/image"  or "repository/image:tag"
 ```
 
