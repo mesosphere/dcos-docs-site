@@ -89,7 +89,7 @@ Set the following constants depending on whether you want to use GPUs or a custo
 
 ```python
 GPUS = 1  # set to 0 if the experiment should not use GPUs
-TF_IMAGE = "mesosphere/kubeflow:mnist-tensorflow-2.2-1.2.0-1.0.0"
+TF_IMAGE = "mesosphere/kubeflow:mnist-tensorflow-2.4-1.2.0-1.0.0"
 PYTORCH_IMAGE = "mesosphere/kubeflow:mnist-pytorch-1.2.0-1.0.0"
 PARALLEL_TRIAL_COUNT = 3
 ```

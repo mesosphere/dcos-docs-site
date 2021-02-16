@@ -466,7 +466,7 @@ For GPU support, please add the "-gpu" suffix to the base image.
 
 
 ```python
-BASE_IMAGE = "mesosphere/kubeflow:1.2.0-1.0.0-tensorflow-2.2.0"
+BASE_IMAGE = "mesosphere/kubeflow:1.2.0-1.0.0-tensorflow-2.4.0"
 ```
 
 

@@ -188,7 +188,7 @@ del mnist, squeezed
 ```python
 EPOCHS = 15
 GPUS = 1
-TF_IMAGE = "mesosphere/kubeflow:mnist-tensorflow-2.2-1.2.0-1.0.0"
+TF_IMAGE = "mesosphere/kubeflow:mnist-tensorflow-2.4-1.2.0-1.0.0"
 ```
 
 Make the defined constants available as shell environment variables. They parameterize the `TFJob` manifest below.
@@ -202,7 +202,7 @@ Make the defined constants available as shell environment variables. They parame
 
     env: EPOCHS=5
     env: GPUS=0
-    env: TF_IMAGE=mesosphere/kubeflow:mnist-tensorflow-2.2-1.2.0-1.0.0
+    env: TF_IMAGE=mesosphere/kubeflow:mnist-tensorflow-2.4-1.2.0-1.0.0
 
 
 ## How to Train the Model in the Notebook
@@ -450,7 +450,7 @@ docker build -t <docker_image_name_with_tag> .
 docker push <docker_image_name_with_tag>
 ```
 
-The image is available as `mesosphere/kubeflow:mnist-tensorflow-2.2-1.2.0-1.0.0` in case you want to skip it for now.
+The image is available as `mesosphere/kubeflow:mnist-tensorflow-2.4-1.2.0-1.0.0` in case you want to skip it for now.
 
 ## How to Create a Distributed `TFJob`
 For large training jobs, run the trainer in a distributed mode.

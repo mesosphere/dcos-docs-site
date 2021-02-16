@@ -8,9 +8,9 @@ beta: false
 enterprise: false
 ---
 
-Learn how to configure Kaptain to use external Spark Operator installed on a cluster.
+Learn how to configure Kaptain to use external Spark Operator installed on a cluster. 
 Kaptan includes a Spark Operator and installs it by default. In case a global Spark Operator required on the cluster,
-Kaptain needs additional configuration to use it and to avoid conflicts when running Spark Applications.
+Kaptain needs additional configuration to use it and to avoid conflicts when running Spark Applications. 
 
 ## Prerequisites
 
@@ -137,3 +137,5 @@ Update Kaptain instance to enable the Spark Operator:
 ```bash
 kubectl kudo update --instance kaptain -P parameters.yaml
 ```
+  
+

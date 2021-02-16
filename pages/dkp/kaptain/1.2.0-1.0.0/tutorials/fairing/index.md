@@ -188,12 +188,12 @@ If using GPUs, you need to use the `-gpu` variant that contains the necessary li
 
 
 ```python
-BASE_IMAGE = "mesosphere/kubeflow:1.2.0-1.0.0-tensorflow-2.2.0" + ("-gpu" if USE_GPU else "")
+BASE_IMAGE = "mesosphere/kubeflow:1.2.0-1.0.0-tensorflow-2.4.0" + ("-gpu" if USE_GPU else "")
 ```
 
 
 ```python
-BASE_IMAGE = "mesosphere/kubeflow:1.2.0-1.0.0-pytorch-1.5.0" + ("-gpu" if USE_GPU else "")
+BASE_IMAGE = "mesosphere/kubeflow:1.2.0-1.0.0-pytorch-1.7.1" + ("-gpu" if USE_GPU else "")
 ```
 
 This tutorial describes two options of using Kubeflow Fairing.
