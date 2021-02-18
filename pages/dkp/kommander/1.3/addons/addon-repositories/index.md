@@ -1,33 +1,34 @@
 ---
 layout: layout.pug
-navigationTitle: Addon Repositories
+navigationTitle: Platform services
 title: Addon Repositories
 menuWeight: 5
-excerpt: Learn more about addon repositories
+excerpt: Learn more about platform services
 beta: true
-
+render: mustache
+model: /dkp/kommander/1.3/data.yml
 ---
-## Addon Repositories
+## {{ model.addon }}
 
 Konvoy uses a `cluster.yaml` file to configure the `ClusterProvisioner` (infrastruture configuration) and the `ClusterConfiguration` (Kubernetes configuration).
 
 The `ClusterConfiguration` consists of several parts, including the configuration of the kubernetes version and the `addons` configuration.
 
-Addons are configured by referencing an addon repository. Konvoy comes configured with the [kubernetes-base-addons repository][addons_repo]. This repository provides all the addons that make Konvoy an enterprise grade distribution, ready for day two operations.
+{{ model.addon }} are configured by referencing a {{ model.addon }} repository. Konvoy comes configured with the [kubernetes {{ model.addon }} repository][addons_repo]. This repository provides all the {{ model.addon }} that make Konvoy an enterprise grade distribution, ready for day two operations.
 
-Konvoy partners and users can create their own addon repositories. For example, a storage partner can create an addon repository to provide their CSI storage provisioner. A user can create an addon repository to meet the requirement that all clusters created, in their organization, run specific services.
+Konvoy partners and users can create their own {{ model.addon }} repositories. For example, a storage partner can create a {{ model.addon }} repository to provide their CSI storage provisioner. A user can create a {{ model.addon }} repository to meet the requirements that all clusters created, in their organization, run specific services.
 
 This topic describes the following:
 
-- The `structure` of an addon repository
-- How to `configure` an addon repository in the Konvoy `cluster.yaml`
-- The `addon yaml configuration` for different kinds of addons. For example, storage and workload addons.
+- The `structure` of a {{ model.addon }} repository
+- How to `configure` a {{ model.addon }} repository in the Konvoy `cluster.yaml`
+- The `addon yaml configuration` for different kinds of {{ model.addon }}. For example, storage and workload {{ model.addon }}.
 
-<p class="message--note"><strong>NOTE: </strong><code>AddonRepository</code>, the CRD and type provided by <code>kubeaddons</code>, is not the same as the addon repositories described in this topic.</p>
+<p class="message--note"><strong>NOTE: </strong><code>AddonRepository</code>, the CRD and type provided by <code>kubeaddons</code>, is not the same as the {{ model.addon }} repositories described in this topic.</p>
 
-### Addon Repository Structure
+### {{ model.addon }} Repository Structure
 
-The following shows the layout and structure of an addon repository. This example contains one addon for `cockroachdb`.
+The following shows the layout and structure of an {{ model.addon }} repository. This example contains one description for `cockroachdb`.
 
 ```text
 docs-addon-repo
@@ -50,17 +51,17 @@ docs-addon-repo
    |- README.md
 ```
 
-The folders in the addon repository have the following roles:
+The folders in the {{ model.addon }} repository have the following roles:
 
-- `addons/` - Contains the actual manifests for addon resources.
-- `metadata/` - Contains the static metadata for each addon in `addons/`.
-- `deployments/` - Contains the default addons specific to the version of Kubernetes in use.
+- `addons/` - Contains the actual manifests for {{ model.addon }} resources.
+- `metadata/` - Contains the static metadata for the {{ model.addon }} in `addons/`.
+- `deployments/` - Contains the default {{ model.addon }} specific to the version of Kubernetes in use.
 
-Here is a link to a [sample repository][sample_repo] you can experiment with and use as a template for your own addon repository. It contains two addons `awsebscsiprovisioner2` and `cockroachdb`.
+Here is a link to a [sample repository][sample_repo] you can experiment with and use as a template for your own {{ model.addon }} repository. It contains the {{ model.addon }} `awsebscsiprovisioner2` and `cockroachdb`.
 
-### Configure an Addon Repository in cluster.yaml
+### Configure {{ model.addon }} in cluster.yaml
 
-The following example shows how to configure an additional addon repository in the Konvoy `cluster.yaml` file. In the configuration below, the awsebscsiprovisioner2 addon is of kind `ClusterAddon` described in the [Storage Provider Addons][storage_provider_addons_section] section. The cockroachdb addon is of kind `Addon` described in the [Workload Addons][workload_addons_section] section. The `configVersion` (in this case, `configVersion: stable-0.1`) points to the tagged release in your additional addon repository.
+The following example shows how to configure an additional {{ model.addon }} repository in the Konvoy `cluster.yaml` file. In the configuration below, the awsebscsiprovisioner2 {{ model.addon }} are of kind `ClusterAddon` described in the [Storage Provider {{ model.addon }} ][storage_provider_addons_section] section. The cockroachdb addon is of kind `Addon` described in the [Workload {{ model.addon }} ][workload_addons_section] section. The `configVersion` (in this case, `configVersion: stable-0.1`) points to the tagged release in your additional {{ model.addon }} repository.
 
 ```yaml
 ...
@@ -88,9 +89,9 @@ spec:
 ...
 ```
 
-The second repository configured, in the example above, is our [sample docs-addon-repo][sample_repo]. It contains the two addons `awsebscsiprovisioner2` and `cockroachdb`. `awsebscsiprovisioner2` is a copy of the `awsebscsiprovisioner` from the `kubernetes-base-addons` repository. This example shows you can turn the storage provisioner in the `kubernetes-base-addons` repository off and provide a storage provisioner with another addon repository.
+The second repository configured, in the example above, is our [sample docs-{{ model.addon }} ][sample_repo]. It contains the {{ model.addon }} `awsebscsiprovisioner2` and `cockroachdb`. `awsebscsiprovisioner2` is a copy of the `awsebscsiprovisioner` from the `kubernetes-base-addons` repository. This example shows you can turn the storage provisioner in the `kubernetes-base-addons` repository off and provide a storage provisioner with another {{ model.addon }} repository.
 
-When you run `konvoy up` with the above `cluster.yaml` configuration you see the following output. All addons requiring persistent storage get installed after `awsebscsiprovisioner2` providing a default `StorageClass`. For example, cockroachdb, elasticsearch, and velero.
+When you run `konvoy up` with the above `cluster.yaml` configuration you see the following output. All {{ model.addon }} requiring persistent storage get installed after `awsebscsiprovisioner2` providing a default `StorageClass`. For example, cockroachdb, elasticsearch, and velero.
 
 ```yaml
 STAGE [Deploying Enabled Addons]
@@ -122,13 +123,13 @@ kibana                                                                 [OK]
 Kubernetes cluster and addons deployed successfully!
 ```
 
-### Addons
+###{{ model.addon }}  
 
-In this section we look at different addon configurations.
+In this section we look at different {{ model.addon }} configurations.
 
-#### Storage Provider Addons
+#### Storage Provider{{ model.addon }}  
 
-This is a link to a sample [storage provider addon][storage_provider_addon] that would get created in a partner's external repository. This is of kind `ClusterAddon`. This means there can only be one per Kubernetes cluster. The addons `chartReference` points to the `helm chart` of the storage provider.
+This is a link to a sample [storage provider {{ model.addon }} ][storage_provider_addon] that would get created in a partner's external repository. This is of kind `ClusterAddon`. This means there can only be one per Kubernetes cluster. The {{ model.addon }} `chartReference` points to the `helm chart` of the storage provider.
 
 ```yaml
 ---
@@ -171,8 +172,8 @@ spec:
 
 ##### metadata.labels
 
-- `kubeaddons.mesosphere.io/name` - Addon name
-- `kubeaddons.mesosphere.io/provides` - Addon functionality. For example, storageclass.
+- `kubeaddons.mesosphere.io/name` - {{ model.addon }} name
+- `kubeaddons.mesosphere.io/provides` - {{ model.addon }} functionality. For example, storageclass.
 
 ##### metadata.annotations
 
@@ -184,9 +185,9 @@ spec:
 
 - `kubeaddons.mesosphere.io/name: defaultstorageclass-protection` - Requires the `defaulstorageclass-protection` addon
 
-#### Workload Addons
+#### Workload {{ model.addon }}  
 
-This is a sample for a [workload addon][workload_addon] that would get created in a partner's external repository. This is of kind `Addon`. The addons `chartReference` points to the `helm chart` of the workload.
+This is a sample for [workload {{ model.addon }} ][workload_addon] that would get created in a partner's external repository. This is of kind `Addon`. The {{ model.addon }} `chartReference` points to the `helm chart` of the workload.
 
 ```yaml
 ---
