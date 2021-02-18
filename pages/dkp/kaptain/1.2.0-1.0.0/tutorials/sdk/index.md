@@ -480,8 +480,6 @@ display_image(x_test, image_index)
 
 
 
-![png](output_32_1.png)
-
 
 ![Image](../pipelines/img/9.png)
 
