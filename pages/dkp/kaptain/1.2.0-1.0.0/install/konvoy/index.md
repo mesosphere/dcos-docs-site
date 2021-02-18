@@ -101,6 +101,6 @@ Once all components have been deployed, you can log in to Kaptain:
 * Use the following commands to uninstall Kaptain.
   ```bash
   kubectl kudo uninstall --instance kaptain --namespace kubeflow --wait
-  kubectl delete operatorversions.kudo.dev kubeflow-1.2.0-0.6.0 --namespace kubeflow
+  kubectl delete operatorversions.kudo.dev kubeflow-1.2.0-1.0.0 --namespace kubeflow
   kubectl delete operators.kudo.dev kubeflow --namespace kubeflow
   ```
