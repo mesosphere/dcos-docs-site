@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Kaptain Technical Preview
-title: Welcome to Kaptain Technical Preview
+navigationTitle: Kaptain
+title: Welcome to Kaptain
 beta: false
 menuWeight: 1
 ---
