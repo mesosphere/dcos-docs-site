@@ -220,6 +220,8 @@ const shield = (color) => (
 ///////////////////////////////////////////////////////////////////////////////
 //                                    APP                                    //
 ///////////////////////////////////////////////////////////////////////////////
+const reportURL =
+  "https://konvoy-staging-devx-cac8-cve-reporter.s3-us-west-2.amazonaws.com/vulnerability_report_latest.json";
 const App = () => {
   React.useEffect(() => {
     // we have a lot of entries in the list that only differ in `resource_purl`.
@@ -228,7 +230,7 @@ const App = () => {
       Object.values(groupBy(cves, (c) => c.vulnerability_name)).map((group) => {
         return { ...group[0], purls: group.map((c) => c.resource_purl) };
       });
-    fetch("/assets/konvoy_cves.json")
+    fetch(reportURL)
       .then((r) => r.json())
       .then((cves) => onUpdate({ cves })); //: foldPurlsByVulnName(cves) }));
   }, []);
