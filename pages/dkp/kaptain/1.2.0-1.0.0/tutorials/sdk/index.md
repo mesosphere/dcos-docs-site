@@ -480,7 +480,6 @@ display_image(x_test, image_index)
 
 
 
-
 ![Image](../pipelines/img/9.png)
 
 

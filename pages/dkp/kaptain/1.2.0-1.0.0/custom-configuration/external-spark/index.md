@@ -34,7 +34,7 @@ kubectl kudo install ./kubeflow-1.2.0_1.0.0.tgz \
 		--create-namespace
 ```
 
-Create `ClusterRole` to allow Kubeflow users run Spark Applications and save it to a file `spark-role.yaml`:
+Create a `ClusterRole` to allow Kubeflow users to run Spark Applications and save it to a file named `spark-role.yaml`:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -62,16 +62,17 @@ rules:
   - '*'
 ```
 
-Use `kubectl` to apply the created `ClusterRole` to the cluster:
+Use `kubectl` to apply the `ClusterRole` to the cluster:
 
 ```bash
 kubectl apply -f spark-role.yaml
 ```
 
 ## Configuring Kaptain to use external Spark Operator after the installation
-For the scenarios when not only Kaptain users need to run Spark Applications, you need to install an external
-Spark Operator and disable the one included with Kaptain. Spark Operator installation steps are available in the
-[KUDO Spark Operator documentation](https://github.com/kudobuilder/operators/tree/master/repository/spark).
+By default, Spark is only usable by Kaptain users.
+If all users need access to Spark Applications, you need to install an external Spark Operator and disable the one included with Kaptain.
+Spark Operator installation steps are available in the [KUDO Spark Operator documentation](https://github.com/kudobuilder/operators/tree/master/repository/spark).
+
 
 Disable the default Spark Operator in Kaptain. Create or update a configuration file `parameters.yaml` to include the following property:
 ```yaml
@@ -121,7 +122,7 @@ kubectl apply -f spark-role.yaml
 ```
 
 ## Enabling the default Spark Operator in Kaptain
-For the cases when Kaptain was installed without the Spark Operator it is possible to enable it after the installation.  
+If you installed Kaptain without the Spark Operator enabled, it is possible to enable it after the installation.
 
 Delete the previously created `ClusterRole` if it exists:
 ```bash

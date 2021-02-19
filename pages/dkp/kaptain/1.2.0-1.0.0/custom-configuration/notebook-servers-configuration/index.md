@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-Configure Notebook Servers' controls and settings.
+Configure Notebook Servers controls and settings.
 
 ## Prerequisites
 
@@ -16,14 +16,13 @@ Configure Notebook Servers' controls and settings.
 
 ## Creating custom Toleration Groups and Affinity Configurations
 
-It is possible to pre-configure node toleration groups and affinity configurations in the Notebook Servers UI. 
+You can pre-configure node toleration groups and affinity configurations in the Notebook Servers UI.
 These settings allow users to specify `tolerations` and `affinity` rules for the Notebook pods. 
 This allows notebook-specific workloads to run on specific nodes from a pool of available resources.
 
 For more information about the pod scheduling controls, please refer to the [official Kubernetes documentation](https://kubernetes.io/docs/concepts/scheduling-eviction/).
 
-Toleration groups and affinity configs can be configured via `notebookTolerationGroups` and `notebookAffinityConfig` 
-parameters respectively. 
+Toleration groups and affinity configs can be configured via `notebookTolerationGroups` and `notebookAffinityConfig` parameters respectively.
 
 First, create a `parameters.yaml` file in the following format:
 ```yaml
@@ -57,7 +56,8 @@ notebookAffinityConfig:
               values:
               - another-node-label-value
 ```
-Set the other operator's parameters here too, to have a single file with all the operator configurations. 
+
+You should set any other desired operator parameters in this file as well, so that you have a single file with all the operator configurations.
 Please refer to the [Toleration v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#toleration-v1-core) 
 and [Affinity v1 core](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#affinity-v1-core) 
 pages in the Kubernetes API documentation to see all the supported fields.
@@ -71,7 +71,7 @@ kubectl kudo install \
     --parameter-file parameters.yaml
 ```
 
-After the installation is complete, newly added configuration should be available in the Notebook Servers UI:
+After the installation is complete, the newly added configuration should be available in the Notebook Servers UI:
 
 ![notebook-configs](../../img/notebook-configuration-tolerations-and-affinity.png)
 

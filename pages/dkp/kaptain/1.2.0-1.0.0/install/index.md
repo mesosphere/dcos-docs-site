@@ -24,6 +24,6 @@ The infrastructure you select determines the specific requirements for a success
   - Istio
   - Knative
   - Kubeflow NFS
-  Depending on whether you install Kaptain [on-premises](./on-premise) or in an [air-gapped](./air-gapped) environment, you have to follow the respective instructions.
+  Follow the appropriate Kaptain [on-premises](./on-premise) or [air-gapped](./air-gapped) installation instructions, depending on your environment.
 - [`kubectl`](https://kubernetes.io/docs/tasks/tools/install-kubectl/) on your installation machine
 - [KUDO CLI 0.18.2](https://kudo.dev/docs/cli/installation.html#cli-installation) plugin (remember to set `VERSION=0.18.2` if you use the instructions to `wget` from GitHub release page!)

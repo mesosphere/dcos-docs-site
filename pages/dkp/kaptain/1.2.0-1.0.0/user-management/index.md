@@ -38,9 +38,9 @@ resources such as namespace-scoped service accounts, RBAC `RoleBinding`s, Istio 
 Kubeflow grants users with namespace admin permissions for their namespaces.
 
 ### Automatic profile creation
-When an authenticated user logs into the system and visits the central dashboard for the first time, they
-trigger a profile creation automatically (known as "Registration Flow"). Profile creation could be disabled by setting 
-`registrationFlow` parameter to `false`:
+When an authenticated user logs into the system and visits the central dashboard for the first time, they trigger a profile creation automatically, this is referred to as a "Registration Flow".
+Automatic profile creation can be disabled by setting they `registrationFlow` parameter to `false`:
+
 ```
 kubectl kudo install --instance kaptain --namespace kubeflow --create-namespace ./kubeflow-1.2.0_1.0.0.tgz -p registrationFlow=false
 ```
@@ -91,14 +91,11 @@ Check [ResourceQuotaSpec](https://godoc.org/k8s.io/api/core/v1#ResourceQuotaSpec
 
 If resoure quota is enabled in a namespace, users must specify requests or limits for compute resources like `cpu` and `memory`; otherwise, the pod will be rejected by an admission controller and will not be scheduled.
 
-It is possible to set the limits (min/max) or default resource values for pods in a namespace by defining a 
-[LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range/) policy.
+It is possible to set the limits (min/max) or default resource values for pods in a namespace by defining a [LimitRange](https://kubernetes.io/docs/concepts/policy/limit-range/) policy.
 
-With a `LimitRange` set for a namespace, a dedicated admission controller will set the default request/limit for pods 
-in that namespace.
+With a `LimitRange` set for a namespace, a dedicated admission controller will set the default request/limit for pods in that namespace.
 
-It is recommended to set `LimitRange` when resource quota is enabled to enforce defaults and limits for all Pods and Containers 
-that do not set compute resource requirements.
+It is recommended to set a `LimitRange` when resource quota is enabled to enforce defaults and limits for all Pods and Containers that do not set compute resource requirements.
 
 The following policy sets the default resource values for any pods in the namespace that do no specify resource limits:
 ```yaml
