@@ -12,6 +12,7 @@ import React from "react";
 ///////////////////////////////////////////////////////////////////////////////
 //                                   MODEL                                   //
 ///////////////////////////////////////////////////////////////////////////////
+const perPageOptions = [10, 25, 50, 100, 200];
 const init = {
   // all cves we got from the server.
   cves: null,
@@ -26,8 +27,9 @@ const init = {
     high: true,
     critical: true,
   },
+  showMitigated: false,
   page: 1,
-  perPage: 10,
+  perPage: perPageOptions[1],
   sorting: { by: "severity", order: "desc" },
 };
 
@@ -43,17 +45,19 @@ const colors = {
   yellow_l3: "#FBC77E",
 };
 
+// prettier-ignore
 const severity = (k) =>
   ({
-    negligible: { prio: 1, color: colors.blue_d2 },
-    low: { prio: 2, color: colors.blue_l2 },
-    medium: { prio: 3, color: colors.yellow_l2 },
-    high: { prio: 4, color: colors.yellow_d1 },
-    critical: { prio: 5, color: colors.red },
-  }[k] || { prio: 0, color: colors.grey_d });
+    negligible: { prio: 1, color: colors.blue_d2, display: "Negligible", id: "negligible" },
+    low: { prio: 2, color: colors.blue_l2, display: "Low", id: "low" },
+    medium: { prio: 3, color: colors.yellow_l2, display: "Medium", id: "medium" },
+    high: { prio: 4, color: colors.yellow_d1, display: "High", id: "high" },
+    critical: { prio: 5, color: colors.red, display: "Critical", id: "critical" },
+  }[k] || { prio: 0, color: colors.grey_d, display: "Unknown" });
 const severityFor = (cve) => {
   const changed = (cve.mitigations[0] || {}).changed_severity;
-  return severity(changed || cve.vulnerability_severity);
+  const mitigated = (cve.mitigations[0] || {}).kind === "not_affected";
+  return { ...severity(changed || cve.vulnerability_severity), mitigated };
 };
 
 // Sorting
@@ -79,26 +83,43 @@ const clampPage = (model) => {
 //                                    VIEW                                   //
 ///////////////////////////////////////////////////////////////////////////////
 
-const Filters = ({ cves, filters, onChange }) => {
+const Filters = ({ cves, filters, onChange, showMitigated }) => {
   const FilterBtn = ({ id }) => {
     const cls = filters[id] ? "active" : "";
     const count = cves.filter((c) => c.vulnerability_severity === id).length;
-    const toggleFilter = () => onChange({ ...filters, [id]: !filters[id] });
+    const toggleFilter = () =>
+      onChange({ sevFilters: { ...filters, [id]: !filters[id] } });
+    const { color, display } = severity(id);
     return (
       <Tooltip tip={count}>
         <div className={`cve-filter-button ${cls}`} onClick={toggleFilter}>
-          {shield(severity(id).color)} {upperFirst(id)}
+          {shield(color)} {display}
         </div>
       </Tooltip>
     );
   };
+  const tip = showMitigated
+    ? "Showing mitigated CVEs"
+    : "Hiding mitigated CVEs";
   return (
     <div className="cve-filter">
-      <FilterBtn id="negligible" />
-      <FilterBtn id="low" />
-      <FilterBtn id="medium" />
-      <FilterBtn id="high" />
-      <FilterBtn id="critical" />
+      <div>
+        <FilterBtn id="negligible" />
+        <FilterBtn id="low" />
+        <FilterBtn id="medium" />
+        <FilterBtn id="high" />
+        <FilterBtn id="critical" />
+      </div>
+      <div>
+        <Tooltip tip={tip}>
+          <div
+            className={"cve-filter-button"}
+            onClick={() => onChange({ showMitigated: !showMitigated })}
+          >
+            {showMitigated ? eye : eyeSlash}
+          </div>
+        </Tooltip>
+      </div>
     </div>
   );
 };
@@ -116,52 +137,64 @@ const Pagination = ({ page, maxPage, onChange }) => {
   );
 };
 
-const PerPageSelect = ({ onChange }) => (
-  <div className="per-page">
-    Per page:{" "}
-    <select onChange={(e) => onChange(int(e.target.value))}>
-      <option value="10">10</option>
-      <option value="25">25</option>
-      <option value="50">50</option>
-      <option value="100">100</option>
-      <option value="200">200</option>
-    </select>
-  </div>
-);
+const PerPageSelect = ({ onChange, value }) => {
+  const renderOption = (i) => <option key={i} value={i} children={i} />;
 
-const Row = (cve) => (
-  <React.Fragment key={cve.vulnerability_name}>
-    <span className="td">
-      <a href={cve.vulnerability_url} target="_blank">
-        {cve.vulnerability_name}
-      </a>
-    </span>
-    <span className="td">
-      {truncate(escape(cve.vulnerability_description), { length: 400 })}
-    </span>
-    <span className="td">
-      <span style={{ color: severityFor(cve).color }}>
-        {upperFirst(cve.vulnerability_severity)}
+  return (
+    <div className="per-page">
+      Per page:{" "}
+      <select value={value} onChange={(e) => onChange(int(e.target.value))}>
+        {perPageOptions.map(renderOption)}
+      </select>
+    </div>
+  );
+};
+
+const renderSeverity = (cve, i) => {
+  const { mitigated, color, display } = severityFor(cve);
+  const Tag = mitigated ? "del" : "span";
+  const tip = mitigated ? "Mitigated - see Addtitional Explanation" : null;
+  // a workaround for not having to integrate a fully fledged tooltip-library.
+  const cls = i === 0 ? "tip-bottom" : "";
+  return (
+    <Tooltip tip={tip} cls={cls}>
+      <Tag style={{ color }}>{display}</Tag>
+    </Tooltip>
+  );
+};
+
+const Row = (cve, i) => {
+  const cls = severityFor(cve).mitigated ? "td muted" : "td";
+  return (
+    <React.Fragment key={cve.vulnerability_name}>
+      <span className={cls}>
+        <a href={cve.vulnerability_url} target="_blank">
+          {cve.vulnerability_name}
+        </a>
       </span>
-    </span>
-    <span className="td">
-      {upperFirst(cve.project_name)} {cve.project_version}
-    </span>
-    <span className="td">
-      <ul className="m0">
-        {cve.purls.map((p) => (
-          <li key={p}>{displayPURL(p)}</li>
+      <span className={cls}>
+        {truncate(escape(cve.vulnerability_description), { length: 400 })}
+      </span>
+      <span className={cls}>{renderSeverity(cve, i)}</span>
+      <span className={cls}>
+        {upperFirst(cve.project_name)} {cve.project_version}
+      </span>
+      <span className={cls}>
+        <ul className="m0">
+          {cve.purls.map((p) => (
+            <li key={p}>{displayPURL(p)}</li>
+          ))}
+        </ul>
+      </span>
+      <span className={cls}>
+        {cve.mitigations.map((p) => (
+          <div key={p}> {p.description} </div>
         ))}
-      </ul>
-    </span>
-    <span className="td">
-      {cve.mitigations.map((p) => (
-        <div key={p}> {p.description} </div>
-      ))}
-    </span>
-    <span className="spacing-dummy" />
-  </React.Fragment>
-);
+      </span>
+      <span className="spacing-dummy" />
+    </React.Fragment>
+  );
+};
 
 const Table = ({ cves, sorting, onSortChange }) => {
   const sortable = (header, by) => {
@@ -198,13 +231,18 @@ const displayPURL = (p) =>
 
 const jumbo = (str) => <div className="jumbotron main">{str}</div>;
 
-const Tooltip = ({ children, tip }) => (
-  <div className="tooltip">
-    {children}
-    <span className="tip">{tip}</span>
-  </div>
-);
-
+/**
+ * conditionally shows a tooltip, if `tip` is truthy
+ */
+const Tooltip = ({ children, tip, cls = "" }) => {
+  if (!tip) return children;
+  return (
+    <span className="tooltip">
+      {children}
+      <span className={`tip ${cls}`}>{tip}</span>
+    </span>
+  );
+};
 const shield = (color) => (
   <svg viewBox="0 0 16 16" fill={color}>
     <g fillRule="evenodd">
@@ -216,12 +254,34 @@ const shield = (color) => (
     </g>
   </svg>
 );
+const eye = (
+  <svg viewBox="0 0 16 16">
+    <path
+      d="M7.919 2C3.889 2 .555 4.608 0 8c.555 3.392 3.889 6 7.919 6 4.03 0 7.364-2.608 7.919-6-.555-3.392-3.889-6-7.919-6zM8 11.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7zm0-2a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+      fill-rule="evenodd"
+      fill="#56595E"
+    ></path>
+  </svg>
+);
+const eyeSlash = (
+  <svg viewBox="0 0 16 16">
+    <path
+      fill="#56595E"
+      d="M2.65 12.267C1.247 11.19.277 9.693 0 8c.555-3.392 3.889-6 7.919-6 .217 0 .432.008.645.022L7.06 4.628a3.502 3.502 0 0 0-2.45 4.244l-1.96 3.395zm4.78 1.72c.162.009.325.013.489.013 4.03 0 7.364-2.608 7.919-6-.27-1.648-1.195-3.111-2.538-4.18l-1.91 3.308a3.506 3.506 0 0 1-2.45 4.244l-1.51 2.615zM11.134.572l1.732 1-8 13.856-1.732-1 8-13.856z"
+      fill-rule="evenodd"
+    ></path>
+  </svg>
+);
 
 ///////////////////////////////////////////////////////////////////////////////
 //                                    APP                                    //
 ///////////////////////////////////////////////////////////////////////////////
-const reportURL =
-  "https://konvoy-staging-devx-cac8-cve-reporter.s3-us-west-2.amazonaws.com/vulnerability_report_latest.json";
+const isLocal =
+  location.hostname === "localhost" || location.hostname === "127.0.0.1";
+const reportURL = isLocal
+  ? "/assets/konvoy_latest.json"
+  : "https://konvoy-staging-devx-cac8-cve-reporter.s3-us-west-2.amazonaws.com/vulnerability_report_latest.json";
+
 const App = () => {
   React.useEffect(() => {
     // we have a lot of entries in the list that only differ in `resource_purl`.
@@ -239,8 +299,11 @@ const App = () => {
 
   const onUpdate = (p, fn = (x) => x) => setModel(fn({ ...model, ...p }));
 
-  const cves = (model.cves || [])
-    .filter((cve) => model.sevFilters[cve.vulnerability_severity])
+  let cves = (model.cves || [])
+    .filter((cve) => {
+      const { mitigated, id } = severityFor(cve);
+      return model.sevFilters[id] && (model.showMitigated || !mitigated);
+    })
     .sort(sortBy(model.sorting));
   const offSet = (model.page - 1) * model.perPage;
 
@@ -249,7 +312,8 @@ const App = () => {
       <Filters
         cves={model.cves || []}
         filters={model.sevFilters}
-        onChange={(sevFilters) => onUpdate({ sevFilters }, clampPage)}
+        onChange={(p) => onUpdate(p, clampPage)}
+        showMitigated={model.showMitigated}
       />
 
       {cves.length <= model.perPage ? null : (
@@ -273,6 +337,7 @@ const App = () => {
       {cves.length <= model.perPage ? null : (
         <PerPageSelect
           onChange={(perPage) => onUpdate({ perPage }, clampPage)}
+          value={model.perPage}
         />
       )}
     </div>
