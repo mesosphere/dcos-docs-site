@@ -3,9 +3,11 @@ layout: layout.pug
 navigationTitle: Configuration Requirements
 title: Configuration Requirements
 menuWeight: 7
-excerpt: KBA Descriptions and Resource Requirements
-beta: true
+excerpt: Kubernetes Platofrm Services Descriptions and Resource Requirements
+beta: false
 enterprise: false
+render: mustache
+model: /dkp/kommander/1.3/data.yml
 ---
 
 <!-- markdownlint-disable MD018 -->
@@ -18,5 +20,5 @@ enterprise: false
 
 For information on related topics or procedures, refer to the following:
 
-- [Introduction to KBA](../../addons)
-- [Current KBA Release Information](../../release-notes/kubernetes-base-addon)
+- [Introduction to Kommander {{ model.addon }}](../../addons)
+- [Current Kubernetes {{ model.addon }}](../../release-notes/kubernetes-base-addon)

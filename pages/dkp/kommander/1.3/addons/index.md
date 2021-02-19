@@ -1,13 +1,13 @@
 ---
 layout: layout.pug
 navigationTitle: Kommander Platform Services
+render: mustache
+model: /dkp/kommander/1.3/data.yml
 title: Kommander Platform Services
 menuWeight: 3
 excerpt: What are Kommander Platform Services
 beta: true
 enterprise: false
-render: mustache
-model: /dkp/kommander/1.3/data.yml
 ---
 
 <!-- markdownlint-disable MD018 -->
