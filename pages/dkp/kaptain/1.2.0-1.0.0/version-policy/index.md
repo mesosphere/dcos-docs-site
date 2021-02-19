@@ -9,10 +9,9 @@ enterprise: false
 ---
 
 D2iQ supports `N-2` of the latest `MAJOR.MINOR` release of Kaptain.
-With the GA release of Kaptain 1.0.0, support continues for Kaptain 1.0, 0.6, and 0.5, including all patch releases.
-Support for Kaptain 0.4.0 expires.
+With the GA release of Kaptain 1.0.0, support continues for Kaptain 1.0, 0.6, and 0.5, including all patch releases.  Support for Kaptain 0.4.0 expires.
 
-Users should upgrade their Kaptain installations clusters with every new release to stay up to date with the latest features and bug fixes.
+D2iQ recommends that you install the newest Kaptain version available to stay up to date with the latest features and bug fixes.
 
 ## Supported Konvoy Versions
 
@@ -20,7 +19,7 @@ Kaptain 1.0.0 runs on Konvoy 1.7.
 
 ## Supported Kommander Versions
 
-Kaptain 1.0.0 is not yet supported on Kommander.
+Kaptain 1.0.0 cannot be installed from Kommander as an add-on.
 
 Note that it is possible to use [Kommander's Dex instance](../custom-configuration/external-dex) for authenticating users in Kaptain.
 

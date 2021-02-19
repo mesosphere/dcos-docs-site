@@ -18,11 +18,13 @@ Retry the pipeline run or to pre-download the container image to the relevant no
 
 ### Using Kaptain SDK and Kubeflow Fairing with Private Docker Registries
 
-Kaptain SDK and Kubeflow Fairing do not support Docker registries using a self-signed TLS certificates, certificate chaining, or insecure (plaintext HTTP) registries.
+The Kaptain SDK and Kubeflow Fairing do not currently support Docker registries using self-signed TLS certificates, certificate chaining, or insecure (plaintext HTTP) registries.
+We plan to improve support for private registries in a future release of Kaptain.
 
 ### Spark and Horovod
 
-Running Spark and Horovod on Spark in client mode from a notebook with Istio enabled is not supported. It is recommended to use Spark Operator for running Spark applications.
+Running Spark and Horovod on Spark in client mode from a notebook with Istio enabled is not supported.
+It is recommended to use the Spark Operator for running Spark applications.
 
 ### Pocket Chrome Extension
 

@@ -57,13 +57,13 @@ Each step logs its inputs and outputs, which can be accessed via the _Input/Outp
 ### Pipeline Artifacts
 Input and outputs of steps, also known as artifacts, are stored in the Artifacts Store.
 These are available from the _Artifacts_ menu.
-Lineage of the pipeline artifacts are displayed in the _Lineage Explorer_ tab:
+The lineage of pipeline artifacts is displayed in the _Lineage Explorer_ tab:
 
 ![Pipeline artifacts](./img/pipeline-artifacts.png)
 
 ## Notebook Servers
 Notebook servers can be set up from the _Notebook Servers_ menu on the central dashboard.
-From there, users can choose a quick-start image for any supported deep learning framework: TensorFlow, PyTorch, and MXNet.
+From there, users can choose a quick-start image for any of the supported deep learning frameworks: TensorFlow, PyTorch, and MXNet.
 Each quick-start image comes in two flavors: CPU and GPU.
 The latter has all the drivers needed for training on GPUs included.
 Custom images can also be provided.
@@ -82,11 +82,11 @@ The numbered sections are as follows:
 4. Notebook diff viewer
 5. Notebook cells with embedded output
 
-More details on the JupyterLab environment are in the [official documentation](https://jupyterlab.readthedocs.io/en/2.2.x/).
+Additional details on the JupyterLab environment can be found in the [JupyterLab documentation](https://jupyterlab.readthedocs.io/en/2.2.x/).
 
 ## Katib
 Katib is the hyperparameter tuner and neural architecture search module in Kaptain.
-To learn to create hyperparameter tuning experiments, read the [tutorial](./katib/).
+To learn how to create hyperparameter tuning experiments, read the [tutorial](./katib/).
 
 These experiments can be accessed through the _HP &rarr; Monitor_ submenu:
 
