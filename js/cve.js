@@ -232,7 +232,7 @@ const App = () => {
       });
     fetch(reportURL)
       .then((r) => r.json())
-      .then((cves) => onUpdate({ cves })); //: foldPurlsByVulnName(cves) }));
+      .then((cves) => onUpdate({ cves: foldPurlsByVulnName(cves) }));
   }, []);
 
   const [model, setModel] = React.useState(init);
