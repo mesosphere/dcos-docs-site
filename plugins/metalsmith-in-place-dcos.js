@@ -1,7 +1,6 @@
 const debug = require("debug")("metalsmith-in-place-dcos");
-const jstransformer = require("jstransformer");
-const toTransformer = require("inputformat-to-jstransformer");
 const pluginKit = require("metalsmith-plugin-kit");
+const Mustache = require("mustache");
 
 /**
  * This copy of metalsmith-in-place has the following modifications to make it functional:
@@ -13,62 +12,31 @@ const pluginKit = require("metalsmith-plugin-kit");
  */
 
 /**
- * Gets jstransformer for an extension, and caches them
- */
-const cache = {};
-
-function getTransformer(name) {
-  if (name in cache) {
-    return cache[name];
-  }
-
-  const transformer = toTransformer(name);
-  cache[name] = transformer ? jstransformer(transformer) : false;
-
-  return cache[name];
-}
-
-/**
  * Plugin, the main plugin used by metalsmith
  */
 
 module.exports = function metalsmithInPlaceDcos(opts) {
   const options = pluginKit.defaultOptions(
-    {
-      renderProperty: "render",
-      renderOptionsProperty: "renderOptions",
-      match: "**/*.md",
-      matchOptions: {},
-    },
+    { renderProperty: "render", match: "**/*.md" },
     opts
   );
 
   return pluginKit.middleware({
     each: (filename, file, files, metalsmith) => {
       const transformerName = file[options.renderProperty];
-      if (!transformerName) {
-        // No render property defined, skip
-        // debug('No render property "%s" in %s', options.renderProperty, filename);
-        return;
-      }
+      if (!transformerName) return;
+      if (transformerName !== "mustache")
+        throw "Using a non-mustache transformer. This is not Intended!";
+
       debug('Rendering %s with transformer "%s"...', filename, transformerName);
-      const transformer = getTransformer(transformerName);
-      if (!transformer) {
-        throw new Error(
-          `Unable to find transformer named ${transformerName} as requested in ${filename}`
-        );
-      }
-      const renderOptions = file[options.renderOptions] || {};
       file.contents = Buffer.from(
-        transformer.render(
+        Mustache.render(
           file.contents.toString(),
-          renderOptions,
           Object.assign({}, metalsmith.metadata(), file)
-        ).body
+        )
       );
     },
     match: options.match,
-    matchOptions: options.matchOptions,
     name: "metalsmith-in-place-dcos",
   });
 };

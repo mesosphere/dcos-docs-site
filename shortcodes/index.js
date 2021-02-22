@@ -1,7 +1,4 @@
 const fs = require("fs");
-const path = require("path");
-const cheerio = require("cheerio");
-const minify = require("html-minifier").minify;
 const NgindoxUi = require("ngindox/lib/ui");
 const Yaml = require("js-yaml");
 
