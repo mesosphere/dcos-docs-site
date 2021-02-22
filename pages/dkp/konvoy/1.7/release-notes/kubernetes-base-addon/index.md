@@ -33,7 +33,7 @@ February 10, 2020
     - Fixes an issue causing some audit logs to be dropped.
 
 -   Kiali
-    - Configure to use the same version for `kiali/kialii` that matches the operator.
+    - Configure to use the same version for `kiali/kiali` that matches the operator.
 
 -   Kibana
     - Downgrade kibana and elasticsearch to 6.8.10 to fix a regression
@@ -43,6 +43,7 @@ February 10, 2020
 
 -   Velero
     - Upgrade Velero to 1.5.2 and minio 8.0.8. Users can now use the official velero client, where before users needed to use a patched velero client.
+    - Upgrade kubeaddons-addon-initializer init container to v0.4.3. This fixes the issue that was making it impossible to use a custom S3Url in Velero. (COPS-6675)
 
 December 19, 2020
 
