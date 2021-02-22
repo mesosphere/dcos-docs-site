@@ -1,32 +1,7 @@
 const { extname } = require("path");
 const $ = require("cheerio");
 const md = require("markdown-it")({ typographer: true, html: true });
-const semver = require("semver");
-
-const isValue = (v) => v !== undefined && v !== null;
-
-function spaceship(val1, val2) {
-  if (!isValue(val1) || !isValue(val2) || typeof val1 !== typeof val2) {
-    return 0;
-  }
-  if (typeof val1 === "string") {
-    return val1.localeCompare(val2);
-  }
-  return val1 - val2;
-}
-const semverCompare = (a, b) => {
-  try {
-    return semver.rcompare(a, b);
-  } catch (_) {
-    return 0;
-  }
-};
-
-const sortPages = (a, b) =>
-  spaceship(a.menuWeight, b.menuWeight) ||
-  semverCompare(a.id, b.id) ||
-  spaceship(a.navigationTitle, b.navigationTitle) ||
-  spaceship(a.title, b.title);
+const { sortPages } = require("../core/utils");
 
 const createChild = (file, fileObj, id) => {
   // strip /index.md
@@ -48,6 +23,11 @@ const createChild = (file, fileObj, id) => {
   return newChild;
 };
 
+function sortChildren(node) {
+  node.children = node.children.sort(sortPages);
+  node.children.forEach(sortChildren);
+}
+
 // all files are put through this. it will the walk upwards and then handle the
 // ancestors until an already compiled page is found (we pass in the entry for "/", so
 // there'll always be an ancestor)
@@ -58,7 +38,6 @@ function walk(file, files, path, paths, children = []) {
     paths[newChild.path] = newChild;
     children = children.filter((c) => c.path != newChild.path);
     children.push(newChild);
-    children.sort(sortPages);
   } else {
     // walk deeper
     const deeper = children.find((c, _i) => c.id === path[0]);
@@ -110,5 +89,7 @@ module.exports = (files, metalsmith, done) => {
     const children = walk(file, files, path, paths, root.children);
     root.children = children;
   });
+  sortChildren(root);
+
   metalsmith.metadata().hierarchy = root;
 };

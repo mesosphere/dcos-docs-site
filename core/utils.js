@@ -1,6 +1,7 @@
 // These utils can be used in any JS and are injected into templates as well.
 // Use like this: Utils.getPathInfo(path)
 const _ = require("lodash");
+const semver = require("semver");
 
 // Names are usually infered via _.startCase: E.g: "kafka-zookeeper" => "Kafka Zookeeper". We respect the mapping specified in `products` though.
 const toProductName = (slug) => products[slug] || _.startCase(slug);
@@ -11,6 +12,23 @@ const products = {
   kaptain: "Kaptain",
   kommander: "Kommander",
   konvoy: "Konvoy",
+};
+
+const isValue = (v) => v !== undefined && v !== null;
+function spaceship(val1, val2) {
+  if (!isValue(val1) || !isValue(val2) || typeof val1 !== typeof val2) return 0;
+
+  if (typeof val1 === "string") {
+    return val1.localeCompare(val2);
+  }
+  return val1 - val2;
+}
+const semverCompare = (a, b) => {
+  try {
+    return semver.rcompare(a, b);
+  } catch (_) {
+    return 0;
+  }
 };
 
 module.exports = {
@@ -41,4 +59,13 @@ module.exports = {
     return { lang, sphere, searchFacet, product, productName, version };
   },
   products,
+  sortPages(a, b) {
+    return (
+      spaceship(a.menuWeight, b.menuWeight) ||
+      semverCompare(a.id, b.id) ||
+      spaceship(a.navigationTitle, b.navigationTitle) ||
+      spaceship(a.title, b.title) ||
+      spaceship(a.id, b.id)
+    );
+  },
 };
