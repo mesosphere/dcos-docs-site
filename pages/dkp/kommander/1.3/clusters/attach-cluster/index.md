@@ -31,7 +31,7 @@ Next, configure the new service account for `cluster-admin` permissions:
 
 ```shell
 cat << EOF | kubectl apply -f -
-apiVersion: rbac.authorization.k8s.io/v1beta1
+apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   name: kommander-cluster-admin
