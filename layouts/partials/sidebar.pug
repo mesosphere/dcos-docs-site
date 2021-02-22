@@ -18,7 +18,7 @@ mixin renderSidebarNavListItem(item, depth)
       != item.navigationTitle || item.title
   if(hasChildren && onPath)
     ul
-      each val, index in item.children.filter(inMenu)
+      each val, index in item.children.filter(inMenu).sort(Utils.sortPages)
         +renderSidebarNavListItem(val, depth + 1)
 
 .layout__sidebar.layout__drawer
@@ -40,7 +40,7 @@ mixin renderSidebarNavListItem(item, depth)
 
     nav.sidebar_nav(role='navigation')
       ul
-        each val, index in hierarchy.findByPath(`${productPath}${versionFragment}`).children.filter(inMenu)
+        each val, index in hierarchy.findByPath(`${productPath}${versionFragment}`).children.filter(inMenu).sort(Utils.sortPages)
           +renderSidebarNavListItem(val, 0)
 
     footer.sidebar__footer
