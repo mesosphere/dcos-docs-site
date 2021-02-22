@@ -10,7 +10,7 @@ enterprise: false
 
 D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Konvoy. For example, if the current version of Konvoy&reg; is version 1.7, then D2iQ supports all patch versions of Konvoy 1.7, 1.6, and 1.5.
 
-When the 1.7.0 version releases, support continues for 1.6, and 1.5. Support for Konvoy version 1.4.x expires. Users should  upgrade their Konvoy clusters with every new release to stay up-to-date with the latest features and bug fixes.
+When the 1.8.0 version releases, support continues for 1.7, and 1.6. Support for Konvoy version 1.5.x expires. Users should upgrade their Konvoy clusters with every new release to stay up-to-date with the latest features and bug fixes.
 
 You can read more about our official support policy in [D2iQ Support and Maintenance Terms](https://d2iq.com/legal/support-terms).
 
@@ -18,13 +18,13 @@ You can read more about our official support policy in [D2iQ Support and Mainten
 
 Each Konvoy release supports a range of Kubernetes versions. The [Release Notes](../release-notes) describe these versions.
 
-For example, Konvoy 1.5.0 supports:
+For example, Konvoy 1.7.0 supports:
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.15.4 |
-|**Maximum** | 1.18.13 |
-|**Default** | 1.18.13 |
+|**Minimum** | 1.17.x |
+|**Maximum** | 1.19.x |
+|**Default** | 1.19.7 |
 
 ## Supported operating systems
 
@@ -34,13 +34,13 @@ Details for supported operating systems on Konvoy can be found in [Supported Ope
 
 Konvoy support for KBA depends on the Kubernetes version it deploys with. Every KBA release has the supported Kubernetes version in its tag.
 
-For example, KBA version `stable-1.17-2.1.1` is made up of:
+For example, KBA version `stable-1.19-3.2.0` is made up of:
 
 ```text
 <release_channel>-<kubernetes_version>-<kba_version>
 ```
 
-This means this set of addons can deploy on any 1.17 Kubernetes cluster, regardless of the distribution. The support policy for KBA on Konvoy follows the same support policy for [Kubernetes versions](#supported-kubernetes-versions). You can find more details for KBA under [Kubernetes Base Addons](../addons).
+This means this set of addons can deploy on any 1.19 Kubernetes cluster, regardless of the distribution. The support policy for KBA on Konvoy follows the same support policy for [Kubernetes versions](#supported-kubernetes-versions). You can find more details for KBA under [Kubernetes Base Addons](../addons).
 
 ### Experimental Status
 "Experimental" means software, features, functionality, sample configurations, or other speculative content that is still under exploration, development, or testing by D2iQ. Experimental components carry no guarantee of eventual release as GA and therefore must not be used in Production Environments. Experimental components qualify for limited, Severity 4 support only and may be discontinued at any time, with or without notice.
@@ -61,10 +61,11 @@ The following chart identifies which version of Konvoy supports which version of
 
 | Konvoy Version | Kommander Version |
 | -------------- | ----------------- |
+| 1.7.x | 1.3.x |
+| 1.6.x | 1.2.x |
 | 1.5.x | 1.1.x |
-| 1.4.x | 1.0.x |
 
-Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.1, and all of its patch versions (e.g. 1.1.0, 1.1.1), can deploy successfully on any version of Konvoy 1.5. Mixing minor versions is prohibited and the following is not supported:
+Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.3, and all of its patch versions (e.g. 1.3.0, 1.3.1), can deploy successfully on any version of Konvoy 1.7. Mixing minor versions is prohibited and the following is not supported:
 
-- You cannot deploy Kommander 1.1.x on Konvoy 1.4.x
-- You cannot deploy Kommander 1.0.x on Konvoy 1.3.x
+- You cannot deploy Kommander 1.2.x on Konvoy 1.7.x
+- You cannot deploy Kommander 1.1.x on Konvoy 1.6.x

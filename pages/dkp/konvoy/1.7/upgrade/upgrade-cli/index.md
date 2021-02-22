@@ -12,14 +12,14 @@ enterprise: false
 
 ## Before you begin: Prepare for Konvoy CLI upgrade
 
-If you're using a newer version of the Konvoy CLI, it may require changes to your `cluster.yaml`.
-These changes are highlighted in the Release Notes and in this section.
+If you're using a newer version of the Konvoy CLI, it may require changes to your `cluster.yaml`, as described below.
 
 A Konvoy upgrade consists of a few distinct steps.
 
-- Download the Konvoy binary and extract it in your environment in the same manner as the initial install. (Download the specific version of Konvoy by following the steps outlined in the [download](../../download) page.)
-- You must also have access to the `cluster.yaml` file and the SSH keys that were generated during the initial install. Update the `cluster.yaml` file with the changes described below.
-- When you run `konvoy up --upgrade`, it upgrades the version of Kubernetes on all of the control-plane nodes. The command then upgrades the rest of the nodes, the platform service addons, and installs any additional addons specified in the `cluster.yaml` file.
+1. [Download](../../download) the Konvoy binary and extract it in your environment in the same manner as the initial install.
+1. Gain access to the `cluster.yaml` file, and the SSH keys that were generated during the initial install.
+1. Update the `cluster.yaml` file with the changes described below.
+1. Run `konvoy up --upgrade`, which upgrades the version of Kubernetes on all of the control-plane nodes, then upgrades the rest of the nodes and platform services, and installs any addons specified in the `cluster.yaml` file.
 
 ## Konvoy CLI available versions
 
@@ -32,9 +32,7 @@ konvoy image list
 This command lists all the available versions to which your current CLI can be upgraded.
 This list also shows the default Kubernetes version of each Konvoy version.
 
-This command uses the Docker Hub to fetch all the available Konvoy versions.
-
-<p class="message--note"><strong>NOTE: </strong>This functionality is only supported for CLI where the Konvoy version is greater or equal to <strong>v1.1.4</strong>.</p>
+This command uses Docker Hub to fetch all the available Konvoy versions.
 
 ### Using a private Docker registry
 
@@ -117,9 +115,15 @@ spec:
   version: v1.7.0
 ```
 
+### [experimental]Upgrading the Istio addon while upgrading Konvoy from v1.6.x to v1.7.0[/experimental]
+
+If the Istio addon is enabled while running Konvoy 1.6.x and you want to upgrade, you have to make [further changes][istio-upgrade] before running `konvoy up --upgrade`.
+
+## Upgrades and Running Workloads
+
 <p class="message--note"><strong>NOTE: </strong>During the upgrade process, if the cluster has certain types of workloads running, the Konvoy CLI displays a warning. These warnings report skipped nodes in the upgrade process.</p>
 
-Konvoy preserves the availability of applications in the cluster, by detecting:
+Konvoy preserves the availability of applications in the cluster by detecting:
 
 - All replicas of a `ReplicaSet` run on a single node. Draining that node interrupts the application.
 - `ReplicaSets` having a replica count less than 2. Draining this node interrupts the application.
@@ -141,3 +145,4 @@ To avoid these warnings, and reduce risks to application availability:
 [docker_registry]: https://docs.docker.com/registry/deploying/
 [docker_v2_auth_token]: https://docs.docker.com/registry/spec/auth/token/
 [harbor]: https://github.com/goharbor/harbor
+[istio-upgrade]: upgrade-cli-istio

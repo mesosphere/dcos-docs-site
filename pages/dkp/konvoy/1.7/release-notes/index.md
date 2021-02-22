@@ -24,8 +24,8 @@ This release provides new features and enhancements to improve the user experien
 
 | Kubernetes Support | Version |
 | ------------------ | ------- |
-|**Minimum** | 1.16.x |
-|**Maximum** | 1.18.x |
+|**Minimum** | 1.17.x |
+|**Maximum** | 1.19.x |
 |**Default** | 1.19.7 |
 
 ### New features and capabilities
@@ -130,8 +130,7 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 ### KUDO Spark Operator Upgrade Prior to Konvoy Upgrade or Install
 
-Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 
-do not specify default values for ‘x-kubernetes-list-map-keys’ properties and will fail validation on Kubernetes versions 1.18.x and later.
+Custom Resource Definitions of KUDO Spark Operator versions prior to 3.0.0-1.1.0 do not specify default values for `x-kubernetes-list-map-keys` properties and will fail validation on Kubernetes versions 1.18.x and later.
 
 Perform these steps prior to upgrading or installing Konvoy to prevent or mitigate disruption of currently-running Spark jobs and invalidating Spark CRDs:
 
@@ -173,4 +172,4 @@ For information about working with native Kubernetes, see the [Kubernetes docume
 
 [konvoy-doc]: ../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
-[konvoy-vsphere]: https://docs.d2iq.com/dkp/konvoy
+[konvoy-vsphere]: ../install/install-vsphere
