@@ -35,7 +35,7 @@ const shortcodes = {
   },
 
   message: (buf, { type, label = `<strong>${capitalize(type)}: </strong>` }) =>
-    `<span class="message message--${type}">${label}${buf}</span>`,
+    `<p class="message--${type}">${label}${buf}</p>`,
 
   ngindox: (buf, { api }) =>
     NgindoxUi.toHtml(Yaml.safeLoad(fs.readFileSync(`./pages${api}`)), {

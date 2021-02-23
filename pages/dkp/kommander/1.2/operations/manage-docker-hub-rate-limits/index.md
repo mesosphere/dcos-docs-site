@@ -26,7 +26,9 @@ For Kommander, to add credentials for Docker Hub, set the options in your `clust
           docker-registry-password: <password>
 ```
 
-<p class="message--note"><strong>NOTE: </strong>You can use environment variables to specify <code>imageRegistries</code> values. For example, if your yaml file has <code>password: ${REGISTRY_PASSWORD}</code>, <code>password</code> is set to the <code>REGISTRY_PASSWORD</code> value in your environment.</p>
+[message type=note] 
+You can use environment variables to specify `imageRegistries` values. For example, if your yaml file has `password: ${REGISTRY_PASSWORD}`, `password` is set to the `REGISTRY_PASSWORD` value in your environment.
+[/message]
 
 1. Apply the changes to your cluster. Enter the following command:
 
