@@ -42,6 +42,7 @@ pipeline {
         sh '''
           docker pull mesosphere/docs-dev:latest
           docker build --cache-from mesosphere/docs-dev:latest -f docker/Dockerfile -t mesosphere/docs-dev:latest .
+          docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
           docker push mesosphere/docs-dev:latest
         '''
       }
