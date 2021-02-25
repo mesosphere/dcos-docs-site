@@ -20,7 +20,7 @@ const hierarchy = require("./plugins/metalsmith-hierarchy");
 const hierarchyRss = require("./plugins/metalsmith-hierarchy-rss");
 const headings = require("./plugins/metalsmith-headings");
 const algolia = require("./plugins/metalsmith-algolia");
-const inPlace = require("./plugins/metalsmith-in-place-dcos");
+const mustache = require("./plugins/metalsmith-mustache");
 const includeContent = require("./plugins/metalsmith-include-content-dcos");
 const revision = require("./plugins/metalsmith-revision");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
@@ -122,7 +122,7 @@ MS.use(timer("IncludeContent"));
 // Process any mustache templating in files.
 // For example (in your Front Matter):
 //   render: mustache
-MS.use(inPlace({ renderProperty: "render", match: "**/*.md" }));
+MS.use(mustache);
 MS.use(timer("Mustache"));
 
 // Folder Hierarchy
