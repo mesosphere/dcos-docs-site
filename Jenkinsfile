@@ -1,31 +1,27 @@
 #!/usr/bin/env groovy
 
 def bucket(branch) {
-    branch == "master"  ? "docs-d2iq-com-production"
-  : branch == "staging" ? "docs-d2iq-com-staging"
-                        : "docs-d2iq-com-pr-${env.CHANGE_ID}"
+    branch == "main" ? "docs-d2iq-com-production"
+                     : "docs-d2iq-com-pr-${env.CHANGE_ID}"
 }
 
 def principal(branch) {
-    branch == "master"  ? "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Production"
-  : branch == "staging" ? "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Staging"
-                        : "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
+    branch == "main" ? "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Production"
+                     : "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
 }
 
 def creds(branch) {
-    branch == "master"  ? 's3-production'
-  : branch == "staging" ? 's3-staging'
-                        : 's3-development'
+    branch == "main" ? 's3-production'
+                     : 's3-development'
 }
 
 def hostname(branch) {
-    branch == "master"  ? 'docs.d2iq.com'
-  : branch == "staging" ? 'docs-staging.d2iq.com'
+    branch == "main"  ? 'docs.d2iq.com'
   : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
 }
 
 def updateAlgolia(branch) {
-  env.BRANCH_NAME == "master" ? "true" : ""
+  env.BRANCH_NAME == "main" ? "true" : ""
 }
 
 pipeline {
@@ -37,7 +33,7 @@ pipeline {
   }
   stages {
     stage("Update dev-image") {
-      when { branch "master" }
+      when { branch "main" }
       steps {
         sh '''
           docker pull mesosphere/docs-dev:latest
@@ -59,7 +55,7 @@ pipeline {
     }
 
     stage("Push image") {
-      when { branch "master" }
+      when { branch "main" }
       steps {
         sh '''
           docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
