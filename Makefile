@@ -1,7 +1,8 @@
 .PHONY: build-development clean
 
 clean: ## Remove all build folders
-	./scripts/clean.sh
+	rm -rf "./build"
+	rm -f ".revision"
 
 #
 # Build
