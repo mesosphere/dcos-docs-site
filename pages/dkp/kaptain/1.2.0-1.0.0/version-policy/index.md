@@ -35,4 +35,4 @@ Support for Experimental components is provided on a Standard level, Severity 4 
 
 ## Istio Support Status
 
-Istio is a required pre-requisite for Kaptain.  Istio usage is only supported in conjunction with Kaptain and the configurations delivered as part of Kaptain.  All other usage of Istio is considered `experimental` 
+Istio is a required pre-requisite for Kaptain.  Istio usage is only supported in conjunction with Kaptain and the configurations delivered as part of Kaptain.  All other usage of Istio is considered `experimental`.
