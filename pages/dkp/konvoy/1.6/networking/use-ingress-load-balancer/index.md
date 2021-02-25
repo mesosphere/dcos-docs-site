@@ -4,8 +4,6 @@ navigationTitle: Configure Ingress for load balancing
 title: Configure Ingress for load balancing
 menuWeight: 21
 excerpt: Learn how to configure Ingress settings for load balancing (layer-7)
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

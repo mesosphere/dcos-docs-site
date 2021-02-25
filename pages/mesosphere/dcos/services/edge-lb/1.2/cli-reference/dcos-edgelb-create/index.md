@@ -5,7 +5,6 @@ title: dcos edgelb create
 menuWeight: 5
 excerpt: Create a single pool given a definition file written in JSON or YAML
 
-enterprise: false
 ---
 
 # Description

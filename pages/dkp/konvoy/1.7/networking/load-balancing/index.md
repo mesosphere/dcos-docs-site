@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Load Balancing
 title: Load Balancing
 menuWeight: 8
-beta: false
-enterprise: false
 ---
 
 In a Kubernetes cluster, depending on the flow of traffic direction, there are two kinds of load balancing:

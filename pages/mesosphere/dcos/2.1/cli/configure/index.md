@@ -4,7 +4,6 @@ navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2
 excerpt: Configuring the command line interface
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

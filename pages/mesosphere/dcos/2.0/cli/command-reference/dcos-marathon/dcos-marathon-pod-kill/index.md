@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon pod kill
 title: dcos marathon pod kill
 menuWeight: 24
 excerpt: Stopping one or more running pod instances
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

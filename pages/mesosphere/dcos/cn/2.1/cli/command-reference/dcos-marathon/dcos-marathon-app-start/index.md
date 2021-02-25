@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon app start
 title: dcos marathon app start
 menuWeight: 7
 excerpt: 启动应用程序
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

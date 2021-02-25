@@ -6,8 +6,6 @@ menuWeight: 100
 excerpt: 了解 DC/OS 的度量标准组件
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: false
-enterprise: false
 ---
 
 # 概述

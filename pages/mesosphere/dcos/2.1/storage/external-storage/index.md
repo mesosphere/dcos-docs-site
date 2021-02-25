@@ -6,8 +6,6 @@ menuWeight: 20
 excerpt: Using external persistent volumes with Marathon
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: false
-enterprise: false
 ---
 
 Use external volumes when fault tolerance is crucial for your app. If a host fails, the native Marathon instance reschedules your app on another host, along with its associated data, without user intervention. External volumes also typically offer a larger amount of storage.

@@ -6,7 +6,6 @@ menuWeight: 4
 excerpt: Tutorial - Deploying applications on Marathon using Jenkins for DC/OS
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

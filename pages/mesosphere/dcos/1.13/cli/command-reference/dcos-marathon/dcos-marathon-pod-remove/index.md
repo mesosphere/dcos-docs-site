@@ -6,7 +6,6 @@ menuWeight: 26
 excerpt: Removing a pod
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

@@ -4,7 +4,6 @@ navigationTitle:  Edge-LB HAProxy endpoints
 title: Edge-LB HAProxy endpoints reference
 menuWeight: 85
 excerpt: Describes the endpoints exposed by Edge-LB HAProxy instances
-enterprise: false
 ---
 
 Edge-LB automatically generates configuration information for the HAProxy&reg; program, then reloads and restarts HAProxy, as needed. Edge-LB generates the HAProxy configuration based on application data available from configuration templates in the HAProxy configuration file (`haproxy.cfg`) and Marathon app definition.

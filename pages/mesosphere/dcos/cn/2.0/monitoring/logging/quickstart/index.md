@@ -6,8 +6,6 @@ menuWeight: 0
 excerpt: DC/OS 日志记录快速入门
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-beta: false
-enterprise: false
 ---
 
 使用本指南开始使用 DC/OS 日志记录。此处使用的许多命令在 [CLI 命令参考]中有更全面的描述。(/mesosphere/dcos/cn/2.0/cli/command-reference/dcos-task/).

@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb version
 title: dcos edge-lb version
 menuWeight: 75
 excerpt: Reference for the dcos edge-lb version command
-enterprise: false
 ---
 
 Use this command to display the current Edge-LB version you have installed.

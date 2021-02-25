@@ -6,7 +6,6 @@ menuWeight: 9
 excerpt: Removing a package repository from DC/OS
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

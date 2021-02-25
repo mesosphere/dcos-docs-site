@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Install
 title: Install
 menuWeight: 3

@@ -6,7 +6,6 @@ title: Quick Start
 menuWeight: 11
 model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
-featureMaturity:
 ---
 
 This page explains how to install the DC/OS {{ model.techName }} service.

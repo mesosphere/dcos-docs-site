@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon pod update
 title: dcos marathon pod update
 menuWeight: 28
 excerpt: Updating a Marathon pod
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---

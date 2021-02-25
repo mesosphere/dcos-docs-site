@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Install Dispatch on Multiple Clusters
 title: Install Dispatch on Multiple Clusters
 menuWeight: 35
-beta: false
 excerpt: Installing Dispatch on Multiple Clusters
 ---
 # Install Dispatch into Multiple Clusters

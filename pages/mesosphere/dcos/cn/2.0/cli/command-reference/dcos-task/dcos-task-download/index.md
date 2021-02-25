@@ -5,7 +5,6 @@ title: dcos task download
 menuWeight: 2
 excerpt: 从 Mesos 任务沙盒目录下载文件
 
-enterprise: false
 ---
 
 # 说明

@@ -4,8 +4,6 @@ navigationTitle: Operations
 title: Operations
 menuWeight: 280
 excerpt: Manage your Konvoy cluster and deployed applications using platform services
-beta: false
-enterprise: false
 ---
 
 After you deploy a Konvoy cluster and the platform services you want to use, you are ready to begin managing cluster operations and its application workloads to optimize your organization's productivity.

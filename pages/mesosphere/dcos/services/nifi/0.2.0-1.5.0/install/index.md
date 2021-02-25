@@ -4,8 +4,6 @@ navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
 excerpt: Installing DC/OS NiFi from the UI or the CLI
-featureMaturity:
-enterprise: false
 ---
 
  DCOS NiFi is available in the Universe and can be installed by using either the UI or the DC/OS CLI.

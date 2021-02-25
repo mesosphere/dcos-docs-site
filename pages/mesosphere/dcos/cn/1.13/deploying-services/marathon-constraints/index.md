@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 了解 Marathon 布局约束
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 Marathon 放置约束能够控制服务的运行位置，以便优化容错性（通过在多个节点上分散任务）或本地化（通过在同一节点上运行所有服务任务）。约束有三个部分：字段名称、算子和可选参数。该字段名称可以是代理节点的主机名或代理节点的任何属性。

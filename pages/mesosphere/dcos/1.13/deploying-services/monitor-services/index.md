@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Monitoring deployed DC/OS services from the CLI and UI
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

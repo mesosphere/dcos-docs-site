@@ -4,7 +4,6 @@ navigationTitle: Pool metadata
 title: Pool metadata
 menuWeight: 83
 excerpt: Reference information for Edge-LB pool metadata when integrating with cloud provider load balancers
-enterprise: false
 ---
 
 # Metadata

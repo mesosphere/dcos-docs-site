@@ -4,7 +4,6 @@ navigationTitle: 蓝色/绿色服务更新
 title: 蓝色/绿色服务
 menuWeight: 30
 excerpt: 教程 - 使用蓝色/绿色部署
-enterprise: false
 ---
 
 蓝色/绿色部署是通过运行两个版本的相同服务（“蓝色”和“绿色”版本）实现零停机时间的方法，并且有负载均衡器在两个版本之间进行切换。

@@ -6,7 +6,6 @@ menuWeight: 40
 excerpt: Using containerizers with Docker Engine and Universal Container Runtime
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 A containerizer provides a containerization and resource isolation abstraction around a specific container runtime. DC/OS containerizers support the following container runtimes:

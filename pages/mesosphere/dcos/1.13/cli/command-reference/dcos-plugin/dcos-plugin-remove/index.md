@@ -6,7 +6,6 @@ menuWeight: 7
 excerpt: Uninstalling a plugin
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 # Description

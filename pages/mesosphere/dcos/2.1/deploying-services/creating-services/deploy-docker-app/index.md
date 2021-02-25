@@ -6,7 +6,6 @@ menuWeight: 100
 excerpt: Deploying a Docker-based service
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 In this tutorial, you will create a custom Docker image and deploy it to DC/OS.

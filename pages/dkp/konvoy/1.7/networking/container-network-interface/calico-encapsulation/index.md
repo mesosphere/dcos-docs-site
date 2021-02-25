@@ -4,8 +4,6 @@ navigationTitle: Calico Encapsulation
 title: Calico Encapsulation
 menuWeight: 8
 excerpt: Set Network Encapsulation type for Calico
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

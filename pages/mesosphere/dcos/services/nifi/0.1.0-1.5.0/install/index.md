@@ -4,8 +4,6 @@ navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
 excerpt: Installing DC/OS Apache NiFi from the UI or the CLI
-featureMaturity:
-enterprise: false
 ---
 
  DC/OS Apache NiFi service is available in the Universe and can be installed using either the UI or the DC/OS CLI.

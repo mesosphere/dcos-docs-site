@@ -4,7 +4,6 @@ navigationTitle: Upgrade Kubernetes with Konvoy
 title: Upgrade Kubernetes and Addons
 menuWeight: 20
 excerpt: Upgrade the Kubernetes version and platform service addons
-enterprise: false
 ---
 
 Before upgrading, keep in mind there is inherent risk in upgrading any Kubernetes cluster. Any failure or error can result in unexpected downtime or loss of data.

@@ -4,8 +4,6 @@ navigationTitle: 限制
 title: 限制
 menuWeight: 110
 excerpt: 了解配置限制
-featureMaturity:
-enterprise: false
 ---
 
 ## Out-of-band 配置

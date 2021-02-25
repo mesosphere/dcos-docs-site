@@ -4,7 +4,6 @@ navigationTitle: konvoy deploy kubernetes
 title: konvoy deploy kubernetes
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Deploy a Kubernetes cluster except CNI plugins (use 'deploy container-networking' to deploy those)
 ---
 

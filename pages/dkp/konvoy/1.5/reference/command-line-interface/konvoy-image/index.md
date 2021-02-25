@@ -4,7 +4,6 @@ navigationTitle: konvoy image
 title: konvoy image
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Run Konvoy CLI images related actions
 ---
 

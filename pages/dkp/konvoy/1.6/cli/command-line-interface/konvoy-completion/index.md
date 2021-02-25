@@ -4,8 +4,6 @@ navigationTitle: konvoy completion
 title: konvoy completion
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Output shell completion code for the specified shell (bash or zsh)
 ---
 

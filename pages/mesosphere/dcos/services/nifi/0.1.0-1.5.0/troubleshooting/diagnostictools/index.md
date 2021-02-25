@@ -4,8 +4,6 @@ navigationTitle: Diagnostic Tools
 title: Diagnostic Tools
 menuWeight: 103
 excerpt: Tools for diagnosing cluster problems
-featureMaturity:
-enterprise: false
 ---
 
 # Diagnostic Tools

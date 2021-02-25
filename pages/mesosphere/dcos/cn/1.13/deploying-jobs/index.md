@@ -6,8 +6,6 @@ menuWeight: 120
 excerpt: 在不安装单独服务的情况下创建作业
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 您可以在 DC/OS 中创建计划作业，而不安装单独的服务。在 DC/OS UI、DC/OS CLI 中或通过 API 创建和管理作业。

@@ -6,7 +6,6 @@ title: >
   Kafka
 menuWeight: 300
 excerpt:
-featureMaturity:
 enterprise: true
 ---
 

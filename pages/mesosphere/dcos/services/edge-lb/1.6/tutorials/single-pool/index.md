@@ -4,7 +4,6 @@ navigationTitle: Exposing multiple services in a single pool
 title: Exposing multiple services in a single pool
 menuWeight: 6
 excerpt: How to load balance multiple services in a single Edge-LB instance
-enterprise: false
 ---
 
 This tutorial demonstrates how to set up three services with a single Edge-LB pool instance. This flexibility allows you to configure Edge-LB pools depending on your needs to achieve high availability in your environment. For example, if you have 90 services running on the DC/OS&trade; cluster, you can configure 30 Edge-LB pool instances with 3 services each to load balance all 90 services.

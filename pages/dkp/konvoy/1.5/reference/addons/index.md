@@ -4,7 +4,6 @@ navigationTitle: Addons
 title: Addons
 menuWeight: 8
 excerpt: What are Addons and how are they managed
-enterprise: false
 ---
 
 Addons are applications managed by the Kubeaddons controller.

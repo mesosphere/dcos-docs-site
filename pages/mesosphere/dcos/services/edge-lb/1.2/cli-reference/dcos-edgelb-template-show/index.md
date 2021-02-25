@@ -5,7 +5,6 @@ title: dcos edgelb template show
 menuWeight: 55
 excerpt: Display load-balancer config template for a pool
 
-enterprise: false
 ---
 
 

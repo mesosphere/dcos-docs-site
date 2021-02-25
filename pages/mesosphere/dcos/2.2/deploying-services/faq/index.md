@@ -6,7 +6,6 @@ menuWeight: 120
 excerpt: Frequently asked questions about deploying Marathon services
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

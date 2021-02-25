@@ -6,7 +6,6 @@ menuWeight: 8
 excerpt: 停止应用程序
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

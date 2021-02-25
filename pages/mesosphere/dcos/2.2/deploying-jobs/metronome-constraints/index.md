@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Understanding Metronome placement constraints
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 Metronome placement constraints control where jobs run. Constraints have three parts: a field name, an operator, and a value. The field can be the hostname of the agent or any attribute of the agent.

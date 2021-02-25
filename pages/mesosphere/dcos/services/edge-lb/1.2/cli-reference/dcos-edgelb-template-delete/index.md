@@ -5,7 +5,6 @@ title: dcos edgelb template delete
 menuWeight: 50
 excerpt: Revert a custom config template to defaults
 
-enterprise: false
 ---
 
 # Description

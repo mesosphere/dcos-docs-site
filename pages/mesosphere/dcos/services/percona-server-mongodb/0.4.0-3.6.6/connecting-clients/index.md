@@ -4,8 +4,6 @@ navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 50
 excerpt: Connecting clients with service discovery
-featureMaturity:
-enterprise: false
 ---
 
 # Connecting Clients

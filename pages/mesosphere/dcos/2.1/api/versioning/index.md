@@ -4,7 +4,6 @@ navigationTitle:  API Versioning
 title: API Versioning
 menuWeight: 2
 excerpt: Understanding component, resource, and route versioning
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

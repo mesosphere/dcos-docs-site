@@ -4,7 +4,6 @@ navigationTitle:  教程
 title: 教程
 menuWeight: 140
 excerpt: 演示运行 DC/OS 的第一步和关键任务
-enterprise: false
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 

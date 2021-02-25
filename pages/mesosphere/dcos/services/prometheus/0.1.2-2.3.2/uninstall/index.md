@@ -4,8 +4,6 @@ navigationTitle:  Uninstall
 title: Uninstall
 menuWeight: 40
 excerpt: Uninstalling DC/OS Prometheus Services
-featureMaturity:
-enterprise: false
 ---
 
 ## DC/OS 1.10

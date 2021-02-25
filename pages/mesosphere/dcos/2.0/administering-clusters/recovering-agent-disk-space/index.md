@@ -4,7 +4,6 @@ navigationTitle:  Recovering Agent Disk Space
 title: Recovering Agent Disk Space
 menuWeight: 900
 excerpt: Recovering space on an agent node volume
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

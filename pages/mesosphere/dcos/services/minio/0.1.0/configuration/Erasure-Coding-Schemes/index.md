@@ -4,8 +4,6 @@ navigationTitle: Erasure Coding Scheme
 title: Erasure Coding Scheme in Minio
 menuWeight: 45
 excerpt: Defining two Erasure Coding Schemes in Minio
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---

@@ -4,7 +4,6 @@ navigationTitle:  DNS
 title: DC/OS 域名服务
 menuWeight: 20
 excerpt: 了解 DC/OS 域名服务发现
-enterprise: false
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

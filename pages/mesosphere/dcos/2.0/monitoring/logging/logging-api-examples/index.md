@@ -6,8 +6,6 @@ menuWeight: 4
 excerpt: Examples for the Logging API
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-beta: false
-enterprise: false
 ---
 
 Here are some common usage examples for the Logging API.

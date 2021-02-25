@@ -4,8 +4,6 @@ navigationTitle: MNIST with PyTorch
 title: MNIST with PyTorch
 menuWeight: 12
 excerpt: Tutorial for MNIST with PyTorch
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

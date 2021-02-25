@@ -4,8 +4,6 @@ navigationTitle: Hyperparameter Tuning
 title: Hyperparameter Tuning
 menuWeight: 15
 excerpt: Tutorial for Hyperparameter Tuning
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

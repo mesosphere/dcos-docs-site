@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Resources and Limitations
 title: Resources and Limitations
 menuWeight: 30
-beta: false
 excerpt: Conductor's resource impact and limitations
 ---
 

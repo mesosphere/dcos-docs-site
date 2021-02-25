@@ -4,7 +4,6 @@ navigationTitle: V2 Pool Examples
 title: V2 Pool Examples
 menuWeight: 82
 excerpt: Example Edge-LB pool configurations using the V2 API
-enterprise: false
 ---
 
 # V2 Pool Examples

@@ -4,8 +4,6 @@ navigationTitle: Setting up local users
 title: Setting up local users
 menuWeight: 10
 excerpt: Manage local users to access your konvoy cluster
-beta: false
-enterprise: false
 ---
 
 This section shows how to manage local users to access your Konvoy cluster.

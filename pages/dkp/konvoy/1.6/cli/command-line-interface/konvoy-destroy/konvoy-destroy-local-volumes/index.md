@@ -4,8 +4,6 @@ navigationTitle: konvoy destroy local-volumes
 title: konvoy destroy local-volumes
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Remove the data in local volumes
 ---
 

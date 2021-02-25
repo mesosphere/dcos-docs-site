@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: 向作业添加时间表
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

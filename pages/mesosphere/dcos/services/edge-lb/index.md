@@ -4,7 +4,6 @@ navigationTitle:  Edge-LB
 title: Edge-LB
 menuWeight: 30
 excerpt: 
-enterprise: false
 category: Networking
 ---
 One of the most important ways you can manage cluster operations is through efficient load balancing of access requests and workload processing. Load balancing improves the performance, reliability, and network efficiency for web-based properties, applications, databases, and other services by distributing workload across multiple servers. By introducing a load balancer like Edge-LB, you can distribute the traffic for all services that run on a DC/OS Enterprise cluster. 

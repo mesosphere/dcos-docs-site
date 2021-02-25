@@ -4,8 +4,6 @@ navigationTitle: Manage Users
 title: Manage Users and Permissions
 menuWeight: 20
 excerpt: Manage Kubeflow users and permissions
-beta: false
-enterprise: false
 ---
 
 # Manage Kubeflow Users and Permissions

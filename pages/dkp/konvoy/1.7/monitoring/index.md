@@ -4,8 +4,6 @@ navigationTitle: Monitoring and Alerts
 title: Monitoring and Alerts
 menuWeight: 180
 excerpt: Monitor and collect metrics for Kubernetes, platform services, and applications deployed on the Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

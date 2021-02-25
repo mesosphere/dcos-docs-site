@@ -4,8 +4,6 @@ navigationTitle: Uninstall
 title: Uninstall
 menuWeight: 75
 excerpt: Uninstalling DC/OS Minio Services
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---

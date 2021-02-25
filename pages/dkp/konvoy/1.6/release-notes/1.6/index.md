@@ -4,8 +4,6 @@ navigationTitle: Release Notes Konvoy 1.6.0
 title: Release Notes Konvoy 1.6.0
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 1.6.0
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->

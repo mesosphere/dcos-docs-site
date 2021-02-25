@@ -4,8 +4,6 @@ navigationTitle: Workspace Platform Service Configuration Requirements
 title: Workspace Platform Service Configuration Requirements
 menuWeight: 7
 excerpt: Workspace Platform Service Descriptions and Resource Requirements
-beta: false
-enterprise: false
 ---
 
 ## Workspace Platform Service Requirements

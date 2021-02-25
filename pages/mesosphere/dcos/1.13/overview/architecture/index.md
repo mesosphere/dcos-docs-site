@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Understanding DC/OS architecture
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 The Mesosphere Distributed Cloud Operating System (DC/OS) is a platform for running distributed containerized software, like apps, jobs, and services. As a platform, DC/OS is distinct from and agnostic with respect to the infrastructure layer. This means that the infrastructure may consist of virtual or physical hardware, as long as it provides computing resources, storage, and networking.

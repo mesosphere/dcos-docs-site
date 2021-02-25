@@ -4,7 +4,6 @@ navigationTitle:  扩展服务
 title: 扩展服务
 menuWeight: 3
 excerpt: 使用 UI 和 CLI 扩展服务
-enterprise: false
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb endpoints
 title: dcos edge-lb endpoints
 menuWeight: 18
 excerpt: Reference for the dcos edge-lb endpoints command
-enterprise: false
 ---
 
 Use this command to return a list of all endpoints for a pool. You can also use this command to find the internal IP address and ports for a pool.

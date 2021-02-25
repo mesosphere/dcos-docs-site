@@ -4,7 +4,6 @@ navigationTitle: Troubleshooting
 title: Troubleshooting Konvoy Cluster Storage
 menuWeight: 30
 excerpt: Understanding and troubleshooting storage in your Konvoy clusters
-enterprise: false
 ---
 
 Ensure that you read the [Operations Guide](../operations) prior to this document as it contains several important pieces of context.

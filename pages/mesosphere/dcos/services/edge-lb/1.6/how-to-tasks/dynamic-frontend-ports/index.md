@@ -4,7 +4,6 @@ navigationTitle: Configuring a frontend port dynamically
 title: Configuring a frontend port dynamically
 menuWeight: 31
 excerpt: How to configure a frontend port dynamically for Edge-LB load balancing
-enterprise: false
 ---
 
 You can configure the frontend ports used to expose and access the service for Edge-LB load balancing.  You can choose to specify the frontend port for each service manually, or have Edge-LB automatically assign a port by setting a configuration option.

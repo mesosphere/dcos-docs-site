@@ -4,7 +4,6 @@ navigationTitle: 卸载
 excerpt: 卸载 DC/OS Apache Spark 服务
 title: 卸载
 menuWeight: 60
-featureMaturity:
 model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---

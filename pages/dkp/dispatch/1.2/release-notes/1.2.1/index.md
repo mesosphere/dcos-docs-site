@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: 1.2.1
 title: Release Notes 1.2.1
 menuWeight: 20
-beta: false
 excerpt: View release-specific information for Dispatch 1.2.1
 ---
 

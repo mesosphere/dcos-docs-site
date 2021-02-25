@@ -4,7 +4,6 @@ navigationTitle: Upgrade Konvoy CLI
 title: Upgrade Konvoy CLI
 menuWeight: 30
 excerpt: Upgrade Konvoy image CLI version
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>Before upgrading, keep in mind that your Konvoy CLI version can only be upgraded to a compatible Konvoy version.</p>

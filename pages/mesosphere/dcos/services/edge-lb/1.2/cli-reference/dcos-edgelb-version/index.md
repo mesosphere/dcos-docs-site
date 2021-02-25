@@ -5,7 +5,6 @@ title: dcos edgelb version
 menuWeight: 70
 excerpt: Display the current Edge-LB version
 
-enterprise: false
 ---
 
 # Description

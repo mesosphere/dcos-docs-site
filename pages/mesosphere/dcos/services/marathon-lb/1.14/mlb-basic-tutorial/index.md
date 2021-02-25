@@ -4,7 +4,6 @@ navigationTitle:  Tutorial - Basic external load balancing
 title: Tutorial - External load balancing for a sample app
 menuWeight: 25
 excerpt: How to use an external group for accessing a containerized service through Marathon-LB
-enterprise: false
 ---
 This tutorial guides you through the steps for configuring Marathon-LB to run a containerized DC/OS service with external load balancing for a website. After completing this tutorial, you will have hands-on practice configuring load balancing for a sample application.
 

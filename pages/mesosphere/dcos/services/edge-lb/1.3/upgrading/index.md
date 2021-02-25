@@ -5,7 +5,6 @@ title: Upgrading Edge-LB
 menuWeight: 25
 excerpt: Upgrading an Edge-LB installation
 
-enterprise: false
 ---
 
 Perform an Edge-LB upgrade by following this procedure.

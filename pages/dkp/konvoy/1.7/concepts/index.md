@@ -4,8 +4,6 @@ navigationTitle: Architecture
 title: Concepts and architecture
 menuWeight: 40
 excerpt: Learn the key concepts and architectural components of a Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 Kubernetes provides the foundation of a Konvoy cluster.

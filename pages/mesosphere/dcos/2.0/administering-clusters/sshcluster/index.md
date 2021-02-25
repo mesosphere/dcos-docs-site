@@ -4,7 +4,6 @@ navigationTitle:  Access Nodes with SSH
 title: Access Nodes with SSH
 menuWeight: 0
 excerpt: Setting up an SSH connection into your DC/OS cluster 
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

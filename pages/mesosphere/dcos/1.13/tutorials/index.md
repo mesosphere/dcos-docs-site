@@ -4,7 +4,6 @@ navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 140
 excerpt: Demonstrates the first steps and key tasks for running DC/OS
-enterprise: false
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
 

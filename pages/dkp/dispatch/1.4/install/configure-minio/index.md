@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Configure MinIO
 title: Configure MinIO
 menuWeight: 45
-beta: false
 excerpt: Configure and Customize MinIO on Dispatch
 ---
 # MinIO

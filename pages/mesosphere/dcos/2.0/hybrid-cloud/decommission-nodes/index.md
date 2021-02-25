@@ -6,7 +6,6 @@ menuWeight: 15
 excerpt: Decommissioning nodes
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 In order to support cloud bursting by adding nodes, you also must support decomissioning nodes. Deleting a node involves two steps:

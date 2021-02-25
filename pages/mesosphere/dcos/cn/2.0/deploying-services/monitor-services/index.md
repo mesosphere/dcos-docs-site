@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 从 CLI 和 UI 监控部署的 DC/OS 服务
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 您可以从 CLI 和 UI 监控部署的 DC/OS&trade; 服务。

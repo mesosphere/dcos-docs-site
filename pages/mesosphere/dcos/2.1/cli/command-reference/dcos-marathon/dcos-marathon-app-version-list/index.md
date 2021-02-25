@@ -5,7 +5,6 @@ title: dcos marathon app version list
 menuWeight: 10
 excerpt: Displaying the version history of an application
 
-enterprise: false
 ---
 
 

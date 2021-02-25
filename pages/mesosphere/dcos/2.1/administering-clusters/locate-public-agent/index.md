@@ -4,7 +4,6 @@ navigationTitle:  Finding a Public Agent IP
 title: Finding a Public Agent IP
 menuWeight: 3
 excerpt: Finding a public agent IP address
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

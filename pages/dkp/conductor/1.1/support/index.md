@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Support
 title: Support
 menuWeight: 60
-beta: false
 excerpt: Support terms and policies
 ---
 

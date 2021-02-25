@@ -4,8 +4,6 @@ navigationTitle: Attach Amazon EKS Cluster to Kommander
 title: Attach Amazon EKS Cluster to Kommander
 menuWeight: 10
 excerpt: Attach an existing EKS cluster to Kommander
-beta: false
-enterprise: false
 ---
 
 You can attach existing Kubernetes clusters to Kommander. After attaching the cluster, you can use Kommander to [examine and manage](/dkp/kommander/1.3/clusters/) this cluster. The following procedure shows how to attach an existing Amazon Elastic Kubernetes Service (EKS) cluster to Kommander.

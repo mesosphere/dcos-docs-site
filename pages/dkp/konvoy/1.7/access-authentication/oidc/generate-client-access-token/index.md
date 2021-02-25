@@ -4,8 +4,6 @@ navigationTitle: Generate a Client Access Token
 title: Generate a Client Access Token
 menuWeight: 20
 excerpt: How to generate a Client Access Token
-beta: false
-enterprise: false
 ---
 
 1.  Obtain a token from the web landing page.

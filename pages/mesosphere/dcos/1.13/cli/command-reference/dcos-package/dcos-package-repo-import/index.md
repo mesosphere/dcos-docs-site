@@ -6,7 +6,6 @@ menuWeight: 4
 excerpt: Adding a package repository to DC/OS
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 # Description

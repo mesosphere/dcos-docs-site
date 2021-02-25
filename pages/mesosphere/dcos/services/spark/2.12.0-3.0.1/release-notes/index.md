@@ -4,7 +4,6 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 10
 excerpt: Release notes for DC/OS Apache Spark 2.12.0-3.0.1
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---

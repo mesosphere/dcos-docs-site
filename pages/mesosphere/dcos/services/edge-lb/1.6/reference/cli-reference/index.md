@@ -4,7 +4,6 @@ navigationTitle: Edge-LB Command Line Interface (CLI)
 title: Edge-LB Command Line Interface (CLI)
 menuWeight: 82
 excerpt: Provides usage and reference information for Edge-LB commands
-enterprise: false
 ---
 
 You can use the Edge-LB command-line interface (CLI) commands and subcommands to configure and manage your Edge-LB load balancer instances programmatically or from a shell terminal.

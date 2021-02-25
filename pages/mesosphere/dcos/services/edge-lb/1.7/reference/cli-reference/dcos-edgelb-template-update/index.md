@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb template update
 title: dcos edge-lb template update
 menuWeight: 69
 excerpt: Reference for the dcos edge-lb template update command
-enterprise: false
 ---
 
 Use this command to update a custom configuration template for a pool of load balancers.

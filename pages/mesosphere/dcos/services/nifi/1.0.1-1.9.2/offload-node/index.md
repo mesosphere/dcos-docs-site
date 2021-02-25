@@ -4,8 +4,6 @@ navigationTitle: Offload Node
 title: Offload Node
 menuWeight: 36
 excerpt: DC/OS NiFi service Offload Node feature
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/nifi/data.yml
 render: mustache
 

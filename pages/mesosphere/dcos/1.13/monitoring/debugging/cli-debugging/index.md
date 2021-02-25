@@ -5,8 +5,6 @@ menuWeight: 10
 excerpt: Debugging DC/OS from the command line interface
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 The DC/OS CLI provides commands to debug services that are not deploying or behaving as expected. To see full logs, append `--log-level=debug` to any DC/OS CLI command. For example, to troubleshoot HDFS package installation, use this command:

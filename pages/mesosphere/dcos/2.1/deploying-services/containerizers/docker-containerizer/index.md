@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: Launching Docker containers from Docker images
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 [Docker Engine](https://www.docker.com/products/docker-engine) launches Docker containers from Docker images. Use the Docker Engine if you need the [features](/mesosphere/dcos/2.1/deploying-services/containerizers/#container-runtime-features) of the Docker Engine. 

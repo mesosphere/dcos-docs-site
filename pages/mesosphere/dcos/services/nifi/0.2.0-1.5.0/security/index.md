@@ -4,8 +4,6 @@ navigationTitle: Security
 title: Security
 menuWeight: 50
 excerpt: DC/OS NiFi Service encryption, authentication, and authorization
-featureMaturity:
-enterprise: false
 ---
 
 # DC/OS Apache NiFi Security

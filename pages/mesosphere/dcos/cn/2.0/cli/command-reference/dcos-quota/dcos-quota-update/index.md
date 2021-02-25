@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 更新配额
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

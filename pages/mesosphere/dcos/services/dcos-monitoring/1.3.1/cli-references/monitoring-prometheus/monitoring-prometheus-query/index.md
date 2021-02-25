@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus query
 title: dcos monitoring prometheus query
 menuWeight: 1
 excerpt: Evaluate an instant query at a single point in time
-enterprise: false
 ---
 
 # Description

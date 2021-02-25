@@ -6,7 +6,6 @@ menuWeight: 40
 excerpt: Troubleshooting slow Docker apps and deployments
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>If you recently upgraded to DC/OS 1.10 or later, and configured <code>MESOS_CGROUPS_ENABLE_CFS=true</code> in your Mesos agent configuration, you may see slow-running Docker applications or slow deployments.</p>

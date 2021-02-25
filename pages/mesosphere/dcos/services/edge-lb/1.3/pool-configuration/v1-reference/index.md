@@ -5,7 +5,6 @@ title: V1 Pool Reference
 menuWeight: 80
 excerpt: Reference for all Edge-LB pool configurations options in the V1 API
 
-enterprise: false
 ---
 
 # V1 Pool Reference

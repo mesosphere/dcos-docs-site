@@ -4,9 +4,7 @@ navigationTitle: Integrate microservices using Istio
 title: Integrate microservices using Istio
 menuWeight: 24
 excerpt: Learn how to integrate microservices managed by Istio into a Konvoy cluster
-beta: false
 experimental: true
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

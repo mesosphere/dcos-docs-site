@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Defining a DC/OS service using Marathon
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Configure Credentials
 title: Configuring Credentials
 menuWeight: 10
-beta: false
 excerpt: Configuration of Credentials and Service Accounts with D2iQ Dispatch
 ---
 Credentials are used when a Dispatchfile is executed, to push images and

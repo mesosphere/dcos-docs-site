@@ -4,8 +4,6 @@ navigationTitle:  Jenkins Service Architecture
 title: Jenkins Service Architecture
 menuWeight: 40
 excerpt:
-featureMaturity:
-enterprise: false
 ---
 
 ## Overview

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Artifacts
 title: Pipelinerun Artifacts
 menuWeight: 15
-beta: false
 excerpt: Learn how to view pipelinerun artifacts
 ---
 

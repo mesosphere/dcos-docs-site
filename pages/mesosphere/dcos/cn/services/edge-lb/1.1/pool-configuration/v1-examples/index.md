@@ -4,7 +4,6 @@ navigationTitle: V1 池示例
 title: V1 池示例
 menuWeight: 81
 excerpt: 使用 V1 API 来示例 Edge-LB 池配置
-enterprise: false
 ---
 
 # V1 池示例

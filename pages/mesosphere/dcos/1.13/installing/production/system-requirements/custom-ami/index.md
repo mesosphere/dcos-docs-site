@@ -4,7 +4,6 @@ navigationTitle: Custom AMI
 title: Installing using a Custom AMI
 menuWeight: 20
 excerpt: Using AWS machine images to launch DC/OS
-beta: false
 ---
 
 You can use customized [AWS Machine Images (AMI)](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/AMIs.html) based on CentOS 7, CoreOS, and RHEL to launch DC/OS with the advanced templates.

@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: 使用软件定义的网络
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

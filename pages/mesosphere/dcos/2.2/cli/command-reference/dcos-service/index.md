@@ -6,7 +6,6 @@ menuWeight: 14
 excerpt: Managing DC/OS services
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 # Description

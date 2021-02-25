@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 5
-enterprise: false
 excerpt: Hardware and software requirements for DC/OS  deployments
 model: /mesosphere/dcos/2.2/data.yml
 render: mustache  

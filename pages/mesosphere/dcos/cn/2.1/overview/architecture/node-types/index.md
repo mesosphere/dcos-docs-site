@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 了解三种节点
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 DC/OS 节点是 DC/OS 组件运行所在的虚拟机或物理机。DC/OS 节点联网以形成 DC/OS 群集。DC/OS 群集由三种节点组成：管理节点、专用代理节点和公共代理节点。

@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Monitoring deployed DC/OS services from the CLI and UI
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 You can monitor deployed DC/OS&trade; services from the CLI and UI.

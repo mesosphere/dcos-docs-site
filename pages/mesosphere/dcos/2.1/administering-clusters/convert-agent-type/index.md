@@ -4,7 +4,6 @@ navigationTitle:  Converting Agent Node Types
 title: Converting Agent Node Types
 menuWeight: 700
 excerpt: Converting agent nodes to public or private agent nodes.
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

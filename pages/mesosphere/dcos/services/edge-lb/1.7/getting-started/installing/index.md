@@ -4,7 +4,6 @@ navigationTitle:  Install Edge-LB
 title: Install Edge-LB
 menuWeight: 5
 excerpt: Describes how to install Edge-LB
-enterprise: false
 ---
 
 This section guides you through the basic steps to prepare and install Edge-LB for load balancing in a DC/OS&trade; cluster.

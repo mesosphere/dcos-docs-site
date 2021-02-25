@@ -4,7 +4,6 @@ navigationTitle:  恢复代理磁盘空间
 title: 恢复代理磁盘空间
 menuWeight: 900
 excerpt: 恢复代理节点卷上的空间
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

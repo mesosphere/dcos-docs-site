@@ -4,7 +4,6 @@ navigationTitle: Upgrade
 title: Upgrade
 menuWeight: 5
 excerpt: Upgrade Kommander
-enterprise: false
 ---
 
 Kommander is also an addon running on a Konvoy cluster. It is updated in the same way as every [Konvoy addon is upgraded][addons-upgrade].

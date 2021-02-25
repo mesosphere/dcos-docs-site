@@ -4,7 +4,6 @@ navigationTitle:  V1 Pool Reference
 title: V1 Pool Reference
 menuWeight: 84
 excerpt: Reference for all Edge-LB pool configurations options in the V1 API
-enterprise: false
 ---
 
 <p class="message--important"><strong>IMPORTANT: </strong>Edge-LB 1.0 and later supports both the V1 and V2 API for backwards compatibility. Therefore clients that were written against Edge-LB versions prior to Edge-LB 1.0 should work without any modifications with Edge-LB 1.0 and later. New setups should use API V2 as at some point V1 is going to be deprecated and then removed.</p>

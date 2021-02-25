@@ -5,7 +5,6 @@ title: CLI References
 menuWeight: 50
 excerpt: Understanding the command line interface utility for the DC/OS Monitoring Service
 
-enterprise: false
 ---
 
 The monitoring plugin for the DC/OS command line interface (DC/OS CLI) utility allows you to manage the monitoring stack running on a DC/OS cluster.

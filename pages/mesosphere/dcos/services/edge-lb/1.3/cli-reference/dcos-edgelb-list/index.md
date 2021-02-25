@@ -5,7 +5,6 @@ title: dcos edgelb list
 menuWeight: 25
 excerpt: List the names and a summary of all configured pools
 
-enterprise: false
 ---
 
 # Description

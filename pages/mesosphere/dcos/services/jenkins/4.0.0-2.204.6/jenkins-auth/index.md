@@ -4,8 +4,6 @@ navigationTitle:  Provisioning Jenkins for DC/OS
 title: Provisioning Jenkins for DC/OS
 menuWeight: 15
 excerpt: This topic describes when and how to provision Jenkins with a service account.
-beta: false
-featureMaturity:
 enterprise: true
 ---
 

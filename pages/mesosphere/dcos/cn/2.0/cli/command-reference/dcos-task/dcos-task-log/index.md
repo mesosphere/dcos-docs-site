@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: 显示任务日志
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

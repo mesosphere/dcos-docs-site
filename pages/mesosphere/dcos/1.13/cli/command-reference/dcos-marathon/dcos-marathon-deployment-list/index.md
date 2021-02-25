@@ -6,7 +6,6 @@ menuWeight: 14
 excerpt: Displaying a list of currently deployed applications
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

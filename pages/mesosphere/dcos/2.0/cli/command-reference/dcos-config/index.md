@@ -4,7 +4,6 @@ navigationTitle:  dcos config
 title: dcos config
 menuWeight: 4
 excerpt: Managing the DC/OS configuration file
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

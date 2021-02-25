@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb endpoints
 title: dcos edgelb endpoints
 menuWeight: 15
 excerpt: 列出池的所有端点
-enterprise: false
 ---
 
 # 说明

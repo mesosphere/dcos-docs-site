@@ -4,7 +4,6 @@ navigationTitle: Verifying the Edge-LB installed version
 title: Verifying the Edge-LB installed version
 menuWeight: 44
 excerpt: How to a verify the version of Edge-LB you have installed
-enterprise: false
 ---
 
 You can use the DC/OS&trade; CLI client to find the Edge-LB version that you have currently deployed on the DC/OS cluster.

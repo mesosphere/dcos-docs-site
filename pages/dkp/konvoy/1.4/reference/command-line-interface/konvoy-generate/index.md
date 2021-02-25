@@ -4,7 +4,6 @@ navigationTitle: konvoy generate
 title: konvoy generate
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Generates artifacts
 ---
 

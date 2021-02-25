@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: Using local and remote regions
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 # Local and remote regions

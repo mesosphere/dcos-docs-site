@@ -4,8 +4,6 @@ navigationTitle: Disable Audit Log Collection
 title: Disable Audit Log Collection
 menuWeight: 11
 excerpt: Audit Logs are enabled and collected by default. If needed, you can disable Audit Log Collection.
-beta: false
-enterprise: false
 ---
 
 ### Disable Audit Log Collection

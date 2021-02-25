@@ -6,7 +6,6 @@ menuWeight: 4
 excerpt: 授予调试的访问权限
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
 enterprise: true
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

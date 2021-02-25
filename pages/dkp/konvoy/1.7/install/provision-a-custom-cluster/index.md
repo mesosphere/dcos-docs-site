@@ -4,8 +4,6 @@ navigationTitle: Provision a customized cluster
 title: Provision a customized cluster
 menuWeight: 10
 excerpt: Learn how to provision a customized Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 In the [Quick start][quickstart], you provisioned a Konvoy cluster with default configuration settings.

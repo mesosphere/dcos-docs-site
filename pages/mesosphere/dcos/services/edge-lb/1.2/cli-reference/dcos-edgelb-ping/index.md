@@ -5,7 +5,6 @@ title: dcos edgelb ping
 menuWeight: 30
 excerpt: Test the readiness of the Edge-LB API server
 
-enterprise: false
 ---
 
 # Description

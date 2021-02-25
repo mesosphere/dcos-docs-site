@@ -4,8 +4,6 @@ navigationTitle: MNIST with TensorFlow
 title: MNIST with TensorFlow
 menuWeight: 11
 excerpt: Tutorial for MNIST with TensorFlow
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

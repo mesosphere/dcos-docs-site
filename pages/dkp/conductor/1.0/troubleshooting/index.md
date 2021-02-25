@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting
 menuWeight: 60
-beta: false
 excerpt: How to work around issues
 ---
 

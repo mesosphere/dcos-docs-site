@@ -6,7 +6,6 @@ menuWeight: 110
 excerpt: Adding Graphics Processing Units to your long-running DC/OS services
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 DC/OS supports allocating GPUs (Graphics Processing Units) to your long-running DC/OS services. Adding GPUs to your services can dramatically accelerate big data workloads. With GPU-based scheduling, you can share cluster resources for traditional and machine learning workloads, as well as dynamically allocate GPU resources inside those clusters and free them when needed. You can reserve GPU resources for the workloads that need them, or pool these GPU-enabled resources with the rest of the infrastructure for higher overall utilization. After installing DC/OS with GPUs enabled, you can specify GPUs in your application definitions with the `gpus` parameter.

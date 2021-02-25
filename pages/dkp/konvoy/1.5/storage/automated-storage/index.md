@@ -4,7 +4,6 @@ navigationTitle: Default storage options
 title: Automated storage options in cloud providers
 menuWeight: 20
 excerpt: Default storage providers in Konvoy
-enterprise: false
 ---
 
 When deploying Konvoy using a supported cloud provisioner (AWS, Azure, or GCP), Konvoy automatically configures native storage drivers for the target platform. In addition, Konvoy deploys a default [StorageClass](https://kubernetes.io/docs/concepts/storage/storage-classes/) for [dynamic persistent volume (PV)](https://kubernetes.io/docs/concepts/storage/dynamic-provisioning/) creation.

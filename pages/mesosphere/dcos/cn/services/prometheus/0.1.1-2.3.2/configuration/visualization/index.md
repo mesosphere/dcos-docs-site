@@ -4,8 +4,6 @@ navigationTitle: 可视化
 title: Grafana 和 Prometheus Expression 浏览器
 menuWeight: 45
 excerpt: DC/OS Prometheus Expression 浏览器
-featureMaturity:
-enterprise: false
 ---
 
 

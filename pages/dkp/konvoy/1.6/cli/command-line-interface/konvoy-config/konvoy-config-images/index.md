@@ -4,8 +4,6 @@ navigationTitle: konvoy config images
 title: konvoy config images
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Manage docker images for installation
 ---
 

@@ -6,7 +6,6 @@ menuWeight: 19
 excerpt: Removing a Marathon application from DC/OS
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # Description

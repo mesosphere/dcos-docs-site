@@ -4,8 +4,6 @@ navigationTitle: Troubleshooting Kaptain 1.0
 title: Troubleshooting Kaptain 1.0
 menuWeight: 10
 excerpt: View troubleshooting information for Kaptain 1.0.0
-beta: false
-enterprise: false
 ---
 
 ## Known Limitations

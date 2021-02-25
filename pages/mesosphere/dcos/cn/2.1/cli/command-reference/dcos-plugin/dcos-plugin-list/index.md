@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: 显示已安装的 CLI 插件列表
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

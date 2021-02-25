@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  系统要求
 title: 系统要求
 menuWeight: 5
-enterprise: false
 excerpt: DC/OS 部署的软硬件要求
 
 render: mustache  

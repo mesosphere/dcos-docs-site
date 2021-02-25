@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Using endpoints with containerized services
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle: Jenkins 3.5.2-2.107.2
 title: Jenkins 3.5.2-2.107.2
 menuWeight: 2
 excerpt:
-featureMaturity:
-enterprise: false
 ---
 
 Run your continuous integration, automated testing, and continuous delivery jobs at scale with Jenkins for DC/OS. Instead of the static partitions so typical of other Jenkins clusters, Jenkins for DC/OS  can create and destroy agents as demand increases and decreases. With multiple Jenkins masters sharing a single pool of compute resources, you can achieve much more efficient and resilient automations.

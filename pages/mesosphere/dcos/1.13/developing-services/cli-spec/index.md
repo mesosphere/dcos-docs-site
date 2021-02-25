@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Using the command line interface
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 This document is intended for a developer creating new DC/OS CLI subcommands. See also [{{ model.packageRepo }} Getting Started][1].
 

@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: Tutorial - Defining labels using the DC/OS web interface and the Marathon HTTP API
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->

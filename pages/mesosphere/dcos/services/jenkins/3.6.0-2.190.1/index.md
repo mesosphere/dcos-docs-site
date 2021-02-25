@@ -4,8 +4,6 @@ navigationTitle: Jenkins 3.6.0-2.190.1
 title: Jenkins 3.6.0-2.190.1
 menuWeight: 1
 excerpt:
-featureMaturity:
-enterprise: false
 ---
 
 

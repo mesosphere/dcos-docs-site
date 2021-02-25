@@ -4,7 +4,6 @@ navigationTitle: Changed Node IP
 title: Changed Node IP
 menuWeight: 12
 excerpt: Updating inventory.yaml to restore access to nodes
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

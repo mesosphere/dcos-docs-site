@@ -4,7 +4,6 @@ navigationTitle:  标记任务和作业
 title: 标记任务和作业
 excerpt: 使用 DC/OS Web 界面和 Marathon HTTP API 定义标签
 menuWeight: 5
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->

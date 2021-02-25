@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Managing user access to task logs using Marathon groups
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
 enterprise: true
 ---
 

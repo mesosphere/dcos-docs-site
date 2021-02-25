@@ -4,8 +4,6 @@ navigationTitle: Helm
 title: Helm
 menuWeight: 5
 excerpt: Deployment Helm Workloads
-beta: false
-enterprise: false
 ---
 
 Helm is a package manager for Kubernetes that defines:

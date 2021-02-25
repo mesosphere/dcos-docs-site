@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Running Jobs in Remote Regions
 title: Running Jobs in Remote Regions
 menuWeight: 3
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

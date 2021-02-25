@@ -4,7 +4,6 @@ navigationTitle:  通过 SSH 访问节点
 title: 通过 SSH 访问节点
 menuWeight: 0
 excerpt: 与您的 DC/OS 群集建立 SSH 连接 
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

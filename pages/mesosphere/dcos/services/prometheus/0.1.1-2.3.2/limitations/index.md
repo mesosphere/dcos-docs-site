@@ -4,8 +4,6 @@ navigationTitle:  Limitations
 title: Limitations
 menuWeight: 110
 excerpt: Understanding configuration limitations
-featureMaturity:
-enterprise: false
 ---
 
 ## Out-of-band configuration

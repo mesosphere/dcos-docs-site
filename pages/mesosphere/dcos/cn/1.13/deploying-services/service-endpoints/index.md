@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 使用具有容器化服务的端点
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

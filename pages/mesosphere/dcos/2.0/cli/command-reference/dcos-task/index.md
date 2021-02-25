@@ -6,7 +6,6 @@ menuWeight: 16
 excerpt: Managing DC/OS tasks
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 # Description

@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon app restart
 title: dcos marathon app restart
 menuWeight: 5
 excerpt: Restarting an application
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

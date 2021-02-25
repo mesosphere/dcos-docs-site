@@ -4,8 +4,6 @@ navigationTitle: Docker Hub rate limits
 title: Manage Docker Hub rate limits
 menuWeight: 25
 excerpt: Prevent issues from imposed rate limits
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018 MD034 -->

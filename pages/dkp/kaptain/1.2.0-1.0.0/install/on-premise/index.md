@@ -4,8 +4,6 @@ navigationTitle: Install on-premises
 title: Install Kaptain on an on-premises cluster
 menuWeight: 9
 excerpt: Install Kaptain on an on-premises cluster
-beta: false
-enterprise: false
 ---
 
 ## On-Premise Installation

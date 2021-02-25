@@ -4,7 +4,6 @@ navigationTitle:  Deploying a Local Catalog
 title: Deploying a Local Catalog
 menuWeight: 1000
 excerpt: Installing and running DC/OS services on a local Catalog datacenter
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

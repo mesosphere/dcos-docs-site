@@ -4,7 +4,6 @@ navigationTitle: 升级池
 title: 升级池 Edge-LB
 menuWeight: 25
 excerpt: 升级 Edge-LB 安装
-enterprise: false
 ---
 
 按照此程序执行 Edge-LB 升级。

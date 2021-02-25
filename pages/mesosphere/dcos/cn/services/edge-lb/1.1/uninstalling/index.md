@@ -5,7 +5,6 @@ title: 卸载 Edge-LB
 menuWeight: 20
 excerpt: 卸载 Edge-LB 安装包
 
-enterprise: false
 ---
 
 

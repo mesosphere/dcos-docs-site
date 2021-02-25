@@ -4,7 +4,6 @@ navigationTitle:  Managing AWS
 title: Managing AWS
 menuWeight: 9
 excerpt: Scaling your AWS cluster
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

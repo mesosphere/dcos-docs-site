@@ -4,8 +4,6 @@ navigationTitle: konvoy diff cluster-state
 title: konvoy diff cluster-state
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Print the difference between the local and remote cluster state
 ---
 

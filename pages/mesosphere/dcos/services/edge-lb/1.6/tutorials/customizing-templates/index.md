@@ -4,7 +4,6 @@ navigationTitle: Customizing Edge-LB templates
 title: Customizing Edge-LB templates
 menuWeight: 11
 excerpt: How to customize Edge-LB load balancing by modifying templates.
-enterprise: false
 ---
 
 Edge-LB uses templates to configure load balancing settings. This tutorial demonstrates how you can create a custom `haproxy` template for Edge-LB to support Basic authentication.

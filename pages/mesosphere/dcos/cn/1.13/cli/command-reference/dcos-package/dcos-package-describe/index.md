@@ -6,7 +6,6 @@ menuWeight: 0
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 excerpt: 获取软件包的详细信息
-enterprise: false
 ---
 
 

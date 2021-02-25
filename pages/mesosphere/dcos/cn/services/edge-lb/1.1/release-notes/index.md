@@ -4,7 +4,6 @@ navigationTitle: 发行说明
 title: Edge-LB 发行说明
 menuWeight: 0
 excerpt: Edge-LB 1.1 的发行说明 v1.1.0
-enterprise: false
 ---
 
 这些是 Edge-LB 1.1 的发布说明。

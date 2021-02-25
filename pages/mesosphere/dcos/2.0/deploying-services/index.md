@@ -6,7 +6,6 @@ menuWeight: 130
 excerpt: Using Marathon to manage your processes and services
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 DC/OS&trade; uses Marathon&trade; to manage your processes and services.

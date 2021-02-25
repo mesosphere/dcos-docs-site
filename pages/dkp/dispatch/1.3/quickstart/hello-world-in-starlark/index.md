@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Helloworld in Starlark
 title: Setting up Helloworld on GitHub in Starlark
 menuWeight: 50
-beta: false
 excerpt: Using Starlark, configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 

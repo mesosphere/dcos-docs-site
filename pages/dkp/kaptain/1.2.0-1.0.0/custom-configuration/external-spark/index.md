@@ -4,8 +4,6 @@ navigationTitle: External Spark Operator
 title: Configure Kaptain to use external Spark Operator
 menuWeight: 70
 excerpt: Configure Kaptain to use external Spark Operator installed on a cluster
-beta: false
-enterprise: false
 ---
 
 Learn how to configure Kaptain to use external Spark Operator installed on a cluster. 

@@ -6,7 +6,6 @@ menuWeight: 70
 excerpt: Understanding the DC/OS networking stack
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 The DC/OS network stack provides

@@ -4,7 +4,6 @@ navigationTitle:  dcos cluster remove
 title: dcos cluster remove
 menuWeight: 4
 excerpt: Removing a connected cluster from the DC/OS CLI
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

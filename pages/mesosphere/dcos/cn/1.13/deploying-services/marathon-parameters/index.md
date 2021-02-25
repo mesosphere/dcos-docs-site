@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: 了解 Marathon 应用定义
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 本专题列出了 Marathon 应用定义的所有可用属性，并举例说明显示了所有属性的 JSON 应用定义文件。

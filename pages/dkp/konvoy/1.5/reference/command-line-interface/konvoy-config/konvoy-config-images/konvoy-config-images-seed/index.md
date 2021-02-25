@@ -4,7 +4,6 @@ navigationTitle: konvoy config images seed
 title: konvoy config images seed
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Pull, retag and push all docker images used during the installation
 ---
 

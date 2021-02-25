@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Environment variables
 title: Environment variables
 menuWeight: 11
-enterprise: false
 excerpt: Configure the Konvoy CLI with environment variables
 ---
 

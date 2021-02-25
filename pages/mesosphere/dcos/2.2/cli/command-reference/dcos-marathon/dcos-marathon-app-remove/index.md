@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon app remove
 title: dcos marathon app remove
 menuWeight: 4
 excerpt: Removing an application
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---

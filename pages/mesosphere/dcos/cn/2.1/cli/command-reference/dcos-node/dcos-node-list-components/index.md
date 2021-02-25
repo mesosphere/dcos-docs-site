@@ -6,7 +6,6 @@ menuWeight: 7
 excerpt: 在指定节点上显示可用的 DC/OS 组件
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

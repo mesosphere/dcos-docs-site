@@ -4,8 +4,6 @@ navigationTitle: Ingress
 title: Ingress
 menuWeight: 8
 excerpt: Traefik Ingress Controller
-beta: false
-enterprise: false
 ---
 
 Kubernetes Ingress resources expose HTTP and HTTPS routes from outside the cluster to services within the cluster.

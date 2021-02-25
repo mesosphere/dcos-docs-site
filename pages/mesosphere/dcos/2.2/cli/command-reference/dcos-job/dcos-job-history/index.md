@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Displaying the job run history
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

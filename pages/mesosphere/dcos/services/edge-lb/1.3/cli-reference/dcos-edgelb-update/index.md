@@ -5,7 +5,6 @@ title: dcos edgelb update
 menuWeight: 65
 excerpt: Upload a new pool config file
 
-enterprise: false
 ---
 
 # Description

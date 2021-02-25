@@ -4,7 +4,6 @@ navigationTitle: Install on Azure
 title: Install on Azure
 menuWeight: 20
 excerpt: Prepare for and install Konvoy on Azure
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

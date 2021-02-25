@@ -4,7 +4,6 @@ navigationTitle: Edge-LB pool configuration
 title: Pool configuration
 menuWeight: 84
 excerpt: Provides reference information for Edge-LB pool configuration settings
-enterprise: false
 ---
 
 The tables in this section describe the possible configuration options. Most configuration options have default values that are applicable and appropriate for most organizations. You can modify the default configuration values to suit your requirements, if needed. However, you should review and test any configuration changes carefully before deploying them to a production environment.

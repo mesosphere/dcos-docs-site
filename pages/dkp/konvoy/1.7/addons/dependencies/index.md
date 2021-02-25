@@ -4,8 +4,6 @@ navigationTitle: Dependencies
 title: Addon Dependencies
 menuWeight: 7
 excerpt: Understand addon dependencies and interactions
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->

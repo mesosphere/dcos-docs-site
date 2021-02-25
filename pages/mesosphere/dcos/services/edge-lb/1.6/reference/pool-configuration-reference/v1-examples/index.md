@@ -4,7 +4,6 @@ navigationTitle:  V1 Pool Examples
 title: V1 Pool Examples
 menuWeight: 85
 excerpt: Example Edge-LB pool configurations using the V1 API
-enterprise: false
 ---
 
 # V1 Pool Examples

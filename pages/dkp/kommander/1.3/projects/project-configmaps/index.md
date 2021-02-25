@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Project ConfigMaps
 title: Project ConfigMaps
 menuWeight: 5

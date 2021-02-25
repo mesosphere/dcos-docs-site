@@ -4,8 +4,6 @@ navigationTitle:  Debugging
 title: Debugging
 menuWeight: 101
 excerpt: Some common errors you might find
-featureMaturity:
-enterprise: false
 model: ../../../data.yml
 render: mustache
 ---

@@ -6,7 +6,6 @@ menuWeight: 85
 excerpt: 使用 pod 共享组资源
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 # 概述

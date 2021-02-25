@@ -4,7 +4,6 @@ navigationTitle: Tutorial - Internal and external load balancing
 title: Tutorial - Advanced internal and external load balancing
 menuWeight: 30
 excerpt: How to use Marathon-LB for both internal and external load balancing
-enterprise: false
 ---
 
 This tutorial guides you through the steps for configuring Marathon-LB to be used as an internal and external load balancer.

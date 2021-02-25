@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb template delete
 title: dcos edge-lb template delete
 menuWeight: 63
 excerpt: Reference for the dcos edge-lb template delete command
-enterprise: false
 ---
 
 Use this command to revert a custom configuration template to its default value.

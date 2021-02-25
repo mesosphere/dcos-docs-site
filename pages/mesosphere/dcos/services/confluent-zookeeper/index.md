@@ -4,8 +4,6 @@ navigationTitle: Confluent ZooKeeper
 title: Confluent ZooKeeper
 menuWeight: 11
 excerpt:
-featureMaturity:
-enterprise: false
 category: Cluster Management
 ---
 

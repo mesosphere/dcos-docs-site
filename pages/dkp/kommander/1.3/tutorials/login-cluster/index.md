@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Log in a specific cluster
 title: Log in a specific cluster
 menuWeight: 1

@@ -6,7 +6,6 @@ menuWeight: 6
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: 了解 DC/OS 中的高可用特性和最佳实践
-enterprise: false
 ---
 
 

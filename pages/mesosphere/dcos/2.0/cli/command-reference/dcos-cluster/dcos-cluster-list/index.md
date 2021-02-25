@@ -4,7 +4,6 @@ navigationTitle:  dcos cluster list
 title: dcos cluster list
 menuWeight: 3
 excerpt: Listing connected clusters
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

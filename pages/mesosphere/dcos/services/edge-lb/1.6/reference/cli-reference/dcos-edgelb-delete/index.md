@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb delete
 title: dcos edge-lb delete
 menuWeight: 12
 excerpt: Reference for the dcos edge-lb delete command
-enterprise: false
 ---
 
 Use this command to delete an existing pool and uninstall the deployed load balancers.

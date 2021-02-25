@@ -4,7 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: Discover the new features, updates, and known limitations in this release of the Edge-LB Service
-enterprise: false
 ---
 
 # Release notes for Edge-LB Service version 1.2.3

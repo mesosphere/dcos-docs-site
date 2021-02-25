@@ -4,7 +4,6 @@ navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
 excerpt: 登录到 DC/OS 群集
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

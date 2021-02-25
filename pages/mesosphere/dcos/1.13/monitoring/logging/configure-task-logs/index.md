@@ -6,8 +6,6 @@ menuWeight: 2
 excerpt: Task environment variables that influence logging
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 

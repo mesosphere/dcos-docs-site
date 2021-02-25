@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb template show
 title: dcos edge-lb template show
 menuWeight: 66
 excerpt: Reference for the dcos edge-lb template show command
-enterprise: false
 ---
 
 Use this command to show the load balancer configuration template for an individual pool. If you don't specify a pool name, the command returns information for the default template.

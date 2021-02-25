@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: 通过 Marathon 应用定义启动服务
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

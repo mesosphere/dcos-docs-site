@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb pool-template show
 title: dcos edge-lb pool-template show
 menuWeight: 45
 excerpt: Reference for the dcos edge-lb pool-template show command
-enterprise: false
 ---
 
 Use this command to show the Auto Pool template for an individual template.

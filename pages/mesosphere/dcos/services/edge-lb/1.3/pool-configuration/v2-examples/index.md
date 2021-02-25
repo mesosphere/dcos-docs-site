@@ -6,7 +6,6 @@ menuWeight: 86
 excerpt: Example Edge-LB pool configurations using the V2 API
 
 
-enterprise: false
 ---
 
 # V2 Pool Examples

@@ -4,8 +4,6 @@ navigationTitle: Install Kaptain on Konvoy
 title: Install Kaptain on Konvoy
 menuWeight: 8
 excerpt: Install Kaptain on Konvoy
-beta: false
-enterprise: false
 ---
 
 ## Install

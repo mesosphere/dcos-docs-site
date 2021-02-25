@@ -4,8 +4,6 @@ navigationTitle: Version Support Policy
 title: Version Support Policy
 menuWeight: 5
 excerpt: Kaptain's supported version policy
-beta: false
-enterprise: false
 ---
 
 D2iQ supports `N-2` of the latest `MAJOR.MINOR` release of Kaptain.

@@ -6,7 +6,6 @@ menuWeight: 400
 excerpt: Mesos DNS 故障排除
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 # 如何查看 Mesos-DNS 版本？

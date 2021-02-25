@@ -4,8 +4,6 @@ navigationTitle: Authentication and Access
 title: Authentication and Access
 menuWeight: 90
 excerpt: Manage cluster security, authentication, and authorization for the Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 As Konvoy is based on Kubernetes, it uses [Kubernetes security mechanisms](https://kubernetes.io/docs/reference/access-authn-authz/controlling-access/).

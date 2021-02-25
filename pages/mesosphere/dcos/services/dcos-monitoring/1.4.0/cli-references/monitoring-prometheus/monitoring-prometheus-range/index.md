@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus range
 title: dcos monitoring prometheus range
 menuWeight: 1
 excerpt: Evaluate an expression query over a range of time
-enterprise: false
 ---
 
 # Description

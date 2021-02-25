@@ -6,7 +6,6 @@ menuWeight: 40
 excerpt: 使用具有 Docker Engine 和 Universal Container Runtime 的容器化工具
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 容器化工具提供围绕特定容器运行时的容器化和资源隔离抽象。DC/OS 容器化工具支持以下容器运行时：

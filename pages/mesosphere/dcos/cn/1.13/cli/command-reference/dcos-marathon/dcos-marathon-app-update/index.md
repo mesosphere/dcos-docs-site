@@ -6,7 +6,6 @@ menuWeight: 9
 excerpt: 更新应用程序
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

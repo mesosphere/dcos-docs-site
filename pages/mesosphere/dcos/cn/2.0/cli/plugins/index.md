@@ -4,7 +4,6 @@ navigationTitle:  CLI 插件
 title: CLI 插件
 menuWeight: 5
 excerpt: 如何扩展命令行界面
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

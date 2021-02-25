@@ -5,7 +5,6 @@ title: CLI Reference
 menuWeight: 70
 excerpt: Reference for all CLI commands in the Edge-LB package
 
-enterprise: false
 ---
 
 # Description

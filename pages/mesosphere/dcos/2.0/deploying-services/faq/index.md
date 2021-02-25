@@ -6,7 +6,6 @@ menuWeight: 120
 excerpt: Frequently asked questions about deploying Marathon services
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 We have collected some questions we often encounter concerning the usage of DC/OS&trade;. Do you have a new question you would like answered, or do you have the answer to a question? Use the `Contribute` button at the top of this page to suggest it, or check out how you can [contribute](https://dcos.io/contribute/) the answer to it.

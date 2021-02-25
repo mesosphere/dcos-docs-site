@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb show
 title: dcos edge-lb show
 menuWeight: 54
 excerpt: Reference for the dcos edge-lb show command
-enterprise: false
 ---
 
 Use this command to show the pool definition for a given pool name. If you don't specify a pool name, the command returns information for all pool configurations.

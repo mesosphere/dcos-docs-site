@@ -4,7 +4,6 @@ navigationTitle: 池配置参考
 title: Edge-LB 池配置参考
 menuWeight: 80
 excerpt: 所有可能的 Edge-LB 池配置值的参考
-enterprise: false
 ---
 
 这是所有可能的 Edge-LB 池配置值的参考，以及展示各种用例的一些示例。

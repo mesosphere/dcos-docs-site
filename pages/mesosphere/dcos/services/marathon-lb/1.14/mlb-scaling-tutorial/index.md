@@ -4,7 +4,6 @@ navigationTitle:  Tutorial - Scaling apps using Marathon-LB statistics
 title: Tutorial - Automated scaling using Marathon-LB statistics
 menuWeight: 35
 excerpt: How to automate application scaling using Marathon-LB statistics
-enterprise: false
 ---
 
 You can use the Marathon-LB HAProxy statistics endpoint report to monitor application health and performance, and as input for application scheduling and scaling. The `HAProxy` program collects data points using performance counters and 1-second rates for various metrics.

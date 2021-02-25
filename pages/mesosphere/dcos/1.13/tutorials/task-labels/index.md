@@ -4,7 +4,6 @@ navigationTitle:  Labeling tasks and jobs
 title: Labeling tasks and jobs
 excerpt: Defining labels using the DC/OS web interface and the Marathon HTTP API
 menuWeight: 5
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->

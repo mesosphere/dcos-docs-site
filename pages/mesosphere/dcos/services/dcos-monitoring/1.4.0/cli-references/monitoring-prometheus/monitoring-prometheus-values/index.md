@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus values
 title: dcos monitoring prometheus values
 menuWeight: 1
 excerpt: Return a list of label values, can be for a provided label name
-enterprise: false
 ---
 
 # Description

@@ -4,7 +4,6 @@ navigationTitle: konvoy push
 title: konvoy push
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Push cluster state
 ---
 

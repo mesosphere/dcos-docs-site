@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: Using a software defined network
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle: Calico Version
 title: Calico Version
 menuWeight: 8
 excerpt: Use a specific Calico version
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

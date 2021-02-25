@@ -6,7 +6,6 @@ menuWeight: 4
 excerpt: Sending DC/OS metrics to Datadog
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-beta: false
 ---
 
 

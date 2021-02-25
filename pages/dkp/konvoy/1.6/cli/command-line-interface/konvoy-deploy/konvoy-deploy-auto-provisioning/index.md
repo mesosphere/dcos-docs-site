@@ -4,8 +4,6 @@ navigationTitle: konvoy deploy auto-provisioning
 title: konvoy deploy auto-provisioning
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Deploy auto provisioning
 ---
 

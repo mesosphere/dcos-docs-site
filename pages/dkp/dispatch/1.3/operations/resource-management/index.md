@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Resource Management
 title: Resource Management
 menuWeight: 50
-beta: false
 excerpt: Configure resources to be shared in a controlled fashion between multiple instances of Dispatch from a single cluster
 ---
 

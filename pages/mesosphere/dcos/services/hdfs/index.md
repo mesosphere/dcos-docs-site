@@ -4,8 +4,6 @@ navigationTitle:  HDFS
 title: HDFS
 menuWeight: 50
 excerpt:
-featureMaturity:
-enterprise: false
 category: Storage
 ---
 

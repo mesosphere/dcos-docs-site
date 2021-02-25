@@ -5,7 +5,6 @@ title: dcos edgelb template show
 menuWeight: 55
 excerpt: 显示池的负载平衡器配置模板
 
-enterprise: false
 ---
 
 

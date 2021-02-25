@@ -4,8 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the Minio Service 
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---

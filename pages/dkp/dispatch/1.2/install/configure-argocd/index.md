@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Configure ArgoCD
 title: Configure ArgoCD
 menuWeight: 40
-beta: false
 excerpt: Customize the ArgoCD default installation.
 ---
 # ArgoCD

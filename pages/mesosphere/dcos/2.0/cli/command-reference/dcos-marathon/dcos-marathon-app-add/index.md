@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Adding an application
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

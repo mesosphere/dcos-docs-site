@@ -6,8 +6,6 @@ menuWeight: 3
 excerpt: Using the Logging API
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: false
-enterprise: false
 ---
 
 # Logging API

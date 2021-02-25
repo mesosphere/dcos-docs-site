@@ -4,8 +4,6 @@ navigationTitle:  Administration
 title: Percona Server for MongoDB Administration
 menuWeight: 65
 excerpt: Administrative options for Percona Sever for MongoDB
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---

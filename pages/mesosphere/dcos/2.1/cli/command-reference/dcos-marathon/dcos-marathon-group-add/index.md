@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon group add
 title: dcos marathon group add
 menuWeight: 17
 excerpt: Adding a Marathon group
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Operations
 title: Operations
 menuWeight: 80
-beta: false
 excerpt: Operations
 ---
 This section covers garbage collection, logging, monitoring, and scaling your Dispatch deployment.

@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Download
 title: Download Konvoy
 excerpt: Learn how to download the Konvoy CLI
-beta: false
-enterprise: false
 menuWeight: 30
 ---
 

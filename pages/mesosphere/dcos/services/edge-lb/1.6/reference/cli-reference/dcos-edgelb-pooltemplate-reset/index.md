@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb pool-template reset
 title: dcos edge-lb pool-template reset
 menuWeight: 42
 excerpt: Reference for the dcos edge-lb pool-template reset command
-enterprise: false
 ---
 
 Use this command to revert a custom pool-template to defaults.

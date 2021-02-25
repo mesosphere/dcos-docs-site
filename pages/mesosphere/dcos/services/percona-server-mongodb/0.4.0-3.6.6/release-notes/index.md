@@ -4,8 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 190
 excerpt: Discover the new features, updates, and known limitations in this release of the Percona Server for MongoDB Service 
-featureMaturity:
-enterprise: false
 ---
 
 # Release Notes for Percona Server for MongoDB Service version 0.4.0-3.6.6

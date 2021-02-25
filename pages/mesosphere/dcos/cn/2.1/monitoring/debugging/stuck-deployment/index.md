@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: 了解邀约匹配和失败的部署
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 # 使用 UI 调试服务部署
 

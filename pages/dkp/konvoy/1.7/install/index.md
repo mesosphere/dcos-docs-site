@@ -4,8 +4,6 @@ navigationTitle: Install
 title: Install
 menuWeight: 80
 excerpt: Install a Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 When installing Konvoy for a project, line-of-business, or enterprise, the first step is to determine the infrastructure on which you want to deploy.

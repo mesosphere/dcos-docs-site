@@ -4,8 +4,6 @@ navigationTitle: Kubeflow Fairing
 title: Kubeflow Fairing
 menuWeight: 18
 excerpt: Tutorial for Kubeflow Fairing
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

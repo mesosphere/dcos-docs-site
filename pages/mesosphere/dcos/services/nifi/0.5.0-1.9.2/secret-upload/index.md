@@ -4,8 +4,6 @@ navigationTitle: Secret Upload
 title: Secret Upload
 menuWeight: 50
 excerpt: DC/OS NiFi service secret upload
-featureMaturity:
-enterprise: false
 model: ../../data.yml
 render: mustache
 ---

@@ -4,8 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
 excerpt: Discover the new features, updates, and known limitations in this release of the NiFi Service 
-featureMaturity:
-enterprise: false
 ---
 
 # Release Notes for NiFi Service version 0.2.0-1.5.0

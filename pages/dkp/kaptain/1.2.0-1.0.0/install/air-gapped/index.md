@@ -4,8 +4,6 @@ navigationTitle: Install air-gapped
 title: Install Kaptain on an air-gapped cluster
 menuWeight: 10
 excerpt: Install Kaptain on an air-gapped cluster
-beta: false
-enterprise: false
 ---
 
 ## Air-Gapped Installation

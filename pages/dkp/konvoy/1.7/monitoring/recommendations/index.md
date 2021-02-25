@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Recommendations
 title: Recommendations
 menuWeight: 11
-beta: false
 excerpt: Recommended settings for monitoring and collecting metrics for Kubernetes, platform services, and applications deployed on the Konvoy cluster
 ---
 

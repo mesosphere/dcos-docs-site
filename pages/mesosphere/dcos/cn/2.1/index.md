@@ -5,7 +5,6 @@ title: Mesosphere DC/OS 2.1.0 文档
 version: 2.1.0
 menuWeight: 0
 excerpt: 学习 DC/OS
-beta: false 
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

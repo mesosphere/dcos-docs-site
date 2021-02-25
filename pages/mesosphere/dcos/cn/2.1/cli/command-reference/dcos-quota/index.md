@@ -6,7 +6,6 @@ menuWeight: 12
 excerpt: 管理 DC/OS 配额
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # 说明

@@ -4,7 +4,6 @@ navigationTitle: Spinnaker
 title: Spinnaker
 menuWeight: 100
 excerpt:
-featureMaturity:
 community: true
 enterprise: true
 model: /mesosphere/dcos/services/spinnaker/data.yml

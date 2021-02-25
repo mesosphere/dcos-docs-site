@@ -6,7 +6,6 @@ menuWeight: 70
 excerpt: 了解 DC/OS 网络堆栈
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 Mesosphere&reg; DC/OS&trade; 网络堆栈提供

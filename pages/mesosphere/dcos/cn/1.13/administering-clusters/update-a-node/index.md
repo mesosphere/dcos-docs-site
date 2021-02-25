@@ -4,7 +4,6 @@ navigationTitle:  更新节点
 title: 更新节点
 menuWeight: 801
 excerpt: 更新活动 DC/OS 群集中的代理节点
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

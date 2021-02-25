@@ -4,7 +4,6 @@ navigationTitle: Edge-LB 1.6
 title: Edge-LB 1.6
 menuWeight: 2
 excerpt: Edge-LB provides production-grade load balancing for access to all services that run on DC/OS clusters
-enterprise: false
 ---
 
 Efficient load balancing of access requests and workload processing is one of the most important ways you can manage cluster operations. Load balancing improves the performance, reliability, and network efficiency for web-based properties, applications, databases, and other services by distributing workload across multiple servers. By introducing a load balancer like Edge-LB, you can distribute the traffic for all services that run on a DC/OS&trade; Enterprise cluster.

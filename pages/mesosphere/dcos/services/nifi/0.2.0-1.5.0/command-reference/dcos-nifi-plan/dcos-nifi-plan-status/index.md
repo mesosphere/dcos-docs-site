@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi plan status
 title: dcos nifi plan status
 menuWeight: 2
 excerpt: Display the status of the plan with the provided plan name.
-featureMaturity:
-enterprise: false
 model: ../../../../data.yml
 render: mustache
 ---

@@ -4,8 +4,6 @@ navigationTitle: konvoy get ops-portal
 title: konvoy get ops-portal
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Print ops-portal details
 ---
 

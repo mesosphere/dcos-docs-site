@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 使用 Splunk 服务器管理系统和应用程序日志
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 # 概述

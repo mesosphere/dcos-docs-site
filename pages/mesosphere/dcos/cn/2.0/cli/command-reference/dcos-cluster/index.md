@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 管理与 DC/OS 群集的连接
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 # 说明

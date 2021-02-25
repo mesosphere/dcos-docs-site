@@ -5,7 +5,6 @@ title: Permissions
 menuWeight: 50
 excerpt: Service account and user permissions required to use the Edge-LB package
 
-enterprise: false
 ---
 
 

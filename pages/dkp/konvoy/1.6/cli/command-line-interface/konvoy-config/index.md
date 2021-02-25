@@ -4,8 +4,6 @@ navigationTitle: konvoy config
 title: konvoy config
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Manage installation related configuration
 ---
 

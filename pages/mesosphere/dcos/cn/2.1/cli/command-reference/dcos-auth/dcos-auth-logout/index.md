@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 登出 DC/OS 群集
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

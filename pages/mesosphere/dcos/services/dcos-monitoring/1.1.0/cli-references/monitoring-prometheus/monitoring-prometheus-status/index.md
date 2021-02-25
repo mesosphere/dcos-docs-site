@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus status
 title: dcos monitoring prometheus status
 menuWeight: 4
 excerpt: Expose current Prometheus configuration
-enterprise: false
 ---
 
 # Description

@@ -6,8 +6,6 @@ menuWeight: 120
 excerpt: Creating a job without installing a separate service
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 You can create scheduled jobs in DC/OS without installing a separate service. Create and administer jobs in the DC/OS UI, the DC/OS CLI, or via an API.

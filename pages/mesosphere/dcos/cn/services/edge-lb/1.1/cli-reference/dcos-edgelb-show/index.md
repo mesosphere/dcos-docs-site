@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb show
 title: dcos edgelb show
 menuWeight: 35
 excerpt: 显示特定池名称的池定义
-enterprise: false
 ---
 
 # 说明

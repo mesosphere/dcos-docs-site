@@ -4,7 +4,6 @@ navigationTitle:  查找公共代理 IP
 title: 查找公共代理 IP
 menuWeight: 3
 excerpt: 查找公共代理 IP 地址
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

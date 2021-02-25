@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Understanding Mesos tasks
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 DC/OS can run many different kinds of workloads, which are composed of tasks. DC/OS tasks are [Mesos tasks](/mesosphere/dcos/2.1/overview/concepts/#mesos-task) that have been scheduled by either a DC/OS built-in scheduler or a scheduler service running on DC/OS.

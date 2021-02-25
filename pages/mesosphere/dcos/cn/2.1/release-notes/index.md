@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  版本注释
 title: 版本注释
 menuWeight: 0
-beta: false
 excerpt: DC/OS 2.1 版本注释，包括开源属性和版本策略。
 ---
 

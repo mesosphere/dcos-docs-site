@@ -4,7 +4,6 @@ navigationTitle: Compare Edge-LB to Marathon-LB
 title: Compare Edge-LB to Marathon-LB
 menuWeight: 18
 excerpt: Demonstrates differences between Marathon-LB and Edge-LB load balancing services
-enterprise: false
 ---
 
 These sample exercises demonstrate exposing and accessing the NGINX&trade; service by using both Marathon-LB and Edge-LB. It demonstrates the differences in configuration in terms of both load balancers.

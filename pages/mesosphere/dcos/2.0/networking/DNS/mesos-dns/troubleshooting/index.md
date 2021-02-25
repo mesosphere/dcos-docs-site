@@ -6,7 +6,6 @@ menuWeight: 400
 excerpt: Troubleshooting Mesos DNS
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 # How can I check the Mesos-DNS version?

@@ -3,7 +3,6 @@ layout: layout.pug
 title: V1 API 参考
 menuWeight: 80
 excerpt: 在 V1 API 中暴露的端点
-enterprise: false
 ---
 
 

@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb pool-template list
 title: dcos edge-lb pool-template list
 menuWeight: 39
 excerpt: Reference for the dcos edge-lb pool-template list command
-enterprise: false
 ---
 
 Use this command to list the names of the currently-configured Auto Pools.

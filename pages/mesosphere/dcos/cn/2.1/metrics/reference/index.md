@@ -6,8 +6,6 @@ menuWeight: 7
 excerpt: 了解 DC/OS 收集的度量标准
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: false
-enterprise: false
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 

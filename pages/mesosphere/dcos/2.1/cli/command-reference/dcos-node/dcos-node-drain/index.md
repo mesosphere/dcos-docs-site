@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: Draining an agent so that its tasks get rescheduled
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # Description

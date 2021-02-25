@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: 教程 - 使用 DC/OS Web 界面和 Marathon HTTP API 定义标签
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->

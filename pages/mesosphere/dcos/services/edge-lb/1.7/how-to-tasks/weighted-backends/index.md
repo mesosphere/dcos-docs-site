@@ -4,7 +4,6 @@ navigationTitle: Weighted backends
 title: Weighted backends
 menuWeight: 35
 excerpt: How to configure weighted backends Edge-LB load balancing
-enterprise: false
 ---
 
 By default, Edge-LB uses a round-robin algorithm to distribute network traffic evenly to the appropriate backends. You can change how the workload is distributed by modifying Edge-LB pool configuration settings.

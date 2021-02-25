@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus status flags
 title: dcos monitoring prometheus status flags
 menuWeight: 1
 excerpt: Return the flag values that Prometheus was configured with
-enterprise: false
 ---
 
 # Description

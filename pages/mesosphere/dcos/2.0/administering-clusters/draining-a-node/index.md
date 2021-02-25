@@ -4,7 +4,6 @@ navigationTitle: Draining a Node
 title: Draining a Node
 menuWeight: 801
 excerpt: Draining an agent node in an active DC/OS cluster
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

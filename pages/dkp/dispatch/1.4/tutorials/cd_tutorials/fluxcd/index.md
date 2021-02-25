@@ -2,7 +2,6 @@
 layout: layout.pug
 title: Deploying with FluxCD
 navigationTitle: Deploying with FluxCD
-beta: false
 category: K-Sphere
 menuWeight: 105
 excerpt: This tutorial demonstrates how to setup a GitOps application using FluxCD.

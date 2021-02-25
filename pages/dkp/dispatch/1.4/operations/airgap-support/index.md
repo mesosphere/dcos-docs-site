@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Airgap Support
 title: Dispatch In Airgapped Clusters
 menuWeight: 10
-beta: false
 excerpt: Using Dispatch in Airgapped clusters
 ---
 

@@ -6,7 +6,6 @@ menuWeight: 0
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 excerpt: Fetching details for a package
-enterprise: false
 ---
 
 

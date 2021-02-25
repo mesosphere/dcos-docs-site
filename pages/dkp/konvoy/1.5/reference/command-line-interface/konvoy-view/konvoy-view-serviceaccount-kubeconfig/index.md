@@ -4,7 +4,6 @@ navigationTitle: konvoy view serviceaccount-kubeconfig
 title: konvoy view serviceaccount-kubeconfig
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Create a kubeconfig for the cluster
 ---
 

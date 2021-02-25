@@ -4,8 +4,6 @@ navigationTitle: Overview
 title: Overview
 menuWeight: 10
 excerpt: Getting started with DC/OS NiFi Service
-featureMaturity:
-enterprise: false
 ---
 
 # Components

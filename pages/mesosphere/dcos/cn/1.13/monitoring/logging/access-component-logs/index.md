@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 管理用户对系统和组件日志的访问
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
 enterprise: true
 ---
 

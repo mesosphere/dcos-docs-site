@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi update package-versions
 title: dcos nifi update package-versions
 menuWeight: 4
 excerpt: View a list of available package versions to downgrade or upgrade to
-featureMaturity:
-enterprise: false
 model: ../../../../data.yml
 render: mustache
 ---

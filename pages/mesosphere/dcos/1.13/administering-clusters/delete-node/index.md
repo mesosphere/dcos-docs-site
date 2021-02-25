@@ -4,7 +4,6 @@ navigationTitle:  Shut Down and Decommission Nodes
 title: Shut Down and Decommission Nodes
 menuWeight: 810
 excerpt: Shutting down and decommissioning agent nodes
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

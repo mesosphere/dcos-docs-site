@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi plan
 title: dcos nifi plan
 menuWeight: 65
 excerpt: Displays plan related informations and allows plan operations of the NiFi service
-featureMaturity:
-enterprise: false
 model: ../../../data.yml
 render: mustache
 ---

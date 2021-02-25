@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb ping
 title: dcos edgelb ping
 menuWeight: 30
 excerpt: 测试 Edge-LB API 服务器的就绪情况
-enterprise: false
 ---
 
 # 说明

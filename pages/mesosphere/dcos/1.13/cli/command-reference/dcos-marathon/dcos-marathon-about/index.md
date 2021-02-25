@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Displays the info.json file for DC/OS Marathon
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

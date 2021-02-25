@@ -6,7 +6,6 @@ menuWeight: 200
 excerpt: 定义 DC/OS 服务的运行状况检查
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 您可以为 DC/OS 服务定义运行状况检查。运行状况检查是基于每个应用定义的，并针对该应用程序的任务运行。运行状况检查会对分布在群集中的容器执行定期检查，以确保它们已启动并响应。如果运行状况检查因任何原因失败，Mesos 会将该任务报告为运行状况不佳，以便状态感知负载均衡器可以停止向容器发送流量。任务达到最大连续失败次数后，Marathon 将终止该任务并重新启动它。

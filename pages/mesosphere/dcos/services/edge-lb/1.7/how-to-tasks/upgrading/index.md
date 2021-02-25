@@ -4,7 +4,6 @@ navigationTitle:  Upgrading Edge-LB
 title: Upgrading Edge-LB
 menuWeight: 45
 excerpt: Upgrading an Edge-LB installation
-enterprise: false
 ---
 
 In general, you should regularly update or upgrade the Edge-LB package you have installed to the latest version available to ensure you can take advantage of any fixes and new features that are included in the most recent release.

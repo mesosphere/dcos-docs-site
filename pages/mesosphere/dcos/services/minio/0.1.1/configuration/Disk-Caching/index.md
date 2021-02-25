@@ -4,8 +4,6 @@ navigationTitle: Disk Caching
 title: Disk Caching in DC/OS Minio
 menuWeight: 45
 excerpt: Using caching disks to store content 
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---

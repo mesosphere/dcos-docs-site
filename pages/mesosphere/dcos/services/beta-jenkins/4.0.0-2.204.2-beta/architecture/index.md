@@ -5,8 +5,6 @@ title: Jenkins for DC/OS Service Architecture
 menuWeight: 40
 beta: true
 excerpt: The Jenkins for DC/OS service bundles the Jenkins Automation Server with the Jenkins Mesos Plug-in. 
-featureMaturity:
-enterprise: false
 ---
 
 ## Overview

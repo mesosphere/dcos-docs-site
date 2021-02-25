@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: Launching Mesos containers using the Universal Container Runtime 
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # Provision a Mesos container using UCR

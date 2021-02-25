@@ -4,7 +4,6 @@ navigationTitle: Security certificates and secrets
 title: Security certificates and secrets
 menuWeight: 22
 excerpt: Provides examples for configuring security settings for Edge-LB pools
-enterprise: false
 ---
 
 Edge-LB runs on DC/OS&trade; Enterprise clusters with permissive or strict security. You can also use secure socket layer (SSL) certificates to secure the gateway between the external network and the DC/OS cluster. This section provides code examples that illustrate how to set security-related Edge-LB pool configuration options.

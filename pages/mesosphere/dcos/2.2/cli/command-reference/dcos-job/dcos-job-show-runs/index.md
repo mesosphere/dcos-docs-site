@@ -6,7 +6,6 @@ menuWeight: 11
 excerpt: Displaying the status of job runs
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

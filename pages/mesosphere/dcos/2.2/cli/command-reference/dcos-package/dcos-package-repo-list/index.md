@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: Displaying the package repository sources
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

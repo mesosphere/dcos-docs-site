@@ -4,8 +4,6 @@ navigationTitle: GPUs
 title: GPUs
 menuWeight: 150
 excerpt: Configure GPU for Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

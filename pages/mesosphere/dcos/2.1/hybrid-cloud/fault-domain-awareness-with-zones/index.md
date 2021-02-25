@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: Understanding fault domains
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # Overview

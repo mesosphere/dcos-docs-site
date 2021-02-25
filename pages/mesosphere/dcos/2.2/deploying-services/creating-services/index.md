@@ -5,9 +5,7 @@ title: Creating Services
 menuWeight: 1
 excerpt: Defining a DC/OS service using Marathon
 render: mustache
-beta: false
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

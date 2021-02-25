@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 了解 DC/OS
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 作为分布式系统，Mesosphere&reg; DC/OS&trade; 本身就是分布式系统、群集管理器、容器平台和操作系统。

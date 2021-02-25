@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Getting Started with metrics in DC/OS
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
 ---
 
 

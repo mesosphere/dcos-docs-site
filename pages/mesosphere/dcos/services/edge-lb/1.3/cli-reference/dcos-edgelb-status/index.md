@@ -5,7 +5,6 @@ title: dcos edgelb status
 menuWeight: 40
 excerpt: List load-balancer task information for a pool
 
-enterprise: false
 ---
 
 # Description

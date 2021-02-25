@@ -6,7 +6,6 @@ menuWeight: 4
 excerpt: 将软件包存储库添加到 DC/OS
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # 说明

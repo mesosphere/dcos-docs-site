@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: Understanding offer matching and failed deployments
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 # How Offer Matching Works
 

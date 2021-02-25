@@ -4,7 +4,6 @@ navigationTitle:  Understanding Autoscaling
 title: Tutorial - Autoscaling using requests per second
 menuWeight: 1
 excerpt: Setting up microscaling based on requests per second
-enterprise: false
 ---
 
 

@@ -4,7 +4,6 @@ navigationTitle:  dcos cluster setup
 title: dcos cluster setup
 menuWeight: 6
 excerpt: 配置 CLI 以便与群集通信
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Setting up microscaling based on requests per second
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

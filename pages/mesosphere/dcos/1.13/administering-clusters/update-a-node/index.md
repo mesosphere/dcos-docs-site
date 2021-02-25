@@ -4,7 +4,6 @@ navigationTitle:  Updating Nodes
 title: Updating Nodes
 menuWeight: 801
 excerpt: Updating agent nodes in an active DC/OS cluster
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

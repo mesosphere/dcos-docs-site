@@ -4,7 +4,6 @@ navigationTitle: 权限
 title: Edge-LB 权限
 menuWeight: 50
 excerpt: 使用 Edge-LB 安装包所需的服务帐户和用户权限
-enterprise: false
 ---
 
 

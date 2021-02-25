@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: User Defined Workloads
 title: Standard Workloads
 menuWeight: 4
-beta: false
 excerpt: Deploy a user defined workload on Konvoy
 ---
 

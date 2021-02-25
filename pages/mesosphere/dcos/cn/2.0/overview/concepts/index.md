@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: 了解 DC/OS 概念和术语
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 Mesosphere&reg; DC/OS&trade; 由许多开源组件构成，其中多个在 DC/OS 之前就存在。本文档中使用的术语可能与您熟悉的已有术语相似，但它们可能在 DC/OS 中以不同方式使用。

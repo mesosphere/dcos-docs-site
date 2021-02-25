@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Overview
 title: Dispatch Overview
 menuWeight: 20
-beta: false
 excerpt: A Cloud Native, GitOps platform for streamlining development and deployment of container based applications.
 ---
 Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications. Dispatch  enables you to:

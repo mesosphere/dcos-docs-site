@@ -5,7 +5,6 @@ menuWeight: 160
 excerpt: 开发您自己的 DC/OS 组件
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

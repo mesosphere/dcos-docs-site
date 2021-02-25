@@ -4,7 +4,6 @@ navigationTitle: konvoy drain nodepool
 title: konvoy drain nodepool
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Drains Pods from machines in a node pool
 ---
 

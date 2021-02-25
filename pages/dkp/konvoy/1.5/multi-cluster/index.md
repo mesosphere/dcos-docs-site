@@ -4,8 +4,6 @@ navigationTitle: Multi Cluster Management
 title: Multi Cluster Management
 menuWeight: 220
 excerpt: Konvoy Multi Cluster Management
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 MD034 -->

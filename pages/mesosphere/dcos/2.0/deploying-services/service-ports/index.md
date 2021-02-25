@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Using Virtual IPs to manage service ports
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 You can use [virtual addresses (VIPs)](/mesosphere/dcos/2.0/networking/load-balancing-vips/virtual-ip-addresses/) to make port management easier. VIPs simplify inter-app communication and implement a reliable service-oriented architecture. VIPs map traffic from a single virtual address to multiple IP addresses and ports.

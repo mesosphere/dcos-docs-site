@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb cleanup
 title: dcos edge-lb cleanup
 menuWeight: 6
 excerpt: Reference for the dcos edge-lb cleanup command
-enterprise: false
 ---
 
 Use this command to list and remove all Amazon Web Services&reg; (AWS&reg;) Elastic Load Balancer&reg; (ELB&reg;) instances that remain after Edge-LB has been uninstalled from a DC/OS&trade; cluster.

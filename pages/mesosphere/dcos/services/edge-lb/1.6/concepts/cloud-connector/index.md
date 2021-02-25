@@ -4,7 +4,6 @@ navigationTitle: Integrating with cloud providers
 title: Integrating with cloud providers
 menuWeight: 16
 excerpt: Describes how you can integrate Edge-LB with cloud provider load balancers
-enterprise: false
 ---
 
 When you define the configuration settings for an Edge-LB pool, you have the option to support automatic provisioning and lifecycle management of cloud provider load balancers.

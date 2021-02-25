@@ -4,7 +4,6 @@ navigationTitle: Migrate from Marathon-LB to Edge-LB
 title: Migrate from Marathon-LB to Edge-LB
 menuWeight: 18
 excerpt: Demonstrates how to migrate from Marathon-LB to Edge-LB Auto Pools
-enterprise: false
 ---
 
 # Before you begin

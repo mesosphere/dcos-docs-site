@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Using Virtual IPs to manage service ports
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

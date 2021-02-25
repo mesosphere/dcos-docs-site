@@ -4,7 +4,6 @@ navigationTitle: Scaling load-balancer instances
 title: Scaling load-balancer instances
 menuWeight: 33
 excerpt: How to scale up and scale down load balancer instances
-enterprise: false
 ---
 
 As you refine the deployment of agent nodes and services for your DC/OS&trade; Enterprise cluster, you might find that you need to add or reduce the number of load balancing pool instances that are distributing workload to your backend servers.

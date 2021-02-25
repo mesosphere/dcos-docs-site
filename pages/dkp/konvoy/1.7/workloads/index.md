@@ -4,8 +4,6 @@ navigationTitle: Workloads
 title: Workloads
 menuWeight: 155
 excerpt: Deploying Operators, Workloads, and Applications
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

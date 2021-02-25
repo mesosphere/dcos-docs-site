@@ -4,7 +4,6 @@ navigationTitle:  CLI 自动完成
 title: CLI 自动完成
 menuWeight: 7
 excerpt: 启用 CLI 自动完成
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

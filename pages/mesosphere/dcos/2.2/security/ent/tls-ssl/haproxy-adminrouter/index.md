@@ -6,7 +6,6 @@ menuWeight: 450
 excerpt: Using the HAProxy to set up an HTTP proxy for the DC/OS Admin Router
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

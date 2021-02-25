@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Credentials
 title: Credentials
 menuWeight: 35
-beta: false
 excerpt: Credentials
 ---
 Credentials are used when a Dispatchfile is executed, to push images and

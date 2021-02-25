@@ -6,7 +6,6 @@ menuWeight: 8
 excerpt: Stopping an application
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

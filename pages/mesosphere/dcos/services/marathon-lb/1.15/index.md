@@ -4,7 +4,6 @@ navigationTitle:  Marathon-LB 1.15.x
 title: Marathon-LB 1.15.x
 menuWeight: 1
 excerpt: Marathon-LB is a load balancing service for TCP, HTTP, and HTTPS requests
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

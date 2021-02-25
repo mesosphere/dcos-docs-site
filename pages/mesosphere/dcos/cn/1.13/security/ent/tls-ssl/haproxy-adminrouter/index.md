@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: 使用 HAProxy 为 DC/OS Admin Router 设置 HTTP 代理
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

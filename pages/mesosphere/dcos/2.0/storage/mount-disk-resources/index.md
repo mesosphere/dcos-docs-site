@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Using Mesos to mount storage resources
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 With Mesosphere&reg; DC/OS&trade;, you can configure Apache&reg; Mesos&reg; [`Mount` disk resources][1] across your cluster by mounting storage resources on agents using a well-known path.

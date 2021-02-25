@@ -4,8 +4,6 @@ navigationTitle: KUDO CLI
 title: KUDO CLI
 menuWeight: 5
 excerpt: KUDO CLI Usage
-beta: false
-enterprise: false
 ---
 
 This section describes how to install the Kubernetes Universal Declarative Operator (KUDO) CLI and initialize the KUDO cluster component.

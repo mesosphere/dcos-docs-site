@@ -5,7 +5,6 @@ title: Reference information
 menuWeight: 90
 excerpt: Provides reference information for Edge-LB commands, REST API, HAProxy endpoints, and pool configuration settings
 
-enterprise: false
 ---
 
 Edge-LB reference information includes the following:

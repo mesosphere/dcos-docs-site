@@ -4,8 +4,6 @@ navigationTitle: Setup RBAC with Konvoy
 title: Setup RBAC with Konvoy based Kubernetes clusters
 menuWeight: 50
 excerpt: Use RBAC to configure your Konvoy clusters
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

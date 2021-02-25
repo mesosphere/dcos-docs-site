@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Displaying the service logs
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 # Description

@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: Viewing the json file for an app
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 # Description

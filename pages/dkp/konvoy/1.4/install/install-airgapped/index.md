@@ -4,7 +4,6 @@ navigationTitle: Install air-gapped
 title: Install air-gapped
 menuWeight: 35
 excerpt: Install Konvoy in an air-gapped environment
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

@@ -6,7 +6,6 @@ menuWeight: 7
 excerpt: Removing a job schedule
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

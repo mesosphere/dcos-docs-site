@@ -6,8 +6,6 @@ menuWeight: 3
 excerpt: 使用日志记录 API
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: false
-enterprise: false
 ---
 
 # 日志记录 API

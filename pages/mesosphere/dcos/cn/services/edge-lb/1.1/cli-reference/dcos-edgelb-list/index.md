@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb list
 title: dcos edgelb list
 menuWeight: 25
 excerpt: 列出所有已配置池的名称和摘要
-enterprise: false
 ---
 
 # 说明

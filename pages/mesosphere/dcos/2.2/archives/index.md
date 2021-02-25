@@ -4,7 +4,6 @@ navigationTitle: Access Documentation Archives
 title: Access Documentation Archives
 menuWeight: 1000
 excerpt: access older versions of DC/OS documentation
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---

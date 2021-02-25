@@ -4,7 +4,6 @@ navigationTitle: V2 API 参考
 title: V2 API 参考
 menuWeight: 85
 excerpt: 在 V2 API 中暴露的端点
-enterprise: false
 ---
 
 Edge-LB API 使您能够创建和管理负载均衡器池。

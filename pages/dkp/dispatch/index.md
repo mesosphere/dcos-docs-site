@@ -3,7 +3,6 @@ layout: dispatch-docs-landing.pug
 navigationTitle: Dispatch
 title: Dispatch
 menuWeight: 0
-beta: false 
 menus: ['dispatch-header']
 ---
 

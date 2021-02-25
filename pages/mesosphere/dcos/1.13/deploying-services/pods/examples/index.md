@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: Understanding field definitions and examples of pods
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 This topic provides field definitions and usage examples for pods. For more details on field definitions, see [Marathon Configuration Reference](/mesosphere/dcos/1.13/deploying-services/marathon-parameters/).

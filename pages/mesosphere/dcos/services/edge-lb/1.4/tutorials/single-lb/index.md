@@ -5,7 +5,6 @@ title: Load Balance and Expose a Service
 menuWeight: 10
 excerpt: Tutorial - Load balancing a DC/OS service
 
-enterprise: false
 ---
 
 This tutorial demonstrates how to load balance a DC/OS service and set it up for access outside of the cluster.

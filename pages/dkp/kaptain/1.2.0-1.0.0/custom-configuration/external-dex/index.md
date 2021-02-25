@@ -4,8 +4,6 @@ navigationTitle: Configure Dex
 title: Configure external Dex to authenticate to Kaptain
 menuWeight: 70
 excerpt: Configure external Dex to authenticate to Kaptain
-beta: false
-enterprise: false
 ---
 
 Configure an external Dex instance from a management cluster for authentication with Kaptain.

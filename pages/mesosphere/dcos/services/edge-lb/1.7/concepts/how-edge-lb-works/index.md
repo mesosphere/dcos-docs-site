@@ -4,7 +4,6 @@ navigationTitle: How Edge-LB works
 title: How Edge-LB works
 menuWeight: 10
 excerpt: Highlights the basic workflow and key components for Edge-LB operations
-enterprise: false
 ---
 
 Edge-LB is designed to handle load balancing and proxying for a distributed architecture.

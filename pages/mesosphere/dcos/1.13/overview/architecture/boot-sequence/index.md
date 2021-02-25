@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: Understanding the DC/OS component services boot sequence
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus status config
 title: dcos monitoring prometheus status config
 menuWeight: 1
 excerpt: Return the currently loaded configuration file
-enterprise: false
 ---
 
 # Description

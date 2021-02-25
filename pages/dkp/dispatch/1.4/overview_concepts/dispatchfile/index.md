@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Dispatchfile
 title: Dispatchfile
 menuWeight: 10
-beta: false
 excerpt: Declaratively define a CI pipeline in Dispatch.
 ---
 

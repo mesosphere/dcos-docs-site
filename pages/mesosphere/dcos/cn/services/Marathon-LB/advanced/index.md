@@ -4,7 +4,6 @@ navigationTitle: 参考
 title: Marathon-LB 参考
 menuWeight: 4
 excerpt: Marathon-LB 参考
-enterprise: false
 ---
 
 

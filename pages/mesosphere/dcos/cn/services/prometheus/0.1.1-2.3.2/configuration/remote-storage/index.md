@@ -4,8 +4,6 @@ navigationTitle: 远程存储
 title: Impx DB 上的 Prometheus 远程存储
 menuWeight: 40
 excerpt: 将 Prometheus 与远程存储 ImpxDB 集成
-featureMaturity:
-enterprise: false
 ---
 
 # 远程存储

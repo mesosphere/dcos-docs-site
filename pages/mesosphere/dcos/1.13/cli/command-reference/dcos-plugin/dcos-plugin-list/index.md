@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Displaying a list of the installed CLI plugins
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Overview & Concepts
 title: Overview & Concepts
 menuWeight: 20
-beta: false
 excerpt: Introductory topics about D2iQ Dispatch.
 ---
 Dispatch is a cloud-native GitOps platform. GitOps is a way to do Kubernetes cluster management and application delivery; it works by using Git as a single source of truth for declarative infrastructure and applications. Dispatch  enables you to:

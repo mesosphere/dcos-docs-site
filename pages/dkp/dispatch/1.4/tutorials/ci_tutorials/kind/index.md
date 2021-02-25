@@ -2,7 +2,6 @@
 layout: layout.pug
 title: Using Kind with Dispatch
 navigationTitle: Using Kind with Dispatch
-beta: false
 category: K-Sphere
 menuWeight: 105
 excerpt: This tutorial demonstrates how to use a Kind cluster in Dispatch.

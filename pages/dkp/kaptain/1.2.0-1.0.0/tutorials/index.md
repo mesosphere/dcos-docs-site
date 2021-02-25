@@ -4,7 +4,6 @@ navigationTitle: Tutorials
 title: Tutorials
 menuWeight: 10
 excerpt: End-to-end tutorials for model development, distributed training, pipelines and metadata management
-enterprise: false
 ---
 
 Kaptain offers several ways to train models (incl. distributed), tune hyperparameters, and deploy optimized models that autoscale.

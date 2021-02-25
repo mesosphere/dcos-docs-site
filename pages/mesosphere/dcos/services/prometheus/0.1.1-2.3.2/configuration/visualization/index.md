@@ -4,8 +4,6 @@ navigationTitle: Visualization
 title: Grafana and Prometheus Expression Browser
 menuWeight: 45
 excerpt: DC/OS Prometheus Service Expression Browser
-featureMaturity:
-enterprise: false
 ---
 
 

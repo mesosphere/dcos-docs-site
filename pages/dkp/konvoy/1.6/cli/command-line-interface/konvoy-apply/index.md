@@ -4,8 +4,6 @@ navigationTitle: konvoy apply
 title: konvoy apply
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Updates certain configuration in the existing kubeconfig file
 ---
 

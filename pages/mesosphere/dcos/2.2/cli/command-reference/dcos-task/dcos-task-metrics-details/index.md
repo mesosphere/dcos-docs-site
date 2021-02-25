@@ -6,7 +6,6 @@ menuWeight: 9
 excerpt: Display all metrics for a specified task
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 # Description

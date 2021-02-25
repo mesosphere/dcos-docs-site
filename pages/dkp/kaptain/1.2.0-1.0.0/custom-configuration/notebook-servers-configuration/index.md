@@ -4,8 +4,6 @@ navigationTitle: Notebook Servers Configuration
 title: Configuring Notebook Servers
 menuWeight: 70
 excerpt: Configure Notebook Servers pre-defined controls and settings
-beta: false
-enterprise: false
 ---
 
 Configure Notebook Servers controls and settings.

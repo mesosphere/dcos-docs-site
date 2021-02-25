@@ -4,8 +4,6 @@ navigationTitle: Configuration Requirements
 title: Configuration Requirements
 menuWeight: 7
 excerpt: KBA Descriptions and Resource Requirements
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->

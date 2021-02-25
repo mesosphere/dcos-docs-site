@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Displaying a list of the installed DC/OS packages
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

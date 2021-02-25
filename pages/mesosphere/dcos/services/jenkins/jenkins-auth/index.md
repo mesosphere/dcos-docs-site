@@ -7,9 +7,7 @@ excerpt: >
   This topic describes when and how to
   provision Jenkins with a service
   account.
-featureMaturity:
 enterprise: true
-beta: false
 ---
 
 

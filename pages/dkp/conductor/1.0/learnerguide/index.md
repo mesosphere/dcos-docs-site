@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Learner's Guide
 title: Learner's Guide
 menuWeight: 50
-beta: false
 excerpt: A guide to navigating content and using the interactive learning environment
 ---
 

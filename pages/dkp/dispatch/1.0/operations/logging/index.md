@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Logging
 title: Logging in Kibana
 menuWeight: 10
-beta: false
 excerpt: Learn how to explore Dispatch logs in Kibana
 ---
 

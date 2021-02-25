@@ -4,8 +4,6 @@ navigationTitle:  Jenkins
 title: Jenkins
 menuWeight: 60
 excerpt:
-featureMaturity:
-enterprise: false
 category: Continuous Delivery
 ---
 

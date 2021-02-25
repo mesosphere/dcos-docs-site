@@ -5,7 +5,6 @@ title: dcos edgelb template update
 menuWeight: 60
 excerpt: 为负载均衡器的池更新自定义配置模板
 
-enterprise: false
 ---
 
 

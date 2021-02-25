@@ -4,7 +4,6 @@ navigationTitle:  Updating the Edge-LB pool configuration
 title: Updating the Edge-LB pool configuration
 menuWeight: 43
 excerpt: Updating the Edge-LB pool configuration
-enterprise: false
 ---
 
 You can update the Edge-LB pool configuration to reflect changing requirements for a service without any service disruption. Making changes to an Edge-LB pool configuration does not affect any existing load-balancing operations in the cluster. You can also make changes to the pool configuration without editing the same .json file you have previously deployed. For example, you can expose and deploy a service using the `app-lb-1.json` pool configuration file, then update the Edge-LB pool configuration for that service by deploying different settings in a new `app-lb-2.json` pool configuration file.

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Air gap support
 title: Dispatch in air gapped clusters
 menuWeight: 10
-beta: false
 excerpt: Using Dispatch in air gapped clusters
 ---
 

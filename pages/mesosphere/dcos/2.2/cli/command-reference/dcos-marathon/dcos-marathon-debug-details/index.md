@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon debug details
 title: dcos marathon debug details
 menuWeight: 11
 excerpt: Displaying debugging information for Marathon applications
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---

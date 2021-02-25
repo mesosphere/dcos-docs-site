@@ -4,7 +4,6 @@ navigationTitle:  Troubleshooting Marathon-LB
 title: Troubleshooting Marathon-LB  
 menuWeight: 45
 excerpt: Common issues and troubleshooting tips for Marathon-LB
-enterprise: false
 ---
 This section covers potential issues and troubleshooting techniques for Marathon-LB load balancer running on DC/OS clusters.
 

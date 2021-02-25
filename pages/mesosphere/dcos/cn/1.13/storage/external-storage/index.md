@@ -6,8 +6,6 @@ menuWeight: 20
 excerpt: 通过 Marathon 使用外部持久卷
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 当容错对您的应用程序至关重要时，请使用外部卷。如果主机发生故障，本地 Marathon 实例会在其他主机上重新安排您的应用程序及其相关数据，而无需用户干预。外部卷通常提供较大的存储量。

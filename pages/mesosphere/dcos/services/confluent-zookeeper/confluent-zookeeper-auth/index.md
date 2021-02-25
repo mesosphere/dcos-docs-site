@@ -3,7 +3,6 @@ layout: layout.pug
 title: Configuring DC/OS Access for Confluent Zookeeper
 menuWeight: 660
 excerpt:
-featureMaturity:
 enterprise: true
 
 model: /mesosphere/dcos/services/confluent-zookeeper/data.yml

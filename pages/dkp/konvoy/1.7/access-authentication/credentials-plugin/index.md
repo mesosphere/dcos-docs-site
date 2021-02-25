@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Credentials Plugin
 title: Install the Credentials Plugin
 menuWeight: 10
-beta: false
 excerpt: Install and configure the Konvoy Credentials Plugin.
 ---
 

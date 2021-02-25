@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: Examples of common usage scenarios for jobs.
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-beta: false
 enterprise: true
 ---
 

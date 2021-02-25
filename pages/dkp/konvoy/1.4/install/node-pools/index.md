@@ -4,7 +4,6 @@ navigationTitle: Node Pools
 title: Node Pools
 menuWeight: 50
 excerpt: Configure node pools for the Konvoy cluster
-enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong> Do not change the configuration of your control plane nodes. Adding or removing nodes to your control plane nodes can break the cluster in an unrecoverable manner. Ensure that you back up your <tt>etcd</tt> prior to any control plane node maintenance.</p>

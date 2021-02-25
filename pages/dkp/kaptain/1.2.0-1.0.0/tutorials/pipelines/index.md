@@ -4,8 +4,6 @@ navigationTitle: End-to-end Pipeline with KFServing
 title: End-to-end Pipeline with KFServing
 menuWeight: 16
 excerpt: Tutorial for End-to-end Pipeline with KFServing
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Quickstart
 title: Quickstart
 menuWeight: 30
-beta: false
 excerpt: Immedately get started with a quick tutorial for installation and configuration of Dispatch.
 ---
 

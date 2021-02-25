@@ -4,7 +4,6 @@ navigationTitle: 安装
 title: 安装 Edge-LB
 menuWeight: 10
 excerpt: 配置服务帐户并安装 Edge-LB
-enterprise: false
 ---
 
 要配置服务帐户并安装 Edge-LB 包，请遵照以下指令。

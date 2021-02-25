@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Filtering log output for specific tasks
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

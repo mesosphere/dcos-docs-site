@@ -4,7 +4,6 @@ navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4
 excerpt: Uninstalling the DC/OS command line interface
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

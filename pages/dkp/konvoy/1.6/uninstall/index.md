@@ -4,8 +4,6 @@ navigationTitle: Uninstall
 title: Uninstall
 menuWeight: 225
 excerpt: Remove a Konvoy cluster and related infrastructure
-beta: false
-enterprise: false
 ---
 
 Konvoy clusters that have been deployed using the `konvoy up` command can be removed from a public cloud instance or internal network by running the `konvoy down` command.

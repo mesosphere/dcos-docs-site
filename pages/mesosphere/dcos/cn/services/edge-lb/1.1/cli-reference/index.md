@@ -4,7 +4,6 @@ navigationTitle: CLI 参考
 title: CLI 参考
 menuWeight: 70
 excerpt: Edge-LB 安装包中所有 CLI 命令的参考
-enterprise: false
 ---
 
 # 说明

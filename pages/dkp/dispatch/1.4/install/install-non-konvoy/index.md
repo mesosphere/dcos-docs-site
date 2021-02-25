@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Install on non-Konvoy Kubernetes
 title: Install on non-Konvoy Kubernetes
 menuWeight: 30
-beta: false
 excerpt: Install and Configure Dispatch on non-Konvoy Kubernetes clusters.
 ---
 # Installing Dispatch into a non-Konvoy Cluster

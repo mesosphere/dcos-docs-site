@@ -4,7 +4,6 @@ navigationTitle: SSH connection issues
 title: SSH connection issues
 menuWeight: 10
 excerpt: SSH connection issues
-enterprise: false
 ---
 
 ## Too many authentication failures

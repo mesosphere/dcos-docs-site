@@ -4,8 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: Discover the new features, updates, and known limitations in this release of the Prometheus Service
-featureMaturity:
-enterprise: false
 ---
 
 # Release Notes for Prometheus Service version 0.1.1-2.3.2

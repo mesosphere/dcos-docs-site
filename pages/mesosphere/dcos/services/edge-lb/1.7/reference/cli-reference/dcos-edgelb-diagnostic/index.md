@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb diagnostic
 title: dcos edge-lb diagnostic
 menuWeight: 15
 excerpt: Reference for the dcos edge-lb diagnostic command
-enterprise: false
 ---
 
 Use the `dcos edgelb diagnostic` command to collect diagnostic information for Edge-LB pools and package the diagnostics in a support bundle for troubleshooting and analysis.

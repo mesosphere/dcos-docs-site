@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb template delete
 title: dcos edgelb template delete
 menuWeight: 10
 excerpt: 删除并卸载现有池
-enterprise: false
 ---
 
 # 说明

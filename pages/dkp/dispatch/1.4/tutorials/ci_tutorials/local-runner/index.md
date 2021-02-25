@@ -2,7 +2,6 @@
 layout: layout.pug
 title: Run pipelines locally
 navigationTitle: Running pipelines locally
-beta: false
 category: K-Sphere
 menuWeight: 70
 excerpt: This tutorial describes how to trigger pipelines locally

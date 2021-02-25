@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb pool-template create
 title: dcos edge-lb pool-template create
 menuWeight: 33
 excerpt: Reference for the dcos edge-lb pool-template create command
-enterprise: false
 ---
 
 Use this command to create an Auto Pool template.

@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Launching a pod from the CLI or UI
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 ### Prerequisites

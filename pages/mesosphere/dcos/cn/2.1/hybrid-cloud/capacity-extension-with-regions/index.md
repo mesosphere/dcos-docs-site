@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: 使用本地和远程分域
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

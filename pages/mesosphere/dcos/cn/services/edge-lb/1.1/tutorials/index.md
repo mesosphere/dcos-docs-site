@@ -4,7 +4,6 @@ navigationTitle: 教程
 title: 教程
 menuWeight: 60
 excerpt: 学习使用 Edge-LB
-enterprise: false
 ---
 
 本部分的教程包括：

@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: 使用本地持久卷
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 当您指定本地卷时，任务及其关联的数据将“固定”到首次启动的节点，如果它们终止，将在该节点上重新启动。还保留应用程序所需的资源。除了您指定为应用定义一部分的沙盒 `persistent.size` 大小外，Marathon 将隐式保留适当的磁盘空间（通过 `disk` 在卷中声明）。

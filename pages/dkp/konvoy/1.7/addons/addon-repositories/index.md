@@ -4,7 +4,6 @@ navigationTitle: Addon Repositories
 title: Addon Repositories
 menuWeight: 5
 excerpt: Learn more about addon repositories
-beta: false
 
 ---
 ## Addon Repositories

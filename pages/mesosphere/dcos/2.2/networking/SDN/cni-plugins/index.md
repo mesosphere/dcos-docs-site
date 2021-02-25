@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: Understanding CNI plugin support
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

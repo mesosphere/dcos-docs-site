@@ -6,7 +6,6 @@ menuWeight: 11
 excerpt: 显示 DC/OS 节点信息
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 <p class="message--warning"><strong>警告：</strong>从 DC/OS 1.13 开始，使用 <tt>dcos node</tt> 命令列出节点已被弃用。要列出 dcos 节点，请使用 <tt><a href="/mesosphere/dcos/1.13/cli/command-reference/dcos-node/dcos-node-list/">dcos node list</a></tt> 命令。</p>

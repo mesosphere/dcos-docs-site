@@ -6,8 +6,6 @@ menuWeight: 0
 excerpt: Getting started with DC/OS logging
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: false
-enterprise: false
 ---
 
 Use this guide to get started with DC/OS logging. Many of the commands used here are described more fully in the [CLI Command Reference](/mesosphere/dcos/2.1/cli/command-reference/dcos-task/).

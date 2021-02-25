@@ -4,8 +4,6 @@ navigationTitle:  Known Issues
 title: Known Issues
 menuWeight: 100
 excerpt: Known issues in DC/OS
-featureMaturity:
-enterprise: false
 ---
 
 The table below shows all limitations of the MongoDB service that are the result of issues in [DC/OS in JIRA](https://jira.mesosphere.com/browse/DCOS_OSS/issues) or the [DC/OS SDK in Github](https://github.com/mesosphere/dcos-commons).

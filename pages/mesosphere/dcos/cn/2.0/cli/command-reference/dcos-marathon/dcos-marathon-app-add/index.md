@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 添加应用程序
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

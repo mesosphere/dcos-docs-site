@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Monitoring Mesos with Telegraf
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 The Mesos input plugin in Telegraf gathers [observability metrics](http://mesos.apache.org/documentation/latest/monitoring/) from each Mesos agent and master. The plugin is enabled by default in DC/OS 1.12 version or later.

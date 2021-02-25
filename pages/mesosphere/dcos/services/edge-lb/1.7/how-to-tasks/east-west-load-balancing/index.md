@@ -4,7 +4,6 @@ navigationTitle: Internal-only load balancing
 title: Internal-only load balancing
 menuWeight: 36
 excerpt: How to configure East-West internal-only load balancing using Edge-LB
-enterprise: false
 ---
 
 In most cases, load balancing for traffic inside of a DC/OS&trade; cluster - referred to **internal** or **East-West** load balancing - is managed through the DC/OS layer-4 load-balancer (`dcos-l4lb`), which is part of the networking layer (`dcos-net`) of the DC/OS platform. With the DC/OS layer-4 load-balancer, you configure load balancing through [virtual IP addresses](/mesosphere/dcos/2.0/networking/load-balancing-vips) in app definitions without creating a separate load balancing configuration file.

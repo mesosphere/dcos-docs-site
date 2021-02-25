@@ -4,8 +4,6 @@ navigationTitle: Upgrade Kubernetes and Addons with Konvoy v1.6
 title: Upgrade Kubernetes and Addons with Konvoy v1.6
 menuWeight: 5
 excerpt: Terraform migration when upgrading the Kubernetes version and platform service addons with Konvoy v1.6
-beta: false
-enterprise: false
 ---
 
 ## Terraform files

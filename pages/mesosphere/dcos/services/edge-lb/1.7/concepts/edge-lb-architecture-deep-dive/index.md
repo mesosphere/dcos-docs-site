@@ -4,7 +4,6 @@ navigationTitle: Architectural deep-dive
 title: Architectural deep-dive
 menuWeight: 20
 excerpt: Provides a more detailed view of Edge-LB components within the network topology for a cluster
-enterprise: false
 ---
 
 Edge-LB provides layer-7 inbound load balancing and proxying through the Edge-LB API server and Edge-LB pools. This section provides a deeper view into the details of the Edge-LB architecture and how it works.

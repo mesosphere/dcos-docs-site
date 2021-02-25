@@ -5,7 +5,6 @@ title: HAProxy API Reference
 menuWeight: 90
 excerpt: Endpoints exposed by HAProxy instances
 
-enterprise: false
 ---
 
 

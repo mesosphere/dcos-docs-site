@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: 为无法访问的任务配置 Marathon
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

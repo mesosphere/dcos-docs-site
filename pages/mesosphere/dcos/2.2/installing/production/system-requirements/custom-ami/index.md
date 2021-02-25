@@ -4,7 +4,6 @@ navigationTitle: Custom AMI
 title: Installing using a Custom AMI
 menuWeight: 20
 excerpt: Using AWS machine images to launch DC/OS
-beta: false
 model: /mesosphere/dcos/2.2/data.yml
 ---
 

@@ -4,7 +4,6 @@ navigationTitle: Install on-premises
 title: Install on-premises
 menuWeight: 30
 excerpt: Install Konvoy in an on-premises environment
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

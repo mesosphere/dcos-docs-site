@@ -4,8 +4,6 @@ navigationTitle:  Debugging
 title: Debugging
 menuWeight: 102
 excerpt: Some common errors you might find
-featureMaturity:
-enterprise: false
 ---
 
 The following topics address some common errors you may encounter while configuring or managing your DC/OS Apache NiFi Service.

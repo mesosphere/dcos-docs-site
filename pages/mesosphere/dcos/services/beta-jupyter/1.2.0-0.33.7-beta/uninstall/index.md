@@ -4,8 +4,6 @@ navigationTitle: Uninstall
 title: Uninstall
 menuWeight: 90
 excerpt: Uninstall JupyterLab
-featureMaturity:
-enterprise: false
 beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache

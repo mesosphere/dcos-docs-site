@@ -4,7 +4,6 @@ navigationTitle:  Release notes
 title: Release notes
 menuWeight: 101
 excerpt: Provides release-specific information for Edge-LB
-enterprise: false
 ---
 
 These Edge-LB Release Notes summarize release-specific changes that fix issues or update Edge-LB features for DC/OS&trade; clusters.

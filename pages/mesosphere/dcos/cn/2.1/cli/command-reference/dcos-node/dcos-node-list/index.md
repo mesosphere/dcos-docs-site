@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: 显示 DC/OS 节点信息
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # 说明

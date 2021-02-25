@@ -4,7 +4,6 @@ navigationTitle: What is Edge-LB?
 title: What is Edge-LB?
 menuWeight: 5
 excerpt: Introduces the high-level capability that Edge-LB provides
-enterprise: false
 ---
 
 Conceptually, a load balancer provides a network layer that distributes client requests to applications. In its simplest form, you can picture load balancing like this:

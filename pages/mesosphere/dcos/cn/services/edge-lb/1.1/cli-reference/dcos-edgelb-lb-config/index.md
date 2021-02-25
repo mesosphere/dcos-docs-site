@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb lb-config
 title: dcos edgelb lb-config
 menuWeight: 20
 excerpt: 显示与池关联的运行负载平衡器配置
-enterprise: false
 ---
 
 # 说明

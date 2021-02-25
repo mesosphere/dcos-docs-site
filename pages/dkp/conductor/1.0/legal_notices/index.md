@@ -1,7 +1,6 @@
 ---
 layout: layout.pug
 title: Legal Notices
-beta: false
 menuWeight: 105
 excerpt: List of Third-party trademarks mentioned in the Conductor documentation
 render: mustache

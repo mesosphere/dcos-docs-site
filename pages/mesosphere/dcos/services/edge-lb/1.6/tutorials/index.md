@@ -4,7 +4,6 @@ navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 15
 excerpt: Provides step-by-step instructions to illustrate key Edge-LB tasks
-enterprise: false
 ---
 
 The tutorials in this section cover how to:

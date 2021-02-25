@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb lb-config
 title: dcos edge-lb lb-config
 menuWeight: 24
 excerpt: Reference for the dcos edge-lb lb-config command
-enterprise: false
 ---
 
 Use this command to show the running loa balancer configuration associated with the pool. You can view the active load balancer configuration for all load balancers in a pool.

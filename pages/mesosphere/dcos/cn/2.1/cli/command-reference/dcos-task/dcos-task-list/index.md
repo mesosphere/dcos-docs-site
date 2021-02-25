@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: 列出群集内的任务
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # 说明

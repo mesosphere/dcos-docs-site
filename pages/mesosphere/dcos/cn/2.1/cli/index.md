@@ -4,7 +4,6 @@ navigationTitle:  CLI
 title: CLI
 menuWeight: 50
 excerpt: 了解 DC/OS 中的命令行界面实用程序
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

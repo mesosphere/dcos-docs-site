@@ -4,8 +4,6 @@ navigationTitle:  Upgrading
 title: Upgrading
 menuWeight: 60
 excerpt:
-featureMaturity:
-enterprise: false
 ---
 <h1>Upgrading</h1>
 

@@ -4,7 +4,6 @@ navigationTitle:  Component Management
 title: Component Management
 menuWeight: 5
 excerpt: Installing and managing DC/OS component services
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

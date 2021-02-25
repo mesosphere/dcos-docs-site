@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Introducing Conductor
 title: Introducing Conductor
 menuWeight: 05
-beta: false
 excerpt: Introducing Conductor
 ---
 D2iQ’s Conductor is a distributed learning platform that enables you to train your team using interactive cloud-native content - using a mix of traditional documentation, video training, self-guided labs, quizzes and tests - all served in a web-based single-page integrated learning environment.

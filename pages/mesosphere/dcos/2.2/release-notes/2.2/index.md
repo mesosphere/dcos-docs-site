@@ -4,7 +4,6 @@ navigationTitle: DC/OS 2.2.0 Release Notes
 title: DC/OS 2.2 Release Notes
 menuWeight: 5
 render: mustache
-beta: false
 model:  /mesosphere/dcos/2.2/data.yml
 excerpt: Release notes for DC/OS 2.2.0, including Open Source attribution, and version policy.
 ---

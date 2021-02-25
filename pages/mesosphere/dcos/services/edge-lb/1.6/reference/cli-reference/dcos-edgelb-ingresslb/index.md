@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb ingress-lb
 title: dcos edge-lb ingress-lb
 menuWeight: 21
 excerpt: Reference for the dcos edge-lb ingress-lb command
-enterprise: false
 ---
 
 Use this command to return a list of all inbound (ingress) endpoints for a specified load balancing pool.

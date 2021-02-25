@@ -4,7 +4,6 @@ navigationTitle: Granting Access to Kubernetes Resources
 title: Granting Access to Kubernetes Resources
 menuWeight: 10
 excerpt: Grant access to Kubernetes resources using RBAC
-enterprise: false
 ---
 
 ## Granting Access to External Users

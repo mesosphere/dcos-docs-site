@@ -6,7 +6,6 @@ menuWeight: 15
 excerpt: Establishing an SSH connection to master or agent nodes
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

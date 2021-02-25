@@ -6,7 +6,6 @@ menuWeight: 19
 excerpt: 从 DC/OS 中删除 Marathon 应用程序
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 # 说明

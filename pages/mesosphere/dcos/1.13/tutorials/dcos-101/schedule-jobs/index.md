@@ -4,7 +4,6 @@ navigationTitle:  Create and schedule jobs
 title: Create and schedule jobs
 menuWeight: 6
 excerpt: Provides instructions for creating, scheduling, and managing jobs to run on a DC/OS cluster (part 6)
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

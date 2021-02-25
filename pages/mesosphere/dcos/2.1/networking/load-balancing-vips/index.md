@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Understanding load balancing and virtual IPs
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Understanding Marathon application definitions
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 This topic lists all available properties for Marathon&trade; application definitions and an example JSON application definition file with all properties shown.

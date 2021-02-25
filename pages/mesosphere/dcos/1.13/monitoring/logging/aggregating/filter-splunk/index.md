@@ -6,7 +6,6 @@ menuWeight: 4
 excerpt: Filtering system paths of logs with Splunk
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

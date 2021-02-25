@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus
 title: dcos monitoring prometheus
 menuWeight: 4
 excerpt: Query the Prometheus endpoint
-enterprise: false
 ---
 
 # Description

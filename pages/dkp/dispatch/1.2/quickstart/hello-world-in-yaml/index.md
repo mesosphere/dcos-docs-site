@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Helloworld in YAML
 title: Setting up Helloworld on GitHub in YAML
 menuWeight: 50
-beta: false
 excerpt: Using YAML, configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 

@@ -6,7 +6,6 @@ menuWeight: 7
 excerpt: 卸载插件
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 # 说明

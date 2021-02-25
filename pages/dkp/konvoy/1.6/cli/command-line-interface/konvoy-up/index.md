@@ -4,8 +4,6 @@ navigationTitle: konvoy up
 title: konvoy up
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Run provision, and deploy (kubernetes, container-networking, and addons) to create or update a Kubernetes cluster reflecting the provided configuration and inventory files
 ---
 

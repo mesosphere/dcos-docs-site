@@ -4,8 +4,6 @@ navigationTitle: 服务发现
 title: 服务发现配置选项
 menuWeight: 45
 excerpt: 服务发现
-featureMaturity:
-enterprise: false
 ---
 
 # Service Discovery 配置模板

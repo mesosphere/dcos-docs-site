@@ -4,7 +4,6 @@ navigationTitle: konvoy pull
 title: konvoy pull
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Pull cluster state
 ---
 

@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon group list
 title: dcos marathon group list
 menuWeight: 18
 excerpt: 显示组列表
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

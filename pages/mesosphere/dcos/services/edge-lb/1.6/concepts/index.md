@@ -4,7 +4,6 @@ navigationTitle: Edge-LB concepts
 title: Edge-LB concepts
 menuWeight: 5
 excerpt: Edge-LB provides load balancing for services that run on DC/OS Enterprise clusters
-enterprise: false
 ---
 
 At its core, Edge-LB provides secure communication, load balancing, and workload distribution for external client requests wanting access to services running inside of DC/OS&trade; clusters. The application name, node, and port define the **frontend** for the inbound request. The load balancer applies its configuration rules and routes the inbound traffic to the appropriate **backend** servers that are configured to respond to the service request.

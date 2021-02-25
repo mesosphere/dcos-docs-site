@@ -6,7 +6,6 @@ menuWeight: 110
 excerpt: 向您的长期运行 DC/OS 服务添加图形处理单元
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 DC/OS&trade; 支持将 GPU（图形处理单元）分配给您的长期运行 DC/OS 服务。在服务中添加 GPU 可以显著加快大数据工作负载。借助基于 GPU 的计划，您可以共享传统和机器学习工作负载的群集资源，还可以在这些群集内动态分配 GPU 资源并在需要时释放它们。您可以为有需要的工作负载预留 GPU 资源，或将这些启用了 GPU 的资源与基础架构的其余部分进行混合，以提高总体利用率。在安装了启用 GPU 的 DC/OS 之后，您可以通过 `gpus` 参数在应用定义中指定 GPU。

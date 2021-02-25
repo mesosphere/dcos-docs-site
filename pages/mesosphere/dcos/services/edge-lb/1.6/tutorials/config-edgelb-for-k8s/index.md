@@ -4,7 +4,6 @@ navigationTitle: Connecting to Kubernetes using Edge-LB
 title: Connecting to Kubernetes using Edge-LB
 menuWeight: -1
 excerpt: How to connect to Kubernetes from a DC/OS Enterprise cluster using Edge-LB load balancer
-enterprise: false
 ---
 
 **%%% This topic was hidden from view using a negative menuWeight value - is it correct and should we display it?**

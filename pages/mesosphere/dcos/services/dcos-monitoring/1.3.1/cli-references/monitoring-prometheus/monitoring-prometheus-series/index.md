@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus series
 title: dcos monitoring prometheus series
 menuWeight: 1
 excerpt: Return the list of time series that match a certain label set
-enterprise: false
 ---
 
 # Description

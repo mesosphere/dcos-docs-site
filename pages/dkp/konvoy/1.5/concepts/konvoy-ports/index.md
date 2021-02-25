@@ -4,7 +4,6 @@ navigationTitle: Konvoy Port Usage
 title: Konvoy Ports
 menuWeight: 10
 excerpt: Understanding configured ports for Konvoy deployment
-enterprise: false
 ---
 
 This section describes pre-configured ports in your Konvoy deployment.

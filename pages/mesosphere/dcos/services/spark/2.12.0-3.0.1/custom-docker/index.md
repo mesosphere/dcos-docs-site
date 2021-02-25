@@ -4,7 +4,6 @@ navigationTitle: Custom Docker Images
 excerpt: Customizing the Docker image in which Spark runs
 title: Custom Docker Images
 menuWeight: 95
-featureMaturity:
 model: /mesosphere/dcos/services/spark/data.yml
 render: mustache
 ---

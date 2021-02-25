@@ -4,8 +4,6 @@ navigationTitle: Helm CLI
 title: Helm CLI
 menuWeight: 5
 excerpt: Helm CLI Usage
-beta: false
-enterprise: false
 ---
 
 This section describes how to install the Helm CLI. Helm can be installed either from source or from pre-built binary releases. This topic focuses on installing the latest Helm binaries, which is known as Helm 3.

@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: 使用 DC/OS CLI 配置服务
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

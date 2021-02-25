@@ -4,7 +4,6 @@ navigationTitle:  dcos auth
 title: dcos auth
 menuWeight: 1
 excerpt: 管理 DC/OS 身份和访问
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

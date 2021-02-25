@@ -5,7 +5,6 @@ title: Jenkins for DC/OS Beta Release Notes
 menuWeight: 0
 beta: true
 excerpt: Discover the new features, updates, and known limitations in this release of the Jenkins for DC/OS Service
-enterprise: false
 --- 
 
 Jenkins 4.0.0-2.204.2

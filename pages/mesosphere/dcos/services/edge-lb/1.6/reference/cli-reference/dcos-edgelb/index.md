@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb
 title: dcos edge-lb
 menuWeight: 3
 excerpt: Reference for the dcos edge-lb command
-enterprise: false
 ---
 
 Use this command to return information about a specified Edge-LB service instance or as the **parent command** to performing Edge-LB administrative and pool configuration operations from the command-line.

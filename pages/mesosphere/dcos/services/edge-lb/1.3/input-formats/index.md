@@ -5,7 +5,6 @@ title: Input Formats
 menuWeight: 45
 excerpt: Pool configuration file format information
 
-enterprise: false
 ---
 
 

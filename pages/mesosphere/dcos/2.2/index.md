@@ -5,7 +5,6 @@ title: Documentation for Mesosphere DC/OS 2.2.0
 version: 2.2.0
 menuWeight: 0
 excerpt: Learning DC/OS
-beta: false 
 render: mustache
 ---
 

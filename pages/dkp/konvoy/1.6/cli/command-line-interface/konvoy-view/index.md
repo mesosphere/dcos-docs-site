@@ -4,8 +4,6 @@ navigationTitle: konvoy view
 title: konvoy view
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Views various artifacts
 ---
 

@@ -6,7 +6,6 @@ menuWeight: 7
 excerpt: 在 CLI 中卸载 DC/OS 服务
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 可在 DC/OS&trade; CLI 中卸载服务。如果 {{ model.packageRepo }} 服务有任何不能通过正常卸载过程清理的保留资源，也可能需要运行框架清理器脚本。[框架清理器脚本](#framework-cleaner) 从 ZooKeeper&trade; 中删除服务实例以及与其关联的任何数据。

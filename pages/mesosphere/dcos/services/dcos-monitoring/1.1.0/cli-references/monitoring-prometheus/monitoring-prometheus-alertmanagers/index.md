@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus alertmanagers
 title: dcos monitoring prometheus alertmanagers
 menuWeight: 1
 excerpt: Return an overview of the current state of the Prometheus Alertmanager discovery
-enterprise: false
 ---
 
 # Description

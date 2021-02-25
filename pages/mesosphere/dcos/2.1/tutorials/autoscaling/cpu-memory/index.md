@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Autoscaling Marathon services using CPU and memory
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

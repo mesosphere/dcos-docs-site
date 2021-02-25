@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 使用 Telegraf 监测 Mesos
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 Telegraf&trade; 中的 Apache&reg; Mesos&reg; 输入插件从每个 Mesos 代理节点和管理节点收集 [可观测性度量标准](http://mesos.apache.org/documentation/latest/monitoring/)。插件在 DC/OS&trade; 1.12 版或更高版本中是默认启用的。

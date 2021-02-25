@@ -4,8 +4,6 @@ navigationTitle: Backup
 title: Backup 
 menuWeight: 30
 excerpt: Backing up your data to AWS S3 storage
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---

@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb create
 title: dcos edgelb create
 menuWeight: 5
 excerpt: 根据 JSON 或 YAML 中写入的定义文件创建单个池。
-enterprise: false
 ---
 
 # 说明

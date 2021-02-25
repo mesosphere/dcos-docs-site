@@ -4,7 +4,6 @@ navigationTitle:  Adding Agent Nodes
 title: Adding Agent Nodes
 menuWeight: 800
 excerpt: Adding agent nodes to an existing DC/OS cluster
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

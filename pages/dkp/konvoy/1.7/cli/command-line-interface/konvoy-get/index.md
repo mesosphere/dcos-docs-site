@@ -4,7 +4,6 @@ navigationTitle: konvoy get
 title: konvoy get
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Get cluster related information
 ---
 

@@ -5,7 +5,6 @@ menuWeight: 160
 excerpt: Developing your own DC/OS components
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

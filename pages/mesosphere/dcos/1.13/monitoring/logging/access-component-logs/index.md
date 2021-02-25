@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Managing user access to system and component logs
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
 enterprise: true
 ---
 

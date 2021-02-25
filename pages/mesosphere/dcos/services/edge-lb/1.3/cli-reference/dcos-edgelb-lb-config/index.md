@@ -5,7 +5,6 @@ title: dcos edgelb lb-config
 menuWeight: 20
 excerpt: Display the running load-balancer config associated with a pool
 
-enterprise: false
 ---
 
 # Description

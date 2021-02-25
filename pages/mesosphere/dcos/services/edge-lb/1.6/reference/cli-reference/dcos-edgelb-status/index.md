@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb status
 title: dcos edge-lb status
 menuWeight: 57
 excerpt: Reference for the dcos edge-lb status command
-enterprise: false
 ---
 
 Use this command to return a list of the load balancer task information associated with a pool. For example, you can run this command to return the agent IP address and task ID for a specified Edge-LB pool.

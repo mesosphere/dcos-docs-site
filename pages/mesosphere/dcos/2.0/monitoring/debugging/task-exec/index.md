@@ -4,8 +4,6 @@ navigationTitle:  Using dcos task exec
 title: Using dcos task exec
 menuWeight: 12
 excerpt: Using the dcos task exec command inside a task container
-beta: false
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

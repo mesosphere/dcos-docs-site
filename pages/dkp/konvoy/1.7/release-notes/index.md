@@ -4,8 +4,6 @@ navigationTitle: Release Notes
 title: Release Notes Konvoy 1.7
 menuWeight: 0
 excerpt: View release-specific information for Konvoy 1.7
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->

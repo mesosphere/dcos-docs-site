@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Deleting a quota
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

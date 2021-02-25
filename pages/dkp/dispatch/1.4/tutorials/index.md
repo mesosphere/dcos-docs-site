@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle: Tutorials
 title: Tutorials
-beta: false
 category: K-Sphere
 menuWeight: 60
 excerpt: Easy to follow tutorials for learning and implementing Dispatch's features. 

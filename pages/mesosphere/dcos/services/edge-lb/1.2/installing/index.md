@@ -4,7 +4,6 @@ navigationTitle:  Installing
 title: Installing
 menuWeight: 10
 excerpt: Configuring a service account and installing Edge-LB
-enterprise: false
 ---
 
 To configure a service account and install the Edge-LB package, use the instructions below.

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Monitoring
 title: Monitoring Dispatch
 menuWeight: 20
-beta: false
 excerpt: Monitoring and dashboards for Dispatch
 ---
 

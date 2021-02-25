@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: Launching a service with a Marathon app definition
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Resource Alert Settings
 title: Resource Alert Settings
 menuWeight: 10

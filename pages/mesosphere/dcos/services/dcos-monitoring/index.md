@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: DC/OS Monitoring Service
 title: DC/OS Monitoring Service
 menuWeight: 21
-beta: false
 excerpt:
 category: Monitoring
 ---

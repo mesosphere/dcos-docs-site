@@ -4,7 +4,6 @@ navigationTitle:  配置CLI
 title: 配置CLI
 menuWeight: 2
 excerpt: 配置命令行界面
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

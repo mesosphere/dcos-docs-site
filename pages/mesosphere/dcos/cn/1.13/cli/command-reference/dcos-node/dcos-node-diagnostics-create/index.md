@@ -4,7 +4,6 @@ navigationTitle:  dcos node diagnostics create
 title: dcos node diagnostics create
 menuWeight: 3
 excerpt: 创建诊断捆绑包
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

@@ -4,7 +4,6 @@ navigationTitle:  添加代理节点
 title: 添加代理节点
 menuWeight: 800
 excerpt: 向现有 DC/OS 群集添加代理节点
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

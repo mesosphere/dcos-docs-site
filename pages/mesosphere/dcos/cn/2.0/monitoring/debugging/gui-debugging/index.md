@@ -5,8 +5,6 @@ menuWeight: 0
 excerpt: 使用 DC/OS UI 进行调试
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-beta: false
-enterprise: false
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi pod
 title: dcos nifi pod
 menuWeight: 66
 excerpt: Displays pod related informations and allows pod operations of the NiFi service
-featureMaturity:
-enterprise: false
 model: ../../../data.yml
 render: mustache
 ---

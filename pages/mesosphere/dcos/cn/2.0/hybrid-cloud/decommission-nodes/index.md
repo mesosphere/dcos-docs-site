@@ -6,7 +6,6 @@ menuWeight: 15
 excerpt: 停用节点
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 为通过添加节点来支持云爆发，还必须支持停用节点。删除节点涉及两个步骤：

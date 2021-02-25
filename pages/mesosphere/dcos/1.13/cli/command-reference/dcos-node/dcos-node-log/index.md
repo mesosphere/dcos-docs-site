@@ -6,7 +6,6 @@ menuWeight: 9
 excerpt: Displaying Mesos logs for nodes
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

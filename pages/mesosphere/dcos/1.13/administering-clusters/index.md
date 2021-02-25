@@ -4,7 +4,6 @@ navigationTitle:  Administering Clusters
 title: Administering Clusters
 menuWeight: 60
 excerpt: Administering your DC/OS clusters
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

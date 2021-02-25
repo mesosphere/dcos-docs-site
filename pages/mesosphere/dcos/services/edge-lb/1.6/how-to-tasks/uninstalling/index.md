@@ -4,7 +4,6 @@ navigationTitle:  Uninstalling Edge-LB
 title: Uninstalling Edge-LB
 menuWeight: 50
 excerpt: How to uninstall the Edge-LB package
-enterprise: false
 ---
 
 You can remove the Edge-LB API server and pool packages interactively or programmatically using the Edge-LB command-line interface (CLI) or Edge-LB API calls. You should not use the DC/OS&trade; web-based console or the core DC/OS command-line interface (Marathon CLI) to create or destroy Edge-LB pools, load balancer instances, or the Edge-LB API or pool packages. You must perform Edge-LB management operations exclusively through the Edge-LB CLI or Edge-LB API.

@@ -4,8 +4,6 @@ navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 130
 excerpt: Understanding versioning schemes and policies
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
 ---

@@ -6,7 +6,6 @@ menuWeight: 9
 excerpt: Updating an application
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

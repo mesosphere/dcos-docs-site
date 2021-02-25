@@ -5,7 +5,6 @@ title: Edge-LB Pool Config Reference
 menuWeight: 80
 excerpt: Reference for all possible Edge-LB pool configuration values
 
-enterprise: false
 ---
 
 This is a reference for all possible Edge-LB pool configuration values, as well as some examples to demonstrate various use-cases.

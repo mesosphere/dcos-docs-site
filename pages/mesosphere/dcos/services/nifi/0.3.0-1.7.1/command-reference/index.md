@@ -4,8 +4,6 @@ navigationTitle:  Command Reference
 title: Command Reference
 menuWeight: 60
 excerpt: Commands used in the DC/OS NiFi Service
-featureMaturity:
-enterprise: false
 model: ../../data.yml
 render: mustache
 ---

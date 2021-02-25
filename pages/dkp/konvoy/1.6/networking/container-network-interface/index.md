@@ -4,8 +4,6 @@ navigationTitle: Container Network Interface
 title: Calico
 menuWeight: 8
 excerpt: Calico Container Networking Interface
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

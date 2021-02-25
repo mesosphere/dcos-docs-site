@@ -4,7 +4,6 @@ navigationTitle:  Version support
 title: Version support
 menuWeight: 102
 excerpt: Summarizes supported versions for Edge-LB
-enterprise: false
 ---
 
 # Edge-LB releases by DC/OS version

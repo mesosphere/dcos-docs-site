@@ -4,8 +4,6 @@ navigationTitle: Advanced provisioning options VMWare vSphere (vSphere)
 title: Advanced provisioning options VMWare vSphere (vSphere)
 menuWeight: 5
 excerpt: Configure advanced provisioning options for installing Konvoy on VMWare vSphere (vSphere)
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 显示服务日志
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # 说明

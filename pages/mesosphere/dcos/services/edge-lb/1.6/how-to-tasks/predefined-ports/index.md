@@ -4,7 +4,6 @@ navigationTitle: Exposing tasks using pre-assigned ports
 title: Exposing tasks using pre-assigned ports
 menuWeight: 30
 excerpt: How to expose tasks using a pre-assigned port for Edge-LB load balancing
-enterprise: false
 ---
 
 You can expose tasks for load balancing using a pre-assigned port or by assigning a port dynamically.

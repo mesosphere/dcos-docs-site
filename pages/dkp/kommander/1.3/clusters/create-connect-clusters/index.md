@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Creating or Connecting Clusters
 title: Creating or Connecting Clusters
 menuWeight: 7

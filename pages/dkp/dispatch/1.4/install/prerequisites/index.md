@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Prerequisites
 title: Prerequisites
 menuWeight: 10
-beta: false
 excerpt: Supported operating systems, packages, and hardware configurations
 ---
 The following sections describe the operating systems, software packages and hardware configurations required to run Dispatch.

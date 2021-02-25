@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb pool-template update
 title: dcos edge-lb pool-template update
 menuWeight: 51
 excerpt: Reference for the dcos edge-lb pool-template update command
-enterprise: false
 ---
 
 Use this command to update a custom config template for an Auto Pool.

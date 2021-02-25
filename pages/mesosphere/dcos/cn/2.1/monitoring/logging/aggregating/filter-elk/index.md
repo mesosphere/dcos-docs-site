@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: 筛选特定任务的日志输出
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

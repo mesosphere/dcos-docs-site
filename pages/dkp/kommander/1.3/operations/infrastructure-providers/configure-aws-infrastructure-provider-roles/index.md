@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Configure an AWS Provider with a User Role
 title: Configure an AWS Provider with a User Role
 excerpt: Configure your provider to add resources to your AWS account

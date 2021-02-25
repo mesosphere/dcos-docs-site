@@ -4,8 +4,6 @@ navigationTitle: Change the Group Prefix
 title: Change the Group Prefix
 menuWeight: 30
 excerpt: Access and change the OIDC Group Prefix
-beta: false
-enterprise: false
 ---
 
 By default, kube-oidc-proxy prefixes `oidc:` to all group names returned for the user. For example, if the Identity Provider reports that the user belongs to the group `accounting` , then Dex changes this to `odic:accounting`.

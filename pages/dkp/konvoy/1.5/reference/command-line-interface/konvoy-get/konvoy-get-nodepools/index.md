@@ -4,7 +4,6 @@ navigationTitle: konvoy get nodepools
 title: konvoy get nodepools
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Print nodepools
 ---
 

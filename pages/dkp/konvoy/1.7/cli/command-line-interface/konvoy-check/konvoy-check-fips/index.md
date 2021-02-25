@@ -4,7 +4,6 @@ navigationTitle: konvoy check fips
 title: konvoy check fips
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Run fips-140-2 module validation checks
 ---
 

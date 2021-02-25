@@ -3,9 +3,7 @@ layout: layout.pug
 navigationTitle: Jenkins for DC/OS Release Notes
 title: Jenkins for DC/OS Release Notes
 menuWeight: 0
-beta: false
 excerpt: Discover the new features, updates, and known limitations in this release of the Jenkins for DC/OS Service
-enterprise: false
 --- 
 Jenkins 4.0.0-2.204.6 was released on 16, July 2020.
 

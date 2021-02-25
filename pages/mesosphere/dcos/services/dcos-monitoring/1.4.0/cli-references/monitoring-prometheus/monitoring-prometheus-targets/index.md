@@ -4,7 +4,6 @@ navigationTitle:  dcos monitoring prometheus targets
 title: dcos monitoring prometheus targets
 menuWeight: 1
 excerpt: Return an overview of the current state of the Prometheus target discovery
-enterprise: false
 ---
 
 # Description

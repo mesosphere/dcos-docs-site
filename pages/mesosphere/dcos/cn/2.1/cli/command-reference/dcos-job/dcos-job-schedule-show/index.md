@@ -6,7 +6,6 @@ menuWeight: 8
 excerpt: 查看作业时间表
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # 说明

@@ -4,8 +4,6 @@ navigationTitle: Autoscaling
 title: Autoscaling clusters
 menuWeight: 140
 excerpt: Autoscaling a Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

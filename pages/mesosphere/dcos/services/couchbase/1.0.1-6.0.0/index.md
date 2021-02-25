@@ -6,8 +6,6 @@ menuWeight: 1
 excerpt: Documentation for DC/OS Couchbase 1.0.1-6.0.0
 model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache
-featureMaturity:
-enterprise: false
 ---
 
 {{ model.productName }} {{ model.techName }} Service is an autonomous service that makes it easy to deploy and operate {{ model.serverName }} and the {{ model.syncGatewayName }} on Mesosphere [{{ model.productName }}](https://mesosphere.com/product/). For more information on Couchbase, see the [Couchbase documentation](https://developer.couchbase.com/documentation/server/current/introduction/intro.html).

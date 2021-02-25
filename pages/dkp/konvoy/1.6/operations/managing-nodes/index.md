@@ -4,8 +4,6 @@ navigationTitle: Add, Change, and Remove Nodes
 title: Add, Change, and Remove Nodes
 menuWeight: 5
 excerpt: Add, change, and remove nodes your Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

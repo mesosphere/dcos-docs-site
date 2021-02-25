@@ -5,7 +5,6 @@ title: Tutorials
 menuWeight: 60
 excerpt: Learning to use Edge-LB
 
-enterprise: false
 ---
 
 The tutorials in this section cover the following items:

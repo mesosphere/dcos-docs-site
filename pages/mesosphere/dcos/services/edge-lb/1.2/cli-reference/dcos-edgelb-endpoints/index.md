@@ -5,7 +5,6 @@ title: dcos edgelb endpoints
 menuWeight: 15
 excerpt: List all endpoints for a pool
 
-enterprise: false
 ---
 
 # Description

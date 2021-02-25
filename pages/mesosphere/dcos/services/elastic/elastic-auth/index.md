@@ -3,7 +3,6 @@ layout: layout.pug
 title: Configuring DC/OS Access for Elastic
 menuWeight: 290
 excerpt:
-featureMaturity:
 enterprise: true
 ---
 

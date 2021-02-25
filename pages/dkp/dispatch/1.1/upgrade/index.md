@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Updating
 title: Updating
 menuWeight: 85
-beta: false
 excerpt: Update your installation of Dispatch
 ---
 

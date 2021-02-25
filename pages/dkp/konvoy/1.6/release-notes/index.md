@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
-beta: false
 excerpt: Release notes Konvoy 1.6
 ---
 

@@ -4,8 +4,6 @@ navigationTitle: konvoy uncordon
 title: konvoy uncordon
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Marks nodes in the node pool as schedulable
 ---
 

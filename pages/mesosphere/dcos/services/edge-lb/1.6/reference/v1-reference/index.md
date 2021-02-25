@@ -4,7 +4,6 @@ navigationTitle:  Edge-LB pool configuration V1
 title: Pool configuration (REST API V1)
 menuWeight: -1
 excerpt: Provides reference information for Edge-LB pool configuration settings (REST API V1)
-enterprise: false
 ---
 
 The tables below describe the possible configuration options if you are using the [Edge-LB REST API version 1](#api-v1). For examples of pool configuration settings when you are working with the Edge-LB REST API version 1 specification, see [Pool configuration examples (REST API V1)](/services/edge-lb/reference/v1-reference/pool-config-v1-examples/).

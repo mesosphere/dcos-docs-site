@@ -4,8 +4,6 @@ navigationTitle: konvoy cordon
 title: konvoy cordon
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Marks nodes as unschedulable
 ---
 

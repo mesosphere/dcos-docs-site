@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Getting Started
 title: Getting Started
 menuWeight: 30
-beta: false
 excerpt: Getting started
 ---
 

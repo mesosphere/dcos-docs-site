@@ -4,7 +4,6 @@ navigationTitle: V2 池参考
 title: V2 池参考
 menuWeight: 85
 excerpt: V2 API 中所有 Edge-LB 池配置选项的参考
-enterprise: false
 ---
 
 

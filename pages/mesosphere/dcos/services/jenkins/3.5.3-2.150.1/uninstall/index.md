@@ -4,8 +4,6 @@ navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 70
 excerpt:
-featureMaturity:
-enterprise: false
 ---
 <h1>About uninstalling Jenkins for DC/OS</h1>
 

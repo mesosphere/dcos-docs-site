@@ -4,7 +4,6 @@ navigationTitle:  Configuring DC/OS access for Percona-Server-MongoDB
 title: Configuring DC/OS access for Percona-Server-MongoDB
 menuWeight: 100
 excerpt: How to use Percona-Server-MongoDB with DC/OS
-featureMaturity:
 community: true
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache

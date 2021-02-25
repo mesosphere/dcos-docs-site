@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Monitoring a DC/OS cluster
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 Here are some recommendations for monitoring a DC/OS cluster. You can use any monitoring tools. The endpoints listed below will help you troubleshoot when issues occur.

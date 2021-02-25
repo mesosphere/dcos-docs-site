@@ -4,8 +4,6 @@ navigationTitle: 支持的版本
 title: 支持的版本
 menuWeight: 120
 excerpt: 了解 DC/OS Prometheus 服务安装包版本
-featureMaturity:
-enterprise: false
 ---
 
 # 支持的版本

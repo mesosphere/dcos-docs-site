@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: 扩展组
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

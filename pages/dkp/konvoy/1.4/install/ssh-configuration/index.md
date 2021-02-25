@@ -4,7 +4,6 @@ navigationTitle: Advanced SSH configurations
 title: Advanced SSH configurations
 menuWeight: 90
 excerpt: Advanced SSH configurations for the Konvoy installer
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

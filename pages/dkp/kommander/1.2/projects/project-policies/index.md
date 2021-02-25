@@ -1,6 +1,5 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Project Policies
 title: Project Policies
 menuWeight: 1

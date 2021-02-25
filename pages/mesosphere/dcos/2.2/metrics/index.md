@@ -6,8 +6,6 @@ menuWeight: 100
 excerpt: Understanding the metrics component of DC/OS
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-beta: false
-enterprise: false
 ---
 
 # Overview

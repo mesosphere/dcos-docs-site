@@ -4,9 +4,7 @@ navigationTitle: Install
 title: Install
 menuWeight: 10
 excerpt: Install and customize Mesosphere Jupyter Service (Beta)
-featureMaturity:
 beta: true
-enterprise: false
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache
 ---

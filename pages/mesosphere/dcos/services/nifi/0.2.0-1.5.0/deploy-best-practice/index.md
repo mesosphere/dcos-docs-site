@@ -4,8 +4,6 @@ navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
 menuWeight: 30
 excerpt: Best practices for production deployment
-featureMaturity:
-enterprise: false
 ---
 # Deployment Best Practices
 

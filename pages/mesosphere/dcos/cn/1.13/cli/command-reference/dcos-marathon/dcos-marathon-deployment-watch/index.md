@@ -6,7 +6,6 @@ menuWeight: 16
 excerpt: 监控应用程序部署
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

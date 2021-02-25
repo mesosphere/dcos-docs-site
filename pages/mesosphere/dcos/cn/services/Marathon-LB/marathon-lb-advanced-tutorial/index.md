@@ -4,7 +4,6 @@ navigationTitle: 教程 - 使用 Marathon-LB 部署内部和外部负载平衡�
 title: 使用 Marathon-LB 部署内部和外部负载平衡应用
 menuWeight: 6
 excerpt: 教程 - Marathon-LB 作为内部和外部负载均衡器
-enterprise: false
 ---
 
 在本教程中，Marathon-LB 用作内部和外部负载均衡器。外部负载均衡器用于将外部 HTTP 流量路由到群集，内部负载均衡器用于内部服务发现和负载均衡。由于我们将在 AWS 上执行此操作，外部流量首先会冲击经过配置以公开我们的“公共”代理节点的外部负载均衡器。

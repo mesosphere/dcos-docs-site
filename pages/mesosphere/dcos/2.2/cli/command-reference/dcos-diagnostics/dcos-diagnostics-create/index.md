@@ -4,7 +4,6 @@ navigationTitle:  dcos diagnostics create
 title: dcos diagnostics create
 menuWeight: 3
 excerpt: Creating a diagnostics bundle
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---

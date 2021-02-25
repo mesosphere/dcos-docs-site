@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb pool-template delete
 title: dcos edge-lb pool-template delete
 menuWeight: 36
 excerpt: Reference for the dcos edge-lb pool-template delete command
-enterprise: false
 ---
 
 Use this command to remove an Auto Pool template and delete the pool if it is running.

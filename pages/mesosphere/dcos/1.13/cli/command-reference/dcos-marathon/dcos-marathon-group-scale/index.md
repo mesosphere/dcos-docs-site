@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: Scaling a group
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

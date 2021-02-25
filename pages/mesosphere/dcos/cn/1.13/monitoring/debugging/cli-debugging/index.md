@@ -5,8 +5,6 @@ menuWeight: 10
 excerpt: 从命令行界面调试 DC/OS
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 DC/OS CLI 提供命令以调试未按照预期部署或表现的服务。要查看完整日志，请附加 `--log-level=debug` 到任何 DC/OS CLI 命令。例如，要排除 HDFS 软件包安装故障，请使用此命令：

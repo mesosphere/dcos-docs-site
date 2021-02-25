@@ -5,7 +5,6 @@ title: 使用 Jenkins 部署 Marathon 应用程序
 menuWeight: 4
 excerpt: 使用 Jenkins for DC/OS 在 Marathon 上部署应用程序
 
-enterprise: false
 ---
 
 

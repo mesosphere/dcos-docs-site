@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: Understanding distributed process management in a DC/OS cluster
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

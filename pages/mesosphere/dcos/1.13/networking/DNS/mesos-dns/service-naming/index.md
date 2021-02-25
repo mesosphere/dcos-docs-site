@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Understanding Mesos-DNS service naming conventions
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

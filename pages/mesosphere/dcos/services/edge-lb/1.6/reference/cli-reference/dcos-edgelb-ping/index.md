@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb ping
 title: dcos edge-lb ping
 menuWeight: 30
 excerpt: Reference for the dcos edge-lb ping command
-enterprise: false
 ---
 
 Use this command to test the readiness of the Edge-LB API server. A successful result is the string `pong`. This command returns an HTTP error if the API is not yet available.

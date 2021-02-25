@@ -4,8 +4,6 @@ navigationTitle: konvoy create
 title: konvoy create
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Creates a new node pool in the cluster configuration
 ---
 

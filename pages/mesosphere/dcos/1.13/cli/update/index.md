@@ -4,7 +4,6 @@ navigationTitle:  Updating the CLI
 title: Updating the CLI
 menuWeight: 3
 excerpt: Updating the command line interface
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

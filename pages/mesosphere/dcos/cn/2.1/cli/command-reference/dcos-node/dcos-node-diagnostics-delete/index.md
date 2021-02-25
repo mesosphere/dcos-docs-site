@@ -4,7 +4,6 @@ navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
 menuWeight: 4
 excerpt: 显示诊断捆绑包的详细信息
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

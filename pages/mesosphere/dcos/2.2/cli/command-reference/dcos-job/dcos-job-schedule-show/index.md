@@ -6,7 +6,6 @@ menuWeight: 8
 excerpt: Viewing a job schedule
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 # Description

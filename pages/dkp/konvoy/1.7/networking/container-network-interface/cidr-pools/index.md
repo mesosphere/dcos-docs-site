@@ -4,8 +4,6 @@ navigationTitle: CIDR Pools
 title: CIDR Pools
 menuWeight: 8
 excerpt: Configure custom CIDR pools
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

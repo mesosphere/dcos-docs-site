@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: 了解 Mesos-DNS 服务命名约定
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

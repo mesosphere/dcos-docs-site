@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 了解 Marathon 任务类别
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 Marathon 将任务分为三类：初始、非终端和终端。这些类别中的任务可能处于下图所示的一种状态。要了解任务的状态，可以查看 DC/OS 日志或查询 [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html)  的[事件流](http://mesosphere.github.io/marathon/docs/event-bus.html)。(/v2/events).

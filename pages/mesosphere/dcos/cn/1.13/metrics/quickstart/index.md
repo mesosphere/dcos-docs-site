@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: DC/OS 度量标准入门
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
 ---
 
 

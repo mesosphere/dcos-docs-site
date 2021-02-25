@@ -4,8 +4,6 @@ navigationTitle: Addon errors and failures
 title: Addon errors and failures
 menuWeight: 3
 excerpt: Troubleshoot and address addon errors and failures
-beta: false
-enterprise: false
 ---
 
 Occasionally, you might see errors or failures as the addons you are deploying are enabled when you run the `konvoy up` command.

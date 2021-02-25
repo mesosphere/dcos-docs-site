@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi config target_id
 title: dcos nifi config target_id
 menuWeight: 4
 excerpt: List ID of the target configuration.
-featureMaturity:
-enterprise: false
 model: ../../../../data.yml
 render: mustache
 ---

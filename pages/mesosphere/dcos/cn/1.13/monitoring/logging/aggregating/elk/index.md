@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 从群集节点管理系统和应用程序日志
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

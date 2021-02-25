@@ -6,7 +6,6 @@ menuWeight: 130
 excerpt: 使用 Marathon 管理您的流程和服务
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 DC/OS 使用 Marathon 管理流程和服务。

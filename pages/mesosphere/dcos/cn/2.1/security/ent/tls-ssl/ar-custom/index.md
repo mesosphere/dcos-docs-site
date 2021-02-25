@@ -4,7 +4,6 @@ navigationTitle:  配置自定义外部证书
 title: 配置自定义外部证书
 menuWeight: 50
 excerpt: 配置 DC/OS Enterprise 以使用自定义外部证书
-beta: false
 enterprise: true
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml

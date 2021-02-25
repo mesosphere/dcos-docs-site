@@ -4,7 +4,6 @@ navigationTitle:  转换代理节点类型
 title: 转换代理节点类型
 menuWeight: 700
 excerpt: 将代理节点转换为公共或私有代理节点。
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

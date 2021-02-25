@@ -5,7 +5,6 @@ title: Tutorial - Autoscaling Marathon services using CPU and memory
 menuWeight: 0
 excerpt: Autoscaling Marathon services using CPU and memory
 
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

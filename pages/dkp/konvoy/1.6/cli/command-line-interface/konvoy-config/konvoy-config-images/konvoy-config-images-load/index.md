@@ -4,8 +4,6 @@ navigationTitle: konvoy config images load
 title: konvoy config images load
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Load all docker images used during the installation from tars
 ---
 

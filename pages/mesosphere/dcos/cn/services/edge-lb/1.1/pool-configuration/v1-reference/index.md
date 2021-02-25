@@ -4,7 +4,6 @@ navigationTitle: V1 池参考
 title: V1 池参考
 menuWeight: 80
 excerpt: V1 API 中所有 Edge-LB 池配置选项的参考
-enterprise: false
 ---
 
 # V1 池参考

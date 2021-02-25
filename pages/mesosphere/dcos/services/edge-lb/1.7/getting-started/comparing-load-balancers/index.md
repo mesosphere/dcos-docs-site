@@ -4,7 +4,6 @@ navigationTitle: Comparing load balancing services
 title: Comparing load balancing services
 menuWeight: 10
 excerpt: Summarizes the differences between Marathon-LB and Edge-LB load balancing services
-enterprise: false
 ---
 
 Marathon-LB is the predecessor of Edge-LB. Using Marathon-LB, a single container for the load balancer service manages all activity, including:

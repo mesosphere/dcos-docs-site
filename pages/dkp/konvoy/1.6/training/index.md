@@ -4,8 +4,6 @@ navigationTitle: Training
 title: Training
 menuWeight: 50
 excerpt: Konvoy Training Informaton
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

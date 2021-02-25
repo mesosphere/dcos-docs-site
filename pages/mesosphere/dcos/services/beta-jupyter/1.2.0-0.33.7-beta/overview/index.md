@@ -4,8 +4,6 @@ navigationTitle: Overview
 title: Overview
 menuWeight: 12
 excerpt: Overview of JupyterLab
-featureMaturity:
-enterprise: false
 beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
 render: mustache

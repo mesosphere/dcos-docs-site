@@ -6,7 +6,6 @@ menuWeight: 200
 excerpt: 配置 Chrome 和 Firefox 以信任您的 DC/OS CA。
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -5,7 +5,6 @@ title: dcos marathon app version list
 menuWeight: 10
 excerpt: 显示应用程序的版本历史记录
 
-enterprise: false
 ---
 
 

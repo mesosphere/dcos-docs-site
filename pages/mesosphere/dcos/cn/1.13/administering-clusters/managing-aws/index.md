@@ -4,7 +4,6 @@ navigationTitle:  管理 AWS
 title: 管理 AWS
 menuWeight: 9
 excerpt: 扩展 AWS 群集
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

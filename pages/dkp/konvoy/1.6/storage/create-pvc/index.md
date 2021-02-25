@@ -4,8 +4,6 @@ navigationTitle: Create a Kubernetes PVC to access NFS shared storage
 title: Create a Kubernetes Persistent Volume Claim
 menuWeight: 11
 excerpt: How to create a Kubernetes Persistent Volume Claim to access your NFS shared storage
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD030 -->

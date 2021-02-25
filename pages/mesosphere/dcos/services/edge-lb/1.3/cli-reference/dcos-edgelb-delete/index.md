@@ -5,7 +5,6 @@ title: dcos edgelb delete
 menuWeight: 10
 excerpt: Delete and uninstall an existing pool
 
-enterprise: false
 ---
 
 # Description

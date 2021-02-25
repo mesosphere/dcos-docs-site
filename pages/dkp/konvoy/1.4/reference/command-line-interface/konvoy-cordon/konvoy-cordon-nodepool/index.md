@@ -4,7 +4,6 @@ navigationTitle: konvoy cordon nodepool
 title: konvoy cordon nodepool
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Marks all nodes in the node pool as unschedulable
 ---
 

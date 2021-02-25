@@ -4,8 +4,6 @@ navigationTitle: MNIST with Spark
 title: MNIST with Spark
 menuWeight: 14
 excerpt: Tutorial for MNIST with Spark
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

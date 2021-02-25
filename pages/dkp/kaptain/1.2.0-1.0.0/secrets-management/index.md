@@ -4,8 +4,6 @@ navigationTitle: Manage Secrets
 title: Manage Secrets
 menuWeight: 30
 excerpt: Distribute a sensible configuration securely
-beta: false
-enterprise: false
 ---
 
 # Overview 

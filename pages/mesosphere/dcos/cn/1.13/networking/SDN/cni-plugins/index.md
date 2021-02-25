@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: 了解 CNI 插件支持
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

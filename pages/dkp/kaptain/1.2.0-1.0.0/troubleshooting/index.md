@@ -4,8 +4,6 @@ navigationTitle: Troubleshooting
 title: Troubleshooting Guide
 menuWeight: 95
 excerpt: Troubleshooting Guide for Kaptain
-beta: false
-enterprise: false
 ---
 
 ## Konvoy

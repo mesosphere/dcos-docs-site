@@ -6,7 +6,6 @@ menuWeight: 9
 excerpt: 显示指定任务的所有度量标准
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 # 说明

@@ -4,8 +4,6 @@ navigationTitle:  使用 dcos task exec
 title: 使用 dcos task exec
 menuWeight: 12
 excerpt: 在任务容器内使用 dcos task exec 命令
-beta: false
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

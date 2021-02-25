@@ -4,7 +4,6 @@ navigationTitle: 负载平衡和暴露服务
 title: 负载平衡和暴露服务
 menuWeight: 10
 excerpt: 教程 - 负载平衡 DC/OS 服务
-enterprise: false
 ---
 
 本教程演示如何负载均衡 DC/OS 服务，并将其设置为在集群外部进行访问。

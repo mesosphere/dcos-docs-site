@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi update start
 title: dcos nifi update start
 menuWeight: 1
 excerpt: Launches an update operation
-featureMaturity:
-enterprise: false
 model: ../../../../data.yml
 render: mustache
 ---

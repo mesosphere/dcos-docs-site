@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: 从 Docker 镜像启动 Docker 容器
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 [Docker Engine](https://www.docker.com/products/docker-engine) 从 Docker 镜像启动 Docker 容器。如需要 Docker 引擎的[功能](/mesosphere/dcos/cn/2.1/deploying-services/containerizers/#container-runtime-features)，请使用 Docker 引擎。

@@ -4,7 +4,6 @@ navigationTitle: HAProxy Stats API 参考
 title: HAProxy Stats API 参考
 menuWeight: 90
 excerpt: 由 HAProxy 实例暴露的端点
-enterprise: false
 ---
 
 

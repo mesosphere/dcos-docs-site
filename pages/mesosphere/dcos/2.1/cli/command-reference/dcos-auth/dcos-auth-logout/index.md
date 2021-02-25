@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Logging out of a DC/OS cluster
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

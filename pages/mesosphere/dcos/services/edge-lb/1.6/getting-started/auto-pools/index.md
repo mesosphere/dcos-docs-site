@@ -4,7 +4,6 @@ navigationTitle: Automatically exposing apps with Auto Pools and labels
 title: Automatically exposing apps with Auto Pools and labels
 menuWeight: 12
 excerpt: Describes how you can automatically expose applications with task labels
-enterprise: false
 ---
 
 Using the Auto Pools feature streamlines deployment by enabling [pools](/mesosphere/dcos/services/edge-lb/1.6/concepts/how-edge-lb-works/#edge-lb-pool) to be automatically configured, started, and stopped using Marathon&trade; app labels or SDK task labels (annotations).

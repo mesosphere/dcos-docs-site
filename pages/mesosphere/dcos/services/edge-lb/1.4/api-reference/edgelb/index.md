@@ -5,7 +5,6 @@ title: Edge-LB API Reference
 menuWeight: 90
 excerpt: Reference for all API endpoints exposed by the Edge-LB package
 
-enterprise: false
 ---
 
 The Edge-LB API enables users to create and manage pools of load balancers.

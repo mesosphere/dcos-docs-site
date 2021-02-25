@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Installing and verifying a service using the CLI or the UI
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 ## Installing a service using the CLI

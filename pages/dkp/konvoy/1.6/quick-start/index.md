@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Quick Start
 title: Quick Start
 excerpt: Get started by installing a cluster with default configuration settings
-beta: false
-enterprise: false
 menuWeight: 60
 ---
 

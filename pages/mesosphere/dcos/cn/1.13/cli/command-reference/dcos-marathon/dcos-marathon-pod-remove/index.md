@@ -6,7 +6,6 @@ menuWeight: 26
 excerpt: 删除 pod
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

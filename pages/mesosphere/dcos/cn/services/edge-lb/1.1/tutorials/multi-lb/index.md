@@ -4,7 +4,6 @@ navigationTitle: AWS 上的高可用性负载平衡
 title: AWS 上的高可用性负载平衡
 menuWeight: 20
 excerpt: 教程 - 设置多个负载平衡器实例
-enterprise: false
 ---
 
 本教程演示了如何在单个 AWS 经典负载均衡器后方的单个池中设置多个负载均衡器实例。AWS 应用负载均衡器或 AWS 网络负载均衡器可以遵循类似步骤。多个 Edge-LB 实例使您能够创建高可用性负载均衡环境，并提高吞吐量。

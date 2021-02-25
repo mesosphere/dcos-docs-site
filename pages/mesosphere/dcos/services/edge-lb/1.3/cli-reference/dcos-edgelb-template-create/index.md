@@ -5,7 +5,6 @@ title: dcos edgelb template create
 menuWeight: 45
 excerpt: Create a custom config template for a pool of load-balancers
 
-enterprise: false
 ---
 
 # Description

@@ -4,7 +4,6 @@ navigationTitle: Highly-available load balancing on AWS
 title: Highly-available load balancing on AWS
 menuWeight: 5
 excerpt: How to set up multiple load balancer instances for a DC/OS cluster running on AWS
-enterprise: false
 ---
 
 This tutorial demonstrates how to set up multiple Edge-LB load balancer instances in a single pool behind a single Amazon Web Services&reg; (AWS&reg;) Classic Load Balancer. You can perform similar steps to configure Edge-LB load balancers for the AWS Application Load Balancer or the AWS Network Load Balancer&reg;.

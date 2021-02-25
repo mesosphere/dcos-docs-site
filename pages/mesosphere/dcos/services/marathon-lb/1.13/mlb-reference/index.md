@@ -4,7 +4,6 @@ navigationTitle:  Reference information
 title: Reference information
 menuWeight: 50
 excerpt: Marathon-LB endpoints, command-line reference, and configuration templates and labels
-enterprise: false
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

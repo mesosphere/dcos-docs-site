@@ -4,7 +4,6 @@ navigationTitle:  DNS
 title: DC/OS Domain Name Service
 menuWeight: 20
 excerpt: Understanding the DC/OS domain name service discovery
-enterprise: false
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

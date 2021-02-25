@@ -4,8 +4,6 @@ navigationTitle: Default storage options
 title: Automated storage options in cloud providers
 menuWeight: 20
 excerpt: Default storage providers in Konvoy
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->

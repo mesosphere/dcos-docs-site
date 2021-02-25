@@ -4,7 +4,6 @@ navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1
 excerpt: Installing the DC/OS command line interface
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---

@@ -6,7 +6,6 @@ menuWeight: 6
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 excerpt: Understanding the high availability features and best practices in DC/OS
-enterprise: false
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle:  Quickstart
 title: Quickstart
 menuWeight: 10
 excerpt:
-featureMaturity:
-enterprise: false
 ---
 <h1>About installing Jenkins for DC/OS</h1>
 

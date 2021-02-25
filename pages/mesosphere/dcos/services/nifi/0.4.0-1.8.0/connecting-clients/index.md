@@ -4,8 +4,6 @@ navigationTitle:  Connecting Clients
 title: Connecting Clients
 menuWeight: 70
 excerpt: Connecting clients through service discovery
-featureMaturity:
-enterprise: false
 model: ../../data.yml
 render: mustache
 ---

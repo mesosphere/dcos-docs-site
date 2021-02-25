@@ -6,7 +6,6 @@ menuWeight: 7
 excerpt: Displaying the available DC/OS components on a specified node
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

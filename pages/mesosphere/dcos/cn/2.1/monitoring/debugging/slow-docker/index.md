@@ -6,7 +6,6 @@ menuWeight: 40
 excerpt: 解决 Docker 应用和部署缓慢问题
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 <p class="message--note"><strong>注意：</strong>如果您最近升级到 DC/OS 1.10 或更高版本且在 Mesos 代理节点配置中配置了 <code>MESOS_CGROUPS_ENABLE_CFS=true</code>，则可能会发现 Docker 应用运行缓慢或部署缓慢。</p>

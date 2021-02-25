@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb create
 title: dcos edge-lb create
 menuWeight: 9
 excerpt: Reference for the dcos edge-lb create command
-enterprise: false
 ---
 
 Use this command to create a single pool given a pool configuration file written in JSON.

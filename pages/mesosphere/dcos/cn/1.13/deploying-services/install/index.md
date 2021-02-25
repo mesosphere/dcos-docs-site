@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: 使用 CLI 或 UI 安装和验证服务
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 ## 使用 CLI 安装服务

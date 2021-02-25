@@ -5,8 +5,6 @@ title: Customizing your install
 menuWeight: 20
 beta: true
 excerpt: The Jenkins for DC/OS package accepts a range of custom configuration parameters at install.
-featureMaturity:
-enterprise: false
 ---
 # About customizing your installation parameters
 

@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: Viewing DC/OS node information
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 # Description

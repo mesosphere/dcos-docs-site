@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb list
 title: dcos edge-lb list
 menuWeight: 27
 excerpt: Reference for the dcos edge-lb list command
-enterprise: false
 ---
 
 Use this command to return a list of pool configuration names and a summary of all configured pools.

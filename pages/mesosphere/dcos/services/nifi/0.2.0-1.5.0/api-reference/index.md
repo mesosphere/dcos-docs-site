@@ -4,8 +4,6 @@ navigationTitle:  API Reference
 title: API Reference
 menuWeight: 90
 excerpt: DC/OS NiFi Service API Reference
-featureMaturity:
-enterprise: false
 ---
 
 <!-- {% raw %} disable mustache templating in this file: retain nifid examples as-is -->

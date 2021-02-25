@@ -6,7 +6,6 @@ menuWeight: 4
 excerpt: Providing access to a private Docker registry
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

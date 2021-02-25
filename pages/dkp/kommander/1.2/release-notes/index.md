@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: View release-specific information for Kommander
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->

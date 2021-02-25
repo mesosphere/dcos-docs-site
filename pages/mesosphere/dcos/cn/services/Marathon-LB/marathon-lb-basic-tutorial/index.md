@@ -4,7 +4,6 @@ navigationTitle: 教程 - 基本 Marathon-LB
 title: 教程 - 使用 Marathon-LB 部署外部负载平衡应用
 menuWeight: 5
 excerpt: 教程 - 使用 Marathon-LB 来运行容器化 DC/OS 服务（服务一个网站）
-enterprise: false
 ---
 
 本教程向您展示如何使用 Marathon-LB 运行为网站提供服务的容器化 DC/OS 服务。具体地说，您将使用包含 NGINX（为`dcos.i`o 站点服务）的 Docker 镜像。在本教程中，Marathon-LB 用作边缘负载均衡器和服务发现机制。Marathon-LB 在面向公众的节点上运行，以路由 ingress 流量。

@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb update
 title: dcos edge-lb update
 menuWeight: 72
 excerpt: Reference for the dcos edge-lb update command
-enterprise: false
 ---
 
 Use this command to upload a new pool configuration file to the Edge-LB `apiserver`, updating the running pool of load balancers.

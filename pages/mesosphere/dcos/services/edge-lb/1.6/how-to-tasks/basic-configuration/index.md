@@ -4,7 +4,6 @@ navigationTitle: Basic configuration settings
 title: Basic configuration settings
 menuWeight: 20
 excerpt: Provides examples for the most common Edge-LB configuration settings
-enterprise: false
 ---
 
 This section provides examples that illustrate how to set some of the most basic Edge-LB pool configuration options.

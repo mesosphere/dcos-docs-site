@@ -6,7 +6,6 @@ menuWeight: 9
 excerpt: 显示节点的 Mesos 日志
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

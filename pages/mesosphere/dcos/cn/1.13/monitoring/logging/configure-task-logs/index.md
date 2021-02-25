@@ -6,8 +6,6 @@ menuWeight: 2
 excerpt: 影响日志记录的任务环境变量
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 

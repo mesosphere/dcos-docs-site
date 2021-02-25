@@ -4,7 +4,6 @@ navigationTitle: Exposing multiple services using multiple pools
 title: Exposing multiple services using multiple pools
 menuWeight: 7
 excerpt: How to set up load balancing for multiple services using multiple Edge-LB pool instances
-enterprise: false
 ---
 
 This tutorial demonstrates how to deploy three services with three different Edge-LB pool instances, with one pool instance per service. You would typically implement this type of deployment scenario to provide high availability when you have multiple services with high demand, that require added capacity to ensure reliability and responsiveness, or that involve transaction processing with high resource consumption or performance overhead.

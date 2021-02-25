@@ -4,7 +4,6 @@ navigationTitle: 2.1.0 版本注释
 title: 2.1.0 版本注释
 menuWeight: 1
 render: mustache
-beta: false
 model:  /mesosphere/dcos/2.1/data.yml
 excerpt: DC/OS 2.1.0 版本的注释，包括开源归属和版本策略。
 ---

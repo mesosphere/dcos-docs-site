@@ -7,7 +7,6 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: 了解 Mesosphere 的特性成熟度生命周期
 
-enterprise: false
 ---
 
 

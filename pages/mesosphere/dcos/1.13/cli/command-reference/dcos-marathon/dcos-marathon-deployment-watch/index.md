@@ -6,7 +6,6 @@ menuWeight: 16
 excerpt: Monitoring application deployments
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

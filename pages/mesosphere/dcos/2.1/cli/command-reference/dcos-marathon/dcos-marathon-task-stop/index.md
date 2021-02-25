@@ -6,7 +6,6 @@ menuWeight: 31
 excerpt: Stopping a task
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

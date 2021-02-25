@@ -4,7 +4,6 @@ navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
 menuWeight: 6
 excerpt: What are Kubernetes Base Addons
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->

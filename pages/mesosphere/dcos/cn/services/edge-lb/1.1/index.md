@@ -5,7 +5,6 @@ title: Edge-LB 1.1
 menuWeight: 0
 excerpt: Edge-LB 将流量代理并负载均衡到在 DC/OS 上运行的所有服务。
 
-enterprise: false
 ---
 
 Edge-LB 将流量代理和负载均衡到在 DC/OS 上运行的所有服务。Edge-LB 提供北-南（外部到内部）负载均衡，而 [Minuteman 组件](/mesosphere/dcos/cn/1.11/networking/load-balancing-vips/) 提供东-西（内部到内部）负载均衡。

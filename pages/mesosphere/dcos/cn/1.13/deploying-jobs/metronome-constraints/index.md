@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 了解 Metronome 放置约束
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 Metronome 放置约束控制作业运行的位置。约束有三个部分：字段名称、算子和值。该字段可以是代理的主机名或代理的任何属性。

@@ -1,11 +1,8 @@
 ---
 layout: layout.pug
 title: Support and Services
-beta: false
 menuWeight: 50
 excerpt: Support and Services for Kaptain
-beta: false
-enterprise: false
 
 ---
 

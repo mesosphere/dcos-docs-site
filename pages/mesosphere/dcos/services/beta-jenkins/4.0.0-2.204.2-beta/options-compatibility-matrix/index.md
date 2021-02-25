@@ -5,7 +5,6 @@ title: Configuration Options Matrix
 menuWeight: 6
 beta: true
 excerpt: Configuration changes in this release of the Jenkins Service
-enterprise: false
 --- 
 
 # Options Compatibility Matrix

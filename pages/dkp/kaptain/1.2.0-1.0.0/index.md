@@ -2,7 +2,6 @@
 layout: layout.pug
 navigationTitle: Kaptain
 title: Welcome to Kaptain
-beta: false
 menuWeight: 1
 ---
 

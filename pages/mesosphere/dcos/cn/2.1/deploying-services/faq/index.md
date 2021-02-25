@@ -6,7 +6,6 @@ menuWeight: 120
 excerpt: 关于部署 Marathon 服务的常见问题
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

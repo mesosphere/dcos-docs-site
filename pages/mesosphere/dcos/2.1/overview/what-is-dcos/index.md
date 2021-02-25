@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Understanding DC/OS
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 As a distributed system, DC/OS is itself a distributed system, a cluster manager, a container platform, and an operating system.

@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb pool-template status
 title: dcos edge-lb pool-template status
 menuWeight: 48
 excerpt: Reference for the dcos edge-lb pool-template status command
-enterprise: false
 ---
 
 Use this command to show the rendering status of an Auto Pool template.

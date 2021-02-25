@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: Getting a quota
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

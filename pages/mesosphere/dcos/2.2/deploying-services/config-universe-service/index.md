@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 This topic describes how to use the CLI to configure services. You can also customize services by using the [**Services**](/mesosphere/dcos/2.2/gui/services/) tab in the DC/OS UI.

@@ -5,7 +5,6 @@ title: dcos edgelb show
 menuWeight: 35
 excerpt: Show the pool definition for a specific pool name
 
-enterprise: false
 ---
 
 # Description

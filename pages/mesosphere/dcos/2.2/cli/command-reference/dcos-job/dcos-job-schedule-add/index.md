@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: Adding a schedule to a job
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 

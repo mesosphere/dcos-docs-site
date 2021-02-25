@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Rolling Deployment
 title: Rolling Deployments
 menuWeight: 10
-beta: false
 excerpt: Implement GitOps processes to Continuously Deploy applications
 ---
 

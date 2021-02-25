@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Service Discovery
 title: Service Discovery
 menuWeight: 8
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

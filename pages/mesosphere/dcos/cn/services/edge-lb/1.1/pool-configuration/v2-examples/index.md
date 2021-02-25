@@ -4,7 +4,6 @@ navigationTitle: V2 池示例
 title: V2 池示例
 menuWeight: 86
 excerpt: 使用 V2 API 来示例 Edge-LB 池配置
-enterprise: false
 ---
 
 # V2 池示例

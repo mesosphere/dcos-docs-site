@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Managing system and application logs with a Splunk server
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 # Overview

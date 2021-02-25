@@ -4,7 +4,6 @@ navigationTitle: Set up LDAP Directory
 title: Connect and configure your LDAP directory to Konvoy and Kommander
 menuWeight: 0
 excerpt: Use Konvoy and Kommander to access your Identity Provider
-enterprise: false
 ---
 # Connect and configure your LDAP directory to Konvoy using Kommander
 

@@ -4,8 +4,6 @@ navigationTitle:  Deployment Best Practices
 title: Deployment Best Practices
 menuWeight: 45
 excerpt: Using best practices 
-featureMaturity:
-enterprise: false
 ---
 
 # Minimum MongoDB Node Requirements

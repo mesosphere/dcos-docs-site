@@ -4,7 +4,6 @@ navigationTitle: konvoy destroy
 title: konvoy destroy
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
 excerpt: Destroy cluster resources
 ---
 

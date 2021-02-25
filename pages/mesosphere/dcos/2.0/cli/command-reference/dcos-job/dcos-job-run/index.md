@@ -4,7 +4,6 @@ navigationTitle:  dcos job run
 title: dcos job run
 menuWeight: 5
 excerpt: Running a DC/OS job
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Admin Guide
 title: Administrator's Guide
 menuWeight: 40
-beta: false
 excerpt: A short guide for Conductor Admin Portal
 ---
 

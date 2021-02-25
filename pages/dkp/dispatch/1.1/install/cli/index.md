@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Installing CLI
 title: Dispatch CLI Installation
 menuWeight: 30
-beta: false
 excerpt: Installing the Dispatch CLI
 ---
 You must install the Dispatch CLI before you install Dispatch itself.

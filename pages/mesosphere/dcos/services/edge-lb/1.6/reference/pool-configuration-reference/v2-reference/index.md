@@ -4,7 +4,6 @@ navigationTitle:  V2 Pool Reference
 title: V2 Pool Reference
 menuWeight: 81
 excerpt: Reference for all Edge-LB pool configurations options in the V2 API
-enterprise: false
 ---
 
 # V2 Pool Reference

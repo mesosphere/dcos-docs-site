@@ -4,7 +4,6 @@ navigationTitle: Permissions
 title: Permissions
 menuWeight: 81
 excerpt: Service account and user permissions required to use the Edge-LB package
-enterprise: false
 ---
 
 Because Edge-LB is installed as a DC/OS&trade; service, not as a built-in component, you must grant either `superuser` permissions (`dcos:superuser`), or the specific user or group permissions listed in this section to perform administrative tasks when you are running Edge-LB.

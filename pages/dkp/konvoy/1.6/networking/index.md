@@ -4,8 +4,6 @@ navigationTitle: Networking
 title: Networking
 menuWeight: 110
 excerpt: Configure networking for Konvoy cluster
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

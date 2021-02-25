@@ -4,7 +4,6 @@ navigationTitle:  dcos diagnostics delete
 title: dcos diagnostics delete
 menuWeight: 4
 excerpt: Deleting bundles
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

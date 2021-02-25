@@ -4,7 +4,6 @@ navigationTitle:  Percona-Server-MongoDB 0.4.0-3.6.6
 title: Percona-Server-MongoDB 0.4.0-3.6.6
 menuWeight: 10
 excerpt: Percona-Server-MongoDB 0.4.0-3.6.6
-featureMaturity:
 community: true
 ---
 

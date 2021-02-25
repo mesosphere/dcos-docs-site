@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: 了解 Pod
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 Pod 是特殊类型的 Mesos 任务组，而 pod 中的任务或容器是组成员。通过 [Mesos 启动组](https://github.com/apache/mesos/blob/cfeabec58fb2a87076f0a2cf4d46cdd02510bce4/docs/executor-http-api.md#launch-group)指令，将 pod 实例的容器一起彻底启动。

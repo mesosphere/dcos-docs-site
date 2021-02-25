@@ -6,7 +6,6 @@ menuWeight: 30
 excerpt: Understanding offer matching and failed deployments
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 # Debugging service deployments using the UI
 

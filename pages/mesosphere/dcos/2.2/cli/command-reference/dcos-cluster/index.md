@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: Managing connections to DC/OS clusters
 render: mustache
 model: /mesosphere/dcos/2.2/data.yml
-enterprise: false
 ---
 
 # Description

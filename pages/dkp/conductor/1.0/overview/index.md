@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Overview
 title: Overview
 menuWeight: 10
-beta: false
 excerpt: What is Conductor and how can I use it to accelerate my on-boarding to cloud-native technologies?
 ---
 

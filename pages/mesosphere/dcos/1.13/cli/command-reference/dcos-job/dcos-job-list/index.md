@@ -4,7 +4,6 @@ navigationTitle:  dcos job list
 title: dcos job list
 menuWeight: 3
 excerpt: Displaying all job definitions
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

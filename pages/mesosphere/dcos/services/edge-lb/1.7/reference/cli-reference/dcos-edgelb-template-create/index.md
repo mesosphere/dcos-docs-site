@@ -4,7 +4,6 @@ navigationTitle: dcos edge-lb template create
 title: dcos edge-lb template create
 menuWeight: 60
 excerpt: Reference for the dcos edge-lb template create command
-enterprise: false
 ---
 
 Use this command to create a custom configuration template for a pool of load balancers.

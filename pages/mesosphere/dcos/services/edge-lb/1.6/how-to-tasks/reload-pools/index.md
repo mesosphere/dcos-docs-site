@@ -4,7 +4,6 @@ navigationTitle: Reloading and restarting pools
 title: Reloading and restarting pools
 menuWeight: 40
 excerpt: Describes reload and restart scenarios for Edge-LB pools
-enterprise: false
 ---
 
 This section describes the common reload and relaunch scenarios for Edge-LB pools and how to restore load balancing for a service after a pod failure.

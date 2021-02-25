@@ -4,8 +4,6 @@ navigationTitle: Support and Services
 title: Support and Services
 menuWeight: 70
 excerpt: Konvoy Support and Services
-beta: false
-enterprise: false
 ---
 
 This section describes Konvoy Support and Services available.

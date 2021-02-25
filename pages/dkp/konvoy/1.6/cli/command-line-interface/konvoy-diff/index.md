@@ -4,8 +4,6 @@ navigationTitle: konvoy diff
 title: konvoy diff
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Print the difference between two resources
 ---
 

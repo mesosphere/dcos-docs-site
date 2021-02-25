@@ -4,8 +4,6 @@ navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 39
 excerpt: Uninstalling DC/OS Percona XtraDB Cluster Service
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache
 ---

@@ -6,7 +6,6 @@ menuWeight: 11
 excerpt: 显示作业运行状态
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

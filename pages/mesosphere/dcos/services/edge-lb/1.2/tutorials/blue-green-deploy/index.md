@@ -5,7 +5,6 @@ title: Blue/Green Service
 menuWeight: 30
 excerpt: Tutorial - Using blue/green deployment
 
-enterprise: false
 ---
 
 A blue/green deployment is a method of achieving zero downtime by running two versions of the same service (a "blue" and a "green" version) and having the load balancer switch between the two.

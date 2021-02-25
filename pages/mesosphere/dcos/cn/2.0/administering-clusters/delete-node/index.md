@@ -4,7 +4,6 @@ navigationTitle:  关闭和停用节点
 title: 关闭和停用节点
 menuWeight: 810
 excerpt: 关闭和停用代理节点
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

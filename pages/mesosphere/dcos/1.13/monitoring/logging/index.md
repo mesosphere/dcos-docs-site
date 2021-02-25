@@ -6,8 +6,6 @@ menuWeight: 3
 excerpt: Understanding diagnostic and status logs for DC/OS core components and services
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 DC/OS cluster nodes generate logs that contain diagnostic and status information for DC/OS core components and DC/OS services. DC/OS comes with a built-in log pipeline which can transmit all kinds of logs to an aggregated log database.

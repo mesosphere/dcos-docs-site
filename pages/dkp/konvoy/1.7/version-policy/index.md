@@ -4,8 +4,6 @@ navigationTitle: Version Support Policy
 title: Version Support Policy
 menuWeight: 280
 excerpt: Supported version policy for Konvoy
-beta: false
-enterprise: false
 ---
 
 D2iQ&reg; supports N-2 of the latest `MAJOR.MINOR` version of Konvoy. For example, if the current version of Konvoy&reg; is version 1.7, then D2iQ supports all patch versions of Konvoy 1.7, 1.6, and 1.5.

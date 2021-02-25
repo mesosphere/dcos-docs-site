@@ -4,8 +4,6 @@ navigationTitle: Volume Cloning
 title: Volume Cloning
 menuWeight: 13
 excerpt: Create a new Persistent Volume Claim by cloning an existing PVC
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD030 -->

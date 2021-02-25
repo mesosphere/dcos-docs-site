@@ -4,7 +4,6 @@ navigationTitle: Configuring the statistics port
 title: Configuring the statistics port
 menuWeight: 32
 excerpt: How to configure the statistics port dynamically for Edge-LB load balancing
-enterprise: false
 ---
 
 You can configure the port used as the endpoint for viewing Edge-LB load balancing statistics. By default, you view load balancing statistics by connecting to the public agent IP address using the `haproxy?stats` endpoint and port 9090. However, you can choose to specify the statistics port you want to use manually, or have Edge-LB automatically assign a port by setting a configuration option.

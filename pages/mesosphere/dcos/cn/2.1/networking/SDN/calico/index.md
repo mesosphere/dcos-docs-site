@@ -6,7 +6,6 @@ menuWeight: 10
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 excerpt: 了解 DC/OS Calico 集成
-enterprise: false
 ---
 
 ## 概述

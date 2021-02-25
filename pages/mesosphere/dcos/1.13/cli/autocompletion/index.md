@@ -4,7 +4,6 @@ navigationTitle:  CLI Autocompletion
 title: CLI Autocompletion
 menuWeight: 7
 excerpt: Enabling autocompletion for the CLI
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

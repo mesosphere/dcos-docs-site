@@ -4,7 +4,6 @@ navigationTitle: 排空节点
 title: 排空节点
 menuWeight: 801
 excerpt: 排空活跃 DC/OS 群集中的代理节点
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

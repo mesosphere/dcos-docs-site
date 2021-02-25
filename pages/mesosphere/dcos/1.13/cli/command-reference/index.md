@@ -4,7 +4,6 @@ navigationTitle:  Command Reference
 title: Command Reference
 menuWeight: 10
 excerpt: Exploring the unique DC/OS commands
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---

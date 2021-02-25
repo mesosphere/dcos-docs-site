@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: Monitoring a DC/OS cluster with Nagios
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

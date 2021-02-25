@@ -4,7 +4,6 @@ navigationTitle: Edge-LB pools for high-availability
 title: Edge-LB pools for high-availability
 menuWeight: 15
 excerpt: Describes how to use multiple Edge-LB instances to support high-availability for services
-enterprise: false
 ---
 
 Edge-LB uses its pools to provide high availability in two key ways:

@@ -4,8 +4,6 @@ navigationTitle: Network Policy
 title: Network Policy
 menuWeight: 8
 excerpt: Kubernetes and Calico Network Policy
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

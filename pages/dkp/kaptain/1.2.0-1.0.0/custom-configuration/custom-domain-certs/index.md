@@ -4,8 +4,6 @@ navigationTitle: Custom domain name and certificates
 title: Configuring custom domain name and certificates to access Kaptain
 menuWeight: 70
 excerpt: Configuring custom domain name and certificates to access Kaptain
-beta: false
-enterprise: false
 ---
 
 Learn how to configure a custom domain name with TLS certificates trusted by your organization. 

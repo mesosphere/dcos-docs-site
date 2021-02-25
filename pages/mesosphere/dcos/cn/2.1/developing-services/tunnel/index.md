@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: 使用 DC/OS 隧道通过代理和 VPN 访问您的群集
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 <p class="message--warning"><strong>警告：</strong>DC/OS 隧道<strong>仅</strong>.适用于开发、调试和测试。请勿在生产中使用 DC/OS 隧道。</p>
 

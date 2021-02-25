@@ -4,7 +4,6 @@ navigationTitle: Version Policy
 excerpt: Understanding DC/OS Apache Spark version policy
 title: Version Policy
 menuWeight: 130
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---

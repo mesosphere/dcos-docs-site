@@ -3,9 +3,7 @@ layout: layout.pug
 navigationTitle: Storage
 title: Kubernetes Storage Introduction
 menuWeight: 9
-beta: false
 excerpt: An introduction to persistent storage in Kubernetes
-enterprise: false
 ---
 
 This document describes the model used in Kubernetes for managing persistent, cluster-scoped storage for workloads requiring access to persistent data.

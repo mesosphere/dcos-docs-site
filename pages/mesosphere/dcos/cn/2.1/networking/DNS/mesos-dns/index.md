@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 了解 Mesos DNS
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -6,7 +6,6 @@ menuWeight: 1
 excerpt: 添加 CLI 插件
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 

@@ -4,7 +4,6 @@ navigationTitle:  dcos marathon
 title: dcos marathon
 menuWeight: 10
 excerpt: 使用 Marathon 将应用程序部署到 DC/OS 并对其进行管理。|
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---

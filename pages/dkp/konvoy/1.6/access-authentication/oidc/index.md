@@ -4,8 +4,6 @@ navigationTitle: OpenID Connect (OIDC)
 title: OpenID Connect (OIDC) Introduction
 menuWeight: 10
 excerpt: An introduction to OpenID Connect (OIDC) Authentication in Kubernetes
-beta: false
-enterprise: false
 ---
 
 All Kubernetes clusters have two categories of users: service accounts and normal users. Kubernetes manages authentication for service accounts, but the cluster adminstrator, or a separate service, manages authentication for normal users.

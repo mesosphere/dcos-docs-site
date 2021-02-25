@@ -4,8 +4,6 @@ navigationTitle: Kaptain SDK
 title: Kaptain SDK
 menuWeight: 10
 excerpt: Tutorial for Kaptain SDK
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

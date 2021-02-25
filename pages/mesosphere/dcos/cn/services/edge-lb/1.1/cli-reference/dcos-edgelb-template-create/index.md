@@ -4,7 +4,6 @@ navigationTitle: dcos edgelb template create
 title: dcos edgelb template create
 menuWeight: 45
 excerpt: 为负载均衡器的池创建自定义配置模板。
-enterprise: false
 ---
 
 # 说明

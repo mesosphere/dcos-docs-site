@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Release Notes  
 title: Introducing Dispatch
 menuWeight: 10
-beta: false
 excerpt: Introduction to Dispatch 1.0
 ---
 

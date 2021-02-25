@@ -5,7 +5,6 @@ title: dcos edgelb template update
 menuWeight: 60
 excerpt: Update a custom config template for a pool of load balancers
 
-enterprise: false
 ---
 
 

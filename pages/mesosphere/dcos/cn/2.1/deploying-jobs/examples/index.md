@@ -6,7 +6,6 @@ menuWeight: 20
 excerpt: 作业常见使用情景示例。
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-beta: false 
 enterprise: true
 ---
 

@@ -5,7 +5,6 @@ title: Uninstalling
 menuWeight: 20
 excerpt: Uninstalling the Edge-LB package
 
-enterprise: false
 ---
 
 

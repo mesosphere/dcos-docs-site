@@ -6,7 +6,6 @@ menuWeight: 7
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Uninstalling a package
-enterprise: false
 ---
 
 # Description

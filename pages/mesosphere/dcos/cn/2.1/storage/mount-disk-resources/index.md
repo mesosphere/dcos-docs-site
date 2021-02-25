@@ -6,7 +6,6 @@ menuWeight: 0
 excerpt: 使用 Mesos 挂载存储资源
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 使用 DC/OS，您可以在群集中配置 Mesos [`Mount` 磁盘资源][1]，只需使用众所周知的路径在代理节点上挂载存储资源即可。

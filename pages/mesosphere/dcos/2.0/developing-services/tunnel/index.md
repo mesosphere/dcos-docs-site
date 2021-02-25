@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: Accessing your cluster by proxy and VPN using a DC/OS tunnel
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 <p class="message--warning"><strong>WARNING: </strong>DC/OS&trade; Tunnel is appropriate for development, debugging, and testing <strong>only</strong>. Do not use DC/OS Tunnel in production.</p>

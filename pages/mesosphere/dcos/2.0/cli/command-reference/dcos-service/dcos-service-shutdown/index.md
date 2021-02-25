@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: Shutting down a service
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 

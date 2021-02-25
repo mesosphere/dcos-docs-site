@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Repository Setup
 title: Setting up a Repository in Dispatch
 menuWeight: 50
-beta: false
 excerpt: Configure and set up a code repository for access by Dispatch, including configuring a Dispatchfile
 ---
 

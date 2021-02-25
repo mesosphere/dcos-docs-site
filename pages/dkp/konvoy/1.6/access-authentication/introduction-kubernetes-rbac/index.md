@@ -4,8 +4,6 @@ navigationTitle: Introduction to RBAC
 title: Introduction to RBAC
 menuWeight: 5
 excerpt: Learn the basics of RBAC
-beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

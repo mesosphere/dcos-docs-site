@@ -6,7 +6,6 @@ menuWeight: 3
 excerpt: 使用命令行界面
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 本文档适用于创建新 DC/OS CLI 子命令的开发人员。另请参阅 [{{ model.packageRepo }} 入门指南][1]。
 

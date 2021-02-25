@@ -1,11 +1,9 @@
 ---
 layout: layout.pug
-beta: false
 navigationTitle: Kubectl Token
 title: Generate a Kubectl Token
 menuWeight: 10
 excerpt: Troubleshoot your LDAP access
-enterprise: false
 ---
 
 # Introduction

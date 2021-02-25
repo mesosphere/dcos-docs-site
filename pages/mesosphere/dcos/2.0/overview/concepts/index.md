@@ -6,7 +6,6 @@ menuWeight: 5
 excerpt: Understanding DC/OS concepts and terms
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
-enterprise: false
 ---
 
 Mesosphere&reg; DC/OS&trade; is made up of many open source components, several of which existed before DC/OS. The terms used in this document may be similar to pre-existing terms that you are familiar with, however, they may be used in a different way in DC/OS.

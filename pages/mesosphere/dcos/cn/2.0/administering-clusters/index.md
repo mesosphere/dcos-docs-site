@@ -4,7 +4,6 @@ navigationTitle:  管理群集
 title: 管理群集
 menuWeight: 60
 excerpt: 管理您的 DC/OS 群集
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---

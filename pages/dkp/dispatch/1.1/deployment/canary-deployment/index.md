@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Canary Deployment
 title: Canary deployment
 menuWeight: 40
-beta: false
 excerpt: How to configure canary deployment for your application
 ---
 

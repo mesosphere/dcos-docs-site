@@ -6,7 +6,6 @@ menuWeight: 6
 excerpt: 显示软件包存储库源
 render: mustache
 model: /mesosphere/dcos/2.1/data.yml
-enterprise: false
 ---
 
 

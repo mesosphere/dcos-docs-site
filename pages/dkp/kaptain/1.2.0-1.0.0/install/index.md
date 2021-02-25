@@ -4,8 +4,6 @@ navigationTitle: Installation
 title: Install Kaptain
 menuWeight: 7
 excerpt: Install Kaptain on your cluster
-beta: false
-enterprise: false
 ---
 
 How do you want to deploy Kaptain?

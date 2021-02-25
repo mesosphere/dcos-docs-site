@@ -6,7 +6,6 @@ menuWeight: 2
 excerpt: 了解 Mesos 任务
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 DC/OS 可运行许多由任务组成的不同类型的工作负载。DC/OS 任务是已由 DC/OS 内置调度器或 DC/OS 上运行的调度器服务安排的 [Mesos 任务](/mesosphere/dcos/cn/1.13/overview/concepts/#mesos-task)

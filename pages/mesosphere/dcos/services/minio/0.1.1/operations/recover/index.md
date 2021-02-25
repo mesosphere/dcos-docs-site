@@ -4,8 +4,6 @@ navigationTitle: Recover
 title: Recovering objects on the Minio server 
 menuWeight: 30
 excerpt: Recovering buckets and objects on the Minio server in cases of disk/node failure
-featureMaturity:
-enterprise: false
 model: /mesosphere/dcos/services/minio/data.yml
 render: mustache
 ---

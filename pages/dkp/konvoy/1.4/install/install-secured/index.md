@@ -4,7 +4,6 @@ navigationTitle: Install on secured machines
 title: Install on secured machines
 menuWeight: 37
 excerpt: Install on secured machines
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->

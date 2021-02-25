@@ -4,7 +4,6 @@ navigationTitle: Edge-LB REST API reference
 title: REST API reference
 menuWeight: 83
 excerpt: Provides reference for Edge-LB REST API endpoints
-enterprise: false
 ---
 
 The Edge-LB API enables users to create and manage pools of Edge-LB load balancers. There are two versions of the Edge-LB API, both of which are supported to enable backward compatibility. You can find reference information and examples in the [Pool Configuration Reference](/mesosphere/dcos/services/edge-lb/1.7/reference/pool-configuration-reference) section.

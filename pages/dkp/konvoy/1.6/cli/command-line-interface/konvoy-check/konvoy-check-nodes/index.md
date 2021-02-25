@@ -4,8 +4,6 @@ navigationTitle: konvoy check nodes
 title: konvoy check nodes
 menuWeight: 10
 notes: Automatically generated, DO NOT EDIT
-enterprise: false
-beta: false
 excerpt: Run checks on the nodes
 ---
 

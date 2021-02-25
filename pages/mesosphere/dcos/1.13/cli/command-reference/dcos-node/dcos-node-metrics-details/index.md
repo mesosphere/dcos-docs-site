@@ -6,7 +6,6 @@ menuWeight: 10
 excerpt: Displaying the details of Mesos agent nodes
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-enterprise: false
 ---
 
 # Description

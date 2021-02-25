@@ -5,8 +5,6 @@ menuWeight: 0
 excerpt: Using the DC/OS UI for debugging
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
-beta: false
-enterprise: false
 ---
 
 You can debug your service or pod from the DC/OS UI.

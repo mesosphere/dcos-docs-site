@@ -4,7 +4,6 @@ navigationTitle: 输入格式
 title: 输入格式
 menuWeight: 45
 excerpt: 池配置文件格式信息
-enterprise: false
 ---
 
 

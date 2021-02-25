@@ -4,8 +4,6 @@ navigationTitle: MNIST with MXNet
 title: MNIST with MXNet
 menuWeight: 13
 excerpt: Tutorial for MNIST with MXNet
-beta: false
-enterprise: false
 ---
 
 <p class="message--note"><strong>NOTE: </strong>All tutorials in Jupyter Notebook format are available for

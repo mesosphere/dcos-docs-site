@@ -4,7 +4,6 @@ navigationTitle: Storage
 title: Konvoy Kubernetes Storage
 menuWeight: 9
 excerpt: Manage storage options including local and mounted persistent volumes
-enterprise: false
 ---
 
 A workload on Kubernetes typically requires two types of storage:

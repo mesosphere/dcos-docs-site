@@ -6,7 +6,6 @@ menuWeight: 10
 render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 excerpt: Understanding DC/OS Overlay
-enterprise: false
 ---
 
 

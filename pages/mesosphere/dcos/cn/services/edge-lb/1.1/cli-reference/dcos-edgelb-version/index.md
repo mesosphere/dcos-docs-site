@@ -4,7 +4,6 @@ navigationTitle:  dcos edgelb version
 title: dcos edgelb version
 menuWeight: 70
 excerpt: 显示当前的 Edge-LB 版本
-enterprise: false
 ---
 
 # 说明

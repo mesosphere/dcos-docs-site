@@ -4,8 +4,6 @@ navigationTitle: Verify Konvoy installation
 title: Verify Konvoy installation
 menuWeight: 80
 excerpt: Check Konvoy components to verify the status of your cluster
-beta: false
-enterprise: false
 ---
 
 In this section, we show you how to verify a Konvoy installation.

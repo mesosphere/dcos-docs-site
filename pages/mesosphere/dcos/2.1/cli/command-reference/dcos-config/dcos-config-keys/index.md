@@ -4,7 +4,6 @@ navigationTitle:  dcos config keys
 title: dcos config keys
 menuWeight: 1
 excerpt: Retrieving the list of DC/OS configuration property keys
-enterprise: false
 render: mustache
 model: /mesosphere/dcos/data.yml
 ---

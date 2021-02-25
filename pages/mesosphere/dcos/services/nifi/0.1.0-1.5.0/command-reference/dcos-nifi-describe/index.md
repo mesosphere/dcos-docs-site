@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi describe
 title: dcos nifi describe
 menuWeight: 63
 excerpt: View full configuration of the NiFi service.
-featureMaturity:
-enterprise: false
 model: ../../../data.yml
 render: mustache
 ---

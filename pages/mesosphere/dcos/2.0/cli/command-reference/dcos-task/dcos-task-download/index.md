@@ -5,7 +5,6 @@ title: dcos task download
 menuWeight: 2
 excerpt: Download files from the Mesos task sandbox directory
 
-enterprise: false
 ---
 
 # Description

@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Deployment
 title: Deployment
 menuWeight: 60
-beta: false
 excerpt: Implementing continuous deployments
 ---
 

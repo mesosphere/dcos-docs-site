@@ -7,7 +7,6 @@ render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Understanding Mesosphere's feature maturity lifecycle
 
-enterprise: false
 ---
 
 
