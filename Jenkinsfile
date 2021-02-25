@@ -36,9 +36,9 @@ pipeline {
       when { branch "main" }
       steps {
         sh '''
+          docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
           docker pull mesosphere/docs-dev:latest
           docker build --cache-from mesosphere/docs-dev:latest -f docker/Dockerfile -t mesosphere/docs-dev:latest .
-          docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
           docker push mesosphere/docs-dev:latest
         '''
       }
@@ -47,6 +47,7 @@ pipeline {
     stage("Build image") {
       steps {
         sh '''
+          docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
           docker pull mesosphere/docs:latest
           cp docker/Dockerfile.production.dockerignore .dockerignore
           docker build --cache-from mesosphere/docs:latest -f docker/Dockerfile.production -t mesosphere/docs:latest .
