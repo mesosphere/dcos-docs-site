@@ -32,3 +32,7 @@ General operational guidance for the Experimental component.
 Identifying and diagnosing of errors in configuration or implementation, if possible.
 Advice on preventing and recovering from failures and troubleshooting, as available.
 Support for Experimental components is provided on a Standard level, Severity 4 basis only.
+
+## Istio Support Status
+
+Istio is a required pre-requisite for Kaptain.  Istio usage is only supported in conjunction with Kaptain and the configurations delivered as part of Kaptain.  All other usage of Istio is considered `experimental` 
