@@ -5,8 +5,6 @@ title: Configuring a Certificate Authority
 menuWeight: 50
 excerpt: Configuring DC/OS Enterprise to use a custom Certificate Authority
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

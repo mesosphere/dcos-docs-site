@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon group update
 title: dcos marathon group update
 menuWeight: 22
 excerpt: Updating Marathon group properties
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

@@ -5,7 +5,6 @@ excerpt: 入门
 title: 入门
 menuWeight: 10
 model: /mesosphere/dcos/cn/services/hdfs/data.yml
-render: mustache
 ---
 
 开始使用 DC/OS {{ model.techName }} 服务的测试实例非常简单。

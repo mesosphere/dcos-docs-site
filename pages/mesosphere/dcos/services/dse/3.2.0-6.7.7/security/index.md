@@ -5,7 +5,6 @@ excerpt: Security, encryption and authorization for DSE
 title: Security
 menuWeight: 50
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 ---
 
 # DC/OS {{ model.techName }} Security

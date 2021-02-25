@@ -4,7 +4,6 @@ navigationTitle: Prometheus 0.1.2-2.3.2
 title: Prometheus 0.1.2-2.3.2
 menuWeight: 1
 excerpt: Overview of DC/OS Prometheus 0.1.2-2.3.2
-render: mustache
 model: /mesosphere/dcos/services/prometheus/data.yml
 community: true
 ---

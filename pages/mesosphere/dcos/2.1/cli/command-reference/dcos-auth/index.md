@@ -4,8 +4,6 @@ navigationTitle:  dcos auth
 title: dcos auth
 menuWeight: 1
 excerpt: Managing DC/OS identity and access
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description

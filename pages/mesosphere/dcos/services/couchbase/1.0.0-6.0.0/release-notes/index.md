@@ -5,7 +5,6 @@ title: Release Notes
 menuWeight: 1
 excerpt: Discover new features, updates, and known limitations
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 # Release Notes for {{ model.techName }} Service version 1.0.0-6.0.0

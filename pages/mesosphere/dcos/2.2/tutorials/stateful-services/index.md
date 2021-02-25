@@ -4,8 +4,6 @@ title: Running Stateful Services on DC/OS
 navigationTitle: Running Stateful Services on DC/OS
 menuWeight: 2
 excerpt: Tutorial - Running stateful services on DC/OS
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

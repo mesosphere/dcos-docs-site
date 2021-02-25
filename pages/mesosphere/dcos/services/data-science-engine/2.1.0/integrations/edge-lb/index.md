@@ -6,7 +6,6 @@ excerpt: Accessing the DC/OS Data Science Engine with Edge-LB configuration
 title: Edge-LB
 menuWeight: 12
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 ---
 

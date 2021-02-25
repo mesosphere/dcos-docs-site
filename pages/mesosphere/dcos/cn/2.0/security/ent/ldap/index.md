@@ -4,8 +4,6 @@ navigationTitle:  LDAP 身份认证
 title: LDAP 身份认证
 menuWeight: 50
 excerpt: 通过 LDAP 设置基于目录的身份认证服务器
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

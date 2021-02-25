@@ -5,7 +5,6 @@ excerpt: Using S3 with DC/OS Data Science Engine
 title: S3
 menuWeight: 4
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 
 ---

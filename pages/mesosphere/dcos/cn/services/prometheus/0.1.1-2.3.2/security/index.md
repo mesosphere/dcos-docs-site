@@ -4,8 +4,6 @@ navigationTitle:
 excerpt: DC/OS Prometheus 安全
 title: 安全
 menuWeight: 50
-model: /mesosphere/dcos/cn/services/prometheus/data.yml
-render: mustache
 ---
 
 

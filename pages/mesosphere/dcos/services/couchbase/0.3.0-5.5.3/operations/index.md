@@ -5,7 +5,6 @@ excerpt: Running Couchbase operations
 title: Operations
 menuWeight: 20
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/operations.tmpl

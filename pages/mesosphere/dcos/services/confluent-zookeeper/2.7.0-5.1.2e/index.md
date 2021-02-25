@@ -5,7 +5,6 @@ title: Confluent ZooKeeper 2.7.0-5.1.2e
 menuWeight: 1
 excerpt: Confluent ZooKeeper is a centralized service for maintaining configuration and naming information
 model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
-render: mustache
 ---
 
 <!-- Imported from git@github.com:mesosphere/dcos-zookeeper.git:update-docs -->

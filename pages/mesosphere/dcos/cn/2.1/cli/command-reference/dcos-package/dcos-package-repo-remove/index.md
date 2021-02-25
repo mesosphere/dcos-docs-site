@@ -4,7 +4,6 @@ navigationTitle:  dcos package repo remove
 title: dcos package repo remove
 menuWeight: 9
 excerpt: 从 DC/OS 中删除软件包存储库
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

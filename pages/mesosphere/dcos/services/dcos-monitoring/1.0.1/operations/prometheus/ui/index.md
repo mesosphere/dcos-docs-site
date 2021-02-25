@@ -4,7 +4,6 @@ navigationTitle: Prometheus UI
 title: Prometheus UI
 menuWeight: 10
 excerpt: Prometheus UI
-render: mustache
 model: ../../../data.yml
 ---
 

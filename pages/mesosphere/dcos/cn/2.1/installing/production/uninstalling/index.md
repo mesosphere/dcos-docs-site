@@ -4,7 +4,6 @@ title: 卸载 DC/OS
 navigationTitle: 卸载
 menuWeight: 30
 excerpt: 移除 DC/OS
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

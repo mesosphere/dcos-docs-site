@@ -4,7 +4,6 @@ navigationTitle: Alert Rules
 title: Alert Rules
 menuWeight: 30
 excerpt: Managing alert rules configurations
-render: mustache
 model: ../../../data.yml
 ---
 

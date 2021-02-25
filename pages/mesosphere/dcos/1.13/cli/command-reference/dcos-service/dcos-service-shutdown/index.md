@@ -4,8 +4,6 @@ navigationTitle:  dcos service shutdown
 title: dcos service shutdown
 menuWeight: 2
 excerpt: Shutting down a service
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

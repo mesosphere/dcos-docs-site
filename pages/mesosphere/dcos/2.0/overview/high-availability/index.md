@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  High Availability
 title: High Availability
 menuWeight: 6
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 excerpt: Understanding the high availability features and best practices in DC/OS
 ---

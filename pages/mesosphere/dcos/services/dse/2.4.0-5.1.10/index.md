@@ -5,7 +5,6 @@ title: DSE 2.4.0-5.1.10
 menuWeight: 2
 excerpt: 
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 enterprise: true
 ---
 

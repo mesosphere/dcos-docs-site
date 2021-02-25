@@ -4,8 +4,6 @@ navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 100
 excerpt: Understanding DC/OS Percona XtraDB Cluster Services package versioning
-model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 ## Supported Versions

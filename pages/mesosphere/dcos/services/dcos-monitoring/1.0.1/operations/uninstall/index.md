@@ -4,7 +4,6 @@ navigationTitle: Uninstall
 title: Uninstall
 menuWeight: 20
 excerpt: Removing the service from a DC/OS cluster
-render: mustache
 model: ../../data.yml
 ---
 

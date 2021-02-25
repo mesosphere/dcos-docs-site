@@ -5,7 +5,6 @@ excerpt: Troubleshooting tips for Couchbase on DC/OS
 title: Troubleshooting
 menuWeight: 70
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/troubleshooting.tmpl

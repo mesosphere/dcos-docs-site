@@ -4,8 +4,6 @@ navigationTitle:  群集访问
 title: 群集访问
 menuWeight: 1
 excerpt: 获取群集 URL 的访问权限
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 获取群集 URL 的访问权限

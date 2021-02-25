@@ -4,8 +4,6 @@ navigationTitle:  dcos security org users delete
 title: dcos security org users delete
 menuWeight: 195
 excerpt: Deleting a user
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 enterprise: true
 ---
 

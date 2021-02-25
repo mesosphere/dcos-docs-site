@@ -4,8 +4,6 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 40
 excerpt: New features, updates, and known limitations
-render: mustache
-model: ../data.yml
 ---
 
 # Version v1.2.0

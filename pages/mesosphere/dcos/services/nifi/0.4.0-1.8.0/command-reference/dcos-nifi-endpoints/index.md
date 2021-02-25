@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi endpoints
 title: dcos nifi endpoints
 menuWeight: 64
 excerpt: Display endpoints related informations of the NiFi service.
-model: ../../../data.yml
-render: mustache
 ---
 
 # Description

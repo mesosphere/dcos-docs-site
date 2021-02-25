@@ -4,8 +4,6 @@ navigationTitle:  dcos node diagnostics delete
 title: dcos node diagnostics delete
 menuWeight: 4
 excerpt: Displaying the details of diagnostics bundles
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

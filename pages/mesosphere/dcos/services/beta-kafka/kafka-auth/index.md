@@ -5,8 +5,6 @@ menuWeight: 5
 excerpt:
 enterprise: true
 beta: true
-model: /mesosphere/dcos/services/beta-kafka/data.yml
-render: mustache
 ---
 # Versions
 

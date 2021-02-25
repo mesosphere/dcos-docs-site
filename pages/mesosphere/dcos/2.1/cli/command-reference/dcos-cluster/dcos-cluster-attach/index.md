@@ -4,8 +4,6 @@ navigationTitle:  dcos cluster attach
 title: dcos cluster attach
 menuWeight: 2
 excerpt: Attaching the CLI to a connected or linked cluster
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description

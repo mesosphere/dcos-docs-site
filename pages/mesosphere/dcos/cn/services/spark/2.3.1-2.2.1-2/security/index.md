@@ -5,7 +5,6 @@ excerpt: 保护您的服务
 title: 安全
 menuWeight: 40
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 本主题介绍如何为 {{ model.techShortName }} 配置 DC/OS 服务帐户。

@@ -5,7 +5,6 @@ title: Minio 0.1.2
 menuWeight: 1
 excerpt: Documentation for DC/OS Minio 0.1.2
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 community: true
 ---
 

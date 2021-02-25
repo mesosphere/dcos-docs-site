@@ -4,8 +4,6 @@ title: Metrics Plugin Architecture
 navigationTitle: Metrics Plugin Architecture
 menuWeight: 0
 excerpt: How DC/OS collects and publishes metrics
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 Metrics in DC/OS&trade; 1.12 and newer versions are based on [Telegraf&trade;](https://github.com/dcos/telegraf). Telegraf metrics are the internal representation used to model data during processing. Telegraf provides an agent-based service that runs on each master and agent node in a DC/OS cluster. By default, Telegraf gathers metrics from all of the processes running on the same node, processes them, then sends the collected information to a central metrics database. Telegraf has a plugin-driven architecture. The plugin architecture enables Telegraf to collect information from a supported input plugin and write results to a supported output plugin. The plugins are compiled into the Telegraf binary for execution, and you can selectively enable and customize plugins using configuration file options. A single instance of Telegraf is seen in Figure 1. 

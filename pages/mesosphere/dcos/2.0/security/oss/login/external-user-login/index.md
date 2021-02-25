@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  External User Login
 title: External User Login
 excerpt: Logging in to DC/OS as an external user
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 10
 ---
 

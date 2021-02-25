@@ -5,7 +5,6 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 ---
 
 # Release Notes for DSE Service version 2.4.0-5.1.10

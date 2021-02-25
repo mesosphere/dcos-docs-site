@@ -4,8 +4,6 @@ navigationTitle:  停用节点
 title: 停用节点
 menuWeight: 15
 excerpt: 停用节点
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 为通过添加节点来支持云爆发，还必须支持停用节点。删除节点包括两个步骤：命令 DC/OS 将节点标记为 `GONE`，并停止相应的 Mesos 从设备 `systemd` 器件。

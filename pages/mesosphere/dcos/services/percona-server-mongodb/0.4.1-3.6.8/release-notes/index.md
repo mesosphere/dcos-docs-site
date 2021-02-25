@@ -5,7 +5,6 @@ title: Release Notes
 menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the Percona Server for MongoDB Service 
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 # Release Notes for Percona Server for MongoDB Service version 0.4.1-3.6.8

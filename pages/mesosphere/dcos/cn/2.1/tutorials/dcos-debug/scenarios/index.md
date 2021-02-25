@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  在 DC/OS 上练习部署调试方案
 title: 在 DC/OS 上练习部署调试方案
 excerpt: 教程 - 练习一些调试场景
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 31
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

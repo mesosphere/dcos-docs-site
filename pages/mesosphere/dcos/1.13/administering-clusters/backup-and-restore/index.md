@@ -4,7 +4,6 @@ navigationTitle:  Backup and Restore
 title: Backup and Restore
 menuWeight: 7
 excerpt: Backing up and restoring the important bits of your cluster
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 --- 
 

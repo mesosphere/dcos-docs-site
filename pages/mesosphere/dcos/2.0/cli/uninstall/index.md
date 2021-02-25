@@ -4,8 +4,6 @@ navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4
 excerpt: Uninstalling the DC/OS command line interface
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 You can uninstall the DC/OS&trade; CLI with these commands for your operating system.

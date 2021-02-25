@@ -4,7 +4,6 @@ title: Uninstalling DC/OS
 navigationTitle: Uninstalling
 menuWeight: 30
 excerpt: Removing DC/OS
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

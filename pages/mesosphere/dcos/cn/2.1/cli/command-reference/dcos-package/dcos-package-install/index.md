@@ -4,8 +4,6 @@ navigationTitle:  dcos package install
 title: dcos package install
 menuWeight: 1
 excerpt: 安装软件包
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

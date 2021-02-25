@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi plan force-restart
 title: dcos nifi plan force-restart
 menuWeight: 7
 excerpt: Restart the plan with the provided name, or a specific phase in the plan with the provided name, or a specific step in a phase of the plan with the provided step name.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

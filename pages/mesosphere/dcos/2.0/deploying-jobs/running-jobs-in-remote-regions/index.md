@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Running Jobs in Remote Regions
 title: Running Jobs in Remote Regions
 menuWeight: 3
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 As described in [fault domain awareness and capacity extension for services](/mesosphere/dcos/2.0/deploying-services/fault-domain-awareness/), DC/OS&trade; supports fault domain awareness. If your cluster is configured over multiple regions or zones, it is possible to schedule your Metronome job to run in a remote region, or a specific zone.

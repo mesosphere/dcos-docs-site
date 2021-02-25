@@ -4,8 +4,6 @@ navigationTitle:  dcos security org users show
 title: dcos security org users show
 menuWeight: 210
 excerpt: Showing user information
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 enterprise: true
 ---
 

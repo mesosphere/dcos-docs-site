@@ -5,7 +5,6 @@ excerpt: Installing and customizing your DC/OS Apache Spark service
 title: Install and Customize
 menuWeight: 12
 model: /mesosphere/dcos/services/spark/data.yml
-render: mustache
 ---
 
 {{ model.techShortName }} is available in the Universe and can be installed by using either the DC/OS GUI or the DC/OS CLI.

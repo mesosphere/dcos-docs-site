@@ -5,7 +5,6 @@ excerpt: Configuring your DC/OS installation on Azure using the Mesosphere Unive
 navigationTitle: Configuration Reference
 menuWeight: 3
 model: /mesosphere/dcos/2.1/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include-0.3/azure-extended-example.tmpl

@@ -5,7 +5,6 @@ title: Offload Node
 menuWeight: 45
 excerpt: DC/OS NiFi service Offload Node
 model: ../../data.yml
-render: mustache
 ---
 
 The DC/OS {{model.techName }} service supports the offload node feature of {{model.techName }}. 

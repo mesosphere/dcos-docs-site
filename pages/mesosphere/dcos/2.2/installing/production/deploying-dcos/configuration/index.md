@@ -4,7 +4,6 @@ navigationTitle:  Configuration
 title: Configuration
 menuWeight: 5
 excerpt: Configuring your DC/OS parameters using a YAML file
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---
 

@@ -4,7 +4,6 @@ navigationTitle: Scaling a Service
 title: Scaling a Service
 menuWeight: 3
 excerpt: Scaling a service using the UI and the CLI
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 This tutorial shows how to scale a service using the DC/OS&trade; UI and the CLI.

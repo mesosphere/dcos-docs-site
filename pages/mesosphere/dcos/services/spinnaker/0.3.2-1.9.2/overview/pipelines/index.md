@@ -5,7 +5,6 @@ excerpt: Using Spinnaker pipelines
 title: Pipelines
 menuWeight: 7
 model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 ---
 
 # Concepts

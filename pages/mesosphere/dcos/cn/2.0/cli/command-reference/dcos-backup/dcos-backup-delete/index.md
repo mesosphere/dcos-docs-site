@@ -5,8 +5,6 @@ title: dcos backup delete
 menuWeight: 20
 excerpt: 删除备份
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

@@ -5,7 +5,6 @@ title: Notification Service
 menuWeight: 25
 excerpt: Enable Notification Services to monitor events
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 # Overview

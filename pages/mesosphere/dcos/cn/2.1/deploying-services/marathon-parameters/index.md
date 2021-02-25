@@ -4,8 +4,6 @@ navigationTitle:  Marathon 配置参考
 title: Marathon 配置参考
 menuWeight: 0
 excerpt: 了解 Marathon 应用定义
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 本专题列出了 Marathon 应用定义的所有可用属性，并举例说明显示了所有属性的 JSON 应用定义文件。

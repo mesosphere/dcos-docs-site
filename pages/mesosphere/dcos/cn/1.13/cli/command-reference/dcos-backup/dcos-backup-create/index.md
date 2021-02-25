@@ -5,8 +5,6 @@ title: dcos backup create
 menuWeight: 10
 excerpt: 创建备份
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

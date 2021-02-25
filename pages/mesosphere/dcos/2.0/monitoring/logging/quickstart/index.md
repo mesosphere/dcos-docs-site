@@ -4,7 +4,6 @@ navigationTitle:  Quick Start
 title: Logging Quick Start
 menuWeight: 0
 excerpt: Getting started with DC/OS logging
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

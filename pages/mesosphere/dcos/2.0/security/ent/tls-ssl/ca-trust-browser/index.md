@@ -4,8 +4,6 @@ navigationTitle:  Establishing trust in your DC/OS CA
 title: Establishing trust in your DC/OS CA
 menuWeight: 200
 excerpt: Configuring Chrome and Firefox to trust your DC/OS CA.
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

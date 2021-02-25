@@ -6,7 +6,6 @@ title: DC/OS Data Science Engine 1.0.1
 menuWeight: 1
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 Welcome to the documentation for version 1.0.1 of the {{ model.techName }} service. 
 

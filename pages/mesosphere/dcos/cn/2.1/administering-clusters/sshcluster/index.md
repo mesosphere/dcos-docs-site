@@ -4,8 +4,6 @@ navigationTitle:  SSH 至节点
 title: SSH 至节点
 menuWeight: 0
 excerpt: 与您的 DC/OS 群集建立 SSH 连接 
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

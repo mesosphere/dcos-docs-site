@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon debug list
 title: dcos marathon debug list
 menuWeight: 12
 excerpt: Displaying the current queue of Marathon app deployments
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon deployment rollback
 title: dcos marathon deployment rollback
 menuWeight: 15
 excerpt: Removing a deployed application
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description

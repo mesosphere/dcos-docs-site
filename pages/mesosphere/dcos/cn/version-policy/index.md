@@ -4,8 +4,6 @@ navigationTitle:  版本政策
 title: 版本政策
 menuWeight: 5
 excerpt: DC/OS 版本生命周期和兼容性矩阵
-render: mustache
-model: /mesosphere/dcos/data.yml
 ---
 
 版本策略页面已于 2019 年 10 月 21 日更新。

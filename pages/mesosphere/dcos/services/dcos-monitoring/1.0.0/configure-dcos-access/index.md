@@ -4,7 +4,6 @@ navigationTitle: Configuring DC/OS access for DC/OS Monitoring Service
 title: Configuring DC/OS access for DC/OS Monitoring Service
 menuWeight: 10
 excerpt: Configuring DC/OS access for DC/OS Monitoring Service
-render: mustache
 model: ../data.yml
 ---
 

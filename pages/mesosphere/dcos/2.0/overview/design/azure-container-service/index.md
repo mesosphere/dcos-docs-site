@@ -3,7 +3,6 @@ layout: layout.pug
 excerpt: Understanding how DC/OS implements the Azure Container Service
 title: The Azure Container Service
 navigationTitle: ACS
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 2
 ---

@@ -5,7 +5,6 @@ excerpt: Get up and running with DC/OS Data Science Engine
 title: Quick Start
 menuWeight: 2
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 
 ---

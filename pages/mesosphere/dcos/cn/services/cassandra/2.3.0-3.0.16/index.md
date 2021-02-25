@@ -4,8 +4,6 @@ navigationTitle: Cassandra 2.3.0-3.0.16
 excerpt:
 title: Cassandra 2.3.0-3.0.16
 menuWeight: 9
-model: /mesosphere/dcos/cn/services/cassandra/data.yml
-render: mustache
 ---
 
 DC/OS Apache Cassandra 是一项自动化服务，可轻松部署和管理 [DC/OS 上的 Apache Cassandra](https://mesosphere.com/product/)。Apache Cassandra 是一个分布式 NoSQL 数据库，可在数据中心中提供高可用性、容错性和可扩展性。

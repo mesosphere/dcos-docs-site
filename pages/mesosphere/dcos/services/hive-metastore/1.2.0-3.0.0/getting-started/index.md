@@ -5,7 +5,6 @@ excerpt: Getting started with Hive Metastore
 title: Getting Started
 menuWeight: 20
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 ---
 
 Getting started with a test instance of the DC/OS {{ model.techName }} service is straightforward.

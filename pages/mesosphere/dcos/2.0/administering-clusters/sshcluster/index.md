@@ -4,8 +4,6 @@ navigationTitle:  Access Nodes with SSH
 title: Access Nodes with SSH
 menuWeight: 0
 excerpt: Setting up an SSH connection into your DC/OS cluster 
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 If you are on the same network as your cluster or connected by a VPN, you can use the `dcos node ssh` command to SSH into your cluster. For more information, see the [dcos node section][1] of the CLI reference.

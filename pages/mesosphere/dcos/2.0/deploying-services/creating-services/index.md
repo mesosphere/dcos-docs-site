@@ -4,8 +4,6 @@ navigationTitle:  Creating Services
 title: Creating Services
 menuWeight: 1
 excerpt: Defining a DC/OS service using Marathon
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 A Marathon&trade; application typically represents a long-running service that has many instances running on multiple hosts. An application instance is called a **task**. The **application definition** describes everything needed to start and maintain the tasks. A Marathon application definition creates a DC/OS&trade; **service**.

@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: Understanding microscaling
 title: Tutorial - Microscaling based on queue length
 navigationTitle: Microscaling
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 2
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

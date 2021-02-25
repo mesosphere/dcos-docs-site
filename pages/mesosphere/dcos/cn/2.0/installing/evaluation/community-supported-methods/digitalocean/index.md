@@ -6,7 +6,6 @@ navigationTitle: DigitalOcean
 menuWeight: 40
 oss: true
 model: /mesosphere/dcos/2.0/data.yml
-render: mustache
 ---
 可以使用 Terraform 在 DigitalOcean 上创建 DC/OS 群集。
 

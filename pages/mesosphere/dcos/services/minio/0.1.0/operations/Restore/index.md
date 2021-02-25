@@ -5,7 +5,6 @@ title: Restore
 menuWeight: 35
 excerpt: Restoring data backed up in AWS S3-compatible storage
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 The DC/OS {{ model.techName }} service allows you to restore the backed up data in AWS S3-compatible storage to the DC/OS {{ model.techName }} storage system. A restoration plan is especially useful in case disk  or node failure prevents you from accessing your data. However, {{ model.techName }} is resilient to half the number of disk failures. The restoration plan will be useful if more than half the number of disks are corrupted. 

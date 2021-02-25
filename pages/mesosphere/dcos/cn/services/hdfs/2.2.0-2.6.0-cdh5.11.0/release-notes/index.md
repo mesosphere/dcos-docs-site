@@ -4,8 +4,6 @@ navigationTitle: 版本注释
 excerpt: 版本 2.2.0-2.6.0-cdh5.11.0
 title: 版本注释
 menuWeight: 120
-model: /mesosphere/dcos/cn/services/hdfs/data.yml
-render: mustache
 ---
 
 ## 版本 2.2.0-2.6.0-cdh5.11.0

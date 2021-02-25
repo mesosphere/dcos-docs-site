@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon deployment stop
 title: dcos marathon deployment stop
 menuWeight: 16
 excerpt: 取消正在进行的应用程序部署
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

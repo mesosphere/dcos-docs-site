@@ -4,8 +4,6 @@ navigationTitle:  挂载磁盘资源
 title: 挂载磁盘资源
 menuWeight: 0
 excerpt: 使用 Mesos 挂载存储资源
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 使用 Mesosphere&reg; DC/OS&trade;，您可以在群集中配置 Apache&reg; Mesos&reg; [`Mount` 磁盘资源][1]，只需使用众所周知的路径在代理节点上挂载存储资源即可。

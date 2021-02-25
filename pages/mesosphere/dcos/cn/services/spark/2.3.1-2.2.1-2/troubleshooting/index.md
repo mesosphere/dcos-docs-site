@@ -5,7 +5,6 @@ excerpt: 诊断 Spark
 title: 故障排除
 menuWeight: 125
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 # 调度器

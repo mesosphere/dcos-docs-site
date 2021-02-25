@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi plan force-complete
 title: dcos nifi plan force-complete
 menuWeight: 8
 excerpt: Force complete a specific step in the provided phase. Example uses include the following: Abort a sidecar operation due to observed failure or known required manual preparation that was not performed.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

@@ -5,7 +5,6 @@ excerpt: Configuring EdgeLB Without TLS in DC/OS Minio
 title: Configuring EdgeLB Without TLS
 menuWeight: 25
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 # Accessing the {{ model.techName }} web interface with Edge-LB configuration

@@ -4,7 +4,6 @@ navigationTitle: Exposing DC/OS Monitoring using EdgeLB
 title: Exposing DC/OS Monitoring using EdgeLB
 menuWeight: 30
 excerpt: Exposing DC/OS Monitoring using EdgeLB
-render: mustache
 model: ../data.yml
 ---
 

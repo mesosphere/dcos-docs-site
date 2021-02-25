@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: Understanding how the installation process works
 title: Installation Design
 navigationTitle: Installation
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 4
 ---
 

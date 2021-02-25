@@ -4,7 +4,6 @@ navigationTitle: Configuring Grafana
 title: Configuring Grafana
 menuWeight: 40
 excerpt: Configuring Grafana
-render: mustache
 model: ../../data.yml
 ---
 

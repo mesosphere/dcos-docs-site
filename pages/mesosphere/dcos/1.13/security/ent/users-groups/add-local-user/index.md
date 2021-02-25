@@ -5,8 +5,6 @@ title: Adding local users
 menuWeight: 10
 excerpt: Adding a local user with the web interface or CLI
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

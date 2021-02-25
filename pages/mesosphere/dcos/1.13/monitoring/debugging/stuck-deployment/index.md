@@ -4,8 +4,6 @@ navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 30
 excerpt: Understanding offer matching and failed deployments
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 # How Offer Matching Works
 

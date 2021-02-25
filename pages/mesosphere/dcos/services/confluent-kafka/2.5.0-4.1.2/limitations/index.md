@@ -4,8 +4,6 @@ navigationTitle: Limitations
 excerpt: Limitations o
 title: Limitations of Confluent Kafka 
 menuWeight: 120
-model: /mesosphere/dcos/services/confluent-kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/limitations.tmpl

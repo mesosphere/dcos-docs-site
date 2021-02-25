@@ -4,8 +4,6 @@ navigationTitle:  Log Management with Splunk
 title: Log Management with Splunk
 menuWeight: 3
 excerpt: Managing system and application logs with a Splunk server
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Overview

@@ -4,7 +4,6 @@ navigationTitle:  Multi-Tenancy Primitives
 title: Multi-Tenancy Primitives
 menuWeight: 90
 excerpt: A primer to Multi-Tenancy in DC/OS
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

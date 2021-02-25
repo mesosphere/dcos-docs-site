@@ -5,8 +5,6 @@ title: Settings
 menuWeight: 10
 excerpt: Using the Settings menu
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 From the **Settings** tab, you can manage:

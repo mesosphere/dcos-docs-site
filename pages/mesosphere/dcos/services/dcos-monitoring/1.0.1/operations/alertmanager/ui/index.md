@@ -4,7 +4,6 @@ navigationTitle: Alertmanager UI
 title: Alertmanager UI
 menuWeight: 10
 excerpt: Alertmanager UI
-render: mustache
 model: ../../../data.yml
 ---
 

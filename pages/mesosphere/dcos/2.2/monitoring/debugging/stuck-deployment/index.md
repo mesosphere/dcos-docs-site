@@ -4,8 +4,6 @@ navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 30
 excerpt: Understanding offer matching and failed deployments
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 # Debugging service deployments using the UI
 

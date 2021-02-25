@@ -4,8 +4,6 @@ navigationTitle:  dcos quota list
 title: dcos quota list
 menuWeight: 1
 excerpt: 列出所有配额
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

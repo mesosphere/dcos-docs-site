@@ -5,7 +5,6 @@ excerpt: Troubleshooting Percona XtraDB Cluster
 title: Troubleshooting
 menuWeight: 34
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 {{ model.techName }} uses Prometheus and Grafana to show information about your system's performance. Use these services to diagnose issues on your {{ model.techName }} service.

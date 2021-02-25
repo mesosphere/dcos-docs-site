@@ -5,7 +5,6 @@ title: Disk Caching in DC/OS Minio
 menuWeight: 45
 excerpt: Using caching disks to store content 
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 Disk caching refers to the use of caching disks to store content closer to  tenants. 

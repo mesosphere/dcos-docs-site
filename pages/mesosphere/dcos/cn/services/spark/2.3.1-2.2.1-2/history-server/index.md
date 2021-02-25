@@ -5,7 +5,6 @@ excerpt: 为 Spark History 服务器启用 HDFS
 title: Spark History 服务器
 menuWeight: 30
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 DC/OS {{ model.techName }} 包括 [Spark History Server][3]。由于历史服务器需要 HDFS，您必须明确启用它。

@@ -5,7 +5,6 @@ excerpt: Limitations on backups, node counts, security
 title: Limitations
 menuWeight: 100
 model: /mesosphere/dcos/services/cassandra/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/limitations.tmpl

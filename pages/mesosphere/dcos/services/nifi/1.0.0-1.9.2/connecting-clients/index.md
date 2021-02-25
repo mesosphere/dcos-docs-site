@@ -5,7 +5,6 @@ title: Connecting Clients
 menuWeight: 70
 excerpt: Connecting clients through service discovery
 model: /mesosphere/dcos/services/nifi/data.yml
-render: mustache
 ---
 
 One of the benefits of running containerized services is that they can be placed anywhere on the cluster. Since they can be deployed anywhere on the cluster, clients need a way to find the service. This is where service discovery comes in.

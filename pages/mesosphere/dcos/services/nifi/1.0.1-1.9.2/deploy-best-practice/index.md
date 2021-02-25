@@ -5,7 +5,6 @@ title: Deployment Best Practices
 menuWeight: 30
 excerpt: Best practices for production deployment
 model: /mesosphere/dcos/services/nifi/data.yml
-render: mustache
 ---
 
 ## Hardware Sizing Recommendations

@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  NFS 服务器
 excerpt: 挂载共享网络驱动器
 title: NFS 服务器
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 1
 ---
 

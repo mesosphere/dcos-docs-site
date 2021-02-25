@@ -4,8 +4,6 @@ navigationTitle:  dcos node drain
 title: dcos node drain
 menuWeight: 6
 excerpt: 排空代理节点以使其任务得到重新安排
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

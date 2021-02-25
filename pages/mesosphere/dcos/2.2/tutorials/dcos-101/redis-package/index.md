@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Installing the First Package
 excerpt: Part 2 of the DC/OS 101 tutorial
 title: Tutorial - Installing the First Package
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 2
 ---

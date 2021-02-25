@@ -4,8 +4,6 @@ navigationTitle:  dcos security org groups del_user
 title: dcos security org groups del_user
 menuWeight: 135
 excerpt: Deleting a user from a group
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 # Description

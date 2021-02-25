@@ -5,8 +5,6 @@ title: Managing JSON Web Tokens
 menuWeight: 200
 excerpt: Managing JSON web tokens
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

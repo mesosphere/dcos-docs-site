@@ -5,8 +5,6 @@ title: 许可证 API
 menuWeight: 3
 enterprise: true
 excerpt: 使用 许可证 API 管理您的 DC/OS 许可证
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 # 路由
 

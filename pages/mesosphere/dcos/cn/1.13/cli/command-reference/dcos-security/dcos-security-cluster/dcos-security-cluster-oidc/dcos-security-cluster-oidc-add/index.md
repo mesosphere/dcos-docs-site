@@ -4,8 +4,6 @@ navigationTitle:  dcos security cluster oidc add
 title: dcos security cluster oidc add
 menuWeight: 13
 excerpt: 配置新的 OpenID Connect 提供程序
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

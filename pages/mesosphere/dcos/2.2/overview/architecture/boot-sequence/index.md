@@ -4,7 +4,6 @@ navigationTitle:  Boot Sequence
 title: Boot Sequence
 menuWeight: 6
 excerpt: Understanding the DC/OS component services boot sequence
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---
 

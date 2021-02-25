@@ -5,7 +5,6 @@ title: Release Notes
 menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the Minio Service 
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 {{ model.techName }} Service version 0.1.0 was released on 27 November 2018.

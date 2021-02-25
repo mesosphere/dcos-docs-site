@@ -5,7 +5,6 @@ navigationTitle: Advanced
 menuWeight: 10
 excerpt: Creating and extending DC/OS clusters with AWS CloudFormation templates
 model: /mesosphere/dcos/2.0/data.yml
-render: mustache
 ---
 
 You can create and extend DC/OS clusters with AWS CloudFormation templates. The advanced templates are:

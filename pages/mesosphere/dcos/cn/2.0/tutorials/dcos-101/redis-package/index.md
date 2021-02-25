@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  安装第一个软件包
 excerpt: DC/OS 101 教程第 2 部分
 title: 教程 - 安装第一个软件包
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 2
 ---

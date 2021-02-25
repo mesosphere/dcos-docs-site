@@ -4,8 +4,6 @@ navigationTitle:  Cluster Access
 title: Cluster Access
 menuWeight: 1
 excerpt: Gaining access to a cluster URL
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Gaining access to a cluster URL

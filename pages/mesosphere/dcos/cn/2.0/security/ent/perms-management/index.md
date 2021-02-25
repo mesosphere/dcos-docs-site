@@ -5,8 +5,6 @@ title: 权限管理
 menuWeight: 30
 excerpt: 管理权限
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

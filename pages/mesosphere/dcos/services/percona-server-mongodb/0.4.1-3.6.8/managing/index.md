@@ -5,7 +5,6 @@ title: Managing Percona Server for MongoDB
 menuWeight: 60
 excerpt: Managing Percona Server for MongoDB
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 # Updating your configuration

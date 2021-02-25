@@ -4,8 +4,6 @@ navigationTitle: Pod 示例
 title: Pod 示例
 menuWeight: 30
 excerpt: 了解字段定义和 Pod 示例
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 本专题提供 Pod 字段定义和使用示例。如需字段定义的详细信息，请参阅 [Marathon 配置参考](/mesosphere/dcos/cn/1.13/deploying-services/marathon-parameters/).

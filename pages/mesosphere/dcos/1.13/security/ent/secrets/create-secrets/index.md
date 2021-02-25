@@ -5,8 +5,6 @@ title: Creating secrets
 menuWeight: 1
 excerpt: Creating secrets with a key-value pair or file
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

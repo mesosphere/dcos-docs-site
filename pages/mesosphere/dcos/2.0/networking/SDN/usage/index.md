@@ -4,8 +4,6 @@ navigationTitle:  Using SDNs
 title: Using an SDN
 menuWeight: 20
 excerpt: Using a software defined network
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

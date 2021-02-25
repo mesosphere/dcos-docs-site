@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting Authentication 
 excerpt: Troubleshooting authentication issues in DC/OS
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 50
 ---
 # Ad Blockers and the DC/OS UI

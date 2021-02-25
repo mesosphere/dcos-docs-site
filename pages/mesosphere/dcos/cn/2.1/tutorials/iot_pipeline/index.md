@@ -4,7 +4,6 @@ navigationTitle:  部署负载均衡数据管道
 title: 部署负载均衡数据管道
 menuWeight: 3
 excerpt: 教程 - 在 DC/OS 上构建完整的负载均衡数据管道
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

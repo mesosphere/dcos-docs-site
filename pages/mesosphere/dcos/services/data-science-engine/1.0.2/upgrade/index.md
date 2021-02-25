@@ -6,7 +6,6 @@ title: Upgrade
 menuWeight: 7
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 {{ model.techName }} does not support in-place upgrades. In order to transition to a new version you must manually back up your data located in your `jupyter_data` folder and upload it to a new instance of {{ model.techName }}, running on the latest version using the following guide.

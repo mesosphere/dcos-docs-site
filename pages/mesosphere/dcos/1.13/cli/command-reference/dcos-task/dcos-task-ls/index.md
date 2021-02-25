@@ -4,8 +4,6 @@ navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 7
 excerpt: Display the list of files in the Mesos task directory
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

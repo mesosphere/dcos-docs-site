@@ -4,8 +4,6 @@ navigationTitle: Prometheus Storage
 title: Prometheus Storage
 menuWeight: 20
 excerpt: Prometheus Storage
-render: mustache
-model: ../../../data.yml
 ---
 
 # Configuring Prometheus Storage

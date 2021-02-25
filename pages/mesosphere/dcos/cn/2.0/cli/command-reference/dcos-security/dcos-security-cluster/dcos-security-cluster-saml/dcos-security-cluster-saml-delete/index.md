@@ -4,8 +4,6 @@ navigationTitle:  dcos security cluster saml delete
 title: dcos security cluster saml delete
 menuWeight: 13
 excerpt: 删除 SAML 提供程序配置
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

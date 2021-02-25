@@ -4,8 +4,6 @@ navigationTitle:  Configuring Services
 title: Configuring Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

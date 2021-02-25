@@ -5,7 +5,6 @@ title: Universal Installer 0.3
 menuWeight: 10
 excerpt: Guide to Installing DC/OS on cloud environments using the Mesosphere Universal Installer 0.3
 model: /mesosphere/dcos/2.2/data.yml
-render: mustache
 ---
 
 # Deprecation Notice

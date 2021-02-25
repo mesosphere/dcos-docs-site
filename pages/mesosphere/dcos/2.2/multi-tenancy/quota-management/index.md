@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Quota Management
 title: Quota Management
 menuWeight: 5
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 excerpt: Using groups and quota management for multi-tenancy
 ---
 Groups provide the foundation for supporting multi-tenant clusters using DC/OS. Groups enable you to create logical collections of services, permissions, secrets, and quotas. You can then use these logical collections to map a group to a specific team, project, or Line of Business.

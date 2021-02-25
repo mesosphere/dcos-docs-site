@@ -4,7 +4,6 @@ navigationTitle:  部署服务和 Pod
 title: 部署服务和 Pod
 menuWeight: 130
 excerpt: 使用 Marathon 管理您的流程和服务
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  配置服务
 title: 配置服务
 menuWeight: 2
 excerpt: 使用 DC/OS CLI 配置服务
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 本主题介绍如何使用 CLI 来配置服务。您还可以使用 DC/OS UI 中的 [**Services**](/mesosphere/dcos/cn/2.1/gui/services/) 选项卡自定义服务 。

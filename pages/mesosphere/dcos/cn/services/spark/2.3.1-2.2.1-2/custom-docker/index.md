@@ -4,8 +4,6 @@ navigationTitle:
 excerpt: 自定义 Spark 图片 
 title: 自定义 Docker 镜像
 menuWeight: 95
-model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 <p class="message--note"><strong>注意：</strong> 支持自定义 Spark 映像 Mesosphere 提供。然而，自定义有可能对 Spark 和 DC/OS 之间的集成产生不利影响。在 Mesosphere 服务支持怀疑自定义可能对 Spark 和 DC/OS 产生不利影响的情况下，Mesosphere 服务支持可能要求客户使用未修改的

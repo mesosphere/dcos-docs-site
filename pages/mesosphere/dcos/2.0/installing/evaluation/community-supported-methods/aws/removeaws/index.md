@@ -4,8 +4,6 @@ title: Uninstalling DC/OS on AWS EC2
 navigationTitle: Uninstalling
 menuWeight: 15
 excerpt: Uninstalling DC/OS running on AWS EC2
-model: /mesosphere/dcos/2.0/data.yml
-render: mustache
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

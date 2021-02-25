@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon pod list
 title: dcos marathon pod list
 menuWeight: 25
 excerpt: Viewing the deployed pods
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

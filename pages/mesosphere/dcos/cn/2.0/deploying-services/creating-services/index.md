@@ -4,8 +4,6 @@ navigationTitle:  创建服务
 title: 创建服务
 menuWeight: 1
 excerpt: 使用 Marathon 定义 DC/OS 服务
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 Marathon&trade; 应用程序通常代表长期运行的服务，有许多实例在多个主机上运行。应用程序实例称为**任务**。**应用定义**描述启动和维护任务所需的一切。Marathon 应用定义创建 DC/OS&trade; **服务**。

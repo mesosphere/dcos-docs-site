@@ -5,7 +5,6 @@ title: 更新 GUI
 menuWeight: 90
 excerpt: DCOS GUI 更新服务 
 enterprise: true
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

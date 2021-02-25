@@ -4,7 +4,6 @@ navigationTitle:  Catalog
 title: Catalog
 menuWeight: 4
 excerpt: Using the Catalog page
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1
 excerpt: Monitoring a DC/OS cluster
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 Here are some recommendations for monitoring a DC/OS cluster. You can use any monitoring tools. The endpoints listed below will help you troubleshoot when issues occur.

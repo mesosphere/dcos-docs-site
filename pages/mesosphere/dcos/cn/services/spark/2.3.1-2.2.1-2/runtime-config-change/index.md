@@ -5,7 +5,6 @@ navigationTitle: 运行时更改
 title: 运行时配置更改
 menuWeight: 70
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 适当时候，您可以在其启动并运行时，自定义 DC/OS {{ model.techName }}。

@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon debug list
 title: dcos marathon debug list
 menuWeight: 12
 excerpt: 显示 Marathon 应用程序部署的当前队列
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

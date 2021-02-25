@@ -5,7 +5,6 @@ title: Limitations in Percona Server for MongoDB
 menuWeight: 110
 excerpt: Limitations in service user, security, networking and other functions
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 ## Service user

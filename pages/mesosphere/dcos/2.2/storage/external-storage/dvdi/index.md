@@ -4,8 +4,6 @@ navigationTitle:  DVDI Storage
 title: DVDI Storage
 menuWeight: 20
 excerpt: Using DVDI volumes with Marathon
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 Use external volumes when fault tolerance is crucial for your app. If a host fails, the native Marathon instance reschedules your app on another host, along with its associated data, without user intervention. External volumes also typically offer a larger amount of storage.

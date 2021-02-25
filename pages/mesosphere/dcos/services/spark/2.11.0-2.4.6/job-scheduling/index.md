@@ -4,7 +4,6 @@ navigationTitle: Job Scheduling
 excerpt: Scheduling jobs with DC/OS Apache Spark
 title: Job Scheduling
 menuWeight: 110
-render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 

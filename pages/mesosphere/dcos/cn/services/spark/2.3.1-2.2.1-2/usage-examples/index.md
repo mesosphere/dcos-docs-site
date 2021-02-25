@@ -4,8 +4,6 @@ navigationTitle: 使用示例
 excerpt: 使用示例
 title: 使用示例
 menuWeight: 16
-model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 # 默认安装示例
 

@@ -4,7 +4,6 @@ navigationTitle:  作业
 title: 作业
 menuWeight: 3
 excerpt: 创建和管理作业的本机支持。
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

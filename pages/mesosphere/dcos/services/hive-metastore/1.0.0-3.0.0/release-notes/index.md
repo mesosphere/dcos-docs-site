@@ -5,7 +5,6 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 title: Release Notes 
 menuWeight: 10
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 ---
 # Release Notes for the {{ model.techName }} Service version 1.0.0-3.0.0
 

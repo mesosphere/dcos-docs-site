@@ -4,8 +4,6 @@ navigationTitle:  dcos security org groups show
 title: dcos security org groups show
 menuWeight: 155
 excerpt: Viewing information about a group
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  分区故障域感知
 title: 分区故障域感知
 menuWeight: 5
 excerpt: 了解故障域
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 概述

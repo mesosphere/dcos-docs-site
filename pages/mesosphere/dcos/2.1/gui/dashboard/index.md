@@ -4,8 +4,6 @@ navigationTitle:  Dashboard
 title: Dashboard
 menuWeight: 1
 excerpt: Using the Dashboard to monitor the health of your cluster
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 The Dashboard is the home page of the DC/OS UI. Like a snapshot, it provides a high-level overview of your DC/OS cluster. 
 

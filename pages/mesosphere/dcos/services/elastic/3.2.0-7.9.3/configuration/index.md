@@ -5,7 +5,6 @@ excerpt: Configuration options for Elastic
 title: Configuration
 menuWeight: 20
 model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

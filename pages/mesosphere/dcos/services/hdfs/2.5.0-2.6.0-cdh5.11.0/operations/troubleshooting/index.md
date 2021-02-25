@@ -5,7 +5,6 @@ excerpt: Diagnosing service problems
 title: Troubleshooting 
 menuWeight: 70
 model: /mesosphere/dcos/services/hdfs/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/troubleshooting.tmpl

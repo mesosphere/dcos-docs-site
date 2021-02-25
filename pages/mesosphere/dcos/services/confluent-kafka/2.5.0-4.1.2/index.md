@@ -5,7 +5,6 @@ excerpt: DC/OS Confluent Kafka is an automated service that makes it easy to dep
 title: Confluent Kafka 2.5.0-4.1.2
 menuWeight: 2
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
-render: mustache
 enterprise: true
 ---
 

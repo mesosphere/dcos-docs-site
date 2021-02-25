@@ -5,8 +5,6 @@ title: Configuring a Custom External Certificate
 menuWeight: 50
 excerpt: Configuring DC/OS Enterprise to use a custom external certificate
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

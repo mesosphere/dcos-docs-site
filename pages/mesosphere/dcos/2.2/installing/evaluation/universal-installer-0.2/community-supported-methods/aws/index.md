@@ -5,7 +5,6 @@ navigationTitle: AWS
 menuWeight: 5
 excerpt: Install DC/OS cluster for Amazon Web Services using templates on AWS CloudFormation
 model: /mesosphere/dcos/2.2/data.yml
-render: mustache
 ---
 
 <p class="message--warning"><strong>DISCLAIMER: </strong>This is a community driven project and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. This page explains how to install DC/OS cluster on AWS using CloudFormation. CloudFormation is intended for reference only and are not recommended for production use. Upgrades are not supported with the following installation methods.</p>

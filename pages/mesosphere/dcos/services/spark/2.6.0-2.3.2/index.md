@@ -5,7 +5,6 @@ navigationTitle: Spark 2.6.0-2.3.2
 menuWeight: 3
 excerpt: Documentation for DC/OS Apache Spark 2.6.0-2.3.2
 model: /mesosphere/dcos/services/spark/data.yml
-render: mustache
 ---
 
 Welcome to the documentation for the DC/OS {{ model.techName }}. For more information about new and changed features, see the [release notes](/mesosphere/dcos/services/spark/2.6.0-2.3.2/release-notes/).

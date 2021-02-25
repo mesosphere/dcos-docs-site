@@ -5,7 +5,6 @@ title: GCP 上使用通用安装工具的 DC/OS
 navigationTitle: GCP
 menuWeight: 4
 model: /mesosphere/dcos/2.0/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include/all-intro-and-prereqs.tmpl

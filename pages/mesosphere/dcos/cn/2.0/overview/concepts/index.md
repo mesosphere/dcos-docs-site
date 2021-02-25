@@ -4,7 +4,6 @@ navigationTitle:  概念
 title: 概念
 menuWeight: 5
 excerpt: 了解 DC/OS 概念和术语
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

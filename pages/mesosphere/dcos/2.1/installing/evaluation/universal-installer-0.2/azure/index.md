@@ -5,7 +5,6 @@ title: DC/OS on Azure using the Universal Installer
 navigationTitle: Azure
 menuWeight: 2
 model: /mesosphere/dcos/2.1/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include/all-intro-and-prereqs.tmpl

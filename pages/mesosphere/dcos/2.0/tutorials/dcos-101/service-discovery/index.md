@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: Part 4 of the DC/OS 101 tutorial
 title: Tutorial - Connecting Apps/Service Discovery
 navigationTitle: Service Discovery
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 4
 ---
 

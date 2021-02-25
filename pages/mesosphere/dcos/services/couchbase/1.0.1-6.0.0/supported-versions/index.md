@@ -5,7 +5,6 @@ title: Supported Versions
 menuWeight: 120
 excerpt: Understanding DC/OS Couchbase Services package versioning
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 # Supported Versions

@@ -4,7 +4,6 @@ navigationTitle:  Deploying Services Using a Custom Marathon Instance
 title: Deploying Services Using a Custom Marathon Instance
 menuWeight: 39
 excerpt: Using a basic, non-native instance of Marathon
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---

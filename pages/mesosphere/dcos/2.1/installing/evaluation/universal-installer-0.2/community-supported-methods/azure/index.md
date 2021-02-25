@@ -6,7 +6,6 @@ navigationTitle: Azure
 menuWeight: 10
 oss: true
 model: /mesosphere/dcos/2.1/data.yml
-render: mustache
 ---
 
 <p class="message--warning"><strong>DISCLAIMER: </strong>This is a community driven project and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. This page explains how to install DC/OS cluster on Azure using Azure Resource Manager templates. This method is intended for reference only and are not recommended for production use. Upgrades are not supported with the following installation methods.</p>

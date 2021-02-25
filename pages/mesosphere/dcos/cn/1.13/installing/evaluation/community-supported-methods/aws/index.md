@@ -5,7 +5,6 @@ navigationTitle: AWS
 menuWeight: 5
 excerpt: 使用 AWS CloudFormation 上的模板为 Amazon Web Services 安装 DC/OS 群集
 model: /mesosphere/dcos/1.13/data.yml
-render: mustache
 ---
 
 <p class="message--warning"><strong>免责声明：</strong>这是社区推动的项目，未正式获得 Mesosphere 支持。这种安装方法用于快速演示和验证概念。本页说明如何使用 CloudFormation 在 AWS 上安装 DC/OS 群集。CloudFormation 仅供参考，不推荐用于生产用途。下列安装方法不支持升级。</p>

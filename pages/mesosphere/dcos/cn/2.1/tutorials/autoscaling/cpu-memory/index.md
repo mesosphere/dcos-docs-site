@@ -4,8 +4,6 @@ navigationTitle:  使用 CPU 和内存自动扩展 Marathon 服务
 title: 教程 - 使用 CPU 和内存的自动扩展 Marathon 服务
 menuWeight: 0
 excerpt: 使用 CPU 和内存自动扩展 Marathon 服务
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->

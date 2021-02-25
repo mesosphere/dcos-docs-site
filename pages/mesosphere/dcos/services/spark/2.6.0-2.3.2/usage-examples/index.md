@@ -4,7 +4,6 @@ navigationTitle: Usage Examples
 excerpt: Using DC/OS Apache Spark
 title: Usage Examples
 menuWeight: 15
-render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 This section describes a basic and advanced example of how to use DC/OS {{ model.techName }}.

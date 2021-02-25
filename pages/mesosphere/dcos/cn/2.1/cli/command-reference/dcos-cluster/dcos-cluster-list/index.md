@@ -4,8 +4,6 @@ navigationTitle:  dcos cluster list
 title: dcos cluster list
 menuWeight: 3
 excerpt: 列出已连接的群集
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # 说明

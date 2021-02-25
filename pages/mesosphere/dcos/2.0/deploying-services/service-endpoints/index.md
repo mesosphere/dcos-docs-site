@@ -4,8 +4,6 @@ navigationTitle:  Service Endpoints
 title: Service Endpoints
 menuWeight: 3
 excerpt: Using endpoints with containerized services
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 Containerized services can be placed anywhere in the cluster. Many DC/OS&trade; services provide endpoints to allow clients to find them.

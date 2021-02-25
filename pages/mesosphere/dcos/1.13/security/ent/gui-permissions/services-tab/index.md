@@ -4,8 +4,6 @@ navigationTitle:  Granting Access to the Services Tab
 title: Granting Access to the Services Tab
 menuWeight: 10
 excerpt: Granting access to the Services tab
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

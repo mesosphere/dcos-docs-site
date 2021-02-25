@@ -5,7 +5,6 @@ excerpt: Installation options, configuration regions, node settings, and more in
 title: Configuring Cassandra
 menuWeight: 42
 model: /mesosphere/dcos/services/cassandra/data.yml
-render: mustache
 ---
 
 

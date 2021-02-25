@@ -4,8 +4,6 @@ navigationTitle:  dcos security cluster directory
 title: dcos security cluster directory
 menuWeight: 30
 excerpt: 管理 LDAP 相关的设置 
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 

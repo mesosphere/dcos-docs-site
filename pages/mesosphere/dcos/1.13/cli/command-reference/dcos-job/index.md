@@ -4,8 +4,6 @@ navigationTitle:  dcos job
 title: dcos job
 menuWeight: 8
 excerpt: Deploying and managing jobs in DC/OS
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

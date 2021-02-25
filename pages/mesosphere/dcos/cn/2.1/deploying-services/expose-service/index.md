@@ -4,8 +4,6 @@ navigationTitle:  公开服务
 title: 公开服务
 menuWeight: 5
 excerpt: 通过 Marathon 应用定义启动服务
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

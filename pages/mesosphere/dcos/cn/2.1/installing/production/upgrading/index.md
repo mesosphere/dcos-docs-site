@@ -4,7 +4,6 @@ navigationTitle:  升级
 title: 升级
 menuWeight: 25
 excerpt: 升级 DC/OS 群集
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

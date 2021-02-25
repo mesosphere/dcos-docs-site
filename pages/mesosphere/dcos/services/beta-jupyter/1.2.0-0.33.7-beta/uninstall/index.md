@@ -6,7 +6,6 @@ menuWeight: 90
 excerpt: Uninstall JupyterLab
 beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
-render: mustache
 ---
 
 

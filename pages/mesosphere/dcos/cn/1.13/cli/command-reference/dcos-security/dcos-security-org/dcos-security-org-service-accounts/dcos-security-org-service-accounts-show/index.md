@@ -4,8 +4,6 @@ navigationTitle:  dcos security org service-accounts show
 title: dcos security org service-accounts show
 menuWeight: 180
 excerpt: 显示服务帐户详情
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

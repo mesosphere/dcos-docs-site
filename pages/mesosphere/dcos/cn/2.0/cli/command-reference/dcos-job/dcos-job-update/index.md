@@ -4,8 +4,6 @@ navigationTitle:  dcos job update
 title: dcos job update
 menuWeight: 12
 excerpt: 更新工作
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  dcos security cluster secret-store 
 title: dcos security cluster secret-store
 menuWeight: 80
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 excerpt: Viewing your secrets store settings
 enterprise: true
 ---

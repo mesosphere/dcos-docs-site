@@ -4,8 +4,6 @@ navigationTitle:
 excerpt:
 title: Limitations
 menuWeight: 100
-model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
-render: mustache
 ---
 
 ## Node Count

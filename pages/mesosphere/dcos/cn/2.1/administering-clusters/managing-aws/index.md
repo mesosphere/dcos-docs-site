@@ -4,8 +4,6 @@ navigationTitle:  管理 AWS
 title: 管理 AWS
 menuWeight: 9
 excerpt: 扩展 AWS 群集
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 您可以扩展 AWS 群集或更改代理节点的数量。

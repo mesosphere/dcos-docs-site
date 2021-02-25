@@ -5,7 +5,6 @@ excerpt: Limitations of DC/OS DSE
 title: Limitations
 menuWeight: 100
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/limitations.tmpl

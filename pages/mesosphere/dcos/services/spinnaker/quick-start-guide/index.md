@@ -5,7 +5,6 @@ excerpt: How to use Spinakker with DC/OS
 title: Configuring DC/OS access for Spinnaker
 menuWeight: 2
 model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 community: true
 ---
 

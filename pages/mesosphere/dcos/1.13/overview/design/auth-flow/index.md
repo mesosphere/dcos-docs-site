@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Authentication Architecture
 excerpt: Understanding authentication operations
 title: Authentication Architecture
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 1
 ---
 

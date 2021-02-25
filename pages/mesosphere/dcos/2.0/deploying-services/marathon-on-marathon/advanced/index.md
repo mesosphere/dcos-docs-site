@@ -4,8 +4,6 @@ navigationTitle: Custom Marathon with Security Features
 title: Custom Marathon with Security Features
 menuWeight: 40
 excerpt: Using an advanced, non-native instance of Marathon
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

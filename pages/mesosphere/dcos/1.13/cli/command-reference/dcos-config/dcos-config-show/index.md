@@ -4,8 +4,6 @@ navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
 excerpt: Showing the cluster configuration file
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

@@ -4,7 +4,6 @@ navigationTitle: Grafana Dashboard Configurations
 title: Grafana Dashboard Configurations
 menuWeight: 20
 excerpt: Automatically loading Grafana dashboard configurations
-render: mustache
 model: ../../../data.yml
 ---
 

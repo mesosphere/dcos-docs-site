@@ -6,7 +6,6 @@ navigationTitle: Azure 多分域支持
 menuWeight: 1
 enterprise: true
 model: /mesosphere/dcos/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include/azure-remote-region-all.tmpl

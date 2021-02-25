@@ -4,8 +4,6 @@ navigationTitle:  dcos security
 title: dcos security
 menuWeight: 13
 excerpt: 管理您的 DC/OS 群集安全
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 `dcos security` 命令允许您管理 DC/OS 群集安全。

@@ -4,8 +4,6 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 40
 excerpt: New features, updates, and known limitations
-render: mustache
-model: ../data.yml
 ---
 
 # DC/OS Monitoring v.1.4.0 was released on 1, September 2020

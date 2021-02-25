@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: DC/OS Authentication Token
 title: DC/OS Authentication Token
 excerpt: Getting familiar with DC/OS Authentication tokens
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 10
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  CSI Storage
 title: CSI Storage
 menuWeight: 20
 excerpt: Using CSI volumes with Marathon
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 DC/OS integrates with storage backends that use the Container Storage Interface (CSI) to interact with the cluster orchestrator (DC/OS in this case). This recently-developed standard is gaining wide adoption in the cloud-native ecosystem. If you want a storage solution that will be developed and supported long into the future, choose one with CSI support.

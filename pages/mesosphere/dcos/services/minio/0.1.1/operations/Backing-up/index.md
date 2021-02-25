@@ -5,7 +5,6 @@ title: Backup
 menuWeight: 30
 excerpt: Backing up your data to AWS S3 storage
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 The DC/OS {{ model.techName }} service allows you to back up your data to AWS S3-compatible storage, using the `mc mirror` command. {{ model.techName }} provides an `rsync`-like command line utility. It mirrors data from one bucket to another. 

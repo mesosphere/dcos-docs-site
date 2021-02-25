@@ -5,7 +5,6 @@ excerpt: Uninstalling Hive Metastore
 title: Uninstalling Hive Metastore
 menuWeight: 55
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 ---
 
 Uninstalling the service is simple.

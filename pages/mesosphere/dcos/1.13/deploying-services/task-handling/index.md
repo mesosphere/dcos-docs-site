@@ -4,8 +4,6 @@ navigationTitle:  Task Handling
 title: Task Handling
 menuWeight: 1
 excerpt: Understanding Marathon task categories
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 Marathon sorts tasks into three categories: initial, non-terminal, and terminal. Tasks within these categories may be in one of several states, as summarized in the diagram below. To learn the state of a task, you can consult the DC/OS logs or query the [events stream](http://mesosphere.github.io/marathon/docs/event-bus.html) of the [Marathon API](http://mesosphere.github.io/marathon/api-console/index.html) (/v2/events).

@@ -4,8 +4,6 @@ navigationTitle:  dcos security cluster oidc delete
 title: dcos security cluster oidc delete
 menuWeight: 50
 excerpt: Deleting an OIDC provider configuration
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

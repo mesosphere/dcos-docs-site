@@ -4,8 +4,6 @@ navigationTitle:  Universal Container Runtime (UCR)
 title: Universal Container Runtime (UCR)
 menuWeight: 10
 excerpt: 使用 Universal Container Runtime 启动 Mesos 容器 
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 使用 UCR 配置 Mesos 容器

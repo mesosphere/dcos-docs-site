@@ -4,8 +4,6 @@ navigationTitle:  Networking
 title: Networking
 menuWeight: 70
 excerpt: Understanding the DC/OS networking stack
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 The DC/OS network stack provides

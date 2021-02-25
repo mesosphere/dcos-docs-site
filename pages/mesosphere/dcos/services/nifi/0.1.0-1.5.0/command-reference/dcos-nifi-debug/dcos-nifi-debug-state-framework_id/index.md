@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi debug state framework_id
 title: dcos nifi debug state framework_id
 menuWeight: 5
 excerpt: Display the Mesos framework ID.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

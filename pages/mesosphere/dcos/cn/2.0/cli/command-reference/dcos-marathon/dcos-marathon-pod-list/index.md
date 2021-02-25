@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon pod list
 title: dcos marathon pod list
 menuWeight: 25
 excerpt: 查看部署的 pod
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

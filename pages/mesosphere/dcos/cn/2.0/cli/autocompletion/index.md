@@ -4,8 +4,6 @@ navigationTitle:  CLI 自动完成
 title: CLI 自动完成
 menuWeight: 7
 excerpt: 启用 CLI 自动完成
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 支持 DC/OS&trade; CLI 的自动完成以运行 `bash` 和 `zsh`。这允许您按 TAB 键获取子命令的访问权限，并自动完成正在写入的命令。

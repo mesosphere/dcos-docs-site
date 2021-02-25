@@ -4,8 +4,6 @@ navigationTitle:  Local Persistent Volumes
 title: Local Persistent Volumes
 menuWeight: 10
 excerpt: Using local persistent volumes
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 When you specify a local volume or volumes, tasks and their associated data are "pinned" to the node they are first launched on and will be relaunched on that node if they terminate. The resources the application requires are also reserved. Marathon will implicitly reserve an appropriate amount of disk space (as declared in the volume via `persistent.size`) in addition to the sandbox `disk` size you specify as part of your application definition.

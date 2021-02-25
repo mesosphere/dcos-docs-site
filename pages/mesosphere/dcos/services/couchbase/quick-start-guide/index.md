@@ -5,7 +5,6 @@ excerpt: How to use Couchbase Server and Couchbase Sync Gateway with DC/OS
 title: Configuring DC/OS access for Couchbase
 menuWeight: 2
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 community: true
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  External Storage
 title: External Storage
 menuWeight: 20
 excerpt: Using external storage in DC/OS
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 "External storage" is any type of storage which may be mounted from multiple nodes in a cluster. DC/OS provides two methods for using external volumes with your workloads:

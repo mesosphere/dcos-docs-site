@@ -4,8 +4,6 @@ navigationTitle:  dcos node decommission
 excerpt: 停用 DC/OS 节点
 title: dcos node decommission
 menuWeight: 1
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

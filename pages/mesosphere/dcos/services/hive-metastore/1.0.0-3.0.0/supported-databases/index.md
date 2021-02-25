@@ -5,7 +5,6 @@ excerpt: Supported Databases
 title: Getting Started
 menuWeight: 25
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 ---
 
 ## Supported Databases

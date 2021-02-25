@@ -4,8 +4,6 @@ navigationTitle:
 excerpt: Limitations
 title: Limitations
 menuWeight: 100
-model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
-render: mustache
 ---
 
 ## Node Count

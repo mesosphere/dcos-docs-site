@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: Part 5 of the DC/OS 101 tutorial
 title: Tutorial -  Deploying native applications
 navigationTitle: Native Applications
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 5
 ---
 

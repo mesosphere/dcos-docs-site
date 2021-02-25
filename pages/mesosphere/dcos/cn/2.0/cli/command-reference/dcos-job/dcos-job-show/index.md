@@ -4,8 +4,6 @@ navigationTitle:  dcos job show
 title: dcos job show
 menuWeight: 10
 excerpt: 显示工作定义
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

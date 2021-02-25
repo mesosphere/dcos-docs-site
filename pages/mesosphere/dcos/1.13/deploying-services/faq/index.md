@@ -4,8 +4,6 @@ navigationTitle:  Frequently Asked Questions
 title: Frequently Asked Questions
 menuWeight: 120
 excerpt: Frequently asked questions about deploying Marathon services
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

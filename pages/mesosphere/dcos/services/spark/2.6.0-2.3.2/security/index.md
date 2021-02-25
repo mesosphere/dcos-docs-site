@@ -4,7 +4,6 @@ navigationTitle: Security
 excerpt: Configuring DC/OS service accounts for Spark
 title: Security
 menuWeight: 40
-render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 

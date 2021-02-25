@@ -4,8 +4,6 @@ navigationTitle:  Organization
 title: Organization
 menuWeight: 11
 excerpt: Using the Organization menu
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 You may manage user access from the Organization page. The Organization menu has 3 sub-menus:

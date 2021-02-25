@@ -4,8 +4,6 @@ navigationTitle:  dcos job show runs
 title: dcos job show runs
 menuWeight: 11
 excerpt: Displaying the status of job runs
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

@@ -5,8 +5,6 @@ title: Verification
 menuWeight: 3
 excerpt: Verifying your connection to the LDAP server
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -5,8 +5,6 @@ excerpt: Using Custom Images in DC/OS Data Science Engine
 title: Custom Images
 menuWeight: 7
 enterprise: true
-model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 This guide will show you how to build a custom Docker image for Spark Executor. You can use these custom-built images with libraries used in distributed Spark jobs.

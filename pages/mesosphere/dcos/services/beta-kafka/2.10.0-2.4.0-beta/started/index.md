@@ -6,7 +6,6 @@ title: Get Started
 beta: true
 menuWeight: 10
 model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 ---
 
 <!-- This source repo for this topic is https://github.com/mesosphere/dcos-commons -->

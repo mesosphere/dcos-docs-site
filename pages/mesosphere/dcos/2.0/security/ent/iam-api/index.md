@@ -4,8 +4,6 @@ navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 110
 excerpt: Managing users and permissions with the IAM API
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

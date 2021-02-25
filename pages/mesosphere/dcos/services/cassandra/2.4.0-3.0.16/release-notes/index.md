@@ -5,7 +5,6 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 title: Release Notes 
 menuWeight: 10
 model: /mesosphere/dcos/services/cassandra/data.yml
-render: mustache
 ---
 
 # Release Notes for Cassandra Service version 2.4.0-3.0.16

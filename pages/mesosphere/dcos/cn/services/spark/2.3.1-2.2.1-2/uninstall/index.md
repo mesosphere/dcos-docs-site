@@ -5,7 +5,6 @@ excerpt: 卸载 DC/OS Apache Spark 服务
 title: 卸载
 menuWeight: 60
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 要卸载您的 DC/OS {{ model.techName}} 服务，您必须删除您的 {{ model.techShortName }} 实例。

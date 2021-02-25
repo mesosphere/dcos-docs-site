@@ -6,7 +6,6 @@ navigationTitle: AWS Multi-Region Support
 menuWeight: 1
 enterprise: true
 model: /mesosphere/dcos/2.1/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include/aws-remote-region-all.tmpl

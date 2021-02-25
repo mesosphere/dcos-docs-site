@@ -4,8 +4,6 @@ navigationTitle:  dcos node reactivate
 excerpt: Reactivating a DC/OS node
 title: dcos node reactivate
 menuWeight: 1
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description

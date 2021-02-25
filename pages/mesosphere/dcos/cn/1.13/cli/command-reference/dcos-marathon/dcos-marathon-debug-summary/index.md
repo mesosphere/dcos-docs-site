@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon debug summary
 title: dcos marathon debug summary
 menuWeight: 13
 excerpt: 显示正在等待的 Marathon 应用程序部署的调试队列
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

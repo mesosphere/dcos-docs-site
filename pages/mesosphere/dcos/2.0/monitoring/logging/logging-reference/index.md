@@ -4,8 +4,6 @@ navigationTitle:  Logging Reference
 title: Logging Reference
 menuWeight: 3
 excerpt: Using the Logging API
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Logging API

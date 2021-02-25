@@ -4,8 +4,6 @@ navigationTitle: Custom Environment
 excerpt: Using Custom Conda Environment with DC/OS Data Science Engine
 title: Custom Environment
 menuWeight: 12
-model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 
 ---

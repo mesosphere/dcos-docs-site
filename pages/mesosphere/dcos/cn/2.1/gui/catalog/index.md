@@ -4,7 +4,6 @@ navigationTitle: 目录
 title: 目录
 menuWeight: 4
 excerpt: “目录”页面显示在 DC/OS 上运行的所有服务
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

@@ -5,7 +5,6 @@ excerpt: Introduction to DC/OS Apache Spark service
 title: Quick Start
 menuWeight: 11
 model: /mesosphere/dcos/services/spark/data.yml
-render: mustache
 ---
 
 This page explains how to install the DC/OS {{ model.techName }} service.

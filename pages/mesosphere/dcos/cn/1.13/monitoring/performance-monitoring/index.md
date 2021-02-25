@@ -4,8 +4,6 @@ navigationTitle:  性能监控
 title: 性能监控
 menuWeight: 1
 excerpt: 监控 DC/OS 群集
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 以下是监控 DC/OS 群集的一些建议。您可以使用任何监控工具。下面列出的端点有助于您在发生问题时解决问题。

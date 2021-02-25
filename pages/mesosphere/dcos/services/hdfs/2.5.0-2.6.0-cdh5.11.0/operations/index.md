@@ -5,7 +5,6 @@ navigationTitle: Operations
 excerpt: Plan and pod operations in DC/OS Apache HDFS service
 menuWeight: 30
 model: /mesosphere/dcos/services/hdfs/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/operations.tmpl

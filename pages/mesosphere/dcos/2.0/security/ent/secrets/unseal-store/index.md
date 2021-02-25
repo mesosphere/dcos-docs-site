@@ -5,8 +5,6 @@ title: Unsealing the Secret Store
 menuWeight: 5
 excerpt: Understanding how to unseal the Secret Store
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 # About unsealing the Secret Store
 

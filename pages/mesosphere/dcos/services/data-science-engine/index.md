@@ -5,7 +5,6 @@ excerpt: "DC/OS Data Science Engine is the next-generation web-based user interf
 title: DC/OS Data Science Engine
 menuWeight: 1
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 category: Data Processing
 ---

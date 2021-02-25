@@ -4,7 +4,6 @@ navigationTitle:  组件
 title: 组件
 menuWeight: 4
 excerpt: 了解 DC/OS 组件
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

@@ -5,7 +5,6 @@ excerpt: Using Spark with DC/OS Data Science Engine
 title: Spark
 menuWeight: 8
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 ---
 

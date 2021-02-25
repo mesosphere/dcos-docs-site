@@ -4,8 +4,6 @@ navigationTitle:  dcos task list
 title: dcos task list
 menuWeight: 2
 excerpt: List the tasks inside of a cluster
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description

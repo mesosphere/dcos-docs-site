@@ -4,8 +4,6 @@ navigationTitle:  dcos quota list
 title: dcos quota list
 menuWeight: 1
 excerpt: List all the quotas
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

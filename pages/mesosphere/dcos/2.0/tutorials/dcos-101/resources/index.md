@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: Part 7 of the DC/OS 101 tutorial
 title: Tutorial - Understanding Resources
 navigationTitle: Understanding Resources
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 7
 ---
 

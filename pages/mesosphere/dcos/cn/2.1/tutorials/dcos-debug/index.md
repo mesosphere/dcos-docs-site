@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  调试 DC/OS 上的应用程序
 title: 教程 - 调试 DC/OS 上的应用程序
 excerpt: 调试分布式系统中的应用程序部署问题
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 55
 ---
 

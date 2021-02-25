@@ -4,7 +4,6 @@ navigationTitle: Patching
 title: Patching
 menuWeight: 20
 excerpt: Understanding cluster patches
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

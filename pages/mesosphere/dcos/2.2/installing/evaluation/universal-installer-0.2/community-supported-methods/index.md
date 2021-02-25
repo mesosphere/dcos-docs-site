@@ -5,7 +5,6 @@ title: Other Installation methods
 navigationTitle: Other Installation methods
 menuWeight: 10
 model: /mesosphere/dcos/2.2/data.yml
-render: mustache
 ---
 
 Any of the following methods can be used to install DC/OS:

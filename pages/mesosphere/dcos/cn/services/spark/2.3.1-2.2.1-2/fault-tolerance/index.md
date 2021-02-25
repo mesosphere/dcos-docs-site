@@ -5,7 +5,6 @@ excerpt: 了解 DC/OS Apache Spark 上的容错
 title: 容错
 menuWeight: 100
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 主机、网络、JVM 或应用程序故障等故障可能影响三种类型 {{ model.techShortName }} 组件的行为：

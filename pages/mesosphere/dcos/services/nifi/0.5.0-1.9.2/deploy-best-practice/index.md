@@ -5,7 +5,6 @@ title: Deployment Best Practices
 menuWeight: 30
 excerpt: Best practices for production deployment
 model: ../../data.yml
-render: mustache
 ---
 
 # Configuration Best Practices for Production

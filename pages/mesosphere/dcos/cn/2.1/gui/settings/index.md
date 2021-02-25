@@ -5,8 +5,6 @@ title: 设置
 menuWeight: 10
 excerpt: 使用“设置”菜单
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 从 **设置**选项卡，您可以管理 

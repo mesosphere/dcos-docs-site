@@ -4,8 +4,6 @@ navigationTitle:  Exposing Mesos Zones Outside
 title: Exposing Mesos Zones Outside
 menuWeight: 300
 excerpt: Exposing Mesos zones outside of DC/OS
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

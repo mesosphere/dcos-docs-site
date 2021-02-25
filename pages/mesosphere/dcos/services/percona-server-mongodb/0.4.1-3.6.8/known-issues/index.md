@@ -5,7 +5,6 @@ title: Known Issues in DC/OS Percona Server for MongoDB
 menuWeight: 100
 excerpt: Known issues in DC/OS Percona Server for MongoDB
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 The table below shows all limitations of the {{ model.dbName }} service that are the result of issues in [DC/OS in JIRA](https://jira.mesosphere.com/browse/DCOS_OSS/issues) or the [DC/OS SDK in Github](https://github.com/mesosphere/dcos-commons).

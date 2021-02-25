@@ -4,7 +4,6 @@ navigationTitle:  启动顺序
 title: 启动顺序
 menuWeight: 6
 excerpt: 了解 DC/OS 组件服务启动顺序
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

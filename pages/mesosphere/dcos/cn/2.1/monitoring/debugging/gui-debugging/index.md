@@ -3,8 +3,6 @@ layout: layout.pug
 title: 从 DC/OS UI 调试
 menuWeight: 0
 excerpt: 使用 DC/OS UI 进行调试
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

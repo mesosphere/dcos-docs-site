@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon
 title: dcos marathon
 menuWeight: 10
 excerpt: Deploying and managing applications to DC/OS using Marathon
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description

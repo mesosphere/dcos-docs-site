@@ -5,7 +5,6 @@ excerpt: Security features of DC/OS Elastic service
 title: Security
 menuWeight: 50
 model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 # DC/OS {{ model.techName }} Security

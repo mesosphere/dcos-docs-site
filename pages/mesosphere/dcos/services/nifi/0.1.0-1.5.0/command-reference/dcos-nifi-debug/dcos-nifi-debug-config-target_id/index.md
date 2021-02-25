@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi debug config target_id
 title: dcos nifi debug config target_id
 menuWeight: 4
 excerpt: List ID of the target configuration.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

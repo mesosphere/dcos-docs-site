@@ -4,8 +4,6 @@ navigationTitle:  dcos job schedule show
 title: dcos job schedule show
 menuWeight: 8
 excerpt: Viewing a job schedule
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description

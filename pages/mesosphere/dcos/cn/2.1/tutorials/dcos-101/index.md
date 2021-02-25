@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  DC/OS 101
 excerpt: 了解 DC/OS 的基本知识
 title: 教程 - DC/OS 101
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 0
 ---
 

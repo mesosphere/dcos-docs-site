@@ -4,8 +4,6 @@ navigationTitle:  关闭和停用节点
 title: 关闭和停用节点
 menuWeight: 810
 excerpt: 关闭和停用代理节点
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 在 DC/OS&trade; 1.12 及更高版本中，删除节点涉及两个步骤：

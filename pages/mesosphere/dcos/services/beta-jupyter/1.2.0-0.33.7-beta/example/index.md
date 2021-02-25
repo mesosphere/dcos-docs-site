@@ -6,7 +6,6 @@ menuWeight: 13
 excerpt: Examples of different installation options of Mesosphere Jupyter Service (Beta)
 beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
-render: mustache
 ---
 
 The examples in this section assume you are a data scientist using [{{ model.techShortName }}](https://github.com/{{ model.packageName }}/{{ model.packageName }}) to pre-process and analyze datasets with Spark and TensorFlow.

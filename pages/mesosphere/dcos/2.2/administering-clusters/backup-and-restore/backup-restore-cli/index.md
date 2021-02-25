@@ -5,8 +5,6 @@ title: Backup and Restore CLI
 menuWeight: 0
 excerpt: Backing up and restoring your cluster using the CLI
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 You can use the CLI to create and restore backups of your cluster. You can also choose to back up and restore the state of [ZooKeeper](#zookeeper) running inside a DC/OS cluster.
 

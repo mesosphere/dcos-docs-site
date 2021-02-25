@@ -5,8 +5,6 @@ title: 密封密钥存储库
 menuWeight: 3
 excerpt: 手动密封密钥存储库
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

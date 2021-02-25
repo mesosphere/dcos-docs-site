@@ -4,8 +4,6 @@ navigationTitle: 版本注释
 excerpt: 版本 2.3.0-3.0.16
 title: 版本注释
 menuWeight: 120
-model: /mesosphere/dcos/cn/services/cassandra/data.yml
-render: mustache
 ---
 
 # 版本 2.3.0-3.0.16

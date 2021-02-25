@@ -5,7 +5,6 @@ excerpt: Operations and backup service for DSE
 title: Operations
 menuWeight: 30
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/operations.tmpl

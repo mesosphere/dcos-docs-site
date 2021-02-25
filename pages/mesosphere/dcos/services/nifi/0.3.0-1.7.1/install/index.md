@@ -5,7 +5,6 @@ title: Installing and Customizing
 menuWeight: 20
 excerpt: Installing DC/OS NiFi from the UI or the CLI
 model: ../../data.yml
-render: mustache
 ---
 
  DC/OS {{model.techName }} is available in the Universe and can be installed by using either the UI or the DC/OS CLI.

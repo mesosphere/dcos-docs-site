@@ -4,8 +4,6 @@ navigationTitle: Edge-LB
 excerpt: Using Edge-LB with server groups
 title: Edge-LB
 menuWeight: 8
-model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 ---
 
 Edge-LB is the load balancer that comes with DC/OS Enterprise. See the DC/OS Enterprise documentation on [how to install Edge-LB](/mesosphere/dcos/services/edge-lb/1.3/installing/).

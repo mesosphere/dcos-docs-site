@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Local User Accounts
 title: Local User Account Management
 excerpt: Managing local user accounts
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 20
 ---
 

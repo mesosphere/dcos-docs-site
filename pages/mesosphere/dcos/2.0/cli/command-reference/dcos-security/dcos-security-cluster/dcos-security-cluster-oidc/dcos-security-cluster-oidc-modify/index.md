@@ -4,8 +4,6 @@ navigationTitle:  cos security cluster oidc modify
 title: cos security cluster oidc modify
 menuWeight: 60
 excerpt: Modifying an existing OIDC provider configuration
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

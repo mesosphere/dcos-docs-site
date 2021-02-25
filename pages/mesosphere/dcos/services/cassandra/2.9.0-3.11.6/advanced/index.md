@@ -5,7 +5,6 @@ excerpt: Advanced features of Apache Cassandra service
 title: Advanced features
 menuWeight: 45
 model: /mesosphere/dcos/services/cassandra/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/advanced.tmpl

@@ -5,8 +5,6 @@ title: dcos license audit
 menuWeight: 1
 excerpt: 获取群集许可证审计记录
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

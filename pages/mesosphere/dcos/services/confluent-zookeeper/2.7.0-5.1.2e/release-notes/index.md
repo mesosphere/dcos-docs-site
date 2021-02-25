@@ -5,7 +5,6 @@ excerpt: Release notes for version 2.7.0-5.1.2e
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
-render: mustache
 ---
 
 # Version 2.7.0-5.1.2e

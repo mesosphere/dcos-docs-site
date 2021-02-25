@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi pod status
 title: dcos nifi pod status
 menuWeight: 2
 excerpt: Display the status for tasks in one pod or all pods.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

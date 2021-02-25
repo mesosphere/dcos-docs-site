@@ -4,8 +4,6 @@ navigationTitle:  群集连接
 title: 群集连接
 menuWeight: 3
 excerpt: 连接到多个 DC/OS 群集 
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 使用 [dcos cluster](/mesosphere/dcos/cn/2.1/cli/command-reference/dcos-cluster/) 命令连接到多个 DC/OS 群集。

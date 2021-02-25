@@ -5,7 +5,6 @@ excerpt: Release Notes for version 2.9.1-5.4.0
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
-render: mustache
 ---
 
 ## Version 2.9.1-5.4.0 was released on 9, October 2020

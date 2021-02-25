@@ -3,8 +3,6 @@ layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
 excerpt: List of third party open source software provided by Mesosphere
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 This table lists the third party open source software provided by Mesosphere in connection with Mesosphere DC/OS.

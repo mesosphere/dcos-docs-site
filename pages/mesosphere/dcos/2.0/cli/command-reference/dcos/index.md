@@ -4,8 +4,6 @@ navigationTitle:  dcos
 title: dcos
 menuWeight: 0
 excerpt: Managing your DC/OS installation
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description

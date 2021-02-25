@@ -4,8 +4,6 @@ navigationTitle:  API Versioning
 title: API Versioning
 menuWeight: 2
 excerpt: Understanding component, resource, and route versioning
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The DC/OS&trade; API is backed by many loosely-coupled components. Some are standalone projects and others are designed exclusively for DC/OS. As a result, DC/OS supports a variety of versioning mechanisms: component, route, and resource versioning.

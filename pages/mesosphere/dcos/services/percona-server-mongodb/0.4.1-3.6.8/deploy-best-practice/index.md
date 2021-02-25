@@ -5,7 +5,6 @@ title: Deployment Best Practices
 menuWeight: 64
 excerpt: Best practices for deploying DC/OS Percona Server for MongoDB
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 # Minimum {{ model.dbName }} Node Requirements

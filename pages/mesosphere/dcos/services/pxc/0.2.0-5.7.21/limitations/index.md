@@ -4,8 +4,6 @@ navigationTitle:  Limitations
 title: Limitations
 menuWeight: 90
 excerpt: Understanding configuration limitations
-model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 

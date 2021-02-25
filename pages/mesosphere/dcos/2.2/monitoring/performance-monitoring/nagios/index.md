@@ -4,8 +4,6 @@ navigationTitle:  Monitoring with Nagios
 title: Monitoring with Nagios
 menuWeight: 0
 excerpt: Monitoring a DC/OS cluster with Nagios
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 

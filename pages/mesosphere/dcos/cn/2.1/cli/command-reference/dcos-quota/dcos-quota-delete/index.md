@@ -4,8 +4,6 @@ navigationTitle:  dcos quota delete
 title: dcos quota delete
 menuWeight: 1
 excerpt: 删除配额
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

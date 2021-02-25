@@ -4,8 +4,6 @@ navigationTitle:  dcos quota create
 title: dcos quota create
 menuWeight: 1
 excerpt: Creating a quota
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

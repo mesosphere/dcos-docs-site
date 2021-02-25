@@ -5,7 +5,6 @@ title: Release Notes
 menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the Percona XtraDB Cluster Service
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 # Release Notes for Percona XtraDB Cluster Service version 0.2.1-5.7.21

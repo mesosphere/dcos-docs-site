@@ -4,7 +4,6 @@ navigationTitle: Uninstall
 excerpt: Uninstalling DC/OS Apache Spark
 title: Uninstalling Spark
 menuWeight: 60
-render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 To  uninstall DC/OS {{ model.techName }}, run the following command:

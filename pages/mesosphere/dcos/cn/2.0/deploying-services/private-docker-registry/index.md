@@ -4,8 +4,6 @@ navigationTitle:  使用专用 Docker 注册表
 title: 使用专用 Docker 注册表
 menuWeight: 4
 excerpt: 创建专用 Docker 注册表的存档
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 若要从专用 Docker&reg; 注册表中提供拉取凭据，请创建 Docker 凭据的存档，然后将其添加为服务或 pod 定义中的 URI。在 DC/OS&trade; Enterprise 中，您还可以将 Docker 注册表凭据上传到 DC/OS [密钥存储库](#secret-store-instructions），并在服务或 pod 定义中进行引用。

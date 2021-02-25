@@ -4,8 +4,6 @@ navigationTitle:  dcos security cluster ca profile
 title: dcos security cluster ca profile
 menuWeight: 15
 excerpt: Managing the DC/OS Certificate Authority
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 

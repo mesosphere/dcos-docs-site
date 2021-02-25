@@ -4,8 +4,6 @@ navigationTitle:  “故障排除”
 title: “故障排除”
 menuWeight: 400
 excerpt: Mesos DNS 故障排除
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # 如何查看 Mesos-DNS 版本？

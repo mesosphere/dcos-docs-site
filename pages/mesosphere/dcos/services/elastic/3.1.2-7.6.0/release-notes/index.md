@@ -5,7 +5,6 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 # Release notes for {{ model.techName }} Service version 3.1.2-7.6.0

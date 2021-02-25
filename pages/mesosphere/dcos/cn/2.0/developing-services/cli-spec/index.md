@@ -4,7 +4,6 @@ navigationTitle:  CLI 规范
 title: CLI 规范
 menuWeight: 3
 excerpt: 使用命令行界面
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

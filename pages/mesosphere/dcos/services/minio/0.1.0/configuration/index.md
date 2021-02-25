@@ -5,7 +5,6 @@ excerpt: Configuring Minio for DC/OS
 title: Configuration
 menuWeight: 20
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

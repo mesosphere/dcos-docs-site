@@ -4,8 +4,6 @@ navigationTitle:  dcos security secrets update
 title: dcos security secrets update
 menuWeight: 320
 excerpt: 更新密钥
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

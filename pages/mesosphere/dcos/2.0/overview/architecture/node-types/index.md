@@ -4,7 +4,6 @@ navigationTitle:  Node Types
 title: Node Types
 menuWeight: 1
 excerpt: Understanding the three types of nodes
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

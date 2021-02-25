@@ -4,7 +4,6 @@ navigationTitle:  节点类型
 title: 节点类型
 menuWeight: 1
 excerpt: 了解三种节点
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

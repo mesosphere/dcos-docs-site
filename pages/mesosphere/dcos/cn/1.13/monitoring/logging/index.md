@@ -4,8 +4,6 @@ navigationTitle:  日志记录
 title: 日志记录
 menuWeight: 3
 excerpt: 了解 DC/OS 核心组件和服务的诊断和状态日志
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 DC/OS 群集节点生成包含诊断和状态信息的日志，用于 DC/OS 核心组件和 DC/OS 服务。DC/OS 附带一个内置日志管道，可将所有类型的日志传输到聚合日志数据库。

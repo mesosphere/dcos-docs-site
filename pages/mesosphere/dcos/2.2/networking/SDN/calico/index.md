@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Calico
 title: Calico
 menuWeight: 10
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 excerpt: Understanding DC/OS Calico Integration
 ---

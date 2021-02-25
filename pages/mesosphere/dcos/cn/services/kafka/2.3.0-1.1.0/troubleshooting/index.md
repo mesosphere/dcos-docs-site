@@ -5,7 +5,6 @@ excerpt: 诊断 Kafka
 title: 故障排除
 menuWeight: 70
 model: /mesosphere/dcos/cn/services/kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/cn/services/include/troubleshooting.tmpl

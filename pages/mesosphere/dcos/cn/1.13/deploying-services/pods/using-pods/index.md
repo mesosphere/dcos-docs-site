@@ -4,8 +4,6 @@ navigationTitle:  使用 Pod
 title: 使用 Pod
 menuWeight: 20
 excerpt: 通过 CLI 或 Marathon API 端点创建和管理 Pod
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 您可通过 DC/OS CLI 或通过[Marathon API]`/v2/pods/`的 (/mesosphere/dcos/cn/1.13/deploying-services/marathon-api/). 端点创建和管理 Pod。

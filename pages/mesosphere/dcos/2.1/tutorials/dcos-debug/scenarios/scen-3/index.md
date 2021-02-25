@@ -3,8 +3,6 @@ layout: layout.pug
 title: Scenario 3
 navigationTitle: Scenario 3
 excerpt: Tutorial - Docker Images
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 21
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

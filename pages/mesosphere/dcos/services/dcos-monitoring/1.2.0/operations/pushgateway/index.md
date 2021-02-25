@@ -4,8 +4,6 @@ navigationTitle: Pushgateway
 title: Pushgateway
 menuWeight: 60
 excerpt: Pushgateway
-render: mustache
-model: ../../data.yml
 ---
 
 # Enabling Pushgateway

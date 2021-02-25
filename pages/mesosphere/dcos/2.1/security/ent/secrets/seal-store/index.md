@@ -5,8 +5,6 @@ title: Sealing the Secret Store
 menuWeight: 3
 excerpt: Manually sealing the Secret Store
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

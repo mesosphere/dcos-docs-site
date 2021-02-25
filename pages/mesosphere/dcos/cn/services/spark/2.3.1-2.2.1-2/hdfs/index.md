@@ -5,7 +5,6 @@ title: 与 HDFS 集成
 navigationTitle: HDFS
 menuWeight: 20
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 # HDFS

@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon group scale
 title: dcos marathon group scale
 menuWeight: 20
 excerpt: Scaling a group
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

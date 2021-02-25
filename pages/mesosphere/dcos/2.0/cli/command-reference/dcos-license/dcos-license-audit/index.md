@@ -5,8 +5,6 @@ title: dcos license audit
 menuWeight: 1
 excerpt: Getting the cluster license audit records
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description

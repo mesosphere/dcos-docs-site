@@ -5,7 +5,6 @@ excerpt: 配置 Kafka 和 ZooKeeper
 title: 配置
 menuWeight: 20
 model: /mesosphere/dcos/cn/services/kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl

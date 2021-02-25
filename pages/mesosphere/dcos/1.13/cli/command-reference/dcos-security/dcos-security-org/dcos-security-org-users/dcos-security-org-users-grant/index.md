@@ -4,8 +4,6 @@ navigationTitle:  dcos security org users grant
 title: dcos security org users grant
 menuWeight: 205
 excerpt: Grant user permissions
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

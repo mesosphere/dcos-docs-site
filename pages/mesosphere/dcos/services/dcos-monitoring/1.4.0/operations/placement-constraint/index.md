@@ -4,8 +4,6 @@ navigationTitle: Placement Constraints
 title: Placement Constraints
 menuWeight: 60
 excerpt: Placement constraints
-render: mustache
-model: ../../data.yml
 ---
 
 # Placement constraints

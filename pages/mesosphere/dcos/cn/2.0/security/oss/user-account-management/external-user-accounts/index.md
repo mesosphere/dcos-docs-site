@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: 外部用户账户
 title: 外部用户账户管理
 excerpt: 管理外部用户账户
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 10
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

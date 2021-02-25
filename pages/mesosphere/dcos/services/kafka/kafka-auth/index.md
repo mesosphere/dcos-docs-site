@@ -4,8 +4,6 @@ title: Configuring DC/OS Access for Kafka
 menuWeight: 5
 excerpt:
 enterprise: true
-model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 ---
 # Versions
 

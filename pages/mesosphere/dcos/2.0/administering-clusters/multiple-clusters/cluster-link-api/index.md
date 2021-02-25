@@ -5,8 +5,6 @@ title: Cluster Link API
 menuWeight: 3
 excerpt: Managing cluster links with the Cluster Link API
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 You can use the Cluster Link API to manage cluster links.

@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 0
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 excerpt: Managing cluster links
 enterprise: true
 ---

@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi state
 title: dcos nifi state
 menuWeight: 67
 excerpt: Displays state related informations of the NiFi service
-model: ../../../data.yml
-render: mustache
 ---
 
 # Description

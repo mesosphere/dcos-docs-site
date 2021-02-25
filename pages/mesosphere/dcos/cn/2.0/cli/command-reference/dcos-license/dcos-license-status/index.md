@@ -4,8 +4,6 @@ navigationTitle:  dcos license status
 title: dcos license status
 menuWeight: 4
 excerpt: 查看群集许可证状态
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

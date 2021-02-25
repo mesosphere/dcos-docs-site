@@ -4,8 +4,6 @@ navigationTitle:  Cluster
 title: Cluster
 menuWeight: 8
 excerpt: Using the Cluster menu
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 From the UI, you can view a summary of the statistics for a single cluster or for [linked clusters](/mesosphere/dcos/2.2/administering-clusters/multiple-clusters/cluster-links/).

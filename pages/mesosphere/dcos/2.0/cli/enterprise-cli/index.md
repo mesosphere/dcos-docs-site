@@ -3,7 +3,6 @@ layout: layout.pug
 title: DC/OS Enterprise CLI
 menuWeight: 5
 excerpt: Configuring the DC/OS Enterprise command line interface
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---

@@ -5,8 +5,6 @@ title: dcos cluster unlink
 menuWeight: 3
 excerpt: 取消另一个群集对一个群集的链接
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

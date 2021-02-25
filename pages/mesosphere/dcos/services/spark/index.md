@@ -4,8 +4,6 @@ navigationTitle: Spark
 title: Spark
 menuWeight: 90
 excerpt: 
-model: /mesosphere/dcos/services/spark/data.yml
-render: mustache
 category: Data Processing
 ---
 

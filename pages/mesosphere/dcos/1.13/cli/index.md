@@ -4,7 +4,6 @@ navigationTitle:  CLI
 title: CLI
 menuWeight: 50
 excerpt: Understanding the command line interface utility in DC/OS
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4
 excerpt: Creating an archive for a private Docker registry
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 Private Docker registries enable sharing of pre-configured images, which can enable better availability, lower latency, and higher speeds. Or you may decide to use a private registry to take advantage of a Docker Hub account that is not subject to image pull rate limiting.

@@ -4,8 +4,6 @@ navigationTitle:
 excerpt: Discover the new features, updates, and known limitations in this release of the Elastic Service
 title: Release Notes
 menuWeight: 10
-model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 # Release notes for Elastic Service version 2.7.0-6.8.1

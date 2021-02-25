@@ -4,8 +4,6 @@ navigationTitle: Metrics
 title: Metrics
 menuWeight: 100
 excerpt: Understanding the metrics component of DC/OS
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Overview

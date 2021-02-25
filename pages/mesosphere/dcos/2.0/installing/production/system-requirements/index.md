@@ -5,7 +5,6 @@ title: System Requirements
 menuWeight: 5
 excerpt: Hardware and software requirements for DC/OS  deployments
 
-render: mustache  
 ---
 A DC/OS cluster consists of two types of nodes **master nodes** and **agent nodes**.  The agent nodes can be either **public agent nodes** or **private agent nodes**. Public agent nodes provide north-south (external to internal) access to services in the cluster through load balancers. Private agents host the containers and services that are deployed on the cluster. In addition to the master and agent cluster nodes, each DC/OS installation includes a separate **bootstrap node** for DC/OS installation and upgrade files. Some of the hardware and software requirements apply to all nodes. Other requirements are specific to the type of node being deployed.
 

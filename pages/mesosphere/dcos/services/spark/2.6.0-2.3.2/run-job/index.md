@@ -4,7 +4,6 @@ navigationTitle: Run a Spark Job
 excerpt: Running a Spark job
 title: Run a Spark Job
 menuWeight: 80
-render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon deployment rollback
 title: dcos marathon deployment rollback
 menuWeight: 15
 excerpt: 删除部署的应用程序
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

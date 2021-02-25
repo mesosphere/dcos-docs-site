@@ -6,7 +6,6 @@ menuWeight: 15
 excerpt: 
 community: true
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 category: Databases
 ---
 

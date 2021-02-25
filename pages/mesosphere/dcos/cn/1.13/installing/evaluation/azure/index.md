@@ -5,7 +5,6 @@ title: 使用 Universal 安装工具在 Azure 上的 DC/OS
 navigationTitle: Azure
 menuWeight: 2
 model: /mesosphere/dcos/1.13/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include/all-intro-and-prereqs.tmpl

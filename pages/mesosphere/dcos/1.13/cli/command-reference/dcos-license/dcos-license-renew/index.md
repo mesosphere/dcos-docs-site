@@ -4,8 +4,6 @@ navigationTitle:  dcos license renew
 title: dcos license renew
 menuWeight: 3
 excerpt: Renewing a cluster license
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

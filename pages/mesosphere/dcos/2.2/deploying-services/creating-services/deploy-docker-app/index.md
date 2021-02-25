@@ -4,8 +4,6 @@ navigationTitle: Tutorial - Deploying a Docker-based Service
 title: Tutorial - Deploying a Docker-based Service
 menuWeight: 100
 excerpt: Deploying a Docker-based service
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 In this tutorial, you will create a custom Docker image and deploy it to DC/OS.

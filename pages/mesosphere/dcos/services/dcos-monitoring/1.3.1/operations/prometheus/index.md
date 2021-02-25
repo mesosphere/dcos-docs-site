@@ -4,7 +4,6 @@ navigationTitle: Configuring Prometheus
 title: Configuring Prometheus
 menuWeight: 30
 excerpt: Configuring Prometheus
-render: mustache
 model: ../../data.yml
 ---
 

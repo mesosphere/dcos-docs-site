@@ -5,7 +5,6 @@ title: Percona Server for MongoDB Administration
 menuWeight: 65
 excerpt: Administrative options for Percona Sever for MongoDB
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 ## Back up and Restore

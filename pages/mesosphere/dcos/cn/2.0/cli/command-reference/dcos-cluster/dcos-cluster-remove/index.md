@@ -4,8 +4,6 @@ navigationTitle:  dcos cluster remove
 title: dcos cluster remove
 menuWeight: 4
 excerpt: 从 DC/OS CLI 中删除连接的群集
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

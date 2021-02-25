@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Deploying First Application
 excerpt: Part 3 of the DC/OS 101 Tutorial
 title: Tutorial - Deploying First Application
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 3
 ---
 

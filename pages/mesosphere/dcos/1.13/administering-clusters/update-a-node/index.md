@@ -4,8 +4,6 @@ navigationTitle:  Updating Nodes
 title: Updating Nodes
 menuWeight: 801
 excerpt: Updating agent nodes in an active DC/OS cluster
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 You can update agent nodes in an active DC/OS cluster by using maintenance windows or by manually killing agents. Maintenance windows are the preferred method since this is generally more stable and less error prone.

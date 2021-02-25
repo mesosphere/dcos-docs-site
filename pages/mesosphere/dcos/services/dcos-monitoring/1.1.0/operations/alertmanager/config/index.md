@@ -4,7 +4,6 @@ navigationTitle: Managing Alertmanager Configurations
 title: Managing Alertmanager Configurations
 menuWeight: 20
 excerpt: Enabling and configuring Alertmanager
-render: mustache
 model: ../../../data.yml
 ---
 

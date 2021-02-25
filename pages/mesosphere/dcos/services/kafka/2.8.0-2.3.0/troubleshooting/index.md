@@ -5,7 +5,6 @@ excerpt: Diagnosing Kafka
 title: Troubleshooting
 menuWeight: 70
 model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/troubleshooting.tmpl

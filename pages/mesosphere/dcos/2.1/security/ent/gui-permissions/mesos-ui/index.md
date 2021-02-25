@@ -4,8 +4,6 @@ navigationTitle:  Granting Access to the Mesos UI
 title: Granting Access to the Mesos UI
 menuWeight: 31
 excerpt: Granting access to the Mesos UI
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

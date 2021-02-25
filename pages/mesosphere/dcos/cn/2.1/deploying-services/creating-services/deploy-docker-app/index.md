@@ -4,8 +4,6 @@ navigationTitle: 教程 - 部署基于 Docker 的服务
 title: 教程 - 部署基于 Docker 的服务
 menuWeight: 100
 excerpt: 部署基于 Docker 的服务
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 在本教程中，您将创建自定义 Docker 镜像，并将其部署到 DC/OS。

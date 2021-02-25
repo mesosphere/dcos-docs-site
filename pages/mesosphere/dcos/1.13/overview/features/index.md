@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle:  Features
 title: Features
 menuWeight: 3
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 excerpt: Understanding the unique features of DC/OS
 ---

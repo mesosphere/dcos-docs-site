@@ -5,7 +5,6 @@ excerpt: Using HDFS with DC/OS Data Science Engine
 title: HDFS
 menuWeight: 4
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 
 ---

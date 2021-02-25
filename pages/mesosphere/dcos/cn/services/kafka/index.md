@@ -5,7 +5,6 @@ excerpt:
 title: Kafka  
 menuWeight: 8
 model: /mesosphere/dcos/cn/services/kafka/data.yml
-render: mustache
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle:  调试
 title: 调试
 menuWeight: 115
 excerpt: 使用 CLI 和 UI 调试 DC/OS
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

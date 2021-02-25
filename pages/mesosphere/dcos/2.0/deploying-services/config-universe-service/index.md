@@ -4,8 +4,6 @@ navigationTitle:  Configuring Services
 title: Configuring Services
 menuWeight: 2
 excerpt: Using the DC/OS CLI to configure services
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 This topic describes how to use the CLI to configure services. You can also customize services by using the [**Services**](/mesosphere/dcos/2.0/gui/services/) tab in the DC/OS&trade; UI.

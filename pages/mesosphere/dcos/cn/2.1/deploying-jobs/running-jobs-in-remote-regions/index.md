@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: 在远程区域运行作业
 title: 在远程区域运行作业
 menuWeight: 3
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 如 [故障域感知和服务容量扩展](/mesosphere/dcos/cn/2.1/deploying-services/fault-domain-awareness/)中所述，DC/OS 支持故障域感知。如果您的群集配置在多个区域或分区上，则可以安排 Metronome 作业在远程区域或特定分区中运行。

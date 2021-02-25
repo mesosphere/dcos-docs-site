@@ -4,7 +4,6 @@ navigationTitle:  授予访问“目录”屏幕的权限
 title: 授予访问“目录”屏幕的权限
 menuWeight: 80
 excerpt: 授予访问“目录”屏幕的权限
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---

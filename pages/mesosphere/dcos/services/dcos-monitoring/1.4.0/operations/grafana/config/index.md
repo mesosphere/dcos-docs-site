@@ -4,8 +4,6 @@ navigationTitle: Grafana Custom Configuration
 title: Grafana Custom Configuration
 menuWeight: 10
 excerpt: Grafana Custom Configuration
-render: mustache
-model: ../../../data.yml
 ---
 
 # Grafana Custom Configuration

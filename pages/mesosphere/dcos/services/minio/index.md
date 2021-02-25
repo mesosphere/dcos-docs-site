@@ -5,8 +5,6 @@ title: Minio
 menuWeight: 81
 excerpt:
 community: true
-render: mustache
-model: /mesosphere/dcos/services/minio/data.yml
 category: Storage
 ---
 

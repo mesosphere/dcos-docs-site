@@ -4,8 +4,6 @@ navigationTitle:  dcos node diagnostics
 title: dcos node diagnostics
 menuWeight: 2
 excerpt: 显示诊断捆绑包的详细信息
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

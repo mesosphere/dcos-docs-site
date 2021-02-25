@@ -4,7 +4,6 @@ navigationTitle:  Jobs
 title: Jobs
 menuWeight: 3
 excerpt: Native support for creating and managing jobs.
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---
 

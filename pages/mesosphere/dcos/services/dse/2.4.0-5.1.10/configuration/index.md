@@ -5,7 +5,6 @@ excerpt: Configuring DSE
 title: Configuring DSE
 menuWeight: 20
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 ---
 
 

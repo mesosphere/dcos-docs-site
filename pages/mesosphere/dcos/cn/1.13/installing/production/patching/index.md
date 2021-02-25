@@ -4,7 +4,6 @@ navigationTitle: 打补丁
 title: 打补丁
 menuWeight: 20
 excerpt: 了解群集补丁
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

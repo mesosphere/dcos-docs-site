@@ -4,7 +4,6 @@ navigationTitle:  Task Types
 title: Task Types
 menuWeight: 2
 excerpt: Understanding Mesos tasks
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---
 

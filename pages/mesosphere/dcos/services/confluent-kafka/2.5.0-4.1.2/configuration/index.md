@@ -5,7 +5,6 @@ excerpt: Configuring Confluent Kafka
 title: Configuring Confluent Kafka
 menuWeight: 20
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

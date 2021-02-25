@@ -5,8 +5,6 @@ title: dcos backup show
 menuWeight: 50
 excerpt: Viewing details of a backup
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description

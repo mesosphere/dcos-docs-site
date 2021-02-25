@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon task list
 title: dcos marathon task list
 menuWeight: 29
 excerpt: 显示所有任务
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

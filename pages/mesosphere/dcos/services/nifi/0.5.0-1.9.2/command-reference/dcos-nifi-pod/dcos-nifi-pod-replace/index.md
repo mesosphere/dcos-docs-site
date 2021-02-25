@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi pod replace
 title: dcos nifi pod replace
 menuWeight: 5
 excerpt: Destroy a given pod and moves it to a new agent.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

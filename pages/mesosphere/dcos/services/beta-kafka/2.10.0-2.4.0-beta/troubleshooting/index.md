@@ -6,7 +6,6 @@ title: Diagnose Kafka
 menuWeight: 70
 beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/troubleshooting.tmpl

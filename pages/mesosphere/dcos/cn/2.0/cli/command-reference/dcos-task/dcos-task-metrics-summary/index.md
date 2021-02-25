@@ -4,8 +4,6 @@ navigationTitle:  dcos task metrics summary
 title: dcos task metrics summary
 menuWeight: 11
 excerpt: 显示任务的主要度量标准
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

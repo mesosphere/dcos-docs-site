@@ -5,7 +5,6 @@ excerpt: 管理 HDFS 运行
 title: 运维
 menuWeight: 30
 model: /mesosphere/dcos/cn/services/hdfs/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/cn/services/include/operations.tmpl

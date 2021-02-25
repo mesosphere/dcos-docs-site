@@ -4,8 +4,6 @@ navigationTitle:  dcos quota update
 title: dcos quota update
 menuWeight: 1
 excerpt: 更新配额
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

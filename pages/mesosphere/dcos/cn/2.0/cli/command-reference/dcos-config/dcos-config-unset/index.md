@@ -4,8 +4,6 @@ navigationTitle:  dcos config unset
 title: dcos config unset
 menuWeight: 3
 excerpt: 从配置文件中删除属性
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

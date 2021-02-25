@@ -4,7 +4,6 @@ navigationTitle: Operations
 title: Operations
 menuWeight: 30
 excerpt: Installing, configuring, and uninstalling the service
-render: mustache
 model: ../data.yml
 ---
 

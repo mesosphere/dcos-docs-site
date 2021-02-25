@@ -5,7 +5,6 @@ excerpt: 在 Spark shell 中交互运行 Spark 命令
 title: 交互式 Spark Shell
 menuWeight: 90
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 

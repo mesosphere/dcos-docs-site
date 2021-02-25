@@ -4,8 +4,6 @@ navigationTitle:  dcos node deactivate
 excerpt: Deactivating a DC/OS node
 title: dcos node deactivate
 menuWeight: 1
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description

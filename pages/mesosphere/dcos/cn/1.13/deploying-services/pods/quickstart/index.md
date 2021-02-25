@@ -4,8 +4,6 @@ navigationTitle:  快速入门
 title: 快速入门
 menuWeight: 0
 excerpt: 从 CLI 或 UI 启动 pod
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 ## 先决条件

@@ -5,7 +5,6 @@ excerpt: 配置 HDFS
 title: 配置
 menuWeight: 20
 model: /mesosphere/dcos/cn/services/hdfs/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl

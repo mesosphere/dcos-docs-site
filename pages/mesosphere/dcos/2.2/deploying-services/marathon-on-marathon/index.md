@@ -4,8 +4,6 @@ navigationTitle:  Using Custom Marathon
 title: Using Custom Marathon
 menuWeight: 39
 excerpt: Deploying non-native instances of Marathon
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 enterprise: true
 ---
 

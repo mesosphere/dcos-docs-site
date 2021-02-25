@@ -5,7 +5,6 @@ excerpt: Managing, repairing, and monitoring the service
 title: Operations
 menuWeight: 30
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/operations.tmpl

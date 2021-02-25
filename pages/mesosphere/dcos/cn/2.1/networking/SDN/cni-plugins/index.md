@@ -4,8 +4,6 @@ navigationTitle:  CNI 插件支持
 title: CNI 插件支持
 menuWeight: 30
 excerpt: 了解 CNI 插件支持
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

@@ -6,7 +6,6 @@ navigationTitle: Packet
 menuWeight: 50
 oss: true
 model: /mesosphere/dcos/1.13/data.yml
-render: mustache
 ---
 
 <p class="message--warning"><strong>DISCLAIMER: </strong>This is a <a href="https://github.com/dcos/terraform-dcos/tree/master/gcp">community driven project</a> and not officially supported by Mesosphere. This installation method is used for fast demos and proofs of concept. This page explains how to install DC/OS cluster on Packet bare metal using Terraform templates. Terraform is intended for reference only and are not recommended for production use. Upgrades are not supported with the following installation methods.</p>

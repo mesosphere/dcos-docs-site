@@ -5,7 +5,6 @@ title: Spinnaker 0.3.2-1.9.2
 menuWeight: 1
 excerpt: Documentation for DC/OS Spinnaker 0.3.2-1.9.2
 model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 enterprise: true
 community: true
 ---

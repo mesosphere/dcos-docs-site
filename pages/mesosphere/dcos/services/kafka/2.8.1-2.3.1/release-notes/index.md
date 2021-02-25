@@ -5,7 +5,6 @@ excerpt: Release notes for 2.8.1-2.3.1
 title: Release Notes
 menuWeight: 5
 model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 ---
 
 ## Version 2.8.1-2.3.1

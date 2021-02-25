@@ -4,8 +4,6 @@ navigationTitle: Support Policy
 title: Support Policy
 menuWeight: 110
 excerpt: DC/OS support policy
-model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/support-policy.tmpl

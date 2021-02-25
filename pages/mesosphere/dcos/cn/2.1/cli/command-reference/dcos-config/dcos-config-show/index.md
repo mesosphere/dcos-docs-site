@@ -4,8 +4,6 @@ navigationTitle:  dcos config show
 title: dcos config show
 menuWeight: 2
 excerpt: 显示群集配置文件
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # 说明

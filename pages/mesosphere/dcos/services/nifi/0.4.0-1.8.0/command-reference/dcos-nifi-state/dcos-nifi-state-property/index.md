@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi state property
 title: dcos nifi state property
 menuWeight: 3
 excerpt: Display the content of a specified property
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

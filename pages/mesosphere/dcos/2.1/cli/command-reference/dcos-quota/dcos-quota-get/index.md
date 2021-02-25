@@ -4,8 +4,6 @@ navigationTitle:  dcos quota get
 title: dcos quota get
 menuWeight: 1
 excerpt: Getting a quota
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

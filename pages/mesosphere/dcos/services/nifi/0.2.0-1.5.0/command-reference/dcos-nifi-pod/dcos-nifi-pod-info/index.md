@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi pod info
 title: dcos nifi pod info
 menuWeight: 3
 excerpt: Display the full state information for tasks in a pod.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

@@ -4,8 +4,6 @@ navigationTitle:  dcos config unset
 title: dcos config unset
 menuWeight: 3
 excerpt: Removing a property from the configuration file
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

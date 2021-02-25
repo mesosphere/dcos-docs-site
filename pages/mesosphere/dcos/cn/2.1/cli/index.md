@@ -4,8 +4,6 @@ navigationTitle:  CLI
 title: CLI
 menuWeight: 50
 excerpt: 了解 DC/OS 中的命令行界面实用程序
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 DC/OS 命令行界面 (DC/OS CLI) 实用程序允许您管理群集节点、安装和管理软件包、检查群集状态以及管理服务和任务。

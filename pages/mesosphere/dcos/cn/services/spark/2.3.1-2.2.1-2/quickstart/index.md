@@ -5,7 +5,6 @@ excerpt: Spark 入门
 title: 快速入门
 menuWeight: 1
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 本《快速入门指南》将使您在几分钟内启动并运行 DC/OS {{ model.techName }} 服务。

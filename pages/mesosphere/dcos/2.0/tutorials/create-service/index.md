@@ -4,8 +4,6 @@ navigationTitle:  Creating and Running a Service
 title: Tutorial - Creating and Running a Service
 menuWeight: 1
 excerpt: Creating and deploying a service and a containerized service
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

@@ -5,8 +5,6 @@ title: Configuring an OpenID identity provider
 menuWeight: 2
 excerpt: Configuring an OpenID identity provider
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

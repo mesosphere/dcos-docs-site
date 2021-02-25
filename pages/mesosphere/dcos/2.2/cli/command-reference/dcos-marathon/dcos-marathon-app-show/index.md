@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon app show
 title: dcos marathon app show
 menuWeight: 6
 excerpt: Viewing the json file for an app
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description

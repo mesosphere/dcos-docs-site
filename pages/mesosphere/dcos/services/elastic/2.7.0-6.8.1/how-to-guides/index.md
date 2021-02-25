@@ -4,8 +4,6 @@ navigationTitle: How-To Guides
 excerpt: Optional operations
 title: How-To Guides
 menuWeight: 120
-model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 ## Deploying a secure Elastic service

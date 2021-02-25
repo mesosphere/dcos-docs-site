@@ -4,7 +4,6 @@ navigationTitle:  dcos package repo add
 title: dcos package repo add
 menuWeight: 3
 excerpt: Adding a package repository to DC/OS
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  dcos task metrics summary
 title: dcos task metrics summary
 menuWeight: 11
 excerpt: Display key metrics for a task
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description

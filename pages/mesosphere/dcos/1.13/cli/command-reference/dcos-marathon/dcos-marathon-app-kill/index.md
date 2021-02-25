@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2
 excerpt: Killing an active application instance
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

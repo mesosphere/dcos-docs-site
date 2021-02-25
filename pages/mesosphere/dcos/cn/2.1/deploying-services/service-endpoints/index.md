@@ -4,8 +4,6 @@ navigationTitle:  服务端点
 title: 服务端点
 menuWeight: 3
 excerpt: 使用具有容器化服务的端点
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

@@ -5,7 +5,6 @@ excerpt: Configuring Couchbase for production and development
 title: Configuration
 menuWeight: 30
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

@@ -6,7 +6,6 @@ title: Kerberos
 menuWeight: 5
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 Kerberos is an authentication system that allows {{ model.techName }} to retrieve and write data securely to a Kerberos-enabled HDFS cluster. Long-running jobs will renew their delegation tokens (authentication credentials). 

@@ -4,7 +4,6 @@ navigationTitle: Creating Jobs
 title: Creating Jobs
 menuWeight: 10
 excerpt: Creating and administering jobs using the UI, the CLI, or the API
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 ---
 

@@ -4,7 +4,6 @@ navigationTitle: Getting Started
 title: Getting Started
 menuWeight: 10
 excerpt: Download and install DC/OS Monitoring Service
-render: mustache
 model: ../data.yml
 ---
 

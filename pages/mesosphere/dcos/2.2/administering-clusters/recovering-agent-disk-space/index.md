@@ -4,8 +4,6 @@ navigationTitle:  Recovering Agent Disk Space
 title: Recovering Agent Disk Space
 menuWeight: 900
 excerpt: Recovering space on an agent node volume
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 If tasks fill up the reserved volume of an agent node, there are a few options to recover space:

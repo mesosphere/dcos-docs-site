@@ -6,7 +6,6 @@ menuWeight: 12
 excerpt: Overview of JupyterLab
 beta: true
 model: /mesosphere/dcos/services/beta-jupyter/data.yml
-render: mustache
 ---
 
 [JupyterLab](https://github.com/jupyterlab/jupyterlab) is the next-generation web-based user interface for [Project Jupyter](http://jupyter.org). It is an extensible environment for interactive and reproducible computing, based on the Jupyter Notebook and Architecture. The [Jupyter Notebook](https://github.com/jupyter/notebook) is an open-source web application that allows you to create and share documents that contain live code, equations, visualizations and narrative text. Uses include: data cleaning and transformation, numerical simulation, statistical modeling, data visualization, machine learning, and much more.

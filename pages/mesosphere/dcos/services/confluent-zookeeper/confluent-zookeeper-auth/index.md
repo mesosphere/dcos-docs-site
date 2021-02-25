@@ -6,7 +6,6 @@ excerpt:
 enterprise: true
 
 model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
-render: mustache
 ---
 
 This topic describes how to configure DC/OS access for {{ model.techName }}. Depending on your [security mode](/mesosphere/dcos/latest/security/ent/#security-modes/), {{ model.techName }} requires [service authentication](/mesosphere/dcos/1.10/security/ent/service-auth/) for access to DC/OS.

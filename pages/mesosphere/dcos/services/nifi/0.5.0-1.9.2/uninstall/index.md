@@ -5,7 +5,6 @@ title: Uninstalling
 menuWeight: 40
 excerpt: Uninstalling DC/OS NiFi Services
 model: ../../data.yml
-render: mustache
 ---
 
 # Uninstalling in DC/OS 1.10 or later

@@ -5,8 +5,6 @@ title: 群集链接 API
 menuWeight: 3
 excerpt: 使用 群集链接 API 管理群集链接
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 您可以使用 群集链接 API 管理群集链接。

@@ -4,8 +4,6 @@ navigationTitle:  dcos security org service-accounts
 title: dcos security org service-accounts
 menuWeight: 160
 excerpt: Revoke permission for a group to act on a resource
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

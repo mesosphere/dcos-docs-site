@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: External User Accounts
 title: External User Account Management
 excerpt: Managing external user accounts
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 10
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

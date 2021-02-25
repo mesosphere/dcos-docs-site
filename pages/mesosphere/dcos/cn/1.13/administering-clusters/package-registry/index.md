@@ -5,7 +5,6 @@ title: 包注册表
 menuWeight: 50
 excerpt: 使用 Web 界面或 CLI 管理包资源库
 enterprise: true
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

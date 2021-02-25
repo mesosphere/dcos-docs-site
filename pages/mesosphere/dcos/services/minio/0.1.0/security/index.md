@@ -5,7 +5,6 @@ title:  Security
 menuWeight: 50
 excerpt: Configuring Minio for DC/OS access
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 # Prerequisites

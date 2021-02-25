@@ -5,7 +5,6 @@ excerpt: DC/OS Apache Kafka 的 API 参考
 title: API 参考
 menuWeight: 90
 model: /mesosphere/dcos/cn/services/kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/cn/services/include/api-reference.tmpl

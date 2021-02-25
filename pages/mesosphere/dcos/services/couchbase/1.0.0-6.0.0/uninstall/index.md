@@ -5,7 +5,6 @@ title: Uninstall
 menuWeight: 55
 excerpt: Uninstalling DC/OS Couchbase Services
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 If you are using {{ model.productName }} 1.10 or later, uninstall the service from the {{ model.productName }} CLI with the command `dcos package uninstall <package_name>`. For example, to uninstall the {{ model.techName }} instance named `{{ model.packageName }}-dev`, run:

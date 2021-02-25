@@ -6,7 +6,6 @@ title: Configuration
 menuWeight: 20
 beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

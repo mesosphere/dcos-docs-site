@@ -5,7 +5,6 @@ title: Limitations
 menuWeight: 110
 excerpt: Understanding configuration limitations
 model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 ---
 
 ## Out-of-band configuration

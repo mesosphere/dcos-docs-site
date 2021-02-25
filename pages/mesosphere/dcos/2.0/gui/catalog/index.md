@@ -4,7 +4,6 @@ navigationTitle: Catalog
 title: Catalog
 menuWeight: 4
 excerpt: The Catalog page shows all the services that run on DC/OS
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

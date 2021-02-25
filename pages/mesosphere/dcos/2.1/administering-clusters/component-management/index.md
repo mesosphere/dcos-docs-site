@@ -4,8 +4,6 @@ navigationTitle:  Component Management
 title: Component Management
 menuWeight: 5
 excerpt: Installing and managing DC/OS component services
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 The component management API controls installation and management of DC/OS component services.

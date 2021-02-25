@@ -4,8 +4,6 @@ navigationTitle:  Quick Start
 title: Metrics Quick Start
 menuWeight: 1
 excerpt: Getting Started with metrics in DC/OS
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 

@@ -5,7 +5,6 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 title: Release Notes
 menuWeight: 0
 model: /mesosphere/dcos/services/hdfs/data.yml
-render: mustache
 ---
 
 # Release Notes for HDFS version 2.8.0-3.2.1

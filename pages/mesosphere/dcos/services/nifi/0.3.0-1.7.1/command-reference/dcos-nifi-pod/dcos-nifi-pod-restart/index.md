@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi pod restart
 title: dcos nifi pod restart
 menuWeight: 4
 excerpt: Restart a given pod without moving it to a new agent.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

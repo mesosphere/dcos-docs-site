@@ -4,7 +4,6 @@ navigationTitle:  卸载服务
 title: 卸载服务
 menuWeight: 7
 excerpt: 在 CLI 中卸载 DC/OS 服务
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

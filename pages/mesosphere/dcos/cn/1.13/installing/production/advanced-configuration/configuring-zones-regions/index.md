@@ -4,7 +4,6 @@ navigationTitle:  配置分区和分域
 title: 配置分区和分域
 menuWeight: 15
 excerpt: 使用 DC/OS 中的高可用性功能
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

@@ -4,8 +4,6 @@ navigationTitle:  Marathon API
 title: Marathon API
 menuWeight: 40
 excerpt: Using the Marathon API to manage long-running containerized services
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

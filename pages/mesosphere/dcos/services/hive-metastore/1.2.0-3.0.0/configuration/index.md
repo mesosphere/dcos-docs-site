@@ -5,7 +5,6 @@ excerpt: Installation options, configuration regions, node settings, and more in
 title: Configuring Hive Metastore
 menuWeight: 42
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 ---
 
 

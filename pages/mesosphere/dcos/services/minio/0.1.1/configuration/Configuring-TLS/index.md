@@ -5,7 +5,6 @@ title:  Configuring TLS
 menuWeight: 25
 excerpt: Configuring TLS with DC/OS Minio
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 # Prerequisites

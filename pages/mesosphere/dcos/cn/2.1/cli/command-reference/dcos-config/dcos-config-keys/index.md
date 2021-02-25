@@ -4,8 +4,6 @@ navigationTitle:  dcos config keys
 title: dcos config keys
 menuWeight: 1
 excerpt: 检索 DC/OS 配置属性密钥列表
-render: mustache
-model: /mesosphere/dcos/data.yml
 ---
 
 # 说明

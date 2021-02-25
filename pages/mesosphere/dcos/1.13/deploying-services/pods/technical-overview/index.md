@@ -4,8 +4,6 @@ navigationTitle:  Technical Overview
 title: Technical Overview
 menuWeight: 10
 excerpt: Understanding pods
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 A pod is a special kind of Mesos task group, and the tasks or containers in the pod are the group members. A pod instance’s containers are launched together, atomically, via the [Mesos LAUNCH_GROUP](https://github.com/apache/mesos/blob/cfeabec58fb2a87076f0a2cf4d46cdd02510bce4/docs/executor-http-api.md#launch-group) call.

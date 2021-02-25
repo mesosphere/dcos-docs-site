@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon pod add
 title: dcos marathon pod add
 menuWeight: 23
 excerpt: Adding a pod
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 

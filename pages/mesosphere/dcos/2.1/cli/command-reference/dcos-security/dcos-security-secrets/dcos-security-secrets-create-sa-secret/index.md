@@ -4,8 +4,6 @@ navigationTitle:  dcos security secrets create-sa-secret
 title: dcos security secrets create-sa-secret
 menuWeight: 305
 excerpt: Creating and storing a secret
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 

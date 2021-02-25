@@ -4,8 +4,6 @@ navigationTitle:  dcos package repo list
 title: dcos package repo list
 menuWeight: 6
 excerpt: 显示软件包存储库源
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

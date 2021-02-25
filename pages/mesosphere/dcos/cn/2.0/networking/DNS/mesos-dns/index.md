@@ -4,8 +4,6 @@ navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3
 excerpt: 了解 Mesos DNS
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

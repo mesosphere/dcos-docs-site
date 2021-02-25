@@ -4,8 +4,6 @@ navigationTitle:  示例
 title: 作业示例
 menuWeight: 20
 excerpt: 作业常见使用情景示例。
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

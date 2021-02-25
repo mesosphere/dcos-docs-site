@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: Understanding distributed DNS
 title: Design - Distributed DNS
 navigationTitle: Distributed DNS
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 3
 ---
 

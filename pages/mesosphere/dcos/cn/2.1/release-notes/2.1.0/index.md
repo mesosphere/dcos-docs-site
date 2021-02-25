@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: 2.1.0 版本注释
 title: 2.1.0 版本注释
 menuWeight: 1
-render: mustache
-model:  /mesosphere/dcos/2.1/data.yml
 excerpt: DC/OS 2.1.0 版本的注释，包括开源归属和版本策略。
 ---
 Mesosphere&reg; DC/OS&trade; 2.1.0 于 2020 年 6 月 9 日发布。

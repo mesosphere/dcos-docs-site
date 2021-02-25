@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Service Accounts
 title: Service Account Management
 excerpt: Managing service accounts
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 30
 ---
 

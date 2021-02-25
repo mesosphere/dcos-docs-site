@@ -4,8 +4,6 @@ navigationTitle:  Managing AWS
 title: Managing AWS
 menuWeight: 9
 excerpt: Scaling your AWS cluster
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 You can scale your AWS cluster or change the number of agent nodes.

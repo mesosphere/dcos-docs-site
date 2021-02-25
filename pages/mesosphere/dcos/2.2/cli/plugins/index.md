@@ -4,8 +4,6 @@ navigationTitle:  CLI Plugins
 title: CLI Plugins
 menuWeight: 5
 excerpt: How to extend the command line interface
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 Plugins extend the functionality of the CLI for cluster specific actions.

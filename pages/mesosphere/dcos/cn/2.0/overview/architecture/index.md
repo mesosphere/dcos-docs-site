@@ -4,8 +4,6 @@ navigationTitle:  架构
 title: 架构
 menuWeight: 2
 excerpt: 了解 DC/OS 架构
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 Mesosphere&reg; 分布式云操作系统 (DC/OS&trade;) 是一个运行应用程序、作业和服务等分布式容器化软件的平台。作为平台，DC/OS 与基础架构层不同，与基础架构层无关。这意味着只要基础架构提供计算资源、存储和网络，它就可能包含虚拟或物理硬件。

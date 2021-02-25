@@ -4,7 +4,6 @@ navigationTitle:  CLI Specification
 title: CLI Specification
 menuWeight: 3
 excerpt: Using the command line interface
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

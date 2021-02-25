@@ -5,8 +5,6 @@ excerpt: Release notes for 2.10.0-2.4.0-beta
 title: Release Notes
 menuWeight: 5
 beta: true
-model: /mesosphere/dcos/services/beta-kafka/data.yml
-render: mustache
 ---
 
 ## Version 2.10.0-2.4.0-beta

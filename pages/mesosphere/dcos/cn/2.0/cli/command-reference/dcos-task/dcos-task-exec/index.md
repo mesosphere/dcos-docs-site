@@ -4,8 +4,6 @@ navigationTitle:  dcos task exec
 title: dcos task exec
 menuWeight: 2
 excerpt: 在任务容器内部启动进程
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # 说明

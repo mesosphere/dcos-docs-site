@@ -4,8 +4,6 @@ navigationTitle:  服务端点
 title: 服务端点
 menuWeight: 3
 excerpt: 使用具有容器化服务的端点
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 容器化服务可以放置在群集中的任何位置。许多 DC/OS&trade; 服务提供端点，方便客户端找到它们。

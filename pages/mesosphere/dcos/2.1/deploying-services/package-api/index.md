@@ -3,7 +3,6 @@ layout: layout.pug
 title: Package Management API
 menuWeight: 10
 excerpt: Installing DC/OS services using the Package Management API
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---

@@ -4,8 +4,6 @@ navigationTitle:  dcos config set
 title: dcos config set
 menuWeight: 1
 excerpt: Adding or setting DC/OS configuration properties
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description

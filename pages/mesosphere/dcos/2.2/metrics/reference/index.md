@@ -4,8 +4,6 @@ navigationTitle:  Metrics Reference
 title: Metrics Reference
 menuWeight: 7
 excerpt: Understanding metrics collected by DC/OS
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 

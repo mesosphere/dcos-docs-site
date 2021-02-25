@@ -4,8 +4,6 @@ navigationTitle:  标记任务和作业
 title: 标记任务和作业
 menuWeight: 5
 excerpt: 教程 - 使用 DC/OS Web 界面和 Marathon HTTP API 定义标签
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs-site -->

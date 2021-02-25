@@ -5,7 +5,6 @@ excerpt: Interact with the Hive Metastore using the Beeling CLI
 title: Using the Beeline CLI in Hive Metastore
 menuWeight: 50
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 enterprise: true
 ---
 

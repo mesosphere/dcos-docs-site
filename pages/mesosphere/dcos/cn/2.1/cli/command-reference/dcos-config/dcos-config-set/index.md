@@ -4,8 +4,6 @@ navigationTitle:  dcos config set
 title: dcos config set
 menuWeight: 1
 excerpt: 添加或设置 DC/OS 配置属性
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # 说明

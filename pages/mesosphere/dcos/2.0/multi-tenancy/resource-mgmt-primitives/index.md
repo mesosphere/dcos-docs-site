@@ -4,7 +4,6 @@ navigationTitle: Resource Management Primitives
 title: Resource Management Primitives
 menuWeight: 10
 excerpt: Reserving resources to support multi-tenancy
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 Resources in Mesosphere&reg; DC/OS&trade; can be reserved and prioritized using a combination of roles, reservations, quotas, and weights. These features are provided by Apache&reg; Mesos&reg;, at the core of DC/OS and are referred to as `Primitives`, as most of them are only accessible through the API and have not yet been integrated into the DC/OS UI or CLI. A user requires good monitoring in place of available/used resources when working with quotas, reservations, and weights.

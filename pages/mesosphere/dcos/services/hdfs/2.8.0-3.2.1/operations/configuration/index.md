@@ -5,7 +5,6 @@ excerpt: Configuration options for the DC/OS Apache HDFS service
 title: Configuration
 menuWeight: 20
 model: /mesosphere/dcos/services/hdfs/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

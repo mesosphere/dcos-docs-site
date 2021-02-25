@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon deployment stop
 title: dcos marathon deployment stop
 menuWeight: 16
 excerpt: Cancelling in-progress application deployment
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

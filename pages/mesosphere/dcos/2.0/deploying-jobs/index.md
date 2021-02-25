@@ -4,8 +4,6 @@ navigationTitle:  Deploying Jobs
 title: Deploying Jobs
 menuWeight: 120
 excerpt: Creating a job without installing a separate service
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 You can create scheduled jobs in DC/OS&trade; without installing a separate service. Create and administer jobs in the DC/OS UI, the DC/OS CLI, or with an API.

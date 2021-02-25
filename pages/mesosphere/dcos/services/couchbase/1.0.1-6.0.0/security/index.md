@@ -5,7 +5,6 @@ excerpt: Using native transport encryption, authentication and authorization
 title: Security
 menuWeight: 50
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 

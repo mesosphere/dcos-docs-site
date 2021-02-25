@@ -4,7 +4,6 @@ navigationTitle: 部署本地目录
 title: 部署本地目录
 menuWeight: 1000
 excerpt: 在本地目录数据中心安装和运行 DC/OS 服务
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 ---
 

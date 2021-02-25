@@ -4,8 +4,6 @@ navigationTitle:  dcos diagnostics download
 title: dcos diagnostics download
 menuWeight: 5
 excerpt: Downloading a diagnostics bundle
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

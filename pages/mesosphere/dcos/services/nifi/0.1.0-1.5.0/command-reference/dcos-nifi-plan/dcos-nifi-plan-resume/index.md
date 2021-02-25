@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi plan resume
 title: dcos nifi plan resume
 menuWeight: 6
 excerpt: Resume the plan, or a specific phase in that plan with the provided phase name (or UUID).
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

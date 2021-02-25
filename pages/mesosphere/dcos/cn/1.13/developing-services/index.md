@@ -3,7 +3,6 @@ layout: layout.pug
 title: 开发 DC/OS 服务
 menuWeight: 160
 excerpt: 开发您自己的 DC/OS 组件
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

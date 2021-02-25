@@ -6,7 +6,6 @@ navigationTitle: Azure
 menuWeight: 10
 oss: true
 model: /mesosphere/dcos/2.1/data.yml
-render: mustache
 ---
 
 <p class="message--warning"><strong>免责声明：</strong>这是社区推动的项目，未正式获得 Mesosphere 支持。这种安装方法用于快速演示和验证概念。本页面说明如何使用 Azure 资源管理器模板在 Azure 上安装 DC/OS 群集。该方法仅供参考，不推荐用于生产用途。下列安装方法不支持升级。</p>

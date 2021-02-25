@@ -4,8 +4,6 @@ navigationTitle: Alertmanager Storage
 title: Alertmanager Storage
 menuWeight: 20
 excerpt: Alertmanager Storage
-render: mustache
-model: ../../../data.yml
 ---
 
 # Configuring Alertmanager Storage

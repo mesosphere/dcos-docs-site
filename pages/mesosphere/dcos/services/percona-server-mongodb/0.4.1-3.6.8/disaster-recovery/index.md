@@ -5,7 +5,6 @@ title: Disaster Recovery
 menuWeight: 80
 excerpt: Creating a backup and recovery plan
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 # Backing Up

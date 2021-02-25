@@ -6,7 +6,6 @@ navigationTitle: GCP Multi-Region Support
 menuWeight: 1
 enterprise: true
 model: /mesosphere/dcos/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include/gcp-remote-region-all.tmpl

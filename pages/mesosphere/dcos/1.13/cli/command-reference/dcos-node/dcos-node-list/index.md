@@ -4,8 +4,6 @@ navigationTitle:  dcos node list
 title: dcos node list
 menuWeight: 6
 excerpt: Displaying DC/OS node information
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

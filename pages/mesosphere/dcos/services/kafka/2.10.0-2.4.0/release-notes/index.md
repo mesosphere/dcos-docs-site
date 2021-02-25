@@ -5,7 +5,6 @@ excerpt: Release notes for 2.10.0-2.4.0
 title: Release Notes
 menuWeight: 5
 model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 ---
 
 ## Version 2.10.0-2.4.0 was released on 19, June 2020.

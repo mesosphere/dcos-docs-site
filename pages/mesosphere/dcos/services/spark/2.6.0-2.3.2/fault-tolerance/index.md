@@ -5,7 +5,6 @@ excerpt: Understanding DC/OS Apache Spark fault tolerance
 title: Fault Tolerance
 menuWeight: 100
 model: /mesosphere/dcos/services/spark/data.yml
-render: mustache
 ---
 
 Failures such as host, network, JVM, or application failures can affect the behavior of three types of {{ model.techShortName }} components:

@@ -6,7 +6,6 @@ title: Host Volume
 menuWeight: 7
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 This section will guide you to the process of mounting host volume into {{ model.techName }} and also providing User ID or Group ID to match necessary permissions.

@@ -4,8 +4,6 @@ navigationTitle:  dcos security org service-accounts delete
 title: dcos security org service-accounts delete
 menuWeight: 170
 excerpt: 删除服务帐户
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

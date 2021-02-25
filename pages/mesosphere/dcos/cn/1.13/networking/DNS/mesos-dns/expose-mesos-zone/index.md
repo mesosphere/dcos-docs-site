@@ -4,8 +4,6 @@ navigationTitle:  揭示外面的 Mesos 区域
 title: 揭示外面的 Mesos 区域
 menuWeight: 300
 excerpt: 揭示 DC/OS 之外的 Mesos 区域
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

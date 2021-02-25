@@ -4,7 +4,6 @@ excerpt: Setting up Kerberos to run with DC/OS Apache Spark
 title: Kerberos
 navigationTitle: Kerberos
 menuWeight: 120
-render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 

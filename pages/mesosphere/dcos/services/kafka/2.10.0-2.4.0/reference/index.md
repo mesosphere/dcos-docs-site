@@ -5,7 +5,6 @@ excerpt: API reference for DC/OS Apache Kafka
 title: API Reference
 menuWeight: 90
 model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/api-reference.tmpl

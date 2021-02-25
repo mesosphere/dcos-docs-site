@@ -4,8 +4,6 @@ navigationTitle:  CLI Autocompletion
 title: CLI Autocompletion
 menuWeight: 7
 excerpt: Enabling autocompletion for the CLI
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 Autocompletion for the DC/OS&trade; CLI is supported for `bash` and `zsh`. This allows you to press TAB to get access to subcommands and auto-complete the commands you are writing.

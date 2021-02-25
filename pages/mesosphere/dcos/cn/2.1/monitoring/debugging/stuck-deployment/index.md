@@ -4,8 +4,6 @@ navigationTitle:  部署卡住
 title: 部署卡住
 menuWeight: 30
 excerpt: 了解邀约匹配和失败的部署
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 # 使用 UI 调试服务部署
 

@@ -5,7 +5,6 @@ excerpt: DC/OS Kafka is a distributed high-throughput publish-subscribe messagin
 title: DC/OS Kafka
 menuWeight: 1
 model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 beta: true
 ---
 

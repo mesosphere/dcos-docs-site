@@ -5,7 +5,6 @@ excerpt: Getting started with Cassandra
 title: Getting Started
 menuWeight: 20
 model: /mesosphere/dcos/services/cassandra/data.yml
-render: mustache
 ---
 
 Getting started with a test instance of the DC/OS {{ model.techName }} service is straightforward.

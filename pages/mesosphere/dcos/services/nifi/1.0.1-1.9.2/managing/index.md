@@ -5,7 +5,6 @@ title: Operations
 menuWeight: 35
 excerpt: Managing your DC/OS NiFi service
 model: /mesosphere/dcos/services/nifi/data.yml
-render: mustache
 ---
 This section describes various operations tasks you may need. DC/OS {{ model.techName }} allows you to: 
 - Update your configuration after launch

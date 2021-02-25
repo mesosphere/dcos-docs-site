@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi config show
 title: dcos nifi config show
 menuWeight: 2
 excerpt: Display a specified configuration.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

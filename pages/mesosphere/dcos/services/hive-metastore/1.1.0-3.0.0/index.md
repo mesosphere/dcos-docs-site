@@ -5,7 +5,6 @@ excerpt: DC/OS Hive Metastore is an automated service that makes it easy to depl
 title: Hive Metastore 1.1.0-3.0.0
 menuWeight: 1
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 ---
 
 DC/OS {{ model.techName }} is an automated service that makes it easy to deploy 

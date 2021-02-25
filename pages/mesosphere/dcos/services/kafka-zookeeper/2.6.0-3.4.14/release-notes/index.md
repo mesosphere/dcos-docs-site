@@ -5,7 +5,6 @@ excerpt: Discover the new features, updates, and known limitations in this relea
 title: Release Notes
 menuWeight: 0
 model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
-render: mustache
 ---
 
 # Version 2.6.0-3.4.14

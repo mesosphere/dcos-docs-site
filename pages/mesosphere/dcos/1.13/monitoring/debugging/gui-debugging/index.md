@@ -3,8 +3,6 @@ layout: layout.pug
 title: Debugging from the DC/OS UI
 menuWeight: 0
 excerpt: Using the DC/OS UI for debugging
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 You can debug your service or pod from the DC/OS UI.

@@ -4,8 +4,6 @@ navigationTitle:  dcos job list
 title: dcos job list
 menuWeight: 3
 excerpt: 显示所有作业定义
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

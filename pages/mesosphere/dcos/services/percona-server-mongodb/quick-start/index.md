@@ -6,7 +6,6 @@ menuWeight: 100
 excerpt: How to use Percona-Server-MongoDB with DC/OS
 community: true
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 # Prerequisites

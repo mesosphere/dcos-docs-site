@@ -5,7 +5,6 @@ title: Template Reference
 menuWeight: 5
 excerpt: Advanced template parameters
 model: /mesosphere/dcos/1.13/data.yml
-render: mustache
 ---
 
 These advanced template parameters are specified in the individual JSON files. During DC/OS installation these template files are used to generate a customized DC/OS build.

@@ -4,8 +4,6 @@ navigationTitle: Agent Routes
 title: Agent Routes
 menuWeight: 11
 excerpt: Admin Router running on DC/OS agent nodes.
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 Admin Router Agent runs on DC/OS&trade; agent nodes. It exposes the following API routes.
 

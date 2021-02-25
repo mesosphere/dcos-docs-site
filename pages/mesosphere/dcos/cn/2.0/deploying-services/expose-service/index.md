@@ -4,8 +4,6 @@ navigationTitle:  公开服务
 title: 公开服务
 menuWeight: 5
 excerpt: 通过 Marathon 应用定义启动服务
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 DC/OS&trade; 代理节点在 [安装](/mesosphere/dcos/cn/2.0/installing/) 过程中可被指定为 [公共](/mesosphere/dcos/cn/2.0/overview/concepts/#public-agent-node) 或 [专用](/mesosphere/dcos/cn/2.0/overview/concepts/#private-agent-node)。公共代理节点通过基础架构网络从群集外部访问 DC/OS 服务。默认情况下，服务在专用代理节点上启动，不可从群集外部访问。

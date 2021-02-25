@@ -4,8 +4,6 @@ navigationTitle:  dcos security cluster ca
 title: dcos security cluster ca
 menuWeight: 1
 excerpt: 与 DC/OS 群集 CA 互动
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

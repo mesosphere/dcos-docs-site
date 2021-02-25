@@ -4,8 +4,6 @@ navigationTitle:  dcos job history
 title: dcos job history
 menuWeight: 1
 excerpt: Displaying the job run history
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

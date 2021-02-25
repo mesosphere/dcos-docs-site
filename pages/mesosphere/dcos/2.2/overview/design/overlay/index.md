@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: Understanding network overlay topology
 title: DC/OS Overlay
 navigationTitle: Overlay
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 5
 ---
 

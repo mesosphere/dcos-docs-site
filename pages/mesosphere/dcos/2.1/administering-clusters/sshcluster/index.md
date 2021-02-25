@@ -4,8 +4,6 @@ navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0
 excerpt: Setting up an SSH connection into your DC/OS cluster 
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

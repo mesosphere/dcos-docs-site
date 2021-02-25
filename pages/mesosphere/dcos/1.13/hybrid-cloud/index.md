@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Hybrid Cloud
 title: Hybrid Cloud
 menuWeight: 115
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 excerpt: Understanding the features of the hybrid cloud
 ---
 

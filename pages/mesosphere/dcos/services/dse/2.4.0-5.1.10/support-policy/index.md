@@ -5,7 +5,6 @@ title: Support Policy for DSE
 menuWeight: 110
 excerpt: Support Policy for DSE
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/support-policy.tmpl

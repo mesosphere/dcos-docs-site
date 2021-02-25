@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  DC/OS Overlay
 title: DC/OS Overlay
 menuWeight: 10
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 excerpt: Understanding DC/OS Overlay
 ---
 

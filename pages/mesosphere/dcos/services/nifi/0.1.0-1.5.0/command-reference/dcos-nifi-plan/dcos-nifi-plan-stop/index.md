@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi plan stop
 title: dcos nifi plan stop
 menuWeight: 4
 excerpt: Stop the running plan with the provided name.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

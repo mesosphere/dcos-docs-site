@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: 了解 microscaling
 title: 教程 - 基于队列长度的 microscaling
 navigationTitle: Microscaling
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 2
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

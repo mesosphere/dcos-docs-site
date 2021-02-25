@@ -5,7 +5,6 @@ title: Package Registry
 menuWeight: 50
 excerpt: Using the web interface or CLI to manage your package repositories
 enterprise: true
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

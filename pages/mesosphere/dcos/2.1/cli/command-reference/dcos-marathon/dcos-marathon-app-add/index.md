@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon app add
 title: dcos marathon app add
 menuWeight: 1
 excerpt: Adding an application
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

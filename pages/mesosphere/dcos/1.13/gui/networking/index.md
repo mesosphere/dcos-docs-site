@@ -4,8 +4,6 @@ navigationTitle:  Networking
 title: Networking
 menuWeight: 6
 excerpt: Using the Network menu
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 The Networking page provides a comprehensive view of the health of your virtual IP addresses (VIPs).

@@ -5,7 +5,6 @@ excerpt: 使用 Web 界面或 DC/OS CLI 安装 Spark
 title: 安装和自定义
 menuWeight: 15
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 DC/OS {{ model.techName }} 可在 Universe 中使用，可通过使用 GUI 或 DC/OS CLI 进行安装。

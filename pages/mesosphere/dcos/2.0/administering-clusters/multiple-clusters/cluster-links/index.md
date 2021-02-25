@@ -5,8 +5,6 @@ title: Cluster Links
 menuWeight: 3
 excerpt: Managing links between clusters
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 A cluster link is a **unidirectional** relationship between a cluster and another cluster.

@@ -4,8 +4,6 @@ navigationTitle:  dcos node
 title: dcos node
 menuWeight: 11
 excerpt: Displaying DC/OS node information
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 <p class="message--warning"><strong>WARNING: </strong>Use of the <tt>dcos node</tt> command for listing nodes is deprecated from DC/OS 1.13 onward. To list dcos nodes, use the <tt><a href="/mesosphere/dcos/2.2/cli/command-reference/dcos-node/dcos-node-list/">dcos node list</a></tt> command instead.</p>
 

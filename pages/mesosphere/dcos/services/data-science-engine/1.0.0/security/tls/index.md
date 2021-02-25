@@ -6,7 +6,6 @@ title: TLS
 menuWeight: 9
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 TLS support in {{ model.techName }} encrypts the following channels:

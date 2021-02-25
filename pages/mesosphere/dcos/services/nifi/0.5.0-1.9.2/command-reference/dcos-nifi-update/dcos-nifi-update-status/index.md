@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi update status
 title: dcos nifi update status
 menuWeight: 7
 excerpt: View status of a running update
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

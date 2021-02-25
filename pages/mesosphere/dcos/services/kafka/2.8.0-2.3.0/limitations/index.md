@@ -5,7 +5,6 @@ excerpt: Known limitations for the DC/OS Apache Kafka service
 title: Limitations
 menuWeight: 100
 model: /mesosphere/dcos/services/kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/limitations.tmpl

@@ -4,8 +4,6 @@ navigationTitle:  dcos package repo import
 title: dcos package repo import
 menuWeight: 4
 excerpt: 将软件包存储库添加到 DC/OS
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

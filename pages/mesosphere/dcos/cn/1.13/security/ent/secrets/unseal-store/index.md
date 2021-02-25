@@ -4,9 +4,7 @@ navigationTitle:  拆封密钥存储库
 title: 拆封密钥存储库
 menuWeight: 5
 excerpt: 了解如何拆封密钥存储库
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
-render: mustache
 ---
 
 # 关于拆封密钥存储库

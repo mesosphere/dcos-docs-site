@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2
 excerpt: 终止活动应用程序实例
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

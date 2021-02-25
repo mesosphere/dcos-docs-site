@@ -5,8 +5,6 @@ title: 创建密钥
 menuWeight: 1
 excerpt: 使用键值对或文件创建密钥
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle:  Exposing a Service
 title: Exposing a Service
 menuWeight: 5
 excerpt: Launching a service with a Marathon app definition
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 DC/OS&trade; agent nodes can be designated as [public](/mesosphere/dcos/2.0/overview/concepts/#public-agent-node) or [private](/mesosphere/dcos/2.0/overview/concepts/#private-agent-node) during [installation](/mesosphere/dcos/2.0/installing/). Public agent nodes provide access from outside of the cluster through infrastructure networking to your DC/OS services. By default, services are launched on private agent nodes and are not accessible from outside the cluster.

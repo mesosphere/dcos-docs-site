@@ -4,8 +4,6 @@ navigationTitle: Kafka ZooKeeper 2.6.0-3.4.14
 title: Kafka ZooKeeper 2.6.0-3.4.14
 menuWeight: 1
 excerpt: ZooKeeper is a centralized service for maintaining configuration and naming information, as well as providing distributed synchronization and group services.
-model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
-render: mustache
 ---
 
 <!-- Imported from git@github.com:mesosphere/dcos-zookeeper.git:update-docs -->

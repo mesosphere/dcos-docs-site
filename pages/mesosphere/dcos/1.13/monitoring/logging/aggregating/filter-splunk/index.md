@@ -4,8 +4,6 @@ navigationTitle:  Filtering Logs with Splunk
 title: Filtering Logs with Splunk
 menuWeight: 4
 excerpt: Filtering system paths of logs with Splunk
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

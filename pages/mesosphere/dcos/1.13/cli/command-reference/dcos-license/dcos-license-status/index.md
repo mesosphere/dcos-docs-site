@@ -4,8 +4,6 @@ navigationTitle:  dcos license status
 title: dcos license status
 menuWeight: 4
 excerpt: Reviewing the cluster license status
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

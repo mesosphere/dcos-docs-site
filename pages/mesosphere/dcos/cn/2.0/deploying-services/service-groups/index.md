@@ -4,8 +4,6 @@ navigationTitle:  授权访问服务和组
 title: 授权访问服务和组
 menuWeight: 3
 excerpt: 使用 Web 界面或 CLI 对服务实施细粒度用户访问
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

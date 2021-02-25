@@ -5,8 +5,6 @@ title: Resetting the Superuser
 menuWeight: 30
 excerpt: Reset an existing user or create a new user with the DC/OS reset superuser script
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

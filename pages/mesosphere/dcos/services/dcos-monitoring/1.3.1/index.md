@@ -4,7 +4,6 @@ navigationTitle: DC/OS Monitoring Service 1.3.1
 title: DC/OS Monitoring Service 1.3.1
 menuWeight: 0
 excerpt:
-render: mustache
 model: data.yml
 ---
 

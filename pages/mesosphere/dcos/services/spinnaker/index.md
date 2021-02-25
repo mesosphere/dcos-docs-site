@@ -6,8 +6,6 @@ menuWeight: 100
 excerpt:
 community: true
 enterprise: true
-model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 category: Continuous Delivery
 ---
 

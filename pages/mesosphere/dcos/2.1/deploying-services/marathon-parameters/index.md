@@ -4,8 +4,6 @@ navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0
 excerpt: Understanding Marathon application definitions
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 This topic lists all available properties for Marathon application definitions and an example JSON application definition file with all properties shown.

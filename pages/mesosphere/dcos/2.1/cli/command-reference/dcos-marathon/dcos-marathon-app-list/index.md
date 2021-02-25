@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon app list
 title: dcos marathon app list
 menuWeight: 3
 excerpt: Displaying all installed applications
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

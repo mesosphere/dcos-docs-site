@@ -5,7 +5,6 @@ title: Uninstall
 menuWeight: 75
 excerpt: Uninstalling DC/OS Minio Services
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 ## DC/OS 1.11

@@ -4,8 +4,6 @@ navigationTitle: Kibana and Edge-LB
 excerpt: Exposing Kibana using Edge-LB
 title: Kibana and Edge-LB
 menuWeight: 20
-model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 # Expose Kibana using Edge-LB

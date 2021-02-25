@@ -4,8 +4,6 @@ navigationTitle:  dcos node decommission
 excerpt: Decommissioning a DC/OS node
 title: dcos node decommission
 menuWeight: 1
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

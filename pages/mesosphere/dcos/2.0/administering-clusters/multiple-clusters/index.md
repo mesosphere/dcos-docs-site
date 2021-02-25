@@ -4,8 +4,6 @@ navigationTitle:  Multiple Clusters
 title: Multiple Clusters
 menuWeight: 3
 excerpt: Using DC/OS to manage multiple clusters
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 Organizations typically deploy and manage multiple DC/OS&trade; clusters. Multiple clusters are used for isolation (for example, testing versus production), accommodating geographic distribution, and so on. DC/OS multiple cluster operations make management and access of multiple DC/OS clusters easy for both operators and users.

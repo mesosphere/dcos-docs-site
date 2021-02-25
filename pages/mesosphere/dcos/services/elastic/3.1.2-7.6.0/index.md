@@ -5,7 +5,6 @@ excerpt: DC/OS Elastic lets you manage an Elasticsearch cluster
 title: Elastic 3.1.2-7.6.0
 menuWeight: 1
 model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 <!-- Imported from https://github.com/mesosphere/dcos-commons.git:sdk-0.40 -->

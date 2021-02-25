@@ -4,8 +4,6 @@ navigationTitle: Backup and restore
 excerpt: Back up and restore the DC/OS Elastic service
 title: Backup and restore
 menuWeight: 30
-model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 # Back up and Restore

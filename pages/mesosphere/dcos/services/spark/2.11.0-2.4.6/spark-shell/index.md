@@ -4,7 +4,6 @@ navigationTitle: Spark Shell
 excerpt: Running commands interactively in the Apache Spark shell
 title: Interactive Spark Shell
 menuWeight: 90
-render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---
 

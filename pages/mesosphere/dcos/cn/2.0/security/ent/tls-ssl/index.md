@@ -5,8 +5,6 @@ title: 确保与 TLS 通信的安全
 menuWeight: 120
 excerpt: 使用 TLS 证书确保加密通信的安全
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

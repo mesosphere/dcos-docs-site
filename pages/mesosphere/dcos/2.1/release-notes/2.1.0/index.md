@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: DC/OS 2.1.0 Release Notes
 title: DC/OS 2.1.0 Release Notes
 menuWeight: 10
-render: mustache
-model:  /mesosphere/dcos/2.1/data.yml
 excerpt: Release notes for DC/OS 2.1.0, including Open Source attribution, and version policy.
 ---
 Mesosphere&reg; DC/OS&trade; 2.1.0 was released on 9, June 2020.

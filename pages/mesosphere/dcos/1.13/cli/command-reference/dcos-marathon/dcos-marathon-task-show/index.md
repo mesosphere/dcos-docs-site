@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon task show
 title: dcos marathon task show
 menuWeight: 30
 excerpt: Displaying information about a specific task
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

@@ -4,8 +4,6 @@ navigationTitle:  Granting Access to the UI
 title: Granting Access to the UI
 menuWeight: 10
 excerpt: Granting access to the DC/OS UI
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

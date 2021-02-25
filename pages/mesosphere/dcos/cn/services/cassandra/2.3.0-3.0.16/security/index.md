@@ -5,7 +5,6 @@ excerpt: 保护您的服务
 title: 安全
 menuWeight: 50
 model: /mesosphere/dcos/cn/services/cassandra/data.yml
-render: mustache
 enterprise: true
 ---
 

@@ -6,7 +6,6 @@ title: Uninstall
 menuWeight: 90
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 To uninstall {{ model.techName }}, run the following command:
 

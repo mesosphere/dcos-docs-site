@@ -5,7 +5,6 @@ title: Secret Upload
 menuWeight: 50
 excerpt: DC/OS NiFi service secret upload
 model: ../../data.yml
-render: mustache
 ---
 
 The DC/OS {{model.techName }} supports the uploading of Secrets. The service provides a process to upload a secrets file in all nodes of DC/OS {{model.techName }} inside any existing folder or by creating a new folder.

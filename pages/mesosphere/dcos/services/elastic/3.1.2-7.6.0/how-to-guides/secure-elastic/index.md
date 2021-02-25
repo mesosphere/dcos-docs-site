@@ -5,7 +5,6 @@ excerpt: Deploying secure Elastic services
 title: Secure Elastic Services
 menuWeight: 10
 model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 # Deploying a secure {{ model.techName }} service

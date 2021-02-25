@@ -4,8 +4,6 @@ navigationTitle:  dcos security org service-accounts keypair
 title: dcos security org service-accounts keypair
 menuWeight: 175
 excerpt: 创建公钥-私钥对
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

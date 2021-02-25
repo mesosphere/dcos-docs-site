@@ -4,8 +4,6 @@ navigationTitle:  度量标准 API
 title: 度量标准 API
 menuWeight: 6
 excerpt: 使用度量标准 API
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 您可以使用度量标准 API 定期轮询有关群集、主机、容器和应用程序的数据。度量标准 API 是从 DC/OS 获取度量标准的一种方式。它专为针对特定任务和主机的偶尔访问而设计。这并不是了解 DC/OS 上所有度量标准整体情况的最佳方式。建议使用 [DC/OS 监控服务](/mesosphere/dcos/cn/services/dcos-monitoring/1.0.0/) 来监控群集上的所有度量标准。
 

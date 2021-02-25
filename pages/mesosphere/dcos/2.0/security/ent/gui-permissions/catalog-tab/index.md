@@ -4,7 +4,6 @@ navigationTitle:  Granting Access to the Catalog Screen
 title: Granting Access to the Catalog Screen
 menuWeight: 80
 excerpt: Granting access to the Catalog screen
-render: mustache
 model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---

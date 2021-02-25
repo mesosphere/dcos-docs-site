@@ -6,7 +6,6 @@ title: Upgrade
 menuWeight: 7
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/update.tmpl

@@ -4,7 +4,6 @@ navigationTitle:  Components
 title: Components
 menuWeight: 4
 excerpt: Understanding DC/OS components
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

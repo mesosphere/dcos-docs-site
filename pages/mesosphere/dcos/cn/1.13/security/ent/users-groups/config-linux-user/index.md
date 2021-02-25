@@ -5,7 +5,6 @@ title: 覆盖默认 Linux 用户
 menuWeight: 31
 excerpt: 覆盖默认 Linux 用户
 enterprise: true
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

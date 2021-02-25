@@ -5,7 +5,6 @@ title: Security
 menuWeight: 49
 excerpt: DC/OS NiFi Service encryption, authentication, and authorization
 model: ../../data.yml
-render: mustache
 ---
 
 # DC/OS {{model.techName }} Security

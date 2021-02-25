@@ -4,8 +4,6 @@ navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 40
 excerpt: Using the DC/OS Identity and Access Management API
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

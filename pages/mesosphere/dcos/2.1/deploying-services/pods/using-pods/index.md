@@ -4,8 +4,6 @@ navigationTitle:  Using Pods
 title: Using Pods
 menuWeight: 20
 excerpt: Creating and managing pods via the CLI or the Marathon API endpoint
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 You can create and manage your pods via the DC/OS CLI or via the `/v2/pods/` endpoint of the [Marathon API](/mesosphere/dcos/2.1/deploying-services/marathon-api/).

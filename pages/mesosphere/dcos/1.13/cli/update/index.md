@@ -4,8 +4,6 @@ navigationTitle:  Updating the CLI
 title: Updating the CLI
 menuWeight: 3
 excerpt: Updating the command line interface
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 Depending on the version of the DC/OS CLI you have currently installed, you can choose to either update the CLI to the latest version for your cluster or to install a specific version. Also note, if you downloaded the CLI from PyPI or from the DC/OS UI version 1.7 or earlier, you must completely <a href="/mesosphere/dcos/1.13/cli/uninstall/">uninstall</a> the CLI, then install a new version of the software to upgrade.

@@ -5,7 +5,6 @@ title: Supported Versions
 menuWeight: 120
 excerpt: Understanding DC/OS NiFi Services package versioning
 model: ../../data.yml
-render: mustache
 ---
 
 # Supported Versions

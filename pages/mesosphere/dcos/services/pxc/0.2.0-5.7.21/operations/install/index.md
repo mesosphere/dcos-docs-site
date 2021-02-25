@@ -5,7 +5,6 @@ excerpt: Installation guide, best practices and constraints
 title: Install 
 menuWeight: 31
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 

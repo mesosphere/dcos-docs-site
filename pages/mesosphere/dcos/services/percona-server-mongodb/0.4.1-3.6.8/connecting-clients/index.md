@@ -5,7 +5,6 @@ title: Connecting Clients
 menuWeight: 63
 excerpt: Connecting clients with service discovery
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
-render: mustache
 ---
 
 # Connecting Clients

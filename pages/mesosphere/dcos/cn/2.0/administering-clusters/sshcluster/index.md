@@ -4,8 +4,6 @@ navigationTitle:  通过 SSH 访问节点
 title: 通过 SSH 访问节点
 menuWeight: 0
 excerpt: 与您的 DC/OS 群集建立 SSH 连接 
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 如果您与群集位于同一网络或通过 VPN 连接，则可以使用 `dcos node ssh` 命令 SSH 到您的群集。有关详细信息，请参阅 CLI 参考的 [dcos 节点部分][1]。

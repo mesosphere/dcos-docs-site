@@ -6,7 +6,6 @@ title: Release Notes
 menuWeight: 0
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 Release Notes for {{ model.techName }} version 1.0.1

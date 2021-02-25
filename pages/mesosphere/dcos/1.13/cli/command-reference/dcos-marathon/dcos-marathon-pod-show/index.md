@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon pod show
 title: dcos marathon pod show
 menuWeight: 27
 excerpt: Displaying detailed information for a specific pod
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

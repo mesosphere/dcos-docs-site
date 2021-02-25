@@ -4,8 +4,6 @@ title: Mesos Metrics
 navigationTitle: Mesos Metrics
 menuWeight: 3
 excerpt: Monitoring Mesos with Telegraf
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The Apache&reg; Mesos&reg; input plugin in Telegraf&trade; gathers [observability metrics](http://mesos.apache.org/documentation/latest/monitoring/) from each Mesos agent and master. The plugin is enabled by default in DC/OS&trade; 1.12 version or later.

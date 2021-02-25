@@ -5,7 +5,6 @@ title: Limitations
 menuWeight: 110
 excerpt: Understanding configuration limitations
 model: ../../data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/limitations.tmpl

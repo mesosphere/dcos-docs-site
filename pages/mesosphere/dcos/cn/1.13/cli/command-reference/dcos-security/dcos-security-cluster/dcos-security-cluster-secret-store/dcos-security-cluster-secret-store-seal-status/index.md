@@ -4,8 +4,6 @@ navigationTitle:  dcos security cluster secret-store seal-status
 title: dcos security cluster secret-store seal-status
 menuWeight: 92
 excerpt: 查看密钥存储库的密封状态
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

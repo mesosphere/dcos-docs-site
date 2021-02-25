@@ -3,7 +3,6 @@ layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
 excerpt: List of third party open source software provided by D2iQ&reg;
-render: mustache
 ---
 
 <!-- markdownlint-disable MD034 -->

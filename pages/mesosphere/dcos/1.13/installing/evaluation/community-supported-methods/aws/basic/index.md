@@ -5,7 +5,6 @@ navigationTitle: Basic
 menuWeight: 5
 excerpt: Creating a DC/OS cluster using DC/OS templates
 model: /mesosphere/dcos/1.13/data.yml
-render: mustache
 ---
 
 You can create a DC/OS cluster for Amazon Web Services (AWS) by using the DC/OS templates on AWS CloudFormation.

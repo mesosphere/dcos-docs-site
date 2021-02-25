@@ -4,8 +4,6 @@ navigationTitle:  Granting Access to dcos task exec
 title: Granting Access to dcos task exec
 menuWeight: 10
 excerpt: Granting access for debugging
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->

@@ -4,8 +4,6 @@ navigationTitle:  Distributed Process Management
 title: Distributed Process Management
 menuWeight: 5
 excerpt: Understanding distributed process management in a DC/OS cluster
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

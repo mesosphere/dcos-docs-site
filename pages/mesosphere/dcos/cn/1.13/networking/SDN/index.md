@@ -4,8 +4,6 @@ navigationTitle:  软件定义网络
 title: 软件定义网络
 menuWeight: 4
 excerpt: 了解 SDN 的 DC/OS 支持
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

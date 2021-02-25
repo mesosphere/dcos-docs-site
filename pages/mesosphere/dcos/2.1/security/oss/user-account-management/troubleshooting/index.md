@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting User Account Management
 excerpt: Troubleshooting user account management issues
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 50
 ---
 

@@ -5,8 +5,6 @@ title: 许可证 CLI
 menuWeight: 0
 enterprise: true
 excerpt: 使用命令行界面管理您的 DC/OS 许可证
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 `dcos license` 命令也记录在 [CLI 命令参考](/mesosphere/dcos/cn/1.13/cli/command-reference/dcos-license/) 文档中。

@@ -4,8 +4,6 @@ navigationTitle: Lab Extension
 excerpt: Using JupyterLab Extension with DC/OS Data Science Engine
 title: Lab Extension
 menuWeight: 12
-model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 
 ---

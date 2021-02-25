@@ -5,7 +5,6 @@ excerpt: Release Notes for Confluent Kafka Service version 2.5.0-4.1.2
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
-render: mustache
 ---
 # Release Notes for {{ model.techName }} Service version 2.5.0-4.1.2
 

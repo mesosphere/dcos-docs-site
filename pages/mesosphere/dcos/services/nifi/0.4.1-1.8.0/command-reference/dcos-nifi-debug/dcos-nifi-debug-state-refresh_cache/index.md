@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi debug state refresh_cache
 title: dcos nifi debug state refresh_cache
 menuWeight: 8
 excerpt: Refresh the state cache.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

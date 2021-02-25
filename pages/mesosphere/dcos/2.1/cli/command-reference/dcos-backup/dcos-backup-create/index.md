@@ -5,8 +5,6 @@ title: dcos backup create
 menuWeight: 10
 excerpt: Creating backups
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description

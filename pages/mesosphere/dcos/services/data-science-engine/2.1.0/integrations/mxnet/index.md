@@ -5,7 +5,6 @@ excerpt: Using MxNet with DC/OS Data Science Engine
 title: MxNet
 menuWeight: 12
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 ---
 

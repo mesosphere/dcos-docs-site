@@ -4,8 +4,6 @@ navigationTitle: 作业计划
 excerpt: 作业计划选项的概述
 title: 作业计划
 menuWeight: 110
-model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 本文档简单概述了 Apache Spark 文档（见 [此处][1]

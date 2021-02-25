@@ -6,7 +6,6 @@ title: Limitations
 beta: true
 menuWeight: 100
 model: /mesosphere/dcos/services/beta-kafka/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/limitations.tmpl

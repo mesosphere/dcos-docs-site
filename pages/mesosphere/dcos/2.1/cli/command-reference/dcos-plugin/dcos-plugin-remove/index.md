@@ -4,8 +4,6 @@ navigationTitle:  dcos plugin remove
 title: dcos plugin remove
 menuWeight: 7
 excerpt: Uninstalling a plugin
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description

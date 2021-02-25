@@ -4,8 +4,6 @@ navigationTitle:  Health Checks
 title: Health Checks
 menuWeight: 200
 excerpt: Defining health checks for your DC/OS services
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 You can define health checks for your DC/OS services. Health checks are defined on a per application basis, and are run against that application's tasks. Health checks perform periodic checks on the containers distributed across a cluster to make sure they are up and responding. If health checks fail for any reason, Mesos will report the task as unhealthy so that status-aware load balancers can stop sending traffic to the container. After a task reaches the maximum number of consecutive failures, Marathon will kill the task and restart it.

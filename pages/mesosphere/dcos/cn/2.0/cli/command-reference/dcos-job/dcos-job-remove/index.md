@@ -4,8 +4,6 @@ navigationTitle:  dcos job remove
 title: dcos job remove
 menuWeight: 4
 excerpt: 删除作业
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

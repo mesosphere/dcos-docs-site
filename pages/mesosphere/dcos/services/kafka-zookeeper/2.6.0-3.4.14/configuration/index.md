@@ -5,7 +5,6 @@ excerpt: Installation and configuration options
 title: Configuration
 menuWeight: 20
 model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

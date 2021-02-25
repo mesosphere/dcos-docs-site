@@ -4,8 +4,6 @@ navigationTitle:  日志记录 API 示例
 title: 日志记录 API 示例
 menuWeight: 4
 excerpt: 日志记录 API 示例
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 以下是日志记录 API 的一些常见使用示例。

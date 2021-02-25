@@ -5,7 +5,6 @@ title: Uninstall
 menuWeight: 55
 excerpt: Uninstalling DC/OS Spinnaker Services
 model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 ---
 
 # DC/OS 1.10 and later

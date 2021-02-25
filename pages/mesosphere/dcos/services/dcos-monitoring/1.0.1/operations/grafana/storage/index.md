@@ -4,8 +4,6 @@ navigationTitle: Grafana Storage
 title: Grafana Storage
 menuWeight: 20
 excerpt: Grafana Storage
-render: mustache
-model: ../../../data.yml
 ---
 
 # Configuring Grafana Storage

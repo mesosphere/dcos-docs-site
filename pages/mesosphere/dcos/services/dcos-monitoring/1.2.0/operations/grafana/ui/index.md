@@ -4,7 +4,6 @@ navigationTitle: Grafana UI
 title: Grafana UI
 menuWeight: 10
 excerpt: Grafana UI
-render: mustache
 model: ../../../data.yml
 ---
 

@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Strategy
 title: Strategy
 excerpt: Tutorial - Applying troubleshooting strategies
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 21
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

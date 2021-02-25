@@ -4,8 +4,6 @@ navigationTitle:  dcos diagnostics list
 title: dcos diagnostics list
 menuWeight: 5
 excerpt: 列出诊断包
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

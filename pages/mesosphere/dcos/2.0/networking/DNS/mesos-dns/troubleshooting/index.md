@@ -4,8 +4,6 @@ navigationTitle:  'Troubleshooting'
 title: 'Troubleshooting'
 menuWeight: 400
 excerpt: Troubleshooting Mesos DNS
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # How can I check the Mesos-DNS version?

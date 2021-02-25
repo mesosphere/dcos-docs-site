@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Local User Login
 title: Local User Login
 excerpt: Logging in to DC/OS as a local user
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 20
 ---
 

@@ -5,7 +5,6 @@ excerpt: 升级您的 DC/OS Apache Spark 服务
 title: 已升级
 menuWeight: 50
 model: /mesosphere/dcos/cn/services/spark/data.yml
-render: mustache
 ---
 
 为了升级您的 DC/OS {{ model.techName }} 服务，您必须卸载服务，然后重新安装。

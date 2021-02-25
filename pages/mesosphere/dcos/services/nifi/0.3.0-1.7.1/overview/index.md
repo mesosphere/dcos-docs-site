@@ -5,7 +5,6 @@ title: Overview
 menuWeight: 10
 excerpt: Getting started with DC/OS Apache NiFi Service
 model: ../../data.yml
-render: mustache
 ---
 
 # Components

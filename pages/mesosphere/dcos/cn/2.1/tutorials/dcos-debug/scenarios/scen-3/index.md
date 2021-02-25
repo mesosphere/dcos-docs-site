@@ -3,8 +3,6 @@ layout: layout.pug
 title: 方案 3
 navigationTitle: 方案 3
 excerpt: 教程 - Docker 镜像
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 menuWeight: 21
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

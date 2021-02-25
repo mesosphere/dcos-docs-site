@@ -5,8 +5,6 @@ title: Service Authentication
 menuWeight: 80
 excerpt: Authenticating service accounts
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->
 

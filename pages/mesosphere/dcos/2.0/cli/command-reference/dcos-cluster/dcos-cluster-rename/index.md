@@ -4,8 +4,6 @@ navigationTitle:  dcos cluster rename
 title: dcos cluster rename
 menuWeight: 5
 excerpt: Renaming a cluster
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description

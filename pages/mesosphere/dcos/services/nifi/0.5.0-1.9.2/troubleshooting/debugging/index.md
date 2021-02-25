@@ -5,7 +5,6 @@ title: Debugging
 menuWeight: 101
 excerpt: Some common errors you might find
 model: ../../../data.yml
-render: mustache
 ---
 
 # Configuration update errors

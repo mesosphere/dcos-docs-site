@@ -4,8 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 5
 excerpt: Discover the new features, updates, and known limitations in this release of the NiFi Service
-model: /mesosphere/dcos/services/nifi/data.yml
-render: mustache
 ---
 
 ## NiFi was released on 17, September 2020

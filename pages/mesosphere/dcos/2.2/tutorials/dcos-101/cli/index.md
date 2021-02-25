@@ -3,7 +3,6 @@ layout: layout.pug
 excerpt: Part 1 of the DC/OS 101 tutorial
 title: Tutorial - First Steps
 navigationTitle: First Steps
-render: mustache
 model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 1
 ---

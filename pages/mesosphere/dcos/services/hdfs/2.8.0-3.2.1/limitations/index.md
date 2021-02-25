@@ -4,8 +4,6 @@ navigationTitle: Limitations
 excerpt: Known limitations of the DC/OS Apache HDFS service
 title: Limitations
 menuWeight: 190
-model: /mesosphere/dcos/services/hdfs/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/limitations.tmpl

@@ -6,7 +6,6 @@ menuWeight: 50
 excerpt: Overview of DC/OS Percona XtraDB Cluster 0.2.1-5.7.21
 community: true
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 DC/OS {{ model.techName }} is an automated service that makes it easy to deploy and manage {{ model.techName }} on Mesosphere [DC/OS](https://mesosphere.com/product/). For more information on {{ model.techName }}, see the [{{ model.techName }} documentation](https://www.percona.com/software/mysql-database/percona-xtradb-cluster/).

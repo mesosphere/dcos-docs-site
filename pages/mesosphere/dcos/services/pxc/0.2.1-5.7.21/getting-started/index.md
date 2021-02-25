@@ -5,7 +5,6 @@ excerpt: Getting started with Percona XtraDB Cluster
 title: Getting Started
 menuWeight: 15
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 Getting started with a test instance of the DC/OS {{ model.techName }} service is straightforward.

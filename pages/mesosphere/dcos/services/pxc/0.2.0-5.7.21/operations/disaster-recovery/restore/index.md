@@ -5,7 +5,6 @@ excerpt: Restoring backed up data from data store
 title: Restore Operation 
 menuWeight: 33
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 # Restore

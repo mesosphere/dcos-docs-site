@@ -5,7 +5,6 @@ title: DSE 3.2.0-6.7.7
 menuWeight: 1
 excerpt: Build and run cloud-native applications
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 enterprise: true
 ---
 

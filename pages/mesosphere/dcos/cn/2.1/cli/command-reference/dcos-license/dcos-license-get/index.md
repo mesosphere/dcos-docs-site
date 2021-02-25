@@ -5,8 +5,6 @@ title: dcos license get
 menuWeight: 2
 excerpt: 显示群集许可证
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # 说明

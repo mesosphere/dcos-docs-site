@@ -4,8 +4,6 @@ navigationTitle:  Nodes
 title: Nodes
 menuWeight: 5
 excerpt: Using the Nodes page
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The **Nodes** section provides a comprehensive view of all of the nodes that are used across your cluster. There are two tabs for this screen, **Agents** and **Masters**. By default, you will see the **Agents** tab.

@@ -4,8 +4,6 @@ navigationTitle:  dcos job schedule update
 title: dcos job schedule update
 menuWeight: 9
 excerpt: Updating a job schedule
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

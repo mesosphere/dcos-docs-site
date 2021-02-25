@@ -4,8 +4,6 @@ navigationTitle:  dcos security org groups revoke
 title: dcos security org groups revoke
 menuWeight: 155
 excerpt: Revoke permission for a group to act on a resource
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 # Description

@@ -5,7 +5,6 @@ excerpt: Securing your service
 title: DC/OS Hive Metastore security
 menuWeight: 50
 model: /mesosphere/dcos/services/hive-metastore/data.yml
-render: mustache
 enterprise: true
 quota-aware: true
 ---

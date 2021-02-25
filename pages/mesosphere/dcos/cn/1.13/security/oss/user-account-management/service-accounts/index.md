@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle: 服务账户
 title: 服务账户管理
 excerpt: 管理服务账户
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 menuWeight: 30
 ---
 

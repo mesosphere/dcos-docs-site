@@ -4,8 +4,6 @@ navigationTitle: Prometheus Remote Storage
 title: Prometheus Remote Storage
 menuWeight: 20
 excerpt: Prometheus Remote Storage
-render: mustache
-model: ../../../data.yml
 ---
 
 # Configuring Prometheus Remote Storage

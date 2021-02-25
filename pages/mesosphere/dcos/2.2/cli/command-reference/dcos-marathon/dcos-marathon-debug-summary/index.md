@@ -4,8 +4,6 @@ navigationTitle:  dcos marathon debug summary
 title: dcos marathon debug summary
 menuWeight: 13
 excerpt: Display the debugging queue of waiting Marathon app deployments
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 

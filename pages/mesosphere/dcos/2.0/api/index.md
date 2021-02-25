@@ -5,8 +5,6 @@ title: API Reference
 menuWeight: 150
 excerpt: DC/OS API reference manual
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The DC/OS&trade; API is a collection of routes backed by [DC/OS components](/mesosphere/dcos/2.0/overview/architecture/components/) that are made available through an API gateway called [Admin Router](/mesosphere/dcos/2.0/overview/architecture/components/#admin-router).

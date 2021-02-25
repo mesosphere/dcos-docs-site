@@ -4,8 +4,6 @@ navigationTitle:  网络
 title: 网络
 menuWeight: 70
 excerpt: 了解 DC/OS 网络堆栈
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 DC/OS 网络堆栈提供

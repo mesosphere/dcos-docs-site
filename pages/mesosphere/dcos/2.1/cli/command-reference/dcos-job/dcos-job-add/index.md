@@ -4,8 +4,6 @@ navigationTitle:  dcos job add
 title: dcos job add
 menuWeight: 0
 excerpt: Adding a job
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 # Description

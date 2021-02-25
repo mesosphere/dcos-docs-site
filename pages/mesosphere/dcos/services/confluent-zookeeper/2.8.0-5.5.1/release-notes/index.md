@@ -5,7 +5,6 @@ excerpt: Release notes for version 2.8.0-5.5.1
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/confluent-zookeeper/data.yml
-render: mustache
 ---
 
 # Version 2.8.0-5.5.1 released on 16, Nov 2020

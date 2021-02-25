@@ -4,8 +4,6 @@ navigationTitle:  Configuring Task Log Output and Retention
 title: Configuring Task Log Output and Retention
 menuWeight: 2
 excerpt: Task environment variables that influence logging
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 

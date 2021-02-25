@@ -5,7 +5,6 @@ title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP
 menuWeight: 4
 model: /mesosphere/dcos/2.2/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/install-include-0.3/all-intro-and-prereqs.tmpl

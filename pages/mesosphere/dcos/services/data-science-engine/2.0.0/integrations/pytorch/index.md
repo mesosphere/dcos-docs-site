@@ -5,7 +5,6 @@ excerpt: Use PyTorch with DC/OS Data Science Engine
 title: PyTorch
 menuWeight: 12
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 enterprise: true
 
 ---

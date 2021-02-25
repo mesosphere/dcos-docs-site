@@ -4,8 +4,6 @@ navigationTitle:  Tutorials
 title: Tutorials
 menuWeight: 140
 excerpt: Getting started with DC/OS 
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 Learn how to run services and operate services in production with this collection of tutorials about using Mesosphere&reg; DC/OS&trade;.

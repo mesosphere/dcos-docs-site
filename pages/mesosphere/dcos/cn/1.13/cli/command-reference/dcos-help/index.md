@@ -4,8 +4,6 @@ navigationTitle: dcos help
 title: dcos help
 menuWeight: 7
 excerpt: 显示 DC/OS CLI 帮助信息
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

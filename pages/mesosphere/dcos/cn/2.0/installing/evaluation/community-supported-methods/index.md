@@ -5,7 +5,6 @@ title: 其他安装方法
 navigationTitle: 其他安装方法
 menuWeight: 10
 model: /mesosphere/dcos/2.0/data.yml
-render: mustache
 ---
 
 以下任何方法均可用于安装 DC/OS：

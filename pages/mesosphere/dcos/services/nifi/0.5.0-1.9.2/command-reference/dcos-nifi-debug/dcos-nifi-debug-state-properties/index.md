@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi debug state properties
 title: dcos nifi debug state properties
 menuWeight: 6
 excerpt: List names of all custom properties.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

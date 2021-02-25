@@ -4,8 +4,6 @@ navigationTitle:  dcos cluster attach
 title: dcos cluster attach
 menuWeight: 2
 excerpt: 将 CLI 附加到已连接或链接的群集
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # 说明

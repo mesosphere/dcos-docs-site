@@ -4,8 +4,6 @@ navigationTitle: Limitations
 excerpt: Some limitations of the DC/OS Elastic service
 title: Limitations
 menuWeight: 100
-model: /mesosphere/dcos/services/elastic/data.yml
-render: mustache
 ---
 
 ## Configuration via elasticsearch.yml and/or Elastic APIs

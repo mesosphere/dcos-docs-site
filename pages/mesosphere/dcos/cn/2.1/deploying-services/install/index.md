@@ -4,7 +4,6 @@ navigationTitle:  安装服务
 title: 安装服务
 menuWeight: 0
 excerpt: 使用 CLI 或 UI 安装和验证服务
-render: mustache
 model: /mesosphere/dcos/2.1/data.yml
 ---
 

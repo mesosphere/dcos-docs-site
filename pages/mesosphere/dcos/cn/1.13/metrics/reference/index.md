@@ -4,8 +4,6 @@ navigationTitle:  度量标准参考
 title: 度量标准参考
 menuWeight: 7
 excerpt: 了解 DC/OS 收集的度量标准
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 <!-- The source repo for this topic is https://github.com/dcos/dcos-docs-site -->
 

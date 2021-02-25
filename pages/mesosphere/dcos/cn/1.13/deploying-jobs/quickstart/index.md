@@ -5,8 +5,6 @@ title: 创建作业
 menuWeight: 10
 excerpt: 使用 UI、CLI 或 API 创建和管理作业
 # beta: false
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 您可以通过以下任何方式创建和管理 DC/OS 群集的作业：

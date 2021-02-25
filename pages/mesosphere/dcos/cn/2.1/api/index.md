@@ -5,8 +5,6 @@ title: API 参考
 menuWeight: 150
 excerpt: DC/OS API 参考手册
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 配置为可以使用 [`ListenAddress`](/mesosphere/dcos/cn/2.1/overview/architecture/components/) 支持的路由集合，通过名为 [Admin Router](/mesosphere/dcos/cn/2.1/overview/architecture/components/#admin-router).的 API 网关提供。

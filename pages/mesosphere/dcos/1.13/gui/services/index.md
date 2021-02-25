@@ -4,8 +4,6 @@ navigationTitle:  Services
 title: Services
 menuWeight: 2
 excerpt: Using the Services menu
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 The Services page provides a full-featured interface to the native DC/OS Marathon instance. It provides a comprehensive view of all of the services that you are running. You can filter services by health, status, or service name.

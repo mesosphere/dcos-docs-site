@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi plan list
 title: dcos nifi plan list
 menuWeight: 1
 excerpt: Show all plans for the NiFi service.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

@@ -6,7 +6,6 @@ title: Release Notes
 menuWeight: 0
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 # {{ model.techName }} 2.0.1 was released on 31, July 2020

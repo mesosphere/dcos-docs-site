@@ -4,8 +4,6 @@ navigationTitle:  dcos auth login
 title: dcos auth login
 menuWeight: 2
 excerpt: Log-in to your DC/OS cluster
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 ---
 
 # Description

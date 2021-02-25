@@ -4,8 +4,6 @@ navigationTitle:  Log Aggregation
 title: Log Aggregation
 menuWeight: 3
 excerpt: Aggregating system logs with ELK and Splunk
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

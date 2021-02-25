@@ -5,8 +5,6 @@ title: dcos auth list-providers
 menuWeight: 1
 excerpt: Listing login providers for a cluster
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 # Description

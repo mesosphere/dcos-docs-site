@@ -5,7 +5,6 @@ excerpt: DC/OS Apache Kafka 服务的已知限制
 title: 限制
 menuWeight: 120
 model: /mesosphere/dcos/cn/services/kafka/data.yml
-render: mustache
 ---
 
 

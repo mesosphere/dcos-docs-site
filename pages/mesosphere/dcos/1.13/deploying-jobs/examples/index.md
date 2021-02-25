@@ -4,8 +4,6 @@ navigationTitle:  Examples
 title: Job Examples
 menuWeight: 20
 excerpt: Examples of common usage scenarios for jobs.
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 enterprise: true
 ---
 

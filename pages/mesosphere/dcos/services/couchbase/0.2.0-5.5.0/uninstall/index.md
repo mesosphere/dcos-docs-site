@@ -5,7 +5,6 @@ title: Uninstall
 menuWeight: 55
 excerpt: Uninstalling DC/OS Couchbase Services
 model: /mesosphere/dcos/services/couchbase/data.yml
-render: mustache
 ---
 
 ## DC/OS 1.10

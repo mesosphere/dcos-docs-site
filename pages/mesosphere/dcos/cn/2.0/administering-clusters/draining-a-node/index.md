@@ -4,8 +4,6 @@ navigationTitle: 排空节点
 title: 排空节点
 menuWeight: 801
 excerpt: 排空活跃 DC/OS 群集中的代理节点
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 您可以从活跃 DC/OS&trade; 群集中的代理节点排空任务，以便取下节点以进行维护或从群集中永久移除。节点可以排空，并且其进度可以通过 DC/OS CLI 或 UI 进行监控。

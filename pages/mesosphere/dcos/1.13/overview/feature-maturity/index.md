@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Feature Maturity
 title: Feature Maturity
 menuWeight: 10
-render: mustache
-model: /mesosphere/dcos/1.13/data.yml
 excerpt: Understanding Mesosphere's feature maturity lifecycle
 
 ---

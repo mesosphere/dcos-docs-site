@@ -3,8 +3,6 @@ layout: layout.pug
 excerpt: 了解网络覆盖拓扑
 title: DC/OS 覆盖
 navigationTitle: 覆盖网络
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 5
 ---
 

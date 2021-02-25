@@ -5,7 +5,6 @@ excerpt: 配置 Cassandra
 title: 配置
 menuweight: 20
 model: /mesosphere/dcos/cn/services/cassandra/data.yml
-render: mustache
 ---
 
 

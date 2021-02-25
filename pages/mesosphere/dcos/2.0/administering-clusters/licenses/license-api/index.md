@@ -5,8 +5,6 @@ title: License API
 menuWeight: 3
 enterprise: true
 excerpt: Using the License API to manage your DC/OS license
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 # Routes
 

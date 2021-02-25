@@ -5,8 +5,6 @@ title: 配置服务和 pod
 menuWeight: 2
 excerpt: 配置服务和 pod 以使用密钥
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 <!-- The source repository for this topic is https://github.com/dcos/dcos-docs-site -->

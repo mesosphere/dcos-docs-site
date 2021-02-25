@@ -6,7 +6,6 @@ title: Supported Kernels
 menuWeight: 7
 enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 This section contains examples for using {{ model.techName }}.

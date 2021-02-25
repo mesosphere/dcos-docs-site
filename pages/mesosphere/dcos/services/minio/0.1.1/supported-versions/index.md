@@ -5,7 +5,6 @@ title: Supported Versions
 menuWeight: 120
 excerpt: Understanding DC/OS Minio Services package versioning
 model: /mesosphere/dcos/services/minio/data.yml
-render: mustache
 ---
 
 # Supported Versions

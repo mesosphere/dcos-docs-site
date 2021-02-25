@@ -4,7 +4,6 @@ navigationTitle: Default Grafana Dashboards for DC/OS
 title: Default Grafana Dashboards for DC/OS
 menuWeight: 30
 excerpt: Default Grafana dashboards for DC/OS.
-render: mustache
 model: ../../../data.yml
 ---
 

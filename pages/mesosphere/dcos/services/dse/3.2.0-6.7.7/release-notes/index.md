@@ -5,7 +5,6 @@ excerpt: Release Notes for DSE v. 3.2.0-6.7.7
 title: Release Notes
 menuWeight: 10
 model: /mesosphere/dcos/services/dse/data.yml
-render: mustache
 ---
 
 # Version 3.2.0-6.7.7

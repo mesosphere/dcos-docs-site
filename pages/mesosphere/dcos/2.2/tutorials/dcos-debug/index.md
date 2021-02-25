@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  Debugging Applications on DC/OS
 title: Tutorial -  Debugging Applications on DC/OS
 excerpt: Debugging application deployment issues in distributed systems
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 55
 ---
 

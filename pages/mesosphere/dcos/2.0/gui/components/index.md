@@ -4,8 +4,6 @@ navigationTitle:  Components
 title: Components
 menuWeight: 9
 excerpt: Using the Components menu
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 The Components tab shows you a snapshot of your DC/OS&trade; components. It displays the name and health status of your components. 

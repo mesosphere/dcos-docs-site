@@ -5,8 +5,6 @@ excerpt: Configuring DC/OS Access for Spark
 title: Spark Auth
 menuWeight: 1010
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/services/spark/data.yml
 ---
 
 # Versions

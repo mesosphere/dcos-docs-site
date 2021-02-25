@@ -4,8 +4,6 @@ navigationTitle:  dcos nifi debug state property
 title: dcos nifi debug state property
 menuWeight: 7
 excerpt: Display the content of a specified property.
-model: ../../../../data.yml
-render: mustache
 ---
 
 # Description

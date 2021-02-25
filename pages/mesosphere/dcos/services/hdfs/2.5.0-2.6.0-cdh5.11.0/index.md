@@ -5,7 +5,6 @@ excerpt: HFDS is a managed service that makes it easy to deploy and manage clust
 title: HDFS 2.5.0-2.6.0-cdh5.11.0
 menuWeight: 2
 model: /mesosphere/dcos/services/hdfs/data.yml
-render: mustache
 ---
 
 Welcome to the documentation for DC/OS {{ model.techName }}. DC/OS {{ model.techName }} is a managed service that makes it easy to deploy and manage an HA (High Availability) {{ model.techName }} cluster on Mesosphere DC/OS. [{{ model.techName }}](http://hadoop.apache.org/) (Hadoop Distributed File System) is an open source distributed file system based on Google's GFS (Google File System) paper. It is a replicated and distributed file system interface for use with "big data" and "fast data" applications.

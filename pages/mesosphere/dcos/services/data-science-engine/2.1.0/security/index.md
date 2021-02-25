@@ -6,7 +6,6 @@ title: Security
 enterprise: true
 menuWeight: 10
 model: /mesosphere/dcos/services/data-science-engine/data.yml
-render: mustache
 ---
 
 This guide describes how to configure secure DC/OS service accounts for {{ model.techName }}.

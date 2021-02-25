@@ -5,7 +5,6 @@ excerpt: Configuring Spinnaker for production and development
 title: Configuration
 menuWeight: 20
 model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl

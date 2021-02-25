@@ -5,7 +5,6 @@ excerpt: Encryption, authentication, and authorization mechanisms
 title: Security
 menuWeight: 32
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 # DC/OS {{ model.techName }} Security

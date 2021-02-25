@@ -4,7 +4,6 @@ navigationTitle:  目录
 title: 目录
 menuWeight: 4
 excerpt: 使用目录页面
-render: mustache
 model: /mesosphere/dcos/1.13/data.yml
 ---
 

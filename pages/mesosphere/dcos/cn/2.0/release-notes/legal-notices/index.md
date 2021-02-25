@@ -3,8 +3,6 @@ layout: layout.pug
 title: 法律声明
 menuWeight: 105
 excerpt: DC/OS 文档中提及的第三方商标列表
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 D2iQ&reg; 及其许可人是 D2iQ 软件产品、文档、所有更新、升级和衍生产品所有权利、所有权和权益以及其中所有知识产权的所有者。D2iQ 软件产品可能还包括第三方开源软件。

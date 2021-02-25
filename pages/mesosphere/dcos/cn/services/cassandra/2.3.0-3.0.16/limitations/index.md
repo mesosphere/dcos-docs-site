@@ -5,7 +5,6 @@ title: 限制
 navigationTitle: 限制
 menuWeight: 100
 model: /mesosphere/dcos/cn/services/cassandra/data.yml
-render: mustache
 ---
 
 #include /mesosphere/dcos/cn/services/include/limitations.tmpl

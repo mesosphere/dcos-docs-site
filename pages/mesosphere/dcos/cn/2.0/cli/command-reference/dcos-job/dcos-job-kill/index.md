@@ -4,8 +4,6 @@ navigationTitle:  dcos job kill
 title: dcos job kill
 menuWeight: 2
 excerpt: 结束 DC/OS 作业
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 

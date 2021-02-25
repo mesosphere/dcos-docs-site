@@ -4,8 +4,6 @@ navigationTitle:  管理用户和组
 title: 管理用户和组
 menuWeight: 0
 excerpt: 管理用户和组
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

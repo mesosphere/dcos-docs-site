@@ -4,8 +4,6 @@ navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4
 excerpt: Examples for the Logging API
-render: mustache
-model: /mesosphere/dcos/2.2/data.yml
 ---
 
 Here are some common usage examples for the Logging API.

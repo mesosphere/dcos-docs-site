@@ -4,8 +4,6 @@ navigationTitle:  dcos security secrets get
 title: dcos security secrets get
 menuWeight: 315
 excerpt: 检索密码
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 enterprise: true
 ---
 

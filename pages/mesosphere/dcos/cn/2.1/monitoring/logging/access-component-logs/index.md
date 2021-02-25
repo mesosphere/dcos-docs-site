@@ -4,8 +4,6 @@ navigationTitle:  访问系统和组件日志
 title: 访问系统和组件日志
 menuWeight: 1
 excerpt: 管理用户对系统和组件日志的访问
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 enterprise: true
 ---
 

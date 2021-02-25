@@ -5,8 +5,6 @@ title: Limitations
 menuWeight: 90
 excerpt: Limitations of JupyterLab on the DC/OS platform
 beta: true
-model: /mesosphere/dcos/services/beta-jupyter/data.yml
-render: mustache
 ---
 
 # Known Limitations

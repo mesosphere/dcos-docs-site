@@ -4,8 +4,6 @@ navigationTitle:  常见问题
 title: 常见问题
 menuWeight: 120
 excerpt: 关于部署 Marathon 服务的常见问题
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 我们收集了一些关于 DC/OS&trade; 使用情况的常见问题。您是否有希望得到回答的新问题，或者您是否有问题的答案？ 使用本页顶部的 `Contribute` 按钮查看或看看您是否可以 [贡献](https://dcos.io/contribute/) 答案。

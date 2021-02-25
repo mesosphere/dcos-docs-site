@@ -5,7 +5,6 @@ excerpt: Using the Kubernetes provider
 title: Kubernetes
 menuWeight: 9
 model: /mesosphere/dcos/services/spinnaker/data.yml
-render: mustache
 ---
 
 # Clouddriver configuration

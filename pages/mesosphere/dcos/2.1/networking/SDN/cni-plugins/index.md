@@ -4,8 +4,6 @@ navigationTitle:  CNI Plugin Support
 title: CNI Plugin Support
 menuWeight: 30
 excerpt: Understanding CNI plugin support
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 ---
 
 

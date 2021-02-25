@@ -3,8 +3,6 @@ layout: layout.pug
 title: Scenario 1
 navigationTitle: Scenario 1
 excerpt: Tutorial - Resource Allocation
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 menuWeight: 1
 ---
 #include /mesosphere/dcos/include/tutorial-disclaimer.tmpl

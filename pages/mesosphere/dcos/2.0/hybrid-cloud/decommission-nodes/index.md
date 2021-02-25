@@ -4,8 +4,6 @@ navigationTitle:  Decommission Nodes
 title: Decommission Nodes
 menuWeight: 15
 excerpt: Decommissioning nodes
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 In order to support cloud bursting by adding nodes, you also must support decomissioning nodes. Deleting a node involves two steps:

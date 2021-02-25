@@ -3,8 +3,6 @@ layout: layout.pug
 navigationTitle:  DC/OS 覆盖
 title: DC/OS 覆盖
 menuWeight: 10
-render: mustache
-model: /mesosphere/dcos/2.1/data.yml
 excerpt: 了解 DC/OS 覆盖
 ---
 

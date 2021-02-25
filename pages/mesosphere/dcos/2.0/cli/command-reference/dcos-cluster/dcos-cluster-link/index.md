@@ -5,8 +5,6 @@ title: dcos cluster link
 menuWeight: 3
 excerpt: Linking a connected cluster to another cluster
 enterprise: true
-render: mustache
-model: /mesosphere/dcos/2.0/data.yml
 ---
 
 # Description

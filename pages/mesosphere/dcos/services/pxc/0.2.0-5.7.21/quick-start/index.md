@@ -5,7 +5,6 @@ excerpt: Configuring Percona XtraDB Cluster - Quick Start
 title: Quick Start
 menuWeight: 80
 model: /mesosphere/dcos/services/pxc/data.yml
-render: mustache
 ---
 
 DC/OS {{ model.techName }} is available in the DC/OS Universe and can be installed by using either the web interface or the DC/OS CLI.

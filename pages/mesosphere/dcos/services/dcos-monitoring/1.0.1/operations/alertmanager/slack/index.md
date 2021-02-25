@@ -4,7 +4,6 @@ navigationTitle: Sending Alerts via Slack
 title: Sending Alerts via Slack
 menuWeight: 20
 excerpt: Configuring Alertmanager to send Slack notifications
-render: mustache
 model: ../../../data.yml
 ---
 
