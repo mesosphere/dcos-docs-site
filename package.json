@@ -50,6 +50,7 @@
     "webpack-dev-server": "^2.5.0"
   },
   "dependencies": {
+    "handlebars": "^4.7.7",
     "mustache": "^4.1.0",
     "react": "^17.0.1",
     "react-dom": "^17.0.1"
