@@ -182,7 +182,7 @@ Various options can be set when launching the cluster to control the labels and 
 | `kubernetes.apiserver_edgelb.template` | `default` | the pool-template to expose with |
 | `kubernetes.apiserver_edgelb.certificate` | `$AUTOCERT` | the secret name of a certificate or `$AUTOCERT` |
 | `kubernetes.apiserver_edgelb.port` | `6443` | the frontend port to use |
-| `kubernetes.apiserver_edgelb.path` | `/{{service.name}}` | the path to use on the frontend |
+| `kubernetes.apiserver_edgelb.path` | `/\{{service.name}}` | the path to use on the frontend |
 
 # Example 3: Creating an Edge-LB Pool
 
