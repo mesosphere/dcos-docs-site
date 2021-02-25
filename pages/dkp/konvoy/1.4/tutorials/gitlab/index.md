@@ -41,7 +41,7 @@ For more on configuring TLS, see [here](https://docs.gitlab.com/charts/installat
    Run this command to add an entry for `gitlab.gitlab.local` to your `/etc/hosts`:
 
    ```bash
-   echo -e "\n# GitLab on Konvoy\n$(dig +short $(kubectl --namespace=kubeaddons get service traefik-kubeaddons --template='{{(index .status.loadBalancer.ingress 0).hostname}}') | head -1)\tgitlab.gitlab.local" | sudo tee -a /etc/hosts
+   echo -e "\n# GitLab on Konvoy\n$(dig +short $(kubectl --namespace=kubeaddons get service traefik-kubeaddons --template='\{{(index .status.loadBalancer.ingress 0).hostname}}') | head -1)\tgitlab.gitlab.local" | sudo tee -a /etc/hosts
    ```
 
 1. Create the file `gitlab-values.yaml` containing this chart configuration:
@@ -81,7 +81,7 @@ For more on configuring TLS, see [here](https://docs.gitlab.com/charts/installat
    This is necessary for the GitLab runner to accept self-signed certificates.
 
    ```bash
-   kubectl get secret gitlab-wildcard-tls --template='{{ index .data "tls.crt" }}' | base64 -D > gitlab.crt
+   kubectl get secret gitlab-wildcard-tls --template='\{{ index .data "tls.crt" }}' | base64 -D > gitlab.crt
    kubectl create secret generic gitlab-runner-certs --from-file=gitlab.gitlab.local.crt=gitlab.crt --from-file=registry.gitlab.local.crt=gitlab.crt --from-file=minio.gitlab.local.crt=gitlab.crt
    ```
 
@@ -98,7 +98,7 @@ The admin username is `root`, and the password is stored in the secret `gitlab-g
 To retrieve the admin password, run:
 
 ```bash
-kubectl get secret gitlab-gitlab-initial-root-password --template='{{ .data.password }}' | base64 -D
+kubectl get secret gitlab-gitlab-initial-root-password --template='\{{ .data.password }}' | base64 -D
 ```
 
 ### Git SSL verification

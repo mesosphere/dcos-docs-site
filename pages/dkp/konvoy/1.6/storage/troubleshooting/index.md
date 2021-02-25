@@ -43,14 +43,14 @@ awsebscsiprovisioner (default)   ebs.csi.aws.com   Delete          WaitForFirstC
 When investigating storage issues you can verify which SC is actually in use for a pod by looking at the corresponding volume definitions (using an example pod):
 
 ```shell
-kubectl get pod nginx-stateful-5bdc6968df-gxhgq -o=go-template='{{range .spec.volumes}}{{.persistentVolumeClaim.claimName}}{{"\n"}}{{end}}' |grep -v 'no value'
+kubectl get pod nginx-stateful-5bdc6968df-gxhgq -o=go-template='\{{range .spec.volumes}}\{{.persistentVolumeClaim.claimName}}\{{"\n"}}\{{end}}' |grep -v 'no value'
 nginx-data
 ```
 
 For each entry this output produces (you can have an arbitrary number of volumes associated with a pod, and they can each use a different SC) you can view the SC in use with:
 
 ```shell
-kubectl get pvc nginx-data -o=go-template='{{.spec.storageClassName}}{{"\n"}}'
+kubectl get pvc nginx-data -o=go-template='\{{.spec.storageClassName}}\{{"\n"}}'
 awsebscsiprovisioner
 ```
 
@@ -144,7 +144,7 @@ ebs-csi-node-wqx59                                                   3/3     Run
 These pods consist of three containers, which run on the node, that coordinate the connection of storage to pods which are scheduled to that node, and have volume claims:
 
 ```shell
-kubectl -n kube-system get pods ebs-csi-node-2dmp5 -o=go-template='{{range .spec.containers}}{{.name}}{{"\n"}}{{end}}'
+kubectl -n kube-system get pods ebs-csi-node-2dmp5 -o=go-template='\{{range .spec.containers}}\{{.name}}\{{"\n"}}\{{end}}'
 ebs-plugin
 node-driver-registrar
 liveness-probe

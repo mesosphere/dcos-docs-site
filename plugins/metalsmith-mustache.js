@@ -14,7 +14,9 @@ module.exports = (files, metalsmith, done) => {
       // TODO: multipass
       file.contents = Buffer.from(result);
     } catch (e) {
-      console.warn(`[WARN] error compiling handlebars for "${filename}"`);
+      if (!filename.includes("mesosphere/")) {
+        throw `[ERR] error compiling handlebars for "${filename}". Likely you added a code snippet with curly braces "{{ }}". The docs are using those for handlebars-templating. You might want to put a backslash before the opening curlies.`;
+      }
     }
   });
   done();

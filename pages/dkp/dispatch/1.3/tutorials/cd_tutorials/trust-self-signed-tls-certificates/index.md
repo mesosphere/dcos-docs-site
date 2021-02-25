@@ -28,7 +28,7 @@ In the following example a GitLab Enterprise instance is running on a Konvoy clu
 In order to add the cluster's root CA certificate to ArgoCD, retrieve it using kubectl:
 
 ```sh
-kubectl -n cert-manager get secret kubernetes-root-ca -o template --template='{{index .data "tls.crt" | base64decode }}'
+kubectl -n cert-manager get secret kubernetes-root-ca -o template --template='\{{index .data "tls.crt" | base64decode }}'
 ```
 
 The output looks something like the following:
@@ -56,7 +56,7 @@ EJKZkA+7YAjqs7Jpe6Uq76ElLBVULaYplj27Cl9xY6Gn0gkOts2/iDmC1N4=
 Save that output to a file:
 
 ```sh
-kubectl -n cert-manager get secret kubernetes-root-ca -o template --template='{{index .data "tls.crt" | base64decode }}' > ca.crt
+kubectl -n cert-manager get secret kubernetes-root-ca -o template --template='\{{index .data "tls.crt" | base64decode }}' > ca.crt
 ```
 
 Next, use the Dispatch CLI to add the konvoy cluster root CA's certificate to ArgoCD. The GitLab Enterprise UI is served at https://gitlab.example.com/:

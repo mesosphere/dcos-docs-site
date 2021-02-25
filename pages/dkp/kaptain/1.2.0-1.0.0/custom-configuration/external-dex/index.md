@@ -31,8 +31,8 @@ kubectl describe configmaps -n kommander-system traefik-forward-auth-kommander-k
 To get the Dex client secret, run the following command on the management cluster:
 ```bash
 kubectl get secrets -n kubeaddons \
-"$(kubectl get clients.dex.mesosphere.io -n kubeaddons <Dex Client ID> --template={{.spec.clientSecretRef.name}})" \
---template='{{index .data "client-secret"}}' | base64 --decode
+"$(kubectl get clients.dex.mesosphere.io -n kubeaddons <Dex Client ID> --template=\{{.spec.clientSecretRef.name}})" \
+--template='\{{index .data "client-secret"}}' | base64 --decode
 ```
 
 ## Get external OIDC provider endpoint and CA bundle

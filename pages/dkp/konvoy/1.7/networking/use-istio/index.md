@@ -53,7 +53,7 @@ Istio can be deployed through `konvoy` by adding it to the list of configured ad
 1. Store a local environment variable containing the current Istio version running in your cluster:
 
     ```bash
-    export KONVOY_ISTIO_VERSION="$(kubectl get clusteraddons istio -o go-template='{{ .spec.chartReference.version }}')"
+    export KONVOY_ISTIO_VERSION="$(kubectl get clusteraddons istio -o go-template='\{{ .spec.chartReference.version }}')"
     ```
 
 2. Pull a copy of the corresponding Istio command line to your system:

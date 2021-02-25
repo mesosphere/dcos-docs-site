@@ -251,13 +251,13 @@ receivers:
       - channel: '#MY-SLACK-CHANNEL-NAME'
         icon_url: https://avatars3.githubusercontent.com/u/3380462
         send_resolved: true
-        color: '{{ if eq .Status "firing" }}danger{{ else }}good{{ end }}'
-        title: '{{ template "slack.default.title" . }}'
-        title_link: '{{ template "slack.default.titlelink" . }}'
-        pretext: '{{ template "slack.default.pretext" . }}'
-        text: '{{ template "slack.default.text" . }}'
-        fallback: '{{ template "slack.default.fallback" . }}'
-        icon_emoji: '{{ template "slack.default.iconemoji" . }}'
+        color: '\{{ if eq .Status "firing" }}danger\{{ else }}good\{{ end }}'
+        title: '\{{ template "slack.default.title" . }}'
+        title_link: '\{{ template "slack.default.titlelink" . }}'
+        pretext: '\{{ template "slack.default.pretext" . }}'
+        text: '\{{ template "slack.default.text" . }}'
+        fallback: '\{{ template "slack.default.fallback" . }}'
+        icon_emoji: '\{{ template "slack.default.iconemoji" . }}'
 
 templates:
   - '*.tmpl'
@@ -266,30 +266,30 @@ templates:
 The following file, named  `notification.tmpl`, is a template that defines a pretty format for the fired notifications:
 
 ```text
-{{ define "__titlelink" }}
-{{ .ExternalURL }}/#/alerts?receiver={{ .Receiver }}
-{{ end }}
+\{{ define "__titlelink" }}
+\{{ .ExternalURL }}/#/alerts?receiver=\{{ .Receiver }}
+\{{ end }}
 
-{{ define "__title" }}
-[{{ .Status | toUpper }}{{ if eq .Status "firing" }}:{{ .Alerts.Firing | len }}{{ end }}] {{ .GroupLabels.SortedPairs.Values | join " " }}
-{{ end }}
+\{{ define "__title" }}
+[\{{ .Status | toUpper }}\{{ if eq .Status "firing" }}:\{{ .Alerts.Firing | len }}\{{ end }}] \{{ .GroupLabels.SortedPairs.Values | join " " }}
+\{{ end }}
 
-{{ define "__text" }}
-{{ range .Alerts }}
-{{ range .Labels.SortedPairs }}*{{ .Name }}*: `{{ .Value }}`
-{{ end }} {{ range .Annotations.SortedPairs }}*{{ .Name }}*: {{ .Value }}
-{{ end }} *source*: {{ .GeneratorURL }}
-{{ end }}
-{{ end }}
+\{{ define "__text" }}
+\{{ range .Alerts }}
+\{{ range .Labels.SortedPairs }}*\{{ .Name }}*: `\{{ .Value }}`
+\{{ end }} \{{ range .Annotations.SortedPairs }}*\{{ .Name }}*: \{{ .Value }}
+\{{ end }} *source*: \{{ .GeneratorURL }}
+\{{ end }}
+\{{ end }}
 
-{{ define "slack.default.title" }}{{ template "__title" . }}{{ end }}
-{{ define "slack.default.username" }}{{ template "__alertmanager" . }}{{ end }}
-{{ define "slack.default.fallback" }}{{ template "slack.default.title" . }} | {{ template "slack.default.titlelink" . }}{{ end }}
-{{ define "slack.default.pretext" }}{{ end }}
-{{ define "slack.default.titlelink" }}{{ template "__titlelink" . }}{{ end }}
-{{ define "slack.default.iconemoji" }}{{ end }}
-{{ define "slack.default.iconurl" }}{{ end }}
-{{ define "slack.default.text" }}{{ template "__text" . }}{{ end }}
+\{{ define "slack.default.title" }}\{{ template "__title" . }}\{{ end }}
+\{{ define "slack.default.username" }}\{{ template "__alertmanager" . }}\{{ end }}
+\{{ define "slack.default.fallback" }}\{{ template "slack.default.title" . }} | \{{ template "slack.default.titlelink" . }}\{{ end }}
+\{{ define "slack.default.pretext" }}\{{ end }}
+\{{ define "slack.default.titlelink" }}\{{ template "__titlelink" . }}\{{ end }}
+\{{ define "slack.default.iconemoji" }}\{{ end }}
+\{{ define "slack.default.iconurl" }}\{{ end }}
+\{{ define "slack.default.text" }}\{{ template "__text" . }}\{{ end }}
 ```
 
 Finally, apply these changes to the `alertmanager` as follows:

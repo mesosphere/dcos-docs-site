@@ -184,7 +184,7 @@ persistentvolumeclaim/nginx-data   Bound    pvc-8b1118e4-39b7-44ea-84e0-66d509f3
 At this point our webserver has storage mounted at `/usr/share/nginx/html` and can be used going forward, and you can see the PV that was created for it by running:
 
 ```shell
-kubectl get pv $(kubectl get pvc nginx-data -o='go-template={{.spec.volumeName}}')
+kubectl get pv $(kubectl get pvc nginx-data -o='go-template=\{{.spec.volumeName}}')
 NAME                                       CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                STORAGECLASS           REASON   AGE
 pvc-8b1118e4-39b7-44ea-84e0-66d509f30658   1Gi        RWO            Delete           Bound    default/nginx-data   awsebscsiprovisioner            59m
 ```
