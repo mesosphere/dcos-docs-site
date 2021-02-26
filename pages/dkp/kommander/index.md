@@ -2,7 +2,7 @@
 layout: kommander-docs-landing.pug
 navigationTitle: Kommander
 title: Kommander
-menuWeight: 1
+menuWeight: 0
 menus: ['kommander-header']
 ---
 
