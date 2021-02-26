@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
-navigationTitle: Konvoy 1.8
-title: Welcome to Konvoy 1.8
+navigationTitle: Konvoy 1.8 beta
+title: Welcome to Konvoy 1.8 beta
 featureMaturity:
 enterprise: false
 category: K-Sphere
