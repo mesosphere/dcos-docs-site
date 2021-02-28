@@ -1,3 +1,6 @@
+---
+layout: false
+--- 
 # Sample scripts and applications
 This folder contains sample application files and scripts for use in documentation. These samples were previously in private GitHub repositories.
 
