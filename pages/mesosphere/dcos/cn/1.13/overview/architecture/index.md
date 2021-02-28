@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  架构
 title: 架构
 menuWeight: 2

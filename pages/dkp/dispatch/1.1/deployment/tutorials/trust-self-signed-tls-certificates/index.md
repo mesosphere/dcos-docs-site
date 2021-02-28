@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configure ArgoCD to trust TLS certificates issued by a custom CA
 navigationTitle: Configure ArgoCD to trust TLS certificates issued by a custom CA
 category: K-Sphere

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/tutorials/index.md
 navigationTitle: Tutorials
 title: Tutorials

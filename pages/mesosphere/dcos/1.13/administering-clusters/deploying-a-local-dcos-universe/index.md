@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Deploying a Local Catalog
 title: Deploying a Local Catalog
 menuWeight: 1000

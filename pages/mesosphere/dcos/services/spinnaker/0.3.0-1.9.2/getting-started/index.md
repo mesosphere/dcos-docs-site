@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS Setup
 excerpt: Installing and deploying a basic cluster
 title: DC/OS Setup

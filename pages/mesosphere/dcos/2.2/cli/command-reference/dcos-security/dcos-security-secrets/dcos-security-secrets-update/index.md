@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security secrets update
 title: dcos security secrets update
 menuWeight: 320

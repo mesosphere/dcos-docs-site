@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授予对作业的访问权限
 title: 授予对作业的访问权限
 menuWeight: 200

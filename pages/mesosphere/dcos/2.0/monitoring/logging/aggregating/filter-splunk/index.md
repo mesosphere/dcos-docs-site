@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Filtering Logs with Splunk
 title: Filtering Logs with Splunk
 menuWeight: 4

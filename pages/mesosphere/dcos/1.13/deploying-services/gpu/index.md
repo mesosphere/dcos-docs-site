@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using GPUs
 title: Using GPUs
 menuWeight: 110

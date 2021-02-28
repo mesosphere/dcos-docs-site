@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 excerpt: Troubleshooting DC/OS Apache Spark
 title: Troubleshooting

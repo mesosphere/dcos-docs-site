@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install on-premises
 title: Install on-premises
 menuWeight: 30

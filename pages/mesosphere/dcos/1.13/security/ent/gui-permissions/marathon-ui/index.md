@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the Marathon Tab
 title: Granting Access to the Marathon Tab
 menuWeight: 32

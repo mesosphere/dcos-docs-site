@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Guide for DC/OS on GCP using the Universal Installer adding a remote region.
 title: Multi-Region DC/OS on GCP using the Universal Installer
 navigationTitle: GCP Multi-Region Support

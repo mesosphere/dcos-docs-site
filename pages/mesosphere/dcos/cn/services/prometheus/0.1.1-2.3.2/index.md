@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Prometheus 0.1.1-2.3.2
 title: Prometheus 0.1.1-2.3.2
 menuWeight: 50

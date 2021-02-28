@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: HDFS 2.2.0-2.6.0-cdh5.11.0
 excerpt: 欢迎使用 DC/OS Apache HDFS 文档
 title: HDFS 2.2.0-2.6.0-cdh5.11.0

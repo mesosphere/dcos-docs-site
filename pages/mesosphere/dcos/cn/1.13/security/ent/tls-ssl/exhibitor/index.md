@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  通过双向 TLS 保护 Exhibitor
 title: 通过双向 TLS 保护 Exhibitor
 menuWeight: 500

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstalling 
 excerpt: Uninstalling DC/OS Apache HDFS service
 title: Uninstalling 

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster directory get_config
 title: dcos security cluster directory get_config
 menuWeight: 32

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Using Auto Pools to Expose Applications
 title: Using Auto Pools to Expose Applications
 menuWeight: 12

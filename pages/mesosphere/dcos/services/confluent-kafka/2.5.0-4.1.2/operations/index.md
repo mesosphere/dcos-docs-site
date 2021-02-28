@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Operations 
 excerpt: Operations
 title: Operations

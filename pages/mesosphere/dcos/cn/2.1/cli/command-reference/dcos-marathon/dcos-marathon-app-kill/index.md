@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon app kill
 title: dcos marathon app kill
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 代理路由
 title: 代理路由
 menuWeight: 11

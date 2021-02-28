@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: TensorFlow
 excerpt: Using TensorFlow with DC/OS Data Science Engine
 title: TensorFlow

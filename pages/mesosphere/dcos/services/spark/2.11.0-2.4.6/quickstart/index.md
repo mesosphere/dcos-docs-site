@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Quick Start
 excerpt: Introduction to DC/OS Apache Spark service
 title: Quick Start

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon pod kill
 title: dcos marathon pod kill
 menuWeight: 24

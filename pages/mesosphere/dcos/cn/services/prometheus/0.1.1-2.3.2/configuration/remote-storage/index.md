@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 远程存储
 title: Impx DB 上的 Prometheus 远程存储
 menuWeight: 40

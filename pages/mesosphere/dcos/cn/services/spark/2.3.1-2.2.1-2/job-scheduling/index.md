@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 作业计划
 excerpt: 作业计划选项的概述
 title: 作业计划

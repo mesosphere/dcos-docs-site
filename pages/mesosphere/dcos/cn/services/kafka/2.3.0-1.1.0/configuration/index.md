@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 配置
 excerpt: 配置 Kafka 和 ZooKeeper
 title: 配置

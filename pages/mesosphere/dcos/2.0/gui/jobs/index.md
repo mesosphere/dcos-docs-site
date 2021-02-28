@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Jobs
 title: Jobs
 menuWeight: 3

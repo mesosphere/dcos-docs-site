@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configuring Cron Triggers
 navigationTitle: Configure Cron Based Triggers
 category: K-Sphere

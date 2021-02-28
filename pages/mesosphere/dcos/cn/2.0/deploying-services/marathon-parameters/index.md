@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Marathon 配置参考
 title: Marathon 配置参考
 menuWeight: 0

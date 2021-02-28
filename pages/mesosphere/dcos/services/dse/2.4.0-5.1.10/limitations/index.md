@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Limitations of DSE
 excerpt: Limitations of DC/OS DSE
 title: Limitations of DSE

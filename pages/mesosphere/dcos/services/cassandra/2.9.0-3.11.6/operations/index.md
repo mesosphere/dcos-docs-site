@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Operations
 excerpt: Managing, repairing, and monitoring your DC/OS Apache Cassandra service
 title: Operations

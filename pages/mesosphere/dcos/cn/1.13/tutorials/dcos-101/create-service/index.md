@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 创建和运行自定义应用程序
 title: 创建和运行自定义应用程序
 menuWeight: 5

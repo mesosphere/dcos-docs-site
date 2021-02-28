@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 版本控制和发布策略
 title: 版本控制和发布策略
 menuWeight: 110

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Upgrade
 title: Upgrade
 menuWeight: 5

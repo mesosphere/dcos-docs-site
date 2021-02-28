@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Pushgateway
 title: Pushgateway
 menuWeight: 60

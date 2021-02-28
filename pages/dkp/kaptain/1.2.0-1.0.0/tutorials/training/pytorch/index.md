@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: MNIST with PyTorch
 title: MNIST with PyTorch
 menuWeight: 12

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi update resume
 title: dcos nifi update resume
 menuWeight: 6

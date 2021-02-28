@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  云安装
 title: 云安装
 menuWeight: 10

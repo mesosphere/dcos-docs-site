@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Project Network Policies
 title: Project Network Policies
 menuWeight: 8

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Support and Services
 title: Support and Services
 menuWeight: 70

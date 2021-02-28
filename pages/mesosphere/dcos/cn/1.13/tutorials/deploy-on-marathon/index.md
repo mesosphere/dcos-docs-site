@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 使用 Jenkins 部署 Marathon 应用程序
 title: 使用 Jenkins 部署 Marathon 应用程序
 menuWeight: 4

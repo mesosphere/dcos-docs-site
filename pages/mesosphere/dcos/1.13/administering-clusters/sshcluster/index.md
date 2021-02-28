@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  SSHing into Nodes
 title: SSHing into Nodes
 menuWeight: 0

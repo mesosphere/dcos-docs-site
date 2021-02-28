@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos service
 title: dcos service
 menuWeight: 14

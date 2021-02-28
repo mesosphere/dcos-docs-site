@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Automatically exposing apps with Auto Pools and labels
 title: Automatically exposing apps with Auto Pools and labels
 menuWeight: 12

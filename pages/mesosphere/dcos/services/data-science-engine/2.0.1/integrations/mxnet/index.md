@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: MxNet
 excerpt: Using MxNet with DC/OS Data Science Engine
 title: MxNet

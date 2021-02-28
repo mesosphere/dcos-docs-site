@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Sealing the Secret Store
 title: Sealing the Secret Store
 menuWeight: 3

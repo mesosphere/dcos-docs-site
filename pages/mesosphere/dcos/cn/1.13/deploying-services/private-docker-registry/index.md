@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用专用 Docker 注册表
 title: 使用专用 Docker 注册表
 menuWeight: 4

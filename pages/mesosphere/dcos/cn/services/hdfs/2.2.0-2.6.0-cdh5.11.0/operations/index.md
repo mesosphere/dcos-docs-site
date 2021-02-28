@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 运维
 excerpt: 管理 HDFS 运行
 title: 运维

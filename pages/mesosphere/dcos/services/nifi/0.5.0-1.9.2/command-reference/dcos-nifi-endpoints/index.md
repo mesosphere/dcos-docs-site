@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi endpoints
 title: dcos nifi endpoints
 menuWeight: 64

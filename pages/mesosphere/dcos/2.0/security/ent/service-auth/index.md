@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Service Authentication
 title: Service Authentication
 menuWeight: 80

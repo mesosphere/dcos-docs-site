@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Dashboard
 title: Dashboard
 menuWeight: 1

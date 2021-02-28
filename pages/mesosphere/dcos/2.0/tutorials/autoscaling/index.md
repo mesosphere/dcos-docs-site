@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Autoscaling with Marathon
 title: Tutorials - Autoscaling with Marathon
 menuWeight: 3

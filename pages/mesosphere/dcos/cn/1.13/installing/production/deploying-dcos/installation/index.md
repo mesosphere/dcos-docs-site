@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 生产安装
 title: 生产安装
 menuWeight: 15

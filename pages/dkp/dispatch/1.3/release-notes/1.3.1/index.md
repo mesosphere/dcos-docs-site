@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 1.3.1
 title: Release Notes 1.3.1
 menuWeight: 10

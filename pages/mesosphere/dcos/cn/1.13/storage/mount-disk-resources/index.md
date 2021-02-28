@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  挂载磁盘资源
 title: 挂载磁盘资源
 menuWeight: 0

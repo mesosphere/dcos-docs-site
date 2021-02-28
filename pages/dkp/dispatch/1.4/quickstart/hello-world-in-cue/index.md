@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Helloworld in CUE
 title: Setting up Helloworld on GitHub in CUE
 menuWeight: 50

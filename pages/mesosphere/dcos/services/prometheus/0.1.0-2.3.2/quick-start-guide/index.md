@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Quick Start
 excerpt: Configuring Prometheus - Quick Start
 title: Quick Start

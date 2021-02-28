@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 使用 Ansible 安装和管理 DC/OS
 navigationTitle: 带 Ansible 的 DC/OS
 menuWeight: 16

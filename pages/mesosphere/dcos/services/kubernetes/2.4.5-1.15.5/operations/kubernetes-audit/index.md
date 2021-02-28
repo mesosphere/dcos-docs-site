@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes Auditing
 title: Kubernetes Auditing
 menuWeight: 5

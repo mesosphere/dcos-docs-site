@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: V2 API 参考
 title: V2 API 参考
 menuWeight: 85

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Workspace Platform Service Dependencies
 title: Workspace Platform Service Dependencies
 menuWeight: 8

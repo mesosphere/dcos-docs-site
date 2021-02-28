@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 配置
 excerpt: 配置 Cassandra
 title: 配置

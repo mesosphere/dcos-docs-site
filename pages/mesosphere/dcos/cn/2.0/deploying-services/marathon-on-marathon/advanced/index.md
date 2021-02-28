@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 带安全功能的自定义 Marathon
 title: 带安全功能的自定义 Marathon
 menuWeight: 40

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Cluster Connections
 title: Cluster Connections
 menuWeight: 3

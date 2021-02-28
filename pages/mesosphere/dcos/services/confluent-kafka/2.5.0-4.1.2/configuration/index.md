@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring 
 excerpt: Configuring Confluent Kafka
 title: Configuring Confluent Kafka

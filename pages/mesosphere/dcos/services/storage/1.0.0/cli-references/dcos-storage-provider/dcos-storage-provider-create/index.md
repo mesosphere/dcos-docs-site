@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage provider create
 title: dcos storage provider create
 menuWeight: 0

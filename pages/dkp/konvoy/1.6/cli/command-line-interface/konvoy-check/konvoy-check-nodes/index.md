@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy check nodes
 title: konvoy check nodes
 menuWeight: 10

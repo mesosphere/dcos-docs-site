@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  特性
 title: 特性
 menuWeight: 3

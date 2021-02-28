@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Quota Support
 title: Quota Support
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Project Deployments
 title: Project Deployments
 menuWeight: 1

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Lab Extension
 excerpt: Using JupyterLab Extension with DC/OS Data Science Engine
 title: Lab Extension

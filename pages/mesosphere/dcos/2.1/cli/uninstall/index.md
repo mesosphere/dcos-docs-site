@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Uninstalling the CLI
 title: Uninstalling the CLI
 menuWeight: 4

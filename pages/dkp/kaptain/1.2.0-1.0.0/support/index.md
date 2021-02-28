@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Support and Services
 menuWeight: 50
 excerpt: Support and Services for Kaptain

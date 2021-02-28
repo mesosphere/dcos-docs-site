@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 支持政策
 title: 支持政策
 menuWeight: 110

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Getting Started
 excerpt: Getting Started with Percona Server for MongoDB
 title: Getting Started

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Provisioning Jenkins
 title: Provisioning Jenkins
 menuWeight: 10

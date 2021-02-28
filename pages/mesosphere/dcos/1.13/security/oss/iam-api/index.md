@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Identity and Access Management API
 title: Identity and Access Management API
 menuWeight: 40

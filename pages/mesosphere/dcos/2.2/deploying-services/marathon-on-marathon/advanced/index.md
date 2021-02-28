@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom Marathon with Security Features
 title: Custom Marathon with Security Features
 menuWeight: 40

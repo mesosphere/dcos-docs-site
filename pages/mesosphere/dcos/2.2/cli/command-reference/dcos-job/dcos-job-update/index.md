@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos job update
 title: dcos job update
 menuWeight: 12

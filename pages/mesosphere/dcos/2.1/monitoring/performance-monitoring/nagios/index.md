@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Monitoring with Nagios
 title: Monitoring with Nagios
 menuWeight: 0

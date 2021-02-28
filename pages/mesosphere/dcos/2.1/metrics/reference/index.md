@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Metrics Reference
 title: Metrics Reference
 menuWeight: 7

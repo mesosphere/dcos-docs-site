@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Scaling a Service
 title: Scaling a Service
 menuWeight: 3

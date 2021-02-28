@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: DC/OS Ansible Quickstart Guide
 navigationTitle: Ansible Quickstart
 menuWeight: 1

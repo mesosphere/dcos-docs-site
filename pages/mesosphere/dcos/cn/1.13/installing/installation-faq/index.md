@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  常见问题
 title: 常见问题
 menuWeight: 20

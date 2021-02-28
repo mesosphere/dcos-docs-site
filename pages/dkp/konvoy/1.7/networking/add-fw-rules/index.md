@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Node firewall rules configuration
 title: Node firewall rules configuration
 menuWeight: 8

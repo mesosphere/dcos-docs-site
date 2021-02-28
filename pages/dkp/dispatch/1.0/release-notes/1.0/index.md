@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Release Notes  
 title: Introducing Dispatch
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi debug state framework_id
 title: dcos nifi debug state framework_id
 menuWeight: 5

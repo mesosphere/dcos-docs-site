@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  License API
 title: License API
 menuWeight: 3

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Metrics API
 title: Metrics API
 menuWeight: 6

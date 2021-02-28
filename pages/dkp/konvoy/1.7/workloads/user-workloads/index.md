@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: User Defined Workloads
 title: Standard Workloads
 menuWeight: 4

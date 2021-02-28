@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置 OpenID Connect IdP
 title: 配置 OpenID 身份提供程序
 menuWeight: 2

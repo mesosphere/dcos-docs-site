@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Styra
 title: Styra
 excerpt: Declarative Authorization Service for Kubernetes, built on Open Policy Agent.

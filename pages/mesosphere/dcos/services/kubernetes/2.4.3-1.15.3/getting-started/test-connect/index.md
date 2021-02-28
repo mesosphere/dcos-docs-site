@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Testing Connections
 title: Testing Connections and Viewing the Kubernetes Dashboard
 menuWeight: 9

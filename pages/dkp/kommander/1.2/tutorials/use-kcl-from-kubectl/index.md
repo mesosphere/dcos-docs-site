@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Using Kommander Cluster Lifecycle API via kubectl
 title: Using Kommander Cluster Lifecycle API via kubectl
 menuWeight: 15

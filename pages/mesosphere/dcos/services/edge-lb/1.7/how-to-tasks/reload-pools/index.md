@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Reloading and restarting pools
 title: Reloading and restarting pools
 menuWeight: 40

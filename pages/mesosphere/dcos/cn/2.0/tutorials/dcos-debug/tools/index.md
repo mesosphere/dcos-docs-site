@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 工具
 excerpt: 教程 - 用于调试 DC/OS 上应用程序的工具
 menuWeight: 11

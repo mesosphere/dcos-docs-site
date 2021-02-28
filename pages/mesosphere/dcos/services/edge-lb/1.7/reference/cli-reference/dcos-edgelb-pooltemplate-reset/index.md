@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb pool-template reset
 title: dcos edge-lb pool-template reset
 menuWeight: 42

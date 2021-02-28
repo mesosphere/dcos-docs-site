@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Supported Kernels  
 excerpt: Use DC/OS Data Science Engine with Kernels
 title: Supported Kernels

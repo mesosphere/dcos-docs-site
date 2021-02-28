@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Limitations
 excerpt: Some limitations of the DC/OS Elastic service
 title: Limitations

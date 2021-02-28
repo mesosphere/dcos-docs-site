@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 在 Admin Router 前配置 HAProxy
 title: HAProxy 和 Admin Router
 navigationTitle: HAProxy 和 Admin Router

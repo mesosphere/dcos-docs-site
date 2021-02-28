@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Verify Konvoy installation
 title: Verify Konvoy installation
 menuWeight: 80

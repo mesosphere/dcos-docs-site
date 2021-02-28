@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/install/provision-extra-volumes/index.md
 navigationTitle: Provision Extra Agent Volumes
 title: Provision Extra Agent Volumes

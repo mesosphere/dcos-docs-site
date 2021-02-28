@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring Zones and Regions
 title: Configuring Zones and Regions
 menuWeight: 15

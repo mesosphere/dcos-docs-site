@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Limitations of DC/OS Apache Spark
 title: Limitations

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用虚拟 IP 地址
 title: 使用虚拟 IP 地址
 menuWeight: 10

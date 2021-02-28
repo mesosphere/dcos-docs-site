@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Mesos Metrics
 navigationTitle: Mesos Metrics
 menuWeight: 3

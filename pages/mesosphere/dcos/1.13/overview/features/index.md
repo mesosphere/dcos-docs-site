@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Features
 title: Features
 menuWeight: 3

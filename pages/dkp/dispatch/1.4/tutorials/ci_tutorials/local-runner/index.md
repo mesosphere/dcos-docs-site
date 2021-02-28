@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Run pipelines locally
 navigationTitle: Running pipelines locally
 category: K-Sphere

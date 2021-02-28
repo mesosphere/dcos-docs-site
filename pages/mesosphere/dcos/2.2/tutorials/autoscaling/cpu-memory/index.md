@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Autoscaling Marathon services using CPU and memory
 title: Tutorial - Autoscaling Marathon services using CPU and memory
 menuWeight: 0

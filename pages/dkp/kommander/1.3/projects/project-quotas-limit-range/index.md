@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Project Quotas & Limit Ranges
 title: Project Quotas & Limit Ranges
 menuWeight: 7

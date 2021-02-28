@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  添加本地用户
 title: 添加本地用户
 menuWeight: 10

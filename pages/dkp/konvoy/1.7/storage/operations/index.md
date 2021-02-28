@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Storage Operations for Konvoy Clusters
 title: Konvoy Storage Operations
 menuWeight: 20

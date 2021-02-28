@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Marathon 布局约束
 title: Marathon 布局约束
 menuWeight: 3

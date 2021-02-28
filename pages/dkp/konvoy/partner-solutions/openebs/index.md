@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: OpenEBS
 title: OpenEBS
 excerpt: OpenEBS Storage Provider

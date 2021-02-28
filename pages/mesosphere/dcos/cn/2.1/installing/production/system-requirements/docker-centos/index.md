@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CenTos/RHEL 的 Docker
 title: 在 CenTos/RHEL 上安装 Docker
 menuWeight: 5

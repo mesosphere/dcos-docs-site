@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  添加代理节点
 title: 添加代理节点
 menuWeight: 800

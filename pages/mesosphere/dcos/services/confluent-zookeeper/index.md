@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Confluent ZooKeeper
 title: Confluent ZooKeeper
 menuWeight: 11

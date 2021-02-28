@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Setting up local users
 title: Setting up local users
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 Splunk 筛选日志
 title: 使用 Splunk 筛选日志
 menuWeight: 4

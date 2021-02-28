@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Jenkins
 title: Jenkins
 excerpt: Jenkins on Konvoy

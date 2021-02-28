@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstall
 excerpt: Uninstalling Apache Cassandra
 title: Uninstalling Apache Cassandra

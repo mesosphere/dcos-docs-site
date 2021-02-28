@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos edgelb delete
 title: dcos edgelb delete
 menuWeight: 10

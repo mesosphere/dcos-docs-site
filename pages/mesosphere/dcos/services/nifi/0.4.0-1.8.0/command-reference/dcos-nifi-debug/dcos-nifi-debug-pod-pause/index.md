@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi debug pod pause
 title: dcos nifi debug pod pause
 menuWeight: 9

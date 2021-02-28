@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Task Types
 title: Task Types
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Metrics Plugin Architecture
 navigationTitle: Metrics Plugin Architecture
 menuWeight: 0

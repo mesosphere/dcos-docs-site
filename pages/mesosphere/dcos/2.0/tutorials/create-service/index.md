@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Creating and Running a Service
 title: Tutorial - Creating and Running a Service
 menuWeight: 1

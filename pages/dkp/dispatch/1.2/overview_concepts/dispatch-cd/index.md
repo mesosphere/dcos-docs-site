@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CD - GitOps
 title: Dispatch Continuous Deployment
 menuWeight: 30

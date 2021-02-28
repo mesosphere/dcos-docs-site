@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  揭示外面的 Mesos 区域
 title: 揭示外面的 Mesos 区域
 menuWeight: 300

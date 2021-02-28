@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 通过 Marathon-LB 或 Edge-LB 暴露 Kubernetes API
 title: 通过 Marathon-LB 或 Edge-LB 暴露 Kubernetes API
 menuWeight: 71

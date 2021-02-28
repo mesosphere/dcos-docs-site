@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 教程 - 部署基于 Docker 的服务
 title: 教程 - 部署基于 Docker 的服务
 menuWeight: 100

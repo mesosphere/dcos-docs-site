@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Establishing trust in your CLI
 title: Establishing trust in your CLI
 menuWeight: 300

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Slow Docker Apps and Deployments
 title: Slow Docker Apps and Deployments
 menuWeight: 40

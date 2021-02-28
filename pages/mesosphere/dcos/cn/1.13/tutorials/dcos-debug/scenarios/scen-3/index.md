@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 方案 3
 navigationTitle: 方案 3
 excerpt: 教程 - Docker 镜像

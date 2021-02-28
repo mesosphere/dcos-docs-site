@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Limitations
 excerpt: Limitations on backups, node counts, security
 title: Limitations

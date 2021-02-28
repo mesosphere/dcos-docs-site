@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Cassandra
 title: Cassandra
 menuWeight: 1

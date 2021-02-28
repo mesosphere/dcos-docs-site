@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Download
 title: Download Konvoy
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Editing Clusters
 title: Editing Clusters
 menuWeight: 7

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Performance Monitoring
 title: Performance Monitoring
 menuWeight: 1

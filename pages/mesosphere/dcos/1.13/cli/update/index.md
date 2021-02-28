@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Updating the CLI
 title: Updating the CLI
 menuWeight: 3

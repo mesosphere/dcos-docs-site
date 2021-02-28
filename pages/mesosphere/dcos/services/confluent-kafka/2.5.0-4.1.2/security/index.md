@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security 
 excerpt: Security for Confluent Kafka
 title: Security 

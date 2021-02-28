@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Use the LoadBalancer service type
 title: Use the LoadBalancer service type
 menuWeight: 20

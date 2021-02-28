@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configure Rolling Deployments
 title: Rolling Deployments
 menuWeight: 10

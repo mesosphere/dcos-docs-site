@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting Technique
 title: Troubleshooting Technique
 menuWeight: 12

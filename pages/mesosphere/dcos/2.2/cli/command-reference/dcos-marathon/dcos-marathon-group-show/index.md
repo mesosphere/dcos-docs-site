@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon group show
 title: dcos marathon group show
 menuWeight: 21

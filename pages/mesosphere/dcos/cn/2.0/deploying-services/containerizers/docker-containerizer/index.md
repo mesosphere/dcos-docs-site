@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Docker Engine
 title: Docker Engine
 menuWeight: 20

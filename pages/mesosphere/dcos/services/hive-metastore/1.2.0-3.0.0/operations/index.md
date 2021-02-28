@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Operations
 excerpt: Managing, repairing, and monitoring your DC/OS Hive Metastore service
 title: Operations

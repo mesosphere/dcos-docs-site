@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using SDNs
 title: Using an SDN
 menuWeight: 20

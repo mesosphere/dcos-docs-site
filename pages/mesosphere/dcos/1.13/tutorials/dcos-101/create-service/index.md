@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Create and run custom apps
 title: Create and run custom apps
 menuWeight: 5

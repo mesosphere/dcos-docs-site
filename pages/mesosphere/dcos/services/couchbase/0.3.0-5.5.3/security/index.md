@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Using native transport encryption, authentication and authorization on Couchbase
 title: Security

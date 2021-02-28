@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced Features 
 excerpt: Advanced Features of Confluent Kafka
 title: Advanced Features of Confluent Kafka

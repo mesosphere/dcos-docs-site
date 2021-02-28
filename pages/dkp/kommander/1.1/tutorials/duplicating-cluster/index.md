@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Duplicating a Production Cluster
 title: Duplicating a Production Cluster
 menuWeight: 1

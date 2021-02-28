@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  标记任务和作业
 title: 标记任务和作业
 excerpt: 使用 DC/OS Web 界面和 Marathon HTTP API 定义标签

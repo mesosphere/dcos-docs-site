@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Architecture
 title: Architecture
 menuWeight: 2

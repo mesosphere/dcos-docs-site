@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: End-to-end Pipeline with KFServing
 title: End-to-end Pipeline with KFServing
 menuWeight: 16

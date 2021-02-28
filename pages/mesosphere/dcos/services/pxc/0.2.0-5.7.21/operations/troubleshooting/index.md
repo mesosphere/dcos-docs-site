@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 excerpt: Troubleshooting Percona XtraDB Cluster 
 title: Troubleshooting

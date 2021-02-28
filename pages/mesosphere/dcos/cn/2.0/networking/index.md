@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  网络
 title: 网络
 menuWeight: 70

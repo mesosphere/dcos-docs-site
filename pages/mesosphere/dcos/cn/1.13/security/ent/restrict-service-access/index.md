@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 限制对 DC/OS 服务组的访问
 navigationTitle: 限制对 DC/OS 服务组的访问
 menuWeight: 90

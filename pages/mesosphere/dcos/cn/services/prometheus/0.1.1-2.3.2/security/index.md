@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: DC/OS Prometheus 安全
 title: 安全

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/volume-plugins/index.md
 navigationTitle: Volume Plugins
 title: Volume Plugins

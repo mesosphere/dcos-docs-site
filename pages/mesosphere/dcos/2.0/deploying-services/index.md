@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Deploying Services and Pods
 title: Deploying Services and Pods
 menuWeight: 130

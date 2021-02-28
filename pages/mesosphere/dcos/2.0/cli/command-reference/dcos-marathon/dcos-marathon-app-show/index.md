@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon app show
 title: dcos marathon app show
 menuWeight: 6

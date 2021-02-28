@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstall
 excerpt: Uninstalling your DC/OS Confluent ZooKeeper service
 title: Uninstall

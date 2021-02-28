@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Mesos-DNS
 title: Mesos-DNS
 menuWeight: 3

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Load balancing workload
 title: Load balancing workload
 excerpt: Demonstrates distributing workload for clients requesting access to a deployed application (part 10)

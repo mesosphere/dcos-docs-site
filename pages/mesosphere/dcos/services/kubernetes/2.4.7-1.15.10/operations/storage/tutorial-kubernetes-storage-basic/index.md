@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Quick Start
 title: Quick Start - Managing volumes with Kubernetes CSI
 menuWeight: 1

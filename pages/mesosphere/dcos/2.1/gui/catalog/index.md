@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Catalog
 title: Catalog
 menuWeight: 4

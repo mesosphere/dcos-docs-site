@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 快速启动
 excerpt: 如何通过 DC/OS 使用 Prometheus
 title: 快速启动

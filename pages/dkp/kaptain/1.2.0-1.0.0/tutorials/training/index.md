@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Model training
 title: Model training
 menuWeight: 10

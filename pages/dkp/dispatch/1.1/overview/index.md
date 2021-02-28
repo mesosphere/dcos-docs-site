@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Overview
 title: Dispatch Overview
 menuWeight: 20

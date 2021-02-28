@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  查找公共代理 IP
 title: 查找公共代理 IP
 menuWeight: 3

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS Monitoring Service 1.0.0
 title: DC/OS Monitoring Service 1.0.0
 menuWeight: 0

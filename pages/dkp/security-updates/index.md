@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security Updates
 title: Security Updates
 excerpt: View CVE security scans and update information for Konvoy

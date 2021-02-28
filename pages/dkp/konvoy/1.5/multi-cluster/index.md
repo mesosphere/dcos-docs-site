@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Multi Cluster Management
 title: Multi Cluster Management
 menuWeight: 220

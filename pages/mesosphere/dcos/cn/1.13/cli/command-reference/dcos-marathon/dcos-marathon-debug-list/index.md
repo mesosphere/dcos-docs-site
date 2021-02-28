@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon debug list
 title: dcos marathon debug list
 menuWeight: 12

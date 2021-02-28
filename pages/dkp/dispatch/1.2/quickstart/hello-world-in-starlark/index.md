@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Helloworld in Starlark
 title: Setting up Helloworld on GitHub in Starlark
 menuWeight: 50

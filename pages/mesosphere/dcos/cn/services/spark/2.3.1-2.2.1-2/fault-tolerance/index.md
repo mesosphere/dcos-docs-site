@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 容错
 excerpt: 了解 DC/OS Apache Spark 上的容错
 title: 容错

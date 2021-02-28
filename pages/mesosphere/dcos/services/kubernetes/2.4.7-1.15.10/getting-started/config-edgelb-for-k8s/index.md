@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring Edge-LB
 title: Configuring Edge-LB to Connect to Kubernetes
 menuWeight: 7

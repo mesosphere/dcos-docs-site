@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring the CLI
 title: Configuring the CLI
 menuWeight: 2

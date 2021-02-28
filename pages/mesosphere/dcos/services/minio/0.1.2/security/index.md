@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security
 title:  Security
 menuWeight: 50

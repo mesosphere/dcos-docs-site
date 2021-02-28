@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Edge-LB pool configuration V1
 title: Pool configuration (REST API V1)
 menuWeight: -1

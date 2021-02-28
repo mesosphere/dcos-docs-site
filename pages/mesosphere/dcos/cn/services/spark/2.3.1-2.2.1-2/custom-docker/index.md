@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 
 excerpt: 自定义 Spark 图片 
 title: 自定义 Docker 镜像

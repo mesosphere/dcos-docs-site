@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi pod restart
 title: dcos nifi pod restart
 menuWeight: 4

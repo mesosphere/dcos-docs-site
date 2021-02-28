@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edgelb create
 title: dcos edgelb create
 menuWeight: 5

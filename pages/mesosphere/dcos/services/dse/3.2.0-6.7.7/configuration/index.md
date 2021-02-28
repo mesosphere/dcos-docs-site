@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuration
 excerpt: Configuring DSE
 title: Configuration

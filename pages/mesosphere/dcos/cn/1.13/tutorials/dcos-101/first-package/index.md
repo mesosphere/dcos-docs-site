@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  安装第一个包
 title: 安装第一个包
 excerpt: 说明如何安装示例服务包（第 3 部分）

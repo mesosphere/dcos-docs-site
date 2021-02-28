@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure Canary Deployments
 title: Canary deployments
 menuWeight: 40

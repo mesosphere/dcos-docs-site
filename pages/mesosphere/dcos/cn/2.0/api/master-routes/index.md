@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  管理节点路由
 title: 管理节点路由
 menuWeight: 10

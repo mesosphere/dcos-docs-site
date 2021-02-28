@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  恢复代理磁盘空间
 title: 恢复代理磁盘空间
 menuWeight: 900

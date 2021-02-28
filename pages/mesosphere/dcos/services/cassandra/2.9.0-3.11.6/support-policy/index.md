@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Support Policy
 title: Support Policy
 menuWeight: 190

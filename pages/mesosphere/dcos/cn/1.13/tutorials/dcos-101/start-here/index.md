@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 创建群集
 title: 创建群集
 menuWeight: 1

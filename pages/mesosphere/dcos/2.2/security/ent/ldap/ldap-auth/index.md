@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Specifying Authentication and Parameters
 title: Specifying Authentication and Parameters
 menuWeight: 2

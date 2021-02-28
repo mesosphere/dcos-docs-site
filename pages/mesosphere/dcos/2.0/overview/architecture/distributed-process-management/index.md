@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Distributed Process Management
 title: Distributed Process Management
 menuWeight: 5

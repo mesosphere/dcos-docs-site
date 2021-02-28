@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Backup and restore
 excerpt: Back up and restore the DC/OS Elastic service
 title: Backup and restore

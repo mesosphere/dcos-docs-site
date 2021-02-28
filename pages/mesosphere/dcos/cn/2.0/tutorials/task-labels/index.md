@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  标记任务和作业
 title: 标记任务和作业
 menuWeight: 5

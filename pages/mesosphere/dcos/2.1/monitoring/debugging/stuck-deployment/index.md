@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Stuck Deployments
 title: Stuck Deployments
 menuWeight: 30

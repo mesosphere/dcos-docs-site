@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configure Buildkit with Dispatch
 title: Building Docker images with Buildkit in Dispatch
 menuWeight: 40

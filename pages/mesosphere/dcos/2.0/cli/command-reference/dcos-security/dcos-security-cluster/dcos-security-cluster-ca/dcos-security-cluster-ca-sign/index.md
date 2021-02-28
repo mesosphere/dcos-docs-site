@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster ca sign
 title: dcos security cluster ca sign
 menuWeight: 20

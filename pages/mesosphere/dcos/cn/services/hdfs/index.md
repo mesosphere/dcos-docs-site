@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: HDFS 
 excerpt: 欢迎使用 DC/OS Apache HDFS 文档
 title: HDFS 

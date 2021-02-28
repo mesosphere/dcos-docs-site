@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Configuring Kafka and ZooKeeper
 title: Configuration

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Workspace Platform Services
 title: Workspace Platform Services
 menuWeight: 5

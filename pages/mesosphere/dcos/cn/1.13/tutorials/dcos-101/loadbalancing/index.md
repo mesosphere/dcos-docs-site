@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 负载均衡工作负载
 title: 负载均衡工作负载
 excerpt: 演示如何为请求访问已部署应用程序的客户端分配工作负载（第 10 部分）

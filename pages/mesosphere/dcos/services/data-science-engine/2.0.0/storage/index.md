@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Storage
 excerpt: Using Storage with DC/OS Data Science Engine
 title: Storage

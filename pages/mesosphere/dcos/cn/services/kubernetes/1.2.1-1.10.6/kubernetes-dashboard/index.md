@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes 仪表板
 title: Kubernetes 仪表板
 menuWeight: 75

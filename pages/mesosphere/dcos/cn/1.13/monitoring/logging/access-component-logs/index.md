@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  访问系统和组件日志
 title: 访问系统和组件日志
 menuWeight: 1

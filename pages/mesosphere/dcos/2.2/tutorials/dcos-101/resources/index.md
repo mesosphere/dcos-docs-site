@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Part 7 of the DC/OS 101 tutorial
 title: Tutorial - Understanding Resources
 navigationTitle: Understanding Resources

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring an OpenID Connect IdP
 title: Configuring an OpenID identity provider
 menuWeight: 2

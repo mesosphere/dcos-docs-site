@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node diagnostics
 title: dcos node diagnostics
 menuWeight: 2

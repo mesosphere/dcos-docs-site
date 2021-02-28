@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 excerpt: Diagnosing and fixing problems
 title: Troubleshooting

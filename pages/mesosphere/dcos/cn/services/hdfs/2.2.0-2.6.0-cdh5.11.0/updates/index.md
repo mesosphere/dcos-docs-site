@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 更新
 excerpt: 更新 HDFS
 title: 更新

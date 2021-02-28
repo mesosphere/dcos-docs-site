@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstalling 
 excerpt: Uninstalling Confluent Kafka
 title: Uninstalling 

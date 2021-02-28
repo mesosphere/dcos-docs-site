@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  References
 title: References
 menuWeight: 100

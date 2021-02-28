@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Comparing load balancers
 title: Comparing load balancing services
 menuWeight: 15

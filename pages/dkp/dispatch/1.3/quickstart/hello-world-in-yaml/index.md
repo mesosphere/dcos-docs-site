@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Helloworld in YAML
 title: Setting up Helloworld on GitHub in YAML
 menuWeight: 50

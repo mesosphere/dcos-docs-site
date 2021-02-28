@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 Splunk 进行日志管理
 title: 使用 Splunk 进行日志管理
 menuWeight: 3

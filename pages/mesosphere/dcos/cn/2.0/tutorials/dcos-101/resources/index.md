@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: DC/OS 101 教程第 7 部分
 title: 教程 - 了解资源
 navigationTitle: 了解资源

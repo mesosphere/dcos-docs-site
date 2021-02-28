@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 为 Cassandra 配置 DC/OS Access 
 menuWeight: 270
 excerpt: 为 2.3.0-3.0.16 之前的版本配置 DC/OS Access

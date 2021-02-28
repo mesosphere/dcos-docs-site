@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring the statistics port
 title: Configuring the statistics port
 menuWeight: 32

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Managing
 title: Managing
 menuWeight: 60

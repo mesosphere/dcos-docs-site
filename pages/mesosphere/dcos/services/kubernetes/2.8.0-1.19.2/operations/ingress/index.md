@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: External Ingress
 title: External Ingress
 menuWeight: 7

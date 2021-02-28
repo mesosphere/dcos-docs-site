@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: FIPS 140-2 Compliance
 title: FIPS 140-2 Compliance
 excerpt: Provision a Cluster in FIPS-140 Operating Mode

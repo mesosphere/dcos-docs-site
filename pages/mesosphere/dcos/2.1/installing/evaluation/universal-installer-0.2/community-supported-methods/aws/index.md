@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: AWS
 navigationTitle: AWS
 menuWeight: 5

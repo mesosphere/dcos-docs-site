@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: CLI
 title: CLI
 menuWeight: 250

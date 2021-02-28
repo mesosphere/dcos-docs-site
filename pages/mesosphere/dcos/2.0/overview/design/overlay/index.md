@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Understanding network overlay topology
 title: DC/OS Overlay
 navigationTitle: Overlay

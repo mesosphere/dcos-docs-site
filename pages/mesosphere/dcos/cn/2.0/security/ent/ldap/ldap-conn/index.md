@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  连接 
 title: 连接 
 menuWeight: 1

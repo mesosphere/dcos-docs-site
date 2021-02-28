@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster saml delete
 title: dcos security cluster saml delete
 menuWeight: 13

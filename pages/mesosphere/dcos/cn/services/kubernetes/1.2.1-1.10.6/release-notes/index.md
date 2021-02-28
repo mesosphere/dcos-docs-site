@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 版本注释
 title: 版本注释 1.2.1-1.10.6
 menuWeight: 120

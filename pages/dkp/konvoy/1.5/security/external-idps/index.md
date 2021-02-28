@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Setting up an external identity provider
 title: Setting up an external identity provider
 menuWeight: 10

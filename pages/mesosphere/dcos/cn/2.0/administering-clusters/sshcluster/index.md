@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  通过 SSH 访问节点
 title: 通过 SSH 访问节点
 menuWeight: 0

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Operations
 excerpt: Managing, repairing, and monitoring the DC/OS Elastic service
 title: Operations

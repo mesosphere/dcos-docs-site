@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Getting Started
 excerpt: Getting started with Cassandra
 title: Getting Started

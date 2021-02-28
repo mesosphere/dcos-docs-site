@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release Notes
 excerpt: Release Notes for Confluent ZooKeeper Service version 2.5.0-4.1.3e 
 title: Release Notes

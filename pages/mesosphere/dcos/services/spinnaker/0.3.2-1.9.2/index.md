@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Spinnaker 0.3.2-1.9.2
 title: Spinnaker 0.3.2-1.9.2
 menuWeight: 1

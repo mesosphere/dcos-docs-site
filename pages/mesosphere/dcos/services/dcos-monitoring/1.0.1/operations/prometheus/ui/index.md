@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Prometheus UI
 title: Prometheus UI
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: API documentation (v1beta1)
 title: API documentation (v1beta1)
 menuWeight: 10

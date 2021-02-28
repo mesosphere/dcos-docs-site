@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting Guide
 menuWeight: 95

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS Kafka
 excerpt: DC/OS Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees.
 title: DC/OS Kafka

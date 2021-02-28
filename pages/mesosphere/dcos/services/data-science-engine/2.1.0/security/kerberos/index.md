@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kerberos
 excerpt: Using Kerberos with DC/OS Data Science Engine to retrieve and write data securely
 title: Kerberos

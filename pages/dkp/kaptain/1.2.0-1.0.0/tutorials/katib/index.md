@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Hyperparameter Tuning
 title: Hyperparameter Tuning
 menuWeight: 15

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  负载均衡和虚拟 IP (VIP)
 title: 负载均衡和虚拟 IP (VIP)
 menuWeight: 1

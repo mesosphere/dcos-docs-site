@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  群集链接
 title: 群集链接
 menuWeight: 3

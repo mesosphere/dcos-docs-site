@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Tips and Tricks
 title: Tips and Tricks
 menuWeight: 120

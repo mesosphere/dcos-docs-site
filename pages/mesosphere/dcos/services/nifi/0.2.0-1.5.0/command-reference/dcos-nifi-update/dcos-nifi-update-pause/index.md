@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi update pause
 title: dcos nifi update pause
 menuWeight: 5

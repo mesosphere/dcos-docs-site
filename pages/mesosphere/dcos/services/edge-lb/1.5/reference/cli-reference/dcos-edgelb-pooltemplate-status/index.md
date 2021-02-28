@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb pool-template status
 title: dcos edge-lb pool-template status
 menuWeight: 48

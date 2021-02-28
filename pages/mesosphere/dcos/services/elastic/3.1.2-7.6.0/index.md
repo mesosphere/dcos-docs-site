@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Elastic 3.1.2-7.6.0
 excerpt: DC/OS Elastic lets you manage an Elasticsearch cluster
 title: Elastic 3.1.2-7.6.0

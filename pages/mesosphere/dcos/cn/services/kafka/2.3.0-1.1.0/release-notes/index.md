@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 
 excerpt: DC/OS Apache Kafka 服务的已知限制
 title: 限制

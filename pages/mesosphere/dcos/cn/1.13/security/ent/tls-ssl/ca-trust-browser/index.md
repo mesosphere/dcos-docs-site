@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  在 DC/OS CA 中建立信任
 title: 在 DC/OS CA 中建立信任
 menuWeight: 200

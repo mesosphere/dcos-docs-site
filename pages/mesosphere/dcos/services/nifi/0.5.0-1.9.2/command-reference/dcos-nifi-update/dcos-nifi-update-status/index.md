@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi update status
 title: dcos nifi update status
 menuWeight: 7

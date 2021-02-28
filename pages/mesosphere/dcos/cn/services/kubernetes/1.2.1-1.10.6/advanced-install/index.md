@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 高级安装
 title: 高级安装
 menuWeight: 20

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Package Registry
 title: Package Registry
 menuWeight: 50

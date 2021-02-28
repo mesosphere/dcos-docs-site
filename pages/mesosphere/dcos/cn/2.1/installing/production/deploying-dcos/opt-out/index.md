@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  禁用
 excerpt: 为您的群集禁用身份认证和遥测
 title: 禁用

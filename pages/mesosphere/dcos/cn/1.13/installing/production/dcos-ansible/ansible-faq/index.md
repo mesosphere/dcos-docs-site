@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: DC/OS Ansible 常见问题和故障排除
 navigationTitle: DC/OS Ansible 常见问题
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CI - Pipelines
 title: Continuous Integration Pipelines
 menuWeight: 10

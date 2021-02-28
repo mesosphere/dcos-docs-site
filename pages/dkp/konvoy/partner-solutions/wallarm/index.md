@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Wallarm
 title: Wallarm
 excerpt: Wallarm Advaced Cloud-Native Web Applicaton Firewall

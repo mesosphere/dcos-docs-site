@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  保护群集
 title: 保护群集
 excerpt: 理解 DC/OS 中的安全特性

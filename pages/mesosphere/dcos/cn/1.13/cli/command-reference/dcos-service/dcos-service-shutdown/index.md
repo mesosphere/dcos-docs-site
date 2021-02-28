@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos service shutdown
 title: dcos service shutdown
 menuWeight: 2

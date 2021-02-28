@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon
 title: dcos marathon
 menuWeight: 10

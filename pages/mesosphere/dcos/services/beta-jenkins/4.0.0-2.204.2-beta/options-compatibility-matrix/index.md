@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuration Options Matrix
 title: Configuration Options Matrix
 menuWeight: 6

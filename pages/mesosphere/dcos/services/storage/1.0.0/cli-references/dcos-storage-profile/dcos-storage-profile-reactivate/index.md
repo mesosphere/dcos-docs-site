@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage profile reactivate
 title: dcos storage profile reactivate
 menuWeight: 0

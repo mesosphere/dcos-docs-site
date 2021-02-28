@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  创建和运行服务
 title: 教程 - 创建和运行服务
 menuWeight: 1

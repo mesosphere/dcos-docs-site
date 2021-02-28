@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb ping
 title: dcos edge-lb ping
 menuWeight: 30

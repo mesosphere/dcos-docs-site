@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Weighted backends
 title: Weighted backends
 menuWeight: 35

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  SSH 至节点
 title: SSH 至节点
 menuWeight: 0

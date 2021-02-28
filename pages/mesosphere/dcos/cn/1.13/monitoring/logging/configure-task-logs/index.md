@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置任务日志输出和保留
 title: 配置任务日志输出和保留
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用自定义 Marathon
 title: 使用自定义 Marathon
 menuWeight: 39

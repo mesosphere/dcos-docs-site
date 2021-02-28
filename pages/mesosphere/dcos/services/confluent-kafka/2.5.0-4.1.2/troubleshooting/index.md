@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting 
 excerpt: Troubleshooting Confluent Kafka
 title: Troubleshooting 

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Limitations
 excerpt: Known limitations of the DC/OS Apache HDFS service
 title: Limitations

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Grafana Storage
 title: Grafana Storage
 menuWeight: 20

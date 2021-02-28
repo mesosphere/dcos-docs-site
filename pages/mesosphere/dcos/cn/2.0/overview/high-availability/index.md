@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  高可用性
 title: 高可用性
 menuWeight: 6

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  服务命名
 title: 服务命名
 menuWeight: 0

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: API Reference
 excerpt: REST API
 title: API Reference

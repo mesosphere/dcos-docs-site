@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: HAProxy Stats API 参考
 title: HAProxy Stats API 参考
 menuWeight: 90

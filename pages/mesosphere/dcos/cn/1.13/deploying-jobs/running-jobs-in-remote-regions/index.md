@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 在远程区域运行作业
 title: 在远程区域运行作业
 menuWeight: 3

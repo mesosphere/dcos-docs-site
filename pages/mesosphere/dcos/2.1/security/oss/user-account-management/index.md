@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  User Account Management
 title: User Account Management
 menuWeight: 10

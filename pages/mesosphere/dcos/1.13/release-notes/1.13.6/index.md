@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release notes for 1.13.6
 title: Release notes for 1.13.6
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Technical Overview
 title: Technical Overview
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage provider recover
 title: dcos storage provider recover
 menuWeight: 0

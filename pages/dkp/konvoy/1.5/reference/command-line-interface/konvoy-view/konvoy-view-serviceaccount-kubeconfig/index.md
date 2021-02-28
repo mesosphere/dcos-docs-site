@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy view serviceaccount-kubeconfig
 title: konvoy view serviceaccount-kubeconfig
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring DC/OS access for Minio
 title: Configuring DC/OS access for Minio
 menuWeight: 2

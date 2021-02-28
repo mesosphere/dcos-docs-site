@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: MNIST with MXNet
 title: MNIST with MXNet
 menuWeight: 13

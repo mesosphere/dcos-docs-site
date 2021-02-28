@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security org service-accounts create
 title: dcos security org service-accounts create
 menuWeight: 165

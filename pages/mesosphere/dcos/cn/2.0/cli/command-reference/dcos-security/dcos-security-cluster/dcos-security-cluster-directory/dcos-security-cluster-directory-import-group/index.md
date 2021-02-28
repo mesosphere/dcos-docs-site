@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster directory import_group
 title: dcos security cluster directory import_group
 menuWeight: 33

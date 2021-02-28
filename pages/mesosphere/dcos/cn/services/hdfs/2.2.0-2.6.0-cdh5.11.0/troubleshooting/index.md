@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 故障排除
 excerpt: 诊断 HDFS 问题
 title: 故障排除

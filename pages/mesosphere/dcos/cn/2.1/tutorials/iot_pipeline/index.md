@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  部署负载均衡数据管道
 title: 部署负载均衡数据管道
 menuWeight: 3

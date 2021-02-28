@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom dockerd configuration
 title: Custom dockerd configuration
 menuWeight: 10

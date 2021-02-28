@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring HAProxy in Front of Admin Router
 title: Configuring HAProxy in Front of Admin Router
 menuWeight: 6

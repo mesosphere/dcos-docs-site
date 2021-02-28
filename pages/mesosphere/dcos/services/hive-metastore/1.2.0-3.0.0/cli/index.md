@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Beeline CLI
 excerpt: Interact with the Hive Metastore using the Beeling CLI
 title: Using the Beeline CLI in Hive Metastore

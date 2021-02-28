@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon deployment watch
 title: dcos marathon deployment watch
 menuWeight: 16

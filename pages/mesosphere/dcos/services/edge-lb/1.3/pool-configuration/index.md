@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Edge-LB Pool Config Reference
 title: Edge-LB Pool Config Reference
 menuWeight: 80

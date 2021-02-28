@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CLI 插件
 title: CLI 插件
 menuWeight: 5

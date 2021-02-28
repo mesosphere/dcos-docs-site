@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Welcome to Conductor 1.1
 title: Welcome to Conductor 1.1
 category: K-Sphere

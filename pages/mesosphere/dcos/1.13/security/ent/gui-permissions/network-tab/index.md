@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the Networking Tab
 title: Granting Access to the Networking Tab
 menuWeight: 40

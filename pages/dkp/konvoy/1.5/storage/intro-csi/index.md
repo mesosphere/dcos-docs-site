@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes Container Storage Interface (CSI)
 title: Kubernetes Container Storage Interface (CSI)
 menuWeight: 9

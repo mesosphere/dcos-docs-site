@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom AMI
 title: Installing using a Custom AMI
 menuWeight: 20

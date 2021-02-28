@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Understanding distributed DNS
 title: Design - Distributed DNS
 navigationTitle: Distributed DNS

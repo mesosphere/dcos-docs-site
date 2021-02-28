@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Multiple Zones
 title: Multiple Zones
 menuWeight: 5

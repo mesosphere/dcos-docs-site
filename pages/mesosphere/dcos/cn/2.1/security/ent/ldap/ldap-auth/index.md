@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  指定身份认证和参数
 title: 指定身份认证和参数
 menuWeight: 2

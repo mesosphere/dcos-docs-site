@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Frequently-asked questions (FAQ)
 title: Frequently-asked questions (FAQ)
 menuWeight: -1

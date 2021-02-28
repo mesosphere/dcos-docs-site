@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Customizing your install
 title: Customizing your install
 menuWeight: 20

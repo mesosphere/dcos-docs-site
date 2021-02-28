@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: How-To Guides
 excerpt: Optional operations
 title: How-To Guides

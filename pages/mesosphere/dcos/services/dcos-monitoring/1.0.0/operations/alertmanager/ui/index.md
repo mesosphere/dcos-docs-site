@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Alertmanager UI
 title: Alertmanager UI
 menuWeight: 10

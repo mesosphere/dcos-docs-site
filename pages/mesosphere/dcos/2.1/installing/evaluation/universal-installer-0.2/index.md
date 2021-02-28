@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Deprecated Universal Installer 0.2
 title: Universal Installer 0.2
 menuWeight: 10

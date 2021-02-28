@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 Marathon 自动扩展
 title: 教程 - 使用 Marathon 自动扩展
 menuWeight: 3

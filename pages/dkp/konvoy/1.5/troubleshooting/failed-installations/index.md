@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Installation failures
 title: Installation failures
 menuWeight: 2

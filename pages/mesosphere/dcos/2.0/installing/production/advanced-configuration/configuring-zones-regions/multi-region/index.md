@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Multiple Regions
 title: Multiple Regions
 menuWeight: 10

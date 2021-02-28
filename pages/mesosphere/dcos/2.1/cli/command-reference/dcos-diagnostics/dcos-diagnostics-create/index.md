@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos diagnostics create
 title: dcos diagnostics create
 menuWeight: 3

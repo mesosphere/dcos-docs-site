@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Helm
 title: Helm
 menuWeight: 5

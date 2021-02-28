@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos cluster setup
 title: dcos cluster setup
 menuWeight: 6

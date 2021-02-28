@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Multiple Clusters
 title: Multiple Clusters
 menuWeight: 3

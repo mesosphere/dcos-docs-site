@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  卸载服务
 title: 卸载服务
 menuWeight: 7

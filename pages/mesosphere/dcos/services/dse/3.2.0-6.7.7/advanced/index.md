@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced Features 
 excerpt: Advanced features of the DC/OS DataStax Enterprise service
 title: Advanced Features

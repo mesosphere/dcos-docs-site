@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb lb-config
 title: dcos edge-lb lb-config
 menuWeight: 24

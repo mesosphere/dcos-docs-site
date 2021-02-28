@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon deployment stop
 title: dcos marathon deployment stop
 menuWeight: 16

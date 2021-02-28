@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring TLS
 title:  Configuring TLS
 menuWeight: 25

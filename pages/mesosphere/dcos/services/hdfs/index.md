@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  HDFS
 title: HDFS
 menuWeight: 50

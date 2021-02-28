@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Workspace Platform Service Configuration Requirements
 title: Workspace Platform Service Configuration Requirements
 menuWeight: 7

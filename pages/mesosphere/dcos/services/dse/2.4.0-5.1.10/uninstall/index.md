@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstalling DSE
 excerpt: Uninstalling DataStax Enterprise
 title: Uninstalling DSE

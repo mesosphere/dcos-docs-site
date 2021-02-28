@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Jenkins for DC/OS Service Architecture
 title: Jenkins for DC/OS Service Architecture
 menuWeight: 40

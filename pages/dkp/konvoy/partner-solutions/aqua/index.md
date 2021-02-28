@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Aqua
 title: Aqua
 excerpt: The Cloud Native Security Platform

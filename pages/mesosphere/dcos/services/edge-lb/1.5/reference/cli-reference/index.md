@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Edge-LB Command Line Interface (CLI)
 title: Edge-LB Command Line Interface (CLI)
 menuWeight: 82

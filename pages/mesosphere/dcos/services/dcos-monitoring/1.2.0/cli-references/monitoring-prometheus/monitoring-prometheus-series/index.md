@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos monitoring prometheus series
 title: dcos monitoring prometheus series
 menuWeight: 1

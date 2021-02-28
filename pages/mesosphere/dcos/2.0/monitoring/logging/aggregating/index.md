@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Log Aggregation
 title: Log Aggregation
 menuWeight: 3

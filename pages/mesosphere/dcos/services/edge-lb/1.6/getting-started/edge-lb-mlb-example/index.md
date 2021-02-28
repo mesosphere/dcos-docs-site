@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Compare Edge-LB to Marathon-LB
 title: Compare Edge-LB to Marathon-LB
 menuWeight: 18

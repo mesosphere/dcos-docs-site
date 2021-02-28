@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Deployments
 excerpt: Deploying multiple Marathon applications
 title: Deployments

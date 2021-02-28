@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Exposing the Kubernetes API via Marathon-LB or Edge-LB
 title: Exposing the Kubernetes API via Marathon-LB or Edge-LB
 menuWeight: 71

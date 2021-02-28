@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster ca newcert
 title: dcos security cluster ca newcert
 menuWeight: 5

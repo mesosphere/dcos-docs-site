@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用自定义 GPG 密钥对重新初始化密钥存储库
 title: 使用自定义 GPG 密钥对重新初始化密钥存储库
 menuWeight: -1

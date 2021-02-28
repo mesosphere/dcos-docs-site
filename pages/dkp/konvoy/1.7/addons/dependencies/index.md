@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Dependencies
 title: Addon Dependencies
 menuWeight: 7

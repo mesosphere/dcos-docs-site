@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Unsealing the Secret Store
 title: Unsealing the Secret Store
 menuWeight: 5

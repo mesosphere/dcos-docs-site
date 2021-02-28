@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Server Groups
 excerpt: Using Spinnaker applications and server groups
 title: Applications and Server Groups

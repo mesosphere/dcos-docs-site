@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: External LDAP directory
 title: External LDAP directory
 menuWeight: 30

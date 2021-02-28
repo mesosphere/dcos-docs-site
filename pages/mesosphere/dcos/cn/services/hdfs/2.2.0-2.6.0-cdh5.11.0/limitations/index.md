@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 限制
 excerpt: HDFS 服务的限制
 title: 限制

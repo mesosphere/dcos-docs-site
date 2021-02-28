@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: External Spark Operator
 title: Configure Kaptain to use external Spark Operator
 menuWeight: 70

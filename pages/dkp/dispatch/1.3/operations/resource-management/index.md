@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Resource Management
 title: Resource Management
 menuWeight: 50

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure HTTP Proxy
 title: Configure HTTP Proxy
 menuWeight: 70

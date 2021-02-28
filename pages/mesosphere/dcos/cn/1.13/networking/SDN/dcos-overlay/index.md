@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  DC/OS 覆盖
 title: DC/OS 覆盖
 menuWeight: 10

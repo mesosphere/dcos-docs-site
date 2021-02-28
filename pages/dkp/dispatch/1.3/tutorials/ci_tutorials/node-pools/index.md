@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Node Pools with Dispatch and Konvoy
 title:  Node Pools with Dispatch and Konvoy
 menuWeight: 20

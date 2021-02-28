@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Add, Change, and Remove Nodes
 title: Add, Change, and Remove Nodes
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 外部入口
 title: 外部入口
 menuWeight: 90

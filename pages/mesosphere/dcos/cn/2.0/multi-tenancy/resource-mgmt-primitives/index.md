@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 资源管理原语
 title: 资源管理原语
 menuWeight: 10

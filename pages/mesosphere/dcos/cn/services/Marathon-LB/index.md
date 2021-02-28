@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Marathon-LB
 title: Marathon-LB
 menuWeight: 80

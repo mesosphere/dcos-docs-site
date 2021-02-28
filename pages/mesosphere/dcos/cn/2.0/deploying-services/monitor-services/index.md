@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  监控服务
 title: 监控服务
 menuWeight: 3

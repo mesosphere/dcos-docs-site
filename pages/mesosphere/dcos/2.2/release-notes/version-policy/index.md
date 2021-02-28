@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Versioning and Release Policy
 title: Versioning and Release Policy
 menuWeight: 110

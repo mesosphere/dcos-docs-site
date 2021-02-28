@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release Notes
 title: Release Notes Konvoy 1.7
 menuWeight: 0

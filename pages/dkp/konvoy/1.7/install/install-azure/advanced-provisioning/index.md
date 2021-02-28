@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced provisioning options (Azure)
 title: Advanced provisioning options (Azure)
 menuWeight: 5

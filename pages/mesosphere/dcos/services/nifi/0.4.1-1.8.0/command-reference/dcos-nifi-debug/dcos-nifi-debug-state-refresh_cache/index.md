@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi debug state refresh_cache
 title: dcos nifi debug state refresh_cache
 menuWeight: 8

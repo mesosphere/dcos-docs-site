@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Tools
 excerpt: Tutorial - Tools for debugging applications on DC/OS
 menuWeight: 11

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom Domain
 title: Custom Domain
 menuWeight: 8

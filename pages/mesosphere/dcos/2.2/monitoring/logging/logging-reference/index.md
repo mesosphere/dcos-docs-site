@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Logging Reference
 title: Logging Reference
 menuWeight: 3

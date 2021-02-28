@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 限制
 excerpt: 已知和已测试限制
 title: 限制

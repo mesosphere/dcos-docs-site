@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi plan force-complete
 title: dcos nifi plan force-complete
 menuWeight: 8

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Overriding the default Linux user
 title: Overriding the default Linux user
 menuWeight: 31

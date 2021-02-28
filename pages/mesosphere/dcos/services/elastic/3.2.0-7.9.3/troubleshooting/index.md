@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 excerpt: Diagnosing DC/OS Elastic issues
 title: Troubleshooting

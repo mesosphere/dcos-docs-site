@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  群集链接 API
 title: 群集链接 API
 menuWeight: 3

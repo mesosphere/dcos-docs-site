@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Change the Access Token Lifetime
 title: Change the Access Token Lifetime
 menuWeight: 40

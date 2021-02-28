@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 SDS
 title: 使用 SDN
 menuWeight: 20

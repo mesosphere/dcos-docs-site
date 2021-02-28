@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Scenario 2
 navigationTitle: Scenario 2
 excerpt: Tutorial - Out of Memory

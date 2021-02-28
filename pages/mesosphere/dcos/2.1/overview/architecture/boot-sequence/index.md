@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Boot Sequence
 title: Boot Sequence
 menuWeight: 6

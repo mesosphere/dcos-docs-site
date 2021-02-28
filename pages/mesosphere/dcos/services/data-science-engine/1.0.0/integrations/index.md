@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Integrations
 excerpt: Integrate services into your DSEngine installation
 title: Integrations

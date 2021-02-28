@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  策略
 title: 策略
 excerpt: 教程 - 应用故障排除策略

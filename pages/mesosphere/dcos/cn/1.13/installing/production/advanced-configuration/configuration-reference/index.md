@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置参考
 title: 配置参考
 menuWeight: 5

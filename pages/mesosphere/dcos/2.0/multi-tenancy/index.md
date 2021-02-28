@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Multi-Tenancy for DC/OS Clusters
 title: Multi-Tenancy for DC/OS Clusters
 menuWeight: 112

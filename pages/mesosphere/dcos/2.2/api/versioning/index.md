@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  API Versioning
 title: API Versioning
 menuWeight: 2

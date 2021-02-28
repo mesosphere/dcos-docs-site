@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Logging and Audits
 title: Logging and Audits
 menuWeight: 190

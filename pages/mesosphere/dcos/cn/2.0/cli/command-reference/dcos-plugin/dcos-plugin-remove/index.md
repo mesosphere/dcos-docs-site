@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos plugin remove
 title: dcos plugin remove
 menuWeight: 7

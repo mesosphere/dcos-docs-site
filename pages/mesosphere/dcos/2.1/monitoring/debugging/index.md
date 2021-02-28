@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Debugging
 title: Debugging
 menuWeight: 115

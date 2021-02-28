@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Visualization
 title: Grafana and Prometheus Expression Browser
 menuWeight: 45

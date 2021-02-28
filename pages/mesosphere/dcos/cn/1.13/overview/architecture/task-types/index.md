@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  任务类型
 title: 任务类型
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Working with templates and app labels for Marathon-LB
 title: Working with templates and app labels
 menuWeight: 15

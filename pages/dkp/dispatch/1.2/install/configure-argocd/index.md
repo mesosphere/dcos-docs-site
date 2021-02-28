@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configure ArgoCD
 title: Configure ArgoCD
 menuWeight: 40

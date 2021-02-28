@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Securing Exhibitor with mutual TLS
 title: Securing Exhibitor with mutual TLS
 menuWeight: 450

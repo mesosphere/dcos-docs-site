@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  卸载 CLI
 title: 卸载 CLI
 menuWeight: 4

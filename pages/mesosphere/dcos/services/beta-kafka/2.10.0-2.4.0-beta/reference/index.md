@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: API reference for DC/OS Apache Kafka
 title: API Reference

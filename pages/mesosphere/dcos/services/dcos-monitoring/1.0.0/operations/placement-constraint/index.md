@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Placement Constraints
 title: Placement Constraints
 menuWeight: 60

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS Data Science Engine 2.0.1
 excerpt: DC/OS Data Science Engine is the next-generation interface for Project Jupyter.
 title: DC/OS Data Science Engine 2.0.1

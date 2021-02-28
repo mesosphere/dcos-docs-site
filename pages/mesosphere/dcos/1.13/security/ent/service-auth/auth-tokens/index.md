@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Managing JSON Web Tokens
 title: Managing JSON Web Tokens
 menuWeight: 200

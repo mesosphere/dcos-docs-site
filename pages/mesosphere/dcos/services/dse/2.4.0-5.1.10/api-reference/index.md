@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: API Reference for DSE
 excerpt: API Reference of the DC/OS DataStax Enterprise service
 title: API Reference

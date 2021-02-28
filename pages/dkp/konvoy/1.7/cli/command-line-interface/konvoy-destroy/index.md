@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy destroy
 title: konvoy destroy
 menuWeight: 10

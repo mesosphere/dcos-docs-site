@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 负载平衡和暴露服务
 title: 负载平衡和暴露服务
 menuWeight: 10

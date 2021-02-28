@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 通过 Spark 使用 Kerberos
 title: Kerberos
 navigationTitle: Kerberos

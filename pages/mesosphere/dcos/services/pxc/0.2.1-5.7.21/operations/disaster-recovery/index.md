@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Disaster Recovery
 excerpt: Back up and restore your data
 title: Disaster Recovery

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Encryption
 title: Server-Side-Encryption
 menuWeight: 35

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Provisioning Jenkins for DC/OS
 title: Provisioning Jenkins for DC/OS
 menuWeight: 15

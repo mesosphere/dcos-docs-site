@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos cluster unlink
 title: dcos cluster unlink
 menuWeight: 3

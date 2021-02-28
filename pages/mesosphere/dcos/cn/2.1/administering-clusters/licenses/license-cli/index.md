@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  许可证 CLI
 title: 许可证 CLI
 menuWeight: 0

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Konvoy Port Usage
 title: Konvoy Ports
 menuWeight: 10

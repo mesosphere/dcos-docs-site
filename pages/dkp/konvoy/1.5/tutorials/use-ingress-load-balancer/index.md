@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure Ingress for load balancing
 title: Configure Ingress for load balancing
 menuWeight: 21

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  什么是 DC/OS
 title: 什么是 DC/OS？
 menuWeight: 1

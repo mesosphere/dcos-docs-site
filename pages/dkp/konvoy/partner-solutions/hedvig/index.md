@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Hedvig
 title: Hedvig
 excerpt: Hedvig Storage Provider

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 服务账户
 title: 服务账户管理
 excerpt: 管理服务账户

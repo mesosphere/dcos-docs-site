@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Diagnosing Kafka
 title: Troubleshooting

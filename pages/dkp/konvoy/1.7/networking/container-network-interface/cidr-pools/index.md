@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: CIDR Pools
 title: CIDR Pools
 menuWeight: 8

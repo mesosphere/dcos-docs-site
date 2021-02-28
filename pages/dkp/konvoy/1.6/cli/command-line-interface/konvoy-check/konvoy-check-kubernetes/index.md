@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy check kubernetes
 title: konvoy check kubernetes
 menuWeight: 10

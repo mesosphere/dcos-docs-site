@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release Notes
 excerpt: Release Notes for DSE v. 3.2.0-6.7.7
 title: Release Notes

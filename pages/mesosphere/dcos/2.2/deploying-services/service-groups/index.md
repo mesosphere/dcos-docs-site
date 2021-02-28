@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to Services and Groups
 title: Granting Access to Services and Groups
 menuWeight: 3

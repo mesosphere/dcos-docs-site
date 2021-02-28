@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 版本政策
 excerpt: 支持的版本
 title: 版本政策

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  管理群集
 title: 管理群集
 menuWeight: 60

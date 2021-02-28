@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configure the ArgoCD CLI with Dispatch
 navigationTitle: Configure the ArgoCD CLI with Dispatch
 category: K-Sphere

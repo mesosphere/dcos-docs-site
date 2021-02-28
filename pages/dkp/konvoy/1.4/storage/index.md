@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Storage
 title: Konvoy Kubernetes Storage
 menuWeight: 9

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  创建密钥
 title: 创建密钥
 menuWeight: 1

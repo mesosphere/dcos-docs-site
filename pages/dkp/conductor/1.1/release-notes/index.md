@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release Notes - v1.1
 title: Release Notes - Conductor v1.1
 menuWeight: 01

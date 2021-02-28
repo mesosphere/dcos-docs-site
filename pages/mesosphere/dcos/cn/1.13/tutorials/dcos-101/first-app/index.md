@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  部署第一个应用程序
 title: 部署第一个应用程序
 excerpt: 介绍如何在群集上定义和部署示例服务实例（第 4 部分）

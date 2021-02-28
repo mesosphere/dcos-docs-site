@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install air-gapped
 title: Install Kaptain on an air-gapped cluster
 menuWeight: 10

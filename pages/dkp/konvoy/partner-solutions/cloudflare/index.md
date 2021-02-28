@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Cloudflare
 title: Cloudflare
 excerpt: Cloudflare Argo Tunnel

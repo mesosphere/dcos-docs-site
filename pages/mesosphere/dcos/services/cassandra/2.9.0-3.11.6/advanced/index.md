@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced
 excerpt: Advanced features of Apache Cassandra service
 title: Advanced features

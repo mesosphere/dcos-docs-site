@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Notebook Servers Configuration
 title: Configuring Notebook Servers
 menuWeight: 70

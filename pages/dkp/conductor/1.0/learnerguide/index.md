@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Learner's Guide
 title: Learner's Guide
 menuWeight: 50

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Limitations
 title: Limitations in Percona Server for MongoDB
 menuWeight: 110

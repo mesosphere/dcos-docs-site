@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: DC/OS Ansible 快速入门指南
 navigationTitle: Ansible 快速入门
 menuWeight: 1

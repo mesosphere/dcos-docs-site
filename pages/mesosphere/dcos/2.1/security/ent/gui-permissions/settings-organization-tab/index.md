@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the Settings and Organization tabs
 title: Granting Access to the Settings and Organization tabs
 menuWeight: 70

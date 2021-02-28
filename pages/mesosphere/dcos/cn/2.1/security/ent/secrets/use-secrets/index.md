@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置服务和 pod
 title: 配置服务和 pod
 menuWeight: 2

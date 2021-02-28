@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  管理 AWS
 title: 管理 AWS
 menuWeight: 9

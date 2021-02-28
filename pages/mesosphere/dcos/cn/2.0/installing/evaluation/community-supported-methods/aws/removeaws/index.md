@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 卸载 AWS EC2 上的 DC/OS
 navigationTitle: 卸载
 menuWeight: 15

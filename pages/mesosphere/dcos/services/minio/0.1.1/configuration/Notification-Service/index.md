@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Notification Service 
 title: Notification Service
 menuWeight: 25

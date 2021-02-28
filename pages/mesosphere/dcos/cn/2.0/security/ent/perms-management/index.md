@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 权限管理
 title: 权限管理
 menuWeight: 30

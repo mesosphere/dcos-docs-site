@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Cloud Installation
 title: Cloud Installation
 menuWeight: 10

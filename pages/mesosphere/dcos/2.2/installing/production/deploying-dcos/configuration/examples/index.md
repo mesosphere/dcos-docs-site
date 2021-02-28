@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Examples
 title: Examples
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 警报概述
 title: 警报概述
 menuWeight: 25

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  在 curl 命令中建立信任
 title: 在 curl 命令中建立信任
 menuWeight: 400

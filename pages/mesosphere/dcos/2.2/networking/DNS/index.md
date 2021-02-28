@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  DNS
 title: DC/OS Domain Name Service
 menuWeight: 20

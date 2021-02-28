@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Setting up Kerberos to run with DC/OS Apache Spark
 title: Kerberos
 navigationTitle: Kerberos

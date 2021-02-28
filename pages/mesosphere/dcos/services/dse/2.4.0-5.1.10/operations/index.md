@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Operating DSE
 excerpt: Operations and backup service for DSE
 title: Operations

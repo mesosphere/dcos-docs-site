@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Overview
 excerpt: Understanding Spinnaker services
 title: Overview

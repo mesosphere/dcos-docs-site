@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS 群集的多租户
 title: DC/OS 群集的多租户
 menuWeight: 112

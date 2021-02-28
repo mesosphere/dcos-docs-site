@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Network Policy
 title: Network Policy
 menuWeight: 8

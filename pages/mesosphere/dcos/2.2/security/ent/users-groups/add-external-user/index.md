@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Adding external users
 title: Adding external users
 menuWeight: 20

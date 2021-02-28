@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Cluster Link API
 title: Cluster Link API
 menuWeight: 3

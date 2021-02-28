@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos job history
 title: dcos job history
 menuWeight: 1

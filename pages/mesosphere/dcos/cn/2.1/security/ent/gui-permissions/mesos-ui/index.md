@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授予访问 Mesos UI 的权限
 title: 授予访问 Mesos UI 的权限
 menuWeight: 31

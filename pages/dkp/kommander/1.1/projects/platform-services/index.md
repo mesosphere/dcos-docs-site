@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Project Platform Services
 title: Project Platform Services
 menuWeight: 1

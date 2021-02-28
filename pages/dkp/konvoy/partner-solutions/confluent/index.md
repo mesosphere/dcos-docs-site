@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Confluent
 title: Confluent
 excerpt: Confluent Platform Operator

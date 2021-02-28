@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: HDFS 2.8.0-3.2.1
 excerpt: HFDS is a managed service that makes it easy to deploy and manage clusters on DC/OS
 title: HDFS 2.8.0-3.2.1

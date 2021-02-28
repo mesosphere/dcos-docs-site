@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Installing Services
 title: Installing Services
 menuWeight: 0

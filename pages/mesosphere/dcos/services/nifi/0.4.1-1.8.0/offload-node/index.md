@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Offload Node
 title: Offload Node
 menuWeight: 45

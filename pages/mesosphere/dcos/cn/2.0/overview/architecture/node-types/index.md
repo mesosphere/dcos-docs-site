@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  节点类型
 title: 节点类型
 menuWeight: 1

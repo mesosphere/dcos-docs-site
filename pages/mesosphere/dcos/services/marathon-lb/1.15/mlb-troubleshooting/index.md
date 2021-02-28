@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Troubleshooting Marathon-LB
 title: Troubleshooting Marathon-LB  
 menuWeight: 45

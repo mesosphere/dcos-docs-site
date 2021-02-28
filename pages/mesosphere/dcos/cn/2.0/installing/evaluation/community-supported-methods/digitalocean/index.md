@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 使用 Terraform 在 DigitalOcean 上安装 DC/OS 群集
 title: 在 DigitalOcean 上运行 DC/OS
 navigationTitle: DigitalOcean

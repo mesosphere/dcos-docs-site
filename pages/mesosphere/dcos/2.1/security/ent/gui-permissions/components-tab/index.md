@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the Components Tab
 title: Granting Access to the Components Tab
 menuWeight: 60

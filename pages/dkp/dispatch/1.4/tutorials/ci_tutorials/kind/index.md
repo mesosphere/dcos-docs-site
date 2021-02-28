@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Using Kind with Dispatch
 navigationTitle: Using Kind with Dispatch
 category: K-Sphere

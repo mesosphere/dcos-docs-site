@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Verifying the Edge-LB installed version
 title: Verifying the Edge-LB installed version
 menuWeight: 44

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster secret-store seal-status
 title: dcos security cluster secret-store seal-status
 menuWeight: 92

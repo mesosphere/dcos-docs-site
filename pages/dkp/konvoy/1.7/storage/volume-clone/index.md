@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Volume Cloning
 title: Volume Cloning
 menuWeight: 13

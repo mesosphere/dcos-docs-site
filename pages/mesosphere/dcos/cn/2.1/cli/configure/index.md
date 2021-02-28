@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置CLI
 title: 配置CLI
 menuWeight: 2

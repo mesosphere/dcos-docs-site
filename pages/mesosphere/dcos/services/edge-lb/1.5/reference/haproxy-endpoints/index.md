@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Edge-LB HAProxy endpoints
 title: Edge-LB HAProxy endpoints reference
 menuWeight: 85

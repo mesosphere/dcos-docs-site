@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos quota list
 title: dcos quota list
 menuWeight: 1

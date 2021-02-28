@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  性能监控
 title: 性能监控
 menuWeight: 1

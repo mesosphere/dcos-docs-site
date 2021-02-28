@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Calico Version
 title: Calico Version
 menuWeight: 8

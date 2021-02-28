@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes 2.8.0-1.19.2
 title: Kubernetes 2.8.0-1.19.2
 menuWeight: 1

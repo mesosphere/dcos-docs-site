@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Replacing a failed control plane node
 title: Replacing a failed control plane node
 excerpt: Learn how to deploy a sample application on the Konvoy cluster

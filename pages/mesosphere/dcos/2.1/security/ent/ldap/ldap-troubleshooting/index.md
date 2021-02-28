@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Troubleshooting LDAP errors
 title: Troubleshooting LDAP errors
 menuWeight: 5

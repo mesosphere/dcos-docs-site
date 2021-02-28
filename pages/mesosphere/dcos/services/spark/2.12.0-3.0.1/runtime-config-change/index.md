@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Runtime Configuration Changes
 excerpt: Customizing DC/OS Apache Spark while it is up and running
 title: Runtime Configuration Changes

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Mesosphere DC/OS 1.13
 title: Documentation for Mesosphere DC/OS 1.13
 version: 1.13

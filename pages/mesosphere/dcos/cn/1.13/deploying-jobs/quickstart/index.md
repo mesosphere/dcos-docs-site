@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  创建作业
 title: 创建作业
 menuWeight: 10

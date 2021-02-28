@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Secret Upload
 title: Secret Upload
 menuWeight: 50

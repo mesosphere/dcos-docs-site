@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Confluent ZooKeeper 2.7.0-5.1.2e
 title: Confluent ZooKeeper 2.7.0-5.1.2e
 menuWeight: 1

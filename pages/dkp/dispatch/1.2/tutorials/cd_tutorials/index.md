@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Continuous Deployment
 title: Continuous Deployment
 category: K-Sphere

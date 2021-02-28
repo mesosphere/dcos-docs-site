@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos monitoring prometheus alertmanagers
 title: dcos monitoring prometheus alertmanagers
 menuWeight: 1

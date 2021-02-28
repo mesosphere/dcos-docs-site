@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Controlling Access to Task Logs
 title: Controlling Access to Task Logs
 menuWeight: 2

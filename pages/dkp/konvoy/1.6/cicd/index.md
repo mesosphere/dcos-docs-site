@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: CI/CD
 title: CI/CD
 menuWeight: 170

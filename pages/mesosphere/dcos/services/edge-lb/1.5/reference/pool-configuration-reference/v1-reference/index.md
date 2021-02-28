@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  V1 Pool Reference
 title: V1 Pool Reference
 menuWeight: 84

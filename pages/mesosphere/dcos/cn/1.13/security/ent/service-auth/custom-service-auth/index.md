@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 认证 DC/OS 服务
 menuWeight: 100
 excerpt: 为自定义应用程序和 pod 配置身份认证

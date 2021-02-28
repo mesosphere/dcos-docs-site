@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  外部持久卷
 title: 外部持久卷
 menuWeight: 20

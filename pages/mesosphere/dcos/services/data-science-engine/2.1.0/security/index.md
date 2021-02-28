@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security
 excerpt: Configuring secure DC/OS service accounts
 title: Security

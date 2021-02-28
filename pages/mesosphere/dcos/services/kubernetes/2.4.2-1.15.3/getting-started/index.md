@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Tutorial - Kubernetes on DC/OS Enterprise
 title: Tutorial - Setting Up Kubernetes on DC/OS Enterprise
 menuWeight: 40

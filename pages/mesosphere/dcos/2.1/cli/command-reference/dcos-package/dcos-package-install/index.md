@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos package install
 title: dcos package install
 menuWeight: 1

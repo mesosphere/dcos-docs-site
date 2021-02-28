@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CLI Autocompletion
 title: CLI Autocompletion
 menuWeight: 7

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security secrets delete
 title: dcos security secrets delete
 menuWeight: 310

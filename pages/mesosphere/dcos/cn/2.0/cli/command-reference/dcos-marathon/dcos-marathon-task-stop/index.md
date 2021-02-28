@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon task stop
 title: dcos marathon task stop
 menuWeight: 31

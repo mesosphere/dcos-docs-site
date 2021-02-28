@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstall
 excerpt: Deleting your instance of DC/OS Data Science Engine
 title: Uninstall

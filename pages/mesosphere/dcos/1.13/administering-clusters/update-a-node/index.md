@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Updating Nodes
 title: Updating Nodes
 menuWeight: 801

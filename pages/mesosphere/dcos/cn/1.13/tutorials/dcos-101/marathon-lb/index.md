@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 公开应用程序
 title: 公开应用程序
 excerpt: 公开应用程序，使其可用于群集外部的访问（第 9 部分）

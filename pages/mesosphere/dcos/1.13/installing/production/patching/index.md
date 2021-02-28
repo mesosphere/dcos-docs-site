@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Patching
 title: Patching
 menuWeight: 20

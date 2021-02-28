@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  教程
 title: 教程
 menuWeight: 140

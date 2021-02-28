@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Quick Start Guide
 excerpt: Get up and running with DC/OS Data Science Engine
 title: Quick Start

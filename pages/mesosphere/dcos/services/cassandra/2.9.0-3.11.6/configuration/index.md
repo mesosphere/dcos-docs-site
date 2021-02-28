@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring 
 excerpt: Installation options, configuration regions, node settings, and more information
 title: Configuring Cassandra

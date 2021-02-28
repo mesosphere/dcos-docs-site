@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos job kill
 title: dcos job kill
 menuWeight: 2

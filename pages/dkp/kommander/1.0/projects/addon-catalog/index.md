@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Addon Catalog
 title: Addon Catalog
 menuWeight: 8

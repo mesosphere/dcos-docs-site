@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Exposing a Service
 title: Exposing a Service
 menuWeight: 5

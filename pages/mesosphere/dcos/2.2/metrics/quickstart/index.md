@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Quick Start
 title: Metrics Quick Start
 menuWeight: 1

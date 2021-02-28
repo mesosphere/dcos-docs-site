@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  目录
 title: 目录
 menuWeight: 4

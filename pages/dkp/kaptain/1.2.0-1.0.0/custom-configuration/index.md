@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom configuration
 title: Custom configuration
 menuWeight: 10

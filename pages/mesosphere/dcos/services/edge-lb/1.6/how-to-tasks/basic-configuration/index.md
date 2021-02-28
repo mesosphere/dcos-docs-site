@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Basic configuration settings
 title: Basic configuration settings
 menuWeight: 20

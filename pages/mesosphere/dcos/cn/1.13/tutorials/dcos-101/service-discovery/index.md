@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 发现部署的服务
 title: 发现部署的服务
 excerpt: 演示如何发现并连接到您的 DC/OS 群集中的服务（第 7 部分）

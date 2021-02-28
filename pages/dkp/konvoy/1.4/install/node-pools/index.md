@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Node Pools
 title: Node Pools
 menuWeight: 50

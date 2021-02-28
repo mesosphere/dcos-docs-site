@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configuring DC/OS Access for HDFS
 menuWeight: 550
 excerpt: Configuring DC/OS Access for HDFS in 2.1.0-2.6.0-cdh5.11.0 and earlier

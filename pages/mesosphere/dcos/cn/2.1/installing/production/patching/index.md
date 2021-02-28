@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 打补丁
 title: 打补丁
 menuWeight: 20

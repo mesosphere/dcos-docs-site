@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Confluent Kafka
 title: Confluent Kafka
 menuWeight: 5

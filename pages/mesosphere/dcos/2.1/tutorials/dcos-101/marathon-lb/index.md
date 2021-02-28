@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Part 6 of the DC/OS 101 tutorial
 title: Tutorial -  Exposing Apps Publicly
 navigationTitle: Exposing Apps Publicly

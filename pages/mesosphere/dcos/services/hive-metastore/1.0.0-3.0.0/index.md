@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Hive Metastore 1.0.0-3.0.0
 excerpt:
 title: Hive Metastore 1.0.0-3.0.0

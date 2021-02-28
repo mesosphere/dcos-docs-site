@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 ELK 筛选日志
 title: 使用 ELK 筛选日志
 menuWeight: 2

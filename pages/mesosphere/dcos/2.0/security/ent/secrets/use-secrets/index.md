@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring services and pods
 title: Configuring services and pods
 menuWeight: 2

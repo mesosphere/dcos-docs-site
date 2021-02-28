@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 度量标准插件架构
 navigationTitle: 度量标准插件架构
 menuWeight: 0

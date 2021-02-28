@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Obtaining the DC/OS CA bundle
 menuWeight: 100
 excerpt: Obtaining the DC/OS CA bundle

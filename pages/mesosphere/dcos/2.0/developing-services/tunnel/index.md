@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Using a DC/OS Tunnel
 navigationTitle: Using a DC/OS Tunnel
 menuWeight: 10

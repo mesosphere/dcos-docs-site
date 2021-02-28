@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Store secrets in GitOps Repository using SealedSecrets
 navigationTitle: Store secrets in a GitOps Repository using SealedSecrets
 category: K-Sphere

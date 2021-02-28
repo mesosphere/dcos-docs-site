@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Jenkins 3.5.4-2.150.1
 title: Jenkins 3.5.4-2.150.1
 menuWeight: 1

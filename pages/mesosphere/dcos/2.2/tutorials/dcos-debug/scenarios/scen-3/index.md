@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Scenario 3
 navigationTitle: Scenario 3
 excerpt: Tutorial - Docker Images

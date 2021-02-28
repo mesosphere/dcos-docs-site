@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Exposing multiple services using multiple pools
 title: Exposing multiple services using multiple pools
 menuWeight: 7

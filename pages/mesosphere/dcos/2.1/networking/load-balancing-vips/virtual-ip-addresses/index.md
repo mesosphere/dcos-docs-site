@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using Virtual IP Addresses
 title: Using Virtual IP Addresses
 menuWeight: 10

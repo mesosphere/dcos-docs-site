@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Host Volume 
 excerpt: Mounting Host Volume into DC/OS Data Science Engine
 title: Host Volume

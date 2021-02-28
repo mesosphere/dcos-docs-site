@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb pool-template delete
 title: dcos edge-lb pool-template delete
 menuWeight: 36

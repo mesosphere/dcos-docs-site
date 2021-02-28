@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos quota get
 title: dcos quota get
 menuWeight: 1

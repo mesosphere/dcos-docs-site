@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi debug pod resume
 title: dcos nifi debug pod resume
 menuWeight: 10

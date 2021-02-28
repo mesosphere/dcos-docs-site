@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Service Account
 excerpt: Setting up a service account
 title: Service Account

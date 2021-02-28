@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kafka  
 excerpt:
 title: Kafka  

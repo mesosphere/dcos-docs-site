@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Sending Alerts via Slack
 title: Sending Alerts via Slack
 menuWeight: 20

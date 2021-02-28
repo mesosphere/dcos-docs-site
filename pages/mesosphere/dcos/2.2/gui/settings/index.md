@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Settings
 title: Settings
 menuWeight: 10

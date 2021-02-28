@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Quick Start
 excerpt: Configuring Percona XtraDB Cluster - Quick Start
 title: Quick Start

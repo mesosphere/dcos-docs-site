@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb diagnostic
 title: dcos edge-lb diagnostic
 menuWeight: 15

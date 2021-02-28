@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring GPU nodes
 title: Configuring GPU nodes
 menuWeight: 10

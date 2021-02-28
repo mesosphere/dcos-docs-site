@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the Mesos UI
 title: Granting Access to the Mesos UI
 menuWeight: 31

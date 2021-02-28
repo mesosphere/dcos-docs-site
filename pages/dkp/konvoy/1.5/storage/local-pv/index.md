@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Local Volume Storage
 title: Kubernetes Local Storage
 menuWeight: 9

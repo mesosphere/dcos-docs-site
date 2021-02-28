@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy diff cluster-state
 title: konvoy diff cluster-state
 menuWeight: 10

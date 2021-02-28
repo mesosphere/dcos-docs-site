@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Input Formats
 title: Input Formats
 menuWeight: 45

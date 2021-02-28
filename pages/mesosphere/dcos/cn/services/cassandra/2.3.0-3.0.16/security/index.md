@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 安全
 excerpt: 保护您的服务
 title: 安全

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 限制
 title: 限制
 menuWeight: 60

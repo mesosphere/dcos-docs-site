@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Credentials Plugin
 title: Install the Credentials Plugin
 menuWeight: 10

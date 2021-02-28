@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置任务处理
 title: 配置任务处理
 menuWeight: 0

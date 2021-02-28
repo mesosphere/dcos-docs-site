@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos quota delete
 title: dcos quota delete
 menuWeight: 1

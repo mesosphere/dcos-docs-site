@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Version Policy
 excerpt: Understanding DC/OS Apache Spark version policy
 title: Version Policy

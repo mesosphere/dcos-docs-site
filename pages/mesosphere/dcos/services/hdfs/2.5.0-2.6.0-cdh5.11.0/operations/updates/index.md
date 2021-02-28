@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Updating 
 excerpt: Updating DC/OS Apache HDFS service
 title: Updating 

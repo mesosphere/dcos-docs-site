@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/install/package-registry-based/index.md
 navigationTitle: Via Package Registry
 title: Via Package Registry

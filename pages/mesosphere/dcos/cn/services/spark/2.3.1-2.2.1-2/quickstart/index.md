@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 快速入门
 excerpt: Spark 入门
 title: 快速入门

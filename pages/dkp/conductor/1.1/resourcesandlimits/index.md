@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Resources and Limitations
 title: Resources and Limitations
 menuWeight: 30

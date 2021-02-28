@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Recover
 title: Recovering objects on the Minio server 
 menuWeight: 30

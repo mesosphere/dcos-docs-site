@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos
 title: dcos
 menuWeight: 0

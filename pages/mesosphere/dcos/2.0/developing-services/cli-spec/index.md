@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CLI Specification
 title: CLI Specification
 menuWeight: 3

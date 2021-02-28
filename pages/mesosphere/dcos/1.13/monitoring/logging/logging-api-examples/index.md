@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Logging API Examples
 title: Logging API Examples
 menuWeight: 4

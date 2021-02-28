@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security
 excerpt: Security, encryption and authorization for DSE
 title: Security

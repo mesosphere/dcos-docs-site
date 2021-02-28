@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Deploy an application to multiple clusters
 navigationTitle: Deploy an application to multiple clusters
 category: K-Sphere

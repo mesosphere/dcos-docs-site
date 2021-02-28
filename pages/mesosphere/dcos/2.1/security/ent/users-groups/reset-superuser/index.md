@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Resetting the Superuser
 title: Resetting the Superuser
 menuWeight: 30

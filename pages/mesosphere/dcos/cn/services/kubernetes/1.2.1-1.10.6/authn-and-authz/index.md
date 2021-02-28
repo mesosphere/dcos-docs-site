@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 授权
 title: 授权
 menuWeight: 75

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: LDAP Directory
 title: External LDAP Identity Provider
 menuWeight: 10

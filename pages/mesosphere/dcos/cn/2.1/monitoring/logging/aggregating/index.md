@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  日志聚合
 title: 日志聚合
 menuWeight: 3

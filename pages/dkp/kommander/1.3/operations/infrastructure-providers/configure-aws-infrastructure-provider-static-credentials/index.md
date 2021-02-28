@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: AWS Static Credentials
 title: AWS Static Credentials
 excerpt: Configuring an AWS Infrastructure Provider with static credentials

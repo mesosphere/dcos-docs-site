@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Tutorial - Deploying a Docker-based Service
 title: Tutorial - Deploying a Docker-based Service
 menuWeight: 100

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Managing users and groups
 title: Managing Users and Groups
 menuWeight: 0

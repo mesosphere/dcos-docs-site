@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Installation
 title: Dispatch Installation on Konvoy
 menuWeight: 40

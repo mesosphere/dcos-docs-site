@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom domain name and certificates
 title: Configuring custom domain name and certificates to access Kaptain
 menuWeight: 70

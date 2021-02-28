@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Exposing Mesos Zones Outside
 title: Exposing Mesos Zones Outside
 menuWeight: 300

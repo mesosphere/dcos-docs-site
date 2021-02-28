@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi pod
 title: dcos nifi pod
 menuWeight: 66

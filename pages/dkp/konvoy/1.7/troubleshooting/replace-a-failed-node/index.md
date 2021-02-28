@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Replace a failed node
 title: Replace a failed node
 menuWeight: 9

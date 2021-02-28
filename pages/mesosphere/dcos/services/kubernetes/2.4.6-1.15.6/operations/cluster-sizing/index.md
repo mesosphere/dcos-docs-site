@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Cluster Sizing
 title: Cluster Sizing
 menuWeight: 5

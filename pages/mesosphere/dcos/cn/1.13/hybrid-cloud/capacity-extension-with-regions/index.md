@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  分域容量扩展
 title: 分域容量扩展
 menuWeight: 10

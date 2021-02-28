@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 GPU
 title: 使用 GPU
 menuWeight: 110

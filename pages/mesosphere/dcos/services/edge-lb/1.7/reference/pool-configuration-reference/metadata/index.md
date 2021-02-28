@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Pool metadata
 title: Pool metadata
 menuWeight: 83

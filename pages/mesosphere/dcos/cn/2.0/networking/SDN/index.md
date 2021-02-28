@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  软件定义网络
 title: 软件定义网络
 menuWeight: 4

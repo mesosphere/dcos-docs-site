@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Health Checks
 title: Health Checks
 menuWeight: 200

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS 2.2.0 Release Notes
 title: DC/OS 2.2 Release Notes
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Nodes
 title: Nodes
 menuWeight: 5

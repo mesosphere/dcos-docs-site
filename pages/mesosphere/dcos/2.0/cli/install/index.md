@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Installing the CLI
 title: Installing the CLI
 menuWeight: 1

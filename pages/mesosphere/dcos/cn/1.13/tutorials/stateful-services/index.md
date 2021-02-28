@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 在 DC/OS 上运行有状态服务
 navigationTitle: 在 DC/OS 上运行有状态服务
 menuWeight: 2

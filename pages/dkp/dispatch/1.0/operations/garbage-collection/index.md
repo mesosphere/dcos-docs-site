@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Garbage Collection
 title: Dispatch Garbage Collection
 menuWeight: 30

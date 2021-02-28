@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy deploy auto-provisioning
 title: konvoy deploy auto-provisioning
 menuWeight: 10

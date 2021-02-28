@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 备份、节点计数、安全的限制。
 title: 限制
 navigationTitle: 限制

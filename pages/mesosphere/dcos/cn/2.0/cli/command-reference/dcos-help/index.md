@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos help
 title: dcos help
 menuWeight: 7

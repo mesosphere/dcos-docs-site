@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Running Stateful Services on DC/OS
 navigationTitle: Running Stateful Services on DC/OS
 menuWeight: 2

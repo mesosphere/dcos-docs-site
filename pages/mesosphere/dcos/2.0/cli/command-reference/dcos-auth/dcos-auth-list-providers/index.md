@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos auth list-providers
 title: dcos auth list-providers
 menuWeight: 1

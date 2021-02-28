@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security
 excerpt: Configuring DC/OS service accounts for Spark
 title: Security

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  备份和恢复
 title: 备份和恢复
 menuWeight: 7

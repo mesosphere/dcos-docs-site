@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Tutorial - Scaling apps using Marathon-LB statistics
 title: Tutorial - Automated scaling using Marathon-LB statistics
 menuWeight: 35

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: ZooKeeper resources
 navigationTitle: ZooKeeper resources
 menuWeight: 10

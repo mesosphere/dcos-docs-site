@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  API 参考
 title: API 参考
 menuWeight: 150

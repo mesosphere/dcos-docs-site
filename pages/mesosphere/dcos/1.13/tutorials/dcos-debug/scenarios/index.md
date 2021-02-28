@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Practice Deployment Debugging Scenarios on DC/OS
 title: Practice Deployment Debugging Scenarios on DC/OS
 excerpt: Tutorial - Practicing some debugging scenarios

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Universal Installer FAQ & Troubleshooting Guide
 excerpt: FAQ and Common Issues with Universal Installer
 navigationTitle: Universal Installer FAQ

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Job Scheduling  
 excerpt: Scheduling jobs with DC/OS Apache Spark
 title: Job Scheduling

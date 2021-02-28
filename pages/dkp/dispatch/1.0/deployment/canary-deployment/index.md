@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Canary Deployment
 title: Canary deployment
 menuWeight: 40

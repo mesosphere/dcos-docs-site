@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom Docker Images
 excerpt: Customizing the Docker image in which Spark runs
 title: Custom Docker Images

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Percona-Server-MongoDB 0.4.1-3.6.8
 title: Percona-Server-MongoDB 0.4.1-3.6.8
 menuWeight: 5

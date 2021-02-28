@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kaptain
 title: Welcome to Kaptain
 menuWeight: 1

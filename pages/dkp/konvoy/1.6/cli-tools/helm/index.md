@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Helm CLI
 title: Helm CLI
 menuWeight: 5

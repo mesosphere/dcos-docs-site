@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security secrets get
 title: dcos security secrets get
 menuWeight: 315

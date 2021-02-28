@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Spark
 excerpt: Using Spark with DC/OS Data Science Engine 
 title: Spark

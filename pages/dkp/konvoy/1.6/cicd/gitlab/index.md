@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install GitLab Enterprise on Konvoy
 title: Install GitLab Enterprise on Konvoy
 menuWeight: 5

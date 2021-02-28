@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: CSI Options
 title: Container Storage Interface (CSI) Options
 menuWeight: 6

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Credentials
 title: Credentials
 menuWeight: 35

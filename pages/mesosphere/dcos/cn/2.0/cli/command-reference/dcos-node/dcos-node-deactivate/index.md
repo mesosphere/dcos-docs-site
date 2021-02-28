@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node deactivate
 excerpt: 取消激活 DC/OS 节点
 title: dcos node deactivate

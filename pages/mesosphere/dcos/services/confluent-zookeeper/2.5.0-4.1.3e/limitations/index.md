@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Limitations
 excerpt: Limitations
 title: Limitations to ZooKeeper and Kerberos settings

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 部署本地目录
 title: 部署本地目录
 menuWeight: 1000

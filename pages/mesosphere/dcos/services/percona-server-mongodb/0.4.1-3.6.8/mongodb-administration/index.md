@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Administration
 title: Percona Server for MongoDB Administration
 menuWeight: 65

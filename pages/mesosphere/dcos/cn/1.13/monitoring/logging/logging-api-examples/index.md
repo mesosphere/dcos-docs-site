@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  日志记录 API 示例
 title: 日志记录 API 示例
 menuWeight: 4

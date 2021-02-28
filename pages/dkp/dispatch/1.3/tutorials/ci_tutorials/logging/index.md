@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Logging walkthrough
 title: Logging walkthrough
 menuWeight: 80

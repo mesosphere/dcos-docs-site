@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Jenkins for DC/OS Quickstart
 title: Jenkins for DC/OS Quickstart
 menuWeight: 10

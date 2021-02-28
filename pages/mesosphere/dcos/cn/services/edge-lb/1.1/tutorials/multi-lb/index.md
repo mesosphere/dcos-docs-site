@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: AWS 上的高可用性负载平衡
 title: AWS 上的高可用性负载平衡
 menuWeight: 20

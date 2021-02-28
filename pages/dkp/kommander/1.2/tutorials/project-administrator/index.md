@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Grant project admin access to Kubernetes resources in Kommander
 title: Grant project admin access to Kubernetes resources in Kommander
 menuWeight: 1

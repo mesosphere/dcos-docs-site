@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 交互式 Spark Shell
 excerpt: 在 Spark shell 中交互运行 Spark 命令
 title: 交互式 Spark Shell

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the UI
 title: Granting Access to the UI
 menuWeight: 10

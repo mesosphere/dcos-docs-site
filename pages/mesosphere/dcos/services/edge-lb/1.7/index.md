@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Edge-LB 1.7
 title: Edge-LB 1.7
 menuWeight: 1

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Upgrade Konvoy CLI
 title: Upgrade Konvoy CLI
 menuWeight: 30

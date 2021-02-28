@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node decommission
 excerpt: 停用 DC/OS 节点
 title: dcos node decommission

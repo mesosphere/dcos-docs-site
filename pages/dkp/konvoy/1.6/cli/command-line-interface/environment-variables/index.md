@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Environment variables
 title: Environment variables
 menuWeight: 11

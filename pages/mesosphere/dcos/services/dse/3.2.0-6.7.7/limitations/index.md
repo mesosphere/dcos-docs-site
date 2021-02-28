@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Limitations
 excerpt: Limitations of DC/OS DSE
 title: Limitations

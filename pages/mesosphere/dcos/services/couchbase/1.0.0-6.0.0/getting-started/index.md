@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Installing and deploying a basic cluster
 title: Getting Started

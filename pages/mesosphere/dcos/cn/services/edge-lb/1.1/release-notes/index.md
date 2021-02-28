@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 发行说明
 title: Edge-LB 发行说明
 menuWeight: 0

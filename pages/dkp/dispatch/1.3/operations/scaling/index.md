@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Scaling Dispatch
 title: Scaling Dispatch
 menuWeight: 60

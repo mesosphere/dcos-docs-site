@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Integrate microservices using Istio
 title: Integrate microservices using Istio
 menuWeight: 24

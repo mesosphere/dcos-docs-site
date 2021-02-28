@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release Notes 
 excerpt: Release Notes for version 2.9.1-5.4.0
 title: Release Notes

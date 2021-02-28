@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  多租户原始文件
 title: 多租户原始文件
 menuWeight: 90

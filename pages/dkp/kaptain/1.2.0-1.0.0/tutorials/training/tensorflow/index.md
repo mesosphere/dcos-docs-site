@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: MNIST with TensorFlow
 title: MNIST with TensorFlow
 menuWeight: 11

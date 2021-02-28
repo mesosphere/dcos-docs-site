@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Upgrade
 title: Upgrade to Universal Installer 0.3
 menuWeight: 10

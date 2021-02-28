@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CNI 插件支持
 title: CNI 插件支持
 menuWeight: 30

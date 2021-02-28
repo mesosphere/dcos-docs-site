@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 升级池
 title: 升级池 Edge-LB
 menuWeight: 25

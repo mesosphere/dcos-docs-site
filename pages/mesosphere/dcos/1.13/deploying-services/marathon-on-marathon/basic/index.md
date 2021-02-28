@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Deploying Services Using a Custom Marathon Instance
 title: Deploying Services Using a Custom Marathon Instance
 menuWeight: 39

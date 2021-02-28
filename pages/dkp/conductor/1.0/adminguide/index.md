@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Admin Guide
 title: Administrator's Guide
 menuWeight: 40

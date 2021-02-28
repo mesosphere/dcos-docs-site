@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Addons
 title: Addons
 menuWeight: 8

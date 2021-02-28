@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Supported Versions
 title: Supported Versions
 menuWeight: 100

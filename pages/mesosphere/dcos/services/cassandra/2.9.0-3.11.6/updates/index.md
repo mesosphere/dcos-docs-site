@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Update
 excerpt: Updates and patches
 title: Updating DC/OS Apache Cassandra

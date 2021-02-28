@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 配置 
 title: 配置 Marathon-LB
 menuWeight: 3

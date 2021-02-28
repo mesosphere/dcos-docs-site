@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Konvoy 1.4
 title: Welcome to Konvoy 1.4
 category: K-Sphere

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: DC/OS 101 教程第 6 部分
 title: 教程 - 公开应用程序
 navigationTitle: 公开应用程序

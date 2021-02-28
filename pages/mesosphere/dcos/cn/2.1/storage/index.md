@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  存储
 title: 存储
 menuWeight: 90

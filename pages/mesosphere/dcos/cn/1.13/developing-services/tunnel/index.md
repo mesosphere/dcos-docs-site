@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 使用 DC/OS 隧道
 navigationTitle: 使用 DC/OS 隧道
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos license list
 title: dcos license list
 menuWeight: 3

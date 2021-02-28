@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Install Dispatch on Multiple Clusters
 title: Install Dispatch on Multiple Clusters
 menuWeight: 35

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Create a Kubernetes PV to access NFS shared storage
 title: Create a Kubernetes Persistent Volume
 menuWeight: 10

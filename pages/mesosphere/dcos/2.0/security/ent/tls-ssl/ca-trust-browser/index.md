@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Establishing trust in your DC/OS CA
 title: Establishing trust in your DC/OS CA
 menuWeight: 200

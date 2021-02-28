@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kafka ZooKeeper
 title: Kafka ZooKeeper
 menuWeight: 71

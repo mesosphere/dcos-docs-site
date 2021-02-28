@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Hybrid Cloud
 title: Hybrid Cloud
 menuWeight: 115

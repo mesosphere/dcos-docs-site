@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy diagnose
 title: konvoy diagnose
 menuWeight: 10

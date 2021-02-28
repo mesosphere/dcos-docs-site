@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster oidc show
 title: dcos security cluster oidc show
 menuWeight: 65

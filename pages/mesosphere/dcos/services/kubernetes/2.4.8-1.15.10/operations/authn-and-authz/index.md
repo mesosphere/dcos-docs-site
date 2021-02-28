@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Authentication and Authorization
 title: Authentication and Authorization
 menuWeight: 10

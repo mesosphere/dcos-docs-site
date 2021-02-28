@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Pool configuration
 title: Pool configuration
 menuWeight: 80

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configure Task Handling
 title: Configure Task Handling
 menuWeight: 0

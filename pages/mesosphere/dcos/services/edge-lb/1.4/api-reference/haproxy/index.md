@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  HAProxy API Reference
 title: HAProxy API Reference
 menuWeight: 90

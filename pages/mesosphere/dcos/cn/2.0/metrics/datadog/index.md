@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 向 Datadog 导出 DC/OS 度量标准
 navigationTitle: 向 Datadog 导出 DC/OS 度量标准
 menuWeight: 4

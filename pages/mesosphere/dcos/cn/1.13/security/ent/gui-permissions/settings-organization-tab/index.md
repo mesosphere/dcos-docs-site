@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授予对 Settings 和 Organization 选项卡的访问权限
 title: 授予对 Settings 和 Organization 选项卡的访问权限
 menuWeight: 70

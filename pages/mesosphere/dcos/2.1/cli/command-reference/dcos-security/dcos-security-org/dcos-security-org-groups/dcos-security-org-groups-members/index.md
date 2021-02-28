@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security org groups members
 title: dcos security org groups members
 menuWeight: 145

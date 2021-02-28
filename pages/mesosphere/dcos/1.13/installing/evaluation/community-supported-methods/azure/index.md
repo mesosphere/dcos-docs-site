@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Install DC/OS cluster using Azure Resource Manager templates
 title: Running DC/OS on Azure
 navigationTitle: Azure

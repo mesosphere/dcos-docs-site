@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node drain
 title: dcos node drain
 menuWeight: 6

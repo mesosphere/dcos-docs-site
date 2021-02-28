@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Strategy
 title: Strategy
 excerpt: Tutorial - Applying troubleshooting strategies

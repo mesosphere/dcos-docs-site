@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  服务认证
 title: 服务认证
 menuWeight: 80

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Tutorial - Internal and external load balancing
 title: Tutorial - Advanced internal and external load balancing
 menuWeight: 30

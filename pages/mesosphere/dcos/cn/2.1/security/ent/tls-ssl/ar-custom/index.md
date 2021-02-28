@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置自定义外部证书
 title: 配置自定义外部证书
 menuWeight: 50

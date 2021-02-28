@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Deploy and expose native applications
 title: Deploy and expose native applications
 excerpt: Deploys an app using a UCR container and exposes it for access from outside of the cluster (part 8)

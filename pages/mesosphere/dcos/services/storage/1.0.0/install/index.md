@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/install/index.md
 navigationTitle: Install
 title: Install

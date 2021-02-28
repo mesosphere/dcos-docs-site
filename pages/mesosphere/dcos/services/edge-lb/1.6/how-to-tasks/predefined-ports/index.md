@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Exposing tasks using pre-assigned ports
 title: Exposing tasks using pre-assigned ports
 menuWeight: 30

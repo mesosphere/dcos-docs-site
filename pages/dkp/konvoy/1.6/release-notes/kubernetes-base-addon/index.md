@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
 menuWeight: 100

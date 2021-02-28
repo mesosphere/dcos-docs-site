@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Prometheus Remote Storage
 title: Prometheus Remote Storage
 menuWeight: 20

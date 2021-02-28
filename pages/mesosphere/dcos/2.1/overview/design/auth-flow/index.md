@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Authentication Architecture
 excerpt: Understanding authentication operations
 title: Authentication Architecture

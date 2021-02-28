@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 部署 DC/OS
 navigationTitle: 部署 DC/OS
 menuWeight: 10

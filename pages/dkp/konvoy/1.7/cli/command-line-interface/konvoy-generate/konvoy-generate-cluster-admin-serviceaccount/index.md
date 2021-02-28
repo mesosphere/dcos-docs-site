@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy generate cluster-admin-serviceaccount
 title: konvoy generate cluster-admin-serviceaccount
 menuWeight: 10

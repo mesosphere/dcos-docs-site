@@ -202,7 +202,12 @@ MS.use((files, ms, done) => {
   // have to reach into pug and consolidate directly for now.
   consolidate.clearCache();
   pug.cache = {};
-  return layouts({ engine: "pug", cache: true })(files, ms, done);
+  return layouts({
+    default: "layout.pug",
+    engine: "pug",
+    cache: true,
+    pattern: "**/*.html",
+  })(files, ms, done);
 });
 MS.use(timer("Layouts"));
 

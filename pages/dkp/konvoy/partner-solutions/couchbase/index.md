@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Couchbase
 title: Couchbase
 excerpt: Couchbase Autonomous Operator  

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 开源归属
 menuWeight: 100
 excerpt: Mesosphere 提供的第三方开源软件的列表

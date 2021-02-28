@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 故障排除
 title: 登录故障排除 
 excerpt: 排除 DC/OS 中的登录问题

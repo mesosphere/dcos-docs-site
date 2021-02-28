@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  系统要求
 title: 系统要求
 menuWeight: 5

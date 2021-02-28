@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: API Reference
 excerpt: API reference for the DC/OS Apache HDFS service
 title: API Reference

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Storage
 title: Storage
 menuWeight: 55

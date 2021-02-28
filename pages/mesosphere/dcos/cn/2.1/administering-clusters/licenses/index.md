@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  许可证
 title: 许可证
 menuWeight: 1100

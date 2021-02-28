@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security
 excerpt: Creating service accounts and assigning permissions
 title: Security

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Deploying Jobs
 title: Deploying Jobs
 menuWeight: 120

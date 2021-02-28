@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Known limitations for the DC/OS Apache Kafka service
 title: Limitations

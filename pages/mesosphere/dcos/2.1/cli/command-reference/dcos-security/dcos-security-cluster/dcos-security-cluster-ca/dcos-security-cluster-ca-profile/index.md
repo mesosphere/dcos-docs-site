@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster ca profile
 title: dcos security cluster ca profile
 menuWeight: 15

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Getting Started
 excerpt: Getting started with Hive Metastore
 title: Getting Started

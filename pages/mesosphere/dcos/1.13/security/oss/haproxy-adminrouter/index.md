@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Configuring HAProxy in front of an Admin Router
 title: HAProxy and Admin Router
 navigationTitle: HAProxy and Admin Router

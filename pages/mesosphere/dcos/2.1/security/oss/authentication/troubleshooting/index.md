@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting Authentication 
 excerpt: Troubleshooting authentication issues in DC/OS

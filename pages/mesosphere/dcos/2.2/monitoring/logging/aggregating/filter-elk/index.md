@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Filtering Logs with ELK
 title: Filtering Logs with ELK
 menuWeight: 2

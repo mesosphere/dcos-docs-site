@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 使用 Universal 安装工具在 GCP 上的 DC/OS 指南
 title: GCP 上使用通用安装工具的 DC/OS
 navigationTitle: GCP

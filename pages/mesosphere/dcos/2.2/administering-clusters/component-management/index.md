@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Component Management
 title: Component Management
 menuWeight: 5

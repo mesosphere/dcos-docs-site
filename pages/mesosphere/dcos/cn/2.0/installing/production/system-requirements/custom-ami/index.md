@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 自定义 AMI
 title: 使用自定义 AMI 进行安装
 menuWeight: 20

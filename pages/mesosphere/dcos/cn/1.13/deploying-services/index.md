@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  部署服务和 Pod
 title: 部署服务和 Pod
 menuWeight: 130

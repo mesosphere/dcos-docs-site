@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Docker on CentOS/RHEL
 title: Installing Docker on CentOS/RHEL
 menuWeight: 5

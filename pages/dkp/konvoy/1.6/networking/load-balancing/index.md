@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Load Balancing
 title: Load Balancing
 menuWeight: 8

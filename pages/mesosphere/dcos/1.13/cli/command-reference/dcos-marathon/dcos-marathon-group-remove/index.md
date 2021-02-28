@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon group remove
 title: dcos marathon group remove
 menuWeight: 19

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring Services
 title: Configuring Services
 menuWeight: 2

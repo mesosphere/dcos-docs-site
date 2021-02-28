@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  控制对任务日志的访问
 title: 控制对任务日志的访问
 menuWeight: 2

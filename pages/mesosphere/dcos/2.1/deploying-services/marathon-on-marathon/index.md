@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using Custom Marathon
 title: Using Custom Marathon
 menuWeight: 39

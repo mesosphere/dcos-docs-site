@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  快速入门
 title: 度量标准快速入门
 menuWeight: 1

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  状况检查
 title: 状况检查
 menuWeight: 200

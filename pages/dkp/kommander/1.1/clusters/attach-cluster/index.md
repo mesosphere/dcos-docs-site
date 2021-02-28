@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Attach Kubernetes Cluster
 title: Attach Cluster
 menuWeight: 7

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kommander 1.0
 title: Kommander 1.0
 version: 1.0

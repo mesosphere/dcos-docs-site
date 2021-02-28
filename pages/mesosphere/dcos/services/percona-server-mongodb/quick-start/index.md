@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring DC/OS access for Percona-Server-MongoDB
 title: Configuring DC/OS access for Percona-Server-MongoDB
 menuWeight: 100

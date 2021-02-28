@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install on Google Cloud Platform (GCP)
 title: Install on Google Cloud Platform (GCP)
 menuWeight: 20

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Customizing Edge-LB templates
 title: Customizing Edge-LB templates
 menuWeight: 10

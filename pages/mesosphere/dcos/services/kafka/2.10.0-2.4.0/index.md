@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kafka 2.10.0-2.4.0
 excerpt: DC/OS Kafka is a distributed high-throughput publish-subscribe messaging system with strong ordering guarantees.
 title: Kafka 2.10.0-2.4.0

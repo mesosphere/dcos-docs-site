@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kommander v1.3 Release Notes
 title: Release Notes
 menuWeight: 0

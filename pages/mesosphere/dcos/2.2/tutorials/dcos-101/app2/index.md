@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Part 5 of the DC/OS 101 tutorial
 title: Tutorial -  Deploying native applications
 navigationTitle: Native Applications

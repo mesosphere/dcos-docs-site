@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 快速启动
 title: 快速启动
 menuWeight: 30

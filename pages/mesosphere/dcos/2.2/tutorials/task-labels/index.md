@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Labeling Tasks and Jobs
 title: Labeling Tasks and Jobs
 menuWeight: 5

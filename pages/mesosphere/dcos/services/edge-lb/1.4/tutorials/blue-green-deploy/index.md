@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Blue/Green Service Update
 title: Blue/Green Service
 menuWeight: 30

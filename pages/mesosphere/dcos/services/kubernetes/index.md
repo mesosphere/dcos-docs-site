@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes
 title: Kubernetes
 menuWeight: 0

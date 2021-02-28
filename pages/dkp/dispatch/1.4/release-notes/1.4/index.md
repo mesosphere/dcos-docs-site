@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Dispatch 1.4.0
 title: Release Notes 1.4.0
 menuWeight: 10

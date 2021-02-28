@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Workspaces
 title: Workspaces
 menuWeight: 8

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 使用
 title: Edge-LB 使用
 menuWeight: 60

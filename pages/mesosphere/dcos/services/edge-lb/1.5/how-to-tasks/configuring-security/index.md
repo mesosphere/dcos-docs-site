@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security certificates and secrets
 title: Security certificates and secrets
 menuWeight: 22

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node log
 title: dcos node log
 menuWeight: 9

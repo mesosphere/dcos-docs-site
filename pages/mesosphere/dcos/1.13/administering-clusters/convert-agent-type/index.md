@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Converting Agent Node Types
 title: Converting Agent Node Types
 menuWeight: 700

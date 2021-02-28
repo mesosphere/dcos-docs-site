@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  度量标准参考
 title: 度量标准参考
 menuWeight: 7

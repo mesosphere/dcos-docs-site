@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  度量标准 API
 title: 度量标准 API
 menuWeight: 6

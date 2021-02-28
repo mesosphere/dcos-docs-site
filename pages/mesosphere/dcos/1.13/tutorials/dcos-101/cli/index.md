@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Install the command-line interface to perform your day-to-day tasks (part 2)
 title: Install the command-line interface
 navigationTitle: Install the command-line interface

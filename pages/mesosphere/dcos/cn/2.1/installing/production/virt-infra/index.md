@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  虚拟基础架构
 title: 虚拟基础架构
 menuWeight: 1

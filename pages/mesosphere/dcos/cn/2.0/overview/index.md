@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  概述
 title: 概述
 menuWeight: 20

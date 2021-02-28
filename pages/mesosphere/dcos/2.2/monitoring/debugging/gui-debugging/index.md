@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Debugging from the DC/OS UI
 menuWeight: 0
 excerpt: Using the DC/OS UI for debugging

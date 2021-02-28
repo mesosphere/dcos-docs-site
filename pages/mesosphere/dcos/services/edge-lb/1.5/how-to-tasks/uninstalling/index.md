@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Uninstalling Edge-LB
 title: Uninstalling Edge-LB
 menuWeight: 50

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Install DC/OS cluster on Packet bare metal using Terraform
 title: Running DC/OS on Packet
 navigationTitle: Packet

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 磁盘分区
 navigationTitle: 磁盘分区
 menuWeight: 16

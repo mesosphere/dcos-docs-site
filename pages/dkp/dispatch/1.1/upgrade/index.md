@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Updating
 title: Updating
 menuWeight: 85

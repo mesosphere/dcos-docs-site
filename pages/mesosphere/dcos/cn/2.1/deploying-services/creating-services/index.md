@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  创建服务
 title: 创建服务
 menuWeight: 1

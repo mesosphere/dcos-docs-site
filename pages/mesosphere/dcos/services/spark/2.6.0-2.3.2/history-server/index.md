@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: History Server
 excerpt: Enabling the Spark History Server
 title: History Server

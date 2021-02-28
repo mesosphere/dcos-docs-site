@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Creating secrets
 title: Creating secrets
 menuWeight: 1

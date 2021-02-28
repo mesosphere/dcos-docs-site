@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring a SAML IdP
 title: Configuring a SAML Identity Provider
 menuWeight: 1

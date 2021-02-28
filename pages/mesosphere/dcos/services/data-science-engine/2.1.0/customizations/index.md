@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Customizations
 excerpt: Extend service using customizations
 title: Customizations

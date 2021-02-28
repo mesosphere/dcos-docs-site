@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb ingress-lb
 title: dcos edge-lb ingress-lb
 menuWeight: 21

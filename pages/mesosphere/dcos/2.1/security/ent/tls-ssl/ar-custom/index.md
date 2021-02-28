@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring a Custom External Certificate
 title: Configuring a Custom External Certificate
 menuWeight: 50

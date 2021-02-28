@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Create a Kubernetes PVC to access NFS shared storage
 title: Create a Kubernetes Persistent Volume Claim
 menuWeight: 11

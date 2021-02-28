@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy check addons
 title: konvoy check addons
 menuWeight: 10

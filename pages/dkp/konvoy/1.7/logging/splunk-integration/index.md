@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Splunk integration
 title: Splunk integration
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuration Requirements
 title: Configuration Requirements
 menuWeight: 7

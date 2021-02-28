@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security
 title: dcos security
 menuWeight: 13

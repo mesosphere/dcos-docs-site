@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Addon Repositiories
 title: Addon Repositories
 menuWeight: 5

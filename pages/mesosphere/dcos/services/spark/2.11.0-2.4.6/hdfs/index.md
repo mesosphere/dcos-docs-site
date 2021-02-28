@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Integrating HDFS with DC/OS Apache Spark service
 title: Integration with HDFS
 navigationTitle: HDFS

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/architecture/index.md
 navigationTitle: Architecture
 title: Architecture

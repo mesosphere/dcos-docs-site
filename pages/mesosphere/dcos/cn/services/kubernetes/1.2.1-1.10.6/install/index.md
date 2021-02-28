@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 安装和自定义
 title: 安装和自定义
 menuWeight: 10

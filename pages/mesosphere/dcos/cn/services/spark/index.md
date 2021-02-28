@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Spark 
 navigationTitle: Spark 
 menuWeight: 0

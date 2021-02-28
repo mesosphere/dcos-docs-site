@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CLI Plugins
 title: CLI Plugins
 menuWeight: 5

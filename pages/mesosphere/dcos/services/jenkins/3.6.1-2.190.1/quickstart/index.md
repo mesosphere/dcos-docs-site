@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Quickstart
 title: Quickstart
 menuWeight: 10

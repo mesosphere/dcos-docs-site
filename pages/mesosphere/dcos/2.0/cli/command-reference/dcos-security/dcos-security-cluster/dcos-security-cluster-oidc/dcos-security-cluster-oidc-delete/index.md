@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster oidc delete
 title: dcos security cluster oidc delete
 menuWeight: 50

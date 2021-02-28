@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 为  Kafka 配置 DC/OS Access
 menuWeight: 660
 excerpt: 配置 DC/OS Access 

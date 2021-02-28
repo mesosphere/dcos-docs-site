@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Operating Pipeline Runs
 title: Operating Pipeline Runs
 menuWeight: 90

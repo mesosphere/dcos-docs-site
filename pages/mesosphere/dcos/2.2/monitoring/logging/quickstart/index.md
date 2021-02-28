@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Quick Start
 title: Logging Quick Start
 menuWeight: 0

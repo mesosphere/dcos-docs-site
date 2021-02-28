@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy apply kubeconfig
 title: konvoy apply kubeconfig
 menuWeight: 10

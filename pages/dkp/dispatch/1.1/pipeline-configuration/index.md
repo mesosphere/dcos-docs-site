@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Pipeline Configuration
 title: Dispatch Pipeline Configuration 
 menuWeight: 70

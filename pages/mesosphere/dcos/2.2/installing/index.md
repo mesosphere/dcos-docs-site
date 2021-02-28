@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Installing
 menuWeight: 30
 model: /mesosphere/dcos/2.2/data.yml

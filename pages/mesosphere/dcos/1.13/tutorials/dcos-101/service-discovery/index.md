@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Discover deployed services
 title: Discover deployed services
 excerpt: Demonstrates how to discover and connect to services in your DC/OS cluster (part 7)

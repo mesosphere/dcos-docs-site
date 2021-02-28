@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Feature Maturity
 title: Feature Maturity
 menuWeight: 10

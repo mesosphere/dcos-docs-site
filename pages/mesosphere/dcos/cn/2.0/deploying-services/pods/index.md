@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Pod
 title: Pod
 menuWeight: 85

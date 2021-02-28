@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Install the first package
 title: Install the first package
 excerpt: Illustrates how to install a sample service package (part 3)

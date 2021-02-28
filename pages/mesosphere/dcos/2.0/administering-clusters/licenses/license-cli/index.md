@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  License CLI
 title: License CLI
 menuWeight: 0

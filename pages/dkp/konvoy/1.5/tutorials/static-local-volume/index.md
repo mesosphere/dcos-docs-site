@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Provision a static local volume
 title: Provision a static local volume
 menuWeight: 15

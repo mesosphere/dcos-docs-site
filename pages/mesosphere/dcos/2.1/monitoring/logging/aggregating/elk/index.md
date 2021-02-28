@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Log Management with ELK
 title: Log Management with ELK
 menuWeight: 1

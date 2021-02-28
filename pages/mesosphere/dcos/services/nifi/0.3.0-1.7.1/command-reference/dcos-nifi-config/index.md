@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi config
 title: dcos nifi config
 menuWeight: 61

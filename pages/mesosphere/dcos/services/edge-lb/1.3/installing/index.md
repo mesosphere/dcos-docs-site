@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Installing
 title: Installing
 menuWeight: 10

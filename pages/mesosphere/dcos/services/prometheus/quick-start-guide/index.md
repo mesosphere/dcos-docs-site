@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring DC/OS access for Prometheus
 excerpt: How to use Prometheus with DC/OS
 title: Configuring DC/OS access for Prometheus

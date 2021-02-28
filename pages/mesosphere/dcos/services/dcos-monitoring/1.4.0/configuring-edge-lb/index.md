@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Exposing DC/OS Monitoring using EdgeLB
 title: Exposing DC/OS Monitoring using EdgeLB
 menuWeight: 30

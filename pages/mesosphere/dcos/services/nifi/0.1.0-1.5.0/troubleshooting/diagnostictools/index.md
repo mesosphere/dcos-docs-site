@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Diagnostic Tools
 title: Diagnostic Tools
 menuWeight: 103

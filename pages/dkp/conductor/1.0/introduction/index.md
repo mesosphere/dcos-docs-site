@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Introducing Conductor
 title: Introducing Conductor
 menuWeight: 05

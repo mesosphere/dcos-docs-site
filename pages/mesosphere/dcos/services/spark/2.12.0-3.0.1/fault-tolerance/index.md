@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Fault Tolerance
 excerpt: Understanding DC/OS Apache Spark fault tolerance
 title: Fault Tolerance

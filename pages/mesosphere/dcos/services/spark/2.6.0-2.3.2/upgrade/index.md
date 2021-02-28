@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Upgrade
 excerpt: Upgrading DC/OS Apache Spark
 title: Upgrade

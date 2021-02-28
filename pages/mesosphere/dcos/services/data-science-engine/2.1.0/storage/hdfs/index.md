@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: HDFS
 excerpt: Using HDFS with DC/OS Data Science Engine
 title: HDFS

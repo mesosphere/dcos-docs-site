@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 使用示例
 excerpt: 使用示例
 title: 使用示例

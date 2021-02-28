@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Draining a Node
 title: Draining a Node
 menuWeight: 801

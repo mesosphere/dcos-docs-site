@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: DC/OS Ansible FAQs and Troubleshooting
 navigationTitle: DC/OS Ansible FAQ
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos backup create
 title: dcos backup create
 menuWeight: 10

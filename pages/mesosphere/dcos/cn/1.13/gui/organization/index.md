@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  组织
 title: 组织
 menuWeight: 11

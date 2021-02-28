@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced provisioning options VMWare vSphere (vSphere)
 title: Advanced provisioning options VMWare vSphere (vSphere)
 menuWeight: 5

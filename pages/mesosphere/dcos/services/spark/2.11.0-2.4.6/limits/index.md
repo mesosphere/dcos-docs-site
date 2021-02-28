@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Tested Limits
 excerpt: Mesosphere has scale-tested Spark on DC/OS
 title: Tested Limits

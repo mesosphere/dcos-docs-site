@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Starlark Reference
 title: Starlark Reference
 menuWeight: 80

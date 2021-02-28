@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Alert Rules
 title: Alert Rules
 menuWeight: 30

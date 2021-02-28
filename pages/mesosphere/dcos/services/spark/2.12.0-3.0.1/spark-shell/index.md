@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Spark Shell
 excerpt: Running commands interactively in the Apache Spark shell
 title: Interactive Spark Shell

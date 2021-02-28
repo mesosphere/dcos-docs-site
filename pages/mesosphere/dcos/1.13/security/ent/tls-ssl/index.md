@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Securing Communication with TLS
 title: Securing Communication with TLS
 menuWeight: 120

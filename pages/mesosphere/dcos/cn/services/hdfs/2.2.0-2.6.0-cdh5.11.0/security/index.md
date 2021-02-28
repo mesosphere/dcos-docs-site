@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 安全
 excerpt: 保护 HDFS 服务
 title: 安全

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置自定义 CA 证书
 title: 配置自定义 CA 证书
 menuWeight: 50

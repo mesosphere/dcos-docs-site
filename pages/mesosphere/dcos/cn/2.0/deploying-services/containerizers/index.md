@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用容器化工具
 title: 使用容器化工具
 menuWeight: 40

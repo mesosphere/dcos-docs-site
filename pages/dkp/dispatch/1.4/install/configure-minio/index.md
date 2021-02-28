@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure MinIO
 title: Configure MinIO
 menuWeight: 45

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuration
 excerpt: Configuration options for the DC/OS Apache HDFS service
 title: Configuration

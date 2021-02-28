@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Understanding DC/OS design
 title: Design
 navigationTitle: Design

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: KUDO Operators
 title: KUDO Operators
 menuWeight: 8

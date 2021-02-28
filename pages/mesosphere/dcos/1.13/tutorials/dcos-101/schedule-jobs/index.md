@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Create and schedule jobs
 title: Create and schedule jobs
 menuWeight: 6

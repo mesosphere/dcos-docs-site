@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Provision a customized cluster
 title: Provision a customized cluster
 menuWeight: 10

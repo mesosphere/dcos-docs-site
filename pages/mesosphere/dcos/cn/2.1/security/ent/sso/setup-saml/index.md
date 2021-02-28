@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置 SAML IdP
 title: 配置 SAML 身份提供程序
 menuWeight: 1

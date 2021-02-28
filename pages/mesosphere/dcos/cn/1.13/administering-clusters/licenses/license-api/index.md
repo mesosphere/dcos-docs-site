@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  许可证 API
 title: 许可证 API
 menuWeight: 3

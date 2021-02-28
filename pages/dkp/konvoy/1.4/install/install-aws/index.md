@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install on AWS
 title: Install on AWS
 menuWeight: 20

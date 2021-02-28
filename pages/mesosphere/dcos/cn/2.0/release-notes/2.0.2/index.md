@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 2.0.2 版本注释
 title: 2.0.2 版本注释
 menuWeight: 1

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  高级配置
 title: 高级配置
 menuWeight: 15

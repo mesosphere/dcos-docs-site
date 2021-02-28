@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos license audit
 title: dcos license audit
 menuWeight: 1

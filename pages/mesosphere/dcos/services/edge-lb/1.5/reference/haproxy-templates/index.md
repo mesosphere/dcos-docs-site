@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Edge-LB HAProxy templates
 title: Edge-LB HAProxy templates
 menuWeight: -1

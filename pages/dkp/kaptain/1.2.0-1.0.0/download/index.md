@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Download
 title: Download Kaptain
 menuWeight: 5

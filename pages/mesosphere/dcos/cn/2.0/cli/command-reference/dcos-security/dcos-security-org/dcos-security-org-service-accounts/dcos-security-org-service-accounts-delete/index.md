@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security org service-accounts delete
 title: dcos security org service-accounts delete
 menuWeight: 170

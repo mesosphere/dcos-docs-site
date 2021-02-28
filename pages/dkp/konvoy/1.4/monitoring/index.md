@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Monitoring and metrics
 title: Monitoring and metrics
 menuWeight: 11

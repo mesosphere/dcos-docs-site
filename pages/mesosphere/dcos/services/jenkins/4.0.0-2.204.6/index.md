@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Jenkins for DC/OS
 title: Jenkins for DC/OS
 menuWeight: 60

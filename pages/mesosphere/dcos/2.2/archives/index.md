@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Access Documentation Archives
 title: Access Documentation Archives
 menuWeight: 1000

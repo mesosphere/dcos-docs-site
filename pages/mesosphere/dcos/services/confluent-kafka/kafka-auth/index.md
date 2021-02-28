@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  >
 title: >
   Configuring DC/OS Access for Confluent

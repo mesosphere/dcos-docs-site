@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Projects
 title: Projects
 menuWeight: 8

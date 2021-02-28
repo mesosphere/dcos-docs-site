@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  部署卡住
 title: 部署卡住
 menuWeight: 30

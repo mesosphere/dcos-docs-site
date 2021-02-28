@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage device recover
 title: dcos storage device recover
 menuWeight: 0

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Edge-LB
 excerpt: Accessing the DC/OS Data Science Engine with Edge-LB configuration
 

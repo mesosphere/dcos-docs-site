@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  服务端点
 title: 服务端点
 menuWeight: 3

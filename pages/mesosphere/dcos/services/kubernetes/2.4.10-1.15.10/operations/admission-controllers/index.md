@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Admission Controllers
 title: Admission Controllers
 menuWeight: 10

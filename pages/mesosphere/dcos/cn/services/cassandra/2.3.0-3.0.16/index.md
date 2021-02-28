@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Cassandra 2.3.0-3.0.16
 excerpt:
 title: Cassandra 2.3.0-3.0.16

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  了解自动扩展
 title: 教程 - 使用每秒请求自动扩展
 menuWeight: 1

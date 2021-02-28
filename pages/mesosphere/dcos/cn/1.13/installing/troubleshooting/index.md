@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  故障排除
 title: 故障排除
 menuWeight: 25

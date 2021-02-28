@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Running DC/OS on AWS EC2 Advanced
 navigationTitle: Advanced
 menuWeight: 10

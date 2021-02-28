@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Restore
 title: Restore 
 menuWeight: 35

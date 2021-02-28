@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Default storage options
 title: Automated storage options in cloud providers
 menuWeight: 20

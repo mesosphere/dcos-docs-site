@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Metrics Exporter
 title: Metrics Exporter
 menuWeight: 5

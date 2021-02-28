@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Concepts and architecture
 title: Concepts and architecture
 menuWeight: 3

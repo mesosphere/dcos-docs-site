@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: V2 Pool Examples
 title: V2 Pool Examples
 menuWeight: 82

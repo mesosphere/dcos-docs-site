@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 连接客户端
 title: 连接客户端
 menuWeight: 72

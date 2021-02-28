@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi update package-versions
 title: dcos nifi update package-versions
 menuWeight: 4

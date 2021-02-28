@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  验证 
 title: 验证 
 menuWeight: 3

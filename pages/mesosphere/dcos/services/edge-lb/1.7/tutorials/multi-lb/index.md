@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Highly-available load balancing on AWS
 title: Highly-available load balancing on AWS
 menuWeight: 5

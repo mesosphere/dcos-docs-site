@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  外部用户登录
 title: 外部用户登录
 excerpt: 以外部用户的身份登录到 DC/OS

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy drain nodepool
 title: konvoy drain nodepool
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Example Snippets
 navigationTitle: Example Snippets
 menuWeight: -1

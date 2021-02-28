@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Addon errors and failures
 title: Addon errors and failures
 menuWeight: 3

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  基于身份提供程序的身份认证
 title: 基于身份提供程序的身份认证
 menuWeight: 70

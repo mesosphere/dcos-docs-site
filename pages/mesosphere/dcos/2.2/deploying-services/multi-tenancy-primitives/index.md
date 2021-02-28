@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Multi-Tenancy Primitives
 title: Multi-Tenancy Primitives
 menuWeight: 90

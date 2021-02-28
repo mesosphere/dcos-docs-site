@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubectl Token
 title: Generate a Kubectl Token
 menuWeight: 10

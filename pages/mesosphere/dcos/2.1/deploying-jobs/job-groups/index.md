@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to Jobs
 title: Granting Access to Jobs
 menuWeight: 200

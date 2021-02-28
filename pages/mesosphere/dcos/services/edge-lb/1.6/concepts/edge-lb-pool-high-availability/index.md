@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Edge-LB pools for high-availability
 title: Edge-LB pools for high-availability
 menuWeight: 15

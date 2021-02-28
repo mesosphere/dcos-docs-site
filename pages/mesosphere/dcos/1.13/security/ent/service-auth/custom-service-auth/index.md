@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Authenticating DC/OS Services
 menuWeight: 100
 excerpt: Configuring authentication for custom apps and pods

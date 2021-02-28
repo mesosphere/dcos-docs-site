@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced provisioning options (AWS)
 title: Advanced provisioning options (AWS)
 menuWeight: 5

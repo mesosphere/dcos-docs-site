@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Export DC/OS Metrics to Datadog
 navigationTitle: Export DC/OS Metrics to Datadog
 menuWeight: 4

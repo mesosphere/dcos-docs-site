@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes
 excerpt: Using the Kubernetes provider
 title: Kubernetes

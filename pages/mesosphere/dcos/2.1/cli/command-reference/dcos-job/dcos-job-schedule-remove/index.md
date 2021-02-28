@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos job schedule remove
 title: dcos job schedule remove
 menuWeight: 7

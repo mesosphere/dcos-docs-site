@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced
 excerpt: Advanced features of Hive Metastore service
 title: Advanced features

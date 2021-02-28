@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 使用 Terraform 在 Packet 裸机上安装 DC/OS 群集
 title: 在 Packet 上运行 DC/OS
 navigationTitle: Packet

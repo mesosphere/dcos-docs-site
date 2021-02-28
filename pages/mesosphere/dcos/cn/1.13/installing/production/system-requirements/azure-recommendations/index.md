@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Azure 建议
 navigationTitle:  Azure 
 menuWeight: 25

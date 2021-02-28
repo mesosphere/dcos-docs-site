@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  DVDI Storage
 title: DVDI Storage
 menuWeight: 20

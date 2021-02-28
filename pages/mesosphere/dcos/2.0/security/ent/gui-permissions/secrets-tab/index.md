@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the Secrets Tab
 title: Granting Access to the Secrets Tab
 menuWeight: 50

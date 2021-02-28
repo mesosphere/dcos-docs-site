@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 方案 1
 navigationTitle: 方案 1
 excerpt: 教程 - 资源分配

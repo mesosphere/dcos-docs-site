@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  认证架构
 excerpt: 了解认证操作
 title: 认证架构

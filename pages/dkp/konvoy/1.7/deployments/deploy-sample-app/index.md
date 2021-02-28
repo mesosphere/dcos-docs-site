@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Deploy a sample application
 title: Deploy a sample application
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  示例
 title: 作业示例
 menuWeight: 20

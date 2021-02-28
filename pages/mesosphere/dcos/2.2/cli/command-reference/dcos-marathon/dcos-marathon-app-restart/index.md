@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon app restart
 title: dcos marathon app restart
 menuWeight: 5

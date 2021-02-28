@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 配置
 excerpt: 配置 HDFS
 title: 配置

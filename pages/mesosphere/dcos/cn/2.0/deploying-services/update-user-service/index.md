@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  更新用户创建的服务
 title: 更新用户创建的服务
 menuWeight: 3

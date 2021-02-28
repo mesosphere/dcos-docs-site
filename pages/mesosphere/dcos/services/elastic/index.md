@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Elastic
 title: Elastic
 menuWeight: 40

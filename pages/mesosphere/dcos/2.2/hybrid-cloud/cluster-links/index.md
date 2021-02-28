@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Cluster Links
 title: Cluster Links
 menuWeight: 0

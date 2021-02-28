@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Expose and load balance a service
 title: Expose and load balance a sample service
 menuWeight: 10

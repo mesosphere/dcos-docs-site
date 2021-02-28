@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Change the Group Prefix
 title: Change the Group Prefix
 menuWeight: 30

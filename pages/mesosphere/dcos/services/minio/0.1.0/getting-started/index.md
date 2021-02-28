@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Getting Started
 excerpt: Installing and deploying a Minio cluster
 title: Getting Started

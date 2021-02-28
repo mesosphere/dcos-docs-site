@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: KUDO CLI
 title: KUDO CLI
 menuWeight: 5

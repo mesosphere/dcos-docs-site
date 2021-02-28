@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Basic
 navigationTitle: Basic
 menuWeight: 5

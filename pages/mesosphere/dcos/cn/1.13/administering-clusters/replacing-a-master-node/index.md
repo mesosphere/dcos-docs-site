@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  替换管理节点
 title: 替换管理节点
 menuWeight: 800

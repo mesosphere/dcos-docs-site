@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon task list
 title: dcos marathon task list
 menuWeight: 29

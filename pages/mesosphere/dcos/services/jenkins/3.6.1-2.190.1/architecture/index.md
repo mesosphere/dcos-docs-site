@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Jenkins Service Architecture
 title: Jenkins Service Architecture
 menuWeight: 40

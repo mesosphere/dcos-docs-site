@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: MNIST with Spark
 title: MNIST with Spark
 menuWeight: 14

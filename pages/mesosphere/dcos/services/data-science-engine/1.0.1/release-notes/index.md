@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release Notes
 excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Data Science Engine
 title: Release Notes

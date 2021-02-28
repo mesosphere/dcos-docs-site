@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Release notes for 2.0.3
 title: Release notes for 2.0.3
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Adding Agent Nodes
 title: Adding Agent Nodes
 menuWeight: 800

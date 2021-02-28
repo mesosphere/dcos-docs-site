@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 已升级
 excerpt: 升级您的 DC/OS Apache Spark 服务
 title: 已升级

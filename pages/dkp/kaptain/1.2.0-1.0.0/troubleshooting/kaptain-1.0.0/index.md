@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting Kaptain 1.0
 title: Troubleshooting Kaptain 1.0
 menuWeight: 10

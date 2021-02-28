@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  转换代理节点类型
 title: 转换代理节点类型
 menuWeight: 700

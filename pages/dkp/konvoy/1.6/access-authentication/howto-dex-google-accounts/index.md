@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Connect to Google Accounts
 title: Connect to Google Accounts
 menuWeight: 31

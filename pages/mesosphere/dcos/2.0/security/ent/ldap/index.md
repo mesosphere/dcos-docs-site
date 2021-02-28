@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  LDAP authentication
 title: LDAP authentication
 menuWeight: 50

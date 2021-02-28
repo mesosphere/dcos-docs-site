@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Connecting Clients
 title: Connecting Clients
 menuWeight: 72

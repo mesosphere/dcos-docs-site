@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 了解网络覆盖拓扑
 title: DC/OS 覆盖
 navigationTitle: 覆盖网络

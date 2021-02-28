@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kibana and Edge-LB    
 excerpt: Exposing Kibana using Edge-LB
 title: Kibana and Edge-LB

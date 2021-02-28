@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos config keys
 title: dcos config keys
 menuWeight: 1

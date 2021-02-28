@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  强化
 title: 强化
 menuWeight: 100

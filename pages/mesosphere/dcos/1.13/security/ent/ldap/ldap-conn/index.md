@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Connection 
 title: Connection 
 menuWeight: 1

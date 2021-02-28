@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Spark
 title: Spark
 menuWeight: 90

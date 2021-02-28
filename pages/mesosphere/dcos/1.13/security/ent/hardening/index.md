@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Hardening
 title: Hardening
 menuWeight: 100

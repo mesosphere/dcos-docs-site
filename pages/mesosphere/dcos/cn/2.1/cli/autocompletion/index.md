@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CLI 自动完成
 title: CLI 自动完成
 menuWeight: 7

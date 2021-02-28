@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos plugin list
 title: dcos plugin list
 menuWeight: 2

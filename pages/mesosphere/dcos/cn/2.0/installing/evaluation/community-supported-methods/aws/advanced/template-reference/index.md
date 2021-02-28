@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 模板参考
 title: 模板参考
 menuWeight: 5

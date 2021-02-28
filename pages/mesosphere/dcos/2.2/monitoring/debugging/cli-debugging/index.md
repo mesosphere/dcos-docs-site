@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Debugging from the DC/OS CLI
 menuWeight: 5
 excerpt: Debugging DC/OS from the command line interface

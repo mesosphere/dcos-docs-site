@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/troubleshooting/index.md
 navigationTitle: Troubleshooting
 title: Troubleshooting

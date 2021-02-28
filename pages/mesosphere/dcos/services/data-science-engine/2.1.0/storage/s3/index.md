@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: S3
 excerpt: Using S3 with DC/OS Data Science Engine
 title: S3

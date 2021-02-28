@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  带外令牌验证
 title: 带外令牌验证
 excerpt: 带外验证 DC/OS 认证令牌

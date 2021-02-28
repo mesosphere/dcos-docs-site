@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 已升级
 title: 已升级
 menuWeight: 50

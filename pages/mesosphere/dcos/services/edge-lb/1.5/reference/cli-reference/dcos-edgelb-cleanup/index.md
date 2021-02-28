@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb cleanup
 title: dcos edge-lb cleanup
 menuWeight: 6

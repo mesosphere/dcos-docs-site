@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Scenario 1
 navigationTitle: Scenario 1
 excerpt: Tutorial - Resource Allocation

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Architectural deep-dive
 title: Architectural deep-dive
 menuWeight: 20

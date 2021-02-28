@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DSE 3.2.0-6.7.7
 title: DSE 3.2.0-6.7.7
 menuWeight: 1

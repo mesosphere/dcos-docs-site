@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Granting Access to Kubernetes and Konvoy Resources
 title: Granting Access to Kubernetes and Konvoy Resources
 menuWeight: 10

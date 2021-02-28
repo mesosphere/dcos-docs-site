@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Software Defined Networks
 title: Software Defined Networks
 menuWeight: 4

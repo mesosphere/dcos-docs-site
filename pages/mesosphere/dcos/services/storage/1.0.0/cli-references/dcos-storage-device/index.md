@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage device
 title: dcos storage device
 menuWeight: 0

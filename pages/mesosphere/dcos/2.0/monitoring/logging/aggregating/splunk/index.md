@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Log Management with Splunk
 title: Log Management with Splunk
 menuWeight: 3

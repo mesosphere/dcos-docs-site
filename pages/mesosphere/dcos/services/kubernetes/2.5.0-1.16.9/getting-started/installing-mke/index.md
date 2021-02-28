@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Installing MKE
 title: Installing the Mesosphere Kubernetes Engine
 menuWeight: 3

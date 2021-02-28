@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 卸载
 excerpt: 卸载 DC/OS Apache Spark 服务
 title: 卸载

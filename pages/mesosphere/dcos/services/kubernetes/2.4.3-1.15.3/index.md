@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes 2.4.3-1.15.3
 title: Kubernetes 2.4.3-1.15.3
 menuWeight: 12

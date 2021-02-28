@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Universal Installer 0.3
 title: Universal Installer 0.3
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Finding a Public Agent IP
 title: Finding a Public Agent IP
 menuWeight: 3

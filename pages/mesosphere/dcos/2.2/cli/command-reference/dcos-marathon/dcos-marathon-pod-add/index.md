@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon pod add
 title: dcos marathon pod add
 menuWeight: 23

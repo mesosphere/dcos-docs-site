@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: V2 池参考
 title: V2 池参考
 menuWeight: 85

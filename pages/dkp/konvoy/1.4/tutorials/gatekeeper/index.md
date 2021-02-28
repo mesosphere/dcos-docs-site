@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Enforce policies using Gatekeeper
 title: Enforce policies using Gatekeeper
 menuWeight: 24

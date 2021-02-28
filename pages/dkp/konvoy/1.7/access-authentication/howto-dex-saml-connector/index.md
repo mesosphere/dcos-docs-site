@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: SAML
 title: SAML connector
 menuWeight: 33

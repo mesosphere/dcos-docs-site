@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  版本政策
 title: 版本政策
 menuWeight: 5

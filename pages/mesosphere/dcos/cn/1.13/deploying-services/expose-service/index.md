@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  公开服务
 title: 公开服务
 menuWeight: 5

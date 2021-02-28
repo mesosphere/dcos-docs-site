@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Installing Marathon-LB using default or custom options for a DC/OS cluster
 title: Installing Marathon-LB
 # model: /mesosphere/dcos/services/marathon-lb/data.yml

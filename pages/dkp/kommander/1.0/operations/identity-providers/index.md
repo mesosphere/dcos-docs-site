@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Identity Providers
 title: Identity Providers
 menuweight: 1

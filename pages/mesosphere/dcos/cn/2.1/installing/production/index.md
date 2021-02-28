@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 本地安装 
 navigationTitle: 本地安装 
 menuWeight: 15

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Open Source Attribution
 menuWeight: 100
 excerpt: List of third party open source software provided by Mesosphere

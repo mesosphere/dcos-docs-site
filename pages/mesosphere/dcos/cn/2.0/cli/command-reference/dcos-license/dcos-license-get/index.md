@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos license get
 title: dcos license get
 menuWeight: 2

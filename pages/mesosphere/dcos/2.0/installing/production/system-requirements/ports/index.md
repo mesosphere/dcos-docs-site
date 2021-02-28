@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: DC/OS Ports
 navigationTitle: Ports
 menuWeight: 15

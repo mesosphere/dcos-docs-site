@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Updating the Edge-LB pool configuration
 title: Updating the Edge-LB pool configuration
 menuWeight: 43

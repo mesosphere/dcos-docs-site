@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Project Quotas
 title: Project Quotas
 menuWeight: 1

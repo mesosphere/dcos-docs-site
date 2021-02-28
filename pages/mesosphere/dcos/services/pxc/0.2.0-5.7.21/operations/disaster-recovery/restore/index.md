@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Restore
 excerpt: Restoring backed up data from data store
 title: Restore Operation 

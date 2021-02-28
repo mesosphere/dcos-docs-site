@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos task attach
 title: dcos task attach
 menuWeight: 1

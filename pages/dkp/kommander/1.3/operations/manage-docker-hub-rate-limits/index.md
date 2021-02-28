@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Docker Hub rate limits
 title: Manage Docker Hub rate limits
 menuWeight: 25

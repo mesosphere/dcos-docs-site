@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  排除 LDAP 错误
 title: 排除 LDAP 错误
 menuWeight: 5

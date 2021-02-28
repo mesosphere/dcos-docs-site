@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 蓝色/绿色服务更新
 title: 蓝色/绿色服务
 menuWeight: 30

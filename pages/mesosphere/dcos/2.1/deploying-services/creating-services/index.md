@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Creating Services
 title: Creating Services
 menuWeight: 1

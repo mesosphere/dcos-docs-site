@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon about
 title: dcos marathon about
 menuWeight: 0

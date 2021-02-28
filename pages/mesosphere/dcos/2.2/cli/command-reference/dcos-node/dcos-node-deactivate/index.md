@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node deactivate
 excerpt: Deactivating a DC/OS node
 title: dcos node deactivate

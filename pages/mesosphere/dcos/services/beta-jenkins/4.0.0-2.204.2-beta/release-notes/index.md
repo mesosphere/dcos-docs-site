@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Jenkins for DC/OS Beta Release Notes
 title: Jenkins for DC/OS Beta Release Notes
 menuWeight: 0

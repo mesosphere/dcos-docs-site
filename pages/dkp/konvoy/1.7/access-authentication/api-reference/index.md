@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Dex Controller API Reference
 title: Dex Controller API Reference
 menuWeight: 20

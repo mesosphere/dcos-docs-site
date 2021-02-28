@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Edge-LB
 excerpt: Using Edge-LB with server groups
 title: Edge-LB

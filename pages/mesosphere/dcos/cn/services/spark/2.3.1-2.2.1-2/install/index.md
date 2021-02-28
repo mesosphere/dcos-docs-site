@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: 使用 Web 界面或 DC/OS CLI 安装 Spark
 title: 安装和自定义

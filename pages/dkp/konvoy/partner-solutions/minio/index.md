@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: MinIO
 title: MinIO
 excerpt: MinIO the S3 Compatible Object Store

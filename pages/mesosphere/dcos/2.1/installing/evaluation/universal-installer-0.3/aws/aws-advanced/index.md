@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configuration Reference - AWS
 excerpt: Configuring your DC/OS installation on AWS using the Universal Installer
 navigationTitle: Configuration Reference

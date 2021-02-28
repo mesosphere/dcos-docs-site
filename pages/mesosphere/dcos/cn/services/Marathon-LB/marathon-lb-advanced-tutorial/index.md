@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 教程 - 使用 Marathon-LB 部署内部和外部负载平衡应用
 title: 使用 Marathon-LB 部署内部和外部负载平衡应用
 menuWeight: 6

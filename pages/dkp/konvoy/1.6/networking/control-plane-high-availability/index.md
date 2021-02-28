@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Control plane High Availability
 title: Control plane High Availability
 menuWeight: 8

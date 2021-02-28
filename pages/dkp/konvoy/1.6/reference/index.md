@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: API
 title: API
 menuWeight: 260

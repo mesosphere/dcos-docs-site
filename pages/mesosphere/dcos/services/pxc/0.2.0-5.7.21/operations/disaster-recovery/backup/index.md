@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Backup
 excerpt: Backing up your service to an S3-compatible endpoint
 title: Backup Operation

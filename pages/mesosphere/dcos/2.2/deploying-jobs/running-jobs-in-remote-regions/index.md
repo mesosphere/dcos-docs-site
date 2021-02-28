@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Running Jobs in Remote Regions
 title: Running Jobs in Remote Regions
 menuWeight: 3

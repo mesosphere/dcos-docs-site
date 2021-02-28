@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure Dex
 title: Configure external Dex to authenticate to Kaptain
 menuWeight: 70

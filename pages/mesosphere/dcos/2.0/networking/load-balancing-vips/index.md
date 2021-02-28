@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Load Balancing and Virtual IPs (VIPs)
 title: Load Balancing and Virtual IPs (VIPs)
 menuWeight: 1

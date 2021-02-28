@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Mesosphere DC/OS 2.1.0
 title: Mesosphere DC/OS 2.1.0 文档
 version: 2.1.0

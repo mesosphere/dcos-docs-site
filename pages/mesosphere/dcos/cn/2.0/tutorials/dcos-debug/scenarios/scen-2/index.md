@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 方案 2
 navigationTitle: 方案 2
 excerpt: 教程 - 内存不足

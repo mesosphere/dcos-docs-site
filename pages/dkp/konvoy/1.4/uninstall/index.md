@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstall
 title: Uninstall
 menuWeight: 14

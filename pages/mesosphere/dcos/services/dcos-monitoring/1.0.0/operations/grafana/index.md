@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring Grafana
 title: Configuring Grafana
 menuWeight: 40

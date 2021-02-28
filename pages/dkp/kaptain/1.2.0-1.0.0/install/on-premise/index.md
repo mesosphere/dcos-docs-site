@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install on-premises
 title: Install Kaptain on an on-premises cluster
 menuWeight: 9

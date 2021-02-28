@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Access Control
 navigationTitle: Access Control
 menuWeight: 1

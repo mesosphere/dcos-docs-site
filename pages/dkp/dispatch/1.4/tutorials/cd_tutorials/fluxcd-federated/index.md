@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Deploying with FluxCD to multiple clusters
 navigationTitle: Deploying with FluxCD to multiple clusters
 category: K-Sphere

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos diagnostics delete
 title: dcos diagnostics delete
 menuWeight: 4

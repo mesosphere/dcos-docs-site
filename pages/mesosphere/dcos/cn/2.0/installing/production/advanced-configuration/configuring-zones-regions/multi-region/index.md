@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  多个地区
 title: 多个地区
 menuWeight: 10

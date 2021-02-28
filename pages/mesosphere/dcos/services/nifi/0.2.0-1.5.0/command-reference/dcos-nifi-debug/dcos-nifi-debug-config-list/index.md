@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi debug config list
 title: dcos nifi debug config list
 menuWeight: 1

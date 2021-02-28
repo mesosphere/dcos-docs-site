@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Diagnosing issues with DC/OS Minion
 title: Troubleshooting

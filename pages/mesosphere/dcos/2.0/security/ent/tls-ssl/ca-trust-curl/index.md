@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Establishing trust in your curl commands
 title: Establishing trust in your curl commands
 menuWeight: 400

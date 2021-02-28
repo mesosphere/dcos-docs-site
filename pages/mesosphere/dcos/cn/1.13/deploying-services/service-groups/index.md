@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授权访问服务和组
 title: 授权访问服务和组
 menuWeight: 3

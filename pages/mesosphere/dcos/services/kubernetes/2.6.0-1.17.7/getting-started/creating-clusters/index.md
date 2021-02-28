@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Creating Kubernetes clusters using MKE
 title: Creating Kubernetes clusters on DC/OS using MKE
 menuWeight: 5

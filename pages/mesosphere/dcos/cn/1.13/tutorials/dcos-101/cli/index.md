@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 安装命令行界面来执行日常任务（第 2 部分）
 title: 安装命令行界面
 navigationTitle: 安装命令行界面

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Jenkins for DC/OS (Beta)
 title: Jenkins for DC/OS (Beta)
 menuWeight: 60

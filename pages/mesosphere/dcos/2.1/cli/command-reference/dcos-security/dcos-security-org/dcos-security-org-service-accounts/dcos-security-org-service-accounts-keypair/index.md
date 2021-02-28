@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security org service-accounts keypair
 title: dcos security org service-accounts keypair
 menuWeight: 175

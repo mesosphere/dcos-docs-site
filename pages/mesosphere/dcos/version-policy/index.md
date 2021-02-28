@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Version Policy
 title: Version Policy
 menuWeight: 5

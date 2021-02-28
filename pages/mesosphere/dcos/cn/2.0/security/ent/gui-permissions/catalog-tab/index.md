@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授予访问“目录”屏幕的权限
 title: 授予访问“目录”屏幕的权限
 menuWeight: 80

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Fluentbit
 title: Fluentbit
 menuWeight: 11

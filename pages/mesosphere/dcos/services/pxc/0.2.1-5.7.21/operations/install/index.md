@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install 
 excerpt: Installation guide, best practices and constraints
 title: Install 

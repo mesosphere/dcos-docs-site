@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  管理 JSON Web 令牌
 title: 管理 JSON Web 令牌
 menuWeight: 200

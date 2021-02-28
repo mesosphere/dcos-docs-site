@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置分区和分域
 title: 配置分区和分域
 menuWeight: 15

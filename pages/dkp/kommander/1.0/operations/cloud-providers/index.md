@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Cloud Providers
 title: Cloud Providers
 menuWeight: 1

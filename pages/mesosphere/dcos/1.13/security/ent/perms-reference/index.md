@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Permissions Reference
 title: Permissions Reference
 menuWeight: 40

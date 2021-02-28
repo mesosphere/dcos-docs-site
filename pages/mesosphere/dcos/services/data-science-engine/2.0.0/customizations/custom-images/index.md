@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom Images 
 excerpt: Using Custom Images in DC/OS Data Science Engine
 title: Custom Images

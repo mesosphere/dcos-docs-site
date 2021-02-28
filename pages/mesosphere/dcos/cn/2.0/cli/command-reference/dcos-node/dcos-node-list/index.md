@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node list
 title: dcos node list
 menuWeight: 6

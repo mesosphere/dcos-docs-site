@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Restricting Access to DC/OS Service Groups
 navigationTitle: Restricting Access to DC/OS Service Groups
 menuWeight: 90

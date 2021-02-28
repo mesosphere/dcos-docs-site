@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install on Azure
 title: Install on Azure
 menuWeight: 20

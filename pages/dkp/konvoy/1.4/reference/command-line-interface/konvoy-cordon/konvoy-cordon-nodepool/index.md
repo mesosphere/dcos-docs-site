@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy cordon nodepool
 title: konvoy cordon nodepool
 menuWeight: 10

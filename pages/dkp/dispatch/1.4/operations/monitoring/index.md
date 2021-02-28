@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Monitoring
 title: Monitoring Dispatch
 menuWeight: 40

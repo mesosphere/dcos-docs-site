@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用自定义 Marathon 实例部署服务
 title: 使用自定义 Marathon 实例部署服务
 menuWeight: 39

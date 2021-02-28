@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 卸载 DC/OS
 navigationTitle: 卸载
 menuWeight: 30

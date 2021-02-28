@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Lightbend
 title: Lightbend Console
 excerpt: Lightbend Console, the Reactive Application Monitor

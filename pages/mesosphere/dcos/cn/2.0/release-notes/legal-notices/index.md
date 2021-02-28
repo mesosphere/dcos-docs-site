@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 法律声明
 menuWeight: 105
 excerpt: DC/OS 文档中提及的第三方商标列表

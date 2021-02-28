@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Calico Encapsulation
 title: Calico Encapsulation
 menuWeight: 8

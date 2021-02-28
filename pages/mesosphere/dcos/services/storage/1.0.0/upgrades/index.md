@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/upgrades/index.md
 navigationTitle: Upgrades
 title: Upgrades

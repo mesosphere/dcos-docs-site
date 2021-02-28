@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Resource Management Primitives
 title: Resource Management Primitives
 menuWeight: 10

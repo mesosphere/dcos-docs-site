@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  DC/OS Overlay
 title: DC/OS Overlay
 menuWeight: 10

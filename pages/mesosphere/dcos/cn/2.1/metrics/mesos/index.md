@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Mesos 度量标准
 navigationTitle: Mesos 度量标准
 menuWeight: 3

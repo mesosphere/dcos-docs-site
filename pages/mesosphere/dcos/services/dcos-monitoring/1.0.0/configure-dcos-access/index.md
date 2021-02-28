@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring DC/OS access for DC/OS Monitoring Service
 title: Configuring DC/OS access for DC/OS Monitoring Service
 menuWeight: 10

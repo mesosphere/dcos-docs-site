@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Helm v2 to v3 Migration
 title: Helm v2 to v3 Migration
 menuWeight: 6

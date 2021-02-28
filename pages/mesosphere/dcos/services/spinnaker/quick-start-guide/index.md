@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring DC/OS access for Spinnaker
 excerpt: How to use Spinakker with DC/OS
 title: Configuring DC/OS access for Spinnaker

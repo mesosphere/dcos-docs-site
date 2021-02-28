@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Dynamic Allocation 
 excerpt: Enabling Dynamic Allocation with Shuffle Service for DC/OS Data Science Engine in Spark
 title: Dynamic Allocation

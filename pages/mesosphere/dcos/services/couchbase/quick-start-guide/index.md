@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring DC/OS access for Couchbase
 excerpt: How to use Couchbase Server and Couchbase Sync Gateway with DC/OS
 title: Configuring DC/OS access for Couchbase

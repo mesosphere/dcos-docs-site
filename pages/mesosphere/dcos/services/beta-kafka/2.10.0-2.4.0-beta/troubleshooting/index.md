@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Diagnose Kafka
 excerpt: Diagnose Kafka
 title: Diagnose Kafka

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy deploy kubernetes
 title: konvoy deploy kubernetes
 menuWeight: 10

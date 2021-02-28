@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Deploying a load-balanced data pipeline
 title: Deploying a load-balanced data pipeline
 menuWeight: 3

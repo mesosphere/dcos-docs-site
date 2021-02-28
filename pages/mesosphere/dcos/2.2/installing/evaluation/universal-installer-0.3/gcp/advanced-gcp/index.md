@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configuration Reference -  GCP
 excerpt: Configuring your DC/OS installation on GCP using the Mesosphere Universal Installer
 navigationTitle: Configuration Reference

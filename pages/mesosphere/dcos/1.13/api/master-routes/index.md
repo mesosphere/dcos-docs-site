@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Master Routes
 title: Master Routes
 menuWeight: 10

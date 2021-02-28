@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Install Edge-LB
 title: Install Edge-LB
 menuWeight: 5

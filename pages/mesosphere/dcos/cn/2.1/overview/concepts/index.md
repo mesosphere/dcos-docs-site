@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  概念
 title: 概念
 menuWeight: 5

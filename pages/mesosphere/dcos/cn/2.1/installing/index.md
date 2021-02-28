@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 安装
 menuWeight: 30
 excerpt: 安装 Enterprise 和开源版本 DC/OS

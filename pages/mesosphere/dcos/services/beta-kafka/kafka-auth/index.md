@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configuring DC/OS Access for Kafka
 menuWeight: 5
 excerpt:

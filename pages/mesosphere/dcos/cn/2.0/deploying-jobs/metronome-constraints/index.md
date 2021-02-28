@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Metronome 放置约束
 title: Metronome 放置约束
 menuWeight: 3

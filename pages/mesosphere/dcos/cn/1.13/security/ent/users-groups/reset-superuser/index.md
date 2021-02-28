@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  重置超级用户
 title: 重置超级用户
 menuWeight: 30

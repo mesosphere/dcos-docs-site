@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node ssh
 title: dcos node ssh
 menuWeight: 15

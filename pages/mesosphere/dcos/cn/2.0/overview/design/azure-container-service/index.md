@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 了解 DC/OS 如何实现 Azure 容器服务
 title: Azure 容器服务
 navigationTitle: ACS

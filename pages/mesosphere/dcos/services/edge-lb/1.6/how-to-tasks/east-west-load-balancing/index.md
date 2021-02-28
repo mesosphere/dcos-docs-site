@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Internal-only load balancing
 title: Internal-only load balancing
 menuWeight: 36

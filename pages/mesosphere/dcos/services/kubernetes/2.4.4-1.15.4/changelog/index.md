@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Changelog
 title: Changelog
 menuWeight: 75

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced SSH configurations
 title: Advanced SSH configurations
 menuWeight: 90

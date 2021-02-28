@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Marathon-LB 1.14.x
 title: Marathon-LB 1.14.x
 menuWeight: 1

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes 2.6.0-1.17.7
 title: Kubernetes 2.6.0-1.17.7
 menuWeight: 4

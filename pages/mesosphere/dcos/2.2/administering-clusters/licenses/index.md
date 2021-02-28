@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Licenses
 title: Licenses
 menuWeight: 1100

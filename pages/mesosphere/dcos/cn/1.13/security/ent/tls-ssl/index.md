@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  确保与 TLS 通信的安全
 title: 确保与 TLS 通信的安全
 menuWeight: 120

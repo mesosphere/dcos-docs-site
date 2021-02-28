@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi state
 title: dcos nifi state
 menuWeight: 67

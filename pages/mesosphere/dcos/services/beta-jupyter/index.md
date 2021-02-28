@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Mesosphere Jupyter Service
 title: Mesosphere Jupyter Service
 menuWeight: 155

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Disable Audit Log Collection
 title: Disable Audit Log Collection
 menuWeight: 11

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using Containerizers
 title: Using Containerizers
 menuWeight: 40

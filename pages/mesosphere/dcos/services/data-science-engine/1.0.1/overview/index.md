@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Overview
 excerpt: Overview of DC/OS Data Science Engine features
 title: Overview

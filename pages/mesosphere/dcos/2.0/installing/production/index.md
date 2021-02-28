@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: On-Prem Installation 
 navigationTitle: On-Prem Installation 
 menuWeight: 15

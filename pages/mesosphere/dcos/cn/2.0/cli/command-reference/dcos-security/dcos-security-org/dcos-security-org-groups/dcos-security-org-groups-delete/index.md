@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security org groups delete
 title: dcos security org groups delete
 menuWeight: 140

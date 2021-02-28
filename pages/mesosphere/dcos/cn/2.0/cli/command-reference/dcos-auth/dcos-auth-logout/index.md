@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos auth logout
 title: dcos auth logout
 menuWeight: 3

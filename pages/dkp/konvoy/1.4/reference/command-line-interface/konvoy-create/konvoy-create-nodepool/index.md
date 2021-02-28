@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy create nodepool
 title: konvoy create nodepool
 menuWeight: 10

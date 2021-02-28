@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi plan stop
 title: dcos nifi plan stop
 menuWeight: 4

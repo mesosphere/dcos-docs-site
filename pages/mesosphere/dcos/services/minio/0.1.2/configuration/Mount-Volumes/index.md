@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Mount Volumes
 title: Configuring Mount Volumes for Minio
 menuWeight: 40

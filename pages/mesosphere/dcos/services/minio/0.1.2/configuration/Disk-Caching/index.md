@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Disk Caching
 title: Disk Caching in DC/OS Minio
 menuWeight: 45

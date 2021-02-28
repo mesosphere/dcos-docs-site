@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  调试
 title: 调试
 menuWeight: 115

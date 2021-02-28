@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Debugging Applications on DC/OS
 title: Tutorial -  Debugging Applications on DC/OS
 excerpt: Debugging application deployment issues in distributed systems

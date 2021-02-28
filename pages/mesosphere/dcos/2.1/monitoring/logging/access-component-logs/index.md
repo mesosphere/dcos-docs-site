@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Accessing system and component logs
 title: Accessing system and component logs
 menuWeight: 1

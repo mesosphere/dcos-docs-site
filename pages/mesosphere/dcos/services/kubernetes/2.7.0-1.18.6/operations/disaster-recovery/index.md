@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Disaster Recovery
 title: Disaster Recovery
 menuWeight: 80

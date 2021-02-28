@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 同步
 title: LDAP 同步 
 menuWeight: 4

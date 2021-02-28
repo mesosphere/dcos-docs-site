@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster secret-store show
 title: dcos security cluster secret-store show
 menuWeight: 95

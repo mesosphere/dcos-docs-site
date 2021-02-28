@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Operations
 title: Managing Percona Server for MongoDB
 menuWeight: 60

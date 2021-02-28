@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Introducing Kaptain
 title: Introducing Kaptain
 excerpt: Deploy and manage machine learning models with ease

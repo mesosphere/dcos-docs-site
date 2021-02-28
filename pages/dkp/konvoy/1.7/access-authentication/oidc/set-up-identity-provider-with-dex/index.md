@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Set up an identity provider with Dex
 title: Set up an identity provider with Dex
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstall
 excerpt: Uninstalling Percona Server for MongoDB
 title: Uninstall

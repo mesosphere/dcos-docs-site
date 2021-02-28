@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS Enterprise 安全性
 title: DC/OS Enterprise 安全性
 menuWeight: 70

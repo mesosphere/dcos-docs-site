@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  监控、日志记录和调试
 title: 监控、日志记录和调试
 menuWeight: 110

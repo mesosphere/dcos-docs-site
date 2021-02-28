@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 登录
 title: 登录
 excerpt: 登录到 DC/OS 群集

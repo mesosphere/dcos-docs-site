@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy check fips
 title: konvoy check fips
 menuWeight: 10

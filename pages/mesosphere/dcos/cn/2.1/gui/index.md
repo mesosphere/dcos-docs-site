@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  GUI
 title: GUI
 menuWeight: 40

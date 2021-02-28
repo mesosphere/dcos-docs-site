@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  节点和群集健康检查
 title: 节点和群集健康检查
 menuWeight: 25

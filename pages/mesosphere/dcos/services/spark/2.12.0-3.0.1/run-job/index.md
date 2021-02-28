@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Run a Spark Job
 excerpt: Running a Spark job
 title: Run a Spark Job

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Login
 title: Login
 excerpt: Logging in to your DC/OS cluster

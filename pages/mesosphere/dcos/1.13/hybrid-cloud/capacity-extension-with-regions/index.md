@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Capacity Extensions with Regions
 title: Capacity Extensions with Regions
 menuWeight: 10

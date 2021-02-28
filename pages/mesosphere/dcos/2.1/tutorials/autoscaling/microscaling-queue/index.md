@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Understanding microscaling
 title: Tutorial - Microscaling based on queue length
 navigationTitle: Microscaling

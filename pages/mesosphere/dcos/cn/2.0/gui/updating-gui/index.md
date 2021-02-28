@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  更新 GUI
 title: 更新 GUI
 menuWeight: 90

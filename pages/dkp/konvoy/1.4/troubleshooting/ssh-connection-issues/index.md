@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: SSH connection issues
 title: SSH connection issues
 menuWeight: 10

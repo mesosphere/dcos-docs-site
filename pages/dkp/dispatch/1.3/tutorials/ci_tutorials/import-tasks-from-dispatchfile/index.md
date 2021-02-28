@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Importing tasks into a Dispatchfile
 navigationTitle: Import tasks into a Dispatchfile
 category: K-Sphere

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Services
 title: Services
 menuWeight: 2

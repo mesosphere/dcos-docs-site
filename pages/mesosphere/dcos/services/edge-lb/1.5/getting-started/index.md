@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Getting started with Edge-LB
 title: Getting started with Edge-LB
 menuWeight: 10

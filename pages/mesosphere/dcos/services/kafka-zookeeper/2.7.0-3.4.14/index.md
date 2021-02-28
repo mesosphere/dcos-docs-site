@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kafka ZooKeeper 2.7.0-3.4.14
 title: Kafka ZooKeeper 2.7.0-3.4.14
 menuWeight: 1

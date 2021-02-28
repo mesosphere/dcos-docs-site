@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  在 Admin Router 前配置 HAProxy
 title: 在 Admin Router 前配置 HAProxy
 menuWeight: 6

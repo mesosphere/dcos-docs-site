@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Components
 title: Components
 menuWeight: 4

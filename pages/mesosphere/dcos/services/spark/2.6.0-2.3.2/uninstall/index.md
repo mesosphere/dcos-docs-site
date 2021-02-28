@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Uninstall
 excerpt: Uninstalling DC/OS Apache Spark
 title: Uninstalling Spark

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos package repo import
 title: dcos package repo import
 menuWeight: 4

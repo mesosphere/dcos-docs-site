@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Replace a master node
 title: Replace a master node
 menuWeight: 800

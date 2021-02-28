@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 故障域感知和容量扩展
 title: 故障域感知和容量扩展
 menuWeight: 3

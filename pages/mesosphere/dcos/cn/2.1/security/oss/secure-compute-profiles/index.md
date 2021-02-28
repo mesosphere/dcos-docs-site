@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  安全计算配置文件
 title: 安全计算配置文件
 menuWeight: 31

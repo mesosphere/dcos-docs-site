@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Installation
 title: Install Kaptain
 menuWeight: 7

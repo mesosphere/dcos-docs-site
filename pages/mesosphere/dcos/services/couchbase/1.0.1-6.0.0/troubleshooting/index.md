@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Troubleshooting tips for Couchbase on DC/OS
 title: Troubleshooting

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Running pipelines from ChatOps Commands
 navigationTitle: Run pipelines from ChatOps Commands
 category: K-Sphere

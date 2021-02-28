@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos job run
 title: dcos job run
 menuWeight: 5

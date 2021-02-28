@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 excerpt: Diagnosing DC/OS Nifi issues
 title: Troubleshooting

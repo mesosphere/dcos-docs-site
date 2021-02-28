@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Repository CRD
 title: Repository CRD
 menuWeight: 95

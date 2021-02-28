@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Spark 2.6.0-2.3.2
 navigationTitle: Spark 2.6.0-2.3.2
 menuWeight: 3

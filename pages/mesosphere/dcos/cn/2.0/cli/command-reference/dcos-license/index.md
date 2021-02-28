@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos license
 title: dcos license
 excerpt: 管理您的 DC/OS 许可证

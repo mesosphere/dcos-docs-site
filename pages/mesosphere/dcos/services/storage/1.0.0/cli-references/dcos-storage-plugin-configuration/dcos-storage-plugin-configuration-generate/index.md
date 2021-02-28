@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage plugin-configuration generate
 title: dcos storage plugin-configuration generate
 menuWeight: 0

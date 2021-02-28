@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  用户账户管理
 title: 用户账户管理
 menuWeight: 10

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  身份认证
 title: 身份认证
 excerpt: 针对 DC/OS 验证用户

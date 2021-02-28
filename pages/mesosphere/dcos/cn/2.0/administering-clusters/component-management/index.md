@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  组件管理
 title: 组件管理
 menuWeight: 5

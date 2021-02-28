@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 在 AWS EC2 Advanced 上运行 DC/OS
 navigationTitle: Advanced
 menuWeight: 10

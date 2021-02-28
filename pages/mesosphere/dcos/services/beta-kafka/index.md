@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Beta Kafka
 title: Beta Kafka
 menuWeight: 155

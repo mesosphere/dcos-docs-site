@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  密封密钥存储库
 title: 密封密钥存储库
 menuWeight: 3

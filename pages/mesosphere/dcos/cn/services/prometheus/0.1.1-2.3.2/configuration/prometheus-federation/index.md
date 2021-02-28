@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS Prometheus 联合
 title: DC/OS Prometheus 联合
 menuWeight: 35

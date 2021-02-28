@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using Pods
 title: Using Pods
 menuWeight: 20

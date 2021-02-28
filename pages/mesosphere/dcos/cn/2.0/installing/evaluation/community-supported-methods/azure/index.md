@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 使用 Azure 资源管理器模板安装 DC/OS 群集
 title: 在 Azure 上运行 DC/OS
 navigationTitle: Azure

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Installing CLI
 title: Dispatch CLI Installation
 menuWeight: 30

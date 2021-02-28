@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Erasure Coding Scheme
 title: Erasure Coding Scheme in Minio
 menuWeight: 45

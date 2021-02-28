@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 基础
 navigationTitle: 基础
 menuWeight: 5

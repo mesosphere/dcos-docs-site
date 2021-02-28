@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 权限
 title: Edge-LB 权限
 menuWeight: 50

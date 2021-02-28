@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Managing security in your datacenter using DC/OS Open Source
 title: DC/OS Open Source Security
 menuWeight: 80

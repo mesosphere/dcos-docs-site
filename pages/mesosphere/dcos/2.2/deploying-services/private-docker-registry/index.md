@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using a Private Docker Registry
 title: Using a Private Docker Registry
 menuWeight: 4

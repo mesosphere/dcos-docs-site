@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kubernetes Dashboard
 title: Kubernetes Dashboard
 menuWeight: 5

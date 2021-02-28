@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  负载均衡
 excerpt: DC/OS 101 教程第 8 部分
 title: 教程 - 负载均衡

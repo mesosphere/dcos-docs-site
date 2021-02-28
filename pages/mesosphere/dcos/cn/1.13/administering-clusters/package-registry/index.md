@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 包注册表
 title: 包注册表
 menuWeight: 50

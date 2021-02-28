@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  管理用户和组
 title: 管理用户和组
 menuWeight: 0

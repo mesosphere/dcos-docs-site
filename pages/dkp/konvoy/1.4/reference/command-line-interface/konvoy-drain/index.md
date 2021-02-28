@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy drain
 title: konvoy drain
 menuWeight: 10

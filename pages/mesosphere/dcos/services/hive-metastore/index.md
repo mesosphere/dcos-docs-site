@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Hive Metastore
 title: Hive Metastore
 menuWeight: 40

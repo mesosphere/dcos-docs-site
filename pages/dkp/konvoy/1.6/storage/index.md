@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Storage
 title: Kubernetes Storage Introduction
 menuWeight: 120

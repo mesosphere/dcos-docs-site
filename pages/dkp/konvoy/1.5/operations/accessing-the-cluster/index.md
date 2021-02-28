@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Accessing the cluster
 title: Accessing the cluster
 menuWeight: 1

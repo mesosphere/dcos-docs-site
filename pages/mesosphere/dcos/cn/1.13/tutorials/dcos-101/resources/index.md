@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 分配和扩展资源
 title: 分配和扩展资源
 excerpt: 提供用于扩展分配给部署的应用程序的资源的策略和示例（第 9 部分）

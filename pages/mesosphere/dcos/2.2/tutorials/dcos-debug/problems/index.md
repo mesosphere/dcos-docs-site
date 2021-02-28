@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Problems
 navigationTitle:  Problems
 excerpt: Tutorial - Troubleshooting issues on DC/OS deployments

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用证书颁发机构 API
 title: 使用证书颁发机构 API
 menuWeight: 500

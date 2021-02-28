@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Organization
 title: Organization
 menuWeight: 11

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Edge-LB API 参考
 title: Edge-LB API 参考
 menuWeight: 80

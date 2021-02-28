@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 title: NiFi
 menuWeight: 82

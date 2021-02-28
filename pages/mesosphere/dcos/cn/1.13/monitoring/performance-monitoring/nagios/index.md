@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 Nagios 监控
 title: 使用 Nagios 监控
 menuWeight: 0

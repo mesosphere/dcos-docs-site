@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: MongoDB
 title: MongoDB
 excerpt: MongoDB the General Purpose, Document Based, Distributed Database

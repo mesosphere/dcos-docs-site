@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring a Custom CA Certificate
 title: Configuring a Custom CA Certificate
 menuWeight: 50

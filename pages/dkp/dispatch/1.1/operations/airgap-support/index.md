@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  air gap support
 title: Dispatch in air gapped clusters
 menuWeight: 30

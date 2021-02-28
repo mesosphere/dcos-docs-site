@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Update the image and other properties of worker machines
 title: Update the image and other properties of worker machines
 menuWeight: 5

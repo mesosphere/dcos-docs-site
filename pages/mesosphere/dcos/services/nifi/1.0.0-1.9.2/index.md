@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: NiFi 1.0.0-1.9.2
 title: NiFi 1.0.0-1.9.2
 menuWeight: 1

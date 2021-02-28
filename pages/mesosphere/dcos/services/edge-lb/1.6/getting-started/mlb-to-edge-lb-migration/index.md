@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Migrate from Marathon-LB to Edge-LB
 title: Migrate from Marathon-LB to Edge-LB
 menuWeight: 18

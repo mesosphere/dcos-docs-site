@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CLI 规范
 title: CLI 规范
 menuWeight: 3

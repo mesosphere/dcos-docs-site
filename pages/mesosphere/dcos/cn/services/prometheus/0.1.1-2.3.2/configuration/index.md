@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 配置
 excerpt: 默认 DC/OS Prometheus 安装为试行服务提供合理的默认设置
 title: 配置

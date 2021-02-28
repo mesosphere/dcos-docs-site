@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Required domains
 title: Konvoy required domains
 menuWeight: 50

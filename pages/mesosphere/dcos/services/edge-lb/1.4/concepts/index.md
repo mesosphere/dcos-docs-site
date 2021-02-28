@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Edge-LB concepts
 title: Edge-LB concepts
 menuWeight: 5

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install on secured machines
 title: Install on secured machines
 menuWeight: 37

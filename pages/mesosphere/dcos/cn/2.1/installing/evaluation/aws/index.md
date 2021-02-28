@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 使用 Universal 安装工具在 AWS 上的 DC/OS 指南
 title: 使用 Universal 安装工具在 AWS 上的 DC/OS
 navigationTitle: AWS

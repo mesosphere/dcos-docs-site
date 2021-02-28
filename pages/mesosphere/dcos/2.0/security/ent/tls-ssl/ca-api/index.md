@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Using the Certificate Authority API
 title: Using the Certificate Authority API
 menuWeight: 500

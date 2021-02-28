@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuration Reference
 title: Configuration Reference
 menuWeight: 5

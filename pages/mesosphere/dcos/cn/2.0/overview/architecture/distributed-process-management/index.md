@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  分布式进程管理
 title: 分布式进程管理
 menuWeight: 5

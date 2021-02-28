@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 入门
 excerpt: 入门
 title: 入门

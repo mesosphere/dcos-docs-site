@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Granting Access to Kubernetes Resources
 title: Granting Access to Kubernetes Resources
 menuWeight: 10

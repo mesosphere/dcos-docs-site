@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CNI Plugin Support
 title: CNI Plugin Support
 menuWeight: 30

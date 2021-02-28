@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node metrics details
 title: dcos node metrics details
 menuWeight: 10

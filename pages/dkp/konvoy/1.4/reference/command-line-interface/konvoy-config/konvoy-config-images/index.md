@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy config images
 title: konvoy config images
 menuWeight: 10

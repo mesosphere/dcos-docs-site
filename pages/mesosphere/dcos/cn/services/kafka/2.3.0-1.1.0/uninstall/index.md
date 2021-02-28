@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 卸载
 excerpt: 卸载 Kafka
 title: 卸载

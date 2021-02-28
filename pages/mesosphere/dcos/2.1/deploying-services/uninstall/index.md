@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Uninstalling Services
 title: Uninstalling Services
 menuWeight: 7

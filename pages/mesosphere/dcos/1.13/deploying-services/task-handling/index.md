@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Task Handling
 title: Task Handling
 menuWeight: 1

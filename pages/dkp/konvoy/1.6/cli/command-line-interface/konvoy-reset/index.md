@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy reset
 title: konvoy reset
 menuWeight: 10

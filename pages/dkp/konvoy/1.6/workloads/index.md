@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Workloads
 title: Workloads
 menuWeight: 155

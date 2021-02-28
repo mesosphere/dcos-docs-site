@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: Guide for DC/OS on GCP using the Universal Installer
 title: DC/OS on GCP using the Universal Installer
 navigationTitle: GCP

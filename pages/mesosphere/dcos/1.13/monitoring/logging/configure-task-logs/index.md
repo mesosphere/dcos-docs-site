@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring Task Log Output and Retention
 title: Configuring Task Log Output and Retention
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Mesos DNS API
 title: Mesos DNS API
 menuWeight: 201

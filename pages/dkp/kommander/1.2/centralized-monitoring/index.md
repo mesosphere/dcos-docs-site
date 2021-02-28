@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Centralized Monitoring
 title: Centralized Monitoring
 menuWeight: 7

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Create a cluster
 title: Create a cluster
 menuWeight: 1

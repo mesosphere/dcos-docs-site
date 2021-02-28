@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  External Storage
 title: External Storage
 menuWeight: 20

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Metronome Placement Constraints
 title: Metronome Placement Constraints
 menuWeight: 3

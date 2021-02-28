@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configuring DC/OS Access for Confluent Zookeeper
 menuWeight: 660
 excerpt:

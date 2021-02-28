@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Tutorial - Basic external load balancing
 title: Tutorial - External load balancing for a sample app  
 menuWeight: 25

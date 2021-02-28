@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Fault Domain Awareness with Zones
 title: Fault Domain Awareness with Zones
 menuWeight: 5

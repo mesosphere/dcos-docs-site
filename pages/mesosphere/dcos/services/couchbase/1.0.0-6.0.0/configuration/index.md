@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Configuring Couchbase for production and development
 title: Configuration

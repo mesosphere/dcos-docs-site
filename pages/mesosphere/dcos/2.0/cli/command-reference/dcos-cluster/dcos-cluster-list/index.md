@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos cluster list
 title: dcos cluster list
 menuWeight: 3

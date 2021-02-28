@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring Prometheus
 title: Configuring Prometheus
 menuWeight: 30

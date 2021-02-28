@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 输入格式
 title: 输入格式
 menuWeight: 45

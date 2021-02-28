@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 参考
 title: Marathon-LB 参考
 menuWeight: 4

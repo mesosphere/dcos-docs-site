@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 了解安装过程的工作原理
 title: 安装设计
 navigationTitle: 安装

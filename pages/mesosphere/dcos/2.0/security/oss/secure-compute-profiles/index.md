@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Secure computing profiles
 title: Secure computing profiles
 menuWeight: 31

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Installing and Managing DC/OS using Ansible
 navigationTitle: DC/OS with Ansible
 menuWeight: 16

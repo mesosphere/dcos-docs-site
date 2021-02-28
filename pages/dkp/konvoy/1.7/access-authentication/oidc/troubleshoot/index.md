@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshoot OIDC and Dex
 title: Troubleshoot OIDC and Dex
 menuWeight: 100

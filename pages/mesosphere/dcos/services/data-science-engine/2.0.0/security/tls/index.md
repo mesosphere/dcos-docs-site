@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: TLS
 excerpt: Using TLS to encrypt channels for greater security
 title: TLS

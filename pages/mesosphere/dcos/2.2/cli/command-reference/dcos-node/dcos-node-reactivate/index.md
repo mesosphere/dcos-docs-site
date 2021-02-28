@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node reactivate
 excerpt: Reactivating a DC/OS node
 title: dcos node reactivate

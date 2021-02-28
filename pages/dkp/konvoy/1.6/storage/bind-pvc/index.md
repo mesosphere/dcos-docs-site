@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure a Pod to access NFS Share
 title: Configure a Workload to use a Persistent Volume Claim
 menuWeight: 12

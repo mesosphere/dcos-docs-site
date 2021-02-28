@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Backup and Restore API
 title: Backup and Restore API
 menuWeight: 10

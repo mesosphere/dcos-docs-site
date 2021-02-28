@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: OpenID Connect (OIDC)
 title: OpenID Connect (OIDC) Introduction
 menuWeight: 10

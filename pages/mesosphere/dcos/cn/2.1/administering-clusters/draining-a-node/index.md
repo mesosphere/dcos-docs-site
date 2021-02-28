@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 排空节点
 title: 排空节点
 menuWeight: 801

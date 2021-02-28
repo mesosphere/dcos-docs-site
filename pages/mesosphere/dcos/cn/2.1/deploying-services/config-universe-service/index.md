@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置服务
 title: 配置服务
 menuWeight: 2

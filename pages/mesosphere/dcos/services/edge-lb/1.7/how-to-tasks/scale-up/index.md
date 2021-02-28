@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Scaling load-balancer instances
 title: Scaling load-balancer instances
 menuWeight: 33

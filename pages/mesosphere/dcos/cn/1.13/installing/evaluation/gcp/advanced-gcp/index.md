@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 配置参考 - GCP
 excerpt: 使用 Mesosphere Universal 安装工具在 GCP 上配置您的 DC/OS 安装
 navigationTitle: 配置参考

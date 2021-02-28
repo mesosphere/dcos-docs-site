@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  External Persistent Volumes
 title: External Persistent Volumes
 menuWeight: 20

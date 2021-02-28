@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node reactivate
 excerpt: 重新激活 DC/OS 节点
 title: dcos node reactivate

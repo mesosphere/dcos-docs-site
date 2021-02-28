@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Marathon Placement Constraints
 title: Marathon Placement Constraints
 menuWeight: 3

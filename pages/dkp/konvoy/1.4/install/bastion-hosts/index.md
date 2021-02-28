@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure bastion hosts
 title: Configure bastion hosts
 menuWeight: 60

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos package repo remove
 title: dcos package repo remove
 menuWeight: 9

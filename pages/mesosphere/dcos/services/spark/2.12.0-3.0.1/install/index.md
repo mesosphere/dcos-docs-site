@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install and Customize
 excerpt: Installing and customizing your DC/OS Apache Spark service
 title: Install and Customize

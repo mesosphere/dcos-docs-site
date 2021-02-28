@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  技术概述
 title: 技术概述
 menuWeight: 10

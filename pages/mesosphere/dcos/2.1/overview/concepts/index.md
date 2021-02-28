@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Concepts
 title: Concepts
 menuWeight: 5

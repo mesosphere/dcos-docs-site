@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Marathon Configuration Reference
 title: Marathon Configuration Reference
 menuWeight: 0

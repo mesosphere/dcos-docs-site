@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  启动顺序
 title: 启动顺序
 menuWeight: 6

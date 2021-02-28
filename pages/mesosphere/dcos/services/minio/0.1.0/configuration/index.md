@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Configuring Minio for DC/OS
 title: Configuration

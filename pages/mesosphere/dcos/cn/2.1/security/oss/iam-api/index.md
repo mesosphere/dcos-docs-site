@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  身份和访问管理 API
 title: 身份和访问管理 API
 menuWeight: 40

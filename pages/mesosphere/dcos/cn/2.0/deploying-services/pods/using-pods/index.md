@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  使用 Pod
 title: 使用 Pod
 menuWeight: 20

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/release-notes/index.md
 navigationTitle: Release Notes
 title: Release Notes

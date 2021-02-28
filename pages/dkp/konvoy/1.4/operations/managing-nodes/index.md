@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Managing Nodes
 title: Managing Nodes
 menuWeight: 5

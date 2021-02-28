@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configuring a Certificate Authority
 title: Configuring a Certificate Authority
 menuWeight: 50

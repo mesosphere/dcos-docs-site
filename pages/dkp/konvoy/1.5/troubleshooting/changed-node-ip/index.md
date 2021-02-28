@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Changed Node IP
 title: Changed Node IP
 menuWeight: 12

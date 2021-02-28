@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS 简介
 title: DC/OS 简介
 excerpt: 提供分步说明，以介绍基本 DC/OS 群集任务

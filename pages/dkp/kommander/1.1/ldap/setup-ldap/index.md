@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Set up LDAP Directory
 title: Connect and configure your LDAP directory to Konvoy and Kommander
 menuWeight: 0

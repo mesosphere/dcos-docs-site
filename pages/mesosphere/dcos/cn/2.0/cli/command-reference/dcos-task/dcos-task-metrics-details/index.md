@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos task metrics details
 title: dcos task metrics details
 menuWeight: 9

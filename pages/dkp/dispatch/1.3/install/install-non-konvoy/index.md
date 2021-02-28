@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Install on non-Konvoy Kubernetes
 title: Install on non-Konvoy Kubernetes
 menuWeight: 30

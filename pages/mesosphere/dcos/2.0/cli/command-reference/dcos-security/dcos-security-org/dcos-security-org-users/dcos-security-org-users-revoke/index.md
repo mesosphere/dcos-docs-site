@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security org users revoke
 title: dcos security org users revoke
 menuWeight: 205

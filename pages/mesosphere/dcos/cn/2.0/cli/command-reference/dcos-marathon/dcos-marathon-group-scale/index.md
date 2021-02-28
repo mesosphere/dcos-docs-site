@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon group scale
 title: dcos marathon group scale
 menuWeight: 20

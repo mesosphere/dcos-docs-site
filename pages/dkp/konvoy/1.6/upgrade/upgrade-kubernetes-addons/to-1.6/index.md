@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Upgrade Kubernetes and Addons with Konvoy v1.6
 title: Upgrade Kubernetes and Addons with Konvoy v1.6
 menuWeight: 5

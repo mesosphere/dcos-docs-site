@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Updating 
 excerpt: Updating Confluent Kafka
 title: Updating 

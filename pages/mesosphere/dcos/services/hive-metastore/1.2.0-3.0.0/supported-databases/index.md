@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Supported Databases
 excerpt: Supported Databases
 title: Getting Started

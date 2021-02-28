@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Service Discovery
 title: Service Discovery Configuration Options
 menuWeight: 45

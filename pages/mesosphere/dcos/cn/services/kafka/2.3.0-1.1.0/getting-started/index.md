@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 入门
 excerpt: DC/OS 入门
 title: 入门

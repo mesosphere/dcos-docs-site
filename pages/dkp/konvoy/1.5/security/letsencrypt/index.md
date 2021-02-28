@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Setting up Let's Encrypt certificate
 title: Setting up Let's Encrypt certificate
 menuWeight: 10

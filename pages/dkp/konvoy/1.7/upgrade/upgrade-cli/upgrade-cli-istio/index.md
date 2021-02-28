@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Upgrade Istio when upgrading Konvoy CLI
 title: Upgrade Istio when upgrading Konvoy CLI
 menuWeight: 1

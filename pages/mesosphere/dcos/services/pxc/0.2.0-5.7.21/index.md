@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Percona XtraDB Cluster 0.2.0-5.7.21
 title: Percona XtraDB Cluster 0.2.0-5.7.21
 menuWeight: 50

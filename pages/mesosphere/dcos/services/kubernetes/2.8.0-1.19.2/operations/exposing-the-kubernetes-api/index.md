@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Exposing the Kubernetes API
 title: Exposing the Kubernetes API
 menuWeight: 70

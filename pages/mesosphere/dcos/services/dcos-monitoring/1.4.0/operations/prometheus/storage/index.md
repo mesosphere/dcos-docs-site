@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Prometheus Storage
 title: Prometheus Storage
 menuWeight: 20

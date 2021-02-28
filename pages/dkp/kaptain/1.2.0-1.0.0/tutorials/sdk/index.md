@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Kaptain SDK
 title: Kaptain SDK
 menuWeight: 10

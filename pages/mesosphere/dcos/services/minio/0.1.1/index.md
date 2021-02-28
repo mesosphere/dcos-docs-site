@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Minio 0.1.1
 title: Minio 0.1.1
 menuWeight: 1

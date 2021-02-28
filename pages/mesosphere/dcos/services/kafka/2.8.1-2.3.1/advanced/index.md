@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: advanced features
 excerpt: Advanced features of Kafka
 title: Advanced features

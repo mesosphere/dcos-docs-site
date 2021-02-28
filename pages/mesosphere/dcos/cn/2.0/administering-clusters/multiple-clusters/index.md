@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  多群集
 title: 多群集
 menuWeight: 3

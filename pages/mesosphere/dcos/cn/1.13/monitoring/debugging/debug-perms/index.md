@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授予 dcos task exec的访问权限
 title: 授予 dcos task exec的访问权限
 menuWeight: 4

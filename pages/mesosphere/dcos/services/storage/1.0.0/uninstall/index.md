@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/uninstall/index.md
 navigationTitle: Uninstall
 title: Uninstall

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Limitations 
 excerpt: Limitations o
 title: Limitations of Confluent Kafka 

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos service log
 title: dcos service log
 menuWeight: 1

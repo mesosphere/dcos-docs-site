@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Container Network Interface
 title: Calico
 menuWeight: 8

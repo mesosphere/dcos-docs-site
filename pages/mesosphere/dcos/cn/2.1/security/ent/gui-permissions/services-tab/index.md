@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授予对 Services 选项卡的访问权限
 title: 授予对 Services 选项卡的访问权限
 menuWeight: 10

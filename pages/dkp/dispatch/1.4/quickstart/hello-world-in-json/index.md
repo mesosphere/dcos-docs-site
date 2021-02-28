@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Helloworld in JSON
 title: Setting up Helloworld on GitHub in JSON
 menuWeight: 50

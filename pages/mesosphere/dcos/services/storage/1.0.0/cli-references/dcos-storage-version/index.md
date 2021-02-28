@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage version
 title: dcos storage version
 menuWeight: 0

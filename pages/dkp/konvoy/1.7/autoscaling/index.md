@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Autoscaling
 title: Autoscaling clusters
 menuWeight: 140

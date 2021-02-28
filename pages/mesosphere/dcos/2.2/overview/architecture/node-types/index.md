@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Node Types
 title: Node Types
 menuWeight: 1

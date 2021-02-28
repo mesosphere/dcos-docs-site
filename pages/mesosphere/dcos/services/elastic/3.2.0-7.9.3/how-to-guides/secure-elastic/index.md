@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Secure Elastic services    
 excerpt: Deploying secure Elastic services
 title: Secure Elastic Services

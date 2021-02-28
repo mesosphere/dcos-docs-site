@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 遥测
 title: 遥测
 menuWeight: 7

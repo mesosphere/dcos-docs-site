@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 安装 
 title: 安装 Edge-LB
 menuWeight: 10

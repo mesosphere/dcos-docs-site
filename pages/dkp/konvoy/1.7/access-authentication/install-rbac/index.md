@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Setup RBAC with Konvoy
 title: Setup RBAC with Konvoy based Kubernetes clusters
 menuWeight: 50

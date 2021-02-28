@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security org groups grant
 title: dcos security org groups grant
 menuWeight: 143

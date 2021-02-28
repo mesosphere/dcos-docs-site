@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Access a Konvoy cluster
 title: Access a Konvoy cluster
 menuWeight: 10

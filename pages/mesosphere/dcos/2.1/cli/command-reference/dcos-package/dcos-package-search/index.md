@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos package search
 title: dcos package search
 menuWeight: 6

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Default Grafana Dashboards for DC/OS
 title: Default Grafana Dashboards for DC/OS
 menuWeight: 30

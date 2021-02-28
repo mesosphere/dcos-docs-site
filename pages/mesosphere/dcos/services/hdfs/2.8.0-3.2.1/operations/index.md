@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Operations
 navigationTitle: Operations
 excerpt: Plan and pod operations in DC/OS Apache HDFS service

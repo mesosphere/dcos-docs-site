@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Universal Container Runtime (UCR)
 title: Universal Container Runtime (UCR)
 menuWeight: 10

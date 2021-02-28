@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Authentication and Access
 title: Authentication and Access
 menuWeight: 90

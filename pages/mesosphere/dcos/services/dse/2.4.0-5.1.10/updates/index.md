@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Updating DSE
 excerpt: Updating DSE
 title: Updating DSE

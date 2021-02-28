@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Networking
 title: Networking
 menuWeight: 110

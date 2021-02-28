@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Integrating with cloud providers
 title: Integrating with cloud providers
 menuWeight: 1

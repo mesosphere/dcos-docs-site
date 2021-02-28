@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  日志记录参考
 title: 日志记录参考
 menuWeight: 3

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Remote Storage
 title: Prometheus Remote Storage to InfluxDB
 menuWeight: 40

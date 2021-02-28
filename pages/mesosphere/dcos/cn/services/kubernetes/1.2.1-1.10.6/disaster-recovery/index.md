@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 灾难恢复
 title: 灾难恢复
 menuWeight: 80

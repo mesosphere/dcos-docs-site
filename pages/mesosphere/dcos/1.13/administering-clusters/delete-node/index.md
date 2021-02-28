@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Shut Down and Decommission Nodes
 title: Shut Down and Decommission Nodes
 menuWeight: 810

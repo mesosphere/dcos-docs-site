@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Deploying with FluxCD
 navigationTitle: Deploying with FluxCD
 category: K-Sphere

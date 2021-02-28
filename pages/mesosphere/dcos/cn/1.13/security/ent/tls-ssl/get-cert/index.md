@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 获取 DC/OS CA 捆绑包
 menuWeight: 100
 excerpt: 获取 DC/OS CA 捆绑包

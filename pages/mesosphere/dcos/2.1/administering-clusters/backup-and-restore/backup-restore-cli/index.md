@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Backup and Restore CLI
 title: Backup and Restore CLI
 menuWeight: 0

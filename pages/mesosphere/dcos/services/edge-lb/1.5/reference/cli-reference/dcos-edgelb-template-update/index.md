@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edge-lb template update
 title: dcos edge-lb template update
 menuWeight: 69

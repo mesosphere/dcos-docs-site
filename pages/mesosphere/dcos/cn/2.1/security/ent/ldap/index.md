@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  LDAP 身份认证
 title: LDAP 身份认证
 menuWeight: 50

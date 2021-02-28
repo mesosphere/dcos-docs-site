@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Project Roles
 title: Project Roles
 menuWeight: 3

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuration
 excerpt: Additional configuration options
 title: Configuration

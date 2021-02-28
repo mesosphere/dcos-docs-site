@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Calico BGP Route Reflectors
 title: Calico BGP Route Reflectors
 menuWeight: 8

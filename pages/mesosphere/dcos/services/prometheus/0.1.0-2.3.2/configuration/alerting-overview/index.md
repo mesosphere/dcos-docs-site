@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Alerting Overview
 title:  Alerting Overview
 menuWeight: 25

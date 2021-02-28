@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Backup
 title: Backup 
 menuWeight: 30

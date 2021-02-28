@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Introducing DC/OS
 title: Introducing DC/OS
 excerpt: Provides step-by-step instructions to introduce basic DC/OS cluster tasks

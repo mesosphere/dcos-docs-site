@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Prometheus Federation
 title: Federation
 menuWeight: 35

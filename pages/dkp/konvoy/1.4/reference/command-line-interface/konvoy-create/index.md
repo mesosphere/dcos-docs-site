@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy create
 title: konvoy create
 menuWeight: 10

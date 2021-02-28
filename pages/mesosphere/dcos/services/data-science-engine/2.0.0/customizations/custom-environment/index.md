@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Custom Environment
 excerpt: Using Custom Conda Environment with DC/OS Data Science Engine
 title: Custom Environment

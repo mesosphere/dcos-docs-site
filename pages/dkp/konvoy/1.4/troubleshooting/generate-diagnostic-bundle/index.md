@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Generate a diagnostic bundle
 title: Generate a diagnostic bundle
 menuWeight: 10

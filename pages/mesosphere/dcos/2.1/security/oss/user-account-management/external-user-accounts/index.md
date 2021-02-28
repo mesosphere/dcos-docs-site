@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: External User Accounts
 title: External User Account Management
 excerpt: Managing external user accounts

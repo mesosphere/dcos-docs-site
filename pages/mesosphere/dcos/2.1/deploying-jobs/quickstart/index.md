@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Creating Jobs
 title: Creating Jobs
 menuWeight: 10

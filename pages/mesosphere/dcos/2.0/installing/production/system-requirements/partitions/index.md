@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Disk Partitions
 navigationTitle: Disk Partitions
 menuWeight: 16

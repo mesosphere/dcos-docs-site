@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring DC/OS access for NiFi
 title: Configuring DC/OS access for NiFi
 menuWeight: 1010

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: DC/OS Storage Service
 title: DC/OS Storage Service
 menuWeight: 5

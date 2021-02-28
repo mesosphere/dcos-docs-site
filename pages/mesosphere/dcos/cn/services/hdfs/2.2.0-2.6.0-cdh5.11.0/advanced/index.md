@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: HFDS 的高级功能
 title: 的高级功能
 navigationTitle: 的高级功能

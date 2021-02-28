@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi plan status
 title: dcos nifi plan status
 menuWeight: 2

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Permissions Management
 title: Permissions Management
 menuWeight: 30

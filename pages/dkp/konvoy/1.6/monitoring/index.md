@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Monitoring and Alerts
 title: Monitoring and Alerts
 menuWeight: 180

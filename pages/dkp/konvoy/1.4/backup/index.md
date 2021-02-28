@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Back up and restore
 title: Back up and restore
 menuWeight: 12

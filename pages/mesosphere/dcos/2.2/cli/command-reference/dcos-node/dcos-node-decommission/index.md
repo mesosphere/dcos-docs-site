@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos node decommission
 excerpt: Decommissioning a DC/OS node
 title: dcos node decommission

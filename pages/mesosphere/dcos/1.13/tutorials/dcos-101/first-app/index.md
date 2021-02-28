@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Deploy the first application
 title: Deploy the first application
 excerpt: Describes how to define and deploy a sample service instance on the cluster (part 4)

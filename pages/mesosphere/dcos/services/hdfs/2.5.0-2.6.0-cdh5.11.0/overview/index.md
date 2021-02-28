@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Overview 
 excerpt: Advanced features of the DC/OS Apache HDFS service
 title: Overview 

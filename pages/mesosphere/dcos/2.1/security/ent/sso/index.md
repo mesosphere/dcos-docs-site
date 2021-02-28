@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Identity provider-based authentication
 title: Identity provider-based authentication
 menuWeight: 70

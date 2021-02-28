@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install on VMWare vSphere (vSphere)
 title: Install on VMWare vSphere (vSphere)
 menuWeight: 20

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  权限参考
 title: 权限参考
 menuWeight: 40

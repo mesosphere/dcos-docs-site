@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Access Nodes with SSH
 title: Access Nodes with SSH
 menuWeight: 0

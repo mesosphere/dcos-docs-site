@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Check component integrity
 title: Check component integrity
 menuWeight: 1

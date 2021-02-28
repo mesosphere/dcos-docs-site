@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Volume Snapshots
 title: Volume Snapshots
 menuWeight: 14

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Configuring DC/OS Access for Spark
 menuWeight: 1010
 excerpt:

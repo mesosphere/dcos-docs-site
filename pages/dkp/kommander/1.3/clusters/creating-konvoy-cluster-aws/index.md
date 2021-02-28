@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Creating Konvoy Clusters on AWS
 title: Creating Konvoy Clusters on AWS
 menuWeight: 7

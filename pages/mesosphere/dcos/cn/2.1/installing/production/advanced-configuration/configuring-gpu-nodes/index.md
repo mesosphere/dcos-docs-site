@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  配置 GPU 节点
 title: 配置 GPU 节点
 menuWeight: 10

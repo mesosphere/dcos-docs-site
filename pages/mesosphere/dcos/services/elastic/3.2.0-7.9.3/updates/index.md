@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Updates
 excerpt: Updating the DC/OS Elastic service
 title: Updates

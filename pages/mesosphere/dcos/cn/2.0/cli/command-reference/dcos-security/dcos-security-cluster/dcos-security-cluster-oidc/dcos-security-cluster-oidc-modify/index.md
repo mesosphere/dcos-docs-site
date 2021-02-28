@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  cos security cluster oidc modify
 title: cos security cluster oidc modify
 menuWeight: 60

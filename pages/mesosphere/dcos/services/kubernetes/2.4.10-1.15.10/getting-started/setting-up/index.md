@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Setting Up
 title: Setting up the DC/OS cluster
 menuWeight: 1

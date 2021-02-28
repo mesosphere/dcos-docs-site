@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 故障排除
 excerpt: 诊断 Kafka
 title: 故障排除

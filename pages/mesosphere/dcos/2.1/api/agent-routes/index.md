@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Agent Routes
 title: Agent Routes
 menuWeight: 11

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Granting Access to the Catalog Screen
 title: Granting Access to the Catalog Screen
 menuWeight: 80

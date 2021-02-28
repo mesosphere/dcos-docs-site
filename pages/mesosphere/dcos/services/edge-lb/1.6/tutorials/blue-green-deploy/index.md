@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Phased "Blue/Green" service deployment
 title: Phased "Blue/Green" service deployment
 menuWeight: 10

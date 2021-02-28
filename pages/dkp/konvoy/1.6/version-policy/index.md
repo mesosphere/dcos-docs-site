@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Version Support Policy
 title: Version Support Policy
 menuWeight: 280

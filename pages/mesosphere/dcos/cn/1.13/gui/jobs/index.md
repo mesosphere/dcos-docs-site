@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  作业
 title: 作业
 menuWeight: 3

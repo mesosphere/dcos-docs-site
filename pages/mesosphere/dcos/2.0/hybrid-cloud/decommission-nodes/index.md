@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Decommission Nodes
 title: Decommission Nodes
 menuWeight: 15

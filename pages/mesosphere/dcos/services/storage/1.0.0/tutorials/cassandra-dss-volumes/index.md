@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/tutorials/cassandra-dss-volumes/index.md
 navigationTitle: Deploy Cassandra with DSS volumes
 title: Deploy Cassandra with DSS volumes

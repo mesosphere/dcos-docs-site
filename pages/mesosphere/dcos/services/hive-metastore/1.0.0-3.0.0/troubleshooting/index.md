@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 excerpt: Diagnosing service problems
 title: Troubleshooting DC/OS Hive Metastore

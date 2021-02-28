@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/terminology-and-concepts/index.md
 navigationTitle: Terminology and Concepts
 title: Terminology and Concepts

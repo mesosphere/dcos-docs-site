@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Spark Auth
 excerpt: Configuring DC/OS Access for Spark
 title: Spark Auth

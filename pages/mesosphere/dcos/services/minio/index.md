@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Minio
 title: Minio   
 menuWeight: 81

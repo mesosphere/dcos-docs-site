@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Reference information
 title: Reference information
 menuWeight: 90

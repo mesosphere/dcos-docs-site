@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos cluster rename
 title: dcos cluster rename
 menuWeight: 5

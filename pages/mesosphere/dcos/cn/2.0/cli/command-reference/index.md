@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Command Reference
 title: Command Reference
 menuWeight: 10

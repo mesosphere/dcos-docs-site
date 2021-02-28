@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 1.13.9 版本注释
 title: 1.13.9 版本注释
 menuWeight: 0

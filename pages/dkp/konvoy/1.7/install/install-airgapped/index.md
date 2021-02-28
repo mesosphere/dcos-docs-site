@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install air-gapped
 title: Install air-gapped
 menuWeight: 35

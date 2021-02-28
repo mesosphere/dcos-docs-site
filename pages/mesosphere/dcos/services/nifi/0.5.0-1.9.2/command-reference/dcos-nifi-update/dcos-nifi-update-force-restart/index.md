@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos nifi update force-restart
 title: dcos nifi update force-restart
 menuWeight: 3

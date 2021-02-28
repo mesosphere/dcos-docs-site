@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos package repo list
 title: dcos package repo list
 menuWeight: 6

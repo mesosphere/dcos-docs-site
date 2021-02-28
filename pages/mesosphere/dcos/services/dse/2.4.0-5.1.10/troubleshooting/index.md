@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting DSE
 excerpt: Diagnosing issues in DSE
 title: Troubleshooting DSE

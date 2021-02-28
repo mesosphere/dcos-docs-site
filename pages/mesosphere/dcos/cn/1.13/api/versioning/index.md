@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  API 版本控制
 title: API 版本控制
 menuWeight: 2

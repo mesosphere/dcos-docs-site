@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Welcome to Dispatch 1.0
 title: Welcome to Dispatch 1.0
 category: K-Sphere

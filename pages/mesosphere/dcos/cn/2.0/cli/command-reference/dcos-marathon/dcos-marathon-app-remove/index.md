@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos marathon app remove
 title: dcos marathon app remove
 menuWeight: 4

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Advanced provisioning options Google Cloud Platform (GCP)
 title: Advanced provisioning options Google Cloud Platform (GCP)
 menuWeight: 5

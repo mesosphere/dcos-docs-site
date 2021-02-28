@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Monitoring Services
 title: Monitoring Services
 menuWeight: 3

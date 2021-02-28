@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: API Reference
 excerpt: API Reference for Percona Server for MongoDB
 title: API Reference

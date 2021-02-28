@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  设置
 title: 设置
 menuWeight: 10

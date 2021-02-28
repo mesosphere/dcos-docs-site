@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Prerequisites
 title: Prerequisites
 menuWeight: 10

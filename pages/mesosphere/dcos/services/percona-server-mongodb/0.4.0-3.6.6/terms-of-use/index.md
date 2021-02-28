@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Terms of Use
 title: Terms of Use
 menuWeight: 150

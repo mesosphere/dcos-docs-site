@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 excerpt: 了解 microscaling
 title: 教程 - 基于队列长度的 microscaling
 navigationTitle: Microscaling

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  安装 CLI
 title: 安装 CLI
 menuWeight: 1

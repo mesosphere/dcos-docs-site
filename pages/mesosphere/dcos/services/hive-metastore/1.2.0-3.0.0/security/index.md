@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Security
 excerpt: Securing your service
 title: DC/OS Hive Metastore security

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  添加外部用户
 title: 添加外部用户
 menuWeight: 20

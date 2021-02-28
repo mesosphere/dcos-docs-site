@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Generate a Client Access Token
 title: Generate a Client Access Token
 menuWeight: 20

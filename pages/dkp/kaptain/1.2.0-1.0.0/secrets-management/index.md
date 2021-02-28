@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Manage Secrets
 title: Manage Secrets
 menuWeight: 30

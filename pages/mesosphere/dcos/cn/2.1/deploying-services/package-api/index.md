@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 包管理 API
 menuWeight: 10
 excerpt: 使用包管理 API 安装 DC/OS 服务

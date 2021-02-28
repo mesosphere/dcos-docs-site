@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 卸载
 excerpt: 卸载 Cassandra
 title: 卸载

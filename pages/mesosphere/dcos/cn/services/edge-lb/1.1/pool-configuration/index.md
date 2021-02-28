@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 池配置参考
 title: Edge-LB 池配置参考
 menuWeight: 80

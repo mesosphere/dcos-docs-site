@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 支持的版本
 title: 支持的版本
 menuWeight: 120

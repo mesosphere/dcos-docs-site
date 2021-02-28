@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Cassandra 2.9.0-3.11.6
 excerpt: DC/OS Apache Cassandra is an automated service that makes it easy to deploy and manage Apache Cassandra on DC/OS.
 title: Cassandra 2.9.0-3.11.6

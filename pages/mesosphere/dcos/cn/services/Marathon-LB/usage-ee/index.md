@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: 在 DC/OS Enterprise 上安装和自定义
 menuWeight: 2
 excerpt: 在 DC/OS 企业上安装和自定义 Marathon-LB

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Grafana Dashboard Configurations
 title: Grafana Dashboard Configurations
 menuWeight: 20

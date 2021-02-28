@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Allocate and scale resources
 title: Allocate and scale resources
 excerpt: Provides strategies and examples for scaling resources allocated for deployed applications (part 9)

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  安装服务
 title: 安装服务
 menuWeight: 0

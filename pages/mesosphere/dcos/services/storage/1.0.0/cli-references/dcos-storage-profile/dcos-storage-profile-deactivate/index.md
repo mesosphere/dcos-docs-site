@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage profile deactivate
 title: dcos storage profile deactivate
 menuWeight: 0

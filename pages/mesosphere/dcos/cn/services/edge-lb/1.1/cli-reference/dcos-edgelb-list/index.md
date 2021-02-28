@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos edgelb list
 title: dcos edgelb list
 menuWeight: 25

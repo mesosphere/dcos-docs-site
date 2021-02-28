@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: GitHub OAuth App
 title: GitHub OAuth App
 menuWeight: 30

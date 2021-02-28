@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy diff
 title: konvoy diff
 menuWeight: 10

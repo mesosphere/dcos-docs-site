@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  部署作业
 title: 部署作业
 menuWeight: 120

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  特性成熟度
 title: 特性成熟度
 menuWeight: 10

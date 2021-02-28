@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Grafana UI
 title: Grafana UI
 menuWeight: 10

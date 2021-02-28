@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CLI Reference
 title: CLI Reference
 menuWeight: 70

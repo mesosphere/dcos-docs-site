@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configuring EdgeLB Without TLS
 excerpt: Configuring EdgeLB Without TLS in DC/OS Minio
 title: Configuring EdgeLB Without TLS

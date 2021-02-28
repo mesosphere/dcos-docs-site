@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 部署和公开本地应用程序
 title: 部署和公开本地应用程序
 excerpt: 使用 UCR 容器部署应用程序，并将其公开以便从群集外部进行访问（第 8 部分）

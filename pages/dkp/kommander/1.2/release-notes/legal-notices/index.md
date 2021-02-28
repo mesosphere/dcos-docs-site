@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 title: Legal Notices
 menuWeight: 105
 excerpt: List of Third-party trademarks mentioned in the Kommander documentation

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: History 服务器
 excerpt: 为 Spark History 服务器启用 HDFS
 title: Spark History 服务器

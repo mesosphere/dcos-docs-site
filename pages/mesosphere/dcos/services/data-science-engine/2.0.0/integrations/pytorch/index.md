@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: PyTorch
 excerpt: Use PyTorch with DC/OS Data Science Engine
 title: PyTorch

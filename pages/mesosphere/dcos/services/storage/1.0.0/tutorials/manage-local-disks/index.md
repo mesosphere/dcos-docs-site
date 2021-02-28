@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/tutorials/manage-local-disks/index.md
 navigationTitle: Manage local disks using LVM
 title: Manage local disks using LVM

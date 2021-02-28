@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Configure an On-Premises provider
 title: On-Premises Infrastructure Provider
 excerpt: Configuring an On-Premises infrastructure provider

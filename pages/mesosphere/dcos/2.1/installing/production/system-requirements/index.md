@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  System Requirements
 title: System Requirements
 menuWeight: 5

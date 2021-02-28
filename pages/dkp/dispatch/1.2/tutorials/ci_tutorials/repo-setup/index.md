@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Configure a Repository
 title: Setting up a Repository in Dispatch
 menuWeight: 20

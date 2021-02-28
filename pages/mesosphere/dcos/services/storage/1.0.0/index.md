@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 origin: github.com/mesosphere/dcos-storage/docs/index.md
 navigationTitle: DC/OS Storage Service 1.0.0
 title: DC/OS Storage Service 1.0.0

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Install Kaptain on Konvoy
 title: Install Kaptain on Konvoy
 menuWeight: 8

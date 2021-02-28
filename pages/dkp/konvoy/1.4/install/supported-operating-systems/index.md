@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Supported Operating Systems
 title: Supported Operating Systems
 menuWeight: 10

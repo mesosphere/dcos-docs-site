@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: 配额管理
 title: 配额管理
 menuWeight: 5

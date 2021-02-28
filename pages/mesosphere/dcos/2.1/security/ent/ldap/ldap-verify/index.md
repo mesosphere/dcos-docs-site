@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Verification 
 title: Verification 
 menuWeight: 3

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: dcos storage provider list
 title: dcos storage provider list
 menuWeight: 0

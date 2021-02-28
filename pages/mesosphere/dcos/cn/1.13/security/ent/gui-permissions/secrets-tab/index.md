@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  授予访问“密钥”选项卡的权限
 title: 授予访问“密钥”选项卡的权限
 menuWeight: 50

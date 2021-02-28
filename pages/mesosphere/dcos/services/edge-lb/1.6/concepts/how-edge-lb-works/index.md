@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: How Edge-LB works
 title: How Edge-LB works
 menuWeight: 10

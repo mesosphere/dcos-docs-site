@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Couchbase 0.2.0-5.5.0
 title: Couchbase 0.2.0-5.5.0
 menuWeight: 1

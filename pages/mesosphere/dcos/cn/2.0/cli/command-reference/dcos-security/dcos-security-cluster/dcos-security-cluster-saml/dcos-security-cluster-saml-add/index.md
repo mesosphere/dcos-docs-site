@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos security cluster saml add
 title: dcos security cluster saml add
 menuWeight: 70

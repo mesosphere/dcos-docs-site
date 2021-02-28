@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:
 excerpt: Managing, repairing, and monitoring the service
 title: Operations

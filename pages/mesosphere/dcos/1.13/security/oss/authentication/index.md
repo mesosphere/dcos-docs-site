@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Authentication
 title: Authentication
 excerpt: Authenticating users against DC/OS

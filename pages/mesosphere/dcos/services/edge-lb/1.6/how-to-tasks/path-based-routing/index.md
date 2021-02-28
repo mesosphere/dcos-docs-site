@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Path-based routing
 title: Path-based routing
 menuWeight: 24

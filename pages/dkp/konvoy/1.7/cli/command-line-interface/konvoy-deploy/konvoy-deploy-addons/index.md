@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: konvoy deploy addons
 title: konvoy deploy addons
 menuWeight: 10

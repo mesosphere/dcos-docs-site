@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Service Endpoints
 title: Service Endpoints
 menuWeight: 3

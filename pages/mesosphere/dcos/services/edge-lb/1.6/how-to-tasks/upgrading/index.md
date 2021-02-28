@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  Upgrading Edge-LB
 title: Upgrading Edge-LB
 menuWeight: 45

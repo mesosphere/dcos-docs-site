@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  覆盖默认 Linux 用户
 title: 覆盖默认 Linux 用户
 menuWeight: 31

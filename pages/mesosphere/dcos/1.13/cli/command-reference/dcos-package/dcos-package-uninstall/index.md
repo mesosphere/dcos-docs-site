@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos package uninstall
 title: dcos package uninstall
 menuWeight: 7

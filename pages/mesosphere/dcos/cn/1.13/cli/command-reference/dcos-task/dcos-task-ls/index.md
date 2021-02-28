@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  dcos task ls
 title: dcos task ls
 menuWeight: 7

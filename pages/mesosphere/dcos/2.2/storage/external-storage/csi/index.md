@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  CSI Storage
 title: CSI Storage
 menuWeight: 20

@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle:  关闭和停用节点
 title: 关闭和停用节点
 menuWeight: 810

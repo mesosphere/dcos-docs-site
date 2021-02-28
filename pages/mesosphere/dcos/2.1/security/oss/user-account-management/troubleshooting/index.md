@@ -1,5 +1,4 @@
 ---
-layout: layout.pug
 navigationTitle: Troubleshooting
 title: Troubleshooting User Account Management
 excerpt: Troubleshooting user account management issues
