@@ -36,8 +36,71 @@ npm run dev
 
 You'll now be able to browse the docs at [http://localhost:3000/](http://localhost:3000/). Your browser will reflect any changes to pages in dkp almost immediately.
 
+# A short intro:
+
+## Markdown with frontmatter
+
+We assume that you already know how to use markdown. You may want to reach out in #documentation and ask for some up to date resources in case you want to learn (more) about it.
+
+Our markdown comes along with metadata - also called "frontmatter". Here are all the special variables that you might want to set in a pages' frontmatter:
+
+- **excerpt**: presented below the title at the top of the content page, sometimes used in topic cards
+- **layout**: this determines the template you need, defaults to `layout.pug` (the standard content-page-layout).
+- **menuWeight**: determines ordering in the navigation structure, all numerical values except -1 accepted and sorted.
+- **navigationTitle**: short title that shows up in navigation bar on the left.
+- **title**: shows up at top of the page
+
+----------
+
+* **beta: true** - adds an beta label to a page's titel
+* **experimental: true** - adds an experimental label to a page's titel
+
+## URL-structure
+
+The directory-tree withing `/pages` resembles the URL-structure of the final build. A pages' content **MUST** be in an `index.md`-file within the according directory.
+
+In short: `/pages/some/directory/index.md` will be available at `docs.d2iq.com/some/directory`.
+
+## Templating and Variables
+
+We use `handlebars.js` for templating. 
+
+```markdown
+---
+title: A page about handlebars
+
+# declare your variable right here, right now:
+someVariable: <b>awesome</b>
+
+# you can use arbitrary yaml:
+nested:
+  prop: "voodoo!"
+
+# or even share your data with other files:
+model: /dkp/konvoy/data.yml
+# here's the content of data.yml:
+# some:
+#   prop: "This was loaded from a yaml-file."
+--- 
+
+# {{{ }}} - raw interpolation. Use this (unless you know better)!
+
+DKP is {{{ someVariable }}}!         => DKP is awesome!
+Templating is {{{ nested.prop }}}    => Templating is voodoo!
+Shared: {{{ model.some.prop }}}      => This was loaded from a yaml-file.
+
+# Our custom helpers:
+
+{{{ include "/dkp/someTemplate.tmpl" }}}    => Hi from someTemplate.tmpl! I can contain template-expressions as well!
+
+# Comments
+{{! This comment will not show up in the output}}
+```
+
+This enabled some powerful patterns - that we have not agreed on yet. So if you find a nice way/architecture to prevent e.g. excessive backporting, please share and discuss in `#documentation`.
 
 # Content Editing Workflow
+
 ## Ensure jira ticket
 New content should never be created without a ticket that ties back to a feature or fix.
 This jira ticket will be used to tie the PR to the work tracking. Stay tuned for process updates on how Jira tickets will run in parallel with feature development.
@@ -71,53 +134,23 @@ Or, copy/paste the branch name from the PR if there is one open already. Git wil
 There are often times when you will need to pull and work on someone else's branch even when it isn't a PR yet, you may need to specify `git checkout origin/<branchname>`
 
 ## Add/Edit content to existing pages
-### TL;DR Common Gotchas
-1. The docs site uses metalsmith markdown rendering, which is similar to but not exactly github flavored markdown (gfm).
-1. Every folder must have one and only one corresponding index.md file, naming is limited as the folder name becomes part of the link structure, choose wisely.
-2. Every index.md file must have the minimum front matter metadata of:
- layout, title, navigationTitle, menuWeight and excerpt.
-
-     ![docs metadata](https://i.imgur.com/8KPsvEY.png)
-
-4. Code blocks within numbered lists need to be indented by 4 spaces
-5. Relative links after a lot of edits or restructuring need to be checked that they are catching the right folder structure, please be careful.
-6. Make sure to switch to all html tags within html code blocks for notes and warnings.
-
-
 
 To get a great comprehensive overview of markdown syntax, please visit [this cheat sheet](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet)
 
-### Adding regular text
-Please give the full [Docs Style Guide](https://wiki.mesosphere.com/display/DOCS/Documentation+Style+Guide) a read every so often as a refresher.
-
-
 ### Adding Links
-- Use relative links. Begin all links at the root level (pages)and include the sphere and product before version number subdirectory. (example:  `/mesosphere/dcos/1.13/administration/sshcluster/`).
+- Use relative links if possible. Begin all links at the root level (pages) and include the sphere and product before version number subdirectory. (example:  `/mesosphere/dcos/1.13/administration/sshcluster/`).
 - Do not include file extensions in your link paths. For example, to link to the page `/mesosphere/dcos/1.13/administration/user-management/index.md` use the following path: `/mesosphere/dcos/1.13/administration/user-management/`.
 
 ### Adding code blocks
 Code blocks are formatted and presented to the user on the docs site with a copy icon in the upper right corner. Users can click on this icon and copy the entire code to their clipboard, rather than have to type all the code in.
-Code block formatting is 3 backtics on separate lines at start and end. Do not put in the leading shell prompt `$` for any commands to be run, as this will block the user from copy-pasting.
+Code block formatting is 3 backtics (followed by an optional syntax-highlighting identifier) on separate lines at start and end.
 
-Code ex.:
 ~~~
-```
+```shell-session
 cd /var/lib/dcos/pki/tls/certs/
 ```
 ~~~
 
-Correctly formatted:
-```bash
-cd /var/lib/dcos/pki/tls/certs/
-openssl x509 -hash -noout -in ca.crt
-```
-Incorrect:
-```bash
-$ cd /var/lib/dcos/pki/tls/certs/
-$ openssl x509 -hash -noout -in ca.crt
-```
-
-For the same usability as removing the shell prompt, always separate input blocks from output blocks so that users can copy the commands.
 
 ### Adding line highlights
 
@@ -143,21 +176,6 @@ You can highlight any combination of single lines and ranges. Some examples:
 * `1,3` - highlight the lines 1 and 3.
 * `1-3,42` - highlight lines 1 to 3 and 42.
 
-### Adding mustache variables
-Version numbers, product names and other commonly used items can be added in as variables to increase text reusability.
-
-If you are using mustache variables on your page, the render and model fields must exist within the front matter of that file and point to the proper location of the yaml file to query.
-
-**Mustache** is the renderer and is always specified as
-`render: mustache`
-
-**Model** is the location of the data file such as
-`model: /mesosphere/dcos/2.0/data.yml`
-
-Variables are called by using `{{ model.value }}` within the content, and the script will automatically use the file location on the page to query that value and insert it at build time.
-
-### Adding numbered lists
-Numbered lists are along standard markdown guidelines. Please be careful of indentations when trying to create complex lists or when adding codeblocks or notes.
 
 ### Adding images
 Images are currently stored in an `img` folder at the version level. Running a preview build to ensure all image paths are correct is important. Please make sure to add alternate text within the brackets
@@ -167,17 +185,6 @@ Images are currently stored in an `img` folder at the version level. Running a p
 ### Adding a table of contents
 - The in-page table of contents is automatically generated based on the `h1` and `h2` headers within the document.
 - Directory tables of contents are automatically generated based on `title` (or `navigationTitle`) and `excerpt` headers.
-
-### Using includes files for reusable content
-"Include" files are content partials stored in a folder called "include", which can be at any level of the content.  are inserted on build time. Especially when created with mustache variable rendering, can be incredibly useful when re-using content across products or versions.
-
-Using an `include` file
-To use an include file in a Markdown document, insert the word "#include" at the beginning of a line, followed by a space, followed by the path name of the file you wish to include:
-
-`#include /mesosphere/dcos/services/include/configuration-options.tmpl`
-
-
-When the file is processed, the indicated file (for example, configuration-install-with-options) will be written into the page that calls it.
 
 ### Adding Notes and Warnings
 
@@ -286,39 +293,3 @@ If you encounter merge conflicts, the order of operations is slightly different 
 
 NB: Often you need to make choices and something might go wrong. `git rebase --abort` any time before it finishes will cancel and reset you to where you were.
 
-## Pushing a rebased branch to staging
-Whenever a rebase occurs, or a few other operations that change the order of commits as they are saved to the branch, git will raise an error if you try to push those changes up to the remote repository (usually called origin by default). This is because the histories are incompatible and this is a protective measure against major changes.
-
-Override the history protection with the `--force` flag
-
-`git push --force origin <branchname>`
-
-# Guide: Creating new folder(s) and index file(s) when needed
-### Create the folder
-within the existing structure, give it a title that is meaningful and will show up within the links structure of the published website
-`https://docs.d2iq.com/mesosphere/dcos/2.0/administering-clusters/backup-and-restore/backup-restore-cli/`
-
-### Create a single index file for each folder
-Each and every folder at every level may have one and only one corresponding index.md. This is necessary for the website generation scripts.
-
-![folder structure example](https://i.imgur.com/YMKjEfw.png)
-
-Figure 1 - Folder Structure Example
-
-### Add required Metadata
-#### Required Parameters
-
-- **layout**: this determines the template you need, content pages always use `layout.pug`
-- **navigationTitle**: short title that shows up in 300px wide left hand nav
-- **title**: longer title that shows up at top of content page
-- **excerpt**: presented below the title at the top of the content page, sometimes used in topic cards
-- **menuWeight**: this determines ordering within the nav structure, all numerical values except -1 accepted and sorted
-
-### Add Optional metadata:
-#### Product Labels
-
-* **enterprise: true** - use this to add an enterprise label to a page
-* **community: true** - use this to add an enterprise label to a page
-* **beta: true** - use this to add an enterprise label to a page
-
-NB: Labels are only added directly to the particular page and not to any subpages

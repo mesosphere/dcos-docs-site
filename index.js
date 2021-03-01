@@ -21,7 +21,6 @@ const hierarchyRss = require("./plugins/metalsmith-hierarchy-rss");
 const headings = require("./plugins/metalsmith-headings");
 const algolia = require("./plugins/metalsmith-algolia");
 const mustache = require("./plugins/metalsmith-mustache");
-const includeContent = require("./plugins/metalsmith-include-content-dcos");
 const revision = require("./plugins/metalsmith-revision");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
 const webpack = require("./plugins/metalsmith-webpack");
@@ -111,13 +110,6 @@ MS.use(timer("Assets"));
 //   data2: path/to/my.yml (access content in my.yml as model.data2.foo.bar)
 MS.use(dataLoader({ dataProperty: "model", match: "**/*.md" }));
 MS.use(timer("Dataloader"));
-
-// Load raw content via '#include' directives before rendering any mustache or markdown.
-// For example (in your content):
-//   #include path/to/file.tmpl
-// Style as a C-like include statement. Must be on its own line.
-MS.use(includeContent({ pattern: "^#include ([^ \n]+)$", match: "**/*.md*" }));
-MS.use(timer("IncludeContent"));
 
 // Process any mustache templating in files.
 // For example (in your Front Matter):
