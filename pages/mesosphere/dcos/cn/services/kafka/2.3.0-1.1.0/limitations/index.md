@@ -6,9 +6,9 @@ menuWeight: 100
 model: /mesosphere/dcos/cn/services/kafka/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/limitations.tmpl
-#include /mesosphere/dcos/cn/services/include/limitations-zones.tmpl
-#include /mesosphere/dcos/cn/services/include/limitations-regions.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/limitations.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/limitations-zones.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/limitations-regions.tmpl" }}}
 
 ## Log Retention Bytes
 

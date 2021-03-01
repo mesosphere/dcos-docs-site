@@ -6,5 +6,5 @@ menuWeight: 20
 model: /mesosphere/dcos/cn/services/prometheus/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl
-#include /mesosphere/dcos/cn/services/include/configuration-service-settings.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-service-settings.tmpl" }}}

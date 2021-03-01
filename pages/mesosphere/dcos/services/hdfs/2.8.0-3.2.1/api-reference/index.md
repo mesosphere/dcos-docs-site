@@ -6,4 +6,4 @@ menuWeight: 120
 model: /mesosphere/dcos/services/hdfs/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/api-reference.tmpl
+{{{ include "/mesosphere/dcos/services/include/api-reference.tmpl" }}}

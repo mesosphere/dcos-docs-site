@@ -5,9 +5,7 @@ menuWeight: 6
 excerpt: What are Kubernetes Base Addons
 ---
 
-<!-- markdownlint-disable MD018 -->
-
-#include /dkp/konvoy/1.5/include/kba-addon-intro.tmpl
+{{{ include "/dkp/konvoy/1.5/include/kba-addon-intro.tmpl" }}}
 
 ## Related information
 

@@ -4,7 +4,7 @@ navigationTitle: 方案 3
 excerpt: 教程 - Docker 镜像
 menuWeight: 21
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 ## 方案 3：Docker 镜像
 

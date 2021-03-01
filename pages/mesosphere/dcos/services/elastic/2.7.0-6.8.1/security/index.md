@@ -18,15 +18,15 @@ For a step-by-step guide on deploying a secure Elastic service check out [Deploy
 
 ## Transport Encryption
 
-#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl" }}}
 
 <p class="message--note"><strong>NOTE: </strong> It is possible to enable Transport Encryption after initial installation, but it requires setting <code>service.update_strategy</code> to <code>parallel</code>. After the update is complete, <code>service.update_strategy</code> should be set back to <code>serial</code>.</p>
 
 <p class="message--warning"><strong>WARNING: </strong> Because the update must occur in parallel, the service will be unavailable during the transition. Additionally, clients will need to be reconfigured after the transition.</p>
 
-#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl" }}}
 
 ### Forwarding DNS and Custom Domain
 

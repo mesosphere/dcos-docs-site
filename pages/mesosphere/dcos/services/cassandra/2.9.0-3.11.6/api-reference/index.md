@@ -6,4 +6,4 @@ menuWeight: 100
 model: /mesosphere/dcos/services/cassandra/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/api-reference.tmpl
+{{{ include "/mesosphere/dcos/services/include/api-reference.tmpl" }}}

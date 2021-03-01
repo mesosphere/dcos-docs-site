@@ -5,9 +5,9 @@ title: Limitations
 menuWeight: 190
 ---
 
-#include /mesosphere/dcos/services/include/limitations.tmpl
-#include /mesosphere/dcos/services/include/limitations-zones.tmpl
-#include /mesosphere/dcos/services/include/limitations-regions.tmpl
+{{{ include "/mesosphere/dcos/services/include/limitations.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/limitations-zones.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/limitations-regions.tmpl" }}}
 
 ## JVM Options
 

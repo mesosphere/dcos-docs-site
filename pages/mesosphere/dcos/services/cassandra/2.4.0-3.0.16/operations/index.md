@@ -6,7 +6,7 @@ menuWeight: 40
 model: /mesosphere/dcos/services/cassandra/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/services/include/operations.tmpl" }}}
 
 ## Performing {{ model.techShortName }} Cleanup and Repair Operations
 

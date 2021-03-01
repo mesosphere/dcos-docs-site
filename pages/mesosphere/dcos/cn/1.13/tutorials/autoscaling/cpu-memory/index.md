@@ -8,7 +8,7 @@ excerpt: 使用 CPU 和内存自动扩展 Marathon 服务
 
 <!-- This source repo for this topic is https://github.com/dcos/dcos-docs -->
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 
 您可以使用 Python 服务 `marathon-autoscaler.py` 根据 Mesos 报告的利用率指标自动扩展您的 Marathon 应用程序。您可以从 DC/OS 群集中运行此服务。`marathon-autoscaler.py` 旨在演示在 DC/OS 上运行服务时可能出现的情况。

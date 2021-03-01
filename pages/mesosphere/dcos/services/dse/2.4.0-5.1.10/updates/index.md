@@ -6,4 +6,4 @@ menuWeight: 40
 model: /mesosphere/dcos/services/dse/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/services/include/update.tmpl" }}}

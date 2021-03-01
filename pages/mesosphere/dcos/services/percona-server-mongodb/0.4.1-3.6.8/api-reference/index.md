@@ -6,4 +6,4 @@ menuWeight: 170
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/api-reference.tmpl
+{{{ include "/mesosphere/dcos/services/include/api-reference.tmpl" }}}

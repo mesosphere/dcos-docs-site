@@ -6,4 +6,4 @@ excerpt: Kafka support policies
 beta: true
 ---
 
-#include /mesosphere/dcos/services/include/support-policy.tmpl
+{{{ include "/mesosphere/dcos/services/include/support-policy.tmpl" }}}

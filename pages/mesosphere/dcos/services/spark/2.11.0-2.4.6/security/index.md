@@ -10,7 +10,7 @@ This section describes how to configure secure DC/OS service accounts for {{ mod
 
 When running in [DC/OS strict security mode](/mesosphere/dcos/latest/security/ent/#security-modes), both the dispatcher and jobs must authenticate to Mesos using a [DC/OS service account](/mesosphere/dcos/services/spark/2.11.0-2.4.6/security/#provision-a-service-account).
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+{{{ include "/mesosphere/dcos/services/include/service-account.tmpl" }}}
 
 <a name="give-perms"></a>
 

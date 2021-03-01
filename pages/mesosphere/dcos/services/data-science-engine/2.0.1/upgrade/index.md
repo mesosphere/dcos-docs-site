@@ -7,7 +7,7 @@ enterprise: true
 model: /mesosphere/dcos/services/data-science-engine/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/services/include/update.tmpl" }}}
 
 # Upgrades from 2.x versions
 - It is possible to upgrade directly to `2.0.1` from version `2.0.0`. However, you'll need to run the following command to successfully upgrade your {{ model.techName }} package: 

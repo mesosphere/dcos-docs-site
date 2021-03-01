@@ -6,7 +6,7 @@ excerpt: Understanding autoscaling
 ---
 
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 You can use autoscaling to automatically increase or decrease computing resources based on usage so that you're using only the resources you need. Here are some tutorials to show you how to implement autoscaling for your services.
 

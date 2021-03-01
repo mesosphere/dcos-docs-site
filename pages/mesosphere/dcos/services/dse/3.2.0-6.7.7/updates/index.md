@@ -6,8 +6,6 @@ menuWeight: 40
 model: /mesosphere/dcos/services/dse/data.yml
 ---
 
-<!-- #include /mesosphere/dcos/services/include/update.tmpl -->
-
 # Upgrading your cluster from {{ model.techShortName }} 5.1.10 to 6.7.6
 Due to the complexity of upgrading to {{ model.techShortName }} 6.7, we strongly advise that you attempt the upgrade on a test cluster before upgrading in your production environment. 
 

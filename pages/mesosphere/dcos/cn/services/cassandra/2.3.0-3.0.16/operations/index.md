@@ -6,7 +6,7 @@ menuWeight: 30
 model: /mesosphere/dcos/cn/services/cassandra/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/operations.tmpl" }}}
 
 ## 执行 Cassandra 清理和修复操作
 

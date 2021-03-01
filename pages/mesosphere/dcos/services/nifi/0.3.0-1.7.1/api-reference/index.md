@@ -5,7 +5,7 @@ menuWeight: 90
 excerpt: DC/OS NiFi Service API Reference
 model: ../../data.yml
 ---
-#include /mesosphere/dcos/services/include/api-reference.tmpl
+{{{ include "/mesosphere/dcos/services/include/api-reference.tmpl" }}}
 
 
 # Service Status Info

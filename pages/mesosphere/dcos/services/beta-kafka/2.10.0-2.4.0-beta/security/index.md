@@ -18,9 +18,9 @@ For more information on {{ model.techShortName }}'s security, read the following
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+{{{ include "/mesosphere/dcos/services/include/service-account.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-create-permissions.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-create-permissions.tmpl" }}}
 
 ## Transport Encryption
 
@@ -181,9 +181,9 @@ example/kafka-0-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-1-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/kafka-2-broker.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
-#include /mesosphere/dcos/services/include/security-kerberos-ad.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-kerberos-ad.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-service-keytab.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-service-keytab.tmpl" }}}
 
 #### Install the Service
 

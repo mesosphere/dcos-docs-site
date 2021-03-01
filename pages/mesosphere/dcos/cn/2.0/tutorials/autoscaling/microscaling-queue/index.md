@@ -4,7 +4,7 @@ title: 教程 - 基于队列长度的 microscaling
 navigationTitle: Microscaling
 menuWeight: 2
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 本教程指导您在 DC/OS 群集上设置 [Microscaling Systems][2] 的 Microscaling 演示。
 

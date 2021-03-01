@@ -4,7 +4,7 @@ navigationTitle: Scenario 3
 excerpt: Tutorial - Docker Images
 menuWeight: 21
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 # Scenario 3: Docker Images
 

@@ -6,7 +6,7 @@ menuWeight: 70
 model: /mesosphere/dcos/cn/services/kafka/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/troubleshooting.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/troubleshooting.tmpl" }}}
 
 ## 分区复制
 

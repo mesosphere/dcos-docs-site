@@ -6,4 +6,4 @@ menuWeight: 2
 model: /mesosphere/dcos/1.13/data.yml
 ---
 
-#include /mesosphere/dcos/install-include/aws-replaceable-masters-all.tmpl
+{{{ include "/mesosphere/dcos/install-include/aws-replaceable-masters-all.tmpl" }}}

@@ -6,8 +6,8 @@ menuWeight: 20
 model: /mesosphere/dcos/services/couchbase/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
-#include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
+{{{ include "/mesosphere/dcos/services/include/configuration-install-with-options.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-service-settings.tmpl" }}}
 
 ## Configuring for Production
 In a production deployment, each {{ model.serverName }} service type (`data`, `index`, `query`, `full text search`, `eventing`, and `analytics`) runs in its own container. In the respective service type configuration sections, you select the count you want. The following sample shows {{ model.configure.nodeDescription }} in the DC/OS dashboard and the {{ model.techName }} dashboard.

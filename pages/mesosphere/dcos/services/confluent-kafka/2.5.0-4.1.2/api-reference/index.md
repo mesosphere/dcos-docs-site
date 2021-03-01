@@ -6,7 +6,7 @@ menuWeight: 90
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/api-reference.tmpl
+{{{ include "/mesosphere/dcos/services/include/api-reference.tmpl" }}}
 
 # Topic Operations
 

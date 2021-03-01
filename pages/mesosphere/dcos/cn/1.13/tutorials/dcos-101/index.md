@@ -26,4 +26,4 @@ menuWeight: 0
 # 如何获取更多信息
 在开始之前，您可能需要将 [Glossary]（术语表）加入书签，以便参考。例如，您可以使用 [Glossary]（术语表）来查找不熟悉的概念或术语。
 -->
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}

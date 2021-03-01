@@ -5,7 +5,7 @@ title: 教程 - 部署第一个应用程序
 menuWeight: 3
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 欢迎阅读 DC/OS 101 教程第 3 部分
 

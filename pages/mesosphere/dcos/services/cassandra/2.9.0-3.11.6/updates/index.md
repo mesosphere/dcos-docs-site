@@ -6,7 +6,7 @@ menuWeight: 47
 model: /mesosphere/dcos/services/cassandra/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/services/include/update.tmpl" }}}
 
 # Upgrading directly from 2.5.0-3.11.3
 

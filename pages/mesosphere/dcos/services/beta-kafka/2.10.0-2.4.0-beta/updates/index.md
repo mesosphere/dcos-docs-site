@@ -7,4 +7,4 @@ beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/services/include/update.tmpl" }}}

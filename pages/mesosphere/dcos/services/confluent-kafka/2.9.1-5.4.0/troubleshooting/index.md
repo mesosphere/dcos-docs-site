@@ -6,7 +6,7 @@ menuWeight: 170
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/troubleshooting.tmpl
+{{{ include "/mesosphere/dcos/services/include/troubleshooting.tmpl" }}}
 
 ## Partition replication
 

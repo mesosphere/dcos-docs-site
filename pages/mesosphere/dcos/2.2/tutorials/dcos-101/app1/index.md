@@ -5,7 +5,7 @@ title: Tutorial - Deploying First Application
 menuWeight: 3
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 Welcome to part 3 of the DC/OS 101 Tutorial
 

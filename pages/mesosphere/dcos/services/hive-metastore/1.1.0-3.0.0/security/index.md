@@ -16,9 +16,9 @@ quota-aware: true
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+{{{ include "/mesosphere/dcos/services/include/service-account.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-create-permissions.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-create-permissions.tmpl" }}}
 
 # Using the Secret Store for Passwords
 
@@ -106,9 +106,9 @@ example/node-1-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/node-2-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
 
-#include /mesosphere/dcos/services/include/security-kerberos-ad.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-kerberos-ad.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-service-keytab.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-service-keytab.tmpl" }}}
 
 ### Install the Service
 
@@ -160,7 +160,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
 
 # <a name="transport_encryption"></a> Transport Encryption
 
-#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl" }}}
 
 ### Prerequisites
 - [A DC/OS Service Account with a secret stored in the DC/OS Secret Store](/mesosphere/dcos/latest/security/ent/service-auth/custom-service-auth/).
@@ -204,9 +204,9 @@ Install the DC/OS {{ model.techName }} service including the following options i
 }
 ```
 
-#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl" }}}
 
 # <a name="Forwarding DNS and Custom Domain"></a> Forwarding DNS and Custom Domain
 
-#include /mesosphere/dcos/services/include/forwarding-dns-custom-domain.tmpl
+{{{ include "/mesosphere/dcos/services/include/forwarding-dns-custom-domain.tmpl" }}}
 

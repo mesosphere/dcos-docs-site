@@ -9,4 +9,4 @@ excerpt: Konvoy needs certain domains to download required images.
 
 You must have access to the following domains through the customers networking rules so that Konvoy can download all required images:
 
-#include /dkp/konvoy/1.6/include/required-domains.tmpl
+{{{ include "/dkp/konvoy/1.6/include/required-domains.tmpl" }}}

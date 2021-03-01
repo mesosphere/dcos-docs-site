@@ -6,7 +6,7 @@ menuWeight: 30
 model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/services/include/operations.tmpl" }}}
 
 ## Backup
 

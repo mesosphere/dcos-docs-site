@@ -7,12 +7,12 @@ model: /mesosphere/dcos/services/dse/data.yml
 ---
 
 
-#include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
+{{{ include "/mesosphere/dcos/services/include/configuration-install-with-options.tmpl" }}}
 
 ## {{ model.techMidName }} {{ model.techOpsName }}
 The DC/OS {{ model.techMidName }} {{ model.techOpsName }} can be installed from the `{{ model.opsPackageName }}` package. It is managed identically to `{{ model.serviceName }}`. This guide primarily covers `{{ model.serviceName }}` for conciseness. See the later sections of the guide for any configuration specifics of DC/OS {{ model.techMidName }} {{ model.techOpsName }}.
 
-#include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
+{{{ include "/mesosphere/dcos/services/include/configuration-service-settings.tmpl" }}}
 
 ## Best Practices
 

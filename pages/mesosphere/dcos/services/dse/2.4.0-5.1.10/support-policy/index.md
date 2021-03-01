@@ -6,7 +6,7 @@ excerpt: Support Policy for DSE
 model: /mesosphere/dcos/services/dse/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/support-policy.tmpl
+{{{ include "/mesosphere/dcos/services/include/support-policy.tmpl" }}}
 
 
 ## Contacting DataStax Technical Support

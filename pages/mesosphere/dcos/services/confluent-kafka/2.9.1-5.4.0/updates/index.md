@@ -6,7 +6,7 @@ menuWeight: 140
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/services/include/update.tmpl" }}}
 
 
 ## Upgrading from 4.1.2 to 5.1.2(or higher)

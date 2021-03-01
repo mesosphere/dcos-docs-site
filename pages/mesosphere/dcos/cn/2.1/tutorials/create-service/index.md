@@ -5,7 +5,7 @@ menuWeight: 1
 excerpt: 创建和部署服务及容器化服务
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 
 本教程介绍如何使用 DC/OS Web 界面和 CLI 创建和部署简单的单命令服务和容器化服务。

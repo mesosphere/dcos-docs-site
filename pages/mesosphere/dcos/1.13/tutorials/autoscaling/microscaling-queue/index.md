@@ -4,7 +4,7 @@ title: Tutorial - Microscaling based on queue length
 navigationTitle: Microscaling
 menuWeight: 2
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 
 This tutorial walks you through setting up a microscaling demonstration from [Microscaling Systems][2] on a DC/OS cluster.

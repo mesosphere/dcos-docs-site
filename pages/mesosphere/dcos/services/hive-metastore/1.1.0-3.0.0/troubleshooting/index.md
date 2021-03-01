@@ -6,4 +6,4 @@ menuWeight: 70
 model: /mesosphere/dcos/services/hive-metastore/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/troubleshooting.tmpl
+{{{ include "/mesosphere/dcos/services/include/troubleshooting.tmpl" }}}

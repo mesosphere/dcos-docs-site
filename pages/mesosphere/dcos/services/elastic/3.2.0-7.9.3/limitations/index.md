@@ -15,9 +15,9 @@ If Kibana is configured with `kibana.elasticsearch_xpack_security_enabled` set t
 
 As a workaround, you should be able to expose Kibana using [EdgeLB](/mesosphere/dcos/services/edge-lb/) by following this guide: [Expose Kibana using EdgeLB](/mesosphere/dcos/services/elastic/3.2.0-7.9.3/how-to-guides#expose-kibana-using-edgelb).
 
-#include /mesosphere/dcos/services/include/limitations.tmpl
-#include /mesosphere/dcos/services/include/limitations-zones.tmpl
-#include /mesosphere/dcos/services/include/limitations-regions.tmpl
+{{{ include "/mesosphere/dcos/services/include/limitations.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/limitations-zones.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/limitations-regions.tmpl" }}}
 
 ## Upgrades and Configuration Updates
 

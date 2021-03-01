@@ -6,4 +6,4 @@ menuWeight: 70
 model: /mesosphere/dcos/cn/services/prometheus/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/troubleshooting.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/troubleshooting.tmpl" }}}

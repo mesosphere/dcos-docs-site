@@ -6,4 +6,4 @@ menuWeight: 47
 model: /mesosphere/dcos/services/cassandra/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/services/include/update.tmpl" }}}

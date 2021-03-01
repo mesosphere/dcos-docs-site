@@ -6,7 +6,7 @@ menuWeight: 70
 model: /mesosphere/dcos/services/hdfs/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/troubleshooting.tmpl
+{{{ include "/mesosphere/dcos/services/include/troubleshooting.tmpl" }}}
 
 # Troubleshooting a Replaced Journal Node
 

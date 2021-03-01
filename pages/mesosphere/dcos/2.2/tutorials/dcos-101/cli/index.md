@@ -6,7 +6,7 @@ model: /mesosphere/dcos/2.2/data.yml
 menuWeight: 1
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 Welcome to part 1 of the DC/OS 101 Tutorial.
 

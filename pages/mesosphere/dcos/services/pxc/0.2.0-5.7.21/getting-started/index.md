@@ -18,4 +18,4 @@ Getting started with a test instance of the DC/OS {{ model.techName }} service i
 - Your cluster must have {{ model.install.minNodeCount }}.
 {{ model.install.customRequirements }}
 
-#include /mesosphere/dcos/services/include/getting-started.tmpl
+{{{ include "/mesosphere/dcos/services/include/getting-started.tmpl" }}}

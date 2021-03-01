@@ -6,9 +6,9 @@ menuWeight: 20
 model: /mesosphere/dcos/cn/services/kafka/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl
-#include /mesosphere/dcos/cn/services/include/configuration-service-settings.tmpl
-#include /mesosphere/dcos/cn/services/include/configuration-regions.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-service-settings.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-regions.tmpl" }}}
 
 ## 配置 ZooKeeper 连接
 

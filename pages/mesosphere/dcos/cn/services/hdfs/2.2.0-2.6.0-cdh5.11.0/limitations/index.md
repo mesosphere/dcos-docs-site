@@ -5,9 +5,9 @@ title: 限制
 menuWeight: 100
 ---
 
-#include /mesosphere/dcos/cn/services/include/limitations.tmpl
-#include /mesosphere/dcos/cn/services/include/limitations-zones.tmpl
-#include /mesosphere/dcos/cn/services/include/limitations-regions.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/limitations.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/limitations-zones.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/limitations-regions.tmpl" }}}
 
 ## 安全
 

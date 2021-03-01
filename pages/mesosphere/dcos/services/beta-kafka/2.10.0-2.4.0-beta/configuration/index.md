@@ -7,9 +7,9 @@ beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
-#include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
-#include /mesosphere/dcos/services/include/configuration-regions.tmpl
+{{{ include "/mesosphere/dcos/services/include/configuration-install-with-options.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-service-settings.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-regions.tmpl" }}}
 
 ## Configuring the ZooKeeper Connection
 

@@ -7,7 +7,7 @@ beta: true
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/api-reference.tmpl
+{{{ include "/mesosphere/dcos/services/include/api-reference.tmpl" }}}
 
 # Topic Operations
 

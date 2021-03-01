@@ -7,7 +7,7 @@ model: /mesosphere/dcos/services/hive-metastore/data.yml
 ---
 
 
-#include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
-#include /mesosphere/dcos/services/include/configuration-create-json-file.tmpl
-#include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
-#include /mesosphere/dcos/services/include/configuration-regions.tmpl
+{{{ include "/mesosphere/dcos/services/include/configuration-install-with-options.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-create-json-file.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-service-settings.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-regions.tmpl" }}}

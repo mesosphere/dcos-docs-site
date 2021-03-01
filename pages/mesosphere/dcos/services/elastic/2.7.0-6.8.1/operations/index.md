@@ -6,7 +6,7 @@ menuWeight: 30
 model: /mesosphere/dcos/services/elastic/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/services/include/operations.tmpl" }}}
 
 ## Back up and Restore
 

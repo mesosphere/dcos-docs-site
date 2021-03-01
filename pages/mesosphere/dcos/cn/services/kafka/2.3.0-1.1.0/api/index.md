@@ -6,7 +6,7 @@ menuWeight: 90
 model: /mesosphere/dcos/cn/services/kafka/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/api-reference.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/api-reference.tmpl" }}}
 
 # 主题操作
 

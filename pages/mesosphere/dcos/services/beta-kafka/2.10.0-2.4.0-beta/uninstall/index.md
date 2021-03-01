@@ -7,4 +7,4 @@ menuWeight: 60
 model: /mesosphere/dcos/services/beta-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/uninstall.tmpl
+{{{ include "/mesosphere/dcos/services/include/uninstall.tmpl" }}}

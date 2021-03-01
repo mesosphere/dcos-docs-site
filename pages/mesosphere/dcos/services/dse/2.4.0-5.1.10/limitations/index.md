@@ -6,8 +6,8 @@ menuWeight: 100
 model: /mesosphere/dcos/services/dse/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/limitations.tmpl
-#include /mesosphere/dcos/services/include/limitations-zones.tmpl
+{{{ include "/mesosphere/dcos/services/include/limitations.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/limitations-zones.tmpl" }}}
 
 ## Service Limits
 - Multiple {{ model.shortTechName }} instances on a host is not supported in production.

@@ -5,7 +5,7 @@ title: 教程 - DC/OS 101
 menuWeight: 0
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 本 DC/OS&trade; 101 教程将指导您完成开始使用 DC/OS 所需的步骤。
 

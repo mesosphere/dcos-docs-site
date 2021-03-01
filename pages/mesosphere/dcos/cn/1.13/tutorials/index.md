@@ -4,7 +4,7 @@ title: 教程
 menuWeight: 140
 excerpt: 演示运行 DC/OS 的第一步和关键任务
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 
 本部分的教程包括以下任务：

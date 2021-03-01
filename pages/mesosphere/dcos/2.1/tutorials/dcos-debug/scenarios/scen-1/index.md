@@ -4,7 +4,7 @@ navigationTitle: Scenario 1
 excerpt: Tutorial - Resource Allocation
 menuWeight: 1
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 <a name=c1></a>
 

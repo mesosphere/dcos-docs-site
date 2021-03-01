@@ -5,4 +5,4 @@ menuWeight: 110
 excerpt:
 ---
 
-#include /mesosphere/dcos/services/include/support-policy.tmpl
+{{{ include "/mesosphere/dcos/services/include/support-policy.tmpl" }}}

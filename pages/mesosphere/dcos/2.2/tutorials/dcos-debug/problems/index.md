@@ -6,7 +6,7 @@ menuWeight: 1
 ---
 
 <!-- I. Problems Section -->
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 <a name="problems"></a>
 

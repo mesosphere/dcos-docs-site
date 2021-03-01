@@ -5,4 +5,4 @@ menuWeight: 110
 excerpt: DC/OS HDFS 的支持政策
 ---
 
-#include /mesosphere/dcos/cn/services/include/support-policy.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/support-policy.tmpl" }}}

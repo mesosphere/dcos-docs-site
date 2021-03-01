@@ -6,10 +6,10 @@ menuWeight: 20
 model: /mesosphere/dcos/cn/services/hdfs/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl
-#include /mesosphere/dcos/cn/services/include/configuration-create-json-file.tmpl
-#include /mesosphere/dcos/cn/services/include/configuration-service-settings.tmpl
-#include /mesosphere/dcos/cn/services/include/configuration-regions.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-install-with-options.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-create-json-file.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-service-settings.tmpl" }}}
+{{{ include "/mesosphere/dcos/cn/services/include/configuration-regions.tmpl" }}}
 
 ## 节点配置
 

@@ -7,7 +7,7 @@ beta: true
 model: /mesosphere/dcos/services/kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/advanced.tmpl
+{{{ include "/mesosphere/dcos/services/include/advanced.tmpl" }}}
 
 [enterprise]
 # Secure JMX

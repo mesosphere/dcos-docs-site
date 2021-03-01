@@ -6,12 +6,12 @@ menuWeight: 3
 model: /mesosphere/dcos/2.2/data.yml
 ---
 
-#include /mesosphere/dcos/install-include-0.3/azure-extended-example.tmpl
+{{{ include "/mesosphere/dcos/install-include-0.3/azure-extended-example.tmpl" }}}
 
-#include /mesosphere/dcos/install-include-0.3/all-dcos-versions.tmpl
+{{{ include "/mesosphere/dcos/install-include-0.3/all-dcos-versions.tmpl" }}}
 
-#include /mesosphere/dcos/install-include-0.3/all-node-os-versions.tmpl
+{{{ include "/mesosphere/dcos/install-include-0.3/all-node-os-versions.tmpl" }}}
 
-#include /mesosphere/dcos/install-include-0.3/azurerm-inputs-table.tmpl
+{{{ include "/mesosphere/dcos/install-include-0.3/azurerm-inputs-table.tmpl" }}}
 
-#include /mesosphere/dcos/install-include-0.3/all-outputs-table.tmpl
+{{{ include "/mesosphere/dcos/install-include-0.3/all-outputs-table.tmpl" }}}

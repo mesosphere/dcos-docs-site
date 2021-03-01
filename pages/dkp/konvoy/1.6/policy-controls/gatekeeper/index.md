@@ -7,4 +7,4 @@ excerpt: Learn how to enforce policies using Gatekeeper
 
 <!-- markdownlint-disable MD030 MD018-->
 
-#include /dkp/konvoy/1.6/include/enforce-policies-w-gatekeeper.tmpl
+{{{ include "/dkp/konvoy/1.6/include/enforce-policies-w-gatekeeper.tmpl" }}}

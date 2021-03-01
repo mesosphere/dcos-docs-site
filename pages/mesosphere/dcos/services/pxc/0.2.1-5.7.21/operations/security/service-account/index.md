@@ -6,4 +6,4 @@ menuWeight: 35
 model: /mesosphere/dcos/services/pxc/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+{{{ include "/mesosphere/dcos/services/include/service-account.tmpl" }}}

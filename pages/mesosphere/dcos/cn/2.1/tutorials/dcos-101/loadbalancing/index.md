@@ -5,7 +5,7 @@ title: 教程 - 负载均衡
 menuWeight: 8
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 
 欢迎阅读 DC/OS 101 教程第 8 部分。

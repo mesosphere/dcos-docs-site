@@ -7,10 +7,10 @@ model: /mesosphere/dcos/services/cassandra/data.yml
 ---
 
 
-#include /mesosphere/dcos/services/include/configuration-install-with-options.tmpl
-#include /mesosphere/dcos/services/include/configuration-create-json-file.tmpl
-#include /mesosphere/dcos/services/include/configuration-service-settings.tmpl
-#include /mesosphere/dcos/services/include/configuration-regions.tmpl
+{{{ include "/mesosphere/dcos/services/include/configuration-install-with-options.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-create-json-file.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-service-settings.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/configuration-regions.tmpl" }}}
 
 
 ## {{ model.techShortName }} Node Settings

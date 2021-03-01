@@ -54,7 +54,7 @@ package API through Admin Router.
 
 ## <a name="admin-router"></a>Admin Router permissions
 
-#include /mesosphere/dcos/include/permissions-inheritance-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/permissions-inheritance-disclaimer.tmpl" }}}
 
 Most HTTP requests made to a DC/OS cluster pass through Admin Router.
 Admin Router performs authorization for some services.

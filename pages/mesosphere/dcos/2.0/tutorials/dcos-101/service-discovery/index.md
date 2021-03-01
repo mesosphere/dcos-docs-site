@@ -5,7 +5,7 @@ navigationTitle: Service Discovery
 menuWeight: 4
 ---
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 Welcome to part 4 of the DC/OS 101 Tutorial
 

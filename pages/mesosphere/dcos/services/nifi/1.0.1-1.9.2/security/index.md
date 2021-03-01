@@ -52,7 +52,7 @@ dcos security org users grant ${SERVICE_ACCOUNT} dcos:adminrouter:ops:ca:ro full
 - In DC/OS 2.0 and later `FOLDER_ROLE` is the name of the top-level group where the service is located.
 
 
-#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl" }}}
 
 ## Authentication
 
@@ -125,6 +125,6 @@ Kerberos authentication relies on a central authority to verify that DC/OS {{ mo
 
 # Configuring DC/OS Access for DC/OS {{ model.techName }}
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+{{{ include "/mesosphere/dcos/services/include/service-account.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-create-permissions.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-create-permissions.tmpl" }}}

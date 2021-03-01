@@ -6,5 +6,5 @@ menuWeight: 30
 model: /mesosphere/dcos/services/minio/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/services/include/operations.tmpl" }}}
 

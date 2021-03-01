@@ -7,4 +7,4 @@ enterprise: true
 model: /mesosphere/dcos/data.yml
 ---
 
-#include /mesosphere/dcos/install-include-0.3/azure-remote-region-all.tmpl
+{{{ include "/mesosphere/dcos/install-include-0.3/azure-remote-region-all.tmpl" }}}

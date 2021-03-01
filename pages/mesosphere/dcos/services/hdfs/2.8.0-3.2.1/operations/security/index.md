@@ -16,13 +16,13 @@ A good overview of these features can be found [here](https://hadoop.apache.org/
 
 ## Transport Encryption
 
-#include /mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-transport-encryption-lead-in.tmpl" }}}
 
 <p class="message--note"><strong>NOTE: </strong>Enabling transport encryption is not <strong>required</strong> to use <a href="#kerberos-authentication">Kerberos authentication</a>, but transport encryption <strong>can</strong> be combined with Kerberos authentication.</p>
 
-#include /mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-configure-transport-encryption.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-transport-encryption-clients.tmpl" }}}
 
 ## Authentication
 
@@ -121,9 +121,9 @@ example/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 HTTP/data-2-node.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
 
-#include /mesosphere/dcos/services/include/security-kerberos-ad.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-kerberos-ad.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-service-keytab.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-service-keytab.tmpl" }}}
 
 #### Install the Service
 

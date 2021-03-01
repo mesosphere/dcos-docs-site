@@ -4,7 +4,7 @@ title: 在 DC/OS 上练习部署调试方案
 excerpt: 教程 - 练习一些调试场景
 menuWeight: 31
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 <!-- IV. Hands On Examples Section -->
 

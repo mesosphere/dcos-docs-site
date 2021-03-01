@@ -6,4 +6,4 @@ menuWeight: 40
 model: /mesosphere/dcos/cn/services/hdfs/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/update.tmpl" }}}

@@ -6,7 +6,7 @@ excerpt: Tutorial - Deploying applications on Marathon using Jenkins for DC/OS
 ---
 
 
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 This tutorial shows how to deploy applications on [Marathon][1] using Jenkins for DC/OS. This tutorial will walk you through creating a new Jenkins job, publishing a Docker container on source code changes, and deploying those changes to Marathon based on the [application definition][3] contained in the project’s `marathon.json` file.
 

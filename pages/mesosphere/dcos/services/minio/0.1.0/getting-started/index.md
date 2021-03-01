@@ -7,4 +7,4 @@ model: /mesosphere/dcos/services/minio/data.yml
 ---
 
 
-#include /mesosphere/dcos/services/include/getting-started.tmpl
+{{{ include "/mesosphere/dcos/services/include/getting-started.tmpl" }}}

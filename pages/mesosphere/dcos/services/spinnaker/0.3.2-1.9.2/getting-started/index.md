@@ -10,4 +10,4 @@ This section will show you how to
 - Install the Enterprise version of DC/OS
 - Deploy services on DC/OS
 
-#include /mesosphere/dcos/services/include/getting-started.tmpl
+{{{ include "/mesosphere/dcos/services/include/getting-started.tmpl" }}}

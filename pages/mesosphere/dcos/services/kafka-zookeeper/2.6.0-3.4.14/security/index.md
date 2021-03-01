@@ -16,9 +16,9 @@ An overview of the {{ model.techShortName }} Kerberos security features can be f
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+{{{ include "/mesosphere/dcos/services/include/service-account.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-create-permissions.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-create-permissions.tmpl" }}}
 
 ## Authentication
 
@@ -72,9 +72,9 @@ example/zookeeper-0-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/zookeeper-1-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 example/zookeeper-2-server.agoodexample.autoip.dcos.thisdcos.directory@EXAMPLE
 ```
-#include /mesosphere/dcos/services/include/security-kerberos-ad.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-kerberos-ad.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-service-keytab.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-service-keytab.tmpl" }}}
 
 #### Install the Service
 

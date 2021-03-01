@@ -6,7 +6,7 @@ menuWeight: 30
 model: /mesosphere/dcos/cn/services/hdfs/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/operations.tmpl" }}}
 
 ## 连接客户端
 

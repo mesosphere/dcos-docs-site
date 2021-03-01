@@ -5,4 +5,4 @@ navigationTitle: Universal 安装工具 FAQ
 menuWeight: 10
 ---
 
-#include /mesosphere/dcos/install-include/aws-tf-faq-all.tmpl
+{{{ include "/mesosphere/dcos/install-include/aws-tf-faq-all.tmpl" }}}

@@ -16,9 +16,9 @@ quota-aware: true
 
 <p class="message--note"><strong>NOTE: </strong>These security features are only available on DC/OS Enterprise 1.10 and later.</p>
 
-#include /mesosphere/dcos/services/include/service-account.tmpl
+{{{ include "/mesosphere/dcos/services/include/service-account.tmpl" }}}
 
-#include /mesosphere/dcos/services/include/security-create-permissions.tmpl
+{{{ include "/mesosphere/dcos/services/include/security-create-permissions.tmpl" }}}
 
 # Using the Secret Store for Passwords
 
@@ -46,5 +46,5 @@ We can use secrets in {{ model.techName }} to store database passwords. We can u
 
 # <a name="Forwarding DNS and Custom Domain"></a> Forwarding DNS and Custom Domain
 
-#include /mesosphere/dcos/services/include/forwarding-dns-custom-domain.tmpl
+{{{ include "/mesosphere/dcos/services/include/forwarding-dns-custom-domain.tmpl" }}}
 

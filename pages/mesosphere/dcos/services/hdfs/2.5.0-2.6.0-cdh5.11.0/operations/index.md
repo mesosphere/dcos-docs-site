@@ -6,7 +6,7 @@ menuWeight: 30
 model: /mesosphere/dcos/services/hdfs/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/services/include/operations.tmpl" }}}
 
 ## Connecting Clients
 

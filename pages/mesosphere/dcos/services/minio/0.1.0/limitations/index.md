@@ -6,7 +6,7 @@ excerpt: Understanding configuration limitations
 model: /mesosphere/dcos/services/minio/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/limitations.tmpl
+{{{ include "/mesosphere/dcos/services/include/limitations.tmpl" }}}
 
 
 ## Scaling Out

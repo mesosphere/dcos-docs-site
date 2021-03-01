@@ -6,7 +6,7 @@ menuWeight: 30
 model: /mesosphere/dcos/services/dse/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/operations.tmpl
+{{{ include "/mesosphere/dcos/services/include/operations.tmpl" }}}
 
 ## DSE OpsCenter Backup Service
 

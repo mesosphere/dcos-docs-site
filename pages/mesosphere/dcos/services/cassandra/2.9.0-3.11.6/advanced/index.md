@@ -6,7 +6,7 @@ menuWeight: 45
 model: /mesosphere/dcos/services/cassandra/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/advanced.tmpl
+{{{ include "/mesosphere/dcos/services/include/advanced.tmpl" }}}
 
 [enterprise]
 ## Secure JMX

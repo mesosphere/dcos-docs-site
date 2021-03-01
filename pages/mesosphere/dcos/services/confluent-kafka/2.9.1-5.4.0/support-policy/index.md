@@ -5,7 +5,7 @@ menuWeight: 190
 excerpt: Support Policy for Confluent Kafka
 ---
 
-#include /mesosphere/dcos/services/include/support-policy.tmpl
+{{{ include "/mesosphere/dcos/services/include/support-policy.tmpl" }}}
 
 ## Confluent Support
 

@@ -6,7 +6,7 @@ menuWeight: 70
 model: /mesosphere/dcos/services/couchbase/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/troubleshooting.tmpl
+{{{ include "/mesosphere/dcos/services/include/troubleshooting.tmpl" }}}
 
 ## {{ model.techName }} diagnostic information
 

@@ -6,9 +6,9 @@ menuWeight: 100
 model: /mesosphere/dcos/services/cassandra/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/limitations.tmpl
-#include /mesosphere/dcos/services/include/limitations-zones.tmpl
-#include /mesosphere/dcos/services/include/limitations-regions.tmpl
+{{{ include "/mesosphere/dcos/services/include/limitations.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/limitations-zones.tmpl" }}}
+{{{ include "/mesosphere/dcos/services/include/limitations-regions.tmpl" }}}
 
 ## Backup/Restore
 

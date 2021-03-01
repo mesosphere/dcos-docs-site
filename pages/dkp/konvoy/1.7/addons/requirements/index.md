@@ -7,9 +7,9 @@ excerpt: KBA Descriptions and Resource Requirements
 
 <!-- markdownlint-disable MD018 -->
 
-#include /dkp/konvoy/1.7/include/kba-requirements.tmpl
+{{{ include "/dkp/konvoy/1.7/include/kba-requirements.tmpl" }}}
 
-#include /dkp/konvoy/1.7/include/kba-addons-versions.tmpl
+{{{ include "/dkp/konvoy/1.7/include/kba-addons-versions.tmpl" }}}
 
 ## Related information
 

@@ -4,7 +4,7 @@ title: Practice Deployment Debugging Scenarios on DC/OS
 excerpt: Tutorial - Practicing some debugging scenarios
 menuWeight: 31
 ---
-#include /mesosphere/dcos/include/tutorial-disclaimer.tmpl
+{{{ include "/mesosphere/dcos/include/tutorial-disclaimer.tmpl" }}}
 
 <!-- IV. Hands On Examples Section -->
 

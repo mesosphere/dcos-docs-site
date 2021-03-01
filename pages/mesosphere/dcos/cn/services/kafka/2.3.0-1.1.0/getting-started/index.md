@@ -6,4 +6,4 @@ menuWeight: 10
 model: /mesosphere/dcos/cn/services/kafka/data.yml
 ---
 
-#include /mesosphere/dcos/cn/services/include/getting-started.tmpl
+{{{ include "/mesosphere/dcos/cn/services/include/getting-started.tmpl" }}}

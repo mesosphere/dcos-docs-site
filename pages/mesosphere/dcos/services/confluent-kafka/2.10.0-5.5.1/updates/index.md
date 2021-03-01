@@ -6,7 +6,7 @@ menuWeight: 140
 model: /mesosphere/dcos/services/confluent-kafka/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/update.tmpl
+{{{ include "/mesosphere/dcos/services/include/update.tmpl" }}}
 
 ## Upgrading from Portworx Confluent Kafka
 Customers who are using Portworx flavour of Confluent Kafka should follow these steps to migrate and upgrade to DC/OS Confluent Kafka.

@@ -6,4 +6,4 @@ menuWeight: 60
 model: /mesosphere/dcos/services/kafka-zookeeper/data.yml
 ---
 
-#include /mesosphere/dcos/services/include/uninstall.tmpl
+{{{ include "/mesosphere/dcos/services/include/uninstall.tmpl" }}}
