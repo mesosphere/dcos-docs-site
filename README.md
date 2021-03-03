@@ -40,26 +40,26 @@ You'll now be able to browse the docs at [http://localhost:3000/](http://localho
 
 ## Markdown with frontmatter
 
-We assume that you already know how to use markdown. You may want to reach out in #documentation and ask for some up to date resources in case you want to learn (more) about it.
+We assume that you already know how to use markdown. If you want more up to date information, refer to the #documentation Slack channel.
 
-Our markdown comes along with metadata - also called "frontmatter". Here are all the special variables that you might want to set in a pages' frontmatter:
+Our markdown comes with metadata - also called "frontmatter". Here are the special variables that you might want to set in a pages' frontmatter:
 
-- **excerpt**: presented below the title at the top of the content page, sometimes used in topic cards
-- **layout**: this determines the template you need, defaults to `layout.pug` (the standard content-page-layout).
-- **menuWeight**: determines ordering in the navigation structure, all numerical values except -1 accepted and sorted.
-- **navigationTitle**: short title that shows up in navigation bar on the left.
-- **title**: shows up at top of the page
+- **excerpt**: This text is presented below the title at the top of the content page, sometimes used in topic cards. This could be a sub-title.
+- **layout**: This specifies the layout template to use. The default is `layout.pug` (the standard content-page-layout).
+- **menuWeight**: This value determines the location in the navigation bar. All numerical values except -1 accepted and sorted.
+- **navigationTitle**: This is the short title that shows up in navigation bar on the left.
+- **title**: This is the title that shows up at top of the page
 
 ----------
 
-* **beta: true** - adds an beta label to a page's titel
-* **experimental: true** - adds an experimental label to a page's titel
+* **beta: true** - When this value is **true** a beta label is added to the page title.
+* **experimental: true** - When this value is **true** an experimental label is added to the page title.
 
 ## URL-structure
 
-The directory-tree withing `/pages` resembles the URL-structure of the final build. A pages' content **MUST** be in an `index.md`-file within the according directory.
+The directory-tree in `/pages` resembles the URL-structure of the final build. A pages' content **MUST** be in an `index.md`file in the respective directory.
 
-In short: `/pages/some/directory/index.md` will be available at `docs.d2iq.com/some/directory`.
+For example, `/pages/some/directory/index.md` is located at `docs.d2iq.com/some/directory`.
 
 ## Templating and Variables
 
@@ -292,4 +292,3 @@ If you encounter merge conflicts, the order of operations is slightly different 
 1. This will continue working through all the commits until complete.
 
 NB: Often you need to make choices and something might go wrong. `git rebase --abort` any time before it finishes will cancel and reset you to where you were.
-
