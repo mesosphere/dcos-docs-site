@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Platform services
-title: Addon Repositories
+title: Platform services
 menuWeight: 5
 excerpt: Learn more about platform services
 beta: true
