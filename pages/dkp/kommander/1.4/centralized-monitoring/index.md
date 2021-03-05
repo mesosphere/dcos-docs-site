@@ -23,7 +23,7 @@ Click on the `View Details` link on the managed cluster card, and the monitoring
 
 You may also search or filter by monitoring IDs on the Clusters page, linked above.
 
-Alternatively, you can run this kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID to determine which cluster the metrics and alerts correspond to:
+You can also run this kubectl command, **using the correct cluster's context or kubeconfig**, to look up the cluster's kube-system namespace UID to determine which cluster the metrics and alerts correspond to:
 
 ```bash
 $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
@@ -35,7 +35,7 @@ The Kommander cluster collects and presents metrics from all managed clusters re
 You can visualize these metrics in Grafana using a set of provided dashboards.
 
 The [Thanos Query][thanos_query] component is installed on the Kommander cluster.
-Thanos Query queries the Prometheus instances, running on the managed clusters, using a Thanos sidecar running alongside each Prometheus container.
+Thanos Query queries the Prometheus instances on the managed clusters, using a Thanos sidecar running alongside each Prometheus container.
 Grafana is configured with Thanos Query as its datasource, and comes with a pre-installed dashboard for a global view of all managed clusters, named `Kubernetes / Compute Resources / Cluster [Global]`.
 The `Thanos Query` dashboard is also installed, by default, to monitor the Thanos Query component.
 
@@ -50,7 +50,7 @@ https://<CLUSTER_URL>/ops/portal/kommander/monitoring/grafana
 
 <p class="message--note"><strong>NOTE: </strong>This is a separate Grafana instance than the one installed on all Konvoy clusters. It is dedicated specifically to components related to centralized monitoring.</p>
 
-Optionally, if you want to access the Thanos Query UI (essentially the Prometheus UI), the UI is exposed at:
+Optionally, if you want to access the Thanos Query UI (essentially the Prometheus UI), the UI is accessible at:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/monitoring/query

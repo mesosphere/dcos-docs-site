@@ -14,28 +14,28 @@ By default, up to 15 days of cost metrics are retained, with no backup to an ext
 ## Centralized Costs
 
 The Kommander cluster collects cost metrics remotely, using Thanos, from each managed cluster.
-Costs from the last 1 day and last 7 days are displayed for each cluster, workspace, and project breakdown in the respective Kommander UI pages.
+Costs from the last day 1 and last 7 days are displayed for each cluster, workspace, and project breakdown in the respective Kommander UI pages.
 Further cost analysis and details can be found in the Kubecost UI running on Kommander, at:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/kubecost/frontend/detail.html#&agg=cluster
 ```
 
-For more information on cost allocation metrics and how to navigate this view in the Kubecost UI, please see the [Kubecost docs on Kubernetes Cost Allocation][kubecost_cost_allocation].
+For more information on cost allocation metrics and how to navigate this view in the Kubecost UI, see the [Kubecost docs on Kubernetes Cost Allocation][kubecost_cost_allocation].
 
 To identify the clusters in Kubecost, use the cluster's monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.
-To find a cluster's monitoring ID, go to the **Clusters** tab on the Kommander UI in the relevant workspace:
+To find the cluster's monitoring ID, select the **Clusters** tab on the Kommander UI in the relevant workspace:
 
 ```
 https://<CLUSTER_URL>/ops/portal/kommander/ui/clusters
 ```
 
-Select **View Details** on the managed cluster card, select the **Configuration** tab, and find the monitoring ID under **Monitoring ID (clusterId)**.
+Select **View Details** on the managed cluster card. Select the **Configuration** tab, and find the monitoring ID under **Monitoring ID (clusterId)**.
 
 You can also search or filter by monitoring ID on the **Clusters** page.
 
-To look up a cluster's kube-system namespace UID directly via the CLI, run the following kubectl command, **using the cluster's context or kubeconfig**.
+To look up a cluster's kube-system namespace UID directly using the CLI, run the following kubectl command, **using the cluster's context or kubeconfig**.
 
 ```bash
 $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
@@ -43,9 +43,9 @@ $ kubectl get namespace kube-system -o jsonpath='{.metadata.uid}'
 
 ### Kubecost
 
-Kubecost integrates directly with the Kubernetes API and cloud billing APIs to give you real-time visibility into Kubernetes spend and cost allocation.
-By monitoring your Kubernetes spend across clusters, you can avoid overspend that may be caused by uncaught bugs or oversights.
-Further, with a cost monitoring solution in place, you can realize the full potential and cost of these resources and avoid over-provisioning resources.
+Kubecost integrates directly with the Kubernetes API and cloud billing APIs to give you real-time visibility into your Kubernetes spend and cost allocation.
+By monitoring your Kubernetes spend across clusters, you can avoid overspend caused by uncaught bugs or oversights.
+With a cost monitoring solution in place you can realize the full potential and cost of these resources and avoid over-provisioning resources.
 
 To customize pricing and out of cluster costs for AWS and GCP, you must apply these settings using the Kubecost UI running on each relevant cluster.
 You can access the attached cluster's Kubecost Settings page at:
@@ -54,7 +54,7 @@ You can access the attached cluster's Kubecost Settings page at:
 https://<MANAGED_CLUSTER_URL>/ops/portal/kubecost/frontend/settings.html
 ```
 
-<p class="message--important"><strong>IMPORTANT: </strong>Make sure to access the cluster's Kubecost UI linked above, not the centralized Kubecost UI running on Kommander.</p>
+<p class="message--important"><strong>IMPORTANT: </strong>Make sure you access the cluster's Kubecost UI linked above, not the centralized Kubecost UI running on Kommander.</p>
 
 #### AWS
 
