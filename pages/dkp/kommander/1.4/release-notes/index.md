@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 0 was released on 10 March, 2021.**
+**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 0 was released on 26 February, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
