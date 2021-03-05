@@ -22,11 +22,14 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
 # Supported Versions
-| Kubernetes Support | Version |
+Kubernetes Support | Version
+-- | --
+Minimum | 1.18.0
+Maximum | 1.20.x
+Default | 1.20.2
+
+
 | ------------------ | ------- |
-| **Minimum**        | 1.17.0  |
-| **Maximum**        | 1.19.x  |
-| **Default**        | 1.19.7  |
 
 # Breaking changes
 
@@ -38,16 +41,17 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
 ## Component versions
-- Addon: 1.4.0-6
-- Chart: 0.13.7
-- kommander-federation (yakcl): 0.7.0
-- kommander-licensing (yakcl): 0.7.0
-- UI: 6.70.0
+- Addon: 1.4.0-1
+- Chart: 0.16.1
+- kommander-federation (yakcl): 0.9.0
+- kommander-licensing (yakcl): 0.9.0
+- UI: 6.88.0
 - kommander-karma: 0.3.12
 - kubeaddons-catalog: 0.1.15
 - kommander-thanos: 0.1.16
-- kubecost: 0.1.15
+- kubecost: 0.5.4
 - grafana: 6.6.0
 - karma: 0.70
 - thanos: 0.10.1
-- cost-analyzer: 1.70.1
+- cost-analyzer: 1.71.1
+- thanos: 0.10.1
