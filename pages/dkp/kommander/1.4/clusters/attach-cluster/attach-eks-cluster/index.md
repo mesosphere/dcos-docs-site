@@ -41,7 +41,7 @@ This procedure requires the following items and configurations:
    kubectl -n kube-system create serviceaccount kommander-cluster-admin
    ```
 
-1. Configure your `kommander-cluster-admin` service account to have `cluster-admin` permissions. Enter the following commands:
+1. Configure your `kommander-cluster-admin` service account to have `cluster-admin` permissions. Enter the following command:
 
    ```yaml
    cat << EOF | kubectl apply -f -
@@ -120,11 +120,11 @@ This procedure requires the following items and configurations:
 
 1. Select the **Attach Cluster** button. The **Connection Information** window displays.
 
-1. Select **upload**. The upload kubeconfig file dialog box appears. Paste the contents of your clipboard and select **Ok**.
+1. Paste the contents of your clipboard into the **Connection Information** Kubeconfig File text box and select **Ok**.
 
-1. Assign a name and label for each cluster in your Kommander project.
+1. Assign a name and add any desired labels for the cluster.
 
-1. Edit your project to associate all of your clusters with the project.
+1. Confirm you are assigning the cluster to your desired workspace.
 
 1. Select the **Submit** button.
 
@@ -136,7 +136,7 @@ For information on related topics or procedures, refer to the following:
 
 - [Configuring and Running Amazon EKS Clusters](https://aws.amazon.com/eks/)
 
-- [Installing and Configuring Konvoy v1.5.0 or above](/dkp/konvoy/1.6/install/)
+- [Installing and Configuring Konvoy v1.5.0 or above](/dkp/konvoy/1.7/install/)
 
 - [Installing and Configuring Kommander v1.2.0 or above](/dkp/kommander/1.4/install/)
 
