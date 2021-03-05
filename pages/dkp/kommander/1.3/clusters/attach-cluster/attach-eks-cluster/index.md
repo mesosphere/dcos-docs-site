@@ -120,7 +120,7 @@ This procedure requires the following items and configurations:
 
 1. Select the **Attach Cluster** button. The **Connection Information** window displays.
 
-1. Paste the contents of your clipboard into the **Connection Information** Kubeconfig File text box and select **Ok**.
+1. Paste the contents of your clipboard into the **Connection Information** Kubeconfig File text box.
 
 1. Assign a name and add any desired labels for the cluster.
 
