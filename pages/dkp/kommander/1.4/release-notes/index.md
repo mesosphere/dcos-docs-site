@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Kommander v1.4 Release Notes
+navigationTitle: Kommander v1.4 Beta 0 Release Notes
 title: Release Notes
 menuWeight: 0
 excerpt: View release-specific information for Kommander
@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 0 was released on ?????.**
+**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 0 was released on 10 March, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -37,11 +37,6 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
-# New Features
-## Feature #1 
-Customers now .
-
-For more information, see .
 ## Component versions
 - Addon: 1.4.0-6
 - Chart: 0.13.7
@@ -56,5 +51,3 @@ For more information, see .
 - karma: 0.70
 - thanos: 0.10.1
 - cost-analyzer: 1.70.1
-## Fixed and Improved Issues
-- Added 
