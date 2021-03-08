@@ -205,7 +205,7 @@ spec:
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.19-1.4.0
+    configVersion: stable-1.19-1.4.1
     addonsList:
     - name: dispatch
       enabled: false

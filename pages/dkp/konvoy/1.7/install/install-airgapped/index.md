@@ -25,6 +25,8 @@ Before installing, verify that your environment meets the following basic requir
 
 - The `konvoy_air_gapped.tar.bz2` that will contain the required artifacts to perform an air-gapped installation.
 
+- If you would like to use Kommander for multi-cluster management capabilities, you need to exercise additional configuration steps. Please refer to the [Kommander air-gapped installation documentation][kommander_air_gapped_install].
+
 ## Control plane nodes
 
 - You should have at least three control plane nodes.
@@ -760,6 +762,7 @@ When the `konvoy deploy` completes its setup operations, the following files are
 [helm]: https://helm.sh/
 [install_docker]: https://www.docker.com/products/docker-desktop
 [install_kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
+[kommander_air_gapped_install]: /dkp/kommander/1.3/install-airgapped/
 [keepalived]: https://www.keepalived.org/
 [kibana]: https://www.elastic.co/products/kibana
 [kubeconfig]: https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/

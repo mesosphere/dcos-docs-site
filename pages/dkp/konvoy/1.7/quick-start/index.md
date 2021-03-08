@@ -8,7 +8,7 @@ enterprise: false
 menuWeight: 60
 ---
 
-<!-- markdownlint-disable MD025 -->
+<!-- markdownlint-disable MD025 MD018-->
 
 Konvoy is a tool for provisioning Kubernetes clusters with a suite of pre-selected [Cloud Native Computing Foundation (CNCF)][cncf] and community-contributed tools.
 By combining a native Kubernetes cluster as its foundation with a default set of cluster extensions,
@@ -39,6 +39,12 @@ Before starting the Konvoy installation, you should verify the following:
     - Security Groups
     - Route Tables
     - IAM Roles
+
+Make sure the following domains are accessible from the control plane nodes and worker nodes.
+
+#include /dkp/konvoy/1.7/include/required-domains.tmpl
+
+For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, and `github.com` are accessible.
 
 In addition, FIPS mode enablement is a decision to make when installing and running Konvoy for the first time, or when you intend to create a new cluster. You can enable FIPS mode only at cluster inception. There is no way to apply FIPS mode to an existing cluster, you must provision a new one.
 
