@@ -85,7 +85,7 @@ Update your `dex` addon configuration:
               emailAttr: < email attribute in saml response >
 ```
 
-Step 4: Modify `traefik-foward-auth` addon in your `cluster.yaml` to
+Step 4: Modify `traefik-foward-auth` addon in your `cluster.yaml` and add a whitelist
 
 This step is required to give access to a user to ops-portal. For each user, you must [give access to Kubernetes resources](../rbac) and add an entry in the `whitelist` below.
 
