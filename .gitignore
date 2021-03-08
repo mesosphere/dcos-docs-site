@@ -24,4 +24,4 @@ secrets.sh
 # editor plugins
 .vscode
 .idea
-sync.*/
+sync/

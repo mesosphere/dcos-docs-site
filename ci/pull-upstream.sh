@@ -15,32 +15,32 @@ DOCS_SUBFOLDER="$4"                      # e.g. pages/dkp/konvoy/1.7
 REPO_URL="git@github.com:$REPO_NAME.git"
 
 echo "Cloning $REPO_URL on branch $REPO_BRANCH"
-TMP_DIR="$(cd "$PROJECT_ROOT/$(mktemp -d sync.XXXXX)" && pwd)"
-cd "$TMP_DIR"
-gh repo clone "$REPO_NAME" upstream -- -b "$REPO_BRANCH"
-cd upstream
+
+TMP_DIR="$PROJECT_ROOT/sync"
+mkdir -p "$TMP_DIR"
+cd "$PROJECT_ROOT/sync"
+[ ! -d "$REPO_NAME" ] && git clone "https://github.com/$REPO_NAME" $REPO_NAME
+cd "$PROJECT_ROOT/sync/$REPO_NAME"
+git fetch
+git checkout "$REPO_BRANCH"
 SYNC_REPO_REF="$(git rev-parse --short HEAD)"
 
 echo "Diffing repo $REPO_SUBFOLDER against docs $DOCS_SUBFOLDER"
-rsync -a "$TMP_DIR/upstream/$REPO_SUBFOLDER/" "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
+rsync -a "$TMP_DIR/$REPO_NAME/$REPO_SUBFOLDER/" "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
 cd "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
 
-STATUS=$(git status)
 if [ -z "$(git status --porcelain)" ]; then
-    echo "No changes found: $STATUS"
+    echo "No changes."
 else
-    echo "Changes found $STATUS"
     BRANCH="docs-sync-$REPO_BRANCH-$SYNC_REPO_REF"
-
     echo "Creating PR against docs with branch $BRANCH"
+    git checkout -b "$BRANCH" || git checkout "$BRANCH"
     git add --all
-    git checkout -b "$BRANCH"
     git commit -m  "docs: sync with $REPO_NAME:$REPO_BRANCH"
 
     printf '\n' | gh pr create \
       --title "Docs: Sync $REPO_NAME:$REPO_BRANCH with docs repo" \
       --body "This is an automated PR, no humans were harmed creating this PR. You can find the script in the docs repo." \
       --base main
+    git checkout main
 fi
-
-rm -rf "$TMP_DIR"
