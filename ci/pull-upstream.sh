@@ -4,7 +4,7 @@
 # Requires gh >= 1.6.2 for pr creation
 # Requires rsync
 
-set -euo pipefail
+set -euxo pipefail
 IFS=$'\n\t'
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")"/../ >/dev/null 2>&1 && pwd)"
 
@@ -19,7 +19,9 @@ echo "Cloning $REPO_URL on branch $REPO_BRANCH"
 TMP_DIR="$PROJECT_ROOT/sync"
 mkdir -p "$TMP_DIR"
 cd "$PROJECT_ROOT/sync"
-[ ! -d "$REPO_NAME" ] && git clone "https://github.com/$REPO_NAME" $REPO_NAME
+
+[ ! -d "$REPO_NAME" ] && gh repo clone "$REPO_NAME" "$REPO_NAME"
+
 cd "$PROJECT_ROOT/sync/$REPO_NAME"
 git fetch
 git checkout "$REPO_BRANCH"
@@ -37,10 +39,12 @@ else
     git checkout -b "$BRANCH" || git checkout "$BRANCH"
     git add --all
     git commit -m  "docs: sync with $REPO_NAME:$REPO_BRANCH"
+    git push origin "$BRANCH" -uf
 
     printf '\n' | gh pr create \
       --title "Docs: Sync $REPO_NAME:$REPO_BRANCH with docs repo" \
       --body "This is an automated PR, no humans were harmed creating this PR. You can find the script in the docs repo." \
       --base main
+
     git checkout main
 fi
