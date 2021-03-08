@@ -35,7 +35,6 @@ else
     git add --all
     git checkout -b "$BRANCH"
     git commit -m  "docs: sync with docs repo"
-    git push origin "$BRANCH" -u
 
     printf '\n' | gh pr create \
       --title "Docs: Sync $REPO_BRANCH with docs repo" \

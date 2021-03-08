@@ -35,14 +35,12 @@ else
     echo "Creating PR against docs with branch $BRANCH"
     git add --all
     git checkout -b "$BRANCH"
-    git commit -m  "docs: sync with $REPO_NAME:REPO_BRANCH"
-    git push origin "$BRANCH" -u
+    git commit -m  "docs: sync with $REPO_NAME:$REPO_BRANCH"
 
     printf '\n' | gh pr create \
-      --title "Docs: Sync $REPO_BRANCH with docs repo" \
+      --title "Docs: Sync $REPO_NAME:$REPO_BRANCH with docs repo" \
       --body "This is an automated PR, no humans were harmed creating this PR. You can find the script in the docs repo." \
-      --base "$REPO_BRANCH" \
-      --repo="$REPO_NAME"
+      --base main
 fi
 
 rm -rf "$TMP_DIR"
