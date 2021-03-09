@@ -70,7 +70,7 @@ Konvoy now scans for common vulnerabilities and exposures (CVE) and reports them
 - Wait for an addon to be deleted before printing `[OK]` message. (COPS-6692)
 - Clean up dangling docker container `pinata-sshd` when running `konvoy down`.
 - Fail if root volume disk usage exceeds 85%.
-- Fail if machines do nothave 2 CPUs or 2GB of Memory.
+- Fail if machines do not have 2 CPUs or 2GB of Memory.
 - Remove support for Kubernetes `v1.16`.
 
 #### API

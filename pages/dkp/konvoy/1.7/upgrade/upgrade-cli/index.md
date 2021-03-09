@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>Before upgrading, keep in mind that your Konvoy CLI version can only be upgraded to a compatible Konvoy version.</p>
+<p class="message--note"><strong>NOTE: </strong>Before upgrading, keep in mind that your Konvoy CLI version can only be upgraded to a compatible Konvoy version. In general, you should upgrade Konvoy from the previous released minor version of Konvoy.</p>
 
 ## Before you begin: Prepare for Konvoy CLI upgrade
 
@@ -119,6 +119,20 @@ spec:
 
 If the Istio addon is enabled while running Konvoy 1.6.x and you want to upgrade, you have to make [further changes][istio-upgrade] before running `konvoy up --upgrade`.
 
+### Upgrading Konvoy from v1.5.x to v1.7.0
+
+<p class="message--note"><strong>NOTE: </strong>You have to upgrade from Konvoy version 1.5.x to version 1.6.x before attempting an upgrade to Konvoy 1.7.</p>
+
+First, complete the [upgrade from Konvoy version 1.5.x to version 1.6.x][15-to-16-upgrade].
+
+After that's completed, you will need to locate and delete the `.terraform` directory in the state folder. You can delete the `.terraform` directory however you choose. One way you can do this is in the command line, starting at the Konvoy directory. From there, change directories to the `state` directory and run the following command:
+
+```bash
+rm -rf .terraform/
+```
+
+After deleting the `.terraform` directory, return to the main Konvoy folder with your Konvoy file, and [follow the steps to upgrade your cluster][upgrade-to-17].
+
 ## Upgrades and Running Workloads
 
 <p class="message--note"><strong>NOTE: </strong>During the upgrade process, if the cluster has certain types of workloads running, the Konvoy CLI displays a warning. These warnings report skipped nodes in the upgrade process.</p>
@@ -141,8 +155,10 @@ To avoid these warnings, and reduce risks to application availability:
 - Using distributed or remote storage solutions instead of host-based storage.
 - Set Pod anti-affinity to ensure pods distribute across nodes for better fault tolerance.
 
+[15-to-16-upgrade]: https://docs.d2iq.com/dkp/konvoy/1.6/upgrade/upgrade-cli/#upgrading-konvoy-from-v15x-to-v161
 [docker_api_auth]: https://github.com/docker/distribution/blob/master/docs/spec/auth/token.md
 [docker_registry]: https://docs.docker.com/registry/deploying/
 [docker_v2_auth_token]: https://docs.docker.com/registry/spec/auth/token/
 [harbor]: https://github.com/goharbor/harbor
 [istio-upgrade]: upgrade-cli-istio
+[upgrade-to-17]: #upgrading-konvoy-from-v16x-to-v170

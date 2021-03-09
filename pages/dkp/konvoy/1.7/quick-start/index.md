@@ -116,13 +116,15 @@ Kubernetes cluster and addons deployed successfully!
 
 Run `konvoy apply kubeconfig` to update kubectl credentials.
 
+Run `konvoy check` to verify that the cluster has reached a steady state and all deployments have finished.
+
 Navigate to the URL below to access various services running in the cluster.
   https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing
 And login using the credentials below.
   Username: AUTO_GENERATED_USERNAME
   Password: SOME_AUTO_GENERATED_PASSWORD_12345
 
-The dashboard and services may take a few minutes to be accessible.
+If the cluster was recently created, the dashboard and services may take a few minutes to be accessible.
 ```
 
 You should copy the cluster URL and login information and paste it into a text file, then save the file in a secured, shared location on your network.
