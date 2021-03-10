@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
 
-Konvoy provides a subcommand to generate a diagnostic bundle with data collected for the last 48 hours of the life of the cluster.
+Konvoy provides a command to generate a diagnostic bundle with data collected for the last 48 hours of the life of the cluster.
 
 To generate the diagnostic bundle
 

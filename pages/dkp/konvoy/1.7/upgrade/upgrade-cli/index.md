@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<p class="message--note"><strong>NOTE: </strong>Before upgrading, keep in mind that your Konvoy CLI version can only be upgraded to a compatible Konvoy version.</p>
+<p class="message--note"><strong>NOTE: </strong>Before upgrading, keep in mind that your Konvoy CLI version can only be upgraded to a compatible Konvoy version. In general, you should upgrade Konvoy from the previous released minor version of Konvoy.</p>
 
 ## Before you begin: Prepare for Konvoy CLI upgrade
 
@@ -65,38 +65,38 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.7.0
-Wrote Konvoy CLI version 'v1.7.0' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.7.1
+Wrote Konvoy CLI version 'v1.7.1' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.6.x to v1.7.0
+### Upgrading Konvoy from v1.6.x to v1.7.1
 
 **You must modify your `cluster.yaml` with these changes when upgrading from a previous Konvoy version:**
 
-Konvoy v1.7.x requires Calico version `3.17.x`. If your `cluster.yaml` file specifies an older version of Calico you must update to that version. The latest supported version is `v3.17.1`,
+Konvoy v1.7.x requires Calico version `3.17.x`. If your `cluster.yaml` file specifies an older version of Calico you must update to that version. The latest supported version is `v3.17.3`,
 
-It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.19.7`.
+It is recommended to upgrade to the newest supported version of Kubernetes, set `spec.kubernetes.version: 1.19.8`.
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.9`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.19-3.2.0`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.19-3.3.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.19-1.3.0`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.19-1.3.1`.
 
-The version of Konvoy is now `v1.7.0`, set `spec.version: v1.7.0`.
+The version of Konvoy is now `v1.7.1`, set `spec.version: v1.7.1`.
 
 ```yaml
 kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta1
 spec:
   kubernetes:
-    version: 1.19.7
+    version: 1.19.8
   ...
   containerNetworking:
     calico:
-      version: v3.17.1
+      version: v3.17.3
   ...
   containerRuntime:
     containerd:
@@ -104,20 +104,34 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: stable-1.19-3.2.0
+      configVersion: stable-1.19-3.3.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: stable-1.19-1.3.0
+      configVersion: stable-1.19-1.3.1
       addonsList:
         - name: kommander
           enabled: true
   ...
-  version: v1.7.0
+  version: v1.7.1
 ```
 
-### [experimental]Upgrading the Istio addon while upgrading Konvoy from v1.6.x to v1.7.0[/experimental]
+### [experimental]Upgrading the Istio addon while upgrading Konvoy from v1.6.x to v1.7.1[/experimental]
 
 If the Istio addon is enabled while running Konvoy 1.6.x and you want to upgrade, you have to make [further changes][istio-upgrade] before running `konvoy up --upgrade`.
+
+### Upgrading Konvoy from v1.5.x to v1.7.1
+
+<p class="message--note"><strong>NOTE: </strong>You have to upgrade from Konvoy version 1.5.x to version 1.6.x before attempting an upgrade to Konvoy 1.7.</p>
+
+First, complete the [upgrade from Konvoy version 1.5.x to version 1.6.x][15-to-16-upgrade].
+
+After that's completed, you will need to locate and delete the `.terraform` directory in the state folder. You can delete the `.terraform` directory however you choose. One way you can do this is in the command line, starting at the Konvoy directory. From there, change directories to the `state` directory and run the following command:
+
+```bash
+rm -rf .terraform/
+```
+
+After deleting the `.terraform` directory, return to the main Konvoy folder with your Konvoy file, and [follow the steps to upgrade your cluster][upgrade-to-17].
 
 ## Upgrades and Running Workloads
 
@@ -141,8 +155,10 @@ To avoid these warnings, and reduce risks to application availability:
 - Using distributed or remote storage solutions instead of host-based storage.
 - Set Pod anti-affinity to ensure pods distribute across nodes for better fault tolerance.
 
+[15-to-16-upgrade]: https://docs.d2iq.com/dkp/konvoy/1.6/upgrade/upgrade-cli/#upgrading-konvoy-from-v15x-to-v161
 [docker_api_auth]: https://github.com/docker/distribution/blob/master/docs/spec/auth/token.md
 [docker_registry]: https://docs.docker.com/registry/deploying/
 [docker_v2_auth_token]: https://docs.docker.com/registry/spec/auth/token/
 [harbor]: https://github.com/goharbor/harbor
 [istio-upgrade]: upgrade-cli-istio
+[upgrade-to-17]: #upgrading-konvoy-from-v16x-to-v171
