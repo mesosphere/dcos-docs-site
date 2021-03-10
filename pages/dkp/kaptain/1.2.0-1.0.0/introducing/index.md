@@ -21,4 +21,3 @@ If you want to learn more, please read our [blog post for Kaptain](https://d2iq.
  |
 | Train, tune, and deploy from a Jupyter notebook   | No context switching or credentials and CLI tools on individuals' laptops    |
 | Enterprise-grade security controls and profiles   | Multi-tenancy? No problem!                                      |
-| Two-click installation from Kommander             | Faster ROI. Focus on what's important: data science             |
