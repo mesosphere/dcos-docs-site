@@ -28,9 +28,11 @@ Kommander provides a command center for all your cloud native management needs i
 
 # Breaking changes
 
-In Kommander 1.3, unless a default NetworkPolicy existed prior to upgrading to 1.3, a default NetworkPolicy was created that allowed traffic originating only within your Projects namespace. Pods could not talk to Pods outside of that namespace. In some cases this is not a desired default state. Now no default NetworkPolicy is created and no blocking is done. 
-If you made necessary changes to address this in Kommander 1.3, upgrading to Kommander 1.3.1 does not impact those changes.
+In Kommander 1.3, all new projects were created with a default NetworkPolicy that only allowed traffic originating within your Projects namespace. This policy was also created in all existing projects that did not already have a NetworkPolicy when upgrading to Kommander 1.3.
 
+The result of this default policy was that Pods could not talk to Pods outside of that namespace. In some cases this was not a desired default state. As of Kommander 1.3.1, no default NetworkPolicy is created in new (or existing projects) and thus no traffic blocking is done by default.
+
+If you are upgrading from Kommander 1.3 and already made the necessary changes to address this issue (for example, by adding a NetworkPolicy with the desired traffic rules), then upgrading to Kommander 1.3.1 will not impact those existing policies.
 # New features
 
 - Add license delete mutation.
