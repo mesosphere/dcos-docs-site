@@ -20,10 +20,6 @@ By default, and to enable fluid communications within and between clusters, all 
 
 A Network Policy's rules define ingress and egress for network communications between pods and across namespaces. Successful traffic control using network policies is bi-directional. You have to configure both the egress policy on the source pod and the ingress policy on the destination pod to enable the traffic. If either end denies the traffic, it will not flow between the pods.
 
-Since the Kubernetes default is to allow all traffic, it's a common practice to create a default "deny all traffic" rule, and then specifically open up some combination of the pods, ports, and applications as needed.
-
-When you first create a Project, Kommander automatically creates a NetworkPolicy that allows traffic originating only within your Project namespace. Pods cannot talk to Pods outside of that namespace, by default. If you want to enable incoming traffic from other namespaces and pods, then you have to create a NetworkPolicy with ingress rules.
-
 Kommander ensures that any network policies that you create in a project get applied to all target clusters in the project.
 
 # Creating Network Policies
