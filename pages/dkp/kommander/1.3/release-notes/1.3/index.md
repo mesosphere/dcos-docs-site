@@ -26,6 +26,33 @@ Kommander provides a command center for all your cloud native management needs i
 | **Maximum**        | 1.19.x  |
 | **Default**        | 1.19.7  |
 
+# Known issue
+
+In Kommander 1.3, unless a default NetworkPolicy existed prior to upgrading to 1.3, a default NetworkPolicy is created that allows traffic originating only within your Projects namespace. Pods can not talk to Pods outside of that namespace. In some cases this can have an unpredictable and unwanted impact on your system.
+
+An alternative is to create an `allow-all` NetworkPolicy for each project in each managed cluster. Refer to following steps:
+
+1. Point kubectl to the managed cluster
+
+1. Enter the following command:
+
+``` shell
+cat <<EOF | kubectl apply -f -
+  apiVersion: networking.k8s.io/v1
+  kind: NetworkPolicy
+  metadata:
+    name: allow-all
+    namespace: <namespace corresponding to the project>
+ spec:
+   ingress:
+   - {}
+   podSelector: {}
+   policyTypes:
+   - Ingress
+ EOF
+```
+1. Repeat steps 1 & 2 for each project namespace and managed cluster
+
 # Breaking changes
 
 ## Docker hub rate limiting 
