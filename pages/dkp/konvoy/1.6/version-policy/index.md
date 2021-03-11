@@ -23,8 +23,8 @@ For example, Konvoy 1.5.0 supports:
 | Kubernetes Support | Version |
 | ------------------ | ------- |
 |**Minimum** | 1.15.4 |
-|**Maximum** | 1.18.15 |
-|**Default** | 1.18.15 |
+|**Maximum** | 1.18.16 |
+|**Default** | 1.18.16 |
 
 ## Supported operating systems
 
@@ -41,6 +41,10 @@ For example, KBA version `stable-1.17-2.1.1` is made up of:
 ```
 
 This means this set of addons can deploy on any 1.17 Kubernetes cluster, regardless of the distribution. The support policy for KBA on Konvoy follows the same support policy for [Kubernetes versions](#supported-kubernetes-versions). You can find more details for KBA under [Kubernetes Base Addons](../addons).
+
+### Features in Upgrade Patches
+
+Occasionally, to make new features available at a faster rate, D2iQ releases features as part of a patch release. If the Release Notes indicate a feature you need and do not yet have, consider upgrading to the latest version to take full advantage of new features and functions.
 
 ### Experimental Status
 "Experimental" means software, features, functionality, sample configurations, or other speculative content that is still under exploration, development, or testing by D2iQ. Experimental components carry no guarantee of eventual release as GA and therefore must not be used in Production Environments. Experimental components qualify for limited, Severity 4 support only and may be discontinued at any time, with or without notice.

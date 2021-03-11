@@ -112,12 +112,6 @@ spec:
   commonName: mycluster.company.com
   dnsNames:
   - mycluster.company.com
-  acme:
-    config:
-    - http01:
-        ingressClass: traefik
-      domains:
-      - mycluster.company.com
 EOF
 ```
 
