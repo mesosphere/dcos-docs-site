@@ -37,7 +37,7 @@ Please see the following sections for more information about the workspace platf
 
 ### Foundational Components
 
-The foundational components are essential and provide the foundation for all platform service capabilities and deployments on managed clusters. You must enable these components to ensure that platform services work correctly.
+The foundational components are essential and provide the foundation for all platform service capabilities and deployments on managed clusters. You must enable these components to be able to enable any other platform services.
 
 The foundational components are comprised of the Kubeaddons controller and the following platform services: cert-manager, kube-oidc-proxy, reloader, traefik, and traefik-forward-auth.
 
