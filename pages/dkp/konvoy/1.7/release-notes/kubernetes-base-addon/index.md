@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Kubernetes Base Addons
 title: Kubernetes Base Addons
-menuWeight: 0
+menuWeight: 30
 excerpt: View release-specific information for Kubernetes base addons
 beta: false
 enterprise: false
@@ -14,7 +14,30 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
-February 10, 2020
+March 10, 2021
+
+[stable-1.19-3.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.3.0)
+
+-   Elasticsearch Exporter
+    - Added chart support for additional user-specified labels
+
+-   Fluentbit
+    - Upgrade fluent-bit helm chart to v0.7.13
+
+-   Jaeger
+    - Upgrade jaeger-operator-2.18.4
+
+-   Prometheus
+    - Bump k8s-sidecar to 1.3.0 to align and fix CVEs
+    - Adds a missing service account which caused addon deletion/cleanup to fail occasionally
+
+-   Prometheus Adapter
+    - Fix an error were resources in reported by the Kubernetes dashboard and `kubectl top` reported double of the actual resources.
+
+-   Reloader
+    - When upgrading from a release that used helm 2 to install, reloader cannot be cleanly upgraded due to selector changes. This adds a flag that causes reloader to be uninstalled before being upgraded. This should have no effect on running applications.
+
+February 10, 2021
 
 [stable-1.19-3.2.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.2.0)
 
