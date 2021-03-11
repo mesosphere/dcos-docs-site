@@ -91,7 +91,7 @@ metadata:
   creationTimestamp: "2019-09-27T22:13:00.2129454Z"
 spec:
   kubernetes:
-    version: 1.18.15
+    version: 1.18.16
     networking:
       podSubnet: 192.168.0.0/16
       serviceSubnet: 10.0.0.0/18
@@ -105,7 +105,7 @@ spec:
       - NodeRestriction
   containerNetworking:
     calico:
-      version: v3.16.6
+      version: v3.16.8
       encapsulation: ipip
       mtu: 1480
   containerRuntime:
