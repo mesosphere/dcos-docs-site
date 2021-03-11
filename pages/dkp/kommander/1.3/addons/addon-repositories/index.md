@@ -123,7 +123,7 @@ kibana                                                                 [OK]
 Kubernetes cluster and addons deployed successfully!
 ```
 
-###{{ model.addon }}  
+### {{ model.addon }}  
 
 In this section we look at different {{ model.addon }} configurations.
 
