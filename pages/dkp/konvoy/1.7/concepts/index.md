@@ -48,7 +48,7 @@ For more information about any of the master components or Kubernetes control pl
 ## Worker nodes
 
 Worker nodes maintain running pods and provide the runtime environment for the native Kubernetes cluster.
-Each work node includes the following key components:
+Each worker node includes the following key components:
 
 - The `kubelet` agent runs on each node in the cluster to ensure that the containers created by Kubernetes for a pod are running  and in a healthy state.
 - The `kube-proxy` serves as a network proxy that runs on each node in the cluster to enforce network routing and connection forwarding rules.
@@ -60,7 +60,7 @@ The native Kubernetes cluster supports a set of **addons**.
 Addons use Kubernetes resources to implement specific cluster-level features; because they provide cluster-level features, addons are defined in the `kube-system` namespace.
 
 Konvoy supplements the native Kubernetes cluster by providing a predefined and pre-configured set of addons.
-Because this predefined set of addons provides critical features for managing a Kubernetes cluster in a production environment, the default set of addons is identified as Konvoy **platform services** which are a key part of delivering an **opinionated Kubernetes** solution.
+Because this predefined set of addons provides critical features for managing a Kubernetes cluster in a production environment, the default set of addons is identified as Konvoy **platform services**, which are a key part of delivering an **opinionated Kubernetes** solution.
 See [Kubernetes Base Addons Requirements](../addons/requirements) for the full set of Konvoy platform services that are enabled by default.
 
 As a production-ready solution, Konvoy provides the Velero addon by default, to support [backup and restore operations](../backup#velero) for your Kubernetes cluster and persistent volumes.
