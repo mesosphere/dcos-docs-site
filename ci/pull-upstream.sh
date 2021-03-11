@@ -27,7 +27,6 @@ cd "$PROJECT_ROOT/sync/$REPO_NAME"
 # this helps if you don't remove the repo locally.
 git fetch
 git checkout "$REPO_BRANCH"
-SYNC_REPO_REF="$(git rev-parse --short HEAD)"
 
 echo "Diffing repo $REPO_SUBFOLDER against docs $DOCS_SUBFOLDER"
 rsync -a "$TMP_DIR/$REPO_NAME/$REPO_SUBFOLDER/" "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
@@ -36,7 +35,7 @@ cd "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
 if [ -z "$(git status --porcelain)" ]; then
     echo "No changes."
 else
-    BRANCH="autosync-$REPO_BRANCH-$SYNC_REPO_REF"
+    BRANCH="autosync/$REPO_NAME/$REPO_BRANCH"
     echo "Creating PR against docs with branch $BRANCH"
     git checkout -b "$BRANCH" || git checkout "$BRANCH"
     git add --all
