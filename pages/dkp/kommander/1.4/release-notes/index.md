@@ -1,16 +1,16 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Kommander v1.4 Beta 0 Release Notes
-title: Release Notes
+navigationTitle: Release Notes Kommander 1.4.0 Beta 1
+title: Release Notes Kommander 1.4.0
 menuWeight: 0
-excerpt: View release-specific information for Kommander
+excerpt: View release-specific information for Kommander 1.4.0
 enterprise: false
 ---
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 0 was released on 26 February, 2021.**
+**D2iQ&reg; Kommander&reg; version 1.4.0 Beta 1 was released on March 11, 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -22,14 +22,11 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
 # Supported Versions
-Kubernetes Support | Version
--- | --
-Minimum | 1.18.0
-Maximum | 1.20.x
-Default | 1.20.2
-
-
+| Kubernetes Support | Version |
 | ------------------ | ------- |
+|Minimum | 1.18.0 |
+|Maximum | 1.20.x |
+|Default | 1.20.2 |
 
 # Breaking changes
 
@@ -43,15 +40,19 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 ## Component versions
 - Addon: 1.4.0-1
 - Chart: 0.16.1
-- kommander-federation (yakcl): 0.9.0
-- kommander-licensing (yakcl): 0.9.0
-- UI: 6.88.0
+- kommander-federation (yakcl): 0.10.0
+- kommander-licensing (yakcl): 0.10.0
+- UI: 6.91.0
 - kommander-karma: 0.3.12
 - kubeaddons-catalog: 0.1.15
 - kommander-thanos: 0.1.16
-- kubecost: 0.5.4
+- kubecost: 0.7.0
 - grafana: 6.6.0
 - karma: 0.70
 - thanos: 0.10.1
 - cost-analyzer: 1.71.1
-- thanos: 0.10.1
+
+## Fixed and Improved Issues
+- Bump federated prometheus to 9.3.7
+- Bump kubecost to 0.7.0 which enables PodSecurityPolicy
+- Decrease the amount of time it takes to delete Kommander
