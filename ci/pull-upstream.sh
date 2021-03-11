@@ -12,6 +12,7 @@ REPO_SUBFOLDER="$2"                      # e.g. docs/site
 REPO_BRANCH="$3"                         # e.g. release-1.7
 DOCS_SUBFOLDER="$4"                      # e.g. pages/dkp/konvoy/1.7
 REPO_URL="git@github.com:$REPO_NAME.git"
+BRANCH="autosync/$REPO_NAME/$REPO_BRANCH"
 
 git checkout -t origin/main || git checkout main || echo "on main"
 
@@ -36,7 +37,6 @@ git checkout -b "$BRANCH" || git checkout "$BRANCH"
 if [ -z "$(git status --porcelain)" ]; then
     echo "No changes."
 else
-    BRANCH="autosync/$REPO_NAME/$REPO_BRANCH"
     echo "Creating PR against docs with branch $BRANCH"
     git add --all
     git commit -m  "docs: sync with $REPO_NAME:$REPO_BRANCH"
