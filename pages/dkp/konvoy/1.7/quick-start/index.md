@@ -26,7 +26,7 @@ Before starting the Konvoy installation, you should verify the following:
 -   You have a Linux or MacOS computer with a supported version of the operating system.
 -   You have the [aws][install_aws] command-line utility if you are installing on an AWS cloud instance.
 -   You have [Docker][install_docker] version 18.09.2 or later.
--   You have [kubectl][install_kubectl] v1.19.7 or later for interacting with the running cluster.
+-   You have [kubectl][install_kubectl] v1.19.8 or later for interacting with the running cluster.
 -   You have a valid AWS account with [credentials configured][aws_credentials].
     You must be authorized to create the following resources in the AWS account:
     - EC2 Instances
@@ -116,13 +116,15 @@ Kubernetes cluster and addons deployed successfully!
 
 Run `konvoy apply kubeconfig` to update kubectl credentials.
 
+Run `konvoy check` to verify that the cluster has reached a steady state and all deployments have finished.
+
 Navigate to the URL below to access various services running in the cluster.
   https://lb_addr-12345.us-west-2.elb.amazonaws.com/ops/landing
 And login using the credentials below.
   Username: AUTO_GENERATED_USERNAME
   Password: SOME_AUTO_GENERATED_PASSWORD_12345
 
-The dashboard and services may take a few minutes to be accessible.
+If the cluster was recently created, the dashboard and services may take a few minutes to be accessible.
 ```
 
 You should copy the cluster URL and login information and paste it into a text file, then save the file in a secured, shared location on your network.
@@ -194,13 +196,13 @@ konvoy apply kubeconfig
 
     ```text
     NAME                                         STATUS   ROLES    AGE   VERSION
-    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.19.7
-    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.19.7
-    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.19.7
-    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.19.7
-    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.19.7
-    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.19.7
-    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.19.7
+    ip-10-0-129-3.us-west-2.compute.internal     Ready    <none>   24m   v1.19.8
+    ip-10-0-131-215.us-west-2.compute.internal   Ready    <none>   24m   v1.19.8
+    ip-10-0-131-239.us-west-2.compute.internal   Ready    <none>   24m   v1.19.8
+    ip-10-0-131-24.us-west-2.compute.internal    Ready    <none>   24m   v1.19.8
+    ip-10-0-192-174.us-west-2.compute.internal   Ready    master   25m   v1.19.8
+    ip-10-0-194-137.us-west-2.compute.internal   Ready    master   26m   v1.19.8
+    ip-10-0-195-215.us-west-2.compute.internal   Ready    master   26m   v1.19.8
     ```
 
 # Next steps
