@@ -45,12 +45,11 @@ If you are upgrading from Kommander 1.3 and already made the necessary changes t
 - Ensure kubectl deletes do not fail if resource already deleted.
 - Fix empty non-Konvoy cluster Platform Services tab.
 - Disable addons on disabled foundations.
-- All federated platform services/cluster platform services are now successfully removed when base addons are disabled.
+- All federated platform services are now successfully removed when the kubeaddons controller is disabled.
 - Kubecost: Ensure kubectl deletes do not fail if resource is already deleted.
 - When self attaching a kommander cluster, the dex-k8s-authenticator configmap is no longer updated as this causes invalid links on the generate token page.
 - Fixes bug in Kommander UI where LDAP Root CA is not correct when saved.
 - Updates UI to only ship with needed dependencies.
-- Ensure finalizer is set on kubeaddons after re-enabling it.
 
 ## Component versions
 
@@ -62,7 +61,7 @@ If you are upgrading from Kommander 1.3 and already made the necessary changes t
 - kommander-karma: 0.3.12
 - kubeaddons-catalog: 0.1.15
 - kommander-thanos: 0.1.16
-- kubecost: 0.5.3
+- kubecost: 0.5.4
 - grafana: 6.6.0
 - karma: 0.70
 - thanos: 0.10.1
