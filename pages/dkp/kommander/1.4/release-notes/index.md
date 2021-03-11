@@ -39,7 +39,7 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 
 ## Component versions
 - Addon: 1.4.0-6
-- Chart: 0.16.1
+- Chart: 0.19.0
 - kommander-federation (yakcl): 0.10.0
 - kommander-licensing (yakcl): 0.10.0
 - UI: 6.91.1
