@@ -31,16 +31,16 @@ git checkout "$REPO_BRANCH"
 echo "Diffing repo $REPO_SUBFOLDER against docs $DOCS_SUBFOLDER"
 rsync -a "$TMP_DIR/$REPO_NAME/$REPO_SUBFOLDER/" "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
 cd "$PROJECT_ROOT/$DOCS_SUBFOLDER/"
+git checkout -b "$BRANCH" || git checkout "$BRANCH"
 
 if [ -z "$(git status --porcelain)" ]; then
     echo "No changes."
 else
     BRANCH="autosync/$REPO_NAME/$REPO_BRANCH"
     echo "Creating PR against docs with branch $BRANCH"
-    git checkout -b "$BRANCH" || git checkout "$BRANCH"
     git add --all
     git commit -m  "docs: sync with $REPO_NAME:$REPO_BRANCH"
-    git push origin "$BRANCH" -uf
+    git push origin "$BRANCH" -u
 
     curl \
       -X POST \
