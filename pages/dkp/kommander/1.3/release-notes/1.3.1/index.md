@@ -44,7 +44,7 @@ If you are upgrading from Kommander 1.3 and already made the necessary changes t
 - Ensure pre-delete hook jobs are cleaned up.
 - Ensure kubectl deletes do not fail if resource already deleted.
 - Fix empty non-Konvoy cluster Platform Services tab.
-- Disable addons on disabled foundations.
+- Disable all platform services when Foundational Components are disabled in the UI.
 - All federated platform services are now successfully removed when the kubeaddons controller is disabled.
 - Kubecost: Ensure kubectl deletes do not fail if resource is already deleted.
 - When self attaching a kommander cluster, the dex-k8s-authenticator configmap is no longer updated as this causes invalid links on the generate token page.
