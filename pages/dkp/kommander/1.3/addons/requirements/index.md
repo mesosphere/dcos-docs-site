@@ -1,7 +1,7 @@
 ---
 layout: layout.pug
 navigationTitle: Configuration Requirements
-title: Configuration Requirements
+title: Platform Service Requirements
 menuWeight: 7
 excerpt: Kubernetes Platofrm Services Descriptions and Resource Requirements
 beta: false
