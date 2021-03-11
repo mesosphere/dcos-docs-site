@@ -38,11 +38,11 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
 ## Component versions
-- Addon: 1.4.0-1
+- Addon: 1.4.0-6
 - Chart: 0.16.1
 - kommander-federation (yakcl): 0.10.0
 - kommander-licensing (yakcl): 0.10.0
-- UI: 6.91.0
+- UI: 6.91.1
 - kommander-karma: 0.3.12
 - kubeaddons-catalog: 0.1.15
 - kommander-thanos: 0.1.16
