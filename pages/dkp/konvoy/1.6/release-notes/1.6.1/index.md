@@ -63,7 +63,7 @@ This release provides new features and enhancements to improve the user experien
 - Calico v3.16.5
 - Containerd v1.3.9
 - Docker v19.03.14
-- Go 1.14.13
+- Go 1.14.15
 - Helm v3.3.4
 - kubeaddons-dispatch stable-1.18-1.3.0
 - kubeaddons-kommander stable-1.18-1.2.0
