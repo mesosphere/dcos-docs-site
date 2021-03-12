@@ -41,7 +41,7 @@ kubectl delete addon prometheus -n kubeaddons
 helm2 delete --purge prometheus-kubeaddons
 ```
 
-If you've already ran the upgrade and deploying the prometheus and the prometheusadapter addons have failed, run these commands:
+If you've already run the upgrade and deploying the prometheus addon has failed, run these commands:
 
 ```bash
 kubectl delete addon prometheus -n kubeaddons
