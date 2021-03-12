@@ -87,8 +87,6 @@ Add links to previous release notes
 
 <!-- Add links to external documentation as needed -->
 
-For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
-
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
 [konvoy-doc]: ../../index.md
