@@ -14,7 +14,19 @@ When the 1.4 version releases, support continues for 1.3, and 1.2. Support for K
 
 You can read more about our official support policy in [D2iQ Support and Maintenance Terms](https://d2iq.com/legal/support-terms).
 
-## Supported Konvoy Versions
+## Supported Kubernetes versions
+
+Each Kommander release supports a range of Kubernetes versions. The [Release Notes](../release-notes) describe these versions.
+
+For example, Kommander 1.2.0 supports:
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.17.x |
+|**Maximum** | 1.19.x |
+|**Default** | 1.19.7 |
+
+## Supported Kommander Versions
 
 The following chart identifies which version of Konvoy supports which version of Kommander.
 
@@ -61,4 +73,3 @@ Since Experimental components are not intended for Production Environment use, D
 Support for Experimental components is provided on a Standard level, Severity 4 basis only.
 
 This software is provided "as is" and without any express or implied warranties including, without limitation, the implied warranties of merchantability and fitness for a particular purpose.
-
