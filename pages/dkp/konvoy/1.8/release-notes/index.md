@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 beta 0 was released on 26, February 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 12, March 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -40,6 +40,14 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, see [Docker hub rate limits](../operations/manage-docker-hub-rate-limits).
 
+<!--
+#### KUDO Spark compatibility
+
+Konvoy 1.7+ requires KUDO Spark 3.0 because Spark 2.4 does not support Kubernetes 1.19.
+To continue using KUDO Spark on Konvoy 1.7 and above, upgrade to KUDO Spark 3.0.
+For details on how to migrate workloads to Spark 3.0, consult the official [migration guides](https://spark.apache.org/releases/spark-release-3-0-0.html) for each relevant module.
+-->
+
 ### New features and capabilities
 
 #### Addons
@@ -57,6 +65,7 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - The auto-provisioner can be now uninstalled if the `autoProvisioning.disabled` is set to `true` after the initial installation.
 - Use the correct GPG key when installing FIPS RPM packages in an air-gapped environment.
 - Include the missing `docker.io/mesosphere/pause:3.2` needed for air-gapped FIPS installation.
+- Allow for using custom CA when generating certificates for the Kubernetes control plane by copying `ca.crt` and `ca.key` files from `extras/pki` in the working directory.
 
 #### API
 
@@ -85,11 +94,11 @@ For more information on addressing this limit, see [Docker hub rate limits](../o
 - Docker v19.03.15
 - Go 1.15.8
 - Helm v3.5.2
-- kubeaddons-dispatch stable-1.19-1.4.0
-- kubeaddons-kommander testing-1.20-1.4.0-beta.0
-- kubernetes-base-addons testing-1.20-4.0.0-alpha.1
+- kubeaddons-dispatch stable-1.19-1.4.1
+- kubeaddons-kommander testing-1.20-1.4.0-beta.1
+- kubernetes-base-addons testing-1.20-4.0.0-alpha.2
 - Kubernetes v1.20.2
-- Kubeaddons v0.24.0
+- Kubeaddons v0.24.1
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
 - Terraform v0.13.5
 - Terraform AWS plugin ~> 3.0
@@ -104,6 +113,8 @@ Add links to previous release notes
 ## Additional resources
 
 <!-- Add links to external documentation as needed -->
+
+For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
 
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
