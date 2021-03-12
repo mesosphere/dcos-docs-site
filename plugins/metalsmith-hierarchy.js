@@ -79,7 +79,6 @@ module.exports = (files, metalsmith, done) => {
     children: [],
     findByPath,
     findLongestExisting,
-    checkIfPathExists: (potentialPath) => findByPath(potentialPath, false),
     find: (k, v) => findMeta(root, k, v).sort(sortPages),
   };
 

@@ -1,24 +1,7 @@
 - var page = hierarchy.findByPath('/' + path)
-
-- // Meta
 - var pageTitle = (title && path != '') ? (title + ' - ' + siteTitle) : siteTitle
 - var pageDescription = (page && page.excerpt) ? page.excerpt : siteDescription
-
-- // Canonical URL
-- var semanticVersion = /^[0-9]+\.[0-9]+/
-- var currentDocs = hierarchy.children.filter(child => semanticVersion.test(child.id))[0]
 - var paths = path.split('/')
-- var canonicalHref = null
-
-if currentDocs && paths[0] != currentDocs.id && semanticVersion.test(paths[0])
-  - var p = path.split('/')
-  - p[0] = currentDocs.id
-  - var newUrl = '/' + p.join('/')
-  if hierarchy.checkIfPathExists(newUrl)
-    - canonicalHref = url + newUrl
-
-- var [sphere, product] = paths
-- var productName = { konvoy: "Konvoy", kommander: "Kommander", kaptain: "Kaptain", dcos: "DC/OS", conductor: "Conductor" }[product] || "documentation"
 
 meta(charset='UTF-8')
 meta(name='viewport', content='width=device-width', initial-scale='1', user-scalable='no')
@@ -27,13 +10,8 @@ meta(name='description', content=pageDescription)
 link(rel="apple-touch-icon" sizes="180x180" href="/assets/apple-touch-icon.png")
 link(rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png")
 link(rel="icon" type="image/png" sizes="16x16" href="/assets/favicon-16x16.png")
-
 link(rel='stylesheet', type='text/css', href='/css/styles.css')
 link(rel='search', type='application/opensearchdescription+xml', href='/assets/opensearch.xml', title=`Search`)
-
-if canonicalHref
-  link(rel='canonical', href=canonicalHref)
-
 link(href='https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i', rel='stylesheet')
 
 script(src='https://unpkg.com/feather-icons/dist/feather.min.js')
