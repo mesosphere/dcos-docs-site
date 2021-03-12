@@ -35,7 +35,7 @@ This release provides new features and enhancements to improve the user experien
 - Print a warning message when the disk size allocated to the root volume is less than 78G.
 - Set the minimum requirements for CPU and Memory per machine to 2 cores and 2GB.
 - Switched the kubeaddons base image to distroless and run the controller as a non-root user. Addresses the static (not executed) CVE-2019-25013 in the prior base image.
-- Some supported operating systems cannot support GPU workloads due to limitations in the current deployment architecture for GPU drivers. The documentation has been updated to clarify current issues with GPU support.
+- Some supported operating systems cannot support GPU workloads due to limitations in the current deployment architecture for GPU drivers. The documentation has been updated to clarify current issues with GPU support. (COPS-6771)
 
 #### Terraform
 
@@ -49,7 +49,7 @@ The [Setting up Let's Encrypt certificate](../../access-authentication/letsencry
 
 #### Create a cluster with no workers
 
-A problem with creating clusters with no workers was corrected. Clusters can now be created with no workers and then scaled up with workers at a later time or scaled down to zero without issue.
+An issue with creating clusters with no workers was corrected. Clusters can now be created with no workers and then scaled up with workers at a later time or scaled down to zero without issue.
 
 #### Fix deleting certain files during shutdown or reset
 
@@ -79,9 +79,6 @@ A problem with the `konvoy down` or `konvoy reset` commands failing if dedicated
 
 <!-- Add links to external documentation as needed -->
 
-For information about installing and using Konvoy, see the [Konvoy documentation][konvoy-doc].
-
 For information about working with native Kubernetes, see the [Kubernetes documentation][kubernetes-doc].
 
-[konvoy-doc]: ../../index.md
 [kubernetes-doc]: https://kubernetes.io/docs/home/
