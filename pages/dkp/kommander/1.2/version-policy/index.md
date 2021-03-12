@@ -14,19 +14,7 @@ When the 1.4 version releases, support continues for 1.3, and 1.2. Support for K
 
 You can read more about our official support policy in [D2iQ Support and Maintenance Terms](https://d2iq.com/legal/support-terms).
 
-## Supported Kubernetes versions
-
-Each Kommander release supports a range of Kubernetes versions. The [Release Notes](../release-notes) describe these versions.
-
-For example, Kommander 1.3.0 supports:
-
-| Kubernetes Support | Version |
-| ------------------ | ------- |
-|**Minimum** | 1.17.x |
-|**Maximum** | 1.19.x |
-|**Default** | 1.19.7 |
-
-## Supported Kommander Versions
+## Supported Konvoy Versions
 
 The following chart identifies which version of Konvoy supports which version of Kommander.
 
@@ -36,7 +24,7 @@ The following chart identifies which version of Konvoy supports which version of
 | 1.6.x | 1.2.x |
 | 1.5.x | 1.1.x |
 
-Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.3, and all of its patch versions (e.g. 1.3.0, 1.3.1), can deploy successfully on any version of Konvoy 1.7. Mixing minor versions is prohibited and the following is not supported:
+Konvoy and Kommander release `MAJOR.MINOR` versions together and are compatible with each other for that version set. This means, Kommander 1.2, and all of its patch versions (e.g. 1.2.0, 1.2.1), can deploy successfully on any version of Konvoy 1.6. Mixing minor versions is prohibited and the following is not supported:
 
 - You cannot deploy Kommander 1.2.x on Konvoy 1.7.x
 - You cannot deploy Kommander 1.1.x on Konvoy 1.6.x
