@@ -32,7 +32,7 @@ This command shuts down Tiller gracefully and removes all its resources.
 
 ## Upgrading Prometheus
 
-If you have the prometheus and prometheusadapter addons enabled and are upgrading those, you need to take additional steps to ensure they deploy successfully. You must delete the addons and then upgrade and deploy them.
+If you have the prometheus addon enabled and are upgrading it, you need to take additional steps to ensure it deploys successfully. You must delete the addon and then upgrade and deploy it.
 
 Before you begin the upgrade, run the following command to delete the addons:
 
