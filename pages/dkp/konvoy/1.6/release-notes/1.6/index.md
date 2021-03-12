@@ -20,7 +20,7 @@ enterprise: false
 
 This release provides new features and enhancements to improve the user experience, fix reported issues, integrate changes from previous releases, and maintain compatibility and support for other packages used in Konvoy.
 
-<p class="message--note"><strong>NOTE: </strong>A note on upgrading from 1.5.x to 1.6.1: There are some limitations upgrading to this Konvoy version due to the migration of Helm v2 to Helm v3 of large ConfigMaps to helm v3 Secrets for Prometheus and the need to delete and redeploy this addon.
+<p class="message--note"><strong>NOTE: </strong>A note on upgrading from 1.5.x to 1.6.1: There are some limitations upgrading to this Konvoy version due to the migration of Helm v2 to Helm v3 of large ConfigMaps to Helm v3 Secrets for Prometheus and the need to delete and redeploy this addon.
 For more information, see <a href="../../addons/helmv2-to-v3-migration/">Helm v2 to v3 migration</a>.</p>
 
 ### Supported versions
