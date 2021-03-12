@@ -30,6 +30,27 @@ kubectl -n kube-system delete deployment tiller-deploy
 
 This command shuts down Tiller gracefully and removes all its resources.
 
+## Upgrading Prometheus
+
+If you have the prometheus and prometheusadapter addons enabled and are upgrading those, you will need to take additional steps to ensure they deploy successfully. You will need to delete the addons and then upgrade and deploy them.
+
+Before you begin the upgrade, you can run this command to get delete them:
+
+```bash
+kubectl delete addon prometheus -n kubeaddons
+helm2 delete --purge prometheus-kubeaddons
+```
+
+If you've already ran the upgrade and deploying the prometheus and the prometheusadapter addons have failed, run these commands:
+
+```bash
+kubectl delete addon prometheus -n kubeaddons
+helm2 delete --purge prometheus-kubeaddons
+konvoy deploy addons
+```
+
+The reason for these failures is because there are limitations on the size of large configmaps in the migration of Helm v2 to Helm v3.
+
 ## Related information
 
 For information on related topics or procedures, refer to the following:
