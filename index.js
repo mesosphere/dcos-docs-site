@@ -17,7 +17,6 @@ const pug = require("pug");
 
 // Local Plugins
 const hierarchy = require("./plugins/metalsmith-hierarchy");
-const hierarchyRss = require("./plugins/metalsmith-hierarchy-rss");
 const headings = require("./plugins/metalsmith-headings");
 const algolia = require("./plugins/metalsmith-algolia");
 const inPlace = require("./plugins/metalsmith-in-place-dcos");
@@ -128,12 +127,6 @@ MS.use(timer("Mustache"));
 // Folder Hierarchy
 MS.use(hierarchy);
 MS.use(timer("Hierarchy"));
-
-// RSS Feed
-MS.use(
-  hierarchyRss({ itemOptionsMap: { title: "title", description: "excerpt" } })
-);
-MS.use(timer("Hierarchy RSS"));
 
 //
 // Slow Plugins
