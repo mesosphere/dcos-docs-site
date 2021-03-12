@@ -1,13 +1,5 @@
 #!/usr/bin/env groovy
 
-Boolean main = env.BRANCH_NAME == "main"
-Boolean updateAlgolia = main ? "true" : ""
-String bucket = "docs-d2iq-com-${main ? 'production' : env.CHANGE_ID}"
-String creds = main ? 's3-production' : 's3-development'
-// a trick to have only the main branch retrigger every hour
-String hostname = main ? 'docs.d2iq.com' : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
-String principal = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-${main ? 'Production' : 'Development'}"
-
 pipeline {
   agent { label "mesos" }
   triggers {
@@ -15,24 +7,63 @@ pipeline {
   }
 
   stages {
-    stage("Sync") {
-      steps {
-        withCredentials([string(credentialsId: "d146870f-03b0-4f6a-ab70-1d09757a51fc", variable: "GITHUB_TOKEN")]) {
-          sshagent(credentials : ['4ff09dce-407b-41d3-847a-9e6609dd91b8']) {
-            sh '''#!/bin/bash
-              set -euxo pipefail
+    stage("Maintenance") {
+      parallel {
+        stage("Clean up S3-Buckets") {
+          environment {
+            AWS_DEFAULT_REGION = "us-west-2"
+          }
+          steps {
+            withCredentials([
+                [$class: 'AmazonWebServicesCredentialsBinding', credentialsId: "s3-development"],
+                usernamePassword(credentialsId: "a7ac7f84-64ea-4483-8e66-bb204484e58f", passwordVariable: "GH_PASSWORD", usernameVariable: "GH_USER")
+            ]) {
+              sh '''#!/bin/bash
+                set -euxo pipefail
+                apk add jq --no-cache
+                buckets=$(docker run -e AWS_ACCESS_KEY_ID -e AWS_DEFAULT_REGION  -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN amazon/aws-cli s3api list-buckets | jq '.Buckets | .[].Name' -r | grep "docs-d2iq-com-pr-")
+                echo $buckets
+                open_prs=$(docker run curlimages/curl:7.75.0 "https://api.github.com/repos/mesosphere/dcos-docs-site/pulls?state=open" | jq '.[].number')
+                echo $open_prs
+                for bucket in $buckets; do
+                  found=false
+                  for pr in $open_prs; do
+                    if [[ $bucket == *"$pr"* ]]; then
+                      found=true
+                      break
+                    fi
+                  done
+                  if [ "$found" = false ] ; then
+                    echo "removing: $bucket"
+                    docker run -e AWS_ACCESS_KEY_ID -e AWS_DEFAULT_REGION  -e AWS_SECRET_ACCESS_KEY -e AWS_SESSION_TOKEN amazon/aws-cli s3 rb s3://$bucket --force
+                  fi
+                done
+              '''
+            }
+          }
+        }
 
-              git config user.name "Docs Bot"
-              git config user.email "docs-bot@d2iq.com"
-              git remote set-url origin git@github.com:mesosphere/dcos-docs-site.git
+        stage("Sync") {
+          steps {
+            withCredentials([string(credentialsId: "d146870f-03b0-4f6a-ab70-1d09757a51fc", variable: "GITHUB_TOKEN")]) {
+              sshagent(credentials : ['4ff09dce-407b-41d3-847a-9e6609dd91b8']) {
+                sh '''#!/bin/bash
+                  set -euxo pipefail
 
-              apk add curl curl-dev rsync --no-cache
+                  git config user.name "Docs Bot"
+                  git config user.email "docs-bot@d2iq.com"
+                  git remote set-url origin git@github.com:mesosphere/dcos-docs-site.git
+                  git fetch && git checkout -t origin/main || git checkout main || echo "on main"
 
-              ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7
-              ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.6 pages/dkp/konvoy/1.6
-              ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.5 pages/dkp/konvoy/1.5
-              ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.4 pages/dkp/konvoy/1.4
-            '''
+                  apk add curl curl-dev rsync --no-cache
+
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.7 pages/dkp/konvoy/1.7
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.6 pages/dkp/konvoy/1.6
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.5 pages/dkp/konvoy/1.5
+                  ./ci/pull-upstream.sh mesosphere/konvoy docs/site release-1.4 pages/dkp/konvoy/1.4
+                '''
+              }
+            }
           }
         }
       }
