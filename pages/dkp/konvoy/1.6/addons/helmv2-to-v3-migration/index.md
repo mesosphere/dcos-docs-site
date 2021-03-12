@@ -34,7 +34,7 @@ This command shuts down Tiller gracefully and removes all its resources.
 
 If you have the prometheus and prometheusadapter addons enabled and are upgrading those, you need to take additional steps to ensure they deploy successfully. You must delete the addons and then upgrade and deploy them.
 
-Before you begin the upgrade, you can run this command to get delete them:
+Before you begin the upgrade, run the following command to get delete them:
 
 ```bash
 kubectl delete addon prometheus -n kubeaddons
