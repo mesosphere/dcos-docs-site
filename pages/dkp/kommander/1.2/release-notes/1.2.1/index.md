@@ -19,13 +19,6 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 # Release Summary
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated cost management across multiple clusters, whether they are a new Konvoy cluster or an existing 3rd party/DIY distribution installation.
 
-# Supported Versions
-| Kubernetes Support | Version |
-| ------------------ | ------- |
-| **Minimum**        | 1.17.0  |
-| **Maximum**        | 1.19.x  |
-| **Default**        | 1.18.10  |
-
 # New features
 
 - Replace license table with single license detail view.
