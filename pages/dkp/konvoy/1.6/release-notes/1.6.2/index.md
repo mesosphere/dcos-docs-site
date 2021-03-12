@@ -30,7 +30,8 @@ This release provides new features and enhancements to improve the user experien
 
 ### Known Issues
 
-When upgrading from 1.5.x to 1.6.2, there are some limitations due to the Helm v2 to Helm v3 migration of large configmaps to smaller restricted secrets for Prometheus and the need to delete and redeploy this addon. For more information, see [Helm v2 to v3 migration](../../addons/helmv2-to-v3-migration/)
+There are some limitations upgrading to this Konvoy version due to the migration of Helm v2 to Helm v3 of large ConfigMaps to helm v3 Secrets for Prometheus and the need to delete and redeploy this addon.
+For more information, see [Helm v2 to v3 migration](../../addons/helmv2-to-v3-migration/)
 
 
 ### New features and capabilities
