@@ -49,7 +49,10 @@ helm2 delete --purge prometheus-kubeaddons
 konvoy deploy addons
 ```
 
-These failures happen because there are limitations on the size of large configmaps in the migration of Helm v2 to Helm v3.
+The migration of a helm release from helm v2 to helm v3 adds additional metadata to the release data structure.
+This additional data causes the Prometheus release data to exceed the maximum size of a ConfigMap or Secret.
+Newer versions of the Prometheus chart reduces the amount of data held in this release structure, but the conversion will fail preventing the newer Prometheus chart installation from being reached.
+Removing the oversized data from Kubernetes allows the replacement to continue.
 
 ## Related information
 
