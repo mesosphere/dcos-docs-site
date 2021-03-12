@@ -87,7 +87,8 @@ It is recommended to upgrade to the newest supported version of Containerd, set 
 
 The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.18-3.3.0`.
 
-<p class="message--note"><strong>NOTE: </strong>A note on upgrading from 1.5.x to 1.6.2: There are some limitations upgrading to this Konvoy version due to the migration of Helm v2 to Helm v3 of large configmaps to smaller restricted secrets for Prometheus and the need to delete and redeploy this addon. For more, see our page on <a href="../../addons/helmv2-to-v3-migration/">Helm v2 to v3 migration</a>.</p>
+<p class="message--note"><strong>NOTE: </strong>A note on upgrading from 1.5.x to 1.6.1: There are some limitations upgrading to this Konvoy version due to the migration of Helm v2 to Helm v3 of large ConfigMaps to helm v3 Secrets for Prometheus and the need to delete and redeploy this addon.
+For more information, see <a href="../../addons/helmv2-to-v3-migration/">Helm v2 to v3 migration</a>.</p>
 
 If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.18-1.2.1`.
 
