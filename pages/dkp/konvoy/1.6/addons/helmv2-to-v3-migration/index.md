@@ -37,8 +37,7 @@ If you have the prometheus addon enabled, you must delete the addon before upgra
 Before you begin the upgrade, run the following command to delete the addon:
 
 ```bash
-kubectl delete addon prometheus -n kubeaddons
-helm2 delete --purge prometheus-kubeaddons
+kubectl delete addon prometheus --namespace kubeaddons --wait
 ```
 
 If you've already run the upgrade and deploying the prometheus addon has failed, run these commands:
