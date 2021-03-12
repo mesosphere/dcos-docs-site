@@ -59,9 +59,9 @@ It is recommended to upgrade to the newest supported version of Kubernetes, set 
 
 It is recommended to upgrade to the newest supported version of Containerd, set `spec.containerRuntime.containerd.version: 1.3.9`.
 
-The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.20-4.0.0-alpha.1`.
+The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: testing-1.20-4.0.0-alpha.2`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.20-1.4.0-beta.0`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: testing-1.20-1.4.0-beta.1`.
 
 The version of Konvoy is now `v1.7.0`, set `spec.version: v1.7.0`.
 
@@ -82,10 +82,10 @@ spec:
   ...
   addons:
     - configRepository: https://github.com/mesosphere/kubernetes-base-addons
-      configVersion: testing-1.20-4.0.0-alpha.1
+      configVersion: testing-1.20-4.0.0-alpha.2
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: testing-1.20-1.4.0-beta.0
+      configVersion: testing-1.20-1.4.0-beta.1
       addonsList:
         - name: kommander
           enabled: true

@@ -426,7 +426,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.20.2: testing-1.20-4.0.0-alpha.1
+          1.20.2: testing-1.20-4.0.0-alpha.2
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -484,18 +484,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.0
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.1
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.0
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.1
       addonsList:
       - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.0
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.1
       addonsList:
       - name: kommander
         enabled: false
