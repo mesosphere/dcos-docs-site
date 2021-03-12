@@ -49,7 +49,7 @@ helm2 delete --purge prometheus-kubeaddons
 konvoy deploy addons
 ```
 
-The reason for these failures is because there are limitations on the size of large configmaps in the migration of Helm v2 to Helm v3.
+These failures happen because there are limitations on the size of large configmaps in the migration of Helm v2 to Helm v3.
 
 ## Related information
 
