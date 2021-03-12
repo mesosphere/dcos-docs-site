@@ -3,7 +3,7 @@ layout: layout.pug
 navigationTitle: Configuration Requirements
 title: Configuration Requirements
 menuWeight: 7
-excerpt: Kubernetes Platofrm Services Descriptions and Resource Requirements
+excerpt: Kubernetes Platform Services Descriptions and Resource Requirements
 beta: false
 enterprise: false
 render: mustache
@@ -20,5 +20,4 @@ model: /dkp/kommander/1.3/data.yml
 
 For information on related topics or procedures, refer to the following:
 
-- [Introduction to Kommander {{ model.addon }}](../../addons)
-- [Current Kubernetes {{ model.addon }}](../../release-notes/kubernetes-base-addon)
+- [Introduction to Kommander {{ model.addon }}](../../addons/requirements)
