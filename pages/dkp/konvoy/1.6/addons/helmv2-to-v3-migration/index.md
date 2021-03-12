@@ -40,12 +40,20 @@ Before you begin the upgrade, run the following command to delete the addon:
 kubectl delete addon prometheus --namespace kubeaddons --wait
 ```
 
-If you've already run the upgrade and deploying the prometheus addon has failed, run these commands:
+If you've **already run the upgrade and deploying the prometheus addon has failed**, run this command:
 
 ```bash
-kubectl delete addon prometheus -n kubeaddons
 helm2 delete --purge prometheus-kubeaddons
-konvoy deploy addons
+```
+
+This assumes helm2 CLI has been installed. If it hasn't, you will need to install it.
+If you've already ran the Konvoy upgrade, the Addon resource has been updated.
+After you've deleted this old Helm data from the above command and the failing helm release has been removed, kubeaddons can successfully reconcile the Addon.
+
+If you want to verify the status of your prometheus addon state, you can monitor that with the following:
+
+```bash
+kubectl --namespace kubeaddons get addon prometheus --watch
 ```
 
 The migration of a helm release from Helm v2 to Helm v3 adds additional metadata to the release data structure.
