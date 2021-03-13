@@ -34,7 +34,7 @@ const semverCompare = (a, b) => {
 module.exports = {
   // take a path and normalize things for services.
   getPathInfo(path) {
-    const fragments = path.split("/");
+    const fragments = path.split("/").slice(1);
 
     // if you think about changing this, make sure that /mesosphere/dcos/cn/services/hdfs/2.2.0 works. you're welcome!
     const lang = fragments[2] === "cn" ? "cn" : "en";

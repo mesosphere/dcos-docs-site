@@ -6,9 +6,8 @@
     svg(class="chooser-svg" id="localizer-svg")
       path(class="pointer" d="m 13,6 -5,5 -5,-5 z", fill="#858585")
   ul.chooser-list#localizer-list
-    if lang == "cn"
-      li.chooser-list-item
-        a(href=hierarchy.findLongestExisting("/mesosphere/dcos/" + paths.slice(3).join('/'))) English
-    else
-      li.chooser-list-item
-        a(href=hierarchy.findLongestExisting("/mesosphere/dcos/cn/" + paths.slice(2).join("/"))) 中文 (简体)
+    li.chooser-list-item
+      if lang == "cn"
+          a(href=hierarchy.findLongestExisting(path.replace("/mesosphere/dcos/cn", "/mesosphere/dcos"))) English
+      else
+          a(href=hierarchy.findLongestExisting(path.replace("/mesosphere/dcos", "/mesosphere/dcos/cn"), "/mesosphere/dcos/cn/")) 中文 (简体)

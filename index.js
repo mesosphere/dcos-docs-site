@@ -175,19 +175,6 @@ MS.use(timer("Markdown"));
 MS.use(headings());
 MS.use(timer("Headings"));
 
-// TODO: a replacement for the former Permalinks plugin. this was the only thing
-// that actually mattered. we save about a third of pipeline-time with this
-// replacement. let's get our path-handling right, so that we can remove this
-// completely.
-MS.use((files, _metalsmith, done) => {
-  setImmediate(done);
-  Object.entries(files).forEach(([file, data]) => {
-    if (!file.endsWith(".html")) return;
-    data.path = data.path.replace(/^\//, "");
-  });
-});
-MS.use(timer("Strip leading slash from path"));
-
 // Layouts
 MS.use((files, ms, done) => {
   // we want to use pugs cache for the duration of one (re-)build. we need to clear it inbetween to

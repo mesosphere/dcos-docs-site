@@ -3,13 +3,13 @@
 
 mixin renderGridToc()
   .grid-toc
-    each val, index in hierarchy.findByPath(`dkp/kaptain/${kaptainDocsLatest}`).children
+    each val, index in hierarchy.findByPath(`/dkp/kaptain/${kaptainDocsLatest}`).children
       if val.menuWeight != -1
         .grid-toc__item
           h2.grid-toc__title
             a(href=val.path)!= val.title
-          if val.excerpt
-            - var displayExcerpt = (val.excerpt.length > 100) ? val.excerpt.substring(0, 100) + '…' : val.excerpt
+          if val.shortDesc
+            - var displayExcerpt = (val.shortDesc.length > 100) ? val.shortDesc.substring(0, 100) + '…' : val.shortDesc
             p.grid-toc__desc!= displayExcerpt
           if val.children
             ul.grid-toc__list
@@ -40,7 +40,7 @@ html(lang='en')
             i(data-feather='chevron-down')
           nav.header__menu
             ul.header__menu-list
-              each val, index in hierarchy.find('menus', menus => menus.includes('kaptain-header'))
+              each val, index in hierarchy.findMenus(menus => menus.includes('kaptain-header'))
                 - var itemClass = {}
                 - itemClass['header__menu-item'] = true
                 - itemClass['header__menu-item--active'] = val.path == '/dkp/kaptain'

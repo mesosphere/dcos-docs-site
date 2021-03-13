@@ -43,7 +43,7 @@ mixin renderGridToc()
       div(class=categoryClasses)
         h1.grid-toc__category-header!= category
         - var categoryServices = []
-        each service, _ in hierarchy.findByPath(`mesosphere/dcos/services`).children
+        each service, _ in hierarchy.findByPath(`/mesosphere/dcos/services`).children
           if service.menuWeight != -1 && service.category == category
             - categoryServices.push(service)
         each service, _ in categoryServices
@@ -67,7 +67,7 @@ mixin renderGridToc()
                   p.badge.badge--enterprise ENTERPRISE
                 if service.community
                   p.badge.badge--community COMMUNITY
-            p.grid-toc__service-desc!= service.excerpt || 'MISSING'
+            p.grid-toc__service-desc!= service.shortDesc || 'MISSING'
             if service.children
               ul.grid-toc__service-list
                 for version in service.children.slice(0,1)

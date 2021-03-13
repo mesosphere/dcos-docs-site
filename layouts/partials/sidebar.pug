@@ -3,15 +3,14 @@
 - var langFragment = lang == "en" ? "" : `/${lang}`
 - var versionFragment = version ? `/${version}` : ''
 - var inMenu = function(c) { return c.menuWeight != -1 && (c.title || c.navigationTitle) }
-- var productPath = sphere == "services" ? `mesosphere/dcos${langFragment}/${sphere}/${product}` : `${sphere}/${product}${langFragment}`
+- var productPath = sphere == "services" ? `/mesosphere/dcos${langFragment}/${sphere}/${product}` : `/${sphere}/${product}${langFragment}`
 - var productVersions = hierarchy.findByPath(productPath).children.filter(item => semver.test(item.id) && item.menuWeight != -1)
-- var currentPath = '/' + path
 
 mixin renderSidebarNavListItem(item, depth)
   -
     var hasChildren = !!item.children.length
-    var onPath = currentPath.includes(item.path)
-  li(class={'active': onPath, 'active-on': currentPath == item.path})
+    var onPath = path.includes(item.path)
+  li(class={'active': onPath, 'active-on': path == item.path})
     a(href=item.path + "/", class=`d${depth}`)
       if hasChildren
         i(data-feather='chevron-right')

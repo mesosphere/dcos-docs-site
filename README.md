@@ -37,6 +37,31 @@ npm run dev
 You'll now be able to browse the docs at [http://localhost:3000/](http://localhost:3000/). Your browser will reflect any changes to pages in dkp almost immediately.
 
 
+# A short intro:
+
+## Markdown with frontmatter
+
+We assume that you already know how to use markdown. If you want more up to date information, refer to the #documentation Slack channel.
+
+Our markdown comes with metadata - also called "frontmatter". Here are the special variables that you might want to set in a pages' frontmatter:
+
+- **excerpt**: This text is presented below the title at the top of the content page, sometimes used in topic cards. This could be a sub-title.
+- **layout**: This specifies the layout template to use. The default is `layout.pug` (the standard content-page-layout).
+- **menuWeight**: This value determines the location in the navigation bar. All numerical values except -1 accepted and sorted.
+- **navigationTitle**: This is the short title that shows up in navigation bar on the left.
+- **title**: This is the title that shows up at top of the page
+
+----------
+
+* **beta: true** - When this value is **true** a beta label is added to the page title.
+* **experimental: true** - When this value is **true** an experimental label is added to the page title.
+
+## URL-structure
+
+The directory-tree in `/pages` resembles the URL-structure of the final build. A pages' content **MUST** be in an `index.md`file in the respective directory.
+
+For example, `/pages/some/directory/index.md` is located at `docs.d2iq.com/some/directory`.
+
 # Content Editing Workflow
 ## Ensure jira ticket
 New content should never be created without a ticket that ties back to a feature or fix.
