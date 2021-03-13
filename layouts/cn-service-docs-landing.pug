@@ -2,20 +2,16 @@
 
 mixin renderGridToc()
   .grid-toc
-    each val, index in hierarchy.findByPath(`mesosphere/dcos/cn/services`).children
+    each val, index in hierarchy.findByPath(`/mesosphere/dcos/cn/services`).children
       if val.menuWeight != -1
         if val.children
           each childVal, childIndex in val.children
             if semverService.test(childVal.id) && childVal.menuWeight != -1
-              - versioned = true
-              - childVal.title = val.title
               - val = childVal
               - break
         .grid-toc__item
           h2.grid-toc__title
             a(href=val.path)!= val.title
-          - var displayExcerpt = (val.excerpt.length > 100) ? val.excerpt.substring(0, 100) + '…' : val.excerpt
-          p.grid-toc__desc!= displayExcerpt
           if val.children
             ul.grid-toc__list
               for item in val.children.slice(0, 5)

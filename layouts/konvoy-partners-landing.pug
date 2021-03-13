@@ -36,7 +36,7 @@ mixin renderGridToc()
       div(class=categoryClasses)
         h1.grid-toc__category-header!= category
         - var categoryServices = []
-        each service, _ in hierarchy.findByPath(`dkp/konvoy/partner-solutions`).children
+        each service, _ in hierarchy.findByPath(`/dkp/konvoy/partner-solutions`).children
           if service.menuWeight != -1 && service.category == category
             - categoryServices.push(service)
         each service, _ in categoryServices
@@ -47,7 +47,7 @@ mixin renderGridToc()
             .grid-toc__title-group
               h2.grid-toc__title
                 a(href=latestPath)!= service.title
-            p.grid-toc__service-desc!= service.excerpt || 'MISSING'
+            p.grid-toc__service-desc!= service.shortDesc || 'MISSING'
             if service.children
               ul.grid-toc__service-list
                 for version in service.children.slice(0,1)

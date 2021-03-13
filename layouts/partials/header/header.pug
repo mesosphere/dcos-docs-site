@@ -1,7 +1,7 @@
 - var { sphere, product, productName, lang, searchFacet } = Utils.getPathInfo(path)
 - isItemActive = function(itemPath){ return itemPath === path || itemPath === "/" + path }
-- pages = lang == "cn" ? hierarchy.find('menus', 'dcos-cn-header') : null
-- pages = pages || hierarchy.find('menus', (menus) => menus.includes(`${product}-header`))
+- pages = lang == "cn" ? hierarchy.findMenus(menus => menus.includes('dcos-cn-header') && false) : null
+- pages = pages || hierarchy.findMenus((menus) => menus.includes(`${product}-header`))
 - sectionSuffix = lang == "cn" ? "文档" : " Documentation"
 
 header.header

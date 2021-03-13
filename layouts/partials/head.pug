@@ -1,6 +1,5 @@
-- var page = hierarchy.findByPath('/' + path)
-- var pageTitle = (title && path != '') ? (title + ' - ' + siteTitle) : siteTitle
-- var pageDescription = (page && page.excerpt) ? page.excerpt : siteDescription
+- var pageTitle = (title && path != '/') ? (title + ' - ' + siteTitle) : siteTitle
+- var pageDescription = shortDesc || siteDescription
 - var paths = path.split('/')
 
 meta(charset='UTF-8')
