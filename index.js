@@ -21,7 +21,6 @@ const headings = require("./plugins/metalsmith-headings");
 const algolia = require("./plugins/metalsmith-algolia");
 const inPlace = require("./plugins/metalsmith-in-place-dcos");
 const includeContent = require("./plugins/metalsmith-include-content-dcos");
-const revision = require("./plugins/metalsmith-revision");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
 const webpack = require("./plugins/metalsmith-webpack");
 const Utils = require("./core/utils");
@@ -128,19 +127,9 @@ MS.use(timer("Mustache"));
 MS.use(hierarchy);
 MS.use(timer("Hierarchy"));
 
-//
-// Slow Plugins
-//
-
 // Shortcodes
 MS.use(shortcodes({ files: [".md"], shortcodes: shortcodesConfig }));
 MS.use(timer("Shortcodes"));
-
-// Don't rebuild files that have not been touched
-if (process.env.NODE_ENV === "development") {
-  MS.use(revision);
-  MS.use(timer("Revision"));
-}
 
 // Markdown
 MS.use(
@@ -202,7 +191,7 @@ if (process.env.NODE_ENV === "development") {
       paths: {
         "layouts/**/*": "**/*",
         "pages/404/index.md": true,
-        [`pages/dkp/**/*.md`]: true,
+        "pages/dkp/**/*.md": true,
       },
       livereload: true,
     })
