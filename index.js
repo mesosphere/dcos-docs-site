@@ -1,5 +1,4 @@
 // Packages
-const fs = require("fs");
 const minimatch = require("minimatch");
 const Metalsmith = require("metalsmith");
 const markdown = require("metalsmith-markdownit");
@@ -11,7 +10,6 @@ const serve = require("metalsmith-serve");
 const anchor = require("markdown-it-anchor");
 const attrs = require("markdown-it-attrs");
 const timer = require("metalsmith-timer");
-const ignore = require("metalsmith-ignore");
 const consolidate = require("consolidate");
 const pug = require("pug");
 
@@ -24,13 +22,6 @@ const includeContent = require("./plugins/metalsmith-include-content-dcos");
 const shortcodes = require("./plugins/metalsmith-shortcodes");
 const webpack = require("./plugins/metalsmith-webpack");
 const Utils = require("./core/utils");
-
-// Configs
-const configData = fs.readFileSync("config.json");
-const config = JSON.parse(configData);
-
-// Environment Variables
-const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
 
 //
 // Metalsmith
@@ -86,9 +77,6 @@ if (process.env.NODE_ENV === "development") {
     done();
   });
 }
-
-MS.use(ignore(METALSMITH_SKIP_SECTIONS));
-MS.use(timer("Ignore"));
 
 MS.use(assets({ source: "assets", destination: "assets" }));
 MS.use(timer("Assets"));

@@ -4,6 +4,8 @@
 - pages = pages || hierarchy.findMenus((menus) => menus.includes(`${product}-header`))
 - sectionSuffix = lang == "cn" ? "文档" : " Documentation"
 
+if draft
+  .draft__banner DRAFT
 header.header
   a.header__drawer
     i.header__icon(data-feather='menu')

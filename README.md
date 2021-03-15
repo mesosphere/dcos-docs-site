@@ -45,10 +45,19 @@ We assume that you already know how to use markdown. If you want more up to date
 
 Our markdown comes with metadata - also called "frontmatter". Here are the special variables that you might want to set in a pages' frontmatter:
 
+- **draft**: If set to `true`, this file won't show up on production. See `subtree` on how to hide whole page trees.
 - **excerpt**: This text is presented below the title at the top of the content page, sometimes used in topic cards. This could be a sub-title.
 - **layout**: This specifies the layout template to use. The default is `layout.pug` (the standard content-page-layout).
 - **menuWeight**: This value determines the location in the navigation bar. All numerical values except -1 accepted and sorted.
 - **navigationTitle**: This is the short title that shows up in navigation bar on the left.
+- **subtree**: This propagates its values down to all ancestor-pages. E.g. to hide a page tree, you set this on the topmost page you want to hide:
+  ```
+  ------------------
+  title: Konvoy 42.0 beta
+  subtree:
+    draft: true
+  ------------------
+  ```
 - **title**: This is the title that shows up at top of the page
 
 ----------

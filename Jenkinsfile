@@ -1,35 +1,16 @@
 #!/usr/bin/env groovy
 
-def bucket(branch) {
-    branch == "main" ? "docs-d2iq-com-production"
-                     : "docs-d2iq-com-pr-${env.CHANGE_ID}"
-}
-
-def principal(branch) {
-    branch == "main" ? "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Production"
-                     : "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-Development"
-}
-
-def creds(branch) {
-    branch == "main" ? 's3-production'
-                     : 's3-development'
-}
-
-def hostname(branch) {
-    branch == "main"  ? 'docs.d2iq.com'
-  : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
-}
-
-def updateAlgolia(branch) {
-  env.BRANCH_NAME == "main" ? "true" : ""
-}
+boolean main = env.BRANCH_NAME == "main"
+def bucket   = main ? "production"    : "pr-${env.CHANGE_ID}"
+def creds    = main ? 's3-production' : 's3-development'
+def hostname = main ? 'docs.d2iq.com' : "docs-d2iq-com-pr-${env.CHANGE_ID}.s3-website-us-west-2.amazonaws.com"
 
 pipeline {
   agent { label "mesos" }
   environment {
     DOCKER = credentials('docker-hub-credentials')
     ALGOLIA_PRIVATE_KEY = credentials('algolia_private_key')
-    REDIR_HOSTNAME = hostname(env.BRANCH_NAME)
+    REDIR_HOSTNAME = "${hostname}"
   }
   stages {
     stage("Update dev-image") {
@@ -67,14 +48,14 @@ pipeline {
 
     stage("Build & Deploy Docs") {
       environment {
-        ALGOLIA_UPDATE = updateAlgolia(env.BRANCH_NAME)
+        ALGOLIA_UPDATE = "${main ? 'true' : ''}"
         AWS_DEFAULT_REGION = "us-west-2"
-        BUCKET = bucket(env.BRANCH_NAME)
-        PRINCIPAL = principal(env.BRANCH_NAME)
-        REDIR_HOSTNAME = hostname(env.BRANCH_NAME)
+        BUCKET = "docs-d2iq-com-${bucket}"
+        PRINCIPAL = "arn:aws:iam::139475575661:role/Jenkins/Jenkins-S3-DOCS-${main ? 'Production' : 'Development'}"
+        REDIR_HOSTNAME = "${hostname}"
       }
       steps {
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds(env.BRANCH_NAME)]]) {
+        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: creds]]) {
         sh '''
           docker run \
             -v "$PWD/pages":/src/pages \
@@ -93,7 +74,7 @@ pipeline {
       }
     }
     stage("Deployment URL") {
-      steps { echo "http://${hostname(env.BRANCH_NAME)}" }
+      steps { echo "http://${hostname}" }
     }
   }
 }

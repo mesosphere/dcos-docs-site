@@ -65,7 +65,7 @@ module.exports = {
       semverCompare(a.id, b.id) ||
       spaceship(a.navigationTitle, b.navigationTitle) ||
       spaceship(a.title, b.title) ||
-      spaceship(a.id, b.id)
+      spaceship(a.path, b.path)
     );
   },
 };
