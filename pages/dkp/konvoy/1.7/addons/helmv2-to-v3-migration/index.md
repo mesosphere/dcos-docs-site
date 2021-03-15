@@ -10,8 +10,6 @@ enterprise: false
 
 <!-- markdownlint-disable MD018 -->
 
-<!-- markdownlint-disable MD018 -->
-
 Starting with Konvoy `v1.6.0`, Helm v2 is no longer installed or used to deploy Konvoy Addons because Helm v2 is [deprecated due to security and operational issues](https://helm.sh/blog/helm-v2-deprecation-timeline/). Helm v3 is installed and is the primary mechanism for installation and maintenance of Konvoy Addons.
 
 Upgrading from earlier versions of Konvoy includes an automatic migration process that requires no user input to migrate your Konvoy Addons to Helm v3. During this process, the Tiller (server) for  Helm v2, and any charts deployed with Helm v2, are not removed, but remains on your cluster. We recommend you manually remove the Helm v2 Tiller due to security issues, using the process below.
