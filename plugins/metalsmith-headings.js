@@ -1,16 +1,16 @@
-const $ = require("cheerio");
-const extname = require("path").extname;
+const { decode } = require("html-entities");
+const hs = /<(h[12])([^]*?)>([\s\S]*?)<\/h[12]>/g;
 
 module.exports = () => (files, metalsmith, done) => {
   setImmediate(done);
   Object.entries(files).forEach(([path, file]) => {
-    if (".html" != extname(path)) return;
-    file.headings = [];
-    $("h1,h2", file.contents.toString("utf-8")).each((_, el) => {
-      const $el = $(el);
-      const text = $el.text().trim();
-      const id = $el.attr("id") || text.replace(/\s+/g, "-").toLowerCase();
-      file.headings.push({ id, tag: el.name, text });
+    if (!path.endsWith(".html")) return;
+
+    const headings = Array.from(file.contents.toString("utf-8").matchAll(hs));
+    file.headings = headings.map(([_, tag, attrs, inner]) => {
+      const text = decode(inner.replace(/(<([^>]+)>)/gi, "")).trim();
+      const id = (attrs.match(/id="([^]*?)"/) || [])[1];
+      return { id: id || text.replace(/\s+/g, "-").toLowerCase(), tag, text };
     });
   });
 };
