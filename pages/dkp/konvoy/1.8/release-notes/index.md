@@ -65,7 +65,7 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 - The auto-provisioner can be now uninstalled if the `autoProvisioning.disabled` is set to `true` after the initial installation.
 - Use the correct GPG key when installing FIPS RPM packages in an air-gapped environment.
 - Include the missing `docker.io/mesosphere/pause:3.2` needed for air-gapped FIPS installation.
-- Allow for using custom CA when generating certificates for the Kubernetes control plane by copying `ca.crt` and `ca.key` files from `extras/pki` in the working directory.
+- Allow for using custom CA when generating certificates for the Kubernetes control plane by copying `ca.crt` and `ca.key` files from `extras/pki` in the working directory, See the [Konvoy documentation][konvoy-ccontrol-plane-certificates].
 
 #### API
 
@@ -121,3 +121,4 @@ For information about working with native Kubernetes, see the [Kubernetes docume
 [konvoy-doc]: ../introduction
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../install/install-vsphere
+[konvoy-ccontrol-plane-certificates]: ../networking/control-plane-certificates/
