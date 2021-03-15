@@ -40,6 +40,8 @@ Before you begin the upgrade, run the following command to delete the addon:
 kubectl delete addon prometheus --namespace kubeaddons --wait
 ```
 
+<p class="message--warning"><strong>NOTE: </strong>Deleting the Prometheus addon won't delete its data, because Prometheus uses a PersistentVolume.</p>
+
 If you've **already run the upgrade and deploying the prometheus addon has failed**, run this command:
 
 ```bash
