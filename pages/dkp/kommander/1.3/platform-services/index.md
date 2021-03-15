@@ -16,22 +16,22 @@ enterprise: false
 
 ## Configuring Konvoy Platform Services
 
-Platform Services are configured via the `addons` section under `ClusterConfiguration` within Konvoy's `cluster.yaml`
+{{ model.addon }}s are configured via the `addons` section under `ClusterConfiguration` within Konvoy's `cluster.yaml`
 
-Platform Services are configured by referencing various Platform Services repositories. Konvoy comes pre-configured with [Base Platform Services](https://github.com/mesosphere/kubernetes-base-addons) repository. This repository provides all the Platform Services that make Konvoy an enterprise grade distribution, ready for day two operations.
+{{ model.addon }}s are configured by referencing various {{ model.addon }}s repositories. Konvoy comes pre-configured with [Base Platform Services](https://github.com/mesosphere/kubernetes-base-addons) repository. This repository provides all the {{ model.addon }}s that make Konvoy an enterprise grade distribution, ready for day two operations.
 
-In general, Platform-Services come in two categories:
-- `ClusterAddon` - A Platform Service that is cluster-scoped.
-- `Addon` - A Platform Service that is namespace-scoped.
+In general, a {{ model.addon }} can come in two categories:
+- `ClusterAddon` - A {{ model.addon }} that is cluster-scoped. 
+- `Addon` - A {{ model.addon }} that is namespace-scoped is commonly refered to as Workload {{ model.addon }}.
 
-Konvoy partners and users can create their own Platform Services repositories. For example, a storage partner can create a Platform Services repository to provide their CSI storage provisioner. A user can create a Platform Services repository to meet the requirements that all clusters created, in their organization, run specific services. The [Creating Platform Services]() section covers these details.
+Konvoy partners and users can create their own {{ model.addon }} repositories. For example, a storage partner can create a {{ model.addon }} repository to provide their CSI storage provisioner. A user can create a {{ model.addon }} repository to meet the requirements that all clusters created, in their organization, run specific services. The [Creating Platform Services]() section covers these details.
 
 
-### Configuring Platform Services in `cluster.yaml`
+### Configuring {{ model.addon }} in `cluster.yaml`
 
 The following example shows how to configure an additional {{ model.addon }} repository in the Konvoy `cluster.yaml` file.
 
-In the configuration example below, we'll disable the bundled `awsebscsiprovisioner` in order to use an partner provided `awsebscsiprovisioner2`. Both these Platform Services are of the cluster-scoped `ClusterAddon` kind. Additionally the `cockroachdb` namespace-scoped Platform Service is enabled.
+In the configuration example below, we'll disable the bundled `awsebscsiprovisioner` in order to use an partner provided `awsebscsiprovisioner2`. Both these {{ model.addon }}s are of the cluster-scoped `ClusterAddon` kind. Additionally the `cockroachdb` namespace-scoped {{ model.addon }} is enabled.
 
 The example partner repository referenced via `configRepository` is `https://github.com/mesosphere/docs-addon-repo` and `configVersion` points to a tagged release within the repository.
 
@@ -62,7 +62,7 @@ spec:
 ```
 
 The second repository configured, in the example above, is our [sample docs-{{ model.addon }} ][sample_repo].
-It contains the {{ model.addon }} `awsebscsiprovisioner2` and `cockroachdb` Platform Services. 
+It contains the `awsebscsiprovisioner2` and `cockroachdb` {{ model.addon }}. 
 Since `awsebscsiprovisioner2` is a copy of the `awsebscsiprovisioner` from the `kubernetes-base-addons` repository. This example shows you can turn the storage provisioner in the `kubernetes-base-addons` repository off and provide a storage provisioner with another {{ model.addon }} repository.
 
 When you run `konvoy up` with the above `cluster.yaml` configuration you see the following output. All {{ model.addon }} requiring persistent storage get installed after `awsebscsiprovisioner2` providing a default `StorageClass`. For example, `cockroachdb, elasticsearch, and velero.
