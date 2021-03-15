@@ -14,6 +14,14 @@ const findLongestExisting = (path, fallback) => {
 const firstParagraph = (file) =>
   $("p", md.render(file.contents.toString("utf-8"))).first();
 
+/**
+ * This plugin puts all files into a tree structure and adds some other variables:
+ * * children
+ * * id - used for sorting
+ * * shortDesc - if no excerpt is set in the frontmatter, we'll add the first paragraph
+ * * subtree - this propagates variables down to all ancestors
+ * * parent
+ */
 module.exports = (files, metalsmith, done) => {
   setImmediate(done);
 
@@ -22,7 +30,6 @@ module.exports = (files, metalsmith, done) => {
 
     Object.assign(file, {
       children: [],
-      excerpt: file.excerpt,
       id: filePath.split("/").slice(-2)[0],
       path: "/" + filePath.replace(/index.md$/, "").replace(/\/$/, ""),
       shortDesc: file.excerpt || firstParagraph(file).text(),
@@ -30,10 +37,22 @@ module.exports = (files, metalsmith, done) => {
 
     file.parent = files[filePath.replace(/[^/]+\/index.md$/, "index.md")];
     if (!file.parent) return;
+
+    // subtree-prop inheritance
+    file.subtree = Object.assign({}, file.parent.subtree, file.subtree);
+    Object.assign(file, file.subtree);
+
+    if (file.draft && process.env.NODE_ENV == "production") return;
+
     paths[file.path] = file;
     if (file.menus) withMenus.push(file);
     file.parent.children.push(file);
     file.parent.children.sort(sortPages);
+  });
+
+  Object.entries(files).forEach(([filePath, file]) => {
+    if (file.draft && process.env.NODE_ENV == "production")
+      delete files[filePath];
   });
 
   metalsmith.metadata().hierarchy = {

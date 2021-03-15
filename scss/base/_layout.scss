@@ -79,3 +79,12 @@ $sidebarWidth: 280px;
         }
     }
 }
+
+.draft__banner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: red;
+  padding: .5em;
+  z-index: 50;
+}
