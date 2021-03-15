@@ -71,6 +71,10 @@ The directory-tree in `/pages` resembles the URL-structure of the final build. A
 
 For example, `/pages/some/directory/index.md` is located at `docs.d2iq.com/some/directory`.
 
+# CVEs
+
+We're publishing CVEs here: https://docs.d2iq.com/dkp/security-updates/. In case you want to update them, run `make update-cves` and commit the now changed file in `assets/cves.json`.
+
 # Content Editing Workflow
 ## Ensure jira ticket
 New content should never be created without a ticket that ties back to a feature or fix.

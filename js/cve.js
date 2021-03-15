@@ -276,12 +276,6 @@ const eyeSlash = (
 ///////////////////////////////////////////////////////////////////////////////
 //                                    APP                                    //
 ///////////////////////////////////////////////////////////////////////////////
-const isLocal =
-  location.hostname === "localhost" || location.hostname === "127.0.0.1";
-const reportURL = isLocal
-  ? "/assets/konvoy_latest.json"
-  : "https://konvoy-staging-devx-cac8-cve-reporter.s3-us-west-2.amazonaws.com/vulnerability_report_latest.json";
-
 const App = () => {
   React.useEffect(() => {
     // we have a lot of entries in the list that only differ in `resource_purl`.
@@ -290,9 +284,9 @@ const App = () => {
       Object.values(groupBy(cves, (c) => c.vulnerability_name)).map((group) => {
         return { ...group[0], purls: group.map((c) => c.resource_purl) };
       });
-    fetch(reportURL)
+    fetch("/assets/cves.json")
       .then((r) => r.json())
-      .then((cves) => onUpdate({ cves: foldPurlsByVulnName(cves) }));
+      .then((cves) => onUpdate({ cves }));
   }, []);
 
   const [model, setModel] = React.useState(init);

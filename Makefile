@@ -33,6 +33,10 @@ docker-liveedit: ## Start a liveediting container
 	--publish 127.0.0.1:35729:35729 \
 	$(LIVEEDIT_IMAGE)
 
+update-cves: ## Pull the current state of CVEs to the docs-site for publishing
+	curl "https://konvoy-staging-devx-cac8-cve-reporter.s3-us-west-2.amazonaws.com/vulnerability_report_latest.json" > assets/konvoy_latest.json
+	node ./ci/group_cves.js
+
 #
 # Help
 #
