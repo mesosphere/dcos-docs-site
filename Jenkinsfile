@@ -13,18 +13,6 @@ pipeline {
     REDIR_HOSTNAME = "${hostname}"
   }
   stages {
-    stage("Update dev-image") {
-      when { branch "main" }
-      steps {
-        sh '''
-          docker login -u ${DOCKER_USR} -p ${DOCKER_PSW}
-          docker pull mesosphere/docs-dev:latest
-          docker build --cache-from mesosphere/docs-dev:latest -f docker/Dockerfile -t mesosphere/docs-dev:latest .
-          docker push mesosphere/docs-dev:latest
-        '''
-      }
-    }
-
     stage("Build image") {
       steps {
         sh '''
