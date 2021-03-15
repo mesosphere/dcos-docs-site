@@ -12,6 +12,7 @@ npm-debug.log
 .revision
 .byebug_history
 secrets.sh
+assets/konvoy_latest.json
 
 # files used by CI
 .site-image
