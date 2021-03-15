@@ -28,21 +28,15 @@ const Utils = require("./core/utils");
 // Configs
 const configData = fs.readFileSync("config.json");
 const config = JSON.parse(configData);
-const shortcodesConfig = require("./shortcodes");
 
 // Environment Variables
-const GIT_BRANCH = process.env.GIT_BRANCH;
 const METALSMITH_SKIP_SECTIONS = (config[GIT_BRANCH] || {}).DO_NOT_BUILD || [];
 
 //
 // Metalsmith
 //
-
 const MS = Metalsmith(__dirname);
 
-const currentYear = new Date().getFullYear();
-
-// Metadata
 // These are available in the layouts as js variables
 MS.metadata({
   url: "https://docs.d2iq.com",
@@ -50,9 +44,8 @@ MS.metadata({
   siteDescription:
     "Welcome to the documentation pages for D2iQ. Visit one of the product " +
     "pages to get started.",
-  copyright: `&copy; ${currentYear} D2iQ, Inc. All rights reserved.`,
+  copyright: `&copy; ${new Date().getFullYear()} D2iQ, Inc. All rights reserved.`,
   env: process.env.NODE_ENV,
-  gitBranch: GIT_BRANCH,
   conductorDocsLatest: "1.1",
   dcosCNDocsLatest: "2.1",
   dcosDocsLatest: "2.2",
@@ -128,7 +121,7 @@ MS.use(hierarchy);
 MS.use(timer("Hierarchy"));
 
 // Shortcodes
-MS.use(shortcodes({ files: [".md"], shortcodes: shortcodesConfig }));
+MS.use(shortcodes({ files: [".md"], shortcodes: require("./shortcodes") }));
 MS.use(timer("Shortcodes"));
 
 // Markdown
