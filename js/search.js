@@ -55,7 +55,7 @@ try {
           suggestion: (data) => {
             const { excerpt, title } = extractPreviewData(data);
             return `
-            <a href="/${data.path}" class="landing__results-link">
+            <a href="${data.path}" class="landing__results-link">
               <strong class="landing__results-title">${title}</strong>
               <div class="landing__results-snippet">&hellip; ${excerpt} &hellip;</div>
             </a>
@@ -106,13 +106,13 @@ try {
             return `
             <li class="search__results-item">
               <h4 class="search__title">
-                <a href="/${data.path}" class="search__link">${title}</a>
+                <a href="${data.path}" class="search__link">${title}</a>
               </h4>
               <p class="search__description">${excerpt}</p>
               <p class="search__description">${content}</p>
               <div class="search__meta">
                 <span class="search__meta-product">${data.scope}</span>
-                <a href="/${data.path}" class="search__meta-source">http://docs.d2iq.com/${data.path}</a>
+                <a href="${data.path}" class="search__meta-source">http://docs.d2iq.com${data.path}</a>
               </div>
             </li>
           `;

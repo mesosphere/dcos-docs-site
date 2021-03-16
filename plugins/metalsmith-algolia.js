@@ -67,7 +67,7 @@ const sanitize = (string) => {
     allowedAttributes: [],
     selfClosing: [],
     // prettier-ignore
-    nonTextTags: ["head", "style", "script", "textarea", "noscript", "header", "footer", "nav", "aside", "section"]
+    nonTextTags: ["head", "style", "script", "textarea", "noscript", "header", "footer", "nav", "aside", "section"],
   });
   parsedString = parsedString.replace(/^\s+|\s+$/g, "");
   // Remove extraneous information from content.
