@@ -4,7 +4,7 @@ navigationTitle: Version Support Policy
 title: Version Support Policy
 menuWeight: 280
 excerpt: Supported version policy for Kommander
-beta: false
+beta: true
 enterprise: false
 ---
 
