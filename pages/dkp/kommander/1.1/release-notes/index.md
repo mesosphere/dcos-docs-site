@@ -19,6 +19,37 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated and cost management, across multiple clusters, whether they are a new Konvoy cluster or existing 3rd party/DIY distribution.
 
+## Improvements in Kommander 1.1.3
+
+**D2iQ&reg; Kommander&reg; version 1.1.3 was released on 25, March 2021.**
+
+# New features
+
+- Replace license table with single license detail view.
+
+# Bug fixes
+
+- Ensure pre-delete hook jobs are cleaned up.
+- Ensure kubectl deletes do not fail if resource already deleted.
+- Bump kubecost to fix an issue that occasionally caused pods to fail to deploy
+- Fix bug in Kommander UI where LDAP Root CA is malformed when saved. (COPS-6884)
+
+## Component versions
+
+- Addon: 1.2.1-2
+- Chart: 0.12.19
+- kommander-federation (yakcl): 0.6.10
+- kommander-licensing (yakcl): 0.6.10
+- UI: 6.55.2
+- kommander-karma: 0.3.12
+- kubeaddons-catalog: 0.1.15
+- kommander-thanos: 0.1.16
+- kubecost: 0.5.4
+- grafana: 6.6.0
+- karma: 0.70
+- thanos: 0.10.1
+- cost-analyzer: 1.71.1
+
 ## Supported Versions
 
 | Kubernetes Support | Version |
