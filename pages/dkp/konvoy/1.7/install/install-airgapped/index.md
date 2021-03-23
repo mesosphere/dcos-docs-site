@@ -49,7 +49,7 @@ Before installing, verify that your environment meets the following basic requir
   - Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
   - Disk usage must be below 85% on the root volume.
 
-- If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
+- If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least four volumes to `/mnt/disks/` mount point on each node.
   Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
