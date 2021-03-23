@@ -31,7 +31,6 @@ Kommander provides a command center for all your cloud native management needs i
 
 - Ensure pre-delete hook jobs are cleaned up.
 - Ensure kubectl deletes do not fail if resource already deleted.
-- Fix bug in Kommander UI where LDAP Root CA is malformed when saved. (COPS-6884)
 
 ## Component versions
 
