@@ -25,7 +25,6 @@ Kommander provides a command center for all your cloud native management needs i
 
 # New features
 
-- Replace license table with single license detail view.
 
 # Bug fixes
 
