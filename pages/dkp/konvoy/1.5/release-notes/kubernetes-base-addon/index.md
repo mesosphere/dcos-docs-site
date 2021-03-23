@@ -13,6 +13,19 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+September 10, 2021
+
+[stable-1.17-2.7.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.7.0)
+
+-   Fluentbit
+    - Allows the fluentbit addon to deploy without elasticsearch enabled.
+
+-   Opsportal
+    - Fixes bug in OpsPortal where Identity Providers would not show up.
+
+-   Prometheus
+    - Re-enable etcd prometheus rules.
+
 September 25, 2020
 
 [stable-1.17-2.5.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.17-2.5.0)
