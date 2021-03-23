@@ -33,19 +33,19 @@ Kommander provides a command center for all your cloud native management needs i
 
 ## Component versions
 
-- Addon: 1.2.1-2
-- Chart: 0.12.19
-- kommander-federation (yakcl): 0.6.10
-- kommander-licensing (yakcl): 0.6.10
-- UI: 6.55.2
-- kommander-karma: 0.3.12
-- kubeaddons-catalog: 0.1.15
-- kommander-thanos: 0.1.16
-- kubecost: 0.5.4
-- grafana: 6.6.0
+- Addon: 1.1.4-2
+- Chart: 0.8.47
+- kommander-federation (yakcl): 0.3.5
+- kommander-licensing (yakcl): 0.3.5
+- UI: 3.126.1
+- kommander-karma: 0.3.10
+- kubeaddons-catalog: 0.1.11
+- kommander-thanos: 0.1.15
+- kubecost: 0.1.16
+- grafana: 4.6.3
 - karma: 0.70
 - thanos: 0.10.1
-- cost-analyzer: 1.71.1
+- cost-analyzer: 1.65.0
 
 ## Supported Versions
 
