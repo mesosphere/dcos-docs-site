@@ -54,7 +54,6 @@ Kommander provides a command center for all your cloud native management needs i
 
 # Bug fixes
 
-- Update YAKCL to v0.3.5
 - Use replacement chart repository for helm stable charts
 
 ## Component versions
