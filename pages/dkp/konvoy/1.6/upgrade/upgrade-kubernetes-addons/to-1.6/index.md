@@ -28,7 +28,7 @@ This command will add a `.copy` extension to all your files in `extras/provision
 ```bash
 # define the provider you use within Konvoy
 PROVIDER="aws"
-docker run --entrypoint="/bin/sh" -e PROVIDER=${PROVIDER} -v ${PWD}/extras/provisioner:/extras mesosphere/konvoy:v1.6.2 -c "for f in /extras/*.tf; do cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}) /extras/\$(basename \${f}).copy; cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}).gotmpl /extras/\$(basename \${f}).gotmpl.copy; done"
+docker run --entrypoint="/bin/sh" -e PROVIDER=${PROVIDER} -v ${PWD}/extras/provisioner:/extras mesosphere/konvoy:v1.6.3 -c "for f in /extras/*.tf; do cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}) /extras/\$(basename \${f}).copy; cp /opt/konvoy/providers/\${PROVIDER}/\$(basename \${f}).gotmpl /extras/\$(basename \${f}).gotmpl.copy; done"
 ```
 
 ### Description of needed changes
