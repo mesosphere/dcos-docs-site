@@ -216,7 +216,7 @@ spec:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: stable-1.17-1.1.2
+    configVersion: stable-1.17-1.1.4
     addonsList:
     - name: kommander
       enabled: true

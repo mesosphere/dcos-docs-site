@@ -74,7 +74,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
 1. Run the following commands to initialize Konvoy in the current working directory:
 
    ```bash
-   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.17-2.7.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.17-1.1.2,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
+   konvoy init --provisioner=none --addons-repositories /opt/konvoy/artifacts/kubernetes-base-addons@stable-1.17-2.7.0,/opt/konvoy/artifacts/kubeaddons-kommander@stable-1.17-1.1.4,/opt/konvoy/artifacts/kubeaddons-dispatch@stable-1.17-1.2.2 [--cluster-name <your-specified-name>]
    ```
 
 <p class="message--note"><strong>NOTE: </strong>The cluster name may only contain the following characters: <code>a-z, 0-9, . - and _.</code></p>
@@ -100,7 +100,7 @@ Konvoy will automatically generate the skeleton of the inventory file for you du
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-      configVersion: stable-1.17-1.1.2
+      configVersion: stable-1.17-1.1.4
       addonsList:
       - name: kommander
         enabled: true
@@ -460,20 +460,20 @@ spec:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
     configVersion: stable-1.17-2.7.0
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.5
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.6
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
     configVersion: stable-1.17-1.2.2
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.5
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.6
     addonsList:
     - name: dispatch # Dispatch is currently in Beta
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: stable-1.17-1.1.2
+    configVersion: stable-1.17-1.1.4
     addonRepository:
-      image: mesosphere/konvoy-addons-chart-repo:v1.5.5
+      image: mesosphere/konvoy-addons-chart-repo:v1.5.6
     addonsList:
     - name: kommander
       enabled: false

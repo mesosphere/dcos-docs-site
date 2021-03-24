@@ -89,7 +89,7 @@ It is recommended to upgrade to the newest supported version of Containerd, set 
 
 The version of Kubernetes Base Addons changed if you use KBA, so you need to change your `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubernetes-base-addons` to be `spec.addons.configVersion: stable-1.17-2.7.0`.
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.17-1.1.2`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.17-1.1.4`.
 
 The version of Konvoy is now `v1.5.0`, set `spec.version: v1.5.0`.
 
@@ -113,7 +113,7 @@ spec:
       configVersion: stable-1.17-2.7.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: stable-1.17-1.1.2
+      configVersion: stable-1.17-1.1.4
       addonsList:
         - name: kommander
           enabled: true

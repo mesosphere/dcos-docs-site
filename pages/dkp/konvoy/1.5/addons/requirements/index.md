@@ -11,6 +11,8 @@ enterprise: false
 
 #include /dkp/konvoy/1.5/include/kba-requirements.tmpl
 
+#include /dkp/konvoy/1.5/include/kba-addons-versions.tmpl
+
 ## Related information
 
 For information on related topics or procedures, refer to the following:
