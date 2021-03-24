@@ -33,7 +33,6 @@ This release provides new features and enhancements to improve the user experien
 There are some limitations upgrading to this Konvoy version due to the migration of Helm v2 to Helm v3 of large ConfigMaps to Helm v3 Secrets for Prometheus and the need to delete and redeploy this addon.
 For more information, see [Helm v2 to v3 migration](../../addons/helmv2-to-v3-migration/)
 
-
 ### New features and capabilities
 
 - Collect diagnostics from bastion machines.

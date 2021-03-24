@@ -45,7 +45,7 @@ Before installing, verify that your environment meets the following basic requir
   * 32 GiB memory
   * Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
 
-- If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
+- If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least four volumes to `/mnt/disks/` mount point on each node.
   Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
@@ -480,18 +480,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.3
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.3
       addonsList:
       - name: dispatch # Dispatch is currently in Beta
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.6.2
+        image: mesosphere/konvoy-addons-chart-repo:v1.6.3
       addonsList:
       - name: kommander
         enabled: false

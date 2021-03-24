@@ -67,13 +67,13 @@ konvoy image list --docker-registry-url=https://localhost:6443 --docker-registry
 After you have the available Konvoy versions, you can upgrade your CLI by running the following command:
 
 ```bash
-konvoy image upgrade --version=v1.6.2
-Wrote Konvoy CLI version 'v1.6.2' to '.konvoy/cli_version'
+konvoy image upgrade --version=v1.6.3
+Wrote Konvoy CLI version 'v1.6.3' to '.konvoy/cli_version'
 ```
 
 After the upgrade command completes, you can start using the new Konvoy version.
 
-### Upgrading Konvoy from v1.5.x to v1.6.2
+### Upgrading Konvoy from v1.5.x to v1.6.3
 
 <p class="message--note"><strong>NOTE: </strong>Do not modify the <code>apiVersion: konvoy.mesosphere.io/v1beta1</code>. If you update this to <code>apiVersion: konvoy.mesosphere.io/v1beta2</code> and are using the default <code>us-west-2</code> region, this upgrade recreates all the machines in the Kubernetes cluster. You may want to enforce the same machine IDs by adding the appropriate value for <code>spec.nodePools.machine.imageId</code>, setting it to <code>spec.nodePools.machine.imageID: ami-01ed306a12b7d1c96</code>.</p>
 
@@ -90,9 +90,9 @@ The version of Kubernetes Base Addons changed if you use KBA, so you need to cha
 <p class="message--note"><strong>NOTE: </strong>A note on upgrading from 1.5.x to 1.6.1: There are some limitations upgrading to this Konvoy version due to the migration of Helm v2 to Helm v3 of large ConfigMaps to Helm v3 Secrets for Prometheus and the need to delete and redeploy this addon.
 For more information, see <a href="../../addons/helmv2-to-v3-migration/">Helm v2 to v3 migration</a>.</p>
 
-If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.18-1.2.1`.
+If you use Kommander, you need to change the `configVersion` for your `configRepository`: `https://github.com/mesosphere/kubeaddons-kommander` to be `spec.addons.configVersion: stable-1.18-1.2.2`.
 
-The version of Konvoy is now `v1.6.2`, set `spec.version: v1.6.2`.
+The version of Konvoy is now `v1.6.3`, set `spec.version: v1.6.3`.
 
 ```yaml
 kind: ClusterConfiguration
@@ -114,12 +114,12 @@ spec:
       configVersion: stable-1.18-3.3.0
   ...
     - configRepository: https://github.com/mesosphere/kubeaddons-kommander
-      configVersion: stable-1.18-1.2.1
+      configVersion: stable-1.18-1.2.2
       addonsList:
         - name: kommander
           enabled: true
   ...
-  version: v1.6.2
+  version: v1.6.3
 ```
 
 <p class="message--note"><strong>NOTE: </strong>During the upgrade process, if the cluster has certain types of workloads running, the Konvoy CLI displays a warning. These warnings report skipped nodes in the upgrade process.</p>
