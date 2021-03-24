@@ -23,6 +23,29 @@ Rate limiting happens on a per-pull basis regardless of whether the pulled image
 
 For more information on addressing this limit, refer to this [procedure](../operations/manage-docker-hub-rate-limits).
 
+### Version v1.5.6 - Released 25 March 2021
+
+| Kubernetes Support | Version |
+| ------------------ | ------- |
+|**Minimum** | 1.15.4 |
+|**Maximum** | 1.17.x |
+|**Default** | 1.17.17 |
+
+#### Improvements
+
+- Collect diagnostics from bastion machines.
+
+#### Bug Fixes
+
+- A problem with the `konvoy down` or `konvoy reset` commands failing if dedicated named devices were mounted on `/var/lib/kublet` or `/var/lib/containerd` has been corrected. (COPS-6771)
+- AWS: Fix a bug where running `konvoy up` may destroy machines when `subnetIDs` are specified and the cluster is deployed in multiple Availability Zones. (COPS-6816)
+
+#### Component version changes
+
+- Kubernetes `v1.17.17`
+- kubernetes-base-addons `stable-1.17-2.7.0`
+- kubeaddons-kommander `stable-1.17-1.1.4`
+
 ### Version v1.5.5 - Released 12 January 2020
 
 | Kubernetes Support | Version |
