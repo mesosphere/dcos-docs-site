@@ -22,7 +22,7 @@ Kommander provides a command center for all your cloud native management needs i
 
 #### Features/Improvements
 
-* UI allows deleting a license and shows license details.
+* UI allows deleting a license and shows license details. (COPS-6142)
 
 #### Bug Fixes
 
