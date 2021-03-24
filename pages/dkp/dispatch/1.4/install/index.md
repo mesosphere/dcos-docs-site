@@ -27,7 +27,7 @@ The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/solutions/dk
     spec:
       addons:
       - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-        configVersion: stable-1.18-1.3.1
+        configVersion: stable-1.19-1.4.1
         addonsList:
         - name: dispatch
           enabled: true
@@ -41,7 +41,7 @@ The easiest way to install Dispatch is on [Konvoy](https://d2iq.com/solutions/dk
     spec:
       addons:
       - configRepository: https://github.com/mesosphere/kubeaddons-dispatch
-        configVersion: stable-1.18-1.3.1
+        configVersion: stable-1.19-1.4.1
         addonsList:
         - name: dispatch
           enabled: true
