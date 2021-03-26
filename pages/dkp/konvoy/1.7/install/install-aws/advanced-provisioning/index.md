@@ -214,13 +214,13 @@ credential_source = Ec2InstanceMetadata
 region = us-west-2
 ```
 
-## Using existing infrastructure
+# Use existing infrastructure
 
 <p class="message--note"><strong>NOTE: </strong> The following steps require the creation of a <tt>cluster.yaml</tt> configuration file. If you do not already have that file, create it by running <tt>konvoy init</tt>.</p>
 
-### VPC
-It is possible to use an existing VPC if so desired.
-To do so you must modify the `cluster.yaml` file and change the `ProvisionerConfig` in the following way:
+## VPC
+
+To use an existing VPC you must modify the `cluster.yaml` file and change the `ClusterProvisioner` configuration file:
 
 ```yaml
 kind: ClusterProvisioner
@@ -302,7 +302,8 @@ spec:
     ...
 ```
 
-### VPC Endpoints
+## VPC Endpoints
+
 Konvoy can automatically provision [AWS VPC Endpoints][aws_vpc_endpoints] for `ebs` and `elasticloadbalancing` services.
 This allows for the Kubernetes AWS cloud-provider and AWS EBS CSI driver to function without requiring access to the Internet.
 
@@ -323,7 +324,8 @@ spec:
 
 <p class="message--note"><strong>NOTE: </strong>When using a custom VPC with these endpoints already present, you should leave the <code>enableVPCEndpoints: false</code> value set. Otherwise, Konvoy modifies existing resources which could prevent other workloads from accessing the AWS api.</p>
 
-### Subnets
+## Subnets
+
 An existing VPC may already contain `subnets` for use. You may define them in the following way:
 
 ```yaml
@@ -417,7 +419,7 @@ kubernetes.io/cluster = __CLUSTER_NAME__
 kubernetes.io/cluster/__CLUSTER_NAME__ = owned
 ```
 
-### IAM Instance Profiles
+## IAM Instance Profiles
 An existing IAM instance profile can be used, provided that the right policies must be set:
 
 ```yaml
@@ -456,7 +458,7 @@ spec:
 ...
 ```
 
-### EBS Volume Encryption
+## EBS Volume Encryption
 
 You can configure the AWS CSI driver, installed by Konvoy, to create encrypted EBS volumes.
 Modify the `awsebscsiprovisioner` addon values in the following way:
@@ -477,7 +479,7 @@ spec:
 
 This configures the AWS CSI driver to encrypt all of the EBS volumes it creates, using the default KMS key in each region.
 
-Yo can also use a customer managed KMS key, by specifying the key's full ARN:
+You can also use a customer managed KMS key, by specifying the key's full ARN:
 
 ```yaml
 kind: ClusterProvisioner
