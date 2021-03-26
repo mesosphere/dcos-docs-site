@@ -19,13 +19,56 @@ To get started with Kommander, [download](/dkp/konvoy/latest/download/) and [ins
 
 Kommander provides a command center for all your cloud native management needs in public Information as a Service (IaaS), on-premises, and edge environments. Kommander provides a multi-tenant experience to create, secure, and configure Kubernetes clusters and cloud native workloads. Additionally, Kommander enables teams to unlock federated and cost management, across multiple clusters, whether they are a new Konvoy cluster or existing 3rd party/DIY distribution.
 
-## Supported Versions
+## Improvements in Kommander 1.1.4
 
-| Kubernetes Support | Version |
-| ------------------ | ------- |
-| **Minimum**        | 1.15.0  |
-| **Maximum**        | 1.17.x  |
-| **Default**        | 1.17.3  |
+**D2iQ&reg; Kommander&reg; version 1.1.4 was released on 25, March 2021.**
+
+# New features
+
+# Bug fixes
+
+- Ensure pre-delete hook jobs are cleaned up. (COPS-6821)
+- Ensure kubectl deletes do not fail if resource already deleted.
+
+## Component versions
+
+- Addon: 1.1.4-2
+- Chart: 0.8.47
+- kommander-federation (yakcl): 0.3.5
+- kommander-licensing (yakcl): 0.3.5
+- UI: 3.126.1
+- kommander-karma: 0.3.10
+- kubeaddons-catalog: 0.1.11
+- kommander-thanos: 0.1.15
+- kubecost: 0.1.16
+- grafana: 4.6.3
+- karma: 0.70
+- thanos: 0.10.1
+- cost-analyzer: 1.65.0
+
+## Improvements in Kommander 1.1.3
+
+**D2iQ&reg; Kommander&reg; version 1.1.3 was released on 3, November 2020.**
+
+# New features
+
+# Bug fixes
+
+- Use replacement chart repository for helm stable charts
+
+## Component versions
+
+- Addon: 1.1.3-3
+- Chart: 0.8.46
+- auto-provisioning (yakcl): 0.3.5
+- kommaner-federation (yakcl): 0.3.5
+- kommander-licensing (yakcl): 0.3.5
+- UI: 3.126.1
+- kommander-karma: 0.3.10
+- kubeaddons-catalog: 0.1.11
+- kommander-thanos: 0.1.15
+- kubecost: 0.1.12
+- grafana: 4.6.3
 
 ## Improvements in Kommander 1.1.2
 
