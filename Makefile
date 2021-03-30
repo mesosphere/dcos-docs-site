@@ -37,11 +37,18 @@ update-cves: ## Pull the current state of CVEs to the docs-site for publishing
 	curl "https://konvoy-staging-devx-cac8-cve-reporter.s3-us-west-2.amazonaws.com/vulnerability_report_latest.json" > assets/konvoy_latest.json
 	node ./ci/group_cves.js
 
+.PHONY: cves.filter-unmitigated
+cves.filter-unmitigated: ## Filters out unmitigated CVEs from assets/cves.json file
+	export CVETMP=$$(mktemp /tmp/cve-mitigated.XXXXXX) && \
+	cat assets/cves.json | \
+		jq -c -r '[ .[] | select((.mitigations | length) > 0) ]' > $$CVETMP && \
+		mv $$CVETMP assets/cves.json
+
 #
 # Help
 #
 
 help:
-	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+	@grep -E '^[a-zA-Z_\.-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
 .DEFAULT_GOAL := help
