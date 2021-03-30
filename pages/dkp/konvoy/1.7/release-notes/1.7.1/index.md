@@ -59,6 +59,10 @@ In certain environments, attempting to create a cluster without workers can fail
 
 A problem with the `konvoy down` or `konvoy reset` commands failing if dedicated named devices were mounted on `/var/lib/kublet` or `/var/lib/containerd` has been corrected. (COPS-6771)
 
+#### Fix issue reporting incorrect status update of addons upon deploying
+
+There was an issue when Addons were marked with a status of "OK" when in certain cases not all components of that addon were available during the `Deploying Enabled Addons` stage of a `konvoy up` or `konvoy deploy addons` command. This has been fixed and when the status now reflects when the addon is ready. (COPS-6883)
+
 ### Component versions
 
 - Ansible 2.9.16.0
