@@ -61,7 +61,7 @@ A problem with the `konvoy down` or `konvoy reset` commands failing if dedicated
 
 #### Fix issue reporting incorrect status update of addons upon deploying
 
-There was an issue when Addons were marked with a status of "OK" when in certain cases not all components of that addon were available during the `Deploying Enabled Addons` stage of a `konvoy up` or `konvoy deploy addons` command. This has been fixed and when the status now reflects when the addon is ready. (COPS-6883)
+There was an issue where some Addons were marked as "OK" status when not all components of that addon were available. This happened during the `Deploying Enabled Addons` stage of a `konvoy up` or `konvoy deploy addons` command. This has been fixed and the status now reflects when the addon is ready. (COPS-6883)
 
 ### Component versions
 
