@@ -23,7 +23,7 @@ const init = {
   sevFilters: {
     negligible: false,
     low: false,
-    medium: false,
+    medium: true,
     high: true,
     critical: true,
   },
