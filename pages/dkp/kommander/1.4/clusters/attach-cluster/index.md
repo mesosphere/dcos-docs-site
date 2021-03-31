@@ -100,6 +100,23 @@ Platform services extend the functionality of Kubernetes and allow you to deploy
 
 ![Add Cluster Connect](/dkp/kommander/1.4/img/add-cluster-connect.png)
 
+### Attaching a Cluster behind a Firewall or in a DMZ
+
+Using the **Add Cluster** option, select the cluster restriction **Cluster with networking restrictions**. You can attach an existing Kubernetes or Konvoy cluster which is located in a DMZ or behind a firewall directly to Kommander. You can access the multi-cluster management and monitoring benefits Kommander provides while keeping your existing cluster on its current provider and infrastructure.
+
+Selecting the **Attach Cluster** option displays the **Connection Information** dialog box. This dialog box accepts all the settings to instruct Kommander to create a tunnel to access your cluster. You are expected to
+fill the **Load Balancer hostname** or **Host** fields to send traffic to these ingress points. These values belong to the Kommander management cluster. Likewise you can optionally set **Certificate Authority Root (CA)** field which is a secret reference to the root CA that will be used to validate the ingress endpoints, and set extra **Annotations** field for the ingress object. In this form, you can also set the display name, add labels to classify your cluster, and select the platform services to install.
+
+![Add Cluster behind Proxy](/dkp/kommander/1.4/img/add-cluster-tunnel-connect.png)
+
+Once you select the **Submit** option, Kommander creates a tunnel that starts listening for a connection from your cluster. An additional manual step is required to complete the cluster attachment. You need to deploy the generated YAML manifest in the target cluster, as shown below:
+
+![Create Manifests in Cluster](/dkp/kommander/1.4/img/attach-cluster-tunnel-manifest.png)
+
+Once you run the detailed command in your cluster, a tunnel agent connects both clusters completing the attachment of the cluster. Kommander is now able to manage your cluster via this new tunnel.
+
+Platform services extend the functionality of Kubernetes and allow you to deploy ready-to-use logging and monitoring stacks by federating platform services when attaching a cluster to Kommander. For more information, refer to [workspace platform services][workspace_platform_services].
+
 ## Accessing your managed clusters using your Kommander administrator credentials
 
 After the cluster has attached successfully, and you can access the UI, a custom kubeconfig can be retrieved. Select the Kommander username in the top right and select **Generate Token**. Select the attached cluster name, and follow the instructions to assemble a kubeconfig for accessing its Kubernetes API.
