@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018-->
 
 # Before you begin
 
@@ -50,13 +50,7 @@ Before installing, ensure that your environment has the following basic requirem
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
-
-* Firewalld is disabled.
-* Containerd is uninstalled.
-* Docker-ce is uninstalled.
-* Swap is disabled.
-* The `hostnames` for all the machines in the Kubernetes cluster are unique within a single cluster.
+#include /dkp/konvoy/1.8/include/os-svc-nodes.tmpl
 
 ## Installation
 

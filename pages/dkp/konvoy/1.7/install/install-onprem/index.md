@@ -20,6 +20,8 @@ Before installing, verify that your environment meets the following basic requir
 
 * [kubectl][install_kubectl] v1.19.8 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
 
+* Konvoy cannot be run from a host that belongs to a Kubernetes cluster, you must have a separate host.
+
 ## Control plane nodes
 
 * You should have at least three control plane nodes.
@@ -44,14 +46,7 @@ Before installing, verify that your environment meets the following basic requir
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
-
-* CentOS 7.8 is installed.
-* Firewalld is disabled.
-* Containerd is uninstalled.
-* Docker-ce is uninstalled.
-* Swap is disabled.
-* The `hostnames` for all the machines in the Kubernetes cluster are unique within a single cluster.
+#include /dkp/konvoy/1.8/include/os-svc-nodes.tmpl
 
 ## Networking
 
@@ -205,7 +200,7 @@ spec:
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.19-1.4.1
+    configVersion: stable-1.19-1.4.2
     addonsList:
     - name: dispatch
       enabled: false
