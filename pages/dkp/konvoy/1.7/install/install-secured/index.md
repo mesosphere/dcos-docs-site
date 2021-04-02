@@ -50,7 +50,7 @@ Before installing, ensure that your environment has the following basic requirem
 
 ## Operating system and services for all nodes
 
-#include /dkp/konvoy/1.8/include/os-svc-nodes.tmpl
+#include /dkp/konvoy/1.7/include/os-svc-nodes.tmpl
 
 ## Installation
 
