@@ -67,7 +67,7 @@ Figure 3. A cluster card with resources highlighted
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU Requests    | The requested portion of the total allocatable CPU resource for the cluster, measured in number of cores, such 0.5 cores.                      |
 | CPU Limits      | The portion of the total allocatable CPU resource to which the cluster is limited, measured in number of cores, such as 0.5 cores.                           |
-| CPU Usage       | How much of the allocatable CPU resource is being consumed. Cannot be higher than the configured CPU limit. Measured in number of cores, such as 0.5 cores) |
+| CPU Usage       | How much of the allocatable CPU resource is being consumed. Cannot be higher than the configured CPU limit. Measured in number of cores, such as 0.5 cores. |
 | Memory Requests | The requested portion of the total allocatable memory resource for the cluster, measured in bytes, such as 64 GiB.                               |
 | Memory Limits   | The portion of the allocatable memory resource to which the cluster is limited, measured in bytes, such as 64 GiB.                                    |
 | Memory Usage    | How much of the allocatable memory resource that is being consumed. Cannot be higher than the configured memory limit. Measured in bytes, such as 64 GiB.       |
