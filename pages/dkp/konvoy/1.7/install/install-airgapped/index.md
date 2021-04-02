@@ -8,7 +8,7 @@ beta: false
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018 -->
 
 # Before you begin
 
@@ -54,13 +54,7 @@ Before installing, verify that your environment meets the following basic requir
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
-
-- CentOS 7.8 is installed.
-- Firewalld is disabled.
-- Containerd is uninstalled.
-- Docker-ce is uninstalled.
-- Swap is disabled.
+#include /dkp/konvoy/1.8/include/os-svc-nodes.tmpl
 
 # Initialize Konvoy configuration files
 
