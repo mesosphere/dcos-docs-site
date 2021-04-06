@@ -11,10 +11,6 @@ enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->
-
-## Release Notes
-The [Release Notes](#Release-Notes) section highlights any notable changes for each version.
-
 ## KUDO Cassandra
 
 Kommander Catalog adds integration for [KUDO Cassandra Operator](https://github.com/kudobuilder/operators/tree/master/repository/cassandra/3.11), which simplifies day 2 operations of [Apache Cassandra](https://cassandra.apache.org/). 
