@@ -27,7 +27,7 @@ The type values include:
 
 A cluster card's status line displays both the current status and the version of Kubernetes running in the cluster.
 
-![Cluster card with status highlighted](/dkp/kommander/1.4/img/cluster-card-status.png)
+![Cluster card with status highlighted](/dkp/kommander/1.4/img/cluster-card-statuses.png)
 
 Figure 2. A cluster card with its status highlighted
 
@@ -59,7 +59,7 @@ The status list includes these values:
 
 The Resources graphs on a cluster card show you a cluster's resource requests, limits, and usage. This allows a quick, visual scan of cluster health. Hover over each resource to get specific details for that specific cluster resource.
 
-![Cluster card with resources](/dkp/kommander/1.4/img/cluster-card.png)
+![Cluster card with resources](/dkp/kommander/1.4/img/cluster-card-resources.png)
 
 Figure 3. A cluster card with resources highlighted
 
