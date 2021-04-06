@@ -24,3 +24,5 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 1. Select the **Root CA Certificate** from the list of available Secrets, and add any **Extra Annotations** as needed.
 
 1. Select the **Save & Generate kubeconfig** button to generate the kubeconfig file for the network tunnel.
+
+As an alternative procedure, you can follow these instructions to Use CLI to Add Managed Clusters to Kommander. <!-- [Use CLI to Add Managed Clusters to Kommander](pages/dkp/kommander/1.4/clusters/tunnel-cli). -->
