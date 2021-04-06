@@ -67,10 +67,10 @@ Figure 3. A cluster card with resources highlighted
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU Requests    | The requested portion of the total allocatable CPU resource for the cluster, measured in number of cores, such 0.5 cores.                      |
 | CPU Limits      | The portion of the total allocatable CPU resource to which the cluster is limited, measured in number of cores, such as 0.5 cores.                           |
-| CPU Usage       | How much of the allocatable CPU resource is being consumed. Cannot be higher than the configured CPU limit. Measured in number of cores, such as 0.5 cores. |
+| CPU Usage       | The amount of the allocatable CPU resource being consumed. Cannot be higher than the configured CPU limit. Measured in number of cores, such as 0.5 cores) |
 | Memory Requests | The requested portion of the total allocatable memory resource for the cluster, measured in bytes, such as 64 GiB.                               |
 | Memory Limits   | The portion of the allocatable memory resource to which the cluster is limited, measured in bytes, such as 64 GiB.                                    |
-| Memory Usage    | How much of the allocatable memory resource that is being consumed. Cannot be higher than the configured memory limit. Measured in bytes, such as 64 GiB.       |
+| Memory Usage    | The amount of the allocatable memory resource being consumed. Cannot be higher than the configured memory limit. Measured in bytes, such as 64 GiB.       |
 | Disk Requests   | The requested portion of the allocatable ephemeral storage resource for the cluster, measured in bytes, such as 64 GiB.                    |
 | Disk Limits     | The portion of the allocatable ephemeral storage resource to which the cluster is limited, measured in bytes, such as 64 GiB.                         |
 
@@ -108,7 +108,7 @@ data:
 | :--- | :--- | :---: |
 | metadata . labels . "d2iq.io/addon" | The platform service name (ID). | X |
 | data . name | The display name used to describe the service and that will display on the custom service card in the user interface. | X |
-| data . dashboardLink | The link to the service. This can be an absolute link, "https://www.d2iq.com", or a relative link, "/ops/portal". If a relative link is used, the link is built using the cluster's path as the base of the URL to the service. | X |
+| data . dashboardLink | The link to the service. This can be an absolute link, "https://www.d2iq.com," or a relative link, "/ops/portal." If a relative link is used, the link is built using the cluster's path as the base of the URL to the service. | X |
 | data . docsLink | Link to documentation about the service. This is displayed on the service card, but omitted if not present. | |
 | data . category | Category with which to group the custom service. If not provided, the service is grouped under the category, "None." | |
 | data . version | A version string for the service. If not provided, "N/A" is displayed on the service card in the user interface. | |
