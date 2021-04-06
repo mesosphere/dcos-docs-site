@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Attach Kubernetes Cluster
-title: Attach Kubernetes Cluster
+navigationTitle: Attach Existing Kubernetes Cluster
+title: Attach Existing Kubernetes Cluster
 menuWeight: 7
 excerpt: A guide for attaching an existing Kubernetes cluster
 ---
@@ -15,7 +15,7 @@ If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Go
 
 ### Before you begin
 
-You must have a kubeconfig file to attach a cluster. The kubeconfig file contains YAML manifest that establishes the connection between Kommander and an existing cluster. If you already have a kubeconfig file, skip this procedure and go to [Attaching a cluster](#attaching-a-cluster).
+You must have a kubeconfig file to attach a cluster. The kubeconfig file contains a YAML manifest that provides the required context and authentication tokens to allow Kommander to manage an existing cluster. If you already have a kubeconfig file, skip this procedure and go to [Attaching a cluster](#attaching-a-cluster).
 
 If you do not want to add the cluster to the Default Workspace, [create a new Workspace][create-workspaces] before proceeding.
 
@@ -28,7 +28,7 @@ To get started, ensure you have [kubectl][kubectl] set up and configured with [C
 1. Create the required service account using the command:
 
 ```shell
-kubectl -n kube-system create serviceaccount kommander-cluster-admni
+kubectl -n kube-system create serviceaccount kommander-cluster-admin
 ```
 
 1. Configure the new service account for `cluster-admin` permissions. You can copy and paste this example ensuring that you use the service account created previously.
@@ -100,10 +100,10 @@ Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvo
 
 You have these security options when attaching a cluster:
 
-- Attach a cluster with no additional security restrictions
+- Attach a cluster with no additional networking restrictions
 - Attach a cluster that has networking restrictions
 
-#### Attaching a cluster with no additional security
+#### Attaching a cluster with no additional networking restrictions
 
 Use this option when you want to attach a cluster that doesn't require additional access information.
 
@@ -131,13 +131,15 @@ Use this option when you want to attach a cluster that is behind a proxy server 
 
 1. Create one or more new Labels as needed.
 
-1. Enter the **Load Balancer Hostname** and its related **URL Path Prefix**. The **Hostname** field is optional.
+1. Enter the **Load Balancer Hostname** and its related **URL Path Prefix**.
+
+1. (Optional) Enter a value for the **Hostname** field.
 
 1. Select the **Root CA Certificate** from the list of available Secrets, and add and extra Annotations as needed.
 
 1. Select the **Save & Generate kubeconfig** button to generate the kubeconfig file for kubetunnel.
 
-##### Completing the kubetunnel and attaching an existing cluster
+##### Completing the network tunnel and attaching an existing cluster
 
 Though the required kubeconfig file is now generated, you still need to apply it to complete the attachment process.
 
@@ -145,15 +147,15 @@ Though the required kubeconfig file is now generated, you still need to apply it
 
 1. Copy the `kubectl apply...` command from the user interface and paste into your terminal session, substituting the actual name of the file for the variable. Running this command starts the attachment process, which may take several minutes to complete. If you do nothing further, when the cluster attachment completes, the Cluster collections page displays.
 
-1. (Optional) Select the Verify Connection to Cluster button and follow the instructions on the page that displays.
+1. (Optional) Select the **Verify Connection to Cluster** button and follow the instructions on the page that displays.
 
 ##### Verifying the connection to the cluster
 
 You can manually verify the Kommander cocnnection to an existing cluster with these steps.
 
-1. %%%
+1. %%% Step 1
 
-1. %%%
+1. %%% Step 2
 
 1. Select the **Submit** button to begin the cluster attachment processing.
 
