@@ -2,12 +2,10 @@
 layout: layout.pug
 navigationTitle: KUDO Cassandra
 render: mustache
-model: /dkp/kommander/1.3/data.yml
 title: KUDO Cassandra
 menuWeight: 3
 excerpt: Day 2 Operations of KUDO Cassandra
 beta: false
-enterprise: false
 ---
 
 <!-- markdownlint-disable MD018 -->
