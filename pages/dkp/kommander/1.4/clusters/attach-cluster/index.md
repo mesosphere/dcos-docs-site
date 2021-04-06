@@ -6,7 +6,7 @@ title: Attach Kubernetes Cluster
 menuWeight: 7
 excerpt: A guide for attaching an existing Kubernetes cluster
 ---
-
+<!-- markdownlint-disable MD034 -->
 ## Using Kommander with an existing Kubernetes cluster
 
 You can attach an existing cluster directly to Kommander. At the time of attachment, certain namespaces are created on the cluster, and workspace platform services are deployed automatically into the newly-created namespaces. Review the [workspace platform service resource requirements][platform_service_req] to ensure the attached cluster has sufficient resources before you begin. For more information on platform services and customizing them, see [workspace platform services][workspace_platform_services].
@@ -17,7 +17,7 @@ If the cluster you want to attach was created using Amazon EKS, Azure AKS, or Go
 
 You must have a kubeconfig file to attach a cluster. The kubeconfig file contains YAML manifest that establishes the connection between Kommander and an existing cluster. If you already have a kubeconfig file, skip this procedure and go to [Attaching a cluster](#attaching-a-cluster).
 
-If you do not want to add the cluster to the Default Workspace, [create a new Workspace](/dkp/kommander/1.4/workspaces/create-workspaces/index.md) before proceeding.
+If you do not want to add the cluster to the Default Workspace, [create a new Workspace][create-workspaces] before proceeding.
 
 #### Generating a kubeconfig file
 
@@ -168,3 +168,4 @@ You can also retrieve a custom kubeconfig file by visiting the `/token` endpoint
 [workspace_platform_services]: /dkp/kommander/latest/workspaces/workspace-platform-services/
 [platform_service_req]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
 [attach_eks_cluster]: /dkp/kommander/latest/clusters/attach-cluster/attach-eks-cluster/
+[create-workspaces]: /dkp/kommander/latest/workspaces/create-wporkspaces/
