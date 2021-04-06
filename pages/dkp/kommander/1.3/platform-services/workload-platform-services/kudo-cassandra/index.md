@@ -65,7 +65,7 @@ If any issues are encountered during the above, the [Troubleshooting](#Troublesh
 
 ### Available Parameters
 
-The complete list of KUDO Cassandra Parameters can be found under [detailed parameter descriptions](https://github.com/mesosphere/kudo-cassandra-operator/blob/v3.11.6-1.0.0/operator/params.yaml).
+The complete list of KUDO Cassandra Parameters can be found under [detailed parameter descriptions](https://github.com/mesosphere/kudo-cassandra-operator/blob/master/docs/parameters.md).
 
 
 The current set of parameters set can be reterived using the kubectl command with the two additional tools:
@@ -82,7 +82,7 @@ The above command generates a file called `cassandra-params.yml` with the curren
 
 ### Updating Parameters
 
-Parameters can be updated via aruments to the KUDO CLI.
+Parameters can be updated via arguements to the KUDO CLI.
 
 **Example**: Increasing Cassandra node counts
 - Increase the number of nodes via the KUDO CLI:
@@ -114,7 +114,7 @@ See [Available Parameters](#available-parameters) to get the full list of curren
 
 Apply the desired updates in `cassandra-params.yml` via the KUDO CLI:
 ```
-kubectl kudo update --instance=cassandra -P cassandra-params.yml 
+kubectl kudo update -n test-project-zc6tc --instance=cassandra -P cassandra-params.yml 
 ```
 Wait for the deployment plan to `COMPLETE` as shown in the Cassandra node counts example.
 
@@ -124,14 +124,97 @@ KUDO Cassandra versions can be upgraded using the KUDO CLI.
 
 **Example** Upgrade KUDO Cassandra from `v3.11.6-1` to `v3.11.7-1`:
 ```
-kubectl kudo upgrade cassandra --instance cassandra --operator-version 1.0.2 
+kubectl kudo upgrade cassandra -n test-project-zc6tc --instance cassandra --operator-version 1.0.2 
 ```
-
 Wait and monitor the deployment plan to become `COMPLETE`.
 
-
 ### Monitoring
+
+Kommander includes Prometheus and Grafana as part of the federated [Workspace Platform Services](/dkp/kommander/1.3/workspaces/workspace-platform-services) along with [Centralized Monitoring](/dkp/kommander/1.3/centralized-monitoring/).
+
+KUDO Cassandra operator can export metrics to Prometheus, to do so set the `PROMETHEUS_EXPORTER_ENABLED` paramter to `true`:
+```
+kubectl kudo update -p PROMETHEUS_EXPORTER_ENABLED=true --instance cassandra -n test-project-zc6tc
+```
+- A prometheus-exporter container will run in the same pod as every Cassandra node container. It will listen for connections on `PROMETHEUS_EXPORTER_PORT`, which is set to `7200` by default.
+- A prometheus-exporter-port will be added to the KUDO Cassandra operator `Service`.
+- A `ServiceMonitor` will be created to make Prometheus poll that port for metrics.
+
+Sample Grafana Dashboards can be found in the [monitoring directory](https://github.com/mesosphere/kudo-cassandra-operator/tree/master/monitoring/grafana).
+
+Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/dashboards/export-import/) or recurring dashboards can be defined inline for Kommander to import via [adding custom dashboards](/dkp/kommander/1.3/centralized-monitoring/#adding-custom-dashboards). 
+
+![KUDO Cassandra Monitoring](/dkp/kommander/1.3/img/platform-services-cassandra-monitoring.png)
+
 ### External Access
+
+The KUDO Cassandra operator supports creation of a service that opens up ports to access Cassandra from outside the cluster. To enable this, you have to set the following variables:
+```
+kubectl kudo update cassandra -n test-project-zc6tc -p EXTERNAL_NATIVE_TRANSPORT=true
+```
+This will create a service with a LoadBalancer port that forwards to the Cassandra nodes.
+
+There are the following options:
+- `EXTERNAL_NATIVE_TRANSPORT="true"` - Enable access to the cluster from the outside
+- `EXTERNAL_RPC="true"` - Enable access to the legacy RPC port if it's enabled on the cluster (Requires that START_RPC is "true")
+- `EXTERNAL_NATIVE_TRANSPORT_PORT="9042"` - The external port that is forwarded to the native transport port on the nodes
+- `EXTERNAL_RPC_PORT="9160"` - The external port that is forwarded to the rpc port on the nodes
+- `EXTERNAL_SERVICE_ANNOTATIONS` - Annotations that are added to the external service. E.g., this can be used to configure ExternalDNS access
+
 ### Backup & Repair
-### Decommissioning
+
+KUDO Cassandra provides the ability to perform a full backup and restore to AWS S3.
+
+Backup and Restore is detailed in the [KUDO Cassandra Operator documentation](https://github.com/mesosphere/kudo-cassandra-operator/blob/master/docs/backup.md).
+
+### Decommissioning KUDO Cassandra Nodes
+
+KUDO Cassandra does not provide an automated way to scale down the Cassandra cluster, as this is a critical operation that should not be repeated frequently, and to discourage anti-patterns when managing an Apache Cassandra cluster.
+
+KUDO Cassandra only supports decommissioning the node with the highest pod ordinal index. e.g. when having a cluster with following pods:
+```
+NAME               READY   STATUS    RESTARTS   AGE
+cassandra-node-0   1/1     Running   0          62m
+cassandra-node-1   1/1     Running   0          62m
+cassandra-node-2   1/1     Running   0          61m
+cassandra-node-3   1/1     Running   0          8m13s
+```
+We can only decommission cassandra-node-3 as it has the highest pod ordinal index 3.
+
+Decommission the node
+```
+kubectl exec -it pod/cassandra-node-3 \
+        -n test-project-zc6tc \
+        -c cassandra \
+        -- \
+        nodetool decommission
+```
+Once the operation is completed, we can update the KUDO Cassandra Instance
+```
+kubectl kudo update -p NODE_COUNT=3 --instance cassandra -n test-project-zc6tc
+```
+
+Once the update plan is complete, we can delete the PVC that was attached to the KUDO Cassandra pod/cassandra-node-3. Not deleting or cleaning the PVC will result in issues when scaling the cluster up next time.
+
 ### Troubleshooting
+
+KUDO provides the ability to collect logs and other [diagnostics data](https://kudo.dev/docs/cli/examples.html#collecting-diagnostic-data) for debugging and for bug-reports.
+```
+kubectl kudo diagnostics collect --instance cassandra -n test-project-zc6tc
+```
+
+The diagnostics data contains the following:
+
+KUDO Environment
+- Installed Manager and its logs.
+- Service account and services.
+
+Data for the specified Operator
+- The Operator, OperatorVersion and Instance resources.
+- Deployed resources from the operator.
+- Logs from deployed pods
+
+To monitor all the events occurring in the namespace, its helpful to look at event log via:
+```
+kubectl get events -w -n test-project-zc6tc
+```
