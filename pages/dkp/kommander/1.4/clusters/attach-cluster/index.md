@@ -33,7 +33,7 @@ You have these security options when attaching a cluster:
 [clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [workspace_platform_services]: /dkp/kommander/latest/workspaces/workspace-platform-services/
-[platform_service_req]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
+[platform_service_req]: /dkp/kommander/latest/workspaces/platform-service-requirements/
 [attach_eks_cluster]: /dkp/kommander/latest/clusters/attach-cluster/attach-eks-cluster/
 [create_workspaces]: /dkp/kommander/latest/workspaces/create-workspaces/
 [generate_kubeconfig_file]: /dkp/kommander/latest/clusters/attach-cluster/generate-kubconfig/

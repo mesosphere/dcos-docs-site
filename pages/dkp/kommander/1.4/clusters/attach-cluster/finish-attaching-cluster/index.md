@@ -13,4 +13,4 @@ Though the required kubeconfig file is now generated, you still need to apply it
 
 1. Copy the `kubectl apply...` command from the user interface and paste into your terminal session, substituting the actual name of the file for the variable. Running this command starts the attachment process, which may take several minutes to complete. If you do nothing further, when the cluster attachment completes, the Cluster details page displays.
 
-1. (Optional) Select the **Verify Connection to Cluster** button to send a request to Kommander to refresh the conneciton information. You can use this option to check to see if the connection is complete, though the Cluster Details page displays automatically when the connection is complete.
+1. (Optional) Select the **Verify Connection to Cluster** button to send a request to Kommander to refresh the connection information. You can use this option to check to see if the connection is complete, though the Cluster Details page displays automatically when the connection is complete.

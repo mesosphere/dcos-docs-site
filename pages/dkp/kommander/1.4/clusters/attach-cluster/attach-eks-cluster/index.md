@@ -22,6 +22,18 @@ This procedure requires the following items and configurations:
 
 ## Attach Amazon EKS Clusters to Kommander
 
+Attaching an Amazon EKS cluster to Kommander requires that you:
+
+- Verify you are connected to the clusters
+
+- Create and connect service accounts
+
+- Create and implement a kubeconfig file
+
+- Attach the EKS clusters to Kommander
+
+### Verify connections to your EKS clusters
+
 1. Ensure you are connected to your EKS clusters. Enter the following commands for each of your clusters:
 
    ```bash
@@ -32,8 +44,10 @@ This procedure requires the following items and configurations:
 1. Confirm `kubectl` can access the EKS cluster.
 
    ```bash
-   kubectl get no
+   kubectl get nodes
    ```
+
+### Create and connect the service accounts
 
 1. Create a service account for Kommander on your EKS cluster.
 
@@ -60,6 +74,8 @@ This procedure requires the following items and configurations:
    EOF
    ```
 
+### Create and implement a kubeconfig file
+
 1. You must create a kubeconfig file that is compatible with the Kommander UI. Enter these commands to set the following environment variables:
 
    ```bash
@@ -71,13 +87,13 @@ This procedure requires the following items and configurations:
    export CLUSTER_SERVER=$(kubectl config view --raw -o=go-template='{{range .clusters}}{{if eq .name "'''${CURRENT_CLUSTER}'''"}}{{ .cluster.server }}{{end}}{{ end }}')
    ```
 
-1. Confirm these variables have been set correctly:
+1. Confirm the variables are set correctly:
 
    ```bash
    env | grep CLUSTER
    ```
 
-1. Create your kubeconfig file to use in the Kommander UI. Enter the following commands:
+1. Create a kubeconfig file to use in the Kommander UI. Enter the following commands:
 
    ```bash
    cat << EOF > kommander-cluster-admin-config
@@ -102,7 +118,7 @@ This procedure requires the following items and configurations:
    EOF
    ```
 
-1. Verify the kubeconfig file can access the EKS cluster.
+1. Verify that the kubeconfig file can access the EKS cluster.
 
    ```bash
    kubectl --kubeconfig $(pwd)/kommander-cluster-admin-config get all --all-namespaces
@@ -115,6 +131,8 @@ This procedure requires the following items and configurations:
    ```
 
    <p class="message--note"><strong>NOTE: </strong>If you are not using the Mac OS X operating system, this command will not work. If you are using the Linux operating system, enter the following command: <br/><code>cat kommander-cluster-admin-config | xclip -selection clipboard</code></p>
+
+### Attach the Amazon EKS cluster to Kommander
 
 1. Select the **Add Cluster** button in your Kommander window.
 
