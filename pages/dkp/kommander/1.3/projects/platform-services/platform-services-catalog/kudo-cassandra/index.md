@@ -102,7 +102,7 @@ cassandra-node-3   1/1     Running   0          8m13s
 
 **Example**: Updating multiple parameters:
 
-To update multiple paramters at once, its recommended to submit the updated parameters via the KUDO CLI.
+To update multiple parameters at once, it is recommended to submit the updated parameters using the KUDO CLI.
 
 See [Available Parameters](#available-parameters) to get the full list of current parameters as a file.
 
