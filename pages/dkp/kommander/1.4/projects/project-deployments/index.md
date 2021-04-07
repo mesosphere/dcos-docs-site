@@ -7,7 +7,7 @@ menuWeight: 1
 excerpt: Use Project Deployments to manage GitOps based Continuous Deployments.
 ---
 
-Kommander Projects are configured with GitOps based Continuous Deployments for federation of your Applications to associated clusters of the project. This is backed by Dispatch which enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a Git repository. This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
+Kommander Projects can be configured with GitOps based Continuous Deployments for federation of your Applications to associated clusters of the project. This is backed by Dispatch which enables software and applications to be continuously deployed (CD) using GitOps processes. GitOps enables the application to be deployed as per a manifest that is stored in a Git repository. This ensures that the application deployment can be automated, audited and declaratively deployed to the infrastructure.
 
 ## What is GitOps?
 
@@ -35,7 +35,7 @@ This procedure requires that Dispatch is installed. Optionally you can configure
 
 ## Continuous Deployments
 
-After enabling Dispatch and [configuring your project and its clusters](../), navigate to the **Continuous Deployment (CD)** tab under your Project. Here you create a GitOps source which is an SCM repository hosting the application definition. D2IQ recommends you create a secret first then create a GitOps source accessed by the secret:
+After enabling Dispatch and [configuring your project and its clusters](../), navigate to the **Continuous Deployment (CD)** tab under your Project. Here you create a GitOps source which is an SCM repository hosting the application definition. D2IQ recommends that you create a secret first then create a GitOps source accessed by the secret:
 
 ![Continuous Deployment (CD)](/dkp/kommander/1.4/img/project-cd-welcome-screen.png)
 
@@ -57,7 +57,7 @@ While the `username` and `password` are mandatory fields, SCM details default to
 
 After the manifests are federated, there are various commands that can be executed from the CLI to check the federation status.
 
-On the manager cluster, check for your `FederatedKustomization` and `FederatedGitRepository` resources. The `status` field reflects the propagation of manifests:
+On the management cluster, check for your `FederatedKustomization` and `FederatedGitRepository` resources. The `status` field reflects the propagation of manifests:
 
 ```bash
 $ kubectl get federatedkustomization -n<PROJECT_NAMESPACE> <GITOPS_SOURCE_NAME> -oyaml
@@ -76,11 +76,11 @@ status:
 ...
 ```
 
-If there are errors in federation, those events are populated in the status field of `FederatedKustomization` and or `FederatedGitRepository` resources.
+If there are errors in federation, those events are populated in the status field of the `FederatedKustomization` and or `FederatedGitRepository` resources.
 
 ### Suspending GitOps Source
 
-Some times in production, you want to suspend the auto sync between the GitOps repository and the associated clusters. This live debugging is necessary to resolve an incident in the minimum amount of time without the burden of pull request based workflows. Select **Suspend** to manually suspend the GitOps reconciliation:
+Some times in production, you may want to suspend the auto sync between the GitOps repository and the associated clusters. This _live debugging_ may be necessary to resolve an incident in the minimum amount of time without the burden of pull request based workflows. Select **Suspend** to manually suspend the GitOps reconciliation:
 
 ![Suspend GitOps Source Sync](/dkp/kommander/1.4/img/project-cd-gitops-source-sync-suspend.png)
 
@@ -96,4 +96,13 @@ You can have more than one GitOps Source in your Project to deploy manifests fro
 
 - Events related to federation are stored in respective `FederatedGitRepository` and or `FederatedKustomization` resources.
 - View the events and or logs for `deployments/dispatch-repository-controller` in dispatch namespace in case there are any unexpected errors.
-- There are other [flux controller related components](https://toolkit.fluxcd.io/components/) that get deployed for successful rollout of GitOps manifests that are managed by Dispatch repository controller. Do not be concerned if you see these components running in the project namespace.
+- Enabling the Dispatch repository controller for your project namespace will cause a number of  [related Flux controller components](https://toolkit.fluxcd.io/components/) to be deployed into the namespace. These are necessary for the proper operation of the repository controller and should not be removed.
+
+## View Helm Releases
+
+In addition to viewing the current GitOps Sources, you can also view the current Helm Releases that have been deployed. 
+
+On the **Continuous Deployment (CD)** page, select the **Helm Releases** button. All of the current Helm Release charts are displayed with their Chart Version and Daily status.
+
+![View Current Helm Releases](/dkp/kommander/1.4/img/project-cd-gitops-helm-release-view.png)
+
