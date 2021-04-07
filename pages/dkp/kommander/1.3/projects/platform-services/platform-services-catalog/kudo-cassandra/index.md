@@ -62,7 +62,7 @@ If any issues are encountered during the above, refer to the [Troubleshooting](#
 The complete list of KUDO Cassandra Parameters can be found under [detailed parameter descriptions](https://github.com/mesosphere/kudo-cassandra-operator/blob/master/docs/parameters.md).
 
 
-The current set of parameters set can be reterived using the kubectl command with the two additional tools:
+The current parameters set can be reterived using the kubectl command with the two additional tools:
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
 
