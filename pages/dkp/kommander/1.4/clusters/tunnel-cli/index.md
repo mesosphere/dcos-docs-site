@@ -41,17 +41,17 @@ kubectl get namespace ${namespace}
 
 ### Create a tunnel gateway
 
-Create a tunnel gateway on the management cluster to listen for tunnel agents on remote clusters:
+Create a [tunnel gateway](api-reference#tunnelgateway) on the management cluster to listen for tunnel agents on remote clusters:
 ```shell
-name_cacert=kubetunnel-ca
-name_gateway=sample-tunnel-gateway
+cacert_secret=kubetunnel-ca
+gateway=sample-tunnel-gateway
 
 cat > gateway.yaml <<EOF
 apiVersion: v1
 kind: Secret
 metadata:
   namespace: ${namespace}
-  name: ${name_cacert}
+  name: ${cacert_secret}
 data:
   ca.crt:
     ${b64ca_cert}
@@ -60,12 +60,12 @@ apiVersion: kubetunnel.d2iq.io/v1alpha1
 kind: TunnelGateway
 metadata:
   namespace: ${namespace}
-  name: ${name_gateway}
+  name: ${gateway}
 spec:
   ingress:
     caSecretRef:
       namespace: ${namespace}
-      name: ${name_cacert}
+      name: ${cacert_secret}
     loadBalancer:
       hostname: ${hostname}
     urlPathPrefix: /ops/portal/kubetunnel
@@ -79,48 +79,46 @@ kubectl apply -f gateway.yaml
 
 You can verify the gateway exists using:
 ```shell
-kubectl get tunnelgateway -n ${namespace} ${name_gateway}
+kubectl get tunnelgateway -n ${namespace} ${gateway}
 ```
 
 ## Connecting a remote cluster
 
 ### Create a tunnel connector
 
-Create a tunnel connector on the management cluster for the remote cluster:
+Create a [tunnel connector](api-reference#tunnelconnector) on the management cluster for the remote cluster:
 ```shell
-name_connector=sample-tunnel-connector
+connector=sample-tunnel-connector
 
 cat > connector.yaml <<EOF
 apiVersion: kubetunnel.d2iq.io/v1alpha1
 kind: TunnelConnector
 metadata:
   namespace: ${namespace}
-  name: ${name_connector}
+  name: ${connector}
 spec:
   gatewayRef:
-    name: ${name_gateway}
+    name: ${gateway}
 EOF
-
-cat connector.yaml
 
 kubectl apply -f connector.yaml
 ```
-You can verify the gateway exists using:
+You can verify the connector exists using:
 ```shell
-kubectl get tunnelconnector -n ${namespace} ${name_connector}
+kubectl get tunnelconnector -n ${namespace} ${connector}
 ```
 
-Wait for the tunnel to reach `Listening` state and then export the agent manifest:
+Wait for the tunnel connector to reach `Listening` state and then export the agent manifest:
 
 ```shell
-while [ "$(kubectl get tunnelconnector -n ${namespace} ${name_connector} -o jsonpath="{.status.state}")" != "Listening" ]
+while [ "$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath="{.status.state}")" != "Listening" ]
 do
   sleep 5
 done
 
-name_manifest=$(kubectl get tunnelconnector -n ${namespace} ${name_connector} -o jsonpath="{.status.tunnelAgent.manifestsRef.name}")
+manifest=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath="{.status.tunnelAgent.manifestsRef.name}")
 
-kubectl get secret -n ${namespace} ${name_manifest} -o jsonpath='{.data.manifests\.yaml}' | base64 -d > manifest.yaml
+kubectl get secret -n ${namespace} ${manifest} -o jsonpath='{.data.manifests\.yaml}' | base64 -d > manifest.yaml
 ```
 
 ### Setup the managed cluster
@@ -143,7 +141,7 @@ There should be a `post-kubeconfig` job that reaches `Completed` state and a `tu
 On the management cluster, wait for the tunnel to be connected by the tunnel agent:
 
 ```shell
-while [ "$(kubectl get tunnelconnector -n ${namespace} ${name_connector} -o jsonpath="{.status.state}")" != "Connected" ]
+while [ "$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath="{.status.state}")" != "Connected" ]
 do
   sleep 5
 done
@@ -151,20 +149,20 @@ done
 
 Add the cluster into Kommander:
 ```shell
-name_managed=private-cluster
-name_managed_display=${name_managed}
+managed=private-cluster
+display_name=${managed}
 
 cat > kommander.yaml <<EOF
 apiVersion: kommander.mesosphere.io/v1beta1
 kind: KommanderCluster
 metadata:
   namespace: ${namespace}
-  name: ${name_managed}
+  name: ${managed}
   annotations:
-    kommander.mesosphere.io/display-name: ${name_managed_display}
+    kommander.mesosphere.io/display-name: ${display_name}
 spec:
   clusterTunnelConnectorRef:
-    name: ${name_connector}
+    name: ${connector}
 EOF
 
 kubectl apply -f kommander.yaml
@@ -172,19 +170,19 @@ kubectl apply -f kommander.yaml
 
 Wait for the managed cluster to join the Kommander cluster:
 ```shell
-while [ "$(kubectl get kommandercluster -n ${namespace} ${name_managed} -o jsonpath='{.status.phase}')" != "Joined" ]
+while [ "$(kubectl get kommandercluster -n ${namespace} ${managed} -o jsonpath='{.status.phase}')" != "Joined" ]
 do
   sleep 5
 done
 
-name_kubefed=$(kubectl get kommandercluster -n ${namespace} ${name_managed} -o jsonpath="{.status.kubefedclusterRef.name}")
-while [ -z "${name_kubefed}" ]
+kubefed=$(kubectl get kommandercluster -n ${namespace} ${managed} -o jsonpath="{.status.kubefedclusterRef.name}")
+while [ -z "${kubefed}" ]
 do
   sleep 5
-  name_kubefed=$(kubectl get kommandercluster -n ${namespace} ${name_managed} -o jsonpath="{.status.kubefedclusterRef.name}")
+  kubefed=$(kubectl get kommandercluster -n ${namespace} ${managed} -o jsonpath="{.status.kubefedclusterRef.name}")
 done
 
-kubectl wait --for=condition=ready --timeout=60s kubefedcluster -n kommander ${name_kubefed}
+kubectl wait --for=condition=ready --timeout=60s kubefedcluster -n kommander ${kubefed}
 
-kubectl get kubefedcluster -n kommander ${name_kubefed}
+kubectl get kubefedcluster -n kommander ${kubefed}
 ```
