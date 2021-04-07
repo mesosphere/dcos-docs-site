@@ -305,14 +305,18 @@ Commercial support is available at
 
 ### Direct use of SOCKS5 proxy
 
+To use the SOCKS5 proxy directly, obtain the proxy endpoint using:
+```shell
+service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.tunnelServer.serviceRef.name}')
 
-Since `curl` supports SOCKS5 proxies, this Job can be run on the management cluster by adding the SOCKS5 proxy to the `curl` command. On the management cluster:
+proxy=$(kubectl get service -n ${namespace} "${service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
+```
+
+Provide the value of `${proxy}` as the SOCKS5 proxy to your client.
+
+For example, since `curl` supports SOCKS5 proxies, the webserver started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. On the management cluster:
 ```shell
 url=""  # set to same URL used for service in managed cluster
-
-proxy_service=$(kubectl get tunnelconnector -n sample sample-tunnel-connector -o jsonpath='{.status.tunnelServer.serviceRef.name}')
-
-proxy=$(kubectl get service -n sample "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
 
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
@@ -339,7 +343,7 @@ podname=$(kubectl get pods --selector=job-name=curl --field-selector=status.phas
 kubectl logs ${podname}
 ```
 
-The final command here will return the same output as for the job on the managed cluster, indicating that the job on the management cluster accessed the service running on the managed cluster.
+The final command returns the same output as for the job on the managed cluster, demonstrating that the job on the management cluster accessed the service running on the managed cluster.
 
 
 ### Use of deployed proxy on management cluster
