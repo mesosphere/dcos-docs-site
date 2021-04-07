@@ -61,7 +61,7 @@ spec:
 EOF
 ```
 
-Ensure the projectns variable is set before executing the command. This variable is the project namespace (i.e. Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
+Ensure the projectns variable is set before executing the command. This variable is the project namespace (that is, the Kubernetes Namespace associated with the project) that was defined/created when the project itself was initially created.
 
 Then, if you run the following command on a Kubernetes cluster associated with the Project, you’ll see a Kubernetes Addon Object, in the corresponding namespace:
 
