@@ -79,7 +79,7 @@ The above command generates a file called `cassandra-params.yml` with the curren
 Parameters can be updated using arguments to the KUDO CLI.
 
 **Example**: Increasing Cassandra node counts
-- Increase the number of nodes via the KUDO CLI:
+- Increase the number of nodes using the KUDO CLI:
 ```
 kubectl -n test-project-zc6tc kudo update --instance cassandra -p NODE_COUNT=4
 ```
