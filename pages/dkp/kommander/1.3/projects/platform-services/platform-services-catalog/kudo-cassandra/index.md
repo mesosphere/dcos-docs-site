@@ -208,7 +208,7 @@ Data for the specified Operator
 - Deployed resources from the operator.
 - Logs from deployed pods
 
-To monitor all the events occurring in the namespace, its helpful to look at event log via:
+To monitor all the events occurring in the namespace, its helpful to look at event log:
 ```
 kubectl get events -w -n test-project-zc6tc
 ```
