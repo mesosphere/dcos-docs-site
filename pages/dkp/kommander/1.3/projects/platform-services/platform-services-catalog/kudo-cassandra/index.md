@@ -76,7 +76,7 @@ The above command generates a file called `cassandra-params.yml` with the curren
 
 ### Updating Parameters
 
-Parameters can be updated via arguements to the KUDO CLI.
+Parameters can be updated using arguments to the KUDO CLI.
 
 **Example**: Increasing Cassandra node counts
 - Increase the number of nodes via the KUDO CLI:
