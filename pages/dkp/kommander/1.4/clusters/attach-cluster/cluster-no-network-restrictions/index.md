@@ -7,9 +7,9 @@ excerpt: How to attach an existing cluster that has no additional networking res
 beta: false
 ---
 
-Use this option when you want to attach a cluster that doesn't require additional access information.
+Use this option when you want to attach a cluster that does not require additional access information.
 
-1. Select the **Attach Cluster** option in the **Actions** dopdown menu at the top right to display the **Connection Information** dialog box.
+1. Select the **Attach Cluster** option in the **Actions** dropdown menu at the top right to display the **Connection Information** dialog box.
 
 1. Paste a kubeconfig file into the field, or select the upload link below the field to specify a file.
 
@@ -21,4 +21,4 @@ Use this option when you want to attach a cluster that doesn't require additiona
 
 1. Select the **Submit** button to begin the cluster attachment processing.
 
-![Add Cluster Connect](/dkp/kommander/1.4/img/add-cluster-connect.png)
+![Add Cluster Connect](/dkp/kommander/latest/img/add-cluster-connect.png)

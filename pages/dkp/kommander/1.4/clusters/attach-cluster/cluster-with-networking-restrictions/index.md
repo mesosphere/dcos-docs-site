@@ -7,9 +7,9 @@ excerpt: How to attach an existing cluster that has no additional networking res
 beta: false
 ---
 
-Use this option when you want to attach a cluster that is in a DMZ, behind a proxy server or a firewall, or that requires additional access information. This procedure gathers the information required to create a kubeconfig file for the netork tunnel between Kommander and the cluster you want to attach.
+Use this option when you want to attach a cluster that is in a DMZ, behind a proxy server or a firewall, or that requires additional access information. This procedure gathers the information required to create a kubeconfig file for the network tunnel between Kommander and the cluster you want to attach.
 
-1. Select the **Attach Cluster** option in the **Actions** dopdown menu at the top right to display the **Connection Information** dialog box.
+1. Select the **Attach Cluster** option in the **Actions** dropdown menu at the top right to display the **Connection Information** dialog box.
 
 1. Select the card, Attach Cluster with Networking Restrictions to display the configuration page.
 
@@ -17,7 +17,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Create one or more new Labels as needed.
 
-1. Enter the **Load Balancer Hostname** and its related **URL Path Prefix**.
+1. Enter the **Load Balancer Hostname** which is the ingress for the cluster, and its related **URL Path Prefix**.
 
 1. (Optional) Enter a value for the **Hostname** field.
 
@@ -25,4 +25,4 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Select the **Save & Generate kubeconfig** button to generate the kubeconfig file for the network tunnel.
 
-As an alternative procedure, you can follow these instructions to Use CLI to Add Managed Clusters to Kommander. <!-- [Use CLI to Add Managed Clusters to Kommander](pages/dkp/kommander/1.4/clusters/tunnel-cli). -->
+As an alternative procedure, you can follow these instructions to [Use CLI to Add Managed Clusters to Kommander](pages/dkp/kommander/latest/clusters/tunnel-cli).
