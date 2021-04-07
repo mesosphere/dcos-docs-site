@@ -36,7 +36,7 @@ Here is an example of what should appear in the Kommander UI, the dialog is popu
 Select `Deploy` to install Cassandra.
 
 - Kommander will proceed to install `kudo-controller-manager` in the `kudo-system` namespace if it does not already exist. This is the equivalent of issuing `kubectl kudo init` manually on the CLI.
-- KUDO will then install Cassandra in the Project namespace created via Kommander.
+- KUDO will then install Cassandra in the Project namespace created using Kommander.
 - The deployment progression can be viewed by looking at the `deploy` plan.
 
 ### KUDO Cassandra Service Status
