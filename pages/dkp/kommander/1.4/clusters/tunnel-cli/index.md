@@ -186,3 +186,160 @@ kubectl wait --for=condition=ready --timeout=60s kubefedcluster -n kommander ${k
 
 kubectl get kubefedcluster -n kommander ${kubefed}
 ```
+
+## Using a remote cluster
+
+To access services running on the remote cluster from the management cluster, connect to the tunnel proxy.
+
+There are two methods:
+
+1. If the client program supports SOCKS5 proxying, use the proxy directly;
+1. Otherwise deploy a proxy server on the management cluster.
+
+### Managed cluster service
+
+For these sections, we require a service to run on the managed cluster.
+
+As an example, start the following service:
+
+```shell
+cat > nginx.yaml <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webserver
+  labels:
+    app: nginx-deployment
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: nginx-app
+  template:
+    metadata:
+      labels:
+        app: nginx-app
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-service
+spec:
+  selector:
+    app: nginx-app
+  type: ClusterIP
+  ports:
+    - targetPort: 80
+      port: 8888
+EOF
+
+kubectl apply -f nginx.yaml
+
+kubectl rollout status deploy webserver
+```
+
+On the managed cluster this service can be accessed by a client Job using:
+```shell
+nginx_host=$(kubectl get service nginx-service -o jsonpath='{.spec.clusterIP}')
+url="http://${nginx_host}:8888/"
+
+cat > curl.yaml <<EOF
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl:7.76.0
+        command: ["curl", "--silent", "--show-error", ${url}"]
+      restartPolicy: Never
+  backoffLimit: 4
+EOF
+
+kubectl apply -f curl.yaml
+
+kubectl wait --for=condition=complete job curl
+
+podname=$(kubectl get pods --selector=job-name=curl --field-selector=status.phase=Succeeded -o jsonpath='{.items[0].metadata.name}')
+
+kubectl logs ${podname}
+```
+
+The final command returns the default nginx web page:
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Welcome to nginx!</title>
+<style>
+    body {
+        width: 35em;
+        margin: 0 auto;
+        font-family: Tahoma, Verdana, Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Welcome to nginx!</h1>
+<p>If you see this page, the nginx web server is successfully installed and
+working. Further configuration is required.</p>
+
+<p>For online documentation and support please refer to
+<a href="http://nginx.org/">nginx.org</a>.<br/>
+Commercial support is available at
+<a href="http://nginx.com/">nginx.com</a>.</p>
+
+<p><em>Thank you for using nginx.</em></p>
+</body>
+</html>
+```
+
+### Direct use of SOCKS5 proxy
+
+
+Since `curl` supports SOCKS5 proxies, this Job can be run on the management cluster by adding the SOCKS5 proxy to the `curl` command. On the management cluster:
+```shell
+url=""  # set to same URL used for service in managed cluster
+
+proxy_service=$(kubectl get tunnelconnector -n sample sample-tunnel-connector -o jsonpath='{.status.tunnelServer.serviceRef.name}')
+
+proxy=$(kubectl get service -n sample "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
+
+cat > curl.yaml <<EOF
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl:7.76.0
+        command: ["curl", "--silent", "--show-error", "--socks5-hostname", "${proxy}", "${url}"]
+      restartPolicy: Never
+  backoffLimit: 4
+EOF
+
+kubectl apply -f curl.yaml
+
+kubectl wait --for=condition=complete job curl
+
+podname=$(kubectl get pods --selector=job-name=curl --field-selector=status.phase=Succeeded -o jsonpath='{.items[0].metadata.name}')
+
+kubectl logs ${podname}
+```
+
+The final command here will return the same output as for the job on the managed cluster, indicating that the job on the management cluster accessed the service running on the managed cluster.
+
+
+### Use of deployed proxy on management cluster
