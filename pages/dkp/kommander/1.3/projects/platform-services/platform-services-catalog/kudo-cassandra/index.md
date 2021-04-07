@@ -106,7 +106,7 @@ To update multiple parameters at once, it is recommended to submit the updated p
 
 See [Available Parameters](#available-parameters) to get the full list of current parameters as a file.
 
-Apply the desired updates in `cassandra-params.yml` via the KUDO CLI:
+Apply the desired updates in `cassandra-params.yml` using the KUDO CLI:
 ```
 kubectl kudo update -n test-project-zc6tc --instance=cassandra -P cassandra-params.yml 
 ```
