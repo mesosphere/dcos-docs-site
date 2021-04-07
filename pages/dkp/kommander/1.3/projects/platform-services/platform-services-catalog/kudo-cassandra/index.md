@@ -55,7 +55,7 @@ At this point it is useful to have an understanding of [KUDO Operator Plans](htt
 
 - A `deploy` plan status of `COMPLETE` indicates that KUDO Cassandra has deployed successfully and is healthy.
 
-If any issues are encountered during the above, the [Troubleshooting](#Troubleshooting) section has guidance.
+If any issues are encountered during the above, refer to the [Troubleshooting](#Troubleshooting) section.
 
 ### Available Parameters
 
