@@ -11,7 +11,7 @@ beta: false
 <!-- markdownlint-disable MD018 -->
 ## KUDO Cassandra
 
-Kommander Catalog adds integration for [KUDO Cassandra Operator](https://github.com/kudobuilder/operators/tree/master/repository/cassandra/3.11), which simplifies day 2 operations of [Apache Cassandra](https://cassandra.apache.org/). 
+Kommander Catalog adds integration for [KUDO Cassandra Operator](https://github.com/mesosphere/kudo-cassandra-operator/), which simplifies day 2 operations of [Apache Cassandra](https://cassandra.apache.org/). 
 
 #include /dkp/kommander/1.3/include/kudo-intro.tmpl
 
