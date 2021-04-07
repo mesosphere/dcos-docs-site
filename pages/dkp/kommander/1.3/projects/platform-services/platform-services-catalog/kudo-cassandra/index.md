@@ -43,7 +43,7 @@ Select `Deploy` to install Cassandra.
 
 The Operator Plan Status provides an overview of the service.
 
-At this point its useful to have an understanding of [KUDO Operator Plans](https://kudo.dev/docs/what-is-kudo.html#operator-plans) and the [KUDO CLI](https://kudo.dev/docs/cli/installation.html) should be installed.
+At this point it is useful to have an understanding of [KUDO Operator Plans](https://kudo.dev/docs/what-is-kudo.html#operator-plans) and the [KUDO CLI](https://kudo.dev/docs/cli/installation.html) should be installed.
 
 - Get the instances running in the project namespace.
 
