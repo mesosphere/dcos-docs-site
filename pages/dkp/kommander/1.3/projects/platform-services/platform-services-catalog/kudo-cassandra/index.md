@@ -136,7 +136,7 @@ kubectl kudo update -p PROMETHEUS_EXPORTER_ENABLED=true --instance cassandra -n 
 
 Sample Grafana Dashboards can be found in the [monitoring directory](https://github.com/mesosphere/kudo-cassandra-operator/tree/master/monitoring/grafana).
 
-Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/dashboards/export-import/) or recurring dashboards can be defined inline for Kommander to import via [adding custom dashboards](/dkp/kommander/1.3/centralized-monitoring/#adding-custom-dashboards). 
+Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/dashboards/export-import/) or recurring dashboards can be defined inline for Kommander to import through [adding custom dashboards](/dkp/kommander/1.3/centralized-monitoring/#adding-custom-dashboards). 
 
 ![KUDO Cassandra Monitoring](/dkp/kommander/1.3/img/platform-services-cassandra-monitoring.png)
 
