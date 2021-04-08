@@ -368,7 +368,7 @@ service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='
 socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
 ```
 
-Provide the value of `${proxy}` as the SOCKS5 proxy to your client.
+Provide the value of `${socks_proxy}` as the SOCKS5 proxy to your client.
 
 For example, since `curl` supports SOCKS5 proxies, the webserver started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. After setting `nginx_url` to the Nginx service endpoint, on the management cluster run:
 ```shell
