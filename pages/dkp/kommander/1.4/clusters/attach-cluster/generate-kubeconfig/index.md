@@ -7,7 +7,7 @@ menuWeight: 1
 excerpt: How to create a service account and generate a kubeconfig file for attaching an existing cluster
 ---
 
-You should create a separate service account when attaching existing Amazon EKS, Azure AKS, or Google GKE Kubernetes clusters. This service account is needed because the kubeconfig files generated from those clusters are not usable by Kommander out-of-the-box. They call CLI commands, such as `aws` or `gcloud`, and use locally-obtained, authentication tokens. Having a separate service account also allows you to keep access to the cluster specific and isolated to Kommander.
+You should create a separate service account when attaching existing Amazon EKS, Azure AKS, or Google GKE Kubernetes clusters. This service account is needed because the kubeconfig files generated from those clusters are not usable by Kommander out-of-the-box. They call CLI commands, such as `aws` or `gcloud`, and use locally-obtained authentication tokens. Having a separate service account also allows you to keep access to the cluster specific and isolated to Kommander.
 
 To get started, ensure you have [kubectl][kubectl] set up and configured with [ClusterAdmin][clusteradmin] for the cluster you want to connect to Kommander.
 
