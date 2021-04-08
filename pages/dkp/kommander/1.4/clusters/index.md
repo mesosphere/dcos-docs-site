@@ -5,7 +5,6 @@ navigationTitle: Managing Clusters
 title: Managing Clusters
 menuWeight: 7
 excerpt: View clusters created with Kommander or any connected Kubernetes cluster
-beta: false
 ---
 
 Kommander allows you to monitor and manage very large numbers of clusters. Use the features described in this area to connect existing clusters, or to create new clusters whose lifecycle is managed by Konvoy. You can view clusters from the Clusters tab in the navigation pane on the left. You can see the details for a cluster by selecting the **View Details** link at the bottom of the cluster card or the cluster name in either the card or the table view.
