@@ -71,6 +71,7 @@ excerpt: API documentation (v1beta2)
 * [Kubelet](#kubelet)
 * [Kubernetes](#kubernetes)
 * [LoggingOptions](#loggingoptions)
+* [NTP](#ntp)
 * [Networking](#networking)
 * [NodeLabel](#nodelabel)
 * [NodePool](#nodepool)
@@ -398,6 +399,7 @@ AWSMachineOpts is aws specific options for a machine in a node pool.
 | subnetIDs | [AWS Subnets](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) to launch the instances into. | []string | false |
 | associatePublicIPAddress | Whether to associate a [public IP](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-instance-addressing.html) with each instance in the node pool. (default: `true`) | bool | false |
 | spotBlockOpts | Options to make the machine pool backed by spot instances | [SpotBlockOptions](#spotblockoptions) | false |
+| securityGroupIDs | [AWS Security Group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) IDs the machine will be assigned. | []string | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -425,6 +427,7 @@ ELB contains details for the kube-apiserver ELB.
 | internal | Set to `true` to make the ELB internal. (default: `false`) | bool | false |
 | subnetIDs | [AWS Subnet](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Subnets.html) IDs where ELBs will be launched on. | []string | false |
 | apiServerPort | Port on which Kubernetes apiserver is accessible. (default: `6443`) | int32 | false |
+| securityGroupIDs | [AWS Security Group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) IDs the ELBs will be assigned. | []string | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -475,6 +478,8 @@ VPC contains the VPC specific options for the cluster.
 | internetGatewayID | The ID of the [AWS Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) to use for the cluster. This field must not be set if `EnableInternetGateway` is set. Konvoy will add a route to the IGW specified if specified. | string | false |
 | enableInternetGateway | Whether to create an [AWS Internet Gateway](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Internet_Gateway.html) in a VPC. (default: `true`) | bool | false |
 | enableVPCEndpoints | Whether to create [AWS VPC Endpoints](https://docs.aws.amazon.com/vpc/latest/userguide/vpce-interface.html) in a VPC. Creating this allows Kubernetes cloud provider and AWS CSI drivers to talk to the AWS services without IGW. (default: `false`) | bool | false |
+| ec2SecurityGroupIDs | [AWS Security Group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) IDs the EC2 Endpoint will be assigned. | []string | false |
+| elbSecurityGroupIDs | [AWS Security Group](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html) IDs the ELB Endpoint will be assigned. | []string | false |
 
 [Back to TOC](#table-of-contents)
 
@@ -588,7 +593,7 @@ CalicoContainerNetworking describes Calico CNI
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | version | The version of the [Calico](https://www.projectcalico.org/) CNI plugin. | string | false |
-| encapsulation | The encapsulation mode. The supported modes are: [ipip](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip). [vxlan](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan). (default: `ipip`) | string | false |
+| encapsulation | The encapsulation mode. The supported modes are: [ipip](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip). [vxlan](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan). (default: `ipip`) [none](no encapsulation) | string | false |
 | mtu | The MTU to use for the veth interfaces. (default: depends on `encapsulation` and provisioner) | int32 | false |
 
 [Back to TOC](#table-of-contents)
@@ -636,6 +641,7 @@ ClusterConfigurationSpec is the spec that contains the Kubernetes cluster option
 | containerRuntime | Container runtime specific properties. | [ContainerRuntime](#containerruntime) | false |
 | imageRegistries | Container image registries related settings. | [][ImageRegistry](#imageregistry) | false |
 | osPackages | Configure OS packages repositories. | [OSPackages](#ospackages) | false |
+| ntp | NTP configuration | [NTP](#ntp) | false |
 | nodePools | Node pool configurations. | [][NodePool](#nodepool) | false |
 | addons | List of addons that can be deployed. | [][Addons](#addons) | false |
 | version | Version of the cluster. | string | false |
@@ -771,7 +777,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.20.2`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.20.5`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |
@@ -795,6 +801,16 @@ LoggingOptions describes logging system options.
 | logRetentionTime | LogRetentionTime specifies the maximum time to store journal entries. The default is 1 month. | string | false |
 | logKeepFreePercentage | LogKeepFreePercentage specifies how much disk space systemd must leave free. The default is 20%. | string | false |
 | logMaxUsageSize | LogMaxUsageSize specifies the maximum size the journal can use. The default is 8G. | string | false |
+
+[Back to TOC](#table-of-contents)
+
+## NTP
+
+NTP describes different NTP options.
+
+| Field | Description | Scheme | Required |
+| ----- | ----------- | ------ | -------- |
+| autoConfigure | If true will automatically configure chrony (default: `true`) | bool | false |
 
 [Back to TOC](#table-of-contents)
 

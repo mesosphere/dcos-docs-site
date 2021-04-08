@@ -16,9 +16,11 @@ This section guides you through the basic steps to prepare your environment and 
 
 * The [aws](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-install.html) command line utility
 * [Docker](https://docs.docker.com/get-docker/) _version 18.09.2 or newer_
-* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.20.2 or newer_ (for interacting with the running cluster)
+* [kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/) _v1.20.5 or newer_ (for interacting with the running cluster)
 * A valid AWS account with [credentials configured](https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-profiles.html).
-  You must be authorized to create the following resources in the AWS account:
+
+If you are not using an existing VPC, you must be authorized to create the following resources in the AWS account:
+
   * EC2 Instances
   * VPC
   * VPC Endpoints
@@ -31,7 +33,9 @@ This section guides you through the basic steps to prepare your environment and 
   * Route Tables
   * IAM Roles
 
-Below is the minimal IAM policy required:
+If you are using existing infrastructure, a subset of these permissions are required. See below for details.
+
+Below is the minimal IAM policy required when you are not using existing infrastructure.
 
 ```json
 {
@@ -123,7 +127,9 @@ Below is the minimal IAM policy required:
                 "iam:GetInstanceProfile",
                 "iam:GetRole",
                 "iam:GetRolePolicy",
+                "iam:ListAttachedRolePolicies",
                 "iam:ListInstanceProfilesForRole",
+                "iam:ListRolePolicies",
                 "iam:PassRole",
                 "iam:PutRolePolicy",
                 "iam:RemoveRoleFromInstanceProfile",
@@ -139,6 +145,45 @@ Below is the minimal IAM policy required:
         }
     ]
 }
+```
+
+If you wish to use an existing VPC, the following permissions are not necessary and can be removed from the set above.
+
+```json
+[
+  "ec2:CreateVpc",
+  "ec2:DeleteVpc",
+  "ec2:ModifyVpcAttribute"
+]
+```
+
+If using an existing Subnet (which requires using an existing VPC), the following permissions are not necessary:
+
+```json
+[
+  "ec2:CreateVpc",
+  "ec2:DeleteVpc",
+  "ec2:ModifyVpcAttribute",
+  "ec2:CreateSubnet",
+  "ec2:DeleteSubnet",
+  "ec2:ModifySubnetAttribute"
+]
+```
+
+If using an existing set of Security Groups (which requires using an existing VPC), the following permissions are not necessary:
+
+```json
+[
+  "ec2:CreateVpc",
+  "ec2:DeleteVpc",
+  "ec2:ModifyVpcAttribute",
+  "ec2:CreateSecurityGroup",
+  "ec2:DeleteSecurityGroup",
+  "ec2:AuthorizeSecurityGroupEgress",
+  "ec2:AuthorizeSecurityGroupIngress",
+  "ec2:RevokeSecurityGroupEgress",
+  "ec2:RevokeSecurityGroupIngress"
+]
 ```
 
 ## Installation

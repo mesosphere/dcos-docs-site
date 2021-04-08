@@ -205,11 +205,11 @@ credential_source = Ec2InstanceMetadata
 region = us-west-2
 ```
 
-## Use existing infrastructure
+# Use existing infrastructure
 
 <p class="message--note"><strong>NOTE: </strong> The following steps require the creation of a <tt>cluster.yaml</tt> configuration file. If the file does not already exist you can create it by running <tt>konvoy init</tt>.</p>
 
-### VPC
+## VPC
 
 To use an existing VPC you must modify the `cluster.yaml` file and change the `ClusterProvisioner` configuration file:
 
@@ -291,7 +291,7 @@ spec:
     ...
 ```
 
-### VPC Endpoints
+## VPC Endpoints
 
 Konvoy can automatically provision [AWS VPC Endpoints][aws_vpc_endpoints] for `ebs` and `elasticloadbalancing` services.
 This allows for the Kubernetes AWS cloud-provider and AWS EBS CSI driver to function without needing access to the Internet.
@@ -313,7 +313,7 @@ spec:
 
 <p class="message--note"><strong>NOTE: </strong>When using a custom VPC with these endpoints already present, you should leave the <code>enableVPCEndpoints: false</code> value set. Otherwise, Konvoy modifies existing resources which could prevent other workloads from accessing the AWS api.</p>
 
-### Subnets
+## Subnets
 
 An existing VPC may already contain `subnets` for use. You may define them in the following way:
 
@@ -338,7 +338,7 @@ spec:
         - us-west-2c
   nodePools:
   - name: worker
-     count: 4
+    count: 4
     machine:
       rootVolumeSize: 80
       rootVolumeType: gp2
@@ -409,7 +409,168 @@ kubernetes.io/cluster = __CLUSTER_NAME__
 kubernetes.io/cluster/__CLUSTER_NAME__ = owned
 ```
 
-### IAM Instance Profiles
+## Security Groups
+
+An existing VPC may already contain `security-groups` for use. You may define them in the following way:
+
+```yaml
+...
+kind: ClusterProvisioner
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  provider: aws
+  aws:
+    region: us-west-2
+    # vpc must be defined
+    vpc:
+      ID: "vpc-0a0e1da174c837629"
+      routeTableID: "rtb-012e0ee9392c58881"
+      # VPC endpoints may have security groups, if they are enabled
+      enableVPCEndpoints: true
+      ec2SecurityGroupIDs:
+        - sg-0e2300d267ff60ce8
+      elbSecurityGroupIDs:
+        - sg-0e2300d267ff60ce8
+    elb:
+       securityGroupIDs:
+        - sg-0e2300d267ff60ce8
+  nodePools:
+  - name: worker
+    count: 4
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: gp2
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
+      type: m5.2xlarge
+      aws:
+        securityGroupIDs:
+          - sg-0e2300d267ff60ce8
+  - name: control-plane
+    controlPlane: true
+    count: 3
+    machine:
+      rootVolumeSize: 80
+      rootVolumeType: io1
+      rootVolumeIOPS: 1000
+      imagefsVolumeEnabled: true
+      imagefsVolumeSize: 160
+      imagefsVolumeType: gp2
+      imagefsVolumeDevice: xvdb
+      type: m5.xlarge
+      aws:
+        securityGroupIDs:
+          - sg-0e2300d267ff60ce8
+  - name: bastion
+    bastion: true
+    count: 0
+    machine:
+      rootVolumeSize: 10
+      rootVolumeType: gp2
+      type: m5.large
+      aws:
+        securityGroupIDs:
+          - sg-0e2300d267ff60ce8
+...
+```
+
+*NOTE* it is not necessary to use the same security group list, each section
+could have a different list.
+
+The list of security groups will override the konvoy created security groups.
+When all `nodePools`, the `elb` and VPC API endpoints (if enabled) contain
+security group ids, konvoy will not create any security groups. In order to
+augment the default security groups with custom security groups, create the
+following three security groups (shown in terraform syntax):
+
+```hcl-terraform
+resource "aws_security_group" "konvoy_ssh" {
+  ...
+
+  ingress {
+    from_port   = 22
+    to_port     = 22
+    protocol    = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+
+  egress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    self      = true
+  }
+}
+```
+
+```hcl-terraform
+resource "aws_security_group" "konvoy_private" {
+  ...
+
+  ingress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    self      = true
+  }
+
+  egress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    self      = true
+  }
+}
+```
+
+```hcl-terraform
+resource "aws_security_group" "konvoy_egress" {
+  ...
+
+  egress {
+    from_port = 0
+    to_port   = 0
+    protocol  = "-1"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+```
+
+```hcl-terraform
+resource "aws_security_group" "konvoy_lb_control_plane" {
+  ...
+
+  ingress {
+    from_port = 6443
+    to_port   = 6443
+    protocol  = "tcp"
+    cidr_blocks = ["0.0.0.0/0"]
+  }
+}
+```
+
+VPC endpoints should have the security group id from `konvoy_private` added to
+their list.
+
+The ELB should have the security group ids from `konvoy_private` and
+`konvoy_lb_control_plane` added to their list.
+
+Bastion `nodePool`s should have the security group ids from `konvoy_private`,
+`konvoy_ssh`, and `konvoy_egress` added to their list.
+
+If using a bastion, control plane `nodePool`s should have the security group
+ids from `konvoy_private` and `konvoy_egress` added to their list.
+If not using a bastion, control plane `nodePool`s should have the security
+group ids from `konvoy_private`, `konvoy_ssh`, and `konvoy_egress`
+
+If using a bastion, worker `nodePool`s should have the security group
+ids from `konvoy_private` and `konvoy_egress` added to their list.
+If not using a bastion, worker `nodePool`s should have the security
+group ids from `konvoy_private`, `konvoy_ssh`, and `konvoy_egress`
+
+## IAM Instance Profiles
 An existing IAM instance profile can be used, provided that the right policies must be set:
 
 ```yaml
@@ -448,7 +609,7 @@ spec:
 ...
 ```
 
-### EBS Volume Encryption
+## EBS Volume Encryption
 
 You can configure the AWS CSI driver, installed by Konvoy, to create encrypted EBS volumes.
 Modify the `awsebscsiprovisioner` addon values in the following way:
@@ -469,7 +630,7 @@ spec:
 
 This configures the AWS CSI driver to encrypt all of the EBS volumes it creates, using the default KMS key in each region.
 
-Yo can also use a customer managed KMS key, by specifying the key's full ARN:
+You can also use a customer managed KMS key, by specifying the key's full ARN:
 
 ```yaml
 kind: ClusterProvisioner

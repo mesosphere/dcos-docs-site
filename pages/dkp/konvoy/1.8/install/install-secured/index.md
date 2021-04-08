@@ -8,7 +8,7 @@ beta: true
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018-->
 
 # Before you begin
 
@@ -19,7 +19,7 @@ Before installing, ensure that your environment has the following basic requirem
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.20.2 or later
+* [kubectl][install_kubectl] v1.20.5 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -50,13 +50,7 @@ Before installing, ensure that your environment has the following basic requirem
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
-
-* Firewalld is disabled.
-* Containerd is uninstalled.
-* Docker-ce is uninstalled.
-* Swap is disabled.
-* The `hostnames` for all the machines in the Kubernetes cluster are unique within a single cluster.
+#include /dkp/konvoy/1.8/include/os-svc-nodes.tmpl
 
 ## Installation
 
@@ -74,7 +68,7 @@ kind: ClusterConfiguration
 apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   kubernetes:
-    version: 1.20.2+d2iq.1
+    version: 1.20.5+d2iq.1
     imageRepository: docker.io/mesosphere
 ```
 

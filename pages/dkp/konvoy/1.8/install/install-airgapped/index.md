@@ -8,7 +8,7 @@ beta: true
 enterprise: false
 ---
 
-<!-- markdownlint-disable MD004 MD007 MD025 MD030 -->
+<!-- markdownlint-disable MD004 MD007 MD025 MD030 MD018 -->
 
 # Before you begin
 
@@ -19,7 +19,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-- [kubectl][install_kubectl] v1.20.2 or later
+- [kubectl][install_kubectl] v1.20.5 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -49,18 +49,12 @@ Before installing, verify that your environment meets the following basic requir
   - Approximately 80 GiB of free space for the volume used for `/var/lib/kubelet` and `/var/lib/containerd`.
   - Disk usage must be below 85% on the root volume.
 
-- If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least three volumes to `/mnt/disks/` mount point on each node.
+- If you plan to use **local volume provisioning** to provide [persistent volumes][persistent_volume] for the workloads, you must mount at least four volumes to `/mnt/disks/` mount point on each node.
   Each volume must have **at least** 55 GiB of capacity if the default addon configurations are used.
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
-
-- CentOS 7.8 is installed.
-- Firewalld is disabled.
-- Containerd is uninstalled.
-- Docker-ce is uninstalled.
-- Swap is disabled.
+#include /dkp/konvoy/1.8/include/os-svc-nodes.tmpl
 
 # Initialize Konvoy configuration files
 
@@ -426,7 +420,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.20.2: testing-1.20-4.0.0-alpha.2
+          1.20.5: testing-1.20-4.0.0-rc.1
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -484,18 +478,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.1
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.1
       addonsList:
       - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-beta.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.8.0-rc.1
       addonsList:
       - name: kommander
         enabled: false

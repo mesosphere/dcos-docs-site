@@ -10,7 +10,7 @@ enterprise: false
 
 <!-- markdownlint-disable MD034 -->
 
-**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 12, March 2021.**
+**D2iQ&reg; Konvoy&reg; version 1.8.0 was released on 8, April 2021.**
 
 [button color="purple" href="https://support.d2iq.com/s/entitlement-based-product-downloads"]Download Konvoy[/button]
 
@@ -26,7 +26,7 @@ This release provides new features and enhancements to improve the user experien
 | ------------------ | ------- |
 |**Minimum** | 1.18.x |
 |**Maximum** | 1.20.x |
-|**Default** | 1.20.2 |
+|**Default** | 1.20.5 |
 
 ### Upstream industry changes
 
@@ -66,10 +66,18 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 - Use the correct GPG key when installing FIPS RPM packages in an air-gapped environment.
 - Include the missing `docker.io/mesosphere/pause:3.2` needed for air-gapped FIPS installation.
 - Allow for using custom CA when generating certificates for the Kubernetes control plane by copying `ca.crt` and `ca.key` files from `extras/pki` in the working directory, See the [Konvoy documentation][konvoy-ccontrol-plane-certificates].
+- Validate that konvoy is not being run from a host in the Kubernetes cluster. (COPS-6878)
 
 #### API
 
+- Allow for setting `spec.containerNetworking.calico.encapsulation` to `none` to disable Calico encapsulation (COPS-6836).
+- New configuration option `clusterConfiguration.spec.ntp.autoConfigure` that can be set to `false` to disable installing and configuring Chrony. (COPS-6282)
+
 #### AWS
+
+- Existing SecurityGroups can now be assigned to nodes, VPC endpoints, and the kube-apiserver ELB. See [AWS advanced install documentation][security-groups-configuration].
+- Fix a bug where running `konvoy` may destroy machines when `subnetIDs` are specified. (COPS-6816)
+- Fix a cluster configuration validation error that marked AWS GovCloud KMS ARNs invalid. (COPS-6884)
 
 #### Azure
 
@@ -88,17 +96,17 @@ For details on how to migrate workloads to Spark 3.0, consult the official [migr
 ### Component versions
 
 - Ansible 2.9.16.0
-- Calico 3.17.1
+- Calico 3.17.3
 - Cluster-autoscaler v0.5.0
 - Containerd v1.3.9
 - Docker v19.03.15
-- Go 1.15.8
+- Go 1.16.2
 - Helm v3.5.2
 - kubeaddons-dispatch stable-1.19-1.4.1
-- kubeaddons-kommander testing-1.20-1.4.0-beta.1
-- kubernetes-base-addons testing-1.20-4.0.0-alpha.2
-- Kubernetes v1.20.2
-- Kubeaddons v0.24.1
+- kubeaddons-kommander testing-1.20-1.4.0-rc.1
+- kubernetes-base-addons testing-1.20-4.0.0-rc.1
+- Kubernetes v1.20.5
+- Kubeaddons v0.26.0
 - Mitogen a60c6c14a2473c895162a1b58a81bad0e63d1718
 - Terraform v0.13.5
 - Terraform AWS plugin ~> 3.0
@@ -122,3 +130,4 @@ For information about working with native Kubernetes, see the [Kubernetes docume
 [kubernetes-doc]: https://kubernetes.io/docs/home/
 [konvoy-vsphere]: ../install/install-vsphere
 [konvoy-ccontrol-plane-certificates]: ../networking/control-plane-certificates/
+[security-groups-configuration]: ../install/install-aws/advanced-provisioning#security-groups
