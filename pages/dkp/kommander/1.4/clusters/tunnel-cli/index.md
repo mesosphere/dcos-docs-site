@@ -44,7 +44,7 @@ kubectl get namespace ${namespace}
 Create a [tunnel gateway](api-reference#tunnelgateway) on the management cluster to listen for tunnel agents on remote clusters:
 ```shell
 cacert_secret=kubetunnel-ca
-gateway=sample-tunnel-gateway
+gateway=sample-gateway
 
 cat > gateway.yaml <<EOF
 apiVersion: v1
@@ -88,7 +88,7 @@ kubectl get tunnelgateway -n ${namespace} ${gateway}
 
 Create a [tunnel connector](api-reference#tunnelconnector) on the management cluster for the remote cluster:
 ```shell
-connector=sample-tunnel-connector
+connector=sample-connector
 
 cat > connector.yaml <<EOF
 apiVersion: kubetunnel.d2iq.io/v1alpha1
@@ -117,6 +117,11 @@ do
 done
 
 manifest=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath="{.status.tunnelAgent.manifestsRef.name}")
+while [ -z ${manifest} ]
+do
+  sleep 5
+  manifest=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath="{.status.tunnelAgent.manifestsRef.name}")
+done
 
 kubectl get secret -n ${namespace} ${manifest} -o jsonpath='{.data.manifests\.yaml}' | base64 -d > manifest.yaml
 ```
@@ -191,8 +196,9 @@ kubectl get kubefedcluster -n kommander ${kubefed}
 
 To access services running on the remote cluster from the management cluster, connect to the tunnel proxy.
 
-There are two methods:
+There are three methods:
 
+1. If the client program supports use of a kubeconfig file, use the managed cluster's kubeconfig;
 1. If the client program supports SOCKS5 proxying, use the proxy directly;
 1. Otherwise deploy a proxy server on the management cluster.
 
@@ -246,8 +252,7 @@ kubectl rollout status deploy webserver
 
 On the managed cluster this service can be accessed by a client Job using:
 ```shell
-nginx_host=$(kubectl get service nginx-service -o jsonpath='{.spec.clusterIP}')
-url="http://${nginx_host}:8888/"
+nginx_url=$(kubectl get service nginx-service -o jsonpath='{"http://"}{.spec.clusterIP}{":"}{.spec.ports[0].port}')
 
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
@@ -260,7 +265,7 @@ spec:
       containers:
       - name: curl
         image: curlimages/curl:7.76.0
-        command: ["curl", "--silent", "--show-error", ${url}"]
+        command: ["curl", "--silent", "--show-error", ${nginx_url}"]
       restartPolicy: Never
   backoffLimit: 4
 EOF
@@ -274,7 +279,7 @@ podname=$(kubectl get pods --selector=job-name=curl --field-selector=status.phas
 kubectl logs ${podname}
 ```
 
-The final command returns the default nginx web page:
+The final command returns the default Nginx web page:
 ```html
 <!DOCTYPE html>
 <html>
@@ -303,21 +308,70 @@ Commercial support is available at
 </html>
 ```
 
+### Use of kubeconfig file
+
+This is primarily useful for running `kubectl` commands on the management cluster to monitor the managed cluster.
+
+On the management cluster a `kubeconfig` file for the managed cluster configured to use the tunnel proxy is available as a Secret. The Secret's name can be identified using:
+```shell
+kubeconfig_secret=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.kubeconfigRef.name}')
+```
+
+For example, to find the Nginx service endpoint, on the managed cluster we ran:
+```shell
+nginx_url=$(kubectl get service nginx-service -o jsonpath='{"http://"}{.spec.clusterIP}{":"}{.spec.ports[0].port}')
+```
+
+On the management cluster, run this `kubectl` command as a Job accessing the `kubeconfig` secret through a volume:
+```shell
+cat > get-service.yaml <<EOF
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: get-service
+spec:
+  template:
+    spec:
+      containers:
+      - name: kubectl
+        image: bitnami/kubectl:1.19
+        command: ["kubectl", "get", "service", "-n", "default", "nginx-service", "-o", "jsonpath={'http://'}{.spec.clusterIP}{':'}{.spec.ports[0].port}"]
+        env:
+        - name: KUBECONFIG
+          value: /tmp/kubeconfig/kubeconfig
+        volumeMounts:
+        - name: kubeconfig
+          mountPath: /tmp/kubeconfig
+      volumes:
+      - name: kubeconfig
+        secret:
+          secretName: "${kubeconfig_secret}"
+      restartPolicy: Never
+  backoffLimit: 4
+EOF
+
+kubectl apply -n ${namespace} -f get-service.yaml
+
+kubectl wait --for=condition=complete --timeout=5m job -n ${namespace} get-service
+
+podname=$(kubectl get pods -n ${namespace} --selector=job-name=get-service --field-selector=status.phase=Succeeded -o jsonpath='{.items[0].metadata.name}')
+
+nginx_url=$(kubectl logs -n ${namespace} ${podname})
+```
+
 ### Direct use of SOCKS5 proxy
 
 To use the SOCKS5 proxy directly, obtain the proxy endpoint using:
 ```shell
 service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.tunnelServer.serviceRef.name}')
 
-proxy=$(kubectl get service -n ${namespace} "${service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
+socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
 ```
 
 Provide the value of `${proxy}` as the SOCKS5 proxy to your client.
 
-For example, since `curl` supports SOCKS5 proxies, the webserver started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. On the management cluster:
+For example, since `curl` supports SOCKS5 proxies, the webserver started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. After setting `nginx_url` to the Nginx service endpoint, on the management cluster run:
 ```shell
-url=""  # set to same URL used for service in managed cluster
-
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
 kind: Job
@@ -329,14 +383,14 @@ spec:
       containers:
       - name: curl
         image: curlimages/curl:7.76.0
-        command: ["curl", "--silent", "--show-error", "--socks5-hostname", "${proxy}", "${url}"]
+        command: ["curl", "--silent", "--show-error", "--socks5-hostname", "${socks_proxy}", "${nginx_url}"]
       restartPolicy: Never
   backoffLimit: 4
 EOF
 
 kubectl apply -f curl.yaml
 
-kubectl wait --for=condition=complete job curl
+kubectl wait --for=condition=complete --timeout=5m job curl
 
 podname=$(kubectl get pods --selector=job-name=curl --field-selector=status.phase=Succeeded -o jsonpath='{.items[0].metadata.name}')
 
