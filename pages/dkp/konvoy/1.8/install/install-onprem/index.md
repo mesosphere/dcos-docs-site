@@ -18,7 +18,9 @@ Before installing, verify that your environment meets the following basic requir
 
 * [Docker][install_docker] version 18.09.2 or later. You must have Docker installed on the host where the Konvoy command line interface (CLI) will run. For example, if you are installing Konvoy on your laptop computer, be sure the laptop has a supported version of Docker.
 
-* [kubectl][install_kubectl] v1.20.2 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+* [kubectl][install_kubectl] v1.20.5 or later. You must have `kubectl` installed on the host, where the Konvoy command line interface (CLI) runs, to enable interaction with the running cluster.
+
+* Konvoy cannot be run from a host that belongs to a Kubernetes cluster, you must have a separate host.
 
 ## Control plane nodes
 
@@ -44,14 +46,7 @@ Before installing, verify that your environment meets the following basic requir
 
 ## Operating system and services for all nodes
 
-For all hosts that are part of the cluster -- except the **deploy host** -- you should verify the following configuration requirements:
-
-* CentOS 7.8 is installed.
-* Firewalld is disabled.
-* Containerd is uninstalled.
-* Docker-ce is uninstalled.
-* Swap is disabled.
-* The `hostnames` for all the machines in the Kubernetes cluster are unique within a single cluster.
+#include /dkp/konvoy/1.8/include/os-svc-nodes.tmpl
 
 ## Networking
 
@@ -201,16 +196,16 @@ apiVersion: konvoy.mesosphere.io/v1beta2
 spec:
   addons:
   - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
-    configVersion: testing-1.20-4.0.0-alpha.2
+    configVersion: testing-1.20-4.0.0-rc.1
     addonsList:
     ...
   - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
-    configVersion: stable-1.20-1.4.1
+    configVersion: stable-1.20-1.4.2
     addonsList:
     - name: dispatch
       enabled: false
   - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
-    configVersion: testing-1.20-1.4.0-beta.1
+    configVersion: testing-1.20-1.4.0-rc.1
     addonsList:
     - name: kommander
       enabled: true
@@ -526,6 +521,19 @@ For more information on how to mount local volumes, see the [Operations][static_
 Note that if your stateful workload is using a [local persistent volume][local_persistent_volume], it cannot be moved to a different node.
 If the node fails, the stateful workload might lose its data.
 If you cannot tolerate this limitation, you should consider other storage options.
+
+# Configure NTP on nodes
+
+By default, Konvoy will install and configure `chrony` as an NTP client used to synchronize time on the control-plane and worker machines.
+You can disable this by configuring your cluster as follows:
+
+```yaml
+kind: ClusterConfiguration
+apiVersion: konvoy.mesosphere.io/v1beta2
+spec:
+  ntp:
+    autoConfigure: false
+```
 
 # Pre-flight checks
 

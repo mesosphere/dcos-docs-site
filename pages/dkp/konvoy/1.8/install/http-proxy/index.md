@@ -100,7 +100,9 @@ spec:
       noProxy: [ "172.0.0.0/16", ".intra.net" ]
 ```
 
-In a cluster with the default configuration, the `kommander` addon is installed. This addon needs access to the Internet to list the available `docker.io/mesosphere/konvoy` Docker images. To configure the addon to use the proxy settings, modify its `values` field as follows:
+In a cluster with the default configuration, the `kommander` and `gatekeeper` addons are installed. Gatekeeper will automatically configure the right proxy settings to `kommander`. If on the other hand, `gatekeeper` is not enabled then you will have to manually configure `kommander`.
+
+To manually configure the addon to use the proxy settings, modify its `values` field as follows:
 
 ```yaml
 kind: ClusterConfiguration
@@ -126,6 +128,17 @@ After you change the cluster configuration, apply the changes by running `konvoy
 
 # Configure your applications
 
+In a default installation with `gatekeeper` enabled, you can have proxy environment variables applied to all your pods automatically by adding the following label to your namespace:
+
+```yaml
+"gatekeeper.d2iq.com/mutate": "pod-proxy"
+```
+
+No further manual changes are required.
+
+<p class="message--important"><strong>IMPORTANT:</strong> If Gatekeeper is not installed, and you need to use a http proxy, then you must manually configure your addons as described further in this section. </p>
+
+## Manually configure your application
 Many, but not all, applications follow the convention of `HTTP_PROXY`, `HTTPS_PROXY`, and `NO_PROXY` environment variables.
 
 In this example, the environment variables are set for a container in a Pod:

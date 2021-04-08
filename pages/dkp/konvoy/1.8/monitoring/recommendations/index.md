@@ -21,6 +21,40 @@ At D2iQ, we conduct routine performance testing of Konvoy. The following table p
     <td>Resource settings</td>
   </tr>
   <tr>
+    <td>10</td>
+    <td>1k</td>
+    <td>250</td>
+    <td>
+<pre>
+resources:
+  limits:
+    cpu: 500m
+    memory: 2192Mi
+  requests:
+    cpu: 100m
+    memory: 500Mi
+storage: 35Gi
+</pre>
+    </td>
+    </tr>
+  <tr>
+    <td>25</td>
+    <td>1k</td>
+    <td>250</td>
+    <td>
+<pre>
+resources:
+  limits:
+    cpu: 2
+    memory: 6Gi
+  requests:
+    cpu: 1
+    memory: 3Gi
+storage: 60Gi
+</pre>
+    </td>
+    </tr>
+  <tr>
     <td>50</td>
     <td>1.5k</td>
     <td>500</td>
