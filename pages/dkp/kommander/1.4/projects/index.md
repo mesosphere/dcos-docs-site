@@ -32,7 +32,7 @@ A Project Namespace corresponds to a Kubernetes Federated Namespace. By default,
 
 To determine which Kubernetes clusters will be part of this project, you can either manually select existing clusters, or define labels that Kommander will use to dynamically add clusters. The latter is recommended because it allows you to deploy additional Kubernetes clusters later and have them automatically associated with Projects based on their labels.
 
-To create a Project, you can use the Kommander UI or create a Project object on the Kubernetes cluster where Kommander is running using kubectl or the Kubernetes API. Using the latter method you can configure Kommander resources in a declarative way. The declarative method is available for all kinds of Kommander resources.
+To create a Project, you can use the Kommander UI or create a Project object on the Kubernetes cluster where Kommander is running using kubectl or the Kubernetes API. Using the latter method you can configure Kommander resources in a declarative way.
 
 ## Create a Project - UI Method
 Here is an example of what it looks like to create a project using the Kommander UI:
