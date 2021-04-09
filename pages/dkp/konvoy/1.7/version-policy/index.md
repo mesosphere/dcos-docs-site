@@ -24,7 +24,7 @@ For example, Konvoy 1.7.1 supports:
 | ------------------ | ------- |
 |**Minimum** | 1.17.x |
 |**Maximum** | 1.19.x |
-|**Default** | 1.19.8 |
+|**Default** | 1.19.9 |
 
 ## Supported operating systems
 
@@ -34,7 +34,7 @@ Details for supported operating systems on Konvoy can be found in [Supported Ope
 
 Konvoy support for KBA depends on the Kubernetes version it deploys with. Every KBA release has the supported Kubernetes version in its tag.
 
-For example, KBA version `stable-1.19-3.3.0` is made up of:
+For example, KBA version `stable-1.19-3.4.1` is made up of:
 
 ```text
 <release_channel>-<kubernetes_version>-<kba_version>

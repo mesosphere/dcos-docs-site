@@ -14,6 +14,27 @@ enterprise: false
 
 For instructions on how to apply KBA updates, see [Introduction to KBAs](../../addons)
 
+April 8, 2021
+
+[stable-1.19-3.4.1](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.4.1)
+
+-   Opsportal
+    - Fixes bug in OpsPortal & Kommander UI where LDAP Root CA is malformed when saved
+    - Updated UI to only ship with needed dependencies
+
+March 24, 2021
+
+[stable-1.19-3.4.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.4.0)
+
+-   Opsportal
+    - Fixes bug in OpsPortal where Identity Providers would not show up (COPS-6843)
+
+-   Prometheus
+    - Re-enable etcd prometheus rules
+
+-   Reloader
+    - When upgrading from a release that used helm 2 to install, reloader cannot be cleanly upgraded due to selector changes. This adds a flag that causes reloader to be uninstalled before being upgraded. This should have no effect on running applications.
+
 March 10, 2021
 
 [stable-1.19-3.3.0](https://github.com/mesosphere/kubernetes-base-addons/releases/tag/stable-1.19-3.3.0)
