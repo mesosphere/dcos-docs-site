@@ -100,7 +100,7 @@ spec:
       noProxy: [ "172.0.0.0/16", ".intra.net" ]
 ```
 
-In a cluster with the default configuration, the `kommander` and `gatekeeper` addons are installed. Gatekeeper will automatically configure the right proxy settings to `kommander`. If on the other hand, `gatekeeper` is not enabled then you will have to manually configure `kommander`.
+In a cluster with the default configuration, the `kommander` and `gatekeeper` addons are installed. Gatekeeper will automatically configure the right proxy settings for `kommander`. If `gatekeeper` is not enabled then you will have to manually configure the proxy settings for `kommander`.
 
 To manually configure the addon to use the proxy settings, modify its `values` field as follows:
 

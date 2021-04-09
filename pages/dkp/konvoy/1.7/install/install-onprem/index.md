@@ -22,8 +22,6 @@ Before installing, verify that your environment meets the following basic requir
 
 * Konvoy cannot be run from a host that belongs to a Kubernetes cluster, you must have a separate host.
 
-* Konvoy cannot be run from a host that belongs to a Kubernetes cluster, you must have a separate host.
-
 ## Control plane nodes
 
 * You should have at least three control plane nodes.

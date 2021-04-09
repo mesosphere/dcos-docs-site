@@ -524,8 +524,8 @@ If you cannot tolerate this limitation, you should consider other storage option
 
 # Configure NTP on nodes
 
-By default, Konvoy will install and configure `chrony` as an NTP client used to synchronize time on the control-plane and worker machines.
-You can disable this by configuring your cluster as follows:
+By default, Konvoy installs and configures `chrony` as an NTP client used to synchronize time on the control-plane and worker machines.
+If your machines already have time synchronization software installed and configured, you can disable the installation of `chrony` by configuring your cluster as follows:
 
 ```yaml
 kind: ClusterConfiguration
