@@ -588,7 +588,7 @@ CalicoContainerNetworking describes Calico CNI
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
 | version | The version of the [Calico](https://www.projectcalico.org/) CNI plugin. | string | false |
-| encapsulation | The encapsulation mode. The supported modes are: [ipip](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip). [vxlan](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan). (default: `ipip`) | string | false |
+| encapsulation | The encapsulation mode. The supported modes are: [ipip](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#configuring-ip-in-ip). [vxlan](https://docs.projectcalico.org/getting-started/kubernetes/installation/config-options#switching-from-ip-in-ip-to-vxlan). (default: `ipip`) [none](no encapsulation) | string | false |
 | mtu | The MTU to use for the veth interfaces. (default: depends on `encapsulation` and provisioner) | int32 | false |
 
 [Back to TOC](#table-of-contents)
@@ -771,7 +771,7 @@ Kubernetes controls the options used by `kubeadm` and at other points during ins
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| version | The version of Kubernetes to deploy. (default: `1.19.8`) | string | false |
+| version | The version of Kubernetes to deploy. (default: `1.19.9`) | string | false |
 | imageRepository | The imageRepository to pull the control-plane images from. (default: `k8s.gcr.io`) | string | false |
 | controlPlane | Control plane specific configurations. | [ControlPlane](#controlplane) | false |
 | networking | Cluster networking specific configurations. | [Networking](#networking) | false |

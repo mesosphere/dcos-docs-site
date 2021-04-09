@@ -19,7 +19,7 @@ Before installing, verify that your environment meets the following basic requir
   You must have Docker installed on the host where the Konvoy command line interface (CLI) will run.
   For example, if you are installing Konvoy on your laptop, be sure the laptop has a supported version of Docker.
 
-- [kubectl][install_kubectl] v1.19.8 or later
+- [kubectl][install_kubectl] v1.19.9 or later
 
   To enable interaction with the running cluster, you must have `kubectl` installed on the host where the Konvoy command line interface (CLI) will run.
 
@@ -420,7 +420,7 @@ spec:
         chartRepo: http://konvoy-addons-chart-repo.kubeaddons.svc:8879
       kubeaddonsRepository:
         versionMap:
-          1.19.8: stable-1.19-3.3.0
+          1.19.9: stable-1.19-3.4.1
         versionStrategy: mapped-kubernetes-version
 ```
 
@@ -478,18 +478,18 @@ spec:
   addons:
     - configRepository: /opt/konvoy/artifacts/kubernetes-base-addons
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.2
       addonsList:
       ...
     - configRepository: /opt/konvoy/artifacts/kubeaddons-dispatch
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.2
       addonsList:
       - name: dispatch
         enabled: false
     - configRepository: /opt/konvoy/artifacts/kubeaddons-kommander
       addonRepository:
-        image: mesosphere/konvoy-addons-chart-repo:v1.7.1
+        image: mesosphere/konvoy-addons-chart-repo:v1.7.2
       addonsList:
       - name: kommander
         enabled: false
