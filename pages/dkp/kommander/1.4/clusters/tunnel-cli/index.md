@@ -131,15 +131,21 @@ kubectl get secret -n ${namespace} ${manifest} -o jsonpath='{.data.manifests\.ya
 Copy the `manifest.yaml` file to the managed cluster and deploy the tunnel agent:
 
 ```shell
-kubectl apply -f manifest.yaml
+kubectl apply --context managed -f manifest.yaml
 ```
 
 You can check the status of the created pods using:
 ```shell
-kubectl get pods -n kubetunnel
+kubectl get pods --context managed -n kubetunnel
 ```
 
-There should be a `post-kubeconfig` job that reaches `Completed` state and a `tunnel-agent` deployment that stays in `Running` state.
+After a short time, expect to see a `post-kubeconfig` pod that reaches `Completed` state and a `tunnel-agent` pod that stays in `Running` state.
+
+```
+NAME                           READY   STATUS      RESTARTS   AGE
+post-kubeconfig-j2ghk          0/1     Completed   0          14m
+tunnel-agent-f8d9f4cb4-thx8h   0/1     Running     0          14m
+```
 
 ### Add the managed cluster into Kommander
 
@@ -204,7 +210,7 @@ There are three methods:
 
 ### Managed cluster service
 
-For these sections, we require a service to run on the managed cluster.
+These sections require a service to run on the managed cluster.
 
 As an example, start the following service:
 
@@ -250,9 +256,9 @@ kubectl apply -f nginx.yaml
 kubectl rollout status deploy webserver
 ```
 
-On the managed cluster this service can be accessed by a client Job using:
+On the managed cluster, a client Job can access this service using:
 ```shell
-nginx_url=$(kubectl get service nginx-service -o jsonpath='{"http://"}{.spec.clusterIP}{":"}{.spec.ports[0].port}')
+nginx_endpoint=$(kubectl get service nginx-service -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[0].port}')
 
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
@@ -265,7 +271,7 @@ spec:
       containers:
       - name: curl
         image: curlimages/curl:7.76.0
-        command: ["curl", "--silent", "--show-error", ${nginx_url}"]
+        command: ["curl", "--silent", "--show-error", "http://${nginx_endpoint}"]
       restartPolicy: Never
   backoffLimit: 4
 EOF
@@ -319,7 +325,7 @@ kubeconfig_secret=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o 
 
 For example, to find the Nginx service endpoint, on the managed cluster we ran:
 ```shell
-nginx_url=$(kubectl get service nginx-service -o jsonpath='{"http://"}{.spec.clusterIP}{":"}{.spec.ports[0].port}')
+nginx_endpoint=$(kubectl get service nginx-service -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[0].port}')
 ```
 
 On the management cluster, run this `kubectl` command as a Job accessing the `kubeconfig` secret through a volume:
@@ -335,7 +341,7 @@ spec:
       containers:
       - name: kubectl
         image: bitnami/kubectl:1.19
-        command: ["kubectl", "get", "service", "-n", "default", "nginx-service", "-o", "jsonpath={'http://'}{.spec.clusterIP}{':'}{.spec.ports[0].port}"]
+        command: ["kubectl", "get", "service", "-n", "default", "nginx-service", "-o", "jsonpath={.spec.clusterIP}{':'}{.spec.ports[0].port}"]
         env:
         - name: KUBECONFIG
           value: /tmp/kubeconfig/kubeconfig
@@ -356,21 +362,21 @@ kubectl wait --for=condition=complete --timeout=5m job -n ${namespace} get-servi
 
 podname=$(kubectl get pods -n ${namespace} --selector=job-name=get-service --field-selector=status.phase=Succeeded -o jsonpath='{.items[0].metadata.name}')
 
-nginx_url=$(kubectl logs -n ${namespace} ${podname})
+nginx_endpoint=$(kubectl logs -n ${namespace} ${podname})
 ```
 
 ### Direct use of SOCKS5 proxy
 
-To use the SOCKS5 proxy directly, obtain the proxy endpoint using:
+To use the SOCKS5 proxy directly, obtain the SOCKS5 proxy endpoint using:
 ```shell
-service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.tunnelServer.serviceRef.name}')
+proxy_service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.tunnelServer.serviceRef.name}')
 
 socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
 ```
 
 Provide the value of `${socks_proxy}` as the SOCKS5 proxy to your client.
 
-For example, since `curl` supports SOCKS5 proxies, the webserver started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. After setting `nginx_url` to the Nginx service endpoint, on the management cluster run:
+For example, since `curl` supports SOCKS5 proxies, the webserver started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. After setting `nginx_endpoint` to the Nginx service endpoint, on the management cluster run:
 ```shell
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
@@ -383,7 +389,7 @@ spec:
       containers:
       - name: curl
         image: curlimages/curl:7.76.0
-        command: ["curl", "--silent", "--show-error", "--socks5-hostname", "${socks_proxy}", "${nginx_url}"]
+        command: ["curl", "--silent", "--show-error", "--socks5-hostname", "${socks_proxy}", "http://${nginx_endpoint}"]
       restartPolicy: Never
   backoffLimit: 4
 EOF
@@ -401,3 +407,130 @@ The final command returns the same output as for the job on the managed cluster,
 
 
 ### Use of deployed proxy on management cluster
+
+To deploy a proxy on the management cluster, obtain the SOCKS5 proxy endpoint using:
+```shell
+proxy_service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.tunnelServer.serviceRef.name}')
+
+socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
+```
+
+Provide the value of `${socks_proxy}` as the SOCKS5 proxy to a proxy deployed on the management cluster. After setting `nginx_endpoint` to the Nginx service endpoint, on the management cluster run:
+
+```shell
+cat > nginx-proxy.yaml <<EOF
+apiVersion: cert-manager.io/v1
+kind: Certificate
+metadata:
+  name: nginx-proxy-crt
+spec:
+  secretName: nginx-proxy-crt-secret
+  dnsNames:
+  - nginx-proxy-service.${namespace}.svc.cluster.local
+  issuerRef:
+    group: cert-manager.io
+    kind: ClusterIssuer
+    name: kubernetes-ca
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy
+  labels:
+    app: nginx-proxy-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-proxy-app
+  template:
+    metadata:
+      labels:
+        app: nginx-proxy-app
+    spec:
+      containers:
+      - name: nginx-proxy
+        image: mesosphere/ghostunnel:v1.5.3-server-backend-proxy
+        args:
+        - "server"
+        - "--listen=:443"
+        - "--target=${nginx_endpoint}"
+        - "--cert=/etc/certs/tls.crt"
+        - "--key=/etc/certs/tls.key"
+        - "--cacert=/etc/certs/ca.crt"
+        - "--unsafe-target"
+        - "--disable-authentication"
+        env:
+        - name: ALL_PROXY
+          value: socks5://${socks_proxy}
+        ports:
+        - containerPort: 443
+        volumeMounts:
+        - name: certs
+          mountPath: /etc/certs
+      volumes:
+      - name: certs
+        secret:
+          secretName: nginx-proxy-crt-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-proxy-service
+spec:
+  selector:
+    app: nginx-proxy-app
+  type: ClusterIP
+  ports:
+    - targetPort: 443
+      port: 8765
+EOF
+
+kubectl apply -n ${namespace} -f nginx-proxy.yaml
+
+kubectl rollout status deploy -n ${namespace} nginx-proxy
+
+proxy_port=$(kubectl get service -n ${namespace} nginx-proxy-service -o jsonpath='{.spec.ports[0].port}')
+```
+
+Any client running on the management cluster can now access the service running on the managed cluster using the proxy service endpoint. Note in the following that the `curl` job runs in the same namespace as the proxy, to provide access to the CA certificate secret.
+```shell
+cat > curl.yaml <<EOF
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: curl
+spec:
+  template:
+    spec:
+      containers:
+      - name: curl
+        image: curlimages/curl:7.76.0
+        command: 
+        - curl
+        - --silent
+        - --show-error
+        - --cacert
+        - /etc/certs/ca.crt
+        - https://nginx-proxy-service.${namespace}.svc.cluster.local:${proxy_port}
+        volumeMounts:
+        - name: certs
+          mountPath: /etc/certs
+      volumes:
+      - name: certs
+        secret:
+          secretName: nginx-proxy-crt-secret
+      restartPolicy: Never
+  backoffLimit: 4
+EOF
+
+kubectl apply -n ${namespace} -f curl.yaml
+
+kubectl wait --for=condition=complete --timeout=5m job -n ${namespace} curl
+
+podname=$(kubectl get pods -n ${namespace} --selector=job-name=curl --field-selector=status.phase=Succeeded -o jsonpath='{.items[0].metadata.name}')
+
+kubectl logs -n ${namespace} ${podname}
+```
+
+The final command returns the same output as for the job on the managed cluster, demonstrating that the job on the management cluster accessed the service running on the managed cluster.
