@@ -7,7 +7,7 @@ menuWeight: 7
 excerpt: Using the CLI to attach a Kubernetes Cluster using a Tunnel
 ---
 
-## Initial setup
+## Creating a gateway
 
 ### Identify the management cluster endpoint
 
@@ -215,11 +215,22 @@ These sections require a service to run on the managed cluster.
 As an example, start the following service:
 
 ```shell
+service_namespace=test
+service_name=webserver
+service_port=8888
+service_endpoint=${service_name}.${service_namespace}.svc.cluster.local:${service_port}
+
 cat > nginx.yaml <<EOF
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ${service_namespace}
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: webserver
+  namespace: ${service_namespace}
+  name: nginx-deployment
   labels:
     app: nginx-deployment
 spec:
@@ -241,25 +252,24 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: nginx-service
+  namespace: ${service_namespace}
+  name: ${service_name}
 spec:
   selector:
     app: nginx-app
   type: ClusterIP
   ports:
     - targetPort: 80
-      port: 8888
+      port: ${service_port}
 EOF
 
 kubectl apply -f nginx.yaml
 
-kubectl rollout status deploy webserver
+kubectl rollout status deploy -n ${service_namespace} nginx-deployment
 ```
 
 On the managed cluster, a client Job can access this service using:
 ```shell
-nginx_endpoint=$(kubectl get service nginx-service -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[0].port}')
-
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
 kind: Job
@@ -271,7 +281,7 @@ spec:
       containers:
       - name: curl
         image: curlimages/curl:7.76.0
-        command: ["curl", "--silent", "--show-error", "http://${nginx_endpoint}"]
+        command: ["curl", "--silent", "--show-error", "http://${service_endpoint}"]
       restartPolicy: Never
   backoffLimit: 4
 EOF
@@ -286,7 +296,7 @@ kubectl logs ${podname}
 ```
 
 The final command returns the default Nginx web page:
-```html
+```
 <!DOCTYPE html>
 <html>
 <head>
@@ -323,12 +333,7 @@ On the management cluster a `kubeconfig` file for the managed cluster configured
 kubeconfig_secret=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o jsonpath='{.status.kubeconfigRef.name}')
 ```
 
-For example, to find the Nginx service endpoint, on the managed cluster we ran:
-```shell
-nginx_endpoint=$(kubectl get service nginx-service -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[0].port}')
-```
-
-On the management cluster, run this `kubectl` command as a Job accessing the `kubeconfig` secret through a volume:
+After setting `service_namespace` and `service_name` to the managed service resource, on the management cluster run:
 ```shell
 cat > get-service.yaml <<EOF
 apiVersion: batch/v1
@@ -341,7 +346,7 @@ spec:
       containers:
       - name: kubectl
         image: bitnami/kubectl:1.19
-        command: ["kubectl", "get", "service", "-n", "default", "nginx-service", "-o", "jsonpath={.spec.clusterIP}{':'}{.spec.ports[0].port}"]
+        command: ["kubectl", "get", "service", "-n", "${service_namespace}", "${service_name}"]
         env:
         - name: KUBECONFIG
           value: /tmp/kubeconfig/kubeconfig
@@ -362,7 +367,7 @@ kubectl wait --for=condition=complete --timeout=5m job -n ${namespace} get-servi
 
 podname=$(kubectl get pods -n ${namespace} --selector=job-name=get-service --field-selector=status.phase=Succeeded -o jsonpath='{.items[0].metadata.name}')
 
-nginx_endpoint=$(kubectl logs -n ${namespace} ${podname})
+kubectl logs -n ${namespace} ${podname}
 ```
 
 ### Direct use of SOCKS5 proxy
@@ -376,7 +381,7 @@ socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath
 
 Provide the value of `${socks_proxy}` as the SOCKS5 proxy to your client.
 
-For example, since `curl` supports SOCKS5 proxies, the webserver started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. After setting `nginx_endpoint` to the Nginx service endpoint, on the management cluster run:
+For example, since `curl` supports SOCKS5 proxies, the managed service started above can be accessed from the management cluster by adding the SOCKS5 proxy to the `curl` command. After setting `service_endpoint` to the service endpoint, on the management cluster run:
 ```shell
 cat > curl.yaml <<EOF
 apiVersion: batch/v1
@@ -389,7 +394,7 @@ spec:
       containers:
       - name: curl
         image: curlimages/curl:7.76.0
-        command: ["curl", "--silent", "--show-error", "--socks5-hostname", "${socks_proxy}", "http://${nginx_endpoint}"]
+        command: ["curl", "--silent", "--show-error", "--socks5-hostname", "${socks_proxy}", "http://${service_endpoint}"]
       restartPolicy: Never
   backoffLimit: 4
 EOF
@@ -415,7 +420,7 @@ proxy_service=$(kubectl get tunnelconnector -n ${namespace} ${connector} -o json
 socks_proxy=$(kubectl get service -n ${namespace} "${proxy_service}" -o jsonpath='{.spec.clusterIP}{":"}{.spec.ports[?(@.name=="proxy")].port}')
 ```
 
-Provide the value of `${socks_proxy}` as the SOCKS5 proxy to a proxy deployed on the management cluster. After setting `nginx_endpoint` to the Nginx service endpoint, on the management cluster run:
+Provide the value of `${socks_proxy}` as the SOCKS5 proxy to a proxy deployed on the management cluster. After setting `service_endpoint` to the service endpoint, on the management cluster run:
 
 ```shell
 cat > nginx-proxy.yaml <<EOF
@@ -454,7 +459,7 @@ spec:
         args:
         - "server"
         - "--listen=:443"
-        - "--target=${nginx_endpoint}"
+        - "--target=${service_endpoint}"
         - "--cert=/etc/certs/tls.crt"
         - "--key=/etc/certs/tls.key"
         - "--cacert=/etc/certs/ca.crt"
