@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Creating Federated Platform Services
 title: Creating Federated Platform Services
-menuWeight: 1
+menuWeight: 2
 excerpt: Creating Federated Platform Services
 ---
 
