@@ -115,10 +115,8 @@ Wait for the deployment plan to `COMPLETE` as shown in the Cassandra node counts
 
 KUDO Cassandra versions can be upgraded using the KUDO CLI.
 
-**Example** Upgrade KUDO Cassandra from `v3.11.6-1` to `v3.11.7-1`:
-```
-kubectl kudo upgrade cassandra -n test-project-zc6tc --instance cassandra --operator-version 1.0.2 
-```
+**Example** Upgrade KUDO Cassandra from `v3.11.6-1.0.1` to `v3.11.7-1.0.2`:
+When upgrading, you should understand the mapping between Cassandra versions and operator versions.   For more information, see the table at the end of the [Cassandra operator](https://github.com/mesosphere/kudo-cassandra-operator/tree/master/docs)
 Wait and monitor the deployment plan to become `COMPLETE`.
 
 ### Monitoring
