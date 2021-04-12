@@ -3,7 +3,7 @@ layout: layout.pug
 beta: false
 navigationTitle: Helm Based Platform Services
 title: Helm Based Platform Services
-menuWeight: 1
+menuWeight: 2
 excerpt: Project Platform Services based on Helm Charts.
 ---
 
