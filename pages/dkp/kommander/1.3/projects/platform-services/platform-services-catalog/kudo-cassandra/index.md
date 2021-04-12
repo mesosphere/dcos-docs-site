@@ -19,19 +19,19 @@ It is **strongly recommended** to view the [KUDO Cassandra Documentation](https:
 
 ### Kommander Catalog
 
-KUDO Cassandra is located in the Kommander Catalog.
+KUDO Cassandra is located in the Kommander Catalog.   To access the catalog: 
 #include /dkp/kommander/1.3/include/kommander-catalog-drilldown.tmpl
 
 ### Installation
 
 From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Cassandra and click Deploy.
 
-Here is an example of what should appear in the Kommander UI, the dialog is populated with sensible defaults:
+Below is an example of what should appear in the Kommander UI.  The dialog is populated with sensible defaults:
 
 ![Cassandra Service Install Configuration](/dkp/kommander/1.3/img/platform-services-cassandra-config-dialog.png)
 
 - The **ID** field above is referred to as the Cassandra `instance` by KUDO.
-- [Detailed parameter descriptions](https://github.com/mesosphere/kudo-cassandra-operator/blob/v3.11.7-1.0.3/operator/params.yaml) and defaults are availabe for each version of KUDO Cassandra Operator, in this case version `3.11.7-1`
+- [Detailed parameter descriptions](https://github.com/mesosphere/kudo-cassandra-operator/blob/v3.11.7-1.0.3/operator/params.yaml) and defaults are available for each version of KUDO Cassandra Operator, in this case version `3.11.7-1`
 
 Select `Deploy` to install Cassandra.
 
@@ -62,7 +62,7 @@ If any issues are encountered during the above, refer to the [Troubleshooting](#
 The complete list of KUDO Cassandra Parameters can be found under [detailed parameter descriptions](https://github.com/mesosphere/kudo-cassandra-operator/blob/master/docs/parameters.md).
 
 
-The current parameters set can be reterived using the kubectl command with the two additional tools:
+The current parameter set can be retrieved using the kubectl command in conjunction with two additional tools:
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
 
@@ -142,7 +142,7 @@ Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/das
 
 ### External Access
 
-The KUDO Cassandra operator supports creation of a service that opens up ports to access Cassandra from outside the cluster. To enable this, you have to set the following variables:
+The KUDO Cassandra operator supports creation of a service that opens up ports to access Cassandra from outside the cluster. To enable this, you have to set one or more of the following variables:
 ```
 kubectl kudo update cassandra -n test-project-zc6tc -p EXTERNAL_NATIVE_TRANSPORT=true
 ```
@@ -188,7 +188,7 @@ Once the operation is completed, we can update the KUDO Cassandra Instance
 kubectl kudo update -p NODE_COUNT=3 --instance cassandra -n test-project-zc6tc
 ```
 
-Once the update plan is complete, we can delete the PVC that was attached to the KUDO Cassandra pod/cassandra-node-3. Not deleting or cleaning the PVC will result in issues when scaling the cluster up next time.
+Once the update plan is complete, you should delete (or clean) the PVC that was attached to the KUDO Cassandra pod/cassandra-node-3. Failing to delete or clean the PVC will result in issues when scaling the cluster up next time.
 
 ### Troubleshooting
 
