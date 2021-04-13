@@ -126,6 +126,54 @@ done
 kubectl get secret -n ${namespace} ${manifest} -o jsonpath='{.data.manifests\.yaml}' | base64 -d > manifest.yaml
 ```
 
+### Create a network policy for the tunnel server
+
+This step is optional, but improves security by restricting which remote hosts can connect to the tunnel.
+
+Apply a network policy that restricts the tunnel to specific IP blocks. The following example only permits connections from hosts with IP addresses in the ranges 192.0.2.0 to 192.0.2.255 and 203.0.113.0 to 203.0.113.255:
+
+```shell
+cat > net.yaml <<EOF
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  namespace: ${namespace}
+  name: ${name_connector}-deny
+  labels:
+    kubetunnel.d2iq.io/tunnel-connector: ${name_connector}
+    kubetunnel.d2iq.io/networkpolicy-type: "tunnel-server"
+spec:
+  podSelector:
+    matchLabels:
+      kubetunnel.d2iq.io/tunnel-connector: ${name_connector}
+  policyTypes:
+  - Ingress
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  namespace: ${namespace}
+  name: ${name_connector}-allow
+  labels:
+    kubetunnel.d2iq.io/tunnel-connector: ${name_connector}
+    kubetunnel.d2iq.io/networkpolicy-type: "tunnel-server"
+spec:
+  podSelector:
+    matchLabels:
+      kubetunnel.d2iq.io/tunnel-connector: ${name_connector}
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - ipBlock:
+        cidr: 192.0.2.0/24
+    - ipBlock:
+        cidr: 203.0.113.0/24
+EOF
+
+kubectl apply -f net.yaml
+```
+
 ### Setup the managed cluster
 
 Copy the `manifest.yaml` file to the managed cluster and deploy the tunnel agent:
