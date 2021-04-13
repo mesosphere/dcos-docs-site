@@ -27,7 +27,7 @@ excerpt: API documentation (v1alpha1)
 
 ## TunnelGateway
 
-Describes how various services (e.g., tunnel server) will be exposed outside the current cluster.
+Provides an endpoint for remote clusters to connect to the management cluster.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
@@ -42,10 +42,10 @@ Describes how various services (e.g., tunnel server) will be exposed outside the
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| loadBalancer | Ingress points for the load-balancer. Traffic intended for the service should be sent to these ingress points. If not specified, the controller will try to derive that from the Ingress record status field. | corev1.LoadBalancerIngress | false |
-| host | Host in the Ingress record. | string | false |
-| urlPathPrefix | URL path prefix to be append to all Ingresses. For example, if this field is set to \"/ops/portal/kt\", the ingresses created will have URL paths like the following:\n  \"/ops/portal/kt/default/cluster1/tunnel-server\"\n  \"/ops/portal/kt/default/cluster1/kubeconfig\"\nIf not specified, default to root path (i.e., \"/\"). | string | false |
-| caSecretRef | A secret reference to the root CA that will be used to validate the ingress endpoints. The secret should have type \"Opaque\" and contain the key \"tls.crt\". If not specified, the default host root CA will be used to validate the endpoints. | corev1.ObjectReference | false |
+| loadBalancer | Ingress point for the load-balancer. Traffic intended for the service should be sent to these ingress points. If not specified, the controller will derive from the Ingress record status field. | corev1.LoadBalancerIngress | false |
+| host | Restrict access to requests addressed to a specific host or domain using the [`IngressRule` format](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#ingressrule-v1beta1-networking-k8s-io). Defaults to allow all hosts. | string | false |
+| urlPathPrefix | URL path prefix to prepend to all endpoints. For example, if this field is set to `/ops/portal/kt`, the ingresses created will have URL paths like `/ops/portal/kt/default/cluster1/tunnel-server` and `/ops/portal/kt/default/cluster1/kubeconfig`. Defaults to root path (`/`). | string | false |
+| caSecretRef | A secret reference to the root CA required to verify the ingress endpoints. The secret should have type `Opaque` and contain the key `ca.crt`. If not specified, remote hosts will use their system root CA's to verify the endpoints. | corev1.ObjectReference | false |
 | extraAnnotations | Extra annotations to set on the Ingress object. | map[string]string | false |
 
 [Back to TOC](#table-of-contents)
@@ -63,17 +63,17 @@ Contains a list of `TunnelGateway`.
 
 ## TunnelGatewaySpec
 
-
+If no ingress is set, the services will only be accessible on `localhost`.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| ingress | If specified, services will be exposed using Ingress. | [TunnelGatewayIngressSpec](#tunnelgatewayingressspec) | false |
+| ingress | Expose services using an Ingress as specified in the `TunnelGatewayIngressSpec`. | [TunnelGatewayIngressSpec](#tunnelgatewayingressspec) | false |
 
 [Back to TOC](#table-of-contents)
 
 ## KubeconfigWebhookStatus
 
-Statuses about the kubeconfig webhook.
+Status of the kubeconfig webhook.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
@@ -85,17 +85,17 @@ Statuses about the kubeconfig webhook.
 
 ## TunnelAgentStatus
 
-Statuses about the tunnel agent.
+Status of the tunnel agent.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| manifestsRef | A reference to the secret holding the yaml file that contains the manifests for launching the tunnel agent in the target cluster. The secret is a generic typed secret with filenames as the keys. There might be multiple files in the secret. | corev1.LocalObjectReference | false |
+| manifestsRef | A reference to a secret holding YAML manifests for launching the tunnel agent on the target cluster. The secret is a generic typed secret with filenames as the keys. There might be multiple files in the secret. | corev1.LocalObjectReference | false |
 
 [Back to TOC](#table-of-contents)
 
 ## TunnelConnector
 
-Describes an intention to create a tunnel between the current cluster and the target cluster. This would allow the current cluster to access the target cluster through the tunnel  (assuming that the current cluster does not have direct access to the target cluster).
+Describes the local endpoint for the tunnel. A remote cluster will connect to this endpoint to create a tunnel.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
@@ -122,7 +122,7 @@ Contains a list of `TunnelConnector`.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| gatewayRef | A reference to the `TunnelGateway` object which describes how various services would be exposed outside the current cluster. | corev1.LocalObjectReference | false |
+| gatewayRef | A reference to the `TunnelGateway` object which describes how tunnel services will be exposed outside the current cluster. | corev1.LocalObjectReference | false |
 | proxyPort | The port for the tunnel proxy. | int32 | false |
 
 [Back to TOC](#table-of-contents)
@@ -133,21 +133,21 @@ Contains a list of `TunnelConnector`.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
-| state | State of the tunnel connector - Starting: the default initial state - Listening: the tunnel server is listening and waiting for the agent to connect - Pending: the tunnel agent is available, but we do not yet have a proxy address to check for status - Connected: the tunnel is configured and we were able to contact the remote API server - Disconnected: the tunnel is configured but we were not able to contact the API server - Failed: an unexpected error occurred, such as the kubeconfig being unparseable | TunnelConnectorState | false |
-| tunnelServer | Statuses about the tunnel server. | [TunnelServerStatus](#tunnelserverstatus) | false |
-| kubeconfigWebhook | Statuses about the kubeconfig webhook. | [KubeconfigWebhookStatus](#kubeconfigwebhookstatus) | false |
-| tunnelAgent | Statuses about the tunnel agent. | [TunnelAgentStatus](#tunnelagentstatus) | false |
+| state | State of the tunnel connector: `Starting` - the initial state; `Listening` - the local tunnel server is waiting for the remote agent to connect; `Pending` - the remote agent has connected but the local proxy is not ready; `Connected` - the tunnel is configured and contact to the remote API server succeeded; `Disconnected` - the tunnel is configured but contact to the remote API server failed; `Failed` - an unexpected error occurred, such as not being able to parse the kubeconfig. | TunnelConnectorState | false |
+| tunnelServer | Status of the tunnel server. | [TunnelServerStatus](#tunnelserverstatus) | false |
+| kubeconfigWebhook | Status of the kubeconfig webhook. | [KubeconfigWebhookStatus](#kubeconfigwebhookstatus) | false |
+| tunnelAgent | Status of the tunnel agent. | [TunnelAgentStatus](#tunnelagentstatus) | false |
 | serviceAccountRef | A reference to the service account that will be used for registration (of the tunnel agent) and authentication purpose. | corev1.LocalObjectReference | false |
 | roleRef | A reference to the role that will be bound to the service account for authorization purpose. | corev1.LocalObjectReference | false |
 | roleBindingRef | A reference to the rolebinding that will be created to bind the service account and the role. | corev1.LocalObjectReference | false |
 | kubeconfigRef | A reference to the secret holding the KUBECONFIG that the clients can use to talk to the API server of the target cluster when it becomes available. | corev1.LocalObjectReference | false |
-| gatewayObservedGeneration | The generation of the linked TunnelGateway object associated with this object. Everytime the linked TunnelGateway object is updated, a controller will update this status field which will in turn trigger a reconciliation of this object. | int64 | false |
+| gatewayObservedGeneration | The generation of the linked TunnelGateway object associated with this object. When the linked TunnelGateway object is updated, a controller will update this status field which will in turn trigger a reconciliation of this object. | int64 | false |
 
 [Back to TOC](#table-of-contents)
 
 ## TunnelServerStatus
 
-Statuses about the tunnel server.
+Status of the tunnel server.
 
 | Field | Description | Scheme | Required |
 | ----- | ----------- | ------ | -------- |
