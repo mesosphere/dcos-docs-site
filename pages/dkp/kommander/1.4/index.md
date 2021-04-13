@@ -1,8 +1,8 @@
 ---
 layout: layout.pug
 beta: true
-navigationTitle: Kommander 1.4
-title: Kommander 1.4
+navigationTitle: Kommander 1.4 beta
+title: Kommander 1.4 beta
 version: 1.4
 featureMaturity:
 category: K-Sphere
