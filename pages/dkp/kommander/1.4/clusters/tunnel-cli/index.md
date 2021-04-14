@@ -130,7 +130,7 @@ kubectl get secret -n ${namespace} ${manifest} -o jsonpath='{.data.manifests\.ya
 
 This step is optional, but improves security by restricting which remote hosts can connect to the tunnel.
 
-Apply a network policy that restricts the tunnel to specific IP blocks. The following example only permits connections from hosts with IP addresses in the ranges 192.0.2.0 to 192.0.2.255 and 203.0.113.0 to 203.0.113.255:
+Apply a network policy that restricts access to the tunnel to specific namespaces and IP blocks. The following example permits connections from pods running in the `kommander-federation`, `kommander`, and `kubeaddons` namespaces, from pods running in namespaces with a label `kubetunnel.d2iq.io/networkpolicy` matching the tunnel name and namespace, and to remote clusters with IP addresses in the ranges 192.0.2.0 to 192.0.2.255 and 203.0.113.0 to 203.0.113.255:
 
 ```shell
 cat > net.yaml <<EOF
@@ -165,6 +165,18 @@ spec:
   - Ingress
   ingress:
   - from:
+    - namespaceSelector:
+        matchLabels:
+          app: "kommander-federation"
+    - namespaceSelector:
+        matchLabels:
+          app: "kommander"
+    - namespaceSelector:
+        matchLabels:
+          app: "kubeaddons"
+    - namespaceSelector:
+        matchLabels:
+          kubetunnel.d2iq.io/networkpolicy: ${name_connector}-${namespace}
     - ipBlock:
         cidr: 192.0.2.0/24
     - ipBlock:
