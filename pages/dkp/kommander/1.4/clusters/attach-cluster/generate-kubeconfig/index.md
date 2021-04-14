@@ -24,15 +24,15 @@ cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
-name: kommander-cluster-admin
+  name: kommander-cluster-admin
 roleRef:
-apiGroup: rbac.authorization.k8s.io
-kind: ClusterRole
-name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: cluster-admin
 subjects:
 - kind: ServiceAccount
-name: kommander-cluster-admin
-namespace: kube-system
+  name: kommander-cluster-admin
+  namespace: kube-system
 EOF
 ```
 
@@ -56,19 +56,19 @@ kind: Config
 current-context: ${CURRENT_CONTEXT}
 contexts:
 - name: ${CURRENT_CONTEXT}
-context:
-cluster: ${CURRENT_CONTEXT}
-user: kommander-cluster-admin
-namespace: kube-system
+  context:
+    cluster: ${CURRENT_CONTEXT}
+    user: kommander-cluster-admin
+    namespace: kube-system
 clusters:
 - name: ${CURRENT_CONTEXT}
-cluster:
-certificate-authority-data: ${CLUSTER_CA}
-server: ${CLUSTER_SERVER}
+  cluster:
+    certificate-authority-data: ${CLUSTER_CA}
+    server: ${CLUSTER_SERVER}
 users:
 - name: kommander-cluster-admin
-user:
-token: ${USER_TOKEN_VALUE}
+  user:
+    token: ${USER_TOKEN_VALUE}
 EOF
 ```
 
