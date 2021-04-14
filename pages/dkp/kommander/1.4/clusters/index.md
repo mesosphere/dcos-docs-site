@@ -95,13 +95,13 @@ Custom service cards can be added to the cluster detail page's Platform Services
 apiVersion: v1
 kind: ConfigMap
 metadata:
-name: "my-service"
-namespace: "kommander"
-labels:
-"d2iq.io/addon": "my-service"
+  name: "my-service"
+  namespace: "kommander"
+  labels:
+    "d2iq.io/addon": "my-service"
 data:
-name: "My Service"
-dashboardLink: "/path/to/service"
+  name: "My Service"
+  dashboardLink: "/path/to/service"
 ```
 
 | Key | Description | Required |
@@ -120,13 +120,13 @@ $ cat <<EOF | kubectl apply -f -
 apiVersion: v1
 kind: ConfigMap
 metadata:
-name: "my-service"
-namespace: "kommander"
-labels:
-"d2iq.io/addon": "my-service"
+  name: "my-service"
+  namespace: "kommander"
+  labels:
+    "d2iq.io/addon": "my-service"
 data:
-name: "My Service"
-dashboardLink: "/path/to/service"
+  name: "My Service"
+  dashboardLink: "/path/to/service"
 EOF
 ```
 
