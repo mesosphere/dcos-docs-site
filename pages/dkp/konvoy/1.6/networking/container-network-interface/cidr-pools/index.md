@@ -30,6 +30,7 @@ spec:
 ```
 
 <p class="message--warning"><strong>WARNING: </strong>Ensure that <code>podSubnet</code> and <code>serviceSubnet</code> pools do not overlap.</p>
+<p class="message--warning"><strong>WARNING: </strong>Changing <code>podSubnet</code> or <code>serviceSubnet</code> pools after the initial cluster creation is not supported and will render your cluster inoperable.</p>
 
 For more information see:
 
