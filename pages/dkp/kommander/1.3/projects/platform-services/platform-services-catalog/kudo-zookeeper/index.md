@@ -87,7 +87,7 @@ kubectl kudo plan status --instance zookeeper -n test-project-zc6tc
 ```
 - Wait for the deployment plan to have a status of `COMPLETE`
 
-When the deployment plan is `COMPLETE` there should be 5 nodes as seen by the number of pods running:
+When the deployment plan is `COMPLETE`, there should be 5 nodes as seen by the number of pods running:
 ```
 $ kubectl get pods -n test-project-zc6tc
 NAME                    READY   STATUS    RESTARTS   AGE
