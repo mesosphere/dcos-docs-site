@@ -81,7 +81,7 @@ Parameters can be updated using arguments to the KUDO CLI.
 ```
 kubectl kudo update --instance zookeeper -p NODE_COUNT=5 -n test-project-zc6tc
 ```
-- Monitor the KUDO Cassandra deployment plan:
+- Monitor the KUDO Zookeeper deployment plan:
 ```
 kubectl kudo plan status --instance zookeeper -n test-project-zc6tc
 ```
@@ -110,19 +110,75 @@ kubectl kudo update -n test-project-zc6tc --instance=zookeeper -P zookeeper-para
 ```
 Wait for the deployment plan to `COMPLETE` as shown in the node counts example.
 
-### Upgrades
+### Limitations
 
-KUDO Zookeeper versions can be upgraded using the KUDO CLI.
+The following paramters are viewed as immutable by the operator after an instance has been deployed, any modifications to them will trigger the `not-allowed` plan:
+- `DISK_SIZE`
+- `STORAGE_CLASS`
 
-**Example** Upgrade KUDO Zookeeper from `v3.4.14-2` to `v3.4.14-3`:
-```
-kubectl kudo upgrade zookeeper -n test-project-zc6tc --instance zookeeper --operator-version 1.0.2 
-```
-Wait and monitor the deployment plan to become `COMPLETE`.
+While modifying the KUDO Zookeeper paramters for `DISK_SIZE` are not permitted, users can resize the associated [pvc](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/).
+Switching between persistent & ephemeral storage classes is not supported for `STORAGE_TYPE`.
 
-
-### Monitoring
 ### External Access
-### Backup & Repair
-### Decommissioning Kafka Brokers
+
+KUDO Zookeeper creates two Kubernetes Services:
+- [Client Service (CS)](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/templates/services.yaml#L20-L34) - For connecting clients to Zookeeper.
+- [High Availability Services (HS)](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/templates/services.yaml#L1-L18) - For connecting additional Zookeeper servers to the quorum in [replicated mode](https://zookeeper.apache.org/doc/current/zookeeperStarted.html).
+
+Below, we demonstrate how to connect a client to KUDO Zookeeper, the reader will need to have `zkCli` installed from [Apache Zookeeper](https://zookeeper.apache.org/releases.html)
+
+List the available services in the project namespace created by Kommander:
+```
+$ kubectl -n test-project-zc6tc get services
+NAME           TYPE        CLUSTER-IP    EXTERNAL-IP   PORT(S)             AGE
+zookeeper-cs   ClusterIP   10.0.38.117   <none>        2181/TCP            8m52s
+zookeeper-hs   ClusterIP   None          <none>        2888/TCP,3888/TCP   8m52s
+```
+
+Port-forward the `zookeeper-cs` service:
+```
+$ kubectl port-forward service/zookeeper-cs 2181:2181 -n test-project-zc6tc
+Forwarding from 127.0.0.1:2181 -> 2181
+Forwarding from [::1]:2181 -> 2181
+```
+
+Connect to the KUDO Zookeeper via `zkCli`
+```
+$ bin/zkCli.sh -server 127.0.0.1:2181
+[...output omitted...]
+Welcome to ZooKeeper!
+2021-04-15 01:12:31,978 [myid:127.0.0.1:2181] - INFO  [main-SendThread(127.0.0.1:2181):ClientCnxn$SendThread@1171] - Opening socket connection to server localhost/127.0.0.1:2181.
+2021-04-15 01:12:31,979 [myid:127.0.0.1:2181] - INFO  [main-SendThread(127.0.0.1:2181):ClientCnxn$SendThread@1173] - SASL config status: Will not attempt to authenticate using SASL (unknown error)
+2021-04-15 01:12:31,996 [myid:127.0.0.1:2181] - INFO  [main-SendThread(127.0.0.1:2181):ClientCnxn$SendThread@1005] - Socket connection established, initiating session, client: /127.0.0.1:38166, server: localhost/127.0.0.1:2181
+JLine support is enabled
+2021-04-15 01:12:32,113 [myid:127.0.0.1:2181] - INFO  [main-SendThread(127.0.0.1:2181):ClientCnxn$SendThread@1438] - Session establishment complete on server localhost/127.0.0.1:2181, session id = 0x200021ea3ed0003, negotiated timeout = 30000
+
+WATCHER::
+
+WatchedEvent state:SyncConnected type:None path:null
+[zk: 127.0.0.1:2181(CONNECTED) 0]
+[zk: 127.0.0.1:2181(CONNECTED) 0] ls /
+[zookeeper]
+```
+
 ### Troubleshooting
+KUDO provides the ability to collect logs and other [diagnostics data](https://kudo.dev/docs/cli/examples.html#collecting-diagnostic-data) for debugging and for bug-reports.
+```
+kubectl kudo diagnostics collect --instance zookeeper -n test-project-zc6tc
+```
+
+The diagnostics data contains the following:
+
+KUDO Environment
+- Installed Manager and its logs.
+- Service account and services.
+
+Data for the specified Operator
+- The Operator, OperatorVersion and Instance resources.
+- Deployed resources from the operator.
+- Logs from deployed pods
+
+To monitor all the events occurring in the namespace, its helpful to look at event log:
+```
+kubectl get events -w -n test-project-zc6tc
+```
