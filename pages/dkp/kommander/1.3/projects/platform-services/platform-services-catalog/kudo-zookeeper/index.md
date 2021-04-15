@@ -76,7 +76,7 @@ The above command generates a file called `zookeeper-params.yml` with the curren
 ### Updating Parameters
 Parameters can be updated using arguments to the KUDO CLI.
 
-**Example**: Increasing Zookeper node counts
+**Example**: Increasing Zookeeper node counts
 - Increase the number of nodes using the KUDO CLI:
 ```
 kubectl kudo update --instance zookeeper -p NODE_COUNT=5 -n test-project-zc6tc
@@ -112,11 +112,11 @@ Wait for the deployment plan to `COMPLETE` as shown in the node counts example.
 
 ### Limitations
 
-The following paramters are viewed as immutable by the operator after an instance has been deployed, any modifications to them will trigger the `not-allowed` plan:
+The following parameters are viewed as immutable by the operator after an instance has been deployed, any modifications to them will trigger the `not-allowed` plan:
 - `DISK_SIZE`
 - `STORAGE_CLASS`
 
-While modifying the KUDO Zookeeper paramters for `DISK_SIZE` are not permitted, users can resize the associated [pvc](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/).
+While modifying the KUDO Zookeeper parameters for `DISK_SIZE` are not permitted, users can resize the associated [pvc](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/).
 Switching between persistent & ephemeral storage classes is not supported for `STORAGE_TYPE`.
 
 ### External Access
