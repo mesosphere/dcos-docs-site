@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Generate a kubeconfig File
 title: Generate a kubeconfig File
 menuWeight: 1

@@ -4,7 +4,7 @@ navigationTitle: Finish attaching the existing cluster to Kommander
 title: Finish attaching the existing cluster to Kommander
 menuWeight: 15
 excerpt: How to apply the kubeconfig file to create the network tunnel to attach an existing cluster 
-beta: true
+beta: false
 ---
 
 Though the required kubeconfig file is now generated, you still need to apply it to create the network tunnel and complete the attachment process.

@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Project Network Policies
 title: Project Network Policies
 menuWeight: 8

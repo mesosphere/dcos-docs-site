@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: true
+beta: false
 navigationTitle: Creating Konvoy Clusters on Azure
 title: Creating Konvoy Clusters on Azure
 menuWeight: 7
