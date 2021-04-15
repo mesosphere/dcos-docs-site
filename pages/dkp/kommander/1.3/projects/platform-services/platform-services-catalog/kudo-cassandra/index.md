@@ -117,6 +117,7 @@ KUDO Cassandra versions can be upgraded using the KUDO CLI.
 
 **Example** Upgrade KUDO Cassandra from `v3.11.6-1.0.1` to `v3.11.7-1.0.2`:
 When upgrading, you should understand the mapping between Cassandra versions and operator versions.   For more information, see the table at the end of the [Cassandra operator](https://github.com/mesosphere/kudo-cassandra-operator/tree/master/docs)
+
 Wait and monitor the deployment plan to become `COMPLETE`.
 
 ### Monitoring
@@ -140,6 +141,7 @@ Grafana dashboards can be [imported](https://grafana.com/docs/grafana/latest/das
 ### External Access
 
 The KUDO Cassandra operator supports creation of a service that opens up ports to access Cassandra from outside the cluster. To enable this, you have to set one or more of the following variables:
+
 ```
 kubectl kudo update cassandra -n test-project-zc6tc -p EXTERNAL_NATIVE_TRANSPORT=true
 ```
