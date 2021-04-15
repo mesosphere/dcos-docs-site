@@ -37,7 +37,7 @@ The status list includes these values:
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pending | This is the initial state when a cluster is created or connected. |
 | Pending Setup | The cluster has networking restrictions that require additional setup, and is not yet connected or attached.
-| Loading Data | The cluster has been added to Kommander and we are fetching details about the cluster. This is the status before `Active`. |
+| Loading Data | The cluster has been added to Kommander details are being fetched about the cluster. This is the status before `Active`. |
 | Active | The cluster is connected to API server. |
 | Provisioning\* | The cluster is being created on your cloud provider. This process may take some time. To follow the creation progress, select **View Logs** in the drop-down menu. |
 | Joining | The cluster is being joined to the management cluster for federation. |
@@ -67,7 +67,7 @@ Figure 3. A cluster card with resources highlighted
 | --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | CPU Requests | The requested portion of the total allocatable CPU resource for the cluster, measured in number of cores, such 0.5 cores. |
 | CPU Limits | The portion of the total allocatable CPU resource to which the cluster is limited, measured in number of cores, such as 0.5 cores. |
-| CPU Usage | The amount of the allocatable CPU resource being consumed. Cannot be higher than the configured CPU limit. Measured in number of cores, such as 0.5 cores) |
+| CPU Usage | The amount of the allocatable CPU resource being consumed. Cannot be higher than the configured CPU limit. Measured in number of cores, such as 0.5 cores. |
 | Memory Requests | The requested portion of the total allocatable memory resource for the cluster, measured in bytes, such as 64 GiB. |
 | Memory Limits | The portion of the allocatable memory resource to which the cluster is limited, measured in bytes, such as 64 GiB. |
 | Memory Usage | The amount of the allocatable memory resource being consumed. Cannot be higher than the configured memory limit. Measured in bytes, such as 64 GiB. |
@@ -106,12 +106,12 @@ data:
 
 | Key | Description | Required |
 | :--- | :--- | :---: |
-| metadata . labels . "d2iq.io/addon" | The platform service name (ID). | X |
-| data . name | The display name used to describe the service and that will display on the custom service card in the user interface. | X |
-| data . dashboardLink | The link to the service. This can be an absolute link, "https://www.d2iq.com," or a relative link, "/ops/portal." If a relative link is used, the link is built using the cluster's path as the base of the URL to the service. | X |
-| data . docsLink | Link to documentation about the service. This is displayed on the service card, but omitted if not present. | |
-| data . category | Category with which to group the custom service. If not provided, the service is grouped under the category, "None." | |
-| data . version | A version string for the service. If not provided, "N/A" is displayed on the service card in the user interface. | |
+| metadata.labels."d2iq.io/addon" | The platform service name (ID). | X |
+| data.name | The display name used to describe the service and that will display on the custom service card in the user interface. | X |
+| data.dashboardLink | The link to the service. This can be an absolute link, "https://www.d2iq.com," or a relative link, "/ops/portal." If a relative link is used, the link is built using the cluster's path as the base of the URL to the service. | X |
+| data.docsLink | Link to documentation about the service. This is displayed on the service card, but omitted if not present. | |
+| data.category | Category with which to group the custom service. If not provided, the service is grouped under the category, "None." | |
+| data.version | A version string for the service. If not provided, "N/A" is displayed on the service card in the user interface. | |
 
 Use a command similar to this one to create a new custom service `ConfigMap`:
 
