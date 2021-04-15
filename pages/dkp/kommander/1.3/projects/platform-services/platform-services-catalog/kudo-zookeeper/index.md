@@ -65,7 +65,7 @@ The current parameters set can be retrieved using the kubectl command with the t
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
 
-To retrieve the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
+To retrieve the current parameters, use the following command in the terminal with appropriate `INSTANCE` value set:
 ```
 INSTANCE=zookeeper;
 kubectl -n test-project-zc6tc get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > zookeeper-params.yml
