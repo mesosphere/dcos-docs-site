@@ -1,6 +1,6 @@
 ---
 layout: layout.pug
-beta: false
+beta: true
 navigationTitle: Project Platform Services Catalog
 title: Project Platform Services Catalog
 menuWeight: 1

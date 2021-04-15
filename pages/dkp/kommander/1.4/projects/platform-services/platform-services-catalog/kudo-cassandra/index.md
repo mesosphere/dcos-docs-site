@@ -5,7 +5,7 @@ render: mustache
 title: KUDO Cassandra
 menuWeight: 3
 excerpt: Day 2 Operations of KUDO Cassandra
-beta: false
+beta: true
 ---
 
 <!-- markdownlint-disable MD018 -->

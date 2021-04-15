@@ -5,7 +5,7 @@ render: mustache
 title: KUDO Zookeeper
 menuWeight: 3
 excerpt: Day 2 Operations of Apache Zookeeper
-beta: false
+beta: true
 ---
 
 <!-- markdownlint-disable MD018 -->
