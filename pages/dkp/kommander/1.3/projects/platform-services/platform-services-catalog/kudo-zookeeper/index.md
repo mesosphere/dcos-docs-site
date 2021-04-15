@@ -30,7 +30,7 @@ Here is an example of what should appear in the Kommander UI, the dialog is popu
 ![Zookeeper Service Install Configuration](/dkp/kommander/1.3/img/platform-services-zookeeper-config-dialog.png)
 
 - The **ID** field above is referred to as the Zookeeper `instance` by KUDO.
-- [Detailed parameter descriptions](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/params.yaml) and defaults are availabe for each version of KUDO Zookeeper Operator, in this case version `3.4.14-3`
+- [Detailed parameter descriptions](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/params.yaml) and defaults are available for each version of KUDO Zookeeper Operator, in this case version `3.4.14-3`
 
 Select `Deploy` to install Zookeeper.
 
@@ -61,11 +61,11 @@ If any issues are encountered during the above, refer to the [Troubleshooting](#
 The complete list of KUDO Zookeeper Parameters can be found under [detailed parameter descriptions](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/params.yaml).
 
 
-The current parameters set can be reterived using the kubectl command with the two additional tools:
+The current parameters set can be retrieved using the kubectl command with the two additional tools:
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
 
-To retrive the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
+To retrieve the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
 ```
 INSTANCE=zookeeper;
 kubectl -n test-project-zc6tc get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > zookeeper-params.yml
@@ -116,7 +116,7 @@ The following parameters are viewed as immutable by the operator after an instan
 - `DISK_SIZE`
 - `STORAGE_CLASS`
 
-While modifying the KUDO Zookeeper parameters for `DISK_SIZE` are not permitted, users can resize the associated [pvc](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/).
+While modifying the KUDO Zookeeper parameters for `DISK_SIZE` are not permitted, users can resize the associated [PVC](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/).
 Switching between persistent & ephemeral storage classes is not supported for `STORAGE_TYPE`.
 
 ### External Access
