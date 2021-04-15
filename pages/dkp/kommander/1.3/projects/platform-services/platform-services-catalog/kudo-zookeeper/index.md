@@ -23,7 +23,7 @@ KUDO Zookeeper is located in the Kommander Catalog.
 #include /dkp/kommander/1.3/include/kommander-catalog-drilldown.tmpl
 
 ### Installation
-From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/) select the desired version of Zookeeper and click Deploy.
+From the [Project Catalog](/dkp/kommander/1.3/projects/platform-services/), select the desired version of Zookeeper and click Deploy.
 
 Here is an example of what should appear in the Kommander UI, the dialog is populated with sensible defaults:
 
