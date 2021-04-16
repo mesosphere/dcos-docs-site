@@ -215,7 +215,7 @@ The `cluster.yaml` file provides the configuration details for creating your Kon
 ## Configure the RPM and DEB package repository
 
 By default Konvoy adds new RPM and DEB repositories to the control-plane and worker hosts that are required to install a container runtime and a Kubernetes cluster.
-In an air-gapped environment these repos will not be available, but instead the packages will be copied from the konvoy directory
+In an air-gapped environment these repos will not be available, but instead the packages will be copied from the konvoy directory.
 
 ```yaml
 kind: ClusterConfiguration
@@ -272,6 +272,26 @@ The DEB packages installed by Konvoy:
 - nvme-cli (only on AWS)
 - xfsprogs (only on AWS)
 - nvidia-container-runtime (for GPU enabled machines)
+
+The RPM and Deb packages artifacts provided in Konvoy's air-gapped bundle may not be sufficient for your version of the OS.
+In that case, you may either configure a local OS package repository on the Kubernetes nodes where the missing Linux dependencies can be downloaded from,
+or replace the provided `rpms.tar.gz` or `debs.tar.gz` with a set of updated tar artifacts.
+
+For example on `Ubuntu 18.04`, you must replace the following Deb packages and their dependencies:
+
+-   nfs-common
+    - keyutils_1.5.9-9.2ubuntu2_amd64.deb
+    - libevent-2.1-6_2.1.8-stable-4build1_amd64.deb
+    - libnfsidmap2_0.25-5.1_amd64.deb
+    - libtirpc1_0.2.5-1.2ubuntu0.1_amd64.deb
+    - nfs-common_1%3a1.3.4-2.1ubuntu5.3_amd64.deb
+    - rpcbind_0.2.3-0.6ubuntu0.18.04.1_amd64.deb
+-   libseccomp2
+    - libseccomp2_2.5.1-1ubuntu1~18.04.1_amd64.deb
+-   chrony
+    - chrony_3.2-4ubuntu4.5_amd64.deb
+    - libnspr4_2%3a4.18-1ubuntu1_amd64.deb
+    - libnss3_2%3a3.35-2ubuntu2.12_amd64.deb
 
 ## Configure the image registry
 

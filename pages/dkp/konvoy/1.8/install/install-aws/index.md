@@ -147,7 +147,7 @@ Below is the minimal IAM policy required when you are not using existing infrast
 }
 ```
 
-If you want to use an existing VPC, the following permissions are not necessary and can be removed from the set above.
+If you wish to use an existing VPC, the following permissions are not necessary and can be removed from the set above.
 
 ```json
 [
