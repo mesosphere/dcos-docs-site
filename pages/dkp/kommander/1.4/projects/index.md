@@ -69,3 +69,58 @@ The following procedures are supported for projects:
 - [Manage Project Quotas](/dkp/kommander/1.4/projects/project-quotas-limit-range)
 - [Manage Project Roles](/dkp/kommander/1.4/projects/project-roles)
 - [Manage Project Secrets](/dkp/kommander/1.4/projects/project-secrets)
+
+## Federation to select clusters
+
+Sometimes it is desirable to narrow down the list of clusters receiving a resources such as a service or a quota to a subset of clusters in a particular Project. Use the `spec.placement` field of federated resources in this case. The following two examples show how this is accomplished using either a list of clusters or a list of labels that a particular cluster has to match.
+
+### Providing a list of clusters
+
+The following example demonstrates how the "jenkins" service in the Project namespace "p1-hjmx8" is pinned to a single cluster called "ci": 
+
+```yaml
+apiVersion: types.kubefed.io/v1beta2
+kind: FederatedAddon
+metadata:
+  annotations:
+    kommander.mesosphere.io/display-name: jenkins
+  name: jenkins
+  namespace: p1-hjmx8
+spec:
+  placement:
+    clusters:
+    - name: ci
+  template:
+[...]
+```
+
+### Providing a list of matching labels
+
+The following example demonstrates how the "jenkins" service in the Project namespace "p1-hjmx8" is pinned to all clusters that have the "ci: true" label:
+
+```yaml
+apiVersion: types.kubefed.io/v1beta2
+kind: FederatedAddon
+metadata:
+  annotations:
+    kommander.mesosphere.io/display-name: jenkins
+  name: jenkins
+  namespace: p1-hjmx8
+spec:
+  placement:
+    clusterSelector:
+      matchLabels:
+        ci: "true"
+  template:
+[...]
+```
+
+The labels provided in the `matchLabels` field are matched against the `KubefedCluster` resource on the Kommander cluster. Run
+
+```sh
+kubectl get kubefedclusters -A
+```
+
+to find a list of all attached clusters and set the labels on each targeted cluster accordingly.
+
+More info on the placement of federated resources is found in the [kubefed user documentation](https://github.com/kubernetes-sigs/kubefed/blob/master/docs/userguide.md#using-cluster-selector).
