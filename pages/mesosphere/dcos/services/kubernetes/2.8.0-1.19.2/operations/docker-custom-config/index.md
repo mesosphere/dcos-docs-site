@@ -24,6 +24,8 @@ The following are the mandatory options to ensure the Docker daemon runs in the 
     "ip-masq": false,
     "storage-driver": "overlay2",
     "storage-opts": [ "overlay2.override_kernel_check=true" ]
+},
+    "registry-mirrors": ["https://local-registry.example.com"]
 }
 ```
 
