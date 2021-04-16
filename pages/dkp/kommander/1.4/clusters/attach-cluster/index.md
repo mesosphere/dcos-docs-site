@@ -27,13 +27,15 @@ Using the **Add Cluster** option, you can attach an existing Kubernetes or Konvo
 
 You have these security options when attaching a cluster:
 
-- Attach a cluster with no additional networking restrictions
-- Attach a cluster that has networking restrictions
+- Attach a cluster with [no additional networking restrictions][no-network-restrictions]
+- Attach a cluster that [has networking restrictions][with-network-restrictions]
 
+[attach_eks_cluster]: /dkp/kommander/1.4/clusters/attach-cluster/attach-eks-cluster/
 [clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/
+[create-workspaces]: /dkp/kommander/1.4/workspaces/create-workspaces/
+[generate_kubeconfig_file]: /dkp/kommander/1.4/clusters/attach-cluster/generate-kubeconfig/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
-[workspace_platform_services]: /dkp/kommander/latest/workspaces/workspace-platform-services/
-[platform_service_req]: /dkp/kommander/latest/workspaces/platform-service-requirements/
-[attach_eks_cluster]: /dkp/kommander/latest/clusters/attach-cluster/attach-eks-cluster/
-[create_workspaces]: /dkp/kommander/latest/workspaces/create-workspaces/
-[generate_kubeconfig_file]: /dkp/kommander/latest/clusters/attach-cluster/generate-kubconfig/
+[no-network-restrictions]: cluster-no-network-restrictions/
+[platform_service_req]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
+[with-network-restrictions]: cluster-with-networking-restrictions/
+[workspace_platform_services]: /dkp/kommander/1.4/workspaces/workspace-platform-services/

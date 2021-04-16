@@ -9,15 +9,17 @@ beta: true
 
 Use this option when you want to attach a cluster that is in a DMZ, behind a proxy server or a firewall, or that requires additional access information. This procedure gathers the information required to create a kubeconfig file for the network tunnel between Kommander and the cluster you want to attach.
 
-1. Select the **Attach Cluster** option in the **Actions** dropdown menu at the top right to display the **Connection Information** dialog box.
+1. From the desired workspace Dashboard, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
 
-1. Select the **Attach Cluster with Networking Restrictions** card to display the configuration page.
+1. In the Add Cluster page, select **Attach Cluster**.
 
-1. Enter the **Cluster Name** and select a **Workspace** from the dropdown list.
+1. Select the **Cluster has networking restrictions** card to display the configuration page.
+
+1. Enter the **Cluster Name** and select a **Workspace** from the dropdown list (if entering the Add Cluster menu from the Global workspace).
 
 1. Create one or more new Labels as needed.
 
-1. Enter the **Load Balancer Hostname** which is the ingress for the cluster, and its related **URL Path Prefix**.
+1. Enter the **Load Balancer Hostname** which is the Ingress for the cluster, and its related **URL Path Prefix**.
 
 1. (Optional) Enter a value for the **Hostname** field.
 
@@ -25,6 +27,9 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Select the **Save & Generate kubeconfig** button to generate the kubeconfig file for the network tunnel.
 
+When you've completed the above, [finish attaching the cluster to Kommander][finish-attaching-cluster].
+
 As an alternative procedure, you can follow these instructions to [Use CLI to Add Managed Clusters to Kommander][tunnel-cli].
 
-[tunnel-cli]: pages/dkp/kommander/1.4/clusters/tunnel-cli
+[finish-attaching-cluster]: /dkp/kommander/1.4/clusters/attach-cluster/finish-attaching-cluster/
+[tunnel-cli]: /dkp/kommander/1.4/clusters/tunnel-cli/
