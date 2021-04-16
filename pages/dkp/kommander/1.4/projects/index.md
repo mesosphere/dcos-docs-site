@@ -63,22 +63,11 @@ spec:
       matchLabels:
         cluster: prod
 ```
-
-The following procedures are supported for projects:
-
-- [Manage Project ConfigMaps](/dkp/kommander/1.4/projects/project-configmaps)
-- [Manage Project Continuous Deployments](/dkp/kommander/1.4/projects/project-deployments)
-- [Deploy Platform Services](/dkp/kommander/1.4/projects/platform-services)
-- [Manage Project Policies](/dkp/kommander/1.4/projects/project-policies)
-- [Manage Project Quotas](/dkp/kommander/1.4/projects/project-quotas-limit-range)
-- [Manage Project Roles](/dkp/kommander/1.4/projects/project-roles)
-- [Manage Project Secrets](/dkp/kommander/1.4/projects/project-secrets)
-
-## Federation to select clusters
+# Federation to select clusters
 
 You may want to narrow down the list of clusters receiving resources, such as a service or a quota to a subset of clusters in a particular Project. Use the federated resources `spec.placement` field in this case. The following two examples show how set up either a list of clusters or a list of labels that a particular cluster must match.
 
-### Provide a list of clusters
+## Provide a list of clusters
 
 The following example demonstrates how the Jenkins service in the Project namespace *p1-hjmx8* is pinned to a single cluster called *ci*: 
 
@@ -98,7 +87,7 @@ spec:
 [...]
 ```
 
-### Provide a list of matching labels
+## Provide a list of matching labels
 
 The following example demonstrates how the Jenkins service in the Project namespace *p1-hjmx8* is pinned to all clusters that have the *ci: true* label:
 
