@@ -476,8 +476,8 @@ spec:
 ...
 ```
 
-<p class="message--note"><strong>NOTE: </strong>It is not necessary to use the same security group list, each section could have a different list.</p>
-
+*NOTE* it is not necessary to use the same security group list, each section
+could have a different list.
 
 The list of security groups will override the konvoy created security groups.
 When all `nodePools`, the `elb` and VPC API endpoints (if enabled) contain

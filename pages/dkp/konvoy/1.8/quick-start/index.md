@@ -17,36 +17,9 @@ Kubernetes.
 
 This Quick Start guide provides simplified instructions to get your Konvoy cluster up and running with minimal configuration requirements on an Amazon Web Services (AWS) public cloud instance.
 
-# Prerequisites
+# Before you begin
 
-All Konvoy runtime dependencies are bundled in a Docker container and packaged with a wrapper that executes the container and manages these dependencies.
-
-Before starting the Konvoy installation, you should verify the following:
-
--   You have a Linux or MacOS computer with a supported version of the operating system.
--   You have the [aws][install_aws] command-line utility if you are installing on an AWS cloud instance.
--   You have [Docker][install_docker] version 18.09.2 or later.
--   You have [kubectl][install_kubectl] v1.20.5 or later for interacting with the running cluster.
--   You have a valid AWS account with [credentials configured][aws_credentials].
-    You must be authorized to create the following resources in the AWS account:
-    - EC2 Instances
-    - VPC
-    - Subnets
-    - Elastic Load Balancer (ELB)
-    - Internet Gateway
-    - NAT Gateway
-    - Elastic Block Storage (EBS) Volumes
-    - Security Groups
-    - Route Tables
-    - IAM Roles
-
-Make sure the following domains are accessible from the control plane nodes and worker nodes.
-
-#include /dkp/konvoy/1.7/include/required-domains.tmpl
-
-For the deploy host, make sure domain `registry.hub.docker.com`, `mesosphere.github.io`, and `github.com` are accessible.
-
-In addition, FIPS mode enablement is a decision to make when installing and running Konvoy for the first time, or when you intend to create a new cluster. You can enable FIPS mode only at cluster inception. There is no way to apply FIPS mode to an existing cluster, you must provision a new one.
+Before installing Konvoy, ensure you have the [following](../prerequisites) items.
 
 # Installing Konvoy
 
