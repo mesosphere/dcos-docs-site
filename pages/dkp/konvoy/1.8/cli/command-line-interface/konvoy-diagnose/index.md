@@ -31,7 +31,7 @@ konvoy diagnose [flags]
       --include-secrets           include the values of secrets, WARNING the secrets will be plaintext in the bundle
       --logs-all-namespaces       include logs from pods in all namespaces
       --logs-namespaces strings   include logs from pods in the given namespaces (default [cert-manager,dispatch,istio-system,knative-serving,kommander,kommander-system,konvoy,kube-node-lease,kube-public,kube-system,kubeaddons,kubeaddons-flagger,kubecost,kubeflow,kudo-system,tekton-pipelines,velero])
-  -o, --output string             file name to use for storing the diagnostics bundle in (default "/root/src/github.com/mesosphere/konvoy/20210416T035644.tar.gz")
+  -o, --output string             file name to use for storing the diagnostics bundle in (default "/root/src/github.com/mesosphere/konvoy/20210416T040422.tar.gz")
   -s, --since d                   Log files will be queried up to <since> in the past. Supports d and `h` for days and hours respectively (default "2d")
   -y, --yes                       run command without prompting
 ```
