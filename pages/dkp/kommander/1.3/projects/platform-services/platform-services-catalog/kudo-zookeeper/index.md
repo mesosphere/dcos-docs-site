@@ -60,7 +60,6 @@ If any issues are encountered during the above, refer to the [Troubleshooting](#
 
 The complete list of KUDO Zookeeper Parameters can be found under [detailed parameter descriptions](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/params.yaml).
 
-
 The current parameters set can be retrieved using the kubectl command with the two additional tools:
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
@@ -112,11 +111,11 @@ Wait for the deployment plan to `COMPLETE` as shown in the node counts example.
 
 ### Limitations
 
-The following parameters are viewed as immutable by the operator after an instance has been deployed, any modifications to them will trigger the `not-allowed` plan:
+The following parameters are treated as immutable by the operator after an instance has been deployed; any modifications to them will trigger the `not-allowed` plan:
 - `DISK_SIZE`
 - `STORAGE_CLASS`
 
-While modifying the KUDO Zookeeper parameters for `DISK_SIZE` are not permitted, users can resize the associated [PVC](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/).
+While modifying the KUDO Zookeeper parameter for `DISK_SIZE` is not permitted, users can resize the associated [PVC](https://kubernetes.io/blog/2018/07/12/resizing-persistent-volumes-using-kubernetes/).
 Switching between persistent & ephemeral storage classes is not supported for `STORAGE_TYPE`.
 
 ### External Access
