@@ -37,7 +37,7 @@ The status list includes these values:
 | -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | Pending | This is the initial state when a cluster is created or connected. |
 | Pending Setup | The cluster has networking restrictions that require additional setup, and is not yet connected or attached.
-| Loading Data | The cluster has been added to Kommander details are being fetched about the cluster. This is the status before `Active`. |
+| Loading Data | The cluster has been added to Kommander and details are being fetched about the cluster. This is the status before `Active`. |
 | Active | The cluster is connected to API server. |
 | Provisioning\* | The cluster is being created on your cloud provider. This process may take some time. To follow the creation progress, select **View Logs** in the drop-down menu. |
 | Joining | The cluster is being joined to the management cluster for federation. |
