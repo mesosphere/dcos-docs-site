@@ -65,7 +65,7 @@ spec:
 ```
 # Federation on selected clusters
 
-You may want to limit the list of clusters receiving resources, such as a service or a quota to a subset of clusters in a particular Project. Use the federated resources `spec.placement` field in this case. The following two examples show how set up either a list of clusters or a list of labels that a particular cluster must match.
+You may want to limit the list of clusters receiving resources, such as a service or a quota to a subset of clusters in a particular Project. Use the federated resources' `spec.placement` field in this case. The following two examples show how set up either a list of clusters or a list of labels that a particular cluster must match.
 
 ## Provide a list of clusters
 
