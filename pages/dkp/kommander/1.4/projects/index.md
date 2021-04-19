@@ -11,14 +11,14 @@ excerpt: Multi-cluster Configuration Management
 
 Federation, in this context, means that a central location (Kommander) hosts and pushes common configurations to all Kubernetes clusters, or a pre-defined subset group under Kommander management. That pre-defined subset group of Kubernetes clusters is called a **Project**.
 
-**Projects** provides central IT and business units the following benefits:
+**Projects** provide central IT and business units the following benefits:
 
 - Deploying consistent configurations and services to clusters. 
 - Sharing Kubernetes clusters among several teams. 
 - Coordinating access to Kubernetes Cluster Federation (KubeFed) from Kommander for multiple clusters.
 
 Kommander allows you to manually or dynamically (using labels) select the Kubernetes clusters associated with a project.
-**Projects** supports configmaps management, continuous deployments, secrets, services, quotas, and role-based access control by leveraging federated resources.
+**Projects** support configmaps management, continuous deployments, secrets, services, quotas, and role-based access control by leveraging federated resources.
 
 ## Projects namespace
 
@@ -63,9 +63,9 @@ spec:
       matchLabels:
         cluster: prod
 ```
-# Federation to select clusters
+# Federation on selected clusters
 
-You may want to narrow down the list of clusters receiving resources, such as a service or a quota to a subset of clusters in a particular Project. Use the federated resources `spec.placement` field in this case. The following two examples show how set up either a list of clusters or a list of labels that a particular cluster must match.
+You may want to limit the list of clusters receiving resources, such as a service or a quota to a subset of clusters in a particular Project. Use the federated resources `spec.placement` field in this case. The following two examples show how set up either a list of clusters or a list of labels that a particular cluster must match.
 
 ## Provide a list of clusters
 
