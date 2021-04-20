@@ -32,7 +32,7 @@ The `ZOOKEEPER_URI` parameter configures which Zookeeper cluster to use.
 
 The `ZOOKEEPER_PATH` parameter configures the zNode path within the Zookeeper Cluster to use.
 - When unspecified the zNode defaults to the id of the current Kafka instance being launched.
-- When specified a mandatory leading forward-slash is needed i.e `/kafka`
+- When specified a mandatory leading slash is needed i.e `/kafka`
 
 ### Installation
 
@@ -77,7 +77,7 @@ The current parameter set can be retrieved using the kubectl command in conjunct
 - [jq](https://stedolan.github.io/jq)
 - [yq](https://mikefarah.gitbook.io/yq)
 
-To retrive the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
+To retrieve the current parameters, issue the following command in the terminal with appropriate `INSTANCE` value set:
 ```
 INSTANCE=kafka;
 kubectl get instances -o json | jq ".items[] | select(.metadata.name == \"$INSTANCE\") | .spec.parameters" | yq -e --yaml-output '.' > kafka-params.yml
@@ -170,11 +170,11 @@ MirrorMaker integration is disabled by default, details on how to enable it are 
 
 ### Kafka Connect
 
-KUDO Kafka comes integraged with [Kafka Connect](https://kafka.apache.org/documentation/#connect)
+KUDO Kafka comes integrated with [Kafka Connect](https://kafka.apache.org/documentation/#connect)
 
 Kafka Connect is a tool for scalably and reliably streaming data between Apache Kafka and other systems. It provides a REST API to configure and interact connectors.
 
-Kafka Connect integration is disabled by default, details on how ot enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/kafka-connect.md)
+Kafka Connect integration is disabled by default, details on how to enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/kafka-connect.md)
 ### Cruise Control
 
 KUDO Kafka comes integrated with [Cruise Control](https://github.com/linkedin/cruise-control)
