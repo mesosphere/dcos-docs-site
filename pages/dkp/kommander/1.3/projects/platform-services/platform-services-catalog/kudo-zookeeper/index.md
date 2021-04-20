@@ -78,6 +78,7 @@ Parameters can be updated using arguments to the KUDO CLI.
 
 **Example**: Increasing Zookeeper node counts
 - Increase the number of nodes using the KUDO CLI:
+**NOTE**: As mentioned in the [ZooKeeper Getting Started Guide](), a minimum of three servers are required for a fault tolerant clustered setup, and it is strongly recommended that you have an odd number of servers.
 ```
 kubectl kudo update --instance zookeeper -p NODE_COUNT=5 -n test-project-zc6tc
 ```
@@ -122,8 +123,15 @@ Switching between persistent & ephemeral storage classes is not supported for `S
 ### External Access
 
 KUDO Zookeeper creates two Kubernetes Services:
-- [Client Service (CS)](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/templates/services.yaml#L20-L34) - For connecting clients to Zookeeper.
-- [High Availability Services (HS)](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/templates/services.yaml#L1-L18) - For connecting additional Zookeeper servers to the quorum in [replicated mode](https://zookeeper.apache.org/doc/current/zookeeperStarted.html).
+- [Client Service (CS)](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/templates/services.yaml#L20-L34)
+    - This service is intended for clients to connect to the Zookeeper service.
+    - The port used is set by the `CLIENT_PORT` parameter which defaults to `2181`
+    - This service endpoint has the format `<id>-cs.<namespace>:<client_port>/<zNode>` such as `zookeeper-cs.test-project-zc6tc:2181/myZNode`
+- [High Availability Services (HS)](https://github.com/kudobuilder/operators/blob/master/repository/zookeeper/operator/templates/services.yaml#L1-L18)
+    - This service is intended for Zookeeper servers to communicate with their quorum in [replicated mode](https://zookeeper.apache.org/doc/current/zookeeperStarted.html)
+    - The port used to listen to request from other servers in the quorum is set by the `SERVER_PORT` parameter which defaults to `2888`.
+    - The port used by Zookeeper to perform a leader election is set by the `ELECTION_PORT` parameter which defaults to `3888`.
+    - This service endpoint has the format `<id>-hs.<namespace>:<port>` such as `zookeeper-cs.test-project-zc6tc:2888` or `zookeeper-cs.test-project-zc6tc:3888`
 
 Below, we demonstrate how to connect a client to KUDO Zookeeper, the reader will need to have `zkCli` installed from [Apache Zookeeper](https://zookeeper.apache.org/releases.html)
 
