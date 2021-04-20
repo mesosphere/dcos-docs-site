@@ -32,6 +32,7 @@ The `ZOOKEEPER_URI` parameter configures which Zookeeper cluster to use.
 
 The `ZOOKEEPER_PATH` parameter configures the zNode path within the Zookeeper Cluster to use.
 - When unspecified the zNode defaults to the id of the current Kafka instance being launched.
+- When specified a mandatory leading forward-slash is needed i.e `/kafka`
 
 ### Installation
 
