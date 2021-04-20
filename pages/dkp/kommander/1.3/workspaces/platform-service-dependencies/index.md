@@ -7,7 +7,7 @@ menuWeight: 8
 excerpt: Dependencies between workspace platform services
 ---
 
-There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, please see [Workspace Platform Services](/dkp/kommander/1.3/workspaces/workspace-platform-services/).
+There are many dependencies between the platform services that are federated to a workspace's attached clusters. It is important to note these dependencies when customizing the workspace platform services to ensure that they are deployed properly to the clusters. For more information on how to customize workspace platform services, see [Workspace Platform Services](/dkp/kommander/1.3/workspaces/workspace-platform-services/).
 
 ## Platform Service Dependencies
 
@@ -33,7 +33,7 @@ If a platform service’s dependency does not successfully deploy, the platform 
 | traefik | cert-manager, reloader |
 | traefik-forward-auth | traefik |
 
-Please see the following sections for more information about the workspace platform services.
+See the following sections for more information about the workspace platform services.
 
 ### Foundational Components
 
