@@ -27,7 +27,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Select the **Save & Generate kubeconfig** button to generate the kubeconfig file for the network tunnel.
 
-When you've completed the above, [finish attaching the cluster to Kommander][finish-attaching-cluster].
+After the above is complete, [finish attaching the cluster to Kommander][finish-attaching-cluster].
 
 As an alternative procedure, you can follow these instructions to [Use CLI to Add Managed Clusters to Kommander][tunnel-cli].
 
