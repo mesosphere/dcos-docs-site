@@ -47,10 +47,10 @@ Attaching an existing, Azure-provisioned cluster requires that the cluster be fu
 
 Consider the additional resource requirements for running the platform services you want Kommander to manage, and ensure that your existing clusters comply.
 
+[attach_eks_cluster]: /dkp/kommander/1.4/clusters/attach-cluster/attach-eks-cluster/
 [attach_without_network_restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-no-network-restrictions
 [attach_with_network_restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-with-networking-restrictions
 [manual_cli_attachment]: /dkp/kommander/1.4/clusters/tunnel-cli
-[attach_eks_cluster]: /dkp/kommander/1.4/clusters/attach-cluster/attach-eks-cluster/
+[platform_service_requirements]: /dkp/kommander/1.4/workspaces/platform-service-requirements/
 [projects]: /dkp/kommander/1.4/projects
 [workspaces]: /dkp/kommander/1.4/workspaces
-[platform_service_requirements]: /dkp/kommander/1.4/platform-service-requirements
