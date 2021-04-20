@@ -21,7 +21,7 @@ Further cost analysis and details can be found in the Kubecost UI running on Kom
 https://<CLUSTER_URL>/ops/portal/kommander/kubecost/frontend/detail.html#&agg=cluster
 ```
 
-For more information on cost allocation metrics and how to navigate this view in the Kubecost UI, please see the [Kubecost docs on Kubernetes Cost Allocation][kubecost_cost_allocation].
+For more information on cost allocation metrics and how to navigate this view in the Kubecost UI, see the [Kubecost docs on Kubernetes Cost Allocation][kubecost_cost_allocation].
 
 To identify the clusters in Kubecost, use the cluster's monitoring ID.
 The monitoring ID corresponds to the kube-system namespace UID of the cluster.

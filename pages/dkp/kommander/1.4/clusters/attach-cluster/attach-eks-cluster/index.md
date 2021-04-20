@@ -146,7 +146,7 @@ Attaching an Amazon EKS cluster to Kommander requires that you:
 
 1. Select the **Submit** button.
 
-<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, please check if there are any pods that are not getting the resources required.</p>
+<p class="message--note"><strong>NOTE: </strong>If a cluster has limited resources to deploy all the federated platform services, it will fail to stay attached in the Kommander UI. If this happens, check if there are any pods that are not getting the resources required.</p>
 
 ## Related information
 
