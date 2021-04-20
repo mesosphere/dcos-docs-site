@@ -13,7 +13,7 @@ Use this option when you want to attach a cluster that does not require addition
 
 1. In the Add Cluster page, select **Attach Cluster**.
 
-1. Click the **No additional networking restrictions** card.
+1. Select the **No additional networking restrictions** card.
 
 1. In the **Connection Information** dialog box, paste your kubeconfig file into the field, or select the upload link below the field to specify a file.
 
