@@ -15,7 +15,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Select the **Cluster has networking restrictions** card to display the configuration page.
 
-1. Enter the **Cluster Name** and select a **Workspace** from the dropdown list (if entering the Add Cluster menu from the Global workspace).
+1. Enter the **Cluster Name** and select a **Workspace** from the dropdown list (if entering the **Add Cluster** menu from the Global workspace).
 
 1. Create one or more new Labels as needed.
 
