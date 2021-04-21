@@ -9,7 +9,7 @@ beta: true
 
 Use this option when you want to attach a cluster that is in a DMZ, behind a proxy server or a firewall, or that requires additional access information. This procedure gathers the information required to create a kubeconfig file for the network tunnel between Kommander and the cluster you want to attach.
 
-1. From the selected workspace Dashboard, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
+1. In the selected workspace Dashboard, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
 
 1. In the Add Cluster page, select **Attach Cluster**.
 
