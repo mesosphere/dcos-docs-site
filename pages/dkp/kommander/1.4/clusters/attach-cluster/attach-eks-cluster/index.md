@@ -144,7 +144,7 @@ Attaching an Amazon EKS cluster to Kommander requires that you:
 
 1. From the Clusters page, select the **Add Cluster** button in your Kommander window.
 
-1. Select the **Attach Cluster** button. If you don't have any [additional networking restrictions][no-network-restrictions], click the **No additional networking restrictions** card. If you do have a cluster with networking restrictions, follow the instructions to [attach a cluster with networking restrictions][with-network-restrictions].
+1. Select the **Attach Cluster** button. If you do not have any [additional networking restrictions][no-network-restrictions], select the **No additional networking restrictions** card. If you do have a cluster with networking restrictions, follow the instructions to [attach a cluster with networking restrictions][with-network-restrictions].
 
 1. Paste the contents of your clipboard into the **Connection Information** Kubeconfig File text box.
 
