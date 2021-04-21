@@ -19,7 +19,7 @@ It is **strongly recommended** to view the [KUDO Kafka Documentation](https://ku
 
 ### Kommander Catalog
 
-KUDO Kafka is located in the Kommander Catalog.   To access the catalog: 
+KUDO Kafka is located in the Kommander Catalog. To access the catalog: 
 #include /dkp/kommander/1.3/include/kommander-catalog-drilldown.tmpl
 
 ### Zookeeper
@@ -55,7 +55,7 @@ Select `Deploy` to install Kafka.
 
 The Operator Plan Status provides an overview of the service.
 
-At this point it is useful to have an understanding of [KUDO Operator Plans](https://kudo.dev/docs/what-is-kudo.html#operator-plans) and the [KUDO CLI](https://kudo.dev/docs/cli/installation.html) should be installed.
+At this point, it is useful to have an understanding of [KUDO Operator Plans](https://kudo.dev/docs/what-is-kudo.html#operator-plans) and the [KUDO CLI](https://kudo.dev/docs/cli/installation.html) should be installed.
 
 - Get the instances running in the project namespace.
 
@@ -132,10 +132,10 @@ Wait for the deployment plan to `COMPLETE` as shown in the Kafka broker counts e
 KUDO Kafka versions can be upgraded using the KUDO CLI.
 
 **Example** Upgrade KUDO Kafka from `v2.5.0-1.3.1` to `v2.5.1-1.3.3`:
-When upgrading, you should understand the mapping between Kafka versions and operator versions. For more information, see the table at the end of the [Kafka operator](https://github.com/mesosphere/kudo-kafka-operator/tree/master/docs)
+When upgrading, you should understand the mapping between Kafka versions and operator versions. For more information, see the table at the end of the [Kafka operator](https://github.com/mesosphere/kudo-kafka-operator/tree/master/docs) repository.
 
 ```
-kubectl kudo upgrade kafka --instance kafka5 --operator-version 1.3.3
+kubectl kudo upgrade kafka --instance kafka --operator-version 1.3.3
 ```
 
 Wait and monitor the deployment plan to become `COMPLETE`.
@@ -166,26 +166,26 @@ KUDO Kafka comes integrated with [MirrorMaker](https://cwiki.apache.org/confluen
 
 MirrorMaker is a tool to mirror a source Kafka cluster into a target (mirror) Kafka cluster. This tool uses a Kafka consumer and a Kafka producer. The consumer consumes messages from the source cluster. The producer re-publishes those messages to the target cluster.
 
-MirrorMaker integration is disabled by default, details on how to enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/mirrormaker.md)
+MirrorMaker integration is disabled by default, details on how to enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/mirrormaker.md).
 
 ### Kafka Connect
 
-KUDO Kafka comes integrated with [Kafka Connect](https://kafka.apache.org/documentation/#connect)
+KUDO Kafka comes integrated with [Kafka Connect](https://kafka.apache.org/documentation/#connect).
 
 Kafka Connect is a tool for scalably and reliably streaming data between Apache Kafka and other systems. It provides a REST API to configure and interact connectors.
 
-Kafka Connect integration is disabled by default, details on how to enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/kafka-connect.md)
+Kafka Connect integration is disabled by default, details on how to enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/kafka-connect.md).
 ### Cruise Control
 
-KUDO Kafka comes integrated with [Cruise Control](https://github.com/linkedin/cruise-control)
+KUDO Kafka comes integrated with [Cruise Control](https://github.com/linkedin/cruise-control).
 
 Cruise Control is a tool to fully automate the dynamic workload rebalance and self-healing of a Kafka cluster. It provides great value to Kafka users by simplifying the operation of Kafka clusters.
 
-Cruise Control integration is disabled by default, details on how to enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/cruise-control.md)
+Cruise Control integration is disabled by default, details on how to enable it are found in the [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/cruise-control.md).
 
 ### External Access
 
-For Producers and Consumers living outside the Kubernetes cluster, KUDO supports Loadbalancer and NodePort approaches, the Loadbalancer approach is the recommended one.
+For Producers and Consumers living outside the Kubernetes cluster, KUDO supports LoadBalancer and NodePort approaches, the LoadBalancer approach is the recommended one.
 The [Kafka Operator docs](https://github.com/kudobuilder/operators/blob/master/repository/kafka/docs/latest/external-access.md#external-access) detail to connect to external Producers and Consumers.
 
 ### Troubleshooting
@@ -204,7 +204,7 @@ KUDO Environment
 Data for the specified Operator
 - The Operator, OperatorVersion and Instance resources.
 - Deployed resources from the operator.
-- Logs from deployed pods
+- Logs from the deployed pods.
 
 To monitor all the events occurring in the namespace, its helpful to look at event log:
 ```
