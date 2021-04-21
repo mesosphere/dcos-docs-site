@@ -11,7 +11,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. In the selected workspace Dashboard, select the **Add Cluster** option in the **Actions** dropdown menu at the top right.
 
-1. In the Add Cluster page, select **Attach Cluster**.
+1. On the Add Cluster page, select **Attach Cluster**.
 
 1. Select the **Cluster has networking restrictions** card to display the configuration page.
 
