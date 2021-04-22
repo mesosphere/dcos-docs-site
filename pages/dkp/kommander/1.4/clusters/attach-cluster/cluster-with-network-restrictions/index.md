@@ -27,7 +27,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. (Optional) Enter a value for the **Hostname** field.
 
-1. If you haven't attached this cluster before, you will want to create a new secret in the **Root CA Certificate** drop down menu. To do this, go to your Konvoy management cluster, and enter:
+1. If you have not attached this cluster before, you must create a new secret in the **Root CA Certificate** drop down menu. To do this, go to your Konvoy management cluster, and enter:
 
    ```shell
    hostname=$(kubectl get service -n kubeaddons traefik-kubeaddons -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
