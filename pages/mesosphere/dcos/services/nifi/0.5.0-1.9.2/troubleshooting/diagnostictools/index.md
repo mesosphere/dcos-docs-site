@@ -9,8 +9,8 @@ enterprise: false
 ---
 
 # Service Status Info
-Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if  DC/OS {{model.techName }} is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
-You can use this request to troubleshoot: if you think  DC/OS {{model.techName }} should be receiving resource offers, but is not, you can use this API call to see if  DC/OS {{model.techName }} is suppressed.
+Send a GET request to the `/v1/state/properties/suppressed` endpoint to learn if  DC/OS {{ model.techName }} is in a `suppressed` state and not receiving offers. If a service does not need offers, Mesos can "suppress" it so that other services are not starved for resources.
+You can use this request to troubleshoot: if you think  DC/OS {{ model.techName }} should be receiving resource offers, but is not, you can use this API call to see if  DC/OS {{ model.techName }} is suppressed.
 
 ```shell
 curl -H "Authorization: token=$auth_token" "<dcos_url>/service/{{ model.serviceName }}/v1/state/properties/suppressed"

@@ -52,7 +52,7 @@ model: /mesosphere/dcos/services/spark/data.yml
 - Standardized metrics rename existing metrics by moving variable parts of metric names to tags
 ## Version Spark and Spark history 2.8.0-2.4.0
 ### New features
-- Mesos checkpointing support for Spark Drivers submitted to Dispatcher. For more information check [fault tolerance](/mesosphere/dcos/services/{{model.packageName}}/2.8.0-2.4.0/fault-tolerance/#mesos-checkpointing) documentation.
+- Mesos checkpointing support for Spark Drivers submitted to Dispatcher. For more information check [fault tolerance](/mesosphere/dcos/services/{{ model.packageName }}/2.8.0-2.4.0/fault-tolerance/#mesos-checkpointing) documentation.
 ### Updates
 - Upgraded Hadoop dependency to 2.9.2
 ### Bug fixes

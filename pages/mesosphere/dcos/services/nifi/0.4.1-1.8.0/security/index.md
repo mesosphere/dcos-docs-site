@@ -10,15 +10,15 @@ model: ../../data.yml
 render: mustache
 ---
 
-# DC/OS {{model.techName }} Security
+# DC/OS {{ model.techName }} Security
 
-The DC/OS {{model.techName }} service supports DC/OS {{model.techName }}’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
+The DC/OS {{ model.techName }} service supports DC/OS {{ model.techName }}’s native transport encryption, authentication, and authorization mechanisms. The service provides automation and orchestration to simplify the usage of these important features.
 
 A good overview of these features can be found  [here](https://{{ model.serviceName }}.apache.org/docs/{{ model.serviceName }}-docs/html/administration-guide.html).
 
 ## Transport Encryption and Kerberos Authentication
-With transport encryption enabled, DC/OS {{model.techName }} will automatically deploy all nodes with the correct configuration to encrypt communication via SSL. The nodes will communicate securely between themselves using SSL. SSL authentication requires that all DC/OS {{model.techName }} Nodes present a valid certificate from which their identity can be derived for communicating between themselves.
-DC/OS {{model.techName }} uses the CN of the SSL certificate as the principal for a given Node.
+With transport encryption enabled, DC/OS {{ model.techName }} will automatically deploy all nodes with the correct configuration to encrypt communication via SSL. The nodes will communicate securely between themselves using SSL. SSL authentication requires that all DC/OS {{ model.techName }} Nodes present a valid certificate from which their identity can be derived for communicating between themselves.
+DC/OS {{ model.techName }} uses the CN of the SSL certificate as the principal for a given Node.
 For example, CN={{ model.serviceName }}-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C=US.
 
 The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) to generate the SSL artifacts that it uses to secure the service. Any client that trusts the DC/OS CA will consider the service’s certificates valid.
@@ -31,7 +31,7 @@ The service uses the [DC/OS CA](/mesosphere/dcos/latest/security/ent/tls-ssl/) t
 
 ## Configure Transport Encryption
 
-<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for DC/OS {{model.techName }} can be found below.</p>
+<p class="message--note"><strong>NOTE: </strong>A complete guide to Configuring DC/OS Access for DC/OS {{ model.techName }} can be found below.</p>
 
 
 ## Set up the service account
@@ -61,19 +61,19 @@ dcos security org users grant ${SERVICE_ACCOUNT} dcos:mesos:master:volume:princi
 
 ## Authentication
 
-DC/OS {{model.techName }} supports two authentication mechanisms, SSL and Kerberos. The two are supported independently and may not be combined. If both SSL and Kerberos authentication are enabled, the service will use Kerberos authentication.
+DC/OS {{ model.techName }} supports two authentication mechanisms, SSL and Kerberos. The two are supported independently and may not be combined. If both SSL and Kerberos authentication are enabled, the service will use Kerberos authentication.
 
 <p class="message--note"><strong>NOTE: </strong>Kerberos authentication can, however, be combined with transport encryption.</p>
 
 ## CA based authentication between nodes
 
-DC/OS {{model.techName }} requires certificate based authentication between nodes.
-DC/OS {{model.techName }} uses the CN of the SSL certificate as the principal for a given Node.
+DC/OS {{ model.techName }} requires certificate based authentication between nodes.
+DC/OS {{ model.techName }} uses the CN of the SSL certificate as the principal for a given Node.
 For example, CN={{ model.serviceName }}-0-node.demonifi, O="Mesosphere, Inc", L=San Francisco, ST=CA, C=US.
 
 ## Kerberos Authentication for End Users
 
-Kerberos authentication relies on a central authority to verify that DC/OS {{model.techName }} clients are who they say they are. DC/OS {{model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
+Kerberos authentication relies on a central authority to verify that DC/OS {{ model.techName }} clients are who they say they are. DC/OS {{ model.techName }} integrates with your existing Kerberos infrastructure to verify the identity of clients.
 
 ### Prerequisites
 - The hostname and port of a Key Distribution Center (KDC) reachable from your DC/OS cluster
@@ -85,7 +85,7 @@ Kerberos authentication relies on a central authority to verify that DC/OS {{mod
 ## Configure Kerberos Authentication
 ### 1. Create principals
 
-The DC/OS {{model.techName }} service requires a Kerberos principal for the service principal and user principal. Each principal must be of the form
+The DC/OS {{ model.techName }} service requires a Kerberos principal for the service principal and user principal. Each principal must be of the form
 
    ```shell
    {{ model.serviceName }}principal@<service realm>
@@ -93,7 +93,7 @@ The DC/OS {{model.techName }} service requires a Kerberos principal for the serv
    ```
 ### 2. Place Service Keytab in DC/OS Secret Store
 
-The DC/OS {{model.techName }} service uses a keytab containing the above service and user principals (service keytab). After creating the principals above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by `name __dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. 
+The DC/OS {{ model.techName }} service uses a keytab containing the above service and user principals (service keytab). After creating the principals above, generate the service keytab, making sure to include all the node principals. This will be stored as a secret in the DC/OS Secret Store by `name __dcos_base64__secret_name`. The DC/OS security modules will handle decoding the file when it is used by the service. 
 
 Create secret named "{{ model.serviceName }}admin_kerberos_secret" for password of Kerberos User Principal: `{{ model.serviceName }}admin`
 
@@ -134,7 +134,7 @@ Install the DC/OS {{ model.techName }} service with the following options in add
    ```
 
 
-# Configuring DC/OS Access for DC/OS {{model.techName }}
+# Configuring DC/OS Access for DC/OS {{ model.techName }}
 
 #include /mesosphere/dcos/services/include/service-account.tmpl
 

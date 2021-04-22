@@ -383,7 +383,7 @@ Open a `Python 3` Notebook and put the following sections in different code cell
 # TensorBoard
 
 {{ model.techName }} comes with `TensorBoard` installed. It can be found at
-`http://<dcos-url>/service/{{model.serviceName}}/tensorboard/`.
+`http://<dcos-url>/service/{{ model.serviceName }}/tensorboard/`.
 
 ## Log directory
 
@@ -413,7 +413,7 @@ Here is an example:
     }
     ```
 
-1. Open TensorBoard at `https://<dcos-url>/service/{{model.serviceName}}/tensorboard/` and confirm the change.
+1. Open TensorBoard at `https://<dcos-url>/service/{{ model.serviceName }}/tensorboard/` and confirm the change.
 
 ## Disabling TensorBoard
 

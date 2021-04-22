@@ -118,7 +118,7 @@ Here is an example notebook of `Tensorflow on Spark` using `HDFS` as a storage b
 # TensorBoard
 
 {{ model.techName }} comes with `TensorBoard` installed. It can be found at
-`http://<dcos-url>/service/{{model.serviceName}}/tensorboard/`.
+`http://<dcos-url>/service/{{ model.serviceName }}/tensorboard/`.
 
 ## Log directory
 
@@ -149,7 +149,7 @@ Here is an example:
     }
     ```
 
-1. Open TensorBoard at `https://<dcos-url>/service/{{model.serviceName}}/tensorboard/` and confirm the change.
+1. Open TensorBoard at `https://<dcos-url>/service/{{ model.serviceName }}/tensorboard/` and confirm the change.
 
 ## Disabling TensorBoard
 
