@@ -6,7 +6,6 @@ menuWeight: 100
 excerpt: Known issues in DC/OS Percona Server for MongoDB
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache
-featureMaturity:
 enterprise: false
 ---
 

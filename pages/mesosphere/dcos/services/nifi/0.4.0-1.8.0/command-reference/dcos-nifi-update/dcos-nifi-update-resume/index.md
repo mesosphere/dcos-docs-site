@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi update resume
 title: dcos nifi update resume
 menuWeight: 6
 excerpt: Resume update plan
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

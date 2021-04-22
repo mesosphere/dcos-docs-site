@@ -4,7 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 1
 excerpt: Discover new features, updates, and known limitations
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/couchbase/data.yml
 render: mustache

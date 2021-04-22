@@ -4,7 +4,6 @@ navigationTitle: Minio
 title: Minio   
 menuWeight: 81
 excerpt:
-featureMaturity:
 community: true
 render: mustache
 model: /mesosphere/dcos/services/minio/data.yml

@@ -4,7 +4,6 @@ navigationTitle:  Uninstalling
 title: Uninstalling
 menuWeight: 40
 excerpt: Uninstalling DC/OS NiFi Services
-featureMaturity:
 enterprise: false
 model: ../../data.yml
 render: mustache

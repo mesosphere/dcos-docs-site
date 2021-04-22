@@ -4,7 +4,6 @@ beta: false
 navigationTitle: Kommander 1.3
 title: Kommander 1.3
 version: 1.3
-featureMaturity:
 category: K-Sphere
 menuWeight: 0
 ---

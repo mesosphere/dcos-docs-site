@@ -4,7 +4,6 @@ navigationTitle:  Installing and Customizing
 title: Installing and Customizing
 menuWeight: 20
 excerpt: Installing DC/OS Apache NiFi from the UI or the CLI
-featureMaturity:
 enterprise: false
 ---
 

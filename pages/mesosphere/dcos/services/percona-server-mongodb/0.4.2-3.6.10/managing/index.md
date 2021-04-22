@@ -4,7 +4,6 @@ navigationTitle:  Operations
 title: Managing Percona Server for MongoDB
 menuWeight: 17
 excerpt: Managing Percona Server for MongoDB
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/percona-server-mongodb/data.yml
 render: mustache

@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi update force-restart
 title: dcos nifi update force-restart
 menuWeight: 3
 excerpt: Restart update plan, or specific step in the provided phase
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

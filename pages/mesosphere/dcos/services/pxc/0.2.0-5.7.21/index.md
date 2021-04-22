@@ -4,7 +4,6 @@ navigationTitle: Percona XtraDB Cluster 0.2.0-5.7.21
 title: Percona XtraDB Cluster 0.2.0-5.7.21
 menuWeight: 50
 excerpt: Overview of DC/OS Percona XtraDB Cluster 0.2.0-5.7.21
-featureMaturity:
 community: true
 model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache

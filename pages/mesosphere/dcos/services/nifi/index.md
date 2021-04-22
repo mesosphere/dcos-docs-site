@@ -4,7 +4,6 @@ navigationTitle:
 title: NiFi
 menuWeight: 82
 excerpt:
-featureMaturity:
 community: true
 category: Data Processing
 ---

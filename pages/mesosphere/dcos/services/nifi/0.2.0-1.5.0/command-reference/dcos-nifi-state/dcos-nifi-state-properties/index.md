@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi state properties
 title: dcos nifi state properties
 menuWeight: 2
 excerpt: List names of all custom properties
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

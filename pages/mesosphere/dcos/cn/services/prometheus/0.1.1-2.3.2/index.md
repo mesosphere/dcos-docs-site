@@ -4,7 +4,6 @@ navigationTitle: Prometheus 0.1.1-2.3.2
 title: Prometheus 0.1.1-2.3.2
 menuWeight: 50
 excerpt: DC/OS Prometheus 服务是一项自动化服务，可轻松部署和管理 Mesosphere DC/OS 上的 Prometheus。
-featureMaturity:
 enterprise: false
 ---
 

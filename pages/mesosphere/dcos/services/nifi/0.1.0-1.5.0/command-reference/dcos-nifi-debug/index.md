@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi debug
 title: dcos nifi debug
 menuWeight: 65
 excerpt: Displays debugging related informations and allows debugging for the NiFi service
-featureMaturity:
 enterprise: false
 model: ../../../data.yml
 render: mustache

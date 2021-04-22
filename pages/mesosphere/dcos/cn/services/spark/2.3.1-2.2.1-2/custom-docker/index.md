@@ -4,7 +4,6 @@ navigationTitle:
 excerpt: 自定义 Spark 图片 
 title: 自定义 Docker 镜像
 menuWeight: 95
-featureMaturity:
 model: /mesosphere/dcos/cn/services/spark/data.yml
 render: mustache
 ---

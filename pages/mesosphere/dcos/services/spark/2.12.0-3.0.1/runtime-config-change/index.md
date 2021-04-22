@@ -4,7 +4,6 @@ navigationTitle: Runtime Configuration Changes
 excerpt: Customizing DC/OS Apache Spark while it is up and running
 title: Runtime Configuration Changes
 menuWeight: 70
-featureMaturity:
 render: mustache
 model: /mesosphere/dcos/services/spark/data.yml
 ---

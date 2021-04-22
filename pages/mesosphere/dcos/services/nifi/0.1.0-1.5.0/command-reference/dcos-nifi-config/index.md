@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi config
 title: dcos nifi config
 menuWeight: 61
 excerpt: Displays configuration related informations of the NiFi service.
-featureMaturity:
 enterprise: false
 model: ../../../data.yml
 render: mustache

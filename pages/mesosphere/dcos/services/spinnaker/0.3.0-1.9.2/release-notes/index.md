@@ -4,7 +4,6 @@ navigationTitle:  Release Notes
 title: Release Notes
 menuWeight: 130
 excerpt: Discover the new features, updates, and known limitations in this release of the DC/OS Spinnaker Service
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/spinnaker/data.yml
 render: mustache

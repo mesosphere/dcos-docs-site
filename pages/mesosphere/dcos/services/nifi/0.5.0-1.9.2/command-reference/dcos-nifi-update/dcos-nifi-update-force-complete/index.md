@@ -4,7 +4,6 @@ navigationTitle:  dcos nifi update force-complete
 title: dcos nifi update force-complete
 menuWeight: 2
 excerpt: Force complete a specific step in the provided phase
-featureMaturity:
 enterprise: false
 model: ../../../../data.yml
 render: mustache

@@ -4,7 +4,6 @@ navigationTitle:  Troubleshooting
 title: Troubleshooting
 menuWeight: 100
 excerpt: Troubleshooting DC/OS Apache NiFi issues
-featureMaturity:
 enterprise: false
 ---
 

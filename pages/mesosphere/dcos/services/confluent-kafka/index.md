@@ -4,7 +4,6 @@ navigationTitle:  Confluent Kafka
 title: Confluent Kafka
 menuWeight: 5
 excerpt:
-featureMaturity:
 enterprise: true
 category: Messaging Queues
 ---

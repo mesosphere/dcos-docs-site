@@ -4,7 +4,6 @@ navigationTitle:  Scripting and templating your jobs
 title: Scripting and templating your jobs
 menuWeight: 30
 excerpt:
-featureMaturity:
 enterprise: false
 ---
 <h1>About scripting and templating your jobs</h1>

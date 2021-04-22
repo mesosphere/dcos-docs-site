@@ -4,7 +4,6 @@ navigationTitle: Overview
 title: Overview
 menuWeight: 10
 excerpt: Getting started with DC/OS Apache NiFi Service fundamentals
-featureMaturity:
 enterprise: false
 ---
 

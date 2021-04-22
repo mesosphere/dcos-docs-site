@@ -4,7 +4,6 @@ navigationTitle: Release Notes
 title: Release Notes
 menuWeight: 10
 excerpt: Discover the new features, updates, and known limitations in this release of the Percona XtraDB Cluster Service
-featureMaturity:
 enterprise: false
 model: /mesosphere/dcos/services/pxc/data.yml
 render: mustache

@@ -4,7 +4,6 @@ navigationTitle: NiFi 0.4.0-1.8.0
 title: NiFi 0.4.0-1.8.0
 menuWeight: 4
 excerpt: Overview of DC/OS Apache NiFi 0.4.0-1.8.0
-featureMaturity:
 community: false
 model: ../data.yml
 render: mustache
