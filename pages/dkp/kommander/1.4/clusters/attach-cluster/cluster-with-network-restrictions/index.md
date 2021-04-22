@@ -23,7 +23,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Select the **Load Balancer Hostname** which is the Ingress for the cluster from the dropdown menu. You will want the hostname to match the Kommander Host cluster that you are attaching your existing cluster with network restrictions to. 
 
-1. Specify the **URL Path Prefix** for your Load Balancer Hostname. This URL path that will serve as the prefix for the specific tunnel services you want to expose on the Kommander management cluster. If no value is specified, value will default to `/`.
+1. Specify the **URL Path Prefix** for your Load Balancer Hostname. This URL path will serve as the prefix for the specific tunnel services you want to expose on the Kommander management cluster. If no value is specified, the value defaults to `/`.
 
 1. (Optional) Enter a value for the **Hostname** field.
 
