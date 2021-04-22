@@ -19,7 +19,7 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Enter the **Cluster Name** of the cluster you're attaching and select a **Workspace** from the dropdown list (if entering the **Add Cluster** menu from the Global workspace).
 
-1. Create one or more new Labels as needed.
+1. Create additional new Labels as needed.
 
 1. Select the **Load Balancer Hostname** which is the Ingress for the cluster from the dropdown menu. You will want the hostname to match the Kommander Host cluster that you are attaching your existing cluster with network restrictions to. 
 
