@@ -3,7 +3,6 @@ layout: layout.pug
 navigationTitle: Continuous Integration
 title: Continuous Integration
 beta: false
-category: K-Sphere
 menuWeight: 10
 ---
 

@@ -3,7 +3,6 @@ layout: layout.pug
 title: Configure ArgoCD to trust TLS certificates issued by a custom CA
 navigationTitle: Configure ArgoCD to trust TLS certificates issued by a custom CA
 beta: false
-category: K-Sphere
 menuWeight: 105
 excerpt: This tutorial configures ArgoCD to trust TLS certificates issued by a custom TLS certificates authority (CA).
 ---

@@ -4,7 +4,6 @@ beta: true
 navigationTitle: Uninstall
 title: Uninstall
 excerpt: Remove Kommander and related infrastructure
-category: K-Sphere
 menuWeight: 13
 ---
 
