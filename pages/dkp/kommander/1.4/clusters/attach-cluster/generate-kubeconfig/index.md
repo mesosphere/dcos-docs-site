@@ -90,4 +90,4 @@ Then, you can use this kubeconfig to:
 [clusteradmin]: https://kubernetes.io/docs/concepts/cluster-administration/cluster-administration-overview/
 [kubectl]: https://kubernetes.io/docs/tasks/tools/install-kubectl/
 [no-network-restrictions]: ../cluster-no-network-restrictions/
-[with-network-restrictions]: ../cluster-with-networking-restrictions/
+[with-network-restrictions]: ../cluster-with-network-restrictions/

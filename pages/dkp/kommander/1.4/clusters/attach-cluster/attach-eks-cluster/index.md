@@ -175,4 +175,4 @@ For information on related topics or procedures, refer to the following:
 [konvoy-install]: /dkp/konvoy/1.8/install/
 [manage-clusters]: /dkp/kommander/1.4/clusters/
 [no-network-restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-no-network-restrictions/
-[with-network-restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-with-networking-restrictions/
+[with-network-restrictions]: /dkp/kommander/1.4/clusters/attach-cluster/cluster-with-network-restrictions/
