@@ -2,7 +2,7 @@
 layout: layout.pug
 navigationTitle: Requirements for Attaching an Existing Cluster to Kommander
 title: Requirements for Attaching an Existing Cluster to Kommander
-menuWeight: 3
+menuWeight: 1
 excerpt: Requirements for attaching an existing cluster to Kommander
 beta: true
 ---
@@ -15,13 +15,13 @@ You can attach existing clusters with or without networking restrictions to Komm
 
 <p class="message--note"><strong>NOTE: </strong>Kommander does not support attachment of K3s clusters.</p>
 
-For [attaching existing clusters _without_ networking restrictions][attach_without_network_restrictions], the requirements depend on which Kommander 1.X version you are using. Each version of Kommander supports a specific range of Kubernetes versions. You must ensure that the target cluster is running a compatible version.
+For [attaching existing clusters _without_ networking restrictions][attach_without_network_restrictions], the requirements depend on which Kommander version you are using. Each version of Kommander supports a specific range of Kubernetes versions. You must ensure that the target cluster is running a compatible version.
 
-For example, Kommander 1.3 supports Kubernetes versions between 1.17.0 and 1.19.x. Any cluster you want to attach using Kommander 1.3 must be running a Kubernetes version in that range
+For example, Kommander 1.3 supports Kubernetes versions between 1.17.0 and 1.19.x. Any cluster you want to attach using Kommander 1.3 must be running a Kubernetes version in that range.
 
 For [attaching clusters _with_ networking restrictions][attach_with_network_restrictions], the Kubernetes version of the cluster you want to attach must be greater than or equal to version 1.19.x. For these types of clusters, the Kommander cluster uses a tunnel to access the clusters you plan to attach. Any managed service you want to expose in the Kommander cluster requires the creation of a reverse proxy, or the use of HTTPS_PROXY environment variables that point to the Kommander tunnel proxy server.
 
-When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the Kommander UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the larger procedure.
+When working with clusters that have networking restrictions, you will need to apply some YAML manifests on the existing cluster, so that Kommander can collect a resulting `kubeconfig` file used to establish the tunnel. When you use the Kommander UI, this is handled for you. If you choose to use the manual [CLI attachment process][manual_cli_attachment], you will apply those manifests as part of the procedure.
 
 ### Projects and Workspaces
 
