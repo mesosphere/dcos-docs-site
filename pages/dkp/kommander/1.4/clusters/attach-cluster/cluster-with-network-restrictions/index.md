@@ -15,15 +15,36 @@ Use this option when you want to attach a cluster that is in a DMZ, behind a pro
 
 1. Select the **Cluster has networking restrictions** card to display the configuration page.
 
-1. Enter the **Cluster Name** and select a **Workspace** from the dropdown list (if entering the **Add Cluster** menu from the Global workspace).
+![Add Cluster Networking Options](/dkp/kommander/1.4/img/cluster-has-networking-restrictions.png)
+
+1. Enter the **Cluster Name** of the cluster you're attaching and select a **Workspace** from the dropdown list (if entering the **Add Cluster** menu from the Global workspace).
 
 1. Create one or more new Labels as needed.
 
-1. Enter the **Load Balancer Hostname** which is the Ingress for the cluster, and its related **URL Path Prefix**.
+1. Select the **Load Balancer Hostname** which is the Ingress for the cluster from the dropdown menu. You will want the hostname to match the Kommander Host cluster that you are attaching your existing cluster with network restrictions to. 
+
+1. Specify the **URL Path Prefix** for your Load Balancer Hostname. This URL path that will serve as the prefix for the specific tunnel services you want to expose on the Kommander management cluster. If no value is specified, value will default to `/`.
 
 1. (Optional) Enter a value for the **Hostname** field.
 
-1. Select the **Root CA Certificate** from the list of available Secrets, and add any **Extra Annotations** as needed.
+1. If you haven't attached this cluster before, you will want to create a new secret in the **Root CA Certificate** drop down menu. To do this, go to your Konvoy management cluster, and enter:
+
+   ```shell
+   hostname=$(kubectl get service -n kubeaddons traefik-kubeaddons -o jsonpath="{.status.loadBalancer.ingress[0].hostname}")
+   b64ca_cert=$(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
+   ```
+
+   To view your base64 encoded Kubernetes secret value so you can copy it to your clipboard to paste into this field **Root CA Certificate** field, run:
+
+   ```shell
+   echo $(kubectl get secret -n cert-manager kubernetes-root-ca -o=go-template='{{index .data "tls.crt"}}')
+   ```
+
+   Otherwise, select from the list of available Secrets.
+
+   ![Network Cluster Configuration](/dkp/kommander/1.4/img/attach-network-restrict-cluster-tunnel-config.png)
+
+1. Add any **Extra Annotations** as needed.
 
 1. Select the **Save & Generate kubeconfig** button to generate the kubeconfig file for the network tunnel.
 
@@ -31,5 +52,8 @@ After the above is complete, [finish attaching the cluster to Kommander][finish-
 
 As an alternative procedure, you can follow these instructions to [Use CLI to Add Managed Clusters to Kommander][tunnel-cli].
 
+For information on TunnelGateway, review the [API documentation][tunnel-gateway-api-docs].
+
 [finish-attaching-cluster]: /dkp/kommander/1.4/clusters/attach-cluster/finish-attaching-cluster/
 [tunnel-cli]: /dkp/kommander/1.4/clusters/tunnel-cli/
+[tunnel-gateway-api-docs]: /dkp/kommander/1.4/clusters/tunnel-cli/api-reference
